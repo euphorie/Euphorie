@@ -33,6 +33,7 @@ class ReportLanding(grok.View):
     This replaces the standard online view of the report with a page
     offering the RTF and XLSX download options.
     """
+
     grok.context(ITraversedSurveySession)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
@@ -46,10 +47,11 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
 
     View name: @@timeline
     """
+
     grok.context(ITraversedSurveySession)
-    grok.require('euphorie.client.ViewSurvey')
+    grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
-    grok.name('timeline')
+    grok.name("timeline")
 
     @property
     def session(self):
@@ -71,9 +73,7 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
         risk_data = self.getRisks(module_paths)
         measure_data = []
         for (module, risk) in risk_data:
-            action_plan_q = self.sql_session.query(
-                model.ActionPlan
-            ).filter(
+            action_plan_q = self.sql_session.query(model.ActionPlan).filter(
                 model.ActionPlan.risk_id == risk.id
             )
             # If the risk contains no action plan, add it as a single line
@@ -88,46 +88,61 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
         by_path_measure_data = sorted(measure_data, key=lambda x: x[1].path)
         return sorted(
             by_path_measure_data,
-            key=lambda x: getattr(x[2], 'planning_start', date.min),
+            key=lambda x: getattr(x[2], "planning_start", date.min),
         )
 
     priority_names = {
-        'low': _(u'label_timeline_priority_low', default=u'Low'),
-        'medium': _(u'label_timeline_priority_medium', default=u'Medium'),
-        'high': _(u'label_timeline_priority_high', default=u'High'),
+        "low": _(u"label_timeline_priority_low", default=u"Low"),
+        "medium": _(u"label_timeline_priority_medium", default=u"Medium"),
+        "high": _(u"label_timeline_priority_high", default=u"High"),
     }
 
     columns = [
-        ('measure', 'planning_start',
-            _('label_action_plan_start', default=u'Planning start')),
-        ('measure', 'planning_end',
-            _('label_action_plan_end', default=u'Planning end')),
-        ('measure', 'action_plan',
-            _('label_measure_action_plan',
-                default=u'General approach '
-                        u'(to eliminate or reduce the risk)')),
-        ('measure', 'prevention_plan',
-            _('label_measure_prevention_plan',
-                default=u'Specific action(s) required to implement '
-                        u'this approach')),
-        ('measure', 'requirements',
-            _('label_measure_requirements',
-                default=u'Level of expertise and/or requirements needed')),
-        ('measure', 'responsible',
-            _('label_action_plan_responsible',
-                default=u'Who is responsible?')),
-        ('measure', 'budget',
-            _('label_action_plan_budget', default=u'Budget')),
-        ('module', 'title',
-            _('label_section', default=u'Section')),
-        ('risk', 'number',
-            _('label_risk_number', default=u'Risk number')),
-        ('risk', 'title',
-            _('report_timeline_risk_title', default=u'Risk')),
-        ('risk', 'priority',
-            _('report_timeline_priority', default=u'Priority')),
-        ('risk', 'comment',
-            _('report_timeline_comment', default=u'Comments')),
+        (
+            "measure",
+            "planning_start",
+            _("label_action_plan_start", default=u"Planning start"),
+        ),
+        (
+            "measure",
+            "planning_end",
+            _("label_action_plan_end", default=u"Planning end"),
+        ),
+        (
+            "measure",
+            "action_plan",
+            _(
+                "label_measure_action_plan",
+                default=u"General approach " u"(to eliminate or reduce the risk)",
+            ),
+        ),
+        (
+            "measure",
+            "prevention_plan",
+            _(
+                "label_measure_prevention_plan",
+                default=u"Specific action(s) required to implement " u"this approach",
+            ),
+        ),
+        (
+            "measure",
+            "requirements",
+            _(
+                "label_measure_requirements",
+                default=u"Level of expertise and/or requirements needed",
+            ),
+        ),
+        (
+            "measure",
+            "responsible",
+            _("label_action_plan_responsible", default=u"Who is responsible?"),
+        ),
+        ("measure", "budget", _("label_action_plan_budget", default=u"Budget")),
+        ("module", "title", _("label_section", default=u"Section")),
+        ("risk", "number", _("label_risk_number", default=u"Risk number")),
+        ("risk", "title", _("report_timeline_risk_title", default=u"Risk")),
+        ("risk", "priority", _("report_timeline_priority", default=u"Priority")),
+        ("risk", "comment", _("report_timeline_comment", default=u"Comments")),
     ]
 
     def priority_name(self, priority):
@@ -142,7 +157,7 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
         t = lambda txt: translate(txt, context=self.request)
         book = Workbook()
         sheet = book.worksheets[0]
-        sheet.title = t(_('report_timeline_title', default=u'Timeline'))
+        sheet.title = t(_("report_timeline_title", default=u"Timeline"))
         survey = self.context.aq_parent
 
         for (column, (ntype, key, title)) in enumerate(self.columns):
@@ -157,27 +172,31 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
             if risk.is_custom_risk:
                 zodb_node = None
             else:
-                zodb_node = survey.restrictedTraverse(risk.zodb_path.split('/'))
+                zodb_node = survey.restrictedTraverse(risk.zodb_path.split("/"))
             for (ntype, key, title) in self.columns:
                 value = None
-                if ntype == 'measure':
+                if ntype == "measure":
                     value = getattr(measure, key, None)
-                elif ntype == 'risk':
+                elif ntype == "risk":
                     value = getattr(risk, key, None)
-                    if key == 'priority':
+                    if key == "priority":
                         value = self.priority_name(value)
-                    elif key == 'title':
-                        if getattr(zodb_node, 'problem_description', None) and \
-                                zodb_node.problem_description.strip():
+                    elif key == "title":
+                        if (
+                            getattr(zodb_node, "problem_description", None)
+                            and zodb_node.problem_description.strip()
+                        ):
                             value = zodb_node.problem_description
-                    elif key == 'number':
+                    elif key == "number":
                         if risk.is_custom_risk:
-                            num_elems = value.split('.')
+                            num_elems = value.split(".")
                             value = u".".join([u"Ω"] + num_elems[1:])
-                elif ntype == 'module':
-                    if key == 'title':
+                elif ntype == "module":
+                    if key == "title":
                         if risk.is_custom_risk:
-                            value = utils.get_translated_custom_risks_title(self.request)
+                            value = utils.get_translated_custom_risks_title(
+                                self.request
+                            )
                         else:
                             value = module.title
                 if value is not None:
@@ -188,14 +207,18 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
 
     def render(self):
         book = self.create_workbook()
-        filename = _('filename_report_timeline',
-                     default=u'Timeline for ${title}',
-                     mapping={'title': self.session.title})
+        filename = _(
+            "filename_report_timeline",
+            default=u"Timeline for ${title}",
+            mapping={"title": self.session.title},
+        )
         filename = translate(filename, context=self.request)
         self.request.response.setHeader(
-            'Content-Disposition',
-            'attachment; filename="%s.xlsx"' % filename.encode('utf-8'))
+            "Content-Disposition",
+            'attachment; filename="%s.xlsx"' % filename.encode("utf-8"),
+        )
         self.request.response.setHeader(
-            'Content-Type', 'application/vnd.openxmlformats-'
-            'officedocument.spreadsheetml.sheet')
+            "Content-Type",
+            "application/vnd.openxmlformats-" "officedocument.spreadsheetml.sheet",
+        )
         return save_virtual_workbook(book)
