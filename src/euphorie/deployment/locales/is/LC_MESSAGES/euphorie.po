@@ -4786,10 +4786,9 @@ msgstr "Litlar"
 #: euphorie/deployment/upgrade/v8.py:146
 msgid "question_other_risks"
 msgstr ""
-"<p>Viltu taka fleiri hættur með í áhættumatið?</p><p><strong>Athugið</"
-"strong>: Til að koma í veg fyrir endurtekningar er mikilvægt að fara í "
-"gegnum allt áhættumatið áður en hættum er bætt við.</p><p>Ef þú þarft ekki "
-"að bæta við áhættu skaltu halda áfram.</p>"
+"<p><strong>Athugið</strong>: Til að koma í veg fyrir endurtekningar er "
+"mikilvægt að fara í gegnum allt áhættumatið áður en hættum er bætt við."
+"</p><p>Ef þú þarft ekki að bæta við áhættu skaltu halda áfram.</p>"
 
 #. Default: "an employers' organisation"
 #: euphorie/client/company.py:65 euphorie/client/templates/report_company.pt:56

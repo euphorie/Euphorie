@@ -4891,11 +4891,9 @@ msgstr "Baixa"
 #: euphorie/deployment/upgrade/v8.py:146
 msgid "question_other_risks"
 msgstr ""
-"<p>Voleu afegir ara a aquesta eina els riscos que heu definit?</"
-"p><p><strong>Important:</strong>Per evitar que hi hagi riscos duplicats, és "
+"<strong>Important:</strong>Per evitar que hi hagi riscos duplicats, és "
 "molt recomanable que primer resseguiu tots els mòduls anteriors, si encara "
-"no ho heu fet.</p><p>Si no necessiteu afegir riscos, si us plau, seleccioneu "
-"No.</p>"
+"no ho heu fet.</p><p>Si no necessiteu afegir riscos, si us plau, continueu.</p>"
 
 #. Default: "an employers' organisation"
 #: euphorie/client/company.py:65 euphorie/client/templates/report_company.pt:56

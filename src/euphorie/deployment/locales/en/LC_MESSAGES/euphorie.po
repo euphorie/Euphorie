@@ -4451,6 +4451,9 @@ msgstr ""
 #: euphorie/deployment/upgrade/v8.py:146
 msgid "question_other_risks"
 msgstr ""
+"<p><strong>Important:</strong> In order to avoid duplicating risks, we "
+"strongly recommend you to go first through all the previous modules, if you "
+"have not done it yet.</p><p>If you don't need to add risks, please continue.</p>"
 
 #. Default: "an employers' organisation"
 #: euphorie/client/company.py:65 euphorie/client/templates/report_company.pt:56
