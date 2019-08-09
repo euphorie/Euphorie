@@ -904,7 +904,7 @@ class MeasuresOverview(Status):
         modulesdict = defaultdict(lambda: defaultdict(list))
         for module, risk, action in measures:
             if "custom-risks" not in risk.zodb_path:
-                risk_obj = self.request.survey.restrictedTraverse(
+                risk_obj = self.context.restrictedTraverse(
                     risk.zodb_path.split("/")
                 )
                 title = risk_obj and risk_obj.problem_description or risk.title
@@ -923,7 +923,7 @@ class MeasuresOverview(Status):
 
         main_modules = {}
         for module, risks in sorted(modulesdict.items(), key=lambda m: m[0].zodb_path):
-            module_obj = self.request.survey.restrictedTraverse(
+            module_obj = self.context.restrictedTraverse(
                 module.zodb_path.split("/")
             )
             if (
