@@ -7,22 +7,7 @@ from Acquisition import aq_inner
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.country import IClientCountry
-from euphorie.client.interfaces import IActionPlanPhaseSkinLayer
 from euphorie.client.interfaces import IClientSkinLayer
-from euphorie.client.interfaces import ICustomizationPhaseSkinLayer
-from euphorie.client.interfaces import IEvaluationPhaseSkinLayer
-from euphorie.client.interfaces import IFranceActionPlanPhaseSkinLayer
-from euphorie.client.interfaces import IFranceCustomizationPhaseSkinLayer
-from euphorie.client.interfaces import IFranceEvaluationPhaseSkinLayer
-from euphorie.client.interfaces import IFranceIdentificationPhaseSkinLayer
-from euphorie.client.interfaces import IFranceReportPhaseSkinLayer
-from euphorie.client.interfaces import IIdentificationPhaseSkinLayer
-from euphorie.client.interfaces import IItalyActionPlanPhaseSkinLayer
-from euphorie.client.interfaces import IItalyCustomizationPhaseSkinLayer
-from euphorie.client.interfaces import IItalyEvaluationPhaseSkinLayer
-from euphorie.client.interfaces import IItalyIdentificationPhaseSkinLayer
-from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
-from euphorie.client.interfaces import IReportPhaseSkinLayer
 from euphorie.client.profile import extractProfile
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.survey import ISurvey
@@ -35,8 +20,6 @@ from sqlalchemy import func
 from sqlalchemy import orm
 from sqlalchemy import sql
 from z3c.saconfig import Session
-from zope.component import adapts
-from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 import decimal
 import logging
@@ -404,44 +387,3 @@ class _StatusHelper(object):
                 if obj.id in self.COUNTRIES_WITHOUT_HIGH_RISKS:
                     return False
         return True
-
-
-# class SurveyPublishTraverser(DefaultPublishTraverse):
-#     """Publish traverser to setup the survey skin layers.
-
-#     This traverser marks the request with IClientSkinLayer. We can not use
-#     BeforeTraverseEvent sine in Zope 2 that is only fired for site objects.
-#     """
-
-#     adapts(ISurvey, IClientSkinLayer)
-
-#     phases = {
-#         "identification": IIdentificationPhaseSkinLayer,
-#         "customization": ICustomizationPhaseSkinLayer,
-#         "evaluation": IEvaluationPhaseSkinLayer,
-#         "actionplan": IActionPlanPhaseSkinLayer,
-#         "report": IReportPhaseSkinLayer,
-#     }
-
-#     countries = {
-#         "it": {
-#             "identification": IItalyIdentificationPhaseSkinLayer,
-#             "customization": IItalyCustomizationPhaseSkinLayer,
-#             "evaluation": IItalyEvaluationPhaseSkinLayer,
-#             "actionplan": IItalyActionPlanPhaseSkinLayer,
-#             "report": IItalyReportPhaseSkinLayer,
-#         },
-#         "fr": {
-#             "identification": IFranceIdentificationPhaseSkinLayer,
-#             "customization": IFranceCustomizationPhaseSkinLayer,
-#             "evaluation": IFranceEvaluationPhaseSkinLayer,
-#             "actionplan": IFranceActionPlanPhaseSkinLayer,
-#             "report": IFranceReportPhaseSkinLayer,
-#         },
-#     }
-
-#     def publishTraverse(self, request, name):
-#         utils.setLanguage(request, self.context, self.context.language)
-#         if name not in self.phases:
-#             return super(SurveyPublishTraverser, self).publishTraverse(request, name)
-#         raise Exception("This is obsolete")

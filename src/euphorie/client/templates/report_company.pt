@@ -27,7 +27,7 @@
     <fieldset class="vertical">
         <label tal:define="widget nocall:view/widgets/country; value widget/value">
             <tal:span i18n:translate="label_company_country">Your country</tal:span>
-            <select name="${widget/name}" tal:define="value python:value or webhelpers.country()">
+            <select name="${widget/name}" tal:define="value python:value or webhelpers.country">
                 <option value=""></option>
                 <option tal:repeat="country view/countries" value="${country/id}" selected="${python:'selected' if value==country['id'] else None}">${country/title}</option>
             </select>

@@ -10,7 +10,6 @@ from docx.oxml.ns import qn
 from euphorie.client import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.docx.html import HtmlToWord
-from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
 from euphorie.client.session import SessionManager
 from euphorie.content.survey import get_tool_type
 from euphorie.content.utils import IToolTypesInfo
@@ -24,6 +23,7 @@ from z3c.appconfig.interfaces import IAppConfig
 from zope.component import getUtility
 from zope.i18n import translate
 import htmllaundry
+from plone import api
 import re
 
 all_breaks = re.compile('(\n|\r)+')
@@ -89,6 +89,11 @@ class BaseOfficeCompiler(object):
             elems = lang.split("-")
             lang = "{0}_{1}".format(elems[0], elems[1].upper())
         return lang
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
 
     @property
     def title_custom_risks(self):
@@ -176,8 +181,7 @@ class DocxCompiler(BaseOfficeCompiler):
             'use_existing_measures', False)
         self.tool_type = get_tool_type(self.context)
         self.tti = getUtility(IToolTypesInfo)
-        self.italy_special = IItalyReportPhaseSkinLayer.providedBy(
-            self.request)
+        self.italy_special = self.webhelpers.country == "it"
 
     def set_session_title_row(self, data):
         ''' This fills the workspace activity run with some text

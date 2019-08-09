@@ -11,8 +11,6 @@ from Acquisition import aq_parent
 from collections import OrderedDict
 from euphorie import MessageFactory as _
 from euphorie.client import model
-from euphorie.client.interfaces import IItalyActionPlanPhaseSkinLayer
-from euphorie.client.interfaces import IItalyIdentificationPhaseSkinLayer
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
@@ -332,7 +330,7 @@ class IdentificationView(BrowserView):
         )
 
         # Italian special
-        if IItalyIdentificationPhaseSkinLayer.providedBy(self.request):
+        if self.webhelpers.country == "it":
             self.skip_evaluation = True
 
     @property
@@ -541,10 +539,14 @@ class ActionPlanView(BrowserView):
         return self.context.is_custom_risk
 
     @property
+    def italy_special(self):
+        return self.webhelpers.country == "it"
+
+    @property
     def use_problem_description(self):
         if self.is_custom_risk:
             return False
-        if IItalyActionPlanPhaseSkinLayer.providedBy(self.request):
+        if self.italy_special:
             return False
         text = self.risk.problem_description or ""
         return bool(text.strip())
@@ -655,7 +657,7 @@ class ActionPlanView(BrowserView):
         self.title = context.parent.title
 
         # Italian special
-        if IItalyActionPlanPhaseSkinLayer.providedBy(self.request):
+        if self.italy_special:
             self.skip_evaluation = True
             measures_full_text = True
         else:

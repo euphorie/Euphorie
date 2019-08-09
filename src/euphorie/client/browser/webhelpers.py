@@ -11,7 +11,6 @@ from euphorie.client.adapters.session_traversal import ITraversedSurveySession
 from euphorie.client.client import IClient
 from euphorie.client.cookie import setCookie
 from euphorie.client.country import IClientCountry
-from euphorie.client.interfaces import IItaly
 from euphorie.client.model import get_current_account
 from euphorie.client.sector import IClientSector
 from euphorie.client.session import SESSION_COOKIE
@@ -269,6 +268,8 @@ class WebHelpers(BrowserView):
     def macros(self):
         return self.index.macros
 
+    @property
+    @memoize
     def country(self):
         for obj in aq_chain(aq_inner(self._my_context)):
             if IClientCountry.providedBy(obj):
@@ -282,7 +283,7 @@ class WebHelpers(BrowserView):
     @memoize
     def styles_override(self):
         css = ""
-        if IItaly.providedBy(self.request):
+        if self.country == "it":
             css = """
 #steps .topics .legend li.answered.risk::before {
     background: purple;

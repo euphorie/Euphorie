@@ -1,16 +1,17 @@
 # coding=utf-8
+from collections import OrderedDict
 from euphorie.client import model
 from euphorie.client import utils
+from euphorie.client.docx.compiler import _sanitize_html
 from euphorie.client.docx.compiler import DocxCompiler
 from euphorie.client.docx.compiler import DocxCompilerFrance
 from euphorie.client.docx.compiler import DocxCompilerItaly
 from euphorie.client.docx.compiler import IdentificationReportCompiler
-from euphorie.client.interfaces import IFranceReportPhaseSkinLayer
-from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
-from euphorie.client.session import SessionManager
 from euphorie.client.utils import get_translated_custom_risks_title
 from euphorie.content import MessageFactory as _
 from euphorie.content.survey import get_tool_type
+from json import loads
+from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
 from sqlalchemy import and_
@@ -19,9 +20,6 @@ from StringIO import StringIO
 from urllib import quote
 from z3c.saconfig import Session
 from zope.i18n import translate
-from collections import OrderedDict
-from euphorie.client.docx.compiler import _sanitize_html
-from json import loads
 
 
 class OfficeDocumentView(BrowserView):
@@ -34,6 +32,11 @@ class OfficeDocumentView(BrowserView):
         ''' Return the data for the compiler
         '''
         return {}
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
 
     def get_payload(self):
         ''' Compile the template and return the file as a string
@@ -205,9 +208,10 @@ class ActionPlanDocxView(OfficeDocumentView):
 
     def __init__(self, context, request):
         super(ActionPlanDocxView, self).__init__(context, request)
-        if IItalyReportPhaseSkinLayer.providedBy(request):
+        country = self.webhelpers.country
+        if country == "it":
             self._compiler = DocxCompilerItaly
-        elif IFranceReportPhaseSkinLayer.providedBy(request):
+        elif country == "fr":
             if get_tool_type(context) == 'existing_measures':
                 self._compiler = DocxCompilerFrance
 
