@@ -396,6 +396,7 @@ class IdentificationView(BrowserView):
         )
         return self.request.response.redirect(url)
 
+    @memoize
     def get_existing_measures(self):
         if not self.risk:
             defined_measures = []
