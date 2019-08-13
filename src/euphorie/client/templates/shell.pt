@@ -143,7 +143,7 @@
               <tal:if_not_anon define="
                                  tree view/tree|nothing;
                                  session_start_view nocall:here/@@start|webhelpers/traversed_session/@@start;
-                                 can_edit session_start_view/can_edit_session;
+                                 can_edit webhelpers/can_edit_session;
                                  new_session session_start_view/is_new_session;
                                "
                                condition="not:is_anonymous"

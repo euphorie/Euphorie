@@ -12,8 +12,8 @@
           tal:define="
             sessionid view/session/id;
             webhelpers view/webhelpers;
-            can_delete view/can_delete_session;
-            can_duplicate python:webhelpers.can_duplicate_session(sessionid=sessionid);
+            can_delete webhelpers/can_delete_session;
+            can_duplicate webhelpers/can_duplicate_session;
             delete_url string:${here/absolute_url}/@@confirmation-delete-session#document-content;
             clone_url string:${here/absolute_url}/@@confirmation-clone-session#document-content;
           "

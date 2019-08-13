@@ -688,8 +688,41 @@ class WebHelpers(BrowserView):
     def get_session_group_id(self):
         return getattr(self.session, 'group_id', '')
 
+    @property
     @memoize
-    def can_duplicate_session(self, session=None, sessionid=''):
+    def can_view_session(self):
+        account = self.get_current_account()
+        if not account:
+            return False
+        session = self.traversed_session.session
+        return session in account.sessions or session in account.acquired_sessions
+
+    @property
+    @memoize
+    def can_edit_session(self):
+        return self.can_view_session
+
+    @property
+    @memoize
+    def can_publish_session(self):
+        return self.can_edit_session
+
+    @property
+    @memoize
+    def can_delete_session(self):
+        return self.can_edit_session
+
+    @property
+    @memoize
+    def is_owner(self):
+        ''' Check if the current user is the owner of the session
+        '''
+        session = self.traversed_session.session
+        return self.get_current_account() == session.account
+
+    @property
+    @memoize
+    def can_duplicate_session(self):
         return self.use_clone_feature
 
     def resume(self, session):

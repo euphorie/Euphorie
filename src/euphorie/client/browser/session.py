@@ -95,30 +95,6 @@ class SessionMixin(object):
     def session(self):
         return self.context.session
 
-    @property
-    @memoize
-    def can_view_session(self):
-        account = self.webhelpers.get_current_account()
-        if not account:
-            return False
-        session = self.session
-        return session in account.sessions or session in account.acquired_sessions
-
-    @property
-    @memoize
-    def can_edit_session(self):
-        return self.can_view_session
-
-    @property
-    @memoize
-    def can_publish_session(self):
-        return self.can_edit_session
-
-    @property
-    @memoize
-    def can_delete_session(self):
-        return self.can_edit_session
-
     def is_new_session(self):
         if self.request.get("new_session"):
             return True
@@ -421,7 +397,7 @@ class DeleteSession(SessionMixin, BrowserView):
     """
 
     def __call__(self):
-        if not self.can_delete_session:
+        if not self.webhelpers.can_delete_session:
             raise Unauthorized()
 
         Session.delete(self.context.session)
@@ -444,7 +420,7 @@ class ConfirmationDeleteSession(SessionMixin, BrowserView):
     @property
     @memoize_contextless
     def session_title(self):
-        if not self.can_delete_session:
+        if not self.webhelpers.can_delete_session:
             raise Unauthorized()
         return self.context.session.title
 
@@ -625,8 +601,7 @@ class ActionPlanView(SessionMixin, BrowserView):
         """ Render the page only if the user has edit rights,
         otherwise redirect to the start page of the session.
         """
-        start_view = api.content.get_view("start", self.context, self.request)
-        if not start_view.can_edit_session:
+        if not self.webhelpers.can_edit_session:
             return self.request.response.redirect(
                 self.context.absolute_url() + "/@@start"
             )

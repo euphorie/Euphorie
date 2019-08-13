@@ -95,10 +95,7 @@ class IdentificationView(BrowserView):
     def __call__(self):
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
-        start_view = api.content.get_view(
-            "start", self.webhelpers.traversed_session, self.request
-        )
-        if not start_view.can_edit_session:
+        if not self.webhelpers.can_edit_session:
             return self.request.response.redirect(
                 "{session_url}/@@start".format(self.webhelpers.traversed_session.absolute_url())
             )
@@ -181,8 +178,11 @@ class IdentificationView(BrowserView):
                     dumps([entry for entry in new_measures if entry[1]])
                 )
 
+            # Check if there was a change. If yes, touch the session
+            changed = False
             if self.use_training_module and reply.get("handle_training_notes"):
                 self.context.training_notes = reply.get("training_notes")
+                changed = True
 
             # This only happens on custom risks
             if reply.get("handle_custom_description"):
@@ -191,8 +191,6 @@ class IdentificationView(BrowserView):
             if reply.get("title"):
                 self.context.title = reply.get("title")
 
-            # Check if there was a change. If yes, touch the session
-            changed = False
             for prop, default in self.monitored_properties.items():
                 if prop == "existing_measures":
                     val = dumps(
@@ -580,10 +578,7 @@ class ActionPlanView(BrowserView):
     def __call__(self):
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
-        start_view = api.content.get_view(
-            "start", self.webhelpers.traversed_session, self.request
-        )
-        if not start_view.can_edit_session:
+        if not self.webhelpers.can_edit_session:
             return self.request.response.redirect(
                 self.webhelpers.survey_url() + "/@@start"
             )

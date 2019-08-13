@@ -97,10 +97,7 @@ class IdentificationView(BrowserView, Mixin):
     def __call__(self):
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
-        start_view = api.content.get_view(
-            "start", self.webhelpers.traversed_session, self.request
-        )
-        if not start_view.can_edit_session:
+        if not self.webhelpers.can_edit_session:
             return self.request.response.redirect(
                 self.context.aq_parent.absolute_url() + "/@@start"
             )
@@ -245,10 +242,7 @@ class ActionPlanView(BrowserView):
     def __call__(self):
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
-        start_view = api.content.get_view(
-            "start", self.webhelpers.traversed_session, self.request
-        )
-        if not start_view.can_edit_session:
+        if not self.webhelpers.can_edit_session:
             return self.request.response.redirect(
                 self.context.aq_parent.aq_parent.absolute_url() + "/@@start"
             )
