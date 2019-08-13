@@ -570,7 +570,7 @@ class ActionPlanView(BrowserView):
     @memoize
     def risk(self):
         if self.is_custom_risk:
-            return
+            return self.context
         return self.context.aq_parent.aq_parent.restrictedTraverse(
             self.context.zodb_path.split("/")
         )
