@@ -10,7 +10,7 @@ from .. import MessageFactory as _
 from Acquisition import aq_inner
 from euphorie.client import model
 from euphorie.client.interfaces import IClientSkinLayer
-from euphorie.client.session import create_survey_session
+from euphorie.client.session import ISurveySessionCreator
 from euphorie.client.session import SessionManager
 from euphorie.client.update import treeChanges
 from euphorie.client.utils import HasText
@@ -27,6 +27,7 @@ from plone import api
 from sqlalchemy import sql
 from sqlalchemy.orm import object_session
 from z3c.saconfig import Session
+from zope.component import getMultiAdapter
 from zope.i18n import translate
 
 import re
@@ -242,7 +243,7 @@ def extractProfile(survey, survey_session):
     return profile
 
 
-def set_session_profile(survey, survey_session, profile):
+def set_session_profile(survey, survey_session, profile, request):
     """Set up the survey session using a given profile.
 
     :param survey: the survey to use
@@ -280,8 +281,9 @@ def set_session_profile(survey, survey_session, profile):
             'zodb_path',
         )
     }
-    new_session = create_survey_session(
-        survey_session.title, survey, survey_session.account, **params
+    creator = getMultiAdapter((survey, request), ISurveySessionCreator)
+    new_session = creator.create(
+        survey_session.title, survey_session.account, **params
     )
     BuildSurveyTree(survey, profile, new_session, survey_session)
     new_session.copySessionData(survey_session)

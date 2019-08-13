@@ -1,7 +1,5 @@
-from .. import model
 from ..session import SessionManagerFactory
 from ..utils import setRequest
-from .database import DatabaseTests
 from .test_update import TreeTests
 from .utils import testRequest
 from AccessControl.SecurityManagement import getSecurityManager
@@ -9,12 +7,9 @@ from AccessControl.SecurityManagement import newSecurityManager
 from AccessControl.SecurityManagement import setSecurityManager
 from euphorie.client import session
 from plone import api
-from Products.CMFCore.interfaces import ISiteRoot
-from zope.testing.cleanup import cleanUp
 
 import mock
 import unittest
-import zope.component
 
 
 class Mock(object):
@@ -46,36 +41,6 @@ class CachingTests(unittest.TestCase):
         setRequest(request)
         try:
             self.failUnless(mgr.id is marker)
-        finally:
-            setRequest(None)
-
-
-class SessionCreationTests(DatabaseTests):
-
-    def setUp(self):
-        super(SessionCreationTests, self).setUp()
-        zope.component.provideUtility(self, ISiteRoot)
-
-    def tearDown(self):
-        super(SessionCreationTests, self).tearDown()
-        cleanUp()
-
-    def testNewSession(self):
-
-        request = testRequest()
-        mgr = session.SessionManagerFactory()
-        request.client = survey = object()
-        setRequest(request)
-        try:
-            account = model.Account(loginname="jane", password=u"john")
-            with mock.patch('euphorie.client.session.create_survey_session') \
-                    as mock_create:
-                survey_session = mock.Mock()
-                survey_session.id = 43
-                mock_create.return_value = survey_session
-                ses = mgr.start(u"Test session", survey, account)
-                self.assertTrue(ses is survey_session)
-                self.failUnless(request.other["euphorie.session"] is ses)
         finally:
             setRequest(None)
 

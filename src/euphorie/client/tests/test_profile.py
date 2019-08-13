@@ -1,15 +1,16 @@
 # coding=utf-8
 from euphorie.client import model
+from euphorie.client.browser.session import Profile
 from euphorie.client.profile import AddToTree
 from euphorie.client.profile import BuildSurveyTree
 from euphorie.client.profile import extractProfile
-from euphorie.client.browser.session import Profile
-from euphorie.client.session import create_survey_session
+from euphorie.client.session import ISurveySessionCreator
 from euphorie.client.tests.test_update import TreeTests
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
 from z3c.saconfig import Session
+from zope.component import getMultiAdapter
 from zope.interface import alsoProvides
 
 import mock
@@ -596,9 +597,9 @@ class Profile_setupSession_Tests(TreeTests):
     def test_create_survey_session(self):
         survey = self.createClientSurvey()
         view = self.makeView(survey)
-        new_session = create_survey_session(
+        creator = getMultiAdapter((survey, self.request), ISurveySessionCreator)
+        new_session = creator.create(
             u'a',
-            survey,
             view.session.account,
             report_comment=u'b',
         )

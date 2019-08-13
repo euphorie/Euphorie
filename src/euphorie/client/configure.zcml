@@ -56,6 +56,10 @@
         factory=".survey.SurveyPublishTraverser"
         provides="zope.publisher.interfaces.IPublishTraverse"/-->
 
+    <adapter
+        factory=".session.SurveySessionCreator"
+        provides=".session.ISurveySessionCreator"/>
+
     <browser:defaultView
         for="Products.CMFCore.interfaces.IContentish"
         layer=".interfaces.IClientSkinLayer"

@@ -234,7 +234,7 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
         """
         survey = self.context.aq_parent
         new_profile = self.getDesiredProfile()
-        return set_session_profile(survey, self.session, new_profile)
+        return set_session_profile(survey, self.session, new_profile, self.request)
 
     @property
     @memoize
