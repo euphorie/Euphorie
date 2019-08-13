@@ -1,6 +1,6 @@
 # coding=utf-8
-from euphorie.client.session import SessionManager
 from logging import getLogger
+from plone.memoize.instance import memoize
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 
@@ -21,6 +21,11 @@ class TrainingView(BrowserView):
     Currently not active in default Euphorie
     """
     variation_class = "variation-risk-assessment"
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return self.context.restrictedTraverse("webhelpers")
 
     def __call__(self):
         if self.webhelpers.redirectOnSurveyUpdate():
@@ -44,6 +49,6 @@ class TrainingView(BrowserView):
                     sql_item.training_notes = value
                     self.slide_data['slides'][index]['row'] = sql_item
                     risk_data['training_notes'] = value
-                SessionManager.session.touch()
+                self.session.touch()
 
         return self.index()

@@ -32,7 +32,7 @@
 
   <browser:page
       name="training"
-      for="euphorie.content.survey.ISurvey"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
       class="euphorie.client.browser.training.TrainingView"
       template="templates/training.pt"
