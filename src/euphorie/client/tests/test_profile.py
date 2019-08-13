@@ -207,11 +207,11 @@ class BuildSurveyTreeTests(EuphorieIntegrationTestCase):
         self.session.flush()
 
     def test_empty_profile_no_question(self):
-        BuildSurveyTree({}, dbsession=self.survey)
+        BuildSurveyTree({}, {}, dbsession=self.survey)
         self.assertTrue(not self.survey.hasTree())
 
     def test_empty_profile_with_risk(self):
-        BuildSurveyTree({'one': createRisk("13")}, dbsession=self.survey)
+        BuildSurveyTree({'one': createRisk("13")}, {}, dbsession=self.survey)
         self.assertTrue(self.survey.hasTree())
         children = self.survey.children().all()
         self.assertEqual(len(children), 1)
@@ -219,7 +219,7 @@ class BuildSurveyTreeTests(EuphorieIntegrationTestCase):
         self.assertEqual(children[0].children().count(), 0)
 
     def test_empty_profile_with_container(self):
-        BuildSurveyTree({'one': createContainer("13")}, dbsession=self.survey)
+        BuildSurveyTree({'one': createContainer("13")}, {}, dbsession=self.survey)
         self.assertTrue(self.survey.hasTree())
         children = self.survey.children().all()
         self.assertEqual(len(children), 1)
@@ -230,6 +230,7 @@ class BuildSurveyTreeTests(EuphorieIntegrationTestCase):
         BuildSurveyTree({
             'one': createContainer("13", True)
         },
+                        {},
                         dbsession=self.survey)
         self.assertTrue(not self.survey.hasTree())
 

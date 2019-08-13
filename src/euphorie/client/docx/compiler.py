@@ -10,7 +10,6 @@ from docx.oxml.ns import qn
 from euphorie.client import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.docx.html import HtmlToWord
-from euphorie.client.session import SessionManager
 from euphorie.content.survey import get_tool_type
 from euphorie.content.utils import IToolTypesInfo
 from euphorie.content.utils import UNWANTED
@@ -103,7 +102,7 @@ class BaseOfficeCompiler(object):
 
     @property
     def session(self):
-        return SessionManager.session
+        return self.webhelpers.traversed_session.session
 
     def set_cell_border(self, cell, settings=ALL_BORDERS, color=BORDER_COLOR):
         tcPr = cell._element.tcPr

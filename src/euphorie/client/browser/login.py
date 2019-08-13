@@ -10,7 +10,6 @@ from euphorie.client import MessageFactory as _
 from ..conditions import approvedTermsAndConditions
 from ..conditions import checkTermsAndConditions
 from ..country import IClientCountry
-from ..session import SessionManager
 from ..utils import setLanguage
 from AccessControl import getSecurityManager
 from Acquisition import aq_chain
@@ -350,7 +349,6 @@ class Register(BrowserView):
 class Logout(BrowserView):
 
     def __call__(self):
-        SessionManager.stop()
 
         pas = getToolByName(self.context, "acl_users")
         pas.resetCredentials(self.request, self.request.response)

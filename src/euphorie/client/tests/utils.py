@@ -2,7 +2,6 @@
 from euphorie.client import CONDITIONS_VERSION
 from euphorie.client import model
 from euphorie.client import publish
-from euphorie.client.session import SessionManager
 from euphorie.content import upload
 from Products.MailHost.mailer import SMTPMailer
 from Products.MailHost.MailHost import MailHost
@@ -29,7 +28,7 @@ def createSurvey():
     session = Session()
     account = model.Account(loginname=u"jane", password=u"secret")
     session.add(account)
-    survey = SessionManager.model(
+    survey = model.SurveySession(
         title=u"Session",
         zodb_path="survey",
         account=account,

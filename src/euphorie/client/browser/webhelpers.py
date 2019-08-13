@@ -9,12 +9,9 @@ from euphorie import MessageFactory as _
 from euphorie.client import config
 from euphorie.client.adapters.session_traversal import ITraversedSurveySession
 from euphorie.client.client import IClient
-from euphorie.client.cookie import setCookie
 from euphorie.client.country import IClientCountry
 from euphorie.client.model import get_current_account
 from euphorie.client.sector import IClientSector
-from euphorie.client.session import SESSION_COOKIE
-from euphorie.client.session import SessionManager
 from euphorie.client.update import wasSurveyUpdated
 from euphorie.client.utils import getSecret
 from euphorie.content.survey import ISurvey
@@ -75,7 +72,6 @@ class WebHelpers(BrowserView):
     View name: @@webhelpers
     """
     sector = None
-    SESSION_COOKIE = SESSION_COOKIE
 
     resources_name = "++resource++euphorie.resources"
     js_resources_name = "++resource++euphorie.resources"
@@ -191,10 +187,6 @@ class WebHelpers(BrowserView):
     @memoize
     def session_id(self):
         return getattr(self.session, 'id', '')
-
-    @memoize
-    def session_by_id(self, sessionid):
-        return SessionManager.get_session_by_id(sessionid)
 
     @property
     @memoize

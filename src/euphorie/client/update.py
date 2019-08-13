@@ -1,5 +1,4 @@
 from euphorie.client import model
-from euphorie.client.session import SessionManager
 from euphorie.client.utils import HasText
 from euphorie.content.interfaces import IQuestionContainer
 from five import grok

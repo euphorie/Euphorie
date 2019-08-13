@@ -11,7 +11,6 @@ from Acquisition import aq_inner
 from euphorie.client import model
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.session import ISurveySessionCreator
-from euphorie.client.session import SessionManager
 from euphorie.client.update import treeChanges
 from euphorie.client.utils import HasText
 from euphorie.client.utils import RelativePath
@@ -127,7 +126,7 @@ def get_custom_risks(session):
     return query.all()
 
 
-def BuildSurveyTree(survey, profile={}, dbsession=None, old_session=None):
+def BuildSurveyTree(survey, profile, dbsession, old_session=None):
     """(Re)build the survey SQL tree. The existing tree for the
     session is deleted before a new tree is created.
 
@@ -139,8 +138,6 @@ def BuildSurveyTree(survey, profile={}, dbsession=None, old_session=None):
           session.
     :type dbsession: :py:class:`euphorie.client.model.SurveySession`
     """
-    if dbsession is None:
-        dbsession = SessionManager.session
     dbsession.reset()
 
     for child in survey.values():

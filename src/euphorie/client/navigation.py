@@ -10,7 +10,6 @@ from Acquisition import aq_parent
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.model import SurveySession
-from euphorie.client.session import SessionManager
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
 from plone import api
@@ -18,9 +17,7 @@ from sqlalchemy import sql
 from z3c.saconfig import Session
 
 
-def FindFirstQuestion(dbsession=None, filter=None):
-    if dbsession is None:
-        dbsession = SessionManager.session
+def FindFirstQuestion(dbsession, filter=None):
     query = (
         Session.query(model.SurveyTreeItem)
         .filter(model.SurveyTreeItem.session == dbsession)
@@ -31,9 +28,7 @@ def FindFirstQuestion(dbsession=None, filter=None):
     return query.order_by(model.SurveyTreeItem.path).first()
 
 
-def FindNextQuestion(after, dbsession=None, filter=None):
-    if dbsession is None:
-        dbsession = SessionManager.session
+def FindNextQuestion(after, dbsession, filter=None):
     query = (
         Session.query(model.SurveyTreeItem)
         .filter(model.SurveyTreeItem.session == dbsession)
@@ -49,10 +44,7 @@ def FindNextQuestion(after, dbsession=None, filter=None):
     return query.order_by(model.SurveyTreeItem.path).first()
 
 
-def FindPreviousQuestion(after, dbsession=None, filter=None):
-    if dbsession is None:
-        dbsession = SessionManager.session
-
+def FindPreviousQuestion(after, dbsession, filter=None):
     query = (
         Session.query(model.SurveyTreeItem)
         .filter(model.SurveyTreeItem.session == dbsession)
