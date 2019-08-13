@@ -1008,4 +1008,4 @@ class DeleteRisk(BrowserView):
                 ]
                 self.context.removeChildren(excluded=keep_ids)
 
-        self.request.response.redirect(self.context.absolute_url())
+        self.request.response.redirect("{0}/@@identification".format(self.context.absolute_url()))
