@@ -177,7 +177,7 @@ class WebHelpers(BrowserView):
             return False
         self.request.response.redirect(
             "{session_url}/@@update?initial_view=1".format(
-                traversed_session.absolute_url()
+                session_url=traversed_session.absolute_url()
             )
         )
         return True
