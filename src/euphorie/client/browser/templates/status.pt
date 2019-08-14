@@ -83,6 +83,32 @@
                     </tal:by>
                 </p>
             </dd>
+            <tal:published condition="webhelpers/use_publication_feature">
+              <tal:switch switch="session/review_state">
+                <tal:case case="string:published">
+                  <dt i18n:translate="label_published">
+                      Published
+                  </dt>
+                  <dd tal:define="last_publisher session/last_publisher|nothing;">
+                      <p>
+                          <time class="last-modified"
+                          date-time="${value}"
+                          tal:define="value session/published/isoformat|nothing;">${python:toLocalizedTime(value)}</time>
+                          <tal:by condition="last_publisher">
+                            by <a href="mailto:${last_modifier/email}">${last_publisher/email}</a>
+                          </tal:by>
+                      </p>
+                  </dd>
+                </tal:case>
+                <tal:case case="default">
+                  <dt i18n:translate="label_unpublished">
+                      Unpublished
+                  </dt>
+                  <dd>
+                  </dd>
+                </tal:case>
+              </tal:switch>
+            </tal:published>
           </dl>
         </section>
 
