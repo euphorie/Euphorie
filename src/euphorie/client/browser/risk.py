@@ -97,7 +97,9 @@ class IdentificationView(BrowserView):
         # otherwise redirect to the start page of the session.
         if not self.webhelpers.can_edit_session:
             return self.request.response.redirect(
-                "{session_url}/@@start".format(self.webhelpers.traversed_session.absolute_url())
+                "{session_url}/@@start".format(
+                    session_url=self.webhelpers.traversed_session.absolute_url()
+                )
             )
         if self.webhelpers.redirectOnSurveyUpdate():
             return
@@ -218,7 +220,9 @@ class IdentificationView(BrowserView):
                 ).__get__(
                     self, ""
                 )  # noqa
-                next = FindNextQuestion(self.context, self.context.session, filter=self.question_filter)
+                next = FindNextQuestion(
+                    self.context, self.context.session, filter=self.question_filter
+                )
                 self.has_next_risk = next or False
             else:
                 template = self.template
@@ -335,9 +339,7 @@ class IdentificationView(BrowserView):
     @memoize
     def previous_question(self):
         return FindPreviousQuestion(
-            self.context,
-            dbsession=self.session,
-            filter=self.question_filter,
+            self.context, dbsession=self.session, filter=self.question_filter
         )
 
     def proceed_to_next(self, reply):
@@ -580,7 +582,9 @@ class ActionPlanView(BrowserView):
         # otherwise redirect to the start page of the session.
         if not self.webhelpers.can_edit_session:
             return self.request.response.redirect(
-                self.webhelpers.survey_url() + "/@@start"
+                "{session_url}/@@start".format(
+                    session_url=self.webhelpers.traversed_session.absolute_url()
+                )
             )
         if self.webhelpers.redirectOnSurveyUpdate():
             return
@@ -1008,4 +1012,8 @@ class DeleteRisk(BrowserView):
                 ]
                 self.context.removeChildren(excluded=keep_ids)
 
-        self.request.response.redirect("{0}/@@identification".format(self.context.absolute_url()))
+        self.request.response.redirect(
+            "{session_url}/@@identification".format(
+                session_url=self.context.absolute_url()
+            )
+        )
