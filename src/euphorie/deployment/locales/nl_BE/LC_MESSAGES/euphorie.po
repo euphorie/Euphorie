@@ -4180,7 +4180,7 @@ msgstr "Opslaan en verdergaan"
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:219
 msgid "label_save_and_finish"
-msgstr "Opslaan en verder gaan"
+msgstr "Opslaan en verder gaan met plan van aanpak"
 
 #. Default: "Section"
 #: euphorie/client/report.py:1065
