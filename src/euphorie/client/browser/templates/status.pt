@@ -17,46 +17,79 @@
     <metal:content fill-slot="content"
                    tal:define="
                      language view/preferred_language;
+                     toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+                     session context/session;
+                     last_modifier session/last_modifier|nothing;
+                     creator session/account|nothing;
+                     survey nocall:view/survey;
                    "
     >
     <div id="content-pane">
-      <div class="statuses language-${language}"
-           tal:define="
-             status python:view.status;
-           "
-      >
 
-        <article class="rich"
+        <article id="status-report"
                  tal:define="
-                   title here/Title|string:;
+                   title session/title|string:;
+                    status python:view.status;
                  "
         >
+
           <h1 tal:condition="python:title.lower()[0] not in ('a', 'e', 'i', 'o', 'u')"><tal:title i18n:translate="title_status_of">Status of
-              <tal:name i18n:name="survey_title">${title}</tal:name></tal:title>
+              &ldquo;<tal:name i18n:name="survey_title">${title}</tal:name>&rdquo;</tal:title>
           </h1>
           <h1 tal:condition="python:title.lower()[0] in ('a', 'e', 'i', 'o', 'u')"><tal:title i18n:translate="title_with_vowel_status_of">Status of
-              <tal:name i18n:name="survey_title">${title}</tal:name></tal:title>
+              &ldquo;<tal:name i18n:name="survey_title">${title}</tal:name>&rdquo;</tal:title>
           </h1>
-          <p class="byline">
-            <tal:translate i18n:translate="header_questions_answered">Questions answered per module</tal:translate>
-          </p>
-        </article>
 
-        <ul class="page-toc">
-          <li tal:repeat="module view/toc">
-            <tal:no_locations condition="not:module/locations">
-              <a href="${here/absolute_url}/@@status#${module/path}">${module/title}</a>
-            </tal:no_locations>
-            <tal:locations condition="module/locations">
-                    ${python:module['title']}
-              <ul>
-                <li tal:repeat="location module/locations">
-                  <a href="${here/absolute_url}/@@status#${location/path}">${location/title}</a>
-                </li>
-              </ul>
-            </tal:locations>
-          </li>
-        </ul>
+        <section class="pat-rich">
+          <h2 i18n:translate="label_general_information">
+              General information
+          </h2>
+          <dl class="pat-grid-list">
+            <dt i18n:translate="label_used_tool">
+              Used tool
+            </dt>
+            <dd>
+                <p>
+                    <a class="pat-inject pat-switch close-panel"
+                       data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal"
+                       data-pat-inject="history: record"
+                       href="${survey/absolute_url}#content"
+                       title="TOOL Name"
+                       >${survey/title}</a>
+                </p>
+            </dd>
+            <dt i18n:translate="label_started">
+                Started
+            </dt>
+            <dd>
+                <p>
+                    <time class="last-saved"
+                    date-time="${value}"
+                    tal:define="value session/created/isoformat|nothing;">${python:toLocalizedTime(value)}</time>
+                    <tal:by condition="creator">
+                      by <a href="mailto:${creator/email}">${creator/email}</a>
+                    </tal:by>
+            </dd>
+            <dt i18n:translate="">
+                Last saved
+            </dt>
+            <dd>
+                <p>
+                    <time class="last-modified"
+                    date-time="${value}"
+                    tal:define="value session/modified/isoformat|nothing;">${python:toLocalizedTime(value)}</time>
+                    <tal:by condition="last_modifier">
+                      by <a href="mailto:${last_modifier/email}">${last_modifier/email}</a>
+                    </tal:by>
+                </p>
+            </dd>
+          </dl>
+        </section>
+
+        <section class="pat-rich">
+          <h2>
+            <tal:translate i18n:translate="header_questions_answered">Questions answered per module</tal:translate>
+          </h2>
 
         <dl class="status">
           <tal:loop repeat="module status">
@@ -209,9 +242,11 @@
             </tal:defs>
           </tal:loop>
         </dl>
-      </div>
-      <tal:block replace="tile:client-analytics" />
+      </section>
+    </article>
     </div>
+    <tal:block replace="tile:client-analytics" />
+
     </metal:content>
   </body>
 </html>

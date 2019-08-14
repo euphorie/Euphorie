@@ -34,6 +34,15 @@
              i18n:translate="label_duplicate"
           >Duplicate</a>
         </li>
+        <li>
+            <a class="pat-modal close-panel icon-chart-line"
+            href="${here/absolute_url}/@@status#status-report"
+            title="Status"
+            data-pat-modal="class: medium"
+            i18n:attributes="title navigation_status"
+            i18n:translate="navigation_status"
+            >Status</a>
+        </li>
       </ul>
     </div>
   </body>

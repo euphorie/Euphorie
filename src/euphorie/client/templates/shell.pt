@@ -274,11 +274,11 @@
                      data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
                      tal:condition="not:disabled"
                      i18n:translate="navigation_status"
-                  >Check your progress</a>
+                  >Status</a>
                   <a class="status"
                      tal:condition="disabled"
                      i18n:translate="navigation_status"
-                  >Check your progress</a>
+                  >Status</a>
                 </li>
               </tal:if_not_anon>
             </ol>
