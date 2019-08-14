@@ -67,7 +67,7 @@
                     date-time="${value}"
                     tal:define="value session/created/isoformat|nothing;">${python:toLocalizedTime(value)}</time>
                     <tal:by condition="creator">
-                      by <a href="mailto:${creator/email}">${creator/email}</a>
+                      <tal:i18n i18n:translate="label_modified_by">by</tal:i18n> <a href="mailto:${creator/email}">${creator/email}</a>
                     </tal:by>
             </dd>
             <dt i18n:translate="">
@@ -79,7 +79,7 @@
                     date-time="${value}"
                     tal:define="value session/modified/isoformat|nothing;">${python:toLocalizedTime(value)}</time>
                     <tal:by condition="last_modifier">
-                      by <a href="mailto:${last_modifier/email}">${last_modifier/email}</a>
+                      <tal:i18n i18n:translate="label_modified_by">by</tal:i18n> <a href="mailto:${last_modifier/email}">${last_modifier/email}</a>
                     </tal:by>
                 </p>
             </dd>
@@ -95,7 +95,7 @@
                           date-time="${value}"
                           tal:define="value session/published/isoformat|nothing;">${python:toLocalizedTime(value)}</time>
                           <tal:by condition="last_publisher">
-                            by <a href="mailto:${last_modifier/email}">${last_publisher/email}</a>
+                            <tal:i18n i18n:translate="label_modified_by">by</tal:i18n> <a href="mailto:${last_modifier/email}">${last_publisher/email}</a>
                           </tal:by>
                       </p>
                   </dd>
