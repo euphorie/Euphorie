@@ -51,6 +51,7 @@
           </p>
         </tal:block>
       </article>
+    </div>
 
       <p class="button-bar"
          id="nav-bar"
@@ -67,7 +68,7 @@
            i18n:translate="label_jump_to_report"
         >Go to report</a>
       </p>
-    </div>
+
     </metal:slot>
   </body>
 </html>
