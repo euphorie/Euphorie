@@ -48,7 +48,6 @@
   tal:define="
     is_anonymous webhelpers/anonymous;
     is_outside_of_survey webhelpers/is_outside_of_survey;
-    survey_url webhelpers/survey_url;
     base_url webhelpers/base_url">
 
 

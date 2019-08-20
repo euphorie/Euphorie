@@ -188,7 +188,7 @@ dd, .page-toc {
     <metal:styleslot define-slot="style_slot" />
 </head>
 
-<body class="osh-off test-session osc-off osc-s-off sidebar-off" i18n:domain="euphorie" tal:define="is_anonymous webhelpers/anonymous; is_outside_of_survey webhelpers/is_outside_of_survey; survey_url webhelpers/survey_url; base_url webhelpers/base_url">
+<body class="osh-off test-session osc-off osc-s-off sidebar-off" i18n:domain="euphorie" tal:define="is_anonymous webhelpers/anonymous; is_outside_of_survey webhelpers/is_outside_of_survey; base_url webhelpers/base_url">
     <div id="main">
         <div id="content">
             <p tal:condition="webhelpers/is_guest_account" id="warning-bar">
