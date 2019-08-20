@@ -92,9 +92,8 @@
           </fieldset>
         </form>
 
-        <ul class="pat-navigation departments browser"
-            id="browser"
-        >
+        <div id="browser">
+        <ul class="pat-navigation departments browser">
           <li class="group item type-department"
               tal:repeat="group groups;"
               tal:condition="not:zodb_path"
@@ -115,9 +114,9 @@
                      data-pat-inject="source: #osc; target: #osc; &amp;&amp; source: #content; target: #content;"
                   >${session/title}</a>
                 </span>
-                <span class="last-saved meta field">
-                  <tal:i18n i18n:translate="">Last saved</tal:i18n>
-                  <time class="pat-display-time"
+                <span class="last-saved meta field"
+                  ><tal:i18n i18n:translate="">Last saved</tal:i18n
+                  > <time class="pat-display-time"
                         datetime="${value}"
                         data-pat-display-time="from-now: true; locale: ${language}"
                         tal:define="
@@ -125,10 +124,10 @@
                         "
                   >${value}</time
                 ></span>
-                <span class="date meta field" tal:condition="session/published">
-                  <span class="label">
-                    <tal:i18n i18n:translate="label_published">published</tal:i18n>
-                    <time class="pat-display-time"
+                <span class="date meta field" tal:condition="session/published"
+                  ><span class="label">
+                    <tal:i18n i18n:translate="label_published">published</tal:i18n
+                    > <time class="pat-display-time"
                           datetime="${value}"
                           data-pat-display-time="from-now: true; locale: ${language}"
                           tal:define="
@@ -137,11 +136,10 @@
                     >${value}</time
                   ></span
                 ></span>
-                <span class="field" tal:condition="not:session/published">
-                </span>
-                <span class="tool meta field">
-                  <tal:i18n i18n:translate="">based on</tal:i18n>
-                  <a class="pat-inject pat-switch"
+                <span class="field" tal:condition="not:session/published"></span>
+                <span class="tool meta field"
+                  ><tal:i18n i18n:translate="">based on</tal:i18n
+                  > <a class="pat-inject pat-switch"
                      data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal"
                      data-pat-inject="history: record"
                      href="${tool/absolute_url}?groupid=${request/groupid|string:}#content"
@@ -171,7 +169,7 @@
             </p>
           </li>
         </ul>
-
+      </div>
       </div>
     </div>
   </metal:slot>
