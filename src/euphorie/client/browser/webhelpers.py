@@ -30,7 +30,6 @@ from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from ZODB.POSException import POSKeyError
-from zope.browser.interfaces import IBrowserView
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.component.hooks import getSite
@@ -71,8 +70,6 @@ class WebHelpers(BrowserView):
 
     View name: @@webhelpers
     """
-    sector = None
-
     resources_name = "++resource++euphorie.resources"
     js_resources_name = "++resource++euphorie.resources"
     bundle_name = "bundle.js"

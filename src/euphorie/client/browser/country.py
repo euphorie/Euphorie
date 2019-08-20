@@ -12,7 +12,6 @@ from euphorie.client.model import get_current_account
 from euphorie.client.model import Group
 from euphorie.client.model import SurveySession
 from euphorie.client.sector import IClientSector
-from euphorie.client.session import ISurveySessionCreator
 from euphorie.content.survey import ISurvey
 from logging import getLogger
 from plone import api
@@ -23,7 +22,6 @@ from Products.Five import BrowserView
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
 from zope.i18n import translate
-from zope.component import getMultiAdapter
 
 import six
 
@@ -320,12 +318,13 @@ class SessionsView(BrowserView):
             # breaks, so trigger a redirect to the same URL again.
             self.request.response.redirect(context.absolute_url())
             return
-        creator = getMultiAdapter((survey, self.request), ISurveySessionCreator)
+
         title = info.get("title", u"").strip()
         if not title:
             title = survey.Title()
 
-        survey_session = creator.create(title, account)
+        survey_view = api.content.get_view("index_html", survey, self.request)
+        survey_session = survey_view.create_survey_session(title, account)
         self.request.response.redirect(
             "{base_url}/++session++{session_id}/@@start"
             "?initial_view=1&new_session=1".format(

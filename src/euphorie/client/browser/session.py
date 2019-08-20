@@ -21,7 +21,6 @@ from euphorie.client.navigation import FindFirstQuestion
 from euphorie.client.navigation import getTreeData
 from euphorie.client.profile import BuildSurveyTree
 from euphorie.client.profile import extractProfile
-from euphorie.client.session import ISurveySessionCreator
 from euphorie.client.survey import _StatusHelper
 from euphorie.client.update import treeChanges
 from euphorie.content.interfaces import ICustomRisksModule
@@ -40,7 +39,6 @@ from z3c.form.form import EditForm
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
 from zope import schema
-from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.event import notify
 from zope.i18n import translate
@@ -255,7 +253,6 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
             BuildSurveyTree(survey, profile, survey_session)
             return survey_session
 
-        request = self.request
         current_profile = extractProfile(survey, survey_session)
         if current_profile == profile and not treeChanges(
             survey_session, survey, profile
@@ -280,8 +277,8 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
                 "zodb_path",
             )
         }
-        creator = getMultiAdapter((survey, request), ISurveySessionCreator)
-        new_session = creator.create(
+        survey_view = api.content.get_view("index_html", survey, self.request)
+        new_session = survey_view.create_survey_session(
             survey_session.title, survey_session.account, **params
         )
         BuildSurveyTree(survey, profile, new_session, survey_session)

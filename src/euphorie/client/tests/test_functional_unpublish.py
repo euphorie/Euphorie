@@ -1,16 +1,10 @@
 # coding=utf-8
-from euphorie.client import model
-from euphorie.client import session
-from euphorie.client import utils
-from euphorie.client.browser.webhelpers import WebHelpers
-from euphorie.client.tests.utils import testRequest
 from euphorie.client.unpublish import handleSurveyUnpublish
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.content.tests.utils import createSector
 from euphorie.content.tests.utils import EMPTY_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
 from OFS.SimpleItem import SimpleItem
-from zope.component.hooks import getSite
 
 
 class handleSurveyUnpublishTests(EuphorieIntegrationTestCase):
