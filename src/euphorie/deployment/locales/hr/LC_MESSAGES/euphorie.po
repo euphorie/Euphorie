@@ -4842,10 +4842,8 @@ msgstr "Mala"
 #: euphorie/deployment/upgrade/v8.py:146
 msgid "question_other_risks"
 msgstr ""
-"<p><strong>Važno:</strong> Preporučamo vam da najprije prođete kroz sve "
-"prethodne točke ovog alata kojima su obuhvaćene opasnosti, štetnosti ili "
-"napori na vašim poslovima.</p><p>Nakon toga pristupite dodavanju eventualnih "
-"ostalih izvora opasnosti,štetnosti ili napora koristeći se pri tome Prilogom "
+"<p>Nakon toga pristupite dodavanju eventualnih ostalih izvora opasnosti, "
+"štetnosti ili napora koristeći se pri tome Prilogom "
 "III Pravilnika o izradi procjene rizika kao referentnom listom u smislu "
 "završne kontrole.</p><p>Ako ne trebate dodati rizik, nastavite.</p>"
 

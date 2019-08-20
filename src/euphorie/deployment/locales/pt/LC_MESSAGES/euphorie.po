@@ -4870,8 +4870,7 @@ msgstr "Pequena"
 #: euphorie/deployment/upgrade/v8.py:146
 msgid "question_other_risks"
 msgstr ""
-"<p>Quer adicionar agora a esta ferramenta outros riscos?</"
-"p><p><strong>Importante:</strong> Para não ter duplicaçao de riscos, "
+"<p><strong>Importante:</strong> Para não ter duplicaçao de riscos, "
 "recomendamos que primeiro explore os módulos predefinidos, se ainda não o "
 "fez.</p><p>Se não precisar de adicionar riscos, continue.</p>"
 

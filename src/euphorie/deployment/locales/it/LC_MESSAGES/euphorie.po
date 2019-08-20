@@ -4893,10 +4893,9 @@ msgstr "Piccolo"
 #: euphorie/deployment/upgrade/v8.py:146
 msgid "question_other_risks"
 msgstr ""
-"<p>Aggiungere ora ulteriori rischi</p><p><strong>Importante:</strong> Per "
-"evitare la duplicazione dei rischi, raccomandiamo di ripassare in esame "
-"tutti i moduli precedenti, qualora tale operazione non sia ancora stata "
-"compiuta.</p>"
+"<p><strong>Importante:</strong> Per evitare la duplicazione dei rischi, "
+"raccomandiamo di ripassare in esame tutti i moduli precedenti, qualora tale "
+"operazione non sia ancora stata compiuta.</p>"
 
 #. Default: "an employers' organisation"
 #: euphorie/client/company.py:65 euphorie/client/templates/report_company.pt:56

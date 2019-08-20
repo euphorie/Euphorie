@@ -4673,7 +4673,7 @@ msgstr "Liten"
 #: euphorie/client/publish.py:161 euphorie/deployment/upgrade/v23.py:42
 #: euphorie/deployment/upgrade/v8.py:146
 msgid "question_other_risks"
-msgstr "Lista över alla risker."
+msgstr ""
 
 #. Default: "an employers' organisation"
 #: euphorie/client/company.py:65 euphorie/client/templates/report_company.pt:56

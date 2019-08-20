@@ -217,7 +217,7 @@ msgstr "Volstaan de maatregelen die u net hebt geselecteerd?"
 
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:25
 msgid "Are you sure you want to continue? This action can not be reverted."
-msgstr ""
+msgstr "Weet u zeker dat u door wilt gaan? Deze actie kan niet worden teruggedraaid."
 
 #: euphorie/client/browser/risk.py:605
 msgid ""
@@ -335,7 +335,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:39
 msgid "Continue to action plan"
-msgstr ""
+msgstr "Begin plan van aanpak"
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml
 msgid "Country"
@@ -1599,7 +1599,7 @@ msgstr "Nieuw OiRA-instrument creëren"
 #. Default: "Yes, delete risk"
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:31
 msgid "button_delete_risk"
-msgstr ""
+msgstr "Ja, verwijder het risico"
 
 #. Default: "Yes, delete session"
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:31
@@ -3685,7 +3685,7 @@ msgstr "Verwijderen"
 #. Default: "You are about to delete the risk: &ldquo;${risk-name}&rdquo;."
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:24
 msgid "label_delete_risk"
-msgstr ""
+msgstr "U staat op het punt om dit risico te verwijderen &ldquo;${risk-name}&rdquo;."
 
 #. Default: "Description"
 #: euphorie/client/browser/templates/risk_actionplan.pt:121
@@ -4180,7 +4180,7 @@ msgstr "Opslaan en verdergaan"
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:219
 msgid "label_save_and_finish"
-msgstr ""
+msgstr "Opslaan en verder gaan met plan van aanpak"
 
 #. Default: "Section"
 #: euphorie/client/report.py:1065
@@ -4901,8 +4901,7 @@ msgstr "Klein"
 #: euphorie/deployment/upgrade/v8.py:146
 msgid "question_other_risks"
 msgstr ""
-"<p>Wenst u nu uw eigen gedefinieerde risico’s toe te voegen aan deze tool?</"
-"p><p><strong>Belangrijk:</strong> Om te vermijden dat risico’s gedupliceerd "
+"<p><strong>Belangrijk:</strong> Om te vermijden dat risico’s gedupliceerd "
 "worden, raden we u ten sterkste aan om eerst alle voorgaande modules te "
 "doorlopen, als u dit nog niet gedaan hebt.</p><p>Als u geen risico’s hoeft "
 "toe te voegen, ga dan verder.</p>"
