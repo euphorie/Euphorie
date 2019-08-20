@@ -186,7 +186,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def session_id(self):
-        return getattr(self.session, 'id', '')
+        return getattr(self.traversed_session.session, 'id', '')
 
     @property
     @memoize

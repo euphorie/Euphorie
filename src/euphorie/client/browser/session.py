@@ -636,7 +636,7 @@ class Report(SessionMixin, BrowserView):
             user = getSecurityManager().getUser()
             if getattr(user, "account_type", None) == config.GUEST_ACCOUNT:
                 url = "%s/@@register?report_blurb=1&came_from=%s" % (
-                    self.request.survey.absolute_url(),
+                    self.context.absolute_url(),
                     urllib.quote(url, ""),
                 )
             return self.request.response.redirect(url)
