@@ -80,13 +80,13 @@
           <fieldset>
             <label>
               <input name="SearchableText"
-                     placeholder="Search for risk assessments"
+                     placeholder="Search"
                      type="search"
                      i18n:attributes="placeholder osc_search_placeholder"
               />
               <button hidden
                       type="submit"
-                      i18n:translate=""
+                      i18n:translate="osc_search_placeholder"
               >Search</button>
             </label>
           </fieldset>
