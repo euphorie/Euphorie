@@ -19,9 +19,11 @@ from euphorie.client.model import SKIPPED_PARENTS
 from euphorie.client.model import SurveyTreeItem
 from euphorie.client.navigation import FindFirstQuestion
 from euphorie.client.navigation import getTreeData
+from euphorie.client.profile import BuildSurveyTree
 from euphorie.client.profile import extractProfile
-from euphorie.client.profile import set_session_profile
+from euphorie.client.session import ISurveySessionCreator
 from euphorie.client.survey import _StatusHelper
+from euphorie.client.update import treeChanges
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
 from plone import api
@@ -32,11 +34,13 @@ from plone.supermodel import model
 from Products.CMFPlone import PloneLocalesMessageFactory
 from Products.Five import BrowserView
 from sqlalchemy import sql
+from sqlalchemy.orm import object_session
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.form.form import EditForm
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
 from zope import schema
+from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.event import notify
 from zope.i18n import translate
@@ -231,10 +235,59 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
     def setupSession(self):
         """Setup the session for the context survey. This will rebuild the
         session tree if the profile has changed.
+
+        Set up the survey session using a given profile.
+
+        :param survey: the survey to use
+        :type survey: :py:class:`euphorie.content.survey.Survey`
+        :param survey_session: survey session to update
+        :type survey_session: :py:class:`euphorie.client.model.SurveySession`
+        :param dict profile: desired profile
+        :rtype: :py:class:`euphorie.client.model.SurveySession`
+        :return: the update session (this might be a new session)
+
+        This will rebuild the survey session tree if the profile has changed.
         """
         survey = self.context.aq_parent
-        new_profile = self.getDesiredProfile()
-        return set_session_profile(survey, self.session, new_profile, self.request)
+        survey_session = self.session
+        profile = self.getDesiredProfile()
+        if not survey_session.hasTree():
+            BuildSurveyTree(survey, profile, survey_session)
+            return survey_session
+
+        request = self.request
+        current_profile = extractProfile(survey, survey_session)
+        if current_profile == profile and not treeChanges(
+            survey_session, survey, profile
+        ):
+            # At this stage, we actually do not need to touch the session.
+            # It is enough that it gets touched when a Risk is edited, or if the
+            # tree gets rebuilt due to changes.
+            # survey_session.touch()
+            return survey_session
+
+        params = {
+            column.key: getattr(survey_session, column.key)
+            for column in survey_session.__table__.columns
+            if column.key
+            not in (
+                "id",
+                "brand",
+                "account_id",
+                "title",
+                "created",
+                "modified",
+                "zodb_path",
+            )
+        }
+        creator = getMultiAdapter((survey, request), ISurveySessionCreator)
+        new_session = creator.create(
+            survey_session.title, survey_session.account, **params
+        )
+        BuildSurveyTree(survey, profile, new_session, survey_session)
+        new_session.copySessionData(survey_session)
+        object_session(survey_session).delete(survey_session)
+        return new_session
 
     @property
     @memoize
@@ -415,6 +468,7 @@ class DeleteSession(SessionMixin, BrowserView):
 class ConfirmationDeleteSession(SessionMixin, BrowserView):
     """View name: @@confirmation-delete-session
     """
+
     no_splash = True
 
     @property
@@ -517,7 +571,6 @@ class CloneSession(SessionMixin, BrowserView):
 
 
 class PublicationMenu(SessionMixin, BrowserView):
-
     @property
     @memoize_contextless
     def portal(self):
@@ -879,9 +932,7 @@ class MeasuresOverview(Status):
         modulesdict = defaultdict(lambda: defaultdict(list))
         for module, risk, action in measures:
             if "custom-risks" not in risk.zodb_path:
-                risk_obj = self.context.restrictedTraverse(
-                    risk.zodb_path.split("/")
-                )
+                risk_obj = self.context.restrictedTraverse(risk.zodb_path.split("/"))
                 title = risk_obj and risk_obj.problem_description or risk.title
             else:
                 title = risk.title
@@ -898,9 +949,7 @@ class MeasuresOverview(Status):
 
         main_modules = {}
         for module, risks in sorted(modulesdict.items(), key=lambda m: m[0].zodb_path):
-            module_obj = self.context.restrictedTraverse(
-                module.zodb_path.split("/")
-            )
+            module_obj = self.context.restrictedTraverse(module.zodb_path.split("/"))
             if (
                 IProfileQuestion.providedBy(module_obj)
                 or ICustomRisksModule.providedBy(module_obj)

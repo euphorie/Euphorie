@@ -5,31 +5,17 @@ Profile
 Various classes and methods to enable the selection screen for profile
 questions.
 """
-
-from .. import MessageFactory as _
-from Acquisition import aq_inner
 from euphorie.client import model
-from euphorie.client.interfaces import IClientSkinLayer
-from euphorie.client.session import ISurveySessionCreator
-from euphorie.client.update import treeChanges
 from euphorie.client.utils import HasText
-from euphorie.client.utils import RelativePath
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.interfaces import IQuestionContainer
 from euphorie.content.module import IModule
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.risk import IFrenchRisk
 from euphorie.content.risk import IRisk
-from euphorie.content.survey import ISurvey
 from five import grok
-from plone import api
 from sqlalchemy import sql
-from sqlalchemy.orm import object_session
 from z3c.saconfig import Session
-from zope.component import getMultiAdapter
-from zope.i18n import translate
-
-import re
 
 
 grok.templatedir("templates")
@@ -238,51 +224,3 @@ def extractProfile(survey, survey_session):
             profile[question['id']] = [node.title for node in nodes]
 
     return profile
-
-
-def set_session_profile(survey, survey_session, profile, request):
-    """Set up the survey session using a given profile.
-
-    :param survey: the survey to use
-    :type survey: :py:class:`euphorie.content.survey.Survey`
-    :param survey_session: survey session to update
-    :type survey_session: :py:class:`euphorie.client.model.SurveySession`
-    :param dict profile: desired profile
-    :rtype: :py:class:`euphorie.client.model.SurveySession`
-    :return: the update session (this might be a new session)
-
-    This will rebuild the survey session tree if the profile has changed.
-    """
-    if not survey_session.hasTree():
-        BuildSurveyTree(survey, profile, survey_session)
-        return survey_session
-
-    current_profile = extractProfile(survey, survey_session)
-    if current_profile == profile and not treeChanges(survey_session, survey, profile):
-        # At this stage, we actually do not need to touch the session.
-        # It is enough that it gets touched when a Risk is edited, or if the
-        # tree gets rebuilt due to changes.
-        # survey_session.touch()
-        return survey_session
-
-    params = {
-        column.key: getattr(survey_session, column.key)
-        for column in survey_session.__table__.columns
-        if column.key not in (
-            'id',
-            'brand',
-            'account_id',
-            'title',
-            'created',
-            'modified',
-            'zodb_path',
-        )
-    }
-    creator = getMultiAdapter((survey, request), ISurveySessionCreator)
-    new_session = creator.create(
-        survey_session.title, survey_session.account, **params
-    )
-    BuildSurveyTree(survey, profile, new_session, survey_session)
-    new_session.copySessionData(survey_session)
-    object_session(survey_session).delete(survey_session)
-    return new_session
