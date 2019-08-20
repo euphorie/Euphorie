@@ -80,16 +80,8 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
-    def _my_context(self):
-        context = self.context
-        if IBrowserView.providedBy(context):
-            context = context.context
-        return context
-
-    @property
-    @memoize
     def sector(self):
-        for obj in aq_chain(aq_inner(self._my_context)):
+        for obj in aq_chain(aq_inner(self.context)):
             if IClientSector.providedBy(obj):
                 return obj
 
@@ -193,7 +185,7 @@ class WebHelpers(BrowserView):
     def came_from(self):
         came_from = self.request.form.get("came_from")
         if not came_from:
-            return aq_parent(self._my_context).absolute_url()
+            return aq_parent(self.context).absolute_url()
         if not isinstance(came_from, list):
             return came_from
         # If came_from is both in the querystring and the form data
@@ -202,14 +194,14 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def country_name(self):
-        for obj in aq_chain(aq_inner(self._my_context)):
+        for obj in aq_chain(aq_inner(self.context)):
             if IClientCountry.providedBy(obj):
                 return obj.Title()
 
     @property
     @memoize
     def sector_name(self):
-        for obj in aq_chain(aq_inner(self._my_context)):
+        for obj in aq_chain(aq_inner(self.context)):
             if IClientSector.providedBy(obj):
                 return obj.Title()
 
@@ -227,13 +219,13 @@ class WebHelpers(BrowserView):
         obj = self._survey
         if not obj:
             return ''
-        ploneview = self._my_context.restrictedTraverse('@@plone')
+        ploneview = self.context.restrictedTraverse('@@plone')
         return ploneview.cropText(StripMarkup(obj.introduction), 800)
 
     @property
     @memoize
     def language_code(self):
-        lt = getToolByName(self._my_context, 'portal_languages')
+        lt = getToolByName(self.context, 'portal_languages')
         lang = lt.getPreferredLanguage()
         return lang
 
@@ -256,7 +248,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def country(self):
-        for obj in aq_chain(aq_inner(self._my_context)):
+        for obj in aq_chain(aq_inner(self.context)):
             if IClientCountry.providedBy(obj):
                 return obj.id
         return None
@@ -308,7 +300,7 @@ class WebHelpers(BrowserView):
         if getattr(sector, 'logo', None) is not None:
             parts.append('alien')
 
-        lt = getToolByName(self._my_context, 'portal_languages')
+        lt = getToolByName(self.context, 'portal_languages')
         lang = lt.getPreferredLanguage()
         parts.append('language-%s' % lang)
 
@@ -358,7 +350,7 @@ class WebHelpers(BrowserView):
         """
         base_url = self.survey_url()
         if base_url is not None and \
-                aq_inner(self._my_context).absolute_url().startswith(base_url):
+                aq_inner(self.context).absolute_url().startswith(base_url):
             return base_url
         base_url = self.country_url
         if base_url is not None:
@@ -464,7 +456,7 @@ class WebHelpers(BrowserView):
         if sector is not None:
             return aq_parent(sector).absolute_url()
 
-        for parent in aq_chain(aq_inner(self._my_context)):
+        for parent in aq_chain(aq_inner(self.context)):
             if IClientCountry.providedBy(parent):
                 return parent.absolute_url()
 
@@ -534,7 +526,7 @@ class WebHelpers(BrowserView):
         """Return a list of items to be shown in the appendix."""
         documents = api.portal.get().documents
 
-        lt = getToolByName(self._my_context, 'portal_languages')
+        lt = getToolByName(self.context, 'portal_languages')
         lang = lt.getPreferredLanguage()
         if '-' in lang:
             languages = [lang, lang.split('-')[0]]
@@ -590,7 +582,7 @@ class WebHelpers(BrowserView):
         return messages
 
     def _getLanguages(self):
-        lt = getToolByName(self._my_context, "portal_languages")
+        lt = getToolByName(self.context, "portal_languages")
         lang = lt.getPreferredLanguage()
         if "-" in lang:
             return [lang, lang.split("-")[0], "en"]
@@ -624,7 +616,7 @@ class WebHelpers(BrowserView):
 
     def tool_notification(self):
         message = None
-        obj = self._my_context
+        obj = self.context
         if isinstance(obj, PathGhost):
             obj = self.context.aq_parent
         if ISurvey.providedBy(obj) and obj.hasNotification():
