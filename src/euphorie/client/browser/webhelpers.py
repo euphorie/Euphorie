@@ -215,15 +215,8 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
-    def _tool(self):
-        for obj in aq_chain(aq_inner(self._my_context)):
-            if ISurvey.providedBy(obj):
-                return obj
-
-    @property
-    @memoize
     def tool_name(self):
-        obj = self._tool
+        obj = self._survey
         if not obj:
             return ''
         return obj.Title()
@@ -231,7 +224,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def tool_description(self):
-        obj = self._tool
+        obj = self._survey
         if not obj:
             return ''
         ploneview = self._my_context.restrictedTraverse('@@plone')
@@ -495,7 +488,6 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def _survey(self):
-        # XXX is this different from the _tool?
         for parent in aq_chain(aq_inner(self.context)):
             if ISurvey.providedBy(parent):
                 return parent
@@ -513,7 +505,7 @@ class WebHelpers(BrowserView):
 
         url = survey.absolute_url()
         if phase is not None:
-            url += '/%s' % phase
+            url += '/@@%s' % phase
         return url
 
     @memoize
