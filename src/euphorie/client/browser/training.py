@@ -49,6 +49,6 @@ class TrainingView(BrowserView):
                     sql_item.training_notes = value
                     self.slide_data['slides'][index]['row'] = sql_item
                     risk_data['training_notes'] = value
-                self.session.touch()
+                self.webhelpers.traversed_session.session.touch()
 
         return self.index()
