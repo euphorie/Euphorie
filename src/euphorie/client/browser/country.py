@@ -79,6 +79,7 @@ class SessionsView(BrowserView):
     # switch from radio buttons to dropdown above this number of tools
     tools_threshold = 12
     variation_class = "variation-dashboard"
+    survey_session_model = SurveySession
 
     @property
     @memoize
@@ -335,7 +336,7 @@ class SessionsView(BrowserView):
 
     def _ContinueSurvey(self, info):
         """Utility method to continue an existing session."""
-        session = Session.query(model.SurveySession).get(info["session"])
+        session = Session.query(self.survey_session_model).get(info["session"])
         survey = self.request.client.restrictedTraverse(
             six.binary_type(session.zodb_path)
         )
@@ -483,19 +484,21 @@ class SessionBrowserNavigator(SessionsView):
         packages.
         Here we just return a Query with 0 items.
         """
-        base_query = Session.query(SurveySession)
+        base_query = Session.query(self.survey_session_model)
         return base_query.filter(False)
 
     def leaf_sessions(self):
         """ The sessions we want to display in the navigation
         """
-        base_query = Session.query(SurveySession).order_by(SurveySession.title)
+        base_query = Session.query(self.survey_session_model).order_by(
+            self.survey_session_model.title
+        )
         if self.searchable_text:
             base_query = base_query.filter(
-                SurveySession.title.ilike(self.searchable_text)
+                self.survey_session_model.title.ilike(self.searchable_text)
             )
         account = get_current_account()
-        return base_query.filter(SurveySession.account_id == account.id)
+        return base_query.filter(self.survey_session_model.account_id == account.id)
 
     def has_content(self):
         """ Checks if we have something meaningfull to display

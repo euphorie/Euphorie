@@ -13,7 +13,6 @@ class SurveySessionsView(SessionsView):
     """
 
     variation_class = ""
-    survey_session_model = SurveySession
 
     @memoize
     def get_sessions(self):
