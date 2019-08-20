@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.0.3 (unreleased)
+11.0.3 (2019-08-20)
 -------------------
 
 - Use autosuggest for many-tools
