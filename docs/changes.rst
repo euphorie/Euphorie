@@ -8,6 +8,8 @@ Changelog
 - New markup structure for the dashboard
 - When a module is optional, don't use a floating nav-bar, so that the filter
   questsion cannot be missed.
+- Sidebar: sessions are not grouped by tool any more
+- Technical: the JavaScript bundle with Patternslib now uses jquery3
 
 11.0.2 (2019-07-16)
 -------------------
