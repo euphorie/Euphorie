@@ -183,11 +183,12 @@ class SessionsView(BrowserView):
         account = self.account
         if not account:
             return []
-        sessions = self.account.sessions
 
         scope = self.request.get("scope")
         if scope == "all":
-            sessions += self.account.acquired_sessions
+            sessions = self.account.sessions + self.account.acquired_sessions
+        else:
+            sessions = self.account.sessions
 
         return self.filter_valid_sessions(sessions)
 
