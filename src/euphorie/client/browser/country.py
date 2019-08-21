@@ -180,14 +180,14 @@ class SessionsView(BrowserView):
     def get_sessions(self):
         """ Given some sessions create a tree
         """
-        scope = self.request.get("scope")
         account = self.account
         if not account:
-            sessions = []
-        elif scope == "all":
-            sessions = self.account.sessions + self.account.acquired_sessions
-        else:
-            sessions = self.account.sessions
+            return []
+        sessions = self.account.sessions
+
+        scope = self.request.get("scope")
+        if scope == "all":
+            sessions += self.account.acquired_sessions
 
         return self.filter_valid_sessions(sessions)
 
