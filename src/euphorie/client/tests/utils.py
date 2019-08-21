@@ -24,19 +24,6 @@ def addAccount(login="jane@example.com", password=u"Øle"):
     return account
 
 
-def createSurvey():
-    session = Session()
-    account = model.Account(loginname=u"jane", password=u"secret")
-    session.add(account)
-    survey = model.SurveySession(
-        title=u"Session",
-        zodb_path="survey",
-        account=account,
-    )
-    session.add(survey)
-    return (session, survey)
-
-
 def addSurvey(portal, xml_survey):
     """Add a survey to the portal. This function requires that you are already
     loggin in as portal owner."""

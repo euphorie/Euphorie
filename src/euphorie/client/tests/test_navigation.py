@@ -2,10 +2,22 @@
 from euphorie.client import model
 from euphorie.client import navigation
 from euphorie.client.browser.risk import ActionPlanView
-from euphorie.client.tests.utils import createSurvey
 from euphorie.testing import EuphorieIntegrationTestCase
 
 import unittest
+
+
+def createSurvey():
+    session = model.Session()
+    account = model.Account(loginname=u"jane", password=u"secret")
+    session.add(account)
+    survey = model.SurveySession(
+        title=u"Session",
+        zodb_path="survey",
+        account=account,
+    )
+    session.add(survey)
+    return (session, survey)
 
 
 class MockRequest:
