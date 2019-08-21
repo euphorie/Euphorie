@@ -63,6 +63,12 @@ class IdentificationView(BrowserView):
     # default value is False, can be overwritten by certain conditions
     skip_evaluation = False
 
+    # default value is True, can be overwritten by certain conditions
+    show_explanation_on_always_present_risks = True
+
+    # default value for "always present" risks is "no", can be overwritten by certain conditions
+    always_present_answer = "no"
+
     monitored_properties = {
         "identification": None,
         "postponed": None,

@@ -4,8 +4,8 @@ Changelog
 11.0.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Made the behavior for "always present" risks more flexible / easier
+  to customise in the client
 
 11.0.3 (2019-08-20)
 -------------------
