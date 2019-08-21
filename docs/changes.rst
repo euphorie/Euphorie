@@ -1,13 +1,21 @@
 Changelog
 =========
 
-11.0.3 (unreleased)
+11.0.4 (unreleased)
+-------------------
+
+- Nothing changed yet.
+
+
+11.0.3 (2019-08-20)
 -------------------
 
 - Use autosuggest for many-tools
 - New markup structure for the dashboard
 - When a module is optional, don't use a floating nav-bar, so that the filter
   questsion cannot be missed.
+- Sidebar: sessions are not grouped by tool any more
+- Technical: the JavaScript bundle with Patternslib now uses jquery3
 
 11.0.2 (2019-07-16)
 -------------------

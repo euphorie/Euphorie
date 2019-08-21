@@ -201,7 +201,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:137
 msgid "Additional Measure"
-msgstr ""
+msgstr "Mesure additionnelle"
 
 #: euphorie/client/browser/reset_password.py:163
 msgid ""
@@ -3604,7 +3604,7 @@ msgstr "Date de commencement prévue"
 #. Default: "Add another measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:289
 msgid "label_add_measure"
-msgstr ""
+msgstr "Ajouter une autre mesure"
 
 #. Default: "Add another risk"
 #: euphorie/client/browser/templates/module_customization.pt:61
