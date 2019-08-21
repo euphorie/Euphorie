@@ -74,6 +74,17 @@ class IdentificationView(BrowserView, Mixin):
 
     @property
     @memoize
+    def previous_question(self):
+        """ Try to understand what the previous question will be
+        """
+        return FindPreviousQuestion(
+            self.context,
+            dbsession=self.context.aq_parent.session,
+            filter=self.question_filter,
+        )
+
+    @property
+    @memoize
     def next_question_url(self):
         """ Return the URL to the next question
         """
@@ -82,6 +93,19 @@ class IdentificationView(BrowserView, Mixin):
         return "{parent_url}/{next_question_path}/@@{view}".format(
             parent_url=self.traversed_session.absolute_url(),
             next_question_path="/".join(self.next_question.short_path),
+            view=self.__name__,
+        )
+
+    @property
+    @memoize
+    def previous_question_url(self):
+        """ Return the URL to the previous question
+        """
+        if not self.previous_question:
+            return ""
+        return "{parent_url}/{next_question_path}/@@{view}".format(
+            parent_url=self.traversed_session.absolute_url(),
+            next_question_path="/".join(self.previous_question.short_path),
             view=self.__name__,
         )
 
@@ -149,11 +173,13 @@ class IdentificationView(BrowserView, Mixin):
             self.aq_parent.session.touch()
 
         if reply.get("next") == "previous":
-            if self.next_question is None:
+            if self.previous_question is None:
                 # We ran out of questions, step back to intro page
                 url = "%s/@@identification" % self.context.aq_parent.absolute_url()
                 self.request.response.redirect(url)
                 return
+            self.request.response.redirect(self.previous_question_url)
+            return
         else:
             if ICustomRisksModule.providedBy(module):
                 if reply["next"] == "add_custom_risk":
