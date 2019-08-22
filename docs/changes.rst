@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.0.4 (unreleased)
+11.0.4 (2019-08-22)
 -------------------
 
 - Made the behavior for "always present" risks more flexible / easier
