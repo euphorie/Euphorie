@@ -21,6 +21,7 @@
     <include package=".browser" />
     <include package=".subscribers" />
     <include package=".docx" />
+    <include package=".widgets" />
 
     <grok:grok package=".appendix" />
     <grok:grok package=".client" />

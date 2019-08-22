@@ -1,0 +1,9 @@
+<input class="${python: ' error' if view.error else None} pat-date-picker"
+       name="${view/name}"
+       type="date"
+       value="${view/request/?name|view/context/session/?fieldname|nothing}"
+       data-pat-date-picker="behavior: polyfill; week-numbers: show; i18n: ${view/context/portal_url}/@@date-picker-i18n.json"
+       tal:define="
+         fieldname view/field/__name__;
+       "
+/>

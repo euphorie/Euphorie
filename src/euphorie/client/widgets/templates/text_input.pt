@@ -1,0 +1,9 @@
+<input class="${python: ' error' if view.error else None}"
+       autofocus="${python:'autofocus' if fieldname == 'title' else None}"
+       name="${view/name}"
+       type="text"
+       value="${view/request/?name|view/context/session/?fieldname|nothing}"
+       tal:define="
+         fieldname view/field/__name__;
+       "
+/>
