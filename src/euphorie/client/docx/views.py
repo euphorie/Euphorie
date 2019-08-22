@@ -13,7 +13,6 @@ from euphorie.content import MessageFactory as _
 from euphorie.content.survey import get_tool_type
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
-from sqlalchemy import and_
 from sqlalchemy import sql
 from StringIO import StringIO
 from urllib import quote
@@ -74,10 +73,7 @@ class OfficeDocumentView(BrowserView):
         ''' Returns the modules for this session
         '''
         sql_modules = Session.query(model.Module).filter(
-            and_(
-                model.SurveyTreeItem.session == self.session,
-                # model.Module.zodb_path != u'custom-risks',
-            )
+            model.SurveyTreeItem.session == self.session
         ).order_by(
             model.SurveyTreeItem.path
         )

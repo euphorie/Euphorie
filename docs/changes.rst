@@ -4,8 +4,7 @@ Changelog
 11.0.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Fix standard report: use custom description on Omega risks
 
 11.0.4 (2019-08-22)
 -------------------
