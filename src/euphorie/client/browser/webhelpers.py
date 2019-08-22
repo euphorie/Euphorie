@@ -751,12 +751,18 @@ class WebHelpers(BrowserView):
                data-pat-date-picker="...; i18n: ${portal_url}/@@date-picker-i18n.json; ..."
                />
         """
+        # For these translations, use the base language in case we get a
+        # country-specific language code. We know for example that there
+        # are no plonelocales available for nl_BE, so we play it safe.
+        lang = getattr(self.request, 'LANGUAGE', 'en')
+        if "-" in lang:
+            lang = lang.split("-")[0]
         json = dumps(
             {
                 "previousMonth": self.translate(pae_message("prev_month_link")),
                 "nextMonth": self.translate(pae_message("next_month_link")),
                 "months": [
-                    self.translate(pl_message(month))
+                    self.translate(pl_message(month), target_language=lang)
                     for month in [
                         "month_jan",
                         "month_feb",
@@ -773,7 +779,7 @@ class WebHelpers(BrowserView):
                     ]
                 ],
                 "weekdays": [
-                    self.translate(pl_message(weekday))
+                    self.translate(pl_message(weekday), target_language=lang)
                     for weekday in [
                         "weekday_sun",
                         "weekday_mon",
@@ -785,7 +791,7 @@ class WebHelpers(BrowserView):
                     ]
                 ],
                 "weekdaysShort": [
-                    self.translate(pl_message(weekday_abbr))
+                    self.translate(pl_message(weekday_abbr), target_language=lang)
                     for weekday_abbr in [
                         "weekday_sun_abbr",
                         "weekday_mon_abbr",
