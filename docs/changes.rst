@@ -6,6 +6,8 @@ Changelog
 
 - Made the behavior for "always present" risks more flexible / easier
   to customise in the client
+- Increased version number check in upgradedb, so that custom_description
+  will get addedd properly
 
 11.0.3 (2019-08-20)
 -------------------
