@@ -67,8 +67,10 @@ def AddToTree(
         child.has_description = HasText(node.description)
         if IModule.providedBy(node):
             child.solution_direction = HasText(node.solution_direction)
+            # All optional modules default to "skip". The user needs to
+            # actively decide that the module is relevant for them.
             if node.optional:
-                child.skip_children = False
+                child.skip_children = True
                 child.has_description = True
             else:
                 child.postponed = False

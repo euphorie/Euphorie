@@ -5,6 +5,8 @@ Changelog
 -------------------
 
 - Fix standard report: use custom description on Omega risks
+- All optional modules default to "skip". The user needs to actively decide that
+  the module is relevant for them.
 
 11.0.4 (2019-08-22)
 -------------------
