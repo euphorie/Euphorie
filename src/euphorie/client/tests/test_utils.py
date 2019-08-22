@@ -147,6 +147,11 @@ class WebhelperTests(EuphorieIntegrationTestCase):
         )
         self.assertEqual(view.is_iphone, True)
 
+    def test_date_picker_i18n_json(self):
+        with self._get_view("date-picker-i18n.json", self.portal) as view:
+            view.request.LANGUAGE = "it"
+            self.assertIn("settembre", view.date_picker_i18n_json())
+
 
 class HasTextTests(unittest.TestCase):
 

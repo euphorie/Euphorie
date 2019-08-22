@@ -20,6 +20,8 @@ from euphorie.content.survey import ISurvey
 from euphorie.content.utils import StripMarkup
 from euphorie.decorators import reify
 from euphorie.ghost import PathGhost
+from functools import partial
+from json import dumps
 from logging import getLogger
 from os import path
 from plone import api
@@ -38,10 +40,13 @@ from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.component.hooks import getSite
 from zope.i18n import translate
+from zope.i18nmessageid import MessageFactory
 
 import Globals
 
 
+pl_message = MessageFactory("plonelocales")
+pae_message = MessageFactory("plone.app.event")
 logger = getLogger(__name__)
 
 
@@ -641,15 +646,19 @@ class WebHelpers(BrowserView):
             lang = "{0}_{1}".format(elems[0], elems[1].upper())
         return lang
 
+    @property
+    @memoize_contextless
+    def translate(self):
+        """ Simplify translations
+        """
+        target_language = self.translang()
+        return partial(translate, target_language=target_language)
+
     def closetext(self):
-        return translate(
-            _(u"button_close", default=u"Close"),
-            target_language=self.translang())
+        return self.translate(_(u"button_close", default=u"Close"))
 
     def email_sharing_text(self):
-        return translate(
-            _(u"I wish to share the following with you"),
-            target_language=self.translang())
+        return self.translate(_(u"I wish to share the following with you"))
 
     def getSecret(self):
         return getSecret()
@@ -730,6 +739,66 @@ class WebHelpers(BrowserView):
         """ In plain Euphorie, the logo is always shown
         """
         return True
+
+    @memoize_contextless
+    def date_picker_i18n_json(self):
+        """ Taken from:
+        https://github.com/ploneintranet/ploneintranet/blob/master/src/ploneintranet/layout/browser/date_picker.py  # noqa: E501
+
+        Use this like:
+        <input class="pat-date-picker"
+               ...
+               data-pat-date-picker="...; i18n: ${portal_url}/@@date-picker-i18n.json; ..."
+               />
+        """
+        json = dumps(
+            {
+                "previousMonth": self.translate(pae_message("prev_month_link")),
+                "nextMonth": self.translate(pae_message("next_month_link")),
+                "months": [
+                    self.translate(pl_message(month))
+                    for month in [
+                        "month_jan",
+                        "month_feb",
+                        "month_mar",
+                        "month_apr",
+                        "month_may",
+                        "month_jun",
+                        "month_jul",
+                        "month_aug",
+                        "month_sep",
+                        "month_oct",
+                        "month_nov",
+                        "month_dec",
+                    ]
+                ],
+                "weekdays": [
+                    self.translate(pl_message(weekday))
+                    for weekday in [
+                        "weekday_sun",
+                        "weekday_mon",
+                        "weekday_tue",
+                        "weekday_wed",
+                        "weekday_thu",
+                        "weekday_fri",
+                        "weekday_sat",
+                    ]
+                ],
+                "weekdaysShort": [
+                    self.translate(pl_message(weekday_abbr))
+                    for weekday_abbr in [
+                        "weekday_sun_abbr",
+                        "weekday_mon_abbr",
+                        "weekday_tue_abbr",
+                        "weekday_wed_abbr",
+                        "weekday_thu_abbr",
+                        "weekday_fri_abbr",
+                        "weekday_sat_abbr",
+                    ]
+                ],
+            }
+        )
+        return json
 
     def __call__(self):
         return self
