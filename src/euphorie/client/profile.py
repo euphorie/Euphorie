@@ -27,7 +27,6 @@ from plone import api
 from sqlalchemy import sql
 from sqlalchemy.orm import object_session
 from z3c.saconfig import Session
-from zope.i18n import translate
 
 import re
 
@@ -405,16 +404,11 @@ class Profile(grok.View):
         ).session
 
     def update(self):
-        lang = getattr(self.request, 'LANGUAGE', 'en')
-        if "-" in lang:
-            elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        self.message_required = translate(
+        self.message_required = api.portal.translate(
             _(
                 u"message_field_required",
                 default=u"Please fill out this field."
-            ),
-            target_language=lang
+            )
         )
         survey = aq_inner(self.context)
         self.profile_questions = self.ProfileQuestions()

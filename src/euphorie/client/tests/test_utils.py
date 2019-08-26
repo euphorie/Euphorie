@@ -12,6 +12,7 @@ from PIL.ImageColor import getrgb
 from zope.annotation import IAnnotations
 from zope.annotation.attribute import AttributeAnnotations
 from zope.component import getGlobalSiteManager
+from zope.globalrequest import getRequest
 
 import colorsys
 import mock
@@ -147,10 +148,19 @@ class WebhelperTests(EuphorieIntegrationTestCase):
         )
         self.assertEqual(view.is_iphone, True)
 
-    def test_date_picker_i18n_json(self):
+    def test_date_picker_i18n_json_it(self):
         with self._get_view("date-picker-i18n.json", self.portal) as view:
-            view.request.LANGUAGE = "it"
+            request = getRequest()
+            request.set("LANGUAGE", "it")
+            request['LANGUAGE_TOOL'].LANGUAGE = "it"
             self.assertIn("settembre", view.date_picker_i18n_json())
+
+    def test_date_picker_i18n_json_nl_be(self):
+        with self._get_view("date-picker-i18n.json", self.portal) as view:
+            request = getRequest()
+            request.set("LANGUAGE", "nl-be")
+            request['LANGUAGE_TOOL'].LANGUAGE = "nl-be"
+            self.assertIn("maandag", view.date_picker_i18n_json())
 
 
 class HasTextTests(unittest.TestCase):

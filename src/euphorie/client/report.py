@@ -30,6 +30,7 @@ from five import grok
 from lxml import etree
 from openpyxl.workbook import Workbook
 from openpyxl.writer.excel import save_virtual_workbook
+from plone import api
 from plonetheme.nuplone.utils import formatDate
 from rtfng.document.base import RawCode
 from rtfng.document.character import TEXT
@@ -1168,9 +1169,6 @@ class MeasuresOverview(survey.Status):
 
     def update(self):
         self.session = SessionManager.session
-        lang = getattr(self.request, 'LANGUAGE', 'en')
-        if "-" in lang:
-            lang = lang.split("-")[0]
         now = datetime.now()
         next_month = datetime(now.year, (now.month + 1) % 12 or 12, 1)
         month_after_next = datetime(now.year, (now.month + 2) % 12 or 12, 1)
@@ -1179,12 +1177,11 @@ class MeasuresOverview(survey.Status):
         self.months.append(next_month.strftime('%b'))
         self.months.append(month_after_next.strftime('%b'))
         self.monthstrings = [
-            translate(
+            api.portal.translate(
                 PloneLocalesFactory(
                     "month_{0}_abbr".format(month.lower()),
                     default=month,
-                ),
-                target_language=lang,
+                )
             )
             for month in self.months
         ]

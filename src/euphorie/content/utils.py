@@ -3,13 +3,13 @@ from .. import MessageFactory as _
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from collections import OrderedDict
+from plone import api
 from plonetheme.nuplone import MessageFactory as NuPloneMessageFactory
 from plonetheme.nuplone.utils import checkPermission
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from StringIO import StringIO
 from zope.component import queryUtility
-from zope.i18n import translate
 from zope.i18nmessageid.message import Message
 from zope.interface import implementer
 from zope.interface import Interface
@@ -17,8 +17,10 @@ from zope.schema.interfaces import ITitledTokenizedTerm
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
+
 import csv
 import re
+
 
 csv.register_dialect(
     'bilbomatica', delimiter=',', doublequote=False,
@@ -217,7 +219,7 @@ def getRegionTitle(request, id, default=None):
         title = getter(id.upper())
         if title is not None:
             if isinstance(title, Message):
-                title = translate(title, context=request)
+                title = api.portal.translate(title)
             return title
     return default if default is not None else id
 
@@ -252,17 +254,10 @@ def summarizeCountries(
 class DragDropHelper(object):
 
     def sortable_explanation(self):
-        lang = getattr(self.request, 'LANGUAGE', 'en')
-        # Special handling for Flemish, for which LANGUAGE is "nl-be". For
-        # translating the date under plone locales, we reduce to generic "nl".
-        # For the specific oira translation, we rewrite to "nl_BE"
-        if "-" in lang:
-            elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        return translate(NuPloneMessageFactory(
+        return api.portal.translate(NuPloneMessageFactory(
             u"Change order of items by dragging the handle",
             default=u"Change order of items by dragging the handle"),
-            target_language=lang)
+        )
 
 
 class UserExport(BrowserView):

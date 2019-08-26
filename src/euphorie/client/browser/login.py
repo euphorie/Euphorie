@@ -31,7 +31,6 @@ from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from z3c.saconfig import Session
 from zope import component
-from zope.i18n import translate
 
 import cgi
 import datetime
@@ -302,14 +301,9 @@ class Register(BrowserView):
     @property
     @memoize
     def email_message(self):
-        lang = getattr(self.request, 'LANGUAGE', 'en')
-        if "-" in lang:
-            elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        return translate(_(
+        return api.portal.translate(_(
             u"invalid_email",
             default=u"Please enter a valid email address."),
-            target_language=lang,
         )
 
     def __call__(self):
