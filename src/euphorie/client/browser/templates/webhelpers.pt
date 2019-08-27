@@ -391,11 +391,11 @@
 
       <!-- Yes / No -->
       <fieldset class="pat-checklist radio">
-        <tal:existing condition="view/show_existing_measures">
+        <tal:existing condition="python:view.show_existing_measures and (not always_present or view.show_explanation_on_always_present_risks)">
           <p tal:condition="view/intro_questions" tal:content="structure view/intro_questions"></p>
         </tal:existing>
         <p class="byline"
-           tal:condition="always_present"
+           tal:condition="python:always_present and view.show_explanation_on_always_present_risks"
            i18n:translate="explanation_risk_always_present"
         >This risk was automatically set as being present. You cannot change this.</p>
         <tal:answers condition="not:always_present">
@@ -423,7 +423,7 @@
         </tal:answers>
         <tal:always_present condition="always_present"><input name="answer"
                  type="hidden"
-                 value="no"
+                 value="${view/always_present_answer}"
           /></tal:always_present>
       </fieldset>
     </fieldset>

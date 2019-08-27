@@ -3449,7 +3449,7 @@ msgstr "Framkvæmdir/úrbætur hefjast"
 #. Default: "Add another measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:289
 msgid "label_add_measure"
-msgstr ""
+msgstr "Bættu við annarri ráðstöfun"
 
 #. Default: "Add another risk"
 #: euphorie/client/browser/templates/module_customization.pt:61

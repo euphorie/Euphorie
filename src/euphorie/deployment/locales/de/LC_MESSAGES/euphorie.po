@@ -1983,6 +1983,9 @@ msgstr ""
 #: euphorie/content/risk.py:159
 msgid "description_risk_always_present"
 msgstr ""
+"Wenn diese Option aktiviert ist, wird dem Nutzer keine Frage zur Beantwortung "
+"gezeigt. Die Gefährdung samt Beschreibung und ggf. bestehende Schutzmaßnahmen "
+"werden wie üblich angezeigt."
 
 #. Default: "Select one or more categories to which this OiRA tool is relevant. The user will then find this tool under the chosen categories."
 #: euphorie/content/behaviors/toolcategory.py:15
@@ -3599,7 +3602,7 @@ msgstr "Beginn der Planung"
 #. Default: "Add another measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:296
 msgid "label_add_measure"
-msgstr "Weiter Schutzmaßnahme hinzufügen"
+msgstr "Weitere Schutzmaßnahme hinzufügen"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:28
@@ -4163,7 +4166,7 @@ msgstr ""
 #. Default: "Risk is always present"
 #: euphorie/content/risk.py:158
 msgid "label_risk_always_present"
-msgstr ""
+msgstr "Gefährdung ist “Nur zur Info”"
 
 #. Default: "Risk number"
 #: euphorie/client/report.py:142

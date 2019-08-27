@@ -3496,7 +3496,7 @@ msgstr "Planirani početak"
 #. Default: "Add another measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:289
 msgid "label_add_measure"
-msgstr ""
+msgstr "Dodaj drugu mjeru"
 
 #. Default: "Add another risk"
 #: euphorie/client/browser/templates/module_customization.pt:61

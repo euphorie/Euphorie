@@ -14,14 +14,12 @@ from euphorie.client import model
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.content.utils import StripMarkup
 from five import grok
-from json import dumps
 from PIL.ImageColor import getrgb
 from plone import api
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from Products.CMFCore.utils import getToolByName
 from sqlalchemy import sql
 from z3c.saconfig import Session
-from zope.i18n import translate
 from zope.i18nmessageid import MessageFactory
 from zope.interface import Interface
 
@@ -77,14 +75,9 @@ def jsonify(func, *args, **kwargs):
 
 
 def get_translated_custom_risks_title(request):
-    lang = getattr(request, 'LANGUAGE', 'en')
-    if "-" in lang:
-        elems = lang.split("-")
-        lang = "{0}_{1}".format(elems[0], elems[1].upper())
-    title = translate(_(
-        'title_other_risks', default=u'Added risks (by you)'),
-        target_language=lang)
-    return title
+    return api.portal.translate(_(
+        'title_other_risks', default=u'Added risks (by you)')
+    )
 
 
 def HasText(html):
@@ -188,67 +181,6 @@ def IsBright(colour):
     (r, g, b) = getrgb(colour)
     (h, l, s) = colorsys.rgb_to_hls(r / 255.0, g / 255.0, b / 255.0)
     return l > 0.50
-
-
-class I18nJSONView(grok.View):
-    """ Provide the translated month and weekday names for pat-datepicker
-    """
-    grok.context(Interface)
-    grok.layer(IClientSkinLayer)
-    grok.name('date-picker-i18n.json')
-
-    def render(self):
-        lang = getattr(self.request, 'LANGUAGE', 'en')
-        if "-" in lang:
-            lang = lang.split("-")[0]
-        json = dumps({
-            "months": [
-                translate(
-                    pl_message(month),
-                    target_language=lang) for month in [
-                        "month_jan",
-                        "month_feb",
-                        "month_mar",
-                        "month_apr",
-                        "month_may",
-                        "month_jun",
-                        "month_jul",
-                        "month_aug",
-                        "month_sep",
-                        "month_oct",
-                        "month_nov",
-                        "month_dec",
-                ]
-            ],
-            "weekdays": [
-                translate(
-                    pl_message(weekday),
-                    target_language=lang) for weekday in [
-                        "weekday_sun",
-                        "weekday_mon",
-                        "weekday_tue",
-                        "weekday_wed",
-                        "weekday_thu",
-                        "weekday_fri",
-                        "weekday_sat",
-                ]
-            ],
-            "weekdaysShort": [
-                translate(
-                    pl_message(weekday_abbr),
-                    target_language=lang) for weekday_abbr in [
-                        "weekday_sun_abbr",
-                        "weekday_mon_abbr",
-                        "weekday_tue_abbr",
-                        "weekday_wed_abbr",
-                        "weekday_thu_abbr",
-                        "weekday_fri_abbr",
-                        "weekday_sat_abbr",
-                ]
-            ],
-        })
-
-        return json
 
 
 class DefaultIntroduction(grok.View):

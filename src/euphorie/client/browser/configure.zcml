@@ -13,6 +13,14 @@
       />
 
   <browser:page
+      name="date-picker-i18n.json"
+      for="*"
+      permission="zope.Public"
+      class="euphorie.client.browser.webhelpers.WebHelpers"
+      attribute="date_picker_i18n_json"
+      />
+
+  <browser:page
       name="appendix"
       for="*"
       permission="zope.Public"

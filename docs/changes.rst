@@ -1,11 +1,20 @@
 Changelog
 =========
 
-11.0.4 (unreleased)
+11.0.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix standard report: use custom description on Omega risks
+- All optional modules default to "skip". The user needs to actively decide that
+  the module is relevant for them.
 
+11.0.4 (2019-08-22)
+-------------------
+
+- Made the behavior for "always present" risks more flexible / easier
+  to customise in the client
+- Increased version number check in upgradedb, so that custom_description
+  will get addedd properly
 
 11.0.3 (2019-08-20)
 -------------------

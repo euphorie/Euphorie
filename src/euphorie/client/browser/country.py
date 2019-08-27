@@ -21,7 +21,6 @@ from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
-from zope.i18n import translate
 
 import six
 
@@ -351,10 +350,8 @@ class SessionsView(BrowserView):
         )
 
     def tool_byline(self):
-        lang = getattr(self.request, "LANGUAGE", "en")
-        title = translate(
+        title = api.portal.translate(
             _("title_tool", default=u"OiRA - Online interactive Risk Assessment"),
-            target_language=lang,
         )
         return title.split("-")[-1].strip()
 

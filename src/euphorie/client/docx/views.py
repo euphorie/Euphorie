@@ -14,7 +14,6 @@ from json import loads
 from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
-from sqlalchemy import and_
 from sqlalchemy import sql
 from StringIO import StringIO
 from urllib import quote
@@ -70,10 +69,7 @@ class OfficeDocumentView(BrowserView):
         ''' Returns the modules for this session
         '''
         sql_modules = Session.query(model.Module).filter(
-            and_(
-                model.SurveyTreeItem.session == self.context.session,
-                # model.Module.zodb_path != u'custom-risks',
-            )
+            model.SurveyTreeItem.session == self.context.session,
         ).order_by(
             model.SurveyTreeItem.path
         )
