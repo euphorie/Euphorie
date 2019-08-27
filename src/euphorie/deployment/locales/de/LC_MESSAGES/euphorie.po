@@ -3615,7 +3615,7 @@ msgstr "Beginn der Planung"
 #. Default: "Add another measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:296
 msgid "label_add_measure"
-msgstr "Weiter Schutzmaßnahme hinzufügen"
+msgstr "Weitere Schutzmaßnahme hinzufügen"
 
 #. Default: "Add another risk"
 #: euphorie/client/browser/templates/module_customization.pt:61
