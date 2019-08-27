@@ -83,12 +83,10 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
                 measure_data.append((module, risk, action_plan))
 
         # sort by 1. planning start, 2. path
-        # Since we want to sort by date, and we can have None values (that
-        # should be sorted to the end), we need our own compare function
         by_path_measure_data = sorted(measure_data, key=lambda x: x[1].path)
         return sorted(
             by_path_measure_data,
-            key=lambda x: getattr(x[2], "planning_start", date.min),
+            key=lambda x: getattr(x[2], "planning_start", date.min) or date.min,
         )
 
     priority_names = {
