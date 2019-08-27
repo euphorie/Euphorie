@@ -14,14 +14,12 @@ from euphorie.client import model
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.content.utils import StripMarkup
 from five import grok
-from json import dumps
 from PIL.ImageColor import getrgb
 from plone import api
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from Products.CMFCore.utils import getToolByName
 from sqlalchemy import sql
 from z3c.saconfig import Session
-from zope.i18n import translate
 from zope.i18nmessageid import MessageFactory
 from zope.interface import Interface
 
@@ -77,14 +75,9 @@ def jsonify(func, *args, **kwargs):
 
 
 def get_translated_custom_risks_title(request):
-    lang = getattr(request, 'LANGUAGE', 'en')
-    if "-" in lang:
-        elems = lang.split("-")
-        lang = "{0}_{1}".format(elems[0], elems[1].upper())
-    title = translate(_(
-        'title_other_risks', default=u'Added risks (by you)'),
-        target_language=lang)
-    return title
+    return api.portal.translate(_(
+        'title_other_risks', default=u'Added risks (by you)')
+    )
 
 
 def HasText(html):

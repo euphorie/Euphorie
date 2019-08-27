@@ -49,7 +49,6 @@ from z3c.appconfig.interfaces import IAppConfig
 from z3c.saconfig import Session
 from zope.component import adapts
 from zope.component import getUtility
-from zope.i18n import translate
 from zope.i18nmessageid import MessageFactory
 from zope.interface import directlyProvidedBy
 from zope.interface import directlyProvides
@@ -134,15 +133,8 @@ class Identification(grok.View):
         have_extra = settings.get('extra_text_identification', False)
         if not have_extra:
             return None
-        lang = getattr(self.request, 'LANGUAGE', 'en')
-        # Special handling for Flemish, for which LANGUAGE is "nl-be". For
-        # translating the date under plone locales, we reduce to generic "nl".
-        # For the specific oira translation, we rewrite to "nl_BE"
-        if "-" in lang:
-            elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        return translate(
-            _(u"extra_text_identification", default=u""), target_language=lang
+        return api.portal.translate(
+            _(u"extra_text_identification", default=u"")
         )
 
 
@@ -542,29 +534,20 @@ class Status(grok.View, _StatusHelper):
 
         self.risks_by_status = defaultdict(default_risks_by_status)
         now = datetime.now()
-        lang = date_lang = getattr(self.request, 'LANGUAGE', 'en')
-        # Special handling for Flemish, for which LANGUAGE is "nl-be". For
-        # translating the date under plone locales, we reduce to generic "nl".
-        # For the specific oira translation, we rewrite to "nl_BE"
-        if "-" in lang:
-            date_lang = lang.split("-")[0]
-            elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
         self.date = u"{0} {1} {2}".format(
             now.strftime('%d'),
-            translate(
+            api.portal.translate(
                 PloneLocalesFactory(
                     "month_{0}".format(now.strftime('%b').lower()),
                     default=now.strftime('%B'),
-                ),
-                target_language=date_lang,
+                )
             ), now.strftime('%Y')
         )
-        self.label_page = translate(
-            _(u"label_page", default=u"Page"), target_language=lang
+        self.label_page = api.portal.translate(
+            _(u"label_page", default=u"Page")
         )
-        self.label_page_of = translate(
-            _(u"label_page_of", default=u"of"), target_language=lang
+        self.label_page_of = api.portal.translate(
+            _(u"label_page_of", default=u"of")
         )
         self.session = SessionManager.session
         if (

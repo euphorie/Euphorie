@@ -29,6 +29,7 @@ from euphorie.content.utils import IToolTypesInfo
 from htmllaundry import StripMarkup
 from json import dumps
 from json import loads
+from plone import api
 from plone.memoize.instance import memoize
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
@@ -40,8 +41,9 @@ from z3c.appconfig.utils import asBool
 from z3c.saconfig import Session
 from zope.component import getMultiAdapter
 from zope.component import getUtility
-from zope.i18n import translate
+
 import datetime
+
 
 IMAGE_CLASS = {
     0: '',
@@ -678,31 +680,27 @@ class ActionPlanView(BrowserView):
         self.has_images = number_images > 0
         self.image_class = IMAGE_CLASS[number_images]
         self.risk_number = self.context.number
-        lang = getattr(self.request, 'LANGUAGE', 'en')
-        if "-" in lang:
-            elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        self.delete_confirmation = translate(_(
+        self.delete_confirmation = api.portal.translate(_(
             u"Are you sure you want to delete this measure? This action can "
             u"not be reverted."),
-            target_language=lang)
-        self.override_confirmation = translate(_(
+        )
+        self.override_confirmation = api.portal.translate(_(
             u"The current text in the fields 'Action plan', 'Prevention plan' and "
             u"'Requirements' of this measure will be overwritten. This action cannot be "
             u"reverted. Are you sure you want to continue?"),
-            target_language=lang)
-        self.message_date_before = translate(_(
+        )
+        self.message_date_before = api.portal.translate(_(
             u"error_validation_before_end_date",
             default=u"This date must be on or before the end date."),
-            target_language=lang)
-        self.message_date_after = translate(_(
+        )
+        self.message_date_after = api.portal.translate(_(
             u"error_validation_after_start_date",
             default=u"This date must be on or after the start date."),
-            target_language=lang)
-        self.message_positive_number = translate(_(
+        )
+        self.message_positive_number = api.portal.translate(_(
             u"error_validation_positive_whole_number",
             default=u"This value must be a positive whole number."),
-            target_language=lang)
+        )
         return self.index()
 
     def extract_plans_from_request(self):

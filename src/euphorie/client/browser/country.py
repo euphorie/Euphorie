@@ -1,5 +1,4 @@
 # coding=utf-8
-from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from anytree import NodeMixin
 from anytree.node.util import _repr
@@ -28,7 +27,6 @@ from Products.Five import BrowserView
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
 from zope.event import notify
-from zope.i18n import translate
 from zope.lifecycleevent import ObjectModifiedEvent
 
 import six
@@ -350,10 +348,8 @@ class SessionsView(BrowserView):
         )
 
     def tool_byline(self):
-        lang = getattr(self.request, "LANGUAGE", "en")
-        title = translate(
+        title = api.portal.translate(
             _("title_tool", default=u"OiRA - Online interactive Risk Assessment"),
-            target_language=lang,
         )
         return title.split("-")[-1].strip()
 
@@ -594,9 +590,8 @@ class CloneSession(BrowserView):
             },
             session=sql_session,
         )
-        lang = getattr(self.request, "LANGUAGE", "en")
         new_session.title = u"{}: {}".format(
-            translate(_("prefix_cloned_title", default=u"COPY"), target_language=lang),
+            api.portal.translate(_("prefix_cloned_title", default=u"COPY")),
             new_session.title,
         )
         account = self.webhelpers.get_current_account()
