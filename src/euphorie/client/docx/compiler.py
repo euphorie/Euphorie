@@ -309,7 +309,10 @@ class DocxCompiler(BaseOfficeCompiler):
             if print_description:
                 if zodb_node is None:
                     if 'custom-risks' in node.zodb_path:
-                        description = getattr(node, 'custom_description', node.title)
+                        description = (
+                            getattr(node, 'custom_description', node.title)
+                            or node.title
+                        )
                     else:
                         description = node.title
                 else:
