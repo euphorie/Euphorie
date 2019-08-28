@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="euphorie"
+    >
+
+  <adapter
+      name="session"
+      factory=".session_traversal.SessionTraversal"
+      />
+
+  <adapter
+      factory=".tree_item_traversal.TraversedSessionPublishTraverser"
+      provides="zope.publisher.interfaces.IPublishTraverse"
+      />
+
+  <adapter
+      factory=".tree_item_traversal.SurveyTreeItemPublishTraverser"
+      provides="zope.publisher.interfaces.IPublishTraverse"
+      />
+
+</configure>

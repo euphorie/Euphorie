@@ -17,7 +17,7 @@
         name="Euphorie"
         />
 
-    <include package=".api" />
+    <include package=".adapters" />
     <include package=".browser" />
     <include package=".subscribers" />
     <include package=".docx" />
@@ -52,10 +52,6 @@
         factory=".client.ClientPublishTraverser"
         provides="zope.publisher.interfaces.IPublishTraverse"/>
 
-    <adapter
-        factory=".survey.SurveyPublishTraverser"
-        provides="zope.publisher.interfaces.IPublishTraverse"/>
-
     <browser:defaultView
         for="Products.CMFCore.interfaces.IContentish"
         layer=".interfaces.IClientSkinLayer"
@@ -86,6 +82,14 @@
         class="plonetheme.nuplone.skin.tools.Tools"
         name="tools"
         permission="zope2.View"
+        />
+
+    <browser:page
+        for=".model.BaseObject"
+        class=".model.DefaultView"
+        layer=".interfaces.IClientSkinLayer"
+        permission="zope2.View"
+        name="index_html"
         />
 
     <genericsetup:registerProfile

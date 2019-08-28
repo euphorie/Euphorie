@@ -51,34 +51,12 @@ class EuphorieAccountPluginTests(DatabaseTests):
         request.getHeader.return_value = None
         self.assertEqual(plugin.extractCredentials(request), {})
 
-    def test_extraction_with_token_header(self):
-        plugin = EuphorieAccountPlugin('plugin')
-        request = mock.Mock()
-        request.getHeader.return_value = 'the-token'
-        self.assertEqual(
-            plugin.extractCredentials(request), {
-                'api-token': 'the-token'
-            }
-        )
-
     def test_authenticate_interface(self):
         verifyClass(IAuthenticationPlugin, EuphorieAccountPlugin)
 
     def test_authenticate_token_no_token(self):
         plugin = EuphorieAccountPlugin('plugin')
         self.assertEqual(plugin._authenticate_token({}), None)
-
-    def test_authenticate_token_call_client_authenticate(self):
-        plugin = EuphorieAccountPlugin('plugin')
-        with mock.patch(
-            'euphorie.client.authentication.authenticate_client_token',
-            return_value='result'
-        ):
-            self.assertEqual(
-                plugin._authenticate_token({
-                    'api-token': 'y'
-                }), 'result'
-            )
 
     def test_authenticate_token_call_cms_authenticate(self):
         plugin = EuphorieAccountPlugin('plugin')

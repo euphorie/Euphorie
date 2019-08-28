@@ -27,6 +27,7 @@ from Acquisition.interfaces import IAcquirer
 from euphorie.content.utils import IToolTypesInfo
 from five import grok
 from htmllaundry.z3cform import HtmlText
+from plone import api
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.dexterity.interfaces import IDexterityFTI
 from plone.directives import dexterity
@@ -541,17 +542,13 @@ class Risk(dexterity.Container):
     def get_pre_defined_measures(self, request=None):
         """ Iterate over the Solution items on this risk.
         """
-        from euphorie.client.interfaces import IItalyIdentificationPhaseSkinLayer   # noqa
-        from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
         measures = []
+        webhelpers = api.content.get_view("webhelpers", self, request)
         for item in self._solutions:
             description = item.description and item.description.strip() or ""
             prevention_plan = (
                 item.prevention_plan and item.prevention_plan.strip() or "")
-            if (
-                IItalyIdentificationPhaseSkinLayer.providedBy(request) or
-                IItalyReportPhaseSkinLayer.providedBy(request)
-            ):
+            if webhelpers.country in ("it", ):
                 measures.append(
                     u"%s: %s" % (description, prevention_plan)
                 )

@@ -2,6 +2,7 @@
 <metadata>
   <version>23</version>
   <dependencies>
+    <dependency>profile-plone.app.imagecropping:default</dependency>
     <dependency>profile-plonetheme.nuplone:default</dependency>
     <dependency>profile-euphorie.content:default</dependency>
     <dependency>profile-euphorie.client:default</dependency>

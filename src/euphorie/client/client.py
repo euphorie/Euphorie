@@ -7,7 +7,6 @@ client user.
 """
 
 from borg.localrole.interfaces import ILocalRoleProvider
-from euphorie.client.api.entry import access_api
 from euphorie.client.interfaces import IClientSkinLayer
 from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -88,10 +87,7 @@ class ClientPublishTraverser(DefaultPublishTraverse):
     def publishTraverse(self, request, name):
         from euphorie.client.utils import setRequest
         setRequest(request)
-        request.client = self.context
-
-        if name == 'api':
-            return access_api(request).__of__(self.context)
+        request.client = self.context  # XXX: remove me
 
         ifaces = [iface for iface in directlyProvidedBy(request)
                 if not IBrowserSkinType.providedBy(iface)]

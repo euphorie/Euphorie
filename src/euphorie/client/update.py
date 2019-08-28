@@ -1,5 +1,4 @@
 from euphorie.client import model
-from euphorie.client.session import SessionManager
 from euphorie.client.utils import HasText
 from euphorie.content.interfaces import IQuestionContainer
 from five import grok
@@ -160,18 +159,4 @@ def wasSurveyUpdated(session, survey):
         session.touch()
         return False
 
-    return True
-
-
-def redirectOnSurveyUpdate(request):
-    """Utility method for views to check if a survey has been updated,
-    and if so redirect the user to the update confirmation page is
-    generated. The return value is `True` if an update is required and
-    `False` otherwise."""
-    survey = request.survey
-    dbsession = SessionManager.session
-    if not wasSurveyUpdated(dbsession, survey):
-        return False
-
-    request.response.redirect("%s/update?initial_view=1" % survey.absolute_url())
     return True

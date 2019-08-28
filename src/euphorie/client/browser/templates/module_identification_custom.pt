@@ -22,7 +22,7 @@
             ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
             explicabo.</p>
 
-        <form method="post" action="${context/absolute_url}"
+        <form method="post" action="${context/absolute_url}/@@identification"
             class="pat-inject"
             data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #other-risks; target: #other-risks">
                 <p>
@@ -36,7 +36,7 @@
 
       <p class="buttonBar" id="nav-bar">
               <!-- <a class="pat-button back">Previous</a> -->
-              <a href="${webhelpers/survey_url}/actionplan"
+              <a href="${context/aq_parent/absolute_url}/@@actionplan"
               class="pat-button pat-inject"
               data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #osc; target: #osc"
               i18n:translate="">Continue to action plan</a>

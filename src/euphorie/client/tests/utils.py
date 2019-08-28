@@ -2,7 +2,6 @@
 from euphorie.client import CONDITIONS_VERSION
 from euphorie.client import model
 from euphorie.client import publish
-from euphorie.client.session import SessionManager
 from euphorie.content import upload
 from Products.MailHost.mailer import SMTPMailer
 from Products.MailHost.MailHost import MailHost
@@ -23,19 +22,6 @@ def addAccount(login="jane@example.com", password=u"Øle"):
     session.add(account)
     session.flush()
     return account
-
-
-def createSurvey():
-    session = Session()
-    account = model.Account(loginname=u"jane", password=u"secret")
-    session.add(account)
-    survey = SessionManager.model(
-        title=u"Session",
-        zodb_path="survey",
-        account=account,
-    )
-    session.add(survey)
-    return (session, survey)
 
 
 def addSurvey(portal, xml_survey):

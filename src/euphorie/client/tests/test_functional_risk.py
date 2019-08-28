@@ -23,6 +23,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getControl(name="form.button.submit").click()
+        session_url = browser.url.replace("/@@identification", "")
         browser.getLink("Start Risk Identification").click()
         # Identify the risk
         browser.getControl("next").click()
@@ -40,8 +41,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         browser.getControl("next").click()
         # Verify the result
         browser.open(
-            "http://nohost/plone/client/nl/ict/"
-            "software-development/actionplan/1/1"
+            "%s/1/1/@@actionplan" % session_url
         )
         self.assertEqual(browser.getControl(name="priority").value, ["high"])
 

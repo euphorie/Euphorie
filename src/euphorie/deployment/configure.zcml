@@ -5,6 +5,7 @@
            i18n_domain="euphorie">
 
   <include package="z3c.appconfig" file="meta.zcml"/>
+  <include package="plone.app.imagecropping" />
   <include package="plonetheme.nuplone" />
   <include package="euphorie.content" />
   <include package="euphorie.client" />

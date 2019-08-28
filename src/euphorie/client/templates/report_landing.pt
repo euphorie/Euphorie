@@ -72,7 +72,7 @@
           <article class="pat-well pat-rich">
             <p class="button-bar">
               <a class="pat-button bar download rtf icon-download piwik_download"
-                 href="${python:view.url(name='oira-report.docx')}"
+                 href="${python:view.url(name='@@oira-report.docx')}"
                  >
               <tal:trans i18n:translate="label_report">Report</tal:trans></a>
             </p>
@@ -101,7 +101,7 @@
           <article class="pat-well pat-rich">
             <p class="button-bar">
               <a class="pat-button bar download xlsx icon-download piwik_download"
-                 href="${python:view.url(name='timeline')}"
+                 href="${python:view.url(name='@@timeline')}"
                  i18n:translate="label_action_plan"
               >Action Plan</a>
             </p>
@@ -131,7 +131,7 @@
           <article class="pat-well pat-rich">
             <p class="button-bar">
               <a class="pat-button bar download xlsx icon-download piwik_download"
-                 href="${python:view.url(name='pdf', obj=context, data={'view': 'risks_overview'})}"
+                 href="${python:view.url(name='@@pdf', obj=context, data={'view': 'risks_overview'})}"
                  target="_new"
                  i18n:translate=""
               >
@@ -160,7 +160,7 @@
           <article class="pat-well pat-rich">
             <p class="button-bar">
               <a class="pat-button bar download xlsx icon-download piwik_download"
-                 href="${python:view.url(name='pdf', obj=context, data={'view': 'measures_overview'})}"
+                 href="${python:view.url(name='@@pdf', obj=context, data={'view': 'measures_overview'})}"
                  target="_new"
                  i18n:translate=""
               >

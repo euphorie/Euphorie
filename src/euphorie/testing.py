@@ -97,7 +97,6 @@ class EuphorieFixture(PloneSandboxLayer):
             ]
         ):
             quickInstallProduct(portal, 'euphorie.deployment')
-
         appconfig = getUtility(IAppConfig)
         appconfig.loadConfig(TEST_INI, clear=True)
         api.portal.set_registry_record(
@@ -169,12 +168,9 @@ class EuphorieIntegrationTestCase(TestCase):
         If survey_session is set the SessionManager will be configured
         '''
         old_request = getRequest()
-        request = self.request.clone()
+        request = self.get_client_request(client=client)
         if survey_session is not None:
             request.other["euphorie.session"] = survey_session
-        if client is not None:
-            request.client = client
-        alsoProvides(request, self.request_layer)
         try:
             setRequest(request)
             yield api.content.get_view(name, obj, request)

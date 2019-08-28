@@ -83,7 +83,7 @@
                       "
                   >
                     <span class="name field">
-                      <a href="${request/getURL}?action=continue&amp;session=${session/id}"
+                      <a href="${here/absolute_url}/${python:session.zodb_path.partition('/')[-1]}/++session++${session/id}/@@start"
                         >${session/title}</a>,
                       <span class="last-saved">
                        <tal:i18n i18n:translate="">Last saved</tal:i18n>
@@ -108,7 +108,7 @@
                     </span>
                     <span class="icons field">
                       <a class="iconified icon-ellipsis pat-tooltip inactive"
-                         href="${here/absolute_url}/@@more_menu?sessionid=${session/id}#more-menu"
+                         href="${here/absolute_url}/++session++${session/id}/@@more_menu#more-menu"
                          data-pat-tooltip="source: ajax; position-list: tr"
                          i18n:translate=""
                       >More</a>

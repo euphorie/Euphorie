@@ -109,9 +109,9 @@
               <li class="object item type-risk-assessment">
                 <span class="object-name field">
                   <a class="session-name pat-inject pat-switch"
-                     href="${tool/absolute_url}?action=continue&amp;session=${session/id}"
+                     href="${tool/absolute_url}/++session++${session/id}/@@start"
                      data-pat-switch="selector: body; remove: sidebar-on; add: sidebar-off"
-                     data-pat-inject="source: #osc; target: #osc; &amp;&amp; source: #content; target: #content;"
+                     data-pat-inject="source: #osc; target: #osc; history:record &amp;&amp; source: #content; target: #content;"
                   >${session/title}</a>
                 </span>
                 <span class="last-saved meta field"
@@ -146,7 +146,7 @@
                      title="${tool/title}"
                   >${tool/title}</a
                 ></span>
-                <a href="${tool/absolute_url}/@@more_menu?sessionid=${session/id}#more-menu"
+                <a href="${tool/absolute_url}/++session++${session/id}/@@more_menu#more-menu"
                    class="more-menu iconified icon-ellipsis pat-tooltip inactive"
                    data-pat-tooltip="source: ajax; position-list: tl"
                    i18n:translate=""

@@ -7,18 +7,15 @@ from Acquisition import aq_parent
 from datetime import datetime
 from euphorie import MessageFactory as _
 from euphorie.client import config
+from euphorie.client.adapters.session_traversal import ITraversedSurveySession
 from euphorie.client.client import IClient
-from euphorie.client.cookie import setCookie
 from euphorie.client.country import IClientCountry
-from euphorie.client.interfaces import IItaly
 from euphorie.client.model import get_current_account
 from euphorie.client.sector import IClientSector
-from euphorie.client.session import SESSION_COOKIE
-from euphorie.client.session import SessionManager
+from euphorie.client.update import wasSurveyUpdated
 from euphorie.client.utils import getSecret
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import StripMarkup
-from euphorie.decorators import reify
 from euphorie.ghost import PathGhost
 from json import dumps
 from logging import getLogger
@@ -34,7 +31,6 @@ from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from ZODB.POSException import POSKeyError
-from zope.browser.interfaces import IBrowserView
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.component.hooks import getSite
@@ -77,31 +73,15 @@ class WebHelpers(BrowserView):
 
     View name: @@webhelpers
     """
-    sector = None
-    SESSION_COOKIE = SESSION_COOKIE
-
     resources_name = "++resource++euphorie.resources"
     js_resources_name = "++resource++euphorie.resources"
     bundle_name = "bundle.js"
     bundle_name_min = "bundle.min.js"
 
-    def __init__(self, context, request):
-        super(WebHelpers, self).__init__(context, request)
-        if self.anonymous:
-            setattr(self.request, 'survey', self._tool)
-
-    @property
-    @memoize
-    def _my_context(self):
-        context = self.context
-        if IBrowserView.providedBy(context):
-            context = context.context
-        return context
-
     @property
     @memoize
     def sector(self):
-        for obj in aq_chain(aq_inner(self._my_context)):
+        for obj in aq_chain(aq_inner(self.context)):
             if IClientSector.providedBy(obj):
                 return obj
 
@@ -164,16 +144,31 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def session(self):
-        return getattr(SessionManager, 'session', None)
+        raise Exception("Use the traversed session")
 
     @property
     @memoize
-    def is_new_session(self):
-        if self.request.get('new_session'):
-            return True
-        if self.session is not None:
-            return self.session.children().count() == 0
-        return False
+    def traversed_session(self):
+        for obj in self.context.aq_chain:
+            if ITraversedSurveySession.providedBy(obj):
+                return obj
+
+    def redirectOnSurveyUpdate(self):
+        """Utility method for views to check if a survey has been updated,
+        and if so redirect the user to the update confirmation page is
+        generated. The return value is `True` if an update is required and
+        `False` otherwise."""
+        traversed_session = self.traversed_session
+        session = traversed_session.session
+        survey = traversed_session.aq_parent
+        if not wasSurveyUpdated(session, survey):
+            return False
+        self.request.response.redirect(
+            "{session_url}/@@update?initial_view=1".format(
+                session_url=traversed_session.absolute_url()
+            )
+        )
+        return True
 
     @property
     @memoize
@@ -183,18 +178,14 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def session_id(self):
-        return getattr(self.session, 'id', '')
-
-    @memoize
-    def session_by_id(self, sessionid):
-        return SessionManager.get_session_by_id(sessionid)
+        return getattr(self.traversed_session.session, 'id', '')
 
     @property
     @memoize
     def came_from(self):
         came_from = self.request.form.get("came_from")
         if not came_from:
-            return aq_parent(self._my_context).absolute_url()
+            return aq_parent(self.context).absolute_url()
         if not isinstance(came_from, list):
             return came_from
         # If came_from is both in the querystring and the form data
@@ -203,28 +194,21 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def country_name(self):
-        for obj in aq_chain(aq_inner(self._my_context)):
+        for obj in aq_chain(aq_inner(self.context)):
             if IClientCountry.providedBy(obj):
                 return obj.Title()
 
     @property
     @memoize
     def sector_name(self):
-        for obj in aq_chain(aq_inner(self._my_context)):
+        for obj in aq_chain(aq_inner(self.context)):
             if IClientSector.providedBy(obj):
                 return obj.Title()
 
     @property
     @memoize
-    def _tool(self):
-        for obj in aq_chain(aq_inner(self._my_context)):
-            if ISurvey.providedBy(obj):
-                return obj
-
-    @property
-    @memoize
     def tool_name(self):
-        obj = self._tool
+        obj = self._survey
         if not obj:
             return ''
         return obj.Title()
@@ -232,16 +216,16 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def tool_description(self):
-        obj = self._tool
+        obj = self._survey
         if not obj:
             return ''
-        ploneview = self._my_context.restrictedTraverse('@@plone')
+        ploneview = self.context.restrictedTraverse('@@plone')
         return ploneview.cropText(StripMarkup(obj.introduction), 800)
 
     @property
     @memoize
     def language_code(self):
-        lt = getToolByName(self._my_context, 'portal_languages')
+        lt = getToolByName(self.context, 'portal_languages')
         lang = lt.getPreferredLanguage()
         return lang
 
@@ -261,8 +245,10 @@ class WebHelpers(BrowserView):
     def macros(self):
         return self.index.macros
 
+    @property
+    @memoize
     def country(self):
-        for obj in aq_chain(aq_inner(self._my_context)):
+        for obj in aq_chain(aq_inner(self.context)):
             if IClientCountry.providedBy(obj):
                 return obj.id
         return None
@@ -270,10 +256,11 @@ class WebHelpers(BrowserView):
     def logoMode(self):
         return 'alien' if 'alien' in self.extra_css else 'native'
 
-    @reify
+    @property
+    @memoize
     def styles_override(self):
         css = ""
-        if IItaly.providedBy(self.request):
+        if self.country == "it":
             css = """
 #steps .topics .legend li.answered.risk::before {
     background: purple;
@@ -284,7 +271,8 @@ class WebHelpers(BrowserView):
 """
         return css
 
-    @reify
+    @property
+    @memoize
     def extra_css(self):
         sector = self.sector
         if sector is None:
@@ -312,13 +300,14 @@ class WebHelpers(BrowserView):
         if getattr(sector, 'logo', None) is not None:
             parts.append('alien')
 
-        lt = getToolByName(self._my_context, 'portal_languages')
+        lt = getToolByName(self.context, 'portal_languages')
         lang = lt.getPreferredLanguage()
         parts.append('language-%s' % lang)
 
         return ' ' + ' '.join(parts)
 
-    @reify
+    @property
+    @memoize
     def sector_title(self):
         """Return the title to use for the current sector. If the current
         context is not in a sector return the agency name instead.
@@ -333,12 +322,21 @@ class WebHelpers(BrowserView):
                 default=u'OiRA - Online interactive Risk Assessment',
             )
 
-    @reify
+    @property
+    @memoize
+    def client(self):
+        for obj in self.context.aq_chain:
+            if IClient.providedBy(obj):
+                return obj
+
+    @property
+    @memoize
     def client_url(self):
         """Return the absolute URL for the client."""
-        return self.request.client.absolute_url()
+        return self.client and self.client.absolute_url()
 
-    @reify
+    @property
+    @memoize
     def country_or_client_url(self):
         """Return the country URL, but fall back to the client URL in case
         the country URL is None.
@@ -352,21 +350,15 @@ class WebHelpers(BrowserView):
         """
         base_url = self.survey_url()
         if base_url is not None and \
-                aq_inner(self._my_context).absolute_url().startswith(base_url):
+                aq_inner(self.context).absolute_url().startswith(base_url):
             return base_url
         base_url = self.country_url
         if base_url is not None:
             return base_url
         return self.client_url
 
-        if self.anonymous:
-            base_url = self.country_url
-            if base_url is not None:
-                return base_url
-            return self.client_url
-        return self._base_url()
-
-    @reify
+    @property
+    @memoize
     def base_url(self):
         if self.anonymous:
             base_url = self.country_url
@@ -375,17 +367,20 @@ class WebHelpers(BrowserView):
             return self.client_url
         return self._base_url()
 
-    @reify
+    @property
+    @memoize
     def resources_url(self):
         return "{}/{}".format(
             self.client_url, self.resources_name)
 
-    @reify
+    @property
+    @memoize
     def js_resources_url(self):
         return "{}/{}".format(
             self.client_url, self.js_resources_name)
 
-    @reify
+    @property
+    @memoize
     def is_outside_of_survey(self):
         if self._base_url() != self.survey_url():
             return True
@@ -396,7 +391,8 @@ class WebHelpers(BrowserView):
             return True
         return False
 
-    @reify
+    @property
+    @memoize
     def get_survey_title(self):
         survey = self._survey
         if not survey:
@@ -411,7 +407,7 @@ class WebHelpers(BrowserView):
     def get_phase(self):
         head, tail = path.split(self.request.PATH_INFO)
         while tail:
-            tail = tail.replace('@', '')
+            tail = tail.replace('@', '').split("_")[0]
             if tail in NAME_TO_PHASE:
                 return NAME_TO_PHASE[tail]
             head, tail = path.split(head)
@@ -429,45 +425,51 @@ class WebHelpers(BrowserView):
 
         return param
 
-    @reify
+    @property
+    @memoize
     def help_url(self):
         """Return the URL to the current online help page. If we are in a
         survey the help page will be located there. Otherwise the country
         will be used as parent."""
         return '%s/help' % self._base_url()
 
-    @reify
+    @property
+    @memoize
     def about_url(self):
         """Return the URL to the current online about page. If we are in a
         survey the help page will be located there. Otherwise the country
         will be used as parent."""
         return '%s/about' % self._base_url()
 
-    @reify
+    @property
+    @memoize
     def authenticated(self):
         """Check if the current user is authenticated."""
         user = getSecurityManager().getUser()
         return user is not None and user.getUserName() != 'Anonymous User'
 
-    @reify
+    @property
+    @memoize
     def country_url(self):
         """Return the absolute URL for country page."""
         sector = self.sector
         if sector is not None:
             return aq_parent(sector).absolute_url()
 
-        for parent in aq_chain(aq_inner(self._my_context)):
+        for parent in aq_chain(aq_inner(self.context)):
             if IClientCountry.providedBy(parent):
                 return parent.absolute_url()
 
         return None
 
-    @reify
+    @property
+    @memoize
     def session_overview_url(self):
         """Return the absolute URL for the session overview."""
         return self.country_url
 
-    @reify
+    @property
+    @memoize
     def sector_url(self):
         """Return the URL for the current survey."""
         sector = self.sector
@@ -475,24 +477,12 @@ class WebHelpers(BrowserView):
             return None
         return sector.absolute_url()
 
-    @reify
+    @property
+    @memoize
     def _survey(self):
-        survey = getattr(self.request, 'survey', None)
-        if survey is not None:
-            if ISurvey.providedBy(survey):
-                return survey
-
-        if self.session is None:
-            return None
-
-        try:
-            return self.request.client.restrictedTraverse(
-                self.session.zodb_path.split('/'))
-        except KeyError as e:
-            # This can happen when a survey has been unpublished while the
-            # current user still has it in his session.
-            logger.error(e)
-            return None
+        for parent in aq_chain(aq_inner(self.context)):
+            if ISurvey.providedBy(parent):
+                return parent
 
     @memoize
     def survey_url(self, phase=None):
@@ -507,7 +497,7 @@ class WebHelpers(BrowserView):
 
         url = survey.absolute_url()
         if phase is not None:
-            url += '/%s' % phase
+            url += '/@@%s' % phase
         return url
 
     @memoize
@@ -524,17 +514,19 @@ class WebHelpers(BrowserView):
         elems.reverse()
         return "/".join(elems)
 
-    @reify
+    @property
+    @memoize
     def in_session(self):
         """Check if there is an active survey session."""
         return self._survey is not None
 
-    @reify
+    @property
+    @memoize
     def appendix_documents(self):
         """Return a list of items to be shown in the appendix."""
         documents = api.portal.get().documents
 
-        lt = getToolByName(self._my_context, 'portal_languages')
+        lt = getToolByName(self.context, 'portal_languages')
         lang = lt.getPreferredLanguage()
         if '-' in lang:
             languages = [lang, lang.split('-')[0]]
@@ -556,7 +548,8 @@ class WebHelpers(BrowserView):
                  'title': page.Title()}
                 for page in appendix.values()]
 
-    @reify
+    @property
+    @memoize
     def is_iphone(self):
         """Check if the current request is from an iPhone or similar device
         (such as an iPod touch).
@@ -569,7 +562,8 @@ class WebHelpers(BrowserView):
         months = calendar.monthContexts['format'].months[length]
         return sorted(months.items())
 
-    @reify
+    @property
+    @memoize
     def get_sector_logo(self):
         sector = self.sector
         if sector is None:
@@ -588,7 +582,7 @@ class WebHelpers(BrowserView):
         return messages
 
     def _getLanguages(self):
-        lt = getToolByName(self._my_context, "portal_languages")
+        lt = getToolByName(self.context, "portal_languages")
         lang = lt.getPreferredLanguage()
         if "-" in lang:
             return [lang, lang.split("-")[0], "en"]
@@ -622,7 +616,7 @@ class WebHelpers(BrowserView):
 
     def tool_notification(self):
         message = None
-        obj = self._my_context
+        obj = self.context
         if isinstance(obj, PathGhost):
             obj = self.context.aq_parent
         if ISurvey.providedBy(obj) and obj.hasNotification():
@@ -658,59 +652,47 @@ class WebHelpers(BrowserView):
     def get_session_group_id(self):
         return getattr(self.session, 'group_id', '')
 
-    @memoize_contextless
-    def is_owner(self, session=None):
-        ''' Check if the current user is the owner of the session
-        '''
-        if session is None:
-            session = self.session
-        if not session:
-            return False
-        return self.get_current_account() == session.account
-
+    @property
     @memoize
-    def can_view_session(self, session=None):
+    def can_view_session(self):
         account = self.get_current_account()
         if not account:
             return False
-        if session is None:
-            session = self.session
-        if session is None and self.request.get('sessionid'):
-            session = self.session_by_id(self.request.get('sessionid'))
-        return (
-            session in account.sessions or
-            session in account.acquired_sessions
-        )
+        session = self.traversed_session.session
+        return session in account.sessions or session in account.acquired_sessions
 
+    @property
     @memoize
-    def can_edit_session(self, session=None):
-        return self.can_view_session(session=session)
+    def can_edit_session(self):
+        return self.can_view_session
 
+    @property
     @memoize
-    def can_publish_session(self, session=None):
-        return self.can_edit_session(session=session)
+    def can_publish_session(self):
+        return self.can_edit_session
 
+    @property
     @memoize
-    def can_delete_session(self, session=None, sessionid=''):
-        return self.can_edit_session(session=session)
+    def can_delete_session(self):
+        return self.can_edit_session
 
+    @property
     @memoize
-    def can_duplicate_session(self, session=None, sessionid=''):
+    def is_owner(self):
+        ''' Check if the current user is the owner of the session
+        '''
+        session = self.traversed_session.session
+        return self.get_current_account() == session.account
+
+    @property
+    @memoize
+    def can_duplicate_session(self):
         return self.use_clone_feature
 
     def resume(self, session):
         ''' Resume a session for the current user if he is allowed to
         '''
-        if not self.can_view_session(session):
-            raise ValueError('Can only resume session for current user.')
-
-        self.request.other["euphorie.session"] = session
-        setCookie(
-            self.request.response,
-            self.getSecret(),
-            SESSION_COOKIE,
-            session.id,
-        )
+        raise Exception("Obsolete, we traverse to sessions now")
 
     def as_md(self, text):
         """ Return a text with Carriage Returns formatted as a Markdown.

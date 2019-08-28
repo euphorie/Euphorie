@@ -10,7 +10,6 @@ from euphorie.client import MessageFactory as _
 from ..conditions import approvedTermsAndConditions
 from ..conditions import checkTermsAndConditions
 from ..country import IClientCountry
-from ..session import SessionManager
 from ..utils import setLanguage
 from AccessControl import getSecurityManager
 from Acquisition import aq_chain
@@ -88,7 +87,7 @@ class Login(BrowserView):
         account = getSecurityManager().getUser()
         session = Session.query(model.SurveySession).get(session_id)
         session.account_id = account.id
-        SessionManager.resume(session)
+        return session
 
     def __call__(self):
         context = aq_inner(self.context)
@@ -165,7 +164,7 @@ class LoginForm(Login):
     """View name: @@login_form"""
 
 
-class Tryout(Login):
+class Tryout(SessionsView, Login):
     """Create a guest account
 
     View name: @@tryout
@@ -197,15 +196,11 @@ class Tryout(Login):
             survey = None
         if not ISurvey.providedBy(survey):
             return self.request.response.redirect(came_from)
-        title = survey.Title()
-        SessionManager.start(title=title, survey=survey, account=account)
-        survey_url = survey.absolute_url()
-        v_url = urlparse.urlsplit(survey_url + '/resume').path
-        trigger_extra_pageview(self.request, v_url)
-        self.request.response.redirect("%s/start" % survey_url)
+        info = dict(action="new", survey=came_from)
+        self._NewSurvey(info, account)
 
 
-class CreateTestSession(SessionsView, Tryout):
+class CreateTestSession(Tryout):
     """Create a guest session
 
     View name: @@new-session-test.html
@@ -348,7 +343,6 @@ class Register(BrowserView):
 class Logout(BrowserView):
 
     def __call__(self):
-        SessionManager.stop()
 
         pas = getToolByName(self.context, "acl_users")
         pas.resetCredentials(self.request, self.request.response)

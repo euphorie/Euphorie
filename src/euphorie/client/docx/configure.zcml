@@ -6,7 +6,7 @@
 
   <browser:page
       name="oira-report.docx"
-      for="euphorie.ghost.PathGhost"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="zope2.View"
       class=".views.ActionPlanDocxView"
       layer="euphorie.client.interfaces.IClientSkinLayer"
@@ -14,7 +14,7 @@
 
   <browser:page
       name="identification-report.docx"
-      for="euphorie.ghost.PathGhost"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="zope2.View"
       class=".views.IdentificationReportDocxView"
       layer="euphorie.client.interfaces.IClientSkinLayer"

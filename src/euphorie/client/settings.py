@@ -12,7 +12,6 @@ from euphorie.client.country import IClientCountry
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import Account
 from euphorie.client.model import AccountChangeRequest
-from euphorie.client.session import SessionManager
 from euphorie.client.utils import CreateEmailTo
 from euphorie.client.utils import randomString
 from five import grok
@@ -137,7 +136,6 @@ class DeleteAccount(form.SchemaForm):
     def logout(self):
         pas = getToolByName(self.context, "acl_users")
         pas.resetCredentials(self.request, self.request.response)
-        SessionManager.stop()
 
     @button.buttonAndHandler(_(u"Delete account"), name='delete')
     def handleDelete(self, action):

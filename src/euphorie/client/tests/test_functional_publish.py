@@ -29,7 +29,7 @@ class PublicationTests(EuphorieIntegrationTestCase):
         self.surveygroup.evaluation_algorithm = u"dummy"
         view = self.survey.restrictedTraverse("@@publish")
         view.publish()
-        self.assertEqual(set(self.client.objectIds()), set(['nl', 'api']))
+        self.assertEqual(set(self.client.objectIds()), set(['nl']))
         self.assertEqual(self.client.nl.objectIds(), ["dining"])
         sector = self.client.nl.dining
         self.assertEqual(sector.portal_type, "euphorie.clientsector")

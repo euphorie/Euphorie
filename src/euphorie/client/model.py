@@ -13,6 +13,7 @@ from euphorie.client.enum import Enum
 from plone import api
 from plone.memoize import ram
 from Products.CMFPlone.utils import safe_unicode
+from Products.Five import BrowserView
 from Products.PluggableAuthService.interfaces.authservice import IBasicUser
 from sqlalchemy import orm
 from sqlalchemy import schema
@@ -1265,6 +1266,23 @@ def get_current_account():
         log.warning(username)
         return Session.query(Account).filter(
             Account.loginname == safe_unicode(username)).first()
+
+
+class DefaultView(BrowserView):
+    """ Default @@index_html view for the objects in the model
+    """
+    def __call__(self):
+        """ Somebody called the default view for this object:
+        we do not want this to happen so we display a message and redirect the user
+        to the session start page
+        """
+        api.portal.show_message(
+            "Wrong URL: %s" % self.request.getURL(), self.request, "warning"
+        )
+        webhelpers = api.content.get_view("webhelpers", self.context, self.request)
+        target = webhelpers.traversed_session.absolute_url() + "/@@start"
+        return self.request.response.redirect(target)
+
 
 __all__ = [
     "SurveySession",

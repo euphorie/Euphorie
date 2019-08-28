@@ -9,6 +9,7 @@
 >
   <metal:slot fill-slot="content"
     tal:define="language view/portal/plone_portal_state/language;
+                toLocalizedTime nocall: context/@@plone/toLocalizedTime;
                 my_sessions view/get_ordered_sessions;">
   <tal:block replace="tile:statusmessages" />
   <div id="content-pane">
@@ -50,25 +51,22 @@
               <li tal:repeat="session my_sessions"
                 class="ra">
 
-                <a href="${request/getURL}?action=continue&amp;session=${session/id}"
+                <a href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@start"
                   class="pat-inject follow"
                   data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
                 >
                   <h4 class="name field">${session/title}</h4>
                   <p class="date field">
                     <span class="last-saved">
-                      <tal:i18n i18n:translate="">Last saved</tal:i18n>
-                      <time class="pat-display-time"
-                          datetime="${value}"
-                          data-pat-display-time="from-now: true; locale: ${language}"
-                          tal:define="value session/modified/isoformat|nothing;"
-                      >${value}</time>
+                      <tal:i18n i18n:translate="">Started</tal:i18n>
+                      <time datetime="${value}"
+                          tal:define="value session/created/isoformat|nothing;"
+                      >${python:toLocalizedTime(value)}</time>
                     </span>
                   </p>
                 </a>
-
                 <a class="more-menu iconified icon-ellipsis pat-tooltip inactive"
-                   href="${here/absolute_url}/@@more_menu?sessionid=${session/id}#more-menu"
+                   href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@more_menu#more-menu"
                    data-pat-tooltip="source: ajax; position-list: tr"
                    i18n:translate=""
                 >More</a>

@@ -10,8 +10,6 @@ from docx.oxml.ns import qn
 from euphorie.client import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.docx.html import HtmlToWord
-from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
-from euphorie.client.session import SessionManager
 from euphorie.content.survey import get_tool_type
 from euphorie.content.utils import IToolTypesInfo
 from euphorie.content.utils import UNWANTED
@@ -24,6 +22,7 @@ from z3c.appconfig.interfaces import IAppConfig
 from zope.component import getUtility
 from zope.i18n import translate
 import htmllaundry
+from plone import api
 import re
 
 all_breaks = re.compile('(\n|\r)+')
@@ -91,6 +90,11 @@ class BaseOfficeCompiler(object):
         return lang
 
     @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
     def title_custom_risks(self):
         return translate(_(
             'title_other_risks', default=u'Added risks (by you)'),
@@ -98,7 +102,7 @@ class BaseOfficeCompiler(object):
 
     @property
     def session(self):
-        return SessionManager.session
+        return self.webhelpers.traversed_session.session
 
     def set_cell_border(self, cell, settings=ALL_BORDERS, color=BORDER_COLOR):
         tcPr = cell._element.tcPr
@@ -176,8 +180,7 @@ class DocxCompiler(BaseOfficeCompiler):
             'use_existing_measures', False)
         self.tool_type = get_tool_type(self.context)
         self.tti = getUtility(IToolTypesInfo)
-        self.italy_special = IItalyReportPhaseSkinLayer.providedBy(
-            self.request)
+        self.italy_special = self.webhelpers.country == "it"
 
     def set_session_title_row(self, data):
         ''' This fills the workspace activity run with some text
@@ -192,7 +195,8 @@ class DocxCompiler(BaseOfficeCompiler):
             if not nodes:
                 continue
             par_toc.insert_paragraph_before(heading, style="TOC Heading 1")
-        survey = request.survey
+
+        survey = self.context.aq_parent
 
         header = self.template.sections[self.sections_offset].header
         header_table = header.tables[0]
@@ -221,7 +225,7 @@ class DocxCompiler(BaseOfficeCompiler):
         doc = self.template
         doc.add_paragraph(heading, style="Heading 1")
 
-        survey = self.request.survey
+        survey = self.context.aq_parent
         for node in nodes:
             zodb_node = None
             if node.zodb_path == 'custom-risks':
@@ -305,7 +309,10 @@ class DocxCompiler(BaseOfficeCompiler):
             if print_description:
                 if zodb_node is None:
                     if 'custom-risks' in node.zodb_path:
-                        description = getattr(node, 'custom_description', node.title)
+                        description = (
+                            getattr(node, 'custom_description', node.title)
+                            or node.title
+                        )
                     else:
                         description = node.title
                 else:
@@ -738,7 +745,7 @@ class IdentificationReportCompiler(DocxCompiler):
     def set_session_title_row(self, data):
 
         request = self.request
-        survey = request.survey
+        survey = self.context.aq_parent
 
         # Remove existing paragraphs
         for paragraph in self.template.paragraphs:

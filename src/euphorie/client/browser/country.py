@@ -2,19 +2,14 @@
 from Acquisition import aq_inner
 from anytree import NodeMixin
 from anytree.node.util import _repr
-from datetime import datetime
 from euphorie import MessageFactory as _
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.country import IClientCountry
 from euphorie.client.model import get_current_account
 from euphorie.client.model import Group
-from euphorie.client.model import Module
-from euphorie.client.model import Risk
 from euphorie.client.model import SurveySession
-from euphorie.client.model import SurveyTreeItem
 from euphorie.client.sector import IClientSector
-from euphorie.client.session import SessionManager
 from euphorie.content.survey import ISurvey
 from logging import getLogger
 from plone import api
@@ -24,8 +19,6 @@ from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
-from zope.event import notify
-from zope.lifecycleevent import ObjectModifiedEvent
 
 import six
 
@@ -83,6 +76,7 @@ class SessionsView(BrowserView):
     # switch from radio buttons to dropdown above this number of tools
     tools_threshold = 12
     variation_class = "variation-dashboard"
+    survey_session_model = SurveySession
 
     @property
     @memoize
@@ -183,11 +177,12 @@ class SessionsView(BrowserView):
     def get_sessions(self):
         """ Given some sessions create a tree
         """
-        scope = self.request.get("scope")
         account = self.account
         if not account:
-            sessions = []
-        elif scope == "all":
+            return []
+
+        scope = self.request.get("scope")
+        if scope == "all":
             sessions = self.account.sessions + self.account.acquired_sessions
         else:
             sessions = self.account.sessions
@@ -322,19 +317,24 @@ class SessionsView(BrowserView):
             # breaks, so trigger a redirect to the same URL again.
             self.request.response.redirect(context.absolute_url())
             return
+
         title = info.get("title", u"").strip()
         if not title:
             title = survey.Title()
 
-        SessionManager.start(title=title, survey=survey, account=account)
+        survey_view = api.content.get_view("index_html", survey, self.request)
+        survey_session = survey_view.create_survey_session(title, account)
         self.request.response.redirect(
-            "%s/start?initial_view=1&new_session=1" % survey.absolute_url()
+            "{base_url}/++session++{session_id}/@@start"
+            "?initial_view=1&new_session=1".format(
+                base_url=survey.absolute_url(),
+                session_id=survey_session.id,
+            )
         )
 
     def _ContinueSurvey(self, info):
         """Utility method to continue an existing session."""
-        session = Session.query(model.SurveySession).get(info["session"])
-        SessionManager.resume(session)
+        session = Session.query(self.survey_session_model).get(info["session"])
         survey = self.request.client.restrictedTraverse(
             six.binary_type(session.zodb_path)
         )
@@ -342,7 +342,9 @@ class SessionsView(BrowserView):
         if info.get("new_clone", None):
             extra = "&new_clone=1"
         self.request.response.redirect(
-            "%s/resume?initial_view=1%s" % (survey.absolute_url(), extra)
+            "%s/++session++%s/@@resume?initial_view=1%s" % (
+                survey.absolute_url(), session.id, extra
+            )
         )
 
     def tool_byline(self):
@@ -418,7 +420,7 @@ class SessionBrowserNavigator(SessionsView):
         packages.
         Here we just return a Query with 0 items.
         """
-        base_query = Session.query(SurveySession)
+        base_query = Session.query(self.survey_session_model)
         return base_query.filter(False)
 
     @memoize
@@ -427,14 +429,14 @@ class SessionBrowserNavigator(SessionsView):
         """
         account = get_current_account()
         base_query = (
-            Session.query(SurveySession)
-            .order_by(SurveySession.modified.desc())
-            .order_by(SurveySession.title)
-            .filter(SurveySession.account_id == account.id)
+            Session.query(self.survey_session_model)
+            .order_by(self.survey_session_model.modified.desc())
+            .order_by(self.survey_session_model.title)
+            .filter(self.survey_session_model.account_id == account.id)
         )
         if self.searchable_text:
             base_query = base_query.filter(
-                SurveySession.title.ilike(self.searchable_text)
+                self.survey_session_model.title.ilike(self.searchable_text)
             )
         return base_query.all()
 
@@ -446,154 +448,3 @@ class SessionBrowserNavigator(SessionsView):
         if len(self.leaf_sessions()):
             return True
         return False
-
-
-class ConfirmationDeleteSession(BrowserView):
-    """View name: @@confirmation-delete-session
-    """
-
-    @property
-    @memoize_contextless
-    def webhelpers(self):
-        return api.content.get_view("webhelpers", api.portal.get(), self.request)
-
-    @property
-    @memoize_contextless
-    def session_title(self):
-        try:
-            self.session_id = int(self.request.get("id"))
-        except (ValueError, TypeError):
-            raise KeyError("Invalid session id")
-        session = (
-            Session.query(SurveySession)
-            .filter(SurveySession.id == self.session_id)
-            .one()
-        )
-        if session is None:
-            raise KeyError("Unknown session id")
-        if not self.webhelpers.can_delete_session(session):
-            raise Unauthorized()
-        return session.title
-
-    def __call__(self, *args, **kwargs):
-        """ Before rendering check if we can find session title
-        """
-        self.session_title
-        self.no_splash = True
-        return super(ConfirmationDeleteSession, self).__call__(*args, **kwargs)
-
-
-def sql_clone(obj, skip={}, session=None):
-    """ Clone a sql object avoiding the properties in the skip parameter
-
-    The skip parameter is optional but you probably want to always pass the
-    primary key
-    """
-    # Never copy the _sa_instance_state attribute
-    skip.add("_sa_instance_state")
-    params = {key: value for key, value in obj.__dict__.iteritems() if key not in skip}
-    clone = obj.__class__(**params)
-    if session:
-        session.add(clone)
-    return clone
-
-
-class CloneSession(BrowserView):
-    """View name: @@confirmation-clone-session
-    """
-
-    @property
-    @memoize
-    def webhelpers(self):
-        return api.content.get_view("webhelpers", self.context, self.request)
-
-    @property
-    @memoize
-    def session(self):
-        """ Get the requested session
-        """
-        try:
-            session_id = int(self.request.get("id"))
-        except (ValueError, TypeError):
-            raise KeyError("Invalid session id")
-        return Session.query(SurveySession).filter(SurveySession.id == session_id).one()
-
-    def get_cloned_session(self):
-        sql_session = Session
-        old_session = self.session
-        new_session = sql_clone(
-            old_session,
-            skip={
-                "id",
-                "created",
-                "modified",
-                "last_modifier_id",
-                "company",
-                "published",
-                "group_id",
-            },
-            session=sql_session,
-        )
-        new_session.title = u"{}: {}".format(
-            api.portal.translate(_("prefix_cloned_title", default=u"COPY")),
-            new_session.title,
-        )
-        account = self.webhelpers.get_current_account()
-        new_session.group = account.group
-        new_session.modified = new_session.created = datetime.now()
-        new_session.account = account
-        if old_session.company:
-            new_session.company = sql_clone(
-                old_session.company, skip={"id", "session"}, session=sql_session
-            )
-
-        risk_module_skipped_attributes = {
-            "id",
-            "session",
-            "sql_module_id",
-            "parent_id",
-            "session_id",
-            "sql_risk_id",
-            "risk_id",
-        }
-        module_mapping = {}
-
-        old_modules = sql_session.query(Module).filter(
-            SurveyTreeItem.session == old_session
-        )
-        for old_module in old_modules:
-            new_module = sql_clone(
-                old_module, skip=risk_module_skipped_attributes, session=sql_session
-            )
-            module_mapping[old_module.id] = new_module
-            new_module.session = new_session
-
-        old_risks = sql_session.query(Risk).filter(
-            SurveyTreeItem.session == old_session
-        )
-        for old_risk in old_risks:
-            new_risk = sql_clone(
-                old_risk, skip=risk_module_skipped_attributes, session=sql_session
-            )
-            new_risk.parent_id = module_mapping[old_risk.parent_id].id
-            new_risk.session = new_session
-
-            for old_plan in old_risk.action_plans:
-                new_plan = sql_clone(
-                    old_plan, skip={"id", "risk_id"}, session=sql_session
-                )
-                new_plan.risk = new_risk
-        notify(ObjectModifiedEvent(new_session))
-        return new_session
-
-    def clone(self):
-        """ Clone this session and redirect to the start view
-        """
-        new_session = self.get_cloned_session()
-        api.portal.show_message(
-            _("The risk assessment has been cloned"), self.request, "success"
-        )
-        target = "{contexturl}/@@view?action=continue&new_clone=1&session={sessionid}".format(  # noqa: E501
-            contexturl=self.context.absolute_url(), sessionid=new_session.id
-        )
-        self.request.response.redirect(target)

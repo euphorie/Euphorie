@@ -6,9 +6,9 @@
       metal:define-macro="master"
       metal:use-macro="context/@@shell/macros/shell"
       tal:define="
-        webhelpers nocall:context/@@webhelpers;
+        webhelpers nocall:view/@@webhelpers;
         default_introduction nocall:context/@@default_introduction;
-        session webhelpers/session;
+        session view/session;
         can_edit webhelpers/can_edit_session;
         has_profile view/has_profile;
       "
@@ -25,7 +25,7 @@
                            message-required: ${view/message_required};"
             action="${request/URL}"
             method="POST"
-            data-pat-inject="source: #content; target: #content; &amp;&amp; source: #navigation; target: #navigation;"
+            data-pat-inject="source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation;"
       >
       <div id="content-pane">
         <nav class="page-actions">
@@ -46,7 +46,7 @@
         >
           You don't have edit rights for this risk assesment,
           but you can download this risk assessment in various forms in the
-          <a href="${here/absolute_url}/report/view"
+          <a href="${here/absolute_url}/@@report_view"
              i18n:name="download_section"
              i18n:translate=""
           >download section</a>.
@@ -108,7 +108,7 @@
                tal:omit-tag="not:context/external_site_url | nothing"
             >
               <tal:img define="
-                scales context/@@images;
+                scales context/aq_parent/@@images;
                 scale python: scales.scale('external_site_logo', scale='large')">
                 <img src="${scale/url}" />
               </tal:img>

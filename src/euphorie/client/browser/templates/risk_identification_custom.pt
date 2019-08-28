@@ -15,12 +15,12 @@
   <form enctype="multipart/form-data"
         accept-charset="UTF-8"
         method="POST"
-        action="${context/absolute_url}"
+        action="${context/absolute_url}/@@identification"
         class="pat-inject"
         data-pat-inject="history: record;">
     <div id="content-pane">
     <nav class="page-actions">
-      <a href="${context/absolute_url}/confirmation-delete-risk#document-content"
+      <a href="${context/absolute_url}/@@confirmation-delete-risk#document-content"
          class="iconified icon-trash pat-modal"
          data-pat-inject="source: #document-content; target: #document-content"
          title="Delete risk">Delete risk</a>

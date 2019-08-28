@@ -159,7 +159,7 @@ ul.title {margin-bottom:3em;}
       <div class="statuses"
            tal:define="
              status python:view.status;
-             status_view nocall:context/aq_parent/@@status;
+             status_view nocall:context/@@status;
            "
       >
         <a name="page-toc">

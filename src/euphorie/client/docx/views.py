@@ -1,16 +1,17 @@
 # coding=utf-8
+from collections import OrderedDict
 from euphorie.client import model
 from euphorie.client import utils
+from euphorie.client.docx.compiler import _sanitize_html
 from euphorie.client.docx.compiler import DocxCompiler
 from euphorie.client.docx.compiler import DocxCompilerFrance
 from euphorie.client.docx.compiler import DocxCompilerItaly
 from euphorie.client.docx.compiler import IdentificationReportCompiler
-from euphorie.client.interfaces import IFranceReportPhaseSkinLayer
-from euphorie.client.interfaces import IItalyReportPhaseSkinLayer
-from euphorie.client.session import SessionManager
 from euphorie.client.utils import get_translated_custom_risks_title
 from euphorie.content import MessageFactory as _
 from euphorie.content.survey import get_tool_type
+from json import loads
+from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
 from sqlalchemy import sql
@@ -18,9 +19,6 @@ from StringIO import StringIO
 from urllib import quote
 from z3c.saconfig import Session
 from zope.i18n import translate
-from collections import OrderedDict
-from euphorie.client.docx.compiler import _sanitize_html
-from json import loads
 
 
 class OfficeDocumentView(BrowserView):
@@ -29,17 +27,15 @@ class OfficeDocumentView(BrowserView):
     _compiler = None
     _content_type = ''
 
-    @property
-    @memoize
-    def session(self):
-        ''' Return the session for this context/request
-        '''
-        return SessionManager.session
-
     def get_data(self, for_download=False):
         ''' Return the data for the compiler
         '''
         return {}
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
 
     def get_payload(self):
         ''' Compile the template and return the file as a string
@@ -59,7 +55,7 @@ class OfficeDocumentView(BrowserView):
             survey.
         """
         query = Session.query(model.SurveyTreeItem).filter(
-            model.SurveyTreeItem.session == self.session).filter(
+            model.SurveyTreeItem.session == self.context.session).filter(
             sql.not_(model.SKIPPED_PARENTS)).filter(
                 sql.or_(
                     model.MODULE_WITH_RISK_OR_TOP5_FILTER,
@@ -73,7 +69,7 @@ class OfficeDocumentView(BrowserView):
         ''' Returns the modules for this session
         '''
         sql_modules = Session.query(model.Module).filter(
-            model.SurveyTreeItem.session == self.session
+            model.SurveyTreeItem.session == self.context.session,
         ).order_by(
             model.SurveyTreeItem.path
         )
@@ -104,7 +100,7 @@ class OfficeDocumentView(BrowserView):
             if sql_risk.identification == 'n/a':
                 continue
             if not sql_risk.is_custom_risk:
-                risk = self.request.survey.restrictedTraverse(
+                risk = self.context.aq_parent.restrictedTraverse(
                     sql_risk.zodb_path.split("/"))
                 risk_description = risk.description
                 defined_measures = risk.get_pre_defined_measures(self.request)
@@ -142,7 +138,7 @@ class OfficeDocumentView(BrowserView):
                     existing_measures.append((text, on))
 
                 measures = [item[0] for item in existing_measures if item[1]]
-            except:
+            except Exception:
                 measures = []
             if risk and (
                 sql_risk.identification == 'no' or
@@ -208,9 +204,10 @@ class ActionPlanDocxView(OfficeDocumentView):
 
     def __init__(self, context, request):
         super(ActionPlanDocxView, self).__init__(context, request)
-        if IItalyReportPhaseSkinLayer.providedBy(request):
+        country = self.webhelpers.country
+        if country == "it":
             self._compiler = DocxCompilerItaly
-        elif IFranceReportPhaseSkinLayer.providedBy(request):
+        elif country == "fr":
             if get_tool_type(context) == 'existing_measures':
                 self._compiler = DocxCompilerFrance
 
@@ -247,7 +244,7 @@ class ActionPlanDocxView(OfficeDocumentView):
 
     def get_sorted_nodes(self):
         nodes = self.get_session_nodes()
-        session = SessionManager.session
+        session = self.context.session
 
         actioned_nodes = utils.get_actioned_nodes(nodes)
         unactioned_nodes = utils.get_unactioned_nodes(nodes)
@@ -271,13 +268,13 @@ class ActionPlanDocxView(OfficeDocumentView):
     def get_data(self, for_download=False):
         ''' Gets the data structure in a format suitable for `DocxCompiler`
         '''
-
+        session = self.context.session
         data = {
-            'title': self.session.title,
-            'heading': self.get_heading(self.session.title),
+            'title': session.title,
+            'heading': self.get_heading(session.title),
             'section_headings': self.get_section_headings(),
             'nodes': self.get_sorted_nodes(),
-            'survey_title': self.request.survey.title,
+            'survey_title': self.context.aq_parent.title,
             'modules': self.get_modules()
         }
 
@@ -290,7 +287,7 @@ class ActionPlanDocxView(OfficeDocumentView):
         filename = _(
             "filename_report_actionplan",
             default=u"Action plan ${title}",
-            mapping={'title': self.session.title}
+            mapping={'title': self.context.session.title}
         )
         filename = translate(filename, context=self.request)
         return filename.encode('utf8') + '.docx'
@@ -308,7 +305,7 @@ class IdentificationReportDocxView(OfficeDocumentView):
             survey.
         """
         query = Session.query(model.SurveyTreeItem).filter(
-            model.SurveyTreeItem.session == self.session).filter(
+            model.SurveyTreeItem.session == self.context.session).filter(
                 sql.not_(model.SKIPPED_PARENTS)
             ).order_by(model.SurveyTreeItem.path)
 
@@ -319,9 +316,9 @@ class IdentificationReportDocxView(OfficeDocumentView):
         '''
 
         data = {
-            'title': self.session.title,
+            'title': self.context.session.title,
             'heading': '',
-            'section_headings': [self.session.title],
+            'section_headings': [self.context.session.title],
             'nodes': [self.get_session_nodes()],
         }
         return data
@@ -333,6 +330,6 @@ class IdentificationReportDocxView(OfficeDocumentView):
         filename = _(
             "filename_report_identification",
             default=u"Identification report ${title}",
-            mapping=dict(title=self.session.title))
+            mapping=dict(title=self.context.session.title))
         filename = translate(filename, context=self.request)
         return filename.encode('utf8') + '.docx'

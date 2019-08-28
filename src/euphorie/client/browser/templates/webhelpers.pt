@@ -697,7 +697,7 @@
   </metal:risk_evaluation>
 
   <metal:riskinfo define-macro="riskinfo">
-    <article class="rich pat-collapsible risk-module ${default_state|nothing}"
+    <article class="pat-rich pat-collapsible risk-module ${default_state|nothing}"
              tal:condition="view/show_info"
     >
       <h3 i18n:translate="header_information">

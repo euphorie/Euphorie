@@ -12,7 +12,10 @@
 <body>
 <metal:slot fill-slot="content" tal:define="risk nocall:view/risk">
 <tal:block replace="tile:statusmessages"/>
-<form enctype="multipart/form-data" accept-charset="UTF-8" method="post" action="${context/absolute_url}" class="pat-inject"
+<form accept-charset="UTF-8" method="post"
+      enctype="multipart/form-data"
+      action="${here/absolute_url}/@@${view/__name__}"
+      method="post" class="pat-inject"
       data-pat-inject="history: record; source: #step-2-topics; target: #step-2-topics &amp;&amp; source: #content; target: #content">
   <a href="#content-pane" class="pat-scroll pat-scroll-animated" data-pat-scroll="selector: #content-pane; trigger: auto; offset: 0" hidden="">Scroll to top</a>
 <div id="content-pane">

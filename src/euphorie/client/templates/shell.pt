@@ -14,7 +14,7 @@
                   language portal_state/language;
                   dummy_header python:request.RESPONSE.appendHeader('cache-control', 'no-cache');
                   splash_message webhelpers/splash_message;
-                  no_splash view/no_splash|python:False;
+                  no_splash view/no_splash|nothing;
                   tool_notification webhelpers/tool_notification;
                   client nocall:request/client;
                   base_url client/++resource++euphorie.resources;
@@ -25,10 +25,8 @@
                   sidebar_default python:page_section in ['identification', 'actionplan'] and 'sidebar-on' or 'sidebar-off';
                   came_from_param webhelpers/came_from_param;
                   initial_view request/initial_view|nothing;
-                  new_session webhelpers/is_new_session;
                   styles_override webhelpers/styles_override;
                   tools context/@@tools;
-                  can_edit webhelpers/can_edit_session;
                   variation_class python:getattr(view, 'variation_class', None);
                 ">
 
@@ -86,7 +84,7 @@
   id="body"
   class="${python:'splash-on-' + splash_message['id'] if not is_anonymous and not no_splash and not webhelpers.is_guest_account and splash_message and not page_section else ''} ${python:'splash-on-' + tool_notification['id'] if tool_notification and initial_view else ''}  osh-off ${python: 'test-session' if webhelpers.is_guest_account else ''} osc-off osc-s-off osc-size-normal"
   i18n:domain="euphorie"
-  tal:define="is_anonymous webhelpers/anonymous; is_outside_of_survey webhelpers/is_outside_of_survey; survey_url webhelpers/survey_url; base_url webhelpers/base_url">
+  tal:define="is_anonymous webhelpers/anonymous; is_outside_of_survey webhelpers/is_outside_of_survey; base_url webhelpers/base_url">
     <div id="main" class="sidebar-off">
         <span class="hidden" id="metadata" hidden="hidden">
             <span id="country_name">${webhelpers/country_name}</span>
@@ -144,6 +142,9 @@
             >
               <tal:if_not_anon define="
                                  tree view/tree|nothing;
+                                 session_start_view nocall:here/@@start|webhelpers/traversed_session/@@start;
+                                 can_edit webhelpers/can_edit_session;
+                                 new_session session_start_view/is_new_session;
                                "
                                condition="not:is_anonymous"
               >
@@ -155,7 +156,7 @@
                     "
                 >
                   <a class="preparation pat-switch pat-inject"
-                     href="${survey_url}/start#content"
+                     href="${webhelpers/traversed_session/absolute_url}/@@start#content"
                      data-pat-inject="history: record"
                      data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
@@ -174,7 +175,7 @@
                     "
                 >
                   <a class="identification pat-switch pat-inject"
-                     href="${survey_url}/identification#content"
+                     href="${webhelpers/traversed_session/absolute_url}/@@identification#content"
                      data-pat-inject="history: record;"
                      data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
@@ -201,7 +202,7 @@
                 >
                   <!-- The tree for the action section uses the same structure as the identification tree, with the only differences that only risks and their parent modules are shown and that the entire tree is expanded. -->
                   <a class="action-plan pat-switch pat-inject"
-                     href="${survey_url}/actionplan#content"
+                     href="${webhelpers/traversed_session/absolute_url}/@@actionplan#content"
                      data-pat-inject="history: record"
                      data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
@@ -226,7 +227,7 @@
                 >
                   <!-- TODO: check if guest -->
                   <a class="report pat-switch pat-inject"
-                     href="${survey_url}/report#content"
+                     href="${webhelpers/traversed_session/absolute_url}/@@report#content"
                      data-pat-inject="history: record"
                      data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
@@ -247,7 +248,7 @@
                     tal:condition="webhelpers/use_training_module"
                 >
                   <a class="training pat-inject pat-switch"
-                     href="${survey_url}/training#content"
+                     href="${webhelpers/traversed_session/absolute_url}/@@training#content"
                      data-pat-inject="history: record"
                      data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
@@ -268,16 +269,16 @@
                     "
                 >
                   <a class="status pat-switch pat-inject"
-                     href="${survey_url}/status#content"
+                     href="${webhelpers/traversed_session/absolute_url}/@@status#content"
                      data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation"
                      data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
                      tal:condition="not:disabled"
                      i18n:translate="navigation_status"
-                  >Check your progress</a>
+                  >Status</a>
                   <a class="status"
                      tal:condition="disabled"
                      i18n:translate="navigation_status"
-                  >Check your progress</a>
+                  >Status</a>
                 </li>
               </tal:if_not_anon>
             </ol>

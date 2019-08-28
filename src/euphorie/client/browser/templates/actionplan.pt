@@ -63,7 +63,7 @@
            i18n:translate="label_create_action_plan"
         >Create action plan</a>
         <a class="pat-button"
-           href="${python:webhelpers.survey_url(phase='report')}"
+           href="${here/absolute_url}/@@report"
            tal:condition="not:view/next_url"
            i18n:translate="label_jump_to_report"
         >Go to report</a>

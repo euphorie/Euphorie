@@ -17,7 +17,7 @@
               data-pat-inject="source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
               method="post"
               action="${context/absolute_url}/@@delete-session" >
-            <input type="hidden" name="id" value="${view/session_id}" />
+            <input type="hidden" name="id" value="${here/session/id}" />
             <div class="panel-body">
               <div class="container">
                 <article class="pat-rich">
