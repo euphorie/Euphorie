@@ -2,7 +2,6 @@
 from Acquisition import aq_inner
 from anytree import NodeMixin
 from anytree.node.util import _repr
-from collections import defaultdict
 from collections import OrderedDict
 from datetime import datetime
 from euphorie import MessageFactory as _
@@ -413,39 +412,6 @@ class SessionBrowserNavigator(SessionsView):
         if len(searchable_text) < 3:
             return ""
         return u"%{}%".format(safe_unicode(searchable_text))
-
-    def get_tools_tree(self, zodb_path=None):
-        """ Return a dict like structure to render the leaf sessions,
-        something like:
-
-        {
-            'tool': [<SurveySession>, ...],
-            ...
-        }
-        Optionally, we can pass in zodb_path, to filter for tools that match
-        this path
-        """
-        sessions = self.leaf_sessions()
-        if not sessions.count():
-            return {}
-        tools = defaultdict(list)
-        for session in sessions:
-            # XXX
-            # Filter by zodb_path for specific tools
-            # if zodb_path and session.zodb_path != zodb_path:
-            #     continue
-            tool = self.get_survey_by_path(session.zodb_path)
-            tools[tool].append(session)
-
-        ordered_tools = OrderedDict()
-        for tool in sorted(
-            [x for x in tools.keys() if x], key=lambda s: s.title.lower()
-        ):
-            ordered_tools[tool] = sorted(
-                tools[tool], key=lambda s: s.modified, reverse=True
-            )
-
-        return ordered_tools
 
     def get_sessions_tree(self, zodb_path=None):
         """ Return a dict like structure to render the leaf sessions,
