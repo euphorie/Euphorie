@@ -26,6 +26,7 @@ from euphorie.client.update import treeChanges
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
 from plone import api
+from plone.app.event.base import localized_now
 from plone.autoform.form import AutoExtensibleForm
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
@@ -484,10 +485,47 @@ class ConfirmationDeleteSession(SessionMixin, BrowserView):
             raise Unauthorized()
         return self.context.session.title
 
-    def __call__(self, *args, **kwargs):
-        """ Before rendering check if we can find session title
-        """
-        return super(ConfirmationDeleteSession, self).__call__(*args, **kwargs)
+
+class ConfirmationArchiveSession(SessionMixin, BrowserView):
+    """View name: @@confirmation-archive-session
+    """
+
+    no_splash = True
+
+    @property
+    @memoize_contextless
+    def session_title(self):
+        if not self.webhelpers.can_archive_session:
+            raise Unauthorized()
+        return self.context.session.title
+
+
+class ArchiveSession(SessionMixin, BrowserView):
+    """View name: @@archive-session
+    """
+    def notify_modified(self):
+        notify(ObjectModifiedEvent(self.context.session))
+
+    def redirect(self):
+        target = self.request.get("HTTP_REFERER") or self.context.absolute_url()
+        return self.request.response.redirect(target)
+
+    def __call__(self):
+        if not self.webhelpers.can_archive_session:
+            raise Unauthorized()
+
+        session = self.context.session
+        session.archived = localized_now()
+        self.notify_modified()
+        api.portal.show_message(
+            _(
+                u"Session `${name}` has been archived.",
+                mapping={"name": session.title},
+            ),
+            self.request,
+            "success",
+        )
+        return self.redirect()
 
 
 class CloneSession(SessionMixin, BrowserView):

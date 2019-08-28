@@ -11,6 +11,7 @@ from AccessControl.PermissionRole import _what_not_even_god_should_do
 from collections import defaultdict
 from euphorie.client.enum import Enum
 from plone import api
+from plone.app.event.base import localized_now
 from plone.memoize import ram
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
@@ -618,6 +619,12 @@ class SurveySession(BaseObject):
         default=None,
     )
 
+    archived = schema.Column(
+        types.DateTime(timezone=True),
+        nullable=True,
+        default=None,
+    )
+
     zodb_path = schema.Column(types.String(512), nullable=False)
 
     report_comment = schema.Column(types.UnicodeText())
@@ -655,6 +662,12 @@ class SurveySession(BaseObject):
         'polymorphic_on': brand,
         'with_polymorphic': '*',
     }
+
+    def is_archived(self):
+        archived = self.archived
+        if not archived:
+            return False
+        return archived <= localized_now()
 
     @property
     def review_state(self):

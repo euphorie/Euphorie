@@ -12,8 +12,10 @@
           tal:define="
             sessionid view/session/id;
             webhelpers view/webhelpers;
+            can_archive webhelpers/can_archive_session;
             can_delete webhelpers/can_delete_session;
             can_duplicate webhelpers/can_duplicate_session;
+            archive_url string:${here/absolute_url}/@@confirmation-archive-session#document-content;
             delete_url string:${here/absolute_url}/@@confirmation-delete-session#document-content;
             clone_url string:${here/absolute_url}/@@confirmation-clone-session#document-content;
           "
@@ -26,6 +28,13 @@
              i18n:translate="label_delete"
           >Delete</a>
         </li>
+        <li>
+          <a class="close-panel icon-archive pat-modal ${python: not can_archive and 'disabled' or ''}"
+             href="${python:can_archive and archive_url or None}"
+             title="Archive"
+             i18n:attributes="title"
+          >Archive</a>
+        </li>
         <li tal:condition="webhelpers/use_clone_feature">
           <a class="close-panel pat-modal icon-clone ${python: not can_duplicate and 'disabled' or ''}"
              href="${python: can_duplicate and clone_url or None}"
@@ -35,13 +44,13 @@
           >Duplicate</a>
         </li>
         <li>
-            <a class="pat-modal close-panel icon-chart-line"
-            href="${here/absolute_url}/@@status#status-report"
-            title="Status"
-            data-pat-modal="class: medium"
-            i18n:attributes="title navigation_status"
-            i18n:translate="navigation_status"
-            >Status</a>
+          <a class="pat-modal close-panel icon-chart-line"
+             href="${here/absolute_url}/@@status#status-report"
+             title="Status"
+             data-pat-modal="class: medium"
+             i18n:attributes="title navigation_status"
+             i18n:translate="navigation_status"
+          >Status</a>
         </li>
       </ul>
     </div>

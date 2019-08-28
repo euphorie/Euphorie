@@ -117,6 +117,22 @@ def add_group_id_to_session():
     execute(statement)
 
 
+def add_archived_to_session():
+    ''' A new 'archived' column has been added to the 'session' table
+    '''
+    for column in inspector.get_columns('session'):
+        if 'archived' == column['name']:
+            return
+
+    statement = (
+        '''
+        ALTER TABLE session
+            ADD COLUMN archived timestamp with time zone;
+        '''
+    )
+    execute(statement)
+
+
 def add_published_to_session():
     ''' A new 'published' column has been added to the 'session' table
     '''
@@ -235,6 +251,7 @@ def hash_passwords():
 def main():
     # It is always a good idea to run this one
     create_missing_tables()
+    add_archived_to_session()
     if euphorie_version < parse_version('10.0.1'):
         add_group_id_to_account()
         add_brand_to_session()
@@ -247,6 +264,7 @@ def main():
         add_brand_to_group()
     if euphorie_version < parse_version('11.0.5'):
         add_custom_description_to_risk()
+
 
 if __name__ == "__main__":
     main()

@@ -1,9 +1,11 @@
 # coding=utf-8
 from AccessControl.PermissionRole import _what_not_even_god_should_do
+from datetime import timedelta
 from euphorie.client import config
 from euphorie.client import model
 from euphorie.client.tests.database import DatabaseTests
 from euphorie.testing import EuphorieIntegrationTestCase
+from plone.app.event.base import localized_now
 from sqlalchemy.exc import StatementError
 from z3c.saconfig import Session
 
@@ -27,6 +29,18 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
         '''
         survey = createSurvey()[-1]
         self.assertTrue(model.ISurveySession.providedBy(survey))
+
+    def test_is_archived(self):
+        """ Verify that a session is archived when the archived attribute
+        is set and it is in the past
+        """
+        session = model.SurveySession()
+        self.assertIsNone(session.archived)
+        self.assertFalse(session.is_archived())
+        session.archived = localized_now()
+        self.assertTrue(session.is_archived())
+        session.archived += timedelta(days=1)
+        self.assertFalse(session.is_archived())
 
     def testNoChildren(self):
         (ses, survey) = createSurvey()

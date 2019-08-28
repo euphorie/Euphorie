@@ -664,11 +664,18 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def can_edit_session(self):
-        return self.can_view_session
+        return (
+            self.can_view_session and not self.traversed_session.session.is_archived()
+        )
 
     @property
     @memoize
     def can_publish_session(self):
+        return self.can_edit_session
+
+    @property
+    @memoize
+    def can_archive_session(self):
         return self.can_edit_session
 
     @property

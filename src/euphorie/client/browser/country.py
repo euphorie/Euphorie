@@ -11,12 +11,15 @@ from euphorie.client.model import Group
 from euphorie.client.model import SurveySession
 from euphorie.client.sector import IClientSector
 from euphorie.content.survey import ISurvey
+from itertools import ifilter
 from logging import getLogger
 from plone import api
+from plone.app.event.base import localized_now
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
+from sqlalchemy.sql import or_
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
 
@@ -166,12 +169,27 @@ class SessionsView(BrowserView):
             type="session",
         )
 
+    @property
+    @memoize_contextless
+    def hide_archived(self):
+        """ By default we hide the archived session and
+        we have a checkbox that shows with a sibling
+        hide_archived_marker input field
+        """
+        if self.request.get("hide_archived_marker"):
+            if not self.request.get("hide_archived"):
+                return False
+        return True
+
     def filter_valid_sessions(self, sessions):
-        return [
+        sessions = (
             session
             for session in sessions
             if self.get_survey_by_path(session.zodb_path)
-        ]
+        )
+        if self.hide_archived:
+            sessions = ifilter(lambda x: not x.is_archived(), sessions)
+        return list(sessions)
 
     @memoize
     def get_sessions(self):
@@ -193,7 +211,8 @@ class SessionsView(BrowserView):
     def get_ordered_sessions(self):
         """ Given some sessions create a tree
         """
-        return sorted(self.get_sessions(), key=lambda x: x.modified, reverse=True)
+        sessions = self.get_sessions()
+        return sorted(sessions, key=lambda x: x.modified, reverse=True)
 
     @memoize
     def get_sessions_tree_root(self):
@@ -327,8 +346,7 @@ class SessionsView(BrowserView):
         self.request.response.redirect(
             "{base_url}/++session++{session_id}/@@start"
             "?initial_view=1&new_session=1".format(
-                base_url=survey.absolute_url(),
-                session_id=survey_session.id,
+                base_url=survey.absolute_url(), session_id=survey_session.id
             )
         )
 
@@ -342,14 +360,13 @@ class SessionsView(BrowserView):
         if info.get("new_clone", None):
             extra = "&new_clone=1"
         self.request.response.redirect(
-            "%s/++session++%s/@@resume?initial_view=1%s" % (
-                survey.absolute_url(), session.id, extra
-            )
+            "%s/++session++%s/@@resume?initial_view=1%s"
+            % (survey.absolute_url(), session.id, extra)
         )
 
     def tool_byline(self):
         title = api.portal.translate(
-            _("title_tool", default=u"OiRA - Online interactive Risk Assessment"),
+            _("title_tool", default=u"OiRA - Online interactive Risk Assessment")
         )
         return title.split("-")[-1].strip()
 
@@ -430,9 +447,16 @@ class SessionBrowserNavigator(SessionsView):
         account = get_current_account()
         base_query = (
             Session.query(self.survey_session_model)
+            .filter(self.survey_session_model.account_id == account.id)
             .order_by(self.survey_session_model.modified.desc())
             .order_by(self.survey_session_model.title)
-            .filter(self.survey_session_model.account_id == account.id)
+        )
+        # XXX Probably this should be controlled by some request parameter
+        base_query = base_query.filter(
+            or_(
+                self.survey_session_model.archived > localized_now(),
+                self.survey_session_model.archived == None,  # noqa: E711
+            )
         )
         if self.searchable_text:
             base_query = base_query.filter(

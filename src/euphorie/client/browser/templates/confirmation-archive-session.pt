@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+  <body>
+    <metal:slot fill-slot="content">
+      <div class="pat-modal small"
+           id="document-content"
+      >
+        <h1 panel-class-small=""
+            i18n:translate=""
+        >Archive risk assessment</h1>
+        <form class="wizard-box panel-class-small pat-inject"
+              action="${context/absolute_url}/@@archive-session"
+              method="post"
+              data-pat-inject="source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
+        >
+          <div class="panel-body">
+            <div class="container">
+              <article class="pat-rich">
+                <p><tal:i18n i18n:translate="label_title">Title</tal:i18n>: &ldquo;${view/session_title}&rdquo;</p>
+                <p i18n:translate="">Are you sure you want to archive this session?</p>
+              </article>
+            </div>
+          </div>
+          <div class="buttons panel-footer">
+            <div class="container">
+              <button class="pat-button close-panel"
+                      type="submit"
+                      i18n:translate="button_archive_session"
+              >
+                Yes, archive session
+              </button>
+              <button class="pat-button close-panel"
+                      type="button"
+                      i18n:translate="button_cancel"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </metal:slot>
+  </body>
+</html>

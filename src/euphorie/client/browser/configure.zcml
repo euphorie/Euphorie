@@ -292,6 +292,23 @@
       />
 
   <browser:page
+      name="confirmation-archive-session"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".session.ConfirmationArchiveSession"
+      template="templates/confirmation-archive-session.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="archive-session"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".session.ArchiveSession"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="confirmation-delete-risk"
       for="euphorie.client.model.Risk"
       permission="zope2.View"
