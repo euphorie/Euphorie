@@ -101,17 +101,13 @@
 
         <article class="pat-rich">
           <figure class="postit external-reference"
-                  tal:condition="context/external_site_logo | nothing"
+                  tal:condition="view/scaled_tool_image_url"
           >
             <a href="${context/external_site_url | nothing}"
                target="_blank"
                tal:omit-tag="not:context/external_site_url | nothing"
             >
-              <tal:img define="
-                scales context/aq_parent/@@images;
-                scale python: scales.scale('external_site_logo', scale='large')">
-                <img src="${scale/url}" />
-              </tal:img>
+                <img src="${view/scaled_tool_image_url}" />
             </a>
             <figcaption tal:condition="context/external_site_name | nothing"
                         i18n:translate=""
