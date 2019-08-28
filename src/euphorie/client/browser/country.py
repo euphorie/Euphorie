@@ -2,8 +2,6 @@
 from Acquisition import aq_inner
 from anytree import NodeMixin
 from anytree.node.util import _repr
-from collections import defaultdict
-from collections import OrderedDict
 from euphorie import MessageFactory as _
 from euphorie.client import model
 from euphorie.client import utils
@@ -416,66 +414,6 @@ class SessionBrowserNavigator(SessionsView):
             return ""
         return u"%{}%".format(safe_unicode(searchable_text))
 
-    def get_tools_tree(self, zodb_path=None):
-        """ Return a dict like structure to render the leaf sessions,
-        something like:
-
-        {
-            'tool': [<SurveySession>, ...],
-            ...
-        }
-        Optionally, we can pass in zodb_path, to filter for tools that match
-        this path
-        """
-        sessions = self.leaf_sessions()
-        if not sessions.count():
-            return {}
-        tools = defaultdict(list)
-        for session in sessions:
-            # XXX
-            # Filter by zodb_path for specific tools
-            # if zodb_path and session.zodb_path != zodb_path:
-            #     continue
-            tool = self.get_survey_by_path(session.zodb_path)
-            tools[tool].append(session)
-
-        ordered_tools = OrderedDict()
-        for tool in sorted(
-            [x for x in tools.keys() if x], key=lambda s: s.title.lower()
-        ):
-            ordered_tools[tool] = sorted(
-                tools[tool], key=lambda s: s.modified, reverse=True
-            )
-
-        return ordered_tools
-
-    def get_sessions_tree(self, zodb_path=None):
-        """ Return a dict like structure to render the leaf sessions,
-        something like:
-
-        {
-            <SurveySession>: Tool,
-            ...
-        }
-        Optionally, we can pass in zodb_path, to filter for tools that match
-        this path
-        """
-        sessions = self.leaf_sessions()
-        if not sessions.count():
-            return {}
-        sessions = sorted(
-            [x for x in sessions if x], key=lambda s: s.modified, reverse=True)
-        ordered_sessions = OrderedDict()
-        for session in sessions:
-            # XXX
-            # Filter by zodb_path for specific tools
-            # if zodb_path and session.zodb_path != zodb_path:
-            #     continue
-            tool = self.get_survey_by_path(session.zodb_path)
-            ordered_sessions[session] = tool
-
-        return ordered_sessions
-
     @memoize
     def leaf_groups(self, groupid=None):
         """ Nothing to do in main OiRA - to be filled in customer-specific
@@ -485,24 +423,28 @@ class SessionBrowserNavigator(SessionsView):
         base_query = Session.query(self.survey_session_model)
         return base_query.filter(False)
 
+    @memoize
     def leaf_sessions(self):
         """ The sessions we want to display in the navigation
         """
-        base_query = Session.query(self.survey_session_model).order_by(
-            self.survey_session_model.title
+        account = get_current_account()
+        base_query = (
+            Session.query(self.survey_session_model)
+            .order_by(self.survey_session_model.modified.desc())
+            .order_by(self.survey_session_model.title)
+            .filter(self.survey_session_model.account_id == account.id)
         )
         if self.searchable_text:
             base_query = base_query.filter(
                 self.survey_session_model.title.ilike(self.searchable_text)
             )
-        account = get_current_account()
-        return base_query.filter(self.survey_session_model.account_id == account.id)
+        return base_query.all()
 
     def has_content(self):
         """ Checks if we have something meaningfull to display
         """
         if self.leaf_groups().count():
             return True
-        if len(self.get_sessions_tree()):
+        if len(self.leaf_sessions()):
             return True
         return False

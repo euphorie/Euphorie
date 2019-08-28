@@ -104,8 +104,8 @@
             >
               <strong class="object-name">${group/fullname}</strong></a>
           </li>
-          <tal:session repeat="session sessions" define="sessions python:my_view.get_sessions_tree(zodb_path)">
-            <tal:tool condition="nocall:tool" define="tool python:sessions[session]">
+          <tal:session repeat="session sessions" define="sessions my_view/leaf_sessions">
+            <tal:tool condition="nocall:tool" define="tool python:my_view.get_survey_by_path(session.zodb_path)">
               <li class="object item type-risk-assessment">
                 <span class="object-name field">
                   <a class="session-name pat-inject pat-switch"
