@@ -18,7 +18,8 @@
       <div class="pat-message notice"
          tal:condition="last_modifier"
       >
-        <p tal:condition="session/published">
+        <p tal:condition="session/published"
+           tal:define="last_publisher session/last_publisher|nothing">
           <!-- Diplay this paragraph only when the assessment is published. -->
           <strong><tal:i18n i18n:translate="label_published">Published</tal:i18n>
             <time class="pat-display-time"
@@ -26,6 +27,10 @@
                   tal:define="value session/published/isoformat|nothing;"
                   datetime="${value}"
             >${value}</time>
+            <tal:publisher condition="last_publisher">
+              <tal:i18n i18n:translate="by">by</tal:i18n>
+              <a href="mailto:${last_publisher/email}">${last_publisher/email}</a>
+            </tal:publisher>
           </strong>
         </p>
         <p i18n:translate="last_edited_by">Last edited by
