@@ -6,9 +6,8 @@
       "
       tal:omit-tag=""
 >
-  <div class="pat-checklist">
+  <fieldset class="pat-checklist">
     <label>
-      ${item/label}
       <input class="${view/klass}"
              id="${view/id}"
              checked="${python:'checked' if item['checked'] else None}"
@@ -17,11 +16,11 @@
              readonly="${view/readonly}"
              type="checkbox"
              value="${item/value}"
-      />
+      /> ${item/label}
       <input name="${view/name}-empty-marker"
              type="hidden"
              value="1"
       />
     </label>
-  </div>
+  </fieldset>
 </html>
