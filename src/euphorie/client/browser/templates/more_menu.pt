@@ -28,7 +28,7 @@
              i18n:translate="label_delete"
           >Delete</a>
         </li>
-        <li>
+        <li tal:condition="webhelpers/use_archive_feature">
           <a class="close-panel icon-archive pat-modal ${python: not can_archive and 'disabled' or ''}"
              href="${python:can_archive and archive_url or None}"
              title="Archive"

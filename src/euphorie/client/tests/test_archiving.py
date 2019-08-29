@@ -7,6 +7,8 @@ from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
 from zExceptions import Unauthorized
 
+import mock
+
 
 class TestArchivingViews(EuphorieIntegrationTestCase):
     def setUp(self):
@@ -41,48 +43,61 @@ class TestArchivingViews(EuphorieIntegrationTestCase):
                 with self.assertRaises(Unauthorized):
                     view()
 
-        # Check that an authorized user can archive it
+        # By default, webhelpers.use_archive_feature is False, so the archive
+        # feature is disabled. Nobody can archive.
         with api.env.adopt_user(user=self.account):
             with self._get_view("archive-session", traversed_session) as view:
-                traversed_session
-                self.assertIsNone(session.archived)
-                view()
-                # Now the archival date is set
-                self.assertIsNotNone(session.archived)
-                # and we are redirected to the session view...
-                self.assertDictEqual(
-                    view.request.response.headers,
-                    {
-                        "location": "http://nohost/plone/client/nl/ict/software-development/++session++1"  # noqa: E501
-                    },
-                )
-                # ... or the referer (if specified)
-                view.request.set("HTTP_REFERER", "http://example.com")
-                view.redirect()
-                self.assertDictEqual(
-                    view.request.response.headers, {"location": "http://example.com"}
-                )
+                with self.assertRaises(Unauthorized):
+                    view()
 
-            with self._get_view("view", country) as view:
-                # The country view by default hides the archived sessions
-                self.assertTrue(view.hide_archived)
-                self.assertEqual(len(view.get_ordered_sessions()), 1)
+        # Now, activate the archive feature.
+        # Check that an authorized user can archive it
+        with mock.patch(
+            "euphorie.client.browser.webhelpers.WebHelpers.use_archive_feature",
+            return_value=True,
+        ):
+            with api.env.adopt_user(user=self.account):
+                with self._get_view("archive-session", traversed_session) as view:
+                    traversed_session
+                    self.assertIsNone(session.archived)
+                    view()
+                    # Now the archival date is set
+                    self.assertIsNotNone(session.archived)
+                    # and we are redirected to the session view...
+                    self.assertDictEqual(
+                        view.request.response.headers,
+                        {
+                            "location": "http://nohost/plone/client/nl/ict/software-development/++session++1"  # noqa: E501
+                        },
+                    )
+                    # ... or the referer (if specified)
+                    view.request.set("HTTP_REFERER", "http://example.com")
+                    view.redirect()
+                    self.assertDictEqual(
+                        view.request.response.headers,
+                        {"location": "http://example.com"},
+                    )
 
-                view.request.__annotations__.clear()
+                with self._get_view("view", country) as view:
+                    # The country view by default hides the archived sessions
+                    self.assertTrue(view.hide_archived)
+                    self.assertEqual(len(view.get_ordered_sessions()), 1)
 
-                # To show it we have to make sure the user unchecked a checkbox
-                # that by dfault is marked
-                view.request.set("hide_archived_marker", "1")
-                self.assertFalse(view.hide_archived)
-                self.assertEqual(len(view.get_ordered_sessions()), 2)
+                    view.request.__annotations__.clear()
 
-                view.request.__annotations__.clear()
+                    # To show it we have to make sure the user unchecked a checkbox
+                    # that by dfault is marked
+                    view.request.set("hide_archived_marker", "1")
+                    self.assertFalse(view.hide_archived)
+                    self.assertEqual(len(view.get_ordered_sessions()), 2)
 
-                view.request.set("hide_archived", "1")
-                self.assertTrue(view.hide_archived)
-                self.assertEqual(len(view.get_ordered_sessions()), 1)
+                    view.request.__annotations__.clear()
 
-            with self._get_view("session-browser-sidebar", country) as view:
-                # There is also a sidebar that unluckily uses a different logic
-                # XXX the logic should be unified
-                self.assertEqual(len(view.leaf_sessions()), 1)
+                    view.request.set("hide_archived", "1")
+                    self.assertTrue(view.hide_archived)
+                    self.assertEqual(len(view.get_ordered_sessions()), 1)
+
+                with self._get_view("session-browser-sidebar", country) as view:
+                    # There is also a sidebar that unluckily uses a different logic
+                    # XXX the logic should be unified
+                    self.assertEqual(len(view.leaf_sessions()), 1)

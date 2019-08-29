@@ -39,6 +39,7 @@
             </header>
             <form class="portlet-tool-group pat-inject pat-autosubmit"
                   action="${request/getURL}#portlet-body-my-ras"
+                  tal:condition="webhelpers/use_archive_feature"
             >
               <div class="pat-collapsible context-menu closed align-right"
                     id="initiators-menu"

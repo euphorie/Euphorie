@@ -117,8 +117,14 @@ class WebHelpers(BrowserView):
         return asBool(self._settings.get('use_publication_feature', False))
 
     @property
+    @memoize
     def use_clone_feature(self):
         return asBool(self._settings.get('use_clone_feature', False))
+
+    @property
+    @memoize
+    def use_archive_feature(self):
+        return asBool(self._settings.get('use_archive_feature', False))
 
     @property
     @memoize
@@ -676,6 +682,8 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def can_archive_session(self):
+        if not self.use_archive_feature:
+            return False
         return self.can_edit_session
 
     @property
