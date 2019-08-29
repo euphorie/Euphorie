@@ -1,9 +1,7 @@
 # -*- coding: UTF-8 -*-
 ''' Upgrade the database tables if needed'''
-from __future__ import print_function
 from datetime import datetime
 from euphorie.client import model
-from logging import getLogger
 from pkg_resources import get_distribution
 from pkg_resources import parse_version
 from Products.Five import zcml
@@ -14,7 +12,17 @@ from transaction import commit
 from z3c.saconfig import Session
 
 
-logger = getLogger(__name__)
+import logging
+
+logger = logging.getLogger(__name__)
+handler = logging.StreamHandler()
+formatter = logging.Formatter(
+    '%(asctime)s - %(name)s - %(levelname)s -  %(message)s'
+)
+handler.setFormatter(formatter)
+logger.setLevel(logging.INFO)
+logger.addHandler(handler)
+
 euphorie_version = get_distribution('euphorie').parsed_version
 
 try:
@@ -180,7 +188,6 @@ def add_last_publisher_id_to_session():
 def add_custom_description_to_risk():
     ''' A new 'custom_description' column has been added to the 'risk' table
     '''
-    print("add custom description to risk")
     for column in inspector.get_columns('risk'):
         if 'custom_description' == column['name']:
             return
@@ -205,7 +212,7 @@ def hash_passwords():
     )
     total = float(accounts.count())
     start = datetime.now()
-    print(
+    logger.info(
         '{} - {} accounts to convert'.format(
             start.strftime('%Y/%m/%d %H:%M:%S'), int(total)
         )
@@ -215,15 +222,15 @@ def hash_passwords():
         account.hash_password()
         cnt += 1
         if cnt % 500 == 0:
-            print(
+            logger.info(
                 '{} - {} accounts converted ({:2.2f}%)'.format(
                     datetime.now().strftime('%Y/%m/%d %H:%M:%S'),
                     cnt,
                     cnt / total * 100,
                 )
             )
-            print('    {}'.format(account.loginname))
-    print(
+            logger.info('    {}'.format(account.loginname))
+    logger.info(
         '{} accounts processed. Finished after {}'.format(
             cnt,
             datetime.now() - start,
@@ -247,6 +254,7 @@ def main():
         add_brand_to_group()
     if euphorie_version < parse_version('11.0.5'):
         add_custom_description_to_risk()
+
 
 if __name__ == "__main__":
     main()
