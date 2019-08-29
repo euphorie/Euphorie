@@ -112,6 +112,15 @@ class SessionMixin(object):
         survey = aq_inner(self.context)
         return utils.HasText(getattr(survey, "introduction", None))
 
+    @property
+    @memoize
+    def scaled_tool_image_url(self):
+        if not getattr(self.survey, "external_site_logo", False):
+            return ""
+        scales = self.survey.restrictedTraverse("@@images")
+        scale = scales.scale("external_site_logo", scale="large")
+        return scale.url if scale else ""
+
 
 class Start(SessionMixin, AutoExtensibleForm, EditForm):
     """Survey start screen.
