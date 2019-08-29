@@ -69,12 +69,7 @@
                      "
               >
                 ${widget/label}
-                <input class="${python: ' error' if widget.error else None}"
-                       autofocus="${python:'autofocus' if widgetid=='title' else None}"
-                       name="${name}"
-                       type="text"
-                       value="${request/?name|session/?widgetid|nothing}"
-                />
+                <input tal:replace="structure widget/render" />
                 <tal:error condition="widget/error"
                            replace="structure widget/error/render|nothing"
                 />

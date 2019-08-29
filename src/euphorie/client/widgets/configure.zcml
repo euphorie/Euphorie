@@ -1,0 +1,39 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    >
+
+  <z3c:widgetTemplate
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      template="templates/text_input.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      mode="input"
+      view="euphorie.client.browser.session.Start"
+      widget="z3c.form.interfaces.ITextWidget"
+      />
+
+  <adapter
+      for="plone.app.z3cform.interfaces.IDateField
+           euphorie.client.interfaces.IClientSkinLayer"
+      factory=".date.EuphorieDateFieldWidget"
+      />
+
+  <z3c:widgetTemplate
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      template="templates/date_input.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      mode="input"
+      view="euphorie.client.browser.session.Start"
+      widget="plone.app.z3cform.interfaces.IDateWidget"
+      />
+
+  <z3c:widgetTemplate
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      template="templates/checkbox_input.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      mode="input"
+      view="euphorie.client.browser.session.Start"
+      widget="z3c.form.interfaces.ISingleCheckBoxWidget"
+      />
+
+</configure>
