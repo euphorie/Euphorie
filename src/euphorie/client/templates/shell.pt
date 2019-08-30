@@ -298,8 +298,14 @@
     <tal:anon condition="not:is_anonymous">
 
         <!-- The aside header and sessions browser comes from a macro -->
-        <metal:aside-browser use-macro="context/session-browser-sidebar/macros/aside-browser"/>
-
+        <aside id="osc">
+          <a class="pat-inject icon-search"
+             hidden
+             href="${here/absolute_url}/@@session-browser-sidebar"
+             data-pat-inject="source: #osc::element; target: #osc::element; trigger: autoload;"
+             i18n:translate=""
+          >Loading Risk Assessments&hellip;</a>
+        </aside>
       <tal:logo condition="webhelpers/show_logo">
         <metal:logo use-macro="context/logo/macros/logo"/>
       </tal:logo>
