@@ -188,14 +188,6 @@ class SessionsView(BrowserView):
         sessions = self.get_sessions()
         return sorted(sessions, key=lambda x: x.modified, reverse=True)
 
-    @memoize
-    def get_sessions_tree_root(self):
-        """ Given some sessions create a tree
-        """
-        sessions = self.get_sessions()
-        map(self.get_session_node, sessions)
-        return self.sessions_root
-
     # Here, we assemble the list of available tools for starting a new session
 
     @property
