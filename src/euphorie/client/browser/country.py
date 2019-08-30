@@ -103,26 +103,6 @@ class SessionsView(BrowserView):
         """
         return model.get_current_account()
 
-    @property
-    @memoize_contextless
-    def scope_options(self):
-        """ We have the possibility to display only the sessions
-        that were made by this user or all the accessible sessions through
-        the group ownership
-        """
-        account = self.account
-        if not account or not account.group:
-            return []
-        options = [
-            {"value": "mine", "label": _("Show my risk assessments only")},
-            {"value": "all", "label": _("Show all risk assessments")},
-        ]
-        selected = self.request.get("scope")
-        for option in options:
-            if option["value"] == selected:
-                option["selected"] = "selected"
-        return options
-
     @memoize
     def get_survey_by_path(self, zodb_path):
         return self.context.restrictedTraverse(six.binary_type(zodb_path), None)
@@ -199,13 +179,7 @@ class SessionsView(BrowserView):
         if not account:
             return []
 
-        scope = self.request.get("scope")
-        if scope == "all":
-            sessions = self.account.sessions + self.account.acquired_sessions
-        else:
-            sessions = self.account.sessions
-
-        return self.filter_valid_sessions(sessions)
+        return self.filter_valid_sessions(self.account.sessions)
 
     @memoize
     def get_ordered_sessions(self):

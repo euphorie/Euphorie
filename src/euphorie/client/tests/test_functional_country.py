@@ -154,28 +154,6 @@ class CountryTests(EuphorieIntegrationTestCase):
                 ],
             )
 
-        # but he can also see Jane's ones that have been filed its groups
-        with self._get_view('view', self.portal.client['nl']) as view:
-            view.request.set('scope', 'all')
-            root = view.get_sessions_tree_root()
-            self.assertListEqual(
-                RenderTree(root).by_attr("title").splitlines(),
-                [
-                    u'',
-                    u'├── Group 1',
-                    u'│   ├── Software development',
-                    u'│   │   └── John SW Group 1',
-                    u'│   └── Group 2',
-                    u'│       ├── Software development',
-                    u'│       │   ├── John SW Group 2',
-                    u'│       │   ├── Jane SW Group 2',
-                    u'│       │   └── Jane SW Group 2 (another one)',
-                    u'│       └── Hardware development',
-                    u'│           └── Jane HW Group 2',
-                    u'└── Software development',
-                    u'    └── John SW No group',
-                ],
-            )
         # Jane can see her Sessions by default
         newSecurityManager(None, jane)
         with self._get_view('view', self.portal.client['nl']) as view:
@@ -193,27 +171,6 @@ class CountryTests(EuphorieIntegrationTestCase):
                     u'        └── Software development',
                     u'            ├── Jane SW Group 2',
                     u'            └── Jane SW Group 2 (another one)',
-                ],
-            )
-        # but cannot acquire John's sessions in group1
-        # (although she can if the session is in group2)
-        with self._get_view('view', self.portal.client['nl']) as view:
-            view.request.set('scope', 'all')
-            root = view.get_sessions_tree_root()
-            self.assertListEqual(
-                RenderTree(root).by_attr("title").splitlines(),
-                [
-                    u'',
-                    u'├── Hardware development',
-                    u'│   └── Jane HW No group',
-                    u'└── Group 1',
-                    u'    └── Group 2',
-                    u'        ├── Hardware development',
-                    u'        │   └── Jane HW Group 2',
-                    u'        └── Software development',
-                    u'            ├── Jane SW Group 2',
-                    u'            ├── Jane SW Group 2 (another one)',
-                    u'            └── John SW Group 2',
                 ],
             )
 
