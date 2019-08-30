@@ -260,9 +260,6 @@ class SessionsView(BrowserView):
 
     @memoize
     def get_survey_templates(self):
-        # This number might be higher than the actual amount of survey
-        # templates, since some might appear under more than one category.
-        self.template_count = 0
         # this is a list of tuples of the form
         # (category name, survey object, survey id)
         survey_items = []
@@ -292,7 +289,6 @@ class SessionsView(BrowserView):
                     categories = [None]
                 for category in categories:
                     survey_items.append((category, survey, id))
-                    self.template_count += 1
         return sorted(survey_items, key=lambda x: (x[0], x[1].title))
 
     def _updateSurveys(self):
