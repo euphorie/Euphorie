@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="euphorie"
+    >
+
+  <browser:page
+      name="minimal_main_template"
+      for="*"
+      permission="zope.Public"
+      template="templates/minimal_main_template.pt"
+      />
+
+  <browser:page
+      name="prefs_main_template"
+      for="*"
+      permission="zope.Public"
+      template="templates/prefs_main_template.pt"
+      />
+
+</configure>
