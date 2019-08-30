@@ -844,6 +844,44 @@ class SurveySession(BaseObject):
             .update({'session_id': self.id},
                     synchronize_session=False)
 
+    @classmethod
+    def get_account_filter(cls, account=None):
+        """ Filter only the sessions for the given account
+        (or the current one if account is not passed)
+        """
+        if not account:
+            account = get_current_account()
+        return cls.account_id == account.id
+
+    @classmethod
+    def get_archived_filter(cls):
+        """ Filter sessions that are archived
+        """
+        return sql.or_(
+            cls.archived >= localized_now(), cls.archived == None  # noqa: E711
+        )
+
+    @classmethod
+    def get_context_filter(cls, context):
+        """ Filter sessions under this context using the zodb_path column
+        """
+        if not context:
+            return False
+
+        # Check the path relative to the client folder
+        relative_path = context.getPhysicalPath()[3:]
+        # session zodb_path has three levels (country, sector, survey)
+        if len(relative_path) < 3:
+            relative_path += ("%", )
+        else:
+            relative_path = relative_path[:3]
+        return cls.zodb_path.like(safe_unicode("/".join(relative_path)))
+
+    @property
+    def tool(self):
+        client = api.portal.get().client
+        return client.restrictedTraverse(str(self.zodb_path), None)
+
 
 class Company(BaseObject):
     """Information about a company."""

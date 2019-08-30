@@ -8,7 +8,6 @@ from euphorie.client.tests.utils import testRequest
 from euphorie.client.utils import locals
 from euphorie.content.survey import Survey
 from euphorie.testing import EuphorieIntegrationTestCase
-from OFS.SimpleItem import SimpleItem
 from PIL.ImageColor import getrgb
 from plone import api
 from zope.interface import alsoProvides
@@ -129,37 +128,6 @@ class HasTextTests(unittest.TestCase):
 
     def testTagsAndText(self):
         self.assertEqual(utils.HasText(u'<strong>STRONG</strong>'), True)
-
-
-class RelativePathTests(unittest.TestCase):
-
-    def _createObject(self, id):
-        obj = SimpleItem()
-        obj.id = id
-        return obj
-
-    def testSameItem(self):
-        obj = self._createObject('dummy')
-        self.assertEqual(utils.RelativePath(obj, obj), '')
-
-    def testDirectChild(self):
-        parent = self._createObject('parent')
-        child = self._createObject('child').__of__(parent)
-        self.assertEqual(utils.RelativePath(parent, child), 'child')
-
-    def testDirectParent(self):
-        parent = self._createObject('parent')
-        child = self._createObject('child').__of__(parent)
-        self.assertEqual(utils.RelativePath(parent, child), 'child')
-
-    def testOtherTree(self):
-        parent = self._createObject('root')
-        child1 = self._createObject('child1').__of__(parent)
-        grandchild = self._createObject('grandchild').__of__(child1)
-        child2 = self._createObject('child2').__of__(parent)
-        self.assertEqual(
-            utils.RelativePath(child2, grandchild), '../child1/grandchild'
-        )
 
 
 class RandomStringTests(unittest.TestCase):

@@ -11,6 +11,9 @@ from euphorie.client.adapters.session_traversal import ITraversedSurveySession
 from euphorie.client.client import IClient
 from euphorie.client.country import IClientCountry
 from euphorie.client.model import get_current_account
+from euphorie.client.model import Group
+from euphorie.client.model import Session
+from euphorie.client.model import SurveySession
 from euphorie.client.sector import IClientSector
 from euphorie.client.update import wasSurveyUpdated
 from euphorie.client.utils import getSecret
@@ -28,6 +31,7 @@ from plonetheme.nuplone.utils import isAnonymous
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
+from sqlalchemy import and_
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from ZODB.POSException import POSKeyError
@@ -77,6 +81,8 @@ class WebHelpers(BrowserView):
     js_resources_name = "++resource++euphorie.resources"
     bundle_name = "bundle.js"
     bundle_name_min = "bundle.min.js"
+    group_model = Group
+    survey_session_model = SurveySession
 
     @property
     @memoize
@@ -199,10 +205,18 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
-    def country_name(self):
+    def country_obj(self):
         for obj in aq_chain(aq_inner(self.context)):
             if IClientCountry.providedBy(obj):
-                return obj.Title()
+                return obj
+
+    @property
+    @memoize
+    def country_name(self):
+        obj = self.country_obj
+        if not obj:
+            return ""
+        return obj.Title()
 
     @property
     @memoize
@@ -254,10 +268,12 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def country(self):
-        for obj in aq_chain(aq_inner(self.context)):
-            if IClientCountry.providedBy(obj):
-                return obj.id
-        return None
+        """ XXX it would be better to write this country id, consider deprecating this
+        """
+        obj = self.country_obj
+        if not obj:
+            return ""
+        return obj.id
 
     def logoMode(self):
         return 'alien' if 'alien' in self.extra_css else 'native'
@@ -764,6 +780,43 @@ class WebHelpers(BrowserView):
             }
         )
         return json
+
+    def get_sessions_query(
+        self,
+        context=None,
+        searchable_text=None,
+        order_by=False,
+        include_archived=False,
+    ):
+        """ Method to return a query that looks for sessions
+
+        context limits the sessions under this context
+        searchable_text
+        """
+        table = self.survey_session_model
+        query = Session.query(table)
+
+        account = self.get_current_account()
+        if not account:
+            return query.filter(False)
+
+        query = query.filter(
+            and_(
+                table.get_account_filter(account),
+                table.get_context_filter(context or self.context),
+            )
+        )
+        if not include_archived:
+            query = query.filter(table.get_archived_filter())
+        if searchable_text:
+            query = query.filter(table.title.ilike(searchable_text))
+        if order_by is None:
+            pass  # Do not append any order_by
+        elif order_by:
+            query = query.order_by(order_by)
+        else:
+            query = query.order_by(table.modified.desc(), table.title)
+        return query
 
     def __call__(self):
         return self

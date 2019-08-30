@@ -17,9 +17,7 @@
     <metal:content fill-slot="content"
                 tal:define="
                   language view/portal/plone_portal_state/language;
-                  sessions view/get_ordered_sessions;
-                  has_sessions python:len(sessions);
-                  my_context view/my_context;
+                  sessions view/sessions;
                   description context/description|string:;
                   introduction python:getattr(context, 'introduction', '') or '';
                 "
@@ -34,10 +32,9 @@
         </section>
       </article>
 
-      <div tal:condition="has_sessions" class="risk-assessments ra-list">
+      <div tal:condition="sessions" class="risk-assessments ra-list">
         <h2 class="ra-list-title"
             i18n:translate="">Risk assessments made with this tool</h2>
-
 
               <ul class="ras">
                   <li tal:repeat="session sessions"
