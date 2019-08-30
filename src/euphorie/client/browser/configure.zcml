@@ -13,6 +13,14 @@
       />
 
   <browser:page
+      name="modal-template"
+      for="*"
+      permission="zope.Public"
+      template="templates/modal-template.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="date-picker-i18n.json"
       for="*"
       permission="zope.Public"
