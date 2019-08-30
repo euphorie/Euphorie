@@ -6,7 +6,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       i18n:domain="euphorie"
       meta:interpolation="true"
-      metal:use-macro="context/@@shell/macros/shell">
+      metal:use-macro="context/@@modal-template/macros/shell">
 <body>
     <metal:slot fill-slot="content">
         <div id="document-content" class="pat-modal small" tal:define="webhelpers nocall:context/@@webhelpers; base_url webhelpers/base_url">

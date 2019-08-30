@@ -13,6 +13,14 @@
       />
 
   <browser:page
+      name="modal-template"
+      for="*"
+      permission="zope.Public"
+      template="templates/modal-template.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="date-picker-i18n.json"
       for="*"
       permission="zope.Public"
@@ -288,6 +296,23 @@
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
       class=".session.DeleteSession"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="confirmation-archive-session"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".session.ConfirmationArchiveSession"
+      template="templates/confirmation-archive-session.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="archive-session"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".session.ArchiveSession"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 

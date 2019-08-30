@@ -9,8 +9,6 @@ from euphorie.content.tests.utils import BASIC_SURVEY
 
 
 class TestCloningViews(EuphorieIntegrationTestCase):
-    """ The Daimler SurveySession has additional columns
-    """
 
     def setUp(self):
         super(TestCloningViews, self).setUp()

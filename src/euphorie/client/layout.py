@@ -33,16 +33,6 @@ class Plain(grok.View):
     grok.template("plain")
 
 
-class ModalTemplate(grok.View):
-    """ Based on the shell template, but stripped down to a minimum (no
-        sidebar, no header). Meant for use as modal template
-    """
-    grok.context(Interface)
-    grok.name("modal-template")
-    grok.layer(IClientSkinLayer)
-    grok.template("modal_template")
-
-
 class Layout(grok.View):
     grok.context(Interface)
     grok.name("layout")

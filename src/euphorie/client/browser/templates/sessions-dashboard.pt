@@ -37,6 +37,40 @@
                   i18n:translate=""
               >My risk assessments</h2>
             </header>
+            <form class="portlet-tool-group pat-inject pat-autosubmit"
+                  action="${request/getURL}#portlet-body-my-ras"
+                  tal:condition="webhelpers/use_archive_feature"
+            >
+              <div class="pat-collapsible context-menu closed align-right"
+                    id="initiators-menu"
+                    data-pat-collapsible="close-trigger: .context-menu:not(#initiators-menu),.close-menu"
+              >
+                <strong class="context-menu-label menu-trigger"
+                        i18n:translate=""
+                >
+                  Filters
+                </strong>
+                <p class="close-menu"
+                   i18n:translate=""
+                >
+                  Close
+                </p>
+                <fieldset class="pat-checklist">
+                  <label>
+                    <input checked="${python:'checked' if view.hide_archived else None}"
+                           name="hide_archived"
+                           type="checkbox"
+                           value="1"
+                    />
+                    <input name="hide_archived_marker"
+                           type="hidden"
+                           value="1"
+                    />
+                    <tal:i18n i18n:translate="">Hide archived risk assessments</tal:i18n>
+                  </label>
+                </fieldset>
+              </div>
+            </form>
           </article>
           <div class="portlet-body" id="portlet-body-my-ras">
               <article class="pat-rich">

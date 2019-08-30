@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
@@ -6,41 +5,40 @@
       metal:use-macro="context/@@modal-template/macros/shell"
       i18n:domain="euphorie"
 >
-
   <body>
     <metal:slot fill-slot="content">
       <div class="pat-modal small"
            id="document-content"
       >
-        <h1 panel-class-small i18n:translate="label_clone">Clone risk assessment</h1>
-        <form class="wizard-box panel-class-small"
-              action="${context/absolute_url}/@@clone-session"
+        <h1 panel-class-small=""
+            i18n:translate=""
+        >Archive risk assessment</h1>
+        <form class="wizard-box panel-class-small pat-inject"
+              action="${context/absolute_url}/@@archive-session"
               method="post"
+              data-pat-inject="source: #content; target: #content &amp;&amp; source: #osc; target: #osc"
         >
           <div class="panel-body">
             <div class="container">
               <article class="pat-rich">
-                <p i18n:translate="">
-                  By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point.
-                </p>
-                <p i18n:translate="">
-                  Are you sure you want to proceed?
-                </p>
+                <p><tal:i18n i18n:translate="label_title">Title</tal:i18n>: &ldquo;${view/session_title}&rdquo;</p>
+                <p i18n:translate="">Are you sure you want to archive this session?</p>
               </article>
             </div>
           </div>
           <div class="buttons panel-footer">
             <div class="container">
-              <button class="pat-button"
+              <button class="pat-button close-panel"
                       type="submit"
-                      i18n:translate=""
+                      i18n:translate="button_archive_session"
               >
-                Yes, clone risk assessment
+                Yes, archive session
               </button>
               <button class="pat-button close-panel"
                       type="button"
+                      i18n:translate="button_cancel"
               >
-                <tal:label i18n:translate="button_cancel">Cancel</tal:label>
+                Cancel
               </button>
             </div>
           </div>

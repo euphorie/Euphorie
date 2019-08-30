@@ -116,7 +116,7 @@
                 <a href="${webhelpers/country_or_client_url}/register" class="registration" i18n:translate="header_register">Register</a>
             </tal:if_anon>
             <tal:if_not_anon condition="python: not is_anonymous and not webhelpers.is_guest_account">
-                <a href="${webhelpers/session_overview_url}/user-menu.html#content"
+                <a href="${webhelpers/session_overview_url}/user-menu.html#menu-content"
                   id="more-menu"
                    class="iconified pat-tooltip pat-switch"
                    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
