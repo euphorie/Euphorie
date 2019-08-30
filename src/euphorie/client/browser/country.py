@@ -108,48 +108,6 @@ class SessionsView(BrowserView):
         return self.context.restrictedTraverse(six.binary_type(zodb_path), None)
 
     @property
-    @memoize
-    def sessions_root(self):
-        return Node(None, title="", type="root")
-
-    @memoize
-    def get_group_node(self, group):
-        """ Get the Node for this group.
-        """
-        if group is None:
-            # Everything is grouped under the sessions_root node
-            return self.sessions_root
-        return Node(
-            group,
-            parent=self.get_group_node(group.parent),
-            title=group.fullname,
-            type="department",
-        )
-
-    @memoize
-    def get_survey_node(self, survey, group):
-        """ Get a node for this survey, it might be in a group
-        """
-        return Node(
-            survey, parent=self.get_group_node(group), title=survey.title, type="tool"
-        )
-
-    @memoize
-    def get_session_node(self, session):
-        """ Get a node for this session
-        """
-        group = session.group
-        survey = self.get_survey_by_path(session.zodb_path)
-        if not survey:
-            return
-        return Node(
-            session,
-            parent=self.get_survey_node(survey, group),
-            title=session.title,
-            type="session",
-        )
-
-    @property
     @memoize_contextless
     def hide_archived(self):
         """ By default we hide the archived session and
