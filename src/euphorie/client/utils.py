@@ -6,7 +6,6 @@ Helper functions.
 """
 
 from .. import MessageFactory as _
-from decorator import decorator
 from email.Header import Header
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
@@ -28,7 +27,6 @@ import email.Utils as emailutils
 import htmllib
 import logging
 import random
-import simplejson
 import threading
 
 
@@ -64,14 +62,6 @@ def randomString(length=16):
         '1234567890-'
     )
     return ''.join(random.choice(safe_characters) for idx in range(length))
-
-
-@decorator
-def jsonify(func, *args, **kwargs):
-    request = getattr(args[0], "request")
-    request.response.setHeader("Content-Type", "application/json")
-    data = func(*args, **kwargs)
-    return simplejson.dumps(data)
 
 
 def get_translated_custom_risks_title(request):

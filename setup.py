@@ -60,7 +60,6 @@ setup(
         "python-docx",
         "repoze.formapi >=0.4.2",
         "setuptools",
-        "simplejson",
         "z3c.form >= 2.1.0",
         "z3c.schema",
         "z3c.saconfig",
