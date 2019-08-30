@@ -6,13 +6,14 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       i18n:domain="euphorie"
       meta:interpolation="true"
-      metal:use-macro="context/@@shell/macros/shell">
+      metal:use-macro="context/@@modal-template/macros/shell">
 
 <body i18n:domain="euphorie">
   <metal:slot fill-slot="content"
     tal:define="
         base_url view/base_url;
       ">
+    <section id="menu-content">
       <ul class="menu">
         <li class="menu-item-sidebar">
             <a id="burger"
@@ -49,6 +50,7 @@
           <a class="icon-logout" href="${view/country_url}/logout" i18n:translate="navigation_logout">Logout</a>
         </li>
       </ul>
+    </section>
   </metal:slot>
 </body>
 </html>
