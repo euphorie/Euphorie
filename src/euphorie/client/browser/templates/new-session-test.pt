@@ -19,13 +19,15 @@
             <input type="hidden" name="action" value="new"/>
             <div class="panel-body"
               tal:define="root view/get_survey_templates_tree_root;
-                          threshold view/tools_threshold">
+                          threshold view/tools_threshold;
+                          template_count python:len(view.get_survey_templates());
+                          ">
               <div class="container">
                 <article class="pat-rich">
                     <p i18n:translate="label_select_new_session">Start a new session by choosing one of the following sectoral tools:</p>
                 </article>
 
-              <fieldset class="tool-list" tal:condition="python:view.template_count <= threshold">
+              <fieldset class="tool-list" tal:condition="python:template_count <= threshold">
                 <metal:templates define-macro="templates">
                   <tal:surveys define="surveys root/survey_templates">
                     <fieldset class="tools pat-checklist radio">
@@ -46,7 +48,7 @@
                 </tal:categories>
               </fieldset>
 
-              <fieldset class="vertical" tal:condition="python:view.template_count > threshold">
+              <fieldset class="vertical" tal:condition="python:template_count > threshold">
               <label class="tool-list-many">
                 <select name="survey" class="pat-autosuggest" data-pat-autosuggest="minimum-input-length:0">
                   <metal:templates define-macro="templates_many">
