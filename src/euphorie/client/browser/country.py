@@ -103,71 +103,9 @@ class SessionsView(BrowserView):
         """
         return model.get_current_account()
 
-    @property
-    @memoize_contextless
-    def scope_options(self):
-        """ We have the possibility to display only the sessions
-        that were made by this user or all the accessible sessions through
-        the group ownership
-        """
-        account = self.account
-        if not account or not account.group:
-            return []
-        options = [
-            {"value": "mine", "label": _("Show my risk assessments only")},
-            {"value": "all", "label": _("Show all risk assessments")},
-        ]
-        selected = self.request.get("scope")
-        for option in options:
-            if option["value"] == selected:
-                option["selected"] = "selected"
-        return options
-
     @memoize
     def get_survey_by_path(self, zodb_path):
         return self.context.restrictedTraverse(six.binary_type(zodb_path), None)
-
-    @property
-    @memoize
-    def sessions_root(self):
-        return Node(None, title="", type="root")
-
-    @memoize
-    def get_group_node(self, group):
-        """ Get the Node for this group.
-        """
-        if group is None:
-            # Everything is grouped under the sessions_root node
-            return self.sessions_root
-        return Node(
-            group,
-            parent=self.get_group_node(group.parent),
-            title=group.fullname,
-            type="department",
-        )
-
-    @memoize
-    def get_survey_node(self, survey, group):
-        """ Get a node for this survey, it might be in a group
-        """
-        return Node(
-            survey, parent=self.get_group_node(group), title=survey.title, type="tool"
-        )
-
-    @memoize
-    def get_session_node(self, session):
-        """ Get a node for this session
-        """
-        group = session.group
-        survey = self.get_survey_by_path(session.zodb_path)
-        if not survey:
-            return
-        return Node(
-            session,
-            parent=self.get_survey_node(survey, group),
-            title=session.title,
-            type="session",
-        )
 
     @property
     @memoize_contextless
@@ -199,13 +137,7 @@ class SessionsView(BrowserView):
         if not account:
             return []
 
-        scope = self.request.get("scope")
-        if scope == "all":
-            sessions = self.account.sessions + self.account.acquired_sessions
-        else:
-            sessions = self.account.sessions
-
-        return self.filter_valid_sessions(sessions)
+        return self.filter_valid_sessions(self.account.sessions)
 
     @memoize
     def get_ordered_sessions(self):
@@ -213,14 +145,6 @@ class SessionsView(BrowserView):
         """
         sessions = self.get_sessions()
         return sorted(sessions, key=lambda x: x.modified, reverse=True)
-
-    @memoize
-    def get_sessions_tree_root(self):
-        """ Given some sessions create a tree
-        """
-        sessions = self.get_sessions()
-        map(self.get_session_node, sessions)
-        return self.sessions_root
 
     # Here, we assemble the list of available tools for starting a new session
 
