@@ -111,7 +111,7 @@
                   <a class="session-name pat-inject pat-switch"
                      href="${tool/absolute_url}/++session++${session/id}/@@start"
                      data-pat-switch="selector: body; remove: sidebar-on; add: sidebar-off"
-                     data-pat-inject="source: #osc; target: #osc; history:record &amp;&amp; source: #content; target: #content;"
+                     data-pat-inject="source: #content; target: #content; history:record "
                   >${session/title}</a>
                 </span>
                 <span class="last-saved meta field"
