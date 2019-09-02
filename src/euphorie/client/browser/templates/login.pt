@@ -18,7 +18,7 @@
     <metal:slot fill-slot="content"
                 tal:define="
                   is_guest_account webhelpers/is_guest_account;
-                  is_outside_of_survey webhelpers/is_outside_of_survey;
+                  is_outside_of_survey python: not webhelpers.traversed_session;
                   came_from_param webhelpers/came_from_param;
                 "
     >
