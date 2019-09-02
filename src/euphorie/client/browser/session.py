@@ -441,6 +441,10 @@ class Identification(SessionMixin, BrowserView):
         )
 
     def __call__(self):
+        if not self.webhelpers.can_edit_session:
+            return self.request.response.redirect(
+                self.context.absolute_url() + "/@@start"
+            )
         if not self.next_url:
             msg = _(
                 "There is not enough information to proceed to the identification phase"
