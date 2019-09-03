@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.0 (unreleased)
+11.1.0 (2019-09-03)
 -------------------
 
 - Introducing deep-linking: Every session has its unique URL
