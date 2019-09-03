@@ -4,7 +4,7 @@ Changelog
 11.1.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix brown-bag release that had missing templates
 
 
 11.1.0 (2019-09-03)
