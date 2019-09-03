@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-14 10:52+0000\n"
+"POT-Creation-Date: 2019-09-03 15:35+0000\n"
 "PO-Revision-Date: 2015-02-10 11:55+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-#: euphorie/client/browser/templates/login.pt:105
+#: euphorie/client/browser/templates/login.pt:110
 msgid ""
 "${action-plan} In the fourth stage of the assessment you can decide what "
 "steps you will take to address the risks you have identified previously and "
@@ -34,7 +34,7 @@ msgstr ""
 "að lokum til skýrslu með þeim tillögum sem valdar voru eða skigreindar af "
 "notanda."
 
-#: euphorie/client/browser/templates/login.pt:103
+#: euphorie/client/browser/templates/login.pt:108
 msgid ""
 "${evaluation} Here you will be able to determine the level of risk attached "
 "to each of the items you identified as 'need to be addressed' in the "
@@ -44,7 +44,7 @@ msgstr ""
 "sem svarað er neitandi. Þessi atriði færast sjálfkrafa inn á "
 "aðgerðaáætlunina."
 
-#: euphorie/client/browser/templates/login.pt:101
+#: euphorie/client/browser/templates/login.pt:106
 msgid ""
 "${identification} OiRA will present a series of potential health and safety "
 "hazards or problems that could exist in your workplace. By answering the "
@@ -63,7 +63,7 @@ msgid ""
 "responsibilities, deadlines)."
 msgstr "${manage} og draga úr áhættu fyrir starfsfólk vinnustaðarins."
 
-#: euphorie/client/browser/templates/login.pt:99
+#: euphorie/client/browser/templates/login.pt:104
 msgid ""
 "${preparation} This gives you an overview of the particular assessment you "
 "are about to begin and can allow you to further customise the assessment to "
@@ -80,7 +80,7 @@ msgstr "${provide-evidence}"
 msgid "${view/description_probability}"
 msgstr ""
 
-#: euphorie/client/templates/measures_overview.pt:62
+#: euphorie/client/browser/templates/measures_overview.pt:62
 msgid "(measures to be implemented in the coming months)"
 msgstr "(lausnir sem ráðast þarf í á næstu mánuðum)"
 
@@ -175,8 +175,8 @@ msgstr "Bæta við áhættu"
 msgid "Add Submodule"
 msgstr "Bæta við undirflokki"
 
-#: euphorie/client/templates/profile.pt:99
-#: euphorie/client/templates/updated.pt:82
+#: euphorie/client/browser/templates/profile.pt:99
+#: euphorie/client/browser/templates/updated.pt:82
 msgid "Add another item"
 msgstr "Bæta við öðru atriði"
 
@@ -184,11 +184,11 @@ msgstr "Bæta við öðru atriði"
 msgid "Add content from library"
 msgstr "Bæta við efni úr verkfærasafni"
 
-#: euphorie/content/library.py:208
+#: euphorie/content/library.py:213
 msgid "Added a copy of \"${title}\" to your OiRA tool."
 msgstr ""
 
-#: euphorie/client/browser/templates/risk_actionplan.pt:137
+#: euphorie/client/browser/templates/risk_actionplan.pt:144
 msgid "Additional Measure"
 msgstr ""
 
@@ -199,7 +199,7 @@ msgid ""
 msgstr ""
 "Tölvupóstur verður sendur ef viðkomandi póstfang er tengt við aðgang að OiRA"
 
-#: euphorie/client/settings.py:236
+#: euphorie/client/settings.py:238
 msgid "An error occured while sending the confirmation email."
 msgstr "Villa kom upp þegar verið var að senda staðfestingarpóst."
 
@@ -209,15 +209,27 @@ msgstr ""
 "Villa kom upp þegar verið var að senda leiðbeiningar um endursetningu "
 "lykilorðs."
 
-#: euphorie/content/utils.py:93
+#: euphorie/client/browser/templates/more_menu.pt:32
+msgid "Archive"
+msgstr ""
+
+#: euphorie/client/browser/templates/confirmation-archive-session.pt:13
+msgid "Archive risk assessment"
+msgstr ""
+
+#: euphorie/content/utils.py:95
 msgid "Are the measures that are selected above sufficient?"
 msgstr "Eru forvarnirnar sem eru valdar að ofan nægilegar?"
+
+#: euphorie/client/browser/templates/confirmation-archive-session.pt:25
+msgid "Are you sure you want to archive this session?"
+msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:25
 msgid "Are you sure you want to continue? This action can not be reverted."
 msgstr ""
 
-#: euphorie/client/browser/risk.py:605
+#: euphorie/client/browser/risk.py:709
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -233,7 +245,7 @@ msgstr ""
 "Ertu viss um að þú viljir eyða þessu áhættumati? Þessi aðgerð er ekki "
 "endurkræf."
 
-#: euphorie/client/browser/templates/confirmation-clone-session.pt:30
+#: euphorie/client/browser/templates/confirmation-clone-session.pt:26
 msgid "Are you sure you want to proceed?"
 msgstr ""
 
@@ -241,15 +253,17 @@ msgstr ""
 msgid "Automatically generate unique ids for content"
 msgstr ""
 
-#: euphorie/client/browser/templates/sessions-dashboard.pt:74
+#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:74
+#: euphorie/client/browser/templates/sessions-dashboard.pt:116
 msgid "Available OiRA tools"
 msgstr "Tiltæk Oira verkfæri"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:25
+#: euphorie/client/browser/templates/sessions-dashboard.pt:193
 msgid "Back"
 msgstr ""
 
-#: euphorie/client/browser/templates/user-menu.pt:18
+#: euphorie/client/browser/templates/user-menu.pt:19
 msgid "Browse risk assessments"
 msgstr ""
 
@@ -257,8 +271,8 @@ msgstr ""
 msgid "Button bar to add and edit content"
 msgstr ""
 
-#: euphorie/client/browser/templates/confirmation-clone-session.pt:27
-#: euphorie/client/browser/templates/more_menu.pt:30
+#: euphorie/client/browser/templates/confirmation-clone-session.pt:23
+#: euphorie/client/browser/templates/more_menu.pt:39
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
@@ -266,7 +280,7 @@ msgstr ""
 "Með því að afrita áhættumat er búið til nýtt áhættumat sem er byggt á gömlu "
 "mati, þ.e. gamla matið er notað sem uppkast af nýju."
 
-#: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:130
+#: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:105
 #: euphorie/client/templates/account-delete.pt:29
 msgid "Cancel"
 msgstr "Hætta við"
@@ -279,7 +293,7 @@ msgstr ""
 msgid "Candidate country"
 msgstr ""
 
-#: euphorie/client/browser/templates/user-menu.pt:43
+#: euphorie/client/browser/templates/user-menu.pt:44
 msgid "Change email address"
 msgstr "Breyta tölvupóstfangi"
 
@@ -287,7 +301,7 @@ msgstr "Breyta tölvupóstfangi"
 msgid "Change name of session"
 msgstr "Breyta nafni á áhættumatinu "
 
-#: euphorie/content/utils.py:59
+#: euphorie/content/utils.py:61
 msgid "Classic OiRA Tool with positive and negative statements."
 msgstr "Klassískt OiRA verkfæri með jákvæðar og neikvæðar yfirlýsingar."
 
@@ -299,7 +313,11 @@ msgstr "Dæmi frá notanda um eitt tilvik"
 msgid "Client example for multiple occurances."
 msgstr "Dæmi frá notanda um mörg tilvik"
 
-#: euphorie/client/settings.py:220
+#: euphorie/client/browser/templates/sessions-dashboard.pt:53
+msgid "Close"
+msgstr ""
+
+#: euphorie/client/settings.py:222
 msgid "Confirm OiRA email address change"
 msgstr "Staðfestið breytt OiRA tölvupóstfang"
 
@@ -361,8 +379,8 @@ msgstr ""
 msgid "Creative Commons License"
 msgstr ""
 
-#: euphorie/client/browser/templates/user-menu.pt:46
-#: euphorie/client/settings.py:136
+#: euphorie/client/browser/templates/user-menu.pt:47
+#: euphorie/client/settings.py:140
 #: euphorie/client/templates/account-delete.pt:28
 msgid "Delete account"
 msgstr "Eyða aðgangi"
@@ -375,17 +393,13 @@ msgstr ""
 msgid "Delete risk assessment"
 msgstr "Eyða áhættumati"
 
-#: euphorie/client/browser/templates/more_menu.pt:22
+#: euphorie/client/browser/templates/more_menu.pt:24
 msgid "Delete this session"
 msgstr "Eyða þessu áhættumati"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:32
 msgid "Describe the risk..."
 msgstr "Lýstu áhættunni…"
-
-#: euphorie/client/browser/templates/module_customization.pt:26
-msgid "Description of the risk"
-msgstr "Lýsing á áhættunni"
 
 #: euphorie/client/templates/report_landing.pt:26
 msgid "Did you like this tool? Share it with your colleagues and friends!"
@@ -396,7 +410,7 @@ msgstr ""
 msgid "Dirty tree root"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:124
+#: euphorie/client/browser/templates/login.pt:129
 msgid "Do I need to prepare?"
 msgstr "Þarf sérstakan undirbúning?"
 
@@ -404,7 +418,7 @@ msgstr "Þarf sérstakan undirbúning?"
 msgid "Documentation"
 msgstr ""
 
-#: euphorie/client/profile.py:300
+#: euphorie/client/browser/session.py:324
 msgid "Does this happen in multiple places?"
 msgstr "Er þetta framkvæmt á fleiri en einum stað?"
 
@@ -432,7 +446,7 @@ msgstr "Sæktu yfirlit yfir úrbætur"
 msgid "Download the risks overview"
 msgstr "Sækja fullyrðingar verkfærisins"
 
-#: euphorie/client/browser/templates/start.pt:180
+#: euphorie/client/browser/templates/start.pt:174
 #: euphorie/client/templates/report_landing.pt:40
 msgid "E-mail"
 msgstr ""
@@ -457,15 +471,15 @@ msgstr "Breyta ${name}"
 msgid "Edit Profile question"
 msgstr "Breyta spurningu um starfsemi"
 
-#: euphorie/client/settings.py:67
+#: euphorie/client/settings.py:66
 msgid "Email address/account name"
 msgstr "Tölvupóstfang"
 
-#: euphorie/client/profile.py:304
+#: euphorie/client/browser/session.py:329
 msgid "Enter the name of the location"
 msgstr "Færið heiti staðar"
 
-#: euphorie/client/profile.py:308
+#: euphorie/client/browser/session.py:334
 msgid "Enter the names of each location"
 msgstr "Færið heiti hvers staðar"
 
@@ -473,20 +487,29 @@ msgstr "Færið heiti hvers staðar"
 msgid "Euphorie content types"
 msgstr ""
 
-#: euphorie/client/configure.zcml:99
+#: euphorie/client/configure.zcml:104
 msgid "Euphorie online client"
 msgstr ""
 
-#: euphorie/deployment/configure.zcml:41
+#: euphorie/deployment/configure.zcml:42
 msgid "Euphorie website"
 msgstr ""
 
-#: euphorie/content/utils.py:33
+#: euphorie/content/utils.py:35
 msgid "European Union"
 msgstr ""
 
-#: euphorie/content/utils.py:44
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:57
+#: euphorie/client/browser/templates/sessions-dashboard.pt:225
+msgid "Expand sidebar"
+msgstr ""
+
+#: euphorie/content/utils.py:46
 msgid "F.Y.R. Macedonia"
+msgstr ""
+
+#: euphorie/client/browser/templates/sessions-dashboard.pt:48
+msgid "Filters"
 msgstr ""
 
 #: euphorie/content/profiles/default/types/euphorie.folder.xml
@@ -509,17 +532,21 @@ msgstr ""
 msgid "Germany"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:111
+#: euphorie/client/browser/templates/sessions-dashboard.pt:69
+msgid "Hide archived risk assessments"
+msgstr ""
+
+#: euphorie/client/browser/templates/login.pt:116
 msgid "How long will it take?"
 msgstr "Hvað langan tíma tekur þetta?"
 
-#: euphorie/client/browser/templates/login.pt:91
+#: euphorie/client/browser/templates/login.pt:96
 msgid "However, OiRA is designed to be of most value to smaller businesses."
 msgstr ""
 "OiRA verkfærið er hannað til þess að koma að mestum notum fyrir smærri "
 "fyrirtæki"
 
-#: euphorie/client/browser/templates/login.pt:113
+#: euphorie/client/browser/templates/login.pt:118
 msgid ""
 "However, you can spend whatever time you have available on an assessment and "
 "then return to it when convenient to pick up from the same point you left "
@@ -528,7 +555,7 @@ msgstr ""
 "Þú getur byrjað og hætt hvenær sem er. Hægt að halda áfram með fyrra mat og "
 "breyta að vild."
 
-#: euphorie/client/browser/webhelpers.py:641
+#: euphorie/client/browser/webhelpers.py:643
 msgid "I wish to share the following with you"
 msgstr ""
 
@@ -540,12 +567,12 @@ msgstr ""
 msgid "Import OiRA Tool version"
 msgstr ""
 
-#: euphorie/client/templates/tooltips.pt:13
+#: euphorie/client/templates/tooltips.pt:15
 msgid "Important"
 msgstr "Mikilvægt"
 
 #: euphorie/client/templates/plain.pt:195
-#: euphorie/client/templates/shell.pt:283
+#: euphorie/client/templates/shell.pt:107
 msgid "Info"
 msgstr "Upplýsingar"
 
@@ -554,7 +581,7 @@ msgstr "Upplýsingar"
 msgid "Information"
 msgstr "Upplýsingar"
 
-#: euphorie/client/settings.py:107
+#: euphorie/client/settings.py:106
 msgid "Invalid password"
 msgstr ""
 
@@ -562,7 +589,7 @@ msgstr ""
 msgid "Invalid security token, try to request a new one"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:112
+#: euphorie/client/browser/templates/login.pt:117
 msgid ""
 "It's impossible to say how long an assessment will take in general as the "
 "tools differ according to sectors and countries."
@@ -575,14 +602,18 @@ msgstr ""
 msgid "Javascript utilities"
 msgstr ""
 
-#: euphorie/content/utils.py:40
+#: euphorie/content/utils.py:42
 msgid "Kosovo"
 msgstr ""
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:125
-#: euphorie/client/browser/templates/sessions-dashboard.pt:53
-#: euphorie/client/browser/templates/sessions.pt:89
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:118
+#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:53
+#: euphorie/client/browser/templates/status.pt:73
 msgid "Last saved"
+msgstr ""
+
+#: euphorie/client/templates/shell.pt:302
+msgid "Loading Risk Assessments&hellip;"
 msgstr ""
 
 #: euphorie/content/templates/user_mgmt.pt:27
@@ -593,12 +624,12 @@ msgstr ""
 msgid "Manage"
 msgstr "Vinna að úrbótum"
 
-#: euphorie/client/browser/templates/risk_actionplan.pt:136
+#: euphorie/client/browser/templates/risk_actionplan.pt:143
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
 msgid "Measure"
 msgstr "Úrbótaaðgerð"
 
-#: euphorie/client/templates/measures_overview.pt:77
+#: euphorie/client/browser/templates/measures_overview.pt:77
 msgid "Measure to be implemented by"
 msgstr "Úrbætur framkvæmdar af"
 
@@ -612,25 +643,25 @@ msgid "Monitor and assess whether necessary measures have been introduced."
 msgstr ""
 "Fylgjast með og meta hvort nauðsynlegar úrbætur hafi verið framkvæmdar."
 
-#: euphorie/client/templates/measures_overview.pt:66
+#: euphorie/client/browser/templates/measures_overview.pt:66
 #: euphorie/client/templates/report_landing.pt:183
 msgid "Monitor the measures to be implemented in the forthcoming 3 months."
 msgstr "Fylgjast með hvort úrbætur séu framkvæmdar."
 
+#: euphorie/client/browser/templates/risks_overview.pt:155
 #: euphorie/client/templates/report_landing.pt:154
-#: euphorie/client/templates/risks_overview.pt:155
 msgid "Monitor whether risks / measures are properly dealt with."
 msgstr ""
 "Að fylgjast með hvort greindar áhættur (og tilheyrandi úrbætur) séu "
 "afgreiddar eins og gert er ráð fyrir"
 
-#: euphorie/content/utils.py:41
+#: euphorie/content/utils.py:43
 msgid "Montenegro"
 msgstr ""
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:116
-#: euphorie/client/browser/templates/sessions-dashboard.pt:63
-#: euphorie/client/browser/templates/sessions.pt:110
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:149
+#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:63
+#: euphorie/client/browser/templates/sessions-dashboard.pt:102
 msgid "More"
 msgstr "Meira"
 
@@ -647,7 +678,8 @@ msgstr "Fjölvalsspurning"
 msgid "Multiple occurance prompt"
 msgstr "Mörg tilvik"
 
-#: euphorie/client/browser/templates/sessions-dashboard.pt:31
+#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:31
+#: euphorie/client/browser/templates/sessions-dashboard.pt:36
 msgid "My risk assessments"
 msgstr "Mín áhættumöt"
 
@@ -659,25 +691,26 @@ msgstr ""
 msgid "Navigation tree for sector management"
 msgstr ""
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:34
-#: euphorie/client/browser/templates/sessions-dashboard.pt:158
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:49
+#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:158
+#: euphorie/client/browser/templates/sessions-dashboard.pt:217
 msgid "New"
 msgstr "Nýtt"
 
-#: euphorie/client/templates/profile.pt:49
-#: euphorie/client/templates/updated.pt:32
+#: euphorie/client/browser/templates/profile.pt:49
+#: euphorie/client/browser/templates/updated.pt:32
 msgid "No"
 msgstr "Nei"
 
-#: euphorie/client/browser/risk.py:695
+#: euphorie/client/browser/risk.py:808
 msgid "No changes were made to measures in your action plan."
 msgstr "Engar breytingar voru gerðar á úrbótaaðgerðum í aðgerðaáætluninni."
 
-#: euphorie/client/browser/templates/publication_menu.pt:80
+#: euphorie/client/browser/templates/publication_menu.pt:79
 msgid "No information about the last editor is available."
 msgstr ""
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:155
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:158
 msgid "No risk assessments are available for this selection."
 msgstr ""
 
@@ -703,13 +736,13 @@ msgstr ""
 msgid "OiRA Tool version"
 msgstr "OiRA verkfærinu"
 
-#: euphorie/content/utils.py:75
+#: euphorie/content/utils.py:77
 msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
 msgstr ""
 "OiRA verkfæri þar sem hægt er að skilgreina „Forvarnir sem eru þegar til "
 "staðar“."
 
-#: euphorie/client/browser/templates/login.pt:89
+#: euphorie/client/browser/templates/login.pt:94
 msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
 "that might exist in their workplace."
@@ -717,7 +750,7 @@ msgstr ""
 "OiRA hentar öllum sem vilja meta hættu sem snýr að öryggi og heilbrigði á "
 "vinnustað þeirra"
 
-#: euphorie/client/browser/templates/login.pt:92
+#: euphorie/client/browser/templates/login.pt:97
 msgid ""
 "OiRA is designed specifically to support them in assessing the risks at work "
 "and helping them to produce a documented risk assessment including an action "
@@ -731,7 +764,7 @@ msgstr ""
 msgid "OiRA password reset instructions"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:73
+#: euphorie/client/browser/templates/login.pt:78
 msgid ""
 "OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
 "that allows you to perform a health and safety risk assessment of your "
@@ -751,23 +784,19 @@ msgstr ""
 msgid "Online help"
 msgstr ""
 
-#: euphorie/client/templates/measures_overview.pt:61
+#: euphorie/client/browser/templates/measures_overview.pt:61
 #: euphorie/client/templates/report_landing.pt:162
 msgid "Overview of measures"
 msgstr "Yfirlit lausna / úrbóta"
 
+#: euphorie/client/browser/templates/risks_overview.pt:151
 #: euphorie/client/templates/report_landing.pt:133
-#: euphorie/client/templates/risks_overview.pt:151
 msgid "Overview of risks"
 msgstr "Yfirlit um áhættur"
 
 #: euphorie/content/profiles/default/types/euphorie.page.xml
 msgid "Page"
 msgstr ""
-
-#: euphorie/client/report.py:282
-msgid "Page ${number} of ${total}"
-msgstr "Blaðsíða ${number} af ${total}"
 
 #: euphorie/client/templates/report_landing.pt:59
 msgid ""
@@ -777,9 +806,9 @@ msgstr ""
 "Miðla upplýsingum til starfsmanna, öryggisfulltrúa, vinnuveitenda, "
 "sérfræðinga á sviði vinnuverndar og heilsuverndar."
 
-#: euphorie/client/templates/measures_overview.pt:65
+#: euphorie/client/browser/templates/measures_overview.pt:65
+#: euphorie/client/browser/templates/risks_overview.pt:154
 #: euphorie/client/templates/report_landing.pt:153
-#: euphorie/client/templates/risks_overview.pt:154
 msgid "Pass information to the people concerned."
 msgstr "Að koma upplýsingum til þeirra sem málið varðar."
 
@@ -810,9 +839,9 @@ msgstr ""
 msgid "Please refer to the examples below the form."
 msgstr "Vinsamlegast athugaðu dæmin hér að aftan"
 
+#: euphorie/client/browser/templates/risks_overview.pt:322
+#: euphorie/client/browser/templates/status.pt:243
 #: euphorie/client/browser/templates/webhelpers.pt:179
-#: euphorie/client/templates/risks_overview.pt:322
-#: euphorie/client/templates/status.pt:184
 msgid "Postponed"
 msgstr "Skoðað en ekki svarað"
 
@@ -848,7 +877,7 @@ msgstr "Til staðfestingar"
 msgid "Provide evidence for supervisory authorities."
 msgstr "Leggja fram gögn til opinberra eftirlitsstofnana"
 
-#: euphorie/client/browser/templates/publication_menu.pt:47
+#: euphorie/client/browser/templates/publication_menu.pt:46
 msgid "Publish Risk Assessment"
 msgstr ""
 
@@ -862,7 +891,7 @@ msgid ""
 "result of findings of any accident investigations, etc.)"
 msgstr " "
 
-#: euphorie/client/browser/templates/publication_menu.pt:69
+#: euphorie/client/browser/templates/publication_menu.pt:68
 msgid "Refresh publication date"
 msgstr ""
 
@@ -874,7 +903,7 @@ msgstr ""
 msgid "Regions"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:119
+#: euphorie/client/browser/templates/login.pt:124
 msgid ""
 "Registering allows you to simply log in at any time to continue previous "
 "assessments or to start new ones."
@@ -882,12 +911,12 @@ msgstr ""
 "Þegar þú hefur stofnað aðgang geturðu skráð þig inn hvenær sem er til að "
 "halda áfram með fyrra mat eða byrjað á nýju."
 
-#: euphorie/client/templates/profile.pt:69
-#: euphorie/client/templates/updated.pt:52
+#: euphorie/client/browser/templates/profile.pt:69
+#: euphorie/client/browser/templates/updated.pt:52
 msgid "Remove"
 msgstr "Fjarlægja"
 
-#: euphorie/content/utils.py:42
+#: euphorie/content/utils.py:44
 msgid "Republic of Serbia"
 msgstr ""
 
@@ -895,7 +924,6 @@ msgstr ""
 msgid "Rich text description"
 msgstr ""
 
-#: euphorie/client/browser/templates/module_customization.pt:23
 #: euphorie/content/profiles/default/types/euphorie.risk.xml
 #: euphorie/deployment/browser/search.py:16
 msgid "Risk"
@@ -921,11 +949,11 @@ msgstr ""
 msgid "Run slideshow"
 msgstr ""
 
-#: euphorie/client/browser/reset_password.py:178 euphorie/client/country.py:105
+#: euphorie/client/browser/reset_password.py:178 euphorie/client/country.py:80
 msgid "Save"
 msgstr "Vista"
 
-#: euphorie/client/browser/reset_password.py:252 euphorie/client/settings.py:94
+#: euphorie/client/browser/reset_password.py:252 euphorie/client/settings.py:93
 #: euphorie/client/templates/account-settings.pt:25
 msgid "Save changes"
 msgstr "Vistið breytingar"
@@ -940,7 +968,6 @@ msgstr ""
 "henni eða bætt við hana nánari upplýsingum. Athugaðu að breytingarnar sem þú "
 "gerir í tölvunni þinni vistast EKKI í OiRA verkfærinu"
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:66
 #: euphorie/deployment/tiles/configure.zcml:57
 msgid "Search"
 msgstr "Leita"
@@ -963,19 +990,23 @@ msgstr ""
 msgid "Sector workflow"
 msgstr ""
 
-#: euphorie/client/country.py:61
+#: euphorie/client/browser/session.py:525
+msgid "Session `${name}` has been archived."
+msgstr ""
+
+#: euphorie/client/browser/session.py:469
 msgid "Session `${name}` has been deleted."
 msgstr "Áhættumatinu `${name}` hefur verið eytt."
 
-#: euphorie/client/browser/survey.py:114
+#: euphorie/client/browser/session.py:174
 msgid "Session data successfully updated"
 msgstr ""
 
-#: euphorie/client/country.py:114
+#: euphorie/client/country.py:89
 msgid "Session title has been changed to ${name}"
 msgstr "Heiti nnar hefur verið breytt í ${name}"
 
-#: euphorie/deployment/configure.zcml:41
+#: euphorie/deployment/configure.zcml:42
 msgid "Setup a standard Euphorie website"
 msgstr ""
 
@@ -983,17 +1014,9 @@ msgstr ""
 msgid "Share this OiRA-Tool"
 msgstr ""
 
-#: euphorie/client/browser/country.py:140
-msgid "Show all risk assessments"
-msgstr ""
-
 #: euphorie/content/templates/library.pt:29
 msgid "Show library from ${dropdown}."
 msgstr "Sýna verkfærasafn frá ${dropdown}."
-
-#: euphorie/client/browser/country.py:136
-msgid "Show my risk assessments only"
-msgstr ""
 
 #: euphorie/client/browser/templates/webhelpers.pt:68
 msgid "Sign in"
@@ -1016,12 +1039,16 @@ msgstr ""
 msgid "Standard solution"
 msgstr ""
 
-#: euphorie/client/browser/templates/sessions-dashboard.pt:147
+#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:147
 msgid "Start test session"
 msgstr "Byrja á nýju áhættumati"
 
-#: euphorie/client/browser/login.py:234
-#: euphorie/client/browser/templates/new-session-test.pt:84
+#: euphorie/client/browser/templates/sessions-dashboard.pt:95
+msgid "Started"
+msgstr ""
+
+#: euphorie/client/browser/login.py:228
+#: euphorie/client/browser/templates/new-session-test.pt:88
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
 
@@ -1081,7 +1108,7 @@ msgid ""
 "The basic architecture of an Online interactive Risk Assessment consists of:"
 msgstr "Grunnuppbygging gagnvirks áhættumats á netinu samanstendur af: "
 
-#: euphorie/client/browser/risk.py:609
+#: euphorie/client/browser/risk.py:713
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -1091,7 +1118,7 @@ msgstr ""
 "„forvarnaráætlun“ og „kröfur“ í þessari úrlausn. Ekki er hægt að taka þessa "
 "aðgerð aftur. Ertu viss um að þú viljir halda áfram?"
 
-#: euphorie/client/browser/templates/login.pt:118
+#: euphorie/client/browser/templates/login.pt:123
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
 "assessment is to create an OiRA account - this is a simple and quick process."
@@ -1116,11 +1143,11 @@ msgstr ""
 msgid "The online client."
 msgstr ""
 
-#: euphorie/client/configure.zcml:99
+#: euphorie/client/configure.zcml:104
 msgid "The online risk assessment client interface for an Euphorie website"
 msgstr ""
 
-#: euphorie/client/browser/country.py:696
+#: euphorie/client/browser/session.py:613
 msgid "The risk assessment has been cloned"
 msgstr ""
 
@@ -1128,19 +1155,23 @@ msgstr ""
 msgid "The specified colour is not valid."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:97
+#: euphorie/client/browser/templates/login.pt:102
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "Það þarf að fara í gegnum fjögur þrep:"
 
-#: euphorie/client/settings.py:103
+#: euphorie/client/browser/session.py:449
+msgid "There is not enough information to proceed to the identification phase"
+msgstr ""
+
+#: euphorie/client/settings.py:102
 msgid "There were no changes to be saved."
 msgstr ""
 
-#: euphorie/client/browser/templates/start.pt:117
+#: euphorie/client/browser/templates/start.pt:111
 msgid "This OiRA tool was offered to you by ${external_site}"
 msgstr "Þetta OiRA verkfæri var þér útvegað af ${external_site}"
 
-#: euphorie/client/settings.py:291
+#: euphorie/client/settings.py:294
 msgid "This email address is not available."
 msgstr ""
 
@@ -1183,16 +1214,20 @@ msgstr ""
 "Þessi spurning verður að kanna hvort þessi lýsing á starfsemi eigi við hjá "
 "honum"
 
-#: euphorie/client/browser/templates/start.pt:158
+#: euphorie/client/settings.py:335
+msgid "This request could not be processed."
+msgstr ""
+
+#: euphorie/client/browser/templates/start.pt:152
 msgid "This tool deserves to be known by the world! Share it!"
 msgstr ""
 
-#: euphorie/client/templates/tooltips.pt:50
+#: euphorie/client/templates/tooltips.pt:52
 msgid "Tip"
 msgstr "Ábending"
 
 #: euphorie/client/browser/templates/help-menu.pt:18
-#: euphorie/client/browser/templates/user-menu.pt:27
+#: euphorie/client/browser/templates/user-menu.pt:28
 msgid "Toggle on screen help"
 msgstr ""
 
@@ -1200,13 +1235,13 @@ msgstr ""
 msgid "Unique id for content"
 msgstr ""
 
-#: euphorie/client/browser/templates/publication_menu.pt:59
+#: euphorie/client/browser/templates/publication_menu.pt:58
 msgid "Unpublish Risk Assessment"
 msgstr ""
 
+#: euphorie/client/browser/templates/risks_overview.pt:330
+#: euphorie/client/browser/templates/status.pt:251
 #: euphorie/client/browser/templates/webhelpers.pt:176
-#: euphorie/client/templates/risks_overview.pt:330
-#: euphorie/client/templates/status.pt:192
 msgid "Unvisited"
 msgstr "Ekki opnað"
 
@@ -1238,28 +1273,28 @@ msgstr ""
 "Við mælum með því að ávallt sé varðveitt útprentuð útgáfa af áhættumatinu "
 "(skýrslunni) í fyrirtækinu!"
 
-#: euphorie/client/browser/templates/login.pt:96
+#: euphorie/client/browser/templates/login.pt:101
 msgid "What do I have to do?"
 msgstr "Hvað þarf ég að gera?"
 
-#: euphorie/client/browser/templates/login.pt:72
+#: euphorie/client/browser/templates/login.pt:77
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
 msgstr "Hvað er OiRA? (OiRA er rafrænt gagnvirkt áhættumat)"
 
-#: euphorie/client/browser/templates/login.pt:88
+#: euphorie/client/browser/templates/login.pt:93
 msgid "Who is the OiRA tool for?"
 msgstr "Fyrir hverja er OiRA verkfærið?"
 
-#: euphorie/client/browser/templates/login.pt:117
+#: euphorie/client/browser/templates/login.pt:122
 msgid "Why do I have to register?"
 msgstr "Hvers vegna þarf að skrá aðgang?"
 
-#: euphorie/client/templates/profile.pt:48
-#: euphorie/client/templates/updated.pt:31
+#: euphorie/client/browser/templates/profile.pt:48
+#: euphorie/client/browser/templates/updated.pt:31
 msgid "Yes"
 msgstr "Já"
 
-#: euphorie/client/browser/templates/confirmation-clone-session.pt:38
+#: euphorie/client/browser/templates/confirmation-clone-session.pt:34
 msgid "Yes, clone risk assessment"
 msgstr ""
 
@@ -1273,7 +1308,7 @@ msgstr ""
 "þínum eigin könnunum. Veldu flokk eða áhættuna sem þú vilt nota í listann "
 "hér að neðan og hún verður afrituð yfir í þína könnun."
 
-#: euphorie/client/browser/templates/login.pt:125
+#: euphorie/client/browser/templates/login.pt:130
 msgid ""
 "You do not need any kind of specific preparation to start using the tool, "
 "however you should take some time to think about who is going to carry out "
@@ -1293,17 +1328,17 @@ msgstr ""
 "Þú getur ekki breytt þessu áhættumati, en þú getur hlaðið því niður í "
 "mismunandi útgáfum í ${download_section}."
 
-#: euphorie/client/browser/templates/login.pt:120
+#: euphorie/client/browser/templates/login.pt:125
 msgid ""
 "You have to make sure to be in possession of a printed, accurate and up-"
 "dated risk assessment (at any time)."
 msgstr "&nbsp;"
 
-#: euphorie/client/settings.py:341
+#: euphorie/client/settings.py:347
 msgid "Your email address has been updated."
 msgstr ""
 
-#: euphorie/client/settings.py:60
+#: euphorie/client/settings.py:59
 msgid "Your password for confirmation"
 msgstr ""
 
@@ -1311,7 +1346,7 @@ msgid "Your password must contain at least 5 characters."
 msgstr ""
 
 #: euphorie/client/browser/reset_password.py:249
-#: euphorie/client/settings.py:110
+#: euphorie/client/settings.py:109
 msgid "Your password was successfully changed."
 msgstr ""
 
@@ -1411,7 +1446,7 @@ msgid "about_partners_3_smb"
 msgstr ""
 
 #. Default: "Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary."
-#: euphorie/client/browser/templates/risk_actionplan.pt:238
+#: euphorie/client/browser/templates/risk_actionplan.pt:245
 msgid "actionplan_measure_budget_tooltip"
 msgstr ""
 "Enda þótt sumar úrbótaaðgerðir kosti ekki fjármuni þá á það samt við um þær "
@@ -1419,7 +1454,7 @@ msgstr ""
 "inn í undirbúning á fjárveitingu ársins ef þörf er á."
 
 #. Default: "Appoint someone in your company to be responsible for the implementation of this measure. This person will have the authority to take the steps described in the Plan and/or the responsibility to ensure that they are carried out."
-#: euphorie/client/browser/templates/risk_actionplan.pt:221
+#: euphorie/client/browser/templates/risk_actionplan.pt:228
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
 "Þú þarft að tilnefna einhvern aðila í fyrirtæki þínu sem ber ábyrgð á "
@@ -1428,7 +1463,7 @@ msgstr ""
 "þær séu framkvæmdar."
 
 #. Default: "Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk); 3) the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any)."
-#: euphorie/client/browser/templates/risk_actionplan.pt:179
+#: euphorie/client/browser/templates/risk_actionplan.pt:186
 msgid "actionplan_measure_tooltip"
 msgstr ""
 "Gefðu lýsingu á: 1) almennri aðferð þinni við að fjarlægja hættuna (eða ef "
@@ -1474,7 +1509,11 @@ msgstr "Um"
 msgid "appendix_produced_by"
 msgstr "Framleitt af ${EU-OSHA}."
 
-#: euphorie/client/browser/templates/new-session-test.pt:67
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:141
+msgid "based on"
+msgstr ""
+
+#: euphorie/client/browser/templates/new-session-test.pt:71
 msgid "benefits"
 msgstr "kostir"
 
@@ -1494,7 +1533,7 @@ msgid "bullet_risks"
 msgstr "${Risks}: jákvæðum yfirlýsingum sem eru settar fram í flokkum."
 
 #. Default: "Add"
-#: euphorie/client/browser/templates/risk_actionplan.pt:167
+#: euphorie/client/browser/templates/risk_actionplan.pt:174
 msgid "button_add"
 msgstr "Bæta við"
 
@@ -1509,7 +1548,7 @@ msgid "button_add_custom_risk"
 msgstr "Bæta við sérsniðinni áhættu"
 
 #. Default: "Add a missing measure"
-#: euphorie/content/utils.py:83
+#: euphorie/content/utils.py:85
 msgid "button_add_existing_measure"
 msgstr "Bættu við forvörn sem vantar"
 
@@ -1528,16 +1567,21 @@ msgstr ""
 msgid "button_add_version"
 msgstr "Afrita"
 
+#. Default: "Yes, archive session"
+#: euphorie/client/browser/templates/confirmation-archive-session.pt:31
+msgid "button_archive_session"
+msgstr ""
+
 #. Default: "Cancel"
-#: euphorie/client/browser/templates/confirmation-clone-session.pt:47
+#: euphorie/client/browser/templates/confirmation-archive-session.pt:37
+#: euphorie/client/browser/templates/confirmation-clone-session.pt:43
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:32
-#: euphorie/client/browser/templates/confirmation-delete-session.pt:32
 msgid "button_cancel"
 msgstr "Hætta við"
 
 #. Default: "Close"
-#: euphorie/client/browser/templates/new-session-test.pt:88
-#: euphorie/client/browser/webhelpers.py:636
+#: euphorie/client/browser/templates/new-session-test.pt:92
+#: euphorie/client/browser/webhelpers.py:640
 msgid "button_close"
 msgstr "Loka"
 
@@ -1548,7 +1592,7 @@ msgid "button_create"
 msgstr "Mynda"
 
 #. Default: "Create new OiRA Tool"
-#: euphorie/deployment/tiles/templates/versions.pt:71
+#: euphorie/deployment/tiles/templates/versions.pt:75
 msgid "button_create_new"
 msgstr "Mynda nýtt OiRA verkfæri "
 
@@ -1570,7 +1614,7 @@ msgstr "Niðurhal"
 #. Default: "Edit"
 #: euphorie/content/templates/user_mgmt.pt:38
 #: euphorie/deployment/tiles/templates/addbar.pt:9
-#: euphorie/deployment/tiles/templates/versions.pt:58
+#: euphorie/deployment/tiles/templates/versions.pt:62
 msgid "button_edit"
 msgstr "Breyta"
 
@@ -1601,14 +1645,9 @@ msgid "button_publish"
 msgstr ""
 
 #. Default: "Remove this existing measure"
-#: euphorie/content/utils.py:86
+#: euphorie/content/utils.py:88
 msgid "button_remove_existing_measure"
 msgstr "Fjarlægja núverandi tillögu að úrbótum"
-
-#. Default: "Remove risk"
-#: euphorie/client/browser/templates/module_customization.pt:39
-msgid "button_remove_risk"
-msgstr "Fjarlægja áhættu"
 
 #. Default: "Save changes"
 #: euphorie/content/templates/settings.pt:90
@@ -1621,14 +1660,14 @@ msgid "button_search"
 msgstr "Leit"
 
 #. Default: "Start a new session with this tool"
-#: euphorie/client/browser/templates/tool_sessions.pt:76
+#: euphorie/client/browser/templates/tool_sessions.pt:75
 msgid "button_start_new_session"
 msgstr "Byrjaðu nýja lotu með þessu verkfæri"
 
 #. Default: "Start session"
-#: euphorie/client/browser/templates/new-session-test.pt:76
-#: euphorie/client/browser/templates/new-session.pt:70
-#: euphorie/client/browser/templates/sessions-dashboard.pt:105
+#: euphorie/client/browser/templates/new-session-test.pt:80
+#: euphorie/client/browser/templates/new-session.pt:75
+#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:105
 msgid "button_start_session"
 msgstr "Byrja"
 
@@ -1644,7 +1683,7 @@ msgid "button_unpublish"
 msgstr ""
 
 #. Default: "Updated"
-#: euphorie/deployment/tiles/templates/versions.pt:59
+#: euphorie/deployment/tiles/templates/versions.pt:63
 msgid "button_updated"
 msgstr ""
 
@@ -1855,7 +1894,7 @@ msgid "country_no_sectors"
 msgstr ""
 
 #. Default: "Measures that are already in place (Only shown here for reference! Use the “Add Measure” button on the Risk for adding measures that are shown to the user during Identification.)"
-#: euphorie/content/risk.py:102
+#: euphorie/content/risk.py:103
 msgid "deprecated_label_existing_measures"
 msgstr ""
 "Úrbætur sem þegar eru í framkvæmd (aðeins sýndar hér til upplýsingar. Notið "
@@ -1886,7 +1925,7 @@ msgstr ""
 "lykilorðið"
 
 #. Default: "If selected, the user will not be able to answer \"Yes\" or \"No\", since the risk is considered to be always present. The Evaluation and Action Plan will behave in the same way as for regular risks."
-#: euphorie/content/risk.py:158
+#: euphorie/content/risk.py:159
 msgid "description_risk_always_present"
 msgstr ""
 "Ef þessi kostur er valinn mun notandinn ekki geta valið um Já eða Nei, þar "
@@ -1947,7 +1986,7 @@ msgid "download section"
 msgstr ""
 
 #. Default: "High (very high) severity"
-#: euphorie/content/risk.py:438
+#: euphorie/content/risk.py:439
 msgid "effect_high"
 msgstr ""
 
@@ -1967,12 +2006,12 @@ msgid "effect_permanent_damage"
 msgstr "Mjög alvarlegt"
 
 #. Default: "Significant severity"
-#: euphorie/content/risk.py:435
+#: euphorie/content/risk.py:436
 msgid "effect_significant"
 msgstr ""
 
 #. Default: "Weak severity"
-#: euphorie/content/risk.py:433
+#: euphorie/content/risk.py:434
 msgid "effect_weak"
 msgstr ""
 
@@ -1997,7 +2036,7 @@ msgid "email_change_intro"
 msgstr ""
 
 #. Default: "Please confirm your new email address by clicking on the link in the email that will be sent in a few minutes to \"${email}\". Please note that the new email address is also your new login name."
-#: euphorie/client/settings.py:297
+#: euphorie/client/settings.py:300
 msgid "email_change_pending"
 msgstr ""
 
@@ -2022,7 +2061,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "50 til 249 starfsmenn"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:274
+#: euphorie/client/browser/login.py:268
 msgid "error_email_in_use"
 msgstr ""
 
@@ -2032,12 +2071,12 @@ msgid "error_existing_login"
 msgstr ""
 
 #. Default: "Please enter the budget in whole Euros."
-#: euphorie/client/browser/templates/risk_actionplan.pt:234
+#: euphorie/client/browser/templates/risk_actionplan.pt:241
 msgid "error_invalid_budget"
 msgstr "Notið eingöngu tölustafi (ekki nota kommu og punkt)"
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:258
+#: euphorie/client/browser/login.py:252
 msgid "error_invalid_email"
 msgstr ""
 
@@ -2052,53 +2091,53 @@ msgid "error_invalid_xml"
 msgstr ""
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:255
+#: euphorie/client/browser/login.py:249
 msgid "error_missing_email"
 msgstr ""
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:261
+#: euphorie/client/browser/login.py:255
 msgid "error_missing_password"
 msgstr ""
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:264
+#: euphorie/client/browser/login.py:258
 #: euphorie/client/browser/reset_password.py:221
 msgid "error_password_mismatch"
 msgstr ""
 
 #. Default: "This date must be on or after the start date."
-#: euphorie/client/browser/risk.py:618
+#: euphorie/client/browser/risk.py:722
 msgid "error_validation_after_start_date"
 msgstr "Þessi dagsetning þarf að vera sama dag eða á eftir upphafsdagsetningu."
 
 #. Default: "This date must be on or before the end date."
-#: euphorie/client/browser/risk.py:614
+#: euphorie/client/browser/risk.py:718
 msgid "error_validation_before_end_date"
 msgstr "Þessi dagsetning þarf að vera sama dag eða á eftir lokadagsetningu."
 
 #. Default: "This value must be a positive whole number."
-#: euphorie/client/browser/risk.py:622
+#: euphorie/client/browser/risk.py:726
 msgid "error_validation_positive_whole_number"
 msgstr "Þetta þarf að vera heiltala stærri en núll."
 
 #. Default: "Calculated"
-#: euphorie/content/risk.py:179
+#: euphorie/content/risk.py:180
 msgid "evalmethod_calculated"
 msgstr "Reiknað"
 
 #. Default: "Estimated"
-#: euphorie/content/risk.py:177
+#: euphorie/content/risk.py:178
 msgid "evalmethod_direct"
 msgstr "Áætlað"
 
 #. Default: "Skip evaluation"
-#: euphorie/content/risk.py:181
+#: euphorie/content/risk.py:182
 msgid "evalmethod_fixed"
 msgstr "Mati sleppt"
 
 #. Default: "After having identified the risks, you need to put an action plan in place to manage the risks. To eliminate or reduce risks you need to determine which preventive and protective measures are to be taken."
-#: euphorie/client/templates/actionplan.pt:24
+#: euphorie/client/browser/templates/actionplan.pt:24
 msgid "expl_actionplan_1"
 msgstr ""
 "Þegar búið er að greina og meta hættur þarf að gera aðgerðaáætlun um "
@@ -2106,31 +2145,31 @@ msgstr ""
 "til annarra ráðstafanna."
 
 #. Default: "Among the things to be considered for this step are:"
-#: euphorie/client/templates/actionplan.pt:29
+#: euphorie/client/browser/templates/actionplan.pt:29
 msgid "expl_actionplan_2"
 msgstr "Í þessu skrefi þarf að:"
 
 #. Default: "Is a risk avoidable? Can it be removed entirely? For example, this could be achieved by: ${expl_actionplan_4_and_5}"
-#: euphorie/client/templates/actionplan.pt:35
+#: euphorie/client/browser/templates/actionplan.pt:35
 msgid "expl_actionplan_3"
 msgstr ""
 "Er hægt að komast hjá áhættunni? Er hægt að fjarlægja hana? Þetta mætti t.d. "
 "gera með því að: ${expl_actionplan_4_and_5}"
 
 #. Default: "considering whether the task or job is necessary"
-#: euphorie/client/templates/actionplan.pt:36
+#: euphorie/client/browser/templates/actionplan.pt:36
 msgid "expl_actionplan_4"
 msgstr "Kanna hvort þessi aðgerð eða verk er nauðsynlegt"
 
 #. Default: "removing the hazard"
-#: euphorie/client/templates/actionplan.pt:37
+#: euphorie/client/browser/templates/actionplan.pt:37
 msgid "expl_actionplan_5"
 msgstr ""
 "Fjarlægja áhættuna eða minnka verlulega t.d. með því að nota hættuminni "
 "efni, sem gera sama gagn."
 
 #. Default: "If certain risks are not avoidable, how can they be reduced to a level at which the health and safety of those exposed is not compromised?"
-#: euphorie/client/templates/actionplan.pt:40
+#: euphorie/client/browser/templates/actionplan.pt:40
 msgid "expl_actionplan_6"
 msgstr ""
 "Grípa til annara ráðstafanna ef ekki er hægt að fjarlægja eða útiloka "
@@ -2138,7 +2177,7 @@ msgstr ""
 "tiheyrandi fræðslu og þjálfun.</li></ul>"
 
 #. Default: "Once you have decided how to eliminate or reduce a particular risk, then you describe the specific action(s) required to achieve this. You should also include details of the level of expertise and/or other requirements needed for those actions to be effective."
-#: euphorie/client/templates/actionplan.pt:44
+#: euphorie/client/browser/templates/actionplan.pt:44
 msgid "expl_actionplan_7"
 msgstr ""
 "Þegar þetta liggur fyrir er hægt að lýsa því hvernig best er að framkvæma "
@@ -2149,7 +2188,7 @@ msgstr ""
 "aðgerðirnar."
 
 #. Default: "No risks were identified. Please proceed directly to the report."
-#: euphorie/client/templates/actionplan.pt:49
+#: euphorie/client/browser/templates/actionplan.pt:49
 msgid "expl_actionplan_empty"
 msgstr ""
 "Engar hættur hafa verið greindar í þessu áhættumati. Vinsamlegast haldið "
@@ -2166,21 +2205,21 @@ msgid "expl_error_notfound"
 msgstr "Síðan sem þú baðst um fannst ekki."
 
 #. Default: "In order to tailor the risk assessment to your organisation you may be asked to:"
-#: euphorie/client/templates/profile.pt:18
+#: euphorie/client/browser/templates/profile.pt:18
 msgid "expl_profile"
 msgstr ""
 "Til að geta hannað áhættumatið að fyrirtæki þínu þarft þú hugsanlega að "
 "svara eftirfarandi spurningum:"
 
 #. Default: "select or skip situation(s) relevant or not to your business activity and tick the box(es) if appropriate"
-#: euphorie/client/templates/profile.pt:23
+#: euphorie/client/browser/templates/profile.pt:23
 msgid "expl_profile_bullet1"
 msgstr ""
 "Veldu (eða slepptu) hvort lýsing á starfseminni eigi við eða ekki, eftir því "
 "sem við á."
 
 #. Default: "list multiple business units, or branches, or stores, etc. These related risks will be repeated for each name you have entered."
-#: euphorie/client/templates/profile.pt:26
+#: euphorie/client/browser/templates/profile.pt:26
 msgid "expl_profile_bullet2"
 msgstr ""
 "Teldu upp rekstrareiningar, s.s. útibú eða verslanir o.s.frv. Forritið býr "
@@ -2188,7 +2227,7 @@ msgstr ""
 "valið."
 
 #. Default: "This OiRA tool has changed since you last accessed it. Before you can continue, you need to update to these changes."
-#: euphorie/client/templates/updated.pt:18
+#: euphorie/client/browser/templates/updated.pt:18
 msgid "expl_update"
 msgstr ""
 "OiRA verkfærinu hefur verið breytt síðan þú sóttir það síðast.  Þú þarft  að "
@@ -2199,22 +2238,22 @@ msgstr ""
 msgid "explanation_risk_always_present"
 msgstr ""
 
-#: euphorie/client/survey.py:145
+#: euphorie/client/browser/session.py:440
 msgid "extra_text_identification"
 msgstr ""
 
 #. Default: "Action plan ${title}"
-#: euphorie/client/docx/views.py:272 euphorie/client/report.py:960
+#: euphorie/client/docx/views.py:287
 msgid "filename_report_actionplan"
 msgstr "Aðgerðaáætlun ${title}"
 
 #. Default: "Identification report ${title}"
-#: euphorie/client/docx/views.py:315 euphorie/client/report.py:598
+#: euphorie/client/docx/views.py:330
 msgid "filename_report_identification"
 msgstr ""
 
 #. Default: "Timeline for ${title}"
-#: euphorie/client/report.py:1134
+#: euphorie/client/report.py:208
 msgid "filename_report_timeline"
 msgstr ""
 
@@ -2234,19 +2273,19 @@ msgid "frequency_almost_never"
 msgstr "Næstum aldrei"
 
 #. Default: "Almost never"
-#: euphorie/content/risk.py:414
+#: euphorie/content/risk.py:415
 msgid "frequency_almostnever"
 msgstr ""
 
 #. Default: "Constantly"
 #: euphorie/client/browser/templates/webhelpers.pt:509
-#: euphorie/content/risk.py:418
+#: euphorie/content/risk.py:419
 msgid "frequency_constantly"
 msgstr "Stöðugt"
 
 #. Default: "Not very often"
 #: euphorie/client/browser/templates/webhelpers.pt:630
-#: euphorie/content/risk.py:369
+#: euphorie/content/risk.py:370
 msgid "frequency_french_not_often"
 msgstr "Ekki mjög oft"
 
@@ -2257,7 +2296,7 @@ msgstr "Einu sinni í mánuði"
 
 #. Default: "Often"
 #: euphorie/client/browser/templates/webhelpers.pt:642
-#: euphorie/content/risk.py:372
+#: euphorie/content/risk.py:373
 msgid "frequency_french_often"
 msgstr "Oft"
 
@@ -2268,7 +2307,7 @@ msgstr "Einu sinni í viku"
 
 #. Default: "Rare"
 #: euphorie/client/browser/templates/webhelpers.pt:618
-#: euphorie/content/risk.py:367
+#: euphorie/content/risk.py:368
 msgid "frequency_french_rare"
 msgstr "Sjaldan"
 
@@ -2279,7 +2318,7 @@ msgstr "Einu sinni á ári"
 
 #. Default: "Very often or regularly"
 #: euphorie/client/browser/templates/webhelpers.pt:654
-#: euphorie/content/risk.py:374
+#: euphorie/content/risk.py:375
 msgid "frequency_french_regularly"
 msgstr "Mjög oft eða reglulega"
 
@@ -2290,12 +2329,12 @@ msgstr "Minnst einu sinni á dag"
 
 #. Default: "Regularly"
 #: euphorie/client/browser/templates/webhelpers.pt:503
-#: euphorie/content/risk.py:416
+#: euphorie/content/risk.py:417
 msgid "frequency_regularly"
 msgstr "Reglulega"
 
-#. Default: "You are currently evaluating OiRA as a guest user. You will not be able to save your progress or download any reports. To save your work, please sign in or register by clicking the \"Sign in\" link at the top right of the page."
-#: euphorie/client/templates/tooltips.pt:3
+#. Default: "You are currently evaluating OiRA as a guest user. You will not be able to save your progress or download any reports. To save your work, please sign in or register by clicking the &ldquo;${link_sign_in}&rdquo; link at the top right of the page."
+#: euphorie/client/templates/tooltips.pt:8
 msgid "guest_login_warning"
 msgstr ""
 "Þú ert að prófa OiRA verkfærið. Þú getur ekki vistað áhættumatið né sótt "
@@ -2310,7 +2349,7 @@ msgstr ""
 "að neðan."
 
 #. Default: "Additional content"
-#: euphorie/content/module.py:100 euphorie/content/risk.py:275
+#: euphorie/content/module.py:100 euphorie/content/risk.py:276
 msgid "header_additional_content"
 msgstr "Annað efni"
 
@@ -2345,7 +2384,7 @@ msgid "header_development_partners"
 msgstr ""
 
 #. Default: "Evaluation"
-#: euphorie/content/risk.py:447
+#: euphorie/content/risk.py:448
 msgid "header_evaluation"
 msgstr ""
 
@@ -2370,7 +2409,7 @@ msgid "header_example_report_xlsx"
 msgstr "Dæmi um aðgerðaáætlun í Office Open XML Workbook format (.xlsx)"
 
 #. Default: "Identification"
-#: euphorie/content/risk.py:126
+#: euphorie/content/risk.py:127
 msgid "header_identification"
 msgstr ""
 
@@ -2387,12 +2426,12 @@ msgid "header_launch"
 msgstr ""
 
 #. Default: "Legal and policy references"
-#: euphorie/client/docx/compiler.py:311
+#: euphorie/client/docx/compiler.py:330
 msgid "header_legal_references"
 msgstr "Tilvísanir í önnur gögn s.s. lög, reglur og önnur opinber gögn"
 
 #. Default: "Legend"
-#: euphorie/deployment/tiles/templates/versions.pt:76
+#: euphorie/deployment/tiles/templates/versions.pt:80
 msgid "header_legend"
 msgstr "Skýringartexti"
 
@@ -2403,22 +2442,22 @@ msgstr ""
 
 #. Default: "Login"
 #: euphorie/client/browser/templates/login_form.pt:17
-#: euphorie/client/templates/shell.pt:111
+#: euphorie/client/templates/shell.pt:115
 msgid "header_login"
 msgstr "Innskráning"
 
 #. Default: "Main image"
-#: euphorie/content/risk.py:218
+#: euphorie/content/risk.py:219
 msgid "header_main_image"
 msgstr "Aðalmynd"
 
 #. Default: "Measure ${index}"
-#: euphorie/client/docx/compiler.py:372 euphorie/client/report.py:842
+#: euphorie/client/docx/compiler.py:405
 msgid "header_measure"
 msgstr "Lausn ${index}"
 
 #. Default: "Measure"
-#: euphorie/client/docx/compiler.py:369 euphorie/client/report.py:838
+#: euphorie/client/docx/compiler.py:402
 msgid "header_measure_single"
 msgstr "Ráðstöfun"
 
@@ -2444,12 +2483,12 @@ msgid "header_not_complicated"
 msgstr "Matið er ekki flókið"
 
 #. Default: "Consultation of workers"
-#: euphorie/client/docx/compiler.py:437
+#: euphorie/client/docx/compiler.py:470
 msgid "header_oira_report_consultation"
 msgstr ""
 
 #. Default: "OiRA Report: “${title}”"
-#: euphorie/client/docx/views.py:201
+#: euphorie/client/docx/views.py:216
 msgid "header_oira_report_download"
 msgstr "OiRA skýrsla: \"${title}"
 
@@ -2458,38 +2497,33 @@ msgstr "OiRA skýrsla: \"${title}"
 msgid "header_oira_tool"
 msgstr "OiRA verkfærið"
 
-#. Default: "or…"
-#: euphorie/client/browser/templates/sessions.pt:127
-msgid "header_or"
-msgstr "eða…"
-
 #. Default: "Menu toggle"
-#: euphorie/client/templates/tooltips.pt:43
+#: euphorie/client/templates/tooltips.pt:45
 msgid "header_osh_hamburger"
 msgstr "Valmyndaskipting"
 
 #. Default: "Off canvas menu"
-#: euphorie/client/templates/tooltips.pt:67
+#: euphorie/client/templates/tooltips.pt:69
 msgid "header_osh_menu"
 msgstr "Hliðarvalmynd"
 
 #. Default: "Risk assessment browser"
-#: euphorie/client/templates/tooltips.pt:94
+#: euphorie/client/templates/tooltips.pt:96
 msgid "header_osh_ra_browser"
 msgstr ""
 
 #. Default: "Session menu"
-#: euphorie/client/templates/tooltips.pt:76
+#: euphorie/client/templates/tooltips.pt:78
 msgid "header_osh_session_menu"
 msgstr "Valmynd"
 
 #. Default: "Tool navigation"
-#: euphorie/client/templates/tooltips.pt:85
+#: euphorie/client/templates/tooltips.pt:87
 msgid "header_osh_tool_navigation"
 msgstr ""
 
 #. Default: "Risks that have been identified, evaluated and have an Action Plan"
-#: euphorie/client/docx/views.py:211
+#: euphorie/client/docx/views.py:226
 msgid "header_present_risks"
 msgstr "Áhættur sem hafa verið greindar og aðgerðaáætlun útbúin fyrir þær"
 
@@ -2499,7 +2533,7 @@ msgid "header_preview"
 msgstr "Forskoðun á OiRA verkfærinu"
 
 #. Default: "Tailor the risk assessment to your organisation"
-#: euphorie/client/templates/profile.pt:17
+#: euphorie/client/browser/templates/profile.pt:17
 msgid "header_profile"
 msgstr "Lagaðu áhættumatið að fyrirtæki þínu"
 
@@ -2519,24 +2553,24 @@ msgid "header_publish"
 msgstr "Birta OiRA verkfærið "
 
 #. Default: "Questions answered per module"
-#: euphorie/client/templates/status.pt:41
+#: euphorie/client/browser/templates/status.pt:117
 msgid "header_questions_answered"
 msgstr "Hve mörgum spurningum var svarað í hverjum flokki"
 
 #. Default: "Register"
 #: euphorie/client/browser/templates/register.pt:75
-#: euphorie/client/templates/shell.pt:112
+#: euphorie/client/templates/shell.pt:116
 msgid "header_register"
 msgstr "Skráning"
 
 #. Default: "Reporting"
 #: euphorie/client/browser/templates/register.pt:19
-#: euphorie/client/templates/report.pt:22
+#: euphorie/client/browser/templates/report.pt:22
 msgid "header_reporting"
 msgstr "Skýrsla"
 
 #. Default: "Resources"
-#: euphorie/client/browser/templates/risk_identification.pt:36
+#: euphorie/client/browser/templates/risk_identification.pt:39
 msgid "header_resources"
 msgstr "Viðbótarupplýsingar"
 
@@ -2574,7 +2608,7 @@ msgid "header_risks"
 msgstr "Áhættur"
 
 #. Default: "Hazards/problems that have been managed or are not present in your organisation"
-#: euphorie/client/docx/views.py:223
+#: euphorie/client/docx/views.py:238
 msgid "header_risks_not_present"
 msgstr ""
 "Hættur/vandamál sem er stýrt innan ásættanlegra marka eða eru ekki fyrir "
@@ -2597,7 +2631,7 @@ msgid "header_search_results_for"
 msgstr "Leita í niðurstöðum að:"
 
 #. Default: "Secondary images"
-#: euphorie/content/risk.py:236
+#: euphorie/content/risk.py:237
 msgid "header_secondary_images"
 msgstr "Aukamyndir"
 
@@ -2610,11 +2644,6 @@ msgstr "OiRA verkfæri"
 #: euphorie/content/templates/user_mgmt.pt:19
 msgid "header_sectors"
 msgstr ""
-
-#. Default: "Select an earlier session to complete or review."
-#: euphorie/client/browser/templates/sessions.pt:53
-msgid "header_select_session"
-msgstr "Veldu fyrri  til að ljúka við eða fara yfir"
 
 #. Default: "Settings"
 #: euphorie/content/templates/settings.pt:12
@@ -2642,14 +2671,14 @@ msgid "header_training"
 msgstr ""
 
 #. Default: "Hazards/problems that have been \"parked\" and are still to be dealt with"
-#: euphorie/client/docx/views.py:219
+#: euphorie/client/docx/views.py:234
 msgid "header_unanswered_risks"
 msgstr ""
 "Hættur/vandamál sem gætu verið fyrir hendi, en á eftir að meta og vinna úr "
 "niðurstöðunum"
 
 #. Default: "Risks that have been identified but do NOT have an Action Plan"
-#: euphorie/client/docx/views.py:215
+#: euphorie/client/docx/views.py:230
 msgid "header_unevaluated_risks"
 msgstr "Áhættur sem hafa verið greindar en aðgerðaáætlun er ekki tilbúin"
 
@@ -2659,7 +2688,7 @@ msgid "header_user_management"
 msgstr "Umsjón með notendum á ${country}"
 
 #. Default: "Welcome"
-#: euphorie/client/browser/templates/login.pt:28
+#: euphorie/client/browser/templates/login.pt:33
 msgid "header_welcome"
 msgstr "Velkomin/n"
 
@@ -2679,158 +2708,158 @@ msgid "heading_comments"
 msgstr "Athugasemdir"
 
 #. Default: "High priority risks"
-#: euphorie/client/templates/measures_overview.pt:85
-#: euphorie/client/templates/status.pt:200
+#: euphorie/client/browser/templates/measures_overview.pt:85
+#: euphorie/client/browser/templates/status.pt:259
 msgid "heading_high_prio_risks"
 msgstr "hár áhættuflokkur (forgangur)"
 
 #. Default: "Low priority risks"
-#: euphorie/client/templates/measures_overview.pt:132
+#: euphorie/client/browser/templates/measures_overview.pt:132
 msgid "heading_low_prio_risks"
 msgstr "lítill áhættuflokkur (fylgist með)"
 
 #. Default: "Medium priority risks"
-#: euphorie/client/templates/measures_overview.pt:117
+#: euphorie/client/browser/templates/measures_overview.pt:117
 msgid "heading_medium_prio_risks"
 msgstr "meðal áhættuflokkur (minnka eins og hægt er)"
 
 #. Default: "${num_high_risks} High priority risk"
-#: euphorie/client/templates/risks_overview.pt:372
+#: euphorie/client/browser/templates/risks_overview.pt:372
 msgid "heading_num_high_prio_risks"
 msgstr "${num_high_risks} Mikil áhætta"
 
 #. Default: "${num_high_risks} High priority risks"
-#: euphorie/client/templates/risks_overview.pt:376
+#: euphorie/client/browser/templates/risks_overview.pt:376
 msgid "heading_num_high_prio_risks_2"
 msgstr "${num_high_risks} Mikil áhætta"
 
 #. Default: "${num_high_risks} High priority risks"
-#: euphorie/client/templates/risks_overview.pt:380
+#: euphorie/client/browser/templates/risks_overview.pt:380
 msgid "heading_num_high_prio_risks_3_4"
 msgstr "${num_high_risks} Mikil áhætta"
 
 #. Default: "${num_high_risks} High priority risks"
-#: euphorie/client/templates/risks_overview.pt:384
+#: euphorie/client/browser/templates/risks_overview.pt:384
 msgid "heading_num_high_prio_risks_5_or_more"
 msgstr "${num_high_risks} Mikil áhætta"
 
 #. Default: "${num_low_risks} Low priority risk"
-#: euphorie/client/templates/risks_overview.pt:406
+#: euphorie/client/browser/templates/risks_overview.pt:406
 msgid "heading_num_low_prio_risks"
 msgstr "${num_low_risks} Lítil áhætta"
 
 #. Default: "${num_low_risks} Low priority risks"
-#: euphorie/client/templates/risks_overview.pt:410
+#: euphorie/client/browser/templates/risks_overview.pt:410
 msgid "heading_num_low_prio_risks_2"
 msgstr "${num_low_risks} Lítil áhætta"
 
 #. Default: "${num_low_risks} Low priority risks"
-#: euphorie/client/templates/risks_overview.pt:414
+#: euphorie/client/browser/templates/risks_overview.pt:414
 msgid "heading_num_low_prio_risks_3_4"
 msgstr "${num_low_risks} Lítil áhætta"
 
 #. Default: "${num_low_risks} Low priority risks"
-#: euphorie/client/templates/risks_overview.pt:418
+#: euphorie/client/browser/templates/risks_overview.pt:418
 msgid "heading_num_low_prio_risks_5_or_more"
 msgstr "${num_low_risks} Lítil áhætta"
 
 #. Default: "${num_medium_risks} Medium priority risk"
-#: euphorie/client/templates/risks_overview.pt:389
+#: euphorie/client/browser/templates/risks_overview.pt:389
 msgid "heading_num_medium_prio_risks"
 msgstr "${num_medium_risks} Meðal áhætta"
 
 #. Default: "${num_medium_risks} Medium priority risks"
-#: euphorie/client/templates/risks_overview.pt:393
+#: euphorie/client/browser/templates/risks_overview.pt:393
 msgid "heading_num_medium_prio_risks_2"
 msgstr "${num_medium_risks} Meðal áhætta"
 
 #. Default: "${num_medium_risks} Medium priority risks"
-#: euphorie/client/templates/risks_overview.pt:397
+#: euphorie/client/browser/templates/risks_overview.pt:397
 msgid "heading_num_medium_prio_risks_3_4"
 msgstr "${num_medium_risks} Meðal áhætta"
 
 #. Default: "${num_medium_risks} Medium priority risks"
-#: euphorie/client/templates/risks_overview.pt:401
+#: euphorie/client/browser/templates/risks_overview.pt:401
 msgid "heading_num_medium_prio_risks_5_or_more"
 msgstr "${num_medium_risks} Meðal áhætta"
 
 #. Default: "${num_postponed_risks} Risk postponed"
-#: euphorie/client/templates/risks_overview.pt:462
+#: euphorie/client/browser/templates/risks_overview.pt:462
 msgid "heading_num_postponed_prio_risks"
 msgstr "${num_postponed_risks} áhættum frestað"
 
 #. Default: "${num_postponed_risks} Risks postponed"
-#: euphorie/client/templates/risks_overview.pt:466
+#: euphorie/client/browser/templates/risks_overview.pt:466
 msgid "heading_num_postponed_prio_risks_2"
 msgstr "${num_postponed_risks} áhættum frestað"
 
 #. Default: "${num_postponed_risks} Risks postponed"
-#: euphorie/client/templates/risks_overview.pt:470
+#: euphorie/client/browser/templates/risks_overview.pt:470
 msgid "heading_num_postponed_prio_risks_3_4"
 msgstr "${num_postponed_risks} áhættum frestað"
 
 #. Default: "${num_postponed_risks} Risks postponed"
-#: euphorie/client/templates/risks_overview.pt:474
+#: euphorie/client/browser/templates/risks_overview.pt:474
 msgid "heading_num_postponed_prio_risks_5_or_more"
 msgstr "${num_postponed_risks} áhættum frestað"
 
 #. Default: "${num_todo_risks} Risk not answered"
-#: euphorie/client/templates/risks_overview.pt:479
+#: euphorie/client/browser/templates/risks_overview.pt:479
 msgid "heading_num_todo_prio_risks"
 msgstr "${num_todo_risks} áhættum ekki svarað"
 
 #. Default: "${num_todo_risks} Risks not answered"
-#: euphorie/client/templates/risks_overview.pt:483
+#: euphorie/client/browser/templates/risks_overview.pt:483
 msgid "heading_num_todo_prio_risks_2"
 msgstr "${num_todo_risks} áhættum ekki svarað"
 
 #. Default: "${num_todo_risks} Risks not answered"
-#: euphorie/client/templates/risks_overview.pt:487
+#: euphorie/client/browser/templates/risks_overview.pt:487
 msgid "heading_num_todo_prio_risks_3_4"
 msgstr "${num_todo_risks} áhættum ekki svarað"
 
 #. Default: "${num_todo_risks} Risks not answered"
-#: euphorie/client/templates/risks_overview.pt:491
+#: euphorie/client/browser/templates/risks_overview.pt:491
 msgid "heading_num_todo_prio_risks_5_or_more"
 msgstr "${num_todo_risks} áhættum ekki svarað"
 
 #. Default: "${num_possible_risks} Possible Risk"
-#: euphorie/client/templates/risks_overview.pt:438
+#: euphorie/client/browser/templates/risks_overview.pt:438
 msgid "heading_possible_risks"
 msgstr "${num_possible_risks} mögulegar áhættur"
 
 #. Default: "${num_possible_risks} Possible Risks"
-#: euphorie/client/templates/risks_overview.pt:442
+#: euphorie/client/browser/templates/risks_overview.pt:442
 msgid "heading_possible_risks_2"
 msgstr "${num_possible_risks} mögulegar áhættur"
 
 #. Default: "${num_possible_risks} Possible Risks"
-#: euphorie/client/templates/risks_overview.pt:446
+#: euphorie/client/browser/templates/risks_overview.pt:446
 msgid "heading_possible_risks_3_4"
 msgstr "${num_possible_risks} mögulegar áhættur"
 
 #. Default: "${num_possible_risks} Possible Risks"
-#: euphorie/client/templates/risks_overview.pt:450
+#: euphorie/client/browser/templates/risks_overview.pt:450
 msgid "heading_possible_risks_5_or_more"
 msgstr "${num_possible_risks} mögulegar áhættur"
 
 #. Default: "${num_present_risks} Present Risk"
-#: euphorie/client/templates/risks_overview.pt:349
+#: euphorie/client/browser/templates/risks_overview.pt:349
 msgid "heading_present_risks"
 msgstr "${num_present_risks} áhættur"
 
 #. Default: "${num_present_risks} Present Risks"
-#: euphorie/client/templates/risks_overview.pt:353
+#: euphorie/client/browser/templates/risks_overview.pt:353
 msgid "heading_present_risks_2"
 msgstr "${num_present_risks} áhættur"
 
 #. Default: "${num_present_risks} Present Risks"
-#: euphorie/client/templates/risks_overview.pt:357
+#: euphorie/client/browser/templates/risks_overview.pt:357
 msgid "heading_present_risks_3_4"
 msgstr "${num_present_risks} áhættur"
 
 #. Default: "${num_present_risks} Present Risks"
-#: euphorie/client/templates/risks_overview.pt:361
+#: euphorie/client/browser/templates/risks_overview.pt:361
 msgid "heading_present_risks_5_or_more"
 msgstr "${num_present_risks} áhættur"
 
@@ -2863,7 +2892,7 @@ msgid "help_classification_code"
 msgstr ""
 
 #. Default: "Upload a file that contains additional information, like a PDF, Word document or spreadsheet. Optionally provide a descriptive caption for your file."
-#: euphorie/content/module.py:111 euphorie/content/risk.py:286
+#: euphorie/content/module.py:111 euphorie/content/risk.py:287
 msgid "help_content_upload"
 msgstr ""
 "Setjið inn skrá sem inniheldur viðbótarupplýsingar. Notið PDF, MS Word eða "
@@ -2871,31 +2900,31 @@ msgstr ""
 "skránni (sem birtist þegar músarbendlinum er haldið yfir skránni)"
 
 #. Default: "Start to write a new OiRA Tool. You will be asked whether you want to start off with a copy of an existing OiRA Tool."
-#: euphorie/deployment/tiles/templates/versions.pt:71
+#: euphorie/deployment/tiles/templates/versions.pt:75
 msgid "help_create_new_version"
 msgstr ""
 "Byrja að mynda nýtt OiRA verkfæri. Þú verður beðin(n) um að velja hvort þú "
 "viljir byrja með afrit af OiRA verkfæri sem er þegar til staðar."
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
-#: euphorie/client/browser/risk.py:208 euphorie/content/risk.py:360
+#: euphorie/client/browser/risk.py:275 euphorie/content/risk.py:361
 msgid "help_default_frequency"
 msgstr "Tilgreindu hversu oft þessi áhætta kemur upp við venjulegar aðstæður."
 
 #. Default: "You can help the end-user by selecting a default priority. He/she can still change the priority."
-#: euphorie/content/risk.py:203
+#: euphorie/content/risk.py:204
 msgid "help_default_priority"
 msgstr ""
 "Þú getur aðstoðað notandann með því að velja sjálfgefin áhættuflokk "
 "(forgangsröð). Hann eða hún getur breytt forgangsröðinni að vild."
 
 #. Default: "Indicate how likely occurence of this risk is in a normal situation."
-#: euphorie/client/browser/risk.py:205 euphorie/content/risk.py:387
+#: euphorie/client/browser/risk.py:270 euphorie/content/risk.py:388
 msgid "help_default_probability"
 msgstr "Hversu líklegt er að þessi áhætta komi upp við venjulegar aðstæður?"
 
 #. Default: "Indicate the severity if this risk occurs."
-#: euphorie/client/browser/risk.py:211 euphorie/content/risk.py:338
+#: euphorie/client/browser/risk.py:279 euphorie/content/risk.py:339
 msgid "help_default_severity"
 msgstr "Hversu alvarlegt verður atvikið ef það gerist?"
 
@@ -2906,7 +2935,7 @@ msgstr ""
 "Þessi texti útskýrir hvernig á að meta þær áhættur sem greindar hafa verið."
 
 #. Default: "Select 'estimated' if calcuation is not necessary or not possible."
-#: euphorie/content/risk.py:172
+#: euphorie/content/risk.py:173
 msgid "help_evaluation_method"
 msgstr ""
 "Veljið \"áætlað\" ef útreikningur á áhættu er ekki nauðsynlegur eða jafnvel "
@@ -2918,7 +2947,7 @@ msgid "help_evaluation_optional"
 msgstr "Þessi valkostur leyfir notandanum að sleppa mati á áhættunni."
 
 #. Default: "Use this field to define (common) measures that the user might have already implemented. Separate measures with a line break (Enter). The user will be able to deselect those measures that are not applicable to theirsituation."
-#: euphorie/content/risk.py:107
+#: euphorie/content/risk.py:108
 msgid "help_existing_measures"
 msgstr ""
 "Notaðu þetta svæði til að skilgreina (algengar) ráðstafanir/aðgerðir sem "
@@ -2987,7 +3016,7 @@ msgid "help_identification"
 msgstr "Þessi texti útskýrir hvernig greining áhættunnar fer fram."
 
 #. Default: "Upload an image. Make sure your image is of format png, jpg or gif and does not contain any special characters."
-#: euphorie/content/module.py:79 euphorie/content/risk.py:226
+#: euphorie/content/module.py:79 euphorie/content/risk.py:227
 #: euphorie/content/sector.py:81
 msgid "help_image_upload"
 msgstr ""
@@ -3047,7 +3076,7 @@ msgid "help_preview_url"
 msgstr "Prufuútgáfan er aðgengileg á: ${url}"
 
 #. Default: "This is the inverse of the affirmative statement (e.g. The building is not well maintained.)"
-#: euphorie/content/risk.py:85
+#: euphorie/content/risk.py:86
 msgid "help_problem_description"
 msgstr ""
 "Sett er fram stutt neikvæð yfirlýsing (t.d. byggingunni er ekki vel við "
@@ -3070,12 +3099,12 @@ msgstr ""
 "Þessi texti útskýrir hvernig hægt er að vista skýrsluna eða prenta hana út."
 
 #. Default: "Describe the risk. Include any relevant information that may be helpful for the end-user."
-#: euphorie/content/risk.py:94
+#: euphorie/content/risk.py:95
 msgid "help_risk_description"
 msgstr "Lýsing á áhættunni. Allar upplýsingar sem geta komið notenda til góða."
 
 #. Default: "\"Priority risk\" is one of the high risks in the sector. \"Risk\" is related to the workplace or to the work carried out. \"Policy\" refers to agreements, procedures, and management decisions."
-#: euphorie/content/risk.py:139
+#: euphorie/content/risk.py:140
 msgid "help_risk_type"
 msgstr ""
 "„Forgangsáhætta” er áhætta sem er mikil og þekkt í starfsgreininni. „áhætta” "
@@ -3109,7 +3138,7 @@ msgid "help_sessions"
 msgstr "Þessi texti er lýsing á helstu aðgerðum OiRA verkfærisins."
 
 #. Default: "Offer a `not applicable' option in addition to the standard yes/no options."
-#: euphorie/content/risk.py:132
+#: euphorie/content/risk.py:133
 msgid "help_show_notapplicable"
 msgstr ""
 "Bjóða upp á valkostin \"á ekki við\" til viðbótar við venjulegt Já/Nei svar"
@@ -3122,7 +3151,7 @@ msgstr ""
 "í flokknum"
 
 #. Default: "This is a short affirmative statement about a possible risk (e.g. The building is well maintained.)"
-#: euphorie/content/risk.py:75
+#: euphorie/content/risk.py:76
 msgid "help_statement"
 msgstr ""
 "Sett er fram stutt jákvæð yfirlýsing um hugsanlega áhættu (t.d. byggingunni "
@@ -3151,7 +3180,7 @@ msgstr ""
 "Ef þú tiltekur ekki nafn hér, verður það tekið úr því sem hlaðið er niður"
 
 #. Default: "Dashboard"
-#: euphorie/client/templates/shell.pt:121
+#: euphorie/client/templates/shell.pt:125
 msgid "home_link"
 msgstr "Mælaborð"
 
@@ -3163,25 +3192,25 @@ msgstr ""
 "{request_an_email_reminder} um innskráningarupplýsingar þínar."
 
 #. Default: "The menu toggle lets you hide and show the risk assessment browser to find previously made risk assessments. Hide the menu when you are concentrating on making a risk assessment or show it when you are clicking about between various parts of the application."
-#: euphorie/client/templates/tooltips.pt:44
+#: euphorie/client/templates/tooltips.pt:46
 msgid "info_osh_hamburger"
 msgstr ""
 "Valmyndaskiptingin gerir þér kleift að fela og sýna hliðarvalmynd þannig að "
 "hún kemur aðeins upp þegar þú þarft hana. Feldu valmyndina þegar þú villt."
 
 #. Default: "The new off canvas menu provides access to the core functions of the applications. Also on mobile!"
-#: euphorie/client/templates/tooltips.pt:70
+#: euphorie/client/templates/tooltips.pt:72
 msgid "info_osh_menu"
 msgstr ""
 "Hliðarvalmyndir veita aðgang að grunnaðgerðum forritsins. Einnig í síma!"
 
 #. Default: "The risk assessment browser allows you to find risk assessments that were previously made by you. Start a new risk assessment by clicking on the &lsquo;+&rsquo; or make a copy of an existing risk assessment by clicking on the tripple dot symbol next to a risk assessment and select &lsquo;clone&rsquo; ."
-#: euphorie/client/templates/tooltips.pt:97
+#: euphorie/client/templates/tooltips.pt:99
 msgid "info_osh_ra_browser"
 msgstr ""
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
-#: euphorie/client/templates/tooltips.pt:79
+#: euphorie/client/templates/tooltips.pt:81
 msgid "info_osh_session_menu"
 msgstr ""
 "Hér getur þú valið milli þess að byrja á nýju áhættumati eða haldið áfram "
@@ -3189,7 +3218,7 @@ msgstr ""
 "getur þú samt prófað það."
 
 #. Default: "This menu lets you navigate over all steps of your risk assessment. When you enter <em>Identification + Evaluation</em> or <em>Action Plan</em>, you will see the modules and risks of this assessment as sub-navigation. Using the navigation, you can jump back and forth over all parts of the tool at will."
-#: euphorie/client/templates/tooltips.pt:88
+#: euphorie/client/templates/tooltips.pt:90
 msgid "info_osh_tool_navigation"
 msgstr ""
 
@@ -3205,30 +3234,31 @@ msgid "info_referer_national_public_institution"
 msgstr "Ráðuneyti, Vinnueftirlitið, Landlæknir o.s.frv."
 
 #. Default: "You can register in one single step just by entering a valid email address."
-#: euphorie/client/templates/tooltips.pt:32
+#: euphorie/client/templates/tooltips.pt:34
 msgid "info_register1"
 msgstr "Þú getur skráð þig í einu skrefi með því að slá inn gilt netfang."
 
 #. Default: "Main benefits of having an account:"
-#: euphorie/client/templates/tooltips.pt:33
+#: euphorie/client/templates/tooltips.pt:35
 msgid "info_register2"
 msgstr "Helstu kostir þess að stofna aðgang:"
 
 #. Default: "You may switch this on screen help feature on or off at any time by selecting &ldquo;Toggle on screen help&rdquo; from the menu at the top right on the toolbar."
-#: euphorie/client/templates/tooltips.pt:53
+#: euphorie/client/templates/tooltips.pt:55
 msgid "info_screen_help"
 msgstr ""
 "Þú getur kveikt eða slökkt á þessum hjálpareiginleika hvenær sem er með því "
 "að smella á ${questionmark} efst í hægra horni verkfærastikunnar."
 
 #. Default: "Select an earlier session to complete or review or ${start_session}."
-#: euphorie/client/browser/templates/sessions-dashboard.pt:36
+#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:36
+#: euphorie/client/browser/templates/sessions-dashboard.pt:78
 msgid "info_select_session"
 msgstr "Veldu áhættumat til að ljúka eða endurskoða eða ${start_session}."
 
 #. Default: "This is a test session. ${link_sign_in} to save your data."
 #: euphorie/client/templates/plain.pt:195
-#: euphorie/client/templates/shell.pt:283
+#: euphorie/client/templates/shell.pt:107
 msgid "info_testsession"
 msgstr "Prófa verkfærið"
 
@@ -3243,7 +3273,7 @@ msgid "intro_add_surveygroup"
 msgstr "Hér er hægt að búa til nýtt OiRA verkfæri."
 
 #. Default: "Attach any additional content you consider helpful for the user"
-#: euphorie/content/module.py:101 euphorie/content/risk.py:276
+#: euphorie/content/module.py:101 euphorie/content/risk.py:277
 msgid "intro_additional_content"
 msgstr "Settu inn annað efni sem þú telur að gagnist notandanum"
 
@@ -3267,17 +3297,19 @@ msgid "intro_documenation_client"
 msgstr "biðlari á netinu "
 
 #. Default: "You can specify how the risks priority is evaluated. For more details see the online manual."
-#: euphorie/content/risk.py:448
+#: euphorie/content/risk.py:449
 msgid "intro_evaluation"
-msgstr "Þú getur ákveðið hér hvernig forgangsflokkur áhættu er metin. Nánari upplýsingar eru í notendahandbók á netinu."
+msgstr ""
+"Þú getur ákveðið hér hvernig forgangsflokkur áhættu er metin. Nánari "
+"upplýsingar eru í notendahandbók á netinu."
 
 #. Default: "You can print the ${list-of-risks}."
-#: euphorie/client/templates/identification.pt:21
+#: euphorie/client/browser/templates/identification.pt:21
 msgid "intro_identification"
 msgstr "Hér er hægt að prenta út ${list-of-risks}."
 
 #. Default: "The main image will get a more prominent position in the client than the other images."
-#: euphorie/content/risk.py:219
+#: euphorie/content/risk.py:220
 msgid "intro_main_image"
 msgstr "Aðalmyndin fær betra pláss gagnvart notandanum en aukamyndin"
 
@@ -3303,13 +3335,13 @@ msgstr ""
 #: euphorie/client/templates/preview.pt:17
 msgid "intro_preview"
 msgstr ""
-"Vinsamlegast staðfestu að þú viljir búa til prufueintak af þessu OiRA verkfæri? Þú "
-"getur látið aðra fá vefslóð (URL) verkfærisins þannig að þeir geti prófað "
-"það. Nauðsynlegt er að skrá sig inn með venjulegri OiRA innskráningu til að "
-"fá aðgang að forskoðuninni."
+"Vinsamlegast staðfestu að þú viljir búa til prufueintak af þessu OiRA "
+"verkfæri? Þú getur látið aðra fá vefslóð (URL) verkfærisins þannig að þeir "
+"geti prófað það. Nauðsynlegt er að skrá sig inn með venjulegri OiRA "
+"innskráningu til að fá aðgang að forskoðuninni."
 
 #. Default: "It is possible for you to print out the contents of the tool to enable you to look for the information at the relevant workplace (by walking around and looking at what could cause harm, or by consulting the workers and/or their representatives about problems they have encountered). You can then introduce the information into the tool."
-#: euphorie/client/templates/identification.pt:18
+#: euphorie/client/browser/templates/identification.pt:18
 msgid "intro_print_identification_1"
 msgstr ""
 "Hægt er að prenta út fullyrðingarnar sem verkfærið notar til að greina "
@@ -3317,7 +3349,7 @@ msgstr ""
 "farið er yfir vinnuumhverfið við gerð áhættumatsins."
 
 #. Default: "You may also wish to distribute the contents among the workers and/or their representatives and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action.Their feedback should be taken into account when filling in this tool."
-#: euphorie/client/templates/identification.pt:19
+#: euphorie/client/browser/templates/identification.pt:19
 msgid "intro_print_identification_2"
 msgstr ""
 "Hægt er að dreifa gátlistanum til starfsfólks til að virkja það betur við "
@@ -3366,7 +3398,7 @@ msgid "intro_select_sector"
 msgstr "Veldu atvinnusvið sem þú vilt skoða eða að afrita OiRA verkfæri."
 
 #. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:309
+#: euphorie/client/browser/login.py:299
 msgid "invalid_email"
 msgstr "Vinsamlega sláðu inn netfang."
 
@@ -3396,17 +3428,17 @@ msgid "iphone_report"
 msgstr "Skýrsla"
 
 #. Default: "Is this risk acceptable or under control?"
-#: euphorie/content/utils.py:70
+#: euphorie/content/utils.py:72
 msgid "is_risk_acceptable"
 msgstr "Er áhættan ásættanleg?"
 
 #. Default: "Is this risk acceptable or under control? If applicable, ${link_add_measures}."
-#: euphorie/content/utils.py:102
+#: euphorie/content/utils.py:104
 msgid "is_risk_acceptable_add_measures"
 msgstr ""
 
 #. Default: "Update"
-#: euphorie/client/templates/updated.pt:89
+#: euphorie/client/browser/templates/updated.pt:89
 msgid "label_accept update"
 msgstr "Uppfæra"
 
@@ -3416,45 +3448,40 @@ msgid "label_account_locked"
 msgstr ""
 
 #. Default: "Action Plan"
-#: euphorie/client/browser/templates/login.pt:105
+#: euphorie/client/browser/templates/login.pt:110
 #: euphorie/client/templates/report_identification.pt:145
 #: euphorie/client/templates/report_landing.pt:103
 msgid "label_action_plan"
 msgstr "Aðgerðaáætlun"
 
 #. Default: "Budget"
-#: euphorie/client/browser/templates/risk_actionplan.pt:233
-#: euphorie/client/docx/compiler.py:397 euphorie/client/report.py:1063
+#: euphorie/client/browser/templates/risk_actionplan.pt:240
+#: euphorie/client/docx/compiler.py:430 euphorie/client/report.py:138
 msgid "label_action_plan_budget"
 msgstr "Áætlaður kostnaður"
 
 #. Default: "Planning end"
-#: euphorie/client/browser/templates/risk_actionplan.pt:273
-#: euphorie/client/docx/compiler.py:401 euphorie/client/report.py:1047
+#: euphorie/client/browser/templates/risk_actionplan.pt:280
+#: euphorie/client/docx/compiler.py:434 euphorie/client/report.py:107
 msgid "label_action_plan_end"
 msgstr "Áætluð verklok"
 
 #. Default: "Who is responsible?"
-#: euphorie/client/browser/templates/risk_actionplan.pt:220
-#: euphorie/client/docx/compiler.py:394 euphorie/client/report.py:1060
+#: euphorie/client/browser/templates/risk_actionplan.pt:227
+#: euphorie/client/docx/compiler.py:427 euphorie/client/report.py:136
 msgid "label_action_plan_responsible"
 msgstr "Hver ber ábyrgð?"
 
 #. Default: "Planning start"
-#: euphorie/client/browser/templates/risk_actionplan.pt:257
-#: euphorie/client/docx/compiler.py:399 euphorie/client/report.py:1045
+#: euphorie/client/browser/templates/risk_actionplan.pt:264
+#: euphorie/client/docx/compiler.py:432 euphorie/client/report.py:102
 msgid "label_action_plan_start"
 msgstr "Framkvæmdir/úrbætur hefjast"
 
 #. Default: "Add another measure"
-#: euphorie/client/browser/templates/risk_actionplan.pt:289
+#: euphorie/client/browser/templates/risk_actionplan.pt:296
 msgid "label_add_measure"
 msgstr "Bættu við annarri ráðstöfun"
-
-#. Default: "Add another risk"
-#: euphorie/client/browser/templates/module_customization.pt:61
-msgid "label_add_risk"
-msgstr "Bæta við áhættu"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:28
@@ -3462,12 +3489,12 @@ msgid "label_body"
 msgstr ""
 
 #. Default: "Skip"
-#: euphorie/client/browser/templates/risk_identification.pt:58
+#: euphorie/client/browser/templates/risk_identification.pt:61
 msgid "label_button_skip"
 msgstr "Sleppa"
 
 #. Default: "Image caption"
-#: euphorie/content/module.py:85 euphorie/content/risk.py:232
+#: euphorie/content/module.py:85 euphorie/content/risk.py:233
 msgid "label_caption"
 msgstr "Skýringartexti með mynd"
 
@@ -3497,8 +3524,7 @@ msgid "label_clone"
 msgstr ""
 
 #. Default: "Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
-#: euphorie/client/browser/templates/module_customization.pt:28
-#: euphorie/client/browser/templates/risk_actionplan.pt:426
+#: euphorie/client/browser/templates/risk_actionplan.pt:433
 #: euphorie/client/browser/templates/webhelpers.pt:863
 msgid "label_comment"
 msgstr ""
@@ -3531,14 +3557,14 @@ msgid "label_contact_person"
 msgstr ""
 
 #. Default: "If you do not have an account for the OiRA application yet, please ${register_link} to start for real ${tooltip_register}."
-#: euphorie/client/browser/templates/login.pt:66
+#: euphorie/client/browser/templates/login.pt:71
 msgid "label_create_account"
 msgstr ""
 "Ef þú hefur ekki stofnað aðgang að OiRA, þá getur þú $(register_link) til að "
 "gera áhættumat sem þú getur vistað og unnið með $(tooltip_register)."
 
 #. Default: "Create action plan"
-#: euphorie/client/templates/actionplan.pt:58
+#: euphorie/client/browser/templates/actionplan.pt:59
 msgid "label_create_action_plan"
 msgstr "Gerð aðgerðaáætlunar"
 
@@ -3558,27 +3584,27 @@ msgid "label_default_effect"
 msgstr "Sjálfgefnar líkur"
 
 #. Default: "Default frequency"
-#: euphorie/content/risk.py:359 euphorie/content/templates/risk_view.pt:59
+#: euphorie/content/risk.py:360 euphorie/content/templates/risk_view.pt:59
 msgid "label_default_frequency"
 msgstr "Sjálfgefnar líkur"
 
 #. Default: "Default priority"
-#: euphorie/content/risk.py:202 euphorie/content/templates/risk_view.pt:51
+#: euphorie/content/risk.py:203 euphorie/content/templates/risk_view.pt:51
 msgid "label_default_priority"
 msgstr "Sjálfgefin áhættuflokkur"
 
 #. Default: "Default probability"
-#: euphorie/content/risk.py:385 euphorie/content/templates/risk_view.pt:64
+#: euphorie/content/risk.py:386 euphorie/content/templates/risk_view.pt:64
 msgid "label_default_probability"
 msgstr ""
 
 #. Default: "Default severity"
-#: euphorie/content/risk.py:337 euphorie/content/templates/risk_view.pt:57
+#: euphorie/content/risk.py:338 euphorie/content/templates/risk_view.pt:57
 msgid "label_default_severity"
 msgstr "Sjálfgefin alvarleiki"
 
 #. Default: "Delete"
-#: euphorie/client/browser/templates/more_menu.pt:22
+#: euphorie/client/browser/templates/more_menu.pt:24
 msgid "label_delete"
 msgstr "Eyða"
 
@@ -3588,13 +3614,13 @@ msgid "label_delete_risk"
 msgstr ""
 
 #. Default: "Description"
-#: euphorie/client/browser/templates/risk_actionplan.pt:121
-#: euphorie/content/risk.py:93
+#: euphorie/client/browser/templates/risk_actionplan.pt:128
+#: euphorie/content/risk.py:94
 msgid "label_description"
 msgstr "Lýsing"
 
 #. Default: "Duplicate"
-#: euphorie/client/browser/templates/more_menu.pt:30
+#: euphorie/client/browser/templates/more_menu.pt:39
 msgid "label_duplicate"
 msgstr "Afrita"
 
@@ -3616,14 +3642,14 @@ msgid "label_enable_tool_notification"
 msgstr "Birta sérstaka tilkynningu fyrir þetta verkfæri"
 
 #. Default: "Evaluation"
-#: euphorie/client/browser/templates/login.pt:103
+#: euphorie/client/browser/templates/login.pt:108
 #: euphorie/client/templates/report_identification.pt:135
-#: euphorie/client/templates/shell.pt:177
+#: euphorie/client/templates/shell.pt:184
 msgid "label_evaluation"
 msgstr "Mat"
 
 #. Default: "Evaluation method"
-#: euphorie/content/risk.py:171 euphorie/content/templates/risk_view.pt:47
+#: euphorie/content/risk.py:172 euphorie/content/templates/risk_view.pt:47
 msgid "label_evaluation_method"
 msgstr "Matsaðferð"
 
@@ -3638,23 +3664,23 @@ msgid "label_evaluation_phase"
 msgstr "Matsfasi"
 
 #. Default: "Measure already implemented"
-#: euphorie/client/browser/templates/risk_actionplan.pt:119
-#: euphorie/client/docx/compiler.py:352
+#: euphorie/client/browser/templates/risk_actionplan.pt:126
+#: euphorie/client/docx/compiler.py:385
 msgid "label_existing_measure"
 msgstr "Forvörn er þegar innleidd"
 
 #. Default: "Content file"
-#: euphorie/content/module.py:110 euphorie/content/risk.py:285
+#: euphorie/content/module.py:110 euphorie/content/risk.py:286
 msgid "label_file"
 msgstr "Efnisskrá"
 
 #. Default: "Content caption"
-#: euphorie/content/module.py:118 euphorie/content/risk.py:293
+#: euphorie/content/module.py:118 euphorie/content/risk.py:294
 msgid "label_file_caption"
 msgstr "Skýringartexti um innihald"
 
 #. Default: "I forgot my password"
-#: euphorie/client/browser/templates/login_form.pt:45
+#: euphorie/client/browser/templates/login_form.pt:46
 msgid "label_forgot_password"
 msgstr "Ég hef gleymt lykilorðinu mínu"
 
@@ -3662,6 +3688,11 @@ msgstr "Ég hef gleymt lykilorðinu mínu"
 #: euphorie/client/templates/report_landing.pt:85
 msgid "label_format"
 msgstr "Snið"
+
+#. Default: "General information"
+#: euphorie/client/browser/templates/status.pt:44
+msgid "label_general_information"
+msgstr ""
 
 #. Default: "4. Action Plan"
 #: euphorie/content/help.py:68 euphorie/content/templates/help_view.pt:33
@@ -3709,14 +3740,14 @@ msgid "label_help_sessions"
 msgstr "Framkvæmd áhættumatsins"
 
 #. Default: "Identification"
-#: euphorie/client/browser/templates/login.pt:101
+#: euphorie/client/browser/templates/login.pt:106
 #: euphorie/client/templates/report_identification.pt:125
-#: euphorie/client/templates/shell.pt:175
+#: euphorie/client/templates/shell.pt:182
 msgid "label_identification"
 msgstr "Greining"
 
 #. Default: "Image file"
-#: euphorie/content/module.py:78 euphorie/content/risk.py:225
+#: euphorie/content/module.py:78 euphorie/content/risk.py:226
 msgid "label_image"
 msgstr "Skrá með myndefni"
 
@@ -3726,12 +3757,12 @@ msgid "label_introduction"
 msgstr ""
 
 #. Default: "Go to report"
-#: euphorie/client/templates/actionplan.pt:64
+#: euphorie/client/browser/templates/actionplan.pt:65
 msgid "label_jump_to_report"
 msgstr "Fara í skýrslu"
 
 #. Default: "Keep me logged in."
-#: euphorie/client/browser/templates/login_form.pt:50
+#: euphorie/client/browser/templates/login_form.pt:55
 msgid "label_keep_logged_in"
 msgstr "Láttu mig vera skráða(n) inn."
 
@@ -3742,17 +3773,17 @@ msgstr "Tungumál"
 
 #. Default: "Legal and policy references"
 #: euphorie/client/browser/templates/webhelpers.pt:811
-#: euphorie/client/report.py:581 euphorie/content/risk.py:119
+#: euphorie/content/risk.py:120 euphorie/content/templates/risk_view.pt:76
 msgid "label_legal_reference"
 msgstr "Tilvísanir í önnur gögn s.s. lög, reglur og önnur opinber gögn"
 
 #. Default: "Login"
-#: euphorie/client/browser/templates/login_form.pt:62
+#: euphorie/client/browser/templates/login_form.pt:67
 msgid "label_login"
 msgstr "Skrá aðgang"
 
 #. Default: "If you are a registered user, you can ${log_in} here."
-#: euphorie/client/browser/templates/login.pt:52
+#: euphorie/client/browser/templates/login.pt:57
 msgid "label_login_here"
 msgstr "Ef þú ert búinn að stofna aðgang, geturðu byrjað ${log_in}."
 
@@ -3762,7 +3793,7 @@ msgid "label_login_name"
 msgstr ""
 
 #. Default: "Password (${forgot_link})"
-#: euphorie/client/browser/templates/login_form.pt:45
+#: euphorie/client/browser/templates/login_form.pt:46
 msgid "label_login_password"
 msgstr "Lykilorð (${forgot_link})"
 
@@ -3777,24 +3808,29 @@ msgid "label_logo_selection"
 msgstr ""
 
 #. Default: "General approach (to eliminate or reduce the risk)"
-#: euphorie/client/browser/templates/risk_actionplan.pt:183
-#: euphorie/client/docx/compiler.py:380 euphorie/client/report.py:1049
+#: euphorie/client/browser/templates/risk_actionplan.pt:190
+#: euphorie/client/docx/compiler.py:413 euphorie/client/report.py:112
 msgid "label_measure_action_plan"
 msgstr ""
 "Almenn nálgun. (Fjarlægja skal hættur eða drag úr þeim þannig að þær verði "
 "innan ásættanlegra marka.)"
 
 #. Default: "Specific action(s) required to implement this approach"
-#: euphorie/client/browser/templates/risk_actionplan.pt:193
-#: euphorie/client/docx/compiler.py:387 euphorie/client/report.py:1053
+#: euphorie/client/browser/templates/risk_actionplan.pt:200
+#: euphorie/client/docx/compiler.py:420 euphorie/client/report.py:120
 msgid "label_measure_prevention_plan"
 msgstr "Sérstakar aðgerðir til að innleiða úrbæturnar."
 
 #. Default: "Level of expertise and/or requirements needed"
-#: euphorie/client/browser/templates/risk_actionplan.pt:203
-#: euphorie/client/docx/compiler.py:391 euphorie/client/report.py:1057
+#: euphorie/client/browser/templates/risk_actionplan.pt:210
+#: euphorie/client/docx/compiler.py:424 euphorie/client/report.py:128
 msgid "label_measure_requirements"
 msgstr "Þekking og reynsla sem er nauðsynleg"
+
+#. Default: "by"
+#: euphorie/client/browser/templates/status.pt:70
+msgid "label_modified_by"
+msgstr ""
 
 #. Default: "Description"
 #: euphorie/content/module.py:51 euphorie/content/page.py:19
@@ -3820,7 +3856,7 @@ msgstr "Uppfyllti OiRA verkfærið væntingar þínar?"
 #. Default: "Desired password"
 #: euphorie/client/browser/reset_password.py:33
 #: euphorie/client/browser/templates/register.pt:94
-#: euphorie/client/settings.py:54
+#: euphorie/client/settings.py:53
 msgid "label_new_password"
 msgstr "Nýtt lykilorð"
 
@@ -3830,64 +3866,64 @@ msgid "label_new_session_test"
 msgstr "Prófa verkfærið"
 
 #. Default: "Next"
-#: euphorie/client/browser/templates/module_actionplan.pt:50
-#: euphorie/client/browser/templates/module_identification.pt:61
+#: euphorie/client/browser/templates/module_actionplan.pt:51
+#: euphorie/client/browser/templates/module_identification.pt:67
 #: euphorie/client/browser/templates/register.pt:99
 msgid "label_next"
 msgstr "Næsta"
 
 #. Default: "No"
-#: euphorie/client/browser/templates/module_identification.pt:48
+#: euphorie/client/browser/templates/module_identification.pt:60
 #: euphorie/client/company.py:92 euphorie/client/templates/report_company.pt:70
 msgid "label_no"
 msgstr "Nei"
 
 #. Default: "No risk"
-#: euphorie/client/templates/risks_overview.pt:259
-#: euphorie/client/templates/status.pt:121
+#: euphorie/client/browser/templates/risks_overview.pt:259
+#: euphorie/client/browser/templates/status.pt:180
 msgid "label_no_risk"
 msgstr "Áhættan er ekki til staðar"
 
 #. Default: "No risks"
-#: euphorie/client/templates/risks_overview.pt:263
-#: euphorie/client/templates/status.pt:125
+#: euphorie/client/browser/templates/risks_overview.pt:263
+#: euphorie/client/browser/templates/status.pt:184
 msgid "label_no_risks_2"
 msgstr "Áhættan er ekki til staðar"
 
 #. Default: "No risks"
-#: euphorie/client/templates/risks_overview.pt:267
-#: euphorie/client/templates/status.pt:129
+#: euphorie/client/browser/templates/risks_overview.pt:267
+#: euphorie/client/browser/templates/status.pt:188
 msgid "label_no_risks_3_4"
 msgstr "Áhættan er ekki til staðar"
 
 #. Default: "No risks"
-#: euphorie/client/templates/risks_overview.pt:271
-#: euphorie/client/templates/status.pt:133
+#: euphorie/client/browser/templates/risks_overview.pt:271
+#: euphorie/client/browser/templates/status.pt:192
 msgid "label_no_risks_5_or_more"
 msgstr "Áhættan er ekki til staðar"
 
 #. Default: "Not applicable"
-#: euphorie/content/utils.py:69
+#: euphorie/content/utils.py:71
 msgid "label_not_applicable"
 msgstr "Á ekki við"
 
 #. Default: "No, more measures are required"
-#: euphorie/content/utils.py:98
+#: euphorie/content/utils.py:100
 msgid "label_not_sufficient"
 msgstr "Nei, frekari forvarna er þörf"
 
 #. Default: "Current Password"
-#: euphorie/client/settings.py:48
+#: euphorie/client/settings.py:47
 msgid "label_old_password"
 msgstr ""
 
 #. Default: "Page"
-#: euphorie/client/survey.py:558
+#: euphorie/client/browser/session.py:783
 msgid "label_page"
 msgstr "Síða"
 
 #. Default: "of"
-#: euphorie/client/survey.py:561
+#: euphorie/client/browser/session.py:786
 msgid "label_page_of"
 msgstr "af"
 
@@ -3902,31 +3938,31 @@ msgid "label_password_confirm"
 msgstr "Staðfesta lykilorð"
 
 #. Default: "Pre-fill"
-#: euphorie/client/browser/templates/risk_actionplan.pt:147
+#: euphorie/client/browser/templates/risk_actionplan.pt:154
 msgid "label_prefill"
 msgstr "Tillögur að úrbótum"
 
 #. Default: "Preparation"
-#: euphorie/client/browser/templates/login.pt:99
+#: euphorie/client/browser/templates/login.pt:104
 #: euphorie/client/templates/report_identification.pt:113
-#: euphorie/client/templates/shell.pt:151
+#: euphorie/client/templates/shell.pt:158
 msgid "label_preparation"
 msgstr "Undirbúningur"
 
 #. Default: "Preview"
-#: euphorie/deployment/tiles/templates/versions.pt:57
+#: euphorie/deployment/tiles/templates/versions.pt:61
 msgid "label_preview"
 msgstr "Prufuútgáfa"
 
 #. Default: "Previous"
-#: euphorie/client/browser/templates/risk_actionplan.pt:440
-#: euphorie/client/browser/templates/risk_identification.pt:56
-#: euphorie/client/browser/templates/risk_identification_custom.pt:217
+#: euphorie/client/browser/templates/module_identification.pt:66
+#: euphorie/client/browser/templates/risk_actionplan.pt:447
+#: euphorie/client/browser/templates/risk_identification.pt:59
 msgid "label_previous"
 msgstr "Fyrra"
 
 #. Default: "Negative statement"
-#: euphorie/content/risk.py:83 euphorie/content/templates/risk_view.pt:41
+#: euphorie/content/risk.py:84 euphorie/content/templates/risk_view.pt:41
 msgid "label_problem_description"
 msgstr "Neikvæð yfirlýsing"
 
@@ -3937,9 +3973,9 @@ msgid "label_profilequestion_question"
 msgstr "Spurning"
 
 #. Default: "Published"
-#: euphorie/client/browser/templates/publication_menu.pt:24
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:138
-#: euphorie/client/browser/templates/sessions.pt:101
+#: euphorie/client/browser/templates/publication_menu.pt:23
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:129
+#: euphorie/client/browser/templates/status.pt:89
 msgid "label_published"
 msgstr ""
 
@@ -3955,111 +3991,111 @@ msgid "label_referer"
 msgstr "Eftir hvaða leiðum fréttir þú af verkfærinu?"
 
 #. Default: "register"
-#: euphorie/client/browser/templates/login.pt:46
-#: euphorie/client/browser/templates/new-session-test.pt:70
+#: euphorie/client/browser/templates/login.pt:51
+#: euphorie/client/browser/templates/new-session-test.pt:74
 msgid "label_register"
 msgstr "Skráning"
 
 #. Default: "It's free."
 #: euphorie/client/browser/templates/register.pt:22
-#: euphorie/client/templates/tooltips.pt:35
+#: euphorie/client/templates/tooltips.pt:37
 msgid "label_register_benefit_1"
 msgstr "Það er ókeypis."
 
 #. Default: "You can save your work online."
 #: euphorie/client/browser/templates/register.pt:23
-#: euphorie/client/templates/tooltips.pt:36
+#: euphorie/client/templates/tooltips.pt:38
 msgid "label_register_benefit_2"
 msgstr "Hægt er vista gögnin."
 
 #. Default: "You can download a full report and an action plan."
 #: euphorie/client/browser/templates/register.pt:24
-#: euphorie/client/templates/tooltips.pt:37
+#: euphorie/client/templates/tooltips.pt:39
 msgid "label_register_benefit_3"
 msgstr "Hægt er að búa til skýrslu og aðgerðaáætlun."
 
 #. Default: "register"
-#: euphorie/client/browser/templates/login_form.pt:54
+#: euphorie/client/browser/templates/login_form.pt:59
 msgid "label_register_first"
 msgstr "Skrá aðgang"
 
 #. Default: "Delete this measure"
-#: euphorie/client/browser/templates/risk_actionplan.pt:144
+#: euphorie/client/browser/templates/risk_actionplan.pt:151
 msgid "label_remove_measure"
 msgstr "Eyða þessari tillögu að úrbótum"
 
 #. Default: "Report"
 #: euphorie/client/templates/report_identification.pt:155
 #: euphorie/client/templates/report_landing.pt:77
-#: euphorie/client/templates/shell.pt:222
+#: euphorie/client/templates/shell.pt:229
 msgid "label_report"
 msgstr "Skýrsla"
 
 #. Default: "Please leave any extra comments that should be included in the report in this field."
-#: euphorie/client/templates/report.pt:32
+#: euphorie/client/browser/templates/report.pt:32
 msgid "label_report_comment"
 msgstr "Bætið við athugasemdum í skýrsluna hér."
 
 #. Default: "Risk is always present"
-#: euphorie/content/risk.py:157
+#: euphorie/content/risk.py:158
 msgid "label_risk_always_present"
 msgstr "Áhættan er alltaf til staðar"
 
 #. Default: "Risk number"
-#: euphorie/client/report.py:1067
+#: euphorie/client/report.py:140
 msgid "label_risk_number"
 msgstr "Tilvísunar númer"
 
 #. Default: "Risk type"
-#: euphorie/content/risk.py:138 euphorie/content/templates/risk_view.pt:39
+#: euphorie/content/risk.py:139 euphorie/content/templates/risk_view.pt:39
 msgid "label_risk_type"
 msgstr "Flokkur áhættu"
 
 #. Default: "Risk with measure(s)"
-#: euphorie/client/templates/risks_overview.pt:280
-#: euphorie/client/templates/status.pt:142
+#: euphorie/client/browser/templates/risks_overview.pt:280
+#: euphorie/client/browser/templates/status.pt:201
 msgid "label_risk_with_measure"
 msgstr "Áhætta og tilheyrandi úrbótaaðgerð(ir)"
 
 #. Default: "Risk without measure"
-#: euphorie/client/templates/risks_overview.pt:301
-#: euphorie/client/templates/status.pt:163
+#: euphorie/client/browser/templates/risks_overview.pt:301
+#: euphorie/client/browser/templates/status.pt:222
 msgid "label_risk_without_measure"
 msgstr "Áhætta án tilheyrandi úrbótaaðgerð"
 
 #. Default: "Risks with measure(s)"
-#: euphorie/client/templates/risks_overview.pt:284
-#: euphorie/client/templates/status.pt:146
+#: euphorie/client/browser/templates/risks_overview.pt:284
+#: euphorie/client/browser/templates/status.pt:205
 msgid "label_risks_with_measure_2"
 msgstr "Áhætta með úrbótaaðgerð(um)"
 
 #. Default: "Risks with measure(s)"
-#: euphorie/client/templates/risks_overview.pt:288
-#: euphorie/client/templates/status.pt:150
+#: euphorie/client/browser/templates/risks_overview.pt:288
+#: euphorie/client/browser/templates/status.pt:209
 msgid "label_risks_with_measure_3_4"
 msgstr "Áhætta með úrbótaaðgerð(um)"
 
 #. Default: "Risks with measure(s)"
-#: euphorie/client/templates/risks_overview.pt:292
-#: euphorie/client/templates/status.pt:154
+#: euphorie/client/browser/templates/risks_overview.pt:292
+#: euphorie/client/browser/templates/status.pt:213
 msgid "label_risks_with_measure_5_or_more"
 msgstr "Áhætta með úrbótaaðgerð(um)"
 
 #. Default: "Risks without measure"
-#: euphorie/client/templates/risks_overview.pt:305
-#: euphorie/client/templates/status.pt:167
+#: euphorie/client/browser/templates/risks_overview.pt:305
+#: euphorie/client/browser/templates/status.pt:226
 msgid "label_risks_without_measure_2"
 msgstr "Áhættur án tilheyrandi úrbótaðgerða"
 
 #. Default: "Risks without measure"
-#: euphorie/client/templates/risks_overview.pt:309
-#: euphorie/client/templates/status.pt:171
+#: euphorie/client/browser/templates/risks_overview.pt:309
+#: euphorie/client/browser/templates/status.pt:230
 msgid "label_risks_without_measure_3_4"
 msgstr "Áhættur án tilheyrandi úrbótaðgerða"
 
 #. Default: "Risks without measure"
-#: euphorie/client/templates/risks_overview.pt:313
-#: euphorie/client/templates/status.pt:175
+#: euphorie/client/browser/templates/risks_overview.pt:313
+#: euphorie/client/browser/templates/status.pt:234
 msgid "label_risks_without_measure_5_or_more"
 msgstr "Áhættur án tilheyrandi úrbótaðgerða"
 
@@ -4069,19 +4105,19 @@ msgid "label_save_and_add_new"
 msgstr "Vistaðu og bættu við annarri áhættu"
 
 #. Default: "Save and continue"
-#: euphorie/client/browser/templates/module_customization.pt:62
-#: euphorie/client/browser/templates/risk_actionplan.pt:446
-#: euphorie/client/browser/templates/risk_identification.pt:57
+#: euphorie/client/browser/templates/profile.pt:106
+#: euphorie/client/browser/templates/report.pt:41
+#: euphorie/client/browser/templates/risk_actionplan.pt:453
 msgid "label_save_and_continue"
 msgstr "Vista og halda áfram"
 
 #. Default: "Save and finish"
-#: euphorie/client/browser/templates/risk_identification_custom.pt:219
+#: euphorie/client/browser/templates/risk_identification_custom.pt:232
 msgid "label_save_and_finish"
 msgstr ""
 
 #. Default: "Section"
-#: euphorie/client/report.py:1065
+#: euphorie/client/report.py:139
 msgid "label_section"
 msgstr "Flokkur"
 
@@ -4096,24 +4132,24 @@ msgid "label_sector_title"
 msgstr "Heiti atvinnugreinar"
 
 #. Default: "Select one or more of the known common measures provided."
-#: euphorie/client/browser/templates/risk_actionplan.pt:158
+#: euphorie/client/browser/templates/risk_actionplan.pt:165
 msgid "label_select_measure"
 msgstr "Veldu lausn eða lausnir sem eru tilgreindar."
 
-#. Default: "Start a new session by choosing one of the following sectoral tools."
-#: euphorie/client/browser/templates/new-session-test.pt:25
-#: euphorie/client/browser/templates/new-session.pt:26
-#: euphorie/client/browser/templates/sessions-dashboard.pt:83
+#. Default: "Start a new session by choosing one of the following sectoral tools:"
+#: euphorie/client/browser/templates/new-session-test.pt:27
+#: euphorie/client/browser/templates/new-session.pt:28
+#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:83
 msgid "label_select_new_session"
 msgstr "Veljið áhættumatsverkfæri"
 
 #. Default: "Enter a title for your Risk Assessment"
-#: euphorie/client/browser/survey.py:23
+#: euphorie/client/browser/session.py:69
 msgid "label_session_title"
 msgstr "Skráðu nafn áhættumatsins"
 
 #. Default: "Show less…"
-#: euphorie/client/browser/templates/login.pt:81
+#: euphorie/client/browser/templates/login.pt:86
 msgid "label_show_less_hellip"
 msgstr "Sýna minna...."
 
@@ -4123,12 +4159,12 @@ msgid "label_show_more"
 msgstr "${read_more} um áhætturnar."
 
 #. Default: "Show more…"
-#: euphorie/client/browser/templates/login.pt:77
+#: euphorie/client/browser/templates/login.pt:82
 msgid "label_show_more_hellip"
 msgstr "Sýna meira...."
 
 #. Default: "Show `not applicable' option"
-#: euphorie/content/risk.py:130
+#: euphorie/content/risk.py:131
 msgid "label_show_notapplicable"
 msgstr "Sýnið \"á ekki við\""
 
@@ -4143,22 +4179,22 @@ msgid "label_solution_direction"
 msgstr "Lausn"
 
 #. Default: "Start Risk Identification"
-#: euphorie/client/templates/identification.pt:26
+#: euphorie/client/browser/templates/identification.pt:26
 msgid "label_start_identification"
 msgstr "Byrja áhættugreiningu"
 
-#. Default: "${link_start_session} with this tool."
-#: euphorie/client/browser/templates/sessions.pt:129
-msgid "label_start_new_session"
-msgstr ""
-
 #. Default: "Start"
-#: euphorie/client/browser/templates/start.pt:144
+#: euphorie/client/browser/templates/start.pt:138
 msgid "label_start_survey"
 msgstr "Byrja"
 
+#. Default: "Started"
+#: euphorie/client/browser/templates/status.pt:61
+msgid "label_started"
+msgstr ""
+
 #. Default: "Affirmative statement"
-#: euphorie/content/risk.py:74
+#: euphorie/content/risk.py:75
 msgid "label_statement"
 msgstr "Jákvæð yfirlýsing"
 
@@ -4193,23 +4229,24 @@ msgid "label_surveygroup_title"
 msgstr "Nýtt heiti afritaðs OiRA verkfæris"
 
 #. Default: "High"
-#: euphorie/client/report.py:1040
+#: euphorie/client/report.py:95
 msgid "label_timeline_priority_high"
 msgstr "Há"
 
 #. Default: "Low"
-#: euphorie/client/report.py:1038
+#: euphorie/client/report.py:93
 msgid "label_timeline_priority_low"
 msgstr "Lág"
 
 #. Default: "Medium"
-#: euphorie/client/report.py:1039
+#: euphorie/client/report.py:94
 msgid "label_timeline_priority_medium"
 msgstr "Meðal"
 
 #. Default: "Title"
+#: euphorie/client/browser/templates/confirmation-archive-session.pt:24
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:24
-#: euphorie/content/survey.py:270 euphorie/content/surveygroup.py:49
+#: euphorie/content/survey.py:270
 msgid "label_title"
 msgstr "Heiti"
 
@@ -4229,12 +4266,17 @@ msgid "label_tool_type"
 msgstr "Gerð OiRA verkfæris"
 
 #. Default: "run a test session"
-#: euphorie/client/browser/templates/login.pt:34
+#: euphorie/client/browser/templates/login.pt:39
 msgid "label_tryout"
 msgstr "prófað"
 
+#. Default: "Unpublished"
+#: euphorie/client/browser/templates/status.pt:104
+msgid "label_unpublished"
+msgstr ""
+
 #. Default: "Update"
-#: euphorie/deployment/tiles/templates/versions.pt:81
+#: euphorie/deployment/tiles/templates/versions.pt:85
 msgid "label_update"
 msgstr ""
 
@@ -4253,18 +4295,23 @@ msgstr "Nafn á OiRA útgáfunni"
 msgid "label_use_location_question"
 msgstr "Spurðu notandann um (fleiri en eitt) tilvik"
 
+#. Default: "Used tool"
+#: euphorie/client/browser/templates/status.pt:48
+msgid "label_used_tool"
+msgstr ""
+
 #. Default: "Name"
 #: euphorie/content/user.py:81
 msgid "label_user_title"
 msgstr "Nafn"
 
 #. Default: "(&ge;1 measures)"
-#: euphorie/client/templates/risks_overview.pt:424
+#: euphorie/client/browser/templates/risks_overview.pt:424
 msgid "label_with_measures"
 msgstr "(≥1 lausn)"
 
 #. Default: "(without measures)"
-#: euphorie/client/templates/risks_overview.pt:426
+#: euphorie/client/browser/templates/risks_overview.pt:426
 msgid "label_without_measures"
 msgstr "(án úrbótaaðgerða)"
 
@@ -4274,95 +4321,95 @@ msgid "label_workers_participated"
 msgstr "Starfsfólki var boðið að taka þátt í áhættumatinu"
 
 #. Default: "Yes"
-#: euphorie/client/browser/templates/module_identification.pt:44
+#: euphorie/client/browser/templates/module_identification.pt:56
 #: euphorie/client/company.py:91 euphorie/client/templates/report_company.pt:69
 msgid "label_yes"
 msgstr "Já"
 
 #. Default: "Yes, the remaining risk is acceptable"
-#: euphorie/content/utils.py:95
+#: euphorie/content/utils.py:97
 msgid "label_yes_sufficient"
 msgstr "Já, eftirstandandi áhætta er ásættanleg"
 
 #. Default: "Last edited by ${name} on ${date}."
-#: euphorie/client/browser/templates/publication_menu.pt:35
+#: euphorie/client/browser/templates/publication_menu.pt:34
 msgid "last_edited_by"
 msgstr ""
 
 #. Default: "${label} Version you are currently reviewing"
-#: euphorie/deployment/tiles/templates/versions.pt:79
+#: euphorie/deployment/tiles/templates/versions.pt:83
 msgid "legend_current"
 msgstr "${label} útgáfa sem þú er núna að endurskoða"
 
 #. Default: "${label} Version that is currently online"
-#: euphorie/deployment/tiles/templates/versions.pt:78
+#: euphorie/deployment/tiles/templates/versions.pt:82
 msgid "legend_published"
 msgstr "${label} útgáfa sem er virk gagnvart notendum"
 
 #. Default: "${label} = This version has changes that are currently unpublished. Click the update icon to bring all the changes live"
-#: euphorie/deployment/tiles/templates/versions.pt:81
+#: euphorie/deployment/tiles/templates/versions.pt:85
 msgid "legend_updated"
 msgstr ""
 "${label} = Þessi útgáfa er með breytingum sem ekki hafa verið gefnar út. "
 "Hakið við \"uppfæra\" táknið til að virkja breytingarnar."
 
-#: euphorie/client/browser/templates/new-session-test.pt:67
+#: euphorie/client/browser/templates/new-session-test.pt:71
 msgid "limitations"
 msgstr "galla"
 
 #. Default: "Sign in"
 #: euphorie/client/templates/plain.pt:195
-#: euphorie/client/templates/shell.pt:283
+#: euphorie/client/templates/tooltips.pt:8
 msgid "link_sign_in"
 msgstr "Innskráning"
 
 #. Default: "Start a new session"
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:34
-#: euphorie/client/browser/templates/sessions-dashboard.pt:36
-#: euphorie/client/browser/templates/sessions.pt:43
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:49
+#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:36
+#: euphorie/client/browser/templates/sessions-dashboard.pt:78
 msgid "link_start_session"
 msgstr "byrja nýtt áhættumat"
 
 #. Default: "contents of the tool"
-#: euphorie/client/templates/identification.pt:21
+#: euphorie/client/browser/templates/identification.pt:21
 msgid "list_of_risks"
 msgstr "gátlista áhættumatsins"
 
 #. Default: "Discover how easy it is to create a risk assessment with OiRA."
-#: euphorie/client/templates/tooltips.pt:25
+#: euphorie/client/templates/tooltips.pt:27
 msgid "list_test_session_benefits1"
 msgstr "Það er einfalt að búa til áhættumat með OiRA."
 
 #. Default: "Identify potential risks in your business and the measures to reduce them."
-#: euphorie/client/templates/tooltips.pt:26
+#: euphorie/client/templates/tooltips.pt:28
 msgid "list_test_session_benefits2"
 msgstr "Greindu áhættur í fyrirtækinu og aðgerðir til að draga úr þeim."
 
 #. Default: "Use it for vocational training."
-#: euphorie/client/templates/tooltips.pt:27
+#: euphorie/client/templates/tooltips.pt:29
 msgid "list_test_session_benefits3"
 msgstr "Notaðu það til þjálfunar starfsfólks"
 
 #. Default: "${important} In a test session you cannot save your work. All progess will be lost unless you register."
-#: euphorie/client/templates/tooltips.pt:13
+#: euphorie/client/templates/tooltips.pt:15
 msgid "list_test_session_limitations1"
 msgstr ""
 "${important} Þú getur ekki vistað þegar þú ert að prófa verkfærið. Öll "
 "vinnan mun tapast ef þú stofnar ekki aðgang"
 
 #. Default: "You will not be able to print or download reports."
-#: euphorie/client/templates/tooltips.pt:16
+#: euphorie/client/templates/tooltips.pt:18
 msgid "list_test_session_limitations2"
 msgstr "Þú munt ekki geta prentað eða sótt skýrslur."
 
 #. Default: "During a test session you will have the possibility at any time to register by clicking on the \"Register\" link at the top."
-#: euphorie/client/templates/tooltips.pt:17
+#: euphorie/client/templates/tooltips.pt:19
 msgid "list_test_session_limitations3"
 msgstr ""
 "Þú getur stofnað aðgang hvenær sem er með því að smella á tengilinn \"Nýskrá"
 "\" efst á síðunni."
 
-#: euphorie/client/browser/templates/login.pt:52
+#: euphorie/client/browser/templates/login.pt:57
 msgid "log in"
 msgstr "hér"
 
@@ -4397,7 +4444,7 @@ msgid "menu_import"
 msgstr "Flytja inn OiRA verkfæri"
 
 #. Default: "Training"
-#: euphorie/client/templates/shell.pt:243
+#: euphorie/client/templates/shell.pt:250
 msgid "menu_training"
 msgstr ""
 
@@ -4415,7 +4462,7 @@ msgstr ""
 "Vildirðu ef til vill fjarlægja OiRA verkfærið sjálft?"
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/survey.py:93 euphorie/client/profile.py:411
+#: euphorie/client/browser/session.py:151
 msgid "message_field_required"
 msgstr "Fylla þarf í reitinn."
 
@@ -4425,65 +4472,65 @@ msgid "message_lock_warn"
 msgstr ""
 
 #. Default: "A measure has been removed from your action plan."
-#: euphorie/client/browser/risk.py:760
+#: euphorie/client/browser/risk.py:885
 msgid "message_measure_removed"
 msgstr "Úrbótatillaga hefur verið tekin úr aðgerðaáætluninni."
 
 #. Default: "A measure has been added to your action plan."
-#: euphorie/client/browser/risk.py:700
+#: euphorie/client/browser/risk.py:813
 msgid "message_measure_saved"
 msgstr "Lausn hefur verið bætt við í aðgerðaáætlunina."
 
 #. Default: "A measure has been updated in your action plan."
-#: euphorie/client/browser/risk.py:730
+#: euphorie/client/browser/risk.py:849
 msgid "message_measure_updated"
 msgstr " Lausn hefur verið uppfærð í aðgerðaáætluninni."
 
 #. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:781
+#: euphorie/client/browser/risk.py:911
 msgid "message_measures_removed"
 msgstr ""
 "${no_of_measures} úrbótatillögur hafa verið teknar úr aðgerðaáætluninni."
 
 #. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:765
+#: euphorie/client/browser/risk.py:893
 msgid "message_measures_removed_3"
 msgstr ""
 "${no_of_measures} úrbótatillögur hafa verið teknar úr aðgerðaáætluninni."
 
 #. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:773
+#: euphorie/client/browser/risk.py:902
 msgid "message_measures_removed_3_4"
 msgstr ""
 "${no_of_measures} úrbótatillögur hafa verið teknar úr aðgerðaáætluninni."
 
 #. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:721
+#: euphorie/client/browser/risk.py:839
 msgid "message_measures_saved"
 msgstr "${no_of_measures} lausnum hefur verið bætt við í aðgerðaáætlunina."
 
 #. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:705
+#: euphorie/client/browser/risk.py:821
 msgid "message_measures_saved_2"
 msgstr "${no_of_measures} lausnum hefur verið bætt við í aðgerðaáætlunina."
 
 #. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:713
+#: euphorie/client/browser/risk.py:830
 msgid "message_measures_saved_3_4"
 msgstr "${no_of_measures} lausnum hefur verið bætt við í aðgerðaáætlunina."
 
 #. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:751
+#: euphorie/client/browser/risk.py:875
 msgid "message_measures_updated"
 msgstr "${no_of_measures} lausnum hefur verið bætt við í aðgerðaáætlunina."
 
 #. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:735
+#: euphorie/client/browser/risk.py:857
 msgid "message_measures_updated_2"
 msgstr "${no_of_measures} lausnum hefur verið bætt við í aðgerðaáætlunina."
 
 #. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:743
+#: euphorie/client/browser/risk.py:866
 msgid "message_measures_updated_3_4"
 msgstr "${no_of_measures} lausnum hefur verið bætt við í aðgerðaáætlunina."
 
@@ -4517,12 +4564,12 @@ msgid "message_publish_success"
 msgstr "Sending OiRA áhaldsins tókst. Það er aðgengilegt á ${url}."
 
 #. Default: "Cancelled unpublish action."
-#: euphorie/content/surveygroup.py:286
+#: euphorie/content/surveygroup.py:298
 msgid "message_unpublish_cancel"
 msgstr "Hætt við að draga útgáfu til baka"
 
 #. Default: "This OiRA Tool is now no longer available in the client."
-#: euphorie/content/surveygroup.py:282
+#: euphorie/content/surveygroup.py:294
 msgid "message_unpublish_success"
 msgstr "Útgáfu á þessu OiRA verkfæri hefur verið dregin til baka."
 
@@ -4534,11 +4581,6 @@ msgstr ""
 #. Default: "Account \"${title}\" has been unlocked."
 #: euphorie/content/user.py:344
 msgid "message_user_unlocked"
-msgstr ""
-
-#. Default: "Not provided"
-#: euphorie/client/report.py:678
-msgid "missing_data"
 msgstr ""
 
 #. Default: "This ${number} is mandatory."
@@ -4573,13 +4615,13 @@ msgstr ""
 
 #. Default: "Help"
 #: euphorie/client/browser/templates/help-menu.pt:24
-#: euphorie/client/browser/templates/user-menu.pt:33
+#: euphorie/client/browser/templates/user-menu.pt:34
 #: euphorie/client/browser/templates/webhelpers.pt:59
 msgid "navigation_help"
 msgstr "Aðstoð"
 
 #. Default: "Logout"
-#: euphorie/client/browser/templates/user-menu.pt:49
+#: euphorie/client/browser/templates/user-menu.pt:50
 #: euphorie/client/browser/templates/webhelpers.pt:53
 msgid "navigation_logout"
 msgstr "Útskráning"
@@ -4589,10 +4631,10 @@ msgstr "Útskráning"
 msgid "navigation_settings"
 msgstr "Stillingar"
 
-#. Default: "Check your progress"
+#. Default: "Status"
+#: euphorie/client/browser/templates/more_menu.pt:47
 #: euphorie/client/browser/templates/webhelpers.pt:62
-#: euphorie/client/templates/shell.pt:264
-#: euphorie/content/templates/colour-preview.pt:58
+#: euphorie/client/templates/shell.pt:271
 msgid "navigation_status"
 msgstr "Staða"
 
@@ -4607,12 +4649,12 @@ msgid "no"
 msgstr "Nei"
 
 #. Default: "No default"
-#: euphorie/content/risk.py:342
+#: euphorie/content/risk.py:343
 msgid "no default"
 msgstr "Ekkert sjálfgefið"
 
 #. Default: "No default"
-#: euphorie/content/risk.py:208
+#: euphorie/content/risk.py:209
 msgid "no_default"
 msgstr "Ekkert sjálfgefið"
 
@@ -4628,7 +4670,7 @@ msgid "no_surveys_present"
 msgstr "Engin OiRA verkfæri eru til staðar. Þú getur ${add_link}."
 
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
-#: euphorie/content/utils.py:49
+#: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""
 
@@ -4643,29 +4685,27 @@ msgid "notice_country_manager"
 msgstr ""
 
 #. Default: "On behalf of the employer:"
-#: euphorie/client/docx/compiler.py:449
+#: euphorie/client/docx/compiler.py:482
 msgid "oira_consultation_employer"
 msgstr ""
 
 #. Default: "On behalf of the workers:"
-#: euphorie/client/docx/compiler.py:452
+#: euphorie/client/docx/compiler.py:485
 msgid "oira_consultation_workers"
 msgstr ""
 
 #. Default: "Online interactive"
-#: euphorie/client/browser/templates/logo.pt:19
 #: euphorie/client/browser/templates/webhelpers.pt:41
 msgid "oira_name_line_1"
 msgstr "Gagnvirkt áhættumatsverkfæri"
 
 #. Default: "Risk Assessment"
-#: euphorie/client/browser/templates/logo.pt:20
 #: euphorie/client/browser/templates/webhelpers.pt:44
 msgid "oira_name_line_2"
 msgstr " á netinu"
 
 #. Default: "Date:"
-#: euphorie/client/docx/compiler.py:460
+#: euphorie/client/docx/compiler.py:493
 msgid "oira_survey_date"
 msgstr ""
 
@@ -4675,23 +4715,24 @@ msgid "optional"
 msgstr ""
 
 #. Default: "No risk assessments were found for this selection."
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:161
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:164
 msgid "osc_search_no_results_for_search"
 msgstr ""
 
-#. Default: "Search for risk assessments"
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:61
+#. Default: "Search"
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:82
 msgid "osc_search_placeholder"
 msgstr ""
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
-#: euphorie/client/docx/compiler.py:442
+#: euphorie/client/docx/compiler.py:475
 msgid "paragraph_oira_consultation_of_workers"
 msgstr ""
 
 #. Default: "Your password must contain at least 5 characters, including at least one capital letter, one number and one special character (e.g. $, # or @)."
 #: euphorie/content/passwordpolicy.py:49
 #: euphorie/content/templates/settings.pt:73
+#: euphorie/content/tests/test_passwordpolicy.py:14
 msgid "password_policy_conditions"
 msgstr ""
 "Lykilorðið þitt verður að innihalda að minnsta kosti 5 tákn/staf. Þar af að "
@@ -4708,29 +4749,9 @@ msgid "placeholder_custom_risk_description"
 msgstr "Gefðu frekari upplýsingar um þessa áhættu."
 
 #. Default: "Describe a measure that is already in place but not yet listed here."
-#: euphorie/content/utils.py:89
+#: euphorie/content/utils.py:91
 msgid "placeholder_new_existing"
 msgstr "Lýstu forvörn sem er nú þegar til staðar en er ekki talin upp hérna."
-
-#. Default: "Company details"
-#: euphorie/client/report.py:682
-msgid "plan_report_company_header"
-msgstr ""
-
-#. Default: "By filling in the list of questions, you have completed a risk assessment. This assessment is used to draw up an action plan. The progress of this action plan must be discussed annually and a small report must be written on the progress. Certain subjects might have been completed and perhaps new subjects need to be added."
-#: euphorie/client/report.py:657
-msgid "plan_report_intro_1"
-msgstr ""
-
-#. Default: "Introduction"
-#: euphorie/client/report.py:655
-msgid "plan_report_intro_header"
-msgstr ""
-
-#. Default: "Action plan"
-#: euphorie/client/report.py:749
-msgid "plan_report_plan_header"
-msgstr ""
 
 #. Default: "Versions"
 #: euphorie/deployment/tiles/templates/versions.pt:11
@@ -4738,46 +4759,46 @@ msgid "portlet_header_versions"
 msgstr "Útgáfur"
 
 #. Default: "COPY"
-#: euphorie/client/browser/country.py:628
+#: euphorie/client/browser/session.py:557
 msgid "prefix_cloned_title"
 msgstr ""
 
 #. Default: "High"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:185
 #: euphorie/client/browser/templates/webhelpers.pt:689
-#: euphorie/content/risk.py:194
+#: euphorie/content/risk.py:195
 msgid "priority_high"
 msgstr "Há"
 
 #. Default: "Low"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:173
 #: euphorie/client/browser/templates/webhelpers.pt:677
-#: euphorie/content/risk.py:191
+#: euphorie/content/risk.py:192
 msgid "priority_low"
 msgstr "Lág"
 
 #. Default: "Medium"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:179
 #: euphorie/client/browser/templates/webhelpers.pt:683
-#: euphorie/content/risk.py:193
+#: euphorie/content/risk.py:194
 msgid "priority_medium"
 msgstr "Miðlungs"
 
 #. Default: "Large"
 #: euphorie/client/browser/templates/webhelpers.pt:479
-#: euphorie/content/risk.py:398
+#: euphorie/content/risk.py:399
 msgid "probability_large"
 msgstr "Miklar"
 
 #. Default: "Medium"
 #: euphorie/client/browser/templates/webhelpers.pt:473
-#: euphorie/content/risk.py:396
+#: euphorie/content/risk.py:397
 msgid "probability_medium"
 msgstr "Miðlungs"
 
 #. Default: "Small"
 #: euphorie/client/browser/templates/webhelpers.pt:467
-#: euphorie/content/risk.py:394
+#: euphorie/content/risk.py:395
 msgid "probability_small"
 msgstr "Litlar"
 
@@ -4787,8 +4808,8 @@ msgstr "Litlar"
 msgid "question_other_risks"
 msgstr ""
 "<p><strong>Athugið</strong>: Til að koma í veg fyrir endurtekningar er "
-"mikilvægt að fara í gegnum allt áhættumatið áður en hættum er bætt við."
-"</p><p>Ef þú þarft ekki að bæta við áhættu skaltu halda áfram.</p>"
+"mikilvægt að fara í gegnum allt áhættumatið áður en hættum er bætt við.</"
+"p><p>Ef þú þarft ekki að bæta við áhættu skaltu halda áfram.</p>"
 
 #. Default: "an employers' organisation"
 #: euphorie/client/company.py:65 euphorie/client/templates/report_company.pt:56
@@ -4821,7 +4842,7 @@ msgid "referer_trade_union"
 msgstr "verkalýðsfélagi"
 
 #. Default: "Don't have an account? Then please ${register_link} first."
-#: euphorie/client/browser/templates/login_form.pt:54
+#: euphorie/client/browser/templates/login_form.pt:59
 msgid "register_teaser"
 msgstr "Ertu með aðgang? Skráðu þig ${register_link}."
 
@@ -4837,127 +4858,42 @@ msgstr ""
 "gögn. Stofnaðu aðgang til að nota verkfærið:"
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:721
+#: euphorie/client/docx/compiler.py:761
 msgid "report_identification_revision"
 msgstr "Þetta skjal var byggt á '${title}' ,útgáfu dagsettri ${date}."
 
 #. Default: "Now that you have finished identifying all the risks in your organisation and created an action plan you can create a report which lists all your results. You can, if desired, add some extra comments that should be included in this report in the field below."
-#: euphorie/client/templates/report.pt:23
+#: euphorie/client/browser/templates/report.pt:23
 msgid "report_intro"
 msgstr ""
 "Nú er aðgerðaáætlun lokið og hægt er að vista skýrslu með öllum niðurstöðum. "
 "Hægt er að bæta við athugasemdum í skýrsluna. Setjið þær í reitinn hér fyrir "
 "neðan."
 
-#. Default: "General approach (to eliminate or reduce the risk):"
-#: euphorie/client/report.py:856
-msgid "report_measure_actionplan"
-msgstr ""
-"Almenn nálgun (Fjarlægja skal áhættur eða draga úr þeim þannig að þær verði "
-"innan ásættanlegra marka)"
-
-#. Default: "There is a budget of ${amount} for this measure."
-#: euphorie/client/report.py:945
-msgid "report_measure_budget"
-msgstr "Áætlaður kostnaður við þessa úrbótaaðgerð er ${amount}"
-
-#. Default: "This task ends on ${end}."
-#: euphorie/client/report.py:927
-msgid "report_measure_end_only"
-msgstr "Þessu verkefni lýkur ${end}."
-
-#. Default: "${responsible} is responsible for this task which starts on ${start} and ends on ${end}."
-#: euphorie/client/report.py:906
-msgid "report_measure_full"
-msgstr ""
-"${responsible} ber ábyrgð á þessu verkefni sem hefst ${start} og lýkur "
-"${end}."
-
-#. Default: "Specific action(s) required to implement this approach:"
-#: euphorie/client/report.py:862
-msgid "report_measure_preventionplan"
-msgstr ""
-"Sérstök ráðstöfun eða ráðstafanir sem þarf til að innleiða þessa nálgun:"
-
-#. Default: "Level of expertise and/or requirements needed:"
-#: euphorie/client/report.py:869
-msgid "report_measure_requirements"
-msgstr "Stig sérþekkingar og/eða kröfur sem til þarf"
-
-#. Default: "${responsible} is responsible for this task."
-#: euphorie/client/report.py:879
-msgid "report_measure_responsible"
-msgstr "${responsible} ber ábyrgð á þessu verkefni."
-
-#. Default: "${responsible} is responsible for this task which ends on ${end}."
-#: euphorie/client/report.py:896
-msgid "report_measure_responsible_and_end"
-msgstr "${responsible} ber ábyrgð á þessu verkefni sem lýkur ${end}."
-
-#. Default: "${responsible} is responsible for this task which starts on ${start}."
-#: euphorie/client/report.py:886
-msgid "report_measure_responsible_and_start"
-msgstr "${responsible} ber ábyrgð á þessu verkefni sem hefst ${start}."
-
-#. Default: "This task starts on ${start} and ends on ${end}."
-#: euphorie/client/report.py:935
-msgid "report_measure_start_and_stop"
-msgstr "Þetta verkefni hefst ${start} og lýkur ${end}."
-
-#. Default: "This task starts on ${start}."
-#: euphorie/client/report.py:918
-msgid "report_measure_start_only"
-msgstr "Þetta verkefni hefst ${start}."
-
-#. Default: "This is a "
-#: euphorie/client/report.py:826
-msgid "report_priority"
-msgstr "Þetta er "
-
-#. Default: "high priority risk"
-#: euphorie/client/report.py:73
-msgid "report_priority_high"
-msgstr "forgangs áhætta"
-
-#. Default: "low priority risk"
-#: euphorie/client/report.py:71
-msgid "report_priority_low"
-msgstr "ekki forgangs áhætta"
-
-#. Default: "medium priority risk"
-#: euphorie/client/report.py:72
-msgid "report_priority_medium"
-msgstr ""
-
-#. Default: "Risks marked with [*] are present."
-#: euphorie/client/report.py:312
-msgid "report_survey_footer_risk_present"
-msgstr ""
-
-#. Default: "This report was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:202 euphorie/client/report.py:267
+#. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
+#: euphorie/client/docx/compiler.py:208
 msgid "report_survey_revision"
 msgstr ""
 "Þessi skýrsla var byggð á OiRA áhaldinu '${title}' sem endurskoðað var "
 "${date}."
 
 #. Default: "Comments"
-#: euphorie/client/report.py:1073
+#: euphorie/client/report.py:143
 msgid "report_timeline_comment"
 msgstr "Athugasemdir"
 
 #. Default: "Priority"
-#: euphorie/client/report.py:1071 euphorie/content/risk.py:189
+#: euphorie/client/report.py:142 euphorie/content/risk.py:190
 msgid "report_timeline_priority"
 msgstr "Forgangur"
 
 #. Default: "Risk"
-#: euphorie/client/report.py:1069
+#: euphorie/client/report.py:141
 msgid "report_timeline_risk_title"
 msgstr "Áhætta"
 
 #. Default: "Timeline"
-#: euphorie/client/report.py:1088
+#: euphorie/client/report.py:158
 msgid "report_timeline_title"
 msgstr "Tímalína"
 
@@ -4967,35 +4903,35 @@ msgid "request_an_email_reminder"
 msgstr "fáðu áminningu í tölvupósti"
 
 #. Default: "Risk is present."
-#: euphorie/client/docx/compiler.py:249
+#: euphorie/client/docx/compiler.py:255
 msgid "risk_present"
 msgstr ""
 
 #. Default: "This is a ${priority_value} priority risk."
-#: euphorie/client/browser/templates/module_customization.pt:33
-#: euphorie/client/browser/templates/risk_actionplan.pt:81
-#: euphorie/client/docx/compiler.py:282
+#: euphorie/client/browser/templates/risk_actionplan.pt:84
+#: euphorie/client/docx/compiler.py:295
 msgid "risk_priority"
 msgstr "Áhættustig ${priority_value}"
 
+#: euphorie/client/browser/templates/risk_actionplan.pt:102
+msgid "risk_priority_${value}"
+msgstr ""
+
 #. Default: "high"
-#: euphorie/client/browser/templates/module_customization.pt:36
-#: euphorie/client/browser/templates/risk_actionplan.pt:92
-#: euphorie/client/docx/compiler.py:280
+#: euphorie/client/browser/templates/risk_actionplan.pt:95
+#: euphorie/client/docx/compiler.py:293
 msgid "risk_priority_high"
 msgstr "Hátt"
 
 #. Default: "low"
-#: euphorie/client/browser/templates/module_customization.pt:34
-#: euphorie/client/browser/templates/risk_actionplan.pt:84
-#: euphorie/client/docx/compiler.py:276
+#: euphorie/client/browser/templates/risk_actionplan.pt:87
+#: euphorie/client/docx/compiler.py:289
 msgid "risk_priority_low"
 msgstr "Lágt"
 
 #. Default: "medium"
-#: euphorie/client/browser/templates/module_customization.pt:35
-#: euphorie/client/browser/templates/risk_actionplan.pt:88
-#: euphorie/client/docx/compiler.py:278
+#: euphorie/client/browser/templates/risk_actionplan.pt:91
+#: euphorie/client/docx/compiler.py:291
 msgid "risk_priority_medium"
 msgstr "Meðal"
 
@@ -5015,28 +4951,28 @@ msgid "risk_solution_header"
 msgstr "Aðgerð til úrbóta ${number}"
 
 #. Default: "This risk still needs to be inventorised."
-#: euphorie/client/docx/compiler.py:252 euphorie/client/report.py:567
+#: euphorie/client/docx/compiler.py:261
 #: euphorie/client/templates/report_identification.pt:84
 msgid "risk_unanswered"
 msgstr ""
 
 #. Default: "Policy"
-#: euphorie/content/risk.py:150
+#: euphorie/content/risk.py:151
 msgid "risktype_policy"
 msgstr ""
 
 #. Default: "Risk"
-#: euphorie/content/risk.py:148
+#: euphorie/content/risk.py:149
 msgid "risktype_risk"
 msgstr ""
 
 #. Default: "Priority risk"
-#: euphorie/content/risk.py:146
+#: euphorie/content/risk.py:147
 msgid "risktype_top5"
 msgstr "Forgangsáhætta"
 
 #. Default: "Switch tips off now"
-#: euphorie/client/templates/tooltips.pt:57
+#: euphorie/client/templates/tooltips.pt:59
 msgid "screen_help_switch_off"
 msgstr ""
 
@@ -5058,13 +4994,13 @@ msgid "search_result_relevance"
 msgstr "Vægi ${percentage}"
 
 #. Default: "Select or add any measures that are <strong>already in place</strong>."
-#: euphorie/content/utils.py:79
+#: euphorie/content/utils.py:81
 msgid "select_add_existing_measure"
 msgstr "Veldu eða bættu við hverskonar forvörnum sem eru þegar til staðar."
 
 #. Default: "Not very severe"
 #: euphorie/client/browser/templates/webhelpers.pt:571
-#: euphorie/content/risk.py:346
+#: euphorie/content/risk.py:347
 msgid "severity_not_severe"
 msgstr "Ekki alvarlegt"
 
@@ -5075,7 +5011,7 @@ msgstr "Nauðsynlegt að stöðva vinnu í 3 daga eða minna"
 
 #. Default: "Severe"
 #: euphorie/client/browser/templates/webhelpers.pt:582
-#: euphorie/content/risk.py:349
+#: euphorie/content/risk.py:350
 msgid "severity_severe"
 msgstr "Alvarlegt"
 
@@ -5086,7 +5022,7 @@ msgstr "Nauðsynlegt að stöðva vinnu í 3 daga eða meira"
 
 #. Default: "Very severe"
 #: euphorie/client/browser/templates/webhelpers.pt:594
-#: euphorie/content/risk.py:351
+#: euphorie/content/risk.py:352
 msgid "severity_very_severe"
 msgstr "Mjög alvarlegt"
 
@@ -5097,7 +5033,7 @@ msgstr "Alvarleg slys og sjúkdómar, dauðsföll"
 
 #. Default: "Weak"
 #: euphorie/client/browser/templates/webhelpers.pt:560
-#: euphorie/content/risk.py:344
+#: euphorie/content/risk.py:345
 msgid "severity_weak"
 msgstr "Lítið"
 
@@ -5107,7 +5043,7 @@ msgid "severity_weak_help"
 msgstr "Engin ástæða til að stöðva vinnu"
 
 #. Default: "Standard"
-#: euphorie/content/surveygroup.py:247
+#: euphorie/content/surveygroup.py:259
 msgid "survey_default_title"
 msgstr "Staðlað"
 
@@ -5135,10 +5071,12 @@ msgid "survey_source_scratch"
 msgstr "Búa til nýtt OiRA verkfæri frá grunni"
 
 #. Default: "Want to try OiRA? You may ${tryout_link} or ${register_link} to start for real."
-#: euphorie/client/browser/templates/login.pt:46
+#: euphorie/client/browser/templates/login.pt:51
 msgid "teaser_try_oira"
 msgstr ""
-"Viltu prófa OiRA? Þú getur ${tryout_link} (nafnlaust, án skráningar) eða skráð aðgang ${register_link} og unnið við áhættumatið (og vistað á þínu svæði)."
+"Viltu prófa OiRA? Þú getur ${tryout_link} (nafnlaust, án skráningar) eða "
+"skráð aðgang ${register_link} og unnið við áhættumatið (og vistað á þínu "
+"svæði)."
 
 #. Default: "The terms and conditions have changed since your last visit. Please read the new terms and conditions carefully before proceding."
 #: euphorie/client/templates/conditions.pt:19
@@ -5148,21 +5086,21 @@ msgstr ""
 "skilmálana og skilyrðin vandlega áður en haldið er áfram."
 
 #. Default: "Read here about the ${benefits}${tooltip_benefits} and ${limitations}${tooltip_limitations} of a test session."
-#: euphorie/client/browser/templates/new-session-test.pt:67
+#: euphorie/client/browser/templates/new-session-test.pt:71
 msgid "testsession_benefits_limitations"
 msgstr ""
 "Lestu hér um ${benefits}${tooltip_benefits} og "
 "${limitations}${tooltip_limitations} þess að prófa verkfærið."
 
 #. Default: "Or ${register_link} instead. Find out why you should register${tooltip_register}."
-#: euphorie/client/browser/templates/new-session-test.pt:70
+#: euphorie/client/browser/templates/new-session-test.pt:74
 msgid "testsession_register"
 msgstr ""
 "Stofnaðu aðgang ${register_link}. Kostir þess að stofna aðgang "
 "${tooltip_register}."
 
 #. Default: "add all measures that have already been implemented"
-#: euphorie/content/utils.py:52
+#: euphorie/content/utils.py:54
 msgid "text_add_measures"
 msgstr ""
 
@@ -5177,18 +5115,18 @@ msgid "title_about"
 msgstr "um"
 
 #. Default: "Delete account"
-#: euphorie/client/settings.py:125
+#: euphorie/client/settings.py:130
 msgid "title_account_delete"
 msgstr "Eyða aðgangi"
 
 #. Default: "Account settings"
-#: euphorie/client/settings.py:174
+#: euphorie/client/settings.py:176
 msgid "title_account_settings"
 msgstr "Stillingar fyrir aðgang"
 
 #. Default: "Change password"
-#: euphorie/client/browser/templates/user-menu.pt:40
-#: euphorie/client/settings.py:87
+#: euphorie/client/browser/templates/user-menu.pt:41
+#: euphorie/client/settings.py:86
 msgid "title_change_password"
 msgstr "Skipta um lykilorð"
 
@@ -5235,8 +5173,8 @@ msgid "title_import_sector_survey"
 msgstr "Flytja inn atvinnusvið og OiRA verkfæri"
 
 #. Default: "Added risks (by you)"
-#: euphorie/client/browser/templates/module_customization.pt:15
-#: euphorie/client/docx/compiler.py:95 euphorie/client/publish.py:155
+#: euphorie/client/docx/compiler.py:99 euphorie/client/publish.py:155
+#: euphorie/client/utils.py:68
 msgid "title_other_risks"
 msgstr "Aðrar áhættur á vinnustaðnum (ef við á)"
 
@@ -5255,15 +5193,15 @@ msgstr "Endurheimta lykilorð"
 msgid "title_sectors"
 msgstr "Atvinnugreinar"
 
-#. Default: "Status of ${survey_title}"
-#: euphorie/client/templates/status.pt:35
+#. Default: "Status of &ldquo;${survey_title}&rdquo;"
+#: euphorie/client/browser/templates/status.pt:37
 msgid "title_status_of"
 msgstr "Staða: ${survey_title}"
 
 #. Default: "OiRA - Online interactive Risk Assessment"
-#: euphorie/client/browser/country.py:382
+#: euphorie/client/browser/country.py:289
+#: euphorie/client/browser/templates/modal-template.pt:19
 #: euphorie/client/browser/templates/webhelpers.pt:40
-#: euphorie/client/browser/webhelpers.py:319
 msgid "title_tool"
 msgstr ""
 "OiRA - Online interactive Risk Assessment (gagnvirkt áhættumat á netinu)"
@@ -5279,29 +5217,29 @@ msgid "title_unpublish"
 msgstr "Draga til baka útgáfu á ${title}"
 
 #. Default: "OiRA Tool was updated"
-#: euphorie/client/templates/updated.pt:15
+#: euphorie/client/browser/templates/updated.pt:15
 msgid "title_updated"
 msgstr "OiRA verkfærið var uppfært"
 
-#. Default: "Status of ${survey_title}"
-#: euphorie/client/templates/status.pt:38
+#. Default: "Status of &ldquo;${survey_title}&rdquo;"
+#: euphorie/client/browser/templates/status.pt:40
 msgid "title_with_vowel_status_of"
 msgstr "Staða: ${survey_title}"
 
 #. Default: "Contents"
-#: euphorie/client/docx/compiler.py:185
-#: euphorie/client/templates/risks_overview.pt:167
+#: euphorie/client/browser/templates/risks_overview.pt:167
+#: euphorie/client/docx/compiler.py:190
 msgid "toc_header"
 msgstr "Innihald"
 
 #. Default: "Show/hide menu"
-#: euphorie/client/templates/shell.pt:100
+#: euphorie/client/templates/shell.pt:98
 msgid "tooltip_menu_toggle"
 msgstr ""
 
 #. Default: "This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be included in this report."
 #: euphorie/client/browser/templates/webhelpers.pt:292
-#: euphorie/client/docx/compiler.py:257 euphorie/client/report.py:811
+#: euphorie/client/docx/compiler.py:266
 msgid "top5_risk_not_present"
 msgstr ""
 "Þessi áhætta er ekki til staðar á þínum vinnustað, en þar sem samtökin í "
@@ -5309,7 +5247,7 @@ msgstr ""
 "að taka hana með í þessa skýrslu."
 
 #. Default: "This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be included in this report."
-#: euphorie/client/docx/compiler.py:265
+#: euphorie/client/docx/compiler.py:274
 msgid "top5_risk_not_present_answer_yes"
 msgstr ""
 "Þessi áhætta er ekki til staðar í stofnun þinni en þar sem samtökin í "
@@ -5342,7 +5280,7 @@ msgid "use_it_to_measures_overview"
 msgstr "Þetta yfirlit yfir úrbætur nýtist við "
 
 #. Default: "Use it to"
-#: euphorie/client/templates/measures_overview.pt:63
+#: euphorie/client/browser/templates/measures_overview.pt:63
 msgid "use_it_to_measures_report"
 msgstr "Þessi skýrsla um úrbætur nýtist til  "
 
@@ -5352,12 +5290,12 @@ msgid "use_it_to_risks_overview"
 msgstr "Þetta yfirlit yfir áhættur nýtist til "
 
 #. Default: "Use it to"
-#: euphorie/client/templates/risks_overview.pt:152
+#: euphorie/client/browser/templates/risks_overview.pt:152
 msgid "use_it_to_risks_report"
 msgstr "Þessi skýrsla um áhættur nýtist til "
 
 #. Default: "Please verify if the profile is still accurate."
-#: euphorie/client/templates/updated.pt:23
+#: euphorie/client/browser/templates/updated.pt:23
 msgid "verify_profile"
 msgstr "Staðfestu að lýsing á starfsmi eigi enn við."
 
@@ -5368,7 +5306,6 @@ msgstr "Það þarf að lagfæra villurnar sem bent er á."
 
 #. Default: "You responded negative to the above statement."
 #: euphorie/client/browser/templates/webhelpers.pt:305
-#: euphorie/client/report.py:561
 #: euphorie/client/templates/report_identification.pt:83
 msgid "warn_risk_present"
 msgstr "Þú svaraðir ofangreindri fullyrðingu neitandi."
@@ -5392,6 +5329,71 @@ msgstr ""
 #: euphorie/content/templates/risk_view.pt:44
 msgid "yes"
 msgstr "já "
+
+#~ msgid "Description of the risk"
+#~ msgstr "Lýsing á áhættunni"
+
+#~ msgid "Page ${number} of ${total}"
+#~ msgstr "Blaðsíða ${number} af ${total}"
+
+#~ msgid "button_remove_risk"
+#~ msgstr "Fjarlægja áhættu"
+
+#~ msgid "header_or"
+#~ msgstr "eða…"
+
+#~ msgid "header_select_session"
+#~ msgstr "Veldu fyrri  til að ljúka við eða fara yfir"
+
+#~ msgid "label_add_risk"
+#~ msgstr "Bæta við áhættu"
+
+#~ msgid "report_measure_actionplan"
+#~ msgstr ""
+#~ "Almenn nálgun (Fjarlægja skal áhættur eða draga úr þeim þannig að þær "
+#~ "verði innan ásættanlegra marka)"
+
+#~ msgid "report_measure_budget"
+#~ msgstr "Áætlaður kostnaður við þessa úrbótaaðgerð er ${amount}"
+
+#~ msgid "report_measure_end_only"
+#~ msgstr "Þessu verkefni lýkur ${end}."
+
+#~ msgid "report_measure_full"
+#~ msgstr ""
+#~ "${responsible} ber ábyrgð á þessu verkefni sem hefst ${start} og lýkur "
+#~ "${end}."
+
+#~ msgid "report_measure_preventionplan"
+#~ msgstr ""
+#~ "Sérstök ráðstöfun eða ráðstafanir sem þarf til að innleiða þessa nálgun:"
+
+#~ msgid "report_measure_requirements"
+#~ msgstr "Stig sérþekkingar og/eða kröfur sem til þarf"
+
+#~ msgid "report_measure_responsible"
+#~ msgstr "${responsible} ber ábyrgð á þessu verkefni."
+
+#~ msgid "report_measure_responsible_and_end"
+#~ msgstr "${responsible} ber ábyrgð á þessu verkefni sem lýkur ${end}."
+
+#~ msgid "report_measure_responsible_and_start"
+#~ msgstr "${responsible} ber ábyrgð á þessu verkefni sem hefst ${start}."
+
+#~ msgid "report_measure_start_and_stop"
+#~ msgstr "Þetta verkefni hefst ${start} og lýkur ${end}."
+
+#~ msgid "report_measure_start_only"
+#~ msgstr "Þetta verkefni hefst ${start}."
+
+#~ msgid "report_priority"
+#~ msgstr "Þetta er "
+
+#~ msgid "report_priority_high"
+#~ msgstr "forgangs áhætta"
+
+#~ msgid "report_priority_low"
+#~ msgstr "ekki forgangs áhætta"
 
 #~ msgid "A new added risk has been created."
 #~ msgstr "Ný viðbætt áhætta hefur verið búin til."
