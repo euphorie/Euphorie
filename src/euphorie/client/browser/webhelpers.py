@@ -287,22 +287,6 @@ class WebHelpers(BrowserView):
         sector = aq_base(sector)
         parts = []
 
-        main_background = getattr(sector, 'main_background_colour', None)
-        main_foreground = getattr(sector, 'main_foreground_colour', None)
-        support_background = getattr(sector, 'support_background_colour', None)
-        support_foreground = getattr(sector, 'support_foreground_colour', None)
-        if main_background and main_foreground and \
-                support_background and support_foreground:
-            parts.append('deCornae')
-            parts.append(
-                    'brightMainColour'
-                    if sector.main_background_bright
-                    else 'darkMainColour')
-            parts.append(
-                    'brightSupportColour'
-                    if sector.support_background_bright
-                    else 'darkSupportColour')
-
         if getattr(sector, 'logo', None) is not None:
             parts.append('alien')
 

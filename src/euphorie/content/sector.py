@@ -290,14 +290,6 @@ class Settings(form.SchemaEditForm):
     default_fieldset_label = None
     formErrorsMessage = u"Please correct the indicated errors."
 
-    def update(self):
-        super(Settings, self).update()
-        config = getUtility(IAppConfig).get("euphorie", {})
-        self.main_colour = config.get("main_colour", '#031c48')
-        self.support_colour = config.get("support_colour", '#e69d17')
-        self.main_bg_colour = config.get("main_bg_colour", '#031c48')
-        self.support_bg_colour = config.get("support_bg_colour", '#e69d17')
-
     def extractData(self):
         self.fields = self.fields.omit("title", "login")
         if "title" in self.widgets:
