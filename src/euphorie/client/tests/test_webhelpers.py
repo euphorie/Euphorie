@@ -17,6 +17,15 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
 
     def test_get_sessions_query_authenticated(self):
         account = addAccount(password="secret")
+        eu = api.content.create(
+            type="euphorie.clientcountry", id="eu", container=self.portal.client
+        )
+        eusector = api.content.create(
+            type="euphorie.clientsector", id="eusector", container=eu
+        )
+        api.content.create(
+            type="euphorie.survey", id="eusurvey", container=eusector
+        )
         with api.env.adopt_user(user=account):
             # Check with no parameter
             with self._get_view("webhelpers", self.portal.client) as view:
@@ -24,7 +33,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                     self._get_query_filters(view.get_sessions_query()),
                     (
                         "WHERE session.account_id = ? AND "
-                        "session.zodb_path LIKE ? AND "
+                        "session.zodb_path IN (?) AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
                     ),
@@ -35,7 +44,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                     ),
                     (
                         "WHERE session.account_id = ? AND "
-                        "session.zodb_path LIKE ? "
+                        "session.zodb_path IN (?) "
                         "ORDER BY session.modified DESC, session.title"
                     ),
                 )
@@ -45,7 +54,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                     ),
                     (
                         "WHERE session.account_id = ? AND "
-                        "session.zodb_path LIKE ? AND "
+                        "session.zodb_path IN (?) AND "
                         "(session.archived >= ? OR session.archived IS NULL) AND "
                         "lower(session.title) LIKE lower(?) "
                         "ORDER BY session.modified DESC, session.title"

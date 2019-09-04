@@ -869,13 +869,40 @@ class SurveySession(BaseObject):
             return False
 
         # Check the path relative to the client folder
-        relative_path = context.getPhysicalPath()[3:]
-        # session zodb_path has three levels (country, sector, survey)
-        if len(relative_path) < 3:
-            relative_path += ("%", )
+        if context.portal_type == "Plone Site":
+            context = context.client
+
+        surveys = set()
+        if context.portal_type == "euphorie.survey":
+            surveys.add(context)
         else:
-            relative_path = relative_path[:3]
-        return cls.zodb_path.like(safe_unicode("/".join(relative_path)))
+
+            portal_type_filter = {
+                "portal_type": [
+                    "euphorie.clientcountry",
+                    "euphorie.clientsector",
+                    "euphorie.survey",
+                ]
+            }
+
+            def _add_survey(container):
+                for obj in container.listFolderContents(portal_type_filter):
+                    if obj.portal_type == "euphorie.survey":
+                        surveys.add(obj)
+                    else:
+                        _add_survey(obj)
+
+            _add_survey(context)
+
+        if not surveys:
+            return False
+
+        return cls.zodb_path.in_(
+            {
+                safe_unicode("/".join(survey.getPhysicalPath()[-3:]))
+                for survey in surveys
+            }
+        )
 
     @property
     def tool(self):
