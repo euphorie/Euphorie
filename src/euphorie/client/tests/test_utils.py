@@ -162,33 +162,6 @@ class RelativePathTests(unittest.TestCase):
         )
 
 
-class MatchColourTests(unittest.TestCase):
-
-    def from_hls(self, h, l, s):
-        (r, g, b) = colorsys.hls_to_rgb(h, l, s)
-        return '#%02x%02x%02x' % (r * 255, g * 255, b * 255)
-
-    def to_hls(self, colour):
-        (r, g, b) = getrgb(colour)
-        return colorsys.rgb_to_hls(r / 255.0, g / 255.0, b / 255.0)
-
-    def testLowLuminosity(self):
-        self.assertAlmostEqual(
-            self.to_hls(utils.MatchColour(self.from_hls(0, 0, 0)))[1], 0.65, 2
-        )
-
-    def testHighLuminosity(self):
-        self.assertAlmostEqual(
-            self.to_hls(utils.MatchColour(self.from_hls(0, 0.8, 0)))[1], 0.2, 2
-        )
-
-    def testYellowishColour(self):
-        self.assertAlmostEqual(
-            self.to_hls(utils.MatchColour(self.from_hls(0.20, 0, 0)))[1], 0.65,
-            2
-        )
-
-
 class RandomStringTests(unittest.TestCase):
 
     def testOutputChanges(self):

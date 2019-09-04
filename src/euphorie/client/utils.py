@@ -144,35 +144,6 @@ def RelativePath(start, end):
         return '/'.join(end)
 
 
-def MatchColour(colour, low_l=0.2, high_l=0.65, s_factor=1):
-    """Determine a colour that contrasts with a given colour. The resulting
-    colour pair can be used as foreground and background, guaranteeing
-    readable text.
-
-    The match colour is determined by flipping the luminisoty to 10% or 90%,
-    while keeping the hue and saturation stable. The only exception are
-    yellowish colours, for those the luminosity is always set to 10%.
-    """
-    (r, g, b) = getrgb(colour)
-    (h, l, s) = colorsys.rgb_to_hls(r / 255.0, g / 255.0, b / 255.0)
-    if 0.16 < h < 0.33:
-        l = low_l
-    elif l > 0.49:
-        l = low_l
-    else:
-        l = high_l
-    s *= s_factor
-    (r, g, b) = colorsys.hls_to_rgb(h, l, s)
-    return '#%02x%02x%02x' % (r * 255, g * 255, b * 255)
-
-
-def IsBright(colour):
-    """Check if a (RGB) colour is a bright colour."""
-    (r, g, b) = getrgb(colour)
-    (h, l, s) = colorsys.rgb_to_hls(r / 255.0, g / 255.0, b / 255.0)
-    return l > 0.50
-
-
 class DefaultIntroduction(grok.View):
     """
         Browser view that displays the default introduction text for a Suvey.

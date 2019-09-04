@@ -58,33 +58,3 @@ class View(grok.View):
     def render(self):
         self.request.response.redirect(
                 aq_parent(aq_inner(self.context)).absolute_url())
-
-
-class Style(grok.View):
-    """View name: @@sector.css
-    """
-    grok.context(IClientSector)
-    grok.require("zope2.View")
-    grok.layer(IClientSkinLayer)
-    grok.template("sector_style")
-    grok.name("sector.css")
-
-    def update(self):
-        sector = aq_inner(self.context)
-        images = getMultiAdapter((sector, self.request), name="images")
-        self.logo = images.scale("logo", height=100, direction="up")
-
-        main_background = getattr(sector, "main_background_colour", None)
-        main_foreground = getattr(sector, "main_foreground_colour", None)
-        support_background = getattr(sector, "support_background_colour", None)
-        support_foreground = getattr(sector, "support_foreground_colour", None)
-        if main_background and main_foreground and \
-                support_background and support_foreground:
-            self.colours = {'main_background': main_background,
-                            'main_foreground': main_foreground,
-                            'support_background': support_background,
-                            'support_foreground': support_foreground}
-        else:
-            self.colours = None
-
-        self.response.setHeader("Content-Type", "text/css")
