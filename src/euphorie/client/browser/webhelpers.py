@@ -684,7 +684,7 @@ class WebHelpers(BrowserView):
     def can_archive_session(self):
         if not self.use_archive_feature:
             return False
-        if self.traversed_session.session.archived:
+        if self.traversed_session.session.is_archived():
             return False
         return self.can_edit_session
 
