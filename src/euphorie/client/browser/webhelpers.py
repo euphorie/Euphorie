@@ -39,6 +39,7 @@ from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.component.hooks import getSite
 from zope.i18nmessageid import MessageFactory
+from zope.deprecation import deprecate
 
 import Globals
 
@@ -387,6 +388,9 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    @deprecate(
+        "Replace with  a check for `webhelpers.survey_url`, deprecated in version 11.1.2"
+    )
     def is_outside_of_survey(self):
         if self._base_url() != self.survey_url():
             return True
