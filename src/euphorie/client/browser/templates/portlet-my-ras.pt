@@ -1,0 +1,102 @@
+<tal:portlet i18n:domain="euphorie">
+  <div class="portlet span-${view/columns}"
+       id="portlet-my-ras"
+       tal:define="
+         sessions view/sessions;
+       "
+       tal:condition="sessions"
+  >
+    <div class="content"
+         tal:define="
+           toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+           webhelpers nocall:view/@@webhelpers;
+           account webhelpers/get_current_account;
+           my_group account/group;
+         "
+    >
+      <article class="portlet-intro">
+        <header class="portlet-title-group">
+          <h2 class="portlet-title">
+            <tal:title i18n:translate="">My risk assessments</tal:title>
+            <em tal:condition="my_group">(${my_group/short_name})</em>
+          </h2>
+        </header>
+        <form class="portlet-tool-group pat-inject pat-autosubmit"
+              action="${request/getURL}#portlet-body-my-ras"
+              tal:condition="webhelpers/use_archive_feature"
+        >
+          <div class="pat-collapsible context-menu closed align-right"
+               id="initiators-menu"
+               data-pat-collapsible="close-trigger: .context-menu:not(#initiators-menu),.close-menu"
+          >
+            <strong class="context-menu-label menu-trigger"
+                    i18n:translate=""
+            >
+              Filters
+            </strong>
+            <p class="close-menu"
+               i18n:translate=""
+            >
+              Close
+            </p>
+            <fieldset class="pat-checklist">
+              <label>
+                <input checked="${python:'checked' if view.hide_archived else None}"
+                       name="hide_archived"
+                       type="checkbox"
+                       value="1"
+                />
+                <input name="hide_archived_marker"
+                       type="hidden"
+                       value="1"
+                />
+                <tal:i18n i18n:translate="">Hide archived risk assessments</tal:i18n>
+              </label>
+            </fieldset>
+          </div>
+        </form>
+      </article>
+      <div class="portlet-body"
+           id="portlet-body-my-ras"
+      >
+        <article class="pat-rich">
+          <p i18n:translate="info_select_session">Select an earlier session to complete or review or
+            <a class="pat-modal icon-plus-circle"
+               href="${here/absolute_url}/@@new-session.html#document-content"
+               i18n:name="start_session"
+               i18n:translate="link_start_session"
+            >start a new session</a>.
+          </p>
+        </article>
+        <ul class="ras">
+          <li class="ra"
+              tal:repeat="session sessions"
+          >
+
+            <a class="pat-inject follow"
+               href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@start"
+               data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
+            >
+              <h4 class="name field">${session/title}</h4>
+              <p class="date field">
+                <span class="last-saved">
+                  <tal:i18n i18n:translate="">Started</tal:i18n>
+                  <time datetime="${value}"
+                        tal:define="
+                          value session/created/isoformat|nothing;
+                        "
+                  >${python:toLocalizedTime(value)}</time>
+                </span>
+              </p>
+            </a>
+            <a class="more-menu iconified icon-ellipsis pat-tooltip inactive"
+               href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@more_menu#more-menu"
+               data-pat-tooltip="source: ajax; position-list: tr"
+               i18n:translate=""
+            >More</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</tal:portlet>

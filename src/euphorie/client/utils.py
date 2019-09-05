@@ -127,23 +127,6 @@ def setLanguage(request, context, lang=None):
         binding.LANGUAGE = lang
 
 
-def RelativePath(start, end):
-    """Determine the relative path between two items in the ZODB."""
-    if start is end:
-        return ''
-
-    start = start.getPhysicalPath()
-    end = end.getPhysicalPath()
-    while start and end and start[0] == end[0]:
-        start = start[1:]
-        end = end[1:]
-
-    if start:
-        return '%s/%s' % ('/'.join(len(start) * ['..']), '/'.join(end))
-    else:
-        return '/'.join(end)
-
-
 class DefaultIntroduction(grok.View):
     """
         Browser view that displays the default introduction text for a Suvey.

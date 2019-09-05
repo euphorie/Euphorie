@@ -173,6 +173,24 @@
       />
 
   <browser:page
+      name="portlet-my-ras"
+      for="euphorie.client.country.IClientCountry"
+      permission="zope2.View"
+      class=".country.MyRAsPortlet"
+      template="templates/portlet-my-ras.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="portlet-available-tools"
+      for="euphorie.client.country.IClientCountry"
+      permission="zope2.View"
+      class=".country.AvailableToolsPortlet"
+      template="templates/portlet-available-tools.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="session-browser-sidebar"
       for="*"
       permission="zope2.View"
