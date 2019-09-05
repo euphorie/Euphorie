@@ -1,9 +1,7 @@
 # coding=utf-8
-from Acquisition import aq_inner
-from euphorie.client import utils
 from euphorie.client.browser.country import SessionsView
 from euphorie.client.model import get_current_account
-from euphorie.client.model import SurveySession
+from plone import api
 from plone.memoize.view import memoize
 from z3c.saconfig import Session
 
@@ -14,19 +12,17 @@ class SurveySessionsView(SessionsView):
 
     variation_class = ""
 
+    @property
     @memoize
-    def get_sessions(self):
-        """ Filter user's sessions to match only those from the current survey
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    @memoize
+    def sessions(self):
+        """ Given some sessions create a tree
         """
-        sessions = super(SurveySessionsView, self).get_sessions()
-        survey = aq_inner(self.context)
-        my_path = utils.RelativePath(self.request.client, survey)
-        my_sessions = sorted(
-            [x for x in sessions if x.zodb_path == my_path],
-            key=lambda s: s.modified,
-            reverse=True,
-        )
-        return my_sessions
+        return self.webhelpers.get_sessions_query(context=self.context).all()
 
     def create_survey_session(self, title, account=None, **params):
         """Create a new survey session.

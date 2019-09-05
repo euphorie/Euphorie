@@ -1,10 +1,26 @@
 Changelog
 =========
 
-11.0.6 (unreleased)
+11.1.2 (unreleased)
 -------------------
 
 - Nothing changed yet.
+
+
+11.1.1 (2019-09-03)
+-------------------
+
+- Fix brown-bag release that had missing templates
+
+
+11.1.0 (2019-09-03)
+-------------------
+
+- Introducing deep-linking: Every session has its unique URL
+- Extended Status page with general information at the top
+- Status available via more-menu (3-dots menu)
+- Archiving of risk assessment sessions
+  (optional, enable via `use_archive_feature=True` in euphorie.ini)
 
 
 11.0.5 (2019-08-27)

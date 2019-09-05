@@ -63,6 +63,10 @@ class TestArchivingViews(EuphorieIntegrationTestCase):
                     view()
                     # Now the archival date is set
                     self.assertIsNotNone(session.archived)
+                    # Traversing to the view again, archiving the same session is now prevented
+                    with self._get_view("archive-session", traversed_session) as view_again:
+                        with self.assertRaises(Unauthorized):
+                            view_again()
                     # and we are redirected to the session view...
                     self.assertDictEqual(
                         view.request.response.headers,
@@ -77,27 +81,3 @@ class TestArchivingViews(EuphorieIntegrationTestCase):
                         view.request.response.headers,
                         {"location": "http://example.com"},
                     )
-
-                with self._get_view("view", country) as view:
-                    # The country view by default hides the archived sessions
-                    self.assertTrue(view.hide_archived)
-                    self.assertEqual(len(view.get_ordered_sessions()), 1)
-
-                    view.request.__annotations__.clear()
-
-                    # To show it we have to make sure the user unchecked a checkbox
-                    # that by dfault is marked
-                    view.request.set("hide_archived_marker", "1")
-                    self.assertFalse(view.hide_archived)
-                    self.assertEqual(len(view.get_ordered_sessions()), 2)
-
-                    view.request.__annotations__.clear()
-
-                    view.request.set("hide_archived", "1")
-                    self.assertTrue(view.hide_archived)
-                    self.assertEqual(len(view.get_ordered_sessions()), 1)
-
-                with self._get_view("session-browser-sidebar", country) as view:
-                    # There is also a sidebar that unluckily uses a different logic
-                    # XXX the logic should be unified
-                    self.assertEqual(len(view.leaf_sessions()), 1)

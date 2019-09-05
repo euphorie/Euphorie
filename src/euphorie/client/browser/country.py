@@ -3,23 +3,18 @@ from Acquisition import aq_inner
 from anytree import NodeMixin
 from anytree.node.util import _repr
 from euphorie import MessageFactory as _
-from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.country import IClientCountry
 from euphorie.client.model import get_current_account
-from euphorie.client.model import Group
-from euphorie.client.model import SurveySession
 from euphorie.client.sector import IClientSector
 from euphorie.content.survey import ISurvey
 from itertools import ifilter
 from logging import getLogger
 from plone import api
-from plone.app.event.base import localized_now
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
-from sqlalchemy.sql import or_
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
 
@@ -53,7 +48,7 @@ class Node(NodeMixin):
         """ Return all children that are survey_templates, sorted by title
         """
         return sorted(
-            [item for item in self.children if item.type == "survey_template"],
+            (item for item in self.children if item.type == "survey_template"),
             key=lambda x: x.title.lower(),
         )
 
@@ -62,7 +57,7 @@ class Node(NodeMixin):
         """ Return all children that are categories, sorted by title
         """
         return sorted(
-            [item for item in self.children if item.type == "category"],
+            (item for item in self.children if item.type == "category"),
             key=lambda x: x.title,
         )
 
@@ -79,7 +74,25 @@ class SessionsView(BrowserView):
     # switch from radio buttons to dropdown above this number of tools
     tools_threshold = 12
     variation_class = "variation-dashboard"
-    survey_session_model = SurveySession
+    _portlet_names = ["portlet-my-ras", "portlet-available-tools"]
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    @memoize
+    def survey_session_model(self):
+        return self.webhelpers.survey_session_model
+
+    @property
+    @memoize
+    def portlets(self):
+        return [
+            api.content.get_view(name, self.context, self.request)
+            for name in self._portlet_names
+        ]
 
     @property
     @memoize
@@ -92,59 +105,14 @@ class SessionsView(BrowserView):
     @property
     @memoize_contextless
     def portal(self):
-        """ The currenttly authenticated account
-        """
         return api.portal.get()
 
     @property
     @memoize_contextless
     def account(self):
-        """ The currenttly authenticated account
+        """ The currently authenticated account
         """
-        return model.get_current_account()
-
-    @memoize
-    def get_survey_by_path(self, zodb_path):
-        return self.context.restrictedTraverse(six.binary_type(zodb_path), None)
-
-    @property
-    @memoize_contextless
-    def hide_archived(self):
-        """ By default we hide the archived session and
-        we have a checkbox that shows with a sibling
-        hide_archived_marker input field
-        """
-        if self.request.get("hide_archived_marker"):
-            if not self.request.get("hide_archived"):
-                return False
-        return True
-
-    def filter_valid_sessions(self, sessions):
-        sessions = (
-            session
-            for session in sessions
-            if self.get_survey_by_path(session.zodb_path)
-        )
-        if self.hide_archived:
-            sessions = ifilter(lambda x: not x.is_archived(), sessions)
-        return list(sessions)
-
-    @memoize
-    def get_sessions(self):
-        """ Given some sessions create a tree
-        """
-        account = self.account
-        if not account:
-            return []
-
-        return self.filter_valid_sessions(self.account.sessions)
-
-    @memoize
-    def get_ordered_sessions(self):
-        """ Given some sessions create a tree
-        """
-        sessions = self.get_sessions()
-        return sorted(sessions, key=lambda x: x.modified, reverse=True)
+        return get_current_account()
 
     # Here, we assemble the list of available tools for starting a new session
 
@@ -273,9 +241,7 @@ class SessionsView(BrowserView):
     def _ContinueSurvey(self, info):
         """Utility method to continue an existing session."""
         session = Session.query(self.survey_session_model).get(info["session"])
-        survey = self.request.client.restrictedTraverse(
-            six.binary_type(session.zodb_path)
-        )
+        survey = self.request.client.restrictedTraverse(str(session.zodb_path))
         extra = ""
         if info.get("new_clone", None):
             extra = "&new_clone=1"
@@ -307,17 +273,26 @@ class SessionsView(BrowserView):
         return super(SessionsView, self).__call__()
 
 
-class SessionBrowserNavigator(SessionsView):
+class SessionBrowserNavigator(BrowserView):
     """ Logic to build the navigator for the sessions
     """
 
-    group_model = Group
     no_splash = True
 
     @property
     @memoize
     def webhelpers(self):
         return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    @memoize
+    def group_model(self):
+        return self.webhelpers.group_model
+
+    @property
+    @memoize
+    def survey_session_model(self):
+        return self.webhelpers.survey_session_model
 
     @property
     @memoize
@@ -355,40 +330,91 @@ class SessionBrowserNavigator(SessionsView):
     def leaf_groups(self, groupid=None):
         """ Nothing to do in main OiRA - to be filled in customer-specific
         packages.
-        Here we just return a Query with 0 items.
         """
-        base_query = Session.query(self.survey_session_model)
-        return base_query.filter(False)
+        return []
 
     @memoize
     def leaf_sessions(self):
         """ The sessions we want to display in the navigation
         """
-        account = get_current_account()
-        base_query = (
-            Session.query(self.survey_session_model)
-            .filter(self.survey_session_model.account_id == account.id)
-            .order_by(self.survey_session_model.modified.desc())
-            .order_by(self.survey_session_model.title)
+        query = self.webhelpers.get_sessions_query(
+            context=self.webhelpers.country_obj, searchable_text=self.searchable_text
         )
-        # XXX Probably this should be controlled by some request parameter
-        base_query = base_query.filter(
-            or_(
-                self.survey_session_model.archived > localized_now(),
-                self.survey_session_model.archived == None,  # noqa: E711
-            )
-        )
-        if self.searchable_text:
-            base_query = base_query.filter(
-                self.survey_session_model.title.ilike(self.searchable_text)
-            )
-        return base_query.all()
+        return query.all()
 
     def has_content(self):
         """ Checks if we have something meaningfull to display
         """
-        if self.leaf_groups().count():
+        if len(self.leaf_groups()):
             return True
         if len(self.leaf_sessions()):
             return True
         return False
+
+
+class MyRAsPortlet(BrowserView):
+
+    columns = "3"
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    @memoize_contextless
+    def hide_archived(self):
+        """ By default we hide the archived session and
+        we have a checkbox that shows with a sibling
+        hide_archived_marker input field
+        """
+        if self.request.get("hide_archived_marker"):
+            if not self.request.get("hide_archived"):
+                return False
+        return True
+
+    @property
+    @memoize
+    def sessions(self):
+        """ We want the archived sessions
+        """
+        return self.webhelpers.get_sessions_query(
+            context=self.context, include_archived=not self.hide_archived
+        ).all()
+
+
+class AvailableToolsPortlet(BrowserView):
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    def filter_survey(self, survey):
+        if getattr(survey, "preview", False):
+            return False
+        if getattr(survey, "obsolete", False):
+            return False
+        if not survey.language:
+            return True
+        language = self.request.locale.id.language or ""
+        if survey.language == language:
+            return True
+        if survey.language.strip().startswith(language):
+            return True
+        return False
+
+    @property
+    @memoize
+    def surveys(self):
+        surveys = set()
+        sectors = self.context.listFolderContents(
+            {"portal_type": "euphorie.clientsector"}
+        )
+        for sector in sectors:
+            surveys.update(
+                ifilter(
+                    self.filter_survey,
+                    sector.listFolderContents({"portal_type": "euphorie.survey"}),
+                )
+            )
+        return sorted(surveys, key=lambda survey: survey.title)

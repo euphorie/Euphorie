@@ -95,20 +95,6 @@ def CopyToClient(survey, preview=False):
     # Clear any scaled logos
     AnnotationStorage(target).storage.clear()
 
-    target.main_background_colour = getattr(sector, "main_colour", None)
-    if target.main_background_colour:
-        target.main_foreground_colour = utils.MatchColour(
-                target.main_background_colour, 0.0, 0.6, 0.3)
-        target.main_background_bright = \
-                utils.IsBright(target.main_background_colour)
-
-    target.support_background_colour = getattr(sector, "support_colour", None)
-    if target.support_background_colour:
-        target.support_foreground_colour = \
-                utils.MatchColour(target.support_background_colour)
-        target.support_background_bright = \
-                utils.IsBright(target.support_background_colour)
-
     copy = source._getCopy(target)
     if preview:
         copy.id = "preview"

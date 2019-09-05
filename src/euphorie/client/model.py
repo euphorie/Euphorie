@@ -844,6 +844,71 @@ class SurveySession(BaseObject):
             .update({'session_id': self.id},
                     synchronize_session=False)
 
+    @classmethod
+    def get_account_filter(cls, account=None):
+        """ Filter only the sessions for the given account
+        (or the current one if account is not passed)
+        """
+        if not account:
+            account = get_current_account()
+        return cls.account_id == account.id
+
+    @classmethod
+    def get_archived_filter(cls):
+        """ Filter sessions that are archived
+        """
+        return sql.or_(
+            cls.archived >= localized_now(), cls.archived == None  # noqa: E711
+        )
+
+    @classmethod
+    def get_context_filter(cls, context):
+        """ Filter sessions under this context using the zodb_path column
+        """
+        if not context:
+            return False
+
+        # Check the path relative to the client folder
+        if context.portal_type == "Plone Site":
+            context = context.client
+
+        surveys = set()
+        if context.portal_type == "euphorie.survey":
+            surveys.add(context)
+        else:
+
+            portal_type_filter = {
+                "portal_type": [
+                    "euphorie.clientcountry",
+                    "euphorie.clientsector",
+                    "euphorie.survey",
+                ]
+            }
+
+            def _add_survey(container):
+                for obj in container.listFolderContents(portal_type_filter):
+                    if obj.portal_type == "euphorie.survey":
+                        surveys.add(obj)
+                    else:
+                        _add_survey(obj)
+
+            _add_survey(context)
+
+        if not surveys:
+            return False
+
+        return cls.zodb_path.in_(
+            {
+                safe_unicode("/".join(survey.getPhysicalPath()[-3:]))
+                for survey in surveys
+            }
+        )
+
+    @property
+    def tool(self):
+        client = api.portal.get().client
+        return client.restrictedTraverse(str(self.zodb_path), None)
+
 
 class Company(BaseObject):
     """Information about a company."""

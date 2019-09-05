@@ -622,7 +622,7 @@ class PublicationMenu(SessionMixin, BrowserView):
     @property
     @memoize_contextless
     def portal(self):
-        """ The currenttly authenticated account
+        """ The currently authenticated account
         """
         return api.portal.get()
 

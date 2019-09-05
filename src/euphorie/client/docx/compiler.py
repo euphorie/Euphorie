@@ -318,7 +318,7 @@ class DocxCompiler(BaseOfficeCompiler):
                 else:
                     description = zodb_node.description
 
-                doc = HtmlToWord(_sanitize_html(description), doc)
+                doc = HtmlToWord(_sanitize_html(description or ""), doc)
 
             if node.comment and node.comment.strip():
                 doc.add_paragraph(node.comment, style="Comment")
