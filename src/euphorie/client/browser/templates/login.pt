@@ -18,7 +18,7 @@
     <metal:slot fill-slot="content"
                 tal:define="
                   is_guest_account webhelpers/is_guest_account;
-                  is_outside_of_survey python: not webhelpers.traversed_session;
+                  survey_url webhelpers/survey_url;
                   came_from_param webhelpers/came_from_param;
                 "
     >
@@ -40,11 +40,11 @@ h4 {
                href="${base_url}/new-session-test.html?${came_from_param}#document-content"
                title="Start a new test session"
                data-pat-modal="class: large"
-               tal:condition="is_outside_of_survey"
+               tal:condition="not:survey_url"
                i18n:translate="label_tryout"
             >run a test session</a><a href="${base_url}/@@tryout?${came_from_param}#document-content"
                title="Start a new test session"
-               tal:condition="not:is_outside_of_survey"
+               tal:condition="survey_url"
                i18n:translate="label_tryout"
             >run a test session</a></strong>
           or

@@ -388,7 +388,9 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
-    @deprecate("Replace with `not traversed_session`, deprecated in version 11.0.6.dev0")
+    @deprecate(
+        "Replace with  a check for `webhelpers.survey_url`, deprecated in version 11.1.2"
+    )
     def is_outside_of_survey(self):
         if self._base_url() != self.survey_url():
             return True
@@ -398,7 +400,6 @@ class WebHelpers(BrowserView):
         ):
             return True
         return False
-
 
     @property
     @memoize
