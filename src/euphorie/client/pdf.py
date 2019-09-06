@@ -2,6 +2,8 @@
 from euphorie.client.adapters.session_traversal import ITraversedSurveySession
 from euphorie.client.interfaces import IClientSkinLayer
 from five import grok
+from plone import api
+from plone.memoize.view import memoize
 from StringIO import StringIO
 from z3c.appconfig.interfaces import IAppConfig
 from zope.component import getUtility
@@ -33,7 +35,14 @@ class PdfView(grok.View):
     grok.require("euphorie.client.ViewSurvey")
     grok.name("pdf")
 
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
     def render(self):
+        if not self.webhelpers.can_view_session:
+            return self.request.response.redirect(self.webhelpers.client_url)
         context = self.context
         view_name = self.request.get("view", "view")
         view = context.restrictedTraverse(view_name)

@@ -1,13 +1,13 @@
 # coding=utf-8
 # from cStringIO import StringIO
-from euphorie.client import model
-from euphorie.client.adapters.session_traversal import TraversedSurveySession
-from euphorie.client.interfaces import IClientSkinLayer
-from euphorie.client.model import Account
-from euphorie.client.model import SurveySession
 # from euphorie.client.report import HtmlToRtf
 # from euphorie.client.report import IdentificationReport
 # from euphorie.content.risk import Risk
+from euphorie.client import model
+from euphorie.client.adapters.session_traversal import TraversedSurveySession
+from euphorie.client.interfaces import IClientSkinLayer
+from euphorie.client.model import SurveySession
+from euphorie.client.tests.utils import addAccount
 from euphorie.testing import EuphorieIntegrationTestCase
 from ExtensionClass import Base
 from plone import api
@@ -191,12 +191,18 @@ import mock
 
 class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
 
+    def setUp(self):
+        super(ActionPlanTimelineTests, self).setUp()
+        self.account = addAccount(password="secret")
+
     def _get_timeline(self, context=None, request=None):
         """ Return the timeline view
         """
 
         class DummySurvey(mock.Mock, Base):
-            pass
+
+            def getPhysicalPath(self):
+                return ("test", "dummy-survey")
 
         if request is None:
             request = self.request.clone()
@@ -210,11 +216,11 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
             ).__of__(survey)
         return api.content.get_view("timeline", context, request)
 
-    def _create_session(self, dbsession=None, loginname='jane'):
+    def _create_session(self, dbsession=None):
         if dbsession is None:
             dbsession = Session()
         session = SurveySession(
-            account=Account(loginname=loginname, password=u'john'),
+            account=self.account,
             zodb_path='survey'
         )
         dbsession.add(session)
@@ -289,7 +295,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
     def test_get_measures_filter_on_session(self):
         view = self._get_timeline()
         sessions = [
-            view.context.session, self._create_session(loginname="john"),
+            view.context.session, self._create_session(),
         ]
         for session in sessions:
             module = session.addChild(
@@ -317,7 +323,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
 
         measures = view.get_measures()
         self.assertEqual(len(measures), 1)
-        self.assertEqual(measures[0][2].action_plan, 'Measure 1 for jane')
+        self.assertEqual(measures[0][2].action_plan, 'Measure 1 for jane@example.com')
 
     def test_get_measures_order_by_start_date(self):
         view = self._get_timeline()
@@ -455,17 +461,18 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         self.assertEqual(sheet.cell('J2').value, u'Risk title')
 
     def test_render_value(self):
-        view = self._get_timeline()
-        view.context.session.title = u"Acmè"
-        survey = view.context.aq_parent
-        survey.ProfileQuestions = lambda: []
-        view.render()
-        response = view.request.response
-        self.assertEqual(
-            response.headers['content-type'], 'application/vnd.openxmlformats-'
-            'officedocument.spreadsheetml.sheet'
-        )
-        self.assertEqual(
-            response.headers['content-disposition'],
-            'attachment; filename="Timeline for Acmè.xlsx"'
-        )
+        with api.env.adopt_user(user=self.account):
+            view = self._get_timeline()
+            view.context.session.title = u"Acmè"
+            survey = view.context.aq_parent
+            survey.ProfileQuestions = lambda: []
+            view.render()
+            response = view.request.response
+            self.assertEqual(
+                response.headers['content-type'], 'application/vnd.openxmlformats-'
+                'officedocument.spreadsheetml.sheet'
+            )
+            self.assertEqual(
+                response.headers['content-disposition'],
+                'attachment; filename="Timeline for Acmè.xlsx"'
+            )

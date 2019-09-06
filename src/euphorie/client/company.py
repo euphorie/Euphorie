@@ -7,10 +7,12 @@ View and update the company survey.
 
 from .. import MessageFactory as _
 from euphorie.client import model
-from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.adapters.session_traversal import ITraversedSurveySession
+from euphorie.client.interfaces import IClientSkinLayer
 from five import grok
+from plone import api
 from plone.directives import form
+from plone.memoize.view import memoize
 from z3c.form import button
 from z3c.form.form import applyChanges
 from zope import schema
@@ -152,7 +154,14 @@ class Company(form.SchemaForm):
         names.sort(key=lambda c: c["title"])
         return names
 
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
     def update(self):
+        if not self.webhelpers.can_view_session:
+            return self.request.response.redirect(self.webhelpers.client_url)
         super(Company, self).update()
         self._assertCompany()
 
