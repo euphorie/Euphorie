@@ -79,15 +79,18 @@ class Login(BrowserView):
             self.request.RESPONSE.cookies['__ac']['expires'] = cookie_expiration_date(120)  # noqa: E501
             self.request.RESPONSE.cookies['__ac']['max_age'] = 120 * 24 * 60 * 60  # noqa: E501
 
-    def transferGuestSession(self, session_id):
-        """ Transfer guest session to an existing user account
+    def transferGuestSession(self, account_id):
+        """ Transfer session(s) from guest account to an existing user account
         """
-        if not session_id:
+        if not account_id:
             return
         account = getSecurityManager().getUser()
-        session = Session.query(model.SurveySession).get(session_id)
-        session.account_id = account.id
-        return session
+        sessions = (
+            Session.query(model.SurveySession)
+            .filter(model.SurveySession.account_id == account_id)
+        )
+        for session in sessions:
+            session.account_id = account.id
 
     def __call__(self):
         context = aq_inner(self.context)
@@ -124,7 +127,7 @@ class Login(BrowserView):
                 isinstance(account, model.Account) and
                 account.getUserName() == reply.get("__ac_name", '').lower()
             ):
-                self.transferGuestSession(reply.get('guest_session_id'))
+                self.transferGuestSession(reply.get('guest_account_id'))
                 self.login(account, bool(self.request.form.get('remember')))
                 v_url = urlparse.urlsplit(
                     self.request.URL + '/success').path.replace("@@", "")
@@ -275,8 +278,8 @@ class Register(BrowserView):
                 default=u"An account with this email address already exists.")
             return False
 
-        guest_session_id = self.request.form.get('guest_session_id')
-        if guest_session_id:
+        guest_account_id = self.request.form.get('guest_account_id')
+        if guest_account_id:
             account = getSecurityManager().getUser()
             account.loginname = loginname
             account.password = reply.get("password1")

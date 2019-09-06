@@ -185,13 +185,9 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
-    def guest_session_id(self):
-        return self.is_guest_account and self.session_id or None
-
-    @property
-    @memoize
     def session_id(self):
-        return getattr(self.traversed_session.session, 'id', '')
+        traversed_session = self.traversed_session
+        return traversed_session.session.id if traversed_session else ""
 
     @property
     @memoize

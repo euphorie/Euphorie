@@ -84,8 +84,8 @@
     <form enctype="multipart/form-data" accept-charset="UTF-8" method="post" tal:define="errors view/errors" action="${request/URL}" class="pat-validation" data-pat-validation="message-email: ${view/email_message}">
       <input type="hidden" name="came_from" tal:condition="request/came_from|nothing" value="${request/came_from}"/>
       <fieldset class="vertical">
-        <tal:guest_account condition="is_guest_account|nothing">
-            <input type="hidden" name="guest_session_id" tal:attributes="value webhelpers/guest_session_id"/>
+        <tal:guest_account condition="is_guest_account|nothing" define="account webhelpers/get_current_account">
+            <input type="hidden" name="guest_account_id" value="${account/id|nothing}"/>
         </tal:guest_account>
         <label class="${python:'error' if 'email' in errors else None}"><tal:span i18n:translate="label_email">Email address</tal:span>
             <input tal:condition="python: not request.get('report_blurb')" class="email" autofocus="autofocus" type="email" name="email" value="${request/email|nothing}"/>
