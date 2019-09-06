@@ -17,6 +17,8 @@ from euphorie.client.interfaces import IClientSkinLayer
 from five import grok
 from openpyxl.workbook import Workbook
 from openpyxl.writer.excel import save_virtual_workbook
+from plone import api
+from plone.memoize.view import memoize
 from zope.i18n import translate
 
 import logging
@@ -40,6 +42,16 @@ class ReportLanding(grok.View):
     grok.template("report_landing")
     grok.name("report_view")
     variation_class = "variation-risk-assessment"
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    def update(self):
+        if not self.webhelpers.can_view_session:
+            return self.request.response.redirect(self.webhelpers.client_url)
+        return super(ReportLanding, self).update()
 
 
 class ActionPlanTimeline(grok.View, survey._StatusHelper):
@@ -203,7 +215,14 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
             row += 1
         return book
 
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
     def render(self):
+        if not self.webhelpers.can_view_session:
+            return self.request.response.redirect(self.webhelpers.client_url)
         book = self.create_workbook()
         filename = _(
             "filename_report_timeline",

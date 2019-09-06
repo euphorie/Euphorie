@@ -122,6 +122,10 @@ class SessionMixin(object):
         scale = scales.scale("external_site_logo", scale="large")
         return scale.url if scale else ""
 
+    def verify_view_permission(self):
+        if not self.webhelpers.can_view_session:
+            return self.request.response.redirect(self.webhelpers.client_url)
+
 
 class Start(SessionMixin, AutoExtensibleForm, EditForm):
     """Survey start screen.
@@ -153,6 +157,7 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
         )
 
     def update(self):
+        self.verify_view_permission()
         super(Start, self).update()
         if self.request.method != "POST":
             return
@@ -507,6 +512,7 @@ class ConfirmationArchiveSession(SessionMixin, BrowserView):
 class ArchiveSession(SessionMixin, BrowserView):
     """View name: @@archive-session
     """
+
     def notify_modified(self):
         notify(ObjectModifiedEvent(self.context.session))
 
@@ -522,10 +528,7 @@ class ArchiveSession(SessionMixin, BrowserView):
         session.archived = localized_now()
         self.notify_modified()
         api.portal.show_message(
-            _(
-                u"Session `${name}` has been archived.",
-                mapping={"name": session.title},
-            ),
+            _(u"Session `${name}` has been archived.", mapping={"name": session.title}),
             self.request,
             "success",
         )
@@ -720,6 +723,7 @@ class Report(SessionMixin, BrowserView):
     variation_class = "variation-risk-assessment"
 
     def __call__(self):
+        self.verify_view_permission()
         if self.webhelpers.redirectOnSurveyUpdate():
             return
 
@@ -752,6 +756,8 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
     variation_class = "variation-risk-assessment"
 
     def update(self):
+        self.verify_view_permission()
+
         def default_risks_by_status():
             return {
                 "present": {"high": [], "medium": [], "low": []},
@@ -914,6 +920,7 @@ class MeasuresOverview(Status):
     """
 
     def update(self):
+        self.verify_view_permission()
         super(MeasuresOverview, self).update()
         lang = getattr(self.request, "LANGUAGE", "en")
         if "-" in lang:
