@@ -4,8 +4,7 @@ Changelog
 11.1.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Fix handling of login / register inside a guest session
 
 11.1.2 (2019-09-09)
 -------------------
