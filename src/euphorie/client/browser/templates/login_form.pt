@@ -33,8 +33,8 @@
             >reset your password</a>.
           </p>
           <input type="hidden" name="came_from" tal:condition="request/came_from|nothing" value="${request/came_from}"/>
-          <tal:guest_account condition="is_guest_account">
-              <input type="hidden" name="guest_session_id" tal:attributes="value webhelpers/guest_session_id"/>
+          <tal:guest_account condition="is_guest_account" define="account webhelpers/get_current_account">
+              <input type="hidden" name="guest_account_id" value="${account/id|nothing}" />
           </tal:guest_account>
 
           <fieldset class="vertical">
