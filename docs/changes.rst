@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.3 (unreleased)
+11.1.3 (2019-09-09)
 -------------------
 
 - Fix handling of login / register inside a guest session
