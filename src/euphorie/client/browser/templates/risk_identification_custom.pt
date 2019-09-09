@@ -197,7 +197,7 @@
         data-pat-inject="${python:view.use_training_module and 'source: #slide-content; target: #slide-content' or None}">
         <label class="four columns image-uploader pat-subform pat-autosubmit pat-inject discrete-injection"
                id="image-upload"
-               data-pat-inject="url: ${here/absolute_url}/@@image-upload#image-upload"
+               data-pat-inject="url: ${here/absolute_url}/@@image-upload; source: #image-upload::element; target: #image-upload::element"
                title="Upload an image that illustrates this risk."
                i18n:attributes="title"
         >
