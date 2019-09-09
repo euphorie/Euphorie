@@ -4,8 +4,9 @@ Changelog
 11.1.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Tighten security on several client views
+- Portlets are configurable (#199)
+- Simplified code (removd obsolete parts)
 
 11.1.1 (2019-09-03)
 -------------------
