@@ -25,6 +25,8 @@ from json import dumps
 from json import loads
 from plone import api
 from plone.memoize.instance import memoize
+from plone.namedfile import NamedBlobImage
+from plone.namedfile.browser import DisplayFile
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -34,6 +36,7 @@ from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from z3c.saconfig import Session
 from zope.component import getUtility
+from zope.publisher.interfaces import NotFound
 
 import datetime
 
@@ -463,6 +466,30 @@ class IdentificationView(BrowserView):
         except TypeError:
             pass
         return self.context.priority
+
+
+class ImageUpload(BrowserView):
+
+    def __call__(self):
+        if self.request.form.get("image-remove"):
+            self.context.image_data = None
+            self.context.image_filename = u""
+        elif self.request.form.get("image"):
+            image = self.request.form["image"]
+            self.context.image_data = image.read()
+            self.context.image_filename = safe_unicode(image.filename)
+        return self.request.response.redirect(
+            "{}/@@identification".format(self.context.absolute_url())
+        )
+
+
+class ImageDisplay(DisplayFile):
+
+    def _getFile(self):
+        image_data = self.context.image_data
+        if image_data is None:
+            raise NotFound(self, self.fieldname, self.request)
+        return NamedBlobImage(image_data, filename=self.context.image_filename)
 
 
 class ActionPlanView(BrowserView):

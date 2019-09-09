@@ -359,7 +359,19 @@
       title="Update texts for custom risks modules"
       handler=".v23.update_custom_risks_module_texts"/>
 
+  </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+      destination="24"
+      profile="euphorie.deployment:default"
+      source="23"
+      >
+
+    <genericsetup:upgradeStep
+        title="Run Alembic migration"
+        description="Check the logs! You might want to adapt the migration to your DB"
+        handler=".v24.alembic_upgrade"
+        />
 
   </genericsetup:upgradeSteps>
 

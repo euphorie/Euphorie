@@ -195,10 +195,33 @@
       <fieldset class="vertical ${python:view.use_training_module and 'pat-subform pat-inject' or None}"
         data-pat-autosubmit="1000ms"
         data-pat-inject="${python:view.use_training_module and 'source: #slide-content; target: #slide-content' or None}">
-        <textarea rows="8"
-          name="custom_description"
-          placeholder="Provide some further information on this risk."
-          i18n:attributes="placeholder placeholder_custom_risk_description">${context/custom_description}</textarea>
+        <label class="four columns image-uploader pat-subform pat-autosubmit pat-inject discrete-injection"
+               id="image-upload"
+               data-pat-inject="url: ${here/absolute_url}/@@image-upload#image-upload"
+               title="Upload an image that illustrates this risk."
+               i18n:attributes="title"
+        >
+          <tal:has_image condition="here/image_filename">
+            <img src="${here/absolute_url}/@@image-display/image/${here/image_filename}" />
+            <button class="icon-trash image-upload-remove-button focus"
+                    formaction="${here/absolute_url}/@@image-upload#image-upload"
+                    name="image-remove"
+                    type="submit"
+                    value="1"
+                    i18n:translate=""
+            >
+              Remove
+            </button>
+          </tal:has_image>
+          <span class="pat-button upload-button">Upload image</span>
+          <input type="file" name="image" />
+        </label>
+        <label class="eight columns">
+          <textarea rows="8"
+            name="custom_description"
+            placeholder="Provide some further information on this risk."
+            i18n:attributes="placeholder placeholder_custom_risk_description">${context/custom_description}</textarea>
+        </label>
         <input type="hidden" name="handle_custom_description" value="1" />
       </fieldset>
     </fieldset>

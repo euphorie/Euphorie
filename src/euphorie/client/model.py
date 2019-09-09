@@ -1007,6 +1007,8 @@ class Risk(SurveyTreeItem):
     existing_measures = schema.Column(types.UnicodeText())
     training_notes = schema.Column(types.UnicodeText())
     custom_description = schema.Column(types.UnicodeText())
+    image_data = schema.Column(types.LargeBinary())
+    image_filename = schema.Column(types.UnicodeText())
 
 
 class ActionPlan(BaseObject):

@@ -30,7 +30,7 @@ def ColumnExists(session, table, column):
     return column in table.c
 
 
-def alembic_upgrade(revision):
+def alembic_upgrade_to(revision):
     script_location = resource_filename("euphorie.deployment.upgrade", "alembic")
     url = Session().bind.engine.url.__to_string__(hide_password=False)
     alembic_cfg = Config()

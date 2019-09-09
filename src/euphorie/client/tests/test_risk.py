@@ -1,8 +1,12 @@
-from euphorie.client.model import Risk
 from euphorie.client.browser.risk import IdentificationView
+from euphorie.client.model import Risk
 from euphorie.content.risk import IFrenchEvaluation as IFr
 from euphorie.content.risk import IKinneyEvaluation as IKi
 from euphorie.content.survey import Survey
+from euphorie.testing import EuphorieIntegrationTestCase
+from Products.CMFPlone.tests.dummy import Image
+from Products.CMFPlone.utils import safe_unicode
+from zope.publisher.interfaces import NotFound
 
 import mock
 import unittest
@@ -147,4 +151,46 @@ class EvaluationViewTests(unittest.TestCase):
                 view.calculatePriority(
                     risk, self.reply("constant", "weak", 'medium')
                 ), "medium"
+            )
+
+
+class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
+
+    def test_upload(self):
+        risk = Risk(path="000")
+        with self._get_view("image-upload", risk) as view:
+            # Just calling the view with no request returns to the
+            # @@identification page
+            view()
+            self.assertDictEqual(
+                view.request.response.headers,
+                {'location': '/@@identification'}
+            )
+
+            # Uploading an image will save it to the risk
+            view.request.form["image"] = Image()
+            view()
+            self.assertTrue(risk.image_data.startswith(b"GIF"))
+            self.assertEqual(risk.image_filename, u"dummy.gif")
+
+            # We can also require to remove the image
+            view.request.form["image-remove"] = "1"
+            view()
+            self.assertIsNone(risk.image_data)
+            self.assertFalse(risk.image_filename)
+
+    def test_download(self):
+        risk = Risk(path="000")
+        with self._get_view("image-display", risk) as view:
+            # If the risk has no image raise a not found
+            with self.assertRaises(NotFound):
+                view()
+
+            # Otherwise return the file
+            risk.image_data = Image.data
+            risk.image_filename = safe_unicode(Image.filename)
+            self.assertTrue(view().startswith(b"GIF"))
+            self.assertDictEqual(
+                view.request.response.headers,
+                {'content-length': '168', 'content-type': 'image/gif'}
             )
