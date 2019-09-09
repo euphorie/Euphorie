@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.2 (unreleased)
+11.1.2 (2019-09-09)
 -------------------
 
 - Tighten security on several client views
