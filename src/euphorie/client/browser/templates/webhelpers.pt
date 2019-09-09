@@ -269,16 +269,14 @@
          tal:on-error="nothing"
     >
       <a href="${large/url|nothing}"
-         style="background-image: url(${large/url|nothing})"
          tal:define="
            images risk/@@images;
-           thumb python:images.scale('image', width=400, height=600, direction='thumbnail');
-           large python:images.scale('image', width=590, height=1900, direction='thumbnail');
+           large python:images.scale('image', width=800, height=1900, direction='thumbnail');
          "
       >
         <img class="medium float-before"
              alt=""
-             src="${thumb/url}"
+             src="${large/url}"
         />
       </a>
     </nav>
