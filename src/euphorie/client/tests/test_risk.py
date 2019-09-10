@@ -174,6 +174,7 @@ class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
             self.assertEqual(risk.image_filename, u"dummy.gif")
 
             # We can also require to remove the image
+            view.request.pop("image")
             view.request.form["image-remove"] = "1"
             view()
             self.assertIsNone(risk.image_data)
