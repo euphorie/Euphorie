@@ -471,13 +471,13 @@ class IdentificationView(BrowserView):
 class ImageUpload(BrowserView):
 
     def __call__(self):
-        if self.request.form.get("image-remove"):
-            self.context.image_data = None
-            self.context.image_filename = u""
-        elif self.request.form.get("image"):
+        if self.request.form.get("image"):
             image = self.request.form["image"]
             self.context.image_data = image.read()
             self.context.image_filename = safe_unicode(image.filename)
+        elif self.request.form.get("image-remove"):
+            self.context.image_data = None
+            self.context.image_filename = u""
         return self.request.response.redirect(
             "{}/@@identification".format(self.context.absolute_url())
         )
