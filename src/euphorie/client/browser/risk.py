@@ -244,6 +244,17 @@ class IdentificationView(BrowserView):
     def title(self):
         return self.session.title
 
+    @property
+    @memoize
+    def number_images(self):
+        number_images = getattr(self.risk, "image", None) and 1 or 0
+        if number_images:
+            for i in range(2, 5):
+                number_images += (
+                    getattr(self.risk, "image{0}".format(i), None) and 1 or 0
+                )
+        return number_images
+
     def _prepare_risk(self):
         has_risk_description = (
             self.risk and HasText(self.risk.description)
@@ -251,16 +262,7 @@ class IdentificationView(BrowserView):
         self.show_info = getattr(self.risk, "image", None) or (
             self.risk is None or HasText(self.risk.description)
         )
-
-        number_images = getattr(self.risk, "image", None) and 1 or 0
-        if number_images:
-            for i in range(2, 5):
-                number_images += (
-                    getattr(self.risk, "image{0}".format(i), None) and 1 or 0
-                )
-        self.has_images = number_images > 0
-        self.number_images = number_images
-        self.image_class = IMAGE_CLASS[number_images]
+        self.image_class = IMAGE_CLASS[self.number_images]
         number_files = 0
         for i in range(1, 5):
             number_files += getattr(self.risk, "file{0}".format(i), None) and 1 or 0
@@ -334,7 +336,7 @@ class IdentificationView(BrowserView):
 
         # compute training side template
         self.slide_template = (
-            (has_risk_description or number_images)
+            (has_risk_description or self.number_images)
             and "template-two-column"
             or "template-default"
         )
@@ -609,6 +611,21 @@ class ActionPlanView(BrowserView):
             self.context.zodb_path.split("/")
         )
 
+    @property
+    @memoize
+    def number_images(self):
+        if self.is_custom_risk:
+            return int(bool(self.context.image_filename))
+        else:
+            number_images = getattr(self.risk, "image", None) and 1 or 0
+            if number_images:
+                for i in range(2, 5):
+                    number_images += (
+                        getattr(self.risk, "image{0}".format(i), None) and 1 or 0
+                    )
+
+        return number_images
+
     def __call__(self):
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
@@ -696,14 +713,7 @@ class ActionPlanView(BrowserView):
             measures_full_text = False
         if self.is_custom_risk:
             self.risk.description = u""
-            number_images = 0
         else:
-            number_images = getattr(self.risk, "image", None) and 1 or 0
-            if number_images:
-                for i in range(2, 5):
-                    number_images += (
-                        getattr(self.risk, "image{0}".format(i), None) and 1 or 0
-                    )
             existing_measures = [
                 txt.strip() for (txt, active) in self.get_existing_measures() if active
             ]
@@ -729,9 +739,7 @@ class ActionPlanView(BrowserView):
                     )
             self.solutions = solutions
 
-        self.number_images = number_images
-        self.has_images = number_images > 0
-        self.image_class = IMAGE_CLASS[number_images]
+        self.image_class = IMAGE_CLASS[self.number_images]
         self.risk_number = self.context.number
         self.delete_confirmation = api.portal.translate(_(
             u"Are you sure you want to delete this measure? This action can "
