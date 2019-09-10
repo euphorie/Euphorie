@@ -17,6 +17,7 @@
     <include package="htmllaundry" />
     <include package=".api" />
     <include package=".behaviors" />
+    <include package=".browser" />
 
     <browser:resourceDirectory
         name="euphorie.static"
