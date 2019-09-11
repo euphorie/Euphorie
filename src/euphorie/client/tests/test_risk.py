@@ -155,7 +155,6 @@ class EvaluationViewTests(unittest.TestCase):
 
 
 class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
-
     def test_upload(self):
         risk = Risk(path="000")
         with self._get_view("image-upload", risk) as view:
@@ -163,8 +162,7 @@ class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
             # @@identification page
             view()
             self.assertDictEqual(
-                view.request.response.headers,
-                {'location': '/@@identification'}
+                view.request.response.headers, {"location": "/@@identification"}
             )
 
             # Uploading an image will save it to the risk
@@ -180,6 +178,18 @@ class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
             self.assertIsNone(risk.image_data)
             self.assertFalse(risk.image_filename)
 
+            # If we have a scale wipe it
+            risk.image_data_scaled = b"foo"
+            view.request.form["image"] = Image()
+            view()
+            self.assertEqual(risk.image_filename, u"dummy.gif")
+            self.assertIsNone(risk.image_data_scaled)
+
+            # but do not wipe it if we are uploading the same image again
+            risk.image_data_scaled = b"foo"
+            view()
+            self.assertEqual(risk.image_data_scaled, b"foo")
+
     def test_download(self):
         risk = Risk(path="000")
         with self._get_view("image-display", risk) as view:
@@ -193,5 +203,13 @@ class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
             self.assertTrue(view().startswith(b"GIF"))
             self.assertDictEqual(
                 view.request.response.headers,
-                {'content-length': '168', 'content-type': 'image/gif'}
+                {"content-length": "168", "content-type": "image/gif"},
+            )
+
+            # Check that we can crop and scale the image on the fly
+            view.fieldname = "image_large"
+            self.assertTrue(view().startswith(b"\x89PNG"))
+            self.assertDictEqual(
+                view.request.response.headers,
+                {"content-length": "4169", "content-type": "image/png"},
             )

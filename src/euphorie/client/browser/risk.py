@@ -14,6 +14,7 @@ from euphorie.client import model
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
+from euphorie.client.subscribers.imagecropping import _initial_size
 from euphorie.client.utils import HasText
 from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
@@ -21,12 +22,15 @@ from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import IToolTypesInfo
 from htmllaundry import StripMarkup
+from io import BytesIO
 from json import dumps
 from json import loads
 from plone import api
+from plone.app.imaging.utils import getAllowedSizes
 from plone.memoize.instance import memoize
 from plone.namedfile import NamedBlobImage
 from plone.namedfile.browser import DisplayFile
+from plone.scale.scale import scaleImage
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -39,6 +43,7 @@ from zope.component import getUtility
 from zope.publisher.interfaces import NotFound
 
 import datetime
+import PIL
 
 
 IMAGE_CLASS = {0: "", 1: "twelve", 2: "six", 3: "four", 4: "three"}
@@ -475,8 +480,13 @@ class ImageUpload(BrowserView):
     def __call__(self):
         if self.request.form.get("image"):
             image = self.request.form["image"]
-            self.context.image_data = image.read()
-            self.context.image_filename = safe_unicode(image.filename)
+            new_data = image.read()
+            if self.context.image_data != new_data:
+                self.context.image_data = new_data
+                self.context.image_data_scaled = None
+            new_name = safe_unicode(image.filename)
+            if self.context.image_filename != new_name:
+                self.context.image_filename = new_name
         elif self.request.form.get("image-remove"):
             self.context.image_data = None
             self.context.image_filename = u""
@@ -486,11 +496,45 @@ class ImageUpload(BrowserView):
 
 
 class ImageDisplay(DisplayFile):
+    """ Return the image stored in the risk (if present).
+    Allows also to get the image scaled if invoked like:
+
+    ../@@image-display/image_large/${here/image_filename}
+    """
+
+    def get_or_create_image_scaled(self):
+        """ Get the image scaled
+        """
+        if self.context.image_data_scaled:
+            return self.context.image_data_scaled
+        image = PIL.Image.open(BytesIO(self.context.image_data))
+        image_format = image.format or self.DEFAULT_FORMAT
+        params = list(image.size)
+        scale = getAllowedSizes().get("large", (768, 768))
+        params.extend(scale)
+        box = _initial_size(*params)
+
+        cropped_image = image.crop(box).resize(scale)
+        cropped_image_io = BytesIO()
+        cropped_image.save(cropped_image_io, image_format, quality=100)
+        scaled_image_io, scaled_image_format, scaled_image_size = scaleImage(
+            cropped_image_io, width=scale[0], height=scale[1]
+        )
+        if isinstance(scaled_image_io, bytes):
+            self.context.image_data_scaled = scaled_image_io
+        else:
+            self.context.image_data_scaled = scaled_image_io.getvalue()
+        return self.context.image_data_scaled
 
     def _getFile(self):
-        image_data = self.context.image_data
-        if image_data is None:
+        if self.context.image_data is None:
             raise NotFound(self, self.fieldname, self.request)
+
+        if self.fieldname == "image_large":
+            image_data = self.get_or_create_image_scaled()
+        else:
+            image_data = self.context.image_data
+
         return NamedBlobImage(image_data, filename=self.context.image_filename)
 
 

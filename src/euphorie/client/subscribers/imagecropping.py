@@ -13,6 +13,7 @@ def _initial_size(ix, iy, sx, sy):
     """we need a best fit centered selection. Shamelessly copied from
     plone.app.imaging.browser.editor
     """
+    ix, iy, sx, sy = map(float, (ix, iy, sx, sy))
     # aspect ratio of original
     if iy > 0:
         ir = ix / iy
