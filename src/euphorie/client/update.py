@@ -151,12 +151,12 @@ def wasSurveyUpdated(session, survey):
         else:
             # BBB: Euphorie 1.x did not use a tuple to store extra information.
             timestamp = published
-        if session.modified >= timestamp:
+        if session.refreshed >= timestamp:
             return False
 
     changes = treeChanges(session, survey)
     if not changes:
-        session.touch()
+        session.refresh_survey()
         return False
 
     return True
