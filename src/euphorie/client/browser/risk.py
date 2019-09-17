@@ -623,6 +623,10 @@ class ActionPlanView(BrowserView):
         return self.context.identification == "no"
 
     @property
+    def risk_postponed(self):
+        return self.context.identification is None and self.context.postponed
+
+    @property
     def is_custom_risk(self):
         return self.context.is_custom_risk
 

@@ -285,11 +285,13 @@
                condition="show_statement|nothing"
     >
       <tal:block condition="not:view/risk_present">
-        <p tal:condition="python:risk.type=='top5'"
-           i18n:translate="top5_risk_not_present"
-        >
-            This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be
-            included in this report.
+        <p tal:condition="python:risk.type=='top5'">
+          <tal:yes condition="not:view/risk_postponed" i18n:translate="top5_risk_not_present"
+          >This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be
+            included in this report.</tal:yes>
+        <tal:postponed condition="view/risk_postponed" i18n:translate="top5_risk_not_present_postponed"
+        >This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be
+            included in this report.</tal:postponed>
         </p>
       </tal:block>
       <tal:block condition="view/risk_present">
