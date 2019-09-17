@@ -36,6 +36,7 @@ setup(
         'AccessControl >= 3.0',
         'Products.membrane >=2.1.3',
         "SQLAlchemy >=0.5.2",
+        "alembic",
         "anytree",
         "decorator",
         "py-bcrypt",
