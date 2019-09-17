@@ -525,6 +525,7 @@ class DocxCompilerFullTable(DocxCompiler):
 
     show_risk_descriptions = True
     only_anwered_risks = False
+    use_measures_subheading = True
     risk_description_col = 1
     risk_answer_col = 2
     risk_measures_col = 3
@@ -621,8 +622,14 @@ class DocxCompilerFullTable(DocxCompiler):
         if self.show_risk_descriptions:
             HtmlToWord(risk['description'], cell)
         if risk['measures']:
-            cell.add_paragraph()
-            cell.add_paragraph(u"Mesures déjà en place :", style="Risk Italics")
+            if self.show_risk_descriptions:
+                cell.add_paragraph()
+            if self.use_measures_subheading:
+                cell.add_paragraph(
+                    api.portal.translate(
+                        _(u"report_measures_in_place", default=u"Measures already in place:")
+                    ),
+                    style="Risk Italics")
             for measure in risk['measures']:
                 HtmlToWord(measure, cell, style="Risk Italics List")
         paragraph = cell.add_paragraph(style="Risk Normal")
@@ -640,27 +647,43 @@ class DocxCompilerFullTable(DocxCompiler):
             if action.get('prevention_plan', None):
                 paragraph = cell.add_paragraph(style="Measure Indent")
                 run = paragraph.add_run()
-                run.text = u"Actions : "
+                run.text = api.portal.translate(
+                    _(u"report_actions", default=u"Actions:")
+                )
                 run.underline = True
+                run = paragraph.add_run()
+                run.text = u" "
                 run = paragraph.add_run()
                 run.text = _simple_breaks(action['prevention_plan'])
             if action.get('requirements', None):
                 paragraph = cell.add_paragraph(style="Measure Indent")
                 run = paragraph.add_run()
-                run.text = u"Compétences requises : "
+                run.text = api.portal.translate(
+                    _(u"report_competences", default=u"Required expertise:")
+                )
                 run.underline = True
+                run = paragraph.add_run()
+                run.text = u" "
                 run = paragraph.add_run()
                 run.text = _simple_breaks(action['requirements']),
 
             if action.get('responsible', None):
                 paragraph = cell.add_paragraph(
-                    u"Responsable: {}".format(action['responsible']),
+                    u"{0} {1}".format(
+                        api.portal.translate(
+                            _(u"report_responsible", default=u"Responsible:")
+                        ),
+                        action['responsible']),
                     style="Measure Indent"
                 )
                 paragraph.runs[0].italic = True
             if action.get('planning_start', None):
                 paragraph = cell.add_paragraph(
-                    u"Date de fin: {}".format(action['planning_start']),
+                    u"{0} {1}".format(
+                        api.portal.translate(
+                            _(u"report_end_date", default=u"To be done by:")
+                        ),
+                        action['planning_start']),
                     style="Measure Indent"
                 )
                 paragraph.runs[0].italic = True
@@ -790,6 +813,7 @@ class DocxCompilerItaly(DocxCompilerFullTable):
     )
 
     show_risk_descriptions = False
+    use_measures_subheading = False
     only_anwered_risks = True
     risk_answer_col = None
     risk_measures_col = 2
