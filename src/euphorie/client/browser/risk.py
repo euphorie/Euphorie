@@ -14,6 +14,7 @@ from euphorie.client import model
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
+from euphorie.client.subscribers.imagecropping import _initial_size
 from euphorie.client.utils import HasText
 from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
@@ -21,10 +22,15 @@ from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import IToolTypesInfo
 from htmllaundry import StripMarkup
+from io import BytesIO
 from json import dumps
 from json import loads
 from plone import api
+from plone.app.imaging.utils import getAllowedSizes
 from plone.memoize.instance import memoize
+from plone.namedfile import NamedBlobImage
+from plone.namedfile.browser import DisplayFile
+from plone.scale.scale import scaleImage
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -34,8 +40,10 @@ from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from z3c.saconfig import Session
 from zope.component import getUtility
+from zope.publisher.interfaces import NotFound
 
 import datetime
+import PIL
 
 
 IMAGE_CLASS = {0: "", 1: "twelve", 2: "six", 3: "four", 4: "three"}
@@ -241,6 +249,17 @@ class IdentificationView(BrowserView):
     def title(self):
         return self.session.title
 
+    @property
+    @memoize
+    def number_images(self):
+        number_images = getattr(self.risk, "image", None) and 1 or 0
+        if number_images:
+            for i in range(2, 5):
+                number_images += (
+                    getattr(self.risk, "image{0}".format(i), None) and 1 or 0
+                )
+        return number_images
+
     def _prepare_risk(self):
         has_risk_description = (
             self.risk and HasText(self.risk.description)
@@ -248,16 +267,7 @@ class IdentificationView(BrowserView):
         self.show_info = getattr(self.risk, "image", None) or (
             self.risk is None or HasText(self.risk.description)
         )
-
-        number_images = getattr(self.risk, "image", None) and 1 or 0
-        if number_images:
-            for i in range(2, 5):
-                number_images += (
-                    getattr(self.risk, "image{0}".format(i), None) and 1 or 0
-                )
-        self.has_images = number_images > 0
-        self.number_images = number_images
-        self.image_class = IMAGE_CLASS[number_images]
+        self.image_class = IMAGE_CLASS[self.number_images]
         number_files = 0
         for i in range(1, 5):
             number_files += getattr(self.risk, "file{0}".format(i), None) and 1 or 0
@@ -331,7 +341,7 @@ class IdentificationView(BrowserView):
 
         # compute training side template
         self.slide_template = (
-            (has_risk_description or number_images)
+            (has_risk_description or self.number_images)
             and "template-two-column"
             or "template-default"
         )
@@ -465,6 +475,69 @@ class IdentificationView(BrowserView):
         return self.context.priority
 
 
+class ImageUpload(BrowserView):
+
+    def __call__(self):
+        if self.request.form.get("image"):
+            image = self.request.form["image"]
+            new_data = image.read()
+            if self.context.image_data != new_data:
+                self.context.image_data = new_data
+                self.context.image_data_scaled = None
+            new_name = safe_unicode(image.filename)
+            if self.context.image_filename != new_name:
+                self.context.image_filename = new_name
+        elif self.request.form.get("image-remove"):
+            self.context.image_data = None
+            self.context.image_filename = u""
+        return self.request.response.redirect(
+            "{}/@@identification".format(self.context.absolute_url())
+        )
+
+
+class ImageDisplay(DisplayFile):
+    """ Return the image stored in the risk (if present).
+    Allows also to get the image scaled if invoked like:
+
+    ../@@image-display/image_large/${here/image_filename}
+    """
+
+    def get_or_create_image_scaled(self):
+        """ Get the image scaled
+        """
+        if self.context.image_data_scaled:
+            return self.context.image_data_scaled
+        image = PIL.Image.open(BytesIO(self.context.image_data))
+        image_format = image.format or self.DEFAULT_FORMAT
+        params = list(image.size)
+        scale = getAllowedSizes().get("large", (768, 768))
+        params.extend(scale)
+        box = _initial_size(*params)
+
+        cropped_image = image.crop(box).resize(scale)
+        cropped_image_io = BytesIO()
+        cropped_image.save(cropped_image_io, image_format, quality=100)
+        scaled_image_io, scaled_image_format, scaled_image_size = scaleImage(
+            cropped_image_io, width=scale[0], height=scale[1]
+        )
+        if isinstance(scaled_image_io, bytes):
+            self.context.image_data_scaled = scaled_image_io
+        else:
+            self.context.image_data_scaled = scaled_image_io.getvalue()
+        return self.context.image_data_scaled
+
+    def _getFile(self):
+        if self.context.image_data is None:
+            raise NotFound(self, self.fieldname, self.request)
+
+        if self.fieldname == "image_large":
+            image_data = self.get_or_create_image_scaled()
+        else:
+            image_data = self.context.image_data
+
+        return NamedBlobImage(image_data, filename=self.context.image_filename)
+
+
 class ActionPlanView(BrowserView):
     """Logic for creating new action plans.
     """
@@ -582,6 +655,21 @@ class ActionPlanView(BrowserView):
             self.context.zodb_path.split("/")
         )
 
+    @property
+    @memoize
+    def number_images(self):
+        if self.is_custom_risk:
+            return int(bool(self.context.image_filename))
+        else:
+            number_images = getattr(self.risk, "image", None) and 1 or 0
+            if number_images:
+                for i in range(2, 5):
+                    number_images += (
+                        getattr(self.risk, "image{0}".format(i), None) and 1 or 0
+                    )
+
+        return number_images
+
     def __call__(self):
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
@@ -669,14 +757,7 @@ class ActionPlanView(BrowserView):
             measures_full_text = False
         if self.is_custom_risk:
             self.risk.description = u""
-            number_images = 0
         else:
-            number_images = getattr(self.risk, "image", None) and 1 or 0
-            if number_images:
-                for i in range(2, 5):
-                    number_images += (
-                        getattr(self.risk, "image{0}".format(i), None) and 1 or 0
-                    )
             existing_measures = [
                 txt.strip() for (txt, active) in self.get_existing_measures() if active
             ]
@@ -702,9 +783,7 @@ class ActionPlanView(BrowserView):
                     )
             self.solutions = solutions
 
-        self.number_images = number_images
-        self.has_images = number_images > 0
-        self.image_class = IMAGE_CLASS[number_images]
+        self.image_class = IMAGE_CLASS[self.number_images]
         self.risk_number = self.context.number
         self.delete_confirmation = api.portal.translate(_(
             u"Are you sure you want to delete this measure? This action can "

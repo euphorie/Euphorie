@@ -263,6 +263,22 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="image-upload"
+      for="euphorie.client.model.Risk"
+      permission="euphorie.client.ViewSurvey"
+      class=".risk.ImageUpload"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="image-display"
+      for="euphorie.client.model.Risk"
+      permission="euphorie.client.ViewSurvey"
+      class=".risk.ImageDisplay"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <!-- Password -->
   <browser:page
       name="reset_password_request"

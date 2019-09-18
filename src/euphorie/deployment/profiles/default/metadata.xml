@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>23</version>
+  <version>24</version>
   <dependencies>
     <dependency>profile-plone.app.imagecropping:default</dependency>
     <dependency>profile-plonetheme.nuplone:default</dependency>
