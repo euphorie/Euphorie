@@ -787,11 +787,17 @@ class WebHelpers(BrowserView):
         searchable_text=None,
         order_by=False,
         include_archived=False,
+        include_group=False,
     ):
         """ Method to return a query that looks for sessions
 
-        context limits the sessions under this context
-        searchable_text
+        :param context: limits the sessions under this context
+        :param searchable_text: filters on survey title
+        :param order_by: is by default on survey title but you can pass
+            None to disable ordering or a SQLAlchemy expression
+        :param include_archived: unless explicitely set to a truish value,
+            archived sessions are excluded
+        :param include_group: if truish include the group sessions
         """
         table = self.survey_session_model
         query = Session.query(table)
@@ -802,7 +808,7 @@ class WebHelpers(BrowserView):
 
         query = query.filter(
             and_(
-                table.get_account_filter(account),
+                table.get_account_filter(account=account, include_group=include_group),
                 table.get_context_filter(context or self.context),
             )
         )
