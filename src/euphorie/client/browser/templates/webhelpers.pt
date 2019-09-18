@@ -195,7 +195,7 @@
     tal:define="is_custom_risk view/is_custom_risk"
   >
     <div class="image-collage pat-gallery pat-equaliser"
-         tal:condition="python:(view.number_images &gt; 1) or (is_custom_risk and view.number_images)"
+         tal:condition="view/number_images"
     >
       <tal:not-custom condition="not:is_custom_risk">
         <tal:get define="
@@ -278,22 +278,6 @@
         </a>
       </tal:custom>
     </div>
-    <nav class="pat-gallery"
-         tal:condition="python:view.number_images == 1"
-         tal:on-error="nothing"
-    >
-      <a href="${large/url|nothing}"
-         tal:define="
-           images risk/@@images;
-           large python:images.scale('image', width=800, height=1900, direction='thumbnail');
-         "
-      >
-        <img class="medium float-before"
-             alt=""
-             src="${large/url}"
-        />
-      </a>
-    </nav>
 
     <tal:block define="
                  use_problem_description view/use_problem_description;
