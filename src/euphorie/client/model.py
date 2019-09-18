@@ -612,6 +612,11 @@ class SurveySession(BaseObject):
         nullable=False,
         default=functions.now(),
     )
+    refreshed = schema.Column(
+        types.DateTime,
+        nullable=False,
+        default=functions.now(),
+    )
 
     published = schema.Column(
         types.DateTime,
