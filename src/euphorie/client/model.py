@@ -612,6 +612,11 @@ class SurveySession(BaseObject):
         nullable=False,
         default=functions.now(),
     )
+    refreshed = schema.Column(
+        types.DateTime,
+        nullable=False,
+        default=functions.now(),
+    )
 
     published = schema.Column(
         types.DateTime,
@@ -690,6 +695,12 @@ class SurveySession(BaseObject):
     def touch(self):
         self.last_modifier = get_current_account()
         self.modified = datetime.datetime.now()
+
+    def refresh_survey(self):
+        """ Mark the session with the current date to indicate that is has been
+            refreshed with the latest version of the Survey (from Zope)
+        """
+        self.refreshed = datetime.datetime.now()
 
     def addChild(self, item):
         sqlsession = Session()
@@ -834,6 +845,25 @@ class SurveySession(BaseObject):
                      tree.zodb_path=new_tree.zodb_path AND
                      tree.profile_index=new_tree.profile_index;
             """ % {
+            'old_sessionid': other.id,
+            'new_sessionid': self.id
+        }
+        session.execute(statement)
+
+        # Copy over previous session metadata. Specifically, we don't want to
+        # create a new modification timestamp, just because the underlying
+        # survey was updated.
+        statement = """\
+        UPDATE session
+        SET
+            modified = old_session.modified,
+            created = old_session.created,
+            last_modifier_id = old_session.last_modifier_id
+        FROM session as old_session
+        WHERE
+            old_session.id=%(old_sessionid)d AND
+            session.id=%(new_sessionid)d
+        """ % {
             'old_sessionid': other.id,
             'new_sessionid': self.id
         }

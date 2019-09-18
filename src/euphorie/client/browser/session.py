@@ -299,6 +299,7 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
         BuildSurveyTree(survey, profile, new_session, survey_session)
         new_session.copySessionData(survey_session)
         object_session(survey_session).delete(survey_session)
+        new_session.refresh_survey()
         return new_session
 
     @property
