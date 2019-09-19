@@ -31,4 +31,13 @@
       directory="profiles/to_0022"
       />
 
+  <genericsetup:registerProfile
+      name="to_0024"
+      title="Register new image scales for training"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      directory="profiles/to_0024"
+      />
+
 </configure>

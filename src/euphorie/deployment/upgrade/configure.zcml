@@ -373,6 +373,11 @@
         handler=".v24.alembic_upgrade"
         />
 
+    <genericsetup:upgradeDepends
+        title="Register new image scales for training"
+        import_profile="euphorie.deployment.upgrade:to_0024"
+        />
+
   </genericsetup:upgradeSteps>
 
 </configure>
