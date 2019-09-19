@@ -13,6 +13,7 @@ from euphorie.client.enum import Enum
 from plone import api
 from plone.app.event.base import localized_now
 from plone.memoize import ram
+from plone.memoize.instance import memoize
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from Products.PluggableAuthService.interfaces.authservice import IBasicUser
@@ -343,14 +344,16 @@ class Group(BaseObject):
             group = parent
 
     @property
+    @memoize
     def _group_structure(self):
-        ''' Return a dict like structure
+        """ Return a dict like structure
         with the group ids as keys and the children group ids as values
-        '''
-        tree = defaultdict(list)
-        for g in Session.query(Group):
-            if g.parent:
-                tree[g.parent.group_id].append(g.group_id)
+        """
+        tree = defaultdict(set)
+        for groupid, parentid in Session.query(Group.group_id, Group.parent_id).filter(
+            Group.parent_id != None  # noqa: E711
+        ):
+            tree[parentid].add(groupid)
         return tree
 
     @property
