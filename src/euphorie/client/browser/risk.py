@@ -502,12 +502,7 @@ class ImageDisplay(DisplayFile):
     ../@@image-display/image_large/${here/image_filename}
     """
 
-    @property
-    @memoize
-    def allowed_sizes(self):
-        return getAllowedSizes()
-
-    def get_or_create_image_scaled(self, scale_name="large"):
+    def get_or_create_image_scaled(self):
         """ Get the image scaled
         """
         if self.context.image_data_scaled:
@@ -515,7 +510,7 @@ class ImageDisplay(DisplayFile):
         image = PIL.Image.open(BytesIO(self.context.image_data))
         image_format = image.format or self.DEFAULT_FORMAT
         params = list(image.size)
-        scale = self.allowed_sizes.get(scale_name, (768, 768))
+        scale = getAllowedSizes().get("training", (1500, 791))
         params.extend(scale)
         box = _initial_size(*params)
 
@@ -535,9 +530,8 @@ class ImageDisplay(DisplayFile):
         if self.context.image_data is None:
             raise NotFound(self, self.fieldname, self.request)
 
-        requested_scale = self.fieldname.partition("_")[-1] if self.fieldname else None
-        if requested_scale in self.allowed_sizes:
-            image_data = self.get_or_create_image_scaled(requested_scale)
+        if self.fieldname == "image_training":
+            image_data = self.get_or_create_image_scaled()
         else:
             image_data = self.context.image_data
 

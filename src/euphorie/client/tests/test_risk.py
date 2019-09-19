@@ -207,9 +207,9 @@ class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
             )
 
             # Check that we can crop and scale the image on the fly
-            view.fieldname = "image_large"
+            view.fieldname = "image_training"
             self.assertTrue(view().startswith(b"\x89PNG"))
             self.assertDictEqual(
                 view.request.response.headers,
-                {"content-length": "4169", "content-type": "image/png"},
+                {"content-length": "6971", "content-type": "image/png"},
             )
