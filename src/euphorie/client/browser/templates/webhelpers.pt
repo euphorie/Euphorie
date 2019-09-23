@@ -194,7 +194,7 @@
                               i18n:domain="euphorie"
     tal:define="is_custom_risk view/is_custom_risk"
   >
-    <div class="image-collage pat-gallery pat-equaliser"
+    <div class="image-collage pat-gallery count-${view/number_images}"
          tal:condition="view/number_images"
     >
       <tal:not-custom condition="not:is_custom_risk">
@@ -204,12 +204,10 @@
         >
           <!-- Each image src is repeated as an image url as the value of the background image property inthe inline style on the link tag and in the HREF of the link tag. The background image should be a medium sized image, the image of the HREF should be the large, original image. -->
 
-          <!-- The class 'three' is three in case of four images, 'four' in case of three images, 'six' in case of two images and 'twelve' in case of one image. -->
 
           <!-- Notice that each image has an image caption in the title tag. -->
-          <a class="${view/image_class} columns"
+          <a class="image"
             href="${large/url|nothing}"
-            style="background-image: url(${large/url|nothing})"
             title="${risk/caption|nothing}"
             tal:define="
               thumb python:images.scale('image', width=400, height=600, direction='thumbnail');
@@ -218,12 +216,12 @@
             tal:condition="thumb"
             tal:on-error="nothing"
           ><img alt=""
-                src="${thumb/url}"
+                src="${resources_url}/placeholder-1x1.gif"
+                style="background-image: url(${large/url|nothing})"
             />
           </a>
-          <a class="${view/image_class} columns"
+          <a class="image"
             href="${large/url|nothing}"
-            style="background-image: url(${large/url|nothing})"
             title="${risk/caption2|nothing}"
             tal:define="
               thumb python:images.scale('image2', width=400, height=600, direction='thumbnail');
@@ -232,12 +230,12 @@
             tal:condition="thumb"
             tal:on-error="nothing"
           ><img alt=""
-                src="${thumb/url}"
+                src="${resources_url}/placeholder-1x1.gif"
+                style="background-image: url(${large/url|nothing})"
             />
           </a>
-          <a class="${view/image_class} columns"
+          <a class="image"
             href="${large/url|nothing}"
-            style="background-image: url(${large/url|nothing})"
             title="${risk/caption3|nothing}"
             tal:define="
               thumb python:images.scale('image3', width=400, height=600, direction='thumbnail');
@@ -246,12 +244,12 @@
             tal:condition="thumb"
             tal:on-error="nothing"
           ><img alt=""
-                src="${thumb/url}"
+                src="${resources_url}/placeholder-1x1.gif"
+                style="background-image: url(${large/url|nothing})"
             />
           </a>
-          <a class="${view/image_class} columns"
+          <a class="image"
             href="${large/url|nothing}"
-            style="background-image: url(${large/url|nothing})"
             title="${risk/caption4|nothing}"
             tal:define="
               thumb python:images.scale('image4', width=400, height=600, direction='thumbnail');
@@ -260,21 +258,24 @@
             tal:condition="thumb"
             tal:on-error="nothing"
           ><img alt=""
-                src="${thumb/url}"
+                src="${resources_url}/placeholder-1x1.gif"
+                style="background-image: url(${large/url|nothing})"
             />
           </a>
         </tal:get>
       </tal:not-custom>
       <tal:custom condition="is_custom_risk">
-        <a class="${view/image_class} columns"
+        <a class="image"
            href="${image_url}"
            title="${here/image_filename}"
            tal:define="
              image_url string:${here/absolute_url}/@@image-display/image_large/${here/image_filename};
            "
-           style="background-image: url(${image_url})"
         >
-          <img src="${image_url}" />
+          <img alt=""
+          src="${resources_url}/placeholder-1x1.gif"
+          style="background-image: url(${image_url})"
+          />
         </a>
       </tal:custom>
     </div>
