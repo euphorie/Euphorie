@@ -24,7 +24,7 @@
 
 
         <figure id="hero"
-            tal:define="images module/@@images; large python:images.scale('image', width=590, height=1900, direction='thumbnail')"
+            tal:define="images module/@@images; large python:images.scale('image', width=1280, height=1280, direction='thumbnail')"
             tal:on-error="nothing"
             tal:condition="large"
             title="${module/caption|nothing}">
