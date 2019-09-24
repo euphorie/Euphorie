@@ -787,9 +787,8 @@ class ActionPlanView(BrowserView):
                 prevention_plan = (
                     getattr(solution, "prevention_plan", "") or "").strip()
                 match = description
-                if measures_full_text:
-                    if prevention_plan:
-                        match = u"%s: %s" % (match, prevention_plan)
+                if measures_full_text and prevention_plan:
+                    match = u"%s: %s" % (match, prevention_plan)
                 if match not in existing_measures:
                     solutions.append(
                         {

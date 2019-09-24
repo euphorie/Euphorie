@@ -722,7 +722,7 @@ class DocxCompilerFullTable(DocxCompiler):
             cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
             self.set_row_borders(row_module)
             count = 0
-            for r_idx, risk in enumerate(risks):
+            for risk in risks:
                 answer = risk.get('justifiable', '')
                 # In case our report type defines this: Omit risk if the user has not anwered it
                 if self.only_anwered_risks:
@@ -754,21 +754,23 @@ class DocxCompilerFullTable(DocxCompiler):
                 settings['top'] = False
                 self.set_row_borders(row_risk, settings=settings)
 
-        def _merge_cells(row):
+        def _merge_cells(cells):
             """
-            The first cell stays as it is.
-            The second cell will be merged with all following cells
+            Merge all given cells into one
             """
-            cell1, cell2, rest = row.cells[0], row.cells[1], row.cells[2:]
-            cell2_new = cell2
+            if len(cells) < 2:
+                return cells
+            cell1, rest = cells[0], cells[1:]
+            cell1_new = cell1
             for cell in rest:
-                cell2_new = cell2_new.merge(cell)
-            return (cell1, cell2_new)
+                cell1_new = cell1_new.merge(cell)
+            return cell1_new
 
         # Finally, an empty row at the end
         row = table.add_row()
         self.set_row_borders(row)
-        _merge_cells(row)
+        # The first cell stays as it is, the second cell will be merged with all following cells
+        _merge_cells(row.cells[1:])
 
     def add_extra(self):
         pass
