@@ -15,7 +15,7 @@ from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
 from euphorie.client.subscribers.imagecropping import _initial_size
-from euphorie.client.utils import HasText
+from euphorie.client import utils
 from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import get_tool_type
@@ -88,6 +88,13 @@ class IdentificationView(BrowserView):
 
     @property
     @memoize
+    def survey(self):
+        """ This is the survey dexterity object
+        """
+        return self.webhelpers._survey
+
+    @property
+    @memoize
     def next_question(self):
         return FindNextQuestion(
             self.context, dbsession=self.session, filter=self.question_filter
@@ -138,6 +145,7 @@ class IdentificationView(BrowserView):
             )
         if self.webhelpers.redirectOnSurveyUpdate():
             return
+        utils.setLanguage(self.request, self.survey, self.survey.language)
 
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get("euphorie")
@@ -284,17 +292,17 @@ class IdentificationView(BrowserView):
 
     def _prepare_risk(self):
         has_risk_description = (
-            self.risk and HasText(self.risk.description)
+            self.risk and utils.HasText(self.risk.description)
         ) or getattr(self.context, "custom_description", "")
         self.show_info = getattr(self.risk, "image", None) or (
-            self.risk is None or HasText(self.risk.description)
+            self.risk is None or utils.HasText(self.risk.description)
         )
         self.image_class = IMAGE_CLASS[self.number_images]
         number_files = 0
         for i in range(1, 5):
             number_files += getattr(self.risk, "file{0}".format(i), None) and 1 or 0
         self.has_files = number_files > 0
-        self.has_legal = HasText(getattr(self.risk, "legal_reference", None))
+        self.has_legal = utils.HasText(getattr(self.risk, "legal_reference", None))
         self.show_resources = self.has_legal or self.has_files
 
         self.risk_number = self.context.number
@@ -578,6 +586,13 @@ class ActionPlanView(BrowserView):
 
     @property
     @memoize
+    def survey(self):
+        """ This is the survey dexterity object
+        """
+        return self.webhelpers._survey
+
+    @property
+    @memoize
     def session(self):
         return self.webhelpers.traversed_session.session
 
@@ -711,6 +726,7 @@ class ActionPlanView(BrowserView):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
         context = aq_inner(self.context)
+        utils.setLanguage(self.request, self.survey, self.survey.language)
 
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get("euphorie")

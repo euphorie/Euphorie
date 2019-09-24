@@ -459,6 +459,7 @@ class Identification(SessionMixin, BrowserView):
             return self.request.response.redirect(
                 self.context.absolute_url() + "/@@start"
             )
+        utils.setLanguage(self.request, self.survey, self.survey.language)
         return super(Identification, self).__call__()
 
 
@@ -707,6 +708,7 @@ class ActionPlanView(SessionMixin, BrowserView):
             )
         if self.webhelpers.redirectOnSurveyUpdate():
             return
+        utils.setLanguage(self.request, self.survey, self.survey.language)
         return super(ActionPlanView, self).__call__()
 
 
@@ -742,6 +744,7 @@ class Report(SessionMixin, BrowserView):
                 )
             return self.request.response.redirect(url)
 
+        utils.setLanguage(self.request, self.survey, self.survey.language)
         return super(Report, self).__call__()
 
 
@@ -897,6 +900,7 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
     def __call__(self):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
+        utils.setLanguage(self.request, self.survey, self.survey.language)
         self.update()
         self.getStatus()
         return super(Status, self).__call__()

@@ -4,7 +4,7 @@ from euphorie.client import model
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
-from euphorie.client.utils import HasText
+from euphorie.client import utils
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
 from logging import getLogger
@@ -29,6 +29,13 @@ class IdentificationView(BrowserView):
     @memoize
     def webhelpers(self):
         return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    @memoize
+    def survey(self):
+        """ This is the survey dexterity object
+        """
+        return self.webhelpers._survey
 
     @property
     def tree(self):
@@ -103,6 +110,7 @@ class IdentificationView(BrowserView):
             return
 
         context = aq_inner(self.context)
+        utils.setLanguage(self.request, self.survey, self.survey.language)
 
         module = self.webhelpers.traversed_session.restrictedTraverse(context.zodb_path.split("/"))
         if self.request.environ["REQUEST_METHOD"] == "POST":
@@ -222,8 +230,15 @@ class ActionPlanView(BrowserView):
         return self.context.restrictedTraverse("webhelpers")
 
     @property
+    @memoize
+    def survey(self):
+        """ This is the survey dexterity object
+        """
+        return self.webhelpers._survey
+
+    @property
     def use_solution_direction(self):
-        return HasText(getattr(self.module, "solution_direction", None))
+        return utils.HasText(getattr(self.module, "solution_direction", None))
 
     @property
     @memoize
@@ -249,6 +264,7 @@ class ActionPlanView(BrowserView):
             return
 
         context = aq_inner(self.context)
+        utils.setLanguage(self.request, self.survey, self.survey.language)
         if (IProfileQuestion.providedBy(self.module) and context.depth == 2) or (
             ICustomRisksModule.providedBy(self.module) and self.phase == "actionplan"
         ):
