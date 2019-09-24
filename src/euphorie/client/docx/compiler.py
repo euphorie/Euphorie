@@ -669,23 +669,28 @@ class DocxCompilerFullTable(DocxCompiler):
 
             if action.get('responsible', None):
                 paragraph = cell.add_paragraph(
-                    u"{0} {1}".format(
-                        api.portal.translate(
-                            _(u"report_responsible", default=u"Responsible:")
-                        ),
-                        action['responsible']),
+                    api.portal.translate(
+                        _(
+                            u"report_responsible",
+                            default=u"Responsible: ${responsible_name}",
+                            mapping={"responsible_name": action['responsible']}
+                        )
+                    ),
                     style="Measure Indent"
                 )
                 paragraph.runs[0].italic = True
             if action.get('planning_start', None):
                 paragraph = cell.add_paragraph(
-                    u"{0} {1}".format(
-                        api.portal.translate(
-                            _(u"report_end_date", default=u"To be done by:")
-                        ),
-                        action['planning_start']),
+                    api.portal.translate(
+                        _(
+                            u"report_end_date",
+                            default=u"To be done by: ${date}",
+                            mapping={"date": action['planning_start']}
+                        )
+                    ),
                     style="Measure Indent"
                 )
+
                 paragraph.runs[0].italic = True
 
     def merge_module_rows(self, row_module, row_risk):
