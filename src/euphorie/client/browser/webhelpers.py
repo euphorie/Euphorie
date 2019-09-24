@@ -277,12 +277,6 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
-    def styles_override(self):
-        css = ""
-        return css
-
-    @property
-    @memoize
     def extra_css(self):
         sector = self.sector
         if sector is None:
