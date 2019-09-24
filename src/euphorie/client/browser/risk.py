@@ -58,13 +58,6 @@ class IdentificationView(BrowserView):
 
     question_filter = None
 
-    # default value is False, can be overwritten by certain conditions
-    skip_evaluation = False
-    # In what circumstances will the Evaluation panel be shown, provided that
-    # evaluation is not skipped in general? The following default can be
-    # overwritten in certain conditions
-    evaluation_condition = "condition: answer=no"
-
     # default value is True, can be overwritten by certain conditions
     show_explanation_on_always_present_risks = True
 
@@ -108,6 +101,31 @@ class IdentificationView(BrowserView):
         return self.context.aq_parent.aq_parent.restrictedTraverse(
             self.context.zodb_path.split("/")
         )
+
+    @property
+    @memoize
+    def italy_special(self):
+        return self.webhelpers.country == "it"
+
+    @property
+    @memoize
+    def skip_evaluation(self):
+        """ Default value is False, but it can be tweaked in certain conditions"""
+        if self.italy_special and self.risk and (
+            self.risk.type == "top5" or self.risk.evaluation_method == "fixed"
+        ):
+            return True
+        return False
+
+    @property
+    @memoize
+    def evaluation_condition(self):
+        """ In what circumstances will the Evaluation panel be shown, provided that
+        evaluation is not skipped in general? """
+        condition = "condition: answer=no"
+        if self.italy_special and not self.skip_evaluation:
+            condition = "condition: answer=no or answer=yes"
+        return condition
 
     def __call__(self):
         # Render the page only if the user has edit rights,
@@ -350,15 +368,6 @@ class IdentificationView(BrowserView):
             or "template-default"
         )
 
-        # Italian special
-        if self.webhelpers.country == "it":
-            if self.risk and (
-                self.risk.type == "top5" or self.risk.evaluation_method == "fixed"
-            ):
-                self.skip_evaluation = True
-            else:
-                self.evaluation_condition = "condition: answer=no or answer=yes"
-
     @property
     @memoize
     def previous_question(self):
@@ -557,9 +566,6 @@ class ActionPlanView(BrowserView):
     question_filter = model.ACTION_PLAN_FILTER
     # The risk filter will only find risks
     risk_filter = model.RISK_PRESENT_OR_TOP5_FILTER
-    # Skip evaluation?
-    # The default value is False, can be overwritten by certain conditions
-    skip_evaluation = False
     # Which fields should be skipped? Default are none, i.e. show all
     skip_fields = []
     # What extra style to use for buttons like "Add measure". Default is None.
@@ -574,6 +580,16 @@ class ActionPlanView(BrowserView):
     @memoize
     def session(self):
         return self.webhelpers.traversed_session.session
+
+    @property
+    @memoize
+    def skip_evaluation(self):
+        """ Default value is False, but it can be tweaked in certain conditions"""
+        if self.italy_special and self.risk and (
+            self.risk.type == "top5" or self.risk.evaluation_method == "fixed"
+        ):
+            return True
+        return False
 
     def get_existing_measures(self):
         if not self.use_existing_measures:
@@ -767,10 +783,6 @@ class ActionPlanView(BrowserView):
             self.risk.description = u""
             self.risk.evaluation_method = u""
         if self.italy_special:
-            if self.risk and (
-                self.risk.type == "top5" or self.risk.evaluation_method == "fixed"
-            ):
-                self.skip_evaluation = True
             measures_full_text = True
         else:
             measures_full_text = False
