@@ -743,10 +743,11 @@ class DocxCompilerFullTable(DocxCompiler):
                 if count:
                     self.merge_module_rows(row_module, row_risk)
 
-            # set borders on last risk row, but not the top
-            settings = deepcopy(ALL_BORDERS)
-            settings['top'] = False
-            self.set_row_borders(row_risk, settings=settings)
+            if count:
+                # set borders on last risk row, but not the top
+                settings = deepcopy(ALL_BORDERS)
+                settings['top'] = False
+                self.set_row_borders(row_risk, settings=settings)
 
         def _merge_cells(row):
             """
