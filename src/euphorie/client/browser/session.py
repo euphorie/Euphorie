@@ -630,9 +630,6 @@ class PublicationMenu(SessionMixin, BrowserView):
         """
         return api.portal.get()
 
-    def notify_modified(self):
-        notify(ObjectModifiedEvent(self.context.session))
-
     def redirect(self):
         target = self.request.get("HTTP_REFERER") or self.context.absolute_url()
         return self.request.response.redirect(target)
@@ -643,7 +640,6 @@ class PublicationMenu(SessionMixin, BrowserView):
         session = self.context.session
         session.published = datetime.now()
         session.last_publisher = get_current_account()
-        self.notify_modified()
         return self.redirect()
 
     def set_date(self):
@@ -657,7 +653,6 @@ class PublicationMenu(SessionMixin, BrowserView):
         session = self.context.session
         session.published = None
         session.last_publisher = None
-        self.notify_modified()
         return self.redirect()
 
 
