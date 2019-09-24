@@ -712,6 +712,9 @@ class DocxCompilerFullTable(DocxCompiler):
         modules = data.get('modules', [])
         table = self.get_modules_table()
 
+        unanswered_risks = []
+        not_applicable_risks = []
+
         for module in modules:
             risks = module['risks']
             if not risks:
@@ -727,11 +730,11 @@ class DocxCompilerFullTable(DocxCompiler):
                 # In case our report type defines this: Omit risk if the user has not anwered it
                 if self.only_anwered_risks:
                     if not answer:
-                        self.unanwered_risks.append(risk)
+                        unanswered_risks.append(risk)
                         continue
                 # Not applicable risks are never shown in the regular table
                 if answer == "n/a":
-                    self.not_applicable_risks.append(risk)
+                    not_applicable_risks.append(risk)
                     continue
                 if count:
                     row_risk = table.add_row()
@@ -772,7 +775,9 @@ class DocxCompilerFullTable(DocxCompiler):
         # The first cell stays as it is, the second cell will be merged with all following cells
         _merge_cells(row.cells[1:])
 
-    def add_extra(self):
+        return unanswered_risks, not_applicable_risks
+
+    def add_extra(self, unanswered_risks, not_applicable_risks):
         pass
 
     def compile(self, data):
@@ -787,17 +792,15 @@ class DocxCompilerFullTable(DocxCompiler):
         Check the file .../daimler/oira/tests/mocked_data.py
         to understand its format
         '''
-        self.unanwered_risks = []
-        self.not_applicable_risks = []
         self.set_session_title_row(data)
-        self.set_modules_rows(data)
+        unanswered_risks, not_applicable_risks = self.set_modules_rows(data)
 
         # Finally clean up the modules table
         modules_table = self.get_modules_table()
         self.remove_row(modules_table.rows[1])
 
         # Add extra, where required
-        self.add_extra()
+        self.add_extra(unanswered_risks, not_applicable_risks)
 
 
 class DocxCompilerFrance(DocxCompilerFullTable):
@@ -835,7 +838,7 @@ class DocxCompilerItaly(DocxCompilerFullTable):
         }
         return lookup
 
-    def add_extra(self):
+    def add_extra(self, unanswered_risks, not_applicable_risks):
         doc = self.template
 
         def print_risk(risk):
@@ -846,21 +849,21 @@ class DocxCompilerItaly(DocxCompilerFullTable):
             run = p.add_run()
             run.text = u" %s" % risk["title"]
 
-        if self.not_applicable_risks:
+        if not_applicable_risks:
             doc.add_paragraph()
             doc.add_paragraph(
                 u"Adempimenti e rischi non applicabili",
                 style="Heading 2")
-            for risk in self.not_applicable_risks:
+            for risk in not_applicable_risks:
                 print_risk(risk)
 
-        if self.unanwered_risks:
+        if unanswered_risks:
             doc.add_paragraph()
             doc.add_paragraph(
                 u"I seguenti rischi non sono stati ancora valutati",
                 style="Heading 2")
             doc.add_paragraph()
-            for risk in self.unanwered_risks:
+            for risk in unanswered_risks:
                 print_risk(risk)
 
 
