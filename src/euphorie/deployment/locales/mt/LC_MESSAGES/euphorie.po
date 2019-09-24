@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-24 10:04+0000\n"
+"POT-Creation-Date: 2019-09-24 11:18+0000\n"
 "PO-Revision-Date: 2013-12-18 10:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -237,7 +237,7 @@ msgstr ""
 msgid "Are you sure you want to continue? This action can not be reverted."
 msgstr ""
 
-#: euphorie/client/browser/risk.py:806
+#: euphorie/client/browser/risk.py:817
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -696,11 +696,11 @@ msgstr "Ġdida"
 msgid "No"
 msgstr "Le"
 
-#: euphorie/client/browser/risk.py:905
+#: euphorie/client/browser/risk.py:916
 msgid "No changes were made to measures in your action plan."
 msgstr "Ma saru l-ebda bidliet fil-miżuri tal-pjan t’azzjoni tiegħek."
 
-#: euphorie/client/browser/templates/publication_menu.pt:79
+#: euphorie/client/browser/templates/publication_menu.pt:84
 msgid "No information about the last editor is available."
 msgstr ""
 
@@ -875,7 +875,7 @@ msgstr "Tipprovdi evidenza"
 msgid "Provide evidence for supervisory authorities."
 msgstr "Tipprovdi evidenza għall-awtoritajiet ta' sorveljanza."
 
-#: euphorie/client/browser/templates/publication_menu.pt:46
+#: euphorie/client/browser/templates/publication_menu.pt:51
 msgid "Publish Risk Assessment"
 msgstr ""
 
@@ -892,7 +892,7 @@ msgstr ""
 "ħaddiema ġodda, minħabba l-konklużjonijiet ta' xi investigazzjonijiet ta' "
 "inċident, eċċ.)"
 
-#: euphorie/client/browser/templates/publication_menu.pt:68
+#: euphorie/client/browser/templates/publication_menu.pt:73
 msgid "Refresh publication date"
 msgstr ""
 
@@ -1110,7 +1110,7 @@ msgstr ""
 "L-istruttura bażika ta’ Valutazzjoni tar-Riskji interattiva Onlajn "
 "tikkonsisti f’dan li ġej:"
 
-#: euphorie/client/browser/risk.py:810
+#: euphorie/client/browser/risk.py:821
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -1238,7 +1238,7 @@ msgstr "Agħfas fuq screen help"
 msgid "Unique id for content"
 msgstr ""
 
-#: euphorie/client/browser/templates/publication_menu.pt:58
+#: euphorie/client/browser/templates/publication_menu.pt:63
 msgid "Unpublish Risk Assessment"
 msgstr ""
 
@@ -1741,6 +1741,10 @@ msgstr "Aġġornata"
 msgid "button_upload"
 msgstr "Tella'"
 
+#: euphorie/client/browser/templates/publication_menu.pt:31
+msgid "by"
+msgstr ""
+
 #. Default: "You are free to provide the information below. This information is meant to improve the tools and the services provided. This data will not appear in the report."
 #: euphorie/client/templates/report_company.pt:23
 msgid "company_details_intro"
@@ -2179,17 +2183,17 @@ msgid "error_password_mismatch"
 msgstr "Il-passwords ma jaqblux"
 
 #. Default: "This date must be on or after the start date."
-#: euphorie/client/browser/risk.py:819
+#: euphorie/client/browser/risk.py:830
 msgid "error_validation_after_start_date"
 msgstr "Din id-data għandha tkun fid-data tal-bidu jew warajha."
 
 #. Default: "This date must be on or before the end date."
-#: euphorie/client/browser/risk.py:815
+#: euphorie/client/browser/risk.py:826
 msgid "error_validation_before_end_date"
 msgstr "Din id-data għandha tkun fid-data ta' tmiem jew qabilha."
 
 #. Default: "This value must be a positive whole number."
-#: euphorie/client/browser/risk.py:823
+#: euphorie/client/browser/risk.py:834
 msgid "error_validation_positive_whole_number"
 msgstr "Dan il-valur għandu jkun numru sħiħ pożittiv."
 
@@ -2308,12 +2312,12 @@ msgid "extra_text_identification"
 msgstr ""
 
 #. Default: "Action plan ${title}"
-#: euphorie/client/docx/views.py:286
+#: euphorie/client/docx/views.py:290
 msgid "filename_report_actionplan"
 msgstr "Pjan ta' azzjoni ${title}"
 
 #. Default: "Identification report ${title}"
-#: euphorie/client/docx/views.py:329
+#: euphorie/client/docx/views.py:333
 msgid "filename_report_identification"
 msgstr "Rapport ta' identifikazzjoni ${title}"
 
@@ -2555,7 +2559,7 @@ msgid "header_oira_report_consultation"
 msgstr ""
 
 #. Default: "OiRA Report: “${title}”"
-#: euphorie/client/docx/views.py:215
+#: euphorie/client/docx/views.py:219
 msgid "header_oira_report_download"
 msgstr ""
 
@@ -2590,7 +2594,7 @@ msgid "header_osh_tool_navigation"
 msgstr ""
 
 #. Default: "Risks that have been identified, evaluated and have an Action Plan"
-#: euphorie/client/docx/views.py:225
+#: euphorie/client/docx/views.py:229
 msgid "header_present_risks"
 msgstr ""
 
@@ -2675,7 +2679,7 @@ msgid "header_risks"
 msgstr "Riskji"
 
 #. Default: "Hazards/problems that have been managed or are not present in your organisation"
-#: euphorie/client/docx/views.py:237
+#: euphorie/client/docx/views.py:241
 msgid "header_risks_not_present"
 msgstr ""
 
@@ -2736,12 +2740,12 @@ msgid "header_training"
 msgstr ""
 
 #. Default: "Hazards/problems that have been \"parked\" and are still to be dealt with"
-#: euphorie/client/docx/views.py:233
+#: euphorie/client/docx/views.py:237
 msgid "header_unanswered_risks"
 msgstr ""
 
 #. Default: "Risks that have been identified but do NOT have an Action Plan"
-#: euphorie/client/docx/views.py:229
+#: euphorie/client/docx/views.py:233
 msgid "header_unevaluated_risks"
 msgstr ""
 
@@ -2972,7 +2976,7 @@ msgstr ""
 "ta' Għodda tal-OiRA eżistenti.."
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
-#: euphorie/client/browser/risk.py:289 euphorie/content/risk.py:361
+#: euphorie/client/browser/risk.py:307 euphorie/content/risk.py:361
 msgid "help_default_frequency"
 msgstr ""
 "Indika l-frekwenza li biha dan ir-riskju jimmaterjalizza ruħu f'sitwazzjoni "
@@ -2986,12 +2990,12 @@ msgstr ""
 "jkunu jistgħu jibdlu l-prijorità."
 
 #. Default: "Indicate how likely occurence of this risk is in a normal situation."
-#: euphorie/client/browser/risk.py:284 euphorie/content/risk.py:388
+#: euphorie/client/browser/risk.py:302 euphorie/content/risk.py:388
 msgid "help_default_probability"
 msgstr "Indika l-probabbiltà ta' dan ir-riskju f'sitwazzjoni normali."
 
 #. Default: "Indicate the severity if this risk occurs."
-#: euphorie/client/browser/risk.py:293 euphorie/content/risk.py:339
+#: euphorie/client/browser/risk.py:311 euphorie/content/risk.py:339
 msgid "help_default_severity"
 msgstr "Indika s-severità jekk dan ir-riskju jimmaterjalizza ruħu."
 
@@ -4011,12 +4015,12 @@ msgid "label_old_password"
 msgstr "Password Attwali"
 
 #. Default: "Page"
-#: euphorie/client/browser/session.py:790
+#: euphorie/client/browser/session.py:785
 msgid "label_page"
 msgstr "Paġna"
 
 #. Default: "of"
-#: euphorie/client/browser/session.py:793
+#: euphorie/client/browser/session.py:788
 msgid "label_page_of"
 msgstr "minn"
 
@@ -4066,7 +4070,7 @@ msgid "label_profilequestion_question"
 msgstr "Mistoqsija"
 
 #. Default: "Published"
-#: euphorie/client/browser/templates/publication_menu.pt:23
+#: euphorie/client/browser/templates/publication_menu.pt:24
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:123
 #: euphorie/client/browser/templates/status.pt:89
 msgid "label_published"
@@ -4437,7 +4441,7 @@ msgid "label_yes_sufficient"
 msgstr "Iva, ir-riskju li jifdal huwa aċċettabbli"
 
 #. Default: "Last edited by ${name} on ${date}."
-#: euphorie/client/browser/templates/publication_menu.pt:34
+#: euphorie/client/browser/templates/publication_menu.pt:39
 msgid "last_edited_by"
 msgstr ""
 
@@ -4580,62 +4584,62 @@ msgid "message_lock_warn"
 msgstr ""
 
 #. Default: "A measure has been removed from your action plan."
-#: euphorie/client/browser/risk.py:982
+#: euphorie/client/browser/risk.py:993
 msgid "message_measure_removed"
 msgstr "Mizura tneħħiet mill-pjan t’azzjoni tiegħek."
 
 #. Default: "A measure has been added to your action plan."
-#: euphorie/client/browser/risk.py:910
+#: euphorie/client/browser/risk.py:921
 msgid "message_measure_saved"
 msgstr "Miżura ġiet miżjuda fil-pjan t’azzjoni tiegħek."
 
 #. Default: "A measure has been updated in your action plan."
-#: euphorie/client/browser/risk.py:946
+#: euphorie/client/browser/risk.py:957
 msgid "message_measure_updated"
 msgstr "Mizura ġiet aġġornata fil-pjan t’azzjoni tiegħek."
 
 #. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:1008
+#: euphorie/client/browser/risk.py:1019
 msgid "message_measures_removed"
 msgstr "${no_of_measures} miżuri tneħħew mill-pjan t’azzjoni tiegħek."
 
 #. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:990
+#: euphorie/client/browser/risk.py:1001
 msgid "message_measures_removed_3"
 msgstr "${no_of_measures} miżuri tneħħew mill-pjan t’azzjoni tiegħek."
 
 #. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:999
+#: euphorie/client/browser/risk.py:1010
 msgid "message_measures_removed_3_4"
 msgstr "${no_of_measures} miżuri tneħħew mill-pjan t’azzjoni tiegħek."
 
 #. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:936
+#: euphorie/client/browser/risk.py:947
 msgid "message_measures_saved"
 msgstr "${no_of_measures} miżuri ġew miżjuda mal-pjan t’azzjoni teigħek."
 
 #. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:918
+#: euphorie/client/browser/risk.py:929
 msgid "message_measures_saved_2"
 msgstr "${no_of_measures} miżuri ġew miżjuda mal-pjan t’azzjoni teigħek."
 
 #. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:927
+#: euphorie/client/browser/risk.py:938
 msgid "message_measures_saved_3_4"
 msgstr "${no_of_measures} miżuri ġew miżjuda mal-pjan t’azzjoni teigħek."
 
 #. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:972
+#: euphorie/client/browser/risk.py:983
 msgid "message_measures_updated"
 msgstr "${no_of_measures} miżuri ġew aġġornati fil-pjan t’azzjoni tiegħek."
 
 #. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:954
+#: euphorie/client/browser/risk.py:965
 msgid "message_measures_updated_2"
 msgstr "${no_of_measures} miżuri ġew aġġornati fil-pjan t’azzjoni tiegħek."
 
 #. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:963
+#: euphorie/client/browser/risk.py:974
 msgid "message_measures_updated_3_4"
 msgstr "${no_of_measures} miżuri ġew aġġornati fil-pjan t’azzjoni tiegħek."
 
@@ -4981,7 +4985,7 @@ msgstr ""
 "ġejjin:"
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:883
+#: euphorie/client/docx/compiler.py:885
 msgid "report_identification_revision"
 msgstr ""
 
