@@ -392,7 +392,11 @@ class PortletBase(BrowserView):
 
 class MyRAsPortlet(PortletBase):
 
-    columns = "2"
+    @property
+    def columns(self):
+        if self.surveys:
+            return "2"
+        return "3"
 
     @property
     @memoize_contextless
