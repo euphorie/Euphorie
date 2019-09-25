@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.4 (unreleased)
+11.1.4 (2019-09-25)
 -------------------
 
 - Omega risks can have an image
