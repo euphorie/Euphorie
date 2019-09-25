@@ -125,7 +125,6 @@
            tal:condition="not:isAnonymous"
         >
           <button id="agreeButton"
-                  disabled="disabled"
                   type="submit"
                   value="agree"
                   i18n:translate="agree_and_continue"
