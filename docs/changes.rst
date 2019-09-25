@@ -4,8 +4,12 @@ Changelog
 11.1.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Omega risks can have an image
+- Adjust OiRA process for Italy
 
+Technical:
+
+- Use alembic for database migrations
 
 11.1.3 (2019-09-09)
 -------------------
