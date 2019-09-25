@@ -483,7 +483,7 @@ class DeleteSession(SessionMixin, BrowserView):
             self.request,
             "success",
         )
-        self.request.response.redirect(self.webhelpers.client_url)
+        self.request.response.redirect(self.webhelpers.country_url)
 
 
 class ConfirmationDeleteSession(SessionMixin, BrowserView):
