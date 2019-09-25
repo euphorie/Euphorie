@@ -429,7 +429,7 @@ class Identification(SessionMixin, BrowserView):
         question = self.first_question
         if not question:
             return
-        return getTreeData(self.request, self.context, element=question)
+        return getTreeData(self.request, self.context, element=question, no_current=True)
 
     @property
     def extra_text(self):
@@ -681,6 +681,7 @@ class ActionPlanView(SessionMixin, BrowserView):
             element=self.first_question,
             filter=self.question_filter,
             phase=self.__name__,
+            no_current=True,
         )
 
     @property
