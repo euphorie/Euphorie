@@ -382,6 +382,13 @@ class MyRAsPortlet(BrowserView):
             context=self.context, include_archived=not self.hide_archived
         ).all()
 
+    @property
+    def label_start_session(self):
+        label = api.portal.translate(
+            _(u"link_start_session", default=u"start a new session")
+        )
+        return label.capitalize()
+
 
 class AvailableToolsPortlet(BrowserView):
     @property

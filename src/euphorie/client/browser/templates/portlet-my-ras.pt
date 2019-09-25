@@ -4,7 +4,6 @@
        tal:define="
          sessions view/sessions;
        "
-       tal:condition="sessions"
   >
     <div class="content"
          tal:define="
@@ -59,6 +58,7 @@
       <div class="portlet-body"
            id="portlet-body-my-ras"
       >
+        <tal:sessions condition="sessions">
         <article class="pat-rich">
           <p i18n:translate="info_select_session">Select an earlier session to complete or review or
             <a class="pat-modal icon-plus-circle"
@@ -96,6 +96,17 @@
             >More</a>
           </li>
         </ul>
+        </tal:sessions>
+        <tal:no-sessions condition="not:sessions">
+          <article class="pat-rich">
+            <p>
+              <a class="pat-modal icon-plus-circle"
+               href="${here/absolute_url}/@@new-session.html#document-content"
+              >${view/label_start_session}</a>
+            </p>
+          </article>
+        </tal:no-sessions>
+
       </div>
     </div>
   </div>
