@@ -30,7 +30,7 @@
     </article>
 
 <form class="pat-validation pat-inject"
-      data-pat-inject="source: #content; target: #content; && source: #navigation; target: #navigation;"
+      data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #navigation; target: #navigation;"
       method="post"
       id="profile-form"
       action="${request/URL}"

@@ -352,38 +352,8 @@ class SessionBrowserNavigator(BrowserView):
         return False
 
 
-class MyRAsPortlet(BrowserView):
+class PortletBase(BrowserView):
 
-    columns = "2"
-
-    @property
-    @memoize
-    def webhelpers(self):
-        return api.content.get_view("webhelpers", self.context, self.request)
-
-    @property
-    @memoize_contextless
-    def hide_archived(self):
-        """ By default we hide the archived session and
-        we have a checkbox that shows with a sibling
-        hide_archived_marker input field
-        """
-        if self.request.get("hide_archived_marker"):
-            if not self.request.get("hide_archived"):
-                return False
-        return True
-
-    @property
-    @memoize
-    def sessions(self):
-        """ We want the archived sessions
-        """
-        return self.webhelpers.get_sessions_query(
-            context=self.context, include_archived=not self.hide_archived
-        ).all()
-
-
-class AvailableToolsPortlet(BrowserView):
     @property
     @memoize
     def webhelpers(self):
@@ -418,3 +388,45 @@ class AvailableToolsPortlet(BrowserView):
                 )
             )
         return sorted(surveys, key=lambda survey: survey.title)
+
+
+class MyRAsPortlet(PortletBase):
+
+    @property
+    def columns(self):
+        if self.surveys:
+            return "2"
+        return "3"
+
+    @property
+    @memoize_contextless
+    def hide_archived(self):
+        """ By default we hide the archived session and
+        we have a checkbox that shows with a sibling
+        hide_archived_marker input field
+        """
+        if self.request.get("hide_archived_marker"):
+            if not self.request.get("hide_archived"):
+                return False
+        return True
+
+    @property
+    @memoize
+    def sessions(self):
+        """ We want the archived sessions
+        """
+        return self.webhelpers.get_sessions_query(
+            context=self.context, include_archived=not self.hide_archived
+        ).all()
+
+    @property
+    def label_start_session(self):
+        label = api.portal.translate(
+            _(u"link_start_session", default=u"start a new session")
+        )
+        return label.capitalize()
+
+
+class AvailableToolsPortlet(PortletBase):
+
+    pass

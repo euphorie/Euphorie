@@ -119,7 +119,10 @@ class SessionMixin(object):
         if not getattr(self.survey, "external_site_logo", False):
             return ""
         scales = self.survey.restrictedTraverse("@@images")
-        scale = scales.scale("external_site_logo", scale="large")
+        try:
+            scale = scales.scale("external_site_logo", scale="large")
+        except:
+            scale = None
         return scale.url if scale else ""
 
     def verify_view_permission(self):
@@ -426,7 +429,7 @@ class Identification(SessionMixin, BrowserView):
         question = self.first_question
         if not question:
             return
-        return getTreeData(self.request, self.context, element=question)
+        return getTreeData(self.request, self.context, element=question, no_current=True)
 
     @property
     def extra_text(self):
@@ -480,7 +483,7 @@ class DeleteSession(SessionMixin, BrowserView):
             self.request,
             "success",
         )
-        self.request.response.redirect(self.webhelpers.client_url)
+        self.request.response.redirect(self.webhelpers.country_url)
 
 
 class ConfirmationDeleteSession(SessionMixin, BrowserView):
@@ -678,6 +681,7 @@ class ActionPlanView(SessionMixin, BrowserView):
             element=self.first_question,
             filter=self.question_filter,
             phase=self.__name__,
+            no_current=True,
         )
 
     @property

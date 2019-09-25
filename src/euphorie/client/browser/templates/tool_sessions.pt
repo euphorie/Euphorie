@@ -41,7 +41,7 @@
                       class="ra">
                     <a href="${here/absolute_url}/++session++${session/id}/@@start"
                       class="pat-inject follow"
-                      data-pat-inject="source: #content; target: #content; && source: #osc; target: #osc; history: record"
+                      data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
                     >
                       <h4 class="name field">${session/title}</h4>
                       <p class="date field">

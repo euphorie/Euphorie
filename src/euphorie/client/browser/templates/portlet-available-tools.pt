@@ -1,6 +1,8 @@
 
 <div class="portlet span-1"
      id="portlet-available-tools"
+     tal:define="surveys view/surveys"
+     tal:condition="surveys"
 >
   <div class="content">
     <article class="portlet-intro">
@@ -28,7 +30,7 @@
           <fieldset class="department">
             <fieldset class="tools pat-checklist radio">
               <label class="tool"
-                     tal:repeat="survey view/surveys"
+                     tal:repeat="survey surveys"
               >
                 <input name="survey"
                        type="radio"
