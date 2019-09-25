@@ -21,7 +21,6 @@ from plonetheme.nuplone.utils import formatDate
 from z3c.appconfig.interfaces import IAppConfig
 from zope.component import getUtility
 from zope.i18n import translate
-import htmllaundry
 from plone import api
 import re
 
@@ -502,7 +501,7 @@ class DocxCompiler(BaseOfficeCompiler):
         self.set_consultation_box()
 
 
-class DocxCompilerItaly(DocxCompiler):
+class DocxCompilerItalyOriginal(DocxCompiler):
 
     _template_filename = resource_filename(
         'euphorie.client.docx',
@@ -518,19 +517,28 @@ class DocxCompilerItaly(DocxCompiler):
         self.set_body(data)
 
 
-class DocxCompilerFrance(DocxCompiler):
+class DocxCompilerFullTable(DocxCompiler):
     _template_filename = resource_filename(
         'euphorie.client.docx',
         'templates/oira_fr.docx',
     )
+
+    show_risk_descriptions = True
+    only_anwered_risks = False
+    use_measures_subheading = True
+    risk_description_col = 1
+    risk_answer_col = 2
+    risk_measures_col = 3
 
     justifiable_map = {
         'yes': 'Oui',
         'no': 'Non',
     }
 
+    title_extra = u""
+
     def __init__(self, context, request=None):
-        super(DocxCompilerFrance, self).__init__(context, request)
+        super(DocxCompilerFullTable, self).__init__(context, request)
 
     def remove_row(self, row):
         tbl = row._parent._parent
@@ -542,7 +550,18 @@ class DocxCompilerFrance(DocxCompiler):
         ''' Returns the first table of the template,
         which contains the modules
         '''
-        return self.template.tables[0]
+        return self.template.tables[-1]
+
+    @property
+    def session_title_lookup(self):
+        lookup = {
+            0: {
+                0: {"fname": "title", "title": _(u"label_title", default=u"Title")},
+                2: {"title": _(u"label_report_staff", default=u"Staff who participated in the risk assessment")},
+                4: {"fname": "today", "title": _(u"label_report_date", default=u"Date of editing")},
+            }
+        }
+        return lookup
 
     def set_session_title_row(self, data):
         ''' This fills the workspace activity run with some text
@@ -554,37 +573,37 @@ class DocxCompilerFrance(DocxCompiler):
         after this class is initialized.
         We have 2 fields to fill, all following the same principle
         '''
-        lookup = {
-            0: "title",
-            4: "today",
-        }
+
         data['today'] = formatDate(self.request, date.today())
 
-        for num, fname in lookup.items():
-            _r = self.template.paragraphs[1].runs[num]
-            # This run should be set in two paragraphs (which appear clones)
-            # One is inside a mc:Choice and the other is inside a mc:Fallback
-            for subpar in _r._element.findall('.//%s' % qn('w:p')):
-                subpar.clear_content()
-                subrun = subpar.add_r()
-                subrun.text = data.get(fname, '') or ''
-                subrpr = subrun.get_or_add_rPr()
-                subrpr.get_or_add_rFonts()
-                subrpr.get_or_add_rFonts().set(qn('w:ascii'), 'CorpoS')
-                subrpr.get_or_add_rFonts().set(qn('w:hAnsi'), 'CorpoS')
-                subrpr.get_or_add_sz().set(qn('w:val'), '32')
-                szCs = OxmlElement('w:szCs')
-                szCs.attrib[qn('w:val')] = '16'
-                subrpr.append(szCs)
+        for row, values in self.session_title_lookup.items():
+            for num, settings in values.items():
+                self.template.paragraphs[self.paragraphs_offset + row].runs[num].text = api.portal.translate(
+                    settings["title"])
+                _r = self.template.paragraphs[self.paragraphs_offset + row + 1].runs[num]
+                # This run should be set in two paragraphs (which appear clones)
+                # One is inside a mc:Choice and the other is inside a mc:Fallback
+                for subpar in _r._element.findall('.//%s' % qn('w:p')):
+                    subpar.clear_content()
+                    subrun = subpar.add_r()
+                    subrun.text = data.get(settings.get("fname", ""), '') or ''
+                    subrpr = subrun.get_or_add_rPr()
+                    subrpr.get_or_add_rFonts()
+                    subrpr.get_or_add_rFonts().set(qn('w:ascii'), 'CorpoS')
+                    subrpr.get_or_add_rFonts().set(qn('w:hAnsi'), 'CorpoS')
+                    subrpr.get_or_add_sz().set(qn('w:val'), '28')
+                    szCs = OxmlElement('w:szCs')
+                    szCs.attrib[qn('w:val')] = '14'
+                    subrpr.append(szCs)
 
-        header = self.template.sections[0].header
+        header = self.template.sections[self.sections_offset].header
         header.paragraphs[1].text = (
-            u"{} - Evaluation des risques professionnels".format(
-                data['survey_title'])
+            u"{title}{extra}".format(
+                title=data['survey_title'], extra=self.title_extra)
         )
 
         # And now we handle the document footer
-        footer = self.template.sections[0].footer
+        footer = self.template.sections[self.sections_offset].footer
         # The footer contains a table with 3 columns:
         # left we have a logo, center for text, right for the page numbers
         cell1, cell2, cell3 = footer.tables[0].row_cells(0)
@@ -600,10 +619,17 @@ class DocxCompilerFrance(DocxCompiler):
         paragraph.text = risk['title']
         if risk['comment']:
             cell.add_paragraph(risk['comment'], style="Risk Normal")
-        HtmlToWord(risk['description'], cell)
+        if self.show_risk_descriptions:
+            HtmlToWord(risk['description'], cell)
         if risk['measures']:
-            cell.add_paragraph()
-            cell.add_paragraph(u"Mesures déjà en place :", style="Risk Italics")
+            if self.show_risk_descriptions:
+                cell.add_paragraph()
+            if self.use_measures_subheading:
+                cell.add_paragraph(
+                    api.portal.translate(
+                        _(u"report_measures_in_place", default=u"Measures already in place:")
+                    ),
+                    style="Risk Italics")
             for measure in risk['measures']:
                 HtmlToWord(measure, cell, style="Risk Italics List")
         paragraph = cell.add_paragraph(style="Risk Normal")
@@ -621,29 +647,50 @@ class DocxCompilerFrance(DocxCompiler):
             if action.get('prevention_plan', None):
                 paragraph = cell.add_paragraph(style="Measure Indent")
                 run = paragraph.add_run()
-                run.text = u"Actions : "
+                run.text = api.portal.translate(
+                    _(u"report_actions", default=u"Actions:")
+                )
                 run.underline = True
+                run = paragraph.add_run()
+                run.text = u" "
                 run = paragraph.add_run()
                 run.text = _simple_breaks(action['prevention_plan'])
             if action.get('requirements', None):
                 paragraph = cell.add_paragraph(style="Measure Indent")
                 run = paragraph.add_run()
-                run.text = u"Compétences requises : "
+                run.text = api.portal.translate(
+                    _(u"report_competences", default=u"Required expertise:")
+                )
                 run.underline = True
+                run = paragraph.add_run()
+                run.text = u" "
                 run = paragraph.add_run()
                 run.text = _simple_breaks(action['requirements']),
 
             if action.get('responsible', None):
                 paragraph = cell.add_paragraph(
-                    u"Responsable: {}".format(action['responsible']),
+                    api.portal.translate(
+                        _(
+                            u"report_responsible",
+                            default=u"Responsible: ${responsible_name}",
+                            mapping={"responsible_name": action['responsible']}
+                        )
+                    ),
                     style="Measure Indent"
                 )
                 paragraph.runs[0].italic = True
             if action.get('planning_start', None):
                 paragraph = cell.add_paragraph(
-                    u"Date de fin: {}".format(action['planning_start']),
+                    api.portal.translate(
+                        _(
+                            u"report_end_date",
+                            default=u"To be done by: ${date}",
+                            mapping={"date": action['planning_start']}
+                        )
+                    ),
                     style="Measure Indent"
                 )
+
                 paragraph.runs[0].italic = True
 
     def merge_module_rows(self, row_module, row_risk):
@@ -665,60 +712,73 @@ class DocxCompilerFrance(DocxCompiler):
         modules = data.get('modules', [])
         table = self.get_modules_table()
 
+        unanswered_risks = []
+        not_applicable_risks = []
+
         for module in modules:
             risks = module['risks']
             if not risks:
                 continue
             row_module = table.add_row()
-            for r_idx, risk in enumerate(risks):
-                if r_idx:
+            cell = row_module.cells[0]
+            cell.paragraphs[0].text = module.get('title', '')
+            cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
+            self.set_row_borders(row_module)
+            count = 0
+            for risk in risks:
+                answer = risk.get('justifiable', '')
+                # In case our report type defines this: Omit risk if the user has not anwered it
+                if self.only_anwered_risks:
+                    if not answer:
+                        unanswered_risks.append(risk)
+                        continue
+                # Not applicable risks are never shown in the regular table
+                if answer == "n/a":
+                    not_applicable_risks.append(risk)
+                    continue
+                if count:
                     row_risk = table.add_row()
                 else:
-                    cell = row_module.cells[0]
-                    cell.paragraphs[0].text = module.get('title', '')
-                    cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
                     row_risk = row_module
-                self.set_cell_risk(row_risk.cells[1], risk)
-                row_risk.cells[2].text = self.justifiable_map.get(
-                    risk.get('justifiable', '')
-                ) or ""
-                self.set_cell_actions(row_risk.cells[3], risk)
+                count += 1
+                self.set_cell_risk(row_risk.cells[self.risk_description_col], risk)
+                if self.risk_answer_col is not None:
+                    row_risk.cells[self.risk_answer_col].text = (
+                        self.justifiable_map.get(answer) or ""
+                    )
+                self.set_cell_actions(row_risk.cells[self.risk_measures_col], risk)
 
-                if len(risks) > 1:
+                if count:
                     self.merge_module_rows(row_module, row_risk)
 
-            # set borders on last risk row, but not the top
-            settings = deepcopy(ALL_BORDERS)
-            settings['top'] = False
-            self.set_row_borders(row_risk, settings=settings)
+            if count:
+                # set borders on last risk row, but not the top
+                settings = deepcopy(ALL_BORDERS)
+                settings['top'] = False
+                self.set_row_borders(row_risk, settings=settings)
 
-        # # Set the footer row of the table
-        # row = table.add_row()
-        # self.set_row_borders(row)
-
-        def _merge_cells(row):
-            cell1, cell2, cell3, cell4 = row.cells
-            cell2_new = cell2.merge(cell3)
-            cell2_new = cell2_new.merge(cell4)
-            return (cell1, cell2_new)
-
-        # cell1_new, cell2_new = _merge_cells(row)
-        # cell1_new.paragraphs[0].text = u"Freigegeben:"
-        # txt = (
-        #     data.get('publisher', None) and
-        #     data['publisher'].loginname or u""
-        # )
-        # if data.get('published', None):
-        #     if txt:
-        #         txt = u"{} – ".format(txt)
-        #     txt = u"{}{}".format(
-        #         txt, data['published'].strftime('%d.%m.%Y'))
-        # cell2_new.paragraphs[0].text = txt
+        def _merge_cells(cells):
+            """
+            Merge all given cells into one
+            """
+            if len(cells) < 2:
+                return cells
+            cell1, rest = cells[0], cells[1:]
+            cell1_new = cell1
+            for cell in rest:
+                cell1_new = cell1_new.merge(cell)
+            return cell1_new
 
         # Finally, an empty row at the end
         row = table.add_row()
         self.set_row_borders(row)
-        _merge_cells(row)
+        # The first cell stays as it is, the second cell will be merged with all following cells
+        _merge_cells(row.cells[1:])
+
+        return unanswered_risks, not_applicable_risks
+
+    def add_extra(self, unanswered_risks, not_applicable_risks):
+        pass
 
     def compile(self, data):
         ''' Compile the template using data
@@ -733,11 +793,78 @@ class DocxCompilerFrance(DocxCompiler):
         to understand its format
         '''
         self.set_session_title_row(data)
-        self.set_modules_rows(data)
+        unanswered_risks, not_applicable_risks = self.set_modules_rows(data)
 
         # Finally clean up the modules table
         modules_table = self.get_modules_table()
         self.remove_row(modules_table.rows[1])
+
+        # Add extra, where required
+        self.add_extra(unanswered_risks, not_applicable_risks)
+
+
+class DocxCompilerFrance(DocxCompilerFullTable):
+    _template_filename = resource_filename(
+        'euphorie.client.docx',
+        'templates/oira_fr.docx',
+    )
+
+    title_extra = u"- Evaluation des risques professionnels"
+
+
+class DocxCompilerItaly(DocxCompilerFullTable):
+    """ WIP: Copy of the French report"""
+
+    sections_offset = 1
+    paragraphs_offset = 32
+
+    _template_filename = resource_filename(
+        'euphorie.client.docx',
+        'templates/oira_it_table.docx',
+    )
+
+    show_risk_descriptions = False
+    use_measures_subheading = False
+    only_anwered_risks = True
+    risk_answer_col = None
+    risk_measures_col = 2
+
+    @property
+    def session_title_lookup(self):
+        lookup = {
+            0: {
+                0: {"fname": "title", "title": _(u"label_title", default=u"Title")},
+            }
+        }
+        return lookup
+
+    def add_extra(self, unanswered_risks, not_applicable_risks):
+        doc = self.template
+
+        def print_risk(risk):
+            p = doc.add_paragraph(style="List Bullet")
+            run = p.add_run()
+            run.font.bold = True
+            run.text = risk["number"]
+            run = p.add_run()
+            run.text = u" %s" % risk["title"]
+
+        if not_applicable_risks:
+            doc.add_paragraph()
+            doc.add_paragraph(
+                u"Adempimenti e rischi non applicabili",
+                style="Heading 2")
+            for risk in not_applicable_risks:
+                print_risk(risk)
+
+        if unanswered_risks:
+            doc.add_paragraph()
+            doc.add_paragraph(
+                u"I seguenti rischi non sono stati ancora valutati",
+                style="Heading 2")
+            doc.add_paragraph()
+            for risk in unanswered_risks:
+                print_risk(risk)
 
 
 class IdentificationReportCompiler(DocxCompiler):

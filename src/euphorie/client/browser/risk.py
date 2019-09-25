@@ -15,7 +15,7 @@ from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
 from euphorie.client.subscribers.imagecropping import _initial_size
-from euphorie.client.utils import HasText
+from euphorie.client import utils
 from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import get_tool_type
@@ -58,9 +58,6 @@ class IdentificationView(BrowserView):
 
     question_filter = None
 
-    # default value is False, can be overwritten by certain conditions
-    skip_evaluation = False
-
     # default value is True, can be overwritten by certain conditions
     show_explanation_on_always_present_risks = True
 
@@ -91,6 +88,13 @@ class IdentificationView(BrowserView):
 
     @property
     @memoize
+    def survey(self):
+        """ This is the survey dexterity object
+        """
+        return self.webhelpers._survey
+
+    @property
+    @memoize
     def next_question(self):
         return FindNextQuestion(
             self.context, dbsession=self.session, filter=self.question_filter
@@ -105,6 +109,31 @@ class IdentificationView(BrowserView):
             self.context.zodb_path.split("/")
         )
 
+    @property
+    @memoize
+    def italy_special(self):
+        return self.webhelpers.country == "it"
+
+    @property
+    @memoize
+    def skip_evaluation(self):
+        """ Default value is False, but it can be tweaked in certain conditions"""
+        if self.italy_special and self.risk and (
+            self.risk.type == "top5" or self.risk.evaluation_method == "fixed"
+        ):
+            return True
+        return False
+
+    @property
+    @memoize
+    def evaluation_condition(self):
+        """ In what circumstances will the Evaluation panel be shown, provided that
+        evaluation is not skipped in general? """
+        condition = "condition: answer=no"
+        if self.italy_special and not self.skip_evaluation:
+            condition = "condition: answer=no or answer=yes"
+        return condition
+
     def __call__(self):
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
@@ -116,6 +145,7 @@ class IdentificationView(BrowserView):
             )
         if self.webhelpers.redirectOnSurveyUpdate():
             return
+        utils.setLanguage(self.request, self.survey, self.survey.language)
 
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get("euphorie")
@@ -262,17 +292,17 @@ class IdentificationView(BrowserView):
 
     def _prepare_risk(self):
         has_risk_description = (
-            self.risk and HasText(self.risk.description)
+            self.risk and utils.HasText(self.risk.description)
         ) or getattr(self.context, "custom_description", "")
         self.show_info = getattr(self.risk, "image", None) or (
-            self.risk is None or HasText(self.risk.description)
+            self.risk is None or utils.HasText(self.risk.description)
         )
         self.image_class = IMAGE_CLASS[self.number_images]
         number_files = 0
         for i in range(1, 5):
             number_files += getattr(self.risk, "file{0}".format(i), None) and 1 or 0
         self.has_files = number_files > 0
-        self.has_legal = HasText(getattr(self.risk, "legal_reference", None))
+        self.has_legal = utils.HasText(getattr(self.risk, "legal_reference", None))
         self.show_resources = self.has_legal or self.has_files
 
         self.risk_number = self.context.number
@@ -345,10 +375,6 @@ class IdentificationView(BrowserView):
             and "template-two-column"
             or "template-default"
         )
-
-        # Italian special
-        if self.webhelpers.country == "it":
-            self.skip_evaluation = True
 
     @property
     @memoize
@@ -548,9 +574,6 @@ class ActionPlanView(BrowserView):
     question_filter = model.ACTION_PLAN_FILTER
     # The risk filter will only find risks
     risk_filter = model.RISK_PRESENT_OR_TOP5_FILTER
-    # Skip evaluation?
-    # The default value is False, can be overwritten by certain conditions
-    skip_evaluation = False
     # Which fields should be skipped? Default are none, i.e. show all
     skip_fields = []
     # What extra style to use for buttons like "Add measure". Default is None.
@@ -563,8 +586,25 @@ class ActionPlanView(BrowserView):
 
     @property
     @memoize
+    def survey(self):
+        """ This is the survey dexterity object
+        """
+        return self.webhelpers._survey
+
+    @property
+    @memoize
     def session(self):
         return self.webhelpers.traversed_session.session
+
+    @property
+    @memoize
+    def skip_evaluation(self):
+        """ Default value is False, but it can be tweaked in certain conditions"""
+        if self.italy_special and self.risk and (
+            self.risk.type == "top5" or self.risk.evaluation_method == "fixed"
+        ):
+            return True
+        return False
 
     def get_existing_measures(self):
         if not self.use_existing_measures:
@@ -612,6 +652,10 @@ class ActionPlanView(BrowserView):
     @property
     def risk_present(self):
         return self.context.identification == "no"
+
+    @property
+    def risk_postponed(self):
+        return self.context.identification is None and self.context.postponed
 
     @property
     def is_custom_risk(self):
@@ -682,6 +726,7 @@ class ActionPlanView(BrowserView):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
         context = aq_inner(self.context)
+        utils.setLanguage(self.request, self.survey, self.survey.language)
 
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get("euphorie")
@@ -750,14 +795,14 @@ class ActionPlanView(BrowserView):
         self.title = context.parent.title
 
         # Italian special
+        if self.is_custom_risk:
+            self.risk.description = u""
+            self.risk.evaluation_method = u""
         if self.italy_special:
-            self.skip_evaluation = True
             measures_full_text = True
         else:
             measures_full_text = False
-        if self.is_custom_risk:
-            self.risk.description = u""
-        else:
+        if not self.is_custom_risk:
             existing_measures = [
                 txt.strip() for (txt, active) in self.get_existing_measures() if active
             ]
@@ -765,13 +810,13 @@ class ActionPlanView(BrowserView):
             for solution in self.risk.values():
                 if not ISolution.providedBy(solution):
                     continue
-                if measures_full_text:
-                    match = u"%s: %s" % (
-                        (getattr(solution, "description", "") or "").strip(),
-                        (getattr(solution, "prevention_plan", "") or "").strip(),
-                    )
-                else:
-                    match = solution.description.strip()
+                description = (
+                    getattr(solution, "description", "") or "").strip()
+                prevention_plan = (
+                    getattr(solution, "prevention_plan", "") or "").strip()
+                match = description
+                if measures_full_text and prevention_plan:
+                    match = u"%s: %s" % (match, prevention_plan)
                 if match not in existing_measures:
                     solutions.append(
                         {

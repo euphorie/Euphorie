@@ -354,7 +354,7 @@ class SessionBrowserNavigator(BrowserView):
 
 class MyRAsPortlet(BrowserView):
 
-    columns = "3"
+    columns = "2"
 
     @property
     @memoize

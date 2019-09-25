@@ -25,7 +25,6 @@
                   sidebar_default python:page_section in ['identification', 'actionplan'] and 'sidebar-on' or 'sidebar-off';
                   came_from_param webhelpers/came_from_param;
                   initial_view request/initial_view|nothing;
-                  styles_override webhelpers/styles_override;
                   tools context/@@tools;
                   variation_class python:getattr(view, 'variation_class', None);
                 ">
@@ -134,9 +133,6 @@
             id="tree" class="${variation_class}">
           <metal:include tal:define="id string:tool-navigation" use-macro="context/@@includes/macros/osh"/>
           <metal:slot define-slot="aside-navigator">
-            <style type="text/css" tal:condition="styles_override">
-                ${styles_override}
-            </style>
             <ol class="navigation"
                 id="steps"
             >

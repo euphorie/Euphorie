@@ -15,7 +15,6 @@
           language here/plone_portal_state/language;
           absolute_url here/absolute_url;
           zodb_path request/zodb_path|nothing;
-          styles_override webhelpers/styles_override;
         ">
   <metal:include tal:define="id string:ra-browser" use-macro="context/@@includes/macros/osh"/>
   <metal:slot define-slot="aside-header">
@@ -65,9 +64,6 @@
 
   <metal:slot define-slot="aside-sessions">
     <div id="navigation">
-      <style type="text/css" tal:condition="styles_override">
-          ${styles_override}
-      </style>
       <div class="miller-columns"
            id="miller-columns"
       >

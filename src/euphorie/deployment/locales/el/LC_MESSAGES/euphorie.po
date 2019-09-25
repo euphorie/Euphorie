@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-03 15:35+0000\n"
+"POT-Creation-Date: 2019-09-24 11:18+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
@@ -93,7 +93,7 @@ msgstr ""
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
 msgstr "${provide-evidence} στις ελεγκτικές αρχές (επιθεώρηση εργασίας)"
 
-#: euphorie/client/browser/templates/webhelpers.pt:457
+#: euphorie/client/browser/templates/webhelpers.pt:456
 msgid "${view/description_probability}"
 msgstr ""
 
@@ -245,7 +245,7 @@ msgstr ""
 msgid "Are you sure you want to continue? This action can not be reverted."
 msgstr ""
 
-#: euphorie/client/browser/risk.py:709
+#: euphorie/client/browser/risk.py:817
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -269,13 +269,8 @@ msgstr ""
 msgid "Automatically generate unique ids for content"
 msgstr ""
 
-#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:74
-#: euphorie/client/browser/templates/sessions-dashboard.pt:116
-msgid "Available OiRA tools"
-msgstr "Διαθέσιμα εργαλεία OiRA"
-
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:25
-#: euphorie/client/browser/templates/sessions-dashboard.pt:193
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:23
+#: euphorie/client/browser/templates/sessions-dashboard.pt:58
 msgid "Back"
 msgstr ""
 
@@ -327,7 +322,7 @@ msgstr "Παράδειγμα πελάτη για μία μόνο εμφάνισ�
 msgid "Client example for multiple occurances."
 msgstr "Παράδειγμα πελάτη για περισσότερες από μία εμφανίσεις."
 
-#: euphorie/client/browser/templates/sessions-dashboard.pt:53
+#: euphorie/client/browser/templates/portlet-my-ras.pt:37
 msgid "Close"
 msgstr ""
 
@@ -363,7 +358,7 @@ msgstr ""
 msgid "Content add bar"
 msgstr ""
 
-#: euphorie/content/configure.zcml:116
+#: euphorie/content/configure.zcml:117
 msgid "Content types for defining sectors and surveys"
 msgstr ""
 
@@ -435,7 +430,7 @@ msgstr "Χρειάζεται ειδική προετοιμασία;"
 msgid "Documentation"
 msgstr "Έγγραφα"
 
-#: euphorie/client/browser/session.py:324
+#: euphorie/client/browser/session.py:330
 msgid "Does this happen in multiple places?"
 msgstr "Συμβαίνει αυτό σε πολλούς χώρους;"
 
@@ -492,15 +487,15 @@ msgstr "Επεξεργασία Ερώτηση προφίλ"
 msgid "Email address/account name"
 msgstr "Διεύθυνση email/όνομα λογαριασμού "
 
-#: euphorie/client/browser/session.py:329
+#: euphorie/client/browser/session.py:335
 msgid "Enter the name of the location"
 msgstr "Εισαγωγή ονομασίας τοποθεσίας"
 
-#: euphorie/client/browser/session.py:334
+#: euphorie/client/browser/session.py:340
 msgid "Enter the names of each location"
 msgstr "Εισαγωγή ονομασίας κάθε τοποθεσίας"
 
-#: euphorie/content/configure.zcml:116
+#: euphorie/content/configure.zcml:117
 msgid "Euphorie content types"
 msgstr ""
 
@@ -516,8 +511,8 @@ msgstr ""
 msgid "European Union"
 msgstr "Ευρωπαϊκή Ένωση "
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:57
-#: euphorie/client/browser/templates/sessions-dashboard.pt:225
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:55
+#: euphorie/client/browser/templates/sessions-dashboard.pt:90
 msgid "Expand sidebar"
 msgstr ""
 
@@ -525,7 +520,7 @@ msgstr ""
 msgid "F.Y.R. Macedonia"
 msgstr "ΠΓΔ Μακεδονίας"
 
-#: euphorie/client/browser/templates/sessions-dashboard.pt:48
+#: euphorie/client/browser/templates/portlet-my-ras.pt:32
 msgid "Filters"
 msgstr ""
 
@@ -549,7 +544,7 @@ msgstr ""
 msgid "Germany"
 msgstr "Γερμανία"
 
-#: euphorie/client/browser/templates/sessions-dashboard.pt:69
+#: euphorie/client/browser/templates/portlet-my-ras.pt:53
 msgid "Hide archived risk assessments"
 msgstr ""
 
@@ -579,7 +574,7 @@ msgstr ""
 "άλλη στιγμή το θελήσετε στο μέλλον, συνεχίζοντας από το σημείο όπου "
 "σταματήσατε. "
 
-#: euphorie/client/browser/webhelpers.py:643
+#: euphorie/client/browser/webhelpers.py:628
 msgid "I wish to share the following with you"
 msgstr "Θέλω να μοιραστώ μαζί σας τα παρακάτω"
 
@@ -596,7 +591,7 @@ msgid "Important"
 msgstr "Σημαντικό"
 
 #: euphorie/client/templates/plain.pt:195
-#: euphorie/client/templates/shell.pt:107
+#: euphorie/client/templates/shell.pt:106
 msgid "Info"
 msgstr "Πληροφορίες"
 
@@ -631,13 +626,13 @@ msgstr ""
 msgid "Kosovo"
 msgstr "Κοσσυφοπέδιο"
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:118
-#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:53
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:112
 #: euphorie/client/browser/templates/status.pt:73
+#: euphorie/client/browser/templates/tool_sessions.pt:49
 msgid "Last saved"
 msgstr "αποθηκεύτηκε"
 
-#: euphorie/client/templates/shell.pt:302
+#: euphorie/client/templates/shell.pt:298
 msgid "Loading Risk Assessments&hellip;"
 msgstr ""
 
@@ -683,9 +678,9 @@ msgstr "Παρακολούθηση της σωστής ή μη διαχείρι�
 msgid "Montenegro"
 msgstr "Μαυροβούνιο"
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:149
-#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:63
-#: euphorie/client/browser/templates/sessions-dashboard.pt:102
+#: euphorie/client/browser/templates/portlet-my-ras.pt:92
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:143
+#: euphorie/client/browser/templates/tool_sessions.pt:62
 msgid "More"
 msgstr ""
 
@@ -702,8 +697,7 @@ msgstr "Ερώτηση πολλαπλών σημείων"
 msgid "Multiple occurance prompt"
 msgstr "Ειδοποίηση για περισσότερες από μία εμφανίσεις"
 
-#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:31
-#: euphorie/client/browser/templates/sessions-dashboard.pt:36
+#: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "My risk assessments"
 msgstr "Προηγούμενες μελέτες μου εκτίμησης κινδύνου"
 
@@ -715,9 +709,8 @@ msgstr "Όνομα"
 msgid "Navigation tree for sector management"
 msgstr ""
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:49
-#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:158
-#: euphorie/client/browser/templates/sessions-dashboard.pt:217
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:47
+#: euphorie/client/browser/templates/sessions-dashboard.pt:82
 msgid "New"
 msgstr "Νέα Εκτίμηση Κινδύνου"
 
@@ -726,16 +719,16 @@ msgstr "Νέα Εκτίμηση Κινδύνου"
 msgid "No"
 msgstr "Όχι"
 
-#: euphorie/client/browser/risk.py:808
+#: euphorie/client/browser/risk.py:916
 msgid "No changes were made to measures in your action plan."
 msgstr ""
 "Δεν έγιναν αλλαγές στα μέτρα που περιλαμβάνονται στο σχέδιο δράσης σας."
 
-#: euphorie/client/browser/templates/publication_menu.pt:79
+#: euphorie/client/browser/templates/publication_menu.pt:84
 msgid "No information about the last editor is available."
 msgstr ""
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:158
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:152
 msgid "No risk assessments are available for this selection."
 msgstr ""
 
@@ -913,11 +906,11 @@ msgstr "Για να παρέχετε αποδείξεις"
 msgid "Provide evidence for supervisory authorities."
 msgstr "παρέχετε στοιχεία στις ελεγκτικές αρχές,"
 
-#: euphorie/client/browser/templates/publication_menu.pt:46
+#: euphorie/client/browser/templates/publication_menu.pt:51
 msgid "Publish Risk Assessment"
 msgstr ""
 
-#: euphorie/client/browser/templates/webhelpers.pt:316
+#: euphorie/client/browser/templates/webhelpers.pt:315
 msgid "Read more"
 msgstr "Διαβάστε περισσότερα"
 
@@ -930,7 +923,7 @@ msgstr ""
 "συνθήκες αλλάξουν (νέα μηχανήματα, νέοι εργαζόμενοι, πορίσματα από έρευνες "
 "ατυχημάτων, κλπ.)."
 
-#: euphorie/client/browser/templates/publication_menu.pt:68
+#: euphorie/client/browser/templates/publication_menu.pt:73
 msgid "Refresh publication date"
 msgstr ""
 
@@ -951,6 +944,7 @@ msgstr ""
 "συνεχίσετε προηγούμενες Εκτιμήσεις Κινδύνου ή για να ξεκινήσετε νέες."
 
 #: euphorie/client/browser/templates/profile.pt:69
+#: euphorie/client/browser/templates/risk_identification_custom.pt:206
 #: euphorie/client/browser/templates/updated.pt:52
 msgid "Remove"
 msgstr "Αφαίρεση "
@@ -968,7 +962,7 @@ msgstr ""
 msgid "Risk"
 msgstr "Κίνδυνος"
 
-#: euphorie/client/browser/templates/tool_sessions.pt:38
+#: euphorie/client/browser/templates/tool_sessions.pt:36
 msgid "Risk assessments made with this tool"
 msgstr "Εκτιμήσεις επικινδυνότητας με το εργαλείο αυτό"
 
@@ -1030,15 +1024,15 @@ msgstr "Πληροφορίες τομέα και κατάταξη για τον 
 msgid "Sector workflow"
 msgstr "Ροή εργασίας τομέα"
 
-#: euphorie/client/browser/session.py:525
+#: euphorie/client/browser/session.py:532
 msgid "Session `${name}` has been archived."
 msgstr ""
 
-#: euphorie/client/browser/session.py:469
+#: euphorie/client/browser/session.py:475
 msgid "Session `${name}` has been deleted."
 msgstr "Η μελέτη Εκτίμησης Κινδύνου `${name}` διαγράφηκε."
 
-#: euphorie/client/browser/session.py:174
+#: euphorie/client/browser/session.py:179
 msgid "Session data successfully updated"
 msgstr ""
 
@@ -1079,16 +1073,11 @@ msgstr "Πρότυπο"
 msgid "Standard solution"
 msgstr "Στάνταρ λύση "
 
-#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:147
-msgid "Start test session"
-msgstr ""
-"Έναρξη της μελέτης Εκτίμησης Κινδύνου με τη δοκιμαστική έκδοση του εργαλείου"
-
-#: euphorie/client/browser/templates/sessions-dashboard.pt:95
+#: euphorie/client/browser/templates/portlet-my-ras.pt:83
 msgid "Started"
 msgstr ""
 
-#: euphorie/client/browser/login.py:228
+#: euphorie/client/browser/login.py:231
 #: euphorie/client/browser/templates/new-session-test.pt:88
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -1153,7 +1142,7 @@ msgstr ""
 "Η βασική αρχιτεκτονική μιας επιγραμμικής διαδραστικής εκτίμησης κινδύνου "
 "αποτελείται από:"
 
-#: euphorie/client/browser/risk.py:713
+#: euphorie/client/browser/risk.py:821
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -1193,7 +1182,7 @@ msgstr "Ο online πελάτης."
 msgid "The online risk assessment client interface for an Euphorie website"
 msgstr ""
 
-#: euphorie/client/browser/session.py:613
+#: euphorie/client/browser/session.py:617
 msgid "The risk assessment has been cloned"
 msgstr ""
 
@@ -1207,7 +1196,7 @@ msgstr ""
 "Υπάρχουν τέσσερα βασικά στάδια για την ολοκλήρωση της διαδικασίας εκπόνησης "
 "μιας μελέτης εκτίμησης των επαγγελματικών κινδύνων:"
 
-#: euphorie/client/browser/session.py:449
+#: euphorie/client/browser/session.py:455
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
@@ -1284,7 +1273,7 @@ msgstr "Εναλλαγή στη βοήθεια οθόνης"
 msgid "Unique id for content"
 msgstr ""
 
-#: euphorie/client/browser/templates/publication_menu.pt:58
+#: euphorie/client/browser/templates/publication_menu.pt:63
 msgid "Unpublish Risk Assessment"
 msgstr ""
 
@@ -1297,6 +1286,10 @@ msgstr "Υπό εξέταση κίνδυνος"
 #: euphorie/content/upload.py:423
 msgid "Upload"
 msgstr "Ανέβασμα (Upload)"
+
+#: euphorie/client/browser/templates/risk_identification_custom.pt:198
+msgid "Upload an image that illustrates this risk."
+msgstr ""
 
 #: euphorie/content/behaviour/configure.zcml:19
 msgid "Use a rich text description for content types."
@@ -1600,7 +1593,7 @@ msgstr "Σχετικά"
 msgid "appendix_produced_by"
 msgstr "Δημιουργία ${EU-OSHA}."
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:141
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:135
 msgid "based on"
 msgstr ""
 
@@ -1673,7 +1666,7 @@ msgstr "Άκυρο"
 
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:92
-#: euphorie/client/browser/webhelpers.py:640
+#: euphorie/client/browser/webhelpers.py:625
 msgid "button_close"
 msgstr "κλείσιμο"
 
@@ -1721,7 +1714,7 @@ msgid "button_lock"
 msgstr "Κλείδωμα"
 
 #. Default: "Create preview"
-#: euphorie/client/publish.py:323
+#: euphorie/client/publish.py:309
 msgid "button_preview"
 msgstr "Δημιουργία προεπισκόπησης"
 
@@ -1731,7 +1724,7 @@ msgid "button_print"
 msgstr "Εκτύπωση"
 
 #. Default: "Publish"
-#: euphorie/client/publish.py:270
+#: euphorie/client/publish.py:256
 #: euphorie/deployment/tiles/templates/versions.pt:26
 msgid "button_publish"
 msgstr "Δημοσίευση"
@@ -1752,14 +1745,13 @@ msgid "button_search"
 msgstr "Αναζήτηση"
 
 #. Default: "Start a new session with this tool"
-#: euphorie/client/browser/templates/tool_sessions.pt:75
+#: euphorie/client/browser/templates/tool_sessions.pt:72
 msgid "button_start_new_session"
 msgstr "Έναρξη νέας συνόδου με αυτό το εργαλείο"
 
 #. Default: "Start session"
 #: euphorie/client/browser/templates/new-session-test.pt:80
 #: euphorie/client/browser/templates/new-session.pt:75
-#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:105
 msgid "button_start_session"
 msgstr "Έναρξη της μελέτης Εκτίμησης Κινδύνου"
 
@@ -1783,6 +1775,10 @@ msgstr "Ενημερώθηκε"
 #: euphorie/content/upload.py:462
 msgid "button_upload"
 msgstr "Ανέβασμα (Upload)"
+
+#: euphorie/client/browser/templates/publication_menu.pt:31
+msgid "by"
+msgstr ""
 
 #. Default: "You are free to provide the information below. This information is meant to improve the tools and the services provided. This data will not appear in the report."
 #: euphorie/client/templates/report_company.pt:23
@@ -1971,18 +1967,18 @@ msgstr ""
 "Ασφάλεια και την Υγεία στην Εργασία, Bilbao."
 
 #. Default: "both own staff and an external consultant or service provider"
-#: euphorie/client/company.py:53 euphorie/client/templates/report_company.pt:50
+#: euphorie/client/company.py:55 euphorie/client/templates/report_company.pt:50
 msgid "conductor_both"
 msgstr ""
 "το προσωπικό της εταιρείας και εξωτερικός σύμβουλος ή πάροχος υπηρεσιών"
 
 #. Default: "own staff"
-#: euphorie/client/company.py:49 euphorie/client/templates/report_company.pt:48
+#: euphorie/client/company.py:51 euphorie/client/templates/report_company.pt:48
 msgid "conductor_staff"
 msgstr "προσωπικό εταιρείας"
 
 #. Default: "an external consultant or service provider"
-#: euphorie/client/company.py:51 euphorie/client/templates/report_company.pt:49
+#: euphorie/client/company.py:53 euphorie/client/templates/report_company.pt:49
 msgid "conductor_third_party"
 msgstr "εξωτερικός σύμβουλος ή πάροχος υπηρεσιών"
 
@@ -2007,7 +2003,7 @@ msgid "deprecated_label_existing_measures"
 msgstr ""
 
 #. Default: "The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk &ndash; if you consider it necessary &ndash; in the action plan."
-#: euphorie/client/browser/templates/webhelpers.pt:694
+#: euphorie/client/browser/templates/webhelpers.pt:693
 msgid "description_automatic_evaluation"
 msgstr ""
 "Η αξιολόγηση του κινδύνου (εκτίμηση επικινδυνότητας) πραγματοποιήθηκε "
@@ -2015,7 +2011,7 @@ msgstr ""
 "επικινδυνότητας –εάν το κρίνετε σκόπιμο– στο σχέδιο δράσης."
 
 #. Default: "In case you have identified risks not included in the tool, you are able to add them now:"
-#: euphorie/client/publish.py:157 euphorie/deployment/upgrade/v8.py:142
+#: euphorie/client/publish.py:143 euphorie/deployment/upgrade/v8.py:142
 msgid "description_other_risks"
 msgstr ""
 "Εάν αναγνωρίσατε κινδύνους που δεν έχουν συμπεριληφθεί στο εργαλείο, "
@@ -2105,17 +2101,17 @@ msgid "effect_high"
 msgstr "Μεγάλη (πολύ μεγάλη) σφοδρότητα"
 
 #. Default: "Weak severity"
-#: euphorie/client/browser/templates/webhelpers.pt:527
+#: euphorie/client/browser/templates/webhelpers.pt:526
 msgid "effect_injury_no_absence"
 msgstr "Μικρή σοβαρότητα επιπτώσεων"
 
 #. Default: "Significant severity"
-#: euphorie/client/browser/templates/webhelpers.pt:533
+#: euphorie/client/browser/templates/webhelpers.pt:532
 msgid "effect_injury_with_absence"
 msgstr "Μέτρια σοβαρότητα επιπτώσεων"
 
 #. Default: "High (very high) severity"
-#: euphorie/client/browser/templates/webhelpers.pt:539
+#: euphorie/client/browser/templates/webhelpers.pt:538
 msgid "effect_permanent_damage"
 msgstr "Μεγάλη σοβαρότητα επιπτώσεων"
 
@@ -2160,27 +2156,27 @@ msgstr ""
 "διεύθυνση email λειτουργεί επίσης ως το νέο σας όνομα σύνδεσης. "
 
 #. Default: "10 to 49 employees"
-#: euphorie/client/company.py:36 euphorie/client/templates/report_company.pt:40
+#: euphorie/client/company.py:38 euphorie/client/templates/report_company.pt:40
 msgid "employee_numbers_10_to_49"
 msgstr "10 ως 49 εργαζόμενοι"
 
 #. Default: "1 to 9 employees"
-#: euphorie/client/company.py:34 euphorie/client/templates/report_company.pt:39
+#: euphorie/client/company.py:36 euphorie/client/templates/report_company.pt:39
 msgid "employee_numbers_1_to_9"
 msgstr "1 ως 9 εργαζόμενοι"
 
 #. Default: "250 or more employees"
-#: euphorie/client/company.py:40 euphorie/client/templates/report_company.pt:42
+#: euphorie/client/company.py:42 euphorie/client/templates/report_company.pt:42
 msgid "employee_numbers_250_or_more"
 msgstr "250 ή περισσότεροι εργαζόμενοι"
 
 #. Default: "50 to 249 employees"
-#: euphorie/client/company.py:38 euphorie/client/templates/report_company.pt:41
+#: euphorie/client/company.py:40 euphorie/client/templates/report_company.pt:41
 msgid "employee_numbers_50_to_249"
 msgstr "50 ως 249 εργαζόμενοι"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:268
+#: euphorie/client/browser/login.py:271
 msgid "error_email_in_use"
 msgstr "Υπάρχει ήδη λογαριασμός με αυτή τη διεύθυνση email."
 
@@ -2195,7 +2191,7 @@ msgid "error_invalid_budget"
 msgstr "Παρακαλώ εισάγετε τον προϋπολογισμό σε ακέραια ευρώ."
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:252
+#: euphorie/client/browser/login.py:255
 msgid "error_invalid_email"
 msgstr "Παρακαλώ εισάγετε μια αποδεκτή διεύθυνση email."
 
@@ -2212,35 +2208,35 @@ msgid "error_invalid_xml"
 msgstr "Παρακαλώ ανεβάστε ένα αποδεκτό αρχείο XML"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:249
+#: euphorie/client/browser/login.py:252
 msgid "error_missing_email"
 msgstr "Παρακαλώ εισάγετε τη διεύθυνση email σας."
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:255
+#: euphorie/client/browser/login.py:258
 msgid "error_missing_password"
 msgstr "Παρακαλώ εισάγετε έναν κωδικό πρόσβασης"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:258
+#: euphorie/client/browser/login.py:261
 #: euphorie/client/browser/reset_password.py:221
 msgid "error_password_mismatch"
 msgstr "Οι κωδικοί πρόσβασης δεν είναι ίδιοι"
 
 #. Default: "This date must be on or after the start date."
-#: euphorie/client/browser/risk.py:722
+#: euphorie/client/browser/risk.py:830
 msgid "error_validation_after_start_date"
 msgstr ""
 "Αυτή η ημερομηνία δεν πρέπει να είναι μεταγενέστερη της ημερομηνίας έναρξης."
 
 #. Default: "This date must be on or before the end date."
-#: euphorie/client/browser/risk.py:718
+#: euphorie/client/browser/risk.py:826
 msgid "error_validation_before_end_date"
 msgstr ""
 "Αυτή η ημερομηνία δεν πρέπει να είναι μεταγενέστερη της ημερομηνίας λήξης."
 
 #. Default: "This value must be a positive whole number."
-#: euphorie/client/browser/risk.py:726
+#: euphorie/client/browser/risk.py:834
 msgid "error_validation_positive_whole_number"
 msgstr "Αυτή η τιμή πρέπει να είναι θετικός ακέραιος αριθμός."
 
@@ -2263,21 +2259,18 @@ msgstr "Κατ' εκτίμηση"
 #: euphorie/client/browser/templates/actionplan.pt:24
 msgid "expl_actionplan_1"
 msgstr ""
-"Έχετε αναγνωρίσει το μέγεθος του κινδύνου για κάθε μία από τις στενωπούς. "
-"Κατά τη φάση του σχεδίου δράσης μπορείτε να προσδιορίσετε την προτεραιότητα "
-"κάθε μίας από τις στενωπούς και τον τρόπο με τον οποίο θα αντιμετωπίσετε τη "
-"στενωπό. Το πρόγραμμα μπορεί να παρέχει μια πρόταση που μπορείτε να "
-"χρησιμοποιήσετε ή μπορείτε να προσθέσετε τα δικά σας μέτρα."
+"Μέχρι το σημείο αυτό, έχουν αναγνωριστεί οι κίνδυνοι και έχει αξιολογηθεί η  "
+"επικινδυνότητά τους. Το επόμενο βήμα είναι να συνταχθεί και να εφαρμοστεί "
+"ένα Σχέδιο Δράσης με σκοπό την αποτελεσματική διαχείριση των κινδύνων στην "
+"πράξη. Για την ελαχιστοποίηση/εξάλειψη ή τη μείωσή τους, στη φάση αυτή "
+"χρειάζεται να ληφθεί απόφαση σχετικά με το ποια είναι τα κατάλληλα μέτρα "
+"πρόληψης και προστασίας που απαιτείται να εφαρμοστούν, λαμβάνοντας υπόψη,  "
+"μεταξύ άλλων, θέματα όπως:"
 
 #. Default: "Among the things to be considered for this step are:"
 #: euphorie/client/browser/templates/actionplan.pt:29
 msgid "expl_actionplan_2"
-msgstr ""
-"Η εξάλειψη των αιτιών (αντιμετώπιση του προβλήματος στην πηγή του) είναι η "
-"προτιμώμενη μέθοδος: με αυτό τον τρόπο, ο κίνδυνος δεν προκύπτει πλέον. Τότε "
-"σημειώνετε ποιες ενέργειες πρέπει να διεξαχθούν προκειμένου ο κίνδυνος να "
-"καταργηθεί, καθώς και τις γνώσεις και την πείρα που απαιτούνται για τη "
-"διεξαγωγή αυτών των ενεργειών (σχέδιο πρόληψης και απαιτήσεις)."
+msgstr "&nbsp;"
 
 #. Default: "Is a risk avoidable? Can it be removed entirely? For example, this could be achieved by: ${expl_actionplan_4_and_5}"
 #: euphorie/client/browser/templates/actionplan.pt:35
@@ -2289,30 +2282,31 @@ msgstr ""
 #. Default: "considering whether the task or job is necessary"
 #: euphorie/client/browser/templates/actionplan.pt:36
 msgid "expl_actionplan_4"
-msgstr "εξετάζοντας εάν η συγκεκριμένη εργασία είναι απαραίτητη"
+msgstr "εξετάζοντας εάν η συγκεκριμένη εργασία είναι απαραίτητη,"
 
 #. Default: "removing the hazard"
 #: euphorie/client/browser/templates/actionplan.pt:37
 msgid "expl_actionplan_5"
-msgstr "καταργώντας τον κίνδυνο"
+msgstr "εξαλείφοντας τον κίνδυνο (με αποτελεσματική παρέμβαση στην πηγή του)."
 
 #. Default: "If certain risks are not avoidable, how can they be reduced to a level at which the health and safety of those exposed is not compromised?"
 #: euphorie/client/browser/templates/actionplan.pt:40
 msgid "expl_actionplan_6"
 msgstr ""
-"Εάν ορισμένοι κίνδυνοι είναι αναπόφευκτοι, πώς μπορούν να μειωθούν σε "
-"επίπεδο στο οποίο δεν διακυβεύεται η υγεία και η ασφάλεια όσων εκτίθενται "
-"στον κίνδυνο;"
+"Εάν ορισμένοι κίνδυνοι είναι αναπόφευκτοι, πώς αυτοί μπορούν να μειωθούν σε "
+"επίπεδο στο οποίο δεν διακυβεύεται πλέον η υγεία και η ασφάλεια όσων "
+"εκτίθενται σε αυτούς;"
 
 #. Default: "Once you have decided how to eliminate or reduce a particular risk, then you describe the specific action(s) required to achieve this. You should also include details of the level of expertise and/or other requirements needed for those actions to be effective."
 #: euphorie/client/browser/templates/actionplan.pt:44
 msgid "expl_actionplan_7"
 msgstr ""
-"Μόλις αποφασίσετε πώς θα εξαλείψετε ή θα μειώσετε ένα συγκεκριμένο κίνδυνο, "
-"τότε μπορείτε να περιγράψετε τις συσκεκριμένες ενέργειες που απαιτούνται για "
-"να επιτευχθεί κάτι τέτοιο. Θα πρέπει επίσης να συμπεριλάβετε λεπτομέρειες "
-"για το επίπεδο τεχνογνωσίας ή/και τις υπόλοιπες προϋποθέσεις που απαιτούνται "
-"ώστε αυτές οι ενέργειες να είναι αποτελεσματικές."
+"Μόλις ληφθεί απόφαση για το  πώς θα εξαλειφθεί ή θα μειωθεί ένας "
+"συγκεκριμένος κίνδυνος, τότε μπορεί πλέον να περιγραφούν οι συγκεκριμένες  "
+"ενέργειες  που απαιτούνται για να επιτευχθεί κάτι τέτοιο. Θα πρέπει επίσης "
+"να συμπεριληφθούν λεπτομέρειες για το επίπεδο τεχνογνωσίας ή/και τις "
+"υπόλοιπες προϋποθέσεις που απαιτούνται ώστε αυτές οι ενέργειες να είναι "
+"αποτελεσματικές."
 
 #. Default: "No risks were identified. Please proceed directly to the report."
 #: euphorie/client/browser/templates/actionplan.pt:49
@@ -2362,26 +2356,26 @@ msgstr ""
 "ενότητά σας. "
 
 #. Default: "This risk was automatically set as being present. You cannot change this."
-#: euphorie/client/browser/templates/webhelpers.pt:397
+#: euphorie/client/browser/templates/webhelpers.pt:396
 msgid "explanation_risk_always_present"
 msgstr ""
 
-#: euphorie/client/browser/session.py:440
+#: euphorie/client/browser/session.py:446
 msgid "extra_text_identification"
 msgstr ""
 
 #. Default: "Action plan ${title}"
-#: euphorie/client/docx/views.py:287
+#: euphorie/client/docx/views.py:290
 msgid "filename_report_actionplan"
 msgstr "Έκθεση κινδύνου ${title}"
 
 #. Default: "Identification report ${title}"
-#: euphorie/client/docx/views.py:330
+#: euphorie/client/docx/views.py:333
 msgid "filename_report_identification"
 msgstr "Έκθεση της Εκτίμησης Κινδύνου ${title} "
 
 #. Default: "Timeline for ${title}"
-#: euphorie/client/report.py:208
+#: euphorie/client/report.py:227
 msgid "filename_report_timeline"
 msgstr "Σχέδιο δράσης ${title}"
 
@@ -2396,7 +2390,7 @@ msgid "french"
 msgstr "Απλοποιημένα δύο κριτήρια "
 
 #. Default: "Almost never"
-#: euphorie/client/browser/templates/webhelpers.pt:497
+#: euphorie/client/browser/templates/webhelpers.pt:496
 msgid "frequency_almost_never"
 msgstr "Σχεδόν ποτέ"
 
@@ -2406,57 +2400,57 @@ msgid "frequency_almostnever"
 msgstr "Σχεδόν ποτέ"
 
 #. Default: "Constantly"
-#: euphorie/client/browser/templates/webhelpers.pt:509
+#: euphorie/client/browser/templates/webhelpers.pt:508
 #: euphorie/content/risk.py:419
 msgid "frequency_constantly"
 msgstr "Διαρκώς"
 
 #. Default: "Not very often"
-#: euphorie/client/browser/templates/webhelpers.pt:630
+#: euphorie/client/browser/templates/webhelpers.pt:629
 #: euphorie/content/risk.py:370
 msgid "frequency_french_not_often"
 msgstr "Όχι πολύ συχνά"
 
 #. Default: "Once per month"
-#: euphorie/client/browser/templates/webhelpers.pt:631
+#: euphorie/client/browser/templates/webhelpers.pt:630
 msgid "frequency_french_not_often_help"
 msgstr "Μία φορά το μήνα "
 
 #. Default: "Often"
-#: euphorie/client/browser/templates/webhelpers.pt:642
+#: euphorie/client/browser/templates/webhelpers.pt:641
 #: euphorie/content/risk.py:373
 msgid "frequency_french_often"
 msgstr "Συχνά "
 
 #. Default: "Once per week"
-#: euphorie/client/browser/templates/webhelpers.pt:643
+#: euphorie/client/browser/templates/webhelpers.pt:642
 msgid "frequency_french_often_help"
 msgstr "Μία φορά την εβδομάδα "
 
 #. Default: "Rare"
-#: euphorie/client/browser/templates/webhelpers.pt:618
+#: euphorie/client/browser/templates/webhelpers.pt:617
 #: euphorie/content/risk.py:368
 msgid "frequency_french_rare"
 msgstr "Σπάνια "
 
 #. Default: "Once per year"
-#: euphorie/client/browser/templates/webhelpers.pt:619
+#: euphorie/client/browser/templates/webhelpers.pt:618
 msgid "frequency_french_rare_help"
 msgstr "Μία φορά το χρόνο"
 
 #. Default: "Very often or regularly"
-#: euphorie/client/browser/templates/webhelpers.pt:654
+#: euphorie/client/browser/templates/webhelpers.pt:653
 #: euphorie/content/risk.py:375
 msgid "frequency_french_regularly"
 msgstr "Πολύ συχνά ή τακτικά "
 
 #. Default: "Minimum once per day"
-#: euphorie/client/browser/templates/webhelpers.pt:655
+#: euphorie/client/browser/templates/webhelpers.pt:654
 msgid "frequency_french_regularly_help"
 msgstr "Τουλάχιστον μία φορά την ημέρα "
 
 #. Default: "Regularly"
-#: euphorie/client/browser/templates/webhelpers.pt:503
+#: euphorie/client/browser/templates/webhelpers.pt:502
 #: euphorie/content/risk.py:417
 msgid "frequency_regularly"
 msgstr "Τακτικά"
@@ -2483,12 +2477,12 @@ msgid "header_additional_content"
 msgstr "Συμπληρωματικό περιεχόμενο"
 
 #. Default: "Additional resources to assess the risk"
-#: euphorie/client/browser/templates/webhelpers.pt:823
+#: euphorie/client/browser/templates/webhelpers.pt:822
 msgid "header_additional_resources"
 msgstr "Πρόσθετο πληροφοριακό υλικό για την εκτίμηση του κινδύνου"
 
 #. Default: "Additional resources for this module"
-#: euphorie/client/browser/templates/webhelpers.pt:826
+#: euphorie/client/browser/templates/webhelpers.pt:825
 msgid "header_additional_resources_module"
 msgstr "Πρόσθετη πληροφόρηση γι’ αυτή τη θεματική ενότητα"
 
@@ -2545,7 +2539,7 @@ msgid "header_identification"
 msgstr "Αναγνώριση"
 
 #. Default: "Information"
-#: euphorie/client/browser/templates/webhelpers.pt:703
+#: euphorie/client/browser/templates/webhelpers.pt:702
 #: euphorie/content/templates/module_view.pt:22
 #: euphorie/content/templates/profilequestion_view.pt:20
 msgid "header_information"
@@ -2557,7 +2551,7 @@ msgid "header_launch"
 msgstr "Επίσημη παρουσίαση του έργου – Σεπτέμβριος 2011"
 
 #. Default: "Legal and policy references"
-#: euphorie/client/docx/compiler.py:330
+#: euphorie/client/docx/compiler.py:329
 msgid "header_legal_references"
 msgstr "Νομικές αναφορές και αναφορές πολιτικής"
 
@@ -2573,7 +2567,7 @@ msgstr "Άδειες χρήσης"
 
 #. Default: "Login"
 #: euphorie/client/browser/templates/login_form.pt:17
-#: euphorie/client/templates/shell.pt:115
+#: euphorie/client/templates/shell.pt:114
 msgid "header_login"
 msgstr "Σύνδεση"
 
@@ -2583,12 +2577,12 @@ msgid "header_main_image"
 msgstr "Κύρια εικόνα"
 
 #. Default: "Measure ${index}"
-#: euphorie/client/docx/compiler.py:405
+#: euphorie/client/docx/compiler.py:404
 msgid "header_measure"
 msgstr "Μέτρο ${index}"
 
 #. Default: "Measure"
-#: euphorie/client/docx/compiler.py:402
+#: euphorie/client/docx/compiler.py:401
 msgid "header_measure_single"
 msgstr "Μέτρο"
 
@@ -2614,12 +2608,12 @@ msgid "header_not_complicated"
 msgstr "Η αξιολόγηση δεν είναι πολύπλοκη "
 
 #. Default: "Consultation of workers"
-#: euphorie/client/docx/compiler.py:470
+#: euphorie/client/docx/compiler.py:469
 msgid "header_oira_report_consultation"
 msgstr ""
 
 #. Default: "OiRA Report: “${title}”"
-#: euphorie/client/docx/views.py:216
+#: euphorie/client/docx/views.py:219
 msgid "header_oira_report_download"
 msgstr ""
 
@@ -2654,7 +2648,7 @@ msgid "header_osh_tool_navigation"
 msgstr ""
 
 #. Default: "Risks that have been identified, evaluated and have an Action Plan"
-#: euphorie/client/docx/views.py:226
+#: euphorie/client/docx/views.py:229
 msgid "header_present_risks"
 msgstr ""
 
@@ -2691,7 +2685,7 @@ msgstr "Ερωτήσεις που απαντήθηκαν ανά ενότητα"
 
 #. Default: "Register"
 #: euphorie/client/browser/templates/register.pt:75
-#: euphorie/client/templates/shell.pt:116
+#: euphorie/client/templates/shell.pt:115
 msgid "header_register"
 msgstr "Εγγραφή"
 
@@ -2712,23 +2706,23 @@ msgid "header_risk_aware"
 msgstr "Γνωρίζετε όλους τους κινδύνους;"
 
 #. Default: "What is the severity of the damage?"
-#: euphorie/client/browser/templates/webhelpers.pt:517
+#: euphorie/client/browser/templates/webhelpers.pt:516
 msgid "header_risk_effect"
 msgstr "Ποια είναι η σοβαρότητα των επιπτώσεων?"
 
 #. Default: "How often are people exposed to this risk?"
-#: euphorie/client/browser/templates/webhelpers.pt:487
+#: euphorie/client/browser/templates/webhelpers.pt:486
 msgid "header_risk_frequency"
 msgstr "Πόσο συχνά εκτίθενται άνθρωποι σε αυτό τον κίνδυνο;"
 
 #. Default: "Select the priority of this risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:167
-#: euphorie/client/browser/templates/webhelpers.pt:671
+#: euphorie/client/browser/templates/webhelpers.pt:670
 msgid "header_risk_priority"
 msgstr "Επιλέξτε την επικινδυνότητα για αυτόν τον κίνδυνο"
 
 #. Default: "What is the chance of this risk occurring?"
-#: euphorie/client/browser/templates/webhelpers.pt:456
+#: euphorie/client/browser/templates/webhelpers.pt:455
 msgid "header_risk_probability"
 msgstr "Ποια η πιθανότητα να προκληθεί αυτός ο κίνδυνος;"
 
@@ -2740,7 +2734,7 @@ msgid "header_risks"
 msgstr "Κίνδυνοι"
 
 #. Default: "Hazards/problems that have been managed or are not present in your organisation"
-#: euphorie/client/docx/views.py:238
+#: euphorie/client/docx/views.py:241
 msgid "header_risks_not_present"
 msgstr ""
 
@@ -2801,12 +2795,12 @@ msgid "header_training"
 msgstr ""
 
 #. Default: "Hazards/problems that have been \"parked\" and are still to be dealt with"
-#: euphorie/client/docx/views.py:234
+#: euphorie/client/docx/views.py:237
 msgid "header_unanswered_risks"
 msgstr ""
 
 #. Default: "Risks that have been identified but do NOT have an Action Plan"
-#: euphorie/client/docx/views.py:230
+#: euphorie/client/docx/views.py:233
 msgid "header_unevaluated_risks"
 msgstr ""
 
@@ -2831,7 +2825,7 @@ msgid "header_why_oira"
 msgstr "Γιατί το έργο OiRA"
 
 #. Default: "Comments"
-#: euphorie/client/browser/templates/webhelpers.pt:856
+#: euphorie/client/browser/templates/webhelpers.pt:855
 msgid "heading_comments"
 msgstr "Σχόλια / Υφιστάμενα μέτρα (αν υπάρχουν)"
 
@@ -2839,7 +2833,7 @@ msgstr "Σχόλια / Υφιστάμενα μέτρα (αν υπάρχουν)"
 #: euphorie/client/browser/templates/measures_overview.pt:85
 #: euphorie/client/browser/templates/status.pt:259
 msgid "heading_high_prio_risks"
-msgstr "Κίνδυνοι υψηλής προτεραιότητας"
+msgstr "Κίνδυνοι υψηλής επικινδυνότητας"
 
 #. Default: "Low priority risks"
 #: euphorie/client/browser/templates/measures_overview.pt:132
@@ -3009,7 +3003,7 @@ msgstr ""
 "Αυτό το κείμενο πρέπει να επεξηγεί πώς να εγγραφείτε και να συνδεθείτε."
 
 #. Default: "Please answer the following questions. As a result of your answers the system will calculate the priority of the risk. You will be able to modify the priority later."
-#: euphorie/client/browser/templates/webhelpers.pt:443
+#: euphorie/client/browser/templates/webhelpers.pt:442
 msgid "help_calculated_evaluation"
 msgstr ""
 "Παρακαλούμε απαντήστε στις ακόλουθες ερωτήσεις. Με βάση τις απαντήσεις σας "
@@ -3038,7 +3032,7 @@ msgstr ""
 "αρχίσετε με ένα αντίγραφο κάποιου υπάρχοντος Εργαλείου OiRA. "
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
-#: euphorie/client/browser/risk.py:275 euphorie/content/risk.py:361
+#: euphorie/client/browser/risk.py:307 euphorie/content/risk.py:361
 msgid "help_default_frequency"
 msgstr ""
 "Δηλώστε την εκτίμησή σας για το πόσο συχνά εκτίθενται οι εργαζόμενοι στον "
@@ -3052,14 +3046,14 @@ msgstr ""
 "προτεραιότητα. Ο χρήστης μπορεί να αλλάξει την προτεραιότητα."
 
 #. Default: "Indicate how likely occurence of this risk is in a normal situation."
-#: euphorie/client/browser/risk.py:270 euphorie/content/risk.py:388
+#: euphorie/client/browser/risk.py:302 euphorie/content/risk.py:388
 msgid "help_default_probability"
 msgstr ""
 "Δηλώστε την εκτίμησή σας για το πόσο πιθανό είναι να εκδηλωθεί ο κίνδυνος "
 "αυτός σε φυσιολογικές συνθήκες."
 
 #. Default: "Indicate the severity if this risk occurs."
-#: euphorie/client/browser/risk.py:279 euphorie/content/risk.py:339
+#: euphorie/client/browser/risk.py:311 euphorie/content/risk.py:339
 msgid "help_default_severity"
 msgstr ""
 "Δηλώστε την εκτίμησή σας για το πόσο σοβαρές μπορεί να είναι οι επιπτώσεις "
@@ -3343,7 +3337,7 @@ msgid "help_upload_surveygroup_title"
 msgstr "Εάν δεν ορίσετε τίτλο, θα υιοθετηθεί από τα δεδομένα που θα εισάγετε."
 
 #. Default: "Dashboard"
-#: euphorie/client/templates/shell.pt:125
+#: euphorie/client/templates/shell.pt:124
 msgid "home_link"
 msgstr ""
 
@@ -3426,14 +3420,13 @@ msgstr ""
 "της γραμμής εργαλείων."
 
 #. Default: "Select an earlier session to complete or review or ${start_session}."
-#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:36
-#: euphorie/client/browser/templates/sessions-dashboard.pt:78
+#: euphorie/client/browser/templates/portlet-my-ras.pt:64
 msgid "info_select_session"
 msgstr ""
 
 #. Default: "This is a test session. ${link_sign_in} to save your data."
 #: euphorie/client/templates/plain.pt:195
-#: euphorie/client/templates/shell.pt:107
+#: euphorie/client/templates/shell.pt:106
 msgid "info_testsession"
 msgstr "Αυτή η έκδοση του εργαλείου είναι δοκιμαστική."
 
@@ -3586,7 +3579,7 @@ msgstr ""
 "εργαλείο OiRA."
 
 #. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:299
+#: euphorie/client/browser/login.py:302
 msgid "invalid_email"
 msgstr "Παρακαλώ εισάγετε μια έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου."
 
@@ -3644,25 +3637,25 @@ msgstr "Σχέδιο Δράσης"
 
 #. Default: "Budget"
 #: euphorie/client/browser/templates/risk_actionplan.pt:240
-#: euphorie/client/docx/compiler.py:430 euphorie/client/report.py:138
+#: euphorie/client/docx/compiler.py:429 euphorie/client/report.py:150
 msgid "label_action_plan_budget"
 msgstr "Προϋπολογισμός"
 
 #. Default: "Planning end"
 #: euphorie/client/browser/templates/risk_actionplan.pt:280
-#: euphorie/client/docx/compiler.py:434 euphorie/client/report.py:107
+#: euphorie/client/docx/compiler.py:433 euphorie/client/report.py:119
 msgid "label_action_plan_end"
 msgstr "Τέλος εφαρμογής"
 
 #. Default: "Who is responsible?"
 #: euphorie/client/browser/templates/risk_actionplan.pt:227
-#: euphorie/client/docx/compiler.py:427 euphorie/client/report.py:136
+#: euphorie/client/docx/compiler.py:426 euphorie/client/report.py:148
 msgid "label_action_plan_responsible"
 msgstr "Ποιος είναι υπεύθυνος;"
 
 #. Default: "Planning start"
 #: euphorie/client/browser/templates/risk_actionplan.pt:264
-#: euphorie/client/docx/compiler.py:432 euphorie/client/report.py:102
+#: euphorie/client/docx/compiler.py:431 euphorie/client/report.py:114
 msgid "label_action_plan_start"
 msgstr "Έναρξη εφαρμογής"
 
@@ -3679,7 +3672,7 @@ msgstr "Περιεχόμενο σελίδας"
 #. Default: "Skip"
 #: euphorie/client/browser/templates/risk_identification.pt:61
 msgid "label_button_skip"
-msgstr "Παράληψη"
+msgstr "Παράλειψη"
 
 #. Default: "Image caption"
 #: euphorie/content/module.py:85 euphorie/content/risk.py:233
@@ -3713,19 +3706,19 @@ msgstr ""
 
 #. Default: "Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
 #: euphorie/client/browser/templates/risk_actionplan.pt:433
-#: euphorie/client/browser/templates/webhelpers.pt:863
+#: euphorie/client/browser/templates/webhelpers.pt:862
 msgid "label_comment"
 msgstr ""
 "Παρακαλώ υποβάλλετε στο πεδίο αυτό τυχόν σχόλια σχετικά με την παραπάνω "
 "ερώτηση. Τα σχόλια αυτά θα χρησιμοποιηθούν στο Σχέδιο Δράσης."
 
 #. Default: "Your country"
-#: euphorie/client/company.py:28 euphorie/client/templates/report_company.pt:29
+#: euphorie/client/company.py:30 euphorie/client/templates/report_company.pt:29
 msgid "label_company_country"
 msgstr "Χώρα σας"
 
 #. Default: "The risk assessment was conducted by"
-#: euphorie/client/company.py:46 euphorie/client/templates/report_company.pt:47
+#: euphorie/client/company.py:48 euphorie/client/templates/report_company.pt:47
 msgid "label_conductor"
 msgstr "Η εκτίμηση κινδύνου πραγματοποιήθηκε από:"
 
@@ -3818,7 +3811,7 @@ msgid "label_email"
 msgstr "Διεύθυνση email"
 
 #. Default: "Number of employees"
-#: euphorie/client/company.py:32 euphorie/client/templates/report_company.pt:38
+#: euphorie/client/company.py:34 euphorie/client/templates/report_company.pt:38
 msgid "label_employee_numbers"
 msgstr "αριθμός εργαζομένων"
 
@@ -3830,7 +3823,7 @@ msgstr "Εμφάνιση εξατομικευμένης ειδοποίησης �
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:108
 #: euphorie/client/templates/report_identification.pt:135
-#: euphorie/client/templates/shell.pt:184
+#: euphorie/client/templates/shell.pt:180
 msgid "label_evaluation"
 msgstr "Αξιολόγηση"
 
@@ -3851,7 +3844,7 @@ msgstr "Φάση αξιολόγησης"
 
 #. Default: "Measure already implemented"
 #: euphorie/client/browser/templates/risk_actionplan.pt:126
-#: euphorie/client/docx/compiler.py:385
+#: euphorie/client/docx/compiler.py:384
 msgid "label_existing_measure"
 msgstr "Μέτρο που έχει ήδη εφαρμοστεί"
 
@@ -3928,7 +3921,7 @@ msgstr "Εκπόνηση εκτίμησης κινδύνου"
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:106
 #: euphorie/client/templates/report_identification.pt:125
-#: euphorie/client/templates/shell.pt:182
+#: euphorie/client/templates/shell.pt:178
 msgid "label_identification"
 msgstr "Αναγνώριση"
 
@@ -3958,7 +3951,7 @@ msgid "label_language"
 msgstr "Γλώσσα"
 
 #. Default: "Legal and policy references"
-#: euphorie/client/browser/templates/webhelpers.pt:811
+#: euphorie/client/browser/templates/webhelpers.pt:810
 #: euphorie/content/risk.py:120 euphorie/content/templates/risk_view.pt:76
 msgid "label_legal_reference"
 msgstr "Νομικές αναφορές και αναφορές πολιτικής"
@@ -3997,19 +3990,19 @@ msgstr "Ποιο λογότυπο θέλετε να εμφανίζεται στ�
 
 #. Default: "General approach (to eliminate or reduce the risk)"
 #: euphorie/client/browser/templates/risk_actionplan.pt:190
-#: euphorie/client/docx/compiler.py:413 euphorie/client/report.py:112
+#: euphorie/client/docx/compiler.py:412 euphorie/client/report.py:124
 msgid "label_measure_action_plan"
 msgstr "Γενική προσέγγιση (για την εξάλειψη ή μείωση του κινδύνου)"
 
 #. Default: "Specific action(s) required to implement this approach"
 #: euphorie/client/browser/templates/risk_actionplan.pt:200
-#: euphorie/client/docx/compiler.py:420 euphorie/client/report.py:120
+#: euphorie/client/docx/compiler.py:419 euphorie/client/report.py:132
 msgid "label_measure_prevention_plan"
 msgstr "Απαιτείται ειδική ενέργεια(-ες) για την εφαρμογή αυτής της προσέγγισης"
 
 #. Default: "Level of expertise and/or requirements needed"
 #: euphorie/client/browser/templates/risk_actionplan.pt:210
-#: euphorie/client/docx/compiler.py:424 euphorie/client/report.py:128
+#: euphorie/client/docx/compiler.py:423 euphorie/client/report.py:140
 msgid "label_measure_requirements"
 msgstr "Απαιτήσεις"
 
@@ -4037,7 +4030,7 @@ msgid "label_module_question"
 msgstr "Ερώτηση"
 
 #. Default: "Did this OiRA tool meet your needs?"
-#: euphorie/client/company.py:97 euphorie/client/templates/report_company.pt:75
+#: euphorie/client/company.py:99 euphorie/client/templates/report_company.pt:75
 msgid "label_needs_met"
 msgstr "Το εργαλείο OiRA εξυπηρετεί τις ανάγκες της επιχείρησής σας;"
 
@@ -4062,7 +4055,7 @@ msgstr "Επόμενο"
 
 #. Default: "No"
 #: euphorie/client/browser/templates/module_identification.pt:60
-#: euphorie/client/company.py:92 euphorie/client/templates/report_company.pt:70
+#: euphorie/client/company.py:94 euphorie/client/templates/report_company.pt:70
 msgid "label_no"
 msgstr "Όχι"
 
@@ -4106,12 +4099,12 @@ msgid "label_old_password"
 msgstr "Τρέχων κωδικός πρόσβασης "
 
 #. Default: "Page"
-#: euphorie/client/browser/session.py:783
+#: euphorie/client/browser/session.py:785
 msgid "label_page"
 msgstr "Σελίδα"
 
 #. Default: "of"
-#: euphorie/client/browser/session.py:786
+#: euphorie/client/browser/session.py:788
 msgid "label_page_of"
 msgstr "από"
 
@@ -4133,7 +4126,7 @@ msgstr "Προτεινόμενα μέτρα"
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:104
 #: euphorie/client/templates/report_identification.pt:113
-#: euphorie/client/templates/shell.pt:158
+#: euphorie/client/templates/shell.pt:154
 msgid "label_preparation"
 msgstr "Προετοιμασία"
 
@@ -4161,20 +4154,20 @@ msgid "label_profilequestion_question"
 msgstr "Ερώτηση"
 
 #. Default: "Published"
-#: euphorie/client/browser/templates/publication_menu.pt:23
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:129
+#: euphorie/client/browser/templates/publication_menu.pt:24
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:123
 #: euphorie/client/browser/templates/status.pt:89
 msgid "label_published"
 msgstr "Δημοσιεύτηκε"
 
 #. Default: "Would you recommend this OiRA tool to an enterprise similar to yours?"
-#: euphorie/client/company.py:108
+#: euphorie/client/company.py:110
 #: euphorie/client/templates/report_company.pt:82
 msgid "label_recommend_tool"
 msgstr "Θα προτείνατε το εργαλείο OiRA σε μια εταιρεία όπως τη δική σας;"
 
 #. Default: "Through which channel did you learn about this tool?"
-#: euphorie/client/company.py:60 euphorie/client/templates/report_company.pt:55
+#: euphorie/client/company.py:62 euphorie/client/templates/report_company.pt:55
 msgid "label_referer"
 msgstr "Πληροφορηθήκατε για αυτό το εργαλείο από:"
 
@@ -4217,7 +4210,7 @@ msgstr "Διαγραφή αυτού του μέτρου"
 #. Default: "Report"
 #: euphorie/client/templates/report_identification.pt:155
 #: euphorie/client/templates/report_landing.pt:77
-#: euphorie/client/templates/shell.pt:229
+#: euphorie/client/templates/shell.pt:225
 msgid "label_report"
 msgstr "Έκθεση"
 
@@ -4228,13 +4221,23 @@ msgstr ""
 "Παρακαλώ υποβάλλετε στο πεδίο αυτό τυχόν σχόλια σχετικά με την παραπάνω "
 "ερώτηση"
 
+#. Default: "Date of editing"
+#: euphorie/client/docx/compiler.py:561
+msgid "label_report_date"
+msgstr ""
+
+#. Default: "Staff who participated in the risk assessment"
+#: euphorie/client/docx/compiler.py:560
+msgid "label_report_staff"
+msgstr ""
+
 #. Default: "Risk is always present"
 #: euphorie/content/risk.py:158
 msgid "label_risk_always_present"
 msgstr ""
 
 #. Default: "Risk number"
-#: euphorie/client/report.py:140
+#: euphorie/client/report.py:152
 msgid "label_risk_number"
 msgstr "Ταυτότητα του Κινδύνου"
 
@@ -4292,7 +4295,7 @@ msgid "label_risks_without_measure_5_or_more"
 msgstr "Κίνδυνος χωρίς αναφορά μέτρου(-ων)"
 
 #. Default: "Save and add new risk"
-#: euphorie/client/browser/templates/risk_identification_custom.pt:218
+#: euphorie/client/browser/templates/risk_identification_custom.pt:241
 msgid "label_save_and_add_new"
 msgstr "Αποθήκευση και προσθήκη άλλου κινδύνου"
 
@@ -4304,12 +4307,12 @@ msgid "label_save_and_continue"
 msgstr "Αποθήκευση"
 
 #. Default: "Save and finish"
-#: euphorie/client/browser/templates/risk_identification_custom.pt:232
+#: euphorie/client/browser/templates/risk_identification_custom.pt:255
 msgid "label_save_and_finish"
 msgstr ""
 
 #. Default: "Section"
-#: euphorie/client/report.py:139
+#: euphorie/client/report.py:151
 msgid "label_section"
 msgstr "Ενότητα Κινδύνων"
 
@@ -4333,7 +4336,6 @@ msgstr ""
 #. Default: "Start a new session by choosing one of the following sectoral tools:"
 #: euphorie/client/browser/templates/new-session-test.pt:27
 #: euphorie/client/browser/templates/new-session.pt:28
-#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:83
 msgid "label_select_new_session"
 msgstr ""
 "Αρχίστε μια νέα μελέτη Εκτίμησης Κινδύνου, επιλέγοντας ένα από τα παρακάτω "
@@ -4350,7 +4352,7 @@ msgid "label_show_less_hellip"
 msgstr "Εμφάνιση λιγότερων στοιχείων…"
 
 #. Default: "${read_more} about this risk."
-#: euphorie/client/browser/templates/webhelpers.pt:316
+#: euphorie/client/browser/templates/webhelpers.pt:315
 msgid "label_show_more"
 msgstr "${read_more} για αυτό τον κίνδυνο."
 
@@ -4425,24 +4427,24 @@ msgid "label_surveygroup_title"
 msgstr "Τίτλος εισαχθέντος εργαλείου OiRA"
 
 #. Default: "High"
-#: euphorie/client/report.py:95
+#: euphorie/client/report.py:107
 msgid "label_timeline_priority_high"
 msgstr "Υψηλή"
 
 #. Default: "Low"
-#: euphorie/client/report.py:93
+#: euphorie/client/report.py:105
 msgid "label_timeline_priority_low"
 msgstr "Χαμηλή"
 
 #. Default: "Medium"
-#: euphorie/client/report.py:94
+#: euphorie/client/report.py:106
 msgid "label_timeline_priority_medium"
 msgstr "Μέτρια"
 
 #. Default: "Title"
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:24
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:24
-#: euphorie/content/survey.py:270
+#: euphorie/client/docx/compiler.py:559
 msgid "label_title"
 msgstr "Τίτλος"
 
@@ -4512,13 +4514,13 @@ msgid "label_without_measures"
 msgstr "(χωρίς αναφορά μέτρων)"
 
 #. Default: "Workers were invited to participate in the risk assessment"
-#: euphorie/client/company.py:87 euphorie/client/templates/report_company.pt:68
+#: euphorie/client/company.py:89 euphorie/client/templates/report_company.pt:68
 msgid "label_workers_participated"
 msgstr "Προσκλήθηκαν εργαζόμενοι για να μετάσχουν στην εκτίμηση κινδύνου:"
 
 #. Default: "Yes"
 #: euphorie/client/browser/templates/module_identification.pt:56
-#: euphorie/client/company.py:91 euphorie/client/templates/report_company.pt:69
+#: euphorie/client/company.py:93 euphorie/client/templates/report_company.pt:69
 msgid "label_yes"
 msgstr "Ναι"
 
@@ -4528,7 +4530,7 @@ msgid "label_yes_sufficient"
 msgstr "Ναι, ο εναπομένων κίνδυνος είναι αποδεκτός"
 
 #. Default: "Last edited by ${name} on ${date}."
-#: euphorie/client/browser/templates/publication_menu.pt:34
+#: euphorie/client/browser/templates/publication_menu.pt:39
 msgid "last_edited_by"
 msgstr ""
 
@@ -4560,10 +4562,10 @@ msgstr "περιορισμοί"
 msgid "link_sign_in"
 msgstr "Σύνδεση"
 
-#. Default: "Start a new session"
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:49
-#: euphorie/client/browser/templates/sessions-dashboard-bak.pt:36
-#: euphorie/client/browser/templates/sessions-dashboard.pt:78
+#. Default: "start a new session"
+#: euphorie/client/browser/templates/portlet-my-ras.pt:64
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:47
+#: euphorie/client/browser/templates/sessions-dashboard.pt:82
 msgid "link_start_session"
 msgstr "ξεκινήστε μια νέα μελέτη Εκτίμησης Κινδύνου"
 
@@ -4655,7 +4657,7 @@ msgid "menu_import"
 msgstr "Εισαγωγή Εργαλείου OiRA "
 
 #. Default: "Training"
-#: euphorie/client/templates/shell.pt:250
+#: euphorie/client/templates/shell.pt:246
 msgid "menu_training"
 msgstr ""
 
@@ -4672,7 +4674,7 @@ msgid "message_delete_no_last_survey"
 msgstr "Δεν μπορείτε να διαγράψετε τη μοναδική έκδοση εργαλείου OiRA."
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/session.py:151
+#: euphorie/client/browser/session.py:155
 msgid "message_field_required"
 msgstr "Το πεδίο είναι υποχρεωτικό."
 
@@ -4682,62 +4684,62 @@ msgid "message_lock_warn"
 msgstr ""
 
 #. Default: "A measure has been removed from your action plan."
-#: euphorie/client/browser/risk.py:885
+#: euphorie/client/browser/risk.py:993
 msgid "message_measure_removed"
 msgstr "Ένα μέτρο έχει διαγραφεί από το σχέδιο δράσης σας."
 
 #. Default: "A measure has been added to your action plan."
-#: euphorie/client/browser/risk.py:813
+#: euphorie/client/browser/risk.py:921
 msgid "message_measure_saved"
 msgstr "Ένα νέο μέτρο έχει προστεθεί στο σχέδιο δράσης σας."
 
 #. Default: "A measure has been updated in your action plan."
-#: euphorie/client/browser/risk.py:849
+#: euphorie/client/browser/risk.py:957
 msgid "message_measure_updated"
 msgstr "Ένα μέτρο έχει επικαιροποιηθεί στο σχέδιο δράσης σας."
 
 #. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:911
+#: euphorie/client/browser/risk.py:1019
 msgid "message_measures_removed"
 msgstr "${no_of_measures} μέτρα έχουν διαγραφεί από το σχέδιο δράσης σας."
 
 #. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:893
+#: euphorie/client/browser/risk.py:1001
 msgid "message_measures_removed_3"
 msgstr "${no_of_measures} μέτρα έχουν διαγραφεί από το σχέδιο δράσης σας."
 
 #. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:902
+#: euphorie/client/browser/risk.py:1010
 msgid "message_measures_removed_3_4"
 msgstr "${no_of_measures} μέτρα έχουν διαγραφεί από το σχέδιο δράσης σας."
 
 #. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:839
+#: euphorie/client/browser/risk.py:947
 msgid "message_measures_saved"
 msgstr "${no_of_measures} μέτρα προστέθηκαν στο σχέδιο δράσης σας."
 
 #. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:821
+#: euphorie/client/browser/risk.py:929
 msgid "message_measures_saved_2"
 msgstr "${no_of_measures} μέτρα προστέθηκαν στο σχέδιο δράσης σας."
 
 #. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:830
+#: euphorie/client/browser/risk.py:938
 msgid "message_measures_saved_3_4"
 msgstr "${no_of_measures} μέτρα προστέθηκαν στο σχέδιο δράσης σας."
 
 #. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:875
+#: euphorie/client/browser/risk.py:983
 msgid "message_measures_updated"
 msgstr "${no_of_measures} μέτρα έχουν επικαιροποιηθεί στο σχέδιο δράσης σας."
 
 #. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:857
+#: euphorie/client/browser/risk.py:965
 msgid "message_measures_updated_2"
 msgstr "${no_of_measures} μέτρα έχουν επικαιροποιηθεί στο σχέδιο δράσης σας."
 
 #. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:866
+#: euphorie/client/browser/risk.py:974
 msgid "message_measures_updated_3_4"
 msgstr "${no_of_measures} μέτρα έχουν επικαιροποιηθεί στο σχέδιο δράσης σας."
 
@@ -4759,14 +4761,14 @@ msgstr ""
 "OiRA. "
 
 #. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at ${url}."
-#: euphorie/client/publish.py:328
+#: euphorie/client/publish.py:314
 msgid "message_preview_success"
 msgstr ""
 "Επιτυχής δημιουργία προεπισκόπησης για το εργαλείο OiRA. Διατίθεται στη "
 "διεύθυνση ${url} . "
 
 #. Default: "Succesfully published the OiRA Tool. It can be accessed at ${url}."
-#: euphorie/client/publish.py:275
+#: euphorie/client/publish.py:261
 msgid "message_publish_success"
 msgstr ""
 "Επιτυχής δημοσίευση του εργαλείου OiRA. Μπορεί να γίνει πρόσβαση στο ${url}."
@@ -4842,7 +4844,7 @@ msgstr "Ρυθμίσεις"
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:47
 #: euphorie/client/browser/templates/webhelpers.pt:62
-#: euphorie/client/templates/shell.pt:271
+#: euphorie/client/templates/shell.pt:267
 msgid "navigation_status"
 msgstr "Παρούσα Κατάσταση"
 
@@ -4892,12 +4894,12 @@ msgid "notice_country_manager"
 msgstr "Εθνικός διευθυντής για την ${country}."
 
 #. Default: "On behalf of the employer:"
-#: euphorie/client/docx/compiler.py:482
+#: euphorie/client/docx/compiler.py:481
 msgid "oira_consultation_employer"
 msgstr ""
 
 #. Default: "On behalf of the workers:"
-#: euphorie/client/docx/compiler.py:485
+#: euphorie/client/docx/compiler.py:484
 msgid "oira_consultation_workers"
 msgstr ""
 
@@ -4912,7 +4914,7 @@ msgid "oira_name_line_2"
 msgstr "Αξιολόγηση κινδύνων"
 
 #. Default: "Date:"
-#: euphorie/client/docx/compiler.py:493
+#: euphorie/client/docx/compiler.py:492
 msgid "oira_survey_date"
 msgstr ""
 
@@ -4922,17 +4924,17 @@ msgid "optional"
 msgstr "Προαιρετικό"
 
 #. Default: "No risk assessments were found for this selection."
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:164
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:158
 msgid "osc_search_no_results_for_search"
 msgstr ""
 
 #. Default: "Search"
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:82
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:76
 msgid "osc_search_placeholder"
 msgstr ""
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
-#: euphorie/client/docx/compiler.py:475
+#: euphorie/client/docx/compiler.py:474
 msgid "paragraph_oira_consultation_of_workers"
 msgstr ""
 
@@ -4955,7 +4957,7 @@ msgstr ""
 "εξυπηρέτησης OiRA έχουν ολοκληρωθεί."
 
 #. Default: "Provide some further information on this risk."
-#: euphorie/client/browser/templates/risk_identification_custom.pt:198
+#: euphorie/client/browser/templates/risk_identification_custom.pt:220
 msgid "placeholder_custom_risk_description"
 msgstr "Δώστε ορισμένες περαιτέρω πληροφορίες σχετικά με τον εν λόγω κίνδυνο."
 
@@ -4971,51 +4973,51 @@ msgid "portlet_header_versions"
 msgstr "Εκδόσεις"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:557
+#: euphorie/client/browser/session.py:561
 msgid "prefix_cloned_title"
 msgstr ""
 
 #. Default: "High"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:185
-#: euphorie/client/browser/templates/webhelpers.pt:689
+#: euphorie/client/browser/templates/webhelpers.pt:688
 #: euphorie/content/risk.py:195
 msgid "priority_high"
 msgstr "Υψηλή"
 
 #. Default: "Low"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:173
-#: euphorie/client/browser/templates/webhelpers.pt:677
+#: euphorie/client/browser/templates/webhelpers.pt:676
 #: euphorie/content/risk.py:192
 msgid "priority_low"
 msgstr "Χαμηλή"
 
 #. Default: "Medium"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:179
-#: euphorie/client/browser/templates/webhelpers.pt:683
+#: euphorie/client/browser/templates/webhelpers.pt:682
 #: euphorie/content/risk.py:194
 msgid "priority_medium"
 msgstr "Μέτρια"
 
 #. Default: "Large"
-#: euphorie/client/browser/templates/webhelpers.pt:479
+#: euphorie/client/browser/templates/webhelpers.pt:478
 #: euphorie/content/risk.py:399
 msgid "probability_large"
 msgstr "Υψηλή"
 
 #. Default: "Medium"
-#: euphorie/client/browser/templates/webhelpers.pt:473
+#: euphorie/client/browser/templates/webhelpers.pt:472
 #: euphorie/content/risk.py:397
 msgid "probability_medium"
 msgstr "Μέτρια"
 
 #. Default: "Small"
-#: euphorie/client/browser/templates/webhelpers.pt:467
+#: euphorie/client/browser/templates/webhelpers.pt:466
 #: euphorie/content/risk.py:395
 msgid "probability_small"
 msgstr "Χαμηλή"
 
 #. Default: "<p><strong>Important:</strong> In order to avoid duplicating risks, we strongly recommend you to go first through all the previous modules, if you have not done it yet.</p><p>If you don't need to add risks, please continue.</p>"
-#: euphorie/client/publish.py:161 euphorie/deployment/upgrade/v23.py:42
+#: euphorie/client/publish.py:147 euphorie/deployment/upgrade/v23.py:42
 #: euphorie/deployment/upgrade/v8.py:146
 msgid "question_other_risks"
 msgstr ""
@@ -5025,32 +5027,32 @@ msgstr ""
 "p><p>Εάν δεν χρειάζεται να προσθέσετε κινδύνους, συνεχίστε.</p>"
 
 #. Default: "an employers' organisation"
-#: euphorie/client/company.py:65 euphorie/client/templates/report_company.pt:56
+#: euphorie/client/company.py:67 euphorie/client/templates/report_company.pt:56
 msgid "referer_employers_organisation"
 msgstr "οργάνωση εργοδοτών"
 
 #. Default: "an European institution/administration"
-#: euphorie/client/company.py:75 euphorie/client/templates/report_company.pt:60
+#: euphorie/client/company.py:77 euphorie/client/templates/report_company.pt:60
 msgid "referer_eu_institution"
 msgstr "Ευρωπαϊκός Οργανισμός EU-OSHA/εταίροι ΑΥΕ"
 
 #. Default: "health and safety experts"
-#: euphorie/client/company.py:78 euphorie/client/templates/report_company.pt:62
+#: euphorie/client/company.py:80 euphorie/client/templates/report_company.pt:62
 msgid "referer_health_safety_expert"
 msgstr "ειδικοί σε θέματα ΑΥΕ"
 
 #. Default: "a national public institution/administration"
-#: euphorie/client/company.py:71 euphorie/client/templates/report_company.pt:58
+#: euphorie/client/company.py:73 euphorie/client/templates/report_company.pt:58
 msgid "referer_national_public_institution"
 msgstr "εθνική κρατική αρχή/οργανισμός"
 
 #. Default: "other channel"
-#: euphorie/client/company.py:81 euphorie/client/templates/report_company.pt:63
+#: euphorie/client/company.py:83 euphorie/client/templates/report_company.pt:63
 msgid "referer_other"
 msgstr "άλλο"
 
 #. Default: "a trade union organisation"
-#: euphorie/client/company.py:68 euphorie/client/templates/report_company.pt:57
+#: euphorie/client/company.py:70 euphorie/client/templates/report_company.pt:57
 msgid "referer_trade_union"
 msgstr "οργάνωση εργαζομένων"
 
@@ -5063,6 +5065,21 @@ msgstr "Δεν έχετε λογαριασμό; Εάν όχι, απαιτείτ�
 msgid "reminder_email_footer"
 msgstr ""
 
+#. Default: "Actions:"
+#: euphorie/client/docx/compiler.py:651
+msgid "report_actions"
+msgstr ""
+
+#. Default: "Required expertise:"
+#: euphorie/client/docx/compiler.py:662
+msgid "report_competences"
+msgstr ""
+
+#. Default: "To be done by: ${date}"
+#: euphorie/client/docx/compiler.py:685
+msgid "report_end_date"
+msgstr ""
+
 #. Default: "We are sorry, this is a trial version and the download feature cannot be used. Register in just one step and gain access to the following benefits:"
 #: euphorie/client/browser/templates/register.pt:20
 msgid "report_guest_register_intro"
@@ -5072,7 +5089,7 @@ msgstr ""
 "ακόλουθα οφέλη:"
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:761
+#: euphorie/client/docx/compiler.py:885
 msgid "report_identification_revision"
 msgstr ""
 
@@ -5086,30 +5103,40 @@ msgstr ""
 "Μπορείτε, αν θέλετε, να εισάγετε ορισμένα πρόσθετα σχόλια που εκτιμάτε ότι "
 "πρέπει να συμπεριλαμβάνονται σε αυτή την αναφορά, στο παρακάτω πεδίο."
 
+#. Default: "Measures already in place:"
+#: euphorie/client/docx/compiler.py:630
+msgid "report_measures_in_place"
+msgstr ""
+
+#. Default: "Responsible: ${responsible_name}"
+#: euphorie/client/docx/compiler.py:673
+msgid "report_responsible"
+msgstr ""
+
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:208
+#: euphorie/client/docx/compiler.py:207
 msgid "report_survey_revision"
 msgstr ""
 "Αυτή η αναφορά βασίστηκε στο εργαλείο OiRA '${title}' με ημερομηνία "
 "αναθεώρησης ${date}."
 
 #. Default: "Comments"
-#: euphorie/client/report.py:143
+#: euphorie/client/report.py:155
 msgid "report_timeline_comment"
 msgstr "Σχόλια"
 
 #. Default: "Priority"
-#: euphorie/client/report.py:142 euphorie/content/risk.py:190
+#: euphorie/client/report.py:154 euphorie/content/risk.py:190
 msgid "report_timeline_priority"
 msgstr "Εκτίμηση Επικινδυνότητας"
 
 #. Default: "Risk"
-#: euphorie/client/report.py:141
+#: euphorie/client/report.py:153
 msgid "report_timeline_risk_title"
 msgstr "Κίνδυνος"
 
 #. Default: "Timeline"
-#: euphorie/client/report.py:158
+#: euphorie/client/report.py:170
 msgid "report_timeline_title"
 msgstr "Σχέδιο δράσης"
 
@@ -5119,13 +5146,13 @@ msgid "request_an_email_reminder"
 msgstr "ζητήστε email υπενθύμισης"
 
 #. Default: "Risk is present."
-#: euphorie/client/docx/compiler.py:255
+#: euphorie/client/docx/compiler.py:254
 msgid "risk_present"
 msgstr ""
 
 #. Default: "This is a ${priority_value} priority risk."
 #: euphorie/client/browser/templates/risk_actionplan.pt:84
-#: euphorie/client/docx/compiler.py:295
+#: euphorie/client/docx/compiler.py:294
 msgid "risk_priority"
 msgstr "Εκτίμηση επικινδυνότητας: ${priority_value}."
 
@@ -5135,19 +5162,19 @@ msgstr ""
 
 #. Default: "high"
 #: euphorie/client/browser/templates/risk_actionplan.pt:95
-#: euphorie/client/docx/compiler.py:293
+#: euphorie/client/docx/compiler.py:292
 msgid "risk_priority_high"
 msgstr "Υψηλή"
 
 #. Default: "low"
 #: euphorie/client/browser/templates/risk_actionplan.pt:87
-#: euphorie/client/docx/compiler.py:289
+#: euphorie/client/docx/compiler.py:288
 msgid "risk_priority_low"
 msgstr "Χαμηλή"
 
 #. Default: "medium"
 #: euphorie/client/browser/templates/risk_actionplan.pt:91
-#: euphorie/client/docx/compiler.py:291
+#: euphorie/client/docx/compiler.py:290
 msgid "risk_priority_medium"
 msgstr "Μέτρια "
 
@@ -5167,7 +5194,7 @@ msgid "risk_solution_header"
 msgstr "Μέτρο αντιμετώπισης ${number}"
 
 #. Default: "This risk still needs to be inventorised."
-#: euphorie/client/docx/compiler.py:261
+#: euphorie/client/docx/compiler.py:260
 #: euphorie/client/templates/report_identification.pt:84
 msgid "risk_unanswered"
 msgstr "Πρέπει να γίνει απογραφή αυτού του κινδύνου"
@@ -5215,46 +5242,46 @@ msgid "select_add_existing_measure"
 msgstr "Επιλέξτε ή προσθέστε τυχόν μέτρα που εφαρμόζονται ήδη."
 
 #. Default: "Not very severe"
-#: euphorie/client/browser/templates/webhelpers.pt:571
+#: euphorie/client/browser/templates/webhelpers.pt:570
 #: euphorie/content/risk.py:347
 msgid "severity_not_severe"
 msgstr "Όχι πολύ σοβαρή "
 
 #. Default: "Need to stop working for less than 3 days"
-#: euphorie/client/browser/templates/webhelpers.pt:572
+#: euphorie/client/browser/templates/webhelpers.pt:571
 msgid "severity_not_severe_help"
 msgstr "Χρειάζεται διακοπή από την εργασία για λιγότερες από 3 ημέρες "
 
 #. Default: "Severe"
-#: euphorie/client/browser/templates/webhelpers.pt:582
+#: euphorie/client/browser/templates/webhelpers.pt:581
 #: euphorie/content/risk.py:350
 msgid "severity_severe"
 msgstr "Σοβαρή "
 
 #. Default: "Need to stop working for more than 3 days"
-#: euphorie/client/browser/templates/webhelpers.pt:583
+#: euphorie/client/browser/templates/webhelpers.pt:582
 msgid "severity_severe_help"
 msgstr "Χρειάζεται διακοπή από την εργασία για περισσότερες από 3 ημέρες "
 
 #. Default: "Very severe"
-#: euphorie/client/browser/templates/webhelpers.pt:594
+#: euphorie/client/browser/templates/webhelpers.pt:593
 #: euphorie/content/risk.py:352
 msgid "severity_very_severe"
 msgstr "Πολύ σοβαρή "
 
 #. Default: "Irreversible injury, incurable illness, death"
-#: euphorie/client/browser/templates/webhelpers.pt:595
+#: euphorie/client/browser/templates/webhelpers.pt:594
 msgid "severity_very_severe_help"
 msgstr "Μη αναστρέψιμος τραυματισμός, ανίατη ασθένεια, θάνατος "
 
 #. Default: "Weak"
-#: euphorie/client/browser/templates/webhelpers.pt:560
+#: euphorie/client/browser/templates/webhelpers.pt:559
 #: euphorie/content/risk.py:345
 msgid "severity_weak"
 msgstr "Μικρή "
 
 #. Default: "No need to stop working"
-#: euphorie/client/browser/templates/webhelpers.pt:561
+#: euphorie/client/browser/templates/webhelpers.pt:560
 msgid "severity_weak_help"
 msgstr "Δεν χρειάζεται διακοπή από την εργασία "
 
@@ -5389,7 +5416,7 @@ msgid "title_import_sector_survey"
 msgstr "Εισαγωγή τομέα και εργαλείου OiRA"
 
 #. Default: "Added risks (by you)"
-#: euphorie/client/docx/compiler.py:99 euphorie/client/publish.py:155
+#: euphorie/client/docx/compiler.py:98 euphorie/client/publish.py:141
 #: euphorie/client/utils.py:68
 msgid "title_other_risks"
 msgstr "Πρόσθετοι κίνδυνοι (από το χρήστη)"
@@ -5415,7 +5442,7 @@ msgid "title_status_of"
 msgstr "Παρούσα κατάσταση της μελέτης Εκτίμησης Κινδύνου ${survey_title}"
 
 #. Default: "OiRA - Online interactive Risk Assessment"
-#: euphorie/client/browser/country.py:289
+#: euphorie/client/browser/country.py:255
 #: euphorie/client/browser/templates/modal-template.pt:19
 #: euphorie/client/browser/templates/webhelpers.pt:40
 msgid "title_tool"
@@ -5443,31 +5470,40 @@ msgstr "Παρούσα κατάσταση της μελέτης Εκτίμηση
 
 #. Default: "Contents"
 #: euphorie/client/browser/templates/risks_overview.pt:167
-#: euphorie/client/docx/compiler.py:190
+#: euphorie/client/docx/compiler.py:189
 msgid "toc_header"
 msgstr "Περιεχόμενα"
 
 #. Default: "Show/hide menu"
-#: euphorie/client/templates/shell.pt:98
+#: euphorie/client/templates/shell.pt:97
 msgid "tooltip_menu_toggle"
 msgstr ""
 
 #. Default: "This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be included in this report."
-#: euphorie/client/browser/templates/webhelpers.pt:292
-#: euphorie/client/docx/compiler.py:266
+#: euphorie/client/browser/templates/webhelpers.pt:290
+#: euphorie/client/docx/compiler.py:265
 msgid "top5_risk_not_present"
 msgstr ""
 "Αυτός ο κίνδυνος δεν υπάρχει στην επιχείρησή σας, αλλά επειδή η οργάνωση του "
 "τομέα τον θεωρεί έναν από τους κινδύνους προτεραιότητας, πρέπει να "
-"συμπεριληφθεί σε αυτή την έκθεση. "
+"συμπεριληφθεί σε αυτή την έκθεση."
 
 #. Default: "This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be included in this report."
-#: euphorie/client/docx/compiler.py:274
+#: euphorie/client/docx/compiler.py:273
 msgid "top5_risk_not_present_answer_yes"
 msgstr ""
 "Αυτός ο κίνδυνος δεν υπάρχει στην επιχείρησή σας, αλλά επειδή η οργάνωση του "
 "τομέα τον θεωρεί έναν από τους κινδύνους προτεραιότητας, πρέπει να "
 "συμπεριληφθεί σε αυτή την έκθεση. "
+
+#. Default: "This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be included in this report."
+#: euphorie/client/browser/templates/webhelpers.pt:293
+msgid "top5_risk_not_present_postponed"
+msgstr ""
+"Αν και αυτός ο κίνδυνος δεν έχει ακόμα εκτιμηθεί, θα αναφέρεται πάντοτε στο "
+"Σχέδιο Δράσης γιατί έχει χαρακτηριστεί ως «υψηλής επικινδυνότητας» από την "
+"Ομάδα Ανάπτυξης του εργαλείου OiRA. Μεταβείτε στο στάδιο Αναγνώρισης των "
+"Κινδύνων, για να εξετάσετε τώρα τη σχετική “δήλωση κινδύνου”."
 
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/templates/unpublish.pt:19
@@ -5522,7 +5558,7 @@ msgid "warn_fix_errors"
 msgstr "Παρακαλώ αποκαταστήστε τα σφάλματα που επισημαίνονται. "
 
 #. Default: "You responded negative to the above statement."
-#: euphorie/client/browser/templates/webhelpers.pt:305
+#: euphorie/client/browser/templates/webhelpers.pt:304
 #: euphorie/client/templates/report_identification.pt:83
 msgid "warn_risk_present"
 msgstr "Απαντήσατε αρνητικά στην παραπάνω φράση."
@@ -5547,6 +5583,14 @@ msgstr ""
 #: euphorie/content/templates/risk_view.pt:44
 msgid "yes"
 msgstr "Ναι"
+
+#~ msgid "Available OiRA tools"
+#~ msgstr "Διαθέσιμα εργαλεία OiRA"
+
+#~ msgid "Start test session"
+#~ msgstr ""
+#~ "Έναρξη της μελέτης Εκτίμησης Κινδύνου με τη δοκιμαστική έκδοση του "
+#~ "εργαλείου"
 
 #~ msgid "Description of the risk"
 #~ msgstr "Περιγραφή του κινδύνου"
