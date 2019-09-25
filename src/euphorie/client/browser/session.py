@@ -119,7 +119,10 @@ class SessionMixin(object):
         if not getattr(self.survey, "external_site_logo", False):
             return ""
         scales = self.survey.restrictedTraverse("@@images")
-        scale = scales.scale("external_site_logo", scale="large")
+        try:
+            scale = scales.scale("external_site_logo", scale="large")
+        except:
+            scale = None
         return scale.url if scale else ""
 
     def verify_view_permission(self):
