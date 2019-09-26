@@ -31,7 +31,6 @@ from plonetheme.nuplone.utils import isAnonymous
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
-from sqlalchemy import and_
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from ZODB.POSException import POSKeyError
@@ -773,6 +772,7 @@ class WebHelpers(BrowserView):
         order_by=False,
         include_archived=False,
         include_group=False,
+        filter_by_account=True,
     ):
         """ Method to return a query that looks for sessions
 
@@ -783,6 +783,7 @@ class WebHelpers(BrowserView):
         :param include_archived: unless explicitely set to a truish value,
             archived sessions are excluded
         :param include_group: if truish include the group sessions
+        :param filter_by_account: if truish, filter sessions on current account
         """
         table = self.survey_session_model
         query = Session.query(table)
@@ -791,12 +792,11 @@ class WebHelpers(BrowserView):
         if not account:
             return query.filter(False)
 
-        query = query.filter(
-            and_(
-                table.get_account_filter(account=account, include_group=include_group),
-                table.get_context_filter(context or self.context),
+        query = query.filter(table.get_context_filter(context or self.context))
+        if filter_by_account:
+            query = query.filter(
+                table.get_account_filter(account=account, include_group=include_group)
             )
-        )
         if not include_archived:
             query = query.filter(table.get_archived_filter())
         if searchable_text:
