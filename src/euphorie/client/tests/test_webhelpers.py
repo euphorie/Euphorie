@@ -31,8 +31,8 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                 self.assertEqual(
                     self._get_query_filters(view.get_sessions_query()),
                     (
-                        "WHERE session.account_id = ? AND "
-                        "session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (?) AND "
+                        "session.account_id = ? AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
                     ),
@@ -42,8 +42,8 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         view.get_sessions_query(include_archived=True)
                     ),
                     (
-                        "WHERE session.account_id = ? AND "
-                        "session.zodb_path IN (?) "
+                        "WHERE session.zodb_path IN (?) AND "
+                        "session.account_id = ? "
                         "ORDER BY session.modified DESC, session.title"
                     ),
                 )
@@ -52,8 +52,8 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         view.get_sessions_query(searchable_text="foo")
                     ),
                     (
-                        "WHERE session.account_id = ? AND "
-                        "session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (?) AND "
+                        "session.account_id = ? AND "
                         "(session.archived >= ? OR session.archived IS NULL) AND "
                         "lower(session.title) LIKE lower(?) "
                         "ORDER BY session.modified DESC, session.title"
@@ -67,8 +67,18 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         view.get_sessions_query(include_group=True)
                     ),
                     (
-                        "WHERE (session.account_id = ? OR session.group_id IN (?)) AND "
-                        "session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (?) AND "
+                        "(session.account_id = ? OR session.group_id IN (?)) AND "
+                        "(session.archived >= ? OR session.archived IS NULL) "
+                        "ORDER BY session.modified DESC, session.title"
+                    ),
+                )
+                self.assertEqual(
+                    self._get_query_filters(
+                        view.get_sessions_query(filter_by_account=False)
+                    ),
+                    (
+                        "WHERE session.zodb_path IN (?) AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
                     ),
