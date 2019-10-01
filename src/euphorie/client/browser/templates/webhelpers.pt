@@ -292,8 +292,7 @@
           >This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be
             included in this report.</tal:yes>
         <tal:postponed condition="view/risk_postponed" i18n:translate="top5_risk_not_present_postponed"
-        >This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be
-            included in this report.</tal:postponed>
+        >This risk has not yet been assessed, but since it is considered "high priority" by the OiRA tool developers, it will always be included in the action plan. Please go to the identification and answer the statement.</tal:postponed>
         </p>
       </tal:block>
       <tal:block condition="view/risk_present">
