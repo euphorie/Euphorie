@@ -213,7 +213,7 @@
               Remove
             </button>
           </tal:has_image>
-          <span class="pat-button upload-button">Upload image</span>
+          <span class="pat-button upload-button" i18n:translate="">Upload image</span>
           <input type="file" name="image" />
         </label>
         <label class="eight columns">
