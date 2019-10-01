@@ -1037,7 +1037,7 @@ msgstr "Standarta risinājums"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:83
 msgid "Started"
-msgstr ""
+msgstr "Sākts"
 
 #: euphorie/client/browser/login.py:231
 #: euphorie/client/browser/templates/new-session-test.pt:88
