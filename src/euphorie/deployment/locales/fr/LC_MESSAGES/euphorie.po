@@ -1254,7 +1254,7 @@ msgstr "Sans réponse"
 
 #: euphorie/content/upload.py:423
 msgid "Upload"
-msgstr "Télécharger "
+msgstr "Télécharger"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:198
 msgid "Upload an image that illustrates this risk."
@@ -1262,7 +1262,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:216
 msgid "Upload image"
-msgstr ""
+msgstr "Télécharger image"
 
 #: euphorie/content/behaviour/configure.zcml:19
 msgid "Use a rich text description for content types."
@@ -3588,7 +3588,7 @@ msgstr "Le risque est-il acceptable?"
 #. Default: "Is this risk acceptable or under control? If applicable, ${link_add_measures}."
 #: euphorie/content/utils.py:104
 msgid "is_risk_acceptable_add_measures"
-msgstr ""
+msgstr "Ce risque est-il maîtrisé ? Si nécessaire, ${link_add_measures}."
 
 #. Default: "Update"
 #: euphorie/client/browser/templates/updated.pt:89
@@ -4276,7 +4276,7 @@ msgstr "Enregistrer et continuer"
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:255
 msgid "label_save_and_finish"
-msgstr ""
+msgstr "Sauvegardez et terminez"
 
 #. Default: "Section"
 #: euphorie/client/report.py:151
@@ -5300,7 +5300,7 @@ msgstr ""
 #. Default: "add all measures that have already been implemented"
 #: euphorie/content/utils.py:54
 msgid "text_add_measures"
-msgstr ""
+msgstr "ajouter les mesures déjà mises en place"
 
 #. Default: "OiRA"
 #: euphorie/content/templates/colour-preview.pt:51
