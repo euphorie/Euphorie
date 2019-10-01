@@ -1,4 +1,4 @@
-
+<tal:portlet i18n:domain="euphorie">
 <div class="portlet span-1"
      id="portlet-available-tools"
      tal:define="surveys view/surveys"
@@ -59,3 +59,4 @@
     </div>
   </div>
 </div>
+</tal:portlet>

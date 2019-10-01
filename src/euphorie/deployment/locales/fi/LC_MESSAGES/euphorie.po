@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.1.1dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 14:07+0000\n"
+"POT-Creation-Date: 2019-10-01 16:10+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,7 +80,7 @@ msgstr ""
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
 msgstr "${provide-evidence} työsuojeluviranomaisille (työsuojelutarkastus)."
 
-#: euphorie/client/browser/templates/webhelpers.pt:457
+#: euphorie/client/browser/templates/webhelpers.pt:456
 msgid "${view/description_probability}"
 msgstr ""
 
@@ -230,7 +230,7 @@ msgstr ""
 msgid "Are you sure you want to continue? This action can not be reverted."
 msgstr ""
 
-#: euphorie/client/browser/risk.py:833
+#: euphorie/client/browser/risk.py:835
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -250,6 +250,10 @@ msgstr ""
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Automatically generate unique ids for content"
 msgstr ""
+
+#: euphorie/client/browser/templates/portlet-available-tools.pt:10
+msgid "Available OiRA tools"
+msgstr "Saatavilla olevat OiRA-työkalut"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:23
 #: euphorie/client/browser/templates/sessions-dashboard.pt:58
@@ -688,7 +692,7 @@ msgstr "Uusi"
 msgid "No"
 msgstr "Ei"
 
-#: euphorie/client/browser/risk.py:932
+#: euphorie/client/browser/risk.py:934
 msgid "No changes were made to measures in your action plan."
 msgstr "Toimintasuunnitelmassa oleviin toimenpiteisiin ei tehty muutoksia."
 
@@ -871,7 +875,7 @@ msgstr ""
 msgid "Publish Risk Assessment"
 msgstr ""
 
-#: euphorie/client/browser/templates/webhelpers.pt:316
+#: euphorie/client/browser/templates/webhelpers.pt:315
 msgid "Read more"
 msgstr "Lue lisää"
 
@@ -1103,7 +1107,7 @@ msgstr ""
 "Online-muotoisen vuorovaikutteisen riskinarvioinnin perusarkkitehtuuri "
 "koostuu seuraavista tekijöistä :"
 
-#: euphorie/client/browser/risk.py:837
+#: euphorie/client/browser/risk.py:839
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -1743,6 +1747,7 @@ msgstr "Aloita uusi istunto."
 #. Default: "Start session"
 #: euphorie/client/browser/templates/new-session-test.pt:80
 #: euphorie/client/browser/templates/new-session.pt:75
+#: euphorie/client/browser/templates/portlet-available-tools.pt:46
 #, fuzzy
 msgid "button_start_session"
 msgstr "Aloita"
@@ -2011,7 +2016,7 @@ msgid "deprecated_label_existing_measures"
 msgstr ""
 
 #. Default: "The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk &ndash; if you consider it necessary &ndash; in the action plan."
-#: euphorie/client/browser/templates/webhelpers.pt:694
+#: euphorie/client/browser/templates/webhelpers.pt:693
 #, fuzzy
 msgid "description_automatic_evaluation"
 msgstr ""
@@ -2114,19 +2119,19 @@ msgid "effect_high"
 msgstr "Suuri (erittäin suuri) vakavuus"
 
 #. Default: "Weak severity"
-#: euphorie/client/browser/templates/webhelpers.pt:527
+#: euphorie/client/browser/templates/webhelpers.pt:526
 #, fuzzy
 msgid "effect_injury_no_absence"
 msgstr "Pieni"
 
 #. Default: "Significant severity"
-#: euphorie/client/browser/templates/webhelpers.pt:533
+#: euphorie/client/browser/templates/webhelpers.pt:532
 #, fuzzy
 msgid "effect_injury_with_absence"
 msgstr "Merkittävä"
 
 #. Default: "High (very high) severity"
-#: euphorie/client/browser/templates/webhelpers.pt:539
+#: euphorie/client/browser/templates/webhelpers.pt:538
 #, fuzzy
 msgid "effect_permanent_damage"
 msgstr "Suuri (erittäin suuri)"
@@ -2258,19 +2263,19 @@ msgid "error_password_mismatch"
 msgstr "Salasanat eivät täsmää"
 
 #. Default: "This date must be on or after the start date."
-#: euphorie/client/browser/risk.py:846
+#: euphorie/client/browser/risk.py:848
 #, fuzzy
 msgid "error_validation_after_start_date"
 msgstr "Päivämäärän on oltava sama kuin alkamispäivä tai sitä myöhempi."
 
 #. Default: "This date must be on or before the end date."
-#: euphorie/client/browser/risk.py:842
+#: euphorie/client/browser/risk.py:844
 #, fuzzy
 msgid "error_validation_before_end_date"
 msgstr "Päivämäärän on oltava sama kuin päättymispäivä tai sitä aiempi."
 
 #. Default: "This value must be a positive whole number."
-#: euphorie/client/browser/risk.py:850
+#: euphorie/client/browser/risk.py:852
 #, fuzzy
 msgid "error_validation_positive_whole_number"
 msgstr "Kohtaan on merkittävä positiivinen kokonaisluku."
@@ -2400,7 +2405,7 @@ msgstr ""
 "päivittää nämä muutokset, ennen kuin voit jatkaa."
 
 #. Default: "This risk was automatically set as being present. You cannot change this."
-#: euphorie/client/browser/templates/webhelpers.pt:397
+#: euphorie/client/browser/templates/webhelpers.pt:396
 msgid "explanation_risk_always_present"
 msgstr ""
 
@@ -2439,7 +2444,7 @@ msgid "french"
 msgstr "Kaksi yksinkertaistettua kriteeriä"
 
 #. Default: "Almost never"
-#: euphorie/client/browser/templates/webhelpers.pt:497
+#: euphorie/client/browser/templates/webhelpers.pt:496
 #, fuzzy
 msgid "frequency_almost_never"
 msgstr "Ei juuri koskaan"
@@ -2451,66 +2456,66 @@ msgid "frequency_almostnever"
 msgstr "Ei juuri koskaan"
 
 #. Default: "Constantly"
-#: euphorie/client/browser/templates/webhelpers.pt:509
+#: euphorie/client/browser/templates/webhelpers.pt:508
 #: euphorie/content/risk.py:419
 #, fuzzy
 msgid "frequency_constantly"
 msgstr "Jatkuvasti"
 
 #. Default: "Not very often"
-#: euphorie/client/browser/templates/webhelpers.pt:630
+#: euphorie/client/browser/templates/webhelpers.pt:629
 #: euphorie/content/risk.py:370
 #, fuzzy
 msgid "frequency_french_not_often"
 msgstr "Ei kovin usein"
 
 #. Default: "Once per month"
-#: euphorie/client/browser/templates/webhelpers.pt:631
+#: euphorie/client/browser/templates/webhelpers.pt:630
 #, fuzzy
 msgid "frequency_french_not_often_help"
 msgstr "Kerran kuukaudessa"
 
 #. Default: "Often"
-#: euphorie/client/browser/templates/webhelpers.pt:642
+#: euphorie/client/browser/templates/webhelpers.pt:641
 #: euphorie/content/risk.py:373
 #, fuzzy
 msgid "frequency_french_often"
 msgstr "Usein"
 
 #. Default: "Once per week"
-#: euphorie/client/browser/templates/webhelpers.pt:643
+#: euphorie/client/browser/templates/webhelpers.pt:642
 #, fuzzy
 msgid "frequency_french_often_help"
 msgstr "Kerran viikossa"
 
 #. Default: "Rare"
-#: euphorie/client/browser/templates/webhelpers.pt:618
+#: euphorie/client/browser/templates/webhelpers.pt:617
 #: euphorie/content/risk.py:368
 #, fuzzy
 msgid "frequency_french_rare"
 msgstr "Harvoin"
 
 #. Default: "Once per year"
-#: euphorie/client/browser/templates/webhelpers.pt:619
+#: euphorie/client/browser/templates/webhelpers.pt:618
 #, fuzzy
 msgid "frequency_french_rare_help"
 msgstr "Kerran vuodessa"
 
 #. Default: "Very often or regularly"
-#: euphorie/client/browser/templates/webhelpers.pt:654
+#: euphorie/client/browser/templates/webhelpers.pt:653
 #: euphorie/content/risk.py:375
 #, fuzzy
 msgid "frequency_french_regularly"
 msgstr "Erittäin usein tai säännöllisesti"
 
 #. Default: "Minimum once per day"
-#: euphorie/client/browser/templates/webhelpers.pt:655
+#: euphorie/client/browser/templates/webhelpers.pt:654
 #, fuzzy
 msgid "frequency_french_regularly_help"
 msgstr "Vähintään kerran päivässä"
 
 #. Default: "Regularly"
-#: euphorie/client/browser/templates/webhelpers.pt:503
+#: euphorie/client/browser/templates/webhelpers.pt:502
 #: euphorie/content/risk.py:417
 #, fuzzy
 msgid "frequency_regularly"
@@ -2540,13 +2545,13 @@ msgid "header_additional_content"
 msgstr "Ylimääräinen sisältö"
 
 #. Default: "Additional resources to assess the risk"
-#: euphorie/client/browser/templates/webhelpers.pt:823
+#: euphorie/client/browser/templates/webhelpers.pt:822
 #, fuzzy
 msgid "header_additional_resources"
 msgstr "Lisämateriaalia riskinarviointia varten."
 
 #. Default: "Additional resources for this module"
-#: euphorie/client/browser/templates/webhelpers.pt:826
+#: euphorie/client/browser/templates/webhelpers.pt:825
 #, fuzzy
 msgid "header_additional_resources_module"
 msgstr "Lisämateriaalia tähán osioon"
@@ -2609,7 +2614,7 @@ msgid "header_identification"
 msgstr "Tunnistus"
 
 #. Default: "Information"
-#: euphorie/client/browser/templates/webhelpers.pt:703
+#: euphorie/client/browser/templates/webhelpers.pt:702
 #: euphorie/content/templates/module_view.pt:22
 #: euphorie/content/templates/profilequestion_view.pt:20
 #, fuzzy
@@ -2800,26 +2805,26 @@ msgid "header_risk_aware"
 msgstr "Oletko tietoinen kaikista riskeistä?"
 
 #. Default: "What is the severity of the damage?"
-#: euphorie/client/browser/templates/webhelpers.pt:517
+#: euphorie/client/browser/templates/webhelpers.pt:516
 #, fuzzy
 msgid "header_risk_effect"
 msgstr "Minkälainen on vahingon vakavuus?"
 
 #. Default: "How often are people exposed to this risk?"
-#: euphorie/client/browser/templates/webhelpers.pt:487
+#: euphorie/client/browser/templates/webhelpers.pt:486
 #, fuzzy
 msgid "header_risk_frequency"
 msgstr "Kuinka usein ihmiset altistuvat tälle riskille?"
 
 #. Default: "Select the priority of this risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:167
-#: euphorie/client/browser/templates/webhelpers.pt:671
+#: euphorie/client/browser/templates/webhelpers.pt:670
 #, fuzzy
 msgid "header_risk_priority"
 msgstr "Valitse riskin prioriteetti"
 
 #. Default: "What is the chance of this risk occurring?"
-#: euphorie/client/browser/templates/webhelpers.pt:456
+#: euphorie/client/browser/templates/webhelpers.pt:455
 #, fuzzy
 msgid "header_risk_probability"
 msgstr "Minkälainen on tämän riskin toteutumismahdollisuus?"
@@ -2937,7 +2942,7 @@ msgid "header_why_oira"
 msgstr "Miksi OiRA-projekti"
 
 #. Default: "Comments"
-#: euphorie/client/browser/templates/webhelpers.pt:856
+#: euphorie/client/browser/templates/webhelpers.pt:855
 msgid "heading_comments"
 msgstr "Kommentit"
 
@@ -3148,7 +3153,7 @@ msgstr ""
 "Tämän teksin tulee kuvailla, kuinka voi rekisteröityä ja kirjautua sisään."
 
 #. Default: "Please answer the following questions. As a result of your answers the system will calculate the priority of the risk. You will be able to modify the priority later."
-#: euphorie/client/browser/templates/webhelpers.pt:443
+#: euphorie/client/browser/templates/webhelpers.pt:442
 #, fuzzy
 msgid "help_calculated_evaluation"
 msgstr ""
@@ -3907,7 +3912,7 @@ msgstr ""
 
 #. Default: "Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
 #: euphorie/client/browser/templates/risk_actionplan.pt:433
-#: euphorie/client/browser/templates/webhelpers.pt:863
+#: euphorie/client/browser/templates/webhelpers.pt:862
 #, fuzzy
 msgid "label_comment"
 msgstr ""
@@ -4193,7 +4198,7 @@ msgid "label_language"
 msgstr "Kieli"
 
 #. Default: "Legal and policy references"
-#: euphorie/client/browser/templates/webhelpers.pt:811
+#: euphorie/client/browser/templates/webhelpers.pt:810
 #: euphorie/content/risk.py:120 euphorie/content/templates/risk_view.pt:76
 #, fuzzy
 msgid "label_legal_reference"
@@ -4631,6 +4636,7 @@ msgstr "Valitse yksi tai useampi tunnetuista yleisistä toimenpiteistä."
 #. Default: "Start a new session by choosing one of the following sectoral tools:"
 #: euphorie/client/browser/templates/new-session-test.pt:27
 #: euphorie/client/browser/templates/new-session.pt:28
+#: euphorie/client/browser/templates/portlet-available-tools.pt:24
 #, fuzzy
 msgid "label_select_new_session"
 msgstr "Valitse yksi seuraavista toimialatyökaluista"
@@ -4648,7 +4654,7 @@ msgid "label_show_less_hellip"
 msgstr "Näytä vähemmän"
 
 #. Default: "${read_more} about this risk."
-#: euphorie/client/browser/templates/webhelpers.pt:316
+#: euphorie/client/browser/templates/webhelpers.pt:315
 #, fuzzy
 msgid "label_show_more"
 msgstr "${read_more} tästä riskistä."
@@ -5019,73 +5025,73 @@ msgid "message_lock_warn"
 msgstr ""
 
 #. Default: "A measure has been removed from your action plan."
-#: euphorie/client/browser/risk.py:1009
+#: euphorie/client/browser/risk.py:1011
 #, fuzzy
 msgid "message_measure_removed"
 msgstr "Toimenpide on poistettu toimintasuunnitelmasta."
 
 #. Default: "A measure has been added to your action plan."
-#: euphorie/client/browser/risk.py:937
+#: euphorie/client/browser/risk.py:939
 #, fuzzy
 msgid "message_measure_saved"
 msgstr "Toimenpide on lisätty toimintasuunnitelmaan."
 
 #. Default: "A measure has been updated in your action plan."
-#: euphorie/client/browser/risk.py:973
+#: euphorie/client/browser/risk.py:975
 #, fuzzy
 msgid "message_measure_updated"
 msgstr "Toimenpide on päivitetty toimintasuunnitelmaan."
 
 #. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:1035
+#: euphorie/client/browser/risk.py:1037
 #, fuzzy
 msgid "message_measures_removed"
 msgstr "${no_of_measures} toimenpidettä on poistettu toimintasuunnitelmasta."
 
 #. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:1017
+#: euphorie/client/browser/risk.py:1019
 #, fuzzy
 msgid "message_measures_removed_3"
 msgstr "${no_of_measures} toimenpidettä on poistettu toimintasuunnitelmasta."
 
 #. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:1026
+#: euphorie/client/browser/risk.py:1028
 #, fuzzy
 msgid "message_measures_removed_3_4"
 msgstr "${no_of_measures} toimenpidettä on poistettu toimintasuunnitelmasta."
 
 #. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:963
+#: euphorie/client/browser/risk.py:965
 #, fuzzy
 msgid "message_measures_saved"
 msgstr "${no_of_measures} toimenpidettä on lisätty toimintasuunnitelmaan."
 
 #. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:945
+#: euphorie/client/browser/risk.py:947
 #, fuzzy
 msgid "message_measures_saved_2"
 msgstr "${no_of_measures} toimenpidettä on lisätty toimintasuunnitelmaan."
 
 #. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:954
+#: euphorie/client/browser/risk.py:956
 #, fuzzy
 msgid "message_measures_saved_3_4"
 msgstr "${no_of_measures} toimenpidettä on lisätty toimintasuunnitelmaan."
 
 #. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:999
+#: euphorie/client/browser/risk.py:1001
 #, fuzzy
 msgid "message_measures_updated"
 msgstr "${no_of_measures} toimenpidettä on päivitetty toimintasuunnitelmaan."
 
 #. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:981
+#: euphorie/client/browser/risk.py:983
 #, fuzzy
 msgid "message_measures_updated_2"
 msgstr "${no_of_measures} toimenpidettä on lisätty toimintasuunnitelmaan."
 
 #. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:990
+#: euphorie/client/browser/risk.py:992
 #, fuzzy
 msgid "message_measures_updated_3_4"
 msgstr "${no_of_measures} toimenpidettä on lisätty toimintasuunnitelmaan."
@@ -5355,7 +5361,7 @@ msgstr ""
 
 #. Default: "High"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:185
-#: euphorie/client/browser/templates/webhelpers.pt:689
+#: euphorie/client/browser/templates/webhelpers.pt:688
 #: euphorie/content/risk.py:195
 #, fuzzy
 msgid "priority_high"
@@ -5363,7 +5369,7 @@ msgstr "Suuri"
 
 #. Default: "Low"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:173
-#: euphorie/client/browser/templates/webhelpers.pt:677
+#: euphorie/client/browser/templates/webhelpers.pt:676
 #: euphorie/content/risk.py:192
 #, fuzzy
 msgid "priority_low"
@@ -5371,28 +5377,28 @@ msgstr "Pieni"
 
 #. Default: "Medium"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:179
-#: euphorie/client/browser/templates/webhelpers.pt:683
+#: euphorie/client/browser/templates/webhelpers.pt:682
 #: euphorie/content/risk.py:194
 #, fuzzy
 msgid "priority_medium"
 msgstr "Keskitasoinen"
 
 #. Default: "Large"
-#: euphorie/client/browser/templates/webhelpers.pt:479
+#: euphorie/client/browser/templates/webhelpers.pt:478
 #: euphorie/content/risk.py:399
 #, fuzzy
 msgid "probability_large"
 msgstr "Iso"
 
 #. Default: "Medium"
-#: euphorie/client/browser/templates/webhelpers.pt:473
+#: euphorie/client/browser/templates/webhelpers.pt:472
 #: euphorie/content/risk.py:397
 #, fuzzy
 msgid "probability_medium"
 msgstr "Keskitasoinen"
 
 #. Default: "Small"
-#: euphorie/client/browser/templates/webhelpers.pt:467
+#: euphorie/client/browser/templates/webhelpers.pt:466
 #: euphorie/content/risk.py:395
 #, fuzzy
 msgid "probability_small"
@@ -5652,53 +5658,53 @@ msgid "select_add_existing_measure"
 msgstr "Valitse tai lisää jo käytössä olevat toimenpiteet."
 
 #. Default: "Not very severe"
-#: euphorie/client/browser/templates/webhelpers.pt:571
+#: euphorie/client/browser/templates/webhelpers.pt:570
 #: euphorie/content/risk.py:347
 #, fuzzy
 msgid "severity_not_severe"
 msgstr "Ei erittäin vakava"
 
 #. Default: "Need to stop working for less than 3 days"
-#: euphorie/client/browser/templates/webhelpers.pt:572
+#: euphorie/client/browser/templates/webhelpers.pt:571
 #, fuzzy
 msgid "severity_not_severe_help"
 msgstr "Työt täytyy keskeyttää alle 3 päiväksi"
 
 #. Default: "Severe"
-#: euphorie/client/browser/templates/webhelpers.pt:582
+#: euphorie/client/browser/templates/webhelpers.pt:581
 #: euphorie/content/risk.py:350
 #, fuzzy
 msgid "severity_severe"
 msgstr "Vakava"
 
 #. Default: "Need to stop working for more than 3 days"
-#: euphorie/client/browser/templates/webhelpers.pt:583
+#: euphorie/client/browser/templates/webhelpers.pt:582
 #, fuzzy
 msgid "severity_severe_help"
 msgstr "Työt täytyy keskeyttää yli 3 päiväksi"
 
 #. Default: "Very severe"
-#: euphorie/client/browser/templates/webhelpers.pt:594
+#: euphorie/client/browser/templates/webhelpers.pt:593
 #: euphorie/content/risk.py:352
 #, fuzzy
 msgid "severity_very_severe"
 msgstr "Erittäin vakava"
 
 #. Default: "Irreversible injury, incurable illness, death"
-#: euphorie/client/browser/templates/webhelpers.pt:595
+#: euphorie/client/browser/templates/webhelpers.pt:594
 #, fuzzy
 msgid "severity_very_severe_help"
 msgstr "Pysyvä vamma, parantumaton sairaus, kuolema"
 
 #. Default: "Weak"
-#: euphorie/client/browser/templates/webhelpers.pt:560
+#: euphorie/client/browser/templates/webhelpers.pt:559
 #: euphorie/content/risk.py:345
 #, fuzzy
 msgid "severity_weak"
 msgstr "Pieni"
 
 #. Default: "No need to stop working"
-#: euphorie/client/browser/templates/webhelpers.pt:561
+#: euphorie/client/browser/templates/webhelpers.pt:560
 #, fuzzy
 msgid "severity_weak_help"
 msgstr "Työntekoa ei tarvitse keskeyttää"
@@ -5941,7 +5947,7 @@ msgstr ""
 "toimialalla tiedetään yleisesti tähän liittyvän merkittäviä riskejä, niin "
 "siksi se tulee aina mukaan toimintasuunnitelmaan."
 
-#. Default: "This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be included in this report."
+#. Default: "This risk has not yet been assessed, but since it is considered \"high priority\" by the OiRA tool developers, it will always be included in the action plan. Please go to the identification and answer the statement."
 #: euphorie/client/browser/templates/webhelpers.pt:294
 msgid "top5_risk_not_present_postponed"
 msgstr ""
@@ -6010,7 +6016,7 @@ msgid "warn_fix_errors"
 msgstr "Korjaa mainitut virheet."
 
 #. Default: "You responded negative to the above statement."
-#: euphorie/client/browser/templates/webhelpers.pt:305
+#: euphorie/client/browser/templates/webhelpers.pt:304
 #: euphorie/client/templates/report_identification.pt:83
 #, fuzzy
 msgid "warn_risk_present"
@@ -6038,9 +6044,6 @@ msgstr ""
 #, fuzzy
 msgid "yes"
 msgstr "Kyllä"
-
-#~ msgid "Available OiRA tools"
-#~ msgstr "Saatavilla olevat OiRA-työkalut"
 
 #~ msgid "Start test session"
 #~ msgstr "Testaa kokeiluversiota"
