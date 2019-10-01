@@ -244,7 +244,7 @@ msgstr "Vai tiešām vēlaties dzēst šo sesiju? Šī darbība ir neatgriezenis
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:26
 msgid "Are you sure you want to proceed?"
-msgstr ""
+msgstr "Vai esat pārleicināts, ka gribat turpināt?"
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Automatically generate unique ids for content"
@@ -269,6 +269,8 @@ msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
 msgstr ""
+"Klonējot riska novērtējumu, jūs izveidosiet jaunu riska novērtējumu, kura "
+"saturs sākotnēji būs identisks ar iepriekšējo riska novērtējumu."
 
 #: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:105
 #: euphorie/client/templates/account-delete.pt:29
@@ -342,7 +344,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:39
 msgid "Continue to action plan"
-msgstr ""
+msgstr "Turpināt ar pasākumu plānu"
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml
 msgid "Country"
@@ -1290,7 +1292,7 @@ msgstr "Jā"
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:34
 msgid "Yes, clone risk assessment"
-msgstr ""
+msgstr "Jā, klonēt riska novērtējumu"
 
 #: euphorie/content/templates/library.pt:17
 msgid ""
@@ -1529,7 +1531,7 @@ msgstr "Autors: ${EU-OSHA}."
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:135
 msgid "based on"
-msgstr ""
+msgstr "balstīts uz"
 
 #: euphorie/client/browser/templates/new-session-test.pt:71
 msgid "benefits"
@@ -3657,7 +3659,7 @@ msgstr "Apraksts"
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:39
 msgid "label_duplicate"
-msgstr ""
+msgstr "Klonēt"
 
 #. Default: "Email address"
 #: euphorie/client/browser/reset_password.py:38
@@ -4159,7 +4161,7 @@ msgstr "Saglabāt un turpināt"
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:255
 msgid "label_save_and_finish"
-msgstr ""
+msgstr "Saglabāt un pabeigt"
 
 #. Default: "Section"
 #: euphorie/client/report.py:151
@@ -4235,7 +4237,7 @@ msgstr "Sākt"
 #. Default: "Started"
 #: euphorie/client/browser/templates/status.pt:61
 msgid "label_started"
-msgstr ""
+msgstr "sākts"
 
 #. Default: "Affirmative statement"
 #: euphorie/content/risk.py:75
