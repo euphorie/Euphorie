@@ -203,7 +203,7 @@
                i18n:attributes="title"
         >
           <tal:has_image condition="here/image_filename">
-            <img src="${here/absolute_url}/@@image-display/image/${here/image_filename}" />
+            <img src="${here/absolute_url}/@@image-display/image?name=${here/image_filename}" />
             <button class="icon-trash image-upload-remove-button focus"
                     formaction="${here/absolute_url}/@@image-upload#image-upload"
                     name="image-remove"
