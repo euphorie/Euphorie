@@ -197,7 +197,8 @@
         data-pat-inject="${python:view.use_training_module and 'source: #slide-content; target: #slide-content' or None}">
         <label class="four columns image-uploader pat-subform pat-autosubmit pat-inject discrete-injection"
                id="image-upload"
-               data-pat-inject="url: ${here/absolute_url}/@@image-upload; source: #image-upload::element; target: #image-upload::element"
+               tal:define="upload_url string:${here/absolute_url}/@@image-upload"
+               data-pat-inject="url: ${upload_url}; source: #image-upload::element; target: #image-upload::element &amp;&amp; url: ${upload_url}; source: #messages; target: #messages"
                title="Upload an image that illustrates this risk."
                i18n:attributes="title"
         >
@@ -213,7 +214,7 @@
               Remove
             </button>
           </tal:has_image>
-          <span class="pat-button upload-button">Upload image</span>
+          <span class="pat-button upload-button" i18n:translate="">Upload image</span>
           <input type="file" name="image" />
         </label>
         <label class="eight columns">

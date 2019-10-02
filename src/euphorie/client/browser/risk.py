@@ -34,7 +34,6 @@ from plone.scale.scale import scaleImage
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.statusmessages.interfaces import IStatusMessage
 from sqlalchemy import and_
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
@@ -503,11 +502,27 @@ class IdentificationView(BrowserView):
 
 class ImageUpload(BrowserView):
 
+    def redirect(self):
+        return self.request.response.redirect(
+            "{}/@@identification".format(self.context.absolute_url())
+        )
+
     def __call__(self):
         if self.request.form.get("image"):
             image = self.request.form["image"]
             new_data = image.read()
             if self.context.image_data != new_data:
+                try:
+                    PIL.Image.open(BytesIO(new_data))
+                except IOError:
+                    api.portal.show_message(
+                        _(
+                            "Invalid file format for image. Please use PNG, JPEG or GIF."
+                        ),
+                        request=self.request,
+                        type="warning",
+                    )
+                    return self.redirect()
                 self.context.image_data = new_data
                 self.context.image_data_scaled = None
             new_name = safe_unicode(image.filename)
@@ -516,9 +531,7 @@ class ImageUpload(BrowserView):
         elif self.request.form.get("image-remove"):
             self.context.image_data = None
             self.context.image_filename = u""
-        return self.request.response.redirect(
-            "{}/@@identification".format(self.context.absolute_url())
-        )
+        return self.redirect()
 
 
 class ImageDisplay(DisplayFile):
@@ -655,7 +668,9 @@ class ActionPlanView(BrowserView):
 
     @property
     def risk_postponed(self):
-        return self.context.identification is None and self.context.postponed
+        return self.context.identification is None and (
+            (self.italy_special and self.context.postponed) or True
+        )
 
     @property
     def is_custom_risk(self):
@@ -928,117 +943,7 @@ class ActionPlanView(BrowserView):
         removed = len(existing_plans)
         changes = True
         if added == 0 and updated == 0 and removed == 0:
-            IStatusMessage(self.request).add(
-                _(u"No changes were made to measures in your action plan."), type="info"
-            )
             changes = False
-        if added == 1:
-            IStatusMessage(self.request).add(
-                _(
-                    u"message_measure_saved",
-                    default=u"A measure has been added to your action plan.",
-                ),
-                type="success",
-            )
-        elif added == 2:
-            IStatusMessage(self.request).add(
-                _(
-                    u"message_measures_saved_2",
-                    default=u"${no_of_measures} measures have been added to your action plan.",
-                    mapping={"no_of_measures": str(added)},
-                ),
-                type="success",
-            )
-        elif added in (3, 4):
-            IStatusMessage(self.request).add(
-                _(
-                    u"message_measures_saved_3_4",
-                    default=u"${no_of_measures} measures have been added to your action plan.",
-                    mapping={"no_of_measures": str(added)},
-                ),
-                type="success",
-            )
-        elif added > 4:
-            IStatusMessage(self.request).add(
-                _(
-                    u"message_measures_saved",
-                    default=u"${no_of_measures} measures have been added to your action plan.",
-                    mapping={"no_of_measures": str(added)},
-                ),
-                type="success",
-            )
-
-        if updated == 1:
-            IStatusMessage(self.request).add(
-                _(
-                    u"message_measure_updated",
-                    default=u"A measure has been updated in your action plan.",
-                ),
-                type="success",
-            )
-        elif updated == 2:
-            IStatusMessage(self.request).add(
-                _(
-                    u"message_measures_updated_2",
-                    default=u"${no_of_measures} measures have been updated in your action plan.",
-                    mapping={"no_of_measures": str(updated)},
-                ),
-                type="success",
-            )
-        elif updated in (3, 4):
-            IStatusMessage(self.request).add(
-                _(
-                    u"message_measures_updated_3_4",
-                    default=u"${no_of_measures} measures have been updated in your action plan.",
-                    mapping={"no_of_measures": str(updated)},
-                ),
-                type="success",
-            )
-        elif updated > 4:
-            IStatusMessage(self.request).add(
-                _(
-                    u"message_measures_updated",
-                    default=u"${no_of_measures} measures have been updated in your action plan.",
-                    mapping={"no_of_measures": str(updated)},
-                ),
-                type="success",
-            )
-
-        if removed == 1:
-            IStatusMessage(self.request).add(
-                _(
-                    u"message_measure_removed",
-                    default=u"A measure has been removed from your action plan.",
-                ),
-                type="success",
-            )
-        elif removed == 2:
-            IStatusMessage(self.request).add(
-                _(
-                    u"message_measures_removed_3",
-                    default=u"${no_of_measures} measures have been removed from your action plan.",
-                    mapping={"no_of_measures": str(removed)},
-                ),
-                type="success",
-            )
-        elif removed in (3, 4):
-            IStatusMessage(self.request).add(
-                _(
-                    u"message_measures_removed_3_4",
-                    default=u"${no_of_measures} measures have been removed from your action plan.",
-                    mapping={"no_of_measures": str(removed)},
-                ),
-                type="success",
-            )
-        elif removed > 4:
-            IStatusMessage(self.request).add(
-                _(
-                    u"message_measures_removed",
-                    default=u"${no_of_measures} measures have been removed from your action plan.",
-                    mapping={"no_of_measures": str(removed)},
-                ),
-                type="success",
-            )
         return (new_plans, changes)
 
 

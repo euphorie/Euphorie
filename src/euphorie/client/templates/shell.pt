@@ -282,9 +282,11 @@
 
           </aside>
           <div id="main-content" class="${variation_class}">
-            <tal:statusmsg tal:repeat="message webhelpers/messages">
-                <p class="pat-notification" data-pat-notification="type: banner; class: ${message/type}; close-text: ${webhelpers/closetext}" id="${message/id}-body" tal:content="message/message | nothing">Status message</p>
-                </tal:statusmsg>
+            <span id="messages">
+              <tal:statusmsg tal:repeat="message webhelpers/messages">
+                  <p class="pat-notification" data-pat-notification="type: banner; class: ${message/type}; close-text: ${webhelpers/closetext}" id="${message/id}-body" tal:content="message/message | nothing">Status message</p>
+              </tal:statusmsg>
+            </span>
 
             <metal:block define-slot="content"/>
           </div>
