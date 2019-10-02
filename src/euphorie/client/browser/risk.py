@@ -502,11 +502,27 @@ class IdentificationView(BrowserView):
 
 class ImageUpload(BrowserView):
 
+    def redirect(self):
+        return self.request.response.redirect(
+            "{}/@@identification".format(self.context.absolute_url())
+        )
+
     def __call__(self):
         if self.request.form.get("image"):
             image = self.request.form["image"]
             new_data = image.read()
             if self.context.image_data != new_data:
+                try:
+                    PIL.Image.open(BytesIO(new_data))
+                except IOError:
+                    api.portal.show_message(
+                        _(
+                            "Invalid file format for image. Please use PNG, JPEG or GIF."
+                        ),
+                        request=self.request,
+                        type="warning",
+                    )
+                    return self.redirect()
                 self.context.image_data = new_data
                 self.context.image_data_scaled = None
             new_name = safe_unicode(image.filename)
@@ -515,9 +531,7 @@ class ImageUpload(BrowserView):
         elif self.request.form.get("image-remove"):
             self.context.image_data = None
             self.context.image_filename = u""
-        return self.request.response.redirect(
-            "{}/@@identification".format(self.context.absolute_url())
-        )
+        return self.redirect()
 
 
 class ImageDisplay(DisplayFile):

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 16:10+0000\n"
+"POT-Creation-Date: 2019-10-02 10:24+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -230,7 +230,7 @@ msgstr ""
 msgid "Are you sure you want to continue? This action can not be reverted."
 msgstr ""
 
-#: euphorie/client/browser/risk.py:835
+#: euphorie/client/browser/risk.py:848
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -413,7 +413,7 @@ msgstr "Vai man jāsagatavojas?"
 msgid "Documentation"
 msgstr "Dokumentācija"
 
-#: euphorie/client/browser/session.py:333
+#: euphorie/client/browser/session.py:327
 msgid "Does this happen in multiple places?"
 msgstr "Vai tas raksturīgs vairākās vietās?"
 
@@ -470,11 +470,11 @@ msgstr "Rediģēt Profila jautājums"
 msgid "Email address/account name"
 msgstr "E-pasta adrese / lietotājvārds"
 
-#: euphorie/client/browser/session.py:338
+#: euphorie/client/browser/session.py:332
 msgid "Enter the name of the location"
 msgstr "Ievadiet atrašanās vietas nosaukumu"
 
-#: euphorie/client/browser/session.py:343
+#: euphorie/client/browser/session.py:337
 msgid "Enter the names of each location"
 msgstr "Ievadiet katras atrašanās vietas nosaukumu"
 
@@ -575,6 +575,10 @@ msgstr "Informācija"
 msgid "Information"
 msgstr "Informācija"
 
+#: euphorie/client/browser/risk.py:519
+msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
+msgstr ""
+
 #: euphorie/client/settings.py:106
 msgid "Invalid password"
 msgstr "Nederīga parole"
@@ -605,7 +609,7 @@ msgstr "Kosovo"
 msgid "Last saved"
 msgstr "tika saglabāta"
 
-#: euphorie/client/templates/shell.pt:298
+#: euphorie/client/templates/shell.pt:300
 msgid "Loading Risk Assessments&hellip;"
 msgstr ""
 
@@ -689,10 +693,6 @@ msgstr "Jauna"
 #: euphorie/client/browser/templates/updated.pt:32
 msgid "No"
 msgstr "Nē"
-
-#: euphorie/client/browser/risk.py:934
-msgid "No changes were made to measures in your action plan."
-msgstr "Pasākumu plānā netika veiktas izmaiņas."
 
 #: euphorie/client/browser/templates/publication_menu.pt:84
 msgid "No information about the last editor is available."
@@ -907,7 +907,7 @@ msgstr ""
 "uzsāktos novērtējumus vai veiktu jaunus."
 
 #: euphorie/client/browser/templates/profile.pt:69
-#: euphorie/client/browser/templates/risk_identification_custom.pt:206
+#: euphorie/client/browser/templates/risk_identification_custom.pt:207
 #: euphorie/client/browser/templates/updated.pt:52
 msgid "Remove"
 msgstr "Noņemt"
@@ -986,17 +986,13 @@ msgstr "Klientam paredzētā informācija par sektoru un sadalījums grupās."
 msgid "Sector workflow"
 msgstr "Sektora darbplūsma"
 
-#: euphorie/client/browser/session.py:536
+#: euphorie/client/browser/session.py:530
 msgid "Session `${name}` has been archived."
 msgstr ""
 
-#: euphorie/client/browser/session.py:479
+#: euphorie/client/browser/session.py:473
 msgid "Session `${name}` has been deleted."
 msgstr "Sesija `  ${name}` ir dzēsta."
-
-#: euphorie/client/browser/session.py:182
-msgid "Session data successfully updated"
-msgstr ""
 
 #: euphorie/client/country.py:89
 msgid "Session title has been changed to ${name}"
@@ -1100,7 +1096,7 @@ msgid ""
 "The basic architecture of an Online interactive Risk Assessment consists of:"
 msgstr "Riska interaktīvā novērtēšanas tiešsaistes rīka arhitektūra sastāv no:"
 
-#: euphorie/client/browser/risk.py:839
+#: euphorie/client/browser/risk.py:852
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -1139,7 +1135,7 @@ msgstr "Tiešsaistes klients."
 msgid "The online risk assessment client interface for an Euphorie website"
 msgstr ""
 
-#: euphorie/client/browser/session.py:621
+#: euphorie/client/browser/session.py:615
 msgid "The risk assessment has been cloned"
 msgstr ""
 
@@ -1151,7 +1147,7 @@ msgstr "Norādītā krāsa nav derīga."
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "Novērtēšanas procesā ietilpst četri galvenie posmi:"
 
-#: euphorie/client/browser/session.py:458
+#: euphorie/client/browser/session.py:452
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
@@ -1245,7 +1241,7 @@ msgstr "Augšupielādēt"
 msgid "Upload an image that illustrates this risk."
 msgstr ""
 
-#: euphorie/client/browser/templates/risk_identification_custom.pt:216
+#: euphorie/client/browser/templates/risk_identification_custom.pt:217
 msgid "Upload image"
 msgstr ""
 
@@ -2149,17 +2145,17 @@ msgid "error_password_mismatch"
 msgstr "Paroles nesakrīt."
 
 #. Default: "This date must be on or after the start date."
-#: euphorie/client/browser/risk.py:848
+#: euphorie/client/browser/risk.py:861
 msgid "error_validation_after_start_date"
 msgstr "Šim datumam ir jābūt sākuma datumam vai pēc tā."
 
 #. Default: "This date must be on or before the end date."
-#: euphorie/client/browser/risk.py:844
+#: euphorie/client/browser/risk.py:857
 msgid "error_validation_before_end_date"
 msgstr "Šim datumam ir jābūt beigu datumam vai pirms tā."
 
 #. Default: "This value must be a positive whole number."
-#: euphorie/client/browser/risk.py:852
+#: euphorie/client/browser/risk.py:865
 msgid "error_validation_positive_whole_number"
 msgstr "Šim lielumam ir jābūt pozitīvam veselam skaitlim."
 
@@ -2272,7 +2268,7 @@ msgstr ""
 msgid "explanation_risk_always_present"
 msgstr ""
 
-#: euphorie/client/browser/session.py:449
+#: euphorie/client/browser/session.py:443
 msgid "extra_text_identification"
 msgstr ""
 
@@ -2936,7 +2932,7 @@ msgstr ""
 "ar esoša OiRA rīka kopiju."
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
-#: euphorie/client/browser/risk.py:315 euphorie/content/risk.py:361
+#: euphorie/client/browser/risk.py:314 euphorie/content/risk.py:361
 msgid "help_default_frequency"
 msgstr "Norādiet, cik bieži šāds risks pastāv normālos apstākļos."
 
@@ -2948,12 +2944,12 @@ msgstr ""
 "noklusējuma. Lietotājs tik un tā varēs pats mainīt prioritātes līmeni."
 
 #. Default: "Indicate how likely occurence of this risk is in a normal situation."
-#: euphorie/client/browser/risk.py:310 euphorie/content/risk.py:388
+#: euphorie/client/browser/risk.py:309 euphorie/content/risk.py:388
 msgid "help_default_probability"
 msgstr "Norādiet, cik ticama ir šī riska rašanās normālos apstākļos."
 
 #. Default: "Indicate the severity if this risk occurs."
-#: euphorie/client/browser/risk.py:319 euphorie/content/risk.py:339
+#: euphorie/client/browser/risk.py:318 euphorie/content/risk.py:339
 msgid "help_default_severity"
 msgstr "Norādiet bīstamības pakāpi, ko izraisa šī riska īstenošanās."
 
@@ -3958,12 +3954,12 @@ msgid "label_old_password"
 msgstr "Esošā parole"
 
 #. Default: "Page"
-#: euphorie/client/browser/session.py:792
+#: euphorie/client/browser/session.py:786
 msgid "label_page"
 msgstr " "
 
 #. Default: "of"
-#: euphorie/client/browser/session.py:795
+#: euphorie/client/browser/session.py:789
 msgid "label_page_of"
 msgstr ". lappuse no"
 
@@ -4152,7 +4148,7 @@ msgid "label_risks_without_measure_5_or_more"
 msgstr "Risks bez pasākuma"
 
 #. Default: "Save and add new risk"
-#: euphorie/client/browser/templates/risk_identification_custom.pt:241
+#: euphorie/client/browser/templates/risk_identification_custom.pt:242
 msgid "label_save_and_add_new"
 msgstr "Saglabāt un pievienot citu risku"
 
@@ -4164,7 +4160,7 @@ msgid "label_save_and_continue"
 msgstr "Saglabāt un turpināt"
 
 #. Default: "Save and finish"
-#: euphorie/client/browser/templates/risk_identification_custom.pt:255
+#: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "label_save_and_finish"
 msgstr "Saglabāt un pabeigt"
 
@@ -4527,66 +4523,6 @@ msgstr "Lūdzu, aizpildiet šo lauku."
 msgid "message_lock_warn"
 msgstr ""
 
-#. Default: "A measure has been removed from your action plan."
-#: euphorie/client/browser/risk.py:1011
-msgid "message_measure_removed"
-msgstr "No pasākumu plāna ir dzēsts viens pasākums."
-
-#. Default: "A measure has been added to your action plan."
-#: euphorie/client/browser/risk.py:939
-msgid "message_measure_saved"
-msgstr "Pasākumu plānam ir pievienots viens pasākums."
-
-#. Default: "A measure has been updated in your action plan."
-#: euphorie/client/browser/risk.py:975
-msgid "message_measure_updated"
-msgstr "Pasākumu plānam ir pievienots viens pasākums."
-
-#. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:1037
-msgid "message_measures_removed"
-msgstr "No pasākumu plāna ir dzēsti ${no_of_measures} pasākumi."
-
-#. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:1019
-msgid "message_measures_removed_3"
-msgstr "No pasākumu plāna ir dzēsti ${no_of_measures} pasākumi."
-
-#. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:1028
-msgid "message_measures_removed_3_4"
-msgstr "No pasākumu plāna ir dzēsti ${no_of_measures} pasākumi."
-
-#. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:965
-msgid "message_measures_saved"
-msgstr "Pasākumu plānam ir pievienoti ${no_of_measures} pasākumi."
-
-#. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:947
-msgid "message_measures_saved_2"
-msgstr "Pasākumu plānam ir pievienoti ${no_of_measures} pasākumi."
-
-#. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:956
-msgid "message_measures_saved_3_4"
-msgstr "Pasākumu plānam ir pievienoti ${no_of_measures} pasākumi."
-
-#. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:1001
-msgid "message_measures_updated"
-msgstr "Pasākumu plānam ir pievienoti ${no_of_measures} pasākumi."
-
-#. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:983
-msgid "message_measures_updated_2"
-msgstr "Pasākumu plānam ir pievienoti ${no_of_measures} pasākumi."
-
-#. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:992
-msgid "message_measures_updated_3_4"
-msgstr "Pasākumu plānam ir pievienoti ${no_of_measures} pasākumi."
-
 #. Default: "You cannot delete an OiRA Tool version that is published. Please unpublish it first."
 #: euphorie/content/survey.py:364
 msgid "message_no_delete_published_survey"
@@ -4799,7 +4735,7 @@ msgstr ""
 "rīka oficiālā atklāšana."
 
 #. Default: "Provide some further information on this risk."
-#: euphorie/client/browser/templates/risk_identification_custom.pt:220
+#: euphorie/client/browser/templates/risk_identification_custom.pt:221
 msgid "placeholder_custom_risk_description"
 msgstr "Sniedziet plašāku informāciju par šo risku."
 
@@ -4814,7 +4750,7 @@ msgid "portlet_header_versions"
 msgstr "Versijas"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:565
+#: euphorie/client/browser/session.py:559
 msgid "prefix_cloned_title"
 msgstr ""
 
@@ -5413,6 +5349,45 @@ msgstr ""
 #: euphorie/content/templates/risk_view.pt:44
 msgid "yes"
 msgstr "Jā"
+
+#~ msgid "No changes were made to measures in your action plan."
+#~ msgstr "Pasākumu plānā netika veiktas izmaiņas."
+
+#~ msgid "message_measure_removed"
+#~ msgstr "No pasākumu plāna ir dzēsts viens pasākums."
+
+#~ msgid "message_measure_saved"
+#~ msgstr "Pasākumu plānam ir pievienots viens pasākums."
+
+#~ msgid "message_measure_updated"
+#~ msgstr "Pasākumu plānam ir pievienots viens pasākums."
+
+#~ msgid "message_measures_removed"
+#~ msgstr "No pasākumu plāna ir dzēsti ${no_of_measures} pasākumi."
+
+#~ msgid "message_measures_removed_3"
+#~ msgstr "No pasākumu plāna ir dzēsti ${no_of_measures} pasākumi."
+
+#~ msgid "message_measures_removed_3_4"
+#~ msgstr "No pasākumu plāna ir dzēsti ${no_of_measures} pasākumi."
+
+#~ msgid "message_measures_saved"
+#~ msgstr "Pasākumu plānam ir pievienoti ${no_of_measures} pasākumi."
+
+#~ msgid "message_measures_saved_2"
+#~ msgstr "Pasākumu plānam ir pievienoti ${no_of_measures} pasākumi."
+
+#~ msgid "message_measures_saved_3_4"
+#~ msgstr "Pasākumu plānam ir pievienoti ${no_of_measures} pasākumi."
+
+#~ msgid "message_measures_updated"
+#~ msgstr "Pasākumu plānam ir pievienoti ${no_of_measures} pasākumi."
+
+#~ msgid "message_measures_updated_2"
+#~ msgstr "Pasākumu plānam ir pievienoti ${no_of_measures} pasākumi."
+
+#~ msgid "message_measures_updated_3_4"
+#~ msgstr "Pasākumu plānam ir pievienoti ${no_of_measures} pasākumi."
 
 #~ msgid "Start test session"
 #~ msgstr "Sākt testa sesiju"
