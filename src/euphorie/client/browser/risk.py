@@ -34,7 +34,6 @@ from plone.scale.scale import scaleImage
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.statusmessages.interfaces import IStatusMessage
 from sqlalchemy import and_
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
