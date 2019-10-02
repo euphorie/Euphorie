@@ -515,6 +515,13 @@ class ImageUpload(BrowserView):
                 try:
                     PIL.Image.open(BytesIO(new_data))
                 except IOError:
+                    api.portal.show_message(
+                        _(
+                            "Invalid file format for image. Please use PNG, JPEG or GIF."
+                        ),
+                        request=self.request,
+                        type="warning",
+                    )
                     return self.redirect()
                 self.context.image_data = new_data
                 self.context.image_data_scaled = None
