@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-01 16:10+0000\n"
+"POT-Creation-Date: 2019-10-02 10:24+0000\n"
 "PO-Revision-Date: 2013-08-08 12:36+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -233,7 +233,7 @@ msgstr ""
 msgid "Are you sure you want to continue? This action can not be reverted."
 msgstr ""
 
-#: euphorie/client/browser/risk.py:835
+#: euphorie/client/browser/risk.py:848
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -418,7 +418,7 @@ msgstr "Necessito algun tipus de preparació prèvia?"
 msgid "Documentation"
 msgstr "Documentació"
 
-#: euphorie/client/browser/session.py:333
+#: euphorie/client/browser/session.py:327
 msgid "Does this happen in multiple places?"
 msgstr "Aquest fet succeeix en diversos llocs?"
 
@@ -475,11 +475,11 @@ msgstr "Editar Pregunta de perfil"
 msgid "Email address/account name"
 msgstr "Adreça electrònica/nom del compte"
 
-#: euphorie/client/browser/session.py:338
+#: euphorie/client/browser/session.py:332
 msgid "Enter the name of the location"
 msgstr "Introduïu el nom del lloc"
 
-#: euphorie/client/browser/session.py:343
+#: euphorie/client/browser/session.py:337
 msgid "Enter the names of each location"
 msgstr "Introduïu els noms de cada lloc"
 
@@ -581,6 +581,10 @@ msgstr "Informació"
 msgid "Information"
 msgstr "Informació"
 
+#: euphorie/client/browser/risk.py:519
+msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
+msgstr ""
+
 #: euphorie/client/settings.py:106
 msgid "Invalid password"
 msgstr "Contrasenya no vàlida"
@@ -611,7 +615,7 @@ msgstr "Kosovo"
 msgid "Last saved"
 msgstr "desada"
 
-#: euphorie/client/templates/shell.pt:298
+#: euphorie/client/templates/shell.pt:300
 msgid "Loading Risk Assessments&hellip;"
 msgstr ""
 
@@ -700,10 +704,6 @@ msgstr "Nova"
 #: euphorie/client/browser/templates/updated.pt:32
 msgid "No"
 msgstr "No"
-
-#: euphorie/client/browser/risk.py:934
-msgid "No changes were made to measures in your action plan."
-msgstr "No s’han fet canvis en les mesures al vostre pla d’acció."
 
 #: euphorie/client/browser/templates/publication_menu.pt:84
 msgid "No information about the last editor is available."
@@ -917,7 +917,7 @@ msgstr ""
 "continuar amb l’avaluació que esteu realitzant o per començar una de nova."
 
 #: euphorie/client/browser/templates/profile.pt:69
-#: euphorie/client/browser/templates/risk_identification_custom.pt:206
+#: euphorie/client/browser/templates/risk_identification_custom.pt:207
 #: euphorie/client/browser/templates/updated.pt:52
 msgid "Remove"
 msgstr "Eliminar"
@@ -996,17 +996,13 @@ msgstr "Agrupació i informació del sector del client."
 msgid "Sector workflow"
 msgstr "Flux de treball del sector"
 
-#: euphorie/client/browser/session.py:536
+#: euphorie/client/browser/session.py:530
 msgid "Session `${name}` has been archived."
 msgstr ""
 
-#: euphorie/client/browser/session.py:479
+#: euphorie/client/browser/session.py:473
 msgid "Session `${name}` has been deleted."
 msgstr "La sessió `${name}` s'ha eliminat."
-
-#: euphorie/client/browser/session.py:182
-msgid "Session data successfully updated"
-msgstr ""
 
 #: euphorie/client/country.py:89
 msgid "Session title has been changed to ${name}"
@@ -1113,7 +1109,7 @@ msgstr ""
 "L’estructura bàsica d’una avaluació de riscos interactiva en línia "
 "consisteix en:"
 
-#: euphorie/client/browser/risk.py:839
+#: euphorie/client/browser/risk.py:852
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -1151,7 +1147,7 @@ msgstr "El client en línia."
 msgid "The online risk assessment client interface for an Euphorie website"
 msgstr ""
 
-#: euphorie/client/browser/session.py:621
+#: euphorie/client/browser/session.py:615
 msgid "The risk assessment has been cloned"
 msgstr ""
 
@@ -1163,7 +1159,7 @@ msgstr "El color especificat no és vàlid."
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "El procés d’avaluació consta de quatre etapes principals:"
 
-#: euphorie/client/browser/session.py:458
+#: euphorie/client/browser/session.py:452
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
@@ -1255,7 +1251,7 @@ msgstr "Pujar"
 msgid "Upload an image that illustrates this risk."
 msgstr ""
 
-#: euphorie/client/browser/templates/risk_identification_custom.pt:216
+#: euphorie/client/browser/templates/risk_identification_custom.pt:217
 msgid "Upload image"
 msgstr ""
 
@@ -2177,17 +2173,17 @@ msgid "error_password_mismatch"
 msgstr "Les contrasenyes no coincideixen"
 
 #. Default: "This date must be on or after the start date."
-#: euphorie/client/browser/risk.py:848
+#: euphorie/client/browser/risk.py:861
 msgid "error_validation_after_start_date"
 msgstr "Aquesta data ha de ser la data final o una data posterior."
 
 #. Default: "This date must be on or before the end date."
-#: euphorie/client/browser/risk.py:844
+#: euphorie/client/browser/risk.py:857
 msgid "error_validation_before_end_date"
 msgstr "Aquesta data ha de ser la data final o una data anterior."
 
 #. Default: "This value must be a positive whole number."
-#: euphorie/client/browser/risk.py:852
+#: euphorie/client/browser/risk.py:865
 msgid "error_validation_positive_whole_number"
 msgstr "Aquest valor ha de ser un número enter positiu."
 
@@ -2303,7 +2299,7 @@ msgid "explanation_risk_always_present"
 msgstr ""
 "Aquest risc s’ha establert com a existent per defecte. No es pot canviar."
 
-#: euphorie/client/browser/session.py:449
+#: euphorie/client/browser/session.py:443
 msgid "extra_text_identification"
 msgstr ""
 
@@ -2973,7 +2969,7 @@ msgstr ""
 "una còpia d'una eina OiRA existent."
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
-#: euphorie/client/browser/risk.py:315 euphorie/content/risk.py:361
+#: euphorie/client/browser/risk.py:314 euphorie/content/risk.py:361
 msgid "help_default_frequency"
 msgstr ""
 "Indiqui amb quina freqüència es produeix aquest risc en una situació normal."
@@ -2986,13 +2982,13 @@ msgstr ""
 "així, l'usuari final podrà modificar-la."
 
 #. Default: "Indicate how likely occurence of this risk is in a normal situation."
-#: euphorie/client/browser/risk.py:310 euphorie/content/risk.py:388
+#: euphorie/client/browser/risk.py:309 euphorie/content/risk.py:388
 msgid "help_default_probability"
 msgstr ""
 "Indiqui la probabilitat que es produeixi aquest risc en una situació normal."
 
 #. Default: "Indicate the severity if this risk occurs."
-#: euphorie/client/browser/risk.py:319 euphorie/content/risk.py:339
+#: euphorie/client/browser/risk.py:318 euphorie/content/risk.py:339
 msgid "help_default_severity"
 msgstr "Indiqui la gravetat en cas de produir-se aquest risc."
 
@@ -4011,12 +4007,12 @@ msgid "label_old_password"
 msgstr "Contrasenya actual"
 
 #. Default: "Page"
-#: euphorie/client/browser/session.py:792
+#: euphorie/client/browser/session.py:786
 msgid "label_page"
 msgstr "Pàgina"
 
 #. Default: "of"
-#: euphorie/client/browser/session.py:795
+#: euphorie/client/browser/session.py:789
 msgid "label_page_of"
 msgstr "de"
 
@@ -4205,7 +4201,7 @@ msgid "label_risks_without_measure_5_or_more"
 msgstr "Riscos sense mesura"
 
 #. Default: "Save and add new risk"
-#: euphorie/client/browser/templates/risk_identification_custom.pt:241
+#: euphorie/client/browser/templates/risk_identification_custom.pt:242
 msgid "label_save_and_add_new"
 msgstr ""
 
@@ -4217,7 +4213,7 @@ msgid "label_save_and_continue"
 msgstr "Desar i continuar"
 
 #. Default: "Save and finish"
-#: euphorie/client/browser/templates/risk_identification_custom.pt:255
+#: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "label_save_and_finish"
 msgstr ""
 
@@ -4579,69 +4575,6 @@ msgstr "Manquen dades obligatòries."
 msgid "message_lock_warn"
 msgstr ""
 
-#. Default: "A measure has been removed from your action plan."
-#: euphorie/client/browser/risk.py:1011
-msgid "message_measure_removed"
-msgstr "S’ha eliminat una mesura del vostre pla d’acció."
-
-#. Default: "A measure has been added to your action plan."
-#: euphorie/client/browser/risk.py:939
-msgid "message_measure_saved"
-msgstr "S’ha afegit una mesura al vostre pla d’acció."
-
-#. Default: "A measure has been updated in your action plan."
-#: euphorie/client/browser/risk.py:975
-msgid "message_measure_updated"
-msgstr "S’ha actualitzat una mesura al vostre pla d’acció."
-
-#. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:1037
-msgid "message_measures_removed"
-msgstr "${no_of_measures} mesures han estat eliminades del vostre pla d’acció."
-
-#. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:1019
-msgid "message_measures_removed_3"
-msgstr "${no_of_measures} mesures han estat eliminades del vostre pla d’acció."
-
-#. Default: "${no_of_measures} measures have been removed from your action plan."
-#: euphorie/client/browser/risk.py:1028
-msgid "message_measures_removed_3_4"
-msgstr "${no_of_measures} mesures han estat eliminades del vostre pla d’acció."
-
-#. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:965
-msgid "message_measures_saved"
-msgstr "${no_of_measures} mesures han estat afegides al vostre pla d’acció."
-
-#. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:947
-msgid "message_measures_saved_2"
-msgstr "${no_of_measures} mesures han estat afegides al vostre pla d’acció."
-
-#. Default: "${no_of_measures} measures have been added to your action plan."
-#: euphorie/client/browser/risk.py:956
-msgid "message_measures_saved_3_4"
-msgstr "${no_of_measures} mesures han estat afegides al vostre pla d’acció."
-
-#. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:1001
-msgid "message_measures_updated"
-msgstr ""
-"${no_of_measures} mesures han estat actualitzades al vostre pla d’acció."
-
-#. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:983
-msgid "message_measures_updated_2"
-msgstr ""
-"${no_of_measures} mesures han estat actualitzades al vostre pla d’acció."
-
-#. Default: "${no_of_measures} measures have been updated in your action plan."
-#: euphorie/client/browser/risk.py:992
-msgid "message_measures_updated_3_4"
-msgstr ""
-"${no_of_measures} mesures han estat actualitzades al vostre pla d’acció."
-
 #. Default: "You cannot delete an OiRA Tool version that is published. Please unpublish it first."
 #: euphorie/content/survey.py:364
 msgid "message_no_delete_published_survey"
@@ -4856,7 +4789,7 @@ msgstr ""
 "d'OiRA."
 
 #. Default: "Provide some further information on this risk."
-#: euphorie/client/browser/templates/risk_identification_custom.pt:220
+#: euphorie/client/browser/templates/risk_identification_custom.pt:221
 msgid "placeholder_custom_risk_description"
 msgstr ""
 
@@ -4871,7 +4804,7 @@ msgid "portlet_header_versions"
 msgstr "Versions"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:565
+#: euphorie/client/browser/session.py:559
 msgid "prefix_cloned_title"
 msgstr ""
 
@@ -5469,6 +5402,51 @@ msgstr ""
 #: euphorie/content/templates/risk_view.pt:44
 msgid "yes"
 msgstr "Sí"
+
+#~ msgid "No changes were made to measures in your action plan."
+#~ msgstr "No s’han fet canvis en les mesures al vostre pla d’acció."
+
+#~ msgid "message_measure_removed"
+#~ msgstr "S’ha eliminat una mesura del vostre pla d’acció."
+
+#~ msgid "message_measure_saved"
+#~ msgstr "S’ha afegit una mesura al vostre pla d’acció."
+
+#~ msgid "message_measure_updated"
+#~ msgstr "S’ha actualitzat una mesura al vostre pla d’acció."
+
+#~ msgid "message_measures_removed"
+#~ msgstr ""
+#~ "${no_of_measures} mesures han estat eliminades del vostre pla d’acció."
+
+#~ msgid "message_measures_removed_3"
+#~ msgstr ""
+#~ "${no_of_measures} mesures han estat eliminades del vostre pla d’acció."
+
+#~ msgid "message_measures_removed_3_4"
+#~ msgstr ""
+#~ "${no_of_measures} mesures han estat eliminades del vostre pla d’acció."
+
+#~ msgid "message_measures_saved"
+#~ msgstr "${no_of_measures} mesures han estat afegides al vostre pla d’acció."
+
+#~ msgid "message_measures_saved_2"
+#~ msgstr "${no_of_measures} mesures han estat afegides al vostre pla d’acció."
+
+#~ msgid "message_measures_saved_3_4"
+#~ msgstr "${no_of_measures} mesures han estat afegides al vostre pla d’acció."
+
+#~ msgid "message_measures_updated"
+#~ msgstr ""
+#~ "${no_of_measures} mesures han estat actualitzades al vostre pla d’acció."
+
+#~ msgid "message_measures_updated_2"
+#~ msgstr ""
+#~ "${no_of_measures} mesures han estat actualitzades al vostre pla d’acció."
+
+#~ msgid "message_measures_updated_3_4"
+#~ msgstr ""
+#~ "${no_of_measures} mesures han estat actualitzades al vostre pla d’acció."
 
 #~ msgid "Start test session"
 #~ msgstr "Iniciar una sessió de prova"
