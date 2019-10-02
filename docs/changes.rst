@@ -4,8 +4,10 @@ Changelog
 11.1.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Bugfix in Excel report
+- Translation updates
+- Image upload on omega risks: display a warning if uploaded file is not a valid
+  image
 
 11.1.4 (2019-09-25)
 -------------------
