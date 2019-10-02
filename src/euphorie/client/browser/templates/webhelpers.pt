@@ -270,7 +270,7 @@
            href="${image_url}"
            title="${here/image_filename}"
            tal:define="
-             image_url string:${here/absolute_url}/@@image-display/image_large/${here/image_filename};
+             image_url string:${here/absolute_url}/@@image-display/image_large?name=${here/image_filename};
            "
         >
           <img alt=""

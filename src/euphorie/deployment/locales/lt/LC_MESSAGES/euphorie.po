@@ -245,7 +245,7 @@ msgstr "Ar tikrai norite pašalinti šį seansą? Šis veiksmas yra neatšaukiam
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:26
 msgid "Are you sure you want to proceed?"
-msgstr ""
+msgstr "Ar tikrai norite tęsti?"
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Automatically generate unique ids for content"
@@ -253,7 +253,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/portlet-available-tools.pt:10
 msgid "Available OiRA tools"
-msgstr "Galimos OiRA priemonės"
+msgstr "Esamos OiRA priemonės"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:23
 #: euphorie/client/browser/templates/sessions-dashboard.pt:58
@@ -274,6 +274,7 @@ msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
 msgstr ""
+"Kopijuodami rizikos vertinimą, Jūs sukursite naują rizikos vertinimą pagal jau atlikto vertinimo turinį."
 
 #: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:105
 #: euphorie/client/templates/account-delete.pt:29
@@ -349,7 +350,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:39
 msgid "Continue to action plan"
-msgstr ""
+msgstr "Pereiti į veiksmų planą"
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml
 msgid "Country"
@@ -1237,7 +1238,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:217
 msgid "Upload image"
-msgstr ""
+msgstr "Įkelti paveikslėlį"
 
 #: euphorie/content/behaviour/configure.zcml:19
 msgid "Use a rich text description for content types."
@@ -1286,7 +1287,7 @@ msgstr "Taip"
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:34
 msgid "Yes, clone risk assessment"
-msgstr ""
+msgstr "Taip, kopijuoti rizikos vertinimą."
 
 #: euphorie/content/templates/library.pt:17
 msgid ""
@@ -1521,7 +1522,7 @@ msgstr "Sukūrė: ${EU-OSHA}."
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:135
 msgid "based on"
-msgstr ""
+msgstr "pagal"
 
 #: euphorie/client/browser/templates/new-session-test.pt:71
 msgid "benefits"
@@ -1680,7 +1681,7 @@ msgstr "Pradėti šios priemonės naują seansą"
 #: euphorie/client/browser/templates/new-session.pt:75
 #: euphorie/client/browser/templates/portlet-available-tools.pt:46
 msgid "button_start_session"
-msgstr "Pradėkite sesia"
+msgstr "Pradėti"
 
 #. Default: "Unlock"
 #: euphorie/content/templates/user_mgmt.pt:45
@@ -3290,7 +3291,7 @@ msgstr ""
 #. Default: "Select an earlier session to complete or review or ${start_session}."
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64
 msgid "info_select_session"
-msgstr ""
+msgstr "Pasirinkite ankstesnę sesiją, kad baigti arba peržiūrėti rizikos vertinimą, arba ${start_session}."
 
 #. Default: "This is a test session. ${link_sign_in} to save your data."
 #: euphorie/client/templates/plain.pt:195
@@ -3660,7 +3661,7 @@ msgstr "Aprašymas"
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:39
 msgid "label_duplicate"
-msgstr ""
+msgstr "Kopijuoti"
 
 #. Default: "Email address"
 #: euphorie/client/browser/reset_password.py:38
@@ -4161,7 +4162,7 @@ msgstr "Išsaugoti ir tęsti"
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "label_save_and_finish"
-msgstr ""
+msgstr "Išsaugoti ir baigti"
 
 #. Default: "Section"
 #: euphorie/client/report.py:151
@@ -4188,7 +4189,7 @@ msgstr "Pasirinkite vieną ar kelias iš pateiktų priemonių."
 #: euphorie/client/browser/templates/new-session.pt:28
 #: euphorie/client/browser/templates/portlet-available-tools.pt:24
 msgid "label_select_new_session"
-msgstr "Pasirinkę vieną iš tolesnių priemonių pradėkite naują seansą"
+msgstr "Pradėkite naują rizikos vertinimo sesiją pasirinkdami vieną iš šių OiRA priemonių"
 
 #. Default: "Enter a title for your Risk Assessment"
 #: euphorie/client/browser/session.py:69
@@ -4238,7 +4239,7 @@ msgstr "Pradžia"
 #. Default: "Started"
 #: euphorie/client/browser/templates/status.pt:61
 msgid "label_started"
-msgstr ""
+msgstr "Pradėta"
 
 #. Default: "Affirmative statement"
 #: euphorie/content/risk.py:75
@@ -4415,7 +4416,7 @@ msgstr "Prisijungimo vardas"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:47
 msgid "link_start_session"
-msgstr "pradėkite naują sesija"
+msgstr "pradėkite naują sesiją"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:21
