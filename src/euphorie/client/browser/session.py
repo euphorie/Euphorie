@@ -177,12 +177,6 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
                 changed = True
                 setattr(session, key, value)
 
-        if changed:
-            api.portal.show_message(
-                _("Session data successfully updated"),
-                request=self.request,
-                type="success",
-            )
         # Optimize: if the form was auto-submitted, we know that we want to
         # show the "start" page again
         if "form.button.submit" in self.request:
