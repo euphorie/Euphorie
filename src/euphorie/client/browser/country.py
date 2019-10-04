@@ -256,11 +256,14 @@ class SessionsView(BrowserView):
         )
         return title.split("-")[-1].strip()
 
+    def set_language(self):
+        utils.setLanguage(self.request, self.context)
+
     def __call__(self):
         if not self.account:
             raise Unauthorized()
 
-        utils.setLanguage(self.request, self.context)
+        self.set_language()
         reply = self.request.form
         action = reply.get("action")
         if action == "new":

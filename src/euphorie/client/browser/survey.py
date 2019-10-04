@@ -1,7 +1,7 @@
 # coding=utf-8
+from euphorie.client import utils
 from euphorie.client.browser.country import SessionsView
 from euphorie.client.model import get_current_account
-from plone import api
 from plone.memoize.view import memoize
 from z3c.saconfig import Session
 
@@ -12,10 +12,8 @@ class SurveySessionsView(SessionsView):
 
     variation_class = ""
 
-    @property
-    @memoize
-    def webhelpers(self):
-        return api.content.get_view("webhelpers", self.context, self.request)
+    def set_language(self):
+        utils.setLanguage(self.request, self.context, self.context.language)
 
     @property
     @memoize
