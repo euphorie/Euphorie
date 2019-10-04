@@ -257,7 +257,9 @@ class SessionsView(BrowserView):
         return title.split("-")[-1].strip()
 
     def set_language(self):
-        utils.setLanguage(self.request, self.context)
+        utils.setLanguage(
+            self.request, self.context, getattr(self.context, "language", None)
+        )
 
     def __call__(self):
         if not self.account:
@@ -356,7 +358,6 @@ class SessionBrowserNavigator(BrowserView):
 
 
 class PortletBase(BrowserView):
-
     @property
     @memoize
     def webhelpers(self):
@@ -394,7 +395,6 @@ class PortletBase(BrowserView):
 
 
 class MyRAsPortlet(PortletBase):
-
     @property
     def columns(self):
         if self.surveys:
