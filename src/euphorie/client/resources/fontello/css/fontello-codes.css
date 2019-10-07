@@ -62,8 +62,12 @@
 .icon-cancel:before { content: '\e899'; } /* '' */
 .icon-arrows-cw:before { content: '\e89c'; } /* '' */
 .icon-picture-1:before { content: '\e89f'; } /* '' */
+.icon-eye:before { content: '\e8a0'; } /* '' */
+.icon-lock:before { content: '\e8a3'; } /* '' */
+.icon-lock-open:before { content: '\e8a4'; } /* '' */
 .icon-twitter:before { content: '\f099'; } /* '' */
 .icon-menu-1:before { content: '\f0c9'; } /* '' */
+.icon-lock-open-alt:before { content: '\f13e'; } /* '' */
 .icon-ellipsis-vertical:before { content: '\f142'; } /* '' */
 .icon-building-filled:before { content: '\f1ad'; } /* '' */
 .icon-tree:before { content: '\f1bb'; } /* '' */
