@@ -21,14 +21,16 @@
     <h1>${module/title}</h1>
     <tal:block replace="tile:statusmessages"/>
 
-
-
         <figure id="hero"
-            tal:define="images module/@@images; large python:images.scale('image', width=1280, height=1280, direction='thumbnail')"
+            tal:define="images module/@@images; large python:images.scale('image', scale='training', direction='thumbnail')"
             tal:on-error="nothing"
             tal:condition="large"
             title="${module/caption|nothing}">
-            <img src="${large/url}" alt="" title="${module/caption|nothing}" />
+            <img class="fixed-aspect-ratio"
+                 src="${resources_url}/placeholder-16x9.png"
+                 style="background-image: url(${large/url|nothing});"
+                 alt=""
+                 title="${module/caption|nothing}" />
                 <figcaption tal:condition="module/caption|nothing">
                     ${module/caption|nothing}
                 </figcaption>
