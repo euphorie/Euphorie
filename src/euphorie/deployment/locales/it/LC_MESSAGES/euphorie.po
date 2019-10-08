@@ -197,7 +197,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:144
 msgid "Additional Measure"
-msgstr ""
+msgstr "Ulteriore misura"
 
 #: euphorie/client/browser/reset_password.py:163
 msgid ""
@@ -224,8 +224,8 @@ msgstr ""
 #: euphorie/content/utils.py:95
 msgid "Are the measures that are selected above sufficient?"
 msgstr ""
-"Oltre alle misure obbligatorie già adottate sono previste misure di "
-"miglioramento?"
+"Oltre alle misure obbligatorie e alle eventuali misure di miglioramento "
+"già adottate sono previste ulteriori misure di miglioramento?"
 
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:25
 msgid "Are you sure you want to archive this session?"
@@ -345,8 +345,7 @@ msgstr "Contiene: panoramica dei rischi identificati"
 msgid ""
 "Contains: main elements to effectively manage the risks at your workplace."
 msgstr ""
-"Contiene: elementi principali per gestire efficacemente i rischi sul luogo "
-"di lavoro."
+"Contiene le misure di miglioramento da attuare e il relativo programma di attuazione"
 
 #: euphorie/deployment/tiles/configure.zcml:18
 msgid "Content add bar"
@@ -436,7 +435,7 @@ msgstr ""
 
 #: euphorie/client/templates/report_landing.pt:108
 msgid "Download the action plan"
-msgstr "Scarica il piano d'azione"
+msgstr "Scarica il programma di miglioramento"
 
 #: euphorie/client/templates/report_landing.pt:79
 msgid "Download the full report"
@@ -2308,7 +2307,7 @@ msgstr "Misure obbligatorie adottate e Programma di miglioramento ${title}"
 #. Default: "Identification report ${title}"
 #: euphorie/client/docx/views.py:334
 msgid "filename_report_identification"
-msgstr "Rapporto d'identificazione ${title}"
+msgstr "Elenco dei rischi e degli adempimenti ${title}"
 
 #. Default: "Timeline for ${title}"
 #: euphorie/client/report.py:227
@@ -3433,8 +3432,8 @@ msgid "intro_print_identification_1"
 msgstr ""
 "I moduli che costituiscono lo strumento Oira contengono informazioni "
 "relative ai rischi potenzialmente riscontrabili in una realtà lavorativa "
-"analoga alla tua. È possibile stampare il testo completo di queste "
-"informazioni."
+"analoga alla tua. È possibile stampare l’elenco di tutti i rischi e adempimenti "
+"trattati con l’indicazione dei relativi riferimenti legislativi."
 
 #. Default: "You may also wish to distribute the contents among the workers and/or their representatives and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action.Their feedback should be taken into account when filling in this tool."
 #: euphorie/client/browser/templates/identification.pt:19
@@ -3757,7 +3756,7 @@ msgstr "Fase di valutazione"
 #: euphorie/client/browser/templates/risk_actionplan.pt:126
 #: euphorie/client/docx/compiler.py:384
 msgid "label_existing_measure"
-msgstr "Misure già attuate"
+msgstr "Misura già attuata"
 
 #. Default: "Content file"
 #: euphorie/content/module.py:110 euphorie/content/risk.py:286
@@ -5388,32 +5387,32 @@ msgstr "Tool OiRA importato con successo"
 #. Default: "Use it to"
 #: euphorie/client/templates/report_landing.pt:118
 msgid "use_it_to_action_plan"
-msgstr "Utilizzare pre"
+msgstr "Utilizzare per"
 
 #. Default: "Use it to"
 #: euphorie/client/templates/report_landing.pt:89
 msgid "use_it_to_full_report"
-msgstr "Utilizzare pre"
+msgstr "Utilizzare per"
 
 #. Default: "Use it to"
 #: euphorie/client/templates/report_landing.pt:180
 msgid "use_it_to_measures_overview"
-msgstr "Utilizzare pre"
+msgstr "Utilizzare per"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/measures_overview.pt:63
 msgid "use_it_to_measures_report"
-msgstr "Utilizzare pre"
+msgstr "Utilizzare per"
 
 #. Default: "Use it to"
 #: euphorie/client/templates/report_landing.pt:151
 msgid "use_it_to_risks_overview"
-msgstr "Utilizzare pre"
+msgstr "Utilizzare per"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/risks_overview.pt:152
 msgid "use_it_to_risks_report"
-msgstr "Utilizzare pre"
+msgstr "Utilizzare per"
 
 #. Default: "Please verify if the profile is still accurate."
 #: euphorie/client/browser/templates/updated.pt:23
