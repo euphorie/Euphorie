@@ -274,6 +274,7 @@ class ActionPlanDocxView(OfficeDocumentView):
         session = self.context.session
         data = {
             'title': session.title,
+            'comment': session.report_comment,
             'heading': self.get_heading(session.title),
             'section_headings': self.get_section_headings(),
             'nodes': self.get_sorted_nodes(),

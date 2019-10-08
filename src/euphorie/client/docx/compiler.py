@@ -596,6 +596,11 @@ class DocxCompilerFullTable(DocxCompiler):
                     szCs.attrib[qn('w:val')] = '14'
                     subrpr.append(szCs)
 
+        if data["comment"]:
+            self.template.paragraphs[
+                self.paragraphs_offset + row + 2
+            ].insert_paragraph_before(data["comment"])
+
         header = self.template.sections[self.sections_offset].header
         header.paragraphs[1].text = (
             u"{title}{extra}".format(
