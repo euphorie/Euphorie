@@ -192,6 +192,9 @@ def _get_action_plan(action):
     if action.planning_start:
         action_plan['planning_start'] = action.planning_start.strftime(
             "%d.%m.%Y")
+    if action.planning_end:
+        action_plan['planning_end'] = action.planning_end.strftime(
+            "%d.%m.%Y")
     return action_plan
 
 

@@ -684,13 +684,13 @@ class DocxCompilerFullTable(DocxCompiler):
                     style="Measure Indent"
                 )
                 paragraph.runs[0].italic = True
-            if action.get('planning_start', None):
+            if action.get('planning_end', None):
                 paragraph = cell.add_paragraph(
                     api.portal.translate(
                         _(
                             u"report_end_date",
                             default=u"To be done by: ${date}",
-                            mapping={"date": action['planning_start']}
+                            mapping={"date": action['planning_end']}
                         )
                     ),
                     style="Measure Indent"
