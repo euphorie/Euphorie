@@ -24,6 +24,11 @@ import six
 logger = getLogger(__name__)
 
 
+def capitalize(text):
+    if text:
+        return u"{0}{1}".format(text[0].upper(), text[1:])
+
+
 class Node(NodeMixin):
     def __init__(self, context, parent=None, **kwargs):
         self.__dict__.update(kwargs)
@@ -427,7 +432,7 @@ class MyRAsPortlet(PortletBase):
         label = api.portal.translate(
             _(u"link_start_session", default=u"start a new session")
         )
-        return label.capitalize()
+        return capitalize(label)
 
 
 class AvailableToolsPortlet(PortletBase):
