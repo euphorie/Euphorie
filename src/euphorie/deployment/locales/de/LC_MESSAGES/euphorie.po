@@ -590,7 +590,7 @@ msgstr "Informationen"
 #: euphorie/client/browser/risk.py:519
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
 msgstr ""
-"Falsches Dateiformat für das Bild. Bitte verwenden Sie PNG, JPEG oder GIF."
+"Falsches Dateiformat für das Bild. Bitte verwenden Sie PNG oder JPEG."
 
 #: euphorie/client/settings.py:106
 msgid "Invalid password"
