@@ -309,7 +309,8 @@
                                 measures view/solutions|python:[];
                               "
             >
-              <h2><tal:measure i18n:translate="Measure">Measure</tal:measure>
+              <h2><tal:span condition="not:view/use_existing_measures" i18n:translate="Measure">Measure</tal:span>
+                <tal:span condition="view/use_existing_measures" i18n:translate="Additional Measure">Additional Measure</tal:span>
                 #{1}</h2>
               <p class="functions">
                 <a class="icon-trash remove-clone"
