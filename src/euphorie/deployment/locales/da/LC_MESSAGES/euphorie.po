@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-10-02 10:24+0000\n"
+"POT-Creation-Date: 2019-10-08 12:04+0000\n"
 "PO-Revision-Date: 2013-06-27 22:03+0200\n"
 "Last-Translator: JC Brand <brand@syslab.com>\n"
 "Language-Team: Danish\n"
@@ -255,7 +255,7 @@ msgid ""
 "the contents of this risk assessment as a starting point."
 msgstr ""
 
-#: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:105
+#: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:126
 #: euphorie/client/templates/account-delete.pt:29
 msgid "Cancel"
 msgstr ""
@@ -886,7 +886,7 @@ msgstr ""
 msgid "Run slideshow"
 msgstr ""
 
-#: euphorie/client/browser/reset_password.py:178 euphorie/client/country.py:80
+#: euphorie/client/browser/reset_password.py:178 euphorie/client/country.py:101
 msgid "Save"
 msgstr ""
 
@@ -932,7 +932,7 @@ msgstr ""
 msgid "Session `${name}` has been deleted."
 msgstr ""
 
-#: euphorie/client/country.py:89
+#: euphorie/client/country.py:110
 msgid "Session title has been changed to ${name}"
 msgstr ""
 
@@ -973,7 +973,7 @@ msgstr ""
 msgid "Started"
 msgstr ""
 
-#: euphorie/client/browser/login.py:231
+#: euphorie/client/browser/login.py:232
 #: euphorie/client/browser/templates/new-session-test.pt:88
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -1891,7 +1891,7 @@ msgid "employee_numbers_50_to_249"
 msgstr ""
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:271
+#: euphorie/client/browser/login.py:272
 msgid "error_email_in_use"
 msgstr ""
 
@@ -1906,7 +1906,7 @@ msgid "error_invalid_budget"
 msgstr ""
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:255
+#: euphorie/client/browser/login.py:256
 msgid "error_invalid_email"
 msgstr ""
 
@@ -1921,17 +1921,17 @@ msgid "error_invalid_xml"
 msgstr ""
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:252
+#: euphorie/client/browser/login.py:253
 msgid "error_missing_email"
 msgstr ""
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:258
+#: euphorie/client/browser/login.py:259
 msgid "error_missing_password"
 msgstr ""
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:261
+#: euphorie/client/browser/login.py:262
 #: euphorie/client/browser/reset_password.py:221
 msgid "error_password_mismatch"
 msgstr ""
@@ -2046,12 +2046,12 @@ msgid "extra_text_identification"
 msgstr ""
 
 #. Default: "Action plan ${title}"
-#: euphorie/client/docx/views.py:290
+#: euphorie/client/docx/views.py:291
 msgid "filename_report_actionplan"
 msgstr ""
 
 #. Default: "Identification report ${title}"
-#: euphorie/client/docx/views.py:333
+#: euphorie/client/docx/views.py:334
 msgid "filename_report_identification"
 msgstr ""
 
@@ -3096,7 +3096,7 @@ msgid "intro_select_sector"
 msgstr ""
 
 #. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:302
+#: euphorie/client/browser/login.py:303
 msgid "invalid_email"
 msgstr ""
 
@@ -3148,7 +3148,7 @@ msgstr ""
 #. Default: "Action Plan"
 #: euphorie/client/browser/templates/login.pt:110
 #: euphorie/client/templates/report_identification.pt:145
-#: euphorie/client/templates/report_landing.pt:103
+#: euphorie/client/templates/shell.pt:200
 msgid "label_action_plan"
 msgstr ""
 
@@ -3156,6 +3156,11 @@ msgstr ""
 #: euphorie/client/browser/templates/risk_actionplan.pt:240
 #: euphorie/client/docx/compiler.py:429 euphorie/client/report.py:150
 msgid "label_action_plan_budget"
+msgstr ""
+
+#. Default: "Action Plan"
+#: euphorie/client/templates/report_landing.pt:103
+msgid "label_action_plan_download"
 msgstr ""
 
 #. Default: "Planning end"
@@ -4064,7 +4069,7 @@ msgid "link_sign_in"
 msgstr ""
 
 #. Default: "start a new session"
-#: euphorie/client/browser/country.py:425
+#: euphorie/client/browser/country.py:428
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:47
 msgid "link_start_session"
@@ -4471,17 +4476,17 @@ msgid "reminder_email_footer"
 msgstr ""
 
 #. Default: "Actions:"
-#: euphorie/client/docx/compiler.py:651
+#: euphorie/client/docx/compiler.py:656
 msgid "report_actions"
 msgstr ""
 
 #. Default: "Required expertise:"
-#: euphorie/client/docx/compiler.py:662
+#: euphorie/client/docx/compiler.py:667
 msgid "report_competences"
 msgstr ""
 
 #. Default: "To be done by: ${date}"
-#: euphorie/client/docx/compiler.py:685
+#: euphorie/client/docx/compiler.py:690
 msgid "report_end_date"
 msgstr ""
 
@@ -4491,7 +4496,7 @@ msgid "report_guest_register_intro"
 msgstr ""
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:888
+#: euphorie/client/docx/compiler.py:893
 msgid "report_identification_revision"
 msgstr ""
 
@@ -4501,12 +4506,12 @@ msgid "report_intro"
 msgstr ""
 
 #. Default: "Measures already in place:"
-#: euphorie/client/docx/compiler.py:630
+#: euphorie/client/docx/compiler.py:635
 msgid "report_measures_in_place"
 msgstr ""
 
 #. Default: "Responsible: ${responsible_name}"
-#: euphorie/client/docx/compiler.py:673
+#: euphorie/client/docx/compiler.py:678
 msgid "report_responsible"
 msgstr ""
 

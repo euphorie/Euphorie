@@ -24,6 +24,11 @@ import six
 logger = getLogger(__name__)
 
 
+def capitalize(text):
+    if text:
+        return u"{0}{1}".format(text[0].upper(), text[1:])
+
+
 class Node(NodeMixin):
     def __init__(self, context, parent=None, **kwargs):
         self.__dict__.update(kwargs)
@@ -256,11 +261,16 @@ class SessionsView(BrowserView):
         )
         return title.split("-")[-1].strip()
 
+    def set_language(self):
+        utils.setLanguage(
+            self.request, self.context, getattr(self.context, "language", None)
+        )
+
     def __call__(self):
         if not self.account:
             raise Unauthorized()
 
-        utils.setLanguage(self.request, self.context)
+        self.set_language()
         reply = self.request.form
         action = reply.get("action")
         if action == "new":
@@ -353,7 +363,6 @@ class SessionBrowserNavigator(BrowserView):
 
 
 class PortletBase(BrowserView):
-
     @property
     @memoize
     def webhelpers(self):
@@ -391,7 +400,6 @@ class PortletBase(BrowserView):
 
 
 class MyRAsPortlet(PortletBase):
-
     @property
     def columns(self):
         if self.surveys:
@@ -424,7 +432,7 @@ class MyRAsPortlet(PortletBase):
         label = api.portal.translate(
             _(u"link_start_session", default=u"start a new session")
         )
-        return label.capitalize()
+        return capitalize(label)
 
 
 class AvailableToolsPortlet(PortletBase):

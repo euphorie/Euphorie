@@ -61,11 +61,12 @@ class Login(BrowserView):
         if not lang:
             if IClientCountry.providedBy(self.context):
                 lang = getattr(self.context, 'language', None)
-                if lang and isinstance(lang, six.string_types):
-                    lang = [lang]
-        if not lang:
-            return
-        setLanguage(self.request, self.context, lang=lang[0])
+            elif ISurvey.providedBy(self.context):
+                lang = self.context.language
+        if lang:
+            if isinstance(lang, six.string_types):
+                lang = [lang]
+            setLanguage(self.request, self.context, lang=lang[0])
 
     def login(self, account, remember):
         pas = getToolByName(self.context, "acl_users")

@@ -5,34 +5,46 @@ import lxml.html
 from lxml import etree
 
 
-def add_hyperlink_into_run(paragraph, run, url):
-    runs = paragraph.runs
-    i = 0
-    for i in range(len(runs)):
-        if runs[i].text == run.text:
-            break
+def add_hyperlink(paragraph, url, text, style):
+    """
+    A function that places a hyperlink within a paragraph object.
 
-    # This gets access to the document.xml.rels file and gets a new
-    # relation id value
+    :param paragraph: The paragraph we are adding the hyperlink to.
+    :param url: A string containing the required url
+    :param text: The text displayed for the url
+    :return: The hyperlink object
+    """
+
+    # This gets access to the document.xml.rels file and gets a new relation id value
     part = paragraph.part
-    r_id = part.relate_to(
-        url,
-        docx.opc.constants.RELATIONSHIP_TYPE.HYPERLINK,
-        is_external=True)
+    r_id = part.relate_to(url, docx.opc.constants.RELATIONSHIP_TYPE.HYPERLINK, is_external=True)
 
     # Create the w:hyperlink tag and add needed values
     hyperlink = docx.oxml.shared.OxmlElement('w:hyperlink')
     hyperlink.set(docx.oxml.shared.qn('r:id'), r_id, )
-    hyperlink.append(run._r)
-    paragraph._p.insert(i + 1, hyperlink)
+
+    # Create a w:r element
+    new_run = docx.oxml.shared.OxmlElement('w:r')
+
+    # Create a new w:rPr element
+    rPr = docx.oxml.shared.OxmlElement('w:rPr')
+
+    # Join all the xml elements together add add the required text to the w:r element
+    new_run.append(rPr)
+    new_run.text = text
+    new_run.style = style
+    hyperlink.append(new_run)
+
+    paragraph._p.append(hyperlink)
+
+    return hyperlink
 
 
 class _HtmlToWord(object):
 
-    def handleInlineText(self, node, p, run=None):
+    def handleInlineText(self, node, p):
         """Handler for elements which can only contain inline text (p, li)"""
-        if not run:
-            run = p.add_run()
+        run = p.add_run()
         font = run.font
         if node.tag in ["strong", "b"]:
             font.bold = True
@@ -42,23 +54,18 @@ class _HtmlToWord(object):
             font.underline = True
 
         if node.text and node.text.strip():
-            keep_run = False
             if node.tag == 'a':
                 href = node.get('href')
                 href = href and href.strip()
                 if href and href != node.text.strip():
-                    run.style = "Hyperlink"
-                    run.text = node.text
-                    add_hyperlink_into_run(p, run, href)
+                    add_hyperlink(p, href, node.text, "Hyperlink")
                 else:
                     run.text = node.text
             else:
                 run.text = node.text
-        else:
-            keep_run = True
 
         for sub in node:
-            p = self.handleInlineText(sub, p, run=keep_run and run)
+            p = self.handleInlineText(sub, p)
         if node.tail and node.tail.strip():
             run = p.add_run()
             run.text = node.tail

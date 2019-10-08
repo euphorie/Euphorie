@@ -20,7 +20,6 @@ from plone.directives import form
 from Products.statusmessages.interfaces import IStatusMessage
 from sqlalchemy.orm import object_session
 from z3c.form import button
-from z3c.saconfig import Session
 from zope import schema
 from zope.interface import directlyProvides
 from zope.interface import implementer
@@ -42,6 +41,28 @@ class IClientCountry(form.Schema, IBasic):
 class ClientCountry(dexterity.Container):
 
     country_type = None
+
+    # Many countries only have one language. Use it as the default
+    language_mapping_by_country = {
+        "eu": "en",
+        "bg": "bg",
+        "hr": "hr",
+        "cy": "el",
+        "fi": "fi",
+        "fr": "fr",
+        "de": "de",
+        "gr": "el",
+        "is": "is",
+        "it": "it",
+        "lv": "lv",
+        "lt": "lt",
+        "pt": "pt",
+        "si": "sl",
+    }
+
+    @property
+    def language(self):
+        return self.language_mapping_by_country.get(self.id)
 
 
 class RenameSessionSchema(form.Schema):

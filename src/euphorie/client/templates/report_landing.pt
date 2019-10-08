@@ -102,7 +102,7 @@
             <p class="button-bar">
               <a class="pat-button bar download xlsx icon-download piwik_download"
                  href="${python:view.url(name='@@timeline')}"
-                 i18n:translate="label_action_plan"
+                 i18n:translate="label_action_plan_download"
               >Action Plan</a>
             </p>
             <p class="explanation"
