@@ -162,7 +162,7 @@ class _StatusHelper(object):
         sql_session = self.sql_session
         session_id = self.session.id
         module_paths = self.getModulePaths()
-        base_url = "%s/@@identification" % self.context.absolute_url()
+        url_schema = "%s/{0}/@@identification" % self.context.absolute_url()
         parent_node = orm.aliased(model.Module)
         titles = dict(
             sql_session.query(model.Module.path, model.Module.title)
@@ -220,7 +220,7 @@ class _StatusHelper(object):
             modules[path] = {
                 "path": path,
                 "title": title,
-                "url": "%s/%s" % (base_url, "/".join(self.slicePath(path))),
+                "url": url_schema.format("/".join(self.slicePath(path))),
                 "todo": 0,
                 "ok": 0,
                 "postponed": 0,

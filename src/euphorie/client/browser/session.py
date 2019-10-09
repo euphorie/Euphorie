@@ -423,7 +423,9 @@ class Identification(SessionMixin, BrowserView):
         question = self.first_question
         if not question:
             return
-        return getTreeData(self.request, self.context, element=question, no_current=True)
+        return getTreeData(
+            self.request, self.context, element=question, no_current=True
+        )
 
     @property
     def extra_text(self):
@@ -859,8 +861,9 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
 
         risk_title = self.get_risk_title(risk)
 
-        url = "{session_url}/{risk_id}/@@actionplan".format(
-            session_url=self.context.absolute_url(), risk_id=risk.id
+        url = "{session_url}/{risk_path}/@@actionplan".format(
+            session_url=self.context.absolute_url(),
+            risk_path="/".join(self.slicePath(risk.path)),
         )
         if risk.identification != "no":
             status = risk.postponed and "postponed" or "todo"
