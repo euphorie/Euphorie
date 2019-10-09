@@ -4,7 +4,11 @@ Changelog
 11.1.6 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Always switch to a tool's language, also when redirecting to login.
+- Define default language for most countries
+- Better display of images on modules and image-galery on risks
+- Translation updates
+- Improvements in the report for measures-in-place
 
 
 11.1.5 (2019-10-02)
