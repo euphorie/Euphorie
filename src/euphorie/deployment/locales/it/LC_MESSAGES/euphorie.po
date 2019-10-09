@@ -2312,7 +2312,7 @@ msgstr "Elenco dei rischi e degli adempimenti ${title}"
 #. Default: "Timeline for ${title}"
 #: euphorie/client/report.py:227
 msgid "filename_report_timeline"
-msgstr "Timeline per ${title}"
+msgstr "Programma di miglioramento per ${title}"
 
 #. Default: "This folder is empty."
 #: euphorie/content/templates/folder_view.pt:16
@@ -3389,7 +3389,7 @@ msgstr ""
 #. Default: "You can print the ${list-of-risks}."
 #: euphorie/client/browser/templates/identification.pt:21
 msgid "intro_identification"
-msgstr "È possibile stampare i ${list-of-risks}."
+msgstr "Stampa ${list-of-risks}."
 
 #. Default: "The main image will get a more prominent position in the client than the other images."
 #: euphorie/content/risk.py:220
@@ -4504,7 +4504,7 @@ msgstr "avvia una nuova sessione"
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:21
 msgid "list_of_risks"
-msgstr "contenuti"
+msgstr "l’elenco"
 
 #. Default: "Discover how easy it is to create a risk assessment with OiRA."
 #: euphorie/client/templates/tooltips.pt:27
