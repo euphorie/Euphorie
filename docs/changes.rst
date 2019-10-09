@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.6 (unreleased)
+11.1.6 (2019-10-09)
 -------------------
 
 - Always switch to a tool's language, also when redirecting to login.
