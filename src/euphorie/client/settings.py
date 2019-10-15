@@ -197,6 +197,15 @@ class NewEmail(form.SchemaForm):
         return user
 
     def initiateRequest(self, account, login):
+        flash = IStatusMessage(self.request).addStatusMessage
+        # Make it work when acl_users is in Memcached: We need to fetch the
+        # account again, to prevent DetachedInstanceError
+        account_query = Session.query(Account).filter(Account.id == account.id)
+        if not account_query.count():
+            log.error("Account could not be fetched")
+            flash(_(u"An error occured while sending the confirmation email."), "error")
+            return False
+        account = account_query.one()
         if account.change_request is None:
             account.change_request = AccountChangeRequest()
         account.change_request.id = randomString()
@@ -225,7 +234,6 @@ class NewEmail(form.SchemaForm):
             self.email_from_name, self.email_from_address, login, subject, body
         )
 
-        flash = IStatusMessage(self.request).addStatusMessage
         try:
             mailhost.send(mail, login, self.email_from_address, immediate=True)
             log.info("Sent email confirmation to %s", account.email)
