@@ -11,7 +11,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
             # anonymous does not see anything
             self.assertTrue(str(view.get_sessions_query()).endswith("WHERE 0 = 1"))
 
-    def _get_query_filters(sefl, query):
+    def _get_query_filters(self, query):
         """ Return the filters of a SQLAlchemy query
         """
         return str(query).partition("\nFROM session \n")[-1]
@@ -79,6 +79,20 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                     ),
                     (
                         "WHERE session.zodb_path IN (?) AND "
+                        "(session.archived >= ? OR session.archived IS NULL) "
+                        "ORDER BY session.modified DESC, session.title"
+                    ),
+                )
+                # We can also filter by group only, without considering the account
+                self.assertEqual(
+                    self._get_query_filters(
+                        view.get_sessions_query(
+                            filter_by_account=False, include_group=True
+                        )
+                    ),
+                    (
+                        "WHERE session.zodb_path IN (?) AND "
+                        "session.group_id IN (?) AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
                     ),

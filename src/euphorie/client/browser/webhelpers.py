@@ -793,9 +793,13 @@ class WebHelpers(BrowserView):
             return query.filter(False)
 
         query = query.filter(table.get_context_filter(context or self.context))
-        if filter_by_account:
+        if filter_by_account or include_group:
             query = query.filter(
-                table.get_account_filter(account=account, include_group=include_group)
+                table.get_account_filter(
+                    account=account,
+                    include_account=filter_by_account,
+                    include_group=include_group,
+                )
             )
         if not include_archived:
             query = query.filter(table.get_archived_filter())

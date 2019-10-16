@@ -878,18 +878,20 @@ class SurveySession(BaseObject):
                     synchronize_session=False)
 
     @classmethod
-    def get_account_filter(cls, account=None, include_group=False):
+    def get_account_filter(cls, account=None, include_account=True, include_group=False):
         """ Filter only the sessions for the given account
         (or the current one if account is not passed)
         """
         if not account:
             account = get_current_account()
-        filters = [cls.account_id == account.id]
+        filters = []
+        if include_account:
+            filters.append(cls.account_id == account.id)
         if include_group and account.group:
             group_ids = {account.group_id}
             group_ids.update(g.group_id for g in account.group.descendants)
             filters.append(cls.group_id.in_(group_ids))
-        return sql.or_(*filters)
+        return sql.or_(*filters) if filters else False
 
     @classmethod
     def get_archived_filter(cls):
