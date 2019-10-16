@@ -117,8 +117,12 @@ class IdentificationView(BrowserView):
     @memoize
     def skip_evaluation(self):
         """ Default value is False, but it can be tweaked in certain conditions"""
-        if self.italy_special and self.risk and (
-            self.risk.type == "top5" or self.risk.evaluation_method == "fixed"
+        if self.italy_special and (
+            (
+                self.risk
+                and (self.risk.type == "top5" or self.risk.evaluation_method == "fixed")
+            )
+            or self.is_custom_risk
         ):
             return True
         return False
@@ -613,8 +617,12 @@ class ActionPlanView(BrowserView):
     @memoize
     def skip_evaluation(self):
         """ Default value is False, but it can be tweaked in certain conditions"""
-        if self.italy_special and self.risk and (
-            self.risk.type == "top5" or self.risk.evaluation_method == "fixed"
+        if self.italy_special and (
+            (
+                self.risk
+                and (self.risk.type == "top5" or self.risk.evaluation_method == "fixed")
+            )
+            or self.is_custom_risk
         ):
             return True
         return False
