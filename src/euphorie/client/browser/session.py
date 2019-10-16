@@ -992,7 +992,7 @@ class MeasuresOverview(Status):
                 title = risk_obj and risk_obj.problem_description or risk.title
             else:
                 title = risk.title
-            modulesdict[module][risk.priority].append(
+            modulesdict[module][risk.priority or "low"].append(
                 {
                     "title": title,
                     "description": action.action_plan,
@@ -1026,6 +1026,7 @@ class MeasuresOverview(Status):
                 if "custom-risks" in module.zodb_path:
                     num_elems = number.split(".")
                     number = u".".join([u"Ω"] + num_elems[1:])
+                    title = api.portal.translate(_(title))
                 main_modules[path] = {"name": title, "number": number, "risks": risks}
 
         self.modules = []
