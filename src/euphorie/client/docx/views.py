@@ -139,9 +139,8 @@ class OfficeDocumentView(BrowserView):
                 measures = [item[0] for item in existing_measures if item[1]]
             except Exception:
                 measures = []
-            if risk and (
-                sql_risk.identification == 'no' or
-                getattr(risk, 'type', None) == 'top5'
+            if sql_risk.identification == "no" or (
+                risk and getattr(risk, "type", None) == "top5"
             ):
                 actions = [
                     _get_action_plan(action)
