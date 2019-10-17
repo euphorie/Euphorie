@@ -4239,7 +4239,7 @@ msgstr "Salva e continua"
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "label_save_and_finish"
-msgstr ""
+msgstr "Salva e termina"
 
 #. Default: "Section"
 #: euphorie/client/report.py:151
