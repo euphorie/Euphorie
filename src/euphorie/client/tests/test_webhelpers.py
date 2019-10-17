@@ -9,9 +9,9 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
     def test_get_sessions_query_anonymous(self):
         with self._get_view("webhelpers", self.portal.client) as view:
             # anonymous does not see anything
-            self.assertTrue(str(view.get_sessions_query()).endswith("WHERE 0 = 1"))
+            self.assertIn("WHERE 0 = 1", str(view.get_sessions_query()))
 
-    def _get_query_filters(sefl, query):
+    def _get_query_filters(self, query):
         """ Return the filters of a SQLAlchemy query
         """
         return str(query).partition("\nFROM session \n")[-1]
@@ -37,6 +37,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         "ORDER BY session.modified DESC, session.title"
                     ),
                 )
+
                 self.assertEqual(
                     self._get_query_filters(
                         view.get_sessions_query(include_archived=True)
@@ -64,11 +65,12 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                 model.Session.flush()
                 self.assertEqual(
                     self._get_query_filters(
-                        view.get_sessions_query(include_group=True)
+                        view.get_sessions_query(filter_by_group=True)
                     ),
                     (
                         "WHERE session.zodb_path IN (?) AND "
-                        "(session.account_id = ? OR session.group_id IN (?)) AND "
+                        "session.account_id = ? AND "
+                        "session.group_id = ? AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
                     ),
@@ -79,6 +81,59 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                     ),
                     (
                         "WHERE session.zodb_path IN (?) AND "
+                        "(session.archived >= ? OR session.archived IS NULL) "
+                        "ORDER BY session.modified DESC, session.title"
+                    ),
+                )
+                self.assertEqual(
+                    self._get_query_filters(
+                        view.get_sessions_query(
+                            filter_by_account=False, filter_by_group=True
+                        )
+                    ),
+                    (
+                        "WHERE session.zodb_path IN (?) AND "
+                        "session.group_id = ? AND "
+                        "(session.archived >= ? OR session.archived IS NULL) "
+                        "ORDER BY session.modified DESC, session.title"
+                    ),
+                )
+                self.assertEqual(
+                    self._get_query_filters(
+                        view.get_sessions_query(
+                            filter_by_account=False, filter_by_group=foo_group
+                        )
+                    ),
+                    (
+                        "WHERE session.zodb_path IN (?) AND "
+                        "session.group_id = ? AND "
+                        "(session.archived >= ? OR session.archived IS NULL) "
+                        "ORDER BY session.modified DESC, session.title"
+                    ),
+                )
+                self.assertEqual(
+                    self._get_query_filters(
+                        view.get_sessions_query(
+                            filter_by_account=False, filter_by_group=[foo_group]
+                        )
+                    ),
+                    (
+                        "WHERE session.zodb_path IN (?) AND "
+                        "session.group_id = ? AND "
+                        "(session.archived >= ? OR session.archived IS NULL) "
+                        "ORDER BY session.modified DESC, session.title"
+                    ),
+                )
+                bar_group = model.Group(group_id=u"bar")
+                self.assertEqual(
+                    self._get_query_filters(
+                        view.get_sessions_query(
+                            filter_by_account=False, filter_by_group=[foo_group, bar_group]
+                        )
+                    ),
+                    (
+                        "WHERE session.zodb_path IN (?) AND "
+                        "session.group_id IN (?, ?) AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
                     ),
