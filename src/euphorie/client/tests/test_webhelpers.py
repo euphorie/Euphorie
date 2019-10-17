@@ -9,7 +9,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
     def test_get_sessions_query_anonymous(self):
         with self._get_view("webhelpers", self.portal.client) as view:
             # anonymous does not see anything
-            self.assertTrue(str(view.get_sessions_query()).endswith("WHERE 0 = 1"))
+            self.assertIn("WHERE 0 = 1", str(view.get_sessions_query()))
 
     def _get_query_filters(self, query):
         """ Return the filters of a SQLAlchemy query
