@@ -98,3 +98,43 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         "ORDER BY session.modified DESC, session.title"
                     ),
                 )
+                self.assertEqual(
+                    self._get_query_filters(
+                        view.get_sessions_query(
+                            filter_by_account=False, filter_by_group=foo_group
+                        )
+                    ),
+                    (
+                        "WHERE session.zodb_path IN (?) AND "
+                        "session.group_id = ? AND "
+                        "(session.archived >= ? OR session.archived IS NULL) "
+                        "ORDER BY session.modified DESC, session.title"
+                    ),
+                )
+                self.assertEqual(
+                    self._get_query_filters(
+                        view.get_sessions_query(
+                            filter_by_account=False, filter_by_group=[foo_group]
+                        )
+                    ),
+                    (
+                        "WHERE session.zodb_path IN (?) AND "
+                        "session.group_id = ? AND "
+                        "(session.archived >= ? OR session.archived IS NULL) "
+                        "ORDER BY session.modified DESC, session.title"
+                    ),
+                )
+                bar_group = model.Group(group_id=u"bar")
+                self.assertEqual(
+                    self._get_query_filters(
+                        view.get_sessions_query(
+                            filter_by_account=False, filter_by_group=[foo_group, bar_group]
+                        )
+                    ),
+                    (
+                        "WHERE session.zodb_path IN (?) AND "
+                        "session.group_id IN (?, ?) AND "
+                        "(session.archived >= ? OR session.archived IS NULL) "
+                        "ORDER BY session.modified DESC, session.title"
+                    ),
+                )
