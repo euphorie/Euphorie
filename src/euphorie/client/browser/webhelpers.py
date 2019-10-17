@@ -786,13 +786,13 @@ class WebHelpers(BrowserView):
             A falsish value means do not filter.
             Otherwise try to interpret the user input:
             a string or an int means the account_id should be that value,
-            an object account will be use to extract the account id,
+            an object account will be used to extract the account id,
             from an iterable we will try to extract the account ids
         :param filter_by_group: True means current account group,
             A falsish value means do not filter.
             Otherwise try to interpret the user input:
             a string or an int means the group_id should be that value,
-            an object account will be use to extract the group id,
+            an object group will be used to extract the group id,
             and from an iterable we will try to extract the group ids
         """
         table = self.survey_session_model

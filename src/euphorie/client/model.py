@@ -880,6 +880,13 @@ class SurveySession(BaseObject):
     @classmethod
     def get_account_filter(cls, account=None):
         """ Filter only the sessions for the given account
+
+        :param acount: True means current account.
+            A falsish value means do not filter.
+            Otherwise try to interpret the user input:
+            a string or an int means the account_id should be that value,
+            an object account will be used to extract the account id,
+            from an iterable we will try to extract the account ids
         """
         if account is True:
             account = get_current_account()
@@ -916,6 +923,13 @@ class SurveySession(BaseObject):
     @classmethod
     def get_group_filter(cls, group=None):
         """ Filter only the sessions for the given group
+
+        :param group: True means the current account's group.
+            A falsish value means do not filter.
+            Otherwise try to interpret the user input:
+            a string or an int means the group_id should be that value,
+            an object group will be used to extract the group id,
+            and from an iterable we will try to extract the group ids
         """
         if group is True:
             group = getattr(get_current_account(), "group_id", None)
