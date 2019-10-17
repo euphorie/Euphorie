@@ -771,8 +771,8 @@ class WebHelpers(BrowserView):
         searchable_text=None,
         order_by=False,
         include_archived=False,
-        include_group=False,
         filter_by_account=True,
+        filter_by_group=False,
     ):
         """ Method to return a query that looks for sessions
 
@@ -782,21 +782,28 @@ class WebHelpers(BrowserView):
             None to disable ordering or a SQLAlchemy expression
         :param include_archived: unless explicitely set to a truish value,
             archived sessions are excluded
-        :param include_group: if truish include the group sessions
-        :param filter_by_account: if truish, filter sessions on current account
+        :param filter_by_account: True means current account.
+            A falsish value means do not filter.
+            Otherwise try to interpret the user input:
+            a string or an int means the account_id should be that value,
+            an object account will be use to extract the account id,
+            from an iterable we will try to extract the account ids
+        :param filter_by_group: True means current account group,
+            A falsish value means do not filter.
+            Otherwise try to interpret the user input:
+            a string or an int means the group_id should be that value,
+            an object account will be use to extract the group id,
+            and from an iterable we will try to extract the group ids
         """
         table = self.survey_session_model
         query = Session.query(table)
 
-        account = self.get_current_account()
-        if not account:
-            return query.filter(False)
-
         query = query.filter(table.get_context_filter(context or self.context))
+
         if filter_by_account:
-            query = query.filter(
-                table.get_account_filter(account=account, include_group=include_group)
-            )
+            query = query.filter(table.get_account_filter(account=filter_by_account))
+        if filter_by_group:
+            query = query.filter(table.get_group_filter(group=filter_by_group))
         if not include_archived:
             query = query.filter(table.get_archived_filter())
         if searchable_text:

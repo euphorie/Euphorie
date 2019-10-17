@@ -878,18 +878,76 @@ class SurveySession(BaseObject):
                     synchronize_session=False)
 
     @classmethod
-    def get_account_filter(cls, account=None, include_group=False):
+    def get_account_filter(cls, account=None):
         """ Filter only the sessions for the given account
-        (or the current one if account is not passed)
         """
-        if not account:
+        if account is True:
             account = get_current_account()
-        filters = [cls.account_id == account.id]
-        if include_group and account.group:
-            group_ids = {account.group_id}
-            group_ids.update(g.group_id for g in account.group.descendants)
-            filters.append(cls.group_id.in_(group_ids))
-        return sql.or_(*filters)
+
+        if isinstance(account, Account):
+            account = account.id
+
+        if not account:
+            return False
+
+        if isinstance(account, (int, six.string_types)):
+            return cls.account_id == account
+
+        try:
+            account_ids = {getattr(item, "id", item) for item in account}
+        except TypeError:
+            log.error("Cannot understand the account parameter: %r", account)
+            raise
+
+        account_ids = {
+            item
+            for item in account_ids
+            if item and isinstance(item, (int, six.string_types))
+        }
+        if not account_ids:
+            return False
+
+        if len(account_ids) == 1:
+            for account_id in account_ids:
+                return cls.get_account_filter(account_id)
+
+        return cls.account_id.in_(account_ids)
+
+    @classmethod
+    def get_group_filter(cls, group=None):
+        """ Filter only the sessions for the given group
+        """
+        if group is True:
+            group = getattr(get_current_account(), "group_id", None)
+
+        if isinstance(group, Group):
+            group = group.group_id
+
+        if not group:
+            return False
+
+        if isinstance(group, (int, six.string_types)):
+            return cls.group_id == group
+
+        try:
+            group_ids = {getattr(item, "group_id", item) for item in group}
+        except TypeError:
+            log.error("Cannot understand the group parameter: %r", group)
+            raise
+
+        group_ids = {
+            item
+            for item in group_ids
+            if item and isinstance(item, (int, six.string_types))
+        }
+        if not group_ids:
+            return False
+
+        if len(group_ids) == 1:
+            for group_id in group_ids:
+                return cls.get_group_filter(group_id)
+
+        return cls.group_id.in_(group_ids)
 
     @classmethod
     def get_archived_filter(cls):
