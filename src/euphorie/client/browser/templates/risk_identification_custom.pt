@@ -149,7 +149,7 @@
     </fieldset>
 
 
-    <!-- END Identificaton -->
+    <!-- END Identification -->
 
     <!-- Evaluation -->
 
@@ -189,7 +189,7 @@
 
     <!-- Information -->
     <fieldset class="pat-collapsible open risk-module">
-      <legend>
+      <legend i18n:translate="header_information">
         Information
       </legend>
       <fieldset class="vertical ${python:view.use_training_module and 'pat-subform pat-inject' or None}"

@@ -10,6 +10,8 @@ from plone.app.event.base import localized_now
 from sqlalchemy.exc import StatementError
 from z3c.saconfig import Session
 
+import mock
+
 
 def createSurvey():
     session = Session()
@@ -475,3 +477,109 @@ class AccountTests(DatabaseTests):
         self.assertListEqual(account2.sessions, [survey2])
         self.assertListEqual(account1.acquired_sessions, [survey1, survey2])
         self.assertListEqual(account2.acquired_sessions, [survey2])
+
+
+class SurveySessionDBTests(DatabaseTests):
+
+    def test_get_account_filter(self):
+        session = model.SurveySession()
+        account = model.Account(id=1)
+        # Note assertFalse will not do what you want on Binary expression
+        self.assertEqual(str(session.get_account_filter()), "False")
+        self.assertEqual(str(session.get_account_filter(False)), "False")
+        self.assertEqual(str(session.get_account_filter(None)), "False")
+        self.assertEqual(str(session.get_account_filter("")), "False")
+        self.assertEqual(str(session.get_account_filter([])), "False")
+        self.assertEqual(str(session.get_account_filter([""])), "False")
+        self.assertEqual(
+            str(session.get_account_filter("1")), "session.account_id = :account_id_1"
+        )
+        self.assertEqual(
+            str(session.get_account_filter(1)), "session.account_id = :account_id_1"
+        )
+        session.get_account_filter(account)
+        self.assertEqual(
+            str(session.get_account_filter(account)),
+            "session.account_id = :account_id_1",
+        )
+        self.assertEqual(
+            str(session.get_account_filter(["1"])), "session.account_id = :account_id_1"
+        )
+        self.assertEqual(
+            str(session.get_account_filter([1])), "session.account_id = :account_id_1"
+        )
+        self.assertEqual(
+            str(session.get_account_filter([account])),
+            "session.account_id = :account_id_1",
+        )
+        self.assertEqual(
+            str(session.get_account_filter([account, "2"])),
+            "session.account_id IN (:account_id_1, :account_id_2)",
+        )
+        with mock.patch("euphorie.client.model.get_current_account", return_value=None):
+            self.assertEqual(str(session.get_account_filter(True)), "False")
+        with mock.patch(
+            "euphorie.client.model.get_current_account", return_value=account
+        ):
+            self.assertEqual(
+                str(session.get_account_filter(True)),
+                "session.account_id = :account_id_1",
+            )
+        with self.assertRaises(TypeError):
+            session.get_account_filter(session)
+
+    def test_get_group_filter(self):
+        session = model.SurveySession()
+        group = model.Group(group_id="foo")
+        account = model.Account(id=1)
+        # Note assertFalse will not do what you want on Binary expression
+        self.assertEqual(str(session.get_group_filter()), "False")
+        self.assertEqual(str(session.get_group_filter(False)), "False")
+        self.assertEqual(str(session.get_group_filter(None)), "False")
+        self.assertEqual(str(session.get_group_filter("")), "False")
+        self.assertEqual(str(session.get_group_filter([])), "False")
+        self.assertEqual(str(session.get_group_filter([""])), "False")
+        self.assertEqual(
+            str(session.get_group_filter("1")), "session.group_id = :group_id_1"
+        )
+        self.assertEqual(
+            str(session.get_group_filter(1)), "session.group_id = :group_id_1"
+        )
+        self.assertEqual(
+            str(session.get_group_filter(group)),
+            "session.group_id = :group_id_1",
+        )
+        self.assertEqual(
+            str(session.get_group_filter(["1"])), "session.group_id = :group_id_1"
+        )
+        self.assertEqual(
+            str(session.get_group_filter([1])), "session.group_id = :group_id_1"
+        )
+        self.assertEqual(
+            str(session.get_group_filter([group])),
+            "session.group_id = :group_id_1",
+        )
+        self.assertEqual(
+            str(session.get_group_filter([group, "2"])),
+            "session.group_id IN (:group_id_1, :group_id_2)",
+        )
+        with mock.patch("euphorie.client.model.get_current_account", return_value=None):
+            self.assertEqual(str(session.get_group_filter(True)), "False")
+
+        # The account still does not have a group, so we should have False here
+        with mock.patch(
+            "euphorie.client.model.get_current_account", return_value=account
+        ):
+            self.assertEqual(str(session.get_group_filter(True)), "False")
+
+        account.group_id = "foo"
+        with mock.patch(
+            "euphorie.client.model.get_current_account", return_value=account
+        ):
+            self.assertEqual(
+                str(session.get_group_filter(True)),
+                "session.group_id = :group_id_1",
+            )
+
+        with self.assertRaises(TypeError):
+            session.get_group_filter(session)

@@ -357,7 +357,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:39
 msgid "Continue to action plan"
-msgstr ""
+msgstr "Vai alla sezione misure di miglioramento"
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml
 msgid "Country"
@@ -585,7 +585,7 @@ msgstr "Informazione"
 
 #: euphorie/client/browser/risk.py:519
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
-msgstr ""
+msgstr "Formato dell'immagine non valido, per favore usa PNG, JPEG o GIF."
 
 #: euphorie/client/settings.py:106
 msgid "Invalid password"
@@ -1256,11 +1256,11 @@ msgstr "Caricare"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:198
 msgid "Upload an image that illustrates this risk."
-msgstr ""
+msgstr "Carica un'immagine relativa al rischio."
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:217
 msgid "Upload image"
-msgstr ""
+msgstr "Carica immagine"
 
 #: euphorie/content/behaviour/configure.zcml:19
 msgid "Use a rich text description for content types."
@@ -1585,7 +1585,7 @@ msgstr "Aggiungere country manager"
 #. Default: "Add a custom risk"
 #: euphorie/client/browser/templates/module_identification_custom.pt:29
 msgid "button_add_custom_risk"
-msgstr "Aggiungi un rischio specificamente formulato"
+msgstr "Aggiungi un rischio"
 
 #. Default: "Add a missing measure"
 #: euphorie/content/utils.py:85
@@ -3519,7 +3519,7 @@ msgstr "Il rischio è accettabile?"
 #. Default: "Is this risk acceptable or under control? If applicable, ${link_add_measures}."
 #: euphorie/content/utils.py:104
 msgid "is_risk_acceptable_add_measures"
-msgstr ""
+msgstr "${link_add_measures} per gestire il rischio e indica se sono previste ulteriori misure di miglioramento."
 
 #. Default: "Update"
 #: euphorie/client/browser/templates/updated.pt:89
@@ -4239,7 +4239,7 @@ msgstr "Salva e continua"
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "label_save_and_finish"
-msgstr ""
+msgstr "Salva e termina"
 
 #. Default: "Section"
 #: euphorie/client/report.py:151
@@ -5219,7 +5219,7 @@ msgstr ""
 #. Default: "add all measures that have already been implemented"
 #: euphorie/content/utils.py:54
 msgid "text_add_measures"
-msgstr ""
+msgstr "Aggiungi tutte le misure già adottate"
 
 #. Default: "OiRA"
 #: euphorie/content/templates/colour-preview.pt:51
