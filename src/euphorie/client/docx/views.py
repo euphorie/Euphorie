@@ -176,7 +176,13 @@ class OfficeDocumentView(BrowserView):
 
 
 def _escape_text(txt):
-    return txt and txt.replace('<', '&lt;') or ''
+    txt = txt or ""
+    txt = txt.replace("<", "&lt;")
+    # vertical tab / ASCII 11 / SHIFT + RETURN in Word is unprintable
+    txt = txt.replace("\x0b", " ")
+    # Also this character can make trouble
+    txt = txt.replace("\x01", " ")
+    return txt
 
 
 def _get_action_plan(action):

@@ -221,6 +221,7 @@ class DocxCompiler(BaseOfficeCompiler):
             self.add_report_section(nodes, heading, **extra)
 
     def add_report_section(self, nodes, heading, **extra):
+        from euphorie.client.docx.views import _escape_text
         doc = self.template
         doc.add_paragraph(heading, style="Heading 1")
 
@@ -320,7 +321,7 @@ class DocxCompiler(BaseOfficeCompiler):
                 doc = HtmlToWord(_sanitize_html(description or ""), doc)
 
             if node.comment and node.comment.strip():
-                doc.add_paragraph(node.comment, style="Comment")
+                doc.add_paragraph(_escape_text(node.comment), style="Comment")
 
             if not extra.get('skip_legal_references', True):
                 legal_reference = getattr(zodb_node, "legal_reference", None)
