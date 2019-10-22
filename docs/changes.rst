@@ -4,7 +4,11 @@ Changelog
 11.1.7 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix the process for changing one's email address, so that it works also when
+  Memcached is used on acl_users
+- IT: also skip evaluation on Omega risks
+- Fix problem in docx report with unprintable characters
+- Updated translations
 
 
 11.1.6 (2019-10-09)
