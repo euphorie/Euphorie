@@ -5314,9 +5314,7 @@ msgstr ""
 #: euphorie/client/browser/templates/webhelpers.pt:294
 msgid "top5_risk_not_present_postponed"
 msgstr ""
-"Este risco ainda não foi avaliado, mas como é considerado de \"prioridade "
-"elevada\", ele será sempre incluído no “Plano de Ação”. Por favor, vá à "
-"etapa “Identificação + Avaliação” e assinale a afirmação com Sim ou Não."
+"Este risco ainda não foi avaliado, mas como é considerado de “prioridade elevada”, ele será sempre incluído no “Plano de Ação”. Por favor, vá à etapa “Identificação + Avaliação” e assinale a afirmação com Sim ou Não."
 
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/templates/unpublish.pt:19

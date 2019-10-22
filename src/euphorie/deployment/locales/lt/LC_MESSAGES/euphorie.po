@@ -5283,9 +5283,7 @@ msgstr ""
 #: euphorie/client/browser/templates/webhelpers.pt:294
 msgid "top5_risk_not_present_postponed"
 msgstr ""
-"Ši rizika šiuo metu jūsų organizacijoje nekyla, bet kadangi ekonominėje "
-"veikloje, kurią jūs vykdote, ši rizika yra laikoma prioritetine, į ataskaitą "
-"ją būtina įtraukti."
+"Jūsų organizacijoje ši rizika yra labai maža, tačiau ji laikoma viena iš prioritetinių rizikų šiame sektoriuje, todėl ji privalo būti įtraukta į ataskaitą."
 
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/templates/unpublish.pt:19

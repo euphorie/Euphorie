@@ -5276,8 +5276,7 @@ msgstr ""
 #: euphorie/client/browser/templates/webhelpers.pt:294
 msgid "top5_risk_not_present_postponed"
 msgstr ""
-"Šāds risks jūsu organizācijā nepastāv, taču sektora organizācija to uzskata "
-"par vienu no prioritārajiem riskiem, tāpēc tas jāiekļauj pārskatā."
+"Šo risku Jūs neesat norādījuši kā sava uzņēmuma risku, tomēr nozarei šis risks ir raksturīgs, tāpēc tas tiks iekļauts novērtējumā."
 
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/templates/unpublish.pt:19

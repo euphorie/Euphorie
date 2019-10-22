@@ -5350,9 +5350,7 @@ msgstr ""
 #: euphorie/client/browser/templates/webhelpers.pt:294
 msgid "top5_risk_not_present_postponed"
 msgstr ""
-"Dit risico is niet aanwezig in uw organisatie, maar aangezien de "
-"sectororganisatie dit beschouwt als één van de prioriteitrisico's, moet het "
-"worden opgenomen in dit rapport."
+"Dit risico werd nog niet beoordeeld, maar omdat het wordt aanzien als “hoge prioriteit” door de OiRA tool ontwikkelaars zal het altijd opgenomen worden in het actieplan. Ga aub naar het deel identificatie en beantwoord de stelling."
 
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/templates/unpublish.pt:19

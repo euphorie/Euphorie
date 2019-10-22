@@ -253,7 +253,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:26
 msgid "Are you sure you want to proceed?"
-msgstr ""
+msgstr "Inti żgur li trid tkompli?"
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Automatically generate unique ids for content"
@@ -282,6 +282,7 @@ msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
 msgstr ""
+"Meta tikkopja evalwazzjoni tar-riskju tkun qiegħed toħloq evalwazzjoni tar-riskju ġdida ibbażata fuq il-kontenut ta’ din l-evalwazzjoni tar-riskju bħala punt tat-tluq."
 
 #: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:126
 #: euphorie/client/templates/account-delete.pt:29
@@ -357,7 +358,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:39
 msgid "Continue to action plan"
-msgstr ""
+msgstr "Kompli għall-pjan ta’ azzjoni"
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml
 msgid "Country"
@@ -586,7 +587,7 @@ msgstr "Informazzjoni"
 
 #: euphorie/client/browser/risk.py:519
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
-msgstr ""
+msgstr "Format tal-istampa invalidu. Jekk jogħġbok uża PNG, JPEG jew GIF."
 
 #: euphorie/client/settings.py:106
 msgid "Invalid password"
@@ -1254,11 +1255,11 @@ msgstr "Tella'"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:198
 msgid "Upload an image that illustrates this risk."
-msgstr ""
+msgstr "Tella’ stampa li turi dan ir-riskju"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:217
 msgid "Upload image"
-msgstr ""
+msgstr "Tella’ l-istampa"
 
 #: euphorie/content/behaviour/configure.zcml:19
 msgid "Use a rich text description for content types."
@@ -1310,7 +1311,7 @@ msgstr "Iva"
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:34
 msgid "Yes, clone risk assessment"
-msgstr ""
+msgstr "Iva, ikkopja l-evalwazzjoni tar-riskju"
 
 #: euphorie/content/templates/library.pt:17
 msgid ""
@@ -1562,7 +1563,7 @@ msgstr "Prodotta minn ${EU-OSHA}."
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:135
 msgid "based on"
-msgstr ""
+msgstr "ibbażat fuq"
 
 #: euphorie/client/browser/templates/new-session-test.pt:71
 msgid "benefits"
@@ -1619,7 +1620,7 @@ msgstr "Żid settur ġdid"
 #. Default: "Duplicate"
 #: euphorie/deployment/tiles/templates/versions.pt:19
 msgid "button_add_version"
-msgstr "Kopja"
+msgstr "Ikkopja"
 
 #. Default: "Yes, archive session"
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:31
@@ -3799,7 +3800,7 @@ msgstr "Format"
 #. Default: "General information"
 #: euphorie/client/browser/templates/status.pt:44
 msgid "label_general_information"
-msgstr ""
+msgstr "Informazzjoni ġenerali"
 
 #. Default: "4. Action Plan"
 #: euphorie/content/help.py:68 euphorie/content/templates/help_view.pt:33
@@ -4233,7 +4234,7 @@ msgstr "Issejvja u kompli"
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "label_save_and_finish"
-msgstr ""
+msgstr "Issejvja u kkonkludi"
 
 #. Default: "Section"
 #: euphorie/client/report.py:151
@@ -4311,7 +4312,7 @@ msgstr "Ibda"
 #. Default: "Started"
 #: euphorie/client/browser/templates/status.pt:61
 msgid "label_started"
-msgstr ""
+msgstr "Mibdi"
 
 #. Default: "Affirmative statement"
 #: euphorie/content/risk.py:75
@@ -4418,7 +4419,7 @@ msgstr ""
 #. Default: "Used tool"
 #: euphorie/client/browser/templates/status.pt:48
 msgid "label_used_tool"
-msgstr ""
+msgstr "L-għodda użata"
 
 #. Default: "Name"
 #: euphorie/content/user.py:81
@@ -5345,9 +5346,7 @@ msgstr ""
 #: euphorie/client/browser/templates/webhelpers.pt:294
 msgid "top5_risk_not_present_postponed"
 msgstr ""
-"Dan ir-riskju mhuwiex preżenti fl-organizzazzjoni tiegħek, iżda minħabba li "
-"l-organizzazzjoni tas-settur tqis li dan huwa wieħed mir-riskji ta' "
-"prijorità, dan għandu jiġi inkluż f'dan ir-rapport."
+"Dan ir-riskju għadu ma ġiex evalwat, iżda peress li huwa meqjus bħala “prijorità għolja” mill-iżviluppaturi tal-OiRA, dejjem se jkun inkluż fil-pjan t’ azzjoni. Jekk jogħġbok mur għall-identifikazzjoni u wieġeb id-dikjarazzjoni."
 
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/templates/unpublish.pt:19

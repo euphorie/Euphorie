@@ -249,7 +249,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:26
 msgid "Are you sure you want to proceed?"
-msgstr ""
+msgstr "¿Está seguro que quiere continuar?"
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Automatically generate unique ids for content"
@@ -278,6 +278,7 @@ msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
 msgstr ""
+"Clonando una evaluación de riesgos creará una nueva evaluación basada en los contenidos de esta evaluación como punto de partida."
 
 #: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:126
 #: euphorie/client/templates/account-delete.pt:29
@@ -353,7 +354,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:39
 msgid "Continue to action plan"
-msgstr ""
+msgstr "Continuar con el plan de acción"
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml
 msgid "Country"
@@ -582,7 +583,7 @@ msgstr "Información"
 
 #: euphorie/client/browser/risk.py:519
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
-msgstr ""
+msgstr "Formato de archivo inválido para imagen. Por favor utilice PNG, JPEG o GIF."
 
 #: euphorie/client/settings.py:106
 msgid "Invalid password"
@@ -1253,11 +1254,11 @@ msgstr "Cargar"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:198
 msgid "Upload an image that illustrates this risk."
-msgstr ""
+msgstr "Subir una imagen que ilustre este riesgo."
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:217
 msgid "Upload image"
-msgstr ""
+msgstr "Subir una imagen"
 
 #: euphorie/content/behaviour/configure.zcml:19
 msgid "Use a rich text description for content types."
@@ -1306,7 +1307,7 @@ msgstr "Si"
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:34
 msgid "Yes, clone risk assessment"
-msgstr ""
+msgstr "Sí, clonar evaluación de riesgos"
 
 #: euphorie/content/templates/library.pt:17
 msgid ""
@@ -1555,7 +1556,7 @@ msgstr "Producido por ${EU-OSHA}."
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:135
 msgid "based on"
-msgstr ""
+msgstr "basada en"
 
 #: euphorie/client/browser/templates/new-session-test.pt:71
 msgid "benefits"
@@ -3724,7 +3725,7 @@ msgstr "Descripción"
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:39
 msgid "label_duplicate"
-msgstr ""
+msgstr "Clonar"
 
 #. Default: "Email address"
 #: euphorie/client/browser/reset_password.py:38
@@ -3794,7 +3795,7 @@ msgstr "Formato"
 #. Default: "General information"
 #: euphorie/client/browser/templates/status.pt:44
 msgid "label_general_information"
-msgstr ""
+msgstr "Información general"
 
 #. Default: "4. Action Plan"
 #: euphorie/content/help.py:68 euphorie/content/templates/help_view.pt:33
@@ -4228,7 +4229,7 @@ msgstr "Guardar y continuar"
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "label_save_and_finish"
-msgstr ""
+msgstr "Guardar y finalizar"
 
 #. Default: "Section"
 #: euphorie/client/report.py:151
@@ -4307,7 +4308,7 @@ msgstr "Iniciar"
 #. Default: "Started"
 #: euphorie/client/browser/templates/status.pt:61
 msgid "label_started"
-msgstr ""
+msgstr "iniciada"
 
 #. Default: "Affirmative statement"
 #: euphorie/content/risk.py:75
@@ -4414,7 +4415,7 @@ msgstr ""
 #. Default: "Used tool"
 #: euphorie/client/browser/templates/status.pt:48
 msgid "label_used_tool"
-msgstr ""
+msgstr "Herramienta utilizada"
 
 #. Default: "Name"
 #: euphorie/content/user.py:81
@@ -5341,9 +5342,7 @@ msgstr ""
 #: euphorie/client/browser/templates/webhelpers.pt:294
 msgid "top5_risk_not_present_postponed"
 msgstr ""
-"Este riesgo no afecta a su organización, pero, como el sector de su "
-"organización considera éste uno de los riesgos prioritarios, deberá "
-"incluirse en este informe."
+"Este riesgo aún no se ha evaluado, pero, como se considera de alta prioridad, se debe incluir siempre en el plan de acción. Por favor, vaya al apartado de identificación y responda la pregunta."
 
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/templates/unpublish.pt:19

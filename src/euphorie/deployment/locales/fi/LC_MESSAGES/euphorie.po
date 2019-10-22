@@ -5880,9 +5880,7 @@ msgstr ""
 #: euphorie/client/browser/templates/webhelpers.pt:294
 msgid "top5_risk_not_present_postponed"
 msgstr ""
-"Vastauksesi perusteella asia näyttäisi olevan yrityksessäsi kunnossa. Koska "
-"toimialalla tiedetään yleisesti tähän liittyvän merkittäviä riskejä, niin "
-"siksi se tulee aina mukaan toimintasuunnitelmaan."
+"Tämä riskiväittämä on arvioimatta. Koska toimialalla tähän tiedetään liittyvän merkittäviä, turvallisuutta vaarantavia riskejä, niin siksi sovellus sisällyttää sen aina osaksi toimintasuunnitelmaa. Riskiväittämään pääset vastaamaan siirtymällä takaisin kohtaan ”Tunnistaminen + Arviointi”."
 
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/templates/unpublish.pt:19

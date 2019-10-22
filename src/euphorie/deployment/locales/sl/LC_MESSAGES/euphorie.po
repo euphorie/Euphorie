@@ -248,7 +248,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:26
 msgid "Are you sure you want to proceed?"
-msgstr ""
+msgstr "Ali res želiš nadaljevati?"
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Automatically generate unique ids for content"
@@ -256,7 +256,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/portlet-available-tools.pt:10
 msgid "Available OiRA tools"
-msgstr "Razpoložljiva orodja OiRA"
+msgstr "Razpoložljiva OiRA orodja"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:23
 #: euphorie/client/browser/templates/sessions-dashboard.pt:58
@@ -277,6 +277,7 @@ msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
 msgstr ""
+"S kloniranjem ocene tveganja boste ustvarili novo oceno tveganja, ki temelji na vsebini te osnovne ocene tveganja."
 
 #: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:126
 #: euphorie/client/templates/account-delete.pt:29
@@ -352,7 +353,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:39
 msgid "Continue to action plan"
-msgstr ""
+msgstr "Nadaljuj na akcijski načrt"
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml
 msgid "Country"
@@ -583,7 +584,7 @@ msgstr "Informacije"
 
 #: euphorie/client/browser/risk.py:519
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
-msgstr ""
+msgstr "Napačen format slike. Prosim, uporabi PNG, JPEG ali GIF."
 
 #: euphorie/client/settings.py:106
 msgid "Invalid password"
@@ -1242,11 +1243,11 @@ msgstr "Naloži"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:198
 msgid "Upload an image that illustrates this risk."
-msgstr ""
+msgstr "Naloži sliko, ki predstavlja to tveganje"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:217
 msgid "Upload image"
-msgstr ""
+msgstr "Naloži sliko"
 
 #: euphorie/content/behaviour/configure.zcml:19
 msgid "Use a rich text description for content types."
@@ -1295,7 +1296,7 @@ msgstr "Da"
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:34
 msgid "Yes, clone risk assessment"
-msgstr ""
+msgstr "Da, kloniraj oceno tveganja"
 
 #: euphorie/content/templates/library.pt:17
 msgid ""
@@ -1531,7 +1532,7 @@ msgstr "Izdelal ${EU-OSHA}."
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:135
 msgid "based on"
-msgstr ""
+msgstr "na podlagi"
 
 #: euphorie/client/browser/templates/new-session-test.pt:71
 msgid "benefits"
@@ -1585,7 +1586,7 @@ msgstr "Dodaj novi sektor"
 #. Default: "Duplicate"
 #: euphorie/deployment/tiles/templates/versions.pt:19
 msgid "button_add_version"
-msgstr "Podvoji"
+msgstr "Klon"
 
 #. Default: "Yes, archive session"
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:31
@@ -3722,7 +3723,7 @@ msgstr "Format"
 #. Default: "General information"
 #: euphorie/client/browser/templates/status.pt:44
 msgid "label_general_information"
-msgstr ""
+msgstr "Splošne informacije"
 
 #. Default: "4. Action Plan"
 #: euphorie/content/help.py:68 euphorie/content/templates/help_view.pt:33
@@ -4156,7 +4157,7 @@ msgstr "Shrani in nadaljuj"
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "label_save_and_finish"
-msgstr ""
+msgstr "Shrani in končaj"
 
 #. Default: "Section"
 #: euphorie/client/report.py:151
@@ -4234,7 +4235,7 @@ msgstr "Začni"
 #. Default: "Started"
 #: euphorie/client/browser/templates/status.pt:61
 msgid "label_started"
-msgstr ""
+msgstr "Začeto"
 
 #. Default: "Affirmative statement"
 #: euphorie/content/risk.py:75
@@ -4341,7 +4342,7 @@ msgstr ""
 #. Default: "Used tool"
 #: euphorie/client/browser/templates/status.pt:48
 msgid "label_used_tool"
-msgstr ""
+msgstr "Uporabljeno orodje"
 
 #. Default: "Name"
 #: euphorie/content/user.py:81
@@ -5264,9 +5265,7 @@ msgstr ""
 #: euphorie/client/browser/templates/webhelpers.pt:294
 msgid "top5_risk_not_present_postponed"
 msgstr ""
-"To tveganje je prisotno v vaši ogranizaciji, ker pa sektorska organizacija "
-"meni, da gre v tem primeru za prioritetno tveganje, ga je treba vključiti v "
-"to poročilo."
+"To tveganje še ni bilo ocenjeno, ker pa ga razvijalci orodij OiRA ocenjujejo kot “zelo pomembno”, bo vedno vključeno v akcijski načrt. Pojdite na identifikacijo in odgovorite na izjavo."
 
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/templates/unpublish.pt:19

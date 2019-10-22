@@ -5283,9 +5283,7 @@ msgstr ""
 #: euphorie/client/browser/templates/webhelpers.pt:294
 msgid "top5_risk_not_present_postponed"
 msgstr ""
-"Ovaj rizik ne postoji u vašoj organizaciji, ali budući da ga organizacija "
-"sektora smatra jednim od prioritetnih rizika, on mora biti uključen u ovo "
-"izvješće."
+"Rizik još nije procijenjen, ali budući da se smatra “velikim rizikom” od strane programerskog tima za razvoj OiRA alata, uvijek će biti uključen u plan mjera. Stoga Vas molimo da odgovorite na tvrdnju."
 
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/templates/unpublish.pt:19

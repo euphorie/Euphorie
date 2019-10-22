@@ -5400,9 +5400,7 @@ msgstr ""
 #: euphorie/client/browser/templates/webhelpers.pt:294
 msgid "top5_risk_not_present_postponed"
 msgstr ""
-"Ce risque n'est pas présent dans votre organisation, mais puisque "
-"l'organisation du secteur le considère comme l'un des risques prioritaires, "
-"il doit être inclus dans ce rapport."
+"Ce risque n’a pas encore été évalué, mais puisque il est considéré comme une “haute priorité” par les développeurs de l’outil OiRA, il sera toujours inclus dans le plan d’action. Allez dans la partie identification et procédez à l'évaluation."
 
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
 #: euphorie/content/templates/unpublish.pt:19
