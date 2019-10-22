@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.7 (unreleased)
+11.1.7 (2019-10-22)
 -------------------
 
 - Fix the process for changing one's email address, so that it works also when
