@@ -67,27 +67,35 @@
       <div class="miller-columns"
            id="miller-columns"
       >
-        <form class="search-form pat-autosubmit pat-inject"
-              data-pat-autosubmit="500ms"
+        <form class="search-form pat-inject view-compact"
               action="${absolute_url}/@@${view/__name__}#browser"
         >
-          <fieldset>
-            <label>
+          <fieldset class="search-box-body">
+            <label class="search-field pat-subform pat-inject pat-autosubmit"
+                    data-pat-autosubmit="500ms"
+                    data-pat-inject="source: #browser; target: #browser; &amp;&amp; source: #osc-header; target: #osc-header">
               <input name="SearchableText"
+                     class="quick-search"
                      placeholder="Search"
                      type="search"
                      i18n:attributes="placeholder osc_search_placeholder"
               />
-              <button hidden
-                      type="submit"
-                      i18n:translate="osc_search_placeholder"
-              >Search</button>
             </label>
+            <fieldset class="advanced-search">
+              <fieldset class="advanced">
+                <p>&nbsp;</p>
+              </fieldset>
           </fieldset>
+          <button class="search-button-main assistive"
+                  name="standard"
+                  type="submit"
+                  value="main"
+                  i18n:translate=""
+          >Search</button>
         </form>
 
         <div id="browser">
-        <ul class="pat-navigation departments browser">
+        <ul class="pat-navigation browser">
           <li class="group item type-department"
               tal:repeat="group view/leaf_groups;"
               tal:condition="not:zodb_path"
@@ -100,11 +108,11 @@
           </li>
           <tal:session repeat="session view/leaf_sessions">
             <tal:tool define="tool nocall:session/tool">
-              <li class="object item type-risk-assessment">
+              <li class="item type-risk-assessment">
                 <span class="object-name field">
                   <a class="session-name pat-inject pat-switch"
                      href="${tool/absolute_url}/++session++${session/id}/@@start"
-                     data-pat-switch="selector: body; remove: sidebar-on; add: sidebar-off"
+                     data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal"
                      data-pat-inject="source: #content; target: #content; history:record "
                   >${session/title}</a>
                 </span>
@@ -134,7 +142,7 @@
                 <span class="tool meta field"
                   ><tal:i18n i18n:translate="">based on</tal:i18n
                   > <a class="pat-inject pat-switch"
-                     data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal"
+                     data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal"
                      data-pat-inject="history: record"
                      href="${tool/absolute_url}?groupid=${request/groupid|string:}#content"
                      title="${tool/title}"
