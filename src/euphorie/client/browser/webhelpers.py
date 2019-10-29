@@ -773,6 +773,7 @@ class WebHelpers(BrowserView):
         include_archived=False,
         filter_by_account=True,
         filter_by_group=False,
+        table=None,
     ):
         """ Method to return a query that looks for sessions
 
@@ -794,8 +795,11 @@ class WebHelpers(BrowserView):
             a string or an int means the group_id should be that value,
             an object group will be used to extract the group id,
             and from an iterable we will try to extract the group ids
+        :param table: if None use the default table in `cls.survey_session_model`
+            otherwise use the one passed by the user
         """
-        table = self.survey_session_model
+        if table is None:
+            table = self.survey_session_model
         query = Session.query(table)
 
         query = query.filter(table.get_context_filter(context or self.context))
