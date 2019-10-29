@@ -972,38 +972,44 @@ class SurveySession(BaseObject):
         )
 
     @classmethod
-    def get_context_filter(cls, context):
-        """ Filter sessions under this context using the zodb_path column
+    def _get_context_tools(cls, context):
+        """ Return the set of tools we can find under this context
         """
         if not context:
-            return False
+            return set()
 
         # Check the path relative to the client folder
         if context.portal_type == "Plone Site":
             context = context.client
 
-        surveys = set()
         if context.portal_type == "euphorie.survey":
-            surveys.add(context)
-        else:
+            return {context}
 
-            portal_type_filter = {
-                "portal_type": [
-                    "euphorie.clientcountry",
-                    "euphorie.clientsector",
-                    "euphorie.survey",
-                ]
-            }
+        portal_type_filter = {
+            "portal_type": [
+                "euphorie.clientcountry",
+                "euphorie.clientsector",
+                "euphorie.survey",
+            ]
+        }
 
-            def _add_survey(container):
-                for obj in container.listFolderContents(portal_type_filter):
-                    if obj.portal_type == "euphorie.survey":
-                        surveys.add(obj)
-                    else:
-                        _add_survey(obj)
+        surveys = set()
 
-            _add_survey(context)
+        def _add_survey(container):
+            for obj in container.listFolderContents(portal_type_filter):
+                if obj.portal_type == "euphorie.survey":
+                    surveys.add(obj)
+                else:
+                    _add_survey(obj)
 
+        _add_survey(context)
+        return surveys
+
+    @classmethod
+    def get_context_filter(cls, context):
+        """ Filter sessions under this context using the zodb_path column
+        """
+        surveys = cls._get_context_tools(context)
         if not surveys:
             return False
 
