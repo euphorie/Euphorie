@@ -4,8 +4,7 @@ Changelog
 11.1.8 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Translation updates
 
 11.1.7 (2019-10-22)
 -------------------
