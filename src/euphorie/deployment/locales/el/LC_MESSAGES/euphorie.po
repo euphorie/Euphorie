@@ -263,7 +263,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:26
 msgid "Are you sure you want to proceed?"
-msgstr ""
+msgstr "Θέλετε να συνεχίσετε;"
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Automatically generate unique ids for content"
@@ -292,6 +292,7 @@ msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
 msgstr ""
+"Αν κατά την έναρξη μιας νέας μελέτης Εκτίμησης Κινδύνου επιλέξετε να χρησιμοποιηθεί ένα πιστό αντίγραφο (κλώνος) μιας παλαιότερης μελέτης,  τότε το περιεχόμενο της νέας μελέτης σας θα βασιστεί στο περιεχόμενο της παλαιότερης μελέτης."
 
 #: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:126
 #: euphorie/client/templates/account-delete.pt:29
@@ -368,7 +369,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:39
 msgid "Continue to action plan"
-msgstr ""
+msgstr "Μετάβαση στο Σχέδιο Δράσης"
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml
 msgid "Country"
@@ -606,7 +607,7 @@ msgstr "Πληροφορίες"
 
 #: euphorie/client/browser/risk.py:519
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
-msgstr ""
+msgstr "Μη αποδεκτός τύπος αρχείου εικόνας. Αποδεκτοί τύποι αρχείων εικόνας PNG, JPEG ή GIF."
 
 #: euphorie/client/settings.py:106
 msgid "Invalid password"
@@ -1074,7 +1075,7 @@ msgstr "Στάνταρ λύση "
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:83
 msgid "Started"
-msgstr ""
+msgstr "ημερομηνία έναρξης"
 
 #: euphorie/client/browser/login.py:232
 #: euphorie/client/browser/templates/new-session-test.pt:88
@@ -1288,11 +1289,11 @@ msgstr "Ανέβασμα (Upload)"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:198
 msgid "Upload an image that illustrates this risk."
-msgstr ""
+msgstr "Φόρτωση εικόνας που αποτυπώνει τον κίνδυνο."
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:217
 msgid "Upload image"
-msgstr ""
+msgstr "Φόρτωση  εικόνας"
 
 #: euphorie/content/behaviour/configure.zcml:19
 msgid "Use a rich text description for content types."
@@ -1341,7 +1342,7 @@ msgstr "Ναι"
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:34
 msgid "Yes, clone risk assessment"
-msgstr ""
+msgstr "Ναι, να δημιουγηθεί ένα πιστό αντίγραφο (κλώνος) της Εκτίμησης Κινδύνου"
 
 #: euphorie/content/templates/library.pt:17
 msgid ""
@@ -1598,7 +1599,7 @@ msgstr "Δημιουργία ${EU-OSHA}."
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:135
 msgid "based on"
-msgstr ""
+msgstr "με βάση το"
 
 #: euphorie/client/browser/templates/new-session-test.pt:71
 msgid "benefits"
@@ -3810,7 +3811,7 @@ msgstr "Περιγραφή"
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:39
 msgid "label_duplicate"
-msgstr ""
+msgstr "Πιστό αντίγραφο (κλώνος)"
 
 #. Default: "Email address"
 #: euphorie/client/browser/reset_password.py:38
@@ -3880,7 +3881,7 @@ msgstr "Τύπος"
 #. Default: "General information"
 #: euphorie/client/browser/templates/status.pt:44
 msgid "label_general_information"
-msgstr ""
+msgstr "Γενικές πληροφορίες"
 
 #. Default: "4. Action Plan"
 #: euphorie/content/help.py:68 euphorie/content/templates/help_view.pt:33
@@ -4318,7 +4319,7 @@ msgstr "Αποθήκευση"
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "label_save_and_finish"
-msgstr ""
+msgstr "Αποθήκευση και ολοκλήρωση"
 
 #. Default: "Section"
 #: euphorie/client/report.py:151
@@ -4399,7 +4400,7 @@ msgstr "Έναρξη"
 #. Default: "Started"
 #: euphorie/client/browser/templates/status.pt:61
 msgid "label_started"
-msgstr ""
+msgstr "ημερομηνία έναρξης"
 
 #. Default: "Affirmative statement"
 #: euphorie/content/risk.py:75
@@ -4506,7 +4507,7 @@ msgstr ""
 #. Default: "Used tool"
 #: euphorie/client/browser/templates/status.pt:48
 msgid "label_used_tool"
-msgstr ""
+msgstr "Εργαλείο που χρησιμοποιήθηκε ως βάση"
 
 #. Default: "Name"
 #: euphorie/content/user.py:81

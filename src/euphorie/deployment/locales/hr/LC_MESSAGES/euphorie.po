@@ -247,7 +247,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:26
 msgid "Are you sure you want to proceed?"
-msgstr ""
+msgstr "Jeste li sigurni da želite nastaviti?"
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Automatically generate unique ids for content"
@@ -275,7 +275,7 @@ msgstr ""
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
-msgstr ""
+msgstr "Kloniranjem procjene rizika stvorit ćete novu procjenu rizika koja se temelji na sadržaju ove procjene rizika."
 
 #: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:126
 #: euphorie/client/templates/account-delete.pt:29
@@ -351,7 +351,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:39
 msgid "Continue to action plan"
-msgstr ""
+msgstr "Nastavite na Plan mjera"
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml
 msgid "Country"
@@ -581,7 +581,7 @@ msgstr "Informacije"
 
 #: euphorie/client/browser/risk.py:519
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
-msgstr ""
+msgstr "Nevažeći format slike. Molimo koristite PNG, JPEG ili GIF."
 
 #: euphorie/client/settings.py:106
 msgid "Invalid password"
@@ -1031,7 +1031,7 @@ msgstr "Uobičajeno rješenje"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:83
 msgid "Started"
-msgstr ""
+msgstr "Započeto"
 
 #: euphorie/client/browser/login.py:232
 #: euphorie/client/browser/templates/new-session-test.pt:88
@@ -1243,11 +1243,11 @@ msgstr "Prijenos"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:198
 msgid "Upload an image that illustrates this risk."
-msgstr ""
+msgstr "Učitajte sliku koja ilustrira ovaj rizik."
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:217
 msgid "Upload image"
-msgstr ""
+msgstr "Učitajte sliku"
 
 #: euphorie/content/behaviour/configure.zcml:19
 msgid "Use a rich text description for content types."
@@ -1296,7 +1296,7 @@ msgstr "Da"
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:34
 msgid "Yes, clone risk assessment"
-msgstr ""
+msgstr "Da, kloniraj procjenu rizika"
 
 #: euphorie/content/templates/library.pt:17
 msgid ""
@@ -1532,7 +1532,7 @@ msgstr "Izdanje objavljuje ${EU-OSHA}."
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:135
 msgid "based on"
-msgstr ""
+msgstr "na temelju"
 
 #: euphorie/client/browser/templates/new-session-test.pt:71
 msgid "benefits"
@@ -3671,7 +3671,7 @@ msgstr "Opis"
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:39
 msgid "label_duplicate"
-msgstr ""
+msgstr "Kloniranje"
 
 #. Default: "Email address"
 #: euphorie/client/browser/reset_password.py:38
@@ -3741,7 +3741,7 @@ msgstr "Oblik"
 #. Default: "General information"
 #: euphorie/client/browser/templates/status.pt:44
 msgid "label_general_information"
-msgstr ""
+msgstr "Opće informacije"
 
 #. Default: "4. Action Plan"
 #: euphorie/content/help.py:68 euphorie/content/templates/help_view.pt:33
@@ -4172,7 +4172,7 @@ msgstr "Spremi i nastavi"
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "label_save_and_finish"
-msgstr ""
+msgstr "Spremi i zatvori"
 
 #. Default: "Section"
 #: euphorie/client/report.py:151
@@ -4249,7 +4249,7 @@ msgstr "Pokrenite"
 #. Default: "Started"
 #: euphorie/client/browser/templates/status.pt:61
 msgid "label_started"
-msgstr ""
+msgstr "započeto"
 
 #. Default: "Affirmative statement"
 #: euphorie/content/risk.py:75
@@ -4356,7 +4356,7 @@ msgstr ""
 #. Default: "Used tool"
 #: euphorie/client/browser/templates/status.pt:48
 msgid "label_used_tool"
-msgstr ""
+msgstr "Korišteni alat"
 
 #. Default: "Name"
 #: euphorie/content/user.py:81
