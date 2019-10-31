@@ -311,7 +311,6 @@
       name="more_menu"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".session.Start"
       template="templates/more_menu.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
