@@ -10,8 +10,7 @@
     >
       <ul class="menu"
           tal:define="
-            sessionid view/session/id;
-            webhelpers view/webhelpers;
+            webhelpers here/@@webhelpers;
             can_archive webhelpers/can_archive_session;
             can_delete webhelpers/can_delete_session;
             can_duplicate webhelpers/can_duplicate_session;
