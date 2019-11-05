@@ -4,6 +4,7 @@
        value="${view/request/?name|view/context/session/?fieldname|nothing}"
        data-pat-date-picker="behavior: polyfill; week-numbers: show; i18n: ${view/context/portal_url}/@@date-picker-i18n.json"
        tal:define="
+         name view/name;
          fieldname view/field/__name__;
        "
 />
