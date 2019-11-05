@@ -57,6 +57,11 @@ def sql_clone(obj, skip={}, session=None):
     """
     # Never copy the _sa_instance_state attribute
     skip.add("_sa_instance_state")
+
+    # Populate the __dict__. This is necessary for some special session types
+    for column in obj.__table__.columns:
+        if column.key not in skip:
+            getattr(obj, column.key, None)
     params = {key: value for key, value in obj.__dict__.iteritems() if key not in skip}
     clone = obj.__class__(**params)
     if session:
@@ -275,20 +280,22 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
             # survey_session.touch()
             return survey_session
 
-        params = {
-            column.key: getattr(survey_session, column.key)
-            for column in survey_session.__table__.columns
-            if column.key
-            not in (
+        params = {}
+        # Some values might not be present, depending on the type of survey session
+        _marker = object()
+        for column in survey_session.__table__.columns:
+            if column.key not in (
                 "id",
-                "brand",
                 "account_id",
                 "title",
                 "created",
                 "modified",
                 "zodb_path",
-            )
-        }
+            ):
+                value = getattr(survey_session, column.key, _marker)
+                if value is not _marker:
+                    params[column.key] = value
+
         survey_view = api.content.get_view("index_html", survey, self.request)
         new_session = survey_view.create_survey_session(
             survey_session.title, survey_session.account, **params
