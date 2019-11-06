@@ -580,7 +580,7 @@ msgstr "Informatie"
 
 #: euphorie/client/browser/risk.py:519
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
-msgstr ""
+msgstr "Onjuist bestandsformaat voor een afbeelding. Gebruik PNG, JPEG of GIF."
 
 #: euphorie/client/settings.py:106
 msgid "Invalid password"
@@ -1236,11 +1236,11 @@ msgstr "Upload"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:198
 msgid "Upload an image that illustrates this risk."
-msgstr ""
+msgstr "Invoegen afbeelding die het risico illustreert."
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:217
 msgid "Upload image"
-msgstr ""
+msgstr "Invoegen afbeelding"
 
 #: euphorie/content/behaviour/configure.zcml:19
 msgid "Use a rich text description for content types."
