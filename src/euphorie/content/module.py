@@ -21,6 +21,7 @@ from .utils import DragDropHelper
 from .utils import StripMarkup
 from Acquisition import aq_chain
 from euphorie.content.dependency import ConditionalTextLine
+from euphorie.content.utils import ensure_image_size
 from five import grok
 from htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -80,6 +81,7 @@ class IModule(form.Schema, IRichDescription, IBasic):
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
                         u"characters."),
+            constraint=ensure_image_size,
             required=False)
     caption = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
