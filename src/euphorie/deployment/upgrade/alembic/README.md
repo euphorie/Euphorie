@@ -57,6 +57,13 @@ so that everything will be run cleanly on prodcution.
 You might need to adjust the `euphorie_alembic_version.version_num`
 value to make the upgrade script run again.
 
+
+## Running the upgrade in the command line
+
+```
+./bin/alembic --config path/to/alembic.ini upgrade $YOURPROFILEVERSION
+```
+
 ## Make Plone run the alembic upgrade
 
 Just register a regular upgrade step that does something similar:
