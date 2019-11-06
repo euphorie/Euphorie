@@ -24,6 +24,7 @@ from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from Acquisition.interfaces import IAcquirer
+from euphorie.content.utils import ensure_image_size
 from euphorie.content.utils import IToolTypesInfo
 from five import grok
 from htmllaundry.z3cform import HtmlText
@@ -228,6 +229,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
                         u"characters."),
+            constraint=ensure_image_size,
             required=False)
     caption = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -244,6 +246,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
                         u"characters."),
+            constraint=ensure_image_size,
             required=False)
     caption2 = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -255,6 +258,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
                         u"characters."),
+            constraint=ensure_image_size,
             required=False)
     caption3 = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -266,6 +270,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
                         u"characters."),
+            constraint=ensure_image_size,
             required=False)
     caption4 = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
