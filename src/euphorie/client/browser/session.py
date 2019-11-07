@@ -164,6 +164,38 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
             target_language=lang,
         )
 
+    @memoize
+    def get_pat_messages_above_title(self):
+        """ List of messages we want to display above the risk assesment title
+        """
+        if not self.webhelpers.can_edit_session:
+            message = _(
+                """
+                    You don't have edit rights for this risk assesment,
+                    but you can download this risk assessment in various forms in the
+                    <a href="${absolute_url}/@@report_view"
+                        i18n:name="download_section"
+                    >download section</a>.
+                """,
+                mapping={"absolute_url": self.context.absolute_url()},
+            )
+            return [api.portal.translate(message)]
+        return []
+
+    @memoize
+    def get_pat_multiple_messages_below_article(self):
+        """ List of messages we want to display under the risk assesment article
+
+        Those messages should be iterable.
+        Example of a good returned value:
+        [
+            (message1a, message1b, message1c),
+            (message2a, message2),
+            ...
+        ]
+        """
+        return []
+
     def update(self):
         self.verify_view_permission()
         super(Start, self).update()

@@ -40,23 +40,26 @@
             <a tal:replace="structure here/@@more_badge|nothing"></a>
           </metal:actions>
         </nav>
-        <p class="pat-message notice"
-           tal:condition="not:can_edit"
-           i18n:translate=""
-        >
-          You don't have edit rights for this risk assesment,
-          but you can download this risk assessment in various forms in the
-          <a href="${here/absolute_url}/@@report_view"
-             i18n:name="download_section"
-             i18n:translate=""
-          >download section</a>.
-        </p>
+        <metal:messages_above_title define-slot="messages_above_title">
+          <p class="pat-message notice"
+            tal:repeat="message view/get_pat_messages_above_title"
+            tal:content="structure message"
+          ></p>
+        </metal:messages_above_title>
         <article class="pat-rich">
           <h1>${context/title}</h1>
-        <section tal:condition="context/description">
-          <p>${context/description}</p>
-        </section>
+          <section tal:condition="context/description">
+            <p>${context/description}</p>
+          </section>
         </article>
+        <metal:messages_below_article define-slot="messages_below_article">
+          <div class="pat-message notice"
+               tal:repeat="multiple_message view/get_pat_multiple_messages_below_article"
+          >
+            <p tal:repeat="message multiple_message"
+               tal:content="structure message"></p>
+          </div>
+        </metal:messages_below_article>
         <fieldset class="vertical pat-inject pat-subform pat-autosubmit"
                   data-pat-inject="url: ; source: #osc-header; target: #osc-header"
                   tal:condition="can_edit"
