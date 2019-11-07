@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.9 (unreleased)
+11.1.9 (2019-11-07)
 -------------------
 
 - Translation updates
