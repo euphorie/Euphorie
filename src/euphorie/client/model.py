@@ -877,6 +877,12 @@ class SurveySession(BaseObject):
             .update({'session_id': self.id},
                     synchronize_session=False)
 
+        # Hook for performing further updates
+        self.propagate_session_update(other)
+
+    def propagate_session_update(self, other):
+        pass
+
     @classmethod
     def get_account_filter(cls, account=None):
         """ Filter only the sessions for the given account
