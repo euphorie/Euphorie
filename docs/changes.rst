@@ -4,8 +4,9 @@ Changelog
 11.1.10 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- IT translation update
+- Added a view manage-ensure-interface to get rid of editing problems on
+  some risks
 
 11.1.9 (2019-11-07)
 -------------------
