@@ -4885,6 +4885,8 @@ msgstr "Piccolo"
 #: euphorie/deployment/upgrade/v8.py:146
 msgid "question_other_risks"
 msgstr ""
+"<p>I criteri adottati per la valutazione devono essere riportati nel documento di valutazione dei rischi ai sensi del art. 28, c. 2 a, d.lgs. 81/08. A tal fine i criteri possono essere indicati nel campo note presente sotto la sezione commenti in ogni specifico rischio aggiunto.<br/>"
+"Per ogni rischio aggiunto inoltre, nella sezione informazioni  è possibile inserire eventuali note e immagini utilizzate per identificare il pericolo e per la valutazione del relativo rischio. Tali informazioni non sono visualizzate nel report.</p>"
 "<p><strong>Importante:</strong> Per evitare la duplicazione dei rischi, "
 "raccomandiamo di ripassare in esame tutti i moduli precedenti, qualora tale "
 "operazione non sia ancora stata compiuta.</p>"
