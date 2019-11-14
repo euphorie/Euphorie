@@ -23,4 +23,11 @@
       class=".site.EuphorieRefreshResourcesTimestamp"
       />
 
+  <browser:page
+      name="manage-ensure-interface"
+      for="*"
+      permission="cmf.ManagePortal"
+      class=".site.ManageEnsureInterface"
+      />
+
 </configure>
