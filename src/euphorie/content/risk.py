@@ -762,3 +762,7 @@ class ConstructionFilter(grok.MultiAdapter):
 
     def allowed(self):
         return self.checkForModules()
+
+
+def handle_risk_pasted(risk, event):
+    EnsureInterface(risk)

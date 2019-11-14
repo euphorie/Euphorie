@@ -51,6 +51,18 @@
         />
 
     <subscriber handler=".login.SectorLoginHandler" />
+    <subscriber
+        for="euphorie.content.risk.IRisk
+             zope.lifecycleevent.ObjectCopiedEvent
+             "
+        handler=".risk.handle_risk_pasted"
+        />
+    <subscriber
+        for="euphorie.content.risk.IRisk
+             zope.lifecycleevent.ObjectMovedEvent
+             "
+        handler=".risk.handle_risk_pasted"
+        />
 
     <adapter
       for=".survey.ISurvey zope.schema.interfaces.IField"
