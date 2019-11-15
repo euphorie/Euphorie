@@ -52,7 +52,8 @@ class IdentificationView(BrowserView):
     """A view for displaying a question in the identification phase
     """
 
-    template = ViewPageTemplateFile("templates/risk_identification.pt")
+    default_template = ViewPageTemplateFile("templates/risk_identification.pt")
+    custom_risk_template = ViewPageTemplateFile("templates/risk_identification_custom.pt")
     variation_class = "variation-risk-assessment"
 
     question_filter = None
@@ -261,18 +262,17 @@ class IdentificationView(BrowserView):
         else:
             self._prepare_risk()
             if self.is_custom_risk:
-                template = ViewPageTemplateFile(
-                    "templates/risk_identification_custom.pt"
-                ).__get__(
-                    self, ""
-                )  # noqa
                 next = FindNextQuestion(
                     self.context, self.context.session, filter=self.question_filter
                 )
                 self.has_next_risk = next or False
-            else:
-                template = self.template
-            return template()
+            return self.template()
+
+    @property
+    def template(self):
+        if self.is_custom_risk:
+            return self.custom_risk_template
+        return self.default_template
 
     @property
     def tree(self):
