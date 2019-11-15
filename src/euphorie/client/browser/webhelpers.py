@@ -77,6 +77,7 @@ class WebHelpers(BrowserView):
 
     View name: @@webhelpers
     """
+    media_name = "++resource++euphorie.media"
     resources_name = "++resource++euphorie.resources"
     js_resources_name = "++resource++euphorie.resources"
     bundle_name = "bundle.js"
@@ -353,6 +354,12 @@ class WebHelpers(BrowserView):
                 return base_url
             return self.client_url
         return self._base_url()
+
+    @property
+    @memoize
+    def media_url(self):
+        return "{}/{}".format(
+            self.client_url, self.media_name)
 
     @property
     @memoize

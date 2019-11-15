@@ -18,6 +18,7 @@
                   tool_notification webhelpers/tool_notification;
                   client nocall:request/client;
                   base_url client/++resource++euphorie.resources;
+                  media_url webhelpers/media_url;
                   resources_url webhelpers/resources_url;
                   js_resources_url webhelpers/js_resources_url;
                   resources_timestamp here/@@refresh-resources-timestamp/resources_timestamp;
@@ -36,7 +37,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="expires" content="-1" />
-    <link rel="icon" type="image/png" href="${client/++resource++euphorie.media}/favicon.png" />
+    <link rel="icon" type="image/png" href="${media_url}/favicon.png" />
 
     <tal:block condition="webhelpers/debug_mode">
         <script type="text/javascript" src="${js_resources_url}/${webhelpers/bundle_name}?t=${resources_timestamp}"></script>
