@@ -57,7 +57,16 @@
 
   <browser:page
       name="training_slide"
-      for="*"
+      for="euphorie.client.model.Risk"
+      permission="euphorie.client.ViewSurvey"
+      class="euphorie.client.browser.training.TrainingSlide"
+      template="templates/training-slide.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="training_slide"
+      for="euphorie.client.model.Module"
       permission="euphorie.client.ViewSurvey"
       class="euphorie.client.browser.training.TrainingSlide"
       template="templates/training-slide.pt"
