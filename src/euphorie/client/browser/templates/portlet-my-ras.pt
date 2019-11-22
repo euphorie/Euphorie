@@ -75,7 +75,7 @@
 
             <a class="pat-inject follow"
                href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@start"
-               data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
+               data-pat-inject="source: #content; target: #content; history: record"
             >
               <h4 class="name field">${session/title}</h4>
               <p class="date field">

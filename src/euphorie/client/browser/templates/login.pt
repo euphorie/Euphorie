@@ -56,7 +56,7 @@ h4 {
         <p i18n:translate="label_login_here">If you are a registered user, you can
           <strong i18n:name="log_in"><a class="pat-modal login"
                href="${base_url}/login_form?${came_from_param}#document-content"
-               data-pat-modal="class: large"
+               data-pat-modal="class: small"
                i18n:translate="log in"
             >log in</a></strong>
           here.</p>

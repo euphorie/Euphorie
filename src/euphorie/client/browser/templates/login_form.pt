@@ -13,10 +13,10 @@
 
 <body>
 <metal:slot fill-slot="content" tal:define="is_guest_account webhelpers/is_guest_account">
-  <div id="document-content" class="pat-modal">
+  <div id="document-content" class="pat-modal small">
      <h1 panel-class- i18n:translate="header_login">Login</h1>
 
-      <form class="wizard-box panel-class-"
+      <form class="wizard-box panel-class-small"
             enctype="multipart/form-data"
             accept-charset="UTF-8"
             method="post"

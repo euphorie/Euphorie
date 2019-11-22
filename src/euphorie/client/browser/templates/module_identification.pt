@@ -27,7 +27,7 @@
             tal:condition="large"
             title="${module/caption|nothing}">
             <img class="fixed-aspect-ratio"
-                 src="${resources_url}/placeholder-16x9.png"
+                 src="${resources_url}/placeholder-21x9.png"
                  style="background-image: url(${large/url|nothing});"
                  alt=""
                  title="${module/caption|nothing}" />

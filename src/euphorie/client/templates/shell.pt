@@ -123,7 +123,7 @@
                    data-pat-tooltip="source: ajax;">More…</a>
             </tal:if_not_anon>
             <a href="${webhelpers/country_or_client_url}"
-              data-pat-inject="source: #main; target: #main; &amp;&amp; source: #osc; target: #osc; history: record"
+              data-pat-inject="source: #content; target: #content; history: record"
               class="home pat-inject iconified icon-home pat-switch"
               data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
               i18n:attributes="title home_link"
