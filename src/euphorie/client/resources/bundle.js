@@ -44,7 +44,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "../bundles/chunks/" + ({}[chunkId]||chunkId) + "-" + {"0":"3795a0f2949b022eae3b","1":"8f8b6f99bd2ebbb7e592","2":"5f3df1463b86d604ef79","5":"0732ac7f1f8ab5cb5275","6":"9e0573106df4b2879cf3","7":"2f99da7ad3b6515e8db4","8":"a56780a19e082aee4162","9":"6dcb44fa98bb3e95a490","10":"b1f7a04364ac9062ce7b","11":"25eadd392b01dc89334c","12":"b9500575aa92c6119d90","13":"8d57eb94400770c61aa4","14":"b425ddcbccb98410e99c","15":"021df99776bb539eefd0","16":"d14dd501b263d9dbd4c0","17":"1e4a7b9479b17bb3ad31","18":"c941f64abb36a9c3695d","19":"ebcad5ea23d3fe302961","20":"8010bc6c65a72e42d368","21":"b508384267f932140404","22":"196d761bc22639259b6a","23":"4b114a7546cfb65ffca6","24":"9bea975de5a6654c02ab"}[chunkId] + ".js"
+/******/ 		return __webpack_require__.p + "../bundles/chunks/" + ({}[chunkId]||chunkId) + "-" + {"0":"7da1d46de06c336f7920","1":"7c32630aa704bf5859fc","2":"ba28909f036e1e6b529c","5":"8e9a034822bb5e73f55a","6":"60eef7c342d303ab7388","7":"2fc777421d3825a68c10","8":"28ef5d83291fb6ac46da","9":"2d6b330e9518afa7c7f8","10":"8afe6788f5c0902f967d","11":"f96af87344b922620002","12":"24fb54c5c118442c8d41","13":"2797f4b9ff6bc120947e","14":"db496a7eea90c4c2c0f9","15":"c529405434307b4edfdc","16":"07a0fcc6f0758ff26dfd","17":"b041e2ea7a6dd33c6282","18":"eaab6c79977c835833ff","19":"af2412fa0173f227792f","20":"52b8ffba89c8c7c1601e","21":"4c3248113804637e56b6","22":"ae15fe67c7efd6f38d60","23":"7fc74b6dad87456f4e1c","24":"d20c9396919a365feed5"}[chunkId] + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -197,14 +197,14 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 26);
+/******/ 	return __webpack_require__(__webpack_require__.s = 29);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(27);
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(30);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7)))
 
 /***/ }),
@@ -235,7 +235,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(3),
     __webpack_require__(4),
     // below here modules that are only loaded
-    __webpack_require__(30),
+    __webpack_require__(33),
     __webpack_require__(11)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, _, logger, utils) {
     var log = logger.getLogger("registry"),
@@ -848,7 +848,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
  * Copyright 2012-2013 Florian Friesdorf
  */
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-    __webpack_require__(29)
+    __webpack_require__(32)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function(logging) {
     var log = logging.getLogger('patterns');
     return log;
@@ -863,7 +863,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
     __webpack_require__(0),
     __webpack_require__(6),
-    __webpack_require__(16)
+    __webpack_require__(18)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, _, browser) {
 
     $.fn.safeClone = function () {
@@ -1368,7 +1368,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
   __webpack_require__(0),
   __webpack_require__(1),
-  __webpack_require__(34),
+  __webpack_require__(37),
   __webpack_require__(3)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, Registry, mockupParser, logger) {
     "use strict";
@@ -3206,8 +3206,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
     __webpack_require__(3),
     __webpack_require__(1),
     __webpack_require__(4),
-    __webpack_require__(45),
-    __webpack_require__(46),
+    __webpack_require__(48),
+    __webpack_require__(49),
     __webpack_require__(11)  // for :scrollable for autoLoading-visible
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, _, ajax, Parser, logger, registry, utils, htmlparser) {
     var log = logger.getLogger("pat.inject"),
@@ -3231,10 +3231,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
     parser.addArgument("class"); // Add a class to the injected content.
     parser.addArgument("history");
     parser.addArgument("push-marker");
+    parser.addArgument("scroll");
     // XXX: this should not be here but the parser would bail on
     // unknown parameters and expand/collapsible need to pass the url
     // to us
-    parser.addArgument("scroll");
     parser.addArgument("url");
 
     var inject = {
@@ -3368,8 +3368,11 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
              */
             var cfgs = $(this).data("pat-inject"),
                 $el = $(this);
-            if ($el.is("form"))
-                $(cfgs).each(function(i, v) {v.params = $.param($el.serializeArray());});
+            if ($el.is("form")) {
+                $(cfgs).each(function(i, v) {
+                    v.params = $.param($el.serializeArray());
+                });
+            }
             ev && ev.preventDefault();
             $el.trigger("patterns-inject-triggered");
             inject.execute(cfgs, $el);
@@ -3414,18 +3417,17 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
             var cfgs = parser.parse($el, opts, true);
             cfgs.forEach(function inject_extractConfig_each(cfg) {
-                var urlparts, defaultSelector;
                 // opts and cfg have priority, fallback to href/action
                 cfg.url = opts.url || cfg.url || $el.attr("href") ||
                     $el.attr("action") || $el.parents("form").attr("action") ||
                     "";
 
                 // separate selector from url
-                urlparts = cfg.url.split("#");
+                var urlparts = cfg.url.split("#");
                 cfg.url = urlparts[0];
 
                 // if no selector, check for selector as part of original url
-                defaultSelector = urlparts[1] && "#" + urlparts[1] || "body";
+                var defaultSelector = urlparts[1] && "#" + urlparts[1] || "body";
 
                 if (urlparts.length > 2) {
                     log.warn("Ignoring additional source ids:", urlparts.slice(2));
@@ -3645,10 +3647,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             // Now the injection actually happens.
             if (inject._inject(trigger, $src, $target, cfg)) { inject._afterInjection($el, $injected, cfg); }
             // History support. if subform is submitted, append form params
-            var glue = '?'; 
+            var glue = '?';
             if ((cfg.history === "record") && ("pushState" in history)) {
                 if (cfg.params) {
-                    if (cfg.url.indexOf('?') > -1) 
+                    if (cfg.url.indexOf('?') > -1)
                         glue = '&';
                     history.pushState({'url': cfg.url + glue + cfg.params}, "", cfg.url + glue + cfg.params);
                 } else {
@@ -3684,18 +3686,20 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                     }
                 });
             }
-            if (cfg.scroll) {
-                if (cfg['scroll'] == 'top') {
-                    $(cfg['target'])[0].scrollTop = 0;
-                } else if (cfg['scroll'] == 'target') {
-                    /* scrollable: target Target indicates the target in the URL fragment the URL 
-                       that's in the href or action in the case of a form. After injection, the 
-                       page or scroll container will scroll to bring the element with that ID into view. */
-                    /*$(cfg['target'])[0].scrollTop = $(cfg['selector'])[0].offsetTop;*/
+
+
+            if (cfg.scroll && cfg.scroll !== 'none') {
+                if (cfg.scroll === 'top') {
+                    var scroll_container = $(cfg.target).parents().addBack().filter(':scrollable');
+                    scroll_container = scroll_container.length ? scroll_container : $(window);
+                    scroll_container[0].scrollTo(0, 0);
+                } else if (cfg.scroll === 'target') {
+                    $(cfg.target)[0].scrollIntoView();
                 } else {
-                    $(cfg['target'])[0].scrollTop = $(cfg['scroll'])[0].offsetTop;
+                    $(cfg.scroll)[0].scrollIntoView();
                 }
             }
+
             $el.trigger("pat-inject-success");
         },
 
@@ -3714,12 +3718,12 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             /* pick the title source for dedicated handling later
               Title - if present - is always appended at the end. */
             var title;
-            if (sources$ && 
+            if (sources$ &&
                 sources$[sources$.length-1] &&
-                sources$[sources$.length-1][0] && 
+                sources$[sources$.length-1][0] &&
                 sources$[sources$.length-1][0].nodeName == "TITLE") {
                 title = sources$[sources$.length-1];
-            }        
+            }
             cfgs.forEach(function(cfg, idx) {
                 function perform_inject() {
                     cfg.$target.each(function() {
@@ -9488,6 +9492,13 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(55).Promise;
+
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * imagesLoaded v4.1.4
  * JavaScript is all like "You images are done yet or what?"
@@ -9502,7 +9513,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-      __webpack_require__(58)
+      __webpack_require__(61)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( EvEmitter ) {
       return factory( window, EvEmitter );
     }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -9857,7 +9868,2631 @@ return ImagesLoaded;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {/**!
+ * @fileOverview Kickass library to create and place poppers near their reference elements.
+ * @version 1.16.0
+ * @license
+ * Copyright (c) 2016 Federico Zivolo and contributors
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined' && typeof navigator !== 'undefined';
+
+var timeoutDuration = function () {
+  var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
+  for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
+    if (isBrowser && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
+      return 1;
+    }
+  }
+  return 0;
+}();
+
+function microtaskDebounce(fn) {
+  var called = false;
+  return function () {
+    if (called) {
+      return;
+    }
+    called = true;
+    window.Promise.resolve().then(function () {
+      called = false;
+      fn();
+    });
+  };
+}
+
+function taskDebounce(fn) {
+  var scheduled = false;
+  return function () {
+    if (!scheduled) {
+      scheduled = true;
+      setTimeout(function () {
+        scheduled = false;
+        fn();
+      }, timeoutDuration);
+    }
+  };
+}
+
+var supportsMicroTasks = isBrowser && window.Promise;
+
+/**
+* Create a debounced version of a method, that's asynchronously deferred
+* but called in the minimum time possible.
+*
+* @method
+* @memberof Popper.Utils
+* @argument {Function} fn
+* @returns {Function}
+*/
+var debounce = supportsMicroTasks ? microtaskDebounce : taskDebounce;
+
+/**
+ * Check if the given variable is a function
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Any} functionToCheck - variable to check
+ * @returns {Boolean} answer to: is a function?
+ */
+function isFunction(functionToCheck) {
+  var getType = {};
+  return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
+}
+
+/**
+ * Get CSS computed property of the given element
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Eement} element
+ * @argument {String} property
+ */
+function getStyleComputedProperty(element, property) {
+  if (element.nodeType !== 1) {
+    return [];
+  }
+  // NOTE: 1 DOM access here
+  var window = element.ownerDocument.defaultView;
+  var css = window.getComputedStyle(element, null);
+  return property ? css[property] : css;
+}
+
+/**
+ * Returns the parentNode or the host of the element
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @returns {Element} parent
+ */
+function getParentNode(element) {
+  if (element.nodeName === 'HTML') {
+    return element;
+  }
+  return element.parentNode || element.host;
+}
+
+/**
+ * Returns the scrolling parent of the given element
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @returns {Element} scroll parent
+ */
+function getScrollParent(element) {
+  // Return body, `getScroll` will take care to get the correct `scrollTop` from it
+  if (!element) {
+    return document.body;
+  }
+
+  switch (element.nodeName) {
+    case 'HTML':
+    case 'BODY':
+      return element.ownerDocument.body;
+    case '#document':
+      return element.body;
+  }
+
+  // Firefox want us to check `-x` and `-y` variations as well
+
+  var _getStyleComputedProp = getStyleComputedProperty(element),
+      overflow = _getStyleComputedProp.overflow,
+      overflowX = _getStyleComputedProp.overflowX,
+      overflowY = _getStyleComputedProp.overflowY;
+
+  if (/(auto|scroll|overlay)/.test(overflow + overflowY + overflowX)) {
+    return element;
+  }
+
+  return getScrollParent(getParentNode(element));
+}
+
+/**
+ * Returns the reference node of the reference object, or the reference object itself.
+ * @method
+ * @memberof Popper.Utils
+ * @param {Element|Object} reference - the reference element (the popper will be relative to this)
+ * @returns {Element} parent
+ */
+function getReferenceNode(reference) {
+  return reference && reference.referenceNode ? reference.referenceNode : reference;
+}
+
+var isIE11 = isBrowser && !!(window.MSInputMethodContext && document.documentMode);
+var isIE10 = isBrowser && /MSIE 10/.test(navigator.userAgent);
+
+/**
+ * Determines if the browser is Internet Explorer
+ * @method
+ * @memberof Popper.Utils
+ * @param {Number} version to check
+ * @returns {Boolean} isIE
+ */
+function isIE(version) {
+  if (version === 11) {
+    return isIE11;
+  }
+  if (version === 10) {
+    return isIE10;
+  }
+  return isIE11 || isIE10;
+}
+
+/**
+ * Returns the offset parent of the given element
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @returns {Element} offset parent
+ */
+function getOffsetParent(element) {
+  if (!element) {
+    return document.documentElement;
+  }
+
+  var noOffsetParent = isIE(10) ? document.body : null;
+
+  // NOTE: 1 DOM access here
+  var offsetParent = element.offsetParent || null;
+  // Skip hidden elements which don't have an offsetParent
+  while (offsetParent === noOffsetParent && element.nextElementSibling) {
+    offsetParent = (element = element.nextElementSibling).offsetParent;
+  }
+
+  var nodeName = offsetParent && offsetParent.nodeName;
+
+  if (!nodeName || nodeName === 'BODY' || nodeName === 'HTML') {
+    return element ? element.ownerDocument.documentElement : document.documentElement;
+  }
+
+  // .offsetParent will return the closest TH, TD or TABLE in case
+  // no offsetParent is present, I hate this job...
+  if (['TH', 'TD', 'TABLE'].indexOf(offsetParent.nodeName) !== -1 && getStyleComputedProperty(offsetParent, 'position') === 'static') {
+    return getOffsetParent(offsetParent);
+  }
+
+  return offsetParent;
+}
+
+function isOffsetContainer(element) {
+  var nodeName = element.nodeName;
+
+  if (nodeName === 'BODY') {
+    return false;
+  }
+  return nodeName === 'HTML' || getOffsetParent(element.firstElementChild) === element;
+}
+
+/**
+ * Finds the root node (document, shadowDOM root) of the given element
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} node
+ * @returns {Element} root node
+ */
+function getRoot(node) {
+  if (node.parentNode !== null) {
+    return getRoot(node.parentNode);
+  }
+
+  return node;
+}
+
+/**
+ * Finds the offset parent common to the two provided nodes
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element1
+ * @argument {Element} element2
+ * @returns {Element} common offset parent
+ */
+function findCommonOffsetParent(element1, element2) {
+  // This check is needed to avoid errors in case one of the elements isn't defined for any reason
+  if (!element1 || !element1.nodeType || !element2 || !element2.nodeType) {
+    return document.documentElement;
+  }
+
+  // Here we make sure to give as "start" the element that comes first in the DOM
+  var order = element1.compareDocumentPosition(element2) & Node.DOCUMENT_POSITION_FOLLOWING;
+  var start = order ? element1 : element2;
+  var end = order ? element2 : element1;
+
+  // Get common ancestor container
+  var range = document.createRange();
+  range.setStart(start, 0);
+  range.setEnd(end, 0);
+  var commonAncestorContainer = range.commonAncestorContainer;
+
+  // Both nodes are inside #document
+
+  if (element1 !== commonAncestorContainer && element2 !== commonAncestorContainer || start.contains(end)) {
+    if (isOffsetContainer(commonAncestorContainer)) {
+      return commonAncestorContainer;
+    }
+
+    return getOffsetParent(commonAncestorContainer);
+  }
+
+  // one of the nodes is inside shadowDOM, find which one
+  var element1root = getRoot(element1);
+  if (element1root.host) {
+    return findCommonOffsetParent(element1root.host, element2);
+  } else {
+    return findCommonOffsetParent(element1, getRoot(element2).host);
+  }
+}
+
+/**
+ * Gets the scroll value of the given element in the given side (top and left)
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @argument {String} side `top` or `left`
+ * @returns {number} amount of scrolled pixels
+ */
+function getScroll(element) {
+  var side = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'top';
+
+  var upperSide = side === 'top' ? 'scrollTop' : 'scrollLeft';
+  var nodeName = element.nodeName;
+
+  if (nodeName === 'BODY' || nodeName === 'HTML') {
+    var html = element.ownerDocument.documentElement;
+    var scrollingElement = element.ownerDocument.scrollingElement || html;
+    return scrollingElement[upperSide];
+  }
+
+  return element[upperSide];
+}
+
+/*
+ * Sum or subtract the element scroll values (left and top) from a given rect object
+ * @method
+ * @memberof Popper.Utils
+ * @param {Object} rect - Rect object you want to change
+ * @param {HTMLElement} element - The element from the function reads the scroll values
+ * @param {Boolean} subtract - set to true if you want to subtract the scroll values
+ * @return {Object} rect - The modifier rect object
+ */
+function includeScroll(rect, element) {
+  var subtract = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+  var scrollTop = getScroll(element, 'top');
+  var scrollLeft = getScroll(element, 'left');
+  var modifier = subtract ? -1 : 1;
+  rect.top += scrollTop * modifier;
+  rect.bottom += scrollTop * modifier;
+  rect.left += scrollLeft * modifier;
+  rect.right += scrollLeft * modifier;
+  return rect;
+}
+
+/*
+ * Helper to detect borders of a given element
+ * @method
+ * @memberof Popper.Utils
+ * @param {CSSStyleDeclaration} styles
+ * Result of `getStyleComputedProperty` on the given element
+ * @param {String} axis - `x` or `y`
+ * @return {number} borders - The borders size of the given axis
+ */
+
+function getBordersSize(styles, axis) {
+  var sideA = axis === 'x' ? 'Left' : 'Top';
+  var sideB = sideA === 'Left' ? 'Right' : 'Bottom';
+
+  return parseFloat(styles['border' + sideA + 'Width'], 10) + parseFloat(styles['border' + sideB + 'Width'], 10);
+}
+
+function getSize(axis, body, html, computedStyle) {
+  return Math.max(body['offset' + axis], body['scroll' + axis], html['client' + axis], html['offset' + axis], html['scroll' + axis], isIE(10) ? parseInt(html['offset' + axis]) + parseInt(computedStyle['margin' + (axis === 'Height' ? 'Top' : 'Left')]) + parseInt(computedStyle['margin' + (axis === 'Height' ? 'Bottom' : 'Right')]) : 0);
+}
+
+function getWindowSizes(document) {
+  var body = document.body;
+  var html = document.documentElement;
+  var computedStyle = isIE(10) && getComputedStyle(html);
+
+  return {
+    height: getSize('Height', body, html, computedStyle),
+    width: getSize('Width', body, html, computedStyle)
+  };
+}
+
+var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+var createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+
+
+
+
+var defineProperty = function (obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+};
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+
+  return target;
+};
+
+/**
+ * Given element offsets, generate an output similar to getBoundingClientRect
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Object} offsets
+ * @returns {Object} ClientRect like output
+ */
+function getClientRect(offsets) {
+  return _extends({}, offsets, {
+    right: offsets.left + offsets.width,
+    bottom: offsets.top + offsets.height
+  });
+}
+
+/**
+ * Get bounding client rect of given element
+ * @method
+ * @memberof Popper.Utils
+ * @param {HTMLElement} element
+ * @return {Object} client rect
+ */
+function getBoundingClientRect(element) {
+  var rect = {};
+
+  // IE10 10 FIX: Please, don't ask, the element isn't
+  // considered in DOM in some circumstances...
+  // This isn't reproducible in IE10 compatibility mode of IE11
+  try {
+    if (isIE(10)) {
+      rect = element.getBoundingClientRect();
+      var scrollTop = getScroll(element, 'top');
+      var scrollLeft = getScroll(element, 'left');
+      rect.top += scrollTop;
+      rect.left += scrollLeft;
+      rect.bottom += scrollTop;
+      rect.right += scrollLeft;
+    } else {
+      rect = element.getBoundingClientRect();
+    }
+  } catch (e) {}
+
+  var result = {
+    left: rect.left,
+    top: rect.top,
+    width: rect.right - rect.left,
+    height: rect.bottom - rect.top
+  };
+
+  // subtract scrollbar size from sizes
+  var sizes = element.nodeName === 'HTML' ? getWindowSizes(element.ownerDocument) : {};
+  var width = sizes.width || element.clientWidth || result.width;
+  var height = sizes.height || element.clientHeight || result.height;
+
+  var horizScrollbar = element.offsetWidth - width;
+  var vertScrollbar = element.offsetHeight - height;
+
+  // if an hypothetical scrollbar is detected, we must be sure it's not a `border`
+  // we make this check conditional for performance reasons
+  if (horizScrollbar || vertScrollbar) {
+    var styles = getStyleComputedProperty(element);
+    horizScrollbar -= getBordersSize(styles, 'x');
+    vertScrollbar -= getBordersSize(styles, 'y');
+
+    result.width -= horizScrollbar;
+    result.height -= vertScrollbar;
+  }
+
+  return getClientRect(result);
+}
+
+function getOffsetRectRelativeToArbitraryNode(children, parent) {
+  var fixedPosition = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+  var isIE10 = isIE(10);
+  var isHTML = parent.nodeName === 'HTML';
+  var childrenRect = getBoundingClientRect(children);
+  var parentRect = getBoundingClientRect(parent);
+  var scrollParent = getScrollParent(children);
+
+  var styles = getStyleComputedProperty(parent);
+  var borderTopWidth = parseFloat(styles.borderTopWidth, 10);
+  var borderLeftWidth = parseFloat(styles.borderLeftWidth, 10);
+
+  // In cases where the parent is fixed, we must ignore negative scroll in offset calc
+  if (fixedPosition && isHTML) {
+    parentRect.top = Math.max(parentRect.top, 0);
+    parentRect.left = Math.max(parentRect.left, 0);
+  }
+  var offsets = getClientRect({
+    top: childrenRect.top - parentRect.top - borderTopWidth,
+    left: childrenRect.left - parentRect.left - borderLeftWidth,
+    width: childrenRect.width,
+    height: childrenRect.height
+  });
+  offsets.marginTop = 0;
+  offsets.marginLeft = 0;
+
+  // Subtract margins of documentElement in case it's being used as parent
+  // we do this only on HTML because it's the only element that behaves
+  // differently when margins are applied to it. The margins are included in
+  // the box of the documentElement, in the other cases not.
+  if (!isIE10 && isHTML) {
+    var marginTop = parseFloat(styles.marginTop, 10);
+    var marginLeft = parseFloat(styles.marginLeft, 10);
+
+    offsets.top -= borderTopWidth - marginTop;
+    offsets.bottom -= borderTopWidth - marginTop;
+    offsets.left -= borderLeftWidth - marginLeft;
+    offsets.right -= borderLeftWidth - marginLeft;
+
+    // Attach marginTop and marginLeft because in some circumstances we may need them
+    offsets.marginTop = marginTop;
+    offsets.marginLeft = marginLeft;
+  }
+
+  if (isIE10 && !fixedPosition ? parent.contains(scrollParent) : parent === scrollParent && scrollParent.nodeName !== 'BODY') {
+    offsets = includeScroll(offsets, parent);
+  }
+
+  return offsets;
+}
+
+function getViewportOffsetRectRelativeToArtbitraryNode(element) {
+  var excludeScroll = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+  var html = element.ownerDocument.documentElement;
+  var relativeOffset = getOffsetRectRelativeToArbitraryNode(element, html);
+  var width = Math.max(html.clientWidth, window.innerWidth || 0);
+  var height = Math.max(html.clientHeight, window.innerHeight || 0);
+
+  var scrollTop = !excludeScroll ? getScroll(html) : 0;
+  var scrollLeft = !excludeScroll ? getScroll(html, 'left') : 0;
+
+  var offset = {
+    top: scrollTop - relativeOffset.top + relativeOffset.marginTop,
+    left: scrollLeft - relativeOffset.left + relativeOffset.marginLeft,
+    width: width,
+    height: height
+  };
+
+  return getClientRect(offset);
+}
+
+/**
+ * Check if the given element is fixed or is inside a fixed parent
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @argument {Element} customContainer
+ * @returns {Boolean} answer to "isFixed?"
+ */
+function isFixed(element) {
+  var nodeName = element.nodeName;
+  if (nodeName === 'BODY' || nodeName === 'HTML') {
+    return false;
+  }
+  if (getStyleComputedProperty(element, 'position') === 'fixed') {
+    return true;
+  }
+  var parentNode = getParentNode(element);
+  if (!parentNode) {
+    return false;
+  }
+  return isFixed(parentNode);
+}
+
+/**
+ * Finds the first parent of an element that has a transformed property defined
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @returns {Element} first transformed parent or documentElement
+ */
+
+function getFixedPositionOffsetParent(element) {
+  // This check is needed to avoid errors in case one of the elements isn't defined for any reason
+  if (!element || !element.parentElement || isIE()) {
+    return document.documentElement;
+  }
+  var el = element.parentElement;
+  while (el && getStyleComputedProperty(el, 'transform') === 'none') {
+    el = el.parentElement;
+  }
+  return el || document.documentElement;
+}
+
+/**
+ * Computed the boundaries limits and return them
+ * @method
+ * @memberof Popper.Utils
+ * @param {HTMLElement} popper
+ * @param {HTMLElement} reference
+ * @param {number} padding
+ * @param {HTMLElement} boundariesElement - Element used to define the boundaries
+ * @param {Boolean} fixedPosition - Is in fixed position mode
+ * @returns {Object} Coordinates of the boundaries
+ */
+function getBoundaries(popper, reference, padding, boundariesElement) {
+  var fixedPosition = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
+
+  // NOTE: 1 DOM access here
+
+  var boundaries = { top: 0, left: 0 };
+  var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, getReferenceNode(reference));
+
+  // Handle viewport case
+  if (boundariesElement === 'viewport') {
+    boundaries = getViewportOffsetRectRelativeToArtbitraryNode(offsetParent, fixedPosition);
+  } else {
+    // Handle other cases based on DOM element used as boundaries
+    var boundariesNode = void 0;
+    if (boundariesElement === 'scrollParent') {
+      boundariesNode = getScrollParent(getParentNode(reference));
+      if (boundariesNode.nodeName === 'BODY') {
+        boundariesNode = popper.ownerDocument.documentElement;
+      }
+    } else if (boundariesElement === 'window') {
+      boundariesNode = popper.ownerDocument.documentElement;
+    } else {
+      boundariesNode = boundariesElement;
+    }
+
+    var offsets = getOffsetRectRelativeToArbitraryNode(boundariesNode, offsetParent, fixedPosition);
+
+    // In case of HTML, we need a different computation
+    if (boundariesNode.nodeName === 'HTML' && !isFixed(offsetParent)) {
+      var _getWindowSizes = getWindowSizes(popper.ownerDocument),
+          height = _getWindowSizes.height,
+          width = _getWindowSizes.width;
+
+      boundaries.top += offsets.top - offsets.marginTop;
+      boundaries.bottom = height + offsets.top;
+      boundaries.left += offsets.left - offsets.marginLeft;
+      boundaries.right = width + offsets.left;
+    } else {
+      // for all the other DOM elements, this one is good
+      boundaries = offsets;
+    }
+  }
+
+  // Add paddings
+  padding = padding || 0;
+  var isPaddingNumber = typeof padding === 'number';
+  boundaries.left += isPaddingNumber ? padding : padding.left || 0;
+  boundaries.top += isPaddingNumber ? padding : padding.top || 0;
+  boundaries.right -= isPaddingNumber ? padding : padding.right || 0;
+  boundaries.bottom -= isPaddingNumber ? padding : padding.bottom || 0;
+
+  return boundaries;
+}
+
+function getArea(_ref) {
+  var width = _ref.width,
+      height = _ref.height;
+
+  return width * height;
+}
+
+/**
+ * Utility used to transform the `auto` placement to the placement with more
+ * available space.
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function computeAutoPlacement(placement, refRect, popper, reference, boundariesElement) {
+  var padding = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0;
+
+  if (placement.indexOf('auto') === -1) {
+    return placement;
+  }
+
+  var boundaries = getBoundaries(popper, reference, padding, boundariesElement);
+
+  var rects = {
+    top: {
+      width: boundaries.width,
+      height: refRect.top - boundaries.top
+    },
+    right: {
+      width: boundaries.right - refRect.right,
+      height: boundaries.height
+    },
+    bottom: {
+      width: boundaries.width,
+      height: boundaries.bottom - refRect.bottom
+    },
+    left: {
+      width: refRect.left - boundaries.left,
+      height: boundaries.height
+    }
+  };
+
+  var sortedAreas = Object.keys(rects).map(function (key) {
+    return _extends({
+      key: key
+    }, rects[key], {
+      area: getArea(rects[key])
+    });
+  }).sort(function (a, b) {
+    return b.area - a.area;
+  });
+
+  var filteredAreas = sortedAreas.filter(function (_ref2) {
+    var width = _ref2.width,
+        height = _ref2.height;
+    return width >= popper.clientWidth && height >= popper.clientHeight;
+  });
+
+  var computedPlacement = filteredAreas.length > 0 ? filteredAreas[0].key : sortedAreas[0].key;
+
+  var variation = placement.split('-')[1];
+
+  return computedPlacement + (variation ? '-' + variation : '');
+}
+
+/**
+ * Get offsets to the reference element
+ * @method
+ * @memberof Popper.Utils
+ * @param {Object} state
+ * @param {Element} popper - the popper element
+ * @param {Element} reference - the reference element (the popper will be relative to this)
+ * @param {Element} fixedPosition - is in fixed position mode
+ * @returns {Object} An object containing the offsets which will be applied to the popper
+ */
+function getReferenceOffsets(state, popper, reference) {
+  var fixedPosition = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+
+  var commonOffsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, getReferenceNode(reference));
+  return getOffsetRectRelativeToArbitraryNode(reference, commonOffsetParent, fixedPosition);
+}
+
+/**
+ * Get the outer sizes of the given element (offset size + margins)
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @returns {Object} object containing width and height properties
+ */
+function getOuterSizes(element) {
+  var window = element.ownerDocument.defaultView;
+  var styles = window.getComputedStyle(element);
+  var x = parseFloat(styles.marginTop || 0) + parseFloat(styles.marginBottom || 0);
+  var y = parseFloat(styles.marginLeft || 0) + parseFloat(styles.marginRight || 0);
+  var result = {
+    width: element.offsetWidth + y,
+    height: element.offsetHeight + x
+  };
+  return result;
+}
+
+/**
+ * Get the opposite placement of the given one
+ * @method
+ * @memberof Popper.Utils
+ * @argument {String} placement
+ * @returns {String} flipped placement
+ */
+function getOppositePlacement(placement) {
+  var hash = { left: 'right', right: 'left', bottom: 'top', top: 'bottom' };
+  return placement.replace(/left|right|bottom|top/g, function (matched) {
+    return hash[matched];
+  });
+}
+
+/**
+ * Get offsets to the popper
+ * @method
+ * @memberof Popper.Utils
+ * @param {Object} position - CSS position the Popper will get applied
+ * @param {HTMLElement} popper - the popper element
+ * @param {Object} referenceOffsets - the reference offsets (the popper will be relative to this)
+ * @param {String} placement - one of the valid placement options
+ * @returns {Object} popperOffsets - An object containing the offsets which will be applied to the popper
+ */
+function getPopperOffsets(popper, referenceOffsets, placement) {
+  placement = placement.split('-')[0];
+
+  // Get popper node sizes
+  var popperRect = getOuterSizes(popper);
+
+  // Add position, width and height to our offsets object
+  var popperOffsets = {
+    width: popperRect.width,
+    height: popperRect.height
+  };
+
+  // depending by the popper placement we have to compute its offsets slightly differently
+  var isHoriz = ['right', 'left'].indexOf(placement) !== -1;
+  var mainSide = isHoriz ? 'top' : 'left';
+  var secondarySide = isHoriz ? 'left' : 'top';
+  var measurement = isHoriz ? 'height' : 'width';
+  var secondaryMeasurement = !isHoriz ? 'height' : 'width';
+
+  popperOffsets[mainSide] = referenceOffsets[mainSide] + referenceOffsets[measurement] / 2 - popperRect[measurement] / 2;
+  if (placement === secondarySide) {
+    popperOffsets[secondarySide] = referenceOffsets[secondarySide] - popperRect[secondaryMeasurement];
+  } else {
+    popperOffsets[secondarySide] = referenceOffsets[getOppositePlacement(secondarySide)];
+  }
+
+  return popperOffsets;
+}
+
+/**
+ * Mimics the `find` method of Array
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Array} arr
+ * @argument prop
+ * @argument value
+ * @returns index or -1
+ */
+function find(arr, check) {
+  // use native find if supported
+  if (Array.prototype.find) {
+    return arr.find(check);
+  }
+
+  // use `filter` to obtain the same behavior of `find`
+  return arr.filter(check)[0];
+}
+
+/**
+ * Return the index of the matching object
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Array} arr
+ * @argument prop
+ * @argument value
+ * @returns index or -1
+ */
+function findIndex(arr, prop, value) {
+  // use native findIndex if supported
+  if (Array.prototype.findIndex) {
+    return arr.findIndex(function (cur) {
+      return cur[prop] === value;
+    });
+  }
+
+  // use `find` + `indexOf` if `findIndex` isn't supported
+  var match = find(arr, function (obj) {
+    return obj[prop] === value;
+  });
+  return arr.indexOf(match);
+}
+
+/**
+ * Loop trough the list of modifiers and run them in order,
+ * each of them will then edit the data object.
+ * @method
+ * @memberof Popper.Utils
+ * @param {dataObject} data
+ * @param {Array} modifiers
+ * @param {String} ends - Optional modifier name used as stopper
+ * @returns {dataObject}
+ */
+function runModifiers(modifiers, data, ends) {
+  var modifiersToRun = ends === undefined ? modifiers : modifiers.slice(0, findIndex(modifiers, 'name', ends));
+
+  modifiersToRun.forEach(function (modifier) {
+    if (modifier['function']) {
+      // eslint-disable-line dot-notation
+      console.warn('`modifier.function` is deprecated, use `modifier.fn`!');
+    }
+    var fn = modifier['function'] || modifier.fn; // eslint-disable-line dot-notation
+    if (modifier.enabled && isFunction(fn)) {
+      // Add properties to offsets to make them a complete clientRect object
+      // we do this before each modifier to make sure the previous one doesn't
+      // mess with these values
+      data.offsets.popper = getClientRect(data.offsets.popper);
+      data.offsets.reference = getClientRect(data.offsets.reference);
+
+      data = fn(data, modifier);
+    }
+  });
+
+  return data;
+}
+
+/**
+ * Updates the position of the popper, computing the new offsets and applying
+ * the new style.<br />
+ * Prefer `scheduleUpdate` over `update` because of performance reasons.
+ * @method
+ * @memberof Popper
+ */
+function update() {
+  // if popper is destroyed, don't perform any further update
+  if (this.state.isDestroyed) {
+    return;
+  }
+
+  var data = {
+    instance: this,
+    styles: {},
+    arrowStyles: {},
+    attributes: {},
+    flipped: false,
+    offsets: {}
+  };
+
+  // compute reference element offsets
+  data.offsets.reference = getReferenceOffsets(this.state, this.popper, this.reference, this.options.positionFixed);
+
+  // compute auto placement, store placement inside the data object,
+  // modifiers will be able to edit `placement` if needed
+  // and refer to originalPlacement to know the original value
+  data.placement = computeAutoPlacement(this.options.placement, data.offsets.reference, this.popper, this.reference, this.options.modifiers.flip.boundariesElement, this.options.modifiers.flip.padding);
+
+  // store the computed placement inside `originalPlacement`
+  data.originalPlacement = data.placement;
+
+  data.positionFixed = this.options.positionFixed;
+
+  // compute the popper offsets
+  data.offsets.popper = getPopperOffsets(this.popper, data.offsets.reference, data.placement);
+
+  data.offsets.popper.position = this.options.positionFixed ? 'fixed' : 'absolute';
+
+  // run the modifiers
+  data = runModifiers(this.modifiers, data);
+
+  // the first `update` will call `onCreate` callback
+  // the other ones will call `onUpdate` callback
+  if (!this.state.isCreated) {
+    this.state.isCreated = true;
+    this.options.onCreate(data);
+  } else {
+    this.options.onUpdate(data);
+  }
+}
+
+/**
+ * Helper used to know if the given modifier is enabled.
+ * @method
+ * @memberof Popper.Utils
+ * @returns {Boolean}
+ */
+function isModifierEnabled(modifiers, modifierName) {
+  return modifiers.some(function (_ref) {
+    var name = _ref.name,
+        enabled = _ref.enabled;
+    return enabled && name === modifierName;
+  });
+}
+
+/**
+ * Get the prefixed supported property name
+ * @method
+ * @memberof Popper.Utils
+ * @argument {String} property (camelCase)
+ * @returns {String} prefixed property (camelCase or PascalCase, depending on the vendor prefix)
+ */
+function getSupportedPropertyName(property) {
+  var prefixes = [false, 'ms', 'Webkit', 'Moz', 'O'];
+  var upperProp = property.charAt(0).toUpperCase() + property.slice(1);
+
+  for (var i = 0; i < prefixes.length; i++) {
+    var prefix = prefixes[i];
+    var toCheck = prefix ? '' + prefix + upperProp : property;
+    if (typeof document.body.style[toCheck] !== 'undefined') {
+      return toCheck;
+    }
+  }
+  return null;
+}
+
+/**
+ * Destroys the popper.
+ * @method
+ * @memberof Popper
+ */
+function destroy() {
+  this.state.isDestroyed = true;
+
+  // touch DOM only if `applyStyle` modifier is enabled
+  if (isModifierEnabled(this.modifiers, 'applyStyle')) {
+    this.popper.removeAttribute('x-placement');
+    this.popper.style.position = '';
+    this.popper.style.top = '';
+    this.popper.style.left = '';
+    this.popper.style.right = '';
+    this.popper.style.bottom = '';
+    this.popper.style.willChange = '';
+    this.popper.style[getSupportedPropertyName('transform')] = '';
+  }
+
+  this.disableEventListeners();
+
+  // remove the popper if user explicitly asked for the deletion on destroy
+  // do not use `remove` because IE11 doesn't support it
+  if (this.options.removeOnDestroy) {
+    this.popper.parentNode.removeChild(this.popper);
+  }
+  return this;
+}
+
+/**
+ * Get the window associated with the element
+ * @argument {Element} element
+ * @returns {Window}
+ */
+function getWindow(element) {
+  var ownerDocument = element.ownerDocument;
+  return ownerDocument ? ownerDocument.defaultView : window;
+}
+
+function attachToScrollParents(scrollParent, event, callback, scrollParents) {
+  var isBody = scrollParent.nodeName === 'BODY';
+  var target = isBody ? scrollParent.ownerDocument.defaultView : scrollParent;
+  target.addEventListener(event, callback, { passive: true });
+
+  if (!isBody) {
+    attachToScrollParents(getScrollParent(target.parentNode), event, callback, scrollParents);
+  }
+  scrollParents.push(target);
+}
+
+/**
+ * Setup needed event listeners used to update the popper position
+ * @method
+ * @memberof Popper.Utils
+ * @private
+ */
+function setupEventListeners(reference, options, state, updateBound) {
+  // Resize event listener on window
+  state.updateBound = updateBound;
+  getWindow(reference).addEventListener('resize', state.updateBound, { passive: true });
+
+  // Scroll event listener on scroll parents
+  var scrollElement = getScrollParent(reference);
+  attachToScrollParents(scrollElement, 'scroll', state.updateBound, state.scrollParents);
+  state.scrollElement = scrollElement;
+  state.eventsEnabled = true;
+
+  return state;
+}
+
+/**
+ * It will add resize/scroll events and start recalculating
+ * position of the popper element when they are triggered.
+ * @method
+ * @memberof Popper
+ */
+function enableEventListeners() {
+  if (!this.state.eventsEnabled) {
+    this.state = setupEventListeners(this.reference, this.options, this.state, this.scheduleUpdate);
+  }
+}
+
+/**
+ * Remove event listeners used to update the popper position
+ * @method
+ * @memberof Popper.Utils
+ * @private
+ */
+function removeEventListeners(reference, state) {
+  // Remove resize event listener on window
+  getWindow(reference).removeEventListener('resize', state.updateBound);
+
+  // Remove scroll event listener on scroll parents
+  state.scrollParents.forEach(function (target) {
+    target.removeEventListener('scroll', state.updateBound);
+  });
+
+  // Reset state
+  state.updateBound = null;
+  state.scrollParents = [];
+  state.scrollElement = null;
+  state.eventsEnabled = false;
+  return state;
+}
+
+/**
+ * It will remove resize/scroll events and won't recalculate popper position
+ * when they are triggered. It also won't trigger `onUpdate` callback anymore,
+ * unless you call `update` method manually.
+ * @method
+ * @memberof Popper
+ */
+function disableEventListeners() {
+  if (this.state.eventsEnabled) {
+    cancelAnimationFrame(this.scheduleUpdate);
+    this.state = removeEventListeners(this.reference, this.state);
+  }
+}
+
+/**
+ * Tells if a given input is a number
+ * @method
+ * @memberof Popper.Utils
+ * @param {*} input to check
+ * @return {Boolean}
+ */
+function isNumeric(n) {
+  return n !== '' && !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+/**
+ * Set the style to the given popper
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element - Element to apply the style to
+ * @argument {Object} styles
+ * Object with a list of properties and values which will be applied to the element
+ */
+function setStyles(element, styles) {
+  Object.keys(styles).forEach(function (prop) {
+    var unit = '';
+    // add unit if the value is numeric and is one of the following
+    if (['width', 'height', 'top', 'right', 'bottom', 'left'].indexOf(prop) !== -1 && isNumeric(styles[prop])) {
+      unit = 'px';
+    }
+    element.style[prop] = styles[prop] + unit;
+  });
+}
+
+/**
+ * Set the attributes to the given popper
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element - Element to apply the attributes to
+ * @argument {Object} styles
+ * Object with a list of properties and values which will be applied to the element
+ */
+function setAttributes(element, attributes) {
+  Object.keys(attributes).forEach(function (prop) {
+    var value = attributes[prop];
+    if (value !== false) {
+      element.setAttribute(prop, attributes[prop]);
+    } else {
+      element.removeAttribute(prop);
+    }
+  });
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} data.styles - List of style properties - values to apply to popper element
+ * @argument {Object} data.attributes - List of attribute properties - values to apply to popper element
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The same data object
+ */
+function applyStyle(data) {
+  // any property present in `data.styles` will be applied to the popper,
+  // in this way we can make the 3rd party modifiers add custom styles to it
+  // Be aware, modifiers could override the properties defined in the previous
+  // lines of this modifier!
+  setStyles(data.instance.popper, data.styles);
+
+  // any property present in `data.attributes` will be applied to the popper,
+  // they will be set as HTML attributes of the element
+  setAttributes(data.instance.popper, data.attributes);
+
+  // if arrowElement is defined and arrowStyles has some properties
+  if (data.arrowElement && Object.keys(data.arrowStyles).length) {
+    setStyles(data.arrowElement, data.arrowStyles);
+  }
+
+  return data;
+}
+
+/**
+ * Set the x-placement attribute before everything else because it could be used
+ * to add margins to the popper margins needs to be calculated to get the
+ * correct popper offsets.
+ * @method
+ * @memberof Popper.modifiers
+ * @param {HTMLElement} reference - The reference element used to position the popper
+ * @param {HTMLElement} popper - The HTML element used as popper
+ * @param {Object} options - Popper.js options
+ */
+function applyStyleOnLoad(reference, popper, options, modifierOptions, state) {
+  // compute reference element offsets
+  var referenceOffsets = getReferenceOffsets(state, popper, reference, options.positionFixed);
+
+  // compute auto placement, store placement inside the data object,
+  // modifiers will be able to edit `placement` if needed
+  // and refer to originalPlacement to know the original value
+  var placement = computeAutoPlacement(options.placement, referenceOffsets, popper, reference, options.modifiers.flip.boundariesElement, options.modifiers.flip.padding);
+
+  popper.setAttribute('x-placement', placement);
+
+  // Apply `position` to popper before anything else because
+  // without the position applied we can't guarantee correct computations
+  setStyles(popper, { position: options.positionFixed ? 'fixed' : 'absolute' });
+
+  return options;
+}
+
+/**
+ * @function
+ * @memberof Popper.Utils
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Boolean} shouldRound - If the offsets should be rounded at all
+ * @returns {Object} The popper's position offsets rounded
+ *
+ * The tale of pixel-perfect positioning. It's still not 100% perfect, but as
+ * good as it can be within reason.
+ * Discussion here: https://github.com/FezVrasta/popper.js/pull/715
+ *
+ * Low DPI screens cause a popper to be blurry if not using full pixels (Safari
+ * as well on High DPI screens).
+ *
+ * Firefox prefers no rounding for positioning and does not have blurriness on
+ * high DPI screens.
+ *
+ * Only horizontal placement and left/right values need to be considered.
+ */
+function getRoundedOffsets(data, shouldRound) {
+  var _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference;
+  var round = Math.round,
+      floor = Math.floor;
+
+  var noRound = function noRound(v) {
+    return v;
+  };
+
+  var referenceWidth = round(reference.width);
+  var popperWidth = round(popper.width);
+
+  var isVertical = ['left', 'right'].indexOf(data.placement) !== -1;
+  var isVariation = data.placement.indexOf('-') !== -1;
+  var sameWidthParity = referenceWidth % 2 === popperWidth % 2;
+  var bothOddWidth = referenceWidth % 2 === 1 && popperWidth % 2 === 1;
+
+  var horizontalToInteger = !shouldRound ? noRound : isVertical || isVariation || sameWidthParity ? round : floor;
+  var verticalToInteger = !shouldRound ? noRound : round;
+
+  return {
+    left: horizontalToInteger(bothOddWidth && !isVariation && shouldRound ? popper.left - 1 : popper.left),
+    top: verticalToInteger(popper.top),
+    bottom: verticalToInteger(popper.bottom),
+    right: horizontalToInteger(popper.right)
+  };
+}
+
+var isFirefox = isBrowser && /Firefox/i.test(navigator.userAgent);
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function computeStyle(data, options) {
+  var x = options.x,
+      y = options.y;
+  var popper = data.offsets.popper;
+
+  // Remove this legacy support in Popper.js v2
+
+  var legacyGpuAccelerationOption = find(data.instance.modifiers, function (modifier) {
+    return modifier.name === 'applyStyle';
+  }).gpuAcceleration;
+  if (legacyGpuAccelerationOption !== undefined) {
+    console.warn('WARNING: `gpuAcceleration` option moved to `computeStyle` modifier and will not be supported in future versions of Popper.js!');
+  }
+  var gpuAcceleration = legacyGpuAccelerationOption !== undefined ? legacyGpuAccelerationOption : options.gpuAcceleration;
+
+  var offsetParent = getOffsetParent(data.instance.popper);
+  var offsetParentRect = getBoundingClientRect(offsetParent);
+
+  // Styles
+  var styles = {
+    position: popper.position
+  };
+
+  var offsets = getRoundedOffsets(data, window.devicePixelRatio < 2 || !isFirefox);
+
+  var sideA = x === 'bottom' ? 'top' : 'bottom';
+  var sideB = y === 'right' ? 'left' : 'right';
+
+  // if gpuAcceleration is set to `true` and transform is supported,
+  //  we use `translate3d` to apply the position to the popper we
+  // automatically use the supported prefixed version if needed
+  var prefixedProperty = getSupportedPropertyName('transform');
+
+  // now, let's make a step back and look at this code closely (wtf?)
+  // If the content of the popper grows once it's been positioned, it
+  // may happen that the popper gets misplaced because of the new content
+  // overflowing its reference element
+  // To avoid this problem, we provide two options (x and y), which allow
+  // the consumer to define the offset origin.
+  // If we position a popper on top of a reference element, we can set
+  // `x` to `top` to make the popper grow towards its top instead of
+  // its bottom.
+  var left = void 0,
+      top = void 0;
+  if (sideA === 'bottom') {
+    // when offsetParent is <html> the positioning is relative to the bottom of the screen (excluding the scrollbar)
+    // and not the bottom of the html element
+    if (offsetParent.nodeName === 'HTML') {
+      top = -offsetParent.clientHeight + offsets.bottom;
+    } else {
+      top = -offsetParentRect.height + offsets.bottom;
+    }
+  } else {
+    top = offsets.top;
+  }
+  if (sideB === 'right') {
+    if (offsetParent.nodeName === 'HTML') {
+      left = -offsetParent.clientWidth + offsets.right;
+    } else {
+      left = -offsetParentRect.width + offsets.right;
+    }
+  } else {
+    left = offsets.left;
+  }
+  if (gpuAcceleration && prefixedProperty) {
+    styles[prefixedProperty] = 'translate3d(' + left + 'px, ' + top + 'px, 0)';
+    styles[sideA] = 0;
+    styles[sideB] = 0;
+    styles.willChange = 'transform';
+  } else {
+    // othwerise, we use the standard `top`, `left`, `bottom` and `right` properties
+    var invertTop = sideA === 'bottom' ? -1 : 1;
+    var invertLeft = sideB === 'right' ? -1 : 1;
+    styles[sideA] = top * invertTop;
+    styles[sideB] = left * invertLeft;
+    styles.willChange = sideA + ', ' + sideB;
+  }
+
+  // Attributes
+  var attributes = {
+    'x-placement': data.placement
+  };
+
+  // Update `data` attributes, styles and arrowStyles
+  data.attributes = _extends({}, attributes, data.attributes);
+  data.styles = _extends({}, styles, data.styles);
+  data.arrowStyles = _extends({}, data.offsets.arrow, data.arrowStyles);
+
+  return data;
+}
+
+/**
+ * Helper used to know if the given modifier depends from another one.<br />
+ * It checks if the needed modifier is listed and enabled.
+ * @method
+ * @memberof Popper.Utils
+ * @param {Array} modifiers - list of modifiers
+ * @param {String} requestingName - name of requesting modifier
+ * @param {String} requestedName - name of requested modifier
+ * @returns {Boolean}
+ */
+function isModifierRequired(modifiers, requestingName, requestedName) {
+  var requesting = find(modifiers, function (_ref) {
+    var name = _ref.name;
+    return name === requestingName;
+  });
+
+  var isRequired = !!requesting && modifiers.some(function (modifier) {
+    return modifier.name === requestedName && modifier.enabled && modifier.order < requesting.order;
+  });
+
+  if (!isRequired) {
+    var _requesting = '`' + requestingName + '`';
+    var requested = '`' + requestedName + '`';
+    console.warn(requested + ' modifier is required by ' + _requesting + ' modifier in order to work, be sure to include it before ' + _requesting + '!');
+  }
+  return isRequired;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function arrow(data, options) {
+  var _data$offsets$arrow;
+
+  // arrow depends on keepTogether in order to work
+  if (!isModifierRequired(data.instance.modifiers, 'arrow', 'keepTogether')) {
+    return data;
+  }
+
+  var arrowElement = options.element;
+
+  // if arrowElement is a string, suppose it's a CSS selector
+  if (typeof arrowElement === 'string') {
+    arrowElement = data.instance.popper.querySelector(arrowElement);
+
+    // if arrowElement is not found, don't run the modifier
+    if (!arrowElement) {
+      return data;
+    }
+  } else {
+    // if the arrowElement isn't a query selector we must check that the
+    // provided DOM node is child of its popper node
+    if (!data.instance.popper.contains(arrowElement)) {
+      console.warn('WARNING: `arrow.element` must be child of its popper element!');
+      return data;
+    }
+  }
+
+  var placement = data.placement.split('-')[0];
+  var _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference;
+
+  var isVertical = ['left', 'right'].indexOf(placement) !== -1;
+
+  var len = isVertical ? 'height' : 'width';
+  var sideCapitalized = isVertical ? 'Top' : 'Left';
+  var side = sideCapitalized.toLowerCase();
+  var altSide = isVertical ? 'left' : 'top';
+  var opSide = isVertical ? 'bottom' : 'right';
+  var arrowElementSize = getOuterSizes(arrowElement)[len];
+
+  //
+  // extends keepTogether behavior making sure the popper and its
+  // reference have enough pixels in conjunction
+  //
+
+  // top/left side
+  if (reference[opSide] - arrowElementSize < popper[side]) {
+    data.offsets.popper[side] -= popper[side] - (reference[opSide] - arrowElementSize);
+  }
+  // bottom/right side
+  if (reference[side] + arrowElementSize > popper[opSide]) {
+    data.offsets.popper[side] += reference[side] + arrowElementSize - popper[opSide];
+  }
+  data.offsets.popper = getClientRect(data.offsets.popper);
+
+  // compute center of the popper
+  var center = reference[side] + reference[len] / 2 - arrowElementSize / 2;
+
+  // Compute the sideValue using the updated popper offsets
+  // take popper margin in account because we don't have this info available
+  var css = getStyleComputedProperty(data.instance.popper);
+  var popperMarginSide = parseFloat(css['margin' + sideCapitalized], 10);
+  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width'], 10);
+  var sideValue = center - data.offsets.popper[side] - popperMarginSide - popperBorderSide;
+
+  // prevent arrowElement from being placed not contiguously to its popper
+  sideValue = Math.max(Math.min(popper[len] - arrowElementSize, sideValue), 0);
+
+  data.arrowElement = arrowElement;
+  data.offsets.arrow = (_data$offsets$arrow = {}, defineProperty(_data$offsets$arrow, side, Math.round(sideValue)), defineProperty(_data$offsets$arrow, altSide, ''), _data$offsets$arrow);
+
+  return data;
+}
+
+/**
+ * Get the opposite placement variation of the given one
+ * @method
+ * @memberof Popper.Utils
+ * @argument {String} placement variation
+ * @returns {String} flipped placement variation
+ */
+function getOppositeVariation(variation) {
+  if (variation === 'end') {
+    return 'start';
+  } else if (variation === 'start') {
+    return 'end';
+  }
+  return variation;
+}
+
+/**
+ * List of accepted placements to use as values of the `placement` option.<br />
+ * Valid placements are:
+ * - `auto`
+ * - `top`
+ * - `right`
+ * - `bottom`
+ * - `left`
+ *
+ * Each placement can have a variation from this list:
+ * - `-start`
+ * - `-end`
+ *
+ * Variations are interpreted easily if you think of them as the left to right
+ * written languages. Horizontally (`top` and `bottom`), `start` is left and `end`
+ * is right.<br />
+ * Vertically (`left` and `right`), `start` is top and `end` is bottom.
+ *
+ * Some valid examples are:
+ * - `top-end` (on top of reference, right aligned)
+ * - `right-start` (on right of reference, top aligned)
+ * - `bottom` (on bottom, centered)
+ * - `auto-end` (on the side with more space available, alignment depends by placement)
+ *
+ * @static
+ * @type {Array}
+ * @enum {String}
+ * @readonly
+ * @method placements
+ * @memberof Popper
+ */
+var placements = ['auto-start', 'auto', 'auto-end', 'top-start', 'top', 'top-end', 'right-start', 'right', 'right-end', 'bottom-end', 'bottom', 'bottom-start', 'left-end', 'left', 'left-start'];
+
+// Get rid of `auto` `auto-start` and `auto-end`
+var validPlacements = placements.slice(3);
+
+/**
+ * Given an initial placement, returns all the subsequent placements
+ * clockwise (or counter-clockwise).
+ *
+ * @method
+ * @memberof Popper.Utils
+ * @argument {String} placement - A valid placement (it accepts variations)
+ * @argument {Boolean} counter - Set to true to walk the placements counterclockwise
+ * @returns {Array} placements including their variations
+ */
+function clockwise(placement) {
+  var counter = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+  var index = validPlacements.indexOf(placement);
+  var arr = validPlacements.slice(index + 1).concat(validPlacements.slice(0, index));
+  return counter ? arr.reverse() : arr;
+}
+
+var BEHAVIORS = {
+  FLIP: 'flip',
+  CLOCKWISE: 'clockwise',
+  COUNTERCLOCKWISE: 'counterclockwise'
+};
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function flip(data, options) {
+  // if `inner` modifier is enabled, we can't use the `flip` modifier
+  if (isModifierEnabled(data.instance.modifiers, 'inner')) {
+    return data;
+  }
+
+  if (data.flipped && data.placement === data.originalPlacement) {
+    // seems like flip is trying to loop, probably there's not enough space on any of the flippable sides
+    return data;
+  }
+
+  var boundaries = getBoundaries(data.instance.popper, data.instance.reference, options.padding, options.boundariesElement, data.positionFixed);
+
+  var placement = data.placement.split('-')[0];
+  var placementOpposite = getOppositePlacement(placement);
+  var variation = data.placement.split('-')[1] || '';
+
+  var flipOrder = [];
+
+  switch (options.behavior) {
+    case BEHAVIORS.FLIP:
+      flipOrder = [placement, placementOpposite];
+      break;
+    case BEHAVIORS.CLOCKWISE:
+      flipOrder = clockwise(placement);
+      break;
+    case BEHAVIORS.COUNTERCLOCKWISE:
+      flipOrder = clockwise(placement, true);
+      break;
+    default:
+      flipOrder = options.behavior;
+  }
+
+  flipOrder.forEach(function (step, index) {
+    if (placement !== step || flipOrder.length === index + 1) {
+      return data;
+    }
+
+    placement = data.placement.split('-')[0];
+    placementOpposite = getOppositePlacement(placement);
+
+    var popperOffsets = data.offsets.popper;
+    var refOffsets = data.offsets.reference;
+
+    // using floor because the reference offsets may contain decimals we are not going to consider here
+    var floor = Math.floor;
+    var overlapsRef = placement === 'left' && floor(popperOffsets.right) > floor(refOffsets.left) || placement === 'right' && floor(popperOffsets.left) < floor(refOffsets.right) || placement === 'top' && floor(popperOffsets.bottom) > floor(refOffsets.top) || placement === 'bottom' && floor(popperOffsets.top) < floor(refOffsets.bottom);
+
+    var overflowsLeft = floor(popperOffsets.left) < floor(boundaries.left);
+    var overflowsRight = floor(popperOffsets.right) > floor(boundaries.right);
+    var overflowsTop = floor(popperOffsets.top) < floor(boundaries.top);
+    var overflowsBottom = floor(popperOffsets.bottom) > floor(boundaries.bottom);
+
+    var overflowsBoundaries = placement === 'left' && overflowsLeft || placement === 'right' && overflowsRight || placement === 'top' && overflowsTop || placement === 'bottom' && overflowsBottom;
+
+    // flip the variation if required
+    var isVertical = ['top', 'bottom'].indexOf(placement) !== -1;
+
+    // flips variation if reference element overflows boundaries
+    var flippedVariationByRef = !!options.flipVariations && (isVertical && variation === 'start' && overflowsLeft || isVertical && variation === 'end' && overflowsRight || !isVertical && variation === 'start' && overflowsTop || !isVertical && variation === 'end' && overflowsBottom);
+
+    // flips variation if popper content overflows boundaries
+    var flippedVariationByContent = !!options.flipVariationsByContent && (isVertical && variation === 'start' && overflowsRight || isVertical && variation === 'end' && overflowsLeft || !isVertical && variation === 'start' && overflowsBottom || !isVertical && variation === 'end' && overflowsTop);
+
+    var flippedVariation = flippedVariationByRef || flippedVariationByContent;
+
+    if (overlapsRef || overflowsBoundaries || flippedVariation) {
+      // this boolean to detect any flip loop
+      data.flipped = true;
+
+      if (overlapsRef || overflowsBoundaries) {
+        placement = flipOrder[index + 1];
+      }
+
+      if (flippedVariation) {
+        variation = getOppositeVariation(variation);
+      }
+
+      data.placement = placement + (variation ? '-' + variation : '');
+
+      // this object contains `position`, we want to preserve it along with
+      // any additional property we may add in the future
+      data.offsets.popper = _extends({}, data.offsets.popper, getPopperOffsets(data.instance.popper, data.offsets.reference, data.placement));
+
+      data = runModifiers(data.instance.modifiers, data, 'flip');
+    }
+  });
+  return data;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function keepTogether(data) {
+  var _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference;
+
+  var placement = data.placement.split('-')[0];
+  var floor = Math.floor;
+  var isVertical = ['top', 'bottom'].indexOf(placement) !== -1;
+  var side = isVertical ? 'right' : 'bottom';
+  var opSide = isVertical ? 'left' : 'top';
+  var measurement = isVertical ? 'width' : 'height';
+
+  if (popper[side] < floor(reference[opSide])) {
+    data.offsets.popper[opSide] = floor(reference[opSide]) - popper[measurement];
+  }
+  if (popper[opSide] > floor(reference[side])) {
+    data.offsets.popper[opSide] = floor(reference[side]);
+  }
+
+  return data;
+}
+
+/**
+ * Converts a string containing value + unit into a px value number
+ * @function
+ * @memberof {modifiers~offset}
+ * @private
+ * @argument {String} str - Value + unit string
+ * @argument {String} measurement - `height` or `width`
+ * @argument {Object} popperOffsets
+ * @argument {Object} referenceOffsets
+ * @returns {Number|String}
+ * Value in pixels, or original string if no values were extracted
+ */
+function toValue(str, measurement, popperOffsets, referenceOffsets) {
+  // separate value from unit
+  var split = str.match(/((?:\-|\+)?\d*\.?\d*)(.*)/);
+  var value = +split[1];
+  var unit = split[2];
+
+  // If it's not a number it's an operator, I guess
+  if (!value) {
+    return str;
+  }
+
+  if (unit.indexOf('%') === 0) {
+    var element = void 0;
+    switch (unit) {
+      case '%p':
+        element = popperOffsets;
+        break;
+      case '%':
+      case '%r':
+      default:
+        element = referenceOffsets;
+    }
+
+    var rect = getClientRect(element);
+    return rect[measurement] / 100 * value;
+  } else if (unit === 'vh' || unit === 'vw') {
+    // if is a vh or vw, we calculate the size based on the viewport
+    var size = void 0;
+    if (unit === 'vh') {
+      size = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    } else {
+      size = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    }
+    return size / 100 * value;
+  } else {
+    // if is an explicit pixel unit, we get rid of the unit and keep the value
+    // if is an implicit unit, it's px, and we return just the value
+    return value;
+  }
+}
+
+/**
+ * Parse an `offset` string to extrapolate `x` and `y` numeric offsets.
+ * @function
+ * @memberof {modifiers~offset}
+ * @private
+ * @argument {String} offset
+ * @argument {Object} popperOffsets
+ * @argument {Object} referenceOffsets
+ * @argument {String} basePlacement
+ * @returns {Array} a two cells array with x and y offsets in numbers
+ */
+function parseOffset(offset, popperOffsets, referenceOffsets, basePlacement) {
+  var offsets = [0, 0];
+
+  // Use height if placement is left or right and index is 0 otherwise use width
+  // in this way the first offset will use an axis and the second one
+  // will use the other one
+  var useHeight = ['right', 'left'].indexOf(basePlacement) !== -1;
+
+  // Split the offset string to obtain a list of values and operands
+  // The regex addresses values with the plus or minus sign in front (+10, -20, etc)
+  var fragments = offset.split(/(\+|\-)/).map(function (frag) {
+    return frag.trim();
+  });
+
+  // Detect if the offset string contains a pair of values or a single one
+  // they could be separated by comma or space
+  var divider = fragments.indexOf(find(fragments, function (frag) {
+    return frag.search(/,|\s/) !== -1;
+  }));
+
+  if (fragments[divider] && fragments[divider].indexOf(',') === -1) {
+    console.warn('Offsets separated by white space(s) are deprecated, use a comma (,) instead.');
+  }
+
+  // If divider is found, we divide the list of values and operands to divide
+  // them by ofset X and Y.
+  var splitRegex = /\s*,\s*|\s+/;
+  var ops = divider !== -1 ? [fragments.slice(0, divider).concat([fragments[divider].split(splitRegex)[0]]), [fragments[divider].split(splitRegex)[1]].concat(fragments.slice(divider + 1))] : [fragments];
+
+  // Convert the values with units to absolute pixels to allow our computations
+  ops = ops.map(function (op, index) {
+    // Most of the units rely on the orientation of the popper
+    var measurement = (index === 1 ? !useHeight : useHeight) ? 'height' : 'width';
+    var mergeWithPrevious = false;
+    return op
+    // This aggregates any `+` or `-` sign that aren't considered operators
+    // e.g.: 10 + +5 => [10, +, +5]
+    .reduce(function (a, b) {
+      if (a[a.length - 1] === '' && ['+', '-'].indexOf(b) !== -1) {
+        a[a.length - 1] = b;
+        mergeWithPrevious = true;
+        return a;
+      } else if (mergeWithPrevious) {
+        a[a.length - 1] += b;
+        mergeWithPrevious = false;
+        return a;
+      } else {
+        return a.concat(b);
+      }
+    }, [])
+    // Here we convert the string values into number values (in px)
+    .map(function (str) {
+      return toValue(str, measurement, popperOffsets, referenceOffsets);
+    });
+  });
+
+  // Loop trough the offsets arrays and execute the operations
+  ops.forEach(function (op, index) {
+    op.forEach(function (frag, index2) {
+      if (isNumeric(frag)) {
+        offsets[index] += frag * (op[index2 - 1] === '-' ? -1 : 1);
+      }
+    });
+  });
+  return offsets;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @argument {Number|String} options.offset=0
+ * The offset value as described in the modifier description
+ * @returns {Object} The data object, properly modified
+ */
+function offset(data, _ref) {
+  var offset = _ref.offset;
+  var placement = data.placement,
+      _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference;
+
+  var basePlacement = placement.split('-')[0];
+
+  var offsets = void 0;
+  if (isNumeric(+offset)) {
+    offsets = [+offset, 0];
+  } else {
+    offsets = parseOffset(offset, popper, reference, basePlacement);
+  }
+
+  if (basePlacement === 'left') {
+    popper.top += offsets[0];
+    popper.left -= offsets[1];
+  } else if (basePlacement === 'right') {
+    popper.top += offsets[0];
+    popper.left += offsets[1];
+  } else if (basePlacement === 'top') {
+    popper.left += offsets[0];
+    popper.top -= offsets[1];
+  } else if (basePlacement === 'bottom') {
+    popper.left += offsets[0];
+    popper.top += offsets[1];
+  }
+
+  data.popper = popper;
+  return data;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function preventOverflow(data, options) {
+  var boundariesElement = options.boundariesElement || getOffsetParent(data.instance.popper);
+
+  // If offsetParent is the reference element, we really want to
+  // go one step up and use the next offsetParent as reference to
+  // avoid to make this modifier completely useless and look like broken
+  if (data.instance.reference === boundariesElement) {
+    boundariesElement = getOffsetParent(boundariesElement);
+  }
+
+  // NOTE: DOM access here
+  // resets the popper's position so that the document size can be calculated excluding
+  // the size of the popper element itself
+  var transformProp = getSupportedPropertyName('transform');
+  var popperStyles = data.instance.popper.style; // assignment to help minification
+  var top = popperStyles.top,
+      left = popperStyles.left,
+      transform = popperStyles[transformProp];
+
+  popperStyles.top = '';
+  popperStyles.left = '';
+  popperStyles[transformProp] = '';
+
+  var boundaries = getBoundaries(data.instance.popper, data.instance.reference, options.padding, boundariesElement, data.positionFixed);
+
+  // NOTE: DOM access here
+  // restores the original style properties after the offsets have been computed
+  popperStyles.top = top;
+  popperStyles.left = left;
+  popperStyles[transformProp] = transform;
+
+  options.boundaries = boundaries;
+
+  var order = options.priority;
+  var popper = data.offsets.popper;
+
+  var check = {
+    primary: function primary(placement) {
+      var value = popper[placement];
+      if (popper[placement] < boundaries[placement] && !options.escapeWithReference) {
+        value = Math.max(popper[placement], boundaries[placement]);
+      }
+      return defineProperty({}, placement, value);
+    },
+    secondary: function secondary(placement) {
+      var mainSide = placement === 'right' ? 'left' : 'top';
+      var value = popper[mainSide];
+      if (popper[placement] > boundaries[placement] && !options.escapeWithReference) {
+        value = Math.min(popper[mainSide], boundaries[placement] - (placement === 'right' ? popper.width : popper.height));
+      }
+      return defineProperty({}, mainSide, value);
+    }
+  };
+
+  order.forEach(function (placement) {
+    var side = ['left', 'top'].indexOf(placement) !== -1 ? 'primary' : 'secondary';
+    popper = _extends({}, popper, check[side](placement));
+  });
+
+  data.offsets.popper = popper;
+
+  return data;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function shift(data) {
+  var placement = data.placement;
+  var basePlacement = placement.split('-')[0];
+  var shiftvariation = placement.split('-')[1];
+
+  // if shift shiftvariation is specified, run the modifier
+  if (shiftvariation) {
+    var _data$offsets = data.offsets,
+        reference = _data$offsets.reference,
+        popper = _data$offsets.popper;
+
+    var isVertical = ['bottom', 'top'].indexOf(basePlacement) !== -1;
+    var side = isVertical ? 'left' : 'top';
+    var measurement = isVertical ? 'width' : 'height';
+
+    var shiftOffsets = {
+      start: defineProperty({}, side, reference[side]),
+      end: defineProperty({}, side, reference[side] + reference[measurement] - popper[measurement])
+    };
+
+    data.offsets.popper = _extends({}, popper, shiftOffsets[shiftvariation]);
+  }
+
+  return data;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by update method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function hide(data) {
+  if (!isModifierRequired(data.instance.modifiers, 'hide', 'preventOverflow')) {
+    return data;
+  }
+
+  var refRect = data.offsets.reference;
+  var bound = find(data.instance.modifiers, function (modifier) {
+    return modifier.name === 'preventOverflow';
+  }).boundaries;
+
+  if (refRect.bottom < bound.top || refRect.left > bound.right || refRect.top > bound.bottom || refRect.right < bound.left) {
+    // Avoid unnecessary DOM access if visibility hasn't changed
+    if (data.hide === true) {
+      return data;
+    }
+
+    data.hide = true;
+    data.attributes['x-out-of-boundaries'] = '';
+  } else {
+    // Avoid unnecessary DOM access if visibility hasn't changed
+    if (data.hide === false) {
+      return data;
+    }
+
+    data.hide = false;
+    data.attributes['x-out-of-boundaries'] = false;
+  }
+
+  return data;
+}
+
+/**
+ * @function
+ * @memberof Modifiers
+ * @argument {Object} data - The data object generated by `update` method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {Object} The data object, properly modified
+ */
+function inner(data) {
+  var placement = data.placement;
+  var basePlacement = placement.split('-')[0];
+  var _data$offsets = data.offsets,
+      popper = _data$offsets.popper,
+      reference = _data$offsets.reference;
+
+  var isHoriz = ['left', 'right'].indexOf(basePlacement) !== -1;
+
+  var subtractLength = ['top', 'left'].indexOf(basePlacement) === -1;
+
+  popper[isHoriz ? 'left' : 'top'] = reference[basePlacement] - (subtractLength ? popper[isHoriz ? 'width' : 'height'] : 0);
+
+  data.placement = getOppositePlacement(placement);
+  data.offsets.popper = getClientRect(popper);
+
+  return data;
+}
+
+/**
+ * Modifier function, each modifier can have a function of this type assigned
+ * to its `fn` property.<br />
+ * These functions will be called on each update, this means that you must
+ * make sure they are performant enough to avoid performance bottlenecks.
+ *
+ * @function ModifierFn
+ * @argument {dataObject} data - The data object generated by `update` method
+ * @argument {Object} options - Modifiers configuration and options
+ * @returns {dataObject} The data object, properly modified
+ */
+
+/**
+ * Modifiers are plugins used to alter the behavior of your poppers.<br />
+ * Popper.js uses a set of 9 modifiers to provide all the basic functionalities
+ * needed by the library.
+ *
+ * Usually you don't want to override the `order`, `fn` and `onLoad` props.
+ * All the other properties are configurations that could be tweaked.
+ * @namespace modifiers
+ */
+var modifiers = {
+  /**
+   * Modifier used to shift the popper on the start or end of its reference
+   * element.<br />
+   * It will read the variation of the `placement` property.<br />
+   * It can be one either `-end` or `-start`.
+   * @memberof modifiers
+   * @inner
+   */
+  shift: {
+    /** @prop {number} order=100 - Index used to define the order of execution */
+    order: 100,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: shift
+  },
+
+  /**
+   * The `offset` modifier can shift your popper on both its axis.
+   *
+   * It accepts the following units:
+   * - `px` or unit-less, interpreted as pixels
+   * - `%` or `%r`, percentage relative to the length of the reference element
+   * - `%p`, percentage relative to the length of the popper element
+   * - `vw`, CSS viewport width unit
+   * - `vh`, CSS viewport height unit
+   *
+   * For length is intended the main axis relative to the placement of the popper.<br />
+   * This means that if the placement is `top` or `bottom`, the length will be the
+   * `width`. In case of `left` or `right`, it will be the `height`.
+   *
+   * You can provide a single value (as `Number` or `String`), or a pair of values
+   * as `String` divided by a comma or one (or more) white spaces.<br />
+   * The latter is a deprecated method because it leads to confusion and will be
+   * removed in v2.<br />
+   * Additionally, it accepts additions and subtractions between different units.
+   * Note that multiplications and divisions aren't supported.
+   *
+   * Valid examples are:
+   * ```
+   * 10
+   * '10%'
+   * '10, 10'
+   * '10%, 10'
+   * '10 + 10%'
+   * '10 - 5vh + 3%'
+   * '-10px + 5vh, 5px - 6%'
+   * ```
+   * > **NB**: If you desire to apply offsets to your poppers in a way that may make them overlap
+   * > with their reference element, unfortunately, you will have to disable the `flip` modifier.
+   * > You can read more on this at this [issue](https://github.com/FezVrasta/popper.js/issues/373).
+   *
+   * @memberof modifiers
+   * @inner
+   */
+  offset: {
+    /** @prop {number} order=200 - Index used to define the order of execution */
+    order: 200,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: offset,
+    /** @prop {Number|String} offset=0
+     * The offset value as described in the modifier description
+     */
+    offset: 0
+  },
+
+  /**
+   * Modifier used to prevent the popper from being positioned outside the boundary.
+   *
+   * A scenario exists where the reference itself is not within the boundaries.<br />
+   * We can say it has "escaped the boundaries" — or just "escaped".<br />
+   * In this case we need to decide whether the popper should either:
+   *
+   * - detach from the reference and remain "trapped" in the boundaries, or
+   * - if it should ignore the boundary and "escape with its reference"
+   *
+   * When `escapeWithReference` is set to`true` and reference is completely
+   * outside its boundaries, the popper will overflow (or completely leave)
+   * the boundaries in order to remain attached to the edge of the reference.
+   *
+   * @memberof modifiers
+   * @inner
+   */
+  preventOverflow: {
+    /** @prop {number} order=300 - Index used to define the order of execution */
+    order: 300,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: preventOverflow,
+    /**
+     * @prop {Array} [priority=['left','right','top','bottom']]
+     * Popper will try to prevent overflow following these priorities by default,
+     * then, it could overflow on the left and on top of the `boundariesElement`
+     */
+    priority: ['left', 'right', 'top', 'bottom'],
+    /**
+     * @prop {number} padding=5
+     * Amount of pixel used to define a minimum distance between the boundaries
+     * and the popper. This makes sure the popper always has a little padding
+     * between the edges of its container
+     */
+    padding: 5,
+    /**
+     * @prop {String|HTMLElement} boundariesElement='scrollParent'
+     * Boundaries used by the modifier. Can be `scrollParent`, `window`,
+     * `viewport` or any DOM element.
+     */
+    boundariesElement: 'scrollParent'
+  },
+
+  /**
+   * Modifier used to make sure the reference and its popper stay near each other
+   * without leaving any gap between the two. Especially useful when the arrow is
+   * enabled and you want to ensure that it points to its reference element.
+   * It cares only about the first axis. You can still have poppers with margin
+   * between the popper and its reference element.
+   * @memberof modifiers
+   * @inner
+   */
+  keepTogether: {
+    /** @prop {number} order=400 - Index used to define the order of execution */
+    order: 400,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: keepTogether
+  },
+
+  /**
+   * This modifier is used to move the `arrowElement` of the popper to make
+   * sure it is positioned between the reference element and its popper element.
+   * It will read the outer size of the `arrowElement` node to detect how many
+   * pixels of conjunction are needed.
+   *
+   * It has no effect if no `arrowElement` is provided.
+   * @memberof modifiers
+   * @inner
+   */
+  arrow: {
+    /** @prop {number} order=500 - Index used to define the order of execution */
+    order: 500,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: arrow,
+    /** @prop {String|HTMLElement} element='[x-arrow]' - Selector or node used as arrow */
+    element: '[x-arrow]'
+  },
+
+  /**
+   * Modifier used to flip the popper's placement when it starts to overlap its
+   * reference element.
+   *
+   * Requires the `preventOverflow` modifier before it in order to work.
+   *
+   * **NOTE:** this modifier will interrupt the current update cycle and will
+   * restart it if it detects the need to flip the placement.
+   * @memberof modifiers
+   * @inner
+   */
+  flip: {
+    /** @prop {number} order=600 - Index used to define the order of execution */
+    order: 600,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: flip,
+    /**
+     * @prop {String|Array} behavior='flip'
+     * The behavior used to change the popper's placement. It can be one of
+     * `flip`, `clockwise`, `counterclockwise` or an array with a list of valid
+     * placements (with optional variations)
+     */
+    behavior: 'flip',
+    /**
+     * @prop {number} padding=5
+     * The popper will flip if it hits the edges of the `boundariesElement`
+     */
+    padding: 5,
+    /**
+     * @prop {String|HTMLElement} boundariesElement='viewport'
+     * The element which will define the boundaries of the popper position.
+     * The popper will never be placed outside of the defined boundaries
+     * (except if `keepTogether` is enabled)
+     */
+    boundariesElement: 'viewport',
+    /**
+     * @prop {Boolean} flipVariations=false
+     * The popper will switch placement variation between `-start` and `-end` when
+     * the reference element overlaps its boundaries.
+     *
+     * The original placement should have a set variation.
+     */
+    flipVariations: false,
+    /**
+     * @prop {Boolean} flipVariationsByContent=false
+     * The popper will switch placement variation between `-start` and `-end` when
+     * the popper element overlaps its reference boundaries.
+     *
+     * The original placement should have a set variation.
+     */
+    flipVariationsByContent: false
+  },
+
+  /**
+   * Modifier used to make the popper flow toward the inner of the reference element.
+   * By default, when this modifier is disabled, the popper will be placed outside
+   * the reference element.
+   * @memberof modifiers
+   * @inner
+   */
+  inner: {
+    /** @prop {number} order=700 - Index used to define the order of execution */
+    order: 700,
+    /** @prop {Boolean} enabled=false - Whether the modifier is enabled or not */
+    enabled: false,
+    /** @prop {ModifierFn} */
+    fn: inner
+  },
+
+  /**
+   * Modifier used to hide the popper when its reference element is outside of the
+   * popper boundaries. It will set a `x-out-of-boundaries` attribute which can
+   * be used to hide with a CSS selector the popper when its reference is
+   * out of boundaries.
+   *
+   * Requires the `preventOverflow` modifier before it in order to work.
+   * @memberof modifiers
+   * @inner
+   */
+  hide: {
+    /** @prop {number} order=800 - Index used to define the order of execution */
+    order: 800,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: hide
+  },
+
+  /**
+   * Computes the style that will be applied to the popper element to gets
+   * properly positioned.
+   *
+   * Note that this modifier will not touch the DOM, it just prepares the styles
+   * so that `applyStyle` modifier can apply it. This separation is useful
+   * in case you need to replace `applyStyle` with a custom implementation.
+   *
+   * This modifier has `850` as `order` value to maintain backward compatibility
+   * with previous versions of Popper.js. Expect the modifiers ordering method
+   * to change in future major versions of the library.
+   *
+   * @memberof modifiers
+   * @inner
+   */
+  computeStyle: {
+    /** @prop {number} order=850 - Index used to define the order of execution */
+    order: 850,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: computeStyle,
+    /**
+     * @prop {Boolean} gpuAcceleration=true
+     * If true, it uses the CSS 3D transformation to position the popper.
+     * Otherwise, it will use the `top` and `left` properties
+     */
+    gpuAcceleration: true,
+    /**
+     * @prop {string} [x='bottom']
+     * Where to anchor the X axis (`bottom` or `top`). AKA X offset origin.
+     * Change this if your popper should grow in a direction different from `bottom`
+     */
+    x: 'bottom',
+    /**
+     * @prop {string} [x='left']
+     * Where to anchor the Y axis (`left` or `right`). AKA Y offset origin.
+     * Change this if your popper should grow in a direction different from `right`
+     */
+    y: 'right'
+  },
+
+  /**
+   * Applies the computed styles to the popper element.
+   *
+   * All the DOM manipulations are limited to this modifier. This is useful in case
+   * you want to integrate Popper.js inside a framework or view library and you
+   * want to delegate all the DOM manipulations to it.
+   *
+   * Note that if you disable this modifier, you must make sure the popper element
+   * has its position set to `absolute` before Popper.js can do its work!
+   *
+   * Just disable this modifier and define your own to achieve the desired effect.
+   *
+   * @memberof modifiers
+   * @inner
+   */
+  applyStyle: {
+    /** @prop {number} order=900 - Index used to define the order of execution */
+    order: 900,
+    /** @prop {Boolean} enabled=true - Whether the modifier is enabled or not */
+    enabled: true,
+    /** @prop {ModifierFn} */
+    fn: applyStyle,
+    /** @prop {Function} */
+    onLoad: applyStyleOnLoad,
+    /**
+     * @deprecated since version 1.10.0, the property moved to `computeStyle` modifier
+     * @prop {Boolean} gpuAcceleration=true
+     * If true, it uses the CSS 3D transformation to position the popper.
+     * Otherwise, it will use the `top` and `left` properties
+     */
+    gpuAcceleration: undefined
+  }
+};
+
+/**
+ * The `dataObject` is an object containing all the information used by Popper.js.
+ * This object is passed to modifiers and to the `onCreate` and `onUpdate` callbacks.
+ * @name dataObject
+ * @property {Object} data.instance The Popper.js instance
+ * @property {String} data.placement Placement applied to popper
+ * @property {String} data.originalPlacement Placement originally defined on init
+ * @property {Boolean} data.flipped True if popper has been flipped by flip modifier
+ * @property {Boolean} data.hide True if the reference element is out of boundaries, useful to know when to hide the popper
+ * @property {HTMLElement} data.arrowElement Node used as arrow by arrow modifier
+ * @property {Object} data.styles Any CSS property defined here will be applied to the popper. It expects the JavaScript nomenclature (eg. `marginBottom`)
+ * @property {Object} data.arrowStyles Any CSS property defined here will be applied to the popper arrow. It expects the JavaScript nomenclature (eg. `marginBottom`)
+ * @property {Object} data.boundaries Offsets of the popper boundaries
+ * @property {Object} data.offsets The measurements of popper, reference and arrow elements
+ * @property {Object} data.offsets.popper `top`, `left`, `width`, `height` values
+ * @property {Object} data.offsets.reference `top`, `left`, `width`, `height` values
+ * @property {Object} data.offsets.arrow] `top` and `left` offsets, only one of them will be different from 0
+ */
+
+/**
+ * Default options provided to Popper.js constructor.<br />
+ * These can be overridden using the `options` argument of Popper.js.<br />
+ * To override an option, simply pass an object with the same
+ * structure of the `options` object, as the 3rd argument. For example:
+ * ```
+ * new Popper(ref, pop, {
+ *   modifiers: {
+ *     preventOverflow: { enabled: false }
+ *   }
+ * })
+ * ```
+ * @type {Object}
+ * @static
+ * @memberof Popper
+ */
+var Defaults = {
+  /**
+   * Popper's placement.
+   * @prop {Popper.placements} placement='bottom'
+   */
+  placement: 'bottom',
+
+  /**
+   * Set this to true if you want popper to position it self in 'fixed' mode
+   * @prop {Boolean} positionFixed=false
+   */
+  positionFixed: false,
+
+  /**
+   * Whether events (resize, scroll) are initially enabled.
+   * @prop {Boolean} eventsEnabled=true
+   */
+  eventsEnabled: true,
+
+  /**
+   * Set to true if you want to automatically remove the popper when
+   * you call the `destroy` method.
+   * @prop {Boolean} removeOnDestroy=false
+   */
+  removeOnDestroy: false,
+
+  /**
+   * Callback called when the popper is created.<br />
+   * By default, it is set to no-op.<br />
+   * Access Popper.js instance with `data.instance`.
+   * @prop {onCreate}
+   */
+  onCreate: function onCreate() {},
+
+  /**
+   * Callback called when the popper is updated. This callback is not called
+   * on the initialization/creation of the popper, but only on subsequent
+   * updates.<br />
+   * By default, it is set to no-op.<br />
+   * Access Popper.js instance with `data.instance`.
+   * @prop {onUpdate}
+   */
+  onUpdate: function onUpdate() {},
+
+  /**
+   * List of modifiers used to modify the offsets before they are applied to the popper.
+   * They provide most of the functionalities of Popper.js.
+   * @prop {modifiers}
+   */
+  modifiers: modifiers
+};
+
+/**
+ * @callback onCreate
+ * @param {dataObject} data
+ */
+
+/**
+ * @callback onUpdate
+ * @param {dataObject} data
+ */
+
+// Utils
+// Methods
+var Popper = function () {
+  /**
+   * Creates a new Popper.js instance.
+   * @class Popper
+   * @param {Element|referenceObject} reference - The reference element used to position the popper
+   * @param {Element} popper - The HTML / XML element used as the popper
+   * @param {Object} options - Your custom options to override the ones defined in [Defaults](#defaults)
+   * @return {Object} instance - The generated Popper.js instance
+   */
+  function Popper(reference, popper) {
+    var _this = this;
+
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    classCallCheck(this, Popper);
+
+    this.scheduleUpdate = function () {
+      return requestAnimationFrame(_this.update);
+    };
+
+    // make update() debounced, so that it only runs at most once-per-tick
+    this.update = debounce(this.update.bind(this));
+
+    // with {} we create a new object with the options inside it
+    this.options = _extends({}, Popper.Defaults, options);
+
+    // init state
+    this.state = {
+      isDestroyed: false,
+      isCreated: false,
+      scrollParents: []
+    };
+
+    // get reference and popper elements (allow jQuery wrappers)
+    this.reference = reference && reference.jquery ? reference[0] : reference;
+    this.popper = popper && popper.jquery ? popper[0] : popper;
+
+    // Deep merge modifiers options
+    this.options.modifiers = {};
+    Object.keys(_extends({}, Popper.Defaults.modifiers, options.modifiers)).forEach(function (name) {
+      _this.options.modifiers[name] = _extends({}, Popper.Defaults.modifiers[name] || {}, options.modifiers ? options.modifiers[name] : {});
+    });
+
+    // Refactoring modifiers' list (Object => Array)
+    this.modifiers = Object.keys(this.options.modifiers).map(function (name) {
+      return _extends({
+        name: name
+      }, _this.options.modifiers[name]);
+    })
+    // sort the modifiers by order
+    .sort(function (a, b) {
+      return a.order - b.order;
+    });
+
+    // modifiers have the ability to execute arbitrary code when Popper.js get inited
+    // such code is executed in the same order of its modifier
+    // they could add new properties to their options configuration
+    // BE AWARE: don't add options to `options.modifiers.name` but to `modifierOptions`!
+    this.modifiers.forEach(function (modifierOptions) {
+      if (modifierOptions.enabled && isFunction(modifierOptions.onLoad)) {
+        modifierOptions.onLoad(_this.reference, _this.popper, _this.options, modifierOptions, _this.state);
+      }
+    });
+
+    // fire the first update to position the popper in the right place
+    this.update();
+
+    var eventsEnabled = this.options.eventsEnabled;
+    if (eventsEnabled) {
+      // setup event listeners, they will take care of update the position in specific situations
+      this.enableEventListeners();
+    }
+
+    this.state.eventsEnabled = eventsEnabled;
+  }
+
+  // We can't use class properties because they don't get listed in the
+  // class prototype and break stuff like Sinon stubs
+
+
+  createClass(Popper, [{
+    key: 'update',
+    value: function update$$1() {
+      return update.call(this);
+    }
+  }, {
+    key: 'destroy',
+    value: function destroy$$1() {
+      return destroy.call(this);
+    }
+  }, {
+    key: 'enableEventListeners',
+    value: function enableEventListeners$$1() {
+      return enableEventListeners.call(this);
+    }
+  }, {
+    key: 'disableEventListeners',
+    value: function disableEventListeners$$1() {
+      return disableEventListeners.call(this);
+    }
+
+    /**
+     * Schedules an update. It will run on the next UI update available.
+     * @method scheduleUpdate
+     * @memberof Popper
+     */
+
+
+    /**
+     * Collection of utilities useful when writing custom modifiers.
+     * Starting from version 1.7, this method is available only if you
+     * include `popper-utils.js` before `popper.js`.
+     *
+     * **DEPRECATION**: This way to access PopperUtils is deprecated
+     * and will be removed in v2! Use the PopperUtils module directly instead.
+     * Due to the high instability of the methods contained in Utils, we can't
+     * guarantee them to follow semver. Use them at your own risk!
+     * @static
+     * @private
+     * @type {Object}
+     * @deprecated since version 1.8
+     * @member Utils
+     * @memberof Popper
+     */
+
+  }]);
+  return Popper;
+}();
+
+/**
+ * The `referenceObject` is an object that provides an interface compatible with Popper.js
+ * and lets you use it as replacement of a real DOM node.<br />
+ * You can use this method to position a popper relatively to a set of coordinates
+ * in case you don't have a DOM node to use as reference.
+ *
+ * ```
+ * new Popper(referenceObject, popperNode);
+ * ```
+ *
+ * NB: This feature isn't supported in Internet Explorer 10.
+ * @name referenceObject
+ * @property {Function} data.getBoundingClientRect
+ * A function that returns a set of coordinates compatible with the native `getBoundingClientRect` method.
+ * @property {number} data.clientWidth
+ * An ES6 getter that will return the width of the virtual reference element.
+ * @property {number} data.clientHeight
+ * An ES6 getter that will return the height of the virtual reference element.
+ */
+
+
+Popper.Utils = (typeof window !== 'undefined' ? window : global).PopperUtils;
+Popper.placements = placements;
+Popper.Defaults = Defaults;
+
+/* harmony default export */ __webpack_exports__["a"] = (Popper);
+//# sourceMappingURL=popper.js.map
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7)))
+
+/***/ }),
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10051,11 +12686,11 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function(window){var hadGlobal='Modernizr' in window;var oldGlobal=window.Modernizr;/*!
- * modernizr v3.7.1
+ * modernizr v3.8.0
  * Build https://modernizr.com/download?-adownload-appearance-applicationcache-backdropfilter-backgroundblendmode-backgroundcliptext-backgroundsize-bgpositionshorthand-bgpositionxy-bgrepeatspace_bgrepeatround-bgsizecover-blobconstructor-bloburls-borderimage-borderradius-boxshadow-boxsizing-canvas-canvasblending-canvastext-canvaswinding-capture-checked-classlist-contenteditable-contextmenu-cookies-cors-createelementattrs_createelement_attrs-cssall-cssanimations-csscalc-csschunit-csscolumns-cssescape-cssexunit-cssfilters-cssgradients-cssgrid_cssgridlegacy-cssinvalid-cssmask-csspointerevents-csspositionsticky-csspseudoanimations-csspseudotransitions-cssreflections-cssremunit-cssresize-cssscrollbar-csstransforms-csstransforms3d-csstransformslevel2-csstransitions-cssvalid-cssvhunit-cssvmaxunit-cssvminunit-cssvwunit-cubicbezierrange-customelements-dataset-datauri-devicemotion_deviceorientation-directory-display_runin-displaytable-documentfragment-ellipsis-eventlistener-exiforientation-fileinput-flexbox-flexboxlegacy-flexboxtweener-flexwrap-fontface-formattribute-formvalidation-fullscreen-generatedcontent-hairline-hashchange-hidden-hiddenscroll-history-hovermq-hsla-htmlimports-json-lastchild-localstorage-mediaqueries-microdata-multiplebgs-mutationobserver-nthchild-objectfit-oninput-opacity-overflowscrolling-pagevisibility-passiveeventlisteners-performance-placeholder-pointermq-postmessage-preserve3d-proximity-queryselector-regions-requestanimationframe-requestautocomplete-rgba-sandbox-scrollsnappoints-seamless-sessionstorage-shapes-siblinggeneral-srcdoc-subpixelfont-supports-target-textalignlast-textshadow-todataurljpeg_todataurlpng_todataurlwebp-touchevents-unicode-unicoderange-urlparser-urlsearchparams-userdata-userselect-vibrate-video-videoautoplay-videocrossorigin-videoloop-videopreload-websqldatabase-willchange-wrapflow-xdomainrequest-addtest-atrule-domprefixes-hasevent-load-mq-prefixed-prefixedcss-prefixes-printshiv-setclasses-testallprops-testprop-teststyles-dontmin
  *
  * Copyright (c)
@@ -10092,7 +12727,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
    */
   var ModernizrProto = {
     // The current version, dummy
-    _version: '3.7.1',
+    _version: '3.8.0',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
@@ -10213,8 +12848,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
           if (featureNameSplit.length === 1) {
             Modernizr[featureNameSplit[0]] = result;
           } else {
-            // cast to a Boolean, if not one already
-            if (Modernizr[featureNameSplit[0]] && !(Modernizr[featureNameSplit[0]] instanceof Boolean)) {
+            // cast to a Boolean, if not one already or if it doesnt exist yet (like inputtypes)
+            if (!Modernizr[featureNameSplit[0]] || Modernizr[featureNameSplit[0]] && !(Modernizr[featureNameSplit[0]] instanceof Boolean)) {
               Modernizr[featureNameSplit[0]] = new Boolean(Modernizr[featureNameSplit[0]]);
             }
 
@@ -11656,12 +14291,12 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
     var afterInit, i, propsLength, prop, before;
 
     // If we don't have a style element, that means we're running async or after
-    // the core tests, so we'll need to create our own elements to use
+    // the core tests, so we'll need to create our own elements to use.
 
-    // inside of an SVG element, in certain browsers, the `style` element is only
+    // Inside of an SVG element, in certain browsers, the `style` element is only
     // defined for valid tags. Therefore, if `modernizr` does not have one, we
     // fall back to a less used element and hope for the best.
-    // for strict XHTML browsers the hardly used samp element is used
+    // For strict XHTML browsers the hardly used samp element is used.
     var elems = ['modernizr', 'tspan', 'samp'];
     while (!mStyle.style && elems.length) {
       afterInit = true;
@@ -12312,8 +14947,8 @@ Determines if winding rules, which controls if a path can go clockwise or counte
 Detects support for the text APIs for `<canvas>` elements.
 */
 
-  Modernizr.addTest('canvastext',  function() {
-    if (Modernizr.canvas  === false) {
+  Modernizr.addTest('canvastext', function() {
+    if (Modernizr.canvas === false) {
       return false;
     }
     return typeof createElement('canvas').getContext('2d').fillText === 'function';
@@ -12557,14 +15192,14 @@ Detects the ability for the browser to composite backgrounds using blending mode
   "authors": ["ausi"],
   "tags": ["css"],
   "notes": [{
-      "name": "CSS Tricks Article",
-      "href": "https://css-tricks.com/image-under-text/"
-    },{
-      "name": "MDN Docs",
-      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip"
-    },{
-      "name": "Related Github Issue",
-      "href": "https://github.com/Modernizr/Modernizr/issues/199"
+    "name": "CSS Tricks Article",
+    "href": "https://css-tricks.com/image-under-text/"
+  },{
+    "name": "MDN Docs",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip"
+  },{
+    "name": "Related Github Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/199"
   }]
 }
 !*/
@@ -12698,7 +15333,7 @@ Detects the ability to use round and space as properties for background-repeat
   "property": "borderimage",
   "caniuse": "border-image",
   "polyfills": ["css3pie"],
-   "knownBugs": ["Android < 2.0 is true, but has a broken implementation"],
+  "knownBugs": ["Android < 2.0 is true, but has a broken implementation"],
   "tags": ["css"]
 }
 !*/
@@ -13024,13 +15659,13 @@ Tests for `CSS.escape()` support.
   "tags": ["css"],
   "builderAliases": ["css_supports"],
   "notes": [{
-    "name": "W3C Spec",
+    "name": "W3C Spec (The @supports rule)",
     "href": "https://dev.w3.org/csswg/css3-conditional/#at-supports"
   },{
     "name": "Related Github Issue",
     "href": "https://github.com/Modernizr/Modernizr/issues/648"
   },{
-    "name": "W3C Spec",
+    "name": "W3C Spec (The CSSSupportsRule interface)",
     "href": "https://dev.w3.org/csswg/css3-conditional/#the-csssupportsrule-interface"
   }]
 }
@@ -13256,7 +15891,7 @@ else {
     }
 
     if (Modernizr._config.usePrefixes) {
-    // legacy webkit syntax (FIXME: remove when syntax not in use anymore)
+    // legacy webkit syntax (TODO:: remove when syntax not in use anymore)
       css += str1 + '-webkit-' + str2;
     }
 
@@ -13506,17 +16141,17 @@ Detects support for the ':nth-child()' CSS pseudo-selector.
   "tags": ["css"],
   "builderAliases": ["css_pointerevents"],
   "notes": [{
-      "name": "MDN Docs",
-      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events"
-    },{
-      "name": "Test Project Page",
-      "href": "https://ausi.github.com/Feature-detection-technique-for-pointer-events/"
-    },{
-      "name": "Test Project Wiki",
-      "href": "https://github.com/ausi/Feature-detection-technique-for-pointer-events/wiki"
-    },{
-      "name": "Related Github Issue",
-      "href": "https://github.com/Modernizr/Modernizr/issues/80"
+    "name": "MDN Docs",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events"
+  },{
+    "name": "Test Project Page",
+    "href": "https://ausi.github.com/Feature-detection-technique-for-pointer-events/"
+  },{
+    "name": "Test Project Wiki",
+    "href": "https://github.com/ausi/Feature-detection-technique-for-pointer-events/wiki"
+  },{
+    "name": "Related Github Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/80"
   }]
 }
 !*/
@@ -13944,11 +16579,11 @@ Detects support for the ':target' CSS pseudo-class.
   "tags": ["css"],
   "knownBugs": ["IE does not support the 'start' or 'end' values."],
   "notes": [{
-      "name": "Quirksmode",
-      "href": "https://www.quirksmode.org/css/text/textalignlast.html"
+    "name": "Quirksmode",
+    "href": "https://www.quirksmode.org/css/text/textalignlast.html"
     },{
-      "name": "MDN Docs",
-      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/text-align-last"
+    "name": "MDN Docs",
+    "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/text-align-last"
   }]
 }
 !*/
@@ -14100,21 +16735,6 @@ Detects support for `transform-style: preserve-3d`, for getting a proper 3D pers
     });
   });
 
-
-  /**
-   * roundedEquals takes two integers and checks if the first is within 1 of the second
-   *
-   * @access private
-   * @function roundedEquals
-   * @param {number} a - first integer
-   * @param {number} b - second integer
-   * @returns {boolean} true if the first integer is within 1 of the second, false otherwise
-   */
-  function roundedEquals(a, b) {
-    return a - 1 === b || a === b || a + 1 === b;
-  }
-
-  ;
 /*!
 {
   "name": "CSS vh unit",
@@ -14132,13 +16752,26 @@ Detects support for `transform-style: preserve-3d`, for getting a proper 3D pers
 }
 !*/
 
-  testStyles('#modernizr { height: 50vh; }', function(elem) {
-    var height = parseInt(window.innerHeight / 2, 10);
+  testStyles('#modernizr { height: 50vh; max-height: 10px; }', function(elem) {
     var compStyle = parseInt(computedStyle(elem, null, 'height'), 10);
-
-    Modernizr.addTest('cssvhunit', roundedEquals(compStyle, height));
+    Modernizr.addTest('cssvhunit', compStyle === 10);
   });
 
+
+  /**
+   * roundedEquals takes two integers and checks if the first is within 1 of the second
+   *
+   * @access private
+   * @function roundedEquals
+   * @param {number} a - first integer
+   * @param {number} b - second integer
+   * @returns {boolean} true if the first integer is within 1 of the second, false otherwise
+   */
+  function roundedEquals(a, b) {
+    return a - 1 === b || a === b || a + 1 === b;
+  }
+
+  ;
 /*!
 {
   "name": "CSS vmax unit",
@@ -14428,9 +17061,7 @@ Does the browser support the HTML5 [hidden] attribute?
 }
 !*/
 /* DOC
-
 Determines if DOM4 MutationObserver support is available.
-
 */
 
   Modernizr.addTest('mutationobserver',
@@ -14535,7 +17166,7 @@ Part of Device Access aspect of HTML5, same category as geolocation.
     // their trident equivalent.
     try {
       // Older Firefox didn't map oninput attribute to oninput property
-      var testEvent  = document.createEvent('KeyboardEvent');
+      var testEvent = document.createEvent('KeyboardEvent');
       supportsOnInput = false;
       var handler = function(e) {
         supportsOnInput = true;
@@ -14660,6 +17291,27 @@ E.g. iOS < 6, some android versions and embedded Chrome WebViews don't support t
     return !elem.disabled;
   });
 
+
+  /**
+   * List of JavaScript DOM values used for tests including a NON-prefix
+   *
+   * @memberOf Modernizr
+   * @name Modernizr._domPrefixesAll
+   * @optionName Modernizr._domPrefixesAll
+   * @optionProp domPrefixesAll
+   * @access public
+   * @example
+   *
+   * Modernizr._domPrefixesAll is exactly the same as [_domPrefixes](#modernizr-_domPrefixes), but also
+   * adds an empty string in the array to test for a non-prefixed value
+   *
+   * ```js
+   * Modernizr._domPrefixesAll === [ "", "Moz", "O", "ms", "Webkit" ];
+   * ```
+   */
+  var domPrefixesAll = [''].concat(domPrefixes);
+  ModernizrProto._domPrefixesAll = domPrefixesAll;
+  
 /*!
 {
   "name": "input[directory] Attribute",
@@ -14677,13 +17329,9 @@ file selection dialog.
   Modernizr.addTest('fileinputdirectory', function() {
     var elem = createElement('input'), dir = 'directory';
     elem.type = 'file';
-    if (dir in elem) {
-      return true;
-    } else {
-      for (var i = 0, len = domPrefixes.length; i < len; i++) {
-        if (domPrefixes[i] + dir in elem) {
-          return true;
-        }
+    for (var i = 0, len = domPrefixesAll.length; i < len; i++) {
+      if (domPrefixesAll[i] + dir in elem) {
+        return true;
       }
     }
     return false;
@@ -14796,7 +17444,7 @@ the test can be combined:
     var invalidFired = false;
     var input;
 
-    Modernizr.formvalidationapi =  true;
+    Modernizr.formvalidationapi = true;
 
     // Prevent form from being submitted
     form.addEventListener('submit', function(e) {
@@ -14940,6 +17588,12 @@ Detects support for the History API for manipulating the browser session history
     // Unfortunately support is really buggy and there is no clean way to detect
     // these bugs, so we fall back to a user agent sniff :(
     var ua = navigator.userAgent;
+    
+    // Some browsers allow to have empty userAgent.
+    // Therefore, we need to check ua before using "indexOf" on it.
+    if(!ua) {
+      return false;
+    }
 
     // We only want Android 2 and 4.0, stock browser, and not Chrome which identifies
     // itself as 'Mobile Safari' as well, nor Windows Phone (issue #1471).
@@ -15148,14 +17802,13 @@ Detects support for the `window.postMessage` protocol for cross-document messagi
 `Modernizr.postmessage.structuredclones` reports if `postMessage` can send objects.
 */
 
-  var support = new Boolean('postMessage' in window);
-  support.structuredclones = true;
-
+  var bool = true;
   try {
-    window.postMessage({ toString: function () { support.structuredclones = false; } }, '*');
+    window.postMessage({ toString: function () { bool = false; } }, '*');
   } catch (e) {}
 
-  Modernizr.addTest('postmessage', support);
+  Modernizr.addTest('postmessage', new Boolean('postMessage' in window));
+  Modernizr.addTest('postmessage.structuredclones', bool);
 
 /*!
 {
@@ -15355,6 +18008,7 @@ Detects support for the `window.requestAnimationFrame` API, for offloading anima
     "href": "https://www.w3.org/TR/2013/WD-touch-events-20130124/"
   }],
   "warnings": [
+    "** DEPRECATED see https://github.com/Modernizr/Modernizr/pull/2432 **",
     "Indicates if the browser supports the Touch Events spec, and does not necessarily reflect a touchscreen device"
   ],
   "knownBugs": [
@@ -15399,6 +18053,7 @@ This test will also return `true` for Firefox 4 Multitouch support.
   "property": "unicode",
   "tags": ["encoding"],
   "warnings": [
+    "** DEPRECATED see https://github.com/Modernizr/Modernizr/issues/2468 **",
     "positive Unicode support doesn't mean you can use it inside <title>, this seems more related to OS & Language packs"
   ]
 }
@@ -15524,21 +18179,21 @@ Modernizr.datauri.over32kb  // false in IE8
     if (navigator.userAgent.indexOf('MSIE 7.') !== -1) {
       // Keep the test async
       setTimeout(function() {
-        addTest('datauri', false);
+        Modernizr.addTest('datauri', new Boolean(false));
       }, 10);
     }
 
     var datauri = new Image();
 
     datauri.onerror = function() {
-      addTest('datauri', false);
+      Modernizr.addTest('datauri', new Boolean(false));
     };
     datauri.onload = function() {
       if (datauri.width === 1 && datauri.height === 1) {
         testOver32kb();
       }
       else {
-        addTest('datauri', false);
+        Modernizr.addTest('datauri', new Boolean(false));
       }
     };
 
@@ -15551,14 +18206,12 @@ Modernizr.datauri.over32kb  // false in IE8
       var datauriBig = new Image();
 
       datauriBig.onerror = function() {
-        addTest('datauri', true);
-        Modernizr.datauri = new Boolean(true);
-        Modernizr.datauri.over32kb = false;
+        Modernizr.addTest('datauri', new Boolean(true));
+        Modernizr.addTest('datauri.over32kb', false);
       };
       datauriBig.onload = function() {
-        addTest('datauri', true);
-        Modernizr.datauri = new Boolean(true);
-        Modernizr.datauri.over32kb = (datauriBig.width === 1 && datauriBig.height === 1);
+        Modernizr.addTest('datauri', new Boolean(true));
+        Modernizr.addTest('datauri.over32kb', datauriBig.width === 1 && datauriBig.height === 1);
       };
 
       var base64str = 'R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
@@ -15567,7 +18220,6 @@ Modernizr.datauri.over32kb  // false in IE8
       }
       datauriBig.src = 'data:image/gif;base64,' + base64str;
     }
-
   });
 
 /*!
@@ -15661,7 +18313,7 @@ Detects support for the API that provides access to the vibration mechanism of t
   "name": "HTML5 Video",
   "property": "video",
   "caniuse": "video",
-  "tags": ["html5"],
+  "tags": ["html5", "video", "media"],
   "knownBugs": ["Without QuickTime, `Modernizr.video.h264` will be `undefined`; https://github.com/Modernizr/Modernizr/issues/546"],
   "polyfills": [
     "html5media",
@@ -15690,31 +18342,34 @@ Modernizr.video.ogg     // 'probably'
   // Note: in some older browsers, "no" was a return value instead of empty string.
   //   It was live in FF3.5.0 and 3.5.1, but fixed in 3.5.2
   //   It was also live in Safari 4.0.0 - 4.0.4, but fixed in 4.0.5
-
-  Modernizr.addTest('video', function() {
+  (function() {
     var elem = createElement('video');
-    var bool = false;
+
+    Modernizr.addTest('video', function() {
+      var bool = false;
+      try {
+        bool = !!elem.canPlayType;
+        if (bool) {
+          bool = new Boolean(bool);
+        }
+      } catch (e) {}
+
+      return bool;
+    });
 
     // IE9 Running on Windows Server SKU can cause an exception to be thrown, bug #224
     try {
-      bool = !!elem.canPlayType;
-      if (bool) {
-        bool = new Boolean(bool);
-        bool.ogg = elem.canPlayType('video/ogg; codecs="theora"').replace(/^no$/, '');
+      if (!!elem.canPlayType) {
+        Modernizr.addTest('video.ogg', elem.canPlayType('video/ogg; codecs="theora"').replace(/^no$/, ''));
 
         // Without QuickTime, this value will be `undefined`. github.com/Modernizr/Modernizr/issues/546
-        bool.h264 = elem.canPlayType('video/mp4; codecs="avc1.42E01E"').replace(/^no$/, '');
-
-        bool.webm = elem.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/^no$/, '');
-
-        bool.vp9 = elem.canPlayType('video/webm; codecs="vp9"').replace(/^no$/, '');
-
-        bool.hls = elem.canPlayType('application/x-mpegURL; codecs="avc1.42E01E"').replace(/^no$/, '');
+        Modernizr.addTest('video.h264', elem.canPlayType('video/mp4; codecs="avc1.42E01E"').replace(/^no$/, ''));
+        Modernizr.addTest('video.webm', elem.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/^no$/, ''));
+        Modernizr.addTest('video.vp9', elem.canPlayType('video/webm; codecs="vp9"').replace(/^no$/, ''));
+        Modernizr.addTest('video.hls', elem.canPlayType('application/x-mpegURL; codecs="avc1.42E01E"').replace(/^no$/, ''));
       }
     } catch (e) {}
-
-    return bool;
-  });
+  })();
 
 /*!
 {
@@ -15882,7 +18537,7 @@ Detects support for XDomainRequest in IE9 & IE8
 module.exports=window.Modernizr;if(hadGlobal){window.Modernizr=oldGlobal;}else{delete window.Modernizr;}})(window);
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
@@ -17647,14 +20302,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() 
 
 
 /***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(52).Promise;
-
-
-/***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -17844,7 +20492,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -18035,7 +20683,314 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 22 */
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(Promise) {/*!
+* screenfull
+* v5.0.0 - 2019-09-09
+* (c) Sindre Sorhus; MIT License
+*/
+(function () {
+	'use strict';
+
+	var document = typeof window !== 'undefined' && typeof window.document !== 'undefined' ? window.document : {};
+	var isCommonjs =  true && module.exports;
+
+	var fn = (function () {
+		var val;
+
+		var fnMap = [
+			[
+				'requestFullscreen',
+				'exitFullscreen',
+				'fullscreenElement',
+				'fullscreenEnabled',
+				'fullscreenchange',
+				'fullscreenerror'
+			],
+			// New WebKit
+			[
+				'webkitRequestFullscreen',
+				'webkitExitFullscreen',
+				'webkitFullscreenElement',
+				'webkitFullscreenEnabled',
+				'webkitfullscreenchange',
+				'webkitfullscreenerror'
+
+			],
+			// Old WebKit
+			[
+				'webkitRequestFullScreen',
+				'webkitCancelFullScreen',
+				'webkitCurrentFullScreenElement',
+				'webkitCancelFullScreen',
+				'webkitfullscreenchange',
+				'webkitfullscreenerror'
+
+			],
+			[
+				'mozRequestFullScreen',
+				'mozCancelFullScreen',
+				'mozFullScreenElement',
+				'mozFullScreenEnabled',
+				'mozfullscreenchange',
+				'mozfullscreenerror'
+			],
+			[
+				'msRequestFullscreen',
+				'msExitFullscreen',
+				'msFullscreenElement',
+				'msFullscreenEnabled',
+				'MSFullscreenChange',
+				'MSFullscreenError'
+			]
+		];
+
+		var i = 0;
+		var l = fnMap.length;
+		var ret = {};
+
+		for (; i < l; i++) {
+			val = fnMap[i];
+			if (val && val[1] in document) {
+				for (i = 0; i < val.length; i++) {
+					ret[fnMap[0][i]] = val[i];
+				}
+				return ret;
+			}
+		}
+
+		return false;
+	})();
+
+	var eventNameMap = {
+		change: fn.fullscreenchange,
+		error: fn.fullscreenerror
+	};
+
+	var screenfull = {
+		request: function (element) {
+			return new Promise(function (resolve, reject) {
+				var onFullScreenEntered = function () {
+					this.off('change', onFullScreenEntered);
+					resolve();
+				}.bind(this);
+
+				this.on('change', onFullScreenEntered);
+
+				element = element || document.documentElement;
+
+				Promise.resolve(element[fn.requestFullscreen]()).catch(reject);
+			}.bind(this));
+		},
+		exit: function () {
+			return new Promise(function (resolve, reject) {
+				if (!this.isFullscreen) {
+					resolve();
+					return;
+				}
+
+				var onFullScreenExit = function () {
+					this.off('change', onFullScreenExit);
+					resolve();
+				}.bind(this);
+
+				this.on('change', onFullScreenExit);
+
+				Promise.resolve(document[fn.exitFullscreen]()).catch(reject);
+			}.bind(this));
+		},
+		toggle: function (element) {
+			return this.isFullscreen ? this.exit() : this.request(element);
+		},
+		onchange: function (callback) {
+			this.on('change', callback);
+		},
+		onerror: function (callback) {
+			this.on('error', callback);
+		},
+		on: function (event, callback) {
+			var eventName = eventNameMap[event];
+			if (eventName) {
+				document.addEventListener(eventName, callback, false);
+			}
+		},
+		off: function (event, callback) {
+			var eventName = eventNameMap[event];
+			if (eventName) {
+				document.removeEventListener(eventName, callback, false);
+			}
+		},
+		raw: fn
+	};
+
+	if (!fn) {
+		if (isCommonjs) {
+			module.exports = {isEnabled: false};
+		} else {
+			window.screenfull = {isEnabled: false};
+		}
+
+		return;
+	}
+
+	Object.defineProperties(screenfull, {
+		isFullscreen: {
+			get: function () {
+				return Boolean(document[fn.fullscreenElement]);
+			}
+		},
+		element: {
+			enumerable: true,
+			get: function () {
+				return document[fn.fullscreenElement];
+			}
+		},
+		isEnabled: {
+			enumerable: true,
+			get: function () {
+				// Coerce to boolean in case of old WebKit
+				return Boolean(document[fn.fullscreenEnabled]);
+			}
+		}
+	});
+
+	if (isCommonjs) {
+		module.exports = screenfull;
+	} else {
+		window.screenfull = screenfull;
+	}
+})();
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(15)))
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+    __webpack_require__(0),
+    __webpack_require__(3),
+    __webpack_require__(1),
+    __webpack_require__(4),
+    __webpack_require__(5),
+    __webpack_require__(8),
+    __webpack_require__(75),
+], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, logger, registry, utils, Base, inject, Showdown) {
+    var log = logger.getLogger("pat.markdown");
+    var is_markdown_resource = /\.md$/;
+
+    var Markdown = Base.extend({
+        name: "markdown",
+        trigger: ".pat-markdown",
+
+        init: function($el, options) {
+            if (this.$el.is(this.trigger)) {
+                /* This pattern can either be used standalone or as an enhancement
+                * to pat-inject. The following only applies to standalone, when
+                * $el is explicitly configured with the pat-markdown trigger.
+                */
+                var source = this.$el.is(":input") ? this.$el.val() : this.$el.text();
+                this.render(source).replaceAll(this.$el);
+            }
+        },
+
+        render: function(text) {
+            var $rendering = $("<div/>"),
+                converter = new Showdown.Converter({tables: true, extensions: ['prettify']});
+            $rendering.html(converter.makeHtml(text));
+            return $rendering;
+        },
+
+        renderForInjection: function(cfg, data) {
+            var header, source = data;
+            if (cfg.source && (header=/^#+\s*(.*)/.exec(cfg.source))!==null) {
+                source = this.extractSection(source, header[1]);
+                if (source===null) {
+                    log.warn("Could not find section \"" + cfg.source + "\" in " + cfg.url);
+                    return $("<div/>").attr("data-src", cfg.url);
+                }
+                source+="\n";  // Needed for some markdown syntax
+            }
+            return this.render(source).attr("data-src", cfg.source ? cfg.url+cfg.source : cfg.url);
+        },
+
+        extractSection: function(text, header) {
+            var pattern, level;
+            header = utils.escapeRegExp(header);
+            var matcher = new RegExp(
+                        "^((#+)\\s*@TEXT@\\s*|@TEXT@\\s*\\n([=-])+\\s*)$".replace(/@TEXT@/g, header), "m"),
+                match = matcher.exec(text);
+            if (match===null) {
+                return null;
+            } else if (match[2]) {
+                // We have a ##-style header.
+                level = match[2].length;
+                pattern="^#{@LEVEL@}\\s*@TEXT@\\s*$\\n+((?:.|\\n)*?(?=^#{1,@LEVEL@}\\s)|.*(?:.|\\n)*)";
+                pattern=pattern.replace(/@LEVEL@/g, level);
+            } else if (match[3]) {
+                // We have an underscore-style header.
+                if (match[3]==="=")
+                    pattern="^@TEXT@\\s*\\n=+\\s*\\n+((?:.|\\n)*?(?=^.*?\\n=+\\s*$)|(?:.|\\n)*)";
+                else
+                    pattern="^@TEXT@\\s*\\n-+\\s*\\n+((?:.|\\n)*?(?=^.*?\\n[-=]+\\s*$)|(?:.|\\n)*)";
+            } else {
+                log.error("Unexpected section match result", match);
+                return null;
+            }
+            pattern = pattern.replace(/@TEXT@/g, header);
+            matcher = new RegExp(pattern, "m");
+            match = matcher.exec(text);
+            if (match===null) {
+                log.error("Failed to find section with known present header?");
+            }
+            return (match!==null) ? match[0] : null;
+        }
+    });
+
+    // Add support for syntax highlighting via pat-syntax-highlight
+    Showdown.extensions.prettify = function(converter) {
+        return [{ type: 'output', filter: function(source){
+            return source.replace(/(<pre>)?<code>/gi, function(match, pre) {
+                if (pre) {
+                    return '<pre class="pat-syntax-highlight" tabIndex="0"><code data-inner="1">';
+                } else {
+                    return '<code class="pat-syntax-highlight">';
+                }
+            });
+        }}];
+    };
+
+    $(document).ready(function () {
+        $(document.body).on("patterns-inject-triggered.pat-markdown", "a.pat-inject", function identifyMarkdownURLs() {
+            /* Identify injected URLs which point to markdown files and set their
+            * datatype so that we can register a type handler for them.
+            */
+            var cfgs = $(this).data("pat-inject");
+            cfgs.forEach(function(cfg) {
+                if (is_markdown_resource.test(cfg.url)) {
+                    cfg.dataType = "markdown";
+                }
+            });
+        });
+    });
+
+    inject.registerTypeHandler("markdown", {
+        sources: function(cfgs, data) {
+            return cfgs.map(function(cfg) {
+                var pat = Markdown.init(cfg.$target);
+                return pat.renderForInjection(cfg, data);
+            });
+        }
+    });
+    return Markdown;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+/* 25 */
 /***/ (function(module, exports) {
 
 module.exports = function() {
@@ -18044,7 +20999,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 23 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var require;//! moment.js
@@ -22561,9 +25516,9 @@ module.exports = function() {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)(module)))
 
 /***/ }),
-/* 24 */,
-/* 25 */,
-/* 26 */
+/* 27 */,
+/* 28 */,
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Patterns bundle configuration.
@@ -22577,83 +25532,86 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Patterns bund
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
     __webpack_require__(1), // Keep separate as first argument to callback
     __webpack_require__(0),
-    __webpack_require__(23),
-    __webpack_require__(31),
+    __webpack_require__(26),
+    __webpack_require__(34),
     __webpack_require__(12),
-    __webpack_require__(32),
-    __webpack_require__(33),
     __webpack_require__(35),
     __webpack_require__(36),
-    // "pat-breadcrumbs",
     __webpack_require__(38),
-    // "pat-calendar",
     __webpack_require__(39),
+    // "pat-breadcrumbs",
     __webpack_require__(41),
+    // "pat-calendar",
     __webpack_require__(42),
-    __webpack_require__(43),
     __webpack_require__(44),
-    // "pat-colour-picker",
+    __webpack_require__(45),
+    __webpack_require__(46),
     __webpack_require__(47),
-    __webpack_require__(49),
-    __webpack_require__(18),
-    __webpack_require__(51),
+    // "pat-colour-picker",
+    __webpack_require__(50),
+    __webpack_require__(52),
+    __webpack_require__(20),
+    __webpack_require__(54),
     // "pat-edit-tinymce",
-    __webpack_require__(57),
-    __webpack_require__(59),
     __webpack_require__(60),
-    __webpack_require__(61),
     __webpack_require__(62),
     __webpack_require__(63),
-    // "pat-syntax-highlight",
+    __webpack_require__(64),
+    __webpack_require__(65),
+    __webpack_require__(66),
     __webpack_require__(67),
+    __webpack_require__(68),
+    // "pat-syntax-highlight",
+    __webpack_require__(72),
     __webpack_require__(8),
     __webpack_require__(13),
-    __webpack_require__(69),
-    __webpack_require__(70),
-    __webpack_require__(72),
     __webpack_require__(74),
-    __webpack_require__(21),
-    __webpack_require__(75),
+    __webpack_require__(24),
     __webpack_require__(76),
-    __webpack_require__(77),
+    __webpack_require__(78),
+    __webpack_require__(22),
     __webpack_require__(79),
     __webpack_require__(80),
     __webpack_require__(81),
-    __webpack_require__(82),
     __webpack_require__(83),
     __webpack_require__(84),
     __webpack_require__(85),
+    __webpack_require__(86),
     __webpack_require__(87),
+    __webpack_require__(88),
     __webpack_require__(89),
-    __webpack_require__(90),
-    __webpack_require__(92)
+    __webpack_require__(91),
+    __webpack_require__(92),
+    __webpack_require__(94),
+    __webpack_require__(95),
+    __webpack_require__(97)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function(registry, $, moment) {
-    __webpack_require__.e(/* import() */ 5).then(__webpack_require__.t.bind(null, 95, 7));
-    __webpack_require__.e(/* import() */ 12).then(__webpack_require__.t.bind(null, 96, 7));
-    __webpack_require__.e(/* import() */ 6).then(__webpack_require__.t.bind(null, 97, 7));
-    __webpack_require__.e(/* import() */ 7).then(__webpack_require__.t.bind(null, 98, 7));
-    __webpack_require__.e(/* import() */ 18).then(__webpack_require__.t.bind(null, 99, 7));
-    __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 24, 7));
-    __webpack_require__.e(/* import() */ 10).then(__webpack_require__.t.bind(null, 100, 7));
-    __webpack_require__.e(/* import() */ 11).then(__webpack_require__.t.bind(null, 101, 7));
-    __webpack_require__.e(/* import() */ 8).then(__webpack_require__.t.bind(null, 102, 7));
-    __webpack_require__.e(/* import() */ 9).then(__webpack_require__.t.bind(null, 103, 7));
-    __webpack_require__.e(/* import() */ 13).then(__webpack_require__.t.bind(null, 104, 7));
-    __webpack_require__.e(/* import() */ 14).then(__webpack_require__.t.bind(null, 105, 7));
-    __webpack_require__.e(/* import() */ 15).then(__webpack_require__.t.bind(null, 106, 7));
-    __webpack_require__.e(/* import() */ 16).then(__webpack_require__.t.bind(null, 107, 7));
-    __webpack_require__.e(/* import() */ 17).then(__webpack_require__.t.bind(null, 108, 7));
-    __webpack_require__.e(/* import() */ 19).then(__webpack_require__.t.bind(null, 109, 7));
-    __webpack_require__.e(/* import() */ 20).then(__webpack_require__.t.bind(null, 110, 7));
-    __webpack_require__.e(/* import() */ 21).then(__webpack_require__.t.bind(null, 111, 7));
-    __webpack_require__.e(/* import() */ 23).then(__webpack_require__.t.bind(null, 112, 7));
-    __webpack_require__.e(/* import() */ 22).then(__webpack_require__.t.bind(null, 113, 7));
-    __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 24, 7));
-    __webpack_require__.e(/* import() */ 24).then(__webpack_require__.t.bind(null, 114, 7));
+    __webpack_require__.e(/* import() */ 5).then(__webpack_require__.t.bind(null, 101, 7));
+    __webpack_require__.e(/* import() */ 12).then(__webpack_require__.t.bind(null, 102, 7));
+    __webpack_require__.e(/* import() */ 6).then(__webpack_require__.t.bind(null, 103, 7));
+    __webpack_require__.e(/* import() */ 7).then(__webpack_require__.t.bind(null, 104, 7));
+    __webpack_require__.e(/* import() */ 18).then(__webpack_require__.t.bind(null, 105, 7));
+    __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 27, 7));
+    __webpack_require__.e(/* import() */ 10).then(__webpack_require__.t.bind(null, 106, 7));
+    __webpack_require__.e(/* import() */ 11).then(__webpack_require__.t.bind(null, 107, 7));
+    __webpack_require__.e(/* import() */ 8).then(__webpack_require__.t.bind(null, 108, 7));
+    __webpack_require__.e(/* import() */ 9).then(__webpack_require__.t.bind(null, 109, 7));
+    __webpack_require__.e(/* import() */ 13).then(__webpack_require__.t.bind(null, 110, 7));
+    __webpack_require__.e(/* import() */ 14).then(__webpack_require__.t.bind(null, 111, 7));
+    __webpack_require__.e(/* import() */ 15).then(__webpack_require__.t.bind(null, 112, 7));
+    __webpack_require__.e(/* import() */ 16).then(__webpack_require__.t.bind(null, 113, 7));
+    __webpack_require__.e(/* import() */ 17).then(__webpack_require__.t.bind(null, 114, 7));
+    __webpack_require__.e(/* import() */ 19).then(__webpack_require__.t.bind(null, 115, 7));
+    __webpack_require__.e(/* import() */ 20).then(__webpack_require__.t.bind(null, 116, 7));
+    __webpack_require__.e(/* import() */ 21).then(__webpack_require__.t.bind(null, 117, 7));
+    __webpack_require__.e(/* import() */ 23).then(__webpack_require__.t.bind(null, 118, 7));
+    __webpack_require__.e(/* import() */ 22).then(__webpack_require__.t.bind(null, 119, 7));
+    __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 27, 7));
+    __webpack_require__.e(/* import() */ 24).then(__webpack_require__.t.bind(null, 120, 7));
 
-    var window = __webpack_require__(93);
+    var window = __webpack_require__(98);
     window.jQuery = $;
-    __webpack_require__(94);
+    __webpack_require__(99);
 
     $(function () {
         registry.init();
@@ -22666,14 +25624,14 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Patterns bund
 
 
 /***/ }),
-/* 27 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(28);
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(31);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7)))
 
 /***/ }),
-/* 28 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -33278,7 +36236,7 @@ return jQuery;
 
 
 /***/ }),
-/* 29 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -33526,7 +36484,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 30 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
@@ -33978,7 +36936,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() 
 
 
 /***/ }),
-/* 31 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -34172,7 +37130,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 
 /***/ }),
-/* 32 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -34185,48 +37143,19 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     name: "autofocus",
     trigger: ":input.pat-autofocus,:input[autofocus]",
     init: function init($el) {
-      $el = $el.filter(function () {
-        // This function filters out all elements that have
-        // .pat-depends ancestors.
-        // If a .pat-autofocus element has a .pat-depends ancestor, then
-        // autofocus is dependent on that ancestor being visible.
-        var $el = $(this);
-        var $depends_slave = $el.closest(".pat-depends").addBack(".pat-depends");
-
-        if ($depends_slave.length > 0) {
-          // We register an event handler so that the element is
-          // only autofocused once the .pat-depends ancestor
-          // becomes visible.
-          $depends_slave.on("pat-update", function (e, data) {
-            var $child = $el;
-
-            if (data.pattern === "depends") {
-              if (data.transition === "complete" && $(this).is(":visible") || data.enabled === "true" && $(this).is("visible")) {
-                if ($el.hasClass("select2-offscreen")) {
-                  $child = $el.parent().find(".select2-input");
-                }
-
-                if (!$child.is(":disabled")) {
-                  $child.focus();
-                }
-              }
-            }
-          });
-          return false;
-        }
-
-        return true;
-      }); // $el is now only those elements not dependent on .pat-depends
-      // criteria.
-
-      for (var i = 0; i < $el.length; i += 1) {
-        if (!$el.eq(i).val()) {
-          $el.get(i).focus();
-          return;
-        }
-      }
-
-      $el.eq(0).focus();
+      this.setFocus(this.trigger);
+      $(document).on("pat-update", function (e, data) {
+        autofocus.setFocus(e.target);
+      });
+    },
+    setFocus: function setFocus(target) {
+      var $all = $(target);
+      var $visible = $all.filter(function (index) {
+        if ($(this).is(":visible")) return true;
+      });
+      setTimeout(function () {
+        $visible.get(0) && $visible.get(0).focus();
+      }, 10);
     }
   };
   registry.register(autofocus);
@@ -34235,7 +37164,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 // vim: sw=4 expandtab
 
 /***/ }),
-/* 33 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -34246,12 +37175,19 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
  */
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
     __webpack_require__(0),
-    __webpack_require__(16),
+    __webpack_require__(18),
     __webpack_require__(5),
     __webpack_require__(1),
     __webpack_require__(2),
-    __webpack_require__(6)
-], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, browser, Base, registry, Parser, _) {
+    __webpack_require__(6),
+], __WEBPACK_AMD_DEFINE_RESULT__ = (function(
+    $,
+    browser,
+    Base,
+    registry,
+    Parser,
+    _
+) {
     var parser = new Parser("auto-scale");
     parser.addArgument("method", "scale", ["scale", "zoom"]);
     parser.addArgument("size", "width", ["width", "height", "contain", "cover"]);
@@ -34279,16 +37215,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 // See https://bugzilla.mozilla.org/show_bug.cgi?id=390936
                 this.force_method = "scale";
             }
-
-            var scaler =  _.debounce(this.scale.bind(this), 250, true)
-
-            $(window).on("resize.autoscale", scaler)
-            document.addEventListener("fullscreenchange", scaler)
-            document.addEventListener("webkitfullscreenchange", scaler)
-            document.addEventListener("mozfullscreenchange", scaler)
-            document.addEventListener("MSFullscreenChange", scaler)
-
-            $(document).on("pat-update.autoscale", _.debounce(this.scale.bind(this), 250));
+            var scaler = _.debounce(this.scale.bind(this), 250);
+            $(window).on("resize.autoscale", scaler);
+            $(document).on("pat-update.autoscale", scaler);
             return this;
         },
 
@@ -34296,11 +37225,11 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
             var available_space, scale, scaled_height, scaled_width, container;
 
             if (this.$el[0].tagName === "BODY") {
-                container = this.$el[0]
+                container = this.$el[0];
             } else {
                 var $parent;
-                if (this.$el.closest('.auto-scale-wrapper').length != 0) {
-                    container = this.$el.closest('.auto-scale-wrapper').parent()[0];
+                if (this.$el.closest(".auto-scale-wrapper").length != 0) {
+                    container = this.$el.closest(".auto-scale-wrapper").parent()[0];
                 } else {
                     container = this.$el.parent()[0];
                 }
@@ -34314,7 +37243,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
             available_space = {
                 width: parseInt(style.width, 10),
                 height: parseInt(style.height, 10)
-            }
+            };
 
             available_space.width = Math.min(available_space.width, this.options.max.width);
             available_space.width = Math.max(available_space.width, this.options.min.width);
@@ -34329,11 +37258,17 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                     break;
                 case "contain":
                     // Fit entire content on area, allowing for extra space
-                    scale = Math.min(available_space.width / this.$el.outerWidth(), available_space.height / this.$el.outerHeight());
+                    scale = Math.min(
+                        available_space.width / this.$el.outerWidth(),
+                        available_space.height / this.$el.outerHeight()
+                    );
                     break;
                 case "cover":
                     // Covert entire area, possible clipping
-                    scale = Math.max(available_space.width / this.$el.outerWidth(), available_space.height / this.$el.outerHeight());
+                    scale = Math.max(
+                        available_space.width / this.$el.outerWidth(),
+                        available_space.height / this.$el.outerHeight()
+                    );
                     break;
                 default:
                     return;
@@ -34345,10 +37280,23 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
             switch (this.options.method) {
                 case "scale":
                     this.$el.css("transform", "scale(" + scale + ")");
-                    if (this.$el.parent().attr('class') === undefined || this.$el.parent().attr('class') != undefined && $.inArray('auto-scale-wrapper', this.$el.parent().attr('class').split(/\s+/)) === -1) {
-                        this.$el.wrap("<div class='auto-scale-wrapper'></div>");                        
+                    if (
+                        this.$el.parent().attr("class") === undefined ||
+                        (this.$el.parent().attr("class") != undefined &&
+                            $.inArray(
+                                "auto-scale-wrapper",
+                                this.$el
+                                    .parent()
+                                    .attr("class")
+                                    .split(/\s+/)
+                            ) === -1)
+                    ) {
+                        this.$el.wrap("<div class='auto-scale-wrapper'></div>");
                     }
-                    this.$el.parent().height(scaled_height).width(scaled_width);
+                    this.$el
+                        .parent()
+                        .height(scaled_height)
+                        .width(scaled_width);
                     break;
                 case "zoom":
                     this.$el.css("zoom", scale);
@@ -34363,7 +37311,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 34 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -34419,7 +37367,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 35 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -34449,7 +37397,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     return Base.extend({
         name: "autosubmit",
-        trigger: ".pat-autosubmit",
+        trigger: ".pat-autosubmit, .pat-auto-submit",
         parser: {
             parse: function($el, opts) {
                 var cfg = parser.parse($el, opts);
@@ -34539,7 +37487,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 36 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -34554,7 +37502,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(3),
     __webpack_require__(2),
     __webpack_require__(1),
-    __webpack_require__(37)
+    __webpack_require__(40)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, logger, Parser, registry) {
     "use strict";
     var log = logger.getLogger("autosuggest.");
@@ -34565,7 +37513,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     parser.addArgument("allow-new-words", true); // Should custom tags be allowed?
     parser.addArgument("max-selection-size", 0);
     parser.addArgument("minimum-input-length");   // Don't restrict by default so that all results show
-    parser.addArgument("placeholder", function($el) { return $el.attr("placeholder") || "Enter text"; });
+    parser.addArgument("placeholder", function($el) { return $el.attr("placeholder") || undefined; });
     parser.addArgument("prefill", function($el) { return $el.val(); });
     parser.addArgument("prefill-json", ""); // JSON format for pre-filling
     parser.addArgument("words", "");
@@ -34592,13 +37540,17 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
             }
             var pat_config = parser.parse($el, opts);
             var config = {
-                placeholder: $el.attr("readonly") ? "" : pat_config.placeholder,
                 tokenSeparators: [","],
                 openOnEnter: false,
                 maximumSelectionSize: pat_config.maxSelectionSize,
                 minimumInputLength: pat_config.minimumInputLength,
                 allowClear: pat_config.maxSelectionSize === 1 && !$el.prop('required')
             };
+            if ($el.attr("readonly")) {
+                config.placeholder = "";
+            } else if (pat_config.placeholder) {
+                config.placeholder = pat_config.placeholder;
+            }
 
             if (pat_config.selectionClasses) {
                 // We need to customize the formatting/markup of the selection
@@ -34669,12 +37621,12 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 if (! Array.isArray(words)) {
                     words = $.map(words, function (v, k) { return {id: k, text: v}; });
                 }
-            } 
+            }
             if (pat_config.words) {
                 words = pat_config.words.split(/\s*,\s*/);
                 words = $.map(words, function (v) { return {id: v, text: v}; });
             }
- 
+
             // Per Cornelis, if our max lenght is 1, we want select style. If it is larger, we want tag style
             // Now this is somewhat fishy because so far, we always configured tag style by setting config.tags = words.
             // Even if words was [], we would get a tag stylee select
@@ -34685,7 +37637,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 // We allow exactly one value, use dropdown styles. How do we feed in words?
             } else {
                 // We allow multiple values, use the pill style - called tags in select 2 speech
-                select2_config.tags = words;                
+                select2_config.tags = words;
             }
 
             if (pat_config.prefill && pat_config.prefill.length) {
@@ -34799,7 +37751,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 37 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*** IMPORTS FROM imports-loader ***/
@@ -38318,7 +41270,7 @@ the specific language governing permissions and limitations under the Apache Lic
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(0)))
 
 /***/ }),
-/* 38 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -38328,7 +41280,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
  * Copyright 2013 Florian Friesdorf
  * Copyright 2013-2014 Simplon B.V. - Wichert Akkerman
  */
-!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(6), __webpack_require__(3), __webpack_require__(2), __webpack_require__(5), __webpack_require__(1), __webpack_require__(17)], __WEBPACK_AMD_DEFINE_RESULT__ = (function ($, _, logger, Parser, Base, registry, Modernizr) {
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(6), __webpack_require__(3), __webpack_require__(2), __webpack_require__(5), __webpack_require__(1), __webpack_require__(19)], __WEBPACK_AMD_DEFINE_RESULT__ = (function ($, _, logger, Parser, Base, registry, Modernizr) {
   var parser = new Parser("bumper"),
       log = logger.getLogger("bumper");
   parser.addArgument("margin", 0);
@@ -38474,7 +41426,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)); // vim: sw=4 expandtab
 
 /***/ }),
-/* 39 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -38487,7 +41439,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(1),
     __webpack_require__(3),
     __webpack_require__(2),
-    __webpack_require__(40)
+    __webpack_require__(43)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, patterns, logger, Parser) {
     var log = logger.getLogger("pat.carousel"),
         parser = new Parser("carousel");
@@ -38610,7 +41562,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 40 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -41626,7 +44578,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 41 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -41834,7 +44786,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 42 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -42077,7 +45029,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 43 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Clone pattern */
@@ -42197,7 +45149,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Clone pattern
 
 
 /***/ }),
-/* 44 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -42400,7 +45352,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 45 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -42739,7 +45691,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
 
 
 /***/ }),
-/* 46 */
+/* 49 */
 /***/ (function(module, exports) {
 
 /**
@@ -43471,7 +46423,7 @@ window.IntersectionObserverEntry = IntersectionObserverEntry;
 
 
 /***/ }),
-/* 47 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* pat-date-picker  - Polyfill for input type=date */
@@ -43480,9 +46432,9 @@ window.IntersectionObserverEntry = IntersectionObserverEntry;
         __webpack_require__(2),
         __webpack_require__(1),
         __webpack_require__(5),
-        __webpack_require__(48),
+        __webpack_require__(51),
         __webpack_require__(10),
-        __webpack_require__(17)
+        __webpack_require__(19)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = (function(_, Parser, registry, Base, Pikaday, moment, Modernizr) {
         var parser = new Parser('date-picker');
         parser.addArgument('behavior', 'styled', ['native', 'styled']);
@@ -43567,7 +46519,7 @@ window.IntersectionObserverEntry = IntersectionObserverEntry;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(0)))
 
 /***/ }),
-/* 48 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -44819,7 +47771,7 @@ window.IntersectionObserverEntry = IntersectionObserverEntry;
 
 
 /***/ }),
-/* 49 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -44834,7 +47786,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(5),
     __webpack_require__(4),
     __webpack_require__(3),
-    __webpack_require__(50),
+    __webpack_require__(53),
     __webpack_require__(2)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, patterns, Base, utils, logging, DependsHandler, Parser) {
     var log = logging.getLogger("depends"),
@@ -45015,12 +47967,12 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 50 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
     __webpack_require__(0),
-    __webpack_require__(18)
+    __webpack_require__(20)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, parser) {
     function DependsHandler($el, expression) {
         var $context = $el.closest("form");
@@ -45123,10 +48075,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 51 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Promise) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(5), __webpack_require__(1), __webpack_require__(2), __webpack_require__(3), __webpack_require__(10), __webpack_require__(54)], __WEBPACK_AMD_DEFINE_RESULT__ = (function ($, Base, registry, Parser, logger, moment) {
+/* WEBPACK VAR INJECTION */(function(Promise) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(5), __webpack_require__(1), __webpack_require__(2), __webpack_require__(3), __webpack_require__(10), __webpack_require__(57)], __WEBPACK_AMD_DEFINE_RESULT__ = (function ($, Base, registry, Parser, logger, moment) {
   "use strict";
 
   var log = logger.getLogger("pat-display-time");
@@ -45138,7 +48090,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
     lang = lang.substr(0, 2).toLowerCase();
     new Promise(function (resolve) {
       Promise.all(/* require.ensure */[__webpack_require__.e(0), __webpack_require__.e(2)]).then((function (require) {
-        resolve(__webpack_require__(25)("./" + lang + ".js"));
+        resolve(__webpack_require__(28)("./" + lang + ".js"));
       }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
     }).then(function () {
       moment.locale(lang);
@@ -45176,7 +48128,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
         return new Promise(function (resolve) {
           Promise.all(/* require.ensure */[__webpack_require__.e(0), __webpack_require__.e(2)]).then((function (require) {
-            resolve(__webpack_require__(25)("./" + lang + ".js"));
+            resolve(__webpack_require__(28)("./" + lang + ".js"));
           }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
         }).catch(function () {
           // lang does not exists
@@ -45186,9 +48138,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
       }
 
       importLocale(lang).then(function () {
-        // info about used language for moment
-        console.log('Used language: ' + (lang || 'en'));
-
         var date_str = _this.$el.attr("datetime");
 
         var date = moment(date_str, _this.options.format, _this.options.strict).locale(_this.options.locale);
@@ -45205,10 +48154,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
   });
 }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(19)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(15)))
 
 /***/ }),
-/* 52 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, global) {var require;/*!
@@ -45342,7 +48291,7 @@ function flush() {
 function attemptVertx() {
   try {
     var r = require;
-    var vertx = __webpack_require__(53);
+    var vertx = __webpack_require__(56);
     vertxNext = vertx.runOnLoop || vertx.runOnContext;
     return useVertxTimer();
   } catch (e) {
@@ -46364,16 +49313,16 @@ return Promise;
 
 })));
 //# sourceMappingURL=es6-promise.map
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(20), __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(21), __webpack_require__(7)))
 
 /***/ }),
-/* 53 */
+/* 56 */
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
-/* 54 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(setImmediate, global) {(function (global, factory) {
@@ -46662,10 +49611,10 @@ if (!('Promise' in globalNS)) {
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(55).setImmediate, __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(58).setImmediate, __webpack_require__(7)))
 
 /***/ }),
-/* 55 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -46721,7 +49670,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(56);
+__webpack_require__(59);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -46735,7 +49684,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7)))
 
 /***/ }),
-/* 56 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -46925,10 +49874,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7), __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7), __webpack_require__(21)))
 
 /***/ }),
-/* 57 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -46936,7 +49885,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
  *
  * Copyright 2013 Simplon B.V. - Wichert Akkerman
  */
-!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(1), __webpack_require__(2), __webpack_require__(4), __webpack_require__(15)], __WEBPACK_AMD_DEFINE_RESULT__ = (function ($, patterns, Parser, utils, imagesLoaded) {
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(1), __webpack_require__(2), __webpack_require__(4), __webpack_require__(16)], __WEBPACK_AMD_DEFINE_RESULT__ = (function ($, patterns, Parser, utils, imagesLoaded) {
   var parser = new Parser("equaliser");
   parser.addArgument("transition", "none", ["none", "grow"]);
   parser.addArgument("effect-duration", "fast");
@@ -47018,7 +49967,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 /***/ }),
-/* 58 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -47137,7 +50086,7 @@ return EvEmitter;
 
 
 /***/ }),
-/* 59 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -47212,7 +50161,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 60 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -47279,7 +50228,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 // vim: sw=4 expandtab
 
 /***/ }),
-/* 61 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -47287,7 +50236,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
     __webpack_require__(3),
     __webpack_require__(1),
     __webpack_require__(4),
-    __webpack_require__(21),
+    __webpack_require__(22),
     __webpack_require__(13)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, logger, registry, utils, modal, input_change_events) {
     var log = logger.getLogger("form-state");
@@ -47392,7 +50341,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 62 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -47444,7 +50393,106 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 63 */
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+    __webpack_require__(5),
+    __webpack_require__(2),
+    __webpack_require__(3),
+    __webpack_require__(23)
+], __WEBPACK_AMD_DEFINE_RESULT__ = (function(Base, Parser, logging, screenful) {
+    var log = logging.getLogger("fullscreen");
+    var parser = new Parser('fullscreen');
+
+    parser.addArgument('selector', null); // Selector for the fullscreen element.
+    parser.addArgument('close-button', 'none', ['none', 'show']); // Inject a fullscreen button.
+
+    return Base.extend({
+        name: "fullscreen",
+        trigger: ".pat-fullscreen",
+
+        init: function($el, opts) {
+            this.options = parser.parse(this.$el, opts);
+
+            // setting up the exit button
+            var exit_el = null;
+            if (this.options.closeButton === 'show') {
+                var exit_el = document.createElement('button');
+                exit_el.className = 'pat-fullscreen-close-fullscreen';
+                exit_el.title = 'Exit fullscreen';
+                exit_el.appendChild(document.createTextNode('Exit fullscreen'));
+                exit_el.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    screenful.exit();
+                });
+            }
+
+            var el = this.$el[0];
+            this.$el.on('click', function (e) {
+            //el.addEventListener('click', function (e) {  // TODO: doesn't work in karma for href links
+                e.preventDefault();
+                // querying the fullscreen element fs_el and inside the event
+                // handler instead of outside allows for dynamic injecting
+                // fullscreen elements even after pattern initialization.
+                var fs_el_sel = this.options.selector ? this.options.selector : el.getAttribute('href');
+                fs_el_sel = fs_el_sel ? fs_el_sel : 'body';
+                var fs_el = document.querySelector(fs_el_sel);
+                if (fs_el) {
+                    // setting page to fullscreen
+                    screenful.request(fs_el);
+                    if (this.options.closeButton === 'show') {
+                        fs_el.appendChild(exit_el);
+                        screenful.on('change', function (event) {
+                            // Removing exit button.
+                            // The button is also removed when pressing the <ESC> button.
+                            if (!screenful.isFullscreen) {
+                                fs_el.removeChild(exit_el);
+                            }
+                        });
+                    }
+                } else {
+                    log.error('No fullscreen element found.');
+                }
+            }.bind(this));
+        }
+    });
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+// jshint indent: 4, browser: true, jquery: true, quotmark: double
+// vim: sw=4 expandtab
+
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+    __webpack_require__(5),
+    __webpack_require__(23)
+], __WEBPACK_AMD_DEFINE_RESULT__ = (function(Base, screenful) {
+    return Base.extend({
+        name: "fullscreen-close",
+        trigger: ".close-fullscreen",
+        init: function($el, opts) {
+            this.$el[0].addEventListener('click', function () {
+                // no prevent-default nor stop propagation to let
+                // the button also do other stuff.
+                screenful.exit();
+            });
+        }
+    });
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+// jshint indent: 4, browser: true, jquery: true, quotmark: double
+// vim: sw=4 expandtab
+
+
+
+/***/ }),
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -47457,9 +50505,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(1),
     __webpack_require__(5),
     __webpack_require__(2),
-    __webpack_require__(64),
-    __webpack_require__(65),
-    __webpack_require__(66),
+    __webpack_require__(69),
+    __webpack_require__(70),
+    __webpack_require__(71),
     __webpack_require__(6)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, patterns, Base, Parser, PhotoSwipe, PhotoSwipeUI, template, _) {
     var parser = new Parser('gallery');
@@ -47538,7 +50586,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 64 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! PhotoSwipe - v4.1.3 - 2019-01-08
@@ -51277,7 +54325,7 @@ _registerModule('History', {
 });
 
 /***/ }),
-/* 65 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! PhotoSwipe Default UI - 4.1.3 - 2019-01-08
@@ -52144,13 +55192,13 @@ return PhotoSwipeUI_Default;
 
 
 /***/ }),
-/* 66 */
+/* 71 */
 /***/ (function(module, exports) {
 
 module.exports = "<!-- Root element of PhotoSwipe. Must have class pswp. -->\n<div id=\"photoswipe-template\" class=\"pswp\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\">\n\n    <!-- Background of PhotoSwipe. \n         It's a separate element as animating opacity is faster than rgba(). -->\n    <div class=\"pswp__bg\"></div>\n\n    <!-- Slides wrapper with overflow:hidden. -->\n    <div class=\"pswp__scroll-wrap\">\n\n        <!-- Container that holds slides. \n            PhotoSwipe keeps only 3 of them in the DOM to save memory.\n            Don't modify these 3 pswp__item elements, data is added later on. -->\n        <div class=\"pswp__container\">\n            <div class=\"pswp__item\"></div>\n            <div class=\"pswp__item\"></div>\n            <div class=\"pswp__item\"></div>\n        </div>\n\n        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->\n        <div class=\"pswp__ui pswp__ui--hidden\">\n\n            <div class=\"pswp__top-bar\">\n\n                <!--  Controls are self-explanatory. Order can be changed. -->\n                <div class=\"pswp__counter\"></div>\n\n                <button class=\"pswp__button pswp__button--close\" title=\"Close (Esc)\"></button>\n                <button class=\"pswp__button pswp__button--share\" title=\"Share\"></button>\n                <button class=\"pswp__button pswp__button--fs\" title=\"Toggle fullscreen\"></button>\n                <button class=\"pswp__button pswp__button--zoom\" title=\"Zoom in/out\"></button>\n\n                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->\n                <!-- element will get class pswp__preloader__active when preloader is running -->\n                <div class=\"pswp__preloader\">\n                    <div class=\"pswp__preloader__icn\">\n                      <div class=\"pswp__preloader__cut\">\n                        <div class=\"pswp__preloader__donut\"></div>\n                      </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"pswp__share-modal pswp__share-modal--hidden pswp__single-tap\">\n                <div class=\"pswp__share-tooltip\"></div> \n            </div>\n\n            <button class=\"pswp__button pswp__button--arrow--left\" title=\"Previous (arrow left)\">\n            </button>\n\n            <button class=\"pswp__button pswp__button--arrow--right\" title=\"Next (arrow right)\">\n            </button>\n\n            <div class=\"pswp__caption\">\n                <div class=\"pswp__caption__center\"></div>\n            </div>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
-/* 67 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -52158,7 +55206,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
     __webpack_require__(3),
     __webpack_require__(2),
     __webpack_require__(1),
-    __webpack_require__(68)
+    __webpack_require__(73)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, logger, Parser, registry) {
     var log = logger.getLogger("pat.image-crop"),
         parser = new Parser("image-crop");
@@ -52314,7 +55362,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 68 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*** IMPORTS FROM imports-loader ***/
@@ -52331,7 +55379,7 @@ var jquery = __webpack_require__(0);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(0)))
 
 /***/ }),
-/* 69 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -52370,134 +55418,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 70 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-    __webpack_require__(0),
-    __webpack_require__(3),
-    __webpack_require__(1),
-    __webpack_require__(4),
-    __webpack_require__(5),
-    __webpack_require__(8),
-    __webpack_require__(71),
-], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, logger, registry, utils, Base, inject, Showdown) {
-    var log = logger.getLogger("pat.markdown");
-    var is_markdown_resource = /\.md$/;
-
-    var Markdown = Base.extend({
-        name: "markdown",
-        trigger: ".pat-markdown",
-
-        init: function($el, options) {
-            if (this.$el.is(this.trigger)) {
-                /* This pattern can either be used standalone or as an enhancement
-                * to pat-inject. The following only applies to standalone, when
-                * $el is explicitly configured with the pat-markdown trigger.
-                */
-                var source = this.$el.is(":input") ? this.$el.val() : this.$el.text();
-                this.render(source).replaceAll(this.$el);
-            }
-        },
-
-        render: function(text) {
-            var $rendering = $("<div/>"),
-                converter = new Showdown.Converter({tables: true, extensions: ['prettify']});
-            $rendering.html(converter.makeHtml(text));
-            return $rendering;
-        },
-
-        renderForInjection: function(cfg, data) {
-            var header, source = data;
-            if (cfg.source && (header=/^#+\s*(.*)/.exec(cfg.source))!==null) {
-                source = this.extractSection(source, header[1]);
-                if (source===null) {
-                    log.warn("Could not find section \"" + cfg.source + "\" in " + cfg.url);
-                    return $("<div/>").attr("data-src", cfg.url);
-                }
-                source+="\n";  // Needed for some markdown syntax
-            }
-            return this.render(source).attr("data-src", cfg.source ? cfg.url+cfg.source : cfg.url);
-        },
-
-        extractSection: function(text, header) {
-            var pattern, level;
-            header = utils.escapeRegExp(header);
-            var matcher = new RegExp(
-                        "^((#+)\\s*@TEXT@\\s*|@TEXT@\\s*\\n([=-])+\\s*)$".replace(/@TEXT@/g, header), "m"),
-                match = matcher.exec(text);
-            if (match===null) {
-                return null;
-            } else if (match[2]) {
-                // We have a ##-style header.
-                level = match[2].length;
-                pattern="^#{@LEVEL@}\\s*@TEXT@\\s*$\\n+((?:.|\\n)*?(?=^#{1,@LEVEL@}\\s)|.*(?:.|\\n)*)";
-                pattern=pattern.replace(/@LEVEL@/g, level);
-            } else if (match[3]) {
-                // We have an underscore-style header.
-                if (match[3]==="=")
-                    pattern="^@TEXT@\\s*\\n=+\\s*\\n+((?:.|\\n)*?(?=^.*?\\n=+\\s*$)|(?:.|\\n)*)";
-                else
-                    pattern="^@TEXT@\\s*\\n-+\\s*\\n+((?:.|\\n)*?(?=^.*?\\n[-=]+\\s*$)|(?:.|\\n)*)";
-            } else {
-                log.error("Unexpected section match result", match);
-                return null;
-            }
-            pattern = pattern.replace(/@TEXT@/g, header);
-            matcher = new RegExp(pattern, "m");
-            match = matcher.exec(text);
-            if (match===null) {
-                log.error("Failed to find section with known present header?");
-            }
-            return (match!==null) ? match[0] : null;
-        }
-    });
-
-    // Add support for syntax highlighting via pat-syntax-highlight
-    Showdown.extensions.prettify = function(converter) {
-        return [{ type: 'output', filter: function(source){
-            return source.replace(/(<pre>)?<code>/gi, function(match, pre) {
-                if (pre) {
-                    return '<pre class="pat-syntax-highlight" tabIndex="0"><code data-inner="1">';
-                } else {
-                    return '<code class="pat-syntax-highlight">';
-                }
-            });
-        }}];
-    };
-
-    $(document).ready(function () {
-        $(document.body).on("patterns-inject-triggered.pat-markdown", "a.pat-inject", function identifyMarkdownURLs() {
-            /* Identify injected URLs which point to markdown files and set their
-            * datatype so that we can register a type handler for them.
-            */
-            var cfgs = $(this).data("pat-inject");
-            cfgs.forEach(function(cfg) {
-                if (is_markdown_resource.test(cfg.url)) {
-                    cfg.dataType = "markdown";
-                }
-            });
-        });
-    });
-
-    inject.registerTypeHandler("markdown", {
-        sources: function(cfgs, data) {
-            return cfgs.map(function(cfg) {
-                var pat = Markdown.init(cfg.$target);
-                return pat.renderForInjection(cfg, data);
-            });
-        }
-    });
-    return Markdown;
-}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
-
-/***/ }),
-/* 71 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_RESULT__;;/*! showdown 05-08-2017 */
+var __WEBPACK_AMD_DEFINE_RESULT__;;/*! showdown v 1.9.0 - 10-11-2018 */
 (function(){
 /**
  * Created by Tivie on 13-07-2015.
@@ -52519,12 +55443,22 @@ function getDefaultOpts (simple) {
     },
     prefixHeaderId: {
       defaultValue: false,
-      describe: 'Specify a prefix to generated header ids',
+      describe: 'Add a prefix to the generated header ids. Passing a string will prefix that string to the header id. Setting to true will add a generic \'section-\' prefix',
       type: 'string'
+    },
+    rawPrefixHeaderId: {
+      defaultValue: false,
+      describe: 'Setting this option to true will prevent showdown from modifying the prefix. This might result in malformed IDs (if, for instance, the " char is used in the prefix)',
+      type: 'boolean'
     },
     ghCompatibleHeaderId: {
       defaultValue: false,
       describe: 'Generate header ids compatible with github style (spaces are replaced with dashes, a bunch of non alphanumeric chars are removed)',
+      type: 'boolean'
+    },
+    rawHeaderId: {
+      defaultValue: false,
+      describe: 'Remove only spaces, \' and " from generated header ids (including prefixes), replacing them with dashes (-). WARNING: This might result in malformed ids',
       type: 'boolean'
     },
     headerLevelStart: {
@@ -52631,6 +55565,31 @@ function getDefaultOpts (simple) {
       defaultValue: false,
       description: 'Support for HTML Tag escaping. ex: \<div>foo\</div>',
       type: 'boolean'
+    },
+    emoji: {
+      defaultValue: false,
+      description: 'Enable emoji support. Ex: `this is a :smile: emoji`',
+      type: 'boolean'
+    },
+    underline: {
+      defaultValue: false,
+      description: 'Enable support for underline. Syntax is double or triple underscores: `__underline word__`. With this option enabled, underscores no longer parses into `<em>` and `<strong>`',
+      type: 'boolean'
+    },
+    completeHTMLDocument: {
+      defaultValue: false,
+      description: 'Outputs a complete html document, including `<html>`, `<head>` and `<body>` tags',
+      type: 'boolean'
+    },
+    metadata: {
+      defaultValue: false,
+      description: 'Enable support for document metadata (defined at the top of the document between `«««` and `»»»` or between `---` and `---`).',
+      type: 'boolean'
+    },
+    splitAdjacentBlockquotes: {
+      defaultValue: false,
+      description: 'Split adjacent blockquote blocks',
+      type: 'boolean'
     }
   };
   if (simple === false) {
@@ -52682,7 +55641,10 @@ var showdown = {},
         simpleLineBreaks:                     true,
         requireSpaceBeforeHeadingText:        true,
         ghCompatibleHeaderId:                 true,
-        ghMentions:                           true
+        ghMentions:                           true,
+        backslashEscapesHTMLTags:             true,
+        emoji:                                true,
+        splitAdjacentBlockquotes:             true
       },
       original: {
         noHeaderId:                           true,
@@ -53074,7 +56036,7 @@ showdown.helper.isFunction = function (a) {
  */
 showdown.helper.isArray = function (a) {
   'use strict';
-  return a.constructor === Array;
+  return Array.isArray(a);
 };
 
 /**
@@ -53175,6 +56137,21 @@ showdown.helper.escapeCharacters = function (text, charsToEscape, afterBackslash
   text = text.replace(regex, escapeCharactersCallback);
 
   return text;
+};
+
+/**
+ * Unescape HTML entities
+ * @param txt
+ * @returns {string}
+ */
+showdown.helper.unescapeHTMLEntities = function (txt) {
+  'use strict';
+
+  return txt
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
 };
 
 var rgxFindMatchPos = function (str, left, right, flags) {
@@ -53388,6 +56365,31 @@ showdown.helper.encodeEmailAddress = function (mail) {
 };
 
 /**
+ *
+ * @param str
+ * @param targetLength
+ * @param padString
+ * @returns {string}
+ */
+showdown.helper.padEnd = function padEnd (str, targetLength, padString) {
+  'use strict';
+  /*jshint bitwise: false*/
+  // eslint-disable-next-line space-infix-ops
+  targetLength = targetLength>>0; //floor if number or convert non-number to 0;
+  /*jshint bitwise: true*/
+  padString = String(padString || ' ');
+  if (str.length > targetLength) {
+    return String(str);
+  } else {
+    targetLength = targetLength - str.length;
+    if (targetLength > padString.length) {
+      padString += padString.repeat(targetLength / padString.length); //append to original to ensure we are longer than needed
+    }
+    return String(str) + padString.slice(0,targetLength);
+  }
+};
+
+/**
  * POLYFILLS
  */
 // use this instead of builtin is undefined for IE8 compatibility
@@ -53413,7 +56415,1190 @@ if (typeof(console) === 'undefined') {
  * We declare some common regexes to improve performance
  */
 showdown.helper.regexes = {
-  asteriskAndDash: /([*_])/g
+  asteriskDashAndColon: /([*_:~])/g
+};
+
+/**
+ * EMOJIS LIST
+ */
+showdown.helper.emojis = {
+  '+1':'\ud83d\udc4d',
+  '-1':'\ud83d\udc4e',
+  '100':'\ud83d\udcaf',
+  '1234':'\ud83d\udd22',
+  '1st_place_medal':'\ud83e\udd47',
+  '2nd_place_medal':'\ud83e\udd48',
+  '3rd_place_medal':'\ud83e\udd49',
+  '8ball':'\ud83c\udfb1',
+  'a':'\ud83c\udd70\ufe0f',
+  'ab':'\ud83c\udd8e',
+  'abc':'\ud83d\udd24',
+  'abcd':'\ud83d\udd21',
+  'accept':'\ud83c\ude51',
+  'aerial_tramway':'\ud83d\udea1',
+  'airplane':'\u2708\ufe0f',
+  'alarm_clock':'\u23f0',
+  'alembic':'\u2697\ufe0f',
+  'alien':'\ud83d\udc7d',
+  'ambulance':'\ud83d\ude91',
+  'amphora':'\ud83c\udffa',
+  'anchor':'\u2693\ufe0f',
+  'angel':'\ud83d\udc7c',
+  'anger':'\ud83d\udca2',
+  'angry':'\ud83d\ude20',
+  'anguished':'\ud83d\ude27',
+  'ant':'\ud83d\udc1c',
+  'apple':'\ud83c\udf4e',
+  'aquarius':'\u2652\ufe0f',
+  'aries':'\u2648\ufe0f',
+  'arrow_backward':'\u25c0\ufe0f',
+  'arrow_double_down':'\u23ec',
+  'arrow_double_up':'\u23eb',
+  'arrow_down':'\u2b07\ufe0f',
+  'arrow_down_small':'\ud83d\udd3d',
+  'arrow_forward':'\u25b6\ufe0f',
+  'arrow_heading_down':'\u2935\ufe0f',
+  'arrow_heading_up':'\u2934\ufe0f',
+  'arrow_left':'\u2b05\ufe0f',
+  'arrow_lower_left':'\u2199\ufe0f',
+  'arrow_lower_right':'\u2198\ufe0f',
+  'arrow_right':'\u27a1\ufe0f',
+  'arrow_right_hook':'\u21aa\ufe0f',
+  'arrow_up':'\u2b06\ufe0f',
+  'arrow_up_down':'\u2195\ufe0f',
+  'arrow_up_small':'\ud83d\udd3c',
+  'arrow_upper_left':'\u2196\ufe0f',
+  'arrow_upper_right':'\u2197\ufe0f',
+  'arrows_clockwise':'\ud83d\udd03',
+  'arrows_counterclockwise':'\ud83d\udd04',
+  'art':'\ud83c\udfa8',
+  'articulated_lorry':'\ud83d\ude9b',
+  'artificial_satellite':'\ud83d\udef0',
+  'astonished':'\ud83d\ude32',
+  'athletic_shoe':'\ud83d\udc5f',
+  'atm':'\ud83c\udfe7',
+  'atom_symbol':'\u269b\ufe0f',
+  'avocado':'\ud83e\udd51',
+  'b':'\ud83c\udd71\ufe0f',
+  'baby':'\ud83d\udc76',
+  'baby_bottle':'\ud83c\udf7c',
+  'baby_chick':'\ud83d\udc24',
+  'baby_symbol':'\ud83d\udebc',
+  'back':'\ud83d\udd19',
+  'bacon':'\ud83e\udd53',
+  'badminton':'\ud83c\udff8',
+  'baggage_claim':'\ud83d\udec4',
+  'baguette_bread':'\ud83e\udd56',
+  'balance_scale':'\u2696\ufe0f',
+  'balloon':'\ud83c\udf88',
+  'ballot_box':'\ud83d\uddf3',
+  'ballot_box_with_check':'\u2611\ufe0f',
+  'bamboo':'\ud83c\udf8d',
+  'banana':'\ud83c\udf4c',
+  'bangbang':'\u203c\ufe0f',
+  'bank':'\ud83c\udfe6',
+  'bar_chart':'\ud83d\udcca',
+  'barber':'\ud83d\udc88',
+  'baseball':'\u26be\ufe0f',
+  'basketball':'\ud83c\udfc0',
+  'basketball_man':'\u26f9\ufe0f',
+  'basketball_woman':'\u26f9\ufe0f&zwj;\u2640\ufe0f',
+  'bat':'\ud83e\udd87',
+  'bath':'\ud83d\udec0',
+  'bathtub':'\ud83d\udec1',
+  'battery':'\ud83d\udd0b',
+  'beach_umbrella':'\ud83c\udfd6',
+  'bear':'\ud83d\udc3b',
+  'bed':'\ud83d\udecf',
+  'bee':'\ud83d\udc1d',
+  'beer':'\ud83c\udf7a',
+  'beers':'\ud83c\udf7b',
+  'beetle':'\ud83d\udc1e',
+  'beginner':'\ud83d\udd30',
+  'bell':'\ud83d\udd14',
+  'bellhop_bell':'\ud83d\udece',
+  'bento':'\ud83c\udf71',
+  'biking_man':'\ud83d\udeb4',
+  'bike':'\ud83d\udeb2',
+  'biking_woman':'\ud83d\udeb4&zwj;\u2640\ufe0f',
+  'bikini':'\ud83d\udc59',
+  'biohazard':'\u2623\ufe0f',
+  'bird':'\ud83d\udc26',
+  'birthday':'\ud83c\udf82',
+  'black_circle':'\u26ab\ufe0f',
+  'black_flag':'\ud83c\udff4',
+  'black_heart':'\ud83d\udda4',
+  'black_joker':'\ud83c\udccf',
+  'black_large_square':'\u2b1b\ufe0f',
+  'black_medium_small_square':'\u25fe\ufe0f',
+  'black_medium_square':'\u25fc\ufe0f',
+  'black_nib':'\u2712\ufe0f',
+  'black_small_square':'\u25aa\ufe0f',
+  'black_square_button':'\ud83d\udd32',
+  'blonde_man':'\ud83d\udc71',
+  'blonde_woman':'\ud83d\udc71&zwj;\u2640\ufe0f',
+  'blossom':'\ud83c\udf3c',
+  'blowfish':'\ud83d\udc21',
+  'blue_book':'\ud83d\udcd8',
+  'blue_car':'\ud83d\ude99',
+  'blue_heart':'\ud83d\udc99',
+  'blush':'\ud83d\ude0a',
+  'boar':'\ud83d\udc17',
+  'boat':'\u26f5\ufe0f',
+  'bomb':'\ud83d\udca3',
+  'book':'\ud83d\udcd6',
+  'bookmark':'\ud83d\udd16',
+  'bookmark_tabs':'\ud83d\udcd1',
+  'books':'\ud83d\udcda',
+  'boom':'\ud83d\udca5',
+  'boot':'\ud83d\udc62',
+  'bouquet':'\ud83d\udc90',
+  'bowing_man':'\ud83d\ude47',
+  'bow_and_arrow':'\ud83c\udff9',
+  'bowing_woman':'\ud83d\ude47&zwj;\u2640\ufe0f',
+  'bowling':'\ud83c\udfb3',
+  'boxing_glove':'\ud83e\udd4a',
+  'boy':'\ud83d\udc66',
+  'bread':'\ud83c\udf5e',
+  'bride_with_veil':'\ud83d\udc70',
+  'bridge_at_night':'\ud83c\udf09',
+  'briefcase':'\ud83d\udcbc',
+  'broken_heart':'\ud83d\udc94',
+  'bug':'\ud83d\udc1b',
+  'building_construction':'\ud83c\udfd7',
+  'bulb':'\ud83d\udca1',
+  'bullettrain_front':'\ud83d\ude85',
+  'bullettrain_side':'\ud83d\ude84',
+  'burrito':'\ud83c\udf2f',
+  'bus':'\ud83d\ude8c',
+  'business_suit_levitating':'\ud83d\udd74',
+  'busstop':'\ud83d\ude8f',
+  'bust_in_silhouette':'\ud83d\udc64',
+  'busts_in_silhouette':'\ud83d\udc65',
+  'butterfly':'\ud83e\udd8b',
+  'cactus':'\ud83c\udf35',
+  'cake':'\ud83c\udf70',
+  'calendar':'\ud83d\udcc6',
+  'call_me_hand':'\ud83e\udd19',
+  'calling':'\ud83d\udcf2',
+  'camel':'\ud83d\udc2b',
+  'camera':'\ud83d\udcf7',
+  'camera_flash':'\ud83d\udcf8',
+  'camping':'\ud83c\udfd5',
+  'cancer':'\u264b\ufe0f',
+  'candle':'\ud83d\udd6f',
+  'candy':'\ud83c\udf6c',
+  'canoe':'\ud83d\udef6',
+  'capital_abcd':'\ud83d\udd20',
+  'capricorn':'\u2651\ufe0f',
+  'car':'\ud83d\ude97',
+  'card_file_box':'\ud83d\uddc3',
+  'card_index':'\ud83d\udcc7',
+  'card_index_dividers':'\ud83d\uddc2',
+  'carousel_horse':'\ud83c\udfa0',
+  'carrot':'\ud83e\udd55',
+  'cat':'\ud83d\udc31',
+  'cat2':'\ud83d\udc08',
+  'cd':'\ud83d\udcbf',
+  'chains':'\u26d3',
+  'champagne':'\ud83c\udf7e',
+  'chart':'\ud83d\udcb9',
+  'chart_with_downwards_trend':'\ud83d\udcc9',
+  'chart_with_upwards_trend':'\ud83d\udcc8',
+  'checkered_flag':'\ud83c\udfc1',
+  'cheese':'\ud83e\uddc0',
+  'cherries':'\ud83c\udf52',
+  'cherry_blossom':'\ud83c\udf38',
+  'chestnut':'\ud83c\udf30',
+  'chicken':'\ud83d\udc14',
+  'children_crossing':'\ud83d\udeb8',
+  'chipmunk':'\ud83d\udc3f',
+  'chocolate_bar':'\ud83c\udf6b',
+  'christmas_tree':'\ud83c\udf84',
+  'church':'\u26ea\ufe0f',
+  'cinema':'\ud83c\udfa6',
+  'circus_tent':'\ud83c\udfaa',
+  'city_sunrise':'\ud83c\udf07',
+  'city_sunset':'\ud83c\udf06',
+  'cityscape':'\ud83c\udfd9',
+  'cl':'\ud83c\udd91',
+  'clamp':'\ud83d\udddc',
+  'clap':'\ud83d\udc4f',
+  'clapper':'\ud83c\udfac',
+  'classical_building':'\ud83c\udfdb',
+  'clinking_glasses':'\ud83e\udd42',
+  'clipboard':'\ud83d\udccb',
+  'clock1':'\ud83d\udd50',
+  'clock10':'\ud83d\udd59',
+  'clock1030':'\ud83d\udd65',
+  'clock11':'\ud83d\udd5a',
+  'clock1130':'\ud83d\udd66',
+  'clock12':'\ud83d\udd5b',
+  'clock1230':'\ud83d\udd67',
+  'clock130':'\ud83d\udd5c',
+  'clock2':'\ud83d\udd51',
+  'clock230':'\ud83d\udd5d',
+  'clock3':'\ud83d\udd52',
+  'clock330':'\ud83d\udd5e',
+  'clock4':'\ud83d\udd53',
+  'clock430':'\ud83d\udd5f',
+  'clock5':'\ud83d\udd54',
+  'clock530':'\ud83d\udd60',
+  'clock6':'\ud83d\udd55',
+  'clock630':'\ud83d\udd61',
+  'clock7':'\ud83d\udd56',
+  'clock730':'\ud83d\udd62',
+  'clock8':'\ud83d\udd57',
+  'clock830':'\ud83d\udd63',
+  'clock9':'\ud83d\udd58',
+  'clock930':'\ud83d\udd64',
+  'closed_book':'\ud83d\udcd5',
+  'closed_lock_with_key':'\ud83d\udd10',
+  'closed_umbrella':'\ud83c\udf02',
+  'cloud':'\u2601\ufe0f',
+  'cloud_with_lightning':'\ud83c\udf29',
+  'cloud_with_lightning_and_rain':'\u26c8',
+  'cloud_with_rain':'\ud83c\udf27',
+  'cloud_with_snow':'\ud83c\udf28',
+  'clown_face':'\ud83e\udd21',
+  'clubs':'\u2663\ufe0f',
+  'cocktail':'\ud83c\udf78',
+  'coffee':'\u2615\ufe0f',
+  'coffin':'\u26b0\ufe0f',
+  'cold_sweat':'\ud83d\ude30',
+  'comet':'\u2604\ufe0f',
+  'computer':'\ud83d\udcbb',
+  'computer_mouse':'\ud83d\uddb1',
+  'confetti_ball':'\ud83c\udf8a',
+  'confounded':'\ud83d\ude16',
+  'confused':'\ud83d\ude15',
+  'congratulations':'\u3297\ufe0f',
+  'construction':'\ud83d\udea7',
+  'construction_worker_man':'\ud83d\udc77',
+  'construction_worker_woman':'\ud83d\udc77&zwj;\u2640\ufe0f',
+  'control_knobs':'\ud83c\udf9b',
+  'convenience_store':'\ud83c\udfea',
+  'cookie':'\ud83c\udf6a',
+  'cool':'\ud83c\udd92',
+  'policeman':'\ud83d\udc6e',
+  'copyright':'\u00a9\ufe0f',
+  'corn':'\ud83c\udf3d',
+  'couch_and_lamp':'\ud83d\udecb',
+  'couple':'\ud83d\udc6b',
+  'couple_with_heart_woman_man':'\ud83d\udc91',
+  'couple_with_heart_man_man':'\ud83d\udc68&zwj;\u2764\ufe0f&zwj;\ud83d\udc68',
+  'couple_with_heart_woman_woman':'\ud83d\udc69&zwj;\u2764\ufe0f&zwj;\ud83d\udc69',
+  'couplekiss_man_man':'\ud83d\udc68&zwj;\u2764\ufe0f&zwj;\ud83d\udc8b&zwj;\ud83d\udc68',
+  'couplekiss_man_woman':'\ud83d\udc8f',
+  'couplekiss_woman_woman':'\ud83d\udc69&zwj;\u2764\ufe0f&zwj;\ud83d\udc8b&zwj;\ud83d\udc69',
+  'cow':'\ud83d\udc2e',
+  'cow2':'\ud83d\udc04',
+  'cowboy_hat_face':'\ud83e\udd20',
+  'crab':'\ud83e\udd80',
+  'crayon':'\ud83d\udd8d',
+  'credit_card':'\ud83d\udcb3',
+  'crescent_moon':'\ud83c\udf19',
+  'cricket':'\ud83c\udfcf',
+  'crocodile':'\ud83d\udc0a',
+  'croissant':'\ud83e\udd50',
+  'crossed_fingers':'\ud83e\udd1e',
+  'crossed_flags':'\ud83c\udf8c',
+  'crossed_swords':'\u2694\ufe0f',
+  'crown':'\ud83d\udc51',
+  'cry':'\ud83d\ude22',
+  'crying_cat_face':'\ud83d\ude3f',
+  'crystal_ball':'\ud83d\udd2e',
+  'cucumber':'\ud83e\udd52',
+  'cupid':'\ud83d\udc98',
+  'curly_loop':'\u27b0',
+  'currency_exchange':'\ud83d\udcb1',
+  'curry':'\ud83c\udf5b',
+  'custard':'\ud83c\udf6e',
+  'customs':'\ud83d\udec3',
+  'cyclone':'\ud83c\udf00',
+  'dagger':'\ud83d\udde1',
+  'dancer':'\ud83d\udc83',
+  'dancing_women':'\ud83d\udc6f',
+  'dancing_men':'\ud83d\udc6f&zwj;\u2642\ufe0f',
+  'dango':'\ud83c\udf61',
+  'dark_sunglasses':'\ud83d\udd76',
+  'dart':'\ud83c\udfaf',
+  'dash':'\ud83d\udca8',
+  'date':'\ud83d\udcc5',
+  'deciduous_tree':'\ud83c\udf33',
+  'deer':'\ud83e\udd8c',
+  'department_store':'\ud83c\udfec',
+  'derelict_house':'\ud83c\udfda',
+  'desert':'\ud83c\udfdc',
+  'desert_island':'\ud83c\udfdd',
+  'desktop_computer':'\ud83d\udda5',
+  'male_detective':'\ud83d\udd75\ufe0f',
+  'diamond_shape_with_a_dot_inside':'\ud83d\udca0',
+  'diamonds':'\u2666\ufe0f',
+  'disappointed':'\ud83d\ude1e',
+  'disappointed_relieved':'\ud83d\ude25',
+  'dizzy':'\ud83d\udcab',
+  'dizzy_face':'\ud83d\ude35',
+  'do_not_litter':'\ud83d\udeaf',
+  'dog':'\ud83d\udc36',
+  'dog2':'\ud83d\udc15',
+  'dollar':'\ud83d\udcb5',
+  'dolls':'\ud83c\udf8e',
+  'dolphin':'\ud83d\udc2c',
+  'door':'\ud83d\udeaa',
+  'doughnut':'\ud83c\udf69',
+  'dove':'\ud83d\udd4a',
+  'dragon':'\ud83d\udc09',
+  'dragon_face':'\ud83d\udc32',
+  'dress':'\ud83d\udc57',
+  'dromedary_camel':'\ud83d\udc2a',
+  'drooling_face':'\ud83e\udd24',
+  'droplet':'\ud83d\udca7',
+  'drum':'\ud83e\udd41',
+  'duck':'\ud83e\udd86',
+  'dvd':'\ud83d\udcc0',
+  'e-mail':'\ud83d\udce7',
+  'eagle':'\ud83e\udd85',
+  'ear':'\ud83d\udc42',
+  'ear_of_rice':'\ud83c\udf3e',
+  'earth_africa':'\ud83c\udf0d',
+  'earth_americas':'\ud83c\udf0e',
+  'earth_asia':'\ud83c\udf0f',
+  'egg':'\ud83e\udd5a',
+  'eggplant':'\ud83c\udf46',
+  'eight_pointed_black_star':'\u2734\ufe0f',
+  'eight_spoked_asterisk':'\u2733\ufe0f',
+  'electric_plug':'\ud83d\udd0c',
+  'elephant':'\ud83d\udc18',
+  'email':'\u2709\ufe0f',
+  'end':'\ud83d\udd1a',
+  'envelope_with_arrow':'\ud83d\udce9',
+  'euro':'\ud83d\udcb6',
+  'european_castle':'\ud83c\udff0',
+  'european_post_office':'\ud83c\udfe4',
+  'evergreen_tree':'\ud83c\udf32',
+  'exclamation':'\u2757\ufe0f',
+  'expressionless':'\ud83d\ude11',
+  'eye':'\ud83d\udc41',
+  'eye_speech_bubble':'\ud83d\udc41&zwj;\ud83d\udde8',
+  'eyeglasses':'\ud83d\udc53',
+  'eyes':'\ud83d\udc40',
+  'face_with_head_bandage':'\ud83e\udd15',
+  'face_with_thermometer':'\ud83e\udd12',
+  'fist_oncoming':'\ud83d\udc4a',
+  'factory':'\ud83c\udfed',
+  'fallen_leaf':'\ud83c\udf42',
+  'family_man_woman_boy':'\ud83d\udc6a',
+  'family_man_boy':'\ud83d\udc68&zwj;\ud83d\udc66',
+  'family_man_boy_boy':'\ud83d\udc68&zwj;\ud83d\udc66&zwj;\ud83d\udc66',
+  'family_man_girl':'\ud83d\udc68&zwj;\ud83d\udc67',
+  'family_man_girl_boy':'\ud83d\udc68&zwj;\ud83d\udc67&zwj;\ud83d\udc66',
+  'family_man_girl_girl':'\ud83d\udc68&zwj;\ud83d\udc67&zwj;\ud83d\udc67',
+  'family_man_man_boy':'\ud83d\udc68&zwj;\ud83d\udc68&zwj;\ud83d\udc66',
+  'family_man_man_boy_boy':'\ud83d\udc68&zwj;\ud83d\udc68&zwj;\ud83d\udc66&zwj;\ud83d\udc66',
+  'family_man_man_girl':'\ud83d\udc68&zwj;\ud83d\udc68&zwj;\ud83d\udc67',
+  'family_man_man_girl_boy':'\ud83d\udc68&zwj;\ud83d\udc68&zwj;\ud83d\udc67&zwj;\ud83d\udc66',
+  'family_man_man_girl_girl':'\ud83d\udc68&zwj;\ud83d\udc68&zwj;\ud83d\udc67&zwj;\ud83d\udc67',
+  'family_man_woman_boy_boy':'\ud83d\udc68&zwj;\ud83d\udc69&zwj;\ud83d\udc66&zwj;\ud83d\udc66',
+  'family_man_woman_girl':'\ud83d\udc68&zwj;\ud83d\udc69&zwj;\ud83d\udc67',
+  'family_man_woman_girl_boy':'\ud83d\udc68&zwj;\ud83d\udc69&zwj;\ud83d\udc67&zwj;\ud83d\udc66',
+  'family_man_woman_girl_girl':'\ud83d\udc68&zwj;\ud83d\udc69&zwj;\ud83d\udc67&zwj;\ud83d\udc67',
+  'family_woman_boy':'\ud83d\udc69&zwj;\ud83d\udc66',
+  'family_woman_boy_boy':'\ud83d\udc69&zwj;\ud83d\udc66&zwj;\ud83d\udc66',
+  'family_woman_girl':'\ud83d\udc69&zwj;\ud83d\udc67',
+  'family_woman_girl_boy':'\ud83d\udc69&zwj;\ud83d\udc67&zwj;\ud83d\udc66',
+  'family_woman_girl_girl':'\ud83d\udc69&zwj;\ud83d\udc67&zwj;\ud83d\udc67',
+  'family_woman_woman_boy':'\ud83d\udc69&zwj;\ud83d\udc69&zwj;\ud83d\udc66',
+  'family_woman_woman_boy_boy':'\ud83d\udc69&zwj;\ud83d\udc69&zwj;\ud83d\udc66&zwj;\ud83d\udc66',
+  'family_woman_woman_girl':'\ud83d\udc69&zwj;\ud83d\udc69&zwj;\ud83d\udc67',
+  'family_woman_woman_girl_boy':'\ud83d\udc69&zwj;\ud83d\udc69&zwj;\ud83d\udc67&zwj;\ud83d\udc66',
+  'family_woman_woman_girl_girl':'\ud83d\udc69&zwj;\ud83d\udc69&zwj;\ud83d\udc67&zwj;\ud83d\udc67',
+  'fast_forward':'\u23e9',
+  'fax':'\ud83d\udce0',
+  'fearful':'\ud83d\ude28',
+  'feet':'\ud83d\udc3e',
+  'female_detective':'\ud83d\udd75\ufe0f&zwj;\u2640\ufe0f',
+  'ferris_wheel':'\ud83c\udfa1',
+  'ferry':'\u26f4',
+  'field_hockey':'\ud83c\udfd1',
+  'file_cabinet':'\ud83d\uddc4',
+  'file_folder':'\ud83d\udcc1',
+  'film_projector':'\ud83d\udcfd',
+  'film_strip':'\ud83c\udf9e',
+  'fire':'\ud83d\udd25',
+  'fire_engine':'\ud83d\ude92',
+  'fireworks':'\ud83c\udf86',
+  'first_quarter_moon':'\ud83c\udf13',
+  'first_quarter_moon_with_face':'\ud83c\udf1b',
+  'fish':'\ud83d\udc1f',
+  'fish_cake':'\ud83c\udf65',
+  'fishing_pole_and_fish':'\ud83c\udfa3',
+  'fist_raised':'\u270a',
+  'fist_left':'\ud83e\udd1b',
+  'fist_right':'\ud83e\udd1c',
+  'flags':'\ud83c\udf8f',
+  'flashlight':'\ud83d\udd26',
+  'fleur_de_lis':'\u269c\ufe0f',
+  'flight_arrival':'\ud83d\udeec',
+  'flight_departure':'\ud83d\udeeb',
+  'floppy_disk':'\ud83d\udcbe',
+  'flower_playing_cards':'\ud83c\udfb4',
+  'flushed':'\ud83d\ude33',
+  'fog':'\ud83c\udf2b',
+  'foggy':'\ud83c\udf01',
+  'football':'\ud83c\udfc8',
+  'footprints':'\ud83d\udc63',
+  'fork_and_knife':'\ud83c\udf74',
+  'fountain':'\u26f2\ufe0f',
+  'fountain_pen':'\ud83d\udd8b',
+  'four_leaf_clover':'\ud83c\udf40',
+  'fox_face':'\ud83e\udd8a',
+  'framed_picture':'\ud83d\uddbc',
+  'free':'\ud83c\udd93',
+  'fried_egg':'\ud83c\udf73',
+  'fried_shrimp':'\ud83c\udf64',
+  'fries':'\ud83c\udf5f',
+  'frog':'\ud83d\udc38',
+  'frowning':'\ud83d\ude26',
+  'frowning_face':'\u2639\ufe0f',
+  'frowning_man':'\ud83d\ude4d&zwj;\u2642\ufe0f',
+  'frowning_woman':'\ud83d\ude4d',
+  'middle_finger':'\ud83d\udd95',
+  'fuelpump':'\u26fd\ufe0f',
+  'full_moon':'\ud83c\udf15',
+  'full_moon_with_face':'\ud83c\udf1d',
+  'funeral_urn':'\u26b1\ufe0f',
+  'game_die':'\ud83c\udfb2',
+  'gear':'\u2699\ufe0f',
+  'gem':'\ud83d\udc8e',
+  'gemini':'\u264a\ufe0f',
+  'ghost':'\ud83d\udc7b',
+  'gift':'\ud83c\udf81',
+  'gift_heart':'\ud83d\udc9d',
+  'girl':'\ud83d\udc67',
+  'globe_with_meridians':'\ud83c\udf10',
+  'goal_net':'\ud83e\udd45',
+  'goat':'\ud83d\udc10',
+  'golf':'\u26f3\ufe0f',
+  'golfing_man':'\ud83c\udfcc\ufe0f',
+  'golfing_woman':'\ud83c\udfcc\ufe0f&zwj;\u2640\ufe0f',
+  'gorilla':'\ud83e\udd8d',
+  'grapes':'\ud83c\udf47',
+  'green_apple':'\ud83c\udf4f',
+  'green_book':'\ud83d\udcd7',
+  'green_heart':'\ud83d\udc9a',
+  'green_salad':'\ud83e\udd57',
+  'grey_exclamation':'\u2755',
+  'grey_question':'\u2754',
+  'grimacing':'\ud83d\ude2c',
+  'grin':'\ud83d\ude01',
+  'grinning':'\ud83d\ude00',
+  'guardsman':'\ud83d\udc82',
+  'guardswoman':'\ud83d\udc82&zwj;\u2640\ufe0f',
+  'guitar':'\ud83c\udfb8',
+  'gun':'\ud83d\udd2b',
+  'haircut_woman':'\ud83d\udc87',
+  'haircut_man':'\ud83d\udc87&zwj;\u2642\ufe0f',
+  'hamburger':'\ud83c\udf54',
+  'hammer':'\ud83d\udd28',
+  'hammer_and_pick':'\u2692',
+  'hammer_and_wrench':'\ud83d\udee0',
+  'hamster':'\ud83d\udc39',
+  'hand':'\u270b',
+  'handbag':'\ud83d\udc5c',
+  'handshake':'\ud83e\udd1d',
+  'hankey':'\ud83d\udca9',
+  'hatched_chick':'\ud83d\udc25',
+  'hatching_chick':'\ud83d\udc23',
+  'headphones':'\ud83c\udfa7',
+  'hear_no_evil':'\ud83d\ude49',
+  'heart':'\u2764\ufe0f',
+  'heart_decoration':'\ud83d\udc9f',
+  'heart_eyes':'\ud83d\ude0d',
+  'heart_eyes_cat':'\ud83d\ude3b',
+  'heartbeat':'\ud83d\udc93',
+  'heartpulse':'\ud83d\udc97',
+  'hearts':'\u2665\ufe0f',
+  'heavy_check_mark':'\u2714\ufe0f',
+  'heavy_division_sign':'\u2797',
+  'heavy_dollar_sign':'\ud83d\udcb2',
+  'heavy_heart_exclamation':'\u2763\ufe0f',
+  'heavy_minus_sign':'\u2796',
+  'heavy_multiplication_x':'\u2716\ufe0f',
+  'heavy_plus_sign':'\u2795',
+  'helicopter':'\ud83d\ude81',
+  'herb':'\ud83c\udf3f',
+  'hibiscus':'\ud83c\udf3a',
+  'high_brightness':'\ud83d\udd06',
+  'high_heel':'\ud83d\udc60',
+  'hocho':'\ud83d\udd2a',
+  'hole':'\ud83d\udd73',
+  'honey_pot':'\ud83c\udf6f',
+  'horse':'\ud83d\udc34',
+  'horse_racing':'\ud83c\udfc7',
+  'hospital':'\ud83c\udfe5',
+  'hot_pepper':'\ud83c\udf36',
+  'hotdog':'\ud83c\udf2d',
+  'hotel':'\ud83c\udfe8',
+  'hotsprings':'\u2668\ufe0f',
+  'hourglass':'\u231b\ufe0f',
+  'hourglass_flowing_sand':'\u23f3',
+  'house':'\ud83c\udfe0',
+  'house_with_garden':'\ud83c\udfe1',
+  'houses':'\ud83c\udfd8',
+  'hugs':'\ud83e\udd17',
+  'hushed':'\ud83d\ude2f',
+  'ice_cream':'\ud83c\udf68',
+  'ice_hockey':'\ud83c\udfd2',
+  'ice_skate':'\u26f8',
+  'icecream':'\ud83c\udf66',
+  'id':'\ud83c\udd94',
+  'ideograph_advantage':'\ud83c\ude50',
+  'imp':'\ud83d\udc7f',
+  'inbox_tray':'\ud83d\udce5',
+  'incoming_envelope':'\ud83d\udce8',
+  'tipping_hand_woman':'\ud83d\udc81',
+  'information_source':'\u2139\ufe0f',
+  'innocent':'\ud83d\ude07',
+  'interrobang':'\u2049\ufe0f',
+  'iphone':'\ud83d\udcf1',
+  'izakaya_lantern':'\ud83c\udfee',
+  'jack_o_lantern':'\ud83c\udf83',
+  'japan':'\ud83d\uddfe',
+  'japanese_castle':'\ud83c\udfef',
+  'japanese_goblin':'\ud83d\udc7a',
+  'japanese_ogre':'\ud83d\udc79',
+  'jeans':'\ud83d\udc56',
+  'joy':'\ud83d\ude02',
+  'joy_cat':'\ud83d\ude39',
+  'joystick':'\ud83d\udd79',
+  'kaaba':'\ud83d\udd4b',
+  'key':'\ud83d\udd11',
+  'keyboard':'\u2328\ufe0f',
+  'keycap_ten':'\ud83d\udd1f',
+  'kick_scooter':'\ud83d\udef4',
+  'kimono':'\ud83d\udc58',
+  'kiss':'\ud83d\udc8b',
+  'kissing':'\ud83d\ude17',
+  'kissing_cat':'\ud83d\ude3d',
+  'kissing_closed_eyes':'\ud83d\ude1a',
+  'kissing_heart':'\ud83d\ude18',
+  'kissing_smiling_eyes':'\ud83d\ude19',
+  'kiwi_fruit':'\ud83e\udd5d',
+  'koala':'\ud83d\udc28',
+  'koko':'\ud83c\ude01',
+  'label':'\ud83c\udff7',
+  'large_blue_circle':'\ud83d\udd35',
+  'large_blue_diamond':'\ud83d\udd37',
+  'large_orange_diamond':'\ud83d\udd36',
+  'last_quarter_moon':'\ud83c\udf17',
+  'last_quarter_moon_with_face':'\ud83c\udf1c',
+  'latin_cross':'\u271d\ufe0f',
+  'laughing':'\ud83d\ude06',
+  'leaves':'\ud83c\udf43',
+  'ledger':'\ud83d\udcd2',
+  'left_luggage':'\ud83d\udec5',
+  'left_right_arrow':'\u2194\ufe0f',
+  'leftwards_arrow_with_hook':'\u21a9\ufe0f',
+  'lemon':'\ud83c\udf4b',
+  'leo':'\u264c\ufe0f',
+  'leopard':'\ud83d\udc06',
+  'level_slider':'\ud83c\udf9a',
+  'libra':'\u264e\ufe0f',
+  'light_rail':'\ud83d\ude88',
+  'link':'\ud83d\udd17',
+  'lion':'\ud83e\udd81',
+  'lips':'\ud83d\udc44',
+  'lipstick':'\ud83d\udc84',
+  'lizard':'\ud83e\udd8e',
+  'lock':'\ud83d\udd12',
+  'lock_with_ink_pen':'\ud83d\udd0f',
+  'lollipop':'\ud83c\udf6d',
+  'loop':'\u27bf',
+  'loud_sound':'\ud83d\udd0a',
+  'loudspeaker':'\ud83d\udce2',
+  'love_hotel':'\ud83c\udfe9',
+  'love_letter':'\ud83d\udc8c',
+  'low_brightness':'\ud83d\udd05',
+  'lying_face':'\ud83e\udd25',
+  'm':'\u24c2\ufe0f',
+  'mag':'\ud83d\udd0d',
+  'mag_right':'\ud83d\udd0e',
+  'mahjong':'\ud83c\udc04\ufe0f',
+  'mailbox':'\ud83d\udceb',
+  'mailbox_closed':'\ud83d\udcea',
+  'mailbox_with_mail':'\ud83d\udcec',
+  'mailbox_with_no_mail':'\ud83d\udced',
+  'man':'\ud83d\udc68',
+  'man_artist':'\ud83d\udc68&zwj;\ud83c\udfa8',
+  'man_astronaut':'\ud83d\udc68&zwj;\ud83d\ude80',
+  'man_cartwheeling':'\ud83e\udd38&zwj;\u2642\ufe0f',
+  'man_cook':'\ud83d\udc68&zwj;\ud83c\udf73',
+  'man_dancing':'\ud83d\udd7a',
+  'man_facepalming':'\ud83e\udd26&zwj;\u2642\ufe0f',
+  'man_factory_worker':'\ud83d\udc68&zwj;\ud83c\udfed',
+  'man_farmer':'\ud83d\udc68&zwj;\ud83c\udf3e',
+  'man_firefighter':'\ud83d\udc68&zwj;\ud83d\ude92',
+  'man_health_worker':'\ud83d\udc68&zwj;\u2695\ufe0f',
+  'man_in_tuxedo':'\ud83e\udd35',
+  'man_judge':'\ud83d\udc68&zwj;\u2696\ufe0f',
+  'man_juggling':'\ud83e\udd39&zwj;\u2642\ufe0f',
+  'man_mechanic':'\ud83d\udc68&zwj;\ud83d\udd27',
+  'man_office_worker':'\ud83d\udc68&zwj;\ud83d\udcbc',
+  'man_pilot':'\ud83d\udc68&zwj;\u2708\ufe0f',
+  'man_playing_handball':'\ud83e\udd3e&zwj;\u2642\ufe0f',
+  'man_playing_water_polo':'\ud83e\udd3d&zwj;\u2642\ufe0f',
+  'man_scientist':'\ud83d\udc68&zwj;\ud83d\udd2c',
+  'man_shrugging':'\ud83e\udd37&zwj;\u2642\ufe0f',
+  'man_singer':'\ud83d\udc68&zwj;\ud83c\udfa4',
+  'man_student':'\ud83d\udc68&zwj;\ud83c\udf93',
+  'man_teacher':'\ud83d\udc68&zwj;\ud83c\udfeb',
+  'man_technologist':'\ud83d\udc68&zwj;\ud83d\udcbb',
+  'man_with_gua_pi_mao':'\ud83d\udc72',
+  'man_with_turban':'\ud83d\udc73',
+  'tangerine':'\ud83c\udf4a',
+  'mans_shoe':'\ud83d\udc5e',
+  'mantelpiece_clock':'\ud83d\udd70',
+  'maple_leaf':'\ud83c\udf41',
+  'martial_arts_uniform':'\ud83e\udd4b',
+  'mask':'\ud83d\ude37',
+  'massage_woman':'\ud83d\udc86',
+  'massage_man':'\ud83d\udc86&zwj;\u2642\ufe0f',
+  'meat_on_bone':'\ud83c\udf56',
+  'medal_military':'\ud83c\udf96',
+  'medal_sports':'\ud83c\udfc5',
+  'mega':'\ud83d\udce3',
+  'melon':'\ud83c\udf48',
+  'memo':'\ud83d\udcdd',
+  'men_wrestling':'\ud83e\udd3c&zwj;\u2642\ufe0f',
+  'menorah':'\ud83d\udd4e',
+  'mens':'\ud83d\udeb9',
+  'metal':'\ud83e\udd18',
+  'metro':'\ud83d\ude87',
+  'microphone':'\ud83c\udfa4',
+  'microscope':'\ud83d\udd2c',
+  'milk_glass':'\ud83e\udd5b',
+  'milky_way':'\ud83c\udf0c',
+  'minibus':'\ud83d\ude90',
+  'minidisc':'\ud83d\udcbd',
+  'mobile_phone_off':'\ud83d\udcf4',
+  'money_mouth_face':'\ud83e\udd11',
+  'money_with_wings':'\ud83d\udcb8',
+  'moneybag':'\ud83d\udcb0',
+  'monkey':'\ud83d\udc12',
+  'monkey_face':'\ud83d\udc35',
+  'monorail':'\ud83d\ude9d',
+  'moon':'\ud83c\udf14',
+  'mortar_board':'\ud83c\udf93',
+  'mosque':'\ud83d\udd4c',
+  'motor_boat':'\ud83d\udee5',
+  'motor_scooter':'\ud83d\udef5',
+  'motorcycle':'\ud83c\udfcd',
+  'motorway':'\ud83d\udee3',
+  'mount_fuji':'\ud83d\uddfb',
+  'mountain':'\u26f0',
+  'mountain_biking_man':'\ud83d\udeb5',
+  'mountain_biking_woman':'\ud83d\udeb5&zwj;\u2640\ufe0f',
+  'mountain_cableway':'\ud83d\udea0',
+  'mountain_railway':'\ud83d\ude9e',
+  'mountain_snow':'\ud83c\udfd4',
+  'mouse':'\ud83d\udc2d',
+  'mouse2':'\ud83d\udc01',
+  'movie_camera':'\ud83c\udfa5',
+  'moyai':'\ud83d\uddff',
+  'mrs_claus':'\ud83e\udd36',
+  'muscle':'\ud83d\udcaa',
+  'mushroom':'\ud83c\udf44',
+  'musical_keyboard':'\ud83c\udfb9',
+  'musical_note':'\ud83c\udfb5',
+  'musical_score':'\ud83c\udfbc',
+  'mute':'\ud83d\udd07',
+  'nail_care':'\ud83d\udc85',
+  'name_badge':'\ud83d\udcdb',
+  'national_park':'\ud83c\udfde',
+  'nauseated_face':'\ud83e\udd22',
+  'necktie':'\ud83d\udc54',
+  'negative_squared_cross_mark':'\u274e',
+  'nerd_face':'\ud83e\udd13',
+  'neutral_face':'\ud83d\ude10',
+  'new':'\ud83c\udd95',
+  'new_moon':'\ud83c\udf11',
+  'new_moon_with_face':'\ud83c\udf1a',
+  'newspaper':'\ud83d\udcf0',
+  'newspaper_roll':'\ud83d\uddde',
+  'next_track_button':'\u23ed',
+  'ng':'\ud83c\udd96',
+  'no_good_man':'\ud83d\ude45&zwj;\u2642\ufe0f',
+  'no_good_woman':'\ud83d\ude45',
+  'night_with_stars':'\ud83c\udf03',
+  'no_bell':'\ud83d\udd15',
+  'no_bicycles':'\ud83d\udeb3',
+  'no_entry':'\u26d4\ufe0f',
+  'no_entry_sign':'\ud83d\udeab',
+  'no_mobile_phones':'\ud83d\udcf5',
+  'no_mouth':'\ud83d\ude36',
+  'no_pedestrians':'\ud83d\udeb7',
+  'no_smoking':'\ud83d\udead',
+  'non-potable_water':'\ud83d\udeb1',
+  'nose':'\ud83d\udc43',
+  'notebook':'\ud83d\udcd3',
+  'notebook_with_decorative_cover':'\ud83d\udcd4',
+  'notes':'\ud83c\udfb6',
+  'nut_and_bolt':'\ud83d\udd29',
+  'o':'\u2b55\ufe0f',
+  'o2':'\ud83c\udd7e\ufe0f',
+  'ocean':'\ud83c\udf0a',
+  'octopus':'\ud83d\udc19',
+  'oden':'\ud83c\udf62',
+  'office':'\ud83c\udfe2',
+  'oil_drum':'\ud83d\udee2',
+  'ok':'\ud83c\udd97',
+  'ok_hand':'\ud83d\udc4c',
+  'ok_man':'\ud83d\ude46&zwj;\u2642\ufe0f',
+  'ok_woman':'\ud83d\ude46',
+  'old_key':'\ud83d\udddd',
+  'older_man':'\ud83d\udc74',
+  'older_woman':'\ud83d\udc75',
+  'om':'\ud83d\udd49',
+  'on':'\ud83d\udd1b',
+  'oncoming_automobile':'\ud83d\ude98',
+  'oncoming_bus':'\ud83d\ude8d',
+  'oncoming_police_car':'\ud83d\ude94',
+  'oncoming_taxi':'\ud83d\ude96',
+  'open_file_folder':'\ud83d\udcc2',
+  'open_hands':'\ud83d\udc50',
+  'open_mouth':'\ud83d\ude2e',
+  'open_umbrella':'\u2602\ufe0f',
+  'ophiuchus':'\u26ce',
+  'orange_book':'\ud83d\udcd9',
+  'orthodox_cross':'\u2626\ufe0f',
+  'outbox_tray':'\ud83d\udce4',
+  'owl':'\ud83e\udd89',
+  'ox':'\ud83d\udc02',
+  'package':'\ud83d\udce6',
+  'page_facing_up':'\ud83d\udcc4',
+  'page_with_curl':'\ud83d\udcc3',
+  'pager':'\ud83d\udcdf',
+  'paintbrush':'\ud83d\udd8c',
+  'palm_tree':'\ud83c\udf34',
+  'pancakes':'\ud83e\udd5e',
+  'panda_face':'\ud83d\udc3c',
+  'paperclip':'\ud83d\udcce',
+  'paperclips':'\ud83d\udd87',
+  'parasol_on_ground':'\u26f1',
+  'parking':'\ud83c\udd7f\ufe0f',
+  'part_alternation_mark':'\u303d\ufe0f',
+  'partly_sunny':'\u26c5\ufe0f',
+  'passenger_ship':'\ud83d\udef3',
+  'passport_control':'\ud83d\udec2',
+  'pause_button':'\u23f8',
+  'peace_symbol':'\u262e\ufe0f',
+  'peach':'\ud83c\udf51',
+  'peanuts':'\ud83e\udd5c',
+  'pear':'\ud83c\udf50',
+  'pen':'\ud83d\udd8a',
+  'pencil2':'\u270f\ufe0f',
+  'penguin':'\ud83d\udc27',
+  'pensive':'\ud83d\ude14',
+  'performing_arts':'\ud83c\udfad',
+  'persevere':'\ud83d\ude23',
+  'person_fencing':'\ud83e\udd3a',
+  'pouting_woman':'\ud83d\ude4e',
+  'phone':'\u260e\ufe0f',
+  'pick':'\u26cf',
+  'pig':'\ud83d\udc37',
+  'pig2':'\ud83d\udc16',
+  'pig_nose':'\ud83d\udc3d',
+  'pill':'\ud83d\udc8a',
+  'pineapple':'\ud83c\udf4d',
+  'ping_pong':'\ud83c\udfd3',
+  'pisces':'\u2653\ufe0f',
+  'pizza':'\ud83c\udf55',
+  'place_of_worship':'\ud83d\uded0',
+  'plate_with_cutlery':'\ud83c\udf7d',
+  'play_or_pause_button':'\u23ef',
+  'point_down':'\ud83d\udc47',
+  'point_left':'\ud83d\udc48',
+  'point_right':'\ud83d\udc49',
+  'point_up':'\u261d\ufe0f',
+  'point_up_2':'\ud83d\udc46',
+  'police_car':'\ud83d\ude93',
+  'policewoman':'\ud83d\udc6e&zwj;\u2640\ufe0f',
+  'poodle':'\ud83d\udc29',
+  'popcorn':'\ud83c\udf7f',
+  'post_office':'\ud83c\udfe3',
+  'postal_horn':'\ud83d\udcef',
+  'postbox':'\ud83d\udcee',
+  'potable_water':'\ud83d\udeb0',
+  'potato':'\ud83e\udd54',
+  'pouch':'\ud83d\udc5d',
+  'poultry_leg':'\ud83c\udf57',
+  'pound':'\ud83d\udcb7',
+  'rage':'\ud83d\ude21',
+  'pouting_cat':'\ud83d\ude3e',
+  'pouting_man':'\ud83d\ude4e&zwj;\u2642\ufe0f',
+  'pray':'\ud83d\ude4f',
+  'prayer_beads':'\ud83d\udcff',
+  'pregnant_woman':'\ud83e\udd30',
+  'previous_track_button':'\u23ee',
+  'prince':'\ud83e\udd34',
+  'princess':'\ud83d\udc78',
+  'printer':'\ud83d\udda8',
+  'purple_heart':'\ud83d\udc9c',
+  'purse':'\ud83d\udc5b',
+  'pushpin':'\ud83d\udccc',
+  'put_litter_in_its_place':'\ud83d\udeae',
+  'question':'\u2753',
+  'rabbit':'\ud83d\udc30',
+  'rabbit2':'\ud83d\udc07',
+  'racehorse':'\ud83d\udc0e',
+  'racing_car':'\ud83c\udfce',
+  'radio':'\ud83d\udcfb',
+  'radio_button':'\ud83d\udd18',
+  'radioactive':'\u2622\ufe0f',
+  'railway_car':'\ud83d\ude83',
+  'railway_track':'\ud83d\udee4',
+  'rainbow':'\ud83c\udf08',
+  'rainbow_flag':'\ud83c\udff3\ufe0f&zwj;\ud83c\udf08',
+  'raised_back_of_hand':'\ud83e\udd1a',
+  'raised_hand_with_fingers_splayed':'\ud83d\udd90',
+  'raised_hands':'\ud83d\ude4c',
+  'raising_hand_woman':'\ud83d\ude4b',
+  'raising_hand_man':'\ud83d\ude4b&zwj;\u2642\ufe0f',
+  'ram':'\ud83d\udc0f',
+  'ramen':'\ud83c\udf5c',
+  'rat':'\ud83d\udc00',
+  'record_button':'\u23fa',
+  'recycle':'\u267b\ufe0f',
+  'red_circle':'\ud83d\udd34',
+  'registered':'\u00ae\ufe0f',
+  'relaxed':'\u263a\ufe0f',
+  'relieved':'\ud83d\ude0c',
+  'reminder_ribbon':'\ud83c\udf97',
+  'repeat':'\ud83d\udd01',
+  'repeat_one':'\ud83d\udd02',
+  'rescue_worker_helmet':'\u26d1',
+  'restroom':'\ud83d\udebb',
+  'revolving_hearts':'\ud83d\udc9e',
+  'rewind':'\u23ea',
+  'rhinoceros':'\ud83e\udd8f',
+  'ribbon':'\ud83c\udf80',
+  'rice':'\ud83c\udf5a',
+  'rice_ball':'\ud83c\udf59',
+  'rice_cracker':'\ud83c\udf58',
+  'rice_scene':'\ud83c\udf91',
+  'right_anger_bubble':'\ud83d\uddef',
+  'ring':'\ud83d\udc8d',
+  'robot':'\ud83e\udd16',
+  'rocket':'\ud83d\ude80',
+  'rofl':'\ud83e\udd23',
+  'roll_eyes':'\ud83d\ude44',
+  'roller_coaster':'\ud83c\udfa2',
+  'rooster':'\ud83d\udc13',
+  'rose':'\ud83c\udf39',
+  'rosette':'\ud83c\udff5',
+  'rotating_light':'\ud83d\udea8',
+  'round_pushpin':'\ud83d\udccd',
+  'rowing_man':'\ud83d\udea3',
+  'rowing_woman':'\ud83d\udea3&zwj;\u2640\ufe0f',
+  'rugby_football':'\ud83c\udfc9',
+  'running_man':'\ud83c\udfc3',
+  'running_shirt_with_sash':'\ud83c\udfbd',
+  'running_woman':'\ud83c\udfc3&zwj;\u2640\ufe0f',
+  'sa':'\ud83c\ude02\ufe0f',
+  'sagittarius':'\u2650\ufe0f',
+  'sake':'\ud83c\udf76',
+  'sandal':'\ud83d\udc61',
+  'santa':'\ud83c\udf85',
+  'satellite':'\ud83d\udce1',
+  'saxophone':'\ud83c\udfb7',
+  'school':'\ud83c\udfeb',
+  'school_satchel':'\ud83c\udf92',
+  'scissors':'\u2702\ufe0f',
+  'scorpion':'\ud83e\udd82',
+  'scorpius':'\u264f\ufe0f',
+  'scream':'\ud83d\ude31',
+  'scream_cat':'\ud83d\ude40',
+  'scroll':'\ud83d\udcdc',
+  'seat':'\ud83d\udcba',
+  'secret':'\u3299\ufe0f',
+  'see_no_evil':'\ud83d\ude48',
+  'seedling':'\ud83c\udf31',
+  'selfie':'\ud83e\udd33',
+  'shallow_pan_of_food':'\ud83e\udd58',
+  'shamrock':'\u2618\ufe0f',
+  'shark':'\ud83e\udd88',
+  'shaved_ice':'\ud83c\udf67',
+  'sheep':'\ud83d\udc11',
+  'shell':'\ud83d\udc1a',
+  'shield':'\ud83d\udee1',
+  'shinto_shrine':'\u26e9',
+  'ship':'\ud83d\udea2',
+  'shirt':'\ud83d\udc55',
+  'shopping':'\ud83d\udecd',
+  'shopping_cart':'\ud83d\uded2',
+  'shower':'\ud83d\udebf',
+  'shrimp':'\ud83e\udd90',
+  'signal_strength':'\ud83d\udcf6',
+  'six_pointed_star':'\ud83d\udd2f',
+  'ski':'\ud83c\udfbf',
+  'skier':'\u26f7',
+  'skull':'\ud83d\udc80',
+  'skull_and_crossbones':'\u2620\ufe0f',
+  'sleeping':'\ud83d\ude34',
+  'sleeping_bed':'\ud83d\udecc',
+  'sleepy':'\ud83d\ude2a',
+  'slightly_frowning_face':'\ud83d\ude41',
+  'slightly_smiling_face':'\ud83d\ude42',
+  'slot_machine':'\ud83c\udfb0',
+  'small_airplane':'\ud83d\udee9',
+  'small_blue_diamond':'\ud83d\udd39',
+  'small_orange_diamond':'\ud83d\udd38',
+  'small_red_triangle':'\ud83d\udd3a',
+  'small_red_triangle_down':'\ud83d\udd3b',
+  'smile':'\ud83d\ude04',
+  'smile_cat':'\ud83d\ude38',
+  'smiley':'\ud83d\ude03',
+  'smiley_cat':'\ud83d\ude3a',
+  'smiling_imp':'\ud83d\ude08',
+  'smirk':'\ud83d\ude0f',
+  'smirk_cat':'\ud83d\ude3c',
+  'smoking':'\ud83d\udeac',
+  'snail':'\ud83d\udc0c',
+  'snake':'\ud83d\udc0d',
+  'sneezing_face':'\ud83e\udd27',
+  'snowboarder':'\ud83c\udfc2',
+  'snowflake':'\u2744\ufe0f',
+  'snowman':'\u26c4\ufe0f',
+  'snowman_with_snow':'\u2603\ufe0f',
+  'sob':'\ud83d\ude2d',
+  'soccer':'\u26bd\ufe0f',
+  'soon':'\ud83d\udd1c',
+  'sos':'\ud83c\udd98',
+  'sound':'\ud83d\udd09',
+  'space_invader':'\ud83d\udc7e',
+  'spades':'\u2660\ufe0f',
+  'spaghetti':'\ud83c\udf5d',
+  'sparkle':'\u2747\ufe0f',
+  'sparkler':'\ud83c\udf87',
+  'sparkles':'\u2728',
+  'sparkling_heart':'\ud83d\udc96',
+  'speak_no_evil':'\ud83d\ude4a',
+  'speaker':'\ud83d\udd08',
+  'speaking_head':'\ud83d\udde3',
+  'speech_balloon':'\ud83d\udcac',
+  'speedboat':'\ud83d\udea4',
+  'spider':'\ud83d\udd77',
+  'spider_web':'\ud83d\udd78',
+  'spiral_calendar':'\ud83d\uddd3',
+  'spiral_notepad':'\ud83d\uddd2',
+  'spoon':'\ud83e\udd44',
+  'squid':'\ud83e\udd91',
+  'stadium':'\ud83c\udfdf',
+  'star':'\u2b50\ufe0f',
+  'star2':'\ud83c\udf1f',
+  'star_and_crescent':'\u262a\ufe0f',
+  'star_of_david':'\u2721\ufe0f',
+  'stars':'\ud83c\udf20',
+  'station':'\ud83d\ude89',
+  'statue_of_liberty':'\ud83d\uddfd',
+  'steam_locomotive':'\ud83d\ude82',
+  'stew':'\ud83c\udf72',
+  'stop_button':'\u23f9',
+  'stop_sign':'\ud83d\uded1',
+  'stopwatch':'\u23f1',
+  'straight_ruler':'\ud83d\udccf',
+  'strawberry':'\ud83c\udf53',
+  'stuck_out_tongue':'\ud83d\ude1b',
+  'stuck_out_tongue_closed_eyes':'\ud83d\ude1d',
+  'stuck_out_tongue_winking_eye':'\ud83d\ude1c',
+  'studio_microphone':'\ud83c\udf99',
+  'stuffed_flatbread':'\ud83e\udd59',
+  'sun_behind_large_cloud':'\ud83c\udf25',
+  'sun_behind_rain_cloud':'\ud83c\udf26',
+  'sun_behind_small_cloud':'\ud83c\udf24',
+  'sun_with_face':'\ud83c\udf1e',
+  'sunflower':'\ud83c\udf3b',
+  'sunglasses':'\ud83d\ude0e',
+  'sunny':'\u2600\ufe0f',
+  'sunrise':'\ud83c\udf05',
+  'sunrise_over_mountains':'\ud83c\udf04',
+  'surfing_man':'\ud83c\udfc4',
+  'surfing_woman':'\ud83c\udfc4&zwj;\u2640\ufe0f',
+  'sushi':'\ud83c\udf63',
+  'suspension_railway':'\ud83d\ude9f',
+  'sweat':'\ud83d\ude13',
+  'sweat_drops':'\ud83d\udca6',
+  'sweat_smile':'\ud83d\ude05',
+  'sweet_potato':'\ud83c\udf60',
+  'swimming_man':'\ud83c\udfca',
+  'swimming_woman':'\ud83c\udfca&zwj;\u2640\ufe0f',
+  'symbols':'\ud83d\udd23',
+  'synagogue':'\ud83d\udd4d',
+  'syringe':'\ud83d\udc89',
+  'taco':'\ud83c\udf2e',
+  'tada':'\ud83c\udf89',
+  'tanabata_tree':'\ud83c\udf8b',
+  'taurus':'\u2649\ufe0f',
+  'taxi':'\ud83d\ude95',
+  'tea':'\ud83c\udf75',
+  'telephone_receiver':'\ud83d\udcde',
+  'telescope':'\ud83d\udd2d',
+  'tennis':'\ud83c\udfbe',
+  'tent':'\u26fa\ufe0f',
+  'thermometer':'\ud83c\udf21',
+  'thinking':'\ud83e\udd14',
+  'thought_balloon':'\ud83d\udcad',
+  'ticket':'\ud83c\udfab',
+  'tickets':'\ud83c\udf9f',
+  'tiger':'\ud83d\udc2f',
+  'tiger2':'\ud83d\udc05',
+  'timer_clock':'\u23f2',
+  'tipping_hand_man':'\ud83d\udc81&zwj;\u2642\ufe0f',
+  'tired_face':'\ud83d\ude2b',
+  'tm':'\u2122\ufe0f',
+  'toilet':'\ud83d\udebd',
+  'tokyo_tower':'\ud83d\uddfc',
+  'tomato':'\ud83c\udf45',
+  'tongue':'\ud83d\udc45',
+  'top':'\ud83d\udd1d',
+  'tophat':'\ud83c\udfa9',
+  'tornado':'\ud83c\udf2a',
+  'trackball':'\ud83d\uddb2',
+  'tractor':'\ud83d\ude9c',
+  'traffic_light':'\ud83d\udea5',
+  'train':'\ud83d\ude8b',
+  'train2':'\ud83d\ude86',
+  'tram':'\ud83d\ude8a',
+  'triangular_flag_on_post':'\ud83d\udea9',
+  'triangular_ruler':'\ud83d\udcd0',
+  'trident':'\ud83d\udd31',
+  'triumph':'\ud83d\ude24',
+  'trolleybus':'\ud83d\ude8e',
+  'trophy':'\ud83c\udfc6',
+  'tropical_drink':'\ud83c\udf79',
+  'tropical_fish':'\ud83d\udc20',
+  'truck':'\ud83d\ude9a',
+  'trumpet':'\ud83c\udfba',
+  'tulip':'\ud83c\udf37',
+  'tumbler_glass':'\ud83e\udd43',
+  'turkey':'\ud83e\udd83',
+  'turtle':'\ud83d\udc22',
+  'tv':'\ud83d\udcfa',
+  'twisted_rightwards_arrows':'\ud83d\udd00',
+  'two_hearts':'\ud83d\udc95',
+  'two_men_holding_hands':'\ud83d\udc6c',
+  'two_women_holding_hands':'\ud83d\udc6d',
+  'u5272':'\ud83c\ude39',
+  'u5408':'\ud83c\ude34',
+  'u55b6':'\ud83c\ude3a',
+  'u6307':'\ud83c\ude2f\ufe0f',
+  'u6708':'\ud83c\ude37\ufe0f',
+  'u6709':'\ud83c\ude36',
+  'u6e80':'\ud83c\ude35',
+  'u7121':'\ud83c\ude1a\ufe0f',
+  'u7533':'\ud83c\ude38',
+  'u7981':'\ud83c\ude32',
+  'u7a7a':'\ud83c\ude33',
+  'umbrella':'\u2614\ufe0f',
+  'unamused':'\ud83d\ude12',
+  'underage':'\ud83d\udd1e',
+  'unicorn':'\ud83e\udd84',
+  'unlock':'\ud83d\udd13',
+  'up':'\ud83c\udd99',
+  'upside_down_face':'\ud83d\ude43',
+  'v':'\u270c\ufe0f',
+  'vertical_traffic_light':'\ud83d\udea6',
+  'vhs':'\ud83d\udcfc',
+  'vibration_mode':'\ud83d\udcf3',
+  'video_camera':'\ud83d\udcf9',
+  'video_game':'\ud83c\udfae',
+  'violin':'\ud83c\udfbb',
+  'virgo':'\u264d\ufe0f',
+  'volcano':'\ud83c\udf0b',
+  'volleyball':'\ud83c\udfd0',
+  'vs':'\ud83c\udd9a',
+  'vulcan_salute':'\ud83d\udd96',
+  'walking_man':'\ud83d\udeb6',
+  'walking_woman':'\ud83d\udeb6&zwj;\u2640\ufe0f',
+  'waning_crescent_moon':'\ud83c\udf18',
+  'waning_gibbous_moon':'\ud83c\udf16',
+  'warning':'\u26a0\ufe0f',
+  'wastebasket':'\ud83d\uddd1',
+  'watch':'\u231a\ufe0f',
+  'water_buffalo':'\ud83d\udc03',
+  'watermelon':'\ud83c\udf49',
+  'wave':'\ud83d\udc4b',
+  'wavy_dash':'\u3030\ufe0f',
+  'waxing_crescent_moon':'\ud83c\udf12',
+  'wc':'\ud83d\udebe',
+  'weary':'\ud83d\ude29',
+  'wedding':'\ud83d\udc92',
+  'weight_lifting_man':'\ud83c\udfcb\ufe0f',
+  'weight_lifting_woman':'\ud83c\udfcb\ufe0f&zwj;\u2640\ufe0f',
+  'whale':'\ud83d\udc33',
+  'whale2':'\ud83d\udc0b',
+  'wheel_of_dharma':'\u2638\ufe0f',
+  'wheelchair':'\u267f\ufe0f',
+  'white_check_mark':'\u2705',
+  'white_circle':'\u26aa\ufe0f',
+  'white_flag':'\ud83c\udff3\ufe0f',
+  'white_flower':'\ud83d\udcae',
+  'white_large_square':'\u2b1c\ufe0f',
+  'white_medium_small_square':'\u25fd\ufe0f',
+  'white_medium_square':'\u25fb\ufe0f',
+  'white_small_square':'\u25ab\ufe0f',
+  'white_square_button':'\ud83d\udd33',
+  'wilted_flower':'\ud83e\udd40',
+  'wind_chime':'\ud83c\udf90',
+  'wind_face':'\ud83c\udf2c',
+  'wine_glass':'\ud83c\udf77',
+  'wink':'\ud83d\ude09',
+  'wolf':'\ud83d\udc3a',
+  'woman':'\ud83d\udc69',
+  'woman_artist':'\ud83d\udc69&zwj;\ud83c\udfa8',
+  'woman_astronaut':'\ud83d\udc69&zwj;\ud83d\ude80',
+  'woman_cartwheeling':'\ud83e\udd38&zwj;\u2640\ufe0f',
+  'woman_cook':'\ud83d\udc69&zwj;\ud83c\udf73',
+  'woman_facepalming':'\ud83e\udd26&zwj;\u2640\ufe0f',
+  'woman_factory_worker':'\ud83d\udc69&zwj;\ud83c\udfed',
+  'woman_farmer':'\ud83d\udc69&zwj;\ud83c\udf3e',
+  'woman_firefighter':'\ud83d\udc69&zwj;\ud83d\ude92',
+  'woman_health_worker':'\ud83d\udc69&zwj;\u2695\ufe0f',
+  'woman_judge':'\ud83d\udc69&zwj;\u2696\ufe0f',
+  'woman_juggling':'\ud83e\udd39&zwj;\u2640\ufe0f',
+  'woman_mechanic':'\ud83d\udc69&zwj;\ud83d\udd27',
+  'woman_office_worker':'\ud83d\udc69&zwj;\ud83d\udcbc',
+  'woman_pilot':'\ud83d\udc69&zwj;\u2708\ufe0f',
+  'woman_playing_handball':'\ud83e\udd3e&zwj;\u2640\ufe0f',
+  'woman_playing_water_polo':'\ud83e\udd3d&zwj;\u2640\ufe0f',
+  'woman_scientist':'\ud83d\udc69&zwj;\ud83d\udd2c',
+  'woman_shrugging':'\ud83e\udd37&zwj;\u2640\ufe0f',
+  'woman_singer':'\ud83d\udc69&zwj;\ud83c\udfa4',
+  'woman_student':'\ud83d\udc69&zwj;\ud83c\udf93',
+  'woman_teacher':'\ud83d\udc69&zwj;\ud83c\udfeb',
+  'woman_technologist':'\ud83d\udc69&zwj;\ud83d\udcbb',
+  'woman_with_turban':'\ud83d\udc73&zwj;\u2640\ufe0f',
+  'womans_clothes':'\ud83d\udc5a',
+  'womans_hat':'\ud83d\udc52',
+  'women_wrestling':'\ud83e\udd3c&zwj;\u2640\ufe0f',
+  'womens':'\ud83d\udeba',
+  'world_map':'\ud83d\uddfa',
+  'worried':'\ud83d\ude1f',
+  'wrench':'\ud83d\udd27',
+  'writing_hand':'\u270d\ufe0f',
+  'x':'\u274c',
+  'yellow_heart':'\ud83d\udc9b',
+  'yen':'\ud83d\udcb4',
+  'yin_yang':'\u262f\ufe0f',
+  'yum':'\ud83d\ude0b',
+  'zap':'\u26a1\ufe0f',
+  'zipper_mouth_face':'\ud83e\udd10',
+  'zzz':'\ud83d\udca4',
+
+  /* special emojis :P */
+  'octocat':  '<img alt=":octocat:" height="20" width="20" align="absmiddle" src="https://assets-cdn.github.com/images/icons/emoji/octocat.png">',
+  'showdown': '<span style="font-family: \'Anonymous Pro\', monospace; text-decoration: underline; text-decoration-style: dashed; text-decoration-color: #3e8b8a;text-underline-position: under;">S</span>'
 };
 
 /**
@@ -53461,7 +57646,17 @@ showdown.Converter = function (converterOptions) {
       /**
        * The flavor set in this converter
        */
-      setConvFlavor = setFlavor;
+      setConvFlavor = setFlavor,
+
+    /**
+     * Metadata of the document
+     * @type {{parsed: {}, raw: string, format: string}}
+     */
+      metadata = {
+        parsed: {},
+        raw: '',
+        format: ''
+      };
 
   _constructor();
 
@@ -53673,7 +57868,12 @@ showdown.Converter = function (converterOptions) {
       langExtensions:  langExtensions,
       outputModifiers: outputModifiers,
       converter:       this,
-      ghCodeBlocks:    []
+      ghCodeBlocks:    [],
+      metadata: {
+        parsed: {},
+        raw: '',
+        format: ''
+      }
     };
 
     // This lets us use ¨ trema as an escape char to avoid md5 hashes
@@ -53690,8 +57890,8 @@ showdown.Converter = function (converterOptions) {
     text = text.replace(/\r\n/g, '\n'); // DOS to Unix
     text = text.replace(/\r/g, '\n'); // Mac to Unix
 
-    // Stardardize line spaces (nbsp causes trouble in older browsers and some regex flavors)
-    text = text.replace(/\u00A0/g, ' ');
+    // Stardardize line spaces
+    text = text.replace(/\u00A0/g, '&nbsp;');
 
     if (options.smartIndentationFix) {
       text = rTrimInputText(text);
@@ -53717,6 +57917,7 @@ showdown.Converter = function (converterOptions) {
     });
 
     // run the sub parsers
+    text = showdown.subParser('metadata')(text, options, globals);
     text = showdown.subParser('hashPreCodeTags')(text, options, globals);
     text = showdown.subParser('githubCodeBlocks')(text, options, globals);
     text = showdown.subParser('hashHTMLBlocks')(text, options, globals);
@@ -53732,12 +57933,123 @@ showdown.Converter = function (converterOptions) {
     // attacklab: Restore tremas
     text = text.replace(/¨T/g, '¨');
 
+    // render a complete html document instead of a partial if the option is enabled
+    text = showdown.subParser('completeHTMLDocument')(text, options, globals);
+
     // Run output modifiers
     showdown.helper.forEach(outputModifiers, function (ext) {
       text = showdown.subParser('runExtension')(ext, text, options, globals);
     });
 
+    // update metadata
+    metadata = globals.metadata;
     return text;
+  };
+
+  /**
+   * Converts an HTML string into a markdown string
+   * @param src
+   * @param [HTMLParser] A WHATWG DOM and HTML parser, such as JSDOM. If none is supplied, window.document will be used.
+   * @returns {string}
+   */
+  this.makeMarkdown = this.makeMd = function (src, HTMLParser) {
+
+    // replace \r\n with \n
+    src = src.replace(/\r\n/g, '\n');
+    src = src.replace(/\r/g, '\n'); // old macs
+
+    // due to an edge case, we need to find this: > <
+    // to prevent removing of non silent white spaces
+    // ex: <em>this is</em> <strong>sparta</strong>
+    src = src.replace(/>[ \t]+</, '>¨NBSP;<');
+
+    if (!HTMLParser) {
+      if (window && window.document) {
+        HTMLParser = window.document;
+      } else {
+        throw new Error('HTMLParser is undefined. If in a webworker or nodejs environment, you need to provide a WHATWG DOM and HTML such as JSDOM');
+      }
+    }
+
+    var doc = HTMLParser.createElement('div');
+    doc.innerHTML = src;
+
+    var globals = {
+      preList: substitutePreCodeTags(doc)
+    };
+
+    // remove all newlines and collapse spaces
+    clean(doc);
+
+    // some stuff, like accidental reference links must now be escaped
+    // TODO
+    // doc.innerHTML = doc.innerHTML.replace(/\[[\S\t ]]/);
+
+    var nodes = doc.childNodes,
+        mdDoc = '';
+
+    for (var i = 0; i < nodes.length; i++) {
+      mdDoc += showdown.subParser('makeMarkdown.node')(nodes[i], globals);
+    }
+
+    function clean (node) {
+      for (var n = 0; n < node.childNodes.length; ++n) {
+        var child = node.childNodes[n];
+        if (child.nodeType === 3) {
+          if (!/\S/.test(child.nodeValue)) {
+            node.removeChild(child);
+            --n;
+          } else {
+            child.nodeValue = child.nodeValue.split('\n').join(' ');
+            child.nodeValue = child.nodeValue.replace(/(\s)+/g, '$1');
+          }
+        } else if (child.nodeType === 1) {
+          clean(child);
+        }
+      }
+    }
+
+    // find all pre tags and replace contents with placeholder
+    // we need this so that we can remove all indentation from html
+    // to ease up parsing
+    function substitutePreCodeTags (doc) {
+
+      var pres = doc.querySelectorAll('pre'),
+          presPH = [];
+
+      for (var i = 0; i < pres.length; ++i) {
+
+        if (pres[i].childElementCount === 1 && pres[i].firstChild.tagName.toLowerCase() === 'code') {
+          var content = pres[i].firstChild.innerHTML.trim(),
+              language = pres[i].firstChild.getAttribute('data-language') || '';
+
+          // if data-language attribute is not defined, then we look for class language-*
+          if (language === '') {
+            var classes = pres[i].firstChild.className.split(' ');
+            for (var c = 0; c < classes.length; ++c) {
+              var matches = classes[c].match(/^language-(.+)$/);
+              if (matches !== null) {
+                language = matches[1];
+                break;
+              }
+            }
+          }
+
+          // unescape html entities in content
+          content = showdown.helper.unescapeHTMLEntities(content);
+
+          presPH.push(content);
+          pres[i].outerHTML = '<precode language="' + language + '" precodenum="' + i.toString() + '"></precode>';
+        } else {
+          presPH.push(pres[i].innerHTML);
+          pres[i].innerHTML = '';
+          pres[i].setAttribute('prenum', i.toString());
+        }
+      }
+      return presPH;
+    }
+
+    return mdDoc;
   };
 
   /**
@@ -53844,6 +58156,52 @@ showdown.Converter = function (converterOptions) {
       output: outputModifiers
     };
   };
+
+  /**
+   * Get the metadata of the previously parsed document
+   * @param raw
+   * @returns {string|{}}
+   */
+  this.getMetadata = function (raw) {
+    if (raw) {
+      return metadata.raw;
+    } else {
+      return metadata.parsed;
+    }
+  };
+
+  /**
+   * Get the metadata format of the previously parsed document
+   * @returns {string}
+   */
+  this.getMetadataFormat = function () {
+    return metadata.format;
+  };
+
+  /**
+   * Private: set a single key, value metadata pair
+   * @param {string} key
+   * @param {string} value
+   */
+  this._setMetadataPair = function (key, value) {
+    metadata.parsed[key] = value;
+  };
+
+  /**
+   * Private: set metadata format
+   * @param {string} format
+   */
+  this._setMetadataFormat = function (format) {
+    metadata.format = format;
+  };
+
+  /**
+   * Private: set metadata raw text
+   * @param {string} raw
+   */
+  this._setMetadataRaw = function (raw) {
+    metadata.raw = raw;
+  };
 };
 
 /**
@@ -53881,18 +58239,20 @@ showdown.subParser('anchors', function (text, options, globals) {
     }
 
     //url = showdown.helper.escapeCharacters(url, '*_', false); // replaced line to improve performance
-    url = url.replace(showdown.helper.regexes.asteriskAndDash, showdown.helper.escapeCharactersCallback);
+    url = url.replace(showdown.helper.regexes.asteriskDashAndColon, showdown.helper.escapeCharactersCallback);
 
     var result = '<a href="' + url + '"';
 
     if (title !== '' && title !== null) {
       title = title.replace(/"/g, '&quot;');
       //title = showdown.helper.escapeCharacters(title, '*_', false); // replaced line to improve performance
-      title = title.replace(showdown.helper.regexes.asteriskAndDash, showdown.helper.escapeCharactersCallback);
+      title = title.replace(showdown.helper.regexes.asteriskDashAndColon, showdown.helper.escapeCharactersCallback);
       result += ' title="' + title + '"';
     }
 
-    if (options.openLinksInNewWindow) {
+    // optionLinksInNewWindow only applies
+    // to external links. Hash links (#) open in same page
+    if (options.openLinksInNewWindow && !/^#/.test(url)) {
       // escaped _
       result += ' target="¨E95Eblank"';
     }
@@ -53921,7 +58281,7 @@ showdown.subParser('anchors', function (text, options, globals) {
 
   // Lastly handle GithubMentions if option is enabled
   if (options.ghMentions) {
-    text = text.replace(/(^|\s)(\\)?(@([a-z\d\-]+))(?=[.!?;,[\]()]|\s|$)/gmi, function (wm, st, escape, mentions, username) {
+    text = text.replace(/(^|\s)(\\)?(@([a-z\d]+(?:[a-z\d.-]+?[a-z\d]+)*))/gmi, function (wm, st, escape, mentions, username) {
       if (escape === '\\') {
         return st + mentions;
       }
@@ -53945,20 +58305,21 @@ showdown.subParser('anchors', function (text, options, globals) {
 
 // url allowed chars [a-z\d_.~:/?#[]@!$&'()*+,;=-]
 
-var simpleURLRegex  = /\b(((https?|ftp|dict):\/\/|www\.)[^'">\s]+\.[^'">\s]+)()(?=\s|$)(?!["<>])/gi,
-    simpleURLRegex2 = /\b(((https?|ftp|dict):\/\/|www\.)[^'">\s]+\.[^'">\s]+?)([.!?,()\[\]]?)(?=\s|$)(?!["<>])/gi,
-    //simpleURLRegex3 = /\b(((https?|ftp):\/\/|www\.)[a-z\d.-]+\.[a-z\d_.~:/?#\[\]@!$&'()*+,;=-]+?)([.!?()]?)(?=\s|$)(?!["<>])/gi,
-    delimUrlRegex   = /<(((https?|ftp|dict):\/\/|www\.)[^'">\s]+)()>/gi,
+var simpleURLRegex  = /([*~_]+|\b)(((https?|ftp|dict):\/\/|www\.)[^'">\s]+?\.[^'">\s]+?)()(\1)?(?=\s|$)(?!["<>])/gi,
+    simpleURLRegex2 = /([*~_]+|\b)(((https?|ftp|dict):\/\/|www\.)[^'">\s]+\.[^'">\s]+?)([.!?,()\[\]])?(\1)?(?=\s|$)(?!["<>])/gi,
+    delimUrlRegex   = /()<(((https?|ftp|dict):\/\/|www\.)[^'">\s]+)()>()/gi,
     simpleMailRegex = /(^|\s)(?:mailto:)?([A-Za-z0-9!#$%&'*+-/=?^_`{|}~.]+@[-a-z0-9]+(\.[-a-z0-9]+)*\.[a-z]+)(?=$|\s)/gmi,
     delimMailRegex  = /<()(?:mailto:)?([-.\w]+@[-a-z0-9]+(\.[-a-z0-9]+)*\.[a-z]+)>/gi,
 
     replaceLink = function (options) {
       'use strict';
-
-      return function (wm, link, m2, m3, trailingPunctuation) {
+      return function (wm, leadingMagicChars, link, m2, m3, trailingPunctuation, trailingMagicChars) {
+        link = link.replace(showdown.helper.regexes.asteriskDashAndColon, showdown.helper.escapeCharactersCallback);
         var lnkTxt = link,
             append = '',
-            target = '';
+            target = '',
+            lmc    = leadingMagicChars || '',
+            tmc    = trailingMagicChars || '';
         if (/^www\./i.test(link)) {
           link = link.replace(/^www\./i, 'http://www.');
         }
@@ -53968,7 +58329,7 @@ var simpleURLRegex  = /\b(((https?|ftp|dict):\/\/|www\.)[^'">\s]+\.[^'">\s]+)()(
         if (options.openLinksInNewWindow) {
           target = ' target="¨E95Eblank"';
         }
-        return '<a href="' + link + '"' + target + '>' + lnkTxt + '</a>' + append;
+        return lmc + '<a href="' + link + '"' + target + '>' + lnkTxt + '</a>' + append + tmc;
       };
     },
 
@@ -54060,12 +58421,19 @@ showdown.subParser('blockQuotes', function (text, options, globals) {
 
   text = globals.converter._dispatch('blockQuotes.before', text, options, globals);
 
-  text = text.replace(/((^ {0,3}>[ \t]?.+\n(.+\n)*\n*)+)/gm, function (wholeMatch, m1) {
-    var bq = m1;
+  // add a couple extra lines after the text and endtext mark
+  text = text + '\n\n';
 
+  var rgx = /(^ {0,3}>[ \t]?.+\n(.+\n)*\n*)+/gm;
+
+  if (options.splitAdjacentBlockquotes) {
+    rgx = /^ {0,3}>[\s\S]*?(?:\n\n)/gm;
+  }
+
+  text = text.replace(rgx, function (bq) {
     // attacklab: hack around Konqueror 3.5.4 bug:
     // "----------bug".replace(/^-/g,"") == "bug"
-    bq = bq.replace(/^[ \t]*>[ \t]?/gm, '¨0'); // trim one level of quoting
+    bq = bq.replace(/^[ \t]*>[ \t]?/gm, ''); // trim one level of quoting
 
     // attacklab: clean up hack
     bq = bq.replace(/¨0/g, '');
@@ -54169,11 +58537,76 @@ showdown.subParser('codeSpans', function (text, options, globals) {
       c = c.replace(/^([ \t]*)/g, '');	// leading whitespace
       c = c.replace(/[ \t]*$/g, '');	// trailing whitespace
       c = showdown.subParser('encodeCode')(c, options, globals);
-      return m1 + '<code>' + c + '</code>';
+      c = m1 + '<code>' + c + '</code>';
+      c = showdown.subParser('hashHTMLSpans')(c, options, globals);
+      return c;
     }
   );
 
   text = globals.converter._dispatch('codeSpans.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Create a full HTML document from the processed markdown
+ */
+showdown.subParser('completeHTMLDocument', function (text, options, globals) {
+  'use strict';
+
+  if (!options.completeHTMLDocument) {
+    return text;
+  }
+
+  text = globals.converter._dispatch('completeHTMLDocument.before', text, options, globals);
+
+  var doctype = 'html',
+      doctypeParsed = '<!DOCTYPE HTML>\n',
+      title = '',
+      charset = '<meta charset="utf-8">\n',
+      lang = '',
+      metadata = '';
+
+  if (typeof globals.metadata.parsed.doctype !== 'undefined') {
+    doctypeParsed = '<!DOCTYPE ' +  globals.metadata.parsed.doctype + '>\n';
+    doctype = globals.metadata.parsed.doctype.toString().toLowerCase();
+    if (doctype === 'html' || doctype === 'html5') {
+      charset = '<meta charset="utf-8">';
+    }
+  }
+
+  for (var meta in globals.metadata.parsed) {
+    if (globals.metadata.parsed.hasOwnProperty(meta)) {
+      switch (meta.toLowerCase()) {
+        case 'doctype':
+          break;
+
+        case 'title':
+          title = '<title>' +  globals.metadata.parsed.title + '</title>\n';
+          break;
+
+        case 'charset':
+          if (doctype === 'html' || doctype === 'html5') {
+            charset = '<meta charset="' + globals.metadata.parsed.charset + '">\n';
+          } else {
+            charset = '<meta name="charset" content="' + globals.metadata.parsed.charset + '">\n';
+          }
+          break;
+
+        case 'language':
+        case 'lang':
+          lang = ' lang="' + globals.metadata.parsed[meta] + '"';
+          metadata += '<meta name="' + meta + '" content="' + globals.metadata.parsed[meta] + '">\n';
+          break;
+
+        default:
+          metadata += '<meta name="' + meta + '" content="' + globals.metadata.parsed[meta] + '">\n';
+      }
+    }
+  }
+
+  text = doctypeParsed + '<html' + lang + '>\n<head>\n' + title + charset + metadata + '</head>\n<body>\n' + text.trim() + '\n</body>\n</html>';
+
+  text = globals.converter._dispatch('completeHTMLDocument.after', text, options, globals);
   return text;
 });
 
@@ -54208,6 +58641,46 @@ showdown.subParser('detab', function (text, options, globals) {
   text = text.replace(/¨B/g, '');
 
   text = globals.converter._dispatch('detab.after', text, options, globals);
+  return text;
+});
+
+showdown.subParser('ellipsis', function (text, options, globals) {
+  'use strict';
+
+  text = globals.converter._dispatch('ellipsis.before', text, options, globals);
+
+  text = text.replace(/\.\.\./g, '…');
+
+  text = globals.converter._dispatch('ellipsis.after', text, options, globals);
+
+  return text;
+});
+
+/**
+ * Turn emoji codes into emojis
+ *
+ * List of supported emojis: https://github.com/showdownjs/showdown/wiki/Emojis
+ */
+showdown.subParser('emoji', function (text, options, globals) {
+  'use strict';
+
+  if (!options.emoji) {
+    return text;
+  }
+
+  text = globals.converter._dispatch('emoji.before', text, options, globals);
+
+  var emojiRgx = /:([\S]+?):/g;
+
+  text = text.replace(emojiRgx, function (wm, emojiCode) {
+    if (showdown.helper.emojis.hasOwnProperty(emojiCode)) {
+      return showdown.helper.emojis[emojiCode];
+    }
+    return wm;
+  });
+
+  text = globals.converter._dispatch('emoji.after', text, options, globals);
+
   return text;
 });
 
@@ -54289,13 +58762,18 @@ showdown.subParser('escapeSpecialCharsWithinTagAttributes', function (text, opti
   'use strict';
   text = globals.converter._dispatch('escapeSpecialCharsWithinTagAttributes.before', text, options, globals);
 
-  // Build a regex to find HTML tags and comments.  See Friedl's
-  // "Mastering Regular Expressions", 2nd Ed., pp. 200-201.
-  var regex = /(<[a-z\/!$]("[^"]*"|'[^']*'|[^'">])*>|<!(--.*?--\s*)+>)/gi;
+  // Build a regex to find HTML tags.
+  var tags     = /<\/?[a-z\d_:-]+(?:[\s]+[\s\S]+?)?>/gi,
+      comments = /<!(--(?:(?:[^>-]|-[^>])(?:[^-]|-[^-])*)--)>/gi;
 
-  text = text.replace(regex, function (wholeMatch) {
+  text = text.replace(tags, function (wholeMatch) {
     return wholeMatch
       .replace(/(.)<\/?code>(?=.)/g, '$1`')
+      .replace(/([\\`*_~=|])/g, showdown.helper.escapeCharactersCallback);
+  });
+
+  text = text.replace(comments, function (wholeMatch) {
+    return wholeMatch
       .replace(/([\\`*_~=|])/g, showdown.helper.escapeCharactersCallback);
   });
 
@@ -54325,7 +58803,7 @@ showdown.subParser('githubCodeBlocks', function (text, options, globals) {
 
   text += '¨0';
 
-  text = text.replace(/(?:^|\n)```(.*)\n([\s\S]*?)\n```/g, function (wholeMatch, language, codeblock) {
+  text = text.replace(/(?:^|\n)(?: {0,3})(```+|~~~+)(?: *)([^\s`~]*)\n([\s\S]*?)\n(?: {0,3})\1/g, function (wholeMatch, delim, language, codeblock) {
     var end = (options.omitExtraWLInCodeBlocks) ? '' : '\n';
 
     // First parse the github code block
@@ -54550,6 +59028,7 @@ showdown.subParser('unhashHTMLSpans', function (text, options, globals) {
       var num = RegExp.$1;
       repText = repText.replace('¨C' + num + 'C', globals.gHtmlSpans[num]);
       if (limit === 10) {
+        console.error('maximum nesting of 10 spans reached!!!');
         break;
       }
       ++limit;
@@ -54587,7 +59066,6 @@ showdown.subParser('headers', function (text, options, globals) {
   text = globals.converter._dispatch('headers.before', text, options, globals);
 
   var headerLevelStart = (isNaN(parseInt(options.headerLevelStart))) ? 1 : parseInt(options.headerLevelStart),
-      ghHeaderId = options.ghCompatibleHeaderId,
 
   // Set text-style headers:
   //	Header 1
@@ -54640,7 +59118,8 @@ showdown.subParser('headers', function (text, options, globals) {
   });
 
   function headerId (m) {
-    var title;
+    var title,
+        prefix;
 
     // It is separate from other options to allow combining prefix and customized
     if (options.customizedHeaderId) {
@@ -54650,16 +59129,22 @@ showdown.subParser('headers', function (text, options, globals) {
       }
     }
 
+    title = m;
+
     // Prefix id to prevent causing inadvertent pre-existing style matches.
     if (showdown.helper.isString(options.prefixHeaderId)) {
-      title = options.prefixHeaderId + m;
+      prefix = options.prefixHeaderId;
     } else if (options.prefixHeaderId === true) {
-      title = 'section ' + m;
+      prefix = 'section-';
     } else {
-      title = m;
+      prefix = '';
     }
 
-    if (ghHeaderId) {
+    if (!options.rawPrefixHeaderId) {
+      title = prefix + title;
+    }
+
+    if (options.ghCompatibleHeaderId) {
       title = title
         .replace(/ /g, '-')
         // replace previously escaped chars (&, ¨ and $)
@@ -54670,10 +59155,24 @@ showdown.subParser('headers', function (text, options, globals) {
         // borrowed from github's redcarpet (some they should produce similar results)
         .replace(/[&+$,\/:;=?@"#{}|^¨~\[\]`\\*)(%.!'<>]/g, '')
         .toLowerCase();
+    } else if (options.rawHeaderId) {
+      title = title
+        .replace(/ /g, '-')
+        // replace previously escaped chars (&, ¨ and $)
+        .replace(/&amp;/g, '&')
+        .replace(/¨T/g, '¨')
+        .replace(/¨D/g, '$')
+        // replace " and '
+        .replace(/["']/g, '-')
+        .toLowerCase();
     } else {
       title = title
         .replace(/[^\w]/g, '')
         .toLowerCase();
+    }
+
+    if (options.rawPrefixHeaderId) {
+      title = prefix + title;
     }
 
     if (globals.hashLinkCounts[title]) {
@@ -54714,8 +59213,14 @@ showdown.subParser('images', function (text, options, globals) {
 
   var inlineRegExp      = /!\[([^\]]*?)][ \t]*()\([ \t]?<?([\S]+?(?:\([\S]*?\)[\S]*?)?)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*(?:(["'])([^"]*?)\6)?[ \t]?\)/g,
       crazyRegExp       = /!\[([^\]]*?)][ \t]*()\([ \t]?<([^>]*)>(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*(?:(?:(["'])([^"]*?)\6))?[ \t]?\)/g,
-      referenceRegExp   = /!\[([^\]]*?)] ?(?:\n *)?\[(.*?)]()()()()()/g,
+      base64RegExp      = /!\[([^\]]*?)][ \t]*()\([ \t]?<?(data:.+?\/.+?;base64,[A-Za-z0-9+/=\n]+?)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*(?:(["'])([^"]*?)\6)?[ \t]?\)/g,
+      referenceRegExp   = /!\[([^\]]*?)] ?(?:\n *)?\[([\s\S]*?)]()()()()()/g,
       refShortcutRegExp = /!\[([^\[\]]+)]()()()()()/g;
+
+  function writeImageTagBase64 (wholeMatch, altText, linkId, url, width, height, m5, title) {
+    url = url.replace(/\s/g, '');
+    return writeImageTag (wholeMatch, altText, linkId, url, width, height, m5, title);
+  }
 
   function writeImageTag (wholeMatch, altText, linkId, url, width, height, m5, title) {
 
@@ -54756,16 +59261,16 @@ showdown.subParser('images', function (text, options, globals) {
     altText = altText
       .replace(/"/g, '&quot;')
     //altText = showdown.helper.escapeCharacters(altText, '*_', false);
-      .replace(showdown.helper.regexes.asteriskAndDash, showdown.helper.escapeCharactersCallback);
+      .replace(showdown.helper.regexes.asteriskDashAndColon, showdown.helper.escapeCharactersCallback);
     //url = showdown.helper.escapeCharacters(url, '*_', false);
-    url = url.replace(showdown.helper.regexes.asteriskAndDash, showdown.helper.escapeCharactersCallback);
+    url = url.replace(showdown.helper.regexes.asteriskDashAndColon, showdown.helper.escapeCharactersCallback);
     var result = '<img src="' + url + '" alt="' + altText + '"';
 
-    if (title) {
+    if (title && showdown.helper.isString(title)) {
       title = title
         .replace(/"/g, '&quot;')
       //title = showdown.helper.escapeCharacters(title, '*_', false);
-        .replace(showdown.helper.regexes.asteriskAndDash, showdown.helper.escapeCharactersCallback);
+        .replace(showdown.helper.regexes.asteriskDashAndColon, showdown.helper.escapeCharactersCallback);
       result += ' title="' + title + '"';
     }
 
@@ -54786,13 +59291,17 @@ showdown.subParser('images', function (text, options, globals) {
   text = text.replace(referenceRegExp, writeImageTag);
 
   // Next, handle inline images:  ![alt text](url =<width>x<height> "optional title")
+
+  // base64 encoded images
+  text = text.replace(base64RegExp, writeImageTagBase64);
+
   // cases with crazy urls like ./image/cat1).png
   text = text.replace(crazyRegExp, writeImageTag);
 
   // normal cases
   text = text.replace(inlineRegExp, writeImageTag);
 
-  // handle reference-style shortcuts: |[img text]
+  // handle reference-style shortcuts: ![img text]
   text = text.replace(refShortcutRegExp, writeImageTag);
 
   text = globals.converter._dispatch('images.after', text, options, globals);
@@ -54809,18 +59318,20 @@ showdown.subParser('italicsAndBold', function (text, options, globals) {
   // called "catastrophic backtrace". Ominous!
 
   function parseInside (txt, left, right) {
+    /*
     if (options.simplifiedAutoLink) {
       txt = showdown.subParser('simplifiedAutoLinks')(txt, options, globals);
     }
+    */
     return left + txt + right;
   }
 
   // Parse underscores
   if (options.literalMidWordUnderscores) {
-    text = text.replace(/\b___(\S[\s\S]*)___\b/g, function (wm, txt) {
+    text = text.replace(/\b___(\S[\s\S]*?)___\b/g, function (wm, txt) {
       return parseInside (txt, '<strong><em>', '</em></strong>');
     });
-    text = text.replace(/\b__(\S[\s\S]*)__\b/g, function (wm, txt) {
+    text = text.replace(/\b__(\S[\s\S]*?)__\b/g, function (wm, txt) {
       return parseInside (txt, '<strong>', '</strong>');
     });
     text = text.replace(/\b_(\S[\s\S]*?)_\b/g, function (wm, txt) {
@@ -54841,14 +59352,14 @@ showdown.subParser('italicsAndBold', function (text, options, globals) {
 
   // Now parse asterisks
   if (options.literalMidWordAsterisks) {
-    text = text.trim().replace(/(?:^| +)\*{3}(\S[\s\S]*?)\*{3}(?: +|$)/g, function (wm, txt) {
-      return parseInside (txt, ' <strong><em>', '</em></strong> ');
+    text = text.replace(/([^*]|^)\B\*\*\*(\S[\s\S]*?)\*\*\*\B(?!\*)/g, function (wm, lead, txt) {
+      return parseInside (txt, lead + '<strong><em>', '</em></strong>');
     });
-    text = text.trim().replace(/(?:^| +)\*{2}(\S[\s\S]*?)\*{2}(?: +|$)/g, function (wm, txt) {
-      return parseInside (txt, ' <strong>', '</strong> ');
+    text = text.replace(/([^*]|^)\B\*\*(\S[\s\S]*?)\*\*\B(?!\*)/g, function (wm, lead, txt) {
+      return parseInside (txt, lead + '<strong>', '</strong>');
     });
-    text = text.trim().replace(/(?:^| +)\*{1}(\S[\s\S]*?)\*{1}(?: +|$)/g, function (wm, txt) {
-      return parseInside (txt, ' <em>', '</em>' + (wm.slice(-1) === ' ' ? ' ' : ''));
+    text = text.replace(/([^*]|^)\B\*(\S[\s\S]*?)\*\B(?!\*)/g, function (wm, lead, txt) {
+      return parseInside (txt, lead + '<em>', '</em>');
     });
   } else {
     text = text.replace(/\*\*\*(\S[\s\S]*?)\*\*\*/g, function (wm, m) {
@@ -54873,7 +59384,6 @@ showdown.subParser('italicsAndBold', function (text, options, globals) {
  */
 showdown.subParser('lists', function (text, options, globals) {
   'use strict';
-  text = globals.converter._dispatch('lists.before', text, options, globals);
 
   /**
    * Process the contents of a single ordered or unordered list, splitting it
@@ -54993,6 +59503,17 @@ showdown.subParser('lists', function (text, options, globals) {
     return listStr;
   }
 
+  function styleStartNumber (list, listType) {
+    // check if ol and starts by a number different than 1
+    if (listType === 'ol') {
+      var res = list.match(/^ *(\d+)\./);
+      if (res && res[1] !== '1') {
+        return ' start="' + res[1] + '"';
+      }
+    }
+    return '';
+  }
+
   /**
    * Check and parse consecutive lists (better fix for issue #142)
    * @param {string} list
@@ -55010,10 +59531,11 @@ showdown.subParser('lists', function (text, options, globals) {
 
     if (list.search(counterRxg) !== -1) {
       (function parseCL (txt) {
-        var pos = txt.search(counterRxg);
+        var pos = txt.search(counterRxg),
+            style = styleStartNumber(list, listType);
         if (pos !== -1) {
           // slice
-          result += '\n<' + listType + '>\n' + processListItems(txt.slice(0, pos), !!trimTrailing) + '</' + listType + '>\n';
+          result += '\n\n<' + listType + style + '>\n' + processListItems(txt.slice(0, pos), !!trimTrailing) + '</' + listType + '>\n';
 
           // invert counterType and listType
           listType = (listType === 'ul') ? 'ol' : 'ul';
@@ -55022,16 +59544,19 @@ showdown.subParser('lists', function (text, options, globals) {
           //recurse
           parseCL(txt.slice(pos));
         } else {
-          result += '\n<' + listType + '>\n' + processListItems(txt, !!trimTrailing) + '</' + listType + '>\n';
+          result += '\n\n<' + listType + style + '>\n' + processListItems(txt, !!trimTrailing) + '</' + listType + '>\n';
         }
       })(list);
     } else {
-      result = '\n<' + listType + '>\n' + processListItems(list, !!trimTrailing) + '</' + listType + '>\n';
+      var style = styleStartNumber(list, listType);
+      result = '\n\n<' + listType + style + '>\n' + processListItems(list, !!trimTrailing) + '</' + listType + '>\n';
     }
 
     return result;
   }
 
+  /** Start of list parsing **/
+  text = globals.converter._dispatch('lists.before', text, options, globals);
   // add sentinel to hack around khtml/safari bug:
   // http://bugs.webkit.org/show_bug.cgi?id=11231
   text += '¨0';
@@ -55055,6 +59580,56 @@ showdown.subParser('lists', function (text, options, globals) {
   // strip sentinel
   text = text.replace(/¨0/, '');
   text = globals.converter._dispatch('lists.after', text, options, globals);
+  return text;
+});
+
+/**
+ * Parse metadata at the top of the document
+ */
+showdown.subParser('metadata', function (text, options, globals) {
+  'use strict';
+
+  if (!options.metadata) {
+    return text;
+  }
+
+  text = globals.converter._dispatch('metadata.before', text, options, globals);
+
+  function parseMetadataContents (content) {
+    // raw is raw so it's not changed in any way
+    globals.metadata.raw = content;
+
+    // escape chars forbidden in html attributes
+    // double quotes
+    content = content
+      // ampersand first
+      .replace(/&/g, '&amp;')
+      // double quotes
+      .replace(/"/g, '&quot;');
+
+    content = content.replace(/\n {4}/g, ' ');
+    content.replace(/^([\S ]+): +([\s\S]+?)$/gm, function (wm, key, value) {
+      globals.metadata.parsed[key] = value;
+      return '';
+    });
+  }
+
+  text = text.replace(/^\s*«««+(\S*?)\n([\s\S]+?)\n»»»+\n/, function (wholematch, format, content) {
+    parseMetadataContents(content);
+    return '¨M';
+  });
+
+  text = text.replace(/^\s*---+(\S*?)\n([\s\S]+?)\n---+\n/, function (wholematch, format, content) {
+    if (format) {
+      globals.metadata.format = format;
+    }
+    parseMetadataContents(content);
+    return '¨M';
+  });
+
+  text = text.replace(/¨M/g, '');
+
+  text = globals.converter._dispatch('metadata.after', text, options, globals);
   return text;
 });
 
@@ -55189,9 +59764,12 @@ showdown.subParser('spanGamut', function (text, options, globals) {
   // Must come after anchors, because you can use < and >
   // delimiters in inline links like [this](<url>).
   text = showdown.subParser('autoLinks')(text, options, globals);
+  text = showdown.subParser('simplifiedAutoLinks')(text, options, globals);
+  text = showdown.subParser('emoji')(text, options, globals);
+  text = showdown.subParser('underline')(text, options, globals);
   text = showdown.subParser('italicsAndBold')(text, options, globals);
   text = showdown.subParser('strikethrough')(text, options, globals);
-  text = showdown.subParser('simplifiedAutoLinks')(text, options, globals);
+  text = showdown.subParser('ellipsis')(text, options, globals);
 
   // we need to hash HTML tags inside spans
   text = showdown.subParser('hashHTMLSpans')(text, options, globals);
@@ -55242,14 +59820,20 @@ showdown.subParser('strikethrough', function (text, options, globals) {
 showdown.subParser('stripLinkDefinitions', function (text, options, globals) {
   'use strict';
 
-  var regex = /^ {0,3}\[(.+)]:[ \t]*\n?[ \t]*<?([^>\s]+)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*\n?[ \t]*(?:(\n*)["|'(](.+?)["|')][ \t]*)?(?:\n+|(?=¨0))/gm;
+  var regex       = /^ {0,3}\[(.+)]:[ \t]*\n?[ \t]*<?([^>\s]+)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*\n?[ \t]*(?:(\n*)["|'(](.+?)["|')][ \t]*)?(?:\n+|(?=¨0))/gm,
+      base64Regex = /^ {0,3}\[(.+)]:[ \t]*\n?[ \t]*<?(data:.+?\/.+?;base64,[A-Za-z0-9+/=\n]+?)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*\n?[ \t]*(?:(\n*)["|'(](.+?)["|')][ \t]*)?(?:\n\n|(?=¨0)|(?=\n\[))/gm;
 
   // attacklab: sentinel workarounds for lack of \A and \Z, safari\khtml bug
   text += '¨0';
 
-  text = text.replace(regex, function (wholeMatch, linkId, url, width, height, blankLines, title) {
+  var replaceFunc = function (wholeMatch, linkId, url, width, height, blankLines, title) {
     linkId = linkId.toLowerCase();
-    globals.gUrls[linkId] = showdown.subParser('encodeAmpsAndAngles')(url, options, globals);  // Link IDs are case-insensitive
+    if (url.match(/^data:.+?\/.+?;base64,/)) {
+      // remove newlines
+      globals.gUrls[linkId] = url.replace(/\s/g, '');
+    } else {
+      globals.gUrls[linkId] = showdown.subParser('encodeAmpsAndAngles')(url, options, globals);  // Link IDs are case-insensitive
+    }
 
     if (blankLines) {
       // Oops, found blank lines, so it's not a title.
@@ -55269,7 +59853,12 @@ showdown.subParser('stripLinkDefinitions', function (text, options, globals) {
     }
     // Completely remove the definition from the text
     return '';
-  });
+  };
+
+  // first we try to find base64 link references
+  text = text.replace(base64Regex, replaceFunc);
+
+  text = text.replace(regex, replaceFunc);
 
   // attacklab: strip sentinel
   text = text.replace(/¨0/, '');
@@ -55284,7 +59873,9 @@ showdown.subParser('tables', function (text, options, globals) {
     return text;
   }
 
-  var tableRgx = /^ {0,3}\|?.+\|.+\n[ \t]{0,3}\|?[ \t]*:?[ \t]*(?:-|=){2,}[ \t]*:?[ \t]*\|[ \t]*:?[ \t]*(?:-|=){2,}[\s\S]+?(?:\n\n|¨0)/gm;
+  var tableRgx       = /^ {0,3}\|?.+\|.+\n {0,3}\|?[ \t]*:?[ \t]*(?:[-=]){2,}[ \t]*:?[ \t]*\|[ \t]*:?[ \t]*(?:[-=]){2,}[\s\S]+?(?:\n\n|¨0)/gm,
+    //singeColTblRgx = /^ {0,3}\|.+\|\n {0,3}\|[ \t]*:?[ \t]*(?:[-=]){2,}[ \t]*:?[ \t]*\|[ \t]*\n(?: {0,3}\|.+\|\n)+(?:\n\n|¨0)/gm;
+      singeColTblRgx = /^ {0,3}\|.+\|[ \t]*\n {0,3}\|[ \t]*:?[ \t]*(?:[-=]){2,}[ \t]*:?[ \t]*\|[ \t]*\n( {0,3}\|.+\|[ \t]*\n)*(?:\n|¨0)/gm;
 
   function parseStyles (sLine) {
     if (/^:[ \t]*--*$/.test(sLine)) {
@@ -55301,7 +59892,7 @@ showdown.subParser('tables', function (text, options, globals) {
   function parseHeaders (header, style) {
     var id = '';
     header = header.trim();
-    // support both tablesHeaderId and tableHeaderId due to error in documention so we don't break backwards compatibility
+    // support both tablesHeaderId and tableHeaderId due to error in documentation so we don't break backwards compatibility
     if (options.tablesHeaderId || options.tableHeaderId) {
       id = ' id="' + header.replace(/ /g, '_').toLowerCase() + '"';
     }
@@ -55335,24 +59926,19 @@ showdown.subParser('tables', function (text, options, globals) {
     return tb;
   }
 
-  text = globals.converter._dispatch('tables.before', text, options, globals);
-
-  // find escaped pipe characters
-  text = text.replace(/\\(\|)/g, showdown.helper.escapeCharactersCallback);
-
-  // parse tables
-  text = text.replace(tableRgx, function (rawTable) {
-
+  function parseTable (rawTable) {
     var i, tableLines = rawTable.split('\n');
 
-    // strip wrong first and last column if wrapped tables are used
     for (i = 0; i < tableLines.length; ++i) {
+      // strip wrong first and last column if wrapped tables are used
       if (/^ {0,3}\|/.test(tableLines[i])) {
         tableLines[i] = tableLines[i].replace(/^ {0,3}\|/, '');
       }
       if (/\|[ \t]*$/.test(tableLines[i])) {
         tableLines[i] = tableLines[i].replace(/\|[ \t]*$/, '');
       }
+      // parse code spans first, but we only support one line code spans
+      tableLines[i] = showdown.subParser('codeSpans')(tableLines[i], options, globals);
     }
 
     var rawHeaders = tableLines[0].split('|').map(function (s) { return s.trim();}),
@@ -55405,9 +59991,53 @@ showdown.subParser('tables', function (text, options, globals) {
     }
 
     return buildTable(headers, cells);
-  });
+  }
+
+  text = globals.converter._dispatch('tables.before', text, options, globals);
+
+  // find escaped pipe characters
+  text = text.replace(/\\(\|)/g, showdown.helper.escapeCharactersCallback);
+
+  // parse multi column tables
+  text = text.replace(tableRgx, parseTable);
+
+  // parse one column tables
+  text = text.replace(singeColTblRgx, parseTable);
 
   text = globals.converter._dispatch('tables.after', text, options, globals);
+
+  return text;
+});
+
+showdown.subParser('underline', function (text, options, globals) {
+  'use strict';
+
+  if (!options.underline) {
+    return text;
+  }
+
+  text = globals.converter._dispatch('underline.before', text, options, globals);
+
+  if (options.literalMidWordUnderscores) {
+    text = text.replace(/\b___(\S[\s\S]*?)___\b/g, function (wm, txt) {
+      return '<u>' + txt + '</u>';
+    });
+    text = text.replace(/\b__(\S[\s\S]*?)__\b/g, function (wm, txt) {
+      return '<u>' + txt + '</u>';
+    });
+  } else {
+    text = text.replace(/___(\S[\s\S]*?)___/g, function (wm, m) {
+      return (/\S$/.test(m)) ? '<u>' + m + '</u>' : wm;
+    });
+    text = text.replace(/__(\S[\s\S]*?)__/g, function (wm, m) {
+      return (/\S$/.test(m)) ? '<u>' + m + '</u>' : wm;
+    });
+  }
+
+  // escape remaining underscores to prevent them being parsed by italic and bold
+  text = text.replace(/(_)/g, showdown.helper.escapeCharactersCallback);
+
+  text = globals.converter._dispatch('underline.after', text, options, globals);
 
   return text;
 });
@@ -55428,21 +60058,503 @@ showdown.subParser('unescapeSpecialChars', function (text, options, globals) {
   return text;
 });
 
+showdown.subParser('makeMarkdown.blockquote', function (node, globals) {
+  'use strict';
+
+  var txt = '';
+  if (node.hasChildNodes()) {
+    var children = node.childNodes,
+        childrenLength = children.length;
+
+    for (var i = 0; i < childrenLength; ++i) {
+      var innerTxt = showdown.subParser('makeMarkdown.node')(children[i], globals);
+
+      if (innerTxt === '') {
+        continue;
+      }
+      txt += innerTxt;
+    }
+  }
+  // cleanup
+  txt = txt.trim();
+  txt = '> ' + txt.split('\n').join('\n> ');
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.codeBlock', function (node, globals) {
+  'use strict';
+
+  var lang = node.getAttribute('language'),
+      num  = node.getAttribute('precodenum');
+  return '```' + lang + '\n' + globals.preList[num] + '\n```';
+});
+
+showdown.subParser('makeMarkdown.codeSpan', function (node) {
+  'use strict';
+
+  return '`' + node.innerHTML + '`';
+});
+
+showdown.subParser('makeMarkdown.emphasis', function (node, globals) {
+  'use strict';
+
+  var txt = '';
+  if (node.hasChildNodes()) {
+    txt += '*';
+    var children = node.childNodes,
+        childrenLength = children.length;
+    for (var i = 0; i < childrenLength; ++i) {
+      txt += showdown.subParser('makeMarkdown.node')(children[i], globals);
+    }
+    txt += '*';
+  }
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.header', function (node, globals, headerLevel) {
+  'use strict';
+
+  var headerMark = new Array(headerLevel + 1).join('#'),
+      txt = '';
+
+  if (node.hasChildNodes()) {
+    txt = headerMark + ' ';
+    var children = node.childNodes,
+        childrenLength = children.length;
+
+    for (var i = 0; i < childrenLength; ++i) {
+      txt += showdown.subParser('makeMarkdown.node')(children[i], globals);
+    }
+  }
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.hr', function () {
+  'use strict';
+
+  return '---';
+});
+
+showdown.subParser('makeMarkdown.image', function (node) {
+  'use strict';
+
+  var txt = '';
+  if (node.hasAttribute('src')) {
+    txt += '![' + node.getAttribute('alt') + '](';
+    txt += '<' + node.getAttribute('src') + '>';
+    if (node.hasAttribute('width') && node.hasAttribute('height')) {
+      txt += ' =' + node.getAttribute('width') + 'x' + node.getAttribute('height');
+    }
+
+    if (node.hasAttribute('title')) {
+      txt += ' "' + node.getAttribute('title') + '"';
+    }
+    txt += ')';
+  }
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.links', function (node, globals) {
+  'use strict';
+
+  var txt = '';
+  if (node.hasChildNodes() && node.hasAttribute('href')) {
+    var children = node.childNodes,
+        childrenLength = children.length;
+    txt = '[';
+    for (var i = 0; i < childrenLength; ++i) {
+      txt += showdown.subParser('makeMarkdown.node')(children[i], globals);
+    }
+    txt += '](';
+    txt += '<' + node.getAttribute('href') + '>';
+    if (node.hasAttribute('title')) {
+      txt += ' "' + node.getAttribute('title') + '"';
+    }
+    txt += ')';
+  }
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.list', function (node, globals, type) {
+  'use strict';
+
+  var txt = '';
+  if (!node.hasChildNodes()) {
+    return '';
+  }
+  var listItems       = node.childNodes,
+      listItemsLenght = listItems.length,
+      listNum = node.getAttribute('start') || 1;
+
+  for (var i = 0; i < listItemsLenght; ++i) {
+    if (typeof listItems[i].tagName === 'undefined' || listItems[i].tagName.toLowerCase() !== 'li') {
+      continue;
+    }
+
+    // define the bullet to use in list
+    var bullet = '';
+    if (type === 'ol') {
+      bullet = listNum.toString() + '. ';
+    } else {
+      bullet = '- ';
+    }
+
+    // parse list item
+    txt += bullet + showdown.subParser('makeMarkdown.listItem')(listItems[i], globals);
+    ++listNum;
+  }
+
+  // add comment at the end to prevent consecutive lists to be parsed as one
+  txt += '\n<!-- -->\n';
+  return txt.trim();
+});
+
+showdown.subParser('makeMarkdown.listItem', function (node, globals) {
+  'use strict';
+
+  var listItemTxt = '';
+
+  var children = node.childNodes,
+      childrenLenght = children.length;
+
+  for (var i = 0; i < childrenLenght; ++i) {
+    listItemTxt += showdown.subParser('makeMarkdown.node')(children[i], globals);
+  }
+  // if it's only one liner, we need to add a newline at the end
+  if (!/\n$/.test(listItemTxt)) {
+    listItemTxt += '\n';
+  } else {
+    // it's multiparagraph, so we need to indent
+    listItemTxt = listItemTxt
+      .split('\n')
+      .join('\n    ')
+      .replace(/^ {4}$/gm, '')
+      .replace(/\n\n+/g, '\n\n');
+  }
+
+  return listItemTxt;
+});
+
+
+
+showdown.subParser('makeMarkdown.node', function (node, globals, spansOnly) {
+  'use strict';
+
+  spansOnly = spansOnly || false;
+
+  var txt = '';
+
+  // edge case of text without wrapper paragraph
+  if (node.nodeType === 3) {
+    return showdown.subParser('makeMarkdown.txt')(node, globals);
+  }
+
+  // HTML comment
+  if (node.nodeType === 8) {
+    return '<!--' + node.data + '-->\n\n';
+  }
+
+  // process only node elements
+  if (node.nodeType !== 1) {
+    return '';
+  }
+
+  var tagName = node.tagName.toLowerCase();
+
+  switch (tagName) {
+
+    //
+    // BLOCKS
+    //
+    case 'h1':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.header')(node, globals, 1) + '\n\n'; }
+      break;
+    case 'h2':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.header')(node, globals, 2) + '\n\n'; }
+      break;
+    case 'h3':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.header')(node, globals, 3) + '\n\n'; }
+      break;
+    case 'h4':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.header')(node, globals, 4) + '\n\n'; }
+      break;
+    case 'h5':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.header')(node, globals, 5) + '\n\n'; }
+      break;
+    case 'h6':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.header')(node, globals, 6) + '\n\n'; }
+      break;
+
+    case 'p':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.paragraph')(node, globals) + '\n\n'; }
+      break;
+
+    case 'blockquote':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.blockquote')(node, globals) + '\n\n'; }
+      break;
+
+    case 'hr':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.hr')(node, globals) + '\n\n'; }
+      break;
+
+    case 'ol':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.list')(node, globals, 'ol') + '\n\n'; }
+      break;
+
+    case 'ul':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.list')(node, globals, 'ul') + '\n\n'; }
+      break;
+
+    case 'precode':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.codeBlock')(node, globals) + '\n\n'; }
+      break;
+
+    case 'pre':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.pre')(node, globals) + '\n\n'; }
+      break;
+
+    case 'table':
+      if (!spansOnly) { txt = showdown.subParser('makeMarkdown.table')(node, globals) + '\n\n'; }
+      break;
+
+    //
+    // SPANS
+    //
+    case 'code':
+      txt = showdown.subParser('makeMarkdown.codeSpan')(node, globals);
+      break;
+
+    case 'em':
+    case 'i':
+      txt = showdown.subParser('makeMarkdown.emphasis')(node, globals);
+      break;
+
+    case 'strong':
+    case 'b':
+      txt = showdown.subParser('makeMarkdown.strong')(node, globals);
+      break;
+
+    case 'del':
+      txt = showdown.subParser('makeMarkdown.strikethrough')(node, globals);
+      break;
+
+    case 'a':
+      txt = showdown.subParser('makeMarkdown.links')(node, globals);
+      break;
+
+    case 'img':
+      txt = showdown.subParser('makeMarkdown.image')(node, globals);
+      break;
+
+    default:
+      txt = node.outerHTML + '\n\n';
+  }
+
+  // common normalization
+  // TODO eventually
+
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.paragraph', function (node, globals) {
+  'use strict';
+
+  var txt = '';
+  if (node.hasChildNodes()) {
+    var children = node.childNodes,
+        childrenLength = children.length;
+    for (var i = 0; i < childrenLength; ++i) {
+      txt += showdown.subParser('makeMarkdown.node')(children[i], globals);
+    }
+  }
+
+  // some text normalization
+  txt = txt.trim();
+
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.pre', function (node, globals) {
+  'use strict';
+
+  var num  = node.getAttribute('prenum');
+  return '<pre>' + globals.preList[num] + '</pre>';
+});
+
+showdown.subParser('makeMarkdown.strikethrough', function (node, globals) {
+  'use strict';
+
+  var txt = '';
+  if (node.hasChildNodes()) {
+    txt += '~~';
+    var children = node.childNodes,
+        childrenLength = children.length;
+    for (var i = 0; i < childrenLength; ++i) {
+      txt += showdown.subParser('makeMarkdown.node')(children[i], globals);
+    }
+    txt += '~~';
+  }
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.strong', function (node, globals) {
+  'use strict';
+
+  var txt = '';
+  if (node.hasChildNodes()) {
+    txt += '**';
+    var children = node.childNodes,
+        childrenLength = children.length;
+    for (var i = 0; i < childrenLength; ++i) {
+      txt += showdown.subParser('makeMarkdown.node')(children[i], globals);
+    }
+    txt += '**';
+  }
+  return txt;
+});
+
+showdown.subParser('makeMarkdown.table', function (node, globals) {
+  'use strict';
+
+  var txt = '',
+      tableArray = [[], []],
+      headings   = node.querySelectorAll('thead>tr>th'),
+      rows       = node.querySelectorAll('tbody>tr'),
+      i, ii;
+  for (i = 0; i < headings.length; ++i) {
+    var headContent = showdown.subParser('makeMarkdown.tableCell')(headings[i], globals),
+        allign = '---';
+
+    if (headings[i].hasAttribute('style')) {
+      var style = headings[i].getAttribute('style').toLowerCase().replace(/\s/g, '');
+      switch (style) {
+        case 'text-align:left;':
+          allign = ':---';
+          break;
+        case 'text-align:right;':
+          allign = '---:';
+          break;
+        case 'text-align:center;':
+          allign = ':---:';
+          break;
+      }
+    }
+    tableArray[0][i] = headContent.trim();
+    tableArray[1][i] = allign;
+  }
+
+  for (i = 0; i < rows.length; ++i) {
+    var r = tableArray.push([]) - 1,
+        cols = rows[i].getElementsByTagName('td');
+
+    for (ii = 0; ii < headings.length; ++ii) {
+      var cellContent = ' ';
+      if (typeof cols[ii] !== 'undefined') {
+        cellContent = showdown.subParser('makeMarkdown.tableCell')(cols[ii], globals);
+      }
+      tableArray[r].push(cellContent);
+    }
+  }
+
+  var cellSpacesCount = 3;
+  for (i = 0; i < tableArray.length; ++i) {
+    for (ii = 0; ii < tableArray[i].length; ++ii) {
+      var strLen = tableArray[i][ii].length;
+      if (strLen > cellSpacesCount) {
+        cellSpacesCount = strLen;
+      }
+    }
+  }
+
+  for (i = 0; i < tableArray.length; ++i) {
+    for (ii = 0; ii < tableArray[i].length; ++ii) {
+      if (i === 1) {
+        if (tableArray[i][ii].slice(-1) === ':') {
+          tableArray[i][ii] = showdown.helper.padEnd(tableArray[i][ii].slice(-1), cellSpacesCount - 1, '-') + ':';
+        } else {
+          tableArray[i][ii] = showdown.helper.padEnd(tableArray[i][ii], cellSpacesCount, '-');
+        }
+      } else {
+        tableArray[i][ii] = showdown.helper.padEnd(tableArray[i][ii], cellSpacesCount);
+      }
+    }
+    txt += '| ' + tableArray[i].join(' | ') + ' |\n';
+  }
+
+  return txt.trim();
+});
+
+showdown.subParser('makeMarkdown.tableCell', function (node, globals) {
+  'use strict';
+
+  var txt = '';
+  if (!node.hasChildNodes()) {
+    return '';
+  }
+  var children = node.childNodes,
+      childrenLength = children.length;
+
+  for (var i = 0; i < childrenLength; ++i) {
+    txt += showdown.subParser('makeMarkdown.node')(children[i], globals, true);
+  }
+  return txt.trim();
+});
+
+showdown.subParser('makeMarkdown.txt', function (node) {
+  'use strict';
+
+  var txt = node.nodeValue;
+
+  // multiple spaces are collapsed
+  txt = txt.replace(/ +/g, ' ');
+
+  // replace the custom ¨NBSP; with a space
+  txt = txt.replace(/¨NBSP;/g, ' ');
+
+  // ", <, > and & should replace escaped html entities
+  txt = showdown.helper.unescapeHTMLEntities(txt);
+
+  // escape markdown magic characters
+  // emphasis, strong and strikethrough - can appear everywhere
+  // we also escape pipe (|) because of tables
+  // and escape ` because of code blocks and spans
+  txt = txt.replace(/([*_~|`])/g, '\\$1');
+
+  // escape > because of blockquotes
+  txt = txt.replace(/^(\s*)>/g, '\\$1>');
+
+  // hash character, only troublesome at the beginning of a line because of headers
+  txt = txt.replace(/^#/gm, '\\#');
+
+  // horizontal rules
+  txt = txt.replace(/^(\s*)([-=]{3,})(\s*)$/, '$1\\$2$3');
+
+  // dot, because of ordered lists, only troublesome at the beginning of a line when preceded by an integer
+  txt = txt.replace(/^( {0,3}\d+)\./gm, '$1\\.');
+
+  // +, * and -, at the beginning of a line becomes a list, so we need to escape them also (asterisk was already escaped)
+  txt = txt.replace(/^( {0,3})([+-])/gm, '$1\\$2');
+
+  // images and links, ] followed by ( is problematic, so we escape it
+  txt = txt.replace(/]([\s]*)\(/g, '\\]$1\\(');
+
+  // reference URIs must also be escaped
+  txt = txt.replace(/^ {0,3}\[([\S \t]*?)]:/gm, '\\[$1]:');
+
+  return txt;
+});
+
 var root = this;
 
-// CommonJS/nodeJS Loader
-if ( true && module.exports) {
-  module.exports = showdown;
-
 // AMD Loader
-} else if (true) {
+if (true) {
   !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
     'use strict';
     return showdown;
   }).call(exports, __webpack_require__, exports, module),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
-// Regular Browser loader
+// CommonJS/nodeJS Loader
 } else {}
 }).call(this);
 
@@ -55450,7 +60562,7 @@ if ( true && module.exports) {
 
 
 /***/ }),
-/* 72 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -55459,7 +60571,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
  */
 (function (root, factory) {
   if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(3), __webpack_require__(1), __webpack_require__(2), __webpack_require__(5), __webpack_require__(4), __webpack_require__(73), __webpack_require__(15)], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(3), __webpack_require__(1), __webpack_require__(2), __webpack_require__(5), __webpack_require__(4), __webpack_require__(77), __webpack_require__(16)], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
       return factory.apply(this, arguments);
     }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -55593,7 +60705,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 });
 
 /***/ }),
-/* 73 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_LOCAL_MODULE_1__, __WEBPACK_LOCAL_MODULE_1__factory, __WEBPACK_LOCAL_MODULE_1__module;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_LOCAL_MODULE_2__;var __WEBPACK_LOCAL_MODULE_3__, __WEBPACK_LOCAL_MODULE_3__factory, __WEBPACK_LOCAL_MODULE_3__module;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_LOCAL_MODULE_4__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_LOCAL_MODULE_5__;var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_LOCAL_MODULE_6__;var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -55613,7 +60725,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_LO
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):undefined}(window,function(t,e){var i=t.create("masonry");i.compatOptions.fitWidth="isFitWidth";var n=i.prototype;return n._resetLayout=function(){this.getSize(),this._getMeasurement("columnWidth","outerWidth"),this._getMeasurement("gutter","outerWidth"),this.measureColumns(),this.colYs=[];for(var t=0;t<this.cols;t++)this.colYs.push(0);this.maxY=0,this.horizontalColIndex=0},n.measureColumns=function(){if(this.getContainerWidth(),!this.columnWidth){var t=this.items[0],i=t&&t.element;this.columnWidth=i&&e(i).outerWidth||this.containerWidth}var n=this.columnWidth+=this.gutter,o=this.containerWidth+this.gutter,r=o/n,s=n-o%n,a=s&&1>s?"round":"floor";r=Math[a](r),this.cols=Math.max(r,1)},n.getContainerWidth=function(){var t=this._getOption("fitWidth"),i=t?this.element.parentNode:this.element,n=e(i);this.containerWidth=n&&n.innerWidth},n._getItemLayoutPosition=function(t){t.getSize();var e=t.size.outerWidth%this.columnWidth,i=e&&1>e?"round":"ceil",n=Math[i](t.size.outerWidth/this.columnWidth);n=Math.min(n,this.cols);for(var o=this.options.horizontalOrder?"_getHorizontalColPosition":"_getTopColPosition",r=this[o](n,t),s={x:this.columnWidth*r.col,y:r.y},a=r.y+t.size.outerHeight,h=n+r.col,u=r.col;h>u;u++)this.colYs[u]=a;return s},n._getTopColPosition=function(t){var e=this._getTopColGroup(t),i=Math.min.apply(Math,e);return{col:e.indexOf(i),y:i}},n._getTopColGroup=function(t){if(2>t)return this.colYs;for(var e=[],i=this.cols+1-t,n=0;i>n;n++)e[n]=this._getColGroupY(n,t);return e},n._getColGroupY=function(t,e){if(2>e)return this.colYs[t];var i=this.colYs.slice(t,t+e);return Math.max.apply(Math,i)},n._getHorizontalColPosition=function(t,e){var i=this.horizontalColIndex%this.cols,n=t>1&&i+t>this.cols;i=n?0:i;var o=e.size.outerWidth&&e.size.outerHeight;return this.horizontalColIndex=o?i+t:this.horizontalColIndex,{col:i,y:this._getColGroupY(i,t)}},n._manageStamp=function(t){var i=e(t),n=this._getElementOffset(t),o=this._getOption("originLeft"),r=o?n.left:n.right,s=r+i.outerWidth,a=Math.floor(r/this.columnWidth);a=Math.max(0,a);var h=Math.floor(s/this.columnWidth);h-=s%this.columnWidth?0:1,h=Math.min(this.cols-1,h);for(var u=this._getOption("originTop"),d=(u?n.top:n.bottom)+i.outerHeight,l=a;h>=l;l++)this.colYs[l]=Math.max(d,this.colYs[l])},n._getContainerSize=function(){this.maxY=Math.max.apply(Math,this.colYs);var t={height:this.maxY};return this._getOption("fitWidth")&&(t.width=this._getContainerFitWidth()),t},n._getContainerFitWidth=function(){for(var t=0,e=this.cols;--e&&0===this.colYs[e];)t++;return(this.cols-t)*this.columnWidth-this.gutter},n.needsResizeLayout=function(){var t=this.containerWidth;return this.getContainerWidth(),t!=this.containerWidth},i});
 
 /***/ }),
-/* 74 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -55681,7 +60793,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 75 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -55784,7 +60896,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 76 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -56011,12 +61123,12 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 77 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
     __webpack_require__(1),
-    __webpack_require__(78)
+    __webpack_require__(82)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function(patterns) {
     var pattern_spec = {
         name: "placeholder",
@@ -56040,7 +61152,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 78 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(jQuery) {/*** IMPORTS FROM imports-loader ***/
@@ -56234,13 +61346,13 @@ var jquery = __webpack_require__(0);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(0)))
 
 /***/ }),
-/* 79 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
  * Copyright 2012-2013 Syslab.com GmbH - JC Brand
  */
-!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(1), __webpack_require__(5), __webpack_require__(4), __webpack_require__(3), __webpack_require__(2), __webpack_require__(6), __webpack_require__(15)], __WEBPACK_AMD_DEFINE_RESULT__ = (function ($, patterns, Base, utils, logging, Parser, _, imagesLoaded) {
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(1), __webpack_require__(5), __webpack_require__(4), __webpack_require__(3), __webpack_require__(2), __webpack_require__(6), __webpack_require__(16)], __WEBPACK_AMD_DEFINE_RESULT__ = (function ($, patterns, Base, utils, logging, Parser, _, imagesLoaded) {
   var log = logging.getLogger("scroll"),
       parser = new Parser("scroll");
   parser.addArgument("trigger", "click", ["click", "auto"]);
@@ -56270,7 +61382,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
       $(window).scroll(_.debounce(this.markIfVisible.bind(this), 50));
     },
     onClick: function onClick(ev) {
-      ev.preventDefault();
+      //ev.preventDefault();
       history.pushState({}, null, this.$el.attr('href'));
       this.smoothScroll();
       this.markBasedOnFragment(); // manually trigger the hashchange event on all instances of pat-scroll
@@ -56371,9 +61483,14 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
         // starting from the *target*
         // The intent is to move target into view within scrollable
         // if the scrollable has no scrollbar, do not scroll body
-        href = this.$el.attr('href');
-        fragment = href.indexOf('#') !== -1 && href.split('#').pop() || undefined;
-        var target = $('#' + fragment);
+        if (this.options.selector) {
+          fragment = this.options.selector;
+        } else {
+          href = this.$el.attr('href');
+          fragment = href.indexOf('#') !== -1 && '#' + href.split('#').pop() || undefined;
+        }
+
+        var target = $(fragment);
 
         if (target.length === 0) {
           return;
@@ -56413,7 +61530,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 // vim: sw=4 expandtab
 
 /***/ }),
-/* 80 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -56604,7 +61721,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 81 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -56729,7 +61846,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 82 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -56861,7 +61978,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 83 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -56988,7 +62105,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 84 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -57222,7 +62339,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 85 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -57240,7 +62357,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(4),
     __webpack_require__(2),
     __webpack_require__(8),
-    __webpack_require__(86)
+    __webpack_require__(90)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, logger, registry, utils, Parser, inject) {
     var log = logger.getLogger("tooltip"),
         parser = new Parser("tooltip");
@@ -57592,7 +62709,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
         // Help function to determine the best position for a tooltip.  Takes
         // the positioning status (as generated by positionStatus) as input
-        // and returns a two-character position indiciator.
+        // and returns a two-character position indicator.
         findBestPosition: function(status) {
             var space = status.space,
                  cls = "";
@@ -57876,7 +62993,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 86 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -57901,14 +63018,476 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 87 */
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+(function (root, factory) {
+  // We use AMD (Asynchronous Module Definition) or browser globals to create
+  // this module.
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(5), __webpack_require__(1), __webpack_require__(4), __webpack_require__(2), __webpack_require__(24), __webpack_require__(3), __webpack_require__(100)], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+      return factory.apply(this, arguments);
+    }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {} //}(this, function($, Base, registry, Parser, logger, tippy, tippytheme) {
+
+})(this, function ($, Base, registry, utils, Parser, Markdown, logger, tippy) {
+  'use strict';
+
+  var start = 0;
+
+  var log = logger.getLogger('pat-tooltip-ng'),
+      timelog = function timelog(msg) {
+    log.debug("".concat(Date.now() - start, " ").concat(msg));
+  };
+
+  log.setLevel(20);
+  timelog('Initializing pat-tooltip-ng');
+  /* For logging, you can call log.debug, log.info, log.warn, log.error and log.fatal.
+   *
+   * For more information on how to use the logger and how to view log messages, please read:
+   * https://github.com/Patternslib/logging
+   */
+
+  var parser = new Parser('tooltip-ng');
+  /* If you'd like your pattern to be configurable via the
+   * data-pat-tooltip-ng attribute, then you need to
+   * specify the available arguments here, by calling parser.addArgument.
+   *
+   * The addArgument method takes the following parameters:
+   *  - name: The required name of the pattern property which you want to make
+   *      configurable.
+   *  - default_value: An optional default string value of the property if the user
+   *      doesn't provide one.
+   *  - choices: An optional set (Array) of values that the property might take.
+   *      If specified, values outside of this set will not be accepted.
+   *  - multiple: An optional boolean value which specifies wether the
+   *      property can be multivalued or not.
+   *
+   *  For example:
+   *      parser.addArgument('color', 'blue', ['red', 'green', 'blue'], false)
+   */
+
+  var all_positions = ['tl', 'tm', 'tr', 'rt', 'rm', 'rb', 'br', 'bm', 'bl', 'lb', 'lm', 'lt'];
+  parser.addArgument('position-list', [], all_positions, true);
+  parser.addArgument('position-policy', 'auto', ['auto', 'force']);
+  parser.addArgument('trigger', 'click', ['click', 'hover']);
+  parser.addArgument('source', 'title', ['auto', 'ajax', 'content', 'content-html', 'title']);
+  parser.addArgument('ajax-data-type', 'html', ['html', 'markdown']);
+  parser.addArgument('delay');
+  parser.addArgument('distance');
+  parser.addArgument('mark-inactive', true);
+  parser.addArgument('class');
+  parser.addArgument('target', 'body'); //return Base.extend({
+
+  var tooltip = {
+    /* The name is used to store the pattern in a registry and needs to be
+     * unique.
+     */
+    name: 'tooltip-ng',
+
+    /* The trigger specifies the selector (CSS or jQuery) which Patternslib
+     * will scan for in order to identifiy and initialize this pattern.
+     */
+    trigger: '.pat-tooltip-ng',
+    jquery_plugin: true,
+    tippy: tippy.default,
+    init: function init($el, opts) {
+      var debuglevel = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 20;
+      log.setLevel(debuglevel);
+      return $el.each(function () {
+        this.defaultProps = {
+          'allowHTML': true,
+          'animation': false,
+          'arrow': true,
+          //'delay': [0, 1800],
+          //'duration': [325, 275],
+          'distance': 20,
+          'flipOnUpdate': true,
+          'hideOnClick': true,
+          'ignoreAttributes': true,
+          'interactive': true,
+          'appendTo': function appendTo() {
+            return document.body;
+          },
+          'onHidden': tooltip._onHidden,
+          'onHide': tooltip._onHide,
+          'onMount': tooltip._onMount,
+          'onShow': tooltip._onShow,
+          'onShown': tooltip._onShown,
+          'onTrigger': tooltip._onTrigger,
+          'trigger': 'click'
+        };
+        start = Date.now();
+        var tippy = tooltip.tippy,
+            $trigger = $(this);
+        tippy.setDefaultProps(this.defaultProps);
+        this.options = parser.parse($trigger, opts);
+        /* this.options will now contain the configured pattern properties
+         * you've registered with the parser.addArgument method.
+         *
+         * If the user provided any values via the data-pat-tooltip-ng
+         * attribute, those values will already be set.
+         */
+
+        $trigger.data('patterns.tooltip-ng', tooltip._mutateOptions(this.options)).on('destroy.pat-tooltip-ng', tooltip._onDestroy);
+        this.options = tooltip.parseOptionsForTippy(this.options, $trigger);
+        tippy($trigger[0], this.options);
+        tooltip.setupShowEvents($trigger);
+      });
+    },
+    parseOptionsForTippy: function parseOptionsForTippy(opts, $trigger) {
+      var notImplemented = function notImplemented(name) {
+        log.error("".concat(name, " not implemented"));
+      },
+          placement = function placement(pos) {
+        var primary = function primary(pos) {
+          return {
+            t: 'bottom',
+            r: 'left',
+            b: 'top',
+            l: 'right'
+          }[pos];
+        };
+
+        var secondary = function secondary(pos) {
+          return {
+            l: '-start',
+            r: '-end',
+            m: '',
+            t: '-start',
+            b: '-end'
+          }[pos];
+        };
+
+        return "".concat(primary(pos[0])).concat(secondary(pos[1]));
+      },
+          flipBehavior = function flipBehavior(pos) {
+        return placement("".concat(pos[0], "m"));
+      },
+          parsers = {
+        position: function position() {
+          if (opts.hasOwnProperty('position')) {
+            var prefs = opts.position.list;
+
+            if (prefs.length > 0) {
+              var pos = prefs[0];
+              opts.placement = placement(pos);
+
+              if (prefs.length > 1) {
+                opts.flipBehavior = prefs.map(flipBehavior);
+                opts.flip = true;
+                opts.flipOnUpdate = true;
+              }
+            }
+
+            if (opts.position.policy === 'force') {
+              opts.flip = false;
+              opts.flipOnUpdate = false;
+            }
+
+            delete opts.position;
+          }
+        },
+        height: notImplemented,
+        trigger: function trigger() {
+          if (opts.trigger === 'hover') {
+            opts.trigger = 'mouseenter focus';
+          }
+        },
+        closing: notImplemented,
+        source: function source() {
+          if (opts.hasOwnProperty('source')) {
+            if (opts.source === 'title') {
+              opts.content = $trigger.attr('title');
+            }
+
+            if (opts.source === 'auto') {
+              var href = $trigger.attr('href');
+
+              if (typeof href !== 'string') {
+                log.error("href must be specified if 'source' is set to 'auto'");
+                return;
+              }
+
+              if (href.indexOf('#') === 0) {
+                tooltip._setSource(opts, 'content');
+              } else {
+                tooltip._setSource(opts, 'ajax');
+              }
+            }
+
+            if (opts.source === 'content') {
+              var _href = $trigger.attr('href'),
+                  is_string = typeof _href === 'string',
+                  has_hash = _href.indexOf('#') !== -1,
+                  has_more = _href.length > 1;
+
+              var $content;
+
+              if (is_string && has_hash && has_more) {
+                $content = $('#' + _href.split('#')[1]).children().clone();
+              } else {
+                $content = $trigger.children().clone();
+
+                if (!$content.length) {
+                  $content = $('<p/>').text($trigger.text());
+                }
+              }
+
+              opts.content = $content[0];
+              registry.scan($content[0]);
+            }
+
+            if (opts.source === 'ajax') {
+              var $p = $('<progress/>')[0];
+              opts.content = $p;
+              opts.onShow = tooltip._onAjax($trigger);
+
+              opts.onHidden = function (instance) {
+                timelog('ONAJAXHIDDEN');
+                instance.setContent($p);
+                instance.state.ajax.canFetch = true;
+              };
+            }
+
+            delete opts.source;
+          }
+        },
+        ajaxDataType: function ajaxDataType() {
+          delete opts.ajaxDataType;
+        },
+        delay: function delay() {
+          if (opts.hasOwnProperty('delay')) {
+            opts.delay = [utils.parseTime(opts.delay), 0];
+          }
+        },
+        distance: function distance() {
+          if (opts.hasOwnProperty('distance')) {
+            opts.distance = [parseInt(opts.distance), 20];
+          }
+        },
+        markInactive: function markInactive() {
+          if (opts.markInactive) {
+            $trigger.addClass('inactive');
+          }
+
+          delete opts.markInactive;
+        },
+        'class': function _class() {
+          if (opts.hasOwnProperty('class')) {
+            var klass = opts.class,
+                handler = tooltip._addClassHandler(klass);
+
+            $trigger.on('pat-tippy-mount', handler);
+            delete opts.class;
+          }
+        },
+        target: function target() {
+          if (opts.hasOwnProperty('target')) {
+            if (opts.target === 'parent') {
+              opts.appendTo = 'parent';
+            } else if (opts.target !== 'body') {
+              opts.appendTo = $(opts.target)[0];
+            }
+
+            delete opts.target;
+          }
+        }
+      };
+
+      for (var arg in opts) {
+        switch (arg) {
+          case 'ajax-data-type':
+            arg = 'ajaxDataType';
+            break;
+
+          case 'mark-inactive':
+            arg = 'markInactive';
+            break;
+        }
+
+        log.debug(arg);
+        parsers[arg](arg);
+      }
+
+      if ($trigger.attr('title')) {
+        $trigger.removeAttr('title');
+      }
+
+      return opts;
+    },
+    setupShowEvents: function setupShowEvents($trigger) {
+      $trigger.on('click.pat-tooltip-ng', tooltip.blockDefault);
+    },
+    removeShowEvents: function removeShowEvents($trigger) {// jshint ignore:line
+    },
+    setupHideEvents: function setupHideEvents($trigger) {
+      $trigger.on('click.pat-tooltip-ng', tooltip.blockdefault);
+    },
+    removeHideEvents: function removeHideEvents($trigger) {// jshint ignore:line
+    },
+    blockDefault: function blockDefault(event) {
+      if (event.preventDefault) {
+        event.preventDefault();
+      }
+    },
+    _mutateOptions: function _mutateOptions(opts) {
+      // shallow copy
+      return Object.assign({}, opts);
+    },
+    _addClassHandler: function _addClassHandler(klass) {
+      return function (event, tooltip) {
+        $(tooltip).addClass(klass);
+      };
+    },
+    _setSource: function _setSource(opts, source) {
+      opts.source = source;
+    },
+    _onDestroy: function _onDestroy(event) {
+      timelog('ONDESTROY');
+      var $trigger = event.target;
+
+      $trigger._tippy.destroy();
+    },
+    _onClick: function _onClick(instance, event) {
+      timelog('ONCLICK');
+
+      if (event.type === 'click') {
+        timelog("it's click");
+        event.stopPropagation();
+        event.preventDefault();
+      }
+    },
+    _onTrigger: function _onTrigger(instance, event) {
+      // jshint ignore:line
+      timelog('ONTRIGGER');
+    },
+    _onMount: function _onMount(instance) {
+      timelog('ONMOUNT');
+      $(instance.reference).trigger('pat-tippy-mount', instance.popperChildren.tooltip);
+    },
+    _onShow: function _onShow(instance) {
+      // jshint ignore:line
+      timelog('ONSHOW');
+    },
+    _onShown: function _onShown(instance) {
+      timelog('ONSHOWN');
+      var $trigger = $(instance.reference);
+      var options = $trigger.data('patterns.tooltip-ng');
+      tooltip.removeShowEvents($trigger);
+      tooltip.setupHideEvents($trigger);
+
+      if (options.markInactive) {
+        $trigger.removeClass('inactive').addClass('active');
+      }
+    },
+    _onHide: function _onHide(instance) {
+      timelog('ONHIDE');
+      var $trigger = $(instance.reference);
+      tooltip.removeHideEvents($trigger);
+      tooltip.setupShowEvents($trigger);
+    },
+    _onHidden: function _onHidden(instance) {
+      // jshint ignore:line
+      timelog('ONHIDDEN');
+      var $trigger = $(instance.reference);
+      var options = $trigger.data('patterns.tooltip-ng');
+
+      if (options.markInactive) {
+        $trigger.removeClass('active').addClass('inactive');
+      }
+    },
+    _onAjax: function _onAjax($trigger) {
+      timelog('OnAJAX');
+      var source = $trigger.attr('href').split('#');
+      return function (instance) {
+        timelog('in ajax content function');
+        timelog("instance.state.ajax ".concat(JSON.stringify(instance.state.ajax)));
+
+        if (instance.state.ajax === undefined) {
+          instance.state.ajax = {
+            isFetching: false,
+            canFetch: true
+          };
+        }
+
+        if (instance.state.ajax.isFetching || !instance.state.ajax.canFetch) {
+          return tooltip._onAjaxBypass();
+        }
+
+        instance.state.ajax = {
+          isFetching: true,
+          canFetch: false
+        };
+
+        tooltip._onAjaxCallback(instance, source);
+      };
+    },
+    _onAjaxCallback: function _onAjaxCallback(instance, src) {
+      timelog('AJAXCALLBACK');
+      var $trigger = $(instance.reference),
+          options = $trigger.data('patterns.tooltip-ng'),
+          handler = tooltip._ajaxDataTypeHandlers[options.ajaxDataType];
+      fetch(src[0]).then(function (response) {
+        return response.text().then(function (text) {
+          instance.setContent(handler(text, src));
+        }).finally(function () {
+          tooltip._onAjaxContentSet(instance);
+
+          registry.scan(instance.popper);
+        });
+      });
+    },
+    _onAjaxBypass: function _onAjaxBypass() {
+      timelog('AJAX BYPASSED');
+      return undefined;
+    },
+    _onAjaxContentSet: function _onAjaxContentSet(instance) {
+      timelog('AJAXCONTENTSET');
+      instance.state.ajax.isFetching = false;
+    },
+    _ajaxDataTypeHandlers: {
+      html: function html(text, src) {
+        var $tmp = $('<div/>').append($.parseHTML(text));
+        return $tmp.find("#".concat(src[1])).prop('innerHTML');
+      },
+      markdown: function markdown(text, src) {
+        var _src = _slicedToArray(src, 2),
+            url = _src[0],
+            source = _src[1],
+            cfg = {
+          url: url,
+          source: "#".concat(source)
+        },
+            pat = Markdown.init($('<div/>'));
+
+        return pat.renderForInjection(cfg, text)[0];
+      }
+    }
+  };
+  registry.register(tooltip);
+  return tooltip;
+});
+/*global $, patterns, tippy */
+
+/***/ }),
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Update Social pattern */
 
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
   __webpack_require__(0),
-  __webpack_require__(88),
+  __webpack_require__(93),
   __webpack_require__(1),
   __webpack_require__(2),
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, _, registry, Parser) {
@@ -57990,7 +63569,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Update Social
 
 
 /***/ }),
-/* 88 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.9.1
@@ -59690,7 +65269,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* Update Social
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7), __webpack_require__(9)(module)))
 
 /***/ }),
-/* 89 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -59762,7 +65341,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 90 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -59778,7 +65357,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(5),
     __webpack_require__(4),
     __webpack_require__(10),
-    __webpack_require__(91)
+    __webpack_require__(96)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, _, Parser, Base, utils, moment, validate) {
     "use strict";
     validate.moment = moment;
@@ -60148,7 +65727,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 91 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, Promise) {/*!
@@ -61320,16 +66899,16 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
   };
 
-  validate.exposeModule(validate, this, exports, module, __webpack_require__(22));
+  validate.exposeModule(validate, this, exports, module, __webpack_require__(25));
 }).call(this,
          true ? /* istanbul ignore next */ exports : undefined,
          true ? /* istanbul ignore next */ module : undefined,
-        __webpack_require__(22));
+        __webpack_require__(25));
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)(module), __webpack_require__(19)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(9)(module), __webpack_require__(15)))
 
 /***/ }),
-/* 92 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
@@ -61382,13 +66961,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 
 /***/ }),
-/* 93 */
+/* 98 */
 /***/ (function(module, exports) {
 
 module.exports = window;
 
 /***/ }),
-/* 94 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*** IMPORTS FROM imports-loader ***/
@@ -61584,6 +67163,2567 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*** IMPORTS FRO
 }));
 
 }.call(window));
+
+/***/ }),
+/* 100 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: ./node_modules/popper.js/dist/esm/popper.js
+var esm_popper = __webpack_require__(17);
+
+// CONCATENATED MODULE: ./node_modules/tippy.js/dist/tippy.chunk.esm.js
+/**!
+* tippy.js v5.1.1
+* (c) 2017-2019 atomiks
+* MIT License
+*/
+
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+var version = "5.1.1";
+
+/**
+ * Triggers reflow
+ */
+function reflow(element) {
+  void element.offsetHeight;
+}
+/**
+ * Sets the innerHTML of an element
+ */
+
+function setInnerHTML(element, html) {
+  element[innerHTML()] = html;
+}
+/**
+ * Determines if the value is a reference element
+ */
+
+function isReferenceElement(value) {
+  return !!(value && value._tippy && value._tippy.reference === value);
+}
+/**
+ * Safe .hasOwnProperty check, for prototype-less objects
+ */
+
+function tippy_chunk_esm_hasOwnProperty(obj, key) {
+  return {}.hasOwnProperty.call(obj, key);
+}
+/**
+ * Returns an array of elements based on the value
+ */
+
+function getArrayOfElements(value) {
+  if (isElement(value)) {
+    return [value];
+  }
+
+  if (isNodeList(value)) {
+    return arrayFrom(value);
+  }
+
+  if (Array.isArray(value)) {
+    return value;
+  }
+
+  return arrayFrom(document.querySelectorAll(value));
+}
+/**
+ * Returns a value at a given index depending on if it's an array or number
+ */
+
+function getValueAtIndexOrReturn(value, index, defaultValue) {
+  if (Array.isArray(value)) {
+    var v = value[index];
+    return v == null ? Array.isArray(defaultValue) ? defaultValue[index] : defaultValue : v;
+  }
+
+  return value;
+}
+/**
+ * Prevents errors from being thrown while accessing nested modifier objects
+ * in `popperOptions`
+ */
+
+function getModifier(obj, key) {
+  return obj && obj.modifiers && obj.modifiers[key];
+}
+/**
+ * Determines if the value is of type
+ */
+
+function isType(value, type) {
+  var str = {}.toString.call(value);
+  return str.indexOf('[object') === 0 && str.indexOf(type + "]") > -1;
+}
+/**
+ * Determines if the value is of type Element
+ */
+
+function isElement(value) {
+  return isType(value, 'Element');
+}
+/**
+ * Determines if the value is of type NodeList
+ */
+
+function isNodeList(value) {
+  return isType(value, 'NodeList');
+}
+/**
+ * Determines if the value is of type MouseEvent
+ */
+
+function isMouseEvent(value) {
+  return isType(value, 'MouseEvent');
+}
+/**
+ * Firefox extensions don't allow setting .innerHTML directly, this will trick
+ * it
+ */
+
+function innerHTML() {
+  return 'innerHTML';
+}
+/**
+ * Evaluates a function if one, or returns the value
+ */
+
+function invokeWithArgsOrReturn(value, args) {
+  return typeof value === 'function' ? value.apply(void 0, args) : value;
+}
+/**
+ * Sets a popperInstance modifier's property to a value
+ */
+
+function setModifierValue(modifiers, name, property, value) {
+  modifiers.filter(function (m) {
+    return m.name === name;
+  })[0][property] = value;
+}
+/**
+ * Returns a new `div` element
+ */
+
+function div() {
+  return document.createElement('div');
+}
+/**
+ * Applies a transition duration to a list of elements
+ */
+
+function setTransitionDuration(els, value) {
+  els.forEach(function (el) {
+    if (el) {
+      el.style.transitionDuration = value + "ms";
+    }
+  });
+}
+/**
+ * Sets the visibility state to elements so they can begin to transition
+ */
+
+function setVisibilityState(els, state) {
+  els.forEach(function (el) {
+    if (el) {
+      el.setAttribute('data-state', state);
+    }
+  });
+}
+/**
+ * Debounce utility. To avoid bloating bundle size, we're only passing 1
+ * argument here, a more generic function would pass all arguments. Only
+ * `onMouseMove` uses this which takes the event object for now.
+ */
+
+function debounce(fn, ms) {
+  // Avoid wrapping in `setTimeout` if ms is 0 anyway
+  if (ms === 0) {
+    return fn;
+  }
+
+  var timeout;
+  return function (arg) {
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+      fn(arg);
+    }, ms);
+  };
+}
+/**
+ * Preserves the original function invocation when another function replaces it
+ */
+
+function preserveInvocation(originalFn, currentFn, args) {
+  if (originalFn && originalFn !== currentFn) {
+    originalFn.apply(void 0, args);
+  }
+}
+/**
+ * Deletes properties from an object (pure)
+ */
+
+function removeProperties(obj, keys) {
+  var clone = _extends({}, obj);
+
+  keys.forEach(function (key) {
+    delete clone[key];
+  });
+  return clone;
+}
+/**
+ * Ponyfill for Array.from - converts iterable values to an array
+ */
+
+function arrayFrom(value) {
+  return [].slice.call(value);
+}
+/**
+ * Works like Element.prototype.closest, but uses a callback instead
+ */
+
+function closestCallback(element, callback) {
+  while (element) {
+    if (callback(element)) {
+      return element;
+    }
+
+    element = element.parentElement;
+  }
+
+  return null;
+}
+/**
+ * Determines if an array or string includes a string
+ */
+
+function includes(a, b) {
+  return a.indexOf(b) > -1;
+}
+/**
+ * Creates an array from string of values separated by whitespace
+ */
+
+function splitBySpaces(value) {
+  return value.split(/\s+/).filter(Boolean);
+}
+/**
+ * Returns the `nextValue` if `nextValue` is not `undefined`, otherwise returns
+ * `currentValue`
+ */
+
+function useIfDefined(nextValue, currentValue) {
+  return nextValue !== undefined ? nextValue : currentValue;
+}
+/**
+ * Converts a value that's an array or single value to an array
+ */
+
+function normalizeToArray(value) {
+  // @ts-ignore
+  return [].concat(value);
+}
+/**
+ * Returns the ownerDocument of the first available element, otherwise global
+ * document
+ */
+
+function getOwnerDocument(elementOrElements) {
+  var _normalizeToArray = normalizeToArray(elementOrElements),
+      element = _normalizeToArray[0];
+
+  return element ? element.ownerDocument || document : document;
+}
+/**
+ * Adds item to array if array does not contain it
+ */
+
+function pushIfUnique(arr, value) {
+  if (arr.indexOf(value) === -1) {
+    arr.push(value);
+  }
+}
+/**
+ * Adds `px` if value is a number, or returns it directly
+ */
+
+function appendPxIfNumber(value) {
+  return typeof value === 'number' ? value + "px" : value;
+}
+/**
+ * Filters out duplicate elements in an array
+ */
+
+function unique(arr) {
+  return arr.filter(function (item, index) {
+    return arr.indexOf(item) === index;
+  });
+}
+/**
+ * Returns number from number or CSS units string
+ */
+
+function getNumber(value) {
+  return typeof value === 'number' ? value : parseFloat(value);
+}
+/**
+ * Gets number or CSS string units in pixels (e.g. `1rem` -> 16)
+ */
+
+function getUnitsInPx(doc, value) {
+  var isRem = typeof value === 'string' && includes(value, 'rem');
+  var html = doc.documentElement;
+  var rootFontSize = 16;
+
+  if (html && isRem) {
+    return parseFloat(getComputedStyle(html).fontSize || String(rootFontSize)) * getNumber(value);
+  }
+
+  return getNumber(value);
+}
+/**
+ * Adds the `distancePx` value to the placement of a Popper.Padding object
+ */
+
+function getComputedPadding(basePlacement, padding, distancePx) {
+  if (padding === void 0) {
+    padding = 5;
+  }
+
+  var freshPaddingObject = {
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0
+  };
+  var keys = Object.keys(freshPaddingObject);
+  return keys.reduce(function (obj, key) {
+    obj[key] = typeof padding === 'number' ? padding : padding[key];
+
+    if (basePlacement === key) {
+      obj[key] = typeof padding === 'number' ? padding + distancePx : padding[basePlacement] + distancePx;
+    }
+
+    return obj;
+  }, freshPaddingObject);
+}
+
+function createMemoryLeakWarning(method) {
+  var txt = method === 'destroy' ? 'n already-' : ' ';
+  return "\n    " + method + "() was called on a" + txt + "destroyed instance. This is a no-op but\n    indicates a potential memory leak.\n  ";
+}
+function clean(value) {
+  var spacesAndTabs = /[ \t]{2,}/g;
+  var lineStartWithSpaces = /^[ \t]*/gm;
+  return value.replace(spacesAndTabs, ' ').replace(lineStartWithSpaces, '').trim();
+}
+
+function getDevMessage(message) {
+  return clean("\n  %ctippy.js\n\n  %c" + clean(message) + "\n\n  %c\uD83D\uDC77\u200D This is a development-only message. It will be removed in production.\n  ");
+}
+
+function getFormattedMessage(message) {
+  return [getDevMessage(message), // title
+  'color: #00C584; font-size: 1.3em; font-weight: bold;', // message
+  'line-height: 1.5', // footer
+  'color: #a6a095;'];
+}
+/**
+ * Helpful wrapper around `console.warn()`.
+ * TODO: Should we use a cache so it only warns a single time and not spam the
+ * console? (Need to consider hot reloading and invalidation though). Chrome
+ * already batches warnings as well.
+ */
+
+function warnWhen(condition, message) {
+  if (condition) {
+    var _console;
+
+    (_console = console).warn.apply(_console, getFormattedMessage(message));
+  }
+}
+/**
+ * Helpful wrapper around thrown errors
+ */
+
+function throwErrorWhen(condition, message) {
+  if (condition) {
+    throw new Error(clean(message));
+  }
+}
+/**
+ * Validates the `targets` value passed to `tippy()`
+ */
+
+function validateTargets(targets) {
+  var didPassFalsyValue = !targets;
+  var didPassPlainObject = Object.prototype.toString.call(targets) === '[object Object]' && !targets.addEventListener;
+  throwErrorWhen(didPassFalsyValue, "tippy() was passed `" + targets + "` as its targets (first) argument.\n\n    Valid types are: String, Element, Element[], or NodeList.");
+  throwErrorWhen(didPassPlainObject, "tippy() was passed a plain object which is no longer supported as an\n    argument.\n    \n    See https://atomiks.github.io/tippyjs/misc/#custom-position");
+}
+
+var defaultProps = {
+  allowHTML: true,
+  animateFill: false,
+  animation: 'fade',
+  appendTo: function appendTo() {
+    return document.body;
+  },
+  aria: 'describedby',
+  arrow: true,
+  boundary: 'scrollParent',
+  content: '',
+  delay: 0,
+  distance: 10,
+  duration: [300, 250],
+  flip: true,
+  flipBehavior: 'flip',
+  flipOnUpdate: false,
+  followCursor: false,
+  hideOnClick: true,
+  ignoreAttributes: false,
+  inlinePositioning: false,
+  inertia: false,
+  interactive: false,
+  interactiveBorder: 2,
+  interactiveDebounce: 0,
+  lazy: true,
+  maxWidth: 350,
+  multiple: false,
+  offset: 0,
+  onAfterUpdate: function onAfterUpdate() {},
+  onBeforeUpdate: function onBeforeUpdate() {},
+  onCreate: function onCreate() {},
+  onDestroy: function onDestroy() {},
+  onHidden: function onHidden() {},
+  onHide: function onHide() {},
+  onMount: function onMount() {},
+  onShow: function onShow() {},
+  onShown: function onShown() {},
+  onTrigger: function onTrigger() {},
+  onUntrigger: function onUntrigger() {},
+  placement: 'top',
+  plugins: [],
+  popperOptions: {},
+  role: 'tooltip',
+  showOnCreate: false,
+  sticky: false,
+  theme: '',
+  touch: true,
+  trigger: 'mouseenter focus',
+  triggerTarget: null,
+  updateDuration: 0,
+  zIndex: 9999
+};
+var defaultKeys = Object.keys(defaultProps);
+/**
+ * If the setProps() method encounters one of these, the popperInstance must be
+ * recreated
+ */
+
+var POPPER_INSTANCE_DEPENDENCIES = ['arrow', 'boundary', 'distance', 'flip', 'flipBehavior', 'flipOnUpdate', 'offset', 'placement', 'popperOptions'];
+/**
+ * Mutates the defaultProps object by setting the props specified
+ */
+
+var setDefaultProps = function setDefaultProps(partialProps) {
+  if (false) {}
+
+  var keys = Object.keys(partialProps);
+  keys.forEach(function (key) {
+    defaultProps[key] = partialProps[key];
+  });
+};
+/**
+ * Returns an extended props object including plugin props
+ */
+
+function getExtendedProps(props) {
+  return _extends({}, props, {}, props.plugins.reduce(function (acc, plugin) {
+    var name = plugin.name,
+        defaultValue = plugin.defaultValue;
+
+    if (name) {
+      acc[name] = props[name] !== undefined ? props[name] : defaultValue;
+    }
+
+    return acc;
+  }, {}));
+}
+/**
+ * Returns an object of optional props from data-tippy-* attributes
+ */
+
+function getDataAttributeProps(reference, plugins) {
+  var propKeys = plugins ? Object.keys(getExtendedProps(_extends({}, defaultProps, {
+    plugins: plugins
+  }))) : defaultKeys;
+  var props = propKeys.reduce(function (acc, key) {
+    var valueAsString = (reference.getAttribute("data-tippy-" + key) || '').trim();
+
+    if (!valueAsString) {
+      return acc;
+    }
+
+    if (key === 'content') {
+      acc[key] = valueAsString;
+    } else {
+      try {
+        acc[key] = JSON.parse(valueAsString);
+      } catch (e) {
+        acc[key] = valueAsString;
+      }
+    }
+
+    return acc;
+  }, {});
+  return props;
+}
+/**
+ * Evaluates the props object by merging data attributes and disabling
+ * conflicting props where necessary
+ */
+
+function evaluateProps(reference, props) {
+  var out = _extends({}, props, {
+    content: invokeWithArgsOrReturn(props.content, [reference])
+  }, props.ignoreAttributes ? {} : getDataAttributeProps(reference, props.plugins));
+
+  if (out.interactive) {
+    out.aria = null;
+  }
+
+  return out;
+}
+/**
+ * Validates props with the valid `defaultProps` object
+ */
+
+function validateProps(partialProps, plugins) {
+  if (partialProps === void 0) {
+    partialProps = {};
+  }
+
+  if (plugins === void 0) {
+    plugins = [];
+  }
+
+  var keys = Object.keys(partialProps);
+  keys.forEach(function (prop) {
+    var value = partialProps[prop];
+    var didSpecifyPlacementInPopperOptions = prop === 'popperOptions' && value !== null && typeof value === 'object' && tippy_chunk_esm_hasOwnProperty(value, 'placement');
+    var nonPluginProps = removeProperties(defaultProps, ['animateFill', 'followCursor', 'inlinePositioning', 'sticky']); // These props have custom warnings
+
+    var customWarningProps = ['a11y', 'arrowType', 'showOnInit', 'size', 'target', 'touchHold'];
+    var didPassUnknownProp = !tippy_chunk_esm_hasOwnProperty(nonPluginProps, prop) && !includes(customWarningProps, prop); // Check if the prop exists in `plugins`
+
+    if (didPassUnknownProp) {
+      didPassUnknownProp = plugins.filter(function (plugin) {
+        return plugin.name === prop;
+      }).length === 0;
+    }
+
+    warnWhen(prop === 'target', "The `target` prop was removed in v5 and replaced with the delegate()\n      addon in order to conserve bundle size.\n      \n      See: https://atomiks.github.io/tippyjs/addons/#event-delegation");
+    warnWhen(prop === 'a11y', "The `a11y` prop was removed in v5. Make sure the element you are giving\n      a tippy to is natively focusable, such as <button> or <input>, not <div>\n      or <span>.");
+    warnWhen(prop === 'showOnInit', "The `showOnInit` prop was renamed to `showOnCreate` in v5.");
+    warnWhen(prop === 'arrowType', "The `arrowType` prop was removed in v5 in favor of overloading the\n      `arrow` prop.\n\n      \"round\" string was replaced with importing the string from the package.\n\n      * import {roundArrow} from 'tippy.js'; (ESM version)\n      * const {roundArrow} = tippy; (IIFE CDN version)\n\n      Before: {arrow: true, arrowType: \"round\"}\n      After: {arrow: roundArrow}");
+    warnWhen(prop === 'touchHold', "The `touchHold` prop was removed in v5 in favor of overloading the\n      `touch` prop.\n      \n      Before: {touchHold: true}\n      After: {touch: \"hold\"}");
+    warnWhen(prop === 'size', "The `size` prop was removed in v5. Instead, use a theme that specifies\n      CSS padding and font-size properties.");
+    warnWhen(prop === 'theme' && value === 'google', "The included theme \"google\" was renamed to \"material\" in v5.");
+    warnWhen(didSpecifyPlacementInPopperOptions, "Specifying placement in `popperOptions` is not supported. Use the\n      base-level `placement` prop instead.\n      \n      Before: {popperOptions: {placement: \"bottom\"}}\n      After: {placement: \"bottom\"}");
+    warnWhen(didPassUnknownProp, "`" + prop + "` is not a valid prop. You may have spelled it incorrectly,\n      or if it's a plugin, forgot to pass it in an array as props.plugins.\n\n      In v5, the following props were turned into plugins:\n\n      * animateFill\n      * followCursor\n      * sticky\n\n      All props: https://atomiks.github.io/tippyjs/all-props/\n      Plugins: https://atomiks.github.io/tippyjs/plugins/");
+  });
+}
+
+var PASSIVE = {
+  passive: true
+};
+var ROUND_ARROW = '<svg viewBox="0 0 18 7" xmlns="http://www.w3.org/2000/svg"><path d="M0 7s2.021-.015 5.253-4.218C6.584 1.051 7.797.007 9 0c1.203-.007 2.416 1.035 3.761 2.782C16.012 7.005 18 7 18 7H0z"/></svg>';
+var IOS_CLASS = "tippy-iOS";
+var POPPER_CLASS = "tippy-popper";
+var TOOLTIP_CLASS = "tippy-tooltip";
+var CONTENT_CLASS = "tippy-content";
+var BACKDROP_CLASS = "tippy-backdrop";
+var ARROW_CLASS = "tippy-arrow";
+var SVG_ARROW_CLASS = "tippy-svg-arrow";
+var POPPER_SELECTOR = "." + POPPER_CLASS;
+var TOOLTIP_SELECTOR = "." + TOOLTIP_CLASS;
+var CONTENT_SELECTOR = "." + CONTENT_CLASS;
+var ARROW_SELECTOR = "." + ARROW_CLASS;
+var SVG_ARROW_SELECTOR = "." + SVG_ARROW_CLASS;
+
+var currentInput = {
+  isTouch: false
+};
+var lastMouseMoveTime = 0;
+/**
+ * When a `touchstart` event is fired, it's assumed the user is using touch
+ * input. We'll bind a `mousemove` event listener to listen for mouse input in
+ * the future. This way, the `isTouch` property is fully dynamic and will handle
+ * hybrid devices that use a mix of touch + mouse input.
+ */
+
+function onDocumentTouchStart() {
+  if (currentInput.isTouch) {
+    return;
+  }
+
+  currentInput.isTouch = true;
+
+  if (window.performance) {
+    document.addEventListener('mousemove', onDocumentMouseMove);
+  }
+}
+/**
+ * When two `mousemove` event are fired consecutively within 20ms, it's assumed
+ * the user is using mouse input again. `mousemove` can fire on touch devices as
+ * well, but very rarely that quickly.
+ */
+
+function onDocumentMouseMove() {
+  var now = performance.now();
+
+  if (now - lastMouseMoveTime < 20) {
+    currentInput.isTouch = false;
+    document.removeEventListener('mousemove', onDocumentMouseMove);
+  }
+
+  lastMouseMoveTime = now;
+}
+/**
+ * When an element is in focus and has a tippy, leaving the tab/window and
+ * returning causes it to show again. For mouse users this is unexpected, but
+ * for keyboard use it makes sense.
+ * TODO: find a better technique to solve this problem
+ */
+
+function onWindowBlur() {
+  var activeElement = document.activeElement;
+
+  if (isReferenceElement(activeElement)) {
+    var instance = activeElement._tippy;
+
+    if (activeElement.blur && !instance.state.isVisible) {
+      activeElement.blur();
+    }
+  }
+}
+/**
+ * Adds the needed global event listeners
+ */
+
+function bindGlobalEventListeners() {
+  document.addEventListener('touchstart', onDocumentTouchStart, _extends({}, PASSIVE, {
+    capture: true
+  }));
+  window.addEventListener('blur', onWindowBlur);
+}
+
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
+var ua = isBrowser ? navigator.userAgent : '';
+var isIE = /MSIE |Trident\//.test(ua);
+var isUCBrowser = /UCBrowser\//.test(ua);
+var isIOS = isBrowser && /iPhone|iPad|iPod/.test(navigator.platform);
+function updateIOSClass(isAdd) {
+  var shouldAdd = isAdd && isIOS && currentInput.isTouch;
+  document.body.classList[shouldAdd ? 'add' : 'remove'](IOS_CLASS);
+}
+
+/**
+ * Returns the popper's placement, ignoring shifting (top-start, etc)
+ */
+
+function getBasePlacement(placement) {
+  return placement.split('-')[0];
+}
+/**
+ * Adds `data-inertia` attribute
+ */
+
+function addInertia(tooltip) {
+  tooltip.setAttribute('data-inertia', '');
+}
+/**
+ * Removes `data-inertia` attribute
+ */
+
+function removeInertia(tooltip) {
+  tooltip.removeAttribute('data-inertia');
+}
+/**
+ * Adds interactive-related attributes
+ */
+
+function addInteractive(tooltip) {
+  tooltip.setAttribute('data-interactive', '');
+}
+/**
+ * Removes interactive-related attributes
+ */
+
+function removeInteractive(tooltip) {
+  tooltip.removeAttribute('data-interactive');
+}
+/**
+ * Sets the content of a tooltip
+ */
+
+function tippy_chunk_esm_setContent(contentEl, props) {
+  if (isElement(props.content)) {
+    setInnerHTML(contentEl, '');
+    contentEl.appendChild(props.content);
+  } else if (typeof props.content !== 'function') {
+    var key = props.allowHTML ? 'innerHTML' : 'textContent';
+    contentEl[key] = props.content;
+  }
+}
+/**
+ * Returns the child elements of a popper element
+ */
+
+function getChildren(popper) {
+  return {
+    tooltip: popper.querySelector(TOOLTIP_SELECTOR),
+    content: popper.querySelector(CONTENT_SELECTOR),
+    arrow: popper.querySelector(ARROW_SELECTOR) || popper.querySelector(SVG_ARROW_SELECTOR)
+  };
+}
+/**
+ * Creates an arrow element and returns it
+ */
+
+function createArrowElement(arrow) {
+  var arrowElement = div();
+
+  if (arrow === true) {
+    arrowElement.className = ARROW_CLASS;
+  } else {
+    arrowElement.className = SVG_ARROW_CLASS;
+
+    if (isElement(arrow)) {
+      arrowElement.appendChild(arrow);
+    } else {
+      setInnerHTML(arrowElement, arrow);
+    }
+  }
+
+  return arrowElement;
+}
+/**
+ * Constructs the popper element and returns it
+ */
+
+function createPopperElement(id, props) {
+  var popper = div();
+  popper.className = POPPER_CLASS;
+  popper.style.position = 'absolute';
+  popper.style.top = '0';
+  popper.style.left = '0';
+  var tooltip = div();
+  tooltip.className = TOOLTIP_CLASS;
+  tooltip.id = "tippy-" + id;
+  tooltip.setAttribute('data-state', 'hidden');
+  tooltip.setAttribute('tabindex', '-1');
+  updateTheme(tooltip, 'add', props.theme);
+  var content = div();
+  content.className = CONTENT_CLASS;
+  content.setAttribute('data-state', 'hidden');
+
+  if (props.interactive) {
+    addInteractive(tooltip);
+  }
+
+  if (props.arrow) {
+    tooltip.setAttribute('data-arrow', '');
+    tooltip.appendChild(createArrowElement(props.arrow));
+  }
+
+  if (props.inertia) {
+    addInertia(tooltip);
+  }
+
+  tippy_chunk_esm_setContent(content, props);
+  tooltip.appendChild(content);
+  popper.appendChild(tooltip);
+  updatePopperElement(popper, props, props);
+  return popper;
+}
+/**
+ * Updates the popper element based on the new props
+ */
+
+function updatePopperElement(popper, prevProps, nextProps) {
+  var _getChildren = getChildren(popper),
+      tooltip = _getChildren.tooltip,
+      content = _getChildren.content,
+      arrow = _getChildren.arrow;
+
+  popper.style.zIndex = '' + nextProps.zIndex;
+  tooltip.setAttribute('data-animation', nextProps.animation);
+  tooltip.style.maxWidth = appendPxIfNumber(nextProps.maxWidth);
+
+  if (nextProps.role) {
+    tooltip.setAttribute('role', nextProps.role);
+  } else {
+    tooltip.removeAttribute('role');
+  }
+
+  if (prevProps.content !== nextProps.content) {
+    tippy_chunk_esm_setContent(content, nextProps);
+  } // arrow
+
+
+  if (!prevProps.arrow && nextProps.arrow) {
+    // false to true
+    tooltip.appendChild(createArrowElement(nextProps.arrow));
+    tooltip.setAttribute('data-arrow', '');
+  } else if (prevProps.arrow && !nextProps.arrow) {
+    // true to false
+    tooltip.removeChild(arrow);
+    tooltip.removeAttribute('data-arrow');
+  } else if (prevProps.arrow !== nextProps.arrow) {
+    // true to 'round' or vice-versa
+    tooltip.removeChild(arrow);
+    tooltip.appendChild(createArrowElement(nextProps.arrow));
+  } // interactive
+
+
+  if (!prevProps.interactive && nextProps.interactive) {
+    addInteractive(tooltip);
+  } else if (prevProps.interactive && !nextProps.interactive) {
+    removeInteractive(tooltip);
+  } // inertia
+
+
+  if (!prevProps.inertia && nextProps.inertia) {
+    addInertia(tooltip);
+  } else if (prevProps.inertia && !nextProps.inertia) {
+    removeInertia(tooltip);
+  } // theme
+
+
+  if (prevProps.theme !== nextProps.theme) {
+    updateTheme(tooltip, 'remove', prevProps.theme);
+    updateTheme(tooltip, 'add', nextProps.theme);
+  }
+}
+/**
+ * Add/remove transitionend listener from tooltip
+ */
+
+function updateTransitionEndListener(tooltip, action, listener) {
+  var eventName = isUCBrowser && document.body.style.webkitTransition !== undefined ? 'webkitTransitionEnd' : 'transitionend';
+  tooltip[action + 'EventListener'](eventName, listener);
+}
+/**
+ * Adds/removes theme from tooltip's classList
+ */
+
+function updateTheme(tooltip, action, theme) {
+  splitBySpaces(theme).forEach(function (name) {
+    tooltip.classList[action](name + "-theme");
+  });
+}
+/**
+ * Determines if the mouse cursor is outside of the popper's interactive border
+ * region
+ */
+
+function isCursorOutsideInteractiveBorder(popperTreeData, event) {
+  var clientX = event.clientX,
+      clientY = event.clientY;
+  return popperTreeData.every(function (_ref) {
+    var popperRect = _ref.popperRect,
+        tooltipRect = _ref.tooltipRect,
+        interactiveBorder = _ref.interactiveBorder;
+    // Get min/max bounds of both the popper and tooltip rects due to
+    // `distance` offset
+    var mergedRect = {
+      top: Math.min(popperRect.top, tooltipRect.top),
+      right: Math.max(popperRect.right, tooltipRect.right),
+      bottom: Math.max(popperRect.bottom, tooltipRect.bottom),
+      left: Math.min(popperRect.left, tooltipRect.left)
+    };
+    var exceedsTop = mergedRect.top - clientY > interactiveBorder;
+    var exceedsBottom = clientY - mergedRect.bottom > interactiveBorder;
+    var exceedsLeft = mergedRect.left - clientX > interactiveBorder;
+    var exceedsRight = clientX - mergedRect.right > interactiveBorder;
+    return exceedsTop || exceedsBottom || exceedsLeft || exceedsRight;
+  });
+}
+
+var idCounter = 1;
+var mouseMoveListeners = [];
+/**
+ * Used by `hideAll()`
+ */
+
+var mountedInstances = [];
+/**
+ * Creates and returns a Tippy object. We're using a closure pattern instead of
+ * a class so that the exposed object API is clean without private members
+ * prefixed with `_`.
+ */
+
+function createTippy(reference, collectionProps) {
+  var props = getExtendedProps(evaluateProps(reference, collectionProps)); // If the reference shouldn't have multiple tippys, return null early
+
+  if (!props.multiple && reference._tippy) {
+    return null;
+  }
+  /* ======================= 🔒 Private members 🔒 ======================= */
+
+
+  var showTimeout;
+  var hideTimeout;
+  var scheduleHideAnimationFrame;
+  var isBeingDestroyed = false;
+  var didHideDueToDocumentMouseDown = false;
+  var popperUpdates = 0;
+  var lastTriggerEvent;
+  var currentMountCallback;
+  var currentTransitionEndListener;
+  var listeners = [];
+  var debouncedOnMouseMove = debounce(onMouseMove, props.interactiveDebounce);
+  var currentTarget; // Support iframe contexts
+  // Static check that assumes any of the `triggerTarget` or `reference`
+  // nodes will never change documents, even when they are updated
+
+  var doc = getOwnerDocument(props.triggerTarget || reference);
+  /* ======================= 🔑 Public members 🔑 ======================= */
+
+  var id = idCounter++;
+  var popper = createPopperElement(id, props);
+  var popperChildren = getChildren(popper);
+  var popperInstance = null;
+  var plugins = unique(props.plugins); // These two elements are static
+
+  var tooltip = popperChildren.tooltip,
+      content = popperChildren.content;
+  var transitionableElements = [tooltip, content];
+  var state = {
+    // The current real placement (`data-placement` attribute)
+    currentPlacement: null,
+    // Is the instance currently enabled?
+    isEnabled: true,
+    // Is the tippy currently showing and not transitioning out?
+    isVisible: false,
+    // Has the instance been destroyed?
+    isDestroyed: false,
+    // Is the tippy currently mounted to the DOM?
+    isMounted: false,
+    // Has the tippy finished transitioning in?
+    isShown: false
+  };
+  var instance = {
+    // properties
+    id: id,
+    reference: reference,
+    popper: popper,
+    popperChildren: popperChildren,
+    popperInstance: popperInstance,
+    props: props,
+    state: state,
+    plugins: plugins,
+    // methods
+    clearDelayTimeouts: clearDelayTimeouts,
+    setProps: setProps,
+    setContent: setContent,
+    show: show,
+    hide: hide,
+    enable: enable,
+    disable: disable,
+    destroy: destroy
+  };
+  /* ==================== Initial instance mutations =================== */
+
+  reference._tippy = instance;
+  popper._tippy = instance;
+  var pluginsHooks = plugins.map(function (plugin) {
+    return plugin.fn(instance);
+  });
+  addListenersToTriggerTarget();
+  handleAriaExpandedAttribute();
+
+  if (!props.lazy) {
+    createPopperInstance();
+  }
+
+  invokeHook('onCreate', [instance]);
+
+  if (props.showOnCreate) {
+    scheduleShow();
+  } // Prevent a tippy with a delay from hiding if the cursor left then returned
+  // before it started hiding
+
+
+  popper.addEventListener('mouseenter', function () {
+    if (instance.props.interactive && instance.state.isVisible) {
+      instance.clearDelayTimeouts();
+    }
+  });
+  popper.addEventListener('mouseleave', function () {
+    if (instance.props.interactive && includes(instance.props.trigger, 'mouseenter')) {
+      doc.addEventListener('mousemove', debouncedOnMouseMove);
+    }
+  });
+  return instance;
+  /* ======================= 🔒 Private methods 🔒 ======================= */
+
+  function getNormalizedTouchSettings() {
+    var touch = instance.props.touch;
+    return Array.isArray(touch) ? touch : [touch, 0];
+  }
+
+  function getIsCustomTouchBehavior() {
+    return getNormalizedTouchSettings()[0] === 'hold';
+  }
+
+  function getCurrentTarget() {
+    return currentTarget || reference;
+  }
+
+  function getDelay(isShow) {
+    // For touch or keyboard input, force `0` delay for UX reasons
+    // Also if the instance is mounted but not visible (transitioning out),
+    // ignore delay
+    if (instance.state.isMounted && !instance.state.isVisible || currentInput.isTouch || (lastTriggerEvent ? lastTriggerEvent.type === 'focus' : true)) {
+      return 0;
+    }
+
+    return getValueAtIndexOrReturn(instance.props.delay, isShow ? 0 : 1, defaultProps.delay);
+  }
+
+  function invokeHook(hook, args, shouldInvokePropsHook) {
+    if (shouldInvokePropsHook === void 0) {
+      shouldInvokePropsHook = true;
+    }
+
+    pluginsHooks.forEach(function (pluginHooks) {
+      if (tippy_chunk_esm_hasOwnProperty(pluginHooks, hook)) {
+        // @ts-ignore
+        pluginHooks[hook].apply(pluginHooks, args);
+      }
+    });
+
+    if (shouldInvokePropsHook) {
+      var _instance$props;
+
+      // @ts-ignore
+      (_instance$props = instance.props)[hook].apply(_instance$props, args);
+    }
+  }
+
+  function handleAriaDescribedByAttribute() {
+    var aria = instance.props.aria;
+
+    if (!aria) {
+      return;
+    }
+
+    var attr = "aria-" + aria;
+    var id = tooltip.id;
+    var nodes = normalizeToArray(instance.props.triggerTarget || reference);
+    nodes.forEach(function (node) {
+      var currentValue = node.getAttribute(attr);
+
+      if (instance.state.isVisible) {
+        node.setAttribute(attr, currentValue ? currentValue + " " + id : id);
+      } else {
+        var nextValue = currentValue && currentValue.replace(id, '').trim();
+
+        if (nextValue) {
+          node.setAttribute(attr, nextValue);
+        } else {
+          node.removeAttribute(attr);
+        }
+      }
+    });
+  }
+
+  function handleAriaExpandedAttribute() {
+    var nodes = normalizeToArray(instance.props.triggerTarget || reference);
+    nodes.forEach(function (node) {
+      if (instance.props.interactive) {
+        node.setAttribute('aria-expanded', instance.state.isVisible && node === getCurrentTarget() ? 'true' : 'false');
+      } else {
+        node.removeAttribute('aria-expanded');
+      }
+    });
+  }
+
+  function cleanupInteractiveMouseListeners() {
+    doc.body.removeEventListener('mouseleave', scheduleHide);
+    doc.removeEventListener('mousemove', debouncedOnMouseMove);
+    mouseMoveListeners = mouseMoveListeners.filter(function (listener) {
+      return listener !== debouncedOnMouseMove;
+    });
+  }
+
+  function onDocumentMouseDown(event) {
+    // Clicked on interactive popper
+    if (instance.props.interactive && popper.contains(event.target)) {
+      return;
+    } // Clicked on the event listeners target
+
+
+    if (getCurrentTarget().contains(event.target)) {
+      if (currentInput.isTouch) {
+        return;
+      }
+
+      if (instance.state.isVisible && includes(instance.props.trigger, 'click')) {
+        return;
+      }
+    }
+
+    if (instance.props.hideOnClick === true) {
+      instance.clearDelayTimeouts();
+      instance.hide(); // `mousedown` event is fired right before `focus` if pressing the
+      // currentTarget. This lets a tippy with `focus` trigger know that it
+      // should not show
+
+      didHideDueToDocumentMouseDown = true;
+      setTimeout(function () {
+        didHideDueToDocumentMouseDown = false;
+      }); // The listener gets added in `scheduleShow()`, but this may be hiding it
+      // before it shows, and hide()'s early bail-out behavior can prevent it
+      // from being cleaned up
+
+      if (!instance.state.isMounted) {
+        removeDocumentMouseDownListener();
+      }
+    }
+  }
+
+  function addDocumentMouseDownListener() {
+    doc.addEventListener('mousedown', onDocumentMouseDown, true);
+  }
+
+  function removeDocumentMouseDownListener() {
+    doc.removeEventListener('mousedown', onDocumentMouseDown, true);
+  }
+
+  function onTransitionedOut(duration, callback) {
+    onTransitionEnd(duration, function () {
+      if (!instance.state.isVisible && popper.parentNode && popper.parentNode.contains(popper)) {
+        callback();
+      }
+    });
+  }
+
+  function onTransitionedIn(duration, callback) {
+    onTransitionEnd(duration, callback);
+  }
+
+  function onTransitionEnd(duration, callback) {
+    function listener(event) {
+      if (event.target === tooltip) {
+        updateTransitionEndListener(tooltip, 'remove', listener);
+        callback();
+      }
+    } // Make callback synchronous if duration is 0
+    // `transitionend` won't fire otherwise
+
+
+    if (duration === 0) {
+      return callback();
+    }
+
+    updateTransitionEndListener(tooltip, 'remove', currentTransitionEndListener);
+    updateTransitionEndListener(tooltip, 'add', listener);
+    currentTransitionEndListener = listener;
+  }
+
+  function on(eventType, handler, options) {
+    if (options === void 0) {
+      options = false;
+    }
+
+    var nodes = normalizeToArray(instance.props.triggerTarget || reference);
+    nodes.forEach(function (node) {
+      node.addEventListener(eventType, handler, options);
+      listeners.push({
+        node: node,
+        eventType: eventType,
+        handler: handler,
+        options: options
+      });
+    });
+  }
+
+  function addListenersToTriggerTarget() {
+    if (getIsCustomTouchBehavior()) {
+      on('touchstart', onTrigger, PASSIVE);
+      on('touchend', onMouseLeave, PASSIVE);
+    }
+
+    splitBySpaces(instance.props.trigger).forEach(function (eventType) {
+      if (eventType === 'manual') {
+        return;
+      }
+
+      on(eventType, onTrigger);
+
+      switch (eventType) {
+        case 'mouseenter':
+          on('mouseleave', onMouseLeave);
+          break;
+
+        case 'focus':
+          on(isIE ? 'focusout' : 'blur', onBlur);
+          break;
+      }
+    });
+  }
+
+  function removeListenersFromTriggerTarget() {
+    listeners.forEach(function (_ref) {
+      var node = _ref.node,
+          eventType = _ref.eventType,
+          handler = _ref.handler,
+          options = _ref.options;
+      node.removeEventListener(eventType, handler, options);
+    });
+    listeners = [];
+  }
+
+  function onTrigger(event) {
+    if (!instance.state.isEnabled || isEventListenerStopped(event) || didHideDueToDocumentMouseDown) {
+      return;
+    }
+
+    lastTriggerEvent = event;
+    currentTarget = event.currentTarget;
+    handleAriaExpandedAttribute();
+
+    if (!instance.state.isVisible && isMouseEvent(event)) {
+      // If scrolling, `mouseenter` events can be fired if the cursor lands
+      // over a new target, but `mousemove` events don't get fired. This
+      // causes interactive tooltips to get stuck open until the cursor is
+      // moved
+      mouseMoveListeners.forEach(function (listener) {
+        return listener(event);
+      });
+    } // Toggle show/hide when clicking click-triggered tooltips
+
+
+    if (event.type === 'click' && instance.props.hideOnClick !== false && instance.state.isVisible) {
+      scheduleHide(event);
+    } else {
+      var _getNormalizedTouchSe = getNormalizedTouchSettings(),
+          value = _getNormalizedTouchSe[0],
+          duration = _getNormalizedTouchSe[1];
+
+      if (currentInput.isTouch && value === 'hold' && duration) {
+        // We can hijack the show timeout here, it will be cleared by
+        // `scheduleHide()` when necessary
+        showTimeout = setTimeout(function () {
+          scheduleShow(event);
+        }, duration);
+      } else {
+        scheduleShow(event);
+      }
+    }
+  }
+
+  function onMouseMove(event) {
+    var isCursorOverReferenceOrPopper = closestCallback(event.target, function (el) {
+      return el === reference || el === popper;
+    });
+
+    if (isCursorOverReferenceOrPopper) {
+      return;
+    }
+
+    var popperTreeData = arrayFrom(popper.querySelectorAll(POPPER_SELECTOR)).concat(popper).map(function (popper) {
+      var instance = popper._tippy;
+      var tooltip = instance.popperChildren.tooltip;
+      var interactiveBorder = instance.props.interactiveBorder;
+      return {
+        popperRect: popper.getBoundingClientRect(),
+        tooltipRect: tooltip.getBoundingClientRect(),
+        interactiveBorder: interactiveBorder
+      };
+    });
+
+    if (isCursorOutsideInteractiveBorder(popperTreeData, event)) {
+      cleanupInteractiveMouseListeners();
+      scheduleHide(event);
+    }
+  }
+
+  function onMouseLeave(event) {
+    if (isEventListenerStopped(event)) {
+      return;
+    }
+
+    if (instance.props.interactive) {
+      doc.body.addEventListener('mouseleave', scheduleHide);
+      doc.addEventListener('mousemove', debouncedOnMouseMove);
+      pushIfUnique(mouseMoveListeners, debouncedOnMouseMove);
+      return;
+    }
+
+    scheduleHide(event);
+  }
+
+  function onBlur(event) {
+    if (event.target !== getCurrentTarget()) {
+      return;
+    } // If focus was moved to within the popper
+
+
+    if (instance.props.interactive && event.relatedTarget && popper.contains(event.relatedTarget)) {
+      return;
+    }
+
+    scheduleHide(event);
+  }
+
+  function isEventListenerStopped(event) {
+    var supportsTouch = 'ontouchstart' in window;
+    var isTouchEvent = includes(event.type, 'touch');
+    var isCustomTouch = getIsCustomTouchBehavior();
+    return supportsTouch && currentInput.isTouch && isCustomTouch && !isTouchEvent || currentInput.isTouch && !isCustomTouch && isTouchEvent;
+  }
+
+  function createPopperInstance() {
+    var popperOptions = instance.props.popperOptions;
+    var arrow = instance.popperChildren.arrow;
+    var flipModifier = getModifier(popperOptions, 'flip');
+    var preventOverflowModifier = getModifier(popperOptions, 'preventOverflow');
+    var distancePx;
+
+    function applyMutations(data) {
+      var prevPlacement = instance.state.currentPlacement;
+      instance.state.currentPlacement = data.placement;
+
+      if (instance.props.flip && !instance.props.flipOnUpdate) {
+        if (data.flipped) {
+          instance.popperInstance.options.placement = data.placement;
+        }
+
+        setModifierValue(instance.popperInstance.modifiers, 'flip', 'enabled', false);
+      }
+
+      tooltip.setAttribute('data-placement', data.placement);
+
+      if (data.attributes['x-out-of-boundaries'] !== false) {
+        tooltip.setAttribute('data-out-of-boundaries', '');
+      } else {
+        tooltip.removeAttribute('data-out-of-boundaries');
+      }
+
+      var basePlacement = getBasePlacement(data.placement);
+      var isVerticalPlacement = includes(['top', 'bottom'], basePlacement);
+      var isSecondaryPlacement = includes(['bottom', 'right'], basePlacement); // Apply `distance` prop
+
+      tooltip.style.top = '0';
+      tooltip.style.left = '0';
+      tooltip.style[isVerticalPlacement ? 'top' : 'left'] = (isSecondaryPlacement ? 1 : -1) * distancePx + 'px'; // Careful not to cause an infinite loop here
+      // Fixes https://github.com/FezVrasta/popper.js/issues/784
+
+      if (prevPlacement && prevPlacement !== data.placement) {
+        instance.popperInstance.update();
+      }
+    }
+
+    var config = _extends({
+      eventsEnabled: false,
+      placement: instance.props.placement
+    }, popperOptions, {
+      modifiers: _extends({}, popperOptions && popperOptions.modifiers, {
+        // We can't use `padding` on the popper el because of these bugs when
+        // flipping from a vertical to horizontal placement or vice-versa,
+        // there is severe flickering.
+        // https://github.com/FezVrasta/popper.js/issues/720
+        // This workaround increases bundle size by 250B minzip unfortunately,
+        // due to need to custom compute the distance (since Popper rect does
+        // not get affected by the inner tooltip's distance offset)
+        tippyDistance: {
+          enabled: true,
+          order: 0,
+          fn: function fn(data) {
+            // `html` fontSize may change while `popperInstance` is alive
+            // e.g. on resize in media queries
+            distancePx = getUnitsInPx(doc, instance.props.distance);
+            var basePlacement = getBasePlacement(data.placement);
+            var computedPreventOverflowPadding = getComputedPadding(basePlacement, preventOverflowModifier && preventOverflowModifier.padding, distancePx);
+            var computedFlipPadding = getComputedPadding(basePlacement, flipModifier && flipModifier.padding, distancePx);
+            var instanceModifiers = instance.popperInstance.modifiers;
+            setModifierValue(instanceModifiers, 'preventOverflow', 'padding', computedPreventOverflowPadding);
+            setModifierValue(instanceModifiers, 'flip', 'padding', computedFlipPadding);
+            return data;
+          }
+        },
+        preventOverflow: _extends({
+          boundariesElement: instance.props.boundary
+        }, preventOverflowModifier),
+        flip: _extends({
+          enabled: instance.props.flip,
+          behavior: instance.props.flipBehavior
+        }, flipModifier),
+        arrow: _extends({
+          element: arrow,
+          enabled: !!arrow
+        }, getModifier(popperOptions, 'arrow')),
+        offset: _extends({
+          offset: instance.props.offset
+        }, getModifier(popperOptions, 'offset'))
+      }),
+      onCreate: function onCreate(data) {
+        applyMutations(data);
+        preserveInvocation(popperOptions && popperOptions.onCreate, config.onCreate, [data]);
+        runMountCallback();
+      },
+      onUpdate: function onUpdate(data) {
+        applyMutations(data);
+        preserveInvocation(popperOptions && popperOptions.onUpdate, config.onUpdate, [data]);
+        runMountCallback();
+      }
+    });
+
+    instance.popperInstance = new esm_popper["a" /* default */](reference, popper, config);
+  }
+
+  function runMountCallback() {
+    // Only invoke currentMountCallback after 2 updates
+    // This fixes some bugs in Popper.js (TODO: aim for only 1 update)
+    if (popperUpdates === 0) {
+      popperUpdates++; // 1
+
+      instance.popperInstance.update();
+    } else if (currentMountCallback && popperUpdates === 1) {
+      popperUpdates++; // 2
+
+      reflow(popper);
+      currentMountCallback();
+    }
+  }
+
+  function mount() {
+    // The mounting callback (`currentMountCallback`) is only run due to a
+    // popperInstance update/create
+    popperUpdates = 0;
+    var appendTo = instance.props.appendTo;
+    var parentNode; // By default, we'll append the popper to the triggerTargets's parentNode so
+    // it's directly after the reference element so the elements inside the
+    // tippy can be tabbed to
+    // If there are clipping issues, the user can specify a different appendTo
+    // and ensure focus management is handled correctly manually
+
+    var node = getCurrentTarget();
+
+    if (instance.props.interactive && appendTo === defaultProps.appendTo || appendTo === 'parent') {
+      parentNode = node.parentNode;
+    } else {
+      parentNode = invokeWithArgsOrReturn(appendTo, [node]);
+    } // The popper element needs to exist on the DOM before its position can be
+    // updated as Popper.js needs to read its dimensions
+
+
+    if (!parentNode.contains(popper)) {
+      parentNode.appendChild(popper);
+    }
+
+    if (false) {}
+
+    setModifierValue(instance.popperInstance.modifiers, 'flip', 'enabled', instance.props.flip);
+    instance.popperInstance.enableEventListeners(); // Mounting callback invoked in `onUpdate`
+
+    instance.popperInstance.update();
+  }
+
+  function scheduleShow(event) {
+    instance.clearDelayTimeouts();
+
+    if (!instance.popperInstance) {
+      createPopperInstance();
+    }
+
+    if (event) {
+      invokeHook('onTrigger', [instance, event]);
+    }
+
+    addDocumentMouseDownListener();
+    var delay = getDelay(true);
+
+    if (delay) {
+      showTimeout = setTimeout(function () {
+        instance.show();
+      }, delay);
+    } else {
+      instance.show();
+    }
+  }
+
+  function scheduleHide(event) {
+    instance.clearDelayTimeouts();
+    invokeHook('onUntrigger', [instance, event]);
+
+    if (!instance.state.isVisible) {
+      removeDocumentMouseDownListener();
+      return;
+    }
+
+    var delay = getDelay(false);
+
+    if (delay) {
+      hideTimeout = setTimeout(function () {
+        if (instance.state.isVisible) {
+          instance.hide();
+        }
+      }, delay);
+    } else {
+      // Fixes a `transitionend` problem when it fires 1 frame too
+      // late sometimes, we don't want hide() to be called.
+      scheduleHideAnimationFrame = requestAnimationFrame(function () {
+        instance.hide();
+      });
+    }
+  }
+  /* ======================= 🔑 Public methods 🔑 ======================= */
+
+
+  function enable() {
+    instance.state.isEnabled = true;
+  }
+
+  function disable() {
+    // Disabling the instance should also hide it
+    // https://github.com/atomiks/tippy.js-react/issues/106
+    instance.hide();
+    instance.state.isEnabled = false;
+  }
+
+  function clearDelayTimeouts() {
+    clearTimeout(showTimeout);
+    clearTimeout(hideTimeout);
+    cancelAnimationFrame(scheduleHideAnimationFrame);
+  }
+
+  function setProps(partialProps) {
+    if (false) {}
+
+    if (instance.state.isDestroyed) {
+      return;
+    }
+
+    if (false) {}
+
+    invokeHook('onBeforeUpdate', [instance, partialProps]);
+    removeListenersFromTriggerTarget();
+    var prevProps = instance.props;
+    var nextProps = evaluateProps(reference, _extends({}, instance.props, {}, partialProps, {
+      ignoreAttributes: true
+    }));
+    nextProps.ignoreAttributes = useIfDefined(partialProps.ignoreAttributes, prevProps.ignoreAttributes);
+    instance.props = nextProps;
+    addListenersToTriggerTarget();
+
+    if (prevProps.interactiveDebounce !== nextProps.interactiveDebounce) {
+      cleanupInteractiveMouseListeners();
+      debouncedOnMouseMove = debounce(onMouseMove, nextProps.interactiveDebounce);
+    }
+
+    updatePopperElement(popper, prevProps, nextProps);
+    instance.popperChildren = getChildren(popper); // Ensure stale aria-expanded attributes are removed
+
+    if (prevProps.triggerTarget && !nextProps.triggerTarget) {
+      normalizeToArray(prevProps.triggerTarget).forEach(function (node) {
+        node.removeAttribute('aria-expanded');
+      });
+    } else if (nextProps.triggerTarget) {
+      reference.removeAttribute('aria-expanded');
+    }
+
+    handleAriaExpandedAttribute();
+
+    if (instance.popperInstance) {
+      if (POPPER_INSTANCE_DEPENDENCIES.some(function (prop) {
+        return tippy_chunk_esm_hasOwnProperty(partialProps, prop) && partialProps[prop] !== prevProps[prop];
+      })) {
+        instance.popperInstance.destroy();
+        createPopperInstance();
+
+        if (instance.state.isVisible) {
+          instance.popperInstance.enableEventListeners();
+        }
+      } else {
+        instance.popperInstance.update();
+      }
+    }
+
+    invokeHook('onAfterUpdate', [instance, partialProps]);
+  }
+
+  function setContent(content) {
+    instance.setProps({
+      content: content
+    });
+  }
+
+  function show(duration) {
+    if (duration === void 0) {
+      duration = getValueAtIndexOrReturn(instance.props.duration, 0, defaultProps.duration);
+    }
+
+    if (false) {} // Early bail-out
+
+
+    var isAlreadyVisible = instance.state.isVisible;
+    var isDestroyed = instance.state.isDestroyed;
+    var isDisabled = !instance.state.isEnabled;
+    var isTouchAndTouchDisabled = currentInput.isTouch && !instance.props.touch;
+
+    if (isAlreadyVisible || isDestroyed || isDisabled || isTouchAndTouchDisabled) {
+      return;
+    } // Normalize `disabled` behavior across browsers.
+    // Firefox allows events on disabled elements, but Chrome doesn't.
+    // Using a wrapper element (i.e. <span>) is recommended.
+
+
+    if (getCurrentTarget().hasAttribute('disabled')) {
+      return;
+    }
+
+    if (!instance.popperInstance) {
+      createPopperInstance();
+    }
+
+    invokeHook('onShow', [instance], false);
+
+    if (instance.props.onShow(instance) === false) {
+      return;
+    }
+
+    addDocumentMouseDownListener();
+    popper.style.visibility = 'visible';
+    instance.state.isVisible = true; // Prevent a transition of the popper from its previous position and of the
+    // elements at a different placement
+    // Check if the tippy was fully unmounted before `show()` was called, to
+    // allow for smooth transition for `createSingleton()`
+
+    if (!instance.state.isMounted) {
+      setTransitionDuration(transitionableElements.concat(popper), 0);
+    }
+
+    currentMountCallback = function currentMountCallback() {
+      if (!instance.state.isVisible) {
+        return;
+      }
+
+      setTransitionDuration([popper], instance.props.updateDuration);
+      setTransitionDuration(transitionableElements, duration);
+      setVisibilityState(transitionableElements, 'visible');
+      handleAriaDescribedByAttribute();
+      handleAriaExpandedAttribute();
+      pushIfUnique(mountedInstances, instance);
+      updateIOSClass(true);
+      instance.state.isMounted = true;
+      invokeHook('onMount', [instance]);
+      onTransitionedIn(duration, function () {
+        instance.state.isShown = true;
+        invokeHook('onShown', [instance]);
+      });
+    };
+
+    mount();
+  }
+
+  function hide(duration) {
+    if (duration === void 0) {
+      duration = getValueAtIndexOrReturn(instance.props.duration, 1, defaultProps.duration);
+    }
+
+    if (false) {} // Early bail-out
+
+
+    var isAlreadyHidden = !instance.state.isVisible && !isBeingDestroyed;
+    var isDestroyed = instance.state.isDestroyed;
+    var isDisabled = !instance.state.isEnabled && !isBeingDestroyed;
+
+    if (isAlreadyHidden || isDestroyed || isDisabled) {
+      return;
+    }
+
+    invokeHook('onHide', [instance], false);
+
+    if (instance.props.onHide(instance) === false && !isBeingDestroyed) {
+      return;
+    }
+
+    removeDocumentMouseDownListener();
+    popper.style.visibility = 'hidden';
+    instance.state.isVisible = false;
+    instance.state.isShown = false;
+    setTransitionDuration(transitionableElements, duration);
+    setVisibilityState(transitionableElements, 'hidden');
+    handleAriaDescribedByAttribute();
+    handleAriaExpandedAttribute();
+    onTransitionedOut(duration, function () {
+      instance.popperInstance.disableEventListeners();
+      instance.popperInstance.options.placement = instance.props.placement;
+      popper.parentNode.removeChild(popper);
+      mountedInstances = mountedInstances.filter(function (i) {
+        return i !== instance;
+      });
+
+      if (mountedInstances.length === 0) {
+        updateIOSClass(false);
+      }
+
+      instance.state.isMounted = false;
+      invokeHook('onHidden', [instance]);
+    });
+  }
+
+  function destroy() {
+    if (false) {}
+
+    if (instance.state.isDestroyed) {
+      return;
+    }
+
+    isBeingDestroyed = true;
+    instance.clearDelayTimeouts();
+    instance.hide(0);
+    removeListenersFromTriggerTarget();
+    delete reference._tippy;
+
+    if (instance.popperInstance) {
+      instance.popperInstance.destroy();
+    }
+
+    isBeingDestroyed = false;
+    instance.state.isDestroyed = true;
+    invokeHook('onDestroy', [instance]);
+  }
+}
+
+function tippy(targets, optionalProps,
+/** @deprecated use Props.plugins */
+plugins) {
+  if (optionalProps === void 0) {
+    optionalProps = {};
+  }
+
+  if (plugins === void 0) {
+    plugins = [];
+  }
+
+  plugins = defaultProps.plugins.concat(optionalProps.plugins || plugins);
+
+  if (false) {}
+
+  bindGlobalEventListeners();
+
+  var props = _extends({}, defaultProps, {}, optionalProps, {
+    plugins: plugins
+  });
+
+  var elements = getArrayOfElements(targets);
+
+  if (false) { var isMoreThanOneReferenceElement, isSingleContentElement; }
+
+  var instances = elements.reduce(function (acc, reference) {
+    var instance = reference && createTippy(reference, props);
+
+    if (instance) {
+      acc.push(instance);
+    }
+
+    return acc;
+  }, []);
+  return isElement(targets) ? instances[0] : instances;
+}
+
+tippy.version = version;
+tippy.defaultProps = defaultProps;
+tippy.setDefaultProps = setDefaultProps;
+tippy.currentInput = currentInput;
+/**
+ * Hides all visible poppers on the document
+ */
+
+var hideAll = function hideAll(_temp) {
+  var _ref = _temp === void 0 ? {} : _temp,
+      excludedReferenceOrInstance = _ref.exclude,
+      duration = _ref.duration;
+
+  mountedInstances.forEach(function (instance) {
+    var isExcluded = false;
+
+    if (excludedReferenceOrInstance) {
+      isExcluded = isReferenceElement(excludedReferenceOrInstance) ? instance.reference === excludedReferenceOrInstance : instance.popper === excludedReferenceOrInstance.popper;
+    }
+
+    if (!isExcluded) {
+      instance.hide(duration);
+    }
+  });
+};
+/**
+ * Returns a proxy wrapper function that passes the plugins
+ * @deprecated use tippy.setDefaultProps({plugins: [...]});
+ */
+
+function createTippyWithPlugins(outerPlugins) {
+  if (false) {}
+
+  var tippyPluginsWrapper = function tippyPluginsWrapper(targets, optionalProps, innerPlugins) {
+    if (optionalProps === void 0) {
+      optionalProps = {};
+    }
+
+    if (innerPlugins === void 0) {
+      innerPlugins = [];
+    }
+
+    innerPlugins = optionalProps.plugins || innerPlugins;
+    return tippy(targets, _extends({}, optionalProps, {
+      plugins: [].concat(outerPlugins, innerPlugins)
+    }));
+  };
+
+  tippyPluginsWrapper.version = version;
+  tippyPluginsWrapper.defaultProps = defaultProps;
+  tippyPluginsWrapper.setDefaultProps = setDefaultProps;
+  tippyPluginsWrapper.currentInput = currentInput; // @ts-ignore
+
+  return tippyPluginsWrapper;
+}
+
+
+//# sourceMappingURL=tippy.chunk.esm.js.map
+
+// CONCATENATED MODULE: ./node_modules/tippy.js/dist/tippy.esm.js
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "animateFill", function() { return animateFill; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSingleton", function() { return tippy_esm_createSingleton; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "delegate", function() { return delegate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "followCursor", function() { return tippy_esm_followCursor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inlinePositioning", function() { return inlinePositioning; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sticky", function() { return sticky; });
+/* concated harmony reexport createTippyWithPlugins */__webpack_require__.d(__webpack_exports__, "createTippyWithPlugins", function() { return createTippyWithPlugins; });
+/* concated harmony reexport default */__webpack_require__.d(__webpack_exports__, "default", function() { return tippy; });
+/* concated harmony reexport hideAll */__webpack_require__.d(__webpack_exports__, "hideAll", function() { return hideAll; });
+/* concated harmony reexport roundArrow */__webpack_require__.d(__webpack_exports__, "roundArrow", function() { return ROUND_ARROW; });
+/**!
+* tippy.js v5.1.1
+* (c) 2017-2019 atomiks
+* MIT License
+*/
+
+
+
+
+/**
+ * Re-uses a single tippy element for many different tippy instances.
+ * Replaces v4's `tippy.group()`.
+ */
+
+var tippy_esm_createSingleton = function createSingleton(tippyInstances, optionalProps,
+/** @deprecated use Props.plugins */
+plugins) {
+  if (optionalProps === void 0) {
+    optionalProps = {};
+  }
+
+  if (plugins === void 0) {
+    plugins = [];
+  }
+
+  if (false) {}
+
+  plugins = optionalProps.plugins || plugins;
+  tippyInstances.forEach(function (instance) {
+    instance.disable();
+  });
+
+  var userAria = _extends({}, defaultProps, {}, optionalProps).aria;
+
+  var currentAria;
+  var currentTarget;
+  var shouldSkipUpdate = false;
+  var references = tippyInstances.map(function (instance) {
+    return instance.reference;
+  });
+  var singleton = {
+    fn: function fn(instance) {
+      function handleAriaDescribedByAttribute(isShow) {
+        if (!currentAria) {
+          return;
+        }
+
+        var attr = "aria-" + currentAria;
+
+        if (isShow && !instance.props.interactive) {
+          currentTarget.setAttribute(attr, instance.popperChildren.tooltip.id);
+        } else {
+          currentTarget.removeAttribute(attr);
+        }
+      }
+
+      return {
+        onAfterUpdate: function onAfterUpdate(_, _ref) {
+          var aria = _ref.aria;
+
+          // Ensure `aria` for the singleton instance stays `null`, while
+          // changing the `userAria` value
+          if (aria !== undefined && aria !== userAria) {
+            if (!shouldSkipUpdate) {
+              userAria = aria;
+            } else {
+              shouldSkipUpdate = true;
+              instance.setProps({
+                aria: null
+              });
+              shouldSkipUpdate = false;
+            }
+          }
+        },
+        onDestroy: function onDestroy() {
+          tippyInstances.forEach(function (instance) {
+            instance.enable();
+          });
+        },
+        onMount: function onMount() {
+          handleAriaDescribedByAttribute(true);
+        },
+        onUntrigger: function onUntrigger() {
+          handleAriaDescribedByAttribute(false);
+        },
+        onTrigger: function onTrigger(_, event) {
+          var target = event.currentTarget;
+          var index = references.indexOf(target);
+          currentTarget = target;
+          currentAria = userAria;
+
+          if (instance.state.isVisible) {
+            handleAriaDescribedByAttribute(true);
+          }
+
+          instance.popperInstance.reference = {
+            referenceNode: target,
+            // These `client` values don't get used by Popper.js if they are 0
+            clientHeight: 0,
+            clientWidth: 0,
+            getBoundingClientRect: function getBoundingClientRect() {
+              return target.getBoundingClientRect();
+            }
+          };
+          instance.setContent(tippyInstances[index].props.content);
+        }
+      };
+    }
+  };
+  return tippy(div(), _extends({}, optionalProps, {
+    plugins: [singleton].concat(plugins),
+    aria: null,
+    triggerTarget: references
+  }));
+};
+
+var BUBBLING_EVENTS_MAP = {
+  mouseover: 'mouseenter',
+  focusin: 'focus',
+  click: 'click'
+};
+/**
+ * Creates a delegate instance that controls the creation of tippy instances
+ * for child elements (`target` CSS selector).
+ */
+
+function delegate(targets, props,
+/** @deprecated use Props.plugins */
+plugins) {
+  if (plugins === void 0) {
+    plugins = [];
+  }
+
+  if (false) {}
+
+  plugins = props.plugins || plugins;
+  var listeners = [];
+  var childTippyInstances = [];
+  var target = props.target;
+  var nativeProps = removeProperties(props, ['target']);
+
+  var parentProps = _extends({}, nativeProps, {
+    plugins: plugins,
+    trigger: 'manual'
+  });
+
+  var childProps = _extends({}, nativeProps, {
+    plugins: plugins,
+    showOnCreate: true
+  });
+
+  var returnValue = tippy(targets, parentProps);
+  var normalizedReturnValue = normalizeToArray(returnValue);
+
+  function onTrigger(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var targetNode = event.target.closest(target);
+
+    if (!targetNode) {
+      return;
+    } // Get relevant trigger with fallbacks:
+    // 1. Check `data-tippy-trigger` attribute on target node
+    // 2. Fallback to `trigger` passed to `delegate()`
+    // 3. Fallback to `defaultProps.trigger`
+
+
+    var trigger = targetNode.getAttribute('data-tippy-trigger') || props.trigger || defaultProps.trigger; // Only create the instance if the bubbling event matches the trigger type
+
+    if (!includes(trigger, BUBBLING_EVENTS_MAP[event.type])) {
+      return;
+    }
+
+    var instance = tippy(targetNode, childProps);
+
+    if (instance) {
+      childTippyInstances = childTippyInstances.concat(instance);
+    }
+  }
+
+  function on(node, eventType, handler, options) {
+    if (options === void 0) {
+      options = false;
+    }
+
+    node.addEventListener(eventType, handler, options);
+    listeners.push({
+      node: node,
+      eventType: eventType,
+      handler: handler,
+      options: options
+    });
+  }
+
+  function addEventListeners(instance) {
+    var reference = instance.reference;
+    on(reference, 'mouseover', onTrigger);
+    on(reference, 'focusin', onTrigger);
+    on(reference, 'click', onTrigger);
+  }
+
+  function removeEventListeners() {
+    listeners.forEach(function (_ref) {
+      var node = _ref.node,
+          eventType = _ref.eventType,
+          handler = _ref.handler,
+          options = _ref.options;
+      node.removeEventListener(eventType, handler, options);
+    });
+    listeners = [];
+  }
+
+  function applyMutations(instance) {
+    var originalDestroy = instance.destroy;
+
+    instance.destroy = function (shouldDestroyChildInstances) {
+      if (shouldDestroyChildInstances === void 0) {
+        shouldDestroyChildInstances = true;
+      }
+
+      if (shouldDestroyChildInstances) {
+        childTippyInstances.forEach(function (instance) {
+          instance.destroy();
+        });
+      }
+
+      childTippyInstances = [];
+      removeEventListeners();
+      originalDestroy();
+    };
+
+    addEventListeners(instance);
+  }
+
+  normalizedReturnValue.forEach(applyMutations);
+  return returnValue;
+}
+
+var animateFill = {
+  name: 'animateFill',
+  defaultValue: false,
+  fn: function fn(instance) {
+    var _instance$popperChild = instance.popperChildren,
+        tooltip = _instance$popperChild.tooltip,
+        content = _instance$popperChild.content;
+    var backdrop = instance.props.animateFill && !isUCBrowser ? createBackdropElement() : null;
+
+    function addBackdropToPopperChildren() {
+      instance.popperChildren.backdrop = backdrop;
+    }
+
+    return {
+      onCreate: function onCreate() {
+        if (backdrop) {
+          addBackdropToPopperChildren();
+          tooltip.insertBefore(backdrop, tooltip.firstElementChild);
+          tooltip.setAttribute('data-animatefill', '');
+          tooltip.style.overflow = 'hidden';
+          instance.setProps({
+            animation: 'shift-away',
+            arrow: false
+          });
+        }
+      },
+      onMount: function onMount() {
+        if (backdrop) {
+          var transitionDuration = tooltip.style.transitionDuration;
+          var duration = Number(transitionDuration.replace('ms', '')); // The content should fade in after the backdrop has mostly filled the
+          // tooltip element. `clip-path` is the other alternative but is not
+          // well-supported and is buggy on some devices.
+
+          content.style.transitionDelay = Math.round(duration / 10) + "ms";
+          backdrop.style.transitionDuration = transitionDuration;
+          setVisibilityState([backdrop], 'visible'); // Warn if the stylesheets are not loaded
+
+          if (false) {}
+        }
+      },
+      onShow: function onShow() {
+        if (backdrop) {
+          backdrop.style.transitionDuration = '0ms';
+        }
+      },
+      onHide: function onHide() {
+        if (backdrop) {
+          setVisibilityState([backdrop], 'hidden');
+        }
+      },
+      onAfterUpdate: function onAfterUpdate() {
+        // With this type of prop, it's highly unlikely it will be changed
+        // dynamically. We'll leave out the diff/update logic it to save bytes.
+        // `popperChildren` is assigned a new object onAfterUpdate
+        addBackdropToPopperChildren();
+      }
+    };
+  }
+};
+
+function createBackdropElement() {
+  var backdrop = div();
+  backdrop.className = BACKDROP_CLASS;
+  setVisibilityState([backdrop], 'hidden');
+  return backdrop;
+}
+
+var tippy_esm_followCursor = {
+  name: 'followCursor',
+  defaultValue: false,
+  fn: function fn(instance) {
+    var reference = instance.reference,
+        popper = instance.popper; // Support iframe contexts
+    // Static check that assumes any of the `triggerTarget` or `reference`
+    // nodes will never change documents, even when they are updated
+
+    var doc = getOwnerDocument(instance.props.triggerTarget || reference); // Internal state
+
+    var lastMouseMoveEvent;
+    var mouseCoords = null;
+    var isInternallySettingControlledProp = false; // These are controlled by this plugin, so we need to store the user's
+    // original prop value
+
+    var userProps = instance.props;
+
+    function setUserProps(props) {
+      var keys = Object.keys(props);
+      keys.forEach(function (prop) {
+        userProps[prop] = useIfDefined(props[prop], userProps[prop]);
+      });
+    }
+
+    function getIsManual() {
+      return instance.props.trigger.trim() === 'manual';
+    }
+
+    function getIsEnabled() {
+      // #597
+      var isValidMouseEvent = getIsManual() ? true : // Check if a keyboard "click"
+      mouseCoords !== null && !(mouseCoords.clientX === 0 && mouseCoords.clientY === 0);
+      return instance.props.followCursor && isValidMouseEvent;
+    }
+
+    function getIsInitialBehavior() {
+      return currentInput.isTouch || instance.props.followCursor === 'initial' && instance.state.isVisible;
+    }
+
+    function resetReference() {
+      if (instance.popperInstance) {
+        instance.popperInstance.reference = reference;
+      }
+    }
+
+    function handlePlacement() {
+      // Due to `getVirtualOffsets()`, we need to reverse the placement if it's
+      // shifted (start -> end, and vice-versa)
+      // Early bail-out
+      if (!getIsEnabled() && instance.props.placement === userProps.placement) {
+        return;
+      }
+
+      var placement = userProps.placement;
+      var shift = placement.split('-')[1];
+      isInternallySettingControlledProp = true;
+      instance.setProps({
+        placement: getIsEnabled() && shift ? placement.replace(shift, shift === 'start' ? 'end' : 'start') : placement
+      });
+      isInternallySettingControlledProp = false;
+    }
+
+    function handlePopperListeners() {
+      if (!instance.popperInstance) {
+        return;
+      } // Popper's scroll listeners make sense for `true` only. TODO: work out
+      // how to only listen horizontal scroll for "horizontal" and vertical
+      // scroll for "vertical"
+
+
+      if (getIsEnabled() && (getIsInitialBehavior() || instance.props.followCursor !== true)) {
+        instance.popperInstance.disableEventListeners();
+      }
+    }
+
+    function handleMouseMoveListener() {
+      if (getIsEnabled()) {
+        addListener();
+      } else {
+        resetReference();
+      }
+    }
+
+    function triggerLastMouseMove() {
+      if (getIsEnabled()) {
+        onMouseMove(lastMouseMoveEvent);
+      }
+    }
+
+    function addListener() {
+      doc.addEventListener('mousemove', onMouseMove);
+    }
+
+    function removeListener() {
+      doc.removeEventListener('mousemove', onMouseMove);
+    }
+
+    function onMouseMove(event) {
+      var _lastMouseMoveEvent = lastMouseMoveEvent = event,
+          clientX = _lastMouseMoveEvent.clientX,
+          clientY = _lastMouseMoveEvent.clientY;
+
+      if (!instance.popperInstance || !instance.state.currentPlacement) {
+        return;
+      } // If the instance is interactive, avoid updating the position unless it's
+      // over the reference element
+
+
+      var isCursorOverReference = closestCallback(event.target, function (el) {
+        return el === reference;
+      });
+      var rect = reference.getBoundingClientRect();
+      var followCursor = instance.props.followCursor;
+      var isHorizontal = followCursor === 'horizontal';
+      var isVertical = followCursor === 'vertical';
+      var isVerticalPlacement = includes(['top', 'bottom'], getBasePlacement(instance.state.currentPlacement)); // The virtual reference needs some size to prevent itself from overflowing
+
+      var _getVirtualOffsets = getVirtualOffsets(popper, isVerticalPlacement),
+          size = _getVirtualOffsets.size,
+          x = _getVirtualOffsets.x,
+          y = _getVirtualOffsets.y;
+
+      if (isCursorOverReference || !instance.props.interactive) {
+        instance.popperInstance.reference = {
+          referenceNode: reference,
+          // These `client` values don't get used by Popper.js if they are 0
+          clientWidth: 0,
+          clientHeight: 0,
+          getBoundingClientRect: function getBoundingClientRect() {
+            return {
+              width: isVerticalPlacement ? size : 0,
+              height: isVerticalPlacement ? 0 : size,
+              top: (isHorizontal ? rect.top : clientY) - y,
+              bottom: (isHorizontal ? rect.bottom : clientY) + y,
+              left: (isVertical ? rect.left : clientX) - x,
+              right: (isVertical ? rect.right : clientX) + x
+            };
+          }
+        };
+        instance.popperInstance.update();
+      }
+
+      if (getIsInitialBehavior()) {
+        removeListener();
+      }
+    }
+
+    return {
+      onAfterUpdate: function onAfterUpdate(_, partialProps) {
+        if (!isInternallySettingControlledProp) {
+          setUserProps(partialProps);
+
+          if (partialProps.placement) {
+            handlePlacement();
+          }
+        } // A new placement causes the popperInstance to be recreated
+
+
+        if (partialProps.placement) {
+          handlePopperListeners();
+        } // Wait for `.update()` to set `instance.state.currentPlacement` to
+        // the new placement
+
+
+        requestAnimationFrame(triggerLastMouseMove);
+      },
+      onMount: function onMount() {
+        triggerLastMouseMove();
+        handlePopperListeners();
+      },
+      onShow: function onShow() {
+        if (getIsManual()) {
+          // Since there's no trigger event to use, we have to use these as
+          // baseline coords
+          mouseCoords = {
+            clientX: 0,
+            clientY: 0
+          }; // Ensure `lastMouseMoveEvent` doesn't access any other properties
+          // of a MouseEvent here
+
+          lastMouseMoveEvent = mouseCoords;
+          handlePlacement();
+          handleMouseMoveListener();
+        }
+      },
+      onTrigger: function onTrigger(_, event) {
+        // Tapping on touch devices can trigger `mouseenter` then `focus`
+        if (mouseCoords) {
+          return;
+        }
+
+        if (isMouseEvent(event)) {
+          mouseCoords = {
+            clientX: event.clientX,
+            clientY: event.clientY
+          };
+          lastMouseMoveEvent = event;
+        }
+
+        handlePlacement();
+        handleMouseMoveListener();
+      },
+      onUntrigger: function onUntrigger() {
+        // If untriggered before showing (`onHidden` will never be invoked)
+        if (!instance.state.isVisible) {
+          removeListener();
+          mouseCoords = null;
+        }
+      },
+      onHidden: function onHidden() {
+        removeListener();
+        resetReference();
+        mouseCoords = null;
+      }
+    };
+  }
+};
+function getVirtualOffsets(popper, isVerticalPlacement) {
+  var size = isVerticalPlacement ? popper.offsetWidth : popper.offsetHeight;
+  return {
+    size: size,
+    x: isVerticalPlacement ? size : 0,
+    y: isVerticalPlacement ? 0 : size
+  };
+}
+
+// position. This will require the `followCursor` plugin's fixes for overflow
+// due to using event.clientX/Y values. (normalizedPlacement, getVirtualOffsets)
+
+var inlinePositioning = {
+  name: 'inlinePositioning',
+  defaultValue: false,
+  fn: function fn(instance) {
+    var reference = instance.reference;
+
+    function getIsEnabled() {
+      return instance.props.inlinePositioning;
+    }
+
+    return {
+      onHidden: function onHidden() {
+        if (getIsEnabled()) {
+          instance.popperInstance.reference = reference;
+        }
+      },
+      onShow: function onShow() {
+        if (!getIsEnabled()) {
+          return;
+        }
+
+        instance.popperInstance.reference = {
+          referenceNode: reference,
+          // These `client` values don't get used by Popper.js if they are 0
+          clientWidth: 0,
+          clientHeight: 0,
+          getBoundingClientRect: function getBoundingClientRect() {
+            return getInlineBoundingClientRect(instance.state.currentPlacement && getBasePlacement(instance.state.currentPlacement), reference.getBoundingClientRect(), arrayFrom(reference.getClientRects()));
+          }
+        };
+      }
+    };
+  }
+};
+function getInlineBoundingClientRect(currentBasePlacement, boundingRect, clientRects) {
+  // Not an inline element, or placement is not yet known
+  if (clientRects.length < 2 || currentBasePlacement === null) {
+    return boundingRect;
+  }
+
+  var rectToUse;
+
+  switch (currentBasePlacement) {
+    case 'top':
+    case 'bottom':
+      {
+        var firstRect = clientRects[0];
+        var lastRect = clientRects[clientRects.length - 1];
+        var isTop = currentBasePlacement === 'top';
+        var top = firstRect.top;
+        var bottom = lastRect.bottom;
+        var left = isTop ? firstRect.left : lastRect.left;
+        var right = isTop ? firstRect.right : lastRect.right;
+        var width = right - left;
+        var height = bottom - top;
+        rectToUse = {
+          top: top,
+          bottom: bottom,
+          left: left,
+          right: right,
+          width: width,
+          height: height
+        };
+        break;
+      }
+
+    case 'left':
+    case 'right':
+      {
+        var minLeft = Math.min.apply(Math, clientRects.map(function (rects) {
+          return rects.left;
+        }));
+        var maxRight = Math.max.apply(Math, clientRects.map(function (rects) {
+          return rects.right;
+        }));
+        var measureRects = clientRects.filter(function (rect) {
+          return currentBasePlacement === 'left' ? rect.left === minLeft : rect.right === maxRight;
+        });
+        var _top = measureRects[0].top;
+        var _bottom = measureRects[measureRects.length - 1].bottom;
+        var _left = minLeft;
+        var _right = maxRight;
+
+        var _width = _right - _left;
+
+        var _height = _bottom - _top;
+
+        rectToUse = {
+          top: _top,
+          bottom: _bottom,
+          left: _left,
+          right: _right,
+          width: _width,
+          height: _height
+        };
+        break;
+      }
+
+    default:
+      {
+        rectToUse = boundingRect;
+      }
+  }
+
+  return rectToUse;
+}
+
+var sticky = {
+  name: 'sticky',
+  defaultValue: false,
+  fn: function fn(instance) {
+    var reference = instance.reference,
+        popper = instance.popper;
+
+    function shouldCheck(value) {
+      return instance.props.sticky === true || instance.props.sticky === value;
+    }
+
+    var prevRefRect = null;
+    var prevPopRect = null;
+
+    function updatePosition() {
+      var currentRefRect = shouldCheck('reference') ? reference.getBoundingClientRect() : null;
+      var currentPopRect = shouldCheck('popper') ? popper.getBoundingClientRect() : null;
+
+      if (currentRefRect && areRectsDifferent(prevRefRect, currentRefRect) || currentPopRect && areRectsDifferent(prevPopRect, currentPopRect)) {
+        instance.popperInstance.update();
+      }
+
+      prevRefRect = currentRefRect;
+      prevPopRect = currentPopRect;
+
+      if (instance.state.isMounted) {
+        requestAnimationFrame(updatePosition);
+      }
+    }
+
+    return {
+      onMount: function onMount() {
+        if (instance.props.sticky) {
+          updatePosition();
+        }
+      }
+    };
+  }
+};
+
+function areRectsDifferent(rectA, rectB) {
+  if (rectA && rectB) {
+    return rectA.top !== rectB.top || rectA.right !== rectB.right || rectA.bottom !== rectB.bottom || rectA.left !== rectB.left;
+  }
+
+  return true;
+}
+
+
+//# sourceMappingURL=tippy.esm.js.map
+
 
 /***/ })
 /******/ ]);
