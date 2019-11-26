@@ -28,7 +28,7 @@
 
     <fieldset class="content-mirror risk-title pat-inject pat-autosubmit pat-subform"
       data-pat-autosubmit="1000ms"
-      data-pat-inject="source: #steps; target: #steps ${python:'&amp;&amp; source: #evaluation; target: #evaluation' if not view.skip_evaluation else None} ${python:'&amp;&amp; source: #slide-content; target: #slide-content' if view.use_training_module else None}">
+      data-pat-inject="source: #steps; target: #steps ${python:'&amp;&amp; source: #evaluation; target: #evaluation' if not view.skip_evaluation else None} ${python:'&amp;&amp; source: #slide-content-1; target: #slide-content-1' if view.use_training_module else None}">
       <h2 id="risk-title-main" class="output">${here/title}<em tal:condition="not:here/title" class="placeholder" i18n:translate="">Describe the risk...</em></h2>
       <textarea name="title" autofocus="autofocus"
         class="pat-content-mirror" placeholder="Describe the risk..."
@@ -194,7 +194,7 @@
       </legend>
       <fieldset class="vertical ${python:view.use_training_module and 'pat-subform pat-inject' or None}"
         data-pat-autosubmit="1000ms"
-        data-pat-inject="${python:view.use_training_module and 'source: #slide-content; target: #slide-content' or None}">
+        data-pat-inject="${python:view.use_training_module and 'source: #slide-content-1; target: #slide-content-1' or None}">
         <label class="four columns image-uploader pat-subform pat-autosubmit pat-inject discrete-injection"
                id="image-upload"
                tal:define="upload_url string:${here/absolute_url}/@@image-upload"
