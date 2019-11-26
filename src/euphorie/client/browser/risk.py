@@ -553,7 +553,7 @@ class ImageDisplay(DisplayFile):
         image = PIL.Image.open(BytesIO(self.context.image_data))
         image_format = image.format or self.DEFAULT_FORMAT
         params = list(image.size)
-        scale = getAllowedSizes().get("training", (1500, 791))
+        scale = getAllowedSizes().get(self.fieldname, (1500, 791))
         params.extend(scale)
         box = _initial_size(*params)
 
@@ -573,7 +573,7 @@ class ImageDisplay(DisplayFile):
         if self.context.image_data is None:
             raise NotFound(self, self.fieldname, self.request)
 
-        if self.fieldname == "image_training":
+        if "training" in self.fieldname:
             image_data = self.get_or_create_image_scaled()
         else:
             image_data = self.context.image_data
