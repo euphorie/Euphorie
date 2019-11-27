@@ -46,7 +46,7 @@ class TrainingSlide(BrowserView):
     @property
     @memoize
     def for_download(self):
-        return "for_download" in self.request
+        return "for_download" in self.request and self.request["for_download"]
 
     @property
     def number(self):
@@ -172,6 +172,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
 
     variation_class = "variation-risk-assessment"
     skip_unanswered = False
+    for_download = False
 
     @property
     @memoize
@@ -184,11 +185,6 @@ class TrainingView(BrowserView, survey._StatusHelper):
         """ Return the session for this context/request
         """
         return self.context.session
-
-    @property
-    @memoize
-    def for_download(self):
-        return "for_download" in self.request
 
     @property
     @memoize
@@ -212,12 +208,42 @@ class TrainingView(BrowserView, survey._StatusHelper):
         for (module, risk) in risks:
             module_path = module.path
             if module_path not in seen_modules:
+                module_in_context = module.__of__(self.webhelpers.traversed_session)
+                module_in_context.REQUEST["for_download"] = self.for_download
+                _view = module_in_context.restrictedTraverse("training_slide")
+                slides = _view.slides()
                 data.update(
-                    {module_path: module.__of__(self.webhelpers.traversed_session)}
+                    {
+                        module_path: {
+                            "item": module_in_context,
+                            "training_view": _view,
+                            "slides": slides,
+                        }
+                    }
                 )
                 seen_modules.append(module_path)
-            data.update({risk.path: risk.__of__(self.webhelpers.traversed_session)})
+            risk_in_context = risk.__of__(self.webhelpers.traversed_session)
+            risk_in_context.REQUEST["for_download"] = self.for_download
+            _view = risk_in_context.restrictedTraverse("training_slide")
+            slides = _view.slides()
+            data.update(
+                {
+                    risk.path: {
+                        "item": risk_in_context,
+                        "training_view": _view,
+                        "slides": slides,
+                    }
+                }
+            )
         return data
+
+    @property
+    def slide_total_count(self):
+        # The title slide is not part of the dataset, therefore start with 1
+        count = 1
+        for data in self.slide_data.values():
+            count += len(data["slides"])
+        return count
 
     def __call__(self):
         if self.webhelpers.redirectOnSurveyUpdate():
