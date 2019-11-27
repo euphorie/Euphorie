@@ -573,7 +573,7 @@ class ImageDisplay(DisplayFile):
         if self.context.image_data is None:
             raise NotFound(self, self.fieldname, self.request)
 
-        if "training" in self.fieldname:
+        if self.fieldname and "training" in self.fieldname:
             image_data = self.get_or_create_image_scaled()
         else:
             image_data = self.context.image_data
