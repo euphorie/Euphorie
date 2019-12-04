@@ -5,13 +5,13 @@ Settings
 Change a user's password/email or delete an account.
 """
 from .. import MessageFactory as _
-from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from euphorie.client.client import IClient
 from euphorie.client.country import IClientCountry
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import Account
 from euphorie.client.model import AccountChangeRequest
+from euphorie.client.model import get_current_account
 from euphorie.client.utils import CreateEmailTo
 from euphorie.client.utils import randomString
 from five import grok
@@ -97,7 +97,7 @@ class AccountSettings(form.SchemaForm):
         if errors:
             return
 
-        user = getSecurityManager().getUser()
+        user = get_current_account()
         if not data["new_password"]:
             flash(_(u"There were no changes to be saved."), "notice")
             return
@@ -143,13 +143,12 @@ class DeleteAccount(form.SchemaForm):
         if errors:
             return
 
-        user = getSecurityManager().getUser()
+        user = get_current_account()
         if not user.verify_password(data["password"]):
             raise WidgetActionExecutionError(
                 "password", Invalid(_(u"Invalid password"))
             )
 
-        user = getSecurityManager().getUser()
         Session.delete(user)
         self.logout()
         self.request.response.redirect(self.request.client.absolute_url())
@@ -192,7 +191,7 @@ class NewEmail(form.SchemaForm):
         self.widgets["password"].addClass("password")
 
     def getContent(self):
-        user = getSecurityManager().getUser()
+        user = get_current_account()
         directlyProvides(user, EmailChangeSchema)
         return user
 
@@ -279,7 +278,7 @@ class NewEmail(form.SchemaForm):
             return
         url = self.context.absolute_url()
 
-        user = getSecurityManager().getUser()
+        user = get_current_account()
         if not user.verify_password(data["password"]):
             raise WidgetActionExecutionError(
                 "password", Invalid(_(u"Invalid password"))

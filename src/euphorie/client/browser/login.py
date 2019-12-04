@@ -6,18 +6,18 @@ Register new users, login/logout, create a "Guest user" account and convert
 existing guest accounts to normal accounts.
 """
 
-from euphorie.client import MessageFactory as _
 from ..conditions import approvedTermsAndConditions
 from ..conditions import checkTermsAndConditions
 from ..country import IClientCountry
 from ..utils import setLanguage
-from AccessControl import getSecurityManager
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.client import config
+from euphorie.client import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.browser.country import SessionsView
+from euphorie.client.model import get_current_account
 from euphorie.content.survey import ISurvey
 from plone import api
 from plone.memoize.view import memoize
@@ -85,7 +85,7 @@ class Login(BrowserView):
         """
         if not account_id:
             return
-        account = getSecurityManager().getUser()
+        account = get_current_account()
         sessions = (
             Session.query(model.SurveySession)
             .filter(model.SurveySession.account_id == account_id)
@@ -104,7 +104,7 @@ class Login(BrowserView):
         else:
             came_from = aq_parent(context).absolute_url()
 
-        account = getSecurityManager().getUser()
+        account = get_current_account()
         appconfig = component.getUtility(IAppConfig)
         settings = appconfig.get('euphorie')
         self.allow_guest_accounts = asBool(
@@ -281,7 +281,7 @@ class Register(BrowserView):
 
         guest_account_id = self.request.form.get('guest_account_id')
         if guest_account_id:
-            account = getSecurityManager().getUser()
+            account = get_current_account()
             account.loginname = loginname
             account.password = reply.get("password1")
             account.account_type = config.CONVERTED_ACCOUNT
