@@ -4,7 +4,11 @@ Changelog
 11.1.11 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Technical: use `get_current_account` instead of SecurityManager for fetching
+  account in login and seversal other screens. This should fix a problem
+  encountered with converted guest accounts
+- When a risk gets pasted from a Copy or Cut action, make sure that it gets the
+  correct interfaces according to the Evaluation method of the survey
 
 
 11.1.10 (2019-11-14)
