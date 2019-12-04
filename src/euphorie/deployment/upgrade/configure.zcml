@@ -380,4 +380,18 @@
 
   </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+      destination="25"
+      profile="euphorie.deployment:default"
+      source="24"
+      >
+
+    <genericsetup:upgradeStep
+        title="Run Alembic migration: add creation date to account"
+        description="Check the logs! You might want to adapt the migration to your DB"
+        handler=".v25.alembic_upgrade"
+        />
+
+    </genericsetup:upgradeSteps>
+
 </configure>

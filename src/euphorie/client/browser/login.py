@@ -285,6 +285,7 @@ class Register(BrowserView):
             account.loginname = loginname
             account.password = reply.get("password1")
             account.account_type = config.CONVERTED_ACCOUNT
+            account.created = datetime.datetime.now()
         else:
             account = model.Account(
                 loginname=loginname,
