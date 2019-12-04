@@ -339,7 +339,7 @@ class AccountTests(DatabaseTests):
     def testAccountType(self):
         (self.session, self.survey) = createSurvey()
         account = self.survey.account
-        self.assertEqual(account.account_type, None)
+        self.assertEqual(account.account_type, config.FULL_ACCOUNT)
         account.account_type = config.GUEST_ACCOUNT
         self.assertEqual(account.account_type, config.GUEST_ACCOUNT)
         self.session.flush()  # check that exception is not raised
