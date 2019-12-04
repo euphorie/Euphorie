@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.11 (unreleased)
+11.1.11 (2019-12-04)
 --------------------
 
 - Technical: use `get_current_account` instead of SecurityManager for fetching
