@@ -407,6 +407,12 @@ class Account(BaseObject):
         schema.ForeignKey('group.group_id'),
     )
 
+    created = schema.Column(
+        types.DateTime,
+        nullable=True,
+        default=functions.now(),
+    )
+
     @property
     def groups(self):
         group = self.group
