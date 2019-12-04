@@ -10,8 +10,8 @@ URL: https://client-oiranew.syslab.com/eu
 """
 
 from .. import MessageFactory as _
-from AccessControl import getSecurityManager
 from euphorie.client.interfaces import IClientSkinLayer
+from euphorie.client.model import get_current_account
 from euphorie.client.model import SurveySession
 from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -86,7 +86,7 @@ class RenameSession(form.SchemaForm):
             session_id = int(self.request.get("id"))
         except (ValueError, TypeError):
             raise KeyError("Invalid session id")
-        user = getSecurityManager().getUser()
+        user = get_current_account()
         session = (
             object_session(user).query(SurveySession)
             .filter(SurveySession.account == user)

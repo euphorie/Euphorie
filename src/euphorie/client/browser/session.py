@@ -1,5 +1,4 @@
 # coding=utf-8
-from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from collections import defaultdict
@@ -776,7 +775,7 @@ class Report(SessionMixin, BrowserView):
             ):
                 url = "%s/@@report_view" % self.context.absolute_url()
 
-            user = getSecurityManager().getUser()
+            user = get_current_account()
             if getattr(user, "account_type", None) == config.GUEST_ACCOUNT:
                 url = "%s/@@register?report_blurb=1&came_from=%s" % (
                     self.context.absolute_url(),

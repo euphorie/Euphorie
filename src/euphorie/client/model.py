@@ -1454,15 +1454,13 @@ def get_current_account():
     :return: The current Account instance if a user can be found,
              otherwise None
     '''
-    username = api.user.get_current().getUserName()
+    user_id = api.user.get_current().getId()
     try:
         return Session.query(Account).filter(
-            Account.loginname == username).first()
+            Account.id == user_id).first()
     except:
         log.warning("Unable to fetch account for username:")
-        log.warning(username)
-        return Session.query(Account).filter(
-            Account.loginname == safe_unicode(username)).first()
+        log.warning(user_id)
 
 
 class DefaultView(BrowserView):

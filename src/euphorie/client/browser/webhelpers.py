@@ -141,7 +141,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def _user(self):
-        return getSecurityManager().getUser()
+        return self.get_current_account()
 
     @property
     @memoize
