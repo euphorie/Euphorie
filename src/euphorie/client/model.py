@@ -398,13 +398,19 @@ class Account(BaseObject):
     password = schema.Column(types.Unicode(64))
     tc_approved = schema.Column(types.Integer())
     account_type = schema.Column(
-        Enum([u"guest", u"converted", None]),
-        default=None,
+        Enum([u"guest", u"converted", "full"]),
+        default="full",
         nullable=True,
     )
     group_id = schema.Column(
         types.Unicode(32),
         schema.ForeignKey('group.group_id'),
+    )
+
+    created = schema.Column(
+        types.DateTime,
+        nullable=True,
+        default=functions.now(),
     )
 
     @property
