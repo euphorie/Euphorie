@@ -273,6 +273,15 @@
       />
 
   <browser:page
+      name="tool-more-info"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".session.SessionMixin"
+      template="templates/tool-more-info.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="image-upload"
       for="euphorie.client.model.Risk"
       permission="euphorie.client.ViewSurvey"

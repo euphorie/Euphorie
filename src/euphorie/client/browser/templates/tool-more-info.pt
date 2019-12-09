@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@modal-template/macros/shell"
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div class="pat-modal"
+           id="document-content"
+      >
+        <h1 class="panel-class-">
+        </h1>
+
+        <div class="panel-body">
+          <div class="container">
+            <div id="info-block">
+              <article class="long-read">
+                <div class="pat-rich">
+                  <h1>${context/title}</h1>
+                </div>
+
+<tal:comment condition="nothing">
+Will be activated when we re-build the Help section
+                <div class="page-nav">
+                    <ul class="link-list toc">
+                        <li>
+                            <a class="pat-scroll" href="#about-tool">About this tool</a>
+                        </li>
+                        <li>
+                            <a class="pat-scroll" href="#about-app">How to use this tool</a>
+                        </li>
+                    </ul>
+                </div>
+</tal:comment>
+
+
+                <section class="pat-rich tool-info" id="about-tool">
+<tal:comment condition="nothing">
+Will be activated when we re-build the Help section
+                  <h2 i18n:translate="">About this tool</h2>
+</tal:comment>
+
+                  <p condition="context/description">${context/description}</p>
+
+                  <figure class="postit external-reference"
+                          tal:condition="view/scaled_tool_image_url"
+                  >
+                    <a href="${context/external_site_url | nothing}"
+                       target="_blank"
+                       tal:omit-tag="not:context/external_site_url | nothing"
+                    >
+                        <img src="${view/scaled_tool_image_url}" />
+                    </a>
+                    <figcaption tal:condition="context/external_site_name | nothing"
+                                i18n:translate=""
+                    >
+                    This OiRA tool was offered to you by
+                      <a href="context/external_site_url | nothing"
+                         target="_blank"
+                         tal:content="context/external_site_name"
+                         tal:omit-tag="not:context/external_site_url | nothing"
+                         i18n:name="external_site"
+                      >Leather Tanning</a>
+                    </figcaption>
+                  </figure>
+
+                  <tal:contents>
+                    <tal:block condition="not:view/has_introduction">
+                      <metal:introduction use-macro="default_introduction/macros/default_introduction" />
+                    </tal:block>
+                    <p tal:condition="view/has_introduction"
+                       tal:replace="structure context/introduction"
+                    >
+                        Introduction text for this sector.
+                    </p>
+                  </tal:contents>
+
+                </section>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </metal:slot>
+  </body>
+</html>
