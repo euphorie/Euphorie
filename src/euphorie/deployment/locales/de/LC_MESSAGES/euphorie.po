@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-11-28 06:33+0000\n"
+"POT-Creation-Date: 2019-12-09 15:20+0000\n"
 "PO-Revision-Date: 2016-07-28 15:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -149,6 +149,10 @@ msgstr "Eine Umfrage."
 msgid "A version of a survey."
 msgstr "Eine Umfrageversion."
 
+#: euphorie/client/browser/templates/tool-more-info.pt:44
+msgid "About this tool"
+msgstr ""
+
 #: euphorie/content/profiles/default/workflows/sector/definition.xml
 msgid "Active"
 msgstr "Aktiv"
@@ -203,7 +207,7 @@ msgstr ""
 "Eine E-mail wird an die angegeben E-mailadresse verschickt, falls wir ein "
 "dazu passendes Benutzerkonto finden."
 
-#: euphorie/client/settings.py:206
+#: euphorie/client/settings.py:205
 msgid "An error occured while sending the confirmation email."
 msgstr "Beim Versenden der Bestätigungs-E-Mail ist ein Fehler aufgetreten."
 
@@ -319,7 +323,7 @@ msgstr "Beispiel aus dem Client für mehrere Standorte."
 msgid "Close"
 msgstr ""
 
-#: euphorie/client/settings.py:231
+#: euphorie/client/settings.py:230
 msgid "Confirm OiRA email address change"
 msgstr "Änderung der OiRA-E-Mail-Adresse bestätigen"
 
@@ -425,7 +429,7 @@ msgstr "Muss ich mich vorbereiten?"
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: euphorie/client/browser/session.py:367
+#: euphorie/client/browser/session.py:371
 msgid "Does this happen in multiple places?"
 msgstr "Geschieht dies an mehreren Orten?"
 
@@ -453,7 +457,7 @@ msgstr "Übersicht der Maßnahmen herunterladen"
 msgid "Download the risks overview"
 msgstr "Übersicht der Gefährdungen herunterladen"
 
-#: euphorie/client/browser/templates/start.pt:177
+#: euphorie/client/browser/templates/start.pt:147
 #: euphorie/client/templates/report_landing.pt:40
 msgid "E-mail"
 msgstr "E-Mail"
@@ -482,11 +486,11 @@ msgstr "Profilfrage bearbeiten"
 msgid "Email address/account name"
 msgstr "E-Mail-Adresse/Kontoname"
 
-#: euphorie/client/browser/session.py:372
+#: euphorie/client/browser/session.py:376
 msgid "Enter the name of the location"
 msgstr "Geben Sie den Namen des Ortes ein."
 
-#: euphorie/client/browser/session.py:377
+#: euphorie/client/browser/session.py:381
 msgid "Enter the names of each location"
 msgstr "Geben Sie den Namen für jeden Ort ein."
 
@@ -620,6 +624,10 @@ msgstr ""
 #: euphorie/client/browser/templates/tool_sessions.pt:49
 msgid "Last saved"
 msgstr "Zuletzt gespeichert"
+
+#: euphorie/client/browser/templates/start.pt:55
+msgid "Learn more about this tool&hellip;"
+msgstr "Erfahren Sie mehr über diese GBU-Vorlage…"
 
 #: euphorie/client/templates/shell.pt:301
 msgid "Loading Risk Assessments&hellip;"
@@ -1005,11 +1013,11 @@ msgstr "Brancheninformationen und Gruppierung des Clients."
 msgid "Sector workflow"
 msgstr "Branchen-Workflow"
 
-#: euphorie/client/browser/session.py:572
+#: euphorie/client/browser/session.py:576
 msgid "Session `${name}` has been archived."
 msgstr "GBU “${name}” wurde archiviert."
 
-#: euphorie/client/browser/session.py:515
+#: euphorie/client/browser/session.py:519
 msgid "Session `${name}` has been deleted."
 msgstr "Die Sitzung “${name}” wurde gelöscht."
 
@@ -1156,7 +1164,7 @@ msgstr "Der Online-Client."
 msgid "The online risk assessment client interface for an Euphorie website"
 msgstr ""
 
-#: euphorie/client/browser/session.py:657
+#: euphorie/client/browser/session.py:661
 msgid "The risk assessment has been cloned"
 msgstr ""
 
@@ -1168,7 +1176,7 @@ msgstr "Die angegebene Farbe ist ungültig."
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "Es gibt vier Hauptphasen bei der Durchführung:"
 
-#: euphorie/client/browser/session.py:494
+#: euphorie/client/browser/session.py:498
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
@@ -1177,11 +1185,11 @@ msgid "There were no changes to be saved."
 msgstr ""
 "Es wurden keine Änderungen vorgenommen, die noch gespeichert werden müssen."
 
-#: euphorie/client/browser/templates/start.pt:114
+#: euphorie/client/browser/templates/tool-more-info.pt:64
 msgid "This OiRA tool was offered to you by ${external_site}"
 msgstr ""
 
-#: euphorie/client/settings.py:302
+#: euphorie/client/settings.py:301
 msgid "This email address is not available."
 msgstr "Diese E-Mail-Adresse ist nicht verfügbar."
 
@@ -1231,11 +1239,11 @@ msgstr ""
 "Hier muss der Endnutzer gefragt werden, ob das Profil für sie/ihn anwendbar "
 "ist."
 
-#: euphorie/client/settings.py:343
+#: euphorie/client/settings.py:342
 msgid "This request could not be processed."
 msgstr ""
 
-#: euphorie/client/browser/templates/start.pt:155
+#: euphorie/client/browser/templates/start.pt:125
 msgid "This tool deserves to be known by the world! Share it!"
 msgstr ""
 "Dieses Tool verdient es, überall bekannt zu werden! Geben Sie es weiter!"
@@ -1346,7 +1354,7 @@ msgstr ""
 "Gefährdungsbeurteilung durchführen wird, wie Mitarbeiter in den Prozess "
 "eingebunden werden, usw."
 
-#: euphorie/client/browser/session.py:178
+#: euphorie/client/browser/session.py:177
 msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
@@ -1363,7 +1371,7 @@ msgstr ""
 "Sie sollten jederzeit eine aktuelle und zutreffende Version Ihrer "
 "Gefährdungsbeurteilung zur Hand haben, die Sie bei Bedarf ausdrucken können."
 
-#: euphorie/client/settings.py:355
+#: euphorie/client/settings.py:354
 msgid "Your email address has been updated."
 msgstr "Ihre E-Mail-Adresse wurde aktualisiert."
 
@@ -2088,7 +2096,7 @@ msgstr "Der Text der ${online_help} kann geändert werden."
 msgid "documentation_online_help_online_help"
 msgstr "Online-Hilfe"
 
-#: euphorie/client/browser/session.py:176
+#: euphorie/client/browser/session.py:175
 msgid "download section"
 msgstr "Reiter “Bericht”"
 
@@ -2146,7 +2154,7 @@ msgstr ""
 "geändert, wenn Sie auf den untenstehenden Bestätigungslink klicken."
 
 #. Default: "Please confirm your new email address by clicking on the link in the email that will be sent in a few minutes to \"${email}\". Please note that the new email address is also your new login name."
-#: euphorie/client/settings.py:308
+#: euphorie/client/settings.py:307
 msgid "email_change_pending"
 msgstr ""
 "Bitte bestätigen Sie Ihre neue E-Mail-Adresse, indem Sie auf den Link in der "
@@ -2337,7 +2345,7 @@ msgstr ""
 msgid "explanation_risk_always_present"
 msgstr ""
 
-#: euphorie/client/browser/session.py:485
+#: euphorie/client/browser/session.py:489
 msgid "extra_text_identification"
 msgstr ""
 
@@ -3544,7 +3552,7 @@ msgstr ""
 "möchten."
 
 #. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:303
+#: euphorie/client/browser/login.py:304
 msgid "invalid_email"
 msgstr "Bitte geben Sie eine gültige E-mailadresse ein."
 
@@ -4075,12 +4083,12 @@ msgid "label_old_password"
 msgstr "Aktuelles Passwort"
 
 #. Default: "Page"
-#: euphorie/client/browser/session.py:828
+#: euphorie/client/browser/session.py:832
 msgid "label_page"
 msgstr "Seite"
 
 #. Default: "of"
-#: euphorie/client/browser/session.py:831
+#: euphorie/client/browser/session.py:835
 msgid "label_page_of"
 msgstr "von"
 
@@ -4317,7 +4325,7 @@ msgstr ""
 "starten"
 
 #. Default: "Enter a title for your Risk Assessment"
-#: euphorie/client/browser/session.py:74
+#: euphorie/client/browser/session.py:73
 msgid "label_session_title"
 msgstr "Namen für Ihre Gefährdungsbeurteilung eingeben"
 
@@ -4357,7 +4365,7 @@ msgid "label_start_identification"
 msgstr "Gefährdungsermittlung starten"
 
 #. Default: "Start"
-#: euphorie/client/browser/templates/start.pt:141
+#: euphorie/client/browser/templates/start.pt:111
 msgid "label_start_survey"
 msgstr "Starten"
 
@@ -4650,7 +4658,7 @@ msgstr ""
 "Wenn Sie diese entfernen möchten, löschen Sie das OiRA-Tool."
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/session.py:163
+#: euphorie/client/browser/session.py:162
 msgid "message_field_required"
 msgstr "Erforderliche Eingabe fehlt."
 
@@ -4802,7 +4810,7 @@ msgid "no_translate_link_add_measures"
 msgstr ""
 
 #. Default: "<a href='%s/@@report'>${text_download_section}</a>"
-#: euphorie/client/browser/session.py:172
+#: euphorie/client/browser/session.py:171
 msgid "no_translate_link_download_section"
 msgstr ""
 
@@ -4896,7 +4904,7 @@ msgid "portlet_header_versions"
 msgstr "Versionen"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:601
+#: euphorie/client/browser/session.py:605
 msgid "prefix_cloned_title"
 msgstr ""
 
@@ -5288,7 +5296,7 @@ msgid "title_account_delete"
 msgstr "Konto löschen"
 
 #. Default: "Account settings"
-#: euphorie/client/settings.py:176
+#: euphorie/client/settings.py:175
 msgid "title_account_settings"
 msgstr "Kontoeinstellungen"
 

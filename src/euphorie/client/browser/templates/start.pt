@@ -51,6 +51,13 @@
           <section tal:condition="context/description">
             <p>${context/description}</p>
           </section>
+          <p>
+              <a class="show-more pat-modal"
+                 href="${here/absolute_url}/@@tool-more-info#document-content"
+                 data-pat-modal="class: small"
+                 i18n:translate=""
+                 >Learn more about this tool&hellip;</a>
+          </p>
         </article>
         <metal:messages_below_article define-slot="messages_below_article">
           <div class="pat-message notice"
@@ -96,43 +103,6 @@
           </tal:for>
         </metal:widgets>
         </dl>
-
-        <article class="pat-rich">
-          <figure class="postit external-reference"
-                  tal:condition="view/scaled_tool_image_url"
-          >
-            <a href="${context/external_site_url | nothing}"
-               target="_blank"
-               tal:omit-tag="not:context/external_site_url | nothing"
-            >
-                <img src="${view/scaled_tool_image_url}" />
-            </a>
-            <figcaption tal:condition="context/external_site_name | nothing"
-                        i18n:translate=""
-            >
-            This OiRA tool was offered to you by
-              <a href="context/external_site_url | nothing"
-                 target="_blank"
-                 tal:content="context/external_site_name"
-                 tal:omit-tag="not:context/external_site_url | nothing"
-                 i18n:name="external_site"
-              >Leather Tanning</a>
-            </figcaption>
-          </figure>
-
-          <section>
-            <tal:block condition="not:view/has_introduction">
-              <metal:introduction use-macro="default_introduction/macros/default_introduction" />
-            </tal:block>
-            <p tal:condition="view/has_introduction"
-               tal:replace="structure context/introduction"
-            >
-                Introduction text for this sector.
-            </p>
-          </section>
-
-        </article>
-
       </div>
         <div class="button-bar"
              id="nav-bar"
