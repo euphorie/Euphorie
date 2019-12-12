@@ -196,6 +196,13 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
         """
         return []
 
+    def _set_data(self, data):
+        session = self.session
+        for key in data:
+            value = data[key]
+            if getattr(session, key, None) != value:
+                setattr(session, key, value)
+
     def update(self):
         self.verify_view_permission()
         super(Start, self).update()
@@ -205,14 +212,7 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
         data, errors = self.extractData()
         if errors:
             return
-
-        session = self.session
-        changed = False
-        for key in data:
-            value = data[key]
-            if getattr(session, key, None) != value:
-                changed = True
-                setattr(session, key, value)
+        self._set_data(data)
 
         # Optimize: if the form was auto-submitted, we know that we want to
         # show the "start" page again
