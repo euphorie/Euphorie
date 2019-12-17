@@ -4,8 +4,9 @@ Changelog
 11.1.12 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Save creation date of accounts, so that it is available for statistics
+  When a guest converts to normal user, reset the creation date
+- Move the tool's logo + info text away from the Preparation page into a popup
 
 11.1.11 (2019-12-04)
 --------------------
