@@ -44,7 +44,8 @@ Will be activated when we re-build the Help section
                   <h2 i18n:translate="">About this tool</h2>
 </tal:comment>
 
-                  <p condition="context/description">${context/description}</p>
+
+                  <p tal:condition="context/description"><strong>${context/description}</strong></p>
 
                   <figure class="postit external-reference"
                           tal:condition="view/scaled_tool_image_url"
