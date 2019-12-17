@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.12 (unreleased)
+11.1.12 (2019-12-17)
 --------------------
 
 - Save creation date of accounts, so that it is available for statistics
