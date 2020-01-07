@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.13 (unreleased)
+11.1.13 (2020-01-07)
 --------------------
 
 - Fix image display on Risks (Identification), caused by style update
