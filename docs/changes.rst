@@ -4,8 +4,7 @@ Changelog
 11.1.13 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Fix image display on Risks (Identification), caused by style update
 
 11.1.12 (2019-12-17)
 --------------------
