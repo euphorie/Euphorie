@@ -5,6 +5,7 @@ from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from datetime import datetime
+from dateutil import tz
 from euphorie import MessageFactory as _
 from euphorie.client import config
 from euphorie.client.adapters.session_traversal import ITraversedSurveySession
@@ -84,6 +85,11 @@ class WebHelpers(BrowserView):
     bundle_name_min = "bundle.min.js"
     group_model = Group
     survey_session_model = SurveySession
+
+    @property
+    @memoize
+    def server_timezone(self):
+        return datetime.now(tz.tzlocal()).tzname()
 
     @property
     @memoize
@@ -558,6 +564,12 @@ class WebHelpers(BrowserView):
         calendar = self.request.locale.dates.calendars['gregorian']
         months = calendar.monthContexts['format'].months[length]
         return sorted(months.items())
+
+    def timezoned_date(self, mydate=None):
+        if mydate is None:
+            return None
+        utc = tz.gettz(self.server_timezone)
+        return mydate.replace(tzinfo=utc)
 
     @property
     @memoize

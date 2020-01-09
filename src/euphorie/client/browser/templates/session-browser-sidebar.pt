@@ -122,7 +122,7 @@
                         datetime="${value}"
                         data-pat-display-time="from-now: true; locale: ${language}"
                         tal:define="
-                          value session/modified/isoformat|nothing;
+                          value python:webhelpers.timezoned_date(session.modified);
                         "
                   >${value}</time
                 ></span>
@@ -133,7 +133,7 @@
                           datetime="${value}"
                           data-pat-display-time="from-now: true; locale: ${language}"
                           tal:define="
-                            value session/published/isoformat|nothing;
+                            value python:webhelpers.timezoned_date(session.published);
                           "
                     >${value}</time
                   ></span
