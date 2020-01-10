@@ -53,7 +53,9 @@
 .icon-plus:before { content: '\e833'; } /* '' */
 .icon-clock:before { content: '\e834'; } /* '' */
 .icon-archive-front:before { content: '\e835'; } /* '' */
+.icon-star:before { content: '\e836'; } /* '' */
 .icon-archive:before { content: '\e837'; } /* '' */
+.icon-star-empty:before { content: '\e838'; } /* '' */
 .icon-picture:before { content: '\e842'; } /* '' */
 .icon-bank:before { content: '\e84c'; } /* '' */
 .icon-ellipsis:before { content: '\e865'; } /* '' */
