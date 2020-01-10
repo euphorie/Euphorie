@@ -4,8 +4,8 @@ Changelog
 11.1.14 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Fix bug that caused users in different timezones to see strange dates
+ ("Last saved in 2 hours")
 
 11.1.13 (2020-01-07)
 --------------------

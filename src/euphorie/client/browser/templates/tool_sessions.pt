@@ -50,7 +50,7 @@
                           <time class="pat-display-time"
                               datetime="${value}"
                               data-pat-display-time="from-now: true; locale: ${language}"
-                              tal:define="value session/modified/isoformat|nothing;"
+                              tal:define="value python:webhelpers.timezoned_date(session.modified);"
                           >${value}</time>
                         </span>
                       </p>

@@ -24,7 +24,7 @@
           <strong><tal:i18n i18n:translate="label_published">Published</tal:i18n>
             <time class="pat-display-time"
                   data-pat-display-time="from-now: true; locale: ${language}"
-                  tal:define="value session/published/isoformat|nothing;"
+                  tal:define="value python:webhelpers.timezoned_date(session.published);"
                   datetime="${value}"
             >${value}</time>
             <tal:publisher condition="last_publisher">
