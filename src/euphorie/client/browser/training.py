@@ -88,7 +88,6 @@ class TrainingSlide(BrowserView):
         return "-"
 
     @property
-    @memoize
     def description(self):
         if self.is_custom:
             return getattr(self.context, "custom_description", "") or ""
@@ -102,7 +101,6 @@ class TrainingSlide(BrowserView):
         return training_notes
 
     @property
-    @memoize
     def existing_measures(self):
         if self.item_type != "risk":
             return []
@@ -124,7 +122,6 @@ class TrainingSlide(BrowserView):
             return []
 
     @property
-    @memoize
     def image(self):
         if self.is_custom:
             if not getattr(self.context, "image_data", None):
