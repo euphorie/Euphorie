@@ -1,0 +1,293 @@
+
+<metal:macro define-macro="status">
+  <div id="content-pane"
+       tal:define="
+         language view/preferred_language;
+         toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+         session context/session;
+         last_modifier session/last_modifier|nothing;
+         creator session/account|nothing;
+         survey nocall:view/survey;
+       "
+  >
+    <article id="status-report"
+             tal:define="
+               title session/title|string:;
+               status python:view.status;
+             "
+    >
+
+      <h1 tal:condition="python:title.lower()[0] not in ('a', 'e', 'i', 'o', 'u')"><tal:title i18n:translate="title_status_of">Status of
+          &ldquo;
+          <tal:name i18n:name="survey_title">${title}</tal:name>&rdquo;</tal:title>
+      </h1>
+      <h1 tal:condition="python:title.lower()[0] in ('a', 'e', 'i', 'o', 'u')"><tal:title i18n:translate="title_with_vowel_status_of">Status of
+          &ldquo;
+          <tal:name i18n:name="survey_title">${title}</tal:name>&rdquo;</tal:title>
+      </h1>
+
+      <section class="pat-rich">
+        <h2 i18n:translate="label_general_information">
+            General information
+        </h2>
+        <dl class="pat-grid-list">
+          <metal:used_tool define-slot="used_tool">
+            <dt i18n:translate="label_used_tool">
+              Used tool
+            </dt>
+            <dd>
+              <p>
+                <a class="pat-inject pat-switch close-panel"
+                   href="${survey/absolute_url}#content"
+                   title="TOOL Name"
+                   data-pat-inject="history: record"
+                   data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal"
+                >${survey/title}</a>
+              </p>
+            </dd>
+          </metal:used_tool>
+          <metal:started define-slot="started">
+            <dt i18n:translate="label_started">
+                Started
+            </dt>
+            <dd>
+              <p>
+                <time class="last-saved"
+                      date-time="${value}"
+                      tal:define="
+                        value session/created/isoformat|nothing;
+                      "
+                >${python:toLocalizedTime(value)}</time>
+                <tal:by condition="creator">
+                  <tal:i18n i18n:translate="label_modified_by">by</tal:i18n>
+                  <a href="mailto:${creator/email}">${creator/email}</a>
+                </tal:by>
+              </p>
+            </dd>
+          </metal:started>
+          <metal:last_modified define-slot="last_modified">
+            <dt i18n:translate="">
+                Last saved
+            </dt>
+            <dd>
+              <p>
+                <time class="last-modified"
+                      date-time="${value}"
+                      tal:define="
+                        value session/modified/isoformat|nothing;
+                      "
+                >${python:toLocalizedTime(value)}</time>
+                <tal:by condition="last_modifier">
+                  <tal:i18n i18n:translate="label_modified_by">by</tal:i18n>
+                  <a href="mailto:${last_modifier/email}">${last_modifier/email}</a>
+                </tal:by>
+              </p>
+            </dd>
+          </metal:last_modified>
+          <metal:last_published define-slot="last_published">
+            <tal:published condition="webhelpers/use_publication_feature">
+              <tal:switch switch="session/review_state">
+                <tal:case case="string:published">
+                  <dt i18n:translate="label_published">
+                      Published
+                  </dt>
+                  <dd tal:define="
+                        last_publisher session/last_publisher|nothing;
+                      "
+                  >
+                    <p>
+                      <time class="last-modified"
+                            date-time="${value}"
+                            tal:define="
+                              value session/published/isoformat|nothing;
+                            "
+                      >${python:toLocalizedTime(value)}</time>
+                      <tal:by condition="last_publisher">
+                        <tal:i18n i18n:translate="label_modified_by">by</tal:i18n>
+                        <a href="mailto:${last_modifier/email}">${last_publisher/email}</a>
+                      </tal:by>
+                    </p>
+                  </dd>
+                </tal:case>
+                <tal:case case="default">
+                  <dt i18n:translate="label_unpublished">
+                      Unpublished
+                  </dt>
+                  <dd>
+                  </dd>
+                </tal:case>
+              </tal:switch>
+            </tal:published>
+          </metal:last_published>
+          <metal:last_sampling define-slot="last_sampling" />
+        </dl>
+      </section>
+
+      <metal:certificate define-slot="certificate" />
+      <metal:sampling define-slot="sampling" />
+
+      <metal:modules define-slot="modules">
+        <section class="pat-rich">
+          <h2>
+            <tal:translate i18n:translate="header_questions_answered">Questions answered per module</tal:translate>
+          </h2>
+
+          <dl class="status">
+            <tal:loop repeat="module status">
+              <tal:defs define="
+                          num_ok python:module.get('ok', 0);
+                          num_risks_without_measures python:module.get('risk_without_measures', 0);
+                          num_risks_with_measures python:module.get('risk_with_measures', 0);
+                          num_postponed python:module.get('postponed', 0);
+                          num_todo python:module.get('todo', 0);
+                          num_total python:num_ok + num_risks_with_measures + num_risks_without_measures + num_postponed + num_todo;
+                          perc_total_progress python:not num_total and 100 or (num_ok + num_risks_with_measures)/view.as_decimal(num_total)*100;
+                          perc_ok python:not num_total and 100 or num_ok/view.as_decimal(num_total)*100;
+                          perc_risks_without_measures python:num_total and num_risks_without_measures/view.as_decimal(num_total)*100 or 0;
+                          perc_risks_with_measures python:num_total and num_risks_with_measures/view.as_decimal(num_total)*100 or 0;
+                          perc_postponed python:num_total and num_postponed/view.as_decimal(num_total)*100 or 0;
+                          perc_todo python:num_total and num_todo/view.as_decimal(num_total)*100 or 0;
+                        "
+              >
+                <dt><a name="${module/path}">
+                  </a>
+                  <a href="${module/url}">${module/title}</a>
+                </dt>
+                <dd>
+                  <section class="graph">
+                    <p class="range answered"
+                       style="width: ${perc_ok}%"
+                    >
+                      <strong class="number">${num_ok}</strong>
+                      <em class="label">questions answered without a risk</em>
+                    </p>
+                    <p class="range risk-measure"
+                       style="width: ${perc_risks_with_measures}%"
+                    >
+                      <strong class="number">${num_risks_with_measures}</strong>
+                      <em class="label">answers indicated a risk and have at least one measure defined in the action plan</em>
+                    </p>
+                    <p class="range risk"
+                       style="width: ${perc_risks_without_measures}%"
+                    >
+                      <strong class="number">${num_risks_without_measures}</strong>
+                      <em class="label">answers indicated a risk without any measure defined in the action plan</em>
+                    </p>
+                    <p class="range postponed"
+                       style="width: ${perc_postponed}%"
+                    >
+                      <strong class="number">${num_postponed}</strong>
+                      <em class="label">questions were postponed</em>
+                    </p>
+                    <p class="range unanswered"
+                       style="width: ${perc_todo}%"
+                    >
+                      <strong class="number">${num_todo}</strong>
+                      <em class="label">questions aren't answered yet</em>
+                    </p>
+                  </section>
+                  <section class="row">
+                    <ul class="${python:view.show_high_risks and 'six' or 'twelve'} columns legend">
+                      <li class="answered"
+                          tal:condition="num_ok"
+                      >
+                        <strong class="number">${num_ok}</strong>
+                        <em class="label"
+                            tal:condition="python:num_ok==1"
+                            i18n:translate="label_no_risk"
+                        >No risk</em>
+                        <em class="label"
+                            tal:condition="python:num_ok==2"
+                            i18n:translate="label_no_risks_2"
+                        >No risks</em>
+                        <em class="label"
+                            tal:condition="python:num_ok in (3, 4)"
+                            i18n:translate="label_no_risks_3_4"
+                        >No risks</em>
+                        <em class="label"
+                            tal:condition="python:num_ok&gt;4"
+                            i18n:translate="label_no_risks_5_or_more"
+                        >No risks</em>
+                      </li>
+                      <li class="risk-measure"
+                          tal:condition="num_risks_with_measures"
+                      >
+                        <strong class="number">${num_risks_with_measures}</strong>
+                        <em class="label"
+                            tal:condition="python:num_risks_with_measures==1"
+                            i18n:translate="label_risk_with_measure"
+                        >Risk with measure(s)</em>
+                        <em class="label"
+                            tal:condition="python:num_risks_with_measures==2"
+                            i18n:translate="label_risks_with_measure_2"
+                        >Risks with measure(s)</em>
+                        <em class="label"
+                            tal:condition="python:num_risks_with_measures in (3, 4)"
+                            i18n:translate="label_risks_with_measure_3_4"
+                        >Risks with measure(s)</em>
+                        <em class="label"
+                            tal:condition="python:num_risks_with_measures&gt;4"
+                            i18n:translate="label_risks_with_measure_5_or_more"
+                        >Risks with measure(s)</em>
+                      </li>
+                      <li class="risk"
+                          tal:condition="num_risks_without_measures"
+                      >
+                        <strong class="number">${num_risks_without_measures}</strong>
+                        <em class="label"
+                            tal:condition="python:num_risks_without_measures==1"
+                            i18n:translate="label_risk_without_measure"
+                        >Risk without measure</em>
+                        <em class="label"
+                            tal:condition="python:num_risks_without_measures==2"
+                            i18n:translate="label_risks_without_measure_2"
+                        >Risks without measure</em>
+                        <em class="label"
+                            tal:condition="python:num_risks_without_measures in (3, 4)"
+                            i18n:translate="label_risks_without_measure_3_4"
+                        >Risks without measure</em>
+                        <em class="label"
+                            tal:condition="python:num_risks_without_measures&gt;4"
+                            i18n:translate="label_risks_without_measure_5_or_more"
+                        >Risks without measure</em>
+                      </li>
+                      <li class="postponed"
+                          tal:condition="num_postponed"
+                      >
+                        <strong class="number">${num_postponed}</strong>
+                        <em class="label"
+                            i18n:translate="Postponed"
+                        >Postponed</em>
+                      </li>
+                      <li class="unanswered"
+                          tal:condition="num_todo"
+                      >
+                        <strong class="number">${num_todo}</strong>
+                        <em class="label"
+                            i18n:translate=""
+                        >Unvisited</em>
+                      </li>
+                    </ul>
+                    <div class="six columns high-prio-risks"
+                         tal:define="
+                           high_risks python:view.risks_by_status[module.get('path')]['present']['high'];
+                         "
+                         tal:condition="python:high_risks and view.show_high_risks"
+                    >
+                      <h4 i18n:translate="heading_high_prio_risks">High priority risks</h4>
+                      <ul>
+                        <li tal:repeat="risk high_risks">
+                          <a href="${risk/path}">${risk/title}</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </section>
+                </dd>
+              </tal:defs>
+            </tal:loop>
+          </dl>
+        </section>
+      </metal:modules>
+    </article>
+  </div>
+</metal:macro>
