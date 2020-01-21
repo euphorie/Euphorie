@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.14 (unreleased)
+11.1.14 (2020-01-21)
 --------------------
 
 - Fix bug that caused users in different timezones to see strange dates
