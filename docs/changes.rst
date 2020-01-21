@@ -6,6 +6,7 @@ Changelog
 
 - Fix bug that caused users in different timezones to see strange dates
  ("Last saved in 2 hours")
+- Update FR translations
 
 11.1.13 (2020-01-07)
 --------------------

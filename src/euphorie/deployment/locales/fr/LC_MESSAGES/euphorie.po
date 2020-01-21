@@ -365,7 +365,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:39
 msgid "Continue to action plan"
-msgstr ""
+msgstr "Passer au plan d'actions"
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml
 msgid "Country"
@@ -5256,7 +5256,7 @@ msgstr "Créer un nouvel Outil OiRA en partant de zéro."
 msgid "teaser_try_oira"
 msgstr ""
 "Vous souhaitez essayer Oira ? Vous pouvez ${tryout_link} ou ${register_link} "
-"pour commencer pour de bon."
+"pour pouvoir sauvegarder et télécharger votre évaluation."
 
 #. Default: "The terms and conditions have changed since your last visit. Please read the new terms and conditions carefully before proceding."
 #: euphorie/client/templates/conditions.pt:19
