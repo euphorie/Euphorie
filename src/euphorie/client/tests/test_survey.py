@@ -172,6 +172,7 @@ class build_tree_aq_chain_tests(EuphorieIntegrationTestCase):
 class completion_percentage_tests(EuphorieIntegrationTestCase):
 
     def setUp(self):
+        super(completion_percentage_tests, self).setUp()
         self.session = Session()
         account = model.Account(loginname=u'jane', password=u'secret')
         self.session.add(account)
@@ -182,7 +183,8 @@ class completion_percentage_tests(EuphorieIntegrationTestCase):
         self.session.flush()
 
     def test_no_risks(self):
-        self.survey.update_completion_percentage()
+        with self._get_view("webhelpers", self.portal.client) as view:
+            view.update_completion_percentage(self.survey)
         self.assertEqual(self.survey.completion_percentage, 0)
 
     def test_half_complete(self):
@@ -200,7 +202,8 @@ class completion_percentage_tests(EuphorieIntegrationTestCase):
         self.q1.postponed = False
         self.q1.identification = "no"
 
-        self.survey.update_completion_percentage()
+        with self._get_view("webhelpers", self.portal.client) as view:
+            view.update_completion_percentage(self.survey)
         self.assertEqual(self.survey.completion_percentage, 50)
 
     def test_two_thirds_complete(self):
@@ -226,7 +229,8 @@ class completion_percentage_tests(EuphorieIntegrationTestCase):
         self.q21.postponed = False
         self.q21.identification = "yes"
 
-        self.survey.update_completion_percentage()
+        with self._get_view("webhelpers", self.portal.client) as view:
+            view.update_completion_percentage(self.survey)
         self.assertEqual(self.survey.completion_percentage, 67)
 
     def test_optional_module(self):
@@ -246,7 +250,8 @@ class completion_percentage_tests(EuphorieIntegrationTestCase):
         self.q1.identification = "yes"
         self.mod2.skip_children = True
 
-        self.survey.update_completion_percentage()
+        with self._get_view("webhelpers", self.portal.client) as view:
+            view.update_completion_percentage(self.survey)
         self.assertEqual(self.survey.completion_percentage, 100)
 
     def test_optional_submodule(self):
@@ -269,7 +274,8 @@ class completion_percentage_tests(EuphorieIntegrationTestCase):
         self.q1.identification = "yes"
         self.mod21.skip_children = True
 
-        self.survey.update_completion_percentage()
+        with self._get_view("webhelpers", self.portal.client) as view:
+            view.update_completion_percentage(self.survey)
         self.assertEqual(self.survey.completion_percentage, 100)
 
     def test_optional_module_with_submodule(self):
@@ -293,6 +299,6 @@ class completion_percentage_tests(EuphorieIntegrationTestCase):
         self.q1.identification = "yes"
         self.mod2.skip_children = True
         self.mod21.skip_children = False
-
-        self.survey.update_completion_percentage()
+        with self._get_view("webhelpers", self.portal.client) as view:
+            view.update_completion_percentage(self.survey)
         self.assertEqual(self.survey.completion_percentage, 100)

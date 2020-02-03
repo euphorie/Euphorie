@@ -13,8 +13,10 @@ from euphorie.client.client import IClient
 from euphorie.client.country import IClientCountry
 from euphorie.client.model import get_current_account
 from euphorie.client.model import Group
+from euphorie.client.model import Risk
 from euphorie.client.model import Session
 from euphorie.client.model import SurveySession
+from euphorie.client.model import SurveyTreeItem
 from euphorie.client.sector import IClientSector
 from euphorie.client.update import wasSurveyUpdated
 from euphorie.client.utils import getSecret
@@ -38,8 +40,8 @@ from ZODB.POSException import POSKeyError
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.component.hooks import getSite
-from zope.i18nmessageid import MessageFactory
 from zope.deprecation import deprecate
+from zope.i18nmessageid import MessageFactory
 
 import Globals
 
@@ -194,6 +196,47 @@ class WebHelpers(BrowserView):
     def session_id(self):
         traversed_session = self.traversed_session
         return traversed_session.session.id if traversed_session else ""
+
+    def update_completion_percentage(self, session):
+        query = (
+            Session.query(SurveyTreeItem)
+            .filter(SurveyTreeItem.session_id == session.id)
+            .filter(SurveyTreeItem.type == "module")
+            .filter(SurveyTreeItem.skip_children == False)
+        )
+        total_risks = 0
+        answered_risks = 0
+
+        def recursive_skip_children(module):
+            return (
+                module.skip_children
+                or (module.parent and recursive_skip_children(module.parent))
+            )
+
+        for module in query:
+            if not module.path:
+                # XXX When does a module not have a path?
+                continue
+            if recursive_skip_children(module):
+                continue
+            total_risks_query = (
+                Session.query(Risk)
+                .filter(Risk.session_id == session.id)
+                .filter(Risk.type == "risk")
+                .filter(Risk.path.like(module.path + "%"))
+                .filter(Risk.depth == module.depth + 1)
+            )
+            total_risks = total_risks + total_risks_query.count()
+            answered_risks_query = (
+                total_risks_query
+                .filter(Risk.identification != None)
+            )
+            answered_risks = answered_risks + answered_risks_query.count()
+
+        session.completion_percentage = (
+            int(round((answered_risks * 1. / total_risks * 1.) * 100.))
+            if total_risks else 0.
+        )
 
     @property
     @memoize

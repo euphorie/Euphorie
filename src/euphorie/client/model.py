@@ -1038,47 +1038,6 @@ class SurveySession(BaseObject):
         client = api.portal.get().client
         return client.restrictedTraverse(str(self.zodb_path), None)
 
-    def update_completion_percentage(self):
-        query = (
-            Session.query(SurveyTreeItem)
-            .filter(SurveyTreeItem.session_id == self.id)
-            .filter(SurveyTreeItem.type == "module")
-            .filter(SurveyTreeItem.skip_children == False)
-        )
-        total_risks = 0
-        answered_risks = 0
-
-        def recursive_skip_children(module):
-            return (
-                module.skip_children
-                or (module.parent and recursive_skip_children(module.parent))
-            )
-
-        for module in query:
-            if not module.path:
-                # XXX When does a module not have a path?
-                continue
-            if recursive_skip_children(module):
-                continue
-            total_risks_query = (
-                Session.query(Risk)
-                .filter(Risk.session_id == self.id)
-                .filter(Risk.type == "risk")
-                .filter(Risk.path.like(module.path + "%"))
-                .filter(Risk.depth == module.depth + 1)
-            )
-            total_risks = total_risks + total_risks_query.count()
-            answered_risks_query = (
-                total_risks_query
-                .filter(Risk.identification != None)
-            )
-            answered_risks = answered_risks + answered_risks_query.count()
-
-        self.completion_percentage = (
-            int(round((answered_risks / total_risks) * 100.))
-            if total_risks else 0.
-        )
-
 
 class Company(BaseObject):
     """Information about a company."""
