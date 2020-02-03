@@ -203,10 +203,11 @@ class WebHelpers(BrowserView):
             .filter(SurveyTreeItem.session_id == session.id)
             .filter(SurveyTreeItem.type == "module")
             .filter(SurveyTreeItem.skip_children == False)
-        )
+        ).order_by(SurveyTreeItem.depth)
         total_risks = 0
         answered_risks = 0
 
+        @memoize
         def recursive_skip_children(module):
             return (
                 module.skip_children
@@ -222,7 +223,6 @@ class WebHelpers(BrowserView):
             total_risks_query = (
                 Session.query(Risk)
                 .filter(Risk.session_id == session.id)
-                .filter(Risk.type == "risk")
                 .filter(Risk.path.like(module.path + "%"))
                 .filter(Risk.depth == module.depth + 1)
             )
