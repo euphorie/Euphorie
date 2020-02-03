@@ -44,7 +44,6 @@ from zope.publisher.interfaces import NotFound
 import datetime
 import PIL
 
-
 IMAGE_CLASS = {0: "", 1: "twelve", 2: "six", 3: "four", 4: "three"}
 
 
@@ -196,6 +195,7 @@ class IdentificationView(BrowserView):
                         self.calculatePriority(self.risk, reply)
                     elif self.risk is None or self.risk.evaluation_method == "direct":
                         self.context.priority = reply.get("priority")
+                self.session.update_completion_percentage()
 
             if self.use_existing_measures and reply.get("handle_measures_in_place"):
                 measures = self.get_existing_measures()

@@ -7,6 +7,7 @@ Mainly: the connection between the ZODB-based content of the backend and the
 SQL-based individual session content of the client users.
 Also: PAS-based user account for users of the client
 """
+from __future__ import division
 from AccessControl.PermissionRole import _what_not_even_god_should_do
 from collections import defaultdict
 from euphorie.client.enum import Enum
@@ -639,6 +640,12 @@ class SurveySession(BaseObject):
         default=None,
     )
 
+    completion_percentage = schema.Column(
+        types.Integer,
+        nullable=True,
+        default=0,
+    )
+
     zodb_path = schema.Column(types.String(512), nullable=False)
 
     report_comment = schema.Column(types.UnicodeText())
@@ -1030,6 +1037,38 @@ class SurveySession(BaseObject):
     def tool(self):
         client = api.portal.get().client
         return client.restrictedTraverse(str(self.zodb_path), None)
+
+    def update_completion_percentage(self):
+        query = (
+            Session.query(SurveyTreeItem)
+            .filter(SurveyTreeItem.session_id == self.id)
+            .filter(SurveyTreeItem.type == "module")
+            .filter(SurveyTreeItem.skip_children == False)
+        )
+        total_risks = 0
+        answered_risks = 0
+        for module in query:
+            if not module.path:
+                # XXX When does a module not have a path?
+                continue
+            total_risks_query = (
+                Session.query(Risk)
+                .filter(Risk.session_id == self.id)
+                .filter(Risk.type == "risk")
+                .filter(Risk.path.like(module.path + "%"))
+                .filter(Risk.depth == module.depth + 1)
+            )
+            total_risks = total_risks + total_risks_query.count()
+            answered_risks_query = (
+                total_risks_query
+                .filter(Risk.identification != None)
+            )
+            answered_risks = answered_risks + answered_risks_query.count()
+
+        self.completion_percentage = (
+            int(round((answered_risks / total_risks) * 100.))
+            if total_risks else 0.
+        )
 
 
 class Company(BaseObject):

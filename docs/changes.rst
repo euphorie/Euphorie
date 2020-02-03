@@ -4,7 +4,7 @@ Changelog
 11.1.15 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Show progress indicator in sidebar.
 
 
 11.1.14 (2020-01-21)
