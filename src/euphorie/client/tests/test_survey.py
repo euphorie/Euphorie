@@ -271,3 +271,28 @@ class completion_percentage_tests(EuphorieIntegrationTestCase):
 
         self.survey.update_completion_percentage()
         self.assertEqual(self.survey.completion_percentage, 100)
+
+    def test_optional_module_with_submodule(self):
+        self.mod1 = self.survey.addChild(
+            model.Module(title=u'module 1', module_id='1', zodb_path='a')
+        )
+        self.q1 = self.mod1.addChild(
+            model.Risk(title=u'question 1', risk_id='1', zodb_path='a/b')
+        )
+        self.mod2 = self.survey.addChild(
+            model.Module(title=u'module 2', module_id='2', zodb_path='k')
+        )
+        self.mod21 = self.mod2.addChild(
+            model.Module(title=u'module 3', module_id='3', zodb_path='k/c')
+        )
+        self.q2 = self.mod21.addChild(
+            model.Risk(title=u'question 2', risk_id='2', zodb_path='k/c/u')
+        )
+
+        self.q1.postponed = False
+        self.q1.identification = "yes"
+        self.mod2.skip_children = True
+        self.mod21.skip_children = False
+
+        self.survey.update_completion_percentage()
+        self.assertEqual(self.survey.completion_percentage, 100)

@@ -1047,9 +1047,18 @@ class SurveySession(BaseObject):
         )
         total_risks = 0
         answered_risks = 0
+
+        def recursive_skip_children(module):
+            return (
+                module.skip_children
+                or (module.parent and recursive_skip_children(module.parent))
+            )
+
         for module in query:
             if not module.path:
                 # XXX When does a module not have a path?
+                continue
+            if recursive_skip_children(module):
                 continue
             total_risks_query = (
                 Session.query(Risk)
