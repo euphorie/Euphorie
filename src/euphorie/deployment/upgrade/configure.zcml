@@ -394,4 +394,18 @@
 
     </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+      destination="26"
+      profile="euphorie.deployment:default"
+      source="25"
+      >
+
+    <genericsetup:upgradeStep
+        title="Run Alembic migration: add completion_percentage to session"
+        description="Check the logs! You might want to adapt the migration to your DB"
+        handler=".v26.alembic_upgrade"
+        />
+
+    </genericsetup:upgradeSteps>
+
 </configure>
