@@ -238,6 +238,15 @@ class WebHelpers(BrowserView):
             if total_risks else 0.
         )
 
+    def get_progress_indicator_title(self):
+        completion_percentage = self.traversed_session.session.completion_percentage
+        title = _(
+            "progress_indicator_title",
+            default=u"${completion_percentage}% Complete",
+            mapping={"completion_percentage": completion_percentage},
+        )
+        return api.portal.translate(title)
+
     @property
     @memoize
     def came_from(self):
