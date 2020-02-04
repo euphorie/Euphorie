@@ -47,6 +47,15 @@
       />
 
   <browser:page
+      name="update-completion-percentage"
+      for="*"
+      permission="cmf.ManagePortal"
+      class="euphorie.client.browser.webhelpers.UpdateCompletionPercentage"
+      template="templates/update-completion-percentage.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="training"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
