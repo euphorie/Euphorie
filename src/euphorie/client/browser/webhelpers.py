@@ -245,7 +245,7 @@ class WebHelpers(BrowserView):
         title = _(
             "progress_indicator_title",
             default=u"${completion_percentage}% Complete",
-            mapping={"completion_percentage": completion_percentage},
+            mapping={"completion_percentage": completion_percentage or 0},
         )
         return api.portal.translate(title)
 
