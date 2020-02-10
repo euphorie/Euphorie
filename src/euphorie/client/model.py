@@ -7,6 +7,7 @@ Mainly: the connection between the ZODB-based content of the backend and the
 SQL-based individual session content of the client users.
 Also: PAS-based user account for users of the client
 """
+from __future__ import division
 from AccessControl.PermissionRole import _what_not_even_god_should_do
 from collections import defaultdict
 from euphorie.client.enum import Enum
@@ -637,6 +638,12 @@ class SurveySession(BaseObject):
         types.DateTime(timezone=True),
         nullable=True,
         default=None,
+    )
+
+    completion_percentage = schema.Column(
+        types.Integer,
+        nullable=True,
+        default=0,
     )
 
     zodb_path = schema.Column(types.String(512), nullable=False)

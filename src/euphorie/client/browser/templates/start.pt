@@ -20,6 +20,12 @@
   <body>
     <metal:slot fill-slot="content">
       <tal:block replace="tile:statusmessages" />
+    <a class="pat-inject"
+       id="percentage-placeholder"
+       hidden="hidden"
+       href="${here/webhelpers/traversed_session/absolute_url}/@@update-completion-percentage"
+       data-pat-inject="trigger: autoload; source: #document-content; target: #percentage-placeholder::element; loading-class:; history: none"
+    >Compute completion percentage</a>
       <form class="pat-form pat-inject pat-validation"
         data-pat-validation="disable-selector: button[name='form.button.submit'];
                            message-required: ${view/message_required};"

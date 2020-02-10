@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      >
+
+<body>
+<div id="content-pane">
+    <article id="help">
+        <p>
+        This view updates the values of completion_percentage for existing sessions.
+        </p>
+        <p>
+        If "Overwrite" is not active, only sessions without such a value are considered. The batch start can be left at 0 in this case because sessions that get a value in the current batch are automatically excluded from the next batch.
+        </p>
+        <p>
+        If "Overwrite" is active, all sessions are considered, and a new value is calculated even if one exists. This can be useful for correcting wrong values due to bugs or similar. The batch start for the next batch is automatically increased by the batch size in this case so that sessions aren't updated twice.
+        </p>
+    </article>
+
+    <form id="update-completion-percentage"
+          enctype="multipart/form-data"
+          accept-charset="UTF-8"
+          method="post"
+          action="${context/@@absolute_url}/@@update-completion-percentage">
+
+          <input type="checkbox" name="overwrite:bool" value="checked" checked="${request/overwrite|nothing}" /><label for="overwrite:bool">Overwrite existing non-null completion_percentage values</label><br />
+          <label for="b_size:int">Batch size</label><input type="text" name="b_size:int" value="${request/b_size|string:1000}" /><br />
+          <label for="b_start:int">Batch start</label><input type="text" name="b_start:int" value="${view/next_b_start|string:0}" /><br />
+
+          <button id="submit" type="submit" class="pat-button">Submit</button>
+
+    </form>
+
+    <pre id="log" tal:condition="view/get_log|nothing">
+        ${view/get_log}
+    </pre>
+
+</div>
+</body>

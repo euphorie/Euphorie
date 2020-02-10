@@ -44,7 +44,6 @@ from zope.publisher.interfaces import NotFound
 import datetime
 import PIL
 
-
 IMAGE_CLASS = {0: "", 1: "twelve", 2: "six", 3: "four", 4: "three"}
 
 

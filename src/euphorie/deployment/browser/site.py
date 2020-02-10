@@ -2,6 +2,9 @@
 from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from euphorie.client.browser.webhelpers import WebHelpers
+from euphorie.client.model import Session
+from euphorie.client.model import SurveySession
 from euphorie.content.api.entry import access_api
 from euphorie.content.countrymanager import ICountryManager
 from euphorie.content.risk import EnsureInterface
@@ -101,3 +104,51 @@ class ManageEnsureInterface(BrowserView):
         """
         count = self.set_evaluation_method_interfaces()
         return "Handled %d risks" % count
+
+
+class UpdateCompletionPercentage(WebHelpers):
+    """ Utility view to fill in missing values for completion_percentage """
+
+    flush_threshold = 50
+
+    def log(self, entry):
+        log.info(entry)
+        self._log = "\n".join((getattr(self, "_log", ""), entry))
+
+    def get_log(self):
+        return getattr(self, "_log", "")
+
+    def next_b_start(self):
+        if "overwrite" in self.request.form:
+            return self.request.get("b_start", 0) + self.request.get("b_size", 1000)
+        else:
+            return 0
+
+    def __call__(self):
+        if self.request.method == "POST":
+            self.log("Updating completion_percentage")
+            b_size = self.request.get("b_size", 1000)
+            b_start = self.request.get("b_start", 0)
+            self.log("Limiting to {} sessions; starting at {}".format(b_size, b_start))
+            query = Session.query(SurveySession)
+            if "overwrite" not in self.request.form:
+                query = query.filter(SurveySession.completion_percentage == None)
+                self.log("Ignoring sessions with existing non-null values")
+            else:
+                self.log("Overwriting existing non-null values")
+            query = (
+                query
+                .order_by(SurveySession.modified.desc())
+                .offset(b_start)
+                .limit(b_size)
+            )
+            total = query.count()
+            self.log("Found {} sessions".format(total))
+            cnt = 0
+            for session in query:
+                self.update_completion_percentage(session)
+                cnt += 1
+                if cnt % self.flush_threshold == 0:
+                    self.log("Handled {0} out of {1} sessions".format(cnt, total))
+            self.log("Done")
+        return self.index()

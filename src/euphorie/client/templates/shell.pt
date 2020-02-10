@@ -270,12 +270,14 @@
                      data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation"
                      data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
                      tal:condition="not:disabled"
-                     i18n:translate="navigation_status"
-                  >Status</a>
+                  ><tal:translate i18n:translate="navigation_status">Status</tal:translate>
+                    <strong class="pie-graph pat-tooltip" data-percentage="${webhelpers/traversed_session/session/completion_percentage|string:0}" data-pat-tooltip="trigger: hover; position-list: lm" title="${webhelpers/get_progress_indicator_title}">${webhelpers/traversed_session/session/completion_percentage|string:0}%</strong>
+                  </a>
                   <a class="status"
                      tal:condition="disabled"
-                     i18n:translate="navigation_status"
-                  >Status</a>
+                  ><tal:translate i18n:translate="navigation_status">Status</tal:translate>
+                    <strong class="pie-graph pat-tooltip" data-percentage="${webhelpers/traversed_session/session/completion_percentage|string:0}" data-pat-tooltip="trigger: hover; position-list: lm" title="${webhelpers/get_progress_indicator_title}">${webhelpers/traversed_session/session/completion_percentage|string:0}%</strong>
+                  </a>
                 </li>
               </tal:if_not_anon>
             </ol>

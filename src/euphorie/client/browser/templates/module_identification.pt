@@ -20,6 +20,12 @@
     <article class="pat-rich">
     <h1>${module/title}</h1>
     <tal:block replace="tile:statusmessages"/>
+    <a class="pat-inject"
+       id="percentage-placeholder"
+       hidden="hidden"
+       href="${here/webhelpers/traversed_session/absolute_url}/@@update-completion-percentage"
+       data-pat-inject="trigger: autoload; source: #document-content; target: #percentage-placeholder::element; loading-class:; history: none"
+    >Compute completion percentage</a>
 
         <figure id="hero"
             tal:define="images module/@@images; large python:images.scale('image', scale='training', direction='thumbnail')"

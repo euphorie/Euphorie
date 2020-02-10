@@ -30,4 +30,12 @@
       class=".site.ManageEnsureInterface"
       />
 
+  <browser:page
+      name="update-completion-percentage"
+      for="*"
+      permission="cmf.ManagePortal"
+      class=".site.UpdateCompletionPercentage"
+      template="templates/update-completion-percentage.pt"
+      />
+
 </configure>
