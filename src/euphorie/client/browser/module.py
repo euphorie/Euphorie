@@ -151,7 +151,6 @@ class IdentificationView(BrowserView):
                 context.postponed = False
             else:
                 context.postponed = True
-            self.webhelpers.update_completion_percentage(self.webhelpers.traversed_session.session)
             self.aq_parent.session.touch()
 
         if reply.get("next") == "previous":

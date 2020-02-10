@@ -22,6 +22,13 @@
 
     <h2 class="risk-title">${here/title}</h2>
 
+    <a class="pat-inject"
+       id="percentage-placeholder"
+       hidden="hidden"
+       href="${here/webhelpers/traversed_session/absolute_url}/@@update-completion-percentage"
+       data-pat-inject="trigger: autoload; source: #document-content; target: #percentage-placeholder::element; loading-class:; history: none"
+    >Compute completion percentage</a>
+
     <!-- Identification -->
     <metal:call use-macro="webhelpers/macros/risk_identification" />
     <!-- END Identificaton -->

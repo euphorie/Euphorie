@@ -195,7 +195,6 @@ class IdentificationView(BrowserView):
                         self.calculatePriority(self.risk, reply)
                     elif self.risk is None or self.risk.evaluation_method == "direct":
                         self.context.priority = reply.get("priority")
-                self.webhelpers.update_completion_percentage(self.session)
 
             if self.use_existing_measures and reply.get("handle_measures_in_place"):
                 measures = self.get_existing_measures()

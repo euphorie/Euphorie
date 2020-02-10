@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@modal-template/macros/shell"
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div id="document-content">
+        <!-- percentage computed: ${view/percentage} -->
+      </div>
+    </metal:slot>
+  </body>
+</html>

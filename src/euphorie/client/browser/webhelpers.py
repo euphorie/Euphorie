@@ -233,10 +233,12 @@ class WebHelpers(BrowserView):
             )
             answered_risks = answered_risks + answered_risks_query.count()
 
-        session.completion_percentage = (
+        completion_percentage = (
             int(round((answered_risks * 1. / total_risks * 1.) * 100.))
             if total_risks else 0.
         )
+        session.completion_percentage = completion_percentage
+        return completion_percentage
 
     def get_progress_indicator_title(self):
         completion_percentage = self.traversed_session.session.completion_percentage
@@ -935,4 +937,15 @@ class HelpMenu(WebHelpers):
     """
 
     def __call__(self):
+        return self.index()
+
+
+class UpdateCompletionPercentage(WebHelpers):
+
+    percentage = 0
+
+    def __call__(self):
+        self.percentage = self.update_completion_percentage(
+            self.traversed_session.session
+        )
         return self.index()
