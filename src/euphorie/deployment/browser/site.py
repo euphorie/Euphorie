@@ -109,6 +109,8 @@ class ManageEnsureInterface(BrowserView):
 class UpdateCompletionPercentage(WebHelpers):
     """ Utility view to fill in missing values for completion_percentage """
 
+    flush_threshold = 50
+
     def log(self, entry):
         log.info(entry)
         self._log = "\n".join((getattr(self, "_log", ""), entry))
@@ -140,8 +142,13 @@ class UpdateCompletionPercentage(WebHelpers):
                 .offset(b_start)
                 .limit(b_size)
             )
-            self.log("Found {} sessions".format(query.count()))
+            total = query.count()
+            self.log("Found {} sessions".format(total))
+            cnt = 0
             for session in query:
                 self.update_completion_percentage(session)
+                cnt += 1
+                if cnt % self.flush_threshold == 0:
+                    self.log("Handled {0} out of {1} sessions".format(cnt, total))
             self.log("Done")
         return self.index()

@@ -235,7 +235,7 @@ class WebHelpers(BrowserView):
 
         completion_percentage = (
             int(round((answered_risks * 1. / total_risks * 1.) * 100.))
-            if total_risks else 0.
+            if total_risks else 0
         )
         session.completion_percentage = completion_percentage
         return completion_percentage
