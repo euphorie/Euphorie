@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.15 (unreleased)
+11.1.15 (2020-02-17)
 --------------------
 
 - Show progress indicator in sidebar.
