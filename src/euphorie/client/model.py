@@ -53,7 +53,7 @@ log = logging.getLogger(__name__)
 def _forever_cache_key(func, self, *args):
     ''' Cache this function call forever.
     '''
-    return (func.__name__, args)
+    return (func.__name__, self.password, args)
 
 
 def GenerateSecret(length=32):
