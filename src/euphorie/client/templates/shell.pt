@@ -283,7 +283,7 @@
                      tal:condition="disabled"
                   ><tal:translate i18n:translate="navigation_status">Status</tal:translate>
                     <strong
-                    tal:condition="show_completion_percentage"
+                    tal:condition="webhelpers/show_completion_percentage"
                     class="pie-graph pat-tooltip"
                     data-percentage="${webhelpers/traversed_session/session/completion_percentage|string:0}"
                     data-pat-tooltip="trigger: hover; position-list: lm"
