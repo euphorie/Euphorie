@@ -143,6 +143,12 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def show_completion_percentage(self):
+        """Feature switch, can be overwritten in subclass"""
+        return False
+
+    @property
+    @memoize
     def default_country(self):
         return self._settings.get('default_country', '')
 
