@@ -4,7 +4,8 @@ Changelog
 11.1.16 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Make it possible to hide progress indicator
+- Fix a bug that caused a problem for resetting the password
 
 
 11.1.15 (2020-02-17)
