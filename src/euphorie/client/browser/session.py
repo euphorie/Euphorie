@@ -592,6 +592,7 @@ class CloneSession(SessionMixin, BrowserView):
                 "company",
                 "published",
                 "group_id",
+                "archived",
             },
             session=sql_session,
         )
