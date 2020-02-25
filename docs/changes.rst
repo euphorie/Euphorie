@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.16 (unreleased)
+11.1.16 (2020-02-25)
 --------------------
 
 - Make it possible to hide progress indicator
