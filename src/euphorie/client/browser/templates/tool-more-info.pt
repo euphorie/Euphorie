@@ -71,7 +71,7 @@ Will be activated when we re-build the Help section
 
                   <tal:contents>
                     <tal:block condition="not:view/has_introduction">
-                      <metal:introduction use-macro="default_introduction/macros/default_introduction" />
+                      <span tal:replace="structure here/@@default_introduction" />
                     </tal:block>
                     <p tal:condition="view/has_introduction"
                        tal:replace="structure context/introduction"
