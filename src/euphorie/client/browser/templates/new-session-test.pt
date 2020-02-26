@@ -50,8 +50,9 @@
 
               <fieldset class="vertical" tal:condition="python:template_count > threshold">
               <label class="tool-list-many">
-                <select name="survey" class="pat-autosuggest" data-pat-autosuggest="minimum-input-length:0">
+                <select name="survey" class="pat-autosuggest" data-pat-autosuggest="minimum-input-length:0" placeholder="Select an OiRA tool" i18n:attributes="placeholder label_select_oira_tool">
                   <metal:templates define-macro="templates_many">
+                    <option value="">&nbsp;</option>
                     <tal:surveys define="surveys root/survey_templates">
                       <option tal:repeat="survey surveys" value="${survey/id}">${survey/title}</option>
                     </tal:surveys>
@@ -77,7 +78,7 @@
             </div>
             <div class="buttons panel-footer">
               <div class="container">
-                <button type="submit" class="pat-button close-panel" i18n:translate="button_start_session">Start session</button>
+                <button type="submit" class="pat-button pat-depends close-panel" i18n:translate="button_start_session" data-pat-depends="condition: survey; action: enable">Start session</button>
                 <button type="button" class="pat-button close-panel" i18n:translate="button_cancel">Cancel</button>
               </div>
             </div>

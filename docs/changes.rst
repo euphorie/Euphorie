@@ -4,7 +4,7 @@ Changelog
 11.1.17 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Improve starting a new session for the "many tools" case
 
 
 11.1.16 (2020-02-25)
