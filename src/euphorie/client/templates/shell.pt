@@ -104,7 +104,7 @@
             </a>
 
             <p tal:condition="webhelpers/is_guest_account" id="warning-bar">
-                <tal:testsession i18n:translate="info_testsession">Test session</tal:testsession><a href="${base_url}/tooltips#test-session-active" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info" i18n:translate="Info">Info</a>
+                <tal:testsession i18n:translate="label_testsession">Test session</tal:testsession><a href="${base_url}/tooltips#test-session-active" class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: ajax; position-list: lt; class: rich info" i18n:translate="Info">Info</a>
             </p>
           </tal:anon>
 

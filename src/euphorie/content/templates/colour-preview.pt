@@ -55,7 +55,7 @@
         <a i18n:translate="navigation_help" href="#">Help</a>
       </li>
       <li>
-        <a i18n:translate="navigation_status" href="#">Check your progress</a>
+        <a i18n:translate="navigation_status" href="#">Status</a>
       </li>
     </ul>
     <p id="appendix">

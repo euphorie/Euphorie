@@ -5,7 +5,7 @@
     <p i18n:translate="guest_login_warning">
       You are currently evaluating OiRA as a guest user.
       You will not be able to save your progress or download any reports.
-      To save your work, please sign in or register by clicking the &ldquo;<tal:name i18n:name="link_sign_in"><a href="${webhelpers/country_or_client_url}/login_form?${came_from_param}#document-content" data-pat-modal="class: large" class="pat-modal login close-panel" i18n:translate="link_sign_in">Login</a></tal:name>&rdquo; link at the top right of the page.
+      To save your work, please sign in or register by clicking the &ldquo;<tal:name i18n:name="link_sign_in"><a href="${webhelpers/country_or_client_url}/login_form?${came_from_param}#document-content" data-pat-modal="class: large" class="pat-modal login close-panel" i18n:translate="header_login">Login</a></tal:name>&rdquo; link at the top right of the page.
     </p>
   </div>
 

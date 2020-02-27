@@ -144,12 +144,11 @@ def enable_custom_risks_on_all_modules(context):
                                     default=u"In case you have identified risks not included in "
                                     u"the tool, you are able to add them now:")
                                 custom.question = _(
-                                    u"question_other_risks",
-                                    default=u"<p>Would you now like to add your own defined risks "
-                                    u"to this tool?</p><p><strong>Important:</strong> In "
-                                    u"order to avoid duplicating risks, we strongly recommend you "
-                                    u"to go first through all the previous modules, if you have not "
-                                    u"done it yet.</p><p>If you don't need to add risks, please select 'No.'</p>")
+                                    u"question_other_risks", default=u"<p><strong>Important:"
+                                    u"</strong> In order to avoid duplicating risks, we strongly "
+                                    u"recommend you to go first through all the previous modules, if "
+                                    u"you have not done it yet.</p><p>If you don't need to add risks, "
+                                    u"please continue.</p>"),
                             if is_new:
                                 survey.published = (
                                     survey.id, survey.title, datetime.datetime.now())

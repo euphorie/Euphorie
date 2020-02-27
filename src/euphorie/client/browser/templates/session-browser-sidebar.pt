@@ -47,7 +47,7 @@
       <a class="no-label pat-modal iconified icon-plus"
          id="button-new-session-quick"
          href="${webhelpers/session_overview_url}/@@new-session.html#document-content"
-         title="Start a new session"
+         title="start a new session"
          data-pat-modal="class: large"
          i18n:attributes="title link_start_session"
          i18n:translate="New"
@@ -128,7 +128,7 @@
                 ></span>
                 <span class="date meta field" tal:condition="session/published"
                   ><span class="label">
-                    <tal:i18n i18n:translate="label_published">published</tal:i18n
+                    <tal:i18n i18n:translate="label_published">Published</tal:i18n
                     > <time class="pat-display-time"
                           datetime="${value}"
                           data-pat-display-time="from-now: true; locale: ${language}"

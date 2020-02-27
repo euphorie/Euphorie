@@ -61,7 +61,7 @@
         >Help</a></li>
       <li tal:condition="python:site_section not in ['preparation', 'session', 'sessions']"><a href="${webhelpers/survey_url}/status"
            i18n:translate="navigation_status"
-        >Check your progress</a></li>
+        >Status</a></li>
       <li tal:condition="not:webhelpers/is_guest_account"><a href="${webhelpers/country_url}/account-settings"
            i18n:translate="navigation_settings"
         >Settings</a></li>
