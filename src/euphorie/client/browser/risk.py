@@ -40,6 +40,7 @@ from z3c.appconfig.utils import asBool
 from z3c.saconfig import Session
 from zope.component import getUtility
 from zope.publisher.interfaces import NotFound
+from zope.component import getMultiAdapter
 
 import datetime
 import PIL
@@ -137,6 +138,35 @@ class IdentificationView(BrowserView):
             condition = "condition: answer=no or answer=yes"
         return condition
 
+    @property
+    @memoize
+    def tti(self):
+        return getUtility(IToolTypesInfo)
+
+    @property
+    @memoize
+    def my_tool_type(self):
+        return get_tool_type(self.context)
+
+    @property
+    @memoize
+    def settings(self):
+        appconfig = getUtility(IAppConfig)
+        return appconfig.get("euphorie")
+
+    @property
+    @memoize
+    def use_existing_measures(self):
+        return (
+            asBool(self.settings.get("use_existing_measures", False))
+            and self.my_tool_type in self.tti.types_existing_measures
+        )
+
+    @property
+    @memoize
+    def use_training_module(self):
+        return asBool(self.settings.get("use_training_module", False))
+
     def __call__(self):
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
@@ -149,16 +179,7 @@ class IdentificationView(BrowserView):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
         utils.setLanguage(self.request, self.survey, self.survey.language)
-
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get("euphorie")
-        self.tti = getUtility(IToolTypesInfo)
-        self.my_tool_type = get_tool_type(self.context)
-        self.use_existing_measures = (
-            asBool(settings.get("use_existing_measures", False))
-            and self.my_tool_type in self.tti.types_existing_measures
-        )
-        self.use_training_module = asBool(settings.get("use_training_module", False))
+        self._prepare_risk()
 
         if self.request.method == "POST":
             reply = self.request.form
@@ -259,7 +280,6 @@ class IdentificationView(BrowserView):
             return self.proceed_to_next(reply)
 
         else:
-            self._prepare_risk()
             if self.is_custom_risk:
                 next = FindNextQuestion(
                     self.context, self.context.session, filter=self.question_filter
@@ -437,7 +457,13 @@ class IdentificationView(BrowserView):
             session_url=self.webhelpers.traversed_session.absolute_url(),
             path="/".join(target.short_path),
         )
-        return self.request.response.redirect(url)
+        rc = self.webhelpers.traversed_session
+
+        for elem in target.short_path:
+            rc = getMultiAdapter((rc, self.request)).publishTraverse(self.request, elem)
+        _view = rc.restrictedTraverse("@@identification")
+        _view._prepare_risk()
+        return _view.template()
 
     @memoize
     def get_existing_measures(self):
