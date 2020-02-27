@@ -162,8 +162,12 @@ class IdentificationView(BrowserView):
 
         if self.request.method == "POST":
             reply = self.request.form
+            _next = reply.get("next", None)
+            # In Safari browser we get a list
+            if isinstance(_next, list):
+                _next = _next.pop()
             # Don't persist anything if the user skipped the question
-            if reply.get("next", None) == "skip":
+            if _next == "skip":
                 return self.proceed_to_next(reply)
             old_values = {}
             for prop, default in self.monitored_properties.items():
@@ -386,7 +390,11 @@ class IdentificationView(BrowserView):
         )
 
     def proceed_to_next(self, reply):
-        if reply.get("next") == "previous":
+        _next = reply.get("next", None)
+        # In Safari browser we get a list
+        if isinstance(_next, list):
+            _next = _next.pop()
+        if _next == "previous":
             target = self.previous_question
             if target is None:
                 # We ran out of questions, step back to intro page
@@ -394,14 +402,14 @@ class IdentificationView(BrowserView):
                     session_url=self.webhelpers.traversed_session.absolute_url()
                 )
                 return self.request.response.redirect(url)
-        elif reply.get("next") in ("next", "skip"):
+        elif _next in ("next", "skip"):
             target = self.next_question
             if target is None:
                 # We ran out of questions, proceed to the action plan
                 url = self.webhelpers.traversed_session.absolute_url() + "/@@actionplan"
                 return self.request.response.redirect(url)
 
-        elif reply.get("next") == "add_custom_risk":
+        elif _next == "add_custom_risk":
             sql_module = (
                 Session.query(model.Module)
                 .filter(
@@ -427,7 +435,7 @@ class IdentificationView(BrowserView):
                 risk=risk_id,
             )
             return self.request.response.redirect(url)
-        elif reply.get("next", None) == "actionplan":
+        elif _next == "actionplan":
             url = self.webhelpers.traversed_session.absolute_url() + "/@@actionplan"
             return self.request.response.redirect(url)
         # stay on current risk
