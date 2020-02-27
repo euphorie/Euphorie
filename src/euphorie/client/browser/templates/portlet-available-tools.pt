@@ -1,89 +1,119 @@
 <tal:portlet i18n:domain="euphorie">
-<div class="portlet span-1"
-     id="portlet-available-tools"
-     tal:define="root view/get_survey_templates_tree_root;
-                 threshold view/tools_threshold;
-                 template_count python:len(view.get_survey_templates());"
-     tal:condition="template_count"
->
-  <div class="content">
-    <article class="portlet-intro">
-      <header class="portlet-title-group">
-        <h2 class="portlet-title"
-            i18n:translate=""
-        >
-          Available OiRA tools
-        </h2>
-      </header>
-    </article>
-    <div class="portlet-body"
-         id="portlet-body-available-tools"
+  <div class="portlet span-1"
+       id="portlet-available-tools"
+       tal:define="
+         root view/get_survey_templates_tree_root;
+         threshold view/tools_threshold;
+         template_count python:len(view.get_survey_templates());
+       "
+       tal:condition="template_count"
+  >
+    <div class="content">
+      <article class="portlet-intro">
+        <header class="portlet-title-group">
+          <h2 class="portlet-title"
+              i18n:translate=""
           >
-      <form class="pat-inject"
-            action="${here/absolute_url}/@@new-session.html"
+          Available OiRA tools
+          </h2>
+        </header>
+      </article>
+      <div class="portlet-body"
+           id="portlet-body-available-tools"
       >
-        <article class="pat-rich">
-          <p i18n:translate="label_select_new_session">
+        <form class="pat-inject"
+              action="${here/absolute_url}/@@new-session.html"
+        >
+          <article class="pat-rich">
+            <p i18n:translate="label_select_new_session">
             Start a new session by choosing one of the following sectoral tools.
-          </p>
-        </article>
+            </p>
+          </article>
 
-              <fieldset class="tool-list" tal:condition="python:template_count <= threshold">
-                <metal:templates define-macro="templates">
-                  <tal:surveys define="surveys root/survey_templates">
-                    <fieldset class="tools pat-checklist radio">
-                      <label class="tool" tal:repeat="survey surveys">
-                        <input type="radio" name="survey" value="${survey/id}">
-                        <strong class="field name">${survey/title}</strong>
-                      </label>
-                    </fieldset>
+          <fieldset class="tool-list"
+                    tal:condition="python:template_count &lt;= threshold"
+          >
+            <metal:templates define-macro="templates">
+              <tal:surveys define="
+                             surveys root/survey_templates;
+                           "
+              >
+                <fieldset class="tools pat-checklist radio">
+                  <label class="tool"
+                         tal:repeat="survey surveys"
+                  >
+                    <input name="survey"
+                           type="radio"
+                           value="${survey/id}"
+                    />
+                    <strong class="field name">${survey/title}</strong>
+                  </label>
+                </fieldset>
+              </tal:surveys>
+            </metal:templates>
+            <tal:categories repeat="child root/categories">
+              <fieldset class="department">
+                <legend>${child/title}</legend>
+                <tal:survey define="
+                              root child;
+                            "
+                >
+                  <metal:node use-macro="template/macros/templates" />
+                </tal:survey>
+              </fieldset>
+            </tal:categories>
+          </fieldset>
+
+          <fieldset class="vertical"
+                    tal:condition="python:template_count &gt; threshold"
+          >
+            <label class="tool-list-many">
+              <select class="pat-autosuggest"
+                      name="survey"
+                      placeholder="Select an OiRA tool"
+                      data-pat-autosuggest="minimum-input-length:0"
+                      i18n:attributes="placeholder label_select_oira_tool"
+              >
+                <metal:templates define-macro="templates_many">
+                  <option value="">&nbsp;</option>
+                  <tal:surveys define="
+                                 surveys root/survey_templates;
+                               "
+                  >
+                    <option value="${survey/id}"
+                            tal:repeat="survey surveys"
+                    >${survey/title}</option>
                   </tal:surveys>
                 </metal:templates>
                 <tal:categories repeat="child root/categories">
-                  <fieldset class="department">
-                    <legend>${child/title}</legend>
-                    <tal:survey define="root child">
-                      <metal:node use-macro="template/macros/templates" />
+                  <optgroup label="${child/title}">
+                    <tal:survey define="
+                                  root child;
+                                "
+                    >
+                      <metal:node use-macro="template/macros/templates_many" />
                     </tal:survey>
-                  </fieldset>
+                  </optgroup>
                 </tal:categories>
-              </fieldset>
+              </select>
+            </label>
+          </fieldset>
 
-              <fieldset class="vertical" tal:condition="python:template_count > threshold">
-                <label class="tool-list-many">
-                  <select name="survey" class="pat-autosuggest" data-pat-autosuggest="minimum-input-length:0" placeholder="Select an OiRA tool" i18n:attributes="placeholder label_select_oira_tool">
-                    <metal:templates define-macro="templates_many">
-                      <option value="">&nbsp;</option>
-                      <tal:surveys define="surveys root/survey_templates">
-                        <option tal:repeat="survey surveys" value="${survey/id}">${survey/title}</option>
-                      </tal:surveys>
-                    </metal:templates>
-                    <tal:categories repeat="child root/categories">
-                      <optgroup label="${child/title}">
-                        <tal:survey define="root child">
-                          <metal:node use-macro="template/macros/templates_many" />
-                        </tal:survey>
-                      </optgroup>
-                    </tal:categories>
-                  </select>
-                </label>
-              </fieldset>
+          <p class="button-bar">
+            <button class="small pat-button pat-depends"
+                    type="submit"
+                    data-pat-depends="condition: survey; action: enable"
+                    i18n:translate="button_start_session"
+            >Start session</button>
+          </p>
 
-        <p class="button-bar">
-          <button class="small pat-button pat-depends"
-                  type="submit"
-                  data-pat-depends="condition: survey; action: enable"
-                  i18n:translate="button_start_session"
-          >Start session</button>
-        </p>
+          <input name="action"
+                 type="hidden"
+                 value="new"
+          />
 
-        <input name="action"
-               type="hidden"
-               value="new"
-        />
-
-      </form>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 </tal:portlet>
