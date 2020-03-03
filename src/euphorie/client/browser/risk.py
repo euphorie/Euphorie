@@ -855,11 +855,12 @@ class ActionPlanView(BrowserView):
                             "action_plan": solution.action_plan,
                             "prevention_plan": solution.prevention_plan,
                             "requirements": solution.requirements,
+                            "id": solution.id,
                         }
                     )
             self.solutions = solutions
             self.solutions_condition = "condition: not ({})".format(
-                " and ".join(["sm-%d" % (i + 1) for i in range(len(self.solutions))])
+                " and ".join(["sm-%s" % solution["id"] for solution in self.solutions])
             )
 
         self.image_class = IMAGE_CLASS[self.number_images]
