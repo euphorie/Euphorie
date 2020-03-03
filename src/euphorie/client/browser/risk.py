@@ -52,7 +52,9 @@ class IdentificationView(BrowserView):
     """
 
     default_template = ViewPageTemplateFile("templates/risk_identification.pt")
-    custom_risk_template = ViewPageTemplateFile("templates/risk_identification_custom.pt")
+    custom_risk_template = ViewPageTemplateFile(
+        "templates/risk_identification_custom.pt"
+    )
     variation_class = "variation-risk-assessment"
 
     question_filter = None
@@ -512,7 +514,6 @@ class IdentificationView(BrowserView):
 
 
 class ImageUpload(BrowserView):
-
     def redirect(self):
         return self.request.response.redirect(
             "{}/@@identification".format(self.context.absolute_url())
@@ -840,10 +841,10 @@ class ActionPlanView(BrowserView):
             for solution in self.risk.values():
                 if not ISolution.providedBy(solution):
                     continue
-                description = (
-                    getattr(solution, "description", "") or "").strip()
+                description = (getattr(solution, "description", "") or "").strip()
                 prevention_plan = (
-                    getattr(solution, "prevention_plan", "") or "").strip()
+                    getattr(solution, "prevention_plan", "") or ""
+                ).strip()
                 match = description
                 if measures_full_text and prevention_plan:
                     match = u"%s: %s" % (match, prevention_plan)
@@ -860,26 +861,36 @@ class ActionPlanView(BrowserView):
 
         self.image_class = IMAGE_CLASS[self.number_images]
         self.risk_number = self.context.number
-        self.delete_confirmation = api.portal.translate(_(
-            u"Are you sure you want to delete this measure? This action can "
-            u"not be reverted."),
+        self.delete_confirmation = api.portal.translate(
+            _(
+                u"Are you sure you want to delete this measure? This action can "
+                u"not be reverted."
+            )
         )
-        self.override_confirmation = api.portal.translate(_(
-            u"The current text in the fields 'Action plan', 'Prevention plan' and "
-            u"'Requirements' of this measure will be overwritten. This action cannot be "
-            u"reverted. Are you sure you want to continue?"),
+        self.override_confirmation = api.portal.translate(
+            _(
+                u"The current text in the fields 'Action plan', 'Prevention plan' and "
+                u"'Requirements' of this measure will be overwritten. This action cannot be "
+                u"reverted. Are you sure you want to continue?"
+            )
         )
-        self.message_date_before = api.portal.translate(_(
-            u"error_validation_before_end_date",
-            default=u"This date must be on or before the end date."),
+        self.message_date_before = api.portal.translate(
+            _(
+                u"error_validation_before_end_date",
+                default=u"This date must be on or before the end date.",
+            )
         )
-        self.message_date_after = api.portal.translate(_(
-            u"error_validation_after_start_date",
-            default=u"This date must be on or after the start date."),
+        self.message_date_after = api.portal.translate(
+            _(
+                u"error_validation_after_start_date",
+                default=u"This date must be on or after the start date.",
+            )
         )
-        self.message_positive_number = api.portal.translate(_(
-            u"error_validation_positive_whole_number",
-            default=u"This value must be a positive whole number."),
+        self.message_positive_number = api.portal.translate(
+            _(
+                u"error_validation_positive_whole_number",
+                default=u"This value must be a positive whole number.",
+            )
         )
         return self.index()
 
