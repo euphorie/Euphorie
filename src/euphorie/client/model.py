@@ -1162,6 +1162,19 @@ class ActionPlan(BaseObject):
     planning_start = schema.Column(types.Date())
     planning_end = schema.Column(types.Date())
     reference = schema.Column(types.Text())
+    plan_type = schema.Column(
+        Enum(
+            [
+                "measure_custom",
+                "measure_standard",
+                "in_place_standard",
+                "in_place_custom",
+            ]
+        ),
+        nullable=False,
+        index=True,
+    )
+    solution_id = schema.Column(types.Integer())
 
     risk = orm.relation(
         Risk,
