@@ -145,8 +145,8 @@
                   <label class="item"
                          tal:repeat="solution solutions"
                   >
-                    <input id="sm-${repeat/solution/number}"
-                           name="sm-${repeat/solution/number}"
+                    <input id="sm-${solution/id}"
+                           name="sm-${solution/id}"
                            type="checkbox"
                     />
                     <span class="text">${solution/description}</span>
@@ -185,17 +185,17 @@
 
               <tal:solutions repeat="solution solutions">
                 <div class="measure pat-collapsible closed pat-depends"
-                     data-pat-depends="condition: sm-${repeat/solution/number}"
+                     data-pat-depends="condition: sm-${solution/id}"
                 >
                   <h2>
                   ${solution/description}
                   </h2>
                   <p class="functions">
                     <a class="icon-trash pat-forward"
-                       href="#pick-sm-${repeat/solution/number}"
+                       href="#pick-sm-${solution/id}"
                        title="Remove this measure"
                        i18n:attributes="title label_remove_measure"
-                       data-pat-forward="selector: #sm-${repeat/solution/number}"
+                       data-pat-forward="selector: #sm-${solution/id}"
                        i18n:translate
                     >Remove</a>
                   </p>
@@ -240,7 +240,7 @@
                       >Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary.</dfn>
                       <span class="composed currency-field">
                         <input class="currency"
-                               id="solution-budget-${repeat/solution/number}"
+                               id="solution-budget-${solution/id}"
                                min="0"
                                name="solution.budget:records"
                                type="number"
@@ -254,11 +254,11 @@
                     >
                       <tal:label i18n:translate="label_action_plan_start">Planning start</tal:label>
                       <input class="pat-date-picker"
-                             id="solution-planning-start-${repeat/solution/number}"
+                             id="solution-planning-start-${solution/id}"
                              name="solution.planning_start:records"
                              type="date"
                              data-pat-date-picker="behavior: styled; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
-                             data-pat-validation="type: date; not-after: #solution-planning-end-${repeat/solution/number}; message-date: ${view/message_date_before}"
+                             data-pat-validation="type: date; not-after: #solution-planning-end-${solution/id}; message-date: ${view/message_date_before}"
                       />
                     </label>
 
@@ -270,11 +270,11 @@
                       <tal:label i18n:translate="label_action_plan_end">Planning end</tal:label>
 
                       <input class="pat-date-picker"
-                             id="solution-planning-end-${repeat/solution/number}"
+                             id="solution-planning-end-${solution/id}"
                              name="solution.planning_end:records"
                              type="date"
                              data-pat-date-picker="behavior: styled; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
-                             data-pat-validation="type: date; not-before: #solution-planning-start-${repeat/solution/number}; message-date: ${view/message_date_after}"
+                             data-pat-validation="type: date; not-before: #solution-planning-start-${solution/id}; message-date: ${view/message_date_after}"
                       />
                     </label>
 
