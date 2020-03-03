@@ -408,4 +408,16 @@
 
     </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+      destination="27"
+      profile="euphorie.deployment:default"
+      source="26"
+      >
+    <genericsetup:upgradeStep
+        title="Run Alembic migration: extend action plan with plan_type column"
+        description="Check the logs! You might want to adapt the migration to your DB"
+        handler=".v27.alembic_upgrade"
+        />
+    </genericsetup:upgradeSteps>
+
 </configure>

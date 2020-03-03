@@ -844,7 +844,7 @@ class SurveySession(BaseObject):
 
         statement = """\
         INSERT INTO action_plan (risk_id, action_plan, prevention_plan,
-                                        requirements, responsible, budget,
+                                        requirements, responsible, budget, plan_type,
                                         planning_start, planning_end)
                SELECT new_tree.id,
                       action_plan.action_plan,
@@ -852,6 +852,7 @@ class SurveySession(BaseObject):
                       action_plan.requirements,
                       action_plan.responsible,
                       action_plan.budget,
+                      action_plan.plan_type,
                       action_plan.planning_start,
                       action_plan.planning_end
                FROM action_plan JOIN risk ON action_plan.risk_id=risk.id
@@ -1162,6 +1163,19 @@ class ActionPlan(BaseObject):
     planning_start = schema.Column(types.Date())
     planning_end = schema.Column(types.Date())
     reference = schema.Column(types.Text())
+    plan_type = schema.Column(
+        Enum(
+            [
+                "measure_custom",
+                "measure_standard",
+                "in_place_standard",
+                "in_place_custom",
+            ]
+        ),
+        nullable=False,
+        index=True,
+    )
+    solution_id = schema.Column(types.Integer())
 
     risk = orm.relation(
         Risk,
