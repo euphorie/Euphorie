@@ -4,7 +4,7 @@ Changelog
 11.1.17 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Fix a bug that prevented browsing Identification in Safari / iOS
 
 
 11.1.16 (2020-02-25)
