@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.17 (unreleased)
+11.1.17 (2020-03-03)
 --------------------
 
 - Fix a bug that prevented browsing Identification in Safari / iOS
