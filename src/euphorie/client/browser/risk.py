@@ -858,6 +858,9 @@ class ActionPlanView(BrowserView):
                         }
                     )
             self.solutions = solutions
+            self.solutions_condition = "condition: not ({})".format(
+                " and ".join(["sm-%d" % (i + 1) for i in range(len(self.solutions))])
+            )
 
         self.image_class = IMAGE_CLASS[self.number_images]
         self.risk_number = self.context.number
