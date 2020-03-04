@@ -1142,6 +1142,18 @@ class Risk(SurveyTreeItem):
     image_data_scaled = schema.Column(types.LargeBinary())
     image_filename = schema.Column(types.UnicodeText())
 
+    @property
+    def standard_measures(self):
+        query = (
+            Session.query(ActionPlan)
+            .filter(
+                sql.and_(ActionPlan.risk_id == self.id),
+                ActionPlan.plan_type == "measure_standard",
+            )
+            .order_by(ActionPlan.solution_id.desc())
+        )
+        return query
+
 
 class ActionPlan(BaseObject):
     """Action plans for a known risk."""
