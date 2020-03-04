@@ -307,9 +307,6 @@
 
               <tal:actionplans repeat="actionplan action_plans">
                 <div class="measure clone pat-collapsible"
-                     tal:define="
-                       measures view/solutions|python:[];
-                     "
                      tal:condition="python:actionplan.plan_type=='measure_custom'"
                 >
                   <h2><tal:span condition="not:view/use_existing_measures"
@@ -332,33 +329,7 @@
                     <a class="icon-trash remove-clone"
                        i18n:translate="label_remove_measure"
                     >Delete this measure</a>
-                    <a class="icon-pencil pat-tooltip"
-                       href="#standard-solutions-${repeat/actionplan/number}"
-                       data-pat-tooltip="source:ajax"
-                       tal:condition="measures"
-                       i18n:translate="label_prefill"
-                    >Pre-fill</a>
                   </p>
-                  <tal:if_has_measures condition="measures">
-                    <div id="standard-solutions-${repeat/actionplan/number}"
-                         hidden="hidden"
-                    >
-                      <p class="info"
-                         i18n:translate="label_select_measure"
-                      >Select one or more of the known common measures provided.</p>
-                      <ol class="add-measure-menu">
-                        <li tal:repeat="measure measures">
-                          <a class="pat-inject close-panel title"
-                             href="#standard-solution-${repeat/measure/number}"
-                             data-pat-inject="target: #fields-${repeat/actionplan/number}; confirm: never; confirm-message: ${view/override_confirmation}"
-                          >
-                            <em class="iconified icon-plus-circle"
-                                i18n:translate="button_add"
-                            >Add</em><tal:measure replace="structure measure/description" /></a>
-                        </li>
-                      </ol>
-                    </div>
-                  </tal:if_has_measures>
 
                   <fieldset class="vertical"
                             id="fields-${repeat/actionplan/number}"
@@ -496,49 +467,20 @@
                  id="measure-template"
                  hidden="hidden"
             >
-              <tal:get_measures define="
-                                  measures view/solutions|python:[];
-                                "
-              >
-                <h2><tal:span condition="not:view/use_existing_measures"
-                            i18n:translate="Measure"
-                  >Measure</tal:span>
-                  <tal:span condition="view/use_existing_measures"
-                            i18n:translate="Additional Measure"
-                  >Additional Measure</tal:span>
-                #{1}
-                </h2>
-                <p class="functions">
-                  <a class="icon-trash remove-clone"
-                     i18n:translate="label_remove_measure"
-                  >Delete this measure</a>
-                  <a class="icon-pencil pat-tooltip"
-                     href="#standard-solutions-#{1}"
-                     data-pat-tooltip="source: ajax"
-                     tal:condition="measures"
-                     i18n:translate="label_prefill"
-                  >Pre-fill</a>
-                </p>
 
-                <tal:if_has_measures condition="measures">
-                  <div id="standard-solutions-#{1}"
-                       hidden="hidden"
-                  >
-                    <p class="info"
-                       i18n:translate="label_select_measure"
-                    >Select one or more of the known common measures provided.</p>
-                    <ol class="add-measure-menu">
-                      <li tal:repeat="solution measures">
-                        <a class="pat-inject close-panel title"
-                           href="#standard-solution-${repeat/solution/number}"
-                           data-pat-inject="target: #fields-#{1}; confirm: never; confirm-message: ${view/override_confirmation}"
-                        >
-                          <em class="iconified icon-plus-circle">Add</em>${solution/description}</a>
-                      </li>
-                    </ol>
-                  </div>
-                </tal:if_has_measures>
-              </tal:get_measures>
+              <h2><tal:span condition="not:view/use_existing_measures"
+                          i18n:translate="Measure"
+                >Measure</tal:span>
+                <tal:span condition="view/use_existing_measures"
+                          i18n:translate="Additional Measure"
+                >Additional Measure</tal:span>
+              #{1}
+              </h2>
+              <p class="functions">
+                <a class="icon-trash remove-clone"
+                   i18n:translate="label_remove_measure"
+                >Delete this measure</a>
+              </p>
 
               <fieldset class="vertical"
                         id="fields-#{1}"
@@ -658,46 +600,6 @@
           </p>
         </form>
       </tal:def>
-
-
-
-      <tal:loop repeat="solution view/solutions|python:[]">
-        <fieldset class="vertical"
-                  id="standard-solution-${repeat/solution/number}"
-                  hidden="hidden"
-        >
-          <label><tal:label i18n:translate="label_description">Description</tal:label>
-            <dfn class="icon-help-circle iconified pat-tooltip"
-                 data-pat-tooltip="source: content; position-list: lt"
-                 i18n:translate="actionplan_measure_tooltip"
-            >Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk); 3) the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any).</dfn>
-            <textarea class="actionPlan"
-                      name="measure.action_plan:utf8:ustring:records"
-                      placeholder="General approach (to eliminate or reduce the risk)"
-                      rows="3"
-                      i18n:attributes="placeholder label_measure_action_plan"
-            >${solution/action_plan}</textarea>
-            <tal:preventionplan condition="python: 'prevention_plan' not in view.skip_fields">
-              <br />
-              <textarea class="preventionPlan"
-                        name="measure.prevention_plan:utf8:ustring:records"
-                        placeholder="Specific action(s) required to implement this approach"
-                        rows="3"
-                        i18n:attributes="placeholder label_measure_prevention_plan"
-              >${solution/prevention_plan}</textarea>
-            </tal:preventionplan>
-            <tal:requirements condition="python: 'requirements' not in view.skip_fields">
-              <br />
-              <textarea class="requirements"
-                        name="measure.requirements:utf8:ustring:records"
-                        placeholder="Level of expertise and/or requirements needed"
-                        rows="3"
-                        i18n:attributes="placeholder label_measure_requirements"
-              >${solution/requirements}</textarea>
-            </tal:requirements>
-          </label>
-        </fieldset>
-      </tal:loop>
     </metal:slot>
   </body>
 </html>
