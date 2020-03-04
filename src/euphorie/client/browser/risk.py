@@ -820,8 +820,6 @@ class ActionPlanView(BrowserView):
 
         else:
             self.data = context
-            if len(context.action_plans) == 0:
-                self.data.empty_action_plan = [model.ActionPlan()]
 
         self.title = context.parent.title
 
@@ -915,6 +913,8 @@ class ActionPlanView(BrowserView):
             if len(measure):
                 budget = measure.get("budget")
                 budget = budget and budget.split(",")[0].split(".")[0]
+                plan_type = measure.get("plan_type", "measure_custom")
+                solution_id = measure.get("solution_id", None)
                 p_start = measure.get("planning_start")
                 if p_start:
                     try:
@@ -968,6 +968,8 @@ class ActionPlanView(BrowserView):
                         budget=budget,
                         planning_start=p_start,
                         planning_end=p_end,
+                        plan_type=plan_type,
+                        solution_id=solution_id,
                     )
                 )
         removed = len(existing_plans)

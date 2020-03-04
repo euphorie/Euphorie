@@ -26,7 +26,6 @@
       <tal:def define="
                  errors python:exists('actionplan/errors') and actionplan['errors'] or {};
                  action_plans data/action_plans;
-                 action_plans python:len(action_plans) and action_plans or data.empty_action_plan;
                "
       >
 
@@ -185,7 +184,7 @@
 
               <tal:solutions repeat="solution solutions">
                 <div class="measure pat-collapsible closed pat-depends"
-                     data-pat-depends="condition: sm-${solution/id}"
+                     data-pat-depends="condition: sm-${solution/id};"
                 >
                   <h2>
                   ${solution/description}
@@ -199,6 +198,11 @@
                        i18n:translate
                     >Remove</a>
                   </p>
+                  <input name="measure.plan_type:records" type="hidden" value="measure_standard" />
+                  <input name="measure.solution_id:records" type="hidden" value="${solution/id}" />
+                  <input name="measure.action_plan:utf8:ustring:records" type="hidden" value="${solution/action_plan}" />
+                  <input name="measure.prevention_plan:utf8:ustring:records" type="hidden" value="${solution/prevention_plan}" />
+                  <input name="measure.requirements:utf8:ustring:records" type="hidden" value="${solution/requirements}" />
                   <section class="pat-rich">
                     <h4 i18n:translate="label_description">
                       Description
@@ -222,7 +226,7 @@
                            i18n:translate="actionplan_measure_responsible_tooltip"
                       >Appoint someone in your company to be responsible for the implementation of this measure. This person will have the authority to take the steps described in the Plan and/or the responsibility to ensure that they are carried out.</dfn>
                       <input class="responsible"
-                             name="solution.responsible:utf8:ustring:records"
+                             name="measure.responsible:utf8:ustring:records"
                              type="text"
                       />
                     </label>
@@ -242,7 +246,7 @@
                         <input class="currency"
                                id="solution-budget-${solution/id}"
                                min="0"
-                               name="solution.budget:records"
+                               name="measure.budget:records"
                                type="number"
                         />
                       </span>
@@ -255,7 +259,7 @@
                       <tal:label i18n:translate="label_action_plan_start">Planning start</tal:label>
                       <input class="pat-date-picker"
                              id="solution-planning-start-${solution/id}"
-                             name="solution.planning_start:records"
+                             name="measure.planning_start:records"
                              type="date"
                              data-pat-date-picker="behavior: styled; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
                              data-pat-validation="type: date; not-after: #solution-planning-end-${solution/id}; message-date: ${view/message_date_before}"
@@ -271,7 +275,7 @@
 
                       <input class="pat-date-picker"
                              id="solution-planning-end-${solution/id}"
-                             name="solution.planning_end:records"
+                             name="measure.planning_end:records"
                              type="date"
                              data-pat-date-picker="behavior: styled; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
                              data-pat-validation="type: date; not-before: #solution-planning-start-${solution/id}; message-date: ${view/message_date_after}"
@@ -302,6 +306,7 @@
                        type="hidden"
                        value="${actionplan/id}"
                 />
+                <input name="measure.plan_type:records" type="hidden" value="measure_custom" />
                 <p class="functions">
                   <a class="icon-trash remove-clone"
                      i18n:translate="label_remove_measure"
