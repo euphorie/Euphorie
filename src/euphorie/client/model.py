@@ -1185,6 +1185,7 @@ class ActionPlan(BaseObject):
         ),
         nullable=False,
         index=True,
+        default="measure_custom",
     )
     solution_id = schema.Column(types.Integer())
 
