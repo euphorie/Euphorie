@@ -835,10 +835,16 @@ class ActionPlanView(BrowserView):
             existing_measures = [
                 txt.strip() for (txt, active) in self.get_existing_measures() if active
             ]
+            self.active_standard_measures = {
+                str(getattr(measure, "solution_id", "")): measure
+                for measure in context.standard_measures
+            }
+
             solutions = []
             for solution in self.risk.values():
                 if not ISolution.providedBy(solution):
                     continue
+                solution_id = solution.id
                 description = (getattr(solution, "description", "") or "").strip()
                 prevention_plan = (
                     getattr(solution, "prevention_plan", "") or ""
@@ -853,7 +859,7 @@ class ActionPlanView(BrowserView):
                             "action_plan": solution.action_plan,
                             "prevention_plan": solution.prevention_plan,
                             "requirements": solution.requirements,
-                            "id": solution.id,
+                            "id": solution_id,
                         }
                     )
             self.solutions = solutions
@@ -911,10 +917,14 @@ class ActionPlanView(BrowserView):
             measure = dict([p for p in form["measure"][i].items() if p[1].strip()])
             form["action_plans"].append(measure)
             if len(measure):
-                budget = measure.get("budget")
-                budget = budget and budget.split(",")[0].split(".")[0]
                 plan_type = measure.get("plan_type", "measure_custom")
                 solution_id = measure.get("solution_id", None)
+                if plan_type == "measure_standard" and not form.get(
+                    "sm-%s" % solution_id
+                ):
+                    continue
+                budget = measure.get("budget")
+                budget = budget and budget.split(",")[0].split(".")[0]
                 p_start = measure.get("planning_start")
                 if p_start:
                     try:
