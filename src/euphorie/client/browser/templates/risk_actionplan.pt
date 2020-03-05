@@ -219,8 +219,7 @@
                       Description
                     </h4>
                     <p>
-                      ${solution/action_plan}
-                      ${solution/prevention_plan}
+                      ${solution/action}
                     </p>
                     <h4 i18n:translate="label_expertise">
                       Expertise

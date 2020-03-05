@@ -52,7 +52,7 @@ class ISolution(form.Schema):
             default=u"Describe your general approach to eliminate or (if "
             u"the risk is not avoidable) reduce the risk."
         ),
-        required=True
+        required=False
     )
 
     prevention_plan = schema.Text(
@@ -67,6 +67,23 @@ class ISolution(form.Schema):
             u"implement this approach (to eliminate or to reduce the risk)."
         ),
         required=False
+    )
+
+    # This replaces action_plan and prevention_plan by concatenating the 2 fields.
+    action = schema.Text(
+        title=_(
+            "label_measure_action",
+            default=u"General approach (to eliminate or reduce the risk) + Specific action(s) "
+            u"required to implement this approach"
+        ),
+        description=_(
+            "help_measure_action",
+            default=u"Describe your general approach to eliminate or (if the risk is not avoidable) "
+            u"reduce the risk. + Describe the specific action(s) required to implement this approach "
+            u"(to eliminate or to reduce the risk)."
+        ),
+        required=True,
+
     )
 
     requirements = schema.Text(
@@ -123,7 +140,7 @@ def SearchableTextIndexer(obj):
     """
     return " ".join([
         obj.description, obj.action_plan or '', obj.prevention_plan or '',
-        obj.requirements or ''
+        obj.requirements or '', obj.action or ''
     ])
 
 
@@ -142,22 +159,11 @@ class Add(dexterity.AddForm):
     grok.name("euphorie.solution")
     grok.require("euphorie.content.AddNewRIEContent")
 
-    def __init__(self, context, request):
-        from euphorie.content.survey import get_tool_type
-        dexterity.AddForm.__init__(self, context, request)
-        # appconfig = getUtility(IAppConfig)
-        # settings = appconfig.get('euphorie')
-        # self.use_existing_measures = settings.get('use_existing_measures', False)
-        # self.tool_type = get_tool_type(context)
-
-    # def updateWidgets(self):
-    #     super(Add, self).updateWidgets()
-    #     tt = getUtility(IToolTypesInfo)
-    #     if not (
-    #         self.use_existing_measures and
-    #         self.tool_type in tt.types_existing_measures
-    #     ):
-    #         self.widgets["show_in_identification"].mode = "hidden"
+    def updateWidgets(self):
+        super(Add, self).updateWidgets()
+        self.widgets["action_plan"].mode = "hidden"
+        self.widgets["prevention_plan"].mode = "hidden"
+        self.widgets["action"].rows = 15
 
 
 class Edit(form.SchemaEditForm):
@@ -166,19 +172,8 @@ class Edit(form.SchemaEditForm):
     grok.layer(NuPloneSkin)
     grok.name("edit")
 
-    # def __init__(self, context, request):
-    #     from euphorie.content.survey import get_tool_type
-    #     appconfig = getUtility(IAppConfig)
-    #     settings = appconfig.get('euphorie')
-    #     self.use_existing_measures = settings.get('use_existing_measures', False)
-    #     self.tool_type = get_tool_type(context)
-    #     form.SchemaEditForm.__init__(self, context, request)
-
-    # def updateWidgets(self):
-    #     super(Edit, self).updateWidgets()
-    #     tt = getUtility(IToolTypesInfo)
-    #     if not (
-    #         self.use_existing_measures and
-    #         self.tool_type in tt.types_existing_measures
-    #     ):
-    #         self.widgets["show_in_identification"].mode = "hidden"
+    def updateWidgets(self):
+        super(Edit, self).updateWidgets()
+        self.widgets["action_plan"].mode = "hidden"
+        self.widgets["prevention_plan"].mode = "hidden"
+        self.widgets["action"].rows = 15

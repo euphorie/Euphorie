@@ -858,6 +858,7 @@ class ActionPlanView(BrowserView):
                             "description": StripMarkup(solution.description),
                             "action_plan": solution.action_plan,
                             "prevention_plan": solution.prevention_plan,
+                            "action": solution.action,
                             "requirements": solution.requirements,
                             "id": solution_id,
                         }
