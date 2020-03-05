@@ -418,6 +418,9 @@
         description="Check the logs! You might want to adapt the migration to your DB"
         handler=".v27.alembic_upgrade"
         />
+    <genericsetup:upgradeStep
+      title="Unify action fields in solutions"
+      handler=".v27.unify_action_fields_in_solution"/>
     </genericsetup:upgradeSteps>
 
 </configure>
