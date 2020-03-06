@@ -856,8 +856,6 @@ class ActionPlanView(BrowserView):
                     solutions.append(
                         {
                             "description": StripMarkup(solution.description),
-                            "action_plan": solution.action_plan,
-                            "prevention_plan": solution.prevention_plan,
                             "action": solution.action,
                             "requirements": solution.requirements,
                             "id": solution_id,
@@ -941,8 +939,7 @@ class ActionPlanView(BrowserView):
                 if measure.get("id", "-1") in existing_plans:
                     plan = existing_plans[measure.get("id")]
                     if (
-                        measure.get("action_plan") != plan.action_plan
-                        or measure.get("prevention_plan") != plan.prevention_plan
+                        measure.get("action") != plan.action
                         or measure.get("requirements") != plan.requirements  # noqa
                         or measure.get("responsible") != plan.responsible
                         or (
@@ -972,8 +969,7 @@ class ActionPlanView(BrowserView):
                     added += 1
                 new_plans.append(
                     model.ActionPlan(
-                        action_plan=measure.get("action_plan"),
-                        prevention_plan=measure.get("prevention_plan"),
+                        action=measure.get("action"),
                         requirements=measure.get("requirements"),
                         responsible=measure.get("responsible"),
                         budget=budget,

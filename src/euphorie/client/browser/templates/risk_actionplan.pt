@@ -202,13 +202,9 @@
                          type="hidden"
                          value="${solution/id}"
                   />
-                  <input name="measure.action_plan:utf8:ustring:records"
+                  <input name="measure.action:utf8:ustring:records"
                          type="hidden"
-                         value="${solution/action_plan}"
-                  />
-                  <input name="measure.prevention_plan:utf8:ustring:records"
-                         type="hidden"
-                         value="${solution/prevention_plan}"
+                         value="${solution/action}"
                   />
                   <input name="measure.requirements:utf8:ustring:records"
                          type="hidden"
@@ -339,25 +335,16 @@
                            i18n:translate="actionplan_measure_tooltip"
                       >Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk); 3) the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any).</dfn>
                       <textarea class="actionPlan"
-                                name="measure.action_plan:utf8:ustring:records"
+                                name="measure.action:utf8:ustring:records"
                                 placeholder="General approach (to eliminate or reduce the risk)"
                                 rows="3"
                                 type="text"
-                                tal:content="actionplan/action_plan|nothing"
+                                tal:content="actionplan/action|nothing"
                                 i18n:attributes="placeholder label_measure_action_plan"
                       ></textarea>
-                      <tal:preventionplan condition="python: 'prevention_plan' not in view.skip_fields">
-                        <br />
-                        <textarea class="preventionPlan"
-                                  name="measure.prevention_plan:utf8:ustring:records"
-                                  placeholder="Specific action(s) required to implement this approach"
-                                  rows="3"
-                                  tal:content="actionplan/prevention_plan|nothing"
-                                  i18n:attributes="placeholder label_measure_prevention_plan"
-                        ></textarea>
-                      </tal:preventionplan>
-                      <tal:requirements condition="python: 'requirements' not in view.skip_fields">
-                        <br />
+                    </label>
+                    <tal:requirements condition="python: 'requirements' not in view.skip_fields">
+                      <label><tal:label i18n:translate="label_expertise">Expertise</tal:label>
                         <textarea class="requirements"
                                   name="measure.requirements:utf8:ustring:records"
                                   placeholder="Level of expertise and/or requirements needed"
@@ -365,8 +352,8 @@
                                   tal:content="actionplan/requirements|nothing"
                                   i18n:attributes="placeholder label_measure_requirements"
                         ></textarea>
-                      </tal:requirements>
-                    </label>
+                      </label>
+                    </tal:requirements>
                   </fieldset>
 
                   <fieldset class="vertical"
@@ -491,30 +478,22 @@
                   >Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk); 3) the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any).</dfn>
                   <textarea class="actionPlan"
                             autofocus="autofocus"
-                            name="measure.action_plan:utf8:ustring:records"
+                            name="measure.action:utf8:ustring:records"
                             placeholder="General approach (to eliminate or reduce the risk)"
                             rows="3"
                             i18n:attributes="placeholder label_measure_action_plan"
                   ></textarea>
-                  <tal:preventionplan condition="python: 'prevention_plan' not in view.skip_fields">
-                    <br />
-                    <textarea class="preventionPlan"
-                              name="measure.prevention_plan:utf8:ustring:records"
-                              placeholder="Specific action(s) required to implement this approach"
-                              rows="3"
-                              i18n:attributes="placeholder label_measure_prevention_plan"
-                    ></textarea>
-                  </tal:preventionplan>
-                  <tal:requirements condition="python: 'requirements' not in view.skip_fields">
-                    <br />
+                </label>
+                <tal:requirements condition="python: 'requirements' not in view.skip_fields">
+                  <label><tal:label i18n:translate="label_expertise">Expertise</tal:label>
                     <textarea class="requirements"
                               name="measure.requirements:utf8:ustring:records"
                               placeholder="Level of expertise and/or requirements needed"
                               rows="3"
                               i18n:attributes="placeholder label_measure_requirements"
                     ></textarea>
-                  </tal:requirements>
-                </label>
+                  </label>
+                </tal:requirements>
               </fieldset>
 
               <fieldset class="vertical">
