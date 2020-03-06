@@ -843,12 +843,13 @@ class SurveySession(BaseObject):
         session.execute(statement)
 
         statement = """\
-        INSERT INTO action_plan (risk_id, action_plan, prevention_plan,
+        INSERT INTO action_plan (risk_id, action_plan, prevention_plan, action,
                                         requirements, responsible, budget, plan_type,
                                         planning_start, planning_end)
                SELECT new_tree.id,
                       action_plan.action_plan,
                       action_plan.prevention_plan,
+                      action_plan.action,
                       action_plan.requirements,
                       action_plan.responsible,
                       action_plan.budget,
@@ -1169,6 +1170,8 @@ class ActionPlan(BaseObject):
     )
     action_plan = schema.Column(types.UnicodeText())
     prevention_plan = schema.Column(types.UnicodeText())
+    # The column "action" is the synthesis of "action_plan" and "prevention_plan"
+    action = schema.Column(types.UnicodeText())
     requirements = schema.Column(types.UnicodeText())
     responsible = schema.Column(types.Unicode(256))
     budget = schema.Column(types.Integer())
