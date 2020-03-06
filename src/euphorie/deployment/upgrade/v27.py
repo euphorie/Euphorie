@@ -1,6 +1,8 @@
 # -*- coding: UTF-8 -*-
+from euphorie.content.solution import ISolution
 from euphorie.deployment.upgrade.utils import alembic_upgrade_to
 from plone import api
+from plone.dexterity.interfaces import IDexterityContainer
 
 import logging
 
@@ -12,22 +14,30 @@ def alembic_upgrade(context):
 
 
 def unify_action_fields_in_solution(context):
-    pc = api.portal.get_tool("portal_catalog")
-    solutions = pc(portal_type="euphorie.solution")
-    count = 0
-    for brain in solutions:
-        log.debug("Updating description for %s", brain.getPath())
-        try:
-            solution = brain.getObject()
-        except KeyError:
-            log.error('Could not get object for %s', brain.getPath())
-        action = solution.action_plan.strip()
-        prevention_plan = solution.prevention_plan
-        prevention_plan = prevention_plan and prevention_plan.strip() or ""
-        if prevention_plan:
-            action = u"{0}\n{1}".format(action, prevention_plan)
-        solution.action = action
-        count += 1
-        if count % 100 == 0:
-            log.info("Handled %d items" % count)
-    log.info("Finished. Updated %d solutions" % count)
+    def walk(node):
+        for idx, sub_node in node.ZopeFind(node, search_sub=0):
+            if ISolution.providedBy(sub_node):
+                yield sub_node
+            if IDexterityContainer.providedBy(sub_node):
+                for sub_sub_node in walk(sub_node):
+                    yield sub_sub_node
+
+    def unifiy_fields(walker):
+        count = 0
+        for solution in walker:
+            action = solution.action_plan.strip()
+            prevention_plan = solution.prevention_plan
+            prevention_plan = prevention_plan and prevention_plan.strip() or ""
+            if prevention_plan:
+                action = u"{0}\n{1}".format(action, prevention_plan)
+            solution.action = action
+            count += 1
+            if count % 100 == 0:
+                log.info("Handled %d items" % count)
+        log.info("Finished. Updated %d solutions" % count)
+
+    site = api.portal.get()
+    for section in ["sectors", "client"]:
+        walker = walk(getattr(site, section))
+        log.info('Iterating over section "{}"'.format(section))
+        unifiy_fields(walker)
