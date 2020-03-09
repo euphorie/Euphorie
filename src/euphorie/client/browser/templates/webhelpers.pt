@@ -174,11 +174,11 @@
                         repeat="measure measures"
           >
             <label>
-              <input checked="${python:measure[1] and 'checked' or None}"
-                     name="measure-${repeat/measure/index}"
+              <input checked="${python:measure['active'] and 'checked' or None}"
+                     name="measure-${python:'standard-' if measure['plan_type']=='in_place_standard' else 'custom-'}${measure/solution_id}"
                      type="checkbox"
               />
-                <tal:measure replace="structure python:measure[0]" />
+                <tal:measure replace="structure python:measure['text']" />
             </label>
           </tal:measures>
           <input type="hidden" name="handle_measures_in_place" value="1" />

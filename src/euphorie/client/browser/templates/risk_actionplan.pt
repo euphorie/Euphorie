@@ -172,7 +172,7 @@
                   </h2>
                   <h4 i18n:translate="label_description">Description</h4>
                   <p>
-                    <tal:measure replace="structure python:measure[0]" />
+                    <tal:measure replace="structure measure/action" />
                   </p>
                 </div>
               </tal:existing_measures>
