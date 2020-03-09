@@ -1,5 +1,4 @@
 # coding=utf-8
-from collections import OrderedDict
 from copy import deepcopy
 from datetime import date
 from docx.api import Document
@@ -8,20 +7,18 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from euphorie.client import MessageFactory as _
-from euphorie.client import model
 from euphorie.client.docx.html import HtmlToWord
 from euphorie.content.survey import get_tool_type
 from euphorie.content.utils import IToolTypesInfo
 from euphorie.content.utils import UNWANTED
-from json import loads
 from lxml import etree
 from pkg_resources import resource_filename
+from plone import api
 from plone.memoize.view import memoize
 from plonetheme.nuplone.utils import formatDate
 from z3c.appconfig.interfaces import IAppConfig
 from zope.component import getUtility
 from zope.i18n import translate
-from plone import api
 import re
 
 all_breaks = re.compile('(\n|\r)+')
@@ -343,61 +340,24 @@ class DocxCompiler(BaseOfficeCompiler):
             ):
                 if self.italy_special:
                     skip_planned_measures = True
-                if zodb_node is None:
-                    defined_measures = []
-                else:
-                    defined_measures = zodb_node.get_pre_defined_measures(
-                        self.request)
-                try:
-                    # We try to get at least some order in: First, the pre-
-                    # defined measures that the user has confirmed, then the
-                    # additional custom-defined ones.
-                    saved_measures = loads(node.existing_measures)
-                    # Backwards compat. We used to save dicts in JSON before we
-                    # switched to list of tuples.
-                    if isinstance(saved_measures, dict):
-                        saved_measures = [
-                            (k, v) for (k, v) in saved_measures.items()]
 
-                    saved_measure_texts = OrderedDict()
-                    for text, on in saved_measures:
-                        saved_measure_texts.update({text: on})
-
-                    existing_measures = []
-                    # Pick the pre-defined measures first
-                    for text in defined_measures:
-                        active = saved_measure_texts.get(text)
-                        if active is not None:
-                            # Only add the measures that are active
-                            if active:
-                                existing_measures.append((text, 1))
-                            saved_measure_texts.pop(text)
-
-                    # Finally, add the user-defined measures as well
-                    for text, on in saved_measure_texts.items():
-                        existing_measures.append((text, on))
-
-                    measures = [item[0] for item in existing_measures if item[1]]
-                except:
-                    measures = []
-                for (idx, measure) in enumerate(measures):
+                for (idx, action_plan) in enumerate(node.in_place_standard_measures + node.in_place_custom_measures):
                     heading = self.t(
                         _(
                             "label_existing_measure",
                             default="Measure already implemented"
                         )
                     ) + " " + str(idx + 1)
-                    action_plan = model.ActionPlan()
-                    action_plan.action_plan = measure
                     self.add_measure(
                         doc, heading, action_plan, implemented=True)
 
             if not skip_planned_measures:
-                for (idx, measure) in enumerate(node.action_plans):
-                    if not measure.action_plan:
+                action_plans = node.standard_measures + node.custom_measures
+                for (idx, measure) in enumerate(action_plans):
+                    if not measure.action:
                         continue
 
-                    if len(node.action_plans) == 1:
+                    if len(action_plans) == 1:
                         heading = self.t(
                             _("header_measure_single", default=u"Measure"))
                     else:
@@ -418,10 +378,6 @@ class DocxCompiler(BaseOfficeCompiler):
         if not implemented:
             headings = headings + [
                 self.t(_(
-                    "label_measure_prevention_plan",
-                    default=u"Specific action(s) required to implement this "
-                    u"approach")),
-                self.t(_(
                     "label_measure_requirements",
                     default=u"Level of expertise and/or requirements needed")),
                 self.t(_(
@@ -437,11 +393,10 @@ class DocxCompiler(BaseOfficeCompiler):
 
         m = measure
         values = [
-            _simple_breaks(m.action_plan or ""),
+            _simple_breaks(m.action or ""),
         ]
         if not implemented:
             values = values + [
-                _simple_breaks(m.prevention_plan or ""),
                 _simple_breaks(m.requirements or ""),
                 m.responsible,
                 m.budget and str(m.budget) or '',
@@ -650,17 +605,6 @@ class DocxCompilerFullTable(DocxCompiler):
                 paragraph = cell.add_paragraph()
             paragraph.style = "Measure List"
             paragraph.text = _simple_breaks(action['text'])
-            if action.get('prevention_plan', None):
-                paragraph = cell.add_paragraph(style="Measure Indent")
-                run = paragraph.add_run()
-                run.text = api.portal.translate(
-                    _(u"report_actions", default=u"Actions:")
-                )
-                run.underline = True
-                run = paragraph.add_run()
-                run.text = u" "
-                run = paragraph.add_run()
-                run.text = _simple_breaks(action['prevention_plan'])
             if action.get('requirements', None):
                 paragraph = cell.add_paragraph(style="Measure Indent")
                 run = paragraph.add_run()

@@ -19,6 +19,7 @@ from openpyxl.workbook import Workbook
 from openpyxl.writer.excel import save_virtual_workbook
 from plone import api
 from plone.memoize.view import memoize
+from sqlalchemy import sql
 from urllib import quote
 from zope.i18n import translate
 
@@ -87,7 +88,13 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
         measure_data = []
         for (module, risk) in risk_data:
             action_plan_q = self.sql_session.query(model.ActionPlan).filter(
-                model.ActionPlan.risk_id == risk.id
+                sql.and_(
+                    model.ActionPlan.risk_id == risk.id,
+                    sql.or_(
+                        model.ActionPlan.plan_type == 'measure_standard',
+                        model.ActionPlan.plan_type == 'measure_custom',
+                    )
+                )
             )
             # If the risk contains no action plan, add it as a single line
             # to the results
@@ -121,18 +128,10 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
         ),
         (
             "measure",
-            "action_plan",
+            "action",
             _(
                 "label_measure_action_plan",
                 default=u"General approach " u"(to eliminate or reduce the risk)",
-            ),
-        ),
-        (
-            "measure",
-            "prevention_plan",
-            _(
-                "label_measure_prevention_plan",
-                default=u"Specific action(s) required to implement " u"this approach",
             ),
         ),
         (
