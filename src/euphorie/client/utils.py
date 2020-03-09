@@ -222,17 +222,18 @@ def get_unactioned_nodes(ls, filter_for_measures=False):
             unactioned.append(n)
 
         elif n.type == 'risk':
-            if not n.action_plans:
+            action_plans = n.standard_measures + n.custom_measures
+            if not action_plans:
                 if filter_for_measures:
-                    if getattr(n, "existing_measures", None):
+                    if not (n.in_place_standard + n.in_place_custom):
                         unactioned.append(n)
                 else:
                     unactioned.append(n)
             else:
                 # It's possible that there is an action plan object, but
                 # that it's not yet fully populated
-                if n.action_plans[0] is None or \
-                        n.action_plans[0].action_plan is None:
+                if action_plans[0] is None or \
+                        action_plans[0].action is None:
                     unactioned.append(n)
 
     return remove_empty_modules(unactioned)
@@ -250,10 +251,12 @@ def get_actioned_nodes(ls):
         if n.type == 'module':
             actioned.append(n)
 
-        if n.type == 'risk' and len(n.action_plans):
+        if n.type == 'risk':
+            action_plans = n.standard_measures + n.custom_measures
+            if len(action_plans):
                 # It's possible that there is an action plan object, but
                 # it's not yet fully populated
-                plans = [p.action_plan for p in n.action_plans]
+                plans = [p.action for p in action_plans]
                 if plans[0] is not None:
                     actioned.append(n)
 
