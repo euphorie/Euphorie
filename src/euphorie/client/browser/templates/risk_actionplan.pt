@@ -25,7 +25,7 @@
       <tal:block replace="tile:statusmessages" />
       <tal:def define="
                  errors python:exists('actionplan/errors') and actionplan['errors'] or {};
-                 action_plans data/action_plans;
+                 action_plans data/custom_measures;
                "
       >
 
@@ -302,7 +302,6 @@
 
               <tal:actionplans repeat="actionplan action_plans">
                 <div class="measure clone pat-collapsible"
-                     tal:condition="python:actionplan.plan_type=='measure_custom'"
                 >
                   <h2><tal:span condition="not:view/use_existing_measures"
                               i18n:translate="Measure"

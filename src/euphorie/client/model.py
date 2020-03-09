@@ -1143,17 +1143,33 @@ class Risk(SurveyTreeItem):
     image_data_scaled = schema.Column(types.LargeBinary())
     image_filename = schema.Column(types.UnicodeText())
 
-    @property
-    def standard_measures(self):
+    @memoize
+    def measures_of_type(self, plan_type):
         query = (
             Session.query(ActionPlan)
             .filter(
                 sql.and_(ActionPlan.risk_id == self.id),
-                ActionPlan.plan_type == "measure_standard",
+                ActionPlan.plan_type == plan_type,
             )
-            .order_by(ActionPlan.solution_id.desc())
+            .order_by(ActionPlan.id)
         )
-        return query
+        return query.all()
+
+    @property
+    def standard_measures(self):
+        return self.measures_of_type("measure_standard")
+
+    @property
+    def custom_measures(self):
+        return self.measures_of_type("measure_custom")
+
+    @property
+    def in_place_standard_measures(self):
+        return self.measures_of_type("in_place_standard")
+
+    @property
+    def in_place_custom_measures(self):
+        return self.measures_of_type("in_place_custom")
 
 
 class ActionPlan(BaseObject):
