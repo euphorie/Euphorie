@@ -72,7 +72,6 @@ class IdentificationView(BrowserView):
         "severity": None,
         "priority": None,
         "comment": u"",
-        "existing_measures": u"[]",
         "training_notes": None,
         "custom_description": None,
     }
@@ -173,16 +172,7 @@ class IdentificationView(BrowserView):
                 return self.proceed_to_next(reply)
             old_values = {}
             for prop, default in self.monitored_properties.items():
-                if prop == "existing_measures":
-                    val = dumps(
-                        [
-                            entry
-                            for entry in loads(getattr(self.context, prop, default))
-                            if entry[1]
-                        ]
-                    )
-                else:
-                    val = getattr(self.context, prop, default)
+                val = getattr(self.context, prop, default)
                 old_values[prop] = val
             answer = reply.get("answer", None)
             # If answer is not present in the request, do not attempt to set
@@ -202,38 +192,62 @@ class IdentificationView(BrowserView):
                     elif self.risk is None or self.risk.evaluation_method == "direct":
                         self.context.priority = reply.get("priority")
 
+            # Check if there was a change. If yes, touch the session
+            changed = False
             if self.use_existing_measures and reply.get("handle_measures_in_place"):
-                measures = self.get_existing_measures()
+                session = Session()
+
                 new_measures = []
-                seen = []
-                for i, entry in enumerate(measures):
-                    on = int(bool(reply.get("measure-{}".format(i))))
-                    new_measures.append((entry[0], on))
-                    if on:
-                        seen.append(i)
+                # First, check which of the standard solutions were selected
+                for solution in self.solutions:
+                    if reply.get("measure-standard-%s" % solution.id):
+                        new_measures.append(
+                            model.ActionPlan(
+                                action=solution.action,
+                                requirements=solution.requirements,
+                                plan_type="in_place_standard",
+                                solution_id=solution.id,
+                            )
+                        )
+                # Clean up, remove all standard in-place measures. The active
+                # ones will be created freshly again below
+                for plan in self.context.in_place_standard_measures:
+                    session.delete(plan)
+
+                # Now loop over the form data to find out which new custom measures
+                # to add and which already present custom measures to keep
+                keep = []
                 for k, val in reply.items():
                     if (
                         k.startswith("new-measure")
                         and isinstance(val, str)
                         and val.strip() != ""
                     ):
-                        new_measures.append((val, 1))
+                        new_measures.append(
+                            model.ActionPlan(action=val, plan_type="in_place_custom")
+                        )
+                    elif k.startswith("measure-custom"):
+                        _id = k.rsplit("-", 1)[-1]
+                        keep.append(_id)
+                    # This only happens on custom risks
                     elif k.startswith("present-measure") and val.strip() != "":
-                        idx = k.rsplit("-", 1)[-1]
-                        try:
-                            idx = int(idx)
-                        except (TypeError, ValueError):
-                            continue
-                        if idx in seen:
-                            new_measures[idx] = (val, 1)
+                        _id = k.rsplit("-", 1)[-1]
+                        if int(bool(reply.get("measure-{}".format(_id)))):
+                            new_measures.append(
+                                model.ActionPlan(
+                                    action=val, plan_type="in_place_custom"
+                                )
+                            )
 
-                # Only save the measures that are active
-                self.context.existing_measures = safe_unicode(
-                    dumps([entry for entry in new_measures if entry[1]])
-                )
+                # Delete all custom in-place measures that are not longer checked
+                for plan in self.context.in_place_custom_measures:
+                    if str(plan.id) not in keep:
+                        session.delete(plan)
 
-            # Check if there was a change. If yes, touch the session
-            changed = False
+                if new_measures:
+                    self.context.action_plans.extend(new_measures)
+                    changed = True
+
             if self.use_training_module and reply.get("handle_training_notes"):
                 self.context.training_notes = reply.get("training_notes")
                 changed = True
@@ -246,16 +260,7 @@ class IdentificationView(BrowserView):
                 self.context.title = reply.get("title")
 
             for prop, default in self.monitored_properties.items():
-                if prop == "existing_measures":
-                    val = dumps(
-                        [
-                            entry
-                            for entry in loads(getattr(self.context, prop, default))
-                            if entry[1]
-                        ]
-                    )
-                else:
-                    val = getattr(self.context, prop, None)
+                val = getattr(self.context, prop, None)
                 if val and val != old_values[prop]:
                     changed = True
                     break
@@ -449,8 +454,43 @@ class IdentificationView(BrowserView):
         )
         return self.request.response.redirect(url)
 
+    @property
+    @memoize
+    def solutions(self):
+        if not self.risk:
+            return []
+        else:
+            return self.risk._solutions
+
     @memoize
     def get_existing_measures(self):
+        saved_standard_measures = {
+            str(getattr(measure, "solution_id", "")): measure
+            for measure in self.context.in_place_standard_measures
+        }
+        existing_measures = []
+        for solution in self.solutions:
+            existing_measures.append(
+                {
+                    "text": solution.action,
+                    "active": solution.id in saved_standard_measures,
+                    "solution_id": solution.id,
+                    "plan_type": "in_place_standard",
+                }
+            )
+        for measure in self.context.in_place_custom_measures:
+            existing_measures.append(
+                {
+                    "text": measure.action,
+                    "active": True,
+                    "solution_id": measure.id,
+                    "plan_type": "in_place_custom",
+                }
+            )
+        return existing_measures
+
+    @memoize
+    def get_existing_measures_old(self):
         if not self.risk:
             defined_measures = []
         else:
@@ -635,7 +675,17 @@ class ActionPlanView(BrowserView):
             return True
         return False
 
+    @memoize
     def get_existing_measures(self):
+        return [
+            measure
+            for measure in (
+                self.context.in_place_standard_measures
+                + self.context.in_place_custom_measures
+            )
+        ]
+
+    def get_existing_measures_old(self):
         if not self.use_existing_measures:
             return {}
         if not self.risk or not IRisk.providedBy(self.risk):
@@ -827,32 +877,20 @@ class ActionPlanView(BrowserView):
         if self.is_custom_risk:
             self.risk.description = u""
             self.risk.evaluation_method = u""
-        if self.italy_special:
-            measures_full_text = True
-        else:
-            measures_full_text = False
         if not self.is_custom_risk:
-            existing_measures = [
-                txt.strip() for (txt, active) in self.get_existing_measures() if active
+            existing_measure_ids = [
+                str(measure.solution_id) for measure in self.get_existing_measures()
             ]
             self.active_standard_measures = {
                 str(getattr(measure, "solution_id", "")): measure
                 for measure in context.standard_measures
             }
-
             solutions = []
             for solution in self.risk.values():
                 if not ISolution.providedBy(solution):
                     continue
                 solution_id = solution.id
-                description = (getattr(solution, "description", "") or "").strip()
-                prevention_plan = (
-                    getattr(solution, "prevention_plan", "") or ""
-                ).strip()
-                match = description
-                if measures_full_text and prevention_plan:
-                    match = u"%s: %s" % (match, prevention_plan)
-                if match not in existing_measures:
+                if solution_id not in existing_measure_ids:
                     solutions.append(
                         {
                             "description": StripMarkup(solution.description),

@@ -55,7 +55,7 @@
                         repeat="measure measures"
           >
             <label>
-              <input checked="${python:measure[1] and 'checked' or None}"
+              <input checked="${python:measure['active'] and 'checked' or None}"
                      name="measure-${repeat/measure/index}"
                      type="checkbox"
               />
@@ -65,7 +65,7 @@
                           name="present-measure-${repeat/measure/index}"
                           placeholder="${view/placeholder_add_extra}"
                           rows="3"
-                >${python:measure[0]}</textarea>
+                >${python:measure['text']}</textarea>
             </label>
           </tal:measures>
           <input type="hidden" name="handle_measures_in_place" value="1" />
