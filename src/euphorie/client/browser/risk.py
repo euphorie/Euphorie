@@ -366,9 +366,6 @@ class IdentificationView(BrowserView):
                 self.answer_yes = tool_type_data["answer_yes"]
                 self.answer_no = tool_type_data["answer_no"]
                 self.answer_na = tool_type_data["answer_na"]
-            if not self.context.existing_measures:
-                existing_measures = [(text, 0) for text in measures]
-                self.context.existing_measures = safe_unicode(dumps(existing_measures))
 
         survey = self.context.aq_parent.aq_parent
         if getattr(survey, "enable_custom_evaluation_descriptions", False):
@@ -961,6 +958,9 @@ class ActionPlanView(BrowserView):
                     "sm-%s" % solution_id
                 ):
                     continue
+                action = measure.get("action", "").strip()
+                if not action:
+                    continue
                 budget = measure.get("budget")
                 budget = budget and budget.split(",")[0].split(".")[0]
                 p_start = measure.get("planning_start")
@@ -978,7 +978,7 @@ class ActionPlanView(BrowserView):
                 if measure.get("id", "-1") in existing_plans:
                     plan = existing_plans[measure.get("id")]
                     if (
-                        measure.get("action") != plan.action
+                        action != plan.action
                         or measure.get("requirements") != plan.requirements  # noqa
                         or measure.get("responsible") != plan.responsible
                         or (
