@@ -1,5 +1,4 @@
 # coding=utf-8
-from collections import OrderedDict
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.docx.compiler import _sanitize_html
@@ -11,7 +10,6 @@ from euphorie.client.docx.compiler import IdentificationReportCompiler
 from euphorie.client.utils import get_translated_custom_risks_title
 from euphorie.content import MessageFactory as _
 from euphorie.content.survey import get_tool_type
-from json import loads
 from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
@@ -102,49 +100,25 @@ class OfficeDocumentView(BrowserView):
                 risk = self.context.aq_parent.restrictedTraverse(
                     sql_risk.zodb_path.split("/"))
                 risk_description = risk.description
-                defined_measures = risk.get_pre_defined_measures(self.request)
             else:
                 risk = None
-                risk_description = defined_measures = ""
+                risk_description = ""
             risk_description = _sanitize_html(risk_description)
-            try:
-                # We try to get at least some order in: First, the pre-
-                # defined measures that the user has confirmed, then the
-                # additional custom-defined ones.
-                saved_measures = loads(sql_risk.existing_measures)
-                # Backwards compat. We used to save dicts in JSON before we
-                # switched to list of tuples.
-                if isinstance(saved_measures, dict):
-                    saved_measures = [
-                        (k, v) for (k, v) in saved_measures.items()]
 
-                saved_measure_texts = OrderedDict()
-                for text, on in saved_measures:
-                    saved_measure_texts.update({text: on})
+            measures = [
+                measure.action
+                for measure in (
+                    sql_risk.in_place_standard_measures
+                    + sql_risk.in_place_custom_measures
+                )
+            ]
 
-                existing_measures = []
-                # Pick the pre-defined measures first
-                for text in defined_measures:
-                    active = saved_measure_texts.get(text)
-                    if active is not None:
-                        # Only add the measures that are active
-                        if active:
-                            existing_measures.append((text, 1))
-                        saved_measure_texts.pop(text)
-
-                # Finally, add the user-defined measures as well
-                for text, on in saved_measure_texts.items():
-                    existing_measures.append((text, on))
-
-                measures = [item[0] for item in existing_measures if item[1]]
-            except Exception:
-                measures = []
             if sql_risk.identification == "no" or (
                 risk and getattr(risk, "type", None) == "top5"
             ):
                 actions = [
                     _get_action_plan(action)
-                    for action in sql_risk.action_plans
+                    for action in (sql_risk.standard_measures + sql_risk.custom_measures)
                 ]
             else:
                 actions = []
@@ -187,9 +161,7 @@ def _escape_text(txt):
 
 def _get_action_plan(action):
     action_plan = {}
-    action_plan['text'] = _escape_text(action.action_plan)
-    prevention_plan = getattr(action, 'prevention_plan') or ""
-    action_plan['prevention_plan'] = _escape_text(prevention_plan)
+    action_plan['text'] = _escape_text(action.action)
     requirements = getattr(action, 'requirements') or ""
     action_plan['requirements'] = _escape_text(requirements)
     if action.responsible:
