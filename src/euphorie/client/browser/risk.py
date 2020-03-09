@@ -808,7 +808,7 @@ class ActionPlanView(BrowserView):
             context.priority = reply.get("priority")
 
             new_plans, changes = self.extract_plans_from_request()
-            for plan in context.action_plans:
+            for plan in context.standard_measures + context.custom_measures:
                 session.delete(plan)
             context.action_plans.extend(new_plans)
             if changes:
@@ -908,7 +908,8 @@ class ActionPlanView(BrowserView):
         added = 0
         updated = 0
         existing_plans = {}
-        for plan in self.context.action_plans:
+        context = aq_inner(self.context)
+        for plan in context.standard_measures + context.custom_measures:
             existing_plans[str(plan.id)] = plan
         form = self.request.form
         form["action_plans"] = []
