@@ -19,6 +19,7 @@ def upgrade():
     op.add_column("action_plan", sa.Column("action", sa.UnicodeText(), nullable=True))
     op.add_column('action_plan', sa.Column('solution_id', sa.Integer(), nullable=True))
     op.add_column('action_plan', sa.Column('plan_type', sa.String(length=20), nullable=True))
+    op.add_column("session", sa.Column("migrated", sa.DateTime(), nullable=True))
     op.create_index(op.f('ix_action_plan_plan_type'), 'action_plan', ['plan_type'], unique=False)
     op.execute("UPDATE action_plan SET plan_type = 'measure_custom'")
     op.execute("""UPDATE action_plan ap SET "action" = ap.action_plan || E'\n' || ap.prevention_plan """)
