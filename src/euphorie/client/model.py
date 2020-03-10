@@ -1212,7 +1212,7 @@ class ActionPlan(BaseObject):
         index=True,
         default="measure_custom",
     )
-    solution_id = schema.Column(types.Integer())
+    solution_id = schema.Column(types.Unicode(20))
 
     risk = orm.relation(
         Risk,

@@ -17,7 +17,7 @@ depends_on = None
 
 def upgrade():
     op.add_column("action_plan", sa.Column("action", sa.UnicodeText(), nullable=True))
-    op.add_column('action_plan', sa.Column('solution_id', sa.Integer(), nullable=True))
+    op.add_column('action_plan', sa.Column('solution_id', sa.String(length=20), nullable=True))
     op.add_column('action_plan', sa.Column('plan_type', sa.String(length=20), nullable=True))
     op.add_column("session", sa.Column("migrated", sa.DateTime(), nullable=True))
     op.create_index(op.f('ix_action_plan_plan_type'), 'action_plan', ['plan_type'], unique=False)
@@ -30,3 +30,5 @@ def downgrade():
     op.drop_index(op.f('ix_action_plan_plan_type'), table_name='action_plan')
     op.drop_column('action_plan', 'solution_id')
     op.drop_column('action_plan', 'plan_type')
+    op.drop_column('action_plan', 'action')
+    op.drop_column('session', 'migrated')
