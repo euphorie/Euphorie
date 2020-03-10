@@ -462,7 +462,7 @@ class IdentificationView(BrowserView):
     @memoize
     def get_existing_measures(self):
         saved_standard_measures = {
-            str(getattr(measure, "solution_id", "")): measure
+            getattr(measure, "solution_id", ""): measure
             for measure in self.context.in_place_standard_measures
         }
         existing_measures = []
@@ -876,10 +876,10 @@ class ActionPlanView(BrowserView):
             self.risk.evaluation_method = u""
         if not self.is_custom_risk:
             existing_measure_ids = [
-                str(measure.solution_id) for measure in self.get_existing_measures()
+                measure.solution_id for measure in self.get_existing_measures()
             ]
             self.active_standard_measures = {
-                str(getattr(measure, "solution_id", "")): measure
+                getattr(measure, "solution_id", ""): measure
                 for measure in context.standard_measures
             }
             solutions = []
