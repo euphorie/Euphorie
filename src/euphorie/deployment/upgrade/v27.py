@@ -139,6 +139,28 @@ def migrate_actgion_plans(context):
 
                 else:
                     zodb_risk = risks_by_path[risk_path]
+
+                # convert ActionPlan items that are clearly based on solutions to "standard" type
+                if not is_custom:
+                    for ap in risk.action_plans:
+                        for solution in solutions_by_path[risk_path]:
+                            if solution.action_plan.startswith(
+                                (ap.action_plan or "").strip()
+                            ):
+                                if (
+                                    (
+                                        getattr(solution, "prevention_plan", "") or ""
+                                    ).strip()
+                                    == ap.prevention_plan
+                                    and (
+                                        getattr(solution, "requirements", "") or ""
+                                    ).strip()
+                                    == ap.requirements
+                                ):
+                                    ap.plan_type = "measure_standard"
+                                    ap.solution_id = solution.id
+
+                # Convert the measures-in-place to their respective ActionPlan items
                 try:
                     saved_existing_measures = (
                         risk.existing_measures and loads(risk.existing_measures) or []
