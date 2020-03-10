@@ -677,6 +677,12 @@ class SurveySession(BaseObject):
         ),
     )
 
+    migrated = schema.Column(
+        types.DateTime,
+        nullable=False,
+        default=functions.now(),
+    )
+
     # Allow this class to be subclassed in other projects
     __mapper_args__ = {
         'polymorphic_identity': 'euphorie',
