@@ -74,50 +74,9 @@ class Node(NodeMixin):
         return _repr(self, args=args, nameblacklist=["context"])
 
 
-class SessionsView(BrowserView):
-
+class SurveyTemplatesMixin(object):
     # switch from radio buttons to dropdown above this number of tools
     tools_threshold = 12
-    variation_class = "variation-dashboard"
-    _portlet_names = ["portlet-my-ras", "portlet-available-tools"]
-
-    @property
-    @memoize
-    def webhelpers(self):
-        return api.content.get_view("webhelpers", self.context, self.request)
-
-    @property
-    @memoize
-    def survey_session_model(self):
-        return self.webhelpers.survey_session_model
-
-    @property
-    @memoize
-    def portlets(self):
-        return [
-            api.content.get_view(name, self.context, self.request)
-            for name in self._portlet_names
-        ]
-
-    @property
-    @memoize
-    def my_context(self):
-        if IClientCountry.providedBy(self.context):
-            return "country"
-        elif ISurvey.providedBy(self.context):
-            return "survey"
-
-    @property
-    @memoize_contextless
-    def portal(self):
-        return api.portal.get()
-
-    @property
-    @memoize_contextless
-    def account(self):
-        """ The currently authenticated account
-        """
-        return get_current_account()
 
     # Here, we assemble the list of available tools for starting a new session
 
@@ -187,6 +146,50 @@ class SessionsView(BrowserView):
                 for category in categories:
                     survey_items.append((category, survey, id))
         return sorted(survey_items, key=lambda x: (x[0], x[1].title))
+
+
+class SessionsView(BrowserView, SurveyTemplatesMixin):
+
+    variation_class = "variation-dashboard"
+    _portlet_names = ["portlet-my-ras", "portlet-available-tools"]
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    @memoize
+    def survey_session_model(self):
+        return self.webhelpers.survey_session_model
+
+    @property
+    @memoize
+    def portlets(self):
+        return [
+            api.content.get_view(name, self.context, self.request)
+            for name in self._portlet_names
+        ]
+
+    @property
+    @memoize
+    def my_context(self):
+        if IClientCountry.providedBy(self.context):
+            return "country"
+        elif ISurvey.providedBy(self.context):
+            return "survey"
+
+    @property
+    @memoize_contextless
+    def portal(self):
+        return api.portal.get()
+
+    @property
+    @memoize_contextless
+    def account(self):
+        """ The currently authenticated account
+        """
+        return get_current_account()
 
     def _updateSurveys(self):
         self.surveys = []
@@ -435,6 +438,6 @@ class MyRAsPortlet(PortletBase):
         return capitalize(label)
 
 
-class AvailableToolsPortlet(PortletBase):
+class AvailableToolsPortlet(PortletBase, SurveyTemplatesMixin):
 
     pass

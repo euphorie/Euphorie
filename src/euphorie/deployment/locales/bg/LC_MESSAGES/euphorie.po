@@ -258,7 +258,7 @@ msgstr "Сигурни ли сте, че желаете да продължит�
 msgid "Automatically generate unique ids for content"
 msgstr ""
 
-#: euphorie/client/browser/templates/portlet-available-tools.pt:10
+#: euphorie/client/browser/templates/portlet-available-tools.pt:12
 msgid "Available OiRA tools"
 msgstr "наличните OiRA инструменти"
 
@@ -1057,7 +1057,7 @@ msgid "Started"
 msgstr "публикуван"
 
 #: euphorie/client/browser/login.py:232
-#: euphorie/client/browser/templates/new-session-test.pt:88
+#: euphorie/client/browser/templates/new-session-test.pt:89
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
 
@@ -1573,7 +1573,7 @@ msgstr "Създадено от ${EU-OSHA}."
 msgid "based on"
 msgstr "въз основа на"
 
-#: euphorie/client/browser/templates/new-session-test.pt:71
+#: euphorie/client/browser/templates/new-session-test.pt:72
 msgid "benefits"
 msgstr "предимства"
 
@@ -1727,9 +1727,9 @@ msgid "button_start_new_session"
 msgstr "Започнете нова сесия с този инструмент."
 
 #. Default: "Start session"
-#: euphorie/client/browser/templates/new-session-test.pt:80
-#: euphorie/client/browser/templates/new-session.pt:75
-#: euphorie/client/browser/templates/portlet-available-tools.pt:46
+#: euphorie/client/browser/templates/new-session-test.pt:81
+#: euphorie/client/browser/templates/new-session.pt:76
+#: euphorie/client/browser/templates/portlet-available-tools.pt:73
 msgid "button_start_session"
 msgstr "Начало на сесия"
 
@@ -4090,7 +4090,7 @@ msgstr "По кой канал научихте за този инструмен
 
 #. Default: "register"
 #: euphorie/client/browser/templates/login.pt:51
-#: euphorie/client/browser/templates/new-session-test.pt:74
+#: euphorie/client/browser/templates/new-session-test.pt:75
 msgid "label_register"
 msgstr "регистрирайте се"
 
@@ -4241,10 +4241,17 @@ msgstr "Изберете една или повече от предлагани�
 #. Default: "Start a new session by choosing one of the following sectoral tools."
 #: euphorie/client/browser/templates/new-session-test.pt:27
 #: euphorie/client/browser/templates/new-session.pt:28
-#: euphorie/client/browser/templates/portlet-available-tools.pt:24
+#: euphorie/client/browser/templates/portlet-available-tools.pt:26
 msgid "label_select_new_session"
 msgstr ""
 "Започнете нова сесия, като изберете един от следните секторни инструменти"
+
+#. Default: "Select an OiRA tool"
+#: euphorie/client/browser/templates/new-session-test.pt:53
+#: euphorie/client/browser/templates/new-session.pt:54
+#: euphorie/client/browser/templates/portlet-available-tools.pt:54
+msgid "label_select_oira_tool"
+msgstr ""
 
 #. Default: "Enter a title for your Risk Assessment"
 #: euphorie/client/browser/session.py:73
@@ -4447,7 +4454,7 @@ msgstr ""
 "публикувани. Кликнете върху иконата за актуализация, за да публикувате "
 "всички промени"
 
-#: euphorie/client/browser/templates/new-session-test.pt:71
+#: euphorie/client/browser/templates/new-session-test.pt:72
 msgid "limitations"
 msgstr "ограничения"
 
@@ -4457,7 +4464,7 @@ msgid "link_sign_in"
 msgstr "Вход"
 
 #. Default: "start a new session"
-#: euphorie/client/browser/country.py:433
+#: euphorie/client/browser/country.py:436
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:47
 msgid "link_start_session"
@@ -5161,7 +5168,7 @@ msgstr ""
 "условия внимателно преди да продължите."
 
 #. Default: "Read here about the ${benefits}${tooltip_benefits} and ${limitations}${tooltip_limitations} of a test session."
-#: euphorie/client/browser/templates/new-session-test.pt:71
+#: euphorie/client/browser/templates/new-session-test.pt:72
 msgid "testsession_benefits_limitations"
 msgstr ""
 "Тук ще намерите информация за предимствата на тестовата сесия и разясненията "
@@ -5169,7 +5176,7 @@ msgstr ""
 "и разясненията към нея ${limitations}${tooltip_limitations}."
 
 #. Default: "Or ${register_link} instead. Find out why you should register${tooltip_register}."
-#: euphorie/client/browser/templates/new-session-test.pt:74
+#: euphorie/client/browser/templates/new-session-test.pt:75
 msgid "testsession_register"
 msgstr ""
 "Или вместо това се регистрирайте ${register_link}. Научете ползите от "

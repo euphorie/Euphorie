@@ -255,7 +255,7 @@ msgstr "Ar tikrai norite tęsti?"
 msgid "Automatically generate unique ids for content"
 msgstr ""
 
-#: euphorie/client/browser/templates/portlet-available-tools.pt:10
+#: euphorie/client/browser/templates/portlet-available-tools.pt:12
 msgid "Available OiRA tools"
 msgstr "Esamos OiRA priemonės"
 
@@ -1041,7 +1041,7 @@ msgid "Started"
 msgstr ""
 
 #: euphorie/client/browser/login.py:232
-#: euphorie/client/browser/templates/new-session-test.pt:88
+#: euphorie/client/browser/templates/new-session-test.pt:89
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
 
@@ -1531,7 +1531,7 @@ msgstr "Sukūrė: ${EU-OSHA}."
 msgid "based on"
 msgstr "pagal"
 
-#: euphorie/client/browser/templates/new-session-test.pt:71
+#: euphorie/client/browser/templates/new-session-test.pt:72
 msgid "benefits"
 msgstr "nauda"
 
@@ -1684,9 +1684,9 @@ msgid "button_start_new_session"
 msgstr "Pradėti šios priemonės naują seansą"
 
 #. Default: "Start session"
-#: euphorie/client/browser/templates/new-session-test.pt:80
-#: euphorie/client/browser/templates/new-session.pt:75
-#: euphorie/client/browser/templates/portlet-available-tools.pt:46
+#: euphorie/client/browser/templates/new-session-test.pt:81
+#: euphorie/client/browser/templates/new-session.pt:76
+#: euphorie/client/browser/templates/portlet-available-tools.pt:73
 msgid "button_start_session"
 msgstr "Pradėti"
 
@@ -4024,7 +4024,7 @@ msgstr "Kaip sužinojote apie šią priemonę?"
 
 #. Default: "register"
 #: euphorie/client/browser/templates/login.pt:51
-#: euphorie/client/browser/templates/new-session-test.pt:74
+#: euphorie/client/browser/templates/new-session-test.pt:75
 msgid "label_register"
 msgstr "registruotis"
 
@@ -4173,11 +4173,18 @@ msgstr "Pasirinkite vieną ar kelias iš pateiktų priemonių."
 #. Default: "Start a new session by choosing one of the following sectoral tools."
 #: euphorie/client/browser/templates/new-session-test.pt:27
 #: euphorie/client/browser/templates/new-session.pt:28
-#: euphorie/client/browser/templates/portlet-available-tools.pt:24
+#: euphorie/client/browser/templates/portlet-available-tools.pt:26
 msgid "label_select_new_session"
 msgstr ""
 "Pradėkite naują rizikos vertinimo sesiją pasirinkdami vieną iš šių OiRA "
 "priemonių"
+
+#. Default: "Select an OiRA tool"
+#: euphorie/client/browser/templates/new-session-test.pt:53
+#: euphorie/client/browser/templates/new-session.pt:54
+#: euphorie/client/browser/templates/portlet-available-tools.pt:54
+msgid "label_select_oira_tool"
+msgstr ""
 
 #. Default: "Enter a title for your Risk Assessment"
 #: euphorie/client/browser/session.py:73
@@ -4379,7 +4386,7 @@ msgstr ""
 "${label} = Šioje versijoje yra pakeitimų, kurie nebuvo publikuoti. Norėdami "
 "pakeitimus patvirtinti, paspauskite naujinimo piktogramą"
 
-#: euphorie/client/browser/templates/new-session-test.pt:71
+#: euphorie/client/browser/templates/new-session-test.pt:72
 msgid "limitations"
 msgstr "apribojimai"
 
@@ -4389,7 +4396,7 @@ msgid "link_sign_in"
 msgstr "Prisijungimo vardas"
 
 #. Default: "start a new session"
-#: euphorie/client/browser/country.py:433
+#: euphorie/client/browser/country.py:436
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:47
 msgid "link_start_session"
@@ -5089,14 +5096,14 @@ msgstr ""
 "atidžiai perskaitykite naujus terminus ir sąlygas."
 
 #. Default: "Read here about the ${benefits}${tooltip_benefits} and ${limitations}${tooltip_limitations} of a test session."
-#: euphorie/client/browser/templates/new-session-test.pt:71
+#: euphorie/client/browser/templates/new-session-test.pt:72
 msgid "testsession_benefits_limitations"
 msgstr ""
 "Čia galite rasti informacijos apie bandomąją sesiją "
 "${benefits}${tooltip_benefits} ir ${limitations}${tooltip_limitations}."
 
 #. Default: "Or ${register_link} instead. Find out why you should register${tooltip_register}."
-#: euphorie/client/browser/templates/new-session-test.pt:74
+#: euphorie/client/browser/templates/new-session-test.pt:75
 msgid "testsession_register"
 msgstr ""
 "Arba galite registruotis ${register_link}. Sužinokite, kodėl verta "
