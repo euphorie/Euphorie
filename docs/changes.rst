@@ -1,10 +1,16 @@
 Changelog
 =========
 
-11.1.17 (unreleased)
+11.1.18 (unreleased)
 --------------------
 
 - Improve starting a new session for the "many tools" case
+
+
+11.1.17 (2020-03-03)
+--------------------
+
+- Fix a bug that prevented browsing Identification in Safari / iOS
 
 
 11.1.16 (2020-02-25)

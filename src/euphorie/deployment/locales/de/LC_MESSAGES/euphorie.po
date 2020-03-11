@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-27 16:07+0000\n"
+"POT-Creation-Date: 2020-03-03 14:06+0000\n"
 "PO-Revision-Date: 2016-07-28 15:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1660,7 +1660,7 @@ msgid "button_cancel"
 msgstr "Abbrechen"
 
 #. Default: "Close"
-#: euphorie/client/browser/templates/new-session-test.pt:93
+#: euphorie/client/browser/templates/new-session-test.pt:92
 #: euphorie/client/browser/webhelpers.py:703
 msgid "button_close"
 msgstr "Schließen"
@@ -5338,7 +5338,7 @@ msgid "title_sectors"
 msgstr "Branchen"
 
 #. Default: "OiRA - Online interactive Risk Assessment"
-#: euphorie/client/browser/country.py:263
+#: euphorie/client/browser/country.py:260
 #: euphorie/client/browser/templates/modal-template.pt:23
 #: euphorie/client/browser/templates/webhelpers.pt:40
 msgid "title_tool"

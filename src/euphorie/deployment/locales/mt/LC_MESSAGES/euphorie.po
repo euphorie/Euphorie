@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-02-27 16:07+0000\n"
+"POT-Creation-Date: 2020-03-03 14:06+0000\n"
 "PO-Revision-Date: 2013-12-18 10:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1643,7 +1643,7 @@ msgid "button_cancel"
 msgstr "Ikkanċella"
 
 #. Default: "Close"
-#: euphorie/client/browser/templates/new-session-test.pt:93
+#: euphorie/client/browser/templates/new-session-test.pt:92
 #: euphorie/client/browser/webhelpers.py:703
 msgid "button_close"
 msgstr "Agħlaq"
@@ -4848,7 +4848,7 @@ msgstr "Żgħir"
 #. Default: "${completion_percentage}% Complete"
 #: euphorie/client/browser/webhelpers.py:251
 msgid "progress_indicator_title"
-msgstr ""
+msgstr "${completion_percentage}% Tlesti"
 
 #. Default: "<p><strong>Important:</strong> In order to avoid duplicating risks, we strongly recommend you to go first through all the previous modules, if you have not done it yet.</p><p>If you don't need to add risks, please continue.</p>"
 #: euphorie/client/publish.py:147 euphorie/deployment/upgrade/v23.py:42
@@ -5267,7 +5267,7 @@ msgid "title_sectors"
 msgstr "Setturi"
 
 #. Default: "OiRA - Online interactive Risk Assessment"
-#: euphorie/client/browser/country.py:263
+#: euphorie/client/browser/country.py:260
 #: euphorie/client/browser/templates/modal-template.pt:23
 #: euphorie/client/browser/templates/webhelpers.pt:40
 msgid "title_tool"
