@@ -179,7 +179,7 @@
 
 
               <tal:solutions repeat="solution solutions">
-                <div class="measure pat-collapsible closed pat-depends"
+                <div class="measure pat-collapsible pat-depends"
                      data-pat-depends="condition: sm-${solution/id};"
                 >
                   <h2>
