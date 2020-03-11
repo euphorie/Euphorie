@@ -432,12 +432,6 @@
             </div>
 
             <div class="button-bar">
-              <button class="add-clone pat-button icon-plus-circle ${view/style_buttons}"
-                      id="addMeasureButton"
-                      title="Add another measure"
-                      type="button"
-                      i18n:translate="label_extra_add_measure"
-              >Add extra measure</button>
               <tal:solutions condition="solutions">
                 <button class="pat-button icon-plus-circle pat-depends ${view/style_buttons}"
                         id="add-standard-measures"
@@ -446,6 +440,12 @@
                         data-pat-depends="${view/solutions_condition}"
                 >Select standard measures</button>
               </tal:solutions>
+              <button class="add-clone pat-button icon-plus-circle ${view/style_buttons}"
+                      id="addMeasureButton"
+                      title="Add another measure"
+                      type="button"
+                      i18n:translate="label_extra_add_measure"
+              >Add extra measure</button>
             </div>
 
             <div class="measure pat-collapsible"
