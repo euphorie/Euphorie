@@ -52,8 +52,8 @@
               <fieldset class="vertical" tal:condition="python:template_count > threshold">
               <label class="tool-list-many">
                 <select name="survey" class="pat-autosuggest" data-pat-autosuggest="minimum-input-length:0" placeholder="Select an OiRA tool" i18n:attributes="placeholder label_select_oira_tool">
+                  <option value="">&nbsp;</option>
                   <metal:templates define-macro="templates_many">
-                    <option value="">&nbsp;</option>
                     <tal:surveys define="surveys root/survey_templates">
                       <option tal:repeat="survey surveys" value="${survey/id}">${survey/title}</option>
                     </tal:surveys>
