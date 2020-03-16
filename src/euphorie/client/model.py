@@ -684,6 +684,7 @@ class SurveySession(BaseObject):
         'with_polymorphic': '*',
     }
 
+    @property
     def is_archived(self):
         archived = self.archived
         if not archived:

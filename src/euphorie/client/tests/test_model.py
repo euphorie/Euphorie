@@ -39,11 +39,11 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
         """
         session = model.SurveySession()
         self.assertIsNone(session.archived)
-        self.assertFalse(session.is_archived())
+        self.assertFalse(session.is_archived)
         session.archived = localized_now()
-        self.assertTrue(session.is_archived())
+        self.assertTrue(session.is_archived)
         session.archived += timedelta(days=1)
-        self.assertFalse(session.is_archived())
+        self.assertFalse(session.is_archived)
 
     def test_get_context_filter(self):
         eu = api.content.create(

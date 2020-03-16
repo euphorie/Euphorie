@@ -734,7 +734,7 @@ class WebHelpers(BrowserView):
     @memoize
     def can_edit_session(self):
         return (
-            self.can_view_session and not self.traversed_session.session.is_archived()
+            self.can_view_session and not self.traversed_session.session.is_archived
         )
 
     @property
@@ -747,7 +747,7 @@ class WebHelpers(BrowserView):
     def can_archive_session(self):
         if not self.use_archive_feature:
             return False
-        if self.traversed_session.session.is_archived():
+        if self.traversed_session.session.is_archived:
             return False
         return self.can_edit_session
 
