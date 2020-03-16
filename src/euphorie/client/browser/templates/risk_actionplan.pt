@@ -217,12 +217,14 @@
                     <p>
                       ${solution/action}
                     </p>
-                    <h4 i18n:translate="label_expertise">
-                      Expertise
-                    </h4>
-                    <p>
-                      ${solution/requirements}
-                    </p>
+                    <tal:requirements condition="python: 'requirements' not in view.skip_fields">
+                      <h4 i18n:translate="label_expertise">
+                        Expertise
+                      </h4>
+                      <p>
+                        ${solution/requirements}
+                      </p>
+                    </tal:requirements>
                   </section>
                   <fieldset class="vertical"
                             tal:define="
