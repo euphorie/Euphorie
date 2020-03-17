@@ -22,7 +22,11 @@ def upgrade():
     op.add_column("session", sa.Column("migrated", sa.DateTime(), nullable=True))
     op.create_index(op.f('ix_action_plan_plan_type'), 'action_plan', ['plan_type'], unique=False)
     op.execute("UPDATE action_plan SET plan_type = 'measure_custom'")
-    op.execute("""UPDATE action_plan ap SET "action" = ap.action_plan || E'\n' || ap.prevention_plan """)
+    op.execute("""
+UPDATE action_plan ap
+    SET "action" = CASE
+    WHEN ap.prevention_plan is not NULL THEN ap.action_plan || E'\n' || ap.prevention_plan
+    ELSE ap.action_plan END""")
     op.alter_column('action_plan', 'plan_type', nullable=False)
 
 
