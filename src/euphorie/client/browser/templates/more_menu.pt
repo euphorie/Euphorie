@@ -51,6 +51,13 @@
              i18n:translate="navigation_status"
           >Status</a>
         </li>
+        <li>
+          <a class="pat-modal close-panel icon-eye"
+             href="${here/absolute_url}/@@panel-contents-preview#document-content"
+             data-pat-modal="class: small"
+             i18n:translate=""
+          >Preview or print the tool for preparation</a>
+        </li>
       </ul>
     </div>
   </body>
