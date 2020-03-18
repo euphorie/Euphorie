@@ -116,11 +116,19 @@
       />
 
   <browser:page
+      name="panel-contents-preview"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".session.ContentsPreview"
+      template="templates/panel-contents-preview.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="identification"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
       class=".session.Identification"
-      template="templates/identification.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
