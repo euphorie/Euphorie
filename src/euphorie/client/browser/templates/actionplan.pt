@@ -26,6 +26,7 @@
             place to manage the risks. To eliminate or reduce risks you need to
             determine which preventive and protective measures are to be taken.
           </p>
+          <tal:large_intro condition="not:view/skip_intro">
           <p i18n:translate="expl_actionplan_2">
             Among the things to be considered for this step are:
           </p>
@@ -44,6 +45,7 @@
           <p i18n:translate="expl_actionplan_7">
             Once you have decided how to eliminate or reduce a particular risk, then you describe the specific action(s) required to achieve this. You should also include details of the level of expertise and/or other requirements needed for those actions to be effective.
           </p>
+          </tal:large_intro>
         </tal:block>
         <tal:block condition="not:view/next_url">
           <p i18n:translate="expl_actionplan_empty">

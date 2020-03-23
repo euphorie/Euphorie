@@ -5,6 +5,7 @@ Changelog
 --------------------
 
 - Improve starting a new session for the "many tools" case
+- Another Italy special: reduce intro text for ActionPlan
 
 
 11.1.17 (2020-03-03)

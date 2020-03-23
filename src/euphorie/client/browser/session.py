@@ -738,6 +738,11 @@ class ActionPlanView(SessionMixin, BrowserView):
             session_url=self.context.absolute_url(), path="/".join(question.short_path)
         )
 
+    @property
+    @memoize
+    def skip_intro(self):
+        return self.webhelpers.country == "it"
+
     def __call__(self):
         """ Render the page only if the user has edit rights,
         otherwise redirect to the start page of the session.
