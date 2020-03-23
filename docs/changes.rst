@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.19 (unreleased)
+11.1.19 (2020-03-23)
 --------------------
 
 - Fix broken release
