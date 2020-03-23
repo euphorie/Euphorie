@@ -2220,7 +2220,7 @@ msgstr "Saltare valutazione"
 msgid "expl_actionplan_1"
 msgstr ""
 "Dopo aver identificato i pericoli, aver valutato i rischi è messo in atto "
-"le misure obbligatorie, in questa fase è possibile programmare le misure di miglioramento.""
+"le misure obbligatorie, in questa fase è possibile programmare le misure di miglioramento."
 
 #. Default: "Among the things to be considered for this step are:"
 #: euphorie/client/browser/templates/actionplan.pt:29

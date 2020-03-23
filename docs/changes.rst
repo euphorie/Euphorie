@@ -4,8 +4,7 @@ Changelog
 11.1.19 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Fix broken release
 
 11.1.18 (2020-03-23)
 --------------------
