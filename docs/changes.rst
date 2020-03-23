@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.18 (unreleased)
+11.1.18 (2020-03-23)
 --------------------
 
 - Improve starting a new session for the "many tools" case
