@@ -40,9 +40,9 @@
                         onclick="window.print()"
                         i18n:translate=""
                 >Print tool preview</button>
-                <a class="pat-button"
+<!--                 <a class="pat-button"
                    href="${here/absolute_url}/@@identification-report.docx"
-                >Download as Word file</a>
+                >Download as Word file</a> -->
               </p>
             </div>
 
