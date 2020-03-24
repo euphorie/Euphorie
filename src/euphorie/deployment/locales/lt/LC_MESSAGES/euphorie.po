@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-03-03 14:06+0000\n"
+"POT-Creation-Date: 2020-03-24 12:21+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -255,7 +255,7 @@ msgstr "Ar tikrai norite tęsti?"
 msgid "Automatically generate unique ids for content"
 msgstr ""
 
-#: euphorie/client/browser/templates/portlet-available-tools.pt:12
+#: euphorie/client/browser/templates/portlet-available-tools.pt:14
 msgid "Available OiRA tools"
 msgstr "Esamos OiRA priemonės"
 
@@ -610,6 +610,7 @@ msgid "Kosovo"
 msgstr "Kosovas"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:120
+#: euphorie/client/browser/templates/status_info.pt:70
 #: euphorie/client/browser/templates/tool_sessions.pt:49
 msgid "Last saved"
 msgstr "išsaugota"
@@ -837,6 +838,7 @@ msgid "Please refer to the examples below the form."
 msgstr "Žr. formos apačioje pateiktus pavyzdžius."
 
 #: euphorie/client/browser/templates/risks_overview.pt:322
+#: euphorie/client/browser/templates/status_info.pt:259
 #: euphorie/client/browser/templates/webhelpers.pt:180
 msgid "Postponed"
 msgstr "Atidėta"
@@ -1231,6 +1233,7 @@ msgid "Unpublish Risk Assessment"
 msgstr ""
 
 #: euphorie/client/browser/templates/risks_overview.pt:330
+#: euphorie/client/browser/templates/status_info.pt:267
 #: euphorie/client/browser/templates/webhelpers.pt:177
 msgid "Unvisited"
 msgstr "Neatsakyta"
@@ -1599,7 +1602,7 @@ msgid "button_cancel"
 msgstr "Atšaukti"
 
 #. Default: "Close"
-#: euphorie/client/browser/templates/new-session-test.pt:92
+#: euphorie/client/browser/templates/new-session-test.pt:93
 #: euphorie/client/browser/webhelpers.py:703
 msgid "button_close"
 msgstr ""
@@ -1686,7 +1689,7 @@ msgstr "Pradėti šios priemonės naują seansą"
 #. Default: "Start session"
 #: euphorie/client/browser/templates/new-session-test.pt:81
 #: euphorie/client/browser/templates/new-session.pt:76
-#: euphorie/client/browser/templates/portlet-available-tools.pt:73
+#: euphorie/client/browser/templates/portlet-available-tools.pt:103
 msgid "button_start_session"
 msgstr "Pradėti"
 
@@ -2176,36 +2179,36 @@ msgstr ""
 "kurias prevencines ir apsaugines priemones reikia taikyti."
 
 #. Default: "Among the things to be considered for this step are:"
-#: euphorie/client/browser/templates/actionplan.pt:29
+#: euphorie/client/browser/templates/actionplan.pt:30
 msgid "expl_actionplan_2"
 msgstr "Reikėtų apsvarstyti tokius dalykus:"
 
 #. Default: "Is a risk avoidable? Can it be removed entirely? For example, this could be achieved by: ${expl_actionplan_4_and_5}"
-#: euphorie/client/browser/templates/actionplan.pt:35
+#: euphorie/client/browser/templates/actionplan.pt:36
 msgid "expl_actionplan_3"
 msgstr ""
 "Ar rizikos galima išvengti? Ar ją galima visiškai pašalinti? Pavyzdžiui, to "
 "galima pasiekti taikant ${expl_actionplan_4_and_5}"
 
 #. Default: "considering whether the task or job is necessary"
-#: euphorie/client/browser/templates/actionplan.pt:36
+#: euphorie/client/browser/templates/actionplan.pt:37
 msgid "expl_actionplan_4"
 msgstr "apsvarstykite, ar užduotis arba darbas yra reikalingas"
 
 #. Default: "removing the hazard"
-#: euphorie/client/browser/templates/actionplan.pt:37
+#: euphorie/client/browser/templates/actionplan.pt:38
 msgid "expl_actionplan_5"
 msgstr "pavojaus šalinimas"
 
 #. Default: "If certain risks are not avoidable, how can they be reduced to a level at which the health and safety of those exposed is not compromised?"
-#: euphorie/client/browser/templates/actionplan.pt:40
+#: euphorie/client/browser/templates/actionplan.pt:41
 msgid "expl_actionplan_6"
 msgstr ""
 "Jei rizikos išvengti negalima, kaip ją galima sumažinti, kad nekiltų pavojus "
 "sveikatai ir saugai?"
 
 #. Default: "Once you have decided how to eliminate or reduce a particular risk, then you describe the specific action(s) required to achieve this. You should also include details of the level of expertise and/or other requirements needed for those actions to be effective."
-#: euphorie/client/browser/templates/actionplan.pt:44
+#: euphorie/client/browser/templates/actionplan.pt:45
 msgid "expl_actionplan_7"
 msgstr ""
 "Nustatę, kaip konkrečią riziką reikia šalinti arba sumažinti, nurodykite "
@@ -2214,7 +2217,7 @@ msgstr ""
 "atlikti veiksmingai."
 
 #. Default: "No risks were identified. Please proceed directly to the report."
-#: euphorie/client/browser/templates/actionplan.pt:49
+#: euphorie/client/browser/templates/actionplan.pt:51
 msgid "expl_actionplan_empty"
 msgstr "Nė viena rizika nustatyta nebuvo. Pereikite iškart prie ataskaitos."
 
@@ -2577,6 +2580,11 @@ msgstr "Projekto etapai"
 msgid "header_publish"
 msgstr "Išleisti OiRA priemonę"
 
+#. Default: "Questions answered per module"
+#: euphorie/client/browser/templates/status_info.pt:133
+msgid "header_questions_answered"
+msgstr "Modulyje atsakyti klausimai"
+
 #. Default: "Register"
 #: euphorie/client/browser/templates/register.pt:75
 #: euphorie/client/templates/shell.pt:116
@@ -2724,6 +2732,7 @@ msgstr "Komentarai"
 
 #. Default: "High priority risks"
 #: euphorie/client/browser/templates/measures_overview.pt:85
+#: euphorie/client/browser/templates/status_info.pt:278
 msgid "heading_high_prio_risks"
 msgstr "didelė rizika"
 
@@ -3610,7 +3619,7 @@ msgid "label_create_account"
 msgstr ""
 
 #. Default: "Create action plan"
-#: euphorie/client/browser/templates/actionplan.pt:59
+#: euphorie/client/browser/templates/actionplan.pt:61
 msgid "label_create_action_plan"
 msgstr "Kurti prevencinių veiksmų planą"
 
@@ -3735,6 +3744,11 @@ msgstr "Pamiršau slaptažodį"
 msgid "label_format"
 msgstr "formatas"
 
+#. Default: "General information"
+#: euphorie/client/browser/templates/status_info.pt:31
+msgid "label_general_information"
+msgstr "Bendra informacija"
+
 #. Default: "4. Action Plan"
 #: euphorie/content/help.py:68 euphorie/content/templates/help_view.pt:33
 msgid "label_help_actionplan"
@@ -3798,7 +3812,7 @@ msgid "label_introduction"
 msgstr "Įvado tekstas"
 
 #. Default: "Go to report"
-#: euphorie/client/browser/templates/actionplan.pt:65
+#: euphorie/client/browser/templates/actionplan.pt:67
 msgid "label_jump_to_report"
 msgstr "Eiti į ataskaitą"
 
@@ -3867,6 +3881,11 @@ msgstr ""
 msgid "label_measure_requirements"
 msgstr "Reikalingų žinių ir (arba) reikalavimų lygis"
 
+#. Default: "by"
+#: euphorie/client/browser/templates/status_info.pt:63
+msgid "label_modified_by"
+msgstr ""
+
 #. Default: "Description"
 #: euphorie/content/module.py:51 euphorie/content/page.py:19
 #: euphorie/content/solution.py:35
@@ -3915,21 +3934,25 @@ msgstr "Ne"
 
 #. Default: "No risk"
 #: euphorie/client/browser/templates/risks_overview.pt:259
+#: euphorie/client/browser/templates/status_info.pt:196
 msgid "label_no_risk"
 msgstr "Rizikos nėra (labai maža)"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:263
+#: euphorie/client/browser/templates/status_info.pt:200
 msgid "label_no_risks_2"
 msgstr "Rizikos nėra (labai maža)"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:267
+#: euphorie/client/browser/templates/status_info.pt:204
 msgid "label_no_risks_3_4"
 msgstr "Rizikos nėra (labai maža)"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:271
+#: euphorie/client/browser/templates/status_info.pt:208
 msgid "label_no_risks_5_or_more"
 msgstr "Rizikos nėra (labai maža)"
 
@@ -3949,12 +3972,12 @@ msgid "label_old_password"
 msgstr "Dabartinis slaptažodis"
 
 #. Default: "Page"
-#: euphorie/client/browser/session.py:828
+#: euphorie/client/browser/session.py:833
 msgid "label_page"
 msgstr "Puslapis"
 
 #. Default: "of"
-#: euphorie/client/browser/session.py:831
+#: euphorie/client/browser/session.py:836
 msgid "label_page_of"
 msgstr "iš"
 
@@ -4006,7 +4029,7 @@ msgstr "Klausimas"
 #. Default: "Published"
 #: euphorie/client/browser/templates/publication_menu.pt:24
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:131
-#: euphorie/deployment/tiles/templates/versions.pt:48
+#: euphorie/client/browser/templates/status_info.pt:92
 msgid "label_published"
 msgstr "Išleistas"
 
@@ -4094,41 +4117,49 @@ msgstr "Rizikos tipas"
 
 #. Default: "Risk with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:280
+#: euphorie/client/browser/templates/status_info.pt:217
 msgid "label_risk_with_measure"
 msgstr "Rizika, numatyta (-os) priemonė (-ės)"
 
 #. Default: "Risk without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:301
+#: euphorie/client/browser/templates/status_info.pt:238
 msgid "label_risk_without_measure"
 msgstr "Rizika, kuriai nenumatyta (-os) priemonė (-ės)"
 
 #. Default: "Risks with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:284
+#: euphorie/client/browser/templates/status_info.pt:221
 msgid "label_risks_with_measure_2"
 msgstr "Rizika, numatyta (-os) priemonė (-ės)"
 
 #. Default: "Risks with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:288
+#: euphorie/client/browser/templates/status_info.pt:225
 msgid "label_risks_with_measure_3_4"
 msgstr "Rizika, numatyta (-os) priemonė (-ės)"
 
 #. Default: "Risks with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:292
+#: euphorie/client/browser/templates/status_info.pt:229
 msgid "label_risks_with_measure_5_or_more"
 msgstr "Rizika, numatyta (-os) priemonė (-ės)"
 
 #. Default: "Risks without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:305
+#: euphorie/client/browser/templates/status_info.pt:242
 msgid "label_risks_without_measure_2"
 msgstr "Rizika, kuriai nenumatyta (-os) priemonė (-ės)"
 
 #. Default: "Risks without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:309
+#: euphorie/client/browser/templates/status_info.pt:246
 msgid "label_risks_without_measure_3_4"
 msgstr "Rizika, kuriai nenumatyta (-os) priemonė (-ės)"
 
 #. Default: "Risks without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:313
+#: euphorie/client/browser/templates/status_info.pt:250
 msgid "label_risks_without_measure_5_or_more"
 msgstr "Rizika, kuriai nenumatyta (-os) priemonė (-ės)"
 
@@ -4172,7 +4203,7 @@ msgstr "Pasirinkite vieną ar kelias iš pateiktų priemonių."
 #. Default: "Start a new session by choosing one of the following sectoral tools."
 #: euphorie/client/browser/templates/new-session-test.pt:27
 #: euphorie/client/browser/templates/new-session.pt:28
-#: euphorie/client/browser/templates/portlet-available-tools.pt:26
+#: euphorie/client/browser/templates/portlet-available-tools.pt:28
 msgid "label_select_new_session"
 msgstr ""
 "Pradėkite naują rizikos vertinimo sesiją pasirinkdami vieną iš šių OiRA "
@@ -4181,7 +4212,7 @@ msgstr ""
 #. Default: "Select an OiRA tool"
 #: euphorie/client/browser/templates/new-session-test.pt:53
 #: euphorie/client/browser/templates/new-session.pt:54
-#: euphorie/client/browser/templates/portlet-available-tools.pt:54
+#: euphorie/client/browser/templates/portlet-available-tools.pt:71
 msgid "label_select_oira_tool"
 msgstr ""
 
@@ -4229,6 +4260,11 @@ msgstr "Pradėti rizikų nustatymo procesą"
 #: euphorie/client/browser/templates/start.pt:117
 msgid "label_start_survey"
 msgstr "Pradžia"
+
+#. Default: "Started"
+#: euphorie/client/browser/templates/status_info.pt:51
+msgid "label_started"
+msgstr "Pradėta"
 
 #. Default: "Affirmative statement"
 #: euphorie/content/risk.py:75
@@ -4312,6 +4348,11 @@ msgstr "OiRA priemonės tipas"
 msgid "label_tryout"
 msgstr "pradėkite bandomąją sesiją."
 
+#. Default: "Unpublished"
+#: euphorie/client/browser/templates/status_info.pt:114
+msgid "label_unpublished"
+msgstr ""
+
 #. Default: "Update"
 #: euphorie/deployment/tiles/templates/versions.pt:85
 msgid "label_update"
@@ -4330,6 +4371,11 @@ msgstr "OiRA priemonės versijos pavadinimas"
 #. Default: "Ask the user about (multiple) locations?"
 #: euphorie/content/profilequestion.py:56
 msgid "label_use_location_question"
+msgstr ""
+
+#. Default: "Used tool"
+#: euphorie/client/browser/templates/status_info.pt:36
+msgid "label_used_tool"
 msgstr ""
 
 #. Default: "Name"
@@ -5200,8 +5246,13 @@ msgstr "Slaptažodžio atkūrimas"
 msgid "title_sectors"
 msgstr "Ekonominės veiklos"
 
+#. Default: "Status of &ldquo; ${survey_title}&rdquo;"
+#: euphorie/client/browser/templates/status_info.pt:23
+msgid "title_status_of"
+msgstr "${survey_title} statusas"
+
 #. Default: "OiRA - Online interactive Risk Assessment"
-#: euphorie/client/browser/country.py:260
+#: euphorie/client/browser/country.py:263
 #: euphorie/client/browser/templates/modal-template.pt:23
 #: euphorie/client/browser/templates/webhelpers.pt:40
 msgid "title_tool"
@@ -5223,6 +5274,11 @@ msgstr "Pašalinti publikaciją \"${title}"
 #: euphorie/client/browser/templates/updated.pt:15
 msgid "title_updated"
 msgstr "OiRA priemonė buvo atnaujinta"
+
+#. Default: "Status of &ldquo; ${survey_title}&rdquo;"
+#: euphorie/client/browser/templates/status_info.pt:27
+msgid "title_with_vowel_status_of"
+msgstr "${survey_title} statusas"
 
 #. Default: "Contents"
 #: euphorie/client/browser/templates/risks_overview.pt:167
@@ -5335,18 +5391,6 @@ msgstr ""
 #: euphorie/content/templates/risk_view.pt:44
 msgid "yes"
 msgstr "Taip"
-
-#~ msgid "header_questions_answered"
-#~ msgstr "Modulyje atsakyti klausimai"
-
-#~ msgid "label_started"
-#~ msgstr "Pradėta"
-
-#~ msgid "title_status_of"
-#~ msgstr "${survey_title} statusas"
-
-#~ msgid "title_with_vowel_status_of"
-#~ msgstr "${survey_title} statusas"
 
 #~ msgid "No changes were made to measures in your action plan."
 #~ msgstr "Jūsų veiksmų plane nėra padaryta pakeitimų."
