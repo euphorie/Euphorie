@@ -1,5 +1,6 @@
 
-<metal:macro define-macro="status">
+<metal:macro define-macro="status"
+  i18n:domain="euphorie">
   <div id="content-pane"
        tal:define="
          language view/preferred_language;
