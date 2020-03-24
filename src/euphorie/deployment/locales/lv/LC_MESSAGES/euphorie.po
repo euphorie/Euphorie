@@ -2652,7 +2652,6 @@ msgstr "Meklēšana"
 
 #. Default: "Search results"
 #: euphorie/deployment/browser/templates/search.pt:22
-#, fuzzy
 msgid "header_search_results"
 msgstr "Meklēšanas rezultāti"
 

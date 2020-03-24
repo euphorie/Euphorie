@@ -2729,9 +2729,8 @@ msgstr "Rechercher"
 
 #. Default: "Search results"
 #: euphorie/deployment/browser/templates/search.pt:22
-#, fuzzy
 msgid "header_search_results"
-msgstr "Recherche de résultats "
+msgstr "Recherche de résultats"
 
 #. Default: "Search results for"
 #: euphorie/deployment/browser/templates/context_search.pt:15
