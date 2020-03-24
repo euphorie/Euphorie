@@ -454,10 +454,7 @@ class IdentificationView(BrowserView):
     @property
     @memoize
     def solutions(self):
-        if not self.risk:
-            return []
-        else:
-            return self.risk._solutions
+        return getattr(self.risk, "_solutions", [])
 
     @memoize
     def get_existing_measures(self):
@@ -674,13 +671,9 @@ class ActionPlanView(BrowserView):
 
     @memoize
     def get_existing_measures(self):
-        return [
-            measure
-            for measure in (
-                self.context.in_place_standard_measures
-                + self.context.in_place_custom_measures
-            )
-        ]
+        return list(self.context.in_place_standard_measures) + list(
+            self.context.in_place_custom_measures
+        )
 
     def get_existing_measures_old(self):
         if not self.use_existing_measures:
