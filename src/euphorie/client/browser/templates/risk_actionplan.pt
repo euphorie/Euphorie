@@ -129,10 +129,10 @@
                   Standard measures
                 </h2>
                 <section class="pat-rich description"
-                         i18n:translate=""
+                         i18n:translate="label_select_measure"
                 >
                   <p>
-                    Select one or more standard solutions to add to your action plan.
+                    Select one or more of the known common measures provided.
                   </p>
                 </section>
                 <div class="pat-checklist pat-pick-list free-form">
