@@ -3808,7 +3808,7 @@ msgstr "Description"
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:38
 msgid "label_duplicate"
-msgstr ""
+msgstr "Créer un double"
 
 #. Default: "Email address"
 #: euphorie/client/browser/reset_password.py:38
