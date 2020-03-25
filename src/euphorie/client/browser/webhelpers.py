@@ -44,6 +44,7 @@ from zope.deprecation import deprecate
 from zope.i18nmessageid import MessageFactory
 
 import Globals
+import urllib
 
 
 pl_message = MessageFactory("plonelocales")
@@ -478,15 +479,9 @@ class WebHelpers(BrowserView):
 
     @property
     def came_from_param(self):
-        param = ''
         if self.came_from:
-            survey_url = self.survey_url()
-            if survey_url:
-                param = 'came_from={0}'.format(survey_url)
-            else:
-                param = 'came_from={0}'.format(self.came_from)
-
-        return param
+            return urllib.urlencode({"came_from": self.came_from})
+        return ""
 
     @property
     @memoize

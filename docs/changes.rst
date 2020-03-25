@@ -4,7 +4,10 @@ Changelog
 11.1.20 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- With the new unique session id exposed in the URL, we can actually redirect
+  to the exact location inside a session after login, if this is present as
+  a came_from parameter. We already have the security checks in place that ensure
+  that a session can only be viewed by an authorised user.
 
 
 11.1.19 (2020-03-23)
