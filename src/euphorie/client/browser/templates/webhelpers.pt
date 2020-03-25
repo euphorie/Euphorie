@@ -133,7 +133,7 @@
           <a class="pat-switch pat-inject"
              href="${item/url}"
              data-pat-inject="history: record; source: #main-content; target: #main-content ${python:item['type'] == 'module' and '&amp;&amp; source:
-             {target}; target: {target}'.format(target=target_inject) or None}"
+             {target}; target: {target}'.format(target=target_inject) or None} &amp;&amp; source: #status; target: #status"
              data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
           >
             <strong class="${python:'counter' if item['type']=='module' else 'number'}">${item/number}</strong>
