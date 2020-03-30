@@ -173,12 +173,32 @@
                         "
                         repeat="measure measures"
           >
-            <label>
+            <label tal:condition="python: measure['plan_type']=='in_place_standard'">
               <input checked="${python:measure['active'] and 'checked' or None}"
-                     name="measure-${python:'standard-' if measure['plan_type']=='in_place_standard' else 'custom-'}${measure/solution_id}"
+                     name="measure-standard-${measure/solution_id}"
                      type="checkbox"
               />
                 <tal:measure replace="structure python:measure['text']" />
+            </label>
+
+            <label tal:condition="python: measure['plan_type']=='in_place_custom'"
+                   class="clone">
+              <input checked="checked"
+                     disabled="disabled"
+                     name="measure-custom-${measure/solution_id}"
+                     type="checkbox"
+              />
+              <textarea cols="50"
+                        autofocus="autofocus"
+                        name="measure-custom-${measure/solution_id}"
+                        placeholder="${view/placeholder_add_extra}"
+                        rows="3"
+                        tal:content="structure python:measure['text']"
+              ></textarea>
+              <button class="icon-trash iconified remove-clone"
+                      title="${view/button_remove_extra}"
+              >Remove</button>
+
             </label>
           </tal:measures>
           <input type="hidden" name="handle_measures_in_place" value="1" />

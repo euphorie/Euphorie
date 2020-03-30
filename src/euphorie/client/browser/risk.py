@@ -215,20 +215,24 @@ class IdentificationView(BrowserView):
                     session.delete(plan)
 
                 # Now loop over the form data to find out which new custom measures
-                # to add and which already present custom measures to keep
-                keep = []
+                # to add and which already present custom measures to keep.
+                # (Present custom measures are deleted and added again, since their
+                # text might have changed. But their original order is preserved.)
+                new_custom_measures = {}
                 for k, val in reply.items():
                     if (
                         k.startswith("new-measure")
                         and isinstance(val, str)
                         and val.strip() != ""
                     ):
-                        new_measures.append(
+                        new_custom_measures[k] = (
                             model.ActionPlan(action=val, plan_type="in_place_custom")
                         )
                     elif k.startswith("measure-custom"):
                         _id = k.rsplit("-", 1)[-1]
-                        keep.append(_id)
+                        new_custom_measures[_id] = (
+                            model.ActionPlan(action=val, plan_type="in_place_custom")
+                        )
                     # This only happens on custom risks
                     elif k.startswith("present-measure") and val.strip() != "":
                         _id = k.rsplit("-", 1)[-1]
@@ -238,11 +242,13 @@ class IdentificationView(BrowserView):
                                     action=val, plan_type="in_place_custom"
                                 )
                             )
-
-                # Delete all custom in-place measures that are not longer checked
+                # Now add the custom measures in their correct order
+                for k in sorted(new_custom_measures.keys()):
+                    new_measures.append(new_custom_measures[k])
+                # Delete all custom in-place measures
                 for plan in self.context.in_place_custom_measures:
-                    if str(plan.id) not in keep:
-                        session.delete(plan)
+                    session.delete(plan)
+                    changed = True
 
                 if new_measures:
                     self.context.action_plans.extend(new_measures)
