@@ -120,7 +120,7 @@
             <tal:solutions condition="solutions">
               <div class="pat-modal-pop-over pat-collapsible closed pat-depends"
                    id="measures-panel"
-                   data-pat-collapsible="open-trigger: #add-standard-measures"
+                   data-pat-collapsible="open-trigger: #add-standard-measures; close-trigger: #close-standard-measures"
                    data-pat-depends="${view/solutions_condition}"
               >
                 <h2 class="title"
@@ -151,6 +151,8 @@
                   </label>
                 </div>
               </div>
+              <button id="close-standard-measures"
+                      type="button">Close panel</button>
             </tal:solutions>
 
             <div class="measures pat-clone"
