@@ -128,10 +128,8 @@
                 >
                   Standard measures
                 </h2>
-                <section class="pat-rich description"
-                         i18n:translate="label_select_measure"
-                >
-                  <p>
+                <section class="pat-rich description">
+                  <p i18n:translate="label_select_measure">
                     Select one or more of the known common measures provided.
                   </p>
                 </section>
@@ -169,7 +167,7 @@
                 <div class="measure pat-collapsible"
                      tal:repeat="measure measures"
                 >
-                  <h2><tal:translate i18n:translate="label_existing_measure">Measure already implemented</tal:translate>
+                  <h2><tal:translate i18n:translate="label_implemented_measure">Implemented measure</tal:translate>
                   ${repeat/measure/number}
                   </h2>
                   <h4 i18n:translate="label_description">Description</h4>
@@ -449,7 +447,7 @@
                       title="Add another measure"
                       type="button"
                       i18n:translate="label_extra_add_measure"
-              >Add extra measure</button>
+              >Add an extra measure</button>
             </div>
 
             <div class="measure pat-collapsible"
