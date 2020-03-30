@@ -480,7 +480,13 @@ class WebHelpers(BrowserView):
     @property
     def came_from_param(self):
         if self.came_from:
-            return urllib.urlencode({"came_from": self.came_from})
+            # If the tool has a notification message, we cannot allow to deeplink
+            # into it, since the user might then miss the notificaton.
+            if not self.tool_notification():
+                return urllib.urlencode({"came_from": self.came_from})
+            survey_url = self.survey_url()
+            if survey_url:
+                return urllib.urlencode({"came_from": survey_url})
         return ""
 
     @property
@@ -680,7 +686,7 @@ class WebHelpers(BrowserView):
 
     def tool_notification(self):
         message = None
-        obj = self.context
+        obj = self._survey
         if isinstance(obj, PathGhost):
             obj = self.context.aq_parent
         if ISurvey.providedBy(obj) and obj.hasNotification():

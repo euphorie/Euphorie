@@ -52,6 +52,16 @@
             tal:content="structure message"
           ></p>
         </metal:messages_above_title>
+
+        <article tal:condition="tool_notification"
+                 class="pat-well pat-rich info"
+        >
+          <h1>${tool_notification/title}</h1>
+          <tal:content content="structure tool_notification/text">
+            TEXT
+          </tal:content>
+        </article>
+
         <article class="pat-rich">
           <h1>${context/title}</h1>
           <section tal:condition="context/description">
