@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.1.20 (unreleased)
+11.1.20 (2020-03-31)
 --------------------
 
 - With the new unique session id exposed in the URL, we can actually redirect
