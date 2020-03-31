@@ -422,6 +422,9 @@
       title="Unify action fields in solutions"
       handler=".v27.unify_action_fields_in_solution"/>
     <genericsetup:upgradeStep
+      title="Unify action fields in solutions (in Client)"
+      handler=".v27.unify_action_fields_in_solution_client"/>
+    <genericsetup:upgradeStep
       title="Migrate action plans"
       handler=".v27.migrate_actgion_plans"/>
 
