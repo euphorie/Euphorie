@@ -1,16 +1,17 @@
 # -*- coding: UTF-8 -*-
+from datetime import date
+from euphorie.client import model
+from euphorie.client.interfaces import IClientSkinLayer
+from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
 from euphorie.deployment.upgrade.utils import alembic_upgrade_to
+from json import loads
 from plone import api
 from plone.dexterity.interfaces import IDexterityContainer
-from z3c.saconfig import Session
-from euphorie.client import model
 from sqlalchemy import and_
-from datetime import date
+from transaction import commit
+from z3c.saconfig import Session
 from zope.interface import alsoProvides
-from euphorie.client.interfaces import IClientSkinLayer
-from json import loads
-from euphorie.content.risk import IRisk
 
 import logging
 
@@ -33,15 +34,29 @@ def unify_action_fields_in_solution(context):
     def unifiy_fields(walker):
         count = 0
         for solution in walker:
-            action = solution.action_plan.strip()
-            prevention_plan = solution.prevention_plan
-            prevention_plan = prevention_plan and prevention_plan.strip() or ""
-            if prevention_plan:
-                action = u"{0}\n{1}".format(action, prevention_plan)
-            solution.action = action
             count += 1
-            if count % 100 == 0:
-                log.info("Handled %d items" % count)
+            if not getattr(solution, "action", None):
+                # Only take action if the "action" field has not been set
+                action = solution.action_plan.strip()
+                prevention_plan = solution.prevention_plan
+                prevention_plan = prevention_plan and prevention_plan.strip() or ""
+                if prevention_plan:
+                    action = u"{0}\n{1}".format(action, prevention_plan)
+                solution.action = action
+                if count % 100 == 0:
+                    log.info("Handled %d items" % count)
+                if count % 1000 == 0:
+                    log.info("Intermediate commit")
+                    commit()
+            else:
+                if count % 100 == 0:
+                    log.info(
+                        "Skipped %d items, since they have already been handled."
+                        % count
+                    )
+                if count % 1000 == 0:
+                    log.info("Intermediate commit")
+                    commit()
         log.info("Finished. Updated %d solutions" % count)
 
     site = api.portal.get()
