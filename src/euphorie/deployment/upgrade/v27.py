@@ -22,48 +22,60 @@ def alembic_upgrade(context):
     alembic_upgrade_to("27")
 
 
-def unify_action_fields_in_solution(context):
-    def walk(node):
-        for idx, sub_node in node.ZopeFind(node, search_sub=0):
-            if ISolution.providedBy(sub_node):
-                yield sub_node
-            if IDexterityContainer.providedBy(sub_node):
-                for sub_sub_node in walk(sub_node):
-                    yield sub_sub_node
+def walk(node):
+    for idx, sub_node in node.ZopeFind(node, search_sub=0):
+        if ISolution.providedBy(sub_node):
+            yield sub_node
+        if IDexterityContainer.providedBy(sub_node):
+            for sub_sub_node in walk(sub_node):
+                yield sub_sub_node
 
-    def unifiy_fields(walker):
-        count = 0
-        for solution in walker:
-            count += 1
-            if not getattr(solution, "action", None):
-                # Only take action if the "action" field has not been set
-                action = solution.action_plan.strip()
-                prevention_plan = solution.prevention_plan
-                prevention_plan = prevention_plan and prevention_plan.strip() or ""
-                if prevention_plan:
-                    action = u"{0}\n{1}".format(action, prevention_plan)
-                solution.action = action
-                if count % 100 == 0:
-                    log.info("Handled %d items" % count)
-                if count % 1000 == 0:
-                    log.info("Intermediate commit")
-                    commit()
-            else:
-                if count % 100 == 0:
-                    log.info(
-                        "Skipped %d items, since they have already been handled."
-                        % count
-                    )
-                if count % 1000 == 0:
-                    log.info("Intermediate commit")
-                    commit()
-        log.info("Finished. Updated %d solutions" % count)
+
+def unifiy_fields(walker):
+    count = 0
+    for solution in walker:
+        count += 1
+        if not getattr(solution, "action", None):
+            # Only take action if the "action" field has not been set
+            action = solution.action_plan.strip()
+            prevention_plan = solution.prevention_plan
+            prevention_plan = prevention_plan and prevention_plan.strip() or ""
+            if prevention_plan:
+                action = u"{0}\n{1}".format(action, prevention_plan)
+            solution.action = action
+            if count % 100 == 0:
+                log.info("Handled %d items" % count)
+            if count % 1000 == 0:
+                log.info("Intermediate commit")
+                commit()
+        else:
+            if count % 100 == 0:
+                log.info(
+                    "Skipped %d items, since they have already been handled."
+                    % count
+                )
+            if count % 1000 == 0:
+                log.info("Intermediate commit")
+                commit()
+    log.info("Finished. Updated %d solutions" % count)
+
+
+def unify_action_fields_in_solution(context):
 
     site = api.portal.get()
-    for section in ["sectors", "client"]:
-        walker = walk(getattr(site, section))
-        log.info('Iterating over section "{}"'.format(section))
-        unifiy_fields(walker)
+    section = "sectors"
+    walker = walk(getattr(site, section))
+    log.info('Iterating over section "{}"'.format(section))
+    unifiy_fields(walker)
+
+
+def unify_action_fields_in_solution_client(context):
+
+    site = api.portal.get()
+    section = "client"
+    walker = walk(getattr(site, section))
+    log.info('Iterating over section "{}"'.format(section))
+    unifiy_fields(walker)
 
 
 def get_pre_defined_measures(solutions, country):
