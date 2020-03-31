@@ -8,6 +8,9 @@ Changelog
   to the exact location inside a session after login, if this is present as
   a came_from parameter. We already have the security checks in place that ensure
   that a session can only be viewed by an authorised user.
+- (Re-)enable a custom tool notification, shown on the Preparation page
+- The progress indicator also gets updated when the user is progressing from one risk
+  to the next.
 
 
 11.1.19 (2020-03-23)
