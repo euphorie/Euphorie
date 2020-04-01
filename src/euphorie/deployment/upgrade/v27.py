@@ -96,15 +96,18 @@ def get_pre_defined_measures(solutions, country):
 
 
 def migrate_actgion_plans(context):
-    max_tools = -1
+    # Work in chunks of 25
+    max_tools = 25
     site = api.portal.get()
     client = getattr(site, "client")
     today = date.today()
     request = context.REQUEST.clone()
     alsoProvides(request, IClientSkinLayer)
+    # path = "eu/maritime-transport/maritime-transport-1"
     tool_paths = Session.query(model.SurveySession.zodb_path).distinct()
-    # .filter(model.SurveySession.zodb_path=="lv/latvia-test/darbs-biroja").distinct()
+    # .filter(model.SurveySession.zodb_path==path).distinct()
     tool_count = 0
+    skip_count = 0
     for result in tool_paths:
         tool_path = str(result[0])
         try:
@@ -112,7 +115,6 @@ def migrate_actgion_plans(context):
         except KeyError:
             log.warning("No tool in client found for {}".format(tool_path))
             continue
-        log.info("\n\nHandle tool {}".format(tool_path))
         country = tool_path.split("/")[0]
         sessions = (
             Session.query(model.SurveySession)
@@ -127,7 +129,11 @@ def migrate_actgion_plans(context):
             .order_by(model.SurveySession.zodb_path)
         )
         if not sessions.count():
+            skip_count += 1
+            if skip_count % 5 == 0:
+                log.info("Skipped the first %d, already handled" % skip_count)
             continue
+        log.info("\n\nHandle tool {}".format(tool_path))
         risks_by_path = {}
         solutions_by_path = {}
         measures_by_path = {}
@@ -228,3 +234,10 @@ def migrate_actgion_plans(context):
         if max_tools > 0 and tool_count >= max_tools:
             log.info("Broke off after %d tools" % tool_count)
             return
+
+"""
+SELECT mig::float/total as percent_done
+FROM
+    (select (select count(*) from session join account on session.account_id=account.id where (account_type is Null or account_type!='guest') and migrated is not Null) as mig,
+    (select count(*) from session join account on session.account_id=account.id where (account_type is Null or account_type!='guest')) as total) as subq;
+"""
