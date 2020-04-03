@@ -157,7 +157,6 @@
               id="${view/risk_number}"
               tal:define="
                 always_present risk/risk_always_present|nothing;
-                existing_measures view/get_existing_measures;
               "
     >
 
@@ -169,7 +168,7 @@
         <tal:existing_measures condition="view/show_existing_measures">
           <p tal:content="structure view/intro_extra"></p>
           <tal:measures define="
-                          measures view/get_existing_measures;
+                          measures view/get_existing_measures_with_activation;
                         "
                         repeat="measure measures"
           >
@@ -617,7 +616,6 @@
                      tal:define="solutions view/solutions_available_for_action_plan|nothing;
                                  action_plans view/context/custom_measures;
      ">
-     <h2>Solutuons: ${solutions}</h2>
     <tal:solutions condition="solutions">
       <div class="pat-modal-pop-over pat-collapsible closed pat-depends"
            id="measures-panel"
@@ -663,7 +661,7 @@
       <tal:existing_measures define="
                                measures view/get_existing_measures;
                              "
-                             condition="view/use_existing_measures"
+                             condition="python:webhelpers.get_phase()=='actionplan' and view.use_existing_measures"
       >
         <div class="measure pat-collapsible"
              tal:repeat="measure measures"

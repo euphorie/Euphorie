@@ -157,6 +157,21 @@ class RiskBase(BrowserView):
                 )
         return solutions
 
+    @memoize
+    def get_existing_measures(self):
+        return list(self.context.in_place_standard_measures) + list(
+            self.context.in_place_custom_measures
+        )
+
+    @property
+    def active_standard_measures(self):
+        if self.is_custom_risk:
+            return {}
+        return {
+            getattr(measure, "solution_id", ""): measure
+            for measure in self.context.standard_measures
+        }
+
     @property
     def solutions_condition(self):
         return "condition: not ({})".format(
@@ -519,7 +534,7 @@ class IdentificationView(RiskBase):
             self.button_add_extra = tool_type_data.get("button_add_extra", "")
         self.button_remove_extra = ""
         if self.use_existing_measures:
-            measures = self.get_existing_measures()
+            measures = self.get_existing_measures_with_activation()
             # Only show the form to select and add existing measures if
             # at least one pre-existring measure is present
             # In this case, also change some labels
@@ -620,7 +635,7 @@ class IdentificationView(RiskBase):
         return self.request.response.redirect(url)
 
     @memoize
-    def get_existing_measures(self):
+    def get_existing_measures_with_activation(self):
         saved_standard_measures = {
             getattr(measure, "solution_id", ""): measure
             for measure in self.context.in_place_standard_measures
@@ -773,12 +788,6 @@ class ActionPlanView(RiskBase):
             return True
         return False
 
-    @memoize
-    def get_existing_measures(self):
-        return list(self.context.in_place_standard_measures) + list(
-            self.context.in_place_custom_measures
-        )
-
     @property
     def risk_present(self):
         return self.context.identification == "no"
@@ -908,11 +917,6 @@ class ActionPlanView(RiskBase):
         if self.is_custom_risk:
             self.risk.description = u""
             self.risk.evaluation_method = u""
-        else:
-            self.active_standard_measures = {
-                getattr(measure, "solution_id", ""): measure
-                for measure in context.standard_measures
-            }
 
         self.image_class = IMAGE_CLASS[self.number_images]
         self.risk_number = self.context.number
