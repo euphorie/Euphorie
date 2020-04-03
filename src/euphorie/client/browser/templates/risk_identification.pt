@@ -37,6 +37,15 @@
     <metal:call use-macro="webhelpers/macros/risk_evaluation" />
     <!-- END Evaluation -->
 
+    <!-- Action Plan -->
+    <div class="pat-collapsible open risk-module pat-depends visible" data-pat-depends="condition: answer=no; transition: slide" >
+        <h3 class="collapsible-open">
+          Actions
+        </h3>
+        <metal:call use-macro="webhelpers/macros/action_plan" />
+    </div>
+    <!-- END Action Plan -->
+
     <!-- Information -->
     <metal:call tal:define="default_state python:view.get_collapsible_section_state('information')" use-macro="here/risk_macros/macros/riskinfo" />
     <!-- END Information -->

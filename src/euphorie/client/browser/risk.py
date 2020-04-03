@@ -146,9 +146,26 @@ class RiskBase(BrowserView):
                 )
         return solutions
 
+    @memoize
+    def get_existing_measures(self):
+        return list(self.context.in_place_standard_measures) + list(
+            self.context.in_place_custom_measures
+        )
+
+    @property
+    def active_standard_measures(self):
+        if self.is_custom_risk:
+            return {}
+        return {
+            getattr(measure, "solution_id", ""): measure
+            for measure in self.context.standard_measures
+        }
+
     @property
     def solutions_condition(self):
-        return "condition: not ({})".format(" and ".join(["sm-%s" % solution["id"] for solution in self.solutions]))
+        return "condition: not ({})".format(
+            " and ".join(["sm-%s" % solution["id"] for solution in self.solutions])
+        )
 
 
 class IdentificationView(RiskBase):
@@ -559,7 +576,7 @@ class IdentificationView(RiskBase):
         return self.request.response.redirect(url)
 
     @memoize
-    def get_existing_measures(self):
+    def get_existing_measures_with_activation(self):
         saved_standard_measures = {
             getattr(measure, "solution_id", ""): measure
             for measure in self.context.in_place_standard_measures
@@ -712,12 +729,6 @@ class ActionPlanView(RiskBase):
             return True
         return False
 
-    @memoize
-    def get_existing_measures(self):
-        return list(self.context.in_place_standard_measures) + list(
-            self.context.in_place_custom_measures
-        )
-
     @property
     def risk_present(self):
         return self.context.identification == "no"
@@ -771,7 +782,6 @@ class ActionPlanView(RiskBase):
                     )
 
         return number_images
-
 
     def __call__(self):
         # Render the page only if the user has edit rights,
@@ -852,11 +862,6 @@ class ActionPlanView(RiskBase):
         if self.is_custom_risk:
             self.risk.description = u""
             self.risk.evaluation_method = u""
-        else:
-            self.active_standard_measures = {
-                getattr(measure, "solution_id", ""): measure
-                for measure in context.standard_measures
-            }
 
         self.image_class = IMAGE_CLASS[self.number_images]
         self.risk_number = self.context.number
