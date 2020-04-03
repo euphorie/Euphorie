@@ -8,7 +8,6 @@ Views for the identification and action plan phases.
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from collections import OrderedDict
 from euphorie import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.navigation import FindNextQuestion
@@ -16,15 +15,11 @@ from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
 from euphorie.client.subscribers.imagecropping import _initial_size
 from euphorie.client import utils
-from euphorie.content.risk import IRisk
-from euphorie.content.solution import ISolution
 from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import IToolTypesInfo
 from htmllaundry import StripMarkup
 from io import BytesIO
-from json import dumps
-from json import loads
 from plone import api
 from plone.app.imaging.utils import getAllowedSizes
 from plone.memoize.instance import memoize
@@ -49,7 +44,132 @@ IMAGE_CLASS = {0: "", 1: "twelve", 2: "six", 3: "four", 4: "three"}
 all_breaks = re.compile("(\n|\r)+")
 
 
-class IdentificationView(BrowserView):
+class RiskBase(BrowserView):
+
+    # Which fields should be skipped? Default are none, i.e. show all
+    skip_fields = []
+    # What extra style to use for buttons like "Add measure". Default is None.
+    style_buttons = None
+
+    def __init__(self, context, request):
+        super(RiskBase, self).__init__(context, request)
+        self.delete_confirmation = api.portal.translate(
+            _(
+                u"Are you sure you want to delete this measure? This action can "
+                u"not be reverted."
+            )
+        )
+        self.override_confirmation = api.portal.translate(
+            _(
+                u"The current text in the fields 'Action plan', 'Prevention plan' and "
+                u"'Requirements' of this measure will be overwritten. This action cannot be "
+                u"reverted. Are you sure you want to continue?"
+            )
+        )
+        self.message_date_before = api.portal.translate(
+            _(
+                u"error_validation_before_end_date",
+                default=u"This date must be on or before the end date.",
+            )
+        )
+        self.message_date_after = api.portal.translate(
+            _(
+                u"error_validation_after_start_date",
+                default=u"This date must be on or after the start date.",
+            )
+        )
+        self.message_positive_number = api.portal.translate(
+            _(
+                u"error_validation_positive_whole_number",
+                default=u"This value must be a positive whole number.",
+            )
+        )
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context.aq_parent, self.request)
+
+    @property
+    @memoize
+    def session(self):
+        return self.webhelpers.traversed_session.session
+
+    @property
+    @memoize
+    def survey(self):
+        """ This is the survey dexterity object
+        """
+        return self.webhelpers._survey
+
+    @property
+    @memoize
+    def italy_special(self):
+        return self.webhelpers.country == "it"
+
+    @property
+    @memoize
+    def risk(self):
+        if self.is_custom_risk:
+            return
+        return self.context.aq_parent.aq_parent.restrictedTraverse(
+            self.context.zodb_path.split("/")
+        )
+
+    @property
+    def is_custom_risk(self):
+        return self.context.is_custom_risk
+
+    @property
+    def solutions_provided_by_tool(self):
+        """
+        Return all the solutions that are defined for this risk in the CMS
+        """
+        return getattr(self.risk, "_solutions", [])
+
+    @property
+    @memoize
+    def solutions_available_for_action_plan(self):
+        """
+        Return those pre-defined solutions that are not already marked as being
+        in place. Those remaining solutions are available as suggestions in the
+        Action Plan
+        """
+        if self.is_custom_risk:
+            return []
+        existing_measure_ids = [
+            measure.solution_id for measure in self.get_existing_measures()
+        ]
+        solutions = []
+        for solution in self.solutions_provided_by_tool:
+            solution_id = solution.id
+            if solution_id not in existing_measure_ids:
+                action = getattr(solution, "action", "") or ""
+                action_markup = all_breaks.sub("<br/>", action)
+                solutions.append(
+                    {
+                        "description": StripMarkup(solution.description),
+                        "action": solution.action,
+                        "action_markup": action_markup,
+                        "requirements": solution.requirements,
+                        "id": solution_id,
+                    }
+                )
+        return solutions
+
+    @property
+    def solutions_condition(self):
+        return "condition: not ({})".format(
+            " and ".join(
+                [
+                    "sm-%s" % solution["id"]
+                    for solution in self.solutions_available_for_action_plan
+                ]
+            )
+        )
+
+
+class IdentificationView(RiskBase):
     """A view for displaying a question in the identification phase
     """
 
@@ -82,11 +202,6 @@ class IdentificationView(BrowserView):
 
     @property
     @memoize
-    def webhelpers(self):
-        return api.content.get_view("webhelpers", self.context.aq_parent, self.request)
-
-    @property
-    @memoize
     def default_collapsible_sections(self):
         settings = self.webhelpers.content_country_obj
         default_collapsible_sections = getattr(
@@ -107,36 +222,10 @@ class IdentificationView(BrowserView):
 
     @property
     @memoize
-    def session(self):
-        return self.webhelpers.traversed_session.session
-
-    @property
-    @memoize
-    def survey(self):
-        """ This is the survey dexterity object
-        """
-        return self.webhelpers._survey
-
-    @property
-    @memoize
     def next_question(self):
         return FindNextQuestion(
             self.context, dbsession=self.session, filter=self.question_filter
         )
-
-    @property
-    @memoize
-    def risk(self):
-        if self.is_custom_risk:
-            return
-        return self.context.aq_parent.aq_parent.restrictedTraverse(
-            self.context.zodb_path.split("/")
-        )
-
-    @property
-    @memoize
-    def italy_special(self):
-        return self.webhelpers.country == "it"
 
     @property
     @memoize
@@ -225,7 +314,7 @@ class IdentificationView(BrowserView):
                     for plan in self.context.in_place_standard_measures
                 }
                 # First, check which of the standard solutions were selected
-                for solution in self.solutions:
+                for solution in self.solutions_provided_by_tool:
                     # If the solution was already added as a measure, retrieve the info
                     # whether it was de-selected for the training, so that we don't
                     # forcefully activate all measures for the training again.
@@ -530,11 +619,6 @@ class IdentificationView(BrowserView):
         )
         return self.request.response.redirect(url)
 
-    @property
-    @memoize
-    def solutions(self):
-        return getattr(self.risk, "_solutions", [])
-
     @memoize
     def get_existing_measures(self):
         saved_standard_measures = {
@@ -542,7 +626,7 @@ class IdentificationView(BrowserView):
             for measure in self.context.in_place_standard_measures
         }
         existing_measures = []
-        for solution in self.solutions:
+        for solution in self.solutions_provided_by_tool:
             if self.italy_special:
                 text = solution.action
             else:
@@ -570,10 +654,6 @@ class IdentificationView(BrowserView):
     def use_problem_description(self):
         text = self.context.problem_description or ""
         return bool(text.strip())
-
-    @property
-    def is_custom_risk(self):
-        return self.context.is_custom_risk
 
     def evaluation_algorithm(self, risk):
         return evaluation_algorithm(risk)
@@ -668,7 +748,7 @@ class ImageDisplay(DisplayFile):
         return NamedBlobImage(image_data, filename=self.context.image_filename)
 
 
-class ActionPlanView(BrowserView):
+class ActionPlanView(RiskBase):
     """Logic for creating new action plans.
     """
 
@@ -678,27 +758,6 @@ class ActionPlanView(BrowserView):
     question_filter = model.ACTION_PLAN_FILTER
     # The risk filter will only find risks
     risk_filter = model.RISK_PRESENT_OR_TOP5_FILTER
-    # Which fields should be skipped? Default are none, i.e. show all
-    skip_fields = []
-    # What extra style to use for buttons like "Add measure". Default is None.
-    style_buttons = None
-
-    @property
-    @memoize
-    def webhelpers(self):
-        return self.context.restrictedTraverse("webhelpers")
-
-    @property
-    @memoize
-    def survey(self):
-        """ This is the survey dexterity object
-        """
-        return self.webhelpers._survey
-
-    @property
-    @memoize
-    def session(self):
-        return self.webhelpers.traversed_session.session
 
     @property
     @memoize
@@ -731,14 +790,6 @@ class ActionPlanView(BrowserView):
         )
 
     @property
-    def is_custom_risk(self):
-        return self.context.is_custom_risk
-
-    @property
-    def italy_special(self):
-        return self.webhelpers.country == "it"
-
-    @property
     def use_problem_description(self):
         if self.is_custom_risk:
             return False
@@ -761,15 +812,6 @@ class ActionPlanView(BrowserView):
     def tree(self):
         return getTreeData(
             self.request, self.context, filter=self.question_filter, phase="actionplan"
-        )
-
-    @property
-    @memoize
-    def risk(self):
-        if self.is_custom_risk:
-            return self.context
-        return self.context.aq_parent.aq_parent.restrictedTraverse(
-            self.context.zodb_path.split("/")
         )
 
     @property
@@ -860,78 +902,20 @@ class ActionPlanView(BrowserView):
                 url = previous_url
             return self.request.response.redirect(url)
 
-        else:
-            self.data = context
-
         self.title = context.parent.title
 
         # Italian special
         if self.is_custom_risk:
             self.risk.description = u""
             self.risk.evaluation_method = u""
-        if not self.is_custom_risk:
-            existing_measure_ids = [
-                measure.solution_id for measure in self.get_existing_measures()
-            ]
+        else:
             self.active_standard_measures = {
                 getattr(measure, "solution_id", ""): measure
                 for measure in context.standard_measures
             }
-            solutions = []
-            for solution in self.risk.values():
-                if not ISolution.providedBy(solution):
-                    continue
-                solution_id = solution.id
-                if solution_id not in existing_measure_ids:
-                    action = getattr(solution, "action", "") or ""
-                    action_markup = all_breaks.sub("<br/>", action)
-                    solutions.append(
-                        {
-                            "description": StripMarkup(solution.description),
-                            "action": action,
-                            "action_markup": action_markup,
-                            "requirements": solution.requirements,
-                            "id": solution_id,
-                        }
-                    )
-            self.solutions = solutions
-            self.solutions_condition = "condition: not ({})".format(
-                " and ".join(["sm-%s" % solution["id"] for solution in self.solutions])
-            )
 
         self.image_class = IMAGE_CLASS[self.number_images]
         self.risk_number = self.context.number
-        self.delete_confirmation = api.portal.translate(
-            _(
-                u"Are you sure you want to delete this measure? This action can "
-                u"not be reverted."
-            )
-        )
-        self.override_confirmation = api.portal.translate(
-            _(
-                u"The current text in the fields 'Action plan', 'Prevention plan' and "
-                u"'Requirements' of this measure will be overwritten. This action cannot be "
-                u"reverted. Are you sure you want to continue?"
-            )
-        )
-        self.message_date_before = api.portal.translate(
-            _(
-                u"error_validation_before_end_date",
-                default=u"This date must be on or before the end date.",
-            )
-        )
-        self.message_date_after = api.portal.translate(
-            _(
-                u"error_validation_after_start_date",
-                default=u"This date must be on or after the start date.",
-            )
-        )
-        self.message_positive_number = api.portal.translate(
-            _(
-                u"error_validation_positive_whole_number",
-                default=u"This value must be a positive whole number.",
-            )
-        )
         return self.index()
 
     def extract_plans_from_request(self):

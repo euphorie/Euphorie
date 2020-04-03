@@ -45,7 +45,7 @@
         >
           <div id="content-pane"
                tal:define="
-                 solutions view/solutions|nothing;
+                 solutions view/solutions_available_for_action_plan|nothing;
                "
           >
             <article class="rich pat-well warning"
