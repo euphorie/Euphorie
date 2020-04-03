@@ -103,7 +103,7 @@
                   priority risk.
                 </label>
               </fieldset>
-              <metal:call use-macro="webhelpers/macros/risk_info_actionplan" />
+              <metal:call use-macro="here/risk_macros/macros/risk_info_actionplan" />
             </tal:priority>
 
           </article>

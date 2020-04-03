@@ -13,6 +13,15 @@
       />
 
   <browser:page
+      name="risk_macros"
+      for="*"
+      permission="zope.Public"
+      class="euphorie.client.browser.webhelpers.WebHelpers"
+      template="templates/risk_macros.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="modal-template"
       for="*"
       permission="zope.Public"
