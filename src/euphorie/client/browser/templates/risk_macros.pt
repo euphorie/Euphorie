@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+>
+
+  <metal:risk_info_actionplan define-macro="risk_info_actionplan"
+                              meta:interpolation="true"
+                              tal:define="
+                                is_custom_risk view/is_custom_risk;
+                              "
+                              i18n:domain="euphorie"
+  >
+    <div class="image-collage pat-gallery count-${view/number_images}"
+         tal:condition="view/number_images"
+    >
+      <tal:not-custom condition="not:is_custom_risk">
+        <tal:get define="
+                   images risk/@@images;
+                 "
+        >
+          <tal:many condition="python:view.number_images &gt; 1">
+            <a class="image"
+               href="${large/url|nothing}"
+               title="${risk/caption|nothing}"
+               tal:define="
+                 thumb python:images.scale('image', scale='large', direction='thumbnail');
+                 large python:images.scale('image', scale='training', direction='thumbnail');
+               "
+               tal:condition="thumb"
+               tal:on-error="nothing"
+            ><img class="fixed-aspect-ratio"
+                   alt=""
+                   src="${resources_url}/placeholder-1x1.png"
+                   style="background-image: url(${large/url|nothing})"
+              />
+            </a>
+            <a class="image"
+               href="${large/url|nothing}"
+               title="${risk/caption2|nothing}"
+               tal:define="
+                 thumb python:images.scale('image2', scale='large', direction='thumbnail');
+                 large python:images.scale('image2', scale='training', direction='thumbnail');
+               "
+               tal:condition="thumb"
+               tal:on-error="nothing"
+            ><img class="fixed-aspect-ratio"
+                   alt=""
+                   src="${resources_url}/placeholder-1x1.png"
+                   style="background-image: url(${large/url|nothing})"
+              />
+            </a>
+            <a class="image"
+               href="${large/url|nothing}"
+               title="${risk/caption3|nothing}"
+               tal:define="
+                 thumb python:images.scale('image3', scale='large', direction='thumbnail');
+                 large python:images.scale('image3', scale='training', direction='thumbnail');
+               "
+               tal:condition="thumb"
+               tal:on-error="nothing"
+            ><img class="fixed-aspect-ratio"
+                   alt=""
+                   src="${resources_url}/placeholder-1x1.png"
+                   style="background-image: url(${large/url|nothing})"
+              />
+            </a>
+            <a class="image"
+               href="${large/url|nothing}"
+               title="${risk/caption4|nothing}"
+               tal:define="
+                 thumb python:images.scale('image4', scale='large', direction='thumbnail');
+                 large python:images.scale('image4', scale='training', direction='thumbnail');
+               "
+               tal:condition="thumb"
+               tal:on-error="nothing"
+            ><img class="fixed-aspect-ratio"
+                   alt=""
+                   src="${resources_url}/placeholder-1x1.png"
+                   style="background-image: url(${large/url|nothing})"
+              />
+            </a>
+          </tal:many>
+          <tal:single condition="python:view.number_images == 1">
+            <a class="image"
+               href="${large/url|nothing}"
+               title="${risk/caption|nothing}"
+               tal:define="
+                 thumb python:images.scale('image', width=400, height=600, direction='thumbnail');
+                 large python:images.scale('image', width=1280, height=1280, direction='thumbnail');
+               "
+               tal:condition="thumb"
+               tal:on-error="nothing"
+            ><img class="fixed-aspect-ratio"
+                   alt=""
+                   src="${resources_url}/placeholder-21x9.png"
+                   style="background-image: url(${large/url|nothing})"
+              />
+            </a>
+          </tal:single>
+        </tal:get>
+      </tal:not-custom>
+      <tal:custom condition="is_custom_risk">
+        <a class="image"
+           href="${image_url}"
+           title="${here/image_filename}"
+           tal:define="
+             image_url string:${here/absolute_url}/@@image-display/image_large?name=${here/image_filename};
+           "
+        >
+          <img class="fixed-aspect-ratio"
+               alt=""
+               src="${resources_url}/placeholder-21x9.png"
+               style="background-image: url(${image_url})"
+          />
+        </a>
+      </tal:custom>
+    </div>
+
+    <tal:block define="
+                 use_problem_description view/use_problem_description;
+               "
+               condition="show_statement|nothing"
+    >
+      <tal:block condition="not:view/risk_present">
+        <p tal:condition="python:risk.type=='top5'">
+          <tal:yes condition="not:view/risk_postponed"
+                   i18n:translate="top5_risk_not_present"
+          >This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be
+            included in this report.
+          </tal:yes>
+          <tal:postponed condition="view/risk_postponed"
+                         i18n:translate="top5_risk_not_present_postponed"
+          >This risk has not yet been assessed, but since it is considered "high priority" by the OiRA tool developers, it will always be included in the action plan. Please go to the identification and answer the statement.</tal:postponed>
+        </p>
+      </tal:block>
+      <tal:block condition="view/risk_present">
+        <tal:block condition="not:use_problem_description">
+          <p class="negation"
+             tal:condition="not:is_custom_risk"
+          >
+            <em><strong class="icon warning"
+                      tal:condition="not:view/italy_special"
+              >⚠</strong>
+              <tal:span i18n:translate="warn_risk_present">
+                You responded negative to the above statement.
+              </tal:span>
+            </em>
+          </p>
+        </tal:block>
+      </tal:block>
+    </tal:block>
+
+    <div class="pat-collapsible closed"
+         tal:condition="risk/description"
+    >
+      <h4 i18n:translate="label_show_more"><tal:more i18n:name="read_more"
+                  i18n:translate="Read more"
+        >Read more</tal:more>
+        about this risk.
+      </h4>
+      <tal:description tal:replace="structure risk/description" />
+    </div>
+    <tal:custom condition="is_custom_risk">
+      <span tal:replace="structure context/custom_description"></span>
+    </tal:custom>
+  </metal:risk_info_actionplan>
+
+
+  <metal:riskinfo define-macro="riskinfo">
+    <article class="pat-rich pat-collapsible risk-module ${default_state|nothing}"
+             tal:condition="view/show_info"
+    >
+      <h3 i18n:translate="header_information">
+            Information
+      </h3>
+      <div class="image-collage pat-gallery count-${view/number_images} float-before"
+           tal:define="
+             images risk/@@images;
+           "
+           tal:condition="view/number_images"
+      >
+        <a class="image"
+           href="${large/url|nothing}"
+           title="${risk/caption|nothing}"
+           tal:define="
+             thumb python:images.scale('image', scale='large', direction='thumbnail');
+             large python:images.scale('image', scale='training', direction='thumbnail');
+           "
+           tal:condition="large"
+        ><img class="fixed-aspect-ratio"
+               alt=""
+               src="${resources_url}/placeholder-40x25.png"
+               style="background-image: url(${thumb/url|nothing})"
+          />
+        </a>
+        <a class="image"
+           href="${large/url|nothing}"
+           title="${risk/caption|nothing}"
+           tal:define="
+             thumb python:images.scale('image2', scale='large', direction='thumbnail');
+             large python:images.scale('image2', scale='training', direction='thumbnail');
+           "
+           tal:condition="large"
+        ><img class="fixed-aspect-ratio"
+               alt=""
+               src="${resources_url}/placeholder-40x25.png"
+               style="background-image: url(${thumb/url|nothing})"
+          />
+        </a>
+        <a class="image"
+           href="${large/url|nothing}"
+           title="${risk/caption|nothing}"
+           tal:define="
+             thumb python:images.scale('image3', scale='large', direction='thumbnail');
+             large python:images.scale('image3', scale='training', direction='thumbnail');
+           "
+           tal:condition="large"
+        ><img class="fixed-aspect-ratio"
+               alt=""
+               src="${resources_url}/placeholder-40x25.png"
+               style="background-image: url(${thumb/url|nothing})"
+          />
+        </a>
+        <a class="image"
+           href="${large/url|nothing}"
+           title="${risk/caption|nothing}"
+           tal:define="
+             thumb python:images.scale('image4', scale='large', direction='thumbnail');
+             large python:images.scale('image4', scale='training', direction='thumbnail');
+           "
+           tal:condition="large"
+        ><img class="fixed-aspect-ratio"
+               alt=""
+               src="${resources_url}/placeholder-40x25.png"
+               style="background-image: url(${thumb/url|nothing})"
+          />
+        </a>
+      </div>
+      <tal:text replace="structure risk/description">description</tal:text>
+    </article>
+  </metal:riskinfo>
+
+</html>
