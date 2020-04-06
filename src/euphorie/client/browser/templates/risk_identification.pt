@@ -34,7 +34,7 @@
         >Scroll to top</a>
         <div class="pat-subform pat-inject"
              id="content-pane"
-             data-pat-inject="${python:'source: #slide-content-1; target: #slide-content-1;' if webhelpers.use_training_module else None}"
+             data-pat-inject="${python:'source: #slide-content-1; target: #slide-content-1;' if webhelpers.use_training_module else None} ${python:'&amp;&amp; source: #panel-action-plan; target: #panel-action-plan' if webhelpers.integrated_action_plan else None}"
         >
 
           <h2 class="risk-title">${here/title}</h2>
