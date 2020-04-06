@@ -161,8 +161,8 @@
     >
 
       <!-- Existing Measures -->
-      <fieldset class="pat-checklist pat-clone ${python:'pat-autosubmit' if webhelpers.use_training_module else None}"
-                id="ActionPlanItemForm"
+      <fieldset class="pat-checklist pat-clone ${python:'pat-autosubmit' if (webhelpers.use_training_module or webhelpers.integrated_action_plan) else None}"
+                id="risk_identification_form"
                 data-pat-clone="template: #measure-template; remove-confirmation: Sind Sie sicher, dass Sie die eingetragene bestehende Schutzmaßnahme entfernen wollen?; remove-behaviour: none"
       >
         <tal:existing_measures condition="view/show_existing_measures">
@@ -653,7 +653,7 @@
     </tal:solutions>
 
     <div class="measures pat-clone"
-         id="ActionPlanItemForm"
+         id="action_plan_form"
          data-pat-clone="template: #measure-template; remove-behaviour: none; remove-confirmation: ${view/delete_confirmation}"
     >
 
