@@ -183,6 +183,94 @@ class RiskBase(BrowserView):
             )
         )
 
+    def extract_plans_from_request(self):
+        """ Create new ActionPlan objects by parsing the Request.
+        """
+        new_plans = []
+        added = 0
+        updated = 0
+        existing_plans = {}
+        context = aq_inner(self.context)
+        for plan in context.standard_measures + context.custom_measures:
+            existing_plans[str(plan.id)] = plan
+        form = self.request.form
+        form["action_plans"] = []
+        for i in range(0, len(form.get("measure", []))):
+            measure = dict([p for p in form["measure"][i].items() if p[1].strip()])
+            form["action_plans"].append(measure)
+            if len(measure):
+                plan_type = measure.get("plan_type", "measure_custom")
+                solution_id = measure.get("solution_id", None)
+                if plan_type == "measure_standard" and not form.get(
+                    "sm-%s" % solution_id
+                ):
+                    continue
+                action = measure.get("action", "").strip()
+                if not action:
+                    continue
+                budget = measure.get("budget")
+                budget = budget and budget.split(",")[0].split(".")[0]
+                p_start = measure.get("planning_start")
+                if p_start:
+                    try:
+                        datetime.datetime.strptime(p_start, "%Y-%m-%d")
+                    except ValueError:
+                        p_start = None
+                p_end = measure.get("planning_end")
+                if p_end:
+                    try:
+                        datetime.datetime.strptime(p_end, "%Y-%m-%d")
+                    except ValueError:
+                        p_end = None
+                if measure.get("id", "-1") in existing_plans:
+                    plan = existing_plans[measure.get("id")]
+                    if (
+                        action != plan.action
+                        or measure.get("requirements") != plan.requirements  # noqa
+                        or measure.get("responsible") != plan.responsible
+                        or (
+                            plan.budget
+                            and (budget != str(plan.budget))
+                            or plan.budget is None
+                            and budget
+                        )
+                        or (
+                            (
+                                plan.planning_start
+                                and p_start != plan.planning_start.strftime("%Y-%m-%d")
+                            )
+                            or (plan.planning_start is None and p_start)  # noqa
+                        )
+                        or (
+                            (
+                                plan.planning_end
+                                and p_end != plan.planning_end.strftime("%Y-%m-%d")
+                            )
+                            or (plan.planning_end is None and p_end)  # noqa
+                        )
+                    ):
+                        updated += 1
+                    del existing_plans[measure.get("id")]
+                else:
+                    added += 1
+                new_plans.append(
+                    model.ActionPlan(
+                        action=measure.get("action"),
+                        requirements=measure.get("requirements"),
+                        responsible=measure.get("responsible"),
+                        budget=budget,
+                        planning_start=p_start,
+                        planning_end=p_end,
+                        plan_type=plan_type,
+                        solution_id=solution_id,
+                    )
+                )
+        removed = len(existing_plans)
+        changes = True
+        if added == 0 and updated == 0 and removed == 0:
+            changes = False
+        return (new_plans, changes)
+
 
 class IdentificationView(RiskBase):
     """A view for displaying a question in the identification phase
@@ -278,22 +366,12 @@ class IdentificationView(RiskBase):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
         utils.setLanguage(self.request, self.survey, self.survey.language)
-
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get("euphorie")
-        self.tti = getUtility(IToolTypesInfo)
-        self.my_tool_type = get_tool_type(self.context)
-        self.use_existing_measures = (
-            asBool(settings.get("use_existing_measures", False))
-            and self.my_tool_type in self.tti.types_existing_measures
-        )
+        context = aq_inner(self.context)
+        self.set_parameter_values()
 
         if self.request.method == "POST":
             reply = self.request.form
-            _next = reply.get("next", None)
-            # In Safari browser we get a list
-            if isinstance(_next, list):
-                _next = _next.pop()
+            _next = self._get_next(reply)
             # Don't persist anything if the user skipped the question
             if _next == "skip":
                 return self.proceed_to_next(reply)
@@ -301,93 +379,17 @@ class IdentificationView(RiskBase):
             for prop, default in self.monitored_properties.items():
                 val = getattr(self.context, prop, default)
                 old_values[prop] = val
-            answer = reply.get("answer", None)
-            # If answer is not present in the request, do not attempt to set
-            # any answer-related data, since the request might have come
-            # from a sub-form.
-            if answer:
-                self.context.comment = reply.get("comment")
-                self.context.postponed = answer == "postponed"
-                if self.context.postponed:
-                    self.context.identification = None
-                else:
-                    self.context.identification = answer
-                    if getattr(self.risk, "type", "") in ("top5", "policy"):
-                        self.context.priority = "high"
-                    elif getattr(self.risk, "evaluation_method", "") == "calculated":
-                        self.calculatePriority(self.risk, reply)
-                    elif self.risk is None or self.risk.evaluation_method == "direct":
-                        self.context.priority = reply.get("priority")
 
-            # Check if there was a change. If yes, touch the session
-            changed = False
+            self.set_answer_data(reply)
+
             session = Session()
-            if self.use_existing_measures and reply.get("handle_measures_in_place"):
-                new_measures = []
-                saved_solutions = {
-                    plan.solution_id: plan.used_in_training
-                    for plan in self.context.in_place_standard_measures
-                }
-                # First, check which of the standard solutions were selected
-                for solution in self.solutions_provided_by_tool:
-                    # If the solution was already added as a measure, retrieve the info
-                    # whether it was de-selected for the training, so that we don't
-                    # forcefully activate all measures for the training again.
-                    used_in_training = saved_solutions.get(solution.id, True)
-                    if reply.get("measure-standard-%s" % solution.id):
-                        new_measures.append(
-                            model.ActionPlan(
-                                action=solution.action,
-                                requirements=solution.requirements,
-                                plan_type="in_place_standard",
-                                solution_id=solution.id,
-                                used_in_training=used_in_training,
-                            )
-                        )
-                # Clean up, remove all standard in-place measures. The active
-                # ones will be created freshly again below
-                for plan in self.context.in_place_standard_measures:
-                    session.delete(plan)
+            changed = self.set_measure_data(reply, session)
 
-                # Now loop over the form data to find out which new custom measures
-                # to add and which already present custom measures to keep.
-                # (Present custom measures are deleted and added again, since their
-                # text might have changed. But their original order is preserved.)
-                new_custom_measures = {}
-                for k, val in reply.items():
-                    if (
-                        k.startswith("new-measure")
-                        and isinstance(val, str)
-                        and val.strip() != ""
-                    ):
-                        new_custom_measures[k] = model.ActionPlan(
-                            action=val, plan_type="in_place_custom"
-                        )
-                    elif k.startswith("measure-custom"):
-                        _id = k.rsplit("-", 1)[-1]
-                        new_custom_measures[_id] = model.ActionPlan(
-                            action=val, plan_type="in_place_custom"
-                        )
-                    # This only happens on custom risks
-                    elif k.startswith("present-measure") and val.strip() != "":
-                        _id = k.rsplit("-", 1)[-1]
-                        if int(bool(reply.get("measure-{}".format(_id)))):
-                            new_measures.append(
-                                model.ActionPlan(
-                                    action=val, plan_type="in_place_custom"
-                                )
-                            )
-                # Now add the custom measures in their correct order
-                for k in sorted(new_custom_measures.keys()):
-                    new_measures.append(new_custom_measures[k])
-                # Delete all custom in-place measures
-                for plan in self.context.in_place_custom_measures:
-                    session.delete(plan)
-                    changed = True
-
-                if new_measures:
-                    self.context.action_plans.extend(new_measures)
-                    changed = True
+            new_plans, changes = self.extract_plans_from_request()
+            for plan in context.standard_measures + context.custom_measures:
+                session.delete(plan)
+            context.action_plans.extend(new_plans)
+            changed = changes or changed
 
             if self.webhelpers.use_training_module:
                 if reply.get("handle_training_notes"):
@@ -434,11 +436,12 @@ class IdentificationView(RiskBase):
             if reply.get("title"):
                 self.context.title = reply.get("title")
 
-            for prop, default in self.monitored_properties.items():
-                val = getattr(self.context, prop, None)
-                if val and val != old_values[prop]:
-                    changed = True
-                    break
+            if not changed:
+                for prop, default in self.monitored_properties.items():
+                    val = getattr(self.context, prop, None)
+                    if val and val != old_values[prop]:
+                        changed = True
+                        break
             if changed:
                 self.session.touch()
 
@@ -466,6 +469,111 @@ class IdentificationView(RiskBase):
     @property
     def title(self):
         return self.session.title
+
+    def _get_next(self, reply):
+        _next = reply.get("next", None)
+        # In Safari browser we get a list
+        if isinstance(_next, list):
+            _next = _next.pop()
+        return _next
+
+    def set_parameter_values(self):
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get("euphorie")
+        self.tti = getUtility(IToolTypesInfo)
+        self.my_tool_type = get_tool_type(self.context)
+        self.use_existing_measures = (
+            asBool(settings.get("use_existing_measures", False))
+            and self.my_tool_type in self.tti.types_existing_measures
+        )
+
+    def set_answer_data(self, reply):
+        answer = reply.get("answer", None)
+        # If answer is not present in the request, do not attempt to set
+        # any answer-related data, since the request might have come
+        # from a sub-form.
+        if answer:
+            self.context.comment = reply.get("comment")
+            self.context.postponed = answer == "postponed"
+            if self.context.postponed:
+                self.context.identification = None
+            else:
+                self.context.identification = answer
+                if getattr(self.risk, "type", "") in ("top5", "policy"):
+                    self.context.priority = "high"
+                elif getattr(self.risk, "evaluation_method", "") == "calculated":
+                    self.calculatePriority(self.risk, reply)
+                elif self.risk is None or self.risk.evaluation_method == "direct":
+                    self.context.priority = reply.get("priority")
+
+    def set_measure_data(self, reply, session):
+
+        changed = False
+        if self.use_existing_measures and reply.get("handle_measures_in_place"):
+            new_measures = []
+            saved_solutions = {
+                plan.solution_id: plan.used_in_training
+                for plan in self.context.in_place_standard_measures
+            }
+            # First, check which of the standard solutions were selected
+            for solution in self.solutions_provided_by_tool:
+                # If the solution was already added as a measure, retrieve the info
+                # whether it was de-selected for the training, so that we don't
+                # forcefully activate all measures for the training again.
+                used_in_training = saved_solutions.get(solution.id, True)
+                if reply.get("measure-standard-%s" % solution.id):
+                    new_measures.append(
+                        model.ActionPlan(
+                            action=solution.action,
+                            requirements=solution.requirements,
+                            plan_type="in_place_standard",
+                            solution_id=solution.id,
+                            used_in_training=used_in_training,
+                        )
+                    )
+            # Clean up, remove all standard in-place measures. The active
+            # ones will be created freshly again below
+            for plan in self.context.in_place_standard_measures:
+                session.delete(plan)
+
+            # Now loop over the form data to find out which new custom measures
+            # to add and which already present custom measures to keep.
+            # (Present custom measures are deleted and added again, since their
+            # text might have changed. But their original order is preserved.)
+            new_custom_measures = {}
+            for k, val in reply.items():
+                if (
+                    k.startswith("new-measure")
+                    and isinstance(val, str)
+                    and val.strip() != ""
+                ):
+                    new_custom_measures[k] = model.ActionPlan(
+                        action=val, plan_type="in_place_custom"
+                    )
+                elif k.startswith("measure-custom"):
+                    _id = k.rsplit("-", 1)[-1]
+                    new_custom_measures[_id] = model.ActionPlan(
+                        action=val, plan_type="in_place_custom"
+                    )
+                # This only happens on custom risks
+                elif k.startswith("present-measure") and val.strip() != "":
+                    _id = k.rsplit("-", 1)[-1]
+                    if int(bool(reply.get("measure-{}".format(_id)))):
+                        new_measures.append(
+                            model.ActionPlan(action=val, plan_type="in_place_custom")
+                        )
+            # Now add the custom measures in their correct order
+            for k in sorted(new_custom_measures.keys()):
+                new_measures.append(new_custom_measures[k])
+            # Delete all custom in-place measures
+            for plan in self.context.in_place_custom_measures:
+                session.delete(plan)
+                changed = True
+
+            if new_measures:
+                self.context.action_plans.extend(new_measures)
+                changed = True
+        return changed
 
     @property
     @memoize
@@ -921,94 +1029,6 @@ class ActionPlanView(RiskBase):
         self.image_class = IMAGE_CLASS[self.number_images]
         self.risk_number = self.context.number
         return self.index()
-
-    def extract_plans_from_request(self):
-        """ Create new ActionPlan objects by parsing the Request.
-        """
-        new_plans = []
-        added = 0
-        updated = 0
-        existing_plans = {}
-        context = aq_inner(self.context)
-        for plan in context.standard_measures + context.custom_measures:
-            existing_plans[str(plan.id)] = plan
-        form = self.request.form
-        form["action_plans"] = []
-        for i in range(0, len(form.get("measure", []))):
-            measure = dict([p for p in form["measure"][i].items() if p[1].strip()])
-            form["action_plans"].append(measure)
-            if len(measure):
-                plan_type = measure.get("plan_type", "measure_custom")
-                solution_id = measure.get("solution_id", None)
-                if plan_type == "measure_standard" and not form.get(
-                    "sm-%s" % solution_id
-                ):
-                    continue
-                action = measure.get("action", "").strip()
-                if not action:
-                    continue
-                budget = measure.get("budget")
-                budget = budget and budget.split(",")[0].split(".")[0]
-                p_start = measure.get("planning_start")
-                if p_start:
-                    try:
-                        datetime.datetime.strptime(p_start, "%Y-%m-%d")
-                    except ValueError:
-                        p_start = None
-                p_end = measure.get("planning_end")
-                if p_end:
-                    try:
-                        datetime.datetime.strptime(p_end, "%Y-%m-%d")
-                    except ValueError:
-                        p_end = None
-                if measure.get("id", "-1") in existing_plans:
-                    plan = existing_plans[measure.get("id")]
-                    if (
-                        action != plan.action
-                        or measure.get("requirements") != plan.requirements  # noqa
-                        or measure.get("responsible") != plan.responsible
-                        or (
-                            plan.budget
-                            and (budget != str(plan.budget))
-                            or plan.budget is None
-                            and budget
-                        )
-                        or (
-                            (
-                                plan.planning_start
-                                and p_start != plan.planning_start.strftime("%Y-%m-%d")
-                            )
-                            or (plan.planning_start is None and p_start)  # noqa
-                        )
-                        or (
-                            (
-                                plan.planning_end
-                                and p_end != plan.planning_end.strftime("%Y-%m-%d")
-                            )
-                            or (plan.planning_end is None and p_end)  # noqa
-                        )
-                    ):
-                        updated += 1
-                    del existing_plans[measure.get("id")]
-                else:
-                    added += 1
-                new_plans.append(
-                    model.ActionPlan(
-                        action=measure.get("action"),
-                        requirements=measure.get("requirements"),
-                        responsible=measure.get("responsible"),
-                        budget=budget,
-                        planning_start=p_start,
-                        planning_end=p_end,
-                        plan_type=plan_type,
-                        solution_id=solution_id,
-                    )
-                )
-        removed = len(existing_plans)
-        changes = True
-        if added == 0 and updated == 0 and removed == 0:
-            changes = False
-        return (new_plans, changes)
 
 
 def calculate_priority(db_risk, risk):
