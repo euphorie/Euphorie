@@ -163,7 +163,7 @@
       <!-- Existing Measures -->
       <fieldset class="pat-checklist pat-clone ${python:'pat-autosubmit' if (webhelpers.use_training_module or webhelpers.integrated_action_plan) else None}"
                 id="risk_identification_form"
-                data-pat-clone="template: #measure-template; remove-confirmation: Sind Sie sicher, dass Sie die eingetragene bestehende Schutzmaßnahme entfernen wollen?; remove-behaviour: none"
+                data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button; remove-confirmation: Sind Sie sicher, dass Sie die eingetragene bestehende Schutzmaßnahme entfernen wollen?; remove-behaviour: none"
       >
         <tal:existing_measures condition="view/show_existing_measures">
           <p tal:content="structure view/intro_extra"></p>
@@ -203,7 +203,7 @@
           <input type="hidden" name="handle_measures_in_place" value="1" />
 
           <label class="clone"
-                 id="measure-template"
+                 id="in-place-measure-template"
                  hidden="hidden"
           >
             <input class="pat-autofocus"
@@ -229,7 +229,7 @@
            tal:condition="python:view.show_existing_measures"
       >
         <button class="add-clone small pat-button icon-plus-circle"
-                id="addMeasureButton"
+                id="add-in-place-measure-button"
                 title="${view/button_add_extra}"
                 type="button"
         >${view/button_add_extra}</button>
@@ -654,7 +654,7 @@
 
     <div class="measures pat-clone"
          id="action_plan_form"
-         data-pat-clone="template: #measure-template; remove-behaviour: none; remove-confirmation: ${view/delete_confirmation}"
+         data-pat-clone="template: #measure-template; trigger-element: #add-measure-button; remove-behaviour: none; remove-confirmation: ${view/delete_confirmation}"
     >
 
       <!-- Existing Measures -->
@@ -947,7 +947,7 @@
         >Select standard measures</button>
       </tal:solutions>
       <button class="add-clone pat-button icon-plus-circle ${view/style_buttons}"
-              id="addMeasureButton"
+              id="add-measure-button"
               title="Add another measure"
               type="button"
               i18n:translate="label_extra_add_measure"
