@@ -51,8 +51,7 @@ class RiskBase(BrowserView):
     # What extra style to use for buttons like "Add measure". Default is None.
     style_buttons = None
 
-    def __init__(self, context, request):
-        super(RiskBase, self).__init__(context, request)
+    def __call__(self):
         self.delete_confirmation = api.portal.translate(
             _(
                 u"Are you sure you want to delete this measure? This action can "
@@ -355,6 +354,7 @@ class IdentificationView(RiskBase):
         return condition
 
     def __call__(self):
+        super(IdentificationView, self).__call__()
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
         if not self.webhelpers.can_edit_session:
@@ -947,6 +947,7 @@ class ActionPlanView(RiskBase):
         return number_images
 
     def __call__(self):
+        super(ActionPlanView, self).__call__()
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
         if not self.webhelpers.can_edit_session:
