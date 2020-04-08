@@ -161,10 +161,9 @@
     >
 
       <!-- Existing Measures -->
-      <fieldset class="pat-checklist pat-clone pat-subform pat-autosubmit pat-inject"
+      <fieldset class="pat-checklist pat-clone pat-autosubmit"
                 id="risk_identification_form"
                 data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button; remove-confirmation: Sind Sie sicher, dass Sie die eingetragene bestehende Schutzmaßnahme entfernen wollen?; remove-behaviour: none"
-                data-pat-inject="${python:'&amp;&amp; source: #slide-content-2; target: #slide-content-2;' if view.use_training_module else None} ${python:'&amp;&amp; source: #panel-action-plan; target: #panel-action-plan' if webhelpers.integrated_action_plan else None}"
       >
         <tal:existing_measures condition="view/show_existing_measures">
           <p tal:condition="python:not always_present or view.show_explanation_on_always_present_risks" tal:content="structure view/intro_extra"></p>

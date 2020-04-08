@@ -18,7 +18,9 @@
       method="post" class="pat-inject"
       data-pat-inject="history: record; source: #step-2-topics; target: #step-2-topics &amp;&amp; source: #main-content; target: #main-content &amp;&amp; source: #toolbar; target: #toolbar &amp;&amp; source: #status; target: #status">
   <a href="#content-pane" class="pat-scroll pat-scroll-animated" data-pat-scroll="selector: #content-pane; trigger: auto; offset: 0" hidden="">Scroll to top</a>
-<div id="content-pane">
+  <div id="content-pane"
+       class="pat-subform pat-inject"
+                       data-pat-inject="${python:'&amp;&amp; source: #slide-content-2; target: #slide-content-2;' if view.use_training_module else None} ${python:'&amp;&amp; source: #panel-action-plan; target: #panel-action-plan' if webhelpers.integrated_action_plan else None}">
 
     <h2 class="risk-title">${here/title}</h2>
 
