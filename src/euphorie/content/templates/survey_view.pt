@@ -26,6 +26,9 @@
         <dd tal:condition="not:context/language"><em i18n:translate="not_set">Not set</em></dd>
         <dt i18n:translate="label_tool_type">Type of OiRA Tool</dt>
         <dd>${context/get_tool_type_name}</dd>
+        <dt i18n:translate="label_integrated_action_plan">Integrated Action Plan</dt>
+        <dd tal:condition="context/integrated_action_plan" i18n:translate="Yes">Yes</dd>
+        <dd tal:condition="not:context/integrated_action_plan" i18n:translate="No">No</dd>
       </dl>
 
       <tal:intro condition="python:context.introduction">
