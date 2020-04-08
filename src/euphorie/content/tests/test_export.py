@@ -610,6 +610,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             '    <title>Generic sector</title>\n'
             '    <language>en-GB</language>\n'
             '    <tool_type>classic</tool_type>\n'
+            '    <integrated_action_plan>false</integrated_action_plan>\n'
             '    <evaluation-algorithm>french</evaluation-algorithm>\n'
             '    <evaluation-optional>false</evaluation-optional>\n'
             '  </survey>\n'
@@ -636,6 +637,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             '    <title>Generic sector</title>\n'
             '    <language>en-GB</language>\n'
             '    <tool_type>classic</tool_type>\n'
+            '    <integrated_action_plan>false</integrated_action_plan>\n'
             '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
             '    <evaluation-optional>false</evaluation-optional>\n'
             '  </survey>\n'
@@ -668,6 +670,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             '    <title>Generic sector</title>\n'
             '    <language>en-GB</language>\n'
             '    <tool_type>classic</tool_type>\n'
+            '    <integrated_action_plan>false</integrated_action_plan>\n'
             '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
             '    <evaluation-optional>false</evaluation-optional>\n'
             '    <profile-question>\n'
@@ -707,6 +710,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             '    <title>Generic sector</title>\n'
             '    <language>en-GB</language>\n'
             '    <tool_type>classic</tool_type>\n'
+            '    <integrated_action_plan>false</integrated_action_plan>\n'
             '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
             '    <evaluation-optional>false</evaluation-optional>\n'
             '    <module optional="false">\n'
@@ -729,6 +733,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         survey.introduction = None
         survey.classification_code = None
         survey.evaluation_optional = False
+        survey.integrated_action_plan = True
         survey.language = "en-GB"
         survey.tool_type = "existing_measures"
         view = ExportSurvey(survey, TestRequest())
@@ -746,6 +751,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             '    <title>Generic sector</title>\n'
             '    <language>en-GB</language>\n'
             '    <tool_type>existing_measures</tool_type>\n'
+            '    <integrated_action_plan>true</integrated_action_plan>\n'
             '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
             '    <evaluation-optional>false</evaluation-optional>\n'
             '  </survey>\n'
