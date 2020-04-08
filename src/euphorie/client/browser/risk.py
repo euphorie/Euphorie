@@ -481,7 +481,7 @@ class IdentificationView(RiskBase):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get("euphorie")
         self.tti = getUtility(IToolTypesInfo)
-        self.my_tool_type = get_tool_type(self.context)
+        self.my_tool_type = get_tool_type(self.survey)
         self.use_existing_measures = (
             asBool(settings.get("use_existing_measures", False))
             and self.my_tool_type in self.tti.types_existing_measures
@@ -964,7 +964,7 @@ class ActionPlanView(RiskBase):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get("euphorie")
         self.tti = getUtility(IToolTypesInfo)
-        self.my_tool_type = get_tool_type(self.context)
+        self.my_tool_type = get_tool_type(self.survey)
         self.use_existing_measures = (
             asBool(settings.get("use_existing_measures", False))
             and self.my_tool_type in self.tti.types_existing_measures

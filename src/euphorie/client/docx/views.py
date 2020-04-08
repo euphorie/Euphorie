@@ -185,13 +185,14 @@ class ActionPlanDocxView(OfficeDocumentView):
     def __init__(self, context, request):
         super(ActionPlanDocxView, self).__init__(context, request)
         country = self.webhelpers.country
+        tool_type = get_tool_type(self.webhelpers._survey)
         if country == "it":
-            if get_tool_type(context) == 'existing_measures':
+            if tool_type == 'existing_measures':
                 self._compiler = DocxCompilerItaly
             else:
                 self._compiler = DocxCompilerItalyOriginal
         elif country == "fr":
-            if get_tool_type(context) == 'existing_measures':
+            if tool_type == 'existing_measures':
                 self._compiler = DocxCompilerFrance
 
     def get_heading(self, title):
