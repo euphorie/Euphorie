@@ -57,7 +57,7 @@
           <tal:action_plan condition="webhelpers/integrated_action_plan">
             <!-- Action Plan -->
             <div class="pat-collapsible open risk-module pat-depends visible"
-                 data-pat-depends="condition: answer=no; transition: slide"
+                 data-pat-depends="transition: slide; ${view/action_plan_condition}"
             >
               <h3 class="collapsible-open"
                   i18n:translate="header_actions"
