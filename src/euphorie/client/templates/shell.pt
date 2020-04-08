@@ -184,6 +184,7 @@
                 </li>
                 <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
                     id="step-4"
+                    tal:condition="not: webhelpers/integrated_action_plan"
                     tal:define="
                       active python:page_section == 'actionplan';
                       disabled python:(page_section in ('', 'preparation') and new_session) or (not can_edit);
