@@ -330,6 +330,7 @@ class SurveyImporter(object):
         survey.language = el_string(node, "language")
         tti = getUtility(IToolTypesInfo)
         survey.tool_type = el_string(node, "tool_type", tti.default_tool_type)
+        survey.integrated_action_plan = el_bool(node, "integrated_action_plan")
         survey.evaluation_optional = el_bool(node, "evaluation-optional")
         survey.external_id = attr_unicode(node, "external-id")
         external_site_logo = getattr(node, "image", None)
