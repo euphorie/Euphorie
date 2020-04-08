@@ -601,7 +601,7 @@ class IdentificationView(RiskBase):
         self.placeholder_add_extra = tool_type_data.get("placeholder_add_extra", "")
         self.button_remove_extra = ""
         if self.use_existing_measures:
-            measures = self.get_existing_measures()
+            measures = self.get_existing_measures_with_activation()
             # Only show the form to select and add existing measures if
             # at least one pre-existring measure is present
             # In this case, also change some labels
