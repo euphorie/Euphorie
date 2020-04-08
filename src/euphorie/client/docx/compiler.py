@@ -195,7 +195,7 @@ class DocxCompiler(BaseOfficeCompiler):
         settings = appconfig.get('euphorie')
         self.use_existing_measures = settings.get(
             'use_existing_measures', False)
-        self.tool_type = get_tool_type(self.context)
+        self.tool_type = get_tool_type(self.webhelpers._survey)
         self.tti = getUtility(IToolTypesInfo)
         self.italy_special = self.webhelpers.country == "it"
 
