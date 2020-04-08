@@ -353,6 +353,14 @@ class IdentificationView(RiskBase):
             condition = "condition: answer=no or answer=yes"
         return condition
 
+    @property
+    def action_plan_condition(self):
+        """ In what circumstances will the integrated Action Plan be shown"""
+        if self.risk.type == "top5" or self.risk.risk_always_present:
+            # No condition, that means, it will always be shown
+            return None
+        return "condition: answer=no"
+
     def __call__(self):
         super(IdentificationView, self).__call__()
         self.check_render_condition()
