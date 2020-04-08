@@ -39,7 +39,7 @@ def getToken(field, value, default=None):
     try:
         return field.vocabulary.getTerm(value).token
     except LookupError:
-        return None
+        return default
 
 
 class ExportSurvey(grok.View):
@@ -189,15 +189,18 @@ class ExportSurvey(grok.View):
                     if risk.default_probability:
                         method.attrib["default-probability"] = getToken(
                                 IKinneyEvaluation["default_probability"],
-                                risk.default_probability)
+                                risk.default_probability,
+                                "0")
                     if risk.default_frequency:
                         method.attrib["default-frequency"] = getToken(
                                 IKinneyEvaluation["default_frequency"],
-                                risk.default_frequency)
+                                risk.default_frequency,
+                                "0")
                     if risk.default_effect:
                         method.attrib["default-effect"] = getToken(
                                 IKinneyEvaluation["default_effect"],
-                                risk.default_effect)
+                                risk.default_effect,
+                                "0")
             elif risk.evaluation_method == "direct":
                 if risk.default_priority:
                     method.attrib["default-priority"] = getToken(
