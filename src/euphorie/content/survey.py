@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Survey
 ======
@@ -114,6 +115,17 @@ class ISurvey(form.Schema, IBasic):
         vocabulary="euphorie.tool_types_vocabulary",
         defaultFactory=get_tool_type_default,
         required=True)
+
+    integrated_action_plan = schema.Bool(
+        title=_("label_integrated_action_plan",
+                default=u"Integrated Action Plan"),
+        description=_(
+            "description_integrated_action_plan",
+            default=u"If selected, the option to plan measures will be offered "
+            u"directly on the “Identification” page. There will be no separate "
+            u"“Action Plan” step in the navigation."),
+        required=False,
+        default=False)
 
     enable_tool_notification = schema.Bool(
         title=_("label_enable_tool_notification",
