@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="120"
+   height="191.1523"
+   id="svg4089"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   version="1.0"
+   sodipodi:docbase="C:\Documents and Settings\Sigurd\Skrivebord\BILDER TIL WIKIPEDIA"
+   sodipodi:docname="OSHA_logo.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4091">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 138.66168 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="353.04001 : 138.66168 : 1"
+       inkscape:persp3d-origin="176.52 : 92.441121 : 1"
+       id="perspective52" />
+    <filter
+       inkscape:collect="always"
+       x="-0.31138903"
+       width="1.6227781"
+       y="-0.19362392"
+       height="1.3872478"
+       id="filter11370">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="6.953317"
+         id="feGaussianBlur11372" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="260.12358"
+     inkscape:cy="98.448945"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     width="353.04px"
+     height="277.32336px"
+     inkscape:window-width="1280"
+     inkscape:window-height="753"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4"
+     showgrid="false" />
+  <metadata
+     id="metadata4094">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-205.25572,-437.23429)">
+    <path
+       d="M 264.86118,628.38659 C 283.87918,587.03458 272.62991,555.41763 265.52174,533.8254 C 256.86422,507.51269 238.87545,484.08802 265.19695,439.26644 L 234.34151,439.26644 C 208.02001,484.08802 225.95172,507.51269 234.61143,533.8254 C 241.71522,555.41763 253.14006,587.03458 234.12205,628.38659 L 264.86118,628.38659"
+       id="path3756"
+       style="fill:#333c4d;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    <path
+       d="M 261.63957,626.35443 C 280.65758,585.00242 269.40611,553.38549 262.29795,531.79325 C 253.6426,505.48053 235.65385,482.05586 261.97314,437.23429 L 231.1177,437.23429 C 204.79841,482.05586 222.72791,505.48053 231.38983,531.79325 C 238.49141,553.38549 249.91625,585.00242 230.90044,626.35443 L 261.63957,626.35443"
+       id="path3758"
+       style="fill:#96999e;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    <path
+       d="M 254.73989,472.8519 C 271.89913,453.16455 294.04657,460.64798 296.61201,480.29583 C 298.50152,494.76674 276.08413,525.89649 268.82894,535.3989 L 254.02446,523.7151 C 274.7608,495.4624 279.21576,485.9512 279.57786,477.19931 C 279.93557,468.56374 270.10617,463.74012 254.73989,472.8519"
+       id="path3760"
+       style="fill:#084d92;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    <path
+       d="M 217.93941,522.01432 C 194.95143,553.37232 211.12312,583.24239 232.99406,584.60082 C 254.50068,585.9395 273.43093,569.4189 285.00719,561.68966 C 290.04809,558.32322 309.98122,540.42444 324.3797,523.9982 L 318.18228,504.53907 C 301.95792,524.14305 289.46873,534.79979 273.84348,547.74109 C 258.07122,560.81184 245.07727,567.13876 233.1323,566.90832 C 221.53188,566.68448 199.60389,557.53099 217.93941,522.01432"
+       id="path3762"
+       style="fill:#084d92;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+  </g>
+</svg>
