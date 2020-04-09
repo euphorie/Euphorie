@@ -32,10 +32,6 @@ def fix_urls(filename):
             'url(/media/',
             'url(++resource++euphorie.media/'
         )
-        .replace(
-            'url(/style/',
-            'url('
-        )
     )
     try:
         os.makedirs(os.path.dirname(target))
