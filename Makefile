@@ -62,7 +62,7 @@ jekyll: prototype
 	@cd prototype && make jekyll
 
 ## Important: in proto, we need to call `bundle-osha`, not `bundle`, so that the paths are correct
-resources-install: bundle
+resources-install:   # bundle
 	cp -R prototype/_site/assets/* src/euphorie/client/resources/
 	cp -R prototype/_site/media src/euphorie/client/resources/
 	@./scripts/proto2diazo.py

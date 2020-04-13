@@ -251,9 +251,17 @@
 	msgid "Add standard measure"
 	msgstr "Add standard measure"
 
+	#| msgid add_another_item
+	msgid "Add another item"
+	msgstr "Weitere Artikel hinzufügen"
+
 	#| msgid add_missing_existing_measure
 	msgid "Add a missing implemented measure"
 	msgstr "Weitere bestehende Schutzmaßnahme hinzufügen"
+
+	#| msgid describe_item
+	msgid "Describe this item"
+	msgstr "Beschreiben Sie hier diesen Artikel"
 
 	#| msgid describe_new_measure
 	msgid "Describe a measure that is already in place but not yet listed here."
