@@ -40,13 +40,13 @@
     <link rel="icon" type="image/png" href="${media_url}/favicon.png" />
 
     <tal:block condition="webhelpers/debug_mode">
-        <script type="text/javascript" src="${js_resources_url}/${webhelpers/bundle_name}?t=${resources_timestamp}"></script>
-        <link rel="stylesheet" href="${resources_url}/screen.css?t=${resources_timestamp}" type="text/css" />
+        <script type="text/javascript" src="${js_resources_url}/oira/script/${webhelpers/bundle_name}?t=${resources_timestamp}"></script>
+        <link rel="stylesheet" href="${resources_url}/oira/style/all.css?t=${resources_timestamp}" type="text/css" />
     </tal:block>
     <tal:block condition="not:webhelpers/debug_mode">
-        <script type="text/javascript" src="${js_resources_url}/${webhelpers/bundle_name_min}?t=${resources_timestamp}"></script>
+        <script type="text/javascript" src="${js_resources_url}/oira/script/${webhelpers/bundle_name_min}?t=${resources_timestamp}"></script>
         <!-- TODO: needs to be minified -->
-        <link rel="stylesheet" href="${resources_url}/screen.css?t=${resources_timestamp}" type="text/css" />
+        <link rel="stylesheet" href="${resources_url}/oira/style/all.css?t=${resources_timestamp}" type="text/css" />
     </tal:block>
 
 
