@@ -26,6 +26,7 @@ def fix_urls(filepath):
 
     delta = len(filepath.split("/")) - 6
     shim = "../" * delta
+
     content = content.replace("url(/media/", "url(++resource++euphorie.media/")
     content = content.replace("=\"/assets/oira/", "=\"" + shim)
     content = content.replace("=\"//assets/oira/", "=\"" + shim)
