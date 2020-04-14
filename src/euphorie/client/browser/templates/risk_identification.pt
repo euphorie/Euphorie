@@ -42,7 +42,7 @@
     <!-- END Information -->
 
     <!-- Resources -->
-    <article class="pat-collapsible closed risk-module" tal:condition="view/show_resources">
+    <article class="pat-rich pat-collapsible closed risk-module" tal:condition="view/show_resources">
         <h3 i18n:translate="header_resources">
             Resources
         </h3>
