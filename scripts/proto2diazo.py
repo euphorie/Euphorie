@@ -30,6 +30,7 @@ def fix_urls(filepath):
     content = content.replace("=\"/assets/oira/", "=\"" + shim)
     content = content.replace("=\"//assets/oira/", "=\"" + shim)
     content = content.replace("=\"/media/", "=\"" + shim + "media/")
+    content = content.replace("=\"/depts/index", "=\"" + shim + "depts.html")
 
     open(filepath, "w").write(content)
 
