@@ -11,6 +11,7 @@ from euphorie.client.tests.utils import addAccount
 from euphorie.testing import EuphorieIntegrationTestCase
 from ExtensionClass import Base
 from plone import api
+from urllib import quote
 from z3c.saconfig import Session
 from zope.interface import alsoProvides
 
@@ -472,7 +473,9 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
                 response.headers['content-type'], 'application/vnd.openxmlformats-'
                 'officedocument.spreadsheetml.sheet'
             )
+            quoted_filename = quote(u"Timeline for Acmè.xlsx".encode("utf-8"))
+            self.assertEqual(quoted_filename, "Timeline%20for%20Acm%C3%A8.xlsx")
             self.assertEqual(
                 response.headers['content-disposition'],
-                'attachment; filename="Timeline for Acmè.xlsx"'
+                "attachment; filename*=UTF-8\'\'{}".format(quoted_filename)
             )
