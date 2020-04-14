@@ -388,11 +388,12 @@ class IdentificationView(RiskBase):
                 # If answer is not present in the request, do not attempt to set
                 # any action-related data, since the request might have come
                 # from a sub-form.
-                new_plans, changes = self.extract_plans_from_request()
-                for plan in self.context.standard_measures + self.context.custom_measures:
-                    session.delete(plan)
-                self.context.action_plans.extend(new_plans)
-                changed = changes or changed
+                if self.webhelpers.integrated_action_plan:
+                    new_plans, changes = self.extract_plans_from_request()
+                    for plan in self.context.standard_measures + self.context.custom_measures:
+                        session.delete(plan)
+                    self.context.action_plans.extend(new_plans)
+                    changed = changes or changed
 
             if self.webhelpers.use_training_module:
                 if reply.get("handle_training_notes"):
