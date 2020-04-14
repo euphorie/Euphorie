@@ -82,12 +82,22 @@ class WebHelpers(BrowserView):
     View name: @@webhelpers
     """
     media_name = "++resource++euphorie.media"
-    resources_name = "++resource++euphorie.resources"
-    js_resources_name = "++resource++euphorie.resources"
-    bundle_name = "bundle.js"
-    bundle_name_min = "bundle.min.js"
+
+    css_path = "++resource++euphorie.resources/oira/style/all.css"
+    css_path_min = "++resource++euphorie.resources/oira/style/all.css"
+
+    js_path = "++resource++euphorie.resources/oira/script/bundle.js"
+    js_path_min = "++resource++euphorie.resources/oira/script/bundle.min.js"
+
     group_model = Group
     survey_session_model = SurveySession
+
+    @property
+    @memoize
+    def resources_timestamp(self):
+        return api.portal.get_registry_record(
+            "euphorie.deployment.resources_timestamp", default=""
+        )
 
     @property
     @memoize
@@ -388,7 +398,7 @@ class WebHelpers(BrowserView):
     @memoize
     def client_url(self):
         """Return the absolute URL for the client."""
-        return self.client and self.client.absolute_url()
+        return self.client.absolute_url() if self.client else '.'
 
     @property
     @memoize
@@ -430,15 +440,21 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
-    def resources_url(self):
-        return "{}/{}".format(
-            self.client_url, self.resources_name)
+    def css_url(self):
+        return "{}/{}?t={}".format(
+            self.client_url,
+            self.css_path if not self.debug_mode else self.css_path_min,
+            self.resources_timestamp
+        )
 
     @property
     @memoize
-    def js_resources_url(self):
-        return "{}/{}".format(
-            self.client_url, self.js_resources_name)
+    def js_url(self):
+        return "{}/{}?t={}".format(
+            self.client_url,
+            self.js_path if not self.debug_mode else self.js_path_min,
+            self.resources_timestamp
+        )
 
     @property
     @memoize

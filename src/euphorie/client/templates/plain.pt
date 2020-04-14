@@ -9,7 +9,6 @@
       i18n:domain="euphorie"
       tal:define="webhelpers nocall:context/@@webhelpers;
                   client nocall:request/client;
-                  base_url client/++resource++euphorie.resources;
                   page_section webhelpers/get_phase;
                   came_from webhelpers/came_from;
                   came_from_param python:came_from and 'came_from=%s' % came_from or '';
@@ -22,21 +21,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="${client/++resource++euphorie.media}/favicon.png" />
 
-    <tal:block condition="webhelpers/debug_mode">
-        <script type="text/javascript" src="${base_url}/bundle.js"></script>
-    </tal:block>
-    <tal:block condition="not:webhelpers/debug_mode">
-        <!-- TODO: this must be minified -->
-        <script type="text/javascript" src="${base_url}/bundle.min.js"></script>
-    </tal:block>
-
-    <tal:block condition="webhelpers/debug_mode">
-        <link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
-    </tal:block>
-    <tal:block condition="not:webhelpers/debug_mode">
-        <!-- TODO: needs to be minified -->
-        <link rel="stylesheet" href="${base_url}/screen.css" type="text/css" />
-    </tal:block>
+    <script type="text/javascript" src="${webhelpers/js_url}"></script>
+    <link rel="stylesheet" href="${webhelpers/css_url}" type="text/css" />
 
     <style type="text/css">
 @page {

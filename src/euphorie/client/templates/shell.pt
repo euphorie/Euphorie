@@ -17,11 +17,7 @@
                   no_splash view/no_splash|nothing;
                   tool_notification webhelpers/tool_notification;
                   client nocall:request/client;
-                  base_url client/++resource++euphorie.resources;
                   media_url webhelpers/media_url;
-                  resources_url webhelpers/resources_url;
-                  js_resources_url webhelpers/js_resources_url;
-                  resources_timestamp here/@@refresh-resources-timestamp/resources_timestamp;
                   page_section webhelpers/get_phase;
                   sidebar_default python:page_section in ['identification', 'actionplan'] and 'sidebar-on' or 'sidebar-off';
                   came_from_param webhelpers/came_from_param;
@@ -39,16 +35,8 @@
     <meta http-equiv="expires" content="-1" />
     <link rel="icon" type="image/png" href="${media_url}/favicon.png" />
 
-    <tal:block condition="webhelpers/debug_mode">
-        <script type="text/javascript" src="${js_resources_url}/oira/script/${webhelpers/bundle_name}?t=${resources_timestamp}"></script>
-        <link rel="stylesheet" href="${resources_url}/oira/style/all.css?t=${resources_timestamp}" type="text/css" />
-    </tal:block>
-    <tal:block condition="not:webhelpers/debug_mode">
-        <script type="text/javascript" src="${js_resources_url}/oira/script/${webhelpers/bundle_name_min}?t=${resources_timestamp}"></script>
-        <!-- TODO: needs to be minified -->
-        <link rel="stylesheet" href="${resources_url}/oira/style/all.css?t=${resources_timestamp}" type="text/css" />
-    </tal:block>
-
+    <script type="text/javascript" src="${webhelpers/js_url}"></script>
+    <link rel="stylesheet" href="${webhelpers/css_url}" type="text/css" />
 
         <meta name="description" content="${webhelpers/tool_description}" />
         <meta property="og:type" content="website" />
