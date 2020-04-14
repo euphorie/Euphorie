@@ -19,6 +19,7 @@ from openpyxl.workbook import Workbook
 from openpyxl.writer.excel import save_virtual_workbook
 from plone import api
 from plone.memoize.view import memoize
+from urllib import quote
 from zope.i18n import translate
 
 import logging
@@ -232,7 +233,9 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
         filename = translate(filename, context=self.request)
         self.request.response.setHeader(
             "Content-Disposition",
-            'attachment; filename="%s.xlsx"' % filename.encode("utf-8"),
+            "attachment; filename*=UTF-8\'\'{}.xlsx".format(
+                quote(filename.encode("utf-8"))
+            )
         )
         self.request.response.setHeader(
             "Content-Type",
