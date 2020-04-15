@@ -58929,6 +58929,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         $trigger.data('patterns.tooltip-ng', tooltip._mutateOptions(this.options)).on('destroy.pat-tooltip-ng', tooltip._onDestroy);
         this.options = tooltip.parseOptionsForTippy(this.options, $trigger);
         var instance = tippy($trigger[0], this.options);
+        $(instance.popper).css({
+          'max-height': '90%',
+          'overflow-y': 'auto'
+        });
         tooltip.setupShowEvents($trigger);
       });
     },
