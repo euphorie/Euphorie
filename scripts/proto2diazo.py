@@ -8,8 +8,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(sys.argv[0])
 
 THEME_DIR = os.path.join("src", "euphorie", "client", "resources")
-HELP_DIR = os.path.join("src", "euphorie", "client",
-                        "resources", "oira", "help")
+HELP_DIR = os.path.join("src", "euphorie", "client", "resources", "oira", "help")
 
 
 def fix_urls(filepath):
@@ -27,11 +26,13 @@ def fix_urls(filepath):
     delta = len(filepath.split("/")) - 6
     shim = "../" * delta
 
-    content = content.replace("url(/media/", "url(++resource++euphorie.media/")
-    content = content.replace("=\"/assets/oira/", "=\"" + shim)
-    content = content.replace("=\"//assets/oira/", "=\"" + shim)
-    content = content.replace("=\"/media/", "=\"" + shim + "media/")
-    content = content.replace("=\"/depts/index", "=\"" + shim + "depts.html")
+    content = content.replace(
+        "url(/media/", "url(/++resource++euphorie.resources/media/"
+    )
+    content = content.replace('="/assets/oira/', '="' + shim)
+    content = content.replace('="//assets/oira/', '="' + shim)
+    content = content.replace('="/media/', '="' + shim + "media/")
+    content = content.replace('="/depts/index', '="' + shim + "depts.html")
 
     open(filepath, "w").write(content)
 
