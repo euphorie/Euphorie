@@ -81,7 +81,8 @@ class WebHelpers(BrowserView):
 
     View name: @@webhelpers
     """
-    media_name = "++resource++euphorie.media"
+    media_path = "++resource++euphorie.resources/media"
+    style_path = "++resource++euphorie.resources/oira/style"
 
     css_path = "++resource++euphorie.resources/oira/style/all.css"
     css_path_min = "++resource++euphorie.resources/oira/style/all.css"
@@ -436,7 +437,13 @@ class WebHelpers(BrowserView):
     @memoize
     def media_url(self):
         return "{}/{}".format(
-            self.client_url, self.media_name)
+            self.client_url, self.media_path)
+
+    @property
+    @memoize
+    def style_url(self):
+        return "{}/{}".format(
+            self.client_url, self.style_path)
 
     @property
     @memoize
