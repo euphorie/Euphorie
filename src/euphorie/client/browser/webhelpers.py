@@ -81,6 +81,7 @@ class WebHelpers(BrowserView):
 
     View name: @@webhelpers
     """
+    certificates_path = "++resource++euphorie.resources/oira/certificates"
     media_path = "++resource++euphorie.resources/media"
     style_path = "++resource++euphorie.resources/oira/style"
 
@@ -432,6 +433,12 @@ class WebHelpers(BrowserView):
                 return base_url
             return self.client_url
         return self._base_url()
+
+    @property
+    @memoize
+    def certificates_url(self):
+        return "{}/{}".format(
+            self.client_url, self.certificates_path)
 
     @property
     @memoize
