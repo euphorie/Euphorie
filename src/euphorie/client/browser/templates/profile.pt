@@ -117,7 +117,8 @@
         <hr class="trigger pat-switch" data-pat-switch="selector: body; remove: splash-on-tool*; add: splash-off-${tool_notification/id}; store: session" />
         <article class="pat-rich content">
             <p>
-                <img src="${webhelpers/country_url}/++resource++euphorie.media/oira-logo-colour.svg" width="20%" />
+                <img src="${style_url}/oira-logo-colour.svg"
+                     width="20%" />
             </p>
             <h1 tal:content="structure tool_notification/title">Message of the day!</h1>
             <tal:content content="structure tool_notification/text">

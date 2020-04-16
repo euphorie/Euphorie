@@ -19,7 +19,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="${client/++resource++euphorie.media}/favicon.png" />
+    <link rel="icon" type="image/png" href="${webhelpers/style_url}/apple-touch-icon.png" />
 
     <script type="text/javascript" src="${webhelpers/js_url}"></script>
     <link rel="stylesheet" href="${webhelpers/css_url}" type="text/css" />

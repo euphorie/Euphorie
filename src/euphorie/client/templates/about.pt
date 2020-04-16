@@ -16,7 +16,8 @@
   <body>
     <metal:content fill-slot="content"
                    tal:define="
-                     media_url client/++resource++euphorie.media;
+                     webhelpers nocall:context/@@webhelpers;
+                     media_url webhelpers/media_url;
                    "
     >
       <h1 i18n:translate="title_about">About</h1>

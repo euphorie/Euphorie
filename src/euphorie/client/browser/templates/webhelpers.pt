@@ -18,10 +18,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1"
     />
-    <link href="${client/++resource++euphorie.media}/favicon.png"
-          rel="icon"
-          type="image/png"
-    />
+    <link rel="icon" type="image/png" href="${style_url}/apple-touch-icon.png" />
   </metal:headers>
 
   <metal:home define-macro="homelink"

@@ -41,7 +41,7 @@
       />
       <article class="pat-rich content">
         <p>
-          <img src="${base_url}/++resource++euphorie.media/oira-logo-colour.svg"
+          <img src="${style_url}/oira-logo-colour.svg"
                width="20%"
           />
         </p>
