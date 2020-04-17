@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" >
+<html class="no-js" lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>OiRA</title>
@@ -70,7 +70,7 @@
 			<a href="//index#content"
 			  data-pat-inject="history: record"
 			  class="preparation pat-switch pat-inject"
-			  data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"></a>
+			  data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Preparation</a>
 		</li>
 		<li class=" " id="step-2">
 
@@ -79,7 +79,7 @@
 			<a href="#content"
 			   data-pat-inject="history: record"
 			   class="identification pat-switch pat-inject"
-			   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"></a>
+			   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Identification + Evaluation</a>
 			
 		</li>
 		<li id="step-4" class=" ">
@@ -89,7 +89,7 @@
 			<a href="//action-plan#content"
 			   data-pat-inject="history: record"
 			   class="action-plan pat-switch pat-inject"
-			   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"></a>
+			   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Action Plan</a>
 			
 		</li>
 		<li id="step-5" >
@@ -97,7 +97,7 @@
                 <a class="report pat-switch pat-inject"
                    data-pat-inject="history: record"
                    data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
-                   href="//report#content"></a>
+                   href="//report#content">Report</a>
             
 		</li>
         
@@ -107,7 +107,7 @@
 			<a href="//status#content"
 			   data-pat-inject="history: record"
 			   class="status pat-switch pat-inject"
-			   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">
+			   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Status
 			   <strong class="pie-graph "
 			   		   data-pat-tooltip-ng="trigger: hover; position-list: lm"
 			   		   data-percentage="44"
@@ -147,12 +147,12 @@
         <div class="page-module">
             <section class="pat-rich">
                 <h2>
-                    
+                    General information
                 </h2>
 
                 <dl class="pat-grid-list">
                     <dt>
-                        
+                        Used tool
                     </dt>
                     <dd>
                         <p>
@@ -160,7 +160,7 @@
                         </p>
                     </dd>
                     <dt>
-                        
+                        Started
                     </dt>
                     <dd>
                         <p>
@@ -168,7 +168,7 @@
                         </p>
                     </dd>
                     <dt>
-                        
+                        Last modified
                     </dt>
                     <dd>
                         <p>
@@ -327,29 +327,29 @@
 	    
 	    <!-- <a href="/new-session.html#document-content" id="button-new-session-quick" data-pat-modal="class: large" class="no-label pat-modal iconified icon-plus" title="Start a new assessment">New</a> -->
         <div class="pat-collapsible context-menu closed align-right" data-pat-collapsible="close-trigger: *:not(#more-menu)" id="more-menu">
-            <strong class="context-menu-label iconified more-menu-trigger"></strong>
+            <strong class="context-menu-label iconified more-menu-trigger">More…</strong>
             <ul class="menu">
             	<li>
                     <a href="/new-session.html#document-content" 
                        data-pat-modal="class: large" 
                        class="no-label pat-modal icon-plus pat-switch"
                        data-pat-switch="body osc-s-* osc-s-off" 
-                       title=""></a>
+                       title="Start a new risk assessment">New risk assessment</a>
                 </li>
                 <li>
-                    <label class="pat-checklist"><input type="checkbox" name="archived" /> </label>
+                    <label class="pat-checklist"><input type="checkbox" name="archived" /> Show archived risk assessments</label>
                 </li>
                 <li>
                 	<fieldset class="pat-checklist radio">
-                        <label><input type="radio" value="all" name="ass-type" checked /> </label>
-                        <label><input type="radio" value="regular" name="ass-type" /> </label>
-                        <label><input type="radio" value="contractor" name="ass-type" /> </label>
+                        <label><input type="radio" value="all" name="ass-type" checked /> All types of risk assessments</label>
+                        <label><input type="radio" value="regular" name="ass-type" /> Only regular risk assessments</label>
+                        <label><input type="radio" value="contractor" name="ass-type" /> Only contractor risk assessments</label>
                 	</fieldset>
                 </li>
             </ul>
         </div>
 	
-    <button id="button-osc-expand" class="no-label iconified icon-resize-full pat-toggle" data-pat-toggle="selector: body; value: osc-size-full osc-size-normal" title=""></button>
+    <button id="button-osc-expand" class="no-label iconified icon-resize-full pat-toggle" data-pat-toggle="selector: body; value: osc-size-full osc-size-normal" title="Expand sidebar">Expand sidebar</button>
 </form>
 	<a href="/feedback/osh.html#osh-ra-browser" id="osh-target-ra-browser" class="onscreen-help pat-tooltip-ng" data-pat-tooltip-ng="trigger: click; source: ajax; class: rich info;">Help</a>
 
@@ -364,8 +364,8 @@
 	<fieldset class="search-box-body">
         <label class="search-field pat-subform pat-inject pat-autosubmit"
 			   data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
-			<input autofocus type="search" value="" class="quick-search" placeholder="" />
-            <button type="submit" name="standard" value="main" class="search-button-main assistive"></button>
+			<input autofocus type="search" value="" class="quick-search" placeholder="Search" />
+            <button type="submit" name="standard" value="main" class="search-button-main assistive">Search</button>
         </label>
 
 	    <fieldset class="advanced-search pat-inject pat-subform"
@@ -376,7 +376,7 @@
     <p class="clone search-rule row-1">
         <label class="pat-select field-choice pat-select">
             <select name="search-rule.data-field:records">
-                <option value="SearchableText"></option>
+                <option value="SearchableText">Any text field</option>
                 <optgroup label="Metadata">
                     <option value="Title">Title</option>
                     <option value="Description">Description</option>
@@ -394,9 +394,9 @@
         <span class="parameters lemma">
             <label class="pat-select">
                 <select name="search-rule.lemma-operator:records">
-                    <option value="contains"></option>
-                    <option value="contains-not"></option>
-                    <option value="equals"></option>
+                    <option value="contains">Contains</option>
+                    <option value="contains-not">Does not contain</option>
+                    <option value="equals">Equals</option>
                 </select>
             </label>
             <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
@@ -404,9 +404,9 @@
         <span class="parameters date">
             <label class="pat-select">
                 <select name="search-rule.date-operator:records">
-                    <option value="is"></option>
-                    <option value="is-before"></option>
-                    <option value="is-after"></option>
+                    <option value="is">Is</option>
+                    <option value="is-before">Is before</option>
+                    <option value="is-after">Is after</option>
                 </select>
             </label>
             <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
@@ -414,8 +414,8 @@
         <span class="parameters plant">
             <label class="pat-select">
                 <select name="search-rule.date-operator:records">
-                    <option value="equals"></option>
-                    <option value="equals-not"></option>
+                    <option value="equals">Equals</option>
+                    <option value="equals-not">Does not equal</option>
                 </select>
             </label>
             <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest lemma-field">
@@ -429,8 +429,8 @@
         <span class="parameters department">
             <label class="pat-select">
                 <select name="search-rule.date-operator:records">
-                    <option value="equals"></option>
-                    <option value="equals-not"></option>
+                    <option value="equals">Equals</option>
+                    <option value="equals-not">Does not equal</option>
                 </select>
             </label>
             <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest lemma-field">
@@ -450,24 +450,24 @@
 </fieldset>
 
 <p class="button-bar">
-    <button type="submit" class="pat-button icon-search small"></button>
-    <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small"></button>
+    <button type="submit" class="pat-button icon-search small">Search</button>
+    <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small">Add another search rule</button>
 </p>
 
 <p class="clone search-rule animated fadeIn" id="clone-template" hidden>
     <label class="and-or pat-select bare">
         <select name="search-rule.and-or:records">
             <option value="and">
-                
+                And…
             </option>
             <option value="or">
-                
+                Or…
             </option>
         </select>
     </label>
     <label class="field-choice pat-select">
         <select name="search-rule.data-field:records">
-            <option value="SearchableText"></option>
+            <option value="SearchableText">Any text field</option>
             <optgroup label="Metadata">
                 <option value="Title">Title</option>
                 <option value="Description">Description</option>
@@ -485,9 +485,9 @@
     <span class="parameters lemma">
         <label class="pat-select">
             <select name="search-rule.lemma-operator:records">
-                <option value="contains"></option>
-                <option value="contains-not"></option>
-                <option value="equals"></option>
+                <option value="contains">Contains</option>
+                <option value="contains-not">Does not contain</option>
+                <option value="equals">Equals</option>
             </select>
         </label>
         <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
@@ -495,9 +495,9 @@
     <span class="parameters date">
         <label class="pat-select">
             <select name="search-rule.date-operator:records">
-                <option value="is"></option>
-                <option value="is-before"></option>
-                <option value="is-after"></option>
+                <option value="is">Is</option>
+                <option value="is-before">Is before</option>
+                <option value="is-after">Is after</option>
             </select>
         </label>
         <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
@@ -505,8 +505,8 @@
     <span class="parameters plant">
         <label class="pat-select">
             <select name="search-rule.date-operator:records">
-                <option value="equals"></option>
-                <option value="equals-not"></option>
+                <option value="equals">Equals</option>
+                <option value="equals-not">Does not equal</option>
             </select>
         </label>
         <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest">
@@ -520,8 +520,8 @@
     <span class="parameters department">
         <label class="pat-select">
             <select name="search-rule.date-operator:records">
-                <option value="equals"></option>
-                <option value="equals-not"></option>
+                <option value="equals">Equals</option>
+                <option value="equals-not">Does not equal</option>
             </select>
         </label>
         <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest">
@@ -537,17 +537,17 @@
             <option>142,   (GEPL74BAW)</option>
         </select>
     </span>
-    <button type="button" class="remove-clone"></button>
+    <button type="button" class="remove-clone">Remove</button>
 </p>
 
 
 			<fieldset class="toggle-bar pat-checklist free-form">
 			    <label class="pat-switch toggle-standard" data-pat-switch="#search-form view-extended view-compact">
-			        <input type="radio" name="search-mode" value="standard" checked> 
+			        <input type="radio" name="search-mode" value="standard" checked> Standard search
 			    </label>
 			    <label class="pat-switch toggle-advanced"
 			           data-pat-switch="#search-form view-compact view-extended && body osc-size-* osc-size-full">
-			        <input type="radio" name="search-mode" value="advanced"> 
+			        <input type="radio" name="search-mode" value="advanced"> Advanced search
 			    </label>
 			</fieldset>
 	    </fieldset>

@@ -163,6 +163,10 @@
 	msgid "Select or add any measures that are <strong>already implemented</strong>."
 	msgstr "Wählen Sie alle <strong>schon bestehende Schutzmaßnahmen</strong> aus oder fügen Sie bei Bedarf neue hinzu."
 
+	#| msgid label_select_applicable_options
+	msgid "Tick all the boxes that are applicable, or add new entries if requiried."
+	msgstr "Markieren Sie alle zutreffenden Checkboxen oder fügen Sie bei Bedarf neue hinzu."
+
 	#| msgid label_archive_ra
 	msgid "Archive this risk assessment. This risk assessment will become read only and hidden from view in overviews unless the ‘show archived risk assessments’ filter is applied."
 	msgstr "Diese GBU archivieren. Durch das Archivieren wird die GBU für das Editieren dauerhaft gesperrt und in allen Übersichtsseiten ausgeblendet, außer wenn der Filter “Archivierte Elemente anzeigen” angewendet wird."
@@ -253,7 +257,7 @@
 
 	#| msgid add_another_item
 	msgid "Add another item"
-	msgstr "Weitere Artikel hinzufügen"
+	msgstr "Weitere Elemente hinzufügen"
 
 	#| msgid add_missing_existing_measure
 	msgid "Add a missing implemented measure"
@@ -305,11 +309,11 @@
 
 	#| msgid legal_references
 	msgid "Legal references"
-	msgstr "Rechtliche und politische Referenzen"
+	msgstr "Rechtliche Referenzen"
 
 	#| msgid additional_resources
 	msgid "Additional resources"
-	msgstr "Weitere Quellen und Anhänge zu dieser Gefährdung"
+	msgstr "Weitere Quellen und Anhänge"
 
 	#| msgid other_risks
 	msgid "Other risks"

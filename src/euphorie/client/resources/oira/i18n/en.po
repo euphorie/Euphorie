@@ -163,6 +163,10 @@
 	msgid "Select or add any measures that are <strong>already implemented</strong>."
 	msgstr "Select or add any measures that are <strong>already implemented</strong>."
 
+	#| msgid label_select_applicable_options
+	msgid "Tick all the boxes that are applicable, or add new entries if requiried."
+	msgstr "Tick all the boxes that are applicable, or add new entries if requiried."
+
 	#| msgid label_archive_ra
 	msgid "Archive this risk assessment. This risk assessment will become read only and hidden from view in overviews unless the ‘show archived risk assessments’ filter is applied."
 	msgstr "Archive this risk assessment. This risk assessment will become read only and hidden from view in overviews unless the ‘show archived risk assessments’ filter is applied."
