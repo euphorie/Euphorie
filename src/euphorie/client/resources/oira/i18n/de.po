@@ -739,6 +739,10 @@
 	msgid "Finish"
 	msgstr "Beenden"
 
+	#| msgid label_finish_with_certificate
+	msgid "Finish and earn certificate"
+	msgstr "Beenden und Zertifikat verdienen"
+
 	#| msgid label_print
 	msgid "Print"
 	msgstr "Drucken"
