@@ -7,6 +7,7 @@ from plone.memoize.view import memoize
 from StringIO import StringIO
 from z3c.appconfig.interfaces import IAppConfig
 from zope.component import getUtility
+from urllib import quote
 
 import base64
 import httplib
@@ -48,9 +49,13 @@ class PdfView(grok.View):
         view = context.restrictedTraverse(view_name)
         pdf = self.view_to_pdf(view)
 
+        filename = u"{} - {}.pdf".format(
+            api.portal.translate(view.label), view.session.title
+        ).encode("utf-8")
+
         context.REQUEST.RESPONSE.setHeader("Content-Type", "application/pdf")
         context.REQUEST.RESPONSE.setHeader(
-            "Content-Disposition", "inline;filename=%s.pdf" % context.getId()
+            "Content-Disposition", "attachment;filename*=UTF-8''%s" % quote(filename)
         )
         return pdf
 

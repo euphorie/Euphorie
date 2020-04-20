@@ -132,7 +132,6 @@
             <p class="button-bar">
               <a class="pat-button bar download xlsx icon-download piwik_download"
                  href="${python:view.url(name='@@pdf', obj=context, data={'view': 'risks_overview'})}"
-                 target="_new"
                  i18n:translate=""
               >
             Overview of risks
@@ -161,7 +160,6 @@
             <p class="button-bar">
               <a class="pat-button bar download xlsx icon-download piwik_download"
                  href="${python:view.url(name='@@pdf', obj=context, data={'view': 'measures_overview'})}"
-                 target="_new"
                  i18n:translate=""
               >
             Overview of measures

@@ -955,6 +955,7 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
 class RisksOverview(Status):
     """ Implements the "Overview of Risks" report, see #10967
     """
+    label = _("Overview of risks")
 
     def is_skipped_from_risk_list(self, risk):
         if risk.identification == "yes":
@@ -964,6 +965,7 @@ class RisksOverview(Status):
 class MeasuresOverview(Status):
     """ Implements the "Overview of Measures" report, see #10967
     """
+    label = _("Overview of measures")
 
     def update(self):
         self.verify_view_permission()
