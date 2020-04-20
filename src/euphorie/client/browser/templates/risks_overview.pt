@@ -32,7 +32,8 @@ dl.status {
     margin-top: 0;
 }
 dl.status dt {
-    height: 2em;
+    min-height: 2em;
+    margin-bottom: 2%;
     color: white;
     position: relative;
     clear: left;
