@@ -30,7 +30,7 @@
       >
 
         <!-- Disable validation on the action plan, since an empty budget field falsely gets claimed as being required! -->
-        <form class="Xpat-validation pat-inject pat-scroll"
+        <form class="pat-validation pat-inject pat-scroll"
               action="${context/absolute_url}/@@actionplan"
               method="post"
               data-pat-inject="history: record; source: #step-4-topics; target: #step-4-topics &amp;&amp; source: #content; target: #content"
@@ -274,7 +274,7 @@
                       <input class="pat-date-picker"
                              id="solution-planning-start-${solution/id}"
                              name="measure.planning_start:records"
-                             type="date"
+                             type="text"
                              value="${python:measure.planning_start if measure else None}"
                              data-pat-date-picker="behavior: styled; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
                              data-pat-validation="type: date; not-after: #solution-planning-end-${solution/id}; message-date: ${view/message_date_before}"
@@ -291,7 +291,7 @@
                       <input class="pat-date-picker"
                              id="solution-planning-end-${solution/id}"
                              name="measure.planning_end:records"
-                             type="date"
+                             type="text"
                              value="${python:measure.planning_end if measure else None}"
                              data-pat-date-picker="behavior: styled; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
                              data-pat-validation="type: date; not-before: #solution-planning-start-${solution/id}; message-date: ${view/message_date_after}"
