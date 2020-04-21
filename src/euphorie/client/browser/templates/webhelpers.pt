@@ -18,10 +18,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1"
     />
-    <link href="${client/++resource++euphorie.media}/favicon.png"
-          rel="icon"
-          type="image/png"
-    />
+    <link rel="icon" type="image/png" href="${style_url}/apple-touch-icon.png" />
   </metal:headers>
 
   <metal:home define-macro="homelink"
@@ -71,48 +68,13 @@
     </ul>
   </metal:topnav>
 
-  <metal:css define-macro="css"
-             meta:interpolation="true"
-             tal:define="
-               base_url client/++resource++euphorie.resources;
-             "
-  >
-
-    <tal:block condition="webhelpers/debug_mode">
-      <link href="${base_url}/screen.css"
-            rel="stylesheet"
-            type="text/css"
-      />
-    </tal:block>
-    <tal:block condition="not:webhelpers/debug_mode">
-      <!-- TODO: needs to be minified -->
-      <link href="${base_url}/screen.css"
-            rel="stylesheet"
-            type="text/css"
-      />
-    </tal:block>
-    <meta http-equiv="X-UA-Compatible"
-          content="IE=Edge"
-    />
+  <metal:css define-macro="css" meta:interpolation="true">
+    <link rel="stylesheet" href="${webhelpers/css_url}" type="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   </metal:css>
 
-  <metal:javascript define-macro="javascript"
-                    meta:interpolation="true"
-                    tal:define="
-                      lib_url client/++resource++euphorie.resources;
-                    "
-  >
-    <tal:block condition="webhelpers/debug_mode">
-      <script src="${lib_url}/bundle.js"
-              type="text/javascript"
-      ></script>
-    </tal:block>
-    <tal:block condition="not:webhelpers/debug_mode">
-      <!-- TODO: this must be minified -->
-      <script src="${lib_url}/bundle.min.js"
-              type="text/javascript"
-      ></script>
-    </tal:block>
+  <metal:javascript define-macro="javascript" meta:interpolation="true">
+    <script src="${webhelpers/js_url}" type="text/javascript"></script>
   </metal:javascript>
 
   <metal:survey define-macro="survey_tree_inner"

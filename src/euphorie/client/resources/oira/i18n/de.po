@@ -1,0 +1,764 @@
+
+	#| msgid message_certificate_incentive
+	msgid "In certain European countries this certificate may be used to apply for a tax bonus or a reduced insurance fee."
+	msgstr ""
+
+	#| msgid label_clone
+	msgid "Clone"
+	msgstr "Duplizieren"
+
+	#| msgid title_ra_clone
+	msgid "Clone risk assessment"
+	msgstr "GBU duplizieren"
+
+	#| msgid explanation_ra_clone
+	msgid "By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point."
+	msgstr "Durch das Duplizieren einer GBU wird eine neue GBU angelegt, mit allen Antworten dieser GBU als Ausgangspunkt."
+
+	#| msgid explanation_ra_archive
+	msgid "By archiving this risk assessment it will become read only and hidden from view in overviews unless the ‘show archived risk assessments’ filter is applied."
+	msgstr "Durch das Archivieren wird diese GBU für das Editieren dauerhaft gesperrt und in allen Übersichtsseiten ausgeblendet, außer wenn der Filter “Archivierte Elemente anzeigen” angewendet wird."
+
+	#| msgid confirmation_ra_clone
+	msgid "Yes, clone risk assessment"
+	msgstr "Ja, GBU duplizieren"
+
+	#| msgid confirmation_unlock_ra
+	msgid "Yes, unlock"
+	msgstr "Ja, entsprerren"
+
+	#| msgid label_delete
+	msgid "Delete"
+	msgstr "Löschen"
+
+	#| msgid title_ra_delete
+	msgid "Delete risk assessment"
+	msgstr "GBU löschen"
+
+	#| msgid title_share_training
+	msgid "Share training"
+	msgstr "Training teilen"
+
+	#| msgid label_archive
+	msgid "Archive"
+	msgstr "Archivieren"
+
+	#| msgid title_ra_archive
+	msgid "Archive risk assessment"
+	msgstr "GBU archivieren"
+
+	#| msgid title_risk_delete
+	msgid "Delete risk"
+	msgstr "Gefährdung löschen"
+
+	#| msgid title_our_contractors
+	msgid "Our contractors"
+	msgstr "Unsere Fremdfirmen"
+
+	#| msgid message_assessment_state_will_change_to_documents_sent
+	msgid "The state of the risk assessment will change from "In progress" to “Briefing documents sent”. The risk assessment will be locked at this point, to prevent any futher changes."
+	msgstr "Der Status dieser GBU ändert sich von “In Bearbeitung” zu “Einweisung versendet”. Die GBU wird dadurch gesperrt, so dass keine Änderungen mehr möglich sind."
+
+	#| msgid message_briefing_documents_will_be_sent_to_address
+	msgid "Briefing documents will be send to <strong>thomas@syslab.com</strong> and <strong>cornelis@syslab.com</strong> (CC)."
+	msgstr "Die Unterweisungsunterlagen werden an  <strong>thomas@syslab.com</strong> und <strong>cornelis@syslab.com</strong> (CC) gesendet."
+
+	#| msgid explanation_ra_delete
+	msgid "This action will delete the risk assessment 'Private Security EU'. This cannot be reverted."
+	msgstr "Mit dieser Aktion wird die GBU 'Kabinenbau Wörth' unwiederbringlich gelöscht."
+
+	#| msgid message_intro_send_briefing_documents
+	msgid "If you proceed the following will happen."
+	msgstr "Wenn Sie forfahren, passiert folgendes."
+
+	#| msgid explanation_briefing_documents
+	msgid "The briefing documents comprise the trainig notes and the report in PDF."
+	msgstr "Die Fremdfirmeneinweisung besteht aus der Unterweisung und dem Kompaktbericht in PDF."
+
+	#| msgid confirmation_ra_delete
+	msgid "Yes, delete risk assessment"
+	msgstr "Ja, GBU löschen"
+
+	#| msgid confirmation_ra_archive
+	msgid "Yes, archive risk assessment"
+	msgstr "Ja, GBU archivieren"
+
+	#| msgid confirmation_risk_delete
+	msgid "Yes, delete risk"
+	msgstr "Ja, Gefährdung löschen"
+
+	#| msgid confirmation_send_briefing_documents
+	msgid "Send briefing documents"
+	msgstr "Einweisung versenden"
+
+	#| msgid are_you_sure
+	msgid "Are you sure you want to proceed?"
+	msgstr "Sind Sie sicher, dass Sie fortfahren wollen?"
+
+	#| msgid cancel
+	msgid "Cancel"
+	msgstr "Abbrechen"
+
+	#| msgid label_confirm
+	msgid "Confirm"
+	msgstr "Bestätigen"
+
+	#| msgid title_rename_session
+	msgid "Rename session"
+	msgstr "GBU umbenennen"
+
+	#| msgid rename
+	msgid "Rename"
+	msgstr "Umbenennen"
+
+	#| msgid title_password_reminder
+	msgid "Password reminder"
+	msgstr "Passworterinnerung"
+
+	#| msgid send_password_reminder
+	msgid "Send password reminder"
+	msgstr "Passworterinnerung abschicken"
+
+	#| msgid email_address
+	msgid "E-mail address"
+	msgstr "Emailadresse"
+
+	#| msgid explanation_password_reminder
+	msgid "Please enter your email address. You will receive an e-mail with instructions for resetting your password."
+	msgstr "Bitte geben Sie Ihre E-mailadresse ein. Sie erhalten eine E-mail mit einer Anleitung, wie Sie Ihr Passwort zurücksetzen können."
+
+	#| msgid login
+	msgid "Login"
+	msgstr "Einloggen"
+
+	#| msgid new_ra
+	msgid "New risk assessment"
+	msgstr "Neue GBU"
+
+	#| msgid start_new_ra
+	msgid "Start a new risk assessment"
+	msgstr "Neue GBU beginnen"
+
+	#| msgid new_test_ra
+	msgid "New test session"
+	msgstr "Neue Testsitzung"
+
+	#| msgid start_test_ra
+	msgid "Start test session"
+	msgstr "Beginnen Sie eine Testsitzung"
+
+	#| msgid notice_read_only
+	msgid "You don't have edit rights for this risk assesment, but you can download this risk assessment in various forms in the <a href='/report-download.html'>download section</a>."
+	msgstr "Sie haben keine Berechtigung, um diese GBU zu bearbeiten. Sie können aber die verschiedenen Arten von Bericht unter dem <a href='/report-download.html'>Reiter “Bericht”</a> herunterladen."
+
+	#| msgid notice_cannot_clone
+	msgid "Cloning is not enabled on this risk assessment."
+	msgstr "Diese GBU kann nicht dupliziert werden."
+
+	#| msgid label_existing_measures
+	msgid "Measures already implemented"
+	msgstr "Bestehende Schutzmaßnahmen"
+
+	#| msgid label_select_existing_measures
+	msgid "Select or add any measures that are <strong>already implemented</strong>."
+	msgstr "Wählen Sie alle <strong>schon bestehende Schutzmaßnahmen</strong> aus oder fügen Sie bei Bedarf neue hinzu."
+
+	#| msgid label_select_applicable_options
+	msgid "Tick all the boxes that are applicable, or add new entries if requiried."
+	msgstr "Markieren Sie alle zutreffenden Checkboxen oder fügen Sie bei Bedarf neue hinzu."
+
+	#| msgid label_archive_ra
+	msgid "Archive this risk assessment. This risk assessment will become read only and hidden from view in overviews unless the ‘show archived risk assessments’ filter is applied."
+	msgstr "Diese GBU archivieren. Durch das Archivieren wird die GBU für das Editieren dauerhaft gesperrt und in allen Übersichtsseiten ausgeblendet, außer wenn der Filter “Archivierte Elemente anzeigen” angewendet wird."
+
+	#| msgid label_send_briefing_documents_to_contractor
+	msgid "Send briefing documents to contractor"
+	msgstr "Einweisung an Fremdfirma senden"
+
+	#| msgid label_share_training
+	msgid "Share training"
+	msgstr "Training teilen"
+
+	#| msgid title_register_sample
+	msgid "Register sampling"
+	msgstr "Stichprobe eintragen"
+
+	#| msgid title_register_onsite_inspection
+	msgid "Register on-site risk assessment"
+	msgstr "Einsatzbezogene GBU eintragen"
+
+	#| msgid question_measures_sufficient
+	msgid "Are the measures that are selected above sufficient?"
+	msgstr "Sind die oben ausgewählten Schutzmaßnahmen ausreichend?"
+
+	#| msgid label_no
+	msgid "No"
+	msgstr "Nein"
+
+	#| msgid label_yes
+	msgid "Yes"
+	msgstr "Ja"
+
+	#| msgid label_more
+	msgid "More…"
+	msgstr "Mehr…"
+
+	#| msgid label_register
+	msgid "Register"
+	msgstr "Eintragen"
+
+	#| msgid no_measures_required
+	msgid "No, more measures are required"
+	msgstr "Nein, weitere Maßnahmen sind notwendig"
+
+	#| msgid yes_measures_required
+	msgid "Yes, preventive measures are required"
+	msgstr "Ja, Schutzmaßnahmen sind notwendig"
+
+	#| msgid yes_acceptable
+	msgid "Yes, the remaining risk is acceptable"
+	msgstr "Ja, das Restrisiko ist vertretbar"
+
+	#| msgid not_applicable
+	msgid "Not applicable"
+	msgstr "Nicht anwendbar"
+
+	#| msgid on_is_accpetable
+	msgid "Is this risk acceptable?"
+	msgstr "Ist diese Gefährdung akzeptierbar?"
+
+	#| msgid if_applicable
+	msgid "If applicable,"
+	msgstr "Falls anwendbar,"
+
+	#| msgid add_existing_measures
+	msgid "add all measures that have already been implemented."
+	msgstr "fügen Sie alle Schutzmaßnahmen hinzu, die schon bestehen."
+
+	#| msgid describe_risk
+	msgid "Describe the risk…"
+	msgstr "Beschreiben Sie die Gefährdung…"
+
+	#| msgid remove
+	msgid "Remove"
+	msgstr "Entfernen"
+
+	#| msgid remove_measure
+	msgid "Remove this already implemented measure"
+	msgstr "Diese beszehende Schutzmaßnahme entfernen"
+
+	#| msgid add_existing_measure
+	msgid "Add existing measure"
+	msgstr "Bestehende Schutzmaßnahme hinzufügen"
+
+	#| msgid add_standard_measure
+	msgid "Add standard measure"
+	msgstr "Add standard measure"
+
+	#| msgid add_another_item
+	msgid "Add another item"
+	msgstr "Weitere Elemente hinzufügen"
+
+	#| msgid add_missing_existing_measure
+	msgid "Add a missing implemented measure"
+	msgstr "Weitere bestehende Schutzmaßnahme hinzufügen"
+
+	#| msgid describe_item
+	msgid "Describe this item"
+	msgstr "Beschreiben Sie hier diesen Artikel"
+
+	#| msgid describe_new_measure
+	msgid "Describe a measure that is already in place but not yet listed here."
+	msgstr "Beschreiben Sie hier eine bestehende Schutzmaßnahme, die noch nicht aufgelistet ist."
+
+	#| msgid save
+	msgid "Save"
+	msgstr "Speichern"
+
+	#| msgid save_and_add_risk
+	msgid "Save and add new risk"
+	msgstr "Speichern und weitere Gefährdung hinzufügen"
+
+	#| msgid label_save_and_finish
+	msgid "Save and finish"
+	msgstr "Speichern und abschließen"
+
+	#| msgid information
+	msgid "Information"
+	msgstr "Information"
+
+	#| msgid resources
+	msgid "Resources"
+	msgstr "Weitergehendes Material"
+
+	#| msgid training_material
+	msgid "Training material"
+	msgstr "Unterweisungsunterlage"
+
+	#| msgid add_training_notes
+	msgid "Add your training notes here…"
+	msgstr "Tragen Sie hier Ihre Notizen ein…"
+
+	#| msgid comments
+	msgid "Comments"
+	msgstr "Bemerkungen"
+
+	#| msgid placeholder_comment
+	msgid "Enter any comments that you might like to add to the risk above."
+	msgstr "Geben Sie jegliche eventuelle Bemerkungen zur obenstehenden Gefährdung in dieses Feld ein."
+
+	#| msgid legal_references
+	msgid "Legal references"
+	msgstr "Rechtliche Referenzen"
+
+	#| msgid additional_resources
+	msgid "Additional resources"
+	msgstr "Weitere Quellen und Anhänge"
+
+	#| msgid other_risks
+	msgid "Other risks"
+	msgstr "Weitere Gefährdungen"
+
+	#| msgid unvisited
+	msgid "Unvisited"
+	msgstr "Nicht beantwortet"
+
+	#| msgid postponed
+	msgid "Postponed"
+	msgstr "Aufgeschoben"
+
+	#| msgid answered
+	msgid "Answered"
+	msgstr "Gefährdung nicht vorhanden"
+
+	#| msgid identified
+	msgid "Risk identified"
+	msgstr "Gefährdung vorhanden"
+
+	#| msgid button_save_and_continue
+	msgid "Save and continue"
+	msgstr "Speichern und Weiter"
+
+	#| msgid button_continue
+	msgid "Continue"
+	msgstr "Weiter"
+
+	#| msgid button_skip
+	msgid "Skip"
+	msgstr "Überspringen"
+
+	#| msgid ra_with_this_tool
+	msgid "Risk assessments made with this tool"
+	msgstr "Gefährdungsbeurteilungen von dieser GBU Vorlage"
+
+	#| msgid start_new_ra_with_this_tool
+	msgid "Start a new risk assessment with this tool"
+	msgstr "Beginnen Sie eine neue Gefährdungsbeurteilung mit dieser Vorlage"
+
+	#| msgid to_sign_off
+	msgid "To sign off"
+	msgstr "Freizugebende GBUs"
+
+	#| msgid higher_ranking_ras
+	msgid "Higher-ranking assessments"
+	msgstr "Übergeordnete GBUs"
+
+	#| msgid select_earlier_session
+	msgid "Select an earlier risk assessment to complete or review or"
+	msgstr "Wählen Sie eine vorhandene Sitzung zur weiteren Bearbeitung aus oder"
+
+	#| msgid start_new_session
+	msgid "start a new session"
+	msgstr "beginnen Sie eine neue Sitzung"
+
+	#| msgid my_ras
+	msgid "My risk assessments"
+	msgstr "Meine GBUs"
+
+	#| msgid last_saved
+	msgid "Last saved"
+	msgstr "Zuletzt gespeichert"
+
+	#| msgid label_started
+	msgid "Started"
+	msgstr "Erstellt"
+
+	#| msgid label_last_modified
+	msgid "Last modified"
+	msgstr "Zuletzt bearbeitet"
+
+	#| msgid label_last_published
+	msgid "Last published"
+	msgstr "Zuletzt gesperrt"
+
+	#| msgid label_last_sampled
+	msgid "Last sampled"
+	msgstr "Letzte Stichprobe"
+
+	#| msgid label_new_sample_required
+	msgid "A new sample is required."
+	msgstr "Eine neue Stichprobenkontrolle ist notwendig."
+
+	#| msgid label_last_on_site
+	msgid "Last on-site risk assessment"
+	msgstr "Letzte einsatzbezogene GBU"
+
+	#| msgid label_sampling
+	msgid "Sampling"
+	msgstr "Stichprobenkontrollen"
+
+	#| msgid label_on_site_ras
+	msgid "On-site assessments"
+	msgstr "Einsatzbezogene GBUs"
+
+	#| msgid label_notes
+	msgid "Notes"
+	msgstr "Anmerkungen"
+
+	#| msgid label_date_of_sample
+	msgid "Date of sample"
+	msgstr "Datum der Stichprobe"
+
+	#| msgid label_date_of_onsite_inspection
+	msgid "Date of on-site inspection"
+	msgstr "Datum der einsatzbezogenen GBU"
+
+	#| msgid create_new_session
+	msgid "Start a new session"
+	msgstr "Neue GBU erstellen"
+
+	#| msgid recommended_tools
+	msgid "Recommended tools"
+	msgstr "Empfohlene Vorlagen"
+
+	#| msgid start_session_by_selecting
+	msgid "Start a new risk assessments using one of the following tools."
+	msgstr "Beginnen Sie eine neuen GBU durch Auswahl eine dieser Vorlagen."
+
+	#| msgid title_delete_risk
+	msgid "Delete risk"
+	msgstr "Gefährung löschen"
+
+	#| msgid explanation_risk_delete
+	msgid "You are about to delete the risk: “{{ risk_title }}”."
+	msgstr "Sie sind dabei, folgende Gefährung zu löschen: “{{ risk_title }}”"
+
+	#| msgid label_ra_title
+	msgid "Enter a name for your risk assessment"
+	msgstr "Geben Sie einen Titel für Ihre Gefährdungsbeurteilung ein"
+
+	#| msgid link_learn_more_about_tool
+	msgid "Learn more about this tool…"
+	msgstr "Erfahren Sie mehr über diese Gfb-Vorlage…"
+
+	#| msgid label_preparation
+	msgid "Preparation"
+	msgstr "Vorbereitung"
+
+	#| msgid label_identification
+	msgid "Identification + Evaluation"
+	msgstr "Ermittlung + Bewertung"
+
+	#| msgid label_action_plan
+	msgid "Action Plan"
+	msgstr "Maßnahmen"
+
+	#| msgid label_report
+	msgid "Report"
+	msgstr "Bericht"
+
+	#| msgid label_training
+	msgid "Training"
+	msgstr "Unterweisung"
+
+	#| msgid label_status
+	msgid "Status"
+	msgstr "Status"
+
+	#| msgid label_help
+	msgid "Help"
+	msgstr "Hilfe"
+
+	#| msgid label_third_party_companies
+	msgid "Third party companies"
+	msgstr "Fremdfirmen"
+
+	#| msgid label_third_party_company_coordination
+	msgid "Third party company coordination"
+	msgstr "Fremdfirmenkoordination"
+
+	#| msgid message_register_sample
+	msgid "Register sampling this risk assessment."
+	msgstr "Stichprobe für diese GBU eintragen"
+
+	#| msgid message_register_onsite_inspection
+	msgid "Register an on-site inspection for this risk assessment."
+	msgstr "Einsatzbezogenen Gefährdungsbeurteilung für diese GBU eintragen."
+
+	#| msgid label_start_date
+	msgid "Start date"
+	msgstr "Startdatum"
+
+	#| msgid label_end_date
+	msgid "End date"
+	msgstr "Enddatum"
+
+	#| msgid label_standing_order
+	msgid "Standing order"
+	msgstr "Dauerauftrag"
+
+	#| msgid probe_no_risk
+	msgid "Not required (No risk)"
+	msgstr "Nicht nötig (Kein Risiko)"
+
+	#| msgid probe_high_risk
+	msgid "7 days (High risk)"
+	msgstr "7 Tage (Hohes Risiko)"
+
+	#| msgid probe_medium_risk
+	msgid "14 days (Medium risk)"
+	msgstr "14 Tage (Mittleres Risiko)"
+
+	#| msgid probe_low_risk
+	msgid "30 days (Low risk)"
+	msgstr "30 Tage (Geringes Risiko)"
+
+	#| msgid probe_custom_interval
+	msgid "Other"
+	msgstr "Eigene Auswahl"
+
+	#| msgid label_days
+	msgid "days"
+	msgstr "Tage"
+
+	#| msgid label_received_briefing_documents_confirmed
+	msgid "Confirm reception of briefing documents by contractor"
+	msgstr "Bestätigung der Fremdfirmeneinweisung"
+
+	#| msgid label_filters
+	msgid "Filters"
+	msgstr "Filter"
+
+	#| msgid label_authored_by
+	msgid "Authored by…"
+	msgstr "Erstellt von…"
+
+	#| msgid label_hide_unarchived_ras
+	msgid "Hide archived risk assessments"
+	msgstr "Archivierte GBUs ausblenden"
+
+	#| msgid label_any_user
+	msgid "Any user"
+	msgstr "Irgendeinem Nutzer"
+
+	#| msgid label_me
+	msgid "Me"
+	msgstr "Mir"
+
+	#| msgid label_waiting_for_confimation
+	msgid "Waiting for confirmation"
+	msgstr "Warten auf Bestätigung"
+
+	#| msgid message_waiting_for_confimation
+	msgid "These risk assessments are waiting for a confirmation that the contractor has received the briefing documents."
+	msgstr "These risk assessments are waiting for a confirmation that the contractor has received the briefing documents."
+
+	#| msgid label_documents_sent
+	msgid "Documents sent"
+	msgstr "Unterlagen versendet"
+
+	#| msgid message_session_locked_v2
+	msgid "This risk assessment is locked because the briefing documents were already sent to the contractor."
+	msgstr "Diese GBU ist gesperrt, weil die Einweisungsunterlagen bereits versendet wurden."
+
+	#| msgid message_session_locked_v3
+	msgid "This risk assessment is locked because the briefing documents were already sent to and approved by the contractor."
+	msgstr "Diese GBU ist gesperrt, weil die Einweisungsunterlagen bereits versendet und von der Fremfdirma bestätigt wurden."
+
+	#| msgid explanation_session_locked
+	msgid "If you want to make any changes to this risk assessment, then you should unlock it first."
+	msgstr "Falls Sie Änderungen vornehmen möchten, müssen Sie die GBU erst entsperren."
+
+	#| msgid label_unlock_session
+	msgid "Unlock this risk assessment"
+	msgstr "Diese GBU entsperren"
+
+	#| msgid message_you_are_about_to_unlock
+	msgid "You are about to unlock the risk assessment <strong>“Einweisung Fremdfirmen: Reinigungskräfte”</strong>."
+	msgstr "Sie sind dabei, die GBU <strong>“Einweisung Fremdfirmen: Reinigungskräfte”</strong> zu entsperren."
+
+	#| msgid message_you_are_about_to_unlock_explanation
+	msgid "This risk assessment is locked because the briefing documents were already sent to the contractor."
+	msgstr "Diese GBU ist gesperrt, weil die Einweisungsunterlagen bereits versendet wurden."
+
+	#| msgid message_you_are_about_to_unlock_consequences
+	msgid "After you unlock, you will have to resend the briefing documents to the contractor for validation."
+	msgstr "Nach dem Entsperren müssen Sie die Einweisungsunterlagen erneut zur Bestätigung an die Fremdfirma schicken."
+
+	#| msgid label_name_ra
+	msgid "Name of risk assessment"
+	msgstr "Name der GBU"
+
+	#| msgid placeholder_search_contractor_name_number
+	msgid "Search a contractor by name or contractor number"
+	msgstr "Suche nach Fremdfirma per Name oder L/N"
+
+	#| msgid placeholder_search_contractor_name
+	msgid "Search a contractor by name"
+	msgstr "Suche nach Fremdfirma per Name"
+
+	#| msgid label_show_archived
+	msgid "Show archived risk assessments"
+	msgstr "Archivierte GBUs anzeigen"
+
+	#| msgid label_all_ra_types
+	msgid "All types of risk assessments"
+	msgstr "Alle GBU Arten"
+
+	#| msgid label_regular_ra_types
+	msgid "Only regular risk assessments"
+	msgstr "Nur klassische GBUs"
+
+	#| msgid label_ff_ra_types
+	msgid "Only contractor risk assessments"
+	msgstr "Nur Fremdfirmen-GBUs"
+
+	#| msgid label_expand_sidebar
+	msgid "Expand sidebar"
+	msgstr "Seitenleiste ausklappen"
+
+	#| msgid label_general_information
+	msgid "General information"
+	msgstr "Allgemeine Information"
+
+	#| msgid label_used_tool
+	msgid "Used tool"
+	msgstr "Verwendete Vorlage"
+
+	#| msgid action_search
+	msgid "Search"
+	msgstr "Suchen"
+
+	#| msgid label_search
+	msgid "Search"
+	msgstr "Suche"
+
+	#| msgid label_standard_search
+	msgid "Standard search"
+	msgstr "Standardsuche"
+
+	#| msgid label_advanced_search
+	msgid "Advanced search"
+	msgstr "Erweiterte Suche"
+
+	#| msgid label_new_search_rule
+	msgid "Add another search rule"
+	msgstr "Neue Suchregel hinzufügen"
+
+	#| msgid label_any_text_field
+	msgid "Any text field"
+	msgstr "Beliebiges Textfeld"
+
+	#| msgid label_contains
+	msgid "Contains"
+	msgstr "Enthält"
+
+	#| msgid label_contains_not
+	msgid "Does not contain"
+	msgstr "Enthält nicht"
+
+	#| msgid label_equals
+	msgid "Equals"
+	msgstr "Ist gleich"
+
+	#| msgid label_equals_not
+	msgid "Does not equal"
+	msgstr "Ist ungleich"
+
+	#| msgid label_and
+	msgid "And…"
+	msgstr "Und…"
+
+	#| msgid label_or
+	msgid "Or…"
+	msgstr "Oder…"
+
+	#| msgid label_is
+	msgid "Is"
+	msgstr "Ist"
+
+	#| msgid label_is_before
+	msgid "Is before"
+	msgstr "Ist vor"
+
+	#| msgid label_is_after
+	msgid "Is after"
+	msgstr "Ist nach"
+
+	#| msgid label_confirm_recipients
+	msgid "Confirm that you've received an e-mail back from one or more recipients stating to agree with the terms."
+	msgstr "Bestätigen Sie, dass Sie von einem oder mehreren der Fremdfirmen-Vertreter eine E-mail mit Bestätigung der Einweisung erhalten haben."
+
+	#| msgid label_recipients_replied
+	msgid "Recipient(s) who replied"
+	msgstr "Bestätigung durch folgende(n) Empfänger"
+
+	#| msgid label_take_training
+	msgid "Take training"
+	msgstr "Unterweisung durchführen"
+
+	#| msgid label_download_pptx
+	msgid "Download as PowerPoint file"
+	msgstr "Herunterladen als PowerPoint"
+
+	#| msgid label_almost_done
+	msgid "Almost done…"
+	msgstr "Fast geschafft…"
+
+	#| msgid label_done_training_slides
+	msgid "You're done with the training slides!"
+	msgstr "Sie sind mit den Unterweisungsfolien fertig!"
+
+	#| msgid label_training_answer_questions
+	msgid "You can now answer a few questions to prove that you master this topic and earn your certificate."
+	msgstr "Sie können jetzt ein paar Fragen beantworten, die zeigen, dass Sie das Thema beherrschen und das Zertifikat verdient haben."
+
+	#| msgid label_training_start_questions
+	msgid "Start the questions"
+	msgstr "Mit den Fragen beginnen"
+
+	#| msgid label_training_congratulations
+	msgid "Congratulations, you have now earned your certificate for this topic."
+	msgstr "Herzlichen Glückwunsch, Sie haben jetzt Ihr Zertifikat für dieses Thema verdient."
+
+	#| msgid label_training_achievement_listed
+	msgid "Your achievement will be listed under “My trainings” in the training portlet on the dashboard. From there you can always view or print your certificate if you like."
+	msgstr "Ihr Erfolg wird unter der Überschrift “Meine Unterweisungen” auf dem Dashboard zu sehen sein. Von dort können Sie jederzeit Ihr Zertifikat betrachten oder ausdrucken."
+
+	#| msgid label_finish
+	msgid "Finish"
+	msgstr "Beenden"
+
+	#| msgid label_finish_with_certificate
+	msgid "Finish and earn certificate"
+	msgstr "Beenden und Zertifikat verdienen"
+
+	#| msgid label_print
+	msgid "Print"
+	msgstr "Drucken"
+
+	#| msgid title_recent_ff_ras
+	msgid "Recently treated external companies"
+	msgstr "Kürzlich behandelte Fremdfirmen"
+
+	#| msgid label_sample_every
+	msgid "Sample every"
+	msgstr "Stichprobe alle"
+
+	#| msgid label_history
+	msgid "History"
+	msgstr "Historie"
+
+	#| msgid label_ra_history
+	msgid "Risk assessment history"
+	msgstr "Historie der GBU"

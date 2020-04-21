@@ -26,10 +26,10 @@
       <hr class="pat-separator blank" />
       <div class="pat-gallery">
       <div class="row" tal:define="rtfname string:example-rtf-ribbon; xlsname string:example-xlsx-ribbon;
-        rtf_img_full python:'%s/++resource++euphorie.media/%s.png' %(base_url, view.get_image_version(rtfname));
-        rtf_img_thumb python:'%s/++resource++euphorie.media/%s.png' %(base_url, view.get_image_version(rtfname + '-thumb'));
-        xls_img_full python:'%s/++resource++euphorie.media/%s.png' %(base_url, view.get_image_version(xlsname));
-        xls_img_thumb python:'%s/++resource++euphorie.media/%s.png' %(base_url, view.get_image_version(xlsname + '-thumb'));
+        rtf_img_full python:'%s/%s.png' %(media_url, view.get_image_version(rtfname));
+        rtf_img_thumb python:'%s/%s.png' %(media_url, view.get_image_version(rtfname + '-thumb'));
+        xls_img_full python:'%s/%s.png' %(media_url, view.get_image_version(xlsname));
+        xls_img_thumb python:'%s/%s.png' %(media_url, view.get_image_version(xlsname + '-thumb'));
         ">
           <a href="${rtf_img_full}" class="four columns push-two">
               <figure>
@@ -49,10 +49,10 @@
           </a>
       </div>
       <div class="row" tal:define="risksname string:example-risks-report; measuresname string:example-measures-report;
-        risks_img_full python:'%s/++resource++euphorie.media/%s.png' %(base_url, view.get_image_version(risksname));
-        risks_img_thumb python:'%s/++resource++euphorie.media/%s.png' %(base_url, view.get_image_version(risksname + '-thumb'));
-        measures_img_full python:'%s/++resource++euphorie.media/%s.png' %(base_url, view.get_image_version(measuresname));
-        measures_img_thumb python:'%s/++resource++euphorie.media/%s.png' %(base_url, view.get_image_version(measuresname + '-thumb'));
+        risks_img_full python:'%s/%s.png' %(media_url, view.get_image_version(risksname));
+        risks_img_thumb python:'%s/%s.png' %(media_url, view.get_image_version(risksname + '-thumb'));
+        measures_img_full python:'%s/%s.png' %(media_url, view.get_image_version(measuresname));
+        measures_img_thumb python:'%s/%s.png' %(media_url, view.get_image_version(measuresname + '-thumb'));
         ">
           <a href="${risks_img_full}" class="four columns push-two">
               <figure>

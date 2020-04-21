@@ -9,11 +9,7 @@
       i18n:domain="euphorie"
       tal:define="webhelpers nocall:context/@@webhelpers;
                   client nocall:request/client;
-                  base_url client/++resource++euphorie.resources;
                   media_url webhelpers/media_url;
-                  resources_url webhelpers/resources_url;
-                  js_resources_url webhelpers/js_resources_url;
-                  resources_timestamp here/@@refresh-resources-timestamp/resources_timestamp;
                   page_section webhelpers/get_phase;
                   came_from webhelpers/came_from;
                   came_from_param python:came_from and 'came_from=%s' % came_from or '';
@@ -26,22 +22,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="${media_url/favicon.png" />
 
-    <tal:block condition="webhelpers/debug_mode">
-        <script type="text/javascript" src="${js_resources_url}/bundle.js?t=${resources_timestamp}"></script>
-    </tal:block>
-    <tal:block condition="not:webhelpers/debug_mode">
-        <!-- TODO: this must be minified -->
-        <script type="text/javascript" src="${js_resources_url}/bundle.min.js?t=${resources_timestamp}"></script>
-    </tal:block>
-
-    <tal:block condition="webhelpers/debug_mode">
-        <link rel="stylesheet" href="${resources_url}/screen.css?t=${resources_timestamp}" type="text/css" />
-    </tal:block>
-    <tal:block condition="not:webhelpers/debug_mode">
-        <!-- TODO: needs to be minified -->
-        <link rel="stylesheet" href="${resources_url}/screen.css?t=${resources_timestamp}" type="text/css" />
-    </tal:block>
-
+    <script type="text/javascript" src="${webhelpers/js_url}"></script>
+    <link rel="stylesheet" href="${webhelpers/css_url}" type="text/css" />
 
     <metal:javascriptslot define-slot="javascript_head_slot" />
     <metal:styleslot define-slot="style_slot" />

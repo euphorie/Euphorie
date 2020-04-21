@@ -35,7 +35,7 @@
                tal:on-error="nothing"
             ><img class="fixed-aspect-ratio"
                    alt=""
-                   src="${resources_url}/placeholder-1x1.png"
+                   src="${style_url}/placeholder-1x1.png"
                    style="background-image: url(${large/url|nothing})"
               />
             </a>
@@ -50,7 +50,7 @@
                tal:on-error="nothing"
             ><img class="fixed-aspect-ratio"
                    alt=""
-                   src="${resources_url}/placeholder-1x1.png"
+                   src="${style_url}/placeholder-1x1.png"
                    style="background-image: url(${large/url|nothing})"
               />
             </a>
@@ -65,7 +65,7 @@
                tal:on-error="nothing"
             ><img class="fixed-aspect-ratio"
                    alt=""
-                   src="${resources_url}/placeholder-1x1.png"
+                   src="${style_url}/placeholder-1x1.png"
                    style="background-image: url(${large/url|nothing})"
               />
             </a>
@@ -80,7 +80,7 @@
                tal:on-error="nothing"
             ><img class="fixed-aspect-ratio"
                    alt=""
-                   src="${resources_url}/placeholder-1x1.png"
+                   src="${style_url}/placeholder-1x1.png"
                    style="background-image: url(${large/url|nothing})"
               />
             </a>
@@ -97,7 +97,7 @@
                tal:on-error="nothing"
             ><img class="fixed-aspect-ratio"
                    alt=""
-                   src="${resources_url}/placeholder-21x9.png"
+                   src="${style_url}/placeholder-21x9.png"
                    style="background-image: url(${large/url|nothing})"
               />
             </a>
@@ -114,7 +114,7 @@
         >
           <img class="fixed-aspect-ratio"
                alt=""
-               src="${resources_url}/placeholder-21x9.png"
+               src="${style_url}/placeholder-21x9.png"
                style="background-image: url(${image_url})"
           />
         </a>
@@ -194,7 +194,7 @@
            tal:condition="large"
         ><img class="fixed-aspect-ratio"
                alt=""
-               src="${resources_url}/placeholder-40x25.png"
+               src="${style_url}/placeholder-40x25.png"
                style="background-image: url(${thumb/url|nothing})"
           />
         </a>
@@ -208,7 +208,7 @@
            tal:condition="large"
         ><img class="fixed-aspect-ratio"
                alt=""
-               src="${resources_url}/placeholder-40x25.png"
+               src="${style_url}/placeholder-40x25.png"
                style="background-image: url(${thumb/url|nothing})"
           />
         </a>
@@ -222,7 +222,7 @@
            tal:condition="large"
         ><img class="fixed-aspect-ratio"
                alt=""
-               src="${resources_url}/placeholder-40x25.png"
+               src="${style_url}/placeholder-40x25.png"
                style="background-image: url(${thumb/url|nothing})"
           />
         </a>
@@ -236,7 +236,7 @@
            tal:condition="large"
         ><img class="fixed-aspect-ratio"
                alt=""
-               src="${resources_url}/placeholder-40x25.png"
+               src="${style_url}/placeholder-40x25.png"
                style="background-image: url(${thumb/url|nothing})"
           />
         </a>

@@ -104,34 +104,8 @@
         />
 
     <browser:resourceDirectory
-        name="euphorie.media"
-        directory="templates/media"
-       />
-
-    <browser:resourceDirectory
-        name="euphorie.style"
-        directory="templates/style/main"
-       />
-
-    <browser:resourceDirectory
-        name="euphorie.libraries"
-        directory="templates/libraries"
-       />
-
-    <browser:resourceDirectory
-        name="osha.style"
-        directory="templates/style/osha"
-       />
-
-    <browser:resourceDirectory
-        name="euphorie.behaviour"
-        directory="templates/behaviour"
-       />
-
-    <browser:resourceDirectory
         name="euphorie.resources"
         directory="resources"
         />
-
 
 </configure>

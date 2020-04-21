@@ -62,10 +62,10 @@ jekyll: prototype
 	@cd prototype && make jekyll
 
 ## Important: in proto, we need to call `bundle-osha`, not `bundle`, so that the paths are correct
-resources-install: bundle
-	cp prototype/bundles/bundle* src/euphorie/client/resources
-	cp -R prototype/bundles/chunks/* src/euphorie/client/resources/bundles/chunks/
-	cp -R prototype/_site/style/* src/euphorie/client/resources
+resources-install:   # bundle
+	cp -R prototype/_site/assets/* src/euphorie/client/resources/
+	cp -R prototype/_site/media src/euphorie/client/resources/
+	cp prototype/_site/depts/index.html src/euphorie/client/resources/oira/depts.html
 	@./scripts/proto2diazo.py
 	@echo "Make sure to go to ../NuPlone, make bundle there, and copy oira.cms* to src/euphorie/client/resources"
 
