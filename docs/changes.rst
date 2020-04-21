@@ -1,11 +1,13 @@
 Changelog
 =========
 
-11.1.21 (unreleased)
---------------------
+11.2.0 (unreleased)
+-------------------
 
-- Nothing changed yet.
-
+BREAKING CHANGE
+All assets (CSS and JS bundles) are now present under euphorie.client.resources
+Brand-support is handled via folders under resources.
+This follows the new paradigm of prototype
 
 11.1.20 (2020-03-31)
 --------------------
