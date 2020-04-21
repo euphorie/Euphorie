@@ -1018,11 +1018,11 @@ class MeasuresOverview(Status):
             for t in query.all()
             if (
                 (
-                    t[-1].planning_start is not None
-                    and t[-1].planning_start.strftime("%b") in self.months
+                    t[-1].planning_end is not None
+                    and t[-1].planning_end.strftime("%b") in self.months
                 )
                 and (
-                    t[-1].planning_end is not None
+                    t[-1].planning_start is not None
                     or t[-1].responsible is not None
                     or t[-1].prevention_plan is not None
                     or t[-1].requirements is not None
@@ -1044,7 +1044,7 @@ class MeasuresOverview(Status):
                     "title": title,
                     "description": action.action_plan,
                     "months": [
-                        action.planning_start and action.planning_start.month == m.month
+                        action.planning_end and action.planning_end.month == m.month
                         for m in [now, next_month, month_after_next]
                     ],
                 }
