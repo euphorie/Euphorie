@@ -7,7 +7,11 @@ Changelog
 BREAKING CHANGE
 All assets (CSS and JS bundles) are now present under euphorie.client.resources
 Brand-support is handled via folders under resources.
-This follows the new paradigm of prototype
+This follows the new paradigm of prototype.
+
+- Fixes for the reports (XLSX, PDF) regarding file name
+- Change logic of "Overview of Measures" report to use end date instead of start date
+- Fix a layout issue in the "Overview of Risks" report
 
 11.1.20 (2020-03-31)
 --------------------
