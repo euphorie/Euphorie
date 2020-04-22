@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.2.0 (unreleased)
+11.2.0 (2020-04-22)
 -------------------
 
 BREAKING CHANGE
