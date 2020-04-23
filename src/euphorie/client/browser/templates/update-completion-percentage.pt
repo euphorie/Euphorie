@@ -10,7 +10,14 @@
   <body>
     <metal:slot fill-slot="content">
       <div id="document-content">
-        <!-- percentage computed: ${view/percentage} -->
+        <tal:comment tal:define="
+                       webhelpers nocall:view/@@webhelpers;
+                       dummy webhelpers/update_completion_percentage;
+                     "
+        >
+           This has the only purpose of making the injection work and
+           trigger the call of update_completion_percentage
+        </tal:comment>
       </div>
     </metal:slot>
   </body>

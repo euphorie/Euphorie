@@ -216,7 +216,9 @@ class WebHelpers(BrowserView):
         traversed_session = self.traversed_session
         return traversed_session.session.id if traversed_session else ""
 
-    def update_completion_percentage(self, session):
+    def update_completion_percentage(self, session=None):
+        if session is None:
+            session = self.traversed_session
         query = (
             Session.query(SurveyTreeItem)
             .filter(SurveyTreeItem.session_id == session.id)
@@ -974,15 +976,4 @@ class HelpMenu(WebHelpers):
     """
 
     def __call__(self):
-        return self.index()
-
-
-class UpdateCompletionPercentage(WebHelpers):
-
-    percentage = 0
-
-    def __call__(self):
-        self.percentage = self.update_completion_percentage(
-            self.traversed_session.session
-        )
         return self.index()

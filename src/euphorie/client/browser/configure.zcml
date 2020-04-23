@@ -416,7 +416,6 @@
       name="update-completion-percentage"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="zope2.View"
-      class=".webhelpers.UpdateCompletionPercentage"
       template="templates/update-completion-percentage.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
