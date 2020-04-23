@@ -11,7 +11,9 @@
 <body i18n:domain="euphorie">
   <metal:slot fill-slot="content"
     tal:define="
-        base_url view/base_url;
+        webhelpers nocall:context/@@webhelpers;
+        base_url webhelpers/base_url;
+        country_url webhelpers/country_url;
       ">
     <section id="menu-content">
       <ul class="menu">
@@ -38,16 +40,16 @@
                 >Help</a>
         </li>
         <li class="menu-item-change-password">
-            <a class="icon-key" href="${view/country_url}/account-settings" i18n:translate="title_change_password">Change password</a>
+            <a class="icon-key" href="${country_url}/account-settings" i18n:translate="title_change_password">Change password</a>
         </li>
         <li class="menu-item-change-email-address">
-            <a class="icon-mail" href="${view/country_url}/new-email" i18n:translate="">Change email address</a>
+            <a class="icon-mail" href="${country_url}/new-email" i18n:translate="">Change email address</a>
         </li>
         <li class="menu-item-delete-account">
-            <a class="icon-cancel-circled" href="${view/country_url}/account-delete" i18n:translate="">Delete account</a>
+            <a class="icon-cancel-circled" href="${country_url}/account-delete" i18n:translate="">Delete account</a>
         </li>
         <li class="menu-item-logout">
-          <a class="icon-logout" href="${view/country_url}/logout" i18n:translate="navigation_logout">Logout</a>
+          <a class="icon-logout" href="${country_url}/logout" i18n:translate="navigation_logout">Logout</a>
         </li>
       </ul>
     </section>

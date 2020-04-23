@@ -5,12 +5,14 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       metal:use-macro="context/@@modal-template/macros/shell"
       i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers"
 >
 
   <body>
     <metal:slot fill-slot="content">
-      <div id="document-content">
-        <!-- percentage computed: ${view/percentage} -->
+      <div id="document-content"
+          tal:define="percentage webhelpers/update_completion_percentage">
+        <!-- percentage computed: ${percentage} -->
       </div>
     </metal:slot>
   </body>

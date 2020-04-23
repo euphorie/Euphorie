@@ -216,7 +216,9 @@ class WebHelpers(BrowserView):
         traversed_session = self.traversed_session
         return traversed_session.session.id if traversed_session else ""
 
-    def update_completion_percentage(self, session):
+    def update_completion_percentage(self, session=None):
+        if not session:
+            session = self.traversed_session.session
         query = (
             Session.query(SurveyTreeItem)
             .filter(SurveyTreeItem.session_id == session.id)
@@ -933,56 +935,3 @@ class WebHelpers(BrowserView):
     def __call__(self):
         return self
 
-
-class Appendix(WebHelpers):
-    """ Browser View for showing the appendix with various links to
-    copyright, license, etc.
-    Since this is very client-specific, it gets its own template for easy
-    customisation.
-
-    """
-
-    def __call__(self):
-        return self
-
-
-class Logo(WebHelpers):
-    """ Browser View for showing the markup for the logo
-    Since this is very client-specific, it gets its own template for easy
-    customisation.
-
-    """
-
-    def __call__(self):
-        return self
-
-
-class UserMenu(WebHelpers):
-    """
-    View class for the User Menu
-
-    """
-
-    def __call__(self):
-        return self.index()
-
-
-class HelpMenu(WebHelpers):
-    """
-    View class for the User Menu
-
-    """
-
-    def __call__(self):
-        return self.index()
-
-
-class UpdateCompletionPercentage(WebHelpers):
-
-    percentage = 0
-
-    def __call__(self):
-        self.percentage = self.update_completion_percentage(
-            self.traversed_session.session
-        )
-        return self.index()
