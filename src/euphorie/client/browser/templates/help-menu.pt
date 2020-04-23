@@ -7,7 +7,8 @@
       meta:interpolation="true"
       i18n:domain="euphorie"
       tal:define="
-        base_url view/base_url;
+        webhelpers nocall:context/@@webhelpers;
+        base_url webhelpers/base_url;
       "
       >
 

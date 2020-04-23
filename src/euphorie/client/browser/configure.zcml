@@ -41,7 +41,6 @@
       name="appendix"
       for="*"
       permission="zope.Public"
-      class="euphorie.client.browser.webhelpers.Appendix"
       template="templates/appendix.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
@@ -50,7 +49,6 @@
       name="logo"
       for="*"
       permission="zope.Public"
-      class="euphorie.client.browser.webhelpers.Logo"
       template="templates/logo.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
@@ -407,7 +405,6 @@
       name="user-menu.html"
       for="*"
       permission="zope2.View"
-      class=".webhelpers.UserMenu"
       template="templates/user-menu.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
@@ -416,7 +413,6 @@
       name="update-completion-percentage"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="zope2.View"
-      class=".webhelpers.UpdateCompletionPercentage"
       template="templates/update-completion-percentage.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
@@ -479,7 +475,6 @@
       name="help_menu"
       for="*"
       permission="zope2.View"
-      class=".webhelpers.HelpMenu"
       template="templates/help-menu.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
