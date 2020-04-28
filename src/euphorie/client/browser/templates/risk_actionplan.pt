@@ -217,7 +217,7 @@
                     <p>
                       ${solution/action}
                     </p>
-                    <tal:requirements condition="python: 'requirements' not in view.skip_fields">
+                    <tal:requirements condition="python: 'requirements' not in view.skip_fields and solution['requirements']">
                       <h4 i18n:translate="label_expertise">
                         Expertise
                       </h4>
