@@ -334,7 +334,7 @@
                       <dfn class="icon-help-circle iconified pat-tooltip"
                            data-pat-tooltip="source: content; position-list: lt"
                            i18n:translate="actionplan_measure_tooltip"
-                      >Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk); 3) the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any).</dfn>
+                      >Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)</dfn>
                       <textarea class="actionPlan"
                                 name="measure.action:utf8:ustring:records"
                                 placeholder="General approach (to eliminate or reduce the risk)"
@@ -346,6 +346,11 @@
                     </label>
                     <tal:requirements condition="python: 'requirements' not in view.skip_fields">
                       <label><tal:label i18n:translate="label_expertise">Expertise</tal:label>
+                      <dfn class="icon-help-circle iconified pat-tooltip"
+                           data-pat-tooltip="source: content; position-list: lt"
+                           i18n:translate="actionplan_requirements_tooltip"
+                      >Describe: 3) the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any).</dfn>
+
                         <textarea class="requirements"
                                   name="measure.requirements:utf8:ustring:records"
                                   placeholder="Level of expertise and/or requirements needed"
@@ -476,7 +481,7 @@
                   <dfn class="icon-help-circle iconified pat-tooltip"
                        data-pat-tooltip="source: content; position-list: lt"
                        i18n:translate="actionplan_measure_tooltip"
-                  >Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk); 3) the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any).</dfn>
+                  >Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)</dfn>
                   <textarea class="actionPlan"
                             autofocus="autofocus"
                             name="measure.action:utf8:ustring:records"
@@ -487,6 +492,10 @@
                 </label>
                 <tal:requirements condition="python: 'requirements' not in view.skip_fields">
                   <label><tal:label i18n:translate="label_expertise">Expertise</tal:label>
+                    <dfn class="icon-help-circle iconified pat-tooltip"
+                         data-pat-tooltip="source: content; position-list: lt"
+                         i18n:translate="actionplan_requirements_tooltip"
+                    >Describe: 3) the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any).</dfn>
                     <textarea class="requirements"
                               name="measure.requirements:utf8:ustring:records"
                               placeholder="Level of expertise and/or requirements needed"
