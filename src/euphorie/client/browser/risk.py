@@ -472,9 +472,13 @@ class IdentificationView(BrowserView):
         }
         existing_measures = []
         for solution in self.solutions:
+            if self.italy_special:
+                text = solution.action
+            else:
+                text = solution.description
             existing_measures.append(
                 {
-                    "text": solution.action,
+                    "text": text,
                     "active": solution.id in saved_standard_measures,
                     "solution_id": solution.id,
                     "plan_type": "in_place_standard",
