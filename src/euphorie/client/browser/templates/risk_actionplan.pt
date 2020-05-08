@@ -214,8 +214,8 @@
                     <h4 i18n:translate="label_description">
                       Description
                     </h4>
-                    <p>
-                      ${solution/action}
+                    <p tal:content="structure solution/action_markup">
+                      Action
                     </p>
                     <tal:requirements condition="python: 'requirements' not in view.skip_fields and solution['requirements']">
                       <h4 i18n:translate="label_expertise">

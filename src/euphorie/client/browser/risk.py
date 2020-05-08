@@ -43,8 +43,10 @@ from zope.publisher.interfaces import NotFound
 
 import datetime
 import PIL
+import re
 
 IMAGE_CLASS = {0: "", 1: "twelve", 2: "six", 3: "four", 4: "three"}
+all_breaks = re.compile("(\n|\r)+")
 
 
 class IdentificationView(BrowserView):
@@ -225,13 +227,13 @@ class IdentificationView(BrowserView):
                         and isinstance(val, str)
                         and val.strip() != ""
                     ):
-                        new_custom_measures[k] = (
-                            model.ActionPlan(action=val, plan_type="in_place_custom")
+                        new_custom_measures[k] = model.ActionPlan(
+                            action=val, plan_type="in_place_custom"
                         )
                     elif k.startswith("measure-custom"):
                         _id = k.rsplit("-", 1)[-1]
-                        new_custom_measures[_id] = (
-                            model.ActionPlan(action=val, plan_type="in_place_custom")
+                        new_custom_measures[_id] = model.ActionPlan(
+                            action=val, plan_type="in_place_custom"
                         )
                     # This only happens on custom risks
                     elif k.startswith("present-measure") and val.strip() != "":
@@ -887,10 +889,13 @@ class ActionPlanView(BrowserView):
                     continue
                 solution_id = solution.id
                 if solution_id not in existing_measure_ids:
+                    action = getattr(solution, "action", "") or ""
+                    action_markup = all_breaks.sub("<br/>", action)
                     solutions.append(
                         {
                             "description": StripMarkup(solution.description),
-                            "action": solution.action,
+                            "action": action,
+                            "action_markup": action_markup,
                             "requirements": solution.requirements,
                             "id": solution_id,
                         }
