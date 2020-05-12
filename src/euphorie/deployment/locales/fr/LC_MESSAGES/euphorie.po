@@ -2372,12 +2372,12 @@ msgstr ""
 #. Default: "Action plan ${title}"
 #: euphorie/client/docx/views.py:271
 msgid "filename_report_actionplan"
-msgstr "Plan d'action ${title}.doc"
+msgstr "Rapport Oira ${title}"
 
 #. Default: "Identification report ${title}"
 #: euphorie/client/docx/views.py:314
 msgid "filename_report_identification"
-msgstr "Rapport d'identification ${title}"
+msgstr "Oira liste des risques ${title}"
 
 #. Default: "Timeline for ${title}"
 #: euphorie/client/report.py:227
