@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.3.0 (unreleased)
+11.3.0 (2020-05-12)
 -------------------
 
 BREAKING CHANGE
