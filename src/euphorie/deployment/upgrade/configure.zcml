@@ -408,4 +408,26 @@
 
     </genericsetup:upgradeSteps>
 
+  <genericsetup:upgradeSteps
+      destination="27"
+      profile="euphorie.deployment:default"
+      source="26"
+      >
+    <genericsetup:upgradeStep
+        title="Run Alembic migration: extend action plan with plan_type column"
+        description="Check the logs! You might want to adapt the migration to your DB"
+        handler=".v27.alembic_upgrade"
+        />
+    <genericsetup:upgradeStep
+      title="Unify action fields in solutions"
+      handler=".v27.unify_action_fields_in_solution"/>
+    <genericsetup:upgradeStep
+      title="Unify action fields in solutions (in Client)"
+      handler=".v27.unify_action_fields_in_solution_client"/>
+    <genericsetup:upgradeStep
+      title="Migrate action plans"
+      handler=".v27.migrate_actgion_plans"/>
+
+    </genericsetup:upgradeSteps>
+
 </configure>

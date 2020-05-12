@@ -43,8 +43,10 @@ from zope.publisher.interfaces import NotFound
 
 import datetime
 import PIL
+import re
 
 IMAGE_CLASS = {0: "", 1: "twelve", 2: "six", 3: "four", 4: "three"}
+all_breaks = re.compile("(\n|\r)+")
 
 
 class IdentificationView(BrowserView):
@@ -52,7 +54,9 @@ class IdentificationView(BrowserView):
     """
 
     default_template = ViewPageTemplateFile("templates/risk_identification.pt")
-    custom_risk_template = ViewPageTemplateFile("templates/risk_identification_custom.pt")
+    custom_risk_template = ViewPageTemplateFile(
+        "templates/risk_identification_custom.pt"
+    )
     variation_class = "variation-risk-assessment"
 
     question_filter = None
@@ -70,7 +74,6 @@ class IdentificationView(BrowserView):
         "severity": None,
         "priority": None,
         "comment": u"",
-        "existing_measures": u"[]",
         "training_notes": None,
         "custom_description": None,
     }
@@ -171,16 +174,7 @@ class IdentificationView(BrowserView):
                 return self.proceed_to_next(reply)
             old_values = {}
             for prop, default in self.monitored_properties.items():
-                if prop == "existing_measures":
-                    val = dumps(
-                        [
-                            entry
-                            for entry in loads(getattr(self.context, prop, default))
-                            if entry[1]
-                        ]
-                    )
-                else:
-                    val = getattr(self.context, prop, default)
+                val = getattr(self.context, prop, default)
                 old_values[prop] = val
             answer = reply.get("answer", None)
             # If answer is not present in the request, do not attempt to set
@@ -200,38 +194,68 @@ class IdentificationView(BrowserView):
                     elif self.risk is None or self.risk.evaluation_method == "direct":
                         self.context.priority = reply.get("priority")
 
+            # Check if there was a change. If yes, touch the session
+            changed = False
             if self.use_existing_measures and reply.get("handle_measures_in_place"):
-                measures = self.get_existing_measures()
+                session = Session()
+
                 new_measures = []
-                seen = []
-                for i, entry in enumerate(measures):
-                    on = int(bool(reply.get("measure-{}".format(i))))
-                    new_measures.append((entry[0], on))
-                    if on:
-                        seen.append(i)
+                # First, check which of the standard solutions were selected
+                for solution in self.solutions:
+                    if reply.get("measure-standard-%s" % solution.id):
+                        new_measures.append(
+                            model.ActionPlan(
+                                action=solution.action,
+                                requirements=solution.requirements,
+                                plan_type="in_place_standard",
+                                solution_id=solution.id,
+                            )
+                        )
+                # Clean up, remove all standard in-place measures. The active
+                # ones will be created freshly again below
+                for plan in self.context.in_place_standard_measures:
+                    session.delete(plan)
+
+                # Now loop over the form data to find out which new custom measures
+                # to add and which already present custom measures to keep.
+                # (Present custom measures are deleted and added again, since their
+                # text might have changed. But their original order is preserved.)
+                new_custom_measures = {}
                 for k, val in reply.items():
                     if (
                         k.startswith("new-measure")
                         and isinstance(val, str)
                         and val.strip() != ""
                     ):
-                        new_measures.append((val, 1))
+                        new_custom_measures[k] = model.ActionPlan(
+                            action=val, plan_type="in_place_custom"
+                        )
+                    elif k.startswith("measure-custom"):
+                        _id = k.rsplit("-", 1)[-1]
+                        new_custom_measures[_id] = model.ActionPlan(
+                            action=val, plan_type="in_place_custom"
+                        )
+                    # This only happens on custom risks
                     elif k.startswith("present-measure") and val.strip() != "":
-                        idx = k.rsplit("-", 1)[-1]
-                        try:
-                            idx = int(idx)
-                        except (TypeError, ValueError):
-                            continue
-                        if idx in seen:
-                            new_measures[idx] = (val, 1)
+                        _id = k.rsplit("-", 1)[-1]
+                        if int(bool(reply.get("measure-{}".format(_id)))):
+                            new_measures.append(
+                                model.ActionPlan(
+                                    action=val, plan_type="in_place_custom"
+                                )
+                            )
+                # Now add the custom measures in their correct order
+                for k in sorted(new_custom_measures.keys()):
+                    new_measures.append(new_custom_measures[k])
+                # Delete all custom in-place measures
+                for plan in self.context.in_place_custom_measures:
+                    session.delete(plan)
+                    changed = True
 
-                # Only save the measures that are active
-                self.context.existing_measures = safe_unicode(
-                    dumps([entry for entry in new_measures if entry[1]])
-                )
+                if new_measures:
+                    self.context.action_plans.extend(new_measures)
+                    changed = True
 
-            # Check if there was a change. If yes, touch the session
-            changed = False
             if self.use_training_module and reply.get("handle_training_notes"):
                 self.context.training_notes = reply.get("training_notes")
                 changed = True
@@ -244,16 +268,7 @@ class IdentificationView(BrowserView):
                 self.context.title = reply.get("title")
 
             for prop, default in self.monitored_properties.items():
-                if prop == "existing_measures":
-                    val = dumps(
-                        [
-                            entry
-                            for entry in loads(getattr(self.context, prop, default))
-                            if entry[1]
-                        ]
-                    )
-                else:
-                    val = getattr(self.context, prop, None)
+                val = getattr(self.context, prop, None)
                 if val and val != old_values[prop]:
                     changed = True
                     break
@@ -359,9 +374,6 @@ class IdentificationView(BrowserView):
                 self.answer_yes = tool_type_data["answer_yes"]
                 self.answer_no = tool_type_data["answer_no"]
                 self.answer_na = tool_type_data["answer_na"]
-            if not self.context.existing_measures:
-                existing_measures = [(text, 0) for text in measures]
-                self.context.existing_measures = safe_unicode(dumps(existing_measures))
 
         survey = self.context.aq_parent.aq_parent
         if getattr(survey, "enable_custom_evaluation_descriptions", False):
@@ -447,8 +459,44 @@ class IdentificationView(BrowserView):
         )
         return self.request.response.redirect(url)
 
+    @property
+    @memoize
+    def solutions(self):
+        return getattr(self.risk, "_solutions", [])
+
     @memoize
     def get_existing_measures(self):
+        saved_standard_measures = {
+            getattr(measure, "solution_id", ""): measure
+            for measure in self.context.in_place_standard_measures
+        }
+        existing_measures = []
+        for solution in self.solutions:
+            if self.italy_special:
+                text = solution.action
+            else:
+                text = solution.description
+            existing_measures.append(
+                {
+                    "text": text,
+                    "active": solution.id in saved_standard_measures,
+                    "solution_id": solution.id,
+                    "plan_type": "in_place_standard",
+                }
+            )
+        for measure in self.context.in_place_custom_measures:
+            existing_measures.append(
+                {
+                    "text": measure.action,
+                    "active": True,
+                    "solution_id": measure.id,
+                    "plan_type": "in_place_custom",
+                }
+            )
+        return existing_measures
+
+    @memoize
+    def get_existing_measures_old(self):
         if not self.risk:
             defined_measures = []
         else:
@@ -512,7 +560,6 @@ class IdentificationView(BrowserView):
 
 
 class ImageUpload(BrowserView):
-
     def redirect(self):
         return self.request.response.redirect(
             "{}/@@identification".format(self.context.absolute_url())
@@ -634,7 +681,13 @@ class ActionPlanView(BrowserView):
             return True
         return False
 
+    @memoize
     def get_existing_measures(self):
+        return list(self.context.in_place_standard_measures) + list(
+            self.context.in_place_custom_measures
+        )
+
+    def get_existing_measures_old(self):
         if not self.use_existing_measures:
             return {}
         if not self.risk or not IRisk.providedBy(self.risk):
@@ -807,7 +860,7 @@ class ActionPlanView(BrowserView):
             context.priority = reply.get("priority")
 
             new_plans, changes = self.extract_plans_from_request()
-            for plan in context.action_plans:
+            for plan in context.standard_measures + context.custom_measures:
                 session.delete(plan)
             context.action_plans.extend(new_plans)
             if changes:
@@ -819,8 +872,6 @@ class ActionPlanView(BrowserView):
 
         else:
             self.data = context
-            if len(context.action_plans) == 0:
-                self.data.empty_action_plan = [model.ActionPlan()]
 
         self.title = context.parent.title
 
@@ -828,58 +879,68 @@ class ActionPlanView(BrowserView):
         if self.is_custom_risk:
             self.risk.description = u""
             self.risk.evaluation_method = u""
-        if self.italy_special:
-            measures_full_text = True
-        else:
-            measures_full_text = False
         if not self.is_custom_risk:
-            existing_measures = [
-                txt.strip() for (txt, active) in self.get_existing_measures() if active
+            existing_measure_ids = [
+                measure.solution_id for measure in self.get_existing_measures()
             ]
+            self.active_standard_measures = {
+                getattr(measure, "solution_id", ""): measure
+                for measure in context.standard_measures
+            }
             solutions = []
             for solution in self.risk.values():
                 if not ISolution.providedBy(solution):
                     continue
-                description = (
-                    getattr(solution, "description", "") or "").strip()
-                prevention_plan = (
-                    getattr(solution, "prevention_plan", "") or "").strip()
-                match = description
-                if measures_full_text and prevention_plan:
-                    match = u"%s: %s" % (match, prevention_plan)
-                if match not in existing_measures:
+                solution_id = solution.id
+                if solution_id not in existing_measure_ids:
+                    action = getattr(solution, "action", "") or ""
+                    action_markup = all_breaks.sub("<br/>", action)
                     solutions.append(
                         {
                             "description": StripMarkup(solution.description),
-                            "action_plan": solution.action_plan,
-                            "prevention_plan": solution.prevention_plan,
+                            "action": action,
+                            "action_markup": action_markup,
                             "requirements": solution.requirements,
+                            "id": solution_id,
                         }
                     )
             self.solutions = solutions
+            self.solutions_condition = "condition: not ({})".format(
+                " and ".join(["sm-%s" % solution["id"] for solution in self.solutions])
+            )
 
         self.image_class = IMAGE_CLASS[self.number_images]
         self.risk_number = self.context.number
-        self.delete_confirmation = api.portal.translate(_(
-            u"Are you sure you want to delete this measure? This action can "
-            u"not be reverted."),
+        self.delete_confirmation = api.portal.translate(
+            _(
+                u"Are you sure you want to delete this measure? This action can "
+                u"not be reverted."
+            )
         )
-        self.override_confirmation = api.portal.translate(_(
-            u"The current text in the fields 'Action plan', 'Prevention plan' and "
-            u"'Requirements' of this measure will be overwritten. This action cannot be "
-            u"reverted. Are you sure you want to continue?"),
+        self.override_confirmation = api.portal.translate(
+            _(
+                u"The current text in the fields 'Action plan', 'Prevention plan' and "
+                u"'Requirements' of this measure will be overwritten. This action cannot be "
+                u"reverted. Are you sure you want to continue?"
+            )
         )
-        self.message_date_before = api.portal.translate(_(
-            u"error_validation_before_end_date",
-            default=u"This date must be on or before the end date."),
+        self.message_date_before = api.portal.translate(
+            _(
+                u"error_validation_before_end_date",
+                default=u"This date must be on or before the end date.",
+            )
         )
-        self.message_date_after = api.portal.translate(_(
-            u"error_validation_after_start_date",
-            default=u"This date must be on or after the start date."),
+        self.message_date_after = api.portal.translate(
+            _(
+                u"error_validation_after_start_date",
+                default=u"This date must be on or after the start date.",
+            )
         )
-        self.message_positive_number = api.portal.translate(_(
-            u"error_validation_positive_whole_number",
-            default=u"This value must be a positive whole number."),
+        self.message_positive_number = api.portal.translate(
+            _(
+                u"error_validation_positive_whole_number",
+                default=u"This value must be a positive whole number.",
+            )
         )
         return self.index()
 
@@ -890,7 +951,8 @@ class ActionPlanView(BrowserView):
         added = 0
         updated = 0
         existing_plans = {}
-        for plan in self.context.action_plans:
+        context = aq_inner(self.context)
+        for plan in context.standard_measures + context.custom_measures:
             existing_plans[str(plan.id)] = plan
         form = self.request.form
         form["action_plans"] = []
@@ -898,6 +960,15 @@ class ActionPlanView(BrowserView):
             measure = dict([p for p in form["measure"][i].items() if p[1].strip()])
             form["action_plans"].append(measure)
             if len(measure):
+                plan_type = measure.get("plan_type", "measure_custom")
+                solution_id = measure.get("solution_id", None)
+                if plan_type == "measure_standard" and not form.get(
+                    "sm-%s" % solution_id
+                ):
+                    continue
+                action = measure.get("action", "").strip()
+                if not action:
+                    continue
                 budget = measure.get("budget")
                 budget = budget and budget.split(",")[0].split(".")[0]
                 p_start = measure.get("planning_start")
@@ -915,8 +986,7 @@ class ActionPlanView(BrowserView):
                 if measure.get("id", "-1") in existing_plans:
                     plan = existing_plans[measure.get("id")]
                     if (
-                        measure.get("action_plan") != plan.action_plan
-                        or measure.get("prevention_plan") != plan.prevention_plan
+                        action != plan.action
                         or measure.get("requirements") != plan.requirements  # noqa
                         or measure.get("responsible") != plan.responsible
                         or (
@@ -946,13 +1016,14 @@ class ActionPlanView(BrowserView):
                     added += 1
                 new_plans.append(
                     model.ActionPlan(
-                        action_plan=measure.get("action_plan"),
-                        prevention_plan=measure.get("prevention_plan"),
+                        action=measure.get("action"),
                         requirements=measure.get("requirements"),
                         responsible=measure.get("responsible"),
                         budget=budget,
                         planning_start=p_start,
                         planning_end=p_end,
+                        plan_type=plan_type,
+                        solution_id=solution_id,
                     )
                 )
         removed = len(existing_plans)

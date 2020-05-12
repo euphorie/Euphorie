@@ -314,7 +314,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
                     identification='no',
                     action_plans=[
                         model.ActionPlan(
-                            action_plan=u'Measure 1 for %s' % session.account.loginname
+                            action=u'Measure 1 for %s' % session.account.loginname
                         )
                     ]))
 
@@ -324,7 +324,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
 
         measures = view.get_measures()
         self.assertEqual(len(measures), 1)
-        self.assertEqual(measures[0][2].action_plan, 'Measure 1 for jane@example.com')
+        self.assertEqual(measures[0][2].action, 'Measure 1 for jane@example.com')
 
     def test_get_measures_order_by_start_date(self):
         view = self._get_timeline()
@@ -344,11 +344,11 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
                 identification='no',
                 action_plans=[
                     model.ActionPlan(
-                        action_plan=u'Plan 2',
+                        action=u'Plan 2',
                         planning_start=datetime.date(2011, 12, 15)
                     ),
                     model.ActionPlan(
-                        action_plan=u'Plan 1',
+                        action=u'Plan 1',
                         planning_start=datetime.date(2011, 11, 15)
                     )
                 ]
@@ -361,7 +361,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
 
         measures = view.get_measures()
         self.assertEqual(len(measures), 2)
-        self.assertEqual([row[2].action_plan for row in measures],
+        self.assertEqual([row[2].action for row in measures],
                          [u'Plan 1', u'Plan 2'])
 
     def test_priority_name_known_priority(self):
@@ -397,7 +397,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
             comment=u'Risk comment'
         )
         plan = model.ActionPlan(
-            action_plan=u'Plan 2',
+            action=u'Plan 2',
             planning_start=datetime.date(2011, 12, 15),
             budget=500
         )
@@ -417,24 +417,22 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         self.assertEqual(sheet.cell('B2').value, None)
         # action plan
         self.assertEqual(sheet.cell('C2').value, u'Plan 2')
-        # prevention plan
-        self.assertEqual(sheet.cell('D2').value, None)
         # requirements
-        self.assertEqual(sheet.cell('E2').value, None)
+        self.assertEqual(sheet.cell('D2').value, None)
         # responsible
-        self.assertEqual(sheet.cell('F2').value, None)
+        self.assertEqual(sheet.cell('E2').value, None)
         # budget
-        self.assertEqual(sheet.cell('G2').value, 500)
+        self.assertEqual(sheet.cell('F2').value, 500)
         # module title
-        self.assertEqual(sheet.cell('H2').value, u'Top-level Module title')
+        self.assertEqual(sheet.cell('G2').value, u'Top-level Module title')
         # risk number
-        self.assertEqual(sheet.cell('I2').value, u'1.2.3')
+        self.assertEqual(sheet.cell('H2').value, u'1.2.3')
         # risk title
-        self.assertEqual(sheet.cell('J2').value, u'This is wrong.')
+        self.assertEqual(sheet.cell('I2').value, u'This is wrong.')
         # risk priority
-        self.assertEqual(sheet.cell('K2').value, u'High')
+        self.assertEqual(sheet.cell('J2').value, u'High')
         # risk comment
-        self.assertEqual(sheet.cell('L2').value, u'Risk comment')
+        self.assertEqual(sheet.cell('K2').value, u'Risk comment')
 
     def test_create_workbook_no_problem_description(self):
         view = self._get_timeline()
@@ -459,7 +457,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         survey.restrictedTraverse.return_value = zodb_node
         view.getRisks = lambda x: [(module, risk)]
         sheet = view.create_workbook().worksheets[0]
-        self.assertEqual(sheet.cell('J2').value, u'Risk title')
+        self.assertEqual(sheet.cell('I2').value, u'Risk title')
 
     def test_render_value(self):
         with api.env.adopt_user(user=self.account):

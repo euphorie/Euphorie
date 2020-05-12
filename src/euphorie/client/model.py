@@ -677,6 +677,12 @@ class SurveySession(BaseObject):
         ),
     )
 
+    migrated = schema.Column(
+        types.DateTime,
+        nullable=False,
+        default=functions.now(),
+    )
+
     # Allow this class to be subclassed in other projects
     __mapper_args__ = {
         'polymorphic_identity': 'euphorie',
@@ -843,15 +849,17 @@ class SurveySession(BaseObject):
         session.execute(statement)
 
         statement = """\
-        INSERT INTO action_plan (risk_id, action_plan, prevention_plan,
-                                        requirements, responsible, budget,
+        INSERT INTO action_plan (risk_id, action_plan, prevention_plan, action,
+                                        requirements, responsible, budget, plan_type,
                                         planning_start, planning_end)
                SELECT new_tree.id,
                       action_plan.action_plan,
                       action_plan.prevention_plan,
+                      action_plan.action,
                       action_plan.requirements,
                       action_plan.responsible,
                       action_plan.budget,
+                      action_plan.plan_type,
                       action_plan.planning_start,
                       action_plan.planning_end
                FROM action_plan JOIN risk ON action_plan.risk_id=risk.id
@@ -1141,6 +1149,34 @@ class Risk(SurveyTreeItem):
     image_data_scaled = schema.Column(types.LargeBinary())
     image_filename = schema.Column(types.UnicodeText())
 
+    @memoize
+    def measures_of_type(self, plan_type):
+        query = (
+            Session.query(ActionPlan)
+            .filter(
+                sql.and_(ActionPlan.risk_id == self.id),
+                ActionPlan.plan_type == plan_type,
+            )
+            .order_by(ActionPlan.id)
+        )
+        return query.all()
+
+    @property
+    def standard_measures(self):
+        return self.measures_of_type("measure_standard")
+
+    @property
+    def custom_measures(self):
+        return self.measures_of_type("measure_custom")
+
+    @property
+    def in_place_standard_measures(self):
+        return self.measures_of_type("in_place_standard")
+
+    @property
+    def in_place_custom_measures(self):
+        return self.measures_of_type("in_place_custom")
+
 
 class ActionPlan(BaseObject):
     """Action plans for a known risk."""
@@ -1156,12 +1192,28 @@ class ActionPlan(BaseObject):
     )
     action_plan = schema.Column(types.UnicodeText())
     prevention_plan = schema.Column(types.UnicodeText())
+    # The column "action" is the synthesis of "action_plan" and "prevention_plan"
+    action = schema.Column(types.UnicodeText())
     requirements = schema.Column(types.UnicodeText())
     responsible = schema.Column(types.Unicode(256))
     budget = schema.Column(types.Integer())
     planning_start = schema.Column(types.Date())
     planning_end = schema.Column(types.Date())
     reference = schema.Column(types.Text())
+    plan_type = schema.Column(
+        Enum(
+            [
+                "measure_custom",
+                "measure_standard",
+                "in_place_standard",
+                "in_place_custom",
+            ]
+        ),
+        nullable=False,
+        index=True,
+        default="measure_custom",
+    )
+    solution_id = schema.Column(types.Unicode(20))
 
     risk = orm.relation(
         Risk,
