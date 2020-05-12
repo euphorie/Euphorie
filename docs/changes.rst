@@ -1,11 +1,13 @@
 Changelog
 =========
 
-11.2.1 (unreleased)
+11.3.0 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+BREAKING CHANGE
+Rework of how action plan data is saved; also Measures in Place now
+get saved in the same way.
+The fields action_plan and prevention_plan are merged into a single field action
 
 11.2.0 (2020-04-22)
 -------------------
