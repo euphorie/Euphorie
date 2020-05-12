@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-05-12 09:41+0000\n"
+"POT-Creation-Date: 2020-05-12 10:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -667,7 +667,7 @@ msgid "Montenegro"
 msgstr "Crna Gora"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:92
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:151
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:152
 #: euphorie/client/browser/templates/tool_sessions.pt:62
 msgid "More"
 msgstr ""
@@ -711,7 +711,7 @@ msgstr "Ne"
 msgid "No information about the last editor is available."
 msgstr ""
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:160
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:161
 msgid "No risk assessments are available for this selection."
 msgstr ""
 
@@ -1550,10 +1550,6 @@ msgstr "O"
 #: euphorie/content/templates/colour-preview.pt:62
 msgid "appendix_produced_by"
 msgstr "Izdanje objavljuje ${EU-OSHA}."
-
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:143
-msgid "based on"
-msgstr "na temelju"
 
 #: euphorie/client/browser/templates/new-session-test.pt:72
 msgid "benefits"
@@ -4359,6 +4355,11 @@ msgstr "Srednji"
 msgid "label_title"
 msgstr "Naziv"
 
+#. Default: "based on ${tool_title}"
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:144
+msgid "label_tool_based_on"
+msgstr "na temelju ${tool_title}"
+
 #. Default: "Tool notification message"
 #: euphorie/content/survey.py:140
 msgid "label_tool_notification"
@@ -4772,7 +4773,7 @@ msgid "optional"
 msgstr "Opcionalno"
 
 #. Default: "No risk assessments were found for this selection."
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:166
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:167
 msgid "osc_search_no_results_for_search"
 msgstr ""
 
@@ -5417,6 +5418,9 @@ msgstr ""
 #: euphorie/content/templates/risk_view.pt:44
 msgid "yes"
 msgstr "Da"
+
+#~ msgid "based on"
+#~ msgstr "na temelju"
 
 #~ msgid "label_add_measure"
 #~ msgstr "Dodaj drugu mjeru"

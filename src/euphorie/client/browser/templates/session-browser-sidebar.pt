@@ -139,13 +139,14 @@
                   ></span
                 ></span>
                 <span class="field" tal:condition="not:session/published"></span>
-                <span class="tool meta field"
-                  ><tal:i18n i18n:translate="">based on</tal:i18n
-                  > <a class="pat-inject pat-switch"
+                <span class="tool meta field" i18n:translate="label_tool_based_on"
+                  >based on
+                  <a class="pat-inject pat-switch"
                      data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal"
                      data-pat-inject="history: record"
                      href="${tool/absolute_url}?groupid=${request/groupid|string:}#content"
                      title="${tool/title}"
+                     i18n:name="tool_title"
                   >${tool/title}</a
                 ></span>
                 <a href="${tool/absolute_url}/++session++${session/id}/@@more_menu#more-menu"
