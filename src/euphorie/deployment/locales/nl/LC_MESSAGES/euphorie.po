@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-04-28 07:30+0000\n"
+"POT-Creation-Date: 2020-05-12 09:41+0000\n"
 "PO-Revision-Date: 2013-06-27 22:14+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -230,7 +230,7 @@ msgid "Are you sure you want to continue? This action can not be reverted."
 msgstr ""
 "Weet u zeker dat u door wilt gaan? Deze actie kan niet worden teruggedraaid."
 
-#: euphorie/client/browser/risk.py:906
+#: euphorie/client/browser/risk.py:915
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -248,7 +248,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:26
 msgid "Are you sure you want to proceed?"
-msgstr ""
+msgstr "Bent u zeker dat u wil doorgaan?"
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Automatically generate unique ids for content"
@@ -277,6 +277,7 @@ msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
 msgstr ""
+"Door een risicoanalyse te klonen, zal u een nieuwe risicoanalyse creëren gebaseerd op de inhoud van deze risicoanalyse als startpunt."
 
 #: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:126
 #: euphorie/client/templates/account-delete.pt:29
@@ -581,7 +582,7 @@ msgstr "Info"
 msgid "Information"
 msgstr "Informatie"
 
-#: euphorie/client/browser/risk.py:571
+#: euphorie/client/browser/risk.py:577
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
 msgstr "Onjuist bestandsformaat voor een afbeelding. Gebruik PNG, JPEG of GIF."
 
@@ -1043,7 +1044,7 @@ msgstr "Standaard"
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:126
 msgid "Standard measures"
-msgstr ""
+msgstr "Standaard maatregelen"
 
 #: euphorie/content/templates/solution_view.pt:12
 msgid "Standard solution"
@@ -1109,7 +1110,7 @@ msgid ""
 "The basic architecture of an Online interactive Risk Assessment consists of:"
 msgstr ""
 
-#: euphorie/client/browser/risk.py:912
+#: euphorie/client/browser/risk.py:921
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -1303,7 +1304,7 @@ msgstr "Ja"
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:34
 msgid "Yes, clone risk assessment"
-msgstr ""
+msgstr "Ja, kloon risicoanalyse"
 
 #: euphorie/content/templates/library.pt:17
 msgid ""
@@ -2168,17 +2169,17 @@ msgid "error_password_mismatch"
 msgstr "Wachtwoorden komen niet overeen"
 
 #. Default: "This date must be on or after the start date."
-#: euphorie/client/browser/risk.py:925
+#: euphorie/client/browser/risk.py:934
 msgid "error_validation_after_start_date"
 msgstr "Deze datum moet op of na de startdatum zijn."
 
 #. Default: "This date must be on or before the end date."
-#: euphorie/client/browser/risk.py:919
+#: euphorie/client/browser/risk.py:928
 msgid "error_validation_before_end_date"
 msgstr "Deze datum moet op of vóór de einddatum zijn."
 
 #. Default: "This value must be a positive whole number."
-#: euphorie/client/browser/risk.py:931
+#: euphorie/client/browser/risk.py:940
 msgid "error_validation_positive_whole_number"
 msgstr "Deze waarde moet een positief geheel getal zijn."
 
@@ -2987,7 +2988,7 @@ msgstr ""
 "kopie van een bestaande RI&E."
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
-#: euphorie/client/browser/risk.py:334 euphorie/content/risk.py:361
+#: euphorie/client/browser/risk.py:336 euphorie/content/risk.py:361
 msgid "help_default_frequency"
 msgstr "Geef aan hoe vaak dit risico voorkomt in een normale situatie."
 
@@ -2999,14 +3000,14 @@ msgstr ""
 "kan dit zelf alsnog wijzigen bij het invullen van de RI&E."
 
 #. Default: "Indicate how likely occurence of this risk is in a normal situation."
-#: euphorie/client/browser/risk.py:329 euphorie/content/risk.py:388
+#: euphorie/client/browser/risk.py:331 euphorie/content/risk.py:388
 msgid "help_default_probability"
 msgstr ""
 "Geef aan hoe groot de kans is dat dit risico voorkomt in een normale "
 "situatie."
 
 #. Default: "Indicate the severity if this risk occurs."
-#: euphorie/client/browser/risk.py:338 euphorie/content/risk.py:339
+#: euphorie/client/browser/risk.py:340 euphorie/content/risk.py:339
 msgid "help_default_severity"
 msgstr ""
 "Geef een indicatie van de zwaarte van het effect (hoe schadelijk is het voor "
@@ -3294,7 +3295,7 @@ msgstr "Als u geen titel opgeeft zal titel uit het bestand worden overgenomen."
 #. Default: "Dashboard"
 #: euphorie/client/templates/shell.pt:114
 msgid "home_link"
-msgstr ""
+msgstr "Dashboard"
 
 #. Default: "Your login name and/or password were entered incorrectly. Please check and try again or ${request_an_email_reminder}."
 #: euphorie/client/browser/templates/login_form.pt:29
@@ -3647,7 +3648,7 @@ msgid "label_clone"
 msgstr ""
 
 #. Default: "Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
-#: euphorie/client/browser/templates/risk_actionplan.pt:562
+#: euphorie/client/browser/templates/risk_actionplan.pt:563
 #: euphorie/client/browser/templates/webhelpers.pt:603
 msgid "label_comment"
 msgstr ""
@@ -3796,9 +3797,9 @@ msgid "label_expertise"
 msgstr ""
 
 #. Default: "Add an extra measure"
-#: euphorie/client/browser/templates/risk_actionplan.pt:450
+#: euphorie/client/browser/templates/risk_actionplan.pt:451
 msgid "label_extra_add_measure"
-msgstr ""
+msgstr "Voeg een extra maatregel toe"
 
 #. Default: "Content file"
 #: euphorie/content/module.py:110 euphorie/content/risk.py:286
@@ -4090,7 +4091,7 @@ msgstr "Preview"
 
 #. Default: "Previous"
 #: euphorie/client/browser/templates/module_identification.pt:74
-#: euphorie/client/browser/templates/risk_actionplan.pt:576
+#: euphorie/client/browser/templates/risk_actionplan.pt:577
 #: euphorie/client/browser/templates/risk_identification.pt:66
 msgid "label_previous"
 msgstr "Vorige"
@@ -4253,7 +4254,7 @@ msgstr "Sla op en voeg nog een risico toe"
 #. Default: "Save and continue"
 #: euphorie/client/browser/templates/profile.pt:106
 #: euphorie/client/browser/templates/report.pt:41
-#: euphorie/client/browser/templates/risk_actionplan.pt:582
+#: euphorie/client/browser/templates/risk_actionplan.pt:583
 msgid "label_save_and_continue"
 msgstr "Opslaan en verdergaan"
 
@@ -4295,6 +4296,11 @@ msgstr "Start een nieuwe RI&E in de volgende branche"
 #: euphorie/client/browser/templates/portlet-available-tools.pt:71
 msgid "label_select_oira_tool"
 msgstr "Kies uit een van onderstaande instrumenten"
+
+#. Default: "Select standard measures"
+#: euphorie/client/browser/templates/risk_actionplan.pt:443
+msgid "label_select_standard_measures"
+msgstr "Selecteer standaardmaatregelen"
 
 #. Default: "Enter a title for your Risk Assessment"
 #: euphorie/client/browser/session.py:73
@@ -4346,7 +4352,7 @@ msgstr "Start"
 #. Default: "Started"
 #: euphorie/client/browser/templates/status_info.pt:51
 msgid "label_started"
-msgstr "Gestart"
+msgstr "Gestart op"
 
 #. Default: "Affirmative statement"
 #: euphorie/content/risk.py:75
