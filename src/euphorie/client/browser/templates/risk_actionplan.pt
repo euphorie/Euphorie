@@ -445,6 +445,7 @@
                         title="Add another measure"
                         type="button"
                         data-pat-depends="${view/solutions_condition}"
+                        i18n:translate="label_select_standard_measures"
                 >Select standard measures</button>
               </tal:solutions>
               <button class="add-clone pat-button icon-plus-circle ${view/style_buttons}"
