@@ -14,7 +14,6 @@ from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.directives import dexterity
 from plone.directives import form
 from Products.CMFCore.interfaces import ISiteRoot
-from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.interface import implements
 

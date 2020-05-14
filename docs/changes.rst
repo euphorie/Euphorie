@@ -4,7 +4,7 @@ Changelog
 11.3.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- scr-352: Define per country which sections are open by default.
 
 
 11.3.0 (2020-05-12)

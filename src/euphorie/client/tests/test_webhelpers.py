@@ -3,6 +3,7 @@ from euphorie.client import model
 from euphorie.client.tests.utils import addAccount
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
+from plone.app.testing.interfaces import SITE_OWNER_NAME
 
 
 class TestWebhelpers(EuphorieIntegrationTestCase):
@@ -15,6 +16,19 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
         """ Return the filters of a SQLAlchemy query
         """
         return str(query).partition("\nFROM session \n")[-1]
+
+    def test_content_country_object(self):
+        with api.env.adopt_user(SITE_OWNER_NAME):
+            content_country = api.content.create(
+                container=self.portal.sectors, type="euphorie.country", id="eu"
+            )
+            client_country = api.content.create(
+                container=self.portal.client, type="euphorie.clientcountry", id="eu"
+            )
+
+        with self._get_view("webhelpers", self.portal.client.eu) as view:
+            self.assertNotEqual(view.content_country_obj, client_country)
+            self.assertEqual(view.content_country_obj, content_country)
 
     def test_get_sessions_query_authenticated(self):
         account = addAccount(password="secret")
@@ -128,7 +142,8 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                 self.assertEqual(
                     self._get_query_filters(
                         view.get_sessions_query(
-                            filter_by_account=False, filter_by_group=[foo_group, bar_group]
+                            filter_by_account=False,
+                            filter_by_group=[foo_group, bar_group],
                         )
                     ),
                     (

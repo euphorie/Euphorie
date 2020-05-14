@@ -16,6 +16,7 @@ from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.directives import dexterity
 from plone.directives import form
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from zope import schema
 from zope.interface import implements
 from zope.schema.vocabulary import SimpleTerm
@@ -40,6 +41,28 @@ class ICountry(form.Schema, IBasic):
                     title=_(u"Potential candidate country")),
                 ]),
             required=True)
+
+    form.widget(risk_default_collapsible_sections=CheckBoxFieldWidget)
+    risk_default_collapsible_sections=schema.List(
+            title=_(
+                "label__risk_default_collapsible_sections",
+                u"Open sections on risk page"
+            ),
+            description=_(
+                "help__risk_default_collapsible_sections",
+                u"Define which information sections should be uncollapsed by "
+                u"default on a risk identification page."
+            ),
+            value_type=schema.Choice(
+                vocabulary=SimpleVocabulary([
+                    SimpleTerm(u"collapsible_section_information", title=_(u"Information")),
+                    SimpleTerm(u"collapsible_section_resources", title=_(u"Resources: Legal references and attachments")),
+                    SimpleTerm(u"collapsible_section_comments", title=_(u"Comments")),
+                ])
+            ),
+            default=["collapsible_section_information"],
+            required=False,
+    )
 
 
 class Country(dexterity.Container):

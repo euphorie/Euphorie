@@ -31,6 +31,7 @@ from plone.i18n.normalizer import idnormalizer
 from plone.memoize.instance import memoize
 from plone.memoize.view import memoize_contextless
 from plonetheme.nuplone.utils import isAnonymous
+from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
@@ -295,6 +296,16 @@ class WebHelpers(BrowserView):
         if not obj:
             return ""
         return obj.Title()
+
+    @property
+    @memoize
+    def content_country_obj(self):
+        """Return the country object from the content area.
+        """
+        country_id = self.country_obj.id
+        root = getUtility(ISiteRoot)
+        country = getattr(root.sectors, country_id)
+        return country
 
     @property
     @memoize
@@ -934,4 +945,3 @@ class WebHelpers(BrowserView):
 
     def __call__(self):
         return self
-

@@ -12,3 +12,9 @@ class CountryTests(EuphorieIntegrationTestCase):
     def testCanNotBeCopied(self):
         country = self.createCountry()
         self.assertFalse(country.cb_isCopyable())
+
+    def testDefaultInfoSections(self):
+        country = self.createCountry()
+        self.assertEqual(
+            country.risk_default_collapsible_sections, ["collapsible_section_information"]
+        )
