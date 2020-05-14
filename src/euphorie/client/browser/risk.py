@@ -495,44 +495,6 @@ class IdentificationView(BrowserView):
             )
         return existing_measures
 
-    @memoize
-    def get_existing_measures_old(self):
-        if not self.risk:
-            defined_measures = []
-        else:
-            defined_measures = self.risk.get_pre_defined_measures(self.request) or ""
-        try:
-            saved_existing_measures = loads(self.context.existing_measures or "")
-            # Backwards compat. We used to save dicts before we
-            # switched to list of tuples.
-            if isinstance(saved_existing_measures, dict):
-                saved_existing_measures = [
-                    (k, v) for (k, v) in saved_existing_measures.items()
-                ]
-
-            saved_measure_texts = OrderedDict()
-            for text, on in saved_existing_measures:
-                saved_measure_texts.update({text: on})
-
-            existing_measures = []
-            # All the pre-defined measures are always shown, either
-            # activated or deactivated
-            for text in defined_measures:
-                active = saved_measure_texts.get(text)
-                if active is not None:
-                    saved_measure_texts.pop(text)
-                    existing_measures.append((text, active))
-                else:
-                    existing_measures.append((text, 0))
-
-            # Finally, add the user-defined measures as well
-            for text, on in saved_measure_texts.items():
-                existing_measures.append((text, on))
-        except ValueError:
-            existing_measures = [(text, 0) for text in defined_measures]
-            self.context.existing_measures = safe_unicode(dumps(existing_measures))
-        return existing_measures
-
     @property
     def use_problem_description(self):
         text = self.context.problem_description or ""
@@ -686,49 +648,6 @@ class ActionPlanView(BrowserView):
         return list(self.context.in_place_standard_measures) + list(
             self.context.in_place_custom_measures
         )
-
-    def get_existing_measures_old(self):
-        if not self.use_existing_measures:
-            return {}
-        if not self.risk or not IRisk.providedBy(self.risk):
-            defined_measures = []
-        else:
-            defined_measures = self.risk.get_pre_defined_measures(self.request) or ""
-        try:
-            saved_existing_measures = (
-                self.context.existing_measures
-                and loads(self.context.existing_measures)
-                or []
-            )
-            # Backwards compat. We used to save dicts before we
-            # switched to list of tuples.
-            if isinstance(saved_existing_measures, dict):
-                saved_existing_measures = [
-                    (k, v) for (k, v) in saved_existing_measures.items()
-                ]
-
-            saved_measure_texts = OrderedDict()
-            for text, on in saved_existing_measures:
-                saved_measure_texts.update({text: on})
-
-            existing_measures = []
-            # Pick the pre-defined measures first
-            for text in defined_measures:
-                active = saved_measure_texts.get(text)
-                if active is not None:
-                    # Only add the measures that are active
-                    if active:
-                        existing_measures.append((text, 1))
-                    saved_measure_texts.pop(text)
-
-            # Finally, add the user-defined measures as well
-            for text, active in saved_measure_texts.items():
-                if active:
-                    existing_measures.append((text, active))
-        except ValueError:
-            existing_measures = [(text, 0) for text in defined_measures]
-            self.context.existing_measures = safe_unicode(dumps(existing_measures))
-        return existing_measures
 
     @property
     def risk_present(self):
