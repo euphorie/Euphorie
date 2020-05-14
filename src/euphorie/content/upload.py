@@ -57,7 +57,7 @@ def attr_unicode(node, attr, default=None):
 
 
 def attr_vocabulary(node, tag, field, default=None):
-    value = node.get(tag, u"").strip()
+    value = node.get(tag, u"").strip() if node else None
     if not value:
         return default
     try:
@@ -213,8 +213,8 @@ class SurveyImporter(object):
                 el_unicode(node, "existing_measures")
 
         if risk.type == "risk":
-            em = getattr(node, "evaluation-method")
-            risk.evaluation_method = em.text
+            em = getattr(node, "evaluation-method", None)
+            risk.evaluation_method = em.text if em else "estimated"
             if risk.evaluation_method == "calculated":
                 evaluation_algorithm = risk.evaluation_algorithm()
                 if evaluation_algorithm == u"kinney":
