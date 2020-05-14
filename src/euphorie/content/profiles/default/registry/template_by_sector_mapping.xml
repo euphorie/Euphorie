@@ -1,0 +1,15 @@
+<registry>
+  <record name="euphorie.client.docx.template_by_sector_mapping">
+    <field type="plone.registry.field.Dict">
+      <title>Report template by sector</title>
+      <description>Use this setting to set special report templates for certain country.sector combinations</description>
+      <key_type type="plone.registry.field.TextLine" />
+      <value_type type="plone.registry.field.TextLine" />
+    </field>
+    <value purge="false">
+      <element key="fr.peches-maritimes">oira_fr_imp.docx</element>
+      <element key="fr.cultures-marines">oira_fr_imp.docx</element>
+      <element key="fr.navires-a-passagers">oira_fr_imp.docx</element>
+    </value>
+  </record>
+</registry>

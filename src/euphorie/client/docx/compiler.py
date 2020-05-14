@@ -91,6 +91,14 @@ class BaseOfficeCompiler(object):
         return api.content.get_view("webhelpers", self.context, self.request)
 
     @property
+    @memoize
+    def template_by_sector_mapping(self):
+        return api.portal.get_registry_record(
+            "euphorie.client.docx.template_by_sector_mapping",
+            default={}
+        )
+
+    @property
     def title_custom_risks(self):
         return translate(_(
             'title_other_risks', default=u'Added risks (by you)'),
@@ -153,10 +161,15 @@ class BaseOfficeCompiler(object):
 
 class DocxCompiler(BaseOfficeCompiler):
 
-    _template_filename = resource_filename(
-        'euphorie.client.docx',
-        'templates/oira.docx',
-    )
+    _base_filename = "oira.docx"
+
+    @property
+    def _template_filename(self):
+        return resource_filename(
+            "euphorie.client.docx",
+            "templates/{0}".format(self._base_filename)
+        )
+
     # In case of templates that contain additional content before the actual
     # first page, this can be defined by providing offsets to the first
     # paragraph for content and the first section for the header / footer.
@@ -459,10 +472,8 @@ class DocxCompiler(BaseOfficeCompiler):
 
 class DocxCompilerItalyOriginal(DocxCompiler):
 
-    _template_filename = resource_filename(
-        'euphorie.client.docx',
-        'templates/oira_it.docx',
-    )
+    _base_filename = "oira_it.docx"
+
     paragraphs_offset = 29
     sections_offset = 1
 
@@ -474,10 +485,7 @@ class DocxCompilerItalyOriginal(DocxCompiler):
 
 
 class DocxCompilerFullTable(DocxCompiler):
-    _template_filename = resource_filename(
-        'euphorie.client.docx',
-        'templates/oira_fr.docx',
-    )
+    _base_filename = "oira_fr.docx"
 
     show_risk_descriptions = True
     only_anwered_risks = False
@@ -677,7 +685,7 @@ class DocxCompilerFullTable(DocxCompiler):
             count = 0
             for risk in risks:
                 answer = risk.get('justifiable', '')
-                # In case our report type defines this: Omit risk if the user has not anwered it
+                # In case our report type defines this: Omit risk if the user has not answered it
                 if self.only_anwered_risks:
                     if not answer:
                         unanswered_risks.append(risk)
@@ -754,10 +762,13 @@ class DocxCompilerFullTable(DocxCompiler):
 
 
 class DocxCompilerFrance(DocxCompilerFullTable):
-    _template_filename = resource_filename(
-        'euphorie.client.docx',
-        'templates/oira_fr.docx',
-    )
+
+    @property
+    def _base_filename(self):
+        key = "{country}.{sector}".format(
+            country=self.webhelpers.country, sector=self.webhelpers.sector.id
+        )
+        return self.template_by_sector_mapping.get(key, "oira_fr.docx")
 
     title_extra = u"- Evaluation des risques professionnels"
 
@@ -768,10 +779,7 @@ class DocxCompilerItaly(DocxCompilerFullTable):
     sections_offset = 1
     paragraphs_offset = 32
 
-    _template_filename = resource_filename(
-        'euphorie.client.docx',
-        'templates/oira_it_table.docx',
-    )
+    _base_filename = "oira_it_table.docx"
 
     show_risk_descriptions = False
     use_measures_subheading = False
