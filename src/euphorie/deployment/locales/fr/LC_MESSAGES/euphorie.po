@@ -3867,7 +3867,7 @@ msgstr "Mesure déjà en place"
 #. Default: "Expertise"
 #: euphorie/client/browser/templates/risk_actionplan.pt:221
 msgid "label_expertise"
-msgstr ""
+msgstr "Expertise"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:451

@@ -3796,7 +3796,7 @@ msgstr "Мерки, които вече са изпълнени"
 #. Default: "Expertise"
 #: euphorie/client/browser/templates/risk_actionplan.pt:221
 msgid "label_expertise"
-msgstr ""
+msgstr "Експертиза"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:451

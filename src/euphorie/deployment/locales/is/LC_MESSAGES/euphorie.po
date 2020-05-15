@@ -3700,7 +3700,7 @@ msgstr "Núverandi ráðstöfun til úrbóta."
 #. Default: "Expertise"
 #: euphorie/client/browser/templates/risk_actionplan.pt:221
 msgid "label_expertise"
-msgstr ""
+msgstr "Sérþekking"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:451

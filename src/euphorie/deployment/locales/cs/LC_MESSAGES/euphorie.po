@@ -250,7 +250,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:26
 msgid "Are you sure you want to proceed?"
-msgstr ""
+msgstr "Opravdu chcete pokračovat?"
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Automatically generate unique ids for content"
@@ -279,6 +279,7 @@ msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
 msgstr ""
+"Zkopírováním tohoto hodnocení rizika vytvoříte nové hodnocení založené na obsahu původního nástroje jako výchozího zdroje."
 
 #: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:126
 #: euphorie/client/templates/account-delete.pt:29
@@ -352,7 +353,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:39
 msgid "Continue to action plan"
-msgstr ""
+msgstr "Přejít do akčního plánu"
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml
 msgid "Country"
@@ -581,7 +582,7 @@ msgstr "Informace"
 
 #: euphorie/client/browser/risk.py:577
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
-msgstr ""
+msgstr "Neplatný formát obrázku. Použijte PNG, JPEG nebo GIF."
 
 #: euphorie/client/settings.py:106
 msgid "Invalid password"
@@ -1050,7 +1051,7 @@ msgstr "Standardní řešení"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:83
 msgid "Started"
-msgstr ""
+msgstr "Zahájeno "
 
 #: euphorie/client/browser/login.py:232
 #: euphorie/client/browser/templates/new-session-test.pt:89
@@ -1253,11 +1254,11 @@ msgstr "Nahrát"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:198
 msgid "Upload an image that illustrates this risk."
-msgstr ""
+msgstr "Vložit obrázek znázorňující toto riziko."
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:217
 msgid "Upload image"
-msgstr ""
+msgstr "Vložit obrázek"
 
 #: euphorie/content/behaviour/configure.zcml:19
 msgid "Use a rich text description for content types."
@@ -1306,7 +1307,7 @@ msgstr "Ano"
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:34
 msgid "Yes, clone risk assessment"
-msgstr ""
+msgstr "Ano, zkopírovat hodnocení rizik"
 
 #: euphorie/content/templates/library.pt:17
 msgid ""
@@ -3220,7 +3221,7 @@ msgstr "Pokud nespecifikujete název, bude použit ze vstupu."
 #. Default: "Dashboard"
 #: euphorie/client/templates/shell.pt:114
 msgid "home_link"
-msgstr ""
+msgstr "Ovládací panel"
 
 #. Default: "Your login name and/or password were entered incorrectly. Please check and try again or ${request_an_email_reminder}."
 #: euphorie/client/browser/templates/login_form.pt:29
@@ -3711,12 +3712,12 @@ msgstr "Opatření již je zavedeno."
 #. Default: "Expertise"
 #: euphorie/client/browser/templates/risk_actionplan.pt:221
 msgid "label_expertise"
-msgstr ""
+msgstr "Odbornost"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:451
 msgid "label_extra_add_measure"
-msgstr ""
+msgstr "Přidejte další opatření"
 
 #. Default: "Content file"
 #: euphorie/content/module.py:110 euphorie/content/risk.py:286
@@ -3741,7 +3742,7 @@ msgstr "Formát"
 #. Default: "General information"
 #: euphorie/client/browser/templates/status_info.pt:31
 msgid "label_general_information"
-msgstr "Obecná informace"
+msgstr "Obecné informace"
 
 #. Default: "4. Action Plan"
 #: euphorie/content/help.py:68 euphorie/content/templates/help_view.pt:33
@@ -4178,7 +4179,7 @@ msgstr "Uložit a pokračovat"
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "label_save_and_finish"
-msgstr ""
+msgstr "Uložit a zavřít"
 
 #. Default: "Section"
 #: euphorie/client/report.py:151
@@ -4217,7 +4218,7 @@ msgstr ""
 #. Default: "Select standard measures"
 #: euphorie/client/browser/templates/risk_actionplan.pt:443
 msgid "label_select_standard_measures"
-msgstr ""
+msgstr "Vyberte standardní opatření"
 
 #. Default: "Enter a title for your Risk Assessment"
 #: euphorie/client/browser/session.py:73
@@ -4334,7 +4335,7 @@ msgstr "Název"
 #. Default: "based on ${tool_title}"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:144
 msgid "label_tool_based_on"
-msgstr ""
+msgstr "vycházející z ${tool_title}"
 
 #. Default: "Tool notification message"
 #: euphorie/content/survey.py:140
@@ -4384,7 +4385,7 @@ msgstr ""
 #. Default: "Used tool"
 #: euphorie/client/browser/templates/status_info.pt:36
 msgid "label_used_tool"
-msgstr ""
+msgstr "Použitý nástroj"
 
 #. Default: "Name"
 #: euphorie/content/user.py:81
@@ -5286,7 +5287,7 @@ msgstr "Obsah"
 #. Default: "Show/hide menu"
 #: euphorie/client/templates/shell.pt:87
 msgid "tooltip_menu_toggle"
-msgstr ""
+msgstr "Zobrazit/Skrýt menu"
 
 #. Default: "This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be included in this report."
 #: euphorie/client/browser/templates/risk_macros.pt:131
