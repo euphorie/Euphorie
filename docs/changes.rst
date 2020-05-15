@@ -6,6 +6,7 @@ Changelog
 
 - Report: Make it possible to define an alterative .docx template based on
   combination of country and sector. Start with Sea Trade in France
+- Translation updates
 
 
 11.3.0 (2020-05-12)
