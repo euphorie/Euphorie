@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.3.1 (unreleased)
+11.3.1 (2020-05-15)
 -------------------
 
 - Report: Make it possible to define an alterative .docx template based on
