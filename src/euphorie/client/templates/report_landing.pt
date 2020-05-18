@@ -66,9 +66,11 @@
 
       </article>
 
-      <div class="row pat-equaliser download-blocks count-4">
+      <div class="row pat-equaliser download-blocks count-${python:len(reports)}"
+          tal:define="reports view/default_reports"
+      >
         <!-- The class 'count-x' indicates the amount of download blocks that are present. The classes 'count-1', 'count-2', 'count-3' and 'count-4' are supported. -->
-        <div class="download-block column">
+        <div tal:condition="python:'report_full' in reports" class="download-block column">
           <article class="pat-well pat-rich">
             <p class="button-bar">
               <a class="pat-button bar download rtf icon-download piwik_download"
@@ -93,11 +95,10 @@
                 >Provide evidence</strong>
                 for supervisory authorities (labour inspectorate).</li>
             </ul>
-
           </article>
         </div>
 
-        <div class="download-block column">
+        <div tal:condition="python:'report_action_plan' in reports" class="download-block column">
           <article class="pat-well pat-rich">
             <p class="button-bar">
               <a class="pat-button bar download xlsx icon-download piwik_download"
@@ -127,7 +128,7 @@
           </article>
         </div>
 
-        <div class="download-block column">
+        <div tal:condition="python:'report_overview_risks' in reports" class="download-block column">
           <article class="pat-well pat-rich">
             <p class="button-bar">
               <a class="pat-button bar download xlsx icon-download piwik_download"
@@ -155,7 +156,7 @@
           </article>
         </div>
 
-        <div class="download-block column">
+        <div tal:condition="python:'report_overview_measures' in reports" class="download-block column">
           <article class="pat-well pat-rich">
             <p class="button-bar">
               <a class="pat-button bar download xlsx icon-download piwik_download"
