@@ -7,7 +7,11 @@
       meta:interpolation="true"
       metal:define-macro="layout"
       i18n:domain="euphorie"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers; tools context/@@tools">
+      tal:define="client nocall:request/client;
+                  webhelpers nocall:context/@@webhelpers;
+                  tools context/@@tools;
+                  style_url webhelpers/style_url;
+      ">
   <head>
     <title><metal:title define-slot="title" i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</metal:title></title>
     <metal:meta use-macro="webhelpers/macros/headers"/>
