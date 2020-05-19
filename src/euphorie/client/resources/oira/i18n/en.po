@@ -3,6 +3,14 @@
 	msgid "In certain European countries this certificate may be used to apply for a tax bonus or a reduced insurance fee."
 	msgstr "In certain European countries this certificate may be used to apply for a tax bonus or a reduced insurance fee."
 
+	#| msgid message_involve_workers_requirement
+	msgid "It's a legal requirement that coworkers participate inthe whole risk assessment process, but you decide how to tackle that."
+	msgstr "It's a legal requirement that coworkers participate inthe whole risk assessment process, but you decide how to tackle that."
+
+	#| msgid message_involve_workers_how_to
+	msgid "You can for example conduct a meeting with all coworkers where you go though the risk assessment together, or you can download the risk assessment as a checklist and send it to your employees so that they can provide you feedback."
+	msgstr "You can for example conduct a meeting with all coworkers where you go though the risk assessment together, or you can download the risk assessment as a checklist and send it to your employees so that they can provide you feedback."
+
 	#| msgid label_clone
 	msgid "Clone"
 	msgstr "Clone"
@@ -30,6 +38,10 @@
 	#| msgid label_delete
 	msgid "Delete"
 	msgstr "Delete"
+
+	#| msgid label_involve
+	msgid "Involve"
+	msgstr "Involve"
 
 	#| msgid title_ra_delete
 	msgid "Delete risk assessment"
@@ -458,6 +470,10 @@
 	#| msgid label_identification
 	msgid "Identification + Evaluation"
 	msgstr "Identification + Evaluation"
+
+	#| msgid label_assessment
+	msgid "Assessment"
+	msgstr "Assessment"
 
 	#| msgid label_action_plan
 	msgid "Action Plan"
