@@ -184,15 +184,14 @@ def migrate_actgion_plans(context):
                                     (
                                         getattr(solution, "prevention_plan", "") or ""
                                     ).strip()
-                                    == ap.prevention_plan
+                                    == (ap.prevention_plan or "")
                                     and (
                                         getattr(solution, "requirements", "") or ""
                                     ).strip()
-                                    == ap.requirements
+                                    == (ap.requirements or "")
                                 ):
                                     ap.plan_type = "measure_standard"
                                     ap.solution_id = solution.id
-
                 # Convert the measures-in-place to their respective ActionPlan items
                 try:
                     saved_existing_measures = (
