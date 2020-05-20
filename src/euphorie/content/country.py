@@ -43,47 +43,49 @@ class ICountry(form.Schema, IBasic):
             required=True)
 
     form.widget(risk_default_collapsible_sections=CheckBoxFieldWidget)
-    risk_default_collapsible_sections=schema.List(
-            title=_(
-                "label__risk_default_collapsible_sections",
-                u"Open sections on risk page"
-            ),
-            description=_(
-                "help__risk_default_collapsible_sections",
-                u"Define which information sections should be uncollapsed by "
-                u"default on a risk identification page."
-            ),
-            value_type=schema.Choice(
-                vocabulary=SimpleVocabulary([
-                    SimpleTerm(u"collapsible_section_information", title=_(u"Information")),
-                    SimpleTerm(u"collapsible_section_resources", title=_(u"Resources: Legal references and attachments")),
-                    SimpleTerm(u"collapsible_section_comments", title=_(u"Comments")),
-                ])
-            ),
-            default=["collapsible_section_information"],
-            required=False,
+    risk_default_collapsible_sections = schema.List(
+        title=_(
+            "label__risk_default_collapsible_sections",
+            u"Open sections on risk page"
+        ),
+        description=_(
+            "help__risk_default_collapsible_sections",
+            u"Define, which information sections should be open by "
+            u"default on a risk identification page. Sections not checked "
+            u"will be shown intially in collapsed mode, but the user can always "
+            u"open those sections with a click."
+        ),
+        value_type=schema.Choice(
+            vocabulary=SimpleVocabulary([
+                SimpleTerm(u"collapsible_section_information", title=_(u"Information")),
+                SimpleTerm(u"collapsible_section_resources", title=_(u"Resources: Legal references and attachments")),
+                SimpleTerm(u"collapsible_section_comments", title=_(u"Comments")),
+            ])
+        ),
+        default=["collapsible_section_information"],
+        required=False,
     )
 
     form.widget(default_reports=CheckBoxFieldWidget)
-    default_reports=schema.List(
-            title=_(
-                "label__default_reports",
-                u"Default reports"
-            ),
-            description=_(
-                "help__default_reports",
-                u"Define which reports are offered by default after risk identification"
-            ),
-            value_type=schema.Choice(
-                vocabulary=SimpleVocabulary([
-                    SimpleTerm(u"report_full", title=_(u"Full report")),
-                    SimpleTerm(u"report_action_plan", title=_(u"Action plan")),
-                    SimpleTerm(u"report_overview_risks", title=_(u"Overview of risks")),
-                    SimpleTerm(u"report_overview_measures", title=_(u"Overview of measures")),
-                ])
-            ),
-            default=["report_full", "report_action_plan", "report_overview_risks"],
-            required=False,
+    default_reports = schema.List(
+        title=_(
+            "label__default_reports",
+            u"Available reports"
+        ),
+        description=_(
+            "help__default_reports",
+            u"Define, which reports are offered to the user on the Report page."
+        ),
+        value_type=schema.Choice(
+            vocabulary=SimpleVocabulary([
+                SimpleTerm(u"report_full", title=_(u"Full report (Word document)")),
+                SimpleTerm(u"report_action_plan", title=_(u"Action plan (Excel spreadsheet)")),
+                SimpleTerm(u"report_overview_risks", title=_(u"Overview of risks (PDF)")),
+                SimpleTerm(u"report_overview_measures", title=_(u"Overview of measures (PDF)")),
+            ])
+        ),
+        default=["report_full", "report_action_plan", "report_overview_risks"],
+        required=False,
     )
 
 
