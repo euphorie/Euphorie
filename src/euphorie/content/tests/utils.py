@@ -68,23 +68,21 @@ def createSector(
         if hasattr(portal, "sectors"):
             container = portal.sectors
         else:
-            with api.env.adopt_user(SITE_OWNER_NAME):
-                container = _create(
-                    portal,
-                    "euphorie.sectorcontainer",
-                    "sectors",
-                )
-        if "nl" in container:
-            country = container["nl"]
+            container = _create(
+                portal,
+                "euphorie.sectorcontainer",
+                "sectors",
+            )
+        if country in container:
+            country_obj = container[country]
         else:
-            with api.env.adopt_user(SITE_OWNER_NAME):
-                country = _create(
-                    container,
-                    "euphorie.country",
-                    "nl"
-                )
+            country_obj = _create(
+                container,
+                "euphorie.country",
+                country
+            )
 
-        sector = _create(country, "euphorie.sector", id, title=title, **kw)
+        sector = _create(country_obj, "euphorie.sector", id, title=title, **kw)
         sector.login = login or title.lower()
         sector.password = password if password is not None else sector.login
         return sector

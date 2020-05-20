@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-05-12 10:50+0000\n"
+"POT-Creation-Date: 2020-05-20 13:49+0000\n"
 "PO-Revision-Date: 2013-12-18 10:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -241,7 +241,7 @@ msgstr ""
 msgid "Are you sure you want to continue? This action can not be reverted."
 msgstr ""
 
-#: euphorie/client/browser/risk.py:915
+#: euphorie/client/browser/risk.py:933
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -299,7 +299,7 @@ msgstr "Ikkanċella"
 msgid "Candidate Countries"
 msgstr "Pajjiżi Kandidati"
 
-#: euphorie/content/country.py:38
+#: euphorie/content/country.py:39
 msgid "Candidate country"
 msgstr "Pajjiż kandidat"
 
@@ -325,6 +325,10 @@ msgstr "Eżempju ta’ klijent għal okkorrenzi multipli."
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:36
 msgid "Close"
+msgstr ""
+
+#: euphorie/content/country.py:60
+msgid "Comments"
 msgstr ""
 
 #: euphorie/client/settings.py:230
@@ -370,7 +374,7 @@ msgstr "Kompli għall-pjan ta’ azzjoni"
 msgid "Country"
 msgstr "Pajjiż"
 
-#: euphorie/content/country.py:33
+#: euphorie/content/country.py:34
 msgid "Country grouping"
 msgstr "Iggruppar tal-Pajjiżi"
 
@@ -461,7 +465,7 @@ msgstr "Niżżel il-ħarsa ġenerali tar-riskji"
 msgid "E-mail"
 msgstr "Posta elettronika"
 
-#: euphorie/content/country.py:37
+#: euphorie/content/country.py:38
 msgid "EFTA country"
 msgstr "Pajjiż tal-EFTA"
 
@@ -469,7 +473,7 @@ msgstr "Pajjiż tal-EFTA"
 msgid "EU Member States"
 msgstr "Stati Membri tal-UE"
 
-#: euphorie/content/country.py:36
+#: euphorie/content/country.py:37
 msgid "EU member state"
 msgstr "Stat Membru tal-UE"
 
@@ -565,7 +569,7 @@ msgstr ""
 "tiegħek fuq valutazzjoni, u mbagħad tista' tmur lura għaliha meta jkun komdu "
 "għalik u terġa' taqbadha minn fejn ħallejtha."
 
-#: euphorie/client/browser/webhelpers.py:739
+#: euphorie/client/browser/webhelpers.py:750
 msgid "I wish to share the following with you"
 msgstr "Nixtieq naqsam dan miegħek"
 
@@ -585,12 +589,12 @@ msgstr "Importanti"
 msgid "Info"
 msgstr "Info"
 
-#: euphorie/content/templates/settings.pt:35
+#: euphorie/content/country.py:58 euphorie/content/templates/settings.pt:35
 #: euphorie/content/templates/surveygroup_add.pt:81
 msgid "Information"
 msgstr "Informazzjoni"
 
-#: euphorie/client/browser/risk.py:577
+#: euphorie/client/browser/risk.py:595
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
 msgstr "Format tal-istampa invalidu. Jekk jogħġbok uża PNG, JPEG jew GIF."
 
@@ -862,7 +866,7 @@ msgstr "Posponiment"
 msgid "Potential Candidate Countries"
 msgstr "Pajjiżi Potenzjalment Kandidati"
 
-#: euphorie/content/country.py:40
+#: euphorie/content/country.py:41
 msgid "Potential candidate country"
 msgstr "Pajjiż potenzjalment kandidat"
 
@@ -912,7 +916,7 @@ msgstr ""
 msgid "Refresh publication date"
 msgstr ""
 
-#: euphorie/content/country.py:35
+#: euphorie/content/country.py:36
 msgid "Region"
 msgstr "Reġjun"
 
@@ -937,6 +941,10 @@ msgstr "Neħħi"
 #: euphorie/content/utils.py:44
 msgid "Republic of Serbia"
 msgstr "Ir-Repubblika tas-Serbja"
+
+#: euphorie/content/country.py:59
+msgid "Resources: Legal references and attachments"
+msgstr ""
 
 #: euphorie/content/behaviour/configure.zcml:19
 msgid "Rich text description"
@@ -1127,7 +1135,7 @@ msgstr ""
 "L-istruttura bażika ta’ Valutazzjoni tar-Riskji interattiva Onlajn "
 "tikkonsisti f’dan li ġej:"
 
-#: euphorie/client/browser/risk.py:921
+#: euphorie/client/browser/risk.py:939
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -1654,7 +1662,7 @@ msgstr "Ikkanċella"
 
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:93
-#: euphorie/client/browser/webhelpers.py:736
+#: euphorie/client/browser/webhelpers.py:747
 msgid "button_close"
 msgstr "Agħlaq"
 
@@ -2207,17 +2215,17 @@ msgid "error_password_mismatch"
 msgstr "Il-passwords ma jaqblux"
 
 #. Default: "This date must be on or after the start date."
-#: euphorie/client/browser/risk.py:934
+#: euphorie/client/browser/risk.py:952
 msgid "error_validation_after_start_date"
 msgstr "Din id-data għandha tkun fid-data tal-bidu jew warajha."
 
 #. Default: "This date must be on or before the end date."
-#: euphorie/client/browser/risk.py:928
+#: euphorie/client/browser/risk.py:946
 msgid "error_validation_before_end_date"
 msgstr "Din id-data għandha tkun fid-data ta' tmiem jew qabilha."
 
 #. Default: "This value must be a positive whole number."
-#: euphorie/client/browser/risk.py:940
+#: euphorie/client/browser/risk.py:958
 msgid "error_validation_positive_whole_number"
 msgstr "Dan il-valur għandu jkun numru sħiħ pożittiv."
 
@@ -2666,7 +2674,7 @@ msgid "header_reporting"
 msgstr "Rappurtar"
 
 #. Default: "Resources"
-#: euphorie/client/browser/templates/risk_identification.pt:46
+#: euphorie/client/browser/templates/risk_identification.pt:48
 msgid "header_resources"
 msgstr "Riżorsi"
 
@@ -2956,6 +2964,11 @@ msgstr "${num_present_risks} Riskji Preżenti"
 msgid "heading_present_risks_5_or_more"
 msgstr "${num_present_risks} Riskji Preżenti"
 
+#. Default: "Define which information sections should be uncollapsed by default on a risk identification page."
+#: euphorie/content/country.py:51
+msgid "help__risk_default_collapsible_sections"
+msgstr ""
+
 #. Default: "This text should explain how to fill in the Action plan."
 #: euphorie/content/help.py:69
 msgid "help_actionplan"
@@ -3000,7 +3013,7 @@ msgstr ""
 "ta' Għodda tal-OiRA eżistenti.."
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
-#: euphorie/client/browser/risk.py:336 euphorie/content/risk.py:361
+#: euphorie/client/browser/risk.py:354 euphorie/content/risk.py:361
 msgid "help_default_frequency"
 msgstr ""
 "Indika l-frekwenza li biha dan ir-riskju jimmaterjalizza ruħu f'sitwazzjoni "
@@ -3014,12 +3027,12 @@ msgstr ""
 "jkunu jistgħu jibdlu l-prijorità."
 
 #. Default: "Indicate how likely occurence of this risk is in a normal situation."
-#: euphorie/client/browser/risk.py:331 euphorie/content/risk.py:388
+#: euphorie/client/browser/risk.py:349 euphorie/content/risk.py:388
 msgid "help_default_probability"
 msgstr "Indika l-probabbiltà ta' dan ir-riskju f'sitwazzjoni normali."
 
 #. Default: "Indicate the severity if this risk occurs."
-#: euphorie/client/browser/risk.py:340 euphorie/content/risk.py:339
+#: euphorie/client/browser/risk.py:358 euphorie/content/risk.py:339
 msgid "help_default_severity"
 msgstr "Indika s-severità jekk dan ir-riskju jimmaterjalizza ruħu."
 
@@ -3564,6 +3577,11 @@ msgstr "Ir-riskju huwa aċċettabbli?"
 msgid "is_risk_acceptable_add_measures"
 msgstr ""
 
+#. Default: "Open sections on risk page"
+#: euphorie/content/country.py:47
+msgid "label__risk_default_collapsible_sections"
+msgstr ""
+
 #. Default: "Update"
 #: euphorie/client/browser/templates/updated.pt:89
 msgid "label_accept update"
@@ -3616,7 +3634,7 @@ msgid "label_body"
 msgstr "Kontenut tal-paġna"
 
 #. Default: "Skip"
-#: euphorie/client/browser/templates/risk_identification.pt:68
+#: euphorie/client/browser/templates/risk_identification.pt:70
 msgid "label_button_skip"
 msgstr "Aqbeż"
 
@@ -4096,7 +4114,7 @@ msgstr "Preview"
 #. Default: "Previous"
 #: euphorie/client/browser/templates/module_identification.pt:74
 #: euphorie/client/browser/templates/risk_actionplan.pt:577
-#: euphorie/client/browser/templates/risk_identification.pt:66
+#: euphorie/client/browser/templates/risk_identification.pt:68
 msgid "label_previous"
 msgstr "Preċedenti"
 
@@ -4922,7 +4940,7 @@ msgid "probability_small"
 msgstr "Żgħir"
 
 #. Default: "${completion_percentage}% Complete"
-#: euphorie/client/browser/webhelpers.py:266
+#: euphorie/client/browser/webhelpers.py:267
 msgid "progress_indicator_title"
 msgstr "${completion_percentage}% Tlesti"
 

@@ -85,6 +85,24 @@ class IdentificationView(BrowserView):
 
     @property
     @memoize
+    def default_collapsible_sections(self):
+        settings = self.webhelpers.content_country_obj
+        default_collapsible_sections = getattr(
+            settings, "risk_default_collapsible_sections", ["collapsible_section_information"]
+        )
+        return default_collapsible_sections
+
+    @memoize
+    def get_collapsible_section_state(self, collapsible_section_name):
+        return (
+            ""
+            if "collapsible_section_{0}".format(collapsible_section_name)
+            in self.default_collapsible_sections
+            else "closed"
+        )
+
+    @property
+    @memoize
     def session(self):
         return self.webhelpers.traversed_session.session
 
