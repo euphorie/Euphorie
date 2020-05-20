@@ -64,6 +64,28 @@ class ICountry(form.Schema, IBasic):
             required=False,
     )
 
+    form.widget(default_reports=CheckBoxFieldWidget)
+    default_reports=schema.List(
+            title=_(
+                "label__default_reports",
+                u"Default reports"
+            ),
+            description=_(
+                "help__default_reports",
+                u"Define which reports are offered by default after risk identification"
+            ),
+            value_type=schema.Choice(
+                vocabulary=SimpleVocabulary([
+                    SimpleTerm(u"report_full", title=_(u"Full report")),
+                    SimpleTerm(u"report_action_plan", title=_(u"Action plan")),
+                    SimpleTerm(u"report_overview_risks", title=_(u"Overview of risks")),
+                    SimpleTerm(u"report_overview_measures", title=_(u"Overview of measures")),
+                ])
+            ),
+            default=["report_full", "report_action_plan", "report_overview_risks"],
+            required=False,
+    )
+
 
 class Country(dexterity.Container):
     """A country folder."""

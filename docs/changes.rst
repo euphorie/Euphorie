@@ -4,6 +4,7 @@ Changelog
 11.3.3 (unreleased)
 -------------------
 
+- scr-349: Add configuration per country which reports are available.
 - scr-352: Define per country which sections are open by default.
 
 

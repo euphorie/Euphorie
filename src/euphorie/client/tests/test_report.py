@@ -11,13 +11,66 @@ from euphorie.client.tests.utils import addAccount
 from euphorie.testing import EuphorieIntegrationTestCase
 from ExtensionClass import Base
 from plone import api
+from plone.app.testing.interfaces import SITE_OWNER_NAME
 from urllib import quote
 from z3c.saconfig import Session
 from zope.interface import alsoProvides
 
 import datetime
 import mock
+
+
 # import unittest
+
+
+class ReportIntegrationTests(EuphorieIntegrationTestCase):
+    def create_session(self):
+        with api.env.adopt_user(SITE_OWNER_NAME):
+            content_country = api.content.create(
+                container=self.portal.sectors, type="euphorie.country", id="eu"
+            )
+            client_country = api.content.create(
+                container=self.portal.client, type="euphorie.clientcountry", id="eu"
+            )
+            client_sector = api.content.create(
+                container=client_country, type="euphorie.clientsector", id="sector"
+            )
+            client_survey = api.content.create(
+                container=client_sector, type="euphorie.survey", id="survey"
+            )
+
+        sqlsession = Session()
+        account = model.Account(loginname=u"jane", password=u"secret")
+        sqlsession.add(account)
+        session = model.SurveySession(
+            title=u"Session", zodb_path="eu/sector/survey", account=account
+        )
+        sqlsession.add(session)
+        sqlsession.flush()
+
+        return session
+
+    def test_default_reports(self):
+        self.create_session()
+        traversed_session = self.portal.client.eu.sector.survey.restrictedTraverse(
+            "++session++1"
+        )
+
+        with self._get_view("report_view", traversed_session) as view:
+            # default default sections
+            self.assertEqual(
+                view.default_reports,
+                ["report_full", "report_action_plan", "report_overview_risks"],
+            )
+
+        # customized default sections
+        view.webhelpers.content_country_obj.default_reports = [
+            "report_overview_measures",
+        ]
+        with self._get_view("report_view", traversed_session) as view:
+            self.assertEqual(
+                view.default_reports, ["report_overview_measures"],
+            )
 
 
 # XXX Change these tests to test client.docx.views.IdentificationReportDocxView instead

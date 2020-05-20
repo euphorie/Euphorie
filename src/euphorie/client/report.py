@@ -50,6 +50,17 @@ class ReportLanding(grok.View):
     def webhelpers(self):
         return api.content.get_view("webhelpers", self.context, self.request)
 
+    @property
+    @memoize
+    def default_reports(self):
+        settings = self.webhelpers.content_country_obj
+        default_reports = getattr(
+            settings,
+            "default_reports",
+            ["report_full", "report_action_plan", "report_overview_risks"],
+        )
+        return default_reports
+
     def update(self):
         if not self.webhelpers.can_view_session:
             return self.request.response.redirect(self.webhelpers.client_url)
@@ -91,9 +102,9 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
                 sql.and_(
                     model.ActionPlan.risk_id == risk.id,
                     sql.or_(
-                        model.ActionPlan.plan_type == 'measure_standard',
-                        model.ActionPlan.plan_type == 'measure_custom',
-                    )
+                        model.ActionPlan.plan_type == "measure_standard",
+                        model.ActionPlan.plan_type == "measure_custom",
+                    ),
                 )
             )
             # If the risk contains no action plan, add it as a single line
@@ -232,9 +243,9 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
         filename = translate(filename, context=self.request)
         self.request.response.setHeader(
             "Content-Disposition",
-            "attachment; filename*=UTF-8\'\'{}.xlsx".format(
+            "attachment; filename*=UTF-8''{}.xlsx".format(
                 quote(filename.encode("utf-8"))
-            )
+            ),
         )
         self.request.response.setHeader(
             "Content-Type",
