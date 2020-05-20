@@ -1057,7 +1057,7 @@ msgstr "Standard"
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:126
 msgid "Standard measures"
-msgstr ""
+msgstr "Standardmaßnahmen"
 
 #: euphorie/content/templates/solution_view.pt:12
 msgid "Standard solution"
@@ -3845,7 +3845,7 @@ msgstr ""
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:451
 msgid "label_extra_add_measure"
-msgstr ""
+msgstr "Eine weitere Maßnahme hinzufügen"
 
 #. Default: "Content file"
 #: euphorie/content/module.py:110 euphorie/content/risk.py:286
@@ -3932,7 +3932,7 @@ msgstr "Bilddatei"
 #. Default: "Implemented measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:170
 msgid "label_implemented_measure"
-msgstr ""
+msgstr "Bestehende Schutzmaßnahme"
 
 #. Default: "Introduction text"
 #: euphorie/content/survey.py:73 euphorie/content/templates/survey_view.pt:32
@@ -4353,7 +4353,7 @@ msgstr "GBU-Vorlage auswählen"
 #. Default: "Select standard measures"
 #: euphorie/client/browser/templates/risk_actionplan.pt:443
 msgid "label_select_standard_measures"
-msgstr ""
+msgstr "Standardmaßnahmen auswählen"
 
 #. Default: "Enter a title for your Risk Assessment"
 #: euphorie/client/browser/session.py:73
