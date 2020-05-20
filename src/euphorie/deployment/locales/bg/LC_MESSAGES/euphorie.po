@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0.2dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-05-12 10:50+0000\n"
+"POT-Creation-Date: 2020-05-20 13:49+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: bg <LL@li.org>\n"
@@ -234,7 +234,7 @@ msgstr ""
 msgid "Are you sure you want to continue? This action can not be reverted."
 msgstr ""
 
-#: euphorie/client/browser/risk.py:915
+#: euphorie/client/browser/risk.py:933
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -293,7 +293,7 @@ msgstr "Отмяна"
 msgid "Candidate Countries"
 msgstr "Страни-кандидати"
 
-#: euphorie/content/country.py:38
+#: euphorie/content/country.py:39
 msgid "Candidate country"
 msgstr "Страна-кандидат"
 
@@ -319,6 +319,10 @@ msgstr "Пример с клиент за многократни появи."
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:36
 msgid "Close"
+msgstr ""
+
+#: euphorie/content/country.py:60
+msgid "Comments"
 msgstr ""
 
 #: euphorie/client/settings.py:230
@@ -364,7 +368,7 @@ msgstr "Продължаване към плана за действие"
 msgid "Country"
 msgstr "Държава"
 
-#: euphorie/content/country.py:33
+#: euphorie/content/country.py:34
 msgid "Country grouping"
 msgstr "Групиране на страни"
 
@@ -455,7 +459,7 @@ msgstr "Изтегляне на преглед на рисковете"
 msgid "E-mail"
 msgstr "Електронна поща"
 
-#: euphorie/content/country.py:37
+#: euphorie/content/country.py:38
 msgid "EFTA country"
 msgstr "Страна-членка на европейската асоциация за свободна търговия (EFTA)"
 
@@ -463,7 +467,7 @@ msgstr "Страна-членка на европейската асоциаци
 msgid "EU Member States"
 msgstr "Страни-членки на ЕС"
 
-#: euphorie/content/country.py:36
+#: euphorie/content/country.py:37
 msgid "EU member state"
 msgstr "Страна-членка ЕС"
 
@@ -560,7 +564,7 @@ msgstr ""
 "разполагате, а по-късно, при възможност,  да продължите от мястото, където "
 "сте прекъснали."
 
-#: euphorie/client/browser/webhelpers.py:739
+#: euphorie/client/browser/webhelpers.py:750
 msgid "I wish to share the following with you"
 msgstr "Искам да споделя следното с вас"
 
@@ -580,12 +584,12 @@ msgstr "Важно"
 msgid "Info"
 msgstr "Информация"
 
-#: euphorie/content/templates/settings.pt:35
+#: euphorie/content/country.py:58 euphorie/content/templates/settings.pt:35
 #: euphorie/content/templates/surveygroup_add.pt:81
 msgid "Information"
 msgstr "Информация"
 
-#: euphorie/client/browser/risk.py:577
+#: euphorie/client/browser/risk.py:595
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
 msgstr ""
 "Невалиден формат на файла на изображението. Моля, използвайте PNG, JPEG или "
@@ -862,7 +866,7 @@ msgstr "Отложено разглеждане"
 msgid "Potential Candidate Countries"
 msgstr "Потенциални кандидати - държави"
 
-#: euphorie/content/country.py:40
+#: euphorie/content/country.py:41
 msgid "Potential candidate country"
 msgstr "Потенциална страна-кандидат"
 
@@ -912,7 +916,7 @@ msgstr ""
 msgid "Refresh publication date"
 msgstr ""
 
-#: euphorie/content/country.py:35
+#: euphorie/content/country.py:36
 msgid "Region"
 msgstr "Регион"
 
@@ -937,6 +941,10 @@ msgstr "Премахване"
 #: euphorie/content/utils.py:44
 msgid "Republic of Serbia"
 msgstr "Република Сърбия"
+
+#: euphorie/content/country.py:59
+msgid "Resources: Legal references and attachments"
+msgstr ""
 
 #: euphorie/content/behaviour/configure.zcml:19
 msgid "Rich text description"
@@ -1127,7 +1135,7 @@ msgstr ""
 "Основната структура на Инструмента за онлайн интерактивна оценка на риска се "
 "състои от:"
 
-#: euphorie/client/browser/risk.py:921
+#: euphorie/client/browser/risk.py:939
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -1652,7 +1660,7 @@ msgstr "Отменяне"
 
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:93
-#: euphorie/client/browser/webhelpers.py:736
+#: euphorie/client/browser/webhelpers.py:747
 msgid "button_close"
 msgstr "затвори"
 
@@ -2205,17 +2213,17 @@ msgid "error_password_mismatch"
 msgstr "Паролите не съвпадат"
 
 #. Default: "This date must be on or after the start date."
-#: euphorie/client/browser/risk.py:934
+#: euphorie/client/browser/risk.py:952
 msgid "error_validation_after_start_date"
 msgstr "Тази дата трябва да съвпада или да е след началната дата."
 
 #. Default: "This date must be on or before the end date."
-#: euphorie/client/browser/risk.py:928
+#: euphorie/client/browser/risk.py:946
 msgid "error_validation_before_end_date"
 msgstr "Тази дата трябва да е преди или да съвпада с крайната дата."
 
 #. Default: "This value must be a positive whole number."
-#: euphorie/client/browser/risk.py:940
+#: euphorie/client/browser/risk.py:958
 msgid "error_validation_positive_whole_number"
 msgstr "Тази стойност трябва да е положително цяло число."
 
@@ -2665,7 +2673,7 @@ msgid "header_reporting"
 msgstr "Докладване"
 
 #. Default: "Resources"
-#: euphorie/client/browser/templates/risk_identification.pt:46
+#: euphorie/client/browser/templates/risk_identification.pt:48
 msgid "header_resources"
 msgstr "Pесурси"
 
@@ -2953,6 +2961,11 @@ msgstr "${num_present_risks} Съществуващи рискове"
 msgid "heading_present_risks_5_or_more"
 msgstr "${num_present_risks} Съществуващи рискове"
 
+#. Default: "Define which information sections should be uncollapsed by default on a risk identification page."
+#: euphorie/content/country.py:51
+msgid "help__risk_default_collapsible_sections"
+msgstr ""
+
 #. Default: "This text should explain how to fill in the Action plan."
 #: euphorie/content/help.py:69
 msgid "help_actionplan"
@@ -2997,7 +3010,7 @@ msgstr ""
 "започнете с копие на съществуващ OiRA инструмент.."
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
-#: euphorie/client/browser/risk.py:336 euphorie/content/risk.py:361
+#: euphorie/client/browser/risk.py:354 euphorie/content/risk.py:361
 msgid "help_default_frequency"
 msgstr "Посочете колко често този риск се среща в нормална ситуация."
 
@@ -3009,12 +3022,12 @@ msgstr ""
 "подразбиране. Той/тя все пак ще може да промени приоритета."
 
 #. Default: "Indicate how likely occurence of this risk is in a normal situation."
-#: euphorie/client/browser/risk.py:331 euphorie/content/risk.py:388
+#: euphorie/client/browser/risk.py:349 euphorie/content/risk.py:388
 msgid "help_default_probability"
 msgstr "Посочете колко вероятно е този риск да се срещне в нормална ситуация."
 
 #. Default: "Indicate the severity if this risk occurs."
-#: euphorie/client/browser/risk.py:340 euphorie/content/risk.py:339
+#: euphorie/client/browser/risk.py:358 euphorie/content/risk.py:339
 msgid "help_default_severity"
 msgstr "Посочете сериозността, ако този риск възникне."
 
@@ -3564,6 +3577,11 @@ msgstr "Приемлив ли е рискът?"
 msgid "is_risk_acceptable_add_measures"
 msgstr ""
 
+#. Default: "Open sections on risk page"
+#: euphorie/content/country.py:47
+msgid "label__risk_default_collapsible_sections"
+msgstr ""
+
 #. Default: "Update"
 #: euphorie/client/browser/templates/updated.pt:89
 msgid "label_accept update"
@@ -3616,7 +3634,7 @@ msgid "label_body"
 msgstr "Съдържание на страница"
 
 #. Default: "Skip"
-#: euphorie/client/browser/templates/risk_identification.pt:68
+#: euphorie/client/browser/templates/risk_identification.pt:70
 msgid "label_button_skip"
 msgstr "пропускане"
 
@@ -4096,7 +4114,7 @@ msgstr "Преглед"
 #. Default: "Previous"
 #: euphorie/client/browser/templates/module_identification.pt:74
 #: euphorie/client/browser/templates/risk_actionplan.pt:577
-#: euphorie/client/browser/templates/risk_identification.pt:66
+#: euphorie/client/browser/templates/risk_identification.pt:68
 msgid "label_previous"
 msgstr "Назад"
 
@@ -4926,7 +4944,7 @@ msgid "probability_small"
 msgstr "Малка"
 
 #. Default: "${completion_percentage}% Complete"
-#: euphorie/client/browser/webhelpers.py:266
+#: euphorie/client/browser/webhelpers.py:267
 msgid "progress_indicator_title"
 msgstr "${completion_percentage}% завършен"
 
