@@ -3,6 +3,7 @@ from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.client.browser.webhelpers import WebHelpers
+from euphorie.client.model import Account
 from euphorie.client.model import Session
 from euphorie.client.model import SurveySession
 from euphorie.content.api.entry import access_api
@@ -22,7 +23,7 @@ from time import time
 from zope.component import adapter
 from zope.interface import alsoProvides
 from ZPublisher.BaseRequest import DefaultPublishTraverse
-
+from sqlalchemy import sql
 
 import logging
 import six
@@ -138,6 +139,13 @@ class UpdateCompletionPercentage(WebHelpers):
                 self.log("Overwriting existing non-null values")
             query = (
                 query
+                .join(
+                    Account,
+                    sql.and_(
+                        Account.id == SurveySession.account_id,
+                        Account.account_type != "guest",
+                    )
+                )
                 .order_by(SurveySession.modified.desc())
                 .offset(b_start)
                 .limit(b_size)
