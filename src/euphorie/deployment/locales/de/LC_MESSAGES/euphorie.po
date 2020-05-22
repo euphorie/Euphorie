@@ -5354,7 +5354,7 @@ msgstr ""
 #. Default: "add all measures that have already been implemented"
 #: euphorie/content/utils.py:54
 msgid "text_add_measures"
-msgstr "fügen Sie alle Schutzmaßnamhen hinzu, die bereits bestehen"
+msgstr "fügen Sie alle Schutzmaßnahmen hinzu, die bereits bestehen"
 
 #. Default: "OiRA"
 #: euphorie/content/templates/colour-preview.pt:51
