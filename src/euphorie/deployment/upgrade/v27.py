@@ -175,10 +175,10 @@ def migrate_actgion_plans(context):
 
                 # convert ActionPlan items that are clearly based on solutions to "standard" type
                 if not is_custom:
-                    for ap in risk.action_plans:
+                    for ap in risk.custom_measures:
                         for solution in solutions_by_path[risk_path]:
-                            if solution.action_plan.startswith(
-                                (ap.action_plan or "").strip()
+                            if (
+                                solution.action_plan == (ap.action_plan or "").strip()
                             ):
                                 if (
                                     (
@@ -206,6 +206,8 @@ def migrate_actgion_plans(context):
                         (k, v) for (k, v) in saved_existing_measures.items()
                     ]
                 new_action_plans = []
+                already_converted_measure_ids = [x.solution_id for x in risk.in_place_standard_measures]
+                already_converted_custom_texts = [x.action for x in risk.in_place_custom_measures]
                 if saved_existing_measures:
                     custom = []
                     while saved_existing_measures:
@@ -213,15 +215,18 @@ def migrate_actgion_plans(context):
                         if not active:
                             continue
                         if not is_custom and text in measures_by_path[risk_path]:
-                            new_action_plans.append(
-                                model.ActionPlan(
-                                    action=text,
-                                    plan_type="in_place_standard",
-                                    solution_id=measures_by_path[risk_path][text],
+                            solution_id = measures_by_path[risk_path][text]
+                            if solution_id not in already_converted_measure_ids:
+                                new_action_plans.append(
+                                    model.ActionPlan(
+                                        action=text,
+                                        plan_type="in_place_standard",
+                                        solution_id=solution_id,
+                                    )
                                 )
-                            )
                         else:
-                            custom.append(text)
+                            if text not in already_converted_custom_texts:
+                                custom.append(text)
                     for text in custom:
                         new_action_plans.append(
                             model.ActionPlan(action=text, plan_type="in_place_custom")
