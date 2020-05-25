@@ -61,7 +61,9 @@ class IdentificationView(BrowserView):
 
     question_filter = None
 
-    # default value is True, can be overwritten by certain conditions
+    # If False, an always_present risk will not have an explanation that no
+    # identification is necessary
+    # Default value is True, can be overwritten by certain conditions
     show_explanation_on_always_present_risks = True
 
     # default value for "always present" risks is "no", can be overwritten by certain conditions

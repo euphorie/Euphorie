@@ -167,7 +167,7 @@
                 data-pat-clone="template: #measure-template; remove-confirmation: Sind Sie sicher, dass Sie die eingetragene bestehende Schutzmaßnahme entfernen wollen?; remove-behaviour: none"
       >
         <tal:existing_measures condition="view/show_existing_measures">
-          <p tal:condition="python:not always_present or view.show_explanation_on_always_present_risks" tal:content="structure view/intro_extra"></p>
+          <p tal:content="structure view/intro_extra"></p>
           <tal:measures define="
                           measures view/get_existing_measures;
                         "
@@ -227,7 +227,7 @@
       </fieldset>
 
       <div class="button-bar cloning"
-           tal:condition="python:view.show_existing_measures and (not always_present or view.show_explanation_on_always_present_risks)"
+           tal:condition="python:view.show_existing_measures"
       >
         <button class="add-clone small pat-button icon-plus-circle"
                 id="addMeasureButton"
@@ -239,7 +239,7 @@
 
       <!-- Yes / No -->
       <fieldset class="pat-checklist radio">
-        <tal:existing condition="python:view.show_existing_measures and (not always_present or view.show_explanation_on_always_present_risks)">
+        <tal:existing condition="python:view.show_existing_measures and not always_present">
           <p tal:condition="view/intro_questions" tal:content="structure view/intro_questions"></p>
         </tal:existing>
         <p class="byline"
