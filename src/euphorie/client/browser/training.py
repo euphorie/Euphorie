@@ -3,7 +3,6 @@ from collections import OrderedDict
 from datetime import date
 from euphorie.client import survey
 from euphorie.client import utils as client_utils
-from json import loads
 from logging import getLogger
 from plone import api
 from plone.memoize.instance import memoize
@@ -104,22 +103,10 @@ class TrainingSlide(BrowserView):
     def existing_measures(self):
         if self.item_type != "risk":
             return []
-        try:
-            existing_measures = loads(self.context.existing_measures)
-            # Backwards compat. We used to save dicts in JSON before we
-            # switched to list of tuples.
-            if isinstance(existing_measures, dict):
-                existing_measures.items()
-            existing_measures = [
-                text.strip() for (text, active) in existing_measures if active
-            ]
-            return existing_measures
-        except:
-            logger.warning(
-                "Saved existing_measures could not be retrieved on %s",
-                self.context.absolute_url(),
-            )
-            return []
+        measures = list(self.context.in_place_standard_measures) + list(
+            self.context.in_place_custom_measures
+        )
+        return [measure.action for measure in measures]
 
     @property
     def image(self):
