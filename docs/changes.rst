@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.3.3 (unreleased)
+11.3.3 (2020-05-26)
 -------------------
 
 - Add configuration per country which reports are available.
