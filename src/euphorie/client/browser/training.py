@@ -8,6 +8,7 @@ from plone import api
 from plone.memoize.instance import memoize
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
+from z3c.saconfig import Session
 import markdown
 
 logger = getLogger(__name__)
@@ -102,11 +103,21 @@ class TrainingSlide(BrowserView):
     @property
     def existing_measures(self):
         if self.item_type != "risk":
-            return []
-        measures = list(self.context.in_place_standard_measures) + list(
+            return {}
+        measures = OrderedDict()
+        for measure in list(self.context.in_place_standard_measures) + list(
             self.context.in_place_custom_measures
-        )
-        return [measure.action for measure in measures]
+        ):
+            measures.update(
+                {
+                    measure.id: {
+                        "action": measure.action,
+                        "active": measure.used_in_training,
+                    }
+                }
+            )
+
+        return measures
 
     @property
     def image(self):
@@ -170,6 +181,11 @@ class TrainingView(BrowserView, survey._StatusHelper):
         """
         return self.context.session
 
+    def slicePath(self, path):
+        while path:
+            yield path[:3].lstrip("0")
+            path = path[3:]
+
     @property
     @memoize
     def title_image(self):
@@ -232,13 +248,50 @@ class TrainingView(BrowserView, survey._StatusHelper):
     def __call__(self):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
+
         if self.request.environ["REQUEST_METHOD"] == "POST":
+            active_measures = set()
             for entry in self.request.form:
+                # Case A: the user has modified the notes of the "text" training slides
                 if entry.startswith("training_notes"):
                     index = entry.split("-")[-1]
                     sql_item = self.slide_data[index]["item"]
                     value = safe_unicode(self.request[entry])
                     sql_item.training_notes = value
+                # an entry of this kind is relevant for Case B below
+                elif entry.startswith("measure"):
+                    measure_id = entry.split("-")[-1]
+                    active_measures.add(measure_id)
+            # Case B: the user has selected or de-selected a measure from one of the "measures" training slides
+            if "handle_training_measures_for" in self.request.form:
+                index = self.request.form["handle_training_measures_for"].split("-")[-1]
+                sql_item = self.slide_data[index]["item"]
+                view = self.slide_data[index]["training_view"]
+                all_measures = set([str(key) for key in view.existing_measures.keys()])
+                deselected_measures = all_measures - active_measures
+                session = Session()
+                if active_measures:
+                    session.execute(
+                        "UPDATE action_plan set used_in_training=true where id in ({ids})".format(
+                            ids=",".join(active_measures)
+                        )
+                    )
+                if deselected_measures:
+                    session.execute(
+                        "UPDATE action_plan set used_in_training=false where id in ({ids})".format(
+                            ids=",".join(deselected_measures)
+                        )
+                    )
+                self.webhelpers.traversed_session.session.touch()
+                # We need to compute the URL manually from the "path" given in the sql-element
+                # Reason: the sql_item has the context of our session, but is not aware of
+                # the full parent-hierarchy of module/submodule
+                self.request.RESPONSE.redirect(
+                    "{session}/{path}/@@training_slide".format(
+                        session=self.context.absolute_url(),
+                        path="/".join(self.slicePath(sql_item.path)),
+                    )
+                )
             self.webhelpers.traversed_session.session.touch()
 
         return self.index()

@@ -90,7 +90,9 @@ class IdentificationView(BrowserView):
     def default_collapsible_sections(self):
         settings = self.webhelpers.content_country_obj
         default_collapsible_sections = getattr(
-            settings, "risk_default_collapsible_sections", ["collapsible_section_information"]
+            settings,
+            "risk_default_collapsible_sections",
+            ["collapsible_section_information"],
         )
         return default_collapsible_sections
 
@@ -216,9 +218,8 @@ class IdentificationView(BrowserView):
 
             # Check if there was a change. If yes, touch the session
             changed = False
+            session = Session()
             if self.use_existing_measures and reply.get("handle_measures_in_place"):
-                session = Session()
-
                 new_measures = []
                 # First, check which of the standard solutions were selected
                 for solution in self.solutions:
@@ -276,9 +277,41 @@ class IdentificationView(BrowserView):
                     self.context.action_plans.extend(new_measures)
                     changed = True
 
-            if self.use_training_module and reply.get("handle_training_notes"):
-                self.context.training_notes = reply.get("training_notes")
-                changed = True
+            if self.use_training_module:
+                if reply.get("handle_training_notes"):
+                    self.context.training_notes = reply.get("training_notes")
+                    changed = True
+                # Case: the user has selected or de-selected a measure from the training slide
+                if reply.get("handle_training_measures_for"):
+                    # Gather all ids of the active measures, that means, where the checkboxes are ticked.
+                    # Remember: a measure that has been deselected (checkbox unticked) does not appear in
+                    # the REQUEST
+                    active_measures = set()
+                    for entry in reply:
+                        if entry.startswith("measure"):
+                            measure_id = entry.split("-")[-1]
+                            active_measures.add(measure_id)
+                    # Get the ids of all measures-in-place
+                    all_measures = set([
+                        str(measure.id)
+                        for measure in list(self.context.in_place_standard_measures)
+                        + list(self.context.in_place_custom_measures)
+                    ])
+                    # All measures that are not present in the REQUEST are deselected
+                    deselected_measures = all_measures - active_measures
+                    if active_measures:
+                        session.execute(
+                            "UPDATE action_plan set used_in_training=true where id in ({ids})".format(
+                                ids=",".join(active_measures)
+                            )
+                        )
+                    if deselected_measures:
+                        session.execute(
+                            "UPDATE action_plan set used_in_training=false where id in ({ids})".format(
+                                ids=",".join(deselected_measures)
+                            )
+                        )
+                    changed = True
 
             # This only happens on custom risks
             if reply.get("handle_custom_description"):
