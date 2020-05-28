@@ -232,12 +232,11 @@ class TrainingView(BrowserView, survey._StatusHelper):
     def __call__(self):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
-
         if self.request.environ["REQUEST_METHOD"] == "POST":
             for entry in self.request.form:
                 if entry.startswith("training_notes"):
                     index = entry.split("-")[-1]
-                    sql_item = self.slide_data[index]
+                    sql_item = self.slide_data[index]["item"]
                     value = safe_unicode(self.request[entry])
                     sql_item.training_notes = value
             self.webhelpers.traversed_session.session.touch()
