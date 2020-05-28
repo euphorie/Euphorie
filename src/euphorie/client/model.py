@@ -1214,6 +1214,11 @@ class ActionPlan(BaseObject):
         default="measure_custom",
     )
     solution_id = schema.Column(types.Unicode(20))
+    used_in_training = schema.Column(
+        types.Boolean(),
+        default=True,
+        index=True,
+    )
 
     risk = orm.relation(
         Risk,
