@@ -162,7 +162,7 @@
     >
 
       <!-- Existing Measures -->
-      <fieldset class="pat-checklist pat-clone"
+      <fieldset class="pat-checklist pat-clone pat-autosubmit"
                 id="ActionPlanItemForm"
                 data-pat-clone="template: #measure-template; remove-confirmation: Sind Sie sicher, dass Sie die eingetragene bestehende Schutzmaßnahme entfernen wollen?; remove-behaviour: none"
       >

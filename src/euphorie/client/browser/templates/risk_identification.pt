@@ -32,7 +32,10 @@
            href="#content-pane"
            data-pat-scroll="selector: #content-pane; trigger: auto; offset: 0"
         >Scroll to top</a>
-        <div id="content-pane">
+        <div class="pat-subform pat-inject"
+             id="content-pane"
+             data-pat-inject="${python:'source: #slide-content-2; target: #slide-content-2;' if view.use_training_module else None}"
+        >
 
           <h2 class="risk-title">${here/title}</h2>
 
