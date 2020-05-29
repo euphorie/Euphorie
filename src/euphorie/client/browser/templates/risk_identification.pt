@@ -5,71 +5,113 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        client nocall:request/client;
+        webhelpers nocall:context/@@webhelpers;
+      "
       i18n:domain="euphorie"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
-      metal:use-macro="context/@@shell/macros/shell">
+>
 
-<body>
-<metal:slot fill-slot="content" tal:define="risk nocall:view/risk">
-<tal:block replace="tile:statusmessages"/>
-<form accept-charset="UTF-8" method="post"
-      enctype="multipart/form-data"
-      action="${here/absolute_url}/@@${view/__name__}"
-      method="post" class="pat-inject"
-      data-pat-inject="history: record; source: #step-2-topics; target: #step-2-topics &amp;&amp; source: #main-content; target: #main-content &amp;&amp; source: #toolbar; target: #toolbar &amp;&amp; source: #status; target: #status">
-  <a href="#content-pane" class="pat-scroll pat-scroll-animated" data-pat-scroll="selector: #content-pane; trigger: auto; offset: 0" hidden="">Scroll to top</a>
-<div id="content-pane">
+  <body>
+    <metal:slot fill-slot="content"
+                tal:define="
+                  risk nocall:view/risk;
+                "
+    >
+      <tal:block replace="tile:statusmessages" />
+      <form class="pat-inject"
+            accept-charset="UTF-8"
+            action="${here/absolute_url}/@@${view/__name__}"
+            enctype="multipart/form-data"
+            method="post"
+            data-pat-inject="history: record; source: #step-2-topics; target: #step-2-topics &amp;&amp; source: #main-content; target: #main-content &amp;&amp; source: #toolbar; target: #toolbar &amp;&amp; source: #status; target: #status"
+      >
+        <a class="pat-scroll pat-scroll-animated"
+           hidden
+           href="#content-pane"
+           data-pat-scroll="selector: #content-pane; trigger: auto; offset: 0"
+        >Scroll to top</a>
+        <div id="content-pane">
 
-    <h2 class="risk-title">${here/title}</h2>
+          <h2 class="risk-title">${here/title}</h2>
 
-    <a class="pat-inject"
-       id="percentage-placeholder"
-       hidden="hidden"
-       href="${here/webhelpers/traversed_session/absolute_url}/@@update-completion-percentage"
-       data-pat-inject="trigger: autoload; source: #document-content; target: #percentage-placeholder::element; loading-class:; history: none"
-    >Compute completion percentage</a>
+          <a class="pat-inject"
+             id="percentage-placeholder"
+             hidden="hidden"
+             href="${here/webhelpers/traversed_session/absolute_url}/@@update-completion-percentage"
+             data-pat-inject="trigger: autoload; source: #document-content; target: #percentage-placeholder::element; loading-class:; history: none"
+          >Compute completion percentage</a>
 
-    <!-- Identification -->
-    <metal:call use-macro="webhelpers/macros/risk_identification" />
-    <!-- END Identificaton -->
+          <!-- Identification -->
+          <metal:call use-macro="webhelpers/macros/risk_identification" />
+          <!-- END Identificaton -->
 
-    <!-- Evaluation -->
-    <metal:call use-macro="webhelpers/macros/risk_evaluation" />
-    <!-- END Evaluation -->
+          <!-- Evaluation -->
+          <metal:call use-macro="webhelpers/macros/risk_evaluation" />
+          <!-- END Evaluation -->
 
-    <!-- Information -->
-    <metal:call tal:define="default_state python:view.get_collapsible_section_state('information')" use-macro="here/risk_macros/macros/riskinfo" />
-    <!-- END Information -->
+          <!-- Information -->
+          <metal:call use-macro="here/risk_macros/macros/riskinfo"
+                      tal:define="
+                        default_state python:view.get_collapsible_section_state('information');
+                      "
+          />
+          <!-- END Information -->
 
-    <!-- Resources -->
-    <article class="pat-rich pat-collapsible ${default_state} risk-module"
-        tal:define="default_state python:view.get_collapsible_section_state('resources')"
-        tal:condition="view/show_resources">
-        <h3 i18n:translate="header_resources">
+          <!-- Resources -->
+          <article class="pat-rich pat-collapsible ${default_state} risk-module"
+                   tal:define="
+                     default_state python:view.get_collapsible_section_state('resources');
+                   "
+                   tal:condition="view/show_resources"
+          >
+            <h3 i18n:translate="header_resources">
             Resources
-        </h3>
-        <!-- Legal references -->
-        <metal:call use-macro="webhelpers/macros/legal_references" />
-        <!-- Additional files -->
-        <metal:call use-macro="webhelpers/macros/additional_files" />
-    </article>
-    <!-- END Resources -->
+            </h3>
+            <!-- Legal references -->
+            <metal:call use-macro="webhelpers/macros/legal_references" />
+            <!-- Additional files -->
+            <metal:call use-macro="webhelpers/macros/additional_files" />
+          </article>
+          <!-- END Resources -->
 
-    <!-- Training -->
-    <metal:call use-macro="context/training_slide/macros/training_slide" />
-    <!-- END Training -->
+          <!-- Training -->
+          <metal:call use-macro="context/training_slide/macros/training_slide" />
+          <!-- END Training -->
 
-    <!-- Comments -->
-    <metal:call tal:define="default_state python:view.get_collapsible_section_state('comments')" use-macro="webhelpers/macros/risk_comments" />
-    <!-- END Comments -->
+          <!-- Comments -->
+          <metal:call use-macro="webhelpers/macros/risk_comments"
+                      tal:define="
+                        default_state python:view.get_collapsible_section_state('comments');
+                      "
+          />
+          <!-- END Comments -->
 
-</div>
-      <p class="button-bar" id="nav-bar">
-        <button class="pat-button back" type="submit" name="next" value="previous" i18n:translate="label_previous">Previous</button>
-        <button class="pat-button continue" type="submit" name="next" value="next" i18n:translate="label_save_and_continue">Save and continue</button>
-        <button type="submit" name="next" value="skip" class="pat-button skip" i18n:translate="label_button_skip">Skip</button>
-    </p>
-</form>
-</metal:slot>
-</body>
+        </div>
+        <p class="button-bar"
+           id="nav-bar"
+        >
+          <button class="pat-button back"
+                  name="next"
+                  type="submit"
+                  value="previous"
+                  i18n:translate="label_previous"
+          >Previous</button>
+          <button class="pat-button continue"
+                  name="next"
+                  type="submit"
+                  value="next"
+                  i18n:translate="label_save_and_continue"
+          >Save and continue</button>
+          <button class="pat-button skip"
+                  name="next"
+                  type="submit"
+                  value="skip"
+                  i18n:translate="label_button_skip"
+          >Skip</button>
+        </p>
+      </form>
+    </metal:slot>
+  </body>
 </html>
