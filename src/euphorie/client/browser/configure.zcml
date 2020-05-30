@@ -81,6 +81,14 @@
       />
 
   <browser:page
+      name="certificate_macros"
+      for="*"
+      permission="euphorie.client.ViewSurvey"
+      template="templates/certificate_macros.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="start"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+      tal:define="webhelpers nocall:context/@@webhelpers"
+      >
+
+  <metal:status_box define-macro="status_box" meta:interpolation="true" i18n:domain="euphorie">
+      <tal:comment condition="nothing">
+        Here in Euphorie, we don't have a certificate status box. But extension packages can overwrite this macro to fill it with content.
+      </tal:comment>
+  </metal:status_box>
+</html>
