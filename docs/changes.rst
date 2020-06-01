@@ -4,8 +4,8 @@ Changelog
 11.3.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Measures in place: if training module is used, measures can be de-selected
+  from appearing in the training
 
 11.3.3 (2020-05-26)
 -------------------
