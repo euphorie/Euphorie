@@ -221,8 +221,16 @@ class IdentificationView(BrowserView):
             session = Session()
             if self.use_existing_measures and reply.get("handle_measures_in_place"):
                 new_measures = []
+                saved_solutions = {
+                    plan.solution_id: plan.used_in_training
+                    for plan in self.context.in_place_standard_measures
+                }
                 # First, check which of the standard solutions were selected
                 for solution in self.solutions:
+                    # If the solution was already added as a measure, retrieve the info
+                    # whether it was de-selected for the training, so that we don't
+                    # forcefully activate all measures for the training again.
+                    used_in_training = saved_solutions.get(solution.id, True)
                     if reply.get("measure-standard-%s" % solution.id):
                         new_measures.append(
                             model.ActionPlan(
@@ -230,6 +238,7 @@ class IdentificationView(BrowserView):
                                 requirements=solution.requirements,
                                 plan_type="in_place_standard",
                                 solution_id=solution.id,
+                                used_in_training=used_in_training,
                             )
                         )
                 # Clean up, remove all standard in-place measures. The active
@@ -292,11 +301,13 @@ class IdentificationView(BrowserView):
                             measure_id = entry.split("-")[-1]
                             active_measures.add(measure_id)
                     # Get the ids of all measures-in-place
-                    all_measures = set([
-                        str(measure.id)
-                        for measure in list(self.context.in_place_standard_measures)
-                        + list(self.context.in_place_custom_measures)
-                    ])
+                    all_measures = set(
+                        [
+                            str(measure.id)
+                            for measure in list(self.context.in_place_standard_measures)
+                            + list(self.context.in_place_custom_measures)
+                        ]
+                    )
                     # All measures that are not present in the REQUEST are deselected
                     deselected_measures = all_measures - active_measures
                     if active_measures:
