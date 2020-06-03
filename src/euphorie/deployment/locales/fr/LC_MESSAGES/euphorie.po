@@ -3995,7 +3995,7 @@ msgstr "Fichier image"
 #. Default: "Implemented measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:170
 msgid "label_implemented_measure"
-msgstr ""
+msgstr "Mesure déjà en place"
 
 #. Default: "Introduction text"
 #: euphorie/content/survey.py:73 euphorie/content/templates/survey_view.pt:32
