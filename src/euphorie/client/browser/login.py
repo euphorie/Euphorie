@@ -337,7 +337,7 @@ class Register(BrowserView):
     def get_image_version(self, name):
         """" Needed on the reports overview show to the guest user """
         fdir = os.path.join(
-            os.path.dirname(__file__), os.path.join('templates', 'media'))
+            os.path.dirname(__file__), os.path.join('..', 'resources', 'media'))
         lang = getattr(self.request, 'LANGUAGE', 'en')
         fname = "{0}_{1}".format(name, lang)
         if os.path.isfile(os.path.join(fdir, fname + '.png')):
