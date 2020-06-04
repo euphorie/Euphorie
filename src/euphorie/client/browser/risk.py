@@ -270,6 +270,10 @@ class RiskBase(BrowserView):
             changes = False
         return (new_plans, changes)
 
+    def linebreaks_to_markup(self, text):
+        markup = all_breaks.sub(u"<br/>", text)
+        return markup
+
 
 class IdentificationView(RiskBase):
     """A view for displaying a question in the identification phase

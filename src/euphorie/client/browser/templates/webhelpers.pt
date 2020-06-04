@@ -671,7 +671,7 @@
           </h2>
           <h4 i18n:translate="label_description">Description</h4>
           <p>
-            <tal:measure replace="structure measure/action" />
+            <tal:measure replace="structure python:view.linebreaks_to_markup(measure.action)" />
           </p>
         </div>
       </tal:existing_measures>
