@@ -172,13 +172,15 @@
                         "
                         repeat="measure measures"
           >
-            <label tal:condition="python: measure['plan_type']=='in_place_standard'">
-              <input checked="${python:measure['active'] and 'checked' or None}"
+            <div class="label" tal:condition="python: measure['plan_type']=='in_place_standard'"
+               tal:define="description measure/text">
+              <label class="label-fragment-title"
+              ><input checked="${python:measure['active'] and 'checked' or None}"
                      name="measure-standard-${measure/solution_id}"
                      type="checkbox"
-              />
-                <tal:measure replace="structure python:measure['text']" />
-            </label>
+              />${measure/title}</label>
+                <span class="label-fragment-description pat-rich" tal:condition="description"><pre class="pat-markdown" tal:content="structure description">Description</pre></span>
+            </div>
 
             <label tal:condition="python: measure['plan_type']=='in_place_custom'"
                    class="clone">

@@ -772,11 +772,14 @@ class IdentificationView(RiskBase):
         existing_measures = []
         for solution in self.solutions_provided_by_tool:
             if self.italy_special:
-                text = solution.action
+                title = solution.action
+                text = ""
             else:
-                text = solution.description
+                title = solution.description
+                text = solution.action
             existing_measures.append(
                 {
+                    "title": title,
                     "text": text,
                     "active": solution.id in saved_standard_measures,
                     "solution_id": solution.id,
