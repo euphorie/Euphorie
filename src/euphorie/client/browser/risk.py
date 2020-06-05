@@ -265,6 +265,43 @@ class RiskBase(BrowserView):
             changes = False
         return (new_plans, changes)
 
+    @property
+    def action_plan_instruction_text(self):
+        if self.get_existing_measures():
+            # Case: measures-in-place==true, solutions==true
+            if self.solutions_available_for_action_plan:
+                return api.portal.translate(
+                    _(
+                        "action_measures_true_solutions_true",
+                        default=u"Write down or select what further actions you are going to take to reduce this risk.",
+                    )
+                )
+            # Case: measures-in-place==true, solutions==false
+            else:
+                return api.portal.translate(
+                    _(
+                        "action_measures_true_solutions_false",
+                        default=u"Write down what further actions you are going to take to reduce this risk.",
+                    )
+                )
+        else:
+            # Case: measures-in-place==false, solutions==true
+            if self.solutions_available_for_action_plan:
+                return api.portal.translate(
+                    _(
+                        "action_measures_false_solutions_true",
+                        default=u"Write down or select what actions you are going to take to reduce this risk.",
+                    )
+                )
+            # Case: measures-in-place==false, solutions==false
+            else:
+                return api.portal.translate(
+                    _(
+                        "action_measures_false_solutions_false",
+                        default=u"Write down what actions you are going to take to reduce this risk.",
+                    )
+                )
+
 
 class IdentificationView(RiskBase):
     """A view for displaying a question in the identification phase
@@ -352,7 +389,9 @@ class IdentificationView(RiskBase):
     def action_plan_condition(self):
         """ In what circumstances will the integrated Action Plan be shown"""
         condition = "condition: answer=no"
-        if not self.is_custom_risk and (self.risk.type == "top5" or self.risk.risk_always_present):
+        if not self.is_custom_risk and (
+            self.risk.type == "top5" or self.risk.risk_always_present
+        ):
             # No condition, that means, it will always be shown
             return None
         return condition
@@ -386,7 +425,9 @@ class IdentificationView(RiskBase):
                 # from a sub-form.
                 if self.webhelpers.integrated_action_plan:
                     new_plans, changes = self.extract_plans_from_request()
-                    for plan in self.context.standard_measures + self.context.custom_measures:
+                    for plan in (
+                        self.context.standard_measures + self.context.custom_measures
+                    ):
                         session.delete(plan)
                     self.context.action_plans.extend(new_plans)
                     changed = changes or changed
