@@ -38,10 +38,8 @@ from zope.publisher.interfaces import NotFound
 
 import datetime
 import PIL
-import re
 
 IMAGE_CLASS = {0: "", 1: "twelve", 2: "six", 3: "four", 4: "three"}
-all_breaks = re.compile("(\n|\r)+")
 
 
 class RiskBase(BrowserView):
@@ -143,13 +141,10 @@ class RiskBase(BrowserView):
         for solution in self.solutions_provided_by_tool:
             solution_id = solution.id
             if solution_id not in existing_measure_ids:
-                action = getattr(solution, "action", "") or ""
-                action_markup = all_breaks.sub("<br/>", action)
                 solutions.append(
                     {
                         "description": StripMarkup(solution.description),
-                        "action": solution.action,
-                        "action_markup": action_markup,
+                        "action": getattr(solution, "action", "") or "",
                         "requirements": solution.requirements,
                         "id": solution_id,
                     }
@@ -269,10 +264,6 @@ class RiskBase(BrowserView):
         if added == 0 and updated == 0 and removed == 0:
             changes = False
         return (new_plans, changes)
-
-    def linebreaks_to_markup(self, text):
-        markup = all_breaks.sub(u"<br/>", text)
-        return markup
 
 
 class IdentificationView(RiskBase):
