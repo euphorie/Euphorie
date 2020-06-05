@@ -54,7 +54,7 @@ CUSTOM_COUNTRY_NAMES = {
 # one, we add the type "With measures that are already in place".
 link_add_measures = _(
         "no_translate_link_add_measures",
-        default=u"<a class='add-clone'>${text_add_measures}</a>",
+        default=u"<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>",
         mapping={"text_add_measures": _(
             "text_add_measures",
             default=u"add all measures that have already been implemented")}
