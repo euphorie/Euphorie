@@ -188,6 +188,9 @@
               <div class="panel-content"
                    id="panel-action-plan"
               >
+                <section class="pat-rich">
+                  <p tal:content="view/action_plan_instruction_text">Instruction</p>
+                </section>
                 <metal:call use-macro="webhelpers/macros/action_plan" />
               </div>
             </div>
