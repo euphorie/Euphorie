@@ -672,9 +672,9 @@
           ${repeat/measure/number}
           </h2>
           <h4 i18n:translate="label_description">Description</h4>
-          <p>
-            <tal:measure replace="structure python:view.linebreaks_to_markup(measure.action)" />
-          </p>
+          <div class="pat-rich">
+            <pre class="pat-markdown" tal:content="structure measure/action">Action</pre>
+          </div>
         </div>
       </tal:existing_measures>
 
@@ -715,9 +715,9 @@
             <h4 i18n:translate="label_description">
               Description
             </h4>
-            <p tal:content="structure solution/action_markup">
-              Action
-            </p>
+            <div class="pat-rich">
+              <pre class="pat-markdown" tal:content="structure solution/action">Action</pre>
+            </div>
             <tal:requirements condition="python: 'requirements' not in view.skip_fields and solution['requirements']">
               <h4 i18n:translate="label_expertise">
                 Expertise
