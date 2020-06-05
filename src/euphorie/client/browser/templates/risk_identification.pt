@@ -54,8 +54,8 @@
           <metal:call use-macro="webhelpers/macros/risk_evaluation" />
           <!-- END Evaluation -->
 
+          <!-- Action Plan -->
           <tal:action_plan condition="webhelpers/integrated_action_plan">
-            <!-- Action Plan -->
             <div class="pat-collapsible open risk-module pat-depends visible"
                  data-pat-depends="transition: slide; ${view/action_plan_condition}"
             >
@@ -70,8 +70,8 @@
                 <metal:call use-macro="webhelpers/macros/action_plan" />
               </div>
             </div>
-            <!-- END Action Plan -->
           </tal:action_plan>
+          <!-- END Action Plan -->
 
           <!-- Information -->
           <metal:call use-macro="here/risk_macros/macros/riskinfo"

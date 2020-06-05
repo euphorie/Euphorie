@@ -60,17 +60,14 @@
           <fieldset class="add-measure-in-place-other pat-checklist measures-in-place pat-clone pat-inject pat-subform"
                     id="add-measure-in-place"
                     data-pat-autosubmit="1000ms"
-                    data-pat-clone="template: #measure-template; remove-confirmation: Are you sure you want to remove this existing measure?"
+                    data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button;  remove-confirmation: Are you sure you want to remove this existing measure?"
                     data-pat-inject="source: #add-measure-in-place; target: #add-measure-in-place ${python:webhelpers.use_training_module and '&amp;&amp; source: #slide-preview-existing-measures; target: #slide-preview-existing-measures' or None}"
-                    tal:define="
-                      existing_measures view/get_existing_measures;
-                    "
           >
 
             <tal:existing-measures condition="view/show_existing_measures">
 
               <tal:measures define="
-                              measures view/get_existing_measures;
+                              measures view/get_existing_measures_with_activation;
                             "
                             repeat="measure measures"
               >
@@ -94,7 +91,7 @@
               />
 
               <label class="clone"
-                     id="measure-template"
+                     id="in-place-measure-template"
                      hidden="hidden"
               >
                 <input class="pat-autofocus"
@@ -121,7 +118,7 @@
 
           <div class="button-bar cloning">
             <button class="add-clone small pat-button icon-plus-circle"
-                    id="add-measure-button"
+                    id="add-in-place-measure-button"
                     title="${view/button_add_extra}"
                     type="button"
             >${view/button_add_extra}</button>
@@ -129,7 +126,7 @@
 
           <tal:no-measure condition="not:view/show_existing_measures">
             <label class="clone"
-                   id="measure-template"
+                   id="in-place-measure-template"
                    hidden="hidden"
             >
               <input class="pat-autofocus"
@@ -176,12 +173,28 @@
                      value="no"
               />${view/answer_no}</label>
           </fieldset>
-
-
           <!-- END Identification -->
 
-          <!-- Evaluation -->
+          <!-- Action Plan -->
+          <tal:action_plan condition="webhelpers/integrated_action_plan">
+            <div class="pat-collapsible open risk-module pat-depends visible"
+                 data-pat-depends="transition: slide; ${view/action_plan_condition}"
+            >
+              <h3 class="collapsible-open"
+                  i18n:translate="header_actions"
+              >
+                Actions
+              </h3>
+              <div class="panel-content"
+                   id="panel-action-plan"
+              >
+                <metal:call use-macro="webhelpers/macros/action_plan" />
+              </div>
+            </div>
+          </tal:action_plan>
+          <!-- END Action Plan -->
 
+          <!-- Evaluation -->
           <fieldset class="pat-well notice pat-depends vertical evaluation"
                     id="evaluation"
                     data-pat-depends="condition: answer=no; transition: slide"
