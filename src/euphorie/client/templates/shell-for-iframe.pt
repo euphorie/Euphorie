@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      class="no-js iframe"
+      lang="${language}"
+      meta:interpolation="true"
+      metal:define-macro="shell-for-iframe"
+      tal:define="
+        webhelpers nocall:context/@@webhelpers;
+        portal_state context/plone_portal_state;
+        language portal_state/language;
+      "
+      i18n:domain="euphorie"
+>
+  <head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=UTF-8"
+    />
+    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1"
+    />
+    <link href="${webhelpers/css_url}"
+          rel="stylesheet"
+          type="text/css"
+    />
+    <script src="${webhelpers/js_url}"
+            type="text/javascript"
+    ></script>
+  </head>
+
+  <body class="iframe">
+
+    <metal:block define-slot="content" />
+
+  </body>
+</html>

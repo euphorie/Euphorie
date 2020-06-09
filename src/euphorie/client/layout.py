@@ -40,6 +40,13 @@ class Layout(grok.View):
     grok.template("layout")
 
 
+class ShellForIFrame(grok.View):
+    grok.context(Interface)
+    grok.name("shell-for-iframe")
+    grok.layer(IClientSkinLayer)
+    grok.template("shell-for-iframe")
+
+
 class Includes(grok.View):
     """ This view's templates contains a collection of macros, corresponding to
         the Jekyll includes under the _includes dir.
