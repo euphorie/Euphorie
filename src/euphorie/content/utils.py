@@ -84,7 +84,7 @@ TOOL_TYPES = OrderedDict([
             u"place</strong>."),
         "button_add_extra": _(
             "button_add_existing_measure",
-            default=u"Add a missing measure"),
+            default=u"Add another measure implemented already"),
         "button_remove_extra": _(
             "button_remove_existing_measure",
             default=u"Remove this existing measure"),
