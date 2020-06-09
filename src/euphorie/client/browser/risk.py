@@ -273,7 +273,7 @@ class RiskBase(BrowserView):
                 return api.portal.translate(
                     _(
                         "action_measures_true_solutions_true",
-                        default=u"Write down or select what further actions you are going to take to reduce this risk.",
+                        default=u"Select or describe any further measure to reduce the risk.",
                     )
                 )
             # Case: measures-in-place==true, solutions==false
@@ -281,7 +281,7 @@ class RiskBase(BrowserView):
                 return api.portal.translate(
                     _(
                         "action_measures_true_solutions_false",
-                        default=u"Write down what further actions you are going to take to reduce this risk.",
+                        default=u"Describe any further measure to reduce the risk.",
                     )
                 )
         else:
@@ -290,7 +290,7 @@ class RiskBase(BrowserView):
                 return api.portal.translate(
                     _(
                         "action_measures_false_solutions_true",
-                        default=u"Write down or select what actions you are going to take to reduce this risk.",
+                        default=u"Select or describe the specific measures required to reduce the risk.",
                     )
                 )
             # Case: measures-in-place==false, solutions==false
@@ -298,7 +298,7 @@ class RiskBase(BrowserView):
                 return api.portal.translate(
                     _(
                         "action_measures_false_solutions_false",
-                        default=u"Write down what actions you are going to take to reduce this risk.",
+                        default=u"Describe the specific measures required to reduce the risk.",
                     )
                 )
 

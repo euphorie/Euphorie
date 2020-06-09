@@ -60,9 +60,9 @@
                  data-pat-depends="transition: slide; ${view/action_plan_condition}"
             >
               <h3 class="collapsible-open"
-                  i18n:translate="header_actions"
+                  i18n:translate="header_measures"
               >
-                Actions
+                Measures
               </h3>
               <div class="panel-content"
                    id="panel-action-plan"
