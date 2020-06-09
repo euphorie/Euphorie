@@ -204,7 +204,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:311
 msgid "Additional Measure"
-msgstr ""
+msgstr "Mesura addicional"
 
 #: euphorie/client/browser/reset_password.py:163
 msgid ""
@@ -1622,7 +1622,7 @@ msgstr "Afegir responsable nacional"
 #. Default: "Add a custom risk"
 #: euphorie/client/browser/templates/module_identification_custom.pt:29
 msgid "button_add_custom_risk"
-msgstr ""
+msgstr "Afegir un altre risc"
 
 #. Default: "Add a missing measure"
 #: euphorie/content/utils.py:85
@@ -3913,7 +3913,7 @@ msgstr "Fitxer d'imatge"
 #. Default: "Implemented measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:170
 msgid "label_implemented_measure"
-msgstr ""
+msgstr "Mesura implementada"
 
 #. Default: "Introduction text"
 #: euphorie/content/survey.py:73 euphorie/content/templates/survey_view.pt:32

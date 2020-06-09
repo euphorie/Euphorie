@@ -6,6 +6,7 @@ Changelog
 
 - Measures in place: if training module is used, measures can be de-selected
   from appearing in the training
+- Translation updates
 
 11.3.3 (2020-05-26)
 -------------------

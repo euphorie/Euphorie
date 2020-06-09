@@ -201,7 +201,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:311
 msgid "Additional Measure"
-msgstr ""
+msgstr "Papildoma priemonė"
 
 #: euphorie/client/browser/reset_password.py:163
 msgid ""
@@ -3861,7 +3861,7 @@ msgstr "Atvaizdo failas"
 #. Default: "Implemented measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:170
 msgid "label_implemented_measure"
-msgstr ""
+msgstr "Įgyvendinta priemonė"
 
 #. Default: "Introduction text"
 #: euphorie/content/survey.py:73 euphorie/content/templates/survey_view.pt:32

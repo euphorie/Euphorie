@@ -215,7 +215,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:311
 msgid "Additional Measure"
-msgstr ""
+msgstr "Συμπληρωματικό μέτρο"
 
 #: euphorie/client/browser/reset_password.py:163
 msgid ""
@@ -3917,7 +3917,7 @@ msgstr "Μέτρο που έχει ήδη εφαρμοστεί"
 #. Default: "Expertise"
 #: euphorie/client/browser/templates/risk_actionplan.pt:221
 msgid "label_expertise"
-msgstr "Εξειδίκευση"
+msgstr "Εμπειρία/Εξειδίκευση"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:451
@@ -4009,7 +4009,7 @@ msgstr "Αρχείο εικόνας"
 #. Default: "Implemented measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:170
 msgid "label_implemented_measure"
-msgstr ""
+msgstr "Εφαρμοσμένο μέτρο"
 
 #. Default: "Introduction text"
 #: euphorie/content/survey.py:73 euphorie/content/templates/survey_view.pt:32

@@ -197,7 +197,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:311
 msgid "Additional Measure"
-msgstr ""
+msgstr "Aanvullende maatregel"
 
 #: euphorie/client/browser/reset_password.py:163
 msgid ""
@@ -3919,7 +3919,7 @@ msgstr "Afbeelding"
 #. Default: "Implemented measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:170
 msgid "label_implemented_measure"
-msgstr ""
+msgstr "Uitgevoerde maatregel"
 
 #. Default: "Introduction text"
 #: euphorie/content/survey.py:73 euphorie/content/templates/survey_view.pt:32
