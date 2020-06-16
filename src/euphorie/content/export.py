@@ -229,11 +229,7 @@ class ExportSurvey(grok.View):
             node.attrib["external-id"] = solution.external_id
         etree.SubElement(node, "description").text = StripUnwanted(
             solution.description)
-        etree.SubElement(node, "action-plan").text = StripUnwanted(
-            solution.action_plan)
-        if solution.prevention_plan:
-            etree.SubElement(node, "prevention-plan").text = StripUnwanted(
-                solution.prevention_plan)
+        etree.SubElement(node, "action").text = StripUnwanted(solution.action)
         if solution.requirements:
             etree.SubElement(node, "requirements").text = StripUnwanted(
                 solution.requirements)

@@ -185,7 +185,8 @@ class SurveyImporter(object):
         """
         solution = createContentInContainer(risk, "euphorie.solution")
         solution.description = unicode(node.description)
-        solution.action_plan = unicode(getattr(node, "action-plan"))
+        solution.action = unicode(getattr(node, "action", None) or node.description)
+        solution.action_plan = unicode(getattr(node, "action-plan", ""))
         solution.prevention_plan = el_unicode(node, "prevention-plan")
         solution.requirements = el_unicode(node, "requirements")
         solution.external_id = attr_unicode(node, "external-id")
