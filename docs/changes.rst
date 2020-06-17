@@ -4,8 +4,8 @@ Changelog
 11.3.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Fix XML export/import: adjust to new action-plan
+- Translation updates
 
 11.3.4 (2020-06-10)
 -------------------

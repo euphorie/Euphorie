@@ -414,7 +414,7 @@ msgstr "Esborrar la sessió"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:32
 msgid "Describe the risk..."
-msgstr ""
+msgstr "Descriviu el risc…"
 
 #: euphorie/client/templates/report_landing.pt:26
 msgid "Did you like this tool? Share it with your colleagues and friends!"
@@ -3572,7 +3572,7 @@ msgstr "Informe"
 #. Default: "Is this risk acceptable or under control?"
 #: euphorie/content/utils.py:72
 msgid "is_risk_acceptable"
-msgstr ""
+msgstr "Aquest risc és acceptable o sota control?"
 
 #. Default: "Is this risk acceptable or under control? If applicable, ${link_add_measures}."
 #: euphorie/content/utils.py:104
@@ -4276,7 +4276,7 @@ msgstr "Riscos sense mesura"
 #. Default: "Save and add new risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:242
 msgid "label_save_and_add_new"
-msgstr ""
+msgstr "Desar i afegir un nou risc"
 
 #. Default: "Save and continue"
 #: euphorie/client/browser/templates/profile.pt:106
@@ -4890,7 +4890,7 @@ msgstr ""
 #. Default: "Provide some further information on this risk."
 #: euphorie/client/browser/templates/risk_identification_custom.pt:221
 msgid "placeholder_custom_risk_description"
-msgstr ""
+msgstr "Proporcioneu més informació sobre aquest risc."
 
 #. Default: "Describe a measure that is already in place but not yet listed here."
 #: euphorie/content/utils.py:91

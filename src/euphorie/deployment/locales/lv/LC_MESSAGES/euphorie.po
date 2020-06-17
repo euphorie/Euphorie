@@ -4265,7 +4265,7 @@ msgstr "Sāciet jaunu sesiju, atlasot vienu no tālāk minētajiem sektoru rīki
 #: euphorie/client/browser/templates/new-session.pt:54
 #: euphorie/client/browser/templates/portlet-available-tools.pt:71
 msgid "label_select_oira_tool"
-msgstr ""
+msgstr "Izvēlieties OiRA rīku"
 
 #. Default: "Select standard measures"
 #: euphorie/client/browser/templates/risk_actionplan.pt:443
