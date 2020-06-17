@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.3.5 (unreleased)
+11.3.5 (2020-06-17)
 -------------------
 
 - Fix XML export/import: adjust to new action-plan
