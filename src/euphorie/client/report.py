@@ -221,7 +221,12 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
                         else:
                             value = module.title
                 if value is not None:
-                    sheet.cell(row=row, column=column).value = value
+                    cell = sheet.cell(row=row, column=column)
+                    if key == 'number':
+                        # force sting
+                        cell.set_value_explicit(value)
+                    else:
+                        cell.value = value
                 column += 1
             row += 1
         return book
