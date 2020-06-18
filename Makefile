@@ -49,9 +49,9 @@ clean-proto:
 
 prototype:: ## Get the latest version of the prototype
 	@if [ ! -d "prototype" ]; then \
-		git clone git@github.com:syslabcom/oira.prototype.git prototype; \
+		git clone git@github.com:syslabcom/oira.prototype.git prototype; && git checkout paradigm-switch-2020 \
 	else \
-		cd prototype && git pull; \
+		cd prototype && git checkout paradigm-switch-2020 && git pull; \
 	fi;
 
 bundle: prototype
@@ -60,6 +60,10 @@ bundle: prototype
 jekyll: prototype
 	@echo 'DO: rm prototype/stamp-bundler to force Jekyll re-install'
 	@cd prototype && make jekyll
+
+osha: prototype
+	@echo 'DO: rm prototype/stamp-bundler to force Jekyll re-install'
+	@cd prototype && make osha
 
 ## Important: in proto, we need to call `bundle-osha`, not `bundle`, so that the paths are correct
 resources-install:   # bundle
