@@ -4,12 +4,12 @@
 	msgstr ""
 
 	#| msgid message_involve_workers_requirement
-	msgid "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href='https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction'>legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
-	msgstr "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href='https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction'>legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
+	msgid "It's a legal requirement that coworkers participate inthe whole risk assessment process, but you decide how to tackle that."
+	msgstr "It's a legal requirement that coworkers participate inthe whole risk assessment process, but you decide how to tackle that."
 
 	#| msgid message_involve_workers_how_to
-	msgid "Decide on the best way to involve your staff! You can for example conduct a meeting or a focus group with workers and go through the respective parts in the risk assessment together. You can also download or print the content of the tool or parts of it and share it for information and feedback with your workers."
-	msgstr "Decide on the best way to involve your staff! You can for example conduct a meeting or a focus group with workers and go through the respective parts in the risk assessment together. You can also download or print the content of the tool or parts of it and share it for information and feedback with your workers."
+	msgid "You can for example conduct a meeting with all coworkers where you go though the risk assessment together, or you can download the risk assessment as a checklist and send it to your employees so that they can provide you feedback."
+	msgstr "You can for example conduct a meeting with all coworkers where you go though the risk assessment together, or you can download the risk assessment as a checklist and send it to your employees so that they can provide you feedback."
 
 	#| msgid label_clone
 	msgid "Clone"
@@ -272,7 +272,7 @@
 	msgstr "Weitere Elemente hinzufügen"
 
 	#| msgid add_missing_existing_measure
-	msgid "Add another measure implemented already"
+	msgid "Add a missing implemented measure"
 	msgstr "Weitere bestehende Schutzmaßnahme hinzufügen"
 
 	#| msgid describe_item
