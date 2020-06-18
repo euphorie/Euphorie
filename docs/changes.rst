@@ -5,6 +5,7 @@ Changelog
 -------------------
 
 - Excel report: make sure risk numbers are always treated as string
+- Fix broken bundle
 
 11.3.5 (2020-06-17)
 -------------------

@@ -183,7 +183,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "++resource++euphorie.resources/oira/script/";
+/******/ 	__webpack_require__.p = "/assets/oira/script/";
 /******/
 /******/ 	// on error function for async loading
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
@@ -58929,10 +58929,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         $trigger.data('patterns.tooltip-ng', tooltip._mutateOptions(this.options)).on('destroy.pat-tooltip-ng', tooltip._onDestroy);
         this.options = tooltip.parseOptionsForTippy(this.options, $trigger);
         var instance = tippy($trigger[0], this.options);
-        $(instance.popper).css({
-          'max-height': '90%',
-          'overflow-y': 'auto'
-        });
         tooltip.setupShowEvents($trigger);
       });
     },
