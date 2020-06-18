@@ -4,8 +4,7 @@ Changelog
 11.3.7 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Fix broken bundle
 
 11.3.6 (2020-06-18)
 -------------------
