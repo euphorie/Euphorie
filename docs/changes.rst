@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.3.7 (unreleased)
+11.3.7 (2020-06-18)
 -------------------
 
 - Fix broken bundle
