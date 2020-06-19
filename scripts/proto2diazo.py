@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 import os
+import re
 import logging
 import sys
 
@@ -8,7 +9,38 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(sys.argv[0])
 
 THEME_DIR = os.path.join("src", "euphorie", "client", "resources")
-HELP_DIR = os.path.join("src", "euphorie", "client", "resources", "oira", "help")
+HELP_DIR = os.path.join("src", "euphorie", "client",
+                        "resources", "oira", "help")
+
+
+def strip_help(filepath):
+    """ Fix the urls in filepath
+    """
+    logger.info("Rewriting resource URLs in %s", filepath)
+    content = None
+    try:
+        with open(filepath) as f:
+            content = f.read()
+    except:
+        logger.exception("Problem reading %s", filepath)
+        return
+    delta = len(filepath.split("/")) - 7
+    shim = "../" * delta
+    content = content.replace(
+        '="/assets/oira/help/', '="' + shim)
+
+    for folder in ('style', 'script', 'favicon'):
+        content = content.replace(
+            '="/assets/oira/' + folder + '/', '="../' + shim + folder + '/')
+
+    content = content.replace(
+        '="/depts/index', '="++resource++euphorie.resources/oira/depts.html')
+
+    # remove the too navigation
+    p = re.compile('<header id="toolbar">.*</header>',
+                   re.I | re.S | re.L | re.M)
+    stripped = p.sub('', content)
+    open(filepath, "w").write(stripped)
 
 
 def fix_urls(filepath):
@@ -27,12 +59,8 @@ def fix_urls(filepath):
     shim = "../" * delta
 
     content = content.replace(
-        "url(/media/", "url(/++resource++euphorie.resources/media/"
+        "url(/media/", "url(++resource++euphorie.resources/media/"
     )
-    content = content.replace('="/assets/oira/', '="' + shim)
-    content = content.replace('="//assets/oira/', '="' + shim)
-    content = content.replace('="/media/', '="' + shim + "media/")
-    content = content.replace('="/depts/index', '="' + shim + "depts.html")
 
     open(filepath, "w").write(content)
 
@@ -43,7 +71,7 @@ def run():
     for root, dirs, files in os.walk(HELP_DIR):
         for file in files:
             if file.endswith(".html"):
-                fix_urls(os.path.join(root, file))
+                strip_help(os.path.join(root, file))
 
     fix_urls(os.path.join(THEME_DIR, "daimler", "style", "all.css"))
     fix_urls(os.path.join(THEME_DIR, "oira", "style", "all.css"))
