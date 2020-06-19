@@ -40,6 +40,7 @@ class ICountry(form.Schema, IBasic):
                 SimpleTerm(u"potential-candidate-eu",
                     title=_(u"Potential candidate country")),
                 ]),
+            default="eu-member",
             required=True)
 
     form.widget(risk_default_collapsible_sections=CheckBoxFieldWidget)
@@ -120,6 +121,27 @@ class View(grok.View):
             self.sectors.sort(key=lambda s: s["title"].lower())
         except UnicodeDecodeError:
             self.sectors.sort(key=lambda s: s["title"].lower().decode('utf-8'))
+
+
+class Add(dexterity.AddForm):
+    grok.context(ICountry)
+    grok.name("euphorie.country")
+    grok.require("euphorie.content.AddNewRIEContent")
+
+    def updateWidgets(self):
+        super(Add, self).updateWidgets()
+        self.widgets["country_type"].mode = "hidden"
+
+
+class Edit(form.SchemaEditForm):
+    grok.context(ICountry)
+    grok.require("cmf.ModifyPortalContent")
+    grok.layer(NuPloneSkin)
+    grok.name("edit")
+
+    def updateWidgets(self):
+        super(Edit, self).updateWidgets()
+        self.widgets["country_type"].mode = "hidden"
 
 
 class ManageUsers(grok.View):
