@@ -57,7 +57,7 @@ prototype:: ## Get the latest version of the prototype
 bundle: prototype
 	cd prototype && make bundle-osha
 
-jekyll: prototype
+jekyll: 
 	@echo 'DO: rm prototype/stamp-bundler to force Jekyll re-install'
 	@cd prototype && make jekyll
 

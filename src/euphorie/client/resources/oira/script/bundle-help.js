@@ -233,7 +233,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(0),
     __webpack_require__(7),
     __webpack_require__(3),
-    __webpack_require__(4),
+    __webpack_require__(5),
     // below here modules that are only loaded
     __webpack_require__(25),
     __webpack_require__(9)
@@ -402,7 +402,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
     __webpack_require__(0),
     __webpack_require__(7),
-    __webpack_require__(4),
+    __webpack_require__(5),
     __webpack_require__(3)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, _, utils, logger) {
     "use strict";
@@ -860,6 +860,127 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * A Base pattern for creating scoped patterns. It's similar to Backbone's
+ * Model class. The advantage of this approach is that each instance of a
+ * pattern has its own local scope (closure).
+ *
+ * A new instance is created for each DOM element on which a pattern applies.
+ *
+ * You can assign values, such as $el, to `this` for an instance and they
+ * will remain unique to that instance.
+ *
+ * Older Patternslib patterns on the other hand have a single global scope for
+ * all DOM elements.
+ */
+
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+  __webpack_require__(0),
+  __webpack_require__(1),
+  __webpack_require__(27),
+  __webpack_require__(3)
+], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, Registry, mockupParser, logger) {
+    "use strict";
+    var log = logger.getLogger("Patternslib Base");
+
+    var initBasePattern = function initBasePattern($el, options, trigger) {
+        var name = this.prototype.name;
+        var log = logger.getLogger("pat." + name);
+        var pattern = $el.data("pattern-" + name);
+        if (pattern === undefined && Registry.patterns[name]) {
+            try {
+                options = this.prototype.parser  === "mockup" ? mockupParser.getOptions($el, name, options) : options;
+                pattern = new Registry.patterns[name]($el, options, trigger);
+            } catch (e) {
+                log.error("Failed while initializing '" + name + "' pattern.", e);
+            }
+            $el.data("pattern-" + name, pattern);
+        }
+        return pattern;
+    };
+
+    var Base = function($el, options, trigger) {
+        this.$el = $el;
+        this.options = $.extend(true, {}, this.defaults || {}, options || {});
+        this.init($el, options, trigger);
+        this.emit("init");
+    };
+
+    Base.prototype = {
+        constructor: Base,
+        on: function(eventName, eventCallback) {
+            this.$el.on(eventName + "." + this.name + ".patterns", eventCallback);
+        },
+        emit: function(eventName, args) {
+            // args should be a list
+            if (args === undefined) {
+                args = [];
+            }
+            this.$el.trigger(eventName + "." + this.name + ".patterns", args);
+        }
+    };
+
+    Base.extend = function(patternProps) {
+        /* Helper function to correctly set up the prototype chain for new patterns.
+        */
+        var parent = this;
+        var child;
+
+        // Check that the required configuration properties are given.
+        if (!patternProps) {
+            throw new Error("Pattern configuration properties required when calling Base.extend");
+        }
+
+        // The constructor function for the new subclass is either defined by you
+        // (the "constructor" property in your `extend` definition), or defaulted
+        // by us to simply call the parent's constructor.
+        if (patternProps.hasOwnProperty("constructor")) {
+            child = patternProps.constructor;
+        } else {
+            child = function() { parent.apply(this, arguments); };
+        }
+
+        // Allow patterns to be extended indefinitely
+        child.extend = Base.extend;
+
+        // Static properties required by the Patternslib registry 
+        child.init = initBasePattern;
+        child.jquery_plugin = true;
+        child.trigger = patternProps.trigger;
+
+        // Set the prototype chain to inherit from `parent`, without calling
+        // `parent`'s constructor function.
+        var Surrogate = function() { this.constructor = child; };
+        Surrogate.prototype = parent.prototype;
+        child.prototype = new Surrogate();
+
+        // Add pattern's configuration properties (instance properties) to the subclass,
+        $.extend(true, child.prototype, patternProps);
+
+        // Set a convenience property in case the parent's prototype is needed
+        // later.
+        child.__super__ = parent.prototype;
+
+        // Register the pattern in the Patternslib registry.
+        if (!patternProps.name) {
+            log.warn("This pattern without a name attribute will not be registered!");
+        } else if (!patternProps.trigger) {
+            log.warn("The pattern '"+patternProps.name+"' does not " +
+                     "have a trigger attribute, it will not be registered.");
+        } else {
+            Registry.register(child, patternProps.name);
+        }
+        return child;
+    };
+    return Base;
+}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
     __webpack_require__(0),
     __webpack_require__(7),
@@ -1046,7 +1167,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
     function rebaseURL(base, url) {
         if (url.indexOf("://")!==-1 || url[0]==="/" || url.indexOf("data:")===0)
             return url;
-        return base.slice(0, base.lastIndexOf("/")+1) + url;
+        return new URL(base.slice(0, base.lastIndexOf("/")+1) + url, window.location);
     }
 
     function findLabel(input) {
@@ -1355,127 +1476,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
         getCSSValue: getCSSValue
     };
     return utils;
-}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
- * A Base pattern for creating scoped patterns. It's similar to Backbone's
- * Model class. The advantage of this approach is that each instance of a
- * pattern has its own local scope (closure).
- *
- * A new instance is created for each DOM element on which a pattern applies.
- *
- * You can assign values, such as $el, to `this` for an instance and they
- * will remain unique to that instance.
- *
- * Older Patternslib patterns on the other hand have a single global scope for
- * all DOM elements.
- */
-
-!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-  __webpack_require__(0),
-  __webpack_require__(1),
-  __webpack_require__(27),
-  __webpack_require__(3)
-], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, Registry, mockupParser, logger) {
-    "use strict";
-    var log = logger.getLogger("Patternslib Base");
-
-    var initBasePattern = function initBasePattern($el, options, trigger) {
-        var name = this.prototype.name;
-        var log = logger.getLogger("pat." + name);
-        var pattern = $el.data("pattern-" + name);
-        if (pattern === undefined && Registry.patterns[name]) {
-            try {
-                options = this.prototype.parser  === "mockup" ? mockupParser.getOptions($el, name, options) : options;
-                pattern = new Registry.patterns[name]($el, options, trigger);
-            } catch (e) {
-                log.error("Failed while initializing '" + name + "' pattern.", e);
-            }
-            $el.data("pattern-" + name, pattern);
-        }
-        return pattern;
-    };
-
-    var Base = function($el, options, trigger) {
-        this.$el = $el;
-        this.options = $.extend(true, {}, this.defaults || {}, options || {});
-        this.init($el, options, trigger);
-        this.emit("init");
-    };
-
-    Base.prototype = {
-        constructor: Base,
-        on: function(eventName, eventCallback) {
-            this.$el.on(eventName + "." + this.name + ".patterns", eventCallback);
-        },
-        emit: function(eventName, args) {
-            // args should be a list
-            if (args === undefined) {
-                args = [];
-            }
-            this.$el.trigger(eventName + "." + this.name + ".patterns", args);
-        }
-    };
-
-    Base.extend = function(patternProps) {
-        /* Helper function to correctly set up the prototype chain for new patterns.
-        */
-        var parent = this;
-        var child;
-
-        // Check that the required configuration properties are given.
-        if (!patternProps) {
-            throw new Error("Pattern configuration properties required when calling Base.extend");
-        }
-
-        // The constructor function for the new subclass is either defined by you
-        // (the "constructor" property in your `extend` definition), or defaulted
-        // by us to simply call the parent's constructor.
-        if (patternProps.hasOwnProperty("constructor")) {
-            child = patternProps.constructor;
-        } else {
-            child = function() { parent.apply(this, arguments); };
-        }
-
-        // Allow patterns to be extended indefinitely
-        child.extend = Base.extend;
-
-        // Static properties required by the Patternslib registry 
-        child.init = initBasePattern;
-        child.jquery_plugin = true;
-        child.trigger = patternProps.trigger;
-
-        // Set the prototype chain to inherit from `parent`, without calling
-        // `parent`'s constructor function.
-        var Surrogate = function() { this.constructor = child; };
-        Surrogate.prototype = parent.prototype;
-        child.prototype = new Surrogate();
-
-        // Add pattern's configuration properties (instance properties) to the subclass,
-        $.extend(true, child.prototype, patternProps);
-
-        // Set a convenience property in case the parent's prototype is needed
-        // later.
-        child.__super__ = parent.prototype;
-
-        // Register the pattern in the Patternslib registry.
-        if (!patternProps.name) {
-            log.warn("This pattern without a name attribute will not be registered!");
-        } else if (!patternProps.trigger) {
-            log.warn("The pattern '"+patternProps.name+"' does not " +
-                     "have a trigger attribute, it will not be registered.");
-        } else {
-            Registry.register(child, patternProps.name);
-        }
-        return child;
-    };
-    return Base;
 }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
@@ -3217,7 +3217,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
     __webpack_require__(2),
     __webpack_require__(3),
     __webpack_require__(1),
-    __webpack_require__(4),
+    __webpack_require__(5),
     __webpack_require__(32),
     __webpack_require__(33),
     __webpack_require__(9)  // for :scrollable for autoLoading-visible
@@ -3227,7 +3227,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
         TEXT_NODE = 3,
         COMMENT_NODE = 8;
 
-    parser.addArgument("selector");
+    parser.addArgument("default-selector");
     parser.addArgument("target");
     parser.addArgument("data-type", "html");
     parser.addArgument("next-href");
@@ -3277,7 +3277,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             }
             if (cfgs[0].pushMarker) {
                 $('body').on('push', function(event, data) {
+                    console.log('received push message: ' + data);
                     if (data == cfgs[0].pushMarker) {
+                        console.log('re-injecting ' + data);
                         inject.onTrigger.apply($el[0], []);
                     }
                 });
@@ -3445,7 +3447,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                     log.warn("Ignoring additional source ids:", urlparts.slice(2));
                 }
 
-                cfg.selector = cfg.selector || defaultSelector;
+                cfg.defaultSelector = cfg.defaultSelector || defaultSelector;
                 if (cfg.delay) {
                     try {
                         cfg.delay = utils.parseTime(cfg.delay);
@@ -3533,8 +3535,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                 return false;
             }
             // defaults
-            cfg.source = cfg.source || cfg.selector;
-            cfg.target = cfg.target || cfg.selector;
+            cfg.source = cfg.source || cfg.defaultSelector;
+            cfg.target = cfg.target || cfg.defaultSelector;
 
             if (!inject.extractModifiers(cfg)) {
                 return false;
@@ -3864,9 +3866,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             };
             $el.data('pat-inject-triggered', true);
             // possibility for spinners on targets
-            _.chain(cfgs).filter(_.property('loadingClass')).each(function(cfg) { 
+            _.chain(cfgs).filter(_.property('loadingClass')).each(function(cfg) {
                 if (cfg.target  != 'none')
-                    cfg.$target.addClass(cfg.loadingClass); 
+                    cfg.$target.addClass(cfg.loadingClass);
             });
             // Put the execute class on the elem that has pat inject on it
             _.chain(cfgs).filter(_.property('loadingClass')).each(function(cfg) { $el.addClass(cfg.executingClass); });
@@ -3876,7 +3878,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             $el.on("pat-ajax-success.pat-inject pat-ajax-error.pat-inject", function() {
                 $el.removeData('pat-inject-triggered');
             });
-            
+
             if (cfgs[0].url.length) {
                 ajax.request($el, {url: cfgs[0].url});
             } else {
@@ -3905,7 +3907,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
             if (cfg.source === 'none') {
                 $target.replaceWith('');
-                return true;                
+                return true;
             }
             if ($source.length === 0) {
                 log.warn("Aborting injection, source not found:", $source);
@@ -3946,7 +3948,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                 var $source = $html.find(source);
 
                 if ($source.length === 0) {
-                    log.warn("No source elements for selector:", source, $html);
+                    if (source != "title") {
+                        log.warn("No source elements for selector:", source, $html);
+                    }
                 }
 
                 $source.find("a[href^=\"#\"]").each(function () {
@@ -4116,7 +4120,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                         return false;
                     }
                     // check if the target element still exists. Otherwise halt and catch fire
-                    var target = ($el.data("pat-inject")[0].target || cfgs[0].selector).replace(/::element/, '');
+                    var target = ($el.data("pat-inject")[0].target || cfgs[0].defaultSelector).replace(/::element/, '');
                     if (target && target !== 'self' && $(target).length === 0) {
                         return false;
                     }
@@ -4156,7 +4160,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                         return false;
                     }
                     // check if the target element still exists. Otherwise halt and catch fire
-                    var target = ($el.data("pat-inject")[0].target || cfgs[0].selector).replace(/::element/, '');
+                    var target = ($el.data("pat-inject")[0].target || cfgs[0].defaultSelector).replace(/::element/, '');
                     if (target && target !== 'self' && $(target).length === 0) {
                         return false;
                     }
@@ -29296,7 +29300,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
     __webpack_require__(0),
     __webpack_require__(12),
-    __webpack_require__(5),
+    __webpack_require__(4),
     __webpack_require__(1),
     __webpack_require__(2),
     __webpack_require__(7),
@@ -29503,7 +29507,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(0),
     __webpack_require__(1),
     __webpack_require__(3),
-    __webpack_require__(4)
+    __webpack_require__(5)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, patterns, logger, utils) {
     var log = logger.getLogger("checkedflag");
 
@@ -29710,7 +29714,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(9),
     __webpack_require__(2),
     __webpack_require__(1),
-    __webpack_require__(4)
+    __webpack_require__(5)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, dummy, Parser, registry, utils) {
     var parser = new Parser("checklist");
     parser.addArgument("select", ".select-all");
@@ -29958,7 +29962,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
     __webpack_require__(2),
     __webpack_require__(15),
     __webpack_require__(1),
-    __webpack_require__(5),
+    __webpack_require__(4),
     __webpack_require__(9)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, inject, logger, Parser, store, registry, Base) {
     var log = logger.getLogger("pat.collapsible"),
@@ -31225,8 +31229,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
     __webpack_require__(0),
     __webpack_require__(1),
-    __webpack_require__(5),
     __webpack_require__(4),
+    __webpack_require__(5),
     __webpack_require__(3),
     __webpack_require__(35),
     __webpack_require__(2)
@@ -31263,14 +31267,11 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                 log.error("Invalid condition: " + e.message, slave);
                 return;
             }
-
             state=handler.evaluate();
             switch (options.action) {
                 case "show":
-                    if (state)
-                        this.show();
-                    else
-                        this.hide();
+                    utils.hideOrShow($el, state, options, this.name);
+                    this.updateModal();
                     break;
                 case "enable":
                     if (state)
@@ -31280,10 +31281,12 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
                     break;
                 case "both":
                     if (state) {
-                        this.show();
+                        utils.hideOrShow($el, state, options, this.name);
+                        this.updateModal();
                         this.enable();
                     } else {
-                        this.hide();
+                        utils.hideOrShow($el, state, options, this.name);
+                        this.updateModal();
                         this.disable();
                     }
                     break;
@@ -31328,16 +31331,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
             if (this.$modal.length) {
                 $(document).trigger("pat-update", {pattern: "depends"});
             }
-        },
-
-        show: function () {
-            this.$el.show();
-            this.updateModal();
-        },
-
-        hide: function () {
-            this.$el.hide();
-            this.updateModal();
         },
 
         enable: function() {
@@ -31520,7 +31513,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 /* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Promise) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(5), __webpack_require__(1), __webpack_require__(2), __webpack_require__(3), __webpack_require__(10), __webpack_require__(39)], __WEBPACK_AMD_DEFINE_RESULT__ = (function ($, Base, registry, Parser, logger, moment) {
+/* WEBPACK VAR INJECTION */(function(Promise) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(4), __webpack_require__(1), __webpack_require__(2), __webpack_require__(3), __webpack_require__(10), __webpack_require__(39)], __WEBPACK_AMD_DEFINE_RESULT__ = (function ($, Base, registry, Parser, logger, moment) {
   "use strict";
 
   var log = logger.getLogger("pat-display-time");
@@ -33342,7 +33335,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
  *
  * Copyright 2013 Simplon B.V. - Wichert Akkerman
  */
-!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(1), __webpack_require__(2), __webpack_require__(4), __webpack_require__(14)], __WEBPACK_AMD_DEFINE_RESULT__ = (function ($, patterns, Parser, utils, imagesLoaded) {
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(1), __webpack_require__(2), __webpack_require__(5), __webpack_require__(14)], __WEBPACK_AMD_DEFINE_RESULT__ = (function ($, patterns, Parser, utils, imagesLoaded) {
   var parser = new Parser("equaliser");
   parser.addArgument("transition", "none", ["none", "grow"]);
   parser.addArgument("effect-duration", "fast");
@@ -33591,7 +33584,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
  */
 (function (root, factory) {
   if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(3), __webpack_require__(1), __webpack_require__(2), __webpack_require__(5), __webpack_require__(4), __webpack_require__(46), __webpack_require__(14)], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(3), __webpack_require__(1), __webpack_require__(2), __webpack_require__(4), __webpack_require__(5), __webpack_require__(46), __webpack_require__(14)], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
       return factory.apply(this, arguments);
     }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -33750,7 +33743,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_LO
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
     __webpack_require__(0),
-    __webpack_require__(5),
+    __webpack_require__(4),
     __webpack_require__(2),
     __webpack_require__(3),
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, Base, Parser, logger) {
@@ -33876,7 +33869,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
     __webpack_require__(0),
-    __webpack_require__(5),
+    __webpack_require__(4),
     __webpack_require__(2)
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function($, Base, Parser) {
     var parser = new Parser("sortable");
