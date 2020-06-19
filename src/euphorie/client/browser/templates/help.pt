@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+      id="help"
+      meta:interpolation="true"
+      tal:define="webhelpers nocall:context/@@webhelpers;
+                  "
+      metal:use-macro="context/@@shell/macros/shell">
+
+<body>
+  <metal:slot fill-slot="content"
+    tal:define="base_url string:${here/absolute_url}/help">
+    <div id="content-pane">
+      <article class="pat-rich">
+        <h1 i18n:translate="title_help">Help</h1>
+      </article>
+    </div>
+  </metal:slot>
+</body>
+</html>
