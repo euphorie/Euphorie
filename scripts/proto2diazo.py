@@ -37,9 +37,12 @@ def strip_help(filepath):
         '="/depts/index', '="++resource++euphorie.resources/oira/depts.html')
 
     # remove the too navigation
-    p = re.compile('<header id="toolbar">.*</header>',
+    p = re.compile('<header id="toolbar">.*?</header>',
                    re.I | re.S | re.L | re.M)
     stripped = p.sub('', content)
+    p = re.compile('<div id="browser">.*?</div>',
+                   re.I | re.S | re.L | re.M)
+    stripped = p.sub('', stripped)
     open(filepath, "w").write(stripped)
 
 
