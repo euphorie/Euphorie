@@ -99,6 +99,14 @@ class BaseOfficeCompiler(object):
         )
 
     @property
+    @memoize
+    def title_extra_by_sector_mapping(self):
+        return api.portal.get_registry_record(
+            "euphorie.client.docx.title_extra_by_sector_mapping",
+            default={}
+        )
+
+    @property
     def title_custom_risks(self):
         return translate(_(
             'title_other_risks', default=u'Added risks (by you)'),
@@ -568,7 +576,7 @@ class DocxCompilerFullTable(DocxCompiler):
         header = self.template.sections[self.sections_offset].header
         header.paragraphs[1].text = (
             u"{title}{extra}".format(
-                title=data['survey_title'], extra=self.title_extra)
+                title=data['survey_title'], extra=self.title_extra.strip())
         )
 
         # And now we handle the document footer
@@ -764,13 +772,21 @@ class DocxCompilerFullTable(DocxCompiler):
 class DocxCompilerFrance(DocxCompilerFullTable):
 
     @property
-    def _base_filename(self):
-        key = "{country}.{sector}".format(
+    @memoize
+    def registry_key(self):
+        return "{country}.{sector}".format(
             country=self.webhelpers.country, sector=self.webhelpers.sector.id
         )
-        return self.template_by_sector_mapping.get(key, "oira_fr.docx")
 
-    title_extra = u"- Evaluation des risques professionnels"
+    @property
+    def _base_filename(self):
+        return self.template_by_sector_mapping.get(self.registry_key, "oira_fr.docx")
+
+    @property
+    def title_extra(self):
+        return self.title_extra_by_sector_mapping.get(
+            self.registry_key, u"- Evaluation des risques professionnels"
+        )
 
 
 class DocxCompilerItaly(DocxCompilerFullTable):

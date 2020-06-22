@@ -10,6 +10,7 @@
       <element key="fr.peches-maritimes">oira_fr_imp.docx</element>
       <element key="fr.cultures-marines">oira_fr_imp.docx</element>
       <element key="fr.navires-a-passagers">oira_fr_imp.docx</element>
+      <element key="fr.covid">oira_fr_covid.docx</element>
     </value>
   </record>
 </registry>
