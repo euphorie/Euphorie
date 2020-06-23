@@ -231,7 +231,7 @@ msgstr ""
 
 #: euphorie/content/utils.py:95
 msgid "Are the measures that are selected above sufficient?"
-msgstr ""
+msgstr "Les mesures seleccionades són suficients?"
 
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:25
 msgid "Are you sure you want to archive this session?"
@@ -1627,7 +1627,7 @@ msgstr "Afegir un altre risc"
 #. Default: "Add a missing measure"
 #: euphorie/content/utils.py:85
 msgid "button_add_existing_measure"
-msgstr ""
+msgstr "Afegir una altra mesura ja implementada"
 
 #. Default: "Add ${typename}"
 #: euphorie/deployment/tiles/templates/addbar.pt:24
@@ -1724,7 +1724,7 @@ msgstr "Publicar"
 #. Default: "Remove this existing measure"
 #: euphorie/content/utils.py:88
 msgid "button_remove_existing_measure"
-msgstr ""
+msgstr "Eliminar aquesta mesura existent"
 
 #. Default: "Save changes"
 #: euphorie/content/templates/settings.pt:90
@@ -4077,7 +4077,7 @@ msgstr "No aplicable"
 #. Default: "No, more measures are required"
 #: euphorie/content/utils.py:100
 msgid "label_not_sufficient"
-msgstr ""
+msgstr "No, calen més mesures"
 
 #. Default: "Current Password"
 #: euphorie/client/settings.py:47
@@ -4525,7 +4525,7 @@ msgstr "Sí"
 #. Default: "Yes, the remaining risk is acceptable"
 #: euphorie/content/utils.py:97
 msgid "label_yes_sufficient"
-msgstr ""
+msgstr "Sí, el risc residual és acceptable"
 
 #. Default: "Last edited by ${name} on ${date}."
 #: euphorie/client/browser/templates/publication_menu.pt:39
@@ -4895,7 +4895,7 @@ msgstr "Proporcioneu més informació sobre aquest risc."
 #. Default: "Describe a measure that is already in place but not yet listed here."
 #: euphorie/content/utils.py:91
 msgid "placeholder_new_existing"
-msgstr ""
+msgstr "Descriviu una mesura ja implementada però no inclosa aquí"
 
 #. Default: "Versions"
 #: euphorie/deployment/tiles/templates/versions.pt:11
@@ -5165,7 +5165,7 @@ msgstr "Rellevància: ${percentage}"
 #. Default: "Select or add any measures that are <strong>already in place</strong>."
 #: euphorie/content/utils.py:81
 msgid "select_add_existing_measure"
-msgstr ""
+msgstr "Seleccioneu o afegiu mesures <strong>ja implementades</strong>."
 
 #. Default: "Not very severe"
 #: euphorie/client/browser/templates/webhelpers.pt:419
