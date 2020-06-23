@@ -422,9 +422,13 @@ class IdentificationView(BrowserView):
             if self.use_existing_measures:
                 self.answer_yes = tool_type_data["answer_yes"]
                 self.answer_no = tool_type_data["answer_no"]
-        self.button_add_extra = tool_type_data.get("button_add_extra", "")
         self.intro_questions = tool_type_data.get("intro_questions", "")
-        self.placeholder_add_extra = tool_type_data.get("placeholder_add_extra", "")
+        if getattr(self.risk, "risk_always_present", False):
+            self.placeholder_add_extra = tool_type_data.get("placeholder_add_extra_always_present", "")
+            self.button_add_extra = tool_type_data.get("button_add_extra_always_present", "")
+        else:
+            self.placeholder_add_extra = tool_type_data.get("placeholder_add_extra", "")
+            self.button_add_extra = tool_type_data.get("button_add_extra", "")
         self.button_remove_extra = ""
         if self.use_existing_measures:
             measures = self.get_existing_measures()
@@ -433,8 +437,12 @@ class IdentificationView(BrowserView):
             # In this case, also change some labels
             if len(measures):
                 self.show_existing_measures = True
-                self.intro_extra = tool_type_data.get("intro_extra", "")
-                self.button_remove_extra = tool_type_data.get("button_remove_extra", "")
+                if getattr(self.risk, "risk_always_present", False):
+                    self.intro_extra = tool_type_data.get("intro_extra_always_present", "")
+                    self.button_remove_extra = tool_type_data.get("button_remove_extra_always_present", "")
+                else:
+                    self.intro_extra = tool_type_data.get("intro_extra", "")
+                    self.button_remove_extra = tool_type_data.get("button_remove_extra", "")
                 self.answer_yes = tool_type_data["answer_yes"]
                 self.answer_no = tool_type_data["answer_no"]
                 self.answer_na = tool_type_data["answer_na"]

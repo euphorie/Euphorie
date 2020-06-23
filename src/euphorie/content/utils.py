@@ -62,9 +62,13 @@ TOOL_TYPES = OrderedDict([
             u"Classic OiRA Tool with positive and negative statements."),
         "description": "",
         "intro_extra": "",
+        "intro_extra_always_present": "",
         "button_add_extra": "",
+        "button_add_extra_always_present": "",
         "button_remove_extra": "",
+        "button_remove_extra_always_present": "",
         "placeholder_add_extra": "",
+        "placeholder_add_extra_always_present": "",
         "intro_questions": "",
         "answer_yes": _("label_yes", default=u"Yes"),
         "answer_no": _("label_no", default=u"No"),
@@ -82,13 +86,27 @@ TOOL_TYPES = OrderedDict([
             "select_add_existing_measure",
             default=u"Select or add any measures that are <strong>already in "
             u"place</strong>."),
+        "intro_extra_always_present": _(
+            "select_add_existing_measure",
+            default=u"Select or add any measures that are <strong>already in "
+            u"place</strong>."),
         "button_add_extra": _(
+            "button_add_existing_measure",
+            default=u"Add another measure implemented already"),
+        "button_add_extra_always_present": _(
             "button_add_existing_measure",
             default=u"Add another measure implemented already"),
         "button_remove_extra": _(
             "button_remove_existing_measure",
             default=u"Remove this existing measure"),
+        "button_remove_extra_always_present": _(
+            "button_remove_existing_measure",
+            default=u"Remove this existing measure"),
         "placeholder_add_extra": _(
+            "placeholder_new_existing",
+            default=u"Describe a measure that is already in place but not yet "
+            u"listed here."),
+        "placeholder_add_extra_always_present": _(
             "placeholder_new_existing",
             default=u"Describe a measure that is already in place but not yet "
             u"listed here."),
