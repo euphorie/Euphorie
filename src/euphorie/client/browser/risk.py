@@ -183,7 +183,6 @@ class IdentificationView(BrowserView):
             asBool(settings.get("use_existing_measures", False))
             and self.my_tool_type in self.tti.types_existing_measures
         )
-        self.use_training_module = asBool(settings.get("use_training_module", False))
 
         if self.request.method == "POST":
             reply = self.request.form
@@ -286,7 +285,7 @@ class IdentificationView(BrowserView):
                     self.context.action_plans.extend(new_measures)
                     changed = True
 
-            if self.use_training_module:
+            if self.webhelpers.use_training_module:
                 if reply.get("handle_training_notes"):
                     self.context.training_notes = reply.get("training_notes")
                     changed = True
