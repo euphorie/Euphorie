@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.3.8 (unreleased)
+11.3.8 (2020-06-24)
 -------------------
 
 - Docx report: make it possible to define extra text for the title per sector;
