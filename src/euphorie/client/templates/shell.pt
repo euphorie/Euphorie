@@ -157,6 +157,26 @@
                   >Preparation</a>
                 </li>
                 <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
+                    id="step-involve"
+                    tal:condition="webhelpers/use_involve_phase"
+                    tal:define="
+                      active python:page_section == 'involve' and 'active' or '';
+                      disabled python:page_section == '';
+                    "
+                >
+                  <a class="involve pat-switch pat-inject"
+                     href="${webhelpers/traversed_session/absolute_url}/@@involve#content"
+                     data-pat-inject="history: record"
+                     data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
+                     tal:condition="not:disabled"
+                     i18n:translate="label_involve"
+                  >Involve</a>
+                  <a class="involve"
+                     tal:condition="disabled"
+                     i18n:translate="label_involve"
+                  >Involve</a>
+                </li>
+                <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
                     id="step-2"
                     tal:define="
                       active python:page_section == 'identification';

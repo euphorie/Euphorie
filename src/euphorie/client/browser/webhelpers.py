@@ -56,6 +56,7 @@ logger = getLogger(__name__)
 # XXX should to to config (registry?)
 NAME_TO_PHASE = {
     'start': 'preparation',
+    'involve': 'involve',
     'profile': 'preparation',
     'identification': 'identification',
     'customization': 'identification',
@@ -134,6 +135,11 @@ class WebHelpers(BrowserView):
     @memoize
     def allow_guest_accounts(self):
         return asBool(self._settings.get('allow_guest_accounts', False))
+
+    @property
+    @memoize
+    def use_involve_phase(self):
+        return asBool(self._settings.get('use_involve_phase', False))
 
     @property
     @memoize
