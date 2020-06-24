@@ -6,6 +6,7 @@ Changelog
 
 - Docx report: make it possible to define extra text for the title per sector;
   add a custom template for the French COVID tool
+- Translation updates
 
 11.3.7 (2020-06-18)
 -------------------
