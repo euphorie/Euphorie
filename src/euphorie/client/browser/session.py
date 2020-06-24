@@ -237,7 +237,10 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
 
     id_patt = re.compile("pq([0-9]*)\.present")
     variation_class = "variation-risk-assessment"
-    next_view_name = "@@identification"
+
+    @property
+    def next_view_name(self):
+        return "@@involve" if self.webhelpers.use_involve_phase else "@@identification"
 
     @property
     def template(self):
@@ -419,7 +422,18 @@ class Update(Profile):
     detailed instructions for the user.
     """
 
+
+class Involve(SessionMixin, BrowserView):
+    """Inform the user about options for involving coworkers."""
+
+    variation_class = "variation-risk-assessment"
     next_view_name = "@@identification"
+
+    def next_url(self):
+        return "{context_url}/{target}".format(
+                    context_url=self.context.absolute_url(),
+                    target=self.next_view_name,
+                )
 
 
 class ContentsPreview(BrowserView):
