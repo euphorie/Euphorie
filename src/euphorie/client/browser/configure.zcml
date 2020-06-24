@@ -125,6 +125,15 @@
       />
 
   <browser:page
+      name="involve"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".session.Involve"
+      template="templates/involve.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="identification"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
