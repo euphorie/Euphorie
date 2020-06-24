@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.3.9 (unreleased)
+11.3.9 (2020-06-24)
 -------------------
 
 - Translation updates
