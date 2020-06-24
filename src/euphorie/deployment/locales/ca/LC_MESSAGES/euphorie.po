@@ -3816,7 +3816,7 @@ msgstr "Fase d'avaluació"
 #. Default: "Measure already implemented"
 #: euphorie/client/docx/compiler.py:359
 msgid "label_existing_measure"
-msgstr ""
+msgstr "Mesura implementada"
 
 #. Default: "Expertise"
 #: euphorie/client/browser/templates/risk_actionplan.pt:221
