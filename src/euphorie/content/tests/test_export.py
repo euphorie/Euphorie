@@ -53,8 +53,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
     def testSolution_Minimal(self):
         solution = Solution()
         solution.description = u"<p>Test description</p>"
-        solution.action_plan = u"Sample action plan"
-        solution.prevention_plan = None
+        solution.action = u"Sample action plan"
         solution.requirements = None
         root = self.root()
         view = ExportSurvey(None, None)
@@ -65,15 +64,14 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             '<solution xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <description>&lt;p&gt;Test description&lt;/p&gt;'
             '</description>\n'
-            '  <action-plan>Sample action plan</action-plan>\n'
+            '  <action>Sample action plan</action>\n'
             '</solution>\n'
         )
 
     def testSolution_Complete(self):
         solution = Solution()
         solution.description = u"<p>Tést description</p>"
-        solution.action_plan = u"Sample actiøn plan"
-        solution.prevention_plan = u"Sample prevention plån"
+        solution.action = u"Sample actiøn plan"
         solution.requirements = u"Requîrements"
         root = self.root()
         view = ExportSurvey(None, None)
@@ -83,9 +81,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             '<solution xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <description>&lt;p&gt;T&#233;st description&lt;/p&gt;'
             '</description>\n'
-            '  <action-plan>Sample acti&#248;n plan</action-plan>\n'
-            '  <prevention-plan>Sample prevention pl&#229;n'
-            '</prevention-plan>\n'
+            '  <action>Sample acti&#248;n plan</action>\n'
             '  <requirements>Requ&#238;rements</requirements>\n'
             '</solution>\n'
         )
@@ -244,8 +240,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         risk.show_notapplicable = False
         solution = Solution()
         solution.description = u"<p>Test description</p>"
-        solution.action_plan = u"Sample action plan"
-        solution.prevention_plan = None
+        solution.action = u"Sample action plan"
         solution.requirements = None
         risk._setOb('1', solution)
         root = self.root()
@@ -265,7 +260,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             '      <solution>\n'
             '        <description>&lt;p&gt;Test description&lt;/p&gt;'
             '</description>\n'
-            '        <action-plan>Sample action plan</action-plan>\n'
+            '        <action>Sample action plan</action>\n'
             '      </solution>\n'
             '    </solutions>\n'
             '  </risk>\n'
