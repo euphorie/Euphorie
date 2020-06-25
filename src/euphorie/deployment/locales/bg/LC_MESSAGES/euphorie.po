@@ -82,6 +82,7 @@ msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
 msgstr "${provide-evidence} пред контролните органи (Инспекцията по труда)"
 
 #: euphorie/client/browser/templates/webhelpers.pt:305
+#: euphorie/client/browser/templates/webhelpers.pt:306
 msgid "${view/description_probability}"
 msgstr ""
 
@@ -200,6 +201,7 @@ msgid "Added a copy of \"${title}\" to your OiRA tool."
 msgstr ""
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:311
+#: euphorie/client/browser/templates/webhelpers.pt:812
 msgid "Additional Measure"
 msgstr "Допълнителна мярка"
 
@@ -226,7 +228,7 @@ msgstr ""
 msgid "Archive risk assessment"
 msgstr ""
 
-#: euphorie/content/utils.py:95
+#: euphorie/content/utils.py:95 euphorie/content/utils.py:113
 msgid "Are the measures that are selected above sufficient?"
 msgstr "Достатъчни ли са избраните по-горе мерки?"
 
@@ -238,7 +240,7 @@ msgstr ""
 msgid "Are you sure you want to continue? This action can not be reverted."
 msgstr ""
 
-#: euphorie/client/browser/risk.py:852
+#: euphorie/client/browser/risk.py:852 euphorie/client/browser/risk.py:54
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -325,7 +327,7 @@ msgstr "Пример с клиент за многократни появи."
 msgid "Close"
 msgstr ""
 
-#: euphorie/content/country.py:60
+#: euphorie/content/country.py:60 euphorie/content/country.py:63
 msgid "Comments"
 msgstr ""
 
@@ -411,6 +413,7 @@ msgid "Delete this session"
 msgstr "Изтриване на тази сесия"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:32
+#: euphorie/client/browser/templates/risk_identification_custom.pt:45
 msgid "Describe the risk..."
 msgstr "Опишете риска…"
 
@@ -573,6 +576,7 @@ msgstr ""
 "сте прекъснали."
 
 #: euphorie/client/browser/webhelpers.py:750
+#: euphorie/client/browser/webhelpers.py:755
 msgid "I wish to share the following with you"
 msgstr "Искам да споделя следното с вас"
 
@@ -580,7 +584,7 @@ msgstr "Искам да споделя следното с вас"
 msgid "Identifier"
 msgstr "Идентификатор"
 
-#: euphorie/content/upload.py:419
+#: euphorie/content/upload.py:419 euphorie/content/upload.py:421
 msgid "Import OiRA Tool version"
 msgstr ""
 
@@ -589,15 +593,17 @@ msgid "Important"
 msgstr "Важно"
 
 #: euphorie/client/templates/plain.pt:181 euphorie/client/templates/shell.pt:96
+#: euphorie/client/templates/shell.pt:99
 msgid "Info"
 msgstr "Информация"
 
 #: euphorie/content/country.py:58 euphorie/content/templates/settings.pt:35
 #: euphorie/content/templates/surveygroup_add.pt:81
+#: euphorie/content/country.py:61
 msgid "Information"
 msgstr "Информация"
 
-#: euphorie/client/browser/risk.py:557
+#: euphorie/client/browser/risk.py:557 euphorie/client/browser/risk.py:869
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
 msgstr ""
 "Невалиден формат на файла на изображението. Моля, използвайте PNG, JPEG или "
@@ -639,6 +645,7 @@ msgid "Learn more about this tool&hellip;"
 msgstr "Научете повече за този инструмент…"
 
 #: euphorie/client/templates/shell.pt:303
+#: euphorie/client/templates/shell.pt:321
 msgid "Loading Risk Assessments&hellip;"
 msgstr ""
 
@@ -652,6 +659,7 @@ msgstr "Управление"
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:308
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
+#: euphorie/client/browser/templates/webhelpers.pt:809
 msgid "Measure"
 msgstr "Мярка"
 
@@ -724,6 +732,7 @@ msgstr "Нова"
 
 #: euphorie/client/browser/templates/profile.pt:49
 #: euphorie/client/browser/templates/updated.pt:32
+#: euphorie/content/templates/survey_view.pt:31
 msgid "No"
 msgstr "Не"
 
@@ -757,7 +766,7 @@ msgstr ""
 msgid "OiRA Tool version"
 msgstr "Версия на OiRA инструмента"
 
-#: euphorie/content/utils.py:77
+#: euphorie/content/utils.py:77 euphorie/content/utils.py:81
 msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
 msgstr ""
 "OiRA инструмент, при който могат да бъдат определени „вече въведени мерки“."
@@ -810,12 +819,14 @@ msgstr "Онлайн помощ"
 #: euphorie/client/browser/session.py:968
 #: euphorie/client/browser/templates/measures_overview.pt:61
 #: euphorie/client/templates/report_landing.pt:162
+#: euphorie/client/browser/session.py:972
 msgid "Overview of measures"
 msgstr "Обзор на мерките"
 
 #: euphorie/client/browser/session.py:958
 #: euphorie/client/browser/templates/risks_overview.pt:152
 #: euphorie/client/templates/report_landing.pt:134
+#: euphorie/client/browser/session.py:962
 msgid "Overview of risks"
 msgstr "Преглед на рисковете"
 
@@ -943,6 +954,8 @@ msgstr ""
 #: euphorie/client/browser/templates/profile.pt:69
 #: euphorie/client/browser/templates/risk_actionplan.pt:189
 #: euphorie/client/browser/templates/risk_identification_custom.pt:207
+#: euphorie/client/browser/templates/risk_identification_custom.pt:255
+#: euphorie/client/browser/templates/updated.pt:52
 msgid "Remove"
 msgstr "Премахване"
 
@@ -950,7 +963,7 @@ msgstr "Премахване"
 msgid "Republic of Serbia"
 msgstr "Република Сърбия"
 
-#: euphorie/content/country.py:59
+#: euphorie/content/country.py:59 euphorie/content/country.py:62
 msgid "Resources: Legal references and attachments"
 msgstr ""
 
@@ -1068,6 +1081,7 @@ msgid "Standard"
 msgstr "Стандарт"
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:126
+#: euphorie/client/browser/templates/webhelpers.pt:627
 msgid "Standard measures"
 msgstr "Основни мерки"
 
@@ -1143,7 +1157,7 @@ msgstr ""
 "Основната структура на Инструмента за онлайн интерактивна оценка на риска се "
 "състои от:"
 
-#: euphorie/client/browser/risk.py:858
+#: euphorie/client/browser/risk.py:858 euphorie/client/browser/risk.py:60
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -1165,7 +1179,7 @@ msgstr ""
 msgid "The help text for the client."
 msgstr "Помощният текст за клиента."
 
-#: euphorie/content/survey.py:74
+#: euphorie/content/survey.py:74 euphorie/content/survey.py:75
 msgid ""
 "The introduction text is shown when starting a new OiRA Tool session. If no "
 "introduction is provided here a standard text will be shown. Please keep "
@@ -1277,15 +1291,17 @@ msgstr ""
 msgid "Unvisited"
 msgstr "Без отговор"
 
-#: euphorie/content/upload.py:423
+#: euphorie/content/upload.py:423 euphorie/content/upload.py:425
 msgid "Upload"
 msgstr "Качване"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:198
+#: euphorie/client/browser/templates/risk_identification_custom.pt:244
 msgid "Upload an image that illustrates this risk."
 msgstr "Поставяне на изображение, което илюстрира този риск."
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:217
+#: euphorie/client/browser/templates/risk_identification_custom.pt:265
 msgid "Upload image"
 msgstr "Поставяне на изображение"
 
@@ -1331,6 +1347,7 @@ msgstr "Защо да се регистрирам?"
 
 #: euphorie/client/browser/templates/profile.pt:48
 #: euphorie/client/browser/templates/updated.pt:31
+#: euphorie/content/templates/survey_view.pt:30
 msgid "Yes"
 msgstr "Да"
 
@@ -1531,6 +1548,7 @@ msgstr "микро- и малките предприятия имат някои
 
 #. Default: "Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary."
 #: euphorie/client/browser/templates/risk_actionplan.pt:254
+#: euphorie/client/browser/templates/webhelpers.pt:755
 msgid "actionplan_measure_budget_tooltip"
 msgstr ""
 "Макар и да има някои мерки, които не са свързани с разходи, повечето са. "
@@ -1539,6 +1557,7 @@ msgstr ""
 
 #. Default: "Appoint someone in your company to be responsible for the implementation of this measure. This person will have the authority to take the steps described in the Plan and/or the responsibility to ensure that they are carried out."
 #: euphorie/client/browser/templates/risk_actionplan.pt:236
+#: euphorie/client/browser/templates/webhelpers.pt:737
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
 "Назначете някой във Вашата фирма, който да поеме отговорността за "
@@ -1548,6 +1567,7 @@ msgstr ""
 
 #. Default: "Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)"
 #: euphorie/client/browser/templates/risk_actionplan.pt:334
+#: euphorie/client/browser/templates/webhelpers.pt:835
 msgid "actionplan_measure_tooltip"
 msgstr ""
 "Опишете: 1) какъв е общият Ви подход за елиминиране или (ако рискът е "
@@ -1556,6 +1576,7 @@ msgstr ""
 
 #. Default: "Describe: 3) the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any)."
 #: euphorie/client/browser/templates/risk_actionplan.pt:349
+#: euphorie/client/browser/templates/webhelpers.pt:850
 msgid "actionplan_requirements_tooltip"
 msgstr ""
 "Опишете: 3) експертното ниво, което е необходимо, за да бъде изпълнена "
@@ -1621,6 +1642,7 @@ msgstr "${Risks}: положителни твърдения, които се с�
 
 #. Default: "Add"
 #: euphorie/client/browser/templates/risk_actionplan.pt:146
+#: euphorie/client/browser/templates/webhelpers.pt:647
 msgid "button_add"
 msgstr "Добави"
 
@@ -1634,8 +1656,11 @@ msgstr "Добавяне на мениджър на страна"
 msgid "button_add_custom_risk"
 msgstr "Добавете обичаен риск."
 
+#. #-#-#-#-#  .merge_file_sLMLWu (Euphorie 3.0.2dev)  #-#-#-#-#
 #. Default: "Add a missing measure"
-#: euphorie/content/utils.py:85
+#. #-#-#-#-#  .merge_file_VQ7SfV (Euphorie 3.0.2dev)  #-#-#-#-#
+#. Default: "Add another measure implemented already"
+#: euphorie/content/utils.py:85 euphorie/content/utils.py:93
 msgid "button_add_existing_measure"
 msgstr "Добавете липсваща мярка."
 
@@ -1669,6 +1694,7 @@ msgstr "Отменяне"
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:93
 #: euphorie/client/browser/webhelpers.py:747
+#: euphorie/client/browser/webhelpers.py:752
 msgid "button_close"
 msgstr "затвори"
 
@@ -1732,7 +1758,7 @@ msgid "button_publish"
 msgstr "Публикуване"
 
 #. Default: "Remove this existing measure"
-#: euphorie/content/utils.py:88
+#: euphorie/content/utils.py:88 euphorie/content/utils.py:99
 msgid "button_remove_existing_measure"
 msgstr ""
 
@@ -1775,7 +1801,7 @@ msgid "button_updated"
 msgstr "Актуализиран"
 
 #. Default: "Upload"
-#: euphorie/content/upload.py:462
+#: euphorie/content/upload.py:462 euphorie/content/upload.py:464
 msgid "button_upload"
 msgstr "Качване"
 
@@ -2003,6 +2029,7 @@ msgstr ""
 
 #. Default: "The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk &ndash; if you consider it necessary &ndash; in the action plan."
 #: euphorie/client/browser/templates/webhelpers.pt:542
+#: euphorie/client/browser/templates/webhelpers.pt:543
 msgid "description_automatic_evaluation"
 msgstr ""
 "Оценката на риска е  извършена автоматично от инструмента. Ще имате "
@@ -2036,14 +2063,14 @@ msgid "description_tool_category"
 msgstr ""
 
 #. Default: "If you enter text here, it will be shown to users in a pop-up when they open the tool. It can be used for notifying users about changes."
-#: euphorie/content/survey.py:121
+#: euphorie/content/survey.py:121 euphorie/content/survey.py:133
 msgid "description_tool_notification"
 msgstr ""
 "Ако въведете текст тук, той ще се покаже на потребителите при отваряне на "
 "инструмента. Може да се използва за уведомяване на потребителите за промени."
 
 #. Default: "This selection determines, which variant of an OiRA Tool will be created. If you are not sure, select \"Classic\"."
-#: euphorie/content/survey.py:110
+#: euphorie/content/survey.py:110 euphorie/content/survey.py:111
 msgid "description_tool_type"
 msgstr ""
 "Този избор определя кой вариант на OiRA инструмент ще бъде създаден. Ако се "
@@ -2098,16 +2125,19 @@ msgstr "Високо (много високо) ниво на сериознос�
 
 #. Default: "Weak severity"
 #: euphorie/client/browser/templates/webhelpers.pt:375
+#: euphorie/client/browser/templates/webhelpers.pt:376
 msgid "effect_injury_no_absence"
 msgstr "Ниско ниво на сериозност"
 
 #. Default: "Significant severity"
 #: euphorie/client/browser/templates/webhelpers.pt:381
+#: euphorie/client/browser/templates/webhelpers.pt:382
 msgid "effect_injury_with_absence"
 msgstr "Значително ниво на сериозност"
 
 #. Default: "High (very high) severity"
 #: euphorie/client/browser/templates/webhelpers.pt:387
+#: euphorie/client/browser/templates/webhelpers.pt:388
 msgid "effect_permanent_damage"
 msgstr "Високо (много високо) ниво на сериозност"
 
@@ -2186,6 +2216,7 @@ msgstr "Това име за вход вече се използва."
 
 #. Default: "Please enter the budget in whole Euros."
 #: euphorie/client/browser/templates/risk_actionplan.pt:250
+#: euphorie/client/browser/templates/webhelpers.pt:751
 msgid "error_invalid_budget"
 msgstr "Моля, въведете бюджета в цели евро."
 
@@ -2200,7 +2231,7 @@ msgid "error_invalid_login"
 msgstr "Името за вход може да се състои само от малки букви и цифри."
 
 #. Default: "Please upload a valid XML file"
-#: euphorie/content/upload.py:434
+#: euphorie/content/upload.py:434 euphorie/content/upload.py:436
 msgid "error_invalid_xml"
 msgstr "Моля, качете валиден XML файл"
 
@@ -2221,17 +2252,17 @@ msgid "error_password_mismatch"
 msgstr "Паролите не съвпадат"
 
 #. Default: "This date must be on or after the start date."
-#: euphorie/client/browser/risk.py:871
+#: euphorie/client/browser/risk.py:871 euphorie/client/browser/risk.py:73
 msgid "error_validation_after_start_date"
 msgstr "Тази дата трябва да съвпада или да е след началната дата."
 
 #. Default: "This date must be on or before the end date."
-#: euphorie/client/browser/risk.py:865
+#: euphorie/client/browser/risk.py:865 euphorie/client/browser/risk.py:67
 msgid "error_validation_before_end_date"
 msgstr "Тази дата трябва да е преди или да съвпада с крайната дата."
 
 #. Default: "This value must be a positive whole number."
-#: euphorie/client/browser/risk.py:877
+#: euphorie/client/browser/risk.py:877 euphorie/client/browser/risk.py:79
 msgid "error_validation_positive_whole_number"
 msgstr "Тази стойност трябва да е положително цяло число."
 
@@ -2343,6 +2374,7 @@ msgstr ""
 
 #. Default: "This risk was automatically set as being present. You cannot change this."
 #: euphorie/client/browser/templates/webhelpers.pt:245
+#: euphorie/client/browser/templates/webhelpers.pt:246
 msgid "explanation_risk_always_present"
 msgstr ""
 
@@ -2351,17 +2383,17 @@ msgid "extra_text_identification"
 msgstr ""
 
 #. Default: "Action plan ${title}"
-#: euphorie/client/docx/views.py:271
+#: euphorie/client/docx/views.py:271 euphorie/client/docx/views.py:272
 msgid "filename_report_actionplan"
 msgstr "План за действие ${title}"
 
 #. Default: "Identification report ${title}"
-#: euphorie/client/docx/views.py:314
+#: euphorie/client/docx/views.py:314 euphorie/client/docx/views.py:315
 msgid "filename_report_identification"
 msgstr "Идентификационен доклад ${title}"
 
 #. Default: "Timeline for ${title}"
-#: euphorie/client/report.py:238
+#: euphorie/client/report.py:238 euphorie/client/report.py:243
 msgid "filename_report_timeline"
 msgstr "Времева скала за ${title}"
 
@@ -2377,6 +2409,7 @@ msgstr "Опростени два критерия"
 
 #. Default: "Almost never"
 #: euphorie/client/browser/templates/webhelpers.pt:345
+#: euphorie/client/browser/templates/webhelpers.pt:346
 msgid "frequency_almost_never"
 msgstr "Почти никога"
 
@@ -2388,56 +2421,66 @@ msgstr "Почти никога"
 #. Default: "Constantly"
 #: euphorie/client/browser/templates/webhelpers.pt:357
 #: euphorie/content/risk.py:419
+#: euphorie/client/browser/templates/webhelpers.pt:358
 msgid "frequency_constantly"
 msgstr "Постоянно"
 
 #. Default: "Not very often"
 #: euphorie/client/browser/templates/webhelpers.pt:478
 #: euphorie/content/risk.py:370
+#: euphorie/client/browser/templates/webhelpers.pt:479
 msgid "frequency_french_not_often"
 msgstr "Не много често"
 
 #. Default: "Once per month"
 #: euphorie/client/browser/templates/webhelpers.pt:479
+#: euphorie/client/browser/templates/webhelpers.pt:480
 msgid "frequency_french_not_often_help"
 msgstr "Веднъж месечно"
 
 #. Default: "Often"
 #: euphorie/client/browser/templates/webhelpers.pt:490
 #: euphorie/content/risk.py:373
+#: euphorie/client/browser/templates/webhelpers.pt:491
 msgid "frequency_french_often"
 msgstr "Често"
 
 #. Default: "Once per week"
 #: euphorie/client/browser/templates/webhelpers.pt:491
+#: euphorie/client/browser/templates/webhelpers.pt:492
 msgid "frequency_french_often_help"
 msgstr "Един път седмично"
 
 #. Default: "Rare"
 #: euphorie/client/browser/templates/webhelpers.pt:466
 #: euphorie/content/risk.py:368
+#: euphorie/client/browser/templates/webhelpers.pt:467
 msgid "frequency_french_rare"
 msgstr "Рядко"
 
 #. Default: "Once per year"
 #: euphorie/client/browser/templates/webhelpers.pt:467
+#: euphorie/client/browser/templates/webhelpers.pt:468
 msgid "frequency_french_rare_help"
 msgstr "Веднъж годишно"
 
 #. Default: "Very often or regularly"
 #: euphorie/client/browser/templates/webhelpers.pt:502
 #: euphorie/content/risk.py:375
+#: euphorie/client/browser/templates/webhelpers.pt:503
 msgid "frequency_french_regularly"
 msgstr "Много често или редовно"
 
 #. Default: "Minimum once per day"
 #: euphorie/client/browser/templates/webhelpers.pt:503
+#: euphorie/client/browser/templates/webhelpers.pt:504
 msgid "frequency_french_regularly_help"
 msgstr "Най-малко един път на ден"
 
 #. Default: "Regularly"
 #: euphorie/client/browser/templates/webhelpers.pt:351
 #: euphorie/content/risk.py:417
+#: euphorie/client/browser/templates/webhelpers.pt:352
 msgid "frequency_regularly"
 msgstr "Редовно"
 
@@ -2465,11 +2508,13 @@ msgstr "Допълнителна информация"
 
 #. Default: "Additional resources to assess the risk"
 #: euphorie/client/browser/templates/webhelpers.pt:563
+#: euphorie/client/browser/templates/webhelpers.pt:564
 msgid "header_additional_resources"
 msgstr "Допълнителни ресурси за оценка на риска"
 
 #. Default: "Additional resources for this module"
 #: euphorie/client/browser/templates/webhelpers.pt:566
+#: euphorie/client/browser/templates/webhelpers.pt:567
 msgid "header_additional_resources_module"
 msgstr "Допълнителни ресурси за този модул"
 
@@ -2527,6 +2572,7 @@ msgstr "Определяне"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:192
 #: euphorie/client/browser/templates/risk_macros.pt:178
 #: euphorie/content/templates/module_view.pt:22
+#: euphorie/client/browser/templates/risk_identification_custom.pt:237
 msgid "header_information"
 msgstr "Информация"
 
@@ -2536,7 +2582,7 @@ msgid "header_launch"
 msgstr "Официално стартиране на проекта – септември 2011 г."
 
 #. Default: "Legal and policy references"
-#: euphorie/client/docx/compiler.py:340
+#: euphorie/client/docx/compiler.py:340 euphorie/client/docx/compiler.py:348
 msgid "header_legal_references"
 msgstr "Правни източници и източници от политики"
 
@@ -2554,6 +2600,7 @@ msgstr "Лицензи"
 #: euphorie/client/browser/templates/login_form.pt:17
 #: euphorie/client/templates/shell.pt:104
 #: euphorie/client/templates/tooltips.pt:8
+#: euphorie/client/templates/shell.pt:107
 msgid "header_login"
 msgstr "Вход"
 
@@ -2563,12 +2610,12 @@ msgid "header_main_image"
 msgstr "Главно изображение"
 
 #. Default: "Measure ${index}"
-#: euphorie/client/docx/compiler.py:378
+#: euphorie/client/docx/compiler.py:378 euphorie/client/docx/compiler.py:386
 msgid "header_measure"
 msgstr "Мярка ${index}"
 
 #. Default: "Measure"
-#: euphorie/client/docx/compiler.py:375
+#: euphorie/client/docx/compiler.py:375 euphorie/client/docx/compiler.py:383
 msgid "header_measure_single"
 msgstr "Мярка"
 
@@ -2580,6 +2627,7 @@ msgstr "Модули"
 
 #. Default: "Modules and Profile Questions"
 #: euphorie/content/templates/survey_view.pt:36
+#: euphorie/content/templates/survey_view.pt:39
 msgid "header_modules_and_profile_questions"
 msgstr "Модули и профилиращи въпроси"
 
@@ -2594,12 +2642,12 @@ msgid "header_not_complicated"
 msgstr "Оценката не е сложна"
 
 #. Default: "Consultation of workers"
-#: euphorie/client/docx/compiler.py:438
+#: euphorie/client/docx/compiler.py:438 euphorie/client/docx/compiler.py:446
 msgid "header_oira_report_consultation"
 msgstr ""
 
 #. Default: "OiRA Report: “${title}”"
-#: euphorie/client/docx/views.py:199
+#: euphorie/client/docx/views.py:199 euphorie/client/docx/views.py:200
 msgid "header_oira_report_download"
 msgstr ""
 
@@ -2634,7 +2682,7 @@ msgid "header_osh_tool_navigation"
 msgstr ""
 
 #. Default: "Risks that have been identified, evaluated and have an Action Plan"
-#: euphorie/client/docx/views.py:209
+#: euphorie/client/docx/views.py:209 euphorie/client/docx/views.py:210
 msgid "header_present_risks"
 msgstr ""
 
@@ -2671,6 +2719,7 @@ msgstr "Въпроси, на които е отговорено, за модул
 #. Default: "Register"
 #: euphorie/client/browser/templates/register.pt:75
 #: euphorie/client/templates/shell.pt:105
+#: euphorie/client/templates/shell.pt:108
 msgid "header_register"
 msgstr "Регистрация"
 
@@ -2682,6 +2731,7 @@ msgstr "Докладване"
 
 #. Default: "Resources"
 #: euphorie/client/browser/templates/risk_identification.pt:48
+#: euphorie/client/browser/templates/risk_identification.pt:94
 msgid "header_resources"
 msgstr "Pесурси"
 
@@ -2692,22 +2742,27 @@ msgstr "Знаете ли за всички рискове?"
 
 #. Default: "What is the severity of the damage?"
 #: euphorie/client/browser/templates/webhelpers.pt:365
+#: euphorie/client/browser/templates/webhelpers.pt:366
 msgid "header_risk_effect"
 msgstr "Какво е нивото на сериозност на нараняването ?"
 
 #. Default: "How often are people exposed to this risk?"
 #: euphorie/client/browser/templates/webhelpers.pt:335
+#: euphorie/client/browser/templates/webhelpers.pt:336
 msgid "header_risk_frequency"
 msgstr "Колко често хора са изложени на риск?"
 
 #. Default: "Select the priority of this risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:167
 #: euphorie/client/browser/templates/webhelpers.pt:519
+#: euphorie/client/browser/templates/risk_identification_custom.pt:212
+#: euphorie/client/browser/templates/webhelpers.pt:520
 msgid "header_risk_priority"
 msgstr "Изберете приоритета на този риск"
 
 #. Default: "What is the chance of this risk occurring?"
 #: euphorie/client/browser/templates/webhelpers.pt:304
+#: euphorie/client/browser/templates/webhelpers.pt:305
 msgid "header_risk_probability"
 msgstr "Каква е вероятността това да се случи?"
 
@@ -2719,7 +2774,7 @@ msgid "header_risks"
 msgstr "Рискове"
 
 #. Default: "Hazards/problems that have been managed or are not present in your organisation"
-#: euphorie/client/docx/views.py:221
+#: euphorie/client/docx/views.py:221 euphorie/client/docx/views.py:222
 msgid "header_risks_not_present"
 msgstr ""
 
@@ -2779,12 +2834,12 @@ msgid "header_training"
 msgstr ""
 
 #. Default: "Hazards/problems that have been \"parked\" and are still to be dealt with"
-#: euphorie/client/docx/views.py:217
+#: euphorie/client/docx/views.py:217 euphorie/client/docx/views.py:218
 msgid "header_unanswered_risks"
 msgstr ""
 
 #. Default: "Risks that have been identified but do NOT have an Action Plan"
-#: euphorie/client/docx/views.py:213
+#: euphorie/client/docx/views.py:213 euphorie/client/docx/views.py:214
 msgid "header_unevaluated_risks"
 msgstr ""
 
@@ -2810,6 +2865,7 @@ msgstr "Защо беше създаден проектът OiRA"
 
 #. Default: "Comments"
 #: euphorie/client/browser/templates/webhelpers.pt:596
+#: euphorie/client/browser/templates/webhelpers.pt:597
 msgid "heading_comments"
 msgstr "Коментари"
 
@@ -2969,13 +3025,19 @@ msgstr "${num_present_risks} Съществуващи рискове"
 msgid "heading_present_risks_5_or_more"
 msgstr "${num_present_risks} Съществуващи рискове"
 
+#. #-#-#-#-#  .merge_file_sLMLWu (Euphorie 3.0.2dev)  #-#-#-#-#
 #. Default: "Define which reports are offered by default after risk identification"
-#: euphorie/content/country.py:73
+#. #-#-#-#-#  .merge_file_VQ7SfV (Euphorie 3.0.2dev)  #-#-#-#-#
+#. Default: "Define, which reports are offered to the user on the Report page."
+#: euphorie/content/country.py:73 euphorie/content/country.py:76
 msgid "help__default_reports"
 msgstr ""
 
+#. #-#-#-#-#  .merge_file_sLMLWu (Euphorie 3.0.2dev)  #-#-#-#-#
 #. Default: "Define which information sections should be uncollapsed by default on a risk identification page."
-#: euphorie/content/country.py:51
+#. #-#-#-#-#  .merge_file_VQ7SfV (Euphorie 3.0.2dev)  #-#-#-#-#
+#. Default: "Define, which information sections should be open by default on a risk identification page. Sections not checked will be shown intially in collapsed mode, but the user can always open those sections with a click."
+#: euphorie/content/country.py:51 euphorie/content/country.py:52
 msgid "help__risk_default_collapsible_sections"
 msgstr ""
 
@@ -2996,6 +3058,7 @@ msgstr "Този текст трябва да обяснява как се из�
 
 #. Default: "Please answer the following questions. As a result of your answers the system will calculate the priority of the risk. You will be able to modify the priority later."
 #: euphorie/client/browser/templates/webhelpers.pt:291
+#: euphorie/client/browser/templates/webhelpers.pt:292
 msgid "help_calculated_evaluation"
 msgstr ""
 "Попълнете отговорите на следните въпроси. Въз основа на вашите отговори "
@@ -3003,7 +3066,7 @@ msgstr ""
 "имате възможност да го промените."
 
 #. Default: "A code identifying this sector. Classification codes are defined by national standards bodies and based on revision 2 of the NACE standard."
-#: euphorie/content/survey.py:100
+#: euphorie/content/survey.py:100 euphorie/content/survey.py:101
 msgid "help_classification_code"
 msgstr ""
 "Код, идентифициращ този сектор. Кодовете за класификация се определят от "
@@ -3024,6 +3087,7 @@ msgstr ""
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
 #: euphorie/client/browser/risk.py:354 euphorie/content/risk.py:361
+#: euphorie/client/browser/risk.py:664
 msgid "help_default_frequency"
 msgstr "Посочете колко често този риск се среща в нормална ситуация."
 
@@ -3036,11 +3100,13 @@ msgstr ""
 
 #. Default: "Indicate how likely occurence of this risk is in a normal situation."
 #: euphorie/client/browser/risk.py:349 euphorie/content/risk.py:388
+#: euphorie/client/browser/risk.py:659
 msgid "help_default_probability"
 msgstr "Посочете колко вероятно е този риск да се срещне в нормална ситуация."
 
 #. Default: "Indicate the severity if this risk occurs."
 #: euphorie/client/browser/risk.py:358 euphorie/content/risk.py:339
+#: euphorie/client/browser/risk.py:668
 msgid "help_default_severity"
 msgstr "Посочете сериозността, ако този риск възникне."
 
@@ -3059,7 +3125,7 @@ msgstr ""
 "възможно."
 
 #. Default: "This option allows users to skip the evaluation phase."
-#: euphorie/content/survey.py:85
+#: euphorie/content/survey.py:85 euphorie/content/survey.py:86
 msgid "help_evaluation_optional"
 msgstr ""
 "Опцията позволява на крайния потребител да пропусне стъпката за оценяване."
@@ -3292,12 +3358,13 @@ msgstr ""
 
 #. Default: "This OiRA Tool is obsolete; it has been retired or replaced with another OiRA Tool."
 #: euphorie/content/survey.py:280 euphorie/content/surveygroup.py:61
+#: euphorie/content/survey.py:292
 msgid "help_survey_obsolete"
 msgstr ""
 "This survey is obsolete; it has been retired or replaced with another survey."
 
 #. Default: "This is the title of this OiRA Tool version. This name is never shown to users."
-#: euphorie/content/survey.py:64
+#: euphorie/content/survey.py:64 euphorie/content/survey.py:65
 msgid "help_survey_title"
 msgstr ""
 "Това е името на тази версия на OiRA инструмет. Това име никога не се показва "
@@ -3305,6 +3372,7 @@ msgstr ""
 
 #. Default: "The title of this OiRA Tool. This title is used in the OiRA Tool overview in the clients."
 #: euphorie/content/survey.py:271 euphorie/content/surveygroup.py:50
+#: euphorie/content/survey.py:283
 msgid "help_surveygroup_title"
 msgstr ""
 "Заглавието на този OiRA инструмент. Това заглавие се използва в прегледа на "
@@ -3317,6 +3385,7 @@ msgstr "Ако не посочите име, то ще бъде взето от 
 
 #. Default: "Dashboard"
 #: euphorie/client/templates/shell.pt:114
+#: euphorie/client/templates/shell.pt:117
 msgid "home_link"
 msgstr "Информационен панел"
 
@@ -3581,22 +3650,25 @@ msgid "iphone_report"
 msgstr "Доклад"
 
 #. Default: "Is this risk acceptable or under control?"
-#: euphorie/content/utils.py:72
+#: euphorie/content/utils.py:72 euphorie/content/utils.py:76
 msgid "is_risk_acceptable"
 msgstr "Приемлив ли е рискът?"
 
 #. Default: "Is this risk acceptable or under control? If applicable, ${link_add_measures}."
-#: euphorie/content/utils.py:104
+#: euphorie/content/utils.py:104 euphorie/content/utils.py:122
 msgid "is_risk_acceptable_add_measures"
 msgstr ""
 
+#. #-#-#-#-#  .merge_file_sLMLWu (Euphorie 3.0.2dev)  #-#-#-#-#
 #. Default: "Default reports"
-#: euphorie/content/country.py:69
+#. #-#-#-#-#  .merge_file_VQ7SfV (Euphorie 3.0.2dev)  #-#-#-#-#
+#. Default: "Available reports"
+#: euphorie/content/country.py:69 euphorie/content/country.py:72
 msgid "label__default_reports"
 msgstr ""
 
 #. Default: "Open sections on risk page"
-#: euphorie/content/country.py:47
+#: euphorie/content/country.py:47 euphorie/content/country.py:48
 msgid "label__risk_default_collapsible_sections"
 msgstr ""
 
@@ -3614,12 +3686,15 @@ msgstr "Акаунтът е заключен"
 #: euphorie/client/browser/templates/login.pt:110
 #: euphorie/client/templates/report_identification.pt:145
 #: euphorie/client/templates/shell.pt:190
+#: euphorie/client/templates/shell.pt:202
 msgid "label_action_plan"
 msgstr "План за действие"
 
 #. Default: "Budget"
 #: euphorie/client/browser/templates/risk_actionplan.pt:249
 #: euphorie/client/docx/compiler.py:399 euphorie/client/report.py:161
+#: euphorie/client/browser/templates/webhelpers.pt:750
+#: euphorie/client/docx/compiler.py:407
 msgid "label_action_plan_budget"
 msgstr "Бюджет"
 
@@ -3631,18 +3706,24 @@ msgstr "План за действие"
 #. Default: "Planning end"
 #: euphorie/client/browser/templates/risk_actionplan.pt:289
 #: euphorie/client/docx/compiler.py:403 euphorie/client/report.py:138
+#: euphorie/client/browser/templates/webhelpers.pt:790
+#: euphorie/client/docx/compiler.py:411
 msgid "label_action_plan_end"
 msgstr "Планиране на края"
 
 #. Default: "Who is responsible?"
 #: euphorie/client/browser/templates/risk_actionplan.pt:235
 #: euphorie/client/docx/compiler.py:396 euphorie/client/report.py:159
+#: euphorie/client/browser/templates/webhelpers.pt:736
+#: euphorie/client/docx/compiler.py:404
 msgid "label_action_plan_responsible"
 msgstr "Кой носи отговорност?"
 
 #. Default: "Planning start"
 #: euphorie/client/browser/templates/risk_actionplan.pt:273
 #: euphorie/client/docx/compiler.py:401 euphorie/client/report.py:133
+#: euphorie/client/browser/templates/webhelpers.pt:774
+#: euphorie/client/docx/compiler.py:409
 msgid "label_action_plan_start"
 msgstr "Планиране на началото"
 
@@ -3653,6 +3734,7 @@ msgstr "Съдържание на страница"
 
 #. Default: "Skip"
 #: euphorie/client/browser/templates/risk_identification.pt:70
+#: euphorie/client/browser/templates/risk_identification.pt:132
 msgid "label_button_skip"
 msgstr "пропускане"
 
@@ -3678,6 +3760,7 @@ msgstr "Изберете OiRA инструмент"
 
 #. Default: "Classification code"
 #: euphorie/content/survey.py:98 euphorie/content/templates/survey_view.pt:21
+#: euphorie/content/survey.py:99
 msgid "label_classification_code"
 msgstr "Код за класификация"
 
@@ -3689,6 +3772,8 @@ msgstr ""
 #. Default: "Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
 #: euphorie/client/browser/templates/risk_actionplan.pt:564
 #: euphorie/client/browser/templates/webhelpers.pt:603
+#: euphorie/client/browser/templates/risk_actionplan.pt:118
+#: euphorie/client/browser/templates/webhelpers.pt:604
 msgid "label_comment"
 msgstr ""
 "Моля, оставете коментарите, които може да имате по горния въпрос, в това "
@@ -3777,6 +3862,7 @@ msgstr ""
 #. Default: "Description"
 #: euphorie/client/browser/templates/risk_actionplan.pt:173
 #: euphorie/content/risk.py:94
+#: euphorie/client/browser/templates/webhelpers.pt:674
 msgid "label_description"
 msgstr "Описание"
 
@@ -3798,7 +3884,7 @@ msgid "label_employee_numbers"
 msgstr "Брой на служителите"
 
 #. Default: "Show a custom notification for this OiRA tool?"
-#: euphorie/content/survey.py:119
+#: euphorie/content/survey.py:119 euphorie/content/survey.py:131
 msgid "label_enable_tool_notification"
 msgstr "Показване на специално уведомление за този инструмент OiRA?"
 
@@ -3806,6 +3892,7 @@ msgstr "Показване на специално уведомление за �
 #: euphorie/client/browser/templates/login.pt:108
 #: euphorie/client/templates/report_identification.pt:135
 #: euphorie/client/templates/shell.pt:170
+#: euphorie/client/templates/shell.pt:174
 msgid "label_evaluation"
 msgstr "Оценяване"
 
@@ -3815,7 +3902,7 @@ msgid "label_evaluation_method"
 msgstr "Метод на оценяване"
 
 #. Default: "Evaluation may be skipped"
-#: euphorie/content/survey.py:83
+#: euphorie/content/survey.py:83 euphorie/content/survey.py:84
 msgid "label_evaluation_optional"
 msgstr "Оценяването може да бъде прескочено"
 
@@ -3825,17 +3912,19 @@ msgid "label_evaluation_phase"
 msgstr "Фаза на оценяване"
 
 #. Default: "Measure already implemented"
-#: euphorie/client/docx/compiler.py:359
+#: euphorie/client/docx/compiler.py:359 euphorie/client/docx/compiler.py:367
 msgid "label_existing_measure"
 msgstr "Мерки, които вече са изпълнени"
 
 #. Default: "Expertise"
 #: euphorie/client/browser/templates/risk_actionplan.pt:221
+#: euphorie/client/browser/templates/webhelpers.pt:722
 msgid "label_expertise"
 msgstr "Знания и умения"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:451
+#: euphorie/client/browser/templates/webhelpers.pt:951
 msgid "label_extra_add_measure"
 msgstr "Добави мерки"
 
@@ -3913,6 +4002,7 @@ msgstr "Как да извършите оценка на риска"
 #: euphorie/client/browser/templates/login.pt:106
 #: euphorie/client/templates/report_identification.pt:125
 #: euphorie/client/templates/shell.pt:168
+#: euphorie/client/templates/shell.pt:172
 msgid "label_identification"
 msgstr "Определяне"
 
@@ -3923,11 +4013,13 @@ msgstr "Файл с изображение"
 
 #. Default: "Implemented measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:170
+#: euphorie/client/browser/templates/webhelpers.pt:671
 msgid "label_implemented_measure"
 msgstr "Приложена мярка"
 
 #. Default: "Introduction text"
 #: euphorie/content/survey.py:73 euphorie/content/templates/survey_view.pt:32
+#: euphorie/content/survey.py:74 euphorie/content/templates/survey_view.pt:35
 msgid "label_introduction"
 msgstr "Уводен текст"
 
@@ -3943,12 +4035,14 @@ msgstr "Запази статуса ми на регистриран"
 
 #. Default: "Language"
 #: euphorie/content/survey.py:92 euphorie/content/templates/survey_view.pt:24
+#: euphorie/content/survey.py:93
 msgid "label_language"
 msgstr "Език"
 
 #. Default: "Legal and policy references"
 #: euphorie/client/browser/templates/webhelpers.pt:551
 #: euphorie/content/risk.py:120 euphorie/content/templates/risk_view.pt:76
+#: euphorie/client/browser/templates/webhelpers.pt:552
 msgid "label_legal_reference"
 msgstr "Правни източници и източници от политики"
 
@@ -3990,6 +4084,8 @@ msgstr ""
 #. Default: "General approach (to eliminate or reduce the risk)"
 #: euphorie/client/browser/templates/risk_actionplan.pt:338
 #: euphorie/client/docx/compiler.py:386 euphorie/client/report.py:143
+#: euphorie/client/browser/templates/webhelpers.pt:839
+#: euphorie/client/docx/compiler.py:394
 msgid "label_measure_action_plan"
 msgstr "Общ подход (за елиминиране или намаляване на риска)"
 
@@ -4002,6 +4098,8 @@ msgstr "Конкретни действия, които се изискват, �
 #. Default: "Level of expertise and/or requirements needed"
 #: euphorie/client/browser/templates/risk_actionplan.pt:354
 #: euphorie/client/docx/compiler.py:393 euphorie/client/report.py:151
+#: euphorie/client/browser/templates/webhelpers.pt:854
+#: euphorie/client/docx/compiler.py:401
 msgid "label_measure_requirements"
 msgstr "Експертно ниво и/или изисквания, които са необходими"
 
@@ -4083,14 +4181,19 @@ msgid "label_no_risks_5_or_more"
 msgstr "Няма риск"
 
 #. Default: "Not applicable"
-#: euphorie/content/utils.py:71
+#: euphorie/content/utils.py:71 euphorie/content/utils.py:75
 msgid "label_not_applicable"
 msgstr "Не е приложимо"
 
 #. Default: "No, more measures are required"
-#: euphorie/content/utils.py:100
+#: euphorie/content/utils.py:100 euphorie/content/utils.py:118
+#, fuzzy
 msgid "label_not_sufficient"
-msgstr "Не, необходими са допълнителни мерки."
+msgstr ""
+"#-#-#-#-#  .merge_file_sLMLWu (Euphorie 3.0.2dev)  #-#-#-#-#\n"
+"Не, необходими са допълнителни мерки.\n"
+"#-#-#-#-#  .merge_file_VQ7SfV (Euphorie 3.0.2dev)  #-#-#-#-#\n"
+"Да, оставащият риск е приемлив."
 
 #. Default: "Current Password"
 #: euphorie/client/settings.py:47
@@ -4099,11 +4202,13 @@ msgstr "Текуща парола"
 
 #. Default: "Page"
 #: euphorie/client/browser/session.py:833
+#: euphorie/client/browser/session.py:837
 msgid "label_page"
 msgstr "Номер на страница"
 
 #. Default: "of"
 #: euphorie/client/browser/session.py:836
+#: euphorie/client/browser/session.py:840
 msgid "label_page_of"
 msgstr "от общо"
 
@@ -4121,6 +4226,7 @@ msgstr "Паролата отново"
 #: euphorie/client/browser/templates/login.pt:104
 #: euphorie/client/templates/report_identification.pt:113
 #: euphorie/client/templates/shell.pt:144
+#: euphorie/client/templates/shell.pt:147
 msgid "label_preparation"
 msgstr "Подготовка"
 
@@ -4133,6 +4239,8 @@ msgstr "Преглед"
 #: euphorie/client/browser/templates/module_identification.pt:74
 #: euphorie/client/browser/templates/risk_actionplan.pt:578
 #: euphorie/client/browser/templates/risk_identification.pt:68
+#: euphorie/client/browser/templates/risk_actionplan.pt:132
+#: euphorie/client/browser/templates/risk_identification.pt:120
 msgid "label_previous"
 msgstr "Назад"
 
@@ -4197,6 +4305,7 @@ msgstr "регистрирайте се"
 
 #. Default: "Remove this measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:189
+#: euphorie/client/browser/templates/webhelpers.pt:690
 msgid "label_remove_measure"
 msgstr "Изтрий тази мярка"
 
@@ -4204,6 +4313,7 @@ msgstr "Изтрий тази мярка"
 #: euphorie/client/templates/report_identification.pt:155
 #: euphorie/client/templates/report_landing.pt:79
 #: euphorie/client/templates/shell.pt:215
+#: euphorie/client/templates/shell.pt:227
 msgid "label_report"
 msgstr "Доклад"
 
@@ -4215,12 +4325,12 @@ msgstr ""
 "доклада, в това поле."
 
 #. Default: "Date of editing"
-#: euphorie/client/docx/compiler.py:525
+#: euphorie/client/docx/compiler.py:525 euphorie/client/docx/compiler.py:533
 msgid "label_report_date"
 msgstr ""
 
 #. Default: "Staff who participated in the risk assessment"
-#: euphorie/client/docx/compiler.py:524
+#: euphorie/client/docx/compiler.py:524 euphorie/client/docx/compiler.py:532
 msgid "label_report_staff"
 msgstr ""
 
@@ -4289,6 +4399,7 @@ msgstr "Риск без набелязани мерки"
 
 #. Default: "Save and add new risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:242
+#: euphorie/client/browser/templates/risk_identification_custom.pt:313
 msgid "label_save_and_add_new"
 msgstr "Запазете и добавете друг риск."
 
@@ -4296,11 +4407,13 @@ msgstr "Запазете и добавете друг риск."
 #: euphorie/client/browser/templates/profile.pt:106
 #: euphorie/client/browser/templates/report.pt:41
 #: euphorie/client/browser/templates/risk_actionplan.pt:584
+#: euphorie/client/browser/templates/risk_actionplan.pt:138
 msgid "label_save_and_continue"
 msgstr "Запазване и продължаване"
 
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:256
+#: euphorie/client/browser/templates/risk_identification_custom.pt:327
 msgid "label_save_and_finish"
 msgstr "Запазване и приключване"
 
@@ -4321,6 +4434,7 @@ msgstr "Име на сектор."
 
 #. Default: "Select one or more of the known common measures provided."
 #: euphorie/client/browser/templates/risk_actionplan.pt:132
+#: euphorie/client/browser/templates/webhelpers.pt:633
 msgid "label_select_measure"
 msgstr "Изберете една или повече от предлаганите общи мерки."
 
@@ -4341,6 +4455,7 @@ msgstr ""
 
 #. Default: "Select standard measures"
 #: euphorie/client/browser/templates/risk_actionplan.pt:443
+#: euphorie/client/browser/templates/webhelpers.pt:943
 msgid "label_select_standard_measures"
 msgstr "Изберете основни мерки"
 
@@ -4411,6 +4526,7 @@ msgstr "Алгоритъм на оценяването"
 
 #. Default: "Obsolete OiRA tool"
 #: euphorie/content/survey.py:278 euphorie/content/surveygroup.py:59
+#: euphorie/content/survey.py:290
 msgid "label_survey_obsolete"
 msgstr "Obsolete survey"
 
@@ -4420,7 +4536,7 @@ msgid "label_survey_source"
 msgstr "Как бихте искали да започнете"
 
 #. Default: "Version name"
-#: euphorie/content/survey.py:63
+#: euphorie/content/survey.py:63 euphorie/content/survey.py:64
 msgid "label_survey_title"
 msgstr "Име на версия"
 
@@ -4430,7 +4546,7 @@ msgid "label_surveygroup_title"
 msgstr "Име на импортирания OiRA инструмент"
 
 #. Default: "Test session"
-#: euphorie/client/templates/shell.pt:96
+#: euphorie/client/templates/shell.pt:96 euphorie/client/templates/shell.pt:99
 msgid "label_testsession"
 msgstr ""
 
@@ -4452,7 +4568,7 @@ msgstr "средно"
 #. Default: "Title"
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:24
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:24
-#: euphorie/client/docx/compiler.py:523
+#: euphorie/client/docx/compiler.py:523 euphorie/client/docx/compiler.py:531
 msgid "label_title"
 msgstr "Име"
 
@@ -4462,17 +4578,18 @@ msgid "label_tool_based_on"
 msgstr "въз основа на ${tool_title}"
 
 #. Default: "Tool notification message"
-#: euphorie/content/survey.py:140
+#: euphorie/content/survey.py:140 euphorie/content/survey.py:152
 msgid "label_tool_notification"
 msgstr "Текст на уведомлението в инструмента"
 
 #. Default: "Tool notification title"
-#: euphorie/content/survey.py:133
+#: euphorie/content/survey.py:133 euphorie/content/survey.py:145
 msgid "label_tool_notification_title"
 msgstr "Заглавие на уведомлението в инструмента"
 
 #. Default: "Type of OiRA Tool"
 #: euphorie/content/survey.py:107 euphorie/content/templates/survey_view.pt:27
+#: euphorie/content/survey.py:108
 msgid "label_tool_type"
 msgstr "Вид OiRA инструмент"
 
@@ -4538,7 +4655,7 @@ msgid "label_yes"
 msgstr "Да"
 
 #. Default: "Yes, the remaining risk is acceptable"
-#: euphorie/content/utils.py:97
+#: euphorie/content/utils.py:97 euphorie/content/utils.py:115
 msgid "label_yes_sufficient"
 msgstr "Да, оставащият риск е приемлив."
 
@@ -4663,6 +4780,7 @@ msgstr "Импортиране на OiRA инструмент"
 
 #. Default: "Training"
 #: euphorie/client/templates/shell.pt:236
+#: euphorie/client/templates/shell.pt:248
 msgid "menu_training"
 msgstr ""
 
@@ -4674,7 +4792,7 @@ msgstr ""
 "инструмент."
 
 #. Default: "This is the only version of the OiRA Tool and can therefore not be deleted. Did you perhaps want to remove the OiRA Tool itself?"
-#: euphorie/content/survey.py:379
+#: euphorie/content/survey.py:379 euphorie/content/survey.py:391
 msgid "message_delete_no_last_survey"
 msgstr "Не можете да изтриете единствената версия на OiRA инструмента."
 
@@ -4689,7 +4807,7 @@ msgid "message_lock_warn"
 msgstr ""
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please unpublish it first."
-#: euphorie/content/survey.py:364
+#: euphorie/content/survey.py:364 euphorie/content/survey.py:376
 msgid "message_no_delete_published_survey"
 msgstr ""
 "Не можете да изтриете версия на OiRA инструмента, която е публикувана. Моля, "
@@ -4789,6 +4907,7 @@ msgstr "Настройки"
 #: euphorie/client/browser/templates/more_menu.pt:46
 #: euphorie/client/browser/templates/webhelpers.pt:59
 #: euphorie/client/templates/shell.pt:262
+#: euphorie/client/templates/shell.pt:274
 msgid "navigation_status"
 msgstr "Статус"
 
@@ -4814,6 +4933,7 @@ msgstr "Няма избрана стойност по подразбиране"
 
 #. Default: "This survey has no profile questions or modules."
 #: euphorie/content/templates/survey_view.pt:37
+#: euphorie/content/templates/survey_view.pt:40
 msgid "no_profile_questions_or_modules"
 msgstr "Проучването не съдържа въпроси по профила или модули."
 
@@ -4822,7 +4942,10 @@ msgstr "Проучването не съдържа въпроси по проф�
 msgid "no_surveys_present"
 msgstr "Не са налични OiRA инструменти. Вие можете да направите ${add_link}."
 
+#. #-#-#-#-#  .merge_file_sLMLWu (Euphorie 3.0.2dev)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_VQ7SfV (Euphorie 3.0.2dev)  #-#-#-#-#
+#. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""
@@ -4843,12 +4966,12 @@ msgid "notice_country_manager"
 msgstr "Менджър за страна за ${country}."
 
 #. Default: "On behalf of the employer:"
-#: euphorie/client/docx/compiler.py:450
+#: euphorie/client/docx/compiler.py:450 euphorie/client/docx/compiler.py:458
 msgid "oira_consultation_employer"
 msgstr ""
 
 #. Default: "On behalf of the workers:"
-#: euphorie/client/docx/compiler.py:453
+#: euphorie/client/docx/compiler.py:453 euphorie/client/docx/compiler.py:461
 msgid "oira_consultation_workers"
 msgstr ""
 
@@ -4863,7 +4986,7 @@ msgid "oira_name_line_2"
 msgstr "Оценка на риска"
 
 #. Default: "Date:"
-#: euphorie/client/docx/compiler.py:461
+#: euphorie/client/docx/compiler.py:461 euphorie/client/docx/compiler.py:469
 msgid "oira_survey_date"
 msgstr ""
 
@@ -4883,7 +5006,7 @@ msgid "osc_search_placeholder"
 msgstr ""
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
-#: euphorie/client/docx/compiler.py:443
+#: euphorie/client/docx/compiler.py:443 euphorie/client/docx/compiler.py:451
 msgid "paragraph_oira_consultation_of_workers"
 msgstr ""
 
@@ -4904,11 +5027,12 @@ msgstr ""
 
 #. Default: "Provide some further information on this risk."
 #: euphorie/client/browser/templates/risk_identification_custom.pt:221
+#: euphorie/client/browser/templates/risk_identification_custom.pt:273
 msgid "placeholder_custom_risk_description"
 msgstr "Посочете допълнителна информация за този риск."
 
 #. Default: "Describe a measure that is already in place but not yet listed here."
-#: euphorie/content/utils.py:91
+#: euphorie/content/utils.py:91 euphorie/content/utils.py:105
 msgid "placeholder_new_existing"
 msgstr "Опишете мярка, която вече е въведена, но все още не е включена тук."
 
@@ -4926,6 +5050,8 @@ msgstr ""
 #: euphorie/client/browser/templates/risk_identification_custom.pt:185
 #: euphorie/client/browser/templates/webhelpers.pt:537
 #: euphorie/content/risk.py:195
+#: euphorie/client/browser/templates/risk_identification_custom.pt:230
+#: euphorie/client/browser/templates/webhelpers.pt:538
 msgid "priority_high"
 msgstr "Висок"
 
@@ -4933,6 +5059,8 @@ msgstr "Висок"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:173
 #: euphorie/client/browser/templates/webhelpers.pt:525
 #: euphorie/content/risk.py:192
+#: euphorie/client/browser/templates/risk_identification_custom.pt:218
+#: euphorie/client/browser/templates/webhelpers.pt:526
 msgid "priority_low"
 msgstr "Нисък"
 
@@ -4940,24 +5068,29 @@ msgstr "Нисък"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:179
 #: euphorie/client/browser/templates/webhelpers.pt:531
 #: euphorie/content/risk.py:194
+#: euphorie/client/browser/templates/risk_identification_custom.pt:224
+#: euphorie/client/browser/templates/webhelpers.pt:532
 msgid "priority_medium"
 msgstr "Среден"
 
 #. Default: "Large"
 #: euphorie/client/browser/templates/webhelpers.pt:327
 #: euphorie/content/risk.py:399
+#: euphorie/client/browser/templates/webhelpers.pt:328
 msgid "probability_large"
 msgstr "Голяма"
 
 #. Default: "Medium"
 #: euphorie/client/browser/templates/webhelpers.pt:321
 #: euphorie/content/risk.py:397
+#: euphorie/client/browser/templates/webhelpers.pt:322
 msgid "probability_medium"
 msgstr "Средна"
 
 #. Default: "Small"
 #: euphorie/client/browser/templates/webhelpers.pt:315
 #: euphorie/content/risk.py:395
+#: euphorie/client/browser/templates/webhelpers.pt:316
 msgid "probability_small"
 msgstr "Малка"
 
@@ -5015,12 +5148,12 @@ msgid "reminder_email_footer"
 msgstr ""
 
 #. Default: "Required expertise:"
-#: euphorie/client/docx/compiler.py:620
+#: euphorie/client/docx/compiler.py:620 euphorie/client/docx/compiler.py:628
 msgid "report_competences"
 msgstr ""
 
 #. Default: "To be done by: ${date}"
-#: euphorie/client/docx/compiler.py:643
+#: euphorie/client/docx/compiler.py:643 euphorie/client/docx/compiler.py:651
 msgid "report_end_date"
 msgstr ""
 
@@ -5033,7 +5166,7 @@ msgstr ""
 "предимства:"
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:846
+#: euphorie/client/docx/compiler.py:846 euphorie/client/docx/compiler.py:862
 msgid "report_identification_revision"
 msgstr ""
 
@@ -5048,17 +5181,17 @@ msgstr ""
 "полето по-долу."
 
 #. Default: "Measures already in place:"
-#: euphorie/client/docx/compiler.py:599
+#: euphorie/client/docx/compiler.py:599 euphorie/client/docx/compiler.py:607
 msgid "report_measures_in_place"
 msgstr ""
 
 #. Default: "Responsible: ${responsible_name}"
-#: euphorie/client/docx/compiler.py:631
+#: euphorie/client/docx/compiler.py:631 euphorie/client/docx/compiler.py:639
 msgid "report_responsible"
 msgstr ""
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:217
+#: euphorie/client/docx/compiler.py:217 euphorie/client/docx/compiler.py:225
 msgid "report_survey_revision"
 msgstr ""
 "Този доклад се базира на OiRA инструмента '${title}' с дата на редакция "
@@ -5090,35 +5223,44 @@ msgid "request_an_email_reminder"
 msgstr "заявка за имейл напомняне"
 
 #. Default: "Risk is present."
-#: euphorie/client/docx/compiler.py:265
+#: euphorie/client/docx/compiler.py:265 euphorie/client/docx/compiler.py:273
 msgid "risk_present"
 msgstr ""
 
 #. Default: "This is a ${priority_value} priority risk."
 #: euphorie/client/browser/templates/risk_actionplan.pt:88
 #: euphorie/client/docx/compiler.py:305
+#: euphorie/client/browser/templates/risk_actionplan.pt:83
+#: euphorie/client/docx/compiler.py:313
 msgid "risk_priority"
 msgstr "Това е ${priority_value} приоритетен риск."
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:110
+#: euphorie/client/browser/templates/risk_actionplan.pt:105
 msgid "risk_priority_${value}"
 msgstr ""
 
 #. Default: "high"
 #: euphorie/client/browser/templates/risk_actionplan.pt:99
 #: euphorie/client/docx/compiler.py:303
+#: euphorie/client/browser/templates/risk_actionplan.pt:94
+#: euphorie/client/docx/compiler.py:311
 msgid "risk_priority_high"
 msgstr "високо"
 
 #. Default: "low"
 #: euphorie/client/browser/templates/risk_actionplan.pt:91
 #: euphorie/client/docx/compiler.py:299
+#: euphorie/client/browser/templates/risk_actionplan.pt:86
+#: euphorie/client/docx/compiler.py:307
 msgid "risk_priority_low"
 msgstr "ниско"
 
 #. Default: "medium"
 #: euphorie/client/browser/templates/risk_actionplan.pt:95
 #: euphorie/client/docx/compiler.py:301
+#: euphorie/client/browser/templates/risk_actionplan.pt:90
+#: euphorie/client/docx/compiler.py:309
 msgid "risk_priority_medium"
 msgstr "средно"
 
@@ -5140,6 +5282,7 @@ msgstr "Мярка ${number}"
 #. Default: "This risk still needs to be inventorised."
 #: euphorie/client/docx/compiler.py:271
 #: euphorie/client/templates/report_identification.pt:84
+#: euphorie/client/docx/compiler.py:279
 msgid "risk_unanswered"
 msgstr "Този риск все още е необходимо да бъде инвентаризиран."
 
@@ -5181,51 +5324,59 @@ msgid "search_result_relevance"
 msgstr "Ниво на съответствие: ${percentage}"
 
 #. Default: "Select or add any measures that are <strong>already in place</strong>."
-#: euphorie/content/utils.py:81
+#: euphorie/content/utils.py:81 euphorie/content/utils.py:85
 msgid "select_add_existing_measure"
 msgstr "Изберете или добавете мерки, които вече са въведени."
 
 #. Default: "Not very severe"
 #: euphorie/client/browser/templates/webhelpers.pt:419
 #: euphorie/content/risk.py:347
+#: euphorie/client/browser/templates/webhelpers.pt:420
 msgid "severity_not_severe"
 msgstr "Не много високо ниво на сериозност"
 
 #. Default: "Need to stop working for less than 3 days"
 #: euphorie/client/browser/templates/webhelpers.pt:420
+#: euphorie/client/browser/templates/webhelpers.pt:421
 msgid "severity_not_severe_help"
 msgstr "Необходимо е спиране на работа за по-малко от 3 дни"
 
 #. Default: "Severe"
 #: euphorie/client/browser/templates/webhelpers.pt:430
 #: euphorie/content/risk.py:350
+#: euphorie/client/browser/templates/webhelpers.pt:431
 msgid "severity_severe"
 msgstr "Високо ниво на сериозност"
 
 #. Default: "Need to stop working for more than 3 days"
 #: euphorie/client/browser/templates/webhelpers.pt:431
+#: euphorie/client/browser/templates/webhelpers.pt:432
 msgid "severity_severe_help"
 msgstr "Необходимо е спиране на работа за повече от три дни"
 
 #. Default: "Very severe"
 #: euphorie/client/browser/templates/webhelpers.pt:442
 #: euphorie/content/risk.py:352
+#: euphorie/client/browser/templates/webhelpers.pt:443
 msgid "severity_very_severe"
 msgstr "Много високо ниво на серозност"
 
 #. Default: "Irreversible injury, incurable illness, death"
 #: euphorie/client/browser/templates/webhelpers.pt:443
+#: euphorie/client/browser/templates/webhelpers.pt:444
 msgid "severity_very_severe_help"
 msgstr "необратими наранявания, неизлечима болест, смърт"
 
 #. Default: "Weak"
 #: euphorie/client/browser/templates/webhelpers.pt:408
 #: euphorie/content/risk.py:345
+#: euphorie/client/browser/templates/webhelpers.pt:409
 msgid "severity_weak"
 msgstr "Ниско ниво на сериозност"
 
 #. Default: "No need to stop working"
 #: euphorie/client/browser/templates/webhelpers.pt:409
+#: euphorie/client/browser/templates/webhelpers.pt:410
 msgid "severity_weak_help"
 msgstr "Не е необходимо спиране на работа"
 
@@ -5346,6 +5497,7 @@ msgstr "Не открито"
 
 #. Default: "Help"
 #: euphorie/client/templates/help.pt:20
+#: euphorie/client/browser/templates/help.pt:19
 msgid "title_help"
 msgstr "Помощ"
 
@@ -5355,13 +5507,13 @@ msgid "title_help_unpublished"
 msgstr "Премахнете този OiRA инструмент от онлайн клиента."
 
 #. Default: "Import sector and OiRA Tool"
-#: euphorie/content/upload.py:457
+#: euphorie/content/upload.py:457 euphorie/content/upload.py:459
 msgid "title_import_sector_survey"
 msgstr "Импортиране на сектор и OiRA инструментa"
 
 #. Default: "Added risks (by you)"
 #: euphorie/client/docx/compiler.py:103 euphorie/client/publish.py:141
-#: euphorie/client/utils.py:68
+#: euphorie/client/utils.py:68 euphorie/client/docx/compiler.py:111
 msgid "title_other_risks"
 msgstr "Добавени рискове (от Вас)"
 
@@ -5414,18 +5566,18 @@ msgstr "Статус на ${survey_title}"
 
 #. Default: "Contents"
 #: euphorie/client/browser/templates/risks_overview.pt:168
-#: euphorie/client/docx/compiler.py:199
+#: euphorie/client/docx/compiler.py:199 euphorie/client/docx/compiler.py:207
 msgid "toc_header"
 msgstr "Съдържание"
 
 #. Default: "Show/hide menu"
-#: euphorie/client/templates/shell.pt:87
+#: euphorie/client/templates/shell.pt:87 euphorie/client/templates/shell.pt:90
 msgid "tooltip_menu_toggle"
 msgstr "Скрий/Покажи меню"
 
 #. Default: "This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be included in this report."
 #: euphorie/client/browser/templates/risk_macros.pt:131
-#: euphorie/client/docx/compiler.py:276
+#: euphorie/client/docx/compiler.py:276 euphorie/client/docx/compiler.py:284
 msgid "top5_risk_not_present"
 msgstr ""
 "Този риск не присъства във Вашата организация, но тъй като секторната "
@@ -5433,7 +5585,7 @@ msgstr ""
 "включен в доклада."
 
 #. Default: "This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be included in this report."
-#: euphorie/client/docx/compiler.py:284
+#: euphorie/client/docx/compiler.py:284 euphorie/client/docx/compiler.py:292
 msgid "top5_risk_not_present_answer_yes"
 msgstr ""
 "Този риск не присъства във Вашата организация, но тъй като секторната "
@@ -5457,7 +5609,7 @@ msgstr ""
 "инструмент?"
 
 #. Default: "Succesfully imported the OiRA Tool"
-#: euphorie/content/upload.py:438
+#: euphorie/content/upload.py:438 euphorie/content/upload.py:440
 msgid "upload_success"
 msgstr "Успешно импортиран OiRA инстрмент"
 
@@ -5526,6 +5678,68 @@ msgstr ""
 #: euphorie/content/templates/risk_view.pt:44
 msgid "yes"
 msgstr "Да"
+
+#: euphorie/content/country.py:83
+msgid "Action plan (Excel spreadsheet)"
+msgstr ""
+
+#: euphorie/content/country.py:82
+msgid "Full report (Word document)"
+msgstr ""
+
+#: euphorie/content/country.py:85
+msgid "Overview of measures (PDF)"
+msgstr ""
+
+#: euphorie/content/country.py:84
+msgid "Overview of risks (PDF)"
+msgstr ""
+
+#. Default: "Describe the specific measures required to reduce the risk."
+#: euphorie/client/browser/risk.py:299
+msgid "action_measures_false_solutions_false"
+msgstr "Опишете специфични мерки, необходими за намаляване на риска."
+
+#. Default: "Select or describe the specific measures required to reduce the risk."
+#: euphorie/client/browser/risk.py:291
+msgid "action_measures_false_solutions_true"
+msgstr ""
+"Изберете или опишете специфични мерки, необходими за намаляване на риска."
+
+#. Default: "Describe any further measure to reduce the risk."
+#: euphorie/client/browser/risk.py:282
+msgid "action_measures_true_solutions_false"
+msgstr "Опишете други мерки за намаляване на риска."
+
+#. Default: "Select or describe any further measure to reduce the risk."
+#: euphorie/client/browser/risk.py:274
+msgid "action_measures_true_solutions_true"
+msgstr "Изберете или опишете други мерки за намаляване на риска."
+
+#. Default: "If selected, the option to plan measures will be offered directly on the “Identification” page. There will be no separate “Action Plan” step in the navigation."
+#: euphorie/content/survey.py:122
+msgid "description_integrated_action_plan"
+msgstr ""
+
+#. Default: "Actions"
+#: euphorie/client/browser/templates/risk_identification_custom.pt:183
+msgid "header_actions"
+msgstr ""
+
+#. Default: "Measures"
+#: euphorie/client/browser/templates/risk_identification.pt:62
+msgid "header_measures"
+msgstr "Мерки"
+
+#. Default: "Assessment"
+#: euphorie/client/templates/shell.pt:176
+msgid "label_assessment"
+msgstr ""
+
+#. Default: "Integrated Action Plan"
+#: euphorie/content/survey.py:120 euphorie/content/templates/survey_view.pt:29
+msgid "label_integrated_action_plan"
+msgstr ""
 
 #~ msgid "based on"
 #~ msgstr "въз основа на"
