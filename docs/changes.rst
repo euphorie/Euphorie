@@ -4,7 +4,8 @@ Changelog
 11.3.10 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Don't allow uploading new images smaller than 1000x430 pixels. Warn about smaller
+  existing images, but allow keeping them.
 
 
 11.3.9 (2020-06-24)

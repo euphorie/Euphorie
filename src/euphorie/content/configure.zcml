@@ -117,6 +117,10 @@
       factory=".solution.SearchableTextIndexer"
       name="SearchableText" />
 
+    <adapter
+        factory=".module.ImageSizeValidator"
+        />
+
     <include package=".behaviour" />
 
     <genericsetup:registerProfile
