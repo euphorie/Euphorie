@@ -38,11 +38,8 @@
               <p class="button-bar">
                 <button class="icon-print pat-button"
                         onclick="window.print()"
-                        i18n:translate=""
-                >Print tool preview</button>
-<!--                 <a class="pat-button"
-                   href="${here/absolute_url}/@@identification-report.docx"
-                >Download as Word file</a> -->
+                        i18n:translate="label_print_tool_preview"
+                  >Print a tool preview</button>
               </p>
             </div>
 
