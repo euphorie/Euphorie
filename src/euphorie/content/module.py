@@ -33,11 +33,14 @@ from plone.indexer import indexer
 from plone.namedfile import field as filefield
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
+from Products.statusmessages.interfaces import IStatusMessage
+from z3c.form import validator
 from zope import schema
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.interface import implements
 from zope.interface import Interface
+from zope.interface import Invalid
 import sys
 
 grok.templatedir("templates")
@@ -81,7 +84,6 @@ class IModule(form.Schema, IRichDescription, IBasic):
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
                         u"characters."),
-            constraint=ensure_image_size,
             required=False)
     caption = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -155,6 +157,23 @@ class IModule(form.Schema, IRichDescription, IBasic):
     file4_caption = schema.TextLine(
         title=_("label_file_caption", default=u"Content caption"),
         required=False)
+
+
+class ImageSizeValidator(validator.SimpleFieldValidator):
+    def validate(self, value):
+        if isinstance(self.view, Add):
+            ensure_image_size(value)
+        else:
+            try:
+                ensure_image_size(value)
+            except Invalid as invalid:
+                IStatusMessage(self.context.REQUEST).add(invalid.message, "warn")
+
+
+validator.WidgetValidatorDiscriminators(
+    ImageSizeValidator,
+    field=IModule['image']
+)
 
 
 class Module(dexterity.Container):

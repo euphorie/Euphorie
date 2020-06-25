@@ -39,7 +39,9 @@ from plone.namedfile import field as filefield
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
 from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
+from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
+from z3c.form import validator
 from z3c.form.form import applyChanges
 from zope import schema
 from zope.component import createObject
@@ -47,6 +49,7 @@ from zope.component import getUtility
 from zope.interface import alsoProvides
 from zope.interface import implements
 from zope.interface import Interface
+from zope.interface import Invalid
 from zope.interface import noLongerProvides
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
@@ -229,7 +232,6 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
                         u"characters."),
-            constraint=ensure_image_size,
             required=False)
     caption = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -246,7 +248,6 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
                         u"characters."),
-            constraint=ensure_image_size,
             required=False)
     caption2 = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -258,7 +259,6 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
                         u"characters."),
-            constraint=ensure_image_size,
             required=False)
     caption3 = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -270,7 +270,6 @@ class IRisk(form.Schema, IRichDescription, IBasic):
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
                         u"characters."),
-            constraint=ensure_image_size,
             required=False)
     caption4 = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -334,6 +333,24 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     file4_caption = schema.TextLine(
         title=_("label_file_caption", default=u"Content caption"),
         required=False)
+
+
+class ImageSizeValidator(validator.SimpleFieldValidator):
+    def validate(self, value):
+        if isinstance(self.view, Add):
+            ensure_image_size(value)
+        else:
+            try:
+                ensure_image_size(value)
+            except Invalid as invalid:
+                IStatusMessage(self.context.REQUEST).add(invalid.message, "warn")
+
+
+for field_name in ['image', 'image2', 'image3', 'image4']:
+    validator.WidgetValidatorDiscriminators(
+        ImageSizeValidator,
+        field=IRisk[field_name]
+    )
 
 
 class IFrenchEvaluation(form.Schema):
