@@ -7,7 +7,6 @@
       <value_type type="plone.registry.field.TextLine" />
     </field>
     <value purge="false">
-      <element key="fr.covid"> </element>
     </value>
   </record>
 </registry>
