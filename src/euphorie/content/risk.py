@@ -36,6 +36,7 @@ from plone.directives import form
 from plone.indexer import indexer
 from plone.memoize.instance import memoize
 from plone.namedfile import field as filefield
+from plone.namedfile.interfaces import INamedBlobImageField
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
 from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
@@ -337,20 +338,24 @@ class IRisk(form.Schema, IRichDescription, IBasic):
 
 class ImageSizeValidator(validator.SimpleFieldValidator):
     def validate(self, value):
-        if isinstance(self.view, Add):
-            ensure_image_size(value)
-        else:
+        try:
+            previous_value = self.field.get(self.context)
+        except AttributeError:
+            previous_value = None
+        if previous_value == value:
             try:
                 ensure_image_size(value)
             except Invalid as invalid:
                 IStatusMessage(self.context.REQUEST).add(invalid.message, "warn")
+        else:
+            ensure_image_size(value)
 
 
-for field_name in ['image', 'image2', 'image3', 'image4']:
-    validator.WidgetValidatorDiscriminators(
-        ImageSizeValidator,
-        field=IRisk[field_name]
-    )
+validator.WidgetValidatorDiscriminators(
+    ImageSizeValidator,
+    context=IRisk,
+    field=INamedBlobImageField,
+)
 
 
 class IFrenchEvaluation(form.Schema):
