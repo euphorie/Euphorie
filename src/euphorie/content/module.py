@@ -31,6 +31,7 @@ from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
 from plone.namedfile import field as filefield
+from plone.namedfile.interfaces import INamedBlobImageField
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
 from Products.statusmessages.interfaces import IStatusMessage
@@ -161,18 +162,23 @@ class IModule(form.Schema, IRichDescription, IBasic):
 
 class ImageSizeValidator(validator.SimpleFieldValidator):
     def validate(self, value):
-        if isinstance(self.view, Add):
-            ensure_image_size(value)
-        else:
+        try:
+            previous_value = self.field.get(self.context)
+        except AttributeError:
+            previous_value = None
+        if previous_value == value:
             try:
                 ensure_image_size(value)
             except Invalid as invalid:
                 IStatusMessage(self.context.REQUEST).add(invalid.message, "warn")
+        else:
+            ensure_image_size(value)
 
 
 validator.WidgetValidatorDiscriminators(
     ImageSizeValidator,
-    field=IModule['image']
+    context=IModule,
+    field=INamedBlobImageField,
 )
 
 

@@ -121,6 +121,10 @@
         factory=".module.ImageSizeValidator"
         />
 
+    <adapter
+        factory=".risk.ImageSizeValidator"
+        />
+
     <include package=".behaviour" />
 
     <genericsetup:registerProfile
