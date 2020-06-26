@@ -3577,12 +3577,12 @@ msgstr "Informe"
 #. Default: "Is this risk acceptable or under control?"
 #: euphorie/content/utils.py:72
 msgid "is_risk_acceptable"
-msgstr "¿Es aceptable el riesgo?"
+msgstr "¿Este riesgo es aceptable o bajo control?"
 
 #. Default: "Is this risk acceptable or under control? If applicable, ${link_add_measures}."
 #: euphorie/content/utils.py:104
 msgid "is_risk_acceptable_add_measures"
-msgstr ""
+msgstr "¿Este riesgo es aceptable o bajo control? Si procede, ${link_add_measures}."
 
 #. Default: "Default reports"
 #: euphorie/content/country.py:69
@@ -5281,7 +5281,7 @@ msgstr ""
 #. Default: "add all measures that have already been implemented"
 #: euphorie/content/utils.py:54
 msgid "text_add_measures"
-msgstr ""
+msgstr "añada las medidas que ya se han implementado"
 
 #. Default: "OiRA"
 #: euphorie/content/templates/colour-preview.pt:51
