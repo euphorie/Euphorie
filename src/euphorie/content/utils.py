@@ -187,7 +187,8 @@ def ensure_image_size(value):
     if INamedBlobImage.providedBy(value):
         img_size = value.getImageSize()
         if img_size < IMAGE_MIN_SIZE:
-            msg = u"Image is too small. The minimum size is {} (width) x {} (height) pixels. ".format(
+            msg = u"Image “{}” is too small. ".format(value.filename)
+            msg += u"The minimum size is {} (width) x {} (height) pixels. ".format(
                 *IMAGE_MIN_SIZE
             )
             msg += "Your image has a size of {} x {}.".format(*img_size)
