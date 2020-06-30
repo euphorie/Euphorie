@@ -284,6 +284,17 @@ class Edit(form.SchemaEditForm):
         super(Edit, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
 
+    def extractData(self, setErrors=True):
+        data = super(Edit, self).extractData(setErrors)
+
+        # If there is a validation error on the form, consume all status messages,
+        # so that they don't appear in the form. We only want to show validation
+        # messages directly on the respective field(s) in that case.
+        if data[1]:
+            status = IStatusMessage(self.request)
+            status.show()
+        return data
+
 
 class Add(dexterity.AddForm):
     grok.name('euphorie.module')

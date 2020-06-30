@@ -756,6 +756,13 @@ class Edit(form.SchemaEditForm):
         data = super(Edit, self).extractData(setErrors)
         if data[0]['evaluation_method'] == 'fixed':
             del data[0]['default_priority']
+
+        # If there is a validation error on the form, consume all status messages,
+        # so that they don't appear in the form. We only want to show validation
+        # messages directly on the respective field(s) in that case.
+        if data[1]:
+            status = IStatusMessage(self.request)
+            status.show()
         return data
 
 
