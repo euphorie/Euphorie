@@ -1,11 +1,29 @@
 Changelog
 =========
 
-11.3.8 (unreleased)
+11.3.11 (unreleased)
+--------------------
+
+- Nothing changed yet.
+
+
+11.3.10 (2020-06-26)
+--------------------
+
+- Translation updates
+
+11.3.9 (2020-06-24)
+-------------------
+
+- Translation updates
+
+11.3.8 (2020-06-24)
 -------------------
 
 - Docx report: make it possible to define extra text for the title per sector;
   add a custom template for the French COVID tool
+- Translation updates
+- Prevent logout of active users
 
 11.3.7 (2020-06-18)
 -------------------

@@ -4090,7 +4090,7 @@ msgstr "Не е приложимо"
 #. Default: "No, more measures are required"
 #: euphorie/content/utils.py:100
 msgid "label_not_sufficient"
-msgstr "Да, оставащият риск е приемлив."
+msgstr "Не, необходими са допълнителни мерки."
 
 #. Default: "Current Password"
 #: euphorie/client/settings.py:47

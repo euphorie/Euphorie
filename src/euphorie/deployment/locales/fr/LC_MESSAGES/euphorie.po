@@ -3539,7 +3539,7 @@ msgstr ""
 "bénéficier des avantages suivants :</p><ul><li>Votre travail sera "
 "automatiquement sauvegardé et vous pourrez réaliser votre OiRA en plusieurs "
 "étapes.</li><li>Vous pouvez télécharger un rapport complet et un plan "
-"d'action</li><li>C'est gratuit et vos identifiants ne font "
+"d'action (Document Unique)</li><li>C'est gratuit et vos identifiants ne font "
 "l’objet d’aucun traitement ou utilisation de notre part.</li></ul>"
 
 #. Default: "You may also wish to distribute the contents among the workers and/or their representatives and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action.Their feedback should be taken into account when filling in this tool."
