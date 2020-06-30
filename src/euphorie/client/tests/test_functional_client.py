@@ -40,7 +40,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getControl(name="form.button.submit").click()
-        session_url = browser.url.replace("/1/@@identification", "")
+        session_url = browser.url.replace("/@@identification", "")
         # Identify the risk
         browser.open(
             "%s/1/1/@@identification" % session_url
@@ -86,7 +86,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getControl(name="form.button.submit").click()
-        session_url = browser.url.replace("/1/@@identification", "")
+        session_url = browser.url.replace("/@@identification", "")
         # Identify the top-5 risk
         browser.open(
             "%s/1/1/@@identification" % session_url
@@ -132,7 +132,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getControl(name="form.button.submit").click()
-        session_url = browser.url.replace("/1/@@identification", "")
+        session_url = browser.url.replace("/@@identification", "")
         # Identify the top-5 risk
         browser.open(
             "%s/1/1/@@identification" % session_url
