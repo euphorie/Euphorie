@@ -138,6 +138,7 @@
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
       class=".session.Identification"
+      template="templates/identification.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 

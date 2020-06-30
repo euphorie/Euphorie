@@ -550,6 +550,33 @@ class Identification(SessionMixin, BrowserView):
             query = query.filter(self.question_filter)
         return query.order_by(SurveyTreeItem.path).first()
 
+    @property
+    def tree(self):
+        question = self.first_question
+        if not question:
+            return
+        return getTreeData(
+            self.request, self.context, element=question, no_current=True
+        )
+
+    @property
+    def extra_text(self):
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get("euphorie")
+        have_extra = settings.get("extra_text_identification", False)
+        if not have_extra:
+            return None
+        lang = getattr(self.request, "LANGUAGE", "en")
+        # Special handling for Flemish, for which LANGUAGE is "nl-be". For
+        # translating the date under plone locales, we reduce to generic "nl".
+        # For the specific oira translation, we rewrite to "nl_BE"
+        if "-" in lang:
+            elems = lang.split("-")
+            lang = "{0}_{1}".format(elems[0], elems[1].upper())
+        return translate(
+            _(u"extra_text_identification", default=u""), target_language=lang
+        )
+
     def __call__(self):
         if not self.webhelpers.can_edit_session:
             return self.request.response.redirect(
@@ -564,7 +591,10 @@ class Identification(SessionMixin, BrowserView):
                 self.context.absolute_url() + "/@@start"
             )
         utils.setLanguage(self.request, self.survey, self.survey.language)
-        self.request.RESPONSE.redirect(self.next_url)
+        if self.webhelpers.use_involve_phase:
+            self.request.RESPONSE.redirect(self.next_url)
+        else:
+            return super(Identification, self).__call__()
 
 
 class DeleteSession(SessionMixin, BrowserView):
