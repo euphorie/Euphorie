@@ -37,11 +37,7 @@ def strip_help(filepath):
     content = content.replace(
         '="/depts/index', '="++resource++euphorie.resources/oira/depts.html')
 
-    # remove the too navigation
-    p = re.compile('<header id="toolbar">.*</header>',
-                   re.I | re.S | re.L | re.M)
-    stripped = p.sub('', content)
-    open(filepath, "w").write(stripped)
+    open(filepath, "w").write(content)
 
 
 def fix_urls(filepath):
