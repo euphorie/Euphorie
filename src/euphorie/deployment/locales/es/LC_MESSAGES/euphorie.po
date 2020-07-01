@@ -237,7 +237,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:25
 msgid "Are you sure you want to continue? This action can not be reverted."
-msgstr ""
+msgstr "Está seguro que quiere continuar? Esta acción no se puede revertir."
 
 #: euphorie/client/browser/risk.py:852
 msgid ""
@@ -1679,7 +1679,7 @@ msgstr "Crear una nueva herramienta OiRA"
 #. Default: "Yes, delete risk"
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:31
 msgid "button_delete_risk"
-msgstr ""
+msgstr "Sí, eliminar el riesgo"
 
 #. Default: "Yes, delete session"
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:31
@@ -3766,7 +3766,7 @@ msgstr "Borrar"
 #. Default: "You are about to delete the risk: &ldquo;${risk-name}&rdquo;."
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:24
 msgid "label_delete_risk"
-msgstr ""
+msgstr "Está a punto de eliminar el riesgo: &ldquo;${risk-name}&rdquo;."
 
 #. Default: "Description"
 #: euphorie/client/browser/templates/risk_actionplan.pt:173
