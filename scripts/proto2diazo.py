@@ -34,6 +34,15 @@ def strip_help(filepath):
         content = content.replace(
             '="/assets/oira/' + folder + '/', '="../' + shim + folder + '/')
 
+    # remove the top navigation for the main pages
+    if filepath.split("/")[-2] != "illustrations":
+        p = re.compile('<header id="toolbar">.*</header>',
+                       re.I | re.S | re.L | re.M)
+        content = p.sub('', content)
+        p = re.compile('<div id="browser">.*?</div>',
+                       re.I | re.S | re.L | re.M)
+        content = p.sub('', content)
+
     content = content.replace(
         '="/depts/index', '="++resource++euphorie.resources/oira/depts.html')
 
