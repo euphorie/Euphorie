@@ -4,8 +4,8 @@ Changelog
 11.3.12 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Bugfix: make sure that when the user submits the profile, the session always get
+  refreshed. This prevents a potential infinite loop of "The tool has been updated"
 
 11.3.11 (2020-07-01)
 --------------------
