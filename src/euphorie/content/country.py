@@ -133,7 +133,7 @@ class Add(dexterity.AddForm):
         self.widgets["country_type"].mode = "hidden"
 
 
-class Edit(form.SchemaEditForm):
+class Edit(dexterity.EditForm):
     grok.context(ICountry)
     grok.require("cmf.ModifyPortalContent")
     grok.layer(NuPloneSkin)
