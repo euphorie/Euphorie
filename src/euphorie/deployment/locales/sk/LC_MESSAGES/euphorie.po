@@ -4787,6 +4787,7 @@ msgstr "Tento prieskum nemá žiadne otázky alebo moduly v profile."
 msgid "no_surveys_present"
 msgstr "Nie sú tu žiadne nástroje OiRA. Môžete ${add_link}."
 
+#. #-#-#-#-#  .merge_file_9LswtK (Euphorie 3.0syslab18)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_NQsPEF (Euphorie 3.0syslab18)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_Ypmb1b (Euphorie 3.0syslab18)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
@@ -4794,6 +4795,8 @@ msgstr "Nie sú tu žiadne nástroje OiRA. Môžete ${add_link}."
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_t3o1f6 (Euphorie 3.0syslab18)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_gmBRGa (Euphorie 3.0syslab18)  #-#-#-#-#
+#. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

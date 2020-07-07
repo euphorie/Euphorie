@@ -4960,6 +4960,7 @@ msgstr "Este inquérito não tem perguntas de perfil nem módulos."
 msgid "no_surveys_present"
 msgstr "Não existem atualmente Ferramentas OiRA. Pode ${add_link}."
 
+#. #-#-#-#-#  .merge_file_fZq5nj (Euphorie 5.0dev)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_MA1Elh (Euphorie 5.0dev)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_kGJa65 (Euphorie 5.0dev)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
@@ -4967,6 +4968,8 @@ msgstr "Não existem atualmente Ferramentas OiRA. Pode ${add_link}."
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_2L1OwI (Euphorie 5.0dev)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_Yvdr3J (Euphorie 5.0dev)  #-#-#-#-#
+#. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

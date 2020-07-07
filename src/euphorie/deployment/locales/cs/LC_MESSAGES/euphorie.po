@@ -4903,6 +4903,7 @@ msgstr "Tento průzkum nezahrnuje žádné otázky týkající se profilu nebo m
 msgid "no_surveys_present"
 msgstr "Nejsou přítomny žádné nástroje OiRA. Můžete také ${add_link}."
 
+#. #-#-#-#-#  .merge_file_5MlPwm (Euphorie 3.0)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_eyhx1m (Euphorie 3.0)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_YDSAkc (Euphorie 3.0)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
@@ -4910,6 +4911,8 @@ msgstr "Nejsou přítomny žádné nástroje OiRA. Můžete také ${add_link}."
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_or3i0U (Euphorie 3.0)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_0t8WWS (Euphorie 3.0)  #-#-#-#-#
+#. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

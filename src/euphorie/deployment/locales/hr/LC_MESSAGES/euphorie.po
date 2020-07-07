@@ -4919,6 +4919,7 @@ msgstr "Ovaj upitnik nema pitanja o profilu ni module."
 msgid "no_surveys_present"
 msgstr "Ne postoji novi OiRA alat. Možete ${add_link}."
 
+#. #-#-#-#-#  .merge_file_lVWisj (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_06UDLG (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_1epw0F (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
@@ -4926,6 +4927,8 @@ msgstr "Ne postoji novi OiRA alat. Možete ${add_link}."
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_Vix6ub (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_0aoy8M (PROJECT VERSION)  #-#-#-#-#
+#. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

@@ -4731,6 +4731,7 @@ msgstr "Ebben a felmérésben nincsenek profilkérdések vagy modulok."
 msgid "no_surveys_present"
 msgstr ""
 
+#. #-#-#-#-#  .merge_file_UxvCES (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_GixiTc (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_I51aPW (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
@@ -4738,6 +4739,8 @@ msgstr ""
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_MhaOiH (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_7JmS5l (PROJECT VERSION)  #-#-#-#-#
+#. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

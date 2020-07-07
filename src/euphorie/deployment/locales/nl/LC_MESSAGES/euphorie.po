@@ -4973,6 +4973,7 @@ msgstr "Deze RI&E heeft geen profielvragen of modules."
 msgid "no_surveys_present"
 msgstr "Er zijn geen RI&E's beschikbaar. U kunt ${add_link}."
 
+#. #-#-#-#-#  .merge_file_wvDqLz (Euphorie 2.0)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_Fokc7E (Euphorie 2.0)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_ZZJHZ8 (Euphorie 2.0)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
@@ -4980,6 +4981,8 @@ msgstr "Er zijn geen RI&E's beschikbaar. U kunt ${add_link}."
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_JyfZr7 (Euphorie 2.0)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_wNiBq1 (Euphorie 2.0)  #-#-#-#-#
+#. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

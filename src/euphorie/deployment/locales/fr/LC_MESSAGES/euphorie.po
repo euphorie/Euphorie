@@ -5065,6 +5065,7 @@ msgstr "Cette enquête ne contient pas de questions ou de modules du profil."
 msgid "no_surveys_present"
 msgstr "Aucun Outil OiRA n'est présent. Vous pouvez ${add_link}."
 
+#. #-#-#-#-#  .merge_file_Sysz5K (Euphorie 2.0)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_xEi6lN (Euphorie 2.0)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_i9K4Eb (Euphorie 2.0)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_C9HzDq (Euphorie 2.0)  #-#-#-#-#
@@ -5075,6 +5076,8 @@ msgstr "Aucun Outil OiRA n'est présent. Vous pouvez ${add_link}."
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_AUAfaB (Euphorie 2.0)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_0i273e (Euphorie 2.0)  #-#-#-#-#
+#. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""
@@ -5811,22 +5814,27 @@ msgstr "Oui"
 #. Default: "Describe the specific measures required to reduce the risk."
 #: euphorie/client/browser/risk.py:299
 msgid "action_measures_false_solutions_false"
-msgstr ""
+msgstr "Décrivez les mesures spécifiques nécessaires pour prévenir le risque."
 
 #. Default: "Select or describe the specific measures required to reduce the risk."
 #: euphorie/client/browser/risk.py:291
 msgid "action_measures_false_solutions_true"
 msgstr ""
+"Sélectionnez ou décrivez les mesures spécifiques nécessaires pour réduire le "
+"risque."
 
 #. Default: "Describe any further measure to reduce the risk."
 #: euphorie/client/browser/risk.py:282
 msgid "action_measures_true_solutions_false"
 msgstr ""
+"Décrivez les éventuelles mesures supplémentaires pour réduire le risque."
 
 #. Default: "Select or describe any further measure to reduce the risk."
 #: euphorie/client/browser/risk.py:274
 msgid "action_measures_true_solutions_true"
 msgstr ""
+"Sélectionnez ou décrivez les éventuelles mesures supplémentaires pour "
+"réduire le risque."
 
 #. Default: "If selected, the option to plan measures will be offered directly on the “Identification” page. There will be no separate “Action Plan” step in the navigation."
 #: euphorie/content/survey.py:122
@@ -5841,7 +5849,7 @@ msgstr ""
 #. Default: "Measures"
 #: euphorie/client/browser/templates/risk_identification.pt:62
 msgid "header_measures"
-msgstr ""
+msgstr "Mesures"
 
 #. Default: "Assessment"
 #: euphorie/client/templates/shell.pt:176

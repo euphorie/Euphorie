@@ -4988,6 +4988,7 @@ msgstr "Dan l-istħarriġ m'għandux mistoqsijiet tal-profil jew moduli."
 msgid "no_surveys_present"
 msgstr "M'hemmx Għodda tal-OiRA preżenti. Tista' ${add_link}."
 
+#. #-#-#-#-#  .merge_file_bVhXlV (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_Kt7DM2 (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_lRlXXH (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
@@ -4995,6 +4996,8 @@ msgstr "M'hemmx Għodda tal-OiRA preżenti. Tista' ${add_link}."
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_ALQ1rv (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_gWtFjn (PROJECT VERSION)  #-#-#-#-#
+#. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

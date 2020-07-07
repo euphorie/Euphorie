@@ -4921,6 +4921,7 @@ msgstr "Tässä kysymyksessä ei ole profiilikysymyksiä eikä moduuleja."
 msgid "no_surveys_present"
 msgstr "OiRA-työkalua ei ole. Voit ${add_link}."
 
+#. #-#-#-#-#  .merge_file_mudwEd (Euphorie 5.1.1dev)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_mhyAAH (Euphorie 5.1.1dev)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_f7wqKc (Euphorie 5.1.1dev)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
@@ -4928,6 +4929,8 @@ msgstr "OiRA-työkalua ei ole. Voit ${add_link}."
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_KA6R0c (Euphorie 5.1.1dev)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_3AqKWH (Euphorie 5.1.1dev)  #-#-#-#-#
+#. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""
