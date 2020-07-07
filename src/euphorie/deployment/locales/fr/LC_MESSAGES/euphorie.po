@@ -1557,22 +1557,22 @@ msgstr "les micro et petites entreprises rencontrent certaines difficultés"
 #. Default: "Describe the specific measures required to reduce the risk."
 #: euphorie/client/browser/risk.py:299
 msgid "action_measures_false_solutions_false"
-msgstr ""
+msgstr "Décrivez les mesures spécifiques nécessaires pour prévenir le risque."
 
 #. Default: "Select or describe the specific measures required to reduce the risk."
 #: euphorie/client/browser/risk.py:291
 msgid "action_measures_false_solutions_true"
-msgstr ""
+msgstr "Sélectionnez ou décrivez les mesures spécifiques nécessaires pour réduire le risque."
 
 #. Default: "Describe any further measure to reduce the risk."
 #: euphorie/client/browser/risk.py:282
 msgid "action_measures_true_solutions_false"
-msgstr ""
+msgstr "Décrivez les éventuelles mesures supplémentaires pour réduire le risque."
 
 #. Default: "Select or describe any further measure to reduce the risk."
 #: euphorie/client/browser/risk.py:274
 msgid "action_measures_true_solutions_true"
-msgstr ""
+msgstr "Sélectionnez ou décrivez les éventuelles mesures supplémentaires pour réduire le risque."
 
 #. Default: "Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary."
 #: euphorie/client/browser/templates/webhelpers.pt:755
@@ -2648,7 +2648,7 @@ msgstr "Mesure"
 #. Default: "Measures"
 #: euphorie/client/browser/templates/risk_identification.pt:62
 msgid "header_measures"
-msgstr ""
+msgstr "Mesures"
 
 #. Default: "Modules"
 #: euphorie/content/templates/profilequestion_add.pt:42
