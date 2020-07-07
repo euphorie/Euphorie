@@ -4914,10 +4914,13 @@ msgstr "Šioje apklausoje nėra profilio klausimų ar modulių."
 msgid "no_surveys_present"
 msgstr "Šiuo metu jokių OiRA priemonių nėra. Galite atidaryti ${add_link}."
 
+#. #-#-#-#-#  .merge_file_cg8ZhR (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_wSyiMU (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_MGI7os (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_WD3nFk (PROJECT VERSION)  #-#-#-#-#
+#. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

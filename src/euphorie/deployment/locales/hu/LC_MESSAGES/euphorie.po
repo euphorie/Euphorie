@@ -4731,10 +4731,13 @@ msgstr "Ebben a felmérésben nincsenek profilkérdések vagy modulok."
 msgid "no_surveys_present"
 msgstr ""
 
+#. #-#-#-#-#  .merge_file_GixiTc (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_I51aPW (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_V7Xlew (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_MhaOiH (PROJECT VERSION)  #-#-#-#-#
+#. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

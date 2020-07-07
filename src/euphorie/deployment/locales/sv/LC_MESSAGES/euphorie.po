@@ -4746,10 +4746,13 @@ msgstr "Denna undersökning har inga profilfrågor."
 msgid "no_surveys_present"
 msgstr "Det finns för närvarande inga undersökningar. Du kan ${add_link}."
 
+#. #-#-#-#-#  .merge_file_3cgWE7 (Euphorie 2.2)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_l7Z9Fn (Euphorie 2.2)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_vjRMcQ (Euphorie 2.2)  #-#-#-#-#
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_aGBIBx (Euphorie 2.2)  #-#-#-#-#
+#. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

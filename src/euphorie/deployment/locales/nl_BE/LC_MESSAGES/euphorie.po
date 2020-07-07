@@ -4980,10 +4980,13 @@ msgstr "Deze enquête heeft geen profielvragen of modules."
 msgid "no_surveys_present"
 msgstr "Er zijn geen OiRA-instrumenten beschikbaar. U kunt {add_link}."
 
+#. #-#-#-#-#  .merge_file_D1r5qi (Euphorie 3.0.2dev)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_toDjtB (Euphorie 3.0.2dev)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_uKgQZ6 (Euphorie 3.0.2dev)  #-#-#-#-#
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_4wPHrK (Euphorie 3.0.2dev)  #-#-#-#-#
+#. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

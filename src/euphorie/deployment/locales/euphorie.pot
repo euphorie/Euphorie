@@ -4542,10 +4542,13 @@ msgstr ""
 msgid "no_surveys_present"
 msgstr ""
 
+#. #-#-#-#-#  .merge_file_IsLQye (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_sYSwh0 (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_KVI8BB (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_vWJRkK (PROJECT VERSION)  #-#-#-#-#
+#. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

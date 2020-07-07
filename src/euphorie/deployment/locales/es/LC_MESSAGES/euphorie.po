@@ -1666,12 +1666,15 @@ msgstr "Añadir gestor de país"
 msgid "button_add_custom_risk"
 msgstr "Añadir otro riesgo"
 
+#. #-#-#-#-#  .merge_file_NQ5WUk (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_cyKKME (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_2A3Gqn (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. Default: "Add a missing measure"
 #. #-#-#-#-#  .merge_file_RwdtVq (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. Default: "Add another measure implemented already"
 #. #-#-#-#-#  .merge_file_KzmuPg (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
+#. Default: "Add another measure implemented already"
+#. #-#-#-#-#  .merge_file_M3nwbR (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. Default: "Add another measure implemented already"
 #: euphorie/content/utils.py:85 euphorie/content/utils.py:93
 msgid "button_add_existing_measure"
@@ -3045,6 +3048,7 @@ msgstr "${num_present_risks} Riesgos existentes"
 msgid "heading_present_risks_5_or_more"
 msgstr "${num_present_risks} Riesgos existentes"
 
+#. #-#-#-#-#  .merge_file_NQ5WUk (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_cyKKME (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_2A3Gqn (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. Default: "Define which reports are offered by default after risk identification"
@@ -3052,16 +3056,21 @@ msgstr "${num_present_risks} Riesgos existentes"
 #. Default: "Define, which reports are offered to the user on the Report page."
 #. #-#-#-#-#  .merge_file_KzmuPg (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. Default: "Define, which reports are offered to the user on the Report page."
+#. #-#-#-#-#  .merge_file_M3nwbR (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
+#. Default: "Define, which reports are offered to the user on the Report page."
 #: euphorie/content/country.py:73 euphorie/content/country.py:76
 msgid "help__default_reports"
 msgstr ""
 
+#. #-#-#-#-#  .merge_file_NQ5WUk (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_cyKKME (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_2A3Gqn (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. Default: "Define which information sections should be uncollapsed by default on a risk identification page."
 #. #-#-#-#-#  .merge_file_RwdtVq (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. Default: "Define, which information sections should be open by default on a risk identification page. Sections not checked will be shown intially in collapsed mode, but the user can always open those sections with a click."
 #. #-#-#-#-#  .merge_file_KzmuPg (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
+#. Default: "Define, which information sections should be open by default on a risk identification page. Sections not checked will be shown intially in collapsed mode, but the user can always open those sections with a click."
+#. #-#-#-#-#  .merge_file_M3nwbR (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. Default: "Define, which information sections should be open by default on a risk identification page. Sections not checked will be shown intially in collapsed mode, but the user can always open those sections with a click."
 #: euphorie/content/country.py:51 euphorie/content/country.py:52
 msgid "help__risk_default_collapsible_sections"
@@ -3691,12 +3700,15 @@ msgid "is_risk_acceptable_add_measures"
 msgstr ""
 "¿Este riesgo es aceptable o bajo control? Si procede, ${link_add_measures}."
 
+#. #-#-#-#-#  .merge_file_NQ5WUk (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_cyKKME (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_2A3Gqn (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. Default: "Default reports"
 #. #-#-#-#-#  .merge_file_RwdtVq (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. Default: "Available reports"
 #. #-#-#-#-#  .merge_file_KzmuPg (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
+#. Default: "Available reports"
+#. #-#-#-#-#  .merge_file_M3nwbR (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. Default: "Available reports"
 #: euphorie/content/country.py:69 euphorie/content/country.py:72
 msgid "label__default_reports"
@@ -4981,10 +4993,13 @@ msgstr "Esta herramienta no tiene preguntas perfil o módulos"
 msgid "no_surveys_present"
 msgstr "No hay herramientas OiRA. Puede ${add_link}."
 
+#. #-#-#-#-#  .merge_file_NQ5WUk (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_cyKKME (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_KzmuPg (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_M3nwbR (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-#
+#. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

@@ -4999,10 +4999,13 @@ msgstr "Questo sondaggio non contiene domande di profilo o moduli."
 msgid "no_surveys_present"
 msgstr "Non vi sono tool OiRA presenti. È possibile aggiungere ${add_link}."
 
+#. #-#-#-#-#  .merge_file_zVrP6h (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_Q5Uv4y (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_eaLhp7 (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_9YyBPL (PROJECT VERSION)  #-#-#-#-#
+#. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

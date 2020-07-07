@@ -4877,10 +4877,13 @@ msgstr ""
 msgid "no_surveys_present"
 msgstr "Engin OiRA verkfæri eru til staðar. Þú getur ${add_link}."
 
+#. #-#-#-#-#  .merge_file_PHHoZJ (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_Lb2Z8e (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_kHHU0N (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_tUSk4d (PROJECT VERSION)  #-#-#-#-#
+#. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

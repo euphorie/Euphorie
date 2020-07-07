@@ -564,7 +564,10 @@ class Identification(SessionMixin, BrowserView):
                 self.context.absolute_url() + "/@@start"
             )
         utils.setLanguage(self.request, self.survey, self.survey.language)
-        self.request.RESPONSE.redirect(self.next_url)
+        if self.webhelpers.use_involve_phase:
+            self.request.RESPONSE.redirect(self.next_url)
+        else:
+            return super(Identification, self).__call__()
 
 
 class DeleteSession(SessionMixin, BrowserView):

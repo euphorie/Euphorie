@@ -5041,10 +5041,13 @@ msgstr "Dieses Tool enthält keine Profilfragen oder Module"
 msgid "no_surveys_present"
 msgstr "Es sind keine OiRA-Tools vorhanden. Sie können ${add_link}."
 
+#. #-#-#-#-#  .merge_file_6Z0cA6 (Euphorie 3.0syslab18)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_a6YSyi (Euphorie 3.0syslab18)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_owmFdW (Euphorie 3.0syslab18)  #-#-#-#-#
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_EBbdWD (Euphorie 3.0syslab18)  #-#-#-#-#
+#. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

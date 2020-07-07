@@ -4908,10 +4908,13 @@ msgstr "Šajā aptaujā nav ne profila jautājumu, ne moduļu."
 msgid "no_surveys_present"
 msgstr "Šobrīd nav pieejams neviens OiRA rīks. Jūs varat ${add_link}."
 
+#. #-#-#-#-#  .merge_file_4r2vvr (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_RlRcvi (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_GmgOwP (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_2pijxU (PROJECT VERSION)  #-#-#-#-#
+#. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

@@ -5051,10 +5051,13 @@ msgstr "Cette enquête ne contient pas de questions ou de modules du profil."
 msgid "no_surveys_present"
 msgstr "Aucun Outil OiRA n'est présent. Vous pouvez ${add_link}."
 
+#. #-#-#-#-#  .merge_file_i9K4Eb (Euphorie 2.0)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_C9HzDq (Euphorie 2.0)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_fTSz00 (Euphorie 2.0)  #-#-#-#-#
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_lyn6JG (Euphorie 2.0)  #-#-#-#-#
+#. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

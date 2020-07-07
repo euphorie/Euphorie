@@ -4909,10 +4909,13 @@ msgstr "V tej anketi ni vprašanj ali modulov o profilu."
 msgid "no_surveys_present"
 msgstr "Orodja OiRA ne obstajajo. Lahko ${add_link}."
 
+#. #-#-#-#-#  .merge_file_Y32Rao (Euphorie 3.0)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_UWN95L (Euphorie 3.0)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_yS3T2e (Euphorie 3.0)  #-#-#-#-#
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_EEsusO (Euphorie 3.0)  #-#-#-#-#
+#. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""

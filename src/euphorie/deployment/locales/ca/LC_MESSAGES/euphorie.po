@@ -1663,12 +1663,15 @@ msgstr "Afegir responsable nacional"
 msgid "button_add_custom_risk"
 msgstr "Afegir un altre risc"
 
+#. #-#-#-#-#  .merge_file_seHtE1 (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_ptn9qb (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_HXzAJy (PROJECT VERSION)  #-#-#-#-#
 #. Default: "Add a missing measure"
 #. #-#-#-#-#  .merge_file_NydGDC (PROJECT VERSION)  #-#-#-#-#
 #. Default: "Add another measure implemented already"
 #. #-#-#-#-#  .merge_file_O9TmEQ (PROJECT VERSION)  #-#-#-#-#
+#. Default: "Add another measure implemented already"
+#. #-#-#-#-#  .merge_file_KngBYz (PROJECT VERSION)  #-#-#-#-#
 #. Default: "Add another measure implemented already"
 #: euphorie/content/utils.py:85 euphorie/content/utils.py:93
 msgid "button_add_existing_measure"
@@ -3044,6 +3047,7 @@ msgstr "${num_present_risks} Riscos existents"
 msgid "heading_present_risks_5_or_more"
 msgstr "${num_present_risks} Riscos existents"
 
+#. #-#-#-#-#  .merge_file_seHtE1 (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_ptn9qb (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_HXzAJy (PROJECT VERSION)  #-#-#-#-#
 #. Default: "Define which reports are offered by default after risk identification"
@@ -3051,16 +3055,21 @@ msgstr "${num_present_risks} Riscos existents"
 #. Default: "Define, which reports are offered to the user on the Report page."
 #. #-#-#-#-#  .merge_file_O9TmEQ (PROJECT VERSION)  #-#-#-#-#
 #. Default: "Define, which reports are offered to the user on the Report page."
+#. #-#-#-#-#  .merge_file_KngBYz (PROJECT VERSION)  #-#-#-#-#
+#. Default: "Define, which reports are offered to the user on the Report page."
 #: euphorie/content/country.py:73 euphorie/content/country.py:76
 msgid "help__default_reports"
 msgstr ""
 
+#. #-#-#-#-#  .merge_file_seHtE1 (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_ptn9qb (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_HXzAJy (PROJECT VERSION)  #-#-#-#-#
 #. Default: "Define which information sections should be uncollapsed by default on a risk identification page."
 #. #-#-#-#-#  .merge_file_NydGDC (PROJECT VERSION)  #-#-#-#-#
 #. Default: "Define, which information sections should be open by default on a risk identification page. Sections not checked will be shown intially in collapsed mode, but the user can always open those sections with a click."
 #. #-#-#-#-#  .merge_file_O9TmEQ (PROJECT VERSION)  #-#-#-#-#
+#. Default: "Define, which information sections should be open by default on a risk identification page. Sections not checked will be shown intially in collapsed mode, but the user can always open those sections with a click."
+#. #-#-#-#-#  .merge_file_KngBYz (PROJECT VERSION)  #-#-#-#-#
 #. Default: "Define, which information sections should be open by default on a risk identification page. Sections not checked will be shown intially in collapsed mode, but the user can always open those sections with a click."
 #: euphorie/content/country.py:51 euphorie/content/country.py:52
 msgid "help__risk_default_collapsible_sections"
@@ -3686,12 +3695,15 @@ msgid "is_risk_acceptable_add_measures"
 msgstr ""
 "Aquest risc és acceptable o sota control? Si escau, ${link_add_measures}."
 
+#. #-#-#-#-#  .merge_file_seHtE1 (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_ptn9qb (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_HXzAJy (PROJECT VERSION)  #-#-#-#-#
 #. Default: "Default reports"
 #. #-#-#-#-#  .merge_file_NydGDC (PROJECT VERSION)  #-#-#-#-#
 #. Default: "Available reports"
 #. #-#-#-#-#  .merge_file_O9TmEQ (PROJECT VERSION)  #-#-#-#-#
+#. Default: "Available reports"
+#. #-#-#-#-#  .merge_file_KngBYz (PROJECT VERSION)  #-#-#-#-#
 #. Default: "Available reports"
 #: euphorie/content/country.py:69 euphorie/content/country.py:72
 msgid "label__default_reports"
@@ -4972,10 +4984,13 @@ msgstr "Aquesta eina no inclou preguntes perfil o mòduls."
 msgid "no_surveys_present"
 msgstr "No hi ha cap eina OiRA. Pot ${add_link}."
 
+#. #-#-#-#-#  .merge_file_seHtE1 (PROJECT VERSION)  #-#-#-#-#
 #. #-#-#-#-#  .merge_file_ptn9qb (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #. #-#-#-#-#  .merge_file_O9TmEQ (PROJECT VERSION)  #-#-#-#-#
 #. Default: "<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>"
+#. #-#-#-#-#  .merge_file_KngBYz (PROJECT VERSION)  #-#-#-#-#
+#. Default: "<a class='add-clone'>${text_add_measures}</a>"
 #: euphorie/content/utils.py:51
 msgid "no_translate_link_add_measures"
 msgstr ""
