@@ -8,6 +8,7 @@ Changelog
   existing images, but allow keeping them.
 - Bugfix: make sure that when the user submits the profile, the session always get
   refreshed. This prevents a potential infinite loop of "The tool has been updated"
+- Translation updates
 
 11.3.11 (2020-07-01)
 --------------------
