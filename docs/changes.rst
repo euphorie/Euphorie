@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.3.12 (unreleased)
+11.3.12 (2020-07-08)
 --------------------
 
 - Don't allow uploading new images smaller than 1000x430 pixels. Warn about smaller
