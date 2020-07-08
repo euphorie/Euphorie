@@ -335,9 +335,7 @@ msgstr "Potvrďte změnu e-mailové adresy OiRA"
 msgid ""
 "Contains: all the information and input provided by you throughout the risk "
 "assessment process."
-msgstr ""
-"Obsahuje: všechny informace, vstupy a data, které jste do dokumentu "
-"zapracovali  během celého postupu hodnocení rizik"
+msgstr "Zpráva obsahuje všechna zadaná data."
 
 #: euphorie/client/templates/report_landing.pt:176
 msgid "Contains: an overview of the measures to be implemented."
@@ -345,12 +343,12 @@ msgstr "Obsahuje: přehled opatření, která mají být provedena."
 
 #: euphorie/client/templates/report_landing.pt:148
 msgid "Contains: an overview of the risks identified"
-msgstr "Obsahuje: přehled zjištěných rizik"
+msgstr "Obsahuje: přehled rizik"
 
 #: euphorie/client/templates/report_landing.pt:116
 msgid ""
 "Contains: main elements to effectively manage the risks at your workplace."
-msgstr "Obsahuje: hlavní zásady pro účinné řízení rizik na vašem pracovišti."
+msgstr "Obsahuje: hlavní zásady pro prevenci rizik."
 
 #: euphorie/deployment/tiles/configure.zcml:18
 msgid "Content add bar"
@@ -530,7 +528,7 @@ msgstr "Formát: Excel (.xlsx)"
 
 #: euphorie/client/templates/report_landing.pt:147
 msgid "Format: Portable Document Format (.pdf)"
-msgstr "Formát: PDF (.pdf)"
+msgstr "Formát: PDF"
 
 #: euphorie/content/country.py:79
 msgid "Full report"
@@ -1060,7 +1058,7 @@ msgstr "Standard"
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:126
 msgid "Standard measures"
-msgstr ""
+msgstr "Standardní opatření"
 
 #: euphorie/content/templates/solution_view.pt:12
 msgid "Standard solution"
@@ -1501,36 +1499,22 @@ msgstr "mikropodniky a makropodniky mají určité nedostatky"
 #. Default: "Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary."
 #: euphorie/client/browser/templates/risk_actionplan.pt:254
 msgid "actionplan_measure_budget_tooltip"
-msgstr ""
-"Ačkoliv některé kroky nestojí žádné peníze, mnoho z nich stojí. Proto by měl "
-"být pro kroky stanoven rozpočet; zahrňte je v ročním rozpočtu, pokud je to "
-"třeba."
+msgstr "Náklady, které bude třeba vynaložit na realizaci opatření."
 
 #. Default: "Appoint someone in your company to be responsible for the implementation of this measure. This person will have the authority to take the steps described in the Plan and/or the responsibility to ensure that they are carried out."
 #: euphorie/client/browser/templates/risk_actionplan.pt:236
 msgid "actionplan_measure_responsible_tooltip"
-msgstr ""
-"Ustanovte někoho ve své společnosti, kdo bude odpovědný za implementaci "
-"tohoto kroku. Tato osoba bude oprávněná podniknout kroky popsané v plánu a/"
-"nebo bude odpovědná za zajištění, že se tyto kroky provádějí."
+msgstr "Ustanovte odpovědnou osobu za realizaci opatření."
 
 #. Default: "Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)"
 #: euphorie/client/browser/templates/risk_actionplan.pt:334
 msgid "actionplan_measure_tooltip"
-msgstr ""
-"Popište: 1) jaký je váš obecný přístup k eliminaci nebo (pokud se riziku "
-"nedá vyhnout) snížení rizika; 2) konkrétní krok/y vyžadované k implementaci "
-"tohoto přístupu (k eliminaci nebo snížení rizika)"
+msgstr "Popište opatření pro odstranění nebo snížení rizika."
 
 #. Default: "Describe: 3) the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any)."
 #: euphorie/client/browser/templates/risk_actionplan.pt:349
 msgid "actionplan_requirements_tooltip"
-msgstr ""
-"Popište: 3) míru znalostí potřebných k implementaci kroku, např. \"zdravý "
-"rozum (nevyžadují se žádné znalosti BOZP)\", \"žádné specifické znalosti "
-"BOZP, ale vyžadují se minimální znalosti BOZP nebo znalosti nebo školení a/"
-"nebo konzultace s vedením společnosti\", nebo \"expert\" na prevencirizik. "
-"Můžete zde také popsat jakýkoliv jiný požadavek (pokud existuje)."
+msgstr "Odborná způsobilost nebo potřebné znalosti a dovednosti."
 
 #. Default: "add a new OiRA Tool"
 #: euphorie/content/templates/sector_view.pt:18
@@ -1652,7 +1636,7 @@ msgstr "Vytvořit nový nástroj OiRA"
 #. Default: "Yes, delete risk"
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:31
 msgid "button_delete_risk"
-msgstr ""
+msgstr "Ano, smazat riziko"
 
 #. Default: "Yes, delete session"
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:31
@@ -1753,8 +1737,8 @@ msgstr ""
 #: euphorie/client/templates/report_company.pt:23
 msgid "company_details_intro"
 msgstr ""
-"Můžete poskytovat informace uvedené níže. Tyto informace mají zlepšit "
-"nástroje a poskytované služby. Tato data se neobjeví ve zprávě."
+"Vyplnění je dobrovolné. Informace, které nám poskytnete, pomohou zlepšit "
+"OiRA."
 
 #. Default: "Conservation and processing of information"
 #: euphorie/client/templates/conditions.pt:89
@@ -1958,7 +1942,7 @@ msgstr ""
 #: euphorie/client/browser/templates/webhelpers.pt:542
 msgid "description_automatic_evaluation"
 msgstr ""
-"Nástroj provedl hodnocení rizika automaticky. Prioritu tohoto rizika budete "
+"Nástroj provedl hodnocení rizika automaticky. Hodnotu tohoto rizika budete "
 "moci změnit v akčním plánu, pokud to budete považovat za nutné."
 
 #. Default: "In case you have identified risks not included in the tool, you are able to add them now:"
@@ -2045,7 +2029,7 @@ msgstr ""
 #. Default: "High (very high) severity"
 #: euphorie/content/risk.py:439
 msgid "effect_high"
-msgstr "Vysoká (velmi vysoká) závažnost"
+msgstr "Vysoká závažnost"
 
 #. Default: "Weak severity"
 #: euphorie/client/browser/templates/webhelpers.pt:375
@@ -2060,7 +2044,7 @@ msgstr "Významná závažnost"
 #. Default: "High (very high) severity"
 #: euphorie/client/browser/templates/webhelpers.pt:387
 msgid "effect_permanent_damage"
-msgstr "Vysoká (velmi vysoká) závažnost"
+msgstr "Vysoká závažnost"
 
 #. Default: "Significant severity"
 #: euphorie/content/risk.py:436
@@ -2335,7 +2319,7 @@ msgstr "Téměř nikdy"
 #: euphorie/client/browser/templates/webhelpers.pt:357
 #: euphorie/content/risk.py:419
 msgid "frequency_constantly"
-msgstr "Neustále"
+msgstr "Nepřetržitě"
 
 #. Default: "Not very often"
 #: euphorie/client/browser/templates/webhelpers.pt:478
@@ -2399,9 +2383,7 @@ msgstr ""
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
 #: euphorie/client/templates/report_company.pt:20
 msgid "hader_company_details"
-msgstr ""
-"Právě budete zprávu tisknout... vyplňte prosím volitelný formulář a pak "
-"pokračujte."
+msgstr "Vyplňte prosím následující dotazník."
 
 #. Default: "Additional content"
 #: euphorie/content/module.py:100 euphorie/content/risk.py:276
@@ -2441,7 +2423,7 @@ msgstr "Partneři rozvoje"
 #. Default: "Evaluation"
 #: euphorie/content/risk.py:448
 msgid "header_evaluation"
-msgstr "Vyhodnocení"
+msgstr "Hodnocení"
 
 #. Default: "Example of a measures overview report in PDF format"
 #: euphorie/client/browser/templates/register.pt:67
@@ -2466,7 +2448,7 @@ msgstr "Příklad akčního plánu jako sešit ve formátu Office Open XML (.xls
 #. Default: "Identification"
 #: euphorie/content/risk.py:127
 msgid "header_identification"
-msgstr "Identifikace"
+msgstr "Vyhledání"
 
 #. Default: "Information"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:192
@@ -2510,12 +2492,12 @@ msgstr "Hlavní obrázek"
 #. Default: "Measure ${index}"
 #: euphorie/client/docx/compiler.py:378
 msgid "header_measure"
-msgstr "Krok ${index}"
+msgstr "Opatření ${index}"
 
 #. Default: "Measure"
 #: euphorie/client/docx/compiler.py:375
 msgid "header_measure_single"
-msgstr "Krok"
+msgstr "Opatření"
 
 #. Default: "Modules"
 #: euphorie/content/templates/profilequestion_add.pt:42
@@ -2623,7 +2605,7 @@ msgstr "Registrovat"
 #: euphorie/client/browser/templates/register.pt:19
 #: euphorie/client/browser/templates/report.pt:22
 msgid "header_reporting"
-msgstr "Podávání zpráv"
+msgstr "Zpráva o vyhledání a zhodnocení rizik"
 
 #. Default: "Resources"
 #: euphorie/client/browser/templates/risk_identification.pt:48
@@ -2638,23 +2620,23 @@ msgstr "Jste si vědom/a všech rizik?"
 #. Default: "What is the severity of the damage?"
 #: euphorie/client/browser/templates/webhelpers.pt:365
 msgid "header_risk_effect"
-msgstr "Jaká je závažnost škody?"
+msgstr "Jaká je odhadovaná závažnost následku?"
 
 #. Default: "How often are people exposed to this risk?"
 #: euphorie/client/browser/templates/webhelpers.pt:335
 msgid "header_risk_frequency"
-msgstr "Jak často jsou lidé tomuto riziku vystaveni?"
+msgstr "Jak často dochází k ohrožení?"
 
 #. Default: "Select the priority of this risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:167
 #: euphorie/client/browser/templates/webhelpers.pt:519
 msgid "header_risk_priority"
-msgstr "Zvolte prioritu pro toto riziko"
+msgstr "Zvolte hodnotu rizika."
 
 #. Default: "What is the chance of this risk occurring?"
 #: euphorie/client/browser/templates/webhelpers.pt:304
 msgid "header_risk_probability"
-msgstr "Jaká je šance na to, že se toto riziko vyskytne?"
+msgstr "Jaká je pravděpodobnost výskytu?"
 
 #. Default: "Risks"
 #: euphorie/content/templates/module_view.pt:42
@@ -2756,7 +2738,7 @@ msgstr "Proč projekt OiRA"
 #. Default: "Comments"
 #: euphorie/client/browser/templates/webhelpers.pt:596
 msgid "heading_comments"
-msgstr "Připomínky"
+msgstr "Poznámky"
 
 #. Default: "High priority risks"
 #: euphorie/client/browser/templates/measures_overview.pt:85
@@ -2942,9 +2924,7 @@ msgstr "Tento text by měl vysvětlit, jak se registrovat a přihlásit."
 #. Default: "Please answer the following questions. As a result of your answers the system will calculate the priority of the risk. You will be able to modify the priority later."
 #: euphorie/client/browser/templates/webhelpers.pt:291
 msgid "help_calculated_evaluation"
-msgstr ""
-"Odpovězte prosím na tyto otázky. Systém na základě vašich odpovědí vypočítá "
-"prioritu rizika. Prioritu můžete později změnit."
+msgstr "Vyberte vyhovující možnost. Systém vypočítá hodnotu rizika."
 
 #. Default: "A code identifying this sector. Classification codes are defined by national standards bodies and based on revision 2 of the NACE standard."
 #: euphorie/content/survey.py:100
@@ -3480,12 +3460,12 @@ msgstr "Akční plán"
 #. Default: "Evaluation"
 #: euphorie/client/templates/report_identification.pt:138
 msgid "iphone_label_evaluation"
-msgstr "Vyhodnocení"
+msgstr "Hodnocení"
 
 #. Default: "Identification"
 #: euphorie/client/templates/report_identification.pt:128
 msgid "iphone_label_identification"
-msgstr "Identifikace"
+msgstr "Vyhledání"
 
 #. Default: "Preparation"
 #: euphorie/client/templates/report_identification.pt:116
@@ -3607,9 +3587,7 @@ msgstr ""
 #: euphorie/client/browser/templates/risk_actionplan.pt:564
 #: euphorie/client/browser/templates/webhelpers.pt:603
 msgid "label_comment"
-msgstr ""
-"Prosíme o případné připomínky k problematice uvedené v otázce výše Tyto "
-"připomínky budou využity v akčním plánu"
+msgstr "Poznámky budou k dispozici při zpracování akčního plánu."
 
 #. Default: "Your country"
 #: euphorie/client/company.py:30 euphorie/client/templates/report_company.pt:29
@@ -3690,6 +3668,7 @@ msgstr "Vymazat"
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:24
 msgid "label_delete_risk"
 msgstr ""
+"Opravdu chcete smazat riziko „${risk-name}“? Tuto akci nelze vrátit zpátky."
 
 #. Default: "Description"
 #: euphorie/client/browser/templates/risk_actionplan.pt:173
@@ -3724,7 +3703,7 @@ msgstr "Zobrazit vlastní upozornění pro tento nástroj OiRA?"
 #: euphorie/client/templates/report_identification.pt:135
 #: euphorie/client/templates/shell.pt:170
 msgid "label_evaluation"
-msgstr "Vyhodnocení"
+msgstr "Hodnocení"
 
 #. Default: "Evaluation method"
 #: euphorie/content/risk.py:172 euphorie/content/templates/risk_view.pt:47
@@ -3831,7 +3810,7 @@ msgstr "Provedení vlastního hodnocení rizik"
 #: euphorie/client/templates/report_identification.pt:125
 #: euphorie/client/templates/shell.pt:168
 msgid "label_identification"
-msgstr "Identifikace"
+msgstr "Vyhledání"
 
 #. Default: "Image file"
 #: euphorie/content/module.py:78 euphorie/content/risk.py:226
@@ -3908,7 +3887,7 @@ msgstr ""
 #: euphorie/client/browser/templates/risk_actionplan.pt:338
 #: euphorie/client/docx/compiler.py:386 euphorie/client/report.py:143
 msgid "label_measure_action_plan"
-msgstr "Obecný přístup (k eliminaci nebo snížení rizika)"
+msgstr "Popište opatření k odstranění rizika nebo jeho omezení."
 
 #. Default: "Specific action(s) required to implement this approach"
 #: euphorie/content/solution.py:59
@@ -4126,7 +4105,7 @@ msgstr "Zpráva"
 #. Default: "Please leave any extra comments that should be included in the report in this field."
 #: euphorie/client/browser/templates/report.pt:32
 msgid "label_report_comment"
-msgstr "Prosíme o případné připomínky k problematice uvedené v otázce výše"
+msgstr "Poznámky"
 
 #. Default: "Date of editing"
 #: euphorie/client/docx/compiler.py:525
@@ -4850,7 +4829,7 @@ msgstr "Nízká"
 #: euphorie/client/browser/templates/webhelpers.pt:531
 #: euphorie/content/risk.py:194
 msgid "priority_medium"
-msgstr "Vysoká"
+msgstr "Střední"
 
 #. Default: "Large"
 #: euphorie/client/browser/templates/webhelpers.pt:327
@@ -4949,11 +4928,7 @@ msgstr ""
 #. Default: "Now that you have finished identifying all the risks in your organisation and created an action plan you can create a report which lists all your results. You can, if desired, add some extra comments that should be included in this report in the field below."
 #: euphorie/client/browser/templates/report.pt:23
 msgid "report_intro"
-msgstr ""
-"Nyní, když jste ukončil/a identifikaci všech rizik ve vaší organizaci a "
-"vytvořil/a jste akční plán, můžete vytvořit zprávu, která uvádí veškeré vaše "
-"výsledky. Podle potřeby můžete přidat jakékoliv další komentáře, které by "
-"měly být obsaženy v této zprávě v políčku níže."
+msgstr "Nyní bude vygenerována zpráva o vyhledání a zhodnocení rizik."
 
 #. Default: "Measures already in place:"
 #: euphorie/client/docx/compiler.py:599
@@ -5005,7 +4980,7 @@ msgstr ""
 #: euphorie/client/browser/templates/risk_actionplan.pt:88
 #: euphorie/client/docx/compiler.py:305
 msgid "risk_priority"
-msgstr "Toto je ${priority_value} prioritní riziko."
+msgstr "Toto je ${priority_value} hodnota rizika."
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:110
 msgid "risk_priority_${value}"
