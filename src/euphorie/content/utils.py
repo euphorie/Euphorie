@@ -4,6 +4,7 @@ from Acquisition import aq_inner
 from Acquisition import aq_parent
 from collections import OrderedDict
 from plone import api
+from plone.namedfile.interfaces import INamedBlobImage
 from plonetheme.nuplone import MessageFactory as NuPloneMessageFactory
 from plonetheme.nuplone.utils import checkPermission
 from Products.CMFPlone.utils import safe_unicode
@@ -13,6 +14,7 @@ from zope.component import queryUtility
 from zope.i18nmessageid.message import Message
 from zope.interface import implementer
 from zope.interface import Interface
+from zope.interface import Invalid
 from zope.schema.interfaces import ITitledTokenizedTerm
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm
@@ -26,6 +28,8 @@ csv.register_dialect(
     'bilbomatica', delimiter=',', doublequote=False,
     quoting=csv.QUOTE_ALL,
 )
+
+IMAGE_MIN_SIZE = (1000, 430)
 
 TAG = re.compile(u"<.*?>")
 UNWANTED = re.compile(u"(\r|&#13;|\xad)")
@@ -177,6 +181,19 @@ class ToolTypesVocabulary(object):
         return SimpleVocabulary(terms)
 
 ToolTypesVocabularyFactory = ToolTypesVocabulary()
+
+
+def ensure_image_size(value):
+    if INamedBlobImage.providedBy(value):
+        img_size = value.getImageSize()
+        if img_size < IMAGE_MIN_SIZE:
+            msg = u"Image “{}” is too small. ".format(value.filename)
+            msg += u"The minimum size is {} (width) x {} (height) pixels. ".format(
+                *IMAGE_MIN_SIZE
+            )
+            msg += "Your image has a size of {} x {}.".format(*img_size)
+            raise Invalid(msg)
+    return True
 
 
 def getSurvey(context):
