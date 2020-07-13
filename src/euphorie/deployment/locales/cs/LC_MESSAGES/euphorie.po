@@ -5241,7 +5241,7 @@ msgstr "Importovat sektor nebo nástroj OiRA"
 #: euphorie/client/docx/compiler.py:103 euphorie/client/publish.py:141
 #: euphorie/client/utils.py:68
 msgid "title_other_risks"
-msgstr "(Vámi) přidaná rizika"
+msgstr "Rizika přidaná uživatelem"
 
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:195
