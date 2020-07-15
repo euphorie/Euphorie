@@ -161,7 +161,7 @@
                     tal:condition="webhelpers/use_involve_phase"
                     tal:define="
                       active python:page_section == 'involve' and 'active' or '';
-                      disabled python:page_section == '';
+                      disabled python:page_section=='' or (page_section=='preparation' and new_session);
                     "
                 >
                   <a class="involve pat-switch pat-inject"
