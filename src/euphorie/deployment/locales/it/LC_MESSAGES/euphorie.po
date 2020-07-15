@@ -2832,7 +2832,7 @@ msgstr "Rischi con priorità elevata"
 #. Default: "Involve your coworkers"
 #: euphorie/client/browser/templates/involve.pt:25
 msgid "heading_involve_your_coworkers"
-msgstr ""
+msgstr "Il processo di valutazione dei rischi"
 
 #. Default: "Low priority risks"
 #: euphorie/client/browser/templates/measures_overview.pt:132
@@ -3798,7 +3798,7 @@ msgstr "Descrizione"
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:43
 msgid "label_download_tool_preview"
-msgstr ""
+msgstr "Scarica l’elenco dei rischi"
 
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:38
@@ -3954,7 +3954,7 @@ msgstr "Testo di introduzione"
 #. Default: "Involve"
 #: euphorie/client/templates/shell.pt:164
 msgid "label_involve"
-msgstr ""
+msgstr "Iter"
 
 #. Default: "Go to report"
 #: euphorie/client/browser/templates/actionplan.pt:67
@@ -4173,7 +4173,7 @@ msgstr "Indietro"
 #. Default: "Print a tool preview"
 #: euphorie/client/browser/templates/involve.pt:38
 msgid "label_print_tool_preview"
-msgstr ""
+msgstr "Stampa l’elenco dei rischi"
 
 #. Default: "Negative statement"
 #: euphorie/content/risk.py:84 euphorie/content/templates/risk_view.pt:41
@@ -4745,11 +4745,13 @@ msgstr "Campo obligatorio"
 #: euphorie/client/browser/templates/involve.pt:33
 msgid "message_involve_workers_how_to"
 msgstr ""
+"La valutazione del rischio è un obbligo non delegabile del datore di lavoro. Deve essere effettuata in collaborazione con il RSPP, il MC, ove previsto, e previa consultazione del RLS, ove presente. Il presente strumento è strutturato in diversi moduli in cui vengono affrontati i rischi relativi alla salute e sicurezza dei lavoratori addetti al lavoro di ufficio nonché aspetti che riguardano l'organizzazione del lavoro. Lo strumento guida il datore di lavoro nella identificazione dei pericoli che possono causare un danno ai lavoratori, nella valutazione dei rischi individuando le misure di prevenzione e protezione conformi alla legislazione vigente e nella individuazione delle misure ritenute opportune per garantire il miglioramento nel tempo dei livelli di sicurezza. Il Datore di lavoro insieme al medico competente laddove presente, all'atto della predisposizione del documento dovrà verificare la presenza di rischi riguardanti le lavoratrici in stato di gravidanza (D.lgs. 151/2001) nonché quelli connessi alle differenze di genere, all'età e alla provenienza da altri paesi."
 
 #. Default: "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href=\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction\">legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:28
 msgid "message_involve_workers_requirement"
 msgstr ""
+"Al fine di una corretta rappresentatività delle reali condizioni di lavoro è consigliabile procedere preliminarmente ad un'attenta ricognizione di tutte le lavorazioni svolte, dei compiti assegnati ai lavoratori, degli ambienti di lavoro e delle informazioni disponibili relative alla prevenzione aziendale (documentazione aziendale esistente e informazioni assunte)."
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:224
