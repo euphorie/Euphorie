@@ -347,6 +347,10 @@
 	msgid "Risk identified"
 	msgstr "Gefährdung vorhanden"
 
+	#| msgid identified_with_measures
+	msgid "Risk with measures"
+	msgstr "Gefährdung mit Schutzmaßnahmen"
+
 	#| msgid button_save_and_continue
 	msgid "Save and continue"
 	msgstr "Speichern und Weiter"

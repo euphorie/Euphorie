@@ -577,6 +577,12 @@
       "src": "fontawesome"
     },
     {
+      "uid": "b035c28eba2b35c6ffe92aee8b0df507",
+      "css": "attention-circled",
+      "code": 59566,
+      "src": "fontawesome"
+    },
+    {
       "uid": "ed53e2e7bf982c38275468a84e453feb",
       "css": "patterns-logo",
       "code": 59392,

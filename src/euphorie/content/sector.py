@@ -81,7 +81,7 @@ class ISector(form.Schema, IUser, IBasic):
             description=_("help_image_upload",
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
-                        u"characters."),
+                        u"characters. The minimum size is 1000 (width) x 430 (height) pixels."),
             required=False)
 
 

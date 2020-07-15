@@ -232,7 +232,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
             description=_("help_image_upload",
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
-                        u"characters."),
+                        u"characters. The minimum size is 1000 (width) x 430 (height) pixels."),
             required=False)
     caption = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -248,7 +248,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
             description=_("help_image_upload",
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
-                        u"characters."),
+                        u"characters. The minimum size is 1000 (width) x 430 (height) pixels."),
             required=False)
     caption2 = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -259,7 +259,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
             description=_("help_image_upload",
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
-                        u"characters."),
+                        u"characters. The minimum size is 1000 (width) x 430 (height) pixels."),
             required=False)
     caption3 = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -270,7 +270,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
             description=_("help_image_upload",
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
-                        u"characters."),
+                        u"characters. The minimum size is 1000 (width) x 430 (height) pixels."),
             required=False)
     caption4 = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),

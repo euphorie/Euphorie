@@ -148,15 +148,14 @@ class TrainingSlide(BrowserView):
         return image
 
     def slides(self, standalone=False):
-        slides = [{"slide_type": self.item_type, "slide_template": self.slide_template}]
-        if standalone or self.existing_measures:
-            slides.append(
-                {
-                    "slide_type": "risk_measures",
-                    "content": self.existing_measures,
-                    "slide_template": "template-measures",
-                }
-            )
+
+        slides = [
+            {
+                "slide_type": self.item_type,
+                "slide_template": self.slide_template,
+                "content": self.existing_measures,
+            }
+        ]
         return slides
 
 
