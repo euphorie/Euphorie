@@ -14,7 +14,7 @@
 <body>
   <metal:slot fill-slot="content"
     tal:define="base_url string:${here/absolute_url}/help">
-      <iframe alllowfullscreen="true" height="100%" width="100%" src="${webhelpers/client_url}/++resource++euphorie.resources/oira/help/index.html">
+      <iframe alllowfullscreen="true" height="100%" width="100%" src="${webhelpers/client_url}/++resource++euphorie.resources/oira/help/index.html" style="border:none;">
       </iframe>
   </metal:slot>
 </body>
