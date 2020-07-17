@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.3.13 (unreleased)
+11.3.13 (2020-07-17)
 --------------------
 
 - Updated CS translations
