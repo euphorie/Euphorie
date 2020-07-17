@@ -4,8 +4,7 @@ Changelog
 11.3.13 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Updated CS translations
 
 11.3.12 (2020-07-08)
 --------------------
