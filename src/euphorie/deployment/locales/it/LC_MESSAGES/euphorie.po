@@ -3954,7 +3954,7 @@ msgstr "Testo di introduzione"
 #. Default: "Involve"
 #: euphorie/client/templates/shell.pt:164
 msgid "label_involve"
-msgstr "Iter"
+msgstr "Processo di VR"
 
 #. Default: "Go to report"
 #: euphorie/client/browser/templates/actionplan.pt:67
