@@ -4,8 +4,7 @@ Changelog
 11.3.14 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- New Hungarian translations (provided by client)
 
 11.3.13 (2020-07-17)
 --------------------
