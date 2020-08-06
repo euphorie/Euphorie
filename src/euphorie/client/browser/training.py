@@ -45,6 +45,14 @@ class TrainingSlide(BrowserView):
 
     @property
     @memoize
+    def risk_type(self):
+        elem = self.zodb_elem
+        if not elem:
+            return ""
+        return getattr(elem, "type", "")
+
+    @property
+    @memoize
     def for_download(self):
         return "for_download" in self.request and self.request["for_download"]
 
