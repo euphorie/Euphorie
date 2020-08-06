@@ -311,7 +311,7 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
             # tree gets rebuilt due to changes.
             # Touch means: the modification timestamp is set.
             # But we need to make sure the refreshed marker is up to date!
-            survey_session.refresh_survey()
+            survey_session.refresh_survey(survey)
             return survey_session
 
         params = {}

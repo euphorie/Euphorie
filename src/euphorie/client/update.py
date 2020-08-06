@@ -156,7 +156,7 @@ def wasSurveyUpdated(session, survey):
 
     changes = treeChanges(session, survey)
     if not changes:
-        session.refresh_survey()
+        session.refresh_survey(survey)
         return False
 
     return True
