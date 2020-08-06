@@ -719,10 +719,26 @@ class SurveySession(BaseObject):
         self.last_modifier = get_current_account()
         self.modified = datetime.datetime.now()
 
-    def refresh_survey(self):
+    def refresh_survey(self, survey=None):
         """ Mark the session with the current date to indicate that is has been
-            refreshed with the latest version of the Survey (from Zope)
+            refreshed with the latest version of the Survey (from Zope).
+            If survey is passed, update all titles in the tree, based on the CMS
+            version of the survey, i.e. update all titles of modules and risks.
+            Those are used in the navigation. If a title change is the only change
+            in the CMS, the survey session is not re-created. Therefore this
+            method ensures that the titles are updated where necessary.
         """
+        if survey:
+            query = Session.query(SurveyTreeItem).filter(
+                SurveyTreeItem.session_id == self.id
+            )
+            tree = query.all()
+            for item in tree:
+                if item.zodb_path.find("custom-risks") >= 0:
+                    continue
+                zodb_item = survey.restrictedTraverse(item.zodb_path.split("/"), None)
+                if zodb_item and zodb_item.title != item.title:
+                    item.title = zodb_item.title
         self.refreshed = datetime.datetime.now()
 
     def addChild(self, item):
