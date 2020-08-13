@@ -624,6 +624,8 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def integrated_action_plan(self):
+        if not asBool(self._settings.get('use_integrated_action_plan', False)):
+            return False
         return getattr(self._survey, "integrated_action_plan", False)
 
     @property

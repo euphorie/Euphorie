@@ -41,6 +41,7 @@ from plonetheme.nuplone.z3cform.directives import depends
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
+from z3c.appconfig.interfaces import IAppConfig
 from ZODB.POSException import ConflictError
 from zope import schema
 from zope.component import getMultiAdapter
@@ -360,6 +361,13 @@ class Edit(form.SchemaEditForm):
             catalog = getToolByName(self.context, 'portal_catalog')
             catalog.indexObject(aq_parent(aq_inner(self.context)))
         return changes
+
+    def updateWidgets(self):
+        super(Edit, self).updateWidgets()
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get('euphorie')
+        if not settings.get('use_integrated_action_plan', False):
+            self.widgets["integrated_action_plan"].mode = "hidden"
 
 
 class Delete(actions.Delete):
