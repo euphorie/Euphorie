@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-13 15:12+0000\n"
+"POT-Creation-Date: 2020-08-13 15:15+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
@@ -3939,7 +3939,7 @@ msgstr "Περιγραφή"
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:43
 msgid "label_download_tool_preview"
-msgstr ""
+msgstr "λήψη του περιεχομένου του εργαλείου"
 
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:38
@@ -4100,7 +4100,7 @@ msgstr "Εισαγωγικό κείμενο"
 #. Default: "Involve"
 #: euphorie/client/templates/shell.pt:167
 msgid "label_involve"
-msgstr ""
+msgstr "Συμμετοχή των εργαζομένων"
 
 #. Default: "Go to report"
 #: euphorie/client/browser/templates/actionplan.pt:67
@@ -4314,7 +4314,7 @@ msgstr "Προηγούμενο"
 #: euphorie/client/browser/templates/involve.pt:38
 #: euphorie/client/browser/templates/panel-contents-preview.pt:39
 msgid "label_print_tool_preview"
-msgstr ""
+msgstr "εκτύπωση του περιεχομένου του εργαλείου"
 
 #. Default: "Negative statement"
 #: euphorie/content/risk.py:89 euphorie/content/templates/risk_view.pt:41
@@ -4878,11 +4878,30 @@ msgstr "Το πεδίο είναι υποχρεωτικό."
 #: euphorie/client/browser/templates/involve.pt:33
 msgid "message_involve_workers_how_to"
 msgstr ""
+"Αποφασίστε ποιος είναι ο καλύτερος τρόπος συμμετοχής του προσωπικού σας! Για "
+"παράδειγμα, μπορείτε να διοργανώσετε μια συνεδρίαση ή να δημιουργήσετε μια "
+"ομάδα εργασίας με τους εργαζόμενους ειδικά για το θέμα της εκπόνησης της "
+"μελέτης εκτίμησης κινδύνου, για να εξετάσετε από κοινού τις διάφορες φάσεις "
+"ή τις διάφορες θεματικές ενότητες της μελέτης. Έχετε επίσης τη δυνατότητα "
+"λήψης του περιεχομένου του εργαλείου ή/και εκτύπωσης  του συνόλου του "
+"περιεχομένου ή επιλεγμένων τμημάτων αυτού, προκειμένου να το κοινοποιήσετε "
+"στους εργαζόμενους με σκοπό την ανταλλαγή πληροφοριών και την εκ μέρους τους "
+"υποβολή σχολίων και προτάσεων."
 
 #. Default: "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href=\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction\">legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:28
 msgid "message_involve_workers_requirement"
 msgstr ""
+"Ένα από τα βασικά χαρακτηριστικά της αποτελεσματικής άσκησης του επιτελικού "
+"ρόλου  του εργοδότη ή της διοίκησης της επιχείρησης/οργανισμού σε θέματα ΕΑΥ "
+"είναι η προαγωγή της ενεργού συμμετοχής των εργαζομένων. Οι εργοδότες έχουν "
+"νομική υποχρέωση να διαβουλεύονται με τους εργαζόμενους σχετικά με τα θέματα "
+"ασφάλειας και υγείας (στη βάση των ελάχιστων απαιτήσεων). Είναι γεγονός "
+"επίσης ότι η υπέρβαση αυτών των ελάχιστων απαιτήσεων συνεπάγεται σημαντικά "
+"οφέλη. Η ενθάρρυνση της ενεργού συμμετοχής των εργαζομένων και η θεσμοθέτηση "
+"του διαλόγου μεταξύ του εργοδότη ή της διοίκησης και των εργαζομένων, "
+"αυξάνουν τις πιθανότητες επιτυχίας της διαχείρισης της ΕΑΥ στην επιχείρηση/"
+"οργανισμό."
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:224

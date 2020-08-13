@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-13 15:12+0000\n"
+"POT-Creation-Date: 2020-08-13 15:21+0000\n"
 "PO-Revision-Date: 2013-12-18 10:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3848,7 +3848,7 @@ msgstr "Deskrizzjoni"
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:43
 msgid "label_download_tool_preview"
-msgstr ""
+msgstr "niżżel il-kontenut tal-għodda"
 
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:38
@@ -4221,7 +4221,7 @@ msgstr "Preċedenti"
 #: euphorie/client/browser/templates/involve.pt:38
 #: euphorie/client/browser/templates/panel-contents-preview.pt:39
 msgid "label_print_tool_preview"
-msgstr ""
+msgstr "stampa l-kontenut tal-għodda"
 
 #. Default: "Negative statement"
 #: euphorie/content/risk.py:89 euphorie/content/templates/risk_view.pt:41
@@ -4769,11 +4769,23 @@ msgstr "Jekk jogħġbok imla din il-parti."
 #: euphorie/client/browser/templates/involve.pt:33
 msgid "message_involve_workers_how_to"
 msgstr ""
+"Iddeċiedi dwar l-aħjar mod biex tinvolvi lill-ħaddiema tiegħek! Tista’ "
+"pereżempju torganizza laqgħa jew tifforma grupp mal-ħaddiema u tiddiskuti l-"
+"partijiet rispettivi fl-evalwazzjoni tar-riskju flimkien. Tista’ wkoll "
+"tniżżel jew tistampa l-kontenut tal-għodda jew partijiet minnha u tqassamha "
+"għall-informazzjoni u l-kummenti mill-ħaddiema tiegħek."
 
 #. Default: "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href=\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction\">legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:28
 msgid "message_involve_workers_requirement"
 msgstr ""
+"Wieħed mill-fatturi ewlenin għal tmexxija tajba tas-saħħa u s-sigurtà fuq il-"
+"post tax-xogħol hija l-involviment tal-ħaddiema. Min iħaddem għandu dmir "
+"legali li jikkonsulta mal-impjegati dwar kwistjonijiet ta’ saħħa u sigurtà. "
+"Iżda hemm benefiċċji li wieħed imur lil hinn mir-rekwiżiti minimi. Ikun "
+"iktar probabbli s-suċċess tal-immaniġġjar tas-saħħa u s-sigurtà jekk "
+"tinkoraġġixxi l-parteċipazzjoni attiva tal-ħaddiema u tistabbilixxi djalogu "
+"bejn l-impjegati u l-maniġment."
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:224

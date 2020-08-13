@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-13 15:12+0000\n"
+"POT-Creation-Date: 2020-08-13 15:21+0000\n"
 "PO-Revision-Date: 2013-08-08 12:36+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+"Domain: DOMAIN\n"
+"Generated-By: Babel 0.9.5\n"
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
-"Generated-By: Babel 0.9.5\n"
 
 #: euphorie/client/browser/templates/login.pt:110
 msgid ""
@@ -2865,7 +2865,7 @@ msgstr "Riscos d'alta prioritat"
 #. Default: "Involve your coworkers"
 #: euphorie/client/browser/templates/involve.pt:25
 msgid "heading_involve_your_coworkers"
-msgstr ""
+msgstr "Participació dels treballadors"
 
 #. Default: "Low priority risks"
 #: euphorie/client/browser/templates/measures_overview.pt:132
@@ -3838,7 +3838,7 @@ msgstr "Descripció"
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:43
 msgid "label_download_tool_preview"
-msgstr ""
+msgstr "Descarregar l'eina"
 
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:38
@@ -4209,7 +4209,7 @@ msgstr "Anterior"
 #: euphorie/client/browser/templates/involve.pt:38
 #: euphorie/client/browser/templates/panel-contents-preview.pt:39
 msgid "label_print_tool_preview"
-msgstr ""
+msgstr "Imprimir l'eina"
 
 #. Default: "Negative statement"
 #: euphorie/content/risk.py:89 euphorie/content/templates/risk_view.pt:41
@@ -4756,11 +4756,22 @@ msgstr "Manquen dades obligatòries."
 #: euphorie/client/browser/templates/involve.pt:33
 msgid "message_involve_workers_how_to"
 msgstr ""
+"Decideixi la millor manera d'involucrar al teu personal! Per exemple, podeu "
+"fer una reunió o crear un grup de discussió amb els treballadors i abordar "
+"junts les parts respectives de l'avaluació de riscos. També pot descarregar "
+"o imprimir el contingut de l'eina o parts d'ella i compartir-la per obtenir "
+"informació i comentaris amb els seus treballadors."
 
 #. Default: "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href=\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction\">legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:28
 msgid "message_involve_workers_requirement"
 msgstr ""
+"Una de les claus per a un bon lideratge en matèria de SST és fer que "
+"s'impliquin els treballadors. Les empreses tenen el deure legal de consultar "
+"als seus empleats en matèria de seguretat i salut. Però hi ha beneficis que "
+"van més enllà del compliment dels requisits mínims. És possible que la "
+"gestió de la SST tingui més èxit si es promou la participació activa dels "
+"treballadors i s’estableix un diàleg entre els empleats i la direcció."
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:224
@@ -5052,15 +5063,9 @@ msgstr "${completion_percentage}% Complet"
 #. Default: "<p><strong>Important:</strong> In order to avoid duplicating risks, we strongly recommend you to go first through all the previous modules, if you have not done it yet.</p><p>If you don't need to add risks, please continue.</p>"
 #: euphorie/client/publish.py:147 euphorie/deployment/upgrade/v23.py:42
 #: euphorie/deployment/upgrade/v8.py:146
-#, fuzzy
 msgid "question_other_risks"
 msgstr ""
-"#-#-#-#-#  .merge_file_3eYuoe (PROJECT VERSION)  #-#-#-#-#\n"
 "<strong>Important:</strong> Per evitar que hi hagi riscos duplicats, és molt "
-"recomanable que primer resseguiu tots els mòduls anteriors, si encara no ho "
-"heu fet.</p><p>Si no necessiteu afegir riscos, si us plau, continueu.</p>\n"
-"#-#-#-#-#  .merge_file_sCPCkE (PROJECT VERSION)  #-#-#-#-#\n"
-"<strong>Important:</strong>Per evitar que hi hagi riscos duplicats, és molt "
 "recomanable que primer resseguiu tots els mòduls anteriors, si encara no ho "
 "heu fet.</p><p>Si no necessiteu afegir riscos, si us plau, continueu.</p>"
 

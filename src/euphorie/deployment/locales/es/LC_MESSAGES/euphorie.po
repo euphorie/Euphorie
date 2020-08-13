@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab-fr-evaluation-5\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-13 15:12+0000\n"
+"POT-Creation-Date: 2020-08-13 15:21+0000\n"
 "PO-Revision-Date: 2013-07-30 15:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
@@ -2866,7 +2866,7 @@ msgstr "Riesgos de prioridad alta"
 #. Default: "Involve your coworkers"
 #: euphorie/client/browser/templates/involve.pt:25
 msgid "heading_involve_your_coworkers"
-msgstr ""
+msgstr "Participación de los trabajadores"
 
 #. Default: "Low priority risks"
 #: euphorie/client/browser/templates/measures_overview.pt:132
@@ -3636,15 +3636,8 @@ msgstr "Informe"
 
 #. Default: "Is this risk acceptable or under control?"
 #: euphorie/content/utils.py:80
-#, fuzzy
 msgid "is_risk_acceptable"
-msgstr ""
-"#-#-#-#-#  .merge_file_kgboWY (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-"
-"#\n"
-"¿Este riesgo es aceptable o bajo control?\n"
-"#-#-#-#-#  .merge_file_nE4mwo (Euphorie 3.0syslab-fr-evaluation-5)  #-#-#-#-"
-"#\n"
-"¿Es aceptable el riesgo?"
+msgstr "¿Este riesgo es aceptable o bajo control?"
 
 #. Default: "Is this risk acceptable or under control? If applicable, ${link_add_measures}."
 #: euphorie/content/utils.py:126
@@ -3850,7 +3843,7 @@ msgstr "Descripción"
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:43
 msgid "label_download_tool_preview"
-msgstr ""
+msgstr "Descargar la herramienta"
 
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:38
@@ -4223,7 +4216,7 @@ msgstr "Anterior"
 #: euphorie/client/browser/templates/involve.pt:38
 #: euphorie/client/browser/templates/panel-contents-preview.pt:39
 msgid "label_print_tool_preview"
-msgstr ""
+msgstr "Imprimir la herramienta"
 
 #. Default: "Negative statement"
 #: euphorie/content/risk.py:89 euphorie/content/templates/risk_view.pt:41
@@ -4771,11 +4764,23 @@ msgstr "Faltan datos obligatorios."
 #: euphorie/client/browser/templates/involve.pt:33
 msgid "message_involve_workers_how_to"
 msgstr ""
+"Decida sobre la mejor manera de implicar a su personal. Puede, por ejemplo, "
+"celebrar una reunión o crear un grupo de discusión con los trabajadores y "
+"abordar conjuntamente las partes correspondientes en la evaluación de "
+"riesgos. También puede descargar o imprimir el contenido de la herramienta o "
+"de partes de la misma y compartirla con sus trabajadores."
 
 #. Default: "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href=\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction\">legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:28
 msgid "message_involve_workers_requirement"
 msgstr ""
+"Una de las claves para un buen liderazgo en materia de SST es hacer que se "
+"impliquen los trabajadores. Las empresas tienen el deber legal de consultar "
+"a sus empleados en materia de seguridad y salud. Pero hay beneficios que van "
+"más allá del cumplimiento de los requisitos mínimos. Es posible que la "
+"gestión de la SST tenga más éxito si se promueve la participación activa de "
+"los trabajadores y se establece un diálogo entre los empleados y la "
+"dirección."
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:224

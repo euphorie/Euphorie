@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-13 15:12+0000\n"
+"POT-Creation-Date: 2020-08-13 15:21+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3729,7 +3729,7 @@ msgstr "Popis"
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:43
 msgid "label_download_tool_preview"
-msgstr ""
+msgstr "obsah nástrojů stahování dat"
 
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:38
@@ -4102,7 +4102,7 @@ msgstr "Předchozí"
 #: euphorie/client/browser/templates/involve.pt:38
 #: euphorie/client/browser/templates/panel-contents-preview.pt:39
 msgid "label_print_tool_preview"
-msgstr ""
+msgstr "obsah nástroje pro tisk"
 
 #. Default: "Negative statement"
 #: euphorie/content/risk.py:89 euphorie/content/templates/risk_view.pt:41
@@ -4646,11 +4646,22 @@ msgstr ""
 #: euphorie/client/browser/templates/involve.pt:33
 msgid "message_involve_workers_how_to"
 msgstr ""
+"Zvolte způsob, jak nejlépe zapojit Vaše zaměstnance! Může to být například "
+"setkání se zaměstnanci nebo zapojení pracovní skupiny či společné posuzování "
+"rizik s příslušnými subjekty. Můžete si rovněž stáhnout nebo vytisknout "
+"obsah nástroje nebo jeho částí a podělit se o informace s vašimi zaměstnanci "
+"a zajistit zpětnou vazbu."
 
 #. Default: "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href=\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction\">legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:28
 msgid "message_involve_workers_requirement"
 msgstr ""
+"Jedním z klíčových faktorů kvalitního řízení v oblasti BOZP je zapojení "
+"zaměstnanců. Zaměstnavatelé jsou ze zákona povinni projednávat se "
+"zaměstnanci otázky BOZP. Pokud však učiníte víc, než jste ze zákona povinni, "
+"bude to pro váš podnik přínosné. Pravděpodobnost, že bude řízení BOZP "
+"úspěšné, se zvyšuje podněcováním aktivní účasti pracovníků a  zaváděním "
+"dialogu mezi zaměstnanci a vedením."
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:224

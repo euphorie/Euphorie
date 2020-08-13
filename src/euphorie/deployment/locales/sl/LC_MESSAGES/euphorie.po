@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-13 15:12+0000\n"
+"POT-Creation-Date: 2020-08-13 15:21+0000\n"
 "PO-Revision-Date: 2013-10-23 10:03+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3769,7 +3769,7 @@ msgstr "Opis"
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:43
 msgid "label_download_tool_preview"
-msgstr ""
+msgstr "prenesi vsebino orodja"
 
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:38
@@ -4142,7 +4142,7 @@ msgstr "Nazaj"
 #: euphorie/client/browser/templates/involve.pt:38
 #: euphorie/client/browser/templates/panel-contents-preview.pt:39
 msgid "label_print_tool_preview"
-msgstr ""
+msgstr "vsebina orodja za tiskanje"
 
 #. Default: "Negative statement"
 #: euphorie/content/risk.py:89 euphorie/content/templates/risk_view.pt:41
@@ -4690,11 +4690,22 @@ msgstr "Prosimo, izpolnite polje."
 #: euphorie/client/browser/templates/involve.pt:33
 msgid "message_involve_workers_how_to"
 msgstr ""
+"Sprejmite odločitev, kako najbolje vključititi vaše zaposlene! Na primer z "
+"organizacijo sestankov ali fokusne skupine z zaposlenimi, kjer boste skupaj "
+"obdelali ustrezne dele ocene tveganja. Vsebino orodja ali njegovih delov "
+"lahko prenesete ali natisnete in ga delite z vašimi delavci."
 
 #. Default: "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href=\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction\">legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:28
 msgid "message_involve_workers_requirement"
 msgstr ""
+"Eden ključnih dejavnikov dobrega vodenja na področju varnosti in zdravja pri "
+"delu je vključevanje delavcev. Delodajalci imate zakonsko dolžnost, da se s "
+"svojimi zaposlenimi posvetujete o vprašanjih varnosti in zdravja pri delu. "
+"Če pa boste presegli minimalne zahteve, boste s tem dosegli še večje "
+"koristi. Upravljanje varnosti in zdravja pri delu bo še uspešnejše, če boste "
+"spodbujali aktivno sodelovanje delavcev in vzpostavili dialog med "
+"zaposlenimi in vodstvom."
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:224

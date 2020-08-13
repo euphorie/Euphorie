@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-13 15:12+0000\n"
+"POT-Creation-Date: 2020-08-13 15:21+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3819,7 +3819,7 @@ msgstr "Descrição"
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:43
 msgid "label_download_tool_preview"
-msgstr ""
+msgstr "descarregar o conteúdo da ferramenta"
 
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:38
@@ -4190,7 +4190,7 @@ msgstr "Anterior"
 #: euphorie/client/browser/templates/involve.pt:38
 #: euphorie/client/browser/templates/panel-contents-preview.pt:39
 msgid "label_print_tool_preview"
-msgstr ""
+msgstr "imprimir o conteúdo da ferramenta"
 
 #. Default: "Negative statement"
 #: euphorie/content/risk.py:89 euphorie/content/templates/risk_view.pt:41
@@ -4739,11 +4739,24 @@ msgstr "Campo obrigatório."
 #: euphorie/client/browser/templates/involve.pt:33
 msgid "message_involve_workers_how_to"
 msgstr ""
+"Decida sobre a melhor forma de envolver os seus trabalhadores! Pode, por "
+"exemplo, realizar reuniões com trabalhadores ou criar grupos de trabalho e "
+"utilizar os contéudos da ferramenta para acompanharem em conjunto a "
+"avaliação de riscos. Pode também descarregar ou imprimir todo ou parte do "
+"conteúdo da ferramenta, partilhá-lo como informação a dar aos trabalhadores "
+"e utilizá-lo como feedback para a melhoria das suas condições de trabalho."
 
 #. Default: "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href=\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction\">legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:28
 msgid "message_involve_workers_requirement"
 msgstr ""
+"Uma das chaves para a liderança forte e eficaz em matéria de Segurança e "
+"Saúde no Trabalho (SST) é garantir o envolvimento e a participação dos "
+"trabalhadores. As entidades patronais têm o dever legal de consultar os "
+"trabalhadores sobre questões de SST. Contudo, ir além dos requisitos mínimos "
+"traz benefícios. A gestão da SST terá mais probabilidades de ter sucesso se "
+"incentivar a participação ativa dos trabalhadores e estabelecer um diálogo "
+"entre estes e os quadros de chefia."
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:224
