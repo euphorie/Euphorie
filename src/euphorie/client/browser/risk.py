@@ -8,7 +8,6 @@ Views for the identification and action plan phases.
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from collections import OrderedDict
 from euphorie import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.navigation import FindNextQuestion
@@ -16,15 +15,11 @@ from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
 from euphorie.client.subscribers.imagecropping import _initial_size
 from euphorie.client import utils
-from euphorie.content.risk import IRisk
-from euphorie.content.solution import ISolution
 from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import IToolTypesInfo
 from htmllaundry import StripMarkup
 from io import BytesIO
-from json import dumps
-from json import loads
 from plone import api
 from plone.app.imaging.utils import getAllowedSizes
 from plone.memoize.instance import memoize
@@ -43,13 +38,281 @@ from zope.publisher.interfaces import NotFound
 
 import datetime
 import PIL
-import re
 
 IMAGE_CLASS = {0: "", 1: "twelve", 2: "six", 3: "four", 4: "three"}
-all_breaks = re.compile("(\n|\r)+")
 
 
-class IdentificationView(BrowserView):
+class RiskBase(BrowserView):
+
+    # Which fields should be skipped? Default are none, i.e. show all
+    skip_fields = []
+    # What extra style to use for buttons like "Add measure". Default is None.
+    style_buttons = None
+
+    def __call__(self):
+        self.delete_confirmation = api.portal.translate(
+            _(
+                u"Are you sure you want to delete this measure? This action can "
+                u"not be reverted."
+            )
+        )
+        self.override_confirmation = api.portal.translate(
+            _(
+                u"The current text in the fields 'Action plan', 'Prevention plan' and "
+                u"'Requirements' of this measure will be overwritten. This action cannot be "
+                u"reverted. Are you sure you want to continue?"
+            )
+        )
+        self.message_date_before = api.portal.translate(
+            _(
+                u"error_validation_before_end_date",
+                default=u"This date must be on or before the end date.",
+            )
+        )
+        self.message_date_after = api.portal.translate(
+            _(
+                u"error_validation_after_start_date",
+                default=u"This date must be on or after the start date.",
+            )
+        )
+        self.message_positive_number = api.portal.translate(
+            _(
+                u"error_validation_positive_whole_number",
+                default=u"This value must be a positive whole number.",
+            )
+        )
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context.aq_parent, self.request)
+
+    @property
+    @memoize
+    def session(self):
+        return self.webhelpers.traversed_session.session
+
+    @property
+    @memoize
+    def survey(self):
+        """ This is the survey dexterity object
+        """
+        return self.webhelpers._survey
+
+    @property
+    @memoize
+    def italy_special(self):
+        return self.webhelpers.country == "it"
+
+    @property
+    @memoize
+    def simple_measure_text(self):
+        """ For cases where the title and the description of a measure
+        are identical.
+        At the moment, hard-coded to 2 countries where this is always the case.
+        """
+        return self.webhelpers.country in ("it", "de")
+
+    @property
+    @memoize
+    def risk(self):
+        if self.is_custom_risk:
+            return
+        return self.context.aq_parent.aq_parent.restrictedTraverse(
+            self.context.zodb_path.split("/")
+        )
+
+    @property
+    def is_custom_risk(self):
+        return self.context.is_custom_risk
+
+    @property
+    def solutions_provided_by_tool(self):
+        """
+        Return all the solutions that are defined for this risk in the CMS
+        """
+        return getattr(self.risk, "_solutions", [])
+
+    @property
+    @memoize
+    def solutions_available_for_action_plan(self):
+        """
+        Return those pre-defined solutions that are not already marked as being
+        in place. Those remaining solutions are available as suggestions in the
+        Action Plan
+        """
+        if self.is_custom_risk:
+            return []
+        existing_measure_ids = [
+            measure.solution_id for measure in self.get_existing_measures()
+        ]
+        solutions = []
+        for solution in self.solutions_provided_by_tool:
+            solution_id = solution.id
+            if solution_id not in existing_measure_ids:
+                solutions.append(
+                    {
+                        "description": StripMarkup(solution.description),
+                        "action": getattr(solution, "action", "") or "",
+                        "requirements": solution.requirements,
+                        "id": solution_id,
+                    }
+                )
+        return solutions
+
+    @memoize
+    def get_existing_measures(self):
+        return list(self.context.in_place_standard_measures) + list(
+            self.context.in_place_custom_measures
+        )
+
+    @property
+    def active_standard_measures(self):
+        if self.is_custom_risk:
+            return {}
+        return {
+            getattr(measure, "solution_id", ""): measure
+            for measure in self.context.standard_measures
+        }
+
+    @property
+    def solutions_condition(self):
+        return "condition: not ({})".format(
+            " and ".join(
+                [
+                    "sm-%s" % solution["id"]
+                    for solution in self.solutions_available_for_action_plan
+                ]
+            )
+        )
+
+    def extract_plans_from_request(self):
+        """ Create new ActionPlan objects by parsing the Request.
+        """
+        new_plans = []
+        added = 0
+        updated = 0
+        existing_plans = {}
+        context = aq_inner(self.context)
+        for plan in context.standard_measures + context.custom_measures:
+            existing_plans[str(plan.id)] = plan
+        form = self.request.form
+        form["action_plans"] = []
+        for i in range(0, len(form.get("measure", []))):
+            measure = dict([p for p in form["measure"][i].items() if p[1].strip()])
+            form["action_plans"].append(measure)
+            if len(measure):
+                plan_type = measure.get("plan_type", "measure_custom")
+                solution_id = measure.get("solution_id", None)
+                if plan_type == "measure_standard" and not form.get(
+                    "sm-%s" % solution_id
+                ):
+                    continue
+                action = measure.get("action", "").strip()
+                if not action:
+                    continue
+                budget = measure.get("budget")
+                budget = budget and budget.split(",")[0].split(".")[0]
+                p_start = measure.get("planning_start")
+                if p_start:
+                    try:
+                        datetime.datetime.strptime(p_start, "%Y-%m-%d")
+                    except ValueError:
+                        p_start = None
+                p_end = measure.get("planning_end")
+                if p_end:
+                    try:
+                        datetime.datetime.strptime(p_end, "%Y-%m-%d")
+                    except ValueError:
+                        p_end = None
+                if measure.get("id", "-1") in existing_plans:
+                    plan = existing_plans[measure.get("id")]
+                    if (
+                        action != plan.action
+                        or measure.get("requirements") != plan.requirements  # noqa
+                        or measure.get("responsible") != plan.responsible
+                        or (
+                            plan.budget
+                            and (budget != str(plan.budget))
+                            or plan.budget is None
+                            and budget
+                        )
+                        or (
+                            (
+                                plan.planning_start
+                                and p_start != plan.planning_start.strftime("%Y-%m-%d")
+                            )
+                            or (plan.planning_start is None and p_start)  # noqa
+                        )
+                        or (
+                            (
+                                plan.planning_end
+                                and p_end != plan.planning_end.strftime("%Y-%m-%d")
+                            )
+                            or (plan.planning_end is None and p_end)  # noqa
+                        )
+                    ):
+                        updated += 1
+                    del existing_plans[measure.get("id")]
+                else:
+                    added += 1
+                new_plans.append(
+                    model.ActionPlan(
+                        action=measure.get("action"),
+                        requirements=measure.get("requirements"),
+                        responsible=measure.get("responsible"),
+                        budget=budget,
+                        planning_start=p_start,
+                        planning_end=p_end,
+                        plan_type=plan_type,
+                        solution_id=solution_id,
+                    )
+                )
+        removed = len(existing_plans)
+        changes = True
+        if added == 0 and updated == 0 and removed == 0:
+            changes = False
+        return (new_plans, changes)
+
+    @property
+    def action_plan_instruction_text(self):
+        if self.get_existing_measures():
+            # Case: measures-in-place==true, solutions==true
+            if self.solutions_available_for_action_plan:
+                return api.portal.translate(
+                    _(
+                        "action_measures_true_solutions_true",
+                        default=u"Select or describe any further measure to reduce the risk.",
+                    )
+                )
+            # Case: measures-in-place==true, solutions==false
+            else:
+                return api.portal.translate(
+                    _(
+                        "action_measures_true_solutions_false",
+                        default=u"Describe any further measure to reduce the risk.",
+                    )
+                )
+        else:
+            # Case: measures-in-place==false, solutions==true
+            if self.solutions_available_for_action_plan:
+                return api.portal.translate(
+                    _(
+                        "action_measures_false_solutions_true",
+                        default=u"Select or describe the specific measures required to reduce the risk.",
+                    )
+                )
+            # Case: measures-in-place==false, solutions==false
+            else:
+                return api.portal.translate(
+                    _(
+                        "action_measures_false_solutions_false",
+                        default=u"Describe the specific measures required to reduce the risk.",
+                    )
+                )
+
+
+class IdentificationView(RiskBase):
     """A view for displaying a question in the identification phase
     """
 
@@ -82,11 +345,6 @@ class IdentificationView(BrowserView):
 
     @property
     @memoize
-    def webhelpers(self):
-        return api.content.get_view("webhelpers", self.context.aq_parent, self.request)
-
-    @property
-    @memoize
     def default_collapsible_sections(self):
         settings = self.webhelpers.content_country_obj
         default_collapsible_sections = getattr(
@@ -107,36 +365,10 @@ class IdentificationView(BrowserView):
 
     @property
     @memoize
-    def session(self):
-        return self.webhelpers.traversed_session.session
-
-    @property
-    @memoize
-    def survey(self):
-        """ This is the survey dexterity object
-        """
-        return self.webhelpers._survey
-
-    @property
-    @memoize
     def next_question(self):
         return FindNextQuestion(
             self.context, dbsession=self.session, filter=self.question_filter
         )
-
-    @property
-    @memoize
-    def risk(self):
-        if self.is_custom_risk:
-            return
-        return self.context.aq_parent.aq_parent.restrictedTraverse(
-            self.context.zodb_path.split("/")
-        )
-
-    @property
-    @memoize
-    def italy_special(self):
-        return self.webhelpers.country == "it"
 
     @property
     @memoize
@@ -162,34 +394,27 @@ class IdentificationView(BrowserView):
             condition = "condition: answer=no or answer=yes"
         return condition
 
-    def __call__(self):
-        # Render the page only if the user has edit rights,
-        # otherwise redirect to the start page of the session.
-        if not self.webhelpers.can_edit_session:
-            return self.request.response.redirect(
-                "{session_url}/@@start".format(
-                    session_url=self.webhelpers.traversed_session.absolute_url()
-                )
-            )
-        if self.webhelpers.redirectOnSurveyUpdate():
-            return
-        utils.setLanguage(self.request, self.survey, self.survey.language)
+    @property
+    def action_plan_condition(self):
+        """ In what circumstances will the integrated Action Plan be shown"""
+        condition = "condition: answer=no"
+        if not self.is_custom_risk and (
+            self.risk.type == "top5" or self.risk.risk_always_present
+        ):
+            # No condition, that means, it will always be shown
+            return None
+        return condition
 
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get("euphorie")
-        self.tti = getUtility(IToolTypesInfo)
-        self.my_tool_type = get_tool_type(self.context)
-        self.use_existing_measures = (
-            asBool(settings.get("use_existing_measures", False))
-            and self.my_tool_type in self.tti.types_existing_measures
-        )
+    def __call__(self):
+        super(IdentificationView, self).__call__()
+        self.check_render_condition()
+
+        utils.setLanguage(self.request, self.survey, self.survey.language)
+        self.set_parameter_values()
 
         if self.request.method == "POST":
             reply = self.request.form
-            _next = reply.get("next", None)
-            # In Safari browser we get a list
-            if isinstance(_next, list):
-                _next = _next.pop()
+            _next = self._get_next(reply)
             # Don't persist anything if the user skipped the question
             if _next == "skip":
                 return self.proceed_to_next(reply)
@@ -197,93 +422,24 @@ class IdentificationView(BrowserView):
             for prop, default in self.monitored_properties.items():
                 val = getattr(self.context, prop, default)
                 old_values[prop] = val
-            answer = reply.get("answer", None)
-            # If answer is not present in the request, do not attempt to set
-            # any answer-related data, since the request might have come
-            # from a sub-form.
-            if answer:
-                self.context.comment = reply.get("comment")
-                self.context.postponed = answer == "postponed"
-                if self.context.postponed:
-                    self.context.identification = None
-                else:
-                    self.context.identification = answer
-                    if getattr(self.risk, "type", "") in ("top5", "policy"):
-                        self.context.priority = "high"
-                    elif getattr(self.risk, "evaluation_method", "") == "calculated":
-                        self.calculatePriority(self.risk, reply)
-                    elif self.risk is None or self.risk.evaluation_method == "direct":
-                        self.context.priority = reply.get("priority")
 
-            # Check if there was a change. If yes, touch the session
-            changed = False
+            self.set_answer_data(reply)
+
             session = Session()
-            if self.use_existing_measures and reply.get("handle_measures_in_place"):
-                new_measures = []
-                saved_solutions = {
-                    plan.solution_id: plan.used_in_training
-                    for plan in self.context.in_place_standard_measures
-                }
-                # First, check which of the standard solutions were selected
-                for solution in self.solutions:
-                    # If the solution was already added as a measure, retrieve the info
-                    # whether it was de-selected for the training, so that we don't
-                    # forcefully activate all measures for the training again.
-                    used_in_training = saved_solutions.get(solution.id, True)
-                    if reply.get("measure-standard-%s" % solution.id):
-                        new_measures.append(
-                            model.ActionPlan(
-                                action=solution.action,
-                                requirements=solution.requirements,
-                                plan_type="in_place_standard",
-                                solution_id=solution.id,
-                                used_in_training=used_in_training,
-                            )
-                        )
-                # Clean up, remove all standard in-place measures. The active
-                # ones will be created freshly again below
-                for plan in self.context.in_place_standard_measures:
-                    session.delete(plan)
+            changed = self.set_measure_data(reply, session)
 
-                # Now loop over the form data to find out which new custom measures
-                # to add and which already present custom measures to keep.
-                # (Present custom measures are deleted and added again, since their
-                # text might have changed. But their original order is preserved.)
-                new_custom_measures = {}
-                for k, val in reply.items():
-                    if (
-                        k.startswith("new-measure")
-                        and isinstance(val, str)
-                        and val.strip() != ""
+            if reply.get("answer", None):
+                # If answer is not present in the request, do not attempt to set
+                # any action-related data, since the request might have come
+                # from a sub-form.
+                if self.webhelpers.integrated_action_plan:
+                    new_plans, changes = self.extract_plans_from_request()
+                    for plan in (
+                        self.context.standard_measures + self.context.custom_measures
                     ):
-                        new_custom_measures[k] = model.ActionPlan(
-                            action=val, plan_type="in_place_custom"
-                        )
-                    elif k.startswith("measure-custom"):
-                        _id = k.rsplit("-", 1)[-1]
-                        new_custom_measures[_id] = model.ActionPlan(
-                            action=val, plan_type="in_place_custom"
-                        )
-                    # This only happens on custom risks
-                    elif k.startswith("present-measure") and val.strip() != "":
-                        _id = k.rsplit("-", 1)[-1]
-                        if int(bool(reply.get("measure-{}".format(_id)))):
-                            new_measures.append(
-                                model.ActionPlan(
-                                    action=val, plan_type="in_place_custom"
-                                )
-                            )
-                # Now add the custom measures in their correct order
-                for k in sorted(new_custom_measures.keys()):
-                    new_measures.append(new_custom_measures[k])
-                # Delete all custom in-place measures
-                for plan in self.context.in_place_custom_measures:
-                    session.delete(plan)
-                    changed = True
-
-                if new_measures:
-                    self.context.action_plans.extend(new_measures)
-                    changed = True
+                        session.delete(plan)
+                    self.context.action_plans.extend(new_plans)
+                    changed = changes or changed
 
             if self.webhelpers.use_training_module:
                 if reply.get("handle_training_notes"):
@@ -330,11 +486,12 @@ class IdentificationView(BrowserView):
             if reply.get("title"):
                 self.context.title = reply.get("title")
 
-            for prop, default in self.monitored_properties.items():
-                val = getattr(self.context, prop, None)
-                if val and val != old_values[prop]:
-                    changed = True
-                    break
+            if not changed:
+                for prop, default in self.monitored_properties.items():
+                    val = getattr(self.context, prop, None)
+                    if val and val != old_values[prop]:
+                        changed = True
+                        break
             if changed:
                 self.session.touch()
 
@@ -362,6 +519,123 @@ class IdentificationView(BrowserView):
     @property
     def title(self):
         return self.session.title
+
+    def _get_next(self, reply):
+        _next = reply.get("next", None)
+        # In Safari browser we get a list
+        if isinstance(_next, list):
+            _next = _next.pop()
+        return _next
+
+    def check_render_condition(self):
+        # Render the page only if the user has edit rights,
+        # otherwise redirect to the start page of the session.
+        if not self.webhelpers.can_edit_session:
+            return self.request.response.redirect(
+                "{session_url}/@@start".format(
+                    session_url=self.webhelpers.traversed_session.absolute_url()
+                )
+            )
+        if self.webhelpers.redirectOnSurveyUpdate():
+            return
+
+    def set_parameter_values(self):
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get("euphorie")
+        self.tti = getUtility(IToolTypesInfo)
+        self.my_tool_type = get_tool_type(self.survey)
+        self.use_existing_measures = (
+            asBool(settings.get("use_existing_measures", False))
+            and self.my_tool_type in self.tti.types_existing_measures
+        )
+
+    def set_answer_data(self, reply):
+        answer = reply.get("answer", None)
+        # If answer is not present in the request, do not attempt to set
+        # any answer-related data, since the request might have come
+        # from a sub-form.
+        if answer:
+            self.context.comment = reply.get("comment")
+            self.context.postponed = answer == "postponed"
+            if self.context.postponed:
+                self.context.identification = None
+            else:
+                self.context.identification = answer
+                if getattr(self.risk, "type", "") in ("top5", "policy"):
+                    self.context.priority = "high"
+                elif getattr(self.risk, "evaluation_method", "") == "calculated":
+                    self.calculatePriority(self.risk, reply)
+                elif self.risk is None or self.risk.evaluation_method == "direct":
+                    self.context.priority = reply.get("priority")
+
+    def set_measure_data(self, reply, session):
+
+        changed = False
+        if self.use_existing_measures and reply.get("handle_measures_in_place"):
+            new_measures = []
+            saved_solutions = {
+                plan.solution_id: plan.used_in_training
+                for plan in self.context.in_place_standard_measures
+            }
+            # First, check which of the standard solutions were selected
+            for solution in self.solutions_provided_by_tool:
+                # If the solution was already added as a measure, retrieve the info
+                # whether it was de-selected for the training, so that we don't
+                # forcefully activate all measures for the training again.
+                used_in_training = saved_solutions.get(solution.id, True)
+                if reply.get("measure-standard-%s" % solution.id):
+                    new_measures.append(
+                        model.ActionPlan(
+                            action=solution.action,
+                            requirements=solution.requirements,
+                            plan_type="in_place_standard",
+                            solution_id=solution.id,
+                            used_in_training=used_in_training,
+                        )
+                    )
+            # Clean up, remove all standard in-place measures. The active
+            # ones will be created freshly again below
+            for plan in self.context.in_place_standard_measures:
+                session.delete(plan)
+
+            # Now loop over the form data to find out which new custom measures
+            # to add and which already present custom measures to keep.
+            # (Present custom measures are deleted and added again, since their
+            # text might have changed. But their original order is preserved.)
+            new_custom_measures = {}
+            for k, val in reply.items():
+                if (
+                    k.startswith("new-measure")
+                    and isinstance(val, str)
+                    and val.strip() != ""
+                ):
+                    new_custom_measures[k] = model.ActionPlan(
+                        action=val, plan_type="in_place_custom"
+                    )
+                elif k.startswith("measure-custom"):
+                    _id = k.rsplit("-", 1)[-1]
+                    new_custom_measures[_id] = model.ActionPlan(
+                        action=val, plan_type="in_place_custom"
+                    )
+                # This only happens on custom risks
+                elif k.startswith("present-measure") and val.strip() != "":
+                    _id = k.rsplit("-", 1)[-1]
+                    if int(bool(reply.get("measure-{}".format(_id)))):
+                        new_measures.append(
+                            model.ActionPlan(action=val, plan_type="in_place_custom")
+                        )
+            # Now add the custom measures in their correct order
+            for k in sorted(new_custom_measures.keys()):
+                new_measures.append(new_custom_measures[k])
+            # Delete all custom in-place measures
+            for plan in self.context.in_place_custom_measures:
+                session.delete(plan)
+                changed = True
+
+            if new_measures:
+                self.context.action_plans.extend(new_measures)
+                changed = True
+        return changed
 
     @property
     @memoize
@@ -430,7 +704,7 @@ class IdentificationView(BrowserView):
             self.button_add_extra = tool_type_data.get("button_add_extra", "")
         self.button_remove_extra = ""
         if self.use_existing_measures:
-            measures = self.get_existing_measures()
+            measures = self.get_existing_measures_with_activation()
             # Only show the form to select and add existing measures if
             # at least one pre-existring measure is present
             # In this case, also change some labels
@@ -530,25 +804,23 @@ class IdentificationView(BrowserView):
         )
         return self.request.response.redirect(url)
 
-    @property
     @memoize
-    def solutions(self):
-        return getattr(self.risk, "_solutions", [])
-
-    @memoize
-    def get_existing_measures(self):
+    def get_existing_measures_with_activation(self):
         saved_standard_measures = {
             getattr(measure, "solution_id", ""): measure
             for measure in self.context.in_place_standard_measures
         }
         existing_measures = []
-        for solution in self.solutions:
-            if self.italy_special:
-                text = solution.action
+        for solution in self.solutions_provided_by_tool:
+            if self.simple_measure_text:
+                title = solution.action
+                text = ""
             else:
-                text = solution.description
+                title = solution.description
+                text = solution.action
             existing_measures.append(
                 {
+                    "title": title,
                     "text": text,
                     "active": solution.id in saved_standard_measures,
                     "solution_id": solution.id,
@@ -570,10 +842,6 @@ class IdentificationView(BrowserView):
     def use_problem_description(self):
         text = self.context.problem_description or ""
         return bool(text.strip())
-
-    @property
-    def is_custom_risk(self):
-        return self.context.is_custom_risk
 
     def evaluation_algorithm(self, risk):
         return evaluation_algorithm(risk)
@@ -668,7 +936,7 @@ class ImageDisplay(DisplayFile):
         return NamedBlobImage(image_data, filename=self.context.image_filename)
 
 
-class ActionPlanView(BrowserView):
+class ActionPlanView(RiskBase):
     """Logic for creating new action plans.
     """
 
@@ -678,27 +946,6 @@ class ActionPlanView(BrowserView):
     question_filter = model.ACTION_PLAN_FILTER
     # The risk filter will only find risks
     risk_filter = model.RISK_PRESENT_OR_TOP5_FILTER
-    # Which fields should be skipped? Default are none, i.e. show all
-    skip_fields = []
-    # What extra style to use for buttons like "Add measure". Default is None.
-    style_buttons = None
-
-    @property
-    @memoize
-    def webhelpers(self):
-        return self.context.restrictedTraverse("webhelpers")
-
-    @property
-    @memoize
-    def survey(self):
-        """ This is the survey dexterity object
-        """
-        return self.webhelpers._survey
-
-    @property
-    @memoize
-    def session(self):
-        return self.webhelpers.traversed_session.session
 
     @property
     @memoize
@@ -714,12 +961,6 @@ class ActionPlanView(BrowserView):
             return True
         return False
 
-    @memoize
-    def get_existing_measures(self):
-        return list(self.context.in_place_standard_measures) + list(
-            self.context.in_place_custom_measures
-        )
-
     @property
     def risk_present(self):
         return self.context.identification == "no"
@@ -729,14 +970,6 @@ class ActionPlanView(BrowserView):
         return self.context.identification is None and (
             (self.italy_special and self.context.postponed) or True
         )
-
-    @property
-    def is_custom_risk(self):
-        return self.context.is_custom_risk
-
-    @property
-    def italy_special(self):
-        return self.webhelpers.country == "it"
 
     @property
     def use_problem_description(self):
@@ -765,15 +998,6 @@ class ActionPlanView(BrowserView):
 
     @property
     @memoize
-    def risk(self):
-        if self.is_custom_risk:
-            return self.context
-        return self.context.aq_parent.aq_parent.restrictedTraverse(
-            self.context.zodb_path.split("/")
-        )
-
-    @property
-    @memoize
     def number_images(self):
         if self.is_custom_risk:
             return int(bool(self.context.image_filename))
@@ -788,6 +1012,7 @@ class ActionPlanView(BrowserView):
         return number_images
 
     def __call__(self):
+        super(ActionPlanView, self).__call__()
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
         if not self.webhelpers.can_edit_session:
@@ -804,7 +1029,7 @@ class ActionPlanView(BrowserView):
         appconfig = getUtility(IAppConfig)
         settings = appconfig.get("euphorie")
         self.tti = getUtility(IToolTypesInfo)
-        self.my_tool_type = get_tool_type(self.context)
+        self.my_tool_type = get_tool_type(self.survey)
         self.use_existing_measures = (
             asBool(settings.get("use_existing_measures", False))
             and self.my_tool_type in self.tti.types_existing_measures
@@ -860,167 +1085,16 @@ class ActionPlanView(BrowserView):
                 url = previous_url
             return self.request.response.redirect(url)
 
-        else:
-            self.data = context
-
         self.title = context.parent.title
 
         # Italian special
         if self.is_custom_risk:
             self.risk.description = u""
             self.risk.evaluation_method = u""
-        if not self.is_custom_risk:
-            existing_measure_ids = [
-                measure.solution_id for measure in self.get_existing_measures()
-            ]
-            self.active_standard_measures = {
-                getattr(measure, "solution_id", ""): measure
-                for measure in context.standard_measures
-            }
-            solutions = []
-            for solution in self.risk.values():
-                if not ISolution.providedBy(solution):
-                    continue
-                solution_id = solution.id
-                if solution_id not in existing_measure_ids:
-                    action = getattr(solution, "action", "") or ""
-                    action_markup = all_breaks.sub("<br/>", action)
-                    solutions.append(
-                        {
-                            "description": StripMarkup(solution.description),
-                            "action": action,
-                            "action_markup": action_markup,
-                            "requirements": solution.requirements,
-                            "id": solution_id,
-                        }
-                    )
-            self.solutions = solutions
-            self.solutions_condition = "condition: not ({})".format(
-                " and ".join(["sm-%s" % solution["id"] for solution in self.solutions])
-            )
 
         self.image_class = IMAGE_CLASS[self.number_images]
         self.risk_number = self.context.number
-        self.delete_confirmation = api.portal.translate(
-            _(
-                u"Are you sure you want to delete this measure? This action can "
-                u"not be reverted."
-            )
-        )
-        self.override_confirmation = api.portal.translate(
-            _(
-                u"The current text in the fields 'Action plan', 'Prevention plan' and "
-                u"'Requirements' of this measure will be overwritten. This action cannot be "
-                u"reverted. Are you sure you want to continue?"
-            )
-        )
-        self.message_date_before = api.portal.translate(
-            _(
-                u"error_validation_before_end_date",
-                default=u"This date must be on or before the end date.",
-            )
-        )
-        self.message_date_after = api.portal.translate(
-            _(
-                u"error_validation_after_start_date",
-                default=u"This date must be on or after the start date.",
-            )
-        )
-        self.message_positive_number = api.portal.translate(
-            _(
-                u"error_validation_positive_whole_number",
-                default=u"This value must be a positive whole number.",
-            )
-        )
         return self.index()
-
-    def extract_plans_from_request(self):
-        """ Create new ActionPlan objects by parsing the Request.
-        """
-        new_plans = []
-        added = 0
-        updated = 0
-        existing_plans = {}
-        context = aq_inner(self.context)
-        for plan in context.standard_measures + context.custom_measures:
-            existing_plans[str(plan.id)] = plan
-        form = self.request.form
-        form["action_plans"] = []
-        for i in range(0, len(form.get("measure", []))):
-            measure = dict([p for p in form["measure"][i].items() if p[1].strip()])
-            form["action_plans"].append(measure)
-            if len(measure):
-                plan_type = measure.get("plan_type", "measure_custom")
-                solution_id = measure.get("solution_id", None)
-                if plan_type == "measure_standard" and not form.get(
-                    "sm-%s" % solution_id
-                ):
-                    continue
-                action = measure.get("action", "").strip()
-                if not action:
-                    continue
-                budget = measure.get("budget")
-                budget = budget and budget.split(",")[0].split(".")[0]
-                p_start = measure.get("planning_start")
-                if p_start:
-                    try:
-                        datetime.datetime.strptime(p_start, "%Y-%m-%d")
-                    except ValueError:
-                        p_start = None
-                p_end = measure.get("planning_end")
-                if p_end:
-                    try:
-                        datetime.datetime.strptime(p_end, "%Y-%m-%d")
-                    except ValueError:
-                        p_end = None
-                if measure.get("id", "-1") in existing_plans:
-                    plan = existing_plans[measure.get("id")]
-                    if (
-                        action != plan.action
-                        or measure.get("requirements") != plan.requirements  # noqa
-                        or measure.get("responsible") != plan.responsible
-                        or (
-                            plan.budget
-                            and (budget != str(plan.budget))
-                            or plan.budget is None
-                            and budget
-                        )
-                        or (
-                            (
-                                plan.planning_start
-                                and p_start != plan.planning_start.strftime("%Y-%m-%d")
-                            )
-                            or (plan.planning_start is None and p_start)  # noqa
-                        )
-                        or (
-                            (
-                                plan.planning_end
-                                and p_end != plan.planning_end.strftime("%Y-%m-%d")
-                            )
-                            or (plan.planning_end is None and p_end)  # noqa
-                        )
-                    ):
-                        updated += 1
-                    del existing_plans[measure.get("id")]
-                else:
-                    added += 1
-                new_plans.append(
-                    model.ActionPlan(
-                        action=measure.get("action"),
-                        requirements=measure.get("requirements"),
-                        responsible=measure.get("responsible"),
-                        budget=budget,
-                        planning_start=p_start,
-                        planning_end=p_end,
-                        plan_type=plan_type,
-                        solution_id=solution_id,
-                    )
-                )
-        removed = len(existing_plans)
-        changes = True
-        if added == 0 and updated == 0 and removed == 0:
-            changes = False
-        return (new_plans, changes)
 
 
 def calculate_priority(db_risk, risk):

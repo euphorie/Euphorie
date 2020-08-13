@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Survey
 ======
@@ -40,6 +41,7 @@ from plonetheme.nuplone.z3cform.directives import depends
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
+from z3c.appconfig.interfaces import IAppConfig
 from ZODB.POSException import ConflictError
 from zope import schema
 from zope.component import getMultiAdapter
@@ -114,6 +116,17 @@ class ISurvey(form.Schema, IBasic):
         vocabulary="euphorie.tool_types_vocabulary",
         defaultFactory=get_tool_type_default,
         required=True)
+
+    integrated_action_plan = schema.Bool(
+        title=_("label_integrated_action_plan",
+                default=u"Integrated Action Plan"),
+        description=_(
+            "description_integrated_action_plan",
+            default=u"If selected, the option to plan measures will be offered "
+            u"directly on the “Identification” page. There will be no separate "
+            u"“Action Plan” step in the navigation."),
+        required=False,
+        default=False)
 
     enable_tool_notification = schema.Bool(
         title=_("label_enable_tool_notification",
@@ -348,6 +361,13 @@ class Edit(form.SchemaEditForm):
             catalog = getToolByName(self.context, 'portal_catalog')
             catalog.indexObject(aq_parent(aq_inner(self.context)))
         return changes
+
+    def updateWidgets(self):
+        super(Edit, self).updateWidgets()
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get('euphorie')
+        if not settings.get('use_integrated_action_plan', False):
+            self.widgets["integrated_action_plan"].mode = "hidden"
 
 
 class Delete(actions.Delete):

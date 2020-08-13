@@ -755,6 +755,10 @@ class ActionPlanView(SessionMixin, BrowserView):
             )
         if self.webhelpers.redirectOnSurveyUpdate():
             return
+        if self.webhelpers.integrated_action_plan:
+            return self.request.response.redirect(
+                self.context.absolute_url() + "/@@report"
+            )
         utils.setLanguage(self.request, self.survey, self.survey.language)
         return super(ActionPlanView, self).__call__()
 

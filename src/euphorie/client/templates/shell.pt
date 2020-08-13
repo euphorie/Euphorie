@@ -168,14 +168,22 @@
                      data-pat-inject="history: record;"
                      data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                      tal:condition="not:disabled"
-                  ><tal:identification i18n:translate="label_identification">Identification</tal:identification>
+                  ><tal:separate_ap condition="not:webhelpers/integrated_action_plan"
+                    ><tal:identification i18n:translate="label_identification">Identification</tal:identification>
                       +
-                    <tal:evaluation i18n:translate="label_evaluation">Evaluation</tal:evaluation></a>
+                      <tal:evaluation i18n:translate="label_evaluation">Evaluation</tal:evaluation></tal:separate_ap
+                    ><tal:integrated_ap condition="webhelpers/integrated_action_plan"
+                    ><tal:identification i18n:translate="label_assessment">Assessment</tal:identification></tal:integrated_ap
+                    ></a>
                   <a class="identification"
                      tal:condition="disabled"
-                  ><tal:identification i18n:translate="label_identification">Identification</tal:identification>
+                  ><tal:separate_ap condition="not:webhelpers/integrated_action_plan"
+                    ><tal:identification i18n:translate="label_identification">Identification</tal:identification>
                       +
-                    <tal:evaluation i18n:translate="label_evaluation">Evaluation</tal:evaluation></a>
+                      <tal:evaluation i18n:translate="label_evaluation">Evaluation</tal:evaluation></tal:separate_ap
+                    ><tal:integrated_ap condition="webhelpers/integrated_action_plan"
+                    ><tal:identification i18n:translate="label_assessment">Assessment</tal:identification></tal:integrated_ap
+                    ></a>
 
                   <tal:block condition="python: active and tree">
                     <metal:call use-macro="webhelpers/macros/survey_tree" />
@@ -184,6 +192,7 @@
                 </li>
                 <li class="${python:(active and 'active') or (disabled and 'disabled') or None}"
                     id="step-4"
+                    tal:condition="not: webhelpers/integrated_action_plan"
                     tal:define="
                       active python:page_section == 'actionplan';
                       disabled python:(page_section in ('', 'preparation') and new_session) or (not can_edit);

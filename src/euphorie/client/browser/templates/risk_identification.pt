@@ -34,7 +34,7 @@
         >Scroll to top</a>
         <div class="pat-subform pat-inject"
              id="content-pane"
-             data-pat-inject="${python:'source: #slide-content-1; target: #slide-content-1;' if webhelpers.use_training_module else None}"
+             data-pat-inject="${python:'source: #slide-content-1; target: #slide-content-1;' if webhelpers.use_training_module else None} ${python:'&amp;&amp; source: #panel-action-plan; target: #panel-action-plan' if webhelpers.integrated_action_plan else None}"
         >
 
           <h2 class="risk-title">${here/title}</h2>
@@ -53,6 +53,28 @@
           <!-- Evaluation -->
           <metal:call use-macro="webhelpers/macros/risk_evaluation" />
           <!-- END Evaluation -->
+
+          <!-- Action Plan -->
+          <tal:action_plan condition="webhelpers/integrated_action_plan">
+            <div class="pat-collapsible open risk-module pat-depends visible"
+                 data-pat-depends="transition: slide; ${view/action_plan_condition}"
+            >
+              <h3 class="collapsible-open"
+                  i18n:translate="header_measures"
+              >
+                Measures
+              </h3>
+              <div class="panel-content"
+                   id="panel-action-plan"
+              >
+                <section class="pat-rich">
+                  <p tal:content="view/action_plan_instruction_text">Instruction</p>
+                </section>
+                <metal:call use-macro="webhelpers/macros/action_plan" />
+              </div>
+            </div>
+          </tal:action_plan>
+          <!-- END Action Plan -->
 
           <!-- Information -->
           <metal:call use-macro="here/risk_macros/macros/riskinfo"

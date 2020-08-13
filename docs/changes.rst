@@ -1,13 +1,19 @@
 Changelog
 =========
 
-11.3.14 (unreleased)
---------------------
+11.4.0 (unreleased)
+-------------------
 
 - New Hungarian translations (provided by client)
 - Make sure that an update to the title of a module or risk gets propagated
   to existing sessions.
 - Updated styles and bundle (fixes validation error)
+
+Major change:
+- The Action Plan can be combined with Identifcation into a single Assessment phase.
+  A setting per survey in the CMS can be used to enable this.
+  Note: the feature-switch `use_integrated_action_plan=True` needs to be present
+  in euphorie.ini to make this new option available.
 
 11.3.13 (2020-07-17)
 --------------------

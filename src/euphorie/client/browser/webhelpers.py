@@ -623,6 +623,13 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def integrated_action_plan(self):
+        if not asBool(self._settings.get('use_integrated_action_plan', False)):
+            return False
+        return getattr(self._survey, "integrated_action_plan", False)
+
+    @property
+    @memoize
     def in_session(self):
         """Check if there is an active survey session."""
         return self._survey is not None
