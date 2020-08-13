@@ -106,6 +106,15 @@ class RiskBase(BrowserView):
 
     @property
     @memoize
+    def simple_measure_text(self):
+        """ For cases where the title and the description of a measure
+        are identical.
+        At the moment, hard-coded to 2 countries where this is always the case.
+        """
+        return self.webhelpers.country in ("it", "de")
+
+    @property
+    @memoize
     def risk(self):
         if self.is_custom_risk:
             return
@@ -803,7 +812,7 @@ class IdentificationView(RiskBase):
         }
         existing_measures = []
         for solution in self.solutions_provided_by_tool:
-            if self.italy_special:
+            if self.simple_measure_text:
                 title = solution.action
                 text = ""
             else:
