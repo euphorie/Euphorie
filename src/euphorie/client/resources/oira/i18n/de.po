@@ -335,6 +335,14 @@
 	msgid "Unvisited"
 	msgstr "Nicht beantwortet"
 
+	#| msgid unanswered
+	msgid "Unanswered"
+	msgstr "Nicht beantwortet"
+
+	#| msgid no_risk
+	msgid "No risk"
+	msgstr "Kein Risiko"
+
 	#| msgid postponed
 	msgid "Postponed"
 	msgstr "Aufgeschoben"

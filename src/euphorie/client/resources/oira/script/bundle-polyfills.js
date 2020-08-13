@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 18);
+/******/ 	return __webpack_require__(__webpack_require__.s = 19);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -91,7 +91,8 @@
 /* 3 */,
 /* 4 */,
 /* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */
 /***/ (function(module, exports) {
 
 var g;
@@ -117,7 +118,6 @@ module.exports = g;
 
 
 /***/ }),
-/* 7 */,
 /* 8 */,
 /* 9 */,
 /* 10 */,
@@ -128,7 +128,8 @@ module.exports = g;
 /* 15 */,
 /* 16 */,
 /* 17 */,
-/* 18 */
+/* 18 */,
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Polyfills for older browsers, most notably IE11.
@@ -136,9 +137,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Polyfills for
 //   require(["pat-polyfills"]);
 
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-    __webpack_require__(19),
-    __webpack_require__(23),
+    __webpack_require__(20),
     __webpack_require__(24),
+    __webpack_require__(25),
 ], __WEBPACK_AMD_DEFINE_RESULT__ = (function (PromisePolyfill, IntersectionObserverPolyfill, URLPolyfill) {
     // Dummy return to not break jshint rules and to include the polyfills in the compiled bundle.
     return {
@@ -151,7 +152,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Polyfills for
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(setImmediate, global) {(function (global, factory) {
@@ -455,10 +456,10 @@ if (!('Promise' in globalNS)) {
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(20).setImmediate, __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(21).setImmediate, __webpack_require__(7)))
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -514,7 +515,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(21);
+__webpack_require__(22);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -525,10 +526,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7)))
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -718,10 +719,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(6), __webpack_require__(22)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7), __webpack_require__(23)))
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -911,7 +912,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 /**
@@ -1643,7 +1644,7 @@ window.IntersectionObserverEntry = IntersectionObserverEntry;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {(function(global) {
@@ -1818,7 +1819,11 @@ window.IntersectionObserverEntry = IntersectionObserverEntry;
     try {
       var URLSearchParams = global.URLSearchParams;
 
-      return (new URLSearchParams('?a=1').toString() === 'a=1') && (typeof URLSearchParams.prototype.set === 'function');
+      return (
+        (new URLSearchParams('?a=1').toString() === 'a=1') &&
+        (typeof URLSearchParams.prototype.set === 'function') &&
+        (typeof URLSearchParams.prototype.entries === 'function')
+      );
     } catch (e) {
       return false;
     }
@@ -2134,7 +2139,7 @@ window.IntersectionObserverEntry = IntersectionObserverEntry;
     : ((typeof self !== 'undefined') ? self : this))
 );
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(7)))
 
 /***/ })
 /******/ ]);

@@ -302,7 +302,17 @@
 <div id="main-content" class="variation-risk-assessment">
     
 
-<form method="get" action="/action-plan.html" class="pat-scroll pat-inject" data-pat-inject="source: #main-content; target: #main-content; && source: #step-4-topics; target: #step-4-topics;">
+<form method="get" action="/action-plan.html"
+      class="pat-scroll pat-inject pat-validation"
+      data-pat-inject="source: #main-content; target: #main-content; && source: #step-4-topics; target: #step-4-topics;"
+      data-pat-scroll="selector: #content; trigger: auto; offset: 0"
+      data-pat-validation="disable-selector: button[name='next'], .remove-clone;
+                           message-date: This value must be a valid date;
+                           message-datetime: This value must be a valid date and time;
+                           message-email: This value must be a valid email address;
+                           message-number: This value must be a number;
+                           message-required: This field is required;"
+>
 	<div id="content-pane">
 		<article class="rich pat-well warning">
     <h2>
@@ -492,18 +502,25 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
         Budget
         <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary.</dfn>
         <span class="composed currency-field">
-            <input type="number" class="currency" />
+            <input type="number" class="currency" name="budget" min="16" max="66" required="required" data-pat-validation="message-max: More than 66 is too much!" />
         </span>
     </label>
     <label>
         Planning start
-        <input type="date" class="pat-date-picker" />
+        <input type="date" name="planning-start"
+               class="pat-date-picker" id="planning-start"
+               data-pat-validation="type: date; not-after: #planning-end; message-date: Must be before Planning End."
+        />
     </label>
     <label>
         Planning end
-        <input type="date" class="pat-date-picker" />
+        <input type="date" name="planning-end"
+               class="pat-date-picker" id="planning-end"
+               data-pat-validation="type: date; not-before: #planning-start; message-date: Must be after Planning Start."
+        />
     </label>
 </fieldset>
+
         </div>
         
     
@@ -542,18 +559,25 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
         Budget
         <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary.</dfn>
         <span class="composed currency-field">
-            <input type="number" class="currency" />
+            <input type="number" class="currency" name="budget" min="16" max="66" required="required" data-pat-validation="message-max: More than 66 is too much!" />
         </span>
     </label>
     <label>
         Planning start
-        <input type="date" class="pat-date-picker" />
+        <input type="date" name="planning-start"
+               class="pat-date-picker" id="planning-start"
+               data-pat-validation="type: date; not-after: #planning-end; message-date: Must be before Planning End."
+        />
     </label>
     <label>
         Planning end
-        <input type="date" class="pat-date-picker" />
+        <input type="date" name="planning-end"
+               class="pat-date-picker" id="planning-end"
+               data-pat-validation="type: date; not-before: #planning-start; message-date: Must be after Planning Start."
+        />
     </label>
 </fieldset>
+
         </div>
         
     
@@ -592,18 +616,25 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
         Budget
         <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary.</dfn>
         <span class="composed currency-field">
-            <input type="number" class="currency" />
+            <input type="number" class="currency" name="budget" min="16" max="66" required="required" data-pat-validation="message-max: More than 66 is too much!" />
         </span>
     </label>
     <label>
         Planning start
-        <input type="date" class="pat-date-picker" />
+        <input type="date" name="planning-start"
+               class="pat-date-picker" id="planning-start"
+               data-pat-validation="type: date; not-after: #planning-end; message-date: Must be before Planning End."
+        />
     </label>
     <label>
         Planning end
-        <input type="date" class="pat-date-picker" />
+        <input type="date" name="planning-end"
+               class="pat-date-picker" id="planning-end"
+               data-pat-validation="type: date; not-before: #planning-start; message-date: Must be after Planning Start."
+        />
     </label>
 </fieldset>
+
         </div>
         
     
@@ -642,18 +673,25 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
         Budget
         <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary.</dfn>
         <span class="composed currency-field">
-            <input type="number" class="currency" />
+            <input type="number" class="currency" name="budget" min="16" max="66" required="required" data-pat-validation="message-max: More than 66 is too much!" />
         </span>
     </label>
     <label>
         Planning start
-        <input type="date" class="pat-date-picker" />
+        <input type="date" name="planning-start"
+               class="pat-date-picker" id="planning-start"
+               data-pat-validation="type: date; not-after: #planning-end; message-date: Must be before Planning End."
+        />
     </label>
     <label>
         Planning end
-        <input type="date" class="pat-date-picker" />
+        <input type="date" name="planning-end"
+               class="pat-date-picker" id="planning-end"
+               data-pat-validation="type: date; not-before: #planning-start; message-date: Must be after Planning Start."
+        />
     </label>
 </fieldset>
+
         </div>
         
     
@@ -700,18 +738,25 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
         Budget
         <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary.</dfn>
         <span class="composed currency-field">
-            <input type="number" class="currency" />
+            <input type="number" class="currency" name="budget" min="16" max="66" required="required" data-pat-validation="message-max: More than 66 is too much!" />
         </span>
     </label>
     <label>
         Planning start
-        <input type="date" class="pat-date-picker" />
+        <input type="date" name="planning-start"
+               class="pat-date-picker" id="planning-start"
+               data-pat-validation="type: date; not-after: #planning-end; message-date: Must be before Planning End."
+        />
     </label>
     <label>
         Planning end
-        <input type="date" class="pat-date-picker" />
+        <input type="date" name="planning-end"
+               class="pat-date-picker" id="planning-end"
+               data-pat-validation="type: date; not-before: #planning-start; message-date: Must be after Planning Start."
+        />
     </label>
 </fieldset>
+
 </div>
 
 		<fieldset>
@@ -720,8 +765,8 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
 
 	</div>
 	<p class="button-bar" id="nav-bar">
-		<button type="submit" name="next" value="previous" class="pat-button back">Zurück</button>
-		<button class="pat-button continue">Nächste</button>
+		<button type="submit" name="previous" value="previous" class="pat-button back">Zurück</button>
+		<button type="submit" name="next" value="next" class="pat-button continue">Nächste</button>
 	</p>
 </form>
 

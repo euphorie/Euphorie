@@ -7,6 +7,7 @@ Changelog
 - New Hungarian translations (provided by client)
 - Make sure that an update to the title of a module or risk gets propagated
   to existing sessions.
+- Updated styles and bundle (fixes validation error)
 
 11.3.13 (2020-07-17)
 --------------------
