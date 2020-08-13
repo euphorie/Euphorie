@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-24 10:54+0000\n"
+"POT-Creation-Date: 2020-07-17 09:38+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,10 +29,8 @@ msgid ""
 "what resources this might require. Based on this, a report will be "
 "automatically produced in the next step."
 msgstr ""
-"${action-plan} Ve čtvrté etapě hodnocení se můžete rozhodnout, jaké kroky k "
-"vyřešení dříve identifikovaných rizik podniknete a jaké zdroje budou "
-"zapotřebí. Na základě tohoto postupu bude v následujícím kroku automaticky "
-"vytvořena hodnotící zpráva včetně plánu opatření."
+"${action-plan} zde stanovíte opatření pro odstranění nebo snížení rizika. "
+"Můžete použít nabídnutá řešení, upravit je nebo navrhnou vlastní."
 
 #: euphorie/client/browser/templates/login.pt:108
 msgid ""
@@ -40,9 +38,8 @@ msgid ""
 "to each of the items you identified as 'need to be addressed' in the "
 "'Identification' stage."
 msgstr ""
-"${evaluation} V rámci této fáze budete moci stanovit úroveň rizika pro "
-"každou položku, kterou jste označili jako „nutno řešit“ v rámci etapy "
-"„Identifikace“. "
+"${evaluation} u každého rizika je možné nastavit míru jeho závažnosti. "
+"Přednastavené hodnoty lze operativně měnit."
 
 #: euphorie/client/browser/templates/login.pt:106
 msgid ""
@@ -52,20 +49,16 @@ msgid ""
 "problems are present. You can also decide to leave a question unanswered and "
 "thus put it on hold to be answered at a later stage."
 msgstr ""
-"${identification} Nástroj OiRA uvede řadu potenciálních rizik nebo problémů "
-"v oblasti ochrany zdraví a bezpečnosti, které se mohou na vašem pracovišti "
-"vyskytovat. Uvedením odpovědi „ano“ nebo „ne“ u jednotlivých vyjádření/"
-"otázek potvrdíte, zda se u vás dané riziko nebo problém vyskytuje. Můžete se "
-"rovněž rozhodnout ponechat otázku bez odpovědi, a odložit tak její "
-"zodpovězení na později. "
+"${identification} nástroj OiRA vám v jednotlivých částech krok za krokem "
+"umožní identifikovat rizika na vašich pracovištích."
 
 #: euphorie/client/templates/report_landing.pt:121
 msgid ""
 "${manage} the problems/risks in your workplace (specific tasks, expertise, "
 "responsibilities, deadlines)."
 msgstr ""
-"${manage} stávajících problémů/rizik na vašem pracovišti (konkrétní úkoly, "
-"odborné znalosti, odpovědnosti, lhůty)"
+"řízení rizik na vašich pracovištích (stanovení konkrétních opatření, určení "
+"osob odpovědných za jejich splnění, lhůta splnění apod.)."
 
 #: euphorie/client/browser/templates/login.pt:104
 msgid ""
@@ -75,11 +68,13 @@ msgid ""
 msgstr ""
 "${preparation} V rámci tohoto kroku získáte přehled o konkrétním hodnocení "
 "rizik, ke kterému se chystáte přistoupit, a budete mít možnost dále "
-"přizpůsobit toto hodnocení specifické povaze vašeho podnikání. "
+"přizpůsobit toto hodnocení specifické povaze vašeho podnikání."
 
 #: euphorie/client/templates/report_landing.pt:93
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
-msgstr "${provide-evidence} dozorovým orgánům (např. inspektorátu práce)"
+msgstr ""
+"pro předložení kontrolním orgánům jako důkazu o provedení vyhledání a "
+"zhodnocení rizik."
 
 #: euphorie/client/browser/templates/webhelpers.pt:305
 msgid "${view/description_probability}"
@@ -161,7 +156,7 @@ msgstr ""
 msgid "Active"
 msgstr "Aktivní"
 
-#: euphorie/content/module.py:273
+#: euphorie/content/module.py:311
 msgid "Add %s"
 msgstr ""
 
@@ -226,7 +221,7 @@ msgstr ""
 msgid "Archive risk assessment"
 msgstr ""
 
-#: euphorie/content/utils.py:113
+#: euphorie/content/utils.py:117
 msgid "Are the measures that are selected above sufficient?"
 msgstr "Jsou opatření, která jsou vybrána výše, dostačující?"
 
@@ -307,7 +302,7 @@ msgstr "Změnit e-mailovou adresu"
 msgid "Change name of session"
 msgstr "Změnit název relace"
 
-#: euphorie/content/utils.py:61
+#: euphorie/content/utils.py:65
 msgid "Classic OiRA Tool with positive and negative statements."
 msgstr "Klasický nástroj OiRA s pozitivními a negativními prohlášeními."
 
@@ -335,9 +330,7 @@ msgstr "Potvrďte změnu e-mailové adresy OiRA"
 msgid ""
 "Contains: all the information and input provided by you throughout the risk "
 "assessment process."
-msgstr ""
-"Obsahuje: všechny informace, vstupy a data, které jste do dokumentu "
-"zapracovali  během celého postupu hodnocení rizik"
+msgstr "Zpráva obsahuje všechna zadaná data."
 
 #: euphorie/client/templates/report_landing.pt:176
 msgid "Contains: an overview of the measures to be implemented."
@@ -345,18 +338,18 @@ msgstr "Obsahuje: přehled opatření, která mají být provedena."
 
 #: euphorie/client/templates/report_landing.pt:148
 msgid "Contains: an overview of the risks identified"
-msgstr "Obsahuje: přehled zjištěných rizik"
+msgstr "Obsahuje: přehled rizik"
 
 #: euphorie/client/templates/report_landing.pt:116
 msgid ""
 "Contains: main elements to effectively manage the risks at your workplace."
-msgstr "Obsahuje: hlavní zásady pro účinné řízení rizik na vašem pracovišti."
+msgstr "Obsahuje: hlavní zásady pro prevenci rizik."
 
 #: euphorie/deployment/tiles/configure.zcml:18
 msgid "Content add bar"
 msgstr ""
 
-#: euphorie/content/configure.zcml:129
+#: euphorie/content/configure.zcml:137
 msgid "Content types for defining sectors and surveys"
 msgstr ""
 
@@ -424,19 +417,19 @@ msgstr ""
 
 #: euphorie/client/browser/templates/login.pt:129
 msgid "Do I need to prepare?"
-msgstr "Musím se nějak připravit?"
+msgstr "Kdo bude mít přístup k údajům?"
 
 #: euphorie/content/profiles/default/types/euphorie.documentation.xml
 msgid "Documentation"
 msgstr "Dokumentace"
 
-#: euphorie/client/browser/session.py:370
+#: euphorie/client/browser/session.py:368
 msgid "Does this happen in multiple places?"
 msgstr "Dochází k tomu na více místech?"
 
 #: euphorie/client/templates/report_landing.pt:52
 msgid "Download and print your report"
-msgstr "Stáhněte si a vytiskněte si svou zprávu"
+msgstr "Stáhněte si závěrečnou zprávu"
 
 #: euphorie/client/browser/templates/training.pt:23
 msgid "Download as PowerPoint file"
@@ -475,7 +468,7 @@ msgstr "Členské státy EU"
 msgid "EU member state"
 msgstr "Členský stát EU"
 
-#: euphorie/content/module.py:254
+#: euphorie/content/module.py:281
 msgid "Edit ${name}"
 msgstr "Editovat ${name}"
 
@@ -487,15 +480,15 @@ msgstr "Editovat Profilová otázka"
 msgid "Email address/account name"
 msgstr "E-mailová adresa/název účtu"
 
-#: euphorie/client/browser/session.py:375
+#: euphorie/client/browser/session.py:373
 msgid "Enter the name of the location"
 msgstr "Uveďte název místa"
 
-#: euphorie/client/browser/session.py:380
+#: euphorie/client/browser/session.py:378
 msgid "Enter the names of each location"
 msgstr "Uveďte názvy všech míst"
 
-#: euphorie/content/configure.zcml:129
+#: euphorie/content/configure.zcml:137
 msgid "Euphorie content types"
 msgstr ""
 
@@ -507,7 +500,7 @@ msgstr ""
 msgid "Euphorie website"
 msgstr ""
 
-#: euphorie/content/utils.py:35
+#: euphorie/content/utils.py:39
 msgid "European Union"
 msgstr "Evropská unie"
 
@@ -516,7 +509,7 @@ msgstr "Evropská unie"
 msgid "Expand sidebar"
 msgstr ""
 
-#: euphorie/content/utils.py:46
+#: euphorie/content/utils.py:50
 msgid "F.Y.R. Macedonia"
 msgstr "Bývalá jugoslávská republika Makedonie"
 
@@ -534,7 +527,7 @@ msgstr "Formát: Excel (.xlsx)"
 
 #: euphorie/client/templates/report_landing.pt:147
 msgid "Format: Portable Document Format (.pdf)"
-msgstr "Formát: PDF (.pdf)"
+msgstr "Formát: PDF"
 
 #: euphorie/content/country.py:82
 msgid "Full report (Word document)"
@@ -554,23 +547,24 @@ msgstr ""
 
 #: euphorie/client/browser/templates/login.pt:116
 msgid "How long will it take?"
-msgstr "Jak dlouho to trvá?"
+msgstr "Jak dlouho to bude trvat?"
 
 #: euphorie/client/browser/templates/login.pt:96
 msgid "However, OiRA is designed to be of most value to smaller businesses."
 msgstr ""
-"Nástroj OiRA je však vyvinut tak, aby z něj největší užitek měly menší "
-"podniky."
+"Vlastní vyhledávání a hodnocení rizik provádí zaměstnavatelé, pokud k tomu "
+"mají potřebné znalosti a zaměstnávají maximálně 25 zaměstnanců (dle § 9, "
+"odst. 3, písm. a) zákona č. 309/2006 Sb. o zajištění dalších podmínek "
+"bezpečnosti a ochrany zdraví při práci) nebo osoby s odbornou způsobilostí v "
+"prevenci rizik (dle § 10 zákona č. 309/2006 Sb. o zajištění dalších podmínek "
+"bezpečnosti a ochrany zdraví při práci)."
 
 #: euphorie/client/browser/templates/login.pt:118
 msgid ""
 "However, you can spend whatever time you have available on an assessment and "
 "then return to it when convenient to pick up from the same point you left "
 "off."
-msgstr ""
-"Můžete však hodnocením strávit libovolně dlouho dobu, podle toho, kolik času "
-"máte k dispozici, a poté se k němu v příhodnou chvíli vrátit a začít tam, "
-"kde jste minule skončili."
+msgstr " "
 
 #: euphorie/client/browser/webhelpers.py:756
 msgid "I wish to share the following with you"
@@ -588,7 +582,7 @@ msgstr ""
 msgid "Important"
 msgstr "Důležité"
 
-#: euphorie/client/templates/plain.pt:181 euphorie/client/templates/shell.pt:96
+#: euphorie/client/templates/plain.pt:181 euphorie/client/templates/shell.pt:99
 msgid "Info"
 msgstr "Informace"
 
@@ -614,14 +608,15 @@ msgid ""
 "It's impossible to say how long an assessment will take in general as the "
 "tools differ according to sectors and countries."
 msgstr ""
-"Vzhledem k tomu, že se jednotlivé nástroje liší podle odvětví a zemí, není "
-"možné obecně stanovit, jak dlouho bude hodnocení trvat."
+"Dobu zpracování není možné přesně odhadnout. Liší se podle typu zvoleného "
+"nástroje, zkušeností a znalostí uživatele a specifických podmínek v "
+"hodnocené firmě."
 
 #: euphorie/deployment/tiles/configure.zcml:38
 msgid "Javascript utilities"
 msgstr ""
 
-#: euphorie/content/utils.py:42
+#: euphorie/content/utils.py:46
 msgid "Kosovo"
 msgstr "Kosovo"
 
@@ -635,7 +630,7 @@ msgstr "uloženo"
 msgid "Learn more about this tool&hellip;"
 msgstr "Další informace o tomto nástroji…"
 
-#: euphorie/client/templates/shell.pt:329
+#: euphorie/client/templates/shell.pt:312
 msgid "Loading Risk Assessments&hellip;"
 msgstr ""
 
@@ -663,7 +658,7 @@ msgstr "Modul"
 
 #: euphorie/client/templates/report_landing.pt:60
 msgid "Monitor and assess whether necessary measures have been introduced."
-msgstr "sledování a hodnocení toho, zda byla zavedena potřebná opatření,"
+msgstr "pro sledování a vyhodnocení provedených stanovených opatření,"
 
 #: euphorie/client/browser/templates/measures_overview.pt:66
 #: euphorie/client/templates/report_landing.pt:182
@@ -674,9 +669,9 @@ msgstr ""
 #: euphorie/client/browser/templates/risks_overview.pt:156
 #: euphorie/client/templates/report_landing.pt:154
 msgid "Monitor whether risks / measures are properly dealt with."
-msgstr "Sledovat, zda jsou rizika/opatření řádně řešena."
+msgstr "kontrolu, zda jsou plněna stanovená opatření."
 
-#: euphorie/content/utils.py:43
+#: euphorie/content/utils.py:47
 msgid "Montenegro"
 msgstr "Černá Hora"
 
@@ -751,7 +746,7 @@ msgstr ""
 msgid "OiRA Tool version"
 msgstr "Verze nástroje OiRA"
 
-#: euphorie/content/utils.py:81
+#: euphorie/content/utils.py:85
 msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
 msgstr ""
 "Nástroj OiRA, ve kterém je možné definovat „Opatření, která jsou již "
@@ -761,21 +756,14 @@ msgstr ""
 msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
 "that might exist in their workplace."
-msgstr ""
-"Nástroj OiRA může využít každý, kdo si přeje vyhodnotit rizika související s "
-"bezpečností a ochranou zdraví, která se mohou vyskytnout na konkrétním "
-"pracovišti."
+msgstr "Nástroje OiRA jsou určeny především pro OSVČ, malé a střední firmy."
 
 #: euphorie/client/browser/templates/login.pt:97
 msgid ""
 "OiRA is designed specifically to support them in assessing the risks at work "
 "and helping them to produce a documented risk assessment including an action "
 "plan tailored to the business's requirements."
-msgstr ""
-"Konkrétně je nástroj OiRA určen k tomu, aby tyto podniky podpořil při "
-"provádění hodnocení rizik na pracovišti a pomohl jim toto hodnocení "
-"zdokumentovat, včetně vypracování akčního plánu přímo na míru požadavkům "
-"daného podniku."
+msgstr " "
 
 #: euphorie/client/browser/reset_password.py:118
 msgid "OiRA password reset instructions"
@@ -787,10 +775,13 @@ msgid ""
 "that allows you to perform a health and safety risk assessment of your "
 "workplace."
 msgstr ""
-"Zkratka OiRA znamená on-line interaktivní vyhodnocení rizik – z anglického "
-"Online interactive Risk Assessment. Jedná se o internetový nástroj, který "
-"vám umožňuje provést vyhodnocení rizik v oblasti bezpečnosti a ochrany "
-"zdraví při práci na vašem pracovišti. "
+"Online Interactive Risk Assessment (dále jen „OiRA“ ) je volně dostupná, "
+"bezplatná online aplikace pro vyhledávání a hodnocení rizik v oblasti "
+"bezpečnosti a ochrany zdraví při práci (dále jen „BOZP“). Je vytvořena a "
+"provozována Evropskou agenturou pro bezpečnost a ochranu zdraví při práci – "
+"EU OSHA. V České republice garantuje vývoj a aktualizaci jednotlivých "
+"nástrojů OiRA Ministerstvo práce a sociálních věcí České republiky a "
+"Výzkumný ústav bezpečnosti práce, v.v.i."
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml
 msgid ""
@@ -804,7 +795,7 @@ msgstr ""
 msgid "Online help"
 msgstr "Online pomoc"
 
-#: euphorie/client/browser/session.py:1034
+#: euphorie/client/browser/session.py:970
 #: euphorie/client/browser/templates/measures_overview.pt:61
 #: euphorie/client/templates/report_landing.pt:162
 msgid "Overview of measures"
@@ -814,7 +805,7 @@ msgstr "Přehled opatření"
 msgid "Overview of measures (PDF)"
 msgstr ""
 
-#: euphorie/client/browser/session.py:1024
+#: euphorie/client/browser/session.py:960
 #: euphorie/client/browser/templates/risks_overview.pt:152
 #: euphorie/client/templates/report_landing.pt:134
 msgid "Overview of risks"
@@ -833,14 +824,16 @@ msgid ""
 "Pass information on to the people concerned (workers, safety "
 "representatives, employers, experts in occupational safety and health, etc.)"
 msgstr ""
-"předání informací dotčeným osobám (zaměstnancům, zástupcům zaměstnanců pro "
-"BOZP, zaměstnavateli, odborníkům na prevenci rizik …)"
+"pro předání informací o rizicích a opatřeních proti jejich působení dotčeným "
+"osobám a stranám,"
 
 #: euphorie/client/browser/templates/measures_overview.pt:65
 #: euphorie/client/browser/templates/risks_overview.pt:155
 #: euphorie/client/templates/report_landing.pt:153
 msgid "Pass information to the people concerned."
-msgstr "Předat informace dotčeným osobám."
+msgstr ""
+"předání informací o rizicích a opatřeních proti jejich působení dotčeným "
+"osobám a stranám,"
 
 #: euphorie/client/templates/new-email.pt:18
 msgid ""
@@ -913,7 +906,9 @@ msgstr "předložení důkazů"
 
 #: euphorie/client/templates/report_landing.pt:58
 msgid "Provide evidence for supervisory authorities."
-msgstr "předložení důkazů dozorovým orgánům,"
+msgstr ""
+"pro předložení kontrolním orgánům jako důkazu o provedení vyhledání a "
+"zhodnocení rizik,"
 
 #: euphorie/client/browser/templates/publication_menu.pt:51
 msgid "Publish Risk Assessment"
@@ -927,10 +922,7 @@ msgstr "Více informací"
 msgid ""
 "Record any revision if circumstances change (new machines, new workers, as a "
 "result of findings of any accident investigations, etc.)"
-msgstr ""
-"zaznamenání a vedení evidence případných změn a doplnění, pokud dojde ke "
-"změně okolností (nové stroje, noví pracovníci, v důsledku  šetření "
-"pracovního úrazu atd.) "
+msgstr "pro evidování změn a doplnění."
 
 #: euphorie/client/browser/templates/publication_menu.pt:73
 msgid "Refresh publication date"
@@ -949,8 +941,8 @@ msgid ""
 "Registering allows you to simply log in at any time to continue previous "
 "assessments or to start new ones."
 msgstr ""
-"Registrace vám umožní přihlášení se kdykoliv v budoucnu, a pokračovat v "
-"započatém hodnocení nebo zahájit hodnocení nové."
+"Je možné také vytisknout dokumentaci o prevenci rizik – zprávu, akční plán a "
+"přehled rizik."
 
 #: euphorie/client/browser/templates/profile.pt:69
 #: euphorie/client/browser/templates/risk_actionplan.pt:189
@@ -958,7 +950,7 @@ msgstr ""
 msgid "Remove"
 msgstr "Odstranit"
 
-#: euphorie/content/utils.py:44
+#: euphorie/content/utils.py:48
 msgid "Republic of Serbia"
 msgstr "Republika Srbsko"
 
@@ -1010,9 +1002,8 @@ msgid ""
 "more information. Please note that changes made on your pc will NOT be saved "
 "in the OiRA tool"
 msgstr ""
-"Uložte si zprávu v počítači a vytiskněte ji. Můžete ji také upravit nebo "
-"doplnit o další informace. Upozorňujeme, že změny provedené ve vašem "
-"počítači NEBUDOU uloženy v nástroji OiRA."
+"Uložte si závěrečnou zprávu jako dokument ve vašem počítači. Doporučujeme ji "
+"také vytisknout a uložit v aktuální verzi."
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:89
 #: euphorie/deployment/tiles/configure.zcml:57
@@ -1037,11 +1028,11 @@ msgstr "Informace o sektoru a skupině pro klienta."
 msgid "Sector workflow"
 msgstr "Pracovní postup sektoru"
 
-#: euphorie/client/browser/session.py:637
+#: euphorie/client/browser/session.py:573
 msgid "Session `${name}` has been archived."
 msgstr ""
 
-#: euphorie/client/browser/session.py:580
+#: euphorie/client/browser/session.py:516
 msgid "Session `${name}` has been deleted."
 msgstr "Modul `${name}` byla smazán."
 
@@ -1080,7 +1071,7 @@ msgstr "Standard"
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:126
 msgid "Standard measures"
-msgstr ""
+msgstr "Standardní opatření"
 
 #: euphorie/content/templates/solution_view.pt:12
 msgid "Standard solution"
@@ -1095,7 +1086,7 @@ msgstr "Zahájeno "
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
 
-#: euphorie/content/module.py:228 euphorie/deployment/tiles/addbar.py:19
+#: euphorie/content/module.py:255 euphorie/deployment/tiles/addbar.py:19
 msgid "Submodule"
 msgstr "Dílčí modul"
 
@@ -1167,8 +1158,9 @@ msgid ""
 "The first thing you will be asked to do when you begin your first risk "
 "assessment is to create an OiRA account - this is a simple and quick process."
 msgstr ""
-"První úkon, který po vás bude při zahájení prvního hodnocení rizik "
-"požadován, je vytvoření účtu OiRA. Jedná se o jednoduchý a rychlý postup."
+"Při bezplatné registraci vám bude založen účet, který umožňuje průběžnou "
+"administraci všech provedených hodnocení. Data můžete průběžně doplňovat, "
+"upravovat a přehodnocovat."
 
 #: euphorie/content/profiles/default/types/euphorie.help.xml
 msgid "The help text for the client."
@@ -1190,7 +1182,7 @@ msgstr "Online klient."
 msgid "The online risk assessment client interface for an Euphorie website"
 msgstr ""
 
-#: euphorie/client/browser/session.py:723
+#: euphorie/client/browser/session.py:659
 msgid "The risk assessment has been cloned"
 msgstr ""
 
@@ -1200,9 +1192,9 @@ msgstr "Uvedená barva není platná."
 
 #: euphorie/client/browser/templates/login.pt:102
 msgid "There are four main stages to complete in the assessment process:"
-msgstr "Postup hodnocení rizik sestává ze čtyř hlavních etap:"
+msgstr "Proces se skládá ze čtyř hlavních částí:"
 
-#: euphorie/client/browser/session.py:559
+#: euphorie/client/browser/session.py:495
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
@@ -1303,7 +1295,7 @@ msgstr ""
 
 #: euphorie/client/templates/report_landing.pt:55
 msgid "Use the report to:"
-msgstr "Zprávu použijte k(e):"
+msgstr "Použití zprávy:"
 
 #: euphorie/deployment/tiles/configure.zcml:48
 msgid "User management navigation tree"
@@ -1323,19 +1315,19 @@ msgstr ""
 
 #: euphorie/client/browser/templates/login.pt:101
 msgid "What do I have to do?"
-msgstr "Co musím udělat?"
+msgstr "Jaký je postup?"
 
 #: euphorie/client/browser/templates/login.pt:77
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
-msgstr "Co je OiRA (Online Interactive Risk Assessment)?"
+msgstr "Co je OiRA?"
 
 #: euphorie/client/browser/templates/login.pt:93
 msgid "Who is the OiRA tool for?"
-msgstr "Pro koho je nástroj OiRA určen?"
+msgstr "Pro koho je OiRA určena?"
 
 #: euphorie/client/browser/templates/login.pt:122
 msgid "Why do I have to register?"
-msgstr "Proč se musím zaregistrovat?"
+msgstr "Proč je nutná registrace?"
 
 #: euphorie/client/browser/templates/profile.pt:48
 #: euphorie/client/browser/templates/updated.pt:31
@@ -1363,9 +1355,7 @@ msgid ""
 "the risk assessment, how workers are going to be involved in the process, "
 "etc."
 msgstr ""
-"Před zahájením práce s tímto nástrojem není nutná žádná konkrétní příprava, "
-"avšak měli byste věnovat určitý čas promyšlení toho, kdo bude hodnocení "
-"rizik provádět, jak se na něm budou podílet pracovníci atd."
+"Poskytnuté údaje nejsou předávány žádné třetí straně k dalšímu zpracování."
 
 #: euphorie/client/browser/session.py:178
 msgid ""
@@ -1377,9 +1367,7 @@ msgstr ""
 msgid ""
 "You have to make sure to be in possession of a printed, accurate and up-"
 "dated risk assessment (at any time)."
-msgstr ""
-"Je třeba dbát na to, abyste měli (kdykoli) k dispozici přesné a "
-"aktualizované hodnocení rizik v tištěné podobě."
+msgstr " "
 
 #: euphorie/client/settings.py:354
 msgid "Your email address has been updated."
@@ -1521,36 +1509,22 @@ msgstr "mikropodniky a makropodniky mají určité nedostatky"
 #. Default: "Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary."
 #: euphorie/client/browser/templates/risk_actionplan.pt:254
 msgid "actionplan_measure_budget_tooltip"
-msgstr ""
-"Ačkoliv některé kroky nestojí žádné peníze, mnoho z nich stojí. Proto by měl "
-"být pro kroky stanoven rozpočet; zahrňte je v ročním rozpočtu, pokud je to "
-"třeba."
+msgstr "Náklady, které bude třeba vynaložit na realizaci opatření."
 
 #. Default: "Appoint someone in your company to be responsible for the implementation of this measure. This person will have the authority to take the steps described in the Plan and/or the responsibility to ensure that they are carried out."
 #: euphorie/client/browser/templates/risk_actionplan.pt:236
 msgid "actionplan_measure_responsible_tooltip"
-msgstr ""
-"Ustanovte někoho ve své společnosti, kdo bude odpovědný za implementaci "
-"tohoto kroku. Tato osoba bude oprávněná podniknout kroky popsané v plánu a/"
-"nebo bude odpovědná za zajištění, že se tyto kroky provádějí."
+msgstr "Ustanovte odpovědnou osobu za realizaci opatření."
 
 #. Default: "Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)"
 #: euphorie/client/browser/templates/risk_actionplan.pt:334
 msgid "actionplan_measure_tooltip"
-msgstr ""
-"Popište: 1) jaký je váš obecný přístup k eliminaci nebo (pokud se riziku "
-"nedá vyhnout) snížení rizika; 2) konkrétní krok/y vyžadované k implementaci "
-"tohoto přístupu (k eliminaci nebo snížení rizika)"
+msgstr "Popište opatření pro odstranění nebo snížení rizika."
 
 #. Default: "Describe: 3) the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any)."
 #: euphorie/client/browser/templates/risk_actionplan.pt:349
 msgid "actionplan_requirements_tooltip"
-msgstr ""
-"Popište: 3) míru znalostí potřebných k implementaci kroku, např. \"zdravý "
-"rozum (nevyžadují se žádné znalosti BOZP)\", \"žádné specifické znalosti "
-"BOZP, ale vyžadují se minimální znalosti BOZP nebo znalosti nebo školení a/"
-"nebo konzultace s vedením společnosti\", nebo \"expert\" na prevencirizik. "
-"Můžete zde také popsat jakýkoliv jiný požadavek (pokud existuje)."
+msgstr "Odborná způsobilost nebo potřebné znalosti a dovednosti."
 
 #. Default: "add a new OiRA Tool"
 #: euphorie/content/templates/sector_view.pt:18
@@ -1621,7 +1595,7 @@ msgid "button_add_custom_risk"
 msgstr "Přidejte individuální riziko."
 
 #. Default: "Add another measure implemented already"
-#: euphorie/content/utils.py:93
+#: euphorie/content/utils.py:97
 msgid "button_add_existing_measure"
 msgstr "Přidejte chybějící opatření."
 
@@ -1672,7 +1646,7 @@ msgstr "Vytvořit nový nástroj OiRA"
 #. Default: "Yes, delete risk"
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:31
 msgid "button_delete_risk"
-msgstr ""
+msgstr "Ano, smazat riziko"
 
 #. Default: "Yes, delete session"
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:31
@@ -1718,7 +1692,7 @@ msgid "button_publish"
 msgstr "Zveřejnit"
 
 #. Default: "Remove this existing measure"
-#: euphorie/content/utils.py:99
+#: euphorie/content/utils.py:103
 msgid "button_remove_existing_measure"
 msgstr ""
 
@@ -1773,8 +1747,8 @@ msgstr ""
 #: euphorie/client/templates/report_company.pt:23
 msgid "company_details_intro"
 msgstr ""
-"Můžete poskytovat informace uvedené níže. Tyto informace mají zlepšit "
-"nástroje a poskytované služby. Tato data se neobjeví ve zprávě."
+"Vyplnění je dobrovolné. Informace, které nám poskytnete, pomohou zlepšit "
+"OiRA."
 
 #. Default: "Conservation and processing of information"
 #: euphorie/client/templates/conditions.pt:89
@@ -1970,7 +1944,7 @@ msgid "country_no_sectors"
 msgstr "Pro tuto zemi neexistují žádné sektory."
 
 #. Default: "Measures that are already in place (Only shown here for reference! Use the “Add Measure” button on the Risk for adding measures that are shown to the user during Identification.)"
-#: euphorie/content/risk.py:103
+#: euphorie/content/risk.py:108
 msgid "deprecated_label_existing_measures"
 msgstr ""
 
@@ -1978,7 +1952,7 @@ msgstr ""
 #: euphorie/client/browser/templates/webhelpers.pt:542
 msgid "description_automatic_evaluation"
 msgstr ""
-"Nástroj provedl hodnocení rizika automaticky. Prioritu tohoto rizika budete "
+"Nástroj provedl hodnocení rizika automaticky. Hodnotu tohoto rizika budete "
 "moci změnit v akčním plánu, pokud to budete považovat za nutné."
 
 #. Default: "In case you have identified risks not included in the tool, you are able to add them now:"
@@ -1997,7 +1971,7 @@ msgid "description_reset_password_request"
 msgstr "Zašleme vám e-mail s pokyny pro obnovení hesla."
 
 #. Default: "If selected, the user will not be able to answer \"Yes\" or \"No\", since the risk is considered to be always present. The Evaluation and Action Plan will behave in the same way as for regular risks."
-#: euphorie/content/risk.py:159
+#: euphorie/content/risk.py:164
 msgid "description_risk_always_present"
 msgstr ""
 
@@ -2063,9 +2037,9 @@ msgid "download section"
 msgstr ""
 
 #. Default: "High (very high) severity"
-#: euphorie/content/risk.py:439
+#: euphorie/content/risk.py:466
 msgid "effect_high"
-msgstr "Vysoká (velmi vysoká) závažnost"
+msgstr "Vysoká závažnost"
 
 #. Default: "Weak severity"
 #: euphorie/client/browser/templates/webhelpers.pt:375
@@ -2080,15 +2054,15 @@ msgstr "Významná závažnost"
 #. Default: "High (very high) severity"
 #: euphorie/client/browser/templates/webhelpers.pt:387
 msgid "effect_permanent_damage"
-msgstr "Vysoká (velmi vysoká) závažnost"
+msgstr "Vysoká závažnost"
 
 #. Default: "Significant severity"
-#: euphorie/content/risk.py:436
+#: euphorie/content/risk.py:463
 msgid "effect_significant"
 msgstr "Významná závažnost"
 
 #. Default: "Weak severity"
-#: euphorie/content/risk.py:434
+#: euphorie/content/risk.py:461
 msgid "effect_weak"
 msgstr "Malá závažnost"
 
@@ -2204,17 +2178,17 @@ msgid "error_validation_positive_whole_number"
 msgstr "Tato hodnota musí být kladné celé číslo."
 
 #. Default: "Calculated"
-#: euphorie/content/risk.py:180
+#: euphorie/content/risk.py:185
 msgid "evalmethod_calculated"
 msgstr "Kalkulováno"
 
 #. Default: "Estimated"
-#: euphorie/content/risk.py:178
+#: euphorie/content/risk.py:183
 msgid "evalmethod_direct"
 msgstr "Odhadováno"
 
 #. Default: "Skip evaluation"
-#: euphorie/content/risk.py:182
+#: euphorie/content/risk.py:187
 msgid "evalmethod_fixed"
 msgstr "Odhadováno"
 
@@ -2222,47 +2196,45 @@ msgstr "Odhadováno"
 #: euphorie/client/browser/templates/actionplan.pt:24
 msgid "expl_actionplan_1"
 msgstr ""
-"Po identifikaci rizik musíte zavést akční plán k řízení rizik. K eliminaci "
-"nebo snížení rizik musíte určit, které preventivní a ochranné kroky budou "
-"podniknuty."
+"Navrhněte opatření k odstranění nebo omezení rizik. Vyberte standardní "
+"opatření nebo navrhněte vlastní. Preferujte technická a organizační opatření "
+"před používáním osobních ochranných pracovních prostředků (dále jen „OOPP“)."
 
 #. Default: "Among the things to be considered for this step are:"
 #: euphorie/client/browser/templates/actionplan.pt:30
 msgid "expl_actionplan_2"
-msgstr "Věci, které jsou nutné zvážit pro tento krok, zahrnují:"
+msgstr "U jednotlivých rizik zvažte:"
 
 #. Default: "Is a risk avoidable? Can it be removed entirely? For example, this could be achieved by: ${expl_actionplan_4_and_5}"
 #: euphorie/client/browser/templates/actionplan.pt:36
 msgid "expl_actionplan_3"
-msgstr ""
-"Dá se riziku vyhnout? Dá se odstranit úplně? Například, je možno toho "
-"dosáhnout:"
+msgstr "jestli je možné se riziku vyhnout tj: ${expl_actionplan_4_and_5}"
 
 #. Default: "considering whether the task or job is necessary"
 #: euphorie/client/browser/templates/actionplan.pt:37
 msgid "expl_actionplan_4"
-msgstr "zvážením, zda je úkol nebo práce nezbytná"
+msgstr ""
+"zda je opravdu nutné provádět pracovní činnost, která je zdrojem rizika,"
 
 #. Default: "removing the hazard"
 #: euphorie/client/browser/templates/actionplan.pt:38
 msgid "expl_actionplan_5"
-msgstr "odstraněním nebezpečí"
+msgstr "zda nelze zdroj rizika nějakým způsobem odstranit nebo nahradit,"
 
 #. Default: "If certain risks are not avoidable, how can they be reduced to a level at which the health and safety of those exposed is not compromised?"
 #: euphorie/client/browser/templates/actionplan.pt:41
 msgid "expl_actionplan_6"
 msgstr ""
-"Pokud se určitým rizikům nedá vyhnout, jak mohou být sníženy na úroveň, na "
-"které nepodléhá riziku zdraví a bezpečnosti osob, které jsou jim vystaveny."
+"jak snížit úroveň rizika na co nejnižší míru v případě, že jej nelze "
+"odstranit"
 
 #. Default: "Once you have decided how to eliminate or reduce a particular risk, then you describe the specific action(s) required to achieve this. You should also include details of the level of expertise and/or other requirements needed for those actions to be effective."
 #: euphorie/client/browser/templates/actionplan.pt:45
 msgid "expl_actionplan_7"
 msgstr ""
-"Když jste se rozhodl/a, jak eliminovat nebo snížit konkrétní riziko, pak "
-"popište konkrétní krok/y požadovaný/é k dosažení tohoto cíle. Měl/a byste "
-"také zahrnout detaily o úrovni znalostí a/nebo jiných požadavků potřebných "
-"pro účinnost těchto kroků."
+"Jakmile se rozhodnete, jakým způsobem riziko odstranit nebo snížit, popište "
+"jednotlivé kroky potřebné k realizaci. Popište opatření, stanovte odpovědnou "
+"osobu, míru potřebných znalostí, lhůtu k provedení opatření a rozpočet."
 
 #. Default: "No risks were identified. Please proceed directly to the report."
 #: euphorie/client/browser/templates/actionplan.pt:51
@@ -2312,7 +2284,7 @@ msgstr ""
 msgid "explanation_risk_always_present"
 msgstr ""
 
-#: euphorie/client/browser/session.py:454
+#: euphorie/client/browser/session.py:486
 msgid "extra_text_identification"
 msgstr ""
 
@@ -2347,19 +2319,19 @@ msgid "frequency_almost_never"
 msgstr "Téměř nikdy"
 
 #. Default: "Almost never"
-#: euphorie/content/risk.py:415
+#: euphorie/content/risk.py:442
 msgid "frequency_almostnever"
 msgstr "Téměř nikdy"
 
 #. Default: "Constantly"
 #: euphorie/client/browser/templates/webhelpers.pt:357
-#: euphorie/content/risk.py:419
+#: euphorie/content/risk.py:446
 msgid "frequency_constantly"
-msgstr "Neustále"
+msgstr "Nepřetržitě"
 
 #. Default: "Not very often"
 #: euphorie/client/browser/templates/webhelpers.pt:478
-#: euphorie/content/risk.py:370
+#: euphorie/content/risk.py:397
 msgid "frequency_french_not_often"
 msgstr "Nepříliš často"
 
@@ -2370,7 +2342,7 @@ msgstr "Jednou měsíčně"
 
 #. Default: "Often"
 #: euphorie/client/browser/templates/webhelpers.pt:490
-#: euphorie/content/risk.py:373
+#: euphorie/content/risk.py:400
 msgid "frequency_french_often"
 msgstr "Často"
 
@@ -2381,7 +2353,7 @@ msgstr "Jednou týdně"
 
 #. Default: "Rare"
 #: euphorie/client/browser/templates/webhelpers.pt:466
-#: euphorie/content/risk.py:368
+#: euphorie/content/risk.py:395
 msgid "frequency_french_rare"
 msgstr "Zřídkakdy"
 
@@ -2392,7 +2364,7 @@ msgstr "Jednou ročně"
 
 #. Default: "Very often or regularly"
 #: euphorie/client/browser/templates/webhelpers.pt:502
-#: euphorie/content/risk.py:375
+#: euphorie/content/risk.py:402
 msgid "frequency_french_regularly"
 msgstr "Velmi často nebo pravidelně"
 
@@ -2403,7 +2375,7 @@ msgstr "Minimálně jednou denně"
 
 #. Default: "Regularly"
 #: euphorie/client/browser/templates/webhelpers.pt:351
-#: euphorie/content/risk.py:417
+#: euphorie/content/risk.py:444
 msgid "frequency_regularly"
 msgstr "Pravidelně"
 
@@ -2419,12 +2391,10 @@ msgstr ""
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
 #: euphorie/client/templates/report_company.pt:20
 msgid "hader_company_details"
-msgstr ""
-"Právě budete zprávu tisknout... vyplňte prosím volitelný formulář a pak "
-"pokračujte."
+msgstr "Vyplňte prosím následující dotazník."
 
 #. Default: "Additional content"
-#: euphorie/content/module.py:100 euphorie/content/risk.py:276
+#: euphorie/content/module.py:105 euphorie/content/risk.py:281
 msgid "header_additional_content"
 msgstr "Další obsah"
 
@@ -2459,9 +2429,9 @@ msgid "header_development_partners"
 msgstr "Partneři rozvoje"
 
 #. Default: "Evaluation"
-#: euphorie/content/risk.py:448
+#: euphorie/content/risk.py:475
 msgid "header_evaluation"
-msgstr "Vyhodnocení"
+msgstr "Hodnocení"
 
 #. Default: "Example of a measures overview report in PDF format"
 #: euphorie/client/browser/templates/register.pt:67
@@ -2484,9 +2454,9 @@ msgid "header_example_report_xlsx"
 msgstr "Příklad akčního plánu jako sešit ve formátu Office Open XML (.xlsx)"
 
 #. Default: "Identification"
-#: euphorie/content/risk.py:127
+#: euphorie/content/risk.py:132
 msgid "header_identification"
-msgstr "Identifikace"
+msgstr "Vyhledání"
 
 #. Default: "Information"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:192
@@ -2517,25 +2487,25 @@ msgstr "Licence"
 
 #. Default: "Login"
 #: euphorie/client/browser/templates/login_form.pt:17
-#: euphorie/client/templates/shell.pt:104
+#: euphorie/client/templates/shell.pt:107
 #: euphorie/client/templates/tooltips.pt:8
 msgid "header_login"
 msgstr "Přihlášení"
 
 #. Default: "Main image"
-#: euphorie/content/risk.py:219
+#: euphorie/content/risk.py:224
 msgid "header_main_image"
 msgstr "Hlavní obrázek"
 
 #. Default: "Measure ${index}"
 #: euphorie/client/docx/compiler.py:386
 msgid "header_measure"
-msgstr "Krok ${index}"
+msgstr "Opatření ${index}"
 
 #. Default: "Measure"
 #: euphorie/client/docx/compiler.py:383
 msgid "header_measure_single"
-msgstr "Krok"
+msgstr "Opatření"
 
 #. Default: "Modules"
 #: euphorie/content/templates/profilequestion_add.pt:42
@@ -2635,7 +2605,7 @@ msgstr "Zodpovězené otázky na jeden modul"
 
 #. Default: "Register"
 #: euphorie/client/browser/templates/register.pt:75
-#: euphorie/client/templates/shell.pt:105
+#: euphorie/client/templates/shell.pt:108
 msgid "header_register"
 msgstr "Registrovat"
 
@@ -2643,7 +2613,7 @@ msgstr "Registrovat"
 #: euphorie/client/browser/templates/register.pt:19
 #: euphorie/client/browser/templates/report.pt:22
 msgid "header_reporting"
-msgstr "Podávání zpráv"
+msgstr "Zpráva o vyhledání a zhodnocení rizik"
 
 #. Default: "Resources"
 #: euphorie/client/browser/templates/risk_identification.pt:72
@@ -2658,23 +2628,23 @@ msgstr "Jste si vědom/a všech rizik?"
 #. Default: "What is the severity of the damage?"
 #: euphorie/client/browser/templates/webhelpers.pt:365
 msgid "header_risk_effect"
-msgstr "Jaká je závažnost škody?"
+msgstr "Jaká je odhadovaná závažnost následku?"
 
 #. Default: "How often are people exposed to this risk?"
 #: euphorie/client/browser/templates/webhelpers.pt:335
 msgid "header_risk_frequency"
-msgstr "Jak často jsou lidé tomuto riziku vystaveni?"
+msgstr "Jak často dochází k ohrožení?"
 
 #. Default: "Select the priority of this risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:167
 #: euphorie/client/browser/templates/webhelpers.pt:519
 msgid "header_risk_priority"
-msgstr "Zvolte prioritu pro toto riziko"
+msgstr "Zvolte hodnotu rizika."
 
 #. Default: "What is the chance of this risk occurring?"
 #: euphorie/client/browser/templates/webhelpers.pt:304
 msgid "header_risk_probability"
-msgstr "Jaká je šance na to, že se toto riziko vyskytne?"
+msgstr "Jaká je pravděpodobnost výskytu?"
 
 #. Default: "Risks"
 #: euphorie/content/templates/module_view.pt:42
@@ -2704,7 +2674,7 @@ msgid "header_search_results_for"
 msgstr ""
 
 #. Default: "Secondary images"
-#: euphorie/content/risk.py:237
+#: euphorie/content/risk.py:242
 msgid "header_secondary_images"
 msgstr "Druhotné obrázky"
 
@@ -2761,7 +2731,7 @@ msgstr "Spravujte uživatele v ${country}"
 #. Default: "Welcome"
 #: euphorie/client/browser/templates/login.pt:33
 msgid "header_welcome"
-msgstr "Vítejte"
+msgstr "Vítejte!"
 
 #. Default: "What is the OiRA (Online Interactive Risk Assessment) project"
 #: euphorie/client/templates/about.pt:25
@@ -2776,7 +2746,7 @@ msgstr "Proč projekt OiRA"
 #. Default: "Comments"
 #: euphorie/client/browser/templates/webhelpers.pt:596
 msgid "heading_comments"
-msgstr "Připomínky"
+msgstr "Poznámky"
 
 #. Default: "High priority risks"
 #: euphorie/client/browser/templates/measures_overview.pt:85
@@ -2967,9 +2937,7 @@ msgstr "Tento text by měl vysvětlit, jak se registrovat a přihlásit."
 #. Default: "Please answer the following questions. As a result of your answers the system will calculate the priority of the risk. You will be able to modify the priority later."
 #: euphorie/client/browser/templates/webhelpers.pt:291
 msgid "help_calculated_evaluation"
-msgstr ""
-"Odpovězte prosím na tyto otázky. Systém na základě vašich odpovědí vypočítá "
-"prioritu rizika. Prioritu můžete později změnit."
+msgstr "Vyberte vyhovující možnost. Systém vypočítá hodnotu rizika."
 
 #. Default: "A code identifying this sector. Classification codes are defined by national standards bodies and based on revision 2 of the NACE standard."
 #: euphorie/content/survey.py:100
@@ -2979,7 +2947,7 @@ msgstr ""
 "pro národní standardy a jsou založeny na 2. revizi normy NACE."
 
 #. Default: "Upload a file that contains additional information, like a PDF, Word document or spreadsheet. Optionally provide a descriptive caption for your file."
-#: euphorie/content/module.py:111 euphorie/content/risk.py:287
+#: euphorie/content/module.py:116 euphorie/content/risk.py:292
 msgid "help_content_upload"
 msgstr ""
 
@@ -2991,25 +2959,25 @@ msgstr ""
 "kopií stávajícího nástroje OiRA."
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
-#: euphorie/client/browser/risk.py:399 euphorie/content/risk.py:361
+#: euphorie/client/browser/risk.py:399 euphorie/content/risk.py:388
 msgid "help_default_frequency"
 msgstr "Uveďte, jak často se riziko objevuje v běžné situaci."
 
 #. Default: "You can help the end-user by selecting a default priority. He/she can still change the priority."
-#: euphorie/content/risk.py:204
+#: euphorie/content/risk.py:209
 msgid "help_default_priority"
 msgstr ""
 "Můžete pomoci koncovému uživateli výběrem výchozí priority. Koncový uživatel "
 "může prioritu změnit."
 
 #. Default: "Indicate how likely occurence of this risk is in a normal situation."
-#: euphorie/client/browser/risk.py:394 euphorie/content/risk.py:388
+#: euphorie/client/browser/risk.py:394 euphorie/content/risk.py:415
 msgid "help_default_probability"
 msgstr ""
 "Uveďte, jak moc je pravděpodobné, že se toto riziko objeví v běžné situaci."
 
 #. Default: "Indicate the severity if this risk occurs."
-#: euphorie/client/browser/risk.py:403 euphorie/content/risk.py:339
+#: euphorie/client/browser/risk.py:403 euphorie/content/risk.py:366
 msgid "help_default_severity"
 msgstr "Uveďte závažnost, pokud se toto riziko vyskytne."
 
@@ -3019,7 +2987,7 @@ msgid "help_evaluation"
 msgstr "Tento text by měl vysvětlit, jak vyhodnotit identifikovaná rizika."
 
 #. Default: "Select 'estimated' if calcuation is not necessary or not possible."
-#: euphorie/content/risk.py:173
+#: euphorie/content/risk.py:178
 msgid "help_evaluation_method"
 msgstr "Vyberte 'odhadem', pokud výpočet není možný nebo nutný."
 
@@ -3029,7 +2997,7 @@ msgid "help_evaluation_optional"
 msgstr "Volba umožňuje koncovému uživateli přeskočit krok vyhodnocení."
 
 #. Default: "Use this field to define (common) measures that the user might have already implemented. Separate measures with a line break (Enter). The user will be able to deselect those measures that are not applicable to theirsituation."
-#: euphorie/content/risk.py:108
+#: euphorie/content/risk.py:113
 msgid "help_existing_measures"
 msgstr ""
 
@@ -3093,8 +3061,8 @@ msgstr "Všeobecné informace o vyhodnocení rizik"
 msgid "help_identification"
 msgstr "Tento text by měl vysvětlit, jak funguje identifikace rizik."
 
-#. Default: "Upload an image. Make sure your image is of format png, jpg or gif and does not contain any special characters."
-#: euphorie/content/module.py:79 euphorie/content/risk.py:227
+#. Default: "Upload an image. Make sure your image is of format png, jpg or gif and does not contain any special characters. The minimum size is 1000 (width) x 430 (height) pixels."
+#: euphorie/content/module.py:84 euphorie/content/risk.py:232
 #: euphorie/content/sector.py:81
 msgid "help_image_upload"
 msgstr ""
@@ -3131,7 +3099,7 @@ msgstr ""
 "jakýkoliv jiný požadavek (pokud existuje)."
 
 #. Default: "Include any relevant information that may be helpful for the end-user."
-#: euphorie/content/module.py:52 euphorie/content/page.py:20
+#: euphorie/content/module.py:57 euphorie/content/page.py:20
 #: euphorie/content/solution.py:36
 msgid "help_module_description"
 msgstr ""
@@ -3139,12 +3107,12 @@ msgstr ""
 "uživatele."
 
 #. Default: "Allows the end-user to skip this module and everything inside it."
-#: euphorie/content/module.py:62
+#: euphorie/content/module.py:67
 msgid "help_module_optional"
 msgstr "Umožňuje koncovému uživateli přeskočit tento modul a vše uvnitř něj."
 
 #. Default: "The question to ask the end-user if this module is optional. It must be formulated so that it is answerable with YES (the end-user will have to tick a box) or NO"
-#: euphorie/content/module.py:71
+#: euphorie/content/module.py:76
 msgid "help_module_question"
 msgstr ""
 "Otázka, která se pokládá koncovému uživateli, pokud je tento modul "
@@ -3162,7 +3130,7 @@ msgid "help_preview_url"
 msgstr "Náhled bude k dispozici na ${url}."
 
 #. Default: "This is the inverse of the affirmative statement (e.g. The building is not well maintained.)"
-#: euphorie/content/risk.py:86
+#: euphorie/content/risk.py:91
 msgid "help_problem_description"
 msgstr "Toto je opak kladného prohlášení (např. Budova není dobře udržovaná.)"
 
@@ -3182,14 +3150,14 @@ msgid "help_reports"
 msgstr "Tento text by měl popsat, jak může být zpráva uložena nebo vytištěna."
 
 #. Default: "Describe the risk. Include any relevant information that may be helpful for the end-user."
-#: euphorie/content/risk.py:95
+#: euphorie/content/risk.py:100
 msgid "help_risk_description"
 msgstr ""
 "Popište riziko. Uveďte veškeré relevantní informace, které mohou být "
 "užitečné pro koncového uživatele."
 
 #. Default: "\"Priority risk\" is one of the high risks in the sector. \"Risk\" is related to the workplace or to the work carried out. \"Policy\" refers to agreements, procedures, and management decisions."
-#: euphorie/content/risk.py:140
+#: euphorie/content/risk.py:145
 msgid "help_risk_type"
 msgstr ""
 "Prioritní riziko\" je jedno z největších rizik v sektoru. \"Riziko\" se týká "
@@ -3227,19 +3195,19 @@ msgid "help_sessions"
 msgstr "Tento text by měl popisovat hlavní funkce nástroje OiRA."
 
 #. Default: "Offer a `not applicable' option in addition to the standard yes/no options."
-#: euphorie/content/risk.py:133
+#: euphorie/content/risk.py:138
 msgid "help_show_notapplicable"
 msgstr "Nabídnout možnost 'nevztahuje se' vedle standardních možností ano/ne."
 
 #. Default: "This information will appear in the Action plan step and should include an overview of general solution(s) related to this module."
-#: euphorie/content/module.py:91
+#: euphorie/content/module.py:96
 msgid "help_solution_direction"
 msgstr ""
 "Tyto informace se objeví v kroku Akční plán a měly by zahrnovat přehled "
 "obecného/obecných řešení souvisejících s tímto modulem."
 
 #. Default: "This is a short affirmative statement about a possible risk (e.g. The building is well maintained.)"
-#: euphorie/content/risk.py:76
+#: euphorie/content/risk.py:81
 msgid "help_statement"
 msgstr ""
 "Toto je krátké kladné prohlášení o možném riziku (např. Budova je dobře "
@@ -3271,7 +3239,7 @@ msgid "help_upload_surveygroup_title"
 msgstr "Pokud nespecifikujete název, bude použit ze vstupu."
 
 #. Default: "Dashboard"
-#: euphorie/client/templates/shell.pt:114
+#: euphorie/client/templates/shell.pt:117
 msgid "home_link"
 msgstr "Ovládací panel"
 
@@ -3371,7 +3339,7 @@ msgid "intro_add_surveygroup"
 msgstr "Tento formulář vám umožní vytvořit nový nástroj OiRA."
 
 #. Default: "Attach any additional content you consider helpful for the user"
-#: euphorie/content/module.py:101 euphorie/content/risk.py:277
+#: euphorie/content/module.py:106 euphorie/content/risk.py:282
 msgid "intro_additional_content"
 msgstr "Připojte jakýkoli další obsah, který považujete za užitečný."
 
@@ -3394,7 +3362,7 @@ msgid "intro_documenation_client"
 msgstr "online klient"
 
 #. Default: "You can specify how the risks priority is evaluated. For more details see the online manual."
-#: euphorie/content/risk.py:449
+#: euphorie/content/risk.py:476
 msgid "intro_evaluation"
 msgstr ""
 "Můžete specifikovat, jak se priorita rizik vyhodnocuje. Více informací "
@@ -3403,10 +3371,10 @@ msgstr ""
 #. Default: "You can print the ${list-of-risks}."
 #: euphorie/client/browser/templates/identification.pt:21
 msgid "intro_identification"
-msgstr "Můžete vytisknout ${list-of-risks}."
+msgstr "${list-of-risks}"
 
 #. Default: "The main image will get a more prominent position in the client than the other images."
-#: euphorie/content/risk.py:220
+#: euphorie/content/risk.py:225
 msgid "intro_main_image"
 msgstr ""
 "Hlavní obrázek získá viditelnější pozici u klienta než ostatní obrázky."
@@ -3441,20 +3409,17 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-contents-preview.pt:34
 msgid "intro_print_identification_1"
 msgstr ""
-"Můžete vytisknout obsah nástroje, což vám umožní hledat informace na "
-"příslušném pracovišti (procházením se a pozorováním, co může způsobit "
-"nebezpečí, nebo pomocí rozhovorů s pracovníky a/nebo jejich zástupci o "
-"problémech, na které narazili). Pak můžete zavést informace do nástroje."
+"V přípravné fázi si můžete vytisknou obsah tohoto nástroje OiRA pro přímé "
+"vyhledávání a identifikaci rizik na jednotlivých pracovištích."
 
 #. Default: "You may also wish to distribute the contents among the workers and/or their representatives and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action.Their feedback should be taken into account when filling in this tool."
 #: euphorie/client/browser/templates/identification.pt:19
 #: euphorie/client/browser/templates/panel-contents-preview.pt:35
 msgid "intro_print_identification_2"
 msgstr ""
-"Možná si budete také přát rozšiřovat obsah mezi pracovníky a/nebo jejich "
-"zástupce a pozvat je k účasti na identifikaci nebezpečí/problémů, "
-"vyhodnocení rizik a rozhodnutí ohledně preventivního kroku.Jejich zpětná "
-"vazba by se při vyplňování tohoto nástroje měla vzít v úvahu."
+"Doporučujeme jej s předstihem předat osobám, které se budou procesu "
+"vyhledávání a identifikace rizik účastnit. Zapojte do celého procesu co "
+"nejvíce zaměstnanců."
 
 #. Default: "Are you sure you want to publish this OiRA Tool? After publication the OiRA Tool will appear in the online client and be accessible by all users."
 #: euphorie/client/templates/publish.pt:17
@@ -3507,12 +3472,12 @@ msgstr "Akční plán"
 #. Default: "Evaluation"
 #: euphorie/client/templates/report_identification.pt:138
 msgid "iphone_label_evaluation"
-msgstr "Vyhodnocení"
+msgstr "Hodnocení"
 
 #. Default: "Identification"
 #: euphorie/client/templates/report_identification.pt:128
 msgid "iphone_label_identification"
-msgstr "Identifikace"
+msgstr "Vyhledání"
 
 #. Default: "Preparation"
 #: euphorie/client/templates/report_identification.pt:116
@@ -3525,12 +3490,12 @@ msgid "iphone_report"
 msgstr "Zpráva"
 
 #. Default: "Is this risk acceptable or under control?"
-#: euphorie/content/utils.py:76
+#: euphorie/content/utils.py:80
 msgid "is_risk_acceptable"
 msgstr "Je toto riziko přijatelné?"
 
 #. Default: "Is this risk acceptable or under control? If applicable, ${link_add_measures}."
-#: euphorie/content/utils.py:122
+#: euphorie/content/utils.py:126
 msgid "is_risk_acceptable_add_measures"
 msgstr ""
 
@@ -3557,7 +3522,7 @@ msgstr "Účet je uzamčen"
 #. Default: "Action Plan"
 #: euphorie/client/browser/templates/login.pt:110
 #: euphorie/client/templates/report_identification.pt:145
-#: euphorie/client/templates/shell.pt:210
+#: euphorie/client/templates/shell.pt:193
 msgid "label_action_plan"
 msgstr "Akční plán"
 
@@ -3601,7 +3566,7 @@ msgid "label_button_skip"
 msgstr "Přeskočit"
 
 #. Default: "Image caption"
-#: euphorie/content/module.py:85 euphorie/content/risk.py:233
+#: euphorie/content/module.py:90 euphorie/content/risk.py:238
 msgid "label_caption"
 msgstr "Popis obrázku"
 
@@ -3634,9 +3599,7 @@ msgstr ""
 #: euphorie/client/browser/templates/risk_actionplan.pt:564
 #: euphorie/client/browser/templates/webhelpers.pt:603
 msgid "label_comment"
-msgstr ""
-"Prosíme o případné připomínky k problematice uvedené v otázce výše Tyto "
-"připomínky budou využity v akčním plánu"
+msgstr "Poznámky budou k dispozici při zpracování akčního plánu."
 
 #. Default: "Your country"
 #: euphorie/client/company.py:30 euphorie/client/templates/report_company.pt:29
@@ -3689,22 +3652,22 @@ msgid "label_default_effect"
 msgstr "Výchozí závažnost"
 
 #. Default: "Default frequency"
-#: euphorie/content/risk.py:360 euphorie/content/templates/risk_view.pt:59
+#: euphorie/content/risk.py:387 euphorie/content/templates/risk_view.pt:59
 msgid "label_default_frequency"
 msgstr "Výchozí frekvence"
 
 #. Default: "Default priority"
-#: euphorie/content/risk.py:203 euphorie/content/templates/risk_view.pt:51
+#: euphorie/content/risk.py:208 euphorie/content/templates/risk_view.pt:51
 msgid "label_default_priority"
 msgstr "Výchozí priorita"
 
 #. Default: "Default probability"
-#: euphorie/content/risk.py:386 euphorie/content/templates/risk_view.pt:64
+#: euphorie/content/risk.py:413 euphorie/content/templates/risk_view.pt:64
 msgid "label_default_probability"
 msgstr "Výchozí pravděpodobnost"
 
 #. Default: "Default severity"
-#: euphorie/content/risk.py:338 euphorie/content/templates/risk_view.pt:57
+#: euphorie/content/risk.py:365 euphorie/content/templates/risk_view.pt:57
 msgid "label_default_severity"
 msgstr "Výchozí závažnost"
 
@@ -3717,10 +3680,11 @@ msgstr "Vymazat"
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:24
 msgid "label_delete_risk"
 msgstr ""
+"Opravdu chcete smazat riziko „${risk-name}“? Tuto akci nelze vrátit zpátky."
 
 #. Default: "Description"
 #: euphorie/client/browser/templates/risk_actionplan.pt:173
-#: euphorie/content/risk.py:94
+#: euphorie/content/risk.py:99
 msgid "label_description"
 msgstr "Popis"
 
@@ -3754,12 +3718,12 @@ msgstr "Zobrazit vlastní upozornění pro tento nástroj OiRA?"
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:108
 #: euphorie/client/templates/report_identification.pt:135
-#: euphorie/client/templates/shell.pt:190
+#: euphorie/client/templates/shell.pt:173
 msgid "label_evaluation"
-msgstr "Vyhodnocení"
+msgstr "Hodnocení rizik"
 
 #. Default: "Evaluation method"
-#: euphorie/content/risk.py:172 euphorie/content/templates/risk_view.pt:47
+#: euphorie/content/risk.py:177 euphorie/content/templates/risk_view.pt:47
 msgid "label_evaluation_method"
 msgstr "Metoda hodnocení"
 
@@ -3789,12 +3753,12 @@ msgid "label_extra_add_measure"
 msgstr "Přidejte další opatření"
 
 #. Default: "Content file"
-#: euphorie/content/module.py:110 euphorie/content/risk.py:286
+#: euphorie/content/module.py:115 euphorie/content/risk.py:291
 msgid "label_file"
 msgstr "Soubor obsahu"
 
 #. Default: "Content caption"
-#: euphorie/content/module.py:118 euphorie/content/risk.py:294
+#: euphorie/content/module.py:123 euphorie/content/risk.py:299
 msgid "label_file_caption"
 msgstr "Popisek obsahu"
 
@@ -3861,12 +3825,12 @@ msgstr "Provedení vlastního hodnocení rizik"
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:106
 #: euphorie/client/templates/report_identification.pt:125
-#: euphorie/client/templates/shell.pt:188
+#: euphorie/client/templates/shell.pt:171
 msgid "label_identification"
-msgstr "Identifikace"
+msgstr "Vyhledání rizik"
 
 #. Default: "Image file"
-#: euphorie/content/module.py:78 euphorie/content/risk.py:226
+#: euphorie/content/module.py:83 euphorie/content/risk.py:231
 msgid "label_image"
 msgstr "Obrazový soubor"
 
@@ -3903,7 +3867,7 @@ msgstr "Jazyk"
 #. Default: "Legal and policy references"
 #: euphorie/client/browser/templates/panel-contents-preview.pt:78
 #: euphorie/client/browser/templates/webhelpers.pt:551
-#: euphorie/content/risk.py:120
+#: euphorie/content/risk.py:125 euphorie/content/templates/risk_view.pt:76
 msgid "label_legal_reference"
 msgstr "Odkazy na právní předpisy a postupy"
 
@@ -3915,7 +3879,7 @@ msgstr "Přihlášení"
 #. Default: "If you are a registered user, you can ${log_in} here."
 #: euphorie/client/browser/templates/login.pt:57
 msgid "label_login_here"
-msgstr "Jste-li registrovaný uživatel ${log_in} zde."
+msgstr "Jste-li registrovaný uživatel, ${log_in}."
 
 #. Default: "Login name"
 #: euphorie/content/upload.py:101 euphorie/content/user.py:89
@@ -3946,7 +3910,7 @@ msgstr ""
 #: euphorie/client/browser/templates/risk_actionplan.pt:338
 #: euphorie/client/docx/compiler.py:394 euphorie/client/report.py:143
 msgid "label_measure_action_plan"
-msgstr "Obecný přístup (k eliminaci nebo snížení rizika)"
+msgstr "Popište opatření k odstranění rizika nebo jeho omezení."
 
 #. Default: "Specific action(s) required to implement this approach"
 #: euphorie/content/solution.py:59
@@ -3966,7 +3930,7 @@ msgid "label_modified_by"
 msgstr ""
 
 #. Default: "Description"
-#: euphorie/content/module.py:51 euphorie/content/page.py:19
+#: euphorie/content/module.py:56 euphorie/content/page.py:19
 #: euphorie/content/solution.py:35
 msgid "label_module_description"
 msgstr ""
@@ -3974,12 +3938,12 @@ msgstr ""
 "uživatele."
 
 #. Default: "This module is optional"
-#: euphorie/content/module.py:60
+#: euphorie/content/module.py:65
 msgid "label_module_optional"
 msgstr "Tento modul je volitelný"
 
 #. Default: "Question"
-#: euphorie/content/module.py:70
+#: euphorie/content/module.py:75
 msgid "label_module_question"
 msgstr "Otázka"
 
@@ -4038,12 +4002,12 @@ msgid "label_no_risks_5_or_more"
 msgstr "Žádné riziko"
 
 #. Default: "Not applicable"
-#: euphorie/content/utils.py:75
+#: euphorie/content/utils.py:79
 msgid "label_not_applicable"
 msgstr "Nevztahuje se"
 
 #. Default: "No, more measures are required"
-#: euphorie/content/utils.py:118
+#: euphorie/content/utils.py:122
 msgid "label_not_sufficient"
 msgstr "Ne, jsou vyžadována další opatření."
 
@@ -4053,12 +4017,12 @@ msgid "label_old_password"
 msgstr "Současné heslo"
 
 #. Default: "Page"
-#: euphorie/client/browser/session.py:899
+#: euphorie/client/browser/session.py:835
 msgid "label_page"
 msgstr "Strana"
 
 #. Default: "of"
-#: euphorie/client/browser/session.py:902
+#: euphorie/client/browser/session.py:838
 msgid "label_page_of"
 msgstr "z"
 
@@ -4075,7 +4039,7 @@ msgstr "Heslo znovu"
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:104
 #: euphorie/client/templates/report_identification.pt:113
-#: euphorie/client/templates/shell.pt:144
+#: euphorie/client/templates/shell.pt:147
 msgid "label_preparation"
 msgstr "Příprava"
 
@@ -4097,7 +4061,7 @@ msgid "label_print_tool_preview"
 msgstr "obsah nástroje pro tisk"
 
 #. Default: "Negative statement"
-#: euphorie/content/risk.py:84 euphorie/content/templates/risk_view.pt:41
+#: euphorie/content/risk.py:89 euphorie/content/templates/risk_view.pt:41
 msgid "label_problem_description"
 msgstr "Záporné prohlášení"
 
@@ -4129,7 +4093,7 @@ msgstr "Jakým kanálem jste se o tomto nástroji dozvěděl/a?"
 #: euphorie/client/browser/templates/login.pt:51
 #: euphorie/client/browser/templates/new-session-test.pt:75
 msgid "label_register"
-msgstr "registrujte"
+msgstr "zaregistrujte"
 
 #. Default: "It's free."
 #: euphorie/client/browser/templates/register.pt:22
@@ -4152,7 +4116,7 @@ msgstr "Může si stáhnout celou zprávu a akční plán."
 #. Default: "register"
 #: euphorie/client/browser/templates/login_form.pt:59
 msgid "label_register_first"
-msgstr "registrujte"
+msgstr "zaregistrujte"
 
 #. Default: "Remove this measure"
 #: euphorie/client/browser/templates/risk_actionplan.pt:189
@@ -4162,14 +4126,14 @@ msgstr "Smazat toto opatření"
 #. Default: "Report"
 #: euphorie/client/templates/report_identification.pt:155
 #: euphorie/client/templates/report_landing.pt:79
-#: euphorie/client/templates/shell.pt:235
+#: euphorie/client/templates/shell.pt:218
 msgid "label_report"
 msgstr "Zpráva"
 
 #. Default: "Please leave any extra comments that should be included in the report in this field."
 #: euphorie/client/browser/templates/report.pt:32
 msgid "label_report_comment"
-msgstr "Prosíme o případné připomínky k problematice uvedené v otázce výše"
+msgstr "Zde můžete přidat poznámky a komentáře."
 
 #. Default: "Date of editing"
 #: euphorie/client/docx/compiler.py:533
@@ -4182,7 +4146,7 @@ msgid "label_report_staff"
 msgstr ""
 
 #. Default: "Risk is always present"
-#: euphorie/content/risk.py:158
+#: euphorie/content/risk.py:163
 msgid "label_risk_always_present"
 msgstr ""
 
@@ -4192,7 +4156,7 @@ msgid "label_risk_number"
 msgstr "Riziko viz bod"
 
 #. Default: "Risk type"
-#: euphorie/content/risk.py:139 euphorie/content/templates/risk_view.pt:39
+#: euphorie/content/risk.py:144 euphorie/content/templates/risk_view.pt:39
 msgid "label_risk_type"
 msgstr "Typ rizika"
 
@@ -4321,7 +4285,7 @@ msgid "label_show_more_hellip"
 msgstr "Zobrazit více…"
 
 #. Default: "Show `not applicable' option"
-#: euphorie/content/risk.py:131
+#: euphorie/content/risk.py:136
 msgid "label_show_notapplicable"
 msgstr "Ukázat možnost 'nevztahuje se'"
 
@@ -4331,7 +4295,7 @@ msgid "label_skip"
 msgstr "Přeskočit tento krok"
 
 #. Default: "Solution"
-#: euphorie/content/module.py:89
+#: euphorie/content/module.py:94
 msgid "label_solution_direction"
 msgstr "Řešení"
 
@@ -4351,7 +4315,7 @@ msgid "label_started"
 msgstr ""
 
 #. Default: "Affirmative statement"
-#: euphorie/content/risk.py:75
+#: euphorie/content/risk.py:80
 msgid "label_statement"
 msgstr "Kladné prohlášení"
 
@@ -4386,7 +4350,7 @@ msgid "label_surveygroup_title"
 msgstr "Název importovaného nástroje OiRA"
 
 #. Default: "Test session"
-#: euphorie/client/templates/shell.pt:96
+#: euphorie/client/templates/shell.pt:99
 msgid "label_testsession"
 msgstr ""
 
@@ -4435,7 +4399,7 @@ msgstr "Druh nástroje OiRA"
 #. Default: "run a test session"
 #: euphorie/client/browser/templates/login.pt:39
 msgid "label_tryout"
-msgstr "spustit testovací modul"
+msgstr "spustit v testovacím režimu"
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:114
@@ -4494,7 +4458,7 @@ msgid "label_yes"
 msgstr "Ano"
 
 #. Default: "Yes, the remaining risk is acceptable"
-#: euphorie/content/utils.py:115
+#: euphorie/content/utils.py:119
 msgid "label_yes_sufficient"
 msgstr "Ano, zbývající riziko je přijatelné."
 
@@ -4539,7 +4503,7 @@ msgstr "spustit nový modul"
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:21
 msgid "list_of_risks"
-msgstr "obsah nástroje"
+msgstr "Zde vytiskněte obsah."
 
 #. Default: "Discover how easy it is to create a risk assessment with OiRA."
 #: euphorie/client/templates/tooltips.pt:27
@@ -4577,7 +4541,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/login.pt:57
 msgid "log in"
-msgstr "přihlaste se"
+msgstr "přihlaste se zde"
 
 #. Default: "You may get the best results if you upload a logo as a ${transparent} PNG file of at least 100 pixels in height. Uploading larger images is fine, the logo will be scaled down to the right size automatically."
 #: euphorie/content/templates/settings.pt:61
@@ -4614,7 +4578,7 @@ msgid "menu_import"
 msgstr "Importovat nástroj OiRA"
 
 #. Default: "Training"
-#: euphorie/client/templates/shell.pt:256
+#: euphorie/client/templates/shell.pt:239
 msgid "menu_training"
 msgstr ""
 
@@ -4761,7 +4725,7 @@ msgstr "Nastavení"
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:46
 #: euphorie/client/browser/templates/webhelpers.pt:59
-#: euphorie/client/templates/shell.pt:282
+#: euphorie/client/templates/shell.pt:265
 msgid "navigation_status"
 msgstr "Status"
 
@@ -4776,12 +4740,12 @@ msgid "no"
 msgstr "Ne"
 
 #. Default: "No default"
-#: euphorie/content/risk.py:343
+#: euphorie/content/risk.py:370
 msgid "no default"
 msgstr "Žádné výchozí nastavení"
 
 #. Default: "No default"
-#: euphorie/content/risk.py:209
+#: euphorie/content/risk.py:214
 msgid "no_default"
 msgstr "Žádné výchozí nastavení"
 
@@ -4796,7 +4760,7 @@ msgid "no_surveys_present"
 msgstr "Nejsou přítomny žádné nástroje OiRA. Můžete také ${add_link}."
 
 #. Default: "<a class='add-clone'>${text_add_measures}</a>"
-#: euphorie/content/utils.py:51
+#: euphorie/content/utils.py:55
 msgid "no_translate_link_add_measures"
 msgstr ""
 
@@ -4880,7 +4844,7 @@ msgid "placeholder_custom_risk_description"
 msgstr "Uveďte další informace o tomto riziku."
 
 #. Default: "Describe a measure that is already in place but not yet listed here."
-#: euphorie/content/utils.py:105
+#: euphorie/content/utils.py:109
 msgid "placeholder_new_existing"
 msgstr "Popište opatření, které je již zavedeno, ale ještě zde není uvedeno."
 
@@ -4890,46 +4854,46 @@ msgid "portlet_header_versions"
 msgstr "Verze"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:667
+#: euphorie/client/browser/session.py:603
 msgid "prefix_cloned_title"
 msgstr ""
 
 #. Default: "High"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:185
 #: euphorie/client/browser/templates/webhelpers.pt:537
-#: euphorie/content/risk.py:195
+#: euphorie/content/risk.py:200
 msgid "priority_high"
 msgstr "Vysoká"
 
 #. Default: "Low"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:173
 #: euphorie/client/browser/templates/webhelpers.pt:525
-#: euphorie/content/risk.py:192
+#: euphorie/content/risk.py:197
 msgid "priority_low"
 msgstr "Nízká"
 
 #. Default: "Medium"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:179
 #: euphorie/client/browser/templates/webhelpers.pt:531
-#: euphorie/content/risk.py:194
+#: euphorie/content/risk.py:199
 msgid "priority_medium"
-msgstr "Vysoká"
+msgstr "Střední"
 
 #. Default: "Large"
 #: euphorie/client/browser/templates/webhelpers.pt:327
-#: euphorie/content/risk.py:399
+#: euphorie/content/risk.py:426
 msgid "probability_large"
 msgstr "Velká"
 
 #. Default: "Medium"
 #: euphorie/client/browser/templates/webhelpers.pt:321
-#: euphorie/content/risk.py:397
+#: euphorie/content/risk.py:424
 msgid "probability_medium"
 msgstr "Střední"
 
 #. Default: "Small"
 #: euphorie/client/browser/templates/webhelpers.pt:315
-#: euphorie/content/risk.py:395
+#: euphorie/content/risk.py:422
 msgid "probability_small"
 msgstr "Malá"
 
@@ -5013,10 +4977,9 @@ msgstr ""
 #: euphorie/client/browser/templates/report.pt:23
 msgid "report_intro"
 msgstr ""
-"Nyní, když jste ukončil/a identifikaci všech rizik ve vaší organizaci a "
-"vytvořil/a jste akční plán, můžete vytvořit zprávu, která uvádí veškeré vaše "
-"výsledky. Podle potřeby můžete přidat jakékoliv další komentáře, které by "
-"měly být obsaženy v této zprávě v políčku níže."
+"Po ukončení procesu vyhledání a zhodnocení rizik a vytvoření akčního plánu "
+"si můžete vygenerovat závěrečnou zprávu. Do textového pole pod tímto textem "
+"můžete napsat vaše komentáře a poznámky, které budou do zprávy zahrnuty"
 
 #. Default: "Measures already in place:"
 #: euphorie/client/docx/compiler.py:607
@@ -5040,7 +5003,7 @@ msgid "report_timeline_comment"
 msgstr "Poznámky"
 
 #. Default: "Priority"
-#: euphorie/client/report.py:165 euphorie/content/risk.py:190
+#: euphorie/client/report.py:165 euphorie/content/risk.py:195
 msgid "report_timeline_priority"
 msgstr "Priorita"
 
@@ -5068,7 +5031,7 @@ msgstr ""
 #: euphorie/client/browser/templates/risk_actionplan.pt:88
 #: euphorie/client/docx/compiler.py:313
 msgid "risk_priority"
-msgstr "Toto je ${priority_value} prioritní riziko."
+msgstr "Toto je ${priority_value} hodnota rizika."
 
 #: euphorie/client/browser/templates/risk_actionplan.pt:110
 msgid "risk_priority_${value}"
@@ -5114,17 +5077,17 @@ msgid "risk_unanswered"
 msgstr "Toto riziko musí být zařazeno do seznamu."
 
 #. Default: "Policy"
-#: euphorie/content/risk.py:151
+#: euphorie/content/risk.py:156
 msgid "risktype_policy"
 msgstr "Politika"
 
 #. Default: "Risk"
-#: euphorie/content/risk.py:149
+#: euphorie/content/risk.py:154
 msgid "risktype_risk"
 msgstr "Riziko"
 
 #. Default: "Priority risk"
-#: euphorie/content/risk.py:147
+#: euphorie/content/risk.py:152
 msgid "risktype_top5"
 msgstr "Prioritní riziko"
 
@@ -5151,13 +5114,13 @@ msgid "search_result_relevance"
 msgstr "Relevantnost: ${percentage}"
 
 #. Default: "Select or add any measures that are <strong>already in place</strong>."
-#: euphorie/content/utils.py:85
+#: euphorie/content/utils.py:89
 msgid "select_add_existing_measure"
 msgstr "Vyberte nebo přidejte opatření, která jsou již zavedena."
 
 #. Default: "Not very severe"
 #: euphorie/client/browser/templates/webhelpers.pt:419
-#: euphorie/content/risk.py:347
+#: euphorie/content/risk.py:374
 msgid "severity_not_severe"
 msgstr "Nepříliš vážné"
 
@@ -5168,7 +5131,7 @@ msgstr "Potřeba zastavit práci na méně než 3 dny"
 
 #. Default: "Severe"
 #: euphorie/client/browser/templates/webhelpers.pt:430
-#: euphorie/content/risk.py:350
+#: euphorie/content/risk.py:377
 msgid "severity_severe"
 msgstr "Vážné"
 
@@ -5179,7 +5142,7 @@ msgstr "Potřeba zastavit práci na vice než 3 dny"
 
 #. Default: "Very severe"
 #: euphorie/client/browser/templates/webhelpers.pt:442
-#: euphorie/content/risk.py:352
+#: euphorie/content/risk.py:379
 msgid "severity_very_severe"
 msgstr "Velmi závažné"
 
@@ -5190,7 +5153,7 @@ msgstr "Nevratné poškození, nevyléčitelná nemoc, smrt"
 
 #. Default: "Weak"
 #: euphorie/client/browser/templates/webhelpers.pt:408
-#: euphorie/content/risk.py:345
+#: euphorie/content/risk.py:372
 msgid "severity_weak"
 msgstr "Slabé"
 
@@ -5230,8 +5193,8 @@ msgstr "Zvolte zcela nový nástroj OiRA"
 #: euphorie/client/browser/templates/login.pt:51
 msgid "teaser_try_oira"
 msgstr ""
-"Chcete vyzkoušet nástroj OiRA? Můžete si ho ${tryout_link} nebo se "
-"${register_link} a začít naostro."
+"Chcete použít nástroj OiRA? Můžete jej ${tryout_link} nebo se "
+"${register_link} a získejte přístup k plné verzi."
 
 #. Default: "The terms and conditions have changed since your last visit. Please read the new terms and conditions carefully before proceding."
 #: euphorie/client/templates/conditions.pt:19
@@ -5255,7 +5218,7 @@ msgstr ""
 "${tooltip_register}."
 
 #. Default: "add all measures that have already been implemented"
-#: euphorie/content/utils.py:54
+#: euphorie/content/utils.py:58
 msgid "text_add_measures"
 msgstr ""
 
@@ -5326,10 +5289,10 @@ msgid "title_import_sector_survey"
 msgstr "Importovat sektor nebo nástroj OiRA"
 
 #. Default: "Added risks (by you)"
-#: euphorie/client/browser/session.py:459 euphorie/client/docx/compiler.py:111
-#: euphorie/client/publish.py:141
+#: euphorie/client/docx/compiler.py:111 euphorie/client/publish.py:141
+#: euphorie/client/utils.py:68
 msgid "title_other_risks"
-msgstr "(Vámi) přidaná rizika"
+msgstr "Rizika přidaná uživatelem"
 
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:195
@@ -5385,7 +5348,7 @@ msgid "toc_header"
 msgstr "Obsah"
 
 #. Default: "Show/hide menu"
-#: euphorie/client/templates/shell.pt:87
+#: euphorie/client/templates/shell.pt:90
 msgid "tooltip_menu_toggle"
 msgstr "Zobrazit/Skrýt menu"
 
@@ -5425,32 +5388,32 @@ msgstr "Úspěšně importovaný nástroj OiRA"
 #. Default: "Use it to"
 #: euphorie/client/templates/report_landing.pt:119
 msgid "use_it_to_action_plan"
-msgstr "Zprávu použijte pro"
+msgstr "Zprávu můžete použít pro"
 
 #. Default: "Use it to"
 #: euphorie/client/templates/report_landing.pt:91
 msgid "use_it_to_full_report"
-msgstr "Zprávu použijte pro"
+msgstr "Zprávu můžete použít pro"
 
 #. Default: "Use it to"
 #: euphorie/client/templates/report_landing.pt:179
 msgid "use_it_to_measures_overview"
-msgstr "Zprávu použijte pro"
+msgstr "Zprávu můžete použít pro"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/measures_overview.pt:63
 msgid "use_it_to_measures_report"
-msgstr "Zprávu použijte pro"
+msgstr "Zprávu můžete použít pro"
 
 #. Default: "Use it to"
 #: euphorie/client/templates/report_landing.pt:151
 msgid "use_it_to_risks_overview"
-msgstr "Zprávu použijte pro"
+msgstr "Zprávu můžete použít pro"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/risks_overview.pt:153
 msgid "use_it_to_risks_report"
-msgstr "Zprávu použijte pro"
+msgstr "Zprávu můžete použít pro"
 
 #. Default: "Please verify if the profile is still accurate."
 #: euphorie/client/browser/templates/updated.pt:23

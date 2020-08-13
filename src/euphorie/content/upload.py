@@ -332,6 +332,11 @@ class SurveyImporter(object):
         survey.tool_type = el_string(node, "tool_type", tti.default_tool_type)
         survey.evaluation_optional = el_bool(node, "evaluation-optional")
         survey.external_id = attr_unicode(node, "external-id")
+        external_site_logo = getattr(node, "image", None)
+        if external_site_logo is not None:
+            (image, caption) = self.ImportImage(external_site_logo)
+            survey.external_site_logo = image
+
         if IToolCategory.providedBy(survey):
             IToolCategory(survey).tool_category = ([
                 x.replace(COMMA_REPLACEMENT, ",").strip()

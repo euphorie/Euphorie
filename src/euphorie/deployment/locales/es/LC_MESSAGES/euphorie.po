@@ -237,7 +237,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:25
 msgid "Are you sure you want to continue? This action can not be reverted."
-msgstr ""
+msgstr "Está seguro que quiere continuar? Esta acción no se puede revertir."
 
 #: euphorie/client/browser/risk.py:905
 msgid ""
@@ -1699,7 +1699,7 @@ msgstr "Crear una nueva herramienta OiRA"
 #. Default: "Yes, delete risk"
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:31
 msgid "button_delete_risk"
-msgstr ""
+msgstr "Sí, eliminar el riesgo"
 
 #. Default: "Yes, delete session"
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:31
@@ -3604,12 +3604,12 @@ msgstr "Informe"
 #. Default: "Is this risk acceptable or under control?"
 #: euphorie/content/utils.py:76
 msgid "is_risk_acceptable"
-msgstr "¿Es aceptable el riesgo?"
+msgstr "¿Este riesgo es aceptable o bajo control?"
 
 #. Default: "Is this risk acceptable or under control? If applicable, ${link_add_measures}."
 #: euphorie/content/utils.py:122
 msgid "is_risk_acceptable_add_measures"
-msgstr ""
+msgstr "¿Este riesgo es aceptable o bajo control? Si procede, ${link_add_measures}."
 
 #. Default: "Available reports"
 #: euphorie/content/country.py:72
@@ -3793,7 +3793,7 @@ msgstr "Borrar"
 #. Default: "You are about to delete the risk: &ldquo;${risk-name}&rdquo;."
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:24
 msgid "label_delete_risk"
-msgstr ""
+msgstr "Está a punto de eliminar el riesgo: &ldquo;${risk-name}&rdquo;."
 
 #. Default: "Description"
 #: euphorie/client/browser/templates/risk_actionplan.pt:173
@@ -5345,7 +5345,7 @@ msgstr ""
 #. Default: "add all measures that have already been implemented"
 #: euphorie/content/utils.py:54
 msgid "text_add_measures"
-msgstr ""
+msgstr "añada las medidas que ya se han implementado"
 
 #. Default: "OiRA"
 #: euphorie/content/templates/colour-preview.pt:51

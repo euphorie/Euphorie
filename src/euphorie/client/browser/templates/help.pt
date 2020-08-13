@@ -14,11 +14,8 @@
 <body>
   <metal:slot fill-slot="content"
     tal:define="base_url string:${here/absolute_url}/help">
-    <div id="content-pane">
-      <article class="pat-rich">
-        <h1 i18n:translate="title_help">Help</h1>
-      </article>
-    </div>
+      <iframe alllowfullscreen="true" height="100%" width="100%" src="${webhelpers/client_url}/++resource++euphorie.resources/oira/help/index.html">
+      </iframe>
   </metal:slot>
 </body>
 </html>

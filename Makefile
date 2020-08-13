@@ -57,13 +57,17 @@ prototype:: ## Get the latest version of the prototype
 bundle: prototype
 	cd prototype && make bundle-osha
 
-jekyll: 
+jekyll:
 	@echo 'DO: rm prototype/stamp-bundler to force Jekyll re-install'
 	@cd prototype && make jekyll
 
 ## Important: in proto, we need to call `bundle-osha`, not `bundle`, so that the paths are correct
 resources-install:   # bundle
 	cp -R prototype/_site/assets/* src/euphorie/client/resources/
+	## For the script directory, always start with a clean slate
+	rm -rf src/euphorie/client/resources/oira/script
+	## Copy the bundle directly from assets, not from _site
+	cp -R prototype/assets/oira/script src/euphorie/client/resources/oira/
 	cp -R prototype/_site/media src/euphorie/client/resources/
 	cp prototype/_site/depts/index.html src/euphorie/client/resources/oira/depts.html
 	@./scripts/proto2diazo.py

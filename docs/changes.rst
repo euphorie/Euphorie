@@ -1,11 +1,38 @@
 Changelog
 =========
 
-11.3.10 (unreleased)
+11.3.14 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- New Hungarian translations (provided by client)
+- Make sure that an update to the title of a module or risk gets propagated
+  to existing sessions.
+- Updated styles and bundle (fixes validation error)
 
+11.3.13 (2020-07-17)
+--------------------
+
+- Updated CS translations
+
+11.3.12 (2020-07-08)
+--------------------
+
+- Don't allow uploading new images smaller than 1000x430 pixels. Warn about smaller
+  existing images, but allow keeping them.
+- Bugfix: make sure that when the user submits the profile, the session always get
+  refreshed. This prevents a potential infinite loop of "The tool has been updated"
+- Translation updates
+
+11.3.11 (2020-07-01)
+--------------------
+
+- Translation updates
+
+
+11.3.10 (2020-06-26)
+--------------------
+
+- Translation updates
 
 11.3.9 (2020-06-24)
 -------------------
@@ -18,6 +45,7 @@ Changelog
 - Docx report: make it possible to define extra text for the title per sector;
   add a custom template for the French COVID tool
 - Translation updates
+- Prevent logout of active users
 
 11.3.7 (2020-06-18)
 -------------------

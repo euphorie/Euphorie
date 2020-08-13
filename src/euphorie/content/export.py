@@ -100,6 +100,9 @@ class ExportSurvey(grok.View):
                 for x in tool_category
             ])
 
+        if getattr(survey, "external_site_logo", None):
+            self.exportImage(node, survey.external_site_logo)
+
         for child in survey.values():
             if IProfileQuestion.providedBy(child):
                 self.exportProfileQuestion(node, child)

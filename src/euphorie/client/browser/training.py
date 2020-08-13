@@ -45,6 +45,14 @@ class TrainingSlide(BrowserView):
 
     @property
     @memoize
+    def risk_type(self):
+        elem = self.zodb_elem
+        if not elem:
+            return ""
+        return getattr(elem, "type", "")
+
+    @property
+    @memoize
     def for_download(self):
         return "for_download" in self.request and self.request["for_download"]
 
@@ -148,15 +156,14 @@ class TrainingSlide(BrowserView):
         return image
 
     def slides(self, standalone=False):
-        slides = [{"slide_type": self.item_type, "slide_template": self.slide_template}]
-        if standalone or self.existing_measures:
-            slides.append(
-                {
-                    "slide_type": "risk_measures",
-                    "content": self.existing_measures,
-                    "slide_template": "template-measures",
-                }
-            )
+
+        slides = [
+            {
+                "slide_type": self.item_type,
+                "slide_template": self.slide_template,
+                "content": self.existing_measures,
+            }
+        ]
         return slides
 
 

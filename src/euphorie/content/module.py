@@ -21,6 +21,7 @@ from .utils import DragDropHelper
 from .utils import StripMarkup
 from Acquisition import aq_chain
 from euphorie.content.dependency import ConditionalTextLine
+from euphorie.content.utils import ensure_image_size
 from five import grok
 from htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -30,13 +31,17 @@ from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
 from plone.namedfile import field as filefield
+from plone.namedfile.interfaces import INamedBlobImageField
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
+from Products.statusmessages.interfaces import IStatusMessage
+from z3c.form import validator
 from zope import schema
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.interface import implements
 from zope.interface import Interface
+from zope.interface import Invalid
 import sys
 
 grok.templatedir("templates")
@@ -79,7 +84,7 @@ class IModule(form.Schema, IRichDescription, IBasic):
             description=_("help_image_upload",
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
-                        u"characters."),
+                        u"characters. The minimum size is 1000 (width) x 430 (height) pixels."),
             required=False)
     caption = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -153,6 +158,28 @@ class IModule(form.Schema, IRichDescription, IBasic):
     file4_caption = schema.TextLine(
         title=_("label_file_caption", default=u"Content caption"),
         required=False)
+
+
+class ImageSizeValidator(validator.SimpleFieldValidator):
+    def validate(self, value):
+        try:
+            previous_value = self.field.get(self.context)
+        except AttributeError:
+            previous_value = None
+        if previous_value == value:
+            try:
+                ensure_image_size(value)
+            except Invalid as invalid:
+                IStatusMessage(self.context.REQUEST).add(invalid.message, "warn")
+        else:
+            ensure_image_size(value)
+
+
+validator.WidgetValidatorDiscriminators(
+    ImageSizeValidator,
+    context=IModule,
+    field=INamedBlobImageField,
+)
 
 
 class Module(dexterity.Container):
@@ -256,6 +283,17 @@ class Edit(form.SchemaEditForm):
     def updateWidgets(self):
         super(Edit, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
+
+    def extractData(self, setErrors=True):
+        data = super(Edit, self).extractData(setErrors)
+
+        # If there is a validation error on the form, consume all status messages,
+        # so that they don't appear in the form. We only want to show validation
+        # messages directly on the respective field(s) in that case.
+        if data[1]:
+            status = IStatusMessage(self.request)
+            status.show()
+        return data
 
 
 class Add(dexterity.AddForm):

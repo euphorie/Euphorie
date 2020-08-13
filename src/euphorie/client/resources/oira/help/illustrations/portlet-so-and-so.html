@@ -25,7 +25,31 @@
 	<body id="body" data-page-layout="preparation" data-layout-layout="risk-assessment" class=" osh-off osc-off osc-size-normal osc-s-off help-screen-render">
 		
 		<div id="main" class="sidebar-off">
+	<header id="toolbar">
 	
+	
+		<a href="#osc" 
+		   id="toggle-osc" 
+		   class="iconified pat-toggle" 
+		   data-pat-toggle="selector: body; value: osc-off osc-on && selector: body; value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+	
+
+	
+
+	<a href="/feedback/osh.html#osh-osc-toggle" id="osh-target-osc-toggle" class="onscreen-help pat-tooltip-ng" data-pat-tooltip-ng="trigger: click; source: ajax; class: rich info;">Help</a>
+
+	<a href="/feedback/more-menu#menu-content" 
+	   id="more-menu" 
+	   class="iconified pat-tooltip pat-switch" 
+	   data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+	   data-pat-tooltip="source: ajax">More…</a>
+	<a href="/index-logged-in.html" 
+	   data-pat-inject="source: #content; target: #content; history: record" 
+	   class="home pat-inject iconified icon-home pat-switch" 
+	   data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+	   title="Startup page">Dashboard</a>
+	
+</header>
 	<div id="content">
 		
 		
@@ -116,17 +140,6 @@
 <form class="pat-form pat-inject" data-pat-inject="history: record;" action="items/#main">
     <div id="content-pane">
     	<nav class="page-actions">
-
-            
-        		<!-- The following markup is for the published state. -->
-                
-                    <a href="/preparation.html#publication-menu" class="icon-published pat-tooltip-ng" data-pat-tooltip-ng="source: ajax; position-list: tr">Published <time class="pat-display-time" data-pat-display-time="from-now: true; locale: en" datetime="2018-03-28T08:00Z">2018-03-28</time></a>
-                
-
-        		<!-- The now following markup is for the unpublished state. -->
-        		<!-- <button type="submit" formaction="/preparation.html" class="icon-publish" title="Publish this Risk Assessment">Publish</button> -->
-
-        		<a href="/preparation.html#sharing-menu" class="icon-share iconified pat-tooltip-ng" data-pat-tooltip-ng="source: ajax; position-list: tr">Share</a>
 
             
 

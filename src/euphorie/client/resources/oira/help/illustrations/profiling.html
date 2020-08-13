@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>OiRA</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link id="all-styles" rel="stylesheet" href="../../style/all.css" type="text/css">
+
+		
+			<script src="../../script/bundle-help.js" type="text/javascript"></script>
+		
+
+		<!-- Following line is ONLY for the prototype. -->
+		<meta name="robots" content="noindex" />
+
+		<meta name="description" content="">
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="" />
+		<meta property="og:description" content="" />
+		<meta property="og:url" content="//assets/oira/help/illustrations/profiling" />
+		<meta property="og:image" content="../../style/oira-tile.png" />
+
+		<link rel="icon" type="image/png" href="../../favicon/apple-touch-icon.png" />
+	</head>
+	<body id="body" data-page-layout="risk-assessment" data-layout-layout="generic" class=" osh-off osc-off osc-size-normal osc-s-off help-screen-render">
+		
+		<div id="main" class="sidebar-off">
+	<header id="toolbar">
+	
+	
+		<a href="#osc" 
+		   id="toggle-osc" 
+		   class="iconified pat-toggle" 
+		   data-pat-toggle="selector: body; value: osc-off osc-on && selector: body; value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+	
+
+	
+
+	<a href="/feedback/osh.html#osh-osc-toggle" id="osh-target-osc-toggle" class="onscreen-help pat-tooltip-ng" data-pat-tooltip-ng="trigger: click; source: ajax; class: rich info;">Help</a>
+
+	<a href="/feedback/more-menu#menu-content" 
+	   id="more-menu" 
+	   class="iconified pat-tooltip pat-switch" 
+	   data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+	   data-pat-tooltip="source: ajax">More…</a>
+	<a href="/index-logged-in.html" 
+	   data-pat-inject="source: #content; target: #content; history: record" 
+	   class="home pat-inject iconified icon-home pat-switch" 
+	   data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+	   title="Startup page">Dashboard</a>
+	
+</header>
+	<div id="content">
+		
+		
+		
+
+		
+
+
+
+<aside id="tree" class="variation-risk-assessment">
+    <a href="/feedback/osh.html#osh-tool-navigation" id="osh-target-tool-navigation" class="onscreen-help pat-tooltip-ng" data-pat-tooltip-ng="trigger: click; source: ajax; class: rich info;">Help</a>
+
+
+
+<ol id="steps" class="navigation">
+	
+		<li id="step-1"
+		    class="complete ">
+			<a href="//index#content"
+			  data-pat-inject="history: record"
+			  class="preparation pat-switch pat-inject"
+			  data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Preparation</a>
+		</li>
+		<li id="step-involve"
+		    class="">
+			<a href="//involve#content"
+			   class="involve pat-inject pat-switch"
+			   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
+			   data-pat-inject="history: record">Involve</a>
+		</li>
+		<li class=" " id="step-2">
+
+			
+
+			<a href="#content"
+			   data-pat-inject="history: record"
+			   class="identification pat-switch pat-inject"
+			   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Identification + Evaluation</a>
+			
+		</li>
+		
+		<li id="step-4" class=" ">
+
+			<!-- The tree for the action section uses the same structure as the identification tree, with the only differences that only risks and their parent modules are shown and that the entire tree is expanded. -->
+
+			<a href="//action-plan#content"
+			   data-pat-inject="history: record"
+			   class="action-plan pat-switch pat-inject"
+			   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Action Plan</a>
+			
+		</li>
+		
+		<li id="step-5" >
+            
+                <a class="report pat-switch pat-inject"
+                   data-pat-inject="history: record"
+                   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
+                   href="//report#content">Report</a>
+            
+		</li>
+        
+	
+	
+		<li id="status" class="">
+			<a href="//status#content"
+			   data-pat-inject="history: record"
+			   class="status pat-switch pat-inject"
+			   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Status
+			   <strong class="pie-graph pat-tooltip-ng"
+			   		   data-pat-tooltip-ng="trigger: hover; position-list: lm"
+			   		   data-percentage="0"
+			   		   title="0% Complete">0%</strong></a>
+
+			
+				
+			
+		</li>
+	
+	
+</ol>
+
+
+</aside>
+
+<div id="main-content" class="variation-risk-assessment">
+    <div id="main-content">
+  <div id="content-pane">
+    <article class="pat-rich">
+
+      <h1>Tailor the risk assessment to your organisation</h1>
+
+        <p>In order to tailor the risk assessment to your organisation you may be asked to:</p>
+        <ul>
+            <li>select or skip situation(s) relevant or not to your business activity and tick the box(es) if appropriate</li>
+
+            <li>list multiple business units, or branches, or stores, etc. These related risks will be repeated for each name you have entered.</li>
+        </ul>
+    </article>
+
+    <form class="pat-inject" method="get" action="assessment#main">
+        <fieldset class="vertical">
+              <h2>
+                Commercial manned guarding
+              </h2>
+
+              <fieldset class="pat-checklist radio">
+                <legend>Does your organisation provide commercial manned guarding?</legend>
+                <label>
+                  <input type="radio" class="presence" required="required" name="pq492.present" value="yes"> Yes
+                </label>
+                <label>
+                  <input type="radio" class="presence" required="required" name="pq492.present" value="no"> No
+                </label>
+              </fieldset>
+
+              <fieldset class="pat-checklist radio pat-depends" data-pat-depends="pq492.present=yes">
+                <legend>Do you offer this service in multiple locations?</legend>
+                <label>
+                  <input type="radio" class="multiple" name="pq492.multiple" value="yes"> Yes
+                </label>
+                <label>
+                  <input type="radio" class="multiple" name="pq492.multiple" value="no" checked="checked"> No
+                  </label>
+              </fieldset>
+
+              <fieldset class="group pat-depends" data-pat-depends="condition: pq492.present=yes and pq492.multiple">
+                <legend>
+                  <span class="pat-depends" data-pat-depends="pq492.multiple=no">Please enter a name for the location you would like to assess.</span>
+                  <span class="pat-depends" data-pat-depends="pq492.multiple=yes">Please enter the name for each location you would like to assess.</span>
+                </legend>
+                <fieldset class="group form-iteration pat-clone" data-pat-clone="template: #clone-template-1; trigger-element: #clone-set-1">
+                  <label id="clone-template-1" hidden>
+                    <input autofocus placeholder="Name of location #{1}" size="40" type="text" name="492:utf8:utext:list">&nbsp;<button type="button" class="remove-clone icon-trash iconified">Remove</button>
+                  </label>
+
+                  <label>
+                    <input autofocus placeholder="Name of location" size="40" type="text" name="492:utf8:utext:list" class="pat-depends" data-pat-depends="pq492.multiple=no" />
+                    <input autofocus placeholder="Name of location 1" size="40" type="text" name="492:utf8:utext:list" class="pat-depends" data-pat-depends="pq492.multiple=yes" />
+                  </label>
+                </fieldset>
+                <p class="buttons pat-depends" data-pat-depends="pq492.multiple=yes">
+                  <button id="clone-set-1" class="pat-button icon-plus-circle add-clone" type="button">Add another item</button>
+                </p>
+              </fieldset>
+           </fieldset>
+
+        <fieldset class="vertical">
+
+              <h2>Mobile partrolling/intervention after alarm</h2>
+              <fieldset class="pat-checklist radio">
+                <legend>Does your organisation provide mobile patrolling / intervention after alarm?</legend>
+                <label><input type="radio" class="presence" required="required" name="pq504.present" value="yes"> Yes</label>
+                <label><input type="radio" class="presence" required="required" name="pq504.present" value="no" checked="checked"> No</label>
+              </fieldset>
+
+              <fieldset class="pat-checklist radio pat-depends" data-pat-depends="pq504.present=yes">
+                <legend>Do you offer this service in multiple locations?</legend>
+                <label>
+                  <input type="radio" class="multiple" name="pq504.multiple" value="yes"> Yes
+                </label>
+                <label>
+                  <input type="radio" class="multiple" name="pq504.multiple" value="no" checked="checked"> No
+                </label>
+              </fieldset>
+
+              <fieldset class="group pat-depends" data-pat-depends="condition: pq504.present=yes and pq504.multiple">
+                <legend>
+                  <span class="pat-depends" data-pat-depends="pq504.multiple=no">Please enter a name for the location you would like to assess.</span>
+                  <span class="pat-depends" data-pat-depends="pq504.multiple=yes">Please enter the name for each location you would like to assess.</span>
+                </legend>
+
+                <fieldset class="pat-clone form-iteration" data-pat-clone="template: #clone-template-2; trigger-element: #clone-set-2">
+                  <label id="clone-template-2" hidden>
+                    <input autofocus placeholder="Name of location #{1}" size="40" type="text" name="504:utf8:utext:list">&nbsp;<button type="button" class="pat-button small remove-clone icon-trash iconified">Remove</button>
+                  </label>
+
+                  <label>
+                    <input autofocus placeholder="Name of location" size="40" type="text" name="492:utf8:utext:list" class="pat-depends" data-pat-depends="pq504.multiple=no" />
+                    <input autofocus placeholder="Name of location 1" size="40" type="text" name="492:utf8:utext:list" class="pat-depends" data-pat-depends="pq504.multiple=yes" />
+                  </label>
+
+                </fieldset>
+
+                <p class="buttons pat-depends" data-pat-depends="pq504.multiple=yes">
+                  <button id="clone-set-2" class="pat-button icon-plus-circle add-clone" type="button">Add another item</button>
+                </p>
+
+              </fieldset>
+          </fieldset>
+
+        <fieldset class="vertical">
+              <h2>Event security</h2>
+              <fieldset class="pat-checklist radio">
+                <legend>Does your organisation provide event security?</legend>
+                <label><input type="radio" class="presence" required="required" name="pq505.present" value="yes"> Yes</label>
+                <label><input type="radio" class="presence" required="required" name="pq505.present" value="no" checked="checked"> No</label>
+              </fieldset>
+
+              <fieldset class="pat-checklist radio pat-depends" data-pat-depends="pq505.present=yes">
+                <legend>Do you offer this service in multiple locations?</legend>
+                <label><input type="radio" class="multiple" name="pq505.multiple" value="yes"> Yes</label>
+                <label><input type="radio" class="multiple" name="pq505.multiple" value="no" checked="checked"> No</label>
+              </fieldset>
+
+              <fieldset class="group pat-depends" data-pat-depends="condition: pq505.present=yes and pq505.multiple">
+                <legend>
+                  <span class="pat-depends" data-pat-depends="pq505.multiple=no">Please enter a name for the location you would like to assess.</span>
+                  <span class="pat-depends" data-pat-depends="pq505.multiple=yes">Please enter the name for each location you would like to assess.</span>
+                </legend>
+
+                <fieldset class="form-iteration pat-clone" data-pat-clone="template: #clone-template-3; trigger-element: #clone-set-3">
+                  <label id="clone-template-3" hidden>
+                    <input class="pat-depends" autofocus placeholder="Name of location #{1}" size="40" type="text" name="505:utf8:utext:list" data-pat-depends="pq505.multiple=yes">&nbsp;
+                    <button type="button" class="pat-depends remove-clone icon-trash iconified" data-pat-depends="pq505.multiple=yes">Remove</button>
+                  </label>
+
+                  <label>
+                    <input autofocus placeholder="Name of location" size="40" type="text" name="492:utf8:utext:list" class="pat-depends" data-pat-depends="pq505.multiple=no" />
+                    <input autofocus placeholder="Name of location 1" size="40" type="text" name="492:utf8:utext:list" class="pat-depends" data-pat-depends="pq505.multiple=yes" />
+                  </label>
+                </fieldset>
+
+                <p class="buttons pat-depends" data-pat-depends="pq505.multiple=yes">
+                  <button id="clone-set-3" class="pat-button icon-plus-circle add-clone" type="button">Add another item</button>
+                </p>
+              </fieldset>
+        </fieldset>
+
+          <p class="button-bar">
+              <button class="pat-button" type="submit">Save and continue</button>
+          </p>
+    </form>
+  </div>
+</div>
+
+	<a href="#content-pane"
+	 class="pat-scroll"
+	 data-pat-scroll="selector: #content-pane; trigger: auto; offset: 0"
+	 hidden
+	 >Scroll to top</a>
+</div>
+			
+	</div>
+</div>
+
+<aside id="osc">
+	<form id="osc-header" action="/index-logged-in#browser" class="pat-inject pat-autosubmit">
+	
+	    
+			<!-- The back button and current group title is shown in browsing mode within a group. -->
+			<a href="/index#osc"
+			   data-pat-inject="source: #osc-header; target: #osc-header && source: #miller-columns; target: #miller-columns"
+			   class="back-button pat-inject">Back</a>
+			<h2 class="column-title">
+				profiling.html
+			</h2>
+	    
+	    <!-- <a href="/new-session.html#document-content" id="button-new-session-quick" data-pat-modal="class: large" class="no-label pat-modal iconified icon-plus" title="Start a new assessment">New</a> -->
+        <div class="pat-collapsible context-menu closed align-right" data-pat-collapsible="close-trigger: *:not(#more-menu)" id="more-menu">
+            <strong class="context-menu-label iconified more-menu-trigger">More…</strong>
+            <ul class="menu">
+            	<li>
+                    <a href="/new-session.html#document-content" 
+                       data-pat-modal="class: large" 
+                       class="no-label pat-modal icon-plus pat-switch"
+                       data-pat-switch="body osc-s-* osc-s-off" 
+                       title="Start a new risk assessment">New risk assessment</a>
+                </li>
+                <li>
+                    <label class="pat-checklist"><input type="checkbox" name="archived" /> Show archived risk assessments</label>
+                </li>
+                <li>
+                	<fieldset class="pat-checklist radio">
+                        <label><input type="radio" value="all" name="ass-type" checked /> All types of risk assessments</label>
+                        <label><input type="radio" value="regular" name="ass-type" /> Only regular risk assessments</label>
+                        <label><input type="radio" value="contractor" name="ass-type" /> Only contractor risk assessments</label>
+                	</fieldset>
+                </li>
+            </ul>
+        </div>
+	
+    <button id="button-osc-expand" class="no-label iconified icon-resize-full pat-toggle" data-pat-toggle="selector: body; value: osc-size-full osc-size-normal" title="Expand sidebar">Expand sidebar</button>
+</form>
+	<a href="/feedback/osh.html#osh-ra-browser" id="osh-target-ra-browser" class="onscreen-help pat-tooltip-ng" data-pat-tooltip-ng="trigger: click; source: ajax; class: rich info;">Help</a>
+
+	<div id="navigation">
+		
+			<div id="miller-columns" class="miller-columns">
+				<form class="search-form pat-inject view-compact"
+	  id="search-form"
+	  action="/feedback/search-results.html#browser"
+	  >
+
+	<fieldset class="search-box-body">
+        <label class="search-field pat-subform pat-inject pat-autosubmit"
+			   data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
+			<input autofocus type="search" value="" class="quick-search" placeholder="Search" />
+            <button type="submit" name="standard" value="main" class="search-button-main assistive">Search</button>
+        </label>
+
+	    <fieldset class="advanced-search pat-inject pat-subform"
+				  data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
+
+	        <fieldset class="advanced pat-clone" data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
+    <input type="hidden" name="search-rule.and-or:records" value="" />
+    <p class="clone search-rule row-1">
+        <label class="pat-select field-choice pat-select">
+            <select name="search-rule.data-field:records">
+                <option value="SearchableText">Any text field</option>
+                <optgroup label="Metadata">
+                    <option value="Title">Title</option>
+                    <option value="Description">Description</option>
+                    <option value="content">Body text</option>
+                    <option value="author">Author</option>
+                    <option value="plant">Plant</option>
+                    <option value="department">Department</option>
+                    <option value="contractor">Contractor</option>
+                    <option value="created">Creation date</option>
+                    <option value="effective">Publication date</option>
+                    <option value="modified">Modification date</option>
+                </optgroup>
+            </select>
+        </label>
+        <span class="parameters lemma">
+            <label class="pat-select">
+                <select name="search-rule.lemma-operator:records">
+                    <option value="contains">Contains</option>
+                    <option value="contains-not">Does not contain</option>
+                    <option value="equals">Equals</option>
+                </select>
+            </label>
+            <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
+        </span>
+        <span class="parameters date">
+            <label class="pat-select">
+                <select name="search-rule.date-operator:records">
+                    <option value="is">Is</option>
+                    <option value="is-before">Is before</option>
+                    <option value="is-after">Is after</option>
+                </select>
+            </label>
+            <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
+        </span>
+        <span class="parameters plant">
+            <label class="pat-select">
+                <select name="search-rule.date-operator:records">
+                    <option value="equals">Equals</option>
+                    <option value="equals-not">Does not equal</option>
+                </select>
+            </label>
+            <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest lemma-field">
+                <option>001</option>
+                <option>002</option>
+                <option>003</option>
+                <option>004</option>
+                <option>005</option>
+            </select>
+        </span>
+        <span class="parameters department">
+            <label class="pat-select">
+                <select name="search-rule.date-operator:records">
+                    <option value="equals">Equals</option>
+                    <option value="equals-not">Does not equal</option>
+                </select>
+            </label>
+            <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest lemma-field">
+                <option>103,   (GEPJW5W4P)</option>
+                <option>104,   (GEPJNROAL)</option>
+                <option>105,   (GEPJS5CBN)</option>
+                <option>106,   (GEPJS9JKO)</option>
+                <option>107,   (GEPJW92WQ)</option>
+                <option>109, Milan K (H7N36URGR)</option>
+                <option>111,   (GEPJNV12M)</option>
+                <option>140,   (GEPL71JKV)</option>
+                <option>141,   (JGHN3Y100)</option>
+                <option>142,   (GEPL74BAW)</option>
+            </select>
+        </span>
+    </p>
+</fieldset>
+
+<p class="button-bar">
+    <button type="submit" class="pat-button icon-search small">Search</button>
+    <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small">Add another search rule</button>
+</p>
+
+<p class="clone search-rule animated fadeIn" id="clone-template" hidden>
+    <label class="and-or pat-select bare">
+        <select name="search-rule.and-or:records">
+            <option value="and">
+                And…
+            </option>
+            <option value="or">
+                Or…
+            </option>
+        </select>
+    </label>
+    <label class="field-choice pat-select">
+        <select name="search-rule.data-field:records">
+            <option value="SearchableText">Any text field</option>
+            <optgroup label="Metadata">
+                <option value="Title">Title</option>
+                <option value="Description">Description</option>
+                <option value="content">Body text</option>
+                <option value="author">Author</option>
+                <option value="plant">Plant (code)</option>
+                <option value="department">Department</option>
+                <option value="contractor">Contractor</option>
+                <option value="created">Creation date</option>
+                <option value="effective">Publication date</option>
+                <option value="modified">Modification date</option>
+            </optgroup>
+        </select>
+    </label>
+    <span class="parameters lemma">
+        <label class="pat-select">
+            <select name="search-rule.lemma-operator:records">
+                <option value="contains">Contains</option>
+                <option value="contains-not">Does not contain</option>
+                <option value="equals">Equals</option>
+            </select>
+        </label>
+        <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
+    </span>
+    <span class="parameters date">
+        <label class="pat-select">
+            <select name="search-rule.date-operator:records">
+                <option value="is">Is</option>
+                <option value="is-before">Is before</option>
+                <option value="is-after">Is after</option>
+            </select>
+        </label>
+        <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
+    </span>
+    <span class="parameters plant">
+        <label class="pat-select">
+            <select name="search-rule.date-operator:records">
+                <option value="equals">Equals</option>
+                <option value="equals-not">Does not equal</option>
+            </select>
+        </label>
+        <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest">
+            <option>001</option>
+            <option>002</option>
+            <option>003</option>
+            <option>004</option>
+            <option>005</option>
+        </select>
+    </span>
+    <span class="parameters department">
+        <label class="pat-select">
+            <select name="search-rule.date-operator:records">
+                <option value="equals">Equals</option>
+                <option value="equals-not">Does not equal</option>
+            </select>
+        </label>
+        <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest">
+            <option>103,   (GEPJW5W4P)</option>
+            <option>104,   (GEPJNROAL)</option>
+            <option>105,   (GEPJS5CBN)</option>
+            <option>106,   (GEPJS9JKO)</option>
+            <option>107,   (GEPJW92WQ)</option>
+            <option>109, Milan K (H7N36URGR)</option>
+            <option>111,   (GEPJNV12M)</option>
+            <option>140,   (GEPL71JKV)</option>
+            <option>141,   (JGHN3Y100)</option>
+            <option>142,   (GEPL74BAW)</option>
+        </select>
+    </span>
+    <button type="button" class="remove-clone">Remove</button>
+</p>
+
+
+			<fieldset class="toggle-bar pat-checklist free-form">
+			    <label class="pat-switch toggle-standard" data-pat-switch="#search-form view-extended view-compact">
+			        <input type="radio" name="search-mode" value="standard" checked> Standard search
+			    </label>
+			    <label class="pat-switch toggle-advanced"
+			           data-pat-switch="#search-form view-compact view-extended && body osc-size-* osc-size-full">
+			        <input type="radio" name="search-mode" value="advanced"> Advanced search
+			    </label>
+			</fieldset>
+	    </fieldset>
+	</fieldset>
+
+</form>
+		    	
+		    	<div id="browser">
+					<ul class="departments browser" id="results">
+						<li>
+			    			<a href="++resource++euphorie.resources/oira/depts.html#browser" 
+			    			   class="pat-inject icon-search" 
+			    			   hidden
+			    			   data-pat-inject="trigger: autoload">Loading Risk Assessments…</a>
+			    		</li>
+			    	</ul>
+		    	</div>
+		    </div>
+	    
+    </div>
+</aside>
+
+
+		
+	</body>
+</html>

@@ -24,6 +24,7 @@ from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from Acquisition.interfaces import IAcquirer
+from euphorie.content.utils import ensure_image_size
 from euphorie.content.utils import IToolTypesInfo
 from five import grok
 from htmllaundry.z3cform import HtmlText
@@ -35,10 +36,13 @@ from plone.directives import form
 from plone.indexer import indexer
 from plone.memoize.instance import memoize
 from plone.namedfile import field as filefield
+from plone.namedfile.interfaces import INamedBlobImageField
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
 from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
+from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
+from z3c.form import validator
 from z3c.form.form import applyChanges
 from zope import schema
 from zope.component import createObject
@@ -46,6 +50,7 @@ from zope.component import getUtility
 from zope.interface import alsoProvides
 from zope.interface import implements
 from zope.interface import Interface
+from zope.interface import Invalid
 from zope.interface import noLongerProvides
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
@@ -227,7 +232,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
             description=_("help_image_upload",
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
-                        u"characters."),
+                        u"characters. The minimum size is 1000 (width) x 430 (height) pixels."),
             required=False)
     caption = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -243,7 +248,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
             description=_("help_image_upload",
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
-                        u"characters."),
+                        u"characters. The minimum size is 1000 (width) x 430 (height) pixels."),
             required=False)
     caption2 = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -254,7 +259,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
             description=_("help_image_upload",
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
-                        u"characters."),
+                        u"characters. The minimum size is 1000 (width) x 430 (height) pixels."),
             required=False)
     caption3 = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -265,7 +270,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
             description=_("help_image_upload",
                 default=u"Upload an image. Make sure your image is of format "
                         u"png, jpg or gif and does not contain any special "
-                        u"characters."),
+                        u"characters. The minimum size is 1000 (width) x 430 (height) pixels."),
             required=False)
     caption4 = schema.TextLine(
             title=_("label_caption", default=u"Image caption"),
@@ -329,6 +334,28 @@ class IRisk(form.Schema, IRichDescription, IBasic):
     file4_caption = schema.TextLine(
         title=_("label_file_caption", default=u"Content caption"),
         required=False)
+
+
+class ImageSizeValidator(validator.SimpleFieldValidator):
+    def validate(self, value):
+        try:
+            previous_value = self.field.get(self.context)
+        except AttributeError:
+            previous_value = None
+        if previous_value == value:
+            try:
+                ensure_image_size(value)
+            except Invalid as invalid:
+                IStatusMessage(self.context.REQUEST).add(invalid.message, "warn")
+        else:
+            ensure_image_size(value)
+
+
+validator.WidgetValidatorDiscriminators(
+    ImageSizeValidator,
+    context=IRisk,
+    field=INamedBlobImageField,
+)
 
 
 class IFrenchEvaluation(form.Schema):
@@ -729,6 +756,13 @@ class Edit(form.SchemaEditForm):
         data = super(Edit, self).extractData(setErrors)
         if data[0]['evaluation_method'] == 'fixed':
             del data[0]['default_priority']
+
+        # If there is a validation error on the form, consume all status messages,
+        # so that they don't appear in the form. We only want to show validation
+        # messages directly on the respective field(s) in that case.
+        if data[1]:
+            status = IStatusMessage(self.request)
+            status.show()
         return data
 
 

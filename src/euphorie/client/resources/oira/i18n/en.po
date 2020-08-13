@@ -335,6 +335,14 @@
 	msgid "Unvisited"
 	msgstr "Unvisited"
 
+	#| msgid unanswered
+	msgid "Unanswered"
+	msgstr "Unanswered"
+
+	#| msgid no_risk
+	msgid "No risk"
+	msgstr "No risk"
+
 	#| msgid postponed
 	msgid "Postponed"
 	msgstr "Postponed"
@@ -346,6 +354,10 @@
 	#| msgid identified
 	msgid "Risk identified"
 	msgstr "Risk identified"
+
+	#| msgid identified_with_measures
+	msgid "Risk with measures"
+	msgstr "Risk with measures"
 
 	#| msgid button_save_and_continue
 	msgid "Save and continue"

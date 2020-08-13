@@ -313,7 +313,9 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
             # At this stage, we actually do not need to touch the session.
             # It is enough that it gets touched when a Risk is edited, or if the
             # tree gets rebuilt due to changes.
-            # survey_session.touch()
+            # Touch means: the modification timestamp is set.
+            # But we need to make sure the refreshed marker is up to date!
+            survey_session.refresh_survey(survey)
             return survey_session
 
         params = {}
