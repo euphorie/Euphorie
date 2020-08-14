@@ -24,6 +24,7 @@ from euphorie.client.survey import _StatusHelper
 from euphorie.client.update import treeChanges
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
+from euphorie.content.solution import ISolution
 from plone import api
 from plone.app.event.base import localized_now
 from plone.autoform.form import AutoExtensibleForm
@@ -236,7 +237,10 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
 
     id_patt = re.compile("pq([0-9]*)\.present")
     variation_class = "variation-risk-assessment"
-    next_view_name = "@@identification"
+
+    @property
+    def next_view_name(self):
+        return "@@involve" if self.webhelpers.use_involve_phase else "@@identification"
 
     @property
     def template(self):
@@ -420,14 +424,103 @@ class Update(Profile):
     detailed instructions for the user.
     """
 
+
+class Involve(SessionMixin, BrowserView):
+    """Inform the user about options for involving coworkers."""
+
+    variation_class = "variation-risk-assessment"
     next_view_name = "@@identification"
+
+    def next_url(self):
+        return "{context_url}/{target}".format(
+                    context_url=self.context.absolute_url(),
+                    target=self.next_view_name,
+                )
+
+
+class ContentsPreview(BrowserView):
+    """A View for displaying the full contents of a tool and printing them
+
+    View name: @@contents-preview
+    """
+
+    no_splash = True
+
+    @property
+    def extra_text(self):
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get("euphorie")
+        have_extra = settings.get("extra_text_identification", False)
+        if not have_extra:
+            return None
+        return api.portal.translate(_(u"extra_text_identification", default=u""))
+
+    @property
+    def title_custom_risks(self):
+        return api.portal.translate(
+            _("title_other_risks", default=u"Added risks (by you)")
+        )
+
+    def get_session_nodes(self):
+        """ Return an ordered list of all relevant tree items for the current
+            survey.
+        """
+        query = (
+            Session.query(SurveyTreeItem)
+            .filter(SurveyTreeItem.session == self.context.session)
+            .filter(sql.not_(SKIPPED_PARENTS))
+            .order_by(SurveyTreeItem.path)
+        )
+
+        return query.all()
+
+    @memoize
+    def zodb_node(self, node):
+        if node.zodb_path.find("custom-risks") > -1:
+            return
+        return self.context.aq_parent.restrictedTraverse(node.zodb_path.split("/"))
+
+    def get_title(self, node):
+        if node.zodb_path.find("custom-risks") > -1:
+            return self.title_custom_risks
+        else:
+            return node.title
+
+    def get_legal_references(self, node):
+        """We might add some logic to never show legal references depending
+            on a setting per country / survey.
+        """
+        zodb_node = self.zodb_node(node)
+        if not zodb_node:
+            return
+        return getattr(zodb_node, "legal_reference", None)
+
+    def get_solutions(self, node):
+        solutions = []
+        zodb_node = self.zodb_node(node)
+        if not zodb_node:
+            return solutions
+        for solution in zodb_node.values():
+            if not ISolution.providedBy(solution):
+                continue
+            text = solution.action_plan
+            prevention_plan = (getattr(solution, "prevention_plan", "") or "").strip()
+            if prevention_plan:
+                text = u"{0}\n{1}".format(text, prevention_plan)
+            solutions.append(text)
+        return solutions
 
 
 class Identification(SessionMixin, BrowserView):
     """Survey identification start page.
 
-    This view shows the introduction text for the identification phase. This
-    includes an option to print a report with all questions.
+    This view is legacy. We used to have an introduction page in the identification
+    phase before the first module was shown. That intro is not wanted any more,
+    so we just redirect to the first module.
+    Since not all installations of OiRA (TNO!) have made this switch, we temporarily
+    keep this view.
+
+    @Todo: Modify class Profile so that we immediately traverse to the first module.
 
     View name: @@identification
     """
@@ -500,7 +593,10 @@ class Identification(SessionMixin, BrowserView):
                 self.context.absolute_url() + "/@@start"
             )
         utils.setLanguage(self.request, self.survey, self.survey.language)
-        return super(Identification, self).__call__()
+        if self.webhelpers.use_involve_phase:
+            self.request.RESPONSE.redirect(self.next_url)
+        else:
+            return super(Identification, self).__call__()
 
 
 class DeleteSession(SessionMixin, BrowserView):

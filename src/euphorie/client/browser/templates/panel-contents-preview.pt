@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@modal-template/macros/shell"
+      tal:define="
+        client nocall:request/client;
+        webhelpers nocall:context/@@webhelpers;
+      "
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div class="pat-modal"
+           id="document-content"
+      >
+        <h1 class="panel-class-">
+
+        </h1>
+        <div class="panel-body">
+          <div class="container">
+
+            <div class="screen-only tool-preview-introduction">
+              <article class="pat-rich"
+                       tal:define="
+                         extra_text view/extra_text;
+                       "
+              >
+                <tal:block replace="tile:statusmessages" />
+                <p i18n:translate="intro_print_identification_1">It is possible for you to print out the contents of the tool to enable you to look for the information at the relevant workplace (by walking around and looking at what could cause harm, or by consulting the workers and/or their representatives about problems they have encountered). You can then introduce the information into the tool.</p>
+                <p i18n:translate="intro_print_identification_2">You may also wish to distribute the contents among the workers and/or their representatives and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action.Their feedback should be taken into account when filling in this tool.</p>
+                <p tal:condition="extra_text">${extra_text}</p>
+              </article>
+              <p class="button-bar">
+                <button class="icon-print pat-button"
+                        onclick="window.print()"
+                        i18n:translate="label_print_tool_preview"
+                  >Print a tool preview</button>
+              </p>
+            </div>
+
+            <article class="pat-rich tool-preview">
+              <h1>${context/title}</h1>
+              <section>
+                <form class="pat-inject pat-autosubmit"
+                      data-pat-inject="source: title; target: title"
+                >
+                </form>
+
+                <tal:nodes repeat="node view/get_session_nodes">
+                  <tal:switch_type switch="node/type">
+                    <tal:case case="string:risk">
+                      <ul class="risks">
+                        <li class="risk"
+                            tal:define="
+                              legal_references python:view.get_legal_references(node);
+                              solutions python:view.get_solutions(node);
+                            "
+                        >
+                            ${node/title}
+                          <ul class="manual-checklist"
+                              tal:condition="solutions"
+                          >
+                            <li tal:repeat="solution solutions">${solution}</li>
+                          </ul>
+                          <div class="legal-references"
+                               tal:condition="legal_references"
+                          >
+                            <tal:switch switch="node/depth">
+                              <tal:case case="python:2">
+                                <h3 i18n:translate="label_legal_reference">Legal and policy references</h3>
+                              </tal:case>
+                              <tal:case case="python:3">
+                                <h4 i18n:translate="label_legal_reference">Legal and policy references</h4>
+                              </tal:case>
+                              <tal:case case="python:4">
+                                <h5 i18n:translate="label_legal_reference">Legal and policy references</h5>
+                              </tal:case>
+                              <tal:case case="python:5">
+                                <h6 i18n:translate="label_legal_reference">Legal and policy references</h6>
+                              </tal:case>
+                            </tal:switch>
+                            <tal:legal replace="structure legal_references">
+                                The requirements for fridges are defined in section 13.1 of the health code.
+                            </tal:legal>
+                          </div>
+                        </li>
+                      </ul>
+                    </tal:case>
+                    <tal:case case="default">
+                      <tal:switch switch="node/depth">
+                        <tal:case case="python:1">
+                          <h2>${python:view.get_title(node)}</h2>
+                        </tal:case>
+                        <tal:case case="python:2">
+                          <h3>${python:view.get_title(node)}</h3>
+                        </tal:case>
+                        <tal:case case="python:3">
+                          <h4>${python:view.get_title(node)}</h4>
+                        </tal:case>
+                        <tal:case case="python:4">
+                          <h5>${python:view.get_title(node)}</h5>
+                        </tal:case>
+                      </tal:switch>
+                    </tal:case>
+                  </tal:switch_type>
+                </tal:nodes>
+              </section>
+            </article>
+          </div>
+        </div>
+      </div>
+    </metal:slot>
+  </body>
+</html>

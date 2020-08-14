@@ -24,9 +24,10 @@ class RiskTests(EuphorieFunctionalTestCase):
         # Start the survey
         browser.getControl(name="form.button.submit").click()
         session_url = browser.url.replace("/@@identification", "")
-        browser.getLink("Start Risk Identification").click()
         # Identify the risk
-        browser.getControl("next").click()
+        browser.open(
+            "%s/1/1/@@identification" % session_url
+        )
         browser.getControl(name="answer").value = ["no"]
         # Verify number of options
         self.assertEqual(
@@ -65,7 +66,6 @@ class RiskTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getControl(name="form.button.submit").click()
-        browser.getLink("Start Risk Identification").click()
         # Identify the risk
         browser.getControl("next").click()
         browser.getControl(name="answer").value = ["no"]
@@ -115,7 +115,6 @@ class RiskTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getControl(name="form.button.submit").click()
-        browser.getLink("Start Risk Identification").click()
         # Identify the risk
         browser.getControl("next").click()
         browser.getControl(name="answer").value = ["no"]
@@ -156,8 +155,11 @@ class RiskTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode("utf-8")  # noqa
         # Start the survey
         browser.getControl(name="form.button.submit").click()
-        browser.getLink('Start Risk Identification').click()
-        browser.getControl('next').click()
+        session_url = browser.url.replace("/@@identification", "")
+        # Identify the risk
+        browser.open(
+            "%s/1/1/@@identification" % session_url
+        )
         # No answer should be set on initial view
         self.assertEqual(browser.getControl(name='answer').value, [])
         # Do not give an identification answer

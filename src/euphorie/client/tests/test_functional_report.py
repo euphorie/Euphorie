@@ -26,7 +26,6 @@ class ReportTests(EuphorieFunctionalTestCase):
         # Start the survey
         browser.getControl(name="form.button.submit").click()
         session_url = browser.url.replace("/@@identification", "")
-        browser.getLink("Start Risk Identification").click()
         # Update the risk
         risk = Session.query(model.Risk).first()
         risk.identification = "no"
@@ -60,7 +59,6 @@ class ReportTests(EuphorieFunctionalTestCase):
         # Start the survey
         browser.getControl(name="form.button.submit").click()
         session_url = browser.url.replace("/@@identification", "")
-        browser.getLink("Start Risk Identification").click()
         # Check the company data
         browser.open("%s/@@report_company" % session_url)
         self.assertEqual(
@@ -83,7 +81,6 @@ class ReportTests(EuphorieFunctionalTestCase):
         # Start the survey
         browser.getControl(name="form.button.submit").click()
         session_url = browser.url.replace("/@@identification", "")
-        browser.getLink("Start Risk Identification").click()
         # Enter some company data
         browser.open("%s/@@report_company" % session_url)
         browser.getControl(name="form.widgets.country").value = ["be"]

@@ -9,11 +9,16 @@ Changelog
   to existing sessions.
 - Updated styles and bundle (fixes validation error)
 
-Major change:
+Major changes:
 - The Action Plan can be combined with Identifcation into a single Assessment phase.
   A setting per survey in the CMS can be used to enable this.
   Note: the feature-switch `use_integrated_action_plan=True` needs to be present
   in euphorie.ini to make this new option available.
+- New main navigation item "Involve" that comes after "Preparation"
+  It replaces the former start page of the Identification phase with a more
+  explicit call to action.
+  Note: the feature-switch `use_involve_phase=True` needs to be present in
+  euphorie.ini to make this new feature available.
 
 11.3.13 (2020-07-17)
 --------------------
