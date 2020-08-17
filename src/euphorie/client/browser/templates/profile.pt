@@ -29,7 +29,11 @@
     </ul>
     </article>
 
-<form class="pat-validation pat-inject"
+<tal:comment condition="nothing">
+  pat-validation is disabled because of a bug in validation radio inputs
+  https://github.com/Patternslib/Patterns/issues/744
+</tal:comment>
+<form class="Xpat-validation pat-inject"
       data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #navigation; target: #navigation;"
       method="post"
       id="profile-form"
@@ -45,8 +49,8 @@
         <h2>${question/title}</h2>
         <fieldset class="pat-checklist radio">
           <legend>${question/question}</legend>
-          <label><input type="radio" class="presence" required="required" name="pq${question/id}.present" value="yes" checked="${python:'checked' if current else None}"/> <tal:span i18n:translate="">Yes</tal:span></label>
-          <label><input type="radio" class="presence" required="required" name="pq${question/id}.present" value="no" checked="${python:'checked' if not current else None}"/> <tal:span i18n:translate="">No</tal:span></label>
+          <label><input type="radio" class="presence" required name="pq${question/id}.present" value="yes" checked="${python:'checked' if current else None}"/> <tal:span i18n:translate="">Yes</tal:span></label>
+          <label><input type="radio" class="presence" required name="pq${question/id}.present" value="no" checked="${python:'checked' if not current else None}"/> <tal:span i18n:translate="">No</tal:span></label>
         </fieldset>
 
         <tal:use_location_question condition="question/use_location_question">
