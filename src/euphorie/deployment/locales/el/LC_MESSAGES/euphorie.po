@@ -215,7 +215,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/webhelpers.pt:812
 msgid "Additional Measure"
-msgstr "Συμπληρωματικό μέτρο"
+msgstr "Επιπρόσθετο μέτρο"
 
 #: euphorie/client/browser/reset_password.py:163
 msgid ""
@@ -4085,7 +4085,7 @@ msgstr "Αρχείο εικόνας"
 #. Default: "Implemented measure"
 #: euphorie/client/browser/templates/webhelpers.pt:671
 msgid "label_implemented_measure"
-msgstr "Εφαρμοσμένο μέτρο"
+msgstr "Μέτρο σε εφαρμογή"
 
 #. Default: "Integrated Action Plan"
 #: euphorie/content/survey.py:121 euphorie/content/templates/survey_view.pt:29
