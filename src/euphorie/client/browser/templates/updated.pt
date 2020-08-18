@@ -22,7 +22,15 @@
 
 <p tal:condition="python:view.profile_questions" i18n:translate="verify_profile">Please verify if the profile is still accurate.</p>
 
-<form class="pat-validation" method="post" action="${request/URL}" accept-charset="UTF-8">
+<tal:comment condition="nothing">
+  pat-validation is disabled because of a bug in validation radio inputs
+  https://github.com/Patternslib/Patterns/issues/744
+</tal:comment>
+<form class="pat-inject Xpat-validation"
+  data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #navigation; target: #navigation;"
+  method="post"
+  action="${request/URL}"
+  accept-charset="UTF-8">
   <fieldset class="vertical" tal:repeat="question view/profile_questions">
     <section tal:define="current python:view.current_profile.get(question['id'])">
         <h2>${question/title}</h2>
