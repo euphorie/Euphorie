@@ -52,8 +52,8 @@
         <a class="pat-button continue pat-inject"
            href="${view/next_url}"
            data-pat-inject="history: record"
-           i18n:translate=""
-        >Continue</a>
+           i18n:translate="label_next"
+        >Next</a>
       </div>
 
     </metal:slot>
