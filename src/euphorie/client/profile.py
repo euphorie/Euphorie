@@ -20,6 +20,8 @@ from z3c.saconfig import Session
 
 grok.templatedir("templates")
 
+always_present_default = "no"
+
 
 def AddToTree(
     root,
@@ -85,8 +87,8 @@ def AddToTree(
         child.has_description = HasText(node.description)
         if node.type in ['top5', 'policy']:
             child.priority = 'high'
-        if node.risk_always_present:
-            child.identification = u"no"
+        if node.risk_always_present and always_present_default:
+            child.identification = always_present_default
     else:
         return None  # Should never happen
 
