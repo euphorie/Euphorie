@@ -109,9 +109,9 @@ class RiskBase(BrowserView):
     def simple_measure_text(self):
         """ For cases where the title and the description of a measure
         are identical.
-        At the moment, hard-coded to 2 countries where this is always the case.
+        At the moment, hard-coded to some countries where this is always the case.
         """
-        return self.webhelpers.country in ("it", "de")
+        return self.webhelpers.country in ("it", "lt", "lv", "mt", "de")
 
     @property
     @memoize
