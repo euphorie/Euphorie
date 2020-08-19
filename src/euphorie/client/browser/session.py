@@ -403,6 +403,7 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
         )
 
     def update(self):
+        utils.setLanguage(self.request, self.survey, self.survey.language)
         if not self.profile_questions or self.request.method == "POST":
             new_session = self.setupSession()
             self.request.response.redirect(
@@ -436,6 +437,10 @@ class Involve(SessionMixin, BrowserView):
                     context_url=self.context.absolute_url(),
                     target=self.next_view_name,
                 )
+
+    def __call__(self):
+        utils.setLanguage(self.request, self.survey, self.survey.language)
+        return super(Involve, self).__call__()
 
 
 class ContentsPreview(BrowserView):
