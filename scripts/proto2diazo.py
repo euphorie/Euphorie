@@ -14,6 +14,7 @@ HELP_DIR = os.path.join("src", "euphorie", "client",
 
 patt_webpack = re.compile("__webpack_require__.p[ ]*=[ ]*\"(.*)?\";")
 
+
 def strip_help(filepath):
     """ Fix the urls in filepath
     """
@@ -45,6 +46,13 @@ def strip_help(filepath):
 
     content = content.replace(
         '="/depts/index', '="++resource++euphorie.resources/oira/depts.html')
+
+    # replace paths to images, which can be src=, href= or url()
+    patt = re.compile('(href=\"|src=\"|url\()(/media)')
+
+    def repl(match):
+        return match.group().replace(match.group(2), "../../../media")
+    content = patt.sub(repl, content)
 
     open(filepath, "w").write(content)
 
