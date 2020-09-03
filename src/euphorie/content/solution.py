@@ -8,17 +8,15 @@ A standard Solution that a user can select for a particular risk.
 
 from .. import MessageFactory as _
 from euphorie.content import utils
-# from euphorie.content.utils import IToolTypesInfo
 from five import grok
 from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-# from z3c.appconfig.interfaces import IAppConfig
 from zope import schema
-# from zope.component import getUtility
 from zope.i18n import translate
 from zope.interface import implements
+import markdown
 
 
 grok.templatedir("templates")
@@ -152,6 +150,9 @@ class View(grok.View):
     grok.layer(NuPloneSkin)
     grok.name("nuplone-view")
     grok.template("solution_view")
+
+    def render_md(self, text):
+        return markdown.markdown(text)
 
 
 class Add(dexterity.AddForm):
