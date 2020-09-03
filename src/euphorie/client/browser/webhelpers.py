@@ -87,11 +87,15 @@ class WebHelpers(BrowserView):
     media_path = "++resource++euphorie.resources/media"
     style_path = "++resource++euphorie.resources/oira/style"
 
-    css_path = "++resource++euphorie.resources/oira/style/all.css"
-    css_path_min = "++resource++euphorie.resources/oira/style/all.css"
+    brand = "oira"
+
+    css_path = "++resource++euphorie.resources/{brand}/style/all.css"
+    css_path_min = "++resource++euphorie.resources/{brand}/style/all.css"
 
     js_path = "++resource++euphorie.resources/oira/script/bundle.js"
     js_path_min = "++resource++euphorie.resources/oira/script/bundle.min.js"
+
+    favicon_path = "++resource++euphorie.resources/{brand}/favicon/apple-touch-icon.png"
 
     group_model = Group
     survey_session_model = SurveySession
@@ -476,8 +480,10 @@ class WebHelpers(BrowserView):
     def css_url(self):
         return "{}/{}?t={}".format(
             self.client_url,
-            self.css_path if not self.debug_mode else self.css_path_min,
-            self.resources_timestamp
+            self.css_path.format(brand=self.brand)
+            if not self.debug_mode
+            else self.css_path_min.format(brand=self.brand),
+            self.resources_timestamp,
         )
 
     @property
@@ -487,6 +493,15 @@ class WebHelpers(BrowserView):
             self.client_url,
             self.js_path if not self.debug_mode else self.js_path_min,
             self.resources_timestamp
+        )
+
+    @property
+    @memoize
+    def favicon_url(self):
+        return "{}/{}?t={}".format(
+            self.client_url,
+            self.favicon_path.format(brand=self.brand),
+            self.resources_timestamp,
         )
 
     @property

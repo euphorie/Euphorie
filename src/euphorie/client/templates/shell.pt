@@ -34,11 +34,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="expires" content="-1" />
-    <link rel="icon" type="image/png" href="${style_url}/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="${webhelpers/favicon_url}" />
 
     <script type="text/javascript" src="${webhelpers/js_url}"></script>
     <script type="text/javascript" src="${webhelpers/client_url}/++resource++plone.session.refreshsupport.js"></script>
-    
+
     <link rel="stylesheet" href="${webhelpers/css_url}" type="text/css" />
     <link rel="stylesheet" href="${webhelpers/client_url}/acl_users/session/refresh?session_refresh=true&amp;type=css&amp;minutes=5" type="text/css" />
 
