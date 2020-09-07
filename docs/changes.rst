@@ -1,6 +1,12 @@
 Changelog
 =========
 
+11.1.16.1 (unreleased)
+----------------------
+- The deprecated About page is still used by TNO/RIE. Fix https warning by
+  changing the source of images to https
+
+
 11.1.16 (2020-02-25)
 --------------------
 
