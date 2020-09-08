@@ -117,6 +117,20 @@ class ISurvey(form.Schema, IBasic):
         defaultFactory=get_tool_type_default,
         required=True)
 
+    measures_text_handling = schema.Choice(
+        title=_(
+            "measures_text_handling",
+            default=u"Handling of measures text (if measures-in-place are used)"),
+        description=_(
+            "description_measures_text_handling",
+            default=u"Defines how the “Measures in place” options are displayed to the user. "
+            u"Choose “Simple” if the texts for Description and General Approach are "
+            u"identical in your measures. Choose “Full” if the texts in General Approach "
+            u"provide more details than the Description."),
+        vocabulary="euphorie.measures_text_handling_vocabulary",
+        default="full",
+        required=True)
+
     integrated_action_plan = schema.Bool(
         title=_("label_integrated_action_plan",
                 default=u"Integrated Action Plan"),
