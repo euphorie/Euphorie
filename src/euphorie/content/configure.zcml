@@ -152,6 +152,12 @@
       component=".utils.ToolTypesVocabularyFactory"
       />
 
+  <utility
+      name="euphorie.measures_text_handling_vocabulary"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      component=".utils.MeasuresTextHandlingVocabularyFactory"
+      />
+
 
   <browser:page
       name="export_users"

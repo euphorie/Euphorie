@@ -89,6 +89,8 @@ class ExportSurvey(grok.View):
                     survey.classification_code
         etree.SubElement(node, "language").text = survey.language
         etree.SubElement(node, "tool_type").text = get_tool_type(survey)
+        etree.SubElement(node, "measures_text_handling").text = \
+            getattr(survey, "measures_text_handling", "full")
         etree.SubElement(node, "integrated_action_plan").text = \
             "true" if getattr(survey, "integrated_action_plan", False) else "false"
         etree.SubElement(node, "evaluation-algorithm").text = \

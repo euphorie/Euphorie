@@ -183,6 +183,20 @@ class ToolTypesVocabulary(object):
 ToolTypesVocabularyFactory = ToolTypesVocabulary()
 
 
+@implementer(IVocabularyFactory)
+class MeasuresTextHandlingVocabulary(object):
+
+    def __call__(self, context):
+
+        terms = [
+            SimpleTerm("full", title=_(u"Full (show Description and General Approach)")),
+            SimpleTerm("simple", title=_(u"Simple (show only General Approach)")),
+        ]
+        return SimpleVocabulary(terms)
+
+MeasuresTextHandlingVocabularyFactory = MeasuresTextHandlingVocabulary()
+
+
 def ensure_image_size(value):
     if INamedBlobImage.providedBy(value):
         img_size = value.getImageSize()
