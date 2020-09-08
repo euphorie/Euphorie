@@ -178,7 +178,7 @@
               ><input checked="${python:measure['active'] and 'checked' or None}"
                      name="measure-standard-${measure/solution_id}"
                      type="checkbox"
-              />${measure/title}</label>
+              /><tal:measure replace="structure measure/title" /></label>
                 <span class="label-fragment-description pat-rich" tal:condition="description"><pre class="pat-markdown" tal:content="structure description">Description</pre></span>
             </div>
 
