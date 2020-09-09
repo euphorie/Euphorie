@@ -1063,6 +1063,10 @@ class SurveySession(BaseObject):
         client = api.portal.get().client
         return client.restrictedTraverse(str(self.zodb_path), None)
 
+    @property
+    def country(self):
+        return str(self.zodb_path).split("/")[0]
+
 
 class Company(BaseObject):
     """Information about a company."""
