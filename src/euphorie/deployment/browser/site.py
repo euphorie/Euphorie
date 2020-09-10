@@ -4,14 +4,17 @@ from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.client.browser.webhelpers import WebHelpers
 from euphorie.client.model import Account
+from euphorie.client.model import ActionPlan
 from euphorie.client.model import Session
 from euphorie.client.model import SurveySession
+from euphorie.client.model import SurveyTreeItem
 from euphorie.content.api.entry import access_api
 from euphorie.content.countrymanager import ICountryManager
 from euphorie.content.risk import EnsureInterface
 from euphorie.content.risk import IRisk
 from plone import api
 from plone.dexterity.interfaces import IDexterityContainer
+from plone.memoize.instance import memoize
 from plone.memoize.view import memoize_contextless
 from plone.protect.interfaces import IDisableCSRFProtection
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
@@ -19,11 +22,11 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.Five import BrowserView
 from Products.membrane.interfaces.user import IMembraneUser
+from sqlalchemy import sql
 from time import time
 from zope.component import adapter
 from zope.interface import alsoProvides
 from ZPublisher.BaseRequest import DefaultPublishTraverse
-from sqlalchemy import sql
 
 import logging
 import six
@@ -138,13 +141,12 @@ class UpdateCompletionPercentage(WebHelpers):
             else:
                 self.log("Overwriting existing non-null values")
             query = (
-                query
-                .join(
+                query.join(
                     Account,
                     sql.and_(
                         Account.id == SurveySession.account_id,
                         Account.account_type != "guest",
-                    )
+                    ),
                 )
                 .order_by(SurveySession.modified.desc())
                 .offset(b_start)
@@ -160,3 +162,42 @@ class UpdateCompletionPercentage(WebHelpers):
                     self.log("Handled {0} out of {1} sessions".format(cnt, total))
             self.log("Done")
         return self.index()
+
+
+class RepairSolutionId(BrowserView):
+    @memoize
+    def get_tool(self, tool_path):
+        return self.client.restrictedTraverse(str(tool_path))
+
+    @memoize
+    def get_risk(self, tool, risk_path):
+        return tool.restrictedTraverse(str(risk_path))
+
+    def __call__(self):
+        site = api.portal.get()
+        self.client = getattr(site, "client")
+        query = (
+            Session.query(ActionPlan, SurveyTreeItem, SurveySession)
+            .filter(
+                sql.and_(
+                    ActionPlan.plan_type == "in_place_standard",
+                    ActionPlan.solution_id == None,
+                )
+            )
+            .join(SurveyTreeItem, ActionPlan.risk_id == SurveyTreeItem.id)
+            .join(SurveySession, SurveyTreeItem.session_id == SurveySession.id)
+            .order_by(SurveySession.zodb_path)
+        )
+        count = 0
+        ret = "We have a total of %d measures\n" % query.count()
+
+        for action_plan, risk, session in query.all():
+            tool = self.get_tool(session.zodb_path)
+            risk = self.get_risk(tool, risk.zodb_path)
+            for solution in risk._solutions:
+                if solution.action.strip() == action_plan.action.strip():
+                    action_plan.solution_id = str(solution.id)
+                    count += 1
+                    break
+        ret += "Updated %d measures" % count
+        return ret
