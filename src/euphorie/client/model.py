@@ -867,7 +867,8 @@ class SurveySession(BaseObject):
         statement = """\
         INSERT INTO action_plan (risk_id, action_plan, prevention_plan, action,
                                         requirements, responsible, budget, plan_type,
-                                        planning_start, planning_end)
+                                        planning_start, planning_end,
+                                        solution_id, used_in_training)
                SELECT new_tree.id,
                       action_plan.action_plan,
                       action_plan.prevention_plan,
@@ -877,7 +878,9 @@ class SurveySession(BaseObject):
                       action_plan.budget,
                       action_plan.plan_type,
                       action_plan.planning_start,
-                      action_plan.planning_end
+                      action_plan.planning_end,
+                      action_plan.solution_id,
+                      action_plan.used_in_training
                FROM action_plan JOIN risk ON action_plan.risk_id=risk.id
                                 JOIN tree ON tree.id=risk.id,
                     tree AS new_tree
