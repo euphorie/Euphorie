@@ -195,7 +195,7 @@ class RepairSolutionId(BrowserView):
             tool = self.get_tool(session.zodb_path)
             risk = self.get_risk(tool, risk.zodb_path)
             for solution in risk._solutions:
-                if solution.action.strip() == action_plan.action.strip():
+                if solution.action and solution.action.strip() == action_plan.action.strip():
                     action_plan.solution_id = str(solution.id)
                     count += 1
                     break
