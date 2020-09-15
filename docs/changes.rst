@@ -5,6 +5,9 @@ Changelog
 -------------------
 
 - New Hungarian translations (provided by client)
+- Further translation updates
+- New Help section, currently EN only. Not exposed (linked) yet, but already
+  available via @@oira-help
 - Make sure that an update to the title of a module or risk gets propagated
   to existing sessions.
 - Updated styles and bundle (fixes validation error)
