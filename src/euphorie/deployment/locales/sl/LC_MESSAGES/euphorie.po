@@ -2825,7 +2825,7 @@ msgstr "Prednostna tveganja"
 #. Default: "Involve your coworkers"
 #: euphorie/client/browser/templates/involve.pt:25
 msgid "heading_involve_your_coworkers"
-msgstr ""
+msgstr "Vključite svoje sodelavce"
 
 #. Default: "Low priority risks"
 #: euphorie/client/browser/templates/measures_overview.pt:132
@@ -3630,7 +3630,7 @@ msgstr "Načrtovani začetek"
 #. Default: "Assessment"
 #: euphorie/client/templates/shell.pt:196
 msgid "label_assessment"
-msgstr ""
+msgstr "Ocenjevanje"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:28
@@ -3930,7 +3930,7 @@ msgstr "Uvodno besedilo"
 #. Default: "Involve"
 #: euphorie/client/templates/shell.pt:167
 msgid "label_involve"
-msgstr ""
+msgstr "Vključevanje"
 
 #. Default: "Go to report"
 #: euphorie/client/browser/templates/actionplan.pt:67

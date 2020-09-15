@@ -2876,7 +2876,7 @@ msgstr "Високо приоритетен риск"
 #. Default: "Involve your coworkers"
 #: euphorie/client/browser/templates/involve.pt:25
 msgid "heading_involve_your_coworkers"
-msgstr ""
+msgstr "Привлечете своите колеги"
 
 #. Default: "Low priority risks"
 #: euphorie/client/browser/templates/measures_overview.pt:132
@@ -3710,7 +3710,7 @@ msgstr "Планиране на началото"
 #. Default: "Assessment"
 #: euphorie/client/templates/shell.pt:196
 msgid "label_assessment"
-msgstr ""
+msgstr "Оценяване"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:28
@@ -3849,7 +3849,7 @@ msgstr "Описание"
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:43
 msgid "label_download_tool_preview"
-msgstr ""
+msgstr "Преглед на инструмента преди изтегляне"
 
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:38
@@ -4010,7 +4010,7 @@ msgstr "Уводен текст"
 #. Default: "Involve"
 #: euphorie/client/templates/shell.pt:167
 msgid "label_involve"
-msgstr ""
+msgstr "Включване"
 
 #. Default: "Go to report"
 #: euphorie/client/browser/templates/actionplan.pt:67
@@ -4222,7 +4222,7 @@ msgstr "Назад"
 #: euphorie/client/browser/templates/involve.pt:38
 #: euphorie/client/browser/templates/panel-contents-preview.pt:39
 msgid "label_print_tool_preview"
-msgstr ""
+msgstr "Преглед на инструмента преди печат"
 
 #. Default: "Negative statement"
 #: euphorie/content/risk.py:89 euphorie/content/templates/risk_view.pt:41
@@ -4780,6 +4780,7 @@ msgstr ""
 #: euphorie/client/browser/templates/involve.pt:28
 msgid "message_involve_workers_requirement"
 msgstr ""
+"Ключов момент за добро управление на безопасността и здравето при работа е да привлечете работниците. Работодателите имат задължението да се консултират с работниците по въпросите свързани с безопасността и здравето. Но има ползи да се премине отвъд минималните законови изисквания. Управлението на БЗР ще има по-голям успех ако се насърчава участието на работниците и се създава диалог между работниците и ръководството. Решете кой е най-добрият начин да привлечете персонала си! Например, можете да проведете среща или да създадете фокусна група с участие на работници и да разгледате съответни фрагменти от Оценката на риска заедно. Също може да изтеглите или разпечатате съдържанието на инструмента или части от него и да го споделите с цел получаване на информация или обратна връзка от работниците Ви."
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:224

@@ -3704,7 +3704,7 @@ msgstr "Inicio del plan"
 #. Default: "Assessment"
 #: euphorie/client/templates/shell.pt:196
 msgid "label_assessment"
-msgstr ""
+msgstr "Evaluación"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:28
@@ -4004,7 +4004,7 @@ msgstr "Texto introductorio"
 #. Default: "Involve"
 #: euphorie/client/templates/shell.pt:167
 msgid "label_involve"
-msgstr ""
+msgstr "Implicación"
 
 #. Default: "Go to report"
 #: euphorie/client/browser/templates/actionplan.pt:67

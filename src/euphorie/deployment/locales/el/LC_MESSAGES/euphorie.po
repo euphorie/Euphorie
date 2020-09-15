@@ -2940,7 +2940,7 @@ msgstr "Κίνδυνοι υψηλής επικινδυνότητας"
 #. Default: "Involve your coworkers"
 #: euphorie/client/browser/templates/involve.pt:25
 msgid "heading_involve_your_coworkers"
-msgstr ""
+msgstr "Διαχείριση Κινδύνων"
 
 #. Default: "Low priority risks"
 #: euphorie/client/browser/templates/measures_overview.pt:132
@@ -3800,7 +3800,7 @@ msgstr "Έναρξη εφαρμογής"
 #. Default: "Assessment"
 #: euphorie/client/templates/shell.pt:196
 msgid "label_assessment"
-msgstr ""
+msgstr "Διαχείριση Κινδύνων"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:28

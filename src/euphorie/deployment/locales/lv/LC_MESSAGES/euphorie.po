@@ -1517,22 +1517,22 @@ msgstr "mikrouzņēmumiem un maziem uzņēmumiem ir daži trūkumi"
 #. Default: "Describe the specific measures required to reduce the risk."
 #: euphorie/client/browser/risk.py:308
 msgid "action_measures_false_solutions_false"
-msgstr ""
+msgstr "Aprakstiet specifiskos pasākumus, kas nepieciešami, lai samazinātu risku."
 
 #. Default: "Select or describe the specific measures required to reduce the risk."
 #: euphorie/client/browser/risk.py:300
 msgid "action_measures_false_solutions_true"
-msgstr ""
+msgstr "Izvēlieties vai aprakstiet specifiskos pasākumus, kas nepieciešami, lai samazinātu risku."
 
 #. Default: "Describe any further measure to reduce the risk."
 #: euphorie/client/browser/risk.py:291
 msgid "action_measures_true_solutions_false"
-msgstr ""
+msgstr "Aprakstiet citus papildus veicamos pasākumus, kas samazinātu risku."
 
 #. Default: "Select or describe any further measure to reduce the risk."
 #: euphorie/client/browser/risk.py:283
 msgid "action_measures_true_solutions_true"
-msgstr ""
+msgstr "Izvēieties vai aprakstiet citus papildus veicamos pasākumus, kas samazinātu risku."
 
 #. Default: "Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary."
 #: euphorie/client/browser/templates/webhelpers.pt:755
@@ -2575,7 +2575,7 @@ msgstr "Pasākums"
 #. Default: "Measures"
 #: euphorie/client/browser/templates/risk_identification.pt:62
 msgid "header_measures"
-msgstr ""
+msgstr "Pasākumi"
 
 #. Default: "Modules"
 #: euphorie/content/templates/profilequestion_add.pt:42
@@ -2827,7 +2827,7 @@ msgstr "Augstas prioritātes riski"
 #. Default: "Involve your coworkers"
 #: euphorie/client/browser/templates/involve.pt:25
 msgid "heading_involve_your_coworkers"
-msgstr ""
+msgstr "Iesaisti savus kolēģus"
 
 #. Default: "Low priority risks"
 #: euphorie/client/browser/templates/measures_overview.pt:132
@@ -3641,7 +3641,7 @@ msgstr "Uzsākšanas datums"
 #. Default: "Assessment"
 #: euphorie/client/templates/shell.pt:196
 msgid "label_assessment"
-msgstr ""
+msgstr "Novērtējums"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:28
@@ -3780,7 +3780,7 @@ msgstr "Apraksts"
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:43
 msgid "label_download_tool_preview"
-msgstr ""
+msgstr "Lejuplādēt rīka priekšskatu"
 
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:38
@@ -3941,7 +3941,7 @@ msgstr "Ievadteksts"
 #. Default: "Involve"
 #: euphorie/client/templates/shell.pt:167
 msgid "label_involve"
-msgstr ""
+msgstr "Iesaiste"
 
 #. Default: "Go to report"
 #: euphorie/client/browser/templates/actionplan.pt:67
@@ -4151,7 +4151,7 @@ msgstr "Atpakaļ"
 #: euphorie/client/browser/templates/involve.pt:38
 #: euphorie/client/browser/templates/panel-contents-preview.pt:39
 msgid "label_print_tool_preview"
-msgstr ""
+msgstr "Izdrukāt rīka priekšskatu"
 
 #. Default: "Negative statement"
 #: euphorie/content/risk.py:89 euphorie/content/templates/risk_view.pt:41
@@ -4704,6 +4704,7 @@ msgstr ""
 #: euphorie/client/browser/templates/involve.pt:28
 msgid "message_involve_workers_requirement"
 msgstr ""
+"<p>Viena no labas darba aizsardzības sistēmas vadības pazīmēm ir darbinieku iesaistīšana. Darba devējiem normatīvajos aktos ir noteikts pienākums konsultēties ar darbiniekiem par darba aizsardzības jautājumiem. Tomēr tam, ka tiek darīts vairāk nekā normatīvie akti prasa, ir pievienotā vērtība. Darba vide kļūst labāka un produktīvāka, ja tiek veicināta aktīva darbinieku iesaiste un tiek veidots dialogs strap darbiniekiem un vadību.</p><p>Izlemiet, kurš būs labākais veids, kā iesaistīt komandu. Jūs varat gan organizēt sanāksmi, gan darbinieku fokusgrupu diskusiju, kopā pārskatot darba vides riska novērtējuma daļas. Jūs varat arī lejuplādēt vai izdrukāt rīka saturu vai tā daļas, lai dalītos ar informāciju un saņemtu no darbiniekiem atgriezenisko saiti.</p>"
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:224

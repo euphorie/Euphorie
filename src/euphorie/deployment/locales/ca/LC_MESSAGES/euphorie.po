@@ -1546,7 +1546,7 @@ msgstr "Descriviu les mesures específiques necessàries per reduir el risc."
 #. Default: "Select or describe the specific measures required to reduce the risk."
 #: euphorie/client/browser/risk.py:300
 msgid "action_measures_false_solutions_true"
-msgstr "Seleccioneu o descriviu les mesures específiques per reduir el risc."
+msgstr "Seleccioneu o descriviu les mesures específiques necessàries per reduir el risc"
 
 #. Default: "Describe any further measure to reduce the risk."
 #: euphorie/client/browser/risk.py:291
@@ -3699,7 +3699,7 @@ msgstr "Inici de la planificació"
 #. Default: "Assessment"
 #: euphorie/client/templates/shell.pt:196
 msgid "label_assessment"
-msgstr ""
+msgstr "Avaluació"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:28
@@ -3999,7 +3999,7 @@ msgstr "Text d'introducció"
 #. Default: "Involve"
 #: euphorie/client/templates/shell.pt:167
 msgid "label_involve"
-msgstr ""
+msgstr "Implicació"
 
 #. Default: "Go to report"
 #: euphorie/client/browser/templates/actionplan.pt:67

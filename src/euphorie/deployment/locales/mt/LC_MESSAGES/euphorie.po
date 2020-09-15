@@ -2878,7 +2878,7 @@ msgstr "Riskji ta' prijorità għolja"
 #. Default: "Involve your coworkers"
 #: euphorie/client/browser/templates/involve.pt:25
 msgid "heading_involve_your_coworkers"
-msgstr ""
+msgstr "Involvi lill-kollegi"
 
 #. Default: "Low priority risks"
 #: euphorie/client/browser/templates/measures_overview.pt:132
@@ -3709,7 +3709,7 @@ msgstr "Bidu tal-ippjanar"
 #. Default: "Assessment"
 #: euphorie/client/templates/shell.pt:196
 msgid "label_assessment"
-msgstr ""
+msgstr "Evalwazzjoni"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:28
@@ -4009,7 +4009,7 @@ msgstr "Test ta' Introduzzjoni"
 #. Default: "Involve"
 #: euphorie/client/templates/shell.pt:167
 msgid "label_involve"
-msgstr ""
+msgstr "Involvi"
 
 #. Default: "Go to report"
 #: euphorie/client/browser/templates/actionplan.pt:67
