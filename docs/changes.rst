@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.4.0 (unreleased)
+11.4.0 (2020-09-15)
 -------------------
 
 - New Hungarian translations (provided by client)
