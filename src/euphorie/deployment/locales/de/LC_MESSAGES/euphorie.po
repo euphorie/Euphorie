@@ -5030,7 +5030,7 @@ msgstr "optional"
 #. Default: "No risk assessments were found for this selection."
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:167
 msgid "osc_search_no_results_for_search"
-msgstr "Zu dieser Suche wurden keine Abteilungen gefunden."
+msgstr "Zu dieser Suche wurden keine GBUs gefunden."
 
 #. Default: "Search"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:77
