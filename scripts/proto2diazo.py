@@ -84,7 +84,7 @@ def fix_assets(directory):
         txt = match.group()
         return txt.replace(match.group(1), "++resource++euphorie.resources/oira/script/")
     for entry in os.listdir(directory):
-        print entry
+        print(entry)
         filepath = os.path.join(directory, entry)
         if not os.path.isfile(filepath):
             continue
