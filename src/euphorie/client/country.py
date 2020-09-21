@@ -44,18 +44,20 @@ class ClientCountry(dexterity.Container):
 
     # Many countries only have one language. Use it as the default
     language_mapping_by_country = {
-        "eu": "en",
         "bg": "bg",
-        "hr": "hr",
         "cy": "el",
+        "de": "de",
+        "eu": "en",
         "fi": "fi",
         "fr": "fr",
-        "de": "de",
+        "gb": "en",
         "gr": "el",
+        "hr": "hr",
+        "hu": "hu",
         "is": "is",
         "it": "it",
-        "lv": "lv",
         "lt": "lt",
+        "lv": "lv",
         "pt": "pt",
         "si": "sl",
     }
