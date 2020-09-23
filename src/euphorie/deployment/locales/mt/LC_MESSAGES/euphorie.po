@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-13 15:21+0000\n"
+"POT-Creation-Date: 2020-09-23 14:27+0000\n"
 "PO-Revision-Date: 2013-12-18 10:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -191,8 +191,8 @@ msgstr "Żid Riskju"
 msgid "Add Submodule"
 msgstr "Żid Modulu sekondarju"
 
-#: euphorie/client/browser/templates/profile.pt:99
-#: euphorie/client/browser/templates/updated.pt:82
+#: euphorie/client/browser/templates/profile.pt:103
+#: euphorie/client/browser/templates/updated.pt:90
 msgid "Add another item"
 msgstr "Żid oġġett ieħor"
 
@@ -294,7 +294,7 @@ msgstr ""
 "riskju ġdida ibbażata fuq il-kontenut ta’ din l-evalwazzjoni tar-riskju "
 "bħala punt tat-tluq."
 
-#: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:126
+#: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:128
 #: euphorie/client/templates/account-delete.pt:29
 msgid "Cancel"
 msgstr "Ikkanċella"
@@ -368,10 +368,6 @@ msgstr ""
 
 #: euphorie/content/configure.zcml:137
 msgid "Content types for defining sectors and surveys"
-msgstr ""
-
-#: euphorie/client/browser/templates/involve.pt:52
-msgid "Continue"
 msgstr ""
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:39
@@ -546,6 +542,10 @@ msgstr "Format: Office Open XML Workbook (.xlsx)"
 msgid "Format: Portable Document Format (.pdf)"
 msgstr "Format: Portable Document Format (.pdf)"
 
+#: euphorie/content/utils.py:192
+msgid "Full (show Description and General Approach)"
+msgstr ""
+
 #: euphorie/content/country.py:82
 msgid "Full report (Word document)"
 msgstr ""
@@ -581,7 +581,7 @@ msgstr ""
 "tiegħek fuq valutazzjoni, u mbagħad tista' tmur lura għaliha meta jkun komdu "
 "għalik u terġa' taqbadha minn fejn ħallejtha."
 
-#: euphorie/client/browser/webhelpers.py:763
+#: euphorie/client/browser/webhelpers.py:778
 msgid "I wish to share the following with you"
 msgstr "Nixtieq naqsam dan miegħek"
 
@@ -589,7 +589,7 @@ msgstr "Nixtieq naqsam dan miegħek"
 msgid "Identifier"
 msgstr "Identifikatur"
 
-#: euphorie/content/upload.py:426
+#: euphorie/content/upload.py:427
 msgid "Import OiRA Tool version"
 msgstr ""
 
@@ -606,7 +606,7 @@ msgstr "Info"
 msgid "Information"
 msgstr "Informazzjoni"
 
-#: euphorie/client/browser/risk.py:878
+#: euphorie/client/browser/risk.py:869
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
 msgstr "Format tal-istampa invalidu. Jekk jogħġbok uża PNG, JPEG jew GIF."
 
@@ -725,8 +725,8 @@ msgstr ""
 msgid "New"
 msgstr "Ġdida"
 
-#: euphorie/client/browser/templates/profile.pt:49
-#: euphorie/client/browser/templates/updated.pt:32
+#: euphorie/client/browser/templates/profile.pt:53
+#: euphorie/client/browser/templates/updated.pt:40
 #: euphorie/content/templates/survey_view.pt:31
 msgid "No"
 msgstr "Le"
@@ -811,7 +811,7 @@ msgstr ""
 msgid "Online help"
 msgstr "Għajnuna onlajn"
 
-#: euphorie/client/browser/session.py:1070
+#: euphorie/client/browser/session.py:1075
 #: euphorie/client/browser/templates/measures_overview.pt:61
 #: euphorie/client/templates/report_landing.pt:162
 msgid "Overview of measures"
@@ -821,7 +821,7 @@ msgstr "Ħarsa ġenerali tal-miżuri."
 msgid "Overview of measures (PDF)"
 msgstr ""
 
-#: euphorie/client/browser/session.py:1060
+#: euphorie/client/browser/session.py:1065
 #: euphorie/client/browser/templates/risks_overview.pt:152
 #: euphorie/client/templates/report_landing.pt:134
 msgid "Overview of risks"
@@ -891,10 +891,6 @@ msgstr "Pajjiżi Potenzjalment Kandidati"
 msgid "Potential candidate country"
 msgstr "Pajjiż potenzjalment kandidat"
 
-#: euphorie/client/browser/templates/more_menu.pt:55
-msgid "Preview or print the tool for preparation"
-msgstr ""
-
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml
 #: euphorie/deployment/browser/search.py:15
 msgid "Profile question"
@@ -957,9 +953,9 @@ msgstr ""
 "Meta tirreġistra tkun tista' sempliċement tilloggja fi kwalunkwe ħin biex "
 "tkompli valutazzjonijiet preċedenti jew biex tibda oħrajn ġodda."
 
-#: euphorie/client/browser/templates/profile.pt:69
+#: euphorie/client/browser/templates/profile.pt:73
 #: euphorie/client/browser/templates/risk_identification_custom.pt:255
-#: euphorie/client/browser/templates/updated.pt:52
+#: euphorie/client/browser/templates/updated.pt:60
 msgid "Remove"
 msgstr "Neħħi"
 
@@ -1000,7 +996,7 @@ msgstr ""
 msgid "Run slideshow"
 msgstr ""
 
-#: euphorie/client/browser/reset_password.py:178 euphorie/client/country.py:101
+#: euphorie/client/browser/reset_password.py:178 euphorie/client/country.py:103
 msgid "Save"
 msgstr "Issejvja"
 
@@ -1042,15 +1038,15 @@ msgstr "Informazzjoni u ggruppar tas-setturi għall-klijent."
 msgid "Sector workflow"
 msgstr "Fluss tax-xogħol ta' settur"
 
-#: euphorie/client/browser/session.py:669
+#: euphorie/client/browser/session.py:674
 msgid "Session `${name}` has been archived."
 msgstr ""
 
-#: euphorie/client/browser/session.py:612
+#: euphorie/client/browser/session.py:617
 msgid "Session `${name}` has been deleted."
 msgstr "Sessjoni \"${name}\" tħassret."
 
-#: euphorie/client/country.py:110
+#: euphorie/client/country.py:112
 msgid "Session title has been changed to ${name}"
 msgstr "It-titlu tas-sessjoni nbidel għal ${name}"
 
@@ -1069,6 +1065,10 @@ msgstr "Uri librerija minn ${dropdown}."
 #: euphorie/client/browser/templates/webhelpers.pt:65
 msgid "Sign in"
 msgstr "Idħol"
+
+#: euphorie/content/utils.py:193
+msgid "Simple (show only General Approach)"
+msgstr ""
 
 #: euphorie/content/profilequestion.py:84
 #: euphorie/content/templates/profilequestion_view.pt:31
@@ -1199,7 +1199,7 @@ msgstr "Il-klijent onlajn."
 msgid "The online risk assessment client interface for an Euphorie website"
 msgstr ""
 
-#: euphorie/client/browser/session.py:755
+#: euphorie/client/browser/session.py:760
 msgid "The risk assessment has been cloned"
 msgstr ""
 
@@ -1211,7 +1211,7 @@ msgstr "Il-kulur speċifikat mhuwiex validu."
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "Hemm erba' stadji ewlenin xi tlesti fil-proċess tal-valutazzjoni:"
 
-#: euphorie/client/browser/session.py:588
+#: euphorie/client/browser/session.py:593
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
@@ -1298,7 +1298,7 @@ msgstr ""
 msgid "Unvisited"
 msgstr "Ma saritx żjara"
 
-#: euphorie/content/upload.py:430
+#: euphorie/content/upload.py:431
 msgid "Upload"
 msgstr "Tella'"
 
@@ -1353,8 +1353,8 @@ msgstr "Għal minn tfasslet l-għodda tal-OiRA?"
 msgid "Why do I have to register?"
 msgstr "Għaliex għandi nirreġistra?"
 
-#: euphorie/client/browser/templates/profile.pt:48
-#: euphorie/client/browser/templates/updated.pt:31
+#: euphorie/client/browser/templates/profile.pt:52
+#: euphorie/client/browser/templates/updated.pt:39
 #: euphorie/content/templates/survey_view.pt:30
 msgid "Yes"
 msgstr "Iva"
@@ -1548,22 +1548,22 @@ msgid "about_partners_3_smb"
 msgstr "l-intrapriżi mikro u żgħar għandhom xi nuqqasijiet"
 
 #. Default: "Describe the specific measures required to reduce the risk."
-#: euphorie/client/browser/risk.py:308
+#: euphorie/client/browser/risk.py:299
 msgid "action_measures_false_solutions_false"
 msgstr "Iddeskrivi l-miżuri speċifiċi meħtieġa biex tnaqqas ir-riskju."
 
 #. Default: "Select or describe the specific measures required to reduce the risk."
-#: euphorie/client/browser/risk.py:300
+#: euphorie/client/browser/risk.py:291
 msgid "action_measures_false_solutions_true"
 msgstr "Iddeskrivi l-miżuri speċifiċi meħtieġa biex tnaqqas ir-riskju."
 
 #. Default: "Describe any further measure to reduce the risk."
-#: euphorie/client/browser/risk.py:291
+#: euphorie/client/browser/risk.py:282
 msgid "action_measures_true_solutions_false"
 msgstr "Iddeskrivi xi miżuri oħra biex tnaqqas ir-riskju."
 
 #. Default: "Select or describe any further measure to reduce the risk."
-#: euphorie/client/browser/risk.py:283
+#: euphorie/client/browser/risk.py:274
 msgid "action_measures_true_solutions_true"
 msgstr "Agħżel jew iddeskrivi xi miżuri oħra biex tnaqqas ir-riskju."
 
@@ -1708,7 +1708,7 @@ msgstr "Ikkanċella"
 
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:93
-#: euphorie/client/browser/webhelpers.py:760
+#: euphorie/client/browser/webhelpers.py:775
 msgid "button_close"
 msgstr "Agħlaq"
 
@@ -1815,7 +1815,7 @@ msgid "button_updated"
 msgstr "Aġġornata"
 
 #. Default: "Upload"
-#: euphorie/content/upload.py:469
+#: euphorie/content/upload.py:470
 msgid "button_upload"
 msgstr "Tella'"
 
@@ -2049,8 +2049,13 @@ msgstr ""
 "pjan ta' azzjoni."
 
 #. Default: "If selected, the option to plan measures will be offered directly on the “Identification” page. There will be no separate “Action Plan” step in the navigation."
-#: euphorie/content/survey.py:123
+#: euphorie/content/survey.py:137
 msgid "description_integrated_action_plan"
+msgstr ""
+
+#. Default: "Defines how the “Measures in place” options are displayed to the user. Choose “Simple” if the texts for Description and General Approach are identical in your measures. Choose “Full” if the texts in General Approach provide more details than the Description."
+#: euphorie/content/survey.py:124
+msgid "description_measures_text_handling"
 msgstr ""
 
 #. Default: "In case you have identified risks not included in the tool, you are able to add them now:"
@@ -2082,7 +2087,7 @@ msgid "description_tool_category"
 msgstr ""
 
 #. Default: "If you enter text here, it will be shown to users in a pop-up when they open the tool. It can be used for notifying users about changes."
-#: euphorie/content/survey.py:134
+#: euphorie/content/survey.py:148
 msgid "description_tool_notification"
 msgstr ""
 "Jekk iddaħħal test hawnhekk, jintwera lill-utenti f᾽pop-up meta jiftħu l-"
@@ -2245,7 +2250,7 @@ msgstr ""
 "Isem tal-login jista' jkun magħmul biss minn ittri u numri mhux kapitali."
 
 #. Default: "Please upload a valid XML file"
-#: euphorie/content/upload.py:441
+#: euphorie/content/upload.py:442
 msgid "error_invalid_xml"
 msgstr "Tella' fajl XML validu"
 
@@ -2390,7 +2395,7 @@ msgstr ""
 msgid "explanation_risk_always_present"
 msgstr ""
 
-#: euphorie/client/browser/session.py:456
+#: euphorie/client/browser/session.py:461
 msgid "extra_text_identification"
 msgstr ""
 
@@ -3084,7 +3089,7 @@ msgstr ""
 "ta' Għodda tal-OiRA eżistenti.."
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
-#: euphorie/client/browser/risk.py:673 euphorie/content/risk.py:388
+#: euphorie/client/browser/risk.py:664 euphorie/content/risk.py:388
 msgid "help_default_frequency"
 msgstr ""
 "Indika l-frekwenza li biha dan ir-riskju jimmaterjalizza ruħu f'sitwazzjoni "
@@ -3098,12 +3103,12 @@ msgstr ""
 "jkunu jistgħu jibdlu l-prijorità."
 
 #. Default: "Indicate how likely occurence of this risk is in a normal situation."
-#: euphorie/client/browser/risk.py:668 euphorie/content/risk.py:415
+#: euphorie/client/browser/risk.py:659 euphorie/content/risk.py:415
 msgid "help_default_probability"
 msgstr "Indika l-probabbiltà ta' dan ir-riskju f'sitwazzjoni normali."
 
 #. Default: "Indicate the severity if this risk occurs."
-#: euphorie/client/browser/risk.py:677 euphorie/content/risk.py:366
+#: euphorie/client/browser/risk.py:668 euphorie/content/risk.py:366
 msgid "help_default_severity"
 msgstr "Indika s-severità jekk dan ir-riskju jimmaterjalizza ruħu."
 
@@ -3197,26 +3202,26 @@ msgstr ""
 "jkunx fiha karattri speċjali."
 
 #. Default: "Describe your general approach to eliminate or (if the risk is not avoidable) reduce the risk. + Describe the specific action(s) required to implement this approach (to eliminate or to reduce the risk)."
-#: euphorie/content/solution.py:79
+#: euphorie/content/solution.py:77
 msgid "help_measure_action"
 msgstr ""
 
 #. Default: "Describe your general approach to eliminate or (if the risk is not avoidable) reduce the risk."
-#: euphorie/content/solution.py:50
+#: euphorie/content/solution.py:48
 msgid "help_measure_action_plan"
 msgstr ""
 "Iddeskrivi l-approċċ ġenerali tiegħek biex telimina jew (jekk ir-riskju ma "
 "jistax jiġi evitat) tnaqqas ir-riskju."
 
 #. Default: "Describe the specific action(s) required to implement this approach (to eliminate or to reduce the risk)."
-#: euphorie/content/solution.py:64
+#: euphorie/content/solution.py:62
 msgid "help_measure_prevention_plan"
 msgstr ""
 "Iddeskrivi l-azzjoni(jiet) speċifika/speċifiċi meħtieġa biex jiġi "
 "implimentat dan l-approċċ (biex ir-riskju jiġi eliminat jew jitnaqqas)."
 
 #. Default: "Describe the level of expertise needed to implement the measure, for instance \"common sense (no OSH knowledge required)\", \"no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required\", or \"OSH expert\". You can also describe here any other additional requirement (if any)."
-#: euphorie/content/solution.py:94
+#: euphorie/content/solution.py:92
 msgid "help_measure_requirements"
 msgstr ""
 "Iddeskrivi il-livell ta' kompetenza meħtieġ biex tiġi implimentata l-miżura, "
@@ -3228,7 +3233,7 @@ msgstr ""
 
 #. Default: "Include any relevant information that may be helpful for the end-user."
 #: euphorie/content/module.py:57 euphorie/content/page.py:20
-#: euphorie/content/solution.py:36
+#: euphorie/content/solution.py:34
 msgid "help_module_description"
 msgstr ""
 "Inkludi kwalunkwe informazzjoni rilevanti li tista' tkun utli għall-utent "
@@ -3348,7 +3353,7 @@ msgstr ""
 "Il-bini miżmum tajjeb.)"
 
 #. Default: "This OiRA Tool is obsolete; it has been retired or replaced with another OiRA Tool."
-#: euphorie/content/survey.py:293 euphorie/content/surveygroup.py:61
+#: euphorie/content/survey.py:307 euphorie/content/surveygroup.py:61
 msgid "help_survey_obsolete"
 msgstr ""
 "Dan l-istħarriġ huwa antik; tneħħa jew ġie sostitwit bi stħarriġ ieħor."
@@ -3361,7 +3366,7 @@ msgstr ""
 "jintwera lill-utenti."
 
 #. Default: "The title of this OiRA Tool. This title is used in the OiRA Tool overview in the clients."
-#: euphorie/content/survey.py:284 euphorie/content/surveygroup.py:50
+#: euphorie/content/survey.py:298 euphorie/content/surveygroup.py:50
 msgid "help_surveygroup_title"
 msgstr ""
 "It-titlu ta' din l-Għodda tal-OiRA. Dan it-titlu jintuża fis-sommarju tal-"
@@ -3661,7 +3666,7 @@ msgid "label__risk_default_collapsible_sections"
 msgstr ""
 
 #. Default: "Update"
-#: euphorie/client/browser/templates/updated.pt:89
+#: euphorie/client/browser/templates/updated.pt:97
 msgid "label_accept update"
 msgstr "Aġġorna"
 
@@ -3868,7 +3873,7 @@ msgid "label_employee_numbers"
 msgstr "Numru ta' impjegati"
 
 #. Default: "Show a custom notification for this OiRA tool?"
-#: euphorie/content/survey.py:132
+#: euphorie/content/survey.py:146
 msgid "label_enable_tool_notification"
 msgstr "Trid turi notifika għal din l-għodda tal-OiRA?"
 
@@ -3997,7 +4002,7 @@ msgid "label_implemented_measure"
 msgstr "Miżura implimentata"
 
 #. Default: "Integrated Action Plan"
-#: euphorie/content/survey.py:121 euphorie/content/templates/survey_view.pt:29
+#: euphorie/content/survey.py:135 euphorie/content/templates/survey_view.pt:29
 msgid "label_integrated_action_plan"
 msgstr ""
 
@@ -4064,7 +4069,7 @@ msgid "label_logo_selection"
 msgstr "Liema logo tixtieq turi fir-rokna ta' fuq, fuq ix-xellug?"
 
 #. Default: "General approach (to eliminate or reduce the risk) + Specific action(s) required to implement this approach"
-#: euphorie/content/solution.py:74
+#: euphorie/content/solution.py:72
 msgid "label_measure_action"
 msgstr ""
 
@@ -4075,7 +4080,7 @@ msgid "label_measure_action_plan"
 msgstr "Approċċ ġenerali (biex ir-riskju jiġi eliminat jew imnaqqas)"
 
 #. Default: "Specific action(s) required to implement this approach"
-#: euphorie/content/solution.py:59
+#: euphorie/content/solution.py:57
 #: euphorie/content/templates/solution_view.pt:24
 msgid "label_measure_prevention_plan"
 msgstr ""
@@ -4095,7 +4100,7 @@ msgstr ""
 
 #. Default: "Description"
 #: euphorie/content/module.py:56 euphorie/content/page.py:19
-#: euphorie/content/solution.py:35
+#: euphorie/content/solution.py:33
 msgid "label_module_description"
 msgstr "Deskrizzjoni"
 
@@ -4127,9 +4132,9 @@ msgid "label_new_session_test"
 msgstr "Sessjoni ta' test ġdida"
 
 #. Default: "Next"
+#: euphorie/client/browser/templates/involve.pt:52
 #: euphorie/client/browser/templates/module_actionplan.pt:58
 #: euphorie/client/browser/templates/module_identification.pt:75
-#: euphorie/client/browser/templates/register.pt:99
 msgid "label_next"
 msgstr "Li jmiss"
 
@@ -4179,12 +4184,12 @@ msgid "label_old_password"
 msgstr "Password Attwali"
 
 #. Default: "Page"
-#: euphorie/client/browser/session.py:935
+#: euphorie/client/browser/session.py:940
 msgid "label_page"
 msgstr "Paġna"
 
 #. Default: "of"
-#: euphorie/client/browser/session.py:938
+#: euphorie/client/browser/session.py:943
 msgid "label_page_of"
 msgstr "minn"
 
@@ -4379,7 +4384,7 @@ msgid "label_save_and_add_new"
 msgstr "Issejvja u żid riskju ieħor"
 
 #. Default: "Save and continue"
-#: euphorie/client/browser/templates/profile.pt:106
+#: euphorie/client/browser/templates/profile.pt:110
 #: euphorie/client/browser/templates/report.pt:41
 #: euphorie/client/browser/templates/risk_actionplan.pt:138
 msgid "label_save_and_continue"
@@ -4496,7 +4501,7 @@ msgid "label_survey_evaluation_algorithm"
 msgstr "Algoritmu tal-valutazzjoni"
 
 #. Default: "Obsolete OiRA tool"
-#: euphorie/content/survey.py:291 euphorie/content/surveygroup.py:59
+#: euphorie/content/survey.py:305 euphorie/content/surveygroup.py:59
 msgid "label_survey_obsolete"
 msgstr "Stħarriġ antik"
 
@@ -4548,12 +4553,12 @@ msgid "label_tool_based_on"
 msgstr "ibbażat fuq ${tool_title}"
 
 #. Default: "Tool notification message"
-#: euphorie/content/survey.py:153
+#: euphorie/content/survey.py:167
 msgid "label_tool_notification"
 msgstr "Messaġġ ta᾽ għodda ta᾽ notifikazzjoni"
 
 #. Default: "Tool notification title"
-#: euphorie/content/survey.py:146
+#: euphorie/content/survey.py:160
 msgid "label_tool_notification_title"
 msgstr "Titolu ta᾽ għodda ta᾽ notifikazzjoni"
 
@@ -4733,6 +4738,11 @@ msgstr "Tiegħi stess"
 msgid "mandatory"
 msgstr "Mandatorju"
 
+#. Default: "Handling of measures text (if measures-in-place are used)"
+#: euphorie/content/survey.py:121
+msgid "measures_text_handling"
+msgstr ""
+
 #. Default: "XML export"
 #: euphorie/deployment/browser/sitemenu.py:37
 msgid "menu_export"
@@ -4754,7 +4764,7 @@ msgid "message_choose_country"
 msgstr "Agħżel pajjiż li għalih tixtieq tara jew tikkopja Għodda tal-OiRA."
 
 #. Default: "This is the only version of the OiRA Tool and can therefore not be deleted. Did you perhaps want to remove the OiRA Tool itself?"
-#: euphorie/content/survey.py:399
+#: euphorie/content/survey.py:413
 msgid "message_delete_no_last_survey"
 msgstr ""
 "Din hija l-unika verżjoni tal-Għodda tal-OiRA u għalhekk ma tistax "
@@ -4793,7 +4803,7 @@ msgid "message_lock_warn"
 msgstr ""
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please unpublish it first."
-#: euphorie/content/survey.py:384
+#: euphorie/content/survey.py:398
 msgid "message_no_delete_published_survey"
 msgstr ""
 "Ma tistax tħassar verżjoni tal-Għodda tal-OiRA li hija ppubblikata. L-ewwel "
@@ -5023,7 +5033,7 @@ msgid "portlet_header_versions"
 msgstr "Verżjonijiet"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:699
+#: euphorie/client/browser/session.py:704
 msgid "prefix_cloned_title"
 msgstr ""
 
@@ -5067,7 +5077,7 @@ msgid "probability_small"
 msgstr "Żgħir"
 
 #. Default: "${completion_percentage}% Complete"
-#: euphorie/client/browser/webhelpers.py:273
+#: euphorie/client/browser/webhelpers.py:277
 msgid "progress_indicator_title"
 msgstr "${completion_percentage}% Tlesti"
 
@@ -5427,7 +5437,7 @@ msgid "title_client_help"
 msgstr "Test tal-għajnuna għall-klijent"
 
 #. Default: "Measure"
-#: euphorie/content/solution.py:123
+#: euphorie/content/solution.py:121
 msgid "title_common_solution"
 msgstr "Miżura"
 
@@ -5457,12 +5467,12 @@ msgid "title_help_unpublished"
 msgstr "Neħħi din l-Għodda tal-OiRA mill-klijent onlajn."
 
 #. Default: "Import sector and OiRA Tool"
-#: euphorie/content/upload.py:464
+#: euphorie/content/upload.py:465
 msgid "title_import_sector_survey"
 msgstr "Settur tal-Importazzjoni u l-Għodda tal-OiRA"
 
 #. Default: "Added risks (by you)"
-#: euphorie/client/browser/session.py:461 euphorie/client/docx/compiler.py:111
+#: euphorie/client/browser/session.py:466 euphorie/client/docx/compiler.py:111
 #: euphorie/client/publish.py:141
 msgid "title_other_risks"
 msgstr "Riskji miżjuda (minnek)"
@@ -5559,7 +5569,7 @@ msgid "unpublish_confirm"
 msgstr "Żġur li tixtieq tneħħi din l-Għodda tal-OiRA mill-pubblikazzjoni?"
 
 #. Default: "Succesfully imported the OiRA Tool"
-#: euphorie/content/upload.py:445
+#: euphorie/content/upload.py:446
 msgid "upload_success"
 msgstr "L-Għodda tal-OiRA ġiet importata"
 

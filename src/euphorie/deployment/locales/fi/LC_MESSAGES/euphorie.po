@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.1.1dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-13 15:21+0000\n"
+"POT-Creation-Date: 2020-09-23 14:27+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -185,8 +185,8 @@ msgstr "Lisää Riski"
 msgid "Add Submodule"
 msgstr "Lisää Alamoduulit"
 
-#: euphorie/client/browser/templates/profile.pt:99
-#: euphorie/client/browser/templates/updated.pt:82
+#: euphorie/client/browser/templates/profile.pt:103
+#: euphorie/client/browser/templates/updated.pt:90
 msgid "Add another item"
 msgstr "Lisää toinen"
 
@@ -286,7 +286,7 @@ msgstr ""
 "riskinarvioinnin. Tällöin uuden riskiarvioinnin työstäminen jatkuu tämän "
 "nykyisen pohjalta."
 
-#: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:126
+#: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:128
 #: euphorie/client/templates/account-delete.pt:29
 msgid "Cancel"
 msgstr "Peruuta"
@@ -357,10 +357,6 @@ msgstr ""
 
 #: euphorie/content/configure.zcml:137
 msgid "Content types for defining sectors and surveys"
-msgstr ""
-
-#: euphorie/client/browser/templates/involve.pt:52
-msgid "Continue"
 msgstr ""
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:39
@@ -535,6 +531,10 @@ msgstr "Formaatti: Office Open XML Workbook (.xlsx)"
 msgid "Format: Portable Document Format (.pdf)"
 msgstr "Muoto: Portable Document Format (.pdf)"
 
+#: euphorie/content/utils.py:192
+msgid "Full (show Description and General Approach)"
+msgstr ""
+
 #: euphorie/content/country.py:82
 msgid "Full report (Word document)"
 msgstr ""
@@ -570,7 +570,7 @@ msgstr ""
 "Voit kulloinkin käyttää arviointiin aikaa sen verran kuin sinulla sitä on, "
 "ja myöhemmin palata siihen kohtaan, johon viimeksi jäit. "
 
-#: euphorie/client/browser/webhelpers.py:763
+#: euphorie/client/browser/webhelpers.py:778
 msgid "I wish to share the following with you"
 msgstr "Haluan jakaa seuraavan kanssasi"
 
@@ -578,7 +578,7 @@ msgstr "Haluan jakaa seuraavan kanssasi"
 msgid "Identifier"
 msgstr "Tunniste"
 
-#: euphorie/content/upload.py:426
+#: euphorie/content/upload.py:427
 msgid "Import OiRA Tool version"
 msgstr ""
 
@@ -595,7 +595,7 @@ msgstr "Tiedot"
 msgid "Information"
 msgstr "Tiedot"
 
-#: euphorie/client/browser/risk.py:878
+#: euphorie/client/browser/risk.py:869
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
 msgstr ""
 "Tarkista kuvan tiedostomuoto. Tallennettavan kuvan tulee olla PNG-, JPEG- "
@@ -719,8 +719,8 @@ msgstr ""
 msgid "New"
 msgstr "Uusi"
 
-#: euphorie/client/browser/templates/profile.pt:49
-#: euphorie/client/browser/templates/updated.pt:32
+#: euphorie/client/browser/templates/profile.pt:53
+#: euphorie/client/browser/templates/updated.pt:40
 #: euphorie/content/templates/survey_view.pt:31
 msgid "No"
 msgstr "Ei"
@@ -803,7 +803,7 @@ msgstr ""
 msgid "Online help"
 msgstr "Online-apu"
 
-#: euphorie/client/browser/session.py:1070
+#: euphorie/client/browser/session.py:1075
 #: euphorie/client/browser/templates/measures_overview.pt:61
 #: euphorie/client/templates/report_landing.pt:162
 msgid "Overview of measures"
@@ -813,7 +813,7 @@ msgstr "Yhteenveto toteutettavista toimenpiteistä"
 msgid "Overview of measures (PDF)"
 msgstr ""
 
-#: euphorie/client/browser/session.py:1060
+#: euphorie/client/browser/session.py:1065
 #: euphorie/client/browser/templates/risks_overview.pt:152
 #: euphorie/client/templates/report_landing.pt:134
 msgid "Overview of risks"
@@ -883,10 +883,6 @@ msgstr "Mahdolliset ehdokasmaat"
 msgid "Potential candidate country"
 msgstr "Mahdollinen ehdokasmaa"
 
-#: euphorie/client/browser/templates/more_menu.pt:55
-msgid "Preview or print the tool for preparation"
-msgstr ""
-
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml
 #: euphorie/deployment/browser/search.py:15
 msgid "Profile question"
@@ -952,9 +948,9 @@ msgstr ""
 "Kun olet rekisteröitynyt, voit koska tahansa kirjautua järjestelmään ja "
 "jatkaa kesken olevia arviointeja tai aloittaa uusia. "
 
-#: euphorie/client/browser/templates/profile.pt:69
+#: euphorie/client/browser/templates/profile.pt:73
 #: euphorie/client/browser/templates/risk_identification_custom.pt:255
-#: euphorie/client/browser/templates/updated.pt:52
+#: euphorie/client/browser/templates/updated.pt:60
 msgid "Remove"
 msgstr "Poista"
 
@@ -995,7 +991,7 @@ msgstr ""
 msgid "Run slideshow"
 msgstr ""
 
-#: euphorie/client/browser/reset_password.py:178 euphorie/client/country.py:101
+#: euphorie/client/browser/reset_password.py:178 euphorie/client/country.py:103
 msgid "Save"
 msgstr "Tallenna"
 
@@ -1038,15 +1034,15 @@ msgstr "Toimialatiedot ja ryhmitys asiakkaalle."
 msgid "Sector workflow"
 msgstr "Toimialan työnkulku"
 
-#: euphorie/client/browser/session.py:669
+#: euphorie/client/browser/session.py:674
 msgid "Session `${name}` has been archived."
 msgstr ""
 
-#: euphorie/client/browser/session.py:612
+#: euphorie/client/browser/session.py:617
 msgid "Session `${name}` has been deleted."
 msgstr "Riskinarviointi \"${name}\" on poistettu."
 
-#: euphorie/client/country.py:110
+#: euphorie/client/country.py:112
 msgid "Session title has been changed to ${name}"
 msgstr "Istunnon nimi on muutettu muotoon ${name}"
 
@@ -1065,6 +1061,10 @@ msgstr "Näytä kirjasto ${dropdown}-valikosta."
 #: euphorie/client/browser/templates/webhelpers.pt:65
 msgid "Sign in"
 msgstr "Kirjaudu sisään"
+
+#: euphorie/content/utils.py:193
+msgid "Simple (show only General Approach)"
+msgstr ""
 
 #: euphorie/content/profilequestion.py:84
 #: euphorie/content/templates/profilequestion_view.pt:31
@@ -1193,7 +1193,7 @@ msgstr "Online-asiakas."
 msgid "The online risk assessment client interface for an Euphorie website"
 msgstr ""
 
-#: euphorie/client/browser/session.py:755
+#: euphorie/client/browser/session.py:760
 msgid "The risk assessment has been cloned"
 msgstr ""
 
@@ -1205,7 +1205,7 @@ msgstr "Määritetty väri ei ole kelvollinen."
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "Riskinarviointimenettelyssä on neljää keskeistä vaihetta:"
 
-#: euphorie/client/browser/session.py:588
+#: euphorie/client/browser/session.py:593
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
@@ -1290,7 +1290,7 @@ msgstr ""
 msgid "Unvisited"
 msgstr "vastaus puuttuu"
 
-#: euphorie/content/upload.py:430
+#: euphorie/content/upload.py:431
 msgid "Upload"
 msgstr "Lähetys"
 
@@ -1342,8 +1342,8 @@ msgstr "Kenelle OiRA on tarkoitettu?"
 msgid "Why do I have to register?"
 msgstr "Miksi minun on rekisteröidyttävä?"
 
-#: euphorie/client/browser/templates/profile.pt:48
-#: euphorie/client/browser/templates/updated.pt:31
+#: euphorie/client/browser/templates/profile.pt:52
+#: euphorie/client/browser/templates/updated.pt:39
 #: euphorie/content/templates/survey_view.pt:30
 msgid "Yes"
 msgstr "Kyllä"
@@ -1526,24 +1526,32 @@ msgid "about_partners_3_smb"
 msgstr "mikro- ja pienyrityksillä on joitakin puutteita"
 
 #. Default: "Describe the specific measures required to reduce the risk."
-#: euphorie/client/browser/risk.py:308
+#: euphorie/client/browser/risk.py:299
 msgid "action_measures_false_solutions_false"
 msgstr ""
+"Kuvaa tähän ne toimenpiteet, jotka tarvitaan riskin poistamiseksi tai "
+"pienentämiseksi."
 
 #. Default: "Select or describe the specific measures required to reduce the risk."
-#: euphorie/client/browser/risk.py:300
+#: euphorie/client/browser/risk.py:291
 msgid "action_measures_false_solutions_true"
 msgstr ""
+"Valitse tai kuvaa ne toimenpiteet, jotka tarvitaan riskin poistamiseksi tai "
+"pienentämiseksi."
 
 #. Default: "Describe any further measure to reduce the risk."
-#: euphorie/client/browser/risk.py:291
+#: euphorie/client/browser/risk.py:282
 msgid "action_measures_true_solutions_false"
 msgstr ""
+"Valitse tai kuvaa ne toimenpiteet, jotka tarvitaan riskin poistamiseksi tai "
+"pienentämiseksi."
 
 #. Default: "Select or describe any further measure to reduce the risk."
-#: euphorie/client/browser/risk.py:283
+#: euphorie/client/browser/risk.py:274
 msgid "action_measures_true_solutions_true"
 msgstr ""
+"Valitse tai kuvaa muut mahdolliset toimenpiteet, jotka tarvitaan riskin "
+"poistamiseksi tai pienentämiseksi."
 
 #. Default: "Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary."
 #: euphorie/client/browser/templates/webhelpers.pt:755
@@ -1681,7 +1689,7 @@ msgstr "Peruuta"
 
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:93
-#: euphorie/client/browser/webhelpers.py:760
+#: euphorie/client/browser/webhelpers.py:775
 msgid "button_close"
 msgstr "Sulje"
 
@@ -1762,7 +1770,7 @@ msgstr "Haku"
 #. Default: "Start a new session with this tool"
 #: euphorie/client/browser/templates/tool_sessions.pt:72
 msgid "button_start_new_session"
-msgstr "Aloita uusi istunto."
+msgstr "Aloita uusi riskinarviointi"
 
 #. Default: "Start session"
 #: euphorie/client/browser/templates/new-session-test.pt:81
@@ -1788,7 +1796,7 @@ msgid "button_updated"
 msgstr "Päivitetty"
 
 #. Default: "Upload"
-#: euphorie/content/upload.py:469
+#: euphorie/content/upload.py:470
 msgid "button_upload"
 msgstr "Lähetys"
 
@@ -2012,8 +2020,13 @@ msgstr ""
 "tämän riskin prioriteettia toimintasuunnitelmassa."
 
 #. Default: "If selected, the option to plan measures will be offered directly on the “Identification” page. There will be no separate “Action Plan” step in the navigation."
-#: euphorie/content/survey.py:123
+#: euphorie/content/survey.py:137
 msgid "description_integrated_action_plan"
+msgstr ""
+
+#. Default: "Defines how the “Measures in place” options are displayed to the user. Choose “Simple” if the texts for Description and General Approach are identical in your measures. Choose “Full” if the texts in General Approach provide more details than the Description."
+#: euphorie/content/survey.py:124
+msgid "description_measures_text_handling"
 msgstr ""
 
 #. Default: "In case you have identified risks not included in the tool, you are able to add them now:"
@@ -2043,7 +2056,7 @@ msgid "description_tool_category"
 msgstr ""
 
 #. Default: "If you enter text here, it will be shown to users in a pop-up when they open the tool. It can be used for notifying users about changes."
-#: euphorie/content/survey.py:134
+#: euphorie/content/survey.py:148
 msgid "description_tool_notification"
 msgstr ""
 "Jos lisäät tähän tekstiä, käyttäjät näkevät sen ponnahdusikkunassa "
@@ -2204,7 +2217,7 @@ msgid "error_invalid_login"
 msgstr "Kirjautumisnimessä saa olla vain pieniä kirjaimia ja numeroita."
 
 #. Default: "Please upload a valid XML file"
-#: euphorie/content/upload.py:441
+#: euphorie/content/upload.py:442
 msgid "error_invalid_xml"
 msgstr "Lähetä kelvollinen XML-tiedosto"
 
@@ -2351,7 +2364,7 @@ msgstr ""
 msgid "explanation_risk_always_present"
 msgstr ""
 
-#: euphorie/client/browser/session.py:456
+#: euphorie/client/browser/session.py:461
 msgid "extra_text_identification"
 msgstr ""
 
@@ -2584,7 +2597,7 @@ msgstr "Toimenpide"
 #. Default: "Measures"
 #: euphorie/client/browser/templates/risk_identification.pt:62
 msgid "header_measures"
-msgstr ""
+msgstr "Toimenpiteet"
 
 #. Default: "Modules"
 #: euphorie/content/templates/profilequestion_add.pt:42
@@ -2837,7 +2850,7 @@ msgstr "Riskit, joiden riskitaso on korkea."
 #. Default: "Involve your coworkers"
 #: euphorie/client/browser/templates/involve.pt:25
 msgid "heading_involve_your_coworkers"
-msgstr ""
+msgstr "Tehkää yhdessä!"
 
 #. Default: "Low priority risks"
 #: euphorie/client/browser/templates/measures_overview.pt:132
@@ -3043,7 +3056,7 @@ msgstr ""
 "olemassa olevan OiRA-työkalun kopiolla."
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
-#: euphorie/client/browser/risk.py:673 euphorie/content/risk.py:388
+#: euphorie/client/browser/risk.py:664 euphorie/content/risk.py:388
 msgid "help_default_frequency"
 msgstr "Ilmoita, kuinka usein riski esiintyy normaalissa tilanteessa."
 
@@ -3055,14 +3068,14 @@ msgstr ""
 "vaihtaa prioriteetin."
 
 #. Default: "Indicate how likely occurence of this risk is in a normal situation."
-#: euphorie/client/browser/risk.py:668 euphorie/content/risk.py:415
+#: euphorie/client/browser/risk.py:659 euphorie/content/risk.py:415
 msgid "help_default_probability"
 msgstr ""
 "Ilmoita, kuinka todennäköistä tämän riskin esiintyminen on normaalissa "
 "tilanteessa."
 
 #. Default: "Indicate the severity if this risk occurs."
-#: euphorie/client/browser/risk.py:677 euphorie/content/risk.py:366
+#: euphorie/client/browser/risk.py:668 euphorie/content/risk.py:366
 msgid "help_default_severity"
 msgstr "Ilmoita vakavuusaste tämän riskin ilmentyessä."
 
@@ -3157,26 +3170,26 @@ msgstr ""
 "siinä ei ole erikoismerkkejä."
 
 #. Default: "Describe your general approach to eliminate or (if the risk is not avoidable) reduce the risk. + Describe the specific action(s) required to implement this approach (to eliminate or to reduce the risk)."
-#: euphorie/content/solution.py:79
+#: euphorie/content/solution.py:77
 msgid "help_measure_action"
 msgstr ""
 
 #. Default: "Describe your general approach to eliminate or (if the risk is not avoidable) reduce the risk."
-#: euphorie/content/solution.py:50
+#: euphorie/content/solution.py:48
 msgid "help_measure_action_plan"
 msgstr ""
 "Kuvaa menettelytapasi riskin poistamiseksi tai pienentämiseksi (jos riskiä "
 "ei voi välttää)."
 
 #. Default: "Describe the specific action(s) required to implement this approach (to eliminate or to reduce the risk)."
-#: euphorie/content/solution.py:64
+#: euphorie/content/solution.py:62
 msgid "help_measure_prevention_plan"
 msgstr ""
 "Kuvaa näitä menettelytapoja koskevat toimenpiteet (riskin poistamiseksi tai "
 "pienentämiseksi)."
 
 #. Default: "Describe the level of expertise needed to implement the measure, for instance \"common sense (no OSH knowledge required)\", \"no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required\", or \"OSH expert\". You can also describe here any other additional requirement (if any)."
-#: euphorie/content/solution.py:94
+#: euphorie/content/solution.py:92
 msgid "help_measure_requirements"
 msgstr ""
 "Kerro mitä asiantuntemusta tarvitaan toimenpiteen toteuttamiseen, esim. "
@@ -3187,7 +3200,7 @@ msgstr ""
 
 #. Default: "Include any relevant information that may be helpful for the end-user."
 #: euphorie/content/module.py:57 euphorie/content/page.py:20
-#: euphorie/content/solution.py:36
+#: euphorie/content/solution.py:34
 msgid "help_module_description"
 msgstr "Lisää käyttäjän kannalta olennainen ja  hyödyllinen tieto."
 
@@ -3307,7 +3320,7 @@ msgstr ""
 "ylläpito on hyvä)."
 
 #. Default: "This OiRA Tool is obsolete; it has been retired or replaced with another OiRA Tool."
-#: euphorie/content/survey.py:293 euphorie/content/surveygroup.py:61
+#: euphorie/content/survey.py:307 euphorie/content/surveygroup.py:61
 msgid "help_survey_obsolete"
 msgstr ""
 "This survey is obsolete; it has been retired or replaced with another survey."
@@ -3319,7 +3332,7 @@ msgstr ""
 "Tämä on tämän OiRA-työkaluversion otsikko. Käyttäjät eivät näe tätä nimeä."
 
 #. Default: "The title of this OiRA Tool. This title is used in the OiRA Tool overview in the clients."
-#: euphorie/content/survey.py:284 euphorie/content/surveygroup.py:50
+#: euphorie/content/survey.py:298 euphorie/content/surveygroup.py:50
 msgid "help_surveygroup_title"
 msgstr ""
 "Tämän OiRA-työkalun otsikko. Tätä otsikkoa käytetään asiakkaissa OiRA-"
@@ -3608,7 +3621,7 @@ msgid "label__risk_default_collapsible_sections"
 msgstr ""
 
 #. Default: "Update"
-#: euphorie/client/browser/templates/updated.pt:89
+#: euphorie/client/browser/templates/updated.pt:97
 msgid "label_accept update"
 msgstr "Päivitys"
 
@@ -3656,7 +3669,7 @@ msgstr "Aikataulu: Toimenpiteiden suunnittelu"
 #. Default: "Assessment"
 #: euphorie/client/templates/shell.pt:196
 msgid "label_assessment"
-msgstr ""
+msgstr "Tunnistus ja arviointi"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:28
@@ -3795,7 +3808,7 @@ msgstr "Kuvaus"
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:43
 msgid "label_download_tool_preview"
-msgstr ""
+msgstr "Lataa arviointilomake"
 
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:38
@@ -3815,7 +3828,7 @@ msgid "label_employee_numbers"
 msgstr "Työntekijöiden määrä"
 
 #. Default: "Show a custom notification for this OiRA tool?"
-#: euphorie/content/survey.py:132
+#: euphorie/content/survey.py:146
 msgid "label_enable_tool_notification"
 msgstr "Näytä tälle OiRA-välineelle räätälöity ilmoitus"
 
@@ -3944,7 +3957,7 @@ msgid "label_implemented_measure"
 msgstr "Toteutettu toimenpide"
 
 #. Default: "Integrated Action Plan"
-#: euphorie/content/survey.py:121 euphorie/content/templates/survey_view.pt:29
+#: euphorie/content/survey.py:135 euphorie/content/templates/survey_view.pt:29
 msgid "label_integrated_action_plan"
 msgstr ""
 
@@ -3956,7 +3969,7 @@ msgstr "Johdantoteksti"
 #. Default: "Involve"
 #: euphorie/client/templates/shell.pt:167
 msgid "label_involve"
-msgstr ""
+msgstr "Osallistuminen ja yhteistyö"
 
 #. Default: "Go to report"
 #: euphorie/client/browser/templates/actionplan.pt:67
@@ -4011,7 +4024,7 @@ msgid "label_logo_selection"
 msgstr "Minkä logon haluat näkyvän vasemmassa yläkulmassa?"
 
 #. Default: "General approach (to eliminate or reduce the risk) + Specific action(s) required to implement this approach"
-#: euphorie/content/solution.py:74
+#: euphorie/content/solution.py:72
 msgid "label_measure_action"
 msgstr ""
 
@@ -4022,7 +4035,7 @@ msgid "label_measure_action_plan"
 msgstr "Yleinen toimenpide riskin poistamiseksi tai pienentämiseksi"
 
 #. Default: "Specific action(s) required to implement this approach"
-#: euphorie/content/solution.py:59
+#: euphorie/content/solution.py:57
 #: euphorie/content/templates/solution_view.pt:24
 msgid "label_measure_prevention_plan"
 msgstr ""
@@ -4042,7 +4055,7 @@ msgstr ""
 
 #. Default: "Description"
 #: euphorie/content/module.py:56 euphorie/content/page.py:19
-#: euphorie/content/solution.py:35
+#: euphorie/content/solution.py:33
 msgid "label_module_description"
 msgstr "Kuvaus"
 
@@ -4074,9 +4087,9 @@ msgid "label_new_session_test"
 msgstr "Uusi kokeilupohja"
 
 #. Default: "Next"
+#: euphorie/client/browser/templates/involve.pt:52
 #: euphorie/client/browser/templates/module_actionplan.pt:58
 #: euphorie/client/browser/templates/module_identification.pt:75
-#: euphorie/client/browser/templates/register.pt:99
 msgid "label_next"
 msgstr "Seuraava"
 
@@ -4126,12 +4139,12 @@ msgid "label_old_password"
 msgstr "Nykyinen salasana"
 
 #. Default: "Page"
-#: euphorie/client/browser/session.py:935
+#: euphorie/client/browser/session.py:940
 msgid "label_page"
 msgstr "Sivu"
 
 #. Default: "of"
-#: euphorie/client/browser/session.py:938
+#: euphorie/client/browser/session.py:943
 msgid "label_page_of"
 msgstr "/"
 
@@ -4168,7 +4181,7 @@ msgstr "Edellinen"
 #: euphorie/client/browser/templates/involve.pt:38
 #: euphorie/client/browser/templates/panel-contents-preview.pt:39
 msgid "label_print_tool_preview"
-msgstr ""
+msgstr "Tulosta arviointilomake"
 
 #. Default: "Negative statement"
 #: euphorie/content/risk.py:89 euphorie/content/templates/risk_view.pt:41
@@ -4325,7 +4338,7 @@ msgid "label_save_and_add_new"
 msgstr "Tallenna ja lisää toinen riski"
 
 #. Default: "Save and continue"
-#: euphorie/client/browser/templates/profile.pt:106
+#: euphorie/client/browser/templates/profile.pt:110
 #: euphorie/client/browser/templates/report.pt:41
 #: euphorie/client/browser/templates/risk_actionplan.pt:138
 msgid "label_save_and_continue"
@@ -4441,7 +4454,7 @@ msgid "label_survey_evaluation_algorithm"
 msgstr "Arviointialgoritmi"
 
 #. Default: "Obsolete OiRA tool"
-#: euphorie/content/survey.py:291 euphorie/content/surveygroup.py:59
+#: euphorie/content/survey.py:305 euphorie/content/surveygroup.py:59
 msgid "label_survey_obsolete"
 msgstr "Obsolete survey"
 
@@ -4493,12 +4506,12 @@ msgid "label_tool_based_on"
 msgstr "perustuen ${tool_title} -arviointipohjaan"
 
 #. Default: "Tool notification message"
-#: euphorie/content/survey.py:153
+#: euphorie/content/survey.py:167
 msgid "label_tool_notification"
 msgstr "Ilmoituksen sisältämä viesti välineessä"
 
 #. Default: "Tool notification title"
-#: euphorie/content/survey.py:146
+#: euphorie/content/survey.py:160
 msgid "label_tool_notification_title"
 msgstr "Ilmoituksen otsikko välineessä"
 
@@ -4679,6 +4692,11 @@ msgstr "Omani"
 msgid "mandatory"
 msgstr "Pakollinen"
 
+#. Default: "Handling of measures text (if measures-in-place are used)"
+#: euphorie/content/survey.py:121
+msgid "measures_text_handling"
+msgstr ""
+
 #. Default: "XML export"
 #: euphorie/deployment/browser/sitemenu.py:37
 msgid "menu_export"
@@ -4700,7 +4718,7 @@ msgid "message_choose_country"
 msgstr "Valitse maa, josta haluat tarkastella tai kopioida OiRA-työkalun."
 
 #. Default: "This is the only version of the OiRA Tool and can therefore not be deleted. Did you perhaps want to remove the OiRA Tool itself?"
-#: euphorie/content/survey.py:399
+#: euphorie/content/survey.py:413
 msgid "message_delete_no_last_survey"
 msgstr ""
 "Tämä on OiRA-työkalun ainoa versio, minkä vuoksi sitä ei voi poistaa. "
@@ -4720,6 +4738,17 @@ msgstr ""
 #: euphorie/client/browser/templates/involve.pt:28
 msgid "message_involve_workers_requirement"
 msgstr ""
+"<p>Hyvän turvallisuusjohtamisen yksi avaintekijä on se, miten hyvin "
+"henkilöstö saadaan osallistumaan mukaan turvallisuustoimintaan. Myös laki "
+"edellyttää työantajan ylläpitävän ja parantavan työturvallisuutta yhdessä "
+"työntekijöiden kanssa. Kun johto kannustaa henkilöstöä osallistumaan ja "
+"kuuntelee heidän ajatuksiaan, sitä paremmin turvallisuuden hallinnassa "
+"todennäköisesti onnistutaan.</p><p>Tunnista, mikä olisi teillä paras tapa "
+"saada henkilöstö mukaan. Onnistuisiko riskinarvioinnin toteutus esimerkiksi "
+"osana työyhteisöpalaveria tai kokoamalla henkilöstön edustajista "
+"arviointiryhmä, joka osallistuu riskinarviointiin? Yhteisen keskustelun "
+"pohjaksi ja palautteen saamiseksi voit myös ladata tai tulostaa "
+"riskinarvioitilomakkeen tai sen osioita henkilöstölle.</p>"
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:224
@@ -4727,7 +4756,7 @@ msgid "message_lock_warn"
 msgstr ""
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please unpublish it first."
-#: euphorie/content/survey.py:384
+#: euphorie/content/survey.py:398
 msgid "message_no_delete_published_survey"
 msgstr ""
 "Et voi poistaa julkaistua OiRA-työkaluversiota. Peruuta sen julkaisu ensin."
@@ -4957,7 +4986,7 @@ msgid "portlet_header_versions"
 msgstr "Versiot"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:699
+#: euphorie/client/browser/session.py:704
 msgid "prefix_cloned_title"
 msgstr ""
 
@@ -5001,7 +5030,7 @@ msgid "probability_small"
 msgstr "Pieni"
 
 #. Default: "${completion_percentage}% Complete"
-#: euphorie/client/browser/webhelpers.py:273
+#: euphorie/client/browser/webhelpers.py:277
 msgid "progress_indicator_title"
 msgstr "${completion_percentage}% Täydellinen"
 
@@ -5361,7 +5390,7 @@ msgid "title_client_help"
 msgstr "Asiakkaan aputeksti"
 
 #. Default: "Measure"
-#: euphorie/content/solution.py:123
+#: euphorie/content/solution.py:121
 msgid "title_common_solution"
 msgstr "Toimenpide"
 
@@ -5391,12 +5420,12 @@ msgid "title_help_unpublished"
 msgstr "Poista tämä OiRA-työkalu online-asiakkaasta."
 
 #. Default: "Import sector and OiRA Tool"
-#: euphorie/content/upload.py:464
+#: euphorie/content/upload.py:465
 msgid "title_import_sector_survey"
 msgstr "Tuo toimiala ja OiRA-työkalu"
 
 #. Default: "Added risks (by you)"
-#: euphorie/client/browser/session.py:461 euphorie/client/docx/compiler.py:111
+#: euphorie/client/browser/session.py:466 euphorie/client/docx/compiler.py:111
 #: euphorie/client/publish.py:141
 msgid "title_other_risks"
 msgstr "Muut tunnistetut riskitekijät"
@@ -5491,39 +5520,39 @@ msgid "unpublish_confirm"
 msgstr "Haluatko varmasti peruuttaa tämän OiRA-työkalun julkaisun?"
 
 #. Default: "Succesfully imported the OiRA Tool"
-#: euphorie/content/upload.py:445
+#: euphorie/content/upload.py:446
 msgid "upload_success"
 msgstr "OiRA-työkalun tuonti onnistui"
 
 #. Default: "Use it to"
 #: euphorie/client/templates/report_landing.pt:119
 msgid "use_it_to_action_plan"
-msgstr "Käytä sitä"
+msgstr "Hyödynnä:"
 
 #. Default: "Use it to"
 #: euphorie/client/templates/report_landing.pt:91
 msgid "use_it_to_full_report"
-msgstr "Käytä sitä"
+msgstr "Hyödynnä:"
 
 #. Default: "Use it to"
 #: euphorie/client/templates/report_landing.pt:179
 msgid "use_it_to_measures_overview"
-msgstr "Käytä sitä"
+msgstr "Hyödynnä:"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/measures_overview.pt:63
 msgid "use_it_to_measures_report"
-msgstr "Käytä sitä"
+msgstr "Hyödynnä:"
 
 #. Default: "Use it to"
 #: euphorie/client/templates/report_landing.pt:151
 msgid "use_it_to_risks_overview"
-msgstr "Käytä sitä"
+msgstr "Hyödynnä:"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/risks_overview.pt:153
 msgid "use_it_to_risks_report"
-msgstr "Käytä sitä"
+msgstr "Hyödynnä:"
 
 #. Default: "Please verify if the profile is still accurate."
 #: euphorie/client/browser/templates/updated.pt:23
