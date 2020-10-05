@@ -655,6 +655,12 @@ class WebHelpers(BrowserView):
         """Check if there is an active survey session."""
         return self._survey is not None
 
+    def is_initialised_session(self, session):
+        """
+        A session without children has not passed the Identification phase yet
+        """
+        return session.children().count()
+
     @property
     @memoize
     def appendix_documents(self):
