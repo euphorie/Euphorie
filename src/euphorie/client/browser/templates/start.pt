@@ -28,7 +28,9 @@
     >Compute completion percentage</a>
       <form class="pat-form pat-inject pat-validation"
         data-pat-validation="disable-selector: button[name='form.button.submit'];
-                           message-required: ${view/message_required};"
+                           message-required: ${view/message_required};
+                           message-min: ${view/message_gt1};
+            "
             action="${request/URL}"
             method="POST"
             data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation;"

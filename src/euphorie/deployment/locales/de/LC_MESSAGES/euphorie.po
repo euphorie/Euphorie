@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-09-23 14:27+0000\n"
+"POT-Creation-Date: 2020-10-09 16:06+0000\n"
 "PO-Revision-Date: 2016-07-28 15:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -437,7 +437,7 @@ msgstr "Muss ich mich vorbereiten?"
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: euphorie/client/browser/session.py:372
+#: euphorie/client/browser/session.py:376
 msgid "Does this happen in multiple places?"
 msgstr "Geschieht dies an mehreren Orten?"
 
@@ -465,7 +465,7 @@ msgstr "Übersicht der Maßnahmen herunterladen"
 msgid "Download the risks overview"
 msgstr "Übersicht der Gefährdungen herunterladen"
 
-#: euphorie/client/browser/templates/start.pt:163
+#: euphorie/client/browser/templates/start.pt:165
 #: euphorie/client/templates/report_landing.pt:40
 msgid "E-mail"
 msgstr "E-Mail"
@@ -494,11 +494,11 @@ msgstr "Profilfrage bearbeiten"
 msgid "Email address/account name"
 msgstr "E-Mail-Adresse/Kontoname"
 
-#: euphorie/client/browser/session.py:377
+#: euphorie/client/browser/session.py:381
 msgid "Enter the name of the location"
 msgstr "Geben Sie den Namen des Ortes ein."
 
-#: euphorie/client/browser/session.py:382
+#: euphorie/client/browser/session.py:386
 msgid "Enter the names of each location"
 msgstr "Geben Sie den Namen für jeden Ort ein."
 
@@ -581,7 +581,7 @@ msgstr ""
 "Allerdings können Sie eine Gefährdungsbeurteilung jederzeit unterbrechen und "
 "dann fortführen, wenn es Ihre Zeit erlaubt."
 
-#: euphorie/client/browser/webhelpers.py:778
+#: euphorie/client/browser/webhelpers.py:784
 msgid "I wish to share the following with you"
 msgstr "Ich würde Ihnen gerne folgendes Tool empfehlen"
 
@@ -640,7 +640,7 @@ msgstr ""
 msgid "Last saved"
 msgstr "Zuletzt gespeichert"
 
-#: euphorie/client/browser/templates/start.pt:71
+#: euphorie/client/browser/templates/start.pt:73
 msgid "Learn more about this tool&hellip;"
 msgstr "Erfahren Sie mehr über diese GBU-Vorlage…"
 
@@ -815,7 +815,7 @@ msgstr ""
 msgid "Online help"
 msgstr "Online-Hilfe"
 
-#: euphorie/client/browser/session.py:1075
+#: euphorie/client/browser/session.py:1080
 #: euphorie/client/browser/templates/measures_overview.pt:61
 #: euphorie/client/templates/report_landing.pt:162
 msgid "Overview of measures"
@@ -825,7 +825,7 @@ msgstr "Übersicht der Maßnahmen"
 msgid "Overview of measures (PDF)"
 msgstr ""
 
-#: euphorie/client/browser/session.py:1065
+#: euphorie/client/browser/session.py:1069
 #: euphorie/client/browser/templates/risks_overview.pt:152
 #: euphorie/client/templates/report_landing.pt:134
 msgid "Overview of risks"
@@ -1043,11 +1043,11 @@ msgstr "Brancheninformationen und Gruppierung des Clients."
 msgid "Sector workflow"
 msgstr "Branchen-Workflow"
 
-#: euphorie/client/browser/session.py:674
+#: euphorie/client/browser/session.py:677
 msgid "Session `${name}` has been archived."
 msgstr "GBU “${name}” wurde archiviert."
 
-#: euphorie/client/browser/session.py:617
+#: euphorie/client/browser/session.py:620
 msgid "Session `${name}` has been deleted."
 msgstr "Die Sitzung “${name}” wurde gelöscht."
 
@@ -1059,7 +1059,7 @@ msgstr "Die Sitzung wurde in “${name}” umbenannt."
 msgid "Setup a standard Euphorie website"
 msgstr ""
 
-#: euphorie/client/browser/templates/start.pt:39
+#: euphorie/client/browser/templates/start.pt:41
 msgid "Share this OiRA-Tool"
 msgstr "Dieses OiRA-Tool weitergeben"
 
@@ -1202,7 +1202,7 @@ msgstr "Der Online-Client."
 msgid "The online risk assessment client interface for an Euphorie website"
 msgstr ""
 
-#: euphorie/client/browser/session.py:760
+#: euphorie/client/browser/session.py:763
 msgid "The risk assessment has been cloned"
 msgstr ""
 
@@ -1214,7 +1214,7 @@ msgstr "Die angegebene Farbe ist ungültig."
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "Es gibt vier Hauptphasen bei der Durchführung:"
 
-#: euphorie/client/browser/session.py:593
+#: euphorie/client/browser/session.py:596
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
@@ -1281,10 +1281,14 @@ msgstr ""
 msgid "This request could not be processed."
 msgstr ""
 
-#: euphorie/client/browser/templates/start.pt:141
+#: euphorie/client/browser/templates/start.pt:143
 msgid "This tool deserves to be known by the world! Share it!"
 msgstr ""
 "Dieses Tool verdient es, überall bekannt zu werden! Geben Sie es weiter!"
+
+#: euphorie/client/browser/session.py:169
+msgid "This value must be greater than or equal to 1"
+msgstr "Dieser Wert muss größer oder gleich 1 sein."
 
 #: euphorie/client/templates/tooltips.pt:52
 msgid "Tip"
@@ -1393,7 +1397,7 @@ msgstr ""
 "Gefährdungsbeurteilung durchführen wird, wie Mitarbeiter in den Prozess "
 "eingebunden werden, usw."
 
-#: euphorie/client/browser/session.py:178
+#: euphorie/client/browser/session.py:182
 msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
@@ -1724,7 +1728,7 @@ msgstr "Abbrechen"
 
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:93
-#: euphorie/client/browser/webhelpers.py:775
+#: euphorie/client/browser/webhelpers.py:781
 msgid "button_close"
 msgstr "Schließen"
 
@@ -2166,7 +2170,7 @@ msgstr "Der Text der ${online_help} kann geändert werden."
 msgid "documentation_online_help_online_help"
 msgstr "Online-Hilfe"
 
-#: euphorie/client/browser/session.py:176
+#: euphorie/client/browser/session.py:180
 msgid "download section"
 msgstr "Reiter “Bericht”"
 
@@ -2415,7 +2419,7 @@ msgstr ""
 msgid "explanation_risk_always_present"
 msgstr ""
 
-#: euphorie/client/browser/session.py:461
+#: euphorie/client/browser/session.py:464
 msgid "extra_text_identification"
 msgstr ""
 
@@ -4229,12 +4233,12 @@ msgid "label_old_password"
 msgstr "Aktuelles Passwort"
 
 #. Default: "Page"
-#: euphorie/client/browser/session.py:940
+#: euphorie/client/browser/session.py:943
 msgid "label_page"
 msgstr "Seite"
 
 #. Default: "of"
-#: euphorie/client/browser/session.py:943
+#: euphorie/client/browser/session.py:946
 msgid "label_page_of"
 msgstr "von"
 
@@ -4524,7 +4528,7 @@ msgid "label_start_identification"
 msgstr "Gefährdungsermittlung starten"
 
 #. Default: "Start"
-#: euphorie/client/browser/templates/start.pt:127
+#: euphorie/client/browser/templates/start.pt:129
 msgid "label_start_survey"
 msgstr "Starten"
 
@@ -4993,7 +4997,7 @@ msgid "no_translate_link_add_measures"
 msgstr ""
 
 #. Default: "<a href='%s/@@report'>${text_download_section}</a>"
-#: euphorie/client/browser/session.py:172
+#: euphorie/client/browser/session.py:176
 msgid "no_translate_link_download_section"
 msgstr ""
 
@@ -5087,7 +5091,7 @@ msgid "portlet_header_versions"
 msgstr "Versionen"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:704
+#: euphorie/client/browser/session.py:707
 msgid "prefix_cloned_title"
 msgstr ""
 
@@ -5530,7 +5534,7 @@ msgid "title_import_sector_survey"
 msgstr "Branche und OiRA-Tool importieren"
 
 #. Default: "Added risks (by you)"
-#: euphorie/client/browser/session.py:466 euphorie/client/docx/compiler.py:111
+#: euphorie/client/browser/session.py:469 euphorie/client/docx/compiler.py:111
 #: euphorie/client/publish.py:141
 msgid "title_other_risks"
 msgstr "Weitere Gefährdungen (durch Sie hinzugefügt)"

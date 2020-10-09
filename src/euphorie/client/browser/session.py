@@ -164,6 +164,10 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
             target_language=lang,
         )
 
+    @property
+    def message_gt1(self):
+        return api.portal.translate(_(u"This value must be greater than or equal to 1"))
+
     @memoize
     def get_pat_messages_above_title(self):
         """ List of messages we want to display above the risk assesment title
@@ -434,9 +438,8 @@ class Involve(SessionMixin, BrowserView):
 
     def next_url(self):
         return "{context_url}/{target}".format(
-                    context_url=self.context.absolute_url(),
-                    target=self.next_view_name,
-                )
+            context_url=self.context.absolute_url(), target=self.next_view_name
+        )
 
     def __call__(self):
         utils.setLanguage(self.request, self.survey, self.survey.language)
@@ -1062,6 +1065,7 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
 class RisksOverview(Status):
     """ Implements the "Overview of Risks" report, see #10967
     """
+
     label = _("Overview of risks")
 
     def is_skipped_from_risk_list(self, risk):
@@ -1072,6 +1076,7 @@ class RisksOverview(Status):
 class MeasuresOverview(Status):
     """ Implements the "Overview of Measures" report, see #10967
     """
+
     label = _("Overview of measures")
 
     def update(self):
