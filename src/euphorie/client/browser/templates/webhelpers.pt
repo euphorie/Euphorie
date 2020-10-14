@@ -166,7 +166,9 @@
                 data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button; remove-confirmation: Sind Sie sicher, dass Sie die eingetragene bestehende Schutzmaßnahme entfernen wollen?; remove-behaviour: none"
       >
         <tal:existing_measures condition="view/show_existing_measures">
-          <p tal:content="structure view/intro_extra"></p>
+          <article class="pat-rich">
+            <p tal:content="structure view/intro_extra"></p>
+          </article>
           <tal:measures define="
                           measures view/get_existing_measures_with_activation;
                         "
