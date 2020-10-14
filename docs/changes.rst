@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.4.2 (unreleased)
+11.4.2 (2020-10-14)
 -------------------
 
 - Translation updates
