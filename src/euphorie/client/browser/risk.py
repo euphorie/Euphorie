@@ -707,8 +707,16 @@ class IdentificationView(RiskBase):
                 else:
                     self.intro_extra = tool_type_data.get("intro_extra", "")
                     self.button_remove_extra = tool_type_data.get("button_remove_extra", "")
-                self.answer_yes = tool_type_data["answer_yes"]
-                self.answer_no = tool_type_data["answer_no"]
+                if self.webhelpers.integrated_action_plan:
+                    self.answer_yes = tool_type_data.get(
+                        "answer_yes_integrated_ap", tool_type_data["answer_yes"]
+                    )
+                    self.answer_no = tool_type_data.get(
+                        "answer_no_integrated_ap", tool_type_data["answer_no"]
+                    )
+                else:
+                    self.answer_yes = tool_type_data["answer_yes"]
+                    self.answer_no = tool_type_data["answer_no"]
                 self.answer_na = tool_type_data["answer_na"]
 
         survey = self.context.aq_parent.aq_parent

@@ -76,6 +76,9 @@ TOOL_TYPES = OrderedDict([
         "intro_questions": "",
         "answer_yes": _("label_yes", default=u"Yes"),
         "answer_no": _("label_no", default=u"No"),
+        "answer_yes_integrated_ap": _("label_yes_integrated_ap", default=u"Yes"),
+        "answer_no_integrated_ap": _("label_no_integrated_ap", default=u"No"),
+
         "answer_na": _("label_not_applicable", default=u"Not applicable"),
         "custom_intro_extra": _(
             "is_risk_acceptable",
@@ -122,6 +125,12 @@ TOOL_TYPES = OrderedDict([
         "answer_no": _(
             "label_not_sufficient",
             default=u"No, more measures are required"),
+        "answer_yes_integrated_ap": _(
+            "label_yes_sufficient",
+            default=u"Yes, the remaining risk is acceptable"),
+        "answer_no_integrated_ap": _(
+            "label_not_sufficient_integrated_ap",
+            default=u"No, more measures are required <strong>(to be added below)</strong>"),
         "answer_na": _("label_not_applicable", default=u"Not applicable"),
         "custom_intro_extra": _(
             "is_risk_acceptable_add_measures",

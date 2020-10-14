@@ -239,7 +239,7 @@
       <!-- END Existing measures -->
 
       <!-- Yes / No -->
-      <fieldset class="pat-checklist radio">
+      <fieldset class="pat-checklist radio pat-rich">
         <tal:existing condition="python:view.show_existing_measures and not always_present">
           <p tal:condition="view/intro_questions" tal:content="structure view/intro_questions"></p>
         </tal:existing>
@@ -256,19 +256,19 @@
                      name="answer"
                      type="radio"
                      value="yes"
-              />${view/answer_yes}</label>
+              /><tal:answer replace="structure view/answer_yes" /></label>
             <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
                      name="answer"
                      type="radio"
                      value="no"
-              />${view/answer_no}</label>
+              /><tal:answer replace="structure view/answer_no" /></label>
           <label class="not-applicable"
                  tal:condition="risk/show_notapplicable|nothing"
           ><input checked="${python:'checked' if context.identification=='n/a' else None}"
                    name="answer"
                    type="radio"
                    value="n/a"
-            />${view/answer_na}</label>
+            /><tal:answer replace="structure view/answer_na" /></label>
         </tal:answers>
         <tal:always_present condition="always_present"><input name="answer"
                  type="hidden"
