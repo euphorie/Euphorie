@@ -105,15 +105,6 @@ class RiskBase(BrowserView):
         return self.webhelpers.country == "it"
 
     @property
-    @memoize
-    def risk(self):
-        if self.is_custom_risk:
-            return
-        return self.context.aq_parent.aq_parent.restrictedTraverse(
-            self.context.zodb_path.split("/")
-        )
-
-    @property
     def is_custom_risk(self):
         return self.context.is_custom_risk
 
@@ -333,6 +324,15 @@ class IdentificationView(RiskBase):
         "training_notes": None,
         "custom_description": None,
     }
+
+    @property
+    @memoize
+    def risk(self):
+        if self.is_custom_risk:
+            return
+        return self.context.aq_parent.aq_parent.restrictedTraverse(
+            self.context.zodb_path.split("/")
+        )
 
     @property
     @memoize
@@ -948,6 +948,15 @@ class ActionPlanView(RiskBase):
 
     @property
     @memoize
+    def risk(self):
+        if self.is_custom_risk:
+            return self.context
+        return self.context.aq_parent.aq_parent.restrictedTraverse(
+            self.context.zodb_path.split("/")
+        )
+
+    @property
+    @memoize
     def skip_evaluation(self):
         """ Default value is False, but it can be tweaked in certain conditions"""
         if self.italy_special and (
@@ -1086,7 +1095,6 @@ class ActionPlanView(RiskBase):
 
         self.title = context.parent.title
 
-        # Italian special
         if self.is_custom_risk:
             self.risk.description = u""
             self.risk.evaluation_method = u""
