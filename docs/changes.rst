@@ -4,8 +4,9 @@ Changelog
 11.4.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Bugfix for measures in ActionPlan on custom risks
+- The answers "No, more measures required" and "Yes, sufficient" (for the measures
+  in place RAs) can be different if the Action Plan is integrated
 
 11.4.2 (2020-10-14)
 -------------------
