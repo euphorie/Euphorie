@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.4.3 (unreleased)
+11.4.3 (2020-10-15)
 -------------------
 
 - Bugfix for measures in ActionPlan on custom risks
