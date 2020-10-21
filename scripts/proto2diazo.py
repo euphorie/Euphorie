@@ -79,27 +79,6 @@ def fix_urls(filepath):
     open(filepath, "w").write(content)
 
 
-def fix_assets(directory):
-    def assets_replace(match):
-        txt = match.group()
-        return txt.replace(match.group(1), "++resource++euphorie.resources/oira/script/")
-    for entry in os.listdir(directory):
-        print entry
-        filepath = os.path.join(directory, entry)
-        if not os.path.isfile(filepath):
-            continue
-        try:
-            with open(filepath) as f:
-                content = f.read()
-        except:
-            logger.exception("Problem reading %s", filepath)
-        # Use regex fro non-minified version
-        fixed = patt_webpack.sub(assets_replace, content)
-        # Use hard-coded expression for minified
-        fixed = fixed.replace('c.p="/assets/oira/script/"', 'c.p="++resource++euphorie.resources/oira/script/"')
-        open(filepath, "w").write(fixed)
-
-
 def run():
     # Recursively walk the help directory and replace in all html files.
     # https://stackoverflow.com/a/3964691/1337474
@@ -110,8 +89,6 @@ def run():
 
     fix_urls(os.path.join(THEME_DIR, "daimler", "style", "all.css"))
     fix_urls(os.path.join(THEME_DIR, "oira", "style", "all.css"))
-
-    fix_assets(os.path.join(THEME_DIR, "oira", "script"))
 
 
 if __name__ == "__main__":

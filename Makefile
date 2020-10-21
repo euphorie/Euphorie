@@ -55,13 +55,12 @@ prototype:: ## Get the latest version of the prototype
 	fi;
 
 bundle: prototype
-	cd prototype && make bundle-osha
+	cd prototype && make bundle
 
 jekyll:
 	@echo 'DO: rm prototype/stamp-bundler to force Jekyll re-install'
 	@cd prototype && make jekyll
 
-## Important: in proto, we need to call `bundle-osha`, not `bundle`, so that the paths are correct
 resources-install:   # bundle
 	cp -R prototype/_site/assets/* src/euphorie/client/resources/
 	## For the script directory, always start with a clean slate

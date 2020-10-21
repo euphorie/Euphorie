@@ -86,14 +86,15 @@ class WebHelpers(BrowserView):
     certificates_path = "++resource++euphorie.resources/oira/certificates"
     media_path = "++resource++euphorie.resources/media"
     style_path = "++resource++euphorie.resources/oira/style"
+    script_path = "++resource++euphorie.resources/oira/script"
 
     brand = "oira"
 
     css_path = "++resource++euphorie.resources/{brand}/style/all.css"
     css_path_min = "++resource++euphorie.resources/{brand}/style/all.css"
 
-    js_path = "++resource++euphorie.resources/oira/script/bundle.js"
-    js_path_min = "++resource++euphorie.resources/oira/script/bundle.min.js"
+    js_name = "bundle.js"
+    js_name_min = "bundle.min.js"
 
     favicon_path = "++resource++euphorie.resources/{brand}/favicon/apple-touch-icon.png"
 
@@ -489,9 +490,10 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def js_url(self):
-        return "{}/{}?t={}".format(
+        return "{}/{}/{}?t={}".format(
             self.client_url,
-            self.js_path if not self.debug_mode else self.js_path_min,
+            self.script_path,
+            self.js_name if not self.debug_mode else self.js_name_min,
             self.resources_timestamp
         )
 
