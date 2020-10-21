@@ -36,6 +36,9 @@
     <meta http-equiv="expires" content="-1" />
     <link rel="icon" type="image/png" href="${webhelpers/favicon_url}" />
 
+    <script>window.__patternslib_public_path__ = "${webhelpers/client_url}/${webhelpers/script_path}/";</script>
+    <script src="${webhelpers/client_url}/${webhelpers/script_path}/polyfills-loader.js" type="text/javascript"></script>
+
     <script type="text/javascript" src="${webhelpers/js_url}"></script>
     <script type="text/javascript" src="${webhelpers/client_url}/++resource++plone.session.refreshsupport.js"></script>
 
