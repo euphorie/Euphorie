@@ -1,10 +1,10 @@
 Changelog
 =========
 
-11.4.4 (unreleased)
+11.5.0 (unreleased)
 -------------------
 
-- Nothing changed yet.
+Technical: Update to Patternslib version supporting ECMAScript 6+
 
 
 11.4.3 (2020-10-15)
