@@ -21,7 +21,7 @@
     >
       <iframe alllowfullscreen="true"
               height="100%"
-              src="${webhelpers/client_url}/++resource++euphorie.resources/oira/help/index.html"
+              src="${webhelpers/client_url}/++resource++euphorie.resources/oira/help/${webhelpers/help_language}/index.html"
               style="border: 0"
               width="100%"
       >

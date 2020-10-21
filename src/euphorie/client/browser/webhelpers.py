@@ -26,8 +26,10 @@ from euphorie.ghost import PathGhost
 from json import dumps
 from logging import getLogger
 from os import path
+from pkg_resources import resource_listdir
 from plone import api
 from plone.i18n.normalizer import idnormalizer
+from plone.memoize import forever
 from plone.memoize.instance import memoize
 from plone.memoize.view import memoize_contextless
 from plonetheme.nuplone.utils import isAnonymous
@@ -348,6 +350,18 @@ class WebHelpers(BrowserView):
         lt = getToolByName(self.context, 'portal_languages')
         lang = lt.getPreferredLanguage()
         return lang
+
+    @property
+    @forever.memoize
+    def available_help_languages(self):
+        exclude = set(["illustrations"])
+        return set(resource_listdir("euphorie.client", "resources/oira/help")) - exclude
+
+    @property
+    @memoize
+    def help_language(self):
+        lang = self.language_code
+        return lang if lang in self.available_help_languages else "en"
 
     def get_username(self):
         member = api.user.get_current()
