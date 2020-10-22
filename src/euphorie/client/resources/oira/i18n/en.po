@@ -790,3 +790,7 @@
 	#| msgid label_ra_history
 	msgid "Risk assessment history"
 	msgstr "Risk assessment history"
+
+	#| msgid label_topics
+	msgid "Topics"
+	msgstr "Topics"
