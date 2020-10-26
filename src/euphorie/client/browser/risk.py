@@ -871,7 +871,8 @@ class ImageUpload(BrowserView):
             new_data = image.read()
             if self.context.image_data != new_data:
                 try:
-                    PIL.Image.open(BytesIO(new_data))
+                    pil_img = PIL.Image.open(BytesIO(new_data))
+                    pil_img.crop()
                 except IOError:
                     api.portal.show_message(
                         _(
