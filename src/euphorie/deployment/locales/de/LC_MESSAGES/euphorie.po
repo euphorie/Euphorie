@@ -260,7 +260,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:26
 msgid "Are you sure you want to proceed?"
-msgstr ""
+msgstr "Sind Sie sicher, dass Sie fortfahren möchten?"
 
 #: euphorie/content/behaviour/configure.zcml:33
 msgid "Automatically generate unique ids for content"
@@ -289,6 +289,8 @@ msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
 msgstr ""
+"Durch das Duplizieren einer GBU wird eine neue GBU angelegt, mit allen "
+"Antworten dieser GBU als Ausgangspunkt."
 
 #: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:128
 #: euphorie/client/templates/account-delete.pt:29
@@ -696,7 +698,7 @@ msgstr ""
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:152
 #: euphorie/client/browser/templates/tool_sessions.pt:62
 msgid "More"
-msgstr ""
+msgstr "Mehr"
 
 #: euphorie/content/templates/profilequestion_view.pt:27
 msgid "Multiple Item Question"
@@ -1373,7 +1375,7 @@ msgstr "Ja"
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:34
 msgid "Yes, clone risk assessment"
-msgstr ""
+msgstr "Ja, GBU duplizieren"
 
 #: euphorie/content/templates/library.pt:17
 msgid ""
@@ -4062,7 +4064,7 @@ msgstr "Einführungstext"
 #. Default: "Involve"
 #: euphorie/client/templates/shell.pt:167
 msgid "label_involve"
-msgstr ""
+msgstr "Einbeziehen"
 
 #. Default: "Go to report"
 #: euphorie/client/browser/templates/actionplan.pt:67
