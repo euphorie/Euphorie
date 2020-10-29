@@ -189,7 +189,7 @@ msgstr "Untermodul hinzufügen"
 #: euphorie/client/browser/templates/profile.pt:103
 #: euphorie/client/browser/templates/updated.pt:90
 msgid "Add another item"
-msgstr "Weiters Element hinzufügen"
+msgstr "Weiteres Element hinzufügen"
 
 #: euphorie/content/templates/library.pt:15
 msgid "Add content from library"
@@ -3759,7 +3759,7 @@ msgstr "Beginn der Planung"
 #. Default: "Assessment"
 #: euphorie/client/templates/shell.pt:196
 msgid "label_assessment"
-msgstr ""
+msgstr "Beurteilung"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:28
