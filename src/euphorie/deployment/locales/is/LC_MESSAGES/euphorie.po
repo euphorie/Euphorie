@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-10-14 16:06+0000\n"
+"POT-Creation-Date: 2020-10-29 16:25+0000\n"
 "PO-Revision-Date: 2015-02-10 11:55+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -263,7 +263,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/portlet-available-tools.pt:14
 msgid "Available OiRA tools"
-msgstr "OiRA verkfæri í boði"
+msgstr "Tiltæk Oira verkfæri"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:23
 #: euphorie/client/browser/templates/sessions-dashboard.pt:58
@@ -284,8 +284,8 @@ msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
 msgstr ""
-"Með því að afrita allt gerir þú nýtt áhættumat sem er byggt á þessu mati og "
-"niðurstöðum þess."
+"Með því að afrita áhættumat er búið til nýtt áhættumat sem er byggt á gömlu "
+"mati, þ.e. gamla matið er notað sem uppkast af nýju."
 
 #: euphorie/client/browser/reset_password.py:185 euphorie/client/country.py:128
 #: euphorie/client/templates/account-delete.pt:29
@@ -574,7 +574,7 @@ msgstr ""
 "Þú getur byrjað og hætt hvenær sem er. Hægt að halda áfram með fyrra mat og "
 "breyta að vild."
 
-#: euphorie/client/browser/webhelpers.py:784
+#: euphorie/client/browser/webhelpers.py:786
 msgid "I wish to share the following with you"
 msgstr ""
 
@@ -590,7 +590,8 @@ msgstr ""
 msgid "Important"
 msgstr "Mikilvægt"
 
-#: euphorie/client/templates/plain.pt:181 euphorie/client/templates/shell.pt:99
+#: euphorie/client/templates/plain.pt:181
+#: euphorie/client/templates/shell.pt:102
 msgid "Info"
 msgstr "Upplýsingar"
 
@@ -599,7 +600,7 @@ msgstr "Upplýsingar"
 msgid "Information"
 msgstr "Upplýsingar"
 
-#: euphorie/client/browser/risk.py:877
+#: euphorie/client/browser/risk.py:878
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
 msgstr "Get ekki lesið myndskrá. Vinsamlegast notið PNG, JPEG eða GIF skrár."
 
@@ -638,7 +639,7 @@ msgstr "Síðast vistað"
 msgid "Learn more about this tool&hellip;"
 msgstr "Lærðu meira um þetta verkfæri…"
 
-#: euphorie/client/templates/shell.pt:341
+#: euphorie/client/templates/shell.pt:344
 msgid "Loading Risk Assessments&hellip;"
 msgstr ""
 
@@ -1496,22 +1497,22 @@ msgid "about_partners_3_smb"
 msgstr ""
 
 #. Default: "Describe the specific measures required to reduce the risk."
-#: euphorie/client/browser/risk.py:299
+#: euphorie/client/browser/risk.py:290
 msgid "action_measures_false_solutions_false"
 msgstr ""
 
 #. Default: "Select or describe the specific measures required to reduce the risk."
-#: euphorie/client/browser/risk.py:291
+#: euphorie/client/browser/risk.py:282
 msgid "action_measures_false_solutions_true"
 msgstr ""
 
 #. Default: "Describe any further measure to reduce the risk."
-#: euphorie/client/browser/risk.py:282
+#: euphorie/client/browser/risk.py:273
 msgid "action_measures_true_solutions_false"
 msgstr ""
 
 #. Default: "Select or describe any further measure to reduce the risk."
-#: euphorie/client/browser/risk.py:274
+#: euphorie/client/browser/risk.py:265
 msgid "action_measures_true_solutions_true"
 msgstr ""
 
@@ -1652,7 +1653,7 @@ msgstr "Hætta við"
 
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:93
-#: euphorie/client/browser/webhelpers.py:781
+#: euphorie/client/browser/webhelpers.py:783
 msgid "button_close"
 msgstr "Loka"
 
@@ -2540,7 +2541,7 @@ msgstr ""
 
 #. Default: "Login"
 #: euphorie/client/browser/templates/login_form.pt:17
-#: euphorie/client/templates/shell.pt:107
+#: euphorie/client/templates/shell.pt:110
 #: euphorie/client/templates/tooltips.pt:8
 msgid "header_login"
 msgstr "Innskráning"
@@ -2663,7 +2664,7 @@ msgstr "Hve mörgum spurningum var svarað í hverjum flokki"
 
 #. Default: "Register"
 #: euphorie/client/browser/templates/register.pt:75
-#: euphorie/client/templates/shell.pt:108
+#: euphorie/client/templates/shell.pt:111
 msgid "header_register"
 msgstr "Stofna aðgang"
 
@@ -3304,9 +3305,9 @@ msgstr ""
 "Ef þú tiltekur ekki nafn hér, verður það tekið úr því sem hlaðið er niður"
 
 #. Default: "Dashboard"
-#: euphorie/client/templates/shell.pt:117
+#: euphorie/client/templates/shell.pt:120
 msgid "home_link"
-msgstr "Stjórnborð"
+msgstr "Mælaborð"
 
 #. Default: "Your login name and/or password were entered incorrectly. Please check and try again or ${request_an_email_reminder}."
 #: euphorie/client/browser/templates/login_form.pt:29
@@ -3584,7 +3585,7 @@ msgstr ""
 #. Default: "Action Plan"
 #: euphorie/client/browser/templates/login.pt:110
 #: euphorie/client/templates/report_identification.pt:145
-#: euphorie/client/templates/shell.pt:222
+#: euphorie/client/templates/shell.pt:225
 msgid "label_action_plan"
 msgstr "Aðgerðaáætlun"
 
@@ -3618,7 +3619,7 @@ msgid "label_action_plan_start"
 msgstr "Framkvæmdir/úrbætur hefjast"
 
 #. Default: "Assessment"
-#: euphorie/client/templates/shell.pt:196
+#: euphorie/client/templates/shell.pt:199
 msgid "label_assessment"
 msgstr ""
 
@@ -3766,7 +3767,7 @@ msgstr ""
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:38
 msgid "label_duplicate"
-msgstr "Afrita allt"
+msgstr "Afrita"
 
 #. Default: "Email address"
 #: euphorie/client/browser/reset_password.py:38
@@ -3788,7 +3789,7 @@ msgstr "Birta sérstaka tilkynningu fyrir þetta verkfæri"
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:108
 #: euphorie/client/templates/report_identification.pt:135
-#: euphorie/client/templates/shell.pt:194
+#: euphorie/client/templates/shell.pt:197
 msgid "label_evaluation"
 msgstr "Mat"
 
@@ -3895,7 +3896,7 @@ msgstr "Framkvæmd áhættumatsins"
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:106
 #: euphorie/client/templates/report_identification.pt:125
-#: euphorie/client/templates/shell.pt:192
+#: euphorie/client/templates/shell.pt:195
 msgid "label_identification"
 msgstr "Greining"
 
@@ -3920,7 +3921,7 @@ msgid "label_introduction"
 msgstr ""
 
 #. Default: "Involve"
-#: euphorie/client/templates/shell.pt:167
+#: euphorie/client/templates/shell.pt:170
 msgid "label_involve"
 msgstr ""
 
@@ -4124,7 +4125,7 @@ msgstr "Staðfesta lykilorð"
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:104
 #: euphorie/client/templates/report_identification.pt:113
-#: euphorie/client/templates/shell.pt:147
+#: euphorie/client/templates/shell.pt:150
 msgid "label_preparation"
 msgstr "Undirbúningur"
 
@@ -4212,7 +4213,7 @@ msgstr "Eyða þessari tillögu að úrbótum"
 #. Default: "Report"
 #: euphorie/client/templates/report_identification.pt:155
 #: euphorie/client/templates/report_landing.pt:79
-#: euphorie/client/templates/shell.pt:247
+#: euphorie/client/templates/shell.pt:250
 msgid "label_report"
 msgstr "Skýrsla"
 
@@ -4436,7 +4437,7 @@ msgid "label_surveygroup_title"
 msgstr "Nýtt heiti afritaðs OiRA verkfæris"
 
 #. Default: "Test session"
-#: euphorie/client/templates/shell.pt:99
+#: euphorie/client/templates/shell.pt:102
 msgid "label_testsession"
 msgstr ""
 
@@ -4670,7 +4671,7 @@ msgid "menu_import"
 msgstr "Flytja inn OiRA verkfæri"
 
 #. Default: "Training"
-#: euphorie/client/templates/shell.pt:268
+#: euphorie/client/templates/shell.pt:271
 msgid "menu_training"
 msgstr ""
 
@@ -4807,7 +4808,7 @@ msgstr "Stillingar"
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:46
 #: euphorie/client/browser/templates/webhelpers.pt:59
-#: euphorie/client/templates/shell.pt:294
+#: euphorie/client/templates/shell.pt:297
 msgid "navigation_status"
 msgstr "Staða"
 
@@ -4985,7 +4986,7 @@ msgid "probability_small"
 msgstr "Litlar"
 
 #. Default: "${completion_percentage}% Complete"
-#: euphorie/client/browser/webhelpers.py:277
+#: euphorie/client/browser/webhelpers.py:278
 msgid "progress_indicator_title"
 msgstr "${completion_percentage}% Lokið"
 
@@ -5440,7 +5441,7 @@ msgid "toc_header"
 msgstr "Innihald"
 
 #. Default: "Show/hide menu"
-#: euphorie/client/templates/shell.pt:90
+#: euphorie/client/templates/shell.pt:93
 msgid "tooltip_menu_toggle"
 msgstr "Sýna/fela valmynd"
 
