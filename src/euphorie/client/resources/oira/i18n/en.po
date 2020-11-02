@@ -1,99 +1,79 @@
 
-	#| msgid message_certificate_incentive
-	msgid "In certain European countries this certificate may be used to apply for a tax bonus or a reduced insurance fee."
-	msgstr "In certain European countries this certificate may be used to apply for a tax bonus or a reduced insurance fee."
+	#| msgid action_search
+	msgid "Search"
+	msgstr "Search"
 
-	#| msgid message_involve_workers_requirement
-	msgid "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href='https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction'>legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
-	msgstr "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href='https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction'>legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
+	#| msgid add_another_item
+	msgid "Add another item"
+	msgstr "Add another item"
 
-	#| msgid message_involve_workers_how_to
-	msgid "Decide on the best way to involve your staff! You can for example conduct a meeting or a focus group with workers and go through the respective parts in the risk assessment together. You can also download or print the content of the tool or parts of it and share it for information and feedback with your workers."
-	msgstr "Decide on the best way to involve your staff! You can for example conduct a meeting or a focus group with workers and go through the respective parts in the risk assessment together. You can also download or print the content of the tool or parts of it and share it for information and feedback with your workers."
+	#| msgid add_existing_measure
+	msgid "Add existing measure"
+	msgstr "Add existing measure"
 
-	#| msgid label_clone
-	msgid "Clone"
-	msgstr "Clone"
+	#| msgid add_existing_measures
+	msgid "add all measures that have already been implemented."
+	msgstr "add all measures that have already been implemented."
 
-	#| msgid title_ra_clone
-	msgid "Clone risk assessment"
-	msgstr "Clone risk assessment"
+	#| msgid add_missing_existing_measure
+	msgid "Add another measure implemented already"
+	msgstr "Add another measure implemented already"
 
-	#| msgid explanation_ra_clone
-	msgid "By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point."
-	msgstr "By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point."
+	#| msgid add_training_notes
+	msgid "Add your training notes here…"
+	msgstr "Add your training notes here…"
 
-	#| msgid explanation_ra_archive
-	msgid "By archiving this risk assessment it will become read only and hidden from view in overviews unless the ‘show archived risk assessments’ filter is applied."
-	msgstr "By archiving this risk assessment it will become read only and hidden from view in overviews unless the ‘show archived risk assessments’ filter is applied."
+	#| msgid additional_resources
+	msgid "Additional resources"
+	msgstr "Additional resources"
+
+	#| msgid are_you_sure
+	msgid "Are you sure you want to proceed?"
+	msgstr "Are you sure you want to proceed?"
+
+	#| msgid are_you_sure_delete
+	msgid "Are you sure you want to delete this session? This action can not be reverted."
+	msgstr "Are you sure you want to delete this session? This action can not be reverted."
+
+	#| msgid button_add
+	msgid "Add"
+	msgstr "Add"
+
+	#| msgid button_add_custom_risk
+	msgid "Add a custom risk"
+	msgstr "Add a custom risk"
+
+	#| msgid button_continue
+	msgid "Continue"
+	msgstr "Continue"
+
+	#| msgid button_save_and_continue
+	msgid "Save and continue"
+	msgstr "Save and continue"
+
+	#| msgid button_skip
+	msgid "Skip"
+	msgstr "Skip"
+
+	#| msgid cancel
+	msgid "Cancel"
+	msgstr "Cancel"
+
+	#| msgid comments
+	msgid "Comments"
+	msgstr "Comments"
+
+	#| msgid confirmation_ra_archive
+	msgid "Yes, archive risk assessment"
+	msgstr "Yes, archive risk assessment"
 
 	#| msgid confirmation_ra_clone
 	msgid "Yes, clone risk assessment"
 	msgstr "Yes, clone risk assessment"
 
-	#| msgid confirmation_unlock_ra
-	msgid "Yes, unlock"
-	msgstr "Yes, unlock"
-
-	#| msgid label_delete
-	msgid "Delete"
-	msgstr "Delete"
-
-	#| msgid label_involve
-	msgid "Involve"
-	msgstr "Involve"
-
-	#| msgid title_ra_delete
-	msgid "Delete risk assessment"
-	msgstr "Delete risk assessment"
-
-	#| msgid title_share_training
-	msgid "Share training"
-	msgstr "Share training"
-
-	#| msgid label_archive
-	msgid "Archive"
-	msgstr "Archive"
-
-	#| msgid title_ra_archive
-	msgid "Archive risk assessment"
-	msgstr "Archive risk assessment"
-
-	#| msgid title_risk_delete
-	msgid "Delete risk"
-	msgstr "Delete risk"
-
-	#| msgid title_our_contractors
-	msgid "Our contractors"
-	msgstr "Our contractors"
-
-	#| msgid message_assessment_state_will_change_to_documents_sent
-	msgid "The state of the risk assessment will change from "In progress" to “Briefing documents sent”. The risk assessment will be locked at this point, to prevent any futher changes."
-	msgstr "The state of the risk assessment will change from "In progress" to “Briefing documents sent”. The risk assessment will be locked at this point, to prevent any futher changes."
-
-	#| msgid message_briefing_documents_will_be_sent_to_address
-	msgid "Briefing documents will be send to <strong>thomas@syslab.com</strong> and <strong>cornelis@syslab.com</strong> (CC)."
-	msgstr "Briefing documents will be send to <strong>thomas@syslab.com</strong> and <strong>cornelis@syslab.com</strong> (CC)."
-
-	#| msgid explanation_ra_delete
-	msgid "This action will delete the risk assessment 'Private Security EU'. This cannot be reverted."
-	msgstr "This action will delete the risk assessment 'Private Security EU'. This cannot be reverted."
-
-	#| msgid message_intro_send_briefing_documents
-	msgid "If you proceed the following will happen."
-	msgstr "If you proceed the following will happen."
-
-	#| msgid explanation_briefing_documents
-	msgid "The briefing documents comprise the trainig notes and the report in PDF."
-	msgstr "The briefing documents comprise the trainig notes and the report in PDF."
-
 	#| msgid confirmation_ra_delete
 	msgid "Yes, delete risk assessment"
 	msgstr "Yes, delete risk assessment"
-
-	#| msgid confirmation_ra_archive
-	msgid "Yes, archive risk assessment"
-	msgstr "Yes, archive risk assessment"
 
 	#| msgid confirmation_risk_delete
 	msgid "Yes, delete risk"
@@ -103,177 +83,9 @@
 	msgid "Send briefing documents"
 	msgstr "Send briefing documents"
 
-	#| msgid are_you_sure
-	msgid "Are you sure you want to proceed?"
-	msgstr "Are you sure you want to proceed?"
-
-	#| msgid cancel
-	msgid "Cancel"
-	msgstr "Cancel"
-
-	#| msgid label_confirm
-	msgid "Confirm"
-	msgstr "Confirm"
-
-	#| msgid title_rename_session
-	msgid "Rename session"
-	msgstr "Rename session"
-
-	#| msgid rename
-	msgid "Rename"
-	msgstr "Rename"
-
-	#| msgid title_password_reminder
-	msgid "Password reminder"
-	msgstr "Password reminder"
-
-	#| msgid send_password_reminder
-	msgid "Send password reminder"
-	msgstr "Send password reminder"
-
-	#| msgid email_address
-	msgid "E-mail address"
-	msgstr "E-mail address"
-
-	#| msgid explanation_password_reminder
-	msgid "Please enter your email address. You will receive an e-mail with instructions for resetting your password."
-	msgstr "Please enter your email address. You will receive an e-mail with instructions for resetting your password."
-
-	#| msgid login
-	msgid "Login"
-	msgstr "Login"
-
-	#| msgid new_ra
-	msgid "New risk assessment"
-	msgstr "New risk assessment"
-
-	#| msgid start_new_ra
-	msgid "Start a new risk assessment"
-	msgstr "Start a new risk assessment"
-
-	#| msgid new_test_ra
-	msgid "New test session"
-	msgstr "New test session"
-
-	#| msgid start_test_ra
-	msgid "Start test session"
-	msgstr "Start test session"
-
-	#| msgid notice_read_only
-	msgid "You don't have edit rights for this risk assesment, but you can download this risk assessment in various forms in the <a href='/report-download.html'>download section</a>."
-	msgstr "You don't have edit rights for this risk assesment, but you can download this risk assessment in various forms in the <a href='/report-download.html'>download section</a>."
-
-	#| msgid notice_cannot_clone
-	msgid "Cloning is not enabled on this risk assessment."
-	msgstr "Cloning is not enabled on this risk assessment."
-
-	#| msgid label_existing_measures
-	msgid "Measures already implemented"
-	msgstr "Measures already implemented"
-
-	#| msgid label_select_existing_measures
-	msgid "Select or add any measures that are <strong>already implemented</strong>."
-	msgstr "Select or add any measures that are <strong>already implemented</strong>."
-
-	#| msgid label_select_applicable_options
-	msgid "Tick all the boxes that are applicable, or add new entries if requiried."
-	msgstr "Tick all the boxes that are applicable, or add new entries if requiried."
-
-	#| msgid label_archive_ra
-	msgid "Archive this risk assessment. This risk assessment will become read only and hidden from view in overviews unless the ‘show archived risk assessments’ filter is applied."
-	msgstr "Archive this risk assessment. This risk assessment will become read only and hidden from view in overviews unless the ‘show archived risk assessments’ filter is applied."
-
-	#| msgid label_send_briefing_documents_to_contractor
-	msgid "Send briefing documents to contractor"
-	msgstr "Send briefing documents to contractor"
-
-	#| msgid label_share_training
-	msgid "Share training"
-	msgstr "Share training"
-
-	#| msgid title_register_sample
-	msgid "Register sampling"
-	msgstr "Register sampling"
-
-	#| msgid title_register_onsite_inspection
-	msgid "Register on-site risk assessment"
-	msgstr "Register on-site risk assessment"
-
-	#| msgid question_measures_sufficient
-	msgid "Are the measures that are selected above sufficient?"
-	msgstr "Are the measures that are selected above sufficient?"
-
-	#| msgid label_no
-	msgid "No"
-	msgstr "No"
-
-	#| msgid label_yes
-	msgid "Yes"
-	msgstr "Yes"
-
-	#| msgid label_more
-	msgid "More…"
-	msgstr "More…"
-
-	#| msgid label_register
-	msgid "Register"
-	msgstr "Register"
-
-	#| msgid no_measures_required
-	msgid "No, more measures are required"
-	msgstr "No, more measures are required"
-
-	#| msgid yes_measures_required
-	msgid "Yes, preventive measures are required"
-	msgstr "Yes, preventive measures are required"
-
-	#| msgid yes_acceptable
-	msgid "Yes, the remaining risk is acceptable"
-	msgstr "Yes, the remaining risk is acceptable"
-
-	#| msgid not_applicable
-	msgid "Not applicable"
-	msgstr "Not applicable"
-
-	#| msgid on_is_accpetable
-	msgid "Is this risk acceptable?"
-	msgstr "Is this risk acceptable?"
-
-	#| msgid if_applicable
-	msgid "If applicable,"
-	msgstr "If applicable,"
-
-	#| msgid add_existing_measures
-	msgid "add all measures that have already been implemented."
-	msgstr "add all measures that have already been implemented."
-
-	#| msgid describe_risk
-	msgid "Describe the risk…"
-	msgstr "Describe the risk…"
-
-	#| msgid remove
-	msgid "Remove"
-	msgstr "Remove"
-
-	#| msgid remove_measure
-	msgid "Remove this already implemented measure"
-	msgstr "Remove this already implemented measure"
-
-	#| msgid add_existing_measure
-	msgid "Add existing measure"
-	msgstr "Add existing measure"
-
-	#| msgid add_standard_measure
-	msgid "Add standard measure"
-	msgstr "Add standard measure"
-
-	#| msgid add_another_item
-	msgid "Add another item"
-	msgstr "Add another item"
-
-	#| msgid add_missing_existing_measure
-	msgid "Add another measure implemented already"
-	msgstr "Add another measure implemented already"
+	#| msgid confirmation_unlock_ra
+	msgid "Yes, unlock"
+	msgstr "Yes, unlock"
 
 	#| msgid describe_item
 	msgid "Describe this item"
@@ -283,73 +95,121 @@
 	msgid "Describe a measure that is already in place but not yet listed here."
 	msgstr "Describe a measure that is already in place but not yet listed here."
 
-	#| msgid save
-	msgid "Save"
-	msgstr "Save"
+	#| msgid describe_risk
+	msgid "Describe the risk…"
+	msgstr "Describe the risk…"
 
-	#| msgid save_and_add_risk
-	msgid "Save and add new risk"
-	msgstr "Save and add new risk"
+	#| msgid description_automatic_evaluation
+	msgid "The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk – if you consider it necessary – in the action plan."
+	msgstr "The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk – if you consider it necessary – in the action plan."
 
-	#| msgid label_save_and_finish
-	msgid "Save and finish"
-	msgstr "Save and finish"
+	#| msgid description_calculated_evaluation
+	msgid "Please answer the following questions. As a result of your answers the system will calculate the priority of the risk. You will be able to modify the priority later."
+	msgstr "Please answer the following questions. As a result of your answers the system will calculate the priority of the risk. You will be able to modify the priority later."
 
-	#| msgid information
-	msgid "Information"
-	msgstr "Information"
+	#| msgid description_other_risks
+	msgid "In case you didn't find a risk that you have identified in your company, you are able to add it to your own risk assessment now:"
+	msgstr "In case you didn't find a risk that you have identified in your company, you are able to add it to your own risk assessment now:"
 
-	#| msgid resources
-	msgid "Resources"
-	msgstr "Resources"
+	#| msgid email_address
+	msgid "E-mail address"
+	msgstr "E-mail address"
 
-	#| msgid training_material
-	msgid "Training material"
-	msgstr "Training material"
+	#| msgid expl_actionplan_1
+	msgid "After having identified the risks, you need to put an action plan in place to manage the risks. To eliminate or reduce risks you need to determine which preventive and protective measures are to be taken."
+	msgstr "After having identified the risks, you need to put an action plan in place to manage the risks. To eliminate or reduce risks you need to determine which preventive and protective measures are to be taken."
 
-	#| msgid add_training_notes
-	msgid "Add your training notes here…"
-	msgstr "Add your training notes here…"
+	#| msgid expl_actionplan_2
+	msgid "Among the things to be considered for this step are:"
+	msgstr "Among the things to be considered for this step are:"
 
-	#| msgid comments
-	msgid "Comments"
-	msgstr "Comments"
+	#| msgid expl_actionplan_3
+	msgid "Is a risk avoidable? Can it be removed entirely? For example, this could be achieved by:"
+	msgstr "Is a risk avoidable? Can it be removed entirely? For example, this could be achieved by:"
 
-	#| msgid placeholder_comment
-	msgid "Enter any comments that you might like to add to the risk above."
-	msgstr "Enter any comments that you might like to add to the risk above."
+	#| msgid expl_actionplan_4
+	msgid "considering whether the task or job is necessary"
+	msgstr "considering whether the task or job is necessary"
 
-	#| msgid legal_references
-	msgid "Legal references"
-	msgstr "Legal references"
+	#| msgid expl_actionplan_5
+	msgid "removing the hazard"
+	msgstr "removing the hazard"
 
-	#| msgid additional_resources
-	msgid "Additional resources"
-	msgstr "Additional resources"
+	#| msgid expl_actionplan_6
+	msgid "If certain risks are not avoidable, how can they be reduced to a level at which the health and safety of those exposed is not compromised?"
+	msgstr "If certain risks are not avoidable, how can they be reduced to a level at which the health and safety of those exposed is not compromised?"
 
-	#| msgid other_risks
-	msgid "Other risks"
-	msgstr "Other risks"
+	#| msgid expl_actionplan_7
+	msgid "Once you have decided how to eliminate or reduce a particular risk, then you describe the specific action(s) required to achieve this. You should also include details of the level of expertise and/or other requirements needed for those actions to be effective."
+	msgstr "Once you have decided how to eliminate or reduce a particular risk, then you describe the specific action(s) required to achieve this. You should also include details of the level of expertise and/or other requirements needed for those actions to be effective."
 
-	#| msgid unvisited
-	msgid "Unvisited"
-	msgstr "Unvisited"
+	#| msgid expl_profile
+	msgid "In order to tailor the risk assessment to your organisation you may be asked to:"
+	msgstr "In order to tailor the risk assessment to your organisation you may be asked to:"
 
-	#| msgid unanswered
-	msgid "Unanswered"
-	msgstr "Unanswered"
+	#| msgid expl_profile_bullet1
+	msgid "select or skip situation(s) relevant or not to your business activity and tick the box(es) if appropriate"
+	msgstr "select or skip situation(s) relevant or not to your business activity and tick the box(es) if appropriate"
 
-	#| msgid no_risk
-	msgid "No risk"
-	msgstr "No risk"
+	#| msgid expl_profile_bullet2
+	msgid "list multiple business units, or branches, or stores, etc. These related risks will be repeated for each name you have entered."
+	msgstr "list multiple business units, or branches, or stores, etc. These related risks will be repeated for each name you have entered."
 
-	#| msgid postponed
-	msgid "Postponed"
-	msgstr "Postponed"
+	#| msgid explanation_briefing_documents
+	msgid "The briefing documents comprise the trainig notes and the report in PDF."
+	msgstr "The briefing documents comprise the trainig notes and the report in PDF."
 
-	#| msgid answered
-	msgid "Answered"
-	msgstr "Answered"
+	#| msgid explanation_password_reminder
+	msgid "Please enter your email address. You will receive an e-mail with instructions for resetting your password."
+	msgstr "Please enter your email address. You will receive an e-mail with instructions for resetting your password."
+
+	#| msgid explanation_ra_archive
+	msgid "By archiving this risk assessment it will become read only and hidden from view in overviews unless the ‘show archived risk assessments’ filter is applied."
+	msgstr "By archiving this risk assessment it will become read only and hidden from view in overviews unless the ‘show archived risk assessments’ filter is applied."
+
+	#| msgid explanation_ra_clone
+	msgid "By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point."
+	msgstr "By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point."
+
+	#| msgid explanation_ra_delete
+	msgid "This action will delete the risk assessment 'Private Security EU'. This cannot be reverted."
+	msgstr "This action will delete the risk assessment 'Private Security EU'. This cannot be reverted."
+
+	#| msgid explanation_risk_delete
+	msgid "You are about to delete the risk:"
+	msgstr "You are about to delete the risk:"
+
+	#| msgid explanation_session_locked
+	msgid "If you want to make any changes to this risk assessment, then you should unlock it first."
+	msgstr "If you want to make any changes to this risk assessment, then you should unlock it first."
+
+	#| msgid header_questions_answered
+	msgid "Questions answered per module"
+	msgstr "Questions answered per module"
+
+	#| msgid header_reporting
+	msgid "Reporting"
+	msgstr "Reporting"
+
+	#| msgid header_risk_frequency
+	msgid "How often are people exposed to this risk?"
+	msgstr "How often are people exposed to this risk?"
+
+	#| msgid header_risk_probability
+	msgid "What is the chance of this risk occurring?"
+	msgstr "What is the chance of this risk occurring?"
+
+	#| msgid header_risk_severity
+	msgid "What is the severity of the damage?"
+	msgstr "What is the severity of the damage?"
+
+	#| msgid heading_high_prio_risks
+	msgid "High priority risks"
+	msgstr "High priority risks"
+
+	#| msgid higher_ranking_ras
+	msgid "Higher-ranking assessments"
+	msgstr "Higher-ranking assessments"
 
 	#| msgid identified
 	msgid "Risk identified"
@@ -359,333 +219,105 @@
 	msgid "Risk with measures"
 	msgstr "Risk with measures"
 
-	#| msgid button_save_and_continue
-	msgid "Save and continue"
-	msgstr "Save and continue"
+	#| msgid if_applicable
+	msgid "Is this risk acceptable or under control? If applicable,"
+	msgstr "Is this risk acceptable or under control? If applicable,"
 
-	#| msgid button_continue
-	msgid "Continue"
-	msgstr "Continue"
+	#| msgid information
+	msgid "Information"
+	msgstr "Information"
 
-	#| msgid button_skip
-	msgid "Skip"
-	msgstr "Skip"
-
-	#| msgid ra_with_this_tool
-	msgid "Risk assessments made with this tool"
-	msgstr "Risk assessments made with this tool"
-
-	#| msgid start_new_ra_with_this_tool
-	msgid "Start a new risk assessment with this tool"
-	msgstr "Start a new risk assessment with this tool"
-
-	#| msgid to_sign_off
-	msgid "To sign off"
-	msgstr "To sign off"
-
-	#| msgid higher_ranking_ras
-	msgid "Higher-ranking assessments"
-	msgstr "Higher-ranking assessments"
-
-	#| msgid select_earlier_session
-	msgid "Select an earlier risk assessment to complete or review or"
-	msgstr "Select an earlier risk assessment to complete or review or"
-
-	#| msgid start_new_session
-	msgid "start a new session"
-	msgstr "start a new session"
-
-	#| msgid my_ras
-	msgid "My risk assessments"
-	msgstr "My risk assessments"
-
-	#| msgid last_saved
-	msgid "Last saved"
-	msgstr "Last saved"
-
-	#| msgid label_started
-	msgid "Started"
-	msgstr "Started"
-
-	#| msgid label_last_modified
-	msgid "Last modified"
-	msgstr "Last modified"
-
-	#| msgid label_last_published
-	msgid "Last published"
-	msgstr "Last published"
-
-	#| msgid label_last_sampled
-	msgid "Last sampled"
-	msgstr "Last sampled"
-
-	#| msgid label_new_sample_required
-	msgid "A new sample is required."
-	msgstr "A new sample is required."
-
-	#| msgid label_last_on_site
-	msgid "Last on-site risk assessment"
-	msgstr "Last on-site risk assessment"
-
-	#| msgid label_sampling
-	msgid "Sampling"
-	msgstr "Sampling"
-
-	#| msgid label_on_site_ras
-	msgid "On-site assessments"
-	msgstr "On-site assessments"
-
-	#| msgid label_notes
-	msgid "Notes"
-	msgstr "Notes"
-
-	#| msgid label_date_of_sample
-	msgid "Date of sample"
-	msgstr "Date of sample"
-
-	#| msgid label_date_of_onsite_inspection
-	msgid "Date of on-site inspection"
-	msgstr "Date of on-site inspection"
-
-	#| msgid create_new_session
-	msgid "Start a new session"
-	msgstr "Start a new session"
-
-	#| msgid recommended_tools
-	msgid "Recommended tools"
-	msgstr "Recommended tools"
-
-	#| msgid start_session_by_selecting
-	msgid "Start a new risk assessments using one of the following tools."
-	msgstr "Start a new risk assessments using one of the following tools."
-
-	#| msgid title_delete_risk
-	msgid "Delete risk"
-	msgstr "Delete risk"
-
-	#| msgid explanation_risk_delete
-	msgid "You are about to delete the risk: “{{ risk_title }}”."
-	msgstr "You are about to delete the risk: “{{ risk_title }}”."
-
-	#| msgid label_ra_title
-	msgid "Enter a name for your risk assessment"
-	msgstr "Enter a name for your risk assessment"
-
-	#| msgid link_learn_more_about_tool
-	msgid "Learn more about this tool…"
-	msgstr "Learn more about this tool…"
-
-	#| msgid label_preparation
-	msgid "Preparation"
-	msgstr "Preparation"
-
-	#| msgid label_identification
-	msgid "Identification + Evaluation"
-	msgstr "Identification + Evaluation"
-
-	#| msgid label_assessment
-	msgid "Assessment"
-	msgstr "Assessment"
+	#| msgid label_about_this_risk
+	msgid "about this risk."
+	msgstr "about this risk."
 
 	#| msgid label_action_plan
 	msgid "Action Plan"
 	msgstr "Action Plan"
 
-	#| msgid label_report
-	msgid "Report"
-	msgstr "Report"
+	#| msgid label_action_plan_budget
+	msgid "Budget"
+	msgstr "Budget"
 
-	#| msgid label_training
-	msgid "Training"
-	msgstr "Training"
+	#| msgid label_action_plan_end
+	msgid "Planning end"
+	msgstr "Planning end"
 
-	#| msgid label_status
-	msgid "Status"
-	msgstr "Status"
+	#| msgid label_action_plan_responsible
+	msgid "Who is responsible?"
+	msgstr "Who is responsible?"
 
-	#| msgid label_help
-	msgid "Help"
-	msgstr "Help"
+	#| msgid label_action_plan_start
+	msgid "Planning start"
+	msgstr "Planning start"
 
-	#| msgid label_third_party_companies
-	msgid "Third party companies"
-	msgstr "Third party companies"
-
-	#| msgid label_third_party_company_coordination
-	msgid "Third party company coordination"
-	msgstr "Third party company coordination"
-
-	#| msgid message_register_sample
-	msgid "Register sampling this risk assessment."
-	msgstr "Register sampling this risk assessment."
-
-	#| msgid message_register_onsite_inspection
-	msgid "Register an on-site inspection for this risk assessment."
-	msgstr "Register an on-site inspection for this risk assessment."
-
-	#| msgid label_start_date
-	msgid "Start date"
-	msgstr "Start date"
-
-	#| msgid label_end_date
-	msgid "End date"
-	msgstr "End date"
-
-	#| msgid label_standing_order
-	msgid "Standing order"
-	msgstr "Standing order"
-
-	#| msgid probe_no_risk
-	msgid "Not required (No risk)"
-	msgstr "Not required (No risk)"
-
-	#| msgid probe_high_risk
-	msgid "7 days (High risk)"
-	msgstr "7 days (High risk)"
-
-	#| msgid probe_medium_risk
-	msgid "14 days (Medium risk)"
-	msgstr "14 days (Medium risk)"
-
-	#| msgid probe_low_risk
-	msgid "30 days (Low risk)"
-	msgstr "30 days (Low risk)"
-
-	#| msgid probe_custom_interval
-	msgid "Other"
-	msgstr "Other"
-
-	#| msgid label_days
-	msgid "days"
-	msgstr "days"
-
-	#| msgid label_received_briefing_documents_confirmed
-	msgid "Confirm reception of briefing documents by contractor"
-	msgstr "Confirm reception of briefing documents by contractor"
-
-	#| msgid label_filters
-	msgid "Filters"
-	msgstr "Filters"
-
-	#| msgid label_authored_by
-	msgid "Authored by…"
-	msgstr "Authored by…"
-
-	#| msgid label_hide_unarchived_ras
-	msgid "Hide archived risk assessments"
-	msgstr "Hide archived risk assessments"
-
-	#| msgid label_any_user
-	msgid "Any user"
-	msgstr "Any user"
-
-	#| msgid label_me
-	msgid "Me"
-	msgstr "Me"
-
-	#| msgid label_waiting_for_confimation
-	msgid "Waiting for confirmation"
-	msgstr "Waiting for confirmation"
-
-	#| msgid message_waiting_for_confimation
-	msgid "These risk assessments are waiting for a confirmation that the contractor has received the briefing documents."
-	msgstr "These risk assessments are waiting for a confirmation that the contractor has received the briefing documents."
-
-	#| msgid label_documents_sent
-	msgid "Documents sent"
-	msgstr "Documents sent"
-
-	#| msgid message_session_locked_v2
-	msgid "This risk assessment is locked because the briefing documents were already sent to the contractor."
-	msgstr "This risk assessment is locked because the briefing documents were already sent to the contractor."
-
-	#| msgid message_session_locked_v3
-	msgid "This risk assessment is locked because the briefing documents were already sent to and approved by the contractor."
-	msgstr "This risk assessment is locked because the briefing documents were already sent to and approved by the contractor."
-
-	#| msgid explanation_session_locked
-	msgid "If you want to make any changes to this risk assessment, then you should unlock it first."
-	msgstr "If you want to make any changes to this risk assessment, then you should unlock it first."
-
-	#| msgid label_unlock_session
-	msgid "Unlock this risk assessment"
-	msgstr "Unlock this risk assessment"
-
-	#| msgid message_you_are_about_to_unlock
-	msgid "You are about to unlock the risk assessment <strong>“Einweisung Fremdfirmen: Reinigungskräfte”</strong>."
-	msgstr "You are about to unlock the risk assessment <strong>“Einweisung Fremdfirmen: Reinigungskräfte”</strong>."
-
-	#| msgid message_you_are_about_to_unlock_explanation
-	msgid "This risk assessment is locked because the briefing documents were already sent to the contractor."
-	msgstr "This risk assessment is locked because the briefing documents were already sent to the contractor."
-
-	#| msgid message_you_are_about_to_unlock_consequences
-	msgid "After you unlock, you will have to resend the briefing documents to the contractor for validation."
-	msgstr "After you unlock, you will have to resend the briefing documents to the contractor for validation."
-
-	#| msgid label_name_ra
-	msgid "Name of risk assessment"
-	msgstr "Name of risk assessment"
-
-	#| msgid placeholder_search_contractor_name_number
-	msgid "Search a contractor by name or contractor number"
-	msgstr "Search a contractor by name or contractor number"
-
-	#| msgid placeholder_search_contractor_name
-	msgid "Search a contractor by name"
-	msgstr "Search a contractor by name"
-
-	#| msgid label_show_archived
-	msgid "Show archived risk assessments"
-	msgstr "Show archived risk assessments"
-
-	#| msgid label_all_ra_types
-	msgid "All types of risk assessments"
-	msgstr "All types of risk assessments"
-
-	#| msgid label_regular_ra_types
-	msgid "Only regular risk assessments"
-	msgstr "Only regular risk assessments"
-
-	#| msgid label_ff_ra_types
-	msgid "Only contractor risk assessments"
-	msgstr "Only contractor risk assessments"
-
-	#| msgid label_expand_sidebar
-	msgid "Expand sidebar"
-	msgstr "Expand sidebar"
-
-	#| msgid label_general_information
-	msgid "General information"
-	msgstr "General information"
-
-	#| msgid label_used_tool
-	msgid "Used tool"
-	msgstr "Used tool"
-
-	#| msgid action_search
-	msgid "Search"
-	msgstr "Search"
-
-	#| msgid label_search
-	msgid "Search"
-	msgstr "Search"
-
-	#| msgid label_standard_search
-	msgid "Standard search"
-	msgstr "Standard search"
+	#| msgid label_addition_measure
+	msgid "Additional measure"
+	msgstr "Additional measure"
 
 	#| msgid label_advanced_search
 	msgid "Advanced search"
 	msgstr "Advanced search"
 
-	#| msgid label_new_search_rule
-	msgid "Add another search rule"
-	msgstr "Add another search rule"
+	#| msgid label_all_ra_types
+	msgid "All types of risk assessments"
+	msgstr "All types of risk assessments"
+
+	#| msgid label_almost_done
+	msgid "Almost done…"
+	msgstr "Almost done…"
+
+	#| msgid label_almost_never
+	msgid "Almost never"
+	msgstr "Almost never"
+
+	#| msgid label_and
+	msgid "And…"
+	msgstr "And…"
 
 	#| msgid label_any_text_field
 	msgid "Any text field"
 	msgstr "Any text field"
+
+	#| msgid label_any_user
+	msgid "Any user"
+	msgstr "Any user"
+
+	#| msgid label_archive
+	msgid "Archive"
+	msgstr "Archive"
+
+	#| msgid label_archive_ra
+	msgid "Archive this risk assessment. This risk assessment will become read only and hidden from view in overviews unless the ‘show archived risk assessments’ filter is applied."
+	msgstr "Archive this risk assessment. This risk assessment will become read only and hidden from view in overviews unless the ‘show archived risk assessments’ filter is applied."
+
+	#| msgid label_assessment
+	msgid "Assessment"
+	msgstr "Assessment"
+
+	#| msgid label_authored_by
+	msgid "Authored by…"
+	msgstr "Authored by…"
+
+	#| msgid label_available_tools
+	msgid "Available OiRA tools"
+	msgstr "Available OiRA tools"
+
+	#| msgid label_clone
+	msgid "Clone"
+	msgstr "Clone"
+
+	#| msgid label_confirm
+	msgid "Confirm"
+	msgstr "Confirm"
+
+	#| msgid label_confirm_recipients
+	msgid "Confirm that you've received an e-mail back from one or more recipients stating to agree with the terms."
+	msgstr "Confirm that you've received an e-mail back from one or more recipients stating to agree with the terms."
+
+	#| msgid label_constantly
+	msgid "Constantly"
+	msgstr "Constantly"
 
 	#| msgid label_contains
 	msgid "Contains"
@@ -695,6 +327,50 @@
 	msgid "Does not contain"
 	msgstr "Does not contain"
 
+	#| msgid label_continue_action_plan
+	msgid "Continue to action plan"
+	msgstr "Continue to action plan"
+
+	#| msgid label_create_action_plan
+	msgid "Create action plan"
+	msgstr "Create action plan"
+
+	#| msgid label_date_of_onsite_inspection
+	msgid "Date of on-site inspection"
+	msgstr "Date of on-site inspection"
+
+	#| msgid label_date_of_sample
+	msgid "Date of sample"
+	msgstr "Date of sample"
+
+	#| msgid label_days
+	msgid "days"
+	msgstr "days"
+
+	#| msgid label_delete
+	msgid "Delete"
+	msgstr "Delete"
+
+	#| msgid label_description
+	msgid "Description"
+	msgstr "Description"
+
+	#| msgid label_documents_sent
+	msgid "Documents sent"
+	msgstr "Documents sent"
+
+	#| msgid label_done_training_slides
+	msgid "You're done with the training slides!"
+	msgstr "You're done with the training slides!"
+
+	#| msgid label_download_pptx
+	msgid "Download as PowerPoint file"
+	msgstr "Download as PowerPoint file"
+
+	#| msgid label_end_date
+	msgid "End date"
+	msgstr "End date"
+
 	#| msgid label_equals
 	msgid "Equals"
 	msgstr "Equals"
@@ -703,65 +379,29 @@
 	msgid "Does not equal"
 	msgstr "Does not equal"
 
-	#| msgid label_and
-	msgid "And…"
-	msgstr "And…"
+	#| msgid label_evaluation
+	msgid "Evaluation"
+	msgstr "Evaluation"
 
-	#| msgid label_or
-	msgid "Or…"
-	msgstr "Or…"
+	#| msgid label_expand_sidebar
+	msgid "Expand sidebar"
+	msgstr "Expand sidebar"
 
-	#| msgid label_is
-	msgid "Is"
-	msgstr "Is"
+	#| msgid label_expertise
+	msgid "Expertise"
+	msgstr "Expertise"
 
-	#| msgid label_is_before
-	msgid "Is before"
-	msgstr "Is before"
+	#| msgid label_extra_add_measure
+	msgid "Add an extra measure"
+	msgstr "Add an extra measure"
 
-	#| msgid label_is_after
-	msgid "Is after"
-	msgstr "Is after"
+	#| msgid label_ff_ra_types
+	msgid "Only contractor risk assessments"
+	msgstr "Only contractor risk assessments"
 
-	#| msgid label_confirm_recipients
-	msgid "Confirm that you've received an e-mail back from one or more recipients stating to agree with the terms."
-	msgstr "Confirm that you've received an e-mail back from one or more recipients stating to agree with the terms."
-
-	#| msgid label_recipients_replied
-	msgid "Recipient(s) who replied"
-	msgstr "Recipient(s) who replied"
-
-	#| msgid label_take_training
-	msgid "Take training"
-	msgstr "Take training"
-
-	#| msgid label_download_pptx
-	msgid "Download as PowerPoint file"
-	msgstr "Download as PowerPoint file"
-
-	#| msgid label_almost_done
-	msgid "Almost done…"
-	msgstr "Almost done…"
-
-	#| msgid label_done_training_slides
-	msgid "You're done with the training slides!"
-	msgstr "You're done with the training slides!"
-
-	#| msgid label_training_answer_questions
-	msgid "You can now answer a few questions to prove that you master this topic and earn your certificate."
-	msgstr "You can now answer a few questions to prove that you master this topic and earn your certificate."
-
-	#| msgid label_training_start_questions
-	msgid "Start the questions"
-	msgstr "Start the questions"
-
-	#| msgid label_training_congratulations
-	msgid "Congratulations, you have now earned your certificate for this topic."
-	msgstr "Congratulations, you have now earned your certificate for this topic."
-
-	#| msgid label_training_achievement_listed
-	msgid "Your achievement will be listed under “My trainings” in the training portlet on the dashboard. From there you can always view or print your certificate if you like."
-	msgstr "Your achievement will be listed under “My trainings” in the training portlet on the dashboard. From there you can always view or print your certificate if you like."
+	#| msgid label_filters
+	msgid "Filters"
+	msgstr "Filters"
 
 	#| msgid label_finish
 	msgid "Finish"
@@ -771,26 +411,638 @@
 	msgid "Finish and earn certificate"
 	msgstr "Finish and earn certificate"
 
-	#| msgid label_print
-	msgid "Print"
-	msgstr "Print"
+	#| msgid label_general_information
+	msgid "General information"
+	msgstr "General information"
 
-	#| msgid title_recent_ff_ras
-	msgid "Recently treated external companies"
-	msgstr "Recently treated external companies"
+	#| msgid label_help
+	msgid "Help"
+	msgstr "Help"
 
-	#| msgid label_sample_every
-	msgid "Sample every"
-	msgstr "Sample every"
+	#| msgid label_hide_unarchived_ras
+	msgid "Hide archived risk assessments"
+	msgstr "Hide archived risk assessments"
+
+	#| msgid label_high
+	msgid "High"
+	msgstr "High"
+
+	#| msgid label_high_severity
+	msgid "High (very high) severity"
+	msgstr "High (very high) severity"
 
 	#| msgid label_history
 	msgid "History"
 	msgstr "History"
 
+	#| msgid label_identification
+	msgid "Identification"
+	msgstr "Identification"
+
+	#| msgid label_implemented_measure
+	msgid "Implemented measure"
+	msgstr "Implemented measure"
+
+	#| msgid label_involve
+	msgid "Involve"
+	msgstr "Involve"
+
+	#| msgid label_is
+	msgid "Is"
+	msgstr "Is"
+
+	#| msgid label_is_after
+	msgid "Is after"
+	msgstr "Is after"
+
+	#| msgid label_is_before
+	msgid "Is before"
+	msgstr "Is before"
+
+	#| msgid label_large
+	msgid "Large"
+	msgstr "Large"
+
+	#| msgid label_last_modified
+	msgid "Last modified"
+	msgstr "Last modified"
+
+	#| msgid label_last_on_site
+	msgid "Last on-site risk assessment"
+	msgstr "Last on-site risk assessment"
+
+	#| msgid label_last_published
+	msgid "Last published"
+	msgstr "Last published"
+
+	#| msgid label_last_sampled
+	msgid "Last sampled"
+	msgstr "Last sampled"
+
+	#| msgid label_low
+	msgid "Low"
+	msgstr "Low"
+
+	#| msgid label_me
+	msgid "Me"
+	msgstr "Me"
+
+	#| msgid label_medium
+	msgid "Medium"
+	msgstr "Medium"
+
+	#| msgid label_more
+	msgid "More…"
+	msgstr "More…"
+
+	#| msgid label_name_ra
+	msgid "Name of risk assessment"
+	msgstr "Name of risk assessment"
+
+	#| msgid label_new_sample_required
+	msgid "A new sample is required."
+	msgstr "A new sample is required."
+
+	#| msgid label_new_search_rule
+	msgid "Add another search rule"
+	msgstr "Add another search rule"
+
+	#| msgid label_next
+	msgid "Next"
+	msgstr "Next"
+
+	#| msgid label_no
+	msgid "No"
+	msgstr "No"
+
+	#| msgid label_notes
+	msgid "Notes"
+	msgstr "Notes"
+
+	#| msgid label_on_site_ras
+	msgid "On-site assessments"
+	msgstr "On-site assessments"
+
+	#| msgid label_or
+	msgid "Or…"
+	msgstr "Or…"
+
+	#| msgid label_preparation
+	msgid "Preparation"
+	msgstr "Preparation"
+
+	#| msgid label_previous
+	msgid "Previous"
+	msgstr "Previous"
+
+	#| msgid label_print
+	msgid "Print"
+	msgstr "Print"
+
+	#| msgid label_profiling
+	msgid "Tailor the risk assessment to your organisation"
+	msgstr "Tailor the risk assessment to your organisation"
+
 	#| msgid label_ra_history
 	msgid "Risk assessment history"
 	msgstr "Risk assessment history"
 
+	#| msgid label_ra_title
+	msgid "Enter a name for your risk assessment"
+	msgstr "Enter a name for your risk assessment"
+
+	#| msgid label_read_more
+	msgid "Read more"
+	msgstr "Read more"
+
+	#| msgid label_received_briefing_documents_confirmed
+	msgid "Confirm reception of briefing documents by contractor"
+	msgstr "Confirm reception of briefing documents by contractor"
+
+	#| msgid label_recipients_replied
+	msgid "Recipient(s) who replied"
+	msgstr "Recipient(s) who replied"
+
+	#| msgid label_register
+	msgid "Register"
+	msgstr "Register"
+
+	#| msgid label_regular_ra_types
+	msgid "Only regular risk assessments"
+	msgstr "Only regular risk assessments"
+
+	#| msgid label_regularly
+	msgid "Regularly"
+	msgstr "Regularly"
+
+	#| msgid label_report
+	msgid "Report"
+	msgstr "Report"
+
+	#| msgid label_report_comment
+	msgid "Please leave any extra comments that should be included in the report in this field."
+	msgstr "Please leave any extra comments that should be included in the report in this field."
+
+	#| msgid label_sample_every
+	msgid "Sample every"
+	msgstr "Sample every"
+
+	#| msgid label_sampling
+	msgid "Sampling"
+	msgstr "Sampling"
+
+	#| msgid label_save_and_finish
+	msgid "Save and finish"
+	msgstr "Save and finish"
+
+	#| msgid label_search
+	msgid "Search"
+	msgstr "Search"
+
+	#| msgid label_select_applicable_options
+	msgid "Tick all the boxes that are applicable, or add new entries if requiried."
+	msgstr "Tick all the boxes that are applicable, or add new entries if requiried."
+
+	#| msgid label_select_existing_measures
+	msgid "Select or add any measures that are <strong>already implemented</strong>."
+	msgstr "Select or add any measures that are <strong>already implemented</strong>."
+
+	#| msgid label_select_measure
+	msgid "Select one or more standard solutions to add to your action plan."
+	msgstr "Select one or more standard solutions to add to your action plan."
+
+	#| msgid label_select_risk_priority
+	msgid "Select the priority of this risk"
+	msgstr "Select the priority of this risk"
+
+	#| msgid label_select_standard_measures
+	msgid "Select standard measures"
+	msgstr "Select standard measures"
+
+	#| msgid label_send_briefing_documents_to_contractor
+	msgid "Send briefing documents to contractor"
+	msgstr "Send briefing documents to contractor"
+
+	#| msgid label_share_training
+	msgid "Share training"
+	msgstr "Share training"
+
+	#| msgid label_show_archived
+	msgid "Show archived risk assessments"
+	msgstr "Show archived risk assessments"
+
+	#| msgid label_significant_severity
+	msgid "Significant severity"
+	msgstr "Significant severity"
+
+	#| msgid label_small
+	msgid "Small"
+	msgstr "Small"
+
+	#| msgid label_standard_measures
+	msgid "Standard measures"
+	msgstr "Standard measures"
+
+	#| msgid label_standard_search
+	msgid "Standard search"
+	msgstr "Standard search"
+
+	#| msgid label_standing_order
+	msgid "Standing order"
+	msgstr "Standing order"
+
+	#| msgid label_start_date
+	msgid "Start date"
+	msgstr "Start date"
+
+	#| msgid label_start_ra
+	msgid "Start risk assessment"
+	msgstr "Start risk assessment"
+
+	#| msgid label_started
+	msgid "Started"
+	msgstr "Started"
+
+	#| msgid label_status
+	msgid "Status"
+	msgstr "Status"
+
+	#| msgid label_take_training
+	msgid "Take training"
+	msgstr "Take training"
+
+	#| msgid label_third_party_companies
+	msgid "Third party companies"
+	msgstr "Third party companies"
+
+	#| msgid label_third_party_company_coordination
+	msgid "Third party company coordination"
+	msgstr "Third party company coordination"
+
+	#| msgid label_this_is_a
+	msgid "This is a"
+	msgstr "This is a"
+
+	#| msgid label_this_is_a_xx_priority_risk
+	msgid "priority risk."
+	msgstr "priority risk."
+
+	#| msgid label_title
+	msgid "Title"
+	msgstr "Title"
+
 	#| msgid label_topics
 	msgid "Topics"
 	msgstr "Topics"
+
+	#| msgid label_training
+	msgid "Training"
+	msgstr "Training"
+
+	#| msgid label_training_achievement_listed
+	msgid "Your achievement will be listed under “My trainings” in the training portlet on the dashboard. From there you can always view or print your certificate if you like."
+	msgstr "Your achievement will be listed under “My trainings” in the training portlet on the dashboard. From there you can always view or print your certificate if you like."
+
+	#| msgid label_training_answer_questions
+	msgid "You can now answer a few questions to prove that you master this topic and earn your certificate."
+	msgstr "You can now answer a few questions to prove that you master this topic and earn your certificate."
+
+	#| msgid label_training_congratulations
+	msgid "Congratulations, you have now earned your certificate for this topic."
+	msgstr "Congratulations, you have now earned your certificate for this topic."
+
+	#| msgid label_training_start_questions
+	msgid "Start the questions"
+	msgstr "Start the questions"
+
+	#| msgid label_unlock_session
+	msgid "Unlock this risk assessment"
+	msgstr "Unlock this risk assessment"
+
+	#| msgid label_upload_image
+	msgid "Upload image"
+	msgstr "Upload image"
+
+	#| msgid label_used_tool
+	msgid "Used tool"
+	msgstr "Used tool"
+
+	#| msgid label_waiting_for_confimation
+	msgid "Waiting for confirmation"
+	msgstr "Waiting for confirmation"
+
+	#| msgid label_weak_severity
+	msgid "Weak severity"
+	msgstr "Weak severity"
+
+	#| msgid label_yes
+	msgid "Yes"
+	msgstr "Yes"
+
+	#| msgid last_saved
+	msgid "Last saved"
+	msgstr "Last saved"
+
+	#| msgid legal_references
+	msgid "Legal references"
+	msgstr "Legal references"
+
+	#| msgid link_learn_more_about_tool
+	msgid "Learn more about this tool…"
+	msgstr "Learn more about this tool…"
+
+	#| msgid login
+	msgid "Login"
+	msgstr "Login"
+
+	#| msgid message_assessment_state_will_change_to_documents_sent
+	msgid "The state of the risk assessment will change from "In progress" to “Briefing documents sent”. The risk assessment will be locked at this point, to prevent any futher changes."
+	msgstr "The state of the risk assessment will change from "In progress" to “Briefing documents sent”. The risk assessment will be locked at this point, to prevent any futher changes."
+
+	#| msgid message_briefing_documents_will_be_sent_to_address
+	msgid "Briefing documents will be send to <strong>thomas@syslab.com</strong> and <strong>cornelis@syslab.com</strong> (CC)."
+	msgstr "Briefing documents will be send to <strong>thomas@syslab.com</strong> and <strong>cornelis@syslab.com</strong> (CC)."
+
+	#| msgid message_certificate_incentive
+	msgid "In certain European countries this certificate may be used to apply for a tax bonus or a reduced insurance fee."
+	msgstr "In certain European countries this certificate may be used to apply for a tax bonus or a reduced insurance fee."
+
+	#| msgid message_intro_send_briefing_documents
+	msgid "If you proceed the following will happen."
+	msgstr "If you proceed the following will happen."
+
+	#| msgid message_involve_workers_how_to
+	msgid "Decide on the best way to involve your staff! You can for example conduct a meeting or a focus group with workers and go through the respective parts in the risk assessment together. You can also download or print the content of the tool or parts of it and share it for information and feedback with your workers."
+	msgstr "Decide on the best way to involve your staff! You can for example conduct a meeting or a focus group with workers and go through the respective parts in the risk assessment together. You can also download or print the content of the tool or parts of it and share it for information and feedback with your workers."
+
+	#| msgid message_involve_workers_requirement
+	msgid "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href='https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction'>legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
+	msgstr "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href='https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction'>legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
+
+	#| msgid message_register_onsite_inspection
+	msgid "Register an on-site inspection for this risk assessment."
+	msgstr "Register an on-site inspection for this risk assessment."
+
+	#| msgid message_register_sample
+	msgid "Register sampling this risk assessment."
+	msgstr "Register sampling this risk assessment."
+
+	#| msgid message_session_locked_v2
+	msgid "This risk assessment is locked because the briefing documents were already sent to the contractor."
+	msgstr "This risk assessment is locked because the briefing documents were already sent to the contractor."
+
+	#| msgid message_session_locked_v3
+	msgid "This risk assessment is locked because the briefing documents were already sent to and approved by the contractor."
+	msgstr "This risk assessment is locked because the briefing documents were already sent to and approved by the contractor."
+
+	#| msgid message_waiting_for_confimation
+	msgid "These risk assessments are waiting for a confirmation that the contractor has received the briefing documents."
+	msgstr "These risk assessments are waiting for a confirmation that the contractor has received the briefing documents."
+
+	#| msgid message_you_are_about_to_unlock
+	msgid "You are about to unlock the risk assessment <strong>“Einweisung Fremdfirmen: Reinigungskräfte”</strong>."
+	msgstr "You are about to unlock the risk assessment <strong>“Einweisung Fremdfirmen: Reinigungskräfte”</strong>."
+
+	#| msgid message_you_are_about_to_unlock_consequences
+	msgid "After you unlock, you will have to resend the briefing documents to the contractor for validation."
+	msgstr "After you unlock, you will have to resend the briefing documents to the contractor for validation."
+
+	#| msgid message_you_are_about_to_unlock_explanation
+	msgid "This risk assessment is locked because the briefing documents were already sent to the contractor."
+	msgstr "This risk assessment is locked because the briefing documents were already sent to the contractor."
+
+	#| msgid my_ras
+	msgid "My risk assessments"
+	msgstr "My risk assessments"
+
+	#| msgid new_ra
+	msgid "New risk assessment"
+	msgstr "New risk assessment"
+
+	#| msgid new_test_ra
+	msgid "New test session"
+	msgstr "New test session"
+
+	#| msgid no_measures_required
+	msgid "No, more measures are required"
+	msgstr "No, more measures are required"
+
+	#| msgid no_risk
+	msgid "No risk"
+	msgstr "No risk"
+
+	#| msgid not_applicable
+	msgid "Not applicable"
+	msgstr "Not applicable"
+
+	#| msgid notice_cannot_clone
+	msgid "Cloning is not enabled on this risk assessment."
+	msgstr "Cloning is not enabled on this risk assessment."
+
+	#| msgid notice_read_only
+	msgid "You don't have edit rights for this risk assesment, but you can download this risk assessment in various forms in the <a href='/report-download.html'>download section</a>."
+	msgstr "You don't have edit rights for this risk assesment, but you can download this risk assessment in various forms in the <a href='/report-download.html'>download section</a>."
+
+	#| msgid on_is_accpetable
+	msgid "Is this risk acceptable or under control?"
+	msgstr "Is this risk acceptable or under control?"
+
+	#| msgid other_risks
+	msgid "Other risks"
+	msgstr "Other risks"
+
+	#| msgid placeholder_comment
+	msgid "Enter any comments that you might like to add to the risk above."
+	msgstr "Enter any comments that you might like to add to the risk above."
+
+	#| msgid placeholder_custom_risk_description
+	msgid "Provide some further information on this risk."
+	msgstr "Provide some further information on this risk."
+
+	#| msgid placeholder_search_contractor_name
+	msgid "Search a contractor by name"
+	msgstr "Search a contractor by name"
+
+	#| msgid placeholder_search_contractor_name_number
+	msgid "Search a contractor by name or contractor number"
+	msgstr "Search a contractor by name or contractor number"
+
+	#| msgid postponed
+	msgid "Postponed"
+	msgstr "Postponed"
+
+	#| msgid probe_custom_interval
+	msgid "Other"
+	msgstr "Other"
+
+	#| msgid probe_high_risk
+	msgid "7 days (High risk)"
+	msgstr "7 days (High risk)"
+
+	#| msgid probe_low_risk
+	msgid "30 days (Low risk)"
+	msgstr "30 days (Low risk)"
+
+	#| msgid probe_medium_risk
+	msgid "14 days (Medium risk)"
+	msgstr "14 days (Medium risk)"
+
+	#| msgid probe_no_risk
+	msgid "Not required (No risk)"
+	msgstr "Not required (No risk)"
+
+	#| msgid question_measures_sufficient
+	msgid "Are the measures that are selected above sufficient?"
+	msgstr "Are the measures that are selected above sufficient?"
+
+	#| msgid question_other_risks
+	msgid "<p><strong>Important:</strong> In order to avoid duplicating risks, we strongly recommend you to go first through all the previous modules, if you have not done it yet.</p><p>If you don't need to add risks, please continue.</p>"
+	msgstr "<p><strong>Important:</strong> In order to avoid duplicating risks, we strongly recommend you to go first through all the previous modules, if you have not done it yet.</p><p>If you don't need to add risks, please continue.</p>"
+
+	#| msgid ra_with_this_tool
+	msgid "Risk assessments made with this tool"
+	msgstr "Risk assessments made with this tool"
+
+	#| msgid recommended_tools
+	msgid "Recommended tools"
+	msgstr "Recommended tools"
+
+	#| msgid remove
+	msgid "Remove"
+	msgstr "Remove"
+
+	#| msgid remove_measure
+	msgid "Remove this already implemented measure"
+	msgstr "Remove this already implemented measure"
+
+	#| msgid rename
+	msgid "Rename"
+	msgstr "Rename"
+
+	#| msgid report_intro
+	msgid "Now that you have finished identifying all the risks in your organisation and created an action plan you can create a report which lists all your results. You can, if desired, add some extra comments that should be included in this report in the field below."
+	msgstr "Now that you have finished identifying all the risks in your organisation and created an action plan you can create a report which lists all your results. You can, if desired, add some extra comments that should be included in this report in the field below."
+
+	#| msgid resources
+	msgid "Resources"
+	msgstr "Resources"
+
+	#| msgid risk_priority_high
+	msgid "high"
+	msgstr "high"
+
+	#| msgid risk_priority_low
+	msgid "low"
+	msgstr "low"
+
+	#| msgid risk_priority_medium
+	msgid "medium"
+	msgstr "medium"
+
+	#| msgid save
+	msgid "Save"
+	msgstr "Save"
+
+	#| msgid save_and_add_risk
+	msgid "Save and add new risk"
+	msgstr "Save and add new risk"
+
+	#| msgid select_earlier_session
+	msgid "Select an earlier risk assessment to complete or review or"
+	msgstr "Select an earlier risk assessment to complete or review or"
+
+	#| msgid send_password_reminder
+	msgid "Send password reminder"
+	msgstr "Send password reminder"
+
+	#| msgid start_new_ra
+	msgid "Start a new risk assessment"
+	msgstr "Start a new risk assessment"
+
+	#| msgid start_new_ra_with_this_tool
+	msgid "Start a new risk assessment with this tool"
+	msgstr "Start a new risk assessment with this tool"
+
+	#| msgid start_new_session
+	msgid "start a new session"
+	msgstr "start a new session"
+
+	#| msgid start_session_by_selecting
+	msgid "Start a new risk assessments using one of the following tools."
+	msgstr "Start a new risk assessments using one of the following tools."
+
+	#| msgid start_test_ra
+	msgid "Start test session"
+	msgstr "Start test session"
+
+	#| msgid title_byline
+	msgid "Online Interactive Risk Assessment"
+	msgstr "Online Interactive Risk Assessment"
+
+	#| msgid title_delete_risk
+	msgid "Delete risk"
+	msgstr "Delete risk"
+
+	#| msgid title_our_contractors
+	msgid "Our contractors"
+	msgstr "Our contractors"
+
+	#| msgid title_password_reminder
+	msgid "Password reminder"
+	msgstr "Password reminder"
+
+	#| msgid title_ra_archive
+	msgid "Archive risk assessment"
+	msgstr "Archive risk assessment"
+
+	#| msgid title_ra_clone
+	msgid "Clone risk assessment"
+	msgstr "Clone risk assessment"
+
+	#| msgid title_ra_delete
+	msgid "Delete risk assessment"
+	msgstr "Delete risk assessment"
+
+	#| msgid title_recent_ff_ras
+	msgid "Recently treated external companies"
+	msgstr "Recently treated external companies"
+
+	#| msgid title_register_onsite_inspection
+	msgid "Register on-site risk assessment"
+	msgstr "Register on-site risk assessment"
+
+	#| msgid title_register_sample
+	msgid "Register sampling"
+	msgstr "Register sampling"
+
+	#| msgid title_risk_delete
+	msgid "Delete risk"
+	msgstr "Delete risk"
+
+	#| msgid title_share_training
+	msgid "Share training"
+	msgstr "Share training"
+
+	#| msgid title_status_of
+	msgid "Status of"
+	msgstr "Status of"
+
+	#| msgid to_sign_off
+	msgid "To sign off"
+	msgstr "To sign off"
+
+	#| msgid training_material
+	msgid "Training material"
+	msgstr "Training material"
+
+	#| msgid unanswered
+	msgid "Unanswered"
+	msgstr "Unanswered"
+
+	#| msgid unvisited
+	msgid "Unvisited"
+	msgstr "Unvisited"
+
+	#| msgid yes_acceptable
+	msgid "Yes, the remaining risk is acceptable"
+	msgstr "Yes, the remaining risk is acceptable"
