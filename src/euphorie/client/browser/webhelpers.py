@@ -430,6 +430,8 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def client(self):
+        if not self.context:
+            return
         for obj in self.context.aq_chain:
             if IClient.providedBy(obj):
                 return obj
