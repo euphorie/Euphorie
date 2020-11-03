@@ -12,7 +12,10 @@ THEME_DIR = os.path.join("src", "euphorie", "client", "resources")
 HELP_DIR = os.path.join("src", "euphorie", "client",
                         "resources", "oira", "help")
 
-patt_webpack = re.compile("__webpack_require__.p[ ]*=[ ]*\"(.*)?\";")
+ILLUSTRATION_JS_SNIPPET = """
+    <script>window.__patternslib_public_path__ = "/++resource++euphorie.resources/oira/script/";</script>
+    <script src="/++resource++euphorie.resources/oira/script/polyfills-loader.js" type="text/javascript"></script>
+"""
 
 
 def strip_help(filepath):
@@ -26,6 +29,11 @@ def strip_help(filepath):
     except:
         logger.exception("Problem reading %s", filepath)
         return
+
+    # We need to set the __patternslib_public_path__ in our screenshots
+    a, b, c = content.partition('<script src="/assets')
+    content = "".join((a + ILLUSTRATION_JS_SNIPPET, b, c))
+
     delta = len(filepath.split("/")) - 7
     shim = "../" * delta
     content = content.replace(
@@ -51,7 +59,7 @@ def strip_help(filepath):
     patt = re.compile('(href=\"|src=\"|url\()(/media)')
 
     def repl(match):
-        return match.group().replace(match.group(2), "../../../media")
+        return match.group().replace(match.group(2), "../../../../media")
     content = patt.sub(repl, content)
 
     open(filepath, "w").write(content)
