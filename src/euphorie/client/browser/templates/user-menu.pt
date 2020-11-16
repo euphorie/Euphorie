@@ -36,7 +36,6 @@
             <a href="${base_url}/oira-help"
                 i18n:translate="navigation_help"
                 class="icon-help-circle close-panel"
-                target="Help"
                 >Help</a>
         </li>
         <li class="menu-item-change-password">
