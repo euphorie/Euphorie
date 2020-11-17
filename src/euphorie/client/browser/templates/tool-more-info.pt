@@ -23,27 +23,20 @@
                   <h1>${context/Title}</h1>
                 </div>
 
-<tal:comment condition="nothing">
-Will be activated when we re-build the Help section
                 <div class="page-nav">
                     <ul class="link-list toc">
                         <li>
-                            <a class="pat-scroll" href="#about-tool">About this tool</a>
+                            <a class="pat-scroll" href="#about-tool" i18n:translate="">About this tool</a>
                         </li>
                         <li>
-                            <a class="pat-scroll" href="#about-app">How to use this tool</a>
+                            <a class="pat-scroll" href="#about-app" i18n:translate="">How to use this tool</a>
                         </li>
                     </ul>
                 </div>
-</tal:comment>
 
 
                 <section class="pat-rich tool-info" id="about-tool">
-<tal:comment condition="nothing">
-Will be activated when we re-build the Help section
                   <h2 i18n:translate="">About this tool</h2>
-</tal:comment>
-
 
                   <p tal:condition="context/Description"><strong>${context/Description}</strong></p>
 
@@ -80,6 +73,17 @@ Will be activated when we re-build the Help section
                     </p>
                   </tal:contents>
 
+                </section>
+
+                <section class="pat-rich app-info" id="about-app">
+                  <h2 i18n:translate="">How to use this tool</h2>
+                    <iframe alllowfullscreen="true"
+                            height="100%"
+                            src="${webhelpers/client_url}/++resource++euphorie.resources/oira/help/${webhelpers/help_language}/pages/3-carrying-out-a-risk-assessment.html"
+                            style="border: 0"
+                            width="100%"
+                    >
+                    </iframe>
                 </section>
               </article>
             </div>
