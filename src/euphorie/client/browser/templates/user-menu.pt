@@ -33,7 +33,7 @@
                 data-pat-toggle="selector: body; value: osh-on osh-off; store: local">Toggle on screen help</button>
         </li>
         <li class="menu-item-help">
-            <a href="${webhelpers/client_url}/++resource++euphorie.resources/oira/help/${webhelpers/help_language}/index.html"
+            <a href="${webhelpers/country_or_client_url}/++resource++euphorie.resources/oira/help/${webhelpers/help_language}/index.html"
                 i18n:translate="navigation_help"
                 class="icon-help-circle close-panel"
                 >Help</a>

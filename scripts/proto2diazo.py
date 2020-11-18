@@ -45,7 +45,7 @@ def strip_help(filepath):
 
     # Replace link for re-loading the toolbar / sidebar
     def repl_link(match):
-        return match.group().replace(match.group(1), 'tal:define="webhelpers nocall:context/@@webhelpers;" href="/${webhelpers/help_language}"')
+        return match.group().replace(match.group(1), 'tal:define="webhelpers nocall:context/@@webhelpers;" href="/${webhelpers/selected_country}"')
     if filepath.split("/")[-2] != "illustrations":
         patt = re.compile('<a (href="/").*?id="inject-toolbar".*?>.*?</a>', re.I | re.S | re.L | re.M)
         content = patt.sub(repl_link, content)

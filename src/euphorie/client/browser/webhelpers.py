@@ -304,6 +304,13 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def county_obj_via_parents(self):
+        for obj in self.request.PARENTS:
+            if IClientCountry.providedBy(obj):
+                return obj
+
+    @property
+    @memoize
     def country_name(self):
         obj = self.country_obj
         if not obj:
@@ -319,6 +326,16 @@ class WebHelpers(BrowserView):
         root = getUtility(ISiteRoot)
         country = getattr(root.sectors, country_id)
         return country
+
+    @property
+    @memoize
+    def selected_country(self):
+        """Return the country id that is present in the path. Fall back to the
+        default_country"""
+        country = self.county_obj_via_parents
+        if country:
+            return country.getId()
+        return self.default_country
 
     @property
     @memoize
