@@ -44,7 +44,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "chunks/" + chunkId + "." + {"0":"f75578704fdc49470270","1":"ad31e222fd4cc46e4d8e","2":"4d0545609f28d5747f4c","9":"03cdd9807e0c308a5d89","10":"353f4ad4bed12ebd56c9","11":"6a6753cfb5bc05ee473b","12":"bf07308e3bf2ae00da58","13":"f8e999cf5b415896f7c1","14":"9461c56a17c2272af79c","15":"de2848376e8f10ca37ee","16":"3fe39d6ab143a42d87cd","17":"cdf8b11c57acf4d625b9","18":"2d3146629951a25b31c1","19":"bce441daf6871e7a7530","20":"eba22a955f49cb958ea5","21":"240444158d43cd176e2d","22":"674d5525d8de88723ffe","23":"e711191fd59a97d7d443","24":"ddfb978cd186fab0d6b1","25":"b2b1984e177cf096f65d","26":"22cb339829926a03a76d","27":"654af818264b985c5a7f","28":"210ed01c3036b80cf42e","29":"e310dd1546c5c626728c","30":"b194578b72c2d7b238b6","31":"8867a82c3c985e9f563e","32":"90d3e80399d9dc435553","33":"c6b8b0179c566417942b","34":"32b8a198c7973ac075f0","35":"d8e2d94c1092d7b865ad","36":"bbcd950ae8d079a12a4b","37":"1a5dddc8bf25bc46bbeb","38":"aec7aa46806f2111dd01","39":"8133e8a28d4de9f35a79","40":"38ac76dfed39a086f0bf","41":"07eb86a3524d2baa6b57","42":"86d26668896a4b48dc69","43":"0a483feb55f5823860de","44":"6a21ab4801a0f0c55ddd","45":"60284ad5f5d91d9c9189","46":"cefdf85eec92e464fc55","47":"d4bd28dd9cb8f68b2e06","48":"5cac578ac5f8449b0a8c","49":"857fa03f378cfabf9de9","50":"0222e166c8edd640973b","51":"9500b7ff38d997b2878e","52":"c709c75326a8b272e462","53":"08e0e91281c7a86c6410","54":"6d5bb16fc3f44e319587","55":"e9966ee550c72fb022c9","56":"905991fb882a282f0c39","57":"3dbab677ba6805e40fef","58":"0828c81a81a9b3269139","59":"5cd4c7869a6c147e891e","60":"079744f1b924e41f3801","61":"dba8573e602d0d3eedd1","62":"b74265762dc8966189a7","63":"723c71331cddd0a5a11a","64":"ec7a444f6626dbc26640","65":"deb3f2164f0561a18c65","66":"695362427b17ae413323","67":"484c9d04ab8c412d2e0a","68":"3f0c4b43a2e873f4b782","69":"0d5a507ee8da22994b18","70":"d3c84eac2a7184338eed","71":"9aabadab71805717c7b9","72":"7660adbee5d71163f98e","73":"54baff530d9d35ca1eaa","74":"580d38fce43626731469","75":"fe2511d3c324533cc382","76":"02ae61eec77816d76830","77":"2a6189a249d0e0255285","78":"5a980c0ac9fb0fa71d5d","79":"74202a18955d7f43d5cd","80":"902aafbddeb0f0120191","81":"42e48f0e26c93dbdb574","82":"f79afeb87783d640c55e","83":"3fca28d77cb4723bd7a1","84":"9f5a7adde425381a7ff8","85":"25214197ff2052c3b85d","86":"8e579932c27b4cb00382","87":"e9f43fb234aae28023c8","88":"e8ab3e3a3156f7378d99","89":"c3635a94aea96ddf209c","90":"89dab0ef182d3f00b9f9","91":"05a1e89ea131e39e4bc4","92":"367d0947601ef867546a","93":"a532df36cae8caa00e9f","94":"8e0c0f2452a80e4111a1","95":"acd926c9d03d6020be27","96":"076089340db4f74ff57b","97":"05edb16da14ed5b2df9a","98":"b5c5af469697625d6d4c","99":"62322d5206d935f783df","100":"d42c8d22b98c8709ebbb","101":"6aea5a753935691f403f","102":"90b90e7dd55b426a0c8e","103":"de12fe14fe9a9955ed69","104":"b03635032e443a524b41","105":"61931dc1e04049c495ab","106":"89b3d735b882e8469615","107":"225e8ac956a7fc0e70d9","108":"2f2ccbd026df91e15d86","109":"4353bc5289f998fcfb90","110":"710d471fc6558d2d38aa","111":"060bddfbd5cc3dc685fa","112":"4de212870c9c01b44d38","113":"91aeaf7744c998d85223","114":"80113e91769e43877694","115":"442bd6a8dc371ff4f04c","116":"8ca0493c83e8e8146d15","117":"5f2e05a139cdf783b8cf","118":"fd7b2631e099bd36035b","119":"7783a0f85b662de586cd","120":"0a274745d0259bf285f0","121":"554f386332c899b280e7","122":"55b06ce891cfaf4d9d2a","123":"88d5fad1767989744a5f","124":"a0c8b4ac8aca136c9e50","125":"7a7126b7be6d5e82e7e6","126":"0f73e7b7201b3083d6d2","127":"b1dbcc7ad79696abc74f","128":"8d9d5ac2f714712ac940","129":"843c439f30d172000e12","130":"f1f67779d5fbc45251c6","131":"fbddc3dfaff8aa50e60d","132":"3c1defb5a6ed430cfea9","133":"d27ebb3e81975f8505cb","134":"c964f0e231627b0cd635","135":"396b774db2d6523e4978","136":"edf24cd2ece11982482c","137":"2b704953023c3b3e2165","138":"88d7f6e0844f95dc0e5f","139":"d1dd2dadcbf0b8635243","140":"087823f3db52324d905a","141":"73f992142e225d366cb1","142":"e1cbba9beb716c68ba94","143":"848d9f94d8a6f6609f30","144":"070ed5c48f339f292d5f","145":"51549021e4673cc5fcdd","146":"c94fad4d49b1eb10ae55","147":"bb75826b46f9ced0e12d","148":"0e1d05e42b76be1ec70a","149":"1196c30c75afa0a44c24","150":"7abf030b469906f46d19","151":"6c0fce1d62e60f4632b7","152":"e1953a8a98b0c5d3733f","153":"04fa0d2003a9a84c2081","154":"70decf6e531ec7da6c0e"}[chunkId] + ".min.js"
+/******/ 		return __webpack_require__.p + "chunks/" + chunkId + "." + {"0":"f75578704fdc49470270","1":"ad31e222fd4cc46e4d8e","2":"4d0545609f28d5747f4c","9":"03cdd9807e0c308a5d89","10":"353f4ad4bed12ebd56c9","11":"6a6753cfb5bc05ee473b","12":"bf07308e3bf2ae00da58","13":"f8e999cf5b415896f7c1","14":"9461c56a17c2272af79c","15":"de2848376e8f10ca37ee","16":"3fe39d6ab143a42d87cd","17":"cdf8b11c57acf4d625b9","18":"2d3146629951a25b31c1","19":"bce441daf6871e7a7530","20":"eba22a955f49cb958ea5","21":"240444158d43cd176e2d","22":"674d5525d8de88723ffe","23":"e711191fd59a97d7d443","24":"ddfb978cd186fab0d6b1","25":"b2b1984e177cf096f65d","26":"22cb339829926a03a76d","27":"654af818264b985c5a7f","28":"210ed01c3036b80cf42e","29":"e310dd1546c5c626728c","30":"b194578b72c2d7b238b6","31":"8867a82c3c985e9f563e","32":"90d3e80399d9dc435553","33":"c6b8b0179c566417942b","34":"32b8a198c7973ac075f0","35":"d8e2d94c1092d7b865ad","36":"bbcd950ae8d079a12a4b","37":"1a5dddc8bf25bc46bbeb","38":"aec7aa46806f2111dd01","39":"8133e8a28d4de9f35a79","40":"38ac76dfed39a086f0bf","41":"07eb86a3524d2baa6b57","42":"86d26668896a4b48dc69","43":"0a483feb55f5823860de","44":"6a21ab4801a0f0c55ddd","45":"60284ad5f5d91d9c9189","46":"cefdf85eec92e464fc55","47":"d4bd28dd9cb8f68b2e06","48":"5cac578ac5f8449b0a8c","49":"857fa03f378cfabf9de9","50":"0222e166c8edd640973b","51":"9500b7ff38d997b2878e","52":"c709c75326a8b272e462","53":"08e0e91281c7a86c6410","54":"6d5bb16fc3f44e319587","55":"e9966ee550c72fb022c9","56":"905991fb882a282f0c39","57":"3dbab677ba6805e40fef","58":"0828c81a81a9b3269139","59":"5cd4c7869a6c147e891e","60":"079744f1b924e41f3801","61":"dba8573e602d0d3eedd1","62":"b74265762dc8966189a7","63":"723c71331cddd0a5a11a","64":"ec7a444f6626dbc26640","65":"deb3f2164f0561a18c65","66":"695362427b17ae413323","67":"484c9d04ab8c412d2e0a","68":"3f0c4b43a2e873f4b782","69":"0d5a507ee8da22994b18","70":"d3c84eac2a7184338eed","71":"9aabadab71805717c7b9","72":"7660adbee5d71163f98e","73":"54baff530d9d35ca1eaa","74":"580d38fce43626731469","75":"fe2511d3c324533cc382","76":"02ae61eec77816d76830","77":"2a6189a249d0e0255285","78":"5a980c0ac9fb0fa71d5d","79":"74202a18955d7f43d5cd","80":"902aafbddeb0f0120191","81":"42e48f0e26c93dbdb574","82":"f79afeb87783d640c55e","83":"3fca28d77cb4723bd7a1","84":"9f5a7adde425381a7ff8","85":"25214197ff2052c3b85d","86":"8e579932c27b4cb00382","87":"e9f43fb234aae28023c8","88":"e8ab3e3a3156f7378d99","89":"c3635a94aea96ddf209c","90":"89dab0ef182d3f00b9f9","91":"05a1e89ea131e39e4bc4","92":"367d0947601ef867546a","93":"a532df36cae8caa00e9f","94":"8e0c0f2452a80e4111a1","95":"acd926c9d03d6020be27","96":"076089340db4f74ff57b","97":"05edb16da14ed5b2df9a","98":"b5c5af469697625d6d4c","99":"62322d5206d935f783df","100":"d42c8d22b98c8709ebbb","101":"6aea5a753935691f403f","102":"90b90e7dd55b426a0c8e","103":"de12fe14fe9a9955ed69","104":"b03635032e443a524b41","105":"61931dc1e04049c495ab","106":"89b3d735b882e8469615","107":"225e8ac956a7fc0e70d9","108":"2f2ccbd026df91e15d86","109":"4353bc5289f998fcfb90","110":"710d471fc6558d2d38aa","111":"060bddfbd5cc3dc685fa","112":"4de212870c9c01b44d38","113":"91aeaf7744c998d85223","114":"80113e91769e43877694","115":"442bd6a8dc371ff4f04c","116":"8ca0493c83e8e8146d15","117":"5f2e05a139cdf783b8cf","118":"fd7b2631e099bd36035b","119":"7783a0f85b662de586cd","120":"0a274745d0259bf285f0","121":"554f386332c899b280e7","122":"55b06ce891cfaf4d9d2a","123":"88d5fad1767989744a5f","124":"a0c8b4ac8aca136c9e50","125":"7a7126b7be6d5e82e7e6","126":"0f73e7b7201b3083d6d2","127":"b1dbcc7ad79696abc74f","128":"8d9d5ac2f714712ac940","129":"843c439f30d172000e12","130":"f1f67779d5fbc45251c6","131":"fbddc3dfaff8aa50e60d","132":"3c1defb5a6ed430cfea9","133":"d27ebb3e81975f8505cb","134":"c964f0e231627b0cd635","135":"396b774db2d6523e4978","136":"edf24cd2ece11982482c","137":"2b704953023c3b3e2165","138":"88d7f6e0844f95dc0e5f","139":"d1dd2dadcbf0b8635243","140":"087823f3db52324d905a","141":"73f992142e225d366cb1","142":"e1cbba9beb716c68ba94","143":"848d9f94d8a6f6609f30","144":"070ed5c48f339f292d5f","145":"51549021e4673cc5fcdd","146":"c94fad4d49b1eb10ae55","147":"bb75826b46f9ced0e12d","148":"0e1d05e42b76be1ec70a","149":"1196c30c75afa0a44c24","150":"7abf030b469906f46d19","151":"6c0fce1d62e60f4632b7","152":"e1953a8a98b0c5d3733f","153":"04fa0d2003a9a84c2081","154":"3b8b9c255c3655400b1d"}[chunkId] + ".min.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -4470,34 +4470,7 @@ var jqueryPlugin = function jqueryPlugin(pattern) {
       return pluralBoundJQueryPlugin.call(this, pattern, method, options);
     }
   };
-}; //     Underscore.js 1.3.1
-//     (c) 2009-2012 Jeremy Ashkenas, DocumentCloud Inc.
-//     Underscore is freely distributable under the MIT license.
-//     Portions of Underscore are inspired or borrowed from Prototype,
-//     Oliver Steele's Functional, and John Resig's Micro-Templating.
-//     For all details and documentation:
-//     http://documentcloud.github.com/underscore
-//
-// Returns a function, that, as long as it continues to be invoked, will not
-// be triggered. The function will be called after it stops being called for
-// N milliseconds.
-
-
-function debounce(func, wait) {
-  var timeout;
-  return function debounce_run() {
-    var context = this,
-        args = arguments;
-
-    var later = function later() {
-      timeout = null;
-      func.apply(context, args);
-    };
-
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-} // Is a given variable an object?
+}; // Is a given variable an object?
 
 
 function isObject(obj) {
@@ -4914,6 +4887,22 @@ var timeout = function timeout(ms) {
   });
 };
 
+var debounce = function debounce(func, ms) {
+  // Returns a function, that, as long as it continues to be invoked, will not
+  // be triggered. The function will be called after it stops being called for
+  // N milliseconds.
+  // From: https://underscorejs.org/#debounce
+  var timer = null;
+  return function () {
+    clearTimeout(timer);
+    var args = arguments;
+    var context = this;
+    timer = setTimeout(function () {
+      func.apply(context, args);
+    }, ms);
+  };
+};
+
 var isIE = function isIE() {
   // See: https://stackoverflow.com/a/9851769/1337474
   // Internet Explorer 6-11
@@ -4926,7 +4915,6 @@ var isIE = function isIE() {
 var utils = {
   // pattern pimping - own module?
   jqueryPlugin: jqueryPlugin,
-  debounce: debounce,
   escapeRegExp: escapeRegExp,
   isObject: isObject,
   extend: extend,
@@ -4946,6 +4934,7 @@ var utils = {
   checkInputSupport: checkInputSupport,
   checkCSSFeature: checkCSSFeature,
   timeout: timeout,
+  debounce: debounce,
   isIE: isIE
 };
 /* harmony default export */ __webpack_exports__["a"] = (utils);
@@ -9142,22 +9131,14 @@ var _ = {
 var utils = __webpack_require__(3);
 
 // CONCATENATED MODULE: ./src/patternslib/src/pat/auto-submit/auto-submit.js
-/**
- * Patterns autosubmit - automatic submission of forms
- *
- * Copyright 2012-2013 Florian Friesdorf
- * Copyright 2012 Simplon B.V. - Wichert Akkerman
- * Copyright 2013 Marko Durkovic
- * Copyright 2014-2015 Syslab.com GmbH - JC Brand
- */
 
 
 
 
 
 
-var auto_submit_log = logging["a" /* default */].getLogger("autosubmit"),
-    auto_submit_parser = new parser["a" /* default */]("autosubmit"); // - 400ms -> 400
+var auto_submit_log = logging["a" /* default */].getLogger("autosubmit");
+var auto_submit_parser = new parser["a" /* default */]("autosubmit"); // - 400ms -> 400
 // - 400 -> 400
 // - defocus
 
@@ -9177,7 +9158,7 @@ auto_submit_parser.addArgument("delay", "400ms");
     }
   },
   init: function init() {
-    this.options = this.parser.parse(this.$el, arguments[1]);
+    this.options = this.parser.parse(this.$el, this.options);
     input_change_events.setup(this.$el, "autosubmit");
     this.registerListeners();
     this.registerTriggers();
@@ -9189,14 +9170,16 @@ auto_submit_parser.addArgument("delay", "400ms");
     this.$el.on("patterns-injected", this.refreshListeners.bind(this));
   },
   registerSubformListeners: function registerSubformListeners(ev) {
+    var _this = this;
+
     /* If there are subforms, we need to listen on them as well, so
      * that only the subform gets submitted if an element inside it
      * changes.
      */
     var $el = typeof ev !== "undefined" ? jquery_js_exposed_default()(ev.target) : this.$el;
     $el.find(".pat-subform").not(".pat-autosubmit").each(function (idx, el) {
-      jquery_js_exposed_default()(el).on("input-change-delayed.pat-autosubmit", this.onInputChange);
-    }.bind(this));
+      jquery_js_exposed_default()(el).on("input-change-delayed.pat-autosubmit", _this.onInputChange);
+    });
   },
   refreshListeners: function refreshListeners(ev, cfg, el, injected) {
     this.registerSubformListeners(); // Register change event handlers for new inputs injected into this form
@@ -9296,10 +9279,11 @@ auto_suggest_parser.addAlias("pre-fill", "prefill");
 /* harmony default export */ var auto_suggest = (base["a" /* default */].extend({
   name: "autosuggest",
   trigger: ".pat-autosuggest,.pat-auto-suggest",
-  init: function init($el, opts) {
+  init: function init() {
     var _this = this;
 
     return auto_suggest_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      var config;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -9308,24 +9292,24 @@ auto_suggest_parser.addAlias("pre-fill", "prefill");
               return __webpack_require__.e(/* import() */ 151).then(__webpack_require__.t.bind(null, 542, 7));
 
             case 2:
-              _this.options = auto_suggest_parser.parse($el, opts);
-              _this.select2_options = {
+              _this.options = auto_suggest_parser.parse(_this.el, _this.options);
+              config = {
                 tokenSeparators: [","],
                 openOnEnter: false,
                 maximumSelectionSize: _this.options.maxSelectionSize,
                 minimumInputLength: _this.options.minimumInputLength,
-                allowClear: _this.options.maxSelectionSize === 1 && !$el.prop("required")
+                allowClear: _this.options.maxSelectionSize === 1 && !_this.el.hasAttribute("required")
               };
 
-              if ($el.attr("readonly")) {
-                _this.select2_options.placeholder = "";
+              if (_this.el.hasAttribute("readonly")) {
+                config.placeholder = "";
               } else if (_this.options.placeholder) {
-                _this.select2_options.placeholder = _this.options.placeholder;
+                config.placeholder = _this.options.placeholder;
               }
 
               if (_this.options.selectionClasses) {
                 // We need to customize the formatting/markup of the selection
-                _this.select2_options.formatSelection = function (obj, container) {
+                config.formatSelection = function (obj, container) {
                   var selectionClasses = null;
 
                   try {
@@ -9344,31 +9328,33 @@ auto_suggest_parser.addAlias("pre-fill", "prefill");
                 };
               }
 
-              if ($el[0].tagName === "INPUT") {
-                _this.select2_options = _this.configureInput($el, _this.select2_options);
+              if (_this.el.tagName === "INPUT") {
+                config = _this.create_input_config(config);
               }
 
-              $el.select2(_this.select2_options);
-              $el.on("pat-update", function (e, data) {
+              _this.$el.select2(config);
+
+              _this.$el.on("pat-update", function (e, data) {
                 if (data.pattern === "depends") {
                   if (data.enabled === true) {
-                    $el.select2("enable", true);
+                    _this.$el.select2("enable", true);
                   } else if (data.enabled === false) {
-                    $el.select2("disable", true);
+                    _this.$el.select2("disable", true);
                   }
                 }
               }); // suppress propagation for second input field
 
-              $el.prev().on("input-change input-defocus input-change-delayed", function (e) {
+
+              _this.$el.prev().on("input-change input-defocus input-change-delayed", function (e) {
                 return e.stopPropagation();
               }); // Clear the values when a reset button is pressed
 
-              $el.closest("form").find("button[type=reset]").on("click", function () {
-                return $el.select2("val", "");
-              });
-              return _context.abrupt("return", $el);
 
-            case 12:
+              _this.$el.closest("form").find("button[type=reset]").on("click", function () {
+                return _this.$el.select2("val", "");
+              });
+
+            case 11:
             case "end":
               return _context.stop();
           }
@@ -9376,14 +9362,17 @@ auto_suggest_parser.addAlias("pre-fill", "prefill");
       }, _callee);
     }))();
   },
-  configureInput: function configureInput($el, select2_config) {
-    var _this2 = this;
+  create_input_config: function create_input_config(config) {
+    var _this2 = this,
+        _this$options$wordsJs,
+        _this$options$prefill,
+        _this$options$ajax;
 
     var words = [];
 
-    select2_config.createSearchChoice = function (term, data) {
+    config.createSearchChoice = function (term, data) {
       if (_this2.options.allowNewWords) {
-        if (jquery_js_exposed_default()(data).filter(function (idx, el) {
+        if (data.filter(function (el) {
           return el.text.localeCompare(term) === 0;
         }).length === 0) {
           return {
@@ -9396,7 +9385,7 @@ auto_suggest_parser.addAlias("pre-fill", "prefill");
       }
     };
 
-    if (this.options.wordsJson && this.options.wordsJson.length) {
+    if ((_this$options$wordsJs = this.options.wordsJson) === null || _this$options$wordsJs === void 0 ? void 0 : _this$options$wordsJs.length) {
       try {
         words = JSON.parse(this.options.wordsJson);
       } catch (SyntaxError) {
@@ -9405,7 +9394,7 @@ auto_suggest_parser.addAlias("pre-fill", "prefill");
       }
 
       if (!Array.isArray(words)) {
-        words = jquery_js_exposed_default.a.map(words, function (v, k) {
+        words = words.map(function (v, k) {
           return {
             id: k,
             text: v
@@ -9416,7 +9405,7 @@ auto_suggest_parser.addAlias("pre-fill", "prefill");
 
     if (this.options.words) {
       words = this.options.words.split(/\s*,\s*/);
-      words = jquery_js_exposed_default.a.map(words, function (v) {
+      words = words.map(function (v) {
         return {
           id: v,
           text: v
@@ -9429,16 +9418,16 @@ auto_suggest_parser.addAlias("pre-fill", "prefill");
 
 
     if (this.options.maxSelectionSize === 1) {
-      select2_config.data = words; // We allow exactly one value, use dropdown styles. How do we feed in words?
+      config.data = words; // We allow exactly one value, use dropdown styles. How do we feed in words?
     } else {
       // We allow multiple values, use the pill style - called tags in select 2 speech
-      select2_config.tags = words;
+      config.tags = words;
     }
 
-    if (this.options.prefill && this.options.prefill.length) {
-      $el.val(this.options.prefill.split(","));
+    if ((_this$options$prefill = this.options.prefill) === null || _this$options$prefill === void 0 ? void 0 : _this$options$prefill.length) {
+      this.el.value = this.options.prefill.split(",");
 
-      select2_config.initSelection = function (element, callback) {
+      config.initSelection = function (element, callback) {
         var data = [];
         var values = element.val().split(",");
 
@@ -9488,9 +9477,9 @@ auto_suggest_parser.addAlias("pre-fill", "prefill");
           }
         }
 
-        $el.val(ids);
+        this.el.value = ids;
 
-        select2_config.initSelection = function (element, callback) {
+        config.initSelection = function (element, callback) {
           var _data = [];
 
           for (var _d in data) {
@@ -9518,8 +9507,8 @@ auto_suggest_parser.addAlias("pre-fill", "prefill");
       }
     }
 
-    if (this.options.ajax && this.options.ajax.url) {
-      select2_config = jquery_js_exposed_default.a.extend(true, {
+    if ((_this$options$ajax = this.options.ajax) === null || _this$options$ajax === void 0 ? void 0 : _this$options$ajax.url) {
+      config = jquery_js_exposed_default.a.extend(true, {
         minimumInputLength: this.options.minimumInputLength,
         ajax: {
           url: this.options.ajax.url,
@@ -9544,10 +9533,10 @@ auto_suggest_parser.addAlias("pre-fill", "prefill");
             };
           }
         }
-      }, select2_config);
+      }, config);
     }
 
-    return select2_config;
+    return config;
   },
   destroy: function destroy($el) {
     $el.off(".pat-autosuggest");
@@ -9555,55 +9544,77 @@ auto_suggest_parser.addAlias("pre-fill", "prefill");
   },
   transform: function transform($content) {
     $content.findInclusive("input[type=text].pat-autosuggest").each(function (idx, el) {
-      var $src = jquery_js_exposed_default()(el);
-      var $dest = jquery_js_exposed_default()("<input type='hidden'/>").insertAfter($src); // measure in IE8, otherwise hidden will have width 0
-
-      if (document.all && !document.addEventListener) {
-        $dest.css("width", $src.outerWidth(false) + "px");
-      }
-
-      $src.detach();
-      jquery_js_exposed_default.a.each($src.prop("attributes"), function (el_) {
-        if (el_.name !== "type") {
-          $dest.attr(el_.name, el_.value);
-        }
-      });
-      $src.remove();
+      // We need the original element to be hidden not only for not
+      // displaying it, but also input-change-events registering a
+      // change handler which allows e.g. for auto-submitting.
+      // ``input`` event isn't thrown when updating select2.
+      el.setAttribute("type", "hidden");
     });
   }
 }));
 // CONCATENATED MODULE: ./src/patternslib/src/pat/autofocus/autofocus.js
-/**
- * Patterns autofocus - enhanced autofocus form elements
- *
- * Copyright 2012-2013 Simplon B.V. - Wichert Akkerman
- */
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || autofocus_unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function autofocus_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return autofocus_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return autofocus_arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return autofocus_arrayLikeToArray(arr); }
+
+function autofocus_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 
-var autofocus = {
+
+var scheduled_task = null;
+var registered_event_handler = false;
+/* harmony default export */ var autofocus = (base["a" /* default */].extend({
   name: "autofocus",
   trigger: ":input.pat-autofocus,:input[autofocus]",
   init: function init() {
+    var _this = this;
+
+    if (window.self !== window.top) {
+      // Do not autofocus in iframes.
+      return;
+    }
+
     this.setFocus(this.trigger);
-    jquery_js_exposed_default()(document).on("patterns-injected", function (e) {
-      autofocus.setFocus(jquery_js_exposed_default()(e.target).find(autofocus.trigger));
-    });
-    jquery_js_exposed_default()(document).on("pat-update", function (e) {
-      autofocus.setFocus(jquery_js_exposed_default()(e.target).find(autofocus.trigger));
-    });
+
+    if (!registered_event_handler) {
+      // Register the event handler only once.
+      jquery_js_exposed_default()(document).on("patterns-injected pat-update", function (e) {
+        _this.setFocus(jquery_js_exposed_default()(e.target).find(_this.trigger));
+      });
+      registered_event_handler = true;
+    }
   },
   setFocus: function setFocus(target) {
+    // Exit if task is scheduled. setFocus operates on whole DOM anyways.
+    if (scheduled_task) {
+      return;
+    }
+
     var $all = jquery_js_exposed_default()(target);
-    var $visible = $all.filter(function () {
-      if (jquery_js_exposed_default()(this).is(":visible")) return true;
+
+    var visible = _toConsumableArray($all).filter(function (it) {
+      return jquery_js_exposed_default()(it).is(":visible");
     });
-    setTimeout(function () {
-      $visible.get(0) && $visible.get(0).focus();
-    }, 10);
+
+    var empty = visible.filter(function (it) {
+      return it.value === "";
+    });
+    var el = empty[0] || visible[0];
+
+    if (el) {
+      scheduled_task = setTimeout(function () {
+        el.focus();
+        scheduled_task = null;
+      }, 10);
+    }
   }
-};
-registry["a" /* default */].register(autofocus);
-/* harmony default export */ var autofocus_autofocus = (autofocus);
+}));
 // CONCATENATED MODULE: ./src/patternslib/src/pat/bumper/bumper.js
 /**
  * Patterns bumper - `bumper' handling for elements
@@ -10073,6 +10084,12 @@ var TEXT_NODE = 3;
 var collapsible = __webpack_require__(100);
 
 // CONCATENATED MODULE: ./src/patternslib/src/pat/date-picker/date-picker.js
+function date_picker_createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = date_picker_unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function date_picker_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return date_picker_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return date_picker_arrayLikeToArray(o, minLen); }
+
+function date_picker_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function date_picker_asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function date_picker_asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { date_picker_asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { date_picker_asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -10086,14 +10103,15 @@ function date_picker_asyncToGenerator(fn) { return function () { var self = this
  // Lazy loading modules.
 
 var Pikaday;
-var Moment;
 var date_picker_parser = new parser["a" /* default */]("date-picker");
 date_picker_parser.addArgument("behavior", "styled", ["native", "styled"]);
-date_picker_parser.addArgument("format", "YYYY-MM-DD");
 date_picker_parser.addArgument("week-numbers", [], ["show", "hide"]);
 date_picker_parser.addArgument("i18n"); // URL pointing to JSON resource with i18n values
 
 date_picker_parser.addArgument("first-day", 0);
+date_picker_parser.addArgument("after");
+date_picker_parser.addArgument("offset-days", 0);
+date_picker_parser.addAlias("behaviour", "behavior");
 /* JSON format for i18n
  * { "previousMonth": "Previous Month",
  *   "nextMonth"    : "Next Month",
@@ -10102,7 +10120,6 @@ date_picker_parser.addArgument("first-day", 0);
  *   "weekdaysShort": ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
  * } */
 
-date_picker_parser.addAlias("behaviour", "behavior");
 /* harmony default export */ var date_picker = (base["a" /* default */].extend({
   name: "date-picker",
   trigger: ".pat-date-picker",
@@ -10110,47 +10127,78 @@ date_picker_parser.addAlias("behaviour", "behavior");
     var _this = this;
 
     return date_picker_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-      var config;
+      var el, befores, _iterator, _step, b_el, config;
+
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _this.options = jquery_js_exposed_default.a.extend(date_picker_parser.parse(_this.$el), _this.options);
-              _this.polyfill = _this.options.behavior === "native";
+              el = _this.el; //TODO: make parser with options extend missing options.
+              //this.options = parser.parse(el, opts);
 
-              if (!(_this.polyfill && utils["a" /* default */].checkInputSupport("date", "invalid date"))) {
-                _context.next = 4;
+              _this.options = jquery_js_exposed_default.a.extend(date_picker_parser.parse(el), _this.options);
+
+              if (_this.options.after) {
+                // Set the date depending on another date which must be ``offset-days``
+                // BEFORE this date. Only set it, if the other date is AFTER this
+                // date.
+                befores = document.querySelectorAll(_this.options.after);
+                _iterator = date_picker_createForOfIteratorHelper(befores);
+
+                try {
+                  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                    b_el = _step.value;
+                    b_el.addEventListener("change", function (e) {
+                      var b_date = e.target.value; // the "before-date"
+
+                      b_date = b_date ? new Date(b_date) : null;
+
+                      if (!b_date) {
+                        return;
+                      }
+
+                      var a_date = _this.el.value; // the "after-date"
+
+                      a_date = a_date ? new Date(a_date) : null;
+
+                      if (!a_date || a_date < b_date) {
+                        var offset = _this.options.offsetDays || 0;
+                        b_date.setDate(b_date.getDate() + offset);
+                        _this.el.value = b_date.toISOString().substring(0, 10);
+                      }
+                    });
+                  }
+                } catch (err) {
+                  _iterator.e(err);
+                } finally {
+                  _iterator.f();
+                }
+              }
+
+              if (!(_this.options.behavior === "native" && utils["a" /* default */].checkInputSupport("date", "invalid date"))) {
+                _context.next = 5;
                 break;
               }
 
               return _context.abrupt("return");
 
-            case 4:
-              _context.next = 6;
+            case 5:
+              _context.next = 7;
               return Promise.all(/* import() */[__webpack_require__.e(0), __webpack_require__.e(149)]).then(__webpack_require__.t.bind(null, 544, 7));
 
-            case 6:
+            case 7:
               Pikaday = _context.sent;
               Pikaday = Pikaday.default;
-              _context.next = 10;
-              return __webpack_require__.e(/* import() */ 0).then(__webpack_require__.t.bind(null, 179, 7));
 
-            case 10:
-              Moment = _context.sent;
-              Moment = Moment.default;
-
-              if (_this.$el.attr("type") === "date") {
-                _this.$el.attr("type", "text");
+              if (el.getAttribute("type") === "date") {
+                el.setAttribute("type", "text");
               }
 
               config = {
-                field: _this.$el[0],
-                format: _this.options.format,
+                field: el,
+                format: "YYYY-MM-DD",
                 firstDay: _this.options.firstDay,
                 showWeekNumber: _this.options.weekNumbers === "show",
-                toString: function toString(date, format) {
-                  return Moment(date).format(format);
-                },
                 onSelect: function onSelect() {
                   jquery_js_exposed_default()(this._o.field).closest("form").trigger("input-change");
                   /* Also trigger input change on date field to support pat-autosubmit. */
@@ -10159,19 +10207,19 @@ date_picker_parser.addAlias("behaviour", "behavior");
                 }
               };
 
-              if (_this.$el.attr("min")) {
-                config.minDate = Moment(_this.$el.attr("min")).toDate();
+              if (el.getAttribute("min")) {
+                config.minDate = new Date(el.getAttribute("min"));
               }
 
-              if (_this.$el.attr("max")) {
-                config.maxDate = Moment(_this.$el.attr("max")).toDate();
+              if (el.getAttribute("max")) {
+                config.maxDate = new Date(el.getAttribute("max"));
               }
 
               if (_this.options.i18n) {
                 jquery_js_exposed_default.a.getJSON(_this.options.i18n).done(function (data) {
                   config.i18n = data;
                 }).fail(jquery_js_exposed_default.a.proxy(function () {
-                  console.error("date-picker could not load i18n: " + this.options.i18n);
+                  console.error("date-picker could not load i18n: " + _this.options.i18n);
                 }, _this)).always(function () {
                   new Pikaday(config);
                 });
@@ -10179,19 +10227,13 @@ date_picker_parser.addAlias("behaviour", "behavior");
                 new Pikaday(config);
               }
 
-              return _context.abrupt("return", _this.$el);
-
-            case 18:
+            case 14:
             case "end":
               return _context.stop();
           }
         }
       }, _callee);
     }))();
-  },
-  isodate: function isodate() {
-    var now = new Date();
-    return now.toISOString().substr(0, 10);
   }
 }));
 // EXTERNAL MODULE: ./src/patternslib/src/pat/depends/depends.js
@@ -12013,72 +12055,154 @@ var switcher = {
 registry["a" /* default */].register(switcher);
 /* harmony default export */ var switch_switch = (switcher);
 // CONCATENATED MODULE: ./src/patternslib/src/pat/tabs/tabs.js
-/**
- * Copyright 2015 Syslab.com GmbH - witekdev
- */
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || tabs_unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function tabs_createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = tabs_unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function tabs_toConsumableArray(arr) { return tabs_arrayWithoutHoles(arr) || tabs_iterableToArray(arr) || tabs_unsupportedIterableToArray(arr) || tabs_nonIterableSpread(); }
+
+function tabs_nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function tabs_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return tabs_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return tabs_arrayLikeToArray(o, minLen); }
+
+function tabs_iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function tabs_arrayWithoutHoles(arr) { if (Array.isArray(arr)) return tabs_arrayLikeToArray(arr); }
+
+function tabs_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 
 
 
-var tabs_parser = new parser["a" /* default */]("tabs");
 /* harmony default export */ var tabs = (base["a" /* default */].extend({
   name: "tabs",
   trigger: ".pat-tabs",
   jquery_plugin: true,
-  init: function init($el, opts) {
-    this.options = tabs_parser.parse(this.$el, opts); // redundant - at the moment we have no parameter options
+  skip_adjust: false,
+  // do not run into an resize/adjust loop
+  allowed_update_patterns: ["stacks", "switch", "auto-scale", "grid", "equaliser", "masonry", "zoom"],
+  init: function init() {
+    var _this = this;
 
-    jquery_js_exposed_default()(window).resize(index_all["a" /* default */].debounce(this.adjustTabs.bind(this), 100));
-    jquery_js_exposed_default()("body").on("pat-update", this.filterByPatternsUpdate.bind(this));
-    this.adjustTabs();
-  },
-  filterByPatternsUpdate: function filterByPatternsUpdate(ev, data) {
-    // determine when to call adjustTabs depending as to which pattern triggered pat-update
-    var allowed_patterns = ["stacks", "switch", "auto-scale", "grid", "equaliser", "masonry", "zoom"]; // XXX TODO add other (or remove redundant) layout modifying patterns
-
-    if (jquery_js_exposed_default.a.inArray(data.pattern, allowed_patterns) > -1) {
-      this.adjustTabs();
-    }
-  },
-  adjustTabs: function adjustTabs() {
-    var container_width = this.$el.width() * 0.95,
-        $children = this.$el.children(),
-        total_width = 0,
-        idx = 0,
-        tab_width,
-        $overflowing;
-
-    if ($children.length !== 0) {
-      // here we want to gather all tabs including those that may be in a special 'extra-tabs'
-      // span and place them all as equal children, before we recalculate which tabs are
-      // visible and which are potentially fully or partially obscured.
-      var $grouper = $children.filter(".extra-tabs");
-      $grouper.children().appendTo(this.$el);
-      $grouper.remove();
-      $children = this.$el.children(); // precalculate the collective size of all the tabs
-
-      total_width = index_all["a" /* default */].reduce($children, function (value, el) {
-        return value + jquery_js_exposed_default()(el).outerWidth(true);
-      }, 0); // only execute if all tabs cannot fit comfortably in the container
-
-      if (total_width >= container_width) {
-        this.$el.append('<span class="extra-tabs"></span>'); // create extra-tabs span
-
-        var extra_tab_width = jquery_js_exposed_default()(".extra-tabs").outerWidth(true);
-        total_width = 0;
-        tab_width = jquery_js_exposed_default()($children[idx]).outerWidth(true); // iterate through all visible tabs until we find the first obscured tab
-
-        while (total_width + tab_width < container_width - extra_tab_width) {
-          total_width += tab_width;
-          idx++;
-          tab_width = jquery_js_exposed_default()($children[idx]).outerWidth(true);
-        }
-
-        $overflowing = this.$el.children(":gt(" + (idx - 1) + ")"); // move obscured tabs to a special 'extra-tabs' span
-
-        this.$el.children().filter(".extra-tabs").append($overflowing); // move tabs into it
+    var debounced_resize = utils["a" /* default */].debounce(function () {
+      return _this.adjust_tabs();
+    }, 50);
+    var resize_observer = new ResizeObserver(function () {
+      if (!_this.skip_adjust) {
+        debounced_resize();
       }
+
+      _this.skip_adjust = false;
+    });
+    resize_observer.observe(this.el); // Also listen for ``pat-update`` event for cases where no resize but
+    // an immediate display of the element is done.
+
+    jquery_js_exposed_default()("body").on("pat-update", function (e, data) {
+      if (_this.allowed_update_patterns.includes(data.pattern)) {
+        debounced_resize();
+      }
+    });
+    debounced_resize();
+  },
+  adjust_tabs: function adjust_tabs() {
+    var _this$el,
+        _this2 = this,
+        _this$el2;
+
+    this.skip_adjust = true;
+    var container_width = this.$el.width() * 0.95; // here we want to gather all tabs including those that may be in a special 'extra-tabs'
+    // span and place them all as equal children, before we recalculate which tabs are
+    // visible and which are potentially fully or partially obscured.
+
+    var extratabs = [];
+
+    var children = tabs_toConsumableArray(this.el.children).filter(function (it) {
+      if (it.classList.contains("extra-tabs")) {
+        var _extratabs;
+
+        (_extratabs = extratabs).push.apply(_extratabs, tabs_toConsumableArray(it.children));
+
+        return false;
+      }
+
+      return true;
+    });
+
+    children.push.apply(children, tabs_toConsumableArray(extratabs));
+
+    if (children.length === 0) {
+      // nothing to do.
+      return;
     }
+
+    this.el.innerHTML = "";
+
+    (_this$el = this.el).append.apply(_this$el, tabs_toConsumableArray(children)); // precalculate the collective size of all the tabs
+
+
+    var total_width = tabs_toConsumableArray(this.el.children).reduce(function (val, it) {
+      return val + jquery_js_exposed_default()(it).outerWidth(true);
+    }, 0);
+
+    if (total_width <= container_width) {
+      // allright, nothing to do
+      return;
+    }
+
+    var extra_el = document.createElement("span");
+    extra_el.setAttribute("class", "extra-tabs");
+    this.el.classList.add("closed");
+    extra_el.addEventListener("click", function () {
+      // Toggle opened/closed class on extra-tabs
+      if (_this2.el.classList.contains("open")) {
+        _this2.el.classList.remove("open");
+
+        _this2.el.classList.add("closed");
+      } else {
+        _this2.el.classList.remove("closed");
+
+        _this2.el.classList.add("open");
+      }
+    });
+    this.el.append(extra_el);
+    var extra_width = jquery_js_exposed_default()(extra_el).width();
+    extratabs = [];
+    total_width = extra_width;
+
+    var _iterator = tabs_createForOfIteratorHelper(tabs_toConsumableArray(children).entries()),
+        _step;
+
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var _step$value = _slicedToArray(_step.value, 2),
+            idx = _step$value[0],
+            it = _step$value[1];
+
+        total_width += jquery_js_exposed_default()(it).outerWidth(true);
+
+        if (total_width > container_width) {
+          extratabs = children.splice(idx);
+          break;
+        }
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+
+    this.el.innerHTML = "";
+
+    (_this$el2 = this.el).append.apply(_this$el2, tabs_toConsumableArray(children));
+
+    extra_el.append.apply(extra_el, tabs_toConsumableArray(extratabs));
+    this.el.append(extra_el);
   }
 }));
 // CONCATENATED MODULE: ./src/patternslib/src/pat/toggle/toggle.js
@@ -12353,6 +12477,7 @@ tooltip_parser.addArgument("delay");
 tooltip_parser.addArgument("mark-inactive", true);
 tooltip_parser.addArgument("class");
 tooltip_parser.addArgument("target", "body");
+tooltip_parser.addArgument("arrow-padding", null);
 /* harmony default export */ var tooltip = (base["a" /* default */].extend({
   name: "tooltip",
   trigger: ".pat-tooltip, .pat-tooltip-ng",
@@ -12450,7 +12575,21 @@ tooltip_parser.addArgument("target", "body");
       return "".concat(primary(pos[0])).concat(secondary(pos[1]));
     };
 
-    var tippy_options = {};
+    var tippy_options = {
+      popperOptions: {
+        modifiers: []
+      }
+    };
+
+    if (opts.arrowPadding !== null) {
+      tippy_options.popperOptions.modifiers.push({
+        name: "arrow",
+        options: {
+          padding: parseInt(opts.arrowPadding, 10)
+        }
+      });
+    }
+
     var parsers = {
       position: function position() {
         var _opts$position, _opts$position$list;
@@ -12461,28 +12600,19 @@ tooltip_parser.addArgument("target", "body");
 
         tippy_options.placement = placement(opts.position.list[0]); // main position
 
-        if (opts.position.policy !== "force") {
-          tippy_options.popperOptions = {
-            modifiers: [{
-              name: "flip",
-              enabled: true
-            }]
-          };
+        var flip_options = {
+          name: "flip",
+          enabled: true
+        };
 
-          if (opts.position.length > 1) {
-            var fallbacks = opts.position.list.slice(1).map(placement);
-            tippy_options.popperOptions.modifiers[0].options = {
-              fallbackPlacements: fallbacks
-            };
-          }
-        } else {
-          tippy_options.popperOptions = {
-            modifiers: [{
-              name: "flip",
-              enabled: false
-            }]
-          };
+        if (opts.position.policy === "force") {
+          flip_options.enabled = false;
+        } else if (opts.position.length > 1) {
+          var fallbacks = opts.position.list.slice(1).map(placement);
+          flip_options.fallbackPlacements = fallbacks;
         }
+
+        tippy_options.popperOptions.modifiers.push(flip_options);
       },
       trigger: function trigger() {
         if (opts.trigger === "hover") {
@@ -12585,80 +12715,77 @@ tooltip_parser.addArgument("target", "body");
     registry["a" /* default */].scan(this.tippy.popper);
   },
   _onMount: function _onMount() {
-    // Notify parent patterns about injected content.
-    // Do not call pat-inject's handler, because all necessary
-    // initialization after injection is done here.
-    jquery_js_exposed_default()(this.tippy.popper).trigger("patterns-injected", [{
-      skipPatInjectHandler: true
-    }, this.el, this.tippy.popper]);
-  },
-  _onShow: function _onShow() {
     var _this4 = this;
 
     return tooltip_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-      var close_button, content, _iterator3, _step3, class_;
-
       return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              if (_this4.options.closing !== "auto" && _this4.options.trigger === "hover") {
-                // no auto-close when hovering when closing mode is "sticky" or "close-button".
-                _this4.tippy.setProps({
-                  trigger: "click"
-                });
-              }
-
               if (!(_this4.options.source === "ajax")) {
-                _context2.next = 4;
+                _context2.next = 3;
                 break;
               }
 
-              _context2.next = 4;
+              _context2.next = 3;
               return _this4._getContent();
 
-            case 4:
-              if (_this4.options.closing === "close-button") {
-                close_button = document.createElement("button");
-                close_button.setAttribute("class", "close-panel pat-tooltip--close-button");
-                content = _this4.tippy.popper.querySelector(".tippy-content");
-                content.parentNode.insertBefore(close_button, content);
-              }
-
-              if (_this4.options.markInactive) {
-                _this4.el.classList.remove("inactive");
-
-                _this4.el.classList.add("active");
-              }
-
-              if (_this4.options.class) {
-                _iterator3 = tooltip_createForOfIteratorHelper(_this4.options.class.split(" "));
-
-                try {
-                  for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-                    class_ = _step3.value;
-
-                    _this4.tippy.popper.classList.add(class_);
-                  }
-                } catch (err) {
-                  _iterator3.e(err);
-                } finally {
-                  _iterator3.f();
-                }
-              } // Add a generic non-tippy related class to identify the tooltip container
+            case 3:
+              _this4._initializeContent(); // Notify parent patterns about injected content.
+              // Do not call pat-inject's handler, because all necessary
+              // initialization after injection is done here.
 
 
-              _this4.tippy.popper.classList.add("tooltip-container");
+              jquery_js_exposed_default()(_this4.tippy.popper).trigger("patterns-injected", [{
+                skipPatInjectHandler: true
+              }, _this4.el, _this4.tippy.popper]);
 
-              _this4._initializeContent();
-
-            case 9:
+            case 5:
             case "end":
               return _context2.stop();
           }
         }
       }, _callee2);
     }))();
+  },
+  _onShow: function _onShow() {
+    if (this.options.closing !== "auto" && this.options.trigger === "hover") {
+      // no auto-close when hovering when closing mode is "sticky" or "close-button".
+      this.tippy.setProps({
+        trigger: "click"
+      });
+    }
+
+    if (this.options.closing === "close-button") {
+      var close_button = document.createElement("button");
+      close_button.setAttribute("class", "close-panel pat-tooltip--close-button");
+      var content = this.tippy.popper.querySelector(".tippy-content");
+      content.parentNode.insertBefore(close_button, content);
+    }
+
+    if (this.options.markInactive) {
+      this.el.classList.remove("inactive");
+      this.el.classList.add("active");
+    }
+
+    if (this.options.class) {
+      var _iterator3 = tooltip_createForOfIteratorHelper(this.options.class.split(" ")),
+          _step3;
+
+      try {
+        for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+          var class_ = _step3.value;
+          this.tippy.popper.classList.add(class_);
+        }
+      } catch (err) {
+        _iterator3.e(err);
+      } finally {
+        _iterator3.f();
+      }
+    } // Add a generic non-tippy related class to identify the tooltip container
+
+
+    this.tippy.popper.classList.add("tooltip-container");
   },
   _onHide: function _onHide() {
     if (this.options.markInactive) {
@@ -12748,6 +12875,9 @@ tooltip_parser.addArgument("target", "body");
             case 25:
               if (content) {
                 _this5.tippy.setContent(content);
+
+                _this5.tippy.popperInstance.forceUpdate(); // re-position tippy after content is known.
+
               }
 
             case 26:
@@ -12860,7 +12990,7 @@ function validation_asyncToGenerator(fn) { return function () { var self = this,
  // Lazy loading modules.
 
 var Validate;
-var validation_Moment;
+var Moment;
 var validation_parser = new parser["a" /* default */]("validation");
 validation_parser.addArgument("disable-selector"); // Elements which must be disabled if there are errors
 
@@ -12905,8 +13035,8 @@ var VALIDATION_TYPE_MAP = {
               return __webpack_require__.e(/* import() */ 0).then(__webpack_require__.t.bind(null, 179, 7));
 
             case 6:
-              validation_Moment = _context.sent;
-              validation_Moment = validation_Moment.default;
+              Moment = _context.sent;
+              Moment = Moment.default;
 
               _this.extend_validate();
 
@@ -12947,17 +13077,17 @@ var VALIDATION_TYPE_MAP = {
   extend_validate: function extend_validate() {
     // Before using it we must add the parse and format functions
     // Here is a sample implementation using moment.js
-    Validate.moment = validation_Moment;
+    Validate.moment = Moment;
     Validate.extend(Validate.validators.datetime, {
       // The value is guaranteed not to be null or undefined but otherwise it
       // could be anything.
       parse: function parse(value) {
-        return +validation_Moment.utc(value);
+        return +Moment.utc(value);
       },
       // Input is a unix timestamp
       format: function format(value, options) {
         var format = options.dateOnly ? "YYYY-MM-DD" : "YYYY-MM-DD hh:mm:ss";
-        return validation_Moment.utc(value).format(format);
+        return Moment.utc(value).format(format);
       }
     });
   },
@@ -13915,6 +14045,8 @@ var registry = {
     this.patterns = {};
   },
   transformPattern: function transformPattern(name, content) {
+    var _pattern$prototype;
+
     /* Call the transform method on the pattern with the given name, if
      * it exists.
      */
@@ -13924,10 +14056,11 @@ var registry = {
     }
 
     var pattern = registry.patterns[name];
+    var transform = pattern.transform || ((_pattern$prototype = pattern.prototype) === null || _pattern$prototype === void 0 ? void 0 : _pattern$prototype.transform);
 
-    if (pattern.transform) {
+    if (transform) {
       try {
-        pattern.transform(jquery__WEBPACK_IMPORTED_MODULE_0___default()(content));
+        transform(jquery__WEBPACK_IMPORTED_MODULE_0___default()(content));
       } catch (e) {
         if (dont_catch) {
           throw e;

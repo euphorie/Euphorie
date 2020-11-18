@@ -4470,34 +4470,7 @@ var jqueryPlugin = function jqueryPlugin(pattern) {
       return pluralBoundJQueryPlugin.call(this, pattern, method, options);
     }
   };
-}; //     Underscore.js 1.3.1
-//     (c) 2009-2012 Jeremy Ashkenas, DocumentCloud Inc.
-//     Underscore is freely distributable under the MIT license.
-//     Portions of Underscore are inspired or borrowed from Prototype,
-//     Oliver Steele's Functional, and John Resig's Micro-Templating.
-//     For all details and documentation:
-//     http://documentcloud.github.com/underscore
-//
-// Returns a function, that, as long as it continues to be invoked, will not
-// be triggered. The function will be called after it stops being called for
-// N milliseconds.
-
-
-function debounce(func, wait) {
-  var timeout;
-  return function debounce_run() {
-    var context = this,
-        args = arguments;
-
-    var later = function later() {
-      timeout = null;
-      func.apply(context, args);
-    };
-
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-} // Is a given variable an object?
+}; // Is a given variable an object?
 
 
 function isObject(obj) {
@@ -4914,6 +4887,22 @@ var timeout = function timeout(ms) {
   });
 };
 
+var debounce = function debounce(func, ms) {
+  // Returns a function, that, as long as it continues to be invoked, will not
+  // be triggered. The function will be called after it stops being called for
+  // N milliseconds.
+  // From: https://underscorejs.org/#debounce
+  var timer = null;
+  return function () {
+    clearTimeout(timer);
+    var args = arguments;
+    var context = this;
+    timer = setTimeout(function () {
+      func.apply(context, args);
+    }, ms);
+  };
+};
+
 var isIE = function isIE() {
   // See: https://stackoverflow.com/a/9851769/1337474
   // Internet Explorer 6-11
@@ -4926,7 +4915,6 @@ var isIE = function isIE() {
 var utils = {
   // pattern pimping - own module?
   jqueryPlugin: jqueryPlugin,
-  debounce: debounce,
   escapeRegExp: escapeRegExp,
   isObject: isObject,
   extend: extend,
@@ -4946,6 +4934,7 @@ var utils = {
   checkInputSupport: checkInputSupport,
   checkCSSFeature: checkCSSFeature,
   timeout: timeout,
+  debounce: debounce,
   isIE: isIE
 };
 /* harmony default export */ __webpack_exports__["a"] = (utils);
@@ -9123,6 +9112,8 @@ var registry = {
     this.patterns = {};
   },
   transformPattern: function transformPattern(name, content) {
+    var _pattern$prototype;
+
     /* Call the transform method on the pattern with the given name, if
      * it exists.
      */
@@ -9132,10 +9123,11 @@ var registry = {
     }
 
     var pattern = registry.patterns[name];
+    var transform = pattern.transform || ((_pattern$prototype = pattern.prototype) === null || _pattern$prototype === void 0 ? void 0 : _pattern$prototype.transform);
 
-    if (pattern.transform) {
+    if (transform) {
       try {
-        pattern.transform(jquery__WEBPACK_IMPORTED_MODULE_0___default()(content));
+        transform(jquery__WEBPACK_IMPORTED_MODULE_0___default()(content));
       } catch (e) {
         if (dont_catch) {
           throw e;
