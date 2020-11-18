@@ -43,14 +43,12 @@ def strip_help(filepath):
         content = content.replace(
             '="/assets/oira/' + folder + '/', '="../' + shim + folder + '/')
 
-    # remove the top navigation for the main pages
+    # Replace link for re-loading the toolbar / sidebar
+    def repl_link(match):
+        return match.group().replace(match.group(1), 'tal:define="webhelpers nocall:context/@@webhelpers;" href="/${webhelpers/help_language}"')
     if filepath.split("/")[-2] != "illustrations":
-        p = re.compile('<header id="toolbar">.*</header>',
-                       re.I | re.S | re.L | re.M)
-        content = p.sub('', content)
-        p = re.compile('<div id="browser">.*?</div>',
-                       re.I | re.S | re.L | re.M)
-        content = p.sub('', content)
+        patt = re.compile('<a (href="/").*?id="inject-toolbar".*?>.*?</a>', re.I | re.S | re.L | re.M)
+        content = patt.sub(repl_link, content)
 
     content = content.replace(
         '="/depts/index', '="++resource++euphorie.resources/oira/depts.html')
