@@ -41,6 +41,7 @@
 
     <script type="text/javascript" src="${webhelpers/js_url}"></script>
     <script type="text/javascript" src="${webhelpers/client_url}/++resource++plone.session.refreshsupport.js"></script>
+    <tal:custom_js replace="structure webhelpers/custom_js|nothing" />
 
     <link rel="stylesheet" href="${webhelpers/css_url}" type="text/css" />
     <link rel="stylesheet" href="${webhelpers/client_url}/acl_users/session/refresh?session_refresh=true&amp;type=css&amp;minutes=5" type="text/css" />

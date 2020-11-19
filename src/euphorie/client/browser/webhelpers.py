@@ -638,6 +638,8 @@ class WebHelpers(BrowserView):
         """
         elems = []
         obj = self._survey
+        if not obj:
+            return ""
         while not IClient.providedBy(obj):
             elems.append(obj.id)
             obj = aq_parent(obj)
@@ -863,6 +865,12 @@ class WebHelpers(BrowserView):
         """ In plain Euphorie, the logo is always shown
         """
         return True
+
+    @property
+    @memoize
+    def custom_js(self):
+        """Return custom JavaScript where necessary"""
+        return ""
 
     @memoize_contextless
     def date_picker_i18n_json(self):
