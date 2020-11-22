@@ -464,6 +464,11 @@ class ContentsPreview(BrowserView):
         return api.portal.translate(_(u"extra_text_identification", default=u""))
 
     @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context.aq_parent, self.request)
+
+    @property
     def title_custom_risks(self):
         return api.portal.translate(
             _("title_other_risks", default=u"Added risks (by you)")
@@ -508,13 +513,15 @@ class ContentsPreview(BrowserView):
         zodb_node = self.zodb_node(node)
         if not zodb_node:
             return solutions
+        mode = getattr(self.webhelpers._survey, "measures_text_handling", "full")
         for solution in zodb_node.values():
             if not ISolution.providedBy(solution):
                 continue
-            text = solution.action_plan
-            prevention_plan = (getattr(solution, "prevention_plan", "") or "").strip()
-            if prevention_plan:
-                text = u"{0}\n{1}".format(text, prevention_plan)
+            if mode == "full":
+                text = u"{title}<br/>{description}".format(
+                    title=solution.description, description=solution.action)
+            else:
+                text = solution.action
             solutions.append(text)
         return solutions
 

@@ -65,7 +65,7 @@
                           <ul class="manual-checklist"
                               tal:condition="solutions"
                           >
-                            <li tal:repeat="solution solutions">${solution}</li>
+                            <li tal:repeat="solution solutions"><tal:solution replace="structure solution">text</tal:solution></li>
                           </ul>
                           <div class="legal-references"
                                tal:condition="legal_references"
