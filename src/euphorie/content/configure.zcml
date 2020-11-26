@@ -28,7 +28,24 @@
         directory="static"
         />
 
-    <grok:grok package="." />
+    <grok:grok package=".countrymanager" />
+    <grok:grok package=".dependency" />
+    <grok:grok package=".folder" />
+    <grok:grok package=".help" />
+    <grok:grok package=".library" />
+    <grok:grok package=".module" />
+    <grok:grok package=".page" />
+    <grok:grok package=".profilequestion" />
+    <grok:grok package=".risk" />
+    <grok:grok package=".sector" />
+    <grok:grok package=".sectorcontainer" />
+    <grok:grok package=".solution" />
+    <grok:grok package=".survey" />
+    <grok:grok package=".surveygroup" />
+    <grok:grok package=".user" />
+    <grok:grok package=".versioning" />
+    <grok:grok package=".behaviour.dirtytree" />
+    <grok:grok package=".api" />
 
     <five:registerClass
         class=".fti.ConditionalDexterityFTI"
