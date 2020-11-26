@@ -114,4 +114,12 @@
       template="templates/library.pt"
       />
 
+  <browser:page
+      name="library-insert"
+      for="euphorie.content.interfaces.IQuestionContainer"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".library.LibraryInsert"
+      permission="euphorie.content.AddNewRIEContent"
+      />
+
 </configure>
