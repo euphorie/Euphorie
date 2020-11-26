@@ -42,4 +42,12 @@
             />
     </class>
 
+  <browser:page
+      name="edit"
+      for="euphorie.content.country.ICountry"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".country.EditForm"
+      permission="cmf.ModifyPortalContent"
+      />
+
 </configure>

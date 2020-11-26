@@ -116,17 +116,6 @@ class Country(dexterity.Container):
         return False
 
 
-class Edit(dexterity.EditForm):
-    grok.context(ICountry)
-    grok.require("cmf.ModifyPortalContent")
-    grok.layer(NuPloneSkin)
-    grok.name("edit")
-
-    def updateWidgets(self):
-        super(Edit, self).updateWidgets()
-        self.widgets["country_type"].mode = "hidden"
-
-
 class ManageUsers(grok.View):
     grok.context(ICountry)
     grok.require("euphorie.content.ManageCountry")

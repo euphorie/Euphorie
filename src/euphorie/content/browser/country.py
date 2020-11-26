@@ -4,6 +4,7 @@ from euphorie.content.sector import ISector
 from euphorie.content.utils import CUSTOM_COUNTRY_NAMES
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
+from plone.dexterity.browser.edit import DefaultEditForm
 from Products.Five import BrowserView
 
 
@@ -39,3 +40,9 @@ class AddForm(DefaultAddForm):
 
 class AddView(DefaultAddView):
     form = AddForm
+
+
+class EditForm(DefaultEditForm):
+    def updateWidgets(self):
+        super(EditForm, self).updateWidgets()
+        self.widgets["country_type"].mode = "hidden"
