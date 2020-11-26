@@ -23,8 +23,8 @@
     <table tal:condition="view/sectors">
         <thead>
             <tr>
-                <th i18n:translate="">Sector</th> 
-                <th i18n:translate="">Login</th> 
+                <th i18n:translate="">Sector</th>
+                <th i18n:translate="">Login</th>
                 <th class="actions">&nbsp;</th>
             </tr>
         </thead>
@@ -36,17 +36,17 @@
                 <form method="post" action="${sector/url}/@@lock">
                     <tal:csrf replace="structure context/@@authenticator/authenticator"/>
                     <a href="${sector/url}/@@edit" class="micro floatAfter function button" i18n:translate="button_edit">Edit</a>
-                    <button tal:condition="not:sector/locked" 
-                        class="micro floatAfter function" 
-                        type="submit" 
-                        name="action" 
-                        value="lock" 
+                    <button tal:condition="not:sector/locked"
+                        class="micro floatAfter function"
+                        type="submit"
+                        name="action"
+                        value="lock"
                         i18n:translate="button_lock">Lock</button>
-                <button tal:condition="sector/locked" 
-                        class="micro floatAfter function" 
-                        type="submit" 
-                        name="action" 
-                        value="unlock" 
+                <button tal:condition="sector/locked"
+                        class="micro floatAfter function"
+                        type="submit"
+                        name="action"
+                        value="unlock"
                         i18n:translate="button_unlock">Unlock</button>
                 </form>
             </td>
@@ -55,15 +55,15 @@
     </table>
 
     <h2 i18n:translate="header_country_managers">Country managers</h2>
-    <p class="message notice" 
-        tal:condition="not:view/managers" 
+    <p class="message notice"
+        tal:condition="not:view/managers"
         i18n:translate="country_no_managers">There are no country managers for this country.</p>
 
     <table tal:condition="view/managers">
         <thead>
             <tr>
-                <th i18n:translate="">Name</th> 
-                <th i18n:translate="">Login</th> 
+                <th i18n:translate="">Name</th>
+                <th i18n:translate="">Login</th>
                 <th class="actions">&nbsp;</th>
             </tr>
         </thead>

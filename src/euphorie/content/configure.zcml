@@ -30,7 +30,6 @@
 
     <grok:grok package=".countrymanager" />
     <grok:grok package=".dependency" />
-    <grok:grok package=".folder" />
     <grok:grok package=".help" />
     <grok:grok package=".library" />
     <grok:grok package=".module" />
