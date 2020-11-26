@@ -116,16 +116,6 @@ class Country(dexterity.Container):
         return False
 
 
-class Add(dexterity.AddForm):
-    grok.context(ICountry)
-    grok.name("euphorie.country")
-    grok.require("euphorie.content.AddNewRIEContent")
-
-    def updateWidgets(self):
-        super(Add, self).updateWidgets()
-        self.widgets["country_type"].mode = "hidden"
-
-
 class Edit(dexterity.EditForm):
     grok.context(ICountry)
     grok.require("cmf.ModifyPortalContent")

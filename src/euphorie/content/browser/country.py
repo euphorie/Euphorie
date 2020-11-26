@@ -2,6 +2,8 @@
 
 from euphorie.content.sector import ISector
 from euphorie.content.utils import CUSTOM_COUNTRY_NAMES
+from plone.dexterity.browser.add import DefaultAddForm
+from plone.dexterity.browser.add import DefaultAddView
 from Products.Five import BrowserView
 
 
@@ -25,3 +27,15 @@ class CountryView(BrowserView):
         except UnicodeDecodeError:
             sectors_dict.sort(key=lambda s: s["title"].lower().decode("utf-8"))
         return sectors_dict
+
+
+class AddForm(DefaultAddForm):
+    portal_type = "euphorie.country"
+
+    def updateWidgets(self):
+        super(AddForm, self).updateWidgets()
+        self.widgets["country_type"].mode = "hidden"
+
+
+class AddView(DefaultAddView):
+    form = AddForm

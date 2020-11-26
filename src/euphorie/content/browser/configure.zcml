@@ -28,4 +28,18 @@
       template="templates/country_view.pt"
       />
 
+    <adapter
+        for="Products.CMFCore.interfaces.IFolderish
+             plonetheme.nuplone.skin.interfaces.NuPloneSkin
+             plone.dexterity.interfaces.IDexterityFTI"
+        provides="zope.publisher.interfaces.browser.IBrowserPage"
+        factory=".country.AddView"
+        name="euphorie.country"/>
+    <class class=".country.AddView">
+        <require
+            permission="euphorie.content.AddNewRIEContent"
+            interface="zope.publisher.interfaces.browser.IBrowserPage"
+            />
+    </class>
+
 </configure>
