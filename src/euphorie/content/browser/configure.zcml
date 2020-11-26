@@ -68,4 +68,13 @@
       template="templates/countrymanager_view.pt"
       />
 
+  <!-- DocumentationFolder -->
+  <browser:page
+      name="nuplone-view"
+      for="euphorie.content.documentation.IDocumentationFolder"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      permission="zope2.View"
+      template="templates/documentation_view.pt"
+      />
+
 </configure>
