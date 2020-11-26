@@ -16,6 +16,9 @@
     <include package="plone.app.vocabularies" />
     <include package="plone.uuid" />
     <include package="htmllaundry" />
+
+    <include file="permissions.zcml" />
+
     <include package=".api" />
     <include package=".behaviors" />
     <include package=".browser" />
@@ -23,21 +26,6 @@
     <browser:resourceDirectory
         name="euphorie.static"
         directory="static"
-        />
-
-    <permission
-        id="euphorie.content.ManageCountry"
-        title="Euphorie: Manage country"
-        />
-
-    <permission
-        id="euphorie.content.AddNewRIEContent"
-        title="Euphorie: Add new RIE Content"
-        />
-
-    <permission
-        id="euphorie.content.DeletePublishedContent"
-        title="Euphorie: Delete published content"
         />
 
     <grok:grok package="." />
