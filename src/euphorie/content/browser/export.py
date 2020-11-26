@@ -17,14 +17,13 @@ from euphorie.content.risk import IKinneyEvaluation
 from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import get_tool_type
-from euphorie.content.survey import ISurvey
 from euphorie.content.upload import COMMA_REPLACEMENT
 from euphorie.content.upload import NSMAP
 from euphorie.content.upload import ProfileQuestionLocationFields
 from euphorie.content.utils import StripMarkup
 from euphorie.content.utils import StripUnwanted
-from five import grok
 from lxml import etree
+from Products.Five import BrowserView
 from z3c.appconfig.interfaces import IAppConfig
 from zope.component import getUtility
 
@@ -42,13 +41,9 @@ def getToken(field, value, default=None):
         return default
 
 
-class ExportSurvey(grok.View):
+class ExportSurvey(BrowserView):
     """ View name: @@export
     """
-
-    grok.context(ISurvey)
-    grok.require("zope2.View")
-    grok.name("export")
 
     def __init__(self, context, request):
         super(ExportSurvey, self).__init__(context, request)
@@ -255,7 +250,7 @@ class ExportSurvey(grok.View):
             )
         return node
 
-    def render(self):
+    def __call__(self):
         """ :returns: an XML export of a Survey.
         :rtype: str
         """
