@@ -10,7 +10,6 @@ https://admin.oiraproject.eu/sectors/eu
 from .. import MessageFactory as _
 from Acquisition import aq_inner
 from euphorie.content.sector import ISector
-from euphorie.content.utils import CUSTOM_COUNTRY_NAMES
 from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.directives import dexterity
@@ -115,30 +114,6 @@ class Country(dexterity.Container):
     def _canCopy(self, op=0):
         """Tell Zope2 that this object can not be copied."""
         return False
-
-
-class View(grok.View):
-    grok.context(ICountry)
-    grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
-    grok.template("country_view")
-    grok.name("nuplone-view")
-
-    def update(self):
-        super(View, self).update()
-        names = self.request.locale.displayNames.territories
-        # Hook in potential custom country names
-        names.update(CUSTOM_COUNTRY_NAMES)
-        self.title = names.get(self.context.id.upper(), self.context.title)
-        self.sectors = [
-            {"id": sector.id, "title": sector.title, "url": sector.absolute_url()}
-            for sector in self.context.values()
-            if ISector.providedBy(sector)
-        ]
-        try:
-            self.sectors.sort(key=lambda s: s["title"].lower())
-        except UnicodeDecodeError:
-            self.sectors.sort(key=lambda s: s["title"].lower().decode("utf-8"))
 
 
 class Add(dexterity.AddForm):

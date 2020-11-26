@@ -18,4 +18,14 @@
       template="templates/prefs_main_template.pt"
       />
 
+  <!-- Country -->
+  <browser:page
+      name="nuplone-view"
+      for="euphorie.content.country.ICountry"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".country.CountryView"
+      permission="zope2.View"
+      template="templates/country_view.pt"
+      />
+
 </configure>
