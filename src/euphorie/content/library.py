@@ -15,7 +15,6 @@ from Acquisition import aq_inner
 from euphorie.content.behaviour.uniqueid import get_next_id
 from euphorie.content.behaviour.uniqueid import INameFromUniqueId
 from euphorie.content.interfaces import IQuestionContainer
-from euphorie.content.module import item_depth
 from euphorie.content.risk import IRisk
 from euphorie.content.sector import ISector
 from euphorie.content.survey import ISurvey
@@ -145,24 +144,6 @@ def build_survey_tree(context, root):
             child_list.append(info)
             todo.append((child, child_index, info["children"]))
     return tree
-
-
-class Library(grok.View):
-    grok.context(IQuestionContainer)
-    grok.layer(NuPloneSkin)
-    grok.require("euphorie.content.AddNewRIEContent")
-    grok.template("library")
-
-    def update(self):
-        """ Set view attributes to define the current library, depth and
-        at_root, which is True when the context is the root of the library.
-        """
-        self.library = get_library(self.context)
-        if not self.library:
-            raise NotFound(self, "library", self.request)
-        self.depth = item_depth(aq_inner(self.context))
-        self.at_root = not self.depth
-        super(Library, self).update()
 
 
 def assign_ids(context, tree):

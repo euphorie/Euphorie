@@ -104,4 +104,14 @@
       class=".upload.ImportSurvey"
       />
 
+  <!-- Library -->
+  <browser:page
+      name="library"
+      for="euphorie.content.interfaces.IQuestionContainer"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".library.Library"
+      permission="euphorie.content.AddNewRIEContent"
+      template="templates/library.pt"
+      />
+
 </configure>
