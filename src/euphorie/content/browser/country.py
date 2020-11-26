@@ -1,10 +1,12 @@
 # coding=utf-8
-
+from Acquisition import aq_inner
+from euphorie.content.countrymanager import ICountryManager
 from euphorie.content.sector import ISector
 from euphorie.content.utils import CUSTOM_COUNTRY_NAMES
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm
+from plone.memoize.instance import memoize
 from Products.Five import BrowserView
 
 
@@ -46,3 +48,48 @@ class EditForm(DefaultEditForm):
     def updateWidgets(self):
         super(EditForm, self).updateWidgets()
         self.widgets["country_type"].mode = "hidden"
+
+
+class ManageUsers(BrowserView):
+    @property
+    @memoize
+    def country(self):
+        return aq_inner(self.context)
+
+    @property
+    def title(self):
+        names = self.request.locale.displayNames.territories
+        return names.get(self.country.id.upper(), self.country.title)
+
+    @property
+    def sectors(self):
+        sectors_dict = [
+            {
+                "id": sector.id,
+                "login": sector.login,
+                "password": sector.password,
+                "title": sector.title,
+                "url": sector.absolute_url(),
+                "locked": sector.locked,
+            }
+            for sector in self.country.values()
+            if ISector.providedBy(sector)
+        ]
+        sectors_dict.sort(key=lambda s: s["title"].lower())
+        return sectors_dict
+
+    @property
+    def managers(self):
+        managers_dict = [
+            {
+                "id": manager.id,
+                "login": manager.login,
+                "title": manager.title,
+                "url": manager.absolute_url(),
+                "locked": manager.locked,
+            }
+            for manager in self.country.values()
+            if ICountryManager.providedBy(manager)
+        ]
+        managers_dict.sort(key=lambda s: s["title"].lower())
+        return managers_dict

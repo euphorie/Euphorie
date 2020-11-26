@@ -50,4 +50,13 @@
       permission="cmf.ModifyPortalContent"
       />
 
+  <browser:page
+      name="manage-users"
+      for="euphorie.content.country.ICountry"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".country.ManageUsers"
+      permission="euphorie.content.ManageCountry"
+      template="templates/user_mgmt.pt"
+      />
+
 </configure>

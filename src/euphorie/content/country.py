@@ -8,21 +8,14 @@ accounts.
 https://admin.oiraproject.eu/sectors/eu
 """
 from .. import MessageFactory as _
-from Acquisition import aq_inner
-from euphorie.content.sector import ISector
-from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.directives import dexterity
 from plone.directives import form
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from zope import schema
 from zope.interface import implements
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
-
-
-grok.templatedir("templates")
 
 
 class ICountry(form.Schema, IBasic):
@@ -114,45 +107,3 @@ class Country(dexterity.Container):
     def _canCopy(self, op=0):
         """Tell Zope2 that this object can not be copied."""
         return False
-
-
-class ManageUsers(grok.View):
-    grok.context(ICountry)
-    grok.require("euphorie.content.ManageCountry")
-    grok.layer(NuPloneSkin)
-    grok.template("user_mgmt")
-    grok.name("manage-users")
-
-    def update(self):
-        from euphorie.content.countrymanager import ICountryManager
-
-        super(ManageUsers, self).update()
-        names = self.request.locale.displayNames.territories
-        country = aq_inner(self.context)
-        self.title = names.get(country.id.upper(), country.title)
-        self.sectors = [
-            {
-                "id": sector.id,
-                "login": sector.login,
-                "password": sector.password,
-                "title": sector.title,
-                "url": sector.absolute_url(),
-                "locked": sector.locked,
-            }
-            for sector in country.values()
-            if ISector.providedBy(sector)
-        ]
-        self.sectors.sort(key=lambda s: s["title"].lower())
-
-        self.managers = [
-            {
-                "id": manager.id,
-                "login": manager.login,
-                "title": manager.title,
-                "url": manager.absolute_url(),
-                "locked": manager.locked,
-            }
-            for manager in country.values()
-            if ICountryManager.providedBy(manager)
-        ]
-        self.managers.sort(key=lambda s: s["title"].lower())
