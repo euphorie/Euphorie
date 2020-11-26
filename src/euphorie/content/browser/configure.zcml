@@ -59,4 +59,13 @@
       template="templates/user_mgmt.pt"
       />
 
+  <!-- CountryManager -->
+  <browser:page
+      name="nuplone-view"
+      for="euphorie.content.countrymanager.ICountryManager"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      permission="zope2.View"
+      template="templates/countrymanager_view.pt"
+      />
+
 </configure>

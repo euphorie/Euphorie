@@ -18,12 +18,8 @@ from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
 from plone.uuid.interfaces import IAttributeUUID
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from Products.CMFCore.utils import getToolByName
 from zope.interface import implements
-
-
-grok.templatedir("templates")
 
 
 class ICountryManager(form.Schema, IUser):
@@ -90,14 +86,3 @@ class CountryManagerLocalRoleProvider(grok.Adapter):
             )
             for manager in managers
         ]
-
-
-class View(grok.View):
-    """ View name: @@nuplone-view
-    """
-
-    grok.context(ICountryManager)
-    grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
-    grok.template("countrymanager_view")
-    grok.name("nuplone-view")
