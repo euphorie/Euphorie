@@ -86,4 +86,13 @@
       class=".export.ExportSurvey"
       />
 
+  <!-- Sector -->
+  <browser:page
+      name="upload"
+      for="euphorie.content.sector.ISector"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      permission="euphorie.content.AddNewRIEContent"
+      class=".upload.ImportSurvey"
+      />
+
 </configure>

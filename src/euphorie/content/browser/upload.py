@@ -7,19 +7,16 @@ Form and browser view for importing a previously exported survey in XML format.
 view: @@upload
 """
 
-from .. import MessageFactory as _
-from .country import ICountry
-from .risk import EnsureInterface
-from .risk import IFrenchEvaluation
-from .risk import IKinneyEvaluation
-from .risk import IRisk
-from .sector import ISector
-from .user import LoginField
-from .user import validLoginValue
+from ..risk import EnsureInterface
+from ..risk import IFrenchEvaluation
+from ..risk import IKinneyEvaluation
+from ..risk import IRisk
+from ..user import LoginField
+from ..user import validLoginValue
 from Acquisition import aq_inner
+from euphorie.content import MessageFactory as _
 from euphorie.content.behaviors.toolcategory import IToolCategory
 from euphorie.content.utils import IToolTypesInfo
-from five import grok
 from plone.dexterity.utils import createContentInContainer
 from plone.directives import form
 from plone.namedfile import field as filefield
@@ -441,11 +438,6 @@ class ImportSurvey(form.SchemaForm):
     View name: @@upload
     """
 
-    grok.context(ISector)
-    grok.require("euphorie.content.AddNewRIEContent")
-    grok.name("upload")
-    form.wrap(True)
-
     schema = IImportSurvey
     ignoreContext = True
     form_name = _(u"Import OiRA Tool version")
@@ -472,52 +464,4 @@ class ImportSurvey(form.SchemaForm):
             type="success",
         )
         state = getMultiAdapter((survey, self.request), name="plone_context_state")
-        self.request.response.redirect(state.view_url())
-
-
-class ImportSector(form.SchemaForm):
-    """ The upload view for a :obj:`euphorie.content.country`
-
-    View name: @@upload
-    """
-
-    grok.context(ICountry)
-    grok.require("euphorie.content.ManageCountry")
-    grok.name("upload")
-    form.wrap(True)
-
-    schema = IImportSector
-    ignoreContext = True
-    label = _("title_import_sector_survey", default=u"Import sector and OiRA Tool")
-
-    importer_factory = SectorImporter
-
-    @button.buttonAndHandler(_("button_upload", default=u"Upload"))
-    def handleUpload(self, action):
-        (data, errors) = self.extractData()
-        input = data["file"].data
-
-        importer = self.importer_factory(self.context)
-
-        try:
-            sector = importer(
-                input,
-                data["sector_title"],
-                data["sector_login"],
-                data["surveygroup_title"],
-                data["survey_title"],
-            )
-        except lxml.etree.XMLSyntaxError:
-            raise WidgetActionExecutionError(
-                "file",
-                Invalid(
-                    _("error_invalid_xml", default=u"Please upload a valid XML file")
-                ),
-            )
-
-        IStatusMessage(self.request).addStatusMessage(
-            _("upload_success", default=u"Succesfully imported the OiRA Tool"),
-            type="success",
-        )
-        state = getMultiAdapter((sector, self.request), name="plone_context_state")
         self.request.response.redirect(state.view_url())
