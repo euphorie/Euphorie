@@ -1,3 +1,5 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
@@ -5,7 +7,12 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="euphorie"
       meta:interpolation="true"
-      tal:omit-tag="">
+      metal:use-macro="context/@@layout/macros/layout">
+  <body>
+    <metal:title fill-slot="title">${context/title}</metal:title>
+    <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar"/></metal:bar>
+
+    <metal:content fill-slot="content">
 
   <style type="text/css">
     .example {
@@ -46,6 +53,7 @@
     <p class="discrete pq-discrete" i18n:translate="">Such questions are asked BEFORE the end-user starts the risk identification and evaluation. If the end-user does not confirm that an optional profile question is relevant (by ticking the box), then the corresponding module will be skipped entirely. If the end-user enters more than one option to a repeatable profile question then the corresponding module will be repeated the specified number of times.</p>
     <p class="discrete" i18n:translate="">Please refer to the examples below the form.</p>
 
+
   <form class="concise" action="${request/getURL}" method="${view/method}" enctype="${view/enctype}">
     <fieldset>
       <tal:widget replace="structure view/widgets/title/render" />
@@ -75,4 +83,6 @@
   <div class="example">
     <img src="${here/portal_url}/++resource++euphorie.static/profile_multiple.png" />
   </div>
+</metal:content>
+</body>
 </html>

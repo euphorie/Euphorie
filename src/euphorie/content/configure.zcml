@@ -32,7 +32,6 @@
     <grok:grok package=".dependency" />
     <grok:grok package=".help" />
     <grok:grok package=".module" />
-    <grok:grok package=".profilequestion" />
     <grok:grok package=".risk" />
     <grok:grok package=".sector" />
     <grok:grok package=".sectorcontainer" />

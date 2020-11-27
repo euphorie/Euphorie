@@ -113,6 +113,39 @@
       class=".upload.ImportSurvey"
       />
 
+  <!-- ProfileQuestion -->
+  <browser:page
+      name="nuplone-view"
+      for="euphorie.content.profilequestion.IProfileQuestion"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".profilequestion.ProfileQuestionView"
+      permission="zope2.View"
+      template="templates/profilequestion_view.pt"
+      />
+
+    <adapter
+        for="Products.CMFCore.interfaces.IFolderish
+             plonetheme.nuplone.skin.interfaces.NuPloneSkin
+             plone.dexterity.interfaces.IDexterityFTI"
+        provides="zope.publisher.interfaces.browser.IBrowserPage"
+        factory=".profilequestion.AddView"
+        name="euphorie.profilequestion"
+        />
+    <class class=".profilequestion.AddView">
+        <require
+            permission="euphorie.content.AddNewRIEContent"
+            interface="zope.publisher.interfaces.browser.IBrowserPage"
+            />
+    </class>
+
+  <browser:page
+      name="edit"
+      for="euphorie.content.profilequestion.IProfileQuestion"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".profilequestion.EditForm"
+      permission="cmf.ModifyPortalContent"
+      />
+
   <!-- Module -->
   <browser:page
       name="nuplone-view"
@@ -122,7 +155,6 @@
       permission="zope2.View"
       template="templates/module_view.pt"
       />
-
 
     <adapter
         for="Products.CMFCore.interfaces.IFolderish
