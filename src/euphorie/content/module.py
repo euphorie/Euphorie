@@ -16,8 +16,6 @@ from .fti import check_fti_paste_allowed
 from .fti import ConditionalDexterityFTI
 from .fti import IConstructionFilter
 from .interfaces import IQuestionContainer
-from .risk import IRisk
-from .utils import DragDropHelper
 from .utils import StripMarkup
 from Acquisition import aq_chain
 from euphorie.content.dependency import ConditionalTextLine
@@ -26,27 +24,20 @@ from five import grok
 from htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
-from plone.dexterity.interfaces import IDexterityFTI
 from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
 from plone.namedfile import field as filefield
 from plone.namedfile.interfaces import INamedBlobImageField
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import validator
 from zope import schema
-from zope.component import getMultiAdapter
-from zope.component import getUtility
 from zope.interface import implements
 from zope.interface import Interface
 from zope.interface import Invalid
 
 import sys
-
-
-grok.templatedir("templates")
 
 
 class IModule(form.Schema, IRichDescription, IBasic):
@@ -253,98 +244,6 @@ def SearchableTextIndexer(obj):
     return " ".join(
         [obj.title, StripMarkup(obj.description), StripMarkup(obj.solution_direction)]
     )
-
-
-class View(grok.View, DragDropHelper):
-    """ View name: @@nuplone-view
-    """
-
-    grok.context(IModule)
-    grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
-    grok.template("module_view")
-    grok.name("nuplone-view")
-
-    def _morph(self, child):
-        state = getMultiAdapter((child, self.request), name="plone_context_state")
-        return {"id": child.id, "title": child.title, "url": state.view_url()}
-
-    def update(self):
-        """ Set view attributes which list modules and risks in the current
-        context.
-        """
-        self.modules = [
-            self._morph(child)
-            for child in self.context.values()
-            if IModule.providedBy(child)
-        ]
-        self.risks = [
-            self._morph(child)
-            for child in self.context.values()
-            if IRisk.providedBy(child)
-        ]
-
-    @property
-    def portal_type(self):
-        if self.context.aq_parent.portal_type == "euphorie.module":
-            return _("Submodule")
-        else:
-            portal_type = self.context.portal_type
-            fti = getUtility(IDexterityFTI, name=portal_type)
-            return fti.Title()
-
-
-class Edit(form.SchemaEditForm):
-    """Override for the standard edit form so we can change the form title
-    for submodules.
-
-    View name: @@edit
-    """
-
-    grok.context(IModule)
-    grok.require("cmf.ModifyPortalContent")
-    grok.layer(NuPloneSkin)
-    grok.name("edit")
-
-    @property
-    def label(self):
-        if self.context.aq_parent.portal_type == "euphorie.module":
-            type_name = _("Submodule")
-        else:
-            portal_type = self.context.portal_type
-            fti = getUtility(IDexterityFTI, name=portal_type)
-            type_name = fti.Title()
-        return _(u"Edit ${name}", mapping={"name": type_name})
-
-    def updateWidgets(self):
-        super(Edit, self).updateWidgets()
-        self.widgets["title"].addClass("span-7")
-
-    def extractData(self, setErrors=True):
-        data = super(Edit, self).extractData(setErrors)
-
-        # If there is a validation error on the form, consume all status messages,
-        # so that they don't appear in the form. We only want to show validation
-        # messages directly on the respective field(s) in that case.
-        if data[1]:
-            status = IStatusMessage(self.request)
-            status.show()
-        return data
-
-
-class Add(dexterity.AddForm):
-    grok.name("euphorie.module")
-    grok.context(IModule)
-
-    @property
-    def label(self):
-        if self.context.portal_type == "euphorie.module":
-            type_name = _("Submodule")
-        else:
-            portal_type = self.portal_type
-            fti = getUtility(IDexterityFTI, name=portal_type)
-            type_name = fti.Title()
-        return _(u"Add %s" % type_name)
 
 
 def tree_depth(obj):
