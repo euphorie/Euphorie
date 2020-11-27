@@ -86,6 +86,15 @@
       template="templates/folder_view.pt"
       />
 
+  <!-- Page -->
+  <browser:page
+      name="nuplone-view"
+      for="euphorie.content.page.IPage"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      permission="zope2.View"
+      template="templates/page_view.pt"
+      />
+
   <!-- Survey -->
   <browser:page
       name="export"
