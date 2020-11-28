@@ -138,6 +138,16 @@
       class=".upload.ImportSurvey"
       />
 
+  <!-- SectorContainer -->
+  <browser:page
+      name="nuplone-view"
+      for="euphorie.content.sectorcontainer.ISectorContainer"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".sectorcontainer.SectorContainerView"
+      permission="zope2.View"
+      template="templates/sectorcontainer_view.pt"
+      />
+
   <!-- ProfileQuestion -->
   <browser:page
       name="nuplone-view"
