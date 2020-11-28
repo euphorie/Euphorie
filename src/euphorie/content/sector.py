@@ -38,9 +38,7 @@ from plonetheme.nuplone.utils import getPortal
 from Products.CMFCore.utils import getToolByName
 from Products.CMFEditions.Permissions import AccessPreviousVersions
 from Products.statusmessages.interfaces import IStatusMessage
-from z3c.appconfig.interfaces import IAppConfig
 from zope import schema
-from zope.component import getUtility
 from zope.interface import implements
 
 import datetime
@@ -282,19 +280,6 @@ class Delete(actions.Delete):
             self.request.response.redirect(context.absolute_url())
             return False
         return True
-
-
-class ColourPreview(grok.View):
-    grok.context(ISector)
-    grok.require("cmf.ModifyPortalContent")
-    grok.layer(NuPloneSkin)
-    grok.name("colour-preview")
-    grok.template("colour-preview")
-
-    def default_title(self):
-        from .. import MessageFactory as _
-
-        return _("title_tool", default=u"OiRA - Online interactive Risk Assessment")
 
 
 class Settings(form.SchemaEditForm):
