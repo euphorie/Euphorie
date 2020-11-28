@@ -31,7 +31,6 @@ from plone.indexer import indexer
 from plone.namedfile import field as filefield
 from plone.uuid.interfaces import IAttributeUUID
 from plonetheme.nuplone.skin import actions
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.utils import checkPermission
 from plonetheme.nuplone.utils import getPortal
 from Products.CMFCore.utils import getToolByName
@@ -260,20 +259,3 @@ class Delete(actions.Delete):
             self.request.response.redirect(context.absolute_url())
             return False
         return True
-
-
-class VersionCommand(grok.View):
-    grok.context(ISector)
-    grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
-    grok.name("version-command")
-
-    def render(self):
-        action = self.request.get("action")
-        if action == "new":
-            sector = aq_inner(self.context)
-            self.request.response.redirect(
-                "%s/++add++euphorie.surveygroup" % sector.absolute_url()
-            )
-        else:
-            log.error("Invalid version command action: %r", action)

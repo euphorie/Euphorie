@@ -6,6 +6,11 @@ from plone import api
 from plone.dexterity.browser.edit import DefaultEditForm
 from Products.Five import BrowserView
 
+import logging
+
+
+log = logging.getLogger(__name__)
+
 
 class SectorView(BrowserView):
     @property
@@ -38,3 +43,15 @@ class EditForm(DefaultEditForm):
         if "login" in self.widgets:
             del self.widgets["login"]
         return super(EditForm, self).extractData()
+
+
+class VersionCommand(BrowserView):
+    def __call__(self):
+        action = self.request.get("action")
+        if action == "new":
+            sector = aq_inner(self.context)
+            self.request.response.redirect(
+                "%s/++add++euphorie.surveygroup" % sector.absolute_url()
+            )
+        else:
+            log.error("Invalid version command action: %r", action)

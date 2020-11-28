@@ -123,6 +123,14 @@
       />
 
   <browser:page
+      name="version-command"
+      for="euphorie.content.sector.ISector"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".sector.VersionCommand"
+      permission="zope2.View"
+      />
+
+  <browser:page
       name="upload"
       for="euphorie.content.sector.ISector"
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
