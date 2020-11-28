@@ -262,26 +262,6 @@ class Delete(actions.Delete):
         return True
 
 
-class Settings(form.SchemaEditForm):
-    grok.context(ISector)
-    grok.require("cmf.ModifyPortalContent")
-    grok.layer(NuPloneSkin)
-    grok.name("edit")
-    grok.template("settings")
-
-    schema = ISector
-    default_fieldset_label = None
-    formErrorsMessage = u"Please correct the indicated errors."
-
-    def extractData(self):
-        self.fields = self.fields.omit("title", "login")
-        if "title" in self.widgets:
-            del self.widgets["title"]
-        if "login" in self.widgets:
-            del self.widgets["login"]
-        return super(Settings, self).extractData()
-
-
 class VersionCommand(grok.View):
     grok.context(ISector)
     grok.require("zope2.View")

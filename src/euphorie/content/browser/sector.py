@@ -1,7 +1,9 @@
 # coding=utf-8
 from ..sector import getSurveys
+from ..sector import ISector
 from Acquisition import aq_inner
 from plone import api
+from plone.dexterity.browser.edit import DefaultEditForm
 from Products.Five import BrowserView
 
 
@@ -21,3 +23,18 @@ class SectorView(BrowserView):
         permission = "Euphorie: Add new RIE Content"
         user = api.user.get_current()
         return api.user.has_permission(permission, user=user, obj=self.context)
+
+
+class EditForm(DefaultEditForm):
+
+    schema = ISector
+    default_fieldset_label = None
+    formErrorsMessage = u"Please correct the indicated errors."
+
+    def extractData(self):
+        self.fields = self.fields.omit("title", "login")
+        if "title" in self.widgets:
+            del self.widgets["title"]
+        if "login" in self.widgets:
+            del self.widgets["login"]
+        return super(EditForm, self).extractData()
