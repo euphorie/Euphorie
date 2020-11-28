@@ -178,6 +178,16 @@
       permission="cmf.ModifyPortalContent"
       />
 
+  <!-- Risk -->
+  <browser:page
+      name="nuplone-view"
+      for="euphorie.content.risk.IRisk"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".risk.RiskView"
+      permission="zope2.View"
+      template="templates/risk_view.pt"
+      />
+
   <!-- Library -->
   <browser:page
       name="library"

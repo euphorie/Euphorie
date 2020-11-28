@@ -745,54 +745,6 @@ def SearchableTextIndexer(obj):
     )
 
 
-class View(grok.View, DragDropHelper):
-    grok.context(IRisk)
-    grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
-    grok.template("risk_view")
-    grok.name("nuplone-view")
-
-    def update(self):
-        super(View, self).update()
-        context = aq_inner(self.context)
-        self.module_title = aq_parent(context).title
-        self.evaluation_algorithm = evaluation_algorithm(context)
-        self.type = getTermTitleByValue(IRisk["type"], context.type)
-        self.evaluation_method = getTermTitleByValue(
-            IRisk["evaluation_method"], context.evaluation_method
-        )
-        self.default_priority = getTermTitleByValue(
-            IKinneyRisk["default_priority"], context.default_priority
-        )
-        if self.evaluation_algorithm == u"french":
-            self.default_severity = getTermTitleByValue(
-                IFrenchEvaluation["default_severity"], context.default_severity
-            )
-            self.default_frequency = getTermTitleByValue(
-                IFrenchEvaluation["default_frequency"], context.default_frequency
-            )
-        else:
-            self.default_probability = getTermTitleByValue(
-                IKinneyEvaluation["default_probability"], context.default_probability
-            )
-            self.default_frequency = getTermTitleByValue(
-                IKinneyEvaluation["default_frequency"], context.default_frequency
-            )
-            self.default_effect = getTermTitleByValue(
-                IKinneyEvaluation["default_effect"], context.default_effect
-            )
-
-        self.solutions = [
-            {
-                "id": solution.id,
-                "url": solution.absolute_url(),
-                "description": solution.description,
-            }
-            for solution in context.values()
-            if ISolution.providedBy(solution)
-        ]
-
-
 class Add(dexterity.AddForm):
     grok.context(IRisk)
     grok.name("euphorie.risk")
