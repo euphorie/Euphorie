@@ -106,6 +106,15 @@
 
   <!-- Sector -->
   <browser:page
+      name="nuplone-view"
+      for="euphorie.content.sector.ISector"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".sector.SectorView"
+      permission="zope2.View"
+      template="templates/sector_view.pt"
+      />
+
+  <browser:page
       name="upload"
       for="euphorie.content.sector.ISector"
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"

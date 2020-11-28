@@ -23,7 +23,6 @@ from euphorie.content.surveygroup import ISurveyGroup
 from euphorie.content.user import IUser
 from euphorie.content.user import UserProvider
 from five import grok
-from plone import api
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.directives import dexterity
@@ -47,7 +46,6 @@ import zExceptions
 
 
 log = logging.getLogger(__name__)
-grok.templatedir("templates")
 
 
 class ISector(form.Schema, IUser, IBasic):
@@ -222,24 +220,6 @@ def getSurveys(context):
         result.append(info)
     result.sort(key=lambda g: g["title"].lower())
     return result
-
-
-class View(grok.View):
-    grok.context(ISector)
-    grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
-    grok.template("sector_view")
-    grok.name("nuplone-view")
-
-    def update(self):
-        self.add_survey_url = (
-            "%s/++add++euphorie.surveygroup" % aq_inner(self.context).absolute_url()
-        )
-        self.surveys = getSurveys(self.context)
-        permission = "Euphorie: Add new RIE Content"
-        user = api.user.get_current()
-        self.can_add = api.user.has_permission(permission, user=user, obj=self.context)
-        super(View, self).update()
 
 
 class Delete(actions.Delete):
