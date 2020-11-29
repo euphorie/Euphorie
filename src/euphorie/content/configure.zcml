@@ -34,7 +34,6 @@
     <grok:grok package=".module" />
     <grok:grok package=".risk" />
     <grok:grok package=".sector" />
-    <grok:grok package=".solution" />
     <grok:grok package=".survey" />
     <grok:grok package=".surveygroup" />
     <grok:grok package=".user" />
