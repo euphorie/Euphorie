@@ -14,7 +14,6 @@ from .behaviour.uniqueid import INameFromUniqueId
 from .datamanager import ParentAttributeField
 from .fti import check_fti_paste_allowed
 from .interfaces import IQuestionContainer
-from .interfaces import ISurveyUnpublishEvent
 from .profilequestion import IProfileQuestion
 from .utils import StripMarkup
 from Acquisition import aq_base
@@ -40,9 +39,6 @@ from zope.component import getUtility
 from zope.interface import implements
 
 import sys
-
-
-grok.templatedir("templates")
 
 
 class ISurvey(form.Schema, IBasic):
@@ -323,7 +319,6 @@ class Delete(actions.Delete):
             return False
 
 
-@grok.subscribe(ISurvey, ISurveyUnpublishEvent)
 def handleSurveyUnpublish(survey, event):
     """Event handler (subscriber) for unpublishing a survey."""
     if hasattr(aq_base(survey), "published"):

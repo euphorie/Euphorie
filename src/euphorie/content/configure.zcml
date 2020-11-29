@@ -63,6 +63,12 @@
              "
         handler=".risk.handle_risk_pasted"
         />
+    <subscriber
+      for="euphorie.content.survey.ISurvey
+           euphorie.content.interfaces.ISurveyUnpublishEvent
+           "
+        handler=".survey.handleSurveyUnpublish"
+        />
 
     <adapter
       for=".survey.ISurvey zope.schema.interfaces.IField"
