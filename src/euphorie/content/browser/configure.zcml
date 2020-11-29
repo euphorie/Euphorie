@@ -148,6 +148,16 @@
       template="templates/sectorcontainer_view.pt"
       />
 
+  <!-- Survey -->
+  <browser:page
+      name="nuplone-view"
+      for="euphorie.content.survey.ISurvey"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".survey.SurveyView"
+      permission="zope2.View"
+      template="templates/survey_view.pt"
+      />
+
   <!-- ProfileQuestion -->
   <browser:page
       name="nuplone-view"

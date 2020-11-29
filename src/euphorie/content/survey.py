@@ -15,9 +15,7 @@ from .datamanager import ParentAttributeField
 from .fti import check_fti_paste_allowed
 from .interfaces import IQuestionContainer
 from .interfaces import ISurveyUnpublishEvent
-from .module import IModule
 from .profilequestion import IProfileQuestion
-from .utils import DragDropHelper
 from .utils import StripMarkup
 from Acquisition import aq_base
 from Acquisition import aq_chain
@@ -44,7 +42,6 @@ from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
 from ZODB.POSException import ConflictError
 from zope import schema
-from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.container.interfaces import INameChooser
 from zope.event import notify
@@ -276,27 +273,6 @@ def SearchableTextIndexer(obj):
             obj.classification_code or u"",
         ]
     )
-
-
-class View(grok.View, DragDropHelper):
-    grok.context(ISurvey)
-    grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
-    grok.template("survey_view")
-    grok.name("nuplone-view")
-
-    def _morph(self, child):
-        state = getMultiAdapter((child, self.request), name="plone_context_state")
-        return {"id": child.id, "title": child.title, "url": state.view_url()}
-
-    def update(self):
-        self.children = [
-            self._morph(child)
-            for child in self.context.values()
-            if IModule.providedBy(child) or IProfileQuestion.providedBy(child)
-        ]
-        self.group = aq_parent(aq_inner(self.context))
-        super(View, self).update()
 
 
 class ISurveyAddSchema(form.Schema):
