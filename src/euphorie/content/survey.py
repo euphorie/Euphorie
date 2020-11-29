@@ -27,7 +27,6 @@ from euphorie.content.utils import get_tool_type_default
 from euphorie.content.utils import IToolTypesInfo
 from five import grok
 from htmllaundry.z3cform import HtmlText
-from OFS.event import ObjectClonedEvent
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.directives import dexterity
@@ -37,14 +36,10 @@ from plonetheme.nuplone.skin import actions
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
 from Products.CMFCore.utils import getToolByName
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
-from ZODB.POSException import ConflictError
 from zope import schema
 from zope.component import getUtility
-from zope.container.interfaces import INameChooser
-from zope.event import notify
 from zope.interface import implements
 
 import sys
@@ -207,8 +202,6 @@ class Survey(dexterity.Container):
     all items inside the survey have a unique id.
     """
 
-    grok.name("euphorie.container")
-
     implements(ISurvey, IQuestionContainer)
 
     dirty = False
@@ -310,56 +303,6 @@ class ISurveyEditSchema(ISurvey):
         required=False,
     )
     form.order_before(obsolete="introduction")
-
-
-class AddForm(dexterity.AddForm):
-    """Custom add form for :obj:`Survey` instances. This form is
-    needlessly complicated: it should use a schema and a vocabulary
-    to offer a list of template surveys, but this is impossible since
-    vocabulary factories always get a None context. See
-    http://code.google.com/p/dexterity/issues/detail?id=125
-    """
-
-    grok.context(ISurvey)
-    grok.name("euphorie.survey")
-    grok.require("euphorie.content.AddNewRIEContent")
-
-    schema = ISurveyAddSchema
-    template = ViewPageTemplateFile("templates/survey_add.pt")
-
-    def surveys(self):
-        templates = [
-            {"id": survey.id, "title": survey.title}
-            for survey in self.context.values()
-            if ISurvey.providedBy(survey)
-        ]
-        return templates
-
-    def copyTemplate(self, source, title):
-        target = aq_inner(self.context)
-        try:
-            source._notifyOfCopyTo(target, op=0)
-        except ConflictError:
-            raise
-
-        copy = source._getCopy(target)
-        copy.title = title
-        chooser = INameChooser(target)
-        copy.id = chooser.chooseName(None, copy)
-        target._setObject(copy.id, copy)
-
-        copy = target[copy.id]  # Acquisition-wrap
-        copy.wl_clearLocks()
-        copy._postCopy(target, op=0)
-        notify(ObjectClonedEvent(target[copy.id]))
-        return copy
-
-    def createAndAdd(self, data):
-        surveygroup = aq_inner(self.context)
-        template = surveygroup[self.request.form["survey"]]
-        survey = self.copyTemplate(template, data["title"])
-        self.immediate_view = survey.absolute_url()
-        return survey
 
 
 class Edit(form.SchemaEditForm):
