@@ -9,10 +9,14 @@ from Acquisition import aq_parent
 from OFS.event import ObjectClonedEvent
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
+from plone.dexterity.browser.edit import DefaultEditForm
+from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from z3c.appconfig.interfaces import IAppConfig
 from ZODB.POSException import ConflictError
 from zope.component import getMultiAdapter
+from zope.component import getUtility
 from zope.container.interfaces import INameChooser
 from zope.event import notify
 
@@ -84,3 +88,20 @@ class AddForm(DefaultAddForm):
 
 class AddView(DefaultAddView):
     form = AddForm
+
+
+class EditForm(DefaultEditForm):
+    def applyChanges(self, data):
+        changes = super(EditForm, self).applyChanges(data)
+        if changes:
+            # Reindex our parents title.
+            catalog = getToolByName(self.context, "portal_catalog")
+            catalog.indexObject(aq_parent(aq_inner(self.context)))
+        return changes
+
+    def updateWidgets(self):
+        super(EditForm, self).updateWidgets()
+        appconfig = getUtility(IAppConfig)
+        settings = appconfig.get("euphorie")
+        if not settings.get("use_integrated_action_plan", False):
+            self.widgets["integrated_action_plan"].mode = "hidden"

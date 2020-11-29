@@ -164,6 +164,14 @@
     </class>
 
   <browser:page
+      name="edit"
+      for="euphorie.content.survey.ISurvey"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".survey.EditForm"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
       name="export"
       for="euphorie.content.survey.ISurvey"
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"

@@ -33,11 +33,8 @@ from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
 from plonetheme.nuplone.skin import actions
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
-from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
-from z3c.appconfig.interfaces import IAppConfig
 from zope import schema
 from zope.component import getUtility
 from zope.interface import implements
@@ -278,55 +275,6 @@ class ISurveyAddSchema(form.Schema):
         ),
         required=True,
     )
-
-
-class ISurveyEditSchema(ISurvey):
-    survey_title = schema.TextLine(
-        title=_("label_title", default=u"Title"),
-        description=_(
-            "help_surveygroup_title",
-            default=u"The title of this OiRA Tool. This title is used in "
-            u"the OiRA Tool overview in the clients.",
-        ),
-        required=True,
-    )
-    form.order_before(survey_title="*")
-
-    obsolete = schema.Bool(
-        title=_("label_survey_obsolete", default=u"Obsolete OiRA tool"),
-        description=_(
-            "help_survey_obsolete",
-            default=u"This OiRA Tool is obsolete; it has been retired or "
-            u"replaced with another OiRA Tool.",
-        ),
-        default=False,
-        required=False,
-    )
-    form.order_before(obsolete="introduction")
-
-
-class Edit(form.SchemaEditForm):
-    grok.context(ISurvey)
-    grok.require("cmf.ModifyPortalContent")
-    grok.layer(NuPloneSkin)
-    grok.name("edit")
-
-    schema = ISurveyEditSchema
-
-    def applyChanges(self, data):
-        changes = super(Edit, self).applyChanges(data)
-        if changes:
-            # Reindex our parents title.
-            catalog = getToolByName(self.context, "portal_catalog")
-            catalog.indexObject(aq_parent(aq_inner(self.context)))
-        return changes
-
-    def updateWidgets(self):
-        super(Edit, self).updateWidgets()
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get("euphorie")
-        if not settings.get("use_integrated_action_plan", False):
-            self.widgets["integrated_action_plan"].mode = "hidden"
 
 
 class Delete(actions.Delete):
