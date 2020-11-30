@@ -1,5 +1,5 @@
 # coding=utf-8
-from ..survey import View
+from ..browser.survey import SurveyView
 from euphorie.content.module import IModule
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.survey import handleSurveyUnpublish
@@ -43,14 +43,16 @@ class ViewTests(EuphorieIntegrationTestCase):
             name="plone_context_state",
         )
         # grok makes unit testing extremely painful
-        View.__view_name__ = "View"
-        View.module_info = Mock()
-        View.module_info.package_dotted_name = "euphorie.content.survey.View"
+        SurveyView.__view_name__ = "View"
+        SurveyView.module_info = Mock()
+        SurveyView.module_info.package_dotted_name = (
+            "euphorie.content.browser.survey.SurveyView"
+        )
 
     def tearDown(self):
         super(ViewTests, self).tearDown()
-        del View.__view_name__
-        del View.module_info
+        del SurveyView.__view_name__
+        del SurveyView.module_info
 
     def _request(self):
         req = TestRequest()
@@ -59,8 +61,7 @@ class ViewTests(EuphorieIntegrationTestCase):
 
     def test_update_no_children(self):
         survey = Survey()
-        view = View(survey, self._request())
-        view.update()
+        view = SurveyView(survey, self._request())
         self.assertEqual(view.children, [])
 
     def test_update_with_profile(self):
@@ -68,9 +69,8 @@ class ViewTests(EuphorieIntegrationTestCase):
         child = Mock(id="child", title=u"Child")
         alsoProvides(child, IProfileQuestion)
         survey["child"] = child
-        view = View(survey, self._request())
+        view = SurveyView(survey, self._request())
         view._morph = mock.Mock(return_value="info")
-        view.update()
         self.assertEqual(view.children, ["info"])
 
     def test_update_with_module(self):
@@ -78,22 +78,20 @@ class ViewTests(EuphorieIntegrationTestCase):
         child = Mock(id="child", title=u"Child")
         alsoProvides(child, IModule)
         survey["child"] = child
-        view = View(survey, self._request())
+        view = SurveyView(survey, self._request())
         view._morph = mock.Mock(return_value="info")
-        view.update()
         self.assertEqual(view.children, ["info"])
 
     def test_update_other_child(self):
         survey = Survey()
-        view = View(survey, self._request())
+        view = SurveyView(survey, self._request())
         child = Mock(id="child", title=u"Child")
         survey["child"] = child
-        view.update()
         self.assertEqual(view.children, [])
 
     def test_moprh(self):
         child = Mock(id="child", title=u"Child")
-        view = View(None, self._request())
+        view = SurveyView(None, self._request())
         self.assertEqual(
             view._morph(child),
             {"id": "child", "title": u"Child", "url": "http://nohost/child"},
