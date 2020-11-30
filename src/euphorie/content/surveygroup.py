@@ -15,7 +15,6 @@ from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.directives import dexterity
 from plone.directives import form
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from Products.CMFCore.interfaces import IActionSucceededEvent
 from z3c.form.interfaces import IEditForm
 from zope import schema
@@ -25,10 +24,7 @@ from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 
 import logging
-import urllib
 
-
-grok.templatedir("templates")
 
 log = logging.getLogger(__name__)
 
@@ -92,32 +88,6 @@ class SurveyGroup(dexterity.Container):
     def _canCopy(self, op=0):
         """Tell Zope2 that this object can not be copied."""
         return op
-
-
-class VersionCommand(grok.View):
-    grok.context(ISurveyGroup)
-    grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
-    grok.name("version-command")
-
-    def render(self):
-        surveygroup = aq_inner(self.context)
-        action = self.request.form.get("action")
-        survey_id = self.request.form.get("survey")
-        response = self.request.response
-        if action == "publish":
-            response.redirect(
-                "%s/%s/@@publish" % (surveygroup.absolute_url(), survey_id)
-            )
-        elif action == "unpublish":
-            response.redirect("%s/@@unpublish" % surveygroup.absolute_url())
-        elif action == "clone":
-            response.redirect(
-                "%s/++add++euphorie.survey?%s"
-                % (surveygroup.absolute_url(), urllib.urlencode(dict(survey=survey_id)))
-            )
-        else:
-            log.error("Invalid version command action: %r", action)
 
 
 @grok.subscribe(ISurvey, IActionSucceededEvent)

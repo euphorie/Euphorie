@@ -19,6 +19,7 @@ from zope.event import notify
 
 import datetime
 import logging
+import urllib
 
 
 log = logging.getLogger(__name__)
@@ -245,3 +246,24 @@ class Unpublish(BrowserView):
             self.post()
         else:
             return super(Unpublish, self).__call__()
+
+
+class VersionCommand(BrowserView):
+    def __call__(self):
+        surveygroup = aq_inner(self.context)
+        action = self.request.form.get("action")
+        survey_id = self.request.form.get("survey")
+        response = self.request.response
+        if action == "publish":
+            response.redirect(
+                "%s/%s/@@publish" % (surveygroup.absolute_url(), survey_id)
+            )
+        elif action == "unpublish":
+            response.redirect("%s/@@unpublish" % surveygroup.absolute_url())
+        elif action == "clone":
+            response.redirect(
+                "%s/++add++euphorie.survey?%s"
+                % (surveygroup.absolute_url(), urllib.urlencode(dict(survey=survey_id)))
+            )
+        else:
+            log.error("Invalid version command action: %r", action)

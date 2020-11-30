@@ -212,6 +212,14 @@
       template="templates/surveygroup_unpublish.pt"
       />
 
+  <browser:page
+      name="version-command"
+      for="euphorie.content.surveygroup.ISurveyGroup"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".surveygroup.VersionCommand"
+      permission="zope2.View"
+      />
+
   <!-- ProfileQuestion -->
   <browser:page
       name="nuplone-view"
