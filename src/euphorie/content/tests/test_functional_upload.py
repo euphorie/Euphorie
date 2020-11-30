@@ -1,6 +1,6 @@
 # coding=utf-8
 from Acquisition import aq_parent
-from euphorie.content import upload
+from euphorie.content.browser import upload
 from euphorie.content.module import Module
 from euphorie.content.profilequestion import ProfileQuestion
 from euphorie.content.risk import IFrenchEvaluation

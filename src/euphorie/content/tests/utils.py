@@ -83,7 +83,7 @@ def addSurvey(
     surveygroup_title=u"Test survey",
     survey_title=u"Standard version",
 ):
-    from euphorie.content import upload
+    from euphorie.content.browser import upload
 
     importer = upload.SurveyImporter(sector)
     return importer(snippet, surveygroup_title, survey_title)
