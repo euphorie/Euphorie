@@ -70,6 +70,20 @@
         handler=".survey.handleSurveyUnpublish"
         />
 
+    <subscriber
+      for="euphorie.content.survey.ISurvey
+           Products.CMFCore.interfaces.IActionSucceededEvent
+           "
+        handler=".surveygroup.handleSurveyPublish"
+        />
+
+    <subscriber
+      for="euphorie.content.survey.ISurvey
+           zope.lifecycleevent.interfaces.IObjectRemovedEvent
+           "
+        handler=".surveygroup.handleSurveyRemoved"
+        />
+
     <adapter
       for=".survey.ISurvey zope.schema.interfaces.IField"
       factory=".survey.SurveyAttributeField"
