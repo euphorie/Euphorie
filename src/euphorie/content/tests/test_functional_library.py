@@ -41,7 +41,7 @@ class LibraryTests(EuphorieFunctionalTestCase):
         browser = self.get_browser(logged_in=True)
         browser.handleErrors = False
         with mock.patch(
-            "euphorie.content.library.get_library", return_value=self.library
+            "euphorie.content.browser.library.get_library", return_value=self.library
         ):
             browser.open(survey.absolute_url() + "/@@library")
         assert "Library Sector Title" in browser.contents

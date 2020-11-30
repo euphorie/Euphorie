@@ -1,6 +1,6 @@
 # coding=utf-8
 from Acquisition import aq_parent
-from euphorie.content.surveygroup import AddForm
+from euphorie.content.browser.surveygroup import AddForm
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
