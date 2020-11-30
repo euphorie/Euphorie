@@ -203,6 +203,15 @@
           />
   </class>
 
+  <browser:page
+      name="unpublish"
+      for="euphorie.content.surveygroup.ISurveyGroup"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".surveygroup.Unpublish"
+      permission="cmf.ModifyPortalContent"
+      template="templates/surveygroup_unpublish.pt"
+      />
+
   <!-- ProfileQuestion -->
   <browser:page
       name="nuplone-view"

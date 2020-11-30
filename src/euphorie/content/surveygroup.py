@@ -10,7 +10,6 @@ https://admin.oiraproject.eu/sectors/eu/eu-private-security/private-security-eu
 from .. import MessageFactory as _
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from euphorie.content.interfaces import SurveyUnpublishEvent
 from euphorie.content.survey import ISurvey
 from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -18,11 +17,8 @@ from plone.directives import dexterity
 from plone.directives import form
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from Products.CMFCore.interfaces import IActionSucceededEvent
-from Products.CMFCore.utils import getToolByName
-from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form.interfaces import IEditForm
 from zope import schema
-from zope.event import notify
 from zope.interface import implements
 from zope.lifecycleevent.interfaces import IObjectRemovedEvent
 from zope.schema.vocabulary import SimpleTerm
@@ -82,6 +78,10 @@ class ISurveyGroup(form.Schema, IBasic):
 
 
 class SurveyGroup(dexterity.Container):
+    """
+    A Survey Group is a container for several Survey versions
+    """
+
     grok.name("euphorie.surveygroup")
     implements(ISurveyGroup)
 
@@ -92,54 +92,6 @@ class SurveyGroup(dexterity.Container):
     def _canCopy(self, op=0):
         """Tell Zope2 that this object can not be copied."""
         return op
-
-
-class Unpublish(grok.View):
-    grok.context(ISurveyGroup)
-    grok.require("cmf.ModifyPortalContent")
-    grok.name("unpublish")
-    grok.template("unpublish")
-
-    def unpublish(self):
-        context = aq_inner(self.context)
-        published_survey = context[context.published]
-
-        wt = getToolByName(context, "portal_workflow")
-        if wt.getInfoFor(published_survey, "review_state") != "published":
-            log.warning(
-                "Trying to unpublish survey %s which is not marked as " "published",
-                "/".join(published_survey.getPhysicalPath()),
-            )
-        else:
-            wt.doActionFor(published_survey, "retract")
-        notify(SurveyUnpublishEvent(published_survey))
-
-    def post(self):
-        action = self.request.form.get("action", "cancel")
-        flash = IStatusMessage(self.request).addStatusMessage
-        if action == "unpublish":
-            self.unpublish()
-            flash(
-                _(
-                    "message_unpublish_success",
-                    default=u"This OiRA Tool is now no longer available in "
-                    u"the client.",
-                ),
-                "success",
-            )
-        else:
-            flash(
-                _("message_unpublish_cancel", default=u"Cancelled unpublish action."),
-                "notice",
-            )
-
-        context = aq_inner(self.context)
-        self.request.response.redirect(context.absolute_url())
-
-    def update(self):
-        super(Unpublish, self).update()
-        if self.request.method == "POST":
-            self.post()
 
 
 class VersionCommand(grok.View):

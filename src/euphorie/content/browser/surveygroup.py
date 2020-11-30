@@ -3,6 +3,7 @@ from ..surveygroup import ISurveyGroup
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.content import MessageFactory as _
+from euphorie.content.interfaces import SurveyUnpublishEvent
 from euphorie.content.survey import ISurvey
 from OFS.event import ObjectClonedEvent
 from plone import api
@@ -17,6 +18,10 @@ from zope.component import getUtility
 from zope.event import notify
 
 import datetime
+import logging
+
+
+log = logging.getLogger(__name__)
 
 
 class SurveyGroupView(BrowserView):
@@ -195,3 +200,48 @@ class AddForm(DefaultAddForm):
 
 class AddView(DefaultAddView):
     form = AddForm
+
+
+class Unpublish(BrowserView):
+    def unpublish(self):
+        context = aq_inner(self.context)
+        published_survey = context[context.published]
+
+        wt = api.portal.get_tool("portal_workflow")
+        if wt.getInfoFor(published_survey, "review_state") != "published":
+            log.warning(
+                "Trying to unpublish survey %s which is not marked as " "published",
+                "/".join(published_survey.getPhysicalPath()),
+            )
+        else:
+            wt.doActionFor(published_survey, "retract")
+        notify(SurveyUnpublishEvent(published_survey))
+
+    def post(self):
+        action = self.request.form.get("action", "cancel")
+        if action == "unpublish":
+            self.unpublish()
+            api.portal.show_message(
+                _(
+                    "message_unpublish_success",
+                    default=u"This OiRA Tool is now no longer available in "
+                    u"the client.",
+                ),
+                self.request,
+                "success",
+            )
+        else:
+            api.portlal.show_message(
+                _("message_unpublish_cancel", default=u"Cancelled unpublish action."),
+                self.request,
+                "notice",
+            )
+
+        context = aq_inner(self.context)
+        self.request.response.redirect(context.absolute_url())
+
+    def __call__(self):
+        if self.request.method == "POST":
+            self.post()
+        else:
+            return super(Unpublish, self).__call__()
