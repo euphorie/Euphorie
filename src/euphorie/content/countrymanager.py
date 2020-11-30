@@ -33,7 +33,8 @@ class ICountryManager(form.Schema, IUser):
 
 class CountryManager(dexterity.Item):
     """A country manager."""
-    portal_type = 'euphorie.countrymanager'
+
+    portal_type = "euphorie.countrymanager"
     implements(ICountryManager, IAttributeUUID)
 
     locked = False
@@ -47,9 +48,7 @@ class CountryManager(dexterity.Item):
 def SearchableTextIndexer(obj):
     """ Index the title, contact_name and contact_email
     """
-    return " ".join([obj.title,
-                     obj.contact_name,
-                     obj.contact_email])
+    return " ".join([obj.title, obj.contact_name, obj.contact_email])
 
 
 class CountryManagerLocalRoleProvider(grok.Adapter):
@@ -58,6 +57,7 @@ class CountryManagerLocalRoleProvider(grok.Adapter):
     This local role provider gives country managers the Administrator
     role within their country.
     """
+
     grok.context(ICountry)
     grok.implements(ILocalRoleProvider)
     grok.name("euphorie.countrymanager")
@@ -72,24 +72,30 @@ class CountryManagerLocalRoleProvider(grok.Adapter):
         if not ICountryManager.providedBy(user):
             return ()
 
-        if user.getPhysicalPath()[:-1] == \
-                aq_inner(self.context).getPhysicalPath():
-            return ("CountryManager", "Editor", "Contributor", "Reader",
-                    "Reviewer")
+        if user.getPhysicalPath()[:-1] == aq_inner(self.context).getPhysicalPath():
+            return ("CountryManager", "Editor", "Contributor", "Reader", "Reviewer")
         else:
             return ()
 
     def getAllRoles(self):
-        managers = [UserProvider(manager) for manager in self.context.values()
-                  if ICountryManager.providedBy(manager)]
-        return [(manager.getUserId(),
-                 ("CountryyManager", "Editor", "Contributor", "Reader",
-                     "Reviewer")) for manager in managers]
+        managers = [
+            UserProvider(manager)
+            for manager in self.context.values()
+            if ICountryManager.providedBy(manager)
+        ]
+        return [
+            (
+                manager.getUserId(),
+                ("CountryyManager", "Editor", "Contributor", "Reader", "Reviewer"),
+            )
+            for manager in managers
+        ]
 
 
 class View(grok.View):
     """ View name: @@nuplone-view
     """
+
     grok.context(ICountryManager)
     grok.require("zope2.View")
     grok.layer(NuPloneSkin)

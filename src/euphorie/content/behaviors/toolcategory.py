@@ -16,11 +16,12 @@ class IToolCategory(model.Schema):
             "description_tool_category",
             default=u"Select one or more categories to which this OiRA tool "
             u"is relevant. The user will then find this tool under the chosen"
-            u" categories."),
+            u" categories.",
+        ),
         required=False,
         value_type=schema.Choice(
             source=RegistryValueVocabulary(
-                'euphorie.content.vocabularies.toolcategories',
-            ),
-        )
+                "euphorie.content.vocabularies.toolcategories"
+            )
+        ),
     )

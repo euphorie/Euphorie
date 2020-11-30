@@ -1,6 +1,6 @@
-from . import JsonView
 from ..countrymanager import ICountryManager
 from ..user import IUser
+from . import JsonView
 from .entry import API
 from Acquisition import aq_parent
 from five import grok
@@ -16,7 +16,7 @@ import hmac
 
 
 def _get_user(context, login):
-    membrane = getToolByName(context, 'membrane_tool')
+    membrane = getToolByName(context, "membrane_tool")
     user = membrane.getUserObject(login=login)
     if not IUser.providedBy(user):
         return None
@@ -33,13 +33,13 @@ def generate_token(user):
     # Note that unlike authenticate_credentials we access the password
     # directly here. This is fine since here we do not care how the password
     # is stored: even if it is hashed the token will be fine.
-    hasher.update(user.password.encode('utf-8'))
-    return '%s-%s' % (user.login, hasher.hexdigest())
+    hasher.update(user.password.encode("utf-8"))
+    return "%s-%s" % (user.login, hasher.hexdigest())
 
 
 def authenticate_token(context, token):
     try:
-        (login, hash) = token.split('-')
+        (login, hash) = token.split("-")
     except ValueError:
         return None
     user = _get_user(context, login)
@@ -57,8 +57,7 @@ def authenticate_credentials(context, login, password):
     # We could check user.password directly, but lets defer to the membrane
     # auth framework so the password checking code is all in one place.
     auth = IMembraneUserAuth(user, None)
-    info = auth.authenticateCredentials(
-            {'login': login, 'password': password})
+    info = auth.authenticateCredentials({"login": login, "password": password})
     if info is None:
         return None
     else:
@@ -67,39 +66,36 @@ def authenticate_credentials(context, login, password):
 
 class Authenticate(JsonView):
     grok.context(API)
-    grok.name('authenticate')
-    grok.require('zope2.Public')
+    grok.name("authenticate")
+    grok.require("zope2.Public")
 
     def user_url(self, user):
-        parts = [self.context.absolute_url(),
-                 'countries',
-                 aq_parent(user).id]
+        parts = [self.context.absolute_url(), "countries", aq_parent(user).id]
         if ICountryManager.providedBy(user):
-            parts.append('managers')
+            parts.append("managers")
         else:
-            parts.append('sectors')
+            parts.append("sectors")
         parts.append(user.id)
-        return '/'.join(parts)
+        return "/".join(parts)
 
     def do_POST(self):
         """Try to authenticate a user.
         """
         try:
-            login = self.input['login']
-            password = self.input['password']
+            login = self.input["login"]
+            password = self.input["password"]
         except KeyError:
             self.request.response.setStatus(403)
-            return {'type': 'error',
-                    'message': 'Required data missing'}
+            return {"type": "error", "message": "Required data missing"}
 
         user = authenticate_credentials(self.context, login, password)
         if user is None:
             self.request.response.setStatus(403)
-            return {'type': 'error',
-                    'message': 'Invalid credentials'}
+            return {"type": "error", "message": "Invalid credentials"}
         alsoProvides(self.request, IDisableCSRFProtection)
-        return {'token': generate_token(user),
-                'title': user.title,
-                'login': user.login,
-                'url': self.user_url(user),
-               }
+        return {
+            "token": generate_token(user),
+            "title": user.title,
+            "login": user.login,
+            "url": self.user_url(user),
+        }

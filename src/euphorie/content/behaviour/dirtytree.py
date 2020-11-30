@@ -11,11 +11,11 @@ succesfull workflow transitions.
 
 from Acquisition import aq_base
 from Acquisition import aq_chain
-from zope.interface import Interface
 from five import grok
+from Products.CMFCore.interfaces import IActionSucceededEvent
+from zope.interface import Interface
 from zope.lifecycleevent import IObjectModifiedEvent
 from zope.lifecycleevent import IObjectMovedEvent
-from Products.CMFCore.interfaces import IActionSucceededEvent
 
 
 class IDirtyTreeRoot(Interface):

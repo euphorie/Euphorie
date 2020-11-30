@@ -1,6 +1,8 @@
 from Acquisition import aq_parent
-from zope.security.checker import canAccess, canWrite, Proxy
 from z3c.form.datamanager import AttributeField
+from zope.security.checker import canAccess
+from zope.security.checker import canWrite
+from zope.security.checker import Proxy
 
 
 class ParentAttributeField(AttributeField):
@@ -24,11 +26,15 @@ class ParentAttributeField(AttributeField):
 
     def set(self, value):
         if self.field.readonly:
-            raise TypeError("Can't set values on read-only fields "
-                            "(name=%s, class=%s.%s)"
-                            % (self.field.__name__,
-                               self.context.__class__.__module__,
-                               self.context.__class__.__name__))
+            raise TypeError(
+                "Can't set values on read-only fields "
+                "(name=%s, class=%s.%s)"
+                % (
+                    self.field.__name__,
+                    self.context.__class__.__module__,
+                    self.context.__class__.__name__,
+                )
+            )
         (name, context) = self._name_and_context()
         setattr(context, name, value)
 

@@ -56,9 +56,7 @@ class JsonView(BaseJsonView):
                     continue
                 ztk_permission = permissions.get(attribute, None)
                 if ztk_permission is not None:
-                    permission = getUtility(
-                        IPermission, name=ztk_permission
-                    ).title
+                    permission = getUtility(IPermission, name=ztk_permission).title
                 else:
                     permission = ModifyPortalContent
                 if not self.has_permission(permission, context):

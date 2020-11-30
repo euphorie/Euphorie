@@ -33,6 +33,7 @@ from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.interface import Interface
 from zope.interface import Invalid
+
 import lxml.etree
 import lxml.objectify
 import mimetypes
@@ -40,9 +41,10 @@ import random
 
 
 ProfileQuestionLocationFields = [
-    'label_multiple_present',
-    'label_single_occurance',
-    'label_multiple_occurances']
+    "label_multiple_present",
+    "label_single_occurance",
+    "label_multiple_occurances",
+]
 
 NSMAP = {None: "http://xml.simplon.biz/euphorie/survey/1.0"}
 XMLNS = "{%s}" % NSMAP[None]
@@ -90,57 +92,67 @@ def el_bool(node, tag, default=False):
 class IImportSector(Interface):
     """ The fields used for importing a :obj:`euphorie.content.sector`.
     """
+
     sector_title = schema.TextLine(
-            title=_("label_sector_title", default=u"Title of sector."),
-            description=_("help_sector_title",
-                default=u"If you do not specify a title it will be taken "
-                        u"from the input file."),
-            required=False)
+        title=_("label_sector_title", default=u"Title of sector."),
+        description=_(
+            "help_sector_title",
+            default=u"If you do not specify a title it will be taken "
+            u"from the input file.",
+        ),
+        required=False,
+    )
 
     sector_login = LoginField(
-            title=_("label_login_name", default=u"Login name"),
-            required=True,
-            constraint=validLoginValue)
+        title=_("label_login_name", default=u"Login name"),
+        required=True,
+        constraint=validLoginValue,
+    )
 
     surveygroup_title = schema.TextLine(
-            title=_("label_surveygroup_title",
-                default=u"Title of imported OiRA Tool"),
-            description=_("help_upload_surveygroup_title",
-                default=u"If you do not specify a title it will be taken "
-                        u"from the input."),
-            required=False)
+        title=_("label_surveygroup_title", default=u"Title of imported OiRA Tool"),
+        description=_(
+            "help_upload_surveygroup_title",
+            default=u"If you do not specify a title it will be taken "
+            u"from the input.",
+        ),
+        required=False,
+    )
 
     survey_title = schema.TextLine(
-            title=_("label_upload_survey_title",
-                default=u"Name for OiRA Tool version"),
-            default=_(u"Standard"),
-            required=True)
+        title=_("label_upload_survey_title", default=u"Name for OiRA Tool version"),
+        default=_(u"Standard"),
+        required=True,
+    )
 
     file = filefield.NamedFile(
-            title=_("label_upload_filename", default=u"XML file"),
-            required=True)
+        title=_("label_upload_filename", default=u"XML file"), required=True
+    )
 
 
 class IImportSurvey(Interface):
     """ The fields used for importing a :obj:`euphorie.content.survey`.
     """
+
     surveygroup_title = schema.TextLine(
-            title=_("label_surveygroup_title",
-                default=u"Title of imported OiRA Tool"),
-            description=_("help_upload_surveygroup_title",
-                default=u"If you do not specify a title it will be taken "
-                        u"from the input."),
-            required=False)
+        title=_("label_surveygroup_title", default=u"Title of imported OiRA Tool"),
+        description=_(
+            "help_upload_surveygroup_title",
+            default=u"If you do not specify a title it will be taken "
+            u"from the input.",
+        ),
+        required=False,
+    )
 
     survey_title = schema.TextLine(
-            title=_("label_upload_survey_title",
-                default=u"Name for OiRA Tool version"),
-            default=_(u"OiRA Tool import"),
-            required=True)
+        title=_("label_upload_survey_title", default=u"Name for OiRA Tool version"),
+        default=_(u"OiRA Tool import"),
+        required=True,
+    )
 
     file = filefield.NamedFile(
-            title=_("label_upload_filename", default=u"XML file"),
-            required=True)
+        title=_("label_upload_filename", default=u"XML file"), required=True
+    )
 
 
 class SurveyImporter(object):
@@ -151,8 +163,8 @@ class SurveyImporter(object):
     def __init__(self, context):
         self.context = context
         appconfig = getUtility(IAppConfig)
-        settings = appconfig.get('euphorie')
-        self.use_existing_measures = settings.get('use_existing_measures', False)
+        settings = appconfig.get("euphorie")
+        self.use_existing_measures = settings.get("use_existing_measures", False)
 
     def ImportImage(self, node):
         """
@@ -161,16 +173,17 @@ class SurveyImporter(object):
         :param node: lxml.objectified XML node of image element
         :rtype: (:py:class:`NamedImage`, unicode) tuple
         """
-        filename = attr_unicode(node, 'filename')
+        filename = attr_unicode(node, "filename")
         contentType = node.get("content-type", None)
         if not filename:
-            basename = u'image%d.%%s' % random.randint(1, 2 ** 16)
-            if contentType and '/' in contentType:
-                filename = basename % contentType.split(u'/')[1]
+            basename = u"image%d.%%s" % random.randint(1, 2 ** 16)
+            if contentType and "/" in contentType:
+                filename = basename % contentType.split(u"/")[1]
             else:
-                filename = basename % u'jpg'
-        image = NamedBlobImage(data=node.text.decode("base64"),
-                contentType=contentType, filename=filename)
+                filename = basename % u"jpg"
+        image = NamedBlobImage(
+            data=node.text.decode("base64"), contentType=contentType, filename=filename
+        )
         if image.contentType is None and image.filename:
             image.contentType = mimetypes.guess_type(image.filename)[0]
         return (image, attr_unicode(node, "caption"))
@@ -200,8 +213,9 @@ class SurveyImporter(object):
 
         :returns: :obj:`euphorie.content.risk`.
         """
-        risk = createContentInContainer(module, "euphorie.risk",
-                                      title=unicode(node.title))
+        risk = createContentInContainer(
+            module, "euphorie.risk", title=unicode(node.title)
+        )
         EnsureInterface(risk)
         risk.type = node.get("type")
         risk.description = unicode(node.description)
@@ -210,8 +224,7 @@ class SurveyImporter(object):
         risk.show_notapplicable = el_bool(node, "show-not-applicable")
         risk.external_id = attr_unicode(node, "external-id")
         if self.use_existing_measures:
-            risk.existing_measures = \
-                el_unicode(node, "existing_measures")
+            risk.existing_measures = el_unicode(node, "existing_measures")
 
         if risk.type == "risk":
             em = getattr(node, "evaluation-method", None)
@@ -219,28 +232,30 @@ class SurveyImporter(object):
             if risk.evaluation_method == "calculated":
                 evaluation_algorithm = risk.evaluation_algorithm()
                 if evaluation_algorithm == u"kinney":
-                    risk.default_probability = attr_vocabulary(em,
-                            "default-probability",
-                            IKinneyEvaluation["default_probability"])
-                    risk.default_frequency = attr_vocabulary(em,
-                            "default-frequency",
-                            IKinneyEvaluation["default_frequency"])
-                    risk.default_effect = attr_vocabulary(em,
-                            "default-effect",
-                            IKinneyEvaluation["default_effect"])
+                    risk.default_probability = attr_vocabulary(
+                        em,
+                        "default-probability",
+                        IKinneyEvaluation["default_probability"],
+                    )
+                    risk.default_frequency = attr_vocabulary(
+                        em, "default-frequency", IKinneyEvaluation["default_frequency"]
+                    )
+                    risk.default_effect = attr_vocabulary(
+                        em, "default-effect", IKinneyEvaluation["default_effect"]
+                    )
                 elif evaluation_algorithm == u"french":
-                    risk.default_severity = attr_vocabulary(em,
-                            "default-severity",
-                            IFrenchEvaluation["default_severity"])
-                    risk.default_frequency = attr_vocabulary(em,
-                            "default-frequency",
-                            IFrenchEvaluation["default_frequency"])
+                    risk.default_severity = attr_vocabulary(
+                        em, "default-severity", IFrenchEvaluation["default_severity"]
+                    )
+                    risk.default_frequency = attr_vocabulary(
+                        em, "default-frequency", IFrenchEvaluation["default_frequency"]
+                    )
             else:
-                risk.default_priority = attr_vocabulary(em, "default-priority",
-                        IRisk["default_priority"])
+                risk.default_priority = attr_vocabulary(
+                    em, "default-priority", IRisk["default_priority"]
+                )
 
-        for (index, child) in \
-                enumerate(node.iterchildren(tag=XMLNS + "image")):
+        for (index, child) in enumerate(node.iterchildren(tag=XMLNS + "image")):
             postfix = "" if not index else str(index + 1)
             (image, caption) = self.ImportImage(child)
             setattr(risk, "image" + postfix, image)
@@ -261,10 +276,11 @@ class SurveyImporter(object):
 
         :returns: :obj:`euphorie.content.module`.
         """
-        module = createContentInContainer(survey, "euphorie.module",
-                                        title=unicode(node.title))
+        module = createContentInContainer(
+            survey, "euphorie.module", title=unicode(node.title)
+        )
         module.optional = node.get("optional") == "true"
-        module.description = el_unicode(node, 'description')
+        module.description = el_unicode(node, "description")
         module.external_id = attr_unicode(node, "external-id")
         if module.optional:
             module.question = unicode(node.question)
@@ -292,21 +308,21 @@ class SurveyImporter(object):
         :returns: :obj:`euphorie.content.profilequestion`.
         """
         type = node.get("type")
-        if type == 'optional':
-            profile = createContentInContainer(survey, "euphorie.module",
-                                            title=unicode(node.title))
+        if type == "optional":
+            profile = createContentInContainer(
+                survey, "euphorie.module", title=unicode(node.title)
+            )
             profile.optional = True
         else:
-            profile = createContentInContainer(survey,
-                    "euphorie.profilequestion", title=unicode(node.title))
-        profile.description = el_unicode(node, 'description')
+            profile = createContentInContainer(
+                survey, "euphorie.profilequestion", title=unicode(node.title)
+            )
+        profile.description = el_unicode(node, "description")
         profile.question = unicode(node.question)
         profile.external_id = attr_unicode(node, "external-id")
         for fname in ProfileQuestionLocationFields:
-            setattr(
-                profile, fname, el_unicode(node, fname.replace('_', '-')))
-        profile.use_location_question = el_bool(
-            node, "use-location-question", True)
+            setattr(profile, fname, el_unicode(node, fname.replace("_", "-")))
+        profile.use_location_question = el_bool(node, "use-location-question", True)
 
         for child in node.iterchildren(tag=XMLNS + "risk"):
             self.ImportRisk(child, profile)
@@ -323,14 +339,15 @@ class SurveyImporter(object):
 
         :returns: :obj:`euphorie.content.survey`.
         """
-        survey = createContentInContainer(group, "euphorie.survey",
-                                        title=version_title)
-        survey.introduction = el_unicode(node, 'introduction')
+        survey = createContentInContainer(group, "euphorie.survey", title=version_title)
+        survey.introduction = el_unicode(node, "introduction")
         survey.classification_code = el_unicode(node, "classification-code")
         survey.language = el_string(node, "language")
         tti = getUtility(IToolTypesInfo)
         survey.tool_type = el_string(node, "tool_type", tti.default_tool_type)
-        survey.measures_text_handling = el_string(node, "measures_text_handling", "full")
+        survey.measures_text_handling = el_string(
+            node, "measures_text_handling", "full"
+        )
         survey.integrated_action_plan = el_bool(node, "integrated_action_plan")
         survey.evaluation_optional = el_bool(node, "evaluation-optional")
         survey.external_id = attr_unicode(node, "external-id")
@@ -340,10 +357,10 @@ class SurveyImporter(object):
             survey.external_site_logo = image
 
         if IToolCategory.providedBy(survey):
-            IToolCategory(survey).tool_category = ([
+            IToolCategory(survey).tool_category = [
                 x.replace(COMMA_REPLACEMENT, ",").strip()
-                for x in el_unicode(node, 'tool-category', '').split(",")
-            ])
+                for x in el_unicode(node, "tool-category", "").split(",")
+            ]
         for child in node.iterchildren():
             if child.tag == XMLNS + "profile-question":
                 self.ImportProfileQuestion(child, survey)
@@ -364,8 +381,11 @@ class SurveyImporter(object):
             sector = input
 
         root = aq_inner(self.context)
-        sg = createContentInContainer(root, "euphorie.surveygroup",
-                title=surveygroup_title or unicode(sector.survey.title))
+        sg = createContentInContainer(
+            root,
+            "euphorie.surveygroup",
+            title=surveygroup_title or unicode(sector.survey.title),
+        )
 
         return self.ImportSurvey(sector.survey, sg, survey_title)
 
@@ -374,8 +394,9 @@ class SectorImporter(SurveyImporter):
     """ :returns: :obj:`euphorie.content.survey` root
     """
 
-    def __call__(self, input, sector_title, sector_login, surveygroup_title,
-            survey_title):
+    def __call__(
+        self, input, sector_title, sector_login, surveygroup_title, survey_title
+    ):
         if isinstance(input, basestring):
             sector = lxml.objectify.fromstring(input)
         else:
@@ -385,8 +406,7 @@ class SectorImporter(SurveyImporter):
 
         if not sector_title:
             sector_title = unicode(sector.title)
-        root = createContentInContainer(country, "euphorie.sector",
-                title=sector_title)
+        root = createContentInContainer(country, "euphorie.sector", title=sector_title)
 
         account = getattr(sector, "account", None)
         if account is not None:
@@ -405,8 +425,11 @@ class SectorImporter(SurveyImporter):
             root.logo = self.ImportImage(logo)[0]
 
         if hasattr(sector, "survey"):
-            sg = createContentInContainer(root, "euphorie.surveygroup",
-                    title=surveygroup_title or unicode(sector.survey.title))
+            sg = createContentInContainer(
+                root,
+                "euphorie.surveygroup",
+                title=surveygroup_title or unicode(sector.survey.title),
+            )
             self.ImportSurvey(sector.survey, sg, survey_title)
 
         return root
@@ -417,6 +440,7 @@ class ImportSurvey(form.SchemaForm):
 
     View name: @@upload
     """
+
     grok.context(ISector)
     grok.require("euphorie.content.AddNewRIEContent")
     grok.name("upload")
@@ -434,19 +458,20 @@ class ImportSurvey(form.SchemaForm):
         input = data["file"].data
         importer = self.importer_factory(self.context)
         try:
-            survey = importer(input,
-                    data["surveygroup_title"], data["survey_title"])
+            survey = importer(input, data["surveygroup_title"], data["survey_title"])
         except lxml.etree.XMLSyntaxError:
             raise WidgetActionExecutionError(
-                    "file",
-                    Invalid(_("error_invalid_xml",
-                        default=u"Please upload a valid XML file")))
+                "file",
+                Invalid(
+                    _("error_invalid_xml", default=u"Please upload a valid XML file")
+                ),
+            )
 
         IStatusMessage(self.request).addStatusMessage(
-            _("upload_success",
-                default=u"Succesfully imported the OiRA Tool"), type="success")
-        state = getMultiAdapter((survey, self.request),
-                name="plone_context_state")
+            _("upload_success", default=u"Succesfully imported the OiRA Tool"),
+            type="success",
+        )
+        state = getMultiAdapter((survey, self.request), name="plone_context_state")
         self.request.response.redirect(state.view_url())
 
 
@@ -455,6 +480,7 @@ class ImportSector(form.SchemaForm):
 
     View name: @@upload
     """
+
     grok.context(ICountry)
     grok.require("euphorie.content.ManageCountry")
     grok.name("upload")
@@ -462,8 +488,7 @@ class ImportSector(form.SchemaForm):
 
     schema = IImportSector
     ignoreContext = True
-    label = _("title_import_sector_survey",
-            default=u"Import sector and OiRA Tool")
+    label = _("title_import_sector_survey", default=u"Import sector and OiRA Tool")
 
     importer_factory = SectorImporter
 
@@ -475,19 +500,24 @@ class ImportSector(form.SchemaForm):
         importer = self.importer_factory(self.context)
 
         try:
-            sector = importer(input, data["sector_title"],
-                    data["sector_login"], data["surveygroup_title"],
-                    data["survey_title"])
+            sector = importer(
+                input,
+                data["sector_title"],
+                data["sector_login"],
+                data["surveygroup_title"],
+                data["survey_title"],
+            )
         except lxml.etree.XMLSyntaxError:
             raise WidgetActionExecutionError(
-                    "file",
-                    Invalid(_("error_invalid_xml",
-                        default=u"Please upload a valid XML file")))
+                "file",
+                Invalid(
+                    _("error_invalid_xml", default=u"Please upload a valid XML file")
+                ),
+            )
 
         IStatusMessage(self.request).addStatusMessage(
-                _("upload_success",
-                    default=u"Succesfully imported the OiRA Tool"),
-                type="success")
-        state = getMultiAdapter((sector, self.request),
-                name="plone_context_state")
+            _("upload_success", default=u"Succesfully imported the OiRA Tool"),
+            type="success",
+        )
+        state = getMultiAdapter((sector, self.request), name="plone_context_state")
         self.request.response.redirect(state.view_url())

@@ -7,11 +7,11 @@ types can be created e.g. :obj:`euphorie.content.risk`.
 """
 
 from Acquisition import aq_base
-from zope.interface import Interface
-from zope.component import queryMultiAdapter
-from zope.component import queryUtility
 from plone.dexterity.fti import DexterityFTI
 from plone.dexterity.interfaces import IDexterityFTI
+from zope.component import queryMultiAdapter
+from zope.component import queryUtility
+from zope.interface import Interface
 
 
 class IConstructionFilter(Interface):
@@ -40,13 +40,12 @@ class ConditionalDexterityFTI(DexterityFTI):
     This is done by introducing a new :obj:`IConstructionFilter` named
     adapter.
     """
+
     def isConstructionAllowed(self, container):
-        if not super(ConditionalDexterityFTI, self)\
-                .isConstructionAllowed(container):
+        if not super(ConditionalDexterityFTI, self).isConstructionAllowed(container):
             return False
 
-        filter = queryMultiAdapter((self, container), IConstructionFilter,
-                self.getId())
+        filter = queryMultiAdapter((self, container), IConstructionFilter, self.getId())
         if filter is not None:
             return filter.allowed()
 
@@ -61,11 +60,11 @@ def check_fti_paste_allowed(container, obj):
     :param obj: [required] the object to be pasted
     :raises: ValueError
     """
-    portal_type = getattr(aq_base(obj), 'portal_type', None)
+    portal_type = getattr(aq_base(obj), "portal_type", None)
     if not portal_type:
-        raise ValueError('Can only paste portal content.')
+        raise ValueError("Can only paste portal content.")
     fti = queryUtility(IDexterityFTI, name=portal_type)
     if fti is None:
-        raise ValueError('Can not paste non-dexterity content.')
+        raise ValueError("Can not paste non-dexterity content.")
     if not fti.isConstructionAllowed(container):
-        raise ValueError('You can not add the copied content here.')
+        raise ValueError("You can not add the copied content here.")

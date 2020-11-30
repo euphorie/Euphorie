@@ -10,15 +10,12 @@ def _create(container, *args, **kwargs):
     return getattr(container, newid)
 
 
-def createSolution(algorithm=u'kinney'):
+def createSolution(algorithm=u"kinney"):
     portal = getSite()
     country = portal.sectors.nl
     sector = _create(country, "euphorie.sector", "sector")
     surveygroup = _create(
-        sector,
-        "euphorie.surveygroup",
-        "group",
-        evaluation_algorithm=algorithm
+        sector, "euphorie.surveygroup", "group", evaluation_algorithm=algorithm
     )
     survey = _create(surveygroup, "euphorie.survey", "survey")
     module = _create(survey, "euphorie.module", "module")
@@ -28,7 +25,6 @@ def createSolution(algorithm=u'kinney'):
 
 
 class RiskTests(EuphorieIntegrationTestCase):
-
     def testNotGloballyAllowed(self):
         types = [fti.id for fti in self.portal.allowedContentTypes()]
         self.failUnless("euphorie.solution" not in types)

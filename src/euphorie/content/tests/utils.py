@@ -3,16 +3,14 @@ from plone import api
 from plone.app.testing.interfaces import SITE_OWNER_NAME
 
 
-EMPTY_SURVEY = \
-        """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
+EMPTY_SURVEY = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
              <survey>
               <title>Software development</title>
             </survey>
           </sector>"""
 
 
-BASIC_SURVEY = \
-        """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
+BASIC_SURVEY = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
              <title>ICT</title>
              <survey>
               <title>Software development</title>
@@ -30,8 +28,7 @@ BASIC_SURVEY = \
           </sector>"""  # noqa: E501
 
 
-PROFILE_SURVEY = \
-        """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
+PROFILE_SURVEY = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
              <title>ICT</title>
              <survey>
               <title>Software development</title>
@@ -68,19 +65,11 @@ def createSector(
         if hasattr(portal, "sectors"):
             container = portal.sectors
         else:
-            container = _create(
-                portal,
-                "euphorie.sectorcontainer",
-                "sectors",
-            )
+            container = _create(portal, "euphorie.sectorcontainer", "sectors")
         if country in container:
             country_obj = container[country]
         else:
-            country_obj = _create(
-                container,
-                "euphorie.country",
-                country
-            )
+            country_obj = _create(container, "euphorie.country", country)
 
         sector = _create(country_obj, "euphorie.sector", id, title=title, **kw)
         sector.login = login or title.lower()
@@ -95,5 +84,6 @@ def addSurvey(
     survey_title=u"Standard version",
 ):
     from euphorie.content import upload
+
     importer = upload.SurveyImporter(sector)
     return importer(snippet, surveygroup_title, survey_title)
