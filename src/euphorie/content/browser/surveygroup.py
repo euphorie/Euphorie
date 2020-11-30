@@ -3,6 +3,7 @@ from ..surveygroup import ISurveyGroup
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.content import MessageFactory as _
+from euphorie.content.survey import ISurvey
 from OFS.event import ObjectClonedEvent
 from plone import api
 from plone.dexterity.browser.add import DefaultAddForm
@@ -19,9 +20,13 @@ import datetime
 
 
 class SurveyGroupView(BrowserView):
-    def __call__(self):
-        latest = aq_inner(self.context).values()[0]
-        self.request.response.redirect(latest.absolute_url())
+    def surveys(self):
+        templates = [
+            dict(title=survey.title, url=survey.absolute_url())
+            for survey in self.context.values()
+            if ISurvey.providedBy(survey)
+        ]
+        return templates
 
 
 class AddForm(DefaultAddForm):

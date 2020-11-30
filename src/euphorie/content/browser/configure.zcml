@@ -186,6 +186,7 @@
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".surveygroup.SurveyGroupView"
       permission="zope2.View"
+      template="templates/surveygroup_view.pt"
       />
 
   <adapter
