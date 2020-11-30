@@ -1,17 +1,18 @@
+# coding=utf-8
 from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from euphorie.content import MessageFactory as _
 from euphorie.content.sector import ISector
 from euphorie.content.survey import ISurvey
 from plonetheme.nuplone import MessageFactory as nu_
-from plonetheme.nuplone.skin.sitemenu import Sitemenu
+from plonetheme.nuplone.skin import sitemenu
 from plonetheme.nuplone.utils import checkPermission
 from plonetheme.nuplone.utils import getPortal
 from Products.CMFCore.utils import getToolByName
 from Products.membrane.interfaces.user import IMembraneUser
 
 
-class EuphorieSitemenu(Sitemenu):
+class Sitemenu(sitemenu.Sitemenu):
     @property
     def settings_url(self):
         user = getSecurityManager().getUser()
@@ -24,7 +25,7 @@ class EuphorieSitemenu(Sitemenu):
             return "%s/@@settings" % home.absolute_url()
 
     def organise(self):
-        menu = super(EuphorieSitemenu, self).organise()
+        menu = super(Sitemenu, self).organise()
         if menu is not None:
             children = menu["children"]
         else:

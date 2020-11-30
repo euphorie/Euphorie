@@ -8,23 +8,16 @@ A standard Solution that a user can select for a particular risk.
 
 from .. import MessageFactory as _
 from euphorie.content import utils
-from five import grok
+from plone.autoform import directives
 from plone.dexterity.content import Item
-from plone.directives import dexterity
-from plone.directives import form
 from plone.indexer import indexer
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from plone.supermodel import model
 from zope import schema
 from zope.i18n import translate
 from zope.interface import implements
 
-import markdown
 
-
-grok.templatedir("templates")
-
-
-class ISolution(form.Schema):
+class ISolution(model.Schema):
     """A standard solution for a risk.
 
     Risk questions can have standard solutions that can be applied in
@@ -40,7 +33,7 @@ class ISolution(form.Schema):
         ),
         required=True,
     )
-    form.order_after(description="title")
+    directives.order_after(description="title")
 
     action_plan = schema.Text(
         title=_(
@@ -148,41 +141,3 @@ def SearchableTextIndexer(obj):
             obj.action or "",
         ]
     )
-
-
-class View(grok.View):
-    """View name: @@nuplone-view"""
-
-    grok.context(ISolution)
-    grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
-    grok.name("nuplone-view")
-    grok.template("solution_view")
-
-    def render_md(self, text):
-        return markdown.markdown(text)
-
-
-class Add(dexterity.AddForm):
-    grok.context(ISolution)
-    grok.name("euphorie.solution")
-    grok.require("euphorie.content.AddNewRIEContent")
-
-    def updateWidgets(self):
-        super(Add, self).updateWidgets()
-        self.widgets["action_plan"].mode = "hidden"
-        self.widgets["prevention_plan"].mode = "hidden"
-        self.widgets["action"].rows = 15
-
-
-class Edit(form.SchemaEditForm):
-    grok.context(ISolution)
-    grok.require("cmf.ModifyPortalContent")
-    grok.layer(NuPloneSkin)
-    grok.name("edit")
-
-    def updateWidgets(self):
-        super(Edit, self).updateWidgets()
-        self.widgets["action_plan"].mode = "hidden"
-        self.widgets["prevention_plan"].mode = "hidden"
-        self.widgets["action"].rows = 15

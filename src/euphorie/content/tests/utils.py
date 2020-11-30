@@ -65,11 +65,7 @@ def createSector(
         if hasattr(portal, "sectors"):
             container = portal.sectors
         else:
-            container = _create(
-                portal,
-                "euphorie.sectorcontainer",
-                "sectors",
-            )
+            container = _create(portal, "euphorie.sectorcontainer", "sectors")
         if country in container:
             country_obj = container[country]
         else:
@@ -87,7 +83,7 @@ def addSurvey(
     surveygroup_title=u"Test survey",
     survey_title=u"Standard version",
 ):
-    from euphorie.content import upload
+    from euphorie.content.browser import upload
 
     importer = upload.SurveyImporter(sector)
     return importer(snippet, surveygroup_title, survey_title)

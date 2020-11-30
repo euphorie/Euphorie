@@ -1,9 +1,14 @@
 from OFS.event import ObjectClonedEvent
 from OFS.interfaces import IObjectClonedEvent
+from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from zope.component.interfaces import IObjectEvent
 from zope.component.interfaces import ObjectEvent
 from zope.interface import implements
 from zope.interface import Interface
+
+
+class IEuphorieContentLayer(NuPloneSkin):
+    """Marker interface for Euphorie content"""
 
 
 class IObjectPublishedEvent(IObjectClonedEvent):

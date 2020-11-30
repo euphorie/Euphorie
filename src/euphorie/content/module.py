@@ -16,41 +16,32 @@ from .fti import check_fti_paste_allowed
 from .fti import ConditionalDexterityFTI
 from .fti import IConstructionFilter
 from .interfaces import IQuestionContainer
-from .risk import IRisk
-from .utils import DragDropHelper
 from .utils import StripMarkup
 from Acquisition import aq_chain
 from euphorie.content.dependency import ConditionalTextLine
 from euphorie.content.utils import ensure_image_size
-from five import grok
 from htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
+from plone.autoform import directives
 from plone.dexterity.content import Container
-from plone.dexterity.interfaces import IDexterityFTI
-from plone.directives import dexterity
-from plone.directives import form
 from plone.indexer import indexer
 from plone.namedfile import field as filefield
 from plone.namedfile.interfaces import INamedBlobImageField
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from plone.supermodel import model
 from plonetheme.nuplone.z3cform.directives import depends
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import validator
 from zope import schema
-from zope.component import getMultiAdapter
-from zope.component import getUtility
-from zope.interface import implements
+from zope.component import adapter
+from zope.interface import implementer
 from zope.interface import Interface
 from zope.interface import Invalid
 
 import sys
 
 
-grok.templatedir("templates")
-
-
-class IModule(form.Schema, IRichDescription, IBasic):
+class IModule(model.Schema, IRichDescription, IBasic):
     """Survey Module.
 
     A module is (hierarchical) grouping in a survey.
@@ -65,8 +56,8 @@ class IModule(form.Schema, IRichDescription, IBasic):
         ),
         required=False,
     )
-    form.widget(description=WysiwygFieldWidget)
-    form.order_after(description="title")
+    directives.widget(description=WysiwygFieldWidget)
+    directives.order_after(description="title")
 
     optional = schema.Bool(
         title=_("label_module_optional", default=u"This module is optional"),
@@ -115,9 +106,9 @@ class IModule(form.Schema, IRichDescription, IBasic):
         ),
         required=False,
     )
-    form.widget(solution_direction=WysiwygFieldWidget)
+    directives.widget(solution_direction=WysiwygFieldWidget)
 
-    form.fieldset(
+    model.fieldset(
         "additional_content",
         label=_("header_additional_content", default=u"Additional content"),
         description=_(
@@ -210,14 +201,12 @@ class ImageSizeValidator(validator.SimpleFieldValidator):
 
 
 validator.WidgetValidatorDiscriminators(
-    ImageSizeValidator,
-    context=IModule,
-    field=INamedBlobImageField,
+    ImageSizeValidator, context=IModule, field=INamedBlobImageField
 )
 
 
+@implementer(IModule, IQuestionContainer)
 class Module(Container):
-    implements(IModule, IQuestionContainer)
 
     image = None
     caption = None
@@ -257,97 +246,6 @@ def SearchableTextIndexer(obj):
     )
 
 
-class View(grok.View, DragDropHelper):
-    """View name: @@nuplone-view"""
-
-    grok.context(IModule)
-    grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
-    grok.template("module_view")
-    grok.name("nuplone-view")
-
-    def _morph(self, child):
-        state = getMultiAdapter((child, self.request), name="plone_context_state")
-        return {"id": child.id, "title": child.title, "url": state.view_url()}
-
-    def update(self):
-        """Set view attributes which list modules and risks in the current
-        context.
-        """
-        self.modules = [
-            self._morph(child)
-            for child in self.context.values()
-            if IModule.providedBy(child)
-        ]
-        self.risks = [
-            self._morph(child)
-            for child in self.context.values()
-            if IRisk.providedBy(child)
-        ]
-
-    @property
-    def portal_type(self):
-        if self.context.aq_parent.portal_type == "euphorie.module":
-            return _("Submodule")
-        else:
-            portal_type = self.context.portal_type
-            fti = getUtility(IDexterityFTI, name=portal_type)
-            return fti.Title()
-
-
-class Edit(form.SchemaEditForm):
-    """Override for the standard edit form so we can change the form title
-    for submodules.
-
-    View name: @@edit
-    """
-
-    grok.context(IModule)
-    grok.require("cmf.ModifyPortalContent")
-    grok.layer(NuPloneSkin)
-    grok.name("edit")
-
-    @property
-    def label(self):
-        if self.context.aq_parent.portal_type == "euphorie.module":
-            type_name = _("Submodule")
-        else:
-            portal_type = self.context.portal_type
-            fti = getUtility(IDexterityFTI, name=portal_type)
-            type_name = fti.Title()
-        return _(u"Edit ${name}", mapping={"name": type_name})
-
-    def updateWidgets(self):
-        super(Edit, self).updateWidgets()
-        self.widgets["title"].addClass("span-7")
-
-    def extractData(self, setErrors=True):
-        data = super(Edit, self).extractData(setErrors)
-
-        # If there is a validation error on the form, consume all status messages,
-        # so that they don't appear in the form. We only want to show validation
-        # messages directly on the respective field(s) in that case.
-        if data[1]:
-            status = IStatusMessage(self.request)
-            status.show()
-        return data
-
-
-class Add(dexterity.AddForm):
-    grok.name("euphorie.module")
-    grok.context(IModule)
-
-    @property
-    def label(self):
-        if self.context.portal_type == "euphorie.module":
-            type_name = _("Submodule")
-        else:
-            portal_type = self.portal_type
-            fti = getUtility(IDexterityFTI, name=portal_type)
-            type_name = fti.Title()
-        return _(u"Add %s" % type_name)
-
-
 def tree_depth(obj):
     """Determine how deeply nested a module structure is. This is the opposite
     of item_depth.
@@ -373,7 +271,9 @@ def item_depth(item):
     return depth
 
 
-class ConstructionFilter(grok.MultiAdapter):
+@adapter(ConditionalDexterityFTI, Interface)
+@implementer(IConstructionFilter)
+class ConstructionFilter(object):
     """FTI construction filter for :py:class:`Module` objects. This filter
     does two things: it restricts the maximum depth at which a module can
     be created, and it prevents creating of modules if the current container
@@ -382,10 +282,6 @@ class ConstructionFilter(grok.MultiAdapter):
     This multi adapter requires the use of the conditional FTI as implemented
     by :py:class:`euphorie.content.fti.ConditionalDexterityFTI`.
     """
-
-    grok.adapts(ConditionalDexterityFTI, Interface)
-    grok.implements(IConstructionFilter)
-    grok.name("euphorie.module")
 
     maxdepth = 3
 
