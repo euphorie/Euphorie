@@ -24,16 +24,13 @@ from euphorie.content.dependency import ConditionalHtmlText
 from euphorie.content.dependency import ConditionalTextLine
 from euphorie.content.utils import get_tool_type_default
 from euphorie.content.utils import IToolTypesInfo
-from five import grok
 from htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
-from plonetheme.nuplone.skin import actions
 from plonetheme.nuplone.z3cform.directives import depends
-from Products.statusmessages.interfaces import IStatusMessage
 from zope import schema
 from zope.component import getUtility
 from zope.interface import implements
@@ -271,52 +268,6 @@ class ISurveyAddSchema(form.Schema):
         ),
         required=True,
     )
-
-
-class Delete(actions.Delete):
-    """Special delete action class which prevents deletion of published surveys
-    or of the last survey in a group.
-    """
-
-    grok.context(ISurvey)
-
-    def verify(self, container, context):
-        flash = IStatusMessage(self.request).addStatusMessage
-
-        if (
-            hasattr(aq_base(container), "published")
-            and container.published == context.id
-        ):
-            flash(
-                _(
-                    "message_no_delete_published_survey",
-                    default=u"You cannot delete an OiRA Tool version that is published. "
-                    u"Please unpublish it first.",
-                ),
-                "error",
-            )
-            self.request.response.redirect(context.absolute_url())
-            return False
-
-        count = 0
-        for survey in container.values():
-            if ISurvey.providedBy(survey):
-                count += 1
-
-        if count > 1:
-            return True
-        else:
-            flash(
-                _(
-                    "message_delete_no_last_survey",
-                    default=u"This is the only version of the OiRA Tool and can "
-                    u"therefore not be deleted. Did you perhaps want to "
-                    u"remove the OiRA Tool itself?",
-                ),
-                "error",
-            )
-            self.request.response.redirect(context.absolute_url())
-            return False
 
 
 def handleSurveyUnpublish(survey, event):

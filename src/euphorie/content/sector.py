@@ -30,18 +30,14 @@ from plone.directives import form
 from plone.indexer import indexer
 from plone.namedfile import field as filefield
 from plone.uuid.interfaces import IAttributeUUID
-from plonetheme.nuplone.skin import actions
 from plonetheme.nuplone.utils import checkPermission
-from plonetheme.nuplone.utils import getPortal
 from Products.CMFCore.utils import getToolByName
 from Products.CMFEditions.Permissions import AccessPreviousVersions
-from Products.statusmessages.interfaces import IStatusMessage
 from zope import schema
 from zope.interface import implements
 
 import datetime
 import logging
-import zExceptions
 
 
 log = logging.getLogger(__name__)
@@ -219,43 +215,3 @@ def getSurveys(context):
         result.append(info)
     result.sort(key=lambda g: g["title"].lower())
     return result
-
-
-class Delete(actions.Delete):
-    """ Only delete the sector if it doesn't have any published surveys.
-    """
-
-    grok.context(ISector)
-
-    def verify(self, container, context):
-        if not checkPermission(container, "Delete objects"):
-            raise zExceptions.Unauthorized
-
-        flash = IStatusMessage(self.request).addStatusMessage
-        sector = context
-        country = container
-        client = getPortal(container).client
-
-        if country.id not in client:
-            return True
-
-        cl_country = client[country.id]
-        if sector.id not in cl_country:
-            return True
-
-        # Look for any published surveys in the client sector, and prevent
-        # deletion if any are found
-        cl_sector = cl_country[sector.id]
-        surveys = [s for s in cl_sector.values() if s.id != "preview"]
-        if surveys:
-            flash(
-                _(
-                    "message_not_delete_published_sector",
-                    default=u"You can not delete a sector that contains published "
-                    u"OiRA Tools.",
-                ),
-                "error",
-            )
-            self.request.response.redirect(context.absolute_url())
-            return False
-        return True
