@@ -1,5 +1,5 @@
 # coding=utf-8
-from euphorie.client.unpublish import handleSurveyUnpublish
+from euphorie.client.browser.publish import handleSurveyUnpublish
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.content.tests.utils import createSector
 from euphorie.content.tests.utils import EMPTY_SURVEY

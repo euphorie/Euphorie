@@ -1,0 +1,19 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           i18n_domain="euphorie">
+
+    <permission
+        id="euphorie.content.ManageCountry"
+        title="Euphorie: Manage country"
+        />
+
+    <permission
+        id="euphorie.content.AddNewRIEContent"
+        title="Euphorie: Add new RIE Content"
+        />
+
+    <permission
+        id="euphorie.content.DeletePublishedContent"
+        title="Euphorie: Delete published content"
+        />
+
+</configure>

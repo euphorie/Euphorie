@@ -5,13 +5,15 @@ Authentication
 User account plugins and authentication.
 """
 
-from ..content.api.authentication import authenticate_token as authenticate_cms_token
 from . import model
 from .interfaces import IClientSkinLayer
 from AccessControl import ClassSecurityInfo
 from Acquisition import aq_parent
 from App.class_init import InitializeClass
-from euphorie.content.api.interfaces import ICMSAPISkinLayer
+from euphorie.content.user import IUser
+from plone import api
+from plone.keyring.interfaces import IKeyManager
+from Products.membrane.interfaces import IMembraneUserAuth
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 from Products.PluggableAuthService.interfaces.plugins import IAuthenticationPlugin
 from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
@@ -21,8 +23,11 @@ from Products.PluggableAuthService.interfaces.plugins import IUserFactoryPlugin
 from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
 from Products.PluggableAuthService.utils import classImplements
 from z3c.saconfig import Session
+from zope.component import getUtility
 from zope.publisher.interfaces.browser import IBrowserView
 
+import hashlib
+import hmac
 import logging
 import six
 import sqlalchemy.exc
@@ -36,6 +41,40 @@ log = logging.getLogger(__name__)
 class NotImplementedError(Exception):
     def __init__(self, message):
         self.message = message
+
+
+def _get_user(context, login):
+    membrane = api.portal.get_tool("membrane_tool")
+    user = membrane.getUserObject(login=login)
+    if not IUser.providedBy(user):
+        return None
+    else:
+        return user
+
+
+def generate_token(user):
+    """Convenience utility to generate token for the user."""
+    manager = getUtility(IKeyManager)
+    hasher = hmac.new(manager.secret(), digestmod=hashlib.sha256)
+    hasher.update(user.login)
+    # Note that unlike authenticate_credentials we access the password
+    # directly here. This is fine since here we do not care how the password
+    # is stored: even if it is hashed the token will be fine.
+    hasher.update(user.password.encode("utf-8"))
+    return "%s-%s" % (user.login, hasher.hexdigest())
+
+
+def authenticate_cms_token(context, token):
+    try:
+        (login, hash) = token.split("-")
+    except ValueError:
+        return None
+    user = _get_user(context, login)
+    if user is None or generate_token(user) != token:
+        return None
+    else:
+        auth = IMembraneUserAuth(user, None)
+        return (auth.getUserId(), auth.getUserName())
 
 
 def graceful_recovery(default=None, log_args=True):
@@ -149,10 +188,7 @@ class EuphorieAccountPlugin(BasePlugin):
     @security.private
     @graceful_recovery(log_args=False)
     def authenticateCredentials(self, credentials):
-        if not (
-            IClientSkinLayer.providedBy(self.REQUEST)
-            or ICMSAPISkinLayer.providedBy(self.REQUEST)
-        ):
+        if not IClientSkinLayer.providedBy(self.REQUEST):
             return None
         uid_and_login = self._authenticate_login(credentials)
         if uid_and_login is None:

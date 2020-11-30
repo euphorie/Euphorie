@@ -1,8 +1,8 @@
 # coding=utf-8
 from euphorie.client import CONDITIONS_VERSION
 from euphorie.client import model
-from euphorie.client import publish
-from euphorie.content import upload
+from euphorie.client.browser import publish
+from euphorie.content.browser import upload
 from Products.MailHost.mailer import SMTPMailer
 from Products.MailHost.MailHost import MailHost
 from z3c.saconfig import Session

@@ -11,11 +11,7 @@ succesfull workflow transitions.
 
 from Acquisition import aq_base
 from Acquisition import aq_chain
-from five import grok
-from Products.CMFCore.interfaces import IActionSucceededEvent
 from zope.interface import Interface
-from zope.lifecycleevent import IObjectModifiedEvent
-from zope.lifecycleevent import IObjectMovedEvent
 
 
 class IDirtyTreeRoot(Interface):
@@ -44,7 +40,6 @@ def _touchTree(parent):
             parent.dirty = True
 
 
-@grok.subscribe(Interface, IObjectMovedEvent)
 def handleObjectMove(obj, event):
     """Event handler for object moves. This includes objects added
     to and removed from containers.
@@ -55,7 +50,6 @@ def handleObjectMove(obj, event):
         _touchTree(event.newParent)
 
 
-@grok.subscribe(Interface, IObjectModifiedEvent)
 def handleObjectModified(obj, event):
     """Event handler for object moves. This includes objects added
     to and removed from containers.
@@ -63,7 +57,6 @@ def handleObjectModified(obj, event):
     _touchTree(event.object)
 
 
-@grok.subscribe(IDirtyTreeRoot, IActionSucceededEvent)
 def handleSurveyPublish(obj, event):
     """Event handler for workflow events on a dirty tree root. This
     resets the dirty flag.

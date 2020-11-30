@@ -7,11 +7,8 @@ from Acquisition import aq_inner
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.country import IClientCountry
-from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.profile import extractProfile
 from euphorie.content.interfaces import ICustomRisksModule
-from euphorie.content.survey import ISurvey
-from five import grok
 from plone import api
 from plone.memoize.instance import memoize
 from plone.memoize.view import memoize_contextless
@@ -26,36 +23,6 @@ import logging
 
 
 log = logging.getLogger(__name__)
-
-grok.templatedir("templates")
-
-
-class Resume(grok.View):
-    """Survey resume screen.
-
-    This view is used when a user resumes an existing session.
-
-    View name: @@resume
-    """
-
-    grok.context(ISurvey)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IClientSkinLayer)
-    grok.name("resume")
-
-    def render(self):
-        """We always open the tool on the "Start" page.
-        Formerly, we would jump to the first question. Since the Start
-        page is now much more important, it is also used when a session
-        gets resumed.
-        """
-        survey = aq_inner(self.context)
-        if self.webhelpers.redirectOnSurveyUpdate():
-            return
-
-        self.request.response.redirect(
-            "%s/start?initial_view=1" % survey.absolute_url()
-        )
 
 
 class _StatusHelper(object):
