@@ -368,4 +368,13 @@
       permission="euphorie.content.AddNewRIEContent"
       />
 
+  <!-- User -->
+  <browser:page
+      name="lock"
+      for="euphorie.content.user.IUser"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".user.Lock"
+      permission="euphorie.content.ManageCountry"
+      />
+
 </configure>

@@ -10,8 +10,6 @@ handling. It is used by :obj:`euphorie.content.sector` and
 from .. import MessageFactory as _
 from Acquisition import aq_base
 from Acquisition import aq_chain
-from Acquisition import aq_inner
-from Acquisition import aq_parent
 from five import grok
 from p01.widget.password.interfaces import IPasswordConfirmationWidget
 from p01.widget.password.widget import PasswordConfirmationValidator
@@ -19,7 +17,6 @@ from plone import api
 from plone.directives import dexterity
 from plone.directives import form
 from plone.uuid.interfaces import IUUID
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.membrane.interfaces import user as membrane
 from Products.statusmessages.interfaces import IStatusMessage
@@ -30,10 +27,8 @@ from z3c.form.interfaces import IDataManager
 from z3c.form.interfaces import IForm
 from z3c.form.interfaces import IValidator
 from z3c.form.validator import SimpleFieldValidator
-from zExceptions import Unauthorized
 from zope import schema
 from zope.component import adapts
-from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.event import notify
 from zope.interface import Interface
@@ -330,48 +325,3 @@ class UserProperties(grok.Adapter, UserProvider):
         if changes:
             self.context.reindexObject(idxs=list(changes))
             notify(ObjectModifiedEvent(self.context))
-
-
-class Lock(grok.View):
-    """ Lock or unlock a User account.
-
-    View name: @@lock
-    """
-
-    grok.context(IUser)
-    grok.require("euphorie.content.ManageCountry")
-    grok.layer(NuPloneSkin)
-    grok.name("lock")
-
-    def render(self):
-        if self.request.method != "POST":
-            raise Unauthorized
-        authenticator = getMultiAdapter(
-            (self.context, self.request), name=u"authenticator"
-        )
-        if not authenticator.verify():
-            raise Unauthorized
-
-        self.context.locked = locked = self.request.form.get("action", "lock") == "lock"
-        flash = IStatusMessage(self.request).addStatusMessage
-        if locked:
-            flash(
-                _(
-                    "message_user_locked",
-                    default=u'Account "${title}" has been locked.',
-                    mapping=dict(title=self.context.title),
-                ),
-                "success",
-            )
-        else:
-            flash(
-                _(
-                    "message_user_unlocked",
-                    default=u'Account "${title}" has been unlocked.',
-                    mapping=dict(title=self.context.title),
-                ),
-                "success",
-            )
-
-        country = aq_parent(aq_inner(self.context))
-        self.request.response.redirect("%s/@@manage-users" % country.absolute_url())
