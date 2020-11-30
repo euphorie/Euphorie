@@ -3,6 +3,58 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     >
 
+  <!-- Layout -->
+  <browser:page
+      name="shell"
+      for="*"
+      permission="zope.Public"
+      template="templates/shell.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+  <browser:page
+      name="plain"
+      for="*"
+      permission="zope.Public"
+      template="templates/plain.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+  <browser:page
+      name="layout"
+      for="*"
+      permission="zope.Public"
+      template="templates/layout.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+  <browser:page
+      name="shell-for-iframe"
+      for="*"
+      permission="zope.Public"
+      template="templates/shell-for-iframe.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+  <browser:page
+      name="includes"
+      for="*"
+      permission="zope.Public"
+      template="templates/includes.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+  <browser:page
+      name="tooltips"
+      for="*"
+      permission="zope.Public"
+      template="templates/tooltips.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="about"
+      for="*"
+      permission="zope.Public"
+      template="templates/about.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <browser:page
       name="webhelpers"
       for="*"
@@ -161,6 +213,14 @@
       />
 
   <browser:page
+      name="report_company"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".company.Company"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="status"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
@@ -253,10 +313,19 @@
   <!-- Survey -->
   <browser:page
       name="index_html"
-      for="euphorie.client.survey.ISurvey"
+      for="euphorie.content.survey.ISurvey"
       permission="zope2.View"
       class=".survey.SurveySessionsView"
       template="templates/tool_sessions.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="default_introduction"
+      for="*"
+      permission="zope2.View"
+      class=".survey.DefaultIntroductionView"
+      template="templates/default_introduction.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
@@ -520,6 +589,130 @@
       permission="zope2.View"
       class=".session.CloneSession"
       template="templates/confirmation-clone-session.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="terms-and-conditions"
+      for="*"
+      permission="zope2.Public"
+      class=".conditions.TermsAndConditions"
+      template="templates/conditions.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="index.html"
+      for="Exception"
+      permission="zope2.Public"
+      class=".error.ErrorView"
+      template="templates/error.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="index.html"
+      for="zExceptions.NotFound"
+      permission="zope2.Public"
+      class=".error.NotFound"
+      template="templates/error_notfound.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <!-- Report -->
+  <browser:page
+      name="report_view"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".report.ReportLanding"
+      template="templates/report_landing.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="timeline"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".report.ActionPlanTimeline"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <!-- Sector -->
+  <browser:page
+      name="view"
+      for="euphorie.client.sector.IClientSector"
+      permission="zope2.View"
+      class=".sector.SectorView"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <!-- PDF -->
+  <browser:page
+      name="pdf"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".pdf.PdfView"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <!-- Survey Publish / Unpublish -->
+  <browser:page
+      name="publish"
+      for="euphorie.content.survey.ISurvey"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      permission="euphorie.client.PublishSurvey"
+      class=".publish.PublishSurvey"
+      />
+
+  <browser:page
+      name="preview"
+      for="euphorie.content.survey.ISurvey"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      permission="euphorie.client.PublishSurvey"
+      class=".publish.PreviewSurvey"
+      />
+
+  <!-- settings -->
+  <browser:page
+      name="account-settings"
+      for="euphorie.client.country.IClientCountry"
+      permission="euphorie.client.ViewSurvey"
+      class=".settings.AccountSettings"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="account-delete"
+      for="euphorie.client.country.IClientCountry"
+      permission="euphorie.client.ViewSurvey"
+      class=".settings.DeleteAccount"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="new-email"
+      for="euphorie.client.country.IClientCountry"
+      permission="euphorie.client.ViewSurvey"
+      class=".settings.NewEmail"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="confirm-change"
+      for="euphorie.client.client.IClient"
+      permission="zope2.Public"
+      class=".settings.ChangeEmail"
+      template="templates/error.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <!-- help view (obsolete) -->
+  <browser:page
+      name="help"
+      for="*"
+      permission="zope2.Public"
+      class=".help.HelpView"
+      template="templates/help.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 

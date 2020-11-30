@@ -1,12 +1,12 @@
 # coding: utf-8
-from euphorie.content.export import ExportSurvey
+from euphorie.content.browser.export import ExportSurvey
+from euphorie.content.browser.upload import NSMAP
 from euphorie.content.module import Module
 from euphorie.content.profilequestion import ProfileQuestion
 from euphorie.content.risk import Risk
 from euphorie.content.solution import Solution
 from euphorie.content.survey import Survey
 from euphorie.content.surveygroup import SurveyGroup
-from euphorie.content.upload import NSMAP
 from euphorie.testing import EuphorieIntegrationTestCase
 from lxml import etree
 from zope.publisher.browser import TestRequest

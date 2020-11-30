@@ -10,16 +10,12 @@ handling. It is used by :obj:`euphorie.content.sector` and
 from .. import MessageFactory as _
 from Acquisition import aq_base
 from Acquisition import aq_chain
-from Acquisition import aq_inner
-from Acquisition import aq_parent
-from five import grok
 from p01.widget.password.interfaces import IPasswordConfirmationWidget
 from p01.widget.password.widget import PasswordConfirmationValidator
 from plone import api
 from plone.directives import dexterity
 from plone.directives import form
 from plone.uuid.interfaces import IUUID
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.membrane.interfaces import user as membrane
 from Products.statusmessages.interfaces import IStatusMessage
@@ -30,12 +26,11 @@ from z3c.form.interfaces import IDataManager
 from z3c.form.interfaces import IForm
 from z3c.form.interfaces import IValidator
 from z3c.form.validator import SimpleFieldValidator
-from zExceptions import Unauthorized
 from zope import schema
-from zope.component import adapts
-from zope.component import getMultiAdapter
+from zope.component import adapter
 from zope.component import getUtility
 from zope.event import notify
+from zope.interface import implementer
 from zope.interface import Interface
 from zope.interface import Invalid
 from zope.lifecycleevent import ObjectModifiedEvent
@@ -114,10 +109,9 @@ class BaseValidator(SimpleFieldValidator):
         self.widget = widget
 
 
-class UniqueLoginValidator(grok.MultiAdapter, BaseValidator):
-    grok.implements(IValidator)
-    grok.adapts(Interface, Interface, IAddForm, LoginField, Interface)
-
+@adapter(Interface, Interface, IAddForm, LoginField, Interface)
+@implementer(IValidator)
+class UniqueLoginValidator(BaseValidator):
     def validate(self, value):
         """Ensure that there isn't already a user id isn't already in use.
 
@@ -131,12 +125,9 @@ class UniqueLoginValidator(grok.MultiAdapter, BaseValidator):
                     raise DuplicateLoginError(value)
 
 
-class PasswordValidator(grok.MultiAdapter, PasswordConfirmationValidator):
-    grok.implements(IValidator)
-    grok.adapts(
-        Interface, Interface, IForm, schema.Password, IPasswordConfirmationWidget
-    )
-
+@adapter(Interface, Interface, IForm, schema.Password, IPasswordConfirmationWidget)
+@implementer(IValidator)
+class PasswordValidator(PasswordConfirmationValidator):
     def validate(self, value):
         """Ensure that the password complies with the policy configured in
         portal_registration.
@@ -150,6 +141,7 @@ class PasswordValidator(grok.MultiAdapter, PasswordConfirmationValidator):
             raise InvalidPasswordError(value, err)
 
 
+@adapter(IUser)
 class UserProvider(object):
     """Base class for membrane adapters for :obj:`IUser` instances.
 
@@ -163,8 +155,6 @@ class UserProvider(object):
     interface provided by an adapter if it provides multiple interfaces, even
     if they are derived classes).
     """
-
-    adapts(IUser)
 
     def __init__(self, context):
         self.context = context
@@ -180,16 +170,15 @@ class UserProvider(object):
         return self.context.login
 
 
-class UserAuthentication(grok.Adapter, UserProvider):
+@adapter(IUser)
+@implementer(membrane.IMembraneUserAuth)
+class UserAuthentication(UserProvider):
     """Account authentication routines.
 
     This adapter implements the
     :obj:`Products.membrane.interfaces.user.IMembraneUserAuth` interface. This
     interface is responsible for the authentication logic of accounts.
     """
-
-    grok.context(IUser)
-    grok.implements(membrane.IMembraneUserAuth)
 
     def authenticateCredentials(self, credentials):
         if self.context.locked:
@@ -256,16 +245,15 @@ class UserAuthentication(grok.Adapter, UserProvider):
             self.context.locked = True
 
 
-class UserChanger(grok.Adapter, UserProvider):
+@adapter(IUser)
+@implementer(membrane.IMembraneUserChanger)
+class UserChanger(UserProvider):
     """Account password changing.
 
     This adapter implements the
     :obj:`Products.membrane.interfaces.user.IMembraneUserChanger` interface.
     This interface is responsible for changing a users password.
     """
-
-    grok.context(IUser)
-    grok.implements(membrane.IMembraneUserChanger)
 
     def doChangeUser(self, userid, password, **kwargs):
         """Set the login name and password for a user.
@@ -280,17 +268,18 @@ class UserChanger(grok.Adapter, UserProvider):
         self.context.password = bcrypt.hashpw(password, bcrypt.gensalt())
 
 
-class PasswordDataManager(AttributeField, grok.MultiAdapter):
+@adapter(IUser, schema.interfaces.IPassword)
+@implementer(IDataManager)
+class PasswordDataManager(AttributeField):
     """Hash passwords before storing them"""
-
-    grok.implements(IDataManager)
-    grok.adapts(IUser, schema.interfaces.IPassword)
 
     def set(self, value):
         super(PasswordDataManager, self).set(bcrypt.hashpw(value, bcrypt.gensalt()))
 
 
-class UserProperties(grok.Adapter, UserProvider):
+@adapter(IUser)
+@implementer(membrane.IMembraneUserProperties)
+class UserProperties(UserProvider):
     """User properties handling.
 
     This adapter implements the
@@ -302,9 +291,6 @@ class UserProperties(grok.Adapter, UserProvider):
     interface. As a result all methods take a `user` parameter, which should
     always be the same as the adapted object for membrane adapters.
     """
-
-    grok.context(IUser)
-    grok.implements(membrane.IMembraneUserProperties)
 
     # A mapping for IUser properties to Plone user properties
     property_map = [("title", "fullname"), ("contact_email", "email")]
@@ -329,48 +315,3 @@ class UserProperties(grok.Adapter, UserProvider):
         if changes:
             self.context.reindexObject(idxs=list(changes))
             notify(ObjectModifiedEvent(self.context))
-
-
-class Lock(grok.View):
-    """Lock or unlock a User account.
-
-    View name: @@lock
-    """
-
-    grok.context(IUser)
-    grok.require("euphorie.content.ManageCountry")
-    grok.layer(NuPloneSkin)
-    grok.name("lock")
-
-    def render(self):
-        if self.request.method != "POST":
-            raise Unauthorized
-        authenticator = getMultiAdapter(
-            (self.context, self.request), name=u"authenticator"
-        )
-        if not authenticator.verify():
-            raise Unauthorized
-
-        self.context.locked = locked = self.request.form.get("action", "lock") == "lock"
-        flash = IStatusMessage(self.request).addStatusMessage
-        if locked:
-            flash(
-                _(
-                    "message_user_locked",
-                    default=u'Account "${title}" has been locked.',
-                    mapping=dict(title=self.context.title),
-                ),
-                "success",
-            )
-        else:
-            flash(
-                _(
-                    "message_user_unlocked",
-                    default=u'Account "${title}" has been unlocked.',
-                    mapping=dict(title=self.context.title),
-                ),
-                "success",
-            )
-
-        country = aq_parent(aq_inner(self.context))
-        self.request.response.redirect("%s/@@manage-users" % country.absolute_url())

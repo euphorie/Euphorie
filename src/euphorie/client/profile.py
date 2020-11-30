@@ -13,12 +13,9 @@ from euphorie.content.module import IModule
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.risk import IFrenchRisk
 from euphorie.content.risk import IRisk
-from five import grok
 from sqlalchemy import sql
 from z3c.saconfig import Session
 
-
-grok.templatedir("templates")
 
 always_present_default = "no"
 

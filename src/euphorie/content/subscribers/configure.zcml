@@ -1,0 +1,27 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <subscriber
+      for="euphorie.content.survey.ISurvey
+           Products.CMFCore.interfaces.IActionSucceededEvent"
+      handler="euphorie.content.versioning.handleSurveyPublish"
+      />
+
+  <subscriber
+      for="*
+           zope.lifecycleevent.IObjectMovedEvent"
+      handler="euphorie.content.behaviour.dirtytree.handleObjectMove"
+      />
+
+  <subscriber
+      for="*
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+      handler="euphorie.content.behaviour.dirtytree.handleObjectModified"
+      />
+
+  <subscriber
+      for="euphorie.content.behaviour.dirtytree.IDirtyTreeRoot
+           Products.CMFCore.interfaces.IActionSucceededEvent"
+      handler="euphorie.content.behaviour.dirtytree.handleSurveyPublish"
+      />
+
+</configure>

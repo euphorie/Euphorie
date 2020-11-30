@@ -6,10 +6,7 @@ The client proxy for displaying sector information.
 """
 
 from Acquisition import aq_base
-from Acquisition import aq_inner
 from Acquisition import aq_parent
-from euphorie.client.interfaces import IClientSkinLayer
-from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.dexterity.content import Container
 from plone.directives import form
@@ -44,15 +41,3 @@ class ClientSector(Container):
             return title
         else:
             return self._sector().title
-
-
-grok.templatedir("templates")
-
-
-class View(grok.View):
-    grok.context(IClientSector)
-    grok.require("zope2.View")
-    grok.layer(IClientSkinLayer)
-
-    def render(self):
-        self.request.response.redirect(aq_parent(aq_inner(self.context)).absolute_url())

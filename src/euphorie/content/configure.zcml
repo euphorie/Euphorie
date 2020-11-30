@@ -2,7 +2,6 @@
            xmlns:browser="http://namespaces.zope.org/browser"
            xmlns:five="http://namespaces.zope.org/five"
            xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-           xmlns:grok="http://namespaces.zope.org/grok"
            xmlns:z3c="http://namespaces.zope.org/z3c"
            i18n_domain="euphorie">
 
@@ -16,31 +15,17 @@
     <include package="plone.app.vocabularies" />
     <include package="plone.uuid" />
     <include package="htmllaundry" />
-    <include package=".api" />
+
+    <include file="permissions.zcml" />
+
     <include package=".behaviors" />
     <include package=".browser" />
+    <include package=".subscribers" />
 
     <browser:resourceDirectory
         name="euphorie.static"
         directory="static"
         />
-
-    <permission
-        id="euphorie.content.ManageCountry"
-        title="Euphorie: Manage country"
-        />
-
-    <permission
-        id="euphorie.content.AddNewRIEContent"
-        title="Euphorie: Add new RIE Content"
-        />
-
-    <permission
-        id="euphorie.content.DeletePublishedContent"
-        title="Euphorie: Delete published content"
-        />
-
-    <grok:grok package="." />
 
     <five:registerClass
         class=".fti.ConditionalDexterityFTI"
@@ -64,6 +49,26 @@
              "
         handler=".risk.handle_risk_pasted"
         />
+    <subscriber
+      for="euphorie.content.survey.ISurvey
+           euphorie.content.interfaces.ISurveyUnpublishEvent
+           "
+        handler=".survey.handleSurveyUnpublish"
+        />
+
+    <subscriber
+      for="euphorie.content.survey.ISurvey
+           Products.CMFCore.interfaces.IActionSucceededEvent
+           "
+        handler=".surveygroup.handleSurveyPublish"
+        />
+
+    <subscriber
+      for="euphorie.content.survey.ISurvey
+           zope.lifecycleevent.interfaces.IObjectRemovedEvent
+           "
+        handler=".surveygroup.handleSurveyRemoved"
+        />
 
     <adapter
       for=".survey.ISurvey zope.schema.interfaces.IField"
@@ -82,13 +87,32 @@
       provides="Products.membrane.interfaces.user.IMembraneUserObject"
       />
 
+    <adapter factory=".user.UniqueLoginValidator" />
+    <adapter factory=".user.PasswordValidator" />
+    <adapter factory=".user.UserAuthentication" />
+    <adapter factory=".user.UserChanger" />
+    <adapter factory=".user.PasswordDataManager" />
+    <adapter factory=".user.UserProperties" />
+
+    <adapter
+        factory=".countrymanager.CountryManagerLocalRoleProvider"
+        name="euphorie.countrymanager"
+        />
+
     <adapter
       factory=".countrymanager.SearchableTextIndexer"
       name="SearchableText" />
 
+    <adapter factory=".dependency.ConditionalFieldValidator" />
+
     <adapter
       factory=".help.SearchableTextIndexer"
       name="SearchableText" />
+
+    <adapter
+        factory=".module.ConstructionFilter"
+        name="euphorie.module"
+        />
 
     <adapter
       factory=".module.SearchableTextIndexer"
@@ -103,8 +127,18 @@
       name="SearchableText" />
 
     <adapter
+        factory=".risk.ConstructionFilter"
+        name="euphorie.risk"
+        />
+
+    <adapter
       factory=".risk.SearchableTextIndexer"
       name="SearchableText" />
+
+    <adapter
+        factory=".sector.SectorLocalRoleProvider"
+        name="euphorie.sector"
+        />
 
     <adapter
       factory=".sector.SearchableTextIndexer"

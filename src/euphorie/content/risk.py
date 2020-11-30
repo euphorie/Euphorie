@@ -16,40 +16,27 @@ from .fti import check_fti_paste_allowed
 from .fti import ConditionalDexterityFTI
 from .fti import IConstructionFilter
 from .solution import ISolution
-from .utils import DragDropHelper
-from .utils import getTermTitleByValue
 from .utils import StripMarkup
-from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
-from Acquisition import aq_parent
-from Acquisition.interfaces import IAcquirer
 from euphorie.content.utils import ensure_image_size
-from euphorie.content.utils import IToolTypesInfo
-from five import grok
 from htmllaundry.z3cform import HtmlText
 from plone import api
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.dexterity.content import Container
-from plone.dexterity.interfaces import IDexterityFTI
-from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
 from plone.memoize.instance import memoize
 from plone.namedfile import field as filefield
 from plone.namedfile.interfaces import INamedBlobImageField
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from plonetheme.nuplone.z3cform.directives import depends
 from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
 from Products.statusmessages.interfaces import IStatusMessage
-from z3c.appconfig.interfaces import IAppConfig
 from z3c.form import validator
-from z3c.form.form import applyChanges
 from zope import schema
-from zope.component import createObject
-from zope.component import getUtility
+from zope.component import adapter
 from zope.interface import alsoProvides
-from zope.interface import implements
+from zope.interface import implementer
 from zope.interface import Interface
 from zope.interface import Invalid
 from zope.interface import noLongerProvides
@@ -57,9 +44,6 @@ from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 
 import sys
-
-
-grok.templatedir("templates")
 
 
 TextLines4Rows = FieldWidgetFactory(
@@ -421,9 +405,7 @@ class ImageSizeValidator(validator.SimpleFieldValidator):
 
 
 validator.WidgetValidatorDiscriminators(
-    ImageSizeValidator,
-    context=IRisk,
-    field=INamedBlobImageField,
+    ImageSizeValidator, context=IRisk, field=INamedBlobImageField
 )
 
 
@@ -621,8 +603,8 @@ class IFrenchRisk(IRisk, IFrenchEvaluation):
     )
 
 
+@implementer(IRisk)
 class Risk(Container):
-    implements(IRisk)
 
     type = "risk"
 
@@ -746,165 +728,9 @@ def SearchableTextIndexer(obj):
     )
 
 
-class View(grok.View, DragDropHelper):
-    grok.context(IRisk)
-    grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
-    grok.template("risk_view")
-    grok.name("nuplone-view")
-
-    def update(self):
-        super(View, self).update()
-        context = aq_inner(self.context)
-        self.module_title = aq_parent(context).title
-        self.evaluation_algorithm = evaluation_algorithm(context)
-        self.type = getTermTitleByValue(IRisk["type"], context.type)
-        self.evaluation_method = getTermTitleByValue(
-            IRisk["evaluation_method"], context.evaluation_method
-        )
-        self.default_priority = getTermTitleByValue(
-            IKinneyRisk["default_priority"], context.default_priority
-        )
-        if self.evaluation_algorithm == u"french":
-            self.default_severity = getTermTitleByValue(
-                IFrenchEvaluation["default_severity"], context.default_severity
-            )
-            self.default_frequency = getTermTitleByValue(
-                IFrenchEvaluation["default_frequency"], context.default_frequency
-            )
-        else:
-            self.default_probability = getTermTitleByValue(
-                IKinneyEvaluation["default_probability"], context.default_probability
-            )
-            self.default_frequency = getTermTitleByValue(
-                IKinneyEvaluation["default_frequency"], context.default_frequency
-            )
-            self.default_effect = getTermTitleByValue(
-                IKinneyEvaluation["default_effect"], context.default_effect
-            )
-
-        self.solutions = [
-            {
-                "id": solution.id,
-                "url": solution.absolute_url(),
-                "description": solution.description,
-            }
-            for solution in context.values()
-            if ISolution.providedBy(solution)
-        ]
-
-
-class Add(dexterity.AddForm):
-    grok.context(IRisk)
-    grok.name("euphorie.risk")
-    grok.require("euphorie.content.AddNewRIEContent")
-
-    default_fieldset_label = None
-
-    def __init__(self, context, request):
-        dexterity.AddForm.__init__(self, context, request)
-        self.evaluation_algorithm = evaluation_algorithm(context)
-        self.order = [
-            "header_identification",
-            "header_evaluation",
-            "header_main_image",
-            "header_secondary_images",
-            "header_additional_content",
-        ]
-
-    @property
-    def schema(self):
-        if self.evaluation_algorithm == u"french":
-            return IFrenchRisk
-        else:
-            return IKinneyRisk
-
-    def updateFields(self):
-        super(Add, self).updateFields()
-        self.groups.sort(key=lambda g: self.order.index(g.label))
-
-    def updateWidgets(self):
-        super(Add, self).updateWidgets()
-        self.widgets["title"].addClass("span-7")
-        self.widgets["existing_measures"].mode = "hidden"
-
-    def create(self, data):
-        # This is mostly a direct copy of
-        # :py:meth:`plone.dexterity.browser.add.DefaultAddForm.create`,
-        # extended to apply the right interface.
-        fti = getUtility(IDexterityFTI, name=self.portal_type)
-        container = aq_inner(self.context)
-        content = createObject(fti.factory)
-        alsoProvides(content, self.schema)
-        if hasattr(content, "_setPortalTypeName"):
-            content._setPortalTypeName(fti.getId())
-        if IAcquirer.providedBy(content):
-            content = content.__of__(container)
-        applyChanges(self, content, data)
-        for group in self.groups:
-            applyChanges(group, content, data)
-        return aq_base(content)
-
-
-class Edit(form.SchemaEditForm):
-    grok.context(IRisk)
-    grok.require("cmf.ModifyPortalContent")
-    grok.layer(NuPloneSkin)
-    grok.name("edit")
-
-    default_fieldset_label = None
-
-    def __init__(self, context, request):
-        from euphorie.content.survey import get_tool_type
-
-        self.order = [
-            "header_identification",
-            "header_evaluation",
-            "header_main_image",
-            "header_secondary_images",
-            "header_additional_content",
-        ]
-        self.evaluation_algorithm = context.evaluation_algorithm()
-        if self.evaluation_algorithm == u"french":
-            self.schema = IFrenchRisk
-        else:
-            self.schema = IKinneyRisk
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get("euphorie")
-        self.use_existing_measures = settings.get("use_existing_measures", False)
-        self.tool_type = get_tool_type(context)
-        form.SchemaEditForm.__init__(self, context, request)
-
-    def updateFields(self):
-        super(Edit, self).updateFields()
-        self.groups.sort(key=lambda g: self.order.index(g.label))
-
-    def updateWidgets(self):
-        super(Edit, self).updateWidgets()
-        self.widgets["title"].addClass("span-7")
-        tt = getUtility(IToolTypesInfo)
-        if not (
-            self.use_existing_measures and self.tool_type in tt.types_existing_measures
-        ):
-            self.widgets["existing_measures"].mode = "hidden"
-        else:
-            self.widgets["existing_measures"].mode = "display"
-
-    def extractData(self, setErrors=True):
-        data = super(Edit, self).extractData(setErrors)
-        if data[0]["evaluation_method"] == "fixed":
-            del data[0]["default_priority"]
-
-        # If there is a validation error on the form, consume all status messages,
-        # so that they don't appear in the form. We only want to show validation
-        # messages directly on the respective field(s) in that case.
-        if data[1]:
-            status = IStatusMessage(self.request)
-            status.show()
-        return data
-
-
-class ConstructionFilter(grok.MultiAdapter):
+@adapter(ConditionalDexterityFTI, Interface)
+@implementer(IConstructionFilter)
+class ConstructionFilter(object):
     """FTI construction filter for :py:class:`Risk` objects. This filter
      prevents creating of modules if the current container already contains a
      module.
@@ -912,10 +738,6 @@ class ConstructionFilter(grok.MultiAdapter):
     This multi adapter requires the use of the conditional FTI as implemented
     by :py:class:`euphorie.content.fti.ConditionalDexterityFTI`.
     """
-
-    grok.adapts(ConditionalDexterityFTI, Interface)
-    grok.implements(IConstructionFilter)
-    grok.name("euphorie.risk")
 
     def __init__(self, fti, container):
         self.fti = fti
