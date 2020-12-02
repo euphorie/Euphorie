@@ -1,3 +1,5 @@
+/.coverage
+/downloads
 .DS_Store
 *.pt.py
 *.pyc
