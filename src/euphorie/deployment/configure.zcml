@@ -41,4 +41,6 @@
        post_handler=".setuphandlers.setupVarious"
        />
 
+  <include package="euphorie.upgrade.deployment" />
+
 </configure>
