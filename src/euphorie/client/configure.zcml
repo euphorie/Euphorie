@@ -103,6 +103,8 @@
         post_handler=".setuphandlers.setupVarious"
         />
 
+    <include package="euphorie.upgrade.client" />
+
     <browser:resourceDirectory
         name="euphorie.resources"
         directory="resources"

@@ -6,6 +6,7 @@
            xmlns:z3c="http://namespaces.zope.org/z3c"
            i18n_domain="euphorie">
 
+    <include package="ftw.upgrade" />
     <include package="plone.app.folder" />
     <include package="plone.app.z3cform" />
     <include package="plone.namedfile" />
@@ -135,6 +136,8 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         />
+
+    <include package="euphorie.upgrade.content" />
 
     <browser:page
         name="clean-content"

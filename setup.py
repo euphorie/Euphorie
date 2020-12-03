@@ -41,6 +41,7 @@ setup(
         "decorator",
         "py-bcrypt",
         "five.grok",
+        "ftw.upgrade",
         "htmllaundry [z3cform] >=1.1dev-r11183",
         "lxml",
         "plone.app.dexterity [grok, relations]",

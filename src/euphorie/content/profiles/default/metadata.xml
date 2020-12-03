@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>2</version>
+  <!-- There is no version element in this file because the version is managed by
+    ftw.upgrade in the package euphorie.upgrade
+  -->
   <dependencies>
     <dependency>profile-Products.membrane:default</dependency>
+    <dependency>profile-ftw.upgrade:default</dependency>
   </dependencies>
 </metadata>
