@@ -4,6 +4,12 @@ from zope.component.interfaces import IObjectEvent
 from zope.component.interfaces import ObjectEvent
 from zope.interface import implements
 from zope.interface import Interface
+from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+
+
+class IEuphorieContentLayer(NuPloneSkin):
+    """ Marker interface for Euphorie content
+    """
 
 
 class IObjectPublishedEvent(IObjectClonedEvent):
