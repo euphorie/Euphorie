@@ -203,7 +203,11 @@ class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
             self.assertTrue(view().startswith(b"GIF"))
             self.assertDictEqual(
                 view.request.response.headers,
-                {"content-length": "168", "content-type": "image/gif"},
+                {
+                    "accept-ranges": "bytes",
+                    "content-length": "168",
+                    "content-type": "image/gif",
+                },
             )
 
             # Check that we can crop and scale the image on the fly
@@ -211,5 +215,9 @@ class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
             self.assertTrue(view().startswith(b"\x89PNG"))
             self.assertDictEqual(
                 view.request.response.headers,
-                {"content-length": "6971", "content-type": "image/png"},
+                {
+                    "accept-ranges": "bytes",
+                    "content-length": "6971",
+                    "content-type": "image/png",
+                },
             )

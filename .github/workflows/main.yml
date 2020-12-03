@@ -1,0 +1,52 @@
+name: tests
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  schedule:
+    - cron: "0 12 * * 0" # run once a week on Sunday
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        config:
+          - ["Py2.7-Plone5.1", "2.7", "5.1"]
+#         - ["Py2.7-Plone5.2", "2.7", "5.2"]
+#         - ["Py3.6-Plone5.2", "3.6", "5.2"]
+#         - ["Py3.7-Plone5.2", "3.7", "5.2"]
+#         - ["Py3.8-Plone5.2", "3.8", "5.2"]
+    runs-on: ubuntu-latest
+    name: ${{ matrix.config[0] }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.config[1] }}
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/pip
+            **/eggs
+            **/downloads
+          key: ${{ runner.os }}-cache-${{ hashFiles('setup.*', '*.cfg') }}-${{ matrix.config[0] }}
+          restore-keys: |
+            ${{ runner.os }}-cache-
+      - name: Install dependencies
+        run: |
+          sudo locale-gen en_US.UTF-8 nl_NL@euro
+          pip install virtualenv
+          virtualenv -p `which python` .
+          bin/pip install -r requirements.txt
+          bin/buildout -c .github.cfg annotate
+          bin/buildout -c .github.cfg
+      - name: Test
+        run: |
+          [ `./bin/code-analysis|wc -l` -le 1073 ]
+          bin/coverage run bin/test -s euphorie
+          bin/coverage report --fail-under=69
+        env:
+          zope_i18n_compile_mo_files: 1

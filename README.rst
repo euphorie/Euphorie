@@ -1,6 +1,9 @@
 About
 =====
 
+.. image:: https://github.com/euphorie/Euphorie/workflows/tests/badge.svg
+    :target: https://github.com/euphorie/Euphorie/actions?query=workflow%3Atests
+
 Euphorie is a tool for risk assessment.  It was developed by `SYSLAB`_ and `TNO`_
 in cooperation with `Simplon B.V.`_ and `Cornelis Kolbach`_ in commission of
 `The European Agency for Safety and Health at Work`_ as part of the
