@@ -266,6 +266,7 @@ class Group(BaseObject):
     long_name = schema.Column(types.Unicode(256), )
     responsible_id = schema.Column(types.Unicode(32), )
     responsible_fullname = schema.Column(types.Unicode(32), )
+    active = schema.Column(types.Boolean(), default=True)
 
     children = relationship(
         'Group',
@@ -295,13 +296,15 @@ class Group(BaseObject):
 
     @property
     def fullname(self):
-        ''' This is the name that will be display in the selectors and
+        """ This is the name that will be display in the selectors and
         in the tree widget
-        '''
-        title = self.short_name or self.group_id
+        """
+        title = u"{obs}{name}".format(
+            obs="[obs.] " if not self.active else "",
+            name=self.short_name or self.group_id,
+        )
         if self.responsible_fullname:
-            title += u', {}'.format(self.responsible_fullname)
-        # title += u' ({})'.format(self.group_id)
+            title += u", {}".format(self.responsible_fullname)
         return title
 
     @property

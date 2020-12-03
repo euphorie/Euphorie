@@ -439,6 +439,18 @@
         description="Check the logs! You might want to adapt the migration to your DB"
         handler=".v28.alembic_upgrade"
         />
-    </genericsetup:upgradeSteps>
+  </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeSteps
+      destination="29"
+      profile="euphorie.deployment:default"
+      source="28"
+      >
+    <genericsetup:upgradeStep
+        title="Run Alembic migration: add 'active' flag to group"
+        description="Check the logs! You might want to adapt the migration to your DB"
+        handler=".v29.alembic_upgrade"
+        />
+  </genericsetup:upgradeSteps>
 
 </configure>
