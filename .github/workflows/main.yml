@@ -45,7 +45,7 @@ jobs:
           bin/buildout -c .github.cfg
       - name: Test
         run: |
-          [ `./bin/code-analysis|wc -l` -le 1073 ]
+          [ `./bin/code-analysis|wc -l` -le 905 ]
           bin/coverage run bin/test -s euphorie
           bin/coverage report --fail-under=69
         env:
