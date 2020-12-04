@@ -4,6 +4,14 @@
     >
 
   <browser:page
+      name="about"
+      for="*"
+      permission="zope.Public"
+      template="templates/about.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="webhelpers"
       for="*"
       permission="zope.Public"
@@ -157,6 +165,14 @@
       permission="euphorie.client.ViewSurvey"
       class=".session.Report"
       template="templates/report.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="report_company"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".company.Company"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
