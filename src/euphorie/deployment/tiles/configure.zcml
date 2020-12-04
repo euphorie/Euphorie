@@ -7,6 +7,8 @@
   <include package="plone.tiles" file="meta.zcml" />
   <include package="plone.tiles" />
 
+  <adapter factory=".navigation.EuphorieNavtreeFactory" />
+
   <plone:tile
     name="euphorie.addbar"
     title="Content add bar"
@@ -68,4 +70,3 @@
    </configure>
 
 </configure>
-

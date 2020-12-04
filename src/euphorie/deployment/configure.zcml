@@ -29,7 +29,6 @@
         />
 
   <grok:grok package=".browser" />
-  <grok:grok package=".tiles" />
 
   <genericsetup:registerProfile
        name="default"
