@@ -9,12 +9,13 @@ condition is met, that means, if the checkbox that it depends on is ticked.
 """
 
 from euphorie.content.user import BaseValidator
-from five import grok
 from htmllaundry.z3cform import HtmlText
 from plonetheme.nuplone.z3cform.directives import Dependency
 from z3c.form.interfaces import IForm
 from z3c.form.interfaces import IValidator
 from zope import schema
+from zope.component import adapter
+from zope.interface import implementer
 from zope.interface import Interface
 
 
@@ -30,9 +31,9 @@ class ConditionalHtmlText(HtmlText, ConditionalField):
     """ HTML Text field that is only shown under certain conditions """
 
 
-class ConditionalFieldValidator(grok.MultiAdapter, BaseValidator):
-    grok.implements(IValidator)
-    grok.adapts(Interface, Interface, IForm, ConditionalField, Interface)
+@implementer(IValidator)
+@adapter(Interface, Interface, IForm, ConditionalField, Interface)
+class ConditionalFieldValidator(BaseValidator):
 
     def validate(self, value):
         """

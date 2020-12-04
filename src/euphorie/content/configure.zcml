@@ -29,8 +29,6 @@
         directory="static"
         />
 
-    <grok:grok package=".countrymanager" />
-    <grok:grok package=".dependency" />
     <grok:grok package=".help" />
     <grok:grok package=".module" />
     <grok:grok package=".risk" />
@@ -102,8 +100,15 @@
       />
 
     <adapter
+        factory=".countrymanager.CountryManagerLocalRoleProvider"
+        name="euphorie.countrymanager"
+        />
+
+    <adapter
       factory=".countrymanager.SearchableTextIndexer"
       name="SearchableText" />
+
+    <adapter factory=".dependency.ConditionalFieldValidator" />
 
     <adapter
       factory=".help.SearchableTextIndexer"

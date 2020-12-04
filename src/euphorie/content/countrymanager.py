@@ -13,13 +13,13 @@ from borg.localrole.interfaces import ILocalRoleProvider
 from euphorie.content.country import ICountry
 from euphorie.content.user import IUser
 from euphorie.content.user import UserProvider
-from five import grok
 from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
 from plone.uuid.interfaces import IAttributeUUID
 from Products.CMFCore.utils import getToolByName
-from zope.interface import implements
+from zope.component import adapter
+from zope.interface import implementer
 
 
 class ICountryManager(form.Schema, IUser):
@@ -27,11 +27,11 @@ class ICountryManager(form.Schema, IUser):
     """
 
 
+@implementer(ICountryManager, IAttributeUUID)
 class CountryManager(dexterity.Item):
     """A country manager."""
 
     portal_type = "euphorie.countrymanager"
-    implements(ICountryManager, IAttributeUUID)
 
     locked = False
 
@@ -47,16 +47,16 @@ def SearchableTextIndexer(obj):
     return " ".join([obj.title, obj.contact_name, obj.contact_email])
 
 
-class CountryManagerLocalRoleProvider(grok.Adapter):
+@adapter(ICountry)
+@implementer(ILocalRoleProvider)
+class CountryManagerLocalRoleProvider(object):
     """`borg.localrole` provider for :py:class:`ICountryManager` instances.
 
     This local role provider gives country managers the Administrator
     role within their country.
     """
-
-    grok.context(ICountry)
-    grok.implements(ILocalRoleProvider)
-    grok.name("euphorie.countrymanager")
+    def __init__(self, context):
+        self.context = context
 
     def getRoles(self, principal_id):
         mt = getToolByName(self.context, "membrane_tool")
