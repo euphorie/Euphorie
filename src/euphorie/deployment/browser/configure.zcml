@@ -45,4 +45,22 @@
       template="templates/update-completion-percentage.pt"
       />
 
+  <browser:page
+      name="search"
+      for="*"
+      permission="zope2.View"
+      class=".search.Search"
+      template="templates/search.pt"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
+  <browser:page
+      name="context-search"
+      for="*"
+      permission="zope2.View"
+      class=".search.ContextSearch"
+      template="templates/context_search.pt"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
 </configure>

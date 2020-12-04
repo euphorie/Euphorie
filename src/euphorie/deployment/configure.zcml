@@ -1,6 +1,5 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-           xmlns:grok="http://namespaces.zope.org/grok"
            xmlns:i18n="http://namespaces.zope.org/i18n"
            i18n_domain="euphorie">
 
@@ -27,8 +26,6 @@
         name="euphorie.transform"
         factory=".transform.EuphorieTransform"
         />
-
-  <grok:grok package=".browser" />
 
   <genericsetup:registerProfile
        name="default"
