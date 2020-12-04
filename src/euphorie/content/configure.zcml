@@ -29,7 +29,6 @@
         directory="static"
         />
 
-    <grok:grok package=".risk" />
     <grok:grok package=".sector" />
     <grok:grok package=".surveygroup" />
     <grok:grok package=".user" />
@@ -128,6 +127,11 @@
     <adapter
       factory=".profilequestion.SearchableTextIndexer"
       name="SearchableText" />
+
+    <adapter
+        factory=".risk.ConstructionFilter"
+        name="euphorie.risk"
+        />
 
     <adapter
       factory=".risk.SearchableTextIndexer"
