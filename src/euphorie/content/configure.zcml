@@ -31,9 +31,6 @@
 
     <grok:grok package=".module" />
     <grok:grok package=".risk" />
-    <grok:grok package=".versioning" />
-    <grok:grok package=".behaviour.dirtytree" />
-    <grok:grok package=".api" />
 
     <five:registerClass
         class=".fti.ConditionalDexterityFTI"
