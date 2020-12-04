@@ -10,13 +10,12 @@ https://admin.oiraproject.eu/sectors/eu/eu-private-security/private-security-eu
 from .. import MessageFactory as _
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.directives import dexterity
 from plone.directives import form
 from z3c.form.interfaces import IEditForm
 from zope import schema
-from zope.interface import implements
+from zope.interface import implementer
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 
@@ -70,13 +69,11 @@ class ISurveyGroup(form.Schema, IBasic):
     )
 
 
+@implementer(ISurveyGroup)
 class SurveyGroup(dexterity.Container):
     """
     A Survey Group is a container for several Survey versions
     """
-
-    grok.name("euphorie.surveygroup")
-    implements(ISurveyGroup)
 
     published = None
     evaluation_algorithm = u"kinney"
