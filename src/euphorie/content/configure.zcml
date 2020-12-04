@@ -31,7 +31,6 @@
 
     <grok:grok package=".module" />
     <grok:grok package=".risk" />
-    <grok:grok package=".user" />
     <grok:grok package=".versioning" />
     <grok:grok package=".behaviour.dirtytree" />
     <grok:grok package=".api" />
@@ -95,6 +94,13 @@
       factory=".user.UserProvider"
       provides="Products.membrane.interfaces.user.IMembraneUserObject"
       />
+
+    <adapter factory=".user.UniqueLoginValidator" />
+    <adapter factory=".user.PasswordValidator" />
+    <adapter factory=".user.UserAuthentication" />
+    <adapter factory=".user.UserChanger" />
+    <adapter factory=".user.PasswordDataManager" />
+    <adapter factory=".user.UserProperties" />
 
     <adapter
         factory=".countrymanager.CountryManagerLocalRoleProvider"

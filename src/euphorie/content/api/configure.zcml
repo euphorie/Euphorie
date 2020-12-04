@@ -27,4 +27,3 @@
       provides="zope.publisher.interfaces.IPublishTraverse"/>
 
 </configure>
-
