@@ -29,7 +29,6 @@
         directory="static"
         />
 
-    <grok:grok package=".help" />
     <grok:grok package=".module" />
     <grok:grok package=".risk" />
     <grok:grok package=".sector" />

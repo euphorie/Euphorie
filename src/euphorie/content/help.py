@@ -11,15 +11,11 @@ portal_type: euphorie.help
 
 from .. import MessageFactory as _
 from euphorie.content.utils import StripMarkup
-from five import grok
 from htmllaundry.z3cform import HtmlText
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.directives import form
 from plone.indexer import indexer
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-
-
-grok.templatedir("templates")
 
 
 class IOnlineHelp(form.Schema):
@@ -108,17 +104,6 @@ class IOnlineHelp(form.Schema):
         required=True,
     )
     form.widget(finalwords=WysiwygFieldWidget)
-
-
-class View(grok.View):
-    """ View name: @@nuplone-view
-    """
-
-    grok.context(IOnlineHelp)
-    grok.require("zope2.View")
-    grok.layer(NuPloneSkin)
-    grok.name("nuplone-view")
-    grok.template("help_view")
 
 
 @indexer(IOnlineHelp)

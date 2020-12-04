@@ -43,6 +43,14 @@
     </class>
 
   <browser:page
+      name="nuplone-view"
+      for="euphorie.content.help.IOnlineHelp"
+      permission="zope2.View"
+      template="templates/help_view.pt"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
+  <browser:page
       name="edit"
       for="euphorie.content.country.ICountry"
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
