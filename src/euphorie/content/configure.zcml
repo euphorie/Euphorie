@@ -31,7 +31,6 @@
 
     <grok:grok package=".module" />
     <grok:grok package=".risk" />
-    <grok:grok package=".sector" />
     <grok:grok package=".surveygroup" />
     <grok:grok package=".user" />
     <grok:grok package=".versioning" />
@@ -128,6 +127,11 @@
     <adapter
       factory=".risk.SearchableTextIndexer"
       name="SearchableText" />
+
+    <adapter
+        factory=".sector.SectorLocalRoleProvider"
+        name="euphorie.sector"
+        />
 
     <adapter
       factory=".sector.SearchableTextIndexer"

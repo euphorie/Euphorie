@@ -22,7 +22,6 @@ from euphorie.content.survey import ISurvey
 from euphorie.content.surveygroup import ISurveyGroup
 from euphorie.content.user import IUser
 from euphorie.content.user import UserProvider
-from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.directives import dexterity
@@ -34,7 +33,8 @@ from plonetheme.nuplone.utils import checkPermission
 from Products.CMFCore.utils import getToolByName
 from Products.CMFEditions.Permissions import AccessPreviousVersions
 from zope import schema
-from zope.interface import implements
+from zope.component import adapter
+from zope.interface import implementer
 
 import datetime
 import logging
@@ -79,6 +79,7 @@ class ISector(form.Schema, IUser, IBasic):
     )
 
 
+@implementer(ISector, INavigationRoot, IAttributeUUID)
 class Sector(dexterity.Container):
     """A sector of industry.
 
@@ -87,7 +88,6 @@ class Sector(dexterity.Container):
     """
 
     portal_type = "euphorie.clientsector"
-    implements(ISector, INavigationRoot, IAttributeUUID)
 
     locked = False
 
@@ -103,16 +103,16 @@ def SearchableTextIndexer(obj):
     )
 
 
-class SectorLocalRoleProvider(grok.Adapter):
+@adapter(ISector)
+@implementer(ILocalRoleProvider)
+class SectorLocalRoleProvider(object):
     """`borg.localrole` provider for :obj:`ISector` instances.
 
     This local role provider gives the sector user itself the
     `Sector` local role.
     """
-
-    grok.context(ISector)
-    grok.implements(ILocalRoleProvider)
-    grok.name("euphorie.sector")
+    def __init__(self, context):
+        self.context = context
 
     def getRoles(self, principal_id):
         mt = getToolByName(self.context, "membrane_tool")
