@@ -29,6 +29,7 @@
         directory="static"
         />
 
+    <grok:grok package=".module" />
     <grok:grok package=".risk" />
     <grok:grok package=".sector" />
     <grok:grok package=".surveygroup" />
@@ -111,11 +112,6 @@
     <adapter
       factory=".help.SearchableTextIndexer"
       name="SearchableText" />
-
-    <adapter
-        factory=".module.ConstructionFilter"
-        name="euphorie.module"
-        />
 
     <adapter
       factory=".module.SearchableTextIndexer"
