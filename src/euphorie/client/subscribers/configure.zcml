@@ -12,4 +12,16 @@
       handler=".imagecropping.crop_on_image_edit"
       />
 
+  <subscriber
+      for="euphorie.content.survey.ISurvey
+           Products.CMFCore.interfaces.IActionSucceededEvent"
+      handler="euphorie.client.publish.handleSurveyPublish"
+      />
+
+  <subscriber
+      for="euphorie.content.survey.ISurvey
+           euphorie.content.interfaces.ISurveyUnpublishEvent"
+      handler="euphorie.client.unpublish.handleSurveyUnpublish"
+      />
+
 </configure>

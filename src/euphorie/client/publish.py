@@ -11,7 +11,6 @@ from AccessControl.SecurityManagement import newSecurityManager
 from AccessControl.SecurityManagement import setSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from euphorie.client import utils
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.interfaces import ObjectPublishedEvent
 from euphorie.content.survey import ISurvey
@@ -21,7 +20,6 @@ from plone import api
 from plone.directives import form
 from plone.scale.storage import AnnotationStorage
 from plonetheme.nuplone.utils import getPortal
-from Products.CMFCore.interfaces import IActionSucceededEvent
 from Products.CMFCore.utils import getToolByName
 from Products.statusmessages.interfaces import IStatusMessage
 from webhelpers.html.builder import make_tag
@@ -184,7 +182,6 @@ def PublishToClient(survey, preview=False):
     return survey
 
 
-@grok.subscribe(ISurvey, IActionSucceededEvent)
 def handleSurveyPublish(survey, event):
     """Event handler (subscriber) for succesfull workflow transitions for
     :py:obj:`ISurvey` objects. This handler copies the survey to the
