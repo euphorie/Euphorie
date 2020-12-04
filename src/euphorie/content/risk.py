@@ -20,7 +20,6 @@ from .utils import StripMarkup
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from euphorie.content.utils import ensure_image_size
-from five import grok
 from htmllaundry.z3cform import HtmlText
 from plone import api
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -35,8 +34,9 @@ from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import validator
 from zope import schema
+from zope.component import adapter
 from zope.interface import alsoProvides
-from zope.interface import implements
+from zope.interface import implementer
 from zope.interface import Interface
 from zope.interface import Invalid
 from zope.interface import noLongerProvides
@@ -604,8 +604,8 @@ class IFrenchRisk(IRisk, IFrenchEvaluation):
     )
 
 
+@implementer(IRisk)
 class Risk(dexterity.Container):
-    implements(IRisk)
 
     type = "risk"
 
@@ -730,7 +730,9 @@ def SearchableTextIndexer(obj):
     )
 
 
-class ConstructionFilter(grok.MultiAdapter):
+@adapter(ConditionalDexterityFTI, Interface)
+@implementer(IConstructionFilter)
+class ConstructionFilter(object):
     """FTI construction filter for :py:class:`Risk` objects. This filter
      prevents creating of modules if the current container already contains a
      module.
@@ -738,10 +740,6 @@ class ConstructionFilter(grok.MultiAdapter):
     This multi adapter requires the use of the conditional FTI as implemented
     by :py:class:`euphorie.content.fti.ConditionalDexterityFTI`.
     """
-
-    grok.adapts(ConditionalDexterityFTI, Interface)
-    grok.implements(IConstructionFilter)
-    grok.name("euphorie.risk")
 
     def __init__(self, fti, container):
         self.fti = fti

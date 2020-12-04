@@ -28,8 +28,6 @@
         directory="static"
         />
 
-    <grok:grok package=".risk" />
-
     <five:registerClass
         class=".fti.ConditionalDexterityFTI"
         meta_type="Conditional Dexterity FTI"
@@ -128,6 +126,11 @@
     <adapter
       factory=".profilequestion.SearchableTextIndexer"
       name="SearchableText" />
+
+    <adapter
+        factory=".risk.ConstructionFilter"
+        name="euphorie.risk"
+        />
 
     <adapter
       factory=".risk.SearchableTextIndexer"
