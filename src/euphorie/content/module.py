@@ -20,7 +20,6 @@ from .utils import StripMarkup
 from Acquisition import aq_chain
 from euphorie.content.dependency import ConditionalTextLine
 from euphorie.content.utils import ensure_image_size
-from five import grok
 from htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
@@ -33,7 +32,8 @@ from plonetheme.nuplone.z3cform.directives import depends
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import validator
 from zope import schema
-from zope.interface import implements
+from zope.component import adapter
+from zope.interface import implementer
 from zope.interface import Interface
 from zope.interface import Invalid
 
@@ -204,8 +204,8 @@ validator.WidgetValidatorDiscriminators(
 )
 
 
+@implementer(IModule, IQuestionContainer)
 class Module(dexterity.Container):
-    implements(IModule, IQuestionContainer)
 
     image = None
     caption = None
@@ -272,7 +272,9 @@ def item_depth(item):
     return depth
 
 
-class ConstructionFilter(grok.MultiAdapter):
+@adapter(ConditionalDexterityFTI, Interface)
+@implementer(IConstructionFilter)
+class ConstructionFilter(object):
     """FTI construction filter for :py:class:`Module` objects. This filter
     does two things: it restricts the maximum depth at which a module can
     be created, and it prevents creating of modules if the current container
@@ -281,10 +283,6 @@ class ConstructionFilter(grok.MultiAdapter):
     This multi adapter requires the use of the conditional FTI as implemented
     by :py:class:`euphorie.content.fti.ConditionalDexterityFTI`.
     """
-
-    grok.adapts(ConditionalDexterityFTI, Interface)
-    grok.implements(IConstructionFilter)
-    grok.name("euphorie.module")
 
     maxdepth = 3
 
