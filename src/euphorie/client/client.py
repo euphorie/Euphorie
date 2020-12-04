@@ -8,15 +8,14 @@ client user.
 
 from borg.localrole.interfaces import ILocalRoleProvider
 from euphorie.client.interfaces import IClientSkinLayer
-from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.directives import dexterity
 from plone.directives import form
 from Products.membrane.interfaces.user import IMembraneUserObject
-from zope.component import adapts
+from zope.component import adapter
 from zope.interface import directlyProvidedBy
 from zope.interface import directlyProvides
-from zope.interface import implements
+from zope.interface import implementer
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IBrowserSkinType
 from ZPublisher.BaseRequest import DefaultPublishTraverse
@@ -32,19 +31,22 @@ class IClient(form.Schema, IBasic):
     """
 
 
+@implementer(IClient)
 class Client(dexterity.Container):
-    implements(IClient)
 
     exclude_from_nav = True
 
 
-class ClientUserProvider(grok.Adapter):
+@adapter(IClient)
+@implementer(IMembraneUserObject)
+class ClientUserProvider(object):
     """Expose the client as a user to the system.
 
     This is used as ownership for all client data.
     """
-    grok.context(IClient)
-    grok.implements(IMembraneUserObject)
+
+    def __init__(self, context):
+        self.context = context
 
     def getUserId(self):
         return self.context.id
@@ -53,7 +55,9 @@ class ClientUserProvider(grok.Adapter):
         return self.context.id
 
 
-class ClientLocalRolesProvider(grok.Adapter):
+@adapter(IClient)
+@implementer(ILocalRoleProvider)
+class ClientLocalRolesProvider(object):
     """`borg.localrole` provider for :obj:`IClient` instances.
 
     This local role provider gives the client user itself the
@@ -61,8 +65,6 @@ class ClientLocalRolesProvider(grok.Adapter):
     inside the client since the publication machinery always
     runs under the client user.
     """
-    grok.context(IClient)
-    grok.implements(ILocalRoleProvider)
 
     def __init__(self, client):
         self.context = client
@@ -76,13 +78,13 @@ class ClientLocalRolesProvider(grok.Adapter):
         return [(self.context.getId(), ("CountryManager",))]
 
 
+@adapter(IClient, Interface)
 class ClientPublishTraverser(DefaultPublishTraverse):
     """Publish traverser to setup the skin layer.
 
     This traverser marks the request with IClientSkinLayer. We can not use
     BeforeTraverseEvent since in Zope 2 that is only fired for site objects.
     """
-    adapts(IClient, Interface)
 
     def publishTraverse(self, request, name):
         from euphorie.client.utils import setRequest

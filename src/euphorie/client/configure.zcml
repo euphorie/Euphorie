@@ -24,7 +24,6 @@
     <include package=".widgets" />
 
     <grok:grok package=".appendix" />
-    <grok:grok package=".client" />
     <grok:grok package=".company" />
     <grok:grok package=".conditions" />
     <grok:grok package=".country" />
@@ -48,6 +47,10 @@
       for=".client.IClient"
       name="view"
       />
+
+    <adapter factory=".client.ClientUserProvider" />
+
+    <adapter factory=".client.ClientLocalRolesProvider" />
 
     <adapter
         factory=".client.ClientPublishTraverser"
