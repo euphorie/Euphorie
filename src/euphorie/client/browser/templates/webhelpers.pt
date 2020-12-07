@@ -177,7 +177,7 @@
           >
             <div class="label" tal:condition="python: measure['plan_type']=='in_place_standard'"
                tal:define="description measure/text">
-              <label class="label-fragment-title"
+              <label class="label-fragment-title pat-rich"
               ><input checked="${python:measure['active'] and 'checked' or None}"
                      name="measure-standard-${measure/solution_id}"
                      type="checkbox"
