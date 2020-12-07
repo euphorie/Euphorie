@@ -1,9 +1,10 @@
 Changelog
 =========
 
-11.5.1 (unreleased)
+11.6.0 (unreleased)
 -------------------
 
+- Upgrade from Plone 5.1.5 to Plone 5.1.7
 - Groups (in the client user management) can be marked as inactive
 - Fix a bug on "Omega" page when we have integrated action plan
 
