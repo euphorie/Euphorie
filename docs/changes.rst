@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.6.0 (unreleased)
+11.6.0 (2020-12-07)
 -------------------
 
 - Upgrade from Plone 5.1.5 to Plone 5.1.7
