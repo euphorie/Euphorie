@@ -45,7 +45,7 @@ Will be activated when we re-build the Help section
 </tal:comment>
 
 
-                  <p tal:condition="context/description"><strong>${context/description}</strong></p>
+                  <p tal:condition="context/Description"><strong>${context/Description}</strong></p>
 
                   <figure class="postit external-reference"
                           tal:condition="view/scaled_tool_image_url"

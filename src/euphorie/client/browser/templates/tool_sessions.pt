@@ -18,7 +18,7 @@
                 tal:define="
                   language view/portal/plone_portal_state/language;
                   sessions view/sessions;
-                  description context/description|string:;
+                  description context/Description|string:;
                   introduction python:getattr(context, 'introduction', '') or '';
                 "
     >

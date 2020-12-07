@@ -66,8 +66,8 @@
 
         <article class="pat-rich">
           <h1>${context/Title}</h1>
-          <section tal:condition="context/description">
-            <p>${context/description}</p>
+          <section tal:condition="context/Description">
+            <p>${context/Description}</p>
           </section>
           <p>
               <a class="show-more pat-modal"
