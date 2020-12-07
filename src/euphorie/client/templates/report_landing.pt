@@ -47,7 +47,7 @@
 
 
       <article class="pat-rich">
-        <h1>${context/title}</h1>
+        <h1>${context/Title}</h1>
 
         <h2 i18n:translate="">Download and print your report</h2>
 
