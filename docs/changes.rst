@@ -5,6 +5,7 @@ Changelog
 -------------------
 
 - Groups (in the client user management) can be marked as inactive
+- Fix a bug on "Omega" page when we have integrated action plan
 
 11.5.0 (2020-11-18)
 -------------------

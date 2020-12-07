@@ -94,9 +94,19 @@ class IdentificationView(BrowserView):
     def next_phase_url(self):
         """ Return the URL to the next question
         """
-        return "{parent_url}/@@actionplan".format(
-            parent_url=self.context.aq_parent.absolute_url()
-        )
+        if self.integrated_action_plan:
+            return "{parent_url}/@@report".format(
+                parent_url=self.context.aq_parent.absolute_url()
+            )
+        else:
+            return "{parent_url}/@@actionplan".format(
+                parent_url=self.context.aq_parent.absolute_url()
+            )
+
+    @property
+    @memoize
+    def integrated_action_plan(self):
+        return self.webhelpers.integrated_action_plan
 
     def __call__(self):
         # Render the page only if the user has edit rights,
