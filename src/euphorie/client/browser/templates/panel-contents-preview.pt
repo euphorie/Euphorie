@@ -44,7 +44,7 @@
             </div>
 
             <article class="pat-rich tool-preview">
-              <h1>${context/title}</h1>
+              <h1>${context/Title}</h1>
               <section>
                 <form class="pat-inject pat-autosubmit"
                       data-pat-inject="source: title; target: title"

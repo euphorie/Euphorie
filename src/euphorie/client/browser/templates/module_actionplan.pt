@@ -13,7 +13,7 @@
 <metal:slot fill-slot="content" tal:define="module nocall:view/module">
 <div id="content-pane">
 <article class="pat-rich">
-    <h1>${module/title}</h1>
+    <h1>${module/Title}</h1>
     <tal:block replace="tile:statusmessages"/>
 
         <figure id="hero"

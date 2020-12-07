@@ -20,7 +20,7 @@
             <div id="info-block">
               <article class="long-read">
                 <div class="pat-rich">
-                  <h1>${context/title}</h1>
+                  <h1>${context/Title}</h1>
                 </div>
 
 <tal:comment condition="nothing">

@@ -26,7 +26,7 @@
       <tal:block replace="tile:statusmessages" />
 
       <article class="pat-rich">
-        <h1 class="tool-name">${context/title}</h1>
+        <h1 class="tool-name">${context/Title}</h1>
         <section class="summary" tal:condition="python:description.strip()">
           <p tal:content="description"></p>
         </section>
