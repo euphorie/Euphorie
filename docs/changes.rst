@@ -5,6 +5,7 @@ Changelog
 -------------------
 
 - Nothing changed yet.
+- Translation updates
 
 
 11.6.0 (2020-12-07)

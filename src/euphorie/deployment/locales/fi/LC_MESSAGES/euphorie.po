@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.1.1dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-12-07 12:37+0000\n"
+"POT-Creation-Date: 2020-12-09 14:24+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -404,6 +404,10 @@ msgstr "Poista tili"
 msgid "Delete custom risk"
 msgstr ""
 
+#: euphorie/client/browser/templates/risk_identification_custom.pt:32
+msgid "Delete risk"
+msgstr ""
+
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:15
 msgid "Delete risk assessment"
 msgstr ""
@@ -412,7 +416,7 @@ msgstr ""
 msgid "Delete this session"
 msgstr "Poista tämä riskinarviointi"
 
-#: euphorie/client/browser/templates/risk_identification_custom.pt:45
+#: euphorie/client/browser/templates/risk_identification_custom.pt:46
 msgid "Describe the risk..."
 msgstr "Kuvaile riski…"
 
@@ -960,7 +964,7 @@ msgstr ""
 "käyttöösi."
 
 #: euphorie/client/browser/templates/profile.pt:73
-#: euphorie/client/browser/templates/risk_identification_custom.pt:255
+#: euphorie/client/browser/templates/risk_identification_custom.pt:256
 #: euphorie/client/browser/templates/updated.pt:60
 msgid "Remove"
 msgstr "Poista"
@@ -1309,11 +1313,11 @@ msgstr "vastaus puuttuu"
 msgid "Upload"
 msgstr "Lähetys"
 
-#: euphorie/client/browser/templates/risk_identification_custom.pt:244
+#: euphorie/client/browser/templates/risk_identification_custom.pt:245
 msgid "Upload an image that illustrates this risk."
 msgstr "Lataa tätä riskiä havainnollistava kuva."
 
-#: euphorie/client/browser/templates/risk_identification_custom.pt:265
+#: euphorie/client/browser/templates/risk_identification_custom.pt:266
 msgid "Upload image"
 msgstr "Lataa kuva"
 
@@ -2494,7 +2498,7 @@ msgstr ""
 "jälkeen."
 
 #. Default: "Actions"
-#: euphorie/client/browser/templates/risk_identification_custom.pt:183
+#: euphorie/client/browser/templates/risk_identification_custom.pt:184
 msgid "header_actions"
 msgstr ""
 
@@ -2565,7 +2569,7 @@ msgid "header_identification"
 msgstr "Tunnistus"
 
 #. Default: "Information"
-#: euphorie/client/browser/templates/risk_identification_custom.pt:237
+#: euphorie/client/browser/templates/risk_identification_custom.pt:238
 #: euphorie/client/browser/templates/risk_macros.pt:178
 #: euphorie/content/templates/module_view.pt:22
 msgid "header_information"
@@ -2747,7 +2751,7 @@ msgid "header_risk_frequency"
 msgstr "Kuinka usein ihmiset altistuvat tälle riskille?"
 
 #. Default: "Select the priority of this risk"
-#: euphorie/client/browser/templates/risk_identification_custom.pt:212
+#: euphorie/client/browser/templates/risk_identification_custom.pt:213
 #: euphorie/client/browser/templates/webhelpers.pt:523
 msgid "header_risk_priority"
 msgstr "Määritä riskin suuruus"
@@ -4366,7 +4370,7 @@ msgid "label_risks_without_measure_5_or_more"
 msgstr "riskitekijää, joista puuttuvat hallintatoimet"
 
 #. Default: "Save and add new risk"
-#: euphorie/client/browser/templates/risk_identification_custom.pt:313
+#: euphorie/client/browser/templates/risk_identification_custom.pt:314
 msgid "label_save_and_add_new"
 msgstr "Tallenna ja lisää toinen riski"
 
@@ -4378,7 +4382,7 @@ msgid "label_save_and_continue"
 msgstr "Tallenna ja jatka"
 
 #. Default: "Save and finish"
-#: euphorie/client/browser/templates/risk_identification_custom.pt:327
+#: euphorie/client/browser/templates/risk_identification_custom.pt:328
 msgid "label_save_and_finish"
 msgstr "Tallenna ja lopeta"
 
@@ -5010,7 +5014,7 @@ msgstr ""
 "OiRAn koulutussuunnitelma ja OiRAn tukipalvelut ovat valmiina."
 
 #. Default: "Provide some further information on this risk."
-#: euphorie/client/browser/templates/risk_identification_custom.pt:273
+#: euphorie/client/browser/templates/risk_identification_custom.pt:274
 msgid "placeholder_custom_risk_description"
 msgstr "Anna lisätietoa tästä riskistä."
 
@@ -5032,21 +5036,21 @@ msgid "prefix_cloned_title"
 msgstr ""
 
 #. Default: "High"
-#: euphorie/client/browser/templates/risk_identification_custom.pt:230
+#: euphorie/client/browser/templates/risk_identification_custom.pt:231
 #: euphorie/client/browser/templates/webhelpers.pt:541
 #: euphorie/content/risk.py:200
 msgid "priority_high"
 msgstr "korkea"
 
 #. Default: "Low"
-#: euphorie/client/browser/templates/risk_identification_custom.pt:218
+#: euphorie/client/browser/templates/risk_identification_custom.pt:219
 #: euphorie/client/browser/templates/webhelpers.pt:529
 #: euphorie/content/risk.py:197
 msgid "priority_low"
 msgstr "vähäinen"
 
 #. Default: "Medium"
-#: euphorie/client/browser/templates/risk_identification_custom.pt:224
+#: euphorie/client/browser/templates/risk_identification_custom.pt:225
 #: euphorie/client/browser/templates/webhelpers.pt:535
 #: euphorie/content/risk.py:199
 msgid "priority_medium"
