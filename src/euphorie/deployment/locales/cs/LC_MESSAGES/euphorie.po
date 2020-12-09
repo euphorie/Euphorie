@@ -2332,17 +2332,17 @@ msgstr ""
 #. Default: "Action plan ${title}"
 #: euphorie/client/docx/views.py:272
 msgid "filename_report_actionplan"
-msgstr "Akční plán ${title}"
+msgstr "Identifikační zpráva ${title}"
 
 #. Default: "Identification report ${title}"
 #: euphorie/client/docx/views.py:315
 msgid "filename_report_identification"
-msgstr "Identifikační zpráva ${title}"
+msgstr "Identifikační ${title}"
 
 #. Default: "Timeline for ${title}"
 #: euphorie/client/report.py:243
 msgid "filename_report_timeline"
-msgstr "Identifikační zpráva ${title}"
+msgstr "Akční plán ${title}"
 
 #. Default: "This folder is empty."
 #: euphorie/content/templates/folder_view.pt:16
@@ -3553,7 +3553,7 @@ msgstr "Je toto riziko přijatelné?"
 #. Default: "Is this risk acceptable or under control? If applicable, ${link_add_measures}."
 #: euphorie/content/utils.py:135
 msgid "is_risk_acceptable_add_measures"
-msgstr ""
+msgstr "Je toto riziko přijatelné nebo pod kontrolou? V případě potřeby ${link_add_measures}."
 
 #. Default: "Available reports"
 #: euphorie/content/country.py:72
@@ -5315,7 +5315,7 @@ msgstr ""
 #. Default: "add all measures that have already been implemented"
 #: euphorie/content/utils.py:58
 msgid "text_add_measures"
-msgstr ""
+msgstr "potřeby přidejte všechna opatření, která již byla provedena"
 
 #. Default: "OiRA"
 #: euphorie/content/templates/colour-preview.pt:51
