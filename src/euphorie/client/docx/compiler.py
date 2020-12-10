@@ -608,7 +608,7 @@ class DocxCompilerFullTable(DocxCompiler):
                     ),
                     style="Risk Italics")
             for measure in risk['measures']:
-                HtmlToWord(measure, cell, style="Risk Italics List")
+                HtmlToWord(_simple_breaks(measure), cell, style="Risk Italics List")
         paragraph = cell.add_paragraph(style="Risk Normal")
 
     def set_cell_actions(self, cell, risk):
