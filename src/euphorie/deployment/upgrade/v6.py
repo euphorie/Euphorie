@@ -16,15 +16,15 @@ log = logging.getLogger(__name__)
 
 
 def _convert_to_module(question):
-    log.info('Converting %s to module', '/'.join(question.getPhysicalPath()))
+    log.info("Converting %s to module", "/".join(question.getPhysicalPath()))
     parent = aq_parent(question)
     question = aq_base(question)
-    module = createContent('euphorie.module')
+    module = createContent("euphorie.module")
     module.id = question.id
     module.creation_date = question.creation_date
     module.modification_date = question.modification_date
     module.creators = question.creators
-    if getattr(question, 'external_id', None):
+    if getattr(question, "external_id", None):
         module.external_id = question.external_id
     module.title = question.title
     module.question = question.question
@@ -42,45 +42,51 @@ def _convert_to_module(question):
 
 
 def _convert_optional_profiles(root, in_client):
-    catalog = getToolByName(root, 'portal_catalog')
+    catalog = getToolByName(root, "portal_catalog")
     todo = collections.deque([root])
     while todo:
         entry = todo.popleft()
         if isinstance(entry, ProfileQuestion):
-            type = getattr(entry, 'type', None)
+            type = getattr(entry, "type", None)
             if type is not None:
                 del entry.type
-            if type == 'optional':
+            if type == "optional":
                 module = _convert_to_module(entry)
                 if in_client:
                     survey = aq_parent(module)
                     published = survey.published
-                    survey.published = (published[0], published[1],
-                            datetime.datetime.now())
+                    survey.published = (
+                        published[0],
+                        published[1],
+                        datetime.datetime.now(),
+                    )
                 else:
-                    catalog.indexObject(module,
-                            ['portal_type', 'meta_type', 'object_provides'])
+                    catalog.indexObject(
+                        module, ["portal_type", "meta_type", "object_provides"]
+                    )
             continue
-        if entry.portal_type not in ['euphorie.page', 'euphorie.module',
-                                     'euphorie.risk']:
+        if entry.portal_type not in [
+            "euphorie.page",
+            "euphorie.module",
+            "euphorie.risk",
+        ]:
             todo.extend(entry.objectValues())
 
 
 def convert_optional_profiles(context):
     site = aq_parent(aq_inner(context))
-    _convert_optional_profiles(site['sectors'], False)
-    _convert_optional_profiles(site['client'], True)
+    _convert_optional_profiles(site["sectors"], False)
+    _convert_optional_profiles(site["client"], True)
 
 
 def add_skip_evaluation_to_model(context):
     session = Session()
     inspector = Inspector.from_engine(session.bind)
-    columns = [c['name']
-               for c in inspector.get_columns(model.Risk.__table__.name)]
-    if 'skip_evaluation' not in columns:
-        log.info('Adding skip_evaluation column for risks')
+    columns = [c["name"] for c in inspector.get_columns(model.Risk.__table__.name)]
+    if "skip_evaluation" not in columns:
+        log.info("Adding skip_evaluation column for risks")
         session.execute(
-            "ALTER TABLE %s ADD skip_evaluation BOOL DEFAULT 'f' NOT NULL" %
-            model.Risk.__table__.name)
+            "ALTER TABLE %s ADD skip_evaluation BOOL DEFAULT 'f' NOT NULL"
+            % model.Risk.__table__.name
+        )
         datamanager.mark_changed(session)
-

@@ -19,7 +19,8 @@ def update_custom_risks_module_texts(context):
     if not asBool(appconfig["euphorie"].get("allow_user_defined_risks")):
         log.warning(
             "Custom risks are not enabled. Set 'allow_user_defined_risks' to "
-            "true in euphorie.ini for enabling them.")
+            "true in euphorie.ini for enabling them."
+        )
         return
     portal = api.portal.get()
     client = portal.client
@@ -32,7 +33,7 @@ def update_custom_risks_module_texts(context):
 
                         is_new = EnableCustomRisks(survey)
                         count += 1
-                        custom = getattr(survey, 'custom-risks', None)
+                        custom = getattr(survey, "custom-risks", None)
                         if custom:
                             # custom.title = _(u'title_other_risks', default=u"Added risks (by you)")
                             # custom.description = _(
@@ -44,9 +45,13 @@ def update_custom_risks_module_texts(context):
                                 default=u"<p><strong>Important:</strong> In "
                                 u"order to avoid duplicating risks, we strongly recommend you "
                                 u"to go first through all the previous modules, if you have not "
-                                u"done it yet.</p><p>If you don't need to add risks, please continue.</p>")
+                                u"done it yet.</p><p>If you don't need to add risks, please continue.</p>",
+                            )
                         if is_new:
                             survey.published = (
-                                survey.id, survey.title, datetime.datetime.now())
+                                survey.id,
+                                survey.title,
+                                datetime.datetime.now(),
+                            )
                         # except Exception as e:
                         #     log.error("Could not enable custom risks for module. %s" % e)

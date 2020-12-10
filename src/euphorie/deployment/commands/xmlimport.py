@@ -29,8 +29,9 @@ def GetCountry(plone, options):
     sectors = plone.sectors
     if not hasattr(sectors, options.country):
         log.info("Creating missing country %s", options.country)
-        sectors.invokeFactory("euphorie.country", options.country,
-                title=options.country)
+        sectors.invokeFactory(
+            "euphorie.country", options.country, title=options.country
+        )
     return getattr(sectors, options.country)
 
 
@@ -54,8 +55,9 @@ def GetSector(country, xml_sector, options):
         return sector
 
     log.info("Creating new sector '%s' with password '%s'", login, password)
-    id = country.invokeFactory("euphorie.sector", login,
-            title=options.sector or xml_sector.title.text.strip())
+    id = country.invokeFactory(
+        "euphorie.sector", login, title=options.sector or xml_sector.title.text.strip()
+    )
     sector = getattr(country, id)
     sector.login = login
     sector.password = password
@@ -67,8 +69,10 @@ def GetSector(country, xml_sector, options):
         if hasattr(xml_contact, "email"):
             sector.contact_email = unicode(xml_contact.email.text)
     if options.logo is not None:
-        sector.logo = NamedBlobImage(data=open(options.logo, "r").read(),
-                filename=unicode(os.path.basename(options.logo)))
+        sector.logo = NamedBlobImage(
+            data=open(options.logo, "r").read(),
+            filename=unicode(os.path.basename(options.logo)),
+        )
     if options.main_colour:
         sector.main_colour = options.main_colour
     if options.support_colour:
@@ -99,8 +103,7 @@ def ImportSector(plone, options, filename):
         if hasattr(sector, name):
             raise Abort("There is already a survey named '%s'" % name)
 
-        log.info(u"Importing survey '%s' with version '%s'",
-                name, options.version)
+        log.info(u"Importing survey '%s' with version '%s'", name, options.version)
         importer = SurveyImporter(sector)
         survey = importer(xml_sector, name, options.version)
 
@@ -113,41 +116,88 @@ def ImportSector(plone, options, filename):
 
 
 def main(app, args):
-    parser = OptionParser(
-            usage="Usage: bin/instance xmlimport [options] <XML-files>")
-    parser.add_option("-p", "--publish",
-            help="Publish the imported sector.",
-            action="store_true", dest="publish", default=False)
-    parser.add_option("-S", "--site",
-            help="id of the Plone site. Defaults to Plone",
-            action="store", type="string", dest="site",
-            default="Plone")
-    parser.add_option("-L", "--logo",
-            help="Filename for the sector logo.",
-            action="store", type="string", dest="logo")
-    parser.add_option("--main-colour",
-            help="Main colour used for client pages.",
-            action="store", type="string", dest="main_colour")
-    parser.add_option("--support-colour",
-            help="Support colour used for client pages.",
-            action="store", type="string", dest="support_colour")
-    parser.add_option("-c", "--country",
-            help="The country where the branch/model should be created. "
-                 "Defaults to nl.",
-            action="store", type="string", dest="country", default="nl")
-    parser.add_option("-s", "--sector",
-            help="The name of the sector where the survey should be created.",
-            action="store", type="string", dest="sector")
-    parser.add_option("-l", "--login",
-            help="Login name for the sector. Also used as sector id.",
-            action="store", type="string", dest="login")
-    parser.add_option("-n", "--name",
-            help="Override name for the imported survey.",
-            action="store", type="string", dest="name")
-    parser.add_option("-v", "--version-name",
-            help="Name of the new survey version. Defaults to 'default'.",
-            action="store", type="string", dest="version",
-            default="default")
+    parser = OptionParser(usage="Usage: bin/instance xmlimport [options] <XML-files>")
+    parser.add_option(
+        "-p",
+        "--publish",
+        help="Publish the imported sector.",
+        action="store_true",
+        dest="publish",
+        default=False,
+    )
+    parser.add_option(
+        "-S",
+        "--site",
+        help="id of the Plone site. Defaults to Plone",
+        action="store",
+        type="string",
+        dest="site",
+        default="Plone",
+    )
+    parser.add_option(
+        "-L",
+        "--logo",
+        help="Filename for the sector logo.",
+        action="store",
+        type="string",
+        dest="logo",
+    )
+    parser.add_option(
+        "--main-colour",
+        help="Main colour used for client pages.",
+        action="store",
+        type="string",
+        dest="main_colour",
+    )
+    parser.add_option(
+        "--support-colour",
+        help="Support colour used for client pages.",
+        action="store",
+        type="string",
+        dest="support_colour",
+    )
+    parser.add_option(
+        "-c",
+        "--country",
+        help="The country where the branch/model should be created. " "Defaults to nl.",
+        action="store",
+        type="string",
+        dest="country",
+        default="nl",
+    )
+    parser.add_option(
+        "-s",
+        "--sector",
+        help="The name of the sector where the survey should be created.",
+        action="store",
+        type="string",
+        dest="sector",
+    )
+    parser.add_option(
+        "-l",
+        "--login",
+        help="Login name for the sector. Also used as sector id.",
+        action="store",
+        type="string",
+        dest="login",
+    )
+    parser.add_option(
+        "-n",
+        "--name",
+        help="Override name for the imported survey.",
+        action="store",
+        type="string",
+        dest="name",
+    )
+    parser.add_option(
+        "-v",
+        "--version-name",
+        help="Name of the new survey version. Defaults to 'default'.",
+        action="store",
+        type="string",
+        dest="version",
+        default="default",
+    )
 
     (options, args) = parser.parse_args(args)
 
@@ -183,8 +233,7 @@ def main(app, args):
         except zExceptions.Unauthorized as e:
             transaction.abort()
             log.error(e.message)
-            log.error("This is mostly likely due to too deep nesting "
-                      "in the survey.")
+            log.error("This is mostly likely due to too deep nesting " "in the survey.")
         except zExceptions.BadRequest as e:
             transaction.abort()
             log.error(e.message)

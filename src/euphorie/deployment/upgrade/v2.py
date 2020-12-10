@@ -6,8 +6,9 @@ log = logging.getLogger(__name__)
 
 def resetSurveyWorkflow(context):
     from Products.CMFCore.utils import getToolByName
+
     siteroot = aq_parent(context)
-    wt = getToolByName(siteroot, 'portal_workflow')
+    wt = getToolByName(siteroot, "portal_workflow")
     workflow = wt.survey
     published = workflow.states.published
     if "Copy or Move" in published.permission_roles:
@@ -15,14 +16,19 @@ def resetSurveyWorkflow(context):
         return
 
     log.info("Fixing Copy or Move permission in survey workflow")
-    published.permission_roles["Copy or Move"] = ("Authenticated", "Sector",
-                                                  "CountryManager", "Manager")
+    published.permission_roles["Copy or Move"] = (
+        "Authenticated",
+        "Sector",
+        "CountryManager",
+        "Manager",
+    )
     count = wt._recursiveUpdateRoleMappings(siteroot, {"survey": workflow})
     log.info("Updated permissions for %d objects", count)
 
 
 def resetPublishPermission(context):
     from AccessControl.Permission import Permission
+
     siteroot = aq_parent(context)
     permission = Permission("Euphorie: Publish a Survey", (), siteroot)
     if "CountryManager" not in permission.getRoles(default=[]):
@@ -45,11 +51,10 @@ def migrateCompanyTable(context):
     if TableExists(session, "company"):
         log.info("Moving company table to dutch_company")
         session.execute("ALTER TABLE company RENAME TO dutch_company")
+        session.execute("ALTER SEQUENCE company_id_seq RENAME TO dutch_company_id_seq")
         session.execute(
-                "ALTER SEQUENCE company_id_seq RENAME TO dutch_company_id_seq")
-        session.execute(
-                "ALTER INDEX ix_company_session_id RENAME TO "
-                        "ix_dutch_company_session_id")
+            "ALTER INDEX ix_company_session_id RENAME TO " "ix_dutch_company_session_id"
+        )
         model.metadata.create_all(session.bind, checkfirst=True)
         datamanager.mark_changed(session)
         transaction.get().commit()
@@ -62,6 +67,7 @@ def addTermsAndConditionsColumn(context):
     from euphorie.deployment.upgrade.utils import ColumnExists
     from zope.sqlalchemy import datamanager
     import transaction
+
     session = Session()
     if ColumnExists(session, "user", "tc_approved"):
         return
@@ -74,10 +80,12 @@ def addTermsAndConditionsColumn(context):
 
 def updateSurveyWorkflow(context):
     from Products.CMFCore.utils import getToolByName
+
     siteroot = aq_parent(context)
     log.info("Reloading content workflows.")
-    context.runImportStepFromProfile("profile-euphorie.content:default",
-            "workflow", False)
+    context.runImportStepFromProfile(
+        "profile-euphorie.content:default", "workflow", False
+    )
     log.info("Updating permissions for existing content.")
     wt = getToolByName(siteroot, "portal_workflow")
     count = wt.updateRoleMappings()
@@ -86,6 +94,7 @@ def updateSurveyWorkflow(context):
 
 def updateInitialContent(context):
     from euphorie.deployment.setuphandlers import setupInitialContent
+
     siteroot = aq_parent(context)
     setupInitialContent(siteroot)
 
@@ -95,16 +104,17 @@ def addAccountChangeTable(context):
     from euphorie.client import model
     from zope.sqlalchemy import datamanager
     import transaction
+
     transaction.get().commit()  # Clean current connection to prevent hangs
     session = Session()
-    model.AccountChangeRequest.__table__.create(
-            bind=session.bind, checkfirst=True)
+    model.AccountChangeRequest.__table__.create(bind=session.bind, checkfirst=True)
     datamanager.mark_changed(session)
     transaction.get().commit()
 
 
 def addCountryGrouping(context):
     from euphorie.deployment.setuphandlers import COUNTRIES
+
     sectors = aq_parent(context).sectors
     client = aq_parent(context).client
     for (country_id, info) in COUNTRIES.items():
@@ -115,5 +125,9 @@ def addCountryGrouping(context):
             if getattr(country, "country_type", None):
                 continue
             country.country_type = info[1]
-            log.info("Set country type for %s to %s in %s", country_id,
-                    info[1], parent.Title())
+            log.info(
+                "Set country type for %s to %s in %s",
+                country_id,
+                info[1],
+                parent.Title(),
+            )

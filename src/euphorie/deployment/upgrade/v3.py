@@ -35,7 +35,7 @@ def convert_solution_description_to_text(context):
         try:
             solution = brain.getObject()
         except KeyError:
-            log.error('Could not get object for %s', brain.getPath())
+            log.error("Could not get object for %s", brain.getPath())
         description = StripMarkup(solution.description)
         if description != solution.description:
             solution.description = description
@@ -47,7 +47,8 @@ def add_wp_column_to_company(context):
     session = Session()
     if TableExists(session, "company"):
         session.execute(
-            "ALTER TABLE company ADD workers_participated bool DEFAULT NULL")
+            "ALTER TABLE company ADD workers_participated bool DEFAULT NULL"
+        )
         model.metadata.create_all(session.bind, checkfirst=True)
         datamanager.mark_changed(session)
         transaction.get().commit()
@@ -58,19 +59,18 @@ def add_wp_column_to_company(context):
 def lowercase_login(context):
     session = Session()
     session.query(model.Account).update(
-                    {'loginname': func.lower(model.Account.loginname)},
-                    synchronize_session=False)
+        {"loginname": func.lower(model.Account.loginname)}, synchronize_session=False
+    )
     datamanager.mark_changed(session)
 
 
 def add_has_description_column(context):
     session = Session()
-    if ColumnExists(session, 'tree', 'has_description'):
+    if ColumnExists(session, "tree", "has_description"):
         return
 
     transaction.get().commit()
-    session.execute(
-            "ALTER TABLE tree ADD has_description bool DEFAULT 'f'")
+    session.execute("ALTER TABLE tree ADD has_description bool DEFAULT 'f'")
     model.metadata.create_all(session.bind, checkfirst=True)
     datamanager.mark_changed(session)
     transaction.get().commit()

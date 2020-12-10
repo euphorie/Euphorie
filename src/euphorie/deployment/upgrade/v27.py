@@ -51,8 +51,7 @@ def unifiy_fields(walker):
         else:
             if count % 100 == 0:
                 log.info(
-                    "Skipped %d items, since they have already been handled."
-                    % count
+                    "Skipped %d items, since they have already been handled." % count
                 )
             if count % 1000 == 0:
                 log.info("Intermediate commit")
@@ -79,8 +78,7 @@ def unify_action_fields_in_solution_client(context):
 
 
 def get_pre_defined_measures(solutions, country):
-    """ Iterate over the Solution items on this risk.
-    """
+    """Iterate over the Solution items on this risk."""
     measures = {}
 
     for item in solutions:
@@ -177,18 +175,13 @@ def migrate_actgion_plans(context):
                 if not is_custom:
                     for ap in risk.custom_measures:
                         for solution in solutions_by_path[risk_path]:
-                            if (
-                                solution.action_plan == (ap.action_plan or "").strip()
-                            ):
+                            if solution.action_plan == (ap.action_plan or "").strip():
                                 if (
-                                    (
-                                        getattr(solution, "prevention_plan", "") or ""
-                                    ).strip()
-                                    == (ap.prevention_plan or "")
-                                    and (
-                                        getattr(solution, "requirements", "") or ""
-                                    ).strip()
-                                    == (ap.requirements or "")
+                                    getattr(solution, "prevention_plan", "") or ""
+                                ).strip() == (ap.prevention_plan or "") and (
+                                    getattr(solution, "requirements", "") or ""
+                                ).strip() == (
+                                    ap.requirements or ""
                                 ):
                                     ap.plan_type = "measure_standard"
                                     ap.solution_id = solution.id
@@ -206,8 +199,12 @@ def migrate_actgion_plans(context):
                         (k, v) for (k, v) in saved_existing_measures.items()
                     ]
                 new_action_plans = []
-                already_converted_measure_ids = [x.solution_id for x in risk.in_place_standard_measures]
-                already_converted_custom_texts = [x.action for x in risk.in_place_custom_measures]
+                already_converted_measure_ids = [
+                    x.solution_id for x in risk.in_place_standard_measures
+                ]
+                already_converted_custom_texts = [
+                    x.action for x in risk.in_place_custom_measures
+                ]
                 if saved_existing_measures:
                     custom = []
                     while saved_existing_measures:
@@ -238,6 +235,7 @@ def migrate_actgion_plans(context):
         if max_tools > 0 and tool_count >= max_tools:
             log.info("Broke off after %d tools" % tool_count)
             return
+
 
 """
 SELECT mig::float/total as percent_done

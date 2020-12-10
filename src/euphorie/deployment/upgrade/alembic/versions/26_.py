@@ -9,15 +9,17 @@ from alembic import op
 import sqlalchemy as sa
 
 # revision identifiers, used by Alembic.
-revision = '26'
-down_revision = '25'
+revision = "26"
+down_revision = "25"
 branch_labels = None
 depends_on = None
 
 
 def upgrade():
-    op.add_column('session', sa.Column('completion_percentage', sa.Integer(), nullable=True))
+    op.add_column(
+        "session", sa.Column("completion_percentage", sa.Integer(), nullable=True)
+    )
 
 
 def downgrade():
-    op.drop_column('session', 'completion_percentage')
+    op.drop_column("session", "completion_percentage")

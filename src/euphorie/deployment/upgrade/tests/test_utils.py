@@ -4,6 +4,7 @@ import unittest
 def _createSession():
     from sqlalchemy import create_engine
     from sqlalchemy.orm import sessionmaker
+
     engine = create_engine("sqlite:///")
     return sessionmaker(bind=engine)()
 
@@ -11,6 +12,7 @@ def _createSession():
 class TableExistsTests(unittest.TestCase):
     def TableExists(self, session, table):
         from euphorie.deployment.upgrade.utils import TableExists
+
         return TableExists(session, table)
 
     def testMissingTable(self):
@@ -26,6 +28,7 @@ class TableExistsTests(unittest.TestCase):
 class ColumnExistsTests(unittest.TestCase):
     def ColumnExists(self, session, table, column):
         from euphorie.deployment.upgrade.utils import ColumnExists
+
         return ColumnExists(session, table, column)
 
     def testMissingTable(self):

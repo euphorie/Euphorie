@@ -15,25 +15,21 @@ log = logging.getLogger(__name__)
 def add_column_for_training_notes(context):
     session = Session()
     inspector = Inspector.from_engine(session.bind)
-    columns = [c['name']
-               for c in inspector.get_columns(model.Risk.__table__.name)]
-    if 'training_notes' not in columns:
-        log.info('Adding training_notes column for risks')
+    columns = [c["name"] for c in inspector.get_columns(model.Risk.__table__.name)]
+    if "training_notes" not in columns:
+        log.info("Adding training_notes column for risks")
         session.execute(
-            "ALTER TABLE %s ADD training_notes TEXT" %
-            model.Risk.__table__.name)
+            "ALTER TABLE %s ADD training_notes TEXT" % model.Risk.__table__.name
+        )
         datamanager.mark_changed(session)
 
 
 def update_nav_types_registry(context):
-    ''' There is a new registry record called
+    """There is a new registry record called
     plone.displayed_types
     that determines what types get shown in the navigation
-    '''
-    loadMigrationProfile(
-        context,
-        'profile-euphorie.deployment.upgrade:to_0020'
-    )
+    """
+    loadMigrationProfile(context, "profile-euphorie.deployment.upgrade:to_0020")
 
 
 def migrate_existing_measures(context):
@@ -42,10 +38,11 @@ def migrate_existing_measures(context):
     count = 0
     for brain in risks:
         risk = brain.getObject()
-        existing_measures = getattr(risk, 'existing_measures', None)
+        existing_measures = getattr(risk, "existing_measures", None)
         if existing_measures:
             solutions = [
-                solution.description.strip() for solution in risk.values()
+                solution.description.strip()
+                for solution in risk.values()
                 if ISolution.providedBy(solution)
             ]
             for measure in existing_measures.splitlines():
@@ -62,7 +59,7 @@ def migrate_existing_measures(context):
 def extend_zodb_path_field(context):
     session = Session()
     session.execute(
-        "ALTER TABLE %s ALTER COLUMN zodb_path TYPE varchar(512);" %
-        model.SurveySession.__table__.name
+        "ALTER TABLE %s ALTER COLUMN zodb_path TYPE varchar(512);"
+        % model.SurveySession.__table__.name
     )
     datamanager.mark_changed(session)
