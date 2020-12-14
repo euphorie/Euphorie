@@ -9,7 +9,6 @@
       i18n:domain="euphorie"
       tal:define="webhelpers nocall:context/@@webhelpers;
                   client nocall:request/client;
-                  media_url webhelpers/media_url;
                   page_section webhelpers/get_phase;
                   came_from webhelpers/came_from;
                   came_from_param python:came_from and 'came_from=%s' % came_from or '';
@@ -20,7 +19,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="${media_url/favicon.png" />
+    <link rel="icon" type="image/png" href="${webhelpers/favicon_url}" />
 
     <script type="text/javascript" src="${webhelpers/js_url}"></script>
     <link rel="stylesheet" href="${webhelpers/css_url}" type="text/css" />
