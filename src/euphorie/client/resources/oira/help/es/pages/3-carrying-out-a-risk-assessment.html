@@ -7,7 +7,10 @@
 		<link id="all-styles" rel="stylesheet" href="../../../style/all.css" type="text/css">
 
 		
-			<script src="../../../script/bundle.js" type="text/javascript"></script>
+			
+    <script>window.__patternslib_public_path__ = "/++resource++euphorie.resources/oira/script/";</script>
+    <script src="/++resource++euphorie.resources/oira/script/polyfills-loader.js" type="text/javascript"></script>
+<script src="../../../script/bundle.js" type="text/javascript"></script>
 		
 
 		<!-- Following line is ONLY for the prototype. -->
@@ -23,12 +26,36 @@
 		<link rel="icon" type="image/png" href="../../../favicon/apple-touch-icon.png" />
 	</head>
 	<body id="body" data-page-layout="help-text" data-layout-layout="default-layout" class=" osh-off osc-off osc-size-normal osc-s-off ">
-		
+
 		<div id="main" class="sidebar-off">
+	<header id="toolbar">
 	
+	
+		<a href="#osc" 
+		   id="toggle-osc" 
+		   class="iconified pat-toggle" 
+		   data-pat-toggle="selector: body; value: osc-off osc-on && selector: body; value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+	
+
+	
+
+	<a href="/feedback/osh.html#osh-osc-toggle" id="osh-target-osc-toggle" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
+
+	<a href="/feedback/more-menu#menu-content" 
+	   id="more-menu" 
+	   class="iconified pat-tooltip pat-switch" 
+	   data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+	   data-pat-tooltip="source: ajax">More…</a>
+	<a href="/index-logged-in.html" 
+	   data-pat-inject="source: #content; target: #content; history: record" 
+	   class="home pat-inject iconified icon-home pat-switch" 
+	   data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+	   title="Startup page">Dashboard</a>
+	
+</header>
 	<div id="content">
 		
-		
+
 		
 
 		<div id="main-content" >
@@ -36,14 +63,18 @@
     <div class="container">
 	<div class="long-read">
 		<div class="canvas-toolbar">
-			<a href="../index.html#content" data-pat-inject="history: record" class="ueber-back-button pat-inject">Temas</a>
+			<a href="../index.html#content"
+			   data-pat-inject="history: record"
+			   class="ueber-back-button pat-inject">Temas</a>
 		</div>
-		<article class="pat-rich ">
+		<article class="pat-rich "
+		 	     id="help-text">
 			<h1>
 			    Llevar a cabo una evaluación de riesgos con OiRA
 			</h1>
-			
-			<h2 id="iniciar-una-nueva-sesión">Iniciar una nueva sesión</h2>
+			<div id="help-text-body">
+				
+				<h2 id="iniciar-una-nueva-sesión">Iniciar una nueva sesión</h2>
 
 <p>Para iniciar una nueva evaluación de riesgos, haga clic en el enlace «Iniciar una nueva sesión».</p>
 
@@ -192,7 +223,7 @@ En algunas herramientas OiRA, la evaluación no se muestra en absoluto. Esto dep
 
 <h3 id="riesgos-personalizados">Riesgos personalizados</h3>
 
-<p>Una vez que haya terminado de responder a todos los temas de riesgo en «Identificación + Evaluación»/ «Evaluación», llegará al tema opcional «Otros riesgos». Aquí, el botón «Add a custom risk» (Añadir un riesgo personalizado) le permite crear sus propias entradas.</p>
+<p>Una vez que haya terminado de responder a todos los temas de riesgo en «Identificación + Evaluación»/ «Evaluación», llegará al tema opcional «Riesgos añadidos». Aquí, el botón «Añadir otro riesgo» le permite crear sus propias entradas.</p>
 
 <p>Si detecta que determinados riesgos que existen en su lugar de trabajo o en su empresa no aparecen en la herramienta, debe añadir aquí los riesgos personalizados. Puede usted definir o formular íntegramente estos riesgos.</p>
 
@@ -306,6 +337,7 @@ Como se ha mencionado anteriormente, el plan de acción se presenta como un paso
 
 <p>Si entra en la página de grado de cumplimentación, podrá ver cuánto ha avanzado en cada módulo. Esto puede ayudarle a saber dónde sigue necesitando evaluar los riesgos o proporcionar medidas para los riesgos que ha identificado.</p>
 
+			</div>
 		</article>
 	</div>
 </div>
@@ -315,9 +347,16 @@ Como se ha mencionado anteriormente, el plan de acción se presenta como un paso
    data-pat-scroll="selector: #content-pane; trigger: auto; offset: 0"
    hidden
    >Scroll to top</a>
+
+<a tal:define="webhelpers nocall:context/@@webhelpers;" href="/${webhelpers/selected_country}"
+   id="inject-toolbar"
+   hidden
+   class="pat-inject"
+   data-pat-inject="source: #toolbar; target: #toolbar; trigger: autoload &amp;&amp; source: #osc; target: #osc; trigger: autoload">Load toolbar…</a>
+
   </div>
 </div>
-			
+
 	</div>
 </div>
 
@@ -399,9 +438,12 @@ Como se ha mencionado anteriormente, el plan de acción se presenta como un paso
                     <option value="plant">Plant</option>
                     <option value="department">Department</option>
                     <option value="contractor">Contractor</option>
+                    <option value="operator_id">Operator at Daimler</option>
                     <option value="created">Creation date</option>
                     <option value="effective">Publication date</option>
                     <option value="modified">Modification date</option>
+                    <option value="start_date">Start date (external company)</option>
+                    <option value="end_date">End date (external company)</option>
                 </optgroup>
             </select>
         </label>
@@ -569,7 +611,48 @@ Como se ha mencionado anteriormente, el plan de acción se presenta como un paso
 
 </form>
 		    	
-		    	
+		    	<div id="browser">
+					<ul class="departments browser" id="results">
+						
+							<li class="item type-risk-assessment">
+	<span class="object-name field">
+    	<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Splash and Shine Cleaners</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-10-30T08:00Z" data-pat-display-time="from-now: true; locale: en">19 days ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="EU Cleaning">EU Cleaning</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+ </li>
+<li class="item type-risk-assessment">
+	<span class="object-name field">
+		<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Commercial Guardinng, Leicester</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-09-16 16:50:38.739224+02:00" data-pat-display-time="from-now: true; locale: en">2 months ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="Private Security EU">Private Security EU</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+</li>
+<li class="item type-risk-assessment">
+	<span class="object-name field">
+		<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Private Security, Grafton Street</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-07-16 16:50:38.739224+02:00" data-pat-display-time="from-now: true; locale: en">2 months ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="Private Security EU">Private Security EU</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+</li>
+<li class="item type-risk-assessment">
+	<span class="object-name field">
+		<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Office operations in times of COVID-19</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-05-03 10:31:33.134598+02:00" data-pat-display-time="from-now: true; locale: en">4 months ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="COVID-19">COVID-19</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+</li>
+						
+			    	</ul>
+		    	</div>
 		    </div>
 	    
     </div>

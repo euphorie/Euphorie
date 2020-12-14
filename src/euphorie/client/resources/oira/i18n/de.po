@@ -239,6 +239,10 @@
 	msgid "Budget"
 	msgstr "Budget"
 
+	#| msgid label_action_plan_download
+	msgid "Action plan"
+	msgstr "Aktionsplan"
+
 	#| msgid label_action_plan_end
 	msgid "Planning end"
 	msgstr "Abschluss der Planung"
@@ -367,6 +371,14 @@
 	msgid "Download as PowerPoint file"
 	msgstr "Herunterladen als PowerPoint"
 
+	#| msgid label_download_report
+	msgid "We recommend that you always keep an updated printed version of your risk assessment (report) available in your company!"
+	msgstr "Wir empfehlen Ihnen, dass sie stets eine ausgedruckte Fassung Ihres Berichts zur Gefährdungsbeurteilung in Ihrem Betrieb zur Hand haben!"
+
+	#| msgid label_email
+	msgid "Your e-mail address"
+	msgstr "E-Mail-Adresse"
+
 	#| msgid label_end_date
 	msgid "End date"
 	msgstr "Enddatum"
@@ -410,6 +422,10 @@
 	#| msgid label_finish_with_certificate
 	msgid "Finish and earn certificate"
 	msgstr "Beenden und Zertifikat verdienen"
+
+	#| msgid label_forgot_password
+	msgid "I forgot my password"
+	msgstr "Ich habe mein Passwort vergessen."
 
 	#| msgid label_general_information
 	msgid "General information"
@@ -459,6 +475,10 @@
 	msgid "Is before"
 	msgstr "Ist vor"
 
+	#| msgid label_keep_logged_in
+	msgid "Keep me logged in."
+	msgstr "Angemeldet bleiben"
+
 	#| msgid label_large
 	msgid "Large"
 	msgstr "Hoch"
@@ -487,6 +507,10 @@
 	msgid "Me"
 	msgstr "Mir"
 
+	#| msgid label_measures_overview
+	msgid "Overview of measures"
+	msgstr "Übersicht der Maßnahmen"
+
 	#| msgid label_medium
 	msgid "Medium"
 	msgstr "Mittelhoch"
@@ -498,6 +522,10 @@
 	#| msgid label_name_ra
 	msgid "Name of risk assessment"
 	msgstr "Name der GBU"
+
+	#| msgid label_new_password
+	msgid "Desired password"
+	msgstr "Gewünschtes Passwort"
 
 	#| msgid label_new_sample_required
 	msgid "A new sample is required."
@@ -526,6 +554,14 @@
 	#| msgid label_or
 	msgid "Or…"
 	msgstr "Oder…"
+
+	#| msgid label_password
+	msgid "Password"
+	msgstr "Gewünschtes Passwort"
+
+	#| msgid label_password_confirm
+	msgid "Again password"
+	msgstr "Wiederholung Passwort"
 
 	#| msgid label_preparation
 	msgid "Preparation"
@@ -565,7 +601,7 @@
 
 	#| msgid label_register
 	msgid "Register"
-	msgstr "Eintragen"
+	msgstr "registrieren"
 
 	#| msgid label_regular_ra_types
 	msgid "Only regular risk assessments"
@@ -582,6 +618,10 @@
 	#| msgid label_report_comment
 	msgid "Please leave any extra comments that should be included in the report in this field."
 	msgstr "Bitte geben Sie jegliche zusätzliche Kommentare, die in den Bericht aufgenommen werden sollen, in dieses Feld ein."
+
+	#| msgid label_risks_overview
+	msgid "Overview of risks"
+	msgstr "Übersicht der Gefährdungen"
 
 	#| msgid label_sample_every
 	msgid "Sample every"
@@ -851,6 +891,10 @@
 	msgid "Other risks"
 	msgstr "Weitere Gefährdungen (durch Sie hinzugefügt)"
 
+	#| msgid placeholder_approach_action_plan
+	msgid "General approach (to eliminate or reduce the risk)"
+	msgstr "Allgemeine Vorgehensweise (zur Vermeidung bzw. Reduzierung der Gefährdung)"
+
 	#| msgid placeholder_comment
 	msgid "Enter any comments that you might like to add to the risk above."
 	msgstr "Bitte hinterlassen Sie mögliche Kommentare, die Sie zu der genannten Gefährdung haben. Diese Kommentare werden auch im Aktionsplan und den Berichten angezeigt."
@@ -906,6 +950,10 @@
 	#| msgid recommended_tools
 	msgid "Recommended tools"
 	msgstr "Empfohlene Vorlagen"
+
+	#| msgid register_teaser
+	msgid "Don't have an account? Then please <a href='/registration.html'>register</a> first."
+	msgstr "Sie haben kein Konto? Dann <a href='/registration.html'>registrieren</a> Sie sich bitte zunächst."
 
 	#| msgid remove
 	msgid "Remove"
@@ -983,6 +1031,10 @@
 	msgid "Delete risk"
 	msgstr "Gefährung löschen"
 
+	#| msgid title_download_report
+	msgid "Download and print your report"
+	msgstr "Berichte herunterladen und drucken"
+
 	#| msgid title_our_contractors
 	msgid "Our contractors"
 	msgstr "Unsere Fremdfirmen"
@@ -1014,6 +1066,10 @@
 	#| msgid title_register_sample
 	msgid "Register sampling"
 	msgstr "Stichprobe eintragen"
+
+	#| msgid title_registration
+	msgid "Registration"
+	msgstr "Registrieren"
 
 	#| msgid title_risk_delete
 	msgid "Delete risk"

@@ -7,7 +7,10 @@
 		<link id="all-styles" rel="stylesheet" href="../../../style/all.css" type="text/css">
 
 		
-			<script src="../../../script/bundle.js" type="text/javascript"></script>
+			
+    <script>window.__patternslib_public_path__ = "/++resource++euphorie.resources/oira/script/";</script>
+    <script src="/++resource++euphorie.resources/oira/script/polyfills-loader.js" type="text/javascript"></script>
+<script src="../../../script/bundle-help.js" type="text/javascript"></script>
 		
 
 		<!-- Following line is ONLY for the prototype. -->
@@ -23,7 +26,7 @@
 		<link rel="icon" type="image/png" href="../../../favicon/apple-touch-icon.png" />
 	</head>
 	<body id="body" data-page-layout="action" data-layout-layout="risk-assessment" class=" osh-off osc-off osc-size-normal osc-s-off ">
-		
+
 		<div id="main" class="sidebar-off">
 	<header id="toolbar">
 	
@@ -52,7 +55,7 @@
 </header>
 	<div id="content">
 		
-		
+
 		
 
 		
@@ -71,14 +74,14 @@
 	
 		<li id="step-1"
 		    class="complete ">
-			<a href="/ass-commercial-guarding-montgomery-building/index#content"
+			<a href="/ass-commercial-guarding-leicester/index#content"
 			  data-pat-inject="history: record"
 			  class="preparation pat-switch pat-inject"
 			  data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Preparación</a>
 		</li>
 		<li id="step-involve"
 		    class="">
-			<a href="/ass-commercial-guarding-montgomery-building/involve#content"
+			<a href="/ass-commercial-guarding-leicester/involve#content"
 			   class="involve pat-inject pat-switch"
 			   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
 			   data-pat-inject="history: record">Implicación</a>
@@ -87,7 +90,7 @@
 
 			
 
-			<a href="/ass-commercial-guarding-montgomery-building/items/2014-01-01-commercial-manned-guarding#content"
+			<a href="/ass-commercial-guarding-leicester/items/2014-01-01-commercial-manned-guarding#content"
 			   data-pat-inject="history: record"
 			   class="identification pat-switch pat-inject"
 			   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Identificación + Evaluación</a>
@@ -98,7 +101,7 @@
 
 			<!-- The tree for the action section uses the same structure as the identification tree, with the only differences that only risks and their parent modules are shown and that the entire tree is expanded. -->
 
-			<a href="/ass-commercial-guarding-montgomery-building/action-plan#content"
+			<a href="/ass-commercial-guarding-leicester/action-plan#content"
 			   data-pat-inject="history: record"
 			   class="action-plan pat-switch pat-inject"
 			   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Plan de acción</a>
@@ -198,7 +201,7 @@
 			    	
 
 			    	<ul class="legend">
-			    		<li class="answered risk">Risk identified</li>
+				    	<li class="answered risk">Atención</li>
 			    	</ul>
 				</div>
 
@@ -210,14 +213,14 @@
                 <a class="report pat-switch pat-inject"
                    data-pat-inject="history: record"
                    data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
-                   href="/ass-commercial-guarding-montgomery-building/report#content">Informe</a>
+                   href="/ass-commercial-guarding-leicester/report#content">Informe</a>
             
 		</li>
         
 	
 	
 		<li id="status" class="">
-			<a href="/ass-commercial-guarding-montgomery-building/status#content"
+			<a href="/ass-commercial-guarding-leicester/status#content"
 			   data-pat-inject="history: record"
 			   class="status pat-switch pat-inject"
 			   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Grado de cumplimentación
@@ -462,7 +465,7 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
                          data-pat-tooltip="source: content; position-list: lt">Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk); 3) the level of expertise needed to implement the measure, for instance “common sense (no OSH knowledge required)”, “no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required”, or “OSH expert”. You can also describe here any other additional requirement (if any).</dfn>
                     <textarea class=" actionPlan"
                               name="action_plan"
-                              placeholder="General approach (to eliminate or reduce the risk) and the actions required for the implementation thereof."
+                              placeholder="Enfoque general (para eliminar o reducir el riesgo)"
                               rows="3"></textarea>
                 </label>
                 <label>
@@ -613,7 +616,7 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
 		 >Scroll to ActionPlanItemForm</a>
     
 </div>
-			
+
 	</div>
 </div>
 
@@ -695,9 +698,12 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
                     <option value="plant">Plant</option>
                     <option value="department">Department</option>
                     <option value="contractor">Contractor</option>
+                    <option value="operator_id">Operator at Daimler</option>
                     <option value="created">Creation date</option>
                     <option value="effective">Publication date</option>
                     <option value="modified">Modification date</option>
+                    <option value="start_date">Start date (external company)</option>
+                    <option value="end_date">End date (external company)</option>
                 </optgroup>
             </select>
         </label>
@@ -867,12 +873,44 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
 		    	
 		    	<div id="browser">
 					<ul class="departments browser" id="results">
-						<li>
-			    			<a href="++resource++euphorie.resources/oira/depts.html#browser" 
-			    			   class="pat-inject icon-search" 
-			    			   hidden
-			    			   data-pat-inject="trigger: autoload">Loading Risk Assessments…</a>
-			    		</li>
+						
+							<li class="item type-risk-assessment">
+	<span class="object-name field">
+    	<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Splash and Shine Cleaners</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-10-30T08:00Z" data-pat-display-time="from-now: true; locale: en">19 days ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="EU Cleaning">EU Cleaning</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+ </li>
+<li class="item type-risk-assessment">
+	<span class="object-name field">
+		<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Commercial Guardinng, Leicester</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-09-16 16:50:38.739224+02:00" data-pat-display-time="from-now: true; locale: en">2 months ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="Private Security EU">Private Security EU</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+</li>
+<li class="item type-risk-assessment">
+	<span class="object-name field">
+		<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Private Security, Grafton Street</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-07-16 16:50:38.739224+02:00" data-pat-display-time="from-now: true; locale: en">2 months ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="Private Security EU">Private Security EU</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+</li>
+<li class="item type-risk-assessment">
+	<span class="object-name field">
+		<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Office operations in times of COVID-19</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-05-03 10:31:33.134598+02:00" data-pat-display-time="from-now: true; locale: en">4 months ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="COVID-19">COVID-19</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+</li>
+						
 			    	</ul>
 		    	</div>
 		    </div>

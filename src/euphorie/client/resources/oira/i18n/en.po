@@ -239,6 +239,10 @@
 	msgid "Budget"
 	msgstr "Budget"
 
+	#| msgid label_action_plan_download
+	msgid "Action plan"
+	msgstr "Action plan"
+
 	#| msgid label_action_plan_end
 	msgid "Planning end"
 	msgstr "Planning end"
@@ -367,6 +371,14 @@
 	msgid "Download as PowerPoint file"
 	msgstr "Download as PowerPoint file"
 
+	#| msgid label_download_report
+	msgid "We recommend that you always keep an updated printed version of your risk assessment (report) available in your company!"
+	msgstr "We recommend that you always keep an updated printed version of your risk assessment (report) available in your company!"
+
+	#| msgid label_email
+	msgid "Your e-mail address"
+	msgstr "Your e-mail address"
+
 	#| msgid label_end_date
 	msgid "End date"
 	msgstr "End date"
@@ -410,6 +422,10 @@
 	#| msgid label_finish_with_certificate
 	msgid "Finish and earn certificate"
 	msgstr "Finish and earn certificate"
+
+	#| msgid label_forgot_password
+	msgid "I forgot my password"
+	msgstr "I forgot my password"
 
 	#| msgid label_general_information
 	msgid "General information"
@@ -459,6 +475,10 @@
 	msgid "Is before"
 	msgstr "Is before"
 
+	#| msgid label_keep_logged_in
+	msgid "Keep me logged in."
+	msgstr "Keep me logged in."
+
 	#| msgid label_large
 	msgid "Large"
 	msgstr "Large"
@@ -487,6 +507,10 @@
 	msgid "Me"
 	msgstr "Me"
 
+	#| msgid label_measures_overview
+	msgid "Overview of measures"
+	msgstr "Overview of measures"
+
 	#| msgid label_medium
 	msgid "Medium"
 	msgstr "Medium"
@@ -498,6 +522,10 @@
 	#| msgid label_name_ra
 	msgid "Name of risk assessment"
 	msgstr "Name of risk assessment"
+
+	#| msgid label_new_password
+	msgid "Desired password"
+	msgstr "Desired password"
 
 	#| msgid label_new_sample_required
 	msgid "A new sample is required."
@@ -526,6 +554,14 @@
 	#| msgid label_or
 	msgid "Or…"
 	msgstr "Or…"
+
+	#| msgid label_password
+	msgid "Password"
+	msgstr "Password"
+
+	#| msgid label_password_confirm
+	msgid "Again password"
+	msgstr "Again password"
 
 	#| msgid label_preparation
 	msgid "Preparation"
@@ -582,6 +618,10 @@
 	#| msgid label_report_comment
 	msgid "Please leave any extra comments that should be included in the report in this field."
 	msgstr "Please leave any extra comments that should be included in the report in this field."
+
+	#| msgid label_risks_overview
+	msgid "Overview of risks"
+	msgstr "Overview of risks"
 
 	#| msgid label_sample_every
 	msgid "Sample every"
@@ -851,6 +891,10 @@
 	msgid "Other risks"
 	msgstr "Other risks"
 
+	#| msgid placeholder_approach_action_plan
+	msgid "General approach (to eliminate or reduce the risk)"
+	msgstr "General approach (to eliminate or reduce the risk)"
+
 	#| msgid placeholder_comment
 	msgid "Enter any comments that you might like to add to the risk above."
 	msgstr "Enter any comments that you might like to add to the risk above."
@@ -906,6 +950,10 @@
 	#| msgid recommended_tools
 	msgid "Recommended tools"
 	msgstr "Recommended tools"
+
+	#| msgid register_teaser
+	msgid "Don't have an account? Then please <a href='/registration.html'>register</a> first."
+	msgstr "Don't have an account? Then please <a href='/registration.html'>register</a> first."
 
 	#| msgid remove
 	msgid "Remove"
@@ -983,6 +1031,10 @@
 	msgid "Delete risk"
 	msgstr "Delete risk"
 
+	#| msgid title_download_report
+	msgid "Download and print your report"
+	msgstr "Download and print your report"
+
 	#| msgid title_our_contractors
 	msgid "Our contractors"
 	msgstr "Our contractors"
@@ -1014,6 +1066,10 @@
 	#| msgid title_register_sample
 	msgid "Register sampling"
 	msgstr "Register sampling"
+
+	#| msgid title_registration
+	msgid "Registration"
+	msgstr "Registration"
 
 	#| msgid title_risk_delete
 	msgid "Delete risk"
