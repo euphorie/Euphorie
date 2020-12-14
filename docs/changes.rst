@@ -4,7 +4,7 @@ Changelog
 11.6.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Completely new Help section
 - Translation updates
 
 
