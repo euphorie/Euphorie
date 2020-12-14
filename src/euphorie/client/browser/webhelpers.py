@@ -378,6 +378,9 @@ class WebHelpers(BrowserView):
     @memoize
     def help_language(self):
         lang = self.language_code
+        # No country-specific Help texts are curently supported
+        if lang.find("-"):
+            lang = lang.split("-")[0]
         return lang if lang in self.available_help_languages else "en"
 
     def get_username(self):
