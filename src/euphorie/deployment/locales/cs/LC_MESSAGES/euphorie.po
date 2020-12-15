@@ -3682,7 +3682,7 @@ msgstr "Zahájení plánování"
 #: euphorie/client/templates/shell.pt:200
 #: euphorie/client/templates/shell.pt:199
 msgid "label_assessment"
-msgstr ""
+msgstr "Vyhledání + hodnocení rizik"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:28
