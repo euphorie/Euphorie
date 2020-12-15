@@ -119,7 +119,7 @@ Solo se harán públicos los datos que aparecen en esa página. Este enlace no e
    hidden
    >Scroll to top</a>
 
-<a tal:define="webhelpers nocall:context/@@webhelpers;" href="/${webhelpers/selected_country}"
+<a tal:define="webhelpers nocall:context/@@webhelpers;" href="${webhelpers/portal_url}/${webhelpers/selected_country}"
    id="inject-toolbar"
    hidden
    class="pat-inject"
