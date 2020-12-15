@@ -464,6 +464,11 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def portal_url(self):
+        return api.portal.get().absolute_url()
+
+    @property
+    @memoize
     def country_or_client_url(self):
         """Return the country URL, but fall back to the client URL in case
         the country URL is None.
