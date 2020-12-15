@@ -4,7 +4,7 @@ Changelog
 11.6.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix some issues in Help the are related to the way OSHA OiRA is hosted
 
 
 11.6.1 (2020-12-15)
