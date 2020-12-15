@@ -38,6 +38,9 @@ def strip_help(filepath):
     shim = "../" * delta
     content = content.replace(
         '="/assets/oira/help/', '="' + shim)
+    c_shim = "../" * (delta + 1)
+    content = content.replace(
+        '="/assets/oira/certificates/', '="' + c_shim + 'certificates/')
 
     for folder in ('style', 'script', 'favicon'):
         content = content.replace(
