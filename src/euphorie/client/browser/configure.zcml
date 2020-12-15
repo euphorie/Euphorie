@@ -443,14 +443,6 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
-  <browser:page
-      name="oira-help"
-      for="*"
-      permission="zope.Public"
-      template="templates/help.pt"
-      layer="euphorie.client.interfaces.IClientSkinLayer"
-      />
-
   <!-- Login -->
   <browser:page
       name="login"

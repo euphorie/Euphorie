@@ -6,10 +6,13 @@ Helper functions.
 """
 
 from .. import MessageFactory as _
+from Acquisition import aq_chain
+from Acquisition import aq_inner
 from email.Header import Header
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 from euphorie.client import model
+from euphorie.client.country import IClientCountry
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.content.utils import StripMarkup
 from five import grok

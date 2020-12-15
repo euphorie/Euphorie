@@ -23,7 +23,7 @@
 		<link rel="icon" type="image/png" href="/assets/oira/favicon/apple-touch-icon.png" />
 	</head>
 	<body id="body" data-page-layout="department" data-layout-layout="shell" class=" osh-off osc-off osc-size-normal osc-s-off ">
-		
+
 		<div id="main">
 	<header id="toolbar">
 	
@@ -66,7 +66,9 @@
 </div>
 
 <aside id="osc">
-	<form id="osc-header" action="/index-logged-in#browser" class="pat-inject pat-autosubmit">
+	
+
+<form id="osc-header" action="/index-logged-in#browser" class="pat-inject pat-autosubmit">
 	
 	    
 			<!-- The back button and current group title is shown in browsing mode within a group. -->
@@ -82,10 +84,10 @@
             <strong class="context-menu-label iconified more-menu-trigger">More…</strong>
             <ul class="menu">
             	<li>
-                    <a href="/new-session.html#document-content" 
-                       data-pat-modal="class: large" 
+                    <a href="/new-session.html#document-content"
+                       data-pat-modal="class: large"
                        class="no-label pat-modal icon-plus pat-switch"
-                       data-pat-switch="body osc-s-* osc-s-off" 
+                       data-pat-switch="body osc-s-* osc-s-off"
                        title="Start a new risk assessment">New risk assessment</a>
                 </li>
                 <li>
@@ -105,7 +107,9 @@
 </form>
 	<div id="navigation" class="going-down">
 		<div id="miller-columns" class="miller-columns">
-			<form class="search-form pat-inject view-compact"
+			
+
+<form class="search-form pat-inject view-compact"
 	  id="search-form"
 	  action="/feedback/search-results.html#browser"
 	  >
@@ -120,7 +124,9 @@
 	    <fieldset class="advanced-search pat-inject pat-subform"
 				  data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
 
-	        <fieldset class="advanced pat-clone" data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
+	        
+
+<fieldset class="advanced pat-clone" data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
     <input type="hidden" name="search-rule.and-or:records" value="" />
     <p class="clone search-rule row-1">
         <label class="pat-select field-choice pat-select">
@@ -134,9 +140,12 @@
                     <option value="plant">Plant</option>
                     <option value="department">Department</option>
                     <option value="contractor">Contractor</option>
+                    <option value="operator_id">Operator at Daimler</option>
                     <option value="created">Creation date</option>
                     <option value="effective">Publication date</option>
                     <option value="modified">Modification date</option>
+                    <option value="start_date">Start date (external company)</option>
+                    <option value="end_date">End date (external company)</option>
                 </optgroup>
             </select>
         </label>

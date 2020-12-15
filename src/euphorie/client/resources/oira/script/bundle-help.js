@@ -44,7 +44,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "chunks/" + chunkId + "." + {"0":"a64d655d1552c0e0bce1","1":"0d1b0faaf2e6e1de8a85","9":"daf193433780f15c7566","11":"a8d84bb54895c1d33878","14":"9711d0a287a10b05222c","15":"6000f8121c5717ece3e1","16":"754a32c06c755c18b04c","17":"49877cb8874d3ffa73a8","18":"4a828b2b09fef276a4df","19":"9ff8b6171ea611dd0a60","20":"cbfbffad0ccdcca04b18","21":"30a93935e44599efd866","22":"3123f18e53ba5c56f4ac","23":"a8857c0fe3f56b524df5","24":"bcc9cdd84f16e128d012","25":"1bf13cc66da968a5751f","26":"b068d7ef8909e727f8df","27":"32d8de31729a45bee449","28":"d0d74a83c4a93e108c9a","29":"e757984ff88a80f5fe61","30":"721c749039549f0f9c47","31":"300671e15130f2401e62","32":"3e1acd1688e0f81694be","33":"43ab0d0f07f8966d4f7f","34":"ac666cc855010310dc87","35":"f449581a2cc225137b5c","36":"39312de80fc41e136e7f","37":"e5692c5293d363cf869f","38":"72401d761cf74c6fc459","39":"c9b8e5f9ecdb5c4ce174","40":"73d0274b9137960db7e7","41":"57b6251c3924009ec1ae","42":"5f2bd2a224ffe737864a","43":"b3c891459688c7546639","44":"fe83622b2aac6aa7b555","45":"97f0357d1d1f3f2e0d5b","46":"5bb874ab2ef203a56536","47":"1ff8bd952f5b18038335","48":"292292c88711b601cb76","49":"9f0be5f7a530a92cb5f0","50":"abe68ac430c60282db27","51":"13aa152ae694f04e85d7","52":"5e676ac697ccf2b62548","53":"ec5f49b63cd3cd190ebd","54":"1bfae38d7c05fcf73f41","55":"cc92a9333f8d8e6a20ce","56":"ea72c3c2b24acd70389c","57":"c1f1fc09e512f1887e09","58":"c205f48badcfd8133192","59":"6da78bad79f63a52ba35","60":"dca5f5185e4dbba24081","61":"305ad93e0ba090a6969a","62":"636cd510d677897c5861","63":"8404d65268c481de6c13","64":"587807b7c612c423c135","65":"d590454699c340923c5e","66":"74b798222de0586136a6","67":"b55991dc9301ecbfea2d","68":"3a5f1da42bd186ea0646","69":"40e780f637333d4548b3","70":"707d03eab438dd008489","71":"a53427a28ff4193a2cd0","72":"cd35500af72f8d3a910d","73":"a4c639f2ea64459a6a86","74":"eca4fa02083f196a6262","75":"80f1513af09597f400c3","76":"9422e985d45b5b89e239","77":"e0291b970371a30becb2","78":"48fbbd06d38fe9eedadc","79":"2af9c11ebefb76cc24ea","80":"4cea88c6785edca80202","81":"d3eb2a60a92c909db758","82":"acc940c6fee3ef9113ca","83":"cf269349b47c60fae4e1","84":"c52f72130a6335829803","85":"364fa070b5c593c8e309","86":"dfe32db59bfbb441d178","87":"dbe5daad83df61165556","88":"67759385990cc5d19e7d","89":"afb63895189a5f0f9597","90":"ec8373faf72b55b983df","91":"c8114794bcc819ea53d5","92":"cd90769d43077150608d","93":"7c4681256937bb4b5c0f","94":"4cf98ccd3b36e7cb7b83","95":"c47c4367b1b140c862a0","96":"1ca157a13f7c0fff1495","97":"10915c24345469f5c503","98":"58d8e6bd2ccd6b43184d","99":"cb559d375f9dc1f05b56","100":"6636d1955d68ba314aeb","101":"a01242bc74bc3ae1d513","102":"31539145ce0324fe65fc","103":"7d7b593e270ff0b1fee5","104":"c00965d3a9c10a719040","105":"ce75862a204030511c3c","106":"1fc36ece091966991a9f","107":"4539e1a3566e0e8f9926","108":"8d6c1ad1144e58a1d236","109":"c83d95e537d274272d8e","110":"a0666917c1d04db6ab64","111":"f00dc68ba9ed65e97124","112":"d4d806d189e3109ffebc","113":"18adde56cc4c93d4c4bd","114":"26900ea1e24db0a0eacb","115":"04fafcc030b14d62e5d9","116":"fdd50b01b7571f0f5669","117":"e34bb9c55bf58bcdf913","118":"5f5b75ee6f92ee393d1f","119":"8da66eef09b5d65a737e","120":"6308efae7e152bb9a1dd","121":"557fe239a0f0ef513970","122":"e351fc8dbd5a86606403","123":"7400232dea8157264e5a","124":"d138ac821d1ea342e349","125":"101cb563481698559b39","126":"2eee8815f50a29f1f1bf","127":"b4bd64d9b48d225afc3b","128":"c36b0fe45e03d253c66c","129":"b89206452be6380459c1","130":"e794392b193d15773de6","131":"3e588be041da091cbeda","132":"717ab62d687b998edb0b","133":"9611d89ed9d37098b225","134":"9809473f38bb34a9ebf4","135":"a407d4b4ab9777b977b9","136":"d92be17db61c70e52ff2","137":"c7c6bc3d977208a04660","138":"d5cca8473b99565ca5c8","139":"895767a2dc7f42b289c4","140":"3ea89c302626bb1bf5e3","141":"6439973b349739d49ac4","142":"b51c645fef3431890602","143":"f718916f6401c6e6be03","144":"feb078486ac54a840ad2","145":"3d2b17343d2240fcaf7d","146":"1bf9a911c04e40e341bb"}[chunkId] + ".min.js"
+/******/ 		return __webpack_require__.p + "chunks/" + chunkId + "." + {"0":"f75578704fdc49470270","1":"ad31e222fd4cc46e4d8e","9":"03cdd9807e0c308a5d89","11":"6a6753cfb5bc05ee473b","14":"9461c56a17c2272af79c","15":"de2848376e8f10ca37ee","16":"3fe39d6ab143a42d87cd","17":"cdf8b11c57acf4d625b9","18":"2d3146629951a25b31c1","19":"bce441daf6871e7a7530","20":"eba22a955f49cb958ea5","21":"240444158d43cd176e2d","22":"674d5525d8de88723ffe","23":"e711191fd59a97d7d443","24":"ddfb978cd186fab0d6b1","25":"b2b1984e177cf096f65d","26":"22cb339829926a03a76d","27":"654af818264b985c5a7f","28":"210ed01c3036b80cf42e","29":"e310dd1546c5c626728c","30":"b194578b72c2d7b238b6","31":"8867a82c3c985e9f563e","32":"90d3e80399d9dc435553","33":"c6b8b0179c566417942b","34":"32b8a198c7973ac075f0","35":"d8e2d94c1092d7b865ad","36":"bbcd950ae8d079a12a4b","37":"1a5dddc8bf25bc46bbeb","38":"aec7aa46806f2111dd01","39":"8133e8a28d4de9f35a79","40":"38ac76dfed39a086f0bf","41":"07eb86a3524d2baa6b57","42":"86d26668896a4b48dc69","43":"0a483feb55f5823860de","44":"6a21ab4801a0f0c55ddd","45":"60284ad5f5d91d9c9189","46":"cefdf85eec92e464fc55","47":"d4bd28dd9cb8f68b2e06","48":"5cac578ac5f8449b0a8c","49":"857fa03f378cfabf9de9","50":"0222e166c8edd640973b","51":"9500b7ff38d997b2878e","52":"c709c75326a8b272e462","53":"08e0e91281c7a86c6410","54":"6d5bb16fc3f44e319587","55":"e9966ee550c72fb022c9","56":"905991fb882a282f0c39","57":"3dbab677ba6805e40fef","58":"0828c81a81a9b3269139","59":"5cd4c7869a6c147e891e","60":"079744f1b924e41f3801","61":"dba8573e602d0d3eedd1","62":"b74265762dc8966189a7","63":"723c71331cddd0a5a11a","64":"ec7a444f6626dbc26640","65":"deb3f2164f0561a18c65","66":"695362427b17ae413323","67":"484c9d04ab8c412d2e0a","68":"3f0c4b43a2e873f4b782","69":"0d5a507ee8da22994b18","70":"d3c84eac2a7184338eed","71":"9aabadab71805717c7b9","72":"7660adbee5d71163f98e","73":"54baff530d9d35ca1eaa","74":"580d38fce43626731469","75":"fe2511d3c324533cc382","76":"02ae61eec77816d76830","77":"2a6189a249d0e0255285","78":"5a980c0ac9fb0fa71d5d","79":"74202a18955d7f43d5cd","80":"902aafbddeb0f0120191","81":"42e48f0e26c93dbdb574","82":"f79afeb87783d640c55e","83":"3fca28d77cb4723bd7a1","84":"9f5a7adde425381a7ff8","85":"25214197ff2052c3b85d","86":"8e579932c27b4cb00382","87":"e9f43fb234aae28023c8","88":"e8ab3e3a3156f7378d99","89":"c3635a94aea96ddf209c","90":"89dab0ef182d3f00b9f9","91":"05a1e89ea131e39e4bc4","92":"367d0947601ef867546a","93":"a532df36cae8caa00e9f","94":"8e0c0f2452a80e4111a1","95":"acd926c9d03d6020be27","96":"076089340db4f74ff57b","97":"05edb16da14ed5b2df9a","98":"b5c5af469697625d6d4c","99":"62322d5206d935f783df","100":"d42c8d22b98c8709ebbb","101":"6aea5a753935691f403f","102":"90b90e7dd55b426a0c8e","103":"de12fe14fe9a9955ed69","104":"b03635032e443a524b41","105":"61931dc1e04049c495ab","106":"89b3d735b882e8469615","107":"225e8ac956a7fc0e70d9","108":"2f2ccbd026df91e15d86","109":"4353bc5289f998fcfb90","110":"710d471fc6558d2d38aa","111":"060bddfbd5cc3dc685fa","112":"4de212870c9c01b44d38","113":"91aeaf7744c998d85223","114":"80113e91769e43877694","115":"442bd6a8dc371ff4f04c","116":"8ca0493c83e8e8146d15","117":"5f2e05a139cdf783b8cf","118":"fd7b2631e099bd36035b","119":"7783a0f85b662de586cd","120":"0a274745d0259bf285f0","121":"554f386332c899b280e7","122":"55b06ce891cfaf4d9d2a","123":"88d5fad1767989744a5f","124":"a0c8b4ac8aca136c9e50","125":"7a7126b7be6d5e82e7e6","126":"0f73e7b7201b3083d6d2","127":"b1dbcc7ad79696abc74f","128":"8d9d5ac2f714712ac940","129":"843c439f30d172000e12","130":"f1f67779d5fbc45251c6","131":"fbddc3dfaff8aa50e60d","132":"3c1defb5a6ed430cfea9","133":"d27ebb3e81975f8505cb","134":"c964f0e231627b0cd635","135":"396b774db2d6523e4978","136":"edf24cd2ece11982482c","137":"2b704953023c3b3e2165","138":"88d7f6e0844f95dc0e5f","139":"d1dd2dadcbf0b8635243","140":"087823f3db52324d905a","141":"73f992142e225d366cb1","142":"e1cbba9beb716c68ba94","143":"848d9f94d8a6f6609f30","144":"070ed5c48f339f292d5f","145":"51549021e4673cc5fcdd","146":"c94fad4d49b1eb10ae55"}[chunkId] + ".min.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -197,7 +197,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 315);
+/******/ 	return __webpack_require__(__webpack_require__.s = 316);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -205,12 +205,216 @@
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(95);
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(96);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(29)))
 
 /***/ }),
 
 /***/ 100:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _inject_inject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(22);
+/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
+/* harmony import */ var _core_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(21);
+/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
+/* harmony import */ var _core_jquery_ext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(45);
+/**
+ * Patterns collapsible - Collapsible content
+ *
+ * Copyright 2012-2013 Florian Friesdorf
+ * Copyright 2012-2013 Simplon B.V. - Wichert Akkerman
+ * Copyright 2012 Markus Maier
+ * Copyright 2013 Peter Lamut
+ * Copyright 2012 Jonas Hoersch
+ */
+
+
+
+
+
+
+
+var log = _core_logging__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].getLogger("pat.collapsible"),
+    parser = new _core_parser__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"]("collapsible");
+parser.addArgument("load-content");
+parser.addArgument("store", "none", ["none", "session", "local"]);
+parser.addArgument("transition", "slide", ["none", "css", "fade", "slide", "slide-horizontal"]);
+parser.addArgument("effect-duration", "fast");
+parser.addArgument("effect-easing", "swing");
+parser.addArgument("closed", false);
+parser.addArgument("trigger", "::first");
+parser.addArgument("close-trigger");
+parser.addArgument("open-trigger");
+/* unused harmony default export */ var _unused_webpack_default_export = (_core_base__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"].extend({
+  name: "collapsible",
+  trigger: ".pat-collapsible",
+  jquery_plugin: true,
+  transitions: {
+    "none": {
+      closed: "hide",
+      open: "show"
+    },
+    "fade": {
+      closed: "fadeOut",
+      open: "fadeIn"
+    },
+    "slide": {
+      closed: "slideUp",
+      open: "slideDown"
+    },
+    "slide-horizontal": {
+      closed: "slideOut",
+      open: "slideIn"
+    }
+  },
+  init: function init($el, opts) {
+    var $content, state, storage;
+    this.options = _core_store__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].updateOptions($el[0], parser.parse($el, opts));
+
+    if (this.options.trigger === "::first") {
+      this.$trigger = $el.children(":first");
+      $content = $el.children(":gt(0)");
+    } else {
+      this.$trigger = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.options.trigger);
+      $content = $el.children();
+    }
+
+    if (this.$trigger.length === 0) {
+      log.error("Collapsible has no trigger.", $el[0]);
+      return;
+    }
+
+    this.$panel = $el.children(".panel-content");
+
+    if (this.$panel.length === 0) {
+      if ($content.length) {
+        this.$panel = $content.wrapAll("<div class='panel-content' />").parent();
+      } else {
+        this.$panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()("<div class='panel-content' />").insertAfter(this.$trigger);
+      }
+    }
+
+    state = this.options.closed || $el.hasClass("closed") ? "closed" : "open";
+
+    if (this.options.store !== "none") {
+      storage = (this.options.store === "local" ? _core_store__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].local : _core_store__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].session)(this.name);
+      state = storage.get($el.attr("id")) || state;
+    }
+
+    if (state === "closed") {
+      this.$trigger.removeClass("collapsible-open").addClass("collapsible-closed");
+      $el.removeClass("open").addClass("closed");
+      this.$panel.hide();
+    } else {
+      if (this.options.loadContent) this._loadContent($el, this.options.loadContent, this.$panel);
+      this.$trigger.removeClass("collapsible-closed").addClass("collapsible-open");
+      $el.removeClass("closed").addClass("open");
+      this.$panel.show();
+    }
+
+    this.$trigger.off(".pat-collapsible").on("click.pat-collapsible", null, $el, this._onClick.bind(this)).on("keypress.pat-collapsible", null, $el, this._onKeyPress.bind(this));
+
+    if (this.options.closeTrigger) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on("click", this.options.closeTrigger, this.close.bind(this));
+    }
+
+    if (this.options.openTrigger) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on("click", this.options.openTrigger, this.open.bind(this));
+    }
+
+    return $el;
+  },
+  open: function open() {
+    if (!this.$el.hasClass("open")) this.toggle();
+    return this.$el;
+  },
+  close: function close() {
+    if (!this.$el.hasClass("closed")) this.toggle();
+    return this.$el;
+  },
+  _onClick: function _onClick(event) {
+    this.toggle(event.data);
+  },
+  _onKeyPress: function _onKeyPress(event) {
+    var keycode = event.keyCode ? event.keyCode : event.which;
+    if (keycode === 13) this.toggle();
+  },
+  _loadContent: function _loadContent($el, url, $target) {
+    var components = url.split("#"),
+        base_url = components[0],
+        id = components[1] ? "#" + components[1] : "body",
+        opts = [{
+      url: base_url,
+      source: id,
+      $target: $target,
+      dataType: "html"
+    }];
+    _inject_inject__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].execute(opts, $el);
+  },
+  // jQuery method to force loading of content.
+  loadContent: function loadContent($el) {
+    return $el.each(function (idx, el) {
+      if (this.options.loadContent) this._loadContent(jquery__WEBPACK_IMPORTED_MODULE_0___default()(el), this.options.loadContent, this.$panel);
+    }.bind(this));
+  },
+  toggle: function toggle() {
+    var new_state = this.$el.hasClass("closed") ? "open" : "closed";
+
+    if (this.options.store !== "none") {
+      var storage = (this.options.store === "local" ? _core_store__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].local : _core_store__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].session)(this.name);
+      storage.set(this.$el.attr("id"), new_state);
+    }
+
+    if (new_state === "open") {
+      this.$el.trigger("patterns-collapsible-open");
+
+      this._transit(this.$el, "closed", "open");
+    } else {
+      this.$el.trigger("patterns-collapsible-close");
+
+      this._transit(this.$el, "open", "closed");
+    }
+
+    return this.$el; // allow chaining
+  },
+  _transit: function _transit($el, from_cls, to_cls) {
+    if (to_cls === "open" && this.options.loadContent) {
+      this._loadContent($el, this.options.loadContent, this.$panel);
+    }
+
+    var duration = this.options.transition === "css" || this.options.transition === "none" ? null : this.options.effect.duration;
+
+    if (!duration) {
+      this.$trigger.removeClass("collapsible-" + from_cls).addClass("collapsible-" + to_cls);
+      $el.removeClass(from_cls).addClass(to_cls).trigger("pat-update", {
+        pattern: "collapsible",
+        transition: "complete"
+      });
+    } else {
+      var t = this.transitions[this.options.transition];
+      $el.addClass("in-progress").trigger("pat-update", {
+        pattern: "collapsible",
+        transition: "start"
+      });
+      this.$trigger.addClass("collapsible-in-progress");
+      this.$panel[t[to_cls]](duration, this.options.effect.easing, function () {
+        this.$trigger.removeClass("collapsible-" + from_cls).removeClass("collapsible-in-progress").addClass("collapsible-" + to_cls);
+        $el.removeClass(from_cls).removeClass("in-progress").addClass(to_cls).trigger("pat-update", {
+          pattern: "collapsible",
+          transition: "complete"
+        });
+      }.bind(this));
+    }
+  }
+}));
+
+/***/ }),
+
+/***/ 101:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -230,12 +434,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-/**
- * Patterns depends - show/hide/disable content based on form status
- *
- * Copyright 2012-2013 Florian Friesdorf
- * Copyright 2012-2013 Simplon B.V. - Wichert Akkerman
- */
 
 
 
@@ -243,8 +441,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
  // Lazy loading modules.
 
 var DependsHandler;
-var log = _core_logging__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"].getLogger("depends"),
-    parser = new _core_parser__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"]("depends");
+var log = _core_logging__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"].getLogger("depends");
+var parser = new _core_parser__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"]("depends");
 parser.addArgument("condition");
 parser.addArgument("action", "show", ["show", "enable", "both"]);
 parser.addArgument("transition", "none", ["none", "css", "fade", "slide"]);
@@ -254,39 +452,25 @@ parser.addArgument("effect-easing", "swing");
   name: "depends",
   trigger: ".pat-depends",
   jquery_plugin: true,
-  transitions: {
-    none: {
-      hide: "hide",
-      show: "show"
-    },
-    fade: {
-      hide: "fadeOut",
-      show: "fadeIn"
-    },
-    slide: {
-      hide: "slideUp",
-      show: "slideDown"
-    }
-  },
   init: function init($el, opts) {
     var _this = this;
 
     return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-      var depdendent, options, handler, state, data, _iterator, _step, input, $form, depdendents;
+      var dependent, options, handler, state, data, _iterator, _step, input, $form, dependents;
 
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              depdendent = _this.$el[0];
-              options = parser.parse(_this.$el, opts);
-              _this.$modal = _this.$el.parents(".pat-modal");
-              _context.next = 5;
-              return __webpack_require__.e(/* import() */ 11).then(__webpack_require__.bind(null, 313));
+              _context.next = 2;
+              return __webpack_require__.e(/* import() */ 11).then(__webpack_require__.bind(null, 314));
 
-            case 5:
+            case 2:
               DependsHandler = _context.sent;
               DependsHandler = DependsHandler.default;
+              dependent = _this.$el[0];
+              options = parser.parse(_this.$el, opts);
+              _this.$modal = _this.$el.parents(".pat-modal");
               _context.prev = 7;
               handler = new DependsHandler(_this.$el, options.condition);
               _context.next = 15;
@@ -295,7 +479,7 @@ parser.addArgument("effect-easing", "swing");
             case 11:
               _context.prev = 11;
               _context.t0 = _context["catch"](7);
-              log.error("Invalid condition: " + _context.t0.message, depdendent);
+              log.error("Invalid condition: " + _context.t0.message, dependent);
               return _context.abrupt("return");
 
             case 15:
@@ -336,7 +520,7 @@ parser.addArgument("effect-easing", "swing");
               data = {
                 handler: handler,
                 options: options,
-                depdendent: depdendent
+                dependent: dependent
               };
               _iterator = _createForOfIteratorHelper(handler.getAllInputs());
 
@@ -346,14 +530,16 @@ parser.addArgument("effect-easing", "swing");
 
                   if (input.form) {
                     $form = jquery__WEBPACK_IMPORTED_MODULE_0___default()(input.form);
-                    depdendents = $form.data("patDepends.depdendents");
+                    dependents = $form.data("patDepends.dependents");
 
-                    if (!depdendents) {
-                      depdendents = [data];
-                      $form.on("reset.pat-depends", _this.onReset.bind(_this));
-                    } else if (depdendents.indexOf(data) === -1) depdendents.push(data);
+                    if (!dependents) {
+                      dependents = [data];
+                      $form.on("reset.pat-depends", function () {
+                        return _this.onReset;
+                      });
+                    } else if (dependents.indexOf(data) === -1) dependents.push(data);
 
-                    $form.data("patDepends.depdendents", depdendents);
+                    $form.data("patDepends.dependents", dependents);
                   }
 
                   jquery__WEBPACK_IMPORTED_MODULE_0___default()(input).on("change.pat-depends", null, data, _this.onChange.bind(_this));
@@ -376,28 +562,43 @@ parser.addArgument("effect-easing", "swing");
   onReset: function onReset(event) {
     var _this2 = this;
 
-    var depdendents = jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.target).data("patDepends.depdendents");
-    setTimeout(function () {
-      var _iterator2 = _createForOfIteratorHelper(depdendents),
-          _step2;
+    return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+      var dependents, _iterator2, _step2, dependent;
 
-      try {
-        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-          var depdendent = _step2.value;
-          event.data = depdendent;
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              dependents = jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.target).data("patDepends.dependents");
+              _context2.next = 3;
+              return _core_utils__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].timeout(50);
 
-          _this2.onChange(event);
+            case 3:
+              _iterator2 = _createForOfIteratorHelper(dependents);
+
+              try {
+                for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                  dependent = _step2.value;
+                  event.data = dependent;
+
+                  _this2.onChange(event);
+                }
+              } catch (err) {
+                _iterator2.e(err);
+              } finally {
+                _iterator2.f();
+              }
+
+            case 5:
+            case "end":
+              return _context2.stop();
+          }
         }
-      } catch (err) {
-        _iterator2.e(err);
-      } finally {
-        _iterator2.f();
-      }
-    }, 50);
+      }, _callee2);
+    }))();
   },
   updateModal: function updateModal() {
-    /* If we're in a modal, make sure that it gets resized.
-     */
+    // If we're in a modal, make sure that it gets resized.
     if (this.$modal.length) {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).trigger("pat-update", {
         pattern: "depends"
@@ -439,11 +640,11 @@ parser.addArgument("effect-easing", "swing");
     this.$el.addClass("disabled");
   },
   onChange: function onChange(event) {
-    var handler = event.data.handler,
-        options = event.data.options,
-        depdendent = event.data.depdendent,
-        $depdendent = jquery__WEBPACK_IMPORTED_MODULE_0___default()(depdendent),
-        state = handler.evaluate();
+    var handler = event.data.handler;
+    var options = event.data.options;
+    var dependent = event.data.dependent;
+    var $depdendent = jquery__WEBPACK_IMPORTED_MODULE_0___default()(dependent);
+    var state = handler.evaluate();
 
     switch (options.action) {
       case "show":
@@ -452,24 +653,32 @@ parser.addArgument("effect-easing", "swing");
         break;
 
       case "enable":
-        if (state) this.enable();else this.disable();
+        if (state) {
+          this.enable();
+        } else {
+          this.disable();
+        }
+
         break;
 
       case "both":
         _core_utils__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].hideOrShow($depdendent, state, options, this.name);
         this.updateModal();
-        if (state) this.enable();else this.disable();
+
+        if (state) {
+          this.enable();
+        } else {
+          this.disable();
+        }
+
         break;
     }
-  },
-  blockDefault: function blockDefault(event) {
-    event.preventDefault();
   }
 }));
 
 /***/ }),
 
-/***/ 101:
+/***/ 102:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -512,7 +721,7 @@ parser.add_argument("output-format", "");
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.e(/* import() */ 0).then(__webpack_require__.t.bind(null, 178, 7));
+              return __webpack_require__.e(/* import() */ 0).then(__webpack_require__.t.bind(null, 179, 7));
 
             case 2:
               Moment = _context.sent;
@@ -523,7 +732,7 @@ parser.add_argument("output-format", "");
               lang = lang.substr(0, 2).toLowerCase();
               _context.prev = 7;
               _context.next = 10;
-              return __webpack_require__(102)("./".concat(lang, ".js"));
+              return __webpack_require__(103)("./".concat(lang, ".js"));
 
             case 10:
               Moment.locale(lang);
@@ -560,672 +769,672 @@ parser.add_argument("output-format", "");
 
 /***/ }),
 
-/***/ 102:
+/***/ 103:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"./af.js": [
-		179,
+		180,
 		0,
 		14
 	],
 	"./ar-dz.js": [
-		180,
+		181,
 		0,
 		15
 	],
 	"./ar-kw.js": [
-		181,
+		182,
 		0,
 		16
 	],
 	"./ar-ly.js": [
-		182,
+		183,
 		0,
 		17
 	],
 	"./ar-ma.js": [
-		183,
+		184,
 		0,
 		18
 	],
 	"./ar-sa.js": [
-		184,
+		185,
 		0,
 		19
 	],
 	"./ar-tn.js": [
-		185,
+		186,
 		0,
 		20
 	],
 	"./ar.js": [
-		186,
+		187,
 		0,
 		21
 	],
 	"./az.js": [
-		187,
+		188,
 		0,
 		22
 	],
 	"./be.js": [
-		188,
+		189,
 		0,
 		23
 	],
 	"./bg.js": [
-		189,
+		190,
 		0,
 		24
 	],
 	"./bm.js": [
-		190,
+		191,
 		0,
 		25
 	],
 	"./bn.js": [
-		191,
+		192,
 		0,
 		26
 	],
 	"./bo.js": [
-		192,
+		193,
 		0,
 		27
 	],
 	"./br.js": [
-		193,
+		194,
 		0,
 		28
 	],
 	"./bs.js": [
-		194,
+		195,
 		0,
 		29
 	],
 	"./ca.js": [
-		195,
+		196,
 		0,
 		30
 	],
 	"./cs.js": [
-		196,
+		197,
 		0,
 		31
 	],
 	"./cv.js": [
-		197,
+		198,
 		0,
 		32
 	],
 	"./cy.js": [
-		198,
+		199,
 		0,
 		33
 	],
 	"./da.js": [
-		199,
+		200,
 		0,
 		34
 	],
 	"./de-at.js": [
-		200,
+		201,
 		0,
 		35
 	],
 	"./de-ch.js": [
-		201,
+		202,
 		0,
 		36
 	],
 	"./de.js": [
-		202,
+		203,
 		0,
 		37
 	],
 	"./dv.js": [
-		203,
+		204,
 		0,
 		38
 	],
 	"./el.js": [
-		204,
+		205,
 		0,
 		39
 	],
 	"./en-au.js": [
-		205,
+		206,
 		0,
 		40
 	],
 	"./en-ca.js": [
-		206,
+		207,
 		0,
 		41
 	],
 	"./en-gb.js": [
-		207,
+		208,
 		0,
 		42
 	],
 	"./en-ie.js": [
-		208,
+		209,
 		0,
 		43
 	],
 	"./en-il.js": [
-		209,
+		210,
 		0,
 		44
 	],
 	"./en-in.js": [
-		210,
+		211,
 		0,
 		45
 	],
 	"./en-nz.js": [
-		211,
+		212,
 		0,
 		46
 	],
 	"./en-sg.js": [
-		212,
+		213,
 		0,
 		47
 	],
 	"./eo.js": [
-		213,
+		214,
 		0,
 		48
 	],
 	"./es-do.js": [
-		214,
+		215,
 		0,
 		49
 	],
 	"./es-us.js": [
-		215,
+		216,
 		0,
 		50
 	],
 	"./es.js": [
-		216,
+		217,
 		0,
 		51
 	],
 	"./et.js": [
-		217,
+		218,
 		0,
 		52
 	],
 	"./eu.js": [
-		218,
+		219,
 		0,
 		53
 	],
 	"./fa.js": [
-		219,
+		220,
 		0,
 		54
 	],
 	"./fi.js": [
-		220,
+		221,
 		0,
 		55
 	],
 	"./fil.js": [
-		221,
+		222,
 		0,
 		56
 	],
 	"./fo.js": [
-		222,
+		223,
 		0,
 		57
 	],
 	"./fr-ca.js": [
-		223,
+		224,
 		0,
 		58
 	],
 	"./fr-ch.js": [
-		224,
+		225,
 		0,
 		59
 	],
 	"./fr.js": [
-		225,
+		226,
 		0,
 		60
 	],
 	"./fy.js": [
-		226,
+		227,
 		0,
 		61
 	],
 	"./ga.js": [
-		227,
+		228,
 		0,
 		62
 	],
 	"./gd.js": [
-		228,
+		229,
 		0,
 		63
 	],
 	"./gl.js": [
-		229,
+		230,
 		0,
 		64
 	],
 	"./gom-deva.js": [
-		230,
+		231,
 		0,
 		65
 	],
 	"./gom-latn.js": [
-		231,
+		232,
 		0,
 		66
 	],
 	"./gu.js": [
-		232,
+		233,
 		0,
 		67
 	],
 	"./he.js": [
-		233,
+		234,
 		0,
 		68
 	],
 	"./hi.js": [
-		234,
+		235,
 		0,
 		69
 	],
 	"./hr.js": [
-		235,
+		236,
 		0,
 		70
 	],
 	"./hu.js": [
-		236,
+		237,
 		0,
 		71
 	],
 	"./hy-am.js": [
-		237,
+		238,
 		0,
 		72
 	],
 	"./id.js": [
-		238,
+		239,
 		0,
 		73
 	],
 	"./is.js": [
-		239,
+		240,
 		0,
 		74
 	],
 	"./it-ch.js": [
-		240,
+		241,
 		0,
 		75
 	],
 	"./it.js": [
-		241,
+		242,
 		0,
 		76
 	],
 	"./ja.js": [
-		242,
+		243,
 		0,
 		77
 	],
 	"./jv.js": [
-		243,
+		244,
 		0,
 		78
 	],
 	"./ka.js": [
-		244,
+		245,
 		0,
 		79
 	],
 	"./kk.js": [
-		245,
+		246,
 		0,
 		80
 	],
 	"./km.js": [
-		246,
+		247,
 		0,
 		81
 	],
 	"./kn.js": [
-		247,
+		248,
 		0,
 		82
 	],
 	"./ko.js": [
-		248,
+		249,
 		0,
 		83
 	],
 	"./ku.js": [
-		249,
+		250,
 		0,
 		84
 	],
 	"./ky.js": [
-		250,
+		251,
 		0,
 		85
 	],
 	"./lb.js": [
-		251,
+		252,
 		0,
 		86
 	],
 	"./lo.js": [
-		252,
+		253,
 		0,
 		87
 	],
 	"./lt.js": [
-		253,
+		254,
 		0,
 		88
 	],
 	"./lv.js": [
-		254,
+		255,
 		0,
 		89
 	],
 	"./me.js": [
-		255,
+		256,
 		0,
 		90
 	],
 	"./mi.js": [
-		256,
+		257,
 		0,
 		91
 	],
 	"./mk.js": [
-		257,
+		258,
 		0,
 		92
 	],
 	"./ml.js": [
-		258,
+		259,
 		0,
 		93
 	],
 	"./mn.js": [
-		259,
+		260,
 		0,
 		94
 	],
 	"./mr.js": [
-		260,
+		261,
 		0,
 		95
 	],
 	"./ms-my.js": [
-		261,
+		262,
 		0,
 		96
 	],
 	"./ms.js": [
-		262,
+		263,
 		0,
 		97
 	],
 	"./mt.js": [
-		263,
+		264,
 		0,
 		98
 	],
 	"./my.js": [
-		264,
+		265,
 		0,
 		99
 	],
 	"./nb.js": [
-		265,
+		266,
 		0,
 		100
 	],
 	"./ne.js": [
-		266,
+		267,
 		0,
 		101
 	],
 	"./nl-be.js": [
-		267,
+		268,
 		0,
 		102
 	],
 	"./nl.js": [
-		268,
+		269,
 		0,
 		103
 	],
 	"./nn.js": [
-		269,
+		270,
 		0,
 		104
 	],
 	"./oc-lnc.js": [
-		270,
+		271,
 		0,
 		105
 	],
 	"./pa-in.js": [
-		271,
+		272,
 		0,
 		106
 	],
 	"./pl.js": [
-		272,
+		273,
 		0,
 		107
 	],
 	"./pt-br.js": [
-		273,
+		274,
 		0,
 		108
 	],
 	"./pt.js": [
-		274,
+		275,
 		0,
 		109
 	],
 	"./ro.js": [
-		275,
+		276,
 		0,
 		110
 	],
 	"./ru.js": [
-		276,
+		277,
 		0,
 		111
 	],
 	"./sd.js": [
-		277,
+		278,
 		0,
 		112
 	],
 	"./se.js": [
-		278,
+		279,
 		0,
 		113
 	],
 	"./si.js": [
-		279,
+		280,
 		0,
 		114
 	],
 	"./sk.js": [
-		280,
+		281,
 		0,
 		115
 	],
 	"./sl.js": [
-		281,
+		282,
 		0,
 		116
 	],
 	"./sq.js": [
-		282,
+		283,
 		0,
 		117
 	],
 	"./sr-cyrl.js": [
-		283,
+		284,
 		0,
 		118
 	],
 	"./sr.js": [
-		284,
+		285,
 		0,
 		119
 	],
 	"./ss.js": [
-		285,
+		286,
 		0,
 		120
 	],
 	"./sv.js": [
-		286,
+		287,
 		0,
 		121
 	],
 	"./sw.js": [
-		287,
+		288,
 		0,
 		122
 	],
 	"./ta.js": [
-		288,
+		289,
 		0,
 		123
 	],
 	"./te.js": [
-		289,
+		290,
 		0,
 		124
 	],
 	"./tet.js": [
-		290,
+		291,
 		0,
 		125
 	],
 	"./tg.js": [
-		291,
+		292,
 		0,
 		126
 	],
 	"./th.js": [
-		292,
+		293,
 		0,
 		127
 	],
 	"./tk.js": [
-		293,
+		294,
 		0,
 		128
 	],
 	"./tl-ph.js": [
-		294,
+		295,
 		0,
 		129
 	],
 	"./tlh.js": [
-		295,
+		296,
 		0,
 		130
 	],
 	"./tr.js": [
-		296,
+		297,
 		0,
 		131
 	],
 	"./tzl.js": [
-		297,
+		298,
 		0,
 		132
 	],
 	"./tzm-latn.js": [
-		298,
+		299,
 		0,
 		133
 	],
 	"./tzm.js": [
-		299,
+		300,
 		0,
 		134
 	],
 	"./ug-cn.js": [
-		300,
+		301,
 		0,
 		135
 	],
 	"./uk.js": [
-		301,
+		302,
 		0,
 		136
 	],
 	"./ur.js": [
-		302,
+		303,
 		0,
 		137
 	],
 	"./uz-latn.js": [
-		303,
+		304,
 		0,
 		138
 	],
 	"./uz.js": [
-		304,
+		305,
 		0,
 		139
 	],
 	"./vi.js": [
-		305,
+		306,
 		0,
 		140
 	],
 	"./x-pseudo.js": [
-		306,
+		307,
 		0,
 		141
 	],
 	"./yo.js": [
-		307,
+		308,
 		0,
 		142
 	],
 	"./zh-cn.js": [
-		308,
+		309,
 		0,
 		143
 	],
 	"./zh-hk.js": [
-		309,
+		310,
 		0,
 		144
 	],
 	"./zh-mo.js": [
-		310,
+		311,
 		0,
 		145
 	],
 	"./zh-tw.js": [
-		311,
+		312,
 		0,
 		146
 	]
@@ -1247,12 +1456,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 102;
+webpackAsyncContext.id = 103;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 103:
+/***/ 104:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1294,7 +1503,7 @@ var equaliser = {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 92, 7));
+              return __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 93, 7));
 
             case 2:
               ImagesLoaded = _context.sent;
@@ -1379,7 +1588,7 @@ _core_registry__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].register(equalise
 
 /***/ }),
 
-/***/ 104:
+/***/ 105:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1410,7 +1619,7 @@ _core_registry__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].register(legend);
 
 /***/ }),
 
-/***/ 105:
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1479,13 +1688,13 @@ parser.addAlias("resize", "is-resize");
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.e(/* import() */ 9).then(__webpack_require__.t.bind(null, 312, 7));
+              return __webpack_require__.e(/* import() */ 9).then(__webpack_require__.t.bind(null, 313, 7));
 
             case 2:
               Masonry = _context.sent;
               Masonry = Masonry.default;
               _context.next = 6;
-              return __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 92, 7));
+              return __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 93, 7));
 
             case 6:
               ImagesLoaded = _context.sent;
@@ -1614,7 +1823,7 @@ parser.addAlias("resize", "is-resize");
 
 /***/ }),
 
-/***/ 106:
+/***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1748,7 +1957,7 @@ parser.addArgument("current-class", "current");
 
 /***/ }),
 
-/***/ 107:
+/***/ 108:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2936,7 +3145,7 @@ try {
 /* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(6);
 /* harmony import */ var _core_registry__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8);
 /* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(3);
-/* harmony import */ var _core_jquery_ext__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(44);
+/* harmony import */ var _core_jquery_ext__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(45);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -4106,7 +4315,15 @@ module.exports = g;
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
+/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(44);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 
 
 
@@ -4253,34 +4470,7 @@ var jqueryPlugin = function jqueryPlugin(pattern) {
       return pluralBoundJQueryPlugin.call(this, pattern, method, options);
     }
   };
-}; //     Underscore.js 1.3.1
-//     (c) 2009-2012 Jeremy Ashkenas, DocumentCloud Inc.
-//     Underscore is freely distributable under the MIT license.
-//     Portions of Underscore are inspired or borrowed from Prototype,
-//     Oliver Steele's Functional, and John Resig's Micro-Templating.
-//     For all details and documentation:
-//     http://documentcloud.github.com/underscore
-//
-// Returns a function, that, as long as it continues to be invoked, will not
-// be triggered. The function will be called after it stops being called for
-// N milliseconds.
-
-
-function debounce(func, wait) {
-  var timeout;
-  return function debounce_run() {
-    var context = this,
-        args = arguments;
-
-    var later = function later() {
-      timeout = null;
-      func.apply(context, args);
-    };
-
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-} // Is a given variable an object?
+}; // Is a given variable an object?
 
 
 function isObject(obj) {
@@ -4396,48 +4586,75 @@ function hasValue(el) {
   return false;
 }
 
-var transitions = {
-  none: {
-    hide: "hide",
-    show: "show"
-  },
-  fade: {
-    hide: "fadeOut",
-    show: "fadeIn"
-  },
-  slide: {
-    hide: "slideUp",
-    show: "slideDown"
-  }
-};
-
-function hideOrShow($slave, visible, options, pattern_name) {
+var hideOrShow = function hideOrShow(nodes, visible, options, pattern_name) {
+  nodes = _dom__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].toNodeArray(nodes);
+  var transitions = {
+    none: {
+      hide: "hide",
+      show: "show"
+    },
+    fade: {
+      hide: "fadeOut",
+      show: "fadeIn"
+    },
+    slide: {
+      hide: "slideUp",
+      show: "slideDown"
+    }
+  };
   var duration = options.transition === "css" || options.transition === "none" ? null : options.effect.duration;
-  $slave.removeClass("visible hidden in-progress");
 
-  var onComplete = function onComplete() {
-    $slave.removeClass("in-progress").addClass(visible ? "visible" : "hidden").trigger("pat-update", {
+  var on_complete = function on_complete(el) {
+    el.classList.remove("in-progress");
+    el.classList.add(visible ? "visible" : "hidden");
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(el).trigger("pat-update", {
       pattern: pattern_name,
       transition: "complete"
     });
   };
 
-  if (!duration) {
-    if (options.transition !== "css") $slave[visible ? "show" : "hide"]();
-    onComplete();
-  } else {
-    var t = transitions[options.transition];
-    $slave.addClass("in-progress").trigger("pat-update", {
-      pattern: pattern_name,
-      transition: "start"
-    });
-    $slave[visible ? t.show : t.hide]({
-      duration: duration,
-      easing: options.effect.easing,
-      complete: onComplete
-    });
+  var _iterator = _createForOfIteratorHelper(nodes),
+      _step;
+
+  try {
+    var _loop = function _loop() {
+      var el = _step.value;
+      el.classList.remove("visible");
+      el.classList.remove("hidden");
+      el.classList.remove("in-progress");
+
+      if (duration) {
+        var t = transitions[options.transition];
+        el.classList.add("in-progress");
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(el).trigger("pat-update", {
+          pattern: pattern_name,
+          transition: "start"
+        });
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(el)[visible ? t.show : t.hide]({
+          duration: duration,
+          easing: options.effect.easing,
+          complete: function complete() {
+            return on_complete(el);
+          }
+        });
+      } else {
+        if (options.transition !== "css") {
+          _dom__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"][visible ? "show" : "hide"](el);
+        }
+
+        on_complete(el);
+      }
+    };
+
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      _loop();
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
   }
-}
+};
 
 function addURLQueryParameter(fullURL, param, value) {
   /* Using a positive lookahead (?=\=) to find the given parameter,
@@ -4670,6 +4887,22 @@ var timeout = function timeout(ms) {
   });
 };
 
+var debounce = function debounce(func, ms) {
+  // Returns a function, that, as long as it continues to be invoked, will not
+  // be triggered. The function will be called after it stops being called for
+  // N milliseconds.
+  // From: https://underscorejs.org/#debounce
+  var timer = null;
+  return function () {
+    clearTimeout(timer);
+    var args = arguments;
+    var context = this;
+    timer = setTimeout(function () {
+      func.apply(context, args);
+    }, ms);
+  };
+};
+
 var isIE = function isIE() {
   // See: https://stackoverflow.com/a/9851769/1337474
   // Internet Explorer 6-11
@@ -4682,7 +4915,6 @@ var isIE = function isIE() {
 var utils = {
   // pattern pimping - own module?
   jqueryPlugin: jqueryPlugin,
-  debounce: debounce,
   escapeRegExp: escapeRegExp,
   isObject: isObject,
   extend: extend,
@@ -4702,36 +4934,37 @@ var utils = {
   checkInputSupport: checkInputSupport,
   checkCSSFeature: checkCSSFeature,
   timeout: timeout,
+  debounce: debounce,
   isIE: isIE
 };
 /* harmony default export */ __webpack_exports__["a"] = (utils);
 
 /***/ }),
 
-/***/ 315:
+/***/ 316:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _public_path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(93);
+/* harmony import */ var _public_path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(94);
 /* harmony import */ var _public_path__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_public_path__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var modernizr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(94);
+/* harmony import */ var modernizr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(95);
 /* harmony import */ var modernizr__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(modernizr__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var patternslib_src_core_registry__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
 /* harmony import */ var patternslib_src_pat_ajax_ajax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(35);
-/* harmony import */ var patternslib_src_pat_auto_scale_auto_scale__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(97);
-/* harmony import */ var patternslib_src_pat_checklist_checklist__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(98);
-/* harmony import */ var patternslib_src_pat_collapsible_collapsible__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(99);
-/* harmony import */ var patternslib_src_pat_depends_depends__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(100);
-/* harmony import */ var patternslib_src_pat_display_time_display_time__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(101);
-/* harmony import */ var patternslib_src_pat_equaliser_equaliser__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(103);
+/* harmony import */ var patternslib_src_pat_auto_scale_auto_scale__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(98);
+/* harmony import */ var patternslib_src_pat_checklist_checklist__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(99);
+/* harmony import */ var patternslib_src_pat_collapsible_collapsible__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(100);
+/* harmony import */ var patternslib_src_pat_depends_depends__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(101);
+/* harmony import */ var patternslib_src_pat_display_time_display_time__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(102);
+/* harmony import */ var patternslib_src_pat_equaliser_equaliser__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(104);
 /* harmony import */ var patternslib_src_pat_inject_inject__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(22);
-/* harmony import */ var patternslib_src_pat_legend_legend__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(104);
-/* harmony import */ var patternslib_src_pat_masonry_masonry__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(105);
-/* harmony import */ var patternslib_src_pat_navigation_navigation__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(106);
-/* harmony import */ var patternslib_src_pat_sortable_sortable__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(107);
+/* harmony import */ var patternslib_src_pat_legend_legend__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(105);
+/* harmony import */ var patternslib_src_pat_masonry_masonry__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(106);
+/* harmony import */ var patternslib_src_pat_navigation_navigation__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(107);
+/* harmony import */ var patternslib_src_pat_sortable_sortable__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(108);
  // first import
 
  // Core
@@ -7576,6 +7809,89 @@ index_default_._ = index_default_;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+/* Utilities for DOM traversal or navigation */
+var DATA_STYLE_DISPLAY = "__patternslib__style__display";
+
+var toNodeArray = function toNodeArray(nodes) {
+  // Return an array of DOM nodes
+  if (nodes.jquery || nodes instanceof NodeList) {
+    // jQuery or document.querySelectorAll
+    nodes = _toConsumableArray(nodes);
+  } else if (nodes instanceof Array === false) {
+    nodes = [nodes];
+  }
+
+  return nodes;
+};
+
+var querySelectorAllAndMe = function querySelectorAllAndMe(el, selector) {
+  // Like querySelectorAll but including the element where it starts from.
+  // Returns an Array, not a NodeList
+  var all = _toConsumableArray(el.querySelectorAll(selector));
+
+  if (el.matches(selector)) {
+    all.unshift(el); // start element should be first.
+  }
+
+  return all;
+};
+
+var wrap = function wrap(el, wrapper) {
+  // Wrap a element with a wrapper element.
+  // See: https://stackoverflow.com/a/13169465/1337474
+  el.parentNode.insertBefore(wrapper, el);
+  wrapper.appendChild(el);
+};
+
+var hide = function hide(el) {
+  // Hides the element with ``display: none``
+  if (el.style.display === "none") {
+    // Nothing to do.
+    return;
+  }
+
+  if (el.style.display) {
+    el[DATA_STYLE_DISPLAY] = el.style.display;
+  }
+
+  el.style.display = "none";
+};
+
+var show = function show(el) {
+  // Shows element by removing ``display: none`` and restoring the display
+  // value to whatever it was before.
+  var val = el[DATA_STYLE_DISPLAY] || null;
+  el.style.display = val;
+  delete el[DATA_STYLE_DISPLAY];
+};
+
+var dom = {
+  toNodeArray: toNodeArray,
+  querySelectorAllAndMe: querySelectorAllAndMe,
+  wrap: wrap,
+  hide: hide,
+  show: show
+};
+/* harmony default export */ __webpack_exports__["a"] = (dom);
+
+/***/ }),
+
+/***/ 45:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -8647,6 +8963,7 @@ var base_Base = function Base($el, options, trigger) {
   }
 
   this.$el = $el;
+  this.el = $el[0];
   this.options = jquery_js_exposed_default.a.extend(true, {}, this.defaults || {}, options || {});
   this.init($el, options, trigger);
   this.emit("init");
@@ -8732,7 +9049,7 @@ base_Base.extend = function (patternProps) {
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var _logging__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
-/* harmony import */ var _jquery_ext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(44);
+/* harmony import */ var _jquery_ext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(45);
 /**
  * Patterns registry - Central registry and scan logic for patterns
  *
@@ -8795,6 +9112,8 @@ var registry = {
     this.patterns = {};
   },
   transformPattern: function transformPattern(name, content) {
+    var _pattern$prototype;
+
     /* Call the transform method on the pattern with the given name, if
      * it exists.
      */
@@ -8804,10 +9123,11 @@ var registry = {
     }
 
     var pattern = registry.patterns[name];
+    var transform = pattern.transform || ((_pattern$prototype = pattern.prototype) === null || _pattern$prototype === void 0 ? void 0 : _pattern$prototype.transform);
 
-    if (pattern.transform) {
+    if (transform) {
       try {
-        pattern.transform(jquery__WEBPACK_IMPORTED_MODULE_0___default()(content));
+        transform(jquery__WEBPACK_IMPORTED_MODULE_0___default()(content));
       } catch (e) {
         if (dont_catch) {
           throw e;
@@ -8920,7 +9240,7 @@ var registry = {
 
 /***/ }),
 
-/***/ 91:
+/***/ 92:
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -8949,7 +9269,7 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ 93:
+/***/ 94:
 /***/ (function(module, exports, __webpack_require__) {
 
 // NOTE: Import this file before any other files
@@ -8958,7 +9278,7 @@ __webpack_require__.p = window.__patternslib_public_path__ || "/assets/oira/scri
 
 /***/ }),
 
-/***/ 94:
+/***/ 95:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -14798,19 +15118,19 @@ __webpack_require__.p = window.__patternslib_public_path__ || "/assets/oira/scri
     delete window.Modernizr;
   }
 })(window);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(91)(module)))
-
-/***/ }),
-
-/***/ 95:
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(96);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(29)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(92)(module)))
 
 /***/ }),
 
 /***/ 96:
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(97);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(29)))
+
+/***/ }),
+
+/***/ 97:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -25690,7 +26010,7 @@ return jQuery;
 
 /***/ }),
 
-/***/ 97:
+/***/ 98:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25822,7 +26142,7 @@ parser.addArgument("max-height", 1000000);
 
 /***/ }),
 
-/***/ 98:
+/***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25831,7 +26151,7 @@ parser.addArgument("max-height", 1000000);
 /* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
 /* harmony import */ var _core_registry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
 /* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
-/* harmony import */ var _core_jquery_ext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(44);
+/* harmony import */ var _core_jquery_ext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(45);
 function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -25868,15 +26188,11 @@ var _ = {
         $trigger.scopedFind(options.deselect).on("click.pat-checklist", {
           trigger: $trigger
         }, _.onDeselectAll);
-        $trigger.on("change.pat-checklist", {
-          trigger: $trigger
-        }, _.onChange); // update select/deselect button status
+        $trigger.on("change", function () {
+          return _.onChange($trigger);
+        }); // update select/deselect button status
 
-        _.onChange({
-          data: {
-            trigger: $trigger
-          }
-        });
+        _.onChange($trigger);
 
         $trigger.find("input[type=checkbox]").each(_._onChangeCheckbox).on("change.pat-checklist", _._onChangeCheckbox);
         $trigger.find("input[type=radio]").each(_._initRadio).on("change.pat-checklist", _._onChangeRadio);
@@ -25920,9 +26236,9 @@ var _ = {
 
     return jquery__WEBPACK_IMPORTED_MODULE_0___default()([]);
   },
-  onChange: function onChange(event) {
-    var $trigger = event.data.trigger,
-        options = $trigger.data("patternChecklist");
+  onChange: function onChange(trigger) {
+    var $trigger = jquery__WEBPACK_IMPORTED_MODULE_0___default()(trigger);
+    var options = $trigger.data("patternChecklist");
     var siblings;
     var all_selects = $trigger.find(options.select);
 
@@ -25945,9 +26261,9 @@ var _ = {
         siblings = _._findSiblings(select, "input[type=checkbox]:visible");
 
         if (siblings && siblings.filter(":not(:checked)").length === 0) {
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(select).prop("disabled", true);
+          select.disabled = true;
         } else {
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(select).prop("disabled", false);
+          select.disabled = false;
         }
       }
     } catch (err) {
@@ -25965,9 +26281,9 @@ var _ = {
         siblings = _._findSiblings(deselect, "input[type=checkbox]:visible");
 
         if (siblings && siblings.filter(":checked").length === 0) {
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(deselect).prop("disabled", true);
+          deselect.disabled = true;
         } else {
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(deselect).prop("disabled", false);
+          deselect.disabled = false;
         }
       }
     } catch (err) {
@@ -26106,210 +26422,6 @@ var _ = {
 };
 _core_registry__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].register(_);
 /* unused harmony default export */ var _unused_webpack_default_export = (_);
-
-/***/ }),
-
-/***/ 99:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _inject_inject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(22);
-/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
-/* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
-/* harmony import */ var _core_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(21);
-/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
-/* harmony import */ var _core_jquery_ext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(44);
-/**
- * Patterns collapsible - Collapsible content
- *
- * Copyright 2012-2013 Florian Friesdorf
- * Copyright 2012-2013 Simplon B.V. - Wichert Akkerman
- * Copyright 2012 Markus Maier
- * Copyright 2013 Peter Lamut
- * Copyright 2012 Jonas Hoersch
- */
-
-
-
-
-
-
-
-var log = _core_logging__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].getLogger("pat.collapsible"),
-    parser = new _core_parser__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"]("collapsible");
-parser.addArgument("load-content");
-parser.addArgument("store", "none", ["none", "session", "local"]);
-parser.addArgument("transition", "slide", ["none", "css", "fade", "slide", "slide-horizontal"]);
-parser.addArgument("effect-duration", "fast");
-parser.addArgument("effect-easing", "swing");
-parser.addArgument("closed", false);
-parser.addArgument("trigger", "::first");
-parser.addArgument("close-trigger");
-parser.addArgument("open-trigger");
-/* unused harmony default export */ var _unused_webpack_default_export = (_core_base__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"].extend({
-  name: "collapsible",
-  trigger: ".pat-collapsible",
-  jquery_plugin: true,
-  transitions: {
-    "none": {
-      closed: "hide",
-      open: "show"
-    },
-    "fade": {
-      closed: "fadeOut",
-      open: "fadeIn"
-    },
-    "slide": {
-      closed: "slideUp",
-      open: "slideDown"
-    },
-    "slide-horizontal": {
-      closed: "slideOut",
-      open: "slideIn"
-    }
-  },
-  init: function init($el, opts) {
-    var $content, state, storage;
-    this.options = _core_store__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].updateOptions($el[0], parser.parse($el, opts));
-
-    if (this.options.trigger === "::first") {
-      this.$trigger = $el.children(":first");
-      $content = $el.children(":gt(0)");
-    } else {
-      this.$trigger = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.options.trigger);
-      $content = $el.children();
-    }
-
-    if (this.$trigger.length === 0) {
-      log.error("Collapsible has no trigger.", $el[0]);
-      return;
-    }
-
-    this.$panel = $el.children(".panel-content");
-
-    if (this.$panel.length === 0) {
-      if ($content.length) {
-        this.$panel = $content.wrapAll("<div class='panel-content' />").parent();
-      } else {
-        this.$panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()("<div class='panel-content' />").insertAfter(this.$trigger);
-      }
-    }
-
-    state = this.options.closed || $el.hasClass("closed") ? "closed" : "open";
-
-    if (this.options.store !== "none") {
-      storage = (this.options.store === "local" ? _core_store__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].local : _core_store__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].session)(this.name);
-      state = storage.get($el.attr("id")) || state;
-    }
-
-    if (state === "closed") {
-      this.$trigger.removeClass("collapsible-open").addClass("collapsible-closed");
-      $el.removeClass("open").addClass("closed");
-      this.$panel.hide();
-    } else {
-      if (this.options.loadContent) this._loadContent($el, this.options.loadContent, this.$panel);
-      this.$trigger.removeClass("collapsible-closed").addClass("collapsible-open");
-      $el.removeClass("closed").addClass("open");
-      this.$panel.show();
-    }
-
-    this.$trigger.off(".pat-collapsible").on("click.pat-collapsible", null, $el, this._onClick.bind(this)).on("keypress.pat-collapsible", null, $el, this._onKeyPress.bind(this));
-
-    if (this.options.closeTrigger) {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on("click", this.options.closeTrigger, this.close.bind(this));
-    }
-
-    if (this.options.openTrigger) {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on("click", this.options.openTrigger, this.open.bind(this));
-    }
-
-    return $el;
-  },
-  open: function open() {
-    if (!this.$el.hasClass("open")) this.toggle();
-    return this.$el;
-  },
-  close: function close() {
-    if (!this.$el.hasClass("closed")) this.toggle();
-    return this.$el;
-  },
-  _onClick: function _onClick(event) {
-    this.toggle(event.data);
-  },
-  _onKeyPress: function _onKeyPress(event) {
-    var keycode = event.keyCode ? event.keyCode : event.which;
-    if (keycode === 13) this.toggle();
-  },
-  _loadContent: function _loadContent($el, url, $target) {
-    var components = url.split("#"),
-        base_url = components[0],
-        id = components[1] ? "#" + components[1] : "body",
-        opts = [{
-      url: base_url,
-      source: id,
-      $target: $target,
-      dataType: "html"
-    }];
-    _inject_inject__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].execute(opts, $el);
-  },
-  // jQuery method to force loading of content.
-  loadContent: function loadContent($el) {
-    return $el.each(function (idx, el) {
-      if (this.options.loadContent) this._loadContent(jquery__WEBPACK_IMPORTED_MODULE_0___default()(el), this.options.loadContent, this.$panel);
-    }.bind(this));
-  },
-  toggle: function toggle() {
-    var new_state = this.$el.hasClass("closed") ? "open" : "closed";
-
-    if (this.options.store !== "none") {
-      var storage = (this.options.store === "local" ? _core_store__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].local : _core_store__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].session)(this.name);
-      storage.set(this.$el.attr("id"), new_state);
-    }
-
-    if (new_state === "open") {
-      this.$el.trigger("patterns-collapsible-open");
-
-      this._transit(this.$el, "closed", "open");
-    } else {
-      this.$el.trigger("patterns-collapsible-close");
-
-      this._transit(this.$el, "open", "closed");
-    }
-
-    return this.$el; // allow chaining
-  },
-  _transit: function _transit($el, from_cls, to_cls) {
-    if (to_cls === "open" && this.options.loadContent) {
-      this._loadContent($el, this.options.loadContent, this.$panel);
-    }
-
-    var duration = this.options.transition === "css" || this.options.transition === "none" ? null : this.options.effect.duration;
-
-    if (!duration) {
-      this.$trigger.removeClass("collapsible-" + from_cls).addClass("collapsible-" + to_cls);
-      $el.removeClass(from_cls).addClass(to_cls).trigger("pat-update", {
-        pattern: "collapsible",
-        transition: "complete"
-      });
-    } else {
-      var t = this.transitions[this.options.transition];
-      $el.addClass("in-progress").trigger("pat-update", {
-        pattern: "collapsible",
-        transition: "start"
-      });
-      this.$trigger.addClass("collapsible-in-progress");
-      this.$panel[t[to_cls]](duration, this.options.effect.easing, function () {
-        this.$trigger.removeClass("collapsible-" + from_cls).removeClass("collapsible-in-progress").addClass("collapsible-" + to_cls);
-        $el.removeClass(from_cls).removeClass("in-progress").addClass(to_cls).trigger("pat-update", {
-          pattern: "collapsible",
-          transition: "complete"
-        });
-      }.bind(this));
-    }
-  }
-}));
 
 /***/ })
 

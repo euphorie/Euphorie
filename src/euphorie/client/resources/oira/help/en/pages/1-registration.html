@@ -7,7 +7,10 @@
 		<link id="all-styles" rel="stylesheet" href="../../../style/all.css" type="text/css">
 
 		
-			<script src="../../../script/bundle.js" type="text/javascript"></script>
+			
+    <script>window.__patternslib_public_path__ = "/++resource++euphorie.resources/oira/script/";</script>
+    <script src="/++resource++euphorie.resources/oira/script/polyfills-loader.js" type="text/javascript"></script>
+<script src="../../../script/bundle.js" type="text/javascript"></script>
 		
 
 		<!-- Following line is ONLY for the prototype. -->
@@ -23,12 +26,36 @@
 		<link rel="icon" type="image/png" href="../../../favicon/apple-touch-icon.png" />
 	</head>
 	<body id="body" data-page-layout="help-text" data-layout-layout="default-layout" class=" osh-off osc-off osc-size-normal osc-s-off ">
-		
+
 		<div id="main" class="sidebar-off">
+	<header id="toolbar">
 	
+	
+		<a href="#osc" 
+		   id="toggle-osc" 
+		   class="iconified pat-toggle" 
+		   data-pat-toggle="selector: body; value: osc-off osc-on && selector: body; value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+	
+
+	
+
+	<a href="/feedback/osh.html#osh-osc-toggle" id="osh-target-osc-toggle" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
+
+	<a href="/feedback/more-menu#menu-content" 
+	   id="more-menu" 
+	   class="iconified pat-tooltip pat-switch" 
+	   data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+	   data-pat-tooltip="source: ajax">More…</a>
+	<a href="/index-logged-in.html" 
+	   data-pat-inject="source: #content; target: #content; history: record" 
+	   class="home pat-inject iconified icon-home pat-switch" 
+	   data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+	   title="Startup page">Dashboard</a>
+	
+</header>
 	<div id="content">
 		
-		
+
 		
 
 		<div id="main-content" >
@@ -36,72 +63,78 @@
     <div class="container">
 	<div class="long-read">
 		<div class="canvas-toolbar">
-			<a href="../index.html#content" data-pat-inject="history: record" class="ueber-back-button pat-inject">Topics</a>
+			<a href="../index.html#content"
+			   data-pat-inject="history: record"
+			   class="ueber-back-button pat-inject">Topics</a>
 		</div>
-		<article class="pat-rich ">
+		<article class="pat-rich "
+		 	     id="help-text">
 			<h1>
 			    Registration
 			</h1>
-			
-			<h2 id="why-do-i-have-to-register">Why do I have to register?</h2>
+			<div id="help-text-body">
+				
+				<h2 id="why-do-i-have-to-register">Why do I have to register?</h2>
 
 <p>The first thing you will be asked to do when you begin your first risk assessment is to create an OiRA account - this is a simple and quick process.</p>
 
-<p>Registering allows you to log in at any time to access your data, continue previous assessments or to start new ones.</p>
+<p>Registering allows you to log in at any time to access your data, continue previous assessments or start new ones.</p>
 
-<p>Through your registration the OiRA system can save all your sessions and you will always have your data available.</p>
+<p>Registering means the OiRA system can save all your sessions, and your data will always be available.</p>
 
-<p>Find <a href="/terms-and-conditions">here</a> more information about how we deal with your personal data!</p>
+<p>Read our privacy policy and find out how we deal with your personal data.</p>
 
-<h2 id="what-is-the-difference-between-a-registered-user-and-a-test-session">What is the difference between a registered user and a test session?</h2>
+<h2 id="what-is-the-difference-between-registering-as-a-user-and-a-doing-a-test-session">What is the difference between registering as a user and a doing a test session?</h2>
 
-<p>A test session is meant for interested parties to have a look at the tool before deciding to register. However, during a test session your data is not saved, and you will not be able to retrieve any entered information at a later point. Besides, a test session does not allow you to print any of the reports, whereas registering your account allows you to document your risk assessment.</p>
+<p>The test session allows interested parties to have a look at the tool before deciding to register. However, during a test session your data is not saved, and you will not be able to retrieve any information you entered at a later point. The test session does not allow you to print any of the reports, whereas registering your account allows you to fully document your risk assessment.</p>
 
 <h2 id="register-for-a-new-account">Register for a new account</h2>
 
 <p>Is this your first visit? Follow these simple steps to get started:</p>
 
-<p>1.) Click on “Register” to view the registration form</p>
+<p>1.) Click on ‘Register’ to view the registration form.</p>
 
 <figure class="screenshot">
-  <object class="pat-auto-scale" data="../../illustrations/registration.html" scrolling="no">
+  <object class="pat-auto-scale" data="../../en/illustrations/registration.html" scrolling="no">
   </object>
   <figcaption>Registration form.</figcaption>
 </figure>
 
 <p>2.) Enter your e-mail address and choose a password (twice)</p>
 
-<p>3.) Click “Next” to register your new account</p>
+<p>3.) Click on ‘Next’ to register your new account.</p>
 
 <p>4.) Read and accept the privacy policy to continue</p>
 
-<p>You will be logged in directly to the OiRA system.</p>
+<p>You will now be logged into the OiRA system.</p>
 
 <h2 id="logging-in-to-an-existing-account">Logging in to an existing account</h2>
 
-<p>If you have registered already, this is how you can access your account.</p>
+<p>If you have registered previously, this is how to access your account:</p>
 
-<p>1.) Visit the login form. A link to the login form will be shown to you whenever you try to access OiRA, until you have logged in.</p>
+<p>1.) Visit the log-in form. A link to the log-in form will appear whenever you try to access OiRA, until you have logged in.</p>
 
 <figure class="screenshot">
-  <object class="pat-auto-scale" data="../../illustrations/login.html" scrolling="no">
+  <object class="pat-auto-scale" data="../../en/illustrations/login.html" scrolling="no">
   </object>
   <figcaption>Login form.</figcaption>
 </figure>
 
-<p>2.) Insert your e-mail address and your password</p>
+<p>2.) Fill in your e-mail address and your password.</p>
 
-<p>3.) Sign in by clicking the button “Login”
-Once you are logged in, you will see the screen below. From here you can start a new risk assessment or enter risk assessments that you have started before.</p>
+<p>3.) Sign in by clicking the button ‘Login’.</p>
+
+<p>Once you are logged in, you will see the screen below. From here you can start a new risk assessment or return to risk assessments you have started previously.</p>
 
 <figure class="screenshot">
-  <object class="pat-auto-scale" data="../../illustrations/index-logged-in.html" scrolling="no">
+  <object class="pat-auto-scale" data="../../en/illustrations/index-logged-in.html" scrolling="no">
   </object>
   <figcaption>The dashboard.</figcaption>
 </figure>
 
-<p>Start a new risk assessment by giving it a title (for example Mycompany 2010-07-03) or access one of your former risk assessments. All your risk assessments are saved for future reference unless you choose to delete them.</p>
+<p>Start a new risk assessment by giving it a title (e.g. My-Company 2018-07-03) or access one of your previous risk assessments. All your risk assessments are saved for future reference unless you choose to delete them.</p>
 
+			</div>
 		</article>
 	</div>
 </div>
@@ -111,14 +144,23 @@ Once you are logged in, you will see the screen below. From here you can start a
    data-pat-scroll="selector: #content-pane; trigger: auto; offset: 0"
    hidden
    >Scroll to top</a>
+
+<a tal:define="webhelpers nocall:context/@@webhelpers;" href="/${webhelpers/selected_country}"
+   id="inject-toolbar"
+   hidden
+   class="pat-inject"
+   data-pat-inject="source: #toolbar; target: #toolbar; trigger: autoload &amp;&amp; source: #osc; target: #osc; trigger: autoload">Load toolbar…</a>
+
   </div>
 </div>
-			
+
 	</div>
 </div>
 
 <aside id="osc">
-	<form id="osc-header" action="/index-logged-in#browser" class="pat-inject pat-autosubmit">
+	
+
+<form id="osc-header" action="/index-logged-in#browser" class="pat-inject pat-autosubmit">
 	
 	    
 			<!-- The back button and current group title is shown in browsing mode within a group. -->
@@ -134,10 +176,10 @@ Once you are logged in, you will see the screen below. From here you can start a
             <strong class="context-menu-label iconified more-menu-trigger">More…</strong>
             <ul class="menu">
             	<li>
-                    <a href="/new-session.html#document-content" 
-                       data-pat-modal="class: large" 
+                    <a href="/new-session.html#document-content"
+                       data-pat-modal="class: large"
                        class="no-label pat-modal icon-plus pat-switch"
-                       data-pat-switch="body osc-s-* osc-s-off" 
+                       data-pat-switch="body osc-s-* osc-s-off"
                        title="Start a new risk assessment">New risk assessment</a>
                 </li>
                 <li>
@@ -160,7 +202,9 @@ Once you are logged in, you will see the screen below. From here you can start a
 	<div id="navigation">
 		
 			<div id="miller-columns" class="miller-columns">
-				<form class="search-form pat-inject view-compact"
+				
+
+<form class="search-form pat-inject view-compact"
 	  id="search-form"
 	  action="/feedback/search-results.html#browser"
 	  >
@@ -175,7 +219,9 @@ Once you are logged in, you will see the screen below. From here you can start a
 	    <fieldset class="advanced-search pat-inject pat-subform"
 				  data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
 
-	        <fieldset class="advanced pat-clone" data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
+	        
+
+<fieldset class="advanced pat-clone" data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
     <input type="hidden" name="search-rule.and-or:records" value="" />
     <p class="clone search-rule row-1">
         <label class="pat-select field-choice pat-select">
@@ -189,9 +235,12 @@ Once you are logged in, you will see the screen below. From here you can start a
                     <option value="plant">Plant</option>
                     <option value="department">Department</option>
                     <option value="contractor">Contractor</option>
+                    <option value="operator_id">Operator at Daimler</option>
                     <option value="created">Creation date</option>
                     <option value="effective">Publication date</option>
                     <option value="modified">Modification date</option>
+                    <option value="start_date">Start date (external company)</option>
+                    <option value="end_date">End date (external company)</option>
                 </optgroup>
             </select>
         </label>
@@ -359,7 +408,48 @@ Once you are logged in, you will see the screen below. From here you can start a
 
 </form>
 		    	
-		    	
+		    	<div id="browser">
+					<ul class="departments browser" id="results">
+						
+							<li class="item type-risk-assessment">
+	<span class="object-name field">
+    	<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Splash and Shine Cleaners</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-10-30T08:00Z" data-pat-display-time="from-now: true; locale: en">19 days ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="EU Cleaning">EU Cleaning</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+ </li>
+<li class="item type-risk-assessment">
+	<span class="object-name field">
+		<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Commercial Guardinng, Leicester</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-09-16 16:50:38.739224+02:00" data-pat-display-time="from-now: true; locale: en">2 months ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="Private Security EU">Private Security EU</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+</li>
+<li class="item type-risk-assessment">
+	<span class="object-name field">
+		<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Private Security, Grafton Street</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-07-16 16:50:38.739224+02:00" data-pat-display-time="from-now: true; locale: en">2 months ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="Private Security EU">Private Security EU</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+</li>
+<li class="item type-risk-assessment">
+	<span class="object-name field">
+		<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Office operations in times of COVID-19</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-05-03 10:31:33.134598+02:00" data-pat-display-time="from-now: true; locale: en">4 months ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="COVID-19">COVID-19</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+</li>
+						
+			    	</ul>
+		    	</div>
 		    </div>
 	    
     </div>

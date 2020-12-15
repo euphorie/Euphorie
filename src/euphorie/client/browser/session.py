@@ -210,6 +210,7 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
 
     def update(self):
         self.verify_view_permission()
+        utils.setLanguage(self.request, self.survey, self.survey.language)
         super(Start, self).update()
         if self.request.method != "POST":
             return
