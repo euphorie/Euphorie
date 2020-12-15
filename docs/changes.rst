@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.6.1 (unreleased)
+11.6.1 (2020-12-15)
 -------------------
 
 - Completely new Help section
