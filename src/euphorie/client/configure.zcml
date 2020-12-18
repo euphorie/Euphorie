@@ -23,7 +23,6 @@
     <include package=".docx" />
     <include package=".widgets" />
 
-    <grok:grok package=".error" />
     <grok:grok package=".help" />
     <grok:grok package=".layout" />
     <grok:grok package=".pdf" />
@@ -31,7 +30,6 @@
     <grok:grok package=".publish" />
     <grok:grok package=".report" />
     <grok:grok package=".sector" />
-    <grok:grok package=".settings" />
     <grok:grok package=".survey" />
     <grok:grok package=".unpublish" />
     <grok:grok package=".update" />

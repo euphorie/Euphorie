@@ -4,20 +4,17 @@ Settings
 
 Change a user's password/email or delete an account.
 """
-from .. import MessageFactory as _
 from Acquisition import aq_inner
-from euphorie.client.client import IClient
-from euphorie.client.country import IClientCountry
-from euphorie.client.interfaces import IClientSkinLayer
+from euphorie.client import MessageFactory as _
 from euphorie.client.model import Account
 from euphorie.client.model import AccountChangeRequest
 from euphorie.client.model import get_current_account
 from euphorie.client.utils import CreateEmailTo
 from euphorie.client.utils import randomString
-from five import grok
 from plone import api
 from plone.directives import form
 from Products.CMFCore.utils import getToolByName
+from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MailHost.MailHost import MailHostError
 from Products.statusmessages.interfaces import IStatusMessage
@@ -38,8 +35,6 @@ import urllib
 
 
 log = logging.getLogger(__name__)
-
-grok.templatedir("templates")
 
 
 class PasswordChangeSchema(form.Schema):
@@ -74,12 +69,8 @@ class EmailChangeSchema(form.Schema):
 
 class AccountSettings(form.SchemaForm):
     """View name: @@account-settings"""
-    grok.context(IClientCountry)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IClientSkinLayer)
-    grok.name("account-settings")
-    grok.template("account-settings")
 
+    template = ViewPageTemplateFile("templates/account-settings.pt")
     schema = PasswordChangeSchema
     ignoreContext = True
 
@@ -117,13 +108,7 @@ class AccountSettings(form.SchemaForm):
 
 class DeleteAccount(form.SchemaForm):
     """"View name: @@account-delete"""
-    grok.context(IClientCountry)
-
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IClientSkinLayer)
-    grok.name("account-delete")
-    grok.template("account-delete")
-
+    template = ViewPageTemplateFile("templates/account-delete.pt")
     schema = AccountDeleteSchema
     ignoreContext = True
 
@@ -161,14 +146,9 @@ class DeleteAccount(form.SchemaForm):
 
 
 class NewEmail(form.SchemaForm):
-    grok.context(IClientCountry)
-
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IClientSkinLayer)
-    grok.name("new-email")
-    grok.template("new-email")
 
     schema = EmailChangeSchema
+    template = ViewPageTemplateFile("templates/new-email.pt")
     email_template = ViewPageTemplateFile("templates/confirm-email.pt")
     ignoreContext = True
 
@@ -327,14 +307,9 @@ class NewEmail(form.SchemaForm):
         self.request.response.redirect(self.request.client.absolute_url())
 
 
-class ChangeEmail(grok.View):
-    grok.context(IClient)
-    grok.require("zope2.Public")
-    grok.layer(IClientSkinLayer)
-    grok.name("confirm-change")
-    grok.template("error")
+class ChangeEmail(BrowserView):
 
-    def update(self):
+    def __call__(self):
         url = "%s/" % aq_inner(self.context).absolute_url()
         flash = IStatusMessage(self.request).addStatusMessage
         key = self.request.get("key")

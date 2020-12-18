@@ -548,4 +548,56 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="index.html"
+      for="Exception"
+      permission="zope2.Public"
+      class=".error.ErrorView"
+      template="templates/error.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="index.html"
+      for="zExceptions.NotFound"
+      permission="zope2.Public"
+      class=".error.NotFound"
+      template="templates/error_notfound.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <!-- settings -->
+  <browser:page
+      name="account-settings"
+      for="euphorie.client.country.IClientCountry"
+      permission="euphorie.client.ViewSurvey"
+      class=".settings.AccountSettings"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="account-delete"
+      for="euphorie.client.country.IClientCountry"
+      permission="euphorie.client.ViewSurvey"
+      class=".settings.DeleteAccount"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="new-email"
+      for="euphorie.client.country.IClientCountry"
+      permission="euphorie.client.ViewSurvey"
+      class=".settings.NewEmail"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="confirm-change"
+      for="euphorie.client.client.IClient"
+      permission="zope2.Public"
+      class=".settings.ChangeEmail"
+      template="templates/error.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
 </configure>
