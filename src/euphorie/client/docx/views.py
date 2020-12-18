@@ -286,14 +286,14 @@ class IdentificationReportDocxView(OfficeDocumentView):
     _content_type = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'  # noqa: E 501
 
     def get_session_nodes(self):
-        """ Return an ordered list of all relevant tree items for the current
-            survey.
+        """ Return an ordered list of all tree items for the current
+            survey. By OSHA's request, optional submodules are always included.
         """
-        query = Session.query(model.SurveyTreeItem).filter(
-            model.SurveyTreeItem.session == self.context.session).filter(
-                sql.not_(model.SKIPPED_PARENTS)
-            ).order_by(model.SurveyTreeItem.path)
-
+        query = (
+            Session.query(model.SurveyTreeItem)
+            .filter(model.SurveyTreeItem.session == self.context.session)
+            .order_by(model.SurveyTreeItem.path)
+        )
         return query.all()
 
     def get_data(self, for_download=False):

@@ -476,13 +476,12 @@ class ContentsPreview(BrowserView):
         )
 
     def get_session_nodes(self):
-        """ Return an ordered list of all relevant tree items for the current
-            survey.
+        """ Return an ordered list of all tree items for the current survey.
+            By OSHA's request, optional submodules are always included.
         """
         query = (
             Session.query(SurveyTreeItem)
             .filter(SurveyTreeItem.session == self.context.session)
-            .filter(sql.not_(SKIPPED_PARENTS))
             .order_by(SurveyTreeItem.path)
         )
 
