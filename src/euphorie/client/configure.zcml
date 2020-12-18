@@ -23,7 +23,6 @@
     <include package=".docx" />
     <include package=".widgets" />
 
-    <grok:grok package=".conditions" />
     <grok:grok package=".country" />
     <grok:grok package=".error" />
     <grok:grok package=".help" />

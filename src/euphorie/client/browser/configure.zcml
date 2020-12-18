@@ -539,4 +539,13 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="terms-and-conditions"
+      for="*"
+      permission="zope2.Public"
+      class=".conditions.TermsAndConditions"
+      template="templates/conditions.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
 </configure>
