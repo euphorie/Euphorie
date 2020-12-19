@@ -575,7 +575,7 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
-  <!-- sector -->
+  <!-- Sector -->
   <browser:page
       name="view"
       for="euphorie.client.sector.IClientSector"
@@ -591,6 +591,23 @@
       permission="euphorie.client.ViewSurvey"
       class=".pdf.PdfView"
       layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <!-- Survey Publish / Unpublish -->
+  <browser:page
+      name="publish"
+      for="euphorie.content.survey.ISurvey"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      permission="euphorie.client.PublishSurvey"
+      class=".publish.PublishSurvey"
+      />
+
+  <browser:page
+      name="preview"
+      for="euphorie.content.survey.ISurvey"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      permission="euphorie.client.PublishSurvey"
+      class=".publish.PreviewSurvey"
       />
 
   <!-- settings -->

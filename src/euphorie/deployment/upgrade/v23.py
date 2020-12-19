@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 from euphorie.client import MessageFactory as _
 from euphorie.client.country import IClientCountry
-from euphorie.client.publish import EnableCustomRisks
+from euphorie.client.browser.publish import EnableCustomRisks
 from euphorie.client.sector import IClientSector
 from plone import api
 from z3c.appconfig.interfaces import IAppConfig

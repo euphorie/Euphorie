@@ -24,7 +24,6 @@
     <include package=".widgets" />
 
     <grok:grok package=".layout" />
-    <grok:grok package=".publish" />
     <grok:grok package=".report" />
     <grok:grok package=".update" />
 

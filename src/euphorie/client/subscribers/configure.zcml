@@ -15,13 +15,13 @@
   <subscriber
       for="euphorie.content.survey.ISurvey
            Products.CMFCore.interfaces.IActionSucceededEvent"
-      handler="euphorie.client.publish.handleSurveyPublish"
+      handler="euphorie.client.browser.publish.handleSurveyPublish"
       />
 
   <subscriber
       for="euphorie.content.survey.ISurvey
            euphorie.content.interfaces.ISurveyUnpublishEvent"
-      handler="euphorie.client.unpublish.handleSurveyUnpublish"
+      handler="euphorie.client.browser.publish.handleSurveyUnpublish"
       />
 
 </configure>

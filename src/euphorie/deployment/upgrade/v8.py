@@ -2,7 +2,7 @@
 from euphorie.client import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.country import IClientCountry
-from euphorie.client.publish import EnableCustomRisks
+from euphorie.client.browser.publish import EnableCustomRisks
 from euphorie.client.sector import IClientSector
 from euphorie.content.user import IUser
 from euphorie.deployment import setuphandlers

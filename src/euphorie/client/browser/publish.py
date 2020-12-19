@@ -11,18 +11,17 @@ from AccessControl.SecurityManagement import newSecurityManager
 from AccessControl.SecurityManagement import setSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from euphorie.client import make_tag
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.interfaces import ObjectPublishedEvent
-from euphorie.content.survey import ISurvey
-from five import grok
 from OFS.event import ObjectWillBeRemovedEvent
 from plone import api
 from plone.directives import form
 from plone.scale.storage import AnnotationStorage
 from plonetheme.nuplone.utils import getPortal
 from Products.CMFCore.utils import getToolByName
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
-from webhelpers.html.builder import make_tag
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from z3c.form import button
@@ -38,7 +37,6 @@ import random
 
 
 log = logging.getLogger(__name__)
-grok.templatedir("templates")
 
 
 def CopyToClient(survey, preview=False):
@@ -78,11 +76,16 @@ def CopyToClient(survey, preview=False):
     sector = aq_parent(surveygroup)
     country = aq_parent(sector)
     from euphorie.content.sector import ISector
+
     assert ISector.providedBy(sector)
 
     if country.id not in client:
-        client.invokeFactory("euphorie.clientcountry", country.id,
-            title=country.title, country_type=country.country_type)
+        client.invokeFactory(
+            "euphorie.clientcountry",
+            country.id,
+            title=country.title,
+            country_type=country.country_type,
+        )
     cl_country = client[country.id]
 
     if sector.id not in cl_country:
@@ -139,23 +142,27 @@ def EnableCustomRisks(survey):
         title=_(u"title_other_risks", default=u"Added risks (by you)"),
         safe_id=False,
         description=_(
-            u"description_other_risks", default=u"In case you have identified "
-            u"risks not included in the tool, you are able to add them now:"),
+            u"description_other_risks",
+            default=u"In case you have identified "
+            u"risks not included in the tool, you are able to add them now:",
+        ),
         optional=True,
         question=_(
-            u"question_other_risks", default=u"<p><strong>Important:"
+            u"question_other_risks",
+            default=u"<p><strong>Important:"
             u"</strong> In order to avoid duplicating risks, we strongly "
             u"recommend you to go first through all the previous modules, if "
             u"you have not done it yet.</p><p>If you don't need to add risks, "
-            u"please continue.</p>"),
+            u"please continue.</p>",
+        ),
     )
     try:
         module = api.content.create(**args)
     except api.exc.InvalidParameterError:
-        args['id'] = "custom-risks-"+str(random.randint(0, 99999999))
+        args["id"] = "custom-risks-" + str(random.randint(0, 99999999))
         module = api.content.create(**args)
     alsoProvides(module, ICustomRisksModule)
-    return args['id']
+    return args["id"]
 
 
 def PublishToClient(survey, preview=False):
@@ -192,6 +199,38 @@ def handleSurveyPublish(survey, event):
     PublishToClient(survey, False)
 
 
+def handleSurveyUnpublish(survey, event):
+    """Event handler (subscriber) to take care of unpublishing a survey
+    from the client.
+    """
+    surveygroup = aq_parent(survey)
+    sector = aq_parent(surveygroup)
+    country = aq_parent(sector)
+
+    pas = getToolByName(survey, "acl_users")
+    clientuser = pas.getUserById("client")
+    sm = getSecurityManager()
+    try:
+        newSecurityManager(None, clientuser)
+        client = getPortal(survey).client
+        try:
+            clientcountry = client[country.id]
+            clientsector = clientcountry[sector.id]
+            clientsector[surveygroup.id]
+        except KeyError:
+            log.info(
+                "Trying to unpublish unpublished survey %s",
+                "/".join(survey.getPhysicalPath()),
+            )
+            return
+
+        clientsector.manage_delObjects([surveygroup.id])
+        if not clientsector.keys():
+            clientcountry.manage_delObjects([clientsector.id])
+    finally:
+        setSecurityManager(sm)
+
+
 class PublishSurvey(form.Form):
     """Publish a survey.
 
@@ -202,10 +241,8 @@ class PublishSurvey(form.Form):
 
     View name: @@publish
     """
-    grok.context(ISurvey)
-    grok.require("euphorie.client.PublishSurvey")
-    grok.name("publish")
-    grok.template("publish")
+
+    template = ViewPageTemplateFile("templates/publish.pt")
 
     def publish(self):
         survey = aq_inner(self.context)
@@ -246,21 +283,27 @@ class PublishSurvey(form.Form):
 
     @button.buttonAndHandler(_(u"button_cancel", default=u"Cancel"))
     def handleCancel(self, action):
-        state = getMultiAdapter((aq_inner(self.context), self.request),
-                name="plone_context_state")
+        state = getMultiAdapter(
+            (aq_inner(self.context), self.request), name="plone_context_state"
+        )
         self.request.response.redirect(state.view_url())
 
     @button.buttonAndHandler(_(u"button_publish", default=u"Publish"))
     def handlePublish(self, action):
         self.publish()
-        url = make_tag('a', href=self.client_url(), c=self.client_url())
+        url = make_tag("a", href=self.client_url(), c=self.client_url())
         IStatusMessage(self.request).addHTMLStatusMessage(
-            _(u"message_publish_success",
+            _(
+                u"message_publish_success",
                 default="Succesfully published the OiRA Tool. It can be "
-                "accessed at ${url}.", mapping={'url': url}),
-            type="success")
+                "accessed at ${url}.",
+                mapping={"url": url},
+            ),
+            type="success",
+        )
         state = getMultiAdapter(
-            (aq_inner(self.context), self.request), name="plone_context_state")
+            (aq_inner(self.context), self.request), name="plone_context_state"
+        )
         self.request.response.redirect(state.view_url())
 
 
@@ -272,10 +315,8 @@ class PreviewSurvey(form.Form):
 
     View name: @@preview
     """
-    grok.context(ISurvey)
-    grok.require("euphorie.client.PublishSurvey")
-    grok.name("preview")
-    grok.template("preview")
+
+    template = ViewPageTemplateFile("templates/preview.pt")
 
     def publish(self):
         survey = aq_inner(self.context)
@@ -299,20 +340,25 @@ class PreviewSurvey(form.Form):
 
     @button.buttonAndHandler(_(u"button_cancel", default=u"Cancel"))
     def handleCancel(self, action):
-        state = getMultiAdapter((aq_inner(self.context), self.request),
-                name="plone_context_state")
+        state = getMultiAdapter(
+            (aq_inner(self.context), self.request), name="plone_context_state"
+        )
         self.request.response.redirect(state.view_url())
 
     @button.buttonAndHandler(_(u"button_preview", default=u"Create preview"))
     def handlePreview(self, action):
         self.publish()
-        url = make_tag('a', href=self.preview_url(), c=self.preview_url())
+        url = make_tag("a", href=self.preview_url(), c=self.preview_url())
         IStatusMessage(self.request).addHTMLStatusMessage(
-                _("message_preview_success",
-                    default=u"Succesfully created a preview for the OiRA Tool. "
-                            u"It can be accessed at ${url}.",
-                    mapping={'url': url}), type="success")
+            _(
+                "message_preview_success",
+                default=u"Succesfully created a preview for the OiRA Tool. "
+                u"It can be accessed at ${url}.",
+                mapping={"url": url},
+            ),
+            type="success",
+        )
         state = getMultiAdapter(
-                        (aq_inner(self.context), self.request),
-                        name="plone_context_state")
+            (aq_inner(self.context), self.request), name="plone_context_state"
+        )
         self.request.response.redirect(state.view_url())
