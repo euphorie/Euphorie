@@ -3,6 +3,7 @@ from euphorie.client import utils
 from euphorie.client.browser.country import SessionsView
 from euphorie.client.model import get_current_account
 from plone.memoize.view import memoize
+from Products.Five import BrowserView
 from z3c.saconfig import Session
 
 
@@ -48,3 +49,11 @@ class SurveySessionsView(SessionsView):
         session.refresh(account)
         session.flush()  # flush so we get a session id
         return survey_session
+
+
+class DefaultIntroductionView(BrowserView):
+    """
+        Browser view that displays the default introduction text for a Suvey.
+        It is used when the Survey does not define its own introduction
+    """
+    pass

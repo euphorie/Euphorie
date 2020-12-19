@@ -27,7 +27,6 @@
     <grok:grok package=".publish" />
     <grok:grok package=".report" />
     <grok:grok package=".update" />
-    <grok:grok package=".utils" />
 
     <grok:grok package="euphorie.json" />
 

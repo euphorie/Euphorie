@@ -6,26 +6,17 @@ Helper functions.
 """
 
 from .. import MessageFactory as _
-from Acquisition import aq_chain
-from Acquisition import aq_inner
 from email.Header import Header
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 from euphorie.client import model
-from euphorie.client.country import IClientCountry
-from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.content.utils import StripMarkup
-from five import grok
-from PIL.ImageColor import getrgb
 from plone import api
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from Products.CMFCore.utils import getToolByName
 from sqlalchemy import sql
 from z3c.saconfig import Session
 from zope.i18nmessageid import MessageFactory
-from zope.interface import Interface
 
-import colorsys
 import email.Utils as emailutils
 import htmllib
 import logging
@@ -36,7 +27,6 @@ import threading
 locals = threading.local()
 log = logging.getLogger(__name__)
 
-grok.templatedir('templates')
 pl_message = MessageFactory('plonelocales')
 
 
@@ -128,28 +118,6 @@ def setLanguage(request, context, lang=None):
     binding = request.get('LANGUAGE_TOOL', None)
     if binding is not None:
         binding.LANGUAGE = lang
-
-
-class DefaultIntroduction(grok.View):
-    """
-        Browser view that displays the default introduction text for a Suvey.
-        It is used when the Survey does not define its own introduction
-    """
-    grok.context(Interface)
-    grok.layer(IClientSkinLayer)
-    grok.name('default_introduction')
-    grok.template('default_introduction')
-
-
-class ContentDefaultIntroduction(grok.View):
-    """
-        Browser view that displays the default introduction text for a Suvey.
-        It is used when the Survey does not define its own introduction
-    """
-    grok.context(Interface)
-    grok.layer(NuPloneSkin)
-    grok.name('default_introduction')
-    grok.template('default_introduction')
 
 
 def html_unescape(s):

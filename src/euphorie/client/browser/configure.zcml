@@ -276,6 +276,15 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="default_introduction"
+      for="*"
+      permission="zope2.View"
+      class=".survey.DefaultIntroductionView"
+      template="templates/default_introduction.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <!-- Client -->
   <browser:page
       name="view"
