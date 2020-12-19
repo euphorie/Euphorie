@@ -566,6 +566,15 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <!-- sector -->
+  <browser:page
+      name="view"
+      for="euphorie.client.sector.IClientSector"
+      permission="zope2.View"
+      class=".sector.SectorView"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <!-- settings -->
   <browser:page
       name="account-settings"

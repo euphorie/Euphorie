@@ -28,7 +28,6 @@
     <grok:grok package=".profile" />
     <grok:grok package=".publish" />
     <grok:grok package=".report" />
-    <grok:grok package=".sector" />
     <grok:grok package=".survey" />
     <grok:grok package=".unpublish" />
     <grok:grok package=".update" />
