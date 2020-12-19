@@ -1,13 +1,9 @@
 from euphorie.client import model
 from euphorie.client.utils import HasText
 from euphorie.content.interfaces import IQuestionContainer
-from five import grok
 from z3c.saconfig import Session
 
 import collections
-
-
-grok.templatedir("templates")
 
 
 def getSurveyTree(survey, profile=None):
