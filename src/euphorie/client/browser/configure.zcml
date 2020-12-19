@@ -575,6 +575,15 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <!-- PDF -->
+  <browser:page
+      name="pdf"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".pdf.PdfView"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <!-- settings -->
   <browser:page
       name="account-settings"

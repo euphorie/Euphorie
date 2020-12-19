@@ -1,7 +1,5 @@
 # coding=utf-8
-from euphorie.client.adapters.session_traversal import ITraversedSurveySession
-from euphorie.client.interfaces import IClientSkinLayer
-from five import grok
+from Products.Five import BrowserView
 from plone import api
 from plone.memoize.view import memoize
 from StringIO import StringIO
@@ -24,24 +22,19 @@ class TimeoutTransport(xmlrpclib.Transport):
         return httplib.HTTPConnection(host, timeout=120.0)
 
 
-class PdfView(grok.View):
+class PdfView(BrowserView):
     """We use smartprintng to convert an HTML view into a PDF file.
 
     This requires that we render the view, add the contents to a ZIP
     file, and send it to the smartprintng server via an xmlrpc call.
     """
 
-    grok.context(ITraversedSurveySession)
-    grok.layer(IClientSkinLayer)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.name("pdf")
-
     @property
     @memoize
     def webhelpers(self):
         return api.content.get_view("webhelpers", self.context, self.request)
 
-    def render(self):
+    def __call__(self):
         if not self.webhelpers.can_view_session:
             return self.request.response.redirect(self.webhelpers.client_url)
         context = self.context
