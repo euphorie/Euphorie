@@ -269,7 +269,7 @@
   <!-- Survey -->
   <browser:page
       name="index_html"
-      for="euphorie.client.survey.ISurvey"
+      for="euphorie.content.survey.ISurvey"
       permission="zope2.View"
       class=".survey.SurveySessionsView"
       template="templates/tool_sessions.pt"
