@@ -23,7 +23,6 @@
     <include package=".docx" />
     <include package=".widgets" />
 
-    <grok:grok package=".help" />
     <grok:grok package=".layout" />
     <grok:grok package=".pdf" />
     <grok:grok package=".profile" />

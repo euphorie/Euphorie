@@ -1,30 +1,25 @@
+# coding=utf-8
 """
 Help
 ----
 
 The @@help view.
+Obsolete, since we now serve help content from client/resources/oira/help,
+maintained via the prototype.
 """
 
 import logging
-from zope.interface import Interface
 from zope.component import getUtility
-from five import grok
+from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.interfaces import ISiteRoot
-from euphorie.client.interfaces import IClientSkinLayer
 
 log = logging.getLogger(__name__)
 
-grok.templatedir("templates")
 
-
-class HelpView(grok.View):
+class HelpView(BrowserView):
     """View name: @@help
     """
-    grok.context(Interface)
-    grok.layer(IClientSkinLayer)
-    grok.name("help")
-    grok.template("help")
 
     def _getLanguages(self):
         lt = getToolByName(self.context, "portal_languages")
@@ -46,5 +41,6 @@ class HelpView(grok.View):
             if help is not None:
                 return help
 
-    def update(self):
-        self.help = self.findHelp()
+    @property
+    def help(self):
+        return self.findHelp()
