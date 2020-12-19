@@ -3,6 +3,8 @@ from AccessControl.Permissions import manage_users as ManageUsers
 from Products.PluggableAuthService.PluggableAuthService \
         import registerMultiPlugin
 from euphorie.client import authentication
+from webhelpers.html.builder import make_tag
+make_tag
 
 mimetypes.add_type('image/svg+xml', '.svg')
 
