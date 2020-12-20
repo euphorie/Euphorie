@@ -24,8 +24,6 @@
     <include package=".widgets" />
 
     <grok:grok package=".layout" />
-    <grok:grok package=".report" />
-    <grok:grok package=".update" />
 
     <grok:grok package="euphorie.json" />
 

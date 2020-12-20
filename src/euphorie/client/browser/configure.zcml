@@ -575,6 +575,24 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <!-- Report -->
+  <browser:page
+      name="report_view"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".report.ReportLanding"
+      template="templates/report_landing.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="timeline"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".report.ActionPlanTimeline"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <!-- Sector -->
   <browser:page
       name="view"

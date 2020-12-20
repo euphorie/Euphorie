@@ -432,7 +432,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         book = view.create_workbook()
         self.assertEqual(len(book.worksheets), 1)
         sheet = book.worksheets[0]
-        self.assertEqual(len(sheet.rows), 1)
+        self.assertEqual(len(tuple(sheet.rows)), 1)
 
     def test_create_workbook_plan_information(self):
         view = self._get_timeline()
@@ -464,28 +464,28 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         sheet = wb.worksheets[0]
         # planning start
         self.assertEqual(
-            sheet.cell('A2').value.date(), datetime.date(2011, 12, 15)
+            sheet["A2"].value, datetime.date(2011, 12, 15)
         )
         # planning end
-        self.assertEqual(sheet.cell('B2').value, None)
+        self.assertEqual(sheet["B2"].value, None)
         # action plan
-        self.assertEqual(sheet.cell('C2').value, u'Plan 2')
+        self.assertEqual(sheet["C2"].value, u'Plan 2')
         # requirements
-        self.assertEqual(sheet.cell('D2').value, None)
+        self.assertEqual(sheet["D2"].value, None)
         # responsible
-        self.assertEqual(sheet.cell('E2').value, None)
+        self.assertEqual(sheet["E2"].value, None)
         # budget
-        self.assertEqual(sheet.cell('F2').value, 500)
+        self.assertEqual(sheet["F2"].value, 500)
         # module title
-        self.assertEqual(sheet.cell('G2').value, u'Top-level Module title')
+        self.assertEqual(sheet["G2"].value, u'Top-level Module title')
         # risk number
-        self.assertEqual(sheet.cell('H2').value, u'1.2.3')
+        self.assertEqual(sheet["H2"].value, u'1.2.3')
         # risk title
-        self.assertEqual(sheet.cell('I2').value, u'This is wrong.')
+        self.assertEqual(sheet["I2"].value, u'This is wrong.')
         # risk priority
-        self.assertEqual(sheet.cell('J2').value, u'High')
+        self.assertEqual(sheet["J2"].value, u'High')
         # risk comment
-        self.assertEqual(sheet.cell('K2').value, u'Risk comment')
+        self.assertEqual(sheet["K2"].value, u'Risk comment')
 
     def test_create_workbook_no_problem_description(self):
         view = self._get_timeline()
@@ -510,7 +510,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         survey.restrictedTraverse.return_value = zodb_node
         view.getRisks = lambda x: [(module, risk)]
         sheet = view.create_workbook().worksheets[0]
-        self.assertEqual(sheet.cell('I2').value, u'Risk title')
+        self.assertEqual(sheet["I2"].value, u'Risk title')
 
     def test_render_value(self):
         with api.env.adopt_user(user=self.account):
@@ -518,7 +518,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
             view.context.session.title = u"Acmè"
             survey = view.context.aq_parent
             survey.ProfileQuestions = lambda: []
-            view.render()
+            view.__call__()
             response = view.request.response
             self.assertEqual(
                 response.headers['content-type'], 'application/vnd.openxmlformats-'

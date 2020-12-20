@@ -12,13 +12,11 @@ from datetime import date
 from euphorie.client import model
 from euphorie.client import survey
 from euphorie.client import utils
-from euphorie.client.adapters.session_traversal import ITraversedSurveySession
-from euphorie.client.interfaces import IClientSkinLayer
-from five import grok
 from openpyxl.workbook import Workbook
 from openpyxl.writer.excel import save_virtual_workbook
 from plone import api
 from plone.memoize.view import memoize
+from Products.Five import BrowserView
 from sqlalchemy import sql
 from urllib import quote
 from zope.i18n import translate
@@ -28,21 +26,14 @@ import logging
 
 log = logging.getLogger(__name__)
 
-grok.templatedir("templates")
 
-
-class ReportLanding(grok.View):
+class ReportLanding(BrowserView):
     """Custom report landing page.
 
     This replaces the standard online view of the report with a page
     offering the RTF and XLSX download options.
     """
 
-    grok.context(ITraversedSurveySession)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IClientSkinLayer)
-    grok.template("report_landing")
-    grok.name("report_view")
     variation_class = "variation-risk-assessment"
 
     @property
@@ -61,22 +52,17 @@ class ReportLanding(grok.View):
         )
         return default_reports
 
-    def update(self):
+    def __call__(self):
         if not self.webhelpers.can_view_session:
             return self.request.response.redirect(self.webhelpers.client_url)
-        return super(ReportLanding, self).update()
+        return self.index()
 
 
-class ActionPlanTimeline(grok.View, survey._StatusHelper):
+class ActionPlanTimeline(BrowserView, survey._StatusHelper):
     """Generate an excel file listing all measures.
 
     View name: @@timeline
     """
-
-    grok.context(ITraversedSurveySession)
-    grok.require("euphorie.client.ViewSurvey")
-    grok.layer(IClientSkinLayer)
-    grok.name("timeline")
 
     @property
     def session(self):
@@ -182,14 +168,14 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
         survey = self.context.aq_parent
 
         for (column, (ntype, key, title)) in enumerate(self.columns):
-            sheet.cell(row=0, column=column).value = t(title)
+            sheet.cell(row=1, column=column+1).value = t(title)
 
-        row = 1
+        row = 2
         for (module, risk, measure) in self.get_measures():
             if risk.identification in ["n/a", "yes"]:
                 continue
 
-            column = 0
+            column = 1
             if risk.is_custom_risk:
                 zodb_node = None
             else:
@@ -224,7 +210,7 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
                     cell = sheet.cell(row=row, column=column)
                     if key == 'number':
                         # force sting
-                        cell.set_value_explicit(value)
+                        cell.set_explicit_value(value)
                     else:
                         cell.value = value
                 column += 1
@@ -236,7 +222,7 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
     def webhelpers(self):
         return api.content.get_view("webhelpers", self.context, self.request)
 
-    def render(self):
+    def __call__(self):
         if not self.webhelpers.can_view_session:
             return self.request.response.redirect(self.webhelpers.client_url)
         book = self.create_workbook()
