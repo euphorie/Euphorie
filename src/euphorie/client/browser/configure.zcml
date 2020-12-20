@@ -3,6 +3,50 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     >
 
+  <!-- Layout -->
+  <browser:page
+      name="shell"
+      for="*"
+      permission="zope.Public"
+      template="templates/shell.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+  <browser:page
+      name="plain"
+      for="*"
+      permission="zope.Public"
+      template="templates/plain.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+  <browser:page
+      name="layout"
+      for="*"
+      permission="zope.Public"
+      template="templates/layout.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+  <browser:page
+      name="shell-for-iframe"
+      for="*"
+      permission="zope.Public"
+      template="templates/shell-for-iframe.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+  <browser:page
+      name="includes"
+      for="*"
+      permission="zope.Public"
+      template="templates/includes.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+  <browser:page
+      name="tooltips"
+      for="*"
+      permission="zope.Public"
+      template="templates/tooltips.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <browser:page
       name="about"
       for="*"

@@ -2,7 +2,6 @@
            xmlns:browser="http://namespaces.zope.org/browser"
            xmlns:five="http://namespaces.zope.org/five"
            xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-           xmlns:grok="http://namespaces.zope.org/grok"
            xmlns:plone="http://namespaces.plone.org/plone"
            i18n_domain="euphorie">
 
@@ -22,10 +21,6 @@
     <include package=".subscribers" />
     <include package=".docx" />
     <include package=".widgets" />
-
-    <grok:grok package=".layout" />
-
-    <grok:grok package="euphorie.json" />
 
     <browser:defaultView
       for=".client.IClient"
