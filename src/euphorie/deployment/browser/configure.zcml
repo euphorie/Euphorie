@@ -63,17 +63,12 @@
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
-  <!-- override some classes, but re-use the template from NuPlone -->
-  <configure package="plonetheme.nuplone.skin">
-    <browser:page
-        name="sitemenu"
-        for="*"
-        class="euphorie.deployment.browser.sitemenu.Sitemenu"
-        layer="euphorie.content.interfaces.IEuphorieContentLayer"
-        permission="zope2.Public"
-        template="templates/sitemenu.pt"
-        />
-  </configure>
-
+  <browser:page
+      name="sitemenu"
+      for="*"
+      class=".sitemenu.Sitemenu"
+      layer="euphorie.content.interfaces.IEuphorieContentLayer"
+      permission="zope2.Public"
+      />
 
 </configure>
