@@ -8,7 +8,6 @@ from euphorie.client.model import ActionPlan
 from euphorie.client.model import Session
 from euphorie.client.model import SurveySession
 from euphorie.client.model import SurveyTreeItem
-from euphorie.content.api.entry import access_api
 from euphorie.content.countrymanager import ICountryManager
 from euphorie.content.risk import EnsureInterface
 from euphorie.content.risk import IRisk
@@ -56,8 +55,6 @@ class SitePublishTraverser(DefaultPublishTraverse):
     """
 
     def publishTraverse(self, request, name):
-        if name == "api":
-            return access_api(request).__of__(self.context)
         return super(SitePublishTraverser, self).publishTraverse(request, name)
 
 

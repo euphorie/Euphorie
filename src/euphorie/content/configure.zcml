@@ -19,7 +19,6 @@
 
     <include file="permissions.zcml" />
 
-    <include package=".api" />
     <include package=".behaviors" />
     <include package=".browser" />
     <include package=".subscribers" />
