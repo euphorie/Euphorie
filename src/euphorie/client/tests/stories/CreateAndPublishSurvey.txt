@@ -53,6 +53,13 @@ Now lets add a risk:
 >>> browser.getLink("Add Module").click()
 >>> browser.getControl(name="form.widgets.title").value="Crane handling"
 >>> browser.getControl(name="form.widgets.description").value="<p>All about cranes</p>"
+
+XXX Note: the NuPlone directive "depends" is still broken in the grok-free version. This directive would normally hide the "question" field. Instead, it is shown here, and since it is a required field, the form cannot be submitted without fillig it.
+
+>>> browser.getControl(name="form.widgets.question").value="This is temporary"
+
+End XXX
+
 >>> browser.getControl(name="form.buttons.save").click()
 >>> browser.getLink("Add Risk").click()
 >>> browser.getControl(name="form.widgets.title").value="Are all cranes secured?"
