@@ -4,8 +4,9 @@ Changelog
 11.6.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Translation changes
+- Contents of tool (docx / print): always show all contents, even deactivated
+  modules
 
 11.6.2 (2020-12-15)
 -------------------
