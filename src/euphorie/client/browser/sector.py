@@ -5,6 +5,5 @@ from Products.Five import BrowserView
 
 
 class SectorView(BrowserView):
-
     def __call__(self):
         self.request.response.redirect(aq_parent(aq_inner(self.context)).absolute_url())

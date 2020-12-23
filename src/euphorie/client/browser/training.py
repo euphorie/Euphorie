@@ -15,7 +15,7 @@ logger = getLogger(__name__)
 
 
 class TrainingSlide(BrowserView):
-    """ Template / macro to hold the training slide markup
+    """Template / macro to hold the training slide markup
     Currently not active in default Euphorie
     """
 
@@ -168,7 +168,7 @@ class TrainingSlide(BrowserView):
 
 
 class TrainingView(BrowserView, survey._StatusHelper):
-    """ The view that shows the main-menu Training module
+    """The view that shows the main-menu Training module
     Currently not active in default Euphorie
     """
 
@@ -184,8 +184,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
     @property
     @memoize
     def session(self):
-        """ Return the session for this context/request
-        """
+        """Return the session for this context/request"""
         return self.context.session
 
     def slicePath(self, path):

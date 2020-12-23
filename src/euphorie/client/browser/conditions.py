@@ -20,9 +20,7 @@ def checkTermsAndConditions():
     except KeyError:
         return True
     except ValueError:
-        log.error(
-            "Invalid value for terms-and-conditions flag in site configuration."
-        )
+        log.error("Invalid value for terms-and-conditions flag in site configuration.")
         return False
 
 

@@ -95,8 +95,7 @@ class RiskBase(BrowserView):
     @property
     @memoize
     def survey(self):
-        """ This is the survey dexterity object
-        """
+        """This is the survey dexterity object"""
         return self.webhelpers._survey
 
     @property
@@ -169,8 +168,7 @@ class RiskBase(BrowserView):
         )
 
     def extract_plans_from_request(self):
-        """ Create new ActionPlan objects by parsing the Request.
-        """
+        """Create new ActionPlan objects by parsing the Request."""
         new_plans = []
         added = 0
         updated = 0
@@ -295,8 +293,7 @@ class RiskBase(BrowserView):
 
 
 class IdentificationView(RiskBase):
-    """A view for displaying a question in the identification phase
-    """
+    """A view for displaying a question in the identification phase"""
 
     default_template = ViewPageTemplateFile("templates/risk_identification.pt")
     custom_risk_template = ViewPageTemplateFile(
@@ -378,8 +375,8 @@ class IdentificationView(RiskBase):
     @property
     @memoize
     def evaluation_condition(self):
-        """ In what circumstances will the Evaluation panel be shown, provided that
-        evaluation is not skipped in general? """
+        """In what circumstances will the Evaluation panel be shown, provided that
+        evaluation is not skipped in general?"""
         condition = "condition: answer=no"
         if self.italy_special and not self.skip_evaluation:
             condition = "condition: answer=no or answer=yes"
@@ -688,8 +685,12 @@ class IdentificationView(RiskBase):
                 self.answer_no = tool_type_data["answer_no"]
         self.intro_questions = tool_type_data.get("intro_questions", "")
         if getattr(self.risk, "risk_always_present", False):
-            self.placeholder_add_extra = tool_type_data.get("placeholder_add_extra_always_present", "")
-            self.button_add_extra = tool_type_data.get("button_add_extra_always_present", "")
+            self.placeholder_add_extra = tool_type_data.get(
+                "placeholder_add_extra_always_present", ""
+            )
+            self.button_add_extra = tool_type_data.get(
+                "button_add_extra_always_present", ""
+            )
         else:
             self.placeholder_add_extra = tool_type_data.get("placeholder_add_extra", "")
             self.button_add_extra = tool_type_data.get("button_add_extra", "")
@@ -702,11 +703,17 @@ class IdentificationView(RiskBase):
             if len(measures):
                 self.show_existing_measures = True
                 if getattr(self.risk, "risk_always_present", False):
-                    self.intro_extra = tool_type_data.get("intro_extra_always_present", "")
-                    self.button_remove_extra = tool_type_data.get("button_remove_extra_always_present", "")
+                    self.intro_extra = tool_type_data.get(
+                        "intro_extra_always_present", ""
+                    )
+                    self.button_remove_extra = tool_type_data.get(
+                        "button_remove_extra_always_present", ""
+                    )
                 else:
                     self.intro_extra = tool_type_data.get("intro_extra", "")
-                    self.button_remove_extra = tool_type_data.get("button_remove_extra", "")
+                    self.button_remove_extra = tool_type_data.get(
+                        "button_remove_extra", ""
+                    )
                 if self.webhelpers.integrated_action_plan:
                     self.answer_yes = tool_type_data.get(
                         "answer_yes_integrated_ap", tool_type_data["answer_yes"]
@@ -894,15 +901,14 @@ class ImageUpload(BrowserView):
 
 
 class ImageDisplay(DisplayFile):
-    """ Return the image stored in the risk (if present).
+    """Return the image stored in the risk (if present).
     Allows also to get the image scaled if invoked like:
 
     ../@@image-display/image_large/${here/image_filename}
     """
 
     def get_or_create_image_scaled(self):
-        """ Get the image scaled
-        """
+        """Get the image scaled"""
         if self.context.image_data_scaled:
             return self.context.image_data_scaled
         image = PIL.Image.open(BytesIO(self.context.image_data))
@@ -937,8 +943,7 @@ class ImageDisplay(DisplayFile):
 
 
 class ActionPlanView(RiskBase):
-    """Logic for creating new action plans.
-    """
+    """Logic for creating new action plans."""
 
     phase = "actionplan"
     variation_class = "variation-risk-assessment"
@@ -1142,8 +1147,7 @@ def evaluation_algorithm(risk):
 
 
 class ConfirmationDeleteRisk(BrowserView):
-    """View name: @@confirmation-delete-risk
-    """
+    """View name: @@confirmation-delete-risk"""
 
     no_splash = True
 
@@ -1160,15 +1164,13 @@ class ConfirmationDeleteRisk(BrowserView):
         return "{0}/@@delete-risk".format(aq_parent(self.context).absolute_url())
 
     def __call__(self, *args, **kwargs):
-        """ Before rendering check if we can find session title
-        """
+        """Before rendering check if we can find session title"""
         self.risk_title
         return super(ConfirmationDeleteRisk, self).__call__(*args, **kwargs)
 
 
 class DeleteRisk(BrowserView):
-    """View name: @@delete-session
-    """
+    """View name: @@delete-session"""
 
     def __call__(self):
         risk_id = self.request.form.get("risk_id", None)

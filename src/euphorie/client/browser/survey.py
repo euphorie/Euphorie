@@ -8,8 +8,7 @@ from z3c.saconfig import Session
 
 
 class SurveySessionsView(SessionsView):
-    """ Template corresponds to proto:_layout/tool.html
-    """
+    """Template corresponds to proto:_layout/tool.html"""
 
     variation_class = ""
 
@@ -19,8 +18,7 @@ class SurveySessionsView(SessionsView):
     @property
     @memoize
     def sessions(self):
-        """ Given some sessions create a tree
-        """
+        """Given some sessions create a tree"""
         return self.webhelpers.get_sessions_query(context=self.context).all()
 
     def create_survey_session(self, title, account=None, **params):
@@ -36,7 +34,7 @@ class SurveySessionsView(SessionsView):
         session = Session()
         sector = self.context.aq_parent
         country = sector.aq_parent
-        zodb_path = '%s/%s/%s' % (country.id, sector.id, self.context.id)
+        zodb_path = "%s/%s/%s" % (country.id, sector.id, self.context.id)
         survey_session = self.survey_session_model(
             title=title,
             zodb_path=zodb_path,
@@ -53,7 +51,8 @@ class SurveySessionsView(SessionsView):
 
 class DefaultIntroductionView(BrowserView):
     """
-        Browser view that displays the default introduction text for a Suvey.
-        It is used when the Survey does not define its own introduction
+    Browser view that displays the default introduction text for a Suvey.
+    It is used when the Survey does not define its own introduction
     """
+
     pass

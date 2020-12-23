@@ -39,8 +39,7 @@ log = logging.getLogger(__name__)
 
 class PasswordChangeSchema(form.Schema):
     old_password = schema.Password(
-        title=_(u"label_old_password", default=u"Current Password"),
-        required=True
+        title=_(u"label_old_password", default=u"Current Password"), required=True
     )
     form.widget(old_password="z3c.form.browser.password.PasswordFieldWidget")
 
@@ -57,9 +56,7 @@ class AccountDeleteSchema(form.Schema):
 
 
 class EmailChangeSchema(form.Schema):
-    loginname = RFC822MailAddress(
-        title=_(u"Email address/account name"), required=True
-    )
+    loginname = RFC822MailAddress(title=_(u"Email address/account name"), required=True)
 
     password = schema.Password(
         title=_(u"Your password for confirmation"), required=True
@@ -81,7 +78,7 @@ class AccountSettings(form.SchemaForm):
         self.widgets["old_password"].addClass("password")
         self.widgets["new_password"].addClass("password")
 
-    @button.buttonAndHandler(_(u"Save changes"), name='save')
+    @button.buttonAndHandler(_(u"Save changes"), name="save")
     def handleSave(self, action):
         flash = IStatusMessage(self.request).addStatusMessage
         (data, errors) = self.extractData()
@@ -99,15 +96,14 @@ class AccountSettings(form.SchemaForm):
         user.password = data["new_password"]
         flash(_(u"Your password was successfully changed."), "success")
 
-    @button.buttonAndHandler(
-        _("button_cancel", default=u"Cancel"), name='cancel'
-    )
+    @button.buttonAndHandler(_("button_cancel", default=u"Cancel"), name="cancel")
     def handleCancel(self, action):
         self.request.response.redirect(self.request.client.absolute_url())
 
 
 class DeleteAccount(form.SchemaForm):
     """"View name: @@account-delete"""
+
     template = ViewPageTemplateFile("templates/account-delete.pt")
     schema = AccountDeleteSchema
     ignoreContext = True
@@ -122,7 +118,7 @@ class DeleteAccount(form.SchemaForm):
         pas = getToolByName(self.context, "acl_users")
         pas.resetCredentials(self.request, self.request.response)
 
-    @button.buttonAndHandler(_(u"Delete account"), name='delete')
+    @button.buttonAndHandler(_(u"Delete account"), name="delete")
     def handleDelete(self, action):
         (data, errors) = self.extractData()
         if errors:
@@ -138,9 +134,7 @@ class DeleteAccount(form.SchemaForm):
         self.logout()
         self.request.response.redirect(self.request.client.absolute_url())
 
-    @button.buttonAndHandler(
-        _("button_cancel", default=u"Cancel"), name='cancel'
-    )
+    @button.buttonAndHandler(_("button_cancel", default=u"Cancel"), name="cancel")
     def handleCancel(self, action):
         self.request.response.redirect(self.request.client.absolute_url())
 
@@ -156,11 +150,11 @@ class NewEmail(form.SchemaForm):
 
     @property
     def email_from_name(self):
-        return api.portal.get_registry_record('plone.email_from_name')
+        return api.portal.get_registry_record("plone.email_from_name")
 
     @property
     def email_from_address(self):
-        return api.portal.get_registry_record('plone.email_from_address')
+        return api.portal.get_registry_record("plone.email_from_address")
 
     def updateFields(self):
         super(NewEmail, self).updateFields()
@@ -188,15 +182,15 @@ class NewEmail(form.SchemaForm):
         if account.change_request is None:
             account.change_request = AccountChangeRequest()
         account.change_request.id = randomString()
-        account.change_request.expires = datetime.datetime.now() + \
-                datetime.timedelta(days=7)
+        account.change_request.expires = datetime.datetime.now() + datetime.timedelta(
+            days=7
+        )
         account.change_request.value = login
 
         client_url = self.request.client.absolute_url()
         confirm_url = "%s/confirm-change?%s" % (
-            client_url, urllib.urlencode({
-                "key": account.change_request.id
-            })
+            client_url,
+            urllib.urlencode({"key": account.change_request.id}),
         )
 
         mailhost = getToolByName(self.context, "MailHost")
@@ -204,7 +198,7 @@ class NewEmail(form.SchemaForm):
             account=account,
             new_login=login,
             client_url=client_url,
-            confirm_url=confirm_url
+            confirm_url=confirm_url,
         )
         subject = translate(
             _(u"Confirm OiRA email address change"), context=self.request
@@ -218,38 +212,28 @@ class NewEmail(form.SchemaForm):
             log.info("Sent email confirmation to %s", account.email)
         except MailHostError as e:
             log.error(
-                "MailHost error sending email confirmation to %s: %s",
-                account.email, e
+                "MailHost error sending email confirmation to %s: %s", account.email, e
             )
-            flash(
-                _(u"An error occured while sending the confirmation email."),
-                "error"
-            )
+            flash(_(u"An error occured while sending the confirmation email."), "error")
             return False
         except smtplib.SMTPException as e:
             log.error(
                 "smtplib error sending the confirmation email to %s: %s",
-                account.email, e
+                account.email,
+                e,
             )
-            flash(
-                _(u"An error occured while sending the confirmation email."),
-                "error"
-            )
+            flash(_(u"An error occured while sending the confirmation email."), "error")
             return False
         except socket.error as e:
             log.error(
-                "Socket error sending confirmation email to %s: %s",
-                account.email, e[1]
+                "Socket error sending confirmation email to %s: %s", account.email, e[1]
             )
-            flash(
-                _(u"An error occured while sending the confirmation email."),
-                "error"
-            )
+            flash(_(u"An error occured while sending the confirmation email."), "error")
             return False
 
         return True
 
-    @button.buttonAndHandler(_(u"Save changes"), name='save')
+    @button.buttonAndHandler(_(u"Save changes"), name="save")
     def handleSave(self, action):
         flash = IStatusMessage(self.request).addStatusMessage
 
@@ -265,10 +249,7 @@ class NewEmail(form.SchemaForm):
             )
 
         settings_url = "%s/account-settings" % url
-        if (
-            not data["loginname"]
-            or data["loginname"].strip() == user.loginname
-        ):
+        if not data["loginname"] or data["loginname"].strip() == user.loginname:
             self.request.response.redirect(settings_url)
             flash(_(u"There were no changes to be saved."), "notice")
             return
@@ -277,8 +258,7 @@ class NewEmail(form.SchemaForm):
         existing = Session.query(Account.id).filter(Account.loginname == login)
         if existing.count():
             raise WidgetActionExecutionError(
-                "loginname",
-                Invalid(_(u"This email address is not available."))
+                "loginname", Invalid(_(u"This email address is not available."))
             )
 
         self.initiateRequest(user, login)
@@ -289,26 +269,21 @@ class NewEmail(form.SchemaForm):
                 default=(
                     u"Please confirm your new email address by clicking on "
                     u"the link in the email that will be sent in a few "
-                    u"minutes to \"${email}\". Please note that the new "
+                    u'minutes to "${email}". Please note that the new '
                     u"email address is also your new login name."
                 ),
-                mapping={
-                    "email": data["loginname"]
-                }
+                mapping={"email": data["loginname"]},
             ),
             "warning",
         )
         self.request.response.redirect("%s/" % url)
 
-    @button.buttonAndHandler(
-        _("button_cancel", default=u"Cancel"), name='cancel'
-    )
+    @button.buttonAndHandler(_("button_cancel", default=u"Cancel"), name="cancel")
     def handleCancel(self, action):
         self.request.response.redirect(self.request.client.absolute_url())
 
 
 class ChangeEmail(BrowserView):
-
     def __call__(self):
         url = "%s/" % aq_inner(self.context).absolute_url()
         flash = IStatusMessage(self.request).addStatusMessage
