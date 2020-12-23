@@ -4,6 +4,7 @@ from Acquisition import aq_base
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from App.config import getConfiguration
 from datetime import datetime
 from dateutil import tz
 from euphorie import MessageFactory as _
@@ -46,7 +47,6 @@ from zope.component.hooks import getSite
 from zope.deprecation import deprecate
 from zope.i18nmessageid import MessageFactory
 
-import Globals
 import urllib
 
 
@@ -126,7 +126,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def debug_mode(self):
-        return Globals.DevelopmentMode
+        return getConfiguration().debug_mode
 
     @property
     @memoize
