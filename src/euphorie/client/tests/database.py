@@ -12,7 +12,7 @@ class DatabaseTests(unittest.TestCase):
         super(DatabaseTests, self).setUp()
         from euphorie.client import model
         from z3c.saconfig import Session
-        from Products.Five import zcml
+        from Zope2.App import zcml
         from Products.Five import fiveconfigure
         import euphorie.client.tests
 

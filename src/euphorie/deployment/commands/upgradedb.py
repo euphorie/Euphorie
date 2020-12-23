@@ -4,7 +4,7 @@ from datetime import datetime
 from euphorie.client import model
 from pkg_resources import get_distribution
 from pkg_resources import parse_version
-from Products.Five import zcml
+from Zope2.App import zcml
 from sqlalchemy import sql
 from sqlalchemy.engine.reflection import Inspector
 from sys import argv
