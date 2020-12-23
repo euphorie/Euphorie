@@ -121,13 +121,16 @@
       permission="cmf.ModifyPortalContent"
       />
 
-  <browser:page
-      name="delete"
-      for="euphorie.content.sector.ISector"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
-      class=".sector.Delete"
-      permission="zope2.View"
-      />
+  <configure package="plonetheme.nuplone.skin">
+    <browser:page
+        name="delete"
+        for="euphorie.content.sector.ISector"
+        layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+        class="euphorie.content.browser.sector.Delete"
+        permission="zope2.View"
+        template="templates/delete.pt"
+        />
+  </configure>
 
   <browser:page
       name="version-command"
@@ -187,13 +190,16 @@
       permission="cmf.ModifyPortalContent"
       />
 
-  <browser:page
-      name="delete"
-      for="euphorie.content.survey.ISurvey"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
-      class=".survey.Delete"
-      permission="zope2.View"
-      />
+  <configure package="plonetheme.nuplone.skin">
+    <browser:page
+        name="delete"
+        for="euphorie.content.survey.ISurvey"
+        layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+        class="euphorie.content.browser.survey.Delete"
+        permission="zope2.View"
+        template="templates/delete.pt"
+        />
+  </configure>
 
   <browser:page
       name="export"
