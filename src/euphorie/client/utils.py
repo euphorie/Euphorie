@@ -72,6 +72,25 @@ def HasText(html):
     return bool(text)
 
 
+def asBool(value):
+    """Simple method to convert a string to a boolean.
+
+    Accepted values for True are ``true``, ``yes`` and ``on``. The strings
+    ``false``, ``no`` and ``off`` are converted to False. For non-string values
+    the standard python boolean conversion is done.
+    """
+    if not isinstance(value, basestring):
+        return bool(value)
+
+    value = value.strip().lower()
+    if value in ["true", "yes", "on"]:
+        return True
+    elif value in ["false", "no", "off"]:
+        return False
+    else:
+        raise ValueError("Invalid boolean: %s" % value)
+
+
 def CreateEmailTo(sender_name, sender_email, recipient, subject, body):
     mail = MIMEMultipart('alternative')
     mail['From'] = emailutils.formataddr((sender_name, sender_email))

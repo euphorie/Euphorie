@@ -19,6 +19,7 @@ from euphorie.client.model import SurveySession
 from euphorie.client.model import SurveyTreeItem
 from euphorie.client.sector import IClientSector
 from euphorie.client.update import wasSurveyUpdated
+from euphorie.client.utils import asBool
 from euphorie.client.utils import getSecret
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import StripMarkup
@@ -38,7 +39,6 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
-from z3c.appconfig.utils import asBool
 from ZODB.POSException import POSKeyError
 from zope.component import getMultiAdapter
 from zope.component import getUtility
