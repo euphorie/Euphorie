@@ -57,22 +57,22 @@ logger = getLogger(__name__)
 
 # XXX should to to config (registry?)
 NAME_TO_PHASE = {
-    'start': 'preparation',
-    'involve': 'involve',
-    'profile': 'preparation',
-    'identification': 'identification',
-    'customization': 'identification',
-    'actionplan': 'actionplan',
-    'report': 'report',
-    'status': 'status',
-    'help': 'help',
-    'new-email': 'useraction',
-    'account-settings': 'useraction',
-    'account-delete': 'useraction',
-    'update': 'preparation',
-    'disclaimer': 'help',
-    'terms-and-conditions': 'help',
-    'training': 'training',
+    "start": "preparation",
+    "involve": "involve",
+    "profile": "preparation",
+    "identification": "identification",
+    "customization": "identification",
+    "actionplan": "actionplan",
+    "report": "report",
+    "status": "status",
+    "help": "help",
+    "new-email": "useraction",
+    "account-settings": "useraction",
+    "account-delete": "useraction",
+    "update": "preparation",
+    "disclaimer": "help",
+    "terms-and-conditions": "help",
+    "training": "training",
 }
 
 
@@ -85,6 +85,7 @@ class WebHelpers(BrowserView):
 
     View name: @@webhelpers
     """
+
     certificates_path = "++resource++euphorie.resources/oira/certificates"
     media_path = "++resource++euphorie.resources/media"
     style_path = "++resource++euphorie.resources/oira/style"
@@ -131,42 +132,42 @@ class WebHelpers(BrowserView):
     @memoize
     def _settings(self):
         appconfig = getUtility(IAppConfig)
-        return appconfig.get('euphorie')
+        return appconfig.get("euphorie")
 
     @property
     @memoize
     def allow_social_sharing(self):
-        return asBool(self._settings.get('allow_social_sharing', False))
+        return asBool(self._settings.get("allow_social_sharing", False))
 
     @property
     @memoize
     def allow_guest_accounts(self):
-        return asBool(self._settings.get('allow_guest_accounts', False))
+        return asBool(self._settings.get("allow_guest_accounts", False))
 
     @property
     @memoize
     def use_involve_phase(self):
-        return asBool(self._settings.get('use_involve_phase', False))
+        return asBool(self._settings.get("use_involve_phase", False))
 
     @property
     @memoize
     def use_training_module(self):
-        return asBool(self._settings.get('use_training_module', False))
+        return asBool(self._settings.get("use_training_module", False))
 
     @property
     @memoize
     def use_publication_feature(self):
-        return asBool(self._settings.get('use_publication_feature', False))
+        return asBool(self._settings.get("use_publication_feature", False))
 
     @property
     @memoize
     def use_clone_feature(self):
-        return asBool(self._settings.get('use_clone_feature', False))
+        return asBool(self._settings.get("use_clone_feature", False))
 
     @property
     @memoize
     def use_archive_feature(self):
-        return asBool(self._settings.get('use_archive_feature', False))
+        return asBool(self._settings.get("use_archive_feature", False))
 
     @property
     @memoize
@@ -177,7 +178,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def default_country(self):
-        return self._settings.get('default_country', '')
+        return self._settings.get("default_country", "")
 
     @property
     @memoize
@@ -192,7 +193,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def is_guest_account(self):
-        account = getattr(self._user, 'account_type', None)
+        account = getattr(self._user, "account_type", None)
         return account == config.GUEST_ACCOUNT
 
     @property
@@ -244,9 +245,8 @@ class WebHelpers(BrowserView):
 
         @memoize
         def recursive_skip_children(module):
-            return (
-                module.skip_children
-                or (module.parent and recursive_skip_children(module.parent))
+            return module.skip_children or (
+                module.parent and recursive_skip_children(module.parent)
             )
 
         for module in query:
@@ -262,15 +262,13 @@ class WebHelpers(BrowserView):
                 .filter(Risk.depth == module.depth + 1)
             )
             total_risks = total_risks + total_risks_query.count()
-            answered_risks_query = (
-                total_risks_query
-                .filter(Risk.identification != None)
-            )
+            answered_risks_query = total_risks_query.filter(Risk.identification != None)
             answered_risks = answered_risks + answered_risks_query.count()
 
         completion_percentage = (
-            int(round((answered_risks * 1. / total_risks * 1.) * 100.))
-            if total_risks else 0
+            int(round((answered_risks * 1.0 / total_risks * 1.0) * 100.0))
+            if total_risks
+            else 0
         )
         session.completion_percentage = completion_percentage
         return completion_percentage
@@ -320,8 +318,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def content_country_obj(self):
-        """Return the country object from the content area.
-        """
+        """Return the country object from the content area."""
         country_id = self.country_obj.id
         root = getUtility(ISiteRoot)
         country = getattr(root.sectors, country_id)
@@ -349,7 +346,7 @@ class WebHelpers(BrowserView):
     def tool_name(self):
         obj = self._survey
         if not obj:
-            return ''
+            return ""
         return obj.Title()
 
     @property
@@ -357,14 +354,14 @@ class WebHelpers(BrowserView):
     def tool_description(self):
         obj = self._survey
         if not obj:
-            return ''
-        ploneview = self.context.restrictedTraverse('@@plone')
+            return ""
+        ploneview = self.context.restrictedTraverse("@@plone")
         return ploneview.cropText(StripMarkup(obj.introduction), 800)
 
     @property
     @memoize
     def language_code(self):
-        lt = getToolByName(self.context, 'portal_languages')
+        lt = getToolByName(self.context, "portal_languages")
         lang = lt.getPreferredLanguage()
         return lang
 
@@ -385,14 +382,14 @@ class WebHelpers(BrowserView):
 
     def get_username(self):
         member = api.user.get_current()
-        return member.getProperty('fullname') or member.getUserName()
+        return member.getProperty("fullname") or member.getUserName()
 
     def get_webstats_js(self):
-        return api.portal.get_registry_record('plone.webstats_js')
+        return api.portal.get_registry_record("plone.webstats_js")
 
     def language_dict(self):
         site = getSite()
-        ltool = getToolByName(site, 'portal_languages')
+        ltool = getToolByName(site, "portal_languages")
         return ltool.getAvailableLanguages()
 
     @property
@@ -402,34 +399,33 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def country(self):
-        """ XXX it would be better to write this country id, consider deprecating this
-        """
+        """XXX it would be better to write this country id, consider deprecating this"""
         obj = self.country_obj
         if not obj:
             return ""
         return obj.id
 
     def logoMode(self):
-        return 'alien' if 'alien' in self.extra_css else 'native'
+        return "alien" if "alien" in self.extra_css else "native"
 
     @property
     @memoize
     def extra_css(self):
         sector = self.sector
         if sector is None:
-            return u''
+            return u""
 
         sector = aq_base(sector)
         parts = []
 
-        if getattr(sector, 'logo', None) is not None:
-            parts.append('alien')
+        if getattr(sector, "logo", None) is not None:
+            parts.append("alien")
 
-        lt = getToolByName(self.context, 'portal_languages')
+        lt = getToolByName(self.context, "portal_languages")
         lang = lt.getPreferredLanguage()
-        parts.append('language-%s' % lang)
+        parts.append("language-%s" % lang)
 
-        return ' ' + ' '.join(parts)
+        return " " + " ".join(parts)
 
     @property
     @memoize
@@ -438,13 +434,12 @@ class WebHelpers(BrowserView):
         context is not in a sector return the agency name instead.
         """
         sector = self.sector
-        if sector is not None and \
-                getattr(aq_base(sector), 'logo', None) is not None:
+        if sector is not None and getattr(aq_base(sector), "logo", None) is not None:
             return sector.Title()
         else:
             return _(
-                'title_tool',
-                default=u'OiRA - Online interactive Risk Assessment',
+                "title_tool",
+                default=u"OiRA - Online interactive Risk Assessment",
             )
 
     @property
@@ -460,7 +455,7 @@ class WebHelpers(BrowserView):
     @memoize
     def client_url(self):
         """Return the absolute URL for the client."""
-        return self.client.absolute_url() if self.client else '.'
+        return self.client.absolute_url() if self.client else "."
 
     @property
     @memoize
@@ -481,8 +476,9 @@ class WebHelpers(BrowserView):
         the country will be used as parent.
         """
         base_url = self.survey_url()
-        if base_url is not None and \
-                aq_inner(self.context).absolute_url().startswith(base_url):
+        if base_url is not None and aq_inner(self.context).absolute_url().startswith(
+            base_url
+        ):
             return base_url
         base_url = self.country_url
         if base_url is not None:
@@ -502,20 +498,17 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def certificates_url(self):
-        return "{}/{}".format(
-            self.client_url, self.certificates_path)
+        return "{}/{}".format(self.client_url, self.certificates_path)
 
     @property
     @memoize
     def media_url(self):
-        return "{}/{}".format(
-            self.client_url, self.media_path)
+        return "{}/{}".format(self.client_url, self.media_path)
 
     @property
     @memoize
     def style_url(self):
-        return "{}/{}".format(
-            self.client_url, self.style_path)
+        return "{}/{}".format(self.client_url, self.style_path)
 
     @property
     @memoize
@@ -535,7 +528,7 @@ class WebHelpers(BrowserView):
             self.client_url,
             self.script_path,
             self.js_name if not self.debug_mode else self.js_name_min,
-            self.resources_timestamp
+            self.resources_timestamp,
         )
 
     @property
@@ -556,8 +549,8 @@ class WebHelpers(BrowserView):
         if self._base_url() != self.survey_url():
             return True
         if (
-            self.request.get('ACTUAL_URL').split('/')[-1] ==
-            self.survey_url().split('/')[-1]
+            self.request.get("ACTUAL_URL").split("/")[-1]
+            == self.survey_url().split("/")[-1]
         ):
             return True
         return False
@@ -568,17 +561,16 @@ class WebHelpers(BrowserView):
         survey = self._survey
         if not survey:
             return None
-        if (
-            getattr(self, 'session', None) and
-            "/".join(survey.getPhysicalPath()).endswith(self.session.zodb_path)
-        ):
+        if getattr(self, "session", None) and "/".join(
+            survey.getPhysicalPath()
+        ).endswith(self.session.zodb_path):
             return self.session.title
         return survey.title
 
     def get_phase(self):
         head, tail = path.split(self.request.PATH_INFO)
         while tail:
-            tail = tail.replace('@', '').split("_")[0]
+            tail = tail.replace("@", "").split("_")[0]
             if tail in NAME_TO_PHASE:
                 return NAME_TO_PHASE[tail]
             head, tail = path.split(head)
@@ -602,7 +594,7 @@ class WebHelpers(BrowserView):
         """Return the URL to the current online help page. If we are in a
         survey the help page will be located there. Otherwise the country
         will be used as parent."""
-        return '%s/help' % self._base_url()
+        return "%s/help" % self._base_url()
 
     @property
     @memoize
@@ -610,14 +602,14 @@ class WebHelpers(BrowserView):
         """Return the URL to the current online about page. If we are in a
         survey the help page will be located there. Otherwise the country
         will be used as parent."""
-        return '%s/about' % self._base_url()
+        return "%s/about" % self._base_url()
 
     @property
     @memoize
     def authenticated(self):
         """Check if the current user is authenticated."""
         user = getSecurityManager().getUser()
-        return user is not None and user.getUserName() != 'Anonymous User'
+        return user is not None and user.getUserName() != "Anonymous User"
 
     @property
     @memoize
@@ -668,14 +660,14 @@ class WebHelpers(BrowserView):
 
         url = survey.absolute_url()
         if phase is not None:
-            url += '/@@%s' % phase
+            url += "/@@%s" % phase
         return url
 
     @memoize
     def survey_zodb_path(self):
         """
-            Construct zodb_path from current survey.
-            Helper method, since I don't always trust self.session.zodb_path
+        Construct zodb_path from current survey.
+        Helper method, since I don't always trust self.session.zodb_path
         """
         elems = []
         obj = self._survey
@@ -690,7 +682,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def integrated_action_plan(self):
-        if not asBool(self._settings.get('use_integrated_action_plan', False)):
+        if not asBool(self._settings.get("use_integrated_action_plan", False)):
             return False
         return getattr(self._survey, "integrated_action_plan", False)
 
@@ -712,10 +704,10 @@ class WebHelpers(BrowserView):
         """Return a list of items to be shown in the appendix."""
         documents = api.portal.get().documents
 
-        lt = getToolByName(self.context, 'portal_languages')
+        lt = getToolByName(self.context, "portal_languages")
         lang = lt.getPreferredLanguage()
-        if '-' in lang:
-            languages = [lang, lang.split('-')[0]]
+        if "-" in lang:
+            languages = [lang, lang.split("-")[0]]
         else:
             languages = [lang]
 
@@ -723,16 +715,17 @@ class WebHelpers(BrowserView):
             docs = documents.get(lang, None)
             if docs is None:
                 continue
-            appendix = docs.get('appendix', None)
+            appendix = docs.get("appendix", None)
             if appendix is not None:
                 break
         else:
             return []
 
         base_url = self._base_url()
-        return [{'url': '%s/appendix/%s' % (base_url, page.id),
-                 'title': page.Title()}
-                for page in appendix.values()]
+        return [
+            {"url": "%s/appendix/%s" % (base_url, page.id), "title": page.Title()}
+            for page in appendix.values()
+        ]
 
     @property
     @memoize
@@ -740,12 +733,12 @@ class WebHelpers(BrowserView):
         """Check if the current request is from an iPhone or similar device
         (such as an iPod touch).
         """
-        agent = self.request.get_header('User-Agent', '')
-        return 'iPhone' in agent
+        agent = self.request.get_header("User-Agent", "")
+        return "iPhone" in agent
 
-    def months(self, length='wide'):
-        calendar = self.request.locale.dates.calendars['gregorian']
-        months = calendar.monthContexts['format'].months[length]
+    def months(self, length="wide"):
+        calendar = self.request.locale.dates.calendars["gregorian"]
+        months = calendar.monthContexts["format"].months[length]
         return sorted(months.items())
 
     def timezoned_date(self, mydate=None):
@@ -799,10 +792,12 @@ class WebHelpers(BrowserView):
         if motd:
             now = datetime.now()
             message = dict(
-                title=StripMarkup(motd.description), text=motd.body,
-                id='motd{0}{1}'.format(
-                    motd.modification_date.strftime('%Y%m%d%H%M%S'),
-                    now.strftime('%Y%m%d'))
+                title=StripMarkup(motd.description),
+                text=motd.body,
+                id="motd{0}{1}".format(
+                    motd.modification_date.strftime("%Y%m%d%H%M%S"),
+                    now.strftime("%Y%m%d"),
+                ),
             )
         return message
 
@@ -816,10 +811,12 @@ class WebHelpers(BrowserView):
             message = dict(
                 title=obj.tool_notification_title,
                 text=obj.tool_notification_message,
-                id='tool{}{}{}'.format(
-                    obj.modification_date.strftime('%Y%m%d%H%M%S'),
-                    now.strftime('%Y%m%d'),
-                    ''.join(obj.getPhysicalPath()[2:])))
+                id="tool{}{}{}".format(
+                    obj.modification_date.strftime("%Y%m%d%H%M%S"),
+                    now.strftime("%Y%m%d"),
+                    "".join(obj.getPhysicalPath()[2:]),
+                ),
+            )
         return message
 
     def closetext(self):
@@ -842,7 +839,7 @@ class WebHelpers(BrowserView):
 
     @memoize
     def get_session_group_id(self):
-        return getattr(self.session, 'group_id', '')
+        return getattr(self.session, "group_id", "")
 
     @property
     @memoize
@@ -856,9 +853,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def can_edit_session(self):
-        return (
-            self.can_view_session and not self.traversed_session.session.is_archived
-        )
+        return self.can_view_session and not self.traversed_session.session.is_archived
 
     @property
     @memoize
@@ -882,8 +877,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def is_owner(self):
-        ''' Check if the current user is the owner of the session
-        '''
+        """Check if the current user is the owner of the session"""
         session = self.traversed_session.session
         return self.get_current_account() == session.account
 
@@ -893,18 +887,15 @@ class WebHelpers(BrowserView):
         return self.use_clone_feature
 
     def resume(self, session):
-        ''' Resume a session for the current user if he is allowed to
-        '''
+        """Resume a session for the current user if he is allowed to"""
         raise Exception("Obsolete, we traverse to sessions now")
 
     def as_md(self, text):
-        """ Return a text with Carriage Returns formatted as a Markdown.
-        """
-        return u"\r\n".join([x for x in text.split('\r')])
+        """Return a text with Carriage Returns formatted as a Markdown."""
+        return u"\r\n".join([x for x in text.split("\r")])
 
     def show_logo(self):
-        """ In plain Euphorie, the logo is always shown
-        """
+        """In plain Euphorie, the logo is always shown"""
         return True
 
     @property
@@ -915,7 +906,7 @@ class WebHelpers(BrowserView):
 
     @memoize_contextless
     def date_picker_i18n_json(self):
-        """ Taken from:
+        """Taken from:
         https://github.com/ploneintranet/ploneintranet/blob/master/src/ploneintranet/layout/browser/date_picker.py  # noqa: E501
 
         Use this like:
@@ -983,7 +974,7 @@ class WebHelpers(BrowserView):
         filter_by_group=False,
         table=None,
     ):
-        """ Method to return a query that looks for sessions
+        """Method to return a query that looks for sessions
 
         :param context: limits the sessions under this context
         :param searchable_text: filters on survey title

@@ -17,8 +17,7 @@ logger = getLogger(__name__)
 
 
 class IdentificationView(BrowserView):
-    """The introduction page for a module.
-    """
+    """The introduction page for a module."""
 
     variation_class = "variation-risk-assessment"
     phase = "identification"
@@ -33,8 +32,7 @@ class IdentificationView(BrowserView):
     @property
     @memoize
     def survey(self):
-        """ This is the survey dexterity object
-        """
+        """This is the survey dexterity object"""
         return self.webhelpers._survey
 
     @property
@@ -44,8 +42,7 @@ class IdentificationView(BrowserView):
     @property
     @memoize
     def next_question(self):
-        """ Try to understand what the next question will be
-        """
+        """Try to understand what the next question will be"""
         return FindNextQuestion(
             self.context,
             dbsession=self.context.aq_parent.session,
@@ -55,8 +52,7 @@ class IdentificationView(BrowserView):
     @property
     @memoize
     def previous_question(self):
-        """ Try to understand what the previous question will be
-        """
+        """Try to understand what the previous question will be"""
         return FindPreviousQuestion(
             self.context,
             dbsession=self.context.aq_parent.session,
@@ -66,8 +62,7 @@ class IdentificationView(BrowserView):
     @property
     @memoize
     def next_question_url(self):
-        """ Return the URL to the next question
-        """
+        """Return the URL to the next question"""
         if not self.next_question:
             return ""
         return "{parent_url}/{next_question_path}/@@{view}".format(
@@ -79,8 +74,7 @@ class IdentificationView(BrowserView):
     @property
     @memoize
     def previous_question_url(self):
-        """ Return the URL to the previous question
-        """
+        """Return the URL to the previous question"""
         if not self.previous_question:
             return ""
         return "{parent_url}/{next_question_path}/@@{view}".format(
@@ -92,8 +86,7 @@ class IdentificationView(BrowserView):
     @property
     @memoize
     def next_phase_url(self):
-        """ Return the URL to the next question
-        """
+        """Return the URL to the next question"""
         if self.integrated_action_plan:
             return "{parent_url}/@@report".format(
                 parent_url=self.context.aq_parent.absolute_url()
@@ -122,7 +115,9 @@ class IdentificationView(BrowserView):
         context = aq_inner(self.context)
         utils.setLanguage(self.request, self.survey, self.survey.language)
 
-        module = self.webhelpers.traversed_session.restrictedTraverse(context.zodb_path.split("/"))
+        module = self.webhelpers.traversed_session.restrictedTraverse(
+            context.zodb_path.split("/")
+        )
         if self.request.environ["REQUEST_METHOD"] == "POST":
             return self.save_and_continue(module)
 
@@ -150,8 +145,8 @@ class IdentificationView(BrowserView):
         return template()
 
     def save_and_continue(self, module):
-        """ We received a POST request.
-            Submit the form and figure out where to go next.
+        """We received a POST request.
+        Submit the form and figure out where to go next.
         """
         context = aq_inner(self.context)
         reply = self.request.form
@@ -213,7 +208,8 @@ class IdentificationView(BrowserView):
         risk.postponed = False
         risk.has_description = None
         risk.zodb_path = "/".join(
-            [self.context.zodb_path] +
+            [self.context.zodb_path]
+            +
             # There's a constraint for unique zodb_path per session
             ["%d" % counter_id]
         )
@@ -240,8 +236,7 @@ class ActionPlanView(BrowserView):
     @property
     @memoize
     def survey(self):
-        """ This is the survey dexterity object
-        """
+        """This is the survey dexterity object"""
         return self.webhelpers._survey
 
     @property
@@ -276,10 +271,15 @@ class ActionPlanView(BrowserView):
         if (IProfileQuestion.providedBy(self.module) and context.depth == 2) or (
             ICustomRisksModule.providedBy(self.module) and self.phase == "actionplan"
         ):
-            next_question = FindNextQuestion(context, self.context.session, filter=self.question_filter)
+            next_question = FindNextQuestion(
+                context, self.context.session, filter=self.question_filter
+            )
             if next_question is None:
                 if self.phase == ("identification", "evaluation"):
-                    url = self.webhelpers.traversed_session.absolute_url() + "/@@actionplan"
+                    url = (
+                        self.webhelpers.traversed_session.absolute_url()
+                        + "/@@actionplan"
+                    )
                 elif self.phase == "actionplan":
                     url = self.webhelpers.traversed_session.absolute_url() + "/@@report"
             else:
@@ -290,10 +290,13 @@ class ActionPlanView(BrowserView):
             return self.request.response.redirect(url)
 
         self.title = self.context.title
-        previous = FindPreviousQuestion(self.context, self.context.session, filter=self.question_filter)
+        previous = FindPreviousQuestion(
+            self.context, self.context.session, filter=self.question_filter
+        )
         if previous is None:
             self.previous_url = "%s/@@%s" % (
-                self.context.aq_parent.absolute_url(), self.phase
+                self.context.aq_parent.absolute_url(),
+                self.phase,
             )
         else:
             self.previous_url = "{session_url}/{path}/@@{phase}".format(
@@ -301,7 +304,9 @@ class ActionPlanView(BrowserView):
                 path="/".join(previous.short_path),
                 phase=self.phase,
             )
-        next_question = FindNextQuestion(self.context, self.context.session, filter=self.question_filter)
+        next_question = FindNextQuestion(
+            self.context, self.context.session, filter=self.question_filter
+        )
         if next_question is None:
             self.next_url = (
                 self.webhelpers.traversed_session.absolute_url() + "/@@report"

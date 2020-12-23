@@ -18,8 +18,7 @@ log = logging.getLogger(__name__)
 
 
 class HelpView(BrowserView):
-    """View name: @@help
-    """
+    """View name: @@help"""
 
     def _getLanguages(self):
         lt = getToolByName(self.context, "portal_languages")

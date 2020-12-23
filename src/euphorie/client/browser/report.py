@@ -159,8 +159,7 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
         return priority
 
     def create_workbook(self):
-        """Create an Excel workbook containing the all risks and measures.
-        """
+        """Create an Excel workbook containing the all risks and measures."""
         t = lambda txt: translate(txt, context=self.request)
         book = Workbook()
         sheet = book.worksheets[0]
@@ -168,7 +167,7 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
         survey = self.context.aq_parent
 
         for (column, (ntype, key, title)) in enumerate(self.columns):
-            sheet.cell(row=1, column=column+1).value = t(title)
+            sheet.cell(row=1, column=column + 1).value = t(title)
 
         row = 2
         for (module, risk, measure) in self.get_measures():
@@ -208,7 +207,7 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
                             value = module.title
                 if value is not None:
                     cell = sheet.cell(row=row, column=column)
-                    if key == 'number':
+                    if key == "number":
                         # force sting
                         cell.set_explicit_value(value)
                     else:

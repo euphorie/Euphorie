@@ -6,9 +6,8 @@ from euphorie.client.browser.webhelpers import WebHelpers
 
 
 class ClientView(WebHelpers):
-
     def __call__(self):
-        """ The frontpage has been disbanded. We redirect to the country that
+        """The frontpage has been disbanded. We redirect to the country that
         is defined as the default, or pick a random country.
         """
         target = None
@@ -26,5 +25,4 @@ class ClientView(WebHelpers):
                     break
         if not target:
             return self
-        self.request.RESPONSE.redirect("{}{}".format(
-            target.absolute_url(), url_param))
+        self.request.RESPONSE.redirect("{}{}".format(target.absolute_url(), url_param))
