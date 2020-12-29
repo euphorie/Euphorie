@@ -6,6 +6,7 @@
   <include package="z3c.appconfig" file="meta.zcml"/>
   <include package="plone.app.imagecropping" />
   <include package="plonetheme.nuplone" />
+  <include package=".plone52py3" />
   <include package="euphorie.content" />
   <include package="euphorie.client" />
   <include package=".browser" />

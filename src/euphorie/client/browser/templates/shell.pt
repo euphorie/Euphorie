@@ -355,7 +355,6 @@
     </tal:anon>
 
 
-    <tal:block replace="tile:client-analytics"/>
 
     <metal:splashmessageslot define-slot="splash_message_slot" />
 

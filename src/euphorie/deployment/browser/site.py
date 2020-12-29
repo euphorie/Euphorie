@@ -202,3 +202,13 @@ class RepairSolutionId(BrowserView):
                     break
         ret += "Updated %d measures" % count
         return ret
+
+
+class Debug(BrowserView):
+
+    def __call__(self):
+        from plone.app.redirector.interfaces import IRedirectionStorage
+        from zope.component import queryUtility
+        import pdb; pdb.set_trace()
+        util = queryUtility(IRedirectionStorage)
+        return "ok"

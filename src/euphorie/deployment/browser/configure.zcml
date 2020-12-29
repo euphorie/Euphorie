@@ -71,4 +71,12 @@
       permission="zope2.Public"
       />
 
+  <browser:page
+      name="debugme"
+      for="*"
+      class=".site.Debug"
+      layer="euphorie.content.interfaces.IEuphorieContentLayer"
+      permission="cmf.ManagePortal"
+      />
+
 </configure>
