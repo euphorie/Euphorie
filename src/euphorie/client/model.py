@@ -1561,7 +1561,7 @@ def get_current_account():
 
 
 class DefaultView(BrowserView):
-    """ Default @@index_html view for the objects in the model
+    """ Default view for the objects in the model
     """
     def __call__(self):
         """ Somebody called the default view for this object:

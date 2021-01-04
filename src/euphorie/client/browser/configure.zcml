@@ -312,7 +312,7 @@
 
   <!-- Survey -->
   <browser:page
-      name="index_html"
+      name="view"
       for="euphorie.content.survey.ISurvey"
       permission="zope2.View"
       class=".survey.SurveySessionsView"

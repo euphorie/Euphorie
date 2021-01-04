@@ -38,25 +38,25 @@
     <browser:defaultView
         for="Products.CMFCore.interfaces.IContentish"
         layer=".interfaces.IClientSkinLayer"
-        name="index_html"
+        name="view"
         />
 
     <browser:defaultView
         for="euphorie.ghost.PathGhost"
         layer=".interfaces.IClientSkinLayer"
-        name="index_html"
+        name="view"
         />
 
     <browser:defaultView
         for=".model.BaseObject"
         layer=".interfaces.IClientSkinLayer"
-        name="index_html"
+        name="view"
         />
 
     <browser:defaultView
         for="Products.CMFCore.interfaces.IFolderish"
         layer=".interfaces.IClientSkinLayer"
-        name="index_html"
+        name="view"
         />
 
     <browser:page
