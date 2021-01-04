@@ -45,4 +45,12 @@
       template="templates/update-completion-percentage.pt"
       />
 
+  <browser:page
+      name="prepare_py3"
+      for="*"
+      class=".migration.PreparePy3"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      permission="cmf.ManagePortal"
+      />
+
 </configure>
