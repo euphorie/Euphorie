@@ -60,7 +60,6 @@
       <metal:appendix use-macro="context/appendix/macros/appendix"/>
   </article>
   </div>
-  <tal:block replace="tile:client-analytics"/>
   </metal:slot>
   </body>
 </html>

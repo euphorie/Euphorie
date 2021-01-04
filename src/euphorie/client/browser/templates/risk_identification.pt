@@ -19,7 +19,6 @@
                   risk nocall:view/risk;
                 "
     >
-      <tal:block replace="tile:statusmessages" />
       <form class="pat-inject"
             accept-charset="UTF-8"
             action="${here/absolute_url}/@@${view/__name__}"

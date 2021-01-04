@@ -19,13 +19,11 @@
   </head>
   <body class="status ${webhelpers/extra_css}">
     <metal:pagetitle define-slot="pagetitle"><h1><metal:slot define-slot="title"/></h1></metal:pagetitle>
-    <tal:block replace="tile:statusmessages"/>
 
     <metal:block define-slot="content"/>
 
     <metal:block use-macro="context/appendix/macros/appendix"/>
     <metal:block use-macro="webhelpers/macros/javascript"/>
-    <tal:block replace="tile:client-analytics"/>
     <metal:block define-slot="scripts"/>
   </body>
 </html>

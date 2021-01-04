@@ -19,7 +19,6 @@
     <div id="content-pane">
     <article class="pat-rich">
     <h1>${module/title}</h1>
-    <tal:block replace="tile:statusmessages"/>
     <a class="pat-inject"
        id="percentage-placeholder"
        hidden="hidden"

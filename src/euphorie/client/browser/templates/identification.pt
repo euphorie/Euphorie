@@ -14,7 +14,7 @@
 <div id="content-pane">
 <article class="pat-rich" tal:define="extra_text view/extra_text">
     <h1>${context/Title}</h1>
-    <tal:block replace="tile:statusmessages"/>
+
     <p i18n:translate="intro_print_identification_1">It is possible for you to print out the contents of the tool to enable you to look for the information at the relevant workplace (by walking around and looking at what could cause harm, or by consulting the workers and/or their representatives about problems they have encountered). You can then introduce the information into the tool.</p>
     <p i18n:translate="intro_print_identification_2">You may also wish to distribute the contents among the workers and/or their representatives and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action.Their feedback should be taken into account when filling in this tool.</p>
     <p i18n:translate="intro_identification">

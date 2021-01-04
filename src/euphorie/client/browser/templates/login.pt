@@ -28,7 +28,7 @@ h4 {
 }
     </style>
     <div id="content-pane">
-      <tal:block replace="tile:statusmessages" />
+
       <article class="rich pat-rich">
         <h1 i18n:translate="header_welcome">Welcome</h1>
 
@@ -135,7 +135,7 @@ h4 {
 
         <metal:css use-macro="context/appendix/macros/appendix" />
 
-        <tal:block replace="tile:client-analytics" />
+
       </article>
     </div>
     </metal:slot>

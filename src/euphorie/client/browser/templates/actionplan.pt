@@ -18,7 +18,6 @@
     <div id="content-pane">
       <article class="pat-rich">
         <h1>${context/Title}</h1>
-        <tal:block replace="tile:statusmessages" />
 
         <tal:block condition="view/next_url">
           <p i18n:translate="expl_actionplan_1">

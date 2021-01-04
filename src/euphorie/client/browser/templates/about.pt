@@ -194,7 +194,6 @@
       The OiRA sectoral tools can be used for free by all users.
         </p>
       </article>
-      <tal:block replace="tile:client-analytics" />
     </metal:content>
   </body>
 </html>

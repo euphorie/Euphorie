@@ -17,7 +17,6 @@
 
     <form id="report_comment_form" accept-charset="UTF-8" method="post" action="${request/URL}">
       <div id="content-pane">
-        <tal:block replace="tile:statusmessages"/>
       <article class="pat-rich">
         <h1 i18n:translate="header_reporting">Reporting</h1>
         <p i18n:translate="report_intro">

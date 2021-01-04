@@ -192,6 +192,5 @@ dd, .page-toc {
         </div>
     </div>
 
-    <tal:block replace="tile:client-analytics"/>
 </body>
 </html>

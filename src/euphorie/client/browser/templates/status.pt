@@ -16,7 +16,6 @@
   <body>
     <metal:content fill-slot="content">
       <metal:macro use-macro="context/@@status_info/macros/status" />
-      <tal:block replace="tile:client-analytics" />
 
     </metal:content>
   </body>

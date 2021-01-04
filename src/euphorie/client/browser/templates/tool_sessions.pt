@@ -23,7 +23,6 @@
                 "
     >
     <div id="content-pane">
-      <tal:block replace="tile:statusmessages" />
 
       <article class="pat-rich">
         <h1 class="tool-name">${context/Title}</h1>

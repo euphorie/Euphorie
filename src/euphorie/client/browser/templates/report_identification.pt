@@ -169,7 +169,6 @@
     />
     <metal:css use-macro="context/appendix/macros/appendix" />
     <metal:css use-macro="webhelpers/macros/javascript" />
-    <tal:analytics replace="tile:client-analytics" />
     <script type="text/javascript">
       $(document).ready(function() {
           $.localScroll();

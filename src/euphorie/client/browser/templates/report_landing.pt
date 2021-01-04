@@ -18,7 +18,6 @@
   <body>
     <metal:slot fill-slot="content">
     <div id="content-pane">
-      <tal:block replace="tile:statusmessages" />
 
       <div class="pat-well pat-message notice"
            tal:condition="webhelpers/allow_social_sharing"
@@ -186,7 +185,6 @@
 
       </div>
 
-      <tal:block replace="tile:client-analytics" />
     </div>
     </metal:slot>
   </body>

@@ -71,7 +71,6 @@
 
       </form>
 
-      <tal:block replace="tile:client-analytics"/>
     </div>
   </metal:slot>
   </body>

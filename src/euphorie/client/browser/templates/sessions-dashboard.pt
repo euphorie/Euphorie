@@ -8,7 +8,6 @@
       i18n:domain="euphorie"
 >
   <metal:slot fill-slot="content">
-  <tal:block replace="tile:statusmessages" />
   <div id="content-pane">
     <article id="screen-intro">
       <header class="title-group">

@@ -15,7 +15,6 @@
 
 <body>
 <metal:slot fill-slot="content">
-  <tal:block replace="tile:statusmessages"/>
 
   <h2>Placeholder</h2>
 

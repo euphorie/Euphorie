@@ -22,7 +22,6 @@
                   context view/context;
                 "
     >
-      <tal:block replace="tile:statusmessages" />
       <tal:def define="
                  errors python:exists('actionplan/errors') and actionplan['errors'] or {};
                "

@@ -507,7 +507,6 @@ ul.title {margin-bottom:3em;}
           </tal:loop>
         </dl>
       </div>
-      <tal:block replace="tile:client-analytics" />
     </metal:content>
   </body>
 </html>
