@@ -8,7 +8,7 @@
     <div class="content"
          tal:define="
            toLocalizedTime nocall: context/@@plone/toLocalizedTime;
-           webhelpers nocall:view/@@webhelpers;
+           webhelpers nocall:view/webhelpers;
            account webhelpers/get_current_account;
            my_group account/group;
          "

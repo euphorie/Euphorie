@@ -6,7 +6,7 @@
       metal:define-macro="master"
       metal:use-macro="context/@@shell/macros/shell"
       tal:define="
-        webhelpers nocall:view/@@webhelpers;
+        webhelpers nocall:view/webhelpers;
         session view/session;
         can_edit webhelpers/can_edit_session;
         has_profile view/has_profile;
