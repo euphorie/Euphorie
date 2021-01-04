@@ -9,8 +9,10 @@ Also: PAS-based user account for users of the client
 """
 from __future__ import division
 from AccessControl.PermissionRole import _what_not_even_god_should_do
+from AccessControl.SecurityInfo import ClassSecurityInfo
 from collections import defaultdict
 from euphorie.client.enum import Enum
+from OFS.interfaces import IApplication
 from plone import api
 from plone.app.event.base import localized_now
 from plone.memoize import ram
@@ -32,6 +34,7 @@ from zope.component.hooks import getSite
 from zope.interface import implementer
 from zope.interface import Interface
 from zope.sqlalchemy import datamanager
+
 
 import Acquisition
 import bcrypt
@@ -71,11 +74,46 @@ class BaseObject(OFS.Traversable.Traversable, Acquisition.Implicit):
     In particular it allows acquisition to find skin objects and keeps
     absolute_url() and getPhysicalPath() working.
     """
+    security = ClassSecurityInfo()
+
     __init__ = declarative.api._declarative_constructor
     __allow_access_to_unprotected_subobjects__ = True
 
     def getId(self):
         return str(self.id)
+
+    @security.public
+    def getPhysicalPath(self):
+        # Get the physical path of the object.
+        #
+        # Returns a path (an immutable sequence of strings) that can be used to
+        # access this object again later, for example in a copy/paste
+        # operation.  getPhysicalRoot() and getPhysicalPath() are designed to
+        # operate together.
+        #
+        # We overwrite the version found in OFS.Traversable, since that implementation
+        # first tries to get the items's id via `self.id`. In the case of our SQL
+        # model objects, this falsely returns the SQL id, whereas the `getId` method
+        # in Risk and Module returns the path-related id that we need for traversal.
+
+        path = (self.getId(),)
+        p = Acquisition.aq_parent(Acquisition.aq_inner(self))
+        if p is None:
+            return path
+
+        func = self.getPhysicalPath.__func__
+        while p is not None:
+            if func is p.getPhysicalPath.__func__:
+                path = (p.getId(),) + path
+                p = Acquisition.aq_parent(Acquisition.aq_inner(p))
+            else:
+                if IApplication.providedBy(p):
+                    path = ("",) + path
+                else:
+                    path = p.getPhysicalPath() + path
+                break
+
+        return path
 
 
 class SurveyTreeItem(BaseObject):
