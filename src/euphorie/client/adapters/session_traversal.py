@@ -31,6 +31,14 @@ class TraversedSurveySession(Implicit, Traversable):
     def getId(self):
         return "++session++{session_id}".format(session_id=self.session_id)
 
+    @property
+    def id(self):
+        # OFS.Traversal's `getPhysicalPath()` first looks at `self.id` before
+        # calling `self.getId()`. For a traversed session, it is vital to return
+        # the computed id, and not the id that gets inherited from the parent (which
+        # in our case will be a Survey).
+        return self.getId()
+
     @memoizedproperty
     def session(self):
         try:
