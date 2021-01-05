@@ -1,8 +1,12 @@
 Changelog
 =========
 
-11.6.4 (unreleased)
+
+12.0.0 (unreleased)
 -------------------
+
+This branch will prepare for the migration to Plone5.2 and ultimately to python3.
+A big milestone will be the removal of Grok.
 
 - Nothing changed yet.
 
