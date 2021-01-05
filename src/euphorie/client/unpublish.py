@@ -34,8 +34,10 @@ def handleSurveyUnpublish(survey, event):
             clientsector = clientcountry[sector.id]
             clientsector[surveygroup.id]
         except KeyError:
-            log.info("Trying to unpublish unpublished survey %s",
-                    "/".join(survey.getPhysicalPath()))
+            log.info(
+                "Trying to unpublish unpublished survey %s",
+                "/".join(survey.getPhysicalPath()),
+            )
             return
 
         clientsector.manage_delObjects([surveygroup.id])

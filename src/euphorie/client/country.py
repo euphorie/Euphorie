@@ -33,8 +33,7 @@ log = logging.getLogger(__name__)
 
 
 class IClientCountry(form.Schema, IBasic):
-    """Country grouping in the online client.
-    """
+    """Country grouping in the online client."""
 
 
 @implementer(IClientCountry)
@@ -72,8 +71,8 @@ class RenameSessionSchema(form.Schema):
 
 
 class RenameSession(form.SchemaForm):
-    """View name: @@rename-session
-    """
+    """View name: @@rename-session"""
+
     grok.context(IClientCountry)
     grok.require("euphorie.client.ViewSurvey")
     grok.layer(IClientSkinLayer)
@@ -90,9 +89,11 @@ class RenameSession(form.SchemaForm):
             raise KeyError("Invalid session id")
         user = get_current_account()
         session = (
-            object_session(user).query(SurveySession)
+            object_session(user)
+            .query(SurveySession)
             .filter(SurveySession.account == user)
-            .filter(SurveySession.id == session_id).first()
+            .filter(SurveySession.id == session_id)
+            .first()
         )
         if session is None:
             raise KeyError("Unknown session id")
@@ -107,14 +108,13 @@ class RenameSession(form.SchemaForm):
             return
         if data["title"]:
             flash = IStatusMessage(self.request).addStatusMessage
-            self.getContent().title = data['title']
+            self.getContent().title = data["title"]
             flash(
                 _(
                     u"Session title has been changed to ${name}",
-                    mapping={
-                        "name": data["title"]
-                    }
-                ), "success"
+                    mapping={"name": data["title"]},
+                ),
+                "success",
             )
         came_from = self.request.form.get("came_from")
         if isinstance(came_from, list):

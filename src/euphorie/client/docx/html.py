@@ -1,8 +1,9 @@
 # coding=utf-8
+from lxml import etree
+
 import docx
 import htmllaundry
 import lxml.html
-from lxml import etree
 
 
 def add_hyperlink(paragraph, url, text, style):
@@ -17,17 +18,22 @@ def add_hyperlink(paragraph, url, text, style):
 
     # This gets access to the document.xml.rels file and gets a new relation id value
     part = paragraph.part
-    r_id = part.relate_to(url, docx.opc.constants.RELATIONSHIP_TYPE.HYPERLINK, is_external=True)
+    r_id = part.relate_to(
+        url, docx.opc.constants.RELATIONSHIP_TYPE.HYPERLINK, is_external=True
+    )
 
     # Create the w:hyperlink tag and add needed values
-    hyperlink = docx.oxml.shared.OxmlElement('w:hyperlink')
-    hyperlink.set(docx.oxml.shared.qn('r:id'), r_id, )
+    hyperlink = docx.oxml.shared.OxmlElement("w:hyperlink")
+    hyperlink.set(
+        docx.oxml.shared.qn("r:id"),
+        r_id,
+    )
 
     # Create a w:r element
-    new_run = docx.oxml.shared.OxmlElement('w:r')
+    new_run = docx.oxml.shared.OxmlElement("w:r")
 
     # Create a new w:rPr element
-    rPr = docx.oxml.shared.OxmlElement('w:rPr')
+    rPr = docx.oxml.shared.OxmlElement("w:rPr")
 
     # Join all the xml elements together add add the required text to the w:r element
     new_run.append(rPr)
@@ -41,7 +47,6 @@ def add_hyperlink(paragraph, url, text, style):
 
 
 class _HtmlToWord(object):
-
     def handleInlineText(self, node, p):
         """Handler for elements which can only contain inline text (p, li)"""
         run = p.add_run()
@@ -54,8 +59,8 @@ class _HtmlToWord(object):
             font.underline = True
 
         if node.text and node.text.strip():
-            if node.tag == 'a':
-                href = node.get('href')
+            if node.tag == "a":
+                href = node.get("href")
                 href = href and href.strip()
                 if href and href != node.text.strip():
                     add_hyperlink(p, href, node.text, "Hyperlink")
@@ -72,7 +77,7 @@ class _HtmlToWord(object):
         return p
 
     def handleElement(self, node, doc, style=None):
-        if node.tag in ["p", "li", 'strong', 'b', 'em', 'i', 'u', 'a']:
+        if node.tag in ["p", "li", "strong", "b", "em", "i", "u", "a"]:
             p = doc.add_paragraph(style=style)
             p = self.handleInlineText(node, p)
         elif node.tag in ["ul", "ol"]:
@@ -106,7 +111,7 @@ class _HtmlToWord(object):
             doc.add_paragraph(text)
             return doc
 
-        for node in markup_doc.find('body'):
+        for node in markup_doc.find("body"):
             doc = self.handleElement(node, doc, style)
 
         return doc

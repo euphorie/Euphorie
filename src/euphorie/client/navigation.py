@@ -72,7 +72,13 @@ def first(func, iter):
 
 
 def getTreeData(
-    request, context, element=None, phase="identification", filter=None, survey=None, no_current=False
+    request,
+    context,
+    element=None,
+    phase="identification",
+    filter=None,
+    survey=None,
+    no_current=False,
 ):
     """Assemble data for a navigation tree
 
@@ -158,7 +164,7 @@ def getTreeData(
         cls = []
         for key in ["active", "current", "current_parent"]:
             if info[key]:
-                if key == 'current' and no_current:
+                if key == "current" and no_current:
                     continue
                 cls.append(key)
 

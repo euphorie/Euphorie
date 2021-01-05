@@ -173,16 +173,18 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
         return priority
 
     def create_workbook(self):
-        """Create an Excel workbook containing the all risks and measures.
-        """
-        t = lambda txt: translate(txt, context=self.request)
+        """Create an Excel workbook containing the all risks and measures."""
         book = Workbook()
         sheet = book.worksheets[0]
-        sheet.title = t(_("report_timeline_title", default=u"Timeline"))
+        sheet.title = translate(
+            _("report_timeline_title", default=u"Timeline"), context=self.request
+        )
         survey = self.context.aq_parent
 
         for (column, (ntype, key, title)) in enumerate(self.columns):
-            sheet.cell(row=0, column=column).value = t(title)
+            sheet.cell(row=0, column=column).value = translate(
+                title, context=self.request
+            )
 
         row = 1
         for (module, risk, measure) in self.get_measures():
@@ -222,7 +224,7 @@ class ActionPlanTimeline(grok.View, survey._StatusHelper):
                             value = module.title
                 if value is not None:
                     cell = sheet.cell(row=row, column=column)
-                    if key == 'number':
+                    if key == "number":
                         # force sting
                         cell.set_value_explicit(value)
                     else:

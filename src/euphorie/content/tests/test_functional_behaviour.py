@@ -12,7 +12,6 @@ from zope.lifecycleevent import ObjectModifiedEvent
 
 
 class DirtyTreeTests(EuphorieIntegrationTestCase):
-
     def create(self):
         sector = createSector(self.portal)
         return addSurvey(sector, EMPTY_SURVEY)
@@ -42,7 +41,6 @@ class DirtyTreeTests(EuphorieIntegrationTestCase):
 
 
 class RichDescriptionTests(EuphorieIntegrationTestCase):
-
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -50,18 +48,12 @@ class RichDescriptionTests(EuphorieIntegrationTestCase):
     def createModule(self):
         with api.env.adopt_user(TEST_USER_NAME):
             self.country = self.portal.sectors.nl
-            self.sector = self._create(
-                self.country, "euphorie.sector", "sector"
-            )
+            self.sector = self._create(self.country, "euphorie.sector", "sector")
             self.surveygroup = self._create(
                 self.sector, "euphorie.surveygroup", "group"
             )
-            self.survey = self._create(
-                self.surveygroup, "euphorie.survey", "survey"
-            )
-            self.module = self._create(
-                self.survey, "euphorie.module", "module"
-            )
+            self.survey = self._create(self.surveygroup, "euphorie.survey", "survey")
+            self.module = self._create(self.survey, "euphorie.module", "module")
         return self.module
 
     def testNoMarkup(self):

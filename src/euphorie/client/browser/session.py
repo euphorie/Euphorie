@@ -50,7 +50,7 @@ import urllib
 
 
 def sql_clone(obj, skip={}, session=None):
-    """ Clone a sql object avoiding the properties in the skip parameter
+    """Clone a sql object avoiding the properties in the skip parameter
 
     The skip parameter is optional but you probably want to always pass the
     primary key
@@ -79,8 +79,7 @@ class IStartFormSchema(model.Schema):
 
 
 class SessionMixin(object):
-    """ Mostly properties we want to reuse for the views in the context of a session
-    """
+    """Mostly properties we want to reuse for the views in the context of a session"""
 
     def update(self):
         super(SessionMixin, self).update()
@@ -94,8 +93,7 @@ class SessionMixin(object):
     @property
     @memoize
     def survey(self):
-        """ This is the survey dexterity object
-        """
+        """This is the survey dexterity object"""
         return self.webhelpers._survey
 
     @property
@@ -126,7 +124,7 @@ class SessionMixin(object):
         scales = self.survey.restrictedTraverse("@@images")
         try:
             scale = scales.scale("external_site_logo", scale="large")
-        except:
+        except Exception:
             scale = None
         return scale.url if scale else ""
 
@@ -170,8 +168,7 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
 
     @memoize
     def get_pat_messages_above_title(self):
-        """ List of messages we want to display above the risk assesment title
-        """
+        """List of messages we want to display above the risk assesment title"""
         if not self.webhelpers.can_edit_session:
             link_download_section = _(
                 "no_translate_link_download_section",
@@ -180,7 +177,8 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
                 mapping={"text_download_section": _(u"download section")},
             )
             message = _(
-                u"You don't have edit rights for this risk assesment, but you can download "
+                u"You don't have edit rights for this risk assesment, "
+                u"but you can download "
                 u"this risk assessment in various forms in the ${download_section}.",
                 mapping={"download_section": link_download_section},
             )
@@ -189,7 +187,7 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
 
     @memoize
     def get_pat_multiple_messages_below_article(self):
-        """ List of messages we want to display under the risk assesment article
+        """List of messages we want to display under the risk assesment article
 
         Those messages should be iterable.
         Example of a good returned value:
@@ -240,7 +238,7 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
     survey.
     """
 
-    id_patt = re.compile("pq([0-9]*)\.present")
+    id_patt = re.compile(r"pq([0-9]*)\.present")
     variation_class = "variation-risk-assessment"
 
     @property
@@ -476,8 +474,8 @@ class ContentsPreview(BrowserView):
         )
 
     def get_session_nodes(self):
-        """ Return an ordered list of all tree items for the current survey.
-            By OSHA's request, optional submodules are always included.
+        """Return an ordered list of all tree items for the current survey.
+        By OSHA's request, optional submodules are always included.
         """
         query = (
             Session.query(SurveyTreeItem)
@@ -501,7 +499,7 @@ class ContentsPreview(BrowserView):
 
     def get_legal_references(self, node):
         """We might add some logic to never show legal references depending
-            on a setting per country / survey.
+        on a setting per country / survey.
         """
         zodb_node = self.zodb_node(node)
         if not zodb_node:
@@ -519,7 +517,8 @@ class ContentsPreview(BrowserView):
                 continue
             if mode == "full":
                 text = u"{title}<br/>{description}".format(
-                    title=solution.description, description=solution.action)
+                    title=solution.description, description=solution.action
+                )
             else:
                 text = solution.action
             solutions.append(text)
@@ -615,8 +614,7 @@ class Identification(SessionMixin, BrowserView):
 
 
 class DeleteSession(SessionMixin, BrowserView):
-    """View name: @@delete-session
-    """
+    """View name: @@delete-session"""
 
     def __call__(self):
         if not self.webhelpers.can_delete_session:
@@ -635,8 +633,7 @@ class DeleteSession(SessionMixin, BrowserView):
 
 
 class ConfirmationDeleteSession(SessionMixin, BrowserView):
-    """View name: @@confirmation-delete-session
-    """
+    """View name: @@confirmation-delete-session"""
 
     no_splash = True
 
@@ -649,8 +646,7 @@ class ConfirmationDeleteSession(SessionMixin, BrowserView):
 
 
 class ConfirmationArchiveSession(SessionMixin, BrowserView):
-    """View name: @@confirmation-archive-session
-    """
+    """View name: @@confirmation-archive-session"""
 
     no_splash = True
 
@@ -663,8 +659,7 @@ class ConfirmationArchiveSession(SessionMixin, BrowserView):
 
 
 class ArchiveSession(SessionMixin, BrowserView):
-    """View name: @@archive-session
-    """
+    """View name: @@archive-session"""
 
     def notify_modified(self):
         notify(ObjectModifiedEvent(self.context.session))
@@ -689,8 +684,7 @@ class ArchiveSession(SessionMixin, BrowserView):
 
 
 class CloneSession(SessionMixin, BrowserView):
-    """View name: @@confirmation-clone-session
-    """
+    """View name: @@confirmation-clone-session"""
 
     def get_cloned_session(self):
         sql_session = Session
@@ -763,8 +757,7 @@ class CloneSession(SessionMixin, BrowserView):
         return new_session
 
     def clone(self):
-        """ Clone this session and redirect to the start view
-        """
+        """Clone this session and redirect to the start view"""
         new_session = self.get_cloned_session()
         api.portal.show_message(
             _("The risk assessment has been cloned"), self.request, "success"
@@ -779,8 +772,7 @@ class PublicationMenu(SessionMixin, BrowserView):
     @property
     @memoize_contextless
     def portal(self):
-        """ The currently authenticated account
-        """
+        """The currently authenticated account"""
         return api.portal.get()
 
     def redirect(self):
@@ -788,21 +780,18 @@ class PublicationMenu(SessionMixin, BrowserView):
         return self.request.response.redirect(target)
 
     def reset_date(self):
-        """ Reset the session date to now
-        """
+        """Reset the session date to now"""
         session = self.context.session
         session.published = datetime.now()
         session.last_publisher = get_current_account()
         return self.redirect()
 
     def set_date(self):
-        """ Set the session date to now
-        """
+        """Set the session date to now"""
         return self.reset_date()
 
     def unset_date(self):
-        """ Unset the session date
-        """
+        """Unset the session date"""
         session = self.context.session
         session.published = None
         session.last_publisher = None
@@ -857,7 +846,7 @@ class ActionPlanView(SessionMixin, BrowserView):
         return self.webhelpers.country == "it"
 
     def __call__(self):
-        """ Render the page only if the user has edit rights,
+        """Render the page only if the user has edit rights,
         otherwise redirect to the start page of the session.
         """
         if not self.webhelpers.can_edit_session:
@@ -911,8 +900,7 @@ class Report(SessionMixin, BrowserView):
 
 
 class Status(SessionMixin, BrowserView, _StatusHelper):
-    """Show survey status information.
-    """
+    """Show survey status information."""
 
     variation_class = "variation-risk-assessment"
 
@@ -963,8 +951,8 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
             self.session_title = None
 
     def getStatus(self):
-        """ Gather a list of the modules and locations in this survey as well
-            as data around their state of completion.
+        """Gather a list of the modules and locations in this survey as well
+        as data around their state of completion.
         """
         session = Session()
         total_ok = 0
@@ -1070,8 +1058,7 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
 
 
 class RisksOverview(Status):
-    """ Implements the "Overview of Risks" report, see #10967
-    """
+    """Implements the "Overview of Risks" report, see #10967"""
 
     label = _("Overview of risks")
 
@@ -1081,8 +1068,7 @@ class RisksOverview(Status):
 
 
 class MeasuresOverview(Status):
-    """ Implements the "Overview of Measures" report, see #10967
-    """
+    """Implements the "Overview of Measures" report, see #10967"""
 
     label = _("Overview of measures")
 

@@ -5,9 +5,9 @@ from five import grok
 from plone import api
 from plone.memoize.view import memoize
 from StringIO import StringIO
+from urllib import quote
 from z3c.appconfig.interfaces import IAppConfig
 from zope.component import getUtility
-from urllib import quote
 
 import base64
 import httplib

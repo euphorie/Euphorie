@@ -9,7 +9,6 @@ import unittest
 
 
 class StripMarkupTests(unittest.TestCase):
-
     def StripMarkup(self, *a, **kw):
         return StripMarkup(*a, **kw)
 
@@ -26,8 +25,7 @@ class StripMarkupTests(unittest.TestCase):
 
     def testMultipleTags(self):
         self.assertEqual(
-            self.StripMarkup(u"Test <em>me</me> <strong>now</strong>"),
-            u"Test me now"
+            self.StripMarkup(u"Test <em>me</me> <strong>now</strong>"), u"Test me now"
         )
 
     def testStrayBracket(self):
@@ -35,14 +33,11 @@ class StripMarkupTests(unittest.TestCase):
 
 
 class getTermTitleByValueTests(unittest.TestCase):
-
     def getTermTitleByValue(self, *a, **kw):
         return getTermTitleByValue(*a, **kw)
 
     def testUnknownValue(self):
-        self.assertEqual(
-            self.getTermTitleByValue(make_field([]), "dummy"), "dummy"
-        )
+        self.assertEqual(self.getTermTitleByValue(make_field([]), "dummy"), "dummy")
 
     def testKnownValue(self):
         field = make_field([(1, "token", u"Title")])
@@ -50,7 +45,6 @@ class getTermTitleByValueTests(unittest.TestCase):
 
 
 class TestGetTermTitleByToken(unittest.TestCase):
-
     def testUnknownToken(self):
         self.assertEqual(getTermTitleByToken(make_field([]), "dummy"), "dummy")
 
@@ -64,10 +58,7 @@ class Mock:
 
 
 def make_field(terms):
-    terms = [
-        SimpleTerm(value, token, title=title)
-        for (value, token, title) in terms
-    ]
+    terms = [SimpleTerm(value, token, title=title) for (value, token, title) in terms]
     field = Mock()
     field.vocabulary = SimpleVocabulary(terms)
     return field

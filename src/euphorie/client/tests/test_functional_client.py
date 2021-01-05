@@ -6,7 +6,6 @@ from transaction import commit
 
 
 class SurveyTests(EuphorieFunctionalTestCase):
-
     def test_policy_gets_high_priority(self):
         # Test for http://code.simplon.biz/tracker/tno-euphorie/ticket/93
         survey = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
@@ -29,28 +28,24 @@ class SurveyTests(EuphorieFunctionalTestCase):
         self.loginAsPortalOwner()
         addSurvey(self.portal, survey)
         commit()
-        self.request.response.setHeader('X-Theme-Disabled', '1')
+        self.request.response.setHeader("X-Theme-Disabled", "1")
         browser = self.get_browser()
         url = self.portal.client.nl["sector-title"]["survey-title"].absolute_url()
         browser.open(url)
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="survey").value = ["sector-title/survey-title"]
-        browser.getForm(action='new-session').submit()
+        browser.getForm(action="new-session").submit()
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getControl(name="form.button.submit").click()
         session_url = browser.url.replace("/@@identification", "")
         # Identify the risk
-        browser.open(
-            "%s/1/1/@@identification" % session_url
-        )
+        browser.open("%s/1/1/@@identification" % session_url)
         browser.getControl(name="answer").value = ["no"]
         browser.getControl(name="next", index=1).click()
         # Check priority in action plan
-        browser.open(
-            "%s/1/1/@@actionplan" % session_url
-        )
+        browser.open("%s/1/1/@@actionplan" % session_url)
         self.assertEqual(browser.getControl(name="priority").value, ["high"])
 
     def test_top5_gets_high_priority(self):
@@ -76,27 +71,22 @@ class SurveyTests(EuphorieFunctionalTestCase):
         addSurvey(self.portal, survey)
         browser = self.get_browser()
         browser.open(
-            self.portal.client.nl["sector-title"]["survey-title"]
-            .absolute_url()
+            self.portal.client.nl["sector-title"]["survey-title"].absolute_url()
         )
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="survey").value = ["sector-title/survey-title"]
-        browser.getForm(action='new-session').submit()
+        browser.getForm(action="new-session").submit()
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getControl(name="form.button.submit").click()
         session_url = browser.url.replace("/@@identification", "")
         # Identify the top-5 risk
-        browser.open(
-            "%s/1/1/@@identification" % session_url
-        )
+        browser.open("%s/1/1/@@identification" % session_url)
         browser.getControl(name="answer").value = ["no"]
         browser.getControl(name="next", index=1).click()
         # Check priority in action plan
-        browser.open(
-            "%s/1/1/@@actionplan" % session_url
-        )
+        browser.open("%s/1/1/@@actionplan" % session_url)
         self.assertEqual(browser.getControl(name="priority").value, "high")
 
     def test_top5_skipped_in_evaluation(self):
@@ -122,24 +112,21 @@ class SurveyTests(EuphorieFunctionalTestCase):
         addSurvey(self.portal, survey)
         browser = self.get_browser()
         browser.open(
-            self.portal.client.nl["sector-title"]["survey-title"]
-            .absolute_url()
+            self.portal.client.nl["sector-title"]["survey-title"].absolute_url()
         )
         registerUserInClient(browser)
         # Create a new survey session
         browser.getControl(name="survey").value = ["sector-title/survey-title"]
-        browser.getForm(action='new-session').submit()
+        browser.getForm(action="new-session").submit()
         browser.getControl(name="form.widgets.title").value = "Test session"
         # Start the survey
         browser.getControl(name="form.button.submit").click()
         session_url = browser.url.replace("/@@identification", "")
         # Identify the top-5 risk
-        browser.open(
-            "%s/1/1/@@identification" % session_url
-        )
+        browser.open("%s/1/1/@@identification" % session_url)
         browser.getControl(name="answer").value = ["no"]
         # No evaluation is necessary
         self.assertTrue(
-            "The risk evaluation has been automatically done by the tool" in
-            browser.contents
+            "The risk evaluation has been automatically done by the tool"
+            in browser.contents
         )

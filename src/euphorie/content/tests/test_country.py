@@ -16,7 +16,8 @@ class CountryTests(EuphorieIntegrationTestCase):
     def testDefaultInfoSections(self):
         country = self.createCountry()
         self.assertEqual(
-            country.risk_default_collapsible_sections, ["collapsible_section_information"]
+            country.risk_default_collapsible_sections,
+            ["collapsible_section_information"],
         )
 
     def testDefaultReports(self):

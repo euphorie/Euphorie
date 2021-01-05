@@ -15,6 +15,7 @@ from zope.interface import alsoProvides
 
 import logging
 
+
 log = logging.getLogger(__name__)
 
 
@@ -121,7 +122,7 @@ def migrate_actgion_plans(context):
                     model.Account.id == model.SurveySession.account_id,
                     model.Account.account_type != "guest",
                     model.SurveySession.zodb_path == tool_path,
-                    model.SurveySession.migrated == None,
+                    model.SurveySession.migrated == None,  # noqa: E711
                 )
             )
             .order_by(model.SurveySession.zodb_path)
@@ -150,7 +151,7 @@ def migrate_actgion_plans(context):
                 elif risk_path not in risks_by_path:
                     try:
                         zodb_risk = tool.restrictedTraverse(risk_path)
-                    except:
+                    except Exception:
                         log.warning(
                             "Risk {} not found in tool {}".format(risk_path, tool_path)
                         )
@@ -171,7 +172,8 @@ def migrate_actgion_plans(context):
                 else:
                     zodb_risk = risks_by_path[risk_path]
 
-                # convert ActionPlan items that are clearly based on solutions to "standard" type
+                # convert ActionPlan items that are clearly based on solutions
+                # to "standard" type
                 if not is_custom:
                     for ap in risk.custom_measures:
                         for solution in solutions_by_path[risk_path]:
@@ -235,11 +237,3 @@ def migrate_actgion_plans(context):
         if max_tools > 0 and tool_count >= max_tools:
             log.info("Broke off after %d tools" % tool_count)
             return
-
-
-"""
-SELECT mig::float/total as percent_done
-FROM
-    (select (select count(*) from session join account on session.account_id=account.id where (account_type is Null or account_type!='guest') and migrated is not Null) as mig,
-    (select count(*) from session join account on session.account_id=account.id where (account_type is Null or account_type!='guest')) as total) as subq;
-"""

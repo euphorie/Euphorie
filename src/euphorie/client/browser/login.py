@@ -45,8 +45,9 @@ log = logging.getLogger(__name__)
 
 # I know this is a stupid regular expression, but it Works For Us(tm)
 EMAIL_RE = re.compile(
-    r'[_a-z0-9+-]+(\.[_a-z0-9+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})',
-    re.IGNORECASE)
+    r"[_a-z0-9+-]+(\.[_a-z0-9+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})",
+    re.IGNORECASE,
+)
 
 
 class Login(BrowserView):
@@ -60,7 +61,7 @@ class Login(BrowserView):
         lang = params.get("language")
         if not lang:
             if IClientCountry.providedBy(self.context):
-                lang = getattr(self.context, 'language', None)
+                lang = getattr(self.context, "language", None)
             elif ISurvey.providedBy(self.context):
                 lang = self.context.language
         if lang:
@@ -77,18 +78,20 @@ class Login(BrowserView):
             account.password,
         )
         if remember:
-            self.request.RESPONSE.cookies['__ac']['expires'] = cookie_expiration_date(120)  # noqa: E501
-            self.request.RESPONSE.cookies['__ac']['max_age'] = 120 * 24 * 60 * 60  # noqa: E501
+            self.request.RESPONSE.cookies["__ac"]["expires"] = cookie_expiration_date(
+                120
+            )  # noqa: E501
+            self.request.RESPONSE.cookies["__ac"]["max_age"] = (
+                120 * 24 * 60 * 60
+            )  # noqa: E501
 
     def transferGuestSession(self, account_id):
-        """ Transfer session(s) from guest account to an existing user account
-        """
+        """Transfer session(s) from guest account to an existing user account"""
         if not account_id:
             return
         account = get_current_account()
-        sessions = (
-            Session.query(model.SurveySession)
-            .filter(model.SurveySession.account_id == account_id)
+        sessions = Session.query(model.SurveySession).filter(
+            model.SurveySession.account_id == account_id
         )
         for session in sessions:
             session.account_id = account.id
@@ -106,16 +109,15 @@ class Login(BrowserView):
 
         account = get_current_account()
         appconfig = component.getUtility(IAppConfig)
-        settings = appconfig.get('euphorie')
-        self.allow_guest_accounts = asBool(
-            settings.get('allow_guest_accounts', False))
+        settings = appconfig.get("euphorie")
+        self.allow_guest_accounts = asBool(settings.get("allow_guest_accounts", False))
 
         lang = api.portal.get_current_language()
-        self.show_whofor = False if lang in ('fr', ) else True
-        self.show_what_to_do = False if lang in ('fr', ) else True
-        self.show_how_long = False if lang in ('fr', ) else True
+        self.show_whofor = False if lang in ("fr",) else True
+        self.show_what_to_do = False if lang in ("fr",) else True
+        self.show_how_long = False if lang in ("fr",) else True
         self.show_why_register = True
-        self.show_prepare = False if lang in ('fr', ) else True
+        self.show_prepare = False if lang in ("fr",) else True
 
         if self.request.environ["REQUEST_METHOD"] == "POST":
             reply = self.request.form
@@ -125,21 +127,22 @@ class Login(BrowserView):
                 return
 
             if (
-                isinstance(account, model.Account) and
-                account.getUserName() == reply.get("__ac_name", '').lower()
+                isinstance(account, model.Account)
+                and account.getUserName() == reply.get("__ac_name", "").lower()
             ):
-                self.transferGuestSession(reply.get('guest_account_id'))
-                self.login(account, bool(self.request.form.get('remember')))
-                v_url = urlparse.urlsplit(
-                    self.request.URL + '/success').path.replace("@@", "")
+                self.transferGuestSession(reply.get("guest_account_id"))
+                self.login(account, bool(self.request.form.get("remember")))
+                v_url = urlparse.urlsplit(self.request.URL + "/success").path.replace(
+                    "@@", ""
+                )
                 trigger_extra_pageview(self.request, v_url)
 
-                if (
-                    checkTermsAndConditions() and
-                    not approvedTermsAndConditions(account)
+                if checkTermsAndConditions() and not approvedTermsAndConditions(
+                    account
                 ):
                     self.request.RESPONSE.redirect(
-                        "%s/terms-and-conditions?%s" % (
+                        "%s/terms-and-conditions?%s"
+                        % (
                             context.absolute_url(),
                             urllib.urlencode({"came_from": came_from}),
                         )
@@ -151,15 +154,15 @@ class Login(BrowserView):
 
         self.reset_password_request_url = "%s/@@reset_password_request?%s" % (
             context.absolute_url(),
-            urllib.urlencode({'came_from': came_from}),
+            urllib.urlencode({"came_from": came_from}),
         )
         self.register_url = "%s/@@register?%s" % (
             context.absolute_url(),
-            urllib.urlencode({'came_from': came_from}),
+            urllib.urlencode({"came_from": came_from}),
         )
         self.tryout_url = "%s/@@tryout?%s" % (
             context.absolute_url(),
-            urllib.urlencode({'came_from': came_from}),
+            urllib.urlencode({"came_from": came_from}),
         )
         return self.index()
 
@@ -177,7 +180,7 @@ class Tryout(SessionsView, Login):
     def createGuestAccount(self):
         account = model.Account(
             loginname="guest-%s" % datetime.datetime.now().isoformat(),
-            account_type=config.GUEST_ACCOUNT
+            account_type=config.GUEST_ACCOUNT,
         )
         Session().add(account)
         return account
@@ -185,14 +188,12 @@ class Tryout(SessionsView, Login):
     def __call__(self):
         came_from = self.request.form.get("came_from")
         if not came_from:
-            return self.request.response.redirect(
-                api.portal.get().absolute_url()
-            )
+            return self.request.response.redirect(api.portal.get().absolute_url())
         account = self.createGuestAccount()
         self.login(account, False)
         client_url = self.request.client.absolute_url()
-        came_from = came_from.replace(client_url, '')
-        if came_from.startswith('/'):
+        came_from = came_from.replace(client_url, "")
+        if came_from.startswith("/"):
             came_from = came_from[1:]
         try:
             survey = self.context.restrictedTraverse(came_from)
@@ -212,9 +213,8 @@ class CreateTestSession(Tryout):
 
     def __call__(self):
         appconfig = component.getUtility(IAppConfig)
-        settings = appconfig.get('euphorie')
-        self.allow_guest_accounts = asBool(
-            settings.get('allow_guest_accounts', False))
+        settings = appconfig.get("euphorie")
+        self.allow_guest_accounts = asBool(settings.get("allow_guest_accounts", False))
         context = aq_inner(self.context)
         came_from = self.request.form.get("came_from")
         if came_from:
@@ -224,13 +224,20 @@ class CreateTestSession(Tryout):
         else:
             came_from = context.absolute_url()
         self.register_url = "%s/@@register?%s" % (
-            context.absolute_url(), urllib.urlencode({'came_from': came_from}))
+            context.absolute_url(),
+            urllib.urlencode({"came_from": came_from}),
+        )
         setLanguage(self.request, self.context)
         if self.request.environ["REQUEST_METHOD"] == "POST":
             if not self.allow_guest_accounts:
                 flash = IStatusMessage(self.request).addStatusMessage
-                flash(_(u"Starting a test session is not available in this OiRA "
-                      u"application."), "error")
+                flash(
+                    _(
+                        u"Starting a test session is not available in this OiRA "
+                        u"application."
+                    ),
+                    "error",
+                )
                 self.request.response.redirect(came_from)
             else:
                 reply = self.request.form
@@ -243,43 +250,53 @@ class CreateTestSession(Tryout):
 
 
 class Register(BrowserView):
-    """Register a new account or convert an existing guest account
-    """
+    """Register a new account or convert an existing guest account"""
 
     def _tryRegistration(self):
         reply = self.request.form
         loginname = reply.get("email")
         if not loginname:
-            self.errors["email"] = _("error_missing_email",
-                    default=u"Please enter your email address")
+            self.errors["email"] = _(
+                "error_missing_email", default=u"Please enter your email address"
+            )
         elif not EMAIL_RE.match(loginname):
-            self.errors["email"] = _("error_invalid_email",
-                    default=u"Please enter a valid email address")
+            self.errors["email"] = _(
+                "error_invalid_email", default=u"Please enter a valid email address"
+            )
         if not reply.get("password1"):
-            self.errors["password"] = _("error_missing_password",
-                    default=u"Please enter a password")
+            self.errors["password"] = _(
+                "error_missing_password", default=u"Please enter a password"
+            )
         elif reply.get("password1") != reply.get("password2"):
-            self.errors["password"] = _("error_password_mismatch",
-                    default=u"Passwords do not match")
+            self.errors["password"] = _(
+                "error_password_mismatch", default=u"Passwords do not match"
+            )
         if self.errors:
             return False
 
         session = Session()
         loginname = loginname.lower()
-        account = session.query(model.Account)\
-                .filter(model.Account.loginname == loginname).count()
+        account = (
+            session.query(model.Account)
+            .filter(model.Account.loginname == loginname)
+            .count()
+        )
         if account:
-            self.errors["email"] = _("error_email_in_use",
-                default=u"An account with this email address already exists.")
+            self.errors["email"] = _(
+                "error_email_in_use",
+                default=u"An account with this email address already exists.",
+            )
             return False
 
         pm = getToolByName(self.context, "portal_membership")
         if pm.getMemberById(loginname) is not None:
-            self.errors["email"] = _("error_email_in_use",
-                default=u"An account with this email address already exists.")
+            self.errors["email"] = _(
+                "error_email_in_use",
+                default=u"An account with this email address already exists.",
+            )
             return False
 
-        guest_account_id = self.request.form.get('guest_account_id')
+        guest_account_id = self.request.form.get("guest_account_id")
         if guest_account_id:
             account = get_current_account()
             account.loginname = loginname
@@ -288,22 +305,19 @@ class Register(BrowserView):
             account.created = datetime.datetime.now()
         else:
             account = model.Account(
-                loginname=loginname,
-                password=reply.get("password1")
+                loginname=loginname, password=reply.get("password1")
             )
         Session().add(account)
         log.info("Registered new account %s", loginname)
-        v_url = urlparse.urlsplit(self.request.URL + '/success').path.replace(
-            "@@", "")
+        v_url = urlparse.urlsplit(self.request.URL + "/success").path.replace("@@", "")
         trigger_extra_pageview(self.request, v_url)
         return account
 
     @property
     @memoize
     def email_message(self):
-        return api.portal.translate(_(
-            u"invalid_email",
-            default=u"Please enter a valid email address."),
+        return api.portal.translate(
+            _(u"invalid_email", default=u"Please enter a valid email address."),
         )
 
     def __call__(self):
@@ -328,25 +342,28 @@ class Register(BrowserView):
 
         if checkTermsAndConditions():
             self.request.response.redirect(
-                    "%s/terms-and-conditions?%s" % (
-                        self.request.client.absolute_url(),
-                        urllib.urlencode({"came_from": came_from})))
+                "%s/terms-and-conditions?%s"
+                % (
+                    self.request.client.absolute_url(),
+                    urllib.urlencode({"came_from": came_from}),
+                )
+            )
         else:
             self.request.response.redirect(came_from)
 
     def get_image_version(self, name):
         """" Needed on the reports overview show to the guest user """
         fdir = os.path.join(
-            os.path.dirname(__file__), os.path.join('..', 'resources', 'media'))
-        lang = getattr(self.request, 'LANGUAGE', 'en')
+            os.path.dirname(__file__), os.path.join("..", "resources", "media")
+        )
+        lang = getattr(self.request, "LANGUAGE", "en")
         fname = "{0}_{1}".format(name, lang)
-        if os.path.isfile(os.path.join(fdir, fname + '.png')):
+        if os.path.isfile(os.path.join(fdir, fname + ".png")):
             return fname
         return name
 
 
 class Logout(BrowserView):
-
     def __call__(self):
 
         pas = getToolByName(self.context, "acl_users")

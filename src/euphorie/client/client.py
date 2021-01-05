@@ -43,6 +43,7 @@ class ClientUserProvider(grok.Adapter):
 
     This is used as ownership for all client data.
     """
+
     grok.context(IClient)
     grok.implements(IMembraneUserObject)
 
@@ -61,6 +62,7 @@ class ClientLocalRolesProvider(grok.Adapter):
     inside the client since the publication machinery always
     runs under the client user.
     """
+
     grok.context(IClient)
     grok.implements(ILocalRoleProvider)
 
@@ -82,15 +84,19 @@ class ClientPublishTraverser(DefaultPublishTraverse):
     This traverser marks the request with IClientSkinLayer. We can not use
     BeforeTraverseEvent since in Zope 2 that is only fired for site objects.
     """
+
     adapts(IClient, Interface)
 
     def publishTraverse(self, request, name):
         from euphorie.client.utils import setRequest
+
         setRequest(request)
         request.client = self.context  # XXX: remove me
 
-        ifaces = [iface for iface in directlyProvidedBy(request)
-                if not IBrowserSkinType.providedBy(iface)]
+        ifaces = [
+            iface
+            for iface in directlyProvidedBy(request)
+            if not IBrowserSkinType.providedBy(iface)
+        ]
         directlyProvides(request, IClientSkinLayer, ifaces)
-        return super(ClientPublishTraverser, self)\
-                .publishTraverse(request, name)
+        return super(ClientPublishTraverser, self).publishTraverse(request, name)

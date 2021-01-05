@@ -6,7 +6,8 @@ from zope.component import getMultiAdapter
 from zope.component._api import getUtility
 from zope.globalrequest import getRequest
 
-FIELDNAMES = ('image', 'external_site_logo')
+
+FIELDNAMES = ("image", "external_site_logo")
 
 
 def _initial_size(ix, iy, sx, sy):
@@ -55,7 +56,7 @@ def _autocrop_scales(context):
     settings = cropping_registry.forInterface(ISettings)
     scale_names = settings.cropping_for
     request = getRequest()
-    cropper = getMultiAdapter((context, request), name='crop-image')
+    cropper = getMultiAdapter((context, request), name="crop-image")
     for fname in FIELDNAMES:
         field = getattr(context, fname, None)
         if not field:

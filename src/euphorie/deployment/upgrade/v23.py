@@ -6,9 +6,11 @@ from euphorie.client.sector import IClientSector
 from plone import api
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
+
+import datetime
 import logging
 import zope.component
-import datetime
+
 
 log = logging.getLogger(__name__)
 
@@ -35,17 +37,17 @@ def update_custom_risks_module_texts(context):
                         count += 1
                         custom = getattr(survey, "custom-risks", None)
                         if custom:
-                            # custom.title = _(u'title_other_risks', default=u"Added risks (by you)")
-                            # custom.description = _(
-                            #     u"description_other_risks",
-                            #     default=u"In case you have identified risks not included in "
-                            #     u"the tool, you are able to add them now:")
                             custom.question = _(
                                 u"question_other_risks",
-                                default=u"<p><strong>Important:</strong> In "
-                                u"order to avoid duplicating risks, we strongly recommend you "
-                                u"to go first through all the previous modules, if you have not "
-                                u"done it yet.</p><p>If you don't need to add risks, please continue.</p>",
+                                default=(
+                                    u"<p><strong>Important:</strong> In "
+                                    u"order to avoid duplicating risks, "
+                                    u"we strongly recommend you "
+                                    u"to go first through all the previous modules, "
+                                    u"if you have not done it yet.</p>"
+                                    u"<p>If you don't need to add risks, "
+                                    u"please continue.</p>"
+                                ),
                             )
                         if is_new:
                             survey.published = (
@@ -53,5 +55,3 @@ def update_custom_risks_module_texts(context):
                                 survey.title,
                                 datetime.datetime.now(),
                             )
-                        # except Exception as e:
-                        #     log.error("Could not enable custom risks for module. %s" % e)

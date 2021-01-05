@@ -11,27 +11,24 @@ succesfull workflow transitions.
 
 from Acquisition import aq_base
 from Acquisition import aq_chain
-from zope.interface import Interface
 from five import grok
+from Products.CMFCore.interfaces import IActionSucceededEvent
+from zope.interface import Interface
 from zope.lifecycleevent import IObjectModifiedEvent
 from zope.lifecycleevent import IObjectMovedEvent
-from Products.CMFCore.interfaces import IActionSucceededEvent
 
 
 class IDirtyTreeRoot(Interface):
-    """Marker interface for objects which act as the root of a *dirty tree*.
-    """
+    """Marker interface for objects which act as the root of a *dirty tree*."""
 
 
 def clearDirty(obj):
-    """Explicitly clear the ditry flag on an object.
-    """
+    """Explicitly clear the ditry flag on an object."""
     obj.dirty = False
 
 
 def isDirty(obj):
-    """Check if an object is dirty, ie it has modified children.
-    """
+    """Check if an object is dirty, ie it has modified children."""
     if not IDirtyTreeRoot.providedBy(obj):
         raise TypeError("Object does not provide IDirtyTreeRoot")
 

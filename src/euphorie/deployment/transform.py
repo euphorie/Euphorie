@@ -1,13 +1,15 @@
 # coding=utf-8
-from zope.interface import implementer
-from plone.transformchain.interfaces import ITransform
 from plone.app.theming.transform import ThemeTransform
+from plone.transformchain.interfaces import ITransform
+from zope.interface import implementer
+
+
 # from lxml import etree
 
 
 @implementer(ITransform)
 class EuphorieTransform(ThemeTransform):
-    """ A transform that comes after plone.app.theming.transform and before
+    """A transform that comes after plone.app.theming.transform and before
     plone.protect.auto
     Since theming is not used in Euphorie, the only purpose of this transform
     is to ensure that we wrap the result into an XMLSerializer, so that the
@@ -18,8 +20,7 @@ class EuphorieTransform(ThemeTransform):
     order = 8870
 
     def transformIterable(self, result, encoding):
-        """ Just make sure to call parseTree in order to wrap the result
-        """
+        """Just make sure to call parseTree in order to wrap the result"""
         result = self.parseTree(result)
         if result is None:
             return None

@@ -7,7 +7,6 @@ from zope.event import notify
 
 
 class VersioningTests(EuphorieIntegrationTestCase):
-
     def createSurvey(self):
         sector = createSector(self.portal)
         survey = addSurvey(sector)
@@ -18,10 +17,9 @@ class VersioningTests(EuphorieIntegrationTestCase):
         # but for some reason the history is lost if we do that.
         notify(ActionSucceededEvent(survey, None, "publish", None))
 
-
-#        from euphorie.content.versioning import handleSurveyPublish
-#        handleSurveyPublish(survey, ActionSucceededEvent(survey, None,
-#                    "publish", None))
+    #        from euphorie.content.versioning import handleSurveyPublish
+    #        handleSurveyPublish(survey, ActionSucceededEvent(survey, None,
+    #                    "publish", None))
 
     def testNewlyCreatedSurveyHasNoVersions(self):
         self.loginAsPortalOwner()
@@ -39,20 +37,15 @@ class VersioningTests(EuphorieIntegrationTestCase):
 
     def XtestBrowseOldVersion(self):
         from euphorie.content.survey import handleSurveyPublish
+
         self.loginAsPortalOwner()
         survey = self.createSurvey()
-        handleSurveyPublish(
-            survey, ActionSucceededEvent(survey, None, "publish", None)
-        )
+        handleSurveyPublish(survey, ActionSucceededEvent(survey, None, "publish", None))
         self.assertEqual(
-            self.portal.client["nl"]["sector"]["test-survey"]["1"].title,
-            u"Module one"
+            self.portal.client["nl"]["sector"]["test-survey"]["1"].title, u"Module one"
         )
         survey["1"].title = u"Module two"
-        handleSurveyPublish(
-            survey, ActionSucceededEvent(survey, None, "update", None)
-        )
+        handleSurveyPublish(survey, ActionSucceededEvent(survey, None, "update", None))
         self.assertEqual(
-            self.portal.client["nl"]["sector"]["test-survey"]["1"].title,
-            u"Module two"
+            self.portal.client["nl"]["sector"]["test-survey"]["1"].title, u"Module two"
         )

@@ -10,11 +10,11 @@ from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie import MessageFactory as _
 from euphorie.client import model
+from euphorie.client import utils
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
 from euphorie.client.subscribers.imagecropping import _initial_size
-from euphorie.client import utils
 from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import IToolTypesInfo
@@ -39,6 +39,7 @@ from zope.publisher.interfaces import NotFound
 import datetime
 import PIL
 
+
 IMAGE_CLASS = {0: "", 1: "twelve", 2: "six", 3: "four", 4: "three"}
 
 
@@ -59,8 +60,8 @@ class RiskBase(BrowserView):
         self.override_confirmation = api.portal.translate(
             _(
                 u"The current text in the fields 'Action plan', 'Prevention plan' and "
-                u"'Requirements' of this measure will be overwritten. This action cannot be "
-                u"reverted. Are you sure you want to continue?"
+                u"'Requirements' of this measure will be overwritten. "
+                u"This action cannot be reverted. Are you sure you want to continue?"
             )
         )
         self.message_date_before = api.portal.translate(
@@ -95,8 +96,7 @@ class RiskBase(BrowserView):
     @property
     @memoize
     def survey(self):
-        """ This is the survey dexterity object
-        """
+        """This is the survey dexterity object"""
         return self.webhelpers._survey
 
     @property
@@ -169,8 +169,7 @@ class RiskBase(BrowserView):
         )
 
     def extract_plans_from_request(self):
-        """ Create new ActionPlan objects by parsing the Request.
-        """
+        """Create new ActionPlan objects by parsing the Request."""
         new_plans = []
         added = 0
         updated = 0
@@ -264,7 +263,7 @@ class RiskBase(BrowserView):
                 return api.portal.translate(
                     _(
                         "action_measures_true_solutions_true",
-                        default=u"Select or describe any further measure to reduce the risk.",
+                        default=u"Select or describe any further measure to reduce the risk.",  # noqa: E501  # noqa: E501
                     )
                 )
             # Case: measures-in-place==true, solutions==false
@@ -281,7 +280,7 @@ class RiskBase(BrowserView):
                 return api.portal.translate(
                     _(
                         "action_measures_false_solutions_true",
-                        default=u"Select or describe the specific measures required to reduce the risk.",
+                        default=u"Select or describe the specific measures required to reduce the risk.",  # noqa: E501
                     )
                 )
             # Case: measures-in-place==false, solutions==false
@@ -289,14 +288,13 @@ class RiskBase(BrowserView):
                 return api.portal.translate(
                     _(
                         "action_measures_false_solutions_false",
-                        default=u"Describe the specific measures required to reduce the risk.",
+                        default=u"Describe the specific measures required to reduce the risk.",  # noqa: E501
                     )
                 )
 
 
 class IdentificationView(RiskBase):
-    """A view for displaying a question in the identification phase
-    """
+    """A view for displaying a question in the identification phase"""
 
     default_template = ViewPageTemplateFile("templates/risk_identification.pt")
     custom_risk_template = ViewPageTemplateFile(
@@ -311,7 +309,8 @@ class IdentificationView(RiskBase):
     # Default value is True, can be overwritten by certain conditions
     show_explanation_on_always_present_risks = True
 
-    # default value for "always present" risks is "no", can be overwritten by certain conditions
+    # default value for "always present" risks is "no",
+    # can be overwritten by certain conditions
     always_present_answer = "no"
 
     monitored_properties = {
@@ -378,8 +377,8 @@ class IdentificationView(RiskBase):
     @property
     @memoize
     def evaluation_condition(self):
-        """ In what circumstances will the Evaluation panel be shown, provided that
-        evaluation is not skipped in general? """
+        """In what circumstances will the Evaluation panel be shown, provided that
+        evaluation is not skipped in general?"""
         condition = "condition: answer=no"
         if self.italy_special and not self.skip_evaluation:
             condition = "condition: answer=no or answer=yes"
@@ -436,11 +435,13 @@ class IdentificationView(RiskBase):
                 if reply.get("handle_training_notes"):
                     self.context.training_notes = reply.get("training_notes")
                     changed = True
-                # Case: the user has selected or de-selected a measure from the training slide
+                # Case: the user has selected or de-selected a measure
+                # from the training slide
                 if reply.get("handle_training_measures_for"):
-                    # Gather all ids of the active measures, that means, where the checkboxes are ticked.
-                    # Remember: a measure that has been deselected (checkbox unticked) does not appear in
-                    # the REQUEST
+                    # Gather all ids of the active measures, that means,
+                    # where the checkboxes are ticked.
+                    # Remember: a measure that has been deselected (checkbox unticked)
+                    # does not appear in the REQUEST
                     active_measures = set()
                     for entry in reply:
                         if entry.startswith("measure"):
@@ -458,13 +459,13 @@ class IdentificationView(RiskBase):
                     deselected_measures = all_measures - active_measures
                     if active_measures:
                         session.execute(
-                            "UPDATE action_plan set used_in_training=true where id in ({ids})".format(
+                            "UPDATE action_plan set used_in_training=true where id in ({ids})".format(  # noqa: E501
                                 ids=",".join(active_measures)
                             )
                         )
                     if deselected_measures:
                         session.execute(
-                            "UPDATE action_plan set used_in_training=false where id in ({ids})".format(
+                            "UPDATE action_plan set used_in_training=false where id in ({ids})".format(  # noqa: E501
                                 ids=",".join(deselected_measures)
                             )
                         )
@@ -688,8 +689,12 @@ class IdentificationView(RiskBase):
                 self.answer_no = tool_type_data["answer_no"]
         self.intro_questions = tool_type_data.get("intro_questions", "")
         if getattr(self.risk, "risk_always_present", False):
-            self.placeholder_add_extra = tool_type_data.get("placeholder_add_extra_always_present", "")
-            self.button_add_extra = tool_type_data.get("button_add_extra_always_present", "")
+            self.placeholder_add_extra = tool_type_data.get(
+                "placeholder_add_extra_always_present", ""
+            )
+            self.button_add_extra = tool_type_data.get(
+                "button_add_extra_always_present", ""
+            )
         else:
             self.placeholder_add_extra = tool_type_data.get("placeholder_add_extra", "")
             self.button_add_extra = tool_type_data.get("button_add_extra", "")
@@ -702,11 +707,17 @@ class IdentificationView(RiskBase):
             if len(measures):
                 self.show_existing_measures = True
                 if getattr(self.risk, "risk_always_present", False):
-                    self.intro_extra = tool_type_data.get("intro_extra_always_present", "")
-                    self.button_remove_extra = tool_type_data.get("button_remove_extra_always_present", "")
+                    self.intro_extra = tool_type_data.get(
+                        "intro_extra_always_present", ""
+                    )
+                    self.button_remove_extra = tool_type_data.get(
+                        "button_remove_extra_always_present", ""
+                    )
                 else:
                     self.intro_extra = tool_type_data.get("intro_extra", "")
-                    self.button_remove_extra = tool_type_data.get("button_remove_extra", "")
+                    self.button_remove_extra = tool_type_data.get(
+                        "button_remove_extra", ""
+                    )
                 if self.webhelpers.integrated_action_plan:
                     self.answer_yes = tool_type_data.get(
                         "answer_yes_integrated_ap", tool_type_data["answer_yes"]
@@ -876,7 +887,7 @@ class ImageUpload(BrowserView):
                 except IOError:
                     api.portal.show_message(
                         _(
-                            "Invalid file format for image. Please use PNG, JPEG or GIF."
+                            "Invalid file format for image. Please use PNG, JPEG or GIF."  # noqa: E501
                         ),
                         request=self.request,
                         type="warning",
@@ -894,15 +905,14 @@ class ImageUpload(BrowserView):
 
 
 class ImageDisplay(DisplayFile):
-    """ Return the image stored in the risk (if present).
+    """Return the image stored in the risk (if present).
     Allows also to get the image scaled if invoked like:
 
     ../@@image-display/image_large/${here/image_filename}
     """
 
     def get_or_create_image_scaled(self):
-        """ Get the image scaled
-        """
+        """Get the image scaled"""
         if self.context.image_data_scaled:
             return self.context.image_data_scaled
         image = PIL.Image.open(BytesIO(self.context.image_data))
@@ -937,8 +947,7 @@ class ImageDisplay(DisplayFile):
 
 
 class ActionPlanView(RiskBase):
-    """Logic for creating new action plans.
-    """
+    """Logic for creating new action plans."""
 
     phase = "actionplan"
     variation_class = "variation-risk-assessment"
@@ -1142,8 +1151,7 @@ def evaluation_algorithm(risk):
 
 
 class ConfirmationDeleteRisk(BrowserView):
-    """View name: @@confirmation-delete-risk
-    """
+    """View name: @@confirmation-delete-risk"""
 
     no_splash = True
 
@@ -1160,15 +1168,13 @@ class ConfirmationDeleteRisk(BrowserView):
         return "{0}/@@delete-risk".format(aq_parent(self.context).absolute_url())
 
     def __call__(self, *args, **kwargs):
-        """ Before rendering check if we can find session title
-        """
+        """Before rendering check if we can find session title"""
         self.risk_title
         return super(ConfirmationDeleteRisk, self).__call__(*args, **kwargs)
 
 
 class DeleteRisk(BrowserView):
-    """View name: @@delete-session
-    """
+    """View name: @@delete-session"""
 
     def __call__(self):
         risk_id = self.request.form.get("risk_id", None)

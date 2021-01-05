@@ -10,7 +10,6 @@ from zope.interface import noLongerProvides
 
 
 class AuthenticationTests(EuphorieIntegrationTestCase):
-
     def createAccount(self, login="john", password=u"jane"):
         session = Session()
         account = Account(loginname=login, password=password)
@@ -40,13 +39,13 @@ class AuthenticationTests(EuphorieIntegrationTestCase):
         self.assertEqual(
             request.response.headers["location"],
             "http://nohost/plone/acl_users/credentials_cookie_auth/"
-            "require_login?came_from=http%3A//nohost"
+            "require_login?came_from=http%3A//nohost",
         )
 
     def testChallenge_InClient(self):
         self.logout()
         request = self.app.REQUEST
-        request['PUBLISHED'] = self.portal
+        request["PUBLISHED"] = self.portal
         request._has_challenged = False
         alsoProvides(request, IClientSkinLayer)
         self.portal.acl_users(None, request)

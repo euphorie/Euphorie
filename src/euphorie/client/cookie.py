@@ -9,6 +9,7 @@ import logging
 import rfc822
 import time
 
+
 log = logging.getLogger(__name__)
 
 
@@ -37,8 +38,7 @@ def setCookie(response, secret, name, value, timeout=0):
     cookie = binascii.b2a_base64(cookie).rstrip()
     if timeout:
         expires = rfc822.formatdate(time.time() + timeout)
-        response.setCookie(name, cookie, path="/", expires=expires,
-                http_only=True)
+        response.setCookie(name, cookie, path="/", expires=expires, http_only=True)
     else:
         response.setCookie(name, cookie, path="/", http_only=True)
 

@@ -10,13 +10,13 @@ behaviour` indicates that a type's instances should get unique numbers.
 """
 
 from Acquisition import aq_chain
-from zope.component import adapts
-from zope.interface import Interface
-from zope.annotation.interfaces import IAnnotations
-from zope import schema
 from euphorie.content import MessageFactory as _
 from plone.app.content.namechooser import NormalizingNameChooser
 from Products.CMFCore.interfaces import IFolderish
+from zope import schema
+from zope.annotation.interfaces import IAnnotations
+from zope.component import adapts
+from zope.interface import Interface
 
 
 class IIdGenerationRoot(Interface):
@@ -37,9 +37,10 @@ class INameFromUniqueId(Interface):
     """
 
     id = schema.TextLine(
-            title=_(u"Identifier"),
-            description=_(u"This is a unique identifier for this object."),
-            required=True)
+        title=_(u"Identifier"),
+        description=_(u"This is a unique identifier for this object."),
+        required=True,
+    )
 
 
 def get_next_id(context, ids=None):
@@ -47,14 +48,14 @@ def get_next_id(context, ids=None):
         if IIdGenerationRoot.providedBy(root):
             break
     else:
-        raise ValueError('No id generation root found')
+        raise ValueError("No id generation root found")
     storage = IAnnotations(root, None)
     if storage is None:
-        raise ValueError('Id generation root is not annotatable')
-    current_max = storage.get('euphorie.content.behaviour.id', 1)
+        raise ValueError("Id generation root is not annotatable")
+    current_max = storage.get("euphorie.content.behaviour.id", 1)
     if ids:
         current_max = max(current_max, max(ids) + 1)
-    storage['euphorie.content.behaviour.id'] = current_max + 1
+    storage["euphorie.content.behaviour.id"] = current_max + 1
     return str(current_max)
 
 
@@ -64,6 +65,7 @@ class UniqueNameChooser(NormalizingNameChooser):
     This implementation uses a simple increasing numerical id, starting
     with 1.
     """
+
     adapts(IFolderish)
 
     def _assertId(self, object):

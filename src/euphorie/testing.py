@@ -31,14 +31,14 @@ import mock
 import os.path
 
 
-NO_SAVEPOINT_SUPPORT.remove('sqlite')
+NO_SAVEPOINT_SUPPORT.remove("sqlite")
 
 TEST_INI = os.path.join(os.path.dirname(__file__), "deployment/tests/test.ini")
 
 
 class EuphorieFixture(PloneSandboxLayer):
 
-    saconfig_filename = 'configure.zcml'
+    saconfig_filename = "configure.zcml"
 
     defaultBases = (
         MEMBRANE_PROFILES_FIXTURE,
@@ -50,11 +50,13 @@ class EuphorieFixture(PloneSandboxLayer):
         # The z3c.autoinclude feature is disabled in the Plone fixture base
         # layer.
         import euphorie.client.tests
+
         self.loadZCML("configure.zcml", package=euphorie.deployment)
         self.loadZCML("overrides.zcml", package=euphorie.deployment)
         self.loadZCML("configure.zcml", package=euphorie.client.tests)
 
         import euphorie.client.tests
+
         self.loadZCML(self.saconfig_filename, package=euphorie.client.tests)
         engine = Session.bind
 
@@ -72,47 +74,48 @@ class EuphorieFixture(PloneSandboxLayer):
         # Start fresh
         self.testTearDown()
 
-        default_zpublisher_encoding('utf-8')
+        default_zpublisher_encoding("utf-8")
 
     def setUpPloneSite(self, portal):
-        quickInstallProduct(portal, 'plonetheme.nuplone')
-        quickInstallProduct(portal, 'euphorie.client')
-        quickInstallProduct(portal, 'euphorie.content')
+        quickInstallProduct(portal, "plonetheme.nuplone")
+        quickInstallProduct(portal, "euphorie.client")
+        quickInstallProduct(portal, "euphorie.content")
 
         all_countries = euphorie.deployment.setuphandlers.COUNTRIES.copy()
         euphorie.deployment.setuphandlers.COUNTRIES = {
             key: all_countries[key]
             for key in all_countries
-            if key in (
-                'de',
-                'nl',
+            if key
+            in (
+                "de",
+                "nl",
             )
         }
 
         with mock.patch(
-            'plone.i18n.utility.LanguageUtility.listSupportedLanguages',
+            "plone.i18n.utility.LanguageUtility.listSupportedLanguages",
             return_value=[
-                (u'de', u'German'),
-                (u'nl', u'Dutch'),
-            ]
+                (u"de", u"German"),
+                (u"nl", u"Dutch"),
+            ],
         ):
-            quickInstallProduct(portal, 'euphorie.deployment')
+            quickInstallProduct(portal, "euphorie.deployment")
         appconfig = getUtility(IAppConfig)
         appconfig.loadConfig(TEST_INI, clear=True)
         api.portal.set_registry_record(
-            'plone.email_from_name',
-            u'Euphorie website',
+            "plone.email_from_name",
+            u"Euphorie website",
         )
         api.portal.set_registry_record(
-            'plone.email_from_address',
-            'discard@simplon.biz',
+            "plone.email_from_address",
+            "discard@simplon.biz",
         )
 
     def testSetUp(self):
-        ''' XXX testSetUp and testTearDown should not be necessary, but it seems
+        """XXX testSetUp and testTearDown should not be necessary, but it seems
         SQL data is not correctly cleared at the end of a test method run,
         even if testTearDown does an explicit transaction.abort()
-        '''
+        """
         model.metadata.create_all(Session.bind, checkfirst=True)
 
     def testTearDown(self):
@@ -122,24 +125,20 @@ class EuphorieFixture(PloneSandboxLayer):
 
 class EuphorieRobotFixture(EuphorieFixture):
 
-    saconfig_filename = 'robot.zcml'
+    saconfig_filename = "robot.zcml"
 
 
 EUPHORIE_FIXTURE = EuphorieFixture()
 EUPHORIE_ROBOT_FIXTURE = EuphorieRobotFixture()
 
 EUPHORIE_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(
-        EUPHORIE_FIXTURE,
-    ),
+    bases=(EUPHORIE_FIXTURE,),
     name="EuphorieFixture:Integration",
 )
 
 
 EUPHORIE_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(
-        EUPHORIE_FIXTURE,
-    ),
+    bases=(EUPHORIE_FIXTURE,),
     name="EuphorieFixture:Functional",
 )
 
@@ -149,9 +148,9 @@ class EuphorieIntegrationTestCase(TestCase):
     request_layer = IClientSkinLayer
 
     def setUp(self):
-        self.app = self.layer['app']
-        self.portal = self.layer['portal']
-        self.request = self.layer['request']
+        self.app = self.layer["app"]
+        self.portal = self.layer["portal"]
+        self.request = self.layer["request"]
 
     def loginAsPortalOwner(self):
         return login(self.portal, TEST_USER_NAME)
@@ -164,9 +163,9 @@ class EuphorieIntegrationTestCase(TestCase):
 
     @contextmanager
     def _get_view(self, name, obj, survey_session=None, client=None):
-        ''' Get's a view with a proper fresh request.
+        """Get's a view with a proper fresh request.
         If survey_session is set the SessionManager will be configured
-        '''
+        """
         old_request = getRequest()
         request = self.get_client_request(client=client)
         if survey_session is not None:
@@ -188,14 +187,14 @@ class EuphorieFunctionalTestCase(EuphorieIntegrationTestCase):
     layer = EUPHORIE_FUNCTIONAL_TESTING
 
     def get_browser(self, logged_in=False, credentials={}):
-        ''' Return a browser, potentially a logged in one.
+        """Return a browser, potentially a logged in one.
         The default credentials are the admin ones
-        '''
+        """
         commit()
         browser = Browser(self.app)
         if logged_in or credentials:
-            username = credentials.get('username', TEST_USER_NAME)
-            password = credentials.get('username', TEST_USER_PASSWORD)
+            username = credentials.get("username", TEST_USER_NAME)
+            password = credentials.get("username", TEST_USER_PASSWORD)
             browser.open("%s/@@login" % self.portal.absolute_url())
             browser.getControl(name="__ac_name").value = username
             browser.getControl(name="__ac_password").value = password

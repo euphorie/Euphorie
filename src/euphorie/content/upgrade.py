@@ -1,6 +1,8 @@
-import logging
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
+
+import logging
+
 
 log = logging.getLogger(__file__)
 
