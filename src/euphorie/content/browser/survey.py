@@ -23,9 +23,16 @@ from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.container.interfaces import INameChooser
 from zope.event import notify
+from plonetheme.nuplone.tiles.tile import getTile
 
 
 class SurveyView(BrowserView, DragDropHelper):
+
+    def get_tile(self, name):
+        import pdb; pdb.set_trace()
+        return getTile(self.context, self.request, name)()
+
+
     def _morph(self, child):
         state = getMultiAdapter((child, self.request), name="plone_context_state")
         return {"id": child.id, "title": child.title, "url": state.view_url()}

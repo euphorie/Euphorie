@@ -22,6 +22,12 @@
        name="euphorie.deployment"
        />
 
+  <utility
+      provides="Products.CMFCore.interfaces.ITypesTool"
+      factory="Products.CMFCore.TypesTool.TypesTool"
+      />
+
+
     <!-- Transform order 8870 - apply theme transform -->
     <adapter
         name="euphorie.transform"
