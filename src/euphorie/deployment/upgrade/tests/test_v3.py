@@ -11,10 +11,10 @@ class set_evaluation_method_interfaces_tests(EuphorieFunctionalTestCase):
         self.set_evaluation_method_interfaces(self.portal)
 
     def test_risk_with_interfaces_already_set(self):
-        from euphorie.content.tests.utils import createSector
-        from euphorie.content.tests.utils import addSurvey
-        from euphorie.content.risk import IKinneyEvaluation
         from euphorie.content.risk import IFrenchEvaluation
+        from euphorie.content.risk import IKinneyEvaluation
+        from euphorie.content.tests.utils import addSurvey
+        from euphorie.content.tests.utils import createSector
 
         self.loginAsPortalOwner()
         sector = createSector(self.portal)
@@ -27,11 +27,11 @@ class set_evaluation_method_interfaces_tests(EuphorieFunctionalTestCase):
         self.assertTrue(not IFrenchEvaluation.providedBy(risk))
 
     def test_set_kinney_interface(self):
-        from zope.interface import noLongerProvides
-        from euphorie.content.tests.utils import createSector
-        from euphorie.content.tests.utils import addSurvey
-        from euphorie.content.risk import IKinneyEvaluation
         from euphorie.content.risk import IFrenchEvaluation
+        from euphorie.content.risk import IKinneyEvaluation
+        from euphorie.content.tests.utils import addSurvey
+        from euphorie.content.tests.utils import createSector
+        from zope.interface import noLongerProvides
 
         self.loginAsPortalOwner()
         sector = createSector(self.portal)
@@ -45,11 +45,11 @@ class set_evaluation_method_interfaces_tests(EuphorieFunctionalTestCase):
 
     def test_set_french_interface(self):
         from Acquisition import aq_parent
-        from zope.interface import noLongerProvides
-        from euphorie.content.tests.utils import createSector
-        from euphorie.content.tests.utils import addSurvey
-        from euphorie.content.risk import IKinneyEvaluation
         from euphorie.content.risk import IFrenchEvaluation
+        from euphorie.content.risk import IKinneyEvaluation
+        from euphorie.content.tests.utils import addSurvey
+        from euphorie.content.tests.utils import createSector
+        from zope.interface import noLongerProvides
 
         self.loginAsPortalOwner()
         sector = createSector(self.portal)
@@ -72,8 +72,8 @@ class convert_solution_description_to_text_tests(EuphorieFunctionalTestCase):
         self.convert_solution_description_to_text(self.portal)
 
     def test_rich_description(self):
-        from euphorie.content.tests.utils import createSector
         from euphorie.content.tests.utils import addSurvey
+        from euphorie.content.tests.utils import createSector
 
         self.loginAsPortalOwner()
         sector = createSector(self.portal)
@@ -86,8 +86,8 @@ class convert_solution_description_to_text_tests(EuphorieFunctionalTestCase):
         self.assertEqual(solution.description, u"This is my description.")
 
     def test_text_description(self):
-        from euphorie.content.tests.utils import createSector
         from euphorie.content.tests.utils import addSurvey
+        from euphorie.content.tests.utils import createSector
 
         self.loginAsPortalOwner()
         sector = createSector(self.portal)
@@ -107,8 +107,8 @@ class lowercase_login_tests(EuphorieFunctionalTestCase):
         return lowercase_login(*a, **kw)
 
     def test_already_lowercase(self):
-        from z3c.saconfig import Session
         from euphorie.client.model import Account
+        from z3c.saconfig import Session
 
         session = Session()
         account = Account(loginname="jane@example.com", password=u"john")
@@ -118,8 +118,8 @@ class lowercase_login_tests(EuphorieFunctionalTestCase):
         self.assertEqual(account.loginname, "jane@example.com")
 
     def test_uppercase_login(self):
-        from z3c.saconfig import Session
         from euphorie.client.model import Account
+        from z3c.saconfig import Session
 
         session = Session()
         account = Account(loginname="JaNe@ExAmPlE.CoM", password=u"john")

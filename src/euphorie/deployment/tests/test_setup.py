@@ -10,8 +10,7 @@ class SetupTests(EuphorieIntegrationTestCase):
 
     def testSectorContainerCreated(self):
         self.failUnless("sectors" in self.portal.objectIds())
-        self.assertEqual(
-                self.portal.sectors.portal_type, "euphorie.sectorcontainer")
+        self.assertEqual(self.portal.sectors.portal_type, "euphorie.sectorcontainer")
 
     def testCountriesCreated(self):
         self.assertTrue("nl" in self.portal.sectors)

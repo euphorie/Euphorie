@@ -9,7 +9,7 @@ from z3c.saconfig import Session
 class RiskIntegrationTests(EuphorieIntegrationTestCase):
     def create_session_risk(self):
         with api.env.adopt_user(SITE_OWNER_NAME):
-            content_country = api.content.create(
+            api.content.create(
                 container=self.portal.sectors, type="euphorie.country", id="eu"
             )
             client_country = api.content.create(

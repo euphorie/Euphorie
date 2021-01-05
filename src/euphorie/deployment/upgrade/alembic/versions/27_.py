@@ -6,7 +6,9 @@ Create Date: 2020-03-04 10:51:17.559416
 
 """
 from alembic import op
+
 import sqlalchemy as sa
+
 
 # revision identifiers, used by Alembic.
 revision = "27"
@@ -32,7 +34,8 @@ def upgrade():
         """
 UPDATE action_plan ap
     SET "action" = CASE
-    WHEN ap.prevention_plan is not NULL THEN ap.action_plan || E'\n' || ap.prevention_plan
+    WHEN ap.prevention_plan is not NULL
+    THEN ap.action_plan || E'\n' || ap.prevention_plan
     ELSE ap.action_plan END"""
     )
     op.alter_column("action_plan", "plan_type", nullable=False)

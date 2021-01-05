@@ -1,17 +1,18 @@
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from zope.interface import Interface
-from five import grok
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-from plonetheme.nuplone.tiles.navigation import INavtreeFactory
-from plonetheme.nuplone.tiles.navigation import CatalogNavTree
-from plone.tiles import Tile
 from euphorie.content.country import ICountry
 from euphorie.content.utils import summarizeCountries
+from five import grok
+from plone.tiles import Tile
+from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+from plonetheme.nuplone.tiles.navigation import CatalogNavTree
+from plonetheme.nuplone.tiles.navigation import INavtreeFactory
+from zope.interface import Interface
 
 
 class _DummyBrain:
     portal_type = None
+
 
 DummyBrain = _DummyBrain()
 
@@ -22,6 +23,7 @@ class EuphorieNavtreeFactory(grok.MultiAdapter):
     the navtree and making the survey contents appear directly underneath
     the surveygroup. This hides versioning implementation from the user.
     """
+
     grok.adapts(Interface, NuPloneSkin)
     grok.implements(INavtreeFactory)
 
@@ -43,8 +45,11 @@ class EuphorieNavtreeFactory(grok.MultiAdapter):
                         continue
 
                     # Cut out the middle man
-                    survey = [child for child in node["children"]
-                              if child["ancestor"] or child["current"]]
+                    survey = [
+                        child
+                        for child in node["children"]
+                        if child["ancestor"] or child["current"]
+                    ]
                     node["children"] = survey[0]["children"]
                 node = walker.next()
         except StopIteration:
@@ -57,11 +62,13 @@ class UserManagementNavtree(Tile):
     uses the locale to get the proper names for the countries instead
     of using the titles of the country objects.
     """
+
     def update(self):
         country_id = self.context.id
         container = aq_parent(aq_inner(self.context))
-        self.countries = summarizeCountries(container, self.request,
-                country_id, "Euphorie: Manage country")
+        self.countries = summarizeCountries(
+            container, self.request, country_id, "Euphorie: Manage country"
+        )
 
     def __call__(self):
         if not ICountry.providedBy(self.context):

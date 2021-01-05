@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = '11.6.4.dev0'
+version = "11.6.4.dev0"
 
 setup(
     name="Euphorie",
@@ -25,16 +25,16 @@ setup(
     author_email="info@syslab.com",
     url="http://euphorie.readthedocs.org/en/latest/",
     license="GPL",
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
+    packages=find_packages("src"),
+    package_dir={"": "src"},
     namespace_packages=[],
     include_package_data=True,
     zip_safe=False,
     install_requires=[
         "Plone >=5.1.0",
         "Zope2 >=2.13.19",
-        'AccessControl >= 3.0',
-        'Products.membrane >=2.1.3',
+        "AccessControl >= 3.0",
+        "Products.membrane >=2.1.3",
         "SQLAlchemy >=0.5.2",
         "alembic",
         "anytree",
@@ -79,7 +79,7 @@ setup(
     tests_require=[
         "collective.testcaselayer >=1.6",
         "Products.PloneTestCase >=0.9.9",
-        'mock',
+        "mock",
     ],
     extras_require={
         "sphinx": [

@@ -23,16 +23,16 @@ def checkTermsAndConditions():
     except KeyError:
         return True
     except ValueError:
-        log.error("Invalid value for terms-and-conditions flag "
-                  "in site configuration.")
+        log.error(
+            "Invalid value for terms-and-conditions flag " "in site configuration."
+        )
         return False
 
 
 def approvedTermsAndConditions(account=None):
     if account is None:
         account = get_current_account()
-    return account.tc_approved is not None and \
-            account.tc_approved == CONDITIONS_VERSION
+    return account.tc_approved is not None and account.tc_approved == CONDITIONS_VERSION
 
 
 class TermsAndConditions(grok.View):
@@ -43,7 +43,7 @@ class TermsAndConditions(grok.View):
     grok.template("conditions")
 
     def terms_changed(self):
-        return getattr(self.account, 'tc_approved', None) is not None
+        return getattr(self.account, "tc_approved", None) is not None
 
     def update(self):
         self.came_from = self.request.form.get("came_from")
@@ -58,5 +58,4 @@ class TermsAndConditions(grok.View):
             if self.came_from:
                 self.request.response.redirect(self.came_from)
             else:
-                self.request.response.redirect(
-                        aq_inner(self.context).absolute_url())
+                self.request.response.redirect(aq_inner(self.context).absolute_url())

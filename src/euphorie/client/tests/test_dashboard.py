@@ -1,4 +1,5 @@
 # coding=utf-8
+from datetime import timedelta
 from euphorie.client import model
 from euphorie.client.tests.utils import addAccount
 from euphorie.client.tests.utils import addSurvey
@@ -6,7 +7,6 @@ from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
 from plone.app.event.base import localized_now
-from datetime import timedelta
 
 
 class TestDashboard(EuphorieIntegrationTestCase):

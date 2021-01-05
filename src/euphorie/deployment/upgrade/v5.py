@@ -1,7 +1,9 @@
+from euphorie.content.behaviour.richdescription import IRichDescription
+from Products.CMFCore.utils import getToolByName
+
 import logging
 import transaction
-from Products.CMFCore.utils import getToolByName
-from euphorie.content.behaviour.richdescription import IRichDescription
+
 
 log = logging.getLogger(__name__)
 
@@ -13,7 +15,7 @@ def reindex_solution_titles(context):
     for p in ps:
         try:
             obj = p.getObject()
-        except:
+        except Exception:
             continue
         obj.reindexObject("Title")
         i += 1
@@ -28,7 +30,7 @@ def reindex_richtext_descriptions(context):
     for p in ps:
         try:
             obj = p.getObject()
-        except:
+        except Exception:
             continue
         obj.reindexObject("Description")
         i += 1

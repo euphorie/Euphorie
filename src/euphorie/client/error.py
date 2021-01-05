@@ -1,9 +1,11 @@
-import logging
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from five import grok
 from euphorie.client.interfaces import IClientSkinLayer
+from five import grok
+
+import logging
 import zExceptions
+
 
 log = logging.getLogger(__name__)
 

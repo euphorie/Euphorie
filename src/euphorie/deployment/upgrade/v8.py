@@ -17,10 +17,12 @@ from z3c.appconfig.utils import asBool
 from z3c.form.interfaces import IDataManager
 from z3c.saconfig import Session
 from zope.sqlalchemy import datamanager
+
+import datetime
 import logging
 import transaction
 import zope.component
-import datetime
+
 
 log = logging.getLogger(__name__)
 
@@ -45,9 +47,7 @@ def hash_passwords(context):
         for schema in utils.iterSchemata(o):
             field = schema.get("password")
             if field and field.interface == IUser:
-                dm = zope.component.getMultiAdapter((o, field), IDataManager).set(
-                    password
-                )
+                zope.component.getMultiAdapter((o, field), IDataManager).set(password)
 
 
 def register_password_policy(context):
@@ -68,7 +68,7 @@ def add_column_to_account(context):
     q = "ALTER TABLE account ADD COLUMN account_type CHARACTER varying(16)"
     try:
         session.execute(q)
-    except InternalError as e:
+    except InternalError:
         # There might be previous SQL queries which failed due to the
         # account_type column not yet being in the Account table. For example,
         # the authenticate method in authentication.py does such a query.
@@ -100,7 +100,7 @@ def make_risk_id_column_nullable(context):
     risk_id.
     """
     session = Session()
-    inspector = Inspector.from_engine(session.bind)
+    Inspector.from_engine(session.bind)
     log.info("Making the risk_id column of Risk table nullable")
     session.execute(
         "ALTER TABLE %s ALTER COLUMN risk_id DROP NOT NULL;" % model.Risk.__table__.name
@@ -145,17 +145,25 @@ def enable_custom_risks_on_all_modules(context):
                                 )
                                 custom.description = _(
                                     u"description_other_risks",
-                                    default=u"In case you have identified risks not included in "
-                                    u"the tool, you are able to add them now:",
+                                    default=(
+                                        u"In case you have identified risks not "
+                                        u"included in "
+                                        u"the tool, you are able to add them now:"
+                                    ),
                                 )
                                 custom.question = (
                                     _(
                                         u"question_other_risks",
-                                        default=u"<p><strong>Important:"
-                                        u"</strong> In order to avoid duplicating risks, we strongly "
-                                        u"recommend you to go first through all the previous modules, if "
-                                        u"you have not done it yet.</p><p>If you don't need to add risks, "
-                                        u"please continue.</p>",
+                                        default=(
+                                            u"<p><strong>Important:"
+                                            u"</strong> In order to avoid duplicating "
+                                            u"risks, we strongly "
+                                            u"recommend you to go first through "
+                                            u"all the previous modules, if "
+                                            u"you have not done it yet.</p>"
+                                            u"<p>If you don't need to add risks, "
+                                            u"please continue.</p>"
+                                        ),
                                     ),
                                 )
                             if is_new:
@@ -172,7 +180,8 @@ def enable_custom_risks_on_all_modules(context):
     session = Session()
     if TableExists(session, "tree"):
         session.execute(
-            "UPDATE tree SET title = 'title_other_risks' WHERE zodb_path ='custom-risks'"
+            "UPDATE tree SET title = 'title_other_risks' "
+            "WHERE zodb_path ='custom-risks'"
         )
         model.metadata.create_all(session.bind, checkfirst=True)
         datamanager.mark_changed(session)

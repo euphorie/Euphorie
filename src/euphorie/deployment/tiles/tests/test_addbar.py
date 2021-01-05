@@ -15,6 +15,7 @@ class AddBarTileTests(EuphorieFunctionalTestCase):
 
     def tile(self, context):
         from euphorie.deployment.tiles.addbar import AddBarTile
+
         return AddBarTile(context, self.portal.REQUEST)
 
     def testModuleNameOutsideModule(self):
@@ -22,8 +23,7 @@ class AddBarTileTests(EuphorieFunctionalTestCase):
         survey = self.createSurvey()
         tile = self.tile(survey)
         tile.update()
-        action = filter(lambda fti: fti.id == "euphorie.module",
-                tile.actions)[0]
+        action = filter(lambda fti: fti.id == "euphorie.module", tile.actions)[0]
         self.assertEqual(action.title, u"Module")
 
     def testModuleNameInsideModule(self):
@@ -34,6 +34,5 @@ class AddBarTileTests(EuphorieFunctionalTestCase):
         module = self._create(survey, "euphorie.module", "module")
         tile = self.tile(module)
         tile.update()
-        action = filter(lambda fti: fti.id == "euphorie.submodule",
-                tile.actions)[0]
+        action = filter(lambda fti: fti.id == "euphorie.submodule", tile.actions)[0]
         self.assertEqual(action.title, u"Submodule")

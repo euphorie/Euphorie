@@ -6,12 +6,12 @@ from zope.interface import implementer
 
 
 class ViewTests(EuphorieIntegrationTestCase):
-
     def addSurvey(self, country, language, title):
-        from euphorie.content.survey import Survey
         from euphorie.client.sector import ClientSector
+        from euphorie.content.survey import Survey
+
         if "sector" not in country:
-            sector = ClientSector(id='sector', title=u"Test sector")
+            sector = ClientSector(id="sector", title=u"Test sector")
             country._setOb("sector", sector)
         else:
             sector = country["sector"]
@@ -19,14 +19,13 @@ class ViewTests(EuphorieIntegrationTestCase):
         survey.title = title
         survey.id = language
         survey.language = language
-        sector._setOb('language', survey)
+        sector._setOb("language", survey)
         return survey
 
     def surveys(self, country, language):
-
         @implementer(IAttributeAnnotatable)
         class Request(object):
-            environ = {'REQUEST_METHOD': 'GET'}
+            environ = {"REQUEST_METHOD": "GET"}
             form = {}
 
             def __init__(self, language):
@@ -37,7 +36,7 @@ class ViewTests(EuphorieIntegrationTestCase):
                     return self
                 raise AttributeError(key)
 
-        with self._get_view('view', country) as view:
+        with self._get_view("view", country) as view:
             view.request = Request(language)
             view._updateSurveys()
             return view.surveys
@@ -55,20 +54,15 @@ class ViewTests(EuphorieIntegrationTestCase):
         country = ClientCountry()
         self.addSurvey(country, "en", u"Test survey")
         self.assertEqual(
-            self.surveys(country, "en"), [{
-                "id": "sector/en",
-                "title": u"Test survey"
-            }]
+            self.surveys(country, "en"), [{"id": "sector/en", "title": u"Test survey"}]
         )
 
     def test_surveys_SurveyHasDialect(self):
         country = ClientCountry()
         self.addSurvey(country, "en-GB", u"Test survey")
         self.assertEqual(
-            self.surveys(country, "en"), [{
-                "id": "sector/en-GB",
-                "title": u"Test survey"
-            }]
+            self.surveys(country, "en"),
+            [{"id": "sector/en-GB", "title": u"Test survey"}],
         )
 
     def test_surveys_SkipPreview(self):

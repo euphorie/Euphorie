@@ -1,8 +1,8 @@
 from Acquisition import aq_chain
 from Acquisition import aq_inner
-from plone.tiles import Tile
-from euphorie.content.sector import ISector
 from euphorie.content.sector import getSurveys
+from euphorie.content.sector import ISector
+from plone.tiles import Tile
 from plonetheme.nuplone.utils import checkPermission
 
 
@@ -18,8 +18,7 @@ class SurveyVersions(Tile):
         self.surveys = getSurveys(self.context)
 
     def __call__(self):
-        if not checkPermission(self.context,
-                "CMFEditions: Access previous versions"):
+        if not checkPermission(self.context, "CMFEditions: Access previous versions"):
             return None
 
         self.update()

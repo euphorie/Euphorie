@@ -9,13 +9,15 @@ from plone.memoize.instance import memoize
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from z3c.saconfig import Session
+
 import markdown
+
 
 logger = getLogger(__name__)
 
 
 class TrainingSlide(BrowserView):
-    """ Template / macro to hold the training slide markup
+    """Template / macro to hold the training slide markup
     Currently not active in default Euphorie
     """
 
@@ -148,7 +150,7 @@ class TrainingSlide(BrowserView):
                     scale = scales.scale(fieldname="image", scale=scale_name)
                     if scale and scale.data:
                         image = scale.data.data
-            except:
+            except Exception:
                 image = None
                 logger.warning(
                     "Image data could not be fetched on %s", self.context.absolute_url()
@@ -168,7 +170,7 @@ class TrainingSlide(BrowserView):
 
 
 class TrainingView(BrowserView, survey._StatusHelper):
-    """ The view that shows the main-menu Training module
+    """The view that shows the main-menu Training module
     Currently not active in default Euphorie
     """
 
@@ -184,8 +186,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
     @property
     @memoize
     def session(self):
-        """ Return the session for this context/request
-        """
+        """Return the session for this context/request"""
         return self.context.session
 
     def slicePath(self, path):
@@ -269,7 +270,8 @@ class TrainingView(BrowserView, survey._StatusHelper):
                 elif entry.startswith("measure"):
                     measure_id = entry.split("-")[-1]
                     active_measures.add(measure_id)
-            # Case B: the user has selected or de-selected a measure from one of the "measures" training slides
+            # Case B: the user has selected or de-selected a measure
+            # from one of the "measures" training slides
             if "handle_training_measures_for" in self.request.form:
                 index = self.request.form["handle_training_measures_for"].split("-")[-1]
                 sql_item = self.slide_data[index]["item"]
@@ -279,20 +281,19 @@ class TrainingView(BrowserView, survey._StatusHelper):
                 session = Session()
                 if active_measures:
                     session.execute(
-                        "UPDATE action_plan set used_in_training=true where id in ({ids})".format(
-                            ids=",".join(active_measures)
-                        )
+                        "UPDATE action_plan set used_in_training=true "
+                        "where id in ({ids})".format(ids=",".join(active_measures))
                     )
                 if deselected_measures:
                     session.execute(
-                        "UPDATE action_plan set used_in_training=false where id in ({ids})".format(
-                            ids=",".join(deselected_measures)
-                        )
+                        "UPDATE action_plan set used_in_training=false "
+                        "where id in ({ids})".format(ids=",".join(deselected_measures))
                     )
                 self.webhelpers.traversed_session.session.touch()
-                # We need to compute the URL manually from the "path" given in the sql-element
-                # Reason: the sql_item has the context of our session, but is not aware of
-                # the full parent-hierarchy of module/submodule
+                # We need to compute the URL manually from the "path"
+                # given in the sql-element
+                # Reason: the sql_item has the context of our session,
+                # but is not aware of the full parent-hierarchy of module/submodule
                 self.request.RESPONSE.redirect(
                     "{session}/{path}/@@training_slide".format(
                         session=self.context.absolute_url(),

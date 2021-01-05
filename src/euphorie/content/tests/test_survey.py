@@ -20,7 +20,6 @@ import unittest
 
 
 class Mock(Acquisition.Explicit):
-
     def __init__(self, **kwargs):
         for (key, value) in kwargs.items():
             setattr(self, key, value)
@@ -33,7 +32,6 @@ class Mock(Acquisition.Explicit):
 
 
 class ViewTests(EuphorieIntegrationTestCase):
-
     def setUp(self):
         super(ViewTests, self).setUp()
         provideAdapter(AttributeAnnotations)
@@ -42,12 +40,12 @@ class ViewTests(EuphorieIntegrationTestCase):
             ContextState,
             adapts=(Interface, Interface),
             provides=Interface,
-            name="plone_context_state"
+            name="plone_context_state",
         )
         # grok makes unit testing extremely painful
         View.__view_name__ = "View"
         View.module_info = Mock()
-        View.module_info.package_dotted_name = 'euphorie.content.survey.View'
+        View.module_info.package_dotted_name = "euphorie.content.survey.View"
 
     def tearDown(self):
         super(ViewTests, self).tearDown()
@@ -69,61 +67,57 @@ class ViewTests(EuphorieIntegrationTestCase):
         survey = Survey()
         child = Mock(id="child", title=u"Child")
         alsoProvides(child, IProfileQuestion)
-        survey['child'] = child
+        survey["child"] = child
         view = View(survey, self._request())
-        view._morph = mock.Mock(return_value='info')
+        view._morph = mock.Mock(return_value="info")
         view.update()
-        self.assertEqual(view.children, ['info'])
+        self.assertEqual(view.children, ["info"])
 
     def test_update_with_module(self):
         survey = Survey()
         child = Mock(id="child", title=u"Child")
         alsoProvides(child, IModule)
-        survey['child'] = child
+        survey["child"] = child
         view = View(survey, self._request())
-        view._morph = mock.Mock(return_value='info')
+        view._morph = mock.Mock(return_value="info")
         view.update()
-        self.assertEqual(view.children, ['info'])
+        self.assertEqual(view.children, ["info"])
 
     def test_update_other_child(self):
         survey = Survey()
         view = View(survey, self._request())
-        child = Mock(id='child', title=u'Child')
-        survey['child'] = child
+        child = Mock(id="child", title=u"Child")
+        survey["child"] = child
         view.update()
         self.assertEqual(view.children, [])
 
     def test_moprh(self):
-        child = Mock(id='child', title=u'Child')
+        child = Mock(id="child", title=u"Child")
         view = View(None, self._request())
         self.assertEqual(
-            view._morph(child), {
-                'id': 'child',
-                'title': u'Child',
-                'url': 'http://nohost/child'
-            }
+            view._morph(child),
+            {"id": "child", "title": u"Child", "url": "http://nohost/child"},
         )
 
 
 class HandleSurveyUnpublishTests(unittest.TestCase):
-
     def handleSurveyUnpublish(self, *a, **kw):
         return handleSurveyUnpublish(*a, **kw)
 
     def testRemovePublishedFromSurvey(self):
         surveygroup = Mock(published=None)
-        surveygroup.survey = Mock(id='survey', published='yes')
+        surveygroup.survey = Mock(id="survey", published="yes")
         self.handleSurveyUnpublish(surveygroup.survey, None)
-        self.assertTrue(not hasattr(surveygroup.survey, 'published'))
+        self.assertTrue(not hasattr(surveygroup.survey, "published"))
 
     def testUpdatateSurveygroupIfCurrentlyPublished(self):
-        surveygroup = Mock(published='survey')
-        surveygroup.survey = Mock(id='survey', published='yes')
+        surveygroup = Mock(published="survey")
+        surveygroup.survey = Mock(id="survey", published="yes")
         self.handleSurveyUnpublish(surveygroup.survey, None)
         self.assertEqual(surveygroup.published, None)
 
     def testUpdatateSurveygroupIfOtherPublished(self):
-        surveygroup = Mock(published='other')
-        surveygroup.survey = Mock(id='survey', published='yes')
+        surveygroup = Mock(published="other")
+        surveygroup.survey = Mock(id="survey", published="yes")
         self.handleSurveyUnpublish(surveygroup.survey, None)
-        self.assertEqual(surveygroup.published, 'other')
+        self.assertEqual(surveygroup.published, "other")

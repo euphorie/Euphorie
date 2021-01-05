@@ -19,7 +19,9 @@ from plonetheme.nuplone.utils import formatDate
 from z3c.appconfig.interfaces import IAppConfig
 from zope.component import getUtility
 from zope.i18n import translate
+
 import re
+
 
 all_breaks = re.compile("(\n|\r)+")
 multi_spaces = re.compile("( )+")
@@ -64,7 +66,7 @@ class BaseOfficeCompiler(object):
     justifiable_map = {"yes": "Yes", "no": "No"}
 
     def xmlprint(self, obj):
-        """ Utility method that pretty prints the xml serialization of obj.
+        """Utility method that pretty prints the xml serialization of obj.
         Useful in tests and in depug
         """
         obj = getattr(obj, "_element", obj)
@@ -180,7 +182,7 @@ class DocxCompiler(BaseOfficeCompiler):
     sections_offset = 0
 
     def __init__(self, context, request=None):
-        """ Read the docx template and initialize some instance attributes
+        """Read the docx template and initialize some instance attributes
         that will be used to compile the template
         """
         self.context = context
@@ -194,8 +196,7 @@ class DocxCompiler(BaseOfficeCompiler):
         self.italy_special = self.webhelpers.country == "it"
 
     def set_session_title_row(self, data):
-        """ This fills the workspace activity run with some text
-        """
+        """This fills the workspace activity run with some text"""
         request = self.request
         self.template.paragraphs[self.paragraphs_offset].text = data["heading"]
         txt = self.t(_("toc_header", default=u"Contents"))
@@ -482,8 +483,7 @@ class DocxCompiler(BaseOfficeCompiler):
         cell.add_paragraph()
 
     def compile(self, data):
-        """
-        """
+        """"""
         self.set_session_title_row(data)
         self.set_body(data)
         self.set_consultation_box()
@@ -497,8 +497,7 @@ class DocxCompilerItalyOriginal(DocxCompiler):
     sections_offset = 1
 
     def compile(self, data):
-        """
-        """
+        """"""
         self.set_session_title_row(data)
         self.set_body(data)
 
@@ -527,7 +526,7 @@ class DocxCompilerFullTable(DocxCompiler):
 
     @memoize
     def get_modules_table(self):
-        """ Returns the first table of the template,
+        """Returns the first table of the template,
         which contains the modules
         """
         return self.template.tables[-1]
@@ -552,7 +551,7 @@ class DocxCompilerFullTable(DocxCompiler):
         return lookup
 
     def set_session_title_row(self, data):
-        """ This fills the workspace activity run with some text
+        """This fills the workspace activity run with some text
 
         The run is empirically determined by studying the template.
         This is in a paragraph structure before the first table.
@@ -605,8 +604,8 @@ class DocxCompilerFullTable(DocxCompiler):
         cell2.paragraphs[0].text = u"{}".format(date.today().strftime("%d.%m.%Y"))
 
     def set_cell_risk(self, cell, risk):
-        """ Take the risk and add the appropriate text:
-            title, descripton, comment, measures in place
+        """Take the risk and add the appropriate text:
+        title, descripton, comment, measures in place
         """
         paragraph = cell.paragraphs[0]
         paragraph.style = "Risk Bold List"
@@ -633,8 +632,8 @@ class DocxCompilerFullTable(DocxCompiler):
         paragraph = cell.add_paragraph(style="Risk Normal")
 
     def set_cell_actions(self, cell, risk):
-        """ Take the risk and add the appropriate text:
-            planned measures
+        """Take the risk and add the appropriate text:
+        planned measures
         """
         paragraph = cell.paragraphs[0]
         for idx, action in enumerate(risk["actions"]):
@@ -681,7 +680,7 @@ class DocxCompilerFullTable(DocxCompiler):
                 paragraph.runs[0].italic = True
 
     def merge_module_rows(self, row_module, row_risk):
-        """ This merges the the first cell of the given rows,
+        """This merges the the first cell of the given rows,
         the one containing the module title.
         Also remove the horizontal borders between the not merged cells.
         """
@@ -694,8 +693,7 @@ class DocxCompilerFullTable(DocxCompiler):
             self.set_cell_border(cell, settings=LEFT_RIGHT_BORDERS)
 
     def set_modules_rows(self, data):
-        """ This takes a list of modules and creates the rows for them
-        """
+        """This takes a list of modules and creates the rows for them"""
         modules = data.get("modules", [])
         table = self.get_modules_table()
 
@@ -714,7 +712,8 @@ class DocxCompilerFullTable(DocxCompiler):
             count = 0
             for risk in risks:
                 answer = risk.get("justifiable", "")
-                # In case our report type defines this: Omit risk if the user has not answered it
+                # In case our report type defines this:
+                # Omit risk if the user has not answered it
                 if self.only_anwered_risks:
                     if not answer:
                         unanswered_risks.append(risk)
@@ -759,7 +758,8 @@ class DocxCompilerFullTable(DocxCompiler):
         # Finally, an empty row at the end
         row = table.add_row()
         self.set_row_borders(row)
-        # The first cell stays as it is, the second cell will be merged with all following cells
+        # The first cell stays as it is,
+        # the second cell will be merged with all following cells
         _merge_cells(row.cells[1:])
 
         return unanswered_risks, not_applicable_risks
@@ -768,7 +768,7 @@ class DocxCompilerFullTable(DocxCompiler):
         pass
 
     def compile(self, data):
-        """ Compile the template using data
+        """Compile the template using data
 
         We need to compile two areas of the template:
 
@@ -892,8 +892,7 @@ class IdentificationReportCompiler(DocxCompiler):
         paragraph.text = footer_txt
 
     def compile(self, data):
-        """
-        """
+        """"""
         self.set_session_title_row(data)
         self.set_body(
             data,

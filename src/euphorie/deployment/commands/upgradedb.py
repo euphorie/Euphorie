@@ -11,8 +11,8 @@ from sys import argv
 from transaction import commit
 from z3c.saconfig import Session
 
-
 import logging
+
 
 logger = logging.getLogger(__name__)
 handler = logging.StreamHandler()

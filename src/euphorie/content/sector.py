@@ -38,9 +38,7 @@ from plonetheme.nuplone.utils import getPortal
 from Products.CMFCore.utils import getToolByName
 from Products.CMFEditions.Permissions import AccessPreviousVersions
 from Products.statusmessages.interfaces import IStatusMessage
-from z3c.appconfig.interfaces import IAppConfig
 from zope import schema
-from zope.component import getUtility
 from zope.interface import implements
 
 import datetime
@@ -71,18 +69,21 @@ class ISector(form.Schema, IUser, IBasic):
     dexterity.write_permission(locked="euphorie.content.ManageCountry")
 
     contact_name = schema.TextLine(
-            title=_("label_contact_name", default=u"Contact name"),
-            required=True)
+        title=_("label_contact_name", default=u"Contact name"), required=True
+    )
 
     form.order_after(contact_email="contact_name")
 
     logo = filefield.NamedBlobImage(
-            title=_("label_logo", default=u"Logo"),
-            description=_("help_image_upload",
-                default=u"Upload an image. Make sure your image is of format "
-                        u"png, jpg or gif and does not contain any special "
-                        u"characters. The minimum size is 1000 (width) x 430 (height) pixels."),
-            required=False)
+        title=_("label_logo", default=u"Logo"),
+        description=_(
+            "help_image_upload",
+            default=u"Upload an image. Make sure your image is of format "
+            u"png, jpg or gif and does not contain any special "
+            u"characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+        ),
+        required=False,
+    )
 
 
 class Sector(dexterity.Container):
@@ -91,6 +92,7 @@ class Sector(dexterity.Container):
     A sector also acts as a user account in the system, using the membrane
     framework.
     """
+
     portal_type = "euphorie.clientsector"
     implements(ISector, INavigationRoot, IAttributeUUID)
 
@@ -103,10 +105,9 @@ class Sector(dexterity.Container):
 
 @indexer(ISector)
 def SearchableTextIndexer(obj):
-    return " ".join([obj.title,
-                     obj.description,
-                     obj.contact_name or u"",
-                     obj.contact_email or u""])
+    return " ".join(
+        [obj.title, obj.description, obj.contact_name or u"", obj.contact_email or u""]
+    )
 
 
 class SectorLocalRoleProvider(grok.Adapter):
@@ -115,6 +116,7 @@ class SectorLocalRoleProvider(grok.Adapter):
     This local role provider gives the sector user itself the
     `Sector` local role.
     """
+
     grok.context(ISector)
     grok.implements(ILocalRoleProvider)
     grok.name("euphorie.sector")
@@ -168,46 +170,54 @@ def getSurveys(context):
         return []
 
     result = []
-    groups = [group for group in sector.values()
-                if ISurveyGroup.providedBy(group)]
+    groups = [group for group in sector.values() if ISurveyGroup.providedBy(group)]
     repository = getToolByName(context, "portal_repository")
     allow_history = checkPermission(context, AccessPreviousVersions)
 
     def morph(group, survey):
         published = survey.id == group.published
-        info = {'id': survey.id,
-                'title': survey.title,
-                'url': survey.absolute_url(),
-                'published': published,
-                'publication_date': published and survey.published or None,
-                'current': aq_base(survey) is current_version,
-                'modified': isDirty(survey),
-                'versions': []}
+        info = {
+            "id": survey.id,
+            "title": survey.title,
+            "url": survey.absolute_url(),
+            "published": published,
+            "publication_date": published and survey.published or None,
+            "current": aq_base(survey) is current_version,
+            "modified": isDirty(survey),
+            "versions": [],
+        }
         if not allow_history:
             return info
 
         history = repository.getHistoryMetadata(survey)
         if history:
             for id in range(history.getLength(countPurged=False) - 1, -1, -1):
-                meta = history.retrieve(id,
-                        countPurged=False)["metadata"]["sys_metadata"]
-                info["versions"].append({
-                    'timestamp': datetime.datetime.fromtimestamp(
-                        meta["timestamp"]),
-                    'history_id': meta["parent"]["history_id"],
-                    'version_id': meta["parent"]["version_id"],
-                    'location_id': meta["parent"]["location_id"]})
+                meta = history.retrieve(id, countPurged=False)["metadata"][
+                    "sys_metadata"
+                ]
+                info["versions"].append(
+                    {
+                        "timestamp": datetime.datetime.fromtimestamp(meta["timestamp"]),
+                        "history_id": meta["parent"]["history_id"],
+                        "version_id": meta["parent"]["version_id"],
+                        "location_id": meta["parent"]["location_id"],
+                    }
+                )
             info["versions"].sort(key=lambda x: x["timestamp"], reverse=True)
         return info
 
     for group in groups:
-        info = {'id': group.id,
-                'title': group.title,
-                'url': group.absolute_url(),
-                'published': bool(group.published)}
-        info["surveys"] = [morph(group, survey)
-                           for survey in group.values()
-                           if ISurvey.providedBy(survey)]
+        info = {
+            "id": group.id,
+            "title": group.title,
+            "url": group.absolute_url(),
+            "published": bool(group.published),
+        }
+        info["surveys"] = [
+            morph(group, survey)
+            for survey in group.values()
+            if ISurvey.providedBy(survey)
+        ]
         info["surveys"].sort(key=lambda s: s["title"].lower())
         result.append(info)
     result.sort(key=lambda g: g["title"].lower())
@@ -222,19 +232,19 @@ class View(grok.View):
     grok.name("nuplone-view")
 
     def update(self):
-        self.add_survey_url = "%s/++add++euphorie.surveygroup" % \
-                aq_inner(self.context).absolute_url()
+        self.add_survey_url = (
+            "%s/++add++euphorie.surveygroup" % aq_inner(self.context).absolute_url()
+        )
         self.surveys = getSurveys(self.context)
         permission = "Euphorie: Add new RIE Content"
         user = api.user.get_current()
-        self.can_add = api.user.has_permission(
-            permission, user=user, obj=self.context)
+        self.can_add = api.user.has_permission(permission, user=user, obj=self.context)
         super(View, self).update()
 
 
 class Delete(actions.Delete):
-    """ Only delete the sector if it doesn't have any published surveys.
-    """
+    """Only delete the sector if it doesn't have any published surveys."""
+
     grok.context(ISector)
 
     def verify(self, container, context):
@@ -256,12 +266,16 @@ class Delete(actions.Delete):
         # Look for any published surveys in the client sector, and prevent
         # deletion if any are found
         cl_sector = cl_country[sector.id]
-        surveys = [s for s in cl_sector.values() if s.id != 'preview']
+        surveys = [s for s in cl_sector.values() if s.id != "preview"]
         if surveys:
             flash(
-                _("message_not_delete_published_sector",
-                default=u"You can not delete a sector that contains published "
-                        u"OiRA Tools."), "error")
+                _(
+                    "message_not_delete_published_sector",
+                    default=u"You can not delete a sector that contains published "
+                    u"OiRA Tools.",
+                ),
+                "error",
+            )
             self.request.response.redirect(context.absolute_url())
             return False
         return True
@@ -276,7 +290,8 @@ class ColourPreview(grok.View):
 
     def default_title(self):
         from .. import MessageFactory as _
-        return _('title_tool', default=u'OiRA - Online interactive Risk Assessment')
+
+        return _("title_tool", default=u"OiRA - Online interactive Risk Assessment")
 
 
 class Settings(form.SchemaEditForm):
@@ -310,6 +325,7 @@ class VersionCommand(grok.View):
         if action == "new":
             sector = aq_inner(self.context)
             self.request.response.redirect(
-                    "%s/++add++euphorie.surveygroup" % sector.absolute_url())
+                "%s/++add++euphorie.surveygroup" % sector.absolute_url()
+            )
         else:
             log.error("Invalid version command action: %r", action)

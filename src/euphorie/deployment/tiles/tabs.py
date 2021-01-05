@@ -34,54 +34,62 @@ class SiteRootTabsTile(TabsTile):
                 return obj
 
     def is_country_manager(self):
-        ''' Check if we are in the context of a country and
+        """Check if we are in the context of a country and
         if we have enough permissions to manage it
-        '''
+        """
         country = self.get_current_country()
         if not country:
             return False
-        if api.user.has_permission('Euphorie: Manage country', obj=country):
+        if api.user.has_permission("Euphorie: Manage country", obj=country):
             return True
 
     def get_current_url(self):
-        currentUrl = self.request.getURL()[len(self.portal.absolute_url()):]
+        currentUrl = self.request.getURL()[len(self.portal.absolute_url()) :]
         for (test, id) in self.current_map:
             if test.match(currentUrl):
                 return id
 
     def update(self):
         current = self.get_current_url()
-        self.tabs = [{
-            "id": "sectors",
-            "title": _("nav_surveys", default=u"OiRA Tools"),
-            "url": self.portal.sectors.absolute_url(),
-            "class": "current" if current == "sectors" else None,
-        }]
+        self.tabs = [
+            {
+                "id": "sectors",
+                "title": _("nav_surveys", default=u"OiRA Tools"),
+                "url": self.portal.sectors.absolute_url(),
+                "class": "current" if current == "sectors" else None,
+            }
+        ]
         is_country_manager = self.is_country_manager()
         country = self.get_current_country()
         country_url = country and country.absolute_url() or ""
         if is_country_manager:
-            self.tabs.append({
-                "id": "usermgmt",
-                "title": _("nav_usermanagement", default=u"User management"),
-                "url": '%s/@@manage-users' % country_url,
-                "class": "current" if current == "usermgmt" else None,
-            })
+            self.tabs.append(
+                {
+                    "id": "usermgmt",
+                    "title": _("nav_usermanagement", default=u"User management"),
+                    "url": "%s/@@manage-users" % country_url,
+                    "class": "current" if current == "usermgmt" else None,
+                }
+            )
 
-        if api.user.has_permission('Manage portal', user=self.user):
-            self.tabs.append({
-                "id": "documents",
-                "title": _("nav_documents", default=u"Documents"),
-                "url": self.portal.documents.absolute_url(),
-                "class": "current" if current == "documents" else None,
-            })
+        if api.user.has_permission("Manage portal", user=self.user):
+            self.tabs.append(
+                {
+                    "id": "documents",
+                    "title": _("nav_documents", default=u"Documents"),
+                    "url": self.portal.documents.absolute_url(),
+                    "class": "current" if current == "documents" else None,
+                }
+            )
 
         if country:
-            self.tabs.append({
-                "id": "help",
-                "title": _("nav_help", default=u"Help"),
-                "url": "%s/help" % country_url,
-                "class": "current" if current == "help" else None,
-            })
+            self.tabs.append(
+                {
+                    "id": "help",
+                    "title": _("nav_help", default=u"Help"),
+                    "url": "%s/help" % country_url,
+                    "class": "current" if current == "help" else None,
+                }
+            )
 
         self.home_url = self.portal.absolute_url()
