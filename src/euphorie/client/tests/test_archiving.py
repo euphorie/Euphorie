@@ -63,8 +63,11 @@ class TestArchivingViews(EuphorieIntegrationTestCase):
                     view()
                     # Now the archival date is set
                     self.assertIsNotNone(session.archived)
-                    # Traversing to the view again, archiving the same session is now prevented
-                    with self._get_view("archive-session", traversed_session) as view_again:
+                    # Traversing to the view again,
+                    # archiving the same session is now prevented
+                    with self._get_view(
+                        "archive-session", traversed_session
+                    ) as view_again:
                         with self.assertRaises(Unauthorized):
                             view_again()
                     # and we are redirected to the session view...

@@ -4,7 +4,6 @@ from euphorie.testing import EuphorieIntegrationTestCase
 
 
 class ProfileQuestionTests(EuphorieIntegrationTestCase):
-
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -14,9 +13,7 @@ class ProfileQuestionTests(EuphorieIntegrationTestCase):
         sector = self._create(country, "euphorie.sector", "sector")
         surveygroup = self._create(sector, "euphorie.surveygroup", "group")
         survey = self._create(surveygroup, "euphorie.survey", "survey")
-        pq = self._create(
-            survey, "euphorie.profilequestion", "profilequestion"
-        )
+        pq = self._create(survey, "euphorie.profilequestion", "profilequestion")
         return pq
 
     def testNotGloballyAllowed(self):
@@ -39,14 +36,14 @@ class ProfileQuestionTests(EuphorieIntegrationTestCase):
         self.loginAsPortalOwner()
         target = self.createProfileQuestion()
         survey = aq_parent(target)
-        source = self._create(survey, 'euphorie.module', 'other')
+        source = self._create(survey, "euphorie.module", "other")
         target._verifyObjectPaste(source)
 
     def test_verifyObjectPaste_block_if_result_too_deep(self):
         self.loginAsPortalOwner()
         target = self.createProfileQuestion()
         survey = aq_parent(target)
-        source = self._create(survey, 'euphorie.module', 'other')
-        other = self._create(source, 'euphorie.module', 'other')
-        self._create(other, 'euphorie.module', 'other')
+        source = self._create(survey, "euphorie.module", "other")
+        other = self._create(source, "euphorie.module", "other")
+        self._create(other, "euphorie.module", "other")
         self.assertRaises(ValueError, target._verifyObjectPaste, source)

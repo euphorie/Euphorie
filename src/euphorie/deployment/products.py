@@ -1,5 +1,5 @@
-from zope.interface import implements
 from Products.CMFQuickInstallerTool.interfaces import INonInstallable
+from zope.interface import implements
 
 
 class HideEuphorieProducts(object):

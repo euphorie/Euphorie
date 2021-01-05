@@ -1,12 +1,12 @@
 # coding=utf-8
-from alembic.config import Config
 from alembic import command
+from alembic.config import Config
 from euphorie.client.model import Session
 from logging import getLogger
 from pkg_resources import resource_filename
 from sqlalchemy.exc import NoSuchTableError
-from sqlalchemy.schema import Table
 from sqlalchemy.schema import MetaData
+from sqlalchemy.schema import Table
 
 
 logger = getLogger(__name__)

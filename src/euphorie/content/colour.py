@@ -5,12 +5,14 @@ Colour
 Defines a colour field, with a validator.
 """
 
-import re
-from zope.interface import implements
-from zope import schema
-from zope.schema.interfaces import ValidationError
-from zope.schema.interfaces import IBytesLine
 from .. import MessageFactory as _
+from zope import schema
+from zope.interface import implements
+from zope.schema.interfaces import IBytesLine
+from zope.schema.interfaces import ValidationError
+
+import re
+
 
 VALID_COLOUR = re.compile(r"^#?[0-9a-f]+$")
 
@@ -24,8 +26,7 @@ class IColour(IBytesLine):
 
 
 class Colour(schema.BytesLine):
-    """Colour selector field.
-    """
+    """Colour selector field."""
 
     implements(IColour)
 

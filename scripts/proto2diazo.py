@@ -1,32 +1,31 @@
 #!/usr/bin/env python
 # coding=utf-8
+import logging
 import os
 import re
-import logging
 import sys
+
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(sys.argv[0])
 
 THEME_DIR = os.path.join("src", "euphorie", "client", "resources")
-HELP_DIR = os.path.join("src", "euphorie", "client",
-                        "resources", "oira", "help")
+HELP_DIR = os.path.join("src", "euphorie", "client", "resources", "oira", "help")
 
 ILLUSTRATION_JS_SNIPPET = """
     <script>window.__patternslib_public_path__ = "/++resource++euphorie.resources/oira/script/";</script>
     <script src="/++resource++euphorie.resources/oira/script/polyfills-loader.js" type="text/javascript"></script>
-"""
+"""  # noqa: E501
 
 
 def strip_help(filepath):
-    """ Fix the urls in filepath
-    """
+    """Fix the urls in filepath"""
     logger.info("Rewriting resource URLs in %s", filepath)
     content = None
     try:
         with open(filepath) as f:
             content = f.read()
-    except:
+    except Exception:
         logger.exception("Problem reading %s", filepath)
         return
 
@@ -36,50 +35,55 @@ def strip_help(filepath):
 
     delta = len(filepath.split("/")) - 7
     shim = "../" * delta
-    content = content.replace(
-        '="/assets/oira/help/', '="' + shim)
+    content = content.replace('="/assets/oira/help/', '="' + shim)
     c_shim = "../" * (delta + 1)
     content = content.replace(
-        '="/assets/oira/certificates/', '="' + c_shim + 'certificates/')
+        '="/assets/oira/certificates/', '="' + c_shim + "certificates/"
+    )
 
-    for folder in ('style', 'script', 'favicon'):
+    for folder in ("style", "script", "favicon"):
         content = content.replace(
-            '="/assets/oira/' + folder + '/', '="../' + shim + folder + '/')
+            '="/assets/oira/' + folder + "/", '="../' + shim + folder + "/"
+        )
 
     # Replace link for re-loading the toolbar / sidebar
     def repl_link(match):
-        return match.group().replace(match.group(1), 'tal:define="webhelpers nocall:context/@@webhelpers;" href="${webhelpers/portal_url}/${webhelpers/selected_country}"')
+        return match.group().replace(
+            match.group(1),
+            'tal:define="webhelpers nocall:context/@@webhelpers;" href="${webhelpers/portal_url}/${webhelpers/selected_country}"',  # noqa: E501
+        )
+
     if filepath.split("/")[-2] != "illustrations":
-        patt = re.compile('<a (href="/").*?id="inject-toolbar".*?>.*?</a>', re.I | re.S | re.L | re.M)
+        patt = re.compile(
+            '<a (href="/").*?id="inject-toolbar".*?>.*?</a>', re.I | re.S | re.L | re.M
+        )
         content = patt.sub(repl_link, content)
 
     content = content.replace(
-        '="/depts/index', '="++resource++euphorie.resources/oira/depts.html')
+        '="/depts/index', '="++resource++euphorie.resources/oira/depts.html'
+    )
 
     # replace paths to images, which can be src=, href= or url()
-    patt = re.compile('(href=\"|src=\"|url\()(/media)')
+    patt = re.compile(r'(href="|src="|url\()(/media)')
 
     def repl(match):
         return match.group().replace(match.group(2), "../../../../media")
+
     content = patt.sub(repl, content)
 
     open(filepath, "w").write(content)
 
 
 def fix_urls(filepath):
-    """ Fix the urls in filepath
-    """
+    """Fix the urls in filepath"""
     logger.info("Rewriting resource URLs in %s", filepath)
     content = None
     try:
         with open(filepath) as f:
             content = f.read()
-    except:
+    except Exception:
         logger.exception("Problem reading %s", filepath)
         return
-
-    delta = len(filepath.split("/")) - 6
-    shim = "../" * delta
 
     content = content.replace(
         "url(/media/", "url(++resource++euphorie.resources/media/"

@@ -1,12 +1,13 @@
-import unittest
-import Acquisition
+from euphorie.content.behaviour.uniqueid import IIdGenerationRoot
+from euphorie.content.behaviour.uniqueid import INameFromUniqueId
+from euphorie.content.behaviour.uniqueid import UniqueNameChooser
+from zope.annotation.interfaces import IAttributeAnnotatable
 from zope.component.testing import PlacelessSetup
 from zope.interface import alsoProvides
 from zope.interface import implements
-from zope.annotation.interfaces import IAttributeAnnotatable
-from euphorie.content.behaviour.uniqueid import INameFromUniqueId
-from euphorie.content.behaviour.uniqueid import UniqueNameChooser
-from euphorie.content.behaviour.uniqueid import IIdGenerationRoot
+
+import Acquisition
+import unittest
 
 
 class Mock(Acquisition.Implicit):
@@ -16,8 +17,9 @@ class Mock(Acquisition.Implicit):
 class IdGenerationTests(PlacelessSetup, unittest.TestCase):
     def setUp(self):
         super(IdGenerationTests, self).setUp()
-        from zope.component import provideAdapter
         from zope.annotation.attribute import AttributeAnnotations
+        from zope.component import provideAdapter
+
         provideAdapter(AttributeAnnotations)
 
     def makeRoot(self):

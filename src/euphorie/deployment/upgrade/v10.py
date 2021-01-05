@@ -3,7 +3,9 @@ from euphorie.client import model
 from sqlalchemy.engine.reflection import Inspector
 from z3c.saconfig import Session
 from zope.sqlalchemy import datamanager
+
 import logging
+
 
 log = logging.getLogger(__name__)
 

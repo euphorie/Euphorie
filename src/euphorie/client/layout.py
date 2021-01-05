@@ -6,17 +6,19 @@ Serves several helper templates, and the basic shell.pt that glues everything
 together.
 """
 
-from zope.interface import Interface
-from five import grok
 from euphorie.client.interfaces import IClientSkinLayer
+from five import grok
+from zope.interface import Interface
+
 
 grok.templatedir("templates")
 
 
 class Shell(grok.View):
-    """ Based on the _layouts/shell.html layout in Jekyll. In Plone terms it's
-        similar to the main_template.pt.
+    """Based on the _layouts/shell.html layout in Jekyll. In Plone terms it's
+    similar to the main_template.pt.
     """
+
     grok.context(Interface)
     grok.name("shell")
     grok.layer(IClientSkinLayer)
@@ -24,9 +26,10 @@ class Shell(grok.View):
 
 
 class Plain(grok.View):
-    """ Based on the shell template, but stripped down to a minimum (no
-        sidebar, no header). Meant for use in things like pdf reports.
+    """Based on the shell template, but stripped down to a minimum (no
+    sidebar, no header). Meant for use in things like pdf reports.
     """
+
     grok.context(Interface)
     grok.name("plain")
     grok.layer(IClientSkinLayer)
@@ -48,9 +51,10 @@ class ShellForIFrame(grok.View):
 
 
 class Includes(grok.View):
-    """ This view's templates contains a collection of macros, corresponding to
-        the Jekyll includes under the _includes dir.
+    """This view's templates contains a collection of macros, corresponding to
+    the Jekyll includes under the _includes dir.
     """
+
     grok.context(Interface)
     grok.name("includes")
     grok.layer(IClientSkinLayer)
@@ -58,11 +62,12 @@ class Includes(grok.View):
 
 
 class Tooltips(grok.View):
-    """ This view's templates contains a number of <div> element that are used
+    """This view's templates contains a number of <div> element that are used
     for various tooltips.
     In proto, see explanations.html
 
     """
+
     grok.context(Interface)
     grok.name("tooltips")
     grok.layer(IClientSkinLayer)

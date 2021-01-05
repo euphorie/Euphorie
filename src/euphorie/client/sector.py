@@ -55,5 +55,4 @@ class View(grok.View):
     grok.layer(IClientSkinLayer)
 
     def render(self):
-        self.request.response.redirect(
-                aq_parent(aq_inner(self.context)).absolute_url())
+        self.request.response.redirect(aq_parent(aq_inner(self.context)).absolute_url())

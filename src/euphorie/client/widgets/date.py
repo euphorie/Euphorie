@@ -10,8 +10,7 @@ from zope.pagetemplate.interfaces import IPageTemplate
 
 
 class EuphorieDateWidget(DateWidget):
-    """Date widget for z3c.form in the Euphorie context: better display mode.
-    """
+    """Date widget for z3c.form in the Euphorie context: better display mode."""
 
     def render(self):
         """Render widget.
@@ -31,7 +30,7 @@ class EuphorieDateWidget(DateWidget):
 
 @implementer(IFieldWidget)
 def EuphorieDateFieldWidget(field, request):
-    """ This is identicall to the equivalent in plone.app.z3cform but needs
+    """This is identicall to the equivalent in plone.app.z3cform but needs
     a customization to use the EuphorieDateWidget class
     """
     widget = FieldWidget(field, EuphorieDateWidget(request))

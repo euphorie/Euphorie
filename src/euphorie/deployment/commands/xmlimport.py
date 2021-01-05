@@ -1,20 +1,24 @@
-import logging
-from optparse import OptionParser
-import os.path
-import sys
-import lxml.etree
-import lxml.objectify
-import transaction
-import zExceptions
-from AccessControl.SecurityManagement import newSecurityManager
 from AccessControl.SecurityManagement import getSecurityManager
+from AccessControl.SecurityManagement import newSecurityManager
 from AccessControl.SecurityManagement import setSecurityManager
-from Testing.makerequest import makerequest
-from zope.site import hooks
-from plone.namedfile.file import NamedBlobImage
+from euphorie.client import publish
 from euphorie.content.upload import SurveyImporter
 from euphorie.content.user import UserProvider
-from euphorie.client import publish
+from optparse import OptionParser
+from plone.namedfile.file import NamedBlobImage
+from Products.CMFPlone.utils import safe_unicode
+from Testing.makerequest import makerequest
+from zope.site import hooks
+
+import logging
+import lxml.etree
+import lxml.objectify
+import os.path
+import six
+import sys
+import transaction
+import zExceptions
+
 
 log = logging.getLogger(__name__)
 
@@ -65,13 +69,13 @@ def GetSector(country, xml_sector, options):
     if hasattr(xml_sector, "contact"):
         xml_contact = xml_sector.contact
         if hasattr(xml_contact, "name"):
-            sector.contact_name = unicode(xml_contact.name.text)
+            sector.contact_name = six.text_type(xml_contact.name.text)
         if hasattr(xml_contact, "email"):
-            sector.contact_email = unicode(xml_contact.email.text)
+            sector.contact_email = six.text_type(xml_contact.email.text)
     if options.logo is not None:
         sector.logo = NamedBlobImage(
             data=open(options.logo, "r").read(),
-            filename=unicode(os.path.basename(options.logo)),
+            filename=safe_unicode(os.path.basename(options.logo)),
         )
     if options.main_colour:
         sector.main_colour = options.main_colour
@@ -98,7 +102,7 @@ def ImportSector(plone, options, filename):
     sm = getSecurityManager()
     try:
         newSecurityManager(None, sectoruser)
-        name = options.name or unicode(xml_sector.survey.title.text)
+        name = options.name or six.text_type(xml_sector.survey.title.text)
 
         if hasattr(sector, name):
             raise Abort("There is already a survey named '%s'" % name)
@@ -238,7 +242,7 @@ def main(app, args):
             transaction.abort()
             log.error(e.message)
             log.error("This is mostly likely due to illegal input data.")
-        except Exception as e:
+        except Exception:
             transaction.abort()
             raise
 
@@ -253,4 +257,4 @@ if __name__ == "__main__":
         handler.setFormatter(formatter)
         handler.setLevel(logging.INFO)
 
-    main(app, sys.argv[1:])
+    main(app, sys.argv[1:])  # noqa: F821

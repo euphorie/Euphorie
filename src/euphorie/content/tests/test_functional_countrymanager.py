@@ -9,11 +9,8 @@ import bcrypt
 
 
 class CountryManagerTests(EuphorieIntegrationTestCase):
-
     def createCountryManager(self):
-        manager = _create(
-            self.portal.sectors["nl"], "euphorie.countrymanager", "mgr"
-        )
+        manager = _create(self.portal.sectors["nl"], "euphorie.countrymanager", "mgr")
         return manager
 
     def testCanNotBeCopied(self):
@@ -26,10 +23,8 @@ class CountryManagerTests(EuphorieIntegrationTestCase):
         manager = self.createCountryManager()
 
         fti = component.queryUtility(IDexterityFTI, name=manager.portal_type)
-        field = fti.lookupSchema().get('password')
-        component.getMultiAdapter((manager, field), IDataManager).set('secret')
+        field = fti.lookupSchema().get("password")
+        component.getMultiAdapter((manager, field), IDataManager).set("secret")
 
-        self.assertFalse(manager.password == 'secret')
-        self.assertTrue(
-            bcrypt.hashpw('secret', manager.password) == manager.password
-        )
+        self.assertFalse(manager.password == "secret")
+        self.assertTrue(bcrypt.hashpw("secret", manager.password) == manager.password)

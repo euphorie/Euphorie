@@ -5,6 +5,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
 from zope.interface import Interface
 
+
 grok.templatedir("templates")
 
 TYPES_MAP = {
@@ -31,13 +32,12 @@ class Search(grok.View):
 
     def update(self):
         qs = self.request.form.get("q", None)
-        self.did_search = (qs is not None)
+        self.did_search = qs is not None
         if not qs:
             self.results = None
             return
 
-        query = dict(
-            SearchableText=qs, portal_type=SEARCHED_TYPES)
+        query = dict(SearchableText=qs, portal_type=SEARCHED_TYPES)
         ct = getToolByName(self.context, "portal_catalog")
         self.results = ct.searchResults(**query)
 
@@ -51,22 +51,24 @@ class ContextSearch(grok.View):
 
     def update(self):
         qs = self.request.form.get("q", None)
-        self.did_search = (qs is not None and qs.strip() != '')
+        self.did_search = qs is not None and qs.strip() != ""
         if not qs:
             self.results = None
             return
 
         qs = u'"{}*"'.format(safe_unicode(qs))
-        path = '/'.join(self.context.getPhysicalPath())
-        query = dict(
-            SearchableText=qs, portal_type=SEARCHED_TYPES, path=path)
+        path = "/".join(self.context.getPhysicalPath())
+        query = dict(SearchableText=qs, portal_type=SEARCHED_TYPES, path=path)
 
         ct = getToolByName(self.context, "portal_catalog")
         brains = ct.searchResults(**query)
 
         results = [
             dict(
-                url=b.getURL(), title=b.Title,
-                typ=TYPES_MAP.get(b.portal_type, 'unknown'))
-            for b in brains]
+                url=b.getURL(),
+                title=b.Title,
+                typ=TYPES_MAP.get(b.portal_type, "unknown"),
+            )
+            for b in brains
+        ]
         self.results = results

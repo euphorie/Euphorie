@@ -1,5 +1,7 @@
-import logging
 from Acquisition import aq_parent
+
+import logging
+
 
 log = logging.getLogger(__name__)
 
@@ -37,11 +39,12 @@ def resetPublishPermission(context):
 
 
 def migrateCompanyTable(context):
-    from z3c.saconfig import Session
+    from euphorie.client import model
     from euphorie.deployment.upgrade.utils import ColumnExists
     from euphorie.deployment.upgrade.utils import TableExists
-    from euphorie.client import model
+    from z3c.saconfig import Session
     from zope.sqlalchemy import datamanager
+
     import transaction
 
     session = Session()
@@ -63,9 +66,10 @@ def migrateCompanyTable(context):
 
 
 def addTermsAndConditionsColumn(context):
-    from z3c.saconfig import Session
     from euphorie.deployment.upgrade.utils import ColumnExists
+    from z3c.saconfig import Session
     from zope.sqlalchemy import datamanager
+
     import transaction
 
     session = Session()
@@ -100,9 +104,10 @@ def updateInitialContent(context):
 
 
 def addAccountChangeTable(context):
-    from z3c.saconfig import Session
     from euphorie.client import model
+    from z3c.saconfig import Session
     from zope.sqlalchemy import datamanager
+
     import transaction
 
     transaction.get().commit()  # Clean current connection to prevent hangs

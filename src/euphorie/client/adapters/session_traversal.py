@@ -15,14 +15,12 @@ from zope.traversing.namespace import SimpleHandler
 
 
 class ITraversedSurveySession(Interface):
-    """ Interface for TraversedSurveySessions
-    """
+    """Interface for TraversedSurveySessions"""
 
 
 @implementer(ITraversedSurveySession)
 class TraversedSurveySession(Implicit, Traversable):
-    """ A traversable session object
-    """
+    """A traversable session object"""
 
     def __init__(self, parent, session_id):
         self.__of__(parent)

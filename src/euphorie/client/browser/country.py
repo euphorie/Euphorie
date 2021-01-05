@@ -37,21 +37,19 @@ class Node(NodeMixin):
 
     @property
     def groups(self):
-        """ Assume childrens are groups and return them sorted by title
-        """
+        """Assume childrens are groups and return them sorted by title"""
         return sorted(self.children, key=lambda x: x.title)
 
     @property
     def sessions(self):
-        """ Assume childrens are sessions and return them sorted by
+        """Assume childrens are sessions and return them sorted by
         reversed modification date
         """
         return sorted(self.children, key=lambda x: x.context.modified, reverse=True)
 
     @property
     def survey_templates(self):
-        """ Return all children that are survey_templates, sorted by title
-        """
+        """Return all children that are survey_templates, sorted by title"""
         return sorted(
             (item for item in self.children if item.type == "survey_template"),
             key=lambda x: x.title.lower(),
@@ -59,8 +57,7 @@ class Node(NodeMixin):
 
     @property
     def categories(self):
-        """ Return all children that are categories, sorted by title
-        """
+        """Return all children that are categories, sorted by title"""
         return sorted(
             (item for item in self.children if item.type == "category"),
             key=lambda x: x.title,
@@ -187,8 +184,7 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
     @property
     @memoize_contextless
     def account(self):
-        """ The currently authenticated account
-        """
+        """The currently authenticated account"""
         return get_current_account()
 
     def _updateSurveys(self):
@@ -287,8 +283,7 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
 
 
 class SessionBrowserNavigator(BrowserView):
-    """ Logic to build the navigator for the sessions
-    """
+    """Logic to build the navigator for the sessions"""
 
     no_splash = True
 
@@ -314,8 +309,7 @@ class SessionBrowserNavigator(BrowserView):
 
     @memoize
     def get_root_group(self, groupid=None):
-        """ Return the group that is the root of the navigation tree
-        """
+        """Return the group that is the root of the navigation tree"""
         if not groupid:
             groupid = self.groupid
         if not groupid:
@@ -328,7 +322,7 @@ class SessionBrowserNavigator(BrowserView):
     @property
     @memoize
     def searchable_text(self):
-        """ Return the text we need to search in postgres
+        """Return the text we need to search in postgres
         already surrounded with '%'
         Allow a minimum size of 3 characters to reduce the load.
         """
@@ -341,23 +335,21 @@ class SessionBrowserNavigator(BrowserView):
 
     @memoize
     def leaf_groups(self, groupid=None):
-        """ Nothing to do in main OiRA - to be filled in customer-specific
+        """Nothing to do in main OiRA - to be filled in customer-specific
         packages.
         """
         return []
 
     @memoize
     def leaf_sessions(self):
-        """ The sessions we want to display in the navigation
-        """
+        """The sessions we want to display in the navigation"""
         query = self.webhelpers.get_sessions_query(
             context=self.webhelpers.country_obj, searchable_text=self.searchable_text
         )
         return query.all()
 
     def has_content(self):
-        """ Checks if we have something meaningfull to display
-        """
+        """Checks if we have something meaningfull to display"""
         if len(self.leaf_groups()):
             return True
         if len(self.leaf_sessions()):
@@ -412,7 +404,7 @@ class MyRAsPortlet(PortletBase):
     @property
     @memoize_contextless
     def hide_archived(self):
-        """ By default we hide the archived session and
+        """By default we hide the archived session and
         we have a checkbox that shows with a sibling
         hide_archived_marker input field
         """
@@ -424,8 +416,7 @@ class MyRAsPortlet(PortletBase):
     @property
     @memoize
     def sessions(self):
-        """ We want the archived sessions
-        """
+        """We want the archived sessions"""
         return self.webhelpers.get_sessions_query(
             context=self.context, include_archived=not self.hide_archived
         ).all()

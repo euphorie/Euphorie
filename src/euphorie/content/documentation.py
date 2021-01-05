@@ -10,21 +10,21 @@ portal_type: euphorie.documentation
 """
 
 from five import grok
-from plone.directives import form
 from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.directives import form
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+
 
 grok.templatedir("templates")
 
 
 class IDocumentationFolder(form.Schema, IBasic):
-    """A folder for all documentation for a specific language
-    """
+    """A folder for all documentation for a specific language"""
 
 
 class View(grok.View):
-    """ View name: @@nuplone-view
-    """
+    """View name: @@nuplone-view"""
+
     grok.context(IDocumentationFolder)
     grok.require("zope2.View")
     grok.layer(NuPloneSkin)

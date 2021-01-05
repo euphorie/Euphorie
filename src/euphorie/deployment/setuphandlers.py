@@ -107,9 +107,7 @@ def setupInitialContent(site):
                 title=u"Help",
                 checkConstraints=False,
             )
-            log.info(
-                "Added help section for country %s (%s)", country_id, title
-            )
+            log.info("Added help section for country %s (%s)", country_id, title)
         help = country["help"]
         if not INavigationRoot.providedBy(help):
             alsoProvides(help, INavigationRoot)
@@ -164,9 +162,10 @@ def setupInitialContent(site):
 
 def disableRedirectTracking(site):
     # Add additional setup code here
+    from plone.app.redirector.interfaces import IRedirectionStorage
     from zope.component import getSiteManager
     from zope.component.interfaces import IComponentRegistry
-    from plone.app.redirector.interfaces import IRedirectionStorage
+
     sm = getSiteManager(site)
     if sm is None or not IComponentRegistry.providedBy(sm):
         log.warn(
@@ -186,7 +185,7 @@ def setupVersioning(site):
 
 
 def registerPasswordPolicy(site):
-    pas = api.portal.get_tool('acl_users')
+    pas = api.portal.get_tool("acl_users")
 
     # Deactivate the default policy
     for oid in pas.objectIds([PasswordPolicyPlugin.meta_type]):
@@ -206,7 +205,8 @@ def registerPasswordPolicy(site):
         plugin = getattr(pas, plugin.getId())
 
         infos = [
-            info for info in pas.plugins.listPluginTypeInfo()
+            info
+            for info in pas.plugins.listPluginTypeInfo()
             if plugin.testImplements(info["interface"])
         ]
         plugin.manage_activateInterfaces([info["id"] for info in infos])

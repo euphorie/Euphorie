@@ -1,7 +1,8 @@
-from plone.directives import form
-from plone.app.dexterity.behaviors.metadata import IBasic
 from five import grok
+from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.directives import form
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
+
 
 grok.templatedir("templates")
 

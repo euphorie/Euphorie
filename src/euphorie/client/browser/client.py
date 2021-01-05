@@ -1,14 +1,13 @@
 # coding=utf-8
 
 from Acquisition import aq_base
-from euphorie.client.country import IClientCountry
 from euphorie.client.browser.webhelpers import WebHelpers
+from euphorie.client.country import IClientCountry
 
 
 class ClientView(WebHelpers):
-
     def __call__(self):
-        """ The frontpage has been disbanded. We redirect to the country that
+        """The frontpage has been disbanded. We redirect to the country that
         is defined as the default, or pick a random country.
         """
         target = None
@@ -26,5 +25,4 @@ class ClientView(WebHelpers):
                     break
         if not target:
             return self
-        self.request.RESPONSE.redirect("{}{}".format(
-            target.absolute_url(), url_param))
+        self.request.RESPONSE.redirect("{}{}".format(target.absolute_url(), url_param))

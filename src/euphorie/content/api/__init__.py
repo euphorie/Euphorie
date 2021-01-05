@@ -15,8 +15,7 @@ import martian
 
 
 def get_write_permissions(schema):
-    """Collect all write permissions set via plone.directives.form on a schema.
-    """
+    """Collect all write permissions set via plone.directives.form on a schema."""
     # We have to walk over all base classes of the schema since
     # queryTaggedValue does not check base classes itself.
     todo = [schema]
@@ -56,9 +55,7 @@ class JsonView(BaseJsonView):
                     continue
                 ztk_permission = permissions.get(attribute, None)
                 if ztk_permission is not None:
-                    permission = getUtility(
-                        IPermission, name=ztk_permission
-                    ).title
+                    permission = getUtility(IPermission, name=ztk_permission).title
                 else:
                     permission = ModifyPortalContent
                 if not self.has_permission(permission, context):

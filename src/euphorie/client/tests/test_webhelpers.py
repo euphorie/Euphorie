@@ -13,8 +13,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
             self.assertIn("WHERE 0 = 1", str(view.get_sessions_query()))
 
     def _get_query_filters(self, query):
-        """ Return the filters of a SQLAlchemy query
-        """
+        """Return the filters of a SQLAlchemy query"""
         return str(query).partition("\nFROM session \n")[-1]
 
     def test_content_country_object(self):

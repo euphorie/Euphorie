@@ -1,15 +1,14 @@
 # coding=utf-8
 from AccessControl.SecurityManagement import newSecurityManager
-from euphorie.testing import EuphorieIntegrationTestCase
 from datetime import datetime
 from euphorie.client import model
 from euphorie.client.tests.utils import addAccount
 from euphorie.client.tests.utils import addSurvey
 from euphorie.content.tests.utils import BASIC_SURVEY
+from euphorie.testing import EuphorieIntegrationTestCase
 
 
 class TestCloningViews(EuphorieIntegrationTestCase):
-
     def setUp(self):
         super(TestCloningViews, self).setUp()
         addSurvey(self.portal, BASIC_SURVEY)

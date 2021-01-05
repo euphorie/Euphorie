@@ -42,7 +42,9 @@ from zope.component import getUtility
 from zope.interface import implements
 from zope.interface import Interface
 from zope.interface import Invalid
+
 import sys
+
 
 grok.templatedir("templates")
 
@@ -52,52 +54,66 @@ class IModule(form.Schema, IRichDescription, IBasic):
 
     A module is (hierarchical) grouping in a survey.
     """
+
     description = HtmlText(
-            title=_("label_module_description", u"Description"),
-            description=_("help_module_description",
-                default=u"Include any relevant information that may be "
-                    u"helpful for the end-user."),
-            required=False)
+        title=_("label_module_description", u"Description"),
+        description=_(
+            "help_module_description",
+            default=u"Include any relevant information that may be "
+            u"helpful for the end-user.",
+        ),
+        required=False,
+    )
     form.widget(description=WysiwygFieldWidget)
     form.order_after(description="title")
 
     optional = schema.Bool(
-            title=_("label_module_optional",
-                default=u"This module is optional"),
-            description=_("help_module_optional",
-                default=u"Allows the end-user to skip this module and "
-                    u"everything inside it."),
-            required=False,
-            default=False)
+        title=_("label_module_optional", default=u"This module is optional"),
+        description=_(
+            "help_module_optional",
+            default=u"Allows the end-user to skip this module and "
+            u"everything inside it.",
+        ),
+        required=False,
+        default=False,
+    )
 
     depends("question", "optional", "on")
     question = ConditionalTextLine(
-            title=_("label_module_question", default=u"Question"),
-            description=_("help_module_question",
-                default=u"The question to ask the end-user if this module is "
-                    u"optional. It must be formulated so that it is answerable "
-                    u"with YES (the end-user will have to tick a box) or NO"),
-            required=True)
+        title=_("label_module_question", default=u"Question"),
+        description=_(
+            "help_module_question",
+            default=u"The question to ask the end-user if this module is "
+            u"optional. It must be formulated so that it is answerable "
+            u"with YES (the end-user will have to tick a box) or NO",
+        ),
+        required=True,
+    )
 
     image = filefield.NamedBlobImage(
-            title=_("label_image", default=u"Image file"),
-            description=_("help_image_upload",
-                default=u"Upload an image. Make sure your image is of format "
-                        u"png, jpg or gif and does not contain any special "
-                        u"characters. The minimum size is 1000 (width) x 430 (height) pixels."),
-            required=False)
+        title=_("label_image", default=u"Image file"),
+        description=_(
+            "help_image_upload",
+            default=u"Upload an image. Make sure your image is of format "
+            u"png, jpg or gif and does not contain any special "
+            u"characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+        ),
+        required=False,
+    )
     caption = schema.TextLine(
-            title=_("label_caption", default=u"Image caption"),
-            required=False)
+        title=_("label_caption", default=u"Image caption"), required=False
+    )
 
     solution_direction = HtmlText(
-            title=_("label_solution_direction",
-                default=u"Solution"),
-            description=_("help_solution_direction",
-                default=u"This information will appear in the Action plan step "
-                    u"and should include an overview of general solution(s) "
-                    u"related to this module."),
-            required=False)
+        title=_("label_solution_direction", default=u"Solution"),
+        description=_(
+            "help_solution_direction",
+            default=u"This information will appear in the Action plan step "
+            u"and should include an overview of general solution(s) "
+            u"related to this module.",
+        ),
+        required=False,
+    )
     form.widget(solution_direction=WysiwygFieldWidget)
 
     form.fieldset(
@@ -106,10 +122,19 @@ class IModule(form.Schema, IRichDescription, IBasic):
         description=_(
             "intro_additional_content",
             default=u"Attach any additional content you consider helpful "
-            "for the user"),
+            "for the user",
+        ),
         fields=[
-            "file1", "file1_caption", "file2", "file2_caption",
-            "file3", "file3_caption", "file4", "file4_caption"])
+            "file1",
+            "file1_caption",
+            "file2",
+            "file2_caption",
+            "file3",
+            "file3_caption",
+            "file4",
+            "file4_caption",
+        ],
+    )
 
     file1 = filefield.NamedBlobFile(
         title=_("label_file", default=u"Content file"),
@@ -117,11 +142,13 @@ class IModule(form.Schema, IRichDescription, IBasic):
             "help_content_upload",
             default=u"Upload a file that contains additional information, "
             u"like a PDF, Word document or spreadsheet. Optionally provide "
-            u"a descriptive caption for your file."),
-        required=False)
+            u"a descriptive caption for your file.",
+        ),
+        required=False,
+    )
     file1_caption = schema.TextLine(
-        title=_("label_file_caption", default=u"Content caption"),
-        required=False)
+        title=_("label_file_caption", default=u"Content caption"), required=False
+    )
 
     file2 = filefield.NamedBlobFile(
         title=_("label_file", default=u"Content file"),
@@ -129,11 +156,13 @@ class IModule(form.Schema, IRichDescription, IBasic):
             "help_content_upload",
             default=u"Upload a file that contains additional information, "
             u"like a PDF, Word document or spreadsheet. Optionally provide "
-            u"a descriptive caption for your file."),
-        required=False)
+            u"a descriptive caption for your file.",
+        ),
+        required=False,
+    )
     file2_caption = schema.TextLine(
-        title=_("label_file_caption", default=u"Content caption"),
-        required=False)
+        title=_("label_file_caption", default=u"Content caption"), required=False
+    )
 
     file3 = filefield.NamedBlobFile(
         title=_("label_file", default=u"Content file"),
@@ -141,11 +170,13 @@ class IModule(form.Schema, IRichDescription, IBasic):
             "help_content_upload",
             default=u"Upload a file that contains additional information, "
             u"like a PDF, Word document or spreadsheet. Optionally provide "
-            u"a descriptive caption for your file."),
-        required=False)
+            u"a descriptive caption for your file.",
+        ),
+        required=False,
+    )
     file3_caption = schema.TextLine(
-        title=_("label_file_caption", default=u"Content caption"),
-        required=False)
+        title=_("label_file_caption", default=u"Content caption"), required=False
+    )
 
     file4 = filefield.NamedBlobFile(
         title=_("label_file", default=u"Content file"),
@@ -153,11 +184,13 @@ class IModule(form.Schema, IRichDescription, IBasic):
             "help_content_upload",
             default=u"Upload a file that contains additional information, "
             u"like a PDF, Word document or spreadsheet. Optionally provide "
-            u"a descriptive caption for your file."),
-        required=False)
+            u"a descriptive caption for your file.",
+        ),
+        required=False,
+    )
     file4_caption = schema.TextLine(
-        title=_("label_file_caption", default=u"Content caption"),
-        required=False)
+        title=_("label_file_caption", default=u"Content caption"), required=False
+    )
 
 
 class ImageSizeValidator(validator.SimpleFieldValidator):
@@ -199,7 +232,7 @@ class Module(dexterity.Container):
     def _get_id(self, orig_id):
         """Pick an id for pasted content."""
         frame = sys._getframe(1)
-        ob = frame.f_locals.get('ob')
+        ob = frame.f_locals.get("ob")
         if ob is not None and INameFromUniqueId.providedBy(ob):
             return get_next_id(self)
         return super(Module, self)._get_id(orig_id)
@@ -212,21 +245,20 @@ class Module(dexterity.Container):
                 my_depth = item_depth(self)
                 paste_depth = tree_depth(object)
                 if my_depth + paste_depth > ConstructionFilter.maxdepth:
-                    raise ValueError('Pasting would create a too deep structure.')
+                    raise ValueError("Pasting would create a too deep structure.")
 
 
 @indexer(IModule)
 def SearchableTextIndexer(obj):
-    """ Index title, description and solution_direction
-    """
-    return " ".join([obj.title,
-                     StripMarkup(obj.description),
-                     StripMarkup(obj.solution_direction)])
+    """Index title, description and solution_direction"""
+    return " ".join(
+        [obj.title, StripMarkup(obj.description), StripMarkup(obj.solution_direction)]
+    )
 
 
 class View(grok.View, DragDropHelper):
-    """ View name: @@nuplone-view
-    """
+    """View name: @@nuplone-view"""
+
     grok.context(IModule)
     grok.require("zope2.View")
     grok.layer(NuPloneSkin)
@@ -234,25 +266,28 @@ class View(grok.View, DragDropHelper):
     grok.name("nuplone-view")
 
     def _morph(self, child):
-        state = getMultiAdapter((child, self.request),
-                name="plone_context_state")
-        return {'id': child.id,
-                'title': child.title,
-                'url': state.view_url()}
+        state = getMultiAdapter((child, self.request), name="plone_context_state")
+        return {"id": child.id, "title": child.title, "url": state.view_url()}
 
     def update(self):
-        """ Set view attributes which list modules and risks in the current
+        """Set view attributes which list modules and risks in the current
         context.
         """
-        self.modules = [self._morph(child) for child in self.context.values()
-                        if IModule.providedBy(child)]
-        self.risks = [self._morph(child) for child in self.context.values()
-                      if IRisk.providedBy(child)]
+        self.modules = [
+            self._morph(child)
+            for child in self.context.values()
+            if IModule.providedBy(child)
+        ]
+        self.risks = [
+            self._morph(child)
+            for child in self.context.values()
+            if IRisk.providedBy(child)
+        ]
 
     @property
     def portal_type(self):
-        if self.context.aq_parent.portal_type == 'euphorie.module':
-            return _('Submodule')
+        if self.context.aq_parent.portal_type == "euphorie.module":
+            return _("Submodule")
         else:
             portal_type = self.context.portal_type
             fti = getUtility(IDexterityFTI, name=portal_type)
@@ -265,6 +300,7 @@ class Edit(form.SchemaEditForm):
 
     View name: @@edit
     """
+
     grok.context(IModule)
     grok.require("cmf.ModifyPortalContent")
     grok.layer(NuPloneSkin)
@@ -272,13 +308,13 @@ class Edit(form.SchemaEditForm):
 
     @property
     def label(self):
-        if self.context.aq_parent.portal_type == 'euphorie.module':
-            type_name = _('Submodule')
+        if self.context.aq_parent.portal_type == "euphorie.module":
+            type_name = _("Submodule")
         else:
             portal_type = self.context.portal_type
             fti = getUtility(IDexterityFTI, name=portal_type)
             type_name = fti.Title()
-        return _(u"Edit ${name}", mapping={'name': type_name})
+        return _(u"Edit ${name}", mapping={"name": type_name})
 
     def updateWidgets(self):
         super(Edit, self).updateWidgets()
@@ -297,13 +333,13 @@ class Edit(form.SchemaEditForm):
 
 
 class Add(dexterity.AddForm):
-    grok.name('euphorie.module')
+    grok.name("euphorie.module")
     grok.context(IModule)
 
     @property
     def label(self):
-        if self.context.portal_type == 'euphorie.module':
-            type_name = _('Submodule')
+        if self.context.portal_type == "euphorie.module":
+            type_name = _("Submodule")
         else:
             portal_type = self.portal_type
             fti = getUtility(IDexterityFTI, name=portal_type)
@@ -323,9 +359,9 @@ def tree_depth(obj):
 
 
 def item_depth(item):
-    """Return the survey depth of an item.
-    """
+    """Return the survey depth of an item."""
     from euphorie.content.survey import ISurvey
+
     depth = 0
     for position in aq_chain(item):
         if ISurvey.providedBy(position):
@@ -381,7 +417,7 @@ class ConstructionFilter(grok.MultiAdapter):
             return True
 
     def allowed(self):
-        """ A module is allowed to be created providing :obj:`checkDepth` and
+        """A module is allowed to be created providing :obj:`checkDepth` and
         :obj:`checkForRisks` are True
 
         :rtype: bool
