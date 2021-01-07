@@ -9,13 +9,13 @@ from Acquisition import aq_base
 from Acquisition import aq_parent
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.dexterity.content import Container
-from plone.directives import form
+from plone.supermodel import model
 from Products.CMFCore.interfaces import ISiteRoot
 from zope.component import getUtility
 from zope.interface import implements
 
 
-class IClientSector(form.Schema, IBasic):
+class IClientSector(model.Schema, IBasic):
     """Sector information in the online client.
 
     This object proxies the title and logo from the main sector object.

@@ -15,7 +15,6 @@ from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.interfaces import ObjectPublishedEvent
 from OFS.event import ObjectWillBeRemovedEvent
 from plone import api
-from plone.directives import form
 from plone.scale.storage import AnnotationStorage
 from plonetheme.nuplone.utils import getPortal
 from Products.CMFCore.utils import getToolByName
@@ -25,6 +24,7 @@ from webhelpers.html.builder import make_tag
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from z3c.form import button
+from z3c.form import form
 from zope import component
 from zope.component import getMultiAdapter
 from zope.component import getUtility

@@ -11,7 +11,7 @@ URL: https://client-oiranew.syslab.com/eu
 
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.dexterity.content import Container
-from plone.directives import form
+from plone.supermodel import model
 from zope.interface import implementer
 
 import logging
@@ -20,7 +20,7 @@ import logging
 log = logging.getLogger(__name__)
 
 
-class IClientCountry(form.Schema, IBasic):
+class IClientCountry(model.Schema, IBasic):
     """Country grouping in the online client."""
 
 

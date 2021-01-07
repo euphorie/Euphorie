@@ -12,13 +12,16 @@ from euphorie.client.model import get_current_account
 from euphorie.client.utils import CreateEmailTo
 from euphorie.client.utils import randomString
 from plone import api
-from plone.directives import form
+from plone.autoform import directives
+from plone.autoform.form import AutoExtensibleForm
+from plone.supermodel import model
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MailHost.MailHost import MailHostError
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import button
+from z3c.form import form
 from z3c.form.interfaces import WidgetActionExecutionError
 from z3c.saconfig import Session
 from z3c.schema.email import RFC822MailAddress
@@ -37,34 +40,34 @@ import urllib
 log = logging.getLogger(__name__)
 
 
-class PasswordChangeSchema(form.Schema):
+class PasswordChangeSchema(model.Schema):
     old_password = schema.Password(
         title=_(u"label_old_password", default=u"Current Password"), required=True
     )
-    form.widget(old_password="z3c.form.browser.password.PasswordFieldWidget")
+    directives.widget(old_password="z3c.form.browser.password.PasswordFieldWidget")
 
     new_password = schema.Password(
         title=_(u"label_new_password", default=u"Desired password")
     )
 
 
-class AccountDeleteSchema(form.Schema):
+class AccountDeleteSchema(model.Schema):
     password = schema.Password(
         title=_(u"Your password for confirmation"), required=True
     )
-    form.widget(password="z3c.form.browser.password.PasswordFieldWidget")
+    directives.widget(password="z3c.form.browser.password.PasswordFieldWidget")
 
 
-class EmailChangeSchema(form.Schema):
+class EmailChangeSchema(model.Schema):
     loginname = RFC822MailAddress(title=_(u"Email address/account name"), required=True)
 
     password = schema.Password(
         title=_(u"Your password for confirmation"), required=True
     )
-    form.widget(password="z3c.form.browser.password.PasswordFieldWidget")
+    directives.widget(password="z3c.form.browser.password.PasswordFieldWidget")
 
 
-class AccountSettings(form.SchemaForm):
+class AccountSettings(AutoExtensibleForm, form.Form):
     """View name: @@account-settings"""
 
     template = ViewPageTemplateFile("templates/account-settings.pt")
@@ -102,7 +105,7 @@ class AccountSettings(form.SchemaForm):
         self.request.response.redirect(self.request.client.absolute_url())
 
 
-class DeleteAccount(form.SchemaForm):
+class DeleteAccount(AutoExtensibleForm, form.Form):
     """"View name: @@account-delete"""
 
     template = ViewPageTemplateFile("templates/account-delete.pt")
@@ -141,7 +144,7 @@ class DeleteAccount(form.SchemaForm):
         self.request.response.redirect(self.request.client.absolute_url())
 
 
-class NewEmail(form.SchemaForm):
+class NewEmail(AutoExtensibleForm, form.Form):
 
     template = ViewPageTemplateFile("templates/new-email.pt")
 

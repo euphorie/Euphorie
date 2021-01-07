@@ -1,10 +1,12 @@
 from euphorie import MessageFactory as _
 from euphorie.client import model
 from plone import api
-from plone.directives import form
+from plone.autoform.form import AutoExtensibleForm
 from plone.memoize.view import memoize
+from plone.supermodel.model import Schema
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from z3c.form import button
+from z3c.form import form
 from z3c.form.form import applyChanges
 from zope import schema
 from zope.interface import directlyProvides
@@ -12,7 +14,7 @@ from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 
 
-class CompanySchema(form.Schema):
+class CompanySchema(Schema):
     # Note the ideal type, but there is no convenient country field
     country = schema.TextLine(
         title=_("label_company_country", default=u"Your country"), required=False
@@ -162,7 +164,7 @@ class CompanySchema(form.Schema):
     )
 
 
-class Company(form.SchemaForm):
+class Company(AutoExtensibleForm, form.Form):
     """Update the company details.
 
     View name: @@report_company

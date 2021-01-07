@@ -10,7 +10,7 @@ from borg.localrole.interfaces import ILocalRoleProvider
 from euphorie.client.interfaces import IClientSkinLayer
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.dexterity.content import Container
-from plone.directives import form
+from plone.supermodel import model
 from Products.membrane.interfaces.user import IMembraneUserObject
 from zope.component import adapter
 from zope.interface import directlyProvidedBy
@@ -21,7 +21,7 @@ from zope.publisher.interfaces.browser import IBrowserSkinType
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 
-class IClient(form.Schema, IBasic):
+class IClient(model.Schema, IBasic):
     """The online client.
 
     The online client is implemented as a container with all available surveys.
