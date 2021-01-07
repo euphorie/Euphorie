@@ -4,14 +4,13 @@ Publish
 
 Copy and publish Surveys from the admin to the client database.
 """
-
-from .. import MessageFactory as _
+from __future__ import absolute_import
 from AccessControl.SecurityManagement import getSecurityManager
 from AccessControl.SecurityManagement import newSecurityManager
 from AccessControl.SecurityManagement import setSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from euphorie.client import make_tag
+from euphorie.client import MessageFactory as _
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.interfaces import ObjectPublishedEvent
 from OFS.event import ObjectWillBeRemovedEvent
@@ -22,6 +21,7 @@ from plonetheme.nuplone.utils import getPortal
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
+from webhelpers.html.builder import make_tag
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from z3c.form import button

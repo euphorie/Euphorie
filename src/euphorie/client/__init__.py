@@ -1,7 +1,6 @@
 from AccessControl.Permissions import manage_users as ManageUsers
 from euphorie.client import authentication
 from Products.PluggableAuthService.PluggableAuthService import registerMultiPlugin
-from webhelpers.html.builder import make_tag  # noqa: F401
 from zope.i18nmessageid import MessageFactory as mf
 
 import mimetypes
