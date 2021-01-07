@@ -11,7 +11,7 @@ from euphorie.content.behaviour.richdescription import IRichDescription
 from euphorie.content.utils import summarizeCountries
 from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
-from plone.directives import dexterity
+from plone.dexterity.content import Container
 from plone.directives import form
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from zope.interface import implements
@@ -24,7 +24,7 @@ class ISectorContainer(form.Schema, IRichDescription, IBasic):
     """Container for all sectors."""
 
 
-class SectorContainer(dexterity.Container):
+class SectorContainer(Container):
     implements(ISectorContainer)
 
     def _canCopy(self, op=0):

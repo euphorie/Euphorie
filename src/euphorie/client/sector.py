@@ -11,7 +11,7 @@ from Acquisition import aq_parent
 from euphorie.client.interfaces import IClientSkinLayer
 from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
-from plone.directives import dexterity
+from plone.dexterity.content import Container
 from plone.directives import form
 from Products.CMFCore.interfaces import ISiteRoot
 from zope.component import getUtility
@@ -30,7 +30,7 @@ class IClientSector(form.Schema, IBasic):
     """
 
 
-class ClientSector(dexterity.Container):
+class ClientSector(Container):
     implements(IClientSector)
 
     def _sector(self):

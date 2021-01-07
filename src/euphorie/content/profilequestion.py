@@ -23,6 +23,7 @@ from .utils import StripMarkup
 from euphorie.content.dependency import ConditionalTextLine
 from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.dexterity.content import Container
 from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
@@ -104,7 +105,7 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
     form.widget(label_multiple_occurances="euphorie.content.risk.TextLines4Rows")
 
 
-class ProfileQuestion(dexterity.Container):
+class ProfileQuestion(Container):
     implements(IProfileQuestion, IQuestionContainer)
     portal_type = "euphorie.profilequestion"
 
