@@ -15,7 +15,7 @@ from euphorie.client.model import get_current_account
 from euphorie.client.model import SurveySession
 from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
-from plone.directives import dexterity
+from plone.dexterity.content import Container
 from plone.directives import form
 from Products.statusmessages.interfaces import IStatusMessage
 from sqlalchemy.orm import object_session
@@ -37,7 +37,7 @@ class IClientCountry(form.Schema, IBasic):
 
 
 @implementer(IClientCountry)
-class ClientCountry(dexterity.Container):
+class ClientCountry(Container):
 
     country_type = None
 

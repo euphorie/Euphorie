@@ -15,6 +15,7 @@ from euphorie.content.survey import ISurvey
 from five import grok
 from OFS.event import ObjectClonedEvent
 from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.dexterity.content import Container
 from plone.dexterity.utils import createContentInContainer
 from plone.directives import dexterity
 from plone.directives import form
@@ -89,7 +90,7 @@ class ISurveyGroup(form.Schema, IBasic):
     )
 
 
-class SurveyGroup(dexterity.Container):
+class SurveyGroup(Container):
     grok.name("euphorie.surveygroup")
     implements(ISurveyGroup)
 

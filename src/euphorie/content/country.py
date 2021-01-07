@@ -13,6 +13,7 @@ from euphorie.content.sector import ISector
 from euphorie.content.utils import CUSTOM_COUNTRY_NAMES
 from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.dexterity.content import Container
 from plone.directives import dexterity
 from plone.directives import form
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
@@ -106,7 +107,7 @@ class ICountry(form.Schema, IBasic):
     )
 
 
-class Country(dexterity.Container):
+class Country(Container):
     """A country folder."""
 
     implements(ICountry)
