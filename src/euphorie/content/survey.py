@@ -32,6 +32,7 @@ from htmllaundry.z3cform import HtmlText
 from OFS.event import ObjectClonedEvent
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
+from plone.dexterity.content import Container
 from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
@@ -210,7 +211,7 @@ def get_tool_type(context):
     return tt_default
 
 
-class Survey(dexterity.Container):
+class Survey(Container):
     """A risk assessment survey.
 
     A survey uses the *IIdGenerationRoot* behaviour to guarantee that

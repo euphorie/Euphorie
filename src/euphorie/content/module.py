@@ -26,6 +26,7 @@ from five import grok
 from htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
+from plone.dexterity.content import Container
 from plone.dexterity.interfaces import IDexterityFTI
 from plone.directives import dexterity
 from plone.directives import form
@@ -215,7 +216,7 @@ validator.WidgetValidatorDiscriminators(
 )
 
 
-class Module(dexterity.Container):
+class Module(Container):
     implements(IModule, IQuestionContainer)
 
     image = None

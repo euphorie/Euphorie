@@ -30,6 +30,7 @@ from five import grok
 from htmllaundry.z3cform import HtmlText
 from plone import api
 from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.dexterity.content import Container
 from plone.dexterity.interfaces import IDexterityFTI
 from plone.directives import dexterity
 from plone.directives import form
@@ -620,7 +621,7 @@ class IFrenchRisk(IRisk, IFrenchEvaluation):
     )
 
 
-class Risk(dexterity.Container):
+class Risk(Container):
     implements(IRisk)
 
     type = "risk"

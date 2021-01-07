@@ -9,6 +9,7 @@ A standard Solution that a user can select for a particular risk.
 from .. import MessageFactory as _
 from euphorie.content import utils
 from five import grok
+from plone.dexterity.content import Item
 from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
@@ -121,7 +122,7 @@ class ISolution(form.Schema):
     # )
 
 
-class Solution(dexterity.Item):
+class Solution(Item):
     implements(ISolution)
     title = _("title_common_solution", default=u"Measure")
     prevention_plan = None

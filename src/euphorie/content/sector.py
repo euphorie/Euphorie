@@ -26,6 +26,7 @@ from five import grok
 from plone import api
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.layout.navigation.interfaces import INavigationRoot
+from plone.dexterity.content import Container
 from plone.directives import dexterity
 from plone.directives import form
 from plone.indexer import indexer
@@ -86,7 +87,7 @@ class ISector(form.Schema, IUser, IBasic):
     )
 
 
-class Sector(dexterity.Container):
+class Sector(Container):
     """A sector of industry.
 
     A sector also acts as a user account in the system, using the membrane

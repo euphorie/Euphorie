@@ -14,7 +14,7 @@ from euphorie.content.country import ICountry
 from euphorie.content.user import IUser
 from euphorie.content.user import UserProvider
 from five import grok
-from plone.directives import dexterity
+from plone.dexterity.content import Item
 from plone.directives import form
 from plone.indexer import indexer
 from plone.uuid.interfaces import IAttributeUUID
@@ -30,7 +30,7 @@ class ICountryManager(form.Schema, IUser):
     """A country manager is responsible for managing sectors in their country."""
 
 
-class CountryManager(dexterity.Item):
+class CountryManager(Item):
     """A country manager."""
 
     portal_type = "euphorie.countrymanager"

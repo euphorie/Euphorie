@@ -10,7 +10,7 @@ from borg.localrole.interfaces import ILocalRoleProvider
 from euphorie.client.interfaces import IClientSkinLayer
 from five import grok
 from plone.app.dexterity.behaviors.metadata import IBasic
-from plone.directives import dexterity
+from plone.dexterity.content import Container
 from plone.directives import form
 from Products.membrane.interfaces.user import IMembraneUserObject
 from zope.component import adapts
@@ -32,7 +32,7 @@ class IClient(form.Schema, IBasic):
     """
 
 
-class Client(dexterity.Container):
+class Client(Container):
     implements(IClient)
 
     exclude_from_nav = True
