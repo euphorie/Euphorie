@@ -5,13 +5,14 @@ from plone.app.upgrade.utils import loadMigrationProfile
 
 import logging
 
+
 log = logging.getLogger(__name__)
 
 
 class RemoveArchetypesLeftovers(UpgradeStep):
     """Remove Archetypes Leftovers.
     Run this BEFORE you migrate to plone5.2
-    See https://community.plone.org/t/upgrade-to-5-2-failing-with-iatcttool-has-no-attribute-iro/8909/10
+    See https://community.plone.org/t/upgrade-to-5-2-failing-with-iatcttool-has-no-attribute-iro/8909/10  # noqa: E501
     """
 
     def __call__(self):
