@@ -1,16 +1,18 @@
-import collections
-import datetime
-import logging
-from sqlalchemy.engine.reflection import Inspector
-from z3c.saconfig import Session
-from zope.sqlalchemy import datamanager
 from Acquisition import aq_base
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from Products.CMFCore.utils import getToolByName
-from plone.dexterity.utils import createContent
-from euphorie.content.profilequestion import ProfileQuestion
 from euphorie.client import model
+from euphorie.content.profilequestion import ProfileQuestion
+from plone.dexterity.utils import createContent
+from Products.CMFCore.utils import getToolByName
+from sqlalchemy.engine.reflection import Inspector
+from z3c.saconfig import Session
+from zope.sqlalchemy import datamanager
+
+import collections
+import datetime
+import logging
+
 
 log = logging.getLogger(__name__)
 

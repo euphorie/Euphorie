@@ -10,8 +10,9 @@ class add_actionplan_reference_tests(DatabaseTests):
         add_actionplan_reference(None)
 
     def test_not_nullable(self):
-        import mock
         from z3c.saconfig import Session
+
+        import mock
 
         session = Session()
         session.execute("CREATE TABLE action_plan (reference TEXT)")
@@ -20,8 +21,9 @@ class add_actionplan_reference_tests(DatabaseTests):
         self.assertTrue(not session.execute.called)
 
     def test_nullable(self):
-        import mock
         from z3c.saconfig import Session
+
+        import mock
 
         session = Session()
         session.execute("CREATE TABLE action_plan (foo INT)")
@@ -41,8 +43,9 @@ class allow_empty_password_tests(DatabaseTests):
         allow_empty_password(None)
 
     def test_not_nullable(self):
-        import mock
         from z3c.saconfig import Session
+
+        import mock
 
         session = Session()
         session.execute("CREATE TABLE account (password TEXT)")
@@ -51,8 +54,9 @@ class allow_empty_password_tests(DatabaseTests):
         self.assertTrue(not session.execute.called)
 
     def test_nullable(self):
-        import mock
         from z3c.saconfig import Session
+
+        import mock
 
         session = Session()
         session.execute("CREATE TABLE account (password TEXT NOT NULL)")

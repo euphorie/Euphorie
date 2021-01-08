@@ -1,7 +1,7 @@
-from zope.component import adapter
-from Products.PluggableAuthService.interfaces.events import IUserLoggedInEvent
 from Products.CMFCore.utils import getToolByName
 from Products.membrane.interfaces import IMembraneUser
+from Products.PluggableAuthService.interfaces.events import IUserLoggedInEvent
+from zope.component import adapter
 
 
 @adapter(IMembraneUser, IUserLoggedInEvent)

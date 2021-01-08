@@ -6,7 +6,9 @@ Create Date: 2020-05-28 12:52:00.626910
 
 """
 from alembic import op
+
 import sqlalchemy as sa
+
 
 # revision identifiers, used by Alembic.
 revision = "28"
@@ -27,7 +29,8 @@ def upgrade():
         unique=False,
     )
     op.execute(
-        "UPDATE action_plan set used_in_training=True where plan_type in ('in_place_standard', 'in_place_custom')"
+        "UPDATE action_plan set used_in_training=True "
+        "where plan_type in ('in_place_standard', 'in_place_custom')"
     )
     # ### end Alembic commands ###
 

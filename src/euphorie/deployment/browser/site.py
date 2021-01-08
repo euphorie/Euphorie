@@ -8,7 +8,6 @@ from euphorie.client.model import ActionPlan
 from euphorie.client.model import Session
 from euphorie.client.model import SurveySession
 from euphorie.client.model import SurveyTreeItem
-from euphorie.content.api.entry import access_api
 from euphorie.content.countrymanager import ICountryManager
 from euphorie.content.risk import EnsureInterface
 from euphorie.content.risk import IRisk
@@ -30,6 +29,7 @@ from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 import logging
 import six
+
 
 log = logging.getLogger(__name__)
 
@@ -56,8 +56,6 @@ class SitePublishTraverser(DefaultPublishTraverse):
     """
 
     def publishTraverse(self, request, name):
-        if name == "api":
-            return access_api(request).__of__(self.context)
         return super(SitePublishTraverser, self).publishTraverse(request, name)
 
 
@@ -76,7 +74,7 @@ class EuphorieRefreshResourcesTimestamp(BrowserView):
         )
 
     def __call__(self):
-        """ Refresh the registry record that adds a timestamp
+        """Refresh the registry record that adds a timestamp
         to the resources urls
         """
         self.refresh_timestamp()
@@ -103,7 +101,7 @@ class ManageEnsureInterface(BrowserView):
         return count
 
     def __call__(self):
-        """ Iterate over all risks in the current context and ensure that they have the
+        """Iterate over all risks in the current context and ensure that they have the
         correct interface
         """
         count = self.set_evaluation_method_interfaces()
@@ -136,7 +134,9 @@ class UpdateCompletionPercentage(WebHelpers):
             self.log("Limiting to {} sessions; starting at {}".format(b_size, b_start))
             query = Session.query(SurveySession)
             if "overwrite" not in self.request.form:
-                query = query.filter(SurveySession.completion_percentage == None)
+                query = query.filter(
+                    SurveySession.completion_percentage == None  # noqa: E711
+                )
                 self.log("Ignoring sessions with existing non-null values")
             else:
                 self.log("Overwriting existing non-null values")
@@ -181,7 +181,7 @@ class RepairSolutionId(BrowserView):
             .filter(
                 sql.and_(
                     ActionPlan.plan_type == "in_place_standard",
-                    ActionPlan.solution_id == None,
+                    ActionPlan.solution_id == None,  # noqa: E711
                 )
             )
             .join(SurveyTreeItem, ActionPlan.risk_id == SurveyTreeItem.id)

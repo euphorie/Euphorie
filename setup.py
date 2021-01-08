@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = '11.6.4.dev0'
+version = "11.6.4.dev0"
 
 setup(
     name="Euphorie",
@@ -25,26 +25,25 @@ setup(
     author_email="info@syslab.com",
     url="http://euphorie.readthedocs.org/en/latest/",
     license="GPL",
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
+    packages=find_packages("src"),
+    package_dir={"": "src"},
     namespace_packages=[],
     include_package_data=True,
     zip_safe=False,
     install_requires=[
         "Plone >=5.1.0",
         "Zope2 >=2.13.19",
-        'AccessControl >= 3.0',
-        'Products.membrane >=2.1.3',
+        "AccessControl >= 3.0",
+        "Products.membrane >=2.1.3",
         "SQLAlchemy >=0.5.2",
         "alembic",
         "anytree",
         "decorator",
         "py-bcrypt",
-        "five.grok",
         "ftw.upgrade",
         "htmllaundry [z3cform] >=1.1dev-r11183",
         "lxml",
-        "plone.app.dexterity [grok, relations]",
+        "plone.app.dexterity [relations]",
         "plone.app.folder",
         "plone.app.imaging",
         "plone.app.imagecropping",
@@ -53,8 +52,6 @@ setup(
         "plone.app.z3cform",
         "plone.behavior >=1.0b4",
         "plone.dexterity >=1.0b6",
-        "plone.directives.dexterity",
-        "plone.directives.form",
         "plone.formwidget.namedfile",
         "plone.memoize",
         "plone.namedfile[blobs]",
@@ -69,7 +66,7 @@ setup(
         "zope.i18nmessageid",
         "zope.interface",
         "zope.schema",
-        "NuPlone >=1.6.0",
+        "NuPlone >=1.999999",
         "plone.uuid",
         "pyrtf-ng",
         "z3c.appconfig >=1.0",
@@ -79,7 +76,7 @@ setup(
     tests_require=[
         "collective.testcaselayer >=1.6",
         "Products.PloneTestCase >=0.9.9",
-        'mock',
+        "mock",
     ],
     extras_require={
         "sphinx": [

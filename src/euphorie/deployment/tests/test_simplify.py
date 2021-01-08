@@ -9,19 +9,18 @@ from zope.interface.verify import verifyObject
 
 
 class SimplifiedPloneTests(EuphorieFunctionalTestCase):
-
     def testRedirectStorageRemoved(self):
         self.failUnless(queryUtility(IRedirectionStorage) is None)
 
     def testRedirectViewStillValid(self):
-        view = queryMultiAdapter((self.portal, self.portal.REQUEST),
-                                 name="plone_redirector_view")
+        view = queryMultiAdapter(
+            (self.portal, self.portal.REQUEST), name="plone_redirector_view"
+        )
         self.failUnless(verifyObject(IFourOhFourView, view))
 
-
-# XXX Disabled for now: in Plone 4 the test setup loads all Plone zcml before
-# the Euphorie test layer is setup, so the <exclude> directories in the
-# euphorie.deployment zcml have no effect.
+    # XXX Disabled for now: in Plone 4 the test setup loads all Plone zcml before
+    # the Euphorie test layer is setup, so the <exclude> directories in the
+    # euphorie.deployment zcml have no effect.
 
     def XtestNoContentRulesRegistered(self):
         # Testing for event subscribers would be the cleanest approach, but is

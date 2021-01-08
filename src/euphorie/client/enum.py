@@ -1,6 +1,6 @@
 # Taken from http://www.sqlalchemy.org/trac/wiki/UsageRecipes/Enum
 
-## The MIT License
+# # The MIT License
 
 # Copyright (c) <year> <copyright holders>
 
@@ -22,9 +22,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-import uuid
-
+from Products.CMFPlone.utils import safe_unicode
 from sqlalchemy import types
+
+import six
+import uuid
 
 
 class UUID(types.TypeEngine):
@@ -33,7 +35,7 @@ class UUID(types.TypeEngine):
 
     def bind_processor(self, dialect):
         def convert(value):
-            if isinstance(value, basestring):
+            if isinstance(value, six.string_types):
                 return value
             elif isinstance(value, uuid.UUID):
                 return str(value)
@@ -71,8 +73,8 @@ class Enum(types.TypeDecorator):
            code.
         """
 
-        if values is None or len(values) is 0:
-            raise TypeError('Enum requires a list of values')
+        if values is None or len(values) == 0:
+            raise TypeError("Enum requires a list of values")
         self.empty_to_none = empty_to_none
         self.strict = strict
         self.values = values[:]
@@ -83,37 +85,44 @@ class Enum(types.TypeDecorator):
         super(Enum, self).__init__(size)
 
     def process_bind_param(self, value, dialect):
-        if self.empty_to_none and value is '':
+        if self.empty_to_none and value == "":
             value = None
         if value not in self.values:
             raise ValueError('"%s" not in Enum.values' % value)
         if value is None:
             return None
         else:
-            return unicode(value)
+            return safe_unicode(value)
 
     def process_result_value(self, value, dialect):
         if value is None:
             return value
         if self.strict and value not in self.values:
             raise ValueError('"%s" not in Enum.values' % value)
-        return unicode(value)
+        return safe_unicode(value)
 
-if __name__ == '__main__':
-    from sqlalchemy import Table, MetaData
-    from sqlalchemy import Column, Integer
-    t = Table('foo', MetaData('sqlite:///'),
-              Column('id', Integer, primary_key=True),
-              Column('e', Enum([u'foobar', u'baz', u'quux', None])))
+
+if __name__ == "__main__":
+    from sqlalchemy import Column
+    from sqlalchemy import Integer
+    from sqlalchemy import MetaData
+    from sqlalchemy import Table
+
+    t = Table(
+        "foo",
+        MetaData("sqlite:///"),
+        Column("id", Integer, primary_key=True),
+        Column("e", Enum([u"foobar", u"baz", u"quux", None])),
+    )
     t.create()
 
-    t.insert().execute(e=u'foobar')
-    t.insert().execute(e=u'baz')
-    t.insert().execute(e=u'quux')
+    t.insert().execute(e=u"foobar")
+    t.insert().execute(e=u"baz")
+    t.insert().execute(e=u"quux")
     t.insert().execute(e=None)
 
     try:
-        t.insert().execute(e=u'lala')
+        t.insert().execute(e=u"lala")
         assert False
     except AssertionError:
         pass

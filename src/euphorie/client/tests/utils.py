@@ -1,8 +1,8 @@
 # coding=utf-8
 from euphorie.client import CONDITIONS_VERSION
 from euphorie.client import model
-from euphorie.client import publish
-from euphorie.content import upload
+from euphorie.client.browser import publish
+from euphorie.content.browser import upload
 from Products.MailHost.mailer import SMTPMailer
 from Products.MailHost.MailHost import MailHost
 from z3c.saconfig import Session
@@ -37,11 +37,7 @@ def addSurvey(portal, xml_survey):
 def testRequest():
     """Create a new request object. This is based on the code in
     :py:func`Testing.makerequest.makerequest`."""
-    environ = {
-        "SERVER_NAME": "localhost",
-        "SERVER_PORT": "80",
-        "REQUEST_METHOD": "GET"
-    }
+    environ = {"SERVER_NAME": "localhost", "SERVER_PORT": "80", "REQUEST_METHOD": "GET"}
     request = HTTPRequest(sys.stdin, environ, HTTPResponse())
     request._steps = ["Plone"]
     return request
@@ -54,14 +50,13 @@ def registerUserInClient(browser, link="register"):
     browser.getControl(name="password2:utf8:ustring").value = "guest"
     browser.getControl(name="next", index=0).click()
     # Screw the terms and conditions, just go to the Dashboard...
-    browser.getLink('Dashboard').click()
+    browser.getLink("Dashboard").click()
     # # XXX Why does this not always happen??
     # if "terms-and-conditions" in browser.url:
     #     browser.getForm().submit()
 
 
 class MockMailFixture(object):
-
     def __init__(self):
         self.storage = storage = []
 

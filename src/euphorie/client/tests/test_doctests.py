@@ -16,7 +16,8 @@ def test_suite():
     ]
 
     options = (
-        doctest.REPORT_ONLY_FIRST_FAILURE | doctest.ELLIPSIS
+        doctest.REPORT_ONLY_FIRST_FAILURE
+        | doctest.ELLIPSIS
         | doctest.NORMALIZE_WHITESPACE
     )
 
@@ -26,10 +27,11 @@ def test_suite():
                 test,
                 optionflags=options,
                 module_relative=True,
-                package='euphorie.client.tests',
-                encoding='utf-8',
+                package="euphorie.client.tests",
+                encoding="utf-8",
             ),
             layer=EUPHORIE_FUNCTIONAL_TESTING,
-        ) for test in doctests
+        )
+        for test in doctests
     ]
     return unittest.TestSuite(suites)

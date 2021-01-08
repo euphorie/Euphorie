@@ -1,13 +1,14 @@
-import logging
-from sqlalchemy.sql import func
+from euphorie.client import model
+from euphorie.content.risk import EnsureInterface
+from euphorie.deployment.upgrade.utils import ColumnExists
+from euphorie.deployment.upgrade.utils import TableExists
 from htmllaundry import StripMarkup
 from Products.CMFCore.utils import getToolByName
-from euphorie.content.risk import EnsureInterface
+from sqlalchemy.sql import func
 from z3c.saconfig import Session
-from euphorie.deployment.upgrade.utils import TableExists
-from euphorie.deployment.upgrade.utils import ColumnExists
-from euphorie.client import model
 from zope.sqlalchemy import datamanager
+
+import logging
 import transaction
 
 

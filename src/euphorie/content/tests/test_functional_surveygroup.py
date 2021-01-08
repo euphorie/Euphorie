@@ -1,6 +1,6 @@
 # coding=utf-8
 from Acquisition import aq_parent
-from euphorie.content.surveygroup import AddForm
+from euphorie.content.browser.surveygroup import AddForm
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
@@ -11,7 +11,6 @@ from zope.event import notify
 
 
 class SurveyGroupTests(EuphorieIntegrationTestCase):
-
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -24,7 +23,7 @@ class SurveyGroupTests(EuphorieIntegrationTestCase):
 
     def testNoWorkflow(self):
         surveygroup = self.createSurveyGroup()
-        pw = api.portal.get_tool('portal_workflow')
+        pw = api.portal.get_tool("portal_workflow")
         chain = pw.getChainFor(surveygroup)
         self.assertEqual(chain, ())
 
@@ -43,7 +42,6 @@ class SurveyGroupTests(EuphorieIntegrationTestCase):
 
 
 class HandleSurveyPublishTests(EuphorieIntegrationTestCase):
-
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -82,14 +80,14 @@ class HandleSurveyPublishTests(EuphorieIntegrationTestCase):
         notify(ActionSucceededEvent(survey, None, "publish", None))
         self.assertEqual(surveygroup.published, "survey")
         request = survey.REQUEST
-        unpublishview = component.getMultiAdapter((surveygroup, request),
-                                                  name='unpublish')
+        unpublishview = component.getMultiAdapter(
+            (surveygroup, request), name="unpublish"
+        )
         unpublishview.unpublish()
         self.assertEqual(surveygroup.published, None)
 
 
 class HandleSurveyDeleteVerificationTests(EuphorieIntegrationTestCase):
-
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -101,51 +99,53 @@ class HandleSurveyDeleteVerificationTests(EuphorieIntegrationTestCase):
         return surveygroup
 
     def testDeleteOneOfManySurvey(self):
-        """ It should be possible to delete one of many surveys, when it's not
-            published.
+        """It should be possible to delete one of many surveys, when it's not
+        published.
         """
         surveygroup = self.createSurveyGroup()
         self._create(surveygroup, "euphorie.survey", "dummy")
         survey = self._create(surveygroup, "euphorie.survey", "survey")
         self.assertEqual(surveygroup.published, None)
-        deleteaction = component.getMultiAdapter((survey, survey.REQUEST),
-                                                 name='delete')
+        deleteaction = component.getMultiAdapter(
+            (survey, survey.REQUEST), name="delete"
+        )
         self.assertEqual(deleteaction.verify(surveygroup, survey), True)
 
     def testDeleteOnlySurvey(self):
-        """ Validation should fail when trying to delete the only survey in a
-            surveygroup
+        """Validation should fail when trying to delete the only survey in a
+        surveygroup
         """
         surveygroup = self.createSurveyGroup()
         survey = self._create(surveygroup, "euphorie.survey", "survey")
-        deleteaction = component.getMultiAdapter((survey, survey.REQUEST),
-                                                 name='delete')
+        deleteaction = component.getMultiAdapter(
+            (survey, survey.REQUEST), name="delete"
+        )
         self.assertEqual(deleteaction.verify(surveygroup, survey), False)
 
     def testDeletePublishedSurvey(self):
-        """ Validation should fail when trying to delete a published survey
-        """
+        """Validation should fail when trying to delete a published survey"""
         surveygroup = self.createSurveyGroup()
         self._create(surveygroup, "euphorie.survey", "dummy")
         survey = self._create(surveygroup, "euphorie.survey", "survey")
         notify(ActionSucceededEvent(survey, None, "update", None))
         self.assertEqual(surveygroup.published, "survey")
-        deleteaction = component.getMultiAdapter((survey, survey.REQUEST),
-                                                 name='delete')
+        deleteaction = component.getMultiAdapter(
+            (survey, survey.REQUEST), name="delete"
+        )
         self.assertEqual(deleteaction.verify(surveygroup, survey), False)
 
     def testDeleteUnPublishedSurvey(self):
-        """ It should be possible to delete unpublished surveys
-        """
+        """It should be possible to delete unpublished surveys"""
         surveygroup = self.createSurveyGroup()
         self._create(surveygroup, "euphorie.survey", "dummy")
         survey = self._create(surveygroup, "euphorie.survey", "survey")
-        deleteaction = component.getMultiAdapter((survey, survey.REQUEST),
-                                                 name='delete')
+        deleteaction = component.getMultiAdapter(
+            (survey, survey.REQUEST), name="delete"
+        )
         notify(ActionSucceededEvent(survey, None, "update", None))
         self.assertEqual(surveygroup.published, "survey")
         unpublishview = component.getMultiAdapter(
-            (surveygroup, survey.REQUEST), name='unpublish'
+            (surveygroup, survey.REQUEST), name="unpublish"
         )
         unpublishview.unpublish()
 
@@ -154,7 +154,6 @@ class HandleSurveyDeleteVerificationTests(EuphorieIntegrationTestCase):
 
 
 class AddFormTests(EuphorieFunctionalTestCase):
-
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -169,8 +168,16 @@ class AddFormTests(EuphorieFunctionalTestCase):
 
     def testCopyPreservesOrder(self):
         original_order = [
-            u"one", u"two", u"three", u"four", u"five", u"six", u"seven",
-            u"eight", u"nine", u"ten"
+            u"one",
+            u"two",
+            u"three",
+            u"four",
+            u"five",
+            u"six",
+            u"seven",
+            u"eight",
+            u"nine",
+            u"ten",
         ]
         module = self.createModule()
         for title in original_order:
@@ -181,13 +188,20 @@ class AddFormTests(EuphorieFunctionalTestCase):
         container = self.portal.sectors.nl.sector
         target = self._create(container, "euphorie.surveygroup", "target")
         copy = AddForm(container, request).copyTemplate(survey, target)
-        self.assertEqual([r.title for r in copy["module"].values()],
-                         original_order)
+        self.assertEqual([r.title for r in copy["module"].values()], original_order)
 
     def testReorderThenCopyTemplateKeepsOrder(self):
         original_order = [
-            u"one", u"two", u"three", u"four", u"five", u"six", u"seven",
-            u"eight", u"nine", u"ten"
+            u"one",
+            u"two",
+            u"three",
+            u"four",
+            u"five",
+            u"six",
+            u"seven",
+            u"eight",
+            u"nine",
+            u"ten",
         ]
         sorted_order = list(sorted(original_order))
         module = self.createModule()
@@ -202,8 +216,7 @@ class AddFormTests(EuphorieFunctionalTestCase):
         container = self.portal.sectors.nl.sector
         target = self._create(container, "euphorie.surveygroup", "target")
         copy = AddForm(container, request).copyTemplate(survey, target)
-        self.assertEqual([r.title for r in copy["module"].values()],
-                         sorted_order)
+        self.assertEqual([r.title for r in copy["module"].values()], sorted_order)
 
     def testCopyClearsPublishFlag(self):
         survey = aq_parent(self.createModule())
@@ -222,8 +235,7 @@ class AddFormTests(EuphorieFunctionalTestCase):
         target = self._create(container, "euphorie.surveygroup", "target")
         copy = AddForm(container, request).copyTemplate(survey, target)
         self.assertEqual(
-            self.portal.portal_workflow.getInfoFor(copy, "review_state"),
-            "draft"
+            self.portal.portal_workflow.getInfoFor(copy, "review_state"), "draft"
         )
 
     def testCopyEvaluationAlgorithmFromGroup(self):
@@ -232,10 +244,7 @@ class AddFormTests(EuphorieFunctionalTestCase):
         request = survey.REQUEST
         container = self.portal.sectors.nl.sector
         target = self._create(
-            container,
-            "euphorie.surveygroup",
-            "target",
-            evaluation_algorithm=u"kinney"
+            container, "euphorie.surveygroup", "target", evaluation_algorithm=u"kinney"
         )
         AddForm(container, request).copyTemplate(survey, target)
         self.assertEqual(target.evaluation_algorithm, u"french")

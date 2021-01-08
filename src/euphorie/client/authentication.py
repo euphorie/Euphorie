@@ -6,12 +6,14 @@ User account plugins and authentication.
 """
 
 from . import model
-from ..content.api.authentication import authenticate_token as authenticate_cms_token
 from .interfaces import IClientSkinLayer
 from AccessControl import ClassSecurityInfo
 from Acquisition import aq_parent
 from App.class_init import InitializeClass
-from euphorie.content.api.interfaces import ICMSAPISkinLayer
+from euphorie.content.user import IUser
+from plone import api
+from plone.keyring.interfaces import IKeyManager
+from Products.membrane.interfaces import IMembraneUserAuth
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 from Products.PluggableAuthService.interfaces.plugins import IAuthenticationPlugin
 from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
@@ -21,8 +23,11 @@ from Products.PluggableAuthService.interfaces.plugins import IUserFactoryPlugin
 from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
 from Products.PluggableAuthService.utils import classImplements
 from z3c.saconfig import Session
+from zope.component import getUtility
 from zope.publisher.interfaces.browser import IBrowserView
 
+import hashlib
+import hmac
 import logging
 import six
 import sqlalchemy.exc
@@ -34,9 +39,42 @@ log = logging.getLogger(__name__)
 
 
 class NotImplementedError(Exception):
-
     def __init__(self, message):
         self.message = message
+
+
+def _get_user(context, login):
+    membrane = api.portal.get_tool("membrane_tool")
+    user = membrane.getUserObject(login=login)
+    if not IUser.providedBy(user):
+        return None
+    else:
+        return user
+
+
+def generate_token(user):
+    """Convenience utility to generate token for the user."""
+    manager = getUtility(IKeyManager)
+    hasher = hmac.new(manager.secret(), digestmod=hashlib.sha256)
+    hasher.update(user.login)
+    # Note that unlike authenticate_credentials we access the password
+    # directly here. This is fine since here we do not care how the password
+    # is stored: even if it is hashed the token will be fine.
+    hasher.update(user.password.encode("utf-8"))
+    return "%s-%s" % (user.login, hasher.hexdigest())
+
+
+def authenticate_cms_token(context, token):
+    try:
+        (login, hash) = token.split("-")
+    except ValueError:
+        return None
+    user = _get_user(context, login)
+    if user is None or generate_token(user) != token:
+        return None
+    else:
+        auth = IMembraneUserAuth(user, None)
+        return (auth.getUserId(), auth.getUserName())
 
 
 def graceful_recovery(default=None, log_args=True):
@@ -59,39 +97,49 @@ def graceful_recovery(default=None, log_args=True):
 
                 try:
                     exc_str = str(e)
-                except:
+                except Exception:
                     exc_str = "<%s at 0x%x>" % (e.__class__.__name__, id(e))
 
                 log.critical(
                     "caught SQL-exception: "
-                    "%s (in method ``%s``; arguments were %s)\n\n%s" % (
-                    exc_str,
-                    func.__name__, ", ".join(
-                        [repr(arg) for arg in args] +
-                        ["%s=%s" % (name, repr(value))
-                         for (name, value) in kwargs.items()]
-                        ), formatted_tb))
+                    "%s (in method ``%s``; arguments were %s)\n\n%s"
+                    % (
+                        exc_str,
+                        func.__name__,
+                        ", ".join(
+                            [repr(arg) for arg in args]
+                            + [
+                                "%s=%s" % (name, repr(value))
+                                for (name, value) in kwargs.items()
+                            ]
+                        ),
+                        formatted_tb,
+                    )
+                )
                 return default
             return value
+
         return wrapper
+
     return decorator
 
 
 manage_addEuphorieAccountPlugin = PageTemplateFile(
-        "templates/addPasPlugin", globals(),
-        __name__="manage_addEuphorieAccountPlugin")
+    "templates/addPasPlugin", globals(), __name__="manage_addEuphorieAccountPlugin"
+)
 
 
-def addEuphorieAccountPlugin(self, id, title='', REQUEST=None):
-    """Add an EuphorieAccountPlugin to a Pluggable Authentication Service.
-    """
+def addEuphorieAccountPlugin(self, id, title="", REQUEST=None):
+    """Add an EuphorieAccountPlugin to a Pluggable Authentication Service."""
     p = EuphorieAccountPlugin(id, title)
     self._setObject(p.getId(), p)
 
     if REQUEST is not None:
-        REQUEST["RESPONSE"].redirect("%s/manage_workspace"
-                "?manage_tabs_message=Euphorie+Account+Manager+plugin+added." %
-                self.absolute_url())
+        REQUEST["RESPONSE"].redirect(
+            "%s/manage_workspace"
+            "?manage_tabs_message=Euphorie+Account+Manager+plugin+added."
+            % self.absolute_url()
+        )
 
 
 class EuphorieAccountPlugin(BasePlugin):
@@ -104,16 +152,16 @@ class EuphorieAccountPlugin(BasePlugin):
 
     def extractCredentials(self, request):
         """IExtractionPlugin implementation"""
-        token = request.getHeader('X-Euphorie-Token')
+        token = request.getHeader("X-Euphorie-Token")
         if token:
-            return {'api-token': token}
+            return {"api-token": token}
         else:
             return {}
 
     @security.private
     def _authenticate_token(self, credentials):
         """IAuthenticationPlugin implementation"""
-        token = credentials.get('api-token')
+        token = credentials.get("api-token")
         if not token:
             return None
         account = authenticate_cms_token(self, token)
@@ -121,8 +169,8 @@ class EuphorieAccountPlugin(BasePlugin):
 
     @security.private
     def _authenticate_login(self, credentials):
-        login = credentials.get('login')
-        password = credentials.get('password')
+        login = credentials.get("login")
+        password = credentials.get("password")
         account = authenticate(login, password)
         if account is not None:
             return (str(account.id), account.loginname)
@@ -131,7 +179,7 @@ class EuphorieAccountPlugin(BasePlugin):
 
     @security.private
     def _get_survey_session(self):
-        for parent in self.REQUEST.other['PARENTS']:
+        for parent in self.REQUEST.other["PARENTS"]:
             if isinstance(parent, model.SurveySession):
                 return parent
         else:
@@ -140,10 +188,7 @@ class EuphorieAccountPlugin(BasePlugin):
     @security.private
     @graceful_recovery(log_args=False)
     def authenticateCredentials(self, credentials):
-        if not (
-            IClientSkinLayer.providedBy(self.REQUEST) or
-            ICMSAPISkinLayer.providedBy(self.REQUEST)
-        ):
+        if not IClientSkinLayer.providedBy(self.REQUEST):
             return None
         uid_and_login = self._authenticate_login(credentials)
         if uid_and_login is None:
@@ -169,8 +214,15 @@ class EuphorieAccountPlugin(BasePlugin):
         return Session().query(model.Account).get(user_id)
 
     @graceful_recovery()
-    def enumerateUsers(self, id=None, login=None, exact_match=False,
-                       sort_by=None, max_results=None, **kw):
+    def enumerateUsers(
+        self,
+        id=None,
+        login=None,
+        exact_match=False,
+        sort_by=None,
+        max_results=None,
+        **kw
+    ):
         """IUserEnumerationPlugin implementation"""
         if not exact_match:
             return []
@@ -187,11 +239,11 @@ class EuphorieAccountPlugin(BasePlugin):
             query = query.filter(model.Account.loginname == login)
         account = query.first()
         if account is not None:
-            return [{'id': str(account.id), 'login': account.loginname}]
+            return [{"id": str(account.id), "login": account.loginname}]
         return []
 
-    def updateUser(self, user_id, login_name ):
-        """ Changes the user's username. New method available since Plone 4.3.
+    def updateUser(self, user_id, login_name):
+        """Changes the user's username. New method available since Plone 4.3.
             Euphorie doesn't support this.
 
         :returns: False
@@ -211,7 +263,8 @@ class EuphorieAccountPlugin(BasePlugin):
         :raises: NotImplementedError
         """
         raise NotImplementedError(
-                "updateEveryLoginName method is not implemented by Euphorie")
+            "updateEveryLoginName method is not implemented by Euphorie"
+        )
 
     def challenge(self, request, response):
         """IChallengePlugin implementation"""
@@ -225,18 +278,20 @@ class EuphorieAccountPlugin(BasePlugin):
                 query = "?" + query
             current_url += query
 
-        context = request.get('PUBLISHED')
+        context = request.get("PUBLISHED")
         if not context:
             log.error(
-                'Refusing to authenticate because no context has been found in %r',  # noqa: E501
+                "Refusing to authenticate because no context has been found in %r",  # noqa: E501
                 request,
             )
             return False
         if IBrowserView.providedBy(context):
             context = aq_parent(context)
 
-        login_url = "%s/@@login?%s" % (context.absolute_url(),
-                urllib.urlencode(dict(came_from=current_url)))
+        login_url = "%s/@@login?%s" % (
+            context.absolute_url(),
+            urllib.urlencode(dict(came_from=current_url)),
+        )
         response.redirect(login_url, lock=True)
         return True
 
@@ -254,14 +309,10 @@ def authenticate(login, password):
     if not login or not password:
         return None
     if isinstance(password, six.text_type):
-        password = password.encode('utf8')
+        password = password.encode("utf8")
 
     login = login.lower()
-    accounts = (
-        Session()
-        .query(model.Account)
-        .filter(model.Account.loginname == login)
-    )
+    accounts = Session().query(model.Account).filter(model.Account.loginname == login)
     for account in accounts:
         if account.verify_password(password):
             return account
@@ -273,6 +324,7 @@ classImplements(
     IChallengePlugin,
     IExtractionPlugin,
     IUserEnumerationPlugin,
-    IUserFactoryPlugin)
+    IUserFactoryPlugin,
+)
 
 InitializeClass(EuphorieAccountPlugin)

@@ -1,5 +1,5 @@
 # coding=utf-8
-from euphorie.client.unpublish import handleSurveyUnpublish
+from euphorie.client.browser.publish import handleSurveyUnpublish
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.content.tests.utils import createSector
 from euphorie.content.tests.utils import EMPTY_SURVEY
@@ -8,7 +8,6 @@ from OFS.SimpleItem import SimpleItem
 
 
 class handleSurveyUnpublishTests(EuphorieIntegrationTestCase):
-
     def afterSetUp(self):
         super(handleSurveyUnpublishTests, self).afterSetUp()
         self.loginAsPortalOwner()
@@ -16,14 +15,13 @@ class handleSurveyUnpublishTests(EuphorieIntegrationTestCase):
 
     def createSurvey(self):
         from euphorie.client.tests.utils import addSurvey
+
         addSurvey(self.portal, BASIC_SURVEY)
-        return (
-            self.portal.sectors["nl"]["ict"]["software-development"]
-            ["test-import"]
-        )
+        return self.portal.sectors["nl"]["ict"]["software-development"]["test-import"]
 
     def testUnpublishedSurvey(self):
         from euphorie.content.tests.utils import addSurvey
+
         sector = createSector(self.portal)
         survey = addSurvey(sector, EMPTY_SURVEY)
         handleSurveyUnpublish(survey, None)

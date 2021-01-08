@@ -1,19 +1,18 @@
 # coding: utf-8
-from euphorie.content.export import ExportSurvey
+from euphorie.content.browser.export import ExportSurvey
+from euphorie.content.browser.upload import NSMAP
 from euphorie.content.module import Module
 from euphorie.content.profilequestion import ProfileQuestion
 from euphorie.content.risk import Risk
 from euphorie.content.solution import Solution
 from euphorie.content.survey import Survey
 from euphorie.content.surveygroup import SurveyGroup
-from euphorie.content.upload import NSMAP
 from euphorie.testing import EuphorieIntegrationTestCase
 from lxml import etree
 from zope.publisher.browser import TestRequest
 
 
 class MockImage(object):
-
     def __init__(self, data, filename=None, contentType=None):
         self.data = data
         self.filename = filename
@@ -21,7 +20,6 @@ class MockImage(object):
 
 
 class ExportSurveyTests(EuphorieIntegrationTestCase):
-
     def root(self):
         return etree.Element("root", nsmap=NSMAP)
 
@@ -34,7 +32,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         self.assertEqual(
             etree.tostring(node, pretty_print=True),
             '<image xmlns="http://xml.simplon.biz/euphorie/survey/1.0">'
-            'aG90IHN0dWZmIGhlcmU=\n</image>\n'
+            "aG90IHN0dWZmIGhlcmU=\n</image>\n",
         )
 
     def testImage_Full(self):
@@ -47,7 +45,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             '<image xmlns="http://xml.simplon.biz/euphorie/survey/1.0" '
             'content-type="image/gif" filename="test.gif" '
             'caption="Capti&#xF8;n">aG90IHN0dWZmIGhlcmU=\n'
-            '</image>\n'
+            "</image>\n",
         )
 
     def testSolution_Minimal(self):
@@ -62,10 +60,10 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         self.assertEqual(
             etree.tostring(node, pretty_print=True),
             '<solution xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-            '  <description>&lt;p&gt;Test description&lt;/p&gt;'
-            '</description>\n'
-            '  <action>Sample action plan</action>\n'
-            '</solution>\n'
+            "  <description>&lt;p&gt;Test description&lt;/p&gt;"
+            "</description>\n"
+            "  <action>Sample action plan</action>\n"
+            "</solution>\n",
         )
 
     def testSolution_Complete(self):
@@ -79,11 +77,11 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         self.assertEqual(
             etree.tostring(node, pretty_print=True),
             '<solution xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-            '  <description>&lt;p&gt;T&#233;st description&lt;/p&gt;'
-            '</description>\n'
-            '  <action>Sample acti&#248;n plan</action>\n'
-            '  <requirements>Requ&#238;rements</requirements>\n'
-            '</solution>\n'
+            "  <description>&lt;p&gt;T&#233;st description&lt;/p&gt;"
+            "</description>\n"
+            "  <action>Sample acti&#248;n plan</action>\n"
+            "  <requirements>Requ&#238;rements</requirements>\n"
+            "</solution>\n",
         )
 
     def testRisk_Minimal(self):
@@ -102,14 +100,14 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <risk type="top5">\n'
-            '    <title>Can your windows be locked?</title>\n'
-            '    <problem-description>Not all your windows can be locked'
-            '</problem-description>\n'
-            '    <description>&lt;p&gt;Locking windows is '
-            'critical.&lt;/p&gt;</description>\n'
-            '    <show-not-applicable>false</show-not-applicable>\n'
-            '  </risk>\n'
-            '</root>\n'
+            "    <title>Can your windows be locked?</title>\n"
+            "    <problem-description>Not all your windows can be locked"
+            "</problem-description>\n"
+            "    <description>&lt;p&gt;Locking windows is "
+            "critical.&lt;/p&gt;</description>\n"
+            "    <show-not-applicable>false</show-not-applicable>\n"
+            "  </risk>\n"
+            "</root>\n",
         )
 
     def testRisk_DirectEvaluation(self):
@@ -129,16 +127,16 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <risk type="risk">\n'
-            '    <title>Can your windows be locked?</title>\n'
-            '    <problem-description>Not all your windows can be '
-            'locked</problem-description>\n'
-            '    <description>&lt;p&gt;Locking windows is '
-            'critical.&lt;/p&gt;</description>\n'
-            '    <show-not-applicable>true</show-not-applicable>\n'
+            "    <title>Can your windows be locked?</title>\n"
+            "    <problem-description>Not all your windows can be "
+            "locked</problem-description>\n"
+            "    <description>&lt;p&gt;Locking windows is "
+            "critical.&lt;/p&gt;</description>\n"
+            "    <show-not-applicable>true</show-not-applicable>\n"
             '    <evaluation-method default-priority="low">direct'
-            '</evaluation-method>\n'
-            '  </risk>\n'
-            '</root>\n'
+            "</evaluation-method>\n"
+            "  </risk>\n"
+            "</root>\n",
         )
 
     def testRisk_CalculatedEvaluation(self):
@@ -160,16 +158,16 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <risk type="risk">\n'
-            '    <title>Can your windows be locked?</title>\n'
-            '    <problem-description>Not all your windows can be '
-            'locked</problem-description>\n'
-            '    <description>&lt;p&gt;Locking windows is critical.'
-            '&lt;/p&gt;</description>\n'
-            '    <show-not-applicable>true</show-not-applicable>\n'
+            "    <title>Can your windows be locked?</title>\n"
+            "    <problem-description>Not all your windows can be "
+            "locked</problem-description>\n"
+            "    <description>&lt;p&gt;Locking windows is critical."
+            "&lt;/p&gt;</description>\n"
+            "    <show-not-applicable>true</show-not-applicable>\n"
             '    <evaluation-method default-probability="small" '
             'default-frequency="regular">calculated</evaluation-method>\n'
-            '  </risk>\n'
-            '</root>\n'
+            "  </risk>\n"
+            "</root>\n",
         )
 
     def testRisk_LegalReferenceNoText(self):
@@ -187,14 +185,14 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <risk type="top5">\n'
-            '    <title>Can your windows be locked?</title>\n'
-            '    <problem-description>Not all your windows can be locked'
-            '</problem-description>\n'
-            '    <description>&lt;p&gt;Locking windows is critical.'
-            '&lt;/p&gt;</description>\n'
-            '    <show-not-applicable>false</show-not-applicable>\n'
-            '  </risk>\n'
-            '</root>\n'
+            "    <title>Can your windows be locked?</title>\n"
+            "    <problem-description>Not all your windows can be locked"
+            "</problem-description>\n"
+            "    <description>&lt;p&gt;Locking windows is critical."
+            "&lt;/p&gt;</description>\n"
+            "    <show-not-applicable>false</show-not-applicable>\n"
+            "  </risk>\n"
+            "</root>\n",
         )
 
     def testRisk_TwoImages(self):
@@ -216,18 +214,18 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <risk type="top5">\n'
-            '    <title>Can your windows be locked?</title>\n'
-            '    <problem-description>Not all your windows can be locked'
-            '</problem-description>\n'
-            '    <description>&lt;p&gt;Locking windows is critical.'
-            '&lt;/p&gt;</description>\n'
-            '    <show-not-applicable>false</show-not-applicable>\n'
+            "    <title>Can your windows be locked?</title>\n"
+            "    <problem-description>Not all your windows can be locked"
+            "</problem-description>\n"
+            "    <description>&lt;p&gt;Locking windows is critical."
+            "&lt;/p&gt;</description>\n"
+            "    <show-not-applicable>false</show-not-applicable>\n"
             '    <image caption="Image caption 1">aG90IHN0dWZmIGhlcmU=\n'
-            '</image>\n'
+            "</image>\n"
             '    <image caption="Image caption 2">aG90IHN0dWZmIGhlcmU=\n'
-            '</image>\n'
-            '  </risk>\n'
-            '</root>\n'
+            "</image>\n"
+            "  </risk>\n"
+            "</root>\n",
         )
 
     def testRisk_WithSolution(self):
@@ -242,7 +240,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         solution.description = u"<p>Test description</p>"
         solution.action = u"Sample action plan"
         solution.requirements = None
-        risk._setOb('1', solution)
+        risk._setOb("1", solution)
         root = self.root()
         view = ExportSurvey(None, None)
         view.exportRisk(root, risk)
@@ -250,21 +248,21 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <risk type="top5">\n'
-            '    <title>Can your windows be locked?</title>\n'
-            '    <problem-description>Not all your windows can be locked'
-            '</problem-description>\n'
-            '    <description>&lt;p&gt;Locking windows is critical.'
-            '&lt;/p&gt;</description>\n'
-            '    <show-not-applicable>false</show-not-applicable>\n'
-            '    <solutions>\n'
-            '      <solution>\n'
-            '        <description>&lt;p&gt;Test description&lt;/p&gt;'
-            '</description>\n'
-            '        <action>Sample action plan</action>\n'
-            '      </solution>\n'
-            '    </solutions>\n'
-            '  </risk>\n'
-            '</root>\n'
+            "    <title>Can your windows be locked?</title>\n"
+            "    <problem-description>Not all your windows can be locked"
+            "</problem-description>\n"
+            "    <description>&lt;p&gt;Locking windows is critical."
+            "&lt;/p&gt;</description>\n"
+            "    <show-not-applicable>false</show-not-applicable>\n"
+            "    <solutions>\n"
+            "      <solution>\n"
+            "        <description>&lt;p&gt;Test description&lt;/p&gt;"
+            "</description>\n"
+            "        <action>Sample action plan</action>\n"
+            "      </solution>\n"
+            "    </solutions>\n"
+            "  </risk>\n"
+            "</root>\n",
         )
 
     def testModule_Minimal(self):
@@ -280,9 +278,9 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <module optional="false">\n'
-            '    <title>Office buildings</title>\n'
-            '  </module>\n'
-            '</root>\n'
+            "    <title>Office buildings</title>\n"
+            "  </module>\n"
+            "</root>\n",
         )
 
     def testModule_with_description(self):
@@ -296,8 +294,8 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view.exportModule(root, module)
         xml = etree.tostring(root, pretty_print=True)
         self.assertTrue(
-            '<description>&lt;p&gt;Owning property brings risks.'
-            '&lt;/p&gt;</description>\n' in xml
+            "<description>&lt;p&gt;Owning property brings risks."
+            "&lt;/p&gt;</description>\n" in xml
         )
 
     def testModule_Optional(self):
@@ -314,12 +312,12 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <module optional="true">\n'
-            '    <title>Office buildings</title>\n'
-            '    <description>&lt;p&gt;Owning property brings risks.'
-            '&lt;/p&gt;</description>\n'
-            '    <question>Do you have an office building?</question>\n'
-            '  </module>\n'
-            '</root>\n'
+            "    <title>Office buildings</title>\n"
+            "    <description>&lt;p&gt;Owning property brings risks."
+            "&lt;/p&gt;</description>\n"
+            "    <question>Do you have an office building?</question>\n"
+            "  </module>\n"
+            "</root>\n",
         )
 
     def testModule_SolutionDirectionNoText(self):
@@ -335,11 +333,11 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <module optional="false">\n'
-            '    <title>Office buildings</title>\n'
-            '    <description>&lt;p&gt;Owning property brings risks.'
-            '&lt;/p&gt;</description>\n'
-            '  </module>\n'
-            '</root>\n'
+            "    <title>Office buildings</title>\n"
+            "    <description>&lt;p&gt;Owning property brings risks."
+            "&lt;/p&gt;</description>\n"
+            "  </module>\n"
+            "</root>\n",
         )
 
     def testModule_Image(self):
@@ -356,13 +354,13 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <module optional="false">\n'
-            '    <title>Office buildings</title>\n'
-            '    <description>&lt;p&gt;Owning property brings risks.'
-            '&lt;/p&gt;</description>\n'
-            '    <image>aG90IHN0dWZmIGhlcmU=\n'
-            '</image>\n'
-            '  </module>\n'
-            '</root>\n'
+            "    <title>Office buildings</title>\n"
+            "    <description>&lt;p&gt;Owning property brings risks."
+            "&lt;/p&gt;</description>\n"
+            "    <image>aG90IHN0dWZmIGhlcmU=\n"
+            "</image>\n"
+            "  </module>\n"
+            "</root>\n",
         )
 
     def testModule_WithRisk(self):
@@ -378,7 +376,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         risk.description = u"<p>Locking windows is critical.</p>"
         risk.legal_reference = None
         risk.show_notapplicable = False
-        module._setOb('1', risk)
+        module._setOb("1", risk)
         root = self.root()
         view = ExportSurvey(None, None)
         view.exportModule(root, module)
@@ -386,19 +384,19 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <module optional="false">\n'
-            '    <title>Office buildings</title>\n'
-            '    <description>&lt;p&gt;Owning property brings risks.'
-            '&lt;/p&gt;</description>\n'
+            "    <title>Office buildings</title>\n"
+            "    <description>&lt;p&gt;Owning property brings risks."
+            "&lt;/p&gt;</description>\n"
             '    <risk type="top5">\n'
-            '      <title>Can your windows be locked?</title>\n'
-            '      <problem-description>Not all your windows can be '
-            'locked</problem-description>\n'
-            '      <description>&lt;p&gt;Locking windows is critical.'
-            '&lt;/p&gt;</description>\n'
-            '      <show-not-applicable>false</show-not-applicable>\n'
-            '    </risk>\n'
-            '  </module>\n'
-            '</root>\n'
+            "      <title>Can your windows be locked?</title>\n"
+            "      <problem-description>Not all your windows can be "
+            "locked</problem-description>\n"
+            "      <description>&lt;p&gt;Locking windows is critical."
+            "&lt;/p&gt;</description>\n"
+            "      <show-not-applicable>false</show-not-applicable>\n"
+            "    </risk>\n"
+            "  </module>\n"
+            "</root>\n",
         )
 
     def testModule_WithSubModule(self):
@@ -412,7 +410,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         submodule.description = u"<p>All about parking garages.</p>"
         submodule.optional = False
         submodule.solution_direction = None
-        module._setOb('1', submodule)
+        module._setOb("1", submodule)
         root = self.root()
         view = ExportSurvey(None, None)
         view.exportModule(root, module)
@@ -420,16 +418,16 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <module optional="false">\n'
-            '    <title>Office buildings</title>\n'
-            '    <description>&lt;p&gt;Owning property brings risks.'
-            '&lt;/p&gt;</description>\n'
+            "    <title>Office buildings</title>\n"
+            "    <description>&lt;p&gt;Owning property brings risks."
+            "&lt;/p&gt;</description>\n"
             '    <module optional="false">\n'
-            '      <title>Parking</title>\n'
-            '      <description>&lt;p&gt;All about parking garages.'
-            '&lt;/p&gt;</description>\n'
-            '    </module>\n'
-            '  </module>\n'
-            '</root>\n'
+            "      <title>Parking</title>\n"
+            "      <description>&lt;p&gt;All about parking garages."
+            "&lt;/p&gt;</description>\n"
+            "    </module>\n"
+            "  </module>\n"
+            "</root>\n",
         )
 
     def testProfileQuestion_Minimal(self):
@@ -444,12 +442,12 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         self.assertEqual(
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-            '  <profile-question>\n'
-            '    <title>Office buildings</title>\n'
-            '    <question>Do you have an office building?</question>\n'
-            '    <use-location-question>false</use-location-question>\n'
-            '  </profile-question>\n'
-            '</root>\n'
+            "  <profile-question>\n"
+            "    <title>Office buildings</title>\n"
+            "    <question>Do you have an office building?</question>\n"
+            "    <use-location-question>false</use-location-question>\n"
+            "  </profile-question>\n"
+            "</root>\n",
         )
 
     def testProfileQuestion_LocationQuestions(self):
@@ -458,7 +456,9 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         profile.question = u"Do you have an office building?"
         profile.label_multiple_present = u"Do you have more than one building?"
         profile.label_single_occurance = u"Enter the name of your building."
-        profile.label_multiple_occurances = u"Enter the names of each of your buildings."  # noqa
+        profile.label_multiple_occurances = (
+            u"Enter the names of each of your buildings."  # noqa
+        )
         root = self.root()
         view = ExportSurvey(None, None)
         node = view.exportProfileQuestion(root, profile)
@@ -466,18 +466,18 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         self.assertEqual(
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-            '  <profile-question>\n'
-            '    <title>Office buildings</title>\n'
-            '    <question>Do you have an office building?</question>\n'
-            '    <label-multiple-present>Do you have more than one building'
-            '?</label-multiple-present>\n'
-            '    <label-single-occurance>Enter the name of your building.'
-            '</label-single-occurance>\n'
-            '    <label-multiple-occurances>Enter the names of each of your'
-            ' buildings.</label-multiple-occurances>\n'
-            '    <use-location-question>true</use-location-question>\n'
-            '  </profile-question>\n'
-            '</root>\n'
+            "  <profile-question>\n"
+            "    <title>Office buildings</title>\n"
+            "    <question>Do you have an office building?</question>\n"
+            "    <label-multiple-present>Do you have more than one building"
+            "?</label-multiple-present>\n"
+            "    <label-single-occurance>Enter the name of your building."
+            "</label-single-occurance>\n"
+            "    <label-multiple-occurances>Enter the names of each of your"
+            " buildings.</label-multiple-occurances>\n"
+            "    <use-location-question>true</use-location-question>\n"
+            "  </profile-question>\n"
+            "</root>\n",
         )
 
     def testProfileQuestion_with_description(self):
@@ -489,8 +489,8 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view.exportProfileQuestion(root, profile)
         xml = etree.tostring(root, pretty_print=True)
         self.assertTrue(
-            '<description>&lt;p&gt;Owning property brings risks.'
-            '&lt;/p&gt;</description>' in xml
+            "<description>&lt;p&gt;Owning property brings risks."
+            "&lt;/p&gt;</description>" in xml
         )
 
     def testProfileQuestion_WithoutQuestion(self):
@@ -504,14 +504,14 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         self.assertEqual(
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-            '  <profile-question>\n'
-            '    <title>Office buildings</title>\n'
-            '    <question>Office buildings</question>\n'
-            '    <description>&lt;p&gt;Owning property brings risks.'
-            '&lt;/p&gt;</description>\n'
-            '    <use-location-question>false</use-location-question>\n'
-            '  </profile-question>\n'
-            '</root>\n'
+            "  <profile-question>\n"
+            "    <title>Office buildings</title>\n"
+            "    <question>Office buildings</question>\n"
+            "    <description>&lt;p&gt;Owning property brings risks."
+            "&lt;/p&gt;</description>\n"
+            "    <use-location-question>false</use-location-question>\n"
+            "  </profile-question>\n"
+            "</root>\n",
         )
 
     def testProfileQuestion_WithRisk(self):
@@ -526,29 +526,29 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         risk.description = u"<p>Locking windows is critical.</p>"
         risk.legal_reference = None
         risk.show_notapplicable = False
-        profile._setOb('1', risk)
+        profile._setOb("1", risk)
         root = self.root()
         view = ExportSurvey(None, None)
         view.exportProfileQuestion(root, profile)
         self.assertEqual(
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-            '  <profile-question>\n'
-            '    <title>Office buildings</title>\n'
-            '    <question>Do you have an office buildings?</question>\n'
-            '    <description>&lt;p&gt;Owning property brings risks.'
-            '&lt;/p&gt;</description>\n'
-            '    <use-location-question>true</use-location-question>\n'
+            "  <profile-question>\n"
+            "    <title>Office buildings</title>\n"
+            "    <question>Do you have an office buildings?</question>\n"
+            "    <description>&lt;p&gt;Owning property brings risks."
+            "&lt;/p&gt;</description>\n"
+            "    <use-location-question>true</use-location-question>\n"
             '    <risk type="top5">\n'
-            '      <title>Can your windows be locked?</title>\n'
-            '      <problem-description>Not all your windows can be '
-            'locked</problem-description>\n'
-            '      <description>&lt;p&gt;Locking windows is critical.'
-            '&lt;/p&gt;</description>\n'
-            '      <show-not-applicable>false</show-not-applicable>\n'
-            '    </risk>\n'
-            '  </profile-question>\n'
-            '</root>\n'
+            "      <title>Can your windows be locked?</title>\n"
+            "      <problem-description>Not all your windows can be "
+            "locked</problem-description>\n"
+            "      <description>&lt;p&gt;Locking windows is critical."
+            "&lt;/p&gt;</description>\n"
+            "      <show-not-applicable>false</show-not-applicable>\n"
+            "    </risk>\n"
+            "  </profile-question>\n"
+            "</root>\n",
         )
 
     def testProfileQuestion_WithModule(self):
@@ -561,33 +561,33 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         module.description = u"<p>Owning property brings risks.</p>"
         module.optional = False
         module.solution_direction = None
-        profile._setOb('1', module)
+        profile._setOb("1", module)
         root = self.root()
         view = ExportSurvey(None, None)
         view.exportProfileQuestion(root, profile)
         self.assertEqual(
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-            '  <profile-question>\n'
-            '    <title>Office buildings</title>\n'
-            '    <question>Do you have an office buildings?</question>\n'
-            '    <description>&lt;p&gt;Owning property brings '
-            'risks.&lt;/p&gt;</description>\n'
-            '    <use-location-question>true</use-location-question>\n'
+            "  <profile-question>\n"
+            "    <title>Office buildings</title>\n"
+            "    <question>Do you have an office buildings?</question>\n"
+            "    <description>&lt;p&gt;Owning property brings "
+            "risks.&lt;/p&gt;</description>\n"
+            "    <use-location-question>true</use-location-question>\n"
             '    <module optional="false">\n'
-            '      <title>Office buildings</title>\n'
-            '      <description>&lt;p&gt;Owning property brings '
-            'risks.&lt;/p&gt;</description>\n'
-            '    </module>\n'
-            '  </profile-question>\n'
-            '</root>\n'
+            "      <title>Office buildings</title>\n"
+            "      <description>&lt;p&gt;Owning property brings "
+            "risks.&lt;/p&gt;</description>\n"
+            "    </module>\n"
+            "  </profile-question>\n"
+            "</root>\n",
         )
 
     def testSurvey_Minimal(self):
         surveygroup = SurveyGroup()
         surveygroup.title = u"Generic sector"
         surveygroup.evaluation_algorithm = u"french"
-        surveygroup._setOb('standard', Survey())
+        surveygroup._setOb("standard", Survey())
         survey = surveygroup["standard"]  # Acquisition wrap
         survey.title = u"Standard"
         survey.introduction = None
@@ -601,22 +601,22 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         self.assertEqual(
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-            '  <survey>\n'
-            '    <title>Generic sector</title>\n'
-            '    <language>en-GB</language>\n'
-            '    <tool_type>classic</tool_type>\n'
-            '    <measures_text_handling>full</measures_text_handling>\n'
-            '    <integrated_action_plan>false</integrated_action_plan>\n'
-            '    <evaluation-algorithm>french</evaluation-algorithm>\n'
-            '    <evaluation-optional>false</evaluation-optional>\n'
-            '  </survey>\n'
-            '</root>\n'
+            "  <survey>\n"
+            "    <title>Generic sector</title>\n"
+            "    <language>en-GB</language>\n"
+            "    <tool_type>classic</tool_type>\n"
+            "    <measures_text_handling>full</measures_text_handling>\n"
+            "    <integrated_action_plan>false</integrated_action_plan>\n"
+            "    <evaluation-algorithm>french</evaluation-algorithm>\n"
+            "    <evaluation-optional>false</evaluation-optional>\n"
+            "  </survey>\n"
+            "</root>\n",
         )
 
     def testSurvey_IntroductionNoText(self):
         surveygroup = SurveyGroup()
         surveygroup.title = u"Generic sector"
-        surveygroup._setOb('standard', Survey())
+        surveygroup._setOb("standard", Survey())
         survey = surveygroup["standard"]  # Acquisition wrap
         survey.title = u"Standard"
         survey.introduction = u"<p><br/></p>"
@@ -629,22 +629,22 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         self.assertEqual(
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-            '  <survey>\n'
-            '    <title>Generic sector</title>\n'
-            '    <language>en-GB</language>\n'
-            '    <tool_type>classic</tool_type>\n'
-            '    <measures_text_handling>full</measures_text_handling>\n'
-            '    <integrated_action_plan>false</integrated_action_plan>\n'
-            '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
-            '    <evaluation-optional>false</evaluation-optional>\n'
-            '  </survey>\n'
-            '</root>\n'
+            "  <survey>\n"
+            "    <title>Generic sector</title>\n"
+            "    <language>en-GB</language>\n"
+            "    <tool_type>classic</tool_type>\n"
+            "    <measures_text_handling>full</measures_text_handling>\n"
+            "    <integrated_action_plan>false</integrated_action_plan>\n"
+            "    <evaluation-algorithm>kinney</evaluation-algorithm>\n"
+            "    <evaluation-optional>false</evaluation-optional>\n"
+            "  </survey>\n"
+            "</root>\n",
         )
 
     def testSurvey_WithProfileQuestion(self):
         surveygroup = SurveyGroup()
         surveygroup.title = u"Generic sector"
-        surveygroup._setOb('standard', Survey())
+        surveygroup._setOb("standard", Survey())
         survey = surveygroup["standard"]  # Acquisition wrap
         survey.title = u"Generic sector"
         survey.introduction = None
@@ -656,36 +656,36 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         profile.question = u"Do you have an office buildings?"
         profile.description = u"<p>Owning property brings risks.</p>"
         profile.type = "optional"
-        survey._setOb('1', profile)
+        survey._setOb("1", profile)
         root = self.root()
         view = ExportSurvey(None, None)
         view.exportSurvey(root, survey)
         self.assertEqual(
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-            '  <survey>\n'
-            '    <title>Generic sector</title>\n'
-            '    <language>en-GB</language>\n'
-            '    <tool_type>classic</tool_type>\n'
-            '    <measures_text_handling>full</measures_text_handling>\n'
-            '    <integrated_action_plan>false</integrated_action_plan>\n'
-            '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
-            '    <evaluation-optional>false</evaluation-optional>\n'
-            '    <profile-question>\n'
-            '      <title>Office buildings</title>\n'
-            '      <question>Do you have an office buildings?</question>\n'
-            '      <description>&lt;p&gt;Owning property brings '
-            'risks.&lt;/p&gt;</description>\n'
-            '      <use-location-question>true</use-location-question>\n'
-            '    </profile-question>\n'
-            '  </survey>\n'
-            '</root>\n'
+            "  <survey>\n"
+            "    <title>Generic sector</title>\n"
+            "    <language>en-GB</language>\n"
+            "    <tool_type>classic</tool_type>\n"
+            "    <measures_text_handling>full</measures_text_handling>\n"
+            "    <integrated_action_plan>false</integrated_action_plan>\n"
+            "    <evaluation-algorithm>kinney</evaluation-algorithm>\n"
+            "    <evaluation-optional>false</evaluation-optional>\n"
+            "    <profile-question>\n"
+            "      <title>Office buildings</title>\n"
+            "      <question>Do you have an office buildings?</question>\n"
+            "      <description>&lt;p&gt;Owning property brings "
+            "risks.&lt;/p&gt;</description>\n"
+            "      <use-location-question>true</use-location-question>\n"
+            "    </profile-question>\n"
+            "  </survey>\n"
+            "</root>\n",
         )
 
     def testSurvey_WithModule(self):
         surveygroup = SurveyGroup()
         surveygroup.title = u"Generic sector"
-        surveygroup._setOb('standard', Survey())
+        surveygroup._setOb("standard", Survey())
         survey = surveygroup["standard"]  # Acquisition wrap
         survey.title = u"Generic sector"
         survey.introduction = None
@@ -697,35 +697,35 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         module.description = u"<p>Owning property brings risks.</p>"
         module.optional = False
         module.solution_direction = None
-        survey._setOb('1', module)
+        survey._setOb("1", module)
         root = self.root()
         view = ExportSurvey(None, None)
         view.exportSurvey(root, survey)
         self.assertEqual(
             etree.tostring(root, pretty_print=True),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-            '  <survey>\n'
-            '    <title>Generic sector</title>\n'
-            '    <language>en-GB</language>\n'
-            '    <tool_type>classic</tool_type>\n'
-            '    <measures_text_handling>full</measures_text_handling>\n'
-            '    <integrated_action_plan>false</integrated_action_plan>\n'
-            '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
-            '    <evaluation-optional>false</evaluation-optional>\n'
+            "  <survey>\n"
+            "    <title>Generic sector</title>\n"
+            "    <language>en-GB</language>\n"
+            "    <tool_type>classic</tool_type>\n"
+            "    <measures_text_handling>full</measures_text_handling>\n"
+            "    <integrated_action_plan>false</integrated_action_plan>\n"
+            "    <evaluation-algorithm>kinney</evaluation-algorithm>\n"
+            "    <evaluation-optional>false</evaluation-optional>\n"
             '    <module optional="false">\n'
-            '      <title>Office buildings</title>\n'
-            '      <description>&lt;p&gt;Owning property brings '
-            'risks.&lt;/p&gt;</description>\n'
-            '    </module>\n'
-            '  </survey>\n'
-            '</root>\n'
+            "      <title>Office buildings</title>\n"
+            "      <description>&lt;p&gt;Owning property brings "
+            "risks.&lt;/p&gt;</description>\n"
+            "    </module>\n"
+            "  </survey>\n"
+            "</root>\n",
         )
 
     def testRender(self):
         surveygroup = SurveyGroup()
         surveygroup.id = "mysector"
         surveygroup.title = u"Generic sector"
-        surveygroup._setOb('standard', Survey())
+        surveygroup._setOb("standard", Survey())
         survey = surveygroup["standard"]  # Acquisition wrap
         survey.id = "dummy"
         survey.title = u"Standard"
@@ -741,19 +741,20 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         self.assertEqual(response.getHeader("Content-Type"), "text/xml")
         self.assertEqual(
             response.getHeader("Content-Disposition"),
-            'attachment; filename="mysector.xml"'
+            'attachment; filename="mysector.xml"',
         )
         self.assertEqual(
-            output, '<?xml version=\'1.0\' encoding=\'utf-8\'?>\n'
+            output,
+            "<?xml version='1.0' encoding='utf-8'?>\n"
             '<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
-            '  <survey>\n'
-            '    <title>Generic sector</title>\n'
-            '    <language>en-GB</language>\n'
-            '    <tool_type>existing_measures</tool_type>\n'
-            '    <measures_text_handling>full</measures_text_handling>\n'
-            '    <integrated_action_plan>true</integrated_action_plan>\n'
-            '    <evaluation-algorithm>kinney</evaluation-algorithm>\n'
-            '    <evaluation-optional>false</evaluation-optional>\n'
-            '  </survey>\n'
-            '</sector>\n'
+            "  <survey>\n"
+            "    <title>Generic sector</title>\n"
+            "    <language>en-GB</language>\n"
+            "    <tool_type>existing_measures</tool_type>\n"
+            "    <measures_text_handling>full</measures_text_handling>\n"
+            "    <integrated_action_plan>true</integrated_action_plan>\n"
+            "    <evaluation-algorithm>kinney</evaluation-algorithm>\n"
+            "    <evaluation-optional>false</evaluation-optional>\n"
+            "  </survey>\n"
+            "</sector>\n",
         )

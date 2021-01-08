@@ -1,5 +1,5 @@
-import z3c.saconfig.tests
 import unittest
+import z3c.saconfig.tests
 
 
 z3c.saconfig.tests  # Keep PyFlakes happy
@@ -11,9 +11,10 @@ class DatabaseTests(unittest.TestCase):
     def setUp(self):
         super(DatabaseTests, self).setUp()
         from euphorie.client import model
-        from z3c.saconfig import Session
-        from Products.Five import zcml
         from Products.Five import fiveconfigure
+        from Products.Five import zcml
+        from z3c.saconfig import Session
+
         import euphorie.client.tests
 
         fiveconfigure.debug_mode = True
@@ -26,5 +27,6 @@ class DatabaseTests(unittest.TestCase):
         super(DatabaseTests, self).tearDown()
         from euphorie.client import model
         from z3c.saconfig import Session
+
         Session.remove()
         model.metadata.drop_all(Session.bind)

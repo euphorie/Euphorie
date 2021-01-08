@@ -13,12 +13,9 @@ from euphorie.content.module import IModule
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.risk import IFrenchRisk
 from euphorie.content.risk import IRisk
-from five import grok
 from sqlalchemy import sql
 from z3c.saconfig import Session
 
-
-grok.templatedir("templates")
 
 always_present_default = "no"
 
@@ -76,7 +73,7 @@ def AddToTree(
             title=title,
             risk_id=node.id,
             risk_type=node.type,
-            skip_evaluation=(node.evaluation_method == 'fixed'),
+            skip_evaluation=(node.evaluation_method == "fixed"),
             probability=node.default_probability,
             frequency=node.default_frequency,
             effect=effect,
@@ -85,8 +82,8 @@ def AddToTree(
         child.skip_children = False
         child.postponed = False
         child.has_description = HasText(node.description)
-        if node.type in ['top5', 'policy']:
-            child.priority = 'high'
+        if node.type in ["top5", "policy"]:
+            child.priority = "high"
         if node.risk_always_present and always_present_default:
             child.identification = always_present_default
     else:
@@ -106,13 +103,17 @@ def AddToTree(
 def get_custom_risks(session):
     if session is None:
         return []
-    query = Session.query(model.Risk).filter(
-        sql.and_(
-            model.Risk.is_custom_risk == True,  # noqa: E712
-            model.Risk.path.startswith(model.Module.path),
-            model.Risk.session_id == session.id
+    query = (
+        Session.query(model.Risk)
+        .filter(
+            sql.and_(
+                model.Risk.is_custom_risk == True,  # noqa: E712
+                model.Risk.path.startswith(model.Module.path),
+                model.Risk.session_id == session.id,
+            )
         )
-    ).order_by(model.Risk.id)
+        .order_by(model.Risk.id)
+    )
     return query.all()
 
 
@@ -137,21 +138,23 @@ def BuildSurveyTree(survey, profile, dbsession, old_session=None):
             risks = get_custom_risks(old_session)
             if risks:
                 # find the module that holds the custom risks
-                modules = Session.query(model.Module).filter(
-                    sql.and_(
-                        model.Module.session_id == dbsession.id,
-                        model.Module.module_id == child.id
+                modules = (
+                    Session.query(model.Module)
+                    .filter(
+                        sql.and_(
+                            model.Module.session_id == dbsession.id,
+                            model.Module.module_id == child.id,
+                        )
                     )
-                ).all()
+                    .all()
+                )
                 # there should only ever be 1 result
                 if modules:
                     for risk in risks:
                         modules[0].addChild(risk)
         elif IProfileQuestion.providedBy(child):
             # Safeguard against double adding of profile questions
-            existing = [
-                getattr(item, 'module_id') for item in dbsession.children()
-            ]
+            existing = [getattr(item, "module_id") for item in dbsession.children()]
             if child.id in existing:
                 continue
             p = profile.get(child.id)
@@ -164,15 +167,10 @@ def BuildSurveyTree(survey, profile, dbsession, old_session=None):
                     child,
                     title=child.title,
                     profile_index=-1,
-                    skip_children=True
+                    skip_children=True,
                 )
                 for (index, title) in enumerate(p):
-                    AddToTree(
-                        profile_question,
-                        child,
-                        title=title,
-                        profile_index=index
-                    )
+                    AddToTree(profile_question, child, title=title, profile_index=index)
             # If we get a bool, it will be True, because of `if not p` above
             # Simply add the profile to the tree, don't care about locations
             elif isinstance(p, bool):
@@ -197,20 +195,18 @@ def extractProfile(survey, survey_session):
     :py:meth:`Profile.getDesiredProfile`.
 
     """
-    questions = [{
-        'id': child.id,
-        'use_location_question': child.use_location_question
-    } for child in survey.ProfileQuestions()]
+    questions = [
+        {"id": child.id, "use_location_question": child.use_location_question}
+        for child in survey.ProfileQuestions()
+    ]
     if not questions:
         return {}
 
-    q_ids = [q['id'] for q in questions]
+    q_ids = [q["id"] for q in questions]
     session_modules = {}
     query = (
-        Session.query(
-            model.SurveyTreeItem.zodb_path,
-            model.SurveyTreeItem.title
-        ).filter(model.SurveyTreeItem.type == 'module')
+        Session.query(model.SurveyTreeItem.zodb_path, model.SurveyTreeItem.title)
+        .filter(model.SurveyTreeItem.type == "module")
         .filter(model.SurveyTreeItem.session == survey_session)
         .filter(model.SurveyTreeItem.profile_index >= 0)
         .filter(model.SurveyTreeItem.zodb_path.in_(q_ids))
@@ -221,10 +217,10 @@ def extractProfile(survey, survey_session):
 
     profile = {}
     for question in questions:
-        nodes = session_modules.get(question['id'], [])
-        if not question['use_location_question']:
-            profile[question['id']] = bool(nodes)
+        nodes = session_modules.get(question["id"], [])
+        if not question["use_location_question"]:
+            profile[question["id"]] = bool(nodes)
         else:
-            profile[question['id']] = [node.title for node in nodes]
+            profile[question["id"]] = [node.title for node in nodes]
 
     return profile

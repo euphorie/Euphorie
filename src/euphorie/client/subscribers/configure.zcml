@@ -6,9 +6,22 @@
       handler=".surveysession.modified"
       />
 
-	<subscriber
-		for="plone.app.imagecropping.dx.IImageCroppingDX
-		     zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-		handler=".imagecropping.crop_on_image_edit" />
+  <subscriber
+      for="plone.app.imagecropping.dx.IImageCroppingDX
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+      handler=".imagecropping.crop_on_image_edit"
+      />
+
+  <subscriber
+      for="euphorie.content.survey.ISurvey
+           Products.CMFCore.interfaces.IActionSucceededEvent"
+      handler="euphorie.client.browser.publish.handleSurveyPublish"
+      />
+
+  <subscriber
+      for="euphorie.content.survey.ISurvey
+           euphorie.content.interfaces.ISurveyUnpublishEvent"
+      handler="euphorie.client.browser.publish.handleSurveyUnpublish"
+      />
 
 </configure>

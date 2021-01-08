@@ -9,8 +9,8 @@ class convert_to_module_tests(EuphorieFunctionalTestCase):
         return _convert_to_module(*a, **kw)
 
     def create_survey(self):
-        from euphorie.content.tests.utils import createSector
         from euphorie.content.tests.utils import addSurvey
+        from euphorie.content.tests.utils import createSector
         from euphorie.content.tests.utils import EMPTY_SURVEY
 
         sector = createSector(self.portal)
@@ -66,8 +66,8 @@ class convert_optional_profiles_tests(EuphorieFunctionalTestCase):
         return _convert_optional_profiles(*a, **kw)
 
     def create_survey(self):
-        from euphorie.content.tests.utils import createSector
         from euphorie.content.tests.utils import addSurvey
+        from euphorie.content.tests.utils import createSector
         from euphorie.content.tests.utils import EMPTY_SURVEY
 
         sector = createSector(self.portal)
@@ -85,8 +85,9 @@ class convert_optional_profiles_tests(EuphorieFunctionalTestCase):
             self.assertTrue(not mock_convert.called)
 
     def test_keep_new_profile_question(self):
-        import mock
         from plone.dexterity.utils import createContentInContainer
+
+        import mock
 
         self.loginAsPortalOwner()
         survey = self.create_survey()
@@ -98,8 +99,9 @@ class convert_optional_profiles_tests(EuphorieFunctionalTestCase):
             self.assertTrue(not mock_convert.called)
 
     def test_keep_repetable_but_remove_type_flag(self):
-        import mock
         from plone.dexterity.utils import createContentInContainer
+
+        import mock
 
         self.loginAsPortalOwner()
         survey = self.create_survey()
@@ -113,8 +115,9 @@ class convert_optional_profiles_tests(EuphorieFunctionalTestCase):
             self.assertTrue(not hasattr(question, "type"))
 
     def test_convert_optional_question(self):
-        import mock
         from plone.dexterity.utils import createContentInContainer
+
+        import mock
 
         self.loginAsPortalOwner()
         survey = self.create_survey()
@@ -127,8 +130,9 @@ class convert_optional_profiles_tests(EuphorieFunctionalTestCase):
             mock_convert.assert_called_once_with(question)
 
     def test_update_client_publication_date(self):
-        import datetime
         from plone.dexterity.utils import createContentInContainer
+
+        import datetime
 
         self.loginAsPortalOwner()
         survey = self.create_survey()
@@ -150,8 +154,9 @@ class add_skip_evaluation_to_model_tests(DatabaseTests):
         add_skip_evaluation_to_model(None)
 
     def test_column_present(self):
-        import mock
         from z3c.saconfig import Session
+
+        import mock
 
         session = Session()
         session.execute("CREATE TABLE risk (skip_evaluation TEXT)")
@@ -160,8 +165,9 @@ class add_skip_evaluation_to_model_tests(DatabaseTests):
         self.assertTrue(not session.execute.called)
 
     def test_column_not_present(self):
-        import mock
         from z3c.saconfig import Session
+
+        import mock
 
         session = Session()
         session.execute("CREATE TABLE risk (foo INT)")

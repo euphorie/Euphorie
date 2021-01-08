@@ -5,7 +5,6 @@ from transaction import commit
 
 
 class ModuleTests(EuphorieIntegrationTestCase):
-
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -31,6 +30,7 @@ class ModuleTests(EuphorieIntegrationTestCase):
 
     def testConditionalFtiUsed(self):
         from euphorie.content.fti import ConditionalDexterityFTI
+
         fti = getattr(self.portal.portal_types, "euphorie.module")
         self.failUnless(isinstance(fti, ConditionalDexterityFTI))
 
@@ -41,25 +41,26 @@ class ModuleTests(EuphorieIntegrationTestCase):
 
     def test_verifyObjectPaste_acceptablePaste(self):
         from Acquisition import aq_parent
+
         self.loginAsPortalOwner()
         target = self.createModule()
         survey = aq_parent(target)
-        source = self._create(survey, 'euphorie.module', 'other')
+        source = self._create(survey, "euphorie.module", "other")
         target._verifyObjectPaste(source)
 
     def test_verifyObjectPaste_block_if_result_too_deep(self):
         from Acquisition import aq_parent
+
         self.loginAsPortalOwner()
         target = self.createModule()
         survey = aq_parent(target)
-        source = self._create(survey, 'euphorie.module', 'other')
-        other = self._create(source, 'euphorie.module', 'other')
-        self._create(other, 'euphorie.module', 'other')
+        source = self._create(survey, "euphorie.module", "other")
+        other = self._create(source, "euphorie.module", "other")
+        self._create(other, "euphorie.module", "other")
         self.assertRaises(ValueError, target._verifyObjectPaste, source)
 
 
 class ConstructionFilterTests(EuphorieIntegrationTestCase):
-
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -67,12 +68,8 @@ class ConstructionFilterTests(EuphorieIntegrationTestCase):
     def createStructure(self):
         self.country = self.portal.sectors.nl
         self.sector = self._create(self.country, "euphorie.sector", "sector")
-        self.surveygroup = self._create(
-            self.sector, "euphorie.surveygroup", "group"
-        )
-        self.survey = self._create(
-            self.surveygroup, "euphorie.survey", "survey"
-        )
+        self.surveygroup = self._create(self.sector, "euphorie.surveygroup", "group")
+        self.survey = self._create(self.surveygroup, "euphorie.survey", "survey")
         self.module = self._create(self.survey, "euphorie.module", "module")
 
     def testValidDepthInModule(self):
@@ -100,7 +97,6 @@ class ConstructionFilterTests(EuphorieIntegrationTestCase):
 
 
 class FunctionalTests(EuphorieFunctionalTestCase):
-
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -108,12 +104,8 @@ class FunctionalTests(EuphorieFunctionalTestCase):
     def createStructure(self):
         self.country = self.portal.sectors.nl
         self.sector = self._create(self.country, "euphorie.sector", "sector")
-        self.surveygroup = self._create(
-            self.sector, "euphorie.surveygroup", "group"
-        )
-        self.survey = self._create(
-            self.surveygroup, "euphorie.survey", "survey"
-        )
+        self.surveygroup = self._create(self.sector, "euphorie.surveygroup", "group")
+        self.survey = self._create(self.surveygroup, "euphorie.survey", "survey")
         self.module = self._create(self.survey, "euphorie.module", "module")
         commit()
 

@@ -8,39 +8,38 @@ from plone import api
 
 
 class SurveyTests(EuphorieIntegrationTestCase):
-
     def createSurvey(self):
-        sector = createSector(self.portal, login='sector')
+        sector = createSector(self.portal, login="sector")
         survey = addSurvey(sector)
         return survey
 
     def testSurveyWorkflow(self):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
-        pw = api.portal.get_tool('portal_workflow')
+        pw = api.portal.get_tool("portal_workflow")
         chain = pw.getChainFor(survey)
-        self.assertEqual(chain, ('survey', ))
+        self.assertEqual(chain, ("survey",))
 
     def testNotGloballyAllowed(self):
         self.loginAsPortalOwner()
         types = [fti.id for fti in self.portal.allowedContentTypes()]
-        self.failUnless('euphorie.survey' not in types)
+        self.failUnless("euphorie.survey" not in types)
 
     def testAllowedContentTypes(self):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         types = [fti.id for fti in survey.allowedContentTypes()]
         self.assertEqual(
-            set(types), set(['euphorie.module', 'euphorie.profilequestion'])
+            set(types), set(["euphorie.module", "euphorie.profilequestion"])
         )
 
     def testCanDeleteItemsWhenNotPublished(self):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
-        sector = self.portal.acl_users.getUser('sector')
+        sector = self.portal.acl_users.getUser("sector")
         newSecurityManager(None, sector)
         manager = getSecurityManager()
-        self.assertTrue(manager.checkPermission('Delete objects', survey))
+        self.assertTrue(manager.checkPermission("Delete objects", survey))
 
     def testCanNotBeCopied(self):
         self.loginAsPortalOwner()

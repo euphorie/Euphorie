@@ -43,7 +43,7 @@ import re
 import six
 
 
-BCRYPTED_PATTERN = re.compile('^\$2[aby]?\$\d{1,2}\$[.\/A-Za-z0-9]{53}$')
+BCRYPTED_PATTERN = re.compile(r"^\$2[aby]?\$\d{1,2}\$[.\/A-Za-z0-9]{53}$")
 
 metadata = schema.MetaData()
 
@@ -51,8 +51,7 @@ log = logging.getLogger(__name__)
 
 
 def _forever_cache_key(func, self, *args):
-    ''' Cache this function call forever.
-    '''
+    """Cache this function call forever."""
     return (func.__name__, self.password, args)
 
 
@@ -71,6 +70,7 @@ class BaseObject(OFS.Traversable.Traversable, Acquisition.Implicit):
     In particular it allows acquisition to find skin objects and keeps
     absolute_url() and getPhysicalPath() working.
     """
+
     __init__ = declarative.api._declarative_constructor
     __allow_access_to_unprotected_subobjects__ = True
 
@@ -86,6 +86,7 @@ class SurveyTreeItem(BaseObject):
     0-prefixing to make sure we can use simple string sorting to produce a
     sorted tree.
     """
+
     __tablename__ = "tree"
     __table_args__ = (
         schema.UniqueConstraint("session_id", "path"),
@@ -96,9 +97,7 @@ class SurveyTreeItem(BaseObject):
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
     session_id = schema.Column(
         types.Integer(),
-        schema.ForeignKey(
-            "session.id", onupdate="CASCADE", ondelete="CASCADE"
-        ),
+        schema.ForeignKey("session.id", onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
         index=True,
     )
@@ -157,16 +156,13 @@ class SurveyTreeItem(BaseObject):
     @property
     def parent(self):
         # XXX Evil! Figure out why the parent relation does not work
-        return self.parent_id and Session.query(SurveyTreeItem).get(
-            self.parent_id
-        )
+        return self.parent_id and Session.query(SurveyTreeItem).get(self.parent_id)
 
     def getId(self):
         return self.path[-3:].lstrip("0")
 
     @property
     def short_path(self):
-
         def slice(path):
             while path:
                 yield path[:3].lstrip("0")
@@ -176,7 +172,7 @@ class SurveyTreeItem(BaseObject):
 
     @property
     def number(self):
-        return '.'.join(self.short_path)
+        return ".".join(self.short_path)
 
     def children(self, filter=None):
         query = (
@@ -196,7 +192,8 @@ class SurveyTreeItem(BaseObject):
         if klass is None:
             klass = SurveyTreeItem
         query = (
-            Session.query(klass).filter(klass.session_id == self.session_id)
+            Session.query(klass)
+            .filter(klass.session_id == self.session_id)
             .filter(klass.parent_id == self.parent_id)
         )
         if filter is not None:
@@ -237,12 +234,12 @@ class SurveyTreeItem(BaseObject):
             filter = sql.and_(
                 SurveyTreeItem.session_id == self.session_id,
                 SurveyTreeItem.path.like(self.path + "%"),
-                sql.not_(SurveyTreeItem.id.in_(excluded))
+                sql.not_(SurveyTreeItem.id.in_(excluded)),
             )
         else:
             filter = sql.and_(
                 SurveyTreeItem.session_id == self.session_id,
-                sql.not_(SurveyTreeItem.id.in_(excluded))
+                sql.not_(SurveyTreeItem.id.in_(excluded)),
             )
         removed = session.query(SurveyTreeItem).filter(filter).all()
         session.execute(SurveyTreeItem.__table__.delete().where(filter))
@@ -260,43 +257,49 @@ class Group(BaseObject):
     )
     parent_id = schema.Column(
         types.Unicode(32),
-        schema.ForeignKey('group.group_id'),
+        schema.ForeignKey("group.group_id"),
     )
-    short_name = schema.Column(types.Unicode(32), )
-    long_name = schema.Column(types.Unicode(256), )
-    responsible_id = schema.Column(types.Unicode(32), )
-    responsible_fullname = schema.Column(types.Unicode(32), )
+    short_name = schema.Column(
+        types.Unicode(32),
+    )
+    long_name = schema.Column(
+        types.Unicode(256),
+    )
+    responsible_id = schema.Column(
+        types.Unicode(32),
+    )
+    responsible_fullname = schema.Column(
+        types.Unicode(32),
+    )
     active = schema.Column(types.Boolean(), default=True)
 
     children = relationship(
-        'Group',
+        "Group",
         backref=backref(
-            'parent',
+            "parent",
             remote_side=[group_id],
         ),
     )
     accounts = relationship(
-        'Account',
+        "Account",
         backref=backref(
-            'group',
+            "group",
             remote_side=[group_id],
         ),
     )
 
-    brand = schema.Column(
-        types.String(64)
-    )
+    brand = schema.Column(types.String(64))
 
     # Allow this class to be subclassed in other projects
     __mapper_args__ = {
-        'polymorphic_identity': 'euphorie',
-        'polymorphic_on': brand,
-        'with_polymorphic': '*',
+        "polymorphic_identity": "euphorie",
+        "polymorphic_on": brand,
+        "with_polymorphic": "*",
     }
 
     @property
     def fullname(self):
-        """ This is the name that will be display in the selectors and
+        """This is the name that will be display in the selectors and
         in the tree widget
         """
         title = u"{obs}{name}".format(
@@ -309,8 +312,7 @@ class Group(BaseObject):
 
     @property
     def descendantids(self):
-        ''' Return all the groups in the hierarchy flattened
-        '''
+        """Return all the groups in the hierarchy flattened"""
         structure = self._group_structure
         ids = []
 
@@ -326,18 +328,16 @@ class Group(BaseObject):
 
     @property
     def descendants(self):
-        ''' Return all the groups in the hierarchy flattened
-        '''
+        """Return all the groups in the hierarchy flattened"""
         return list(
-            Session
-            .query(self.__class__)
-            .filter(self.__class__.group_id.in_(self.descendantids))
+            Session.query(self.__class__).filter(
+                self.__class__.group_id.in_(self.descendantids)
+            )
         )
 
     @property
     def parents(self):
-        ''' Return all the groups in the hierarchy flattened
-        '''
+        """Return all the groups in the hierarchy flattened"""
         group = self
         parents = []
         while True:
@@ -350,7 +350,7 @@ class Group(BaseObject):
     @property
     @memoize
     def _group_structure(self):
-        """ Return a dict like structure
+        """Return a dict like structure
         with the group ids as keys and the children group ids as values
         """
         tree = defaultdict(set)
@@ -362,22 +362,24 @@ class Group(BaseObject):
 
     @property
     def acquired_sessions(self):
-        ''' All the session relative to this group and its children
-        '''
+        """All the session relative to this group and its children"""
         group_ids = [self.group_id]
         group_ids.extend(g.group_id for g in self.descendants)
-        return Session.query(SurveySession).filter(
-            SurveySession.group_id.in_(group_ids)
-        ).all()
+        return (
+            Session.query(SurveySession)
+            .filter(SurveySession.group_id.in_(group_ids))
+            .all()
+        )
 
     @property
     def sessions(self):
-        ''' All the session relative to this group
-        '''
+        """All the session relative to this group"""
         group_ids = [self.group_id]
-        return Session.query(SurveySession).filter(
-            SurveySession.group_id.in_(group_ids)
-        ).all()
+        return (
+            Session.query(SurveySession)
+            .filter(SurveySession.group_id.in_(group_ids))
+            .all()
+        )
 
 
 @implementer(IBasicUser)
@@ -408,7 +410,7 @@ class Account(BaseObject):
     )
     group_id = schema.Column(
         types.Unicode(32),
-        schema.ForeignKey('group.group_id'),
+        schema.ForeignKey("group.group_id"),
     )
 
     created = schema.Column(
@@ -428,8 +430,7 @@ class Account(BaseObject):
 
     @property
     def acquired_sessions(self):
-        ''' The session the account acquires because he belongs to a group.
-        '''
+        """The session the account acquires because he belongs to a group."""
         group = self.group
         if not group:
             return []
@@ -437,8 +438,7 @@ class Account(BaseObject):
 
     @property
     def group_sessions(self):
-        ''' The session the account acquires because he belongs to a group.
-        '''
+        """The session the account acquires because he belongs to a group."""
         group = self.group
         if not group:
             return []
@@ -446,8 +446,7 @@ class Account(BaseObject):
 
     @property
     def email(self):
-        """Email addresses are used for login, return the login.
-        """
+        """Email addresses are used for login, return the login."""
         return self.loginname
 
     @property
@@ -464,7 +463,7 @@ class Account(BaseObject):
     def getRoles(self):
         """Return all global roles for this user."""
 
-        return ("EuphorieUser", )
+        return ("EuphorieUser",)
 
     def getRolesInContext(self, object):
         """Return the roles of the user in the current context (same as
@@ -505,9 +504,9 @@ class Account(BaseObject):
 
     @ram.cache(_forever_cache_key)
     def verify_password(self, password):
-        ''' Verify the given password against the one
+        """Verify the given password against the one
         stored in the account table
-        '''
+        """
         if not password:
             return False
         if not isinstance(password, six.string_types):
@@ -515,12 +514,11 @@ class Account(BaseObject):
         if password == self.password:
             return True
         if isinstance(password, six.text_type):
-            password = password.encode('utf8')
+            password = password.encode("utf8")
         return bcrypt.checkpw(password, self.password)
 
     def hash_password(self):
-        ''' hash the account password using bcrypt
-        '''
+        """hash the account password using bcrypt"""
         try:
             password = self.password
         except AttributeError:
@@ -528,7 +526,7 @@ class Account(BaseObject):
         if not password:
             return
         if isinstance(password, six.text_type):
-            password = password.encode('utf8')
+            password = password.encode("utf8")
         if BCRYPTED_PATTERN.match(password):
             # The password is already encrypted, do not encrypt it again
             # XXX this is broken with passwords that are actually an hash
@@ -536,7 +534,7 @@ class Account(BaseObject):
         self.password = bcrypt.hashpw(
             password,
             bcrypt.gensalt(),
-        ).decode('utf8')
+        ).decode("utf8")
 
 
 def account_before_insert_subscriber(mapper, connection, account):
@@ -545,8 +543,8 @@ def account_before_insert_subscriber(mapper, connection, account):
 
 account_before_update_subscriber = account_before_insert_subscriber
 
-listen(Account, 'before_insert', account_before_insert_subscriber)
-listen(Account, 'before_update', account_before_update_subscriber)
+listen(Account, "before_insert", account_before_insert_subscriber)
+listen(Account, "before_update", account_before_update_subscriber)
 
 
 class AccountChangeRequest(BaseObject):
@@ -578,20 +576,17 @@ class AccountChangeRequest(BaseObject):
 
 
 class ISurveySession(Interface):
-    ''' Marker interface for a SurveySession object
-    '''
+    """Marker interface for a SurveySession object"""
 
 
 @implementer(ISurveySession)
 class SurveySession(BaseObject):
-    """Information about a user's session.
-    """
+    """Information about a user's session."""
+
     __tablename__ = "session"
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
-    brand = schema.Column(
-        types.String(64)
-    )
+    brand = schema.Column(types.String(64))
     account_id = schema.Column(
         types.Integer(),
         schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
@@ -612,7 +607,7 @@ class SurveySession(BaseObject):
     )
     group_id = schema.Column(
         types.Unicode(32),
-        schema.ForeignKey('group.group_id'),
+        schema.ForeignKey("group.group_id"),
     )
     title = schema.Column(types.Unicode(512))
     created = schema.Column(
@@ -674,9 +669,7 @@ class SurveySession(BaseObject):
     group = orm.relation(
         Group,
         backref=orm.backref(
-            "sessions",
-            order_by=modified,
-            cascade="all, delete, delete-orphan"
+            "sessions", order_by=modified, cascade="all, delete, delete-orphan"
         ),
     )
 
@@ -688,9 +681,9 @@ class SurveySession(BaseObject):
 
     # Allow this class to be subclassed in other projects
     __mapper_args__ = {
-        'polymorphic_identity': 'euphorie',
-        'polymorphic_on': brand,
-        'with_polymorphic': '*',
+        "polymorphic_identity": "euphorie",
+        "polymorphic_on": brand,
+        "with_polymorphic": "*",
     }
 
     @property
@@ -702,20 +695,18 @@ class SurveySession(BaseObject):
 
     @property
     def review_state(self):
-        ''' Check if it the published column.
+        """Check if it the published column.
         If it has return 'published' otherwise return 'private'
-        '''
-        return 'published' if self.published else 'private'
+        """
+        return "published" if self.published else "private"
 
     def hasTree(self):
         return bool(
-            Session.query(SurveyTreeItem)
-            .filter(SurveyTreeItem.session == self).count()
+            Session.query(SurveyTreeItem).filter(SurveyTreeItem.session == self).count()
         )
 
     def reset(self):
-        Session.query(SurveyTreeItem).filter(SurveyTreeItem.session == self
-                                             ).delete()
+        Session.query(SurveyTreeItem).filter(SurveyTreeItem.session == self).delete()
         self.created = self.modified = datetime.datetime.now()
 
     def touch(self):
@@ -723,13 +714,13 @@ class SurveySession(BaseObject):
         self.modified = datetime.datetime.now()
 
     def refresh_survey(self, survey=None):
-        """ Mark the session with the current date to indicate that is has been
-            refreshed with the latest version of the Survey (from Zope).
-            If survey is passed, update all titles in the tree, based on the CMS
-            version of the survey, i.e. update all titles of modules and risks.
-            Those are used in the navigation. If a title change is the only change
-            in the CMS, the survey session is not re-created. Therefore this
-            method ensures that the titles are updated where necessary.
+        """Mark the session with the current date to indicate that is has been
+        refreshed with the latest version of the Survey (from Zope).
+        If survey is passed, update all titles in the tree, based on the CMS
+        version of the survey, i.e. update all titles of modules and risks.
+        Those are used in the navigation. If a title change is the only change
+        in the CMS, the survey session is not re-created. Therefore this
+        method ensures that the titles are updated where necessary.
         """
         if survey:
             query = Session.query(SurveyTreeItem).filter(
@@ -777,31 +768,25 @@ class SurveySession(BaseObject):
         return query.order_by(SurveyTreeItem.path)
 
     def copySessionData(self, other):
-        """Copy all user data from another session to this one.
-        """
+        """Copy all user data from another session to this one."""
         session = Session()
 
         # Copy all tree data to the new session (skip_children and postponed)
-        old_tree = orm.aliased(SurveyTreeItem, name='old_tree')
+        old_tree = orm.aliased(SurveyTreeItem, name="old_tree")
         in_old_tree = sql.and_(
             old_tree.session_id == other.id,
             SurveyTreeItem.zodb_path == old_tree.zodb_path,
-            SurveyTreeItem.profile_index == old_tree.profile_index
+            SurveyTreeItem.profile_index == old_tree.profile_index,
         )
-        skip_children = sql.select(
-            [old_tree.skip_children], in_old_tree).limit(1)
-        postponed = sql.select(
-            [old_tree.postponed], in_old_tree).limit(1)
+        skip_children = sql.select([old_tree.skip_children], in_old_tree).limit(1)
+        postponed = sql.select([old_tree.postponed], in_old_tree).limit(1)
         new_items = (
             session.query(SurveyTreeItem)
             .filter(SurveyTreeItem.session == self)
             .filter(sql.exists(sql.select([old_tree.id]).where(in_old_tree)))
         )
         new_items.update(
-            {
-                'skip_children': skip_children,
-                'postponed': postponed
-            },
+            {"skip_children": skip_children, "postponed": postponed},
             synchronize_session=False,
         )
 
@@ -811,13 +796,13 @@ class SurveySession(BaseObject):
         # In case a risk was marked as "always present", be sure its
         # identification gets set to 'no'
         preset_to_no = []
-        survey = getSite()['client'].restrictedTraverse(self.zodb_path)
+        survey = getSite()["client"].restrictedTraverse(self.zodb_path)
         for item in new_items.all():
-            if item.type == 'risk':
-                if item.identification == u'no':
+            if item.type == "risk":
+                if item.identification == u"no":
                     preset_to_no.append(item.risk_id)
 
-            elif item.type == 'module':
+            elif item.type == "module":
                 module = survey.restrictedTraverse(item.zodb_path.split("/"))
                 if not module.optional:
                     item.skip_children = False
@@ -841,8 +826,7 @@ class SurveySession(BaseObject):
         skip_preset_to_no_clause = ""
         if len(preset_to_no):
             skip_preset_to_no_clause = "old_risk.risk_id not in %s AND" % (
-                str([str(x) for x in preset_to_no]
-                    ).replace('[', '(').replace(']', ')')
+                str([str(x) for x in preset_to_no]).replace("[", "(").replace("]", ")")
             )
         statement = """\
         UPDATE RISK
@@ -863,7 +847,7 @@ class SurveySession(BaseObject):
         """ % dict(  # noqa: E501
             old_sessionid=other.id,
             new_sessionid=self.id,
-            skip_preset_to_no_clause=skip_preset_to_no_clause
+            skip_preset_to_no_clause=skip_preset_to_no_clause,
         )
         session.execute(statement)
 
@@ -892,8 +876,8 @@ class SurveySession(BaseObject):
                      tree.zodb_path=new_tree.zodb_path AND
                      tree.profile_index=new_tree.profile_index;
             """ % {
-            'old_sessionid': other.id,
-            'new_sessionid': self.id
+            "old_sessionid": other.id,
+            "new_sessionid": self.id,
         }
         session.execute(statement)
 
@@ -911,19 +895,18 @@ class SurveySession(BaseObject):
             old_session.id=%(old_sessionid)d AND
             session.id=%(new_sessionid)d
         """ % {
-            'old_sessionid': other.id,
-            'new_sessionid': self.id
+            "old_sessionid": other.id,
+            "new_sessionid": self.id,
         }
         session.execute(statement)
 
-        session.query(Company)\
-            .filter(Company.session == other)\
-            .update({'session_id': self.id},
-                    synchronize_session=False)
+        session.query(Company).filter(Company.session == other).update(
+            {"session_id": self.id}, synchronize_session=False
+        )
 
     @classmethod
     def get_account_filter(cls, account=None):
-        """ Filter only the sessions for the given account
+        """Filter only the sessions for the given account
 
         :param acount: True means current account.
             A falsish value means do not filter.
@@ -966,7 +949,7 @@ class SurveySession(BaseObject):
 
     @classmethod
     def get_group_filter(cls, group=None):
-        """ Filter only the sessions for the given group
+        """Filter only the sessions for the given group
 
         :param group: True means the current account's group.
             A falsish value means do not filter.
@@ -1009,16 +992,14 @@ class SurveySession(BaseObject):
 
     @classmethod
     def get_archived_filter(cls):
-        """ Filter sessions that are archived
-        """
+        """Filter sessions that are archived"""
         return sql.or_(
             cls.archived >= localized_now(), cls.archived == None  # noqa: E711
         )
 
     @classmethod
     def _get_context_tools(cls, context):
-        """ Return the set of tools we can find under this context
-        """
+        """Return the set of tools we can find under this context"""
         if not context:
             return set()
 
@@ -1051,8 +1032,7 @@ class SurveySession(BaseObject):
 
     @classmethod
     def get_context_filter(cls, context):
-        """ Filter sessions under this context using the zodb_path column
-        """
+        """Filter sessions under this context using the zodb_path column"""
         surveys = cls._get_context_tools(context)
         if not surveys:
             return False
@@ -1076,33 +1056,38 @@ class SurveySession(BaseObject):
 
 class Company(BaseObject):
     """Information about a company."""
+
     __tablename__ = "company"
 
     id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
     session_id = schema.Column(
         types.Integer(),
-        schema.ForeignKey(
-            "session.id", onupdate="CASCADE", ondelete="CASCADE"
-        ),
+        schema.ForeignKey("session.id", onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
-        index=True
+        index=True,
     )
     session = orm.relation(
         "SurveySession",
         cascade="all,delete-orphan",
         single_parent=True,
-        backref=orm.backref("company", uselist=False, cascade="all")
+        backref=orm.backref("company", uselist=False, cascade="all"),
     )
 
     country = schema.Column(types.String(3))
     employees = schema.Column(Enum([None, "1-9", "10-49", "50-249", "250+"]))
     conductor = schema.Column(Enum([None, "staff", "third-party", "both"]))
     referer = schema.Column(
-        Enum([
-            None, "employers-organisation", "trade-union",
-            "national-public-institution", "eu-institution",
-            "health-safety-experts", "other"
-        ])
+        Enum(
+            [
+                None,
+                "employers-organisation",
+                "trade-union",
+                "national-public-institution",
+                "eu-institution",
+                "health-safety-experts",
+                "other",
+            ]
+        )
     )
     workers_participated = schema.Column(types.Boolean())
     needs_met = schema.Column(types.Boolean())
@@ -1115,16 +1100,15 @@ class Module(SurveyTreeItem):
     This is a dummy object needed to be able to put modules in the
     survey tree.
     """
+
     __tablename__ = "module"
     __mapper_args__ = dict(polymorphic_identity="module")
 
     sql_module_id = schema.Column(
         "id",
         types.Integer(),
-        schema.ForeignKey(
-            SurveyTreeItem.id, onupdate="CASCADE", ondelete="CASCADE"
-        ),
-        primary_key=True
+        schema.ForeignKey(SurveyTreeItem.id, onupdate="CASCADE", ondelete="CASCADE"),
+        primary_key=True,
     )
     module_id = schema.Column(types.String(16), nullable=False)
     solution_direction = schema.Column(types.Boolean(), default=False)
@@ -1139,29 +1123,20 @@ class Risk(SurveyTreeItem):
     sql_risk_id = schema.Column(
         "id",
         types.Integer(),
-        schema.ForeignKey(
-            SurveyTreeItem.id, onupdate="CASCADE", ondelete="CASCADE"
-        ),
-        primary_key=True
+        schema.ForeignKey(SurveyTreeItem.id, onupdate="CASCADE", ondelete="CASCADE"),
+        primary_key=True,
     )
     risk_id = schema.Column(types.String(16), nullable=True)
     risk_type = schema.Column(
-        Enum([u"risk", u"policy", u"top5"]),
-        default=u"risk",
-        nullable=False,
-        index=True
+        Enum([u"risk", u"policy", u"top5"]), default=u"risk", nullable=False, index=True
     )
     #: Skip-evaluation flag. This is only used to indicate if the sector
     #: set the evaluation method to `fixed`, not for policy behaviour
     #: such as not evaluation top-5 risks. That policy behaviour is
     #: handled via the question_filter on client views so it can be modified
     #: in custom deployments.
-    skip_evaluation = schema.Column(
-        types.Boolean(), default=False, nullable=False
-    )
-    is_custom_risk = schema.Column(
-        types.Boolean(), default=False, nullable=False
-    )
+    skip_evaluation = schema.Column(types.Boolean(), default=False, nullable=False)
+    is_custom_risk = schema.Column(types.Boolean(), default=False, nullable=False)
     identification = schema.Column(Enum([None, u"yes", u"no", "n/a"]))
     frequency = schema.Column(types.Integer())
     effect = schema.Column(types.Integer())
@@ -1214,7 +1189,7 @@ class ActionPlan(BaseObject):
         types.Integer(),
         schema.ForeignKey(Risk.id, onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
-        index=True
+        index=True,
     )
     action_plan = schema.Column(types.UnicodeText())
     prevention_plan = schema.Column(types.UnicodeText())
@@ -1250,7 +1225,7 @@ class ActionPlan(BaseObject):
         Risk,
         backref=orm.backref(
             "action_plans", order_by=id, cascade="all, delete, delete-orphan"
-        )
+        ),
     )
 
 
@@ -1258,215 +1233,196 @@ _instrumented = False
 if not _instrumented:
     metadata._decl_registry = {}
     for cls in [
-        SurveyTreeItem, SurveySession, Module, Risk, ActionPlan, Group,
-        Account, AccountChangeRequest, Company
+        SurveyTreeItem,
+        SurveySession,
+        Module,
+        Risk,
+        ActionPlan,
+        Group,
+        Account,
+        AccountChangeRequest,
+        Company,
     ]:
-        declarative.api.instrument_declarative(
-            cls, metadata._decl_registry, metadata
-        )
+        declarative.api.instrument_declarative(cls, metadata._decl_registry, metadata)
     _instrumented = True
 
+schema.Index("tree_session_path", SurveyTreeItem.session_id, SurveyTreeItem.path)
 schema.Index(
-    'tree_session_path', SurveyTreeItem.session_id, SurveyTreeItem.path
-)
-schema.Index(
-    'tree_zodb_path', SurveyTreeItem.session_id, SurveyTreeItem.profile_index,
-    SurveyTreeItem.zodb_path
+    "tree_zodb_path",
+    SurveyTreeItem.session_id,
+    SurveyTreeItem.profile_index,
+    SurveyTreeItem.zodb_path,
 )
 
 parent = orm.aliased(SurveyTreeItem)
 # XXX This can be optimized by doing short-circuit on parent.type!=module
-SKIPPED_PARENTS = (
-    sql.exists().where(
-        sql.and_(
-            parent.session_id == SurveyTreeItem.session_id,
-            SurveyTreeItem.depth > parent.depth,
-            SurveyTreeItem.path.like(parent.path + "%"),
-            parent.skip_children == True  # noqa: E712
-        )
+SKIPPED_PARENTS = sql.exists().where(
+    sql.and_(
+        parent.session_id == SurveyTreeItem.session_id,
+        SurveyTreeItem.depth > parent.depth,
+        SurveyTreeItem.path.like(parent.path + "%"),
+        parent.skip_children == True,  # noqa: E712
     )
 )
 del parent
 
 child_node = orm.aliased(SurveyTreeItem)
 
-NO_CUSTOM_RISKS_FILTER = (
-    sql.not_(
-        sql.and_(
-            SurveyTreeItem.type == "risk",
-            sql.exists(
-                sql.select([Risk.sql_risk_id]).where(
-                    sql.and_(
-                        Risk.sql_risk_id == SurveyTreeItem.id,
-                        Risk.is_custom_risk == True,  # noqa: E712
-                    )
-                )
-            )
-        )
-    )
-)
-
-RISK_OR_MODULE_WITH_DESCRIPTION_FILTER = (
-    sql.or_(SurveyTreeItem.type != "module", SurveyTreeItem.has_description)
-)
-
-# Used by tno.euphorie
-MODULE_WITH_RISK_FILTER = (
+NO_CUSTOM_RISKS_FILTER = sql.not_(
     sql.and_(
-        SurveyTreeItem.type == "module",
-        SurveyTreeItem.skip_children == False,  # noqa: E712
+        SurveyTreeItem.type == "risk",
         sql.exists(
-            sql.select([child_node.id]).where(
+            sql.select([Risk.sql_risk_id]).where(
                 sql.and_(
-                    child_node.session_id == SurveyTreeItem.session_id,
-                    child_node.id == Risk.sql_risk_id,
-                    child_node.type == u"risk", Risk.identification == u"no",
-                    child_node.depth > SurveyTreeItem.depth,
-                    child_node.path.like(SurveyTreeItem.path + "%")
+                    Risk.sql_risk_id == SurveyTreeItem.id,
+                    Risk.is_custom_risk == True,  # noqa: E712
                 )
             )
         ),
     )
 )
 
-MODULE_WITH_RISK_OR_TOP5_FILTER = (
-    sql.and_(
-        SurveyTreeItem.type == u"module",
-        SurveyTreeItem.skip_children == False,  # noqa: E712
-        sql.exists(
-            sql.select([child_node.id]).where(
-                sql.and_(
-                    child_node.session_id == SurveyTreeItem.session_id,
-                    child_node.id == Risk.sql_risk_id,
-                    child_node.type == "risk",
-                    sql.or_(
-                        Risk.identification == u"no", Risk.risk_type == u"top5"
-                    ), child_node.depth > SurveyTreeItem.depth,
-                    child_node.path.like(SurveyTreeItem.path + "%")
-                )
-            )
-        )
-    )
+RISK_OR_MODULE_WITH_DESCRIPTION_FILTER = sql.or_(
+    SurveyTreeItem.type != "module", SurveyTreeItem.has_description
 )
 
 # Used by tno.euphorie
-MODULE_WITH_RISK_TOP5_TNO_FILTER = (
-    sql.and_(
-        SurveyTreeItem.type == u"module",
-        SurveyTreeItem.skip_children == False,  # noqa: E712
-        sql.exists(
-            sql.select([child_node.id]).where(
-                sql.and_(
-                    child_node.session_id == SurveyTreeItem.session_id,
-                    child_node.id == Risk.sql_risk_id,
-                    child_node.type == "risk",
-                    sql.or_(
-                        Risk.identification == u"no",
-                        sql.and_(
-                            Risk.risk_type == u"top5",
-                            sql.or_(
-                                sql.not_(
-                                    Risk.identification.in_([u"n/a", u"yes"])),
-                                Risk.identification == None  # noqa: E712
-                            )
-                        )
-                    ), child_node.depth > SurveyTreeItem.depth,
-                    child_node.path.like(SurveyTreeItem.path + "%")
-                )
+MODULE_WITH_RISK_FILTER = sql.and_(
+    SurveyTreeItem.type == "module",
+    SurveyTreeItem.skip_children == False,  # noqa: E712
+    sql.exists(
+        sql.select([child_node.id]).where(
+            sql.and_(
+                child_node.session_id == SurveyTreeItem.session_id,
+                child_node.id == Risk.sql_risk_id,
+                child_node.type == u"risk",
+                Risk.identification == u"no",
+                child_node.depth > SurveyTreeItem.depth,
+                child_node.path.like(SurveyTreeItem.path + "%"),
             )
         )
-    )
+    ),
 )
 
-MODULE_WITH_RISK_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER = (
-    sql.and_(
-        SurveyTreeItem.type == "module",
-        SurveyTreeItem.skip_children == False,  # noqa: E712
-        sql.exists(
-            sql.select([child_node.id]).where(
-                sql.and_(
-                    child_node.session_id == SurveyTreeItem.session_id,
-                    child_node.id == Risk.sql_risk_id,
-                    child_node.type == u"risk",
-                    sql.not_(Risk.risk_type.in_([u"top5", u"policy"])),
-                    sql.not_(Risk.skip_evaluation == True),
+MODULE_WITH_RISK_OR_TOP5_FILTER = sql.and_(
+    SurveyTreeItem.type == u"module",
+    SurveyTreeItem.skip_children == False,  # noqa: E712
+    sql.exists(
+        sql.select([child_node.id]).where(
+            sql.and_(
+                child_node.session_id == SurveyTreeItem.session_id,
+                child_node.id == Risk.sql_risk_id,
+                child_node.type == "risk",
+                sql.or_(Risk.identification == u"no", Risk.risk_type == u"top5"),
+                child_node.depth > SurveyTreeItem.depth,
+                child_node.path.like(SurveyTreeItem.path + "%"),
+            )
+        )
+    ),
+)
+
+# Used by tno.euphorie
+MODULE_WITH_RISK_TOP5_TNO_FILTER = sql.and_(
+    SurveyTreeItem.type == u"module",
+    SurveyTreeItem.skip_children == False,  # noqa: E712
+    sql.exists(
+        sql.select([child_node.id]).where(
+            sql.and_(
+                child_node.session_id == SurveyTreeItem.session_id,
+                child_node.id == Risk.sql_risk_id,
+                child_node.type == "risk",
+                sql.or_(
                     Risk.identification == u"no",
-                    child_node.depth > SurveyTreeItem.depth,
-                    child_node.path.like(SurveyTreeItem.path + "%")
-                )
+                    sql.and_(
+                        Risk.risk_type == u"top5",
+                        sql.or_(
+                            sql.not_(Risk.identification.in_([u"n/a", u"yes"])),
+                            Risk.identification == None,  # noqa: E712
+                        ),
+                    ),
+                ),
+                child_node.depth > SurveyTreeItem.depth,
+                child_node.path.like(SurveyTreeItem.path + "%"),
             )
         )
-    )
+    ),
+)
+
+MODULE_WITH_RISK_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER = sql.and_(
+    SurveyTreeItem.type == "module",
+    SurveyTreeItem.skip_children == False,  # noqa: E712
+    sql.exists(
+        sql.select([child_node.id]).where(
+            sql.and_(
+                child_node.session_id == SurveyTreeItem.session_id,
+                child_node.id == Risk.sql_risk_id,
+                child_node.type == u"risk",
+                sql.not_(Risk.risk_type.in_([u"top5", u"policy"])),
+                sql.not_(Risk.skip_evaluation == True),
+                Risk.identification == u"no",
+                child_node.depth > SurveyTreeItem.depth,
+                child_node.path.like(SurveyTreeItem.path + "%"),
+            )
+        )
+    ),
 )
 
 # Used by tno.euphorie
-RISK_PRESENT_FILTER = (
-    sql.and_(
-        SurveyTreeItem.type == "risk",
-        sql.exists(
-            sql.select([Risk.sql_risk_id]).where(
-                sql.and_(
-                    Risk.sql_risk_id == SurveyTreeItem.id,
-                    Risk.identification == u"no"
-                )
+RISK_PRESENT_FILTER = sql.and_(
+    SurveyTreeItem.type == "risk",
+    sql.exists(
+        sql.select([Risk.sql_risk_id]).where(
+            sql.and_(
+                Risk.sql_risk_id == SurveyTreeItem.id, Risk.identification == u"no"
             )
         )
-    )
+    ),
 )
-RISK_PRESENT_FILTER_TOP5_TNO_FILTER = (
-    sql.and_(
-        SurveyTreeItem.type == "risk",
-        sql.exists(
-            sql.select([Risk.sql_risk_id]).where(
-                sql.and_(
-                    Risk.sql_risk_id == SurveyTreeItem.id,
-                    sql.or_(
-                        Risk.identification == u"no",
-                        sql.and_(
-                            Risk.risk_type == u"top5",
-                            sql.or_(
-                                sql.not_(
-                                    Risk.identification.in_([u"n/a", u"yes"])),
-                                Risk.identification == None  # noqa: E712
-                            )
-                        )
-                    )
-                )
+RISK_PRESENT_FILTER_TOP5_TNO_FILTER = sql.and_(
+    SurveyTreeItem.type == "risk",
+    sql.exists(
+        sql.select([Risk.sql_risk_id]).where(
+            sql.and_(
+                Risk.sql_risk_id == SurveyTreeItem.id,
+                sql.or_(
+                    Risk.identification == u"no",
+                    sql.and_(
+                        Risk.risk_type == u"top5",
+                        sql.or_(
+                            sql.not_(Risk.identification.in_([u"n/a", u"yes"])),
+                            Risk.identification == None,  # noqa: E711
+                        ),
+                    ),
+                ),
             )
         )
-    )
+    ),
 )
 
-RISK_PRESENT_OR_TOP5_FILTER = (
-    sql.and_(
-        SurveyTreeItem.type == "risk",
-        sql.exists(
-            sql.select([Risk.sql_risk_id]).where(
-                sql.and_(
-                    Risk.sql_risk_id == SurveyTreeItem.id,
-                    sql.or_(
-                        Risk.identification == u"no", Risk.risk_type == u"top5"
-                    )
-                )
+RISK_PRESENT_OR_TOP5_FILTER = sql.and_(
+    SurveyTreeItem.type == "risk",
+    sql.exists(
+        sql.select([Risk.sql_risk_id]).where(
+            sql.and_(
+                Risk.sql_risk_id == SurveyTreeItem.id,
+                sql.or_(Risk.identification == u"no", Risk.risk_type == u"top5"),
             )
         )
-    )
+    ),
 )
 
-RISK_PRESENT_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER = (
-    sql.and_(
-        SurveyTreeItem.type == "risk",
-        sql.exists(
-            sql.select([Risk.sql_risk_id]).where(
-                sql.and_(
-                    Risk.sql_risk_id == SurveyTreeItem.id,
-                    sql.not_(Risk.risk_type.in_([u'top5', u'policy'])),
-                    sql.not_(Risk.skip_evaluation == True),  # noqa: E712
-                    Risk.identification == u"no"
-                )
+RISK_PRESENT_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER = sql.and_(
+    SurveyTreeItem.type == "risk",
+    sql.exists(
+        sql.select([Risk.sql_risk_id]).where(
+            sql.and_(
+                Risk.sql_risk_id == SurveyTreeItem.id,
+                sql.not_(Risk.risk_type.in_([u"top5", u"policy"])),
+                sql.not_(Risk.skip_evaluation == True),  # noqa: E712
+                Risk.identification == u"no",
             )
         )
-    )
+    ),
 )
 
 EVALUATION_FILTER = sql.or_(
@@ -1483,18 +1439,20 @@ SKIPPED_MODULE = sql.exists().where(
     sql.and_(
         SurveyTreeItem.type == "module",
         child_node.session_id == SurveyTreeItem.session_id,
-        child_node.skip_children == True  # noqa: E712
+        child_node.skip_children == True,  # noqa: E712
     )
 )
 
 UNANSWERED_RISKS_FILTER = sql.and_(
     SurveyTreeItem.type == "risk",
     sql.exists(
-        sql.select([Risk.sql_risk_id]).where(sql.and_(
-            Risk.sql_risk_id == SurveyTreeItem.id,
-            Risk.identification == None,  # noqa: E712
-        ))
-    )
+        sql.select([Risk.sql_risk_id]).where(
+            sql.and_(
+                Risk.sql_risk_id == SurveyTreeItem.id,
+                Risk.identification == None,  # noqa: E711
+            )
+        )
+    ),
 )
 
 MODULE_WITH_UNANSWERED_RISKS_FILTER = sql.and_(
@@ -1508,10 +1466,10 @@ MODULE_WITH_UNANSWERED_RISKS_FILTER = sql.and_(
                 child_node.type == "risk",
                 Risk.identification == None,
                 child_node.depth > SurveyTreeItem.depth,
-                child_node.path.like(SurveyTreeItem.path + "%")
+                child_node.path.like(SurveyTreeItem.path + "%"),
             )
         )
-    )
+    ),
 )
 
 MODULE_WITH_RISKS_NOT_PRESENT_FILTER = sql.and_(
@@ -1523,11 +1481,12 @@ MODULE_WITH_RISKS_NOT_PRESENT_FILTER = sql.and_(
                 child_node.session_id == SurveyTreeItem.session_id,
                 child_node.id == Risk.sql_risk_id,
                 child_node.type == "risk",
-                Risk.identification == 'yes',
+                Risk.identification == "yes",
                 child_node.depth > SurveyTreeItem.depth,
-                child_node.path.like(SurveyTreeItem.path + "%")
-            ))
-    )
+                child_node.path.like(SurveyTreeItem.path + "%"),
+            )
+        )
+    ),
 )
 
 RISK_NOT_PRESENT_FILTER = sql.and_(
@@ -1535,36 +1494,35 @@ RISK_NOT_PRESENT_FILTER = sql.and_(
     sql.exists(
         sql.select([Risk.sql_risk_id]).where(
             sql.and_(
-                Risk.sql_risk_id == SurveyTreeItem.id,
-                Risk.identification == "yes"
+                Risk.sql_risk_id == SurveyTreeItem.id, Risk.identification == "yes"
             )
-        ))
+        )
+    ),
 )
 
 del child_node
 
 
 def get_current_account():
-    ''' XXX this would be better placed in an api module,
+    """XXX this would be better placed in an api module,
     but we need to avoid circular dependencies
 
     :return: The current Account instance if a user can be found,
              otherwise None
-    '''
+    """
     user_id = api.user.get_current().getId()
     try:
-        return Session.query(Account).filter(
-            Account.id == user_id).first()
-    except:
+        return Session.query(Account).filter(Account.id == user_id).first()
+    except Exception:
         log.warning("Unable to fetch account for username:")
         log.warning(user_id)
 
 
 class DefaultView(BrowserView):
-    """ Default @@index_html view for the objects in the model
-    """
+    """Default @@index_html view for the objects in the model"""
+
     def __call__(self):
-        """ Somebody called the default view for this object:
+        """Somebody called the default view for this object:
         we do not want this to happen so we display a message and redirect the user
         to the session start page
         """
@@ -1586,5 +1544,5 @@ __all__ = [
     "MODULE_WITH_RISK_TOP5_TNO_FILTER",
     "RISK_PRESENT_FILTER",
     "RISK_PRESENT_FILTER_TOP5_TNO_FILTER",
-    'get_current_account',
+    "get_current_account",
 ]

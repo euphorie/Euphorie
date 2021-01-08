@@ -14,7 +14,7 @@ from zope.lifecycleevent import ObjectModifiedEvent
 
 class TestSurveyViews(EuphorieIntegrationTestCase):
     def test_survey_publication_date_views(self):
-        """ We have some views to display and set the published column
+        """We have some views to display and set the published column
         for a survey session
         """
         survey = addSurvey(self.portal, BASIC_SURVEY)

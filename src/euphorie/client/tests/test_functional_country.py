@@ -8,7 +8,6 @@ import urllib
 
 
 class CountryFunctionalTests(EuphorieFunctionalTestCase):
-
     def test_surveys_filtered_by_language(self):
         survey = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
                       <title>Sector</title>
@@ -40,24 +39,18 @@ class CountryFunctionalTests(EuphorieFunctionalTestCase):
         self.assertEqual(
             browser.getControl(name="survey").options, ["branche/vragenlijst"]
         )
-        browser.open(
-            "%s?language=en" % self.portal.client["nl"].absolute_url()
-        )
-        self.assertEqual(
-            browser.getControl(name="survey").options, ["sector/survey"]
-        )
+        browser.open("%s?language=en" % self.portal.client["nl"].absolute_url())
+        self.assertEqual(browser.getControl(name="survey").options, ["sector/survey"])
 
     def test_must_select_valid_survey(self):
         self.loginAsPortalOwner()
         addSurvey(self.portal, BASIC_SURVEY)
         browser = self.get_browser()
-        browser.open(self.portal.client['nl'].absolute_url())
+        browser.open(self.portal.client["nl"].absolute_url())
         registerUserInClient(browser)
-        data = urllib.urlencode({
-            'action': 'new',
-            'survey': '',
-            'title:utf8:ustring': 'Foo'
-        })
+        data = urllib.urlencode(
+            {"action": "new", "survey": "", "title:utf8:ustring": "Foo"}
+        )
         browser.handleErrors = False
         browser.open(browser.url, data)
-        self.assertEqual(browser.url, 'http://nohost/plone/client/nl')
+        self.assertEqual(browser.url, "http://nohost/plone/client/nl")

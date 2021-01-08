@@ -1,11 +1,10 @@
 from euphorie.content import MessageFactory as _
-from five import grok
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-from Products.CMFCore.utils import getToolByName
+from plone import api
+from plone.memoize.view import memoize
+from plone.memoize.view import memoize_contextless
 from Products.CMFPlone.utils import safe_unicode
-from zope.interface import Interface
+from Products.Five import BrowserView
 
-grok.templatedir("templates")
 
 TYPES_MAP = {
     "euphorie.documentation": u"Documentation",
@@ -22,51 +21,51 @@ TYPES_MAP = {
 SEARCHED_TYPES = TYPES_MAP.keys()
 
 
-class Search(grok.View):
-    grok.context(Interface)
-    grok.name("search")
-    grok.require("zope2.View")
-    grok.template("search")
-    grok.layer(NuPloneSkin)
-
-    def update(self):
+class Search(BrowserView):
+    @property
+    @memoize_contextless
+    def did_search(self):
         qs = self.request.form.get("q", None)
-        self.did_search = (qs is not None)
+        return qs is not None
+
+    @property
+    @memoize_contextless
+    def results(self):
+        qs = self.request.form.get("q", None)
         if not qs:
-            self.results = None
             return
 
-        query = dict(
-            SearchableText=qs, portal_type=SEARCHED_TYPES)
-        ct = getToolByName(self.context, "portal_catalog")
-        self.results = ct.searchResults(**query)
+        query = {"SearchableText": qs, "portal_type": SEARCHED_TYPES}
+        ct = api.portal.get_tool("portal_catalog")
+        return ct.searchResults(**query)
 
 
-class ContextSearch(grok.View):
-    grok.context(Interface)
-    grok.name("context-search")
-    grok.require("zope2.View")
-    grok.template("context_search")
-    grok.layer(NuPloneSkin)
-
-    def update(self):
+class ContextSearch(BrowserView):
+    @property
+    @memoize
+    def did_search(self):
         qs = self.request.form.get("q", None)
-        self.did_search = (qs is not None and qs.strip() != '')
+        return qs is not None and qs.strip() != ""
+
+    @property
+    @memoize
+    def results(self):
+        qs = self.request.form.get("q", None)
         if not qs:
-            self.results = None
             return
 
         qs = u'"{}*"'.format(safe_unicode(qs))
-        path = '/'.join(self.context.getPhysicalPath())
-        query = dict(
-            SearchableText=qs, portal_type=SEARCHED_TYPES, path=path)
+        path = "/".join(self.context.getPhysicalPath())
+        query = {"SearchableText": qs, "portal_type": SEARCHED_TYPES, "path": path}
 
-        ct = getToolByName(self.context, "portal_catalog")
+        ct = api.portal.get_tool("portal_catalog")
         brains = ct.searchResults(**query)
 
-        results = [
-            dict(
-                url=b.getURL(), title=b.Title,
-                typ=TYPES_MAP.get(b.portal_type, 'unknown'))
-            for b in brains]
-        self.results = results
+        return [
+            {
+                "url": brain.getURL(),
+                "title": brain.Title,
+                "typ": TYPES_MAP.get(brain.portal_type, "unknown"),
+            }
+            for brain in brains
+        ]

@@ -9,12 +9,13 @@ condition is met, that means, if the checkbox that it depends on is ticked.
 """
 
 from euphorie.content.user import BaseValidator
-from five import grok
 from htmllaundry.z3cform import HtmlText
 from plonetheme.nuplone.z3cform.directives import Dependency
 from z3c.form.interfaces import IForm
 from z3c.form.interfaces import IValidator
 from zope import schema
+from zope.component import adapter
+from zope.interface import implementer
 from zope.interface import Interface
 
 
@@ -30,10 +31,9 @@ class ConditionalHtmlText(HtmlText, ConditionalField):
     """ HTML Text field that is only shown under certain conditions """
 
 
-class ConditionalFieldValidator(grok.MultiAdapter, BaseValidator):
-    grok.implements(IValidator)
-    grok.adapts(Interface, Interface, IForm, ConditionalField, Interface)
-
+@implementer(IValidator)
+@adapter(Interface, Interface, IForm, ConditionalField, Interface)
+class ConditionalFieldValidator(BaseValidator):
     def validate(self, value):
         """
         Only validate for required if the condition for the field is met.
@@ -42,13 +42,12 @@ class ConditionalFieldValidator(grok.MultiAdapter, BaseValidator):
         """
         widget = self.widget
         dependencies = getattr(self.widget.field, "_dependencies", [])
-        dependencies = [
-            dep for dep in dependencies if isinstance(dep, Dependency)]
+        dependencies = [dep for dep in dependencies if isinstance(dep, Dependency)]
         if len(dependencies):
             widgets = widget.__parent__
             for dep in dependencies:
                 # We only care about "on" type dependencies
-                if dep.op != 'on':
+                if dep.op != "on":
                     continue
                 d_widget = widgets[dep.field]
                 d_value = self.request.get(d_widget.name)
