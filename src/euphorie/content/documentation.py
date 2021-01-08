@@ -10,8 +10,8 @@ portal_type: euphorie.documentation
 """
 
 from plone.app.dexterity.behaviors.metadata import IBasic
-from plone.directives import form
+from plone.supermodel import model
 
 
-class IDocumentationFolder(form.Schema, IBasic):
+class IDocumentationFolder(model.Schema, IBasic):
     """A folder for all documentation for a specific language"""

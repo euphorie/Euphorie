@@ -16,13 +16,14 @@ from Acquisition import aq_inner
 from euphorie.content import MessageFactory as _
 from euphorie.content.behaviors.toolcategory import IToolCategory
 from euphorie.content.utils import IToolTypesInfo
+from plone.autoform.form import AutoExtensibleForm
 from plone.dexterity.utils import createContentInContainer
-from plone.directives import form
 from plone.namedfile import field as filefield
 from plone.namedfile.file import NamedBlobImage
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.appconfig.interfaces import IAppConfig
 from z3c.form import button
+from z3c.form import form
 from z3c.form.interfaces import WidgetActionExecutionError
 from zope import schema
 from zope.component import getMultiAdapter
@@ -431,7 +432,7 @@ class SectorImporter(SurveyImporter):
         return root
 
 
-class ImportSurvey(form.SchemaForm):
+class ImportSurvey(AutoExtensibleForm, form.Form):
     """The upload view for a :obj:`euphorie.content.sector`
 
     View name: @@upload

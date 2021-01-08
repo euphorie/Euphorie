@@ -27,9 +27,10 @@ from euphorie.content.utils import IToolTypesInfo
 from htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
+from plone.autoform import directives
 from plone.dexterity.content import Container
-from plone.directives import form
 from plone.indexer import indexer
+from plone.supermodel import model
 from plonetheme.nuplone.z3cform.directives import depends
 from zope import schema
 from zope.component import getUtility
@@ -38,7 +39,7 @@ from zope.interface import implements
 import sys
 
 
-class ISurvey(form.Schema, IBasic):
+class ISurvey(model.Schema, IBasic):
     """Survey.
 
     The survey is the root of a survey.
@@ -53,9 +54,9 @@ class ISurvey(form.Schema, IBasic):
         ),
         required=True,
     )
-    form.order_before(title="*")
+    directives.order_before(title="*")
 
-    form.omitted("description")
+    directives.omitted("description")
 
     introduction = HtmlText(
         title=_("label_introduction", default=u"Introduction text"),
@@ -68,7 +69,7 @@ class ISurvey(form.Schema, IBasic):
         ),
         required=False,
     )
-    form.widget(introduction=WysiwygFieldWidget)
+    directives.widget(introduction=WysiwygFieldWidget)
 
     evaluation_optional = schema.Bool(
         title=_("label_evaluation_optional", default=u"Evaluation may be skipped"),
@@ -169,7 +170,7 @@ class ISurvey(form.Schema, IBasic):
         title=_("label_tool_notification", default=u"Tool notification message"),
         required=True,
     )
-    form.widget(tool_notification_message=WysiwygFieldWidget)
+    directives.widget(tool_notification_message=WysiwygFieldWidget)
 
 
 class SurveyAttributeField(ParentAttributeField):
@@ -265,7 +266,7 @@ def SearchableTextIndexer(obj):
     )
 
 
-class ISurveyAddSchema(form.Schema):
+class ISurveyAddSchema(model.Schema):
     title = schema.TextLine(
         title=_("label_survey_title", default=u"Version name"),
         description=_(

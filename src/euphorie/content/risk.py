@@ -7,7 +7,6 @@ An individual "question" about a risk that the user needs to answer.
 
 portal_type: euphorie.risk
 """
-
 from .. import MessageFactory as _
 from .behaviour.richdescription import IRichDescription
 from .behaviour.uniqueid import get_next_id
@@ -23,12 +22,13 @@ from euphorie.content.utils import ensure_image_size
 from htmllaundry.z3cform import HtmlText
 from plone import api
 from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.autoform import directives
 from plone.dexterity.content import Container
-from plone.directives import form
 from plone.indexer import indexer
 from plone.memoize.instance import memoize
 from plone.namedfile import field as filefield
 from plone.namedfile.interfaces import INamedBlobImageField
+from plone.supermodel import model
 from plonetheme.nuplone.z3cform.directives import depends
 from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
 from Products.statusmessages.interfaces import IStatusMessage
@@ -61,7 +61,7 @@ TextLines8Rows = FieldWidgetFactory(
 )
 
 
-class IRisk(form.Schema, IRichDescription, IBasic):
+class IRisk(model.Schema, IRichDescription, IBasic):
     """A possible risk that can be present in an organisation."""
 
     title = schema.TextLine(
@@ -73,8 +73,8 @@ class IRisk(form.Schema, IRichDescription, IBasic):
         ),
         required=True,
     )
-    form.widget(title="euphorie.content.risk.TextLines4Rows")
-    form.order_before(title="*")
+    directives.widget(title="euphorie.content.risk.TextLines4Rows")
+    directives.order_before(title="*")
 
     problem_description = schema.TextLine(
         title=_("label_problem_description", default=u"Negative statement"),
@@ -85,8 +85,8 @@ class IRisk(form.Schema, IRichDescription, IBasic):
         ),
         required=True,
     )
-    form.widget(problem_description="euphorie.content.risk.TextLines4Rows")
-    form.order_after(problem_description="title")
+    directives.widget(problem_description="euphorie.content.risk.TextLines4Rows")
+    directives.order_after(problem_description="title")
 
     description = HtmlText(
         title=_("label_description", default=u"Description"),
@@ -97,8 +97,8 @@ class IRisk(form.Schema, IRichDescription, IBasic):
         ),
         required=True,
     )
-    form.widget(description="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
-    form.order_after(description="problem_description")
+    directives.widget(description="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
+    directives.order_after(description="problem_description")
 
     existing_measures = TextLinesWithBreaks(
         title=_(
@@ -117,17 +117,17 @@ class IRisk(form.Schema, IRichDescription, IBasic):
         ),
         required=False,
     )
-    form.widget(existing_measures="euphorie.content.risk.TextLines8Rows")
-    form.order_after(existing_measures="description")
+    directives.widget(existing_measures="euphorie.content.risk.TextLines8Rows")
+    directives.order_after(existing_measures="description")
 
     legal_reference = HtmlText(
         title=_("label_legal_reference", default=u"Legal and policy references"),
         required=False,
     )
-    form.widget(legal_reference="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
-    form.order_after(legal_reference="description")
+    directives.widget(legal_reference="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
+    directives.order_after(legal_reference="description")
 
-    form.fieldset(
+    model.fieldset(
         "identification",
         label=_("header_identification", default=u"Identification"),
         fields=["show_notapplicable"],
@@ -239,7 +239,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
         default="low",
     )
 
-    form.fieldset(
+    model.fieldset(
         "main_image",
         label=_("header_main_image", default=u"Main image"),
         description=_(
@@ -264,7 +264,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
         title=_("label_caption", default=u"Image caption"), required=False
     )
 
-    form.fieldset(
+    model.fieldset(
         "secondary_images",
         label=_("header_secondary_images", default=u"Secondary images"),
         fields=["image2", "caption2", "image3", "caption3", "image4", "caption4"],
@@ -312,7 +312,7 @@ class IRisk(form.Schema, IRichDescription, IBasic):
         title=_("label_caption", default=u"Image caption"), required=False
     )
 
-    form.fieldset(
+    model.fieldset(
         "additional_content",
         label=_("header_additional_content", default=u"Additional content"),
         description=_(
@@ -409,7 +409,7 @@ validator.WidgetValidatorDiscriminators(
 )
 
 
-class IFrenchEvaluation(form.Schema):
+class IFrenchEvaluation(model.Schema):
     depends("default_severity", "type", "==", "risk")
     depends("default_severity", "evaluation_method", "==", "calculated")
     default_severity = schema.Choice(
@@ -475,7 +475,7 @@ class IFrenchEvaluation(form.Schema):
     )
 
 
-class IKinneyEvaluation(form.Schema):
+class IKinneyEvaluation(model.Schema):
     depends("default_probability", "type", "==", "risk")
     depends("default_probability", "evaluation_method", "==", "calculated")
     default_probability = schema.Choice(
@@ -559,7 +559,7 @@ class IKinneyEvaluation(form.Schema):
 
 
 class IKinneyRisk(IRisk, IKinneyEvaluation):
-    form.fieldset(
+    model.fieldset(
         "evaluation",
         label=_("header_evaluation", default=u"Evaluation"),
         description=_(
@@ -582,7 +582,7 @@ class IKinneyRisk(IRisk, IKinneyEvaluation):
 
 
 class IFrenchRisk(IRisk, IFrenchEvaluation):
-    form.fieldset(
+    model.fieldset(
         "evaluation",
         label=_("header_evaluation", default=u"Evaluation"),
         description=_(

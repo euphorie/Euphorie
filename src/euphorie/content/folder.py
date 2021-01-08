@@ -1,6 +1,6 @@
 from plone.app.dexterity.behaviors.metadata import IBasic
-from plone.directives import form
+from plone.supermodel import model
 
 
-class IFolder(form.Schema, IBasic):
+class IFolder(model.Schema, IBasic):
     pass

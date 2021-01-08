@@ -23,11 +23,12 @@ from euphorie.content.utils import ensure_image_size
 from htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
+from plone.autoform import directives
 from plone.dexterity.content import Container
-from plone.directives import form
 from plone.indexer import indexer
 from plone.namedfile import field as filefield
 from plone.namedfile.interfaces import INamedBlobImageField
+from plone.supermodel import model
 from plonetheme.nuplone.z3cform.directives import depends
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import validator
@@ -40,7 +41,7 @@ from zope.interface import Invalid
 import sys
 
 
-class IModule(form.Schema, IRichDescription, IBasic):
+class IModule(model.Schema, IRichDescription, IBasic):
     """Survey Module.
 
     A module is (hierarchical) grouping in a survey.
@@ -55,8 +56,8 @@ class IModule(form.Schema, IRichDescription, IBasic):
         ),
         required=False,
     )
-    form.widget(description=WysiwygFieldWidget)
-    form.order_after(description="title")
+    directives.widget(description=WysiwygFieldWidget)
+    directives.order_after(description="title")
 
     optional = schema.Bool(
         title=_("label_module_optional", default=u"This module is optional"),
@@ -105,9 +106,9 @@ class IModule(form.Schema, IRichDescription, IBasic):
         ),
         required=False,
     )
-    form.widget(solution_direction=WysiwygFieldWidget)
+    directives.widget(solution_direction=WysiwygFieldWidget)
 
-    form.fieldset(
+    model.fieldset(
         "additional_content",
         label=_("header_additional_content", default=u"Additional content"),
         description=_(

@@ -20,9 +20,10 @@ from .module import tree_depth
 from .utils import StripMarkup
 from euphorie.content.dependency import ConditionalTextLine
 from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.autoform import directives
 from plone.dexterity.content import Container
-from plone.directives import form
 from plone.indexer import indexer
+from plone.supermodel import model
 from plonetheme.nuplone.z3cform.directives import depends
 from zope import schema
 from zope.interface import implements
@@ -30,7 +31,7 @@ from zope.interface import implements
 import sys
 
 
-class IProfileQuestion(form.Schema, IRichDescription, IBasic):
+class IProfileQuestion(model.Schema, IRichDescription, IBasic):
     """Survey Profile question.
 
     A profile question is used to determine if parts of a survey should
@@ -44,7 +45,7 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
         ),
         required=True,
     )
-    form.widget(question="euphorie.content.risk.TextLines4Rows")
+    directives.widget(question="euphorie.content.risk.TextLines4Rows")
 
     use_location_question = schema.Bool(
         title=_(
@@ -72,7 +73,7 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
             u"offered in more than one location."
         ),
     )
-    form.widget(label_multiple_present="euphorie.content.risk.TextLines4Rows")
+    directives.widget(label_multiple_present="euphorie.content.risk.TextLines4Rows")
 
     depends("label_single_occurance", "use_location_question", "on")
     label_single_occurance = ConditionalTextLine(
@@ -82,7 +83,7 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
         ),
         required=True,
     )
-    form.widget(label_single_occurance="euphorie.content.risk.TextLines4Rows")
+    directives.widget(label_single_occurance="euphorie.content.risk.TextLines4Rows")
 
     depends("label_multiple_occurances", "use_location_question", "on")
     label_multiple_occurances = ConditionalTextLine(
@@ -92,7 +93,7 @@ class IProfileQuestion(form.Schema, IRichDescription, IBasic):
         ),
         required=True,
     )
-    form.widget(label_multiple_occurances="euphorie.content.risk.TextLines4Rows")
+    directives.widget(label_multiple_occurances="euphorie.content.risk.TextLines4Rows")
 
 
 class ProfileQuestion(Container):

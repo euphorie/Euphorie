@@ -8,15 +8,16 @@ A standard Solution that a user can select for a particular risk.
 
 from .. import MessageFactory as _
 from euphorie.content import utils
+from plone.autoform import directives
 from plone.dexterity.content import Item
-from plone.directives import form
 from plone.indexer import indexer
+from plone.supermodel import model
 from zope import schema
 from zope.i18n import translate
 from zope.interface import implements
 
 
-class ISolution(form.Schema):
+class ISolution(model.Schema):
     """A standard solution for a risk.
 
     Risk questions can have standard solutions that can be applied in
@@ -32,7 +33,7 @@ class ISolution(form.Schema):
         ),
         required=True,
     )
-    form.order_after(description="title")
+    directives.order_after(description="title")
 
     action_plan = schema.Text(
         title=_(

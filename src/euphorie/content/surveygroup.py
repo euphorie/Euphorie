@@ -11,8 +11,9 @@ from .. import MessageFactory as _
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.autoform import directives
 from plone.dexterity.content import Container
-from plone.directives import form
+from plone.supermodel import model
 from z3c.form.interfaces import IEditForm
 from zope import schema
 from zope.interface import implementer
@@ -25,7 +26,7 @@ import logging
 log = logging.getLogger(__name__)
 
 
-class ISurveyGroup(form.Schema, IBasic):
+class ISurveyGroup(model.Schema, IBasic):
     title = schema.TextLine(
         title=_("label_title", default=u"Title"),
         description=_(
@@ -35,9 +36,9 @@ class ISurveyGroup(form.Schema, IBasic):
         ),
         required=True,
     )
-    form.order_before(title="*")
+    directives.order_before(title="*")
 
-    form.omitted("description")
+    directives.omitted("description")
 
     obsolete = schema.Bool(
         title=_("label_survey_obsolete", default=u"Obsolete OiRA tool"),
@@ -50,7 +51,7 @@ class ISurveyGroup(form.Schema, IBasic):
         required=False,
     )
 
-    form.omitted(IEditForm, "evaluation_algorithm")
+    directives.omitted(IEditForm, "evaluation_algorithm")
     evaluation_algorithm = schema.Choice(
         title=_("label_survey_evaluation_algorithm", default=u"Evaluation algorithm"),
         vocabulary=SimpleVocabulary(

@@ -24,11 +24,11 @@ from euphorie.content.user import IUser
 from euphorie.content.user import UserProvider
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.layout.navigation.interfaces import INavigationRoot
+from plone.autoform import directives
 from plone.dexterity.content import Container
-from plone.directives import dexterity
-from plone.directives import form
 from plone.indexer import indexer
 from plone.namedfile import field as filefield
+from plone.supermodel import model
 from plone.uuid.interfaces import IAttributeUUID
 from plonetheme.nuplone.utils import checkPermission
 from Products.CMFCore.utils import getToolByName
@@ -44,29 +44,29 @@ import logging
 log = logging.getLogger(__name__)
 
 
-class ISector(form.Schema, IUser, IBasic):
+class ISector(model.Schema, IUser, IBasic):
     """Sector object.
 
     A sector is a national organisation for a specific type of
     industry.
     """
 
-    form.order_before(title="*")
-    dexterity.write_permission(title="euphorie.content.ManageCountry")
+    directives.order_before(title="*")
+    directives.write_permission(title="euphorie.content.ManageCountry")
 
-    form.order_after(login="title")
-    dexterity.write_permission(login="euphorie.content.ManageCountry")
+    directives.order_after(login="title")
+    directives.write_permission(login="euphorie.content.ManageCountry")
 
-    form.order_before(password="description")
+    directives.order_before(password="description")
 
-    form.order_after(locked="password")
-    dexterity.write_permission(locked="euphorie.content.ManageCountry")
+    directives.order_after(locked="password")
+    directives.write_permission(locked="euphorie.content.ManageCountry")
 
     contact_name = schema.TextLine(
         title=_("label_contact_name", default=u"Contact name"), required=True
     )
 
-    form.order_after(contact_email="contact_name")
+    directives.order_after(contact_email="contact_name")
 
     logo = filefield.NamedBlobImage(
         title=_("label_logo", default=u"Logo"),

@@ -14,15 +14,15 @@ from euphorie.content.country import ICountry
 from euphorie.content.user import IUser
 from euphorie.content.user import UserProvider
 from plone.dexterity.content import Item
-from plone.directives import form
 from plone.indexer import indexer
+from plone.supermodel import model
 from plone.uuid.interfaces import IAttributeUUID
 from Products.CMFCore.utils import getToolByName
 from zope.component import adapter
 from zope.interface import implementer
 
 
-class ICountryManager(form.Schema, IUser):
+class ICountryManager(model.Schema, IUser):
     """A country manager is responsible for managing sectors in their country."""
 
 

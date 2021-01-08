@@ -10,7 +10,6 @@
     <include package="plone.app.z3cform" />
     <include package="plone.namedfile" />
     <include package="plone.formwidget.namedfile" />
-    <include package="plone.directives.dexterity" />
     <include package="plone.app.dexterity" />
     <include package="plone.app.vocabularies" />
     <include package="plone.uuid" />

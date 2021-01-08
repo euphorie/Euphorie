@@ -13,8 +13,8 @@ from Acquisition import aq_chain
 from p01.widget.password.interfaces import IPasswordConfirmationWidget
 from p01.widget.password.widget import PasswordConfirmationValidator
 from plone import api
-from plone.directives import dexterity
-from plone.directives import form
+from plone.autoform import directives
+from plone.supermodel import model
 from plone.uuid.interfaces import IUUID
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.membrane.interfaces import user as membrane
@@ -74,7 +74,7 @@ class LoginField(schema.TextLine):
     """A login name."""
 
 
-class IUser(form.Schema):
+class IUser(model.Schema):
     title = schema.TextLine(title=_("label_user_title", default=u"Name"), required=True)
 
     contact_email = schema.TextLine(
@@ -86,7 +86,7 @@ class IUser(form.Schema):
         required=True,
         constraint=validLoginValue,
     )
-    dexterity.write_permission(login="euphorie.content.ManageCountry")
+    directives.write_permission(login="euphorie.content.ManageCountry")
 
     password = schema.Password(
         title=_("label_password", default=u"Password"), required=True
@@ -97,7 +97,7 @@ class IUser(form.Schema):
         required=False,
         default=False,
     )
-    dexterity.write_permission(locked="euphorie.content.ManageCountry")
+    directives.write_permission(locked="euphorie.content.ManageCountry")
 
 
 class BaseValidator(SimpleFieldValidator):

@@ -52,8 +52,6 @@ setup(
         "plone.app.z3cform",
         "plone.behavior >=1.0b4",
         "plone.dexterity >=1.0b6",
-        "plone.directives.dexterity",
-        "plone.directives.form",
         "plone.formwidget.namedfile",
         "plone.memoize",
         "plone.namedfile[blobs]",

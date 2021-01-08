@@ -13,11 +13,12 @@ from .. import MessageFactory as _
 from euphorie.content.utils import StripMarkup
 from htmllaundry.z3cform import HtmlText
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
-from plone.directives import form
+from plone.autoform import directives
 from plone.indexer import indexer
+from plone.supermodel import model
 
 
-class IOnlineHelp(form.Schema):
+class IOnlineHelp(model.Schema):
     introduction = HtmlText(
         title=_("label_help_introduction", default=u"Introduction"),
         description=_(
@@ -25,7 +26,7 @@ class IOnlineHelp(form.Schema):
         ),
         required=True,
     )
-    form.widget(introduction=WysiwygFieldWidget)
+    directives.widget(introduction=WysiwygFieldWidget)
 
     authentication = HtmlText(
         title=_("label_help_authentication", default=u"Registration"),
@@ -35,7 +36,7 @@ class IOnlineHelp(form.Schema):
         ),
         required=True,
     )
-    form.widget(authentication=WysiwygFieldWidget)
+    directives.widget(authentication=WysiwygFieldWidget)
 
     sessions = HtmlText(
         title=_("label_help_sessions", default=u"Carrying out your risk assessment"),
@@ -45,7 +46,7 @@ class IOnlineHelp(form.Schema):
         ),
         required=True,
     )
-    form.widget(sessions=WysiwygFieldWidget)
+    directives.widget(sessions=WysiwygFieldWidget)
 
     preparation = HtmlText(
         title=_("label_help_preparation", default=u"1. Preparation"),
@@ -55,7 +56,7 @@ class IOnlineHelp(form.Schema):
         ),
         required=True,
     )
-    form.widget(preparation=WysiwygFieldWidget)
+    directives.widget(preparation=WysiwygFieldWidget)
 
     identification = HtmlText(
         title=_("label_help_identification", default=u"2. Identification"),
@@ -65,7 +66,7 @@ class IOnlineHelp(form.Schema):
         ),
         required=True,
     )
-    form.widget(identification=WysiwygFieldWidget)
+    directives.widget(identification=WysiwygFieldWidget)
 
     evaluation = HtmlText(
         title=_("label_help_evaluation", default=u"3. Evaluation"),
@@ -75,7 +76,7 @@ class IOnlineHelp(form.Schema):
         ),
         required=True,
     )
-    form.widget(evaluation=WysiwygFieldWidget)
+    directives.widget(evaluation=WysiwygFieldWidget)
 
     actionplan = HtmlText(
         title=_("label_help_actionplan", default=u"4. Action Plan"),
@@ -85,7 +86,7 @@ class IOnlineHelp(form.Schema):
         ),
         required=True,
     )
-    form.widget(actionplan=WysiwygFieldWidget)
+    directives.widget(actionplan=WysiwygFieldWidget)
 
     report = HtmlText(
         title=_("label_help_reports", default=u"5. Report"),
@@ -95,14 +96,14 @@ class IOnlineHelp(form.Schema):
         ),
         required=True,
     )
-    form.widget(report=WysiwygFieldWidget)
+    directives.widget(report=WysiwygFieldWidget)
 
     finalwords = HtmlText(
         title=_("label_help_finalwords", default=u"What happens next?"),
         description=_("help_finalwords", default=u"General final recommendations."),
         required=True,
     )
-    form.widget(finalwords=WysiwygFieldWidget)
+    directives.widget(finalwords=WysiwygFieldWidget)
 
 
 @indexer(IOnlineHelp)

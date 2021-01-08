@@ -42,7 +42,6 @@ class ViewTests(EuphorieIntegrationTestCase):
             provides=Interface,
             name="plone_context_state",
         )
-        # grok makes unit testing extremely painful
         SurveyView.__view_name__ = "View"
         SurveyView.module_info = Mock()
         SurveyView.module_info.package_dotted_name = (
