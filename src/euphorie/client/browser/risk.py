@@ -30,8 +30,6 @@ from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from sqlalchemy import and_
-from z3c.appconfig.interfaces import IAppConfig
-from z3c.appconfig.utils import asBool
 from z3c.saconfig import Session
 from zope.component import getUtility
 from zope.publisher.interfaces import NotFound
@@ -532,12 +530,12 @@ class IdentificationView(RiskBase):
             return
 
     def set_parameter_values(self):
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get("euphorie")
         self.tti = getUtility(IToolTypesInfo)
         self.my_tool_type = get_tool_type(self.survey)
         self.use_existing_measures = (
-            asBool(settings.get("use_existing_measures", False))
+            api.portal.get_registry_record(
+                "euphorie.use_existing_measures", default=False
+            )
             and self.my_tool_type in self.tti.types_existing_measures
         )
 
@@ -1044,12 +1042,12 @@ class ActionPlanView(RiskBase):
         context = aq_inner(self.context)
         utils.setLanguage(self.request, self.survey, self.survey.language)
 
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get("euphorie")
         self.tti = getUtility(IToolTypesInfo)
         self.my_tool_type = get_tool_type(self.survey)
         self.use_existing_measures = (
-            asBool(settings.get("use_existing_measures", False))
+            api.portal.get_registry_record(
+                "euphorie.use_existing_measures", default=False
+            )
             and self.my_tool_type in self.tti.types_existing_measures
         )
 

@@ -53,27 +53,8 @@ see the article `installing an add-on product`_ in the Plone knowledge base.
 Configuration
 -------------
 
-Euphorie uses `z3c.appconfig <http://pypi.python.org/pypi/z3c.appconfig>`_ to
-handle application configuration. All values are stored in the ``euphorie``
-section. For example::
-
-  [euphorie]
-  client=http://oira.example.com
-
-The available options are:
-
-. table:: configuration options
-
-   +--------------------------+---------------------------------------+
-   | options                  | Description                           |
-   +==========================+=======================================+
-   | ``client``               | URL for the client (see also          |
-   |                          | :ref:`Virtual hosting`.               |
-   +--------------------------+---------------------------------------+
-   | ``terms-and-conditions`` | Boolean flag indicating it the client |
-   |                          | must ask users to accept the terms    |
-   |                          | and conditions of the site.           |
-   +--------------------------+---------------------------------------+
+Euphorie uses the portal registry to store the configuration.
+All values are stored in keys like ``euphorie.*``.
 
 Google analytics
 ----------------
@@ -82,17 +63,25 @@ Euphorie includes complete Google Analytics support. To enable this you
 will need to configure the GA account, and optionally the domain name to
 use. This must be done separately for the CMS and the client.
 
+For example add the registry records:
 ::
 
-    [tile:footer]
-    type=analytics
-    account=UA-111111-1
-    domain=.example.com
-
-    [tile:client-analytics]
-    type=analytics
-    account=UA-111111-1
-    domain=.example.com
+  <record name="plonetheme.nuplone.appconfigtile_client-analytics">
+    <field type="plone.registry.field.Text">
+      <title i18n:translate="">Configure the client-analytics tile</title>
+      <description i18n:translate="">Some json to configure the client-analytics tile</description>
+      <value_type type="plone.registry.field.TextLine" />
+    </field>
+    <value purge="false">{"type": "analytics", "account": "UA-111111-1", "domain": ".example.com"}</value>
+  </record>
+  <record name="plonetheme.nuplone.appconfigtile_client-analytics">
+    <field type="plone.registry.field.Text">
+      <title i18n:translate="">Configure the client-analytics tile</title>
+      <description i18n:translate="">Some json to configure the client-analytics tile</description>
+      <value_type type="plone.registry.field.TextLine" />
+    </field>
+    <value purge="false">{"type": "analytics", "account": "UA-111111-1", "domain": ".example.com"}</value>
+  </record>
 
 
 SQL database
@@ -166,11 +155,7 @@ configuration::
   </VirtualHost>
 
 
-You will also need to configure the URL for the client in the ``euphorie.ini`` file::
-
-  [euphorie]
-  client=http://oira.example.com
-
+You will also need to configure the URL for the client in the ``euphorie.client_url`` registry record.
 
 
 .. _Plone: http://plone.org/
@@ -180,4 +165,3 @@ You will also need to configure the URL for the client in the ``euphorie.ini`` f
 .. _psycopg: http://initd.org/psycopg/
 .. _configuring Plone with Apache: http://plone.org/documentation/kb/plone-with-apache
 .. _configuring Plone with Enfold Proxy on Windows: http://plone.org/documentation/kb/managing-your-plone-sites-in-windows-with-enfold-proxy
-

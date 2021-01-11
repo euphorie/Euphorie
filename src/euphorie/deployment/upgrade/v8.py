@@ -12,8 +12,6 @@ from plone import api
 from plone.dexterity import utils
 from sqlalchemy.engine.reflection import Inspector
 from sqlalchemy.exc import InternalError
-from z3c.appconfig.interfaces import IAppConfig
-from z3c.appconfig.utils import asBool
 from z3c.form.interfaces import IDataManager
 from z3c.saconfig import Session
 from zope.sqlalchemy import datamanager
@@ -119,8 +117,7 @@ def enable_longer_zodb_paths(context):
 
 def enable_custom_risks_on_all_modules(context):
     """ """
-    appconfig = zope.component.getUtility(IAppConfig)
-    if not asBool(appconfig["euphorie"].get("allow_user_defined_risks")):
+    if not api.portal.get_registry_record("euphorie.allow_user_defined_risks"):
         log.warning(
             "Custom risks are not enabled. Set 'allow_user_defined_risks' to "
             "true in euphorie.ini for enabling them."

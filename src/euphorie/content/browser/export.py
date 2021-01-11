@@ -23,9 +23,8 @@ from euphorie.content.survey import get_tool_type
 from euphorie.content.utils import StripMarkup
 from euphorie.content.utils import StripUnwanted
 from lxml import etree
+from plone import api
 from Products.Five import BrowserView
-from z3c.appconfig.interfaces import IAppConfig
-from zope.component import getUtility
 
 
 def getToken(field, value, default=None):
@@ -46,14 +45,10 @@ class ExportSurvey(BrowserView):
 
     def __init__(self, context, request):
         super(ExportSurvey, self).__init__(context, request)
+        self.use_existing_measures = api.portal.get_registry_record(
+            "euphorie.use_existing_measures", default=False
+        )
         nsmap = NSMAP.copy()
-        try:
-            appconfig = getUtility(IAppConfig)
-            settings = appconfig.get("euphorie")
-            self.use_existing_measures = settings.get("use_existing_measures", False)
-        except Exception:
-            self.use_existing_measures = False
-
         del nsmap[None]
 
     def exportImage(self, parent, image, caption=None):

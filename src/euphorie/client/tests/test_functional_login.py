@@ -7,8 +7,8 @@ from euphorie.client.tests.utils import MockMailFixture
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
-from z3c.appconfig.interfaces import IAppConfig
-from zope import component
+from plone import api
+from transaction import commit
 from zope.interface import alsoProvides
 
 import datetime
@@ -23,9 +23,8 @@ class GuestAccountTests(EuphorieFunctionalTestCase):
         self.logout()
         alsoProvides(self.portal.client.REQUEST, IClientSkinLayer)
         browser = self.get_browser()
-        appconfig = component.getUtility(IAppConfig)
-        allow_guest_accounts = appconfig["euphorie"].get("allow_guest_accounts", False)
-        appconfig["euphorie"]["allow_guest_accounts"] = True
+        api.portal.set_registry_record("euphorie.allow_guest_accounts", True)
+        commit()
         browser.open(self.portal.client.nl.absolute_url())
         self.assertTrue(re.search("run a test session", browser.contents) is not None)
         # No valid survey path is passed in came_from
@@ -39,7 +38,6 @@ class GuestAccountTests(EuphorieFunctionalTestCase):
         # Therefore we land on the "start new session" page
         self.assertTrue("Test session" in browser.contents)
         self.assertTrue("Start a new session" in browser.contents)
-        appconfig["euphorie"]["allow_guest_accounts"] = allow_guest_accounts
 
     def test_guest_login_with_valid_survey(self):
         self.loginAsPortalOwner()
@@ -47,9 +45,8 @@ class GuestAccountTests(EuphorieFunctionalTestCase):
         self.logout()
         alsoProvides(self.portal.client.REQUEST, IClientSkinLayer)
         browser = self.get_browser()
-        appconfig = component.getUtility(IAppConfig)
-        allow_guest_accounts = appconfig["euphorie"].get("allow_guest_accounts", False)
-        appconfig["euphorie"]["allow_guest_accounts"] = True
+        api.portal.set_registry_record("euphorie.allow_guest_accounts", True)
+        commit()
         browser.open(self.portal.client.nl.absolute_url())
         self.assertTrue(re.search("run a test session", browser.contents) is not None)
         url = "{}/ict/software-development".format(self.portal.client.nl.absolute_url())
@@ -58,7 +55,6 @@ class GuestAccountTests(EuphorieFunctionalTestCase):
         # Therefore we land on the start page of the survey
         self.assertTrue("Test session" in browser.contents)
         self.assertTrue("<h1>Software development</h1>" in browser.contents)
-        appconfig["euphorie"]["allow_guest_accounts"] = allow_guest_accounts
 
 
 class LoginTests(EuphorieFunctionalTestCase):

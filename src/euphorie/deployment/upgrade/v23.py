@@ -4,12 +4,9 @@ from euphorie.client.browser.publish import EnableCustomRisks
 from euphorie.client.country import IClientCountry
 from euphorie.client.sector import IClientSector
 from plone import api
-from z3c.appconfig.interfaces import IAppConfig
-from z3c.appconfig.utils import asBool
 
 import datetime
 import logging
-import zope.component
 
 
 log = logging.getLogger(__name__)
@@ -17,8 +14,7 @@ log = logging.getLogger(__name__)
 
 def update_custom_risks_module_texts(context):
     """ """
-    appconfig = zope.component.getUtility(IAppConfig)
-    if not asBool(appconfig["euphorie"].get("allow_user_defined_risks")):
+    if not api.portal.get_registry_record("euphorie.allow_user_defined_risks"):
         log.warning(
             "Custom risks are not enabled. Set 'allow_user_defined_risks' to "
             "true in euphorie.ini for enabling them."

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="euphorie"
+>
+  <record field="email_from_address"
+          interface="Products.CMFPlone.interfaces.IMailSchema"
+          name="plone.email_from_address"
+  >
+    <value>discard@simplon.biz</value>
+  </record>
+  <record field="email_from_name"
+          interface="Products.CMFPlone.interfaces.IMailSchema"
+          name="plone.email_from_name"
+  >
+    <value>Euphorie website</value>
+  </record>
+  <record field="site_title"
+          interface="Products.CMFPlone.interfaces.ISiteSchema"
+          name="plone.site_title"
+  >
+    <value>OiRA</value>
+  </record>
+  <record name="euphorie">
+    <field type="plone.registry.field.Text">
+      <title i18n:translate="">Euphorie configuration</title>
+      <description i18n:translate="">Some json to configure this euphorie installation</description>
+      <value_type type="plone.registry.field.TextLine" />
+    </field>
+    <value purge="false">{"client": "http://localhost:8080/Plone/client/"}</value>
+  </record>
+  <record name="plonetheme.nuplone.appconfigtile_navigation">
+    <field type="plone.registry.field.Text">
+      <title i18n:translate="">Configure the navigation tile</title>
+      <description i18n:translate="">Some json to configure the navigation tile</description>
+      <value_type type="plone.registry.field.TextLine" />
+    </field>
+    <value purge="false">{
+  "tiles": "\nnavtree [context.portal_type in ['euphorie.profilequestion', 'euphorie.module', 'euphorie.risk', 'euphorie.solution', 'euphorie.survey', 'euphorie.surveygroup', 'euphorie.folder', 'euphorie.documentation', 'euphorie.help', 'euphorie.page'] ]\neuphorie.usermgmt.navtree [context.portal_type=='euphorie.country' and request.getURL().endswith('@@manage-users')]",
+  "type": "group"
+}</value>
+  </record>
+
+  <record name="plonetheme.nuplone.appconfigtile_actions">
+    <field type="plone.registry.field.Text">
+      <title i18n:translate="">Configure the actions tile</title>
+      <description i18n:translate="">Some json to configure the actions tile</description>
+      <value_type type="plone.registry.field.TextLine" />
+    </field>
+    <value purge="false">{
+  "tiles": "\neuphorie.search\neuphorie.versions [view_type==\"view\" and context.portal_type in ['euphorie.module', 'euphorie.risk', 'euphorie.solution', 'euphorie.survey', 'euphorie.surveygroup'] ]\nlanguage",
+  "type": "group",
+  "id": "portlets",
+  "wrapper": "div"
+}</value>
+  </record>
+  <record name="plonetheme.nuplone.appconfigtile_scripts">
+    <field type="plone.registry.field.Text">
+      <title i18n:translate="">Configure the scripts tile</title>
+      <description i18n:translate="">Some json to configure the scripts tile</description>
+      <value_type type="plone.registry.field.TextLine" />
+    </field>
+    <value purge="false">{
+  "tiles": "\neuphorie.scripts",
+  "type": "group"
+}</value>
+  </record>
+  <record name="plonetheme.nuplone.appconfigtile_client-analytics">
+    <field type="plone.registry.field.Text">
+      <title i18n:translate="">Configure the client-analytics tile</title>
+      <description i18n:translate="">Some json to configure the client-analytics tile</description>
+      <value_type type="plone.registry.field.TextLine" />
+    </field>
+    <value purge="false">{"type": "analytics", "account": "UA-111111-1"}</value>
+  </record>
+</registry>

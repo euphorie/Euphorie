@@ -16,12 +16,12 @@ from Acquisition import aq_inner
 from euphorie.content import MessageFactory as _
 from euphorie.content.behaviors.toolcategory import IToolCategory
 from euphorie.content.utils import IToolTypesInfo
+from plone import api
 from plone.autoform.form import AutoExtensibleForm
 from plone.dexterity.utils import createContentInContainer
 from plone.namedfile import field as filefield
 from plone.namedfile.file import NamedBlobImage
 from Products.statusmessages.interfaces import IStatusMessage
-from z3c.appconfig.interfaces import IAppConfig
 from z3c.form import button
 from z3c.form import form
 from z3c.form.interfaces import WidgetActionExecutionError
@@ -158,9 +158,9 @@ class SurveyImporter(object):
 
     def __init__(self, context):
         self.context = context
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get("euphorie")
-        self.use_existing_measures = settings.get("use_existing_measures", False)
+        self.use_existing_measures = api.portal.get_registry_record(
+            "euphorie.use_existing_measures"
+        )
 
     def ImportImage(self, node):
         """

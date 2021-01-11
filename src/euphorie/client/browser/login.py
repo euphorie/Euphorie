@@ -9,7 +9,6 @@ existing guest accounts to normal accounts.
 from ..country import IClientCountry
 from ..utils import setLanguage
 from .conditions import approvedTermsAndConditions
-from .conditions import checkTermsAndConditions
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
@@ -26,10 +25,7 @@ from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
-from z3c.appconfig.interfaces import IAppConfig
-from z3c.appconfig.utils import asBool
 from z3c.saconfig import Session
-from zope import component
 
 import cgi
 import datetime
@@ -108,10 +104,9 @@ class Login(BrowserView):
             came_from = aq_parent(context).absolute_url()
 
         account = get_current_account()
-        appconfig = component.getUtility(IAppConfig)
-        settings = appconfig.get("euphorie")
-        self.allow_guest_accounts = asBool(settings.get("allow_guest_accounts", False))
-
+        self.allow_guest_accounts = api.portal.get_registry_record(
+            "euphorie.allow_guest_accounts", default=False
+        )
         lang = api.portal.get_current_language()
         self.show_whofor = False if lang in ("fr",) else True
         self.show_what_to_do = False if lang in ("fr",) else True
@@ -137,9 +132,9 @@ class Login(BrowserView):
                 )
                 trigger_extra_pageview(self.request, v_url)
 
-                if checkTermsAndConditions() and not approvedTermsAndConditions(
-                    account
-                ):
+                if api.portal.get_registry_record(
+                    "euphorie.terms_and_conditions", default=False
+                ) and not approvedTermsAndConditions(account):
                     self.request.RESPONSE.redirect(
                         "%s/terms-and-conditions?%s"
                         % (
@@ -212,9 +207,9 @@ class CreateTestSession(Tryout):
     """
 
     def __call__(self):
-        appconfig = component.getUtility(IAppConfig)
-        settings = appconfig.get("euphorie")
-        self.allow_guest_accounts = asBool(settings.get("allow_guest_accounts", False))
+        self.allow_guest_accounts = api.portal.get_registry_record(
+            "euphorie.allow_guest_accounts", default=False
+        )
         context = aq_inner(self.context)
         came_from = self.request.form.get("came_from")
         if came_from:
@@ -340,7 +335,9 @@ class Register(BrowserView):
         if not came_from:
             came_from = country_url
 
-        if checkTermsAndConditions():
+        if api.portal.get_registry_record(
+            "euphorie.terms_and_conditions", default=False
+        ):
             self.request.response.redirect(
                 "%s/terms-and-conditions?%s"
                 % (

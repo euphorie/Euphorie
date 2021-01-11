@@ -69,7 +69,6 @@ setup(
         "NuPlone >=1.999999",
         "plone.uuid",
         "pyrtf-ng",
-        "z3c.appconfig >=1.0",
         "openpyxl",
         "Chameleon >=2.12",
     ],

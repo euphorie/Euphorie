@@ -35,12 +35,10 @@ from Products.CMFPlone import PloneLocalesMessageFactory
 from Products.Five import BrowserView
 from sqlalchemy import sql
 from sqlalchemy.orm import object_session
-from z3c.appconfig.interfaces import IAppConfig
 from z3c.form.form import EditForm
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
 from zope import schema
-from zope.component import getUtility
 from zope.event import notify
 from zope.i18n import translate
 from zope.lifecycleevent import ObjectModifiedEvent
@@ -455,9 +453,9 @@ class ContentsPreview(BrowserView):
 
     @property
     def extra_text(self):
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get("euphorie")
-        have_extra = settings.get("extra_text_identification", False)
+        have_extra = api.portal.get_registry_record(
+            "euphorie.extra_text_identification", default=u""
+        )
         if not have_extra:
             return None
         return api.portal.translate(_(u"extra_text_identification", default=u""))
@@ -577,9 +575,9 @@ class Identification(SessionMixin, BrowserView):
 
     @property
     def extra_text(self):
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get("euphorie")
-        have_extra = settings.get("extra_text_identification", False)
+        have_extra = api.portal.get_registry_record(
+            "euphorie.extra_text_identification", default=u""
+        )
         if not have_extra:
             return None
         lang = getattr(self.request, "LANGUAGE", "en")
