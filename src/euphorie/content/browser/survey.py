@@ -9,6 +9,7 @@ from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.content import MessageFactory as _
 from OFS.event import ObjectClonedEvent
+from plone import api
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm
@@ -17,10 +18,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
-from z3c.appconfig.interfaces import IAppConfig
 from ZODB.POSException import ConflictError
 from zope.component import getMultiAdapter
-from zope.component import getUtility
 from zope.container.interfaces import INameChooser
 from zope.event import notify
 
@@ -105,9 +104,9 @@ class EditForm(DefaultEditForm):
 
     def updateWidgets(self):
         super(EditForm, self).updateWidgets()
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get("euphorie")
-        if not settings.get("use_integrated_action_plan", False):
+        if not api.portal.get_registry_record(
+            "euphorie.use_integrated_action_plan", default=False
+        ):
             self.widgets["integrated_action_plan"].mode = "hidden"
 
 

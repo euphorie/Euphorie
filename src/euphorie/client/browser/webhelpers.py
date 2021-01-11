@@ -37,8 +37,6 @@ from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
-from z3c.appconfig.interfaces import IAppConfig
-from z3c.appconfig.utils import asBool
 from ZODB.POSException import POSKeyError
 from zope.component import getMultiAdapter
 from zope.component import getUtility
@@ -130,44 +128,52 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
-    def _settings(self):
-        appconfig = getUtility(IAppConfig)
-        return appconfig.get("euphorie")
-
-    @property
-    @memoize
     def allow_social_sharing(self):
-        return asBool(self._settings.get("allow_social_sharing", False))
+        return api.portal.get_registry_record(
+            "euphorie.allow_social_sharing", default=False
+        )
 
     @property
     @memoize
     def allow_guest_accounts(self):
-        return asBool(self._settings.get("allow_guest_accounts", False))
+        return api.portal.get_registry_record(
+            "euphorie.allow_guest_accounts", default=False
+        )
 
     @property
     @memoize
     def use_involve_phase(self):
-        return asBool(self._settings.get("use_involve_phase", False))
+        return api.portal.get_registry_record(
+            "euphorie.use_involve_phase", default=False
+        )
 
     @property
     @memoize
     def use_training_module(self):
-        return asBool(self._settings.get("use_training_module", False))
+        return api.portal.get_registry_record(
+            "euphorie.use_training_module", default=False
+        )
 
     @property
     @memoize
     def use_publication_feature(self):
-        return asBool(self._settings.get("use_publication_feature", False))
+        return api.portal.get_registry_record(
+            "euphorie.use_publication_feature", default=False
+        )
 
     @property
     @memoize
     def use_clone_feature(self):
-        return asBool(self._settings.get("use_clone_feature", False))
+        return api.portal.get_registry_record(
+            "euphorie.use_clone_feature", default=False
+        )
 
     @property
     @memoize
     def use_archive_feature(self):
-        return asBool(self._settings.get("use_archive_feature", False))
+        return api.portal.get_registry_record(
+            "euphorie.use_archive_feature", default=False
+        )
 
     @property
     @memoize
@@ -178,7 +184,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def default_country(self):
-        return self._settings.get("default_country", "")
+        return api.portal.get_registry_record("euphorie.default_country", default=u"")
 
     @property
     @memoize
@@ -685,7 +691,9 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def integrated_action_plan(self):
-        if not asBool(self._settings.get("use_integrated_action_plan", False)):
+        if not api.portal.get_registry_record(
+            "euphorie.use_integrated_action_plan", default=False
+        ):
             return False
         return getattr(self._survey, "integrated_action_plan", False)
 

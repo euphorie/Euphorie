@@ -16,7 +16,6 @@ from pkg_resources import resource_filename
 from plone import api
 from plone.memoize.view import memoize
 from plonetheme.nuplone.utils import formatDate
-from z3c.appconfig.interfaces import IAppConfig
 from zope.component import getUtility
 from zope.i18n import translate
 
@@ -188,9 +187,9 @@ class DocxCompiler(BaseOfficeCompiler):
         self.context = context
         self.request = request
         self.template = Document(self._template_filename)
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get("euphorie")
-        self.use_existing_measures = settings.get("use_existing_measures", False)
+        self.use_existing_measures = api.portal.get_registry_record(
+            "euphorie.use_existing_measures", default=False
+        )
         self.tool_type = get_tool_type(self.webhelpers._survey)
         self.tti = getUtility(IToolTypesInfo)
         self.italy_special = self.webhelpers.country == "it"

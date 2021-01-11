@@ -14,6 +14,7 @@ from Acquisition import aq_parent
 from Acquisition.interfaces import IAcquirer
 from euphorie.content.survey import get_tool_type
 from euphorie.content.utils import IToolTypesInfo
+from plone import api
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm
@@ -21,7 +22,6 @@ from plone.dexterity.interfaces import IDexterityFTI
 from plone.memoize.instance import memoize
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
-from z3c.appconfig.interfaces import IAppConfig
 from z3c.form.form import applyChanges
 from zope.component import createObject
 from zope.component import getUtility
@@ -185,9 +185,9 @@ class EditForm(DefaultEditForm):
 
     @property
     def use_existing_measures(self):
-        appconfig = getUtility(IAppConfig)
-        settings = appconfig.get("euphorie")
-        return settings.get("use_existing_measures", False)
+        return api.portal.get_registry_record(
+            "euphorie.use_existing_measures", default=False
+        )
 
     @property
     def tool_type(self):
