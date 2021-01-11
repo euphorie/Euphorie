@@ -37,8 +37,6 @@ class RemoveArchetypesLeftovers(UpgradeStep):
 
         # reapply uninstall to get rid of IATCTTool component
         try:
-            loadMigrationProfile(
-                self.context, "profile-Products.ATContentTypes:uninstall"
-            )
+            loadMigrationProfile(portal, "profile-Products.ATContentTypes:uninstall")
         except KeyError:
             pass
