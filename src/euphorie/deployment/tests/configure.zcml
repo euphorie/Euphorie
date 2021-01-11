@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="euphorie">
+
+    <genericsetup:registerProfile
+      name="testing"
+      title="Euphorie testing profile"
+      directory="profiles/testing"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      i18n:attributes="title"
+      />
+
+</configure>

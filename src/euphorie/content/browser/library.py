@@ -19,7 +19,7 @@ from plone.i18n.normalizer.interfaces import IIDNormalizer
 from plonetheme.nuplone.utils import getPortal
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
-from z3c.appconfig.interfaces import IAppConfig
+from Products.PortalTransforms.utils import safe_nativestring
 from zExceptions import NotFound
 from zope.component import getUtility
 from zope.event import notify
@@ -46,13 +46,17 @@ def is_allowed(context, item):
 
 
 def get_library(context):
-    """Get a list of sectors, based on the configuration in euphorie.ini
+    """Get a list of sectors, based on the the euphorie.library registry record
 
     :returns: A list of dicts with details for sectors
     :rtype: list
     """
-    config = getUtility(IAppConfig).get("euphorie", {})
-    paths = [path.lstrip("/") for path in config.get("library", "").split()]
+    paths = [
+        path.lstrip("/")
+        for path in safe_nativestring(
+            api.portal.get_registry_record("euphorie.library", default="")
+        ).split()
+    ]
     if not paths:
         return []
     site = getPortal(context)

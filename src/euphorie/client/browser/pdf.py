@@ -4,8 +4,6 @@ from plone.memoize.view import memoize
 from Products.Five import BrowserView
 from StringIO import StringIO
 from urllib import quote
-from z3c.appconfig.interfaces import IAppConfig
-from zope.component import getUtility
 
 import base64
 import httplib
@@ -84,8 +82,9 @@ class PdfView(BrowserView):
         will suffice.
         """
         proxy = xmlrpclib.ServerProxy
-        conf = getUtility(IAppConfig).get("euphorie", {})
-        print_url = conf.get("smartprintng_url", "http://localhost:6543")
+        print_url = api.portal.get_registry_record(
+            "euphorie.smartprintng_url", default="http://localhost:6543"
+        )
         timeout_transport = TimeoutTransport()
 
         ping = proxy(print_url + "/ping")

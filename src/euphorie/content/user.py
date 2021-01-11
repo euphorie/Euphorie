@@ -19,7 +19,6 @@ from plone.uuid.interfaces import IUUID
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.membrane.interfaces import user as membrane
 from Products.statusmessages.interfaces import IStatusMessage
-from z3c.appconfig.interfaces import IAppConfig
 from z3c.form.datamanager import AttributeField
 from z3c.form.interfaces import IAddForm
 from z3c.form.interfaces import IDataManager
@@ -195,8 +194,9 @@ class UserAuthentication(UserProvider):
         real = getattr(aq_base(self.context), "password", None)
         if candidate is None or real is None:
             return None
-        conf = getUtility(IAppConfig).get("euphorie", {})
-        max_attempts = int(conf.get("max_login_attempts", "0").strip())
+        max_attempts = api.portal.get_registry_record(
+            "euphorie.max_login_attempts", default=0
+        )
 
         if candidate == real:  # XXX: Plain passwords should be deprecated
             log.warn(

@@ -3,25 +3,11 @@ from Acquisition import aq_inner
 from euphorie.client import CONDITIONS_VERSION
 from euphorie.client.model import get_current_account
 from Products.Five import BrowserView
-from z3c.appconfig.interfaces import IAppConfig
-from z3c.appconfig.utils import asBool
-from zope.component import getUtility
 
 import logging
 
 
 log = logging.getLogger(__name__)
-
-
-def checkTermsAndConditions():
-    appconfig = getUtility(IAppConfig)
-    try:
-        return asBool(appconfig["euphorie"]["terms-and-conditions"])
-    except KeyError:
-        return True
-    except ValueError:
-        log.error("Invalid value for terms-and-conditions flag in site configuration.")
-        return False
 
 
 def approvedTermsAndConditions(account=None):

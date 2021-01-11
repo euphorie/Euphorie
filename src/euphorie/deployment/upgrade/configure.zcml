@@ -280,7 +280,7 @@
 
     <genericsetup:upgradeStep
         title="Allow custom risks on modules"
-        description="All published tools are updated to allow users to add custom risks in them. This step requires allow_user_defined_risks=True in euphorie.ini."
+        description="All published tools are updated to allow users to add custom risks in them. This step requires euphorie.allow_user_defined_risks=True in the portal registry."
         handler=".v8.enable_custom_risks_on_all_modules"/>
 
     <genericsetup:upgradeStep

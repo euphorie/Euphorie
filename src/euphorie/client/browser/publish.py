@@ -21,13 +21,9 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
 from webhelpers.html.builder import make_tag
-from z3c.appconfig.interfaces import IAppConfig
-from z3c.appconfig.utils import asBool
 from z3c.form import button
 from z3c.form import form
-from zope import component
 from zope.component import getMultiAdapter
-from zope.component import getUtility
 from zope.event import notify
 from zope.interface import alsoProvides
 
@@ -129,8 +125,7 @@ def EnableCustomRisks(survey):
     """In order to allow the user to add custom risks, we create a new special
     module (marked with ICustomRisksModule) in which they may be created.
     """
-    appconfig = component.getUtility(IAppConfig)
-    if not asBool(appconfig["euphorie"].get("allow_user_defined_risks")):
+    if not api.portal.get_registry_record("euphorie.allow_user_defined_risks"):
         return 0
     if "custom-risks" in survey.keys():
         # We don't want to create the custom risks module twice.
@@ -268,8 +263,7 @@ class PublishSurvey(form.Form):
 
     def client_url(self):
         """Return the URL this survey will have after it is published."""
-        config = getUtility(IAppConfig)
-        client_url = config.get("euphorie", {}).get("client")
+        client_url = api.portal.get_registry_record("euphorie.client_url", default="")
         if client_url:
             client_url = client_url.rstrip("/")
         else:
@@ -324,8 +318,7 @@ class PreviewSurvey(form.Form):
 
     def preview_url(self):
         """Return the URL the preview will have."""
-        config = getUtility(IAppConfig)
-        client_url = config.get("euphorie", {}).get("client")
+        client_url = api.portal.get_registry_record("euphorie.client_url", default="")
         if client_url:
             client_url = client_url.rstrip("/")
         else:

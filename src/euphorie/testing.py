@@ -19,21 +19,16 @@ from Products.membrane.testing import MEMBRANE_PROFILES_FIXTURE
 from sqlalchemy import event
 from transaction import commit
 from unittest import TestCase
-from z3c.appconfig.interfaces import IAppConfig
 from z3c.saconfig import Session
 from Zope2.Startup.datatypes import default_zpublisher_encoding
-from zope.component import getUtility
 from zope.interface import alsoProvides
 from zope.sqlalchemy.datamanager import NO_SAVEPOINT_SUPPORT
 
 import euphorie.deployment
 import mock
-import os.path
 
 
 NO_SAVEPOINT_SUPPORT.remove("sqlite")
-
-TEST_INI = os.path.join(os.path.dirname(__file__), "deployment/tests/test.ini")
 
 
 class EuphorieFixture(PloneSandboxLayer):
@@ -54,6 +49,7 @@ class EuphorieFixture(PloneSandboxLayer):
         self.loadZCML("configure.zcml", package=euphorie.deployment)
         self.loadZCML("overrides.zcml", package=euphorie.deployment)
         self.loadZCML("configure.zcml", package=euphorie.client.tests)
+        self.loadZCML("configure.zcml", package=euphorie.deployment.tests)
 
         import euphorie.client.tests
 
@@ -99,17 +95,7 @@ class EuphorieFixture(PloneSandboxLayer):
                 (u"nl", u"Dutch"),
             ],
         ):
-            quickInstallProduct(portal, "euphorie.deployment")
-        appconfig = getUtility(IAppConfig)
-        appconfig.loadConfig(TEST_INI, clear=True)
-        api.portal.set_registry_record(
-            "plone.email_from_name",
-            u"Euphorie website",
-        )
-        api.portal.set_registry_record(
-            "plone.email_from_address",
-            "discard@simplon.biz",
-        )
+            quickInstallProduct(portal, "euphorie.deployment.tests")
 
     def testSetUp(self):
         """XXX testSetUp and testTearDown should not be necessary, but it seems
