@@ -279,6 +279,21 @@
 }</missing_value>
     </field>
   </record>
+  <record name="plonetheme.nuplone.appconfigtile_footer">
+    <field type="plone.registry.field.Text">
+      <title i18n:translate="">Configure the footer tile</title>
+      <description i18n:translate="">Some json to configure the scripts tile. We provide a dummy value here, otherwise the unwanted Plone footer portlet gets found</description>
+      <value_type type="plone.registry.field.TextLine" />
+      <default>{
+  "tiles": "\nfooter",
+  "type": "dummy"
+}</default>
+      <missing_value>{
+  "tiles": "\nfooter",
+  "type": "dummy"
+}</missing_value>
+    </field>
+  </record>
   <record name="plonetheme.nuplone.appconfigtile_client-analytics">
     <field type="plone.registry.field.Text">
       <title i18n:translate="">Configure the client-analytics tile</title>
