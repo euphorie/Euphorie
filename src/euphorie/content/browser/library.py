@@ -51,11 +51,12 @@ def get_library(context):
     :returns: A list of dicts with details for sectors
     :rtype: list
     """
+    record = api.portal.get_registry_record("euphorie.library", default="")
+    if not record:
+        return []
     paths = [
         path.lstrip("/")
-        for path in safe_nativestring(
-            api.portal.get_registry_record("euphorie.library", default="")
-        ).split()
+        for path in safe_nativestring(record).split()
     ]
     if not paths:
         return []
