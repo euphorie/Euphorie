@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from plone.app.imagecropping.browser.settings import ISettings
-from plone.app.imaging.utils import getAllowedSizes
 from plone.registry.interfaces import IRegistry
+from Products.CMFPlone.utils import getAllowedSizes
 from zope.component import getMultiAdapter
 from zope.component._api import getUtility
 from zope.globalrequest import getRequest
