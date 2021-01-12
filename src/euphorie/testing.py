@@ -15,7 +15,6 @@ from plone.app.testing import quickInstallProduct
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import TEST_USER_PASSWORD
 from plone.testing.z2 import Browser
-from Products.membrane.testing import MEMBRANE_PROFILES_FIXTURE
 from sqlalchemy import event
 from transaction import commit
 from unittest import TestCase
@@ -35,10 +34,7 @@ class EuphorieFixture(PloneSandboxLayer):
 
     saconfig_filename = "configure.zcml"
 
-    defaultBases = (
-        MEMBRANE_PROFILES_FIXTURE,
-        PLONE_FIXTURE,
-    )
+    defaultBases = (PLONE_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
         # Load any other ZCML that is required for your tests.

@@ -8,6 +8,7 @@ SQL-based individual session content of the client users.
 Also: PAS-based user account for users of the client
 """
 from __future__ import division
+from AccessControl.interfaces import IUser
 from AccessControl.PermissionRole import _what_not_even_god_should_do
 from collections import defaultdict
 from euphorie.client.enum import Enum
@@ -17,7 +18,6 @@ from plone.memoize import ram
 from plone.memoize.instance import memoize
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
-from Products.PluggableAuthService.interfaces.authservice import IBasicUser
 from sqlalchemy import orm
 from sqlalchemy import schema
 from sqlalchemy import sql
@@ -382,7 +382,7 @@ class Group(BaseObject):
         )
 
 
-@implementer(IBasicUser)
+@implementer(IUser)
 class Account(BaseObject):
     """A user account. Users have to register with euphorie before they can
     start a survey session. A single account can have multiple survey sessions.

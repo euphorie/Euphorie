@@ -8,7 +8,7 @@
     <div id="publication-menu"
          hidden="hidden"
          tal:define="
-           webhelpers nocall:view/webhelpers;
+           webhelpers python:view.webhelpers;
            session view/context/session;
            last_modifier session/last_modifier|nothing;
            toLocalizedTime nocall: here/@@plone/toLocalizedTime;
