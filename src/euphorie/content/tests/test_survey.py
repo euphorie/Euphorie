@@ -67,7 +67,7 @@ class ViewTests(EuphorieIntegrationTestCase):
         survey = Survey()
         child = Mock(id="child", title=u"Child")
         alsoProvides(child, IProfileQuestion)
-        survey["child"] = child
+        survey._setObject("child", child, suppress_events=True)
         view = SurveyView(survey, self._request())
         view._morph = mock.Mock(return_value="info")
         self.assertEqual(view.children, ["info"])
@@ -76,7 +76,7 @@ class ViewTests(EuphorieIntegrationTestCase):
         survey = Survey()
         child = Mock(id="child", title=u"Child")
         alsoProvides(child, IModule)
-        survey["child"] = child
+        survey._setObject("child", child, suppress_events=True)
         view = SurveyView(survey, self._request())
         view._morph = mock.Mock(return_value="info")
         self.assertEqual(view.children, ["info"])
@@ -85,7 +85,7 @@ class ViewTests(EuphorieIntegrationTestCase):
         survey = Survey()
         view = SurveyView(survey, self._request())
         child = Mock(id="child", title=u"Child")
-        survey["child"] = child
+        survey._setObject("child", child, suppress_events=True)
         self.assertEqual(view.children, [])
 
     def test_moprh(self):
