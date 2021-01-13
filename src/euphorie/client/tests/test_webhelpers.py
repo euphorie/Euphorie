@@ -31,13 +31,16 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
 
     def test_get_sessions_query_authenticated(self):
         account = addAccount(password="secret")
-        eu = api.content.create(
-            type="euphorie.clientcountry", id="eu", container=self.portal.client
-        )
-        eusector = api.content.create(
-            type="euphorie.clientsector", id="eusector", container=eu
-        )
-        api.content.create(type="euphorie.survey", id="eusurvey", container=eusector)
+        with api.env.adopt_user("admin"):
+            eu = api.content.create(
+                type="euphorie.clientcountry", id="eu", container=self.portal.client
+            )
+            eusector = api.content.create(
+                type="euphorie.clientsector", id="eusector", container=eu
+            )
+            api.content.create(
+                type="euphorie.survey", id="eusurvey", container=eusector
+            )
         with api.env.adopt_user(user=account):
             # Check with no parameter
             with self._get_view("webhelpers", self.portal.client) as view:

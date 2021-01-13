@@ -13,6 +13,11 @@ from zope.component import getMultiAdapter
 
 
 class SectorTests(EuphorieIntegrationTestCase):
+    def setUp(self):
+        super(SectorTests, self).setUp()
+        self.client = self.portal.client
+        self.loginAsPortalOwner()
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -61,7 +66,8 @@ class SectorAsUserTests(EuphorieIntegrationTestCase):
 
     def createSector(self):
         country = self.portal.sectors.nl
-        sector = self._create(country, "euphorie.sector", "sector")
+        with api.env.adopt_user("admin"):
+            sector = self._create(country, "euphorie.sector", "sector")
         sector.login = "sector"
         sector.indexObject()
         return sector
@@ -150,7 +156,8 @@ class PermissionTests(EuphorieIntegrationTestCase):
 
     def createSector(self):
         country = self.portal.sectors.nl
-        sector = self._create(country, "euphorie.sector", "sector")
+        with api.env.adopt_user("admin"):
+            sector = self._create(country, "euphorie.sector", "sector")
         sector.login = "sector"
         sector.indexObject()
         return sector
@@ -204,6 +211,10 @@ class PermissionTests(EuphorieIntegrationTestCase):
 
 
 class GetSurveysTests(EuphorieIntegrationTestCase):
+    def setUp(self):
+        super(GetSurveysTests, self).setUp()
+        self.loginAsPortalOwner()
+
     def getSurveys(self, context):
         return getSurveys(context)
 

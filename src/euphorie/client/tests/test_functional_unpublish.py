@@ -8,8 +8,8 @@ from OFS.SimpleItem import SimpleItem
 
 
 class handleSurveyUnpublishTests(EuphorieIntegrationTestCase):
-    def afterSetUp(self):
-        super(handleSurveyUnpublishTests, self).afterSetUp()
+    def setUp(self):
+        super(handleSurveyUnpublishTests, self).setUp()
         self.loginAsPortalOwner()
         self.client = self.portal.client
 

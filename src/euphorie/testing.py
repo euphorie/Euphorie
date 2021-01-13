@@ -137,7 +137,7 @@ class EuphorieIntegrationTestCase(TestCase):
         self.request = self.layer["request"]
 
     def loginAsPortalOwner(self):
-        return login(self.portal, TEST_USER_NAME)
+        return login(self.app, "admin")
 
     def login(self, username):
         return login(self.portal, username)

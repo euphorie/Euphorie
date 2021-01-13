@@ -11,6 +11,11 @@ from zope.event import notify
 
 
 class SurveyGroupTests(EuphorieIntegrationTestCase):
+    def setUp(self):
+        super(self.__class__, self).setUp()
+        self.client = self.portal.client
+        self.loginAsPortalOwner()
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -42,6 +47,11 @@ class SurveyGroupTests(EuphorieIntegrationTestCase):
 
 
 class HandleSurveyPublishTests(EuphorieIntegrationTestCase):
+    def setUp(self):
+        super(self.__class__, self).setUp()
+        self.client = self.portal.client
+        self.loginAsPortalOwner()
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -88,6 +98,11 @@ class HandleSurveyPublishTests(EuphorieIntegrationTestCase):
 
 
 class HandleSurveyDeleteVerificationTests(EuphorieIntegrationTestCase):
+    def setUp(self):
+        super(self.__class__, self).setUp()
+        self.client = self.portal.client
+        self.loginAsPortalOwner()
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -154,6 +169,11 @@ class HandleSurveyDeleteVerificationTests(EuphorieIntegrationTestCase):
 
 
 class AddFormTests(EuphorieFunctionalTestCase):
+    def setUp(self):
+        super(self.__class__, self).setUp()
+        self.client = self.portal.client
+        self.loginAsPortalOwner()
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)

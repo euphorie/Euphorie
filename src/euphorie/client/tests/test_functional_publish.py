@@ -4,9 +4,10 @@ from plone.namedfile.file import NamedBlobImage
 
 
 class PublicationTests(EuphorieIntegrationTestCase):
-    @property
-    def client(self):
-        return self.portal.client
+    def setUp(self):
+        super(PublicationTests, self).setUp()
+        self.client = self.portal.client
+        self.loginAsPortalOwner()
 
     def createSurvey(self):
         self.portal.sectors.nl.invokeFactory(

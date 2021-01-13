@@ -6,7 +6,8 @@ creating an dummy survey.
 
 >>> app = layer['portal']
 >>> portal = layer['portal']
->>> from plone.testing.z2 import Browser
+>>> from plone import api
+>>> from plone.testing.zope import Browser
 >>> browser = Browser(app)
 >>> from euphorie.client.tests.utils import addSurvey
 >>> from euphorie.client.tests.utils import addAccount
@@ -18,7 +19,8 @@ creating an dummy survey.
 ...      <title>Survey title</title>
 ...    </survey>
 ...  </sector>"""
->>> addSurvey(portal, xml_survey)
+>>> with api.env.adopt_user("admin"):
+...     addSurvey(portal, xml_survey)
 >>> account = addAccount()
 >>> mail_fixture = MockMailFixture()
 >>> from transaction import commit

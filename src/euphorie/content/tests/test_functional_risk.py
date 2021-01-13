@@ -147,6 +147,10 @@ class RiskFunctionalTests(EuphorieFunctionalTestCase):
 
 
 class ConstructionFilterTests(EuphorieIntegrationTestCase):
+    def setUp(self):
+        super(ConstructionFilterTests, self).setUp()
+        self.loginAsPortalOwner()
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)

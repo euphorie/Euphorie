@@ -6,12 +6,15 @@ from euphorie.content.tests.utils import createSector
 from euphorie.content.tests.utils import EMPTY_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
-from plone.app.testing.interfaces import TEST_USER_NAME
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
 
 
 class DirtyTreeTests(EuphorieIntegrationTestCase):
+    def setUp(self):
+        super(DirtyTreeTests, self).setUp()
+        self.loginAsPortalOwner()
+
     def create(self):
         sector = createSector(self.portal)
         return addSurvey(sector, EMPTY_SURVEY)
@@ -46,7 +49,7 @@ class RichDescriptionTests(EuphorieIntegrationTestCase):
         return getattr(container, newid)
 
     def createModule(self):
-        with api.env.adopt_user(TEST_USER_NAME):
+        with api.env.adopt_user("admin"):
             self.country = self.portal.sectors.nl
             self.sector = self._create(self.country, "euphorie.sector", "sector")
             self.surveygroup = self._create(

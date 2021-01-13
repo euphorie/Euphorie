@@ -12,6 +12,7 @@ from plone.app.event.base import localized_now
 class TestDashboard(EuphorieIntegrationTestCase):
     def setUp(self):
         super(TestDashboard, self).setUp()
+        self.loginAsPortalOwner()
         addSurvey(self.portal, BASIC_SURVEY)
         self.account = addAccount(password="secret")
         # We setup two surveys, an archived one and one which is not archived
