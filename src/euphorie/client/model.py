@@ -77,6 +77,7 @@ class BaseObject(OFS.Traversable.Traversable, Acquisition.Implicit):
 
     __init__ = declarative.api._declarative_constructor
     __allow_access_to_unprotected_subobjects__ = True
+    __new__ = object.__new__
 
     security = ClassSecurityInfo()
 
