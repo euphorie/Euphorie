@@ -10,13 +10,13 @@ from zope.interface.verify import verifyObject
 
 class SimplifiedPloneTests(EuphorieFunctionalTestCase):
     def testRedirectStorageRemoved(self):
-        self.failUnless(queryUtility(IRedirectionStorage) is None)
+        self.assertTrue(queryUtility(IRedirectionStorage) is None)
 
     def testRedirectViewStillValid(self):
         view = queryMultiAdapter(
             (self.portal, self.portal.REQUEST), name="plone_redirector_view"
         )
-        self.failUnless(verifyObject(IFourOhFourView, view))
+        self.assertTrue(verifyObject(IFourOhFourView, view))
 
     # XXX Disabled for now: in Plone 4 the test setup loads all Plone zcml before
     # the Euphorie test layer is setup, so the <exclude> directories in the
@@ -26,7 +26,7 @@ class SimplifiedPloneTests(EuphorieFunctionalTestCase):
         # Testing for event subscribers would be the cleanest approach, but is
         # hard to do. Instead we test for extra marker interfaces set by the
         # plone.app.contentrules zcml.
-        self.failUnless(not IRuleAssignable.providedBy(self.portal))
+        self.assertTrue(not IRuleAssignable.providedBy(self.portal))
 
     def testNoContentRulesAction(self):
         action = self.portal.portal_actions.object.contentrules

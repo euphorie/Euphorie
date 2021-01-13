@@ -19,7 +19,7 @@ class ProfileQuestionTests(EuphorieIntegrationTestCase):
     def testNotGloballyAllowed(self):
         self.loginAsPortalOwner()
         types = [fti.id for fti in self.portal.allowedContentTypes()]
-        self.failUnless("euphorie.profilequestion" not in types)
+        self.assertTrue("euphorie.profilequestion" not in types)
 
     def testAllowedContentTypes(self):
         self.loginAsPortalOwner()

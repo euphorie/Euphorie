@@ -29,7 +29,7 @@ class SurveyGroupTests(EuphorieIntegrationTestCase):
 
     def testNotGloballyAllowed(self):
         types = [fti.id for fti in self.portal.allowedContentTypes()]
-        self.failUnless("euphorie.survey" not in types)
+        self.assertTrue("euphorie.survey" not in types)
 
     def testAllowedContentTypes(self):
         surveygroup = self.createSurveyGroup()
