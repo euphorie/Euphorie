@@ -14,6 +14,7 @@ from plone.app.testing import PloneSandboxLayer
 from plone.app.testing import quickInstallProduct
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import TEST_USER_PASSWORD
+from plone.testing import zope
 from plone.testing.z2 import Browser
 from sqlalchemy import event
 from transaction import commit
@@ -46,6 +47,7 @@ class EuphorieFixture(PloneSandboxLayer):
         self.loadZCML("overrides.zcml", package=euphorie.deployment)
         self.loadZCML("configure.zcml", package=euphorie.client.tests)
         self.loadZCML("configure.zcml", package=euphorie.deployment.tests)
+        zope.installProduct(app, "Products.membrane")
 
         import euphorie.client.tests
 
