@@ -35,7 +35,7 @@ class FindNextQuestionTests(EuphorieIntegrationTestCase):
         (session, survey) = createSurvey()
         child = model.Risk(title=u"Risk", risk_id="1", zodb_path="1")
         survey.addChild(child)
-        self.failUnless(navigation.FindNextQuestion(child, survey) is None)
+        self.assertTrue(navigation.FindNextQuestion(child, survey) is None)
 
     def test_Question_at_same_level_as_module(self):
         (session, survey) = createSurvey()
@@ -44,7 +44,7 @@ class FindNextQuestionTests(EuphorieIntegrationTestCase):
         survey.addChild(child)
         sister = model.Risk(title=u"Risk", risk_id="2", zodb_path="2")
         survey.addChild(sister)
-        self.failUnless(navigation.FindNextQuestion(child, survey) is sister)
+        self.assertTrue(navigation.FindNextQuestion(child, survey) is sister)
 
     def testQuestionIsNextModule(self):
         (session, survey) = createSurvey()
@@ -56,7 +56,7 @@ class FindNextQuestionTests(EuphorieIntegrationTestCase):
             title=u"Module 2", module_id="2", zodb_path="2", has_description=True
         )
         survey.addChild(mod2)
-        self.failUnless(navigation.FindNextQuestion(q1, survey) is mod2)
+        self.assertTrue(navigation.FindNextQuestion(q1, survey) is mod2)
 
     def testSkipChildren(self):
         (session, survey) = createSurvey()
@@ -72,7 +72,7 @@ class FindNextQuestionTests(EuphorieIntegrationTestCase):
             title=u"Module 2", module_id="2", zodb_path="2", has_description=True
         )
         survey.addChild(mod2)
-        self.failUnless(navigation.FindNextQuestion(mod1, survey) is mod2)
+        self.assertTrue(navigation.FindNextQuestion(mod1, survey) is mod2)
 
     def test_ignore_module_without_description(self):
         (session, survey) = createSurvey()
@@ -88,7 +88,7 @@ class FindNextQuestionTests(EuphorieIntegrationTestCase):
             title=u"Module 3", module_id="3", zodb_path="3", has_description=True
         )
         survey.addChild(mod3)
-        self.failUnless(navigation.FindNextQuestion(q1, survey) is mod3)
+        self.assertTrue(navigation.FindNextQuestion(q1, survey) is mod3)
 
 
 class FindPreviousQuestionTests(EuphorieIntegrationTestCase):
@@ -96,7 +96,7 @@ class FindPreviousQuestionTests(EuphorieIntegrationTestCase):
         (session, survey) = createSurvey()
         child = model.Risk(title=u"Risk", risk_id="1", zodb_path="1")
         survey.addChild(child)
-        self.failUnless(navigation.FindPreviousQuestion(child, survey) is None)
+        self.assertTrue(navigation.FindPreviousQuestion(child, survey) is None)
 
     def testQuestionAtSameModule(self):
         (session, survey) = createSurvey()
@@ -104,7 +104,7 @@ class FindPreviousQuestionTests(EuphorieIntegrationTestCase):
         survey.addChild(child)
         sister = model.Risk(title=u"Risk 2", risk_id="2", zodb_path="2")
         survey.addChild(sister)
-        self.failUnless(navigation.FindPreviousQuestion(sister, survey) is child)
+        self.assertTrue(navigation.FindPreviousQuestion(sister, survey) is child)
 
     def testQuestionAtPreviousModule(self):
         (session, survey) = createSurvey()
@@ -114,7 +114,7 @@ class FindPreviousQuestionTests(EuphorieIntegrationTestCase):
         mod1.addChild(q1)
         mod2 = model.Module(title=u"Module 2", module_id="2", zodb_path="2")
         survey.addChild(mod2)
-        self.failUnless(navigation.FindPreviousQuestion(mod2, survey) is q1)
+        self.assertTrue(navigation.FindPreviousQuestion(mod2, survey) is q1)
 
     def testQuestionAtPreviousModuleWithSkippedChildren(self):
         (session, survey) = createSurvey()
@@ -130,7 +130,7 @@ class FindPreviousQuestionTests(EuphorieIntegrationTestCase):
         mod1.addChild(q1)
         mod2 = model.Module(title=u"Module 2", module_id="2", zodb_path="2")
         survey.addChild(mod2)
-        self.failUnless(navigation.FindPreviousQuestion(mod2, survey) is mod1)
+        self.assertTrue(navigation.FindPreviousQuestion(mod2, survey) is mod1)
 
     def test_skip_module_without_description(self):
         (session, survey) = createSurvey()
@@ -146,7 +146,7 @@ class FindPreviousQuestionTests(EuphorieIntegrationTestCase):
         survey.addChild(mod2)
         mod3 = model.Module(title=u"Module 3", module_id="3", zodb_path="3")
         survey.addChild(mod3)
-        self.failUnless(navigation.FindPreviousQuestion(mod3, survey) is q1)
+        self.assertTrue(navigation.FindPreviousQuestion(mod3, survey) is q1)
 
 
 class ActionPlanNavigationTests(EuphorieIntegrationTestCase):
@@ -207,7 +207,7 @@ class ActionPlanNavigationTests(EuphorieIntegrationTestCase):
             risk_type="top5",
         )
         mod11.addChild(q111)
-        self.failUnless(
+        self.assertTrue(
             navigation.FindNextQuestion(mod1, survey, self.filter()) is mod11
         )
 
@@ -237,7 +237,7 @@ class ActionPlanNavigationTests(EuphorieIntegrationTestCase):
             risk_type="top5",
         )
         mod1.addChild(q11)
-        self.failUnless(navigation.FindNextQuestion(mod1, survey, self.filter()) is q11)
+        self.assertTrue(navigation.FindNextQuestion(mod1, survey, self.filter()) is q11)
 
 
 class GetTreeDataTests(EuphorieIntegrationTestCase):
@@ -259,7 +259,7 @@ class GetTreeDataTests(EuphorieIntegrationTestCase):
     def testMinimalTree(self):
         self.createSqlData()
         data = navigation.getTreeData(self.request, self.q1, survey=self.survey)
-        self.failUnless(isinstance(data, dict))
+        self.assertTrue(isinstance(data, dict))
         children = data["children"]
         self.assertEqual(len(children), 1)
         mod1 = children[0]

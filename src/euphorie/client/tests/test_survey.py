@@ -88,7 +88,7 @@ class find_sql_context_tests(EuphorieIntegrationTestCase):
         self.createSqlData()
         zodb_path = ["not", "found"]
         result = self.find_sql_context(self.survey.id, zodb_path)
-        self.failUnless(result is None)
+        self.assertTrue(result is None)
         self.assertEqual(zodb_path, ["not", "found"])
 
     def test_one_step_path(self):
@@ -123,7 +123,7 @@ class find_sql_context_tests(EuphorieIntegrationTestCase):
         self.session.flush()
         zodb_path = ["1"]
         result = self.find_sql_context(survey2.id, zodb_path)
-        self.failUnless(result is None)
+        self.assertTrue(result is None)
 
 
 class build_tree_aq_chain_tests(EuphorieIntegrationTestCase):
@@ -152,19 +152,19 @@ class build_tree_aq_chain_tests(EuphorieIntegrationTestCase):
         root = model.BaseObject()
         context = self.build_tree_aq_chain(root, self.mod1.id)
         self.assertEqual(len(aq_chain(context)), 2)
-        self.failUnless(aq_base(context) is self.mod1)
-        self.failUnless(aq_base(aq_parent(context)) is root)
+        self.assertTrue(aq_base(context) is self.mod1)
+        self.assertTrue(aq_base(aq_parent(context)) is root)
 
     def testSetupContext_TwoSteps(self):
         self.createSqlData()
         root = model.BaseObject()
         context = self.build_tree_aq_chain(root, self.q1.id)
         self.assertEqual(len(aq_chain(context)), 3)
-        self.failUnless(aq_base(context) is self.q1)
+        self.assertTrue(aq_base(context) is self.q1)
         parent = aq_parent(context)
-        self.failUnless(isinstance(parent, PathGhost))
+        self.assertTrue(isinstance(parent, PathGhost))
         self.assertEqual(parent.id, "1")
-        self.failUnless(aq_base(aq_parent(aq_parent(context))) is root)
+        self.assertTrue(aq_base(aq_parent(aq_parent(context))) is root)
 
 
 class completion_percentage_tests(EuphorieIntegrationTestCase):

@@ -30,7 +30,7 @@ class RiskTests(EuphorieIntegrationTestCase):
     def testNotGloballyAllowed(self):
         self.loginAsPortalOwner()
         types = [fti.id for fti in self.portal.allowedContentTypes()]
-        self.failUnless("euphorie.risk" not in types)
+        self.assertTrue("euphorie.risk" not in types)
 
     def testAllowedContentTypes(self):
         self.loginAsPortalOwner()
@@ -161,7 +161,7 @@ class ConstructionFilterTests(EuphorieIntegrationTestCase):
     def testPreventRiskIfModuleExists(self):
         self.createStructure()
         types = [fti.id for fti in self.module.allowedContentTypes()]
-        self.failUnless("euphorie.risk" in types)
+        self.assertTrue("euphorie.risk" in types)
         self._create(self.module, "euphorie.module", "module")
         types = [fti.id for fti in self.module.allowedContentTypes()]
-        self.failUnless("euphorie.risk" not in types)
+        self.assertTrue("euphorie.risk" not in types)

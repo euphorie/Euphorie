@@ -4,12 +4,12 @@ from euphorie.testing import EuphorieIntegrationTestCase
 
 class SetupTests(EuphorieIntegrationTestCase):
     def testDefaultContenetRemoved(self):
-        self.failUnless("Members" not in self.portal.objectIds())
-        self.failUnless("news" not in self.portal.objectIds())
-        self.failUnless("events" not in self.portal.objectIds())
+        self.assertTrue("Members" not in self.portal.objectIds())
+        self.assertTrue("news" not in self.portal.objectIds())
+        self.assertTrue("events" not in self.portal.objectIds())
 
     def testSectorContainerCreated(self):
-        self.failUnless("sectors" in self.portal.objectIds())
+        self.assertTrue("sectors" in self.portal.objectIds())
         self.assertEqual(self.portal.sectors.portal_type, "euphorie.sectorcontainer")
 
     def testCountriesCreated(self):
@@ -17,19 +17,19 @@ class SetupTests(EuphorieIntegrationTestCase):
         self.assertEqual(self.portal.sectors["nl"].country_type, "eu-member")
 
     def testClientCreated(self):
-        self.failUnless("client" in self.portal.objectIds())
+        self.assertTrue("client" in self.portal.objectIds())
         self.assertEqual(self.portal.client.portal_type, "euphorie.client")
 
     def testClientUserCreated(self):
         user = self.portal.acl_users.getUserById("client")
-        self.failUnless(user is not None)
+        self.assertTrue(user is not None)
 
     def testHideComponentProducts(self):
         qi = self.portal.portal_quickinstaller
         installable = qi.listInstallableProducts(skipInstalled=False)
         installable = set([product["id"] for product in installable])
-        self.failUnless("euphorie.content" not in installable)
-        self.failUnless("euphorie.client" not in installable)
+        self.assertTrue("euphorie.content" not in installable)
+        self.assertTrue("euphorie.client" not in installable)
 
     def testNuPloneEnabled(self):
         st = self.portal.portal_skins
