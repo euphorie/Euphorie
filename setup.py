@@ -45,7 +45,6 @@ setup(
         "lxml",
         "plone.app.dexterity [relations]",
         "plone.app.folder",
-        "plone.app.imaging",
         "plone.app.imagecropping",
         "plone.app.redirector >= 1.0.12dev-r27477",
         "plone.app.vocabularies",

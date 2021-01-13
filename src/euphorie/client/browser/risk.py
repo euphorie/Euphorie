@@ -21,11 +21,11 @@ from euphorie.content.utils import IToolTypesInfo
 from htmllaundry import StripMarkup
 from io import BytesIO
 from plone import api
-from plone.app.imaging.utils import getAllowedSizes
 from plone.memoize.instance import memoize
 from plone.namedfile import NamedBlobImage
 from plone.namedfile.browser import DisplayFile
 from plone.scale.scale import scaleImage
+from Products.CMFPlone.utils import getAllowedSizes
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
