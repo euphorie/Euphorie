@@ -13,6 +13,7 @@
     <include package="plone.app.vocabularies" />
     <include package="plone.uuid" />
     <include package="htmllaundry" />
+    <include package="Products.membrane" />
 
     <include file="permissions.zcml" />
 
