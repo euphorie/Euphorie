@@ -1,6 +1,9 @@
 # coding=utf-8
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
+from plone import api
+from plone.app.testing import SITE_OWNER_NAME
+from plone.app.testing import SITE_OWNER_PASSWORD
 from transaction import commit
 
 
@@ -97,17 +100,27 @@ class ConstructionFilterTests(EuphorieIntegrationTestCase):
 
 
 class FunctionalTests(EuphorieFunctionalTestCase):
+
+    _default_credentials = {
+        "username": SITE_OWNER_NAME,
+        "password": SITE_OWNER_PASSWORD,
+    }
+
     def _create(self, container, *args, **kwargs):
-        newid = container.invokeFactory(*args, **kwargs)
-        return getattr(container, newid)
+        with api.env.adopt_user("admin"):
+            newid = container.invokeFactory(*args, **kwargs)
+            return getattr(container, newid)
 
     def createStructure(self):
-        self.country = self.portal.sectors.nl
-        self.sector = self._create(self.country, "euphorie.sector", "sector")
-        self.surveygroup = self._create(self.sector, "euphorie.surveygroup", "group")
-        self.survey = self._create(self.surveygroup, "euphorie.survey", "survey")
-        self.module = self._create(self.survey, "euphorie.module", "module")
-        commit()
+        with api.env.adopt_user("admin"):
+            self.country = self.portal.sectors.nl
+            self.sector = self._create(self.country, "euphorie.sector", "sector")
+            self.surveygroup = self._create(
+                self.sector, "euphorie.surveygroup", "group"
+            )
+            self.survey = self._create(self.surveygroup, "euphorie.survey", "survey")
+            self.module = self._create(self.survey, "euphorie.module", "module")
+            commit()
 
     def testEditTitleForModule(self):
         self.createStructure()

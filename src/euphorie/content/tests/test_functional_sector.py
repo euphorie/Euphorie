@@ -7,6 +7,8 @@ from euphorie.content.user import UserAuthentication
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
+from plone.app.testing import SITE_OWNER_NAME
+from plone.app.testing import SITE_OWNER_PASSWORD
 from plone.app.testing import TEST_USER_NAME
 from Products.CMFCore.utils import _checkPermission
 from zope.component import getMultiAdapter
@@ -115,6 +117,12 @@ class SectorAsUserTests(EuphorieIntegrationTestCase):
 
 
 class SectorBrowserTests(EuphorieFunctionalTestCase):
+
+    _default_credentials = {
+        "username": SITE_OWNER_NAME,
+        "password": SITE_OWNER_PASSWORD,
+    }
+
     def testDuplicateLoginNotAllowed(self):
         # Test for http://code.simplon.biz/tracker/euphorie/ticket/152
         createSector(self.portal, login="sector")

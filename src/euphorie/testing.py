@@ -15,7 +15,7 @@ from plone.app.testing import quickInstallProduct
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import TEST_USER_PASSWORD
 from plone.testing import zope
-from plone.testing.z2 import Browser
+from plone.testing.zope import Browser
 from sqlalchemy import event
 from transaction import commit
 from unittest import TestCase
@@ -170,6 +170,11 @@ class EuphorieIntegrationTestCase(TestCase):
 class EuphorieFunctionalTestCase(EuphorieIntegrationTestCase):
     layer = EUPHORIE_FUNCTIONAL_TESTING
 
+    _default_credentials = {
+        "username": TEST_USER_NAME,
+        "password": TEST_USER_PASSWORD,
+    }
+
     def get_browser(self, logged_in=False, credentials={}):
         """Return a browser, potentially a logged in one.
         The default credentials are the admin ones
@@ -177,8 +182,12 @@ class EuphorieFunctionalTestCase(EuphorieIntegrationTestCase):
         commit()
         browser = Browser(self.app)
         if logged_in or credentials:
-            username = credentials.get("username", TEST_USER_NAME)
-            password = credentials.get("username", TEST_USER_PASSWORD)
+            username = credentials.get(
+                "username", self._default_credentials["username"]
+            )
+            password = credentials.get(
+                "password", self._default_credentials["password"]
+            )
             browser.open("%s/@@login" % self.portal.absolute_url())
             browser.getControl(name="__ac_name").value = username
             browser.getControl(name="__ac_password").value = password

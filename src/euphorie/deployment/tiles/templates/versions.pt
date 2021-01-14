@@ -51,7 +51,8 @@
                    name="survey"
                    value="${survey/id}"
                    checked="${python:'checked' if survey['published'] else None}"
-                   tal:attributes="onclick string:toggle_unpublish_button('${group/id}', '${not:survey/published}')"/>
+                   onclick="toggle_unpublish_button('${group/id}', '${not:survey/published}')"
+                   />
 
             <label><a href="${survey/url}">${survey/title}</a>
             <tal:published condition="python:survey['published']"><br>

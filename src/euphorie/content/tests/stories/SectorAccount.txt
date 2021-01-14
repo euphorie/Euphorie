@@ -5,7 +5,7 @@ Before we can start we must set up our test environment:
 
 >>> app = layer['portal']
 >>> portal = layer['portal']
->>> from plone.testing.z2 import Browser
+>>> from plone.testing.zope import Browser
 >>> browser = Browser(layer['app'])
 >>> browser.handleErrors=False
 >>> portal.error_log._ignored_exceptions=("Unauthorized")
@@ -15,7 +15,7 @@ by logging in as the site owner:
 
 >>> from plone.app.testing.interfaces import SITE_OWNER_NAME
 >>> from plone.app.testing.interfaces import SITE_OWNER_PASSWORD
->>> browser.open(portal.absolute_url()+"/@@login")
+>>> browser.open(portal.absolute_url()+"/@@login?came_from="+portal.absolute_url()+"/sectors/")
 >>> browser.getControl(name="__ac_name").value=SITE_OWNER_NAME
 >>> browser.getControl(name="__ac_password").value=SITE_OWNER_PASSWORD
 >>> browser.getForm(id="loginForm").submit()
@@ -53,7 +53,7 @@ Now that the sector has been created we can logout the portal owner:
 We can now login using the new sector account. Logging in as a sector will
 also automatically redirect to the homepage of the sector:
 
->>> browser.open(portal.absolute_url()+"/@@login")
+>>> browser.open(portal.absolute_url()+"/@@login?came_from=http://nohost/plone/sectors/nl/fine-dining")
 >>> browser.getControl(name="__ac_name").value="dining"
 >>> browser.getControl(name="__ac_password").value="S3cr3t!"
 >>> browser.getForm(id="loginForm").submit()

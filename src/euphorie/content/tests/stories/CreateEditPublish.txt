@@ -5,7 +5,7 @@ Before we can start we must set up our test environment:
 
 >>> app = layer['portal']
 >>> portal = layer['portal']
->>> from plone.testing.z2 import Browser
+>>> from plone.testing.zope import Browser
 >>> browser = Browser(layer['app'])
 >>> browser.handleErrors=False
 >>> portal.error_log._ignored_exceptions=("Unauthorized")
@@ -16,7 +16,7 @@ Lets create an initial sector and login:
 >>> sector=createSector(portal, u"Bouw", "bouw", "bouw")
 >>> from transaction import commit
 >>> commit()
->>> browser.open("%s/@@login" % portal.absolute_url())
+>>> browser.open("{site_url}/@@login?came_from={sector_url}".format(site_url=portal.absolute_url(), sector_url=sector.absolute_url()))
 >>> browser.getControl(name="__ac_name").value="bouw"
 >>> browser.getControl(name="__ac_password").value="bouw"
 >>> browser.getForm(id="loginForm").submit()
