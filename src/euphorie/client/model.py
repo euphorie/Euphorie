@@ -10,8 +10,12 @@ Also: PAS-based user account for users of the client
 from __future__ import division
 from AccessControl.interfaces import IUser
 from AccessControl.PermissionRole import _what_not_even_god_should_do
+from AccessControl.SecurityInfo import ClassSecurityInfo
+from Acquisition import aq_inner
+from Acquisition import aq_parent
 from collections import defaultdict
 from euphorie.client.enum import Enum
+from OFS.interfaces import IApplication
 from plone import api
 from plone.app.event.base import localized_now
 from plone.memoize import ram
@@ -74,8 +78,38 @@ class BaseObject(OFS.Traversable.Traversable, Acquisition.Implicit):
     __init__ = declarative.api._declarative_constructor
     __allow_access_to_unprotected_subobjects__ = True
 
+    security = ClassSecurityInfo()
+
     def getId(self):
         return str(self.id)
+
+    @security.public
+    def getPhysicalPath(self):
+        # Get the physical path of the object.
+        #
+        # We need to override this because the new Zope implementations
+        # uses self.id instead of self.getId, which make a big difference in our case
+        id = self.getId()
+
+        path = (id,)
+        p = aq_parent(aq_inner(self))
+        if p is None:
+            return path
+
+        func = self.getPhysicalPath.__func__
+        while p is not None:
+            if func is p.getPhysicalPath.__func__:
+                pid = p.getId()
+                path = (pid,) + path
+                p = aq_parent(aq_inner(p))
+            else:
+                if IApplication.providedBy(p):
+                    path = ("",) + path
+                else:
+                    path = p.getPhysicalPath() + path
+                break
+
+        return path
 
 
 class SurveyTreeItem(BaseObject):
