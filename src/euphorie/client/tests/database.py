@@ -28,5 +28,8 @@ class DatabaseTests(unittest.TestCase):
         from euphorie.client import model
         from z3c.saconfig import Session
 
+        import transaction
+
         Session.remove()
         model.metadata.drop_all(Session.bind)
+        transaction.abort()
