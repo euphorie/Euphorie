@@ -86,15 +86,15 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         solution = importer.ImportSolution(snippet, risk)
         self.assertEqual(risk.keys(), ["3"])
         self.assertEqual(solution.description, u"Add more abstraction layers")
-        self.failUnless(isinstance(solution.description, six.text_type))
+        self.assertTrue(isinstance(solution.description, six.text_type))
         self.assertEqual(solution.action_plan, u"Add another level")
-        self.failUnless(isinstance(solution.action_plan, six.text_type))
+        self.assertTrue(isinstance(solution.action_plan, six.text_type))
         self.assertEqual(
             solution.prevention_plan, u"Ask a code reviewer to verify the design"
         )
-        self.failUnless(isinstance(solution.prevention_plan, six.text_type))
+        self.assertTrue(isinstance(solution.prevention_plan, six.text_type))
         self.assertEqual(solution.requirements, u"A good understanding of architecture")
-        self.failUnless(isinstance(solution.requirements, six.text_type))
+        self.assertTrue(isinstance(solution.requirements, six.text_type))
 
     def testImportSolution_MissingFields(self):
         snippet = objectify.fromstring(
@@ -126,18 +126,18 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         importer = upload.SurveyImporter(None)
         risk = importer.ImportRisk(snippet, module)
         self.assertEqual(risk.title, u"Are your desks at the right height?")
-        self.failUnless(isinstance(risk.title, six.text_type))
+        self.assertTrue(isinstance(risk.title, six.text_type))
         self.assertEqual(
             risk.problem_description, u"Not all desks are set to the right height."
         )
-        self.failUnless(isinstance(risk.problem_description, six.text_type))
+        self.assertTrue(isinstance(risk.problem_description, six.text_type))
         self.assertEqual(
             risk.description,
             u"<p>The right height is important to prevent back problems.</p>",
         )
-        self.failUnless(isinstance(risk.description, six.text_type))
+        self.assertTrue(isinstance(risk.description, six.text_type))
         self.assertEqual(risk.legal_reference, u"<p>See ARBO policies.</p>")
-        self.failUnless(isinstance(risk.legal_reference, six.text_type))
+        self.assertTrue(isinstance(risk.legal_reference, six.text_type))
         self.assertEqual(risk.show_notapplicable, True)
         self.assertEqual(risk.keys(), [])
         self.assertEqual(risk.caption, None)
@@ -246,7 +246,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         risk = importer.ImportRisk(snippet, module)
         self.assertEqual(risk.keys(), ["3"])
         solution = risk["3"]
-        self.failUnless(isinstance(solution, Solution))
+        self.assertTrue(isinstance(solution, Solution))
         self.assertEqual(solution.description, u"Use height-adjustable desks")
 
     def testImportModule(self):
@@ -262,17 +262,17 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         importer = upload.SurveyImporter(None)
         module = importer.ImportModule(snippet, survey)
         self.assertEqual(module.title, u"Design patterns")
-        self.failUnless(isinstance(module.title, six.text_type))
+        self.assertTrue(isinstance(module.title, six.text_type))
         self.assertEqual(module.optional, False)
         self.assertEqual(module.question, None)
         self.assertEqual(
             module.description, u"<p>Software design patterns are critical.</p>"
         )
-        self.failUnless(isinstance(module.description, six.text_type))
+        self.assertTrue(isinstance(module.description, six.text_type))
         self.assertEqual(
             module.solution_direction, u"<p>Buy the book from the gang of four.</p>"
         )
-        self.failUnless(isinstance(module.solution_direction, six.text_type))
+        self.assertTrue(isinstance(module.solution_direction, six.text_type))
         self.assertEqual(module.keys(), [])
         self.assertEqual(module.image, None)
 
@@ -325,7 +325,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         module = importer.ImportModule(snippet, survey)
         self.assertEqual(module.keys(), ["2"])
         module = module["2"]
-        self.failUnless(isinstance(module, Module))
+        self.assertTrue(isinstance(module, Module))
         self.assertEqual(module.title, u"Iterators")
 
     def testImportModule_WithRisk(self):
@@ -346,7 +346,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         module = importer.ImportModule(snippet, survey)
         self.assertEqual(module.keys(), ["2"])
         risk = module["2"]
-        self.failUnless(isinstance(risk, Risk))
+        self.assertTrue(isinstance(risk, Risk))
         self.assertEqual(risk.title, u"New hires are not aware of design patterns.")
 
     def testImportProfileQuestion(self):
@@ -362,14 +362,14 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         importer = upload.SurveyImporter(None)
         profile = importer.ImportProfileQuestion(snippet, survey)
         self.assertEqual(profile.title, u"Laptop usage")
-        self.failUnless(isinstance(profile.title, six.text_type))
+        self.assertTrue(isinstance(profile.title, six.text_type))
         self.assertEqual(profile.question, u"Do your employees use laptops?")
-        self.failUnless(isinstance(profile.question, six.text_type))
+        self.assertTrue(isinstance(profile.question, six.text_type))
         self.assertEqual(
             profile.description,
             u"<p>Laptops are very common in the modern workplace.</p>",
         )
-        self.failUnless(isinstance(profile.description, six.text_type))
+        self.assertTrue(isinstance(profile.description, six.text_type))
         self.assertEqual(profile.keys(), [])
 
     def testImportProfileQuestion_optional_type(self):
@@ -405,7 +405,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         profile = importer.ImportProfileQuestion(snippet, survey)
         self.assertEqual(profile.keys(), ["2"])
         module = profile["2"]
-        self.failUnless(isinstance(module, Module))
+        self.assertTrue(isinstance(module, Module))
         self.assertEqual(module.title, u"Design patterns")
 
     def testImportProfileQuestion_WithRisk(self):
@@ -427,7 +427,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         profile = importer.ImportProfileQuestion(snippet, survey)
         self.assertEqual(profile.keys(), ["2"])
         risk = profile["2"]
-        self.failUnless(isinstance(risk, Risk))
+        self.assertTrue(isinstance(risk, Risk))
         self.assertEqual(risk.title, u"New hires are not aware of design patterns.")
 
     def testImportSurvey(self):
@@ -446,11 +446,11 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.assertEqual(surveygroup.keys(), ["fresh-import"])
         self.assertEqual(survey.keys(), [])
         self.assertEqual(survey.title, u"Fresh import")
-        self.failUnless(isinstance(survey.title, six.text_type))
+        self.assertTrue(isinstance(survey.title, six.text_type))
         self.assertEqual(survey.classification_code, u"A.1.2.3")
-        self.failUnless(isinstance(survey.language, str))
+        self.assertTrue(isinstance(survey.language, str))
         self.assertEqual(survey.language, "nl")
-        self.failUnless(isinstance(survey.classification_code, six.text_type))
+        self.assertTrue(isinstance(survey.classification_code, six.text_type))
         self.assertEqual(survey.evaluation_optional, True)
 
     def testImportSurvey_WithModule(self):
@@ -470,7 +470,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.assertEqual(surveygroup.keys(), ["fresh-import"])
         self.assertEqual(survey.keys(), ["1"])
         module = survey["1"]
-        self.failUnless(isinstance(module, Module))
+        self.assertTrue(isinstance(module, Module))
         self.assertEqual(module.title, u"Design patterns")
 
     def testImportSurvey_WithProfileQuestion(self):
@@ -491,7 +491,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.assertEqual(surveygroup.keys(), ["fresh-import"])
         self.assertEqual(survey.keys(), ["1"])
         profile = survey["1"]
-        self.failUnless(isinstance(profile, ProfileQuestion))
+        self.assertTrue(isinstance(profile, ProfileQuestion))
         self.assertEqual(profile.title, u"Laptop usage")
 
     def testImportSurvey_ChildOrdering(self):
@@ -549,13 +549,13 @@ class SectorImporterTests(EuphorieFunctionalTestCase):
         sector = country["software-development-sector"]
         self.assertEqual(sector.title, "Software development sector")
         self.assertEqual(sector.login, "login")
-        self.failUnless(isinstance(sector.title, six.text_type))
+        self.assertTrue(isinstance(sector.title, six.text_type))
         self.assertEqual(sector.keys(), ["software-development"])
         self.assertEqual(sector.contact_email, None)
         self.assertEqual(sector.password, None)
         group = sector["software-development"]
         self.assertEqual(group.title, "Software development")
-        self.failUnless(isinstance(group.title, six.text_type))
+        self.assertTrue(isinstance(group.title, six.text_type))
         self.assertEqual(group.keys(), ["import"])
         self.assertTrue(isinstance(IUUID(sector), str))
 

@@ -133,7 +133,7 @@ class RegisterTests(EuphorieIntegrationTestCase):
             view.request.form["password1"] = "secret"
             view.request.form["password2"] = "secret"
             self.assertEqual(view._tryRegistration(), False)
-            self.failUnless("email" in view.errors)
+            self.assertTrue("email" in view.errors)
 
     def testBasicEmailVerification(self):
         with self._get_view("register", self.portal.client) as view:
@@ -142,12 +142,12 @@ class RegisterTests(EuphorieIntegrationTestCase):
             view.request.form["password1"] = "secret"
             view.request.form["password2"] = "secret"
             self.assertEqual(view._tryRegistration(), False)
-            self.failUnless("email" in view.errors)
+            self.assertTrue("email" in view.errors)
 
             view.errors.clear()
             view.request.form["email"] = "wichert@wiggy net"
             self.assertEqual(view._tryRegistration(), False)
-            self.failUnless("email" in view.errors)
+            self.assertTrue("email" in view.errors)
 
             view.errors.clear()
             view.request.form["email"] = "wichert@wiggy.net"
@@ -232,7 +232,7 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
             .get_payload(decode=True)
             .decode(mail.get_content_charset("utf-8"))
         )
-        self.failUnless(u"/passwordreset/" in body)
+        self.assertTrue(u"/passwordreset/" in body)
 
     def testInvalidResetKey(self):
         """When the request key is invalid the user is invited

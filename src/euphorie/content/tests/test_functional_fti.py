@@ -44,7 +44,7 @@ class ConditionalDexterityFTITests(EuphorieIntegrationTestCase):
 
     def testConditionalFtiUsedByModule(self):
         fti = getattr(self.portal.portal_types, "euphorie.module")
-        self.failUnless(isinstance(fti, ConditionalDexterityFTI))
+        self.assertTrue(isinstance(fti, ConditionalDexterityFTI))
 
     def testVeto(self):
         self.createContent()

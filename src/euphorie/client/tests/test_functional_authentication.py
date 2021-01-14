@@ -25,8 +25,8 @@ class AuthenticationTests(EuphorieIntegrationTestCase):
         alsoProvides(request, IClientSkinLayer)
         account = self.createAccount()
         user = self.portal.acl_users.getUserById(str(account.id))
-        self.failUnless(aq_base(user) is account)
-        self.failUnless(isinstance(user.getId(), str))
+        self.assertTrue(aq_base(user) is account)
+        self.assertTrue(isinstance(user.getId(), str))
 
     def testChallenge_OutsideClient(self):
         self.logout()

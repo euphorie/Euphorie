@@ -98,7 +98,7 @@ class AddToTreeTests(EuphorieIntegrationTestCase):
         self.assertEqual(len(children), 1)
 
         child = children[0]
-        self.failUnless(isinstance(child, model.Risk))
+        self.assertTrue(isinstance(child, model.Risk))
         self.assertEqual(child.title, u"risk")
         self.assertEqual(child.risk_id, "13")
         self.assertEqual(child.risk_type, "risk")
@@ -127,7 +127,7 @@ class AddToTreeTests(EuphorieIntegrationTestCase):
         children = list(self.root.children())
         self.assertEqual(len(children), 1)
         child = children[0]
-        self.failUnless(isinstance(child, model.Module))
+        self.assertTrue(isinstance(child, model.Module))
         self.assertEqual(child.title, u"container")
         self.assertEqual(child.module_id, "13")
 
@@ -428,7 +428,7 @@ class Profile_setupSession_Tests(TreeTests):
         session = view.session
         with api.env.adopt_user(user=session.account):
             view.setupSession()
-            self.failUnless(view.session is session)
+            self.assertTrue(view.session is session)
             self.assertEqual(session.hasTree(), True)
 
     def test_NewSession_SimpleProfile(self):
@@ -450,7 +450,7 @@ class Profile_setupSession_Tests(TreeTests):
         session = view.session
         with api.env.adopt_user(user=session.account):
             view.setupSession()
-            self.failUnless(view.session is session)
+            self.assertTrue(view.session is session)
             self.assertEqual(session.hasTree(), False)
 
     def test_ExistingSession_NoProfile(self):
@@ -507,7 +507,7 @@ class Profile_setupSession_Tests(TreeTests):
                 ):
                     new_session = view.setupSession()
                 view = self.makeView(survey, new_session)
-                self.failUnless(view.session is not session)
+                self.assertTrue(view.session is not session)
                 self.assertEqual(view.session.hasTree(), False)
 
     def test_ExistingSession_ProfileChangedNoLocation(self):
@@ -530,7 +530,7 @@ class Profile_setupSession_Tests(TreeTests):
                 ):
                     new_session = view.setupSession()
                 view = self.makeView(survey, new_session)
-                self.failUnless(view.session is not session)
+                self.assertTrue(view.session is not session)
                 self.assertEqual(view.session.hasTree(), False)
 
     def test_create_survey_session(self):

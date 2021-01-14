@@ -20,7 +20,7 @@ class ModuleTests(EuphorieIntegrationTestCase):
     def testNotGloballyAllowed(self):
         self.loginAsPortalOwner()
         types = [fti.id for fti in self.portal.allowedContentTypes()]
-        self.failUnless("euphorie.module" not in types)
+        self.assertTrue("euphorie.module" not in types)
 
     def testAllowedContentTypes(self):
         self.loginAsPortalOwner()
@@ -32,7 +32,7 @@ class ModuleTests(EuphorieIntegrationTestCase):
         from euphorie.content.fti import ConditionalDexterityFTI
 
         fti = getattr(self.portal.portal_types, "euphorie.module")
-        self.failUnless(isinstance(fti, ConditionalDexterityFTI))
+        self.assertTrue(isinstance(fti, ConditionalDexterityFTI))
 
     def testCanBeCopied(self):
         self.loginAsPortalOwner()
@@ -76,7 +76,7 @@ class ConstructionFilterTests(EuphorieIntegrationTestCase):
         self.loginAsPortalOwner()
         self.createStructure()
         types = [fti.id for fti in self.module.allowedContentTypes()]
-        self.failUnless("euphorie.module" in types)
+        self.assertTrue("euphorie.module" in types)
 
     def testMaxDepthInModule(self):
         self.loginAsPortalOwner()
@@ -84,16 +84,16 @@ class ConstructionFilterTests(EuphorieIntegrationTestCase):
         submodule = self._create(self.module, "euphorie.module", "module")
         subsubmodule = self._create(submodule, "euphorie.module", "module")
         types = [fti.id for fti in subsubmodule.allowedContentTypes()]
-        self.failUnless("euphorie.module" not in types)
+        self.assertTrue("euphorie.module" not in types)
 
     def testPreventModuleIfRiskExists(self):
         self.loginAsPortalOwner()
         self.createStructure()
         types = [fti.id for fti in self.module.allowedContentTypes()]
-        self.failUnless("euphorie.module" in types)
+        self.assertTrue("euphorie.module" in types)
         self._create(self.module, "euphorie.risk", "risk")
         types = [fti.id for fti in self.module.allowedContentTypes()]
-        self.failUnless("euphorie.module" not in types)
+        self.assertTrue("euphorie.module" not in types)
 
 
 class FunctionalTests(EuphorieFunctionalTestCase):

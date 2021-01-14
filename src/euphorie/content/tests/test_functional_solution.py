@@ -27,7 +27,7 @@ def createSolution(algorithm=u"kinney"):
 class RiskTests(EuphorieIntegrationTestCase):
     def testNotGloballyAllowed(self):
         types = [fti.id for fti in self.portal.allowedContentTypes()]
-        self.failUnless("euphorie.solution" not in types)
+        self.assertTrue("euphorie.solution" not in types)
 
     def testCanBeCopied(self):
         solution = createSolution()
