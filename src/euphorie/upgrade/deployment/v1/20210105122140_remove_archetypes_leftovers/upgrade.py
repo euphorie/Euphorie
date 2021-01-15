@@ -2,15 +2,35 @@
 from ftw.upgrade import UpgradeStep
 from plone import api
 from plone.app.upgrade.utils import loadMigrationProfile
-
 import logging
 
 
 log = logging.getLogger(__name__)
 
 
+def unregisterUtility(context, iface, name=""):
+    sm = context.getSiteManager()
+    old = sm._utility_registrations.get((iface, name))
+    if not old:
+        return
+    util = old[0]
+    if name:
+        sm.unregisterUtility(util, iface, name=name)
+    else:
+        sm.unregisterUtility(provided=iface)
+    if util:
+        del util
+    if not name:
+        sm.utilities.unsubscribe((), iface)
+    if iface in sm.utilities.__dict__["_provided"]:
+        del sm.utilities.__dict__["_provided"][iface]
+    if iface in sm.utilities._subscribers[0]:
+        del sm.utilities._subscribers[0][iface]
+    sm.utilities._p_changed = True
+
+
 class RemoveArchetypesLeftovers(UpgradeStep):
-    """Remove Archetypes Leftovers.
+    """Remove Archetypes Leftovers and persistent traces of collecive.indexing
     Run this BEFORE you migrate to plone5.2
     See https://community.plone.org/t/upgrade-to-5-2-failing-with-iatcttool-has-no-attribute-iro/8909/10  # noqa: E501
     """
@@ -40,3 +60,17 @@ class RemoveArchetypesLeftovers(UpgradeStep):
             loadMigrationProfile(portal, "profile-Products.ATContentTypes:uninstall")
         except KeyError:
             pass
+
+        try:
+            from collective.indexing.indexer import IPortalCatalogQueueProcessor
+            from collective.indexing.interfaces import IIndexingConfig
+        except ImportError:
+            pass
+        else:
+            cp = api.portal.get_tool("portal_controlpanel")
+            cp.unregisterConfiglet("IndexingSettings")
+            for iface, name in (
+                (IIndexingConfig, u""),
+                (IPortalCatalogQueueProcessor, "portal-catalog"),
+            ):
+                unregisterUtility(portal, iface, name)
