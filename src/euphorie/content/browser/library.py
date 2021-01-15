@@ -54,10 +54,7 @@ def get_library(context):
     record = api.portal.get_registry_record("euphorie.library", default="")
     if not record:
         return []
-    paths = [
-        path.lstrip("/")
-        for path in safe_nativestring(record).split()
-    ]
+    paths = [path.lstrip("/") for path in safe_nativestring(record).split()]
     if not paths:
         return []
     site = getPortal(context)
