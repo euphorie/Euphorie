@@ -2,9 +2,10 @@
 from ftw.upgrade import UpgradeStep
 from plone import api
 from plone.app.upgrade.utils import loadMigrationProfile
+from plone.behavior.registration import lookup_behavior_registration
 from plone.browserlayer.interfaces import ILocalBrowserLayerType
+from plone.dexterity.interfaces import IDexterityFTI
 import logging
-
 
 log = logging.getLogger(__name__)
 
@@ -61,6 +62,20 @@ class RemoveArchetypesLeftovers(UpgradeStep):
             loadMigrationProfile(portal, "profile-Products.ATContentTypes:uninstall")
         except KeyError:
             pass
+
+        ptt = api.portal.get_tool("portal_types")
+        ftis = [fti for fti in ptt.objectValues() if IDexterityFTI.providedBy(fti)]
+        for fti in ftis:
+            bad_behaviors = []
+            for behavior in fti.behaviors:
+                try:
+                    lookup_behavior_registration(behavior)
+                except Exception:
+                    bad_behaviors.append(behavior)
+            if bad_behaviors:
+                behaviors = [x for x in fti.behaviors if x not in bad_behaviors]
+                fti.behaviors = behaviors
+                log.warning("Removed {} for FTI {}".format(bad_behaviors, fti.id))
 
         # Unregister persistent traces of collective.indexing
         try:
