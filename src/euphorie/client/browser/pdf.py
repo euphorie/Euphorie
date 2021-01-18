@@ -1,23 +1,47 @@
 # coding=utf-8
 from plone import api
 from plone.memoize.view import memoize
+from Products.CMFPlone.utils import safe_bytes
 from Products.Five import BrowserView
-from StringIO import StringIO
-from urllib import quote
+from six import StringIO
+from six.moves.urllib.parse import quote
 
-import base64
-import httplib
 import logging
-import xmlrpclib
 import zipfile
 
+
+try:
+    from base64 import decodebytes
+except ImportError:
+    # PY27
+    from base64 import decodestring as decodebytes
+
+try:
+    from base64 import encodebytes
+except ImportError:
+    # PY27
+    from base64 import encodestring as encodebytes
+
+try:
+    from xmlrpc.client import ServerProxy
+    from xmlrpc.client import Transport
+except ImportError:
+    # PY2
+    from xmlrpclib import ServerProxy
+    from xmlrpclib import Transport
+
+try:
+    from http.client import HTTPConnection
+except ImportError:
+    # PY2
+    from httplib import HTTPConnection
 
 log = logging.getLogger(__name__)
 
 
-class TimeoutTransport(xmlrpclib.Transport):
+class TimeoutTransport(Transport):
     def make_connection(self, host):
-        return httplib.HTTPConnection(host, timeout=120.0)
+        return HTTPConnection(host, timeout=120.0)
 
 
 class PdfView(BrowserView):
@@ -81,7 +105,7 @@ class PdfView(BrowserView):
         attribute i.e. "dummy", but any imaginary attribute lookup
         will suffice.
         """
-        proxy = xmlrpclib.ServerProxy
+        proxy = ServerProxy
         print_url = api.portal.get_registry_record(
             "euphorie.smartprintng_url", default="http://localhost:6543"
         )
@@ -93,10 +117,8 @@ class PdfView(BrowserView):
             return
 
         convert2ZIP = proxy(print_url + "/convertZIP", transport=timeout_transport)
-        encoded_pdf = convert2ZIP.dummy(
-            "", base64.encodestring(zip_content), "pdf-prince"
-        )
-        pdf = base64.decodestring(encoded_pdf)
+        encoded_pdf = convert2ZIP.dummy("", encodebytes(zip_content), "pdf-prince")
+        pdf = decodebytes(safe_bytes(encoded_pdf))
         # There might be bogus content before the %PDF marker:
         # brute-force remove it, because it prevents the PDF from being
         # opened in some versions of Acrobat

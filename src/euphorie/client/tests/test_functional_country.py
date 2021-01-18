@@ -3,8 +3,7 @@ from euphorie.client.tests.utils import addSurvey
 from euphorie.client.tests.utils import registerUserInClient
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieFunctionalTestCase
-
-import urllib
+from six.moves.urllib.parse import urlencode
 
 
 class CountryFunctionalTests(EuphorieFunctionalTestCase):
@@ -48,9 +47,7 @@ class CountryFunctionalTests(EuphorieFunctionalTestCase):
         browser = self.get_browser()
         browser.open(self.portal.client["nl"].absolute_url())
         registerUserInClient(browser)
-        data = urllib.urlencode(
-            {"action": "new", "survey": "", "title:utf8:ustring": "Foo"}
-        )
+        data = urlencode({"action": "new", "survey": "", "title:utf8:ustring": "Foo"})
         browser.handleErrors = False
         browser.open(browser.url, data)
         self.assertEqual(browser.url, "http://nohost/plone/client/nl")

@@ -15,7 +15,7 @@ from plone.app.content.namechooser import NormalizingNameChooser
 from Products.CMFCore.interfaces import IFolderish
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
-from zope.component import adapts
+from zope.component import adapter
 from zope.interface import Interface
 
 
@@ -59,14 +59,13 @@ def get_next_id(context, ids=None):
     return str(current_max)
 
 
+@adapter(IFolderish)
 class UniqueNameChooser(NormalizingNameChooser):
     """INameChooser for INameFromUniqueId objects.
 
     This implementation uses a simple increasing numerical id, starting
     with 1.
     """
-
-    adapts(IFolderish)
 
     def _assertId(self, object):
         """Make sure the object has a unique id"""

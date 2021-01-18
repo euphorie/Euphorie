@@ -125,7 +125,7 @@ class HasTextTests(unittest.TestCase):
 
 class RandomStringTests(unittest.TestCase):
     def testOutputChanges(self):
-        self.assertNotEquals(utils.randomString(), utils.randomString())
+        self.assertNotEqual(utils.randomString(), utils.randomString())
 
     def testLength(self):
-        self.assertEquals(len(utils.randomString(5)), 5)
+        self.assertEqual(len(utils.randomString(5)), 5)

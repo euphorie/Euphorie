@@ -4,14 +4,15 @@ from euphorie.content.behaviour.uniqueid import UniqueNameChooser
 from zope.annotation.interfaces import IAttributeAnnotatable
 from zope.component.testing import PlacelessSetup
 from zope.interface import alsoProvides
-from zope.interface import implements
+from zope.interface import implementer
 
 import Acquisition
 import unittest
 
 
+@implementer(INameFromUniqueId)
 class Mock(Acquisition.Implicit):
-    implements(INameFromUniqueId)
+    pass
 
 
 class IdGenerationTests(PlacelessSetup, unittest.TestCase):

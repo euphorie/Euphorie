@@ -1,9 +1,8 @@
 from Products.CMFQuickInstallerTool.interfaces import INonInstallable
-from zope.interface import implements
+from zope.interface import implementer
 
 
+@implementer(INonInstallable)
 class HideEuphorieProducts(object):
-    implements(INonInstallable)
-
     def getNonInstallableProducts(self):
         return ["euphorie.content", "euphorie.client"]

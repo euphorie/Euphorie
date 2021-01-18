@@ -31,9 +31,9 @@ def initialize(context):
     )
 
     # Instruct the email module to use quoted printable for UT8
-    import email.Charset
+    import email.charset
 
-    email.Charset.add_charset("utf-8", email.Charset.QP, email.Charset.QP, "utf-8")
+    email.charset.add_charset("utf-8", email.charset.QP, email.charset.QP, "utf-8")
 
     # Monkeypatch the publisher to disable its WebDAV logic so we can use
     # all request methods for our REST API.

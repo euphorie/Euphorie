@@ -8,8 +8,13 @@ from Products.CMFPlone.tests.dummy import Image
 from Products.CMFPlone.utils import safe_unicode
 from zope.publisher.interfaces import NotFound
 
-import mock
 import unittest
+
+
+try:
+    from unittest import mock
+except ImportError:
+    import mock
 
 
 class EvaluationViewTests(unittest.TestCase):

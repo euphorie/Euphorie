@@ -26,7 +26,7 @@ from plone.indexer import indexer
 from plone.supermodel import model
 from plonetheme.nuplone.z3cform.directives import depends
 from zope import schema
-from zope.interface import implements
+from zope.interface import implementer
 
 import sys
 
@@ -96,8 +96,8 @@ class IProfileQuestion(model.Schema, IRichDescription, IBasic):
     directives.widget(label_multiple_occurances="euphorie.content.risk.TextLines4Rows")
 
 
+@implementer(IProfileQuestion, IQuestionContainer)
 class ProfileQuestion(Container):
-    implements(IProfileQuestion, IQuestionContainer)
     portal_type = "euphorie.profilequestion"
 
     question = None

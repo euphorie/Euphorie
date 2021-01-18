@@ -11,15 +11,19 @@ from plone import api
 from z3c.saconfig import Session
 from zope.interface import alsoProvides
 
-import mock
+
+try:
+    from unittest import mock
+except ImportError:
+    import mock
 
 
 def createContainer(id, profile=False):
     from euphorie.content.interfaces import IQuestionContainer
-    from zope.interface import implements
+    from zope.interface import implementer
 
+    @implementer(IQuestionContainer)
     class Container(dict):
-        implements(IQuestionContainer)
         title = u"container"
         description = None
 
@@ -34,10 +38,10 @@ def createContainer(id, profile=False):
 
 def createRisk(id):
     from euphorie.content.risk import IRisk
-    from zope.interface import implements
+    from zope.interface import implementer
 
+    @implementer(IRisk)
     class Risk(object):
-        implements(IRisk)
         title = u"risk"
         type = "risk"
         default_probability = 0
@@ -56,10 +60,10 @@ def createRisk(id):
 def createModule(id):
     from euphorie.content.interfaces import IQuestionContainer
     from euphorie.content.module import IModule
-    from zope.interface import implements
+    from zope.interface import implementer
 
+    @implementer(IModule, IQuestionContainer)
     class Module(dict):
-        implements(IModule, IQuestionContainer)
         title = u"module"
         description = None
         optional = False

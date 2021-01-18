@@ -34,7 +34,7 @@ class EuphorieNavtreeFactory(object):
     def __call__(self):
         tree = CatalogNavTree(self.context, self.request)
         walker = tree.iter()
-        node = walker.next()
+        node = next(walker)
 
         try:
             while True:
@@ -51,7 +51,7 @@ class EuphorieNavtreeFactory(object):
                         if child["ancestor"] or child["current"]
                     ]
                     node["children"] = survey[0]["children"]
-                node = walker.next()
+                node = next(walker)
         except StopIteration:
             pass
         return tree

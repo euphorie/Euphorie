@@ -37,14 +37,13 @@ from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
+from six.moves.urllib.parse import urlencode
 from ZODB.POSException import POSKeyError
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.component.hooks import getSite
 from zope.deprecation import deprecate
 from zope.i18nmessageid import MessageFactory
-
-import urllib
 
 
 pl_message = MessageFactory("plonelocales")
@@ -590,10 +589,10 @@ class WebHelpers(BrowserView):
             # If the tool has a notification message, we cannot allow to deeplink
             # into it, since the user might then miss the notificaton.
             if not self.tool_notification():
-                return urllib.urlencode({"came_from": self.came_from})
+                return urlencode({"came_from": self.came_from})
             survey_url = self.survey_url()
             if survey_url:
-                return urllib.urlencode({"came_from": survey_url})
+                return urlencode({"came_from": survey_url})
         return ""
 
     @property

@@ -12,7 +12,11 @@ from z3c.saconfig import Session
 from zope.interface import directlyProvides
 from zope.interface.verify import verifyClass
 
-import mock
+
+try:
+    from unittest import mock
+except ImportError:
+    import mock
 
 
 class MockContext(object):

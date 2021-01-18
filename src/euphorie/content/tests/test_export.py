@@ -9,6 +9,7 @@ from euphorie.content.survey import Survey
 from euphorie.content.surveygroup import SurveyGroup
 from euphorie.testing import EuphorieIntegrationTestCase
 from lxml import etree
+from Products.CMFPlone.utils import safe_nativestring
 from zope.publisher.browser import TestRequest
 
 
@@ -30,7 +31,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         node = view.exportImage(root, image)
         self.assertTrue(node in root)
         self.assertEqual(
-            etree.tostring(node, pretty_print=True),
+            safe_nativestring(etree.tostring(node, pretty_print=True)),
             '<image xmlns="http://xml.simplon.biz/euphorie/survey/1.0">'
             "aG90IHN0dWZmIGhlcmU=\n</image>\n",
         )
@@ -41,7 +42,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         image = view.exportImage(root, image, u"Captiøn")
         self.assertEqual(
-            etree.tostring(image, pretty_print=True),
+            safe_nativestring(etree.tostring(image, pretty_print=True)),
             '<image xmlns="http://xml.simplon.biz/euphorie/survey/1.0" '
             'content-type="image/gif" filename="test.gif" '
             'caption="Capti&#xF8;n">aG90IHN0dWZmIGhlcmU=\n'
@@ -58,7 +59,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         node = view.exportSolution(root, solution)
         self.assertTrue(node in root)
         self.assertEqual(
-            etree.tostring(node, pretty_print=True),
+            safe_nativestring(etree.tostring(node, pretty_print=True)),
             '<solution xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             "  <description>&lt;p&gt;Test description&lt;/p&gt;"
             "</description>\n"
@@ -75,7 +76,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         node = view.exportSolution(root, solution)
         self.assertEqual(
-            etree.tostring(node, pretty_print=True),
+            safe_nativestring(etree.tostring(node, pretty_print=True)),
             '<solution xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             "  <description>&lt;p&gt;T&#233;st description&lt;/p&gt;"
             "</description>\n"
@@ -97,7 +98,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         node = view.exportRisk(root, risk)
         self.assertTrue(node in root)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <risk type="top5">\n'
             "    <title>Can your windows be locked?</title>\n"
@@ -124,7 +125,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportRisk(root, risk)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <risk type="risk">\n'
             "    <title>Can your windows be locked?</title>\n"
@@ -155,7 +156,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportRisk(root, risk)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <risk type="risk">\n'
             "    <title>Can your windows be locked?</title>\n"
@@ -182,7 +183,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportRisk(root, risk)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <risk type="top5">\n'
             "    <title>Can your windows be locked?</title>\n"
@@ -211,7 +212,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportRisk(root, risk)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <risk type="top5">\n'
             "    <title>Can your windows be locked?</title>\n"
@@ -245,7 +246,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportRisk(root, risk)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <risk type="top5">\n'
             "    <title>Can your windows be locked?</title>\n"
@@ -275,7 +276,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         node = view.exportModule(root, module)
         self.assertTrue(node in root)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <module optional="false">\n'
             "    <title>Office buildings</title>\n"
@@ -292,7 +293,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         root = self.root()
         view = ExportSurvey(None, None)
         view.exportModule(root, module)
-        xml = etree.tostring(root, pretty_print=True)
+        xml = safe_nativestring(etree.tostring(root, pretty_print=True))
         self.assertTrue(
             "<description>&lt;p&gt;Owning property brings risks."
             "&lt;/p&gt;</description>\n" in xml
@@ -309,7 +310,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportModule(root, module)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <module optional="true">\n'
             "    <title>Office buildings</title>\n"
@@ -330,7 +331,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportModule(root, module)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <module optional="false">\n'
             "    <title>Office buildings</title>\n"
@@ -351,7 +352,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportModule(root, module)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <module optional="false">\n'
             "    <title>Office buildings</title>\n"
@@ -381,7 +382,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportModule(root, module)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <module optional="false">\n'
             "    <title>Office buildings</title>\n"
@@ -415,7 +416,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportModule(root, module)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             '  <module optional="false">\n'
             "    <title>Office buildings</title>\n"
@@ -440,7 +441,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         node = view.exportProfileQuestion(root, profile)
         self.assertTrue(node in root)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             "  <profile-question>\n"
             "    <title>Office buildings</title>\n"
@@ -464,7 +465,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         node = view.exportProfileQuestion(root, profile)
         self.assertTrue(node in root)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             "  <profile-question>\n"
             "    <title>Office buildings</title>\n"
@@ -487,7 +488,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         root = self.root()
         view = ExportSurvey(None, None)
         view.exportProfileQuestion(root, profile)
-        xml = etree.tostring(root, pretty_print=True)
+        xml = safe_nativestring(etree.tostring(root, pretty_print=True))
         self.assertTrue(
             "<description>&lt;p&gt;Owning property brings risks."
             "&lt;/p&gt;</description>" in xml
@@ -502,7 +503,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportProfileQuestion(root, profile)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             "  <profile-question>\n"
             "    <title>Office buildings</title>\n"
@@ -531,7 +532,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportProfileQuestion(root, profile)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             "  <profile-question>\n"
             "    <title>Office buildings</title>\n"
@@ -566,7 +567,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportProfileQuestion(root, profile)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             "  <profile-question>\n"
             "    <title>Office buildings</title>\n"
@@ -599,7 +600,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         node = view.exportSurvey(root, survey)
         self.assertTrue(node in root)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             "  <survey>\n"
             "    <title>Generic sector</title>\n"
@@ -627,7 +628,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportSurvey(root, survey)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             "  <survey>\n"
             "    <title>Generic sector</title>\n"
@@ -661,7 +662,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportSurvey(root, survey)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             "  <survey>\n"
             "    <title>Generic sector</title>\n"
@@ -702,7 +703,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         view = ExportSurvey(None, None)
         view.exportSurvey(root, survey)
         self.assertEqual(
-            etree.tostring(root, pretty_print=True),
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
             '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
             "  <survey>\n"
             "    <title>Generic sector</title>\n"

@@ -20,7 +20,6 @@ from plonetheme.nuplone.utils import getPortal
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
-from webhelpers.html.builder import make_tag
 from z3c.form import button
 from z3c.form import form
 from zope.component import getMultiAdapter
@@ -285,13 +284,12 @@ class PublishSurvey(form.Form):
     @button.buttonAndHandler(_(u"button_publish", default=u"Publish"))
     def handlePublish(self, action):
         self.publish()
-        url = make_tag("a", href=self.client_url(), c=self.client_url())
-        IStatusMessage(self.request).addHTMLStatusMessage(
+        IStatusMessage(self.request).add(
             _(
                 u"message_publish_success",
                 default="Succesfully published the OiRA Tool. It can be "
-                "accessed at ${url}.",
-                mapping={"url": url},
+                'accessed at <a href="${url}">${url}</a>.',
+                mapping={"url": self.client_url()},
             ),
             type="success",
         )
@@ -341,13 +339,12 @@ class PreviewSurvey(form.Form):
     @button.buttonAndHandler(_(u"button_preview", default=u"Create preview"))
     def handlePreview(self, action):
         self.publish()
-        url = make_tag("a", href=self.preview_url(), c=self.preview_url())
-        IStatusMessage(self.request).addHTMLStatusMessage(
+        IStatusMessage(self.request).add(
             _(
                 "message_preview_success",
                 default=u"Succesfully created a preview for the OiRA Tool. "
-                u"It can be accessed at ${url}.",
-                mapping={"url": url},
+                u'It can be accessed at <a href="${url}">${url}</a>.',
+                mapping={"url": self.preview_url()},
             ),
             type="success",
         )

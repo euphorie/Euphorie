@@ -39,7 +39,7 @@ class RiskTests(EuphorieIntegrationTestCase):
         self.loginAsPortalOwner()
         solution = createSolution()
         title = solution.Title()
-        self.assertEqual(type(title), str)
+        self.assertIsInstance(title, str)
         survey = utils.getSurvey(solution)
         self.assertEqual(
             title, translate(Solution.title, target_language=survey.language)

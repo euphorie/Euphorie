@@ -10,6 +10,7 @@ from plone.app.testing import SITE_OWNER_NAME
 from plone.app.testing import SITE_OWNER_PASSWORD
 
 import re
+import six
 
 
 class RiskTests(EuphorieIntegrationTestCase):
@@ -136,7 +137,10 @@ class RiskFunctionalTests(EuphorieFunctionalTestCase):
         image_url = match.group(1)
         browser.open(image_url)
         self.assertEqual(browser.isHtml, False)
-        self.assertEqual(browser.headers.maintype, "image")
+        if six.PY2:
+            self.assertEqual(browser.headers.maintype, "image")
+        else:
+            self.assertEqual(browser.headers.get_content_maintype(), "image")
 
     def testFixedPriorityForm(self):
         # See https://github.com/euphorie/Euphorie/pull/98

@@ -12,12 +12,17 @@ from euphorie.testing import EuphorieIntegrationTestCase
 from ExtensionClass import Base
 from plone import api
 from plone.app.testing.interfaces import SITE_OWNER_NAME
-from urllib import quote
+from six.moves.urllib.parse import quote
 from z3c.saconfig import Session
 from zope.interface import alsoProvides
 
 import datetime
-import mock
+
+
+try:
+    from unittest import mock
+except ImportError:
+    import mock
 
 
 # import unittest
@@ -253,6 +258,9 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         """Return the timeline view"""
 
         class DummySurvey(mock.Mock, Base):
+
+            __new__ = object.__new__
+
             def getPhysicalPath(self):
                 return ("test", "dummy-survey")
 
