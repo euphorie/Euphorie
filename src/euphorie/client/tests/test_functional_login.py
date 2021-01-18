@@ -249,7 +249,7 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
                 name="form.widgets.new_password"
             ).value = "secret"  # noqa: E501
             browser.getControl(
-                name="form.widgets.new_password.confirm"
+                name="form.widgets.new_password_confirmation"
             ).value = "secret"  # noqa: E501
             browser.getControl(label="Save changes").click()
             self.assertEqual(

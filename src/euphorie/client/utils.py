@@ -6,9 +6,9 @@ Helper functions.
 """
 
 from .. import MessageFactory as _
-from email.Header import Header
-from email.MIMEMultipart import MIMEMultipart
-from email.MIMEText import MIMEText
+from email.header import Header
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from euphorie.client import model
 from euphorie.content.utils import StripMarkup
 from plone import api
@@ -17,8 +17,7 @@ from sqlalchemy import sql
 from z3c.saconfig import Session
 from zope.i18nmessageid import MessageFactory
 
-import email.Utils as emailutils
-import htmllib
+import email.utils as emailutils
 import logging
 import random
 import six
@@ -50,9 +49,7 @@ def getSecret():
 def randomString(length=16):
     """Return 32 bytes of random data. Only characters which do not require
     special escaping in HTML or URLs are generated."""
-    safe_characters = (
-        "abcdefghijklmnopqrstuvwxyz" "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "1234567890-"
-    )
+    safe_characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-"
     return "".join(random.choice(safe_characters) for idx in range(length))
 
 
@@ -103,7 +100,7 @@ def setLanguage(request, context, lang=None):
         lang = lang.split("-")[0]
         res = lt.setLanguageCookie(lang=lang, request=request)
         if res is None:
-            log.warn("Failed to switch language to %s", lang)
+            log.warning("Failed to switch language to %s", lang)
             lt.setLanguageCookie(lang="en", request=request)
             lang = "en"
 
@@ -114,13 +111,6 @@ def setLanguage(request, context, lang=None):
     binding = request.get("LANGUAGE_TOOL", None)
     if binding is not None:
         binding.LANGUAGE = lang
-
-
-def html_unescape(s):
-    p = htmllib.HTMLParser(None)
-    p.save_bgn()
-    p.feed(s)
-    return p.save_end()
 
 
 def remove_empty_modules(nodes):

@@ -7,7 +7,7 @@ Defines a colour field, with a validator.
 
 from .. import MessageFactory as _
 from zope import schema
-from zope.interface import implements
+from zope.interface import implementer
 from zope.schema.interfaces import IBytesLine
 from zope.schema.interfaces import ValidationError
 
@@ -25,10 +25,9 @@ class IColour(IBytesLine):
     """A field for a colour."""
 
 
+@implementer(IColour)
 class Colour(schema.BytesLine):
     """Colour selector field."""
-
-    implements(IColour)
 
     _type = str
 

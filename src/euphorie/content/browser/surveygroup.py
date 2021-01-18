@@ -13,13 +13,13 @@ from plone.dexterity.utils import createContentInContainer
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from six.moves.urllib.parse import urlencode
 from ZODB.POSException import ConflictError
 from zope.component import getUtility
 from zope.event import notify
 
 import datetime
 import logging
-import urllib
 
 
 log = logging.getLogger(__name__)
@@ -263,7 +263,7 @@ class VersionCommand(BrowserView):
         elif action == "clone":
             response.redirect(
                 "%s/++add++euphorie.survey?%s"
-                % (surveygroup.absolute_url(), urllib.urlencode(dict(survey=survey_id)))
+                % (surveygroup.absolute_url(), urlencode(dict(survey=survey_id)))
             )
         else:
             log.error("Invalid version command action: %r", action)

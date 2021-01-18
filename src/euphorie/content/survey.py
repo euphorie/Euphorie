@@ -34,7 +34,7 @@ from plone.supermodel import model
 from plonetheme.nuplone.z3cform.directives import depends
 from zope import schema
 from zope.component import getUtility
-from zope.interface import implements
+from zope.interface import implementer
 
 import sys
 
@@ -193,14 +193,13 @@ def get_tool_type(context):
     return tt_default
 
 
+@implementer(ISurvey, IQuestionContainer)
 class Survey(Container):
     """A risk assessment survey.
 
     A survey uses the *IIdGenerationRoot* behaviour to guarantee that
     all items inside the survey have a unique id.
     """
-
-    implements(ISurvey, IQuestionContainer)
 
     dirty = False
 

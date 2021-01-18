@@ -15,8 +15,13 @@ from zope.interface import Interface
 from zope.publisher.browser import TestRequest
 
 import Acquisition
-import mock
 import unittest
+
+
+try:
+    from unittest import mock
+except ImportError:
+    import mock
 
 
 class Mock(Acquisition.Explicit):

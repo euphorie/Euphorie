@@ -156,6 +156,24 @@ class SectorBrowserTests(EuphorieFunctionalTestCase):
             u"one special character (e.g. $, # or @)." in browser.contents
         )
 
+    def testPasswordConfirmation(self):
+        createSector(self.portal, login="sector")
+        browser = self.get_browser(logged_in=True)
+        browser.open("%s/sectors/nl/@@manage-users" % self.portal.absolute_url())
+        browser.getLink("Add new sector").click()
+        browser.getControl(name="form.widgets.title").value = "New sector"
+        browser.getControl(name="form.widgets.login").value = "sector"
+        browser.getControl(name="form.widgets.password").value = "S3cr3t!"
+        browser.getControl(
+            name="form.widgets.password.confirm"
+        ).value = "anotherS3cr3t!"
+        browser.getControl(name="form.widgets.contact_name").value = "Max Mustermann"
+        browser.getControl(name="form.widgets.contact_email").value = "max@example.com"
+        browser.getControl(name="form.buttons.save").click()
+        self.assertIn(
+            u"Password doesn't compare with confirmation value", browser.contents
+        )
+
 
 class PermissionTests(EuphorieIntegrationTestCase):
     def _create(self, container, *args, **kwargs):

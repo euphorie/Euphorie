@@ -12,9 +12,10 @@ from plone.autoform import directives
 from plone.dexterity.content import Item
 from plone.indexer import indexer
 from plone.supermodel import model
+from Products.CMFPlone.utils import safe_nativestring
 from zope import schema
 from zope.i18n import translate
-from zope.interface import implements
+from zope.interface import implementer
 
 
 class ISolution(model.Schema):
@@ -115,8 +116,8 @@ class ISolution(model.Schema):
     # )
 
 
+@implementer(ISolution)
 class Solution(Item):
-    implements(ISolution)
     title = _("title_common_solution", default=u"Measure")
     prevention_plan = None
     requirements = None
@@ -124,9 +125,11 @@ class Solution(Item):
 
     def Title(self):
         survey = utils.getSurvey(self)
-        return translate(
-            Solution.title, context=self.REQUEST, target_language=survey.language
-        ).encode("utf-8")
+        return safe_nativestring(
+            translate(
+                Solution.title, context=self.REQUEST, target_language=survey.language
+            )
+        )
 
 
 @indexer(ISolution)

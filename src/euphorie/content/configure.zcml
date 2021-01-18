@@ -20,6 +20,7 @@
     <include package=".behaviors" />
     <include package=".browser" />
     <include package=".subscribers" />
+    <include package=".widgets" />
 
     <browser:resourceDirectory
         name="euphorie.static"
@@ -87,7 +88,6 @@
       />
 
     <adapter factory=".user.UniqueLoginValidator" />
-    <adapter factory=".user.PasswordValidator" />
     <adapter factory=".user.UserAuthentication" />
     <adapter factory=".user.UserChanger" />
     <adapter factory=".user.PasswordDataManager" />

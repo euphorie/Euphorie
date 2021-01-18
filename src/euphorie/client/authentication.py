@@ -13,6 +13,7 @@ from App.class_init import InitializeClass
 from euphorie.content.user import IUser
 from plone import api
 from plone.keyring.interfaces import IKeyManager
+from Products.CMFPlone.utils import safe_nativestring
 from Products.membrane.interfaces import IMembraneUserAuth
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 from Products.PluggableAuthService.interfaces.plugins import IAuthenticationPlugin
@@ -22,6 +23,7 @@ from Products.PluggableAuthService.interfaces.plugins import IUserEnumerationPlu
 from Products.PluggableAuthService.interfaces.plugins import IUserFactoryPlugin
 from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
 from Products.PluggableAuthService.utils import classImplements
+from six.moves.urllib.parse import urlencode
 from z3c.saconfig import Session
 from zope.component import getUtility
 from zope.publisher.interfaces.browser import IBrowserView
@@ -29,10 +31,8 @@ from zope.publisher.interfaces.browser import IBrowserView
 import hashlib
 import hmac
 import logging
-import six
 import sqlalchemy.exc
 import traceback
-import urllib
 
 
 log = logging.getLogger(__name__)
@@ -290,7 +290,7 @@ class EuphorieAccountPlugin(BasePlugin):
 
         login_url = "%s/@@login?%s" % (
             context.absolute_url(),
-            urllib.urlencode(dict(came_from=current_url)),
+            urlencode(dict(came_from=current_url)),
         )
         response.redirect(login_url, lock=True)
         return True
@@ -308,8 +308,7 @@ def authenticate(login, password):
     """
     if not login or not password:
         return None
-    if isinstance(password, six.text_type):
-        password = password.encode("utf8")
+    password = safe_nativestring(password)
 
     login = login.lower()
     accounts = Session().query(model.Account).filter(model.Account.loginname == login)

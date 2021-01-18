@@ -530,10 +530,10 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.assertEqual(surveygroup.keys(), ["fresh-import"])
         self.assertEqual(survey.keys(), ["1", "2", "3", "4"])
         children = survey.values()
-        self.assertEquals(children[0].title, u"Module one")
-        self.assertEquals(children[1].title, u"Profile one")
-        self.assertEquals(children[2].title, u"Module two")
-        self.assertEquals(children[3].title, u"Profile two")
+        self.assertEqual(children[0].title, u"Module one")
+        self.assertEqual(children[1].title, u"Profile one")
+        self.assertEqual(children[2].title, u"Module two")
+        self.assertEqual(children[3].title, u"Profile two")
 
 
 class SectorImporterTests(EuphorieFunctionalTestCase):
@@ -602,9 +602,9 @@ class SectorImporterTests(EuphorieFunctionalTestCase):
         self.assertEqual(sector.logo.contentType, "image/gif")
         self.assertEqual(
             sector.logo.data,
-            "GIF89a\x01\x00\x01\x00\x80\x00\x00"
-            "\x00\x00\x00\xff\xff\xff!\xf9\x04"
-            "\x01\x00\x00\x01\x00,\x00\x00\x00"
-            "\x00\x01\x00\x01\x00\x00\x02\x01L"
-            "\x00;",
+            b"GIF89a\x01\x00\x01\x00\x80\x00\x00"
+            b"\x00\x00\x00\xff\xff\xff!\xf9\x04"
+            b"\x01\x00\x00\x01\x00,\x00\x00\x00"
+            b"\x00\x01\x00\x01\x00\x00\x02\x01L"
+            b"\x00;",
         )

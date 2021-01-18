@@ -7,7 +7,11 @@ from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
 from zExceptions import Unauthorized
 
-import mock
+
+try:
+    from unittest import mock
+except ImportError:
+    import mock
 
 
 class TestArchivingViews(EuphorieIntegrationTestCase):

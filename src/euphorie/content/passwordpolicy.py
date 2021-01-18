@@ -5,17 +5,17 @@ from euphorie.content import MessageFactory as _
 from Products.PlonePAS.plugins import passwordpolicy
 from Products.PluggableAuthService.interfaces.plugins import IValidationPlugin
 from zope import globalrequest
-from zope.interface import implements
+from zope.interface import implementer
 
 import re
 
 
+@implementer(IValidationPlugin)
 class EuphoriePasswordPolicy(passwordpolicy.PasswordPolicyPlugin):
     """Simple Password Policy to ensure password is 5 chars long."""
 
     id = "euphorie_password_policy"
     meta_type = "Euphorie Password Policy"
-    implements(IValidationPlugin)
     security = ClassSecurityInfo()
 
     security.declarePrivate("validateUserInfo")

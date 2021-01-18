@@ -23,7 +23,7 @@ class AddBarTileTests(EuphorieFunctionalTestCase):
         survey = self.createSurvey()
         tile = self.tile(survey)
         tile.update()
-        action = filter(lambda fti: fti.id == "euphorie.module", tile.actions)[0]
+        action = list(filter(lambda fti: fti.id == "euphorie.module", tile.actions))[0]
         self.assertEqual(action.title, u"Module")
 
     def testModuleNameInsideModule(self):
@@ -34,5 +34,6 @@ class AddBarTileTests(EuphorieFunctionalTestCase):
         module = self._create(survey, "euphorie.module", "module")
         tile = self.tile(module)
         tile.update()
-        action = filter(lambda fti: fti.id == "euphorie.submodule", tile.actions)[0]
-        self.assertEqual(action.title, u"Submodule")
+        for action in filter(lambda fti: fti.id == "euphorie.submodule", tile.actions):
+            self.assertEqual(action.title, u"Submodule")
+            return

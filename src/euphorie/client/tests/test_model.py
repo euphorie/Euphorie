@@ -10,7 +10,11 @@ from plone.app.event.base import localized_now
 from sqlalchemy.exc import StatementError
 from z3c.saconfig import Session
 
-import mock
+
+try:
+    from unittest import mock
+except ImportError:
+    import mock
 
 
 def createSurvey():
@@ -368,7 +372,7 @@ class AccountTests(DatabaseTests):
         session.add(group3)
         group3.parent = group1
         group4 = model.Group(group_id="4")
-        session.add(group3)
+        session.add(group4)
         group4.parent = group2
         session.flush()
         account1 = model.Account(loginname="account1")

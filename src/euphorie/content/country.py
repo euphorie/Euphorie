@@ -14,7 +14,7 @@ from plone.dexterity.content import Container
 from plone.supermodel import model
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from zope import schema
-from zope.interface import implements
+from zope.interface import implementer
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 
@@ -99,10 +99,9 @@ class ICountry(model.Schema, IBasic):
     )
 
 
+@implementer(ICountry)
 class Country(Container):
     """A country folder."""
-
-    implements(ICountry)
 
     def _canCopy(self, op=0):
         """Tell Zope2 that this object can not be copied."""

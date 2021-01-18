@@ -20,6 +20,7 @@ from plone import api
 from plone.app.event.base import localized_now
 from plone.memoize import ram
 from plone.memoize.instance import memoize
+from Products.CMFPlone.utils import safe_nativestring
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from sqlalchemy import orm
@@ -356,7 +357,7 @@ class Group(BaseObject):
             if not new_ids:
                 return
             ids.extend(new_ids)
-            map(get_ids, new_ids)
+            tuple(map(get_ids, new_ids))
 
         get_ids(self.group_id)
         return ids
@@ -548,8 +549,7 @@ class Account(BaseObject):
             return False
         if password == self.password:
             return True
-        if isinstance(password, six.text_type):
-            password = password.encode("utf8")
+        password = safe_nativestring(password)
         return bcrypt.checkpw(password, self.password)
 
     def hash_password(self):
@@ -560,16 +560,17 @@ class Account(BaseObject):
             return
         if not password:
             return
-        if isinstance(password, six.text_type):
-            password = password.encode("utf8")
+        password = safe_nativestring(password)
         if BCRYPTED_PATTERN.match(password):
             # The password is already encrypted, do not encrypt it again
             # XXX this is broken with passwords that are actually an hash
             return
-        self.password = bcrypt.hashpw(
-            password,
-            bcrypt.gensalt(),
-        ).decode("utf8")
+        self.password = safe_unicode(
+            bcrypt.hashpw(
+                password,
+                bcrypt.gensalt(),
+            )
+        )
 
 
 def account_before_insert_subscriber(mapper, connection, account):

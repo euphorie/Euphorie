@@ -20,6 +20,7 @@ from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MailHost.MailHost import MailHostError
 from Products.statusmessages.interfaces import IStatusMessage
+from six.moves.urllib.parse import urlencode
 from z3c.form import button
 from z3c.form import form
 from z3c.form.interfaces import WidgetActionExecutionError
@@ -29,12 +30,12 @@ from zope import schema
 from zope.i18n import translate
 from zope.interface import directlyProvides
 from zope.interface import Invalid
+from zope.interface import invariant
 
 import datetime
 import logging
 import smtplib
 import socket
-import urllib
 
 
 log = logging.getLogger(__name__)
@@ -49,6 +50,19 @@ class PasswordChangeSchema(model.Schema):
     new_password = schema.Password(
         title=_(u"label_new_password", default=u"Desired password")
     )
+    directives.widget(new_password="z3c.form.browser.password.PasswordFieldWidget")
+
+    new_password_confirmation = schema.Password(
+        title=_(u"label_new_password_confirmation", default=u"Again password")
+    )
+    directives.widget(
+        new_password_confirmation="z3c.form.browser.password.PasswordFieldWidget"
+    )
+
+    @invariant
+    def validate_same_value(data):
+        if data.new_password != data.new_password_confirmation:
+            raise Invalid(_("Password doesn't compare with confirmation value"))
 
 
 class AccountDeleteSchema(model.Schema):
@@ -87,6 +101,8 @@ class AccountSettings(AutoExtensibleForm, form.Form):
         flash = IStatusMessage(self.request).addStatusMessage
         (data, errors) = self.extractData()
         if errors:
+            for error in errors:
+                flash(error.message, "notice")
             return
 
         user = get_current_account()
@@ -196,7 +212,7 @@ class NewEmail(AutoExtensibleForm, form.Form):
         client_url = self.request.client.absolute_url()
         confirm_url = "%s/confirm-change?%s" % (
             client_url,
-            urllib.urlencode({"key": account.change_request.id}),
+            urlencode({"key": account.change_request.id}),
         )
 
         mailhost = getToolByName(self.context, "MailHost")

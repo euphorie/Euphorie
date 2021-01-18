@@ -17,8 +17,8 @@ from openpyxl.writer.excel import save_virtual_workbook
 from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
+from six.moves.urllib.parse import quote
 from sqlalchemy import sql
-from urllib import quote
 from zope.i18n import translate
 
 import logging

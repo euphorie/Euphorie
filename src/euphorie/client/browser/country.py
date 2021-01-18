@@ -8,7 +8,6 @@ from euphorie.client.country import IClientCountry
 from euphorie.client.model import get_current_account
 from euphorie.client.sector import IClientSector
 from euphorie.content.survey import ISurvey
-from itertools import ifilter
 from logging import getLogger
 from plone import api
 from plone.memoize.view import memoize
@@ -108,7 +107,7 @@ class SurveyTemplatesMixin(object):
     @memoize
     def get_survey_templates_tree_root(self):
         survey_items = self.get_survey_templates()
-        map(self.get_survey_template_node, survey_items)
+        list(map(self.get_survey_template_node, survey_items))
         return self.survey_templates_root
 
     @memoize
@@ -386,7 +385,7 @@ class PortletBase(BrowserView):
         )
         for sector in sectors:
             surveys.update(
-                ifilter(
+                filter(
                     self.filter_survey,
                     sector.listFolderContents({"portal_type": "euphorie.survey"}),
                 )
