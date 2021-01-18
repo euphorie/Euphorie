@@ -92,5 +92,16 @@ class RemoveArchetypesLeftovers(UpgradeStep):
             ):
                 unregisterUtility(portal, iface, name)
 
+        # Remove yet more traces of c.indexing in the site manager
+        sm = portal.getSiteManager()
+        bad_ids = [
+            "collective.indexing.interfaces.IIndexingConfig",
+            "collective.indexing.indexer.IPortalCatalogQueueProcessor-portal-catalog",
+        ]
+        for bad_id in bad_ids:
+            if bad_id in sm.objectIds():
+                sm._delObject(bad_id)
+                sm._p_changed = True
+
         # Also unregister collective.js.jquery util
         unregisterUtility(portal, ILocalBrowserLayerType, "collective.js.jqueryui")
