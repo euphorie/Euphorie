@@ -2,6 +2,7 @@
 from ftw.upgrade import UpgradeStep
 from plone import api
 from plone.app.upgrade.utils import loadMigrationProfile
+from plone.browserlayer.interfaces import ILocalBrowserLayerType
 import logging
 
 
@@ -61,6 +62,7 @@ class RemoveArchetypesLeftovers(UpgradeStep):
         except KeyError:
             pass
 
+        # Unregister persistent traces of collective.indexing
         try:
             from collective.indexing.indexer import IPortalCatalogQueueProcessor
             from collective.indexing.interfaces import IIndexingConfig
@@ -74,3 +76,6 @@ class RemoveArchetypesLeftovers(UpgradeStep):
                 (IPortalCatalogQueueProcessor, "portal-catalog"),
             ):
                 unregisterUtility(portal, iface, name)
+
+        # Also unregister collective.js.jquery util
+        unregisterUtility(portal, ILocalBrowserLayerType, "collective.js.jqueryui")
