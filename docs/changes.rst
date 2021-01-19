@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.6.4 (unreleased)
+11.6.4 (2021-01-19)
 -------------------
 
 - New styles from proto
