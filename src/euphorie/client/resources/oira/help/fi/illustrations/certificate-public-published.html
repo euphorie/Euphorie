@@ -58,7 +58,8 @@
 
 		
 
-		<div id="main-content">
+		
+<div id="main-content">
 	<div id="content-pane">
 		<div class="container">
 			<div class="row">
@@ -81,14 +82,22 @@
 							Congratulations with earning the certificate for <strong>“Buckets and broomsticks”</strong>.
 						</p>
 					</article> -->
-					<div class="pat-message notice" id="message-box">
+					<div
+						class="pat-message notice"
+						id="message-box">
 
-						<form class="pat-form pat-validation" action="/certificate-public-published#message-box">
+						<form
+							class="pat-form pat-validation pat-inject"
+							action="/certificate-public-published"
+							data-pat-inject="source: #message-box; target: #message-box">
 
-							<fieldset class="pat-inject pat-autosubmit pat-subform vertical">
-								<label class="pat-subform pat-inject" data-pat-inject="source: #certificate; target: #certificate;">
+							<fieldset
+								class="pat-inject pat-autosubmit pat-subform vertical">
+								<label
+									class="pat-subform pat-inject"
+									data-pat-inject="source: #certificate; target: #certificate;">
 									Name on certificate
-									<input type="text" name="" required value="Sacrebleu & Fils" disabled title="The name on the certificate cannot be changed on an already published certificate. Pleae unpublish to change the name on the certificate and republish if desired." placeholder="Your company name" />
+									<input type="text" name="" required value="Sacrebleu & Fils" disabled title="The name on the certificate cannot be changed on an already published certificate. Please unpublish to change the name on the certificate and republish if desired." placeholder="Your company name" />
 								</label>
 								<label>
 									Departement/Region
@@ -102,20 +111,39 @@
 									Contact name
 									<input type="text" name="" />
 								</label>
-								<fieldset class="pat-checklist">
+								<!-- <fieldset class="pat-checklist">
 									<label><input type="checkbox" name="public" checked /> Make public</label>
-								</fieldset>
+								</fieldset> -->
 								<button type="submit" hidden>Send</button>
 							</fieldset>
 
 							
-								<p>Your certificate for <strong>“Buckets and broomsticks”</strong> is <a href="https://oiraproject.eu/en/certificates/9879809808" target="_blank">publically visible</a> on the OiRA website.</p>
-								<p>
-									Copy the following link to anyone to whom it may concern as proof that you've conducted this risk assessment.
-								</p>
-								<fieldset class="vertical">
-									<textarea rows="2" class="copy-box">https://oiraproject.eu/en/certificates/9879809808</textarea>
-								</fieldset>
+								<article
+									class="pat-rich">
+									<p>Your certificate for <strong>“Buckets and broomsticks”</strong> is <a href="https://oiraproject.eu/en/certificates/9879809808" target="_blank">publically visible</a> on the OiRA website.</p>
+									<p>
+										Copy the following link to anyone to whom it may concern as proof that you've conducted this risk assessment.
+									</p>
+									<fieldset class="vertical">
+										<textarea rows="2" class="copy-box">https://oiraproject.eu/en/certificates/9879809808</textarea>
+									</fieldset>
+								</article>
+								<div
+									class="button-bar">
+									<button
+										class="pat-button"
+										type="submit"
+										name="unpublish"
+										formaction="/certificate-public">
+										Peruuta julkaisu
+									</button>
+									<a
+										class="pat-button"
+										href="/certificate-print"
+										target="print">
+										Tulostus
+									</a>
+								</div>
 							
 
 							<p></p>
