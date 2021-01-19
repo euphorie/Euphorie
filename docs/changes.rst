@@ -1,11 +1,16 @@
 Changelog
 =========
 
-11.6.4 (unreleased)
+11.6.5 (unreleased)
 -------------------
 
 - Nothing changed yet.
 
+
+11.6.4 (2021-01-19)
+-------------------
+
+- New styles from proto
 
 11.6.3 (2020-12-21)
 -------------------
