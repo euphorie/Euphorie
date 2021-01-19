@@ -58,7 +58,8 @@
 
 		
 
-		<div id="main-content">
+		
+<div id="main-content">
 	<div id="content-pane">
 		<div class="container">
 			<div class="row">
@@ -81,12 +82,20 @@
 							Congratulations with earning the certificate for <strong>“Buckets and broomsticks”</strong>.
 						</p>
 					</article> -->
-					<div class="pat-message notice" id="message-box">
+					<div
+						class="pat-message notice"
+						id="message-box">
 
-						<form class="pat-form pat-validation" action="/certificate-public-published#message-box">
+						<form
+							class="pat-form pat-validation pat-inject"
+							action="/certificate-public-published"
+							data-pat-inject="source: #message-box; target: #message-box">
 
-							<fieldset class="pat-inject pat-autosubmit pat-subform vertical">
-								<label class="pat-subform pat-inject" data-pat-inject="source: #certificate; target: #certificate;">
+							<fieldset
+								class="pat-inject pat-autosubmit pat-subform vertical">
+								<label
+									class="pat-subform pat-inject"
+									data-pat-inject="source: #certificate; target: #certificate;">
 									Name on certificate
 									<input type="text" name="" required value="Sacrebleu & Fils"  placeholder="Your company name" />
 								</label>
@@ -102,14 +111,33 @@
 									Contact name
 									<input type="text" name="" />
 								</label>
-								<fieldset class="pat-checklist">
+								<!-- <fieldset class="pat-checklist">
 									<label><input type="checkbox" name="public"  /> Make public</label>
-								</fieldset>
+								</fieldset> -->
 								<button type="submit" hidden>Send</button>
 							</fieldset>
 
 							
-								<p>Your certificate for <strong>“Buckets and broomsticks”</strong> is private unless you choose to make it public. By ticking the “Make public” tickbox above, your certificate will be published on the official <a href="https://oiraproject.eu/en/certificates/" target="_blank">OiRA website</a>.</p>
+								<article
+									class="pat-rich">
+									<p>Your certificate for <strong>“Buckets and broomsticks”</strong> is private unless you choose to make it public. By ticking the “Make public” tickbox above, your certificate will be published on the official <a href="https://oiraproject.eu/en/certificates/" target="_blank">OiRA website</a>.</p>
+								</article>
+								<div
+									class="button-bar">
+									<button
+										class="pat-button"
+										type="submit"
+										name="publish"
+										formaction="/certificate-public-published">
+										Publish
+									</button>
+									<a
+										class="pat-button"
+										href="/certificate-print"
+										target="print">
+										Print
+									</a>
+								</div>
 							
 
 							<p></p>

@@ -47,6 +47,14 @@
 	msgid "Continue"
 	msgstr "Continue"
 
+	#| msgid button_print
+	msgid "Print"
+	msgstr "Print"
+
+	#| msgid button_publish
+	msgid "Publish"
+	msgstr "Publish"
+
 	#| msgid button_save_and_continue
 	msgid "Save and continue"
 	msgstr "Save and continue"
@@ -54,6 +62,10 @@
 	#| msgid button_skip
 	msgid "Skip"
 	msgstr "Skip"
+
+	#| msgid button_unpublish
+	msgid "Unpublish"
+	msgstr "Unpublish"
 
 	#| msgid cancel
 	msgid "Cancel"
