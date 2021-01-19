@@ -5,7 +5,9 @@ from plone.app.upgrade.utils import loadMigrationProfile
 from plone.behavior.registration import lookup_behavior_registration
 from plone.browserlayer.interfaces import ILocalBrowserLayerType
 from plone.dexterity.interfaces import IDexterityFTI
+
 import logging
+
 
 log = logging.getLogger(__name__)
 
