@@ -4,8 +4,7 @@ Changelog
 11.6.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- New styles from proto
 
 11.6.3 (2020-12-21)
 -------------------
