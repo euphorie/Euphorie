@@ -5,7 +5,8 @@ Before we can start we must set up our test environment:
 
 >>> app = layer['portal']
 >>> portal = layer['portal']
->>> from plone.testing.z2 import Browser
+>>> from plone import api
+>>> from plone.testing.zope import Browser
 >>> browser = Browser(layer['app'])
 >>> browser.handleErrors=False
 >>> portal.error_log._ignored_exceptions=("Unauthorized")
@@ -15,13 +16,15 @@ Lets create a sector with a minimal survey:
 >>> from euphorie.content.tests.utils import createSector
 >>> from euphorie.content.tests.utils import addSurvey
 >>> sector1=createSector(portal, "one", title=u"Sector one")
->>> _=addSurvey(sector1)
+>>> with api.env.adopt_user("admin"):
+...     _ = addSurvey(sector1)
 
 And a second sector with an empty survey:
 
 >>> sector2=createSector(portal, "two", title=u"Sector two", login="two", password="two")
 >>> from euphorie.content.tests.utils import EMPTY_SURVEY
->>> _=addSurvey(sector2, EMPTY_SURVEY)
+>>> with api.env.adopt_user("admin"):
+...     _ = addSurvey(sector2, EMPTY_SURVEY)
 >>> from transaction import commit
 >>> commit()
 

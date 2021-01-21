@@ -14,8 +14,8 @@ from plone.app.testing import PloneSandboxLayer
 from plone.app.testing import quickInstallProduct
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import TEST_USER_PASSWORD
-from plone.testing.z2 import Browser
-from Products.membrane.testing import MEMBRANE_PROFILES_FIXTURE
+from plone.testing import zope
+from plone.testing.zope import Browser
 from sqlalchemy import event
 from transaction import commit
 from unittest import TestCase
@@ -35,10 +35,7 @@ class EuphorieFixture(PloneSandboxLayer):
 
     saconfig_filename = "configure.zcml"
 
-    defaultBases = (
-        MEMBRANE_PROFILES_FIXTURE,
-        PLONE_FIXTURE,
-    )
+    defaultBases = (PLONE_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
         # Load any other ZCML that is required for your tests.
@@ -50,6 +47,7 @@ class EuphorieFixture(PloneSandboxLayer):
         self.loadZCML("overrides.zcml", package=euphorie.deployment)
         self.loadZCML("configure.zcml", package=euphorie.client.tests)
         self.loadZCML("configure.zcml", package=euphorie.deployment.tests)
+        zope.installProduct(app, "Products.membrane")
 
         import euphorie.client.tests
 
@@ -139,7 +137,7 @@ class EuphorieIntegrationTestCase(TestCase):
         self.request = self.layer["request"]
 
     def loginAsPortalOwner(self):
-        return login(self.portal, TEST_USER_NAME)
+        return login(self.app, "admin")
 
     def login(self, username):
         return login(self.portal, username)
@@ -172,6 +170,11 @@ class EuphorieIntegrationTestCase(TestCase):
 class EuphorieFunctionalTestCase(EuphorieIntegrationTestCase):
     layer = EUPHORIE_FUNCTIONAL_TESTING
 
+    _default_credentials = {
+        "username": TEST_USER_NAME,
+        "password": TEST_USER_PASSWORD,
+    }
+
     def get_browser(self, logged_in=False, credentials={}):
         """Return a browser, potentially a logged in one.
         The default credentials are the admin ones
@@ -179,8 +182,12 @@ class EuphorieFunctionalTestCase(EuphorieIntegrationTestCase):
         commit()
         browser = Browser(self.app)
         if logged_in or credentials:
-            username = credentials.get("username", TEST_USER_NAME)
-            password = credentials.get("username", TEST_USER_PASSWORD)
+            username = credentials.get(
+                "username", self._default_credentials["username"]
+            )
+            password = credentials.get(
+                "password", self._default_credentials["password"]
+            )
             browser.open("%s/@@login" % self.portal.absolute_url())
             browser.getControl(name="__ac_name").value = username
             browser.getControl(name="__ac_password").value = password

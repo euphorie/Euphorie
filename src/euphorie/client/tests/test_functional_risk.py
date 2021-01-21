@@ -29,8 +29,12 @@ class RiskTests(EuphorieFunctionalTestCase):
         browser.open("%s/1/1/@@identification" % session_url)
         browser.getControl(name="answer").value = ["no"]
         # Verify number of options
-        self.assertEqual(len(browser.getControl(name="frequency:int").controls), 4)
-        self.assertEqual(len(browser.getControl(name="severity:int").controls), 4)
+        self.assertEqual(
+            len(tuple(browser.getControl(name="frequency:int").controls)), 4
+        )
+        self.assertEqual(
+            len(tuple(browser.getControl(name="severity:int").controls)), 4
+        )
         # Enter some digits
         browser.getControl(name="frequency:int").value = ["7"]
         browser.getControl(name="severity:int").value = ["10"]

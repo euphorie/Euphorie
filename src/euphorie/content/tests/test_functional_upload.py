@@ -18,6 +18,11 @@ import six
 
 
 class SurveyImporterTests(EuphorieIntegrationTestCase):
+    def setUp(self):
+        super(SurveyImporterTests, self).setUp()
+        self.client = self.portal.client
+        self.loginAsPortalOwner()
+
     def createSurveyGroup(self):
         country = self.portal.sectors.nl
         sector = createContentInContainer(country, "euphorie.sector", title="sector")

@@ -11,6 +11,7 @@ from euphorie.testing import EuphorieIntegrationTestCase
 class TestCloningViews(EuphorieIntegrationTestCase):
     def setUp(self):
         super(TestCloningViews, self).setUp()
+        self.loginAsPortalOwner()
         addSurvey(self.portal, BASIC_SURVEY)
         account = addAccount(password="secret")
         survey_session = model.SurveySession(

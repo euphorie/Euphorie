@@ -7,6 +7,7 @@ from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
 from lxml import html
 from plone import api
+from Products.Five.browser.metaconfigure import ViewNotCallableError
 from time import sleep
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
@@ -17,7 +18,8 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
         """We have some views to display and set the published column
         for a survey session
         """
-        survey = addSurvey(self.portal, BASIC_SURVEY)
+        with api.env.adopt_user("admin"):
+            survey = addSurvey(self.portal, BASIC_SURVEY)
         account = addAccount(password="secret")
         survey_session = model.SurveySession(
             id=123,
@@ -40,7 +42,7 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
             ) as view:
                 # The view is not callable but
                 # has traversable allowed attributes
-                self.assertRaises(TypeError, view)
+                self.assertRaises(ViewNotCallableError, view)
                 # We have some default values that will be changed
                 # when publishing/unpublishing the session
                 self.assertEqual(survey_session.last_publisher, None)

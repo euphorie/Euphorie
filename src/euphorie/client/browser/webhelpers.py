@@ -44,7 +44,6 @@ from zope.component.hooks import getSite
 from zope.deprecation import deprecate
 from zope.i18nmessageid import MessageFactory
 
-import Globals
 import urllib
 
 
@@ -124,7 +123,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def debug_mode(self):
-        return Globals.DevelopmentMode
+        return api.env.debug_mode()
 
     @property
     @memoize

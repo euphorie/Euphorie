@@ -9,7 +9,7 @@
 <metal:aside-browser define-macro="aside-browser" meta:interpolation="true" i18n:domain="euphorie">
   <aside id="osc"
         tal:define="
-          webhelpers nocall:view/webhelpers;
+          webhelpers python:view.webhelpers;
           root_group view/get_root_group;
           root_parent root_group/parent|nothing;
           language here/plone_portal_state/language;

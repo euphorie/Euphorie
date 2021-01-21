@@ -13,6 +13,7 @@ import mock
 class TestArchivingViews(EuphorieIntegrationTestCase):
     def setUp(self):
         super(TestArchivingViews, self).setUp()
+        self.loginAsPortalOwner()
         addSurvey(self.portal, BASIC_SURVEY)
         self.account = addAccount(password="secret")
         survey_session = model.SurveySession(

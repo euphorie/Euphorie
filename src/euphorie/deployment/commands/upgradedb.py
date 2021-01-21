@@ -4,12 +4,12 @@ from datetime import datetime
 from euphorie.client import model
 from pkg_resources import get_distribution
 from pkg_resources import parse_version
-from Products.Five import zcml
 from sqlalchemy import sql
 from sqlalchemy.engine.reflection import Inspector
 from sys import argv
 from transaction import commit
 from z3c.saconfig import Session
+from Zope2.App.zcml import load_config
 
 import logging
 
@@ -28,7 +28,7 @@ try:
 except IndexError:
     config = "parts/instance/etc/package-includes/999-additional-overrides.zcml"  # noqa: E501
 
-zcml.load_config(config)
+load_config(config)
 session = Session()
 inspector = Inspector.from_engine(session.bind)
 

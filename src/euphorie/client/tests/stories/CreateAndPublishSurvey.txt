@@ -5,7 +5,7 @@ Before we can start we must set up our test environment:
 
 >>> app = layer['portal']
 >>> portal = layer['portal']
->>> from plone.testing.z2 import Browser
+>>> from plone.testing.zope import Browser
 >>> browser = Browser(app)
 >>> browser.handleErrors=False
 >>> portal.error_log._ignored_exceptions=()
@@ -16,7 +16,7 @@ Before we can start we must set up our test environment:
 
 Before we can do anything we must login with the sector account:
 
->>> browser.open(portal.absolute_url()+"/@@login")
+>>> browser.open("{site_url}/@@login?came_from={site_url}/sectors/nl/hiswa".format(site_url=portal.absolute_url()))
 >>> browser.getControl(name="__ac_name").value="hiswa"
 >>> browser.getControl(name="__ac_password").value="hiswa"
 >>> browser.getForm(id="loginForm").submit()
@@ -37,7 +37,6 @@ Now that we have created a survey we can publish it:
 
 >>> browser.getControl(name="survey").value=["standard"]
 >>> button=browser.getControl(name="action", index=1)
->>> button.mech_control.disabled = False
 >>> button.click()
 
 We must confirm we want to publish:
@@ -68,7 +67,6 @@ The currently published version should already be selected:
 Lets publish our updates now:
 
 >>> button=browser.getControl(name="action", index=1)
->>> button.mech_control.disabled = False
 >>> button.click()
 >>> browser.getControl(name="form.buttons.button_publish").click()
 >>> browser.contents

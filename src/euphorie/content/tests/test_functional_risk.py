@@ -6,6 +6,8 @@ from euphorie.content.tests.utils import addSurvey
 from euphorie.content.tests.utils import createSector
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
+from plone.app.testing import SITE_OWNER_NAME
+from plone.app.testing import SITE_OWNER_PASSWORD
 
 import re
 
@@ -54,6 +56,12 @@ class RiskTests(EuphorieIntegrationTestCase):
 
 
 class RiskFunctionalTests(EuphorieFunctionalTestCase):
+
+    _default_credentials = {
+        "username": SITE_OWNER_NAME,
+        "password": SITE_OWNER_PASSWORD,
+    }
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -147,6 +155,10 @@ class RiskFunctionalTests(EuphorieFunctionalTestCase):
 
 
 class ConstructionFilterTests(EuphorieIntegrationTestCase):
+    def setUp(self):
+        super(ConstructionFilterTests, self).setUp()
+        self.loginAsPortalOwner()
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)

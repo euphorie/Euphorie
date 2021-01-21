@@ -12,13 +12,13 @@ class DatabaseTests(unittest.TestCase):
         super(DatabaseTests, self).setUp()
         from euphorie.client import model
         from Products.Five import fiveconfigure
-        from Products.Five import zcml
         from z3c.saconfig import Session
+        from Zope2.App.zcml import load_config
 
         import euphorie.client.tests
 
         fiveconfigure.debug_mode = True
-        zcml.load_config("configure.zcml", euphorie.client.tests)
+        load_config("configure.zcml", euphorie.client.tests)
         fiveconfigure.debug_mode = False
         if self.create_tables:
             model.metadata.create_all(Session.bind, checkfirst=True)
@@ -28,5 +28,8 @@ class DatabaseTests(unittest.TestCase):
         from euphorie.client import model
         from z3c.saconfig import Session
 
+        import transaction
+
         Session.remove()
         model.metadata.drop_all(Session.bind)
+        transaction.abort()

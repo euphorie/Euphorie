@@ -3,11 +3,18 @@ from euphorie.content.tests.utils import addSurvey
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.content.tests.utils import createSector
 from euphorie.testing import EuphorieFunctionalTestCase
+from plone import api
+from plone.app.testing import SITE_OWNER_NAME
+from plone.app.testing import SITE_OWNER_PASSWORD
 
 import mock
 
 
 class LibraryTests(EuphorieFunctionalTestCase):
+    _default_credentials = {
+        "username": SITE_OWNER_NAME,
+        "password": SITE_OWNER_PASSWORD,
+    }
     library = [
         {
             "title": u"Library Sector Title",
@@ -37,7 +44,8 @@ class LibraryTests(EuphorieFunctionalTestCase):
     def test_render(self):
         self.loginAsPortalOwner()
         sector = createSector(self.portal)
-        survey = addSurvey(sector, BASIC_SURVEY)
+        with api.env.adopt_user("admin"):
+            survey = addSurvey(sector, BASIC_SURVEY)
         browser = self.get_browser(logged_in=True)
         browser.handleErrors = False
         with mock.patch(

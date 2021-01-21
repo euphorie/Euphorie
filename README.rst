@@ -33,7 +33,9 @@ at any point in time.
 Compatibility
 =============
 
+Euphorie 12 is meant to be used with Plone 5.2 and Python 2.7.
 Since Euphorie 12, NuPlone 2 is needed.
+
 NuPlone 2 no longer uses the ``z3c.appconfig``.
 The configuration is now stored in the registry.
 

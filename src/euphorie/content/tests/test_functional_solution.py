@@ -30,6 +30,7 @@ class RiskTests(EuphorieIntegrationTestCase):
         self.assertTrue("euphorie.solution" not in types)
 
     def testCanBeCopied(self):
+        self.loginAsPortalOwner()
         solution = createSolution()
         self.assertTrue(solution.cb_isCopyable())
 

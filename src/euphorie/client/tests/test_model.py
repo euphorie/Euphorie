@@ -42,41 +42,48 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
         self.assertFalse(session.is_archived)
 
     def test_get_context_filter(self):
-        eu = api.content.create(
-            type="euphorie.clientcountry", id="eu", container=self.portal.client
-        )
-        eusector = api.content.create(
-            type="euphorie.clientsector", id="eusector", container=eu
-        )
-        api.content.create(type="euphorie.survey", id="eusurvey", container=eusector)
-        nl = api.content.create(
-            type="euphorie.clientcountry", id="nl", container=self.portal.client
-        )
-        nlsector = api.content.create(
-            type="euphorie.clientsector", id="nlsector", container=nl
-        )
-        api.content.create(type="euphorie.survey", id="nlsurvey", container=nlsector)
+        with api.env.adopt_user("admin"):
+            eu = api.content.create(
+                type="euphorie.clientcountry", id="eu", container=self.portal.client
+            )
+            eusector = api.content.create(
+                type="euphorie.clientsector", id="eusector", container=eu
+            )
+            api.content.create(
+                type="euphorie.survey", id="eusurvey", container=eusector
+            )
+            nl = api.content.create(
+                type="euphorie.clientcountry", id="nl", container=self.portal.client
+            )
+            nlsector = api.content.create(
+                type="euphorie.clientsector", id="nlsector", container=nl
+            )
+            api.content.create(
+                type="euphorie.survey", id="nlsurvey", container=nlsector
+            )
 
-        context_filter = model.SurveySession.get_context_filter(self.portal)
-        self.assertSetEqual(
-            {clause.value for clause in context_filter.right.element.clauses},
-            {u"eu/eusector/eusurvey", u"nl/nlsector/nlsurvey"},
-        )
+            context_filter = model.SurveySession.get_context_filter(self.portal)
+            self.assertSetEqual(
+                {clause.value for clause in context_filter.right.element.clauses},
+                {u"eu/eusector/eusurvey", u"nl/nlsector/nlsurvey"},
+            )
 
-        context_filter = model.SurveySession.get_context_filter(self.portal.client)
-        self.assertSetEqual(
-            {clause.value for clause in context_filter.right.element.clauses},
-            {u"eu/eusector/eusurvey", u"nl/nlsector/nlsurvey"},
-        )
+            context_filter = model.SurveySession.get_context_filter(self.portal.client)
+            self.assertSetEqual(
+                {clause.value for clause in context_filter.right.element.clauses},
+                {u"eu/eusector/eusurvey", u"nl/nlsector/nlsurvey"},
+            )
 
-        context_filter = model.SurveySession.get_context_filter(self.portal.client.eu)
-        self.assertSetEqual(
-            {clause.value for clause in context_filter.right.element.clauses},
-            {u"eu/eusector/eusurvey"},
-        )
+            context_filter = model.SurveySession.get_context_filter(
+                self.portal.client.eu
+            )
+            self.assertSetEqual(
+                {clause.value for clause in context_filter.right.element.clauses},
+                {u"eu/eusector/eusurvey"},
+            )
 
-        context_filter = model.SurveySession.get_context_filter(self.portal.sectors)
-        self.assertFalse(context_filter)
+            context_filter = model.SurveySession.get_context_filter(self.portal.sectors)
+            self.assertFalse(context_filter)
 
     def testNoChildren(self):
         (ses, survey) = createSurvey()

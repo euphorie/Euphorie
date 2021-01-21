@@ -6,7 +6,6 @@
            i18n_domain="euphorie">
 
     <include package="ftw.upgrade" />
-    <include package="plone.app.folder" />
     <include package="plone.app.z3cform" />
     <include package="plone.namedfile" />
     <include package="plone.formwidget.namedfile" />
@@ -14,6 +13,7 @@
     <include package="plone.app.vocabularies" />
     <include package="plone.uuid" />
     <include package="htmllaundry" />
+    <include package="Products.membrane" />
 
     <include file="permissions.zcml" />
 

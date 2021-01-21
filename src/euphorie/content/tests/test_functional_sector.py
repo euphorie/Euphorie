@@ -7,12 +7,19 @@ from euphorie.content.user import UserAuthentication
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
+from plone.app.testing import SITE_OWNER_NAME
+from plone.app.testing import SITE_OWNER_PASSWORD
 from plone.app.testing import TEST_USER_NAME
 from Products.CMFCore.utils import _checkPermission
 from zope.component import getMultiAdapter
 
 
 class SectorTests(EuphorieIntegrationTestCase):
+    def setUp(self):
+        super(SectorTests, self).setUp()
+        self.client = self.portal.client
+        self.loginAsPortalOwner()
+
     def _create(self, container, *args, **kwargs):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
@@ -61,7 +68,8 @@ class SectorAsUserTests(EuphorieIntegrationTestCase):
 
     def createSector(self):
         country = self.portal.sectors.nl
-        sector = self._create(country, "euphorie.sector", "sector")
+        with api.env.adopt_user("admin"):
+            sector = self._create(country, "euphorie.sector", "sector")
         sector.login = "sector"
         sector.indexObject()
         return sector
@@ -109,6 +117,12 @@ class SectorAsUserTests(EuphorieIntegrationTestCase):
 
 
 class SectorBrowserTests(EuphorieFunctionalTestCase):
+
+    _default_credentials = {
+        "username": SITE_OWNER_NAME,
+        "password": SITE_OWNER_PASSWORD,
+    }
+
     def testDuplicateLoginNotAllowed(self):
         # Test for http://code.simplon.biz/tracker/euphorie/ticket/152
         createSector(self.portal, login="sector")
@@ -150,7 +164,8 @@ class PermissionTests(EuphorieIntegrationTestCase):
 
     def createSector(self):
         country = self.portal.sectors.nl
-        sector = self._create(country, "euphorie.sector", "sector")
+        with api.env.adopt_user("admin"):
+            sector = self._create(country, "euphorie.sector", "sector")
         sector.login = "sector"
         sector.indexObject()
         return sector
@@ -204,6 +219,10 @@ class PermissionTests(EuphorieIntegrationTestCase):
 
 
 class GetSurveysTests(EuphorieIntegrationTestCase):
+    def setUp(self):
+        super(GetSurveysTests, self).setUp()
+        self.loginAsPortalOwner()
+
     def getSurveys(self, context):
         return getSurveys(context)
 
