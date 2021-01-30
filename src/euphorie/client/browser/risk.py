@@ -794,7 +794,9 @@ class IdentificationView(RiskBase):
                 return self.request.response.redirect(url)
 
             view = api.content.get_view("identification", sql_module, self.request)
-            risk_id = view.add_custom_risk()
+            view.add_custom_risk()
+            notify(CustomRisksModifiedEvent(self.context.aq_parent))
+            risk_id = self.context.aq_parent.children().count()
             # Construct the path to the newly added risk: We know that there
             # is only one custom module, so we can take its id directly. And
             # to that we can append the risk id.
