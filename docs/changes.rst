@@ -10,6 +10,16 @@ A big milestone will be the removal of Grok.
 
 - Nothing changed yet.
 
+11.6.5 (unreleased)
+-------------------
+
+- Don't pre-fill a session's title with the Survey name. Let the user choose their
+  own name
+
+11.6.4 (2021-01-19)
+-------------------
+
+- New styles from proto
 
 11.6.3 (2020-12-21)
 -------------------
