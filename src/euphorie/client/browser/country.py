@@ -230,8 +230,6 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
             return
 
         title = info.get("title", u"").strip()
-        if not title:
-            title = survey.Title()
 
         survey_view = api.content.get_view("index_html", survey, self.request)
         survey_session = survey_view.create_survey_session(title, account)

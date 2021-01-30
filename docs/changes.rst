@@ -4,8 +4,8 @@ Changelog
 11.6.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Don't pre-fill a session's title with the Survey name. Let the user choose their
+  own name
 
 11.6.4 (2021-01-19)
 -------------------
