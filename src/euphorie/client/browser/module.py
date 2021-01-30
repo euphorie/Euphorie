@@ -2,6 +2,7 @@
 from Acquisition import aq_inner
 from euphorie.client import model
 from euphorie.client import utils
+from euphorie.client.interfaces import CustomRisksModifiedEvent
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
@@ -12,6 +13,7 @@ from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zope.event import notify
 
 
 logger = getLogger(__name__)
@@ -216,6 +218,7 @@ class IdentificationView(BrowserView):
         )
         risk.profile_index = 0  # XXX: not sure what this is for
         self.context.addChild(risk)
+        notify(CustomRisksModifiedEvent(self.context))
         return counter_id
 
 

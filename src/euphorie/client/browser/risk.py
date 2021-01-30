@@ -11,6 +11,7 @@ from Acquisition import aq_parent
 from euphorie import MessageFactory as _
 from euphorie.client import model
 from euphorie.client import utils
+from euphorie.client.interfaces import CustomRisksModifiedEvent
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
@@ -34,6 +35,7 @@ from z3c.appconfig.interfaces import IAppConfig
 from z3c.appconfig.utils import asBool
 from z3c.saconfig import Session
 from zope.component import getUtility
+from zope.event import notify
 from zope.publisher.interfaces import NotFound
 
 import datetime
@@ -1174,7 +1176,7 @@ class ConfirmationDeleteRisk(BrowserView):
 
 
 class DeleteRisk(BrowserView):
-    """View name: @@delete-session"""
+    """View name: @@delete-risk"""
 
     def __call__(self):
         risk_id = self.request.form.get("risk_id", None)
@@ -1190,6 +1192,7 @@ class DeleteRisk(BrowserView):
                     if risk.id != risk_id
                 ]
                 self.context.removeChildren(excluded=keep_ids)
+                notify(CustomRisksModifiedEvent(self.context))
 
         self.request.response.redirect(
             "{session_url}/@@identification".format(
