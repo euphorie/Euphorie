@@ -1,10 +1,10 @@
 from OFS.event import ObjectClonedEvent
 from OFS.interfaces import IObjectClonedEvent
 from plonetheme.nuplone.skin.interfaces import NuPloneSkin
-from zope.component.interfaces import IObjectEvent
-from zope.component.interfaces import ObjectEvent
-from zope.interface import implements
+from zope.interface import implementer
 from zope.interface import Interface
+from zope.interface.interfaces import IObjectEvent
+from zope.interface.interfaces import ObjectEvent
 
 
 class IEuphorieContentLayer(NuPloneSkin):
@@ -15,20 +15,18 @@ class IObjectPublishedEvent(IObjectClonedEvent):
     """An object has been published by copying it to the client area."""
 
 
+@implementer(IObjectPublishedEvent)
 class ObjectPublishedEvent(ObjectClonedEvent):
     """An object has been published by copying it to the client area."""
-
-    implements(IObjectPublishedEvent)
 
 
 class ISurveyUnpublishEvent(IObjectEvent):
     """A survey is being removed from the client."""
 
 
+@implementer(ISurveyUnpublishEvent)
 class SurveyUnpublishEvent(ObjectEvent):
     """A survey is being removed from the client."""
-
-    implements(ISurveyUnpublishEvent)
 
 
 class IQuestionContainer(Interface):

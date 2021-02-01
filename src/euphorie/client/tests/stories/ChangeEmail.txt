@@ -54,10 +54,11 @@ We should have received an email at jane@doe.name with a confirmation link:
 >>> str(mail_fixture.storage[0][0][1])
 'jane@doe.name'
 >>> mail_body=mail_fixture.storage[0][0][0].as_string()
+>>> from Products.CMFPlone.utils import safe_nativestring
 >>> import quopri
 >>> import re
 >>> url=re.search('(http://nohost/plone/client/confirm.*)', mail_body).group()
->>> url=quopri.decodestring(url)
+>>> url = safe_nativestring(quopri.decodestring(url))
 >>> url
 'http://nohost/plone/client/confirm-change?key=...'
 

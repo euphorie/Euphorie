@@ -60,7 +60,7 @@ def sql_clone(obj, skip={}, session=None):
     for column in obj.__table__.columns:
         if column.key not in skip:
             getattr(obj, column.key, None)
-    params = {key: value for key, value in obj.__dict__.iteritems() if key not in skip}
+    params = {key: value for key, value in obj.__dict__.items() if key not in skip}
     clone = obj.__class__(**params)
     if session:
         session.add(clone)
@@ -275,7 +275,7 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
                 if not form.get("pq{0}.present".format(id), "") == "yes":
                     continue
                 if isinstance(answer, list):
-                    profile[id] = filter(None, (a.strip() for a in answer))
+                    profile[id] = list(filter(None, (a.strip() for a in answer)))
                     if form.get("pq{0}.multiple".format(id), "") != "yes":
                         profile[id] = profile[id][:1]
                 else:
@@ -998,9 +998,9 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
                 (total_ok + total_with_measures) / Decimal(len(filtered_risks)) * 100
             )
         )
-        self.status = modules.values()
+        self.status = list(modules.values())
         self.status.sort(key=lambda m: m["path"])
-        self.toc = self.tocdata.values()
+        self.toc = list(self.tocdata.values())
         self.toc.sort(key=lambda m: m["path"])
 
     def add_to_risk_list(self, risk, module_path, has_measures=False):

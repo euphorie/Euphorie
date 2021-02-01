@@ -13,9 +13,9 @@ from euphorie.content.survey import get_tool_type
 from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
+from six import StringIO
+from six.moves.urllib.parse import quote
 from sqlalchemy import sql
-from StringIO import StringIO
-from urllib import quote
 from z3c.saconfig import Session
 from zope.i18n import translate
 

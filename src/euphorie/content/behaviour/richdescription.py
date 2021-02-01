@@ -19,7 +19,14 @@ from plone.indexer import indexer
 from plone.supermodel import model
 from zope import schema
 
-import HTMLParser
+
+try:
+    from html import unescape
+except ImportError:
+    # PY2
+    import HTMLParser
+
+    unescape = HTMLParser.HTMLParser().unescape
 
 
 class IRichDescription(model.Schema):
@@ -45,5 +52,4 @@ def Description(obj):
     if d is None:
         return None
 
-    h = HTMLParser.HTMLParser()
-    return h.unescape(StripMarkup(d))
+    return unescape(StripMarkup(d))

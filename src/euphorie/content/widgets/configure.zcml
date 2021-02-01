@@ -1,0 +1,27 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="euphorie"
+    >
+
+  <z3c:widgetTemplate
+      template="templates/password_with_confirmation_input.pt"
+      layer="plonetheme.nuplone.z3cform.interfaces.INuPloneFormLayer"
+      mode="input"
+      widget=".password.IPasswordWithConfirmationWidget"
+      />
+
+  <configure package="z3c.form.browser">
+
+    <z3c:widgetTemplate
+        template="password_display.pt"
+        layer="plonetheme.nuplone.z3cform.interfaces.INuPloneFormLayer"
+        mode="display"
+        widget="euphorie.content.widgets.password.IPasswordWithConfirmationWidget"
+        />
+
+  </configure>
+
+  <adapter factory=".password.PasswordWithConfirmationValidator" />
+
+</configure>

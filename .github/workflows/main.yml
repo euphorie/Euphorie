@@ -13,6 +13,9 @@ jobs:
       matrix:
         config:
          - ["Py2.7-Plone5.2", "2.7"]
+         - ["Py3.6-Plone5.2", "3.6"]
+         - ["Py3.7-Plone5.2", "3.7"]
+         - ["Py3.8-Plone5.2", "3.8"]
     runs-on: ubuntu-latest
     name: ${{ matrix.config[0] }}
     steps:
@@ -39,6 +42,9 @@ jobs:
           bin/pip install -r requirements.txt
           bin/buildout -c .github.cfg annotate
           bin/buildout -c .github.cfg
+      - name: Pre commit
+        uses: pre-commit/action@v2.0.0
+        if: ${{ matrix.config[1] == '3.8' }}
       - name: Test
         run: |
           ./bin/code-analysis

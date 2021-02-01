@@ -3,7 +3,6 @@ from euphorie import MessageFactory as _
 from euphorie.client.model import Account
 from euphorie.client.utils import CreateEmailTo
 from logging import getLogger
-from p01.widget.password.widget import PasswordComparsionError
 from plone import api
 from plone.autoform.form import AutoExtensibleForm
 from plone.memoize.view import memoize_contextless
@@ -12,17 +11,19 @@ from plone.supermodel import model
 from Products.CMFPlone.PasswordResetTool import InvalidRequestError
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MailHost.MailHost import MailHostError
+from six.moves.urllib.parse import urlencode
 from z3c.form import button
 from z3c.form.form import EditForm
 from z3c.saconfig import Session
 from zope import schema
 from zope.i18n import translate
 from zope.interface import implementer
+from zope.interface import Invalid
+from zope.interface import invariant
 from zope.publisher.interfaces import IPublishTraverse
 
 import smtplib
 import socket
-import urllib
 
 
 logger = getLogger(__name__)
@@ -32,6 +33,14 @@ class ResetPasswordFormSchema(model.Schema):
     new_password = schema.Password(
         title=_(u"label_new_password", default=u"Desired password"),
     )
+    new_password_confirmation = schema.Password(
+        title=_(u"label_new_password", default=u"Confirm your password"),
+    )
+
+    @invariant
+    def validate_same_value(data):
+        if data.new_password != data.new_password_confirmation:
+            raise Invalid(_("Password doesn't compare with confirmation value"))
 
 
 class ResetPasswordRequestSchema(model.Schema):
@@ -163,7 +172,7 @@ class ResetPasswordRequest(BaseForm):
         redir_url = self.request.get("came_from") or self.context.absolute_url()
         if not redir_url.endswith("login"):
             redir_url = "{0}/@@login?{1}".format(
-                redir_url, urllib.urlencode({"came_from": redir_url})
+                redir_url, urlencode({"came_from": redir_url})
             )
         self.redirect(redir_url, msg)
 
@@ -207,7 +216,7 @@ class ResetPasswordForm(BaseForm):
         (data, errors) = self.extractData()
         if errors:
             for err in errors:
-                if isinstance(err.error, PasswordComparsionError):
+                if isinstance(err.error, Exception):
                     err.message = _(
                         "error_password_mismatch", default=u"Passwords do not match"
                     )
@@ -231,7 +240,7 @@ class ResetPasswordForm(BaseForm):
         current_url = self.context.absolute_url()
         return self.redirect(
             "{}/@@login_form?{}".format(
-                current_url, urllib.urlencode(dict(came_from=current_url))
+                current_url, urlencode(dict(came_from=current_url))
             ),
             msg=_("Your password was successfully changed."),
         )

@@ -27,10 +27,12 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
         browser.open("http://nohost/plone/client/nl/account-settings")
         browser.getControl(name="form.widgets.old_password").value = "wrong"
         browser.getControl(name="form.widgets.new_password").value = "secret"
-        browser.getControl(name="form.widgets.new_password.confirm").value = "secret"
+        browser.getControl(
+            name="form.widgets.new_password_confirmation"
+        ).value = "secret"
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/account-settings")
-        self.assertTrue("Invalid password" in browser.contents)
+        self.assertIn("Invalid password", browser.contents)
 
     def testNoNewPassword(self):
         browser = self.browser
@@ -38,18 +40,20 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.old_password").value = "guest"
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/account-settings")
-        self.assertTrue("There were no changes to be saved." in browser.contents)
+        self.assertIn("Required input is missing", browser.contents)
 
     def testPasswordMismatch(self):
         browser = self.browser
         browser.open("http://nohost/plone/client/nl/account-settings")
         browser.getControl(name="form.widgets.old_password").value = "guest"
         browser.getControl(name="form.widgets.new_password").value = "secret"
-        browser.getControl(name="form.widgets.new_password.confirm").value = "secret2"
+        browser.getControl(
+            name="form.widgets.new_password_confirmation"
+        ).value = "secret2"
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/account-settings")
-        self.assertTrue(
-            "Password doesn't compare with confirmation value" in browser.contents
+        self.assertIn(
+            "Password doesn't compare with confirmation value", browser.contents
         )
 
     def testUpdatePassword(self):
@@ -57,7 +61,9 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
         browser.open("http://nohost/plone/client/nl/account-settings")
         browser.getControl(name="form.widgets.old_password").value = "guest"
         browser.getControl(name="form.widgets.new_password").value = "secret"
-        browser.getControl(name="form.widgets.new_password.confirm").value = "secret"
+        browser.getControl(
+            name="form.widgets.new_password_confirmation"
+        ).value = "secret"
         browser.handleErrors = False
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/account-settings")

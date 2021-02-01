@@ -5,7 +5,6 @@ Login
 Register new users, login/logout, create a "Guest user" account and convert
 existing guest accounts to normal accounts.
 """
-
 from ..country import IClientCountry
 from ..utils import setLanguage
 from .conditions import approvedTermsAndConditions
@@ -25,16 +24,17 @@ from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
+from six.moves.urllib.parse import parse_qs
+from six.moves.urllib.parse import urlencode
+from six.moves.urllib.parse import urlparse
+from six.moves.urllib.parse import urlsplit
 from z3c.saconfig import Session
 
-import cgi
 import datetime
 import logging
 import os
 import re
 import six
-import urllib
-import urlparse
 
 
 log = logging.getLogger(__name__)
@@ -52,8 +52,8 @@ class Login(BrowserView):
     variation_class = "variation-dashboard"
 
     def setLanguage(self, came_from):
-        qs = urlparse.urlparse(came_from)[4]
-        params = cgi.parse_qs(qs)
+        qs = urlparse(came_from)[4]
+        params = parse_qs(qs)
         lang = params.get("language")
         if not lang:
             if IClientCountry.providedBy(self.context):
@@ -127,9 +127,7 @@ class Login(BrowserView):
             ):
                 self.transferGuestSession(reply.get("guest_account_id"))
                 self.login(account, bool(self.request.form.get("remember")))
-                v_url = urlparse.urlsplit(self.request.URL + "/success").path.replace(
-                    "@@", ""
-                )
+                v_url = urlsplit(self.request.URL + "/success").path.replace("@@", "")
                 trigger_extra_pageview(self.request, v_url)
 
                 if api.portal.get_registry_record(
@@ -139,7 +137,7 @@ class Login(BrowserView):
                         "%s/terms-and-conditions?%s"
                         % (
                             context.absolute_url(),
-                            urllib.urlencode({"came_from": came_from}),
+                            urlencode({"came_from": came_from}),
                         )
                     )
                 else:
@@ -149,15 +147,15 @@ class Login(BrowserView):
 
         self.reset_password_request_url = "%s/@@reset_password_request?%s" % (
             context.absolute_url(),
-            urllib.urlencode({"came_from": came_from}),
+            urlencode({"came_from": came_from}),
         )
         self.register_url = "%s/@@register?%s" % (
             context.absolute_url(),
-            urllib.urlencode({"came_from": came_from}),
+            urlencode({"came_from": came_from}),
         )
         self.tryout_url = "%s/@@tryout?%s" % (
             context.absolute_url(),
-            urllib.urlencode({"came_from": came_from}),
+            urlencode({"came_from": came_from}),
         )
         return self.index()
 
@@ -220,7 +218,7 @@ class CreateTestSession(Tryout):
             came_from = context.absolute_url()
         self.register_url = "%s/@@register?%s" % (
             context.absolute_url(),
-            urllib.urlencode({"came_from": came_from}),
+            urlencode({"came_from": came_from}),
         )
         setLanguage(self.request, self.context)
         if self.request.environ["REQUEST_METHOD"] == "POST":
@@ -304,7 +302,7 @@ class Register(BrowserView):
             )
         Session().add(account)
         log.info("Registered new account %s", loginname)
-        v_url = urlparse.urlsplit(self.request.URL + "/success").path.replace("@@", "")
+        v_url = urlsplit(self.request.URL + "/success").path.replace("@@", "")
         trigger_extra_pageview(self.request, v_url)
         return account
 
@@ -342,7 +340,7 @@ class Register(BrowserView):
                 "%s/terms-and-conditions?%s"
                 % (
                     self.request.client.absolute_url(),
-                    urllib.urlencode({"came_from": came_from}),
+                    urlencode({"came_from": came_from}),
                 )
             )
         else:

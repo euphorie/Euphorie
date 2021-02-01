@@ -9,7 +9,7 @@ from plonetheme.nuplone import MessageFactory as NuPloneMessageFactory
 from plonetheme.nuplone.utils import checkPermission
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
-from StringIO import StringIO
+from six import StringIO
 from zope.component import queryUtility
 from zope.i18nmessageid.message import Message
 from zope.interface import implementer
@@ -191,7 +191,8 @@ class ToolTypesInfo(object):
     @property
     def default_tool_type(self):
         # The one defined as first option wins
-        return TOOL_TYPES.keys()[0]
+        for key in TOOL_TYPES:
+            return key
 
 
 def get_tool_type_default():

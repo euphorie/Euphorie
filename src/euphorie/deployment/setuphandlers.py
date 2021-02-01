@@ -168,7 +168,7 @@ def disableRedirectTracking(site):
 
     sm = getSiteManager(site)
     if sm is None or not IComponentRegistry.providedBy(sm):
-        log.warn(
+        log.warning(
             "Failed to find a site manager, can not remove "
             "IRedirectionStorage utility"
         )

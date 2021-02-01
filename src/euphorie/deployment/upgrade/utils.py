@@ -23,7 +23,11 @@ def ColumnExists(session, table, column):
     table = Table(table, metadata)
     try:
         connection.dialect.reflecttable(
-            connection, table, None, exclude_columns=tuple(), resolve_fks=False,
+            connection,
+            table,
+            None,
+            exclude_columns=tuple(),
+            resolve_fks=False,
         )
     except NoSuchTableError:
         return False

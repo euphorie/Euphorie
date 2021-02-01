@@ -12,7 +12,7 @@ from plone.dexterity.content import Container
 from plone.supermodel import model
 from Products.CMFCore.interfaces import ISiteRoot
 from zope.component import getUtility
-from zope.interface import implements
+from zope.interface import implementer
 
 
 class IClientSector(model.Schema, IBasic):
@@ -27,9 +27,8 @@ class IClientSector(model.Schema, IBasic):
     """
 
 
+@implementer(IClientSector)
 class ClientSector(Container):
-    implements(IClientSector)
-
     def _sector(self):
         sectors = getUtility(ISiteRoot).sectors
         country = getattr(sectors, aq_parent(self).id)

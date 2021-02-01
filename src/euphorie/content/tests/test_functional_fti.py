@@ -5,19 +5,23 @@ from euphorie.content.fti import ConditionalDexterityFTI
 from euphorie.content.fti import IConstructionFilter
 from euphorie.content.module import Module
 from euphorie.testing import EuphorieIntegrationTestCase
-from zope.component import adapts
+from zope.component import adapter
 from zope.component import getGlobalSiteManager
 from zope.component import provideAdapter
-from zope.interface import implements
+from zope.interface import implementer
 
-import mock
 import unittest
 
 
-class Veto(object):
-    adapts(ConditionalDexterityFTI, Module)
-    implements(IConstructionFilter)
+try:
+    from unittest import mock
+except ImportError:
+    import mock
 
+
+@implementer(IConstructionFilter)
+@adapter(ConditionalDexterityFTI, Module)
+class Veto(object):
     def __init__(self, fti, container):
         self.fti = fti
         self.container = container

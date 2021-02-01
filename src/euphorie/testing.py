@@ -25,7 +25,12 @@ from zope.interface import alsoProvides
 from zope.sqlalchemy.datamanager import NO_SAVEPOINT_SUPPORT
 
 import euphorie.deployment
-import mock
+
+
+try:
+    from unittest import mock
+except ImportError:
+    import mock
 
 
 NO_SAVEPOINT_SUPPORT.remove("sqlite")

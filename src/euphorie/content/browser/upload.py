@@ -21,6 +21,7 @@ from plone.autoform.form import AutoExtensibleForm
 from plone.dexterity.utils import createContentInContainer
 from plone.namedfile import field as filefield
 from plone.namedfile.file import NamedBlobImage
+from Products.CMFPlone.utils import safe_bytes
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import button
 from z3c.form import form
@@ -37,6 +38,12 @@ import mimetypes
 import random
 import six
 
+
+try:
+    from base64 import decodebytes
+except ImportError:
+    # PY27
+    from base64 import decodestring as decodebytes
 
 ProfileQuestionLocationFields = [
     "label_multiple_present",
@@ -178,7 +185,9 @@ class SurveyImporter(object):
             else:
                 filename = basename % u"jpg"
         image = NamedBlobImage(
-            data=node.text.decode("base64"), contentType=contentType, filename=filename
+            data=decodebytes(safe_bytes(str(node.text))),
+            contentType=contentType,
+            filename=filename,
         )
         if image.contentType is None and image.filename:
             image.contentType = mimetypes.guess_type(image.filename)[0]

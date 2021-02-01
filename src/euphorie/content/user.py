@@ -10,8 +10,7 @@ handling. It is used by :obj:`euphorie.content.sector` and
 from .. import MessageFactory as _
 from Acquisition import aq_base
 from Acquisition import aq_chain
-from p01.widget.password.interfaces import IPasswordConfirmationWidget
-from p01.widget.password.widget import PasswordConfirmationValidator
+from euphorie.content.widgets.password import PasswordWithConfirmationFieldWidget
 from plone import api
 from plone.autoform import directives
 from plone.supermodel import model
@@ -22,7 +21,6 @@ from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form.datamanager import AttributeField
 from z3c.form.interfaces import IAddForm
 from z3c.form.interfaces import IDataManager
-from z3c.form.interfaces import IForm
 from z3c.form.interfaces import IValidator
 from z3c.form.validator import SimpleFieldValidator
 from zope import schema
@@ -48,15 +46,6 @@ class DuplicateLoginError(ValidationError):
     __doc__ = _("error_existing_login", default=u"This login name is already taken.")
 
 
-class InvalidPasswordError(ValidationError):
-    def __init__(self, value, doc):
-        self.value = value
-        self._doc = doc
-
-    def doc(self):
-        return self._doc
-
-
 def validLoginValue(value):
     if not RE_LOGIN.match(value):
         raise Invalid(
@@ -71,6 +60,18 @@ def validLoginValue(value):
 
 class LoginField(schema.TextLine):
     """A login name."""
+
+
+def _check_password(value):
+    """Check that the password satisfies our site policy"""
+    if not value:
+        return True
+    regtool = api.portal.get_tool("portal_registration")
+    err = regtool.pasValidation("password", value)
+    if err:
+        raise Invalid(err)
+    # raise Invalid(_("Password doesn't compare with confirmation value"))
+    return True
 
 
 class IUser(model.Schema):
@@ -88,8 +89,11 @@ class IUser(model.Schema):
     directives.write_permission(login="euphorie.content.ManageCountry")
 
     password = schema.Password(
-        title=_("label_password", default=u"Password"), required=True
+        title=_("label_password", default=u"Password"),
+        required=True,
+        constraint=_check_password,
     )
+    directives.widget(password=PasswordWithConfirmationFieldWidget)
 
     locked = schema.Bool(
         title=_("label_account_locked", default=u"Account is locked"),
@@ -122,22 +126,6 @@ class UniqueLoginValidator(BaseValidator):
             if hasattr(aq_base(parent), "acl_users"):
                 if parent.acl_users.searchUsers(login=value, exact_match=True):
                     raise DuplicateLoginError(value)
-
-
-@adapter(Interface, Interface, IForm, schema.Password, IPasswordConfirmationWidget)
-@implementer(IValidator)
-class PasswordValidator(PasswordConfirmationValidator):
-    def validate(self, value):
-        """Ensure that the password complies with the policy configured in
-        portal_registration.
-
-        :raises: InvalidPasswordError
-        """
-        super(PasswordValidator, self).validate(value)
-        regtool = api.portal.get_tool("portal_registration")
-        err = regtool.pasValidation("password", value)
-        if err:
-            raise InvalidPasswordError(value, err)
 
 
 @adapter(IUser)
@@ -199,7 +187,7 @@ class UserAuthentication(UserProvider):
         )
 
         if candidate == real:  # XXX: Plain passwords should be deprecated
-            log.warn(
+            log.warning(
                 "Passwords should not be stored unhashed. Please run "
                 "the upgrade step to make sure all plaintext passwords are "
                 "hashed."
@@ -230,7 +218,7 @@ class UserAuthentication(UserProvider):
                 "warn",
             )
         else:
-            log.warn(
+            log.warning(
                 "Account locked for %s, due to more than %s unsuccessful "
                 "login attempts" % (self.getUserName(), max_attempts)
             )

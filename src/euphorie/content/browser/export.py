@@ -24,7 +24,16 @@ from euphorie.content.utils import StripMarkup
 from euphorie.content.utils import StripUnwanted
 from lxml import etree
 from plone import api
+from Products.CMFPlone.utils import safe_bytes
+from Products.CMFPlone.utils import safe_nativestring
 from Products.Five import BrowserView
+
+
+try:
+    from base64 import encodebytes
+except ImportError:
+    # PY27
+    from base64 import encodestring as encodebytes
 
 
 def getToken(field, value, default=None):
@@ -60,7 +69,7 @@ class ExportSurvey(BrowserView):
             node.attrib["filename"] = image.filename
         if caption:
             node.attrib["caption"] = caption
-        node.text = image.data.encode("base64")
+        node.text = encodebytes(safe_bytes(image.data))
         return node
 
     def exportSurvey(self, parent, survey):
@@ -257,6 +266,8 @@ class ExportSurvey(BrowserView):
             "Content-Disposition", u'attachment; filename="%s"' % filename
         )
         response.setHeader("Content-Type", "text/xml")
-        return etree.tostring(
-            output, pretty_print=True, xml_declaration=True, encoding="utf-8"
+        return safe_nativestring(
+            etree.tostring(
+                output, pretty_print=True, xml_declaration=True, encoding="utf-8"
+            )
         )
