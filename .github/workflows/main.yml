@@ -47,6 +47,6 @@ jobs:
         run: |
           ./bin/code-analysis
           bin/coverage run bin/test -s euphorie
-          bin/coverage report --fail-under=70
+          bin/coverage report --fail-under=69
         env:
           zope_i18n_compile_mo_files: 1
