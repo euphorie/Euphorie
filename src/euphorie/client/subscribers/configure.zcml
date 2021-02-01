@@ -11,4 +11,10 @@
 		     zope.lifecycleevent.interfaces.IObjectModifiedEvent"
 		handler=".imagecropping.crop_on_image_edit" />
 
+  	<subscriber
+      	for="euphorie.client.model.Module
+      		 euphorie.client.interfaces.CustomRisksModifiedEvent"
+      	handler=".module.handle_custom_risks_order"
+ 	/>
+
 </configure>
