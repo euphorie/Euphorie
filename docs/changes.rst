@@ -6,8 +6,9 @@ Changelog
 
 - Don't pre-fill a session's title with the Survey name. Let the user choose their
   own name
-- Omega risks: when a risk as added or deleted, make sure that the original order is
+- Omega risks: when a risk is added or deleted, make sure that the original order is
   correct, and that gaps in numbering are closed
+- Full-table report: include risk priority
 
 11.6.4 (2021-01-19)
 -------------------
