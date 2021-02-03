@@ -157,7 +157,7 @@ class IdentificationView(BrowserView):
                 context.postponed = False
             else:
                 context.postponed = True
-            self.aq_parent.session.touch()
+            self.context.session.touch()
 
         if reply.get("next") == "previous":
             if self.previous_question is None:
