@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      meta:interpolation="true"
+      metal:define-macro="layout"
+      i18n:domain="nuplone"
+      tal:condition="portal_url"
+      tal:define="
+        tools nocall:context/@@tools;
+        portal_url tools/portal_url|nothing;
+        resources_timestamp here/@@refresh-resources-timestamp/resources_timestamp;
+      "
+>
+  <head tal:define="style_url string:${portal_url}/++resource++NuPlone.style">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="${portal_url}/++resource++NuPlone.libraries/css_browser_selector.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="${style_url}/main/base.css?t=${resources_timestamp}" />
+    <link rel="stylesheet" type="text/css" media="all" href="${portal_url}/++resource++euphorie.resources/redactor.min.css?t=${resources_timestamp}" />
+    <!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="${style_url}/main/base-ie6.css" /> <![endif]-->
+    <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="${style_url}/main/base-ie7.css" /> <![endif]-->
+    <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="all" href="${style_url}/main/base-ie8.css" /> <![endif]-->
+    <style type="text/css" media="all">
+      ol.sortable:after {
+          content: "<tal:span i18n:translate="">Change order of items by dragging the handle</tal:span>";
+       }
+    </style>
+    <link rel="stylesheet" type="text/css" media="all" href="${style_url}/euphorie/base.css" />
+    <!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="${style_url}/euphorie/base-ie6.css" /> <![endif]-->
+    <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="${style_url}/euphorie/base-ie7.css" /> <![endif]-->
+    <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="all" href="${style_url}/euphorie/base-ie8.css" /> <![endif]-->
+    <title><metal:title define-slot="title">Page Title</metal:title> — ${tools/site_title}</title>
+  </head>
+  <body>
+    <div id="content">
+      <div id="mainContent">
+        <metal:pagetitle define-slot="pagetitle"><h1><metal:slot define-slot="title"/></h1></metal:pagetitle>
+        <metal:block define-slot="buttonbar"/>
+        <tal:block replace="tile:statusmessages"/>
+        <metal:block define-slot="content"/>
+      </div>
+      <tal:block replace="tile:navigation"/>
+    </div>
+    <tal:block replace="tile:tabs"/>
+    <p id="frameWrapper">
+      <object id="siteMenu" type="text/html" data="${context/absolute_url}/@@sitemenu?view_type=${tools/view_type}">
+        <tal:span i18n:translate="">Can not open site menu.</tal:span>
+      </object>
+    </p>
+    <tal:block replace="tile:actions"/>
+    <tal:block replace="tile:footer"/>
+    <script src="${portal_url}/++resource++euphorie.resources/oira.cms.min.js?t=${resources_timestamp}"></script>
+    <script type="text/javascript">
+      var plone = { portal_url : '${portal_url}',
+                    context_url : '${context/absolute_url}' };
+    </script>
+    <script type="text/javascript" src="${portal_url}/++resource++NuPlone.libraries/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="${portal_url}/++resource++NuPlone.libraries/jquery.browser.min.js"></script>
+    <script type="text/javascript" src="${portal_url}/++resource++NuPlone.libraries/ui-1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="${portal_url}/++resource++NuPlone.tinymce/tiny_mce_src.js"></script>
+    <script type="text/javascript" src="${portal_url}/++resource++NuPlone.z3cform.js"></script>
+    <script type="text/javascript" src="${portal_url}/++resource++NuPlone.behaviour/behaviour.js"></script>
+    <script type="text/javascript" src="${portal_url}/++resource++NuPlone.libraries/ordering.js"></script>
+    <tal:block replace="tile:scripts"/>
+    <metal:block define-slot="scripts"/>
+  </body>
+</html>

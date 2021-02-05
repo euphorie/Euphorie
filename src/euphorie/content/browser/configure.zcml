@@ -18,6 +18,15 @@
       template="templates/prefs_main_template.pt"
       />
 
+  <!-- Override NuPlone's layout.pt, so that we can add our redactor include -->
+  <browser:page
+      name="layout"
+      for="*"
+      layer="euphorie.content.interfaces.IEuphorieContentLayer"
+      permission="zope2.Public"
+      template="templates/layout.pt"
+      />
+
   <!-- Country -->
   <browser:page
       name="nuplone-view"
