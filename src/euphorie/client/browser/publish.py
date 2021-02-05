@@ -286,10 +286,20 @@ class PublishSurvey(form.Form):
         self.publish()
         IStatusMessage(self.request).add(
             _(
-                u"message_publish_success",
-                default="Succesfully published the OiRA Tool. It can be "
-                'accessed at <a href="${url}">${url}</a>.',
-                mapping={"url": self.client_url()},
+                u"no_translate_link_published_success",
+                default=(
+                    u'${text_message_publish_success}: <a href="${url}">${url}</a>.'
+                ),
+                mapping={
+                    "url": self.client_url(),
+                    "text_message_publish_success": _(
+                        u"message_publish_success",
+                        default=(
+                            u"Succesfully published the OiRA Tool. It can be accessed "
+                            u"at"
+                        ),
+                    ),
+                },
             ),
             type="success",
         )
@@ -341,10 +351,20 @@ class PreviewSurvey(form.Form):
         self.publish()
         IStatusMessage(self.request).add(
             _(
-                "message_preview_success",
-                default=u"Succesfully created a preview for the OiRA Tool. "
-                u'It can be accessed at <a href="${url}">${url}</a>.',
-                mapping={"url": self.preview_url()},
+                u"no_translate_link_published_success",
+                default=(
+                    u'${text_message_preview_success}: <a href="${url}">${url}</a>.'
+                ),
+                mapping={
+                    "url": self.preview_url(),
+                    "text_message_preview_success": _(
+                        u"message_preview_success",
+                        default=(
+                            u"Succesfully created a preview for the OiRA Tool. It can "
+                            u"be accessed at"
+                        ),
+                    ),
+                },
             ),
             type="success",
         )
