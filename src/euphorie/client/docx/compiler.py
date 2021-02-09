@@ -611,6 +611,26 @@ class DocxCompilerFullTable(DocxCompiler):
         paragraph = cell.paragraphs[0]
         paragraph.style = "Risk Bold List"
         paragraph.text = risk["title"]
+        if self.show_priority:
+            priority = risk.get("priority", "high")
+            if priority:
+                if priority == "low":
+                    level = _("risk_priority_low", default=u"low")
+                elif priority == "medium":
+                    level = _("risk_priority_medium", default=u"medium")
+                elif priority == "high":
+                    level = _("risk_priority_high", default=u"high")
+                paragraph = cell.add_paragraph(
+                    u"{}: {}".format(
+                        api.portal.translate(
+                            _(u"report_timeline_priority", default="Priority")
+                        ),
+                        api.portal.translate(level),
+                    ),
+                    style="Measure Indent",
+                )
+                paragraph.runs[0].italic = True
+
         if risk["comment"]:
             cell.add_paragraph(risk["comment"], style="Risk Normal")
         if self.show_risk_descriptions:
@@ -653,25 +673,6 @@ class DocxCompilerFullTable(DocxCompiler):
                 run.text = u" "
                 run = paragraph.add_run()
                 run.text = (_simple_breaks(action["requirements"]),)
-
-            if self.show_priority:
-                priority = risk.get("priority", "high")
-                if priority == "low":
-                    level = _("risk_priority_low", default=u"low")
-                elif priority == "medium":
-                    level = _("risk_priority_medium", default=u"medium")
-                elif priority == "high":
-                    level = _("risk_priority_high", default=u"high")
-                paragraph = cell.add_paragraph(
-                    u"{}: {}".format(
-                        api.portal.translate(
-                            _(u"report_timeline_priority", default="Priority")
-                        ),
-                        api.portal.translate(level),
-                    ),
-                    style="Measure Indent",
-                )
-                paragraph.runs[0].italic = True
 
             if action.get("responsible", None):
                 paragraph = cell.add_paragraph(
