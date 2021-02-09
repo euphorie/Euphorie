@@ -4359,7 +4359,7 @@ msgstr ""
 #. Default: "Date of editing"
 #: euphorie/client/docx/compiler.py:533
 msgid "label_report_date"
-msgstr ""
+msgstr "Sagatavošanas datums"
 
 #. Default: "Staff who participated in the risk assessment"
 #: euphorie/client/docx/compiler.py:532
