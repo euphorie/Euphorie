@@ -4841,6 +4841,11 @@ msgstr "Lūdzu, aizpildiet šo lauku."
 #: euphorie/client/browser/templates/involve.pt:33
 msgid "message_involve_workers_how_to"
 msgstr ""
+"<p>Izlemiet, kurš būs labākais veids, kā iesaistīt komandu. Jūs varat gan "
+"organizēt sanāksmi, gan darbinieku fokusgrupu diskusiju, kopā pārskatot "
+"darba vides riska novērtējuma daļas. Jūs varat arī lejuplādēt vai izdrukāt "
+"rīka saturu vai tā daļas, lai dalītos ar informāciju un saņemtu no "
+"darbiniekiem atgriezenisko saiti.</p>"
 
 #. Default: "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href=\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction\">legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:28
@@ -4852,11 +4857,7 @@ msgstr ""
 "ka tiek darīts vairāk nekā normatīvie akti prasa, ir pievienotā vērtība. "
 "Darba vide kļūst labāka un produktīvāka, ja tiek veicināta aktīva darbinieku "
 "iesaiste un tiek veidots dialogs strap darbiniekiem un vadību.</"
-"p><p>Izlemiet, kurš būs labākais veids, kā iesaistīt komandu. Jūs varat gan "
-"organizēt sanāksmi, gan darbinieku fokusgrupu diskusiju, kopā pārskatot "
-"darba vides riska novērtējuma daļas. Jūs varat arī lejuplādēt vai izdrukāt "
-"rīka saturu vai tā daļas, lai dalītos ar informāciju un saņemtu no "
-"darbiniekiem atgriezenisko saiti.</p>"
+"p>"
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:224
