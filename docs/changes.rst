@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.6.6 (unreleased)
+11.6.6 (2021-02-10)
 -------------------
 
 - Fix Safari-related bug that prevented adding Omega risks
