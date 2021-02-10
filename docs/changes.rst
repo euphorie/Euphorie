@@ -4,8 +4,9 @@ Changelog
 11.6.6 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Fix Safari-related bug that prevented adding Omega risks
+- Full-table report: include risk priority in "risk" column, not in "measures"
+- Translation updates
 
 11.6.5 (2021-02-02)
 -------------------
