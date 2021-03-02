@@ -32,8 +32,8 @@
             <a class="iconified icon-trash pat-modal"
                href="${context/absolute_url}/@@confirmation-delete-risk#document-content"
                title="Delete risk"
-               i18n:attributes="title"
                data-pat-inject="source: #document-content; target: #document-content"
+               i18n:attributes="title"
             >Delete risk</a>
           </nav>
 
@@ -57,16 +57,17 @@
           </fieldset>
 
           <!-- Identification -->
+          <tal:existing-measures condition="view/use_existing_measures">
+            <fieldset class="add-measure-in-place-other pat-checklist measures-in-place pat-clone pat-inject pat-subform"
+                      id="add-measure-in-place"
+                      data-pat-autosubmit="1000ms"
+                      data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button;  remove-confirmation: Are you sure you want to remove this existing measure?"
+                      data-pat-inject="source: #add-measure-in-place; target: #add-measure-in-place ${python:webhelpers.use_training_module and '&amp;&amp; source: #slide-preview-existing-measures; target: #slide-preview-existing-measures' or None}"
+            >
 
-          <fieldset class="add-measure-in-place-other pat-checklist measures-in-place pat-clone pat-inject pat-subform"
-                    id="add-measure-in-place"
-                    data-pat-autosubmit="1000ms"
-                    data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button;  remove-confirmation: Are you sure you want to remove this existing measure?"
-                    data-pat-inject="source: #add-measure-in-place; target: #add-measure-in-place ${python:webhelpers.use_training_module and '&amp;&amp; source: #slide-preview-existing-measures; target: #slide-preview-existing-measures' or None}"
-          >
-
-            <tal:existing-measures condition="view/show_existing_measures">
-
+              <p class="pat-rich"
+                 tal:content="structure view/intro_extra"
+              ></p>
               <tal:measures define="
                               measures view/get_existing_measures_with_activation;
                             "
@@ -113,66 +114,34 @@
                         title="${view/button_remove_extra}"
                 >Remove</button>
               </label>
-            </tal:existing-measures>
 
-          </fieldset>
+            </fieldset>
 
-          <div class="button-bar cloning">
-            <button class="add-clone small pat-button icon-plus-circle"
-                    id="add-in-place-measure-button"
-                    title="${view/button_add_extra}"
-                    type="button"
-            >${view/button_add_extra}</button>
-          </div>
 
-          <tal:no-measure condition="not:view/show_existing_measures">
-            <label class="clone"
-                   id="in-place-measure-template"
-                   hidden="hidden"
-            >
-              <input class="pat-autofocus"
-                     autofocus="autofocus"
-                     checked="checked"
-                     disabled="disabled"
-                     name="use-new-measure-#{1}"
-                     type="checkbox"
-              />
-              <textarea class=""
-                        cols="50"
-                        name="new-measure-#{1}"
-                        placeholder="${view/placeholder_add_extra}"
-                        rows="3"
-                        data-pat-autosubmit="1000ms"
-              ></textarea>
-              <input name="handle_measures_in_place"
-                     type="hidden"
-                     value="1"
-              />
-              <button class="icon-trash iconified remove-clone"
-                      title="${view/button_remove_extra}"
-              >Remove</button>
-            </label>
-          </tal:no-measure>
+            <div class="button-bar cloning">
+              <button class="add-clone small pat-button icon-plus-circle"
+                      id="add-in-place-measure-button"
+                      title="${view/button_add_extra}"
+                      type="button"
+              >${view/button_add_extra}</button>
+            </div>
+          </tal:existing-measures>
 
-          <fieldset class="pat-checklist radio">
+
+          <fieldset class="pat-checklist radio pat-rich">
             <legend>
-              <span class="measures-sufficient"
-                    tal:content="structure view/intro_questions"
-              ></span>
-              <span class="risk-present"
-                    tal:content="structure view/intro_extra"
-              ></span>
+              <tal:intro content="structure view/intro_questions" />
             </legend>
             <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
                      name="answer"
                      type="radio"
                      value="yes"
-              />${view/answer_yes}</label>
+              /><tal:answer replace="structure view/answer_yes" /></label>
             <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
                      name="answer"
                      type="radio"
                      value="no"
-              />${view/answer_no}</label>
+              /><tal:answer replace="structure view/answer_no" /></label>
           </fieldset>
           <!-- END Identification -->
 
