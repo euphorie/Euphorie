@@ -684,11 +684,6 @@ class IdentificationView(RiskBase):
         self.answer_no = default_type_data["answer_no"]
         self.answer_na = default_type_data["answer_na"]
         self.intro_extra = ""
-        if self.is_custom_risk:
-            self.intro_extra = tool_type_data.get("custom_intro_extra", "")
-            if self.use_existing_measures:
-                self.answer_yes = tool_type_data["answer_yes"]
-                self.answer_no = tool_type_data["answer_no"]
         self.intro_questions = tool_type_data.get("intro_questions", "")
         if getattr(self.risk, "risk_always_present", False):
             self.placeholder_add_extra = tool_type_data.get(
@@ -700,6 +695,7 @@ class IdentificationView(RiskBase):
         else:
             self.placeholder_add_extra = tool_type_data.get("placeholder_add_extra", "")
             self.button_add_extra = tool_type_data.get("button_add_extra", "")
+
         self.button_remove_extra = ""
         if self.use_existing_measures:
             measures = self.get_existing_measures_with_activation()
@@ -731,6 +727,13 @@ class IdentificationView(RiskBase):
                     self.answer_yes = tool_type_data["answer_yes"]
                     self.answer_no = tool_type_data["answer_no"]
                 self.answer_na = tool_type_data["answer_na"]
+        if self.is_custom_risk:
+            self.intro_extra = tool_type_data.get("custom_intro_extra", "")
+            self.intro_questions = tool_type_data.get("custom_intro_questions", "")
+            self.button_add_extra = tool_type_data.get("custom_button_add_extra", "")
+            self.placeholder_add_extra = tool_type_data.get(
+                "custom_placeholder_add_extra", ""
+            )
 
         survey = self.context.aq_parent.aq_parent
         if getattr(survey, "enable_custom_evaluation_descriptions", False):
