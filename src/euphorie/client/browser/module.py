@@ -2,6 +2,7 @@
 from Acquisition import aq_inner
 from euphorie.client import model
 from euphorie.client import utils
+from euphorie.client.interfaces import CustomRisksModifiedEvent
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
@@ -12,6 +13,7 @@ from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zope.event import notify
 
 
 logger = getLogger(__name__)
@@ -174,7 +176,9 @@ class IdentificationView(BrowserView):
         else:
             if ICustomRisksModule.providedBy(module):
                 if _next == "add_custom_risk":
-                    risk_id = self.add_custom_risk()
+                    self.add_custom_risk()
+                    notify(CustomRisksModifiedEvent(self.context))
+                    risk_id = self.context.children().count()
                     url = "{parent_url}/{risk_id}/@@identification".format(
                         parent_url=self.context.absolute_url(),
                         risk_id=risk_id,
@@ -213,14 +217,10 @@ class IdentificationView(BrowserView):
         risk.postponed = False
         risk.has_description = None
         risk.zodb_path = "/".join(
-            [self.context.zodb_path]
-            +
-            # There's a constraint for unique zodb_path per session
-            ["%d" % counter_id]
-        )
+            [self.context.zodb_path] + ["%d" % counter_id]
+        )  # There's a constraint for unique zodb_path per session
         risk.profile_index = 0  # XXX: not sure what this is for
         self.context.addChild(risk)
-        return counter_id
 
 
 class ActionPlanView(BrowserView):

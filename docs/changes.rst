@@ -10,11 +10,33 @@ A big milestone will be the removal of Grok.
 
 - Nothing changed yet.
 
-11.6.5 (unreleased)
+11.6.8 (unreleased)
+-------------------
+
+- Nothing changed yet.
+
+
+11.6.7 (2021-03-03)
+-------------------
+
+- Help texts: added Catalan (CA), corrected Castillan (ES)
+
+
+11.6.6 (2021-02-10)
+-------------------
+
+- Fix Safari-related bug that prevented adding Omega risks
+- Full-table report: include risk priority in "risk" column, not in "measures"
+- Translation updates
+
+11.6.5 (2021-02-02)
 -------------------
 
 - Don't pre-fill a session's title with the Survey name. Let the user choose their
   own name
+- Omega risks: when a risk is added or deleted, make sure that the original order is
+  correct, and that gaps in numbering are closed
+- Full-table report: include risk priority
 
 11.6.4 (2021-01-19)
 -------------------

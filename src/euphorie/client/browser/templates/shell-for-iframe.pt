@@ -27,6 +27,8 @@
           rel="stylesheet"
           type="text/css"
     />
+    <script>window.__patternslib_public_path__ = "${webhelpers/client_url}/${webhelpers/script_path}/";</script>
+    <script src="${webhelpers/client_url}/${webhelpers/script_path}/polyfills-loader.js" type="text/javascript"></script>
     <script src="${webhelpers/js_url}"
             type="text/javascript"
     ></script>

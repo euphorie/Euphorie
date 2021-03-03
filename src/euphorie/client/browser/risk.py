@@ -11,6 +11,7 @@ from Acquisition import aq_parent
 from euphorie import MessageFactory as _
 from euphorie.client import model
 from euphorie.client import utils
+from euphorie.client.interfaces import CustomRisksModifiedEvent
 from euphorie.client.navigation import FindNextQuestion
 from euphorie.client.navigation import FindPreviousQuestion
 from euphorie.client.navigation import getTreeData
@@ -32,6 +33,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from sqlalchemy import and_
 from z3c.saconfig import Session
 from zope.component import getUtility
+from zope.event import notify
 from zope.publisher.interfaces import NotFound
 
 import datetime
@@ -790,7 +792,9 @@ class IdentificationView(RiskBase):
                 return self.request.response.redirect(url)
 
             view = api.content.get_view("identification", sql_module, self.request)
-            risk_id = view.add_custom_risk()
+            view.add_custom_risk()
+            notify(CustomRisksModifiedEvent(self.context.aq_parent))
+            risk_id = self.context.aq_parent.children().count()
             # Construct the path to the newly added risk: We know that there
             # is only one custom module, so we can take its id directly. And
             # to that we can append the risk id.
@@ -1172,7 +1176,7 @@ class ConfirmationDeleteRisk(BrowserView):
 
 
 class DeleteRisk(BrowserView):
-    """View name: @@delete-session"""
+    """View name: @@delete-risk"""
 
     def __call__(self):
         risk_id = self.request.form.get("risk_id", None)
@@ -1188,6 +1192,7 @@ class DeleteRisk(BrowserView):
                     if risk.id != risk_id
                 ]
                 self.context.removeChildren(excluded=keep_ids)
+                notify(CustomRisksModifiedEvent(self.context))
 
         self.request.response.redirect(
             "{session_url}/@@identification".format(

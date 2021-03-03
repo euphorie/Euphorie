@@ -140,6 +140,7 @@ class OfficeDocumentView(BrowserView):
                     u"epilogue": u"",
                     u"justifiable": sql_risk.identification,
                     u"number": sql_risk.number,
+                    u"priority": sql_risk.priority,
                 }
             )
         return risks
