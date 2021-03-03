@@ -4,7 +4,7 @@ Changelog
 11.6.7 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Help texts: added Catalan (CA), corrected Castillan (ES)
 
 
 11.6.6 (2021-02-10)
