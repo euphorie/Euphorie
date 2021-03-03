@@ -153,6 +153,10 @@ class IdentificationView(BrowserView):
         """
         context = aq_inner(self.context)
         reply = self.request.form
+        _next = reply.get("next", None)
+        # In Safari browser we get a list
+        if isinstance(_next, list):
+            _next = _next.pop()
         if module.optional:
             if "skip_children" in reply:
                 context.skip_children = reply.get("skip_children")
@@ -161,7 +165,7 @@ class IdentificationView(BrowserView):
                 context.postponed = True
             self.aq_parent.session.touch()
 
-        if reply.get("next") == "previous":
+        if _next == "previous":
             if self.previous_question is None:
                 # We ran out of questions, step back to intro page
                 url = "%s/@@identification" % self.context.aq_parent.absolute_url()
@@ -171,7 +175,7 @@ class IdentificationView(BrowserView):
             return
         else:
             if ICustomRisksModule.providedBy(module):
-                if reply["next"] == "add_custom_risk":
+                if _next == "add_custom_risk":
                     self.add_custom_risk()
                     notify(CustomRisksModifiedEvent(self.context))
                     risk_id = self.context.children().count()

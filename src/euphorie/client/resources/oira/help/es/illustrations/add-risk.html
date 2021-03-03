@@ -309,82 +309,135 @@
      class="variation-risk-assessment">
     
 
-<form method="get" action="/feedback/simulated-add-risk-feedback#main-content" data-pat-inject="history: record;" class="pat-inject">
-	<div id="content-pane">
+<form
+	method="get"
+	action="/feedback/simulated-add-risk-feedback#main-content"
+	data-pat-inject="history: record;"
+	class="pat-inject">
+	<div
+		id="content-pane">
 
 		<nav class="page-actions">
-		 	<a href="/feedback/confirmation-delete-risk.html#document-content"
-		 	   class="iconified icon-trash pat-modal"
-		 	   data-pat-inject="source: #document-content; target: #document-content"
-		 	   title=""></a>
+			<a
+		 		href="/feedback/confirmation-delete-risk.html#document-content"
+		 	   	class="iconified icon-trash pat-modal"
+		 	   	data-pat-inject="source: #document-content; target: #document-content"
+		 	   	title=""></a>
 		</nav>
 
-		<fieldset class="content-mirror risk-title pat-inject pat-autosubmit pat-subform" data-pat-inject="source: #steps; target: #steps && source: #slide-content; target: #slide-content">
-			<h2 id="risk-title-main" class="output"><em class="placeholder">Describir el riesgo…</em></h2>
-			<textarea autofocus class="pat-content-mirror" placeholder="Describir el riesgo…" data-pat-content-mirror="target: #risk-title-main"></textarea>
+		<fieldset
+			class="content-mirror risk-title pat-inject pat-autosubmit pat-subform"
+			data-pat-inject="source: #steps; target: #steps && source: #slide-content; target: #slide-content">
+			<h2
+				id="risk-title-main"
+				class="output"><em class="placeholder">Describir el riesgo…</em>
+			</h2>
+			<textarea
+				class="pat-content-mirror pat-autofocus"
+				placeholder="Describir el riesgo…"
+				data-pat-content-mirror="target: #risk-title-main"></textarea>
 		</fieldset>
 
-		<fieldset id="add-measure-in-place" class="add-measure-in-place-other pat-checklist measures-in-place pat-clone pat-autosubmit pat-inject pat-subform" data-pat-clone="template: #measure-template; remove-confirmation: Are you sure you want to remove this existing measure?" id="action-plan-item-form" data-pat-inject="url: /assets/oira/help/es/illustrations/add-risk; source: #slide-preview-existing-measures; target: #slide-preview-existing-measures">
-			
-		</fieldset>
-
-		<div class="button-bar cloning">
-			<button class="add-clone small pat-button icon-plus-circle" id="add-measure-button" title="Add another measure" type="button">Añadir una medida que eche en falta</button>
-		</div>
-
-		<label id="measure-template" class="clone" hidden>
-			<input type="checkbox" name="existing-measures" disabled checked />
-			<textarea autofocus placeholder="Describir una medida que ya existe pero que todavía no se ha incluido aquí."></textarea>
-			<button class="icon-trash iconified remove-clone" title="">Eliminar</button>
-		</label>
-
-		<fieldset class="pat-checklist radio">
-			<legend>
-				<span class="measures-sufficient"></span>
-				<span class="risk-present"> ¿Este riesgo es aceptable o bajo control? Si procede, <a class="add-clone">añada las medidas que ya se han implementado</a></span>
-			</legend>
-			<label class="no"><input type="radio" name="answer" value="no"  />No, se requieren más medidas</label>
-			<label class="yes"><input type="radio" name="answer" value="yes"  />Sí, el riesgo residual es aceptable</label>
-		</fieldset>
 
 		
-		<fieldset class="evaluation pat-well notice vertical pat-depends" data-pat-depends="condition: answer=no; transition: slide">
-			<p class="problem-description">
+
+		
+
+		
+		<fieldset
+			class="pat-checklist radio">
+			<legend>
+				<span
+					class="measures-sufficient"></span>
+				<span
+					class="risk-present">¿Este riesgo es aceptable o bajo control? </span>
+			</legend>
+			<label
+				class="no">
+				<input
+					type="radio"
+					name="answer"
+					value="no"
+					 />No, se requieren más medidas</label>
+			<label
+				class="yes">
+				<input
+					type="radio"
+					name="answer"
+					value="yes"
+					 />Sí, el riesgo residual es aceptable</label>
+		</fieldset>
+		
+
+
+
+		
+		<fieldset
+			class="evaluation pat-well notice vertical pat-depends"
+			data-pat-depends="condition: answer=no; transition: slide">
+			<p
+				class="problem-description">
 				<strong></strong>
 			</p>
 			<fieldset class="pat-checklist radio">
 				<legend>Select the priority of this risk</legend>
-				<label><input type="radio" name="chance" /> Low</label>
-				<label><input type="radio" name="chance" /> Medium</label>
-				<label><input type="radio" name="chance" /> High</label>
+				<label>
+					<input
+						type="radio"
+						name="chance" /> Low</label>
+				<label>
+					<input
+						type="radio"
+						name="chance" /> Medium</label>
+				<label>
+					<input
+						type="radio"
+						name="chance" /> High</label>
 			</fieldset>
 		</fieldset>
 		
 
-		<fieldset class="pat-collapsible open vertical risk-module">
+		<fieldset
+			class="pat-collapsible open vertical risk-module">
 			<legend>
 				Información
 			</legend>
-	        <fieldset class="row" >
-	            <label id="image-upload" class="four columns image-uploader pat-subform pat-autosubmit pat-inject discrete-injection" data-pat-inject="url: /tool/2014-03-08-powerpoints-are-exposed#image-upload" title="Upload an image that illustrates this risk.">
+	        <fieldset
+	        	class="row" >
+	            <label
+	            	id="image-upload"
+	            	class="four columns image-uploader pat-subform pat-autosubmit pat-inject discrete-injection"
+	            	data-pat-inject="url: /tool/2014-03-08-powerpoints-are-exposed#image-upload" title="Upload an image that illustrates this risk.">
 	                
 	                <span class="pat-button upload-button">Subir una imagen</span>label_upload_image
 	                <input type="file" name="illustration" />
 	            </label>
-	            <label class="eight columns">
-	                <textarea name="description" rows="8" placeholder="Facilitar información adicional sobre este riesgo."></textarea>
+	            <label
+	            	class="eight columns">
+	                <textarea
+	                	name="description"
+	                	rows="8"
+	                	placeholder="Facilitar información adicional sobre este riesgo."></textarea>
 	            </label>
 	        </fieldset>
 		</fieldset>
 
 		
 
-		<fieldset class="pat-collapsible closed risk-module">
+		<fieldset
+			class="pat-collapsible closed risk-module">
 			<legend>
 				Comentarios
 			</legend>
-			<fieldset class="vertical">
-				<textarea id="comments-field" name="comments" placeholder="Por favor, deje cualquier comentario que tenga sobre la pregunta anterior en este campo. Los comentarios se usarán en el plan de acción." cols="70" rows="3" class="span-15"></textarea>
+			<fieldset
+				class="vertical">
+				<textarea
+					id="comments-field"
+					name="comments"
+					placeholder="Por favor, deje cualquier comentario que tenga sobre la pregunta anterior en este campo. Los comentarios se usarán en el plan de acción."
+					cols="70"
+					rows="3"
+					class="span-15"></textarea>
 			</fieldset>
 		</fieldset>
 
@@ -394,11 +447,29 @@
 
 	</div>
 
-	<p class="button-bar" id="nav-bar">
-		<button type="submit" name="action" formaction="" value="previous" class="pat-button back">Zurück</button>
+	<p
+		class="button-bar"
+		id="nav-bar">
+		<button
+			type="submit"
+			name="action"
+			formaction=""
+			value="previous"
+			class="pat-button back">Zurück</button>
 		
-			<button type="submit" name="action" formaction="/add-risk" value="next" class="pat-button continue">Guardar y añadir otro riesgo</button>
-			<button type="submit" name="action" formaction="/action-plan-landing.html" value="save" class="pat-button float-after">Guardar y finalizar</button>
+			<button
+				type="submit"
+				name="action"
+				formaction="/add-risk"
+				value="next"
+				class="pat-button continue">Guardar y añadir otro riesgo</button>
+			<button
+				type="submit"
+				name="action"
+				formaction="/action-plan-landing.
+				html"
+				value="save"
+				class="pat-button float-after">Guardar y finalizar</button>
 		
 	</p>
 </form>

@@ -8,8 +8,8 @@
 	msgstr "Add another item"
 
 	#| msgid add_existing_measure
-	msgid "Add existing measure"
-	msgstr "Add existing measure"
+	msgid "Add an already implemented measure"
+	msgstr "Add an already implemented measure"
 
 	#| msgid add_existing_measures
 	msgid "add all measures that have already been implemented."
@@ -679,7 +679,11 @@
 	msgid "Tick all the boxes that are applicable, or add new entries if requiried."
 	msgstr "Tick all the boxes that are applicable, or add new entries if requiried."
 
-	#| msgid label_select_existing_measures
+	#| msgid label_add_existing_measures
+	msgid "Add any measures that are <strong>already implemented</strong>."
+	msgstr "Add any measures that are <strong>already implemented</strong>."
+
+	#| msgid label_select_or_add_existing_measures
 	msgid "Select or add any measures that are <strong>already implemented</strong>."
 	msgstr "Select or add any measures that are <strong>already implemented</strong>."
 
@@ -972,8 +976,8 @@
 	msgstr "Not required (No risk)"
 
 	#| msgid question_measures_sufficient
-	msgid "Are the measures that are selected above sufficient?"
-	msgstr "Are the measures that are selected above sufficient?"
+	msgid "Are the measures that are already implemented sufficient?"
+	msgstr "Are the measures that are already implemented sufficient?"
 
 	#| msgid question_other_risks
 	msgid "<p><strong>Important:</strong> In order to avoid duplicating risks, we strongly recommend you to go first through all the previous modules, if you have not done it yet.</p><p>If you don't need to add risks, please continue.</p>"

@@ -15,7 +15,12 @@
         <h1 class="panel-class-">
         </h1>
 
-        <div class="panel-body">
+        <div class="panel-body"
+             tal:define="
+               webhelpers nocall:context/@@webhelpers;
+               use_help_section webhelpers/use_help_section;
+             "
+        >
           <div class="container">
             <div id="info-block">
               <article class="long-read">
@@ -23,7 +28,9 @@
                   <h1>${context/Title}</h1>
                 </div>
 
-                <div class="page-nav">
+                <div class="page-nav"
+                     tal:condition="use_help_section"
+                >
                   <ul class="link-list toc">
                     <li>
                       <a class="pat-scroll"
@@ -85,6 +92,7 @@
 
                 <section class="pat-rich app-info"
                          id="about-app"
+                         tal:condition="use_help_section"
                 >
 
                   <h2 i18n:translate="">How to use this tool</h2>

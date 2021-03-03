@@ -8,8 +8,8 @@
 	msgstr "Weiteres Element hinzufügen"
 
 	#| msgid add_existing_measure
-	msgid "Add existing measure"
-	msgstr "Weitere bestehende Schutzmaßnahme eintragen"
+	msgid "Add an already implemented measure"
+	msgstr "Bestehende Schutzmaßnahme eintragen"
 
 	#| msgid add_existing_measures
 	msgid "add all measures that have already been implemented."
@@ -321,23 +321,23 @@
 
 	#| msgid label_certificate
 	msgid "Certificate"
-	msgstr ""
+	msgstr "Certificate"
 
 	#| msgid label_certificate_for_conducting
 	msgid "For conducting a risk assessment with the tool"
-	msgstr ""
+	msgstr "For conducting a risk assessment with the tool"
 
 	#| msgid label_certificate_is_private
 	msgid "is private unless you choose to make it public. If you click the “Publish” button below, your certificate will be published on the official"
-	msgstr ""
+	msgstr "is private unless you choose to make it public. If you click the “Publish” button below, your certificate will be published on the official"
 
 	#| msgid label_certificate_presented_to
 	msgid "This certificate is presented to"
-	msgstr ""
+	msgstr "This certificate is presented to"
 
 	#| msgid label_certificate_your_certificate_for
 	msgid "Your certificate for"
-	msgstr ""
+	msgstr "Your certificate for"
 
 	#| msgid label_clone
 	msgid "Clone"
@@ -679,7 +679,11 @@
 	msgid "Tick all the boxes that are applicable, or add new entries if requiried."
 	msgstr "Markieren Sie alle zutreffenden Checkboxen oder fügen Sie bei Bedarf neue hinzu."
 
-	#| msgid label_select_existing_measures
+	#| msgid label_add_existing_measures
+	msgid "Add any measures that are <strong>already implemented</strong>."
+	msgstr "Wählen Sie alle <strong>bereits bestehenden</strong> Schutzmaßnahmen aus oder fügen Sie bei Bedarf neue hinzu."
+
+	#| msgid label_select_or_add_existing_measures
 	msgid "Select or add any measures that are <strong>already implemented</strong>."
 	msgstr "Wählen Sie alle <strong>bereits bestehenden</strong> Schutzmaßnahmen aus oder fügen Sie bei Bedarf neue hinzu."
 
@@ -972,7 +976,7 @@
 	msgstr "Nicht nötig (Kein Risiko)"
 
 	#| msgid question_measures_sufficient
-	msgid "Are the measures that are selected above sufficient?"
+	msgid "Are the measures that are already implemented sufficient?"
 	msgstr "Sind die oben ausgewählten Schutzmaßnahmen ausreichend?"
 
 	#| msgid question_other_risks

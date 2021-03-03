@@ -1,11 +1,24 @@
 Changelog
 =========
 
-11.6.6 (unreleased)
+11.6.8 (unreleased)
 -------------------
 
 - Nothing changed yet.
 
+
+11.6.7 (2021-03-03)
+-------------------
+
+- Help texts: added Catalan (CA), corrected Castillan (ES)
+
+
+11.6.6 (2021-02-10)
+-------------------
+
+- Fix Safari-related bug that prevented adding Omega risks
+- Full-table report: include risk priority in "risk" column, not in "measures"
+- Translation updates
 
 11.6.5 (2021-02-02)
 -------------------

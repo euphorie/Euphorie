@@ -101,4 +101,11 @@
     </field>
     <value purge="false" />
   </record>
+  <record name="euphorie.use_help_section">
+    <field type="plone.registry.field.Bool">
+      <title>Use Help section</title>
+      <default>True</default>
+      <missing_value>True</missing_value>
+    </field>
+  </record>
 </registry>

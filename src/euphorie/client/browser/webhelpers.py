@@ -171,6 +171,11 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def use_help_section(self):
+        return api.portal.get_registry_record("euphorie.use_help_section", default=True)
+
+    @property
+    @memoize
     def show_completion_percentage(self):
         """Feature switch, can be overwritten in subclass"""
         return False
