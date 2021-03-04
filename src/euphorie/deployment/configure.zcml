@@ -10,8 +10,6 @@
   <include package=".browser" />
   <include package=".tiles" />
 
-  <appconfig file="config.ini" />
-
   <i18n:registerTranslations directory="locales"/>
 
   <utility
