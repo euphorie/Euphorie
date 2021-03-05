@@ -1,6 +1,6 @@
 from plonetheme.nuplone.z3cform.interfaces import INuPloneFormLayer
 from zope.component.interfaces import ObjectEvent
-from zope.interface import implements
+from zope.interface import implementer
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
@@ -13,6 +13,6 @@ class ICustomRisksModifiedEvent(Interface):
     """Custom risks were modified"""
 
 
+@implementer(ICustomRisksModifiedEvent)
 class CustomRisksModifiedEvent(ObjectEvent):
-
-    implements(ICustomRisksModifiedEvent)
+    """Custom risks were modified"""
