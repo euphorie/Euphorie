@@ -24,5 +24,5 @@ class ClientView(WebHelpers):
                     target = found
                     break
         if not target:
-            return self
+            return "No country was identified"
         self.request.RESPONSE.redirect("{}{}".format(target.absolute_url(), url_param))
