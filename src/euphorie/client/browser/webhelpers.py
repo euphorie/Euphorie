@@ -6,6 +6,7 @@ from Acquisition import aq_inner
 from Acquisition import aq_parent
 from datetime import datetime
 from dateutil import tz
+from decimal import Decimal
 from euphorie import MessageFactory as _
 from euphorie.client import config
 from euphorie.client.adapters.session_traversal import ITraversedSurveySession
@@ -99,6 +100,10 @@ class WebHelpers(BrowserView):
 
     group_model = Group
     survey_session_model = SurveySession
+
+    def to_decimal(self, value):
+        """Transform value in to a decimal"""
+        return Decimal(value)
 
     @property
     @memoize

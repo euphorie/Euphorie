@@ -184,7 +184,6 @@ ul.title {margin-bottom:3em;}
           </li>
         </ul>
 
-        <?python import decimal ?>
         <dl class="status">
           <tal:loop repeat="module status">
             <tal:defs define="
@@ -194,13 +193,13 @@ ul.title {margin-bottom:3em;}
                         num_postponed python:module.get('postponed', 0);
                         num_todo python:module.get('todo', 0);
                         num_total python:num_ok + num_risks_with_measures + num_risks_without_measures + num_postponed + num_todo;
-                        perc_total_progress python:not num_total and 100 or (num_ok + num_risks_with_measures)/decimal.Decimal(num_total)*100;
-                        perc_ok python:not num_total and 100 or num_ok/decimal.Decimal(num_total)*100;
-                        perc_risks_without_measures python:num_total and num_risks_without_measures/decimal.Decimal(num_total)*100 or 0;
-                        perc_risks_with_measures python:num_total and num_risks_with_measures/decimal.Decimal(num_total)*100 or 0;
-                        perc_postponed python:num_total and num_postponed/decimal.Decimal(num_total)*100 or 0;
-                        perc_todo python:num_total and num_todo/decimal.Decimal(num_total)*100 or 0;
-                        epsilon python:decimal.Decimal(1/10.0);
+                        perc_total_progress python:not num_total and 100 or (num_ok + num_risks_with_measures)/webhelpers.to_decimal(num_total)*100;
+                        perc_ok python:not num_total and 100 or num_ok/webhelpers.to_decimal(num_total)*100;
+                        perc_risks_without_measures python:num_total and num_risks_without_measures/webhelpers.to_decimal(num_total)*100 or 0;
+                        perc_risks_with_measures python:num_total and num_risks_with_measures/webhelpers.to_decimal(num_total)*100 or 0;
+                        perc_postponed python:num_total and num_postponed/webhelpers.to_decimal(num_total)*100 or 0;
+                        perc_todo python:num_total and num_todo/webhelpers.to_decimal(num_total)*100 or 0;
+                        epsilon python:webhelpers.to_decimal(1/10.0);
                       "
             >
               <dt><a name="${module/path}">
@@ -213,7 +212,7 @@ ul.title {margin-bottom:3em;}
                   <span class="range answered"
                         tal:condition="perc_ok"
                         tal:attributes="
-                          style python:'width: %.2f%%' % float(decimal.Decimal(perc_ok)-epsilon);
+                          style python:'width: %.2f%%' % float(webhelpers.to_decimal(perc_ok)-epsilon);
                         "
                   >
                     <strong class="number">${num_ok}</strong>
@@ -221,7 +220,7 @@ ul.title {margin-bottom:3em;}
                   <span class="range risk-measure"
                         tal:condition="perc_risks_with_measures"
                         tal:attributes="
-                          style python:'width: %.2f%%' % (decimal.Decimal(perc_risks_with_measures)-epsilon);
+                          style python:'width: %.2f%%' % (webhelpers.to_decimal(perc_risks_with_measures)-epsilon);
                         "
                   >
                     <strong class="number">${num_risks_with_measures}</strong>
@@ -229,7 +228,7 @@ ul.title {margin-bottom:3em;}
                   <span class="range risk"
                         tal:condition="perc_risks_without_measures"
                         tal:attributes="
-                          style python:'width: %.2f%%' % (decimal.Decimal(perc_risks_without_measures)-epsilon);
+                          style python:'width: %.2f%%' % (webhelpers.to_decimal(perc_risks_without_measures)-epsilon);
                         "
                   >
                     <strong class="number">${num_risks_without_measures}</strong>
@@ -237,7 +236,7 @@ ul.title {margin-bottom:3em;}
                   <span class="range postponed"
                         tal:condition="perc_postponed"
                         tal:attributes="
-                          style python:'width: %.2f%%' % (decimal.Decimal(perc_postponed)-epsilon);
+                          style python:'width: %.2f%%' % (webhelpers.to_decimal(perc_postponed)-epsilon);
                         "
                   >
                     <strong class="number">${num_postponed}</strong>
@@ -245,7 +244,7 @@ ul.title {margin-bottom:3em;}
                   <span class="range unanswered"
                         tal:condition="perc_todo"
                         tal:attributes="
-                          style python:'width: %.2f%%' % (decimal.Decimal(perc_todo)-epsilon);
+                          style python:'width: %.2f%%' % (webhelpers.to_decimal(perc_todo)-epsilon);
                         "
                   >
                     <strong class="number">${num_todo}</strong>
