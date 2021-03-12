@@ -12,6 +12,7 @@ from euphorie.content import MessageFactory as _
 from euphorie.content.survey import get_tool_type
 from plone import api
 from plone.memoize.view import memoize
+from Products.CMFPlone.utils import safe_nativestring
 from Products.Five import BrowserView
 from six import StringIO
 from six.moves.urllib.parse import quote
@@ -291,7 +292,7 @@ class ActionPlanDocxView(OfficeDocumentView):
             mapping={"title": self.context.session.title},
         )
         filename = translate(filename, context=self.request)
-        return filename.encode("utf8") + ".docx"
+        return safe_nativestring(filename) + ".docx"
 
 
 class IdentificationReportDocxView(OfficeDocumentView):
@@ -331,4 +332,4 @@ class IdentificationReportDocxView(OfficeDocumentView):
             mapping=dict(title=self.context.session.title),
         )
         filename = translate(filename, context=self.request)
-        return filename.encode("utf8") + ".docx"
+        return safe_nativestring(filename) + ".docx"
