@@ -1,9 +1,9 @@
 # coding=utf-8
+from io import BytesIO
 from plone import api
 from plone.memoize.view import memoize
 from Products.CMFPlone.utils import safe_bytes
 from Products.Five import BrowserView
-from six import StringIO
 from six.moves.urllib.parse import quote
 
 import logging
@@ -128,7 +128,7 @@ class PdfView(BrowserView):
         return pdf
 
     def string_to_zip(self, filename, content):
-        zip_file = StringIO()
+        zip_file = BytesIO()
         with zipfile.ZipFile(zip_file, "w") as zf:
             zf.writestr(filename, content)
         zip_file.seek(0)
