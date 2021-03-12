@@ -148,7 +148,7 @@ def remove_empty_modules(nodes):
                 tree[(node.path, node.type, node.id)] = {}
 
     def prune(tree):
-        for k in tree.keys():
+        for k in list(tree):
             if tree[k]:
                 prune(tree[k])
 
