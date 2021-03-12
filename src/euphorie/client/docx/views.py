@@ -147,6 +147,8 @@ class OfficeDocumentView(BrowserView):
         return risks
 
     def __call__(self):
+        if not self.webhelpers.can_view_session:
+            return self.request.response.redirect(self.webhelpers.client_url)
         self.request.response.setHeader(
             "Content-Disposition",
             "attachment; filename*=UTF-8''{}".format(quote(self._filename)),
