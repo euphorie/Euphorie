@@ -38,8 +38,7 @@ class AuthenticationTests(EuphorieIntegrationTestCase):
         self.portal.acl_users._unauthorized()
         self.assertEqual(
             request.response.headers["location"],
-            "http://nohost/plone/acl_users/credentials_cookie_auth/"
-            "require_login?came_from=http%3A//nohost",
+            "http://nohost/plone/acl_users/credentials_cookie_auth/require_login?came_from=",  # noqa: E501
         )
 
     def testChallenge_InClient(self):
