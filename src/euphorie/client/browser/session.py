@@ -980,13 +980,14 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
 
             self.add_to_risk_list(risk, module_path, has_measures=has_measures)
 
-        for key, m in modules.items():
+        for key in list(modules):
+            module = modules[key]
             if (
-                m["ok"]
-                + m["postponed"]
-                + m["risk_with_measures"]
-                + m["risk_without_measures"]
-                + m["todo"]
+                module["ok"]
+                + module["postponed"]
+                + module["risk_with_measures"]
+                + module["risk_without_measures"]
+                + module["todo"]
                 == 0
             ):
                 del modules[key]
