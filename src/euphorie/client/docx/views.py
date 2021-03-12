@@ -10,11 +10,11 @@ from euphorie.client.docx.compiler import IdentificationReportCompiler
 from euphorie.client.utils import get_translated_custom_risks_title
 from euphorie.content import MessageFactory as _
 from euphorie.content.survey import get_tool_type
+from io import BytesIO
 from plone import api
 from plone.memoize.view import memoize
 from Products.CMFPlone.utils import safe_nativestring
 from Products.Five import BrowserView
-from six import StringIO
 from six.moves.urllib.parse import quote
 from sqlalchemy import sql
 from z3c.saconfig import Session
@@ -38,7 +38,7 @@ class OfficeDocumentView(BrowserView):
 
     def get_payload(self):
         """Compile the template and return the file as a string"""
-        output = StringIO()
+        output = BytesIO()
         compiler = self._compiler(self.context, self.request)
         compiler.compile(self.get_data(for_download=True))
         compiler.template.save(output)
