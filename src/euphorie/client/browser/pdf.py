@@ -42,7 +42,7 @@ class PdfView(BrowserView):
                 "--disable-javascript --viewport-size 10000x1000",
             ),
         ).split()
-
+        wkhtmltopdf_args.extend(("--footer-right", "Page [page] of [topage]"))
         with TemporaryDirectory(prefix="euphoprient") as tmpdir:
             html_file = Path(tmpdir) / "index.html"
             pdf_file = Path(tmpdir) / "index.pdf"
