@@ -155,7 +155,6 @@ dl.status dd .high-prio-risks li {
     padding-left: 1em;
 }
 dl.status dd .high-prio-risks li:before {
-    content: "•";
     float: left;
     margin-left: -1em;
 }

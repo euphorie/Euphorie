@@ -1,60 +1,55 @@
 # coding=utf-8
-from io import BytesIO
+from collections import namedtuple
+from path import Path
 from plone import api
 from plone.memoize.view import memoize
-from Products.CMFPlone.utils import safe_bytes
 from Products.Five import BrowserView
+from sh import wkhtmltopdf
 from six.moves.urllib.parse import quote
 
 import logging
-import zipfile
 
 
 try:
-    from base64 import decodebytes
+    from sh import xvfb_run
 except ImportError:
-    # PY27
-    from base64 import decodestring as decodebytes
+    xvfb_run = namedtuple("xvfb_run", "wkhtmltopdf")(wkhtmltopdf=wkhtmltopdf)
 
 try:
-    from base64 import encodebytes
-except ImportError:
-    # PY27
-    from base64 import encodestring as encodebytes
-
-try:
-    from xmlrpc.client import ServerProxy
-    from xmlrpc.client import Transport
+    from tempfile import TemporaryDirectory
 except ImportError:
     # PY2
-    from xmlrpclib import ServerProxy
-    from xmlrpclib import Transport
-
-try:
-    from http.client import HTTPConnection
-except ImportError:
-    # PY2
-    from httplib import HTTPConnection
+    from backports.tempfile import TemporaryDirectory
 
 log = logging.getLogger(__name__)
 
 
-class TimeoutTransport(Transport):
-    def make_connection(self, host):
-        return HTTPConnection(host, timeout=120.0)
-
-
 class PdfView(BrowserView):
-    """We use smartprintng to convert an HTML view into a PDF file.
-
-    This requires that we render the view, add the contents to a ZIP
-    file, and send it to the smartprintng server via an xmlrpc call.
-    """
+    """We use wkhtmltopdf to convert an HTML view into a PDF file."""
 
     @property
     @memoize
     def webhelpers(self):
         return api.content.get_view("webhelpers", self.context, self.request)
+
+    def view_to_pdf(self, view):
+        content = view()
+        wkhtmltopdf_args = api.portal.get_registry_record(
+            "euphorie.wkhtmltopdf.options",
+            default=(
+                "--margin-bottom 2cm --margin-left 2cm "
+                "--margin-right 2cm --margin-top 3cm "
+                "--disable-javascript --viewport-size 10000x1000",
+            ),
+        ).split()
+
+        with TemporaryDirectory(prefix="euphoprient") as tmpdir:
+            html_file = Path(tmpdir) / "index.html"
+            pdf_file = Path(tmpdir) / "index.pdf"
+            html_file.write_text(content)
+            wkhtmltopdf_args.extend([html_file, pdf_file])
+            xvfb_run.wkhtmltopdf(*wkhtmltopdf_args)
+            return pdf_file.bytes()
 
     def __call__(self):
         if not self.webhelpers.can_view_session:
@@ -73,63 +68,3 @@ class PdfView(BrowserView):
             "Content-Disposition", "attachment;filename*=UTF-8''%s" % quote(filename)
         )
         return pdf
-
-    def view_to_pdf(self, view):
-        content = view()
-        html = self.untidy_html(content)
-        zip_content = self.string_to_zip(
-            filename=self.context.getId() + ".html", content=html
-        )
-        return self.zip_to_pdf(zip_content)
-
-    def untidy_html(self, content):
-        """smartprintng insists on replacing "<html." with a tag which
-        includes the xmlns attribute. Our content already has the
-        xmlns attribute and lang, so we need to replace that with
-        "<html>" to keep smartprintng happy :/
-        """
-        html_index = content.find("<html")
-        everything_before_html = content[:html_index]
-        everything_after_html = content[content.find(">", html_index) + 1 :]
-        content = everything_before_html + "<html>" + everything_after_html
-        return content.encode("utf-8")
-
-    def zip_to_pdf(self, zip_content):
-        """xmlrpclib changed between Python 2.7 and 2.6, since the code for
-        the server was written with the 2.6 version in mind we need to
-        call the xmlrpc methods in an unusual way.
-
-        We cannot call the method directly, so we create a ServerProxy
-        object with the full URL of the xmlrpc method and then we
-        trigger the call of the method by trying to access any
-        attribute i.e. "dummy", but any imaginary attribute lookup
-        will suffice.
-        """
-        proxy = ServerProxy
-        print_url = api.portal.get_registry_record(
-            "euphorie.smartprintng_url", default="http://localhost:6543"
-        )
-        timeout_transport = TimeoutTransport()
-
-        ping = proxy(print_url + "/ping")
-        if ping.dummy.data() != "zopyx.smartprintng.server":
-            log.error("Can't connect to smartprintng server")
-            return
-
-        convert2ZIP = proxy(print_url + "/convertZIP", transport=timeout_transport)
-        encoded_pdf = convert2ZIP.dummy("", encodebytes(zip_content), "pdf-prince")
-        pdf = decodebytes(safe_bytes(encoded_pdf))
-        # There might be bogus content before the %PDF marker:
-        # brute-force remove it, because it prevents the PDF from being
-        # opened in some versions of Acrobat
-        idx = pdf.find("%PDF")
-        if idx > 0:
-            pdf = pdf[idx:]
-        return pdf
-
-    def string_to_zip(self, filename, content):
-        zip_file = BytesIO()
-        with zipfile.ZipFile(zip_file, "w") as zf:
-            zf.writestr(filename, content)
-        zip_file.seek(0)
-        return zip_file.read()

@@ -46,6 +46,7 @@ setup(
         "ftw.upgrade",
         "htmllaundry",
         "lxml",
+        "path.py",
         "plone.app.dexterity [relations]",
         "plone.app.folder",
         "plone.app.imagecropping",
@@ -61,6 +62,7 @@ setup(
         "python-docx",
         "repoze.formapi",
         "setuptools",
+        "sh",
         "z3c.form",
         "z3c.schema",
         "z3c.saconfig",
@@ -73,6 +75,7 @@ setup(
         "pyrtf-ng",
         "openpyxl",
         "Chameleon",
+        "backports.tempfile;python_version<'3'",
     ],
     tests_require=[
         "mock;python_version<'3'",

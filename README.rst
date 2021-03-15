@@ -47,7 +47,6 @@ The configuration is now stored in the registry.
 - instead of ``appconfig["euphorie"]["extra_text_identification"]``, please use the registry record ``euphorie.extra_text_identification``.
 - instead of ``appconfig["euphorie"]["library"]``, please use the registry record ``euphorie.library``.
 - instead of ``appconfig["euphorie"]["max_login_attempts"]``, please use the registry record ``euphorie.max_login_attempts``.
-- instead of ``appconfig["euphorie"]["smartprintng_url"]``, please use the registry record ``euphorie.smartprintng_url``.
 - instead of ``appconfig["euphorie"]["terms-and-conditions"]``, please use the registry record ``euphorie.terms-and-conditions``.
 - instead of ``appconfig["euphorie"]["use_archive_feature"]``, please use the registry record ``euphorie.use_archive_feature``.
 - instead of ``appconfig["euphorie"]["use_clone_feature"]``, please use the registry record ``euphorie.use_clone_feature``.
@@ -58,6 +57,10 @@ The configuration is now stored in the registry.
 - instead of ``appconfig["euphorie"]["use_training_module"]``, please use the registry record ``euphorie.use_training_module``.
 
 More informations can be found in NuPlone 2 README file.
+
+Euphorie 12 does uses ``wkhtmltopdf`` (and ``xvfb-run`` if available) to render PDF files.
+That means that the ``appconfig["euphorie"]["smartprintng_url"]`` is now obsolete.
+You can control the ``wkhtmltopdf`` with the new ``euphorie.wkhtmltopdf.options`` registry record.
 
 
 More information

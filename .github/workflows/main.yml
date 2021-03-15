@@ -24,6 +24,10 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.config[1] }}
+      - name: Install wkhtmltopdf
+        run: |
+          sudo apt update
+          sudo apt install -y wkhtmltopdf
       - name: Cache
         uses: actions/cache@v2
         with:
