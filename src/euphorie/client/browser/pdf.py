@@ -1,5 +1,6 @@
 # coding=utf-8
 from collections import namedtuple
+from euphorie import MessageFactory as _
 from path import Path
 from plone import api
 from plone.memoize.view import memoize
@@ -32,6 +33,18 @@ class PdfView(BrowserView):
     def webhelpers(self):
         return api.content.get_view("webhelpers", self.context, self.request)
 
+    @property
+    def footer_options(self):
+        return (
+            "--footer-right",
+            u"{} [page] {} [topage]".format(
+                api.portal.translate(_(u"label_page", default=u"Page")),
+                api.portal.translate(_(u"label_page_of", default=u"of")),
+            ),
+            "--footer-font-size",
+            "8",
+        )
+
     def view_to_pdf(self, view):
         content = view()
         wkhtmltopdf_args = api.portal.get_registry_record(
@@ -42,7 +55,8 @@ class PdfView(BrowserView):
                 "--disable-javascript --viewport-size 10000x1000",
             ),
         ).split()
-        wkhtmltopdf_args.extend(("--footer-right", "Page [page] of [topage]"))
+        wkhtmltopdf_args.extend(self.footer_options)
+
         with TemporaryDirectory(prefix="euphoprient") as tmpdir:
             html_file = Path(tmpdir) / "index.html"
             pdf_file = Path(tmpdir) / "index.pdf"

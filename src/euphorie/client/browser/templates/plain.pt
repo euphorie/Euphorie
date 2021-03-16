@@ -16,6 +16,7 @@
 
 <head>
     <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
+    <meta charset="UTF-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,7 +31,6 @@
     margin:0.5cm 0.5cm 2cm 0.5cm;
 
     @bottom-right {
-        content: "${view/label_page} " counter(page) " ${view/label_page_of} " counter(pages);
         font-size: 8pt;
         font-family: sans-serif;
     }
@@ -40,10 +40,6 @@
         text-align:left;
         font-family: sans-serif;
     }
-}
-
-* {
-  overflow: visible !important;
 }
 
 html {
@@ -69,7 +65,6 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     orphans:3;
     widows:4;
     border: 0;
@@ -96,7 +91,6 @@ div.print-footer {
     padding: 10% 10% 10% 10%;
     font-size: 120%;
     line-height: 1.5em;
-    overflow: auto;
     top: 3rem;
     right: 0;
     bottom: 0;
@@ -170,6 +164,15 @@ dd, .page-toc {
 }
 .graph {
     position: relative;
+}
+
+.graph span:first-child {
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+}
+.graph span:last-child {
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
     </style>
 

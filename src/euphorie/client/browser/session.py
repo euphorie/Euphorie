@@ -932,12 +932,6 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
             ),
             now.strftime("%Y"),
         )
-        self.label_page = translate(
-            _(u"label_page", default=u"Page"), target_language=lang
-        )
-        self.label_page_of = translate(
-            _(u"label_page_of", default=u"of"), target_language=lang
-        )
         session = self.context.session
         if session.title != (
             callable(getattr(self.context, "Title", None))
