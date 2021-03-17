@@ -38,11 +38,9 @@ table tbody td.legend{font-size:100%; color: black; background-color:#FFFFFF;}
 .description{font-weight:normal;margin-bottom:0}
 
 .module h2{font-size:1.5em;line-height:130%;font-weight:400;margin-bottom:0.2em}
-h2.title {line-height:100%;font-weight:400;margin-bottom:0.3em}
 section.module {
       margin-bottom: 5em;
 }
-p.byline {float:right;}
 h1 {line-height:130%;}
 h3.title {margin-bottom:1.2em; font-weight:300}
 h4.subtitle {margin-bottom:0.7em;}

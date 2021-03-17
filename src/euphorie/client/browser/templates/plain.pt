@@ -16,6 +16,7 @@
 
 <head>
     <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
+    <meta charset="UTF-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,7 +31,6 @@
     margin:0.5cm 0.5cm 2cm 0.5cm;
 
     @bottom-right {
-        content: "${view/label_page} " counter(page) " ${view/label_page_of} " counter(pages);
         font-size: 8pt;
         font-family: sans-serif;
     }
@@ -58,14 +58,12 @@ body {
     font-weight: normal;
     font-style: normal;
     line-height: 150%;
-    font-size: 60%;
     background: #fff;
     letter-spacing: 0;
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     orphans:3;
     widows:4;
     border: 0;
@@ -89,46 +87,51 @@ div.print-footer {
 }
 #content {
     left: 0;
-    padding: 10% 10% 10% 10%;
-    font-size: 120%;
+    padding: 2% 5% 5% 5%;
     line-height: 1.5em;
-    overflow: auto;
     top: 3rem;
     right: 0;
     bottom: 0;
     transition: all 0.5s;
 }
-article h1 {
-    font-weight: 600;
-    font-size: 2em;
-    line-height: 130%;
-    margin-bottom: 0.7em;
+article.rich.report h1 {
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 52px;
+    /*margin-bottom: 0.7em;*/
 }
 a {
     text-decoration: none;
     color: #0081be;
 }
+p.byline {
+    float:right;
+    text-align: right;
+    width: 20%;
+}
 .page-toc ul {
     padding-left: 1em;
 }
-article h2, .pat-rich h2 {
+article.rich.report h2, .pat-rich h2 {
     font-size: 1.5em;
     line-height: 130%;
-    font-weight: 400;
     margin-bottom: 0.7em;
+    padding-top: 0;
 }
 h3 {
     clear: both;
 }
-article h3, .pat-rich h3 {
-    font-size: 1em;
-    font-weight: 400;
+article.rich.report h3, .pat-rich h3 {
     margin-bottom: 1em;
 }
 article.report .title-line h3 {
-    font-weight: bold;
     margin-bottom: 0;
     font-size: 1.5em;
+}
+h2.title {
+  line-height:100%;
+  font-weight:400;
+  margin-bottom:1.2em;
 }
 .twelve, .row .twelve {
     width: 100%;
@@ -143,7 +146,9 @@ article.report .title-line h3 {
     position: relative;
     box-sizing: border-box;
 }
-
+dl.status .row div.columns{
+    font-size: 85%;
+}
 dl.status dd .high-prio-risks {
     margin-bottom: 3.5em;
 }
@@ -155,7 +160,6 @@ dl.status dd .high-prio-risks li {
     padding-left: 1em;
 }
 dl.status dd .high-prio-risks li:before {
-    content: "•";
     float: left;
     margin-left: -1em;
 }
@@ -167,6 +171,15 @@ dd, .page-toc {
 }
 .graph {
     position: relative;
+}
+
+.graph span:first-child {
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+}
+.graph span:last-child {
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
     </style>
 

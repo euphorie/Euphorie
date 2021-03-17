@@ -61,14 +61,6 @@
       <missing_value>0</missing_value>
     </field>
   </record>
-  <record name="euphorie.smartprintng_url">
-    <field type="plone.registry.field.TextLine">
-      <title i18n:translate="">Euphorie smartprintng URL</title>
-      <description i18n:translate="">The URL of the smartprintng server</description>
-      <default>http://localhost:6543</default>
-      <missing_value>http://localhost:6543</missing_value>
-    </field>
-  </record>
   <record name="euphorie.terms_and_conditions">
     <field type="plone.registry.field.Bool">
       <title i18n:translate="">Euphorie terms and condition</title>

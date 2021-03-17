@@ -1,0 +1,12 @@
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="euphorie">
+  <record name="euphorie.smartprintng_url" remove="true" />
+    <record name="euphorie.wkhtmltopdf.options">
+    <field type="plone.registry.field.TextLine">
+      <default />
+      <title>Options to control wkhtmltopdf usage</title>
+      <description>See the wkhtmltopdf extended help (wkhtmltopdf -H) for the available options. Default value: --margin-bottom 1cm --margin-left 1.5cm --margin-right 1.5cm --margin-top 2cm --disable-javascript --viewport-size 10000x10000</description>
+      <required>True</required>
+    </field>
+    <value purge="false">--margin-bottom 1cm --margin-left 1.5cm --margin-right 1.5cm --margin-top 2cm --disable-javascript --viewport-size 10000x10000</value>
+  </record>
+</registry>
