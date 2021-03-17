@@ -52,7 +52,7 @@ class PdfView(BrowserView):
             default=(
                 "--margin-bottom 2cm --margin-left 2cm "
                 "--margin-right 2cm --margin-top 3cm "
-                "--disable-javascript --viewport-size 10000x1000",
+                "--disable-javascript --viewport-size 10000x1000"
             ),
         ).split()
         wkhtmltopdf_args.extend(self.footer_options)
