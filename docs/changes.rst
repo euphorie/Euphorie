@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.6.8 (unreleased)
+11.6.8 (2021-03-17)
 -------------------
 
 - Circumvent a bug in recent Firefox (86+)that broke the view on Action Plan
