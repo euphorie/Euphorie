@@ -4,7 +4,7 @@ Changelog
 11.6.8 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Circumvent a bug in recent Firefox (86+)that broke the view on Action Plan
 
 
 11.6.7 (2021-03-03)
