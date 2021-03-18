@@ -1089,7 +1089,7 @@ class MeasuresOverview(Status):
         ]
 
         query = (
-            Session.query(Module, Risk, ActionPlan)
+            Session.query(Module)
             .filter(sql.and_(Module.session == self.session, Module.profile_index > -1))
             .filter(sql.not_(SKIPPED_PARENTS))
             .filter(
