@@ -4791,16 +4791,12 @@ msgstr ""
 #: euphorie/client/browser/templates/involve.pt:28
 msgid "message_involve_workers_requirement"
 msgstr ""
-"<p>Jedním z klíčových faktorů kvalitního řízení oblasti BOZP je zapojení "
+"Jedním z klíčových faktorů kvalitního řízení oblasti BOZP je zapojení "
 "zaměstnanců. Zaměstnavatelé jsou ze zákona povinni projednávat se "
 "zaměstnanci otázky BOZP. Pokud ale učiníte víc, než jste ze zákona povinni, "
 "bude to pro vaši firmu přínosné. Pravděpodobnost, že bude řízení BOZP "
 "úspěšné, se zvyšuje podněcováním aktivní účasti pracovníků a zaváděním "
-"dialogu mezi zaměstnanci a vedením firmy.</p><p>Zvolte způsob, jak zapojit "
-"vaše zaměstnance! Mohou to být například schůzky na pracovištích, skupinové "
-"diskuze nebo týmové vyhledávání a hodnocení rizik. Můžete si také stáhnout "
-"nebo vytisknout obsah nástroje, předat ji dotčeným zaměstnancům a vyžádat si "
-"od nich zpětnou vazbu.</p>"
+"dialogu mezi zaměstnanci a vedením firmy."
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:224

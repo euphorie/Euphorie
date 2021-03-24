@@ -4,8 +4,7 @@ Changelog
 11.6.9 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Translation fix
 
 11.6.8 (2021-03-17)
 -------------------
