@@ -1090,27 +1090,20 @@ class MeasuresOverview(Status):
 
         query = (
             Session.query(Module, Risk, ActionPlan)
+            .select_from(Module)
             .filter(sql.and_(Module.session == self.session, Module.profile_index > -1))
             .filter(sql.not_(SKIPPED_PARENTS))
             .filter(
                 sql.or_(MODULE_WITH_RISK_OR_TOP5_FILTER, RISK_PRESENT_OR_TOP5_FILTER)
             )
-            .join(
-                (
-                    Risk,
-                    sql.and_(
-                        Risk.path.startswith(Module.path),
-                        Risk.depth == Module.depth + 1,
-                        Risk.session == self.session,
-                    ),
-                )
-            )
-            .join((ActionPlan, ActionPlan.risk_id == Risk.id))
+            .join(Risk, Risk.parent_id == Module.id)
+            .join(ActionPlan, ActionPlan.risk_id == Risk.id)
             .order_by(
                 sql.case(value=Risk.priority, whens={"high": 0, "medium": 1}, else_=2),
                 Risk.path,
             )
         )
+
         measures = [
             t
             for t in query.all()
