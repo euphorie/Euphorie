@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.6.9 (unreleased)
+11.6.9 (2021-03-24)
 -------------------
 
 - Translation fix
