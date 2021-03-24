@@ -382,8 +382,8 @@ class SurveyImporter(object):
         `input` has to be either the raw XML input, or a `lxml.objectify`
         enablde DOM.
         """
-        if isinstance(input, six.string_types):
-            sector = lxml.objectify.fromstring(input)
+        if isinstance(input, six.string_types + (bytes,)):
+            sector = lxml.objectify.fromstring(safe_bytes(input))
         else:
             sector = input
 
@@ -403,8 +403,8 @@ class SectorImporter(SurveyImporter):
     def __call__(
         self, input, sector_title, sector_login, surveygroup_title, survey_title
     ):
-        if isinstance(input, six.string_types):
-            sector = lxml.objectify.fromstring(input)
+        if isinstance(input, six.string_types + (bytes,)):
+            sector = lxml.objectify.fromstring(safe_bytes(input))
         else:
             sector = input
 
