@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-25 18:38+0000\n"
+"POT-Creation-Date: 2021-03-30 09:15+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -226,10 +226,6 @@ msgstr ""
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:13
 msgid "Archive risk assessment"
 msgstr ""
-
-#: euphorie/content/utils.py:148
-msgid "Are the measures that are selected above sufficient?"
-msgstr "As medidas acima selecionadas são suficientes?"
 
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:25
 msgid "Are you sure you want to archive this session?"
@@ -545,7 +541,7 @@ msgstr "Formato: Excel (.xls);"
 msgid "Format: Portable Document Format (.pdf)"
 msgstr "Formato: Portable Document Format (.pdf)"
 
-#: euphorie/content/utils.py:240
+#: euphorie/content/utils.py:241
 msgid "Full (show Description and General Approach)"
 msgstr ""
 
@@ -1074,7 +1070,7 @@ msgstr "Mostrar biblioteca a partir de ${dropdown}"
 msgid "Sign in"
 msgstr "Iniciar sessão"
 
-#: euphorie/content/utils.py:242
+#: euphorie/content/utils.py:243
 msgid "Simple (show only General Approach)"
 msgstr ""
 
@@ -1603,8 +1599,8 @@ msgstr ""
 "ou consulta necessárias em SST \", ou \"competência SST\". Também é possível "
 "descrever aqui qualquer outro requisito adicional (se existente)."
 
-#. Default: "Add any measures that are <strong>already in place</strong>."
-#: euphorie/content/utils.py:167
+#. Default: "Add any measures that are <strong>already implemented</strong>."
+#: euphorie/content/utils.py:168
 msgid "add_existing_measure"
 msgstr "Adicione medidas <strong>já em vigor</strong>."
 
@@ -2038,7 +2034,7 @@ msgid "country_no_sectors"
 msgstr "Não existem setores para este país."
 
 #. Default: "Add an already implemented measure"
-#: euphorie/content/utils.py:176
+#: euphorie/content/utils.py:177
 msgid "custom_button_add_existing_measure"
 msgstr "Adicione uma medida em falta"
 
@@ -3390,7 +3386,7 @@ msgid "home_link"
 msgstr "Painel de controlo"
 
 #. Default: "Are the measures that are already implemented sufficient?"
-#: euphorie/content/utils.py:172
+#: euphorie/content/utils.py:148
 msgid "implemented_measures_sufficient"
 msgstr "As medidas acima selecionadas são suficientes?"
 
@@ -4185,12 +4181,12 @@ msgid "label_not_applicable"
 msgstr "Não aplicável"
 
 #. Default: "No, more measures are required"
-#: euphorie/content/utils.py:155
+#: euphorie/content/utils.py:156
 msgid "label_not_sufficient"
 msgstr "Não, são necessárias mais medidas"
 
 #. Default: "No, more measures are required <strong>(to be added below)</strong>"
-#: euphorie/content/utils.py:162
+#: euphorie/content/utils.py:163
 msgid "label_not_sufficient_integrated_ap"
 msgstr "Não, são necessárias mais medidas"
 
@@ -4651,7 +4647,7 @@ msgid "label_yes_integrated_ap"
 msgstr ""
 
 #. Default: "Yes, the remaining risk is acceptable"
-#: euphorie/content/utils.py:151
+#: euphorie/content/utils.py:152
 msgid "label_yes_sufficient"
 msgstr "Sim, o risco remanescente é aceitável"
 
@@ -5330,7 +5326,7 @@ msgstr "${number} resultados encontrados."
 msgid "search_result_relevance"
 msgstr "Relevância: ${percentage}"
 
-#. Default: "Select or add any measures that are <strong>already in place</strong>."
+#. Default: "Select or add any measures that are <strong>already implemented</strong>."
 #: euphorie/content/utils.py:108
 msgid "select_add_existing_measure"
 msgstr "Selecione ou adicione medidas <strong>já em vigor</strong>."
@@ -5672,6 +5668,9 @@ msgstr ""
 #: euphorie/content/templates/risk_view.pt:44
 msgid "yes"
 msgstr "Sim"
+
+#~ msgid "Are the measures that are selected above sufficient?"
+#~ msgstr "As medidas acima selecionadas são suficientes?"
 
 #~ msgid "based on"
 #~ msgstr "baseada na"

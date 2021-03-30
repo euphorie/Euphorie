@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-25 18:38+0000\n"
+"POT-Creation-Date: 2021-03-30 09:15+0000\n"
 "PO-Revision-Date: 2013-12-18 10:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -232,10 +232,6 @@ msgstr ""
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:13
 msgid "Archive risk assessment"
 msgstr ""
-
-#: euphorie/content/utils.py:148
-msgid "Are the measures that are selected above sufficient?"
-msgstr "Il-miżuri li huma magħżula hawn fuq biżżejjed?"
 
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:25
 msgid "Are you sure you want to archive this session?"
@@ -550,7 +546,7 @@ msgstr "Format: Office Open XML Workbook (.xlsx)"
 msgid "Format: Portable Document Format (.pdf)"
 msgstr "Format: Portable Document Format (.pdf)"
 
-#: euphorie/content/utils.py:240
+#: euphorie/content/utils.py:241
 msgid "Full (show Description and General Approach)"
 msgstr ""
 
@@ -1079,7 +1075,7 @@ msgstr "Uri librerija minn ${dropdown}."
 msgid "Sign in"
 msgstr "Idħol"
 
-#: euphorie/content/utils.py:242
+#: euphorie/content/utils.py:243
 msgid "Simple (show only General Approach)"
 msgstr ""
 
@@ -1621,8 +1617,8 @@ msgstr ""
 "“espert tal-OSH”. Hawnhekk tista' tiddeskrivi wkoll kwalunkwe rekwiżit "
 "addizzjonali (jekk applikabbli)."
 
-#. Default: "Add any measures that are <strong>already in place</strong>."
-#: euphorie/content/utils.py:167
+#. Default: "Add any measures that are <strong>already implemented</strong>."
+#: euphorie/content/utils.py:168
 msgid "add_existing_measure"
 msgstr "Żid kwalunkwe miżura diġà fis-seħħ."
 
@@ -2058,7 +2054,7 @@ msgid "country_no_sectors"
 msgstr "M'hemmx setturi għal dan il-pajjiż."
 
 #. Default: "Add an already implemented measure"
-#: euphorie/content/utils.py:176
+#: euphorie/content/utils.py:177
 msgid "custom_button_add_existing_measure"
 msgstr "Żid miżura nieqsa"
 
@@ -3418,7 +3414,7 @@ msgid "home_link"
 msgstr "Dashboard"
 
 #. Default: "Are the measures that are already implemented sufficient?"
-#: euphorie/content/utils.py:172
+#: euphorie/content/utils.py:148
 msgid "implemented_measures_sufficient"
 msgstr "Il-miżuri li huma magħżula hawn fuq biżżejjed?"
 
@@ -4217,12 +4213,12 @@ msgid "label_not_applicable"
 msgstr "Mhux applikabbli"
 
 #. Default: "No, more measures are required"
-#: euphorie/content/utils.py:155
+#: euphorie/content/utils.py:156
 msgid "label_not_sufficient"
 msgstr "Le, huma meħtieġa aktar miżuri"
 
 #. Default: "No, more measures are required <strong>(to be added below)</strong>"
-#: euphorie/content/utils.py:162
+#: euphorie/content/utils.py:163
 msgid "label_not_sufficient_integrated_ap"
 msgstr "Le, huma meħtieġa aktar miżuri"
 
@@ -4684,7 +4680,7 @@ msgid "label_yes_integrated_ap"
 msgstr ""
 
 #. Default: "Yes, the remaining risk is acceptable"
-#: euphorie/content/utils.py:151
+#: euphorie/content/utils.py:152
 msgid "label_yes_sufficient"
 msgstr "Iva, ir-riskju li jifdal huwa aċċettabbli"
 
@@ -5360,7 +5356,7 @@ msgstr "${number} riżultati misjuba."
 msgid "search_result_relevance"
 msgstr "Rilevanza: ${percentage}"
 
-#. Default: "Select or add any measures that are <strong>already in place</strong>."
+#. Default: "Select or add any measures that are <strong>already implemented</strong>."
 #: euphorie/content/utils.py:108
 msgid "select_add_existing_measure"
 msgstr "Agħżel jew żid kwalunkwe miżura diġà fis-seħħ."
@@ -5703,6 +5699,9 @@ msgstr ""
 #: euphorie/content/templates/risk_view.pt:44
 msgid "yes"
 msgstr "Iva"
+
+#~ msgid "Are the measures that are selected above sufficient?"
+#~ msgstr "Il-miżuri li huma magħżula hawn fuq biżżejjed?"
 
 #~ msgid "based on"
 #~ msgstr "ibbażat fuq"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-25 18:38+0000\n"
+"POT-Creation-Date: 2021-03-30 09:15+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -225,10 +225,6 @@ msgstr ""
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:13
 msgid "Archive risk assessment"
 msgstr ""
-
-#: euphorie/content/utils.py:148
-msgid "Are the measures that are selected above sufficient?"
-msgstr "Vai ar iepriekš atlasītajiem pasākumiem pietiek?"
 
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:25
 msgid "Are you sure you want to archive this session?"
@@ -539,7 +535,7 @@ msgstr "Formāts: Excel (.xls)"
 msgid "Format: Portable Document Format (.pdf)"
 msgstr "Formāts: Pārvietojams dokumenta formāts (.pdf)"
 
-#: euphorie/content/utils.py:240
+#: euphorie/content/utils.py:241
 msgid "Full (show Description and General Approach)"
 msgstr ""
 
@@ -1066,7 +1062,7 @@ msgstr "Parādīt bibliotēku no ${dropdown}."
 msgid "Sign in"
 msgstr "Pieteikties"
 
-#: euphorie/content/utils.py:242
+#: euphorie/content/utils.py:243
 msgid "Simple (show only General Approach)"
 msgstr ""
 
@@ -1591,8 +1587,8 @@ msgstr ""
 "„mērījumu laboratorijai jābūt akreditētai\". Šeit varat arī aprakstīt "
 "jebkādas papildu prasības (ja jums tādas ir)."
 
-#. Default: "Add any measures that are <strong>already in place</strong>."
-#: euphorie/content/utils.py:167
+#. Default: "Add any measures that are <strong>already implemented</strong>."
+#: euphorie/content/utils.py:168
 msgid "add_existing_measure"
 msgstr "Pievienot pasākumus, kas jau tiek īstenoti."
 
@@ -2020,7 +2016,7 @@ msgid "country_no_sectors"
 msgstr "Šai valstij nav neviena sektora."
 
 #. Default: "Add an already implemented measure"
-#: euphorie/content/utils.py:176
+#: euphorie/content/utils.py:177
 msgid "custom_button_add_existing_measure"
 msgstr "Pievienot trūkstošo pasākumu"
 
@@ -3370,7 +3366,7 @@ msgid "home_link"
 msgstr "Infopanelis"
 
 #. Default: "Are the measures that are already implemented sufficient?"
-#: euphorie/content/utils.py:172
+#: euphorie/content/utils.py:148
 msgid "implemented_measures_sufficient"
 msgstr "Vai ar iepriekš atlasītajiem pasākumiem pietiek?"
 
@@ -4157,12 +4153,12 @@ msgid "label_not_applicable"
 msgstr "Nav attiecināms"
 
 #. Default: "No, more measures are required"
-#: euphorie/content/utils.py:155
+#: euphorie/content/utils.py:156
 msgid "label_not_sufficient"
 msgstr "Nē, ir nepieciešams vairāk pasākumu"
 
 #. Default: "No, more measures are required <strong>(to be added below)</strong>"
-#: euphorie/content/utils.py:162
+#: euphorie/content/utils.py:163
 msgid "label_not_sufficient_integrated_ap"
 msgstr "Nē, ir nepieciešams vairāk pasākumu"
 
@@ -4623,7 +4619,7 @@ msgid "label_yes_integrated_ap"
 msgstr ""
 
 #. Default: "Yes, the remaining risk is acceptable"
-#: euphorie/content/utils.py:151
+#: euphorie/content/utils.py:152
 msgid "label_yes_sufficient"
 msgstr "Jā, atlikušais risks ir pieņemams"
 
@@ -5299,7 +5295,7 @@ msgstr "Atrasto rezultātu skaits: ${number}."
 msgid "search_result_relevance"
 msgstr "Atbilstība: ${percentage}"
 
-#. Default: "Select or add any measures that are <strong>already in place</strong>."
+#. Default: "Select or add any measures that are <strong>already implemented</strong>."
 #: euphorie/content/utils.py:108
 msgid "select_add_existing_measure"
 msgstr "Atlasīt vai pievienot pasākumus, kas jau tiek īstenoti."
@@ -5637,6 +5633,9 @@ msgstr ""
 #: euphorie/content/templates/risk_view.pt:44
 msgid "yes"
 msgstr "Jā"
+
+#~ msgid "Are the measures that are selected above sufficient?"
+#~ msgstr "Vai ar iepriekš atlasītajiem pasākumiem pietiek?"
 
 #~ msgid "based on"
 #~ msgstr "balstīts uz"

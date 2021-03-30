@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-25 18:38+0000\n"
+"POT-Creation-Date: 2021-03-30 09:15+0000\n"
 "PO-Revision-Date: 2013-06-27 22:14+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -220,10 +220,6 @@ msgstr ""
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:13
 msgid "Archive risk assessment"
 msgstr ""
-
-#: euphorie/content/utils.py:148
-msgid "Are the measures that are selected above sufficient?"
-msgstr "Volstaan de maatregelen die u net hebt geselecteerd?"
 
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:25
 msgid "Are you sure you want to archive this session?"
@@ -541,7 +537,7 @@ msgstr "Bestandsformaat: Office Open XML Workbook (.xlsx)"
 msgid "Format: Portable Document Format (.pdf)"
 msgstr "Format: Portable Document Format (.pdf)"
 
-#: euphorie/content/utils.py:240
+#: euphorie/content/utils.py:241
 msgid "Full (show Description and General Approach)"
 msgstr ""
 
@@ -1072,7 +1068,7 @@ msgstr ""
 msgid "Sign in"
 msgstr "Meld u aan"
 
-#: euphorie/content/utils.py:242
+#: euphorie/content/utils.py:243
 msgid "Simple (show only General Approach)"
 msgstr ""
 
@@ -1586,8 +1582,8 @@ msgstr ""
 msgid "actionplan_requirements_tooltip"
 msgstr ""
 
-#. Default: "Add any measures that are <strong>already in place</strong>."
-#: euphorie/content/utils.py:167
+#. Default: "Add any measures that are <strong>already implemented</strong>."
+#: euphorie/content/utils.py:168
 msgid "add_existing_measure"
 msgstr "Voeg maatregelen toe die <strong>al van kracht zijn</strong>."
 
@@ -2020,7 +2016,7 @@ msgid "country_no_sectors"
 msgstr "Er zijn geen branches in dit land"
 
 #. Default: "Add an already implemented measure"
-#: euphorie/content/utils.py:176
+#: euphorie/content/utils.py:177
 msgid "custom_button_add_existing_measure"
 msgstr "Voeg een ontbrekende maatregel toe"
 
@@ -3416,7 +3412,7 @@ msgid "home_link"
 msgstr "Dashboard"
 
 #. Default: "Are the measures that are already implemented sufficient?"
-#: euphorie/content/utils.py:172
+#: euphorie/content/utils.py:148
 msgid "implemented_measures_sufficient"
 msgstr "Volstaan de maatregelen die u net hebt geselecteerd?"
 
@@ -4206,12 +4202,12 @@ msgid "label_not_applicable"
 msgstr "Niet van toepassing"
 
 #. Default: "No, more measures are required"
-#: euphorie/content/utils.py:155
+#: euphorie/content/utils.py:156
 msgid "label_not_sufficient"
 msgstr "Nee, er zijn meer maatregelen nodig"
 
 #. Default: "No, more measures are required <strong>(to be added below)</strong>"
-#: euphorie/content/utils.py:162
+#: euphorie/content/utils.py:163
 msgid "label_not_sufficient_integrated_ap"
 msgstr "Nee, er zijn meer maatregelen nodig"
 
@@ -4674,7 +4670,7 @@ msgid "label_yes_integrated_ap"
 msgstr ""
 
 #. Default: "Yes, the remaining risk is acceptable"
-#: euphorie/content/utils.py:151
+#: euphorie/content/utils.py:152
 msgid "label_yes_sufficient"
 msgstr "Ja, het resterende risico is aanvaardbaar"
 
@@ -5338,7 +5334,7 @@ msgstr "${number} resultaten gevonden."
 msgid "search_result_relevance"
 msgstr "Relevantie: ${percentage}"
 
-#. Default: "Select or add any measures that are <strong>already in place</strong>."
+#. Default: "Select or add any measures that are <strong>already implemented</strong>."
 #: euphorie/content/utils.py:108
 msgid "select_add_existing_measure"
 msgstr ""
@@ -5678,6 +5674,9 @@ msgstr ""
 #: euphorie/content/templates/risk_view.pt:44
 msgid "yes"
 msgstr "Ja"
+
+#~ msgid "Are the measures that are selected above sufficient?"
+#~ msgstr "Volstaan de maatregelen die u net hebt geselecteerd?"
 
 #~ msgid "based on"
 #~ msgstr "gebaseerd op"
