@@ -6,6 +6,7 @@ View and update the company survey.
 """
 
 from .. import MessageFactory as _
+from datetime import datetime
 from euphorie.client import model
 from euphorie.client.adapters.session_traversal import ITraversedSurveySession
 from euphorie.client.interfaces import IClientSkinLayer
@@ -173,6 +174,12 @@ class CompanySchema(form.Schema):
         required=False,
     )
 
+    form.mode(timestamp="hidden")
+    timestamp = schema.Datetime(
+        title=u"Timestamp",
+        required=False,
+    )
+
 
 class Company(form.SchemaForm):
     """Update the company details.
@@ -236,6 +243,7 @@ class Company(form.SchemaForm):
         if errors:
             self.status = self.formErrorsMessage
             return
+        data["timestamp"] = datetime.now()
         self.applyChanges(data)
         url = "%s/@@report" % self.context.absolute_url()
         self.request.response.redirect(url)
@@ -246,6 +254,7 @@ class Company(form.SchemaForm):
         if errors:
             self.status = self.formErrorsMessage
             return
+        data["timestamp"] = datetime.now()
         self.applyChanges(data)
         url = "%s/@@report_view" % self.context.absolute_url()
         self.request.response.redirect(url)
