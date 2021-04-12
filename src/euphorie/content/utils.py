@@ -70,6 +70,7 @@ TOOL_TYPES = OrderedDict(
         (
             "classic",
             {
+                "use_omega_risks": True,
                 "title": _(u"Classic OiRA Tool with positive and negative statements."),
                 "description": "",
                 "intro_extra": "",
@@ -97,6 +98,7 @@ TOOL_TYPES = OrderedDict(
         (
             "existing_measures",
             {
+                "use_omega_risks": True,
                 "title": _(
                     u'OiRA Tool where "Measures that are already in place" can be '
                     u"defined."
