@@ -9,6 +9,7 @@ from .. import MessageFactory as _
 from datetime import datetime
 from euphorie.client import model
 from plone import api
+from plone.autoform import directives
 from plone.autoform.form import AutoExtensibleForm
 from plone.memoize.view import memoize
 from plone.supermodel.model import Schema
@@ -171,7 +172,7 @@ class CompanySchema(Schema):
         required=False,
     )
 
-    form.mode(timestamp="hidden")
+    directives.mode(timestamp="hidden")
     timestamp = schema.Datetime(
         title=u"Timestamp",
         required=False,
