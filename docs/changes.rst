@@ -4,8 +4,7 @@ Changelog
 11.6.10 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Added timestamp to company survey (needed for statistics)
 
 11.6.9 (2021-03-24)
 -------------------
