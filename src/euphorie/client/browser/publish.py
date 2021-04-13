@@ -13,6 +13,7 @@ from Acquisition import aq_parent
 from euphorie.client import MessageFactory as _
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.interfaces import ObjectPublishedEvent
+from euphorie.content.utils import IToolTypesInfo
 from OFS.event import ObjectWillBeRemovedEvent
 from plone import api
 from plone.scale.storage import AnnotationStorage
@@ -23,6 +24,7 @@ from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import button
 from z3c.form import form
 from zope.component import getMultiAdapter
+from zope.component import getUtility
 from zope.event import notify
 from zope.interface import alsoProvides
 
@@ -173,10 +175,16 @@ def PublishToClient(survey, preview=False):
     pas = getToolByName(survey, "acl_users")
     clientuser = pas.getUserById("client")
     sm = getSecurityManager()
+    tti = getUtility(IToolTypesInfo)
+    tool_types_info = tti()
+    tool_type_data = tool_types_info.get(
+        survey.tool_type, tool_types_info.get(tti.default_tool_type)
+    )
     try:
         newSecurityManager(None, clientuser)
         survey = CopyToClient(survey, preview)
-        EnableCustomRisks(survey)
+        if tool_type_data.get("use_omega_risks", True):
+            EnableCustomRisks(survey)
         survey.published = (survey.id, survey.title, datetime.datetime.now())
     finally:
         setSecurityManager(sm)

@@ -8,12 +8,26 @@ Changelog
 This branch will prepare for the migration to Plone5.2 and ultimately to python3.
 A big milestone will be the removal of Grok.
 
+11.6.11 (unreleased)
+--------------------
+
 - Nothing changed yet.
 
-11.6.8 (unreleased)
+
+11.6.10 (2021-04-13)
+--------------------
+
+- Added timestamp to company survey (needed for statistics)
+
+11.6.9 (2021-03-24)
 -------------------
 
-- Nothing changed yet.
+- Translation fix
+
+11.6.8 (2021-03-17)
+-------------------
+
+- Circumvent a bug in recent Firefox (86+)that broke the view on Action Plan
 
 
 11.6.7 (2021-03-03)

@@ -38,6 +38,13 @@
       />
 
   <browser:page
+      name="fix-omega-paths"
+      for="*"
+      permission="cmf.ManagePortal"
+      class=".site.FixOmegaPaths"
+      />
+
+  <browser:page
       name="update-completion-percentage"
       for="*"
       permission="cmf.ManagePortal"

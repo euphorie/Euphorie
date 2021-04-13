@@ -1,4 +1,12 @@
-from euphorie import MessageFactory as _
+"""
+Company
+-------
+
+View and update the company survey.
+"""
+
+from .. import MessageFactory as _
+from datetime import datetime
 from euphorie.client import model
 from plone import api
 from plone.autoform.form import AutoExtensibleForm
@@ -163,6 +171,12 @@ class CompanySchema(Schema):
         required=False,
     )
 
+    form.mode(timestamp="hidden")
+    timestamp = schema.Datetime(
+        title=u"Timestamp",
+        required=False,
+    )
+
 
 class Company(AutoExtensibleForm, form.Form):
     """Update the company details.
@@ -222,6 +236,7 @@ class Company(AutoExtensibleForm, form.Form):
         if errors:
             self.status = self.formErrorsMessage
             return
+        data["timestamp"] = datetime.now()
         self.applyChanges(data)
         url = "%s/@@report" % self.context.absolute_url()
         self.request.response.redirect(url)
@@ -232,6 +247,7 @@ class Company(AutoExtensibleForm, form.Form):
         if errors:
             self.status = self.formErrorsMessage
             return
+        data["timestamp"] = datetime.now()
         self.applyChanges(data)
         url = "%s/@@report_view" % self.context.absolute_url()
         self.request.response.redirect(url)

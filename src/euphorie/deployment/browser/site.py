@@ -21,6 +21,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.Five import BrowserView
 from Products.membrane.interfaces.user import IMembraneUser
+from sqlalchemy import and_
 from sqlalchemy import sql
 from time import time
 from zope.component import adapter
@@ -205,3 +206,38 @@ class RepairSolutionId(BrowserView):
                     break
         ret += "Updated %d measures" % count
         return ret
+
+
+class FixOmegaPaths(BrowserView):
+    def __call__(self):
+        session = Session()
+
+        custom_risks = session.query(SurveyTreeItem).filter(
+            and_(
+                SurveyTreeItem.zodb_path.notlike("custom-risks%"),
+                SurveyTreeItem.zodb_path.like("%custom-risks%"),
+                SurveyTreeItem.type == "risk",
+            )
+        )
+
+        count = 0
+
+        for risk in custom_risks:
+            i = 1
+            num = risk.zodb_path.split("/")[-1]
+            while i < 100:
+                new_zodb_path = u"custom-risks/{}".format(num)
+                conflict = session.query(SurveyTreeItem).filter(
+                    and_(
+                        SurveyTreeItem.session_id == risk.session_id,
+                        SurveyTreeItem.zodb_path == new_zodb_path,
+                    )
+                )
+                if conflict.count():
+                    num = num = str(int(num) + i)
+                else:
+                    risk.zodb_path = new_zodb_path
+                    count += 1
+                    break
+                i += 1
+        return "Fixed %d omega risks" % count

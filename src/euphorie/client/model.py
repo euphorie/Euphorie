@@ -1128,6 +1128,7 @@ class Company(BaseObject):
     workers_participated = schema.Column(types.Boolean())
     needs_met = schema.Column(types.Boolean())
     recommend_tool = schema.Column(types.Boolean())
+    timestamp = schema.Column(types.DateTime(), nullable=True)
 
 
 class Module(SurveyTreeItem):
