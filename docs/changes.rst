@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.6.10 (unreleased)
+11.6.10 (2021-04-13)
 --------------------
 
 - Added timestamp to company survey (needed for statistics)
