@@ -189,9 +189,11 @@
                   <span class="pat-depends" data-pat-depends="pq492.multiple=yes">Please enter the name for each location you would like to assess.</span>
                 </legend>
                 <fieldset class="group form-iteration pat-clone" data-pat-clone="template: #clone-template-1; trigger-element: #clone-set-1">
-                  <label id="clone-template-1" hidden>
-                    <input autofocus placeholder="Name of location #{1}" size="40" type="text" name="492:utf8:utext:list">&nbsp;<button type="button" class="remove-clone icon-trash iconified">Remove</button>
-                  </label>
+                  <template id="clone-template-1">
+                    <label>
+                      <input autofocus placeholder="Name of location #{1}" size="40" type="text" name="492:utf8:utext:list">&nbsp;<button type="button" class="remove-clone icon-trash iconified">Remove</button>
+                    </label>
+                  </template>
 
                   <label>
                     <input autofocus placeholder="Name of location" size="40" type="text" name="492:utf8:utext:list" class="pat-depends" data-pat-depends="pq492.multiple=no" />
@@ -230,9 +232,11 @@
                 </legend>
 
                 <fieldset class="pat-clone form-iteration" data-pat-clone="template: #clone-template-2; trigger-element: #clone-set-2">
-                  <label id="clone-template-2" hidden>
-                    <input autofocus placeholder="Name of location #{1}" size="40" type="text" name="504:utf8:utext:list">&nbsp;<button type="button" class="pat-button small remove-clone icon-trash iconified">Remove</button>
-                  </label>
+                  <template id="clone-template-2">
+                    <label>
+                      <input autofocus placeholder="Name of location #{1}" size="40" type="text" name="504:utf8:utext:list">&nbsp;<button type="button" class="pat-button small remove-clone icon-trash iconified">Remove</button>
+                    </label>
+                  </template>
 
                   <label>
                     <input autofocus placeholder="Name of location" size="40" type="text" name="492:utf8:utext:list" class="pat-depends" data-pat-depends="pq504.multiple=no" />
@@ -269,10 +273,12 @@
                 </legend>
 
                 <fieldset class="form-iteration pat-clone" data-pat-clone="template: #clone-template-3; trigger-element: #clone-set-3">
-                  <label id="clone-template-3" hidden>
-                    <input class="pat-depends" autofocus placeholder="Name of location #{1}" size="40" type="text" name="505:utf8:utext:list" data-pat-depends="pq505.multiple=yes">&nbsp;
-                    <button type="button" class="pat-depends remove-clone icon-trash iconified" data-pat-depends="pq505.multiple=yes">Remove</button>
-                  </label>
+                  <template id="clone-template-3">
+                    <label>
+                      <input class="pat-depends" autofocus placeholder="Name of location #{1}" size="40" type="text" name="505:utf8:utext:list" data-pat-depends="pq505.multiple=yes">&nbsp;
+                      <button type="button" class="pat-depends remove-clone icon-trash iconified" data-pat-depends="pq505.multiple=yes">Remove</button>
+                    </label>
+                  </template>
 
                   <label>
                     <input autofocus placeholder="Name of location" size="40" type="text" name="492:utf8:utext:list" class="pat-depends" data-pat-depends="pq505.multiple=no" />
@@ -455,7 +461,8 @@
     <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small">Add another search rule</button>
 </p>
 
-<p class="clone search-rule animated fadeIn" id="clone-template" hidden>
+<template id="clone-template">
+  <p class="clone search-rule animated fadeIn">
     <label class="and-or pat-select bare">
         <select name="search-rule.and-or:records">
             <option value="and">
@@ -539,7 +546,8 @@
         </select>
     </span>
     <button type="button" class="remove-clone">Remove</button>
-</p>
+  </p>
+</template>
 
 
 			<fieldset class="toggle-bar pat-checklist free-form">
