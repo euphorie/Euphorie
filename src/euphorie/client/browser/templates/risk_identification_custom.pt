@@ -91,28 +91,27 @@
                      value="1"
               />
 
-              <label class="clone"
-                     id="in-place-measure-template"
-                     hidden="hidden"
-              >
-                <input class="pat-autofocus"
-                       autofocus="autofocus"
-                       checked="checked"
-                       disabled="disabled"
-                       name="use-new-measure-#{1}"
-                       type="checkbox"
-                />
-                <textarea class=""
-                          cols="50"
-                          name="new-measure-#{1}"
-                          placeholder="${view/placeholder_add_extra}"
-                          rows="3"
-                          data-pat-autosubmit="1000ms"
-                ></textarea>
-                <button class="icon-trash iconified remove-clone"
-                        title="${view/button_remove_extra}"
-                >Remove</button>
-              </label>
+              <template id="in-place-measure-template">
+                <label class="clone">
+                  <input class="pat-autofocus"
+                         autofocus="autofocus"
+                         checked="checked"
+                         disabled="disabled"
+                         name="use-new-measure-#{1}"
+                         type="checkbox"
+                  />
+                  <textarea class=""
+                            cols="50"
+                            name="new-measure-#{1}"
+                            placeholder="${view/placeholder_add_extra}"
+                            rows="3"
+                            data-pat-autosubmit="1000ms"
+                  ></textarea>
+                  <button class="icon-trash iconified remove-clone"
+                          title="${view/button_remove_extra}"
+                  >Remove</button>
+                </label>
+              </template>
             </tal:existing-measures>
 
           </fieldset>

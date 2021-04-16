@@ -207,26 +207,25 @@
           </tal:measures>
           <input type="hidden" name="handle_measures_in_place" value="1" />
 
-          <label class="clone"
-                 id="in-place-measure-template"
-                 hidden="hidden"
-          >
-            <input class="pat-autofocus"
-                   autofocus="autofocus"
-                   checked="checked"
-                   disabled="disabled"
-                   name="use-new-measure-#{1}"
-                   type="checkbox"
-            />
-            <textarea cols="50"
-                      name="new-measure-#{1}"
-                      placeholder="${view/placeholder_add_extra}"
-                      rows="3"
-            ></textarea>
-            <button class="icon-trash iconified remove-clone"
-                    title="${view/button_remove_extra}"
-            >Remove</button>
-          </label>
+          <template id="in-place-measure-template">
+            <label class="clone">
+              <input class="pat-autofocus"
+                     autofocus="autofocus"
+                     checked="checked"
+                     disabled="disabled"
+                     name="use-new-measure-#{1}"
+                     type="checkbox"
+              />
+              <textarea cols="50"
+                        name="new-measure-#{1}"
+                        placeholder="${view/placeholder_add_extra}"
+                        rows="3"
+              ></textarea>
+              <button class="icon-trash iconified remove-clone"
+                      title="${view/button_remove_extra}"
+              >Remove</button>
+            </label>
+          </template>
         </tal:existing_measures>
       </fieldset>
 
@@ -959,10 +958,8 @@
       >Add an extra measure</button>
     </div>
 
-    <div class="measure pat-collapsible"
-         id="measure-template"
-         hidden="hidden"
-    >
+    <template id="measure-template">
+    <div class="measure pat-collapsible">
 
       <h2><tal:span condition="not:view/use_existing_measures"
                   i18n:translate="Measure"
@@ -1061,6 +1058,7 @@
         </label>
       </fieldset>
     </div>
+  </template>
   </metal:action_plan>
 
 
