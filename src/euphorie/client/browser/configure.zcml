@@ -260,6 +260,14 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="oira-tool"
+      for="euphorie.client.survey.ISurvey"
+      permission="zope2.Public"
+      template="templates/oira_tool.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <!-- Client -->
   <browser:page
       name="view"
