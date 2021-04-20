@@ -3930,7 +3930,7 @@ msgstr "Jau įdiegta priemonė"
 #: euphorie/client/browser/templates/webhelpers.pt:725
 #: euphorie/client/browser/templates/webhelpers.pt:724
 msgid "label_expertise"
-msgstr ""
+msgstr "Kompetencija"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/webhelpers.pt:954
