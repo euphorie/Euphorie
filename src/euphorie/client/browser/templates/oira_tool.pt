@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+  <body>
+    <metal:content fill-slot="content"
+                tal:define="
+                  description context/Description|string:;
+                  introduction python:getattr(context, 'introduction', '') or '';
+                "
+    >
+    <div id="content-pane">
+      <tal:block replace="tile:statusmessages" />
+
+      <article class="pat-rich">
+        <h1 class="tool-name">${context/Title}</h1>
+        <section class="summary" tal:condition="python:description.strip()">
+          <p tal:content="description"></p>
+        </section>
+      </article>
+
+      <!-- replace this with whatever will come from the design -->
+      <p class="button-bar">
+        <a id="button-new-session"
+           class="pat-button pat-inject"
+           href="${here/absolute_url}/@@new-session.html?action=new"
+           i18n:translate="button_start_new_session"
+        >Start a new session with this tool</a>
+      </p>
+
+      <article class="pat-rich" tal:condition="python:introduction.strip()">
+        <section class="introduction">
+          <p tal:replace="structure introduction"></p>
+        </section>
+      </article>
+
+    </div>
+    </metal:content>
+
+  <metal:slot fill-slot="aside-header">
+    <header id="osc-header">
+    </header>
+  </metal:slot>
+
+  <metal:slot fill-slot="aside-navigator">
+    <div id="navigation">
+    </div>
+  </metal:slot>
+
+  </body>
+</html>
