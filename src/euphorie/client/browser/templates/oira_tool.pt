@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      id="sessions"
-      meta:interpolation="true"
       metal:use-macro="context/@@shell/macros/shell"
-      tal:define="
-        webhelpers nocall:context/@@webhelpers;
-      "
       i18n:domain="euphorie"
 >
   <body>
@@ -29,7 +23,6 @@
         </section>
       </article>
 
-
       <!-- replace this with whatever will come from the design -->
       <p class="button-bar">
         <a id="button-new-session"
@@ -47,8 +40,6 @@
 
     </div>
     </metal:content>
-
-
 
   <metal:slot fill-slot="aside-header">
     <header id="osc-header">
