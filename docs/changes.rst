@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.6.11 (unreleased)
+11.6.11 (2021-04-21)
 --------------------
 
 - Translation updates
