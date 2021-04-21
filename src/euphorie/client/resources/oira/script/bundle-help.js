@@ -44,7 +44,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "chunks/" + ({}[chunkId]||chunkId) + "." + {"0":"5fcd3dd59a0ec56e8482","1":"cb488f66531add3f5ae4","11":"99579b72c295812f6ff7","18":"d6752f3d92efb9516784","21":"5a440affeefd4eae4731","22":"9296cacde61fab17523e","23":"9b3d8f443537ad4c8dd0","24":"b66407ff3d00fc9bcc24","25":"9abcc4bc2596375564f6","26":"a248ac55106e0762b689","27":"7a7808eab80a724ea529","28":"81ff36f81522125c88e7","29":"51004353bb58fd00ea1d","30":"fdfcf77d59b8a76b64a7","31":"bb44142e0db5d9ca01a6","32":"7102f149d77c43ebc110","33":"5639475aea31b6115783","34":"d9b0ce9b82647eb757c2","35":"80bc5a3719dfe6cbedfe","36":"c262025002ef84a1e54e","37":"1b4d2817b0d46e525eaf","38":"a10a59b288e4ffe4cbe2","39":"c4019b5bd7dbdc22c004","40":"7654a1b44926ab400b68","41":"05d480c8232c4fcfa447","42":"1f6dc9c053f3bf9d400a","43":"5a01bcb9966a4f02df4c","44":"97d581a7124c83150e6a","45":"bb7da92621650aeecaab","46":"303756b4f94b0abb90bc","47":"b6cbbad15c5a9a9100cc","48":"e680338a84fef315bb0c","49":"f58ba9cdbf0b3ae31ce0","50":"59bba2a4ba29dc02aa86","51":"850222b4033c4d4495a0","52":"1641b8656bd94a3493be","53":"22d00486e397b35bc7d6","54":"52dc9a6096279b334496","55":"8a44fd7e36df9433497d","56":"65272398dd0505a2311e","57":"ed7cf9416a89823b9516","58":"ae8f2c12c511945ab77c","59":"ece36249acc45181a039","60":"2a2fb858ea719ee34e90","61":"bf33ee337ca56170558f","62":"fe1c2944d7a9d90f254a","63":"2e35db9237673475654a","64":"b23ff04c879a262a70d1","65":"1e959e818c05585e6274","66":"65502badb754bc39309f","67":"e040715f30e3db665751","68":"d70c58da4449af1b07c7","69":"45c77b1f309294215b0f","70":"d618faedfe54151575cf","71":"b011a8d810e5331676bb","72":"403064e1a96ac633dd1e","73":"9137deb14ff847bc4bcf","74":"56aac9189ee26b0c9c65","75":"ecc3455d2527c71b4a89","76":"a362cd3def8a94f67697","77":"9ff33fd65b0d12068f33","78":"c6fd63bc0bfc0a5a5890","79":"acb8119a079bf94e4fd8","80":"6826dec79d3f6b151d10","81":"06ea24718b96ee82bfec","82":"d7d1459491bd03bcd9aa","83":"877d4059c082e466cfdb","84":"c65f1e276cfa74c497d9","85":"49651540a8102f3a7ed5","86":"e9d05ee9f360725327b0","87":"03e4b14a59a68b0167de","88":"3e3a65a2cef78fef1ae8","89":"3f20b9fc244e0e9f170f","90":"9eb4ec1731ee8814add1","91":"145fdc65f2b91bd4d8f8","92":"9de2ca8b772a3b169396","93":"16030c72aabb2032974e","94":"f1ab998aff5925123396","95":"d1483fcff3971eda19fa","96":"e918e3973e2136737714","97":"a41e487122d0ed6a9fbd","98":"74a1ab7aa6d5449dea62","99":"9193b956c3243a88ea21","100":"3a24fb5245cbe2f8a4e8","101":"6453eb87770075aa7f46","102":"590d7dcab443c8942f39","103":"dd01934f5c3b50163b9f","104":"911ee259b1957931c4d2","105":"cae12a7b82f8c05a5053","106":"877e9b11015369179db6","107":"d057834454dacccd843a","108":"2fe7cb69485da0e1e6c8","109":"c45863af05933cff0067","110":"1c191e263af83133ec1c","111":"1e8f3372cf58e131740a","112":"ef5672cc4ea5c325a462","113":"71d48ac63918a1a9cc10","114":"702d07d8f74796f28c3f","115":"eb2c89b5f030d5f90bf8","116":"fec2f32fc89bef1d046f","117":"4e489391b67fe466455d","118":"883d07cc8a78d92b7adc","119":"6563b271ac2e66a5c608","120":"aa8bc6ee0132345ebd46","121":"4203bdc8dd32b313ead7","122":"331d7a40c209b172e465","123":"c85511f58d984fa0863b","124":"25d0263fd03c5d1895d6","125":"2c1e244b41817f9292f7","126":"9a897d8057e585dd3ef5","127":"2489724fd33cddaefa2d","128":"41c3cfea4d6b355c77a5","129":"13107dc8e2215693edfb","130":"21dce418d25d785fc94e","131":"2b4151654b1a389193a9","132":"bd330932a5ab5602a344","133":"9221c7f45c1951985161","134":"02e5b3d544a8aa51e5c7","135":"407975641565819fa8c7","136":"1109c5ffedbae3767a36","137":"eeb3dde921c830d08437","138":"49560238b7a300706339","139":"7c0e477026611ed099fc","140":"3a6a2477dd3bca0e5f87","141":"5114939ed56080de7084","142":"16703aba41d3a2ebc7b5","143":"2251e2b810a65aab03a8","144":"e5f07057893dbc5467e4","145":"9e2db033ab8d84c2f27e","146":"606151d5bd1165302cda","147":"b2c146c801c065454dcb","148":"d36a98a4aa0a83905124","149":"e0a19e26ba034e7e7596","150":"64020dca73a46f22fb7c","151":"ba0fe86e6db7c1e6690f","152":"53cf1d1989c345f29e48","153":"1e87fe2c22dd588cbfa3","154":"f699aa2a1411cdb22005","155":"8369505e9c7e33e3f045"}[chunkId] + ".min.js"
+/******/ 		return __webpack_require__.p + "chunks/" + ({}[chunkId]||chunkId) + "." + {"0":"c7bf8fcbf02083178bdf","1":"c74596f7262b14fae3ff","11":"8dc9150e6971f246cba6","18":"495f00f6ca8c1e3525de","21":"43ed36973279401a3405","22":"955ad0a454f2a6915fa3","23":"22644bc0c7796a9f8e5d","24":"e6a5cdd538a17878afe9","25":"c2034a1e1cac3ca67ae6","26":"0450274e079dd1f44e4e","27":"1e5d834d8465bcfc0e3d","28":"010324aabde250331d96","29":"9e439b706d79ddbd12c0","30":"f12c4491540037c1a44b","31":"9149128b50fe2b86ca02","32":"69df9af8e52a894c2ce1","33":"b3028a0e10be1c41ed25","34":"83315ee9a69b9319aeb3","35":"a3febce4d085cca6a54f","36":"655e76bbee4d85185e2b","37":"397f47c5095e2606b038","38":"ea69df2ce06d026ed0d3","39":"32f6fc057b5f5b8d8478","40":"ae82b7207ee1f88f32ba","41":"abd9a0665cf1b6773ade","42":"d0933680670557ac7d2c","43":"362694f703ee06b33cfb","44":"776e6a1dbd76853367b7","45":"8bb50ded5a6acaf170ad","46":"1f00d115e0d37ef585f2","47":"e6766d06bf061b826e24","48":"18c0c8047c6c30a94ba8","49":"507e916e3e3d84983b4d","50":"7134faa07f71dcdbaedb","51":"90fac8e547087a2501d2","52":"92efe6d8234aa91e9b1d","53":"e34507158f93b4ecf48f","54":"3e977a548a8715e7648b","55":"f76617e26cb06b13a94a","56":"ef156dc520c767bb7132","57":"91b801c315b46f15a77a","58":"68a7962890144dcff4c2","59":"5bbb9e32753676da54e7","60":"4fd1de891cf8f884b3e1","61":"6e03ee544fe09460f673","62":"fca6190b36ecb79c87b8","63":"b218ef4035c8974d21a1","64":"511ba7178eadeecba8e6","65":"8dcfb1d105915086fbbf","66":"a55ffef5010e70e24d4c","67":"30b4591c2544abdc0f7f","68":"8e2c4ab970f58157dda1","69":"f0656d96a45f5dc314df","70":"6264c4934f3ce51248c8","71":"e55b89d8b298dfcdb60b","72":"5124715862ceaab6d446","73":"fb8d0914d996f2e5029d","74":"63ee0689f163740b2c20","75":"4e7be1a8effde2354c1b","76":"ff666f3cc4fef2c350d8","77":"0ac22a2d132c0dd2c83f","78":"c669c0448fb67f9b7949","79":"66c00a35c5b8a9b14666","80":"8cb053f73ce5b0b4c151","81":"cfd234f69f43373796fb","82":"37f40b35be2b38dd4a7a","83":"c3dd4649a3022cbe2607","84":"1ebe03d5c9699d6fe66e","85":"79eb171d97ac73d0f2bb","86":"9ea20f7dd5b52263bba0","87":"4cd3743d0481d66b78d5","88":"20df85b424c00879d2ec","89":"7ae5c3a360e8128e0a45","90":"ecedf9ae504d8fa08b55","91":"57f315de23caffe7c306","92":"69df03292146a7ce1e96","93":"b065ad40b7cf99ad4959","94":"220e3d64b60e9023394b","95":"ffe9b0d8f4cd30fd8098","96":"860388e51630db2de940","97":"2221ef678fd40aedd98d","98":"8b6934466bd1bc72188d","99":"a6a8f781feaaec5d4191","100":"b9c61731a52e374b7dd7","101":"5f9242deedf593747a4a","102":"ee8bafd160f8c272c142","103":"5f126033f14351cfc8fe","104":"decea3f9482de6eb53b7","105":"0ff6ecdd3538b5076904","106":"49c6e4d4fc3cca36b742","107":"9662dd4157666c792f6f","108":"4461f3c8858030b21134","109":"436ead7b066ef7d6beaa","110":"68855609d9fe641e56bd","111":"49c471dc67a3e8e7ecfd","112":"ea2f3cf6f8efafcb111b","113":"c63f017973198009a656","114":"e824f0e3b55073f87b47","115":"6d511412b61aba3ea258","116":"624ed728ebc7433c303b","117":"415ca27d8c7ab49fa4c2","118":"09341dcccd44ab49e96f","119":"9efa129857f19b73e8ce","120":"13b58b05f8fdfa63f5c1","121":"84d82c7f89c2f346e305","122":"1a86e237ad5f74d8cbd8","123":"b299b717350327148a53","124":"abff7b1a2d7dbf34ba17","125":"2df47abc4e7d9d48b433","126":"799620dfb617848a5f50","127":"b928d369c20d4a386924","128":"d1bf77b215b94af4402c","129":"c8181b0cc5cb0c0ecec0","130":"efa90c5e29336e597fdf","131":"1a0a372c076ec951663f","132":"a2f00cbc70f2a018d8b7","133":"ba7b4f00c028080eec66","134":"4a08a67cd9c3fe054f6a","135":"993e9a6056e661300c9f","136":"b6b0e2f119018208561b","137":"20f38281cfbad01a10b9","138":"95160994fba6e76835c8","139":"4f231ab8755f36b38a11","140":"a8e80c7336d4b580455c","141":"640ba8561e1ba98a4f96","142":"541346fc4185ee0e168b","143":"57b14475beaca7552713","144":"4951059e0220b60d23b0","145":"8c6741624c3486fe7691","146":"de48def78d79ce198672","147":"797ca3182d54d5f9e84c","148":"6ba607b780bbadf2517c","149":"d99c8c679a342380df4d","150":"c438ea1f4174a5874c0a","151":"7999b3888f9d2f36cf11","152":"6b7a3f1da084eb50ef9b","153":"f7435fac5c3d17f7d339","154":"6369dabb002c5aa743ac","155":"1c4e60d9c68a3b1b35a2"}[chunkId] + ".min.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -197,7 +197,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 318);
+/******/ 	return __webpack_require__(__webpack_require__.s = 317);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -11326,11 +11326,11 @@ function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableTo
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -11821,677 +11821,677 @@ parser.addArgument("open-trigger");
 
 var map = {
 	"./af.js": [
-		180,
+		179,
 		0,
 		21
 	],
 	"./ar-dz.js": [
-		181,
+		180,
 		0,
 		22
 	],
 	"./ar-kw.js": [
-		182,
+		181,
 		0,
 		23
 	],
 	"./ar-ly.js": [
-		183,
+		182,
 		0,
 		24
 	],
 	"./ar-ma.js": [
-		184,
+		183,
 		0,
 		25
 	],
 	"./ar-sa.js": [
-		185,
+		184,
 		0,
 		26
 	],
 	"./ar-tn.js": [
-		186,
+		185,
 		0,
 		27
 	],
 	"./ar.js": [
-		187,
+		186,
 		0,
 		28
 	],
 	"./az.js": [
-		188,
+		187,
 		0,
 		29
 	],
 	"./be.js": [
-		189,
+		188,
 		0,
 		30
 	],
 	"./bg.js": [
-		190,
+		189,
 		0,
 		31
 	],
 	"./bm.js": [
-		191,
+		190,
 		0,
 		32
 	],
 	"./bn-bd.js": [
-		192,
+		191,
 		0,
 		33
 	],
 	"./bn.js": [
-		193,
+		192,
 		0,
 		34
 	],
 	"./bo.js": [
-		194,
+		193,
 		0,
 		35
 	],
 	"./br.js": [
-		195,
+		194,
 		0,
 		36
 	],
 	"./bs.js": [
-		196,
+		195,
 		0,
 		37
 	],
 	"./ca.js": [
-		197,
+		196,
 		0,
 		38
 	],
 	"./cs.js": [
-		198,
+		197,
 		0,
 		39
 	],
 	"./cv.js": [
-		199,
+		198,
 		0,
 		40
 	],
 	"./cy.js": [
-		200,
+		199,
 		0,
 		41
 	],
 	"./da.js": [
-		201,
+		200,
 		0,
 		42
 	],
 	"./de-at.js": [
-		202,
+		201,
 		0,
 		43
 	],
 	"./de-ch.js": [
-		203,
+		202,
 		0,
 		44
 	],
 	"./de.js": [
-		204,
+		203,
 		0,
 		45
 	],
 	"./dv.js": [
-		205,
+		204,
 		0,
 		46
 	],
 	"./el.js": [
-		206,
+		205,
 		0,
 		47
 	],
 	"./en-au.js": [
-		207,
+		206,
 		0,
 		48
 	],
 	"./en-ca.js": [
-		208,
+		207,
 		0,
 		49
 	],
 	"./en-gb.js": [
-		209,
+		208,
 		0,
 		50
 	],
 	"./en-ie.js": [
-		210,
+		209,
 		0,
 		51
 	],
 	"./en-il.js": [
-		211,
+		210,
 		0,
 		52
 	],
 	"./en-in.js": [
-		212,
+		211,
 		0,
 		53
 	],
 	"./en-nz.js": [
-		213,
+		212,
 		0,
 		54
 	],
 	"./en-sg.js": [
-		214,
+		213,
 		0,
 		55
 	],
 	"./eo.js": [
-		215,
+		214,
 		0,
 		56
 	],
 	"./es-do.js": [
-		216,
+		215,
 		0,
 		57
 	],
 	"./es-mx.js": [
-		217,
+		216,
 		0,
 		58
 	],
 	"./es-us.js": [
-		218,
+		217,
 		0,
 		59
 	],
 	"./es.js": [
-		219,
+		218,
 		0,
 		60
 	],
 	"./et.js": [
-		220,
+		219,
 		0,
 		61
 	],
 	"./eu.js": [
-		221,
+		220,
 		0,
 		62
 	],
 	"./fa.js": [
-		222,
+		221,
 		0,
 		63
 	],
 	"./fi.js": [
-		223,
+		222,
 		0,
 		64
 	],
 	"./fil.js": [
-		224,
+		223,
 		0,
 		65
 	],
 	"./fo.js": [
-		225,
+		224,
 		0,
 		66
 	],
 	"./fr-ca.js": [
-		226,
+		225,
 		0,
 		67
 	],
 	"./fr-ch.js": [
-		227,
+		226,
 		0,
 		68
 	],
 	"./fr.js": [
-		228,
+		227,
 		0,
 		69
 	],
 	"./fy.js": [
-		229,
+		228,
 		0,
 		70
 	],
 	"./ga.js": [
-		230,
+		229,
 		0,
 		71
 	],
 	"./gd.js": [
-		231,
+		230,
 		0,
 		72
 	],
 	"./gl.js": [
-		232,
+		231,
 		0,
 		73
 	],
 	"./gom-deva.js": [
-		233,
+		232,
 		0,
 		74
 	],
 	"./gom-latn.js": [
-		234,
+		233,
 		0,
 		75
 	],
 	"./gu.js": [
-		235,
+		234,
 		0,
 		76
 	],
 	"./he.js": [
-		236,
+		235,
 		0,
 		77
 	],
 	"./hi.js": [
-		237,
+		236,
 		0,
 		78
 	],
 	"./hr.js": [
-		238,
+		237,
 		0,
 		79
 	],
 	"./hu.js": [
-		239,
+		238,
 		0,
 		80
 	],
 	"./hy-am.js": [
-		240,
+		239,
 		0,
 		81
 	],
 	"./id.js": [
-		241,
+		240,
 		0,
 		82
 	],
 	"./is.js": [
-		242,
+		241,
 		0,
 		83
 	],
 	"./it-ch.js": [
-		243,
+		242,
 		0,
 		84
 	],
 	"./it.js": [
-		244,
+		243,
 		0,
 		85
 	],
 	"./ja.js": [
-		245,
+		244,
 		0,
 		86
 	],
 	"./jv.js": [
-		246,
+		245,
 		0,
 		87
 	],
 	"./ka.js": [
-		247,
+		246,
 		0,
 		88
 	],
 	"./kk.js": [
-		248,
+		247,
 		0,
 		89
 	],
 	"./km.js": [
-		249,
+		248,
 		0,
 		90
 	],
 	"./kn.js": [
-		250,
+		249,
 		0,
 		91
 	],
 	"./ko.js": [
-		251,
+		250,
 		0,
 		92
 	],
 	"./ku.js": [
-		252,
+		251,
 		0,
 		93
 	],
 	"./ky.js": [
-		253,
+		252,
 		0,
 		94
 	],
 	"./lb.js": [
-		254,
+		253,
 		0,
 		95
 	],
 	"./lo.js": [
-		255,
+		254,
 		0,
 		96
 	],
 	"./lt.js": [
-		256,
+		255,
 		0,
 		97
 	],
 	"./lv.js": [
-		257,
+		256,
 		0,
 		98
 	],
 	"./me.js": [
-		258,
+		257,
 		0,
 		99
 	],
 	"./mi.js": [
-		259,
+		258,
 		0,
 		100
 	],
 	"./mk.js": [
-		260,
+		259,
 		0,
 		101
 	],
 	"./ml.js": [
-		261,
+		260,
 		0,
 		102
 	],
 	"./mn.js": [
-		262,
+		261,
 		0,
 		103
 	],
 	"./mr.js": [
-		263,
+		262,
 		0,
 		104
 	],
 	"./ms-my.js": [
-		264,
+		263,
 		0,
 		105
 	],
 	"./ms.js": [
-		265,
+		264,
 		0,
 		106
 	],
 	"./mt.js": [
-		266,
+		265,
 		0,
 		107
 	],
 	"./my.js": [
-		267,
+		266,
 		0,
 		108
 	],
 	"./nb.js": [
-		268,
+		267,
 		0,
 		109
 	],
 	"./ne.js": [
-		269,
+		268,
 		0,
 		110
 	],
 	"./nl-be.js": [
-		270,
+		269,
 		0,
 		111
 	],
 	"./nl.js": [
-		271,
+		270,
 		0,
 		112
 	],
 	"./nn.js": [
-		272,
+		271,
 		0,
 		113
 	],
 	"./oc-lnc.js": [
-		273,
+		272,
 		0,
 		114
 	],
 	"./pa-in.js": [
-		274,
+		273,
 		0,
 		115
 	],
 	"./pl.js": [
-		275,
+		274,
 		0,
 		116
 	],
 	"./pt-br.js": [
-		276,
+		275,
 		0,
 		117
 	],
 	"./pt.js": [
-		277,
+		276,
 		0,
 		118
 	],
 	"./ro.js": [
-		278,
+		277,
 		0,
 		119
 	],
 	"./ru.js": [
-		279,
+		278,
 		0,
 		120
 	],
 	"./sd.js": [
-		280,
+		279,
 		0,
 		121
 	],
 	"./se.js": [
-		281,
+		280,
 		0,
 		122
 	],
 	"./si.js": [
-		282,
+		281,
 		0,
 		123
 	],
 	"./sk.js": [
-		283,
+		282,
 		0,
 		124
 	],
 	"./sl.js": [
-		284,
+		283,
 		0,
 		125
 	],
 	"./sq.js": [
-		285,
+		284,
 		0,
 		126
 	],
 	"./sr-cyrl.js": [
-		286,
+		285,
 		0,
 		127
 	],
 	"./sr.js": [
-		287,
+		286,
 		0,
 		128
 	],
 	"./ss.js": [
-		288,
+		287,
 		0,
 		129
 	],
 	"./sv.js": [
-		289,
+		288,
 		0,
 		130
 	],
 	"./sw.js": [
-		290,
+		289,
 		0,
 		131
 	],
 	"./ta.js": [
-		291,
+		290,
 		0,
 		132
 	],
 	"./te.js": [
-		292,
+		291,
 		0,
 		133
 	],
 	"./tet.js": [
-		293,
+		292,
 		0,
 		134
 	],
 	"./tg.js": [
-		294,
+		293,
 		0,
 		135
 	],
 	"./th.js": [
-		295,
+		294,
 		0,
 		136
 	],
 	"./tk.js": [
-		296,
+		295,
 		0,
 		137
 	],
 	"./tl-ph.js": [
-		297,
+		296,
 		0,
 		138
 	],
 	"./tlh.js": [
-		298,
+		297,
 		0,
 		139
 	],
 	"./tr.js": [
-		299,
+		298,
 		0,
 		140
 	],
 	"./tzl.js": [
-		300,
+		299,
 		0,
 		141
 	],
 	"./tzm-latn.js": [
-		301,
+		300,
 		0,
 		142
 	],
 	"./tzm.js": [
-		302,
+		301,
 		0,
 		143
 	],
 	"./ug-cn.js": [
-		303,
+		302,
 		0,
 		144
 	],
 	"./uk.js": [
-		304,
+		303,
 		0,
 		145
 	],
 	"./ur.js": [
-		305,
+		304,
 		0,
 		146
 	],
 	"./uz-latn.js": [
-		306,
+		305,
 		0,
 		147
 	],
 	"./uz.js": [
-		307,
+		306,
 		0,
 		148
 	],
 	"./vi.js": [
-		308,
+		307,
 		0,
 		149
 	],
 	"./x-pseudo.js": [
-		309,
+		308,
 		0,
 		150
 	],
 	"./yo.js": [
-		310,
+		309,
 		0,
 		151
 	],
 	"./zh-cn.js": [
-		311,
+		310,
 		0,
 		152
 	],
 	"./zh-hk.js": [
-		312,
+		311,
 		0,
 		153
 	],
 	"./zh-mo.js": [
-		313,
+		312,
 		0,
 		154
 	],
 	"./zh-tw.js": [
-		314,
+		313,
 		0,
 		155
 	]
@@ -12529,7 +12529,7 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2);
 /* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 /* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4);
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -12566,7 +12566,7 @@ parser.addArgument("effect-easing", "swing");
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.e(/* import() */ 18).then(__webpack_require__.bind(null, 316));
+              return __webpack_require__.e(/* import() */ 18).then(__webpack_require__.bind(null, 315));
 
             case 2:
               DependsHandler = _context.sent.default;
@@ -12837,6 +12837,11 @@ var equaliser = {
                 // $container.parents('.pat-stacks').on("pat-update", null, this, utils.debounce(equaliser._onEvent, 100));
                 */
 
+                /* Assumotion, we don't need this anymore if we use Mutation observers
+                // $container.on("pat-update.pat-equaliser", null, this, utils.debounce(equaliser._onEvent, 100));
+                // $container.on("patterns-injected.pat-equaliser", null, this, utils.debounce(equaliser._onEvent, 100));
+                // $container.parents('.pat-stacks').on("pat-update", null, this, utils.debounce(equaliser._onEvent, 100));
+                */
                 jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).on("resize.pat-equaliser", null, this, _core_utils__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].debounce(equaliser._onEvent, 100));
                 ImagesLoaded(this, jquery__WEBPACK_IMPORTED_MODULE_1___default.a.proxy(function () {
                   equaliser._update(this);
@@ -12916,7 +12921,7 @@ _core_registry__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].register(equalise
 /* harmony import */ var _core_registry__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
 /* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2);
 /* harmony import */ var _core_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(11);
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -13030,7 +13035,7 @@ parser.addAlias("resize", "is-resize");
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.e(/* import() */ 11).then(__webpack_require__.t.bind(null, 315, 7));
+              return __webpack_require__.e(/* import() */ 11).then(__webpack_require__.t.bind(null, 314, 7));
 
             case 2:
               Masonry = _context.sent.default;
@@ -13173,7 +13178,7 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
@@ -14414,7 +14419,7 @@ try {
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11);
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -15218,7 +15223,7 @@ function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableTo
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
@@ -15226,7 +15231,7 @@ function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArra
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
@@ -15234,7 +15239,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -16526,31 +16531,30 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 318:
+/***/ 317:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _public_path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(98);
-/* harmony import */ var _public_path__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_public_path__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _patternslib_patternslib_src_public_path__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(98);
+/* harmony import */ var _patternslib_patternslib_src_public_path__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_patternslib_patternslib_src_public_path__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var modernizr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(99);
 /* harmony import */ var modernizr__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(modernizr__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var patternslib_src_core_registry__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
-/* harmony import */ var patternslib_src_pat_ajax_ajax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(35);
-/* harmony import */ var patternslib_src_pat_auto_scale_auto_scale__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(102);
-/* harmony import */ var patternslib_src_pat_checklist_checklist__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(103);
-/* harmony import */ var patternslib_src_pat_collapsible_collapsible__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(104);
-/* harmony import */ var patternslib_src_pat_depends_depends__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(106);
-/* harmony import */ var patternslib_src_pat_display_time_display_time__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(74);
-/* harmony import */ var patternslib_src_pat_equaliser_equaliser__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(107);
-/* harmony import */ var patternslib_src_pat_inject_inject__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(23);
-/* harmony import */ var patternslib_src_pat_legend_legend__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(108);
-/* harmony import */ var patternslib_src_pat_masonry_masonry__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(109);
-/* harmony import */ var patternslib_src_pat_navigation_navigation__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(110);
-/* harmony import */ var patternslib_src_pat_sortable_sortable__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(111);
- // first import
+/* harmony import */ var _patternslib_patternslib_src_core_registry__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
+/* harmony import */ var _patternslib_patternslib_src_pat_ajax_ajax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(35);
+/* harmony import */ var _patternslib_patternslib_src_pat_auto_scale_auto_scale__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(102);
+/* harmony import */ var _patternslib_patternslib_src_pat_checklist_checklist__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(103);
+/* harmony import */ var _patternslib_patternslib_src_pat_collapsible_collapsible__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(104);
+/* harmony import */ var _patternslib_patternslib_src_pat_depends_depends__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(106);
+/* harmony import */ var _patternslib_patternslib_src_pat_display_time_display_time__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(74);
+/* harmony import */ var _patternslib_patternslib_src_pat_equaliser_equaliser__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(107);
+/* harmony import */ var _patternslib_patternslib_src_pat_inject_inject__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(23);
+/* harmony import */ var _patternslib_patternslib_src_pat_legend_legend__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(108);
+/* harmony import */ var _patternslib_patternslib_src_pat_masonry_masonry__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(109);
+/* harmony import */ var _patternslib_patternslib_src_pat_navigation_navigation__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(110);
+/* harmony import */ var _patternslib_patternslib_src_pat_sortable_sortable__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(111);
 
  // Core
 
@@ -16570,7 +16574,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_2___default.a;
-patternslib_src_core_registry__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"].init();
+_patternslib_patternslib_src_core_registry__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"].init();
 
 /***/ }),
 
@@ -17017,7 +17021,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default.a.fn.scopedFind = function (selector
 /* harmony import */ var _logging__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
 function _typeof2(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
 
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -17603,13 +17607,13 @@ var runtime = __webpack_require__(19);
 var jquery_js_exposed = __webpack_require__(0);
 var jquery_js_exposed_default = /*#__PURE__*/__webpack_require__.n(jquery_js_exposed);
 
-// EXTERNAL MODULE: ./src/patternslib/src/core/registry.js
+// EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/core/registry.js
 var registry = __webpack_require__(9);
 
-// EXTERNAL MODULE: ./src/patternslib/src/core/logging.js
+// EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/core/logging.js
 var logging = __webpack_require__(6);
 
-// CONCATENATED MODULE: ./src/patternslib/src/core/mockup-parser.js
+// CONCATENATED MODULE: ./node_modules/@patternslib/patternslib/src/core/mockup-parser.js
 
 var parser = {
   getOptions: function getOptions($el, patternName, options) {
@@ -17658,7 +17662,7 @@ var parser = {
   }
 };
 /* harmony default export */ var mockup_parser = (parser);
-// CONCATENATED MODULE: ./src/patternslib/src/core/base.js
+// CONCATENATED MODULE: ./node_modules/@patternslib/patternslib/src/core/base.js
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -20863,7 +20867,7 @@ parser.add_argument("output-format", null);
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.e(/* import() */ 0).then(__webpack_require__.t.bind(null, 179, 7));
+              return __webpack_require__.e(/* import() */ 0).then(__webpack_require__.t.bind(null, 178, 7));
 
             case 2:
               Moment = _context.sent.default;
@@ -20926,7 +20930,7 @@ parser.add_argument("output-format", null);
 /* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
 /* harmony import */ var _logging__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
@@ -21201,7 +21205,21 @@ module.exports = function(module) {
 
 // NOTE: Import this file before any other files
 // Overwrite path to load resources or use default one.
-__webpack_require__.p = window.__patternslib_public_path__ || "/assets/oira/script/"; // eslint-disable-line no-undef
+__webpack_require__.p = window.__patternslib_public_path__; // eslint-disable-line no-undef
+// eslint-disable-next-line no-undef
+
+if (!__webpack_require__.p) {
+  var _document$currentScri;
+
+  // Get chunks path from current script.
+  var src = (_document$currentScri = document.currentScript) === null || _document$currentScri === void 0 ? void 0 : _document$currentScri.src;
+
+  if (src) {
+    src = src.split("/");
+    src.pop();
+    __webpack_require__.p = src.join("/") + "/"; // eslint-disable-line no-undef
+  }
+}
 
 /***/ }),
 
