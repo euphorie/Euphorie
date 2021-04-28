@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="euphorie"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout">
+<body>
+
+<metal:custom_title fill-slot="content-title">
+  <h1 class="documentFirstHeading" i18n:translate="">Image Cropping Editor</h1>
+  <h2>Euphorie</h2>
+</metal:custom_title>
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core">
+
+<tal:noScales condition="python:not view.show_cropping">
+  <p class="documentDescription"
+      i18n:translate="noscales_message">
+    There are no scales to crop. Make sure to add them to the
+    <a href="#" i18n:name="link" i18n:translate=""
+      tal:define="portal context/@@plone_portal_state/portal_url"
+      tal:attributes="href string:$portal/@@imagecropping-settings">
+      List of scales with crop support</a>
+    in the controlpanel.
+  </p>
+</tal:noScales>
+
+<tal:scales condition="python:view.show_cropping">
+  <div class="pat-imagecrop-scaleselect imagecrop-tabs autotabs imagecropping"
+       tal:define="image_field_names view/image_field_names">
+      <nav class="col-md-12">
+          <tal:loop tal:repeat="fieldname image_field_names">
+              <a id="crop-tab-${fieldname}"
+                 href="#autotoc-item-autotoc-0"
+                 data-forfieldset="#fieldset-${fieldname}"
+                 class="${python:'active' if repeat.fieldname.start else 'inactive'}">
+                  <img src="${python:view.icon_url(fieldname)}" /> ${python:view.field_label(fieldname)}
+              </a>
+          </tal:loop>
+          <button class="plone-btn plone-btn-primary save-all pull-right"
+                  title="Save all changed croppings."
+                  i18n:translate="button_save_all">Save all</button>
+      </nav>
+      <tal:loop tal:repeat="fieldname image_field_names">
+          <fieldset class=" active"
+                    id="fieldset-${fieldname}">
+              <div class="col-md-4 items scaleselector">
+                  <ul class="list-group">
+                      <tal:loop tal:repeat="scale python:view.scales_info(fieldname)">
+                          <li tal:condition="scale/can_scale"
+                              data-cropping-area="#croppingarea-${fieldname}-${scale/id}"
+                              id="select-${fieldname}-${scale/id}"
+                              class="list-group-item scalable ${python:'active' if repeat.scale.start else 'inactive'}">
+                              <strong>${scale/title}</strong>
+                              ${scale/target_width}&times;${scale/target_height}
+                              <span class="label label-success cropped" i18n:translate="label_cropped">cropped</span>
+                              <span class="label label-primary uncropped" i18n:translate="label_uncropped">uncropped</span>
+                              <span class="label label-warning changed" i18n:translate="label_changed">changed</span>
+                              <span class="label label-info saving" i18n:translate="label_saving">saving...</span>
+                              <div class="preview-container"
+                                   data-target-width="${scale/target_width}"
+                                   data-target-height="${scale/target_height}">
+                                  <div id="preview-${fieldname}-${scale/id}"
+                                       class="crop-preview">
+                                  </div>
+                              </div>
+                          </li>
+                          <li tal:condition="not: scale/can_scale"
+                              class="list-group-item impossible">
+                                  <strong>${scale/title}</strong>
+                                  ${scale/target_width}&times;${scale/target_height}:
+                                  <span class="label label-danger" i18n:translate="label_not_croppable">not croppable</span>
+                                  <p i18n:translate="description_not_croppable">Target dimensions are larger than original image.</p>
+                          </li>
+                      </tal:loop>
+                  </ul>
+              </div>
+              <div class="col-md-8 allcroppingarea">
+                  <tal:loop tal:repeat="scale python:view.scales_info(fieldname)">
+                      <div tal:condition="scale/can_scale"
+                           class="row singlecroppingarea ${python:'active' if repeat.scale.start else 'inactive'}"
+                           id="croppingarea-${fieldname}-${scale/id}">
+                          <div class="col-md-5 scale-info">
+                              <span class="nowrap">
+                                  <span i18n:translate="original_size">
+                                      Original <span i18n:name="size">${scale/true_width}&times;${scale/true_height}</span>
+                                  </span>
+                                  &mdash;
+                              </span>
+                              <span class="nowrap">
+                                  <span i18n:translate="">Selected</span>
+                                  <span class="cropw">${scale/current/w}</span>&times;<span class="croph">${scale/current/h}</span>, <span i18n:translate="">offset</span>
+                                  <span class="cropx">${scale/current/x}</span>, <span class="cropy">${scale/current/y}</span>
+                              </span>
+                          </div>
+                          <div class="col-md-7 crop-buttons">
+                              <div class="plone-btn-group pull-right">
+                                  <button class="plone-btn plone-btn-primary save standalone"
+                                          disabled=""
+                                          title="Store the choosen cropping area permanently on the server and scale area down to ${scale/target_width}px&times;${scale/target_height}px"
+
+                                          i18n:attributes="button_save_description">
+                                      <span i18n:translate="button_save">Save</span> ${python:view.field_label(fieldname)} ${python:scale['title']}</button>
+                                  <button class="plone-btn plone-btn-danger remove standalone"
+                                          title="Delete the manual choosen cropping area and auto scale on the server side."
+                                          i18n:translate="button_remove"
+                                          i18n:attributes="button_remove_description">Remove</button>
+                                  <button class="plone-btn plone-btn-warning reset standalone"
+                                          title="Set to initial value of ${scale/current/w}&times;${scale/current/h}. offset ${scale/current/x}, ${scale/current/y}"
+                                          i18n:translate="button_reset"
+                                          i18n:attributes="button_reset_description">Reset</button>
+                              </div>
+                          </div>
+                          <div class="col-md-12 pat-image-cropper"
+                               data-pat-image-cropper="identifier: ${fieldname}-${scale/id};
+                                                       fieldname: ${fieldname};
+                                                       scalename: ${scale/id};
+                                                       saveurl: ${context/absolute_url}/@@crop-image;
+                                                       authenticator: ${context/@@authenticator/token};
+                                                       preview: #preview-${fieldname}-${scale/id};
+                                                       aspect_ratio: ${scale/aspect_ratio};
+                                                       is_cropped: ${scale/is_cropped};
+                                                       current_x: ${scale/current/x};
+                                                       current_y: ${scale/current/y};
+                                                       current_w: ${scale/current/w};
+                                                       current_h: ${scale/current/h};
+                                                       true_width: ${scale/true_width};
+                                                       true_height: ${scale/true_height};
+                                                       target_width: ${scale/target_width};
+                                                       target_height: ${scale/target_height};">
+
+                              <img class="main-image" src="${python:view.original_url(fieldname)}"  />
+
+                          </div>
+                      </div>
+                  </tal:loop>
+              </div>
+          </fieldset>
+      </tal:loop>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2 i18n:translate="instructions_heading">Instructions</h2>
+      <p class="documentDescription" i18n:translate="instructions_p1">
+        Define cropping areas for each scale of the available image-fields.
+      </p>
+      <p i18n:translate="instructions_p2">
+        First select which image to crop:
+        If there is more than one image stored for your type, use the tabs at the top to select the image.
+        For each image there are one or more predefined scales.
+        Select a scale to crop at the side menu.
+      </p>
+      <p i18n:translate="instructions_p3">
+        In order to crop an image drag the frame on the main image until you found your cropping area.
+        A preview is shown immediatly in the side menu. If the side menu size is smaller than the target scale, the preview is scaled down to fit.
+        Use the Save button to store you scale permanently on the server.
+        The Reset button restores the state as you loaded the page, either in uncropped state or - if there was already an crop - to the previous saved crop.
+      </p>
+      <p i18n:translate="instructions_p4">
+        This cropping operation is non-destructive, which means your original image data doesn't get lost when cropping a scale.
+        By removing a cropping area, the scale gets back to its default functionality: resize, no crop.
+      </p>
+    </div>
+  </div>
+
+</tal:scales>
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
