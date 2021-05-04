@@ -52,4 +52,25 @@
       template="templates/update-completion-percentage.pt"
       />
 
+  <browser:page
+      name="remove-documents"
+      for="*"
+      permission="cmf.ManagePortal"
+      class=".plone51.RemoveDocuments"
+      />
+
+  <browser:page
+      name="uninstall-collective-indexing"
+      for="*"
+      permission="cmf.ManagePortal"
+      class=".plone51.UnistallCollectiveIndexing"
+      />
+
+  <browser:page
+      name="uninstall-archetypes"
+      for="*"
+      permission="cmf.ManagePortal"
+      class=".plone51.UnistallArchetypes"
+      />
+
 </configure>
