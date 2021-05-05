@@ -56,22 +56,7 @@ class UnistallCollectiveIndexing(BrowserView):
         portal = api.portal.get()
         log.info("UnistallCollectiveIndexing")
 
-        # Unregister persistent traces of collective.indexing
-        try:
-            from collective.indexing.indexer import IPortalCatalogQueueProcessor
-            from collective.indexing.interfaces import IIndexingConfig
-        except ImportError:
-            pass
-        else:
-            cp = api.portal.get_tool("portal_controlpanel")
-            cp.unregisterConfiglet("IndexingSettings")
-            for iface, name in (
-                (IIndexingConfig, u""),
-                (IPortalCatalogQueueProcessor, "portal-catalog"),
-            ):
-                unregisterUtility(portal, iface, name)
-
-        # Remove yet more traces of c.indexing in the site manager
+        # Remove traces of c.indexing in the site manager
         sm = portal.getSiteManager()
         bad_ids = [
             "collective.indexing.interfaces.IIndexingConfig",
@@ -81,6 +66,19 @@ class UnistallCollectiveIndexing(BrowserView):
             if bad_id in sm.objectIds():
                 sm._delObject(bad_id)
                 sm._p_changed = True
+
+        # Unregister persistent traces of collective.indexing
+        try:
+            from collective.indexing.indexer import IPortalCatalogQueueProcessor
+            from collective.indexing.interfaces import IIndexingConfig
+        except ImportError:
+            pass
+        else:
+            for iface, name in (
+                (IIndexingConfig, u""),
+                (IPortalCatalogQueueProcessor, "portal-catalog"),
+            ):
+                unregisterUtility(portal, iface, name)
 
 
 class UnistallArchetypes(BrowserView):
