@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.6.12 (unreleased)
+11.6.12 (2021-05-05)
 --------------------
 
 - The deprecated About page is still used by TNO/RIE. Fix https warning by
