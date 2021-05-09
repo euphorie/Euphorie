@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-03-30 09:15+0000\n"
+"POT-Creation-Date: 2021-05-09 16:13+0000\n"
 "PO-Revision-Date: 2013-10-23 15:53+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -273,7 +273,7 @@ msgid "Button bar to add and edit content"
 msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:23
-#: euphorie/client/browser/templates/more_menu.pt:38
+#: euphorie/client/browser/templates/more_menu.pt:39
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
@@ -300,7 +300,7 @@ msgstr "Zmeniť e-mailovú adresu"
 msgid "Change name of session"
 msgstr "Zmeniť názov relácie"
 
-#: euphorie/content/utils.py:73
+#: euphorie/content/utils.py:74
 msgid "Classic OiRA Tool with positive and negative statements."
 msgstr ""
 
@@ -377,11 +377,11 @@ msgstr "Informácie o krajine a zoskupenie pre klienta."
 msgid "Country manager"
 msgstr "Country manažér"
 
-#: euphorie/client/templates/about.pt:187
+#: euphorie/client/templates/about.pt:188
 msgid "Creative Commons Attribution-ShareAlike 2.5 Generic License"
 msgstr "Licencia Creative Commons Attribution-ShareAlike 2.5 Generic"
 
-#: euphorie/client/templates/about.pt:181
+#: euphorie/client/templates/about.pt:182
 msgid "Creative Commons License"
 msgstr "Licencia Creative Commons"
 
@@ -533,7 +533,7 @@ msgstr "Formát: Office Open XML Workbook (.xlsx)"
 msgid "Format: Portable Document Format (.pdf)"
 msgstr ""
 
-#: euphorie/content/utils.py:241
+#: euphorie/content/utils.py:243
 msgid "Full (show Description and General Approach)"
 msgstr ""
 
@@ -545,7 +545,7 @@ msgstr ""
 msgid "Generated unique ids are only unique within this context"
 msgstr ""
 
-#: euphorie/client/templates/about.pt:162
+#: euphorie/client/templates/about.pt:163
 msgid "Germany"
 msgstr "Nemecko"
 
@@ -755,7 +755,7 @@ msgstr ""
 msgid "OiRA Tool version"
 msgstr "Verzia nástroja OiRA"
 
-#: euphorie/content/utils.py:103
+#: euphorie/content/utils.py:105
 msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
 msgstr ""
 
@@ -1053,7 +1053,7 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: euphorie/content/utils.py:243
+#: euphorie/content/utils.py:245
 msgid "Simple (show only General Approach)"
 msgstr ""
 
@@ -1127,7 +1127,7 @@ msgstr ""
 msgid "Survey versions"
 msgstr ""
 
-#: euphorie/client/templates/about.pt:141
+#: euphorie/client/templates/about.pt:142
 msgid "The Netherlands"
 msgstr "Holandsko"
 
@@ -1394,35 +1394,35 @@ msgid "Your password was successfully changed."
 msgstr "Vaše heslo bolo úspešne zmenené."
 
 #. Default: "The source code of the OiRA application is ${GPL} licensed."
-#: euphorie/client/templates/about.pt:173
+#: euphorie/client/templates/about.pt:174
 msgid "about_licenses_1"
 msgstr "Zdrojový kód aplikácie OiRA sa používa na základe licencie ${GPL}."
 
 #. Default: "The content of OiRA sectoral tools is licensed under a ${license}"
-#: euphorie/client/templates/about.pt:187
+#: euphorie/client/templates/about.pt:188
 msgid "about_licenses_2"
 msgstr ""
 "Obsah sektorových nástrojov OiRA sa používa na základe licencie ${license}"
 
 #. Default: "The OiRA sectoral tools can be used for free by all users."
-#: euphorie/client/templates/about.pt:193
+#: euphorie/client/templates/about.pt:194
 msgid "about_licenses_3"
 msgstr "Sektorové nástroje OiRA môžu všetci používatelia používať bezplatne."
 
 #. Default: "More information about the OiRA project (in English)"
-#: euphorie/client/templates/about.pt:96
+#: euphorie/client/templates/about.pt:97
 msgid "about_oiraproject"
 msgstr "Ďalšie informácie o projekte OiRA (v angličtine)"
 
 #. Default: "European Community Strategy on Health and Safety at Work 2007-2012"
-#: euphorie/client/templates/about.pt:86
+#: euphorie/client/templates/about.pt:87
 msgid "about_paragraph3_agency"
 msgstr ""
 "Stratégia Európskeho spoločenstva pre bezpečnosť a ochranu zdravia pri práci "
 "2007-2012"
 
 #. Default: "Experience shows that ${key}. This is why EU-OSHA developed an ${easy} (the &ldquo;OiRA&rdquo; - Online interactive Risk Assessment) that can help micro and small organisations to put in place a ${step} &ndash; starting with the ${identification} and ${evaluation} of workplace risks, through decision making on ${preventive_actions} and the taking of action, to monitoring and ${reporting}."
-#: euphorie/client/templates/about.pt:69
+#: euphorie/client/templates/about.pt:70
 msgid "about_paragraph_1"
 msgstr ""
 "Skúsenosť ukazuje ten ${key}. Preto agentúra EU-OSHA vyvinula ${easy} "
@@ -1430,75 +1430,75 @@ msgstr ""
 "rizík), ktorý"
 
 #. Default: "easy-to-use and cost-free web application"
-#: euphorie/client/templates/about.pt:41
+#: euphorie/client/templates/about.pt:42
 msgid "about_paragraph_1_easy"
 msgstr "ľahko použiteľná a bezplatná webová aplikácia"
 
 #. Default: "evaluation"
-#: euphorie/client/templates/about.pt:58
+#: euphorie/client/templates/about.pt:59
 msgid "about_paragraph_1_evaluation"
 msgstr "vyhodnotenie"
 
 #. Default: "identification"
-#: euphorie/client/templates/about.pt:54
+#: euphorie/client/templates/about.pt:55
 msgid "about_paragraph_1_identification"
 msgstr "identifikácia"
 
 #. Default: "proper risk assessment is the key to healthy workplaces"
-#: euphorie/client/templates/about.pt:35
+#: euphorie/client/templates/about.pt:36
 msgid "about_paragraph_1_key"
 msgstr "správne hodnotenie rizík je kľúčom k zdravým pracoviskám"
 
 #. Default: "preventive actions"
-#: euphorie/client/templates/about.pt:63
+#: euphorie/client/templates/about.pt:64
 msgid "about_paragraph_1_preventive_actions"
 msgstr "preventívne akcie"
 
 #. Default: "reporting"
-#: euphorie/client/templates/about.pt:69
+#: euphorie/client/templates/about.pt:70
 msgid "about_paragraph_1_reporting"
 msgstr "spravodajstvo"
 
 #. Default: "step-by-step risk assessment process"
-#: euphorie/client/templates/about.pt:48
+#: euphorie/client/templates/about.pt:49
 msgid "about_paragraph_1_step"
 msgstr "proces hodnotenia rizík krok po kroku"
 
 #. Default: "The OiRA web application gives access to the sectoral Risk Assessment tools created and maintained by sectoral organisations at national level."
-#: euphorie/client/templates/about.pt:75
+#: euphorie/client/templates/about.pt:76
 msgid "about_paragraph_2"
 msgstr ""
 "Webová aplikácia OiRA poskytuje prístup k sektorovým nástrojom na Hodnotenie "
 "rizík, vytvoreným a udržiavaným sektorovými organizáciami"
 
 #. Default: "The ${agency} calls for the development of simple tools to facilitate risk assessment. Since the adoption of the European Framework directive in 1989, risk assessment has become a familiar concept for organising prevention in the workplace, and hundreds of thousands of companies all over Europe assess their risks regularly. Nevertheless, there is sufficient evidence to conclude that ${smb} when it comes to risk assessment and the adoption of a preventive policy in general which the OiRA project aims to overcome."
-#: euphorie/client/templates/about.pt:90
+#: euphorie/client/templates/about.pt:91
 msgid "about_paragraph_3"
 msgstr ""
 "${agency} požaduje vývoj jednoduchých nástrojov, ktoré by uľahčili "
 "hodnotenie rizík. Od prijatia Európskeho rámca"
 
 #. Default: "The OiRA project and its related web application has been developed by the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which, financed by the Dutch government, was initially developed by TNO in collaboration with the employers organisation for small and medium-sized enterprises MKB-Nederland and the Dutch Ministry for Employment. Further development of the application was realised with input and participation of trade unions FNV, CNV and MHP."
-#: euphorie/client/templates/about.pt:127
+#: euphorie/client/templates/about.pt:128
 msgid "about_partners_1"
 msgstr ""
 "Projekt OiRA a s ním súvisiacu webovú aplikáciu vyvinula agentúra ${eu-osha} "
 "na základe holandského RA-nástroja (nazývaného"
 
 #. Default: "The following technical partners contributed to the development of the OiRA project:"
-#: euphorie/client/templates/about.pt:132
+#: euphorie/client/templates/about.pt:133
 msgid "about_partners_2"
 msgstr "Nasledujúci technickí partneri prispeli k vývoju projektu OiRA:"
 
 #. Default: "The Agency was also given strategic and expert advice by a Steering Committee in the development and implementation of the OiRA project. Members and alternates of the Steering Committee were appointed by the interest groups at the Board, by the Commission and by EU-OSHA."
-#: euphorie/client/templates/about.pt:165
+#: euphorie/client/templates/about.pt:166
 msgid "about_partners_3"
 msgstr ""
 "Agentúra dostala aj  strategické a odborné rady od Riadiaceho výboru o "
 "vývoji a implementácii OiR"
 
 #. Default: "micro and small enterprises have some shortcomings"
-#: euphorie/client/templates/about.pt:90
+#: euphorie/client/templates/about.pt:91
 msgid "about_partners_3_smb"
 msgstr "mikro a malé podniky majú určité nedostatky"
 
@@ -1543,13 +1543,13 @@ msgstr ""
 "Opíšte: 1) aký je váš všeobecný prístup k odstráneniu alebo (ak sa riziku "
 "nedá vyhnúť) zníženiu rizika; 2)  konkrétnu akciu (akcie)"
 
-#. Default: "Describe: 3) the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any)."
+#. Default: "Describe the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any)."
 #: euphorie/client/browser/templates/webhelpers.pt:853
 msgid "actionplan_requirements_tooltip"
 msgstr ""
 
 #. Default: "Add any measures that are <strong>already implemented</strong>."
-#: euphorie/content/utils.py:168
+#: euphorie/content/utils.py:170
 msgid "add_existing_measure"
 msgstr ""
 
@@ -1623,7 +1623,7 @@ msgid "button_add_custom_risk"
 msgstr ""
 
 #. Default: "Add another measure implemented already"
-#: euphorie/content/utils.py:118
+#: euphorie/content/utils.py:120
 msgid "button_add_existing_measure"
 msgstr ""
 
@@ -1704,7 +1704,7 @@ msgid "button_lock"
 msgstr "Zablokovať"
 
 #. Default: "Create preview"
-#: euphorie/client/publish.py:326
+#: euphorie/client/publish.py:333
 msgid "button_preview"
 msgstr "Vytvoriť náhľad"
 
@@ -1714,13 +1714,13 @@ msgid "button_print"
 msgstr "Tlačiť"
 
 #. Default: "Publish"
-#: euphorie/client/publish.py:266
+#: euphorie/client/publish.py:273
 #: euphorie/deployment/tiles/templates/versions.pt:26
 msgid "button_publish"
 msgstr "Zverejniť"
 
 #. Default: "Remove this existing measure"
-#: euphorie/content/utils.py:126
+#: euphorie/content/utils.py:128
 msgid "button_remove_existing_measure"
 msgstr ""
 
@@ -1735,6 +1735,7 @@ msgid "button_search"
 msgstr "Vyhľadať"
 
 #. Default: "Start a new session with this tool"
+#: euphorie/client/browser/templates/oira_tool.pt:28
 #: euphorie/client/browser/templates/tool_sessions.pt:72
 msgid "button_start_new_session"
 msgstr ""
@@ -1915,17 +1916,17 @@ msgstr ""
 "zdravia pri práci, Bilbao."
 
 #. Default: "both own staff and an external consultant or service provider"
-#: euphorie/client/company.py:76 euphorie/client/templates/report_company.pt:50
+#: euphorie/client/company.py:77 euphorie/client/templates/report_company.pt:50
 msgid "conductor_both"
 msgstr "vlastný personál aj externý poradca alebo poskytovateľ služieb"
 
 #. Default: "own staff"
-#: euphorie/client/company.py:66 euphorie/client/templates/report_company.pt:48
+#: euphorie/client/company.py:67 euphorie/client/templates/report_company.pt:48
 msgid "conductor_staff"
 msgstr "vlastný personál"
 
 #. Default: "an external consultant or service provider"
-#: euphorie/client/company.py:69 euphorie/client/templates/report_company.pt:49
+#: euphorie/client/company.py:70 euphorie/client/templates/report_company.pt:49
 msgid "conductor_third_party"
 msgstr "externý poradca alebo poskytovateľ služieb"
 
@@ -1945,12 +1946,12 @@ msgid "country_no_sectors"
 msgstr "Pre túto krajinu nie sú žiadne sektory."
 
 #. Default: "Add an already implemented measure"
-#: euphorie/content/utils.py:177
+#: euphorie/content/utils.py:179
 msgid "custom_button_add_existing_measure"
 msgstr ""
 
 #. Default: "Describe a measure that is already in place."
-#: euphorie/content/utils.py:139
+#: euphorie/content/utils.py:141
 msgid "custom_placeholder_new_existing"
 msgstr ""
 
@@ -1975,7 +1976,7 @@ msgid "description_measures_text_handling"
 msgstr ""
 
 #. Default: "In case you have identified risks not included in the tool, you are able to add them now:"
-#: euphorie/client/publish.py:147 euphorie/deployment/upgrade/v8.py:146
+#: euphorie/client/publish.py:148 euphorie/deployment/upgrade/v8.py:146
 msgid "description_other_risks"
 msgstr ""
 
@@ -2016,7 +2017,7 @@ msgid "description_use_location_question"
 msgstr ""
 
 #. Default: "After the technical development of the tool in 2009, in 2010 (until the first half of 2011) the Agency is piloting the development and diffusion model at both EU level (working with the Sectoral Social Dialogue Committees) and at Member State level (with several Member States) as part of the testing of the tool and the development of appropriate support and guidance services."
-#: euphorie/client/templates/about.pt:109
+#: euphorie/client/templates/about.pt:110
 msgid "devel_phase"
 msgstr ""
 "Po technickom vývoji nástroja v r. 2009, v r. 2010 (až do prvej polovice "
@@ -2108,22 +2109,22 @@ msgstr ""
 "ktorý vám bude odoslaný o niekoľko minút na \"${email}\". Prosím"
 
 #. Default: "10 to 49 employees"
-#: euphorie/client/company.py:43 euphorie/client/templates/report_company.pt:40
+#: euphorie/client/company.py:44 euphorie/client/templates/report_company.pt:40
 msgid "employee_numbers_10_to_49"
 msgstr "10 až 49 zamestnancov"
 
 #. Default: "1 to 9 employees"
-#: euphorie/client/company.py:39 euphorie/client/templates/report_company.pt:39
+#: euphorie/client/company.py:40 euphorie/client/templates/report_company.pt:39
 msgid "employee_numbers_1_to_9"
 msgstr "1 až 9 zamestnancov"
 
 #. Default: "250 or more employees"
-#: euphorie/client/company.py:53 euphorie/client/templates/report_company.pt:42
+#: euphorie/client/company.py:54 euphorie/client/templates/report_company.pt:42
 msgid "employee_numbers_250_or_more"
 msgstr "250 alebo viac zamestnancov"
 
 #. Default: "50 to 249 employees"
-#: euphorie/client/company.py:47 euphorie/client/templates/report_company.pt:41
+#: euphorie/client/company.py:48 euphorie/client/templates/report_company.pt:41
 msgid "employee_numbers_50_to_249"
 msgstr "50 až 249 zamestnancov"
 
@@ -2434,12 +2435,12 @@ msgid "header_country_managers"
 msgstr "Country manažéri"
 
 #. Default: "Development and pilot phase &ndash; 2009-2011"
-#: euphorie/client/templates/about.pt:102
+#: euphorie/client/templates/about.pt:103
 msgid "header_devel_phase"
 msgstr "Vývojová a skúšobná fáza – 2009-2011"
 
 #. Default: "Development partners"
-#: euphorie/client/templates/about.pt:116
+#: euphorie/client/templates/about.pt:117
 msgid "header_development_partners"
 msgstr "Vývojoví partneri"
 
@@ -2476,12 +2477,12 @@ msgstr "Identifikácia"
 #. Default: "Information"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:207
 #: euphorie/client/browser/templates/risk_macros.pt:178
-#: euphorie/content/templates/module_view.pt:22
+#: euphorie/content/browser/templates/editor.html:22
 msgid "header_information"
 msgstr "Informácie"
 
 #. Default: "Official launch of the project &ndash; September 2011"
-#: euphorie/client/templates/about.pt:112
+#: euphorie/client/templates/about.pt:113
 msgid "header_launch"
 msgstr "Oficiálne spustenie projektu – september 2011"
 
@@ -2496,7 +2497,7 @@ msgid "header_legend"
 msgstr "Legenda"
 
 #. Default: "Licenses"
-#: euphorie/client/templates/about.pt:169
+#: euphorie/client/templates/about.pt:170
 msgid "header_licenses"
 msgstr "Licencie"
 
@@ -2609,7 +2610,7 @@ msgid "header_profile_questions"
 msgstr "Otázky z profilu"
 
 #. Default: "Project Phases"
-#: euphorie/client/templates/about.pt:101
+#: euphorie/client/templates/about.pt:102
 msgid "header_project_phases"
 msgstr "Fázy projektu"
 
@@ -2667,9 +2668,9 @@ msgid "header_risk_probability"
 msgstr "Aká je šanca vyskytnutia sa tohto rizika?"
 
 #. Default: "Risks"
+#: euphorie/content/browser/templates/editor.html:42
 #: euphorie/content/templates/module_view.pt:42
 #: euphorie/content/templates/profilequestion_add.pt:43
-#: euphorie/content/templates/profilequestion_view.pt:49
 msgid "header_risks"
 msgstr "Riziká"
 
@@ -2719,6 +2720,7 @@ msgid "header_solutions"
 msgstr "Štandardné opatrenia"
 
 #. Default: "Submodules"
+#: euphorie/content/browser/templates/editor.html:32
 #: euphorie/content/templates/module_view.pt:32
 msgid "header_submodules"
 msgstr "Submoduly"
@@ -2756,14 +2758,14 @@ msgid "header_welcome"
 msgstr "Vitajte"
 
 #. Default: "What is the OiRA (Online Interactive Risk Assessment) project"
-#: euphorie/client/templates/about.pt:25
+#: euphorie/client/templates/about.pt:26
 msgid "header_what_is_oira"
 msgstr ""
 "Čo je projekt OiRA (Online Interactive Risk Assessment - Online interaktívne "
 "hodnotenie rizík)"
 
 #. Default: "Why the OiRA project"
-#: euphorie/client/templates/about.pt:80
+#: euphorie/client/templates/about.pt:81
 msgid "header_why_oira"
 msgstr "Prečo projekt OiRA"
 
@@ -3267,7 +3269,7 @@ msgid "home_link"
 msgstr ""
 
 #. Default: "Are the measures that are already implemented sufficient?"
-#: euphorie/content/utils.py:148
+#: euphorie/content/utils.py:150
 msgid "implemented_measures_sufficient"
 msgstr ""
 
@@ -3495,7 +3497,7 @@ msgid "iphone_report"
 msgstr "Správa"
 
 #. Default: "Is this risk acceptable or under control?"
-#: euphorie/content/utils.py:93
+#: euphorie/content/utils.py:94
 msgid "is_risk_acceptable"
 msgstr ""
 
@@ -3609,12 +3611,12 @@ msgstr ""
 "Tieto komentáre sa použijú v akčnom pláne."
 
 #. Default: "Your country"
-#: euphorie/client/company.py:30 euphorie/client/templates/report_company.pt:29
+#: euphorie/client/company.py:31 euphorie/client/templates/report_company.pt:29
 msgid "label_company_country"
 msgstr "Vaša krajina"
 
 #. Default: "The risk assessment was conducted by"
-#: euphorie/client/company.py:63 euphorie/client/templates/report_company.pt:47
+#: euphorie/client/company.py:64 euphorie/client/templates/report_company.pt:47
 msgid "label_conductor"
 msgstr "Hodnotenie rizík vykonal"
 
@@ -3700,7 +3702,7 @@ msgid "label_download_tool_preview"
 msgstr ""
 
 #. Default: "Duplicate"
-#: euphorie/client/browser/templates/more_menu.pt:38
+#: euphorie/client/browser/templates/more_menu.pt:39
 msgid "label_duplicate"
 msgstr ""
 
@@ -3712,7 +3714,7 @@ msgid "label_email"
 msgstr "E-mailová adresa"
 
 #. Default: "Number of employees"
-#: euphorie/client/company.py:34 euphorie/client/templates/report_company.pt:38
+#: euphorie/client/company.py:35 euphorie/client/templates/report_company.pt:38
 msgid "label_employee_numbers"
 msgstr "Počet zamestnancov"
 
@@ -3959,7 +3961,7 @@ msgid "label_module_question"
 msgstr "Otázka"
 
 #. Default: "Did this OiRA tool meet your needs?"
-#: euphorie/client/company.py:151
+#: euphorie/client/company.py:152
 #: euphorie/client/templates/report_company.pt:75
 msgid "label_needs_met"
 msgstr ""
@@ -3985,13 +3987,13 @@ msgstr "Nasledujúci"
 
 #. Default: "No"
 #: euphorie/client/browser/templates/module_identification.pt:68
-#: euphorie/client/company.py:144
+#: euphorie/client/company.py:145
 #: euphorie/client/templates/report_company.pt:70
 msgid "label_no"
 msgstr "Nie"
 
 #. Default: "No"
-#: euphorie/content/utils.py:90
+#: euphorie/content/utils.py:91
 msgid "label_no_integrated_ap"
 msgstr ""
 
@@ -4020,17 +4022,17 @@ msgid "label_no_risks_5_or_more"
 msgstr ""
 
 #. Default: "Not applicable"
-#: euphorie/content/utils.py:91
+#: euphorie/content/utils.py:92
 msgid "label_not_applicable"
 msgstr "Nevzťahuje sa"
 
 #. Default: "No, more measures are required"
-#: euphorie/content/utils.py:156
+#: euphorie/content/utils.py:158
 msgid "label_not_sufficient"
 msgstr ""
 
 #. Default: "No, more measures are required <strong>(to be added below)</strong>"
-#: euphorie/content/utils.py:163
+#: euphorie/content/utils.py:165
 msgid "label_not_sufficient_integrated_ap"
 msgstr ""
 
@@ -4103,13 +4105,13 @@ msgid "label_published"
 msgstr "Zverejnené"
 
 #. Default: "Would you recommend this OiRA tool to an enterprise similar to yours?"
-#: euphorie/client/company.py:162
+#: euphorie/client/company.py:163
 #: euphorie/client/templates/report_company.pt:82
 msgid "label_recommend_tool"
 msgstr ""
 
 #. Default: "Through which channel did you learn about this tool?"
-#: euphorie/client/company.py:88 euphorie/client/templates/report_company.pt:55
+#: euphorie/client/company.py:89 euphorie/client/templates/report_company.pt:55
 msgid "label_referer"
 msgstr "Cez aký kanál ste sa dozvedeli o tomto nástroji?"
 
@@ -4474,25 +4476,25 @@ msgid "label_without_measures"
 msgstr ""
 
 #. Default: "Workers were invited to participate in the risk assessment"
-#: euphorie/client/company.py:137
+#: euphorie/client/company.py:138
 #: euphorie/client/templates/report_company.pt:68
 msgid "label_workers_participated"
 msgstr "Pracovníci boli pozvaní, aby sa zúčastnili hodnotenia rizík"
 
 #. Default: "Yes"
 #: euphorie/client/browser/templates/module_identification.pt:64
-#: euphorie/client/company.py:143
+#: euphorie/client/company.py:144
 #: euphorie/client/templates/report_company.pt:69
 msgid "label_yes"
 msgstr "Áno"
 
 #. Default: "Yes"
-#: euphorie/content/utils.py:87
+#: euphorie/content/utils.py:88
 msgid "label_yes_integrated_ap"
 msgstr ""
 
 #. Default: "Yes, the remaining risk is acceptable"
-#: euphorie/content/utils.py:152
+#: euphorie/content/utils.py:154
 msgid "label_yes_sufficient"
 msgstr ""
 
@@ -4665,14 +4667,14 @@ msgid "message_not_delete_published_sector"
 msgstr "Nemôžete vymazať sektor, ktorý obsahuje uverejnené nástroje OiRA."
 
 #. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at ${url}."
-#: euphorie/client/publish.py:331
+#: euphorie/client/publish.py:338
 msgid "message_preview_success"
 msgstr ""
 "Vytvorenie náhľadu nástroja OiRA bolo úspešné. Prístup k nemu je možný na "
 "${url} ."
 
 #. Default: "Succesfully published the OiRA Tool. It can be accessed at ${url}."
-#: euphorie/client/publish.py:271
+#: euphorie/client/publish.py:278
 msgid "message_publish_success"
 msgstr ""
 "Uverejnenie nástroja OiRA bolo úspešné. Dostanete sa k nemu cez ${url}."
@@ -4698,11 +4700,13 @@ msgid "message_user_unlocked"
 msgstr "Konto \"${title}\" bolo odblokované."
 
 #. Default: "This ${number} is mandatory."
+#: euphorie/content/browser/templates/editor.html:24
 #: euphorie/content/templates/module_view.pt:24
 msgid "module_mandatory"
 msgstr "Tento ${number} je povinný."
 
 #. Default: "This ${number} is optional."
+#: euphorie/content/browser/templates/editor.html:28
 #: euphorie/content/templates/module_view.pt:28
 msgid "module_optional"
 msgstr "Tento ${number} je voliteľný."
@@ -4746,7 +4750,7 @@ msgid "navigation_settings"
 msgstr "Nastavenia"
 
 #. Default: "Status"
-#: euphorie/client/browser/templates/more_menu.pt:46
+#: euphorie/client/browser/templates/more_menu.pt:47
 #: euphorie/client/browser/templates/webhelpers.pt:59
 #: euphorie/client/templates/shell.pt:298
 msgid "navigation_status"
@@ -4857,7 +4861,7 @@ msgid "password_policy_conditions"
 msgstr "Vaše heslo na potvrdenie"
 
 #. Default: "The official launch of the tool is planned for September 2011, once the objectives of the testing phase have been reached and once the OiRA website, the OiRA training scheme and OiRA help desk will be ready."
-#: euphorie/client/templates/about.pt:113
+#: euphorie/client/templates/about.pt:114
 msgid "phase_launch"
 msgstr ""
 "Oficiálne spustenie nástroja je plánované na september 2011, po dosiahnutí "
@@ -4869,7 +4873,7 @@ msgid "placeholder_custom_risk_description"
 msgstr ""
 
 #. Default: "Describe a measure that is already in place but not yet listed here."
-#: euphorie/content/utils.py:134
+#: euphorie/content/utils.py:136
 msgid "placeholder_new_existing"
 msgstr ""
 
@@ -4928,42 +4932,42 @@ msgid "progress_indicator_title"
 msgstr "${completion_percentage}% Dokončených"
 
 #. Default: "<p><strong>Important:</strong> In order to avoid duplicating risks, we strongly recommend you to go first through all the previous modules, if you have not done it yet.</p><p>If you don't need to add risks, please continue.</p>"
-#: euphorie/client/publish.py:153 euphorie/deployment/upgrade/v23.py:40
+#: euphorie/client/publish.py:154 euphorie/deployment/upgrade/v23.py:40
 #: euphorie/deployment/upgrade/v8.py:155
 msgid "question_other_risks"
 msgstr ""
 
 #. Default: "an employers' organisation"
-#: euphorie/client/company.py:96 euphorie/client/templates/report_company.pt:56
+#: euphorie/client/company.py:97 euphorie/client/templates/report_company.pt:56
 msgid "referer_employers_organisation"
 msgstr "organizácia zamestnávateľov"
 
 #. Default: "an European institution/administration"
-#: euphorie/client/company.py:116
+#: euphorie/client/company.py:117
 #: euphorie/client/templates/report_company.pt:60
 msgid "referer_eu_institution"
 msgstr "Európska inštitúcia/administratíva"
 
 #. Default: "health and safety experts"
-#: euphorie/client/company.py:123
+#: euphorie/client/company.py:124
 #: euphorie/client/templates/report_company.pt:62
 msgid "referer_health_safety_expert"
 msgstr "odborníci na bezpečnosť a ochranu zdravia pri práci"
 
 #. Default: "a national public institution/administration"
-#: euphorie/client/company.py:109
+#: euphorie/client/company.py:110
 #: euphorie/client/templates/report_company.pt:58
 msgid "referer_national_public_institution"
 msgstr "národná verejná inštitúcia/administratíva"
 
 #. Default: "other channel"
-#: euphorie/client/company.py:129
+#: euphorie/client/company.py:130
 #: euphorie/client/templates/report_company.pt:63
 msgid "referer_other"
 msgstr "iný kanál"
 
 #. Default: "a trade union organisation"
-#: euphorie/client/company.py:103
+#: euphorie/client/company.py:104
 #: euphorie/client/templates/report_company.pt:57
 msgid "referer_trade_union"
 msgstr "odborová organizácia"
@@ -5141,7 +5145,7 @@ msgid "search_result_relevance"
 msgstr "Relevantnosť: ${percentage}"
 
 #. Default: "Select or add any measures that are <strong>already implemented</strong>."
-#: euphorie/content/utils.py:108
+#: euphorie/content/utils.py:110
 msgid "select_add_existing_measure"
 msgstr ""
 
@@ -5249,7 +5253,7 @@ msgid "titld_tool"
 msgstr "OiRA"
 
 #. Default: "About"
-#: euphorie/client/templates/about.pt:23
+#: euphorie/client/templates/about.pt:24
 msgid "title_about"
 msgstr "Informácie"
 
@@ -5311,7 +5315,7 @@ msgstr "Importovať sektor a nástroj OiRA"
 
 #. Default: "Added risks (by you)"
 #: euphorie/client/browser/session.py:473 euphorie/client/docx/compiler.py:109
-#: euphorie/client/publish.py:145
+#: euphorie/client/publish.py:146
 msgid "title_other_risks"
 msgstr "Chyba"
 
