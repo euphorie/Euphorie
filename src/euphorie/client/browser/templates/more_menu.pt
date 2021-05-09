@@ -32,6 +32,7 @@
              href="${python:can_archive and archive_url or None}"
              title="Archive"
              i18n:attributes="title"
+             i18n:translate=""
           >Archive</a>
         </li>
         <li tal:condition="webhelpers/use_clone_feature">

@@ -1,11 +1,22 @@
 Changelog
 =========
 
-11.6.11 (unreleased)
+11.6.13 (unreleased)
 --------------------
 
 - Nothing changed yet.
 
+
+11.6.12 (2021-05-05)
+--------------------
+
+- The deprecated About page is still used by TNO/RIE. Fix https warning by
+
+
+11.6.11 (2021-04-21)
+--------------------
+
+- Translation updates
 
 11.6.10 (2021-04-13)
 --------------------
@@ -254,7 +265,6 @@ This follows the new paradigm of prototype.
 --------------------
 
 - Fix a bug that prevented browsing Identification in Safari / iOS
-
 
 11.1.16 (2020-02-25)
 --------------------
