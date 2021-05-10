@@ -47,6 +47,7 @@ class EuphorieFixture(PloneSandboxLayer):
         # The z3c.autoinclude feature is disabled in the Plone fixture base
         # layer.
         import euphorie.client.tests
+        import euphorie.deployment.tests
 
         self.loadZCML("configure.zcml", package=euphorie.deployment)
         self.loadZCML("overrides.zcml", package=euphorie.deployment)
@@ -54,7 +55,6 @@ class EuphorieFixture(PloneSandboxLayer):
         self.loadZCML("configure.zcml", package=euphorie.deployment.tests)
         zope.installProduct(app, "Products.membrane")
 
-        import euphorie.client.tests
 
         self.loadZCML(self.saconfig_filename, package=euphorie.client.tests)
         engine = Session.bind
