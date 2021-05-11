@@ -71,7 +71,7 @@
                 <label>
                     <input class="pat-depends" autofocus="autofocus" placeholder="${question/label_single_occurance} #{1}" data-pat-depends="condition: pq${question/id}.multiple=yes; action: both;"
                            size="40" type="text" name="${question/id}:utf8:utext:list" />&nbsp;
-                    <button type="button" class="pat-depends pat-button small remove-clone icon-trash iconified" data-pat-depends="pq${question/id}.multiple=yes" i18n:translate="Remove">Remove</button>
+                    <button type="button" class="pat-depends remove-clone icon-trash iconified" data-pat-depends="pq${question/id}.multiple=yes" i18n:translate="Remove">Remove</button>
                 </label>
               </template>
 
@@ -86,7 +86,7 @@
                             required="required"
                             placeholder="${question/label_single_occurance} 1" value="${title}"
                             data-pat-depends="condition: pq${question/id}.present=yes; action: both" name="${question/id}:utf8:utext:list" />
-                      <button type="button" class="pat-depends pat-button small remove-clone icon-trash iconified" data-pat-depends="pq${question/id}.multiple=yes" i18n:translate="Remove">Remove</button>
+                      <button type="button" class="pat-depends remove-clone icon-trash iconified" data-pat-depends="pq${question/id}.multiple=yes" i18n:translate="Remove">Remove</button>
                     </label>
                   </tal:if_not_first>
                   <tal:if_first condition="not:repeat/title/index">
