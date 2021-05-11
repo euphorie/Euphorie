@@ -796,7 +796,7 @@
                      name="measure.planning_end:records"
                      type="text"
                      value="${python:measure.planning_end if measure else None}"
-                     data-pat-date-picker="output-format: Do MMMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json; after: #solution-planning-start-${solution/id}"
+                     data-pat-date-picker="output-format: Do MMMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
                      data-pat-validation="type: date; not-before: #solution-planning-start-${solution/id}; message-date: ${view/message_date_after}"
               />
             </label>
@@ -931,7 +931,7 @@
                      name="measure.planning_end:records"
                      type="date"
                      value="${actionplan/planning_end|nothing}"
-                     data-pat-date-picker="output-format: Do MMMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json; after: #planning-start-${number}"
+                     data-pat-date-picker="output-format: Do MMMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
                      data-pat-validation="type: date; not-before: #planning-start-${number}; message-date: ${view/message_date_after}"
               />
             </label>
@@ -1052,7 +1052,7 @@
                  id="planning-end-#{1}"
                  name="measure.planning_end:records"
                  type="date"
-                 data-pat-date-picker="output-format: Do MMMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json; after: #planning-start-#{1}"
+                 data-pat-date-picker="output-format: Do MMMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
                  data-pat-validation="type:date; not-before: #planning-start-#{1}; message-date: ${view/message_date_after}"
           />
         </label>
