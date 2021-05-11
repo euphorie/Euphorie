@@ -1,6 +1,7 @@
 
 <metal:macro define-macro="status"
-  i18n:domain="euphorie">
+             i18n:domain="euphorie"
+>
   <div id="content-pane"
        tal:define="
          language view/preferred_language;
@@ -18,9 +19,10 @@
              "
     >
 
-      <h1 tal:condition="python:title.lower()[0] not in ('a', 'e', 'i', 'o', 'u')"><tal:title i18n:translate="title_status_of">Status of
-          &ldquo;
-          <tal:name i18n:name="survey_title">${title}</tal:name>&rdquo;</tal:title>
+      <h1 tal:condition="python:title.lower()[0] not in ('a', 'e', 'i', 'o', 'u')">
+        <tal:title i18n:translate="title_status_of">Status of
+          &ldquo;<tal:name i18n:name="survey_title">${title}</tal:name>&rdquo;
+        </tal:title>
       </h1>
       <h1 tal:condition="python:title.lower()[0] in ('a', 'e', 'i', 'o', 'u')"><tal:title i18n:translate="title_with_vowel_status_of">Status of
           &ldquo;
@@ -94,8 +96,7 @@
                   </dt>
                   <dd tal:define="
                         last_publisher session/last_publisher|nothing;
-                      "
-                  >
+                      ">
                     <p>
                       <time class="last-modified"
                             date-time="${value}"
@@ -148,8 +149,7 @@
                           perc_risks_with_measures python:num_total and num_risks_with_measures/view.as_decimal(num_total)*100 or 0;
                           perc_postponed python:num_total and num_postponed/view.as_decimal(num_total)*100 or 0;
                           perc_todo python:num_total and num_todo/view.as_decimal(num_total)*100 or 0;
-                        "
-              >
+                        ">
                 <dt><a name="${module/path}">
                   </a>
                   <a href="${module/url}">${module/title}</a>
