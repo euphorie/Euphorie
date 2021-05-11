@@ -325,7 +325,8 @@
     <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small">Add another search rule</button>
 </p>
 
-<p class="clone search-rule animated fadeIn" id="clone-template" hidden>
+<template id="clone-template">
+  <p class="clone search-rule animated fadeIn">
     <label class="and-or pat-select bare">
         <select name="search-rule.and-or:records">
             <option value="and">
@@ -409,7 +410,8 @@
         </select>
     </span>
     <button type="button" class="remove-clone">Remove</button>
-</p>
+  </p>
+</template>
 
 
 			<fieldset class="toggle-bar pat-checklist free-form">
