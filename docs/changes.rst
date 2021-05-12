@@ -1,11 +1,11 @@
 Changelog
 =========
 
-11.6.13 (unreleased)
---------------------
+11.7.0 (unreleased)
+-------------------
 
-- Nothing changed yet.
-
+- New version of Patternslib with improved date-picker
+- Freshup of styles via universal Patterns SASS
 
 11.6.12 (2021-05-05)
 --------------------
