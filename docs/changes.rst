@@ -1,7 +1,7 @@
 Changelog
 =========
 
-11.7.0 (unreleased)
+11.7.0 (2021-05-12)
 -------------------
 
 - New version of Patternslib with improved date-picker
