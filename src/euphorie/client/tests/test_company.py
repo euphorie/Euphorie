@@ -2,14 +2,18 @@
 from datetime import datetime
 from datetime import timedelta
 from euphorie.client import model
-from euphorie.client.company import Company
+from euphorie.client.browser.company import Company
 from euphorie.client.tests.utils import addAccount
 from euphorie.client.tests.utils import addSurvey
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
 
-import mock
+
+try:
+    from unittest import mock
+except ImportError:
+    import mock
 
 
 class TestCompanyViews(EuphorieIntegrationTestCase):
@@ -18,7 +22,8 @@ class TestCompanyViews(EuphorieIntegrationTestCase):
     @mock.patch.object(Company, "applyChanges")
     @mock.patch.object(Company, "render")
     def test_company_timestamp(self, mock_render, mock_applyChanges):
-        survey = addSurvey(self.portal, BASIC_SURVEY)
+        with api.env.adopt_user("admin"):
+            survey = addSurvey(self.portal, BASIC_SURVEY)
         account = addAccount(password="secret")
         survey_session = model.SurveySession(
             id=456,
