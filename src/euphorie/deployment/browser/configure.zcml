@@ -26,9 +26,8 @@
   <browser:page
       name="get-resources-timestamp"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".site.GetEuphorieResourcesTimestamp"
       permission="zope2.Public"
-      class=".site.EuphorieRefreshResourcesTimestamp"
-      attribute="resources_timestamp"
       />
 
   <browser:page
