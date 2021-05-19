@@ -55,7 +55,6 @@ class EuphorieFixture(PloneSandboxLayer):
         self.loadZCML("configure.zcml", package=euphorie.deployment.tests)
         zope.installProduct(app, "Products.membrane")
 
-
         self.loadZCML(self.saconfig_filename, package=euphorie.client.tests)
         engine = Session.bind
 
