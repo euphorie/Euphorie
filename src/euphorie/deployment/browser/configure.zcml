@@ -24,6 +24,13 @@
       />
 
   <browser:page
+      name="get-resources-timestamp"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".site.GetEuphorieResourcesTimestamp"
+      permission="zope2.Public"
+      />
+
+  <browser:page
       name="manage-ensure-interface"
       for="*"
       permission="cmf.ManagePortal"

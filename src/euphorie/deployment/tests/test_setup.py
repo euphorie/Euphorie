@@ -1,5 +1,7 @@
 # coding=utf-8
 from euphorie.testing import EuphorieIntegrationTestCase
+from plone import api
+from time import time
 
 
 class SetupTests(EuphorieIntegrationTestCase):
@@ -34,3 +36,18 @@ class SetupTests(EuphorieIntegrationTestCase):
     def testNuPloneEnabled(self):
         st = self.portal.portal_skins
         self.assertEqual(st.getDefaultSkin(), "NuPlone")
+
+    def test_get_resource_timestamp(self):
+        self.logout()
+        self.assertEqual(
+            self.portal.restrictedTraverse("@@get-resources-timestamp")(), None
+        )
+
+        with api.env.adopt_user("admin"):
+            self.portal.restrictedTraverse("@@refresh-resources-timestamp")()
+
+        self.request.__annotations__.clear()
+        self.assertEqual(
+            int(self.portal.restrictedTraverse("@@get-resources-timestamp")()) // 10,
+            int(time()) // 10,
+        )

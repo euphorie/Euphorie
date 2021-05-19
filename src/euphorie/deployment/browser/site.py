@@ -82,6 +82,12 @@ class EuphorieRefreshResourcesTimestamp(BrowserView):
         return "OK"
 
 
+class GetEuphorieResourcesTimestamp(EuphorieRefreshResourcesTimestamp):
+    def __call__(self):
+        """Get the resource timestamp"""
+        return self.resources_timestamp
+
+
 class ManageEnsureInterface(BrowserView):
     def set_evaluation_method_interfaces(self):
         def walk(node):
