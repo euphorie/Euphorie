@@ -1,11 +1,19 @@
 Changelog
 =========
 
-11.6.13 (unreleased)
---------------------
+11.7.1 (unreleased)
+-------------------
 
-- Nothing changed yet.
+- A new view ``@@get-resources-timestamp`` has been introduced to not use
+  the protected view ``@@refresh-resources-timestamp`` which will be
+  forbidden by the latest security hotfix [ale-rt]
 
+
+11.7.0 (2021-05-12)
+-------------------
+
+- New version of Patternslib with improved date-picker
+- Freshup of styles via universal Patterns SASS
 
 11.6.12 (2021-05-05)
 --------------------
