@@ -5,8 +5,12 @@ Changelog
 12.0.0 (unreleased)
 -------------------
 
-This branch will prepare for the migration to Plone5.2 and ultimately to python3.
-A big milestone will be the removal of Grok.
+MAJOR BREAKING CHANGE
+
+This version requires Plone 5.2 and is intended to run in Python 3.8
+All traces of Grok have been removed.
+We require a new version of NuPlone that also is grok-free.
+z3c.appconfig is no longer used; site specific config is handled via the portal_registry
 
 
 11.6.12 (unreleased)
