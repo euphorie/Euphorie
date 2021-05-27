@@ -1442,9 +1442,8 @@
     <!-- <a class="small pat-button pat-tooltip icon-up-circle" title="Use an predefined text to pre-fill your measure with." data-pat-tooltip="source: ajax; position-list: bm" href="#standard-solutions">Foo</a> -->
 </div>
 
-<div class="measure pat-collapsible"
-     id="extra-measure-template"
-     hidden>
+<template id="extra-measure-template">
+  <div class="measure pat-collapsible">
     <h2>Papildu pasākums #{1}</h2>
     <p class="functions">
         <a class="icon-trash remove-clone"
@@ -1509,14 +1508,19 @@
     </label>
 </fieldset>
 
+  </div>
+</template>
 </div>
-</div>
 
 
 
 
-<article class="pat-rich pat-collapsible open risk-module">
-    <h3>
+<article 
+    class="pat-rich pat-collapsible open risk-module"
+    id="page-module-information">
+    <h3
+        class="pat-scroll"
+        data-pat-scroll="selector: #page-module-information">
         Informācija
     </h3>
     
@@ -1759,7 +1763,8 @@
     <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small">Add another search rule</button>
 </p>
 
-<p class="clone search-rule animated fadeIn" id="clone-template" hidden>
+<template id="clone-template">
+  <p class="clone search-rule animated fadeIn">
     <label class="and-or pat-select bare">
         <select name="search-rule.and-or:records">
             <option value="and">
@@ -1843,7 +1848,8 @@
         </select>
     </span>
     <button type="button" class="remove-clone">Remove</button>
-</p>
+  </p>
+</template>
 
 
 			<fieldset class="toggle-bar pat-checklist free-form">

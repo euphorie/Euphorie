@@ -542,9 +542,8 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
     <!-- <a class="small pat-button pat-tooltip icon-up-circle" title="Use an predefined text to pre-fill your measure with." data-pat-tooltip="source: ajax; position-list: bm" href="#standard-solutions">Foo</a> -->
 </div>
 
-<div class="measure pat-collapsible"
-     id="extra-measure-template"
-     hidden>
+<template id="extra-measure-template">
+  <div class="measure pat-collapsible">
     <h2>Additional measure #{1}</h2>
     <p class="functions">
         <a class="icon-trash remove-clone"
@@ -609,7 +608,8 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
     </label>
 </fieldset>
 
-</div>
+  </div>
+</template>
 
 		<fieldset>
 			<textarea id="commentsField"
@@ -794,7 +794,8 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
     <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small">Add another search rule</button>
 </p>
 
-<p class="clone search-rule animated fadeIn" id="clone-template" hidden>
+<template id="clone-template">
+  <p class="clone search-rule animated fadeIn">
     <label class="and-or pat-select bare">
         <select name="search-rule.and-or:records">
             <option value="and">
@@ -878,7 +879,8 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
         </select>
     </span>
     <button type="button" class="remove-clone">Remove</button>
-</p>
+  </p>
+</template>
 
 
 			<fieldset class="toggle-bar pat-checklist free-form">
