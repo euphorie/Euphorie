@@ -1164,6 +1164,8 @@ class Risk(SurveyTreeItem):
             )
             .order_by(ActionPlan.id)
         )
+        compiled = query.statement.compile(dialect=postgresql.dialect())
+        log.info(str(compiled) % compiled.params)
         return query.all()
 
     @property
