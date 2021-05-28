@@ -30,6 +30,8 @@ def FindFirstQuestion(dbsession, filter=None):
     )
     if filter is not None:
         query = query.filter(filter)
+    compiled = query.statement.compile(dialect=postgresql.dialect())
+    logger.info(str(compiled) % compiled.params)
     return query.order_by(model.SurveyTreeItem.path).first()
 
 
@@ -46,6 +48,8 @@ def FindNextQuestion(after, dbsession, filter=None):
     else:
         filter = sql.and_(model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER, filter)
     query = query.filter(filter)
+    compiled = query.statement.compile(dialect=postgresql.dialect())
+    logger.info(str(compiled) % compiled.params)
     return query.order_by(model.SurveyTreeItem.path).first()
 
 
@@ -62,6 +66,8 @@ def FindPreviousQuestion(after, dbsession, filter=None):
     else:
         filter = sql.and_(model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER, filter)
     query = query.filter(filter)
+    compiled = query.statement.compile(dialect=postgresql.dialect())
+    logger.info(str(compiled) % compiled.params)
     return query.order_by(model.SurveyTreeItem.path.desc()).first()
 
 
