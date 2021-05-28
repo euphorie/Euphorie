@@ -22,6 +22,7 @@ from sqlalchemy import orm
 from sqlalchemy import schema
 from sqlalchemy import sql
 from sqlalchemy import types
+from sqlalchemy.dialects import postgresql
 from sqlalchemy.event import listen
 from sqlalchemy.ext import declarative
 from sqlalchemy.orm import backref
@@ -198,6 +199,8 @@ class SurveyTreeItem(BaseObject):
         )
         if filter is not None:
             query = query.filter(sql.or_(klass.id == self.id, filter))
+        compiled = query.statement.compile(dialect=postgresql.dialect())
+        log.info(str(compiled) % compiled.params)
         return query.order_by(klass.path)
 
     def addChild(self, item):
