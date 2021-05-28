@@ -12,9 +12,14 @@ from euphorie.client import utils
 from euphorie.client.model import SurveySession
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
+from logging import getLogger
 from plone import api
 from sqlalchemy import sql
+from sqlalchemy.dialects import postgresql
 from z3c.saconfig import Session
+
+
+logger = getLogger(__name__)
 
 
 def FindFirstQuestion(dbsession, filter=None):
@@ -127,6 +132,8 @@ def getTreeData(
         element = context
 
     query = Session.query(model.SurveyTreeItem)
+    compiled = query.statement.compile(dialect=postgresql.dialect())
+    logger.info(str(compiled) % compiled.params)
     title_custom_risks = utils.get_translated_custom_risks_title(request)
     root = element
     parents = []
