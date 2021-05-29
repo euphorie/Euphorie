@@ -5,14 +5,15 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
       tal:define="
         client nocall:request/client;
         webhelpers nocall:context/@@webhelpers;
         isAnonymous here/portal_membership/isAnonymousUser;
       "
       i18n:domain="euphorie"
-    metal:use-macro="context/@@shell/macros/shell">
-<metal:slot fill-slot="content">
+>
+  <metal:slot fill-slot="content">
     <h1 i18n:translate="header_terms">Terms and conditions</h1>
 
     <tal:if condition="not:isAnonymous">
@@ -144,7 +145,7 @@
     <script meta:interpolation="false"
             type="text/javascript"
     >
-// <![CDATA[
+// &lt;![CDATA[
     function updateButton() {
         var $conditions = $(this),
             button = $("#agreeButton")[0],
@@ -154,7 +155,7 @@
             return;
         }
 
-        at_bottom=(this.scrollHeight-$conditions.scrollTop())<=$conditions.innerHeight();
+        at_bottom=(this.scrollHeight-$conditions.scrollTop())&lt;=$conditions.innerHeight();
         if (at_bottom) {
             button.disabled=false;
         }
@@ -163,7 +164,7 @@
     $(document).ready(function() {
         $("#conditions").scroll(updateButton);
     });
-// ]]>
+// ]]&gt;
     </script>
-</metal:slot>
+  </metal:slot>
 </html>

@@ -1,137 +1,224 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        client nocall:request/client;
+        webhelpers nocall:context/@@webhelpers;
+      "
       i18n:domain="euphorie"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
-      metal:use-macro="context/@@shell/macros/shell">
+>
 
-<body>
-<metal:slot fill-slot="content">
-  <div id="content-pane">
-    <tal:block replace="tile:statusmessages"/>
-    <article class="pat-rich">
-    <h1 i18n:translate="header_profile">Tailor the risk assessment to your organisation</h1>
-    <p i18n:translate="expl_profile">
+  <body>
+    <metal:slot fill-slot="content">
+      <div id="content-pane">
+        <tal:block replace="tile:statusmessages" />
+        <article class="pat-rich">
+          <h1 i18n:translate="header_profile">Tailor the risk assessment to your organisation</h1>
+          <p i18n:translate="expl_profile">
         In order to tailor the risk assessment to your organisation you may be
         asked to:
-    </p>
-    <ul>
-        <li i18n:translate="expl_profile_bullet1">select or skip situation(s) relevant or not to your business activity and
+          </p>
+          <ul>
+            <li i18n:translate="expl_profile_bullet1">select or skip situation(s) relevant or not to your business activity and
         tick the box(es) if appropriate
-        </li>
-        <li i18n:translate="expl_profile_bullet2">list multiple business units, or branches, or stores, etc. These related
+            </li>
+            <li i18n:translate="expl_profile_bullet2">list multiple business units, or branches, or stores, etc. These related
         risks will be repeated for each name you have entered.
-        </li>
-    </ul>
-    </article>
+            </li>
+          </ul>
+        </article>
 
-<tal:comment condition="nothing">
+        <tal:comment condition="nothing">
   pat-validation is disabled because of a bug in validation radio inputs
   https://github.com/Patternslib/Patterns/issues/744
-</tal:comment>
-<form class="Xpat-validation pat-inject"
-      data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #navigation; target: #navigation;"
-      method="post"
-      id="profile-form"
-      action="${request/URL}"
-      novalidate="novalidate"
-      data-pat-validation="message-date: This value must be a valid date;
+        </tal:comment>
+        <form class="Xpat-validation pat-inject"
+              id="profile-form"
+              action="${request/URL}"
+              method="post"
+              novalidate="novalidate"
+              data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #navigation; target: #navigation;"
+              data-pat-validation="message-date: This value must be a valid date;
                            message-datetime: This value must be a valid date and time;
                            message-email: This value must be a valid email address;
                            message-number: This value must be a number;
-                           message-required: ${view/message_required};">
-<fieldset class="vertical" tal:repeat="question view/profile_questions">
-    <section tal:define="current python:view.current_profile.get(question['id'])">
-        <h2>${question/title}</h2>
-        <fieldset class="pat-checklist radio">
-          <legend>${question/question}</legend>
-          <label><input type="radio" class="presence" required name="pq${question/id}.present" value="yes" checked="${python:'checked' if current else None}"/> <tal:span i18n:translate="">Yes</tal:span></label>
-          <label><input type="radio" class="presence" required name="pq${question/id}.present" value="no" checked="${python:'checked' if not current else None}"/> <tal:span i18n:translate="">No</tal:span></label>
-        </fieldset>
+                           message-required: ${view/message_required};"
+        >
+          <fieldset class="vertical"
+                    tal:repeat="question view/profile_questions"
+          >
+            <section tal:define="
+                       current python:view.current_profile.get(question['id']);
+                     ">
+              <h2>${question/title}</h2>
+              <fieldset class="pat-checklist radio">
+                <legend>${question/question}</legend>
+                <label><input class="presence"
+                         checked="${python:'checked' if current else None}"
+                         name="pq${question/id}.present"
+                         required
+                         type="radio"
+                         value="yes"
+                  />
+                  <tal:span i18n:translate="">Yes</tal:span></label>
+                <label><input class="presence"
+                         checked="${python:'checked' if not current else None}"
+                         name="pq${question/id}.present"
+                         required
+                         type="radio"
+                         value="no"
+                  />
+                  <tal:span i18n:translate="">No</tal:span></label>
+              </fieldset>
 
-        <tal:use_location_question condition="question/use_location_question">
-        <fieldset class="pat-checklist radio pat-depends" data-pat-depends="pq${question/id}.present=yes">
-          <legend>${question/label_multiple_present}</legend>
-          <label><input type="radio" class="multiple" name="pq${question/id}.multiple" value="yes" checked="${python:'checked' if current and len(current)&gt;1 else None}"/> <tal:span i18n:translate="">Yes</tal:span></label>
-          <label><input type="radio" class="multiple" name="pq${question/id}.multiple" value="no" checked="${python:'checked' if not current or len(current)==1 else None}"/> <tal:span i18n:translate="">No</tal:span></label>
-        </fieldset>
+              <tal:use_location_question condition="question/use_location_question">
+                <fieldset class="pat-checklist radio pat-depends"
+                          data-pat-depends="pq${question/id}.present=yes"
+                >
+                  <legend>${question/label_multiple_present}</legend>
+                  <label><input class="multiple"
+                           checked="${python:'checked' if current and len(current)&gt;1 else None}"
+                           name="pq${question/id}.multiple"
+                           type="radio"
+                           value="yes"
+                    />
+                    <tal:span i18n:translate="">Yes</tal:span></label>
+                  <label><input class="multiple"
+                           checked="${python:'checked' if not current or len(current)==1 else None}"
+                           name="pq${question/id}.multiple"
+                           type="radio"
+                           value="no"
+                    />
+                    <tal:span i18n:translate="">No</tal:span></label>
+                </fieldset>
 
-        <fieldset class="group pat-depends" data-pat-depends="condition: pq${question/id}.present=yes and pq${question/id}.multiple">
-          <legend>
-            <span class="pat-depends" data-pat-depends="pq${question/id}.multiple=no">${question/label_single_occurance}</span>
-            <span class="pat-depends" data-pat-depends="pq${question/id}.multiple=yes">${question/label_multiple_occurances}</span>
-          </legend>
+                <fieldset class="group pat-depends"
+                          data-pat-depends="condition: pq${question/id}.present=yes and pq${question/id}.multiple"
+                >
+                  <legend>
+                    <span class="pat-depends"
+                          data-pat-depends="pq${question/id}.multiple=no"
+                    >${question/label_single_occurance}</span>
+                    <span class="pat-depends"
+                          data-pat-depends="pq${question/id}.multiple=yes"
+                    >${question/label_multiple_occurances}</span>
+                  </legend>
 
-            <fieldset class="form-iteration pat-clone" data-pat-clone="template: #clone-template-${question/id}; trigger-element: #clone-set-${repeat/question/number}; remove-behaviour: none">
-                <label id="clone-template-${question/id}" hidden="hidden">
-                    <input class="pat-depends" autofocus="autofocus" placeholder="${question/label_single_occurance} #{1}" data-pat-depends="condition: pq${question/id}.multiple=yes; action: both;"
-                           size="40" type="text" name="${question/id}:utf8:utext:list" />&nbsp;
-                    <button type="button" class="pat-depends remove-clone icon-trash iconified" data-pat-depends="pq${question/id}.multiple=yes" i18n:translate="Remove">Remove</button>
-                </label>
-
-                <label tal:condition="not:current" class="clone">
-                    <input class="pat-depends" data-pat-depends="condition: pq${question/id}.present=yes; action: both;"
-                           name="${question/id}:utf8:utext:list" required="required"/>
-                </label>
-                <tal:locations repeat="title current">
-                  <tal:if_not_first condition="repeat/title/index">
-                    <label class="clone pat-depends" data-pat-depends="pq${question/id}.multiple=yes">
+                  <fieldset class="form-iteration pat-clone"
+                            data-pat-clone="template: #clone-template-${question/id}; trigger-element: #clone-set-${repeat/question/number}; remove-behaviour: none"
+                  >
+                    <label id="clone-template-${question/id}"
+                           hidden="hidden"
+                    >
                       <input class="pat-depends"
-                            required="required"
-                            placeholder="${question/label_single_occurance} 1" value="${title}"
-                            data-pat-depends="condition: pq${question/id}.present=yes; action: both" name="${question/id}:utf8:utext:list" />
-                      <button type="button" class="pat-depends remove-clone icon-trash iconified" data-pat-depends="pq${question/id}.multiple=yes" i18n:translate="Remove">Remove</button>
+                             autofocus="autofocus"
+                             name="${question/id}:utf8:utext:list"
+                             placeholder="${question/label_single_occurance} #{1}"
+                             size="40"
+                             type="text"
+                             data-pat-depends="condition: pq${question/id}.multiple=yes; action: both;"
+                      />&nbsp;
+                      <button class="pat-depends remove-clone icon-trash iconified"
+                              type="button"
+                              data-pat-depends="pq${question/id}.multiple=yes"
+                              i18n:translate="Remove"
+                      >Remove</button>
                     </label>
-                  </tal:if_not_first>
-                  <tal:if_first condition="not:repeat/title/index">
-                    <label class="clone">
+
+                    <label class="clone"
+                           tal:condition="not:current"
+                    >
                       <input class="pat-depends"
-                            required="required"
-                            placeholder="${question/label_single_occurance} 1" value="${title}"
-                            data-pat-depends="condition: pq${question/id}.present=yes; action: both" name="${question/id}:utf8:utext:list" />
+                             name="${question/id}:utf8:utext:list"
+                             required="required"
+                             data-pat-depends="condition: pq${question/id}.present=yes; action: both;"
+                      />
                     </label>
-                  </tal:if_first>
-                </tal:locations>
-            </fieldset>
+                    <tal:locations repeat="title current">
+                      <tal:if_not_first condition="repeat/title/index">
+                        <label class="clone pat-depends"
+                               data-pat-depends="pq${question/id}.multiple=yes"
+                        >
+                          <input class="pat-depends"
+                                 name="${question/id}:utf8:utext:list"
+                                 placeholder="${question/label_single_occurance} 1"
+                                 required="required"
+                                 value="${title}"
+                                 data-pat-depends="condition: pq${question/id}.present=yes; action: both"
+                          />
+                          <button class="pat-depends remove-clone icon-trash iconified"
+                                  type="button"
+                                  data-pat-depends="pq${question/id}.multiple=yes"
+                                  i18n:translate="Remove"
+                          >Remove</button>
+                        </label>
+                      </tal:if_not_first>
+                      <tal:if_first condition="not:repeat/title/index">
+                        <label class="clone">
+                          <input class="pat-depends"
+                                 name="${question/id}:utf8:utext:list"
+                                 placeholder="${question/label_single_occurance} 1"
+                                 required="required"
+                                 value="${title}"
+                                 data-pat-depends="condition: pq${question/id}.present=yes; action: both"
+                          />
+                        </label>
+                      </tal:if_first>
+                    </tal:locations>
+                  </fieldset>
 
 
-            <p class="buttons pat-depends" data-pat-depends="pq${question/id}.multiple=yes">
-                <button id="clone-set-${repeat/question/number}" class="pat-button icon-plus-circle add-clone" type="button" i18n:translate="Add another item">Add another item</button>
-            </p>
-        </fieldset>
-        </tal:use_location_question>
-    </section>
-</fieldset>
-<p class="buttonBar">
-    <button class="pat-button pat-switch"
-            data-pat-switch="selector: body; remove: sidebar-off; add: sidebar-on"
-            type="submit"
-            i18n:translate="label_save_and_continue">Save and continue</button>
-</p>
-</form>
-</div>
-</metal:slot>
+                  <p class="buttons pat-depends"
+                     data-pat-depends="pq${question/id}.multiple=yes"
+                  >
+                    <button class="pat-button icon-plus-circle add-clone"
+                            id="clone-set-${repeat/question/number}"
+                            type="button"
+                            i18n:translate="Add another item"
+                    >Add another item</button>
+                  </p>
+                </fieldset>
+              </tal:use_location_question>
+            </section>
+          </fieldset>
+          <p class="buttonBar">
+            <button class="pat-button pat-switch"
+                    type="submit"
+                    data-pat-switch="selector: body; remove: sidebar-off; add: sidebar-on"
+                    i18n:translate="label_save_and_continue"
+            >Save and continue</button>
+          </p>
+        </form>
+      </div>
+    </metal:slot>
 
-<metal:slot fill-slot="splash_message_slot">
-    <div tal:condition="python:tool_notification is not None" class="splash-message" id="splash-message">
-        <hr class="trigger pat-switch" data-pat-switch="selector: body; remove: splash-on-tool*; add: splash-off-${tool_notification/id}; store: session" />
+    <metal:slot fill-slot="splash_message_slot">
+      <div class="splash-message"
+           id="splash-message"
+           tal:condition="python:tool_notification is not None"
+      >
+        <hr class="trigger pat-switch"
+            data-pat-switch="selector: body; remove: splash-on-tool*; add: splash-off-${tool_notification/id}; store: session"
+        />
         <article class="pat-rich content">
-            <p>
-                <img src="${style_url}/oira-logo-colour.svg"
-                     width="20%" />
-            </p>
-            <h1 tal:content="structure tool_notification/title">Message of the day!</h1>
-            <tal:content content="structure tool_notification/text">
-                <p>Sit amet consectetuer.</p>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
-                <p>OiRA Team</p>
-            </tal:content>
-       </article>
-    </div>
-</metal:slot>
-</body>
+          <p>
+            <img src="${style_url}/oira-logo-colour.svg"
+                 width="20%"
+            />
+          </p>
+          <h1 tal:content="structure tool_notification/title">Message of the day!</h1>
+          <tal:content content="structure tool_notification/text">
+            <p>Sit amet consectetuer.</p>
+            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+            <p>OiRA Team</p>
+          </tal:content>
+        </article>
+      </div>
+    </metal:slot>
+  </body>
 </html>

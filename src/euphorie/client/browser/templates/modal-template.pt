@@ -1,42 +1,61 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
       metal:define-macro="shell"
+      tal:define="
+        webhelpers nocall:context/@@webhelpers;
+        client nocall:request/client;
+        page_section webhelpers/get_phase;
+        came_from webhelpers/came_from;
+        came_from_param python:came_from and 'came_from=%s' % came_from or '';
+        tools context/@@tools;
+      "
       i18n:domain="euphorie"
-      tal:define="webhelpers nocall:context/@@webhelpers;
-                  client nocall:request/client;
-                  page_section webhelpers/get_phase;
-                  came_from webhelpers/came_from;
-                  came_from_param python:came_from and 'came_from=%s' % came_from or '';
-                  tools context/@@tools">
+>
 
-<head>
+  <head>
     <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="${webhelpers/favicon_url}" />
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=UTF-8"
+    />
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=Edge"
+    />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1"
+    />
+    <link href="${webhelpers/favicon_url}"
+          rel="icon"
+          type="image/png"
+    />
 
-    <script type="text/javascript" src="${webhelpers/js_url}"></script>
-    <link rel="stylesheet" href="${webhelpers/css_url}" type="text/css" />
+    <script src="${webhelpers/js_url}"
+            type="text/javascript"
+    ></script>
+    <link href="${webhelpers/css_url}"
+          rel="stylesheet"
+          type="text/css"
+    />
 
     <metal:javascriptslot define-slot="javascript_head_slot" />
     <metal:styleslot define-slot="style_slot" />
-</head>
+  </head>
 
-<body class="osh-off osc-off osc-s-off"
-  i18n:domain="euphorie"
-  tal:define="
-    is_anonymous webhelpers/anonymous;
-    base_url webhelpers/base_url">
+  <body class="osh-off osc-off osc-s-off"
+        tal:define="
+          is_anonymous webhelpers/anonymous;
+          base_url webhelpers/base_url;
+        "
+        i18n:domain="euphorie"
+  >
 
 
-            <metal:block define-slot="content"/>
+    <metal:block define-slot="content" />
 
 
-</body>
+  </body>
 </html>

@@ -21,8 +21,7 @@
       <tal:not-custom condition="not:is_custom_risk">
         <tal:get define="
                    images risk/@@images;
-                 "
-        >
+                 ">
           <tal:many condition="python:view.number_images &gt; 1">
             <a class="image"
                href="${large/url|nothing}"

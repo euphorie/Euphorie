@@ -1,33 +1,76 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="euphorie"
       meta:interpolation="true"
-      metal:use-macro="context/@@layout/macros/layout">
+      metal:use-macro="context/@@layout/macros/layout"
+      i18n:domain="euphorie"
+>
   <body>
     <metal:title fill-slot="title">${context/aq_parent/title}</metal:title>
-    <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar"/></metal:bar>
+    <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar" /></metal:bar>
 
-    <metal:content fill-slot="content" tal:define="can_edit python:tools.checkPermission('Modify portal content')">
-      <div class="introduction" tal:define="images context/@@images">
-        <img tal:define="scale python:images.scale('image', width=190, direction='down');"
-          tal:on-error="nothing"
-          tal:condition="scale" src="${scale/url}" width="${scale/width}" alt="" title="${context/caption}" class="span-4 floatAfter"/>
+    <metal:content fill-slot="content"
+                   tal:define="
+                     can_edit python:tools.checkPermission('Modify portal content');
+                   "
+    >
+      <div class="introduction"
+           tal:define="
+             images context/@@images;
+           "
+      >
+        <img class="span-4 floatAfter"
+             alt=""
+             src="${scale/url}"
+             title="${context/caption}"
+             width="${scale/width}"
+             tal:define="
+               scale python:images.scale('image', width=190, direction='down');
+             "
+             tal:condition="scale"
+             tal:on-error="nothing"
+        />
         <p tal:replace="structure context/description">Van belang is dat de spuitlans de juiste lengte heeft om rechtopstaand te werken. Een gebogen spuitlans geeft een hogere polsbelasting en wordt daarom afgeraden.</p>
-        <ul class="additionalImages" tal:condition="python:context.image2 or context.image3 or context.image4">
-          <li tal:define="scale python:images.scale('image2', width=190, direction='down');"
-            tal:on-error="nothing"
-            tal:condition="scale"><img src="${scale/url}" width="${scale/width}" alt="" title="${context/caption2}" class="span-4"/></li>
-          <li tal:define="scale python:images.scale('image3', width=190, direction='down');"
-            tal:on-error="nothing"
-            tal:condition="scale"><img src="${scale/url}" width="${scale/width}" alt="" title="${context/caption3}" class="span-4"/></li>
-          <li tal:define="scale python:images.scale('image4', width=190, direction='down');"
-            tal:on-error="nothing"
-            tal:condition="scale"><img src="${scale/url}" width="${scale/width}" alt="" title="${context/caption4}" class="span-4"/></li>
+        <ul class="additionalImages"
+            tal:condition="python:context.image2 or context.image3 or context.image4"
+        >
+          <li tal:define="
+                scale python:images.scale('image2', width=190, direction='down');
+              "
+              tal:condition="scale"
+              tal:on-error="nothing"
+          ><img class="span-4"
+                 alt=""
+                 src="${scale/url}"
+                 title="${context/caption2}"
+                 width="${scale/width}"
+            /></li>
+          <li tal:define="
+                scale python:images.scale('image3', width=190, direction='down');
+              "
+              tal:condition="scale"
+              tal:on-error="nothing"
+          ><img class="span-4"
+                 alt=""
+                 src="${scale/url}"
+                 title="${context/caption3}"
+                 width="${scale/width}"
+            /></li>
+          <li tal:define="
+                scale python:images.scale('image4', width=190, direction='down');
+              "
+              tal:condition="scale"
+              tal:on-error="nothing"
+          ><img class="span-4"
+                 alt=""
+                 src="${scale/url}"
+                 title="${context/caption4}"
+                 width="${scale/width}"
+            /></li>
         </ul>
       </div>
 
@@ -36,13 +79,19 @@
       </blockquote>
 
       <dl class="grid span-13">
-      <dt i18n:translate="label_risk_type">Risk type</dt>
+        <dt i18n:translate="label_risk_type">Risk type</dt>
         <dd tal:content="view/risk_type">Risk</dd>
         <dt i18n:translate="label_problem_description">Negative statement</dt>
         <dd tal:content="context/problem_description">Er bestaat geen mogelijkheid om gebruik te maken van rechte spuitlansen van verschillende lengte.</dd>
-        <dt i18n:translate="risk_show_na">Show '<em i18n:name="na" i18n:translate="risk_show_na_na">not applicable</em>'</dt>
-        <dd tal:condition="context/show_notapplicable" i18n:translate="yes">Yes</dd>
-        <dd tal:condition="not:context/show_notapplicable" i18n:translate="no">No</dd>
+        <dt i18n:translate="risk_show_na">Show '<em i18n:name="na"
+              i18n:translate="risk_show_na_na"
+          >not applicable</em>'</dt>
+        <dd tal:condition="context/show_notapplicable"
+            i18n:translate="yes"
+        >Yes</dd>
+        <dd tal:condition="not:context/show_notapplicable"
+            i18n:translate="no"
+        >No</dd>
         <tal:block condition="python:context.type=='risk'">
           <dt i18n:translate="label_evaluation_method">Evaluation method</dt>
           <dd tal:content="view/evaluation_method">Calculated</dd>
@@ -71,10 +120,13 @@
           </tal:block>
         </tal:block>
       </dl>
-      <hr class="clear"/>
-      <div tal:condition="python:context.legal_reference" class="message notice floatBefore">
+      <hr class="clear" />
+      <div class="message notice floatBefore"
+           tal:condition="python:context.legal_reference"
+      >
         <h4 i18n:translate="label_legal_reference">Legal and policy references</h4>
-        <p tal:replace="structure context/legal_reference"> Rechte spuitlansen van verschillende lengte aanschaffen en gebruiken. Zie ook www.fytostat.nl.</p>
+        <p tal:replace="structure context/legal_reference">
+          Rechte spuitlansen van verschillende lengte aanschaffen en gebruiken. Zie ook www.fytostat.nl.</p>
       </div>
       <tal:block condition="view/solutions">
         <h2 i18n:translate="header_solutions">Standard measures</h2>
@@ -83,11 +135,15 @@
           <div class="sortable-explanation">
             ${view/sortable_explanation}
           </div>
-          <li id="solution-${solution/id}" tal:repeat="solution view/solutions"><a href="${solution/url}" i18n:translate="risk_solution_header">Measure <tal:span i18n:name="number">${repeat/solution/number}</tal:span></a><br/>
-          <p tal:content="structure solution/description"></p></li>
+          <li id="solution-${solution/id}"
+              tal:repeat="solution view/solutions"
+          ><a href="${solution/url}"
+               i18n:translate="risk_solution_header"
+            >Measure
+              <tal:span i18n:name="number">${repeat/solution/number}</tal:span></a><br />
+            <p tal:content="structure solution/description"></p></li>
         </ol>
       </tal:block>
     </metal:content>
   </body>
 </html>
-

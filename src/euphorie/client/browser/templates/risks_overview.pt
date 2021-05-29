@@ -200,8 +200,7 @@ ul.title {margin-bottom:3em;}
                         perc_postponed python:num_total and num_postponed/webhelpers.to_decimal(num_total)*100 or 0;
                         perc_todo python:num_total and num_todo/webhelpers.to_decimal(num_total)*100 or 0;
                         epsilon python:webhelpers.to_decimal(1/10.0);
-                      "
-            >
+                      ">
               <dt><a name="${module/path}">
                 </a>
                 <a href="#page-toc">${module/title}
@@ -332,9 +331,7 @@ ul.title {margin-bottom:3em;}
                       >Unvisited</em>
                     </li>
                   </ul>
-                  <tal:risk_lists
-                                  tal:condition="view/show_high_risks"
-                                  tal:define="
+                  <tal:risk_lists tal:define="
                                     risks_by_status python:view.risks_by_status[module.get('path')];
                                     num_high python:len(risks_by_status['present']['high']);
                                     num_medium python:len(risks_by_status['present']['medium']);
@@ -342,6 +339,7 @@ ul.title {margin-bottom:3em;}
                                     num_present python:num_high + num_medium + num_low;
                                     num_possible python:num_postponed + num_todo;
                                   "
+                                  tal:condition="view/show_high_risks"
                   >
                     <div class="six columns">
                       <h3 tal:condition="python: num_present==1"

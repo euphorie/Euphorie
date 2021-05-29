@@ -8,62 +8,67 @@
       i18n:domain="euphorie"
 >
   <metal:slot fill-slot="content">
-  <tal:block replace="tile:statusmessages" />
-  <div id="content-pane">
-    <article id="screen-intro">
-      <header class="title-group">
-        <h1>
+    <tal:block replace="tile:statusmessages" />
+    <div id="content-pane">
+      <article id="screen-intro">
+        <header class="title-group">
+          <h1>
           OiRA
-        </h1>
-        <p class="byline">
+          </h1>
+          <p class="byline">
           ${view/tool_byline}
-        </p>
-      </header>
-    </article>
-    <div class="row pat-masonry"
-         id="dashboard"
-         data-pat-masonry="column-width: .grid-sizer; gutter: 0; item-selector: .portlet; stamp: .stamp;"
-    >
-      <div class="grid-sizer"></div>
-      <tal:portlets repeat="portlet view/portlets"
-                    replace="structure portlet"
-      />
-    </div>
+          </p>
+        </header>
+      </article>
+      <div class="row pat-masonry"
+           id="dashboard"
+           data-pat-masonry="column-width: .grid-sizer; gutter: 0; item-selector: .portlet; stamp: .stamp;"
+      >
+        <div class="grid-sizer"></div>
+        <tal:portlets repeat="portlet view/portlets"
+                      replace="structure portlet"
+        />
+      </div>
     </div>
 
   </metal:slot>
 
   <metal:slot fill-slot="splash_message_slot">
-    <div class="splash-message" id="splash-message">
-    <tal:splash condition="python:splash_message is not None">
-      <hr class="trigger pat-switch"
-          data-pat-switch="selector: body; remove: splash-on-motd*; add: splash-off-${splash_message/id}; store: local"
-      />
-      <article class="pat-rich content">
-        <p>
-          <img src="${style_url}/oira-logo-colour.svg"
-               width="20%"
-          />
-        </p>
-        <h1 tal:content="structure splash_message/title">Message of the day!</h1>
-        <tal:content content="structure splash_message/text" />
-      </article>
-    </tal:splash>
+    <div class="splash-message"
+         id="splash-message"
+    >
+      <tal:splash condition="python:splash_message is not None">
+        <hr class="trigger pat-switch"
+            data-pat-switch="selector: body; remove: splash-on-motd*; add: splash-off-${splash_message/id}; store: local"
+        />
+        <article class="pat-rich content">
+          <p>
+            <img src="${style_url}/oira-logo-colour.svg"
+                 width="20%"
+            />
+          </p>
+          <h1 tal:content="structure splash_message/title">Message of the day!</h1>
+          <tal:content content="structure splash_message/text" />
+        </article>
+      </tal:splash>
     </div>
   </metal:slot>
 
-    <metal:slot fill-slot="aside-header">
-      <form id="osc-header" class="pat-inject pat-autosubmit" action="${absolute_url}/@@${view/__name__}#browser">
-        <tal:in_group condition="python: root_group and root_parent">
-          <a class="back-button pat-inject"
-             href="${absolute_url}/@@${view/__name__}?groupid=${root_parent/group_id|nothing}"
-             data-pat-inject="history: record; source: #osc-header; target: #osc-header &amp;&amp; source: #osc; target: #osc"
-             i18n:translate=""
-          >Back</a>
-          <h2 class="column-title">${root_group/fullname}</h2>
-        </tal:in_group>
+  <metal:slot fill-slot="aside-header">
+    <form class="pat-inject pat-autosubmit"
+          id="osc-header"
+          action="${absolute_url}/@@${view/__name__}#browser"
+    >
+      <tal:in_group condition="python: root_group and root_parent">
+        <a class="back-button pat-inject"
+           href="${absolute_url}/@@${view/__name__}?groupid=${root_parent/group_id|nothing}"
+           data-pat-inject="history: record; source: #osc-header; target: #osc-header &amp;&amp; source: #osc; target: #osc"
+           i18n:translate=""
+        >Back</a>
+        <h2 class="column-title">${root_group/fullname}</h2>
+      </tal:in_group>
 
-        <!--
+      <!--
         <tal:root condition="python: not root_group or not root_parent">
           <label class="pat-select bare">
             <select>
@@ -79,23 +84,25 @@
         </tal:root>
         -->
 
-        <a class="no-label pat-modal iconified icon-plus"
-           id="button-new-session-quick"
-           href="${webhelpers/session_overview_url}/@@new-session.html#document-content"
-           title="start a new session"
-           data-pat-modal="class: large"
-           i18n:attributes="title link_start_session"
-           i18n:translate="New"
-        >New</a>
-        <button id="button-osc-expand"
-                tal:condition="webhelpers/use_publication_feature"
-                class="no-label iconified icon-resize-full pat-toggle"
-                data-pat-toggle="selector: body; value: osc-size-full osc-size-normal"
-                i18n:attributes="title"
-                title="Expand sidebar" i18n:translate="">Expand sidebar</button>
+      <a class="no-label pat-modal iconified icon-plus"
+         id="button-new-session-quick"
+         href="${webhelpers/session_overview_url}/@@new-session.html#document-content"
+         title="start a new session"
+         data-pat-modal="class: large"
+         i18n:attributes="title link_start_session"
+         i18n:translate="New"
+      >New</a>
+      <button class="no-label iconified icon-resize-full pat-toggle"
+              id="button-osc-expand"
+              title="Expand sidebar"
+              data-pat-toggle="selector: body; value: osc-size-full osc-size-normal"
+              tal:condition="webhelpers/use_publication_feature"
+              i18n:attributes="title"
+              i18n:translate=""
+      >Expand sidebar</button>
 
-      </form>
-    </metal:slot>
+    </form>
+  </metal:slot>
 
 
 </html>

@@ -16,7 +16,8 @@
              readonly="${view/readonly}"
              type="checkbox"
              value="${item/value}"
-      /> ${item/label}
+      />
+       ${item/label}
       <input name="${view/name}-empty-marker"
              type="hidden"
              value="1"

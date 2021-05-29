@@ -32,8 +32,8 @@
             <a class="iconified icon-trash pat-modal"
                href="${context/absolute_url}/@@confirmation-delete-risk#document-content"
                title="Delete risk"
-               i18n:attributes="title"
                data-pat-inject="source: #document-content; target: #document-content"
+               i18n:attributes="title"
             >Delete risk</a>
           </nav>
 

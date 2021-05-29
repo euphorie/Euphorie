@@ -5,6 +5,7 @@
         xmlns:i18n="http://xml.zope.org/namespaces/i18n"
         xmlns:metal="http://xml.zope.org/namespaces/metal"
         xmlns:tal="http://xml.zope.org/namespaces/tal"
+        lang="${lang}"
         tal:define="
           portal_state context/@@plone_portal_state;
           context_state context/@@plone_context_state;
@@ -19,7 +20,6 @@
           ajax_include_head request/ajax_include_head | nothing;
           ajax_load python:False;
         "
-        lang="${lang}"
         i18n:domain="plone"
   >
 

@@ -19,109 +19,108 @@
   <body>
     <metal:slot fill-slot="content">
       <tal:block replace="tile:statusmessages" />
-    <a class="pat-inject"
-       id="percentage-placeholder"
-       hidden="hidden"
-       href="${here/webhelpers/traversed_session/absolute_url}/@@update-completion-percentage"
-       data-pat-inject="trigger: autoload; source: #document-content; target: #percentage-placeholder::element; loading-class:; history: none"
-    >Compute completion percentage</a>
+      <a class="pat-inject"
+         id="percentage-placeholder"
+         hidden="hidden"
+         href="${here/webhelpers/traversed_session/absolute_url}/@@update-completion-percentage"
+         data-pat-inject="trigger: autoload; source: #document-content; target: #percentage-placeholder::element; loading-class:; history: none"
+      >Compute completion percentage</a>
       <form class="pat-form pat-inject pat-validation"
-        data-pat-validation="disable-selector: button[name='form.button.submit'];
-                           message-required: ${view/message_required};
-                           message-min: ${view/message_gt1};
-            "
             action="${request/URL}"
             method="POST"
             data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation;"
+            data-pat-validation="disable-selector: button[name='form.button.submit'];
+                           message-required: ${view/message_required};
+                           message-min: ${view/message_gt1};
+            "
       >
-      <div id="content-pane">
-        <nav class="page-actions">
-          <metal:actions define-slot="page-actions">
-            <a class="icon-share iconified pat-tooltip"
-               href="${request/ACTUAL_URL}#sharing-menu"
-               title="Share this OiRA-Tool"
-               data-pat-tooltip="source: ajax; position-list: tr"
-               tal:condition="webhelpers/allow_social_sharing"
-               i18n:attributes="title"
-            >Share</a>
-            <a tal:replace="structure here/@@more_badge|nothing"></a>
-          </metal:actions>
-        </nav>
-        <metal:messages_above_title define-slot="messages_above_title">
-          <p class="pat-message notice"
-            tal:repeat="message view/get_pat_messages_above_title"
-            tal:content="structure message"
-          ></p>
-        </metal:messages_above_title>
+        <div id="content-pane">
+          <nav class="page-actions">
+            <metal:actions define-slot="page-actions">
+              <a class="icon-share iconified pat-tooltip"
+                 href="${request/ACTUAL_URL}#sharing-menu"
+                 title="Share this OiRA-Tool"
+                 data-pat-tooltip="source: ajax; position-list: tr"
+                 tal:condition="webhelpers/allow_social_sharing"
+                 i18n:attributes="title"
+              >Share</a>
+              <a tal:replace="structure here/@@more_badge|nothing"></a>
+            </metal:actions>
+          </nav>
+          <metal:messages_above_title define-slot="messages_above_title">
+            <p class="pat-message notice"
+               tal:repeat="message view/get_pat_messages_above_title"
+               tal:content="structure message"
+            ></p>
+          </metal:messages_above_title>
 
-        <article tal:condition="tool_notification"
-                 class="pat-well pat-rich info"
-        >
-          <h1>${tool_notification/title}</h1>
-          <tal:content content="structure tool_notification/text">
+          <article class="pat-well pat-rich info"
+                   tal:condition="tool_notification"
+          >
+            <h1>${tool_notification/title}</h1>
+            <tal:content content="structure tool_notification/text">
             TEXT
-          </tal:content>
-        </article>
+            </tal:content>
+          </article>
 
-        <article class="pat-rich">
-          <h1>${context/Title}</h1>
-          <section tal:condition="context/Description">
-            <p>${context/Description}</p>
-          </section>
-          <p>
+          <article class="pat-rich">
+            <h1>${context/Title}</h1>
+            <section tal:condition="context/Description">
+              <p>${context/Description}</p>
+            </section>
+            <p>
               <a class="show-more pat-modal"
                  href="${here/absolute_url}/@@tool-more-info#document-content"
                  data-pat-modal="class: small"
                  i18n:translate=""
-                 >Learn more about this tool&hellip;</a>
-          </p>
-        </article>
-        <metal:messages_below_article define-slot="messages_below_article">
-          <div class="pat-message notice"
-               tal:repeat="multiple_message view/get_pat_multiple_messages_below_article"
-          >
-            <p tal:repeat="message multiple_message"
-               tal:content="structure message"></p>
-          </div>
-        </metal:messages_below_article>
-        <fieldset class="vertical pat-inject pat-subform pat-autosubmit"
-                  data-pat-inject="url: ; source: #main-content; target: #main-content"
-                  data-pat-autosubmit="delay: 2000ms"
-                  tal:condition="can_edit"
-        >
-          <metal:widgets define-slot="widgets">
-            <tal:for repeat="widgetid view/widgets">
-              <label tal:define="
-                       widget nocall:view/widgets/?widgetid;
-                       name widget/name;
-                     "
-              >
-                ${widget/label}
-                <input tal:replace="structure widget/render" />
-                <tal:error condition="widget/error"
-                           replace="structure widget/error/render|nothing"
-                />
-              </label>
-            </tal:for>
-          </metal:widgets>
-        </fieldset>
-
-        <dl class="pat-grid-list"
-            tal:condition="not:can_edit"
-        >
-        <metal:widgets define-slot="widgets">
-          <tal:for repeat="widgetid view/widgets">
-            <dt tal:define="
-                  widget nocall:view/widgets/?widgetid;
-                "
+              >Learn more about this tool&hellip;</a>
+            </p>
+          </article>
+          <metal:messages_below_article define-slot="messages_below_article">
+            <div class="pat-message notice"
+                 tal:repeat="multiple_message view/get_pat_multiple_messages_below_article"
             >
+              <p tal:repeat="message multiple_message"
+                 tal:content="structure message"
+              ></p>
+            </div>
+          </metal:messages_below_article>
+          <fieldset class="vertical pat-inject pat-subform pat-autosubmit"
+                    data-pat-autosubmit="delay: 2000ms"
+                    data-pat-inject="url: ; source: #main-content; target: #main-content"
+                    tal:condition="can_edit"
+          >
+            <metal:widgets define-slot="widgets">
+              <tal:for repeat="widgetid view/widgets">
+                <label tal:define="
+                         widget nocall:view/widgets/?widgetid;
+                         name widget/name;
+                       ">
+                ${widget/label}
+                  <input tal:replace="structure widget/render" />
+                  <tal:error condition="widget/error"
+                             replace="structure widget/error/render|nothing"
+                  />
+                </label>
+              </tal:for>
+            </metal:widgets>
+          </fieldset>
+
+          <dl class="pat-grid-list"
+              tal:condition="not:can_edit"
+          >
+            <metal:widgets define-slot="widgets">
+              <tal:for repeat="widgetid view/widgets">
+                <dt tal:define="
+                      widget nocall:view/widgets/?widgetid;
+                    ">
             ${widget/label}
-            </dt>
-            <dd>${session/?widgetid}</dd>
-          </tal:for>
-        </metal:widgets>
-        </dl>
-      </div>
+                </dt>
+                <dd>${session/?widgetid}</dd>
+              </tal:for>
+            </metal:widgets>
+          </dl>
+        </div>
         <div class="button-bar"
              id="nav-bar"
              tal:condition="can_edit"
@@ -163,7 +162,7 @@
           </li>
           <li>
             <a class="email icon-mail"
-               href="mailto:?subject=OiRA &mdash; ${webhelpers/tool_name}&amp;body=${webhelpers/email_sharing_text}: ${webhelpers/survey_url}"
+               href="mailto:?subject=OiRA — ${webhelpers/tool_name}&amp;body=${webhelpers/email_sharing_text}: ${webhelpers/survey_url}"
                onclick="javascript:_paq.push(['trackEvent', 'SocialSharing', 'Email', 'Start']);"
                i18n:translate=""
             >E-mail</a>
@@ -174,27 +173,29 @@
     </metal:slot>
 
     <metal:slot fill-slot="splash_message_slot">
-    <!-- SPLASH SLOT -->
-      <div class="splash-message" id="splash-message">
-      <tal:splash condition="python:tool_notification is not None">
+      <!-- SPLASH SLOT -->
+      <div class="splash-message"
+           id="splash-message"
+      >
+        <tal:splash condition="python:tool_notification is not None">
 
-        <hr class="trigger pat-switch"
-            data-pat-switch="selector: body; remove: splash-on-tool*; add: splash-off-${tool_notification/id}; store: session"
-        />
-        <article class="pat-rich content">
-          <p>
-            <img src="${style_url}/oira-logo-colour.svg"
-                 width="20%"
-            />
-          </p>
-          <h1 tal:content="structure tool_notification/title">Message of the day!</h1>
-          <tal:content content="structure tool_notification/text">
-            <p>Sit amet consectetuer.</p>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
-            <p>OiRA Team</p>
-          </tal:content>
-        </article>
-      </tal:splash>
+          <hr class="trigger pat-switch"
+              data-pat-switch="selector: body; remove: splash-on-tool*; add: splash-off-${tool_notification/id}; store: session"
+          />
+          <article class="pat-rich content">
+            <p>
+              <img src="${style_url}/oira-logo-colour.svg"
+                   width="20%"
+              />
+            </p>
+            <h1 tal:content="structure tool_notification/title">Message of the day!</h1>
+            <tal:content content="structure tool_notification/text">
+              <p>Sit amet consectetuer.</p>
+              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+              <p>OiRA Team</p>
+            </tal:content>
+          </article>
+        </tal:splash>
       </div>
     </metal:slot>
 

@@ -4,15 +4,19 @@
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      meta:interpolation="true"
-      i18n:domain="euphorie"
       id="account-settings"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
-      metal:use-macro="context/@@plain/macros/shell">
+      meta:interpolation="true"
+      metal:use-macro="context/@@plain/macros/shell"
+      tal:define="
+        client nocall:request/client;
+        webhelpers nocall:context/@@webhelpers;
+      "
+      i18n:domain="euphorie"
+>
 
 
-<metal:js fill-slot="javascript_head_slot">
-   <style type="text/css">
+  <metal:js fill-slot="javascript_head_slot">
+    <style type="text/css">
 .prio-high .risk-title, .prio-high td.month {
       color: red;
 }
@@ -46,102 +50,129 @@ h3.title {margin-bottom:1.2em; font-weight:300}
 h4.subtitle {margin-bottom:0.7em;}
 ul.title {margin-bottom:3em;}
     </style>
-</metal:js>
+  </metal:js>
 
-<body>
+  <body>
     <metal:content fill-slot="content">
-        <article class="pat-rich report">
-            <p class="byline">
+      <article class="pat-rich report">
+        <p class="byline">
                 ${view/date}
-            </p>
-            <h1>${here/Title}</h1>
-            <h4 class="subtitle">${view/session_title}</h4>
-            <h2 class="title"><em i18n:translate="">Overview of measures</em></h2>
-            <h3 class="title" i18n:translate="">(measures to be implemented in the coming months)</h3>
-            <h4><tal:span i18n:translate="use_it_to_measures_report">Use it to</tal:span>:</h4>
-            <ul class="title">
-              <li i18n:translate="">Pass information to the people concerned.</li>
-              <li i18n:translate="">Monitor the measures to be implemented in the forthcoming 3 months.</li>
-            </ul>
+        </p>
+        <h1>${here/Title}</h1>
+        <h4 class="subtitle">${view/session_title}</h4>
+        <h2 class="title"><em i18n:translate="">Overview of measures</em></h2>
+        <h3 class="title"
+            i18n:translate=""
+        >(measures to be implemented in the coming months)</h3>
+        <h4><tal:span i18n:translate="use_it_to_measures_report">Use it to</tal:span>:</h4>
+        <ul class="title">
+          <li i18n:translate="">Pass information to the people concerned.</li>
+          <li i18n:translate="">Monitor the measures to be implemented in the forthcoming 3 months.</li>
+        </ul>
 
 
-            <section class="module" tal:repeat="module view/modules">
-                <h2 class="module-name">
+        <section class="module"
+                 tal:repeat="module view/modules"
+        >
+          <h2 class="module-name">
                     ${module/number} ${module/name}
-                </h2>
-                <table class="risk-measures-plan" border="1">
-                    <thead>
-                        <tr>
-                            <th colspan="4" class="legend" i18n:translate="">
+          </h2>
+          <table class="risk-measures-plan"
+                 border="1"
+          >
+            <thead>
+              <tr>
+                <th class="legend"
+                    colspan="4"
+                    i18n:translate=""
+                >
                                 Measure to be implemented by
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="prio-high" tal:condition="module/risks/high">
-                        <tr class="title-line">
-                            <th >
-                                <h3 i18n:translate="heading_high_prio_risks">
+                </th>
+              </tr>
+            </thead>
+            <tbody class="prio-high"
+                   tal:condition="module/risks/high"
+            >
+              <tr class="title-line">
+                <th>
+                  <h3 i18n:translate="heading_high_prio_risks">
                                     High priority risks
-                                </h3>
-                            </th>
-                            <td tal:repeat="month view/monthstrings" class="legend" i18n:domain="plone" i18n:translate="">
+                  </h3>
+                </th>
+                <td class="legend"
+                    tal:repeat="month view/monthstrings"
+                    i18n:domain="plone"
+                    i18n:translate=""
+                >
                                 ${month}
-                            </td>
-                        </tr>
-                        <tr tal:repeat="risk module/risks/high">
-                            <metal:macro define-macro="risk-row">
-                            <th>
-                                <h4 class="risk-title">
+                </td>
+              </tr>
+              <tr tal:repeat="risk module/risks/high">
+                <metal:macro define-macro="risk-row">
+                  <th>
+                    <h4 class="risk-title">
                                     ${risk/title}
-                                </h4>
-                                <p class="description">
+                    </h4>
+                    <p class="description">
                                     ${risk/description}
-                                </p>
-                            </th>
-                            <tal:block tal:repeat="month risk/months">
-                            <td tal:condition="month" class="month">
-                                •
-                            </td>
-                            <td tal:condition="not:month" class="month">
+                    </p>
+                  </th>
+                  <tal:block tal:repeat="month risk/months">
+                    <td class="month"
+                        tal:condition="month"
+                    >
+                                &bull;
+                    </td>
+                    <td class="month"
+                        tal:condition="not:month"
+                    >
 
-                            </td>
-                            </tal:block>
-                            </metal:macro>
-                        </tr>
-                    </tbody>
-                    <tbody class="prio-medium" tal:condition="module/risks/medium">
-                        <tr class="title-line">
-                            <th>
-                                <h3 i18n:translate="heading_medium_prio_risks">
+                    </td>
+                  </tal:block>
+                </metal:macro>
+              </tr>
+            </tbody>
+            <tbody class="prio-medium"
+                   tal:condition="module/risks/medium"
+            >
+              <tr class="title-line">
+                <th>
+                  <h3 i18n:translate="heading_medium_prio_risks">
                                     Medium priority risks
-                                </h3>
-                            </th>
-                            <td tal:repeat="month view/monthstrings" class="legend">
+                  </h3>
+                </th>
+                <td class="legend"
+                    tal:repeat="month view/monthstrings"
+                >
                                 ${month}
-                            </td>
-                        </tr>
-                        <tr tal:repeat="risk module/risks/medium">
-                            <metal:macro use-macro="view/risk-row" />
-                        </tr>
-                    </tbody>
-                    <tbody class="prio-low" tal:condition="module/risks/low">
-                        <tr class="title-line">
-                            <th>
-                                <h3 i18n:translate="heading_low_prio_risks">
+                </td>
+              </tr>
+              <tr tal:repeat="risk module/risks/medium">
+                <metal:macro use-macro="view/risk-row" />
+              </tr>
+            </tbody>
+            <tbody class="prio-low"
+                   tal:condition="module/risks/low"
+            >
+              <tr class="title-line">
+                <th>
+                  <h3 i18n:translate="heading_low_prio_risks">
                                     Low priority risks
-                                </h3>
-                            </th>
-                            <td tal:repeat="month view/monthstrings" class="legend">
+                  </h3>
+                </th>
+                <td class="legend"
+                    tal:repeat="month view/monthstrings"
+                >
                                 ${month}
-                            </td>
-                        </tr>
-                        <tr tal:repeat="risk module/risks/low">
-                            <metal:macro use-macro="view/risk-row" />
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-        </article>
+                </td>
+              </tr>
+              <tr tal:repeat="risk module/risks/low">
+                <metal:macro use-macro="view/risk-row" />
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </article>
     </metal:content>
-</body>
+  </body>
 </html>

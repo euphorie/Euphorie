@@ -36,8 +36,7 @@
             <metal:templates define-macro="templates">
               <tal:surveys define="
                              surveys root/survey_templates;
-                           "
-              >
+                           ">
                 <fieldset class="tools pat-checklist radio">
                   <label class="tool"
                          tal:repeat="survey surveys"
@@ -56,8 +55,7 @@
                 <legend>${child/title}</legend>
                 <tal:survey define="
                               root child;
-                            "
-                >
+                            ">
                   <metal:node use-macro="template/macros/templates" />
                 </tal:survey>
               </fieldset>
@@ -78,8 +76,7 @@
                   <option value="">&nbsp;</option>
                   <tal:surveys define="
                                  surveys root/survey_templates;
-                               "
-                  >
+                               ">
                     <option value="${survey/id}"
                             tal:repeat="survey surveys"
                     >${survey/title}</option>
@@ -89,8 +86,7 @@
                   <optgroup label="${child/title}">
                     <tal:survey define="
                                   root child;
-                                "
-                    >
+                                ">
                       <metal:node use-macro="template/macros/templates_many" />
                     </tal:survey>
                   </optgroup>

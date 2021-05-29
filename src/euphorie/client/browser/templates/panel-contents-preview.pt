@@ -39,7 +39,7 @@
                 <button class="icon-print pat-button"
                         onclick="window.print()"
                         i18n:translate="label_print_tool_preview"
-                  >Print a tool preview</button>
+                >Print a tool preview</button>
               </p>
             </div>
 

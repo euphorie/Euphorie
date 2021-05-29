@@ -1,23 +1,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="euphorie"
       meta:interpolation="true"
-      metal:use-macro="context/@@layout/macros/layout">
+      metal:use-macro="context/@@layout/macros/layout"
+      i18n:domain="euphorie"
+>
   <body>
     <metal:title fill-slot="title">${view/group/title}</metal:title>
-    <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar"/></metal:bar>
-    <metal:content fill-slot="content" tal:define="can_edit python:tools.checkPermission('Modify portal content')">
+    <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar" /></metal:bar>
+    <metal:content fill-slot="content"
+                   tal:define="
+                     can_edit python:tools.checkPermission('Modify portal content');
+                   "
+    >
       <h2 i18n:translate="header_information">Information</h2>
 
       <dl class="grid span-9">
         <dt i18n:translate="label_evaluation_phase">Evaluation phase</dt>
-        <dd tal:condition="context/evaluation_optional" i18n:translate="optional">Optional</dd>
-        <dd tal:condition="not:context/evaluation_optional" i18n:translate="mandatory">Mandatory</dd>
+        <dd tal:condition="context/evaluation_optional"
+            i18n:translate="optional"
+        >Optional</dd>
+        <dd tal:condition="not:context/evaluation_optional"
+            i18n:translate="mandatory"
+        >Mandatory</dd>
         <dt i18n:translate="label_classification_code">Classification code</dt>
         <dd tal:condition="context/classification_code">${context/classification_code}</dd>
         <dd tal:condition="not:context/classification_code"><em i18n:translate="not_set">Not set</em></dd>
@@ -27,26 +36,33 @@
         <dt i18n:translate="label_tool_type">Type of OiRA Tool</dt>
         <dd>${context/get_tool_type_name}</dd>
         <dt i18n:translate="label_integrated_action_plan">Integrated Action Plan</dt>
-        <dd tal:condition="context/integrated_action_plan" i18n:translate="Yes">Yes</dd>
-        <dd tal:condition="not:context/integrated_action_plan" i18n:translate="No">No</dd>
+        <dd tal:condition="context/integrated_action_plan"
+            i18n:translate="Yes"
+        >Yes</dd>
+        <dd tal:condition="not:context/integrated_action_plan"
+            i18n:translate="No"
+        >No</dd>
       </dl>
 
       <tal:intro condition="python:context.introduction">
         <h2 i18n:translate="label_introduction">Introduction text</h2>
-        <p tal:replace="structure context/introduction"/>
+        <p tal:replace="structure context/introduction"></p>
       </tal:intro>
 
       <h2 i18n:translate="header_modules_and_profile_questions">Modules and Profile Questions</h2>
-      <p tal:condition="python:not view.children" i18n:translate="no_profile_questions_or_modules">This survey has no profile questions or modules.</p>
+      <p tal:condition="python:not view.children"
+         i18n:translate="no_profile_questions_or_modules"
+      >This survey has no profile questions or modules.</p>
       <tal:children condition="python:view.children">
         <ol class="${python:'sortable' if can_edit and len(view.children)&gt;1 else None}">
           <div class="sortable-explanation">
             ${view/sortable_explanation}
           </div>
-          <li tal:repeat="child view/children" id="child-${child/id}"><a href="${child/url}">${child/title}</a></li>
+          <li id="child-${child/id}"
+              tal:repeat="child view/children"
+          ><a href="${child/url}">${child/title}</a></li>
         </ol>
       </tal:children>
     </metal:content>
   </body>
 </html>
-

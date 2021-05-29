@@ -5,30 +5,36 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
-      i18n:domain="euphorie"
       tal:define="
         webhelpers nocall:context/@@webhelpers;
         base_url webhelpers/base_url;
       "
-      >
+      i18n:domain="euphorie"
+>
 
-  <metal:help-menu define-macro="help-menu" meta:interpolation="true" i18n:domain="euphorie">
-    <div id="help-menu" hidden="hidden">
-        <ul class="menu">
-            <li>
-                <button id="osh-toggle"
-                    i18n:translate=""
-                    class="icon-circles osh-toggle pat-toggle close-panel"
-                    data-pat-toggle="selector: body; value: osh-on osh-off; store: local">Toggle on screen help</button>
-            </li>
-            <li>
-                <a href="${base_url}/help#content"
-                    i18n:translate="navigation_help"
-                    class="icon-help-circle close-panel"
-                    target="Help"
-                    >Help</a>
-            </li>
-        </ul>
-      </div>
+  <metal:help-menu define-macro="help-menu"
+                   meta:interpolation="true"
+                   i18n:domain="euphorie"
+  >
+    <div id="help-menu"
+         hidden="hidden"
+    >
+      <ul class="menu">
+        <li>
+          <button class="icon-circles osh-toggle pat-toggle close-panel"
+                  id="osh-toggle"
+                  data-pat-toggle="selector: body; value: osh-on osh-off; store: local"
+                  i18n:translate=""
+          >Toggle on screen help</button>
+        </li>
+        <li>
+          <a class="icon-help-circle close-panel"
+             href="${base_url}/help#content"
+             target="Help"
+             i18n:translate="navigation_help"
+          >Help</a>
+        </li>
+      </ul>
+    </div>
   </metal:help-menu>
 </html>

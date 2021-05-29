@@ -12,7 +12,9 @@
       <div class="pat-modal small"
            id="document-content"
       >
-        <h1 panel-class-small i18n:translate="label_clone">Clone risk assessment</h1>
+        <h1 panel-class-small=""
+            i18n:translate="label_clone"
+        >Clone risk assessment</h1>
         <form class="wizard-box panel-class-small"
               action="${context/absolute_url}/@@clone-session"
               method="post"
