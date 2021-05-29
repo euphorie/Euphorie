@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-12.0.1 (unreleased)
+12.0.1 (2021-05-29)
 -------------------
 
 - Updated date-picker (from Patternslib): we now display date according to localized format
