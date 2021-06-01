@@ -85,9 +85,8 @@
                tal:content="structure message"></p>
           </div>
         </metal:messages_below_article>
-        <fieldset class="vertical pat-inject pat-subform pat-autosubmit"
+        <fieldset class="vertical pat-inject pat-subform"
                   data-pat-inject="url: ; source: #main-content; target: #main-content"
-                  data-pat-autosubmit="delay: 2000ms"
                   tal:condition="can_edit"
         >
           <metal:widgets define-slot="widgets">
