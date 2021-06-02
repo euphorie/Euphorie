@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-12.0.2 (unreleased)
+12.0.2 (2021-06-02)
 -------------------
 
 - Try to fix display issues in the CMS by using upper case version of Title and Desctipion
