@@ -20,7 +20,7 @@
                      can_edit python:tools.checkPermission('Modify portal content');
                    "
     >
-      <p tal:replace="structure context/description">A description of the solution</p>
+      <p tal:content="context/Description">A description of the solution</p>
 
       <h2 i18n:translate="header_information">Information</h2>
 

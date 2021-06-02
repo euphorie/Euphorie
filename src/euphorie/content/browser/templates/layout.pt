@@ -34,14 +34,11 @@
           rel="stylesheet"
           type="text/css"
     />
-    <!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="${style_url}/main/base-ie6.css" /> <![endif]-->
-    <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="${style_url}/main/base-ie7.css" /> <![endif]-->
-    <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="all" href="${style_url}/main/base-ie8.css" /> <![endif]-->
     <style media="all"
            type="text/css"
     >
       ol.sortable:after {
-          content: "&lt;tal:span i18n:translate=""&gt;Change order of items by dragging the handle&lt;/tal:span&gt;";
+          content: "Change order of items by dragging the handle";
        }
     </style>
     <link href="${style_url}/euphorie/base.css"
@@ -49,9 +46,6 @@
           rel="stylesheet"
           type="text/css"
     />
-    <!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="${style_url}/euphorie/base-ie6.css" /> <![endif]-->
-    <!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="${style_url}/euphorie/base-ie7.css" /> <![endif]-->
-    <!--[if IE 8]> <link rel="stylesheet" type="text/css" media="all" href="${style_url}/euphorie/base-ie8.css" /> <![endif]-->
     <title><metal:title define-slot="title">Page Title</metal:title>
       &mdash; ${tools/site_title}</title>
   </head>

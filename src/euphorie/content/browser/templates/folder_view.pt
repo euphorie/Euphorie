@@ -10,13 +10,13 @@
       i18n:domain="euphorie"
 >
   <body>
-    <metal:title fill-slot="title">${context/title}</metal:title>
+    <metal:title fill-slot="title">${context/Title}</metal:title>
     <metal:content fill-slot="content"
                    tal:define="
                      children context/values;
                    "
     >
-      <p class="introduction">${context/description}</p>
+      <p class="introduction">${context/Description}</p>
 
       <p class="message notice"
          tal:condition="python:not children"

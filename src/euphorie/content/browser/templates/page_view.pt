@@ -10,7 +10,7 @@
       i18n:domain="euphorie"
 >
   <body>
-    <metal:title fill-slot="title">${context/title}</metal:title>
+    <metal:title fill-slot="title">${context/Title}</metal:title>
     <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar" /></metal:bar>
     <metal:content fill-slot="content"
                    tal:define="
@@ -18,7 +18,7 @@
                    "
     >
       <div class="introduction"
-           tal:content="structure context/description"
+           tal:content="structure context/Description"
       ></div>
       <tal:body replace="structure context/body" />
 

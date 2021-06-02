@@ -10,7 +10,7 @@
       i18n:domain="euphorie"
 >
   <body>
-    <metal:title fill-slot="title">${context/aq_parent/title}</metal:title>
+    <metal:title fill-slot="title">${context/aq_parent/Title}</metal:title>
     <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar" /></metal:bar>
 
     <metal:content fill-slot="content"
@@ -34,7 +34,7 @@
              tal:condition="scale"
              tal:on-error="nothing"
         />
-        <p tal:replace="structure context/description">Van belang is dat de spuitlans de juiste lengte heeft om rechtopstaand te werken. Een gebogen spuitlans geeft een hogere polsbelasting en wordt daarom afgeraden.</p>
+        <p tal:replace="structure context/Description">Van belang is dat de spuitlans de juiste lengte heeft om rechtopstaand te werken. Een gebogen spuitlans geeft een hogere polsbelasting en wordt daarom afgeraden.</p>
         <ul class="additionalImages"
             tal:condition="python:context.image2 or context.image3 or context.image4"
         >
@@ -141,7 +141,7 @@
                i18n:translate="risk_solution_header"
             >Measure
               <tal:span i18n:name="number">${repeat/solution/number}</tal:span></a><br />
-            <p tal:content="structure solution/description"></p></li>
+            <p tal:content="solution/Description"></p></li>
         </ol>
       </tal:block>
     </metal:content>
