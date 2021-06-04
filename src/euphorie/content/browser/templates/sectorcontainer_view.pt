@@ -18,7 +18,7 @@
         <p i18n:translate="message_choose_country">Please choose a country of which you would like to view or copy an OiRA Tool.</p>
       </div>
       <tal:block define="
-                   countries python:view.countries.get("region");
+                   countries python:view.countries.get('region');
                  "
                  condition="python:countries"
       >
@@ -29,7 +29,7 @@
         </ul>
       </tal:block>
       <tal:block define="
-                   countries python:view.countries.get("country");
+                   countries python:view.countries.get('country');
                  "
                  condition="python:countries"
       >
