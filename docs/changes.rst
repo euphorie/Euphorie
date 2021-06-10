@@ -5,8 +5,9 @@ Changelog
 12.0.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- When creating a test session, don't fail if the link to a session is
+  passed in via the came_from parameter.
+  Fixes #MPL-533
 
 12.0.3 (2021-06-10)
 -------------------

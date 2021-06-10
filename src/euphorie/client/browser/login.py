@@ -29,6 +29,7 @@ from six.moves.urllib.parse import urlencode
 from six.moves.urllib.parse import urlparse
 from six.moves.urllib.parse import urlsplit
 from z3c.saconfig import Session
+from zExceptions import Unauthorized
 
 import datetime
 import logging
@@ -192,6 +193,14 @@ class Tryout(SessionsView, Login):
             survey = self.context.restrictedTraverse(came_from)
         except KeyError:
             survey = None
+        # This might happen if we're linking to a dedicated session. Try to
+        # strip the session information from the came_from and try again
+        except (AttributeError, Unauthorized):
+            came_from = came_from.split("++session++")[0]
+            try:
+                survey = self.context.restrictedTraverse(came_from)
+            except KeyError:
+                survey = None
         if not ISurvey.providedBy(survey):
             return self.request.response.redirect(came_from)
         info = dict(action="new", survey=came_from)
