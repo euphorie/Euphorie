@@ -141,7 +141,7 @@
                i18n:translate="risk_solution_header"
             >Measure
               <tal:span i18n:name="number">${repeat/solution/number}</tal:span></a><br />
-            <p tal:content="solution/Description"></p></li>
+            <p tal:content="solution/description"></p></li>
         </ol>
       </tal:block>
     </metal:content>

@@ -5,8 +5,7 @@ Changelog
 12.0.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Fix a display issue on the Risk view, introduced in the last version
 
 12.0.2 (2021-06-02)
 -------------------
