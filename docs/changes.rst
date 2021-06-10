@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-12.0.3 (unreleased)
+12.0.3 (2021-06-10)
 -------------------
 
 - Fix a display issue on the Risk view, introduced in the last version
