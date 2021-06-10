@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-12.0.4 (unreleased)
+12.0.4 (2021-06-10)
 -------------------
 
 - When creating a test session, don't fail if the link to a session is
