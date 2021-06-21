@@ -195,7 +195,7 @@ class ImageSizeValidator(validator.SimpleFieldValidator):
             try:
                 ensure_image_size(value)
             except Invalid as invalid:
-                IStatusMessage(self.context.REQUEST).add(invalid.message, "warn")
+                IStatusMessage(self.context.REQUEST).add(invalid, "warn")
         else:
             ensure_image_size(value)
 
