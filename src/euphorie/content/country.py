@@ -42,7 +42,8 @@ class ICountry(model.Schema, IBasic):
     directives.widget(risk_default_collapsible_sections=CheckBoxFieldWidget)
     risk_default_collapsible_sections = schema.List(
         title=_(
-            "label__risk_default_collapsible_sections", u"Open sections on risk page"
+            "label__risk_default_collapsible_sections",
+            u"Expanded sections on risk page",
         ),
         description=_(
             "help__risk_default_collapsible_sections",
