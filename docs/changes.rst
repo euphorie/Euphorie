@@ -5,8 +5,7 @@ Changelog
 12.0.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Fix a bug with reordering of items in the CMS
 
 12.0.4 (2021-06-10)
 -------------------
