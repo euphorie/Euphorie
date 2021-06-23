@@ -1429,7 +1429,7 @@ msgstr ""
 #: euphorie/client/browser/templates/status_info.pt:267
 #: euphorie/client/browser/templates/webhelpers.pt:152
 msgid "Unvisited"
-msgstr "Niet bekekeken"
+msgstr "Niet bekeken"
 
 #: euphorie/content/browser/upload.py:456
 msgid "Upload"
@@ -1706,20 +1706,12 @@ msgstr ""
 #: euphorie/client/browser/templates/webhelpers.pt:867
 msgid "actionplan_measure_tooltip"
 msgstr ""
-"In het plan van aanpak geeft u aan welke maatregelen genomen gaan worden om "
-"het risico op te lossen. Het wegnemen van de oorzaak (aanpak bij de bron) is "
-"de gewenste methode; op die manier kan het risico worden voorkomen. Bij de "
-"maatregel geeft u aan welke stappen genomen moeten worden om het risico te "
-"voorkomen of te verminderen. Ook de kennis en ervaring die nodig zijn om dit "
-"uit te voeren, vult u in (preventieplan en vereisten). In de meeste gevallen "
-"zal de preventiemedewerker ondersteunen bij de uitvoering van het plan van "
-"aanpak. Hij/zij dient echter wel te beschikken over de mogelijkheden en een "
-"relevante opleiding hebben om dit goed uit te voeren."
+"Bij de maatregel geeft u aan welke stappen genomen moeten worden om het risico te voorkomen of te verminderen. Het wegnemen van de oorzaak (aanpak bij de bron) heeft als maatregel de voorkeur."
 
 #. Default: "Describe the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any)."
 #: euphorie/client/browser/templates/webhelpers.pt:882
 msgid "actionplan_requirements_tooltip"
-msgstr ""
+msgstr "Beschrijf de kennis en vereisten die nodig zijn om dit uit te voeren, bijv wel of geen specifieke arbokennis nodig; of elke andere vereiste die nodig is voor het uitvoeren van de maatregel. In de meeste gevallen zal de preventiemedewerker ondersteunen bij de uitvoering van het plan van aanpak. Hij/zij dient echter wel te beschikken over de mogelijkheden en een relevante opleiding hebben om dit goed uit te voeren."
 
 #. Default: "add a new OiRA Tool"
 #: euphorie/content/browser/templates/sector_view.pt:26
@@ -3364,6 +3356,10 @@ msgstr ""
 #: euphorie/content/solution.py:74
 msgid "help_measure_action"
 msgstr ""
+"Omschrijf de maatregel die uitgevoerd moet worden om dit risico weg te "
+"nemen. Deze informatie zal worden overgenomen in de maatregel. + "
+"Beschrijf wat u kunt doen om te voorkomen dat dit risico (nogmaals) "
+"voorkomt. Deze informatie wordt gekopieerd naar de maatregel."
 
 #. Default: "Describe your general approach to eliminate or (if the risk is not avoidable) reduce the risk."
 #: euphorie/content/solution.py:44
@@ -3383,8 +3379,7 @@ msgstr ""
 #: euphorie/content/solution.py:92
 msgid "help_measure_requirements"
 msgstr ""
-"Beschrijf de standaard maatregelen voor het Plan van aanpak en "
-"preventieplan. Deze informatie wordt in de maatregel gekopieerd."
+"Beschrijf de kennis en vereisten die nodig zijn om deze maatregel uit te kunnen voeren."
 
 #. Default: "Include any relevant information that may be helpful for the end-user."
 #: euphorie/content/module.py:52 euphorie/content/page.py:18
@@ -4078,7 +4073,7 @@ msgstr "Maatregel is al toegepast"
 #. Default: "Expertise"
 #: euphorie/client/browser/templates/webhelpers.pt:756
 msgid "label_expertise"
-msgstr "Expertise"
+msgstr "Benodigde kennis en vereisten"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/webhelpers.pt:982
@@ -4255,7 +4250,7 @@ msgstr "Welk logo wilt u linksboven tonen?"
 #. Default: "General approach (to eliminate or reduce the risk) + Specific action(s) required to implement this approach"
 #: euphorie/content/solution.py:67
 msgid "label_measure_action"
-msgstr ""
+msgstr "Omschrijving van de maatregel"
 
 #. Default: "General approach (to eliminate or reduce the risk)"
 #: euphorie/client/browser/report.py:129
@@ -4275,7 +4270,7 @@ msgstr "Preventie plan"
 #: euphorie/client/browser/templates/webhelpers.pt:886
 #: euphorie/client/docx/compiler.py:414
 msgid "label_measure_requirements"
-msgstr "Vereisten"
+msgstr "Benodigde kennis en vereisten"
 
 #. Default: "by"
 #: euphorie/client/browser/templates/status_info.pt:65
