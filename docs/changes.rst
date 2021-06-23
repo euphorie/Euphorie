@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-12.0.5 (unreleased)
+12.0.5 (2021-06-23)
 -------------------
 
 - Fix a bug with reordering of items in the CMS
