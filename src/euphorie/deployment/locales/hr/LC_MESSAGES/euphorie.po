@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-05 16:25+0000\n"
+"POT-Creation-Date: 2021-06-23 13:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,7 +58,7 @@ msgstr ""
 "opasnosti ili problemi. Također možete odlučiti ne odgovoriti na neko "
 "pitanje ili ga ostaviti „na čekanju” kako biste kasnije na njega odgovorili."
 
-#: euphorie/client/browser/templates/report_landing.pt:121
+#: euphorie/client/browser/templates/report_landing.pt:127
 msgid ""
 "${manage} the problems/risks in your workplace (specific tasks, expertise, "
 "responsibilities, deadlines)."
@@ -75,15 +75,15 @@ msgstr ""
 "${preparation} Pruža vam pregled određene procjene koju ste započeli i "
 "omogućava vam daljnju prilagodbu procjene specifičnoj prirodi vašeg posla."
 
-#: euphorie/client/browser/templates/report_landing.pt:93
+#: euphorie/client/browser/templates/report_landing.pt:97
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
 msgstr "${provide-evidence} za nadzorna tijela (Inspekciju rada)."
 
-#: euphorie/client/browser/templates/webhelpers.pt:308
+#: euphorie/client/browser/templates/webhelpers.pt:333
 msgid "${view/description_probability}"
 msgstr ""
 
-#: euphorie/client/browser/templates/measures_overview.pt:62
+#: euphorie/client/browser/templates/measures_overview.pt:64
 msgid "(measures to be implemented in the coming months)"
 msgstr "(mjere koje treba implementirati u sljedećim mjesecima)"
 
@@ -148,7 +148,7 @@ msgstr "Upitnik."
 msgid "A version of a survey."
 msgstr "Verzija upitnika."
 
-#: euphorie/client/browser/templates/tool-more-info.pt:29
+#: euphorie/client/browser/templates/tool-more-info.pt:36
 msgid "About this tool"
 msgstr "O ovom alatu"
 
@@ -185,12 +185,12 @@ msgstr "Dodaj rizik"
 msgid "Add Submodule"
 msgstr "Dodaj podmodul"
 
-#: euphorie/client/browser/templates/profile.pt:103
-#: euphorie/client/browser/templates/updated.pt:90
+#: euphorie/client/browser/templates/profile.pt:179
+#: euphorie/client/browser/templates/updated.pt:170
 msgid "Add another item"
 msgstr "Dodaj sljedeću stavku"
 
-#: euphorie/content/browser/templates/library.pt:15
+#: euphorie/content/browser/templates/library.pt:16
 msgid "Add content from library"
 msgstr "Dodajte sadržaj iz biblioteke"
 
@@ -198,7 +198,7 @@ msgstr "Dodajte sadržaj iz biblioteke"
 msgid "Added a copy of \"${title}\" to your OiRA tool."
 msgstr "Dodana preslika \"${title}\" vašem OiRA alatu."
 
-#: euphorie/client/browser/templates/webhelpers.pt:814
+#: euphorie/client/browser/templates/webhelpers.pt:844
 msgid "Additional Measure"
 msgstr "Dodatna mjera"
 
@@ -227,7 +227,7 @@ msgstr "Arhiva"
 msgid "Archive risk assessment"
 msgstr "Arhivirajte procjenu rizika"
 
-#: euphorie/content/utils.py:139
+#: euphorie/content/utils.py:141
 msgid "Are the measures that are selected above sufficient?"
 msgstr "Jesu li prethodno odabrane mjere dovoljne?"
 
@@ -235,12 +235,12 @@ msgstr "Jesu li prethodno odabrane mjere dovoljne?"
 msgid "Are you sure you want to archive this session?"
 msgstr "Jeste li sigurni da želite arhivirati ovu sesiju?"
 
-#: euphorie/client/browser/templates/confirmation-delete-risk.pt:25
+#: euphorie/client/browser/templates/confirmation-delete-risk.pt:29
 msgid "Are you sure you want to continue? This action can not be reverted."
 msgstr ""
 "Jeste li sigurni da želite nastaviti? Ova se radnja ne može poništiti. "
 
-#: euphorie/client/browser/risk.py:53
+#: euphorie/client/browser/risk.py:55
 msgid ""
 "Are you sure you want to delete this measure? This action can not be "
 "reverted."
@@ -248,7 +248,7 @@ msgstr ""
 "Jeste li sigurni da želite izbrisati ovu mjeru? Ova se radnja ne može "
 "poništiti."
 
-#: euphorie/client/browser/templates/confirmation-delete-session.pt:25
+#: euphorie/client/browser/templates/confirmation-delete-session.pt:31
 msgid ""
 "Are you sure you want to delete this session? This action can not be "
 "reverted."
@@ -256,7 +256,7 @@ msgstr ""
 "Jeste li sigurni da želite izbrisati ovu sesiju? Ova se radnja ne može "
 "poništiti."
 
-#: euphorie/client/browser/templates/confirmation-clone-session.pt:26
+#: euphorie/client/browser/templates/confirmation-clone-session.pt:28
 msgid "Are you sure you want to proceed?"
 msgstr "Jeste li sigurni da želite nastaviti?"
 
@@ -268,12 +268,12 @@ msgstr ""
 msgid "Available OiRA tools"
 msgstr "Dostupni OiRA alati"
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:23
-#: euphorie/client/browser/templates/sessions-dashboard.pt:58
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:34
+#: euphorie/client/browser/templates/sessions-dashboard.pt:63
 msgid "Back"
 msgstr "Natrag"
 
-#: euphorie/client/browser/templates/user-menu.pt:21
+#: euphorie/client/browser/templates/user-menu.pt:23
 msgid "Browse risk assessments"
 msgstr "Pretražite procjene rizika"
 
@@ -281,7 +281,7 @@ msgstr "Pretražite procjene rizika"
 msgid "Button bar to add and edit content"
 msgstr ""
 
-#: euphorie/client/browser/templates/confirmation-clone-session.pt:23
+#: euphorie/client/browser/templates/confirmation-clone-session.pt:25
 #: euphorie/client/browser/templates/more_menu.pt:38
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
@@ -291,8 +291,8 @@ msgstr ""
 "temelji na sadržaju ove procjene rizika."
 
 #: euphorie/client/browser/reset_password.py:186
-#: euphorie/client/browser/templates/account-delete.pt:29
-#: euphorie/client/browser/templates/account-settings.pt:26
+#: euphorie/client/browser/templates/account-delete.pt:45
+#: euphorie/client/browser/templates/account-settings.pt:49
 msgid "Cancel"
 msgstr "Odustani"
 
@@ -304,21 +304,21 @@ msgstr "Države kandidati"
 msgid "Candidate country"
 msgstr "Država kandidat"
 
-#: euphorie/client/browser/templates/user-menu.pt:45
+#: euphorie/client/browser/templates/user-menu.pt:52
 msgid "Change email address"
 msgstr "Promijeni adresu e-pošte"
 
-#: euphorie/content/utils.py:71
+#: euphorie/content/utils.py:72
 msgid "Classic OiRA Tool with positive and negative statements."
 msgstr "Uobičajeni alat OiRAs potvrdnim i niječnim tvrdnjama."
 
-#: euphorie/content/browser/templates/profilequestion_add.pt:68
-#: euphorie/content/browser/templates/profilequestion_edit.pt:75
+#: euphorie/content/browser/templates/profilequestion_add.pt:104
+#: euphorie/content/browser/templates/profilequestion_edit.pt:111
 msgid "Client example for a single occurance."
 msgstr "Primjer klijenta za jedan događaj."
 
-#: euphorie/content/browser/templates/profilequestion_add.pt:74
-#: euphorie/content/browser/templates/profilequestion_edit.pt:81
+#: euphorie/content/browser/templates/profilequestion_add.pt:110
+#: euphorie/content/browser/templates/profilequestion_edit.pt:117
 msgid "Client example for multiple occurances."
 msgstr "Primjer klijenta za višestruke događaje."
 
@@ -331,25 +331,21 @@ msgid "Comments"
 msgstr "Komentari"
 
 #: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/deployment/tests/profiles/testing/registry.xml
 #: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
 msgid "Configure the actions tile"
 msgstr ""
 
 #: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/deployment/tests/profiles/testing/registry.xml
 #: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
 msgid "Configure the client-analytics tile"
 msgstr ""
 
 #: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/deployment/tests/profiles/testing/registry.xml
 #: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
 msgid "Configure the navigation tile"
 msgstr ""
 
 #: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/deployment/tests/profiles/testing/registry.xml
 #: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
 msgid "Configure the scripts tile"
 msgstr ""
@@ -358,7 +354,7 @@ msgstr ""
 msgid "Confirm OiRA email address change"
 msgstr "Potvrdite promjenu OiRA adrese e-pošte"
 
-#: euphorie/client/browser/templates/report_landing.pt:88
+#: euphorie/client/browser/templates/report_landing.pt:92
 msgid ""
 "Contains: all the information and input provided by you throughout the risk "
 "assessment process."
@@ -366,15 +362,15 @@ msgstr ""
 "Sadrži: sve informacije i unose koje ste unijeli tijekom postupka procjene "
 "rizika."
 
-#: euphorie/client/browser/templates/report_landing.pt:176
+#: euphorie/client/browser/templates/report_landing.pt:186
 msgid "Contains: an overview of the measures to be implemented."
 msgstr "Sadrži: pregled mjera koje treba implementirati."
 
-#: euphorie/client/browser/templates/report_landing.pt:148
+#: euphorie/client/browser/templates/report_landing.pt:156
 msgid "Contains: an overview of the risks identified"
 msgstr "Sadrži: pregled identificiranih rizika"
 
-#: euphorie/client/browser/templates/report_landing.pt:116
+#: euphorie/client/browser/templates/report_landing.pt:122
 msgid ""
 "Contains: main elements to effectively manage the risks at your workplace."
 msgstr ""
@@ -389,11 +385,11 @@ msgstr ""
 msgid "Content types for defining sectors and surveys"
 msgstr ""
 
-#: euphorie/client/browser/templates/module_identification_custom.pt:42
+#: euphorie/client/browser/templates/module_identification_custom.pt:62
 msgid "Continue to action plan"
 msgstr "Nastavite na Plan mjera"
 
-#: euphorie/client/browser/templates/module_identification_custom.pt:42
+#: euphorie/client/browser/templates/module_identification_custom.pt:60
 msgid "Continue to report"
 msgstr "Nastavite na izvještaj"
 
@@ -413,17 +409,17 @@ msgstr "Informacije o državi i grupiranju za klijenta."
 msgid "Country manager"
 msgstr "Državni voditelj"
 
-#: euphorie/client/browser/templates/about.pt:187
+#: euphorie/client/browser/templates/about.pt:188
 msgid "Creative Commons Attribution-ShareAlike 2.5 Generic License"
 msgstr "Creative Commons Attribution-ShareAlike 2.5 Generic License"
 
-#: euphorie/client/browser/templates/about.pt:181
+#: euphorie/client/browser/templates/about.pt:182
 msgid "Creative Commons License"
 msgstr "Creative Commons licenca"
 
 #: euphorie/client/browser/settings.py:142
-#: euphorie/client/browser/templates/account-delete.pt:28
-#: euphorie/client/browser/templates/user-menu.pt:48
+#: euphorie/client/browser/templates/account-delete.pt:40
+#: euphorie/client/browser/templates/user-menu.pt:58
 msgid "Delete account"
 msgstr "Izbriši račun"
 
@@ -472,23 +468,23 @@ msgstr "Događa li se ovo na više mjesta?"
 msgid "Download and print your report"
 msgstr "Preuzmi i ispiši svoje izvješće"
 
-#: euphorie/client/browser/templates/training.pt:23
+#: euphorie/client/browser/templates/training.pt:27
 msgid "Download as PowerPoint file"
 msgstr "Preuzmite kao PowerPoint datoteku"
 
-#: euphorie/client/browser/templates/report_landing.pt:109
+#: euphorie/client/browser/templates/report_landing.pt:115
 msgid "Download the action plan"
 msgstr "Preuzimanje plana mjera"
 
-#: euphorie/client/browser/templates/report_landing.pt:81
+#: euphorie/client/browser/templates/report_landing.pt:85
 msgid "Download the full report"
 msgstr "Preuzimanje potpunog izvješća"
 
-#: euphorie/client/browser/templates/report_landing.pt:169
+#: euphorie/client/browser/templates/report_landing.pt:179
 msgid "Download the measures overview"
 msgstr "Preuzimanje pregleda mjera"
 
-#: euphorie/client/browser/templates/report_landing.pt:141
+#: euphorie/client/browser/templates/report_landing.pt:149
 msgid "Download the risks overview"
 msgstr "Preuzimanje pregleda rizika"
 
@@ -549,10 +545,6 @@ msgstr ""
 msgid "Euphorie client URL"
 msgstr ""
 
-#: euphorie/deployment/tests/profiles/testing/registry.xml
-msgid "Euphorie configuration"
-msgstr ""
-
 #: euphorie/content/configure.zcml:171
 msgid "Euphorie content types"
 msgstr ""
@@ -583,16 +575,7 @@ msgstr ""
 
 #: euphorie/deployment/profiles/default/registry.xml
 #: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Euphorie smartprintng URL"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
 msgid "Euphorie terms and condition"
-msgstr ""
-
-#: euphorie/deployment/tests/configure.zcml:13
-msgid "Euphorie testing profile"
 msgstr ""
 
 #: euphorie/deployment/profiles/default/registry.xml
@@ -613,8 +596,8 @@ msgstr ""
 msgid "European Union"
 msgstr "Europska Unija"
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:55
-#: euphorie/client/browser/templates/sessions-dashboard.pt:90
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:66
+#: euphorie/client/browser/templates/sessions-dashboard.pt:95
 msgid "Expand sidebar"
 msgstr "Proširite bočnu traku"
 
@@ -630,15 +613,15 @@ msgstr "Filteri"
 msgid "Folder"
 msgstr "Mapa"
 
-#: euphorie/client/browser/templates/report_landing.pt:115
+#: euphorie/client/browser/templates/report_landing.pt:121
 msgid "Format: Office Open XML Workbook (.xlsx)"
 msgstr "Oblik: Office Open XML radna knjiga (.xlsx)"
 
-#: euphorie/client/browser/templates/report_landing.pt:147
+#: euphorie/client/browser/templates/report_landing.pt:155
 msgid "Format: Portable Document Format (.pdf)"
 msgstr "Oblik: Portable Document Format (.pdf)"
 
-#: euphorie/content/utils.py:225
+#: euphorie/content/utils.py:227
 msgid "Full (show Description and General Approach)"
 msgstr ""
 
@@ -650,7 +633,7 @@ msgstr "Potpuno izvješće (Word dokument)"
 msgid "Generated unique ids are only unique within this context"
 msgstr ""
 
-#: euphorie/client/browser/templates/about.pt:162
+#: euphorie/client/browser/templates/about.pt:163
 msgid "Germany"
 msgstr "Njemačka"
 
@@ -662,7 +645,7 @@ msgstr "Sakrij arhivirane procjene rizika"
 msgid "How long will it take?"
 msgstr "Koliko će to dugo trajati?"
 
-#: euphorie/client/browser/templates/tool-more-info.pt:35
+#: euphorie/client/browser/templates/tool-more-info.pt:42
 msgid "How to use this tool"
 msgstr "Kako se koristi ovaj alat"
 
@@ -681,7 +664,7 @@ msgstr ""
 "procjeni, a zatim se vratiti i nastaviti gdje ste stali kada vam to bude "
 "prikladno."
 
-#: euphorie/client/browser/webhelpers.py:835
+#: euphorie/client/browser/webhelpers.py:845
 msgid "I wish to share the following with you"
 msgstr "Želim s vama podijeliti sljedeće"
 
@@ -718,22 +701,22 @@ msgstr ""
 msgid "Import OiRA Tool version"
 msgstr "Uvoz verzije OiRA alata"
 
-#: euphorie/client/browser/templates/tooltips.pt:15
+#: euphorie/client/browser/templates/tooltips.pt:22
 msgid "Important"
 msgstr "Važno"
 
-#: euphorie/client/browser/templates/plain.pt:181
-#: euphorie/client/browser/templates/shell.pt:103
+#: euphorie/client/browser/templates/plain.pt:224
+#: euphorie/client/browser/templates/shell.pt:158
 msgid "Info"
 msgstr "Informacije"
 
-#: euphorie/content/browser/templates/sector_edit.pt:35
-#: euphorie/content/browser/templates/surveygroup_add.pt:81
+#: euphorie/content/browser/templates/sector_edit.pt:60
+#: euphorie/content/browser/templates/surveygroup_add.pt:158
 #: euphorie/content/country.py:58
 msgid "Information"
 msgstr "Informacije"
 
-#: euphorie/client/browser/risk.py:887
+#: euphorie/client/browser/risk.py:891
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
 msgstr "Nevažeći format slike. Molimo koristite PNG, JPEG ili GIF."
 
@@ -761,9 +744,9 @@ msgstr ""
 msgid "Kosovo"
 msgstr "Kosovo"
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:120
-#: euphorie/client/browser/templates/status_info.pt:70
-#: euphorie/client/browser/templates/tool_sessions.pt:49
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:135
+#: euphorie/client/browser/templates/status_info.pt:72
+#: euphorie/client/browser/templates/tool_sessions.pt:55
 msgid "Last saved"
 msgstr "spremljeno"
 
@@ -771,24 +754,24 @@ msgstr "spremljeno"
 msgid "Learn more about this tool&hellip;"
 msgstr "Saznajte više o ovom alatu…"
 
-#: euphorie/client/browser/templates/shell.pt:345
+#: euphorie/client/browser/templates/shell.pt:421
 msgid "Loading Risk Assessments&hellip;"
 msgstr "Učitavanje procjena rizika&hellip;"
 
-#: euphorie/content/browser/templates/user_mgmt.pt:27
+#: euphorie/content/browser/templates/user_mgmt.pt:42
 msgid "Login"
 msgstr "Prijava"
 
-#: euphorie/client/browser/templates/report_landing.pt:121
+#: euphorie/client/browser/templates/report_landing.pt:127
 msgid "Manage"
 msgstr "Upravljanje"
 
-#: euphorie/client/browser/templates/webhelpers.pt:811
+#: euphorie/client/browser/templates/webhelpers.pt:841
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
 msgid "Measure"
 msgstr "Mjera"
 
-#: euphorie/client/browser/templates/measures_overview.pt:77
+#: euphorie/client/browser/templates/measures_overview.pt:85
 msgid "Measure to be implemented by"
 msgstr "Mjere koje treba implentirati"
 
@@ -801,12 +784,12 @@ msgstr "Modul"
 msgid "Monitor and assess whether necessary measures have been introduced."
 msgstr "Praćenje i procjenu jesu li uvedene neophodne mjere."
 
-#: euphorie/client/browser/templates/measures_overview.pt:66
-#: euphorie/client/browser/templates/report_landing.pt:182
+#: euphorie/client/browser/templates/measures_overview.pt:70
+#: euphorie/client/browser/templates/report_landing.pt:192
 msgid "Monitor the measures to be implemented in the forthcoming 3 months."
 msgstr "Nadgledanje mjera za implementaciju u naredna 3 mjeseca."
 
-#: euphorie/client/browser/templates/report_landing.pt:154
+#: euphorie/client/browser/templates/report_landing.pt:162
 #: euphorie/client/browser/templates/risks_overview.pt:156
 msgid "Monitor whether risks / measures are properly dealt with."
 msgstr "Praćenje jesu li rizici/mjere pravilno riješeni."
@@ -816,12 +799,12 @@ msgid "Montenegro"
 msgstr "Crna Gora"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:92
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:152
-#: euphorie/client/browser/templates/tool_sessions.pt:62
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:167
+#: euphorie/client/browser/templates/tool_sessions.pt:75
 msgid "More"
 msgstr "Više"
 
-#: euphorie/content/browser/templates/profilequestion_view.pt:27
+#: euphorie/content/browser/templates/profilequestion_view.pt:32
 msgid "Multiple Item Question"
 msgstr "Pitanje s više stavki"
 
@@ -829,7 +812,7 @@ msgstr "Pitanje s više stavki"
 msgid "Multiple item question"
 msgstr "Pitanje s više stavki"
 
-#: euphorie/content/browser/templates/profilequestion_view.pt:35
+#: euphorie/content/browser/templates/profilequestion_view.pt:40
 #: euphorie/content/profilequestion.py:90
 msgid "Multiple occurance prompt"
 msgstr "Iniciranje više događaja"
@@ -838,7 +821,7 @@ msgstr "Iniciranje više događaja"
 msgid "My risk assessments"
 msgstr "Moje procjene rizika"
 
-#: euphorie/content/browser/templates/user_mgmt.pt:65
+#: euphorie/content/browser/templates/user_mgmt.pt:88
 msgid "Name"
 msgstr "Naziv"
 
@@ -846,30 +829,30 @@ msgstr "Naziv"
 msgid "Navigation tree for sector management"
 msgstr ""
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:47
-#: euphorie/client/browser/templates/sessions-dashboard.pt:82
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:58
+#: euphorie/client/browser/templates/sessions-dashboard.pt:87
 msgid "New"
 msgstr "Nova"
 
-#: euphorie/client/browser/templates/profile.pt:53
-#: euphorie/client/browser/templates/updated.pt:40
-#: euphorie/content/browser/templates/survey_view.pt:31
+#: euphorie/client/browser/templates/profile.pt:76
+#: euphorie/client/browser/templates/updated.pt:67
+#: euphorie/content/browser/templates/survey_view.pt:42
 msgid "No"
 msgstr "Ne"
 
-#: euphorie/client/browser/templates/publication_menu.pt:84
+#: euphorie/client/browser/templates/publication_menu.pt:92
 msgid "No information about the last editor is available."
 msgstr "Nisu dostupne informacije o posljednjem uređivaču."
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:161
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:176
 msgid "No risk assessments are available for this selection."
 msgstr "Za ovaj odabir nisu dostupne procjene rizika."
 
-#: euphorie/content/browser/templates/profilequestion_view.pt:28
+#: euphorie/content/browser/templates/profilequestion_view.pt:33
 msgid "Not provided"
 msgstr "Nije omogućeno"
 
-#: euphorie/content/browser/templates/sector_edit.pt:41
+#: euphorie/content/browser/templates/sector_edit.pt:76
 msgid "Official OiRA Logo"
 msgstr "Službeni OiRA logotip"
 
@@ -888,7 +871,7 @@ msgstr "Uvoz OiRA alata"
 msgid "OiRA Tool version"
 msgstr "Verzija OiRA alata"
 
-#: euphorie/content/utils.py:98
+#: euphorie/content/utils.py:100
 msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
 msgstr "Alat OiRAu kojem mogu biti utvrđene „Postojeće mjere”."
 
@@ -936,9 +919,9 @@ msgstr ""
 msgid "Online help"
 msgstr "Pomoć na internetu"
 
-#: euphorie/client/browser/session.py:1071
-#: euphorie/client/browser/templates/measures_overview.pt:61
-#: euphorie/client/browser/templates/report_landing.pt:162
+#: euphorie/client/browser/session.py:1066
+#: euphorie/client/browser/templates/measures_overview.pt:63
+#: euphorie/client/browser/templates/report_landing.pt:172
 msgid "Overview of measures"
 msgstr "Pregled mjera"
 
@@ -946,8 +929,8 @@ msgstr "Pregled mjera"
 msgid "Overview of measures (PDF)"
 msgstr "Pregled mjera (PDF)"
 
-#: euphorie/client/browser/session.py:1061
-#: euphorie/client/browser/templates/report_landing.pt:134
+#: euphorie/client/browser/session.py:1056
+#: euphorie/client/browser/templates/report_landing.pt:142
 #: euphorie/client/browser/templates/risks_overview.pt:152
 msgid "Overview of risks"
 msgstr "Pregled rizika"
@@ -968,8 +951,8 @@ msgstr ""
 "Pružanje informacija osobama kojih se ovo tiče (radnicima, ovlaštenicima, "
 "povjerenicima, stručnjacima zaštite na radu itd.)"
 
-#: euphorie/client/browser/templates/measures_overview.pt:65
-#: euphorie/client/browser/templates/report_landing.pt:153
+#: euphorie/client/browser/templates/measures_overview.pt:69
+#: euphorie/client/browser/templates/report_landing.pt:161
 #: euphorie/client/browser/templates/risks_overview.pt:155
 msgid "Pass information to the people concerned."
 msgstr "Prosljeđivanje informacija osobama kojih se to tiče."
@@ -980,14 +963,14 @@ msgstr "Prosljeđivanje informacija osobama kojih se to tiče."
 msgid "Password doesn't compare with confirmation value"
 msgstr ""
 
-#: euphorie/client/browser/templates/new-email.pt:18
+#: euphorie/client/browser/templates/new-email.pt:26
 msgid ""
 "Please bear in mind that by changing the email address, your login name will "
 "also change."
 msgstr ""
 "Imajte na umu da se promjenom adrese e-pošte, mijenja i vaše ime prijave."
 
-#: euphorie/content/browser/templates/library.pt:24
+#: euphorie/content/browser/templates/library.pt:28
 msgid ""
 "Please note that you may not be able to use all available content: profile "
 "questions can only be used at the top level of your survey, and modules may "
@@ -997,14 +980,14 @@ msgstr ""
 "pitanja za profil mogu se koristiti samo na najvišoj razini vašeg upitnika i "
 "moduli mogu biti previše duboko ugniježđeni da stanu u ${title}."
 
-#: euphorie/content/browser/templates/profilequestion_add.pt:47
-#: euphorie/content/browser/templates/profilequestion_edit.pt:54
+#: euphorie/content/browser/templates/profilequestion_add.pt:70
+#: euphorie/content/browser/templates/profilequestion_edit.pt:77
 msgid "Please refer to the examples below the form."
 msgstr "Pogledajte primjere ispod obrasca."
 
-#: euphorie/client/browser/templates/risks_overview.pt:323
+#: euphorie/client/browser/templates/risks_overview.pt:321
 #: euphorie/client/browser/templates/status_info.pt:259
-#: euphorie/client/browser/templates/webhelpers.pt:141
+#: euphorie/client/browser/templates/webhelpers.pt:155
 msgid "Postponed"
 msgstr "Odgođen"
 
@@ -1021,8 +1004,8 @@ msgstr "Država potencijalni kandidat"
 msgid "Profile question"
 msgstr "Pitanje za profil"
 
-#: euphorie/content/browser/templates/profilequestion_add.pt:45
-#: euphorie/content/browser/templates/profilequestion_edit.pt:52
+#: euphorie/content/browser/templates/profilequestion_add.pt:64
+#: euphorie/content/browser/templates/profilequestion_edit.pt:71
 msgid ""
 "Profile questions are used to determine whether particular modules apply to "
 "the end user at all (i.e. the modules inside the profile question are "
@@ -1034,7 +1017,7 @@ msgstr ""
 "OPCIONALNI) i ako se primijene, treba li ih ponoviti nekoliko puta (npr. "
 "moduli su PONAVLJAJUĆI)."
 
-#: euphorie/client/browser/templates/report_landing.pt:93
+#: euphorie/client/browser/templates/report_landing.pt:97
 msgid "Provide evidence"
 msgstr "Osiguranje dokaza"
 
@@ -1042,11 +1025,11 @@ msgstr "Osiguranje dokaza"
 msgid "Provide evidence for supervisory authorities."
 msgstr "Osiguravanje dokaza nadzornim tijelima."
 
-#: euphorie/client/browser/templates/publication_menu.pt:51
+#: euphorie/client/browser/templates/publication_menu.pt:58
 msgid "Publish Risk Assessment"
 msgstr "Objavite procjenu rizika"
 
-#: euphorie/client/browser/templates/risk_macros.pt:161
+#: euphorie/client/browser/templates/risk_macros.pt:160
 msgid "Read more"
 msgstr "Saznajte više"
 
@@ -1058,7 +1041,7 @@ msgstr ""
 "Bilježenje svake revizije u slučaju promjena okolnosti (novi strojevi, novi "
 "radnici, kao posljedica nalaza bilo koje istrage povodom nezgode itd.)"
 
-#: euphorie/client/browser/templates/publication_menu.pt:73
+#: euphorie/client/browser/templates/publication_menu.pt:80
 msgid "Refresh publication date"
 msgstr "Osvježite datum objavljivanja"
 
@@ -1078,9 +1061,9 @@ msgstr ""
 "Registracija vam omogućava jednostavnu prijavu u bilo koje doba, radi "
 "nastavka prethodne procjene ili pokretanja nove."
 
-#: euphorie/client/browser/templates/profile.pt:73
+#: euphorie/client/browser/templates/profile.pt:126
 #: euphorie/client/browser/templates/risk_identification_custom.pt:256
-#: euphorie/client/browser/templates/updated.pt:60
+#: euphorie/client/browser/templates/updated.pt:117
 msgid "Remove"
 msgstr "Ukloni"
 
@@ -1101,15 +1084,15 @@ msgstr ""
 msgid "Risk"
 msgstr "Rizik"
 
-#: euphorie/client/browser/templates/tool_sessions.pt:36
+#: euphorie/client/browser/templates/tool_sessions.pt:40
 msgid "Risk assessments made with this tool"
 msgstr "Procjene rizika izvršene ovim alatom"
 
-#: euphorie/client/browser/templates/webhelpers.pt:144
+#: euphorie/client/browser/templates/webhelpers.pt:158
 msgid "Risk not present"
 msgstr "Rizik ne postoji"
 
-#: euphorie/client/browser/templates/webhelpers.pt:147
+#: euphorie/client/browser/templates/webhelpers.pt:161
 msgid "Risk present"
 msgstr "Postoji rizik"
 
@@ -1117,7 +1100,7 @@ msgstr "Postoji rizik"
 msgid "Root node for unique id generation"
 msgstr ""
 
-#: euphorie/client/browser/templates/training.pt:24
+#: euphorie/client/browser/templates/training.pt:30
 msgid "Run slideshow"
 msgstr "Pokrenite prezentaciju"
 
@@ -1127,7 +1110,7 @@ msgstr "Spremi"
 
 #: euphorie/client/browser/reset_password.py:248
 #: euphorie/client/browser/settings.py:99
-#: euphorie/client/browser/templates/account-settings.pt:25
+#: euphorie/client/browser/templates/account-settings.pt:44
 msgid "Save changes"
 msgstr "Spremi promjene"
 
@@ -1141,12 +1124,12 @@ msgstr ""
 "preurediti ili mu dodati više informacija. Imajte na umu da izmjene koje ste "
 "načinili na svojem osobnom računalu NEĆE biti spremljene u OiRA alatu."
 
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:89
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:103
 #: euphorie/deployment/tiles/configure.zcml:59
 msgid "Search"
 msgstr "Traži"
 
-#: euphorie/content/browser/templates/user_mgmt.pt:26
+#: euphorie/content/browser/templates/user_mgmt.pt:41
 #: euphorie/content/profiles/default/types/euphorie.sector.xml
 #: euphorie/deployment/browser/search.py:12
 msgid "Sector"
@@ -1185,19 +1168,19 @@ msgstr "Podijeli ovaj alat OiRA"
 msgid "Should the user accept the terms and conditions"
 msgstr ""
 
-#: euphorie/content/browser/templates/library.pt:29
+#: euphorie/content/browser/templates/library.pt:34
 msgid "Show library from ${dropdown}."
 msgstr "Prikaži oblik biblioteke ${dropdown}."
 
-#: euphorie/client/browser/templates/webhelpers.pt:65
+#: euphorie/client/browser/templates/webhelpers.pt:68
 msgid "Sign in"
 msgstr "Prijava"
 
-#: euphorie/content/utils.py:227
+#: euphorie/content/utils.py:229
 msgid "Simple (show only General Approach)"
 msgstr ""
 
-#: euphorie/content/browser/templates/profilequestion_view.pt:31
+#: euphorie/content/browser/templates/profilequestion_view.pt:36
 #: euphorie/content/profilequestion.py:80
 msgid "Single occurance prompt"
 msgstr "Iniciranje jednog događaja"
@@ -1207,42 +1190,34 @@ msgid "Solution"
 msgstr ""
 
 #: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/deployment/tests/profiles/testing/registry.xml
 #: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
 msgid "Some json to configure the actions tile"
 msgstr ""
 
 #: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/deployment/tests/profiles/testing/registry.xml
 #: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
 msgid "Some json to configure the client-analytics tile"
 msgstr ""
 
 #: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/deployment/tests/profiles/testing/registry.xml
 #: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
 msgid "Some json to configure the navigation tile"
 msgstr ""
 
 #: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/deployment/tests/profiles/testing/registry.xml
 #: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
 msgid "Some json to configure the scripts tile"
-msgstr ""
-
-#: euphorie/deployment/tests/profiles/testing/registry.xml
-msgid "Some json to configure this euphorie installation"
 msgstr ""
 
 #: euphorie/content/browser/upload.py:128
 msgid "Standard"
 msgstr "Uobičajen"
 
-#: euphorie/client/browser/templates/webhelpers.pt:629
+#: euphorie/client/browser/templates/webhelpers.pt:656
 msgid "Standard measures"
 msgstr "Predložene mjere"
 
-#: euphorie/content/browser/templates/solution_view.pt:12
+#: euphorie/content/browser/templates/solution_view.pt:13
 msgid "Standard solution"
 msgstr "Uobičajeno rješenje"
 
@@ -1250,8 +1225,8 @@ msgstr "Uobičajeno rješenje"
 msgid "Started"
 msgstr "Započeto"
 
-#: euphorie/client/browser/login.py:228
-#: euphorie/client/browser/templates/new-session-test.pt:89
+#: euphorie/client/browser/login.py:237
+#: euphorie/client/browser/templates/new-session-test.pt:154
 msgid "Starting a test session is not available in this OiRA application."
 msgstr "Pokretanje probne sesije nije dostupno u ovoj OiRA aplikaciji."
 
@@ -1259,8 +1234,8 @@ msgstr "Pokretanje probne sesije nije dostupno u ovoj OiRA aplikaciji."
 msgid "Submodule"
 msgstr "Podmodul"
 
-#: euphorie/content/browser/templates/profilequestion_add.pt:46
-#: euphorie/content/browser/templates/profilequestion_edit.pt:53
+#: euphorie/content/browser/templates/profilequestion_add.pt:67
+#: euphorie/content/browser/templates/profilequestion_edit.pt:74
 msgid ""
 "Such questions are asked BEFORE the end-user starts the risk identification "
 "and evaluation. If the end-user does not confirm that an optional profile "
@@ -1296,7 +1271,7 @@ msgstr ""
 msgid "Survey versions"
 msgstr ""
 
-#: euphorie/client/browser/templates/about.pt:141
+#: euphorie/client/browser/templates/about.pt:142
 msgid "The Netherlands"
 msgstr "Nizozemska"
 
@@ -1313,19 +1288,14 @@ msgstr ""
 msgid "The URL of the client portal"
 msgstr ""
 
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "The URL of the smartprintng server"
-msgstr ""
-
-#: euphorie/content/browser/templates/profilequestion_add.pt:39
-#: euphorie/content/browser/templates/profilequestion_edit.pt:46
+#: euphorie/content/browser/templates/profilequestion_add.pt:44
+#: euphorie/content/browser/templates/profilequestion_edit.pt:51
 msgid ""
 "The basic architecture of an Online interactive Risk Assessment consists of:"
 msgstr ""
 "Osnovna arhitektura Internetske interaktivne procjene rizika sastoji se od:"
 
-#: euphorie/client/browser/risk.py:59
+#: euphorie/client/browser/risk.py:61
 msgid ""
 "The current text in the fields 'Action plan', 'Prevention plan' and "
 "'Requirements' of this measure will be overwritten. This action cannot be "
@@ -1387,7 +1357,7 @@ msgstr "Nema dovoljno podataka za prelazak u fazu prepoznavanja"
 msgid "There were no changes to be saved."
 msgstr "Nema promjena za spremanje."
 
-#: euphorie/client/browser/templates/tool-more-info.pt:64
+#: euphorie/client/browser/templates/tool-more-info.pt:71
 msgid "This OiRA tool was offered to you by ${external_site}"
 msgstr "Ponuda ovog OiRA alata stigla vam je s ${external_site}"
 
@@ -1395,7 +1365,7 @@ msgstr "Ponuda ovog OiRA alata stigla vam je s ${external_site}"
 msgid "This email address is not available."
 msgstr "Ova adresa e-pošte nije dostupna."
 
-#: euphorie/content/browser/templates/surveygroup_add.pt:89
+#: euphorie/content/browser/templates/surveygroup_add.pt:180
 msgid "This is a simpler evaluation algorithm using only two criteria."
 msgstr "Ovaj jednostavniji algoritam za procjenu koristi samo dva mjerila."
 
@@ -1403,7 +1373,7 @@ msgstr "Ovaj jednostavniji algoritam za procjenu koristi samo dva mjerila."
 msgid "This is a unique identifier for this object."
 msgstr "Ovo je jedinstveni identifikator za ovaj objekt."
 
-#: euphorie/content/browser/templates/surveygroup_add.pt:85
+#: euphorie/content/browser/templates/surveygroup_add.pt:172
 msgid ""
 "This is the recommended evaluation algorithm, based on the Kinney method"
 msgstr "Ovo je preporučeni algoritam za procjenu, temeljen na Kinney-metodi"
@@ -1447,12 +1417,12 @@ msgstr "Ovaj alat zaslužuje da se zna za njega! Podijelite ga!"
 msgid "This value must be greater than or equal to 1"
 msgstr ""
 
-#: euphorie/client/browser/templates/tooltips.pt:52
+#: euphorie/client/browser/templates/tooltips.pt:59
 msgid "Tip"
 msgstr "Savjet"
 
-#: euphorie/client/browser/templates/help-menu.pt:19
-#: euphorie/client/browser/templates/user-menu.pt:30
+#: euphorie/client/browser/templates/help-menu.pt:24
+#: euphorie/client/browser/templates/user-menu.pt:33
 msgid "Toggle on screen help"
 msgstr "Uključi pomoć na zaslonu"
 
@@ -1460,13 +1430,13 @@ msgstr "Uključi pomoć na zaslonu"
 msgid "Unique id for content"
 msgstr ""
 
-#: euphorie/client/browser/templates/publication_menu.pt:63
+#: euphorie/client/browser/templates/publication_menu.pt:70
 msgid "Unpublish Risk Assessment"
 msgstr "Poništi objavu procjene rizika"
 
-#: euphorie/client/browser/templates/risks_overview.pt:331
+#: euphorie/client/browser/templates/risks_overview.pt:329
 #: euphorie/client/browser/templates/status_info.pt:267
-#: euphorie/client/browser/templates/webhelpers.pt:138
+#: euphorie/client/browser/templates/webhelpers.pt:152
 msgid "Unvisited"
 msgstr "Neodgovoren"
 
@@ -1522,17 +1492,17 @@ msgstr "Kome je OiRA alat namijenjen?"
 msgid "Why do I have to register?"
 msgstr "Zašto se moram registrirati?"
 
-#: euphorie/client/browser/templates/profile.pt:52
-#: euphorie/client/browser/templates/updated.pt:39
-#: euphorie/content/browser/templates/survey_view.pt:30
+#: euphorie/client/browser/templates/profile.pt:68
+#: euphorie/client/browser/templates/updated.pt:59
+#: euphorie/content/browser/templates/survey_view.pt:39
 msgid "Yes"
 msgstr "Da"
 
-#: euphorie/client/browser/templates/confirmation-clone-session.pt:34
+#: euphorie/client/browser/templates/confirmation-clone-session.pt:36
 msgid "Yes, clone risk assessment"
 msgstr "Da, kloniraj procjenu rizika"
 
-#: euphorie/content/browser/templates/library.pt:17
+#: euphorie/content/browser/templates/library.pt:18
 msgid ""
 "You can use content from the standard libary as provided by OSHA in your own "
 "surveys. Just select the module or risk you want to use in the list below "
@@ -1586,33 +1556,33 @@ msgid "Your password was successfully changed."
 msgstr "Vaša lozinka je uspješno promijenjena."
 
 #. Default: "The source code of the OiRA application is ${GPL} licensed."
-#: euphorie/client/browser/templates/about.pt:173
+#: euphorie/client/browser/templates/about.pt:174
 msgid "about_licenses_1"
 msgstr "Izvorni kod OiRA aplikacije ima ${GPL} licencu."
 
 #. Default: "The content of OiRA sectoral tools is licensed under a ${license}"
-#: euphorie/client/browser/templates/about.pt:187
+#: euphorie/client/browser/templates/about.pt:188
 msgid "about_licenses_2"
 msgstr "Sadržaj OiRA sektorskog alata licenciran je pod ${license}"
 
 #. Default: "The OiRA sectoral tools can be used for free by all users."
-#: euphorie/client/browser/templates/about.pt:193
+#: euphorie/client/browser/templates/about.pt:194
 msgid "about_licenses_3"
 msgstr "OiRA sektorske alate svi korisnici mogu besplatno koristiti."
 
 #. Default: "More information about the OiRA project (in English)"
-#: euphorie/client/browser/templates/about.pt:96
+#: euphorie/client/browser/templates/about.pt:97
 msgid "about_oiraproject"
 msgstr "Više informacija o OiRA projektu (na engleskom jeziku)"
 
 #. Default: "European Community Strategy on Health and Safety at Work 2007-2012"
-#: euphorie/client/browser/templates/about.pt:86
+#: euphorie/client/browser/templates/about.pt:87
 msgid "about_paragraph3_agency"
 msgstr ""
 "Strategija Europske zajednice o zdravlju i sigurnosti na radu 2007. – 2012."
 
 #. Default: "Experience shows that ${key}. This is why EU-OSHA developed an ${easy} (the &ldquo;OiRA&rdquo; - Online interactive Risk Assessment) that can help micro and small organisations to put in place a ${step} &ndash; starting with the ${identification} and ${evaluation} of workplace risks, through decision making on ${preventive_actions} and the taking of action, to monitoring and ${reporting}."
-#: euphorie/client/browser/templates/about.pt:69
+#: euphorie/client/browser/templates/about.pt:70
 msgid "about_paragraph_1"
 msgstr ""
 "Iskustvo je pokazalo da ${key}. To je ujedno i razlog zašto je EU-OSHA "
@@ -1623,49 +1593,49 @@ msgstr ""
 "nadgledanje i ${reporting}."
 
 #. Default: "easy-to-use and cost-free web application"
-#: euphorie/client/browser/templates/about.pt:41
+#: euphorie/client/browser/templates/about.pt:42
 msgid "about_paragraph_1_easy"
 msgstr "besplatna web-aplikacija, jednostavna za korištenje"
 
 #. Default: "evaluation"
-#: euphorie/client/browser/templates/about.pt:58
+#: euphorie/client/browser/templates/about.pt:59
 msgid "about_paragraph_1_evaluation"
 msgstr "procjena"
 
 #. Default: "identification"
-#: euphorie/client/browser/templates/about.pt:54
+#: euphorie/client/browser/templates/about.pt:55
 msgid "about_paragraph_1_identification"
 msgstr "identifikacija"
 
 #. Default: "proper risk assessment is the key to healthy workplaces"
-#: euphorie/client/browser/templates/about.pt:35
+#: euphorie/client/browser/templates/about.pt:36
 msgid "about_paragraph_1_key"
 msgstr "točna procjena rizika ključni je čimbenik „zdravih” radnih mjesta"
 
 #. Default: "preventive actions"
-#: euphorie/client/browser/templates/about.pt:63
+#: euphorie/client/browser/templates/about.pt:64
 msgid "about_paragraph_1_preventive_actions"
 msgstr "preventivne akcije"
 
 #. Default: "reporting"
-#: euphorie/client/browser/templates/about.pt:69
+#: euphorie/client/browser/templates/about.pt:70
 msgid "about_paragraph_1_reporting"
 msgstr "izvješćivanje"
 
 #. Default: "step-by-step risk assessment process"
-#: euphorie/client/browser/templates/about.pt:48
+#: euphorie/client/browser/templates/about.pt:49
 msgid "about_paragraph_1_step"
 msgstr "postupak procjene rizika „korak po korak”"
 
 #. Default: "The OiRA web application gives access to the sectoral Risk Assessment tools created and maintained by sectoral organisations at national level."
-#: euphorie/client/browser/templates/about.pt:75
+#: euphorie/client/browser/templates/about.pt:76
 msgid "about_paragraph_2"
 msgstr ""
 "OiRA web-aplikacija omogućuje pristup sektorskim alatima za procjenu rizika "
 "koje su stvorile i održavaju sektorske organizacije na nacionalnoj razini."
 
 #. Default: "The ${agency} calls for the development of simple tools to facilitate risk assessment. Since the adoption of the European Framework directive in 1989, risk assessment has become a familiar concept for organising prevention in the workplace, and hundreds of thousands of companies all over Europe assess their risks regularly. Nevertheless, there is sufficient evidence to conclude that ${smb} when it comes to risk assessment and the adoption of a preventive policy in general which the OiRA project aims to overcome."
-#: euphorie/client/browser/templates/about.pt:90
+#: euphorie/client/browser/templates/about.pt:91
 msgid "about_paragraph_3"
 msgstr ""
 "${agency} je uputila pozive za razvoj jednostavnih alata kako bi se "
@@ -1677,7 +1647,7 @@ msgstr ""
 "preventivne politike općenito, koje OiRA projekt nastoji prebroditi."
 
 #. Default: "The OiRA project and its related web application has been developed by the ${eu-osha} based on the Dutch RA-instrument (called ${RIE}), which, financed by the Dutch government, was initially developed by TNO in collaboration with the employers organisation for small and medium-sized enterprises MKB-Nederland and the Dutch Ministry for Employment. Further development of the application was realised with input and participation of trade unions FNV, CNV and MHP."
-#: euphorie/client/browser/templates/about.pt:127
+#: euphorie/client/browser/templates/about.pt:128
 msgid "about_partners_1"
 msgstr ""
 "OiRA projekt i povezana web-aplikacija razvila je ${eu-osha} na temelju "
@@ -1688,12 +1658,12 @@ msgstr ""
 "pomoć i sudjelovanje sindikata FNV, CNV i MHP."
 
 #. Default: "The following technical partners contributed to the development of the OiRA project:"
-#: euphorie/client/browser/templates/about.pt:132
+#: euphorie/client/browser/templates/about.pt:133
 msgid "about_partners_2"
 msgstr "Razvoju OiRA projekta doprinijeli su sljedeći tehnički partneri:"
 
 #. Default: "The Agency was also given strategic and expert advice by a Steering Committee in the development and implementation of the OiRA project. Members and alternates of the Steering Committee were appointed by the interest groups at the Board, by the Commission and by EU-OSHA."
-#: euphorie/client/browser/templates/about.pt:165
+#: euphorie/client/browser/templates/about.pt:166
 msgid "about_partners_3"
 msgstr ""
 "Upravni odbor dao je Agenciji strateški i stručni savjet za razvoj i "
@@ -1701,40 +1671,40 @@ msgstr ""
 "su interesne skupine na odboru, Komisija i EU-OSHA."
 
 #. Default: "micro and small enterprises have some shortcomings"
-#: euphorie/client/browser/templates/about.pt:90
+#: euphorie/client/browser/templates/about.pt:91
 msgid "about_partners_3_smb"
 msgstr "mikropoduzeća i mala poduzeća imaju neke nedostatke"
 
 #. Default: "Describe the specific measures required to reduce the risk."
-#: euphorie/client/browser/risk.py:287
+#: euphorie/client/browser/risk.py:289
 msgid "action_measures_false_solutions_false"
 msgstr "Opišite odgovarajuće mjere potrebne za smanjivanje rizika."
 
 #. Default: "Select or describe the specific measures required to reduce the risk."
-#: euphorie/client/browser/risk.py:279
+#: euphorie/client/browser/risk.py:281
 msgid "action_measures_false_solutions_true"
 msgstr ""
 "Odaberite ili opišite odgovarajuće mjere potrebne za smanjivanje rizika. "
 
 #. Default: "Describe any further measure to reduce the risk."
-#: euphorie/client/browser/risk.py:270
+#: euphorie/client/browser/risk.py:272
 msgid "action_measures_true_solutions_false"
 msgstr "Opišite daljnju(e) mjeru(e) za smanjivanje rizika. "
 
 #. Default: "Select or describe any further measure to reduce the risk."
-#: euphorie/client/browser/risk.py:262
+#: euphorie/client/browser/risk.py:264
 msgid "action_measures_true_solutions_true"
 msgstr "Odaberite ili opišite daljnju(e) mjeru(e) za smanjivanje rizika. "
 
 #. Default: "Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary."
-#: euphorie/client/browser/templates/webhelpers.pt:757
+#: euphorie/client/browser/templates/webhelpers.pt:789
 msgid "actionplan_measure_budget_tooltip"
 msgstr ""
 "Iako neke mjere ne koštaju ništa, mnoge koštaju. Zbog toga za mjere treba "
 "proračun; ako je potrebno, uključite ih u godišnji proračun."
 
 #. Default: "Appoint someone in your company to be responsible for the implementation of this measure. This person will have the authority to take the steps described in the Plan and/or the responsibility to ensure that they are carried out."
-#: euphorie/client/browser/templates/webhelpers.pt:739
+#: euphorie/client/browser/templates/webhelpers.pt:771
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
 "Odredite osobu u svojoj tvrtki koja će biti odgovorna za implementaciju ove "
@@ -1742,7 +1712,7 @@ msgstr ""
 "dužnosti koje će osigurati njihovo izvršenje."
 
 #. Default: "Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)"
-#: euphorie/client/browser/templates/webhelpers.pt:837
+#: euphorie/client/browser/templates/webhelpers.pt:867
 msgid "actionplan_measure_tooltip"
 msgstr ""
 "Opišite: 1) koji je vaš opći pristup za uklanjanje ili (ako rizik nije "
@@ -1754,8 +1724,8 @@ msgstr ""
 "osposobljavanje i/ili ZNR smjernice&rdquo; ili&ldquo;OSH expert&rdquo;. "
 "Ovdje možete opisati i bilo koji drugi dodatni zahtjev (ako takav postoji). "
 
-#. Default: "Describe: 3) the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any)."
-#: euphorie/client/browser/templates/webhelpers.pt:852
+#. Default: "Describe the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any)."
+#: euphorie/client/browser/templates/webhelpers.pt:882
 msgid "actionplan_requirements_tooltip"
 msgstr ""
 "Opiši: 3) razinu ekspertize potrebnu za implementaciju mjere, npr. \"zdrav "
@@ -1765,77 +1735,77 @@ msgstr ""
 "postoji)."
 
 #. Default: "add a new OiRA Tool"
-#: euphorie/content/browser/templates/sector_view.pt:18
+#: euphorie/content/browser/templates/sector_view.pt:26
 msgid "add_survey"
 msgstr "dodaj novi OiRA alat"
 
 #. Default: "Agree and continue"
-#: euphorie/client/browser/templates/conditions.pt:127
+#: euphorie/client/browser/templates/conditions.pt:128
 msgid "agree_and_continue"
 msgstr "Prihvati i nastavi"
 
 #. Default: "Simplified two criteria"
-#: euphorie/content/browser/templates/surveygroup_add.pt:87
+#: euphorie/content/browser/templates/surveygroup_add.pt:179
 msgid "algorithm_french"
 msgstr "Pojednostavljena dva mjerila"
 
 #. Default: "Standard three criteria"
-#: euphorie/content/browser/templates/surveygroup_add.pt:83
+#: euphorie/content/browser/templates/surveygroup_add.pt:171
 #: euphorie/content/surveygroup.py:61
 msgid "algorithm_kinney"
 msgstr "Uobičajena tri mjerila"
 
 #. Default: "About"
-#: euphorie/client/browser/templates/appendix.pt:17
+#: euphorie/client/browser/templates/appendix.pt:27
 msgid "appendix_about"
 msgstr "O"
 
 #. Default: "Produced by ${EU-OSHA}."
-#: euphorie/client/browser/templates/appendix.pt:16
+#: euphorie/client/browser/templates/appendix.pt:22
 msgid "appendix_produced_by"
 msgstr "Izdanje objavljuje ${EU-OSHA}."
 
-#: euphorie/client/browser/templates/new-session-test.pt:72
+#: euphorie/client/browser/templates/new-session-test.pt:110
 msgid "benefits"
 msgstr "pogodnostima"
 
 #. Default: "${Modules} (and potentially sub-modules): containers providing a logical structure"
-#: euphorie/content/browser/templates/profilequestion_add.pt:42
-#: euphorie/content/browser/templates/profilequestion_edit.pt:49
+#: euphorie/content/browser/templates/profilequestion_add.pt:53
+#: euphorie/content/browser/templates/profilequestion_edit.pt:60
 msgid "bullet_modules"
 msgstr ""
 "${Modules} (i potencijalno podmoduli): spremnici koji omogućuju logičnu "
 "strukturu"
 
 #. Default: "${Profile-Questions}: questions defining the company profile"
-#: euphorie/content/browser/templates/profilequestion_add.pt:41
-#: euphorie/content/browser/templates/profilequestion_edit.pt:48
+#: euphorie/content/browser/templates/profilequestion_add.pt:49
+#: euphorie/content/browser/templates/profilequestion_edit.pt:56
 msgid "bullet_profile_questions"
 msgstr "${Profile-Questions}: pitanja koja određuju profil tvrtke"
 
 #. Default: "${Risks}: positive statements, which are contained in modules."
-#: euphorie/content/browser/templates/profilequestion_add.pt:43
-#: euphorie/content/browser/templates/profilequestion_edit.pt:50
+#: euphorie/content/browser/templates/profilequestion_add.pt:59
+#: euphorie/content/browser/templates/profilequestion_edit.pt:66
 msgid "bullet_risks"
 msgstr "${Risks}: pozitivne izjave, koje su spremljene u modulima."
 
 #. Default: "Add"
-#: euphorie/client/browser/templates/webhelpers.pt:649
+#: euphorie/client/browser/templates/webhelpers.pt:676
 msgid "button_add"
 msgstr "Dodaj"
 
 #. Default: "Add country manager"
-#: euphorie/content/browser/templates/user_mgmt.pt:15
+#: euphorie/content/browser/templates/user_mgmt.pt:24
 msgid "button_add_country_manager"
 msgstr "Dodaj državnog voditelja"
 
 #. Default: "Add a custom risk"
-#: euphorie/client/browser/templates/module_identification_custom.pt:29
+#: euphorie/client/browser/templates/module_identification_custom.pt:39
 msgid "button_add_custom_risk"
 msgstr "Dodajte uobičajeni rizik"
 
 #. Default: "Add another measure implemented already"
-#: euphorie/content/utils.py:113
+#: euphorie/content/utils.py:115
 msgid "button_add_existing_measure"
 msgstr "Dodajte mjeru koja nedostaje"
 
@@ -1845,7 +1815,7 @@ msgid "button_add_factory"
 msgstr "Dodaj ${typename}"
 
 #. Default: "Add new sector"
-#: euphorie/content/browser/templates/user_mgmt.pt:14
+#: euphorie/content/browser/templates/user_mgmt.pt:20
 msgid "button_add_sector"
 msgstr "Dodaj novi sektor"
 
@@ -1860,21 +1830,21 @@ msgid "button_archive_session"
 msgstr "Da, arhiviraj sesiju"
 
 #. Default: "Cancel"
-#: euphorie/client/browser/publish.py:277
+#: euphorie/client/browser/publish.py:285
 #: euphorie/client/browser/settings.py:119
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:37
 msgid "button_cancel"
 msgstr "Odustani"
 
 #. Default: "Close"
-#: euphorie/client/browser/templates/new-session-test.pt:93
-#: euphorie/client/browser/webhelpers.py:832
+#: euphorie/client/browser/templates/new-session-test.pt:158
+#: euphorie/client/browser/webhelpers.py:842
 msgid "button_close"
 msgstr "Zatvori"
 
 #. Default: "Create"
-#: euphorie/content/browser/templates/survey_add.pt:25
-#: euphorie/content/browser/templates/surveygroup_add.pt:96
+#: euphorie/content/browser/templates/survey_add.pt:41
+#: euphorie/content/browser/templates/surveygroup_add.pt:194
 msgid "button_create"
 msgstr "Stvori"
 
@@ -1884,12 +1854,12 @@ msgid "button_create_new"
 msgstr "Stvorite novi OiRA alat"
 
 #. Default: "Yes, delete risk"
-#: euphorie/client/browser/templates/confirmation-delete-risk.pt:31
+#: euphorie/client/browser/templates/confirmation-delete-risk.pt:38
 msgid "button_delete_risk"
 msgstr "Da, obriši rizik"
 
 #. Default: "Yes, delete session"
-#: euphorie/client/browser/templates/confirmation-delete-session.pt:31
+#: euphorie/client/browser/templates/confirmation-delete-session.pt:40
 msgid "button_delete_session"
 msgstr "Da, izbriši sesiju"
 
@@ -1899,7 +1869,7 @@ msgid "button_download"
 msgstr "Preuzmi"
 
 #. Default: "Edit"
-#: euphorie/content/browser/templates/user_mgmt.pt:38
+#: euphorie/content/browser/templates/user_mgmt.pt:55
 #: euphorie/deployment/tiles/templates/addbar.pt:9
 #: euphorie/deployment/tiles/templates/versions.pt:63
 msgid "button_edit"
@@ -1911,12 +1881,12 @@ msgid "button_library"
 msgstr "Biblioteka"
 
 #. Default: "Lock"
-#: euphorie/content/browser/templates/user_mgmt.pt:39
+#: euphorie/content/browser/templates/user_mgmt.pt:59
 msgid "button_lock"
 msgstr "Zaključaj"
 
 #. Default: "Create preview"
-#: euphorie/client/browser/publish.py:349
+#: euphorie/client/browser/publish.py:357
 msgid "button_preview"
 msgstr "Stvori pretpregled"
 
@@ -1926,45 +1896,46 @@ msgid "button_print"
 msgstr "Ispiši"
 
 #. Default: "Publish"
-#: euphorie/client/browser/publish.py:284
+#: euphorie/client/browser/publish.py:292
 #: euphorie/deployment/tiles/templates/versions.pt:26
 msgid "button_publish"
 msgstr "Objavi"
 
 #. Default: "Remove this existing measure"
-#: euphorie/content/utils.py:121
+#: euphorie/content/utils.py:123
 msgid "button_remove_existing_measure"
 msgstr "Uklonite ovu postojeću mjeru"
 
 #. Default: "Save changes"
-#: euphorie/content/browser/templates/sector_edit.pt:90
+#: euphorie/content/browser/templates/sector_edit.pt:161
 msgid "button_save_changes"
 msgstr "Spremi promjene"
 
 #. Default: "Search"
-#: euphorie/deployment/browser/templates/search.pt:17
+#: euphorie/deployment/browser/templates/search.pt:24
 msgid "button_search"
 msgstr "Traži"
 
 #. Default: "Start a new session with this tool"
-#: euphorie/client/browser/templates/tool_sessions.pt:72
+#: euphorie/client/browser/templates/oira_tool.pt:30
+#: euphorie/client/browser/templates/tool_sessions.pt:85
 msgid "button_start_new_session"
 msgstr "Započnite novu sesiju ovim alatom"
 
 #. Default: "Start session"
-#: euphorie/client/browser/templates/new-session-test.pt:81
-#: euphorie/client/browser/templates/new-session.pt:76
-#: euphorie/client/browser/templates/portlet-available-tools.pt:103
+#: euphorie/client/browser/templates/new-session-test.pt:139
+#: euphorie/client/browser/templates/new-session.pt:109
+#: euphorie/client/browser/templates/portlet-available-tools.pt:99
 msgid "button_start_session"
 msgstr "Pokreni sesiju"
 
 #. Default: "Unlock"
-#: euphorie/content/browser/templates/user_mgmt.pt:45
+#: euphorie/content/browser/templates/user_mgmt.pt:66
 msgid "button_unlock"
 msgstr "Otključaj"
 
 #. Default: "Unpublish"
-#: euphorie/content/browser/templates/surveygroup_unpublish.pt:23
+#: euphorie/content/browser/templates/surveygroup_unpublish.pt:34
 #: euphorie/deployment/tiles/templates/versions.pt:34
 msgid "button_unpublish"
 msgstr "Poništi objavu"
@@ -1974,37 +1945,37 @@ msgstr "Poništi objavu"
 msgid "button_updated"
 msgstr "Ažuriran"
 
-#: euphorie/client/browser/templates/publication_menu.pt:31
+#: euphorie/client/browser/templates/publication_menu.pt:36
 msgid "by"
 msgstr "od strane "
 
 #. Default: "You are free to provide the information below. This information is meant to improve the tools and the services provided. This data will not appear in the report."
-#: euphorie/client/browser/templates/report_company.pt:23
+#: euphorie/client/browser/templates/report_company.pt:37
 msgid "company_details_intro"
 msgstr ""
 "U ovaj obrazac unesite pojedinosti o vašoj tvrtki. Podatci iz ovog obrasca "
 "također će se prikazati u izvješću."
 
 #. Default: "Conservation and processing of information"
-#: euphorie/client/browser/templates/conditions.pt:89
+#: euphorie/client/browser/templates/conditions.pt:90
 msgid "conditions_conservation_header"
 msgstr "Čuvanje i obrada informacija"
 
 #. Default: "We keep your data, which is inaccessible for external users, until you delete your account and your session(s)."
-#: euphorie/client/browser/templates/conditions.pt:91
+#: euphorie/client/browser/templates/conditions.pt:92
 msgid "conditions_conservation_keep_data"
 msgstr ""
 "Vaše podatke koji nisu dostupni vanjskim korisnicima čuvamo dok ne izbrišite "
 "svoj račun ili sesiju(e)."
 
 #. Default: "EU-OSHA stores data on our servers in Zamudio, Spain."
-#: euphorie/client/browser/templates/conditions.pt:95
+#: euphorie/client/browser/templates/conditions.pt:96
 msgid "conditions_conservation_storage"
 msgstr ""
 "EU-OSHA pohranjuje podatke na našim poslužiteljima u Zamudiju, u Španjolskoj."
 
 #. Default: "EU-OSHA regularly reviews its compliance with this Privacy Policy. Any enquiries and complaints regarding our privacy policy can be sent to the DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}."
-#: euphorie/client/browser/templates/conditions.pt:119
+#: euphorie/client/browser/templates/conditions.pt:120
 msgid "conditions_contact"
 msgstr ""
 "EU-OSHA redovito pregledava svoju sukladnost s ovim Pravilima zaštite "
@@ -2013,17 +1984,17 @@ msgstr ""
 "adresu ${edps-email}."
 
 #. Default: "Contact information"
-#: euphorie/client/browser/templates/conditions.pt:111
+#: euphorie/client/browser/templates/conditions.pt:112
 msgid "conditions_contact_header"
 msgstr "Podatci za kontakt"
 
 #. Default: "Data controller"
-#: euphorie/client/browser/templates/conditions.pt:83
+#: euphorie/client/browser/templates/conditions.pt:84
 msgid "conditions_datacontroller_header"
 msgstr "Kontolor podataka"
 
 #. Default: "You can use the Account settings and your saved OiRA Session(s) to review, control and delete the information stored in your Account and in your Session(s)."
-#: euphorie/client/browser/templates/conditions.pt:101
+#: euphorie/client/browser/templates/conditions.pt:102
 msgid "conditions_datareview"
 msgstr ""
 "Možete koristiti opciju Podešavanje računa i svoju(e) spremljenu(e) OiRA "
@@ -2031,12 +2002,12 @@ msgstr ""
 "su pohranjene u vašem računu i sesiji(ama)."
 
 #. Default: "Reviewing and removing your information"
-#: euphorie/client/browser/templates/conditions.pt:99
+#: euphorie/client/browser/templates/conditions.pt:100
 msgid "conditions_datareview_header"
 msgstr "Pregled i uklanjanje vaših informacija"
 
 #. Default: "Cookies &ndash; When you visit the site and select a language, we send a cookie to your computer or other device to store your language selection. This cookie stays in your browser until you close it. When you visit the site and log in, we send a cookie with your login information to keep you logged in during your visit. This cookie stays on your computer until you close your browser. Most browsers are initially set up to accept cookies, but you can reset your browser to refuse all cookies or to indicate when a cookie is being sent. However, some features and services may not function properly if your cookies are disabled."
-#: euphorie/client/browser/templates/conditions.pt:66
+#: euphorie/client/browser/templates/conditions.pt:67
 msgid "conditions_info_cookies"
 msgstr ""
 "Kolačići – Kada posjetite web-mjesto i odaberete jezik, na vaše računalo ili "
@@ -2050,7 +2021,7 @@ msgstr ""
 "i usluge možda neće funkcionirati ispravno ako onemogućite kolačiće."
 
 #. Default: "Email account: this is necessary to access the online application, edit the input data, and delete the OiRA account. You can enter any valid e-mail address. Email addresses will not be used for commercial purposes."
-#: euphorie/client/browser/templates/conditions.pt:58
+#: euphorie/client/browser/templates/conditions.pt:59
 msgid "conditions_info_email"
 msgstr ""
 "Račun e-pošte: potreban je radi pristupa mrežnoj aplikaciji, uređivanja "
@@ -2058,19 +2029,19 @@ msgstr ""
 "adrese e-pošte. Adresa e-pošte neće se koristiti u komercijalne svrhe."
 
 #. Default: "The kind of information we collect: when you sign up for an OiRA account and you enter data into the OiRA application we are asking you for the following information:"
-#: euphorie/client/browser/templates/conditions.pt:53
+#: euphorie/client/browser/templates/conditions.pt:54
 msgid "conditions_info_entry"
 msgstr ""
 "Vrsta informacija koje prikupljamo: prilikom prijave za OiRA račun i unosa "
 "podataka u OiRA aplikaciju, tražimo od vas sljedeće informacije:"
 
 #. Default: "The Information we collect and for what purposes"
-#: euphorie/client/browser/templates/conditions.pt:51
+#: euphorie/client/browser/templates/conditions.pt:52
 msgid "conditions_info_header"
 msgstr "Informacije koje prikupljamo i u koje svrhe"
 
 #. Default: "Log information &ndash; When you access the service, our servers automatically record information that your browser sends whenever you visit a website. These server logs may include information such as your web request, your interaction with a service, browser type, browser language, the date and time of your request. IP addresses are not stored in the system."
-#: euphorie/client/browser/templates/conditions.pt:70
+#: euphorie/client/browser/templates/conditions.pt:71
 msgid "conditions_info_logs"
 msgstr ""
 "Informacije o prijavi – kada pristupite usluzi, naši poslužitelji automatski "
@@ -2079,24 +2050,24 @@ msgstr ""
 "web-zahtjeva, interakcije s uslugom, jezik preglednika, datum i vrijeme "
 "vašeg zahtjeva. Sustav ne pohranjuje IP adrese."
 
-#: euphorie/client/browser/templates/conditions.pt:81
+#: euphorie/client/browser/templates/conditions.pt:82
 msgid "conditions_info_not_personal"
 msgstr ""
 
 #. Default: "Any information you provide in the free text fields of the application (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc). The input of information in the free text fields is voluntary."
-#: euphorie/client/browser/templates/conditions.pt:62
+#: euphorie/client/browser/templates/conditions.pt:63
 msgid "conditions_info_text"
 msgstr ""
 "Sve informacije koje nam dostavite u poljima slobodnog teksta u aplikaciji "
 "(npr. kada unesete mjeru za rješavanje rizika, osobu koja je odgovorna za tu "
 "mjeru itd.). Unos informacija u polje slobodnog teksta nije obvezan."
 
-#: euphorie/client/browser/templates/conditions.pt:79
+#: euphorie/client/browser/templates/conditions.pt:80
 msgid "conditions_info_use_develop"
 msgstr ""
 
 #. Default: "In addition to the above mentioned purposes, we may use the information we collect to provide, maintain, protect, and improve our services and develop new services. In any case no personal data will be used for processing of data."
-#: euphorie/client/browser/templates/conditions.pt:75
+#: euphorie/client/browser/templates/conditions.pt:76
 msgid "conditions_info_use_intro"
 msgstr ""
 "Uz iznad navedene svrhe, informacije koje prikupljamo možemo koristiti kako "
@@ -2104,12 +2075,12 @@ msgstr ""
 "razvili nove usluge. U svakom slučaju za obradu podataka nećemo koristiti "
 "osobne podatke."
 
-#: euphorie/client/browser/templates/conditions.pt:80
+#: euphorie/client/browser/templates/conditions.pt:81
 msgid "conditions_info_use_statistics"
 msgstr ""
 
 #. Default: "The OiRA (Online interactive Risk Assessment) application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application."
-#: euphorie/client/browser/templates/conditions.pt:40
+#: euphorie/client/browser/templates/conditions.pt:41
 msgid "conditions_intro1"
 msgstr ""
 "Aplikacija OiRA (internetska interaktivna procjena rizika) predstavlja samo "
@@ -2119,7 +2090,7 @@ msgstr ""
 "okviru OiRA aplikacije."
 
 #. Default: "Your personal data is processed in line with Regulation (EC) N&deg; 45/2001 of the European Parliament and of the Council of 18 December 2000 on the protection of individuals with regard to the processing of personal data by the Community institutions and bodies and on the free movement of such data. Further details of the privacy policy of EU-OSHA and the full text of the Regulation can be accessed at: ${url}."
-#: euphorie/client/browser/templates/conditions.pt:46
+#: euphorie/client/browser/templates/conditions.pt:47
 msgid "conditions_intro2"
 msgstr ""
 "Vaši se osobni podatci obrađuju u skladu s Uredbom (EN) br. 45/2001. "
@@ -2130,7 +2101,7 @@ msgstr ""
 "${url}."
 
 #. Default: "We take appropriate security measures to protect against unauthorized access to or unauthorized alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices and security measures, including appropriate encryption of communication and physical security measures to guard against unauthorized access to systems where we store personal data. IP addresses are not saved so that end-users can not be identified through their access."
-#: euphorie/client/browser/templates/conditions.pt:107
+#: euphorie/client/browser/templates/conditions.pt:108
 msgid "conditions_security"
 msgstr ""
 "Poduzimamo odgovarajuće sigurnosne mjere kako bismo spriječili neovlašteni "
@@ -2143,32 +2114,32 @@ msgstr ""
 "tijekom pristupa."
 
 #. Default: "Information security"
-#: euphorie/client/browser/templates/conditions.pt:105
+#: euphorie/client/browser/templates/conditions.pt:106
 msgid "conditions_security_header"
 msgstr "Sigurnost informacija"
 
 #. Default: "The data controller is the European Agency for Safety and Health at Work, Bilbao."
-#: euphorie/client/browser/templates/conditions.pt:85
+#: euphorie/client/browser/templates/conditions.pt:86
 msgid "condtions_datacontroller"
 msgstr ""
 "Kontrolor podataka je Europska agencija za sigurnost i zdravlje na radu, u "
 "Bilbau."
 
 #. Default: "both own staff and an external consultant or service provider"
-#: euphorie/client/browser/company.py:66
-#: euphorie/client/browser/templates/report_company.pt:50
+#: euphorie/client/browser/company.py:75
+#: euphorie/client/browser/templates/report_company.pt:123
 msgid "conductor_both"
 msgstr "vlastito osoblje i vanjski konzultant ili dobavljač usluga"
 
 #. Default: "own staff"
-#: euphorie/client/browser/company.py:56
-#: euphorie/client/browser/templates/report_company.pt:48
+#: euphorie/client/browser/company.py:65
+#: euphorie/client/browser/templates/report_company.pt:111
 msgid "conductor_staff"
 msgstr "vlastito osoblje"
 
 #. Default: "an external consultant or service provider"
-#: euphorie/client/browser/company.py:59
-#: euphorie/client/browser/templates/report_company.pt:49
+#: euphorie/client/browser/company.py:68
+#: euphorie/client/browser/templates/report_company.pt:117
 msgid "conductor_third_party"
 msgstr "vanjski konzultant ili dobavljač usluga"
 
@@ -2178,12 +2149,12 @@ msgid "context_search"
 msgstr "Pretraži u sadržaju"
 
 #. Default: "There are no country managers for this country."
-#: euphorie/content/browser/templates/user_mgmt.pt:58
+#: euphorie/content/browser/templates/user_mgmt.pt:80
 msgid "country_no_managers"
 msgstr "Nema državnog voditelja za ovu državu."
 
 #. Default: "There are no sectors for this country."
-#: euphorie/content/browser/templates/user_mgmt.pt:21
+#: euphorie/content/browser/templates/user_mgmt.pt:33
 msgid "country_no_sectors"
 msgstr "Nema sektora za ovu državu."
 
@@ -2193,7 +2164,7 @@ msgid "deprecated_label_existing_measures"
 msgstr ""
 
 #. Default: "The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk &ndash; if you consider it necessary &ndash; in the action plan."
-#: euphorie/client/browser/templates/webhelpers.pt:545
+#: euphorie/client/browser/templates/webhelpers.pt:570
 msgid "description_automatic_evaluation"
 msgstr ""
 "Alat je automatski procijenio rizik. U Planu mjera razina rizika može se "
@@ -2212,7 +2183,7 @@ msgid "description_measures_text_handling"
 msgstr ""
 
 #. Default: "In case you have identified risks not included in the tool, you are able to add them now:"
-#: euphorie/client/browser/publish.py:138
+#: euphorie/client/browser/publish.py:140
 msgid "description_other_risks"
 msgstr ""
 "U slučaju da na vašim mjestima rada identificirate opasnost, štetnost ili "
@@ -2267,7 +2238,7 @@ msgstr ""
 "poništite potvrdni okvir da biste ga isključili."
 
 #. Default: "After the technical development of the tool in 2009, in 2010 (until the first half of 2011) the Agency is piloting the development and diffusion model at both EU level (working with the Sectoral Social Dialogue Committees) and at Member State level (with several Member States) as part of the testing of the tool and the development of appropriate support and guidance services."
-#: euphorie/client/browser/templates/about.pt:109
+#: euphorie/client/browser/templates/about.pt:110
 msgid "devel_phase"
 msgstr ""
 "Nakon tehničkog razvoja alata u 2009. godini, u 2010. (sve do prve polovice "
@@ -2277,24 +2248,24 @@ msgstr ""
 "potpore i vođenja."
 
 #. Default: "Pages created in the ${appendix} folder are available via links in the footer of the online client."
-#: euphorie/content/browser/templates/documentation_view.pt:17
+#: euphorie/content/browser/templates/documentation_view.pt:30
 msgid "documentation_appendix"
 msgstr ""
 "Stranice kreirane u mapi ${appendix} dostupne su preko poveznica u podnožju "
 "mrežnog klijenta."
 
 #. Default: "appendix"
-#: euphorie/content/browser/templates/documentation_view.pt:17
+#: euphorie/content/browser/templates/documentation_view.pt:30
 msgid "documentation_appendix_appendix"
 msgstr "Dopuna"
 
 #. Default: "The ${online_help} text can also be modified."
-#: euphorie/content/browser/templates/documentation_view.pt:22
+#: euphorie/content/browser/templates/documentation_view.pt:38
 msgid "documentation_online_help"
 msgstr "Tekst ${online_help} može se također preinačiti."
 
 #. Default: "online help"
-#: euphorie/content/browser/templates/documentation_view.pt:22
+#: euphorie/content/browser/templates/documentation_view.pt:38
 msgid "documentation_online_help_online_help"
 msgstr "pomoći na internetu"
 
@@ -2308,17 +2279,17 @@ msgid "effect_high"
 msgstr "Visoka (vrlo visoka) ozbiljnost"
 
 #. Default: "Weak severity"
-#: euphorie/client/browser/templates/webhelpers.pt:378
+#: euphorie/client/browser/templates/webhelpers.pt:403
 msgid "effect_injury_no_absence"
 msgstr "Slaba"
 
 #. Default: "Significant severity"
-#: euphorie/client/browser/templates/webhelpers.pt:384
+#: euphorie/client/browser/templates/webhelpers.pt:409
 msgid "effect_injury_with_absence"
 msgstr "Značajna"
 
 #. Default: "High (very high) severity"
-#: euphorie/client/browser/templates/webhelpers.pt:390
+#: euphorie/client/browser/templates/webhelpers.pt:415
 msgid "effect_permanent_damage"
 msgstr "Visoka (vrlo visoka)"
 
@@ -2333,12 +2304,12 @@ msgid "effect_weak"
 msgstr "Slaba ozbiljnost"
 
 #. Default: "Email address"
-#: euphorie/content/browser/templates/countrymanager_view.pt:19
+#: euphorie/content/browser/templates/countrymanager_view.pt:23
 msgid "email"
 msgstr "Adresa e-pošte"
 
 #. Default: "Please ignore this email if you didn't request for a change."
-#: euphorie/client/browser/templates/confirm-email.pt:15
+#: euphorie/client/browser/templates/confirm-email.pt:21
 msgid "email_change_epilogue"
 msgstr "Ako niste tražili promjenu, zanemarite ovu e-poštu."
 
@@ -2348,7 +2319,7 @@ msgid "email_change_header"
 msgstr "Poštovani korisniče,"
 
 #. Default: "Your email address and account name on ${url} will be changed to '${email}' when you click the confirmation link below."
-#: euphorie/client/browser/templates/confirm-email.pt:10
+#: euphorie/client/browser/templates/confirm-email.pt:14
 msgid "email_change_intro"
 msgstr ""
 "adresa vaše e-pošte i naziv račun na adresi ${url} bit će promijenjeni u "
@@ -2364,31 +2335,31 @@ msgstr ""
 "ime za prijavu."
 
 #. Default: "10 to 49 employees"
-#: euphorie/client/browser/company.py:33
-#: euphorie/client/browser/templates/report_company.pt:40
+#: euphorie/client/browser/company.py:42
+#: euphorie/client/browser/templates/report_company.pt:81
 msgid "employee_numbers_10_to_49"
 msgstr "10 do 49 zaposlenika"
 
 #. Default: "1 to 9 employees"
-#: euphorie/client/browser/company.py:29
-#: euphorie/client/browser/templates/report_company.pt:39
+#: euphorie/client/browser/company.py:38
+#: euphorie/client/browser/templates/report_company.pt:75
 msgid "employee_numbers_1_to_9"
 msgstr "1 do 9 zaposlenika"
 
 #. Default: "250 or more employees"
-#: euphorie/client/browser/company.py:43
-#: euphorie/client/browser/templates/report_company.pt:42
+#: euphorie/client/browser/company.py:52
+#: euphorie/client/browser/templates/report_company.pt:93
 msgid "employee_numbers_250_or_more"
 msgstr "250 ili više zaposlenika"
 
 #. Default: "50 to 249 employees"
-#: euphorie/client/browser/company.py:37
-#: euphorie/client/browser/templates/report_company.pt:41
+#: euphorie/client/browser/company.py:46
+#: euphorie/client/browser/templates/report_company.pt:87
 msgid "employee_numbers_50_to_249"
 msgstr "50 do 249 zaposlenika"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:278
+#: euphorie/client/browser/login.py:287
 msgid "error_email_in_use"
 msgstr "Račun s ovom adresom e-pošte već postoji."
 
@@ -2398,12 +2369,12 @@ msgid "error_existing_login"
 msgstr "Ovo se ime za prijavu već koristi."
 
 #. Default: "Please enter the budget in whole Euros."
-#: euphorie/client/browser/templates/webhelpers.pt:753
+#: euphorie/client/browser/templates/webhelpers.pt:785
 msgid "error_invalid_budget"
 msgstr "Unesite proračun u cijelim eurima."
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:256
+#: euphorie/client/browser/login.py:265
 msgid "error_invalid_email"
 msgstr "Unesite valjanu adresu e-pošte"
 
@@ -2418,33 +2389,33 @@ msgid "error_invalid_xml"
 msgstr "Prenesite valjanu XML datoteku"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:252
+#: euphorie/client/browser/login.py:261
 msgid "error_missing_email"
 msgstr "Unesite adresu svoje e-pošte"
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:260
+#: euphorie/client/browser/login.py:269
 msgid "error_missing_password"
 msgstr "Unesite lozinku"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:264
+#: euphorie/client/browser/login.py:273
 #: euphorie/client/browser/reset_password.py:220
 msgid "error_password_mismatch"
 msgstr "Lozinke se ne podudaraju"
 
 #. Default: "This date must be on or after the start date."
-#: euphorie/client/browser/risk.py:72
+#: euphorie/client/browser/risk.py:74
 msgid "error_validation_after_start_date"
 msgstr "Ovaj datum mora biti isti ili veći od datuma početka."
 
 #. Default: "This date must be on or before the end date."
-#: euphorie/client/browser/risk.py:66
+#: euphorie/client/browser/risk.py:68
 msgid "error_validation_before_end_date"
 msgstr "Ovaj datum mora biti isti ili manji od datuma kraja."
 
 #. Default: "This value must be a positive whole number."
-#: euphorie/client/browser/risk.py:78
+#: euphorie/client/browser/risk.py:80
 msgid "error_validation_positive_whole_number"
 msgstr "Ova vrijednost mora biti pozitivan cijeli broj."
 
@@ -2515,44 +2486,44 @@ msgid "expl_actionplan_empty"
 msgstr "Nema identificiranih rizika. Nastavite izravno na izvješće."
 
 #. Default: "We're sorry, but an unforseen error has occured."
-#: euphorie/client/browser/templates/error.pt:18
+#: euphorie/client/browser/templates/error.pt:22
 msgid "expl_error"
 msgstr "Žao nam je, došlo je do nepredviđene pogreške."
 
 #. Default: "The page you requested could not be found."
-#: euphorie/client/browser/templates/error_notfound.pt:16
+#: euphorie/client/browser/templates/error_notfound.pt:20
 msgid "expl_error_notfound"
 msgstr "Nije bilo moguće pronaći traženu stranicu."
 
 #. Default: "In order to tailor the risk assessment to your organisation you may be asked to:"
-#: euphorie/client/browser/templates/profile.pt:18
+#: euphorie/client/browser/templates/profile.pt:22
 msgid "expl_profile"
 msgstr ""
 "Radi prilagodbe procjene rizika vašoj tvrtki može se od vas zatražiti da:"
 
 #. Default: "select or skip situation(s) relevant or not to your business activity and tick the box(es) if appropriate"
-#: euphorie/client/browser/templates/profile.pt:23
+#: euphorie/client/browser/templates/profile.pt:27
 msgid "expl_profile_bullet1"
 msgstr ""
 "odaberete situaciju koja je ili nije značajna za vaše aktivnosti ili "
 "preskočite onu koja to nije"
 
 #. Default: "list multiple business units, or branches, or stores, etc. These related risks will be repeated for each name you have entered."
-#: euphorie/client/browser/templates/profile.pt:26
+#: euphorie/client/browser/templates/profile.pt:30
 msgid "expl_profile_bullet2"
 msgstr ""
 "ako postoje, navedete više poslovnih jedinica jer u tom slučaju procjenu "
 "rizika morate izraditi za svaku jedinicu ili lokaciju posebno"
 
 #. Default: "This OiRA tool has changed since you last accessed it. Before you can continue, you need to update to these changes."
-#: euphorie/client/browser/templates/updated.pt:18
+#: euphorie/client/browser/templates/updated.pt:22
 msgid "expl_update"
 msgstr ""
 "Ovaj OiRA alat izmijenjen je od vašeg poslednjeg pristupa. Prije nastavka, "
 "izvršite ažuriranje kako biste preuzeli ove izmjene."
 
 #. Default: "This risk was automatically set as being present. You cannot change this."
-#: euphorie/client/browser/templates/webhelpers.pt:248
+#: euphorie/client/browser/templates/webhelpers.pt:274
 msgid "explanation_risk_always_present"
 msgstr ""
 "Ovaj je rizik automatski bio postavljen kao postojeći. Ovo ne možete "
@@ -2563,12 +2534,12 @@ msgid "extra_text_identification"
 msgstr ""
 
 #. Default: "Action plan ${title}"
-#: euphorie/client/docx/views.py:287
+#: euphorie/client/docx/views.py:291
 msgid "filename_report_actionplan"
 msgstr "Plan mjera ${title}"
 
 #. Default: "Identification report ${title}"
-#: euphorie/client/docx/views.py:327
+#: euphorie/client/docx/views.py:331
 msgid "filename_report_identification"
 msgstr "Izvješće o identifikaciji ${title}"
 
@@ -2578,7 +2549,7 @@ msgid "filename_report_timeline"
 msgstr "Vremenski slijed za ${title}"
 
 #. Default: "This folder is empty."
-#: euphorie/content/browser/templates/folder_view.pt:16
+#: euphorie/content/browser/templates/folder_view.pt:21
 msgid "folder_no_children"
 msgstr "Ova je mapa prazna."
 
@@ -2588,7 +2559,7 @@ msgid "french"
 msgstr "Pojednostavljena dva mjerila"
 
 #. Default: "Almost never"
-#: euphorie/client/browser/templates/webhelpers.pt:348
+#: euphorie/client/browser/templates/webhelpers.pt:373
 msgid "frequency_almost_never"
 msgstr "Gotovo nikad"
 
@@ -2598,63 +2569,63 @@ msgid "frequency_almostnever"
 msgstr "Gotovo nikad"
 
 #. Default: "Constantly"
-#: euphorie/client/browser/templates/webhelpers.pt:360
+#: euphorie/client/browser/templates/webhelpers.pt:385
 #: euphorie/content/risk.py:524
 msgid "frequency_constantly"
 msgstr "Stalno"
 
 #. Default: "Not very often"
-#: euphorie/client/browser/templates/webhelpers.pt:481
+#: euphorie/client/browser/templates/webhelpers.pt:506
 #: euphorie/content/risk.py:459
 msgid "frequency_french_not_often"
 msgstr "Ne tako često"
 
 #. Default: "Once per month"
-#: euphorie/client/browser/templates/webhelpers.pt:482
+#: euphorie/client/browser/templates/webhelpers.pt:507
 msgid "frequency_french_not_often_help"
 msgstr "Jednom mjesečno"
 
 #. Default: "Often"
-#: euphorie/client/browser/templates/webhelpers.pt:493
+#: euphorie/client/browser/templates/webhelpers.pt:518
 #: euphorie/content/risk.py:462
 msgid "frequency_french_often"
 msgstr "Često"
 
 #. Default: "Once per week"
-#: euphorie/client/browser/templates/webhelpers.pt:494
+#: euphorie/client/browser/templates/webhelpers.pt:519
 msgid "frequency_french_often_help"
 msgstr "Jednom tjedno"
 
 #. Default: "Rare"
-#: euphorie/client/browser/templates/webhelpers.pt:469
+#: euphorie/client/browser/templates/webhelpers.pt:494
 #: euphorie/content/risk.py:454
 msgid "frequency_french_rare"
 msgstr "Rijetko"
 
 #. Default: "Once per year"
-#: euphorie/client/browser/templates/webhelpers.pt:470
+#: euphorie/client/browser/templates/webhelpers.pt:495
 msgid "frequency_french_rare_help"
 msgstr "Jednom godišnje"
 
 #. Default: "Very often or regularly"
-#: euphorie/client/browser/templates/webhelpers.pt:505
+#: euphorie/client/browser/templates/webhelpers.pt:530
 #: euphorie/content/risk.py:467
 msgid "frequency_french_regularly"
 msgstr "Vrlo često ili redovito"
 
 #. Default: "Minimum once per day"
-#: euphorie/client/browser/templates/webhelpers.pt:506
+#: euphorie/client/browser/templates/webhelpers.pt:531
 msgid "frequency_french_regularly_help"
 msgstr "Najmanje jednom dnevno"
 
 #. Default: "Regularly"
-#: euphorie/client/browser/templates/webhelpers.pt:354
+#: euphorie/client/browser/templates/webhelpers.pt:379
 #: euphorie/content/risk.py:519
 msgid "frequency_regularly"
 msgstr "Redovito"
 
 #. Default: "You are currently evaluating OiRA as a guest user. You will not be able to save your progress or download any reports. To save your work, please sign in or register by clicking the &ldquo;${link_sign_in}&rdquo; link at the top right of the page."
-#: euphorie/client/browser/templates/tooltips.pt:8
+#: euphorie/client/browser/templates/tooltips.pt:11
 msgid "guest_login_warning"
 msgstr ""
 "Trenutno ocjenjujete OiRA-u kao gostujući korisnik. Nećete moći sačuvati "
@@ -2663,7 +2634,7 @@ msgstr ""
 "gornjem desnom kutu stranice. "
 
 #. Default: "You are about to print the report... please complete the optional form and then proceed."
-#: euphorie/client/browser/templates/report_company.pt:20
+#: euphorie/client/browser/templates/report_company.pt:31
 msgid "hader_company_details"
 msgstr "Pojedinosti o tvrtki"
 
@@ -2678,32 +2649,32 @@ msgid "header_additional_content"
 msgstr "Dodatni sadržaj"
 
 #. Default: "Additional resources to assess the risk"
-#: euphorie/client/browser/templates/webhelpers.pt:566
+#: euphorie/client/browser/templates/webhelpers.pt:591
 msgid "header_additional_resources"
 msgstr "Dodatni resursi za procjenu rizika"
 
 #. Default: "Additional resources for this module"
-#: euphorie/client/browser/templates/webhelpers.pt:569
+#: euphorie/client/browser/templates/webhelpers.pt:594
 msgid "header_additional_resources_module"
 msgstr "Dodatni resursi za ovaj modul"
 
 #. Default: "Consultation and participation of workers"
-#: euphorie/client/browser/templates/default_introduction.pt:12
+#: euphorie/client/browser/templates/default_introduction.pt:20
 msgid "header_consultation_of_workers"
 msgstr "Savjetovanje s radnicima i njihovo sudjelovanje"
 
 #. Default: "Country managers"
-#: euphorie/content/browser/templates/user_mgmt.pt:57
+#: euphorie/content/browser/templates/user_mgmt.pt:79
 msgid "header_country_managers"
 msgstr "Državni voditelji"
 
 #. Default: "Development and pilot phase &ndash; 2009-2011"
-#: euphorie/client/browser/templates/about.pt:102
+#: euphorie/client/browser/templates/about.pt:103
 msgid "header_devel_phase"
 msgstr "Razvoj i faza probne verzije – 2009. – 2011."
 
 #. Default: "Development partners"
-#: euphorie/client/browser/templates/about.pt:116
+#: euphorie/client/browser/templates/about.pt:117
 msgid "header_development_partners"
 msgstr "Razvojni partneri"
 
@@ -2713,22 +2684,22 @@ msgid "header_evaluation"
 msgstr "Procjena"
 
 #. Default: "Example of a measures overview report in PDF format"
-#: euphorie/client/browser/templates/register.pt:67
+#: euphorie/client/browser/templates/register.pt:103
 msgid "header_example_report_measures"
 msgstr "Primjer izvješća s pregledom mjera u PDF obliku"
 
 #. Default: "Example of a full report in Word format (.docx)"
-#: euphorie/client/browser/templates/register.pt:36
+#: euphorie/client/browser/templates/register.pt:50
 msgid "header_example_report_rft"
 msgstr "Primjer cjelovitog izvješća u rich rext formatu (.rtf)"
 
 #. Default: "Example of a risk overview report in PDF format"
-#: euphorie/client/browser/templates/register.pt:59
+#: euphorie/client/browser/templates/register.pt:89
 msgid "header_example_report_risks"
 msgstr "Primjer izvješća s pregledom rizika u PDF obliku"
 
 #. Default: "Example of an action plan in Office Open XML Workbook format (.xlsx)"
-#: euphorie/client/browser/templates/register.pt:44
+#: euphorie/client/browser/templates/register.pt:64
 msgid "header_example_report_xlsx"
 msgstr "Primjer akcijskog plana u obliku Office Open XML radne knjige (.xlsx)"
 
@@ -2739,13 +2710,13 @@ msgstr "Prepoznavanje"
 
 #. Default: "Information"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:238
-#: euphorie/client/browser/templates/risk_macros.pt:178
-#: euphorie/content/browser/templates/module_view.pt:22
+#: euphorie/client/browser/templates/risk_macros.pt:177
+#: euphorie/content/browser/templates/module_view.pt:35
 msgid "header_information"
 msgstr "Informacija"
 
 #. Default: "Official launch of the project &ndash; September 2011"
-#: euphorie/client/browser/templates/about.pt:112
+#: euphorie/client/browser/templates/about.pt:113
 msgid "header_launch"
 msgstr "Službeno pokretanje projekta – rujna 2011."
 
@@ -2760,14 +2731,14 @@ msgid "header_legend"
 msgstr "Legenda"
 
 #. Default: "Licenses"
-#: euphorie/client/browser/templates/about.pt:169
+#: euphorie/client/browser/templates/about.pt:170
 msgid "header_licenses"
 msgstr "Licence"
 
 #. Default: "Login"
-#: euphorie/client/browser/templates/login_form.pt:17
-#: euphorie/client/browser/templates/shell.pt:111
-#: euphorie/client/browser/templates/tooltips.pt:8
+#: euphorie/client/browser/templates/login_form.pt:26
+#: euphorie/client/browser/templates/shell.pt:174
+#: euphorie/client/browser/templates/tooltips.pt:11
 msgid "header_login"
 msgstr "Prijava"
 
@@ -2787,29 +2758,29 @@ msgid "header_measure_single"
 msgstr "Mjera"
 
 #. Default: "Measures"
-#: euphorie/client/browser/templates/risk_identification.pt:58
+#: euphorie/client/browser/templates/risk_identification.pt:59
 msgid "header_measures"
 msgstr "Mjere"
 
 #. Default: "Modules"
-#: euphorie/content/browser/templates/profilequestion_add.pt:42
-#: euphorie/content/browser/templates/profilequestion_edit.pt:49
-#: euphorie/content/browser/templates/profilequestion_view.pt:42
+#: euphorie/content/browser/templates/profilequestion_add.pt:53
+#: euphorie/content/browser/templates/profilequestion_edit.pt:60
+#: euphorie/content/browser/templates/profilequestion_view.pt:47
 msgid "header_modules"
 msgstr "Moduli"
 
 #. Default: "Modules and Profile Questions"
-#: euphorie/content/browser/templates/survey_view.pt:39
+#: euphorie/content/browser/templates/survey_view.pt:52
 msgid "header_modules_and_profile_questions"
 msgstr "Moduli i pitanja o profilu"
 
 #. Default: "New session"
-#: euphorie/client/browser/templates/new-session.pt:13
+#: euphorie/client/browser/templates/new-session.pt:16
 msgid "header_new_session"
 msgstr "Nova sesija"
 
 #. Default: "The assessment is not complicated"
-#: euphorie/client/browser/templates/default_introduction.pt:9
+#: euphorie/client/browser/templates/default_introduction.pt:17
 msgid "header_not_complicated"
 msgstr "Procjena uopće nije komplicirana"
 
@@ -2819,144 +2790,144 @@ msgid "header_oira_report_consultation"
 msgstr "Savjetovanje s radnicima"
 
 #. Default: "OiRA Report: “${title}”"
-#: euphorie/client/docx/views.py:204
+#: euphorie/client/docx/views.py:208
 msgid "header_oira_report_download"
 msgstr "OiRA procjena rizika: '${title}'"
 
 #. Default: "The OiRA tool"
-#: euphorie/client/browser/templates/default_introduction.pt:15
+#: euphorie/client/browser/templates/default_introduction.pt:23
 msgid "header_oira_tool"
 msgstr "OiRA alat"
 
 #. Default: "Menu toggle"
-#: euphorie/client/browser/templates/tooltips.pt:45
+#: euphorie/client/browser/templates/tooltips.pt:52
 msgid "header_osh_hamburger"
 msgstr "Preklapanje izbornika"
 
 #. Default: "Off canvas menu"
-#: euphorie/client/browser/templates/tooltips.pt:69
+#: euphorie/client/browser/templates/tooltips.pt:78
 msgid "header_osh_menu"
 msgstr "Skriveni izbornik"
 
 #. Default: "Risk assessment browser"
-#: euphorie/client/browser/templates/tooltips.pt:96
+#: euphorie/client/browser/templates/tooltips.pt:108
 msgid "header_osh_ra_browser"
 msgstr "Preglednik procjene rizika"
 
 #. Default: "Session menu"
-#: euphorie/client/browser/templates/tooltips.pt:78
+#: euphorie/client/browser/templates/tooltips.pt:87
 msgid "header_osh_session_menu"
 msgstr "Izbornik sesije"
 
 #. Default: "Tool navigation"
-#: euphorie/client/browser/templates/tooltips.pt:87
+#: euphorie/client/browser/templates/tooltips.pt:96
 msgid "header_osh_tool_navigation"
 msgstr "Navigacijski alat"
 
 #. Default: "Risks that have been identified, evaluated and have an Action Plan"
-#: euphorie/client/docx/views.py:215
+#: euphorie/client/docx/views.py:219
 msgid "header_present_risks"
 msgstr "Rizici koji su identificirani, procijenjeni i uključeni u plan mjera"
 
 #. Default: "Preview OiRA Tool"
-#: euphorie/client/browser/templates/preview.pt:14
+#: euphorie/client/browser/templates/preview.pt:15
 msgid "header_preview"
 msgstr "Pretpregled OiRA alata"
 
 #. Default: "Tailor the risk assessment to your organisation"
-#: euphorie/client/browser/templates/profile.pt:17
+#: euphorie/client/browser/templates/profile.pt:21
 msgid "header_profile"
 msgstr "Procjenu rizika prilagodite vašoj organizaciji"
 
 #. Default: "Profile questions"
-#: euphorie/content/browser/templates/profilequestion_add.pt:41
-#: euphorie/content/browser/templates/profilequestion_edit.pt:48
+#: euphorie/content/browser/templates/profilequestion_add.pt:49
+#: euphorie/content/browser/templates/profilequestion_edit.pt:56
 msgid "header_profile_questions"
 msgstr "Pitanja o profilu"
 
 #. Default: "Project Phases"
-#: euphorie/client/browser/templates/about.pt:101
+#: euphorie/client/browser/templates/about.pt:102
 msgid "header_project_phases"
 msgstr "Faze projekta"
 
 #. Default: "Publish OiRA Tool"
-#: euphorie/client/browser/templates/publish.pt:14
+#: euphorie/client/browser/templates/publish.pt:15
 msgid "header_publish"
 msgstr "Objavi OiRA alat"
 
 #. Default: "Questions answered per module"
-#: euphorie/client/browser/templates/status_info.pt:133
+#: euphorie/client/browser/templates/status_info.pt:134
 msgid "header_questions_answered"
 msgstr "Odgovorena pitanja po modulu"
 
 #. Default: "Register"
-#: euphorie/client/browser/templates/register.pt:75
-#: euphorie/client/browser/templates/shell.pt:112
+#: euphorie/client/browser/templates/register.pt:115
+#: euphorie/client/browser/templates/shell.pt:179
 msgid "header_register"
 msgstr "Registracija"
 
 #. Default: "Reporting"
-#: euphorie/client/browser/templates/register.pt:19
-#: euphorie/client/browser/templates/report.pt:22
+#: euphorie/client/browser/templates/register.pt:27
+#: euphorie/client/browser/templates/report.pt:29
 msgid "header_reporting"
 msgstr "Izvješćivanje"
 
 #. Default: "Resources"
-#: euphorie/client/browser/templates/risk_identification.pt:90
+#: euphorie/client/browser/templates/risk_identification.pt:91
 msgid "header_resources"
 msgstr "Propisi i dodatne informacije"
 
 #. Default: "Are you aware of all the risks?"
-#: euphorie/client/browser/templates/default_introduction.pt:6
+#: euphorie/client/browser/templates/default_introduction.pt:10
 msgid "header_risk_aware"
 msgstr "Jeste li svjesni svih rizika?"
 
 #. Default: "What is the severity of the damage?"
-#: euphorie/client/browser/templates/webhelpers.pt:368
+#: euphorie/client/browser/templates/webhelpers.pt:393
 msgid "header_risk_effect"
 msgstr "Kolika je ozbiljnost štete?"
 
 #. Default: "How often are people exposed to this risk?"
-#: euphorie/client/browser/templates/webhelpers.pt:338
+#: euphorie/client/browser/templates/webhelpers.pt:363
 msgid "header_risk_frequency"
 msgstr "Koliko su često osobe izložene ovom riziku?"
 
 #. Default: "Select the priority of this risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:213
-#: euphorie/client/browser/templates/webhelpers.pt:522
+#: euphorie/client/browser/templates/webhelpers.pt:547
 msgid "header_risk_priority"
 msgstr "Odaberite prioritet za ovaj rizik"
 
 #. Default: "What is the chance of this risk occurring?"
-#: euphorie/client/browser/templates/webhelpers.pt:307
+#: euphorie/client/browser/templates/webhelpers.pt:332
 msgid "header_risk_probability"
 msgstr "Koja je vjerojatnost pojave ovog rizika?"
 
 #. Default: "Risks"
-#: euphorie/content/browser/templates/module_view.pt:42
-#: euphorie/content/browser/templates/profilequestion_add.pt:43
-#: euphorie/content/browser/templates/profilequestion_edit.pt:50
+#: euphorie/content/browser/templates/module_view.pt:71
+#: euphorie/content/browser/templates/profilequestion_add.pt:59
+#: euphorie/content/browser/templates/profilequestion_edit.pt:66
 msgid "header_risks"
 msgstr "Rizici"
 
 #. Default: "Hazards/problems that have been managed or are not present in your organisation"
-#: euphorie/client/docx/views.py:236
+#: euphorie/client/docx/views.py:240
 msgid "header_risks_not_present"
 msgstr ""
 "Opasnosti/problemi koji su riješeni ili ne postoje u vašoj organizaciji"
 
 #. Default: "Search"
-#: euphorie/deployment/browser/templates/search.pt:10
+#: euphorie/deployment/browser/templates/search.pt:11
 msgid "header_search"
 msgstr "Traži"
 
 #. Default: "Search results"
-#: euphorie/deployment/browser/templates/search.pt:22
+#: euphorie/deployment/browser/templates/search.pt:31
 msgid "header_search_results"
 msgstr "Traži rezultate"
 
 #. Default: "Search results for"
-#: euphorie/deployment/browser/templates/context_search.pt:15
+#: euphorie/deployment/browser/templates/context_search.pt:18
 msgid "header_search_results_for"
 msgstr "Traži rezultate za"
 
@@ -2966,57 +2937,57 @@ msgid "header_secondary_images"
 msgstr "Sporedne slike"
 
 #. Default: "OiRA Tools"
-#: euphorie/content/browser/templates/sector_view.pt:14
+#: euphorie/content/browser/templates/sector_view.pt:15
 msgid "header_sector_survey_list"
 msgstr "OiRA alati"
 
 #. Default: "OiRA Tool versions"
-#: euphorie/content/browser/templates/surveygroup_view.pt:14
+#: euphorie/content/browser/templates/surveygroup_view.pt:15
 msgid "header_sector_tool_version_list"
 msgstr ""
 
 #. Default: "Sectors"
-#: euphorie/content/browser/templates/user_mgmt.pt:19
+#: euphorie/content/browser/templates/user_mgmt.pt:31
 msgid "header_sectors"
 msgstr "Sektori"
 
 #. Default: "Settings"
-#: euphorie/content/browser/templates/sector_edit.pt:12
+#: euphorie/content/browser/templates/sector_edit.pt:13
 msgid "header_settings"
 msgstr "Postavke"
 
 #. Default: "Standard measures"
-#: euphorie/content/browser/templates/risk_view.pt:80
+#: euphorie/content/browser/templates/risk_view.pt:132
 msgid "header_solutions"
 msgstr "Uobičajene mjere"
 
 #. Default: "Submodules"
-#: euphorie/content/browser/templates/module_view.pt:32
+#: euphorie/content/browser/templates/module_view.pt:53
 msgid "header_submodules"
 msgstr "Podmoduli"
 
 #. Default: "Terms and conditions"
-#: euphorie/client/browser/templates/conditions.pt:16
+#: euphorie/client/browser/templates/conditions.pt:17
 msgid "header_terms"
 msgstr "Uvjeti i odredbe"
 
 #. Default: "Training notes"
-#: euphorie/client/browser/templates/training-slide.pt:17
+#: euphorie/client/browser/templates/training-slide.pt:22
 msgid "header_training"
 msgstr "Bilješke za osposobljavanje."
 
 #. Default: "Hazards/problems that have been \"parked\" and are still to be dealt with"
-#: euphorie/client/docx/views.py:229
+#: euphorie/client/docx/views.py:233
 msgid "header_unanswered_risks"
 msgstr "Opasnosti/problemi koji su „ostavljeni” i tek trebaju biti riješeni"
 
 #. Default: "Risks that have been identified but do NOT have an Action Plan"
-#: euphorie/client/docx/views.py:222
+#: euphorie/client/docx/views.py:226
 msgid "header_unevaluated_risks"
 msgstr "Rizici koji su identificirani, ali NISU uključeni u plan mjera"
 
 #. Default: "Manage users in ${country}"
-#: euphorie/content/browser/templates/user_mgmt.pt:12
+#: euphorie/content/browser/templates/user_mgmt.pt:16
 msgid "header_user_management"
 msgstr "Upravljaj korisnicima u ${country}"
 
@@ -3026,22 +2997,22 @@ msgid "header_welcome"
 msgstr "Dobrodošli"
 
 #. Default: "What is the OiRA (Online Interactive Risk Assessment) project"
-#: euphorie/client/browser/templates/about.pt:25
+#: euphorie/client/browser/templates/about.pt:26
 msgid "header_what_is_oira"
 msgstr "Što je projekt OiRA (internetska interaktivna procjena rizika)"
 
 #. Default: "Why the OiRA project"
-#: euphorie/client/browser/templates/about.pt:80
+#: euphorie/client/browser/templates/about.pt:81
 msgid "header_why_oira"
 msgstr "Zašto OiRA projekt"
 
 #. Default: "Comments"
-#: euphorie/client/browser/templates/webhelpers.pt:599
+#: euphorie/client/browser/templates/webhelpers.pt:624
 msgid "heading_comments"
 msgstr "Komentari"
 
 #. Default: "High priority risks"
-#: euphorie/client/browser/templates/measures_overview.pt:85
+#: euphorie/client/browser/templates/measures_overview.pt:98
 #: euphorie/client/browser/templates/status_info.pt:278
 msgid "heading_high_prio_risks"
 msgstr "Rizici visokog prioriteta"
@@ -3052,152 +3023,152 @@ msgid "heading_involve_your_coworkers"
 msgstr "Uključite svoje suradnike"
 
 #. Default: "Low priority risks"
-#: euphorie/client/browser/templates/measures_overview.pt:132
+#: euphorie/client/browser/templates/measures_overview.pt:159
 msgid "heading_low_prio_risks"
 msgstr "Rizici niskog prioriteta"
 
 #. Default: "Medium priority risks"
-#: euphorie/client/browser/templates/measures_overview.pt:117
+#: euphorie/client/browser/templates/measures_overview.pt:140
 msgid "heading_medium_prio_risks"
 msgstr "Rizici srednjeg prioriteta"
 
 #. Default: "${num_high_risks} High priority risk"
-#: euphorie/client/browser/templates/risks_overview.pt:373
+#: euphorie/client/browser/templates/risks_overview.pt:370
 msgid "heading_num_high_prio_risks"
 msgstr "${num_high_risks} rizik visokog prioriteta"
 
 #. Default: "${num_high_risks} High priority risks"
-#: euphorie/client/browser/templates/risks_overview.pt:377
+#: euphorie/client/browser/templates/risks_overview.pt:374
 msgid "heading_num_high_prio_risks_2"
 msgstr "${num_high_risks} rizika visokog prioriteta"
 
 #. Default: "${num_high_risks} High priority risks"
-#: euphorie/client/browser/templates/risks_overview.pt:381
+#: euphorie/client/browser/templates/risks_overview.pt:378
 msgid "heading_num_high_prio_risks_3_4"
 msgstr "${num_high_risks} rizika visokog prioriteta"
 
 #. Default: "${num_high_risks} High priority risks"
-#: euphorie/client/browser/templates/risks_overview.pt:385
+#: euphorie/client/browser/templates/risks_overview.pt:382
 msgid "heading_num_high_prio_risks_5_or_more"
 msgstr "${num_high_risks} rizika visokog prioriteta"
 
 #. Default: "${num_low_risks} Low priority risk"
-#: euphorie/client/browser/templates/risks_overview.pt:407
+#: euphorie/client/browser/templates/risks_overview.pt:404
 msgid "heading_num_low_prio_risks"
 msgstr "${num_low_risks} rizik niskog prioriteta"
 
 #. Default: "${num_low_risks} Low priority risks"
-#: euphorie/client/browser/templates/risks_overview.pt:411
+#: euphorie/client/browser/templates/risks_overview.pt:408
 msgid "heading_num_low_prio_risks_2"
 msgstr "${num_low_risks} rizika niskog prioriteta"
 
 #. Default: "${num_low_risks} Low priority risks"
-#: euphorie/client/browser/templates/risks_overview.pt:415
+#: euphorie/client/browser/templates/risks_overview.pt:412
 msgid "heading_num_low_prio_risks_3_4"
 msgstr "${num_low_risks} rizika niskog prioriteta"
 
 #. Default: "${num_low_risks} Low priority risks"
-#: euphorie/client/browser/templates/risks_overview.pt:419
+#: euphorie/client/browser/templates/risks_overview.pt:416
 msgid "heading_num_low_prio_risks_5_or_more"
 msgstr "${num_low_risks} rizika niskog prioriteta"
 
 #. Default: "${num_medium_risks} Medium priority risk"
-#: euphorie/client/browser/templates/risks_overview.pt:390
+#: euphorie/client/browser/templates/risks_overview.pt:387
 msgid "heading_num_medium_prio_risks"
 msgstr "${num_medium_risks} rizik srednjeg prioriteta"
 
 #. Default: "${num_medium_risks} Medium priority risks"
-#: euphorie/client/browser/templates/risks_overview.pt:394
+#: euphorie/client/browser/templates/risks_overview.pt:391
 msgid "heading_num_medium_prio_risks_2"
 msgstr "${num_medium_risks} rizika srednjeg prioriteta"
 
 #. Default: "${num_medium_risks} Medium priority risks"
-#: euphorie/client/browser/templates/risks_overview.pt:398
+#: euphorie/client/browser/templates/risks_overview.pt:395
 msgid "heading_num_medium_prio_risks_3_4"
 msgstr "${num_medium_risks} rizika srednjeg prioriteta"
 
 #. Default: "${num_medium_risks} Medium priority risks"
-#: euphorie/client/browser/templates/risks_overview.pt:402
+#: euphorie/client/browser/templates/risks_overview.pt:399
 msgid "heading_num_medium_prio_risks_5_or_more"
 msgstr "${num_medium_risks} rizika srednjeg prioriteta"
 
 #. Default: "${num_postponed_risks} Risk postponed"
-#: euphorie/client/browser/templates/risks_overview.pt:463
+#: euphorie/client/browser/templates/risks_overview.pt:460
 msgid "heading_num_postponed_prio_risks"
 msgstr "${num_postponed_risks} odgođen rizik"
 
 #. Default: "${num_postponed_risks} Risks postponed"
-#: euphorie/client/browser/templates/risks_overview.pt:467
+#: euphorie/client/browser/templates/risks_overview.pt:464
 msgid "heading_num_postponed_prio_risks_2"
 msgstr "${num_postponed_risks} odgođena rizika"
 
 #. Default: "${num_postponed_risks} Risks postponed"
-#: euphorie/client/browser/templates/risks_overview.pt:471
+#: euphorie/client/browser/templates/risks_overview.pt:468
 msgid "heading_num_postponed_prio_risks_3_4"
 msgstr "${num_postponed_risks} odgođena rizika"
 
 #. Default: "${num_postponed_risks} Risks postponed"
-#: euphorie/client/browser/templates/risks_overview.pt:475
+#: euphorie/client/browser/templates/risks_overview.pt:472
 msgid "heading_num_postponed_prio_risks_5_or_more"
 msgstr "${num_postponed_risks} odgođenih rizika"
 
 #. Default: "${num_todo_risks} Risk not answered"
-#: euphorie/client/browser/templates/risks_overview.pt:480
+#: euphorie/client/browser/templates/risks_overview.pt:477
 msgid "heading_num_todo_prio_risks"
 msgstr "${num_todo_risks} rizik nema odgovor"
 
 #. Default: "${num_todo_risks} Risks not answered"
-#: euphorie/client/browser/templates/risks_overview.pt:484
+#: euphorie/client/browser/templates/risks_overview.pt:481
 msgid "heading_num_todo_prio_risks_2"
 msgstr "${num_todo_risks} rizika nemaju odgovor"
 
 #. Default: "${num_todo_risks} Risks not answered"
-#: euphorie/client/browser/templates/risks_overview.pt:488
+#: euphorie/client/browser/templates/risks_overview.pt:485
 msgid "heading_num_todo_prio_risks_3_4"
 msgstr "${num_todo_risks} rizika nemaju odgovor"
 
 #. Default: "${num_todo_risks} Risks not answered"
-#: euphorie/client/browser/templates/risks_overview.pt:492
+#: euphorie/client/browser/templates/risks_overview.pt:489
 msgid "heading_num_todo_prio_risks_5_or_more"
 msgstr "${num_todo_risks} rizika nemaju odgovor"
 
 #. Default: "${num_possible_risks} Possible Risk"
-#: euphorie/client/browser/templates/risks_overview.pt:439
+#: euphorie/client/browser/templates/risks_overview.pt:436
 msgid "heading_possible_risks"
 msgstr "${num_possible_risks} mogući rizik"
 
 #. Default: "${num_possible_risks} Possible Risks"
-#: euphorie/client/browser/templates/risks_overview.pt:443
+#: euphorie/client/browser/templates/risks_overview.pt:440
 msgid "heading_possible_risks_2"
 msgstr "${num_possible_risks} moguća rizika"
 
 #. Default: "${num_possible_risks} Possible Risks"
-#: euphorie/client/browser/templates/risks_overview.pt:447
+#: euphorie/client/browser/templates/risks_overview.pt:444
 msgid "heading_possible_risks_3_4"
 msgstr "${num_possible_risks} moguća rizika"
 
 #. Default: "${num_possible_risks} Possible Risks"
-#: euphorie/client/browser/templates/risks_overview.pt:451
+#: euphorie/client/browser/templates/risks_overview.pt:448
 msgid "heading_possible_risks_5_or_more"
 msgstr "${num_possible_risks} mogućih rizika"
 
 #. Default: "${num_present_risks} Present Risk"
-#: euphorie/client/browser/templates/risks_overview.pt:350
+#: euphorie/client/browser/templates/risks_overview.pt:347
 msgid "heading_present_risks"
 msgstr "${num_present_risks} postojeći rizik"
 
 #. Default: "${num_present_risks} Present Risks"
-#: euphorie/client/browser/templates/risks_overview.pt:354
+#: euphorie/client/browser/templates/risks_overview.pt:351
 msgid "heading_present_risks_2"
 msgstr "${num_present_risks} postojeća rizika"
 
 #. Default: "${num_present_risks} Present Risks"
-#: euphorie/client/browser/templates/risks_overview.pt:358
+#: euphorie/client/browser/templates/risks_overview.pt:355
 msgid "heading_present_risks_3_4"
 msgstr "${num_present_risks} postojeća rizika"
 
 #. Default: "${num_present_risks} Present Risks"
-#: euphorie/client/browser/templates/risks_overview.pt:362
+#: euphorie/client/browser/templates/risks_overview.pt:359
 msgid "heading_present_risks_5_or_more"
 msgstr "${num_present_risks} postojećih rizika"
 
@@ -3230,7 +3201,7 @@ msgid "help_authentication"
 msgstr "Ovaj tekst pojašnjava način registracije i prijave."
 
 #. Default: "Please answer the following questions. As a result of your answers the system will calculate the priority of the risk. You will be able to modify the priority later."
-#: euphorie/client/browser/templates/webhelpers.pt:294
+#: euphorie/client/browser/templates/webhelpers.pt:320
 msgid "help_calculated_evaluation"
 msgstr ""
 "Odgovorite na sljedeća pitanja. Na temelju vaših odgovora sustav će "
@@ -3259,7 +3230,7 @@ msgstr ""
 "započeti s kopijom postojećeg OiRA alata."
 
 #. Default: "Indicate how often this risk occurs in a normal situation."
-#: euphorie/client/browser/risk.py:663 euphorie/content/risk.py:446
+#: euphorie/client/browser/risk.py:665 euphorie/content/risk.py:446
 msgid "help_default_frequency"
 msgstr "Navodi koliko se često ovaj rizik pojavljuje u normalnoj situaciji."
 
@@ -3271,13 +3242,13 @@ msgstr ""
 "uvijek može promijeniti prioritet."
 
 #. Default: "Indicate how likely occurence of this risk is in a normal situation."
-#: euphorie/client/browser/risk.py:658 euphorie/content/risk.py:483
+#: euphorie/client/browser/risk.py:660 euphorie/content/risk.py:483
 msgid "help_default_probability"
 msgstr ""
 "Navodi kolika je vjerojatnost pojave ovog rizika u normalnoj situaciji."
 
 #. Default: "Indicate the severity if this risk occurs."
-#: euphorie/client/browser/risk.py:667 euphorie/content/risk.py:417
+#: euphorie/client/browser/risk.py:669 euphorie/content/risk.py:417
 msgid "help_default_severity"
 msgstr "Navodi ozbiljnost u slučaju da dođe do ovog rizika."
 
@@ -3311,47 +3282,47 @@ msgid "help_finalwords"
 msgstr "Opće preporuke za završetak."
 
 #. Default: "4. Action Plan"
-#: euphorie/client/browser/templates/help.pt:28
+#: euphorie/client/browser/templates/help.pt:46
 msgid "help_header_actionplan"
 msgstr "4. Plan mjera"
 
 #. Default: "Registration"
-#: euphorie/client/browser/templates/help.pt:23
+#: euphorie/client/browser/templates/help.pt:31
 msgid "help_header_authentication"
 msgstr "Registracija"
 
 #. Default: "3. Evaluation"
-#: euphorie/client/browser/templates/help.pt:27
+#: euphorie/client/browser/templates/help.pt:43
 msgid "help_header_evaluation"
 msgstr "3. Procjena"
 
 #. Default: "What happens next?"
-#: euphorie/client/browser/templates/help.pt:30
+#: euphorie/client/browser/templates/help.pt:52
 msgid "help_header_finalwords"
 msgstr "Sljedeći koraci"
 
 #. Default: "2. Identification"
-#: euphorie/client/browser/templates/help.pt:26
+#: euphorie/client/browser/templates/help.pt:40
 msgid "help_header_identification"
 msgstr "2. Prepoznavanje"
 
 #. Default: "Introduction"
-#: euphorie/client/browser/templates/help.pt:22
+#: euphorie/client/browser/templates/help.pt:28
 msgid "help_header_introduction"
 msgstr "Uvod"
 
 #. Default: "5. Report"
-#: euphorie/client/browser/templates/help.pt:29
+#: euphorie/client/browser/templates/help.pt:49
 msgid "help_header_report"
 msgstr "5. Završni dokumenti"
 
 #. Default: "Carrying out your risk assessment"
-#: euphorie/client/browser/templates/help.pt:24
+#: euphorie/client/browser/templates/help.pt:34
 msgid "help_header_sessions"
 msgstr "Izrada procjene rizika"
 
 #. Default: "1. Preparation"
-#: euphorie/client/browser/templates/help.pt:25
+#: euphorie/client/browser/templates/help.pt:37
 msgid "help_header_start"
 msgstr "1. Priprema"
 
@@ -3433,7 +3404,7 @@ msgid "help_preparation"
 msgstr "Ovaj tekst pojašnjava 2 vrste pitanja o profilu."
 
 #. Default: "The preview will be available at ${url}."
-#: euphorie/client/browser/templates/preview.pt:23
+#: euphorie/client/browser/templates/preview.pt:29
 msgid "help_preview_url"
 msgstr "Pretpregled će biti dostupan na adresi ${url}."
 
@@ -3448,7 +3419,7 @@ msgid "help_publish"
 msgstr "Objavi aktivaciju odabranog OiRA alata zajedno s najnovijim izmjenama."
 
 #. Default: "After publication the OiRA Tool will be available at ${url}."
-#: euphorie/client/browser/templates/publish.pt:30
+#: euphorie/client/browser/templates/publish.pt:39
 msgid "help_publish_url"
 msgstr "OiRA alat će nakon objave biti dostupan na adresi ${url}."
 
@@ -3473,12 +3444,12 @@ msgstr ""
 "postupke i upravljačke odluke."
 
 #. Default: "Give the name of the person responsible for the OiRA tools of this sector."
-#: euphorie/content/browser/templates/sector_edit.pt:81
+#: euphorie/content/browser/templates/sector_edit.pt:148
 msgid "help_sector_contactperson"
 msgstr "Navedite ime osobe odgovorne za OiRA alate ovog sektora."
 
 #. Default: "The logo will appear on the client side app that your user group will see. Make sure your image is of format png, jpg or gif and does not contain any special characters. The new logo will only become visible after you've saved your changes and published the OiRA tool."
-#: euphorie/content/browser/templates/sector_edit.pt:35
+#: euphorie/content/browser/templates/sector_edit.pt:60
 msgid "help_sector_logo"
 msgstr ""
 "Logotip će se prikazati na obje strane aplikacije klijenta i vaša skupina "
@@ -3488,7 +3459,7 @@ msgstr ""
 "spremite izmjene."
 
 #. Default: "This is the password that you need to log on to this editor environment."
-#: euphorie/content/browser/templates/sector_edit.pt:68
+#: euphorie/content/browser/templates/sector_edit.pt:126
 msgid "help_sector_password"
 msgstr "Ovo je lozinka potrebna za prijavu u ovaj uređivač okruženja."
 
@@ -3549,19 +3520,19 @@ msgid "help_upload_surveygroup_title"
 msgstr "Ako ne navedete naziv, on će se uzeti iz ulazne datoteke."
 
 #. Default: "Dashboard"
-#: euphorie/client/browser/templates/shell.pt:121
+#: euphorie/client/browser/templates/shell.pt:192
 msgid "home_link"
 msgstr "Nadzorna ploča"
 
 #. Default: "Your login name and/or password were entered incorrectly. Please check and try again or ${request_an_email_reminder}."
-#: euphorie/client/browser/templates/login_form.pt:29
+#: euphorie/client/browser/templates/login_form.pt:44
 msgid "incorrect_login"
 msgstr ""
 "Vaše korisničko ime i / ili lozinka nisu ispravno uneseni. Provjerite i "
 "pokušajte ponovo ili $ {reset_your_password}."
 
 #. Default: "The menu toggle lets you hide and show the risk assessment browser to find previously made risk assessments. Hide the menu when you are concentrating on making a risk assessment or show it when you are clicking about between various parts of the application."
-#: euphorie/client/browser/templates/tooltips.pt:46
+#: euphorie/client/browser/templates/tooltips.pt:53
 msgid "info_osh_hamburger"
 msgstr ""
 "Modul za prebacivanje omogućuje vam skrivanje i prikazivanje izbornika tako "
@@ -3570,14 +3541,14 @@ msgstr ""
 "dijelove alata. "
 
 #. Default: "The new off canvas menu provides access to the core functions of the applications. Also on mobile!"
-#: euphorie/client/browser/templates/tooltips.pt:72
+#: euphorie/client/browser/templates/tooltips.pt:81
 msgid "info_osh_menu"
 msgstr ""
 "Novi skriveni izbornik omogućuje pristup osnovnim funkcijama aplikacije. Na "
 "mobitelu također!"
 
 #. Default: "The risk assessment browser allows you to find risk assessments that were previously made by you. Start a new risk assessment by clicking on the &lsquo;+&rsquo; or make a copy of an existing risk assessment by clicking on the tripple dot symbol next to a risk assessment and select &lsquo;clone&rsquo; ."
-#: euphorie/client/browser/templates/tooltips.pt:99
+#: euphorie/client/browser/templates/tooltips.pt:111
 msgid "info_osh_ra_browser"
 msgstr ""
 "Preglednik procjene rizika omogućuje vam da nađete procjene rizika koje ste "
@@ -3586,7 +3557,7 @@ msgstr ""
 "trotočke pored procjene rizika i odaberite &lsquo;clone&rsquo;"
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
-#: euphorie/client/browser/templates/tooltips.pt:81
+#: euphorie/client/browser/templates/tooltips.pt:90
 msgid "info_osh_session_menu"
 msgstr ""
 "Iz ovog izbornika možete pokrenuti novu sesiju OiRA alata ili dohvatiti "
@@ -3595,7 +3566,7 @@ msgstr ""
 "isprobali."
 
 #. Default: "This menu lets you navigate over all steps of your risk assessment. When you enter <em>Identification + Evaluation</em> or <em>Action Plan</em>, you will see the modules and risks of this assessment as sub-navigation. Using the navigation, you can jump back and forth over all parts of the tool at will."
-#: euphorie/client/browser/templates/tooltips.pt:90
+#: euphorie/client/browser/templates/tooltips.pt:99
 msgid "info_osh_tool_navigation"
 msgstr ""
 "Ovaj izbornik omogućuje vam navigaciju kroz sve korake procjene rizika. Kada "
@@ -3604,32 +3575,32 @@ msgstr ""
 "se možete po želji prebacivati naprijed-natrag po svim dijelovima alata."
 
 #. Default: "The European Agency for Safety and Health at Work, European social partners, etc."
-#: euphorie/client/browser/templates/report_company.pt:61
+#: euphorie/client/browser/templates/report_company.pt:161
 msgid "info_referer_eu_institution"
 msgstr ""
 "Europska agencija za sigurnost i zdravlje na radu, Europski socijalni "
 "partneri itd."
 
 #. Default: "Ministry, Labour Inspectorate, National Institute for Safety and Health at Work, etc."
-#: euphorie/client/browser/templates/report_company.pt:59
+#: euphorie/client/browser/templates/report_company.pt:154
 msgid "info_referer_national_public_institution"
 msgstr ""
 "Ministarstvo, Inspekcija rada, Nacionalni institut za sigurnost i zdravlje "
 "na radu itd."
 
 #. Default: "You can register in one single step just by entering a valid email address."
-#: euphorie/client/browser/templates/tooltips.pt:34
+#: euphorie/client/browser/templates/tooltips.pt:41
 msgid "info_register1"
 msgstr ""
 "Možete se registrirati u samo jednom koraku, unosom valjane adrese e-pošte."
 
 #. Default: "Main benefits of having an account:"
-#: euphorie/client/browser/templates/tooltips.pt:35
+#: euphorie/client/browser/templates/tooltips.pt:42
 msgid "info_register2"
 msgstr "Glavne pogodnosti kada imate račun:"
 
 #. Default: "You may switch this on screen help feature on or off at any time by selecting &ldquo;Toggle on screen help&rdquo; from the menu at the top right on the toolbar."
-#: euphorie/client/browser/templates/tooltips.pt:55
+#: euphorie/client/browser/templates/tooltips.pt:62
 msgid "info_screen_help"
 msgstr ""
 "Ovu značajku pomoći na zaslonu možete uključiti ili isključiti u bilo kojem "
@@ -3643,17 +3614,17 @@ msgstr ""
 "${start_session}."
 
 #. Default: "This is a test session. ${link_sign_in} to save your data."
-#: euphorie/client/browser/templates/plain.pt:181
+#: euphorie/client/browser/templates/plain.pt:220
 msgid "info_testsession"
 msgstr "Ovo je probna sesija"
 
 #. Default: "The form will allow you to create a new OiRA Tool revision."
-#: euphorie/content/browser/templates/survey_add.pt:11
+#: euphorie/content/browser/templates/survey_add.pt:12
 msgid "intro_add_survey"
 msgstr "Obrazac vam omogućuje da stvorite novu reviziju OiRA alata."
 
 #. Default: "This form will allow you to create a new OiRA Tool."
-#: euphorie/content/browser/templates/surveygroup_add.pt:11
+#: euphorie/content/browser/templates/surveygroup_add.pt:12
 msgid "intro_add_surveygroup"
 msgstr "Ovaj obrazac omogućuje vam da stvorite novi OiRA alat."
 
@@ -3665,7 +3636,7 @@ msgstr ""
 "korisniku."
 
 #. Default: "Workers or workers' representatives with specific responsibility for the safety and health of workers shall take part in a balanced way or shall be consulted in advance and in good time by the employer with regard to risk assessment"
-#: euphorie/client/browser/templates/default_introduction.pt:13
+#: euphorie/client/browser/templates/default_introduction.pt:21
 msgid "intro_consultation_of_workers"
 msgstr ""
 "Radnike ili predstavnike radnika koji su zaduženi za sigurnost i zdravlje "
@@ -3673,12 +3644,12 @@ msgstr ""
 "procjenom rizika unaprijed, pravodobno pitati za savjet."
 
 #. Default: "Here you can manage the documentation for the ${client}."
-#: euphorie/content/browser/templates/documentation_view.pt:15
+#: euphorie/content/browser/templates/documentation_view.pt:25
 msgid "intro_documenation"
 msgstr "Ovdje možete upravljati dokumentacijom za ${client}."
 
 #. Default: "online client"
-#: euphorie/content/browser/templates/documentation_view.pt:15
+#: euphorie/content/browser/templates/documentation_view.pt:25
 msgid "intro_documenation_client"
 msgstr "mrežnog klijenta"
 
@@ -3690,7 +3661,7 @@ msgstr ""
 "pogledajte priručnik na internetu."
 
 #. Default: "You can print the ${list-of-risks}."
-#: euphorie/client/browser/templates/identification.pt:21
+#: euphorie/client/browser/templates/identification.pt:30
 msgid "intro_identification"
 msgstr "Možete ispisati ${list-of-risks}."
 
@@ -3700,7 +3671,7 @@ msgid "intro_main_image"
 msgstr "Glavna slika će imati istaknutije mjesto na ekranu od ostalih slika."
 
 #. Default: "Complicated? Not really. It just takes a bit of time. However, the RA is important. So important that it is a legal requirement. This is for good reason. If risks are not assessed or properly dealt with, a suitable risk management process cannot be started and appropriate preventive measures are unlikely to be found or put in place."
-#: euphorie/client/browser/templates/default_introduction.pt:10
+#: euphorie/client/browser/templates/default_introduction.pt:18
 msgid "intro_not_complicated"
 msgstr ""
 "Komplicirana? Ni najmanje. Odvojite malo svog vremena. Ipak je procjena "
@@ -3710,14 +3681,14 @@ msgstr ""
 "odgovarajuće  preventivne mjere."
 
 #. Default: "This risk assessment tool is mainly intended for micro (less than 10 workers) and small (less than 50 workers) enterprises/organisations."
-#: euphorie/client/browser/templates/default_introduction.pt:16
+#: euphorie/client/browser/templates/default_introduction.pt:24
 msgid "intro_oira_tool"
 msgstr ""
 "Alat za procjenu rizika je uglavnom namijenjen mikropoduzećima (manje od 10 "
 "radnika) i malim poduzećima/organizacijama (manje od 50 radnika)."
 
 #. Default: "Are you sure you want to create a preview of this OiRA Tool? You can give the URL for the preview to others so they can test the OiRA Tool. To access the preview a standard OiRA client login is required."
-#: euphorie/client/browser/templates/preview.pt:17
+#: euphorie/client/browser/templates/preview.pt:23
 msgid "intro_preview"
 msgstr ""
 "Jeste li sigurni da želite stvoriti pretpregled ovog OiRA alata? URL adresu "
@@ -3725,7 +3696,7 @@ msgstr ""
 "pretpregledu potrebna je uobičajena prijava OiRA klijenta."
 
 #. Default: "It is possible for you to print out the contents of the tool to enable you to look for the information at the relevant workplace (by walking around and looking at what could cause harm, or by consulting the workers and/or their representatives about problems they have encountered). You can then introduce the information into the tool."
-#: euphorie/client/browser/templates/identification.pt:18
+#: euphorie/client/browser/templates/identification.pt:26
 #: euphorie/client/browser/templates/panel-contents-preview.pt:34
 msgid "intro_print_identification_1"
 msgstr ""
@@ -3736,7 +3707,7 @@ msgstr ""
 "susreću). Nakon toga možete unijeti informacije u alat."
 
 #. Default: "You may also wish to distribute the contents among the workers and/or their representatives and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action.Their feedback should be taken into account when filling in this tool."
-#: euphorie/client/browser/templates/identification.pt:19
+#: euphorie/client/browser/templates/identification.pt:27
 #: euphorie/client/browser/templates/panel-contents-preview.pt:35
 msgid "intro_print_identification_2"
 msgstr ""
@@ -3746,28 +3717,28 @@ msgstr ""
 "povratne informacije trebate uzeti u obzir pri unosu podataka u ovaj alat."
 
 #. Default: "Are you sure you want to publish this OiRA Tool? After publication the OiRA Tool will appear in the online client and be accessible by all users."
-#: euphorie/client/browser/templates/publish.pt:17
+#: euphorie/client/browser/templates/publish.pt:23
 msgid "intro_publish_first_time"
 msgstr ""
 "Jeste li sigurni da želite objaviti ovaj OiRA alat? Nakon objave, OiRA alat "
 "će se prikazati na mrežnom klijentu i bit će dostupan svim korisnicima."
 
 #. Default: "Are you sure you want to publish this OiRA Tool version? This will replace the current version."
-#: euphorie/client/browser/templates/publish.pt:24
+#: euphorie/client/browser/templates/publish.pt:32
 msgid "intro_publish_other_survey_published"
 msgstr ""
 "Jeste li sigurni da želite objaviti ovu verziju OiRA alata? Ovim ćete "
 "zamijeniti trenutačnu verziju."
 
 #. Default: "Are you sure you want to republish this OiRA Tool? This will make all changes made public."
-#: euphorie/client/browser/templates/publish.pt:21
+#: euphorie/client/browser/templates/publish.pt:28
 msgid "intro_publish_survey_published"
 msgstr ""
 "Jeste li sigurni da želite ponovno objaviti ovaj OiRA alat? Ovim ćete "
 "objaviti sve izmjene."
 
 #. Default: "Including the risks to your employees and your equipment? What if there is an accident with one of the machines? What if an employee is exposed to hazardous substances? A risk assessment helps you to define these risks and tackle them head on. A risk assessment mainly consists of two parts: a <em>list</em> with all the risks in your company and an <em>action plan</em> with details of how to deal with these risks. These two components allow you to limit the risks to your employees and your company, and therefore the financial risk."
-#: euphorie/client/browser/templates/default_introduction.pt:7
+#: euphorie/client/browser/templates/default_introduction.pt:11
 msgid "intro_risk_aware"
 msgstr ""
 "Uključujući rizike za svoje zaposlenike i opremu? Što ako se dogodi neka "
@@ -3780,13 +3751,13 @@ msgstr ""
 "time i financijski rizik."
 
 #. Default: "Select a sector for which you would like to view or copy an OiRA Tool."
-#: euphorie/content/browser/templates/country_view.pt:15
+#: euphorie/content/browser/templates/country_view.pt:16
 msgid "intro_select_sector"
 msgstr ""
 "Odaberite sektror za koji biste željeli pregledati ili kopirati OiRA alat."
 
 #. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:313
+#: euphorie/client/browser/login.py:322
 msgid "invalid_email"
 msgstr "Unesite valjanu adresu e-pošte."
 
@@ -3816,12 +3787,12 @@ msgid "iphone_report"
 msgstr "Završni dokumenti"
 
 #. Default: "Is this risk acceptable or under control?"
-#: euphorie/content/utils.py:89
+#: euphorie/content/utils.py:90
 msgid "is_risk_acceptable"
 msgstr "Je li rizik prihvatljiv?"
 
 #. Default: "Is this risk acceptable or under control? If applicable, ${link_add_measures}."
-#: euphorie/content/utils.py:158
+#: euphorie/content/utils.py:160
 msgid "is_risk_acceptable_add_measures"
 msgstr ""
 "Je li ovaj rizik prihvatljiv ili pod kontrolom? Ako je primjenjivo, "
@@ -3838,7 +3809,7 @@ msgid "label__risk_default_collapsible_sections"
 msgstr "Izbornici koji su otvoreni na stranici s rizicima"
 
 #. Default: "Update"
-#: euphorie/client/browser/templates/updated.pt:97
+#: euphorie/client/browser/templates/updated.pt:181
 msgid "label_accept update"
 msgstr "Ažuriranje"
 
@@ -3850,45 +3821,45 @@ msgstr "Račun je zaključan"
 #. Default: "Action Plan"
 #: euphorie/client/browser/templates/login.pt:110
 #: euphorie/client/browser/templates/report_identification.pt:145
-#: euphorie/client/browser/templates/shell.pt:226
+#: euphorie/client/browser/templates/shell.pt:297
 msgid "label_action_plan"
 msgstr "Plan mjera"
 
 #. Default: "Budget"
 #: euphorie/client/browser/report.py:147
-#: euphorie/client/browser/templates/webhelpers.pt:752
+#: euphorie/client/browser/templates/webhelpers.pt:784
 #: euphorie/client/docx/compiler.py:422
 msgid "label_action_plan_budget"
 msgstr "Proračun"
 
 #. Default: "Action Plan"
-#: euphorie/client/browser/templates/report_landing.pt:104
+#: euphorie/client/browser/templates/report_landing.pt:110
 msgid "label_action_plan_download"
 msgstr "Plan mjera"
 
 #. Default: "Planning end"
 #: euphorie/client/browser/report.py:124
-#: euphorie/client/browser/templates/webhelpers.pt:792
+#: euphorie/client/browser/templates/webhelpers.pt:823
 #: euphorie/client/docx/compiler.py:424
 msgid "label_action_plan_end"
 msgstr "Planirani kraj"
 
 #. Default: "Who is responsible?"
 #: euphorie/client/browser/report.py:145
-#: euphorie/client/browser/templates/webhelpers.pt:738
+#: euphorie/client/browser/templates/webhelpers.pt:770
 #: euphorie/client/docx/compiler.py:420
 msgid "label_action_plan_responsible"
 msgstr "Tko je odgovoran?"
 
 #. Default: "Planning start"
 #: euphorie/client/browser/report.py:119
-#: euphorie/client/browser/templates/webhelpers.pt:776
+#: euphorie/client/browser/templates/webhelpers.pt:807
 #: euphorie/client/docx/compiler.py:423
 msgid "label_action_plan_start"
 msgstr "Planirani početak"
 
 #. Default: "Assessment"
-#: euphorie/client/browser/templates/shell.pt:200
+#: euphorie/client/browser/templates/shell.pt:276
 msgid "label_assessment"
 msgstr "Procjena"
 
@@ -3898,7 +3869,7 @@ msgid "label_body"
 msgstr "Sadržaj stranice"
 
 #. Default: "Skip"
-#: euphorie/client/browser/templates/risk_identification.pt:128
+#: euphorie/client/browser/templates/risk_identification.pt:129
 msgid "label_button_skip"
 msgstr "Preskoči"
 
@@ -3908,22 +3879,22 @@ msgid "label_caption"
 msgstr "Opis slike"
 
 #. Default: "Choose a country"
-#: euphorie/content/browser/templates/surveygroup_add.pt:47
+#: euphorie/content/browser/templates/surveygroup_add.pt:90
 msgid "label_choose_country"
 msgstr "Odaberi državu"
 
 #. Default: "Choose a revision of the selected OiRA Tool"
-#: euphorie/content/browser/templates/surveygroup_add.pt:37
+#: euphorie/content/browser/templates/surveygroup_add.pt:73
 msgid "label_choose_survey"
 msgstr "Odaberi reviziju odabranog OiRA alata"
 
 #. Default: "Choose an OiRA Tool"
-#: euphorie/content/browser/templates/surveygroup_add.pt:28
+#: euphorie/content/browser/templates/surveygroup_add.pt:54
 msgid "label_choose_surveygroup"
 msgstr "Odaberi OiRA alat"
 
 #. Default: "Classification code"
-#: euphorie/content/browser/templates/survey_view.pt:21
+#: euphorie/content/browser/templates/survey_view.pt:30
 #: euphorie/content/survey.py:92
 msgid "label_classification_code"
 msgstr "Šifra klasifikacije"
@@ -3934,22 +3905,22 @@ msgid "label_clone"
 msgstr "Klonirajte procjenu rizika "
 
 #. Default: "Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
-#: euphorie/client/browser/templates/risk_actionplan.pt:118
-#: euphorie/client/browser/templates/webhelpers.pt:606
+#: euphorie/client/browser/templates/risk_actionplan.pt:116
+#: euphorie/client/browser/templates/webhelpers.pt:631
 msgid "label_comment"
 msgstr ""
 "Ovdje možete ostaviti komentar na postavljeno pitanje. Komentar će se "
 "koristiti u planu mjera."
 
 #. Default: "Your country"
-#: euphorie/client/browser/company.py:20
-#: euphorie/client/browser/templates/report_company.pt:29
+#: euphorie/client/browser/company.py:29
+#: euphorie/client/browser/templates/report_company.pt:46
 msgid "label_company_country"
 msgstr "Vaša država"
 
 #. Default: "The risk assessment was conducted by"
-#: euphorie/client/browser/company.py:53
-#: euphorie/client/browser/templates/report_company.pt:47
+#: euphorie/client/browser/company.py:62
+#: euphorie/client/browser/templates/report_company.pt:105
 msgid "label_conductor"
 msgstr "Procjenu rizika obavilo je"
 
@@ -3964,7 +3935,7 @@ msgid "label_contact_name"
 msgstr "Naziv kontakta"
 
 #. Default: "Contact person"
-#: euphorie/content/browser/templates/sector_edit.pt:79
+#: euphorie/content/browser/templates/sector_edit.pt:144
 msgid "label_contact_person"
 msgstr "Osoba za kontakt"
 
@@ -3991,30 +3962,30 @@ msgid "label_current_published"
 msgstr "Trenutačan/objavljen"
 
 #. Default: "Default severity"
-#: euphorie/content/browser/templates/risk_view.pt:68
+#: euphorie/content/browser/templates/risk_view.pt:117
 msgid "label_default_effect"
 msgstr "Zadana ozbiljnost"
 
 #. Default: "Default frequency"
-#: euphorie/content/browser/templates/risk_view.pt:59
+#: euphorie/content/browser/templates/risk_view.pt:108
 #: euphorie/content/risk.py:445
 msgid "label_default_frequency"
 msgstr "Zadana učestalost"
 
 #. Default: "Default priority"
-#: euphorie/content/browser/templates/risk_view.pt:51
+#: euphorie/content/browser/templates/risk_view.pt:100
 #: euphorie/content/risk.py:224
 msgid "label_default_priority"
 msgstr "Zadani prioritet"
 
 #. Default: "Default probability"
-#: euphorie/content/browser/templates/risk_view.pt:64
+#: euphorie/content/browser/templates/risk_view.pt:113
 #: euphorie/content/risk.py:482
 msgid "label_default_probability"
 msgstr "Zadana vjerojatnost"
 
 #. Default: "Default severity"
-#: euphorie/content/browser/templates/risk_view.pt:57
+#: euphorie/content/browser/templates/risk_view.pt:106
 #: euphorie/content/risk.py:416
 msgid "label_default_severity"
 msgstr "Zadana ozbiljnost"
@@ -4025,12 +3996,12 @@ msgid "label_delete"
 msgstr "Izbriši"
 
 #. Default: "You are about to delete the risk: &ldquo;${risk-name}&rdquo;."
-#: euphorie/client/browser/templates/confirmation-delete-risk.pt:24
+#: euphorie/client/browser/templates/confirmation-delete-risk.pt:28
 msgid "label_delete_risk"
 msgstr "Spremate se obrisati rizik: “${risk-name}”."
 
 #. Default: "Description"
-#: euphorie/client/browser/templates/webhelpers.pt:676
+#: euphorie/client/browser/templates/webhelpers.pt:704
 #: euphorie/content/risk.py:92
 msgid "label_description"
 msgstr "Opis"
@@ -4047,14 +4018,14 @@ msgstr "Kloniranje"
 
 #. Default: "Email address"
 #: euphorie/client/browser/reset_password.py:48
-#: euphorie/client/browser/templates/login_form.pt:42
-#: euphorie/client/browser/templates/register.pt:90
+#: euphorie/client/browser/templates/login_form.pt:68
+#: euphorie/client/browser/templates/register.pt:152
 msgid "label_email"
 msgstr "Adresa e-pošte"
 
 #. Default: "Number of employees"
-#: euphorie/client/browser/company.py:24
-#: euphorie/client/browser/templates/report_company.pt:38
+#: euphorie/client/browser/company.py:33
+#: euphorie/client/browser/templates/report_company.pt:69
 msgid "label_employee_numbers"
 msgstr "Broj zaposlenika"
 
@@ -4066,12 +4037,12 @@ msgstr "Prikaz prilagođene obavijesti za ovaj alat OiRA?"
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:108
 #: euphorie/client/browser/templates/report_identification.pt:135
-#: euphorie/client/browser/templates/shell.pt:198
+#: euphorie/client/browser/templates/shell.pt:276
 msgid "label_evaluation"
 msgstr "procjena"
 
 #. Default: "Evaluation method"
-#: euphorie/content/browser/templates/risk_view.pt:47
+#: euphorie/content/browser/templates/risk_view.pt:96
 #: euphorie/content/risk.py:182
 msgid "label_evaluation_method"
 msgstr "Način procjene"
@@ -4082,7 +4053,7 @@ msgid "label_evaluation_optional"
 msgstr "Procjena se može preskočiti"
 
 #. Default: "Evaluation phase"
-#: euphorie/content/browser/templates/survey_view.pt:18
+#: euphorie/content/browser/templates/survey_view.pt:23
 msgid "label_evaluation_phase"
 msgstr "Procijeni fazu"
 
@@ -4092,12 +4063,12 @@ msgid "label_existing_measure"
 msgstr "Već provedena mjera"
 
 #. Default: "Expertise"
-#: euphorie/client/browser/templates/webhelpers.pt:724
+#: euphorie/client/browser/templates/webhelpers.pt:756
 msgid "label_expertise"
 msgstr "Ekspertiza"
 
 #. Default: "Add an extra measure"
-#: euphorie/client/browser/templates/webhelpers.pt:953
+#: euphorie/client/browser/templates/webhelpers.pt:982
 msgid "label_extra_add_measure"
 msgstr "Dodajte dodatnu mjeru"
 
@@ -4112,70 +4083,70 @@ msgid "label_file_caption"
 msgstr "Naslov sadržaja"
 
 #. Default: "I forgot my password"
-#: euphorie/client/browser/templates/login_form.pt:46
+#: euphorie/client/browser/templates/login_form.pt:80
 msgid "label_forgot_password"
 msgstr "Zaboravio(la) sam svoju lozinku"
 
 #. Default: "Format"
-#: euphorie/client/browser/templates/report_landing.pt:87
+#: euphorie/client/browser/templates/report_landing.pt:91
 msgid "label_format"
 msgstr "Oblik"
 
 #. Default: "General information"
-#: euphorie/client/browser/templates/status_info.pt:31
+#: euphorie/client/browser/templates/status_info.pt:33
 msgid "label_general_information"
 msgstr "Opće informacije"
 
 #. Default: "4. Action Plan"
-#: euphorie/content/browser/templates/help_view.pt:33
+#: euphorie/content/browser/templates/help_view.pt:48
 #: euphorie/content/help.py:82
 msgid "label_help_actionplan"
 msgstr "4. Plan mjera"
 
 #. Default: "Registration"
-#: euphorie/content/browser/templates/help_view.pt:18
+#: euphorie/content/browser/templates/help_view.pt:23
 #: euphorie/content/help.py:32
 msgid "label_help_authentication"
 msgstr "Registracija"
 
 #. Default: "3. Evaluation"
-#: euphorie/content/browser/templates/help_view.pt:30
+#: euphorie/content/browser/templates/help_view.pt:43
 #: euphorie/content/help.py:72
 msgid "label_help_evaluation"
 msgstr "3. Procjena"
 
 #. Default: "What happens next?"
-#: euphorie/content/browser/templates/help_view.pt:39
+#: euphorie/content/browser/templates/help_view.pt:58
 #: euphorie/content/help.py:102
 msgid "label_help_finalwords"
 msgstr "Kako se situacija dalje razvija?"
 
 #. Default: "2. Identification"
-#: euphorie/content/browser/templates/help_view.pt:27
+#: euphorie/content/browser/templates/help_view.pt:38
 #: euphorie/content/help.py:62
 msgid "label_help_identification"
 msgstr "2. Prepoznavanje"
 
 #. Default: "Introduction"
-#: euphorie/content/browser/templates/help_view.pt:15
+#: euphorie/content/browser/templates/help_view.pt:18
 #: euphorie/content/help.py:23
 msgid "label_help_introduction"
 msgstr "Uvod"
 
 #. Default: "1. Preparation"
-#: euphorie/content/browser/templates/help_view.pt:24
+#: euphorie/content/browser/templates/help_view.pt:33
 #: euphorie/content/help.py:52
 msgid "label_help_preparation"
 msgstr "1. Priprema"
 
 #. Default: "5. Report"
-#: euphorie/content/browser/templates/help_view.pt:36
+#: euphorie/content/browser/templates/help_view.pt:53
 #: euphorie/content/help.py:92
 msgid "label_help_reports"
 msgstr "5. Završni dokumenti"
 
 #. Default: "Carrying out your risk assessment"
-#: euphorie/content/browser/templates/help_view.pt:21
+#: euphorie/content/browser/templates/help_view.pt:28
 #: euphorie/content/help.py:42
 msgid "label_help_sessions"
 msgstr "Izvršite svoju procjenu rizika"
@@ -4183,7 +4154,7 @@ msgstr "Izvršite svoju procjenu rizika"
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:106
 #: euphorie/client/browser/templates/report_identification.pt:125
-#: euphorie/client/browser/templates/shell.pt:196
+#: euphorie/client/browser/templates/shell.pt:274
 msgid "label_identification"
 msgstr "Prepoznavanje"
 
@@ -4193,24 +4164,24 @@ msgid "label_image"
 msgstr "Slikovna datoteka"
 
 #. Default: "Implemented measure"
-#: euphorie/client/browser/templates/webhelpers.pt:673
+#: euphorie/client/browser/templates/webhelpers.pt:701
 msgid "label_implemented_measure"
 msgstr "Provedena mjera"
 
 #. Default: "Integrated Action Plan"
-#: euphorie/content/browser/templates/survey_view.pt:29
+#: euphorie/content/browser/templates/survey_view.pt:38
 #: euphorie/content/survey.py:136
 msgid "label_integrated_action_plan"
 msgstr "Integrirani plan mjera"
 
 #. Default: "Introduction text"
-#: euphorie/content/browser/templates/survey_view.pt:35
+#: euphorie/content/browser/templates/survey_view.pt:48
 #: euphorie/content/survey.py:62
 msgid "label_introduction"
 msgstr "Uvodni tekst"
 
 #. Default: "Involve"
-#: euphorie/client/browser/templates/shell.pt:171
+#: euphorie/client/browser/templates/shell.pt:250
 msgid "label_involve"
 msgstr "Uključite"
 
@@ -4220,25 +4191,25 @@ msgid "label_jump_to_report"
 msgstr "Idi na izvješće"
 
 #. Default: "Keep me logged in."
-#: euphorie/client/browser/templates/login_form.pt:55
+#: euphorie/client/browser/templates/login_form.pt:100
 msgid "label_keep_logged_in"
 msgstr "Ostavi me prijavljenu(og)."
 
 #. Default: "Language"
-#: euphorie/content/browser/templates/survey_view.pt:24
+#: euphorie/content/browser/templates/survey_view.pt:33
 #: euphorie/content/survey.py:85
 msgid "label_language"
 msgstr "Jezik"
 
 #. Default: "Legal and policy references"
 #: euphorie/client/browser/templates/panel-contents-preview.pt:75
-#: euphorie/client/browser/templates/webhelpers.pt:554
-#: euphorie/content/browser/templates/risk_view.pt:76
+#: euphorie/client/browser/templates/webhelpers.pt:579
+#: euphorie/content/browser/templates/risk_view.pt:127
 msgid "label_legal_reference"
 msgstr "Pravila i pravne reference"
 
 #. Default: "Login"
-#: euphorie/client/browser/templates/login_form.pt:67
+#: euphorie/client/browser/templates/login_form.pt:117
 msgid "label_login"
 msgstr "Prijava"
 
@@ -4253,18 +4224,18 @@ msgid "label_login_name"
 msgstr "Ime za prijavu"
 
 #. Default: "Password (${forgot_link})"
-#: euphorie/client/browser/templates/login_form.pt:46
+#: euphorie/client/browser/templates/login_form.pt:80
 msgid "label_login_password"
 msgstr "Lozinka (${forgot_link})"
 
 #. Default: "Logo"
-#: euphorie/content/browser/templates/sector_edit.pt:33
+#: euphorie/content/browser/templates/sector_edit.pt:52
 #: euphorie/content/sector.py:72
 msgid "label_logo"
 msgstr "Logotip"
 
 #. Default: "Which logo you would like to display in the lower left corner?"
-#: euphorie/content/browser/templates/sector_edit.pt:38
+#: euphorie/content/browser/templates/sector_edit.pt:67
 msgid "label_logo_selection"
 msgstr "Koji biste logotip željeli prikazati u gornjem lijevom kutu?"
 
@@ -4277,26 +4248,26 @@ msgstr ""
 
 #. Default: "General approach (to eliminate or reduce the risk)"
 #: euphorie/client/browser/report.py:129
-#: euphorie/client/browser/templates/webhelpers.pt:841
+#: euphorie/client/browser/templates/webhelpers.pt:871
 #: euphorie/client/docx/compiler.py:405
 msgid "label_measure_action_plan"
 msgstr "Opći pristup (za eliminaciju ili smanjenje rizika)"
 
 #. Default: "Specific action(s) required to implement this approach"
-#: euphorie/content/browser/templates/solution_view.pt:24
+#: euphorie/content/browser/templates/solution_view.pt:33
 #: euphorie/content/solution.py:53
 msgid "label_measure_prevention_plan"
 msgstr "Konkretna(e) aktivnost(i) potrebna(e) za implementaciju ovog pristupa"
 
 #. Default: "Level of expertise and/or requirements needed"
 #: euphorie/client/browser/report.py:137
-#: euphorie/client/browser/templates/webhelpers.pt:856
+#: euphorie/client/browser/templates/webhelpers.pt:886
 #: euphorie/client/docx/compiler.py:414
 msgid "label_measure_requirements"
 msgstr "Razina stručnosti i/ili potrebni zahtjevi"
 
 #. Default: "by"
-#: euphorie/client/browser/templates/status_info.pt:63
+#: euphorie/client/browser/templates/status_info.pt:65
 msgid "label_modified_by"
 msgstr "od strane "
 
@@ -4317,15 +4288,15 @@ msgid "label_module_question"
 msgstr "Pitanje"
 
 #. Default: "Did this OiRA tool meet your needs?"
-#: euphorie/client/browser/company.py:141
-#: euphorie/client/browser/templates/report_company.pt:75
+#: euphorie/client/browser/company.py:150
+#: euphorie/client/browser/templates/report_company.pt:209
 msgid "label_needs_met"
 msgstr "Je li ovaj OiRA alat zadovoljio vaše potrebe?"
 
 #. Default: "Desired password"
 #: euphorie/client/browser/reset_password.py:34
 #: euphorie/client/browser/settings.py:51
-#: euphorie/client/browser/templates/register.pt:94
+#: euphorie/client/browser/templates/register.pt:170
 msgid "label_new_password"
 msgstr "Željena lozinka"
 
@@ -4335,65 +4306,65 @@ msgid "label_new_password_confirmation"
 msgstr ""
 
 #. Default: "New test session"
-#: euphorie/client/browser/templates/new-session-test.pt:13
+#: euphorie/client/browser/templates/new-session-test.pt:20
 msgid "label_new_session_test"
 msgstr "Nova probna sesija"
 
 #. Default: "Next"
 #: euphorie/client/browser/templates/involve.pt:51
-#: euphorie/client/browser/templates/module_actionplan.pt:58
-#: euphorie/client/browser/templates/module_identification.pt:75
+#: euphorie/client/browser/templates/module_actionplan.pt:75
+#: euphorie/client/browser/templates/module_identification.pt:112
 msgid "label_next"
 msgstr "Sljedeće"
 
 #. Default: "No"
-#: euphorie/client/browser/company.py:134
-#: euphorie/client/browser/templates/module_identification.pt:68
-#: euphorie/client/browser/templates/report_company.pt:70
+#: euphorie/client/browser/company.py:143
+#: euphorie/client/browser/templates/module_identification.pt:98
+#: euphorie/client/browser/templates/report_company.pt:197
 msgid "label_no"
 msgstr "Ne"
 
 #. Default: "No"
-#: euphorie/content/utils.py:87
+#: euphorie/content/utils.py:88
 msgid "label_no_integrated_ap"
 msgstr ""
 
 #. Default: "No risk"
-#: euphorie/client/browser/templates/risks_overview.pt:260
+#: euphorie/client/browser/templates/risks_overview.pt:258
 #: euphorie/client/browser/templates/status_info.pt:196
 msgid "label_no_risk"
 msgstr "Nema rizika"
 
 #. Default: "No risks"
-#: euphorie/client/browser/templates/risks_overview.pt:264
+#: euphorie/client/browser/templates/risks_overview.pt:262
 #: euphorie/client/browser/templates/status_info.pt:200
 msgid "label_no_risks_2"
 msgstr "Nema rizika"
 
 #. Default: "No risks"
-#: euphorie/client/browser/templates/risks_overview.pt:268
+#: euphorie/client/browser/templates/risks_overview.pt:266
 #: euphorie/client/browser/templates/status_info.pt:204
 msgid "label_no_risks_3_4"
 msgstr "Nema rizika"
 
 #. Default: "No risks"
-#: euphorie/client/browser/templates/risks_overview.pt:272
+#: euphorie/client/browser/templates/risks_overview.pt:270
 #: euphorie/client/browser/templates/status_info.pt:208
 msgid "label_no_risks_5_or_more"
 msgstr "Nema rizika"
 
 #. Default: "Not applicable"
-#: euphorie/content/utils.py:88
+#: euphorie/content/utils.py:89
 msgid "label_not_applicable"
 msgstr "Nije primjenjivo"
 
 #. Default: "No, more measures are required"
-#: euphorie/content/utils.py:146
+#: euphorie/content/utils.py:148
 msgid "label_not_sufficient"
 msgstr "Ne, potrebno je više mjera"
 
 #. Default: "No, more measures are required <strong>(to be added below)</strong>"
-#: euphorie/content/utils.py:153
+#: euphorie/content/utils.py:155
 msgid "label_not_sufficient_integrated_ap"
 msgstr "Ne, potrebno je više mjera"
 
@@ -4403,30 +4374,30 @@ msgid "label_old_password"
 msgstr "Trenutačna lozinka"
 
 #. Default: "Page"
-#: euphorie/client/browser/session.py:936
+#: euphorie/client/browser/pdf.py:41
 msgid "label_page"
 msgstr "Stranica"
 
 #. Default: "of"
-#: euphorie/client/browser/session.py:939
+#: euphorie/client/browser/pdf.py:42
 msgid "label_page_of"
 msgstr "od"
 
 #. Default: "Password"
-#: euphorie/content/browser/templates/sector_edit.pt:66
+#: euphorie/content/browser/templates/sector_edit.pt:122
 #: euphorie/content/user.py:92
 msgid "label_password"
 msgstr "Lozinka"
 
 #. Default: "Again password"
-#: euphorie/client/browser/templates/register.pt:96
+#: euphorie/client/browser/templates/register.pt:179
 msgid "label_password_confirm"
 msgstr "Ponovite lozinku"
 
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:104
 #: euphorie/client/browser/templates/report_identification.pt:113
-#: euphorie/client/browser/templates/shell.pt:151
+#: euphorie/client/browser/templates/shell.pt:230
 msgid "label_preparation"
 msgstr "Priprema"
 
@@ -4436,9 +4407,9 @@ msgid "label_preview"
 msgstr "Pretpregled"
 
 #. Default: "Previous"
-#: euphorie/client/browser/templates/module_identification.pt:74
-#: euphorie/client/browser/templates/report_company.pt:92
-#: euphorie/client/browser/templates/risk_actionplan.pt:132
+#: euphorie/client/browser/templates/module_identification.pt:106
+#: euphorie/client/browser/templates/report_company.pt:257
+#: euphorie/client/browser/templates/risk_actionplan.pt:130
 msgid "label_previous"
 msgstr "Prethodni"
 
@@ -4449,90 +4420,90 @@ msgid "label_print_tool_preview"
 msgstr "Ispišite pregled alata"
 
 #. Default: "Negative statement"
-#: euphorie/content/browser/templates/risk_view.pt:41
+#: euphorie/content/browser/templates/risk_view.pt:84
 #: euphorie/content/risk.py:80
 msgid "label_problem_description"
 msgstr "Negativna izjava"
 
 #. Default: "Question"
-#: euphorie/content/browser/templates/profilequestion_view.pt:23
+#: euphorie/content/browser/templates/profilequestion_view.pt:28
 #: euphorie/content/profilequestion.py:42
 msgid "label_profilequestion_question"
 msgstr "Pitanje"
 
 #. Default: "Published"
-#: euphorie/client/browser/templates/publication_menu.pt:24
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:131
-#: euphorie/client/browser/templates/status_info.pt:92
+#: euphorie/client/browser/templates/publication_menu.pt:27
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:146
+#: euphorie/client/browser/templates/status_info.pt:94
 msgid "label_published"
 msgstr "Objavljen"
 
 #. Default: "Would you recommend this OiRA tool to an enterprise similar to yours?"
-#: euphorie/client/browser/company.py:152
-#: euphorie/client/browser/templates/report_company.pt:82
+#: euphorie/client/browser/company.py:161
+#: euphorie/client/browser/templates/report_company.pt:233
 msgid "label_recommend_tool"
 msgstr "Hoćete li preporučiti ovaj OiRA alat poduzeću koje je slično vašem?"
 
 #. Default: "Through which channel did you learn about this tool?"
-#: euphorie/client/browser/company.py:78
-#: euphorie/client/browser/templates/report_company.pt:55
+#: euphorie/client/browser/company.py:87
+#: euphorie/client/browser/templates/report_company.pt:135
 msgid "label_referer"
 msgstr "Preko kojeg kanala ste saznali o ovom alatu?"
 
 #. Default: "register"
 #: euphorie/client/browser/templates/login.pt:51
-#: euphorie/client/browser/templates/new-session-test.pt:75
+#: euphorie/client/browser/templates/new-session-test.pt:129
 msgid "label_register"
 msgstr "Registrirajte se"
 
 #. Default: "It's free."
-#: euphorie/client/browser/templates/register.pt:22
-#: euphorie/client/browser/templates/tooltips.pt:37
+#: euphorie/client/browser/templates/register.pt:30
+#: euphorie/client/browser/templates/tooltips.pt:44
 msgid "label_register_benefit_1"
 msgstr "Besplatno je."
 
 #. Default: "You can save your work online."
-#: euphorie/client/browser/templates/register.pt:23
-#: euphorie/client/browser/templates/tooltips.pt:38
+#: euphorie/client/browser/templates/register.pt:31
+#: euphorie/client/browser/templates/tooltips.pt:45
 msgid "label_register_benefit_2"
 msgstr "Svoj posao možete spremiti na mreži."
 
 #. Default: "You can download a full report and an action plan."
-#: euphorie/client/browser/templates/register.pt:24
-#: euphorie/client/browser/templates/tooltips.pt:39
+#: euphorie/client/browser/templates/register.pt:32
+#: euphorie/client/browser/templates/tooltips.pt:46
 msgid "label_register_benefit_3"
 msgstr "Možete preuzeti potpuno izvješće i akcijski plan."
 
 #. Default: "register"
-#: euphorie/client/browser/templates/login_form.pt:59
+#: euphorie/client/browser/templates/login_form.pt:105
 msgid "label_register_first"
 msgstr "registrirajte se"
 
 #. Default: "Remove this measure"
-#: euphorie/client/browser/templates/webhelpers.pt:692
+#: euphorie/client/browser/templates/webhelpers.pt:722
 msgid "label_remove_measure"
 msgstr "Izbrišite ovu mjeru"
 
 #. Default: "Report"
 #: euphorie/client/browser/templates/report_identification.pt:155
-#: euphorie/client/browser/templates/report_landing.pt:79
-#: euphorie/client/browser/templates/shell.pt:251
+#: euphorie/client/browser/templates/report_landing.pt:83
+#: euphorie/client/browser/templates/shell.pt:322
 msgid "label_report"
 msgstr "Završni dokumenti"
 
 #. Default: "Please leave any extra comments that should be included in the report in this field."
-#: euphorie/client/browser/templates/report.pt:32
+#: euphorie/client/browser/templates/report.pt:41
 msgid "label_report_comment"
 msgstr ""
 "U ovom polju ostavite dodatni komentar koji bi trebalo uključiti u izvješće."
 
 #. Default: "Date of editing"
-#: euphorie/client/docx/compiler.py:546
+#: euphorie/client/docx/compiler.py:547
 msgid "label_report_date"
 msgstr "Datum uređivanja"
 
 #. Default: "Staff who participated in the risk assessment"
-#: euphorie/client/docx/compiler.py:539
+#: euphorie/client/docx/compiler.py:540
 msgid "label_report_staff"
 msgstr "Osobe koje su sudjelovale u procjeni rizika "
 
@@ -4547,55 +4518,55 @@ msgid "label_risk_number"
 msgstr "Broj rizika"
 
 #. Default: "Risk type"
-#: euphorie/content/browser/templates/risk_view.pt:39
+#: euphorie/content/browser/templates/risk_view.pt:82
 #: euphorie/content/risk.py:147
 msgid "label_risk_type"
 msgstr "Vrsta rizika"
 
 #. Default: "Risk with measure(s)"
-#: euphorie/client/browser/templates/risks_overview.pt:281
+#: euphorie/client/browser/templates/risks_overview.pt:279
 #: euphorie/client/browser/templates/status_info.pt:217
 msgid "label_risk_with_measure"
 msgstr "Rizik s mjerom(ama)"
 
 #. Default: "Risk without measure"
-#: euphorie/client/browser/templates/risks_overview.pt:302
+#: euphorie/client/browser/templates/risks_overview.pt:300
 #: euphorie/client/browser/templates/status_info.pt:238
 msgid "label_risk_without_measure"
 msgstr "Rizik bez mjere"
 
 #. Default: "Risks with measure(s)"
-#: euphorie/client/browser/templates/risks_overview.pt:285
+#: euphorie/client/browser/templates/risks_overview.pt:283
 #: euphorie/client/browser/templates/status_info.pt:221
 msgid "label_risks_with_measure_2"
 msgstr "Rizici s mjerom(ama)"
 
 #. Default: "Risks with measure(s)"
-#: euphorie/client/browser/templates/risks_overview.pt:289
+#: euphorie/client/browser/templates/risks_overview.pt:287
 #: euphorie/client/browser/templates/status_info.pt:225
 msgid "label_risks_with_measure_3_4"
 msgstr "Rizici s mjerom(ama)"
 
 #. Default: "Risks with measure(s)"
-#: euphorie/client/browser/templates/risks_overview.pt:293
+#: euphorie/client/browser/templates/risks_overview.pt:291
 #: euphorie/client/browser/templates/status_info.pt:229
 msgid "label_risks_with_measure_5_or_more"
 msgstr "Rizici s mjerom(ama)"
 
 #. Default: "Risks without measure"
-#: euphorie/client/browser/templates/risks_overview.pt:306
+#: euphorie/client/browser/templates/risks_overview.pt:304
 #: euphorie/client/browser/templates/status_info.pt:242
 msgid "label_risks_without_measure_2"
 msgstr "Rizici bez mjere(a)"
 
 #. Default: "Risks without measure"
-#: euphorie/client/browser/templates/risks_overview.pt:310
+#: euphorie/client/browser/templates/risks_overview.pt:308
 #: euphorie/client/browser/templates/status_info.pt:246
 msgid "label_risks_without_measure_3_4"
 msgstr "Rizici bez mjere(a)"
 
 #. Default: "Risks without measure"
-#: euphorie/client/browser/templates/risks_overview.pt:314
+#: euphorie/client/browser/templates/risks_overview.pt:312
 #: euphorie/client/browser/templates/status_info.pt:250
 msgid "label_risks_without_measure_5_or_more"
 msgstr "Rizici bez mjere(a)"
@@ -4606,9 +4577,9 @@ msgid "label_save_and_add_new"
 msgstr "Pohranite i dodajte drugi rizik"
 
 #. Default: "Save and continue"
-#: euphorie/client/browser/templates/profile.pt:110
-#: euphorie/client/browser/templates/report.pt:41
-#: euphorie/client/browser/templates/report_company.pt:93
+#: euphorie/client/browser/templates/profile.pt:190
+#: euphorie/client/browser/templates/report.pt:52
+#: euphorie/client/browser/templates/report_company.pt:262
 msgid "label_save_and_continue"
 msgstr "Spremi i nastavi"
 
@@ -4623,7 +4594,7 @@ msgid "label_section"
 msgstr "Odjel"
 
 #. Default: "Please provide a description of your sector"
-#: euphorie/content/browser/templates/sector_edit.pt:27
+#: euphorie/content/browser/templates/sector_edit.pt:41
 msgid "label_sector_description"
 msgstr "Unesite opis svojeg sektora"
 
@@ -4633,26 +4604,26 @@ msgid "label_sector_title"
 msgstr "Naziv sektora."
 
 #. Default: "Select one or more of the known common measures provided."
-#: euphorie/client/browser/templates/webhelpers.pt:635
+#: euphorie/client/browser/templates/webhelpers.pt:662
 msgid "label_select_measure"
 msgstr "Odaberite jednu ili više poznatih uobičajenih mjera koje su ponuđene."
 
 #. Default: "Start a new session by choosing one of the following sectoral tools."
-#: euphorie/client/browser/templates/new-session-test.pt:27
-#: euphorie/client/browser/templates/new-session.pt:28
+#: euphorie/client/browser/templates/new-session-test.pt:40
+#: euphorie/client/browser/templates/new-session.pt:37
 #: euphorie/client/browser/templates/portlet-available-tools.pt:28
 msgid "label_select_new_session"
 msgstr "Pokrenite novu sesiju odabirom nekog od sljedećih sektorskih alata"
 
 #. Default: "Select an OiRA tool"
-#: euphorie/client/browser/templates/new-session-test.pt:53
-#: euphorie/client/browser/templates/new-session.pt:54
-#: euphorie/client/browser/templates/portlet-available-tools.pt:71
+#: euphorie/client/browser/templates/new-session-test.pt:79
+#: euphorie/client/browser/templates/new-session.pt:76
+#: euphorie/client/browser/templates/portlet-available-tools.pt:69
 msgid "label_select_oira_tool"
 msgstr "Odaberite OiRA alat"
 
 #. Default: "Select standard measures"
-#: euphorie/client/browser/templates/webhelpers.pt:945
+#: euphorie/client/browser/templates/webhelpers.pt:974
 msgid "label_select_standard_measures"
 msgstr "Odaberite predložene mjere"
 
@@ -4667,7 +4638,7 @@ msgid "label_show_less_hellip"
 msgstr "Prikaži manje…"
 
 #. Default: "${read_more} about this risk."
-#: euphorie/client/browser/templates/risk_macros.pt:161
+#: euphorie/client/browser/templates/risk_macros.pt:160
 msgid "label_show_more"
 msgstr "${read_more} o ovom riziku."
 
@@ -4682,7 +4653,7 @@ msgid "label_show_notapplicable"
 msgstr "Prikaži opciju `nije primjenjivo'"
 
 #. Default: "Skip this step"
-#: euphorie/client/browser/templates/report_company.pt:94
+#: euphorie/client/browser/templates/report_company.pt:267
 msgid "label_skip"
 msgstr "Preskoči ovaj korak"
 
@@ -4692,7 +4663,7 @@ msgid "label_solution_direction"
 msgstr "Rješenje"
 
 #. Default: "Start Risk Identification"
-#: euphorie/client/browser/templates/identification.pt:26
+#: euphorie/client/browser/templates/identification.pt:37
 msgid "label_start_identification"
 msgstr "Započnite procjenu rizika"
 
@@ -4702,7 +4673,7 @@ msgid "label_start_survey"
 msgstr "Pokrenite"
 
 #. Default: "Started"
-#: euphorie/client/browser/templates/status_info.pt:51
+#: euphorie/client/browser/templates/status_info.pt:53
 msgid "label_started"
 msgstr "započeto"
 
@@ -4712,7 +4683,7 @@ msgid "label_statement"
 msgstr "Pozitivna izjava"
 
 #. Default: "Choose a base revision"
-#: euphorie/content/browser/templates/survey_add.pt:20
+#: euphorie/content/browser/templates/survey_add.pt:31
 msgid "label_survey_base"
 msgstr "Odaberite osnovnu reviziju"
 
@@ -4727,7 +4698,7 @@ msgid "label_survey_obsolete"
 msgstr "Zastarjeli upitnik"
 
 #. Default: "How would you like to start"
-#: euphorie/content/browser/templates/surveygroup_add.pt:18
+#: euphorie/content/browser/templates/surveygroup_add.pt:29
 msgid "label_survey_source"
 msgstr "Kako biste željeli započeti"
 
@@ -4742,7 +4713,7 @@ msgid "label_surveygroup_title"
 msgstr "Naziv uvezenog OiRA alata"
 
 #. Default: "Test session"
-#: euphorie/client/browser/templates/shell.pt:103
+#: euphorie/client/browser/templates/shell.pt:158
 msgid "label_testsession"
 msgstr "Probna sesija"
 
@@ -4763,13 +4734,13 @@ msgstr "Srednji"
 
 #. Default: "Title"
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:24
-#: euphorie/client/browser/templates/confirmation-delete-session.pt:24
-#: euphorie/client/docx/compiler.py:537
+#: euphorie/client/browser/templates/confirmation-delete-session.pt:30
+#: euphorie/client/docx/compiler.py:538
 msgid "label_title"
 msgstr "Naziv"
 
 #. Default: "based on ${tool_title}"
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:144
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:160
 msgid "label_tool_based_on"
 msgstr "na temelju ${tool_title}"
 
@@ -4784,7 +4755,7 @@ msgid "label_tool_notification_title"
 msgstr "Naslov obavijesti u alatu"
 
 #. Default: "Type of OiRA Tool"
-#: euphorie/content/browser/templates/survey_view.pt:27
+#: euphorie/content/browser/templates/survey_view.pt:36
 #: euphorie/content/survey.py:103
 msgid "label_tool_type"
 msgstr "Vrsta alata OiRA"
@@ -4795,7 +4766,7 @@ msgid "label_tryout"
 msgstr "Pokrenite probnu sesiju"
 
 #. Default: "Unpublished"
-#: euphorie/client/browser/templates/status_info.pt:114
+#: euphorie/client/browser/templates/status_info.pt:115
 msgid "label_unpublished"
 msgstr "Neobjavljeno"
 
@@ -4820,7 +4791,7 @@ msgid "label_use_location_question"
 msgstr "Pitati korisnika za više lokacija?"
 
 #. Default: "Used tool"
-#: euphorie/client/browser/templates/status_info.pt:36
+#: euphorie/client/browser/templates/status_info.pt:38
 msgid "label_used_tool"
 msgstr "Korišteni alat"
 
@@ -4830,40 +4801,40 @@ msgid "label_user_title"
 msgstr "Ime"
 
 #. Default: "(&ge;1 measures)"
-#: euphorie/client/browser/templates/risks_overview.pt:425
+#: euphorie/client/browser/templates/risks_overview.pt:422
 msgid "label_with_measures"
 msgstr "(≥1 mjere(a))"
 
 #. Default: "(without measures)"
-#: euphorie/client/browser/templates/risks_overview.pt:427
+#: euphorie/client/browser/templates/risks_overview.pt:424
 msgid "label_without_measures"
 msgstr "(bez mjera)"
 
 #. Default: "Workers were invited to participate in the risk assessment"
-#: euphorie/client/browser/company.py:127
-#: euphorie/client/browser/templates/report_company.pt:68
+#: euphorie/client/browser/company.py:136
+#: euphorie/client/browser/templates/report_company.pt:185
 msgid "label_workers_participated"
 msgstr "Radnici su pozvani na sudjelovanje u procjeni rizika"
 
 #. Default: "Yes"
-#: euphorie/client/browser/company.py:133
-#: euphorie/client/browser/templates/module_identification.pt:64
-#: euphorie/client/browser/templates/report_company.pt:69
+#: euphorie/client/browser/company.py:142
+#: euphorie/client/browser/templates/module_identification.pt:90
+#: euphorie/client/browser/templates/report_company.pt:191
 msgid "label_yes"
 msgstr "Da"
 
 #. Default: "Yes"
-#: euphorie/content/utils.py:84
+#: euphorie/content/utils.py:85
 msgid "label_yes_integrated_ap"
 msgstr ""
 
 #. Default: "Yes, the remaining risk is acceptable"
-#: euphorie/content/utils.py:142
+#: euphorie/content/utils.py:144
 msgid "label_yes_sufficient"
 msgstr "Da, preostali rizik je prihvatljiv"
 
 #. Default: "Last edited by ${name} on ${date}."
-#: euphorie/client/browser/templates/publication_menu.pt:39
+#: euphorie/client/browser/templates/publication_menu.pt:46
 msgid "last_edited_by"
 msgstr "Posljednji put uredio  ${name} dana ${date}."
 
@@ -4884,59 +4855,59 @@ msgstr ""
 "${label} = Ova verzija sadrži izmjene koje trenutačno nisu objavljene. "
 "Kliknite ikonu za ažuriranje kako biste aktivirali sve izmjene."
 
-#: euphorie/client/browser/templates/new-session-test.pt:72
+#: euphorie/client/browser/templates/new-session-test.pt:117
 msgid "limitations"
 msgstr "ograničenjima"
 
 #. Default: "Sign in"
-#: euphorie/client/browser/templates/plain.pt:181
+#: euphorie/client/browser/templates/plain.pt:220
 msgid "link_sign_in"
 msgstr "Prijava"
 
 #. Default: "start a new session"
 #: euphorie/client/browser/country.py:424
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:47
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:58
 msgid "link_start_session"
 msgstr "Pokrenite novu sesiju"
 
 #. Default: "contents of the tool"
-#: euphorie/client/browser/templates/identification.pt:21
+#: euphorie/client/browser/templates/identification.pt:30
 msgid "list_of_risks"
 msgstr "sadržaje alata"
 
 #. Default: "Discover how easy it is to create a risk assessment with OiRA."
-#: euphorie/client/browser/templates/tooltips.pt:27
+#: euphorie/client/browser/templates/tooltips.pt:34
 msgid "list_test_session_benefits1"
 msgstr ""
 "Otkrijte kako je jednostavno napraviti procjenu rizika s pomoću OiRA alata."
 
 #. Default: "Identify potential risks in your business and the measures to reduce them."
-#: euphorie/client/browser/templates/tooltips.pt:28
+#: euphorie/client/browser/templates/tooltips.pt:35
 msgid "list_test_session_benefits2"
 msgstr ""
 "Identificirajte potencijalne rizike u svom poslu i mjere za njihovo "
 "smanjenje."
 
 #. Default: "Use it for vocational training."
-#: euphorie/client/browser/templates/tooltips.pt:29
+#: euphorie/client/browser/templates/tooltips.pt:36
 msgid "list_test_session_benefits3"
 msgstr "Koristite je za stručno osposobljavanje."
 
 #. Default: "${important} In a test session you cannot save your work. All progess will be lost unless you register."
-#: euphorie/client/browser/templates/tooltips.pt:15
+#: euphorie/client/browser/templates/tooltips.pt:22
 msgid "list_test_session_limitations1"
 msgstr ""
 "${important} U testnoj sesiji ne možete spremiti svoj rad. Ako se ne "
 "registrirate, izgubit će se sav napredak."
 
 #. Default: "You will not be able to print or download reports."
-#: euphorie/client/browser/templates/tooltips.pt:18
+#: euphorie/client/browser/templates/tooltips.pt:25
 msgid "list_test_session_limitations2"
 msgstr "Nećete moći ispisati ili preuzeti izvješća."
 
 #. Default: "During a test session you will have the possibility at any time to register by clicking on the \"Register\" link at the top."
-#: euphorie/client/browser/templates/tooltips.pt:19
+#: euphorie/client/browser/templates/tooltips.pt:26
 msgid "list_test_session_limitations3"
 msgstr ""
 "U svako doba tijekom testne sesije imat ćete mogućnost registracije, tako da "
@@ -4947,7 +4918,7 @@ msgid "log in"
 msgstr "prijaviti"
 
 #. Default: "You may get the best results if you upload a logo as a ${transparent} PNG file of at least 100 pixels in height. Uploading larger images is fine, the logo will be scaled down to the right size automatically."
-#: euphorie/content/browser/templates/sector_edit.pt:61
+#: euphorie/content/browser/templates/sector_edit.pt:114
 msgid "logo_instructions"
 msgstr ""
 "Najbolje rezultate možete dobiti ako logotip prenesete kao ${transparent} "
@@ -4955,17 +4926,17 @@ msgstr ""
 "ali će se logotip automatski smanjiti na odgovarajuću veličinu."
 
 #. Default: "transparent"
-#: euphorie/content/browser/templates/sector_edit.pt:61
+#: euphorie/content/browser/templates/sector_edit.pt:114
 msgid "logo_instructions_transparent"
 msgstr "transparentnu"
 
 #. Default: "My own"
-#: euphorie/content/browser/templates/sector_edit.pt:44
+#: euphorie/content/browser/templates/sector_edit.pt:83
 msgid "logo_my_own"
 msgstr "Moj vlastiti"
 
 #. Default: "Mandatory"
-#: euphorie/content/browser/templates/survey_view.pt:20
+#: euphorie/content/browser/templates/survey_view.pt:27
 msgid "mandatory"
 msgstr "Obvezno"
 
@@ -4985,12 +4956,12 @@ msgid "menu_import"
 msgstr "Uvezi OiRA alat"
 
 #. Default: "Training"
-#: euphorie/client/browser/templates/shell.pt:272
+#: euphorie/client/browser/templates/shell.pt:343
 msgid "menu_training"
 msgstr "Osposobljavanje"
 
 #. Default: "Please choose a country of which you would like to view or copy an OiRA Tool."
-#: euphorie/content/browser/templates/sectorcontainer_view.pt:15
+#: euphorie/content/browser/templates/sectorcontainer_view.pt:18
 msgid "message_choose_country"
 msgstr ""
 "Odaberite državu iz koje biste željeli pogledati ili kopirati OiRA alat."
@@ -5043,7 +5014,7 @@ msgstr ""
 "Ne možete izbrisati objavljenu verziju OiRA alata. Prvo poništite objavu."
 
 #. Default: "There are no sectors for this country."
-#: euphorie/content/browser/templates/country_view.pt:18
+#: euphorie/content/browser/templates/country_view.pt:19
 msgid "message_no_sectors"
 msgstr "Za ovu državu nema sektora."
 
@@ -5053,13 +5024,13 @@ msgid "message_not_delete_published_sector"
 msgstr "Ne možete izbristi sektor koji sadrži objavljene OiRA alate."
 
 #. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at"
-#: euphorie/client/browser/publish.py:360
+#: euphorie/client/browser/publish.py:368
 msgid "message_preview_success"
 msgstr ""
 "Pretpregled za OiRA alat je uspješno stvoren. Može mu se pristupiti na adresi"
 
 #. Default: "Succesfully published the OiRA Tool. It can be accessed at"
-#: euphorie/client/browser/publish.py:295
+#: euphorie/client/browser/publish.py:303
 msgid "message_publish_success"
 msgstr "OiRA alat je uspješno objavljen. Može mu se pristupiti na adresi"
 
@@ -5084,12 +5055,12 @@ msgid "message_user_unlocked"
 msgstr "Račun \"${title}\" je otključan."
 
 #. Default: "This ${number} is mandatory."
-#: euphorie/content/browser/templates/module_view.pt:24
+#: euphorie/content/browser/templates/module_view.pt:40
 msgid "module_mandatory"
 msgstr "Ovaj ${number} je obavezan."
 
 #. Default: "This ${number} is optional."
-#: euphorie/content/browser/templates/module_view.pt:28
+#: euphorie/content/browser/templates/module_view.pt:48
 msgid "module_optional"
 msgstr "Ovaj ${number} je opcionalni."
 
@@ -5114,37 +5085,37 @@ msgid "nav_usermanagement"
 msgstr "Upravljanje korisnicima"
 
 #. Default: "Help"
-#: euphorie/client/browser/templates/conditions.pt:138
-#: euphorie/client/browser/templates/help-menu.pt:25
-#: euphorie/client/browser/templates/user-menu.pt:36
+#: euphorie/client/browser/templates/conditions.pt:139
+#: euphorie/client/browser/templates/help-menu.pt:31
+#: euphorie/client/browser/templates/user-menu.pt:40
 msgid "navigation_help"
 msgstr "Pomoć"
 
 #. Default: "Logout"
-#: euphorie/client/browser/templates/user-menu.pt:51
-#: euphorie/client/browser/templates/webhelpers.pt:50
+#: euphorie/client/browser/templates/user-menu.pt:64
+#: euphorie/client/browser/templates/webhelpers.pt:53
 msgid "navigation_logout"
 msgstr "Odjava"
 
 #. Default: "Settings"
-#: euphorie/client/browser/templates/webhelpers.pt:62
+#: euphorie/client/browser/templates/webhelpers.pt:65
 msgid "navigation_settings"
 msgstr "Postavke"
 
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:46
-#: euphorie/client/browser/templates/shell.pt:298
-#: euphorie/client/browser/templates/webhelpers.pt:59
+#: euphorie/client/browser/templates/shell.pt:369
+#: euphorie/client/browser/templates/webhelpers.pt:62
 msgid "navigation_status"
 msgstr "Status"
 
 #. Default: "My Assessments"
-#: euphorie/client/browser/templates/webhelpers.pt:53
+#: euphorie/client/browser/templates/webhelpers.pt:56
 msgid "navigation_surveys"
 msgstr "Moje procjene"
 
 #. Default: "No"
-#: euphorie/content/browser/templates/risk_view.pt:45
+#: euphorie/content/browser/templates/risk_view.pt:92
 msgid "no"
 msgstr "Ne"
 
@@ -5159,12 +5130,12 @@ msgid "no_default"
 msgstr "Nije zadan"
 
 #. Default: "This survey has no profile questions or modules."
-#: euphorie/content/browser/templates/survey_view.pt:40
+#: euphorie/content/browser/templates/survey_view.pt:53
 msgid "no_profile_questions_or_modules"
 msgstr "Ovaj upitnik nema pitanja o profilu ni module."
 
 #. Default: "There are no OiRA Tools present. You can ${add_link}."
-#: euphorie/content/browser/templates/sector_view.pt:17
+#: euphorie/content/browser/templates/sector_view.pt:21
 msgid "no_surveys_present"
 msgstr "Ne postoji novi OiRA alat. Možete ${add_link}."
 
@@ -5179,17 +5150,17 @@ msgid "no_translate_link_download_section"
 msgstr ""
 
 #. Default: "${text_message_publish_success}: <a href=\"${url}\">${url}</a>."
-#: euphorie/client/browser/publish.py:288
+#: euphorie/client/browser/publish.py:296
 msgid "no_translate_link_published_success"
 msgstr ""
 
 #. Default: "Not set"
-#: euphorie/content/browser/templates/survey_view.pt:23
+#: euphorie/content/browser/templates/survey_view.pt:32
 msgid "not_set"
 msgstr "Nije postavljeno"
 
 #. Default: "Country manager for ${country}."
-#: euphorie/content/browser/templates/countrymanager_view.pt:15
+#: euphorie/content/browser/templates/countrymanager_view.pt:19
 msgid "notice_country_manager"
 msgstr "Državni voditelj za ${country}."
 
@@ -5204,12 +5175,12 @@ msgid "oira_consultation_workers"
 msgstr "U ime radnika:"
 
 #. Default: "Online interactive"
-#: euphorie/client/browser/templates/webhelpers.pt:38
+#: euphorie/client/browser/templates/webhelpers.pt:41
 msgid "oira_name_line_1"
 msgstr "Interaktivno na mreži"
 
 #. Default: "Risk Assessment"
-#: euphorie/client/browser/templates/webhelpers.pt:41
+#: euphorie/client/browser/templates/webhelpers.pt:44
 msgid "oira_name_line_2"
 msgstr "Procjena rizika"
 
@@ -5219,17 +5190,17 @@ msgid "oira_survey_date"
 msgstr "Datum:"
 
 #. Default: "Optional"
-#: euphorie/content/browser/templates/survey_view.pt:19
+#: euphorie/content/browser/templates/survey_view.pt:24
 msgid "optional"
 msgstr "Opcionalno"
 
 #. Default: "No risk assessments were found for this selection."
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:167
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:182
 msgid "osc_search_no_results_for_search"
 msgstr "Za ovaj odabir nisu pronađene procjene rizika."
 
 #. Default: "Search"
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:77
+#: euphorie/client/browser/templates/session-browser-sidebar.pt:91
 msgid "osc_search_placeholder"
 msgstr "Tražite procjene rizika"
 
@@ -5241,16 +5212,15 @@ msgstr ""
 "savjetovanje s radnicima."
 
 #. Default: "Your password must contain at least 5 characters, including at least one capital letter, one number and one special character (e.g. $, # or @)."
-#: euphorie/content/browser/templates/sector_edit.pt:73
+#: euphorie/content/browser/templates/sector_edit.pt:135
 #: euphorie/content/passwordpolicy.py:54
-#: euphorie/content/tests/test_passwordpolicy.py:13
 msgid "password_policy_conditions"
 msgstr ""
 "Vaša lozinka mora sadržavati najmanje 5 znakova, uključujući najmanje jedno "
 "veliko slovo, jedan broj i jedan posebni znak (npr. $, # ili @)."
 
 #. Default: "The official launch of the tool is planned for September 2011, once the objectives of the testing phase have been reached and once the OiRA website, the OiRA training scheme and OiRA help desk will be ready."
-#: euphorie/client/browser/templates/about.pt:113
+#: euphorie/client/browser/templates/about.pt:114
 msgid "phase_launch"
 msgstr ""
 "Službeno pokretanje projekta planirano je za rujan 2011., čim budu dosegnuti "
@@ -5263,7 +5233,7 @@ msgid "placeholder_custom_risk_description"
 msgstr "Navedite neke dodatne informacije o ovom riziku."
 
 #. Default: "Describe a measure that is already in place but not yet listed here."
-#: euphorie/content/utils.py:129
+#: euphorie/content/utils.py:131
 msgid "placeholder_new_existing"
 msgstr "Opišite mjeru koja je već uvedena, no još se ne nalazi na ovom popisu."
 
@@ -5279,50 +5249,50 @@ msgstr "Kopirajte"
 
 #. Default: "High"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:231
-#: euphorie/client/browser/templates/webhelpers.pt:540
+#: euphorie/client/browser/templates/webhelpers.pt:565
 #: euphorie/content/risk.py:214
 msgid "priority_high"
 msgstr "Veliki"
 
 #. Default: "Low"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:219
-#: euphorie/client/browser/templates/webhelpers.pt:528
+#: euphorie/client/browser/templates/webhelpers.pt:553
 #: euphorie/content/risk.py:212
 msgid "priority_low"
 msgstr "Mali"
 
 #. Default: "Medium"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:225
-#: euphorie/client/browser/templates/webhelpers.pt:534
+#: euphorie/client/browser/templates/webhelpers.pt:559
 #: euphorie/content/risk.py:213
 msgid "priority_medium"
 msgstr "Srednji"
 
 #. Default: "Large"
-#: euphorie/client/browser/templates/webhelpers.pt:330
+#: euphorie/client/browser/templates/webhelpers.pt:355
 #: euphorie/content/risk.py:495
 msgid "probability_large"
 msgstr "Velika"
 
 #. Default: "Medium"
-#: euphorie/client/browser/templates/webhelpers.pt:324
+#: euphorie/client/browser/templates/webhelpers.pt:349
 #: euphorie/content/risk.py:493
 msgid "probability_medium"
 msgstr "Srednja"
 
 #. Default: "Small"
-#: euphorie/client/browser/templates/webhelpers.pt:318
+#: euphorie/client/browser/templates/webhelpers.pt:343
 #: euphorie/content/risk.py:491
 msgid "probability_small"
 msgstr "Mala"
 
 #. Default: "${completion_percentage}% Complete"
-#: euphorie/client/browser/webhelpers.py:284
+#: euphorie/client/browser/webhelpers.py:294
 msgid "progress_indicator_title"
 msgstr "${completion_percentage}% Dovršeno"
 
 #. Default: "<p><strong>Important:</strong> In order to avoid duplicating risks, we strongly recommend you to go first through all the previous modules, if you have not done it yet.</p><p>If you don't need to add risks, please continue.</p>"
-#: euphorie/client/browser/publish.py:144 euphorie/deployment/upgrade/v23.py:36
+#: euphorie/client/browser/publish.py:146 euphorie/deployment/upgrade/v23.py:36
 msgid "question_other_risks"
 msgstr ""
 "<p>Želite li sada ovom alatu dodati vlastite utvrđene rizike? </"
@@ -5331,75 +5301,75 @@ msgstr ""
 "učinili. </p><p> Ako ne trebate dodavati rizike, odaberite 'Ne."
 
 #. Default: "an employers' organisation"
-#: euphorie/client/browser/company.py:86
-#: euphorie/client/browser/templates/report_company.pt:56
+#: euphorie/client/browser/company.py:95
+#: euphorie/client/browser/templates/report_company.pt:141
 msgid "referer_employers_organisation"
 msgstr "organizacije poslodavaca"
 
 #. Default: "an European institution/administration"
-#: euphorie/client/browser/company.py:106
-#: euphorie/client/browser/templates/report_company.pt:60
+#: euphorie/client/browser/company.py:115
+#: euphorie/client/browser/templates/report_company.pt:160
 msgid "referer_eu_institution"
 msgstr "europske institucije/administracije"
 
 #. Default: "health and safety experts"
-#: euphorie/client/browser/company.py:113
-#: euphorie/client/browser/templates/report_company.pt:62
+#: euphorie/client/browser/company.py:122
+#: euphorie/client/browser/templates/report_company.pt:167
 msgid "referer_health_safety_expert"
 msgstr "od stručnjaka za zdravlje i sigurnost"
 
 #. Default: "a national public institution/administration"
-#: euphorie/client/browser/company.py:99
-#: euphorie/client/browser/templates/report_company.pt:58
+#: euphorie/client/browser/company.py:108
+#: euphorie/client/browser/templates/report_company.pt:153
 msgid "referer_national_public_institution"
 msgstr "nacionalne javne institucije/administracije"
 
 #. Default: "other channel"
-#: euphorie/client/browser/company.py:119
-#: euphorie/client/browser/templates/report_company.pt:63
+#: euphorie/client/browser/company.py:128
+#: euphorie/client/browser/templates/report_company.pt:173
 msgid "referer_other"
 msgstr "ostalih kanala"
 
 #. Default: "a trade union organisation"
-#: euphorie/client/browser/company.py:93
-#: euphorie/client/browser/templates/report_company.pt:57
+#: euphorie/client/browser/company.py:102
+#: euphorie/client/browser/templates/report_company.pt:147
 msgid "referer_trade_union"
 msgstr "organizacije trgovinskog sindikata"
 
 #. Default: "Don't have an account? Then please ${register_link} first."
-#: euphorie/client/browser/templates/login_form.pt:59
+#: euphorie/client/browser/templates/login_form.pt:105
 msgid "register_teaser"
 msgstr "Nemate račun? Najprije posjetite ${register_link}."
 
-#: euphorie/client/browser/templates/confirm-email.pt:18
+#: euphorie/client/browser/templates/confirm-email.pt:24
 msgid "reminder_email_footer"
 msgstr ""
 
 #. Default: "Required expertise:"
-#: euphorie/client/docx/compiler.py:647
+#: euphorie/client/docx/compiler.py:668
 msgid "report_competences"
 msgstr "Potrebna razina stručnosti: "
 
 #. Default: "To be done by: ${date}"
-#: euphorie/client/docx/compiler.py:670
+#: euphorie/client/docx/compiler.py:691
 msgid "report_end_date"
 msgstr "Izvršit će: ${date}"
 
 #. Default: "We are sorry, this is a trial version and the download feature cannot be used. Register in just one step and gain access to the following benefits:"
-#: euphorie/client/browser/templates/register.pt:20
+#: euphorie/client/browser/templates/register.pt:28
 msgid "report_guest_register_intro"
 msgstr ""
 "Nažalost, ovo je probna verzija i ne može se koristiti funkcija preuzimanja. "
 "Registrirajte se u samo jednom koraku i pristupite sljedećim pogodnostima:"
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:877
+#: euphorie/client/docx/compiler.py:899
 msgid "report_identification_revision"
 msgstr ""
 "Ovaj se dokument temelji na OiRA alatu '${title}' s datumom revizije ${date}."
 
 #. Default: "Now that you have finished identifying all the risks in your organisation and created an action plan you can create a report which lists all your results. You can, if desired, add some extra comments that should be included in this report in the field below."
-#: euphorie/client/browser/templates/report.pt:23
+#: euphorie/client/browser/templates/report.pt:30
 msgid "report_intro"
 msgstr ""
 "Sada, kada ste dovršili identifikaciju svih rizika u vašoj organizaciji i "
@@ -5408,12 +5378,12 @@ msgstr ""
 "uključiti u to izvješće."
 
 #. Default: "Measures already in place:"
-#: euphorie/client/docx/compiler.py:622
+#: euphorie/client/docx/compiler.py:643
 msgid "report_measures_in_place"
 msgstr "Mjere koje su već uvedene:"
 
 #. Default: "Responsible: ${responsible_name}"
-#: euphorie/client/docx/compiler.py:658
+#: euphorie/client/docx/compiler.py:679
 msgid "report_responsible"
 msgstr "Odgovoran: ${responsible_name}"
 
@@ -5430,7 +5400,8 @@ msgid "report_timeline_comment"
 msgstr "Komentari"
 
 #. Default: "Priority"
-#: euphorie/client/browser/report.py:151 euphorie/content/risk.py:209
+#: euphorie/client/browser/report.py:151 euphorie/client/docx/compiler.py:625
+#: euphorie/content/risk.py:209
 msgid "report_timeline_priority"
 msgstr "Prioritet"
 
@@ -5445,7 +5416,7 @@ msgid "report_timeline_title"
 msgstr "Vremenski slijed"
 
 #. Default: "reset your password"
-#: euphorie/client/browser/templates/login_form.pt:29
+#: euphorie/client/browser/templates/login_form.pt:44
 msgid "request_an_email_reminder"
 msgstr "zatražite podsjetnik putem e-pošte"
 
@@ -5455,45 +5426,45 @@ msgid "risk_present"
 msgstr "Rizik je utvrđen."
 
 #. Default: "This is a ${priority_value} priority risk."
-#: euphorie/client/browser/templates/risk_actionplan.pt:83
+#: euphorie/client/browser/templates/risk_actionplan.pt:81
 #: euphorie/client/docx/compiler.py:312
 msgid "risk_priority"
 msgstr "Ovo je ${priority_value} rizik"
 
-#: euphorie/client/browser/templates/risk_actionplan.pt:105
+#: euphorie/client/browser/templates/risk_actionplan.pt:103
 msgid "risk_priority_${value}"
 msgstr "risk_priority_${value}"
 
 #. Default: "high"
-#: euphorie/client/browser/templates/risk_actionplan.pt:94
+#: euphorie/client/browser/templates/risk_actionplan.pt:92
 #: euphorie/client/docx/compiler.py:310
 msgid "risk_priority_high"
 msgstr "veliki"
 
 #. Default: "low"
-#: euphorie/client/browser/templates/risk_actionplan.pt:86
+#: euphorie/client/browser/templates/risk_actionplan.pt:84
 #: euphorie/client/docx/compiler.py:306
 msgid "risk_priority_low"
 msgstr "mali"
 
 #. Default: "medium"
-#: euphorie/client/browser/templates/risk_actionplan.pt:90
+#: euphorie/client/browser/templates/risk_actionplan.pt:88
 #: euphorie/client/docx/compiler.py:308
 msgid "risk_priority_medium"
 msgstr "srednji"
 
 #. Default: "Show '${na}'"
-#: euphorie/content/browser/templates/risk_view.pt:43
+#: euphorie/content/browser/templates/risk_view.pt:86
 msgid "risk_show_na"
 msgstr "Pokaži '${na}"
 
 #. Default: "not applicable"
-#: euphorie/content/browser/templates/risk_view.pt:43
+#: euphorie/content/browser/templates/risk_view.pt:86
 msgid "risk_show_na_na"
 msgstr "nije primjenjivo"
 
 #. Default: "Measure ${number}"
-#: euphorie/content/browser/templates/risk_view.pt:86
+#: euphorie/content/browser/templates/risk_view.pt:143
 msgid "risk_solution_header"
 msgstr "Mjera ${number}"
 
@@ -5519,73 +5490,73 @@ msgid "risktype_top5"
 msgstr "Prioritetni rizik"
 
 #. Default: "Switch tips off now"
-#: euphorie/client/browser/templates/tooltips.pt:59
+#: euphorie/client/browser/templates/tooltips.pt:67
 msgid "screen_help_switch_off"
 msgstr "Isključite savjete"
 
 #. Default: "No items found."
-#: euphorie/deployment/browser/templates/context_search.pt:17
-#: euphorie/deployment/browser/templates/search.pt:24
+#: euphorie/deployment/browser/templates/context_search.pt:21
+#: euphorie/deployment/browser/templates/search.pt:33
 msgid "search_no_results"
 msgstr "Stavke nisu pronađene."
 
 #. Default: "${number} results found."
-#: euphorie/deployment/browser/templates/context_search.pt:19
-#: euphorie/deployment/browser/templates/search.pt:26
+#: euphorie/deployment/browser/templates/context_search.pt:26
+#: euphorie/deployment/browser/templates/search.pt:38
 msgid "search_result_intro"
 msgstr "Pronađen(o) je ${number} rezultat(a)."
 
 #. Default: "Relevance: ${percentage}"
-#: euphorie/deployment/browser/templates/search.pt:28
+#: euphorie/deployment/browser/templates/search.pt:47
 msgid "search_result_relevance"
 msgstr "Značaj: ${percentage}"
 
 #. Default: "Select or add any measures that are <strong>already in place</strong>."
-#: euphorie/content/utils.py:103
+#: euphorie/content/utils.py:105
 msgid "select_add_existing_measure"
 msgstr "Odaberite ili dodajte sve mjere koje su već uvedene."
 
 #. Default: "Not very severe"
-#: euphorie/client/browser/templates/webhelpers.pt:422
+#: euphorie/client/browser/templates/webhelpers.pt:447
 #: euphorie/content/risk.py:428
 msgid "severity_not_severe"
 msgstr "Ne tako ozbiljna"
 
 #. Default: "Need to stop working for less than 3 days"
-#: euphorie/client/browser/templates/webhelpers.pt:423
+#: euphorie/client/browser/templates/webhelpers.pt:448
 msgid "severity_not_severe_help"
 msgstr "Potrebno je zastati s radom manje od 3 dana"
 
 #. Default: "Severe"
-#: euphorie/client/browser/templates/webhelpers.pt:433
+#: euphorie/client/browser/templates/webhelpers.pt:458
 #: euphorie/content/risk.py:430
 msgid "severity_severe"
 msgstr "Ozbiljna"
 
 #. Default: "Need to stop working for more than 3 days"
-#: euphorie/client/browser/templates/webhelpers.pt:434
+#: euphorie/client/browser/templates/webhelpers.pt:459
 msgid "severity_severe_help"
 msgstr "Potrebno je zastati s radom više od 3 dana"
 
 #. Default: "Very severe"
-#: euphorie/client/browser/templates/webhelpers.pt:445
+#: euphorie/client/browser/templates/webhelpers.pt:470
 #: euphorie/content/risk.py:434
 msgid "severity_very_severe"
 msgstr "Vrlo ozbiljna"
 
 #. Default: "Irreversible injury, incurable illness, death"
-#: euphorie/client/browser/templates/webhelpers.pt:446
+#: euphorie/client/browser/templates/webhelpers.pt:471
 msgid "severity_very_severe_help"
 msgstr "Nepovratno oštećenje, neizlječiva bolest, smrt"
 
 #. Default: "Weak"
-#: euphorie/client/browser/templates/webhelpers.pt:411
+#: euphorie/client/browser/templates/webhelpers.pt:436
 #: euphorie/content/risk.py:424
 msgid "severity_weak"
 msgstr "Slaba"
 
 #. Default: "No need to stop working"
-#: euphorie/client/browser/templates/webhelpers.pt:412
+#: euphorie/client/browser/templates/webhelpers.pt:437
 msgid "severity_weak_help"
 msgstr "Nije potrebno zastati s radom"
 
@@ -5595,22 +5566,22 @@ msgid "survey_default_title"
 msgstr "Uobičajeno"
 
 #. Default: "You can also ${add_link}."
-#: euphorie/content/browser/templates/sector_view.pt:32
+#: euphorie/content/browser/templates/sector_view.pt:47
 msgid "survey_list_footer"
 msgstr "Također možete ${add_link}."
 
 #. Default: "Base my new OiRA Tool on an existing OiRA Tool of my organisation"
-#: euphorie/content/browser/templates/surveygroup_add.pt:20
+#: euphorie/content/browser/templates/surveygroup_add.pt:41
 msgid "survey_source_local"
 msgstr "Temelji moj novi OiRA alat na postojećem OiRA alatu moje organizacije"
 
 #. Default: "Base my new OiRA Tool on an existing OiRA Tool of another organisation"
-#: euphorie/content/browser/templates/surveygroup_add.pt:21
+#: euphorie/content/browser/templates/surveygroup_add.pt:47
 msgid "survey_source_other"
 msgstr "Temelji moj novi OiRA alat na postojećem OiRA alatu druge organizacije"
 
 #. Default: "Create a new OiRA Tool from scratch"
-#: euphorie/content/browser/templates/surveygroup_add.pt:19
+#: euphorie/content/browser/templates/surveygroup_add.pt:35
 msgid "survey_source_scratch"
 msgstr "Stvori novi OiRA alat otpočetka"
 
@@ -5622,21 +5593,21 @@ msgstr ""
 "ili ${register_link} kako biste stvarno započeli s uporabom."
 
 #. Default: "The terms and conditions have changed since your last visit. Please read the new terms and conditions carefully before proceding."
-#: euphorie/client/browser/templates/conditions.pt:19
+#: euphorie/client/browser/templates/conditions.pt:20
 msgid "terms_changed"
 msgstr ""
 "Uvjeti i odredbe promijenjeni su od vaše posljednje posjete. Prije nastavka "
 "pažljivo pročitajte nove uvjete i odredbe."
 
 #. Default: "Read here about the ${benefits}${tooltip_benefits} and ${limitations}${tooltip_limitations} of a test session."
-#: euphorie/client/browser/templates/new-session-test.pt:72
+#: euphorie/client/browser/templates/new-session-test.pt:119
 msgid "testsession_benefits_limitations"
 msgstr ""
 "Ovdje pročitajte više o ${benefits}${tooltip_benefits} i "
 "${limitations}${tooltip_limitations} probne sesije."
 
 #. Default: "Or ${register_link} instead. Find out why you should register${tooltip_register}."
-#: euphorie/client/browser/templates/new-session-test.pt:75
+#: euphorie/client/browser/templates/new-session-test.pt:130
 msgid "testsession_register"
 msgstr ""
 "Ili umjesto toga, posjetite ${register_link}. Saznajte zašto se trebate "
@@ -5648,7 +5619,7 @@ msgid "text_add_measures"
 msgstr "dodajte sve mjere koje su dosad provedene "
 
 #. Default: "About"
-#: euphorie/client/browser/templates/about.pt:23
+#: euphorie/client/browser/templates/about.pt:24
 msgid "title_about"
 msgstr "O"
 
@@ -5664,12 +5635,12 @@ msgstr "Postavke računa"
 
 #. Default: "Change password"
 #: euphorie/client/browser/settings.py:92
-#: euphorie/client/browser/templates/user-menu.pt:42
+#: euphorie/client/browser/templates/user-menu.pt:46
 msgid "title_change_password"
 msgstr "Promjena lozinke"
 
 #. Default: "Client help text"
-#: euphorie/content/browser/templates/help_view.pt:12
+#: euphorie/content/browser/templates/help_view.pt:13
 msgid "title_client_help"
 msgstr "Tekst pomoći na klijentu"
 
@@ -5679,22 +5650,22 @@ msgid "title_common_solution"
 msgstr "Mjera"
 
 #. Default: "Documentation"
-#: euphorie/content/browser/templates/documentation_view.pt:12
+#: euphorie/content/browser/templates/documentation_view.pt:13
 msgid "title_country_documentation"
 msgstr "Dokumentacija"
 
 #. Default: "Error"
-#: euphorie/client/browser/templates/error.pt:16
+#: euphorie/client/browser/templates/error.pt:20
 msgid "title_error"
 msgstr "Pogreška"
 
 #. Default: "Not found"
-#: euphorie/client/browser/templates/error_notfound.pt:14
+#: euphorie/client/browser/templates/error_notfound.pt:18
 msgid "title_error_notfound"
 msgstr "Nije pronađena"
 
 #. Default: "Help"
-#: euphorie/client/browser/templates/help.pt:20
+#: euphorie/client/browser/templates/help.pt:26
 msgid "title_help"
 msgstr "Pomoć"
 
@@ -5704,7 +5675,7 @@ msgid "title_help_unpublished"
 msgstr "Ukloni ovaj OiRA alat s mrežnog klijenta."
 
 #. Default: "Added risks (by you)"
-#: euphorie/client/browser/publish.py:136
+#: euphorie/client/browser/publish.py:138
 #: euphorie/client/browser/session.py:471 euphorie/client/docx/compiler.py:108
 msgid "title_other_risks"
 msgstr "Ostali izvori opasnosti, štetnosti i napora"
@@ -5720,19 +5691,19 @@ msgid "title_reset_password_request"
 msgstr "Oporavak lozinke"
 
 #. Default: "Sectors"
-#: euphorie/content/browser/templates/sectorcontainer_view.pt:12
+#: euphorie/content/browser/templates/sectorcontainer_view.pt:13
 msgid "title_sectors"
 msgstr "Sektori"
 
-#. Default: "Status of &ldquo; ${survey_title}&rdquo;"
-#: euphorie/client/browser/templates/status_info.pt:23
+#. Default: "Status of &ldquo;${survey_title}&rdquo;"
+#: euphorie/client/browser/templates/status_info.pt:24
 msgid "title_status_of"
 msgstr "Status $ {survey_title}"
 
 #. Default: "OiRA - Online interactive Risk Assessment"
 #: euphorie/client/browser/country.py:256
-#: euphorie/client/browser/templates/layout.pt:16
-#: euphorie/client/browser/templates/modal-template.pt:18
+#: euphorie/client/browser/templates/layout.pt:18
+#: euphorie/client/browser/templates/modal-template.pt:21
 msgid "title_tool"
 msgstr "OiRA – internetska interaktivna procjena rizika"
 
@@ -5742,17 +5713,17 @@ msgid "title_tool_category"
 msgstr "Kategorija alata"
 
 #. Default: "Unpublish \"${title}\""
-#: euphorie/content/browser/templates/surveygroup_unpublish.pt:12
+#: euphorie/content/browser/templates/surveygroup_unpublish.pt:15
 msgid "title_unpublish"
 msgstr "Poništi objavu \"${title}"
 
 #. Default: "OiRA Tool was updated"
-#: euphorie/client/browser/templates/updated.pt:15
+#: euphorie/client/browser/templates/updated.pt:19
 msgid "title_updated"
 msgstr "OiRA alat je ažuriran"
 
 #. Default: "Status of &ldquo; ${survey_title}&rdquo;"
-#: euphorie/client/browser/templates/status_info.pt:27
+#: euphorie/client/browser/templates/status_info.pt:29
 msgid "title_with_vowel_status_of"
 msgstr "Status $ {survey_title}"
 
@@ -5763,12 +5734,12 @@ msgid "toc_header"
 msgstr "Sadržaj"
 
 #. Default: "Show/hide menu"
-#: euphorie/client/browser/templates/shell.pt:94
+#: euphorie/client/browser/templates/shell.pt:145
 msgid "tooltip_menu_toggle"
 msgstr "Prikaži/sakrij izbornik"
 
 #. Default: "This risk is not present in your organisation, but since the sector organisation considers this one of the priority risks it must be included in this report."
-#: euphorie/client/browser/templates/risk_macros.pt:131
+#: euphorie/client/browser/templates/risk_macros.pt:130
 #: euphorie/client/docx/compiler.py:281
 msgid "top5_risk_not_present"
 msgstr ""
@@ -5785,7 +5756,7 @@ msgstr ""
 "izvješće."
 
 #. Default: "This risk has not yet been assessed, but since it is considered \"high priority\" by the OiRA tool developers, it will always be included in the action plan. Please go to the identification and answer the statement."
-#: euphorie/client/browser/templates/risk_macros.pt:136
+#: euphorie/client/browser/templates/risk_macros.pt:135
 msgid "top5_risk_not_present_postponed"
 msgstr ""
 "Rizik još nije procijenjen, ali budući da se smatra “velikim rizikom” od "
@@ -5793,7 +5764,7 @@ msgstr ""
 "plan mjera. Stoga Vas molimo da odgovorite na tvrdnju."
 
 #. Default: "Are you sure you want to unpublish this OiRA Tool?"
-#: euphorie/content/browser/templates/surveygroup_unpublish.pt:19
+#: euphorie/content/browser/templates/surveygroup_unpublish.pt:25
 msgid "unpublish_confirm"
 msgstr "Jeste li sugurni da želite poništiti objavu ovog OiRA alata?"
 
@@ -5818,27 +5789,27 @@ msgid "use_involve_phase"
 msgstr ""
 
 #. Default: "Use it to"
-#: euphorie/client/browser/templates/report_landing.pt:119
+#: euphorie/client/browser/templates/report_landing.pt:125
 msgid "use_it_to_action_plan"
 msgstr "Koristiti za"
 
 #. Default: "Use it to"
-#: euphorie/client/browser/templates/report_landing.pt:91
+#: euphorie/client/browser/templates/report_landing.pt:95
 msgid "use_it_to_full_report"
 msgstr "Koristiti za"
 
 #. Default: "Use it to"
-#: euphorie/client/browser/templates/report_landing.pt:179
+#: euphorie/client/browser/templates/report_landing.pt:189
 msgid "use_it_to_measures_overview"
 msgstr "Koristiti za"
 
 #. Default: "Use it to"
-#: euphorie/client/browser/templates/measures_overview.pt:63
+#: euphorie/client/browser/templates/measures_overview.pt:67
 msgid "use_it_to_measures_report"
 msgstr "Koristiti za"
 
 #. Default: "Use it to"
-#: euphorie/client/browser/templates/report_landing.pt:151
+#: euphorie/client/browser/templates/report_landing.pt:159
 msgid "use_it_to_risks_overview"
 msgstr "Koristiti za"
 
@@ -5858,30 +5829,30 @@ msgid "use_training_module"
 msgstr ""
 
 #. Default: "Please verify if the profile is still accurate."
-#: euphorie/client/browser/templates/updated.pt:23
+#: euphorie/client/browser/templates/updated.pt:29
 msgid "verify_profile"
 msgstr "Potvrdite je li profil još uvijek točan."
 
 #. Default: "Please fix the indicated errors."
-#: euphorie/client/browser/templates/report_company.pt:22
+#: euphorie/client/browser/templates/report_company.pt:33
 msgid "warn_fix_errors"
 msgstr "Popravite navedene pogreške."
 
 #. Default: "You responded negative to the above statement."
 #: euphorie/client/browser/templates/report_identification.pt:83
-#: euphorie/client/browser/templates/risk_macros.pt:149
+#: euphorie/client/browser/templates/risk_macros.pt:148
 msgid "warn_risk_present"
 msgstr "Odgovorili ste negativno na gornju tvrdnju."
 
 #. Default: "By clicking on 'Delete account', your account will be permenantly deleted. This action is irreversable."
-#: euphorie/client/browser/templates/account-delete.pt:18
+#: euphorie/client/browser/templates/account-delete.pt:22
 msgid "warning_account_delete_irreversible"
 msgstr ""
 "Klikom na 'Izbriši račun', vaš će račun biti trajno izbrisan. Ova se radnja "
 "ne može poništiti."
 
 #. Default: "Please note that by deleting your account, you will also delete all your sessions. Please make sure you download your reports from the Report step prior to deleting your account, if you want to keep any."
-#: euphorie/client/browser/templates/account-delete.pt:19
+#: euphorie/client/browser/templates/account-delete.pt:25
 msgid "warning_account_delete_surveys"
 msgstr ""
 "Imajte na umu da ćete brisanjem svog računa, izbrisati i sve svoje sesije. "
@@ -5889,7 +5860,7 @@ msgstr ""
 "Izvješće prije nego izbrišite svoj račun."
 
 #. Default: "Yes"
-#: euphorie/content/browser/templates/risk_view.pt:44
+#: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Da"
 
