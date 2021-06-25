@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-12.0.6 (unreleased)
+12.0.6 (2021-06-25)
 -------------------
 
 - Fixed a bug that caused problems with Greek description texts
