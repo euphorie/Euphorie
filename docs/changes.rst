@@ -5,8 +5,7 @@ Changelog
 12.0.6 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Fixed a bug that caused problems with Greek description texts
 
 12.0.5 (2021-06-23)
 -------------------
