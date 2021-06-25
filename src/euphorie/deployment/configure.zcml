@@ -17,12 +17,6 @@
        name="euphorie.deployment"
        />
 
-    <!-- Transform order 8870 - apply theme transform -->
-    <adapter
-        name="euphorie.transform"
-        factory=".transform.EuphorieTransform"
-        />
-
   <genericsetup:registerProfile
        name="default"
        title="Euphorie website"
