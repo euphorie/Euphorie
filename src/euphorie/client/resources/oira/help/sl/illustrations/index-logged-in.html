@@ -1,34 +1,69 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html 
+	class="no-js" 
+	lang="en">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta 
+			http-equiv="Content-Type" 
+			content="text/html; charset=UTF-8">
 		<title>OiRA</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link id="all-styles" rel="stylesheet" href="../../../style/all.css" type="text/css">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+		<link 
+			id="all-styles" 
+			rel="stylesheet" 
+			href="../../../style/all.css" 
+			type="text/css">
 
 		
-			
-    <script>window.__patternslib_public_path__ = "/++resource++euphorie.resources/oira/script/";</script>
-    <script src="/++resource++euphorie.resources/oira/script/polyfills-loader.js" type="text/javascript"></script>
-<script src="../../../script/bundle-help.js" type="text/javascript"></script>
+			<script 
+				src="../../../script/bundle-help.js" 
+				type="text/javascript"></script>
 		
 
 		<!-- Following line is ONLY for the prototype. -->
-		<meta name="robots" content="noindex" />
+		<meta 
+			name="robots" 
+			content="noindex" />
 
-		<meta name="description" content="">
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="" />
-		<meta property="og:description" content="" />
-		<meta property="og:url" content="//assets/oira/help/sl/illustrations/index-logged-in" />
-		<meta property="og:image" content="../../../style/oira-tile.png" />
+		<meta 
+			name="description" 
+			content="">
+		<meta 
+			property="og:type" 
+			content="website" />
+		<meta 
+			property="og:title" 
+			content="" />
+		<meta 
+			property="og:description" 
+			content="" />
+		<meta 
+			property="og:url" 
+			content="//assets/oira/help/sl/illustrations/index-logged-in" />
+		<meta 
+			property="og:image" 
+			content="../../../style/oira-tile.png" />
 
 		<link rel="icon" type="image/png" href="../../../favicon/apple-touch-icon.png" />
 	</head>
-	<body id="body" data-page-layout="dashboard" data-layout-layout="default-layout" class=" osh-off osc-off osc-size-normal osc-s-off ">
+	<body id="body" data-page-layout="dashboard" data-layout-layout="homescreen" class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div id="main" class="sidebar-off">
-	<header id="toolbar">
+	<header 
+	id="toolbar">
+	<a 
+		href="/index-logged-in.html" 
+	    data-pat-inject="source: #content; target: #content; history: record" 
+	    class="pat-inject pat-switch title-group" 
+	    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+	    title="Startup page">
+		<h1
+			class="logo">
+			OiRA
+		</h1>
+	</a>
 	
 	
 		<a href="#osc" 
@@ -40,17 +75,25 @@
 	
 
 	<a href="/feedback/osh.html#osh-osc-toggle" id="osh-target-osc-toggle" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
-
-	<a href="/feedback/more-menu#menu-content" 
-	   id="more-menu" 
-	   class="iconified pat-tooltip pat-switch" 
-	   data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
-	   data-pat-tooltip="source: ajax">More…</a>
-	<a href="/index-logged-in.html" 
-	   data-pat-inject="source: #content; target: #content; history: record" 
-	   class="home pat-inject iconified icon-home pat-switch" 
-	   data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
-	   title="Startup page">Dashboard</a>
+	
+		<a 
+			href="/feedback/more-menu#menu-content" 
+		   	id="user-menu" 
+		   	class="iconified pat-tooltip pat-switch" 
+		   	data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+		   	data-pat-tooltip="source: ajax">Menu</a>
+		<a 
+			href="/feedback/help-menu#menu-content" 
+		   	id="help-menu" 
+		   	class="iconified pat-tooltip pat-switch" 
+		   	data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+		   	data-pat-tooltip="source: ajax">Help</a>
+		<a 
+			href="/index-logged-in.html" 
+		    data-pat-inject="source: #content; target: #content; history: record" 
+		    class="home pat-inject iconified icon-home pat-switch" 
+		    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+		    title="Startup page">Dashboard</a>
 	
 </header>
 	<div id="content">
@@ -61,7 +104,7 @@
 		<div id="main-content" class="variation-dashboard">
   <div id="content-pane">
     
-<article id="screen-intro">
+<!-- <article id="screen-intro">
 	<header class="title-group">
 		<h1>
 			OiRA@Daimler
@@ -73,106 +116,262 @@
 		</p>
 	</header>
 	
-</article>
+</article> -->
 
 
+<form 
+    action="/index-logged-in-var-third-party.html#dashboard" 
+    data-pat-inject="history: record"
+    class="pat-toolbar pat-inject pat-form pat-autosubmit">
+    <div
+        class="toolbar-section view-options"
+        id="assessments-toolbar-view-options">
 
-<div id="dashboard" class="row pat-masonry" data-pat-masonry="column-width: .grid-sizer; gutter: 0; item-selector: .portlet; stamp: .stamp;">
-    <div class="grid-sizer"></div>
-    
+        <label 
+            class="pat-select bare">
+            <select 
+                name="dashboard-view">
+                <option><!-- Show internal assessments -->Default view</option>
+                <option ><!-- Fremdfirmen Darstellung --><!-- Show external assessments --><!-- Fremdfirmen GBUs Darstellung -->Fremdfirmenkoordination</option>
+            </select>
+        </label>
+    </div>
+    <div 
+        class="toolbar-section navigation"
+        id="assessments-toolbar-navigation">
+        <nav 
+    class="toolbar-subnav pat-button-cluster"
+    id="homescreen-sections">
+    <a 
+        href="/index-logged-in.html" 
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options && source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
+        class="current icon icon-gauge pat-inject">Home</a>
+    <a 
+        href="/tools/"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options && source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
+        class=" pat-inject">Tools</a>
+    <a 
+        href="/assessments/"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options && source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
+        class=" pat-inject">Assessments</a>
+    <a 
+        href="/trainings/"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options && source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
+        class="pat-inject">Trainings</a>
+    <a 
+        href="/certificates/"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options && source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
+        class="pat-inject">Certificates</a>
+</nav>
+    </div>
+    <div 
+        class="toolbar-section quick-functions"
+        id="assessments-toolbar-quick-functions">
+    </div>
+</form>
+
+<div 
+	id="application-content">
+	<div 
+    id="dashboard" 
+    class="row pat-masonry" 
+    data-pat-masonry="column-width: .grid-sizer; gutter: 0; item-selector: .portlet; stamp: .stamp;">
+    <div 
+        class="grid-sizer"></div>
         
             
                 
-                
                     
                     
+                        
+                        
 
-<div class="portlet span-2 height-full" id="portlet-my-risk-assessments">
-    <div class="content">
-        <article class="portlet-intro">
-            <header class="portlet-title-group">
-                <h2 class="portlet-title">
-                    Moje ocene tveganja
+<div 
+    class="portlet span-2 height-full" 
+    id="portlet-my-risk-assessments">
+    <div 
+        class="content">
+        <article 
+            class="portlet-intro">
+            <header 
+                class="portlet-title-group">
+                <h2 
+                    class="portlet-title">
+                    Risk assessments
                     
                 </h2>
             </header>
-            <form class="portlet-tool-group pat-inject pat-autosubmit" action="/feedback/portlet-my-ras-filtered#portlet-body-my-ras">
-                <div class="pat-collapsible context-menu closed align-right" data-pat-collapsible="close-trigger: .context-menu:not(#initiators-menu),.close-menu" id="initiators-menu">
-                    <strong class="context-menu-label menu-trigger">Filters</strong>
-                    <p class="close-menu">Close</p>
-                    <fieldset class="pat-checklist">
+            <form 
+                class="portlet-tool-group pat-inject pat-autosubmit" 
+                action="/feedback/portlet-my-ras-filtered#portlet-body-my-ras">
+                <div 
+                    class="pat-collapsible pat-context-menu closed align-right" 
+                    data-pat-collapsible="close-trigger: .context-menu:not(#initiators-menu),.close-menu" id="initiators-menu">
+                    <strong 
+                        class="context-menu-label menu-trigger">Filters</strong>
+                    <p 
+                        class="close-menu">Close</p>
+                    <fieldset 
+                        class="pat-checklist">
                         <label><input type="checkbox" checked name=""> Hide archived risk assessments</label>
                     </fieldset>
                 </div>
             </form>
         </article>
-        <div class="portlet-body" id="portlet-body-my-ras">
-            <article class="pat-rich">
+        <div 
+            class="portlet-body" 
+            id="portlet-body-my-ras">
+            <article 
+                class="pat-rich">
                 <p>
-                    Izberite prejšnjo sejo, da jo končate ali pregledate, ali <a href="/new-session.html#document-content" class="pat-modal icon-plus-circle" data-pat-modal="large">začni novo sejo</a>.
+                    Izberite prejšnjo sejo, da jo končate ali pregledate, ali
+                    <a 
+                        href="/new-session.html#document-content" 
+                        class="pat-modal icon-plus-circle" 
+                        data-pat-modal="class: small panel">začni novo sejo</a>.
                 </p>
             </article>
-            <ul class="ras">
-
+            <ul 
+                class="ras">
                 
-                    <li class="ra "
+                    <li 
+                        class="ra "
                         >
-                        <a href="/ass-private-security-grafton-street/"
-                           data-pat-inject="source: #content; target: #content; history: record;"
-                           class="pat-inject follow">
-                            <h4 class="name field">
-                                Private Security, Grafton Street
-                            </h4>
-
-                            <!-- <p class="date field">
-                                <span class="last-saved">shranjeno <time class=" pat-display-time last-saved" data-pat-display-time="from-now: true;locale: en" date-time="2018-08-01T08:00Z">a few seconds ago</time></span>
-                            </p> -->
-                            <p class="date field">
-                                <span class="last-saved">Začeto <time class="last-saved" date-time="2018-08-01T08:00Z">5 May 2019</time></span>
-                            </p>
-                        </a>
-                        
-                        <a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tr">More</a>
+                        <h4 
+                            class="name field">
+                            <a 
+                                href="ass-private-security-grafton-street#content" 
+                                data-pat-inject="source: #content; target: #content; && source: #osc; target: #osc; history: record;" 
+                                class="pat-inject follow">Private Security, Grafton Street</a>
+                        </h4>
+                        <p 
+                            class="date field">
+                            <span class="last-saved">Last saved <time class=" pat-display-time last-saved" data-pat-display-time="from-now: true" datetime="2021-06-12T08:00Z">19-07-2018</time></span>
+                        </p>
+                        <p 
+                            class="field icons">
+                            <a 
+                                href="/feedback/ass-menu-compact#more-menu" 
+                                class="icon more-menu iconified icon-ellipsis pat-tooltip inactive" 
+                                data-pat-tooltip="source: ajax; position-list: tr">More</a>
+                        </p>
                     </li>
                 
-                    <li class="ra "
+                    <li 
+                        class="ra "
                         >
-                        <a href="/ass-commercial-guarding-leicester/"
-                           data-pat-inject="source: #content; target: #content; history: record;"
-                           class="pat-inject follow">
-                            <h4 class="name field">
-                                Commercial guarding, Leicester
-                            </h4>
-
-                            <!-- <p class="date field">
-                                <span class="last-saved">shranjeno <time class=" pat-display-time last-saved" data-pat-display-time="from-now: true;locale: en" date-time="2018-08-01T08:00Z">a few seconds ago</time></span>
-                            </p> -->
-                            <p class="date field">
-                                <span class="last-saved">Začeto <time class="last-saved" date-time="2018-08-01T08:00Z">6 March 2020</time></span>
-                            </p>
-                        </a>
-                        
-                        <a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tr">More</a>
+                        <h4 
+                            class="name field">
+                            <a 
+                                href="ass-reinigung-blitz-sauber-mannheim#content" 
+                                data-pat-inject="source: #content; target: #content; && source: #osc; target: #osc; history: record;" 
+                                class="pat-inject follow">Reinigung: Blitz & Sauber, Mannheim</a>
+                        </h4>
+                        <p 
+                            class="date field">
+                            <span class="last-saved">Last saved <time class=" pat-display-time last-saved" data-pat-display-time="from-now: true" datetime="2021-04-25T08:00Z">19-07-2018</time></span>
+                        </p>
+                        <p 
+                            class="field icons">
+                            <a 
+                                href="/feedback/ass-menu-compact#more-menu" 
+                                class="icon more-menu iconified icon-ellipsis pat-tooltip inactive" 
+                                data-pat-tooltip="source: ajax; position-list: tr">More</a>
+                        </p>
                     </li>
                 
-
+                    <li 
+                        class="ra "
+                        >
+                        <h4 
+                            class="name field">
+                            <a 
+                                href="ass-gefährdungsbeurteilung-für-altmaschinen#content" 
+                                data-pat-inject="source: #content; target: #content; && source: #osc; target: #osc; history: record;" 
+                                class="pat-inject follow">Gefährdungsbeurteilung für Altmaschinen</a>
+                        </h4>
+                        <p 
+                            class="date field">
+                            <span class="last-saved">Last saved <time class=" pat-display-time last-saved" data-pat-display-time="from-now: true" datetime="2021-03-25T08:00Z">19-07-2018</time></span>
+                        </p>
+                        <p 
+                            class="field icons">
+                            <a 
+                                href="/feedback/ass-menu-compact#more-menu" 
+                                class="icon more-menu iconified icon-ellipsis pat-tooltip inactive" 
+                                data-pat-tooltip="source: ajax; position-list: tr">More</a>
+                        </p>
+                    </li>
+                
+                    <li 
+                        class="ra "
+                        >
+                        <h4 
+                            class="name field">
+                            <a 
+                                href="ass-kabinenbau-wörth-band-1#content" 
+                                data-pat-inject="source: #content; target: #content; && source: #osc; target: #osc; history: record;" 
+                                class="pat-inject follow">Kabinenbau Wörth, band 1</a>
+                        </h4>
+                        <p 
+                            class="date field">
+                            <span class="last-saved">Last saved <time class=" pat-display-time last-saved" data-pat-display-time="from-now: true" datetime="2020-10-19T08:00Z">19-07-2018</time></span>
+                        </p>
+                        <p 
+                            class="field icons">
+                            <a 
+                                href="/feedback/ass-menu-compact#more-menu" 
+                                class="icon more-menu iconified icon-ellipsis pat-tooltip inactive" 
+                                data-pat-tooltip="source: ajax; position-list: tr">More</a>
+                        </p>
+                    </li>
+                
+                    <li 
+                        class="ra "
+                        >
+                        <h4 
+                            class="name field">
+                            <a 
+                                href="ass-guarding-at-barcelona-building#content" 
+                                data-pat-inject="source: #content; target: #content; && source: #osc; target: #osc; history: record;" 
+                                class="pat-inject follow">Guarding at Barcelona building</a>
+                        </h4>
+                        <p 
+                            class="date field">
+                            <span class="last-saved">Last saved <time class=" pat-display-time last-saved" data-pat-display-time="from-now: true" datetime="2020-01-25T08:00Z">19-07-2018</time></span>
+                        </p>
+                        <p 
+                            class="field icons">
+                            <a 
+                                href="/feedback/ass-menu-compact#more-menu" 
+                                class="icon more-menu iconified icon-ellipsis pat-tooltip inactive" 
+                                data-pat-tooltip="source: ajax; position-list: tr">More</a>
+                        </p>
+                    </li>
+                
             </ul>
+        </div>
+        <div 
+            class="portlet-footer">
+            <a 
+                href="/tools#content" 
+                class="pat-inject more-link">More risk assessments…</a>
         </div>
     </div>
 </div>
-                
-            
-                
+                    
                 
                     
                     
+                        
+                        
 
 <div class="portlet span-1" id="portlet-available-tools">
     <div class="content">
         <article class="portlet-intro">
             <header class="portlet-title-group">
                 <h2 class="portlet-title">
-                    Razpoložljiva OiRA orodja
+                    Tools
                 </h2>
             </header>
         </article>
@@ -187,53 +386,81 @@
                   data-pat-inject="history: record">
                 <fieldset class="vertical">
                   
-                    <fieldset class="tool-list">
-  
-    <fieldset class="department">
-        <legend class="department-name"></legend>
-          
-            <fieldset class="tools pat-checklist radio">
-              
-                  <label class="tool">
-                    <input type="radio" name="tool"> 
-                    <strong class="field name">EU Cleaning</strong>
-                    
-                  </label>
-              
-                  <label class="tool">
-                    <input type="radio" name="tool"> 
-                    <strong class="field name">EU Hairdressing</strong>
-                    
-                  </label>
-              
-                  <label class="tool">
-                    <input type="radio" name="tool"> 
-                    <strong class="field name">EU Live Performance - Productions</strong>
-                    
-                  </label>
-              
-                  <label class="tool">
-                    <input type="radio" name="tool"> 
-                    <strong class="field name">Leather and Tanning</strong>
-                    
-                  </label>
-              
-                  <label class="tool">
-                    <input type="radio" name="tool"> 
-                    <strong class="field name">Maritime Transport</strong>
-                    
-                  </label>
-              
-                  <label class="tool">
-                    <input type="radio" name="tool"> 
-                    <strong class="field name">Private Security</strong>
-                    
-                  </label>
-              
-            </fieldset>
-          
-    </fieldset>
-  
+                    <fieldset 
+    class="tool-list">
+    
+        <fieldset 
+            class="department">
+            <legend 
+                class="department-name"></legend>
+                
+                    <fieldset 
+                        class="tools pat-checklist radio">
+                        
+                            <label 
+                                class="tool">
+                                <input 
+                                    type="radio" 
+                                    name="tool"> 
+                              <strong 
+                                  class="field name">EU Cleaning</strong>
+                              
+                            </label>
+                        
+                            <label 
+                                class="tool">
+                                <input 
+                                    type="radio" 
+                                    name="tool"> 
+                              <strong 
+                                  class="field name">EU Hairdressing</strong>
+                              
+                            </label>
+                        
+                            <label 
+                                class="tool">
+                                <input 
+                                    type="radio" 
+                                    name="tool"> 
+                              <strong 
+                                  class="field name">EU Live Performance - Productions</strong>
+                              
+                            </label>
+                        
+                            <label 
+                                class="tool">
+                                <input 
+                                    type="radio" 
+                                    name="tool"> 
+                              <strong 
+                                  class="field name">Leather and Tanning</strong>
+                              
+                            </label>
+                        
+                            <label 
+                                class="tool">
+                                <input 
+                                    type="radio" 
+                                    name="tool"> 
+                              <strong 
+                                  class="field name">Maritime Transport</strong>
+                              
+                            </label>
+                        
+                            <label 
+                                class="tool">
+                                <input 
+                                    type="radio" 
+                                    name="tool"> 
+                              <strong 
+                                  class="field name">Private Security</strong>
+                              
+                            </label>
+                        
+                    </fieldset>
+                
+        </fieldset>
+    
 </fieldset>
                   
                 </fieldset>
@@ -244,18 +471,16 @@
         </div>
     </div>
 </div>
+                    
                 
-            
-                
-                
-            
-                
+                    
+                    
                 
             
         
-    
 </div>
 
+</div>
   </div>
 </div>
 
@@ -317,7 +542,11 @@
 	<fieldset class="search-box-body">
         <label class="search-field pat-subform pat-inject pat-autosubmit"
 			   data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
-			<input autofocus type="search" value="" class="quick-search" placeholder="Search" />
+			<input
+				type="search" 
+				value="" 
+				class="quick-search pat-autofocus" 
+				placeholder="Search" />
             <button type="submit" name="standard" value="main" class="search-button-main assistive">Search</button>
         </label>
 
@@ -566,3 +795,6 @@
 		
 	</body>
 </html>
+
+    <script>window.__patternslib_public_path__ = "/++resource++euphorie.resources/oira/script/";</script>
+    <script src="/++resource++euphorie.resources/oira/script/polyfills-loader.js" type="text/javascript"></script>

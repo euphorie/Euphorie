@@ -1,34 +1,69 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html 
+	class="no-js" 
+	lang="en">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta 
+			http-equiv="Content-Type" 
+			content="text/html; charset=UTF-8">
 		<title>OiRA</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link id="all-styles" rel="stylesheet" href="../../../style/all.css" type="text/css">
+		<meta 
+			name="viewport" 
+			content="width=device-width, initial-scale=1">
+		<link 
+			id="all-styles" 
+			rel="stylesheet" 
+			href="../../../style/all.css" 
+			type="text/css">
 
 		
-			
-    <script>window.__patternslib_public_path__ = "/++resource++euphorie.resources/oira/script/";</script>
-    <script src="/++resource++euphorie.resources/oira/script/polyfills-loader.js" type="text/javascript"></script>
-<script src="../../../script/bundle-help.js" type="text/javascript"></script>
+			<script 
+				src="../../../script/bundle-help.js" 
+				type="text/javascript"></script>
 		
 
 		<!-- Following line is ONLY for the prototype. -->
-		<meta name="robots" content="noindex" />
+		<meta 
+			name="robots" 
+			content="noindex" />
 
-		<meta name="description" content="">
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="" />
-		<meta property="og:description" content="" />
-		<meta property="og:url" content="//assets/oira/help/pt/illustrations/status-certificate" />
-		<meta property="og:image" content="../../../style/oira-tile.png" />
+		<meta 
+			name="description" 
+			content="">
+		<meta 
+			property="og:type" 
+			content="website" />
+		<meta 
+			property="og:title" 
+			content="" />
+		<meta 
+			property="og:description" 
+			content="" />
+		<meta 
+			property="og:url" 
+			content="//assets/oira/help/pt/illustrations/status-certificate" />
+		<meta 
+			property="og:image" 
+			content="../../../style/oira-tile.png" />
 
 		<link rel="icon" type="image/png" href="../../../favicon/apple-touch-icon.png" />
 	</head>
 	<body id="body" data-page-layout="status" data-layout-layout="risk-assessment" class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div id="main" class="sidebar-off">
-	<header id="toolbar">
+	<header 
+	id="toolbar">
+	<a 
+		href="/index-logged-in.html" 
+	    data-pat-inject="source: #content; target: #content; history: record" 
+	    class="pat-inject pat-switch title-group" 
+	    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+	    title="Startup page">
+		<h1
+			class="logo">
+			OiRA
+		</h1>
+	</a>
 	
 	
 		<a href="#osc" 
@@ -40,17 +75,25 @@
 	
 
 	<a href="/feedback/osh.html#osh-osc-toggle" id="osh-target-osc-toggle" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
-
-	<a href="/feedback/more-menu#menu-content" 
-	   id="more-menu" 
-	   class="iconified pat-tooltip pat-switch" 
-	   data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
-	   data-pat-tooltip="source: ajax">More…</a>
-	<a href="/index-logged-in.html" 
-	   data-pat-inject="source: #content; target: #content; history: record" 
-	   class="home pat-inject iconified icon-home pat-switch" 
-	   data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
-	   title="Startup page">Dashboard</a>
+	
+		<a 
+			href="/feedback/more-menu#menu-content" 
+		   	id="user-menu" 
+		   	class="iconified pat-tooltip pat-switch" 
+		   	data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+		   	data-pat-tooltip="source: ajax">Menu</a>
+		<a 
+			href="/feedback/help-menu#menu-content" 
+		   	id="help-menu" 
+		   	class="iconified pat-tooltip pat-switch" 
+		   	data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+		   	data-pat-tooltip="source: ajax">Help</a>
+		<a 
+			href="/index-logged-in.html" 
+		    data-pat-inject="source: #content; target: #content; history: record" 
+		    class="home pat-inject iconified icon-home pat-switch" 
+		    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+		    title="Startup page">Dashboard</a>
 	
 </header>
 	<div id="content">
@@ -108,19 +151,31 @@
         
 	
 	
-		<li id="status" class="active">
-			<a href="/ass-private-security-grafton-street/status#content"
+		<li 
+			id="status" 
+			class="active">
+ 			<a href="/ass-private-security-grafton-street/status#content"
 			   data-pat-inject="history: record"
 			   class="status pat-switch pat-inject"
 			   data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Estado
-			   <strong class="pie-graph "
-			   		   data-pat-tooltip="trigger: hover; position-list: lm"
-			   		   data-percentage="92"
-			   		   title="92% Complete">92%</strong></a>
+<!--			   <strong 
+			   		class="pie-graph "
+			   		data-pat-tooltip="trigger: hover; position-list: lm"
+			   		data-percentage="92"
+			   		title="92% Complete">92%</strong>--></a> 
+			   		
 
-			
+
 		</li>
 	
+	<li 
+		id="home">
+		<a 
+			href="/assessments/#content"
+			data-pat-inject="history: record"
+			class="home pat-switch pat-inject"
+			data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Exit</a>
+	</li>
 	
 </ol>
 
@@ -134,8 +189,80 @@
 
 
 
-<div id="content-pane">
-    <article id="status-report">
+<div 
+    id="content-pane">
+
+    <div
+    class="pat-toolbar">
+
+<!--     <div
+        class="toolbar-section view-options">
+        <a 
+            href="#status-sentinel"
+            data-pat-inject="history: record"
+            class="pat-inject pat-progress-bar pat-tooltip"
+            data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+            <strong
+                class="progress-bar-segment"
+                style="width: 40%">
+                40%
+            </strong>
+        </a>
+    </div> -->
+
+    
+
+    <div 
+        class="toolbar-section quick-functions"
+        id="assessments-toolbar-quick-functions"> 
+
+        <a 
+            href="#status-sentinel"
+            data-pat-inject="history: record"
+            class="icon pat-inject progress pat-tooltip"
+            data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+           <strong 
+                class="pie-graph"
+                data-percentage="92"
+                title="92% Complete">92%</strong>
+        </a>
+
+        <div
+            hidden
+            id="status-sentinel">
+                
+                    
+
+<p>
+    You've completed <strong>92%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+                
+                
+                <p>
+                    View the <a href="/ass-private-security-grafton-street/status#content" class="pat-inject close-panel">Status screen</a> for more details.
+                </p>
+        </div>
+        <a 
+            href="/feedback/ass-menu#more-menu" 
+            class="icon more pat-tooltip" 
+            data-pat-tooltip="source: ajax; position-list: tr">More</a>
+    </div>
+
+</div>
+
+    <article 
+        id="status-report">
     	<h1>
             Estado do Private Security, Grafton Street
     	</h1>
@@ -151,13 +278,16 @@
             <li><a href="#someid">Other risks</a></li>
         </ul> -->
 
-        <div class="page-module">
-            <section class="pat-rich">
+        <div 
+            class="page-module">
+            <section 
+                class="pat-rich">
                 <h2>
                     Informação geral
                 </h2>
 
-                <dl class="pat-grid-list">
+                <dl 
+                    class="pat-grid-list">
                     <dt>
                         Ferramenta utilizada
                     </dt>
@@ -172,12 +302,16 @@
         </div>
 
         
-            <div class="page-module" id="section-certification">
-                <section class="pat-rich">
+            <div 
+                class="page-module" id="section-certification">
+                <section 
+                    class="pat-rich">
                     <h2>
                         Certification
                     </h2>
-                    <h3 class="pie-graph" data-percentage="92">
+                    <h3 
+                        class="pie-graph" 
+                        data-percentage="92">
                         92% Complete
                     </h3>
                     
@@ -191,8 +325,12 @@
                     
                 </section>
                 
-                    <p class="button-bar">
-                        <a class="pat-button pat-inject" data-pat-inject="history: record" href="/certificate-public">View certificate</a>
+                    <p 
+                        class="button-bar">
+                        <a 
+                            class="pat-button pat-inject" 
+                            data-pat-inject="history: record" 
+                            href="/certificate-public">View certificate</a>
                         <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
                     </p>
                 
@@ -204,18 +342,24 @@
         
 
 
-        <div class="page-module">
-            <section class="pat-rich">
+        <div 
+            class="page-module">
+            <section 
+                class="pat-rich">
                 <h2>
                    Perguntas respondidas por módulo
                 </h2>
 
-                <dl class="status">
+                <dl 
+                    class="status">
                     <dt>
-                        <a href="#">Commercial manned guarding - Abby Road</a>
+                        <a 
+                            href="#content"
+                            class="pat-inject">Commercial manned guarding - Abby Road</a>
                     </dt>
                     <dd>
-                        <section class="graph">
+                        <section 
+                            class="graph">
                             <p class="range answered" style="width: 10%" title="1 question answered without a risk">
                                 <strong class="number">1</strong> <em class="label">question answered without a risk</em>
                             </p>
@@ -389,7 +533,11 @@
 	<fieldset class="search-box-body">
         <label class="search-field pat-subform pat-inject pat-autosubmit"
 			   data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
-			<input autofocus type="search" value="" class="quick-search" placeholder="Search" />
+			<input
+				type="search" 
+				value="" 
+				class="quick-search pat-autofocus" 
+				placeholder="Search" />
             <button type="submit" name="standard" value="main" class="search-button-main assistive">Search</button>
         </label>
 
@@ -638,3 +786,6 @@
 		
 	</body>
 </html>
+
+    <script>window.__patternslib_public_path__ = "/++resource++euphorie.resources/oira/script/";</script>
+    <script src="/++resource++euphorie.resources/oira/script/polyfills-loader.js" type="text/javascript"></script>
