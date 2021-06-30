@@ -1,4 +1,8 @@
 
+	#| msgid message_password_requirements
+	msgid "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
+	msgstr "Das Passwort muss mindestens 12 Zeichen lang sein und mindestens einen Kleinbuchstaben, einen Großbuchstaben und eine Ziffer enthalten."
+
 	#| msgid action_search
 	msgid "Search"
 	msgstr "Suchen"
@@ -928,7 +932,7 @@
 	msgstr "Ist diese Gefährdung akzeptabel oder unter Kontrolle?"
 
 	#| msgid other_risks
-	msgid "Other risks"
+	msgid "Custom risks"
 	msgstr "Weitere Gefährdungen (durch Sie hinzugefügt)"
 
 	#| msgid placeholder_approach_action_plan
@@ -936,7 +940,7 @@
 	msgstr "Allgemeine Vorgehensweise (zur Vermeidung bzw. Reduzierung der Gefährdung)"
 
 	#| msgid placeholder_comment
-	msgid "Enter any comments that you might like to add to the risk above."
+	msgid "This comment will be visible in the report. Use it for anything else you might want to write about this risk."
 	msgstr "Bitte hinterlassen Sie mögliche Kommentare, die Sie zu der genannten Gefährdung haben. Diese Kommentare werden auch im Aktionsplan und den Berichten angezeigt."
 
 	#| msgid placeholder_custom_risk_description
@@ -992,8 +996,8 @@
 	msgstr "Empfohlene Vorlagen"
 
 	#| msgid register_teaser
-	msgid "Don't have an account? Then please <a href='/registration.html'>register</a> first."
-	msgstr "Sie haben kein Konto? Dann <a href='/registration.html'>registrieren</a> Sie sich bitte zunächst."
+	msgid "Don't have an account? Then please <a href='#registration'>register</a> first."
+	msgstr "Sie haben kein Konto? Dann <a href='#registration'>registrieren</a> Sie sich bitte zunächst."
 
 	#| msgid remove
 	msgid "Remove"
@@ -1047,12 +1051,16 @@
 	msgid "Start a new risk assessment"
 	msgstr "Neue GBU beginnen"
 
+	#| msgid start_ra
+	msgid "Start risk assessment"
+	msgstr "GBU beginnen"
+
 	#| msgid start_new_ra_with_this_tool
 	msgid "Start a new risk assessment with this tool"
 	msgstr "Neue GBU mit dieser Vorlage beginnen"
 
 	#| msgid start_new_session
-	msgid "start a new session"
+	msgid "start a new risk assessment"
 	msgstr "Beginnen Sie eine neue Sitzung"
 
 	#| msgid start_session_by_selecting

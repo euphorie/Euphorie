@@ -1,4 +1,8 @@
 
+	#| msgid message_password_requirements
+	msgid "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
+	msgstr "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
+
 	#| msgid action_search
 	msgid "Search"
 	msgstr "Search"
@@ -928,16 +932,16 @@
 	msgstr "Is this risk acceptable or under control?"
 
 	#| msgid other_risks
-	msgid "Other risks"
-	msgstr "Other risks"
+	msgid "Custom risks"
+	msgstr "Custom risks"
 
 	#| msgid placeholder_approach_action_plan
 	msgid "General approach (to eliminate or reduce the risk)"
 	msgstr "General approach (to eliminate or reduce the risk)"
 
 	#| msgid placeholder_comment
-	msgid "Enter any comments that you might like to add to the risk above."
-	msgstr "Enter any comments that you might like to add to the risk above."
+	msgid "This comment will be visible in the report. Use it for anything else you might want to write about this risk."
+	msgstr "This comment will be visible in the report. Use it for anything else you might want to write about this risk."
 
 	#| msgid placeholder_custom_risk_description
 	msgid "Provide some further information on this risk."
@@ -992,8 +996,8 @@
 	msgstr "Recommended tools"
 
 	#| msgid register_teaser
-	msgid "Don't have an account? Then please <a href='/registration.html'>register</a> first."
-	msgstr "Don't have an account? Then please <a href='/registration.html'>register</a> first."
+	msgid "Don't have an account? Then please <a href='#registration'>register</a> first."
+	msgstr "Don't have an account? Then please <a href='#registration'>register</a> first."
 
 	#| msgid remove
 	msgid "Remove"
@@ -1047,13 +1051,17 @@
 	msgid "Start a new risk assessment"
 	msgstr "Start a new risk assessment"
 
+	#| msgid start_ra
+	msgid "Start risk assessment"
+	msgstr "Start risk assessment"
+
 	#| msgid start_new_ra_with_this_tool
 	msgid "Start a new risk assessment with this tool"
 	msgstr "Start a new risk assessment with this tool"
 
 	#| msgid start_new_session
-	msgid "start a new session"
-	msgstr "start a new session"
+	msgid "start a new risk assessment"
+	msgstr "start a new risk assessment"
 
 	#| msgid start_session_by_selecting
 	msgid "Start a new risk assessments using one of the following tools."
