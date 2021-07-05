@@ -10,24 +10,67 @@
   <metal:slot fill-slot="content">
     <tal:block replace="tile:statusmessages" />
     <div id="content-pane">
-      <article id="screen-intro">
-        <header class="title-group">
-          <h1>
-          OiRA
-          </h1>
-          <p class="byline">
-          ${view/tool_byline}
-          </p>
-        </header>
-      </article>
-      <div class="row pat-masonry"
-           id="dashboard"
-           data-pat-masonry="column-width: .grid-sizer; gutter: 0; item-selector: .portlet; stamp: .stamp;"
+      <form class="pat-toolbar pat-inject pat-form pat-autosubmit"
+            action="#"
+            data-pat-inject="history: record"
       >
-        <div class="grid-sizer"></div>
-        <tal:portlets repeat="portlet view/portlets"
-                      replace="structure portlet"
-        />
+        <div class="toolbar-section view-options"
+             id="assessments-toolbar-view-options"
+        >
+
+          <label class="pat-select bare"
+                 tal:replace="nothing"
+          >
+            <select name="dashboard-view">
+              <option><!-- Show internal assessments -->Default view</option>
+              <option><!-- Fremdfirmen Darstellung --><!-- Show external assessments --><!-- Fremdfirmen GBUs Darstellung -->Fremdfirmenkoordination</option>
+            </select>
+          </label>
+        </div>
+        <div class="toolbar-section navigation"
+             id="assessments-toolbar-navigation"
+        >
+          <nav class="toolbar-subnav pat-button-cluster"
+               id="homescreen-sections"
+          >
+            <a class="current icon icon-gauge pat-inject"
+               href="${here/absolute_url}/${view/__name__}"
+               data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options &amp;&amp; source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
+            >Home</a>
+            <a class="pat-inject"
+               href="${here/absolute_url}/tools/"
+               data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options &amp;&amp; source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
+            >Tools</a>
+            <a class="pat-inject"
+               href="${here/absolute_url}/assessments/"
+               data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options &amp;&amp; source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
+            >Assessments</a>
+            <a class="pat-inject"
+               href="${here/absolute_url}/trainings/"
+               data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options &amp;&amp; source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
+            >Trainings</a>
+            <a class="pat-inject"
+               href="${here/absolute_url}/certificates/"
+               data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options &amp;&amp; source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
+            >Certificates</a>
+          </nav>
+
+        </div>
+        <div class="toolbar-section quick-functions"
+             id="assessments-toolbar-quick-functions"
+        >
+        </div>
+      </form>
+      <div id="application-content">
+        <div class="row pat-masonry"
+             id="dashboard"
+             data-pat-masonry="column-width: .grid-sizer; gutter: 0; item-selector: .portlet; stamp: .stamp;"
+        >
+          <div class="grid-sizer"></div>
+          <tal:portlets repeat="portlet view/portlets"
+                        replace="structure portlet"
+          />
+        </div>
       </div>
     </div>
 
