@@ -12,6 +12,7 @@
          survey nocall:view/survey;
        "
   >
+    <metal:call use-macro="webhelpers/macros/toolbar" />
     <article id="status-report"
              tal:define="
                title session/title|string:;

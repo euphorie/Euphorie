@@ -1,4 +1,4 @@
-<a class="iconified icon-ellipsis pat-tooltip inactive"
+<a class="icon more pat-tooltip"
    href="${here/absolute_url}/@@more_menu#more-menu"
    data-pat-tooltip="source: ajax; position-list: tr"
    i18n:translate=""

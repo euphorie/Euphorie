@@ -16,6 +16,7 @@
   <body>
     <metal:slot fill-slot="content">
       <div id="content-pane">
+        <metal:call use-macro="webhelpers/macros/toolbar" />
         <article class="pat-rich"
                  tal:define="
                    extra_text view/extra_text;

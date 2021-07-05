@@ -1091,6 +1091,37 @@
   </metal:action_plan>
 
 
+  <metal:toolbar define-macro="toolbar">
+    <div class="pat-toolbar">
+      <metal:actions define-slot="page-actions">
+        <a class="icon-share iconified pat-tooltip"
+           href="${request/ACTUAL_URL}#sharing-menu"
+           title="Share this OiRA-Tool"
+           data-pat-tooltip="source: ajax; position-list: tr"
+           tal:condition="webhelpers/allow_social_sharing"
+           i18n:attributes="title"
+        >Share</a>
+        <div class="toolbar-section quick-functions"
+             id="assessments-toolbar-quick-functions"
+        >
+          <tal:status tal:define="
+                        session_start_view nocall:here/@@start|webhelpers/traversed_session/@@start;
+                        new_session session_start_view/is_new_session;
+                        active python: page_section == 'status' and 'active' or '';
+                        disabled python:page_section=='' or (page_section=='preparation' and new_session);
+                      ">
+            <metal:macro use-macro="context/certificate_macros/macros/status_icon" />
+            <tal:comment condition="nothing">
+                    Below we have a hook for showing an optional status box. We use an external macro that can be easily overwritten, without the necessity to overwrite the complete shell template.
+            </tal:comment>
+            <metal:macro use-macro="context/certificate_macros/macros/status_box" />
+          </tal:status>
+          <a tal:replace="structure here/@@more_badge|nothing"></a>
+        </div>
+      </metal:actions>
+    </div>
+  </metal:toolbar>
+
   <metal:webstats_js define-macro="webstats_js"
                      meta:interpolation="true"
                      i18n:domain="euphorie"

@@ -35,18 +35,7 @@
             "
       >
         <div id="content-pane">
-          <nav class="page-actions">
-            <metal:actions define-slot="page-actions">
-              <a class="icon-share iconified pat-tooltip"
-                 href="${request/ACTUAL_URL}#sharing-menu"
-                 title="Share this OiRA-Tool"
-                 data-pat-tooltip="source: ajax; position-list: tr"
-                 tal:condition="webhelpers/allow_social_sharing"
-                 i18n:attributes="title"
-              >Share</a>
-              <a tal:replace="structure here/@@more_badge|nothing"></a>
-            </metal:actions>
-          </nav>
+          <metal:call use-macro="webhelpers/macros/toolbar" />
           <metal:messages_above_title define-slot="messages_above_title">
             <p class="pat-message notice"
                tal:repeat="message view/get_pat_messages_above_title"
