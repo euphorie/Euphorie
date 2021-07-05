@@ -729,18 +729,40 @@ function findRelatives(el) {
   return $relatives;
 }
 
-function getCSSValue(el, property, asPixels) {
+function getCSSValue(el, property) {
+  var as_pixels = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  var as_float = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+
   /* Return a CSS property value for a given DOM node.
    * For length-values, relative values are converted to pixels.
    * Optionally parse as pixels, if applicable.
    */
   var value = window.getComputedStyle(el).getPropertyValue(property);
 
-  if (asPixels) {
+  if (as_pixels || as_float) {
     value = parseFloat(value) || 0.0;
   }
 
+  if (as_pixels && !as_float) {
+    value = parseInt(Math.round(value), 10);
+  }
+
   return value;
+}
+
+function get_bounds(el) {
+  // Return bounds of an element with it's values rounded and converted to ints.
+  var bounds = el.getBoundingClientRect();
+  return {
+    x: parseInt(Math.round(bounds.x), 10) || 0,
+    y: parseInt(Math.round(bounds.y), 10) || 0,
+    top: parseInt(Math.round(bounds.top), 10) || 0,
+    bottom: parseInt(Math.round(bounds.bottom), 10) || 0,
+    left: parseInt(Math.round(bounds.left), 10) || 0,
+    right: parseInt(Math.round(bounds.right), 10) || 0,
+    width: parseInt(Math.round(bounds.width), 10) || 0,
+    height: parseInt(Math.round(bounds.height), 10) || 0
+  };
 }
 
 function checkInputSupport(type, invalid_value) {
@@ -775,6 +797,13 @@ var checkCSSFeature = function checkCSSFeature(attribute, value) {
   }
 
   return supported;
+};
+
+var animation_frame = function animation_frame() {
+  // Return promise to await next repaint cycle
+  // Use it in your async function like so: ``await utils.animation_frame()``
+  // From: http://www.albertlobo.com/fractals/async-await-requestanimationframe-buddhabrot
+  return new Promise(window.requestAnimationFrame);
 };
 
 var timeout = function timeout(ms) {
@@ -861,8 +890,10 @@ var utils = {
   parseTime: parseTime,
   findRelatives: findRelatives,
   getCSSValue: getCSSValue,
+  get_bounds: get_bounds,
   checkInputSupport: checkInputSupport,
   checkCSSFeature: checkCSSFeature,
+  animation_frame: animation_frame,
   timeout: timeout,
   debounce: debounce,
   isIE: isIE,

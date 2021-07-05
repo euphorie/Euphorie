@@ -730,18 +730,40 @@ function findRelatives(el) {
   return $relatives;
 }
 
-function getCSSValue(el, property, asPixels) {
+function getCSSValue(el, property) {
+  var as_pixels = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  var as_float = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+
   /* Return a CSS property value for a given DOM node.
    * For length-values, relative values are converted to pixels.
    * Optionally parse as pixels, if applicable.
    */
   var value = window.getComputedStyle(el).getPropertyValue(property);
 
-  if (asPixels) {
+  if (as_pixels || as_float) {
     value = parseFloat(value) || 0.0;
   }
 
+  if (as_pixels && !as_float) {
+    value = parseInt(Math.round(value), 10);
+  }
+
   return value;
+}
+
+function get_bounds(el) {
+  // Return bounds of an element with it's values rounded and converted to ints.
+  var bounds = el.getBoundingClientRect();
+  return {
+    x: parseInt(Math.round(bounds.x), 10) || 0,
+    y: parseInt(Math.round(bounds.y), 10) || 0,
+    top: parseInt(Math.round(bounds.top), 10) || 0,
+    bottom: parseInt(Math.round(bounds.bottom), 10) || 0,
+    left: parseInt(Math.round(bounds.left), 10) || 0,
+    right: parseInt(Math.round(bounds.right), 10) || 0,
+    width: parseInt(Math.round(bounds.width), 10) || 0,
+    height: parseInt(Math.round(bounds.height), 10) || 0
+  };
 }
 
 function checkInputSupport(type, invalid_value) {
@@ -776,6 +798,13 @@ var checkCSSFeature = function checkCSSFeature(attribute, value) {
   }
 
   return supported;
+};
+
+var animation_frame = function animation_frame() {
+  // Return promise to await next repaint cycle
+  // Use it in your async function like so: ``await utils.animation_frame()``
+  // From: http://www.albertlobo.com/fractals/async-await-requestanimationframe-buddhabrot
+  return new Promise(window.requestAnimationFrame);
 };
 
 var timeout = function timeout(ms) {
@@ -862,8 +891,10 @@ var utils = {
   parseTime: parseTime,
   findRelatives: findRelatives,
   getCSSValue: getCSSValue,
+  get_bounds: get_bounds,
   checkInputSupport: checkInputSupport,
   checkCSSFeature: checkCSSFeature,
+  animation_frame: animation_frame,
   timeout: timeout,
   debounce: debounce,
   isIE: isIE,
@@ -27439,12 +27470,18 @@ function tabs_arrayWithoutHoles(arr) { if (Array.isArray(arr)) return tabs_array
 
 function tabs_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+function tabs_asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function tabs_asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { tabs_asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { tabs_asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 
 
 
 var tabs_logger = logging["a" /* default */].getLogger("tabs");
+var DEBOUNCE_TIMEOUT = 10; //logger.setLevel(logging.Level.DEBUG);
+
 /* harmony default export */ var tabs = (base["a" /* default */].extend({
   name: "tabs",
   trigger: ".pat-tabs",
@@ -27454,34 +27491,66 @@ var tabs_logger = logging["a" /* default */].getLogger("tabs");
     var _this = this;
 
     // debounce_resize to cancel previous runs of adjust_tabs
-    var debounced_resize = utils["a" /* default */].debounce(function () {
-      return _this.adjust_tabs();
-    }, 10);
-    var resize_observer = new ResizeObserver(function () {
-      tabs_logger.debug("Entering resize observer");
-      debounced_resize();
+    var debounced_resize = utils["a" /* default */].debounce(this.adjust_tabs.bind(this), DEBOUNCE_TIMEOUT); // ResizeObserver allows for calling the adjust_tabs method after an
+    // animation is done, e.g. a menu is slided in. At the end of the
+    // animation the calculation is done with the final layout.
+
+    var previous_parent_width = utils["a" /* default */].get_bounds(this.el.parentElement).width;
+    this.resize_observer = new ResizeObserver(function (entry) {
+      var width = parseInt(entry[0].contentRect.width, 10); // Only run the resize callback for changes in width.
+      // Apply a threshold of 3 pixels to compensate for rounding errors
+      // and not run this adjust_tabs for very small layout changes.
+
+      if (Math.abs(width - previous_parent_width) > 3) {
+        tabs_logger.debug("Entering resize observer");
+        previous_parent_width = width;
+        debounced_resize();
+      }
     });
-    resize_observer.observe(this.el.parentElement); // observe on size changes of parent.
+    this.resize_observer.observe(this.el.parentElement); // observe on size changes of parent.
     // Also listen for ``pat-update`` event for cases where no resize but
     // an immediate display of the element is done.
 
     jquery_exposed_default()("body").on("pat-update", function (e, data) {
       if (_this.allowed_update_patterns.includes(data.pattern)) {
+        tabs_logger.debug("pat-update received.");
         debounced_resize();
       }
     });
     debounced_resize();
   },
   adjust_tabs: function adjust_tabs() {
-    tabs_logger.debug("Entering adjust_tabs");
-    this.el.classList.remove("tabs-ready");
-    this.el.classList.remove("tabs-wrapped");
+    var _this2 = this;
 
-    this._flatten_tabs();
+    return tabs_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              tabs_logger.debug("Entering adjust_tabs");
+              tabs_logger.debug("Element:");
+              tabs_logger.debug(_this2.el);
 
-    this._adjust_tabs();
+              _this2.el.classList.remove("tabs-ready");
 
-    this.el.classList.add("tabs-ready");
+              _this2.el.classList.remove("tabs-wrapped");
+
+              _this2._flatten_tabs();
+
+              _this2.dimensions = _this2._get_dimensions();
+              _context.next = 9;
+              return _this2._adjust_tabs();
+
+            case 9:
+              _this2.el.classList.add("tabs-ready");
+
+            case 10:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
   },
   _flatten_tabs: function _flatten_tabs() {
     // Remove the extra-tabs structure and place all tabs directly under .pat-tabs
@@ -27495,98 +27564,180 @@ var tabs_logger = logging["a" /* default */].getLogger("tabs");
       extra_wrapper.remove();
     }
   },
-  _get_max_x: function _get_max_x() {
-    var max_x = parseInt(this.el.getBoundingClientRect().x, 10) + parseInt(utils["a" /* default */].getCSSValue(this.el, "border-right") || 0, 10) + parseInt(this.el.clientWidth, 10) - parseInt(utils["a" /* default */].getCSSValue(this.el, "padding-right") || 0, 10);
-    tabs_logger.debug("Max right position max_x: ".concat(max_x, "px."));
-    return max_x;
+  _get_dimensions: function _get_dimensions() {
+    var bounds = utils["a" /* default */].get_bounds(this.el);
+    var x = bounds.x;
+    var width = bounds.width;
+    var border_left = utils["a" /* default */].getCSSValue(this.el, "border-left", true);
+    var padding_left = utils["a" /* default */].getCSSValue(this.el, "padding-left", true);
+    var border_right = utils["a" /* default */].getCSSValue(this.el, "border-right", true);
+    var padding_right = utils["a" /* default */].getCSSValue(this.el, "padding-right", true);
+    var max_width = width - border_left - padding_left - padding_right - border_right;
+    var max_x = bounds.x + max_width + border_left + padding_left;
+    var dimensions = {
+      x: x,
+      max_x: max_x,
+      width: width,
+      max_width: max_width,
+      border_left: border_left,
+      border_right: border_right,
+      padding_left: padding_left,
+      padding_right: padding_right
+    };
+    tabs_logger.debug("dimensions:");
+    tabs_logger.debug(dimensions);
+    return dimensions;
   },
   _adjust_tabs: function _adjust_tabs() {
-    var _this2 = this;
+    var _this3 = this;
 
-    tabs_logger.debug("Entering _adjust_tabs");
+    return tabs_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+      var children, last_x, tabs_fit, _iterator, _step, it, bounds, it_x, it_w, extra_tabs;
 
-    var children = tabs_toConsumableArray(this.el.children).filter(function (it) {
-      return dom["a" /* default */].is_visible(it) && utils["a" /* default */].getCSSValue(it, "position") !== "absolute";
-    }); // remove elements, which do not count against available width.
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              tabs_logger.debug("Entering _adjust_tabs");
+              children = tabs_toConsumableArray(_this3.el.children).filter(function (it) {
+                return dom["a" /* default */].is_visible(it) && utils["a" /* default */].getCSSValue(it, "position") !== "absolute";
+              }); // remove elements, which do not count against available width.
 
+              if (!(children.length === 0)) {
+                _context2.next = 5;
+                break;
+              }
 
-    if (children.length === 0) {
-      // nothing to do.
-      return;
-    }
+              // nothing to do.
+              tabs_logger.debug("no children, exit _adjust_tabs.");
+              return _context2.abrupt("return");
 
-    var max_x = this._get_max_x(); // Check if tabs fit into one line by checking their start position not
-    // exceeding the available inner width or if they are not broken to a
-    // new line.
-    // This also takes whitespace between elements into account.
+            case 5:
+              tabs_fit = true; // iterate over all children excluding absolutely positioned or invisible elements.
 
+              _iterator = tabs_createForOfIteratorHelper(children);
+              _context2.prev = 7;
 
-    var last_x;
-    var tabs_fit = true; // iterate over all children excluding absolutely positioned or invisible elements.
+              _iterator.s();
 
-    var _iterator = tabs_createForOfIteratorHelper(children),
-        _step;
+            case 9:
+              if ((_step = _iterator.n()).done) {
+                _context2.next = 23;
+                break;
+              }
 
-    try {
-      for (_iterator.s(); !(_step = _iterator.n()).done;) {
-        var it = _step.value;
-        var bounds = it.getBoundingClientRect();
-        var it_x = parseInt(bounds.x, 10);
-        var it_w = parseInt(bounds.width, 10) + parseInt(utils["a" /* default */].getCSSValue(this.el, "margin-right") || 0, 10);
-        tabs_logger.debug("New tab right position: ".concat(it_x + it_w, "px."));
+              it = _step.value;
+              bounds = utils["a" /* default */].get_bounds(it);
+              it_x = bounds.x;
+              it_w = bounds.width + utils["a" /* default */].getCSSValue(_this3.el, "margin-right", true);
+              tabs_logger.debug("Item:");
+              tabs_logger.debug(it);
+              tabs_logger.debug("\n                item dimensions: x: ".concat(it_x, ",\n                width: ").concat(it_w, ",\n                max x: ").concat(it_x + it_w, ",\n                last_x: ").concat(last_x, "\n            "));
 
-        if (last_x && last_x > it_x || it_x + it_w > max_x) {
-          // this tab exceeds initial available width or
-          // breaks into a new line when width
-          tabs_fit = false;
-          break;
-        } // Next position-left must be greater than last position-left plus element width.
+              if (!(last_x && last_x - 3 > it_x || it_x + it_w - 3 > _this3.dimensions.max_x // -3 pixel to compensate for rounding errors (x, width, margin-right).
+              )) {
+                _context2.next = 20;
+                break;
+              }
 
+              // this tab exceeds initial available width or
+              // breaks into a new line when width
+              tabs_fit = false;
+              return _context2.abrupt("break", 23);
 
-        last_x = it_x + it_w;
-      }
-    } catch (err) {
-      _iterator.e(err);
-    } finally {
-      _iterator.f();
-    }
+            case 20:
+              // Next position-left must be greater than last position-left plus element width.
+              last_x = it_x + it_w;
 
-    if (tabs_fit) {
-      // allright, nothing to do
-      return;
-    }
+            case 21:
+              _context2.next = 9;
+              break;
 
-    tabs_logger.debug("Breaks into new line.");
-    var extra_tabs = this.el.querySelector(".extra-tabs");
+            case 23:
+              _context2.next = 28;
+              break;
 
-    if (!extra_tabs) {
-      tabs_logger.debug("Creating .extra-tabs element.");
-      extra_tabs = document.createElement("span");
-      extra_tabs.classList.add("extra-tabs");
-      this.el.classList.add("closed");
-      this.el.classList.add("tabs-wrapped");
-      extra_tabs.addEventListener("click", function () {
-        // Toggle opened/closed class on extra-tabs
-        if (_this2.el.classList.contains("open")) {
-          _this2.el.classList.remove("open");
+            case 25:
+              _context2.prev = 25;
+              _context2.t0 = _context2["catch"](7);
 
-          _this2.el.classList.add("closed");
-        } else {
-          _this2.el.classList.remove("closed");
+              _iterator.e(_context2.t0);
 
-          _this2.el.classList.add("open");
+            case 28:
+              _context2.prev = 28;
+
+              _iterator.f();
+
+              return _context2.finish(28);
+
+            case 31:
+              if (!tabs_fit) {
+                _context2.next = 34;
+                break;
+              }
+
+              // allright, nothing to do
+              tabs_logger.debug("tabs fit, exit _adjust_tabs.");
+              return _context2.abrupt("return");
+
+            case 34:
+              tabs_logger.debug("Breaks into new line.");
+              extra_tabs = _this3.el.querySelector(".extra-tabs");
+
+              if (extra_tabs) {
+                _context2.next = 47;
+                break;
+              }
+
+              tabs_logger.debug("Creating .extra-tabs element.");
+              extra_tabs = document.createElement("span");
+              extra_tabs.classList.add("extra-tabs");
+
+              _this3.el.classList.add("closed");
+
+              _this3.el.classList.add("tabs-wrapped");
+
+              extra_tabs.addEventListener("click", function () {
+                // Toggle opened/closed class on extra-tabs
+                if (_this3.el.classList.contains("open")) {
+                  _this3.el.classList.remove("open");
+
+                  _this3.el.classList.add("closed");
+                } else {
+                  _this3.el.classList.remove("closed");
+
+                  _this3.el.classList.add("open");
+                }
+              });
+
+              _this3.el.append(extra_tabs);
+
+              _context2.next = 46;
+              return utils["a" /* default */].animation_frame();
+
+            case 46:
+              // Wait for CSS to be applied.
+              _this3.dimensions = _this3._get_dimensions(); // Update dimensions after CSS was applied
+
+            case 47:
+              tabs_logger.debug("Prepend last tab to .extra_tabs."); // ... but exclude `.extra-tabs` if it is part of children.
+
+              extra_tabs.prepend(children.filter(function (it) {
+                return !it.classList.contains("extra-tabs");
+              }).pop());
+              _context2.next = 51;
+              return utils["a" /* default */].animation_frame();
+
+            case 51:
+              _this3._adjust_tabs();
+
+            case 52:
+            case "end":
+              return _context2.stop();
+          }
         }
-      });
-      this.el.append(extra_tabs);
-    }
-
-    tabs_logger.debug("Prepend last tab to .extra_tabs."); // ... but exclude `.extra-tabs` if it is part of children.
-
-    extra_tabs.prepend(children.filter(function (it) {
-      return !it.classList.contains("extra-tabs");
-    }).pop());
-
-    this._adjust_tabs();
+      }, _callee2, null, [[7, 25, 28, 31]]);
+    }))();
   }
 }));
 // CONCATENATED MODULE: ./node_modules/@patternslib/patternslib/src/pat/toggle/toggle.js
