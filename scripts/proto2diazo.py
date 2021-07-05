@@ -55,7 +55,7 @@ def strip_help(filepath):
 
     if filepath.split("/")[-2] != "illustrations":
         patt = re.compile(
-            '<a (href="/").*?id="inject-toolbar".*?>.*?</a>', re.I | re.S | re.L | re.M
+            r'<a (href="/").*?id="inject-toolbar".*?>.*?</a>', re.I | re.S | re.M
         )
         content = patt.sub(repl_link, content)
 
