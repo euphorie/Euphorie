@@ -27,6 +27,7 @@
             method="${view/method}"
       >
         <div id="content-pane">
+          <metal:call use-macro="webhelpers/macros/toolbar" />
           <article class="pat-rich">
             <h1 i18n:translate="hader_company_details">You are about to print the report... please complete the optional form and then proceed.</h1>
 

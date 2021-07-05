@@ -20,6 +20,7 @@
     <metal:slot fill-slot="content">
       <tal:block replace="tile:statusmessages" />
       <div id="content-pane">
+        <metal:call use-macro="webhelpers/macros/toolbar" />
         <article class="pat-rich">
           <h1 i18n:translate="heading_involve_your_coworkers">
 			Involve your coworkers

@@ -28,6 +28,7 @@
             data-pat-scroll="selector: #content; trigger: auto; offset: 0"
       >
         <div id="content-pane">
+          <metal:call use-macro="webhelpers/macros/toolbar" />
           <article class="pat-rich">
             <h1>${module/title}</h1>
             <tal:block replace="tile:statusmessages" />

@@ -367,29 +367,11 @@
                      data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
                      tal:condition="not:disabled"
                   ><tal:translate i18n:translate="navigation_status">Status</tal:translate>
-                    <strong class="pie-graph pat-tooltip"
-                            title="${webhelpers/get_progress_indicator_title}"
-                            data-pat-tooltip="trigger: hover; position-list: lm"
-                            data-percentage="${webhelpers/traversed_session/session/completion_percentage|string:0}"
-                            tal:condition="webhelpers/show_completion_percentage"
-                    >${webhelpers/traversed_session/session/completion_percentage|string:0}%</strong>
                   </a>
                   <a class="status"
                      tal:condition="disabled"
                   ><tal:translate i18n:translate="navigation_status">Status</tal:translate>
-                    <strong class="pie-graph pat-tooltip"
-                            title="${webhelpers/get_progress_indicator_title}"
-                            data-pat-tooltip="trigger: hover; position-list: lm"
-                            data-percentage="${webhelpers/traversed_session/session/completion_percentage|string:0}"
-                            tal:condition="webhelpers/show_completion_percentage"
-                    >${webhelpers/traversed_session/session/completion_percentage|string:0}%</strong>
                   </a>
-                  <tal:comment condition="nothing">
-                    Below we have a hook for showing an optional status box. We use an external macro that can be easily overwritten, without the necessity to overwrite the complete shell template.
-                  </tal:comment>
-                  <tal:not-in-status condition="not:active">
-                    <metal:macro use-macro="context/certificate_macros/macros/status_box" />
-                  </tal:not-in-status>
                 </li>
               </tal:if_not_anon>
             </ol>
