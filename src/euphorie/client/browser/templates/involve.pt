@@ -34,7 +34,14 @@
             Decide on the best way to involve your staff! You can for example conduct a meeting or a focus group with workers and go through the respective parts in the risk assessment together. You can also download or print the content of the tool or parts of it and share it for information and feedback with your workers.
           </p>
         </article>
-        <p class="button-bar">
+        <div class="button-bar"
+             id="nav-bar"
+        >
+          <a class="pat-button default continue pat-inject"
+             href="${view/next_url}"
+             data-pat-inject="history: record"
+             i18n:translate="label_next"
+          >Next</a>
           <a class="icon-print pat-modal pat-button"
              href="${here/absolute_url}/@@panel-contents-preview#document-content"
              data-pat-modal="class: small"
@@ -44,16 +51,7 @@
              href="${here/absolute_url}/@@identification-report.docx"
              i18n:translate="label_download_tool_preview"
           >Download a tool preview</a>
-        </p>
-      </div>
-      <div class="button-bar"
-           id="nav-bar"
-      >
-        <a class="pat-button continue pat-inject"
-           href="${view/next_url}"
-           data-pat-inject="history: record"
-           i18n:translate="label_next"
-        >Next</a>
+        </div>
       </div>
 
     </metal:slot>

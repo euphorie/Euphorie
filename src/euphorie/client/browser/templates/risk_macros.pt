@@ -171,10 +171,12 @@
 
 
   <metal:riskinfo define-macro="riskinfo">
-    <article class="pat-rich pat-collapsible risk-module ${default_state|nothing}"
+    <article class="pat-rich pat-collapsible risk-module ${default_state|nothing} form-panel"
              tal:condition="view/show_info"
     >
-      <h3 i18n:translate="header_information">
+      <h3 class="form-separation-header"
+          i18n:translate="header_information"
+      >
             Information
       </h3>
       <div class="image-collage pat-gallery count-${view/number_images} float-before"

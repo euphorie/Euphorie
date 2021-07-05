@@ -20,7 +20,7 @@
                 "
     >
       <tal:block replace="tile:statusmessages" />
-      <form class="pat-inject pat-validation"
+      <form class="pat-inject pat-validation panel-style"
             accept-charset="UTF-8"
             action="${here/absolute_url}/@@${view/__name__}"
             enctype="multipart/form-data"
@@ -48,31 +48,27 @@
           <metal:call use-macro="webhelpers/macros/risk_identification" />
           <!-- END Identificaton -->
 
-          <!-- Evaluation -->
-          <metal:call use-macro="webhelpers/macros/risk_evaluation" />
-          <!-- END Evaluation -->
-
           <!-- Action Plan -->
           <tal:action_plan condition="webhelpers/integrated_action_plan">
-            <div class="pat-collapsible open risk-module pat-depends visible"
+            <div class="pat-collapsible open risk-module pat-depends hidden form-panel"
                  data-pat-depends="transition: slide; ${view/action_plan_condition}"
             >
-              <h3 class="collapsible-open"
+              <h3 class="form-separation-header"
                   i18n:translate="header_measures"
               >
                 Measures
               </h3>
-              <div class="panel-content"
-                   id="panel-action-plan"
-              >
-                <section class="pat-rich">
-                  <p tal:content="view/action_plan_instruction_text">Instruction</p>
-                </section>
-                <metal:call use-macro="webhelpers/macros/action_plan" />
-              </div>
+              <section class="pat-rich">
+                <p tal:content="view/action_plan_instruction_text">Instruction</p>
+              </section>
+              <metal:call use-macro="webhelpers/macros/action_plan" />
             </div>
           </tal:action_plan>
           <!-- END Action Plan -->
+
+          <!-- Evaluation -->
+          <metal:call use-macro="webhelpers/macros/risk_evaluation" />
+          <!-- END Evaluation -->
 
           <!-- Information -->
           <metal:call use-macro="here/risk_macros/macros/riskinfo"
@@ -83,13 +79,15 @@
           <!-- END Information -->
 
           <!-- Resources -->
-          <article class="pat-rich pat-collapsible ${default_state} risk-module"
+          <article class="pat-rich pat-collapsible ${default_state} risk-module form-panel"
                    tal:define="
                      default_state python:view.get_collapsible_section_state('resources');
                    "
                    tal:condition="view/show_resources"
           >
-            <h3 i18n:translate="header_resources">
+            <h3 class="form-separation-header"
+                i18n:translate="header_resources"
+            >
             Resources
             </h3>
             <!-- Legal references -->
