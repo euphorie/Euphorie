@@ -373,6 +373,13 @@ class Assessments(BrowserView):
         ).all()
 
 
+class Surveys(BrowserView, SurveyTemplatesMixin):
+    @property
+    @memoize
+    def tools(self):
+        return self.get_survey_templates()
+
+
 class PortletBase(BrowserView):
     @property
     @memoize

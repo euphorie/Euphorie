@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+
+  <!-- The equivalent template in the Jekyll prototype is /tools -->
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div id="content-pane">
+        <metal:homescreen_navigation use-macro="here/view/macros/homescreen_navigation">
+          <metal:slot fill-slot="view_options">
+            <div class="pat-collapsible pat-context-menu closed align-left no-label icon-filter"
+                 id="filter-menu"
+                 data-pat-collapsible="close-trigger: .context-menu:not(#filter-menu),.close-menu;"
+            >
+              <strong class="context-menu-label menu-trigger">Filter</strong>
+              <p class="close-menu">Close</p>
+              <fieldset class="vertical">
+                <label>
+      Country
+                  <select>
+                    <option selected>All countries</option>
+                  </select>
+                </label>
+                <label>
+      Sector
+                  <select>
+                    <option selected>All sectors</option>
+                  </select>
+                </label>
+                <label>
+      Language
+                  <select>
+                    <option selected>All languages</option>
+                    <option>Germam</option>
+                    <option>English</option>
+                    <option>French</option>
+                  </select>
+                </label>
+                <label>
+      Department
+                  <select>
+                    <option selected>All departments</option>
+                  </select>
+                </label>
+                <fieldset class="group">
+                  <legend>Sorting</legend>
+                  <fieldset class="pat-checklist radio">
+                    <label>Newest first
+                      <input checked
+                             name="sorting"
+                             type="radio"
+                      />
+                    </label>
+                    <label>Alphabetical
+                      <input name="sorting"
+                             type="radio"
+                      />
+                    </label>
+                  </fieldset>
+                </fieldset>
+              </fieldset>
+            </div>
+
+          </metal:slot>
+          <metal:slot fill-slot="quick_functions">
+            <div class="toolbar-section quick-functions"
+                 id="assessments-toolbar-quick-functions"
+            >
+              <label class="pat-toolbar-function pat-toolbar-search-field">
+                <input placeholder="Search tools"
+                       type="search"
+                />
+              </label>
+            </div>
+
+          </metal:slot>
+        </metal:homescreen_navigation>
+
+        <div id="application-content"><div class="tool-tiles pat-masonry"
+               data-pat-masonry="column-width: .grid-sizer; gutter: 0; item-selector: .tool-tile"
+          >
+            <div class="grid-sizer"></div>
+
+            <div class="tool-tile"
+                 tal:repeat="tool_info view/tools"
+            >
+              <tal:tool tal:define="
+                          category python:tool_info[0];
+                          tool python:tool_info[1];
+                          tool_id python:tool_info[2];
+                        ">
+                <a class="pat-inject"
+                   href="/tools/audio-visual-productions#content"
+                   data-pat-inject="history: record"
+                >
+                  <figure class="tool-icon">
+                    <img src="/assets/oira/style/placeholder-1x1.png"
+                         style="background-image: url()"
+                    />
+                  </figure>
+                </a>
+                <div class="tool-info">
+                  <h2 class="tool-title">${tool/title}</h2>
+
+                  <p class="tool-tags tag-cloud">
+
+                    <a class="tag pat-inject"
+                       href="/tools/"
+                       data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
+                    >Audiovisual sector</a>
+
+                    <a class="tag pat-inject"
+                       href="/tools/"
+                       data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
+                    >EU level</a>
+
+                    <a class="tag pat-inject"
+                       href="/tools/"
+                       data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
+                    >English</a>
+
+                  </p>
+
+                  <p class="button-bar">
+                    <a class="default small pat-button pat-inject"
+                       href="/preparation"
+                       data-pat-inject="history: record"
+                    >Start risk assessment</a>
+                    <a class="small pat-button pat-inject"
+                       href="/tools/audio-visual-productions#content"
+                       data-pat-inject="history: record"
+                    >Information</a>
+                  </p>
+                </div>
+              </tal:tool>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </metal:slot>
+
+  </body>
+</html>
