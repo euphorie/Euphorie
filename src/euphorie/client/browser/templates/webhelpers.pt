@@ -1114,10 +1114,6 @@
                         disabled python:page_section=='' or (page_section=='preparation' and new_session);
                       ">
             <metal:macro use-macro="context/certificate_macros/macros/status_icon" />
-            <tal:comment condition="nothing">
-                    Below we have a hook for showing an optional status box. We use an external macro that can be easily overwritten, without the necessity to overwrite the complete shell template.
-            </tal:comment>
-            <metal:macro use-macro="context/certificate_macros/macros/status_box" />
           </tal:status>
           <a tal:replace="structure here/@@more_badge|nothing"></a>
         </div>

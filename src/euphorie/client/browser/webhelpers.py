@@ -289,8 +289,9 @@ class WebHelpers(BrowserView):
         session.completion_percentage = completion_percentage
         return completion_percentage
 
-    def get_progress_indicator_title(self):
-        completion_percentage = self.traversed_session.session.completion_percentage
+    def get_progress_indicator_title(self, completion_percentage=None):
+        if completion_percentage is None and self.traversed_session is not None:
+            completion_percentage = self.traversed_session.session.completion_percentage
         title = _(
             "progress_indicator_title",
             default=u"${completion_percentage}% Complete",

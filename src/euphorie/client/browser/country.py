@@ -354,6 +354,20 @@ class SessionBrowserNavigator(BrowserView):
         return False
 
 
+class Assessments(BrowserView):
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    @memoize
+    def sessions(self):
+        return self.webhelpers.get_sessions_query(
+            context=self.context, include_archived=True
+        ).all()
+
+
 class PortletBase(BrowserView):
     @property
     @memoize
