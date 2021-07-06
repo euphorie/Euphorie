@@ -13,24 +13,19 @@
 
   <metal:status_icon define-macro="status_icon"
                      meta:interpolation="true"
+                     tal:define="
+                       session session|webhelpers/traversed_session/session;
+                     "
                      i18n:domain="euphorie"
   >
     <a class="icon progress"
        tal:condition="disabled"
     >
       <strong class="pie-graph"
-              title="${webhelpers/get_progress_indicator_title}"
-              data-percentage="${webhelpers/traversed_session/session/completion_percentage|string:0}"
+              title="${python:webhelpers.get_progress_indicator_title(completion_percentage=session.completion_percentage)}"
+              data-percentage="${session/completion_percentage|string:0}"
               tal:condition="webhelpers/show_completion_percentage"
-      >${webhelpers/traversed_session/session/completion_percentage|string:0}%</strong>
+      >${session/completion_percentage|string:0}%</strong>
     </a>
   </metal:status_icon>
-  <metal:status_box define-macro="status_box"
-                    meta:interpolation="true"
-                    i18n:domain="euphorie"
-  >
-    <tal:comment condition="nothing">
-        Here in Euphorie, we don't have a certificate status box. But extension packages can overwrite this macro to fill it with content.
-    </tal:comment>
-  </metal:status_box>
 </html>

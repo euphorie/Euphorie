@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+
+  <!-- The equivalent template in the Jekyll prototype is /assessments -->
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div id="content-pane">
+        <metal:homescreen_navigation use-macro="here/view/macros/homescreen_navigation" />
+        <div id="application-content"
+             tal:define="
+               sessions view/sessions;
+               show_extra_fields python:True;
+             "
+        >
+          <metal:assessments_list metal:define-macro="assessments_list">
+            <ul class="ras"
+                tal:define="
+                  show_extra_fields show_extra_fields|python:False;
+                "
+            >
+              <li class="ra"
+                  tal:repeat="session sessions"
+              >
+
+                <h4 class="name field">
+                  <a class="pat-inject follow"
+                     href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@start"
+                     data-pat-inject="source: #content; target: #content; history: record"
+                  >
+                  ${session/title}
+                  </a>
+                </h4>
+                <p class="tool field"
+                   tal:condition="show_extra_fields|python:False"
+                >
+                  <a class="pat-inject tool field"
+                     href="${here/aq_parent/absolute_url}/${session/zodb_path}"
+                     data-pat-inject="history: record"
+                  >${session/tool/aq_parent/title}</a>
+                </p>
+                <p class="date field">
+                  <span class="last-saved"
+                        tal:define="
+                          toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+                        "
+                  >
+                    <tal:i18n i18n:translate="">Started</tal:i18n>
+                    <time datetime="${value}"
+                          tal:define="
+                            value session/created/isoformat|nothing;
+                          "
+                    >${python:toLocalizedTime(value)}</time>
+                  </span>
+                </p>
+                <p class="field icons"
+                   tal:define="
+                     disabled python:False;
+                   "
+                >
+                  <metal:status_icon use-macro="here/certificate_macros/macros/status_icon"
+                                     tal:condition="show_extra_fields|python:False"
+                  />
+
+                  <a class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+                     href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@more_menu#more-menu"
+                     data-pat-tooltip="source: ajax; position-list: tr"
+                     i18n:translate=""
+                  >More</a>
+
+                </p>
+              </li>
+            </ul>
+
+          </metal:assessments_list>
+        </div>
+      </div>
+    </metal:slot>
+
+  </body>
+</html>
