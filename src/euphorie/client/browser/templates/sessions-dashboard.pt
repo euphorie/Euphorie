@@ -12,7 +12,8 @@
     <div id="content-pane">
       <metal:homescreen_navigation define-macro="homescreen_navigation">
         <form class="pat-toolbar pat-inject pat-form pat-autosubmit"
-              action="#"
+              action="${here/absolute_url}/${view/__name__}#application-content"
+              method="POST"
               data-pat-inject="history: record"
         >
           <div class="toolbar-section view-options"
@@ -60,6 +61,7 @@
           <div class="toolbar-section quick-functions"
                id="assessments-toolbar-quick-functions"
           >
+            <metal:slot define-slot="quick_functions" />
           </div>
         </form>
       </metal:homescreen_navigation>

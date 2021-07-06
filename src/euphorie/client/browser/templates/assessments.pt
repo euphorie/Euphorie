@@ -14,7 +14,25 @@
   <body>
     <metal:slot fill-slot="content">
       <div id="content-pane">
-        <metal:homescreen_navigation use-macro="here/view/macros/homescreen_navigation" />
+        <metal:homescreen_navigation use-macro="here/view/macros/homescreen_navigation">
+          <metal:slot fill-slot="quick_functions">
+            <label class="pat-toolbar-function pat-toolbar-search-field">
+              <input name="SearchableText"
+                     placeholder="Search risk assessments"
+                     type="search"
+                     i18n:attributes="placeholder placeholder_search_risk_assessments"
+              />
+            </label>
+
+            <a class="pat-modal icon create"
+               href="${here/absolute_url}/@@new-session.html#document-content"
+               title="Start a new risk assessment"
+               data-pat-modal="class: small panel"
+               i18n:attributes="title link_start_session"
+               i18n:translate="link_start_session"
+            >Start risk assessment</a>
+          </metal:slot>
+        </metal:homescreen_navigation>
         <div id="application-content"
              tal:define="
                sessions view/sessions;

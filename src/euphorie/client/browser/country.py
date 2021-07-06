@@ -363,8 +363,13 @@ class Assessments(BrowserView):
     @property
     @memoize
     def sessions(self):
+        searchable_text = self.request.get("SearchableText", None)
+        if searchable_text and "%" not in searchable_text:
+            searchable_text = "%{}%".format(searchable_text)
         return self.webhelpers.get_sessions_query(
-            context=self.context, include_archived=True
+            context=self.context,
+            searchable_text=searchable_text,
+            include_archived=True,
         ).all()
 
 
