@@ -50,18 +50,18 @@
             <p class="tool-tags tag-cloud">
 
               <a class="tag pat-inject"
-                 href="${country/absolute_url}/@@?sector=${sector/id}"
-                 data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
+                 href="${country/absolute_url}/@@?sector=${sector/id}#content"
+                 data-pat-inject="history: record"
               >${sector/title}</a>
 
               <a class="tag pat-inject"
-                 href="${country/absolute_url}/@@surveys?country=${country/id}"
-                 data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
+                 href="${country/absolute_url}/@@surveys?country=${country/id}#content"
+                 data-pat-inject="history: record"
               >${country/title}</a>
 
               <a class="tag pat-inject"
-                 href="${country/absolute_url}/@@surveys?language=${tool/language}"
-                 data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
+                 href="${country/absolute_url}/@@surveys?language=${tool/language}#content"
+                 data-pat-inject="history: record"
                  tal:condition="tool/language"
               >${tool/language}</a>
 
