@@ -22,80 +22,127 @@
                      introduction python:getattr(context, 'introduction', '') or '';
                    "
     >
-      <div id="content-pane">
+      <div id="content-pane"
+           tal:define="
+             tool nocall:context;
+             sector nocall:tool/aq_parent;
+             country nocall:sector/aq_parent;
+           "
+      >
         <tal:block replace="tile:statusmessages" />
 
-        <article class="pat-rich">
-          <h1 class="tool-name">${context/Title}</h1>
-          <section class="summary"
-                   tal:condition="python:description.strip()"
-          >
-            <p tal:content="description"></p>
-          </section>
-        </article>
+        <div class="pat-toolbar">
+          <div class="toolbar-section quick-navigation">
+            <a class="pat-back-button pat-inject"
+               href="${country/absolute_url}/@@surveys"
+               data-pat-inject="history: record; source: #content; target: #content;"
+            >Tools</a>
+          </div>
+        </div>
+        <div class="tool-info-sheet">
+          <div class="tool-meta-data">
+            <figure class="tool-icon">
+              <img src="++resource++euphorie.resources/oira/style/placeholder-1x1.png"
+                   style="background-image: url(${context/image|nothing})"
+              />
+            </figure>
 
-        <div class="risk-assessments ra-list"
-             tal:condition="sessions"
-        >
-          <h2 class="ra-list-title"
-              i18n:translate=""
-          >Risk assessments made with this tool</h2>
+            <p class="tool-tags tag-cloud">
 
-          <ul class="ras">
-            <li class="ra"
-                tal:repeat="session sessions"
-            >
-              <a class="pat-inject follow"
-                 href="${here/absolute_url}/++session++${session/id}/@@start"
-                 data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
+              <a class="tag pat-inject"
+                 href="${country/absolute_url}/@@?sector=${sector/id}"
+                 data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
+              >${sector/title}</a>
+
+              <a class="tag pat-inject"
+                 href="${country/absolute_url}/@@surveys?country=${country/id}"
+                 data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
+              >${country/title}</a>
+
+              <a class="tag pat-inject"
+                 href="${country/absolute_url}/@@surveys?language=${tool/language}"
+                 data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
+                 tal:condition="tool/language"
+              >${tool/language}</a>
+
+            </p>
+
+            <p class="button-bar">
+              <a class="default pat-button pat-inject"
+                 id="button-new-session"
+                 href="${here/absolute_url}/@@new-session.html?action=new"
+                 i18n:translate="button_start_new_session"
+              >Start a new session with this tool</a>
+            </p>
+          </div>
+          <div class="tool-description">
+            <div class="pat-rich tool-body-text">
+              <h1 class="tool-name">${context/Title}</h1>
+              <section class="summary"
+                       tal:condition="python:description.strip()"
               >
-                <h4 class="name field">${session/title}</h4>
-                <p class="date field">
-                  <span class="last-saved">
-                    <tal:i18n i18n:translate="">Last saved</tal:i18n>
-                    <time class="pat-display-time"
-                          datetime="${value}"
-                          data-pat-display-time="from-now: true; locale: ${language}"
-                          tal:define="
-                            value python:webhelpers.timezoned_date(session.modified);
-                          "
-                    >${value}</time>
-                  </span>
-                </p>
-              </a>
-              <a class="publication-menu iconified icon-${python:session.published and 'published' or 'unpublished'} pat-tooltip"
-                 href="${here/absolute_url}/++session++${session/id}/@@publication_menu#publication-menu"
-                 data-pat-tooltip="source: ajax; position-list: tr"
-                 tal:condition="webhelpers/use_publication_feature"
-              >Published
-                <time class="pat-display-time"
-                      datetime="2018-03-28T08:00Z"
-                      data-pat-display-time="from-now: true"
-                >2018-03-28</time></a>
-              <a class="more-menu iconified icon-ellipsis pat-tooltip inactive"
-                 href="${here/absolute_url}/++session++${session/id}/@@more_menu#more-menu"
-                 data-pat-tooltip="source: ajax; position-list: tr"
-                 i18n:translate=""
-              >More</a>
-            </li>
-          </ul>
+                <p tal:content="description"></p>
+              </section>
+              <section class="tool-body-text"
+                       tal:condition="python:introduction.strip()"
+              >
+                <p tal:replace="structure introduction"></p>
+              </section>
+            </div>
+
+            <div class="risk-assessments ra-list"
+                 tal:condition="sessions"
+            >
+              <h2 class="ra-list-title"
+                  i18n:translate=""
+              >Risk assessments made with this tool</h2>
+
+              <ul class="ras">
+                <li class="ra"
+                    tal:repeat="session sessions"
+                >
+                  <h4 class="name field">
+                    <a class="pat-inject follow"
+                       href="${here/absolute_url}/++session++${session/id}/@@start"
+                       data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
+                    >
+                      ${session/title}
+                    </a>
+                  </h4>
+                  <p class="date field">
+                    <span class="last-saved">
+                      <tal:i18n i18n:translate="">Last saved</tal:i18n>
+                      <time class="pat-display-time"
+                            datetime="${value}"
+                            data-pat-display-time="from-now: true; locale: ${language}"
+                            tal:define="
+                              value python:webhelpers.timezoned_date(session.modified);
+                            "
+                      >${value}</time>
+                    </span>
+                  </p>
+                  <p class="field icons">
+                    <a class="publication-menu iconified icon-${python:session.published and 'published' or 'unpublished'} pat-tooltip"
+                       href="${here/absolute_url}/++session++${session/id}/@@publication_menu#publication-menu"
+                       data-pat-tooltip="source: ajax; position-list: tr"
+                       tal:condition="webhelpers/use_publication_feature"
+                    >Published
+                      <time class="pat-display-time"
+                            datetime="2018-03-28T08:00Z"
+                            data-pat-display-time="from-now: true"
+                      >2018-03-28</time></a>
+                    <a class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+                       href="${here/absolute_url}/++session++${session/id}/@@more_menu#more-menu"
+                       data-pat-tooltip="source: ajax; position-list: tr"
+                       i18n:translate=""
+                    >More</a>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <p class="button-bar">
-          <a class="pat-button pat-inject"
-             id="button-new-session"
-             href="${here/absolute_url}/@@new-session.html?action=new"
-             i18n:translate="button_start_new_session"
-          >Start a new session with this tool</a>
-        </p>
-
-        <article class="pat-rich"
-                 tal:condition="python:introduction.strip()"
-        >
-          <section class="introduction">
-            <p tal:replace="structure introduction"></p>
-          </section>
-        </article>
 
       </div>
     </metal:content>
