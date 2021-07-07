@@ -20,7 +20,9 @@
                  id="filter-menu"
                  data-pat-collapsible="close-trigger: .context-menu:not(#filter-menu),.close-menu;"
             >
-              <strong class="context-menu-label menu-trigger">Filter</strong>
+              <strong class="context-menu-label menu-trigger"
+                      i18n:translate=""
+              >Filter</strong>
               <p class="close-menu">Close</p>
               <fieldset class="vertical">
                 <label>
@@ -96,14 +98,16 @@
                           category python:tool_info[0];
                           tool python:tool_info[1];
                           tool_id python:tool_info[2];
+                          sector nocall:tool/aq_parent;
+                          country nocall:sector/aq_parent;
                         ">
                 <a class="pat-inject"
-                   href="/tools/audio-visual-productions#content"
+                   href="${tool/absolute_url}#content"
                    data-pat-inject="history: record"
                 >
                   <figure class="tool-icon">
-                    <img src="/assets/oira/style/placeholder-1x1.png"
-                         style="background-image: url()"
+                    <img src="++resource++euphorie.resources/oira/style/placeholder-1x1.png"
+                         style="background-image: url(${tool/image|nothing})"
                     />
                   </figure>
                 </a>
@@ -113,30 +117,33 @@
                   <p class="tool-tags tag-cloud">
 
                     <a class="tag pat-inject"
-                       href="/tools/"
+                       href="${here/absolute_url}/@@${view/__name__}?sector=${sector/id}"
                        data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
-                    >Audiovisual sector</a>
+                    >${sector/title}</a>
 
                     <a class="tag pat-inject"
-                       href="/tools/"
+                       href="${here/absolute_url}/@@${view/__name__}?country=${country/id}"
                        data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
-                    >EU level</a>
+                    >${country/title}</a>
 
                     <a class="tag pat-inject"
-                       href="/tools/"
+                       href="${here/absolute_url}/@@${view/__name__}?language=${tool/language}"
                        data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
-                    >English</a>
+                       tal:condition="tool/language"
+                    >${tool/language}</a>
 
                   </p>
 
                   <p class="button-bar">
                     <a class="default small pat-button pat-inject"
-                       href="/preparation"
+                       href="${here/absolute_url}/@@new-session.html?survey=${tool_id}&amp;action=new"
                        data-pat-inject="history: record"
-                    >Start risk assessment</a>
+                       i18n:translate="button_start_session"
+                    >Start session</a>
                     <a class="small pat-button pat-inject"
-                       href="/tools/audio-visual-productions#content"
+                       href="${tool/absolute_url}#content"
                        data-pat-inject="history: record"
+                       i18n:translate="button_information"
                     >Information</a>
                   </p>
                 </div>
