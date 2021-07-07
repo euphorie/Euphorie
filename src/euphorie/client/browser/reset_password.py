@@ -171,7 +171,7 @@ class ResetPasswordRequest(BaseForm):
         )
         redir_url = self.request.get("came_from") or self.context.absolute_url()
         if not redir_url.endswith("login"):
-            redir_url = "{0}/@@login?{1}".format(
+            redir_url = "{0}/@@login?{1}#login".format(
                 redir_url, urlencode({"came_from": redir_url})
             )
         self.redirect(redir_url, msg)

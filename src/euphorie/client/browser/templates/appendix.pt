@@ -20,7 +20,7 @@
         |</tal:block>
       <tal:span i18n:translate="appendix_produced_by">Produced by
         <a href="http://osha.europa.eu"
-           target="_new"
+           target="_blank"
            i18n:name="EU-OSHA"
         >EU-OSHA</a>.</tal:span>
        |

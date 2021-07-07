@@ -12,6 +12,13 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
   <browser:page
+      name="shell_bare"
+      for="*"
+      permission="zope.Public"
+      template="templates/shell_bare.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+  <browser:page
       name="plain"
       for="*"
       permission="zope.Public"
@@ -549,11 +556,10 @@
       />
 
   <browser:page
-      name="login_form"
+      name="logout"
       for="*"
-      permission="zope.Public"
-      class=".login.LoginForm"
-      template="templates/login_form.pt"
+      permission="zope2.View"
+      class=".login.Logout"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
@@ -572,23 +578,6 @@
       permission="zope2.View"
       class=".login.CreateTestSession"
       template="templates/new-session-test.pt"
-      layer="euphorie.client.interfaces.IClientSkinLayer"
-      />
-
-  <browser:page
-      name="register"
-      for="*"
-      permission="zope.Public"
-      class=".login.Register"
-      template="templates/register.pt"
-      layer="euphorie.client.interfaces.IClientSkinLayer"
-      />
-
-  <browser:page
-      name="logout"
-      for="*"
-      permission="zope2.View"
-      class=".login.Logout"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
