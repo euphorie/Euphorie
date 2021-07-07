@@ -11,60 +11,67 @@
     <tal:block replace="tile:statusmessages" />
     <div id="content-pane">
       <metal:homescreen_navigation define-macro="homescreen_navigation">
-        <form class="pat-toolbar pat-inject pat-form pat-autosubmit"
-              action="${here/absolute_url}/${view/__name__}#application-content"
-              method="POST"
-              data-pat-inject="history: record"
+        <div class="pat-toolbar"
+             id="tools-toolbar"
         >
-          <div class="toolbar-section view-options"
-               id="assessments-toolbar-view-options"
-          >
-            <metal:slot define-slot="view_options">
-              <label class="pat-select bare"
-                     tal:replace="nothing"
-              >
-                <select name="dashboard-view">
-                  <option><!-- Show internal assessments -->Default view</option>
-                  <option><!-- Fremdfirmen Darstellung --><!-- Show external assessments --><!-- Fremdfirmen GBUs Darstellung -->Fremdfirmenkoordination</option>
-                </select>
-              </label>
-            </metal:slot>
-          </div>
-          <div class="toolbar-section navigation"
-               id="assessments-toolbar-navigation"
-          >
-            <nav class="toolbar-subnav pat-button-cluster"
-                 id="homescreen-sections"
+          <div class="toolbar-navigation-area">
+            <div class="toolbar-section navigation"
+                 id="assessments-toolbar-navigation"
             >
-              <a class="icon icon-gauge pat-inject"
-                 href="${here/absolute_url}"
-                 data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options &amp;&amp; source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
-              >Home</a>
-              <a class="pat-inject"
-                 href="${here/absolute_url}/surveys/"
-                 data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options &amp;&amp; source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
-              >Tools</a>
-              <a class="pat-inject"
-                 href="${here/absolute_url}/assessments/"
-                 data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options &amp;&amp; source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
-              >Assessments</a>
-              <a class="pat-inject"
-                 href="${here/absolute_url}/trainings/"
-                 data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options &amp;&amp; source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
-              >Trainings</a>
-              <a class="pat-inject"
-                 href="${here/absolute_url}/certificates/"
-                 data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options &amp;&amp; source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
-              >Certificates</a>
-            </nav>
+              <nav class="toolbar-subnav pat-button-cluster"
+                   id="homescreen-sections"
+              >
+                <a class="icon icon-gauge pat-inject"
+                   href="${here/absolute_url}"
+                   data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+                >Home</a>
+                <a class="pat-inject"
+                   href="${here/absolute_url}/surveys/"
+                   data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+                >Tools</a>
+                <a class="pat-inject"
+                   href="${here/absolute_url}/assessments/"
+                   data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+                >Assessments</a>
+                <a class="pat-inject"
+                   href="${here/absolute_url}/trainings/"
+                   data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+                >Trainings</a>
+                <a class="pat-inject"
+                   href="${here/absolute_url}/certificates/"
+                   data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+                >Certificates</a>
+              </nav>
 
+            </div>
           </div>
-          <div class="toolbar-section quick-functions"
-               id="assessments-toolbar-quick-functions"
+          <form class="toolbar-functions-area pat-inject pat-form pat-autosubmit"
+                id="toolbar-functions-area"
+                action="${here/absolute_url}/${view/__name__}#application-content"
+                method="POST"
+                data-pat-inject="history: record"
           >
-            <metal:slot define-slot="quick_functions" />
-          </div>
-        </form>
+            <div class="toolbar-section view-options"
+                 id="assessments-toolbar-view-options"
+            >
+              <metal:slot define-slot="view_options">
+                <label class="pat-select bare"
+                       tal:replace="nothing"
+                >
+                  <select name="dashboard-view">
+                    <option><!-- Show internal assessments -->Default view</option>
+                    <option><!-- Fremdfirmen Darstellung --><!-- Show external assessments --><!-- Fremdfirmen GBUs Darstellung -->Fremdfirmenkoordination</option>
+                  </select>
+                </label>
+              </metal:slot>
+            </div>
+            <div class="toolbar-section quick-functions"
+                 id="assessments-toolbar-quick-functions"
+            >
+              <metal:slot define-slot="quick_functions" />
+            </div>
+          </form>
+        </div>
       </metal:homescreen_navigation>
       <div id="application-content">
         <div class="row pat-masonry"
