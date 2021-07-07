@@ -79,8 +79,15 @@
             </p>
           </article>
         </tal:no-sessions>
-
       </div>
+
+      <div class="portlet-footer">
+        <a class="pat-inject more-link"
+           href="${here/absolute_url}/@@assessments#content"
+           data-pat-inject="history: record"
+        >More risk assessments&hellip;</a>
+      </div>
+
     </div>
   </div>
 </tal:portlet>

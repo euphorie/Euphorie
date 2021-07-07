@@ -440,9 +440,13 @@ class MyRAsPortlet(PortletBase):
     @memoize
     def sessions(self):
         """We want the archived sessions"""
-        return self.webhelpers.get_sessions_query(
-            context=self.context, include_archived=not self.hide_archived
-        ).all()
+        return (
+            self.webhelpers.get_sessions_query(
+                context=self.context, include_archived=not self.hide_archived
+            )
+            .limit(5)
+            .all()
+        )
 
     @property
     def label_start_session(self):
