@@ -15,6 +15,7 @@
     <metal:slot fill-slot="content">
       <div id="content-pane">
         <metal:homescreen_navigation use-macro="here/view/macros/homescreen_navigation">
+          <metal:slot fill-slot="view_options" />
           <metal:slot fill-slot="quick_functions">
             <label class="pat-toolbar-function pat-toolbar-search-field">
               <input name="SearchableText"
