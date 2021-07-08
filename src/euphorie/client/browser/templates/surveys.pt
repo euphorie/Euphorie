@@ -22,25 +22,43 @@
             >
               <strong class="context-menu-label menu-trigger"
                       i18n:translate=""
-              >Filter</strong>
-              <p class="close-menu">Close</p>
+              >Filters</strong>
+              <p class="close-menu"
+                 i18n:translate="button_close"
+              >Close</p>
               <fieldset class="vertical">
                 <label>
       Country
-                  <select>
-                    <option selected>All countries</option>
+                  <select name="country">
+                    <!--option>All countries</option-->
+                    <option selected
+                            value="${context/getId}"
+                    >${context/Title}</option>
                   </select>
                 </label>
                 <label>
       Sector
-                  <select>
-                    <option selected>All sectors</option>
+                  <select name="sector">
+                    <option value=""
+                            tal:attributes="
+                              selected python:'selected' if not request.form.get('sector') else None;
+                            "
+                            i18n:translate="option_all_sectors"
+                    >All sectors</option>
+                    <option value="${sector/getId}"
+                            tal:repeat="sector view/sectors"
+                            tal:attributes="
+                              selected python:'selected' if request.form.get('sector') == sector.getId() else None;
+                            "
+                    >${sector/Title}</option>
                   </select>
                 </label>
                 <label>
       Language
                   <select>
-                    <option selected>All languages</option>
+                    <option selected
+                            i18n:translate="option_all_languages"
+                    >All languages</option>
                     <option>Germam</option>
                     <option>English</option>
                     <option>French</option>
@@ -49,7 +67,9 @@
                 <label>
       Department
                   <select>
-                    <option selected>All departments</option>
+                    <option selected
+                            i18n:translate="option_all_departments"
+                    >All departments</option>
                   </select>
                 </label>
                 <fieldset class="group">
@@ -57,13 +77,15 @@
                   <fieldset class="pat-checklist radio">
                     <label>Newest first
                       <input checked
-                             name="sorting"
+                             name="sort_on"
                              type="radio"
+                             value="created"
                       />
                     </label>
                     <label>Alphabetical
-                      <input name="sorting"
+                      <input name="sort_on"
                              type="radio"
+                             value="sortable_title"
                       />
                     </label>
                   </fieldset>

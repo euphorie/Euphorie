@@ -374,10 +374,50 @@ class Assessments(BrowserView):
 
 
 class Surveys(BrowserView, SurveyTemplatesMixin):
+    def get_filters(self):
+        filters = {}
+        get = self.request.form.get
+        country = get("country")
+        if not country:
+            country = self.context.getId()
+        client_path = "/".join(self.request.client.getPhysicalPath())
+        path = "/".join((client_path, country))
+        sector = get("sector")
+        if sector:
+            path = "/".join((path, sector))
+        filters["path"] = path
+
+        sort_on = get("sort_on", "created")
+        filters["sort_on"] = sort_on
+        if sort_on == "created":
+            filters["sort_order"] = "reverse"
+
+        return filters
+
+    @property
+    @memoize
+    def sectors(self):
+        country = self.request.form.get("country")
+        if country:
+            country_obj = self.request.client.restrictedTraverse(country)
+        else:
+            country_obj = self.context
+        return [
+            sector
+            for sector in aq_inner(country_obj).values()
+            if IClientSector.providedBy(sector)
+        ]
+
     @property
     @memoize
     def tools(self):
-        return self.get_survey_templates()
+        filters = self.get_filters()
+        return [
+            (None, survey.getObject(), survey.getId)
+            for survey in api.content.find(
+                object_provides="euphorie.content.survey.ISurvey", **filters
+            )
+        ]
 
 
 class PortletBase(BrowserView):
