@@ -617,6 +617,14 @@
       />
 
   <browser:page
+      name="terms-conditions"
+      for="*"
+      permission="zope2.Public"
+      template="templates/conditions-bare.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="index.html"
       for="Exception"
       permission="zope2.Public"

@@ -207,7 +207,7 @@
             <label i18n:translate="label__agree_terms_conditions">
                 I agree with the
                 <a class="pat-modal"
-                   href="terms-conditions#document-content"
+                   href="${base_url}/terms-conditions#document-content"
                    data-pat-modal="class: sheet"
                    i18n:name="link__terms_conditions"
                    i18n:translate="label__terms_conditions"
