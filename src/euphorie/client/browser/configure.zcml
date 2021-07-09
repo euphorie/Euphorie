@@ -531,6 +531,14 @@
       />
 
   <browser:page
+      name="help-menu.html"
+      for="*"
+      permission="zope2.View"
+      template="templates/help-menu.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="update-completion-percentage"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="zope2.View"
