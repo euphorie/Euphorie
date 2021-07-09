@@ -29,19 +29,6 @@
             >Browse risk assessments</a>
           </li>
 
-          <li class="menu-item-on-screen-help">
-            <button class="icon-circles osh-toggle pat-toggle close-panel"
-                    id="osh-toggle"
-                    data-pat-toggle="selector: body; value: osh-on osh-off; store: local"
-                    i18n:translate=""
-            >Toggle on screen help</button>
-          </li>
-          <li class="menu-item-help">
-            <a class="icon-help-circle close-panel"
-               href="${webhelpers/country_or_client_url}/++resource++euphorie.resources/oira/help/${webhelpers/help_language}/index.html"
-               i18n:translate="navigation_help"
-            >Help</a>
-          </li>
           <li class="menu-item-change-password">
             <a class="icon-key"
                href="${country_url}/account-settings"

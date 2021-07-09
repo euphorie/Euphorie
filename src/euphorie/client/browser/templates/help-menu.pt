@@ -5,36 +5,33 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
-      tal:define="
-        webhelpers nocall:context/@@webhelpers;
-        base_url webhelpers/base_url;
-      "
+      metal:use-macro="context/@@modal-template/macros/shell"
       i18n:domain="euphorie"
 >
 
-  <metal:help-menu define-macro="help-menu"
-                   meta:interpolation="true"
-                   i18n:domain="euphorie"
-  >
-    <div id="help-menu"
-         hidden="hidden"
+  <body i18n:domain="euphorie">
+    <metal:slot fill-slot="content"
+                tal:define="webhelpers nocall:context/@@webhelpers"
     >
-      <ul class="menu">
-        <li>
-          <button class="icon-circles osh-toggle pat-toggle close-panel"
-                  id="osh-toggle"
-                  data-pat-toggle="selector: body; value: osh-on osh-off; store: local"
-                  i18n:translate=""
-          >Toggle on screen help</button>
-        </li>
-        <li>
-          <a class="icon-help-circle close-panel"
-             href="${base_url}/help#content"
-             target="Help"
-             i18n:translate="navigation_help"
-          >Help</a>
-        </li>
-      </ul>
-    </div>
-  </metal:help-menu>
+      <section id="menu-content">
+        <ul class="menu">
+          <li class="menu-item-on-screen-help">
+            <button class="icon-circles osh-toggle pat-toggle close-panel"
+                    id="osh-toggle"
+                    data-pat-toggle="selector: body; value: osh-on osh-off; store: local"
+                    i18n:translate=""
+            >Toggle on screen help</button>
+          </li>
+          <li class="menu-item-help">
+            <a class="pat-inject icon-help-circle close-panel"
+               href="${webhelpers/base_url}/++resource++euphorie.resources/oira/help/${webhelpers/help_language}/index.html"
+               target="Help"
+               data-pat-inject="history: record"
+               i18n:translate="navigation_help"
+            >Help</a>
+          </li>
+        </ul>
+      </section>
+    </metal:slot>
+  </body>
 </html>
