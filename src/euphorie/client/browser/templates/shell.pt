@@ -165,17 +165,6 @@
                        "
         />
 
-        <tal:if_anon condition="python:is_anonymous or webhelpers.is_guest_account">
-          <a class="pat-modal login"
-             href="${webhelpers/country_or_client_url}/login_form?${came_from_param}#document-content"
-             data-pat-modal="class: large"
-             i18n:translate="header_login"
-          >Login</a>
-          <a class="registration"
-             href="${webhelpers/country_or_client_url}/register"
-             i18n:translate="header_register"
-          >Register</a>
-        </tal:if_anon>
         <tal:if_not_anon condition="python: not is_anonymous and not webhelpers.is_guest_account">
           <a class="iconified pat-tooltip pat-switch"
              id="more-menu"
