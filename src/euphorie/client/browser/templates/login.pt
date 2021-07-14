@@ -140,11 +140,6 @@
           <h1 i18n:translate="header_register">Register</h1>
         </article>
 
-        <p class="message error"
-           tal:condition="view/error|nothing"
-           i18n:translate="help__error_occured"
-        >An error has occurred.</p>
-
         <input name="action"
                type="hidden"
                value="register"
