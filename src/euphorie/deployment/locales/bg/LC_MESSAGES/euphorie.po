@@ -1782,10 +1782,10 @@ msgstr "Стандартен три критерия"
 msgid "appendix_about"
 msgstr "За нас"
 
-#. Default: "Produced by ${EU-OSHA}."
+#. Default: "Produced by EU-OSHA."
 #: euphorie/client/browser/templates/appendix.pt:22
 msgid "appendix_produced_by"
-msgstr "Създадено от ${EU-OSHA}."
+msgstr "Създадено от EU-OSHA."
 
 #: euphorie/client/browser/templates/new-session-test.pt:110
 msgid "benefits"

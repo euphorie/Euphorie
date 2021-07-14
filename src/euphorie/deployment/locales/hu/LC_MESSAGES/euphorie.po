@@ -1768,10 +1768,10 @@ msgstr "Standard három-tényezős"
 msgid "appendix_about"
 msgstr "Névjegy"
 
-#. Default: "Produced by ${EU-OSHA}."
+#. Default: "Produced by EU-OSHA."
 #: euphorie/client/browser/templates/appendix.pt:22
 msgid "appendix_produced_by"
-msgstr "Létrehozta: ${EU-OSHA}."
+msgstr "Létrehozta: EU-OSHA."
 
 #: euphorie/client/browser/templates/new-session-test.pt:110
 msgid "benefits"

@@ -1800,10 +1800,10 @@ msgstr "Trois critères standard par défaut : trois critères standard"
 msgid "appendix_about"
 msgstr "À propos"
 
-#. Default: "Produced by ${EU-OSHA}."
+#. Default: "Produced by EU-OSHA."
 #: euphorie/client/browser/templates/appendix.pt:22
 msgid "appendix_produced_by"
-msgstr "Produit par ${EU-OSHA}."
+msgstr "Produit par EU-OSHA."
 
 #: euphorie/client/browser/templates/new-session-test.pt:110
 msgid "benefits"

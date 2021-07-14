@@ -1782,10 +1782,10 @@ msgstr "It-tliet kriterji standard"
 msgid "appendix_about"
 msgstr "Dwar"
 
-#. Default: "Produced by ${EU-OSHA}."
+#. Default: "Produced by EU-OSHA."
 #: euphorie/client/browser/templates/appendix.pt:22
 msgid "appendix_produced_by"
-msgstr "Prodotta minn ${EU-OSHA}."
+msgstr "Prodotta minn EU-OSHA."
 
 #: euphorie/client/browser/templates/new-session-test.pt:110
 msgid "benefits"

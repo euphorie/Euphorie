@@ -1526,7 +1526,7 @@ msgstr ""
 msgid "appendix_about"
 msgstr ""
 
-#. Default: "Produced by ${EU-OSHA}."
+#. Default: "Produced by EU-OSHA."
 #: euphorie/client/browser/templates/appendix.pt:22
 msgid "appendix_produced_by"
 msgstr ""

@@ -1774,10 +1774,10 @@ msgstr "Tre criteri standard"
 msgid "appendix_about"
 msgstr "Cos’è OiRA"
 
-#. Default: "Produced by ${EU-OSHA}."
+#. Default: "Produced by EU-OSHA."
 #: euphorie/client/browser/templates/appendix.pt:22
 msgid "appendix_produced_by"
-msgstr "Prodotto da ${EU-OSHA}."
+msgstr "Prodotto da EU-OSHA."
 
 #: euphorie/client/browser/templates/new-session-test.pt:110
 msgid "benefits"
