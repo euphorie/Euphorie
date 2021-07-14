@@ -16,6 +16,7 @@
   <metal:slot fill-slot="content">
 
 		<div id="document-content" class="pat-modal sheet">
+      <h1 class="panel-class-"></h1>
       <div class="panel-body" id="modal-panel-body">
         <div class="container">
           <div id="terms-conditions">
