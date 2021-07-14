@@ -16,14 +16,13 @@
                   i18n:domain="euphorie"
   >
     <p id="appendix">
-      <tal:block repeat="page webhelpers/appendix_documents"><a href="${page/url}">${page/title}</a>
-        |</tal:block>
-      <tal:span i18n:translate="appendix_produced_by">Produced by
-        <a href="http://osha.europa.eu"
-           target="_blank"
-           i18n:name="EU-OSHA"
-        >EU-OSHA</a>.</tal:span>
-       |
+      <tal:block repeat="page webhelpers/appendix_documents">
+        <a href="${page/url}">${page/title}</a>
+      </tal:block>
+      <a href="http://osha.europa.eu"
+         target="_blank"
+         i18n:translate="appendix_produced_by"
+      >EU-OSHA</a>.
       <a href="${webhelpers/about_url}"
          i18n:translate="appendix_about"
       >About</a>
