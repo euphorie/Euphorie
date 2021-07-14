@@ -1714,10 +1714,10 @@ msgstr "Štandardné tri kritériá"
 msgid "appendix_about"
 msgstr "Informácie"
 
-#. Default: "Produced by ${EU-OSHA}."
+#. Default: "Produced by EU-OSHA."
 #: euphorie/client/browser/templates/appendix.pt:22
 msgid "appendix_produced_by"
-msgstr "Vytvorila agentúra ${EU-OSHA}."
+msgstr "Vytvorila agentúra EU-OSHA."
 
 #: euphorie/client/browser/templates/new-session-test.pt:110
 msgid "benefits"

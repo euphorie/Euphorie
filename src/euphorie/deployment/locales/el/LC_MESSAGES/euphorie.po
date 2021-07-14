@@ -1829,10 +1829,10 @@ msgstr "Στάνταρ τρία κριτήρια "
 msgid "appendix_about"
 msgstr "Σχετικά"
 
-#. Default: "Produced by ${EU-OSHA}."
+#. Default: "Produced by EU-OSHA."
 #: euphorie/client/browser/templates/appendix.pt:22
 msgid "appendix_produced_by"
-msgstr "Δημιουργία ${EU-OSHA}."
+msgstr "Δημιουργία EU-OSHA."
 
 #: euphorie/client/browser/templates/new-session-test.pt:110
 msgid "benefits"
