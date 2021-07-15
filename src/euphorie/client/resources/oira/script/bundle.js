@@ -24964,7 +24964,8 @@ bumper_parser.addArgument("unbump-remove", "bumped");
     var intersection_observer_config_y = {
       threshold: [1, 0.99, 0.97, 0.96, 0.95, 0.94, 0.93, 0.92, 0.91, 0.9],
       root: scroll_container_y,
-      rootMargin: "\n                    ".concat(-pos.top - 1, "px\n                    ").concat(-pos.right - 1, "px\n                    ").concat(-pos.bottom - 1, "px\n                    ").concat(-pos.left - 1, "px") // add margin as inverted sticky positions.
+      // add margin as inverted sticky positions.
+      rootMargin: "".concat(-pos.top - 1, "px ").concat(-pos.right - 1, "px ").concat(-pos.bottom - 1, "px ").concat(-pos.left - 1, "px") // prettier-ignore
 
     };
     var observer_y = new IntersectionObserver(this._intersection_observer_callback.bind(this), intersection_observer_config_y);
@@ -27592,7 +27593,7 @@ var DEBOUNCE_TIMEOUT = 10; //logger.setLevel(logging.Level.DEBUG);
     var _this3 = this;
 
     return tabs_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-      var children, last_x, tabs_fit, _iterator, _step, it, bounds, it_x, it_w, extra_tabs;
+      var children, children_no_extra, last_x, tabs_fit, _iterator, _step, it, bounds, it_x, it_w, extra_tabs;
 
       return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
@@ -27603,8 +27604,12 @@ var DEBOUNCE_TIMEOUT = 10; //logger.setLevel(logging.Level.DEBUG);
                 return dom["a" /* default */].is_visible(it) && utils["a" /* default */].getCSSValue(it, "position") !== "absolute";
               }); // remove elements, which do not count against available width.
 
-              if (!(children.length === 0)) {
-                _context2.next = 5;
+              children_no_extra = children.filter(function (it) {
+                return !it.classList.contains("extra-tabs");
+              });
+
+              if (!(children_no_extra.length === 0)) {
+                _context2.next = 6;
                 break;
               }
 
@@ -27612,17 +27617,17 @@ var DEBOUNCE_TIMEOUT = 10; //logger.setLevel(logging.Level.DEBUG);
               tabs_logger.debug("no children, exit _adjust_tabs.");
               return _context2.abrupt("return");
 
-            case 5:
+            case 6:
               tabs_fit = true; // iterate over all children excluding absolutely positioned or invisible elements.
 
               _iterator = tabs_createForOfIteratorHelper(children);
-              _context2.prev = 7;
+              _context2.prev = 8;
 
               _iterator.s();
 
-            case 9:
+            case 10:
               if ((_step = _iterator.n()).done) {
-                _context2.next = 23;
+                _context2.next = 24;
                 break;
               }
 
@@ -27636,43 +27641,43 @@ var DEBOUNCE_TIMEOUT = 10; //logger.setLevel(logging.Level.DEBUG);
 
               if (!(last_x && last_x - 3 > it_x || it_x + it_w - 3 > _this3.dimensions.max_x // -3 pixel to compensate for rounding errors (x, width, margin-right).
               )) {
-                _context2.next = 20;
+                _context2.next = 21;
                 break;
               }
 
               // this tab exceeds initial available width or
               // breaks into a new line when width
               tabs_fit = false;
-              return _context2.abrupt("break", 23);
+              return _context2.abrupt("break", 24);
 
-            case 20:
+            case 21:
               // Next position-left must be greater than last position-left plus element width.
               last_x = it_x + it_w;
 
-            case 21:
-              _context2.next = 9;
+            case 22:
+              _context2.next = 10;
               break;
 
-            case 23:
-              _context2.next = 28;
+            case 24:
+              _context2.next = 29;
               break;
 
-            case 25:
-              _context2.prev = 25;
-              _context2.t0 = _context2["catch"](7);
+            case 26:
+              _context2.prev = 26;
+              _context2.t0 = _context2["catch"](8);
 
               _iterator.e(_context2.t0);
 
-            case 28:
-              _context2.prev = 28;
+            case 29:
+              _context2.prev = 29;
 
               _iterator.f();
 
-              return _context2.finish(28);
+              return _context2.finish(29);
 
-            case 31:
+            case 32:
               if (!tabs_fit) {
-                _context2.next = 34;
+                _context2.next = 35;
                 break;
               }
 
@@ -27680,12 +27685,12 @@ var DEBOUNCE_TIMEOUT = 10; //logger.setLevel(logging.Level.DEBUG);
               tabs_logger.debug("tabs fit, exit _adjust_tabs.");
               return _context2.abrupt("return");
 
-            case 34:
+            case 35:
               tabs_logger.debug("Breaks into new line.");
               extra_tabs = _this3.el.querySelector(".extra-tabs");
 
               if (extra_tabs) {
-                _context2.next = 47;
+                _context2.next = 48;
                 break;
               }
 
@@ -27712,31 +27717,30 @@ var DEBOUNCE_TIMEOUT = 10; //logger.setLevel(logging.Level.DEBUG);
 
               _this3.el.append(extra_tabs);
 
-              _context2.next = 46;
+              _context2.next = 47;
               return utils["a" /* default */].animation_frame();
 
-            case 46:
+            case 47:
               // Wait for CSS to be applied.
               _this3.dimensions = _this3._get_dimensions(); // Update dimensions after CSS was applied
 
-            case 47:
+            case 48:
               tabs_logger.debug("Prepend last tab to .extra_tabs."); // ... but exclude `.extra-tabs` if it is part of children.
 
-              extra_tabs.prepend(children.filter(function (it) {
-                return !it.classList.contains("extra-tabs");
-              }).pop());
-              _context2.next = 51;
+              extra_tabs.prepend(children_no_extra.pop());
+              _context2.next = 52;
               return utils["a" /* default */].animation_frame();
 
-            case 51:
-              _this3._adjust_tabs();
-
             case 52:
+              _context2.next = 54;
+              return _this3._adjust_tabs();
+
+            case 54:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[7, 25, 28, 31]]);
+      }, _callee2, null, [[8, 26, 29, 32]]);
     }))();
   }
 }));

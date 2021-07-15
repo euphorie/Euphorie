@@ -101,9 +101,11 @@
 
 		
 
-		<div id="main-content" class="variation-dashboard">
-  <div id="content-pane">
-    
+		<div 
+    id="main-content" 
+    class="variation-dashboard">
+    <div id="content-pane">
+        
 <!-- <article id="screen-intro">
 	<header class="title-group">
 		<h1>
@@ -119,56 +121,64 @@
 </article> -->
 
 
-<form 
-    action="/index-logged-in-var-third-party.html#dashboard" 
-    data-pat-inject="history: record"
-    class="pat-toolbar pat-inject pat-form pat-autosubmit">
-    <div
-        class="toolbar-section view-options"
-        id="assessments-toolbar-view-options">
-
-        <label 
-            class="pat-select bare">
-            <select 
-                name="dashboard-view">
-                <option><!-- Show internal assessments -->Default view</option>
-                <option ><!-- Fremdfirmen Darstellung --><!-- Show external assessments --><!-- Fremdfirmen GBUs Darstellung -->Fremdfirmenkoordination</option>
-            </select>
-        </label>
-    </div>
+<div 
+    class="pat-toolbar"
+    id="dashboard-toolbar">
     <div 
-        class="toolbar-section navigation"
-        id="assessments-toolbar-navigation">
-        <nav 
+        class="toolbar-navigation-area">
+        <div 
+            class="toolbar-section navigation"
+            id="assessments-toolbar-navigation">
+            <nav 
     class="toolbar-subnav pat-button-cluster"
     id="homescreen-sections">
     <a 
         href="/index-logged-in.html" 
-        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options && source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
         class="current icon icon-gauge pat-inject">Home</a>
     <a 
         href="/tools/"
-        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options && source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
         class=" pat-inject">Tools</a>
     <a 
         href="/assessments/"
-        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options && source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
         class=" pat-inject">Assessments</a>
     <a 
         href="/trainings/"
-        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options && source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
         class="pat-inject">Trainings</a>
     <a 
         href="/certificates/"
-        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options && source: #assessments-toolbar-quick-functions; target: #assessments-toolbar-quick-functions"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
         class="pat-inject">Certificates</a>
 </nav>
+        </div>
     </div>
-    <div 
-        class="toolbar-section quick-functions"
-        id="assessments-toolbar-quick-functions">
-    </div>
-</form>
+    <form 
+        id="toolbar-functions-area"
+        class="toolbar-functions-area pat-inject pat-form pat-autosubmit"
+        action="/index-logged-in-var-third-party.html#dashboard" 
+        data-pat-inject="history: record">
+        <div
+            class="toolbar-section view-options"
+            id="assessments-toolbar-view-options">
+
+            <label 
+                class="pat-select bare">
+                <select 
+                    name="dashboard-view">
+                    <option><!-- Show internal assessments -->Default view</option>
+                    <option ><!-- Fremdfirmen Darstellung --><!-- Show external assessments --><!-- Fremdfirmen GBUs Darstellung -->Fremdfirmenkoordination</option>
+                </select>
+            </label>
+        </div>
+        <div 
+            class="toolbar-section quick-functions"
+            id="assessments-toolbar-quick-functions">
+        </div>
+    </form>
+</div>
 
 <div 
 	id="application-content">
@@ -481,7 +491,7 @@
 </div>
 
 </div>
-  </div>
+    </div>
 </div>
 
 	</div>
