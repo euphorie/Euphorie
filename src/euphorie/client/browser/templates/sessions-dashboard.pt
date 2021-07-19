@@ -33,6 +33,7 @@
                    href="${here/absolute_url}/assessments/"
                    data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                 >Assessments</a>
+            <!--  We do not have these kind of views yet
                 <a class="pat-inject"
                    href="${here/absolute_url}/trainings/"
                    data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
@@ -41,6 +42,7 @@
                    href="${here/absolute_url}/certificates/"
                    data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                 >Certificates</a>
+            -->
               </nav>
 
             </div>
