@@ -1097,13 +1097,13 @@
   <metal:toolbar define-macro="toolbar">
     <div class="pat-toolbar">
       <metal:actions define-slot="page-actions">
-        <a class="icon-share iconified pat-tooltip"
+<!--         <a class="icon-share iconified pat-tooltip"
            href="${request/ACTUAL_URL}#sharing-menu"
            title="Share this OiRA-Tool"
            data-pat-tooltip="source: ajax; position-list: tr"
            tal:condition="webhelpers/allow_social_sharing"
            i18n:attributes="title"
-        >Share</a>
+        >Share</a> -->
         <div class="toolbar-section quick-functions"
              id="assessments-toolbar-quick-functions"
         >
