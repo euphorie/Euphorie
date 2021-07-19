@@ -51,11 +51,6 @@
           type="image/png"
     />
 
-    <script>window.__patternslib_public_path__ = "${webhelpers/client_url}/${webhelpers/script_path}/";</script>
-    <script src="${webhelpers/client_url}/${webhelpers/script_path}/polyfills-loader.js"
-            type="text/javascript"
-    ></script>
-
     <script src="${webhelpers/js_url}"
             type="text/javascript"
     ></script>
@@ -170,25 +165,23 @@
                        "
         />
 
-        <tal:if_anon condition="python:is_anonymous or webhelpers.is_guest_account">
-          <a class="pat-modal login"
-             href="${webhelpers/country_or_client_url}/login_form?${came_from_param}#document-content"
-             data-pat-modal="class: large"
-             i18n:translate="header_login"
-          >Login</a>
-          <a class="registration"
-             href="${webhelpers/country_or_client_url}/register"
-             i18n:translate="header_register"
-          >Register</a>
-        </tal:if_anon>
         <tal:if_not_anon condition="python: not is_anonymous and not webhelpers.is_guest_account">
           <a class="iconified pat-tooltip pat-switch"
-             id="more-menu"
+             id="user-menu"
              href="${webhelpers/session_overview_url}/user-menu.html#menu-content"
              data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
              data-pat-tooltip="source: ajax;"
-          >More&hellip;</a>
+             i18n:translate="more_link"
+          >More</a>
         </tal:if_not_anon>
+        <a
+            id="help-menu"
+            href="${webhelpers/session_overview_url}/help-menu.html#menu-content"
+            class="iconified pat-tooltip pat-switch"
+            data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+            data-pat-tooltip="source: ajax"
+            i18n:translate="help_link"
+        >Help</a>
         <a class="home pat-inject iconified icon-home pat-switch"
            href="${webhelpers/country_or_client_url}"
            title="Dashboard"
