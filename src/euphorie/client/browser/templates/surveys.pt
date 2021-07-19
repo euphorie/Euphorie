@@ -64,14 +64,14 @@
                     <option>French</option>
                   </select>
                 </label>
-                <label>
+<!--                 <label>
       Department
                   <select>
                     <option selected
                             i18n:translate="option_all_departments"
                     >All departments</option>
                   </select>
-                </label>
+                </label> -->
                 <fieldset class="group">
                   <legend>Sorting</legend>
                   <fieldset class="pat-checklist radio">
