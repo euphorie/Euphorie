@@ -6,7 +6,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       id="login"
       meta:interpolation="true"
-      metal:use-macro="context/@@shell/macros/shell"
+      metal:use-macro="context/@@shell_bare/macros/shell_bare"
       tal:define="
         webhelpers nocall:context/@@webhelpers;
         client nocall:request/client;
@@ -20,85 +20,253 @@
                   is_guest_account webhelpers/is_guest_account;
                   survey_url webhelpers/survey_url;
                   came_from_param webhelpers/came_from_param;
+                  base_url webhelpers/base_url;
                 "
     >
-      <style type="text/css">
-h4 {
-  margin-bottom: 1em;
-}
-      </style>
-      <div id="content-pane">
-        <tal:block replace="tile:statusmessages" />
-        <article class="rich pat-rich">
-          <h1 i18n:translate="header_welcome">Welcome</h1>
 
-          <p tal:condition="view/allow_guest_accounts"
-             i18n:translate="teaser_try_oira"
-          >
-        Want to try OiRA? You may
-            <strong i18n:name="tryout_link"><a class="pat-modal"
-                 href="${base_url}/new-session-test.html?${came_from_param}#document-content"
-                 title="Start a new test session"
-                 data-pat-modal="class: large"
-                 tal:condition="not:survey_url"
-                 i18n:translate="label_tryout"
-              >run a test session</a><a href="${base_url}/@@tryout?${came_from_param}#document-content"
-                 title="Start a new test session"
-                 tal:condition="survey_url"
-                 i18n:translate="label_tryout"
-              >run a test session</a></strong>
-          or
-            <strong i18n:name="register_link"><a href="${view/register_url}"
-                 i18n:translate="label_register"
-              >register</a></strong>
-           to start for real.
+    <div id="portal">
+
+      <form class="pat-form"
+            id="login"
+            action="${context/absolute_url}/@@login#login"
+            method="post"
+      >
+
+        <input name="action"
+               type="hidden"
+               value="login"
+        />
+
+
+        <input name="came_from"
+               type="hidden"
+               value="${request/came_from}"
+               tal:condition="request/came_from|nothing"
+        />
+
+        <input name="guest_account_id"
+               type="hidden"
+               value="${account/id|nothing}"
+               tal:define="account webhelpers/get_current_account"
+               tal:condition="is_guest_account|nothing"
+        />
+
+        <p class="message warning"
+           tal:condition="view/error|nothing"
+           i18n:translate="incorrect_login"
+        >
+          Your login name and/or password were entered incorrectly. Please check and try again or
+          <a class="reminder"
+             href="${view/reset_password_request_url}"
+             i18n:name="request_an_email_reminder"
+             i18n:translate="request_an_email_reminder"
+          >reset your password</a>.
+        </p>
+
+        <fieldset class="vertical">
+
+          <label>
+            <i18n:msg translate="label_email">Email address</i18n:msg>
+            <input class="pat-autofocus"
+                   name="__ac_name"
+                   type="email"
+                   value="${request/__ac_name|nothing}"
+                   size="50"
+                   required
+            />
+          </label>
+          <label>
+            <i18n:msg translate="label_login_password">Password</i18n:msg>
+            <input name="__ac_password:utf8:ustring"
+                   type="password"
+                   size="50"
+                   required
+            />
+          </label>
+
+          <fieldset class="pat-checklist">
+            <label>
+              <i18n:msg translate="label_keep_logged_in">Keep me logged in.</i18n:msg>
+              <input name="remember"
+                     type="checkbox"
+              />
+            </label>
+          </fieldset>
+
+          <div class="button-bar">
+            <button
+                class="pat-button default"
+                type="submit"
+                i18n:translate="label_login"
+                >Log in</button>
+          </div>
+
+          <article class="pat-rich">
+            <ul class="colofon">
+              <li>
+                <i18n:msg translate="register_teaser">Don't have an account? Then please
+                  <a href="#registration"
+                     i18n:name="register_link"
+                     i18n:translate="label_register_first"
+                  >register</a>
+                  first.</i18n:msg>
+              </li>
+              <li>
+                  <a
+                      href="${view/reset_password_request_url}"
+                      class="pat-modal"
+                      data-pat-modal="class: small panel"
+                      i18n:translate="label_forgot_password"
+                  >I forgot my password</a>
+              </li>
+              <li>
+                  <a href="#more-information" i18n:translate="label__learn_more_about_oira">Learn more about OiRA</a>
+              </li>
+            </ul>
+          </article>
+
+        </fieldset>
+      </form>
+
+      <form class="pat-form pat-validation"
+            id="registration"
+            action="${context/absolute_url}/@@login#registration"
+            method="post"
+            data-pat-validation="message-email: ${view/email_message|nothing}"
+            tal:define="errors view/errors"
+      >
+
+        <article class="pat-rich">
+          <h1 i18n:translate="header_register">Register</h1>
+        </article>
+
+        <input name="action"
+               type="hidden"
+               value="register"
+        />
+
+        <input name="came_from"
+               type="hidden"
+               value="${request/came_from}"
+               tal:condition="request/came_from|nothing"
+        />
+
+        <input name="guest_account_id"
+               type="hidden"
+               value="${account/id|nothing}"
+               tal:define="account webhelpers/get_current_account"
+               tal:condition="is_guest_account|nothing"
+        />
+
+        <fieldset class="vertical">
+
+          <label class="${python:'error' if 'email' in errors else None}">
+            <i18n:msg translate="label_email">Email address</i18n:msg>
+            <input class="pat-autofocus"
+                   name="email"
+                   type="email"
+                   value="${request/email|nothing}"
+                   required
+            />
+            <em class="message warning"
+                tal:condition="exists:errors/email"
+                tal:content="errors/email">Invalid login name</em>
+          </label>
+
+          <label class="${python:'error' if 'password' in errors else None}">
+            <i18n:msg translate="label_new_password">Desired password</i18n:msg>
+            <input name="password1:utf8:ustring"
+                   type="password"
+                   required
+                   minlength="12"
+            />
+            <em class="message warning"
+                tal:condition="exists:errors/password"
+                tal:content="errors/password">Invalid password</em>
+          </label>
+
+          <label>
+            <i18n:msg translate="label_password_confirm">Again password</i18n:msg>
+            <input name="password2:utf8:ustring"
+                   type="password"
+                   required
+                   minlength="12"
+            />
+          </label>
+
+          <p class="pat-message info" i18n:translate="help__password_requirements">
+            The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit.
           </p>
-          <p i18n:translate="label_login_here">If you are a registered user, you can
-            <strong i18n:name="log_in"><a class="pat-modal login"
-                 href="${base_url}/login_form?${came_from_param}#document-content"
-                 data-pat-modal="class: small"
-                 i18n:translate="log in"
-              >log in</a></strong>
-            here.</p>
-          <p tal:condition="not:view/allow_guest_accounts"
-             i18n:translate="label_create_account"
-          >
-      If you do not have an account for the OiRA application yet, please
-            <strong i18n:name="register_link"><a href="${view/register_url}"
-                 i18n:translate="label_register"
-              >register</a></strong>
-      to start for real
-            <sup i18n:name="tooltip_register"><a class="icon-help-circle iconified pat-tooltip"
-                 href="${base_url}/tooltips#why-register"
-                 data-pat-tooltip="source: ajax; position-list: lt; class: rich info"
-              >Info</a></sup>.
+
+          <fieldset class="pat-checklist">
+            <label i18n:translate="label__agree_terms_conditions">
+                I agree with the
+                <a class="pat-modal"
+                   href="${base_url}/terms-conditions#document-content"
+                   data-pat-modal="class: sheet"
+                   i18n:name="link__terms_conditions"
+                   i18n:translate="label__terms_conditions"
+                >
+                Terms and conditions</a>
+              <input name="terms"
+                     type="checkbox"
+              />
+            </label>
+          </fieldset>
+
+          <p class="button-bar">
+            <button class="default pat-button"
+                    type="submit"
+                    i18n:translate="label__register"
+            >Register</button>
           </p>
 
-          <h2 i18n:translate="">What is OiRA (Online Interactive Risk Assessment)?</h2>
-          <p i18n:translate="">OiRA stands for Online Interactive Risk Assessment. It is a web-based tool that allows you to perform a health and safety risk assessment of your workplace.</p>
+        </fieldset>
+      </form>
 
-          <div class="extra pat-collapsible closed show-more">
-            <p class="show-more-or-less">
-              <strong class="show-more"
-                      i18n:translate="label_show_more_hellip"
-              >Show more&hellip;</strong>
-              <span class="divider">/</span>
-              <strong class="show-less"
-                      i18n:translate="label_show_less_hellip"
-              >Show less&hellip;</strong>
-            </p>
-            <div class="panel-content">
+      <div id="welcome">
+        <div id="intro">
+          <header class="title-group">
+            <a href="#intro">
+              <h1>OiRA</h1>
+            </a>
+            <p class="byline" i18n:translate="">Online Interactive Risk Assessment</p>
+          </header>
+          <p class="options">
+            <a href="#login" i18n:translate="label__log_in">Log in</a>
+            <a href="#registration" i18n:translate="label__register">Register</a>
+            <a href="#more-information" i18n:translate="label__learn_more">Learn more</a>
+          </p>
 
-              <tal:who-for condition="view/show_whofor">
-                <h4 i18n:translate="">Who is the OiRA tool for?</h4>
+        </div>
+
+        <div class="pat-rich long-read"
+             id="more-information"
+        >
+          <div class="pat-toolbar">
+            <div class="pat-toolbar-section">
+              <a class="pat-back-button"
+                 href="#intro"
+              >Home</a>
+            </div>
+          </div>
+          <article class="body-text pat-rich">
+
+            <h2 i18n:translate="">What is OiRA (Online Interactive Risk Assessment)?</h2>
+            <p i18n:translate="">OiRA stands for Online Interactive Risk Assessment. It is a web-based tool that allows you to perform a health and safety risk assessment of your workplace.</p>
+
+            <tal:who-for condition="view/show_whofor">
+              <h4 i18n:translate="">Who is the OiRA tool for?</h4>
+              <div class="indented">
                 <p i18n:translate="">OiRA can be used by anyone wishing to assess health and safety-related risks that might exist in their workplace.</p>
-
                 <p i18n:translate="">However, OiRA is designed to be of most value to smaller businesses.</p>
                 <p i18n:translate="">OiRA is designed specifically to support them in assessing the risks at work and helping them to produce a documented risk assessment including an action plan tailored to the business's requirements.</p>
-              </tal:who-for>
+              </div>
+            </tal:who-for>
 
-              <tal:what-to-do condition="view/show_what_to_do">
-                <h4 i18n:translate="">What do I have to do?</h4>
+            <tal:what-to-do condition="view/show_what_to_do">
+              <h4 i18n:translate="">What do I have to do?</h4>
+              <div class="indented">
                 <p i18n:translate="">There are four main stages to complete in the assessment process:</p>
                 <ul>
                   <li i18n:translate=""><strong i18n:name="preparation"><tal:span i18n:translate="label_preparation">Preparation</tal:span>:</strong>
@@ -110,34 +278,68 @@ h4 {
                   <li i18n:translate=""><strong i18n:name="action-plan"><tal:span i18n:translate="label_action_plan">Action Plan</tal:span>:</strong>
                     In the fourth stage of the assessment you can decide what steps you will take to address the risks you have identified previously and what resources this might require. Based on this, a report will be automatically  produced in the next step.</li>
                 </ul>
-              </tal:what-to-do>
+              </div>
+            </tal:what-to-do>
 
-              <tal:how-long condition="view/show_how_long">
-                <h4 i18n:translate="">How long will it take?</h4>
+            <tal:how-long condition="view/show_how_long">
+              <h4 i18n:translate="">How long will it take?</h4>
+              <div class="indented">
                 <p i18n:translate="">It's impossible to say how long an assessment will take in general as the tools differ according to sectors and countries.</p>
                 <p i18n:translate="">However, you can spend whatever time you have available on an assessment and then return to it when convenient to pick up from the same point you left off.</p>
-              </tal:how-long>
+              </div>
+            </tal:how-long>
 
-              <tal:why-register condition="view/show_why_register">
-                <h4 i18n:translate="">Why do I have to register?</h4>
+            <tal:why-register condition="view/show_why_register">
+              <h4 i18n:translate="">Why do I have to register?</h4>
+              <div class="indented">
                 <p i18n:translate="">The first thing you will be asked to do when you begin your first risk assessment is to create an OiRA account - this is a simple and quick process.</p>
                 <p i18n:translate="">Registering allows you to simply log in at any time to continue previous assessments or to start new ones.</p>
                 <p i18n:translate="">You have to make sure to be in possession of a printed, accurate and up-dated risk assessment (at any time).</p>
-              </tal:why-register>
+              </div>
+            </tal:why-register>
 
-              <tal:prepare condition="view/show_prepare">
-                <h4 i18n:translate="">Do I need to prepare?</h4>
+            <tal:prepare condition="view/show_prepare">
+              <h4 i18n:translate="">Do I need to prepare?</h4>
+              <div class="indented">
                 <p i18n:translate="">You do not need any kind of specific preparation to start using the tool, however you should take some time to think about who is going to carry out the risk assessment, how workers are going to be involved in the process, etc.</p>
-              </tal:prepare>
+              </div>
+            </tal:prepare>
 
-            </div>
-          </div>
 
-          <metal:css use-macro="context/appendix/macros/appendix" />
+            <ul class="ctas">
+              <li i18n:translate="text__create_account">
+                <a href="#registration" i18n:name="link__register">Register</a>
+                if you like to use OiRA.
+              </li>
+              <li tal:condition="not:survey_url" i18n:translate="text__test_session">
+                <a class="pat-modal"
+                    href="${base_url}/new-session-test.html?${came_from_param}#document-content"
+                    title="Start a new test session"
+                    data-pat-modal="class: large"
+                    i18n:name="link__test_session"
+                    i18n:attributes="title tooltip__start_test_session"
+                >Try a test session</a>
+                if you only want to taste OiRA.
+              </li>
+              <li tal:condition="survey_url" i18n:translate="text__test_session">
+                <a class="pat-modal"
+                    href="${base_url}/@@tryout?${came_from_param}#document-content"
+                    title="Start a new test session"
+                    data-pat-modal="class: large"
+                    i18n:name="link__test_session"
+                    i18n:attributes="title tooltip__start_test_session"
+                >Try a test session</a>
+                if you only want to taste OiRA.
+              </li>
+            </ul>
 
-          <tal:block replace="tile:client-analytics" />
-        </article>
+            <metal:macro use-macro="context/appendix/macros/appendix" />
+
+          </article>
+        </div>
       </div>
+    </div>
+
     </metal:slot>
   </body>
 </html>

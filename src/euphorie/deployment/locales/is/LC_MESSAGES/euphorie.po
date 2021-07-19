@@ -1725,10 +1725,10 @@ msgstr "Þrjár forsendur"
 msgid "appendix_about"
 msgstr "Um"
 
-#. Default: "Produced by ${EU-OSHA}."
+#. Default: "Produced by EU-OSHA."
 #: euphorie/client/browser/templates/appendix.pt:22
 msgid "appendix_produced_by"
-msgstr "Framleitt af ${EU-OSHA}."
+msgstr "Framleitt af EU-OSHA."
 
 #: euphorie/client/browser/templates/new-session-test.pt:110
 msgid "benefits"

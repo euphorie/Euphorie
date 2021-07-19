@@ -218,7 +218,7 @@ dd, .page-toc {
         >
           <tal:testsession i18n:translate="info_testsession">This is a test session.
             <tal:name i18n:name="link_sign_in"><a class="registration"
-                 href="${base_url}/login_form?${came_from_param}#document-content"
+                 href="${base_url}/@@login?${came_from_param}#login"
                  i18n:translate="link_sign_in"
               >Sign in</a></tal:name>
             to save your data.</tal:testsession><a class="icon-help-circle iconified pat-tooltip"

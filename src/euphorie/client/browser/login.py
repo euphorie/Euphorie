@@ -48,9 +48,15 @@ EMAIL_RE = re.compile(
 
 
 class Login(BrowserView):
-    """View name: @@login"""
+    error = False
+    errors = {}
 
-    variation_class = "variation-dashboard"
+    @property
+    @memoize
+    def email_message(self):
+        return api.portal.translate(
+            _(u"invalid_email", default=u"Please enter a valid email address."),
+        )
 
     def setLanguage(self, came_from):
         qs = urlparse(came_from)[4]
@@ -93,15 +99,78 @@ class Login(BrowserView):
         for session in sessions:
             session.account_id = account.id
 
+    def _tryRegistration(self):
+        form = self.request.form
+        loginname = form.get("email")
+        if not loginname:
+            self.errors["email"] = _(
+                "error_missing_email", default=u"Please enter your email address"
+            )
+        elif not EMAIL_RE.match(loginname):
+            self.errors["email"] = _(
+                "error_invalid_email", default=u"Please enter a valid email address"
+            )
+        if not form.get("password1"):
+            self.errors["password"] = _(
+                "error_missing_password", default=u"Please enter a password"
+            )
+        elif form.get("password1") != form.get("password2"):
+            self.errors["password"] = _(
+                "error_password_mismatch", default=u"Passwords do not match"
+            )
+        if self.errors:
+            return False
+
+        session = Session()
+        loginname = loginname.lower()
+        account = (
+            session.query(model.Account)
+            .filter(model.Account.loginname == loginname)
+            .count()
+        )
+        if account:
+            self.errors["email"] = _(
+                "error_email_in_use",
+                default=u"An account with this email address already exists.",
+            )
+            return False
+
+        pm = getToolByName(self.context, "portal_membership")
+        if pm.getMemberById(loginname) is not None:
+            self.errors["email"] = _(
+                "error_email_in_use",
+                default=u"An account with this email address already exists.",
+            )
+            return False
+
+        guest_account_id = self.request.form.get("guest_account_id")
+        if guest_account_id:
+            account = get_current_account()
+            account.loginname = loginname
+            account.password = form.get("password1")
+            account.account_type = config.CONVERTED_ACCOUNT
+            account.created = datetime.datetime.now()
+        else:
+            account = model.Account(loginname=loginname, password=form.get("password1"))
+        Session().add(account)
+        log.info("Registered new account %s", loginname)
+        v_url = urlsplit(self.request.URL + "/success").path.replace("@@", "")
+        trigger_extra_pageview(self.request, v_url)
+        return account
+
     def __call__(self):
         context = aq_inner(self.context)
-        came_from = self.request.form.get("came_from")
+
+        form = self.request.form
+
+        came_from = form.get("came_from")
         if came_from:
             if isinstance(came_from, list):
                 # If came_from is both in the querystring and the form data
                 came_from = came_from[0]
             self.setLanguage(came_from)
         else:
+            # Set to country url
             came_from = aq_parent(context).absolute_url()
 
         account = get_current_account()
@@ -109,34 +178,47 @@ class Login(BrowserView):
             "euphorie.allow_guest_accounts", default=False
         )
         lang = api.portal.get_current_language()
+
         self.show_whofor = False if lang in ("fr",) else True
         self.show_what_to_do = False if lang in ("fr",) else True
         self.show_how_long = False if lang in ("fr",) else True
         self.show_why_register = True
         self.show_prepare = False if lang in ("fr",) else True
 
-        if self.request.environ["REQUEST_METHOD"] == "POST":
-            reply = self.request.form
-            if reply["next"] == "previous":
-                next = aq_parent(aq_inner(context)).absolute_url()
-                self.request.RESPONSE.redirect(next)
-                return
+        if self.request.method == "POST":
+            if form.get("action") == "login":
+                if (
+                    isinstance(account, model.Account)
+                    and account.getUserName() == form.get("__ac_name", "").lower()
+                ):
+                    self.transferGuestSession(form.get("guest_account_id"))
+                    self.login(account, bool(self.request.form.get("remember")))
+                    v_url = urlsplit(self.request.URL + "/success").path.replace(
+                        "@@", ""
+                    )
+                    trigger_extra_pageview(self.request, v_url)
+                else:
+                    self.error = True
 
-            if (
-                isinstance(account, model.Account)
-                and account.getUserName() == reply.get("__ac_name", "").lower()
-            ):
-                self.transferGuestSession(reply.get("guest_account_id"))
-                self.login(account, bool(self.request.form.get("remember")))
-                v_url = urlsplit(self.request.URL + "/success").path.replace("@@", "")
-                trigger_extra_pageview(self.request, v_url)
+            elif form.get("action") == "register":
+                account = self._tryRegistration()
+                if account:
+                    pas = getToolByName(self.context, "acl_users")
+                    pas.updateCredentials(
+                        self.request,
+                        self.request.response,
+                        account.getUserName(),
+                        account.password,
+                    )
+                else:
+                    self.error = True
 
+            if not self.error:
                 if api.portal.get_registry_record(
                     "euphorie.terms_and_conditions", default=False
                 ) and not approvedTermsAndConditions(account):
                     self.request.RESPONSE.redirect(
-                        "%s/terms-and-conditions?%s"
-                        % (
+                        "{0}/terms-and-conditions?{1}".format(
                             context.absolute_url(),
                             urlencode({"came_from": came_from}),
                         )
@@ -144,25 +226,21 @@ class Login(BrowserView):
                 else:
                     self.request.RESPONSE.redirect(came_from)
                 return
-            self.error = True
 
-        self.reset_password_request_url = "%s/@@reset_password_request?%s" % (
+        self.reset_password_request_url = "{0}/@@reset_password_request?{1}".format(
             context.absolute_url(),
             urlencode({"came_from": came_from}),
         )
-        self.register_url = "%s/@@register?%s" % (
+        self.register_url = "{0}/@@login#registration?{1}".format(
             context.absolute_url(),
             urlencode({"came_from": came_from}),
         )
-        self.tryout_url = "%s/@@tryout?%s" % (
+        self.tryout_url = "{0}/@@tryout?{1}".format(
             context.absolute_url(),
             urlencode({"came_from": came_from}),
         )
+
         return self.index()
-
-
-class LoginForm(Login):
-    """View name: @@login_form"""
 
 
 class Tryout(SessionsView, Login):
@@ -225,7 +303,7 @@ class CreateTestSession(Tryout):
                 came_from = came_from[0]
         else:
             came_from = context.absolute_url()
-        self.register_url = "%s/@@register?%s" % (
+        self.register_url = "%s/@@login?%s#registration" % (
             context.absolute_url(),
             urlencode({"came_from": came_from}),
         )
@@ -242,129 +320,13 @@ class CreateTestSession(Tryout):
                 )
                 self.request.response.redirect(came_from)
             else:
-                reply = self.request.form
-                if reply["action"] == "new":
+                form = self.request.form
+                if form["action"] == "new":
                     account = self.createGuestAccount()
                     self.login(account, False)
-                    self._NewSurvey(reply, account)
+                    self._NewSurvey(form, account)
         self._updateSurveys()
         return self.index()
-
-
-class Register(BrowserView):
-    """Register a new account or convert an existing guest account"""
-
-    def _tryRegistration(self):
-        reply = self.request.form
-        loginname = reply.get("email")
-        if not loginname:
-            self.errors["email"] = _(
-                "error_missing_email", default=u"Please enter your email address"
-            )
-        elif not EMAIL_RE.match(loginname):
-            self.errors["email"] = _(
-                "error_invalid_email", default=u"Please enter a valid email address"
-            )
-        if not reply.get("password1"):
-            self.errors["password"] = _(
-                "error_missing_password", default=u"Please enter a password"
-            )
-        elif reply.get("password1") != reply.get("password2"):
-            self.errors["password"] = _(
-                "error_password_mismatch", default=u"Passwords do not match"
-            )
-        if self.errors:
-            return False
-
-        session = Session()
-        loginname = loginname.lower()
-        account = (
-            session.query(model.Account)
-            .filter(model.Account.loginname == loginname)
-            .count()
-        )
-        if account:
-            self.errors["email"] = _(
-                "error_email_in_use",
-                default=u"An account with this email address already exists.",
-            )
-            return False
-
-        pm = getToolByName(self.context, "portal_membership")
-        if pm.getMemberById(loginname) is not None:
-            self.errors["email"] = _(
-                "error_email_in_use",
-                default=u"An account with this email address already exists.",
-            )
-            return False
-
-        guest_account_id = self.request.form.get("guest_account_id")
-        if guest_account_id:
-            account = get_current_account()
-            account.loginname = loginname
-            account.password = reply.get("password1")
-            account.account_type = config.CONVERTED_ACCOUNT
-            account.created = datetime.datetime.now()
-        else:
-            account = model.Account(
-                loginname=loginname, password=reply.get("password1")
-            )
-        Session().add(account)
-        log.info("Registered new account %s", loginname)
-        v_url = urlsplit(self.request.URL + "/success").path.replace("@@", "")
-        trigger_extra_pageview(self.request, v_url)
-        return account
-
-    @property
-    @memoize
-    def email_message(self):
-        return api.portal.translate(
-            _(u"invalid_email", default=u"Please enter a valid email address."),
-        )
-
-    def __call__(self):
-        self.errors = {}
-        if self.request.method != "POST":
-            return self.index()
-        account = self._tryRegistration()
-        if not account:
-            return self.index()
-        pas = getToolByName(self.context, "acl_users")
-        pas.updateCredentials(
-            self.request,
-            self.request.response,
-            account.getUserName(),
-            account.password,
-        )
-
-        country_url = aq_inner(self.context).absolute_url()
-        came_from = self.request.form.get("came_from")
-        if not came_from:
-            came_from = country_url
-
-        if api.portal.get_registry_record(
-            "euphorie.terms_and_conditions", default=False
-        ):
-            self.request.response.redirect(
-                "%s/terms-and-conditions?%s"
-                % (
-                    self.request.client.absolute_url(),
-                    urlencode({"came_from": came_from}),
-                )
-            )
-        else:
-            self.request.response.redirect(came_from)
-
-    def get_image_version(self, name):
-        """" Needed on the reports overview show to the guest user """
-        fdir = os.path.join(
-            os.path.dirname(__file__), os.path.join("..", "resources", "media")
-        )
-        lang = getattr(self.request, "LANGUAGE", "en")
-        fname = "{0}_{1}".format(name, lang)
-        if os.path.isfile(os.path.join(fdir, fname + ".png")):
-            return fname
-        return name
 
 
 class Logout(BrowserView):

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      class="no-js"
+      lang="${language}"
+      meta:interpolation="true"
+      metal:define-macro="shell_bare"
+      tal:define="
+        webhelpers nocall:context/@@webhelpers;
+        portal_state context/plone_portal_state;
+        language portal_state/language;
+        dummy_header python:request.RESPONSE.appendHeader('cache-control', 'no-cache');
+        splash_message webhelpers/splash_message;
+        no_splash view/no_splash|nothing;
+        tool_notification webhelpers/tool_notification;
+        client nocall:request/client;
+        media_url webhelpers/media_url;
+        style_url webhelpers/style_url;
+        page_section webhelpers/get_phase;
+        sidebar_default python:page_section in ['identification', 'actionplan'] and 'sidebar-on' or 'sidebar-off';
+        came_from_param webhelpers/came_from_param;
+        initial_view request/initial_view|nothing;
+        tools context/@@tools;
+        variation_class python:getattr(view, 'variation_class', None);
+      "
+      i18n:domain="euphorie"
+>
+
+  <head>
+    <title i18n:translate="title_tool">OiRA - Online interactive Risk Assessment</title>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=UTF-8"
+    />
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=Edge"
+    />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1"
+    />
+    <meta http-equiv="pragma"
+          content="no-cache"
+    />
+    <meta http-equiv="expires"
+          content="-1"
+    />
+    <link href="${webhelpers/favicon_url}"
+          rel="icon"
+          type="image/png"
+    />
+
+    <script src="${webhelpers/js_url}"
+            type="text/javascript"
+    ></script>
+    <script src="${webhelpers/client_url}/++resource++plone.session.refreshsupport.js"
+            type="text/javascript"
+    ></script>
+    <tal:custom_js replace="structure webhelpers/custom_js|nothing" />
+
+    <link href="${webhelpers/css_url}"
+          rel="stylesheet"
+          type="text/css"
+    />
+    <link href="${webhelpers/client_url}/acl_users/session/refresh?session_refresh=true&amp;type=css&amp;minutes=5"
+          rel="stylesheet"
+          type="text/css"
+    />
+
+    <meta name="description"
+          content="${webhelpers/tool_description}"
+    />
+    <meta property="og:type"
+          content="website"
+    />
+    <meta property="og:title"
+          content="${webhelpers/tool_name|string:OiRA - Online interactive Risk Assessment}"
+    />
+    <meta property="og:description"
+          content="${webhelpers/tool_description}"
+    />
+    <meta property="og:url"
+          content="${webhelpers/base_url}/@@tryout?${came_from_param}"
+    />
+    <meta property="og:image"
+          content="${style_url}/oira-tile.png"
+    />
+
+    <metal:javascriptslot define-slot="javascript_head_slot" />
+    <metal:styleslot define-slot="style_slot" />
+
+  </head>
+
+	<body id="body" data-page-layout="portal" data-layout-layout="shell" class="osh-off osc-off osc-size-normal osc-s-off">
+
+    <metal:block define-slot="content" />
+
+    <metal:block use-macro="webhelpers/macros/javascript" />
+    <metal:call use-macro="webhelpers/macros/webstats_js" />
+    <tal:block replace="tile:client-analytics" />
+    <metal:block define-slot="scripts" />
+
+  </body>
+</html>
