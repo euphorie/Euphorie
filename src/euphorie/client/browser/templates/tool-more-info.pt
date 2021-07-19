@@ -9,7 +9,7 @@
 
   <body>
     <metal:slot fill-slot="content">
-      <div class="pat-modal"
+      <div class="pat-modal sheet"
            id="document-content"
       >
         <h1 class="panel-class-">

@@ -60,7 +60,7 @@
             <p>
               <a class="show-more pat-modal"
                  href="${here/absolute_url}/@@tool-more-info#document-content"
-                 data-pat-modal="class: small"
+                 data-pat-modal="class: sheet"
                  i18n:translate=""
               >Learn more about this tool&hellip;</a>
             </p>
