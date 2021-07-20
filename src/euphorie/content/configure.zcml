@@ -148,6 +148,10 @@
       name="SearchableText" />
 
     <adapter
+      factory=".survey.LanguageIndexer"
+      name="Language" />
+
+    <adapter
       factory=".solution.SearchableTextIndexer"
       name="SearchableText" />
 
