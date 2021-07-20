@@ -131,6 +131,17 @@
         <span id="language_code">${webhelpers/language_code}</span>
       </span>
       <header id="toolbar">
+        <a class="pat-inject pat-switch title-group"
+           href="${webhelpers/country_or_client_url}"
+           title="Dashboard"
+           data-pat-inject="source: #content; target: #content; history: record"
+           data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+           i18n:attributes="title home_link"
+        >
+          <h1 class="logo">
+			OiRA
+          </h1>
+        </a>
         <tal:anon condition="python:not is_anonymous or webhelpers.is_guest_account">
           <a class="iconified pat-toggle"
              id="toggle-tree"
@@ -174,13 +185,12 @@
              i18n:translate="more_link"
           >More</a>
         </tal:if_not_anon>
-        <a
-            id="help-menu"
-            href="${webhelpers/session_overview_url}/help-menu.html#menu-content"
-            class="iconified pat-tooltip pat-switch"
-            data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
-            data-pat-tooltip="source: ajax"
-            i18n:translate="help_link"
+        <a class="iconified pat-tooltip pat-switch"
+           id="help-menu"
+           href="${webhelpers/session_overview_url}/help-menu.html#menu-content"
+           data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+           data-pat-tooltip="source: ajax"
+           i18n:translate="help_link"
         >Help</a>
         <a class="home pat-inject iconified icon-home pat-switch"
            href="${webhelpers/country_or_client_url}"
