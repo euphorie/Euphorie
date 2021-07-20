@@ -376,6 +376,14 @@
                   ><tal:translate i18n:translate="navigation_status">Status</tal:translate>
                   </a>
                 </li>
+                <li id="home">
+                  <a class="home pat-switch pat-inject"
+                     href="${webhelpers/country_or_client_url}"
+                     data-pat-inject="history: record"
+                     data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
+                     i18n:translate="label_exit"
+                  >Exit</a>
+                </li>
               </tal:if_not_anon>
             </ol>
           </metal:slot>
