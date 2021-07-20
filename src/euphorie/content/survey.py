@@ -265,6 +265,12 @@ def SearchableTextIndexer(obj):
     )
 
 
+@indexer(ISurvey)
+def LanguageIndexer(obj):
+    language = obj.language or ""
+    return language.split("-")[0]
+
+
 class ISurveyAddSchema(model.Schema):
     title = schema.TextLine(
         title=_("label_survey_title", default=u"Version name"),
