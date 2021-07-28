@@ -80,4 +80,11 @@
       class=".plone51.UnistallArchetypes"
       />
 
+  <browser:page
+      name="remove-broken-behaviors"
+      for="*"
+      permission="cmf.ManagePortal"
+      class=".plone51.RemoveBrokenBehaviors"
+      />
+
 </configure>
