@@ -207,6 +207,20 @@ class EuphorieAccountPlugin(BasePlugin):
     @graceful_recovery()
     def createUser(self, user_id, name):
         """IUserFactoryPlugin implementation"""
+        # It only happens with a call from the authomatic plugin that name
+        # is empty. In that case, user_id is actually the user's loginname.
+        # Force a an explicit search by loginname in that case.
+        # Reason: we have users with a loginname that is an integer (!). In such
+        # a case, query like `get(user_id)` matches the 'id' column in Account
+        # first. If the loginname that is an integer also corresponds to an id
+        # in the Account table, we would find the wrong user.
+        if not name:
+            return (
+                Session()
+                .query(model.Account)
+                .filter(model.Account.loginname == user_id)
+                .one()
+            )
         try:
             user_id = int(user_id)
         except (TypeError, ValueError):
