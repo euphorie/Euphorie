@@ -34,7 +34,7 @@
         <div class="pat-toolbar">
           <div class="toolbar-section quick-navigation">
             <a class="pat-back-button pat-inject"
-               href="${country/absolute_url}/@@surveys"
+               href="${country/absolute_url}/surveys"
                data-pat-inject="history: record; source: #content; target: #content;"
             >Tools</a>
           </div>
@@ -50,17 +50,17 @@
             <p class="tool-tags tag-cloud">
 
               <a class="tag pat-inject"
-                 href="${country/absolute_url}/@@?sector=${sector/id}#content"
+                 href="${country/absolute_url}/surveys?sector=${sector/id}#content"
                  data-pat-inject="history: record"
               >${sector/title}</a>
 
               <a class="tag pat-inject"
-                 href="${country/absolute_url}/@@surveys?country=${country/id}#content"
+                 href="${country/absolute_url}/surveys?country=${country/id}#content"
                  data-pat-inject="history: record"
               >${country/title}</a>
 
               <a class="tag pat-inject"
-                 href="${country/absolute_url}/@@surveys?language=${tool/language}#content"
+                 href="${country/absolute_url}/surveys?language=${tool/language}#content"
                  data-pat-inject="history: record"
                  tal:condition="tool/language"
               >${tool/language}</a>

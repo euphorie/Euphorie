@@ -26,20 +26,20 @@
                    data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                 >Home</a>
                 <a class="pat-inject"
-                   href="${here/absolute_url}/surveys/"
+                   href="${here/absolute_url}/surveys"
                    data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                 >Tools</a>
                 <a class="pat-inject"
-                   href="${here/absolute_url}/assessments/"
+                   href="${here/absolute_url}/assessments"
                    data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                 >Assessments</a>
-            <!--  We do not have these kind of views yet
+                <!--  We do not have these kind of views yet
                 <a class="pat-inject"
-                   href="${here/absolute_url}/trainings/"
+                   href="${here/absolute_url}/trainings"
                    data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                 >Trainings</a>
                 <a class="pat-inject"
-                   href="${here/absolute_url}/certificates/"
+                   href="${here/absolute_url}/certificates"
                    data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                 >Certificates</a>
             -->

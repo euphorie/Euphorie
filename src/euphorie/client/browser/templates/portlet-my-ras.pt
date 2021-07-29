@@ -83,7 +83,7 @@
 
       <div class="portlet-footer">
         <a class="pat-inject more-link"
-           href="${here/absolute_url}/@@assessments#content"
+           href="${here/absolute_url}/assessments#content"
            data-pat-inject="history: record"
         >More risk assessments&hellip;</a>
       </div>
