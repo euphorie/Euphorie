@@ -50,7 +50,6 @@
             <p class="tool-tags tag-cloud">
 
               <a class="tag pat-inject"
-                 href="${country/absolute_url}/surveys?sector=${sector/id}#content"
                  data-pat-inject="history: record"
               >${sector/title}</a>
 

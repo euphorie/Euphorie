@@ -37,7 +37,7 @@
                     >${country/Title}</option>
                   </select>
                 </label>
-                <label>
+                <label tal:replace="nothing">
                   <tal:i18n i18n:translate="">Sector</tal:i18n>
                   <select name="sector">
                     <option value=""
@@ -139,7 +139,6 @@
                   <p class="tool-tags tag-cloud">
 
                     <a class="tag pat-inject"
-                       href="${here/absolute_url}/${view/__name__}?sector=${sector/id}"
                        data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
                     >${sector/title}</a>
 
