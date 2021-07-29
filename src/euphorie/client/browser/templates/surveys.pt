@@ -30,7 +30,7 @@
                 <label>
                   <tal:i18n i18n:translate="">Country</tal:i18n>
                   <select name="country">
-                    <!--option>All countries</option-->
+                    <option value="">All countries</option>
                     <option selected="${python: 'selected' if view.country == country.getId() else None}"
                             value="${country/getId}"
                             tal:repeat="country view/countries"
@@ -148,7 +148,7 @@
                     >${country/title}</a>
 
                     <a class="tag pat-inject"
-                       href="${here/absolute_url}/${view/__name__}?country=${country/id}&amp;Language=${tool_lang}"
+                       href="${here/absolute_url}/${view/__name__}?country=&Language=${tool_lang}"
                        data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
                        tal:define="
                          tool_lang python: tool.Language().split('-')[0];
