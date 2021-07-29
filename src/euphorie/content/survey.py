@@ -268,7 +268,7 @@ def SearchableTextIndexer(obj):
 @indexer(ISurvey)
 def LanguageIndexer(obj):
     language = obj.language or ""
-    return language.split("-")[0]
+    return language.strip().split("-")[0]
 
 
 class ISurveyAddSchema(model.Schema):
