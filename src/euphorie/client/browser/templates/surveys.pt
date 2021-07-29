@@ -57,10 +57,10 @@
                 <label>
                   <tal:i18n i18n:translate="label_language">Language</tal:i18n>
                   <select name="Language">
-                    <option selected="${python: 'selected' if request.get('Language') == lang else None}"
-                            value="${lang}"
+                    <option selected="${python: 'selected' if request.get('Language') == lang['code'] else None}"
+                            value="${lang/code}"
                             tal:repeat="lang view/languages"
-                    >${python: lang or "All languages"}</option>
+                    >${lang/name}</option>
                   </select>
                 </label>
                 <!--                 <label>
@@ -148,13 +148,13 @@
                     >${country/title}</a>
 
                     <a class="tag pat-inject"
-                       href="${here/absolute_url}/${view/__name__}?Language=${tool_lang}"
+                       href="${here/absolute_url}/${view/__name__}?country=${country/id}&amp;Language=${tool_lang}"
                        data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
                        tal:define="
                          tool_lang python: tool.Language().split('-')[0];
                        "
                        tal:condition="tool_lang"
-                    >${tool_lang}</a>
+                    >${python: view.getNameForLanguageCode(tool_lang)}</a>
 
                   </p>
 

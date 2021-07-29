@@ -10,12 +10,14 @@ from euphorie.client.sector import IClientSector
 from euphorie.content.survey import ISurvey
 from logging import getLogger
 from plone import api
+from plone.i18n.interfaces import ILanguageUtility
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
+from zope.component import getUtility
 
 import six
 
@@ -408,11 +410,14 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
     @property
     @memoize
     def countries(self):
-        return [
-            country
-            for country in self.request.client.values()
-            if IClientCountry.providedBy(country)
-        ]
+        return sorted(
+            [
+                country
+                for country in self.request.client.values()
+                if IClientCountry.providedBy(country)
+            ],
+            key=lambda co: co.Title(),
+        )
 
     @property
     @memoize
@@ -438,7 +443,29 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
     @property
     @memoize
     def languages(self):
-        return api.portal.get_tool("portal_catalog").uniqueValuesFor("Language")
+        return sorted(
+            [
+                {
+                    "code": code,
+                    "name": self.getNameForLanguageCode(code)
+                    if code
+                    else "All languages",
+                }
+                for code in api.portal.get_tool("portal_catalog").uniqueValuesFor(
+                    "Language"
+                )
+            ],
+            key=lambda lang: lang["name"] if lang["code"] and lang["name"] else " ",
+        )
+
+    @property
+    @memoize_contextless
+    def lang_util(self):
+        return getUtility(ILanguageUtility)
+
+    @memoize_contextless
+    def getNameForLanguageCode(self, lang):
+        return self.lang_util.getNameForLanguageCode(lang)
 
 
 class PortletBase(BrowserView):
