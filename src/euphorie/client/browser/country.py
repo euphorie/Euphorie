@@ -377,11 +377,9 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
     def get_filters(self):
         filters = {}
         get = self.request.form.get
-        country = get("country")
-        if not country:
-            country = self.context.getId()
+
         client_path = "/".join(self.request.client.getPhysicalPath())
-        path = "/".join((client_path, country))
+        path = "/".join((client_path, self.country))
         sector = get("sector")
         if sector:
             path = "/".join((path, sector))
@@ -404,12 +402,22 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
 
     @property
     @memoize
+    def country(self):
+        return self.request.form.get("country", self.context.getId())
+
+    @property
+    @memoize
+    def countries(self):
+        return [
+            country
+            for country in self.request.client.values()
+            if IClientCountry.providedBy(country)
+        ]
+
+    @property
+    @memoize
     def sectors(self):
-        country = self.request.form.get("country")
-        if country:
-            country_obj = self.request.client.restrictedTraverse(country)
-        else:
-            country_obj = self.context
+        country_obj = self.request.client.restrictedTraverse(self.country)
         return [
             sector
             for sector in aq_inner(country_obj).values()

@@ -28,16 +28,17 @@
               >Close</p>
               <fieldset class="vertical">
                 <label>
-      Country
+                  <tal:i18n i18n:translate="">Country</tal:i18n>
                   <select name="country">
                     <!--option>All countries</option-->
-                    <option selected
-                            value="${context/getId}"
-                    >${context/Title}</option>
+                    <option selected="${python: 'selected' if view.country == country.getId() else None}"
+                            value="${country/getId}"
+                            tal:repeat="country view/countries"
+                    >${country/Title}</option>
                   </select>
                 </label>
                 <label>
-      Sector
+                  <tal:i18n i18n:translate="">Sector</tal:i18n>
                   <select name="sector">
                     <option value=""
                             tal:attributes="
@@ -71,16 +72,16 @@
                   </select>
                 </label> -->
                 <fieldset class="group">
-                  <legend>Sorting</legend>
+                  <legend i18n:translate="label_sorting">Sorting</legend>
                   <fieldset class="pat-checklist radio">
-                    <label>Newest first
+                    <label><tal:i18n i18n:translate="label_newest_first">Newest first</tal:i18n>
                       <input checked
                              name="sort_on"
                              type="radio"
                              value="created"
                       />
                     </label>
-                    <label>Alphabetical
+                    <label><tal:i18n i18n:translate="label_alphabetical">Alphabetical</tal:i18n>
                       <input name="sort_on"
                              type="radio"
                              value="sortable_title"
