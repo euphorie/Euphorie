@@ -387,6 +387,10 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
             path = "/".join((path, sector))
         filters["path"] = path
 
+        language = get("Language")
+        if language:
+            filters["Language"] = language
+
         sort_on = get("sort_on", "created")
         filters["sort_on"] = sort_on
         if sort_on == "created":
@@ -418,6 +422,11 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
                 object_provides="euphorie.content.survey.ISurvey", **filters
             )
         ]
+
+    @property
+    @memoize
+    def languages(self):
+        return api.portal.get_tool("portal_catalog").uniqueValuesFor("Language")
 
 
 class PortletBase(BrowserView):
