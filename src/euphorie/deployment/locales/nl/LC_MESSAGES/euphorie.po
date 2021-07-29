@@ -1699,7 +1699,7 @@ msgstr ""
 "Wijs iemand in de organisatie aan die verantwoordelijk is voor de "
 "implementatie of uitvoering van deze maatregel. Deze persoon heeft de "
 "bevoegdheden om de stappen te nemen die in het plan van aanpak beschreven "
-"zijn en/of de verantwoordelijkheid om zorgen dat deze stappen worden "
+"zijn en/of de verantwoordelijkheid om te zorgen dat deze stappen worden "
 "uitgevoerd."
 
 #. Default: "Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)"
@@ -1711,7 +1711,7 @@ msgstr ""
 #. Default: "Describe the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any)."
 #: euphorie/client/browser/templates/webhelpers.pt:882
 msgid "actionplan_requirements_tooltip"
-msgstr "Beschrijf de kennis en vereisten die nodig zijn om dit uit te voeren, bijv wel of geen specifieke arbokennis nodig; of elke andere vereiste die nodig is voor het uitvoeren van de maatregel. In de meeste gevallen zal de preventiemedewerker ondersteunen bij de uitvoering van het plan van aanpak. Hij/zij dient echter wel te beschikken over de mogelijkheden en een relevante opleiding hebben om dit goed uit te voeren."
+msgstr "Beschrijf de kennis en vereisten die nodig zijn om dit uit te voeren, bijv wel of geen specifieke arbokennis nodig; of elke andere vereiste die nodig is voor het uitvoeren van de maatregel. In de meeste gevallen zal de preventiemedewerker ondersteunen bij de uitvoering van het plan van aanpak. Degene die de maatregel uitvoert dient echter wel te beschikken over de mogelijkheden en een relevante opleiding hebben om dit goed uit te voeren."
 
 #. Default: "add a new OiRA Tool"
 #: euphorie/content/browser/templates/sector_view.pt:26
