@@ -396,6 +396,10 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
         if sort_on == "created":
             filters["sort_order"] = "reverse"
 
+        searchable_text = get("SearchableText")
+        if searchable_text:
+            filters["SearchableText"] = searchable_text
+
         return filters
 
     @property

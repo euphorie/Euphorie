@@ -97,7 +97,8 @@
                  id="assessments-toolbar-quick-functions"
             >
               <label class="pat-toolbar-function pat-toolbar-search-field">
-                <input placeholder="Search tools"
+                <input name="SearchableText"
+                       placeholder="Search tools"
                        type="search"
                 />
               </label>
