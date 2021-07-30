@@ -28,6 +28,7 @@
   <element value="euphorie.content.behaviour.dirtytree.IDirtyTreeRoot" />
   <element value="euphorie.content.behaviour.uniqueid.IIdGenerationRoot" />
   <element value="plone.app.content.interfaces.INameFromTitle" />
+  <element value="plone.leadimage" />
  </property>
 
  <!-- View information -->

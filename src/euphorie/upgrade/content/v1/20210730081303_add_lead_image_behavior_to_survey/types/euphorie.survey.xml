@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        meta_type="Dexterity FTI"
+        name="euphorie.survey"
+        i18n:domain="euphorie"
+>
+
+  <property name="behaviors"
+            purge="False"
+  >
+    <element value="plone.leadimage" />
+  </property>
+
+</object>
