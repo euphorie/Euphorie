@@ -1,84 +1,155 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="euphorie"
       meta:interpolation="true"
-      metal:use-macro="context/@@layout/macros/layout">
+      metal:use-macro="context/@@layout/macros/layout"
+      i18n:domain="euphorie"
+>
   <body>
-    <metal:title fill-slot="title" i18n:translate="header_settings">Settings</metal:title>
+    <metal:title fill-slot="title"
+                 i18n:translate="header_settings"
+    >Settings</metal:title>
     <metal:content fill-slot="content">
-      <div class="message error" tal:condition="view/status|nothing">
+      <div class="message error"
+           tal:condition="view/status|nothing"
+      >
         <p tal:content="view/status">status</p>
         <ul tal:repeat="error view/widgets/errors">
           <li>
-            <tal:field content="error/field/title" i18n:translate="">field</tal:field>:
+            <tal:field content="error/field/title"
+                       i18n:translate=""
+            >field</tal:field>:
             <span tal:replace="error/message">message</span>
           </li>
         </ul>
       </div>
-      <form action="${request/getURL}" method="${view/method}" enctype="${view/enctype}">
-        <fieldset class="condensed" tal:define="widget nocall:view/widgets/description">
+      <form action="${request/getURL}"
+            enctype="${view/enctype}"
+            method="${view/method}"
+      >
+        <fieldset class="condensed"
+                  tal:define="
+                    widget nocall:view/widgets/description;
+                  "
+        >
 
           <label>
-              <tal:span i18n:translate="label_sector_description">Please provide a description of your sector</tal:span>
-              <textarea class="span-13" rows="5" name="${widget/name}">${widget/value}</textarea><tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
+            <tal:span i18n:translate="label_sector_description">Please provide a description of your sector</tal:span>
+            <textarea class="span-13"
+                      name="${widget/name}"
+                      rows="5"
+            >${widget/value}</textarea><tal:error condition="widget/error"
+                       replace="structure widget/error/render|nothing"
+            />
           </label>
         </fieldset>
 
         <fieldset class="concise">
-          <p class="legend" i18n:translate="label_logo">Logo</p>
-          <div class="z3cFieldContainer" tal:define="widget nocall:view/widgets/logo">
-            <dfn class="infoPanel" i18n:attributes="title" title="Information" i18n:translate="help_sector_logo">The logo will appear on the client side app that your user group will see. Make sure your image is of format png, jpg or gif and does not contain any special characters. The new logo will only become visible after you've saved your changes and published the OiRA tool.</dfn>
+          <p class="legend"
+             i18n:translate="label_logo"
+          >Logo</p>
+          <div class="z3cFieldContainer"
+               tal:define="
+                 widget nocall:view/widgets/logo;
+               "
+          >
+            <dfn class="infoPanel"
+                 title="Information"
+                 i18n:attributes="title"
+                 i18n:translate="help_sector_logo"
+            >The logo will appear on the client side app that your user group will see. Make sure your image is of format png, jpg or gif and does not contain any special characters. The new logo will only become visible after you've saved your changes and published the OiRA tool.</dfn>
 
-          <fieldset class="comprehensive radioList ">
-              <p i18n:translate="label_logo_selection" class="legend">Which logo you would like to display in the lower left corner?</p>
+            <fieldset class="comprehensive radioList">
+              <p class="legend"
+                 i18n:translate="label_logo_selection"
+              >Which logo you would like to display in the lower left corner?</p>
 
               <label>
-                <input name="${widget/name}.action" checked="${python:'checked' if not widget.allow_nochange else None}" value="remove" type="radio" /><tal:translate i18n:translate="Official OiRA Logo">Official OiRA Logo</tal:translate>
+                <input checked="${python:'checked' if not widget.allow_nochange else None}"
+                       name="${widget/name}.action"
+                       type="radio"
+                       value="remove"
+                /><tal:translate i18n:translate="Official OiRA Logo">Official OiRA Logo</tal:translate>
               </label>
               <label>
-                <input name="${widget/name}.action" value="update" checked="${python:'checked' if widget.allow_nochange else None}" type="radio" /><tal:translate i18n:translate="logo_my_own">My own</tal:translate>:
-                 <input type="file" name="${widget/name}" /><tal:error condition="widget/error" replace="structure widget/error/render|nothing"/>
+                <input checked="${python:'checked' if widget.allow_nochange else None}"
+                       name="${widget/name}.action"
+                       type="radio"
+                       value="update"
+                /><tal:translate i18n:translate="logo_my_own">My own</tal:translate>:
+                <input name="${widget/name}"
+                       type="file"
+                /><tal:error condition="widget/error"
+                           replace="structure widget/error/render|nothing"
+                />
               </label>
-              <input value="1" name="${widget/name}.action-empty-marker" type="hidden" />
+              <input name="${widget/name}.action-empty-marker"
+                     type="hidden"
+                     value="1"
+              />
             </fieldset>
           </div>
 
           <div style="margin: 20px 20px">
-            <img
-              tal:define="images context/@@images; scale python:images.scale('logo', height=300, width=300, direction='thumbnail');"
-              tal:condition="scale"
-              tal:on-error="nothing"
-              src="${scale/url}"
-              width="${scale/width}"
-              alt="" />
+            <img alt=""
+                 src="${scale/url}"
+                 width="${scale/width}"
+                 tal:define="
+                   images context/@@images;
+                   scale python:images.scale('logo', height=300, width=300, direction='thumbnail');
+                 "
+                 tal:condition="scale"
+                 tal:on-error="nothing"
+            />
           </div>
-          <p class="message notice" style="width:100%" i18n:translate="logo_instructions">
-                You may get the best results if you upload a logo as a <strong i18n:name="transparent" i18n:translate="logo_instructions_transparent">transparent</strong> PNG file of at least 100 pixels in height. Uploading larger images is fine, the logo will be scaled down to the right size automatically.
+          <p class="message notice"
+             style="width:100%"
+             i18n:translate="logo_instructions"
+          >
+                You may get the best results if you upload a logo as a
+            <strong i18n:name="transparent"
+                    i18n:translate="logo_instructions_transparent"
+            >transparent</strong>
+             PNG file of at least 100 pixels in height. Uploading larger images is fine, the logo will be scaled down to the right size automatically.
           </p>
         </fieldset>
 
         <fieldset class="concise">
-          <p class="legend" i18n:translate="label_password">Password</p>
+          <p class="legend"
+             i18n:translate="label_password"
+          >Password</p>
           <div class="z3cFieldContainer">
-            <dfn class="infoPanel" i18n:attributes="title" title="Information" i18n:translate="help_sector_password">This is the password that you need to log on to this editor environment.</dfn>
+            <dfn class="infoPanel"
+                 title="Information"
+                 i18n:attributes="title"
+                 i18n:translate="help_sector_password"
+            >This is the password that you need to log on to this editor environment.</dfn>
             <fieldset class="concise">
               <tal:widget replace="structure view/widgets/password/render" />
             </fieldset>
           </div>
-       <p class="message notice" style="width:100%" i18n:translate="password_policy_conditions">
+          <p class="message notice"
+             style="width:100%"
+             i18n:translate="password_policy_conditions"
+          >
           Your password must contain at least 5 characters, including at least one capital letter, one number and one special character (e.g. $, # or @).
-        </p>
+          </p>
         </fieldset>
 
         <fieldset class="concise">
-          <p class="legend" i18n:translate="label_contact_person">Contact person</p>
+          <p class="legend"
+             i18n:translate="label_contact_person"
+          >Contact person</p>
           <div class="z3cFieldContainer">
-            <dfn class="infoPanel" i18n:attributes="title" title="Information" i18n:translate="help_sector_contactperson">Give the name of the person responsible for the OiRA tools of this sector.</dfn>
+            <dfn class="infoPanel"
+                 title="Information"
+                 i18n:attributes="title"
+                 i18n:translate="help_sector_contactperson"
+            >Give the name of the person responsible for the OiRA tools of this sector.</dfn>
             <fieldset class="concise">
               <tal:widget replace="structure view/widgets/contact_name/render" />
               <tal:widget replace="structure view/widgets/contact_email/render" />
@@ -87,8 +158,14 @@
         </fieldset>
 
         <div class="buttonBar">
-          <button name="form.buttons.save" type="submit" i18n:translate="button_save_changes">Save changes</button>
-          <button name="form.buttons.cancel" type="submit" i18n:translate="button_cancel">Cancel</button>
+          <button name="form.buttons.save"
+                  type="submit"
+                  i18n:translate="button_save_changes"
+          >Save changes</button>
+          <button name="form.buttons.cancel"
+                  type="submit"
+                  i18n:translate="button_cancel"
+          >Cancel</button>
         </div>
       </form>
     </metal:content>

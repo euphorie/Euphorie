@@ -59,49 +59,49 @@
            id="portlet-body-my-ras"
       >
         <tal:sessions condition="sessions">
-        <article class="pat-rich">
-          <p i18n:translate="info_select_session">Select an earlier session to complete or review or
-            <a class="pat-modal icon-plus-circle"
-               href="${here/absolute_url}/@@new-session.html#document-content"
-               i18n:name="start_session"
-               i18n:translate="link_start_session"
-            >start a new session</a>.
-          </p>
-        </article>
-        <ul class="ras">
-          <li class="ra"
-              tal:repeat="session sessions"
-          >
-
-            <a class="pat-inject follow"
-               href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@start"
-               data-pat-inject="source: #content; target: #content; history: record"
+          <article class="pat-rich">
+            <p i18n:translate="info_select_session">Select an earlier session to complete or review or
+              <a class="pat-modal icon-plus-circle"
+                 href="${here/absolute_url}/@@new-session.html#document-content"
+                 i18n:name="start_session"
+                 i18n:translate="link_start_session"
+              >start a new session</a>.
+            </p>
+          </article>
+          <ul class="ras">
+            <li class="ra"
+                tal:repeat="session sessions"
             >
-              <h4 class="name field">${session/title}</h4>
-              <p class="date field">
-                <span class="last-saved">
-                  <tal:i18n i18n:translate="">Started</tal:i18n>
-                  <time datetime="${value}"
-                        tal:define="
-                          value session/created/isoformat|nothing;
-                        "
-                  >${python:toLocalizedTime(value)}</time>
-                </span>
-              </p>
-            </a>
-            <a class="more-menu iconified icon-ellipsis pat-tooltip inactive"
-               href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@more_menu#more-menu"
-               data-pat-tooltip="source: ajax; position-list: tr"
-               i18n:translate=""
-            >More</a>
-          </li>
-        </ul>
+
+              <a class="pat-inject follow"
+                 href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@start"
+                 data-pat-inject="source: #content; target: #content; history: record"
+              >
+                <h4 class="name field">${session/title}</h4>
+                <p class="date field">
+                  <span class="last-saved">
+                    <tal:i18n i18n:translate="">Started</tal:i18n>
+                    <time datetime="${value}"
+                          tal:define="
+                            value session/created/isoformat|nothing;
+                          "
+                    >${python:toLocalizedTime(value)}</time>
+                  </span>
+                </p>
+              </a>
+              <a class="more-menu iconified icon-ellipsis pat-tooltip inactive"
+                 href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@more_menu#more-menu"
+                 data-pat-tooltip="source: ajax; position-list: tr"
+                 i18n:translate=""
+              >More</a>
+            </li>
+          </ul>
         </tal:sessions>
         <tal:no-sessions condition="not:sessions">
           <article class="pat-rich">
             <p>
               <a class="pat-modal icon-plus-circle"
-               href="${here/absolute_url}/@@new-session.html#document-content"
+                 href="${here/absolute_url}/@@new-session.html#document-content"
               >${view/label_start_session}</a>
             </p>
           </article>

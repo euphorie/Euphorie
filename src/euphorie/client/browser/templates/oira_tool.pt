@@ -8,48 +8,52 @@
 >
   <body>
     <metal:content fill-slot="content"
-                tal:define="
-                  description context/Description|string:;
-                  introduction python:getattr(context, 'introduction', '') or '';
-                "
+                   tal:define="
+                     description context/Description|string:;
+                     introduction python:getattr(context, 'introduction', '') or '';
+                   "
     >
-    <div id="content-pane">
-      <tal:block replace="tile:statusmessages" />
+      <div id="content-pane">
+        <tal:block replace="tile:statusmessages" />
 
-      <article class="pat-rich">
-        <h1 class="tool-name">${context/Title}</h1>
-        <section class="summary" tal:condition="python:description.strip()">
-          <p tal:content="description"></p>
-        </section>
-      </article>
+        <article class="pat-rich">
+          <h1 class="tool-name">${context/Title}</h1>
+          <section class="summary"
+                   tal:condition="python:description.strip()"
+          >
+            <p tal:content="description"></p>
+          </section>
+        </article>
 
-      <!-- replace this with whatever will come from the design -->
-      <p class="button-bar">
-        <a id="button-new-session"
-           class="pat-button pat-inject"
-           href="${here/absolute_url}/@@new-session.html?action=new"
-           i18n:translate="button_start_new_session"
-        >Start a new session with this tool</a>
-      </p>
+        <!-- replace this with whatever will come from the design -->
+        <p class="button-bar">
+          <a class="pat-button pat-inject"
+             id="button-new-session"
+             href="${here/absolute_url}/@@new-session.html?action=new"
+             i18n:translate="button_start_new_session"
+          >Start a new session with this tool</a>
+        </p>
 
-      <article class="pat-rich" tal:condition="python:introduction.strip()">
-        <section class="introduction">
-          <p tal:replace="structure introduction"></p>
-        </section>
-      </article>
+        <article class="pat-rich"
+                 tal:condition="python:introduction.strip()"
+        >
+          <section class="introduction">
+            <p tal:replace="structure introduction"></p>
+          </section>
+        </article>
 
-    </div>
+      </div>
     </metal:content>
 
-  <metal:slot fill-slot="aside-header">
-    <header id="osc-header">
-    </header>
-  </metal:slot>
+    <metal:slot fill-slot="aside-header">
+      <header id="osc-header">
+      </header>
+    </metal:slot>
 
-  <metal:slot fill-slot="aside-navigator">
-    <div id="navigation">
-    </div>
-  </metal:slot>
+    <metal:slot fill-slot="aside-navigator">
+      <div id="navigation">
+      </div>
+    </metal:slot>
 
   </body>
 </html>

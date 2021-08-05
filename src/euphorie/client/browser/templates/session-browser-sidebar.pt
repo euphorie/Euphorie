@@ -6,29 +6,40 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       i18n:domain="euphorie"
 >
-<metal:aside-browser define-macro="aside-browser" meta:interpolation="true" i18n:domain="euphorie">
-  <aside id="osc"
-        tal:define="
-          webhelpers python:view.webhelpers;
-          root_group view/get_root_group;
-          root_parent root_group/parent|nothing;
-          language here/plone_portal_state/language;
-          absolute_url here/absolute_url;
-          zodb_path request/zodb_path|nothing;
-        ">
-  <metal:include tal:define="id string:ra-browser" use-macro="context/@@includes/macros/osh"/>
-  <metal:slot define-slot="aside-header">
-    <form id="osc-header" class="pat-inject pat-autosubmit" action="${absolute_url}/@@${view/__name__}#browser">
-      <tal:in_group condition="python: root_group and root_parent">
-        <a class="back-button pat-inject"
-           href="${absolute_url}/@@${view/__name__}?groupid=${root_parent/group_id|nothing}"
-           data-pat-inject="history: record; source: #osc-header; target: #osc-header &amp;&amp; source: #osc; target: #osc"
-           i18n:translate=""
-        >Back</a>
-        <h2 class="column-title">${root_group/fullname}</h2>
-      </tal:in_group>
+  <metal:aside-browser define-macro="aside-browser"
+                       meta:interpolation="true"
+                       i18n:domain="euphorie"
+  >
+    <aside id="osc"
+           tal:define="
+             webhelpers python:view.webhelpers;
+             root_group view/get_root_group;
+             root_parent root_group/parent|nothing;
+             language here/plone_portal_state/language;
+             absolute_url here/absolute_url;
+             zodb_path request/zodb_path|nothing;
+           "
+    >
+      <metal:include use-macro="context/@@includes/macros/osh"
+                     tal:define="
+                       id string:ra-browser;
+                     "
+      />
+      <metal:slot define-slot="aside-header">
+        <form class="pat-inject pat-autosubmit"
+              id="osc-header"
+              action="${absolute_url}/@@${view/__name__}#browser"
+        >
+          <tal:in_group condition="python: root_group and root_parent">
+            <a class="back-button pat-inject"
+               href="${absolute_url}/@@${view/__name__}?groupid=${root_parent/group_id|nothing}"
+               data-pat-inject="history: record; source: #osc-header; target: #osc-header &amp;&amp; source: #osc; target: #osc"
+               i18n:translate=""
+            >Back</a>
+            <h2 class="column-title">${root_group/fullname}</h2>
+          </tal:in_group>
 
-      <!--
+          <!--
       <tal:root condition="python: not root_group or not root_parent">
         <label class="pat-select bare">
           <select>
@@ -44,138 +55,142 @@
       </tal:root>
       -->
 
-      <a class="no-label pat-modal iconified icon-plus"
-         id="button-new-session-quick"
-         href="${webhelpers/session_overview_url}/@@new-session.html#document-content"
-         title="start a new session"
-         data-pat-modal="class: large"
-         i18n:attributes="title link_start_session"
-         i18n:translate="New"
-      >New</a>
-      <button id="button-osc-expand"
-              tal:condition="webhelpers/use_publication_feature"
-              class="no-label iconified icon-resize-full pat-toggle"
-              data-pat-toggle="selector: body; value: osc-size-full osc-size-normal"
-              i18n:attributes="title"
-              title="Expand sidebar" i18n:translate="">Expand sidebar</button>
-
-    </form>
-  </metal:slot>
-
-  <metal:slot define-slot="aside-sessions">
-    <div id="navigation">
-      <div class="miller-columns"
-           id="miller-columns"
-      >
-        <form class="search-form pat-inject view-compact"
-              action="${absolute_url}/@@${view/__name__}#browser"
-        >
-          <fieldset class="search-box-body">
-            <label class="search-field pat-subform pat-inject pat-autosubmit"
-                    data-pat-autosubmit="500ms"
-                    data-pat-inject="source: #browser; target: #browser; &amp;&amp; source: #osc-header; target: #osc-header">
-              <input name="SearchableText"
-                     class="quick-search"
-                     placeholder="Search"
-                     type="search"
-                     i18n:attributes="placeholder osc_search_placeholder"
-              />
-            </label>
-            <fieldset class="advanced-search">
-              <fieldset class="advanced">
-                <p>&nbsp;</p>
-              </fieldset>
-          </fieldset>
-          <button class="search-button-main assistive"
-                  name="standard"
-                  type="submit"
-                  value="main"
+          <a class="no-label pat-modal iconified icon-plus"
+             id="button-new-session-quick"
+             href="${webhelpers/session_overview_url}/@@new-session.html#document-content"
+             title="start a new session"
+             data-pat-modal="class: large"
+             i18n:attributes="title link_start_session"
+             i18n:translate="New"
+          >New</a>
+          <button class="no-label iconified icon-resize-full pat-toggle"
+                  id="button-osc-expand"
+                  title="Expand sidebar"
+                  data-pat-toggle="selector: body; value: osc-size-full osc-size-normal"
+                  tal:condition="webhelpers/use_publication_feature"
+                  i18n:attributes="title"
                   i18n:translate=""
-          >Search</button>
-        </form>
+          >Expand sidebar</button>
 
-        <div id="browser">
-        <ul class="pat-navigation browser">
-          <li class="group item type-department"
-              tal:repeat="group view/leaf_groups;"
-              tal:condition="not:zodb_path"
+        </form>
+      </metal:slot>
+
+      <metal:slot define-slot="aside-sessions">
+        <div id="navigation">
+          <div class="miller-columns"
+               id="miller-columns"
           >
-            <a class="pat-inject field"
-               href="${absolute_url}/@@${view/__name__}?groupid=${group/group_id}"
-               data-pat-inject="source: #miller-columns::element; target: #miller-columns::element; &amp;&amp; source: #osc-header; target: #osc-header; history: record"
+            <form class="search-form pat-inject view-compact"
+                  action="${absolute_url}/@@${view/__name__}#browser"
             >
-              <strong class="object-name">${group/fullname}</strong></a>
-          </li>
-          <tal:session repeat="session view/leaf_sessions">
-            <tal:tool define="tool nocall:session/tool">
-              <li class="item type-risk-assessment">
-                <span class="object-name field">
-                  <a class="session-name pat-inject pat-switch"
-                     href="${tool/absolute_url}/++session++${session/id}/@@start"
-                     data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal"
-                     data-pat-inject="source: #content; target: #content; history:record "
-                  >${session/title}</a>
-                </span>
-                <span class="last-saved meta field"
-                  ><tal:i18n i18n:translate="">Last saved</tal:i18n
-                  > <time class="pat-display-time"
-                        datetime="${value}"
-                        data-pat-display-time="from-now: true; locale: ${language}"
-                        tal:define="
-                          value python:webhelpers.timezoned_date(session.modified);
-                        "
-                  >${value}</time
-                ></span>
-                <span class="date meta field" tal:condition="session/published"
-                  ><span class="label">
-                    <tal:i18n i18n:translate="label_published">Published</tal:i18n
-                    > <time class="pat-display-time"
-                          datetime="${value}"
-                          data-pat-display-time="from-now: true; locale: ${language}"
-                          tal:define="
-                            value python:webhelpers.timezoned_date(session.published);
-                          "
-                    >${value}</time
-                  ></span
-                ></span>
-                <span class="field" tal:condition="not:session/published"></span>
-                <span class="tool meta field" i18n:translate="label_tool_based_on"
-                  >based on
-                  <a class="pat-inject pat-switch"
-                     data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal"
-                     data-pat-inject="history: record"
-                     href="${tool/absolute_url}?groupid=${request/groupid|string:}#content"
-                     title="${tool/title}"
-                     i18n:name="tool_title"
-                  >${tool/title}</a
-                ></span>
-                <a href="${tool/absolute_url}/++session++${session/id}/@@more_menu#more-menu"
-                   class="more-menu iconified icon-ellipsis pat-tooltip inactive"
-                   data-pat-tooltip="source: ajax; position-list: tl"
-                   i18n:translate=""
-                >More</a>
-              </li>
-            </tal:tool>
-          </tal:session>
-          <li tal:condition="not:view/has_content">
-            <p class="pat-message notice"
-               tal:condition="not:view/searchable_text"
-               i18n:translate=""
-            >
+              <fieldset class="search-box-body">
+                <label class="search-field pat-subform pat-inject pat-autosubmit"
+                       data-pat-autosubmit="500ms"
+                       data-pat-inject="source: #browser; target: #browser; &amp;&amp; source: #osc-header; target: #osc-header"
+                >
+                  <input class="quick-search"
+                         name="SearchableText"
+                         placeholder="Search"
+                         type="search"
+                         i18n:attributes="placeholder osc_search_placeholder"
+                  />
+                </label>
+                <fieldset class="advanced-search">
+                  <fieldset class="advanced">
+                    <p>&nbsp;</p>
+                  </fieldset>
+                </fieldset>
+                <button class="search-button-main assistive"
+                        name="standard"
+                        type="submit"
+                        value="main"
+                        i18n:translate=""
+                >Search</button>
+              </fieldset></form>
+
+            <div id="browser">
+              <ul class="pat-navigation browser">
+                <li class="group item type-department"
+                    tal:condition="not:zodb_path"
+                    tal:repeat="group view/leaf_groups;"
+                >
+                  <a class="pat-inject field"
+                     href="${absolute_url}/@@${view/__name__}?groupid=${group/group_id}"
+                     data-pat-inject="source: #miller-columns::element; target: #miller-columns::element; &amp;&amp; source: #osc-header; target: #osc-header; history: record"
+                  >
+                    <strong class="object-name">${group/fullname}</strong></a>
+                </li>
+                <tal:session repeat="session view/leaf_sessions">
+                  <tal:tool define="
+                              tool nocall:session/tool;
+                            ">
+                    <li class="item type-risk-assessment">
+                      <span class="object-name field">
+                        <a class="session-name pat-inject pat-switch"
+                           href="${tool/absolute_url}/++session++${session/id}/@@start"
+                           data-pat-inject="source: #content; target: #content; history:record "
+                           data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal"
+                        >${session/title}</a>
+                      </span>
+                      <span class="last-saved meta field"><tal:i18n i18n:translate="">Last saved</tal:i18n>
+                        <time class="pat-display-time"
+                              datetime="${value}"
+                              data-pat-display-time="from-now: true; locale: ${language}"
+                              tal:define="
+                                value python:webhelpers.timezoned_date(session.modified);
+                              "
+                        >${value}</time></span>
+                      <span class="date meta field"
+                            tal:condition="session/published"
+                      ><span class="label">
+                          <tal:i18n i18n:translate="label_published">Published</tal:i18n>
+                          <time class="pat-display-time"
+                                datetime="${value}"
+                                data-pat-display-time="from-now: true; locale: ${language}"
+                                tal:define="
+                                  value python:webhelpers.timezoned_date(session.published);
+                                "
+                          >${value}</time></span></span>
+                      <span class="field"
+                            tal:condition="not:session/published"
+                      ></span>
+                      <span class="tool meta field"
+                            i18n:translate="label_tool_based_on"
+                      >based on
+                        <a class="pat-inject pat-switch"
+                           href="${tool/absolute_url}?groupid=${request/groupid|string:}#content"
+                           title="${tool/title}"
+                           data-pat-inject="history: record"
+                           data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal"
+                           i18n:name="tool_title"
+                        >${tool/title}</a></span>
+                      <a class="more-menu iconified icon-ellipsis pat-tooltip inactive"
+                         href="${tool/absolute_url}/++session++${session/id}/@@more_menu#more-menu"
+                         data-pat-tooltip="source: ajax; position-list: tl"
+                         i18n:translate=""
+                      >More</a>
+                    </li>
+                  </tal:tool>
+                </tal:session>
+                <li tal:condition="not:view/has_content">
+                  <p class="pat-message notice"
+                     tal:condition="not:view/searchable_text"
+                     i18n:translate=""
+                  >
               No risk assessments are available for this selection.
-            </p>
-            <p class="pat-message notice"
-               tal:condition="view/searchable_text"
-               i18n:translate="osc_search_no_results_for_search"
-            >
+                  </p>
+                  <p class="pat-message notice"
+                     tal:condition="view/searchable_text"
+                     i18n:translate="osc_search_no_results_for_search"
+                  >
               No risk assessments were found for this selection.
-            </p>
-          </li>
-        </ul>
-      </div>
-      </div>
-    </div>
-  </metal:slot>
-</aside>
-</metal:aside-browser>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </metal:slot>
+    </aside>
+  </metal:aside-browser>
 </html>

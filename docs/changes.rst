@@ -2,11 +2,53 @@ Changelog
 =========
 
 
-12.0.0 (unreleased)
+12.0.7 (unreleased)
 -------------------
 
-This branch will prepare for the migration to Plone5.2 and ultimately to python3.
-A big milestone will be the removal of Grok.
+- Nothing changed yet.
+
+
+12.0.6 (2021-06-25)
+-------------------
+
+- Fixed a bug that caused problems with Greek description texts
+
+12.0.5 (2021-06-23)
+-------------------
+
+- Fix a bug with reordering of items in the CMS
+
+12.0.4 (2021-06-10)
+-------------------
+
+- When creating a test session, don't fail if the link to a session is
+  passed in via the came_from parameter.
+  Fixes #MPL-533
+
+12.0.3 (2021-06-10)
+-------------------
+
+- Fix a display issue on the Risk view, introduced in the last version
+
+12.0.2 (2021-06-02)
+-------------------
+
+- Try to fix display issues in the CMS by using upper case version of Title and Desctipion
+
+12.0.1 (2021-05-29)
+-------------------
+
+- Updated date-picker (from Patternslib): we now display date according to localized format
+
+12.0.0 (2021-05-27)
+-------------------
+
+MAJOR BREAKING CHANGE
+
+This version requires Plone 5.2 and is intended to run in Python 3.8
+All traces of Grok have been removed.
+We require a new version of NuPlone that also is grok-free.
+z3c.appconfig is no longer used; site specific config is handled via the portal_registry
 
 
 11.6.12 (unreleased)

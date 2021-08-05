@@ -5,15 +5,25 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
+      tal:define="
+        webhelpers nocall:context/@@webhelpers;
+      "
       i18n:domain="euphorie"
-      tal:define="webhelpers nocall:context/@@webhelpers"
-      >
+>
 
-  <metal:logo define-macro="logo" meta:interpolation="true" i18n:domain="euphorie">
-    <a href="${webhelpers/country_url}"
-       id="organisation-logo"
-       tal:define="sector_logo webhelpers/get_sector_logo"
-       tal:attributes="class python:sector_logo and 'alien' or 'native'">
+  <metal:logo define-macro="logo"
+              meta:interpolation="true"
+              i18n:domain="euphorie"
+  >
+    <a id="organisation-logo"
+       href="${webhelpers/country_url}"
+       tal:define="
+         sector_logo webhelpers/get_sector_logo;
+       "
+       tal:attributes="
+         class python:sector_logo and 'alien' or 'native';
+       "
+    >
     </a>
   </metal:logo>
 

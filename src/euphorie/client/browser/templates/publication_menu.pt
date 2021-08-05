@@ -16,16 +16,21 @@
          "
     >
       <div class="pat-message notice"
-         tal:condition="last_modifier"
+           tal:condition="last_modifier"
       >
-        <p tal:condition="session/published"
-           tal:define="last_publisher session/last_publisher|nothing">
+        <p tal:define="
+             last_publisher session/last_publisher|nothing;
+           "
+           tal:condition="session/published"
+        >
           <!-- Diplay this paragraph only when the assessment is published. -->
           <strong><tal:i18n i18n:translate="label_published">Published</tal:i18n>
             <time class="pat-display-time"
-                  data-pat-display-time="from-now: true; locale: ${language}"
-                  tal:define="value python:webhelpers.timezoned_date(session.published);"
                   datetime="${value}"
+                  data-pat-display-time="from-now: true; locale: ${language}"
+                  tal:define="
+                    value python:webhelpers.timezoned_date(session.published);
+                  "
             >${value}</time>
             <tal:publisher condition="last_publisher">
               <tal:i18n i18n:translate="by">by</tal:i18n>
@@ -34,7 +39,9 @@
           </strong>
         </p>
         <p i18n:translate="last_edited_by">Last edited by
-          <a href="mailto:${last_modifier/email}" i18n:name="name">${last_modifier/email}</a>
+          <a href="mailto:${last_modifier/email}"
+             i18n:name="name"
+          >${last_modifier/email}</a>
           on
           <tal:i18n i18n:name="date">${python:toLocalizedTime(session.modified, long_format=1)}</tal:i18n>.
         </p>
@@ -80,8 +87,9 @@
         </ul>
       </tal:can_publish>
       <div class="pat-message notice"
-           tal:condition="not:last_modifier">
-           <p i18n:translate="">No information about the last editor is available.</p>
+           tal:condition="not:last_modifier"
+      >
+        <p i18n:translate="">No information about the last editor is available.</p>
       </div>
     </div>
   </body>

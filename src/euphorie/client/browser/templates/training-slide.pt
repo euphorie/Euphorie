@@ -5,11 +5,16 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
+      tal:define="
+        webhelpers nocall:context/@@webhelpers;
+      "
       i18n:domain="euphorie"
-      tal:define="webhelpers nocall:context/@@webhelpers"
-      >
+>
 
-  <metal:slide define-macro="training_slide" meta:interpolation="true" i18n:domain="euphorie">
+  <metal:slide define-macro="training_slide"
+               meta:interpolation="true"
+               i18n:domain="euphorie"
+  >
     <fieldset class="pat-collapsible risk-module closed"
               id="training_notes"
               tal:condition="webhelpers/use_training_module"

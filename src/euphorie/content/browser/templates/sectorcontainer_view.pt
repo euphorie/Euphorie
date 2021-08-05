@@ -1,30 +1,44 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="euphorie"
       meta:interpolation="true"
-      metal:use-macro="context/@@layout/macros/layout">
+      metal:use-macro="context/@@layout/macros/layout"
+      i18n:domain="euphorie"
+>
   <body>
-    <metal:title fill-slot="title" i18n:translate="title_sectors">Sectors</metal:title>
+    <metal:title fill-slot="title"
+                 i18n:translate="title_sectors"
+    >Sectors</metal:title>
     <metal:content fill-slot="content">
       <div class="introduction">
         <p i18n:translate="message_choose_country">Please choose a country of which you would like to view or copy an OiRA Tool.</p>
       </div>
-      <tal:block define='countries python:view.countries.get("region")' condition="python:countries">
+      <tal:block define="
+                   countries python:view.countries.get('region');
+                 "
+                 condition="python:countries"
+      >
         <ul class="countries">
-          <li tal:repeat="region countries" class="${region/id}"><a href="${region/url}">${region/title}</a></li>
+          <li class="${region/id}"
+              tal:repeat="region countries"
+          ><a href="${region/url}">${region/title}</a></li>
         </ul>
       </tal:block>
-      <tal:block define='countries python:view.countries.get("country")' condition="python:countries">
+      <tal:block define="
+                   countries python:view.countries.get('country');
+                 "
+                 condition="python:countries"
+      >
         <ul class="countries">
-          <li tal:repeat="country countries" class="${country/id}"><a href="${country/url}">${country/title}</a></li>
+          <li class="${country/id}"
+              tal:repeat="country countries"
+          ><a href="${country/url}">${country/title}</a></li>
         </ul>
       </tal:block>
     </metal:content>
   </body>
 </html>
-

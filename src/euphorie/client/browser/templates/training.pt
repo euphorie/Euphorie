@@ -5,26 +5,34 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
-      i18n:domain="euphorie"
-      tal:define="client nocall:request/client;
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        client nocall:request/client;
         webhelpers nocall:context/@@webhelpers;
         presentation_metadata view/slide_data;
         slides presentation_metadata/slides|nothing;
       "
-      metal:use-macro="context/@@shell/macros/shell">
+      i18n:domain="euphorie"
+>
 
-<body>
-<metal:slot fill-slot="content">
-  <tal:block replace="tile:statusmessages"/>
+  <body>
+    <metal:slot fill-slot="content">
+      <tal:block replace="tile:statusmessages" />
 
-  <h2>Placeholder</h2>
+      <h2>Placeholder</h2>
 
-  <div id="canvas-toolbar" hidden="hidden">
-    <a class="pat-button float-after" i18n:translate="">Download as PowerPoint file</a>
-    <button class="pat-button float-after" i18n:translate="">Run slideshow</button>
-  </div>
+      <div id="canvas-toolbar"
+           hidden="hidden"
+      >
+        <a class="pat-button float-after"
+           i18n:translate=""
+        >Download as PowerPoint file</a>
+        <button class="pat-button float-after"
+                i18n:translate=""
+        >Run slideshow</button>
+      </div>
 
 
-</metal:slot>
-</body>
+    </metal:slot>
+  </body>
 </html>

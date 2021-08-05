@@ -16,7 +16,7 @@
     <metal:meta use-macro="webhelpers/macros/headers" />
     <metal:css use-macro="webhelpers/macros/css" />
     <style>
-      ol.toc:before { content: "<tal:span i18n:translate="toc_header">Contents</tal:span>"; }
+      ol.toc:before { content: "&lt;tal:span i18n:translate="toc_header"&gt;Contents&lt;/tal:span&gt;"; }
     </style>
   </head>
   <body class="report ${webhelpers/extra_css}"
@@ -80,7 +80,7 @@
 
               <p class="negation"
                  tal:condition="python:view.show_negate_warning(node, zodbnode)"
-              ><em><strong class="icon warning">&#9888;</strong><tal:span i18n:translate="warn_risk_present">You responded negative to the above statement.</tal:span></em></p>
+              ><em><strong class="icon warning">⚠</strong><tal:span i18n:translate="warn_risk_present">You responded negative to the above statement.</tal:span></em></p>
               <p class="message emphasis"
                  tal:condition="python:status=='unanswered'"
                  i18n:translate="risk_unanswered"

@@ -1,50 +1,71 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        client nocall:request/client;
+        webhelpers nocall:context/@@webhelpers;
+      "
       i18n:domain="euphorie"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
-      metal:use-macro="context/@@shell/macros/shell">
+>
 
-<body>
-<metal:slot fill-slot="content">
-<div id="content-pane">
-<article class="pat-rich" tal:define="extra_text view/extra_text">
-    <h1>${context/Title}</h1>
-    <tal:block replace="tile:statusmessages"/>
-    <p i18n:translate="intro_print_identification_1">It is possible for you to print out the contents of the tool to enable you to look for the information at the relevant workplace (by walking around and looking at what could cause harm, or by consulting the workers and/or their representatives about problems they have encountered). You can then introduce the information into the tool.</p>
-    <p i18n:translate="intro_print_identification_2">You may also wish to distribute the contents among the workers and/or their representatives and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action.Their feedback should be taken into account when filling in this tool.</p>
-    <p i18n:translate="intro_identification">
-    You can print the <tal:span i18n:name="list-of-risks"><a i18n:translate="list_of_risks" href="${here/absolute_url}/@@identification-report.docx">contents of the tool</a></tal:span>.
-    </p>
-    <p tal:condition="extra_text">${extra_text}</p>
-</article>
-<p class="button-bar">
-    <a class="pat-button pat-inject" data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #navigation; target: #navigation;" i18n:translate="label_start_identification" href="${view/next_url}">Start Risk Identification</a>
-</p>
-</div>
-</metal:slot>
+  <body>
+    <metal:slot fill-slot="content">
+      <div id="content-pane">
+        <article class="pat-rich"
+                 tal:define="
+                   extra_text view/extra_text;
+                 "
+        >
+          <h1>${context/Title}</h1>
+          <tal:block replace="tile:statusmessages" />
+          <p i18n:translate="intro_print_identification_1">It is possible for you to print out the contents of the tool to enable you to look for the information at the relevant workplace (by walking around and looking at what could cause harm, or by consulting the workers and/or their representatives about problems they have encountered). You can then introduce the information into the tool.</p>
+          <p i18n:translate="intro_print_identification_2">You may also wish to distribute the contents among the workers and/or their representatives and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action.Their feedback should be taken into account when filling in this tool.</p>
+          <p i18n:translate="intro_identification">
+    You can print the
+            <tal:span i18n:name="list-of-risks"><a href="${here/absolute_url}/@@identification-report.docx"
+                 i18n:translate="list_of_risks"
+              >contents of the tool</a></tal:span>.
+          </p>
+          <p tal:condition="extra_text">${extra_text}</p>
+        </article>
+        <p class="button-bar">
+          <a class="pat-button pat-inject"
+             href="${view/next_url}"
+             data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #navigation; target: #navigation;"
+             i18n:translate="label_start_identification"
+          >Start Risk Identification</a>
+        </p>
+      </div>
+    </metal:slot>
 
-<metal:slot fill-slot="splash_message_slot">
-    <div tal:condition="python:tool_notification is not None" class="splash-message" id="splash-message">
-        <hr class="trigger pat-switch" data-pat-switch="selector: body; remove: splash-on-tool*; add: splash-off-${tool_notification/id}; store: session" />
+    <metal:slot fill-slot="splash_message_slot">
+      <div class="splash-message"
+           id="splash-message"
+           tal:condition="python:tool_notification is not None"
+      >
+        <hr class="trigger pat-switch"
+            data-pat-switch="selector: body; remove: splash-on-tool*; add: splash-off-${tool_notification/id}; store: session"
+        />
         <article class="pat-rich content">
-            <p>
-                <img src="${style_url}/oira-logo-colour.svg"
-                     width="20%" />
-            </p>
-            <h1 tal:content="structure tool_notification/title">Message of the day!</h1>
-            <tal:content content="structure tool_notification/text">
-                <p>Sit amet consectetuer.</p>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
-                <p>OiRA Team</p>
-            </tal:content>
-       </article>
-    </div>
-</metal:slot>
+          <p>
+            <img src="${style_url}/oira-logo-colour.svg"
+                 width="20%"
+            />
+          </p>
+          <h1 tal:content="structure tool_notification/title">Message of the day!</h1>
+          <tal:content content="structure tool_notification/text">
+            <p>Sit amet consectetuer.</p>
+            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+            <p>OiRA Team</p>
+          </tal:content>
+        </article>
+      </div>
+    </metal:slot>
 
-</body>
+  </body>
 </html>

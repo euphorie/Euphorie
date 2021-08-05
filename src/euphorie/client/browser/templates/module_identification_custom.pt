@@ -5,46 +5,67 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        client nocall:request/client;
+        webhelpers nocall:context/@@webhelpers;
+      "
       i18n:domain="euphorie"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
-      metal:use-macro="context/@@shell/macros/shell">
+>
 
-<body>
-<metal:slot fill-slot="content" tal:define="module nocall:view/module">
-  <div id="content-pane">
-    <article class="pat-rich">
-        <tal:block replace="tile:statusmessages"/>
+  <body>
+    <metal:slot fill-slot="content"
+                tal:define="
+                  module nocall:view/module;
+                "
+    >
+      <div id="content-pane">
+        <article class="pat-rich">
+          <tal:block replace="tile:statusmessages" />
 
 
-        <p tal:content="structure module/description">
+          <p tal:content="structure module/description">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
             ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
             explicabo.</p>
 
-        <form method="post" action="${context/absolute_url}/@@identification"
-            class="pat-inject"
-            data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #other-risks; target: #other-risks">
-                <p>
-                    <button class="pat-button" type="submit" name="next" value="add_custom_risk" i18n:translate="button_add_custom_risk">Add a custom risk</button>
-                </p>
-        </form>
+          <form class="pat-inject"
+                action="${context/absolute_url}/@@identification"
+                method="post"
+                data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #other-risks; target: #other-risks"
+          >
+            <p>
+              <button class="pat-button"
+                      name="next"
+                      type="submit"
+                      value="add_custom_risk"
+                      i18n:translate="button_add_custom_risk"
+              >Add a custom risk</button>
+            </p>
+          </form>
 
 
-        <tal:question tal:replace="structure module/question">question</tal:question>
-      </article>
+          <tal:question tal:replace="structure module/question">question</tal:question>
+        </article>
 
-      <p class="buttonBar" id="nav-bar">
-              <!-- <a class="pat-button back">Previous</a> -->
-              <a href="${view/next_phase_url}"
-              class="pat-button pat-inject"
-              data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #osc; target: #osc">
-              <tal:translate condition="view/integrated_action_plan" i18n:translate="">Continue to report</tal:translate><tal:translate condition="not:view/integrated_action_plan" i18n:translate="">Continue to action plan</tal:translate></a>
-      </p>
+        <p class="buttonBar"
+           id="nav-bar"
+        >
+          <!-- <a class="pat-button back">Previous</a> -->
+          <a class="pat-button pat-inject"
+             href="${view/next_phase_url}"
+             data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #osc; target: #osc"
+          >
+            <tal:translate condition="view/integrated_action_plan"
+                           i18n:translate=""
+            >Continue to report</tal:translate><tal:translate condition="not:view/integrated_action_plan"
+                           i18n:translate=""
+            >Continue to action plan</tal:translate></a>
+        </p>
 
 
-  </div>
-</metal:slot>
-</body>
+      </div>
+    </metal:slot>
+  </body>
 </html>
-

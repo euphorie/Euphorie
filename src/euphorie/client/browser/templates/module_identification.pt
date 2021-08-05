@@ -5,84 +5,139 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        client nocall:request/client;
+        webhelpers nocall:context/@@webhelpers;
+      "
       i18n:domain="euphorie"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
-      metal:use-macro="context/@@shell/macros/shell">
+>
 
-<body>
-<metal:slot fill-slot="content" tal:define="module nocall:view/module">
-    <form accept-charset="UTF-8" method="post"
-          enctype="multipart/form-data"
-          action="${here/absolute_url}/@@${view/__name__}"
-          class="pat-inject pat-scroll"
-          data-pat-inject="${python: 'history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc' if view.next_is_actionplan else 'history: record; source: #step-2; target: #step-2 &amp;&amp; source: #content; target: #content'}" data-pat-scroll="selector: #content; trigger: auto; offset: 0">
-    <div id="content-pane">
-    <article class="pat-rich">
-    <h1>${module/title}</h1>
-    <tal:block replace="tile:statusmessages"/>
-    <a class="pat-inject"
-       id="percentage-placeholder"
-       hidden="hidden"
-       href="${here/webhelpers/traversed_session/absolute_url}/@@update-completion-percentage"
-       data-pat-inject="trigger: autoload; source: #document-content; target: #percentage-placeholder::element; loading-class:; history: none"
-    >Compute completion percentage</a>
+  <body>
+    <metal:slot fill-slot="content"
+                tal:define="
+                  module nocall:view/module;
+                "
+    >
+      <form class="pat-inject pat-scroll"
+            accept-charset="UTF-8"
+            action="${here/absolute_url}/@@${view/__name__}"
+            enctype="multipart/form-data"
+            method="post"
+            data-pat-inject="${python: 'history: record; source: #content; target: #content &amp;&amp; source: #osc; target: #osc' if view.next_is_actionplan else 'history: record; source: #step-2; target: #step-2 &amp;&amp; source: #content; target: #content'}"
+            data-pat-scroll="selector: #content; trigger: auto; offset: 0"
+      >
+        <div id="content-pane">
+          <article class="pat-rich">
+            <h1>${module/title}</h1>
+            <tal:block replace="tile:statusmessages" />
+            <a class="pat-inject"
+               id="percentage-placeholder"
+               hidden="hidden"
+               href="${here/webhelpers/traversed_session/absolute_url}/@@update-completion-percentage"
+               data-pat-inject="trigger: autoload; source: #document-content; target: #percentage-placeholder::element; loading-class:; history: none"
+            >Compute completion percentage</a>
 
-        <figure id="hero"
-            tal:define="images module/@@images; large python:images.scale('image', scale='training', direction='thumbnail')"
-            tal:on-error="nothing"
-            tal:condition="large"
-            title="${module/caption|nothing}">
-            <img class="fixed-aspect-ratio"
-                 src="${style_url}/placeholder-21x9.png"
-                 style="background-image: url(${large/url|nothing});"
-                 alt=""
-                 title="${module/caption|nothing}" />
-                <figcaption tal:condition="module/caption|nothing">
+            <figure id="hero"
+                    title="${module/caption|nothing}"
+                    tal:define="
+                      images module/@@images;
+                      large python:images.scale('image', scale='training', direction='thumbnail');
+                    "
+                    tal:condition="large"
+                    tal:on-error="nothing"
+            >
+              <img class="fixed-aspect-ratio"
+                   alt=""
+                   src="${style_url}/placeholder-21x9.png"
+                   style="background-image: url(${large/url|nothing});"
+                   title="${module/caption|nothing}"
+              />
+              <figcaption tal:condition="module/caption|nothing">
                     ${module/caption|nothing}
-                </figcaption>
-        </figure>
+              </figcaption>
+            </figure>
 
 
-        <tal:description content="structure module/description">
+            <tal:description content="structure module/description">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
             ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-            explicabo.</tal:description>
+              explicabo.</tal:description>
 
-        <!-- additional files -->
-        <tal:additional_files condition="view/has_files" define="risk nocall:module">
-            <section class="caption pat-well">
+            <!-- additional files -->
+            <tal:additional_files define="
+                                    risk nocall:module;
+                                  "
+                                  condition="view/has_files"
+            >
+              <section class="caption pat-well">
                 <metal:call use-macro="webhelpers/macros/additional_files" />
-            </section>
-        </tal:additional_files>
+              </section>
+            </tal:additional_files>
 
-        <fieldset class="vertical" tal:condition="module/optional">
-            <fieldset class="pat-checklist radio">
+            <fieldset class="vertical"
+                      tal:condition="module/optional"
+            >
+              <fieldset class="pat-checklist radio">
                 <legend tal:content="structure module/question">question</legend>
                 <label>
-                    <input type="radio" name="skip_children:boolean" value="False" checked="${python:'checked' if (context.postponed is False and not context.skip_children) else None}"/>
-                    <tal:span i18n:translate="label_yes">Yes</tal:span>
+                  <input checked="${python:'checked' if (context.postponed is False and not context.skip_children) else None}"
+                         name="skip_children:boolean"
+                         type="radio"
+                         value="False"
+                  />
+                  <tal:span i18n:translate="label_yes">Yes</tal:span>
                 </label>
                 <label>
-                    <input type="radio" name="skip_children:boolean" value="True" checked="${python:'checked' if (context.postponed is False and context.skip_children) else None}" />
-                    <tal:span i18n:translate="label_no">No</tal:span>
+                  <input checked="${python:'checked' if (context.postponed is False and context.skip_children) else None}"
+                         name="skip_children:boolean"
+                         type="radio"
+                         value="True"
+                  />
+                  <tal:span i18n:translate="label_no">No</tal:span>
                 </label>
+              </fieldset>
             </fieldset>
-        </fieldset>
 
-        <p class="button-bar" tal:condition="module/optional">
-            <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="pat-button continue">Previous</button>
-            <button type="submit" name="next" value="next" i18n:translate="label_next" class="pat-button continue">Next</button>
+            <p class="button-bar"
+               tal:condition="module/optional"
+            >
+              <button class="pat-button continue"
+                      name="next"
+                      type="submit"
+                      value="previous"
+                      i18n:translate="label_previous"
+              >Previous</button>
+              <button class="pat-button continue"
+                      name="next"
+                      type="submit"
+                      value="next"
+                      i18n:translate="label_next"
+              >Next</button>
+            </p>
+
+
+          </article>
+        </div>
+        <p class="button-bar"
+           id="nav-bar"
+           tal:condition="not:module/optional"
+        >
+          <button class="pat-button back"
+                  name="next"
+                  type="submit"
+                  value="previous"
+                  i18n:translate="label_previous"
+          >Previous</button>
+          <button class="pat-button continue"
+                  name="next"
+                  type="submit"
+                  value="next"
+                  i18n:translate="label_next"
+          >Next</button>
         </p>
-
-
-    </article>
-</div>
-        <p class="button-bar" id="nav-bar" tal:condition="not:module/optional">
-            <button type="submit" name="next" value="previous" i18n:translate="label_previous" class="pat-button back">Previous</button>
-            <button type="submit" name="next" value="next" i18n:translate="label_next" class="pat-button continue">Next</button>
-        </p>
-</form>
-</metal:slot>
-</body>
+      </form>
+    </metal:slot>
+  </body>
 </html>

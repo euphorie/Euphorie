@@ -15,45 +15,45 @@
 
   <body>
     <metal:slot fill-slot="content">
-    <div id="content-pane">
-      <article class="pat-rich">
-        <h1>${context/Title}</h1>
-        <tal:block replace="tile:statusmessages" />
+      <div id="content-pane">
+        <article class="pat-rich">
+          <h1>${context/Title}</h1>
+          <tal:block replace="tile:statusmessages" />
 
-        <tal:block condition="view/next_url">
-          <p i18n:translate="expl_actionplan_1">
+          <tal:block condition="view/next_url">
+            <p i18n:translate="expl_actionplan_1">
             After having identified the risks, you need to put an action plan in
             place to manage the risks. To eliminate or reduce risks you need to
             determine which preventive and protective measures are to be taken.
-          </p>
-          <tal:large_intro condition="not:view/skip_intro">
-          <p i18n:translate="expl_actionplan_2">
+            </p>
+            <tal:large_intro condition="not:view/skip_intro">
+              <p i18n:translate="expl_actionplan_2">
             Among the things to be considered for this step are:
-          </p>
-          <ol>
-            <li i18n:translate="expl_actionplan_3">
+              </p>
+              <ol>
+                <li i18n:translate="expl_actionplan_3">
               Is a risk avoidable? Can it be removed entirely? For example, this could be achieved by:
-              <ul i18n:name="expl_actionplan_4_and_5">
-                <li i18n:translate="expl_actionplan_4">considering whether the task or job is necessary</li>
-                <li i18n:translate="expl_actionplan_5">removing the hazard</li>
-              </ul>
-            </li>
-            <li i18n:translate="expl_actionplan_6">
+                  <ul i18n:name="expl_actionplan_4_and_5">
+                    <li i18n:translate="expl_actionplan_4">considering whether the task or job is necessary</li>
+                    <li i18n:translate="expl_actionplan_5">removing the hazard</li>
+                  </ul>
+                </li>
+                <li i18n:translate="expl_actionplan_6">
               If certain risks are not avoidable, how can they be reduced to a level at which the health and safety of those exposed is not compromised?
-            </li>
-          </ol>
-          <p i18n:translate="expl_actionplan_7">
+                </li>
+              </ol>
+              <p i18n:translate="expl_actionplan_7">
             Once you have decided how to eliminate or reduce a particular risk, then you describe the specific action(s) required to achieve this. You should also include details of the level of expertise and/or other requirements needed for those actions to be effective.
-          </p>
-          </tal:large_intro>
-        </tal:block>
-        <tal:block condition="not:view/next_url">
-          <p i18n:translate="expl_actionplan_empty">
+              </p>
+            </tal:large_intro>
+          </tal:block>
+          <tal:block condition="not:view/next_url">
+            <p i18n:translate="expl_actionplan_empty">
             No risks were identified.  Please proceed directly to the report.
-          </p>
-        </tal:block>
-      </article>
-    </div>
+            </p>
+          </tal:block>
+        </article>
+      </div>
 
       <p class="button-bar"
          id="nav-bar"

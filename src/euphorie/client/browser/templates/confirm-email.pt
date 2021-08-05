@@ -1,19 +1,25 @@
-<tal:root xmlns:meta="http://xml.zope.org/namespaces/meta"
-          xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+<tal:root xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          xmlns:meta="http://xml.zope.org/namespaces/meta"
           xmlns:tal="http://xml.zope.org/namespaces/tal"
-          i18n:domain="euphorie"
           meta:interpolation="true"
+          i18n:domain="euphorie"
 ><tal:span i18n:translate="email_change_header">Dear user,</tal:span>
 
-<tal:span i18n:translate="email_change_intro">
-Your email address and account name on <tal:span i18n:name="url" tal:content="options/client_url"/> will be changed to
-'<tal:span i18n:name="email" content="options/new_login"/>' when you click the confirmation link below.
-</tal:span>
+  <tal:span i18n:translate="email_change_intro">
+Your email address and account name on
+    <tal:span tal:content="options/client_url"
+              i18n:name="url"
+    />
+     will be changed to
+'<tal:span content="options/new_login"
+              i18n:name="email"
+    />' when you click the confirmation link below.
+  </tal:span>
 
-    <tal:span replace="options/confirm_url"/>
+  <tal:span replace="options/confirm_url" />
 
-<tal:span i18n:translate="email_change_epilogue">Please ignore this email if you didn't request for a change.</tal:span>
+  <tal:span i18n:translate="email_change_epilogue">Please ignore this email if you didn't request for a change.</tal:span>
 
--- 
-<tal:span i18n:translate="reminder_email_footer" ></tal:span>
+--
+  <tal:span i18n:translate="reminder_email_footer" />
 </tal:root>

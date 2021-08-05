@@ -4,32 +4,55 @@
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      meta:interpolation="true"
-      i18n:domain="euphorie"
       id="new-email"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
-      metal:use-macro="context/@@shell/macros/shell">
+      meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        client nocall:request/client;
+        webhelpers nocall:context/@@webhelpers;
+      "
+      i18n:domain="euphorie"
+>
 
   <body>
-    <metal:content fill-slot="content" tal:define="base_url context/absolute_url">
-    <div id="content-pane">
-      <article class="pat-rich">
-        <h1>${view/label}</h1>
-        <p class="pat-message notice" i18n:translate="">Please bear in mind that by changing the email address, your login name will also change.</p>
-      </article>
+    <metal:content fill-slot="content"
+                   tal:define="
+                     base_url context/absolute_url;
+                   "
+    >
+      <div id="content-pane">
+        <article class="pat-rich">
+          <h1>${view/label}</h1>
+          <p class="pat-message notice"
+             i18n:translate=""
+          >Please bear in mind that by changing the email address, your login name will also change.</p>
+        </article>
 
-      <form action="${request/getURL}" enctype="${view/enctype}" method="${view/method}" id="${view/id}">
-        <fieldset class="vertical">
-          <tal:widget repeat="widget view/widgets/values" replace="structure widget/render" />
+        <form id="${view/id}"
+              action="${request/getURL}"
+              enctype="${view/enctype}"
+              method="${view/method}"
+        >
+          <fieldset class="vertical">
+            <tal:widget repeat="widget view/widgets/values"
+                        replace="structure widget/render"
+            />
 
-          <p class="group button-bar">
-              <button class="pat-button" name="form.buttons.save" type="submit" i18n:translate="Save changes">Save changes</button>
-              <button class="pat-button" name="form.buttons.cancel" type="submit" i18n:translate="Cancel">Cancel</button>
-          </p>
-        </fieldset>
-      </form>
-    </div>
+            <p class="group button-bar">
+              <button class="pat-button"
+                      name="form.buttons.save"
+                      type="submit"
+                      i18n:translate="Save changes"
+              >Save changes</button>
+              <button class="pat-button"
+                      name="form.buttons.cancel"
+                      type="submit"
+                      i18n:translate="Cancel"
+              >Cancel</button>
+            </p>
+          </fieldset>
+        </form>
+      </div>
     </metal:content>
   </body>
 </html>
-

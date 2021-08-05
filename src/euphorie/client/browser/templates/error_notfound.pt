@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      i18n:domain="euphorie"
       meta:interpolation="true"
-      tal:define="client nocall:request/client; webhelpers nocall:context/@@webhelpers"
-      metal:use-macro="context/@@shell/macros/shell">
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        client nocall:request/client;
+        webhelpers nocall:context/@@webhelpers;
+      "
+      i18n:domain="euphorie"
+>
 
-<body>
-  <metal:slot fill-slot="content">
-    <h1 i18n:translate="title_error_notfound">Not found</h1>
+  <body>
+    <metal:slot fill-slot="content">
+      <h1 i18n:translate="title_error_notfound">Not found</h1>
 
-    <p class="message error" i18n:translate="expl_error_notfound">
+      <p class="message error"
+         i18n:translate="expl_error_notfound"
+      >
       The page you requested could not be found.
-    </p>
-  </metal:slot>
-</body>
+      </p>
+    </metal:slot>
+  </body>
 </html>

@@ -109,6 +109,7 @@
       <description i18n:translate="">The URL of the client portal</description>
       <default>http://localhost:8080/Plone/client</default>
       <missing_value>http://localhost:8080/Plone/client</missing_value>
+      <required>False</required>
     </field>
   </record>
   <record name="euphorie.allow_guest_accounts">
@@ -117,6 +118,7 @@
       <description i18n:translate="">If checked guest accounts will be allowed</description>
       <default>False</default>
       <missing_value>False</missing_value>
+      <required>False</required>
     </field>
   </record>
   <record name="euphorie.allow_social_sharing">
@@ -125,6 +127,7 @@
       <description i18n:translate="">If checked social sharing will be allowed</description>
       <default>False</default>
       <missing_value>False</missing_value>
+      <required>False</required>
     </field>
   </record>
   <record name="euphorie.allow_user_defined_risks">
@@ -133,6 +136,7 @@
       <description i18n:translate="">If checked user defined risks will be allowed</description>
       <default>False</default>
       <missing_value>False</missing_value>
+      <required>False</required>
     </field>
   </record>
   <record name="euphorie.default_country">
@@ -140,6 +144,7 @@
       <title i18n:translate="">Euphorie default country</title>
       <default />
       <missing_value />
+      <required>False</required>
     </field>
   </record>
   <record name="euphorie.extra_text_identification">
@@ -147,6 +152,7 @@
       <title i18n:translate="">Euphorie extra text identification</title>
       <default />
       <missing_value />
+      <required>False</required>
     </field>
   </record>
   <record name="euphorie.library">
@@ -154,6 +160,7 @@
       <title i18n:translate="">Euphorie library</title>
       <default />
       <missing_value />
+      <required>False</required>
     </field>
   </record>
   <record name="euphorie.max_login_attempts">
@@ -169,6 +176,7 @@
       <description i18n:translate="">Should the user accept the terms and conditions</description>
       <default>False</default>
       <missing_value>False</missing_value>
+      <required>False</required>
     </field>
   </record>
   <record name="euphorie.use_archive_feature">
@@ -176,6 +184,7 @@
       <title i18n:translate="">use_archive_feature</title>
       <default>False</default>
       <missing_value>False</missing_value>
+      <required>False</required>
     </field>
   </record>
   <record name="euphorie.use_clone_feature">
@@ -183,6 +192,7 @@
       <title i18n:translate="">use_clone_feature</title>
       <default>False</default>
       <missing_value>False</missing_value>
+      <required>False</required>
     </field>
   </record>
   <record name="euphorie.use_existing_measures">
@@ -191,6 +201,7 @@
       <description i18n:translate="">If checked existing measures will be used</description>
       <default>False</default>
       <missing_value>False</missing_value>
+      <required>False</required>
     </field>
   </record>
   <record name="euphorie.use_involve_phase">
@@ -198,6 +209,7 @@
       <title i18n:translate="">use_involve_phase</title>
       <default>False</default>
       <missing_value>False</missing_value>
+      <required>False</required>
     </field>
   </record>
   <record name="euphorie.use_integrated_action_plan">
@@ -206,6 +218,7 @@
       <description i18n:translate="">If checked the integrated action plan will be used</description>
       <default>False</default>
       <missing_value>False</missing_value>
+      <required>False</required>
     </field>
   </record>
   <record name="euphorie.use_publication_feature">
@@ -213,6 +226,7 @@
       <title i18n:translate="">use_publication_feature</title>
       <default>False</default>
       <missing_value>False</missing_value>
+      <required>False</required>
     </field>
   </record>
   <record name="euphorie.use_training_module">
@@ -220,6 +234,7 @@
       <title i18n:translate="">use_training_module</title>
       <default>False</default>
       <missing_value>False</missing_value>
+      <required>False</required>
     </field>
   </record>
   <record name="plonetheme.nuplone.appconfigtile_navigation">

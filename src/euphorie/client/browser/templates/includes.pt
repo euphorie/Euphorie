@@ -1,7 +1,8 @@
 <metal:macro define-macro="osh">
-    <a href="${webhelpers/country_url}/tooltips#osh-${ id }"
-       id="osh-target-${ id }"
-       class="onscreen-help pat-tooltip"
-       data-pat-tooltip="trigger: click; source: ajax; class: rich info;"
-       i18n:translate="navigation_help">Help</a>
+  <a class="onscreen-help pat-tooltip"
+     id="osh-target-${ id }"
+     href="${webhelpers/country_url}/tooltips#osh-${ id }"
+     data-pat-tooltip="trigger: click; source: ajax; class: rich info;"
+     i18n:translate="navigation_help"
+  >Help</a>
 </metal:macro>

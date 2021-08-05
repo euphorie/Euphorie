@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = "11.6.12.dev0"
+version = "12.0.7.dev0"
 
 setup(
     name="Euphorie",
@@ -70,7 +70,7 @@ setup(
         "zope.i18nmessageid",
         "zope.interface",
         "zope.schema",
-        "NuPlone >=1.999999",
+        "NuPlone >=2.0.0",
         "plone.uuid",
         "pyrtf-ng",
         "openpyxl",

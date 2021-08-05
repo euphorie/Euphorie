@@ -5,25 +5,39 @@
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      i18n:domain="euphorie"
+      meta:interpolation="true"
       metal:use-macro="context/@@layout/macros/layout"
-      meta:interpolation="true">
+      i18n:domain="euphorie"
+>
   <body>
-    <metal:title metal:fill-slot="title" i18n:translate="title_unpublish">Unpublish "<tal:span i18n:name="title">${context/title}</tal:span>"</metal:title>
+    <metal:title metal:fill-slot="title"
+                 i18n:translate="title_unpublish"
+    >Unpublish "<tal:span i18n:name="title">${context/title}</tal:span>"</metal:title>
     <metal:content fill-slot="content">
-      <form class="concise" action="${request/getURL}" method="post">
+      <form class="concise"
+            action="${request/getURL}"
+            method="post"
+      >
         <fieldset>
-          <span tal:replace="structure context/@@authenticator/authenticator"/>
+          <span tal:replace="structure context/@@authenticator/authenticator"></span>
         </fieldset>
 
         <p i18n:translate="unpublish_confirm">Are you sure you want to unpublish this OiRA Tool?</p>
 
         <div class="buttonBar">
-          <button type="submit" name="action" value="cancel" class="cancel" i18n:translate="button_cancel">Cancel</button>
-          <button type="submit" name="action" value="unpublish" i18n:translate="button_unpublish">Unpublish</button>
+          <button class="cancel"
+                  name="action"
+                  type="submit"
+                  value="cancel"
+                  i18n:translate="button_cancel"
+          >Cancel</button>
+          <button name="action"
+                  type="submit"
+                  value="unpublish"
+                  i18n:translate="button_unpublish"
+          >Unpublish</button>
         </div>
       </form>
     </metal:content>
   </body>
 </html>
-

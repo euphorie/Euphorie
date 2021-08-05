@@ -18,7 +18,10 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1"
     />
-    <link rel="icon" type="image/png" href="${style_url}/apple-touch-icon.png" />
+    <link href="${style_url}/apple-touch-icon.png"
+          rel="icon"
+          type="image/png"
+    />
   </metal:headers>
 
   <metal:home define-macro="homelink"
@@ -68,13 +71,24 @@
     </ul>
   </metal:topnav>
 
-  <metal:css define-macro="css" meta:interpolation="true">
-    <link rel="stylesheet" href="${webhelpers/css_url}" type="text/css" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <metal:css define-macro="css"
+             meta:interpolation="true"
+  >
+    <link href="${webhelpers/css_url}"
+          rel="stylesheet"
+          type="text/css"
+    />
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=Edge"
+    />
   </metal:css>
 
-  <metal:javascript define-macro="javascript" meta:interpolation="true">
-    <script src="${webhelpers/js_url}" type="text/javascript"></script>
+  <metal:javascript define-macro="javascript"
+                    meta:interpolation="true"
+  >
+    <script src="${webhelpers/js_url}"
+            type="text/javascript"
+    ></script>
   </metal:javascript>
 
   <metal:survey define-macro="survey_tree_inner"
@@ -83,8 +97,8 @@
                   target_inject python:page_section=='identification' and '#step-2' or '#step-4';
                 "
   >
-    <ol tal:condition="exists:tree"
-        class="${python:tree['leaf_module'] and 'questions' or ''}"
+    <ol class="${python:tree['leaf_module'] and 'questions' or ''}"
+        tal:condition="exists:tree"
     >
       <tal:items repeat="item tree/children">
         <li class="${python: '%s %s' % (item['class'], 'submodule' if item['type'] == 'module' and item['depth']&gt;1 else '')}"
@@ -129,9 +143,9 @@
   >
 
     <div class="topics"
-      id="${python:page_section=='identification' and 'step-2-topics' or
+         id="${python:page_section=='identification' and 'step-2-topics' or
             page_section=='actionplan' and 'step-4-topics' or ''}"
-      tal:condition="exists:tree"
+         tal:condition="exists:tree"
     >
       <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
       <ul class="legend">
@@ -162,8 +176,8 @@
       <!-- Existing Measures -->
       <fieldset class="pat-checklist pat-clone ${python:'pat-inject pat-autosubmit pat-subform' if (webhelpers.use_training_module or webhelpers.integrated_action_plan) else None}"
                 id="risk_identification_form"
-               data-pat-inject="${python:'source: #slide-content-1; target: #slide-content-1;' if webhelpers.use_training_module else None} ${python:'&amp;&amp; source: #panel-action-plan; target: #panel-action-plan' if webhelpers.integrated_action_plan else None}"
                 data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button; remove-confirmation: Sind Sie sicher, dass Sie die eingetragene bestehende Schutzmaßnahme entfernen wollen?; remove-behaviour: none"
+                data-pat-inject="${python:'source: #slide-content-1; target: #slide-content-1;' if webhelpers.use_training_module else None} ${python:'&amp;&amp; source: #panel-action-plan; target: #panel-action-plan' if webhelpers.integrated_action_plan else None}"
       >
         <tal:existing_measures condition="view/show_existing_measures">
           <article class="pat-rich">
@@ -174,25 +188,33 @@
                         "
                         repeat="measure measures"
           >
-            <div class="label" tal:condition="python: measure['plan_type']=='in_place_standard'"
-               tal:define="description measure/text">
-              <label class="label-fragment-title pat-rich"
-              ><input checked="${python:measure['active'] and 'checked' or None}"
-                     name="measure-standard-${measure/solution_id}"
-                     type="checkbox"
-              /><tal:measure replace="structure measure/title" /></label>
-                <span class="label-fragment-description pat-rich" tal:condition="description"><pre class="pat-markdown" tal:content="structure description">Description</pre></span>
+            <div class="label"
+                 tal:define="
+                   description measure/text;
+                 "
+                 tal:condition="python: measure['plan_type']=='in_place_standard'"
+            >
+              <label class="label-fragment-title pat-rich"><input checked="${python:measure['active'] and 'checked' or None}"
+                       name="measure-standard-${measure/solution_id}"
+                       type="checkbox"
+                /><tal:measure replace="structure measure/title" /></label>
+              <span class="label-fragment-description pat-rich"
+                    tal:condition="description"
+              ><pre class="pat-markdown"
+                     tal:content="structure description"
+                >Description</pre></span>
             </div>
 
-            <label tal:condition="python: measure['plan_type']=='in_place_custom'"
-                   class="clone">
+            <label class="clone"
+                   tal:condition="python: measure['plan_type']=='in_place_custom'"
+            >
               <input checked="checked"
                      disabled="disabled"
                      name="measure-custom-${measure/solution_id}"
                      type="checkbox"
               />
-              <textarea cols="50"
-                        autofocus="autofocus"
+              <textarea autofocus="autofocus"
+                        cols="50"
                         name="measure-custom-${measure/solution_id}"
                         placeholder="${view/placeholder_add_extra}"
                         rows="3"
@@ -204,28 +226,30 @@
 
             </label>
           </tal:measures>
-          <input type="hidden" name="handle_measures_in_place" value="1" />
+          <input name="handle_measures_in_place"
+                 type="hidden"
+                 value="1"
+          />
 
-          <label class="clone"
-                 id="in-place-measure-template"
-                 hidden="hidden"
-          >
-            <input class="pat-autofocus"
-                   autofocus="autofocus"
-                   checked="checked"
-                   disabled="disabled"
-                   name="use-new-measure-#{1}"
-                   type="checkbox"
-            />
-            <textarea cols="50"
-                      name="new-measure-#{1}"
-                      placeholder="${view/placeholder_add_extra}"
-                      rows="3"
-            ></textarea>
-            <button class="icon-trash iconified remove-clone"
-                    title="${view/button_remove_extra}"
-            >Remove</button>
-          </label>
+          <template id="in-place-measure-template">
+            <label class="clone">
+              <input class="pat-autofocus"
+                     autofocus="autofocus"
+                     checked="checked"
+                     disabled="disabled"
+                     name="use-new-measure-#{1}"
+                     type="checkbox"
+              />
+              <textarea cols="50"
+                        name="new-measure-#{1}"
+                        placeholder="${view/placeholder_add_extra}"
+                        rows="3"
+              ></textarea>
+              <button class="icon-trash iconified remove-clone"
+                      title="${view/button_remove_extra}"
+              >Remove</button>
+            </label>
+          </template>
         </tal:existing_measures>
       </fieldset>
 
@@ -243,7 +267,9 @@
       <!-- Yes / No -->
       <fieldset class="pat-checklist radio pat-rich">
         <tal:existing condition="python:view.show_existing_measures and not always_present">
-          <p tal:condition="view/intro_questions" tal:content="structure view/intro_questions"></p>
+          <p tal:condition="view/intro_questions"
+             tal:content="structure view/intro_questions"
+          ></p>
         </tal:existing>
         <p class="byline"
            tal:condition="python:always_present and view.show_explanation_on_always_present_risks"
@@ -254,16 +280,16 @@
                  type="hidden"
                  value="postponed"
           />
-            <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
-                     name="answer"
-                     type="radio"
-                     value="yes"
-              /><tal:answer replace="structure view/answer_yes" /></label>
-            <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
-                     name="answer"
-                     type="radio"
-                     value="no"
-              /><tal:answer replace="structure view/answer_no" /></label>
+          <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
+                   name="answer"
+                   type="radio"
+                   value="yes"
+            /><tal:answer replace="structure view/answer_yes" /></label>
+          <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
+                   name="answer"
+                   type="radio"
+                   value="no"
+            /><tal:answer replace="structure view/answer_no" /></label>
           <label class="not-applicable"
                  tal:condition="risk/show_notapplicable|nothing"
           ><input checked="${python:'checked' if context.identification=='n/a' else None}"
@@ -296,8 +322,7 @@
         >Please answer the following questions. As a result of your answers the system will calculate the priority of the risk. You will be able to modify the priority later.</p>
         <tal:get define="
                    algorithm python:view.evaluation_algorithm(risk);
-                 "
-        >
+                 ">
           <tal:kinney condition="python:algorithm!='french'">
             <fieldset class="pat-checklist radio"
                       tal:define="
@@ -617,9 +642,11 @@
   </metal:risk_comments>
 
   <metal:action_plan define-macro="action_plan"
-                     tal:define="solutions view/solutions_available_for_action_plan|nothing;
-                                 action_plans view/context/custom_measures;
-     ">
+                     tal:define="
+                       solutions view/solutions_available_for_action_plan|nothing;
+                       action_plans view/context/custom_measures;
+                     "
+  >
     <tal:solutions condition="solutions">
       <div class="pat-modal-pop-over pat-collapsible closed pat-depends"
            id="measures-panel"
@@ -653,7 +680,8 @@
         </div>
       </div>
       <button id="close-standard-measures"
-              type="button">Close panel</button>
+              type="button"
+      >Close panel</button>
     </tal:solutions>
 
     <div class="measures pat-clone"
@@ -675,7 +703,9 @@
           </h2>
           <h4 i18n:translate="label_description">Description</h4>
           <div class="pat-rich">
-            <pre class="pat-markdown" tal:content="structure measure/action">Action</pre>
+            <pre class="pat-markdown"
+                 tal:content="structure measure/action"
+            >Action</pre>
           </div>
         </div>
       </tal:existing_measures>
@@ -718,7 +748,9 @@
               Description
             </h4>
             <div class="pat-rich">
-              <pre class="pat-markdown" tal:content="structure solution/action">Action</pre>
+              <pre class="pat-markdown"
+                   tal:content="structure solution/action"
+              >Action</pre>
             </div>
             <tal:requirements condition="python: 'requirements' not in view.skip_fields and solution['requirements']">
               <h4 i18n:translate="label_expertise">
@@ -771,15 +803,14 @@
 
             <label tal:define="
                      date_error exists:errors/planning_start_date;
-                   "
-            >
+                   ">
               <tal:label i18n:translate="label_action_plan_start">Planning start</tal:label>
               <input class="pat-date-picker"
                      id="solution-planning-start-${solution/id}"
                      name="measure.planning_start:records"
                      type="text"
                      value="${python:measure.planning_start if measure else None}"
-                     data-pat-date-picker="behavior: styled; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
+                     data-pat-date-picker="output-format: Do MMMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
                      data-pat-validation="${python:u'type: date; not-after: #solution-planning-end-{number}; message-date: {message}'.format(number=solution['id'], message=view.message_date_before) if 'planning_end' not in view.skip_fields else None}"
               />
             </label>
@@ -796,7 +827,7 @@
                      name="measure.planning_end:records"
                      type="text"
                      value="${python:measure.planning_end if measure else None}"
-                     data-pat-date-picker="behavior: styled; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
+                     data-pat-date-picker="output-format: Do MMMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
                      data-pat-validation="type: date; not-before: #solution-planning-start-${solution/id}; message-date: ${view/message_date_after}"
               />
             </label>
@@ -806,8 +837,7 @@
       </tal:solutions>
 
       <tal:actionplans repeat="actionplan action_plans">
-        <div class="measure clone pat-collapsible"
-        >
+        <div class="measure clone pat-collapsible">
           <h2><tal:span condition="not:view/use_existing_measures"
                       i18n:translate="Measure"
             >Measure</tal:span>
@@ -906,15 +936,14 @@
 
             <label tal:define="
                      date_error exists:errors/planning_start_date;
-                   "
-            >
+                   ">
               <tal:label i18n:translate="label_action_plan_start">Planning start</tal:label>
               <input class="pat-date-picker"
                      id="planning-start-${number}"
                      name="measure.planning_start:records"
                      type="date"
                      value="${actionplan/planning_start|nothing}"
-                     data-pat-date-picker="behavior: styled; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
+                     data-pat-date-picker="output-format: Do MMMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
                      data-pat-validation="${python:u'type: date; not-after: #planning-end-{number}; message-date: {message}'.format(number=number, message=view.message_date_before) if 'planning_end' not in view.skip_fields else None}"
               />
             </label>
@@ -931,7 +960,7 @@
                      name="measure.planning_end:records"
                      type="date"
                      value="${actionplan/planning_end|nothing}"
-                     data-pat-date-picker="behavior: styled; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
+                     data-pat-date-picker="output-format: Do MMMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
                      data-pat-validation="type: date; not-before: #planning-start-${number}; message-date: ${view/message_date_after}"
               />
             </label>
@@ -958,108 +987,107 @@
       >Add an extra measure</button>
     </div>
 
-    <div class="measure pat-collapsible"
-         id="measure-template"
-         hidden="hidden"
-    >
+    <template id="measure-template">
+      <div class="measure pat-collapsible">
 
-      <h2><tal:span condition="not:view/use_existing_measures"
-                  i18n:translate="Measure"
-        >Measure</tal:span>
-        <tal:span condition="view/use_existing_measures"
-                  i18n:translate="Additional Measure"
-        >Additional Measure</tal:span>
+        <h2><tal:span condition="not:view/use_existing_measures"
+                    i18n:translate="Measure"
+          >Measure</tal:span>
+          <tal:span condition="view/use_existing_measures"
+                    i18n:translate="Additional Measure"
+          >Additional Measure</tal:span>
       #{1}
-      </h2>
-      <p class="functions">
-        <a class="icon-trash remove-clone"
-           i18n:translate="label_remove_measure"
-        >Delete this measure</a>
-      </p>
+        </h2>
+        <p class="functions">
+          <a class="icon-trash remove-clone"
+             i18n:translate="label_remove_measure"
+          >Delete this measure</a>
+        </p>
 
-      <fieldset class="vertical"
-                id="fields-#{1}"
-      >
-        <label><tal:label i18n:translate="label_description">Description</tal:label>
-          <dfn class="icon-help-circle iconified pat-tooltip"
-               data-pat-tooltip="source: content; position-list: lt"
-               i18n:translate="actionplan_measure_tooltip"
-          >Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)</dfn>
-          <textarea class="actionPlan"
-                    autofocus="autofocus"
-                    name="measure.action:utf8:ustring:records"
-                    placeholder="General approach (to eliminate or reduce the risk)"
-                    rows="3"
-                    i18n:attributes="placeholder label_measure_action_plan"
-          ></textarea>
-        </label>
-        <tal:requirements condition="python: 'requirements' not in view.skip_fields">
-          <label><tal:label i18n:translate="label_expertise">Expertise</tal:label>
+        <fieldset class="vertical"
+                  id="fields-#{1}"
+        >
+          <label><tal:label i18n:translate="label_description">Description</tal:label>
             <dfn class="icon-help-circle iconified pat-tooltip"
                  data-pat-tooltip="source: content; position-list: lt"
-                 i18n:translate="actionplan_requirements_tooltip"
-            >Describe the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any).</dfn>
-            <textarea class="requirements"
-                      name="measure.requirements:utf8:ustring:records"
-                      placeholder="Level of expertise and/or requirements needed"
+                 i18n:translate="actionplan_measure_tooltip"
+            >Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)</dfn>
+            <textarea class="actionPlan"
+                      autofocus="autofocus"
+                      name="measure.action:utf8:ustring:records"
+                      placeholder="General approach (to eliminate or reduce the risk)"
                       rows="3"
-                      i18n:attributes="placeholder label_measure_requirements"
+                      i18n:attributes="placeholder label_measure_action_plan"
             ></textarea>
           </label>
-        </tal:requirements>
-      </fieldset>
+          <tal:requirements condition="python: 'requirements' not in view.skip_fields">
+            <label><tal:label i18n:translate="label_expertise">Expertise</tal:label>
+              <dfn class="icon-help-circle iconified pat-tooltip"
+                   data-pat-tooltip="source: content; position-list: lt"
+                   i18n:translate="actionplan_requirements_tooltip"
+              >Describe the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any).</dfn>
+              <textarea class="requirements"
+                        name="measure.requirements:utf8:ustring:records"
+                        placeholder="Level of expertise and/or requirements needed"
+                        rows="3"
+                        i18n:attributes="placeholder label_measure_requirements"
+              ></textarea>
+            </label>
+          </tal:requirements>
+        </fieldset>
 
-      <fieldset class="vertical">
-        <label>
-          <tal:span i18n:translate="label_action_plan_responsible">Who is responsible?</tal:span>
-          <dfn class="icon-help-circle iconified pat-tooltip"
-               data-pat-tooltip="source: content; position-list: lt"
-               i18n:translate="actionplan_measure_responsible_tooltip"
-          >Appoint someone in your company to be responsible for the implementation of this measure. This person will have the authority to take the steps described in the Plan and/or the responsibility to ensure that they are carried out.</dfn>
-          <input class="responsible"
-                 name="measure.responsible:utf8:ustring:records"
-                 type="text"
-          />
-        </label>
-        <label class="currency"
-               tal:condition="python: 'budget' not in view.skip_fields"
-        >
-          <tal:span i18n:translate="label_action_plan_budget">Budget</tal:span>
-          <dfn class="icon-help-circle iconified pat-tooltip"
-               data-pat-tooltip="source: content; position-list: lt"
-               i18n:translate="actionplan_measure_budget_tooltip"
-          >Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary.</dfn>
-          <span class="composed currency-field">
-            <input class="currency"
-                   id="input-budget-#{1}"
-                   min="0"
-                   name="measure.budget:records"
-                   type="number"
+        <fieldset class="vertical">
+          <label>
+            <tal:span i18n:translate="label_action_plan_responsible">Who is responsible?</tal:span>
+            <dfn class="icon-help-circle iconified pat-tooltip"
+                 data-pat-tooltip="source: content; position-list: lt"
+                 i18n:translate="actionplan_measure_responsible_tooltip"
+            >Appoint someone in your company to be responsible for the implementation of this measure. This person will have the authority to take the steps described in the Plan and/or the responsibility to ensure that they are carried out.</dfn>
+            <input class="responsible"
+                   name="measure.responsible:utf8:ustring:records"
+                   type="text"
             />
-          </span>
-        </label>
-        <label>
-          <tal:label i18n:translate="label_action_plan_start">Planning start</tal:label>
-          <input class="pat-date-picker"
-                 id="planning-start-#{1}"
-                 name="measure.planning_start:records"
-                 type="date"
-                 data-pat-date-picker="behavior: styled; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
-                 data-pat-validation="${python:u'type: date; not-after: #planning-end-#{1}; message-date: %s' % view.message_date_before if 'planning_end' not in view.skip_fields else None}"
-          />
-        </label>
-        <label tal:condition="python: 'planning_end' not in view.skip_fields">
-          <tal:label i18n:translate="label_action_plan_end">Planning end</tal:label>
-          <input class="pat-date-picker"
-                 id="planning-end-#{1}"
-                 name="measure.planning_end:records"
-                 type="date"
-                 data-pat-date-picker="behavior: styled; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
-                 data-pat-validation="type:date; not-before: #planning-start-#{1}; message-date: ${view/message_date_after}"
-          />
-        </label>
-      </fieldset>
-    </div>
+          </label>
+          <label class="currency"
+                 tal:condition="python: 'budget' not in view.skip_fields"
+          >
+            <tal:span i18n:translate="label_action_plan_budget">Budget</tal:span>
+            <dfn class="icon-help-circle iconified pat-tooltip"
+                 data-pat-tooltip="source: content; position-list: lt"
+                 i18n:translate="actionplan_measure_budget_tooltip"
+            >Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary.</dfn>
+            <span class="composed currency-field">
+              <input class="currency"
+                     id="input-budget-#{1}"
+                     min="0"
+                     name="measure.budget:records"
+                     type="number"
+              />
+            </span>
+          </label>
+          <label>
+            <tal:label i18n:translate="label_action_plan_start">Planning start</tal:label>
+            <input class="pat-date-picker"
+                   id="planning-start-#{1}"
+                   name="measure.planning_start:records"
+                   type="date"
+                   data-pat-date-picker="output-format: Do MMMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
+                   data-pat-validation="${python:u'type: date; not-after: #planning-end-#{1}; message-date: %s' % view.message_date_before if 'planning_end' not in view.skip_fields else None}"
+            />
+          </label>
+          <label tal:condition="python: 'planning_end' not in view.skip_fields">
+            <tal:label i18n:translate="label_action_plan_end">Planning end</tal:label>
+            <input class="pat-date-picker"
+                   id="planning-end-#{1}"
+                   name="measure.planning_end:records"
+                   type="date"
+                   data-pat-date-picker="output-format: Do MMMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json"
+                   data-pat-validation="type:date; not-before: #planning-start-#{1}; message-date: ${view/message_date_after}"
+            />
+          </label>
+        </fieldset>
+      </div>
+    </template>
   </metal:action_plan>
 
 

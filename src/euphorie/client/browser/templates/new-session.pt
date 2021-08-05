@@ -1,39 +1,57 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:meta="http://xml.zope.org/namespaces/meta"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
-      i18n:domain="euphorie"
       meta:interpolation="true"
-      metal:use-macro="context/@@modal-template/macros/shell">
-<body>
+      metal:use-macro="context/@@modal-template/macros/shell"
+      i18n:domain="euphorie"
+>
+  <body>
     <metal:slot fill-slot="content">
-        <div id="document-content" class="pat-modal small">
-          <h1 panel-class-small i18n:translate="header_new_session">New session</h1>
-          <form method="post"
-            action="${request/URL}"
-            class="wizard-box panel-class-small pat-inject"
-            data-pat-inject="source: #content; target: #content; &amp;&amp; source: #splash-message; target: #splash-message;"
-            >
-            <input type="hidden" name="action" value="new"/>
-            <div class="panel-body"
-              tal:define="
-                          root view/get_survey_templates_tree_root;
-                          threshold view/tools_threshold;
-                          template_count python:len(view.get_survey_templates());
-                          ">
-              <div class="container">
+      <div class="pat-modal small"
+           id="document-content"
+      >
+        <h1 panel-class-small=""
+            i18n:translate="header_new_session"
+        >New session</h1>
+        <form class="wizard-box panel-class-small pat-inject"
+              action="${request/URL}"
+              method="post"
+              data-pat-inject="source: #content; target: #content; &amp;&amp; source: #splash-message; target: #splash-message;"
+        >
+          <input name="action"
+                 type="hidden"
+                 value="new"
+          />
+          <div class="panel-body"
+               tal:define="
+                 root view/get_survey_templates_tree_root;
+                 threshold view/tools_threshold;
+                 template_count python:len(view.get_survey_templates());
+               "
+          >
+            <div class="container">
               <article class="pat-rich">
                 <p i18n:translate="label_select_new_session">Start a new session by choosing one of the following sectoral tools.</p>
               </article>
 
-              <fieldset class="tool-list" tal:condition="python:template_count <= threshold">
+              <fieldset class="tool-list"
+                        tal:condition="python:template_count &lt;= threshold"
+              >
                 <metal:templates define-macro="templates">
-                  <tal:surveys define="surveys root/survey_templates">
+                  <tal:surveys define="
+                                 surveys root/survey_templates;
+                               ">
                     <fieldset class="tools pat-checklist radio">
-                      <label class="tool" tal:repeat="survey surveys">
-                        <input type="radio" name="survey" value="${survey/id}">
+                      <label class="tool"
+                             tal:repeat="survey surveys"
+                      >
+                        <input name="survey"
+                               type="radio"
+                               value="${survey/id}"
+                        />
                         <strong class="field name">${survey/title}</strong>
                       </label>
                     </fieldset>
@@ -42,43 +60,66 @@
                 <tal:categories repeat="child root/categories">
                   <fieldset class="department">
                     <legend>${child/title}</legend>
-                    <tal:survey define="root child">
+                    <tal:survey define="
+                                  root child;
+                                ">
                       <metal:node use-macro="template/macros/templates" />
                     </tal:survey>
                   </fieldset>
                 </tal:categories>
               </fieldset>
 
-              <fieldset class="vertical" tal:condition="python:template_count > threshold">
-              <label class="tool-list-many">
-                <select name="survey" class="pat-autosuggest" data-pat-autosuggest="minimum-input-length:0" placeholder="Select an OiRA tool" i18n:attributes="placeholder label_select_oira_tool">
-                  <option value="">&nbsp;</option>
-                  <metal:templates define-macro="templates_many">
-                    <tal:surveys define="surveys root/survey_templates">
-                      <option tal:repeat="survey surveys" value="${survey/id}">${survey/title}</option>
-                    </tal:surveys>
-                  </metal:templates>
-                  <tal:categories repeat="child root/categories">
-                    <optgroup label="${child/title}">
-                      <tal:survey define="root child">
-                        <metal:node use-macro="template/macros/templates_many" />
-                      </tal:survey>
-                    </optgroup>
-                  </tal:categories>
-                </select>
-              </label>
+              <fieldset class="vertical"
+                        tal:condition="python:template_count &gt; threshold"
+              >
+                <label class="tool-list-many">
+                  <select class="pat-autosuggest"
+                          name="survey"
+                          placeholder="Select an OiRA tool"
+                          data-pat-autosuggest="minimum-input-length:0"
+                          i18n:attributes="placeholder label_select_oira_tool"
+                  >
+                    <option value="">&nbsp;</option>
+                    <metal:templates define-macro="templates_many">
+                      <tal:surveys define="
+                                     surveys root/survey_templates;
+                                   ">
+                        <option value="${survey/id}"
+                                tal:repeat="survey surveys"
+                        >${survey/title}</option>
+                      </tal:surveys>
+                    </metal:templates>
+                    <tal:categories repeat="child root/categories">
+                      <optgroup label="${child/title}">
+                        <tal:survey define="
+                                      root child;
+                                    ">
+                          <metal:node use-macro="template/macros/templates_many" />
+                        </tal:survey>
+                      </optgroup>
+                    </tal:categories>
+                  </select>
+                </label>
               </fieldset>
             </div>
           </div>
 
-            <div class="buttons panel-footer">
-              <div class="container">
-                <button type="submit" name="next" class="pat-button pat-depends close-panel" i18n:translate="button_start_session" data-pat-depends="condition: survey; action: enable">Start session</button>
-                <button type="button" class="pat-button close-panel" i18n:translate="button_cancel">Cancel</button>
-              </div>
+          <div class="buttons panel-footer">
+            <div class="container">
+              <button class="pat-button pat-depends close-panel"
+                      name="next"
+                      type="submit"
+                      data-pat-depends="condition: survey; action: enable"
+                      i18n:translate="button_start_session"
+              >Start session</button>
+              <button class="pat-button close-panel"
+                      type="button"
+                      i18n:translate="button_cancel"
+              >Cancel</button>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
+      </div>
     </metal:slot>
-</body>
+  </body>
 </html>
