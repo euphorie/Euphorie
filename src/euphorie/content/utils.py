@@ -78,6 +78,7 @@ TOOL_TYPES = OrderedDict(
                 "button_remove_extra": "",
                 "button_remove_extra_always_present": "",
                 "placeholder_add_extra": "",
+                "custom_placeholder_add_extra": "",
                 "placeholder_add_extra_always_present": "",
                 "intro_questions": "",
                 "answer_yes": _("label_yes", default=u"Yes"),
@@ -87,10 +88,12 @@ TOOL_TYPES = OrderedDict(
                 ),
                 "answer_no_integrated_ap": _("label_no_integrated_ap", default=u"No"),
                 "answer_na": _("label_not_applicable", default=u"Not applicable"),
-                "custom_intro_extra": _(
+                "custom_intro_extra": "",
+                "custom_intro_questions": _(
                     "is_risk_acceptable",
                     default=u"Is this risk acceptable or under control?",
                 ),
+                "custom_button_add_extra": "",
             },
         ),
         (
@@ -104,8 +107,8 @@ TOOL_TYPES = OrderedDict(
                 "description": "",
                 "intro_extra": _(
                     "select_add_existing_measure",
-                    default=u"Select or add any measures that are <strong>already in "
-                    u"place</strong>.",
+                    default=u"Select or add any measures that are <strong>already "
+                    u"implemented</strong>.",
                 ),
                 "intro_extra_always_present": _(
                     "select_add_existing_measure",
@@ -133,13 +136,18 @@ TOOL_TYPES = OrderedDict(
                     default=u"Describe a measure that is already in place but not yet "
                     u"listed here.",
                 ),
+                "custom_placeholder_add_extra": _(
+                    "custom_placeholder_new_existing",
+                    default=u"Describe a measure that is already in place.",
+                ),
                 "placeholder_add_extra_always_present": _(
                     "placeholder_new_existing",
                     default=u"Describe a measure that is already in place but not yet "
                     u"listed here.",
                 ),
                 "intro_questions": _(
-                    "Are the measures that are selected above sufficient?"
+                    "implemented_measures_sufficient",
+                    default=u"Are the measures that are already implemented sufficient?",  # noqa: E501
                 ),
                 "answer_yes": _(
                     "label_yes_sufficient",
@@ -158,10 +166,17 @@ TOOL_TYPES = OrderedDict(
                 ),
                 "answer_na": _("label_not_applicable", default=u"Not applicable"),
                 "custom_intro_extra": _(
-                    "is_risk_acceptable_add_measures",
-                    default=u"Is this risk acceptable or under control? If applicable, "
-                    u"${link_add_measures}.",
-                    mapping={"link_add_measures": link_add_measures},
+                    "add_existing_measure",
+                    default=u"Add any measures that are <strong>already implemented"
+                    u"</strong>.",
+                ),
+                "custom_intro_questions": _(
+                    "implemented_measures_sufficient",
+                    default=u"Are the measures that are already implemented sufficient?",  # noqa: E501
+                ),
+                "custom_button_add_extra": _(
+                    "custom_button_add_existing_measure",
+                    default=u"Add an already implemented measure",
                 ),
             },
         ),
