@@ -20,7 +20,6 @@ app = locals()["app"]
 setSite(app["Plone2"])
 wt = app["Plone2"]["portal_workflow"]
 
-__import__("pdb").set_trace()
 for page_num in range(26):
     url = (
         "https://oiraproject.eu/en/oira-tools?search_api_fulltext=&sort_by=title"
@@ -33,21 +32,22 @@ for page_num in range(26):
         if link is not None:
             path = "/".join(unquote(link.attrib["href"]).strip().split("/")[-3:])
         else:
-            __import__("pdb").set_trace()
             continue
 
         img = elem.find(".//div[@class='views-field views-field-field-image']/img")
         if img is None:
             log.warning("No image for {}".format(path))
             continue
-        basename = unquote(img.attrib["src"].split("/")[-1].split(".")[0]).strip()
-        if not basename:
-            __import__("pdb").set_trace()
-        name = " ".join([part for part in basename.split(" ")[:-1]])
+        sourcename = img.attrib["src"].split("/")[-1]
+        basename = unquote(sourcename.split(".")[0]).strip()
+        if " " in basename:
+            name = " ".join([part for part in basename.split(" ")[:-1]])
+        else:
+            name = basename
         filename = "{} 300.png".format(name)
         filepath = posixpath.join(images_path, filename)
         if not posixpath.exists(filepath):
-            log.warning("Image file not found: {} ({})".format(filepath, basename))
+            log.warning("Image file not found: {} ({})".format(filepath, sourcename))
             continue
 
         try:
@@ -61,7 +61,7 @@ for page_num in range(26):
 
         for survey in surveygroup.values():
             if getattr(survey, "image", None):
-                log.info("Already has image: {}".format(path))
+                log.warning("Already has image: {}".format(path))
                 continue
             else:
                 setattr(survey, "image", blob_image)
