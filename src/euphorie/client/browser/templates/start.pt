@@ -85,8 +85,7 @@
               ></p>
             </div>
           </metal:messages_below_article>
-          <fieldset class="vertical pat-inject pat-subform pat-autosubmit"
-                    data-pat-autosubmit="delay: 2000ms"
+          <fieldset class="vertical pat-inject pat-subform"
                     data-pat-inject="url: ; source: #main-content; target: #main-content"
                     tal:condition="can_edit"
           >
