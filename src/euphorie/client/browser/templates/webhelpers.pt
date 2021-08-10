@@ -628,15 +628,17 @@
       <fieldset class="vertical"
                 id="comments"
       >
-        <textarea class="span-15"
-                  id="comment"
-                  name="comment:utf8:ustring"
-                  placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
-                  rows="3"
-                  tal:content="context/comment"
-                  i18n:attributes="placeholder label_comment"
-        >
-        </textarea>
+        <label>
+          <textarea class="span-15"
+                    id="comment"
+                    name="comment:utf8:ustring"
+                    placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
+                    rows="3"
+                    tal:content="context/comment"
+                    i18n:attributes="placeholder label_comment"
+          >
+          </textarea>
+        </label>
       </fieldset>
     </fieldset>
   </metal:risk_comments>
