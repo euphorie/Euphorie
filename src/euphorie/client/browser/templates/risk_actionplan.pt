@@ -112,15 +112,19 @@
 
             <metal:call use-macro="webhelpers/macros/action_plan" />
 
-            <fieldset id="comments">
-              <textarea id="commentsField"
-                        cols="70"
-                        name="comment:utf8:ustring"
-                        placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
-                        rows="3"
-                        tal:content="context/comment|nothing"
-                        i18n:attributes="placeholder label_comment"
-              ></textarea>
+            <fieldset class="vertical"
+                      id="comments"
+            >
+              <label>
+                <textarea id="commentsField"
+                          cols="70"
+                          name="comment:utf8:ustring"
+                          placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
+                          rows="3"
+                          tal:content="context/comment|nothing"
+                          i18n:attributes="placeholder label_comment"
+                ></textarea>
+              </label>
             </fieldset>
 
           </div>
