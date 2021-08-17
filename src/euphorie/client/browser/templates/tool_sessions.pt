@@ -73,8 +73,8 @@
               <a class="default pat-button pat-inject"
                  id="button-new-session"
                  href="${here/absolute_url}/@@new-session.html?action=new"
-                 i18n:translate="button_start_new_session"
-              >Start a new session with this tool</a>
+                 i18n:translate="button_start_session"
+              >Start session</a>
             </p>
           </div>
           <div class="tool-description">
