@@ -160,7 +160,7 @@
 
                   <p class="button-bar">
                     <a class="default small pat-button pat-inject"
-                       href="${here/absolute_url}/@@new-session.html?survey=${tool_id}&amp;action=new"
+                       href="${here/absolute_url}/${sector/getId}/@@new-session.html?survey=${tool_id}&amp;action=new"
                        data-pat-inject="history: record"
                        i18n:translate="button_start_session"
                     >Start session</a>
