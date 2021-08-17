@@ -154,7 +154,7 @@
                          tool_lang python: tool.Language().split('-')[0];
                        "
                        tal:condition="tool_lang"
-                    >${python: view.getNameForLanguageCode(tool_lang)}</a>
+                    >${python: webhelpers.getNameForLanguageCode(tool_lang)}</a>
 
                   </p>
 

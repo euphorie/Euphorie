@@ -29,6 +29,7 @@ from logging import getLogger
 from os import path
 from pkg_resources import resource_listdir
 from plone import api
+from plone.i18n.interfaces import ILanguageUtility
 from plone.i18n.normalizer import idnormalizer
 from plone.memoize import forever
 from plone.memoize.instance import memoize
@@ -381,6 +382,14 @@ class WebHelpers(BrowserView):
         lt = getToolByName(self.context, "portal_languages")
         lang = lt.getPreferredLanguage()
         return lang
+
+    @memoize_contextless
+    def getNameForLanguageCode(self, langCode):
+        lang_util = getUtility(ILanguageUtility)
+        info = lang_util.getAvailableLanguageInformation().get(langCode, None)
+        if info is not None:
+            return info.get("native", info.get("name", None))
+        return None
 
     @property
     @forever.memoize

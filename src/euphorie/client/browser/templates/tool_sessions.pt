@@ -59,10 +59,13 @@
               >${country/title}</a>
 
               <a class="tag pat-inject"
-                 href="${country/absolute_url}/surveys?language=${tool/language}#content"
+                 href="${country/absolute_url}/surveys?language=${tool_lang}#content"
                  data-pat-inject="history: record"
-                 tal:condition="tool/language"
-              >${tool/language}</a>
+                 tal:define="
+                   tool_lang python: tool.Language().split('-')[0];
+                 "
+                 tal:condition="tool_lang"
+              >${python: webhelpers.getNameForLanguageCode(tool_lang)}</a>
 
             </p>
 
