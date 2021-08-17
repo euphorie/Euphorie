@@ -33,7 +33,6 @@ from zExceptions import Unauthorized
 
 import datetime
 import logging
-import os
 import re
 import six
 
