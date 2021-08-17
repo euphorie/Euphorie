@@ -34,7 +34,7 @@
           </div>
           <div class="buttons panel-footer">
             <div class="container">
-              <button class="pat-button close-panel"
+              <button class="pat-button default close-panel"
                       type="submit"
               >
                 <tal:label i18n:translate="button_delete_session">Yes, delete session</tal:label>

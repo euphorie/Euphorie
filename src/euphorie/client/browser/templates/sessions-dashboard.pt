@@ -145,7 +145,7 @@
          id="button-new-session-quick"
          href="${webhelpers/session_overview_url}/@@new-session.html#document-content"
          title="start a new session"
-         data-pat-modal="class: large"
+         data-pat-modal="class: panel small"
          i18n:attributes="title link_start_session"
          i18n:translate="New"
       >New</a>

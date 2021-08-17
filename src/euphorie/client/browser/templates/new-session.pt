@@ -106,7 +106,7 @@
 
           <div class="buttons panel-footer">
             <div class="container">
-              <button class="pat-button pat-depends close-panel"
+              <button class="pat-button default pat-depends close-panel"
                       name="next"
                       type="submit"
                       data-pat-depends="condition: survey; action: enable"

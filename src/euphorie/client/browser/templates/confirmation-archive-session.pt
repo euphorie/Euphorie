@@ -28,7 +28,7 @@
           </div>
           <div class="buttons panel-footer">
             <div class="container">
-              <button class="pat-button close-panel"
+              <button class="pat-button default close-panel"
                       type="submit"
                       i18n:translate="button_archive_session"
               >
