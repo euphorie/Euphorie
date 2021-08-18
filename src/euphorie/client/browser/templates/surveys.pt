@@ -169,7 +169,7 @@
                        href="${here/absolute_url}/${sector/getId}/@@new-session.html?survey=${tool_id}&amp;action=new"
                        data-pat-inject="history: record"
                        i18n:translate="button_start_session"
-                    >Start session</a>
+                    >Start risk assessment</a>
                     <a class="small pat-button pat-inject"
                        href="${tool/absolute_url}#content"
                        data-pat-inject="history: record"

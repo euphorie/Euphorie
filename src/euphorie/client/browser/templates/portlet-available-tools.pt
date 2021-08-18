@@ -100,7 +100,7 @@
                     type="submit"
                     data-pat-depends="condition: survey; action: enable"
                     i18n:translate="button_start_session"
-            >Start session</button>
+            >Start risk assessment</button>
           </p>
 
           <input name="action"

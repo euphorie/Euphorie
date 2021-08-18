@@ -66,7 +66,7 @@
                  href="${here/absolute_url}/@@new-session.html#document-content"
                  i18n:name="start_session"
                  i18n:translate="link_start_session"
-              >start a new session</a>.
+              >start a new risk assessment</a>.
             </p>
           </article>
           <metal:assessments_list use-macro="here/assessments/macros/assessments_list" />
