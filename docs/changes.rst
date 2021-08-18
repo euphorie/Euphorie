@@ -5,8 +5,8 @@ Changelog
 12.0.7 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Add custom Word template for another FR sector
+- Cosmetic changes
 
 12.0.6 (2021-06-25)
 -------------------
