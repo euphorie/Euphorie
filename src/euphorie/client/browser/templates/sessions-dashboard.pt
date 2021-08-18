@@ -13,6 +13,9 @@
       <metal:homescreen_navigation define-macro="homescreen_navigation">
         <div class="pat-toolbar"
              id="tools-toolbar"
+             tal:define="
+               dashboard_tab webhelpers/get_dashboard_tab;
+             "
         >
           <div class="toolbar-navigation-area">
             <div class="toolbar-section navigation"
@@ -21,17 +24,17 @@
               <nav class="toolbar-subnav pat-button-cluster"
                    id="homescreen-sections"
               >
-                <a class="icon icon-gauge pat-inject"
+                <a class="icon icon-gauge pat-inject ${python:'current' if dashboard_tab=='dashboard' else None}"
                    href="${here/absolute_url}"
-                   data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+                   data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                 >Home</a>
-                <a class="pat-inject"
+                <a class="pat-inject ${python:'current' if dashboard_tab=='surveys' else None}"
                    href="${here/absolute_url}/surveys"
-                   data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+                   data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                 >Tools</a>
-                <a class="pat-inject"
+                <a class="pat-inject ${python:'current' if dashboard_tab=='assessments' else None}"
                    href="${here/absolute_url}/assessments"
-                   data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+                   data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                 >Assessments</a>
                 <!--  We do not have these kind of views yet
                 <a class="pat-inject"
@@ -119,7 +122,7 @@
       <tal:in_group condition="python: root_group and root_parent">
         <a class="back-button pat-inject"
            href="${absolute_url}/@@${view/__name__}?groupid=${root_parent/group_id|nothing}"
-           data-pat-inject="history: record; source: #osc-header; target: #osc-header && source: #osc; target: #osc"
+           data-pat-inject="history: record; source: #osc-header; target: #osc-header &amp;&amp; source: #osc; target: #osc"
            i18n:translate=""
         >Back</a>
         <h2 class="column-title">${root_group/fullname}</h2>

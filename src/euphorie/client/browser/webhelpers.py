@@ -603,6 +603,12 @@ class WebHelpers(BrowserView):
             head, tail = path.split(head)
         return ""
 
+    def get_dashboard_tab(self):
+        head, tail = path.split(self.request.PATH_INFO)
+        if tail in ["surveys", "assessments"]:
+            return tail
+        return "dashboard"
+
     @property
     def came_from_param(self):
         if self.came_from:
