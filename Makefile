@@ -77,6 +77,28 @@ resources-install:   # bundle
 
 theme: bundle jekyll resources-install
 
+
+# DEV
+
+# Create symbolic links from prototype's script directory to this packages resource directory.
+# You can then do a ``yarn watch`` in ploneintranet.prototype, devlop Patternslib and get your changes updated here.
+.PHONY: devln
+devln:
+	@cd src/euphorie/client/resources/oira &&\
+		rm -Rf script/ &&\
+		ln -s ../../../../../prototype/assets/oira/script ./script &&\
+		echo "Created symbolic link to prototype's bundles for developing in:" &&\
+		ls -la .
+
+# Undo devln
+.PHONY: undevln
+undevln:
+	@cd src/euphorie/client/resources/oira &&\
+		unlink script &&\
+		git checkout . &&\
+		echo "Restored generated bundles"
+
+
 .PHONY: all clean docs jenkins pot
 .SUFFIXES:
 .SUFFIXES: .po .mo .css .min.css
