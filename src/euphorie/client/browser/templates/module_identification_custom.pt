@@ -23,7 +23,7 @@
         <metal:call use-macro="webhelpers/macros/toolbar" />
         <article class="pat-rich">
           <tal:block replace="tile:statusmessages" />
-
+          <h1 i18n:translate="">Custom risks</h1>
 
           <p tal:content="structure module/description">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -37,7 +37,7 @@
                 data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #other-risks; target: #other-risks"
           >
             <p>
-              <button class="pat-button"
+              <button class="pat-button default"
                       name="next"
                       type="submit"
                       value="add_custom_risk"
@@ -53,6 +53,10 @@
         <p class="buttonBar"
            id="nav-bar"
         >
+          <a class="pat-button back"
+             href="${view/previous_question_url}"
+             i18n:translate="label_previous"
+          >Previous</a>
           <!-- <a class="pat-button back">Previous</a> -->
           <a class="pat-button pat-inject"
              href="${view/next_phase_url}"
