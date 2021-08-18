@@ -431,6 +431,10 @@
 	msgid "Evaluation"
 	msgstr "Bewertung"
 
+	#| msgid label_exit
+	msgid "Exit"
+	msgstr ""
+
 	#| msgid label_expand_sidebar
 	msgid "Expand sidebar"
 	msgstr "Seitenleiste ausklappen"

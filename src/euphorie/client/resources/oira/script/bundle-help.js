@@ -19522,6 +19522,10 @@ var toNodeArray = function toNodeArray(nodes) {
 var querySelectorAllAndMe = function querySelectorAllAndMe(el, selector) {
   // Like querySelectorAll but including the element where it starts from.
   // Returns an Array, not a NodeList
+  if (!el) {
+    return [];
+  }
+
   var all = _toConsumableArray(el.querySelectorAll(selector));
 
   if (el.matches(selector)) {
@@ -22207,52 +22211,63 @@ var inject = {
 
       try {
         for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+          var _registry$patterns;
+
           var el_ = _step2.value;
-          var val = el_.getAttribute("data-pat-".concat(pattern_name), false);
+          var pattern = (_registry$patterns = _core_registry__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"].patterns) === null || _registry$patterns === void 0 ? void 0 : _registry$patterns[pattern_name];
+          var pattern_parser = pattern === null || pattern === void 0 ? void 0 : pattern.parser;
 
-          if (val) {
-            var pattern = _core_registry__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"].patterns[pattern_name];
-            var pattern_parser = pattern === null || pattern === void 0 ? void 0 : pattern.parser;
+          if (!pattern_parser) {
+            continue;
+          } // parse: no default options, possibly multiple configs, no grouping.
 
-            if (!pattern_parser) {
-              continue;
-            }
 
-            var options = pattern_parser._parse(val);
+          var options = pattern_parser.parse(el_, {}, true, false, false);
+          var changed = false;
 
-            var changed = false;
+          var _iterator3 = _createForOfIteratorHelper(options),
+              _step3;
 
-            var _iterator3 = _createForOfIteratorHelper(opts),
-                _step3;
+          try {
+            for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+              var config = _step3.value;
 
-            try {
-              for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-                var opt = _step3.value;
-                var _val = options[opt];
+              var _iterator4 = _createForOfIteratorHelper(opts),
+                  _step4;
 
-                if (!_val) {
-                  continue;
+              try {
+                for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+                  var opt = _step4.value;
+                  var val = config[opt];
+
+                  if (!val) {
+                    continue;
+                  }
+
+                  changed = true;
+
+                  if (Array.isArray(val)) {
+                    config[opt] = val.map(function (it) {
+                      return _core_utils__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"].rebaseURL(base, it);
+                    });
+                  } else {
+                    config[opt] = _core_utils__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"].rebaseURL(base, val);
+                  }
                 }
-
-                changed = true;
-
-                if (Array.isArray(_val)) {
-                  options[opt] = _val.map(function (it) {
-                    return _core_utils__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"].rebaseURL(base, it);
-                  });
-                } else {
-                  options[opt] = _core_utils__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"].rebaseURL(base, _val);
-                }
+              } catch (err) {
+                _iterator4.e(err);
+              } finally {
+                _iterator4.f();
               }
-            } catch (err) {
-              _iterator3.e(err);
-            } finally {
-              _iterator3.f();
             }
+          } catch (err) {
+            _iterator3.e(err);
+          } finally {
+            _iterator3.f();
+          }
 
-            if (changed) {
-              el_.setAttribute("data-pat-".concat(pattern_name), JSON.stringify(options));
-            }
+          if (changed) {
+            el_.setAttribute("data-pat-".concat(pattern_name), JSON.stringify(options.length === 1 ? options[0] : options));
           }
         }
       } catch (err) {
@@ -23312,31 +23327,35 @@ var ArgumentParser = /*#__PURE__*/function () {
   }, {
     key: "_cleanupOptions",
     value: function _cleanupOptions(options) {
+      var group_options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
       // Resolve references
       for (var _i = 0, _Object$keys = Object.keys(options); _i < _Object$keys.length; _i++) {
         var name = _Object$keys[_i];
         var spec = this.parameters[name];
         if (spec === undefined) continue;
         if (options[name] === spec.value && typeof spec.value === "string" && spec.value.slice(0, 1) === "$") options[name] = options[spec.value.slice(1)];
-      } // Move options into groups and do renames
+      }
 
+      if (group_options) {
+        // Move options into groups and do renames
+        for (var _i2 = 0, _Object$keys2 = Object.keys(options); _i2 < _Object$keys2.length; _i2++) {
+          var _name = _Object$keys2[_i2];
+          var _spec = this.parameters[_name];
+          var target = void 0;
+          if (_spec === undefined) continue;
 
-      for (var _i2 = 0, _Object$keys2 = Object.keys(options); _i2 < _Object$keys2.length; _i2++) {
-        var _name = _Object$keys2[_i2];
-        var _spec = this.parameters[_name];
-        var target = void 0;
-        if (_spec === undefined) continue;
+          if (_spec.group) {
+            if (_typeof2(options[_spec.group]) !== "object") options[_spec.group] = {};
+            target = options[_spec.group];
+          } else {
+            target = options;
+          }
 
-        if (_spec.group) {
-          if (_typeof2(options[_spec.group]) !== "object") options[_spec.group] = {};
-          target = options[_spec.group];
-        } else {
-          target = options;
-        }
-
-        if (_spec.dest !== _name) {
-          target[_spec.dest] = options[_name];
-          delete options[_name];
+          if (_spec.dest !== _name) {
+            target[_spec.dest] = options[_name];
+            delete options[_name];
+          }
         }
       }
 
@@ -23345,6 +23364,10 @@ var ArgumentParser = /*#__PURE__*/function () {
   }, {
     key: "parse",
     value: function parse($el, options, multiple, inherit) {
+      var _this2 = this;
+
+      var group_options = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+
       if (!$el.jquery) {
         $el = jquery__WEBPACK_IMPORTED_MODULE_0___default()($el);
       }
@@ -23411,14 +23434,18 @@ var ArgumentParser = /*#__PURE__*/function () {
         if (Array.isArray(options)) {
           stack.push(options);
           final_length = Math.max(options.length, final_length);
-        } else stack.push([options]);
+        } else {
+          stack.push([options]);
+        }
       }
 
       if (!multiple) {
         final_length = 1;
       }
 
-      var results = _utils_js__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].removeDuplicateObjects(_utils_js__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].mergeStack(stack, final_length)).map(this._cleanupOptions.bind(this));
+      var results = _utils_js__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].removeDuplicateObjects(_utils_js__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].mergeStack(stack, final_length)).map(function (current_value) {
+        return _this2._cleanupOptions(current_value, group_options);
+      });
       return multiple ? results : results[0];
     }
   }]);
@@ -24282,6 +24309,10 @@ var registry = {
     return patterns;
   },
   scan: function scan(content, patterns, trigger) {
+    if (!content) {
+      return;
+    }
+
     if (typeof content === "string") {
       content = document.querySelector(content);
     } else if (content.jquery) {
