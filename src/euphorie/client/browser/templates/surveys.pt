@@ -122,6 +122,7 @@
                           tool_id python:tool_info[2];
                           sector nocall:tool/aq_parent;
                           country nocall:sector/aq_parent;
+                          description tool/Description|string:;
                         ">
                 <a class="pat-inject"
                    href="${tool/absolute_url}#content"
@@ -157,6 +158,11 @@
                     >${python: webhelpers.getNameForLanguageCode(tool_lang)}</a>
 
                   </p>
+                  <section class="summary"
+                           tal:condition="python:description.strip()"
+                  >
+                    <p>${python:description.strip()}</p>
+                  </section>
 
                   <p class="button-bar">
                     <a class="default small pat-button pat-inject"
