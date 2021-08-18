@@ -151,8 +151,7 @@
                           perc_postponed python:num_total and num_postponed/view.as_decimal(num_total)*100 or 0;
                           perc_todo python:num_total and num_todo/view.as_decimal(num_total)*100 or 0;
                         ">
-                <dt><a name="${module/path}">
-                  </a>
+                <dt>
                   <a href="${module/url}">${module/title}</a>
                 </dt>
                 <dd>
