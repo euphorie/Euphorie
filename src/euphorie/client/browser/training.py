@@ -100,7 +100,9 @@ class TrainingSlide(BrowserView):
     @property
     def description(self):
         if self.is_custom:
-            return getattr(self.context, "custom_description", "") or ""
+            return (
+                markdown.markdown(getattr(self.context, "custom_description", "") or "")
+            )
         return self.zodb_elem.description or ""
 
     @property
