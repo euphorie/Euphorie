@@ -214,7 +214,7 @@
               <label class="four columns image-uploader pat-subform pat-autosubmit pat-inject discrete-injection"
                      id="image-upload"
                      title="Upload an image that illustrates this risk."
-                     data-pat-inject="url: ${upload_url}; source: #image-upload::element; target: #image-upload::element"
+                     data-pat-inject="url: ${upload_url}; source: #image-upload::element; target: #image-upload::element &amp;&amp; url: ${upload_url}; source: #messages; target: #messages;"
                      tal:define="
                        upload_url string:${here/absolute_url}/@@image-upload;
                      "
@@ -237,7 +237,7 @@
                 >Upload image</span>
                 <input name="image"
                        type="file"
-                       accept=".jpg,.jpeg,.png"
+                       accept=".jpg,.jpeg,.png,.gif"
                 />
               </label>
               <label class="eight columns">
