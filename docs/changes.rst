@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-12.0.8 (unreleased)
+12.0.8 (2021-08-21)
 -------------------
 
 - Added py2 compat code in PDF view for RIE
