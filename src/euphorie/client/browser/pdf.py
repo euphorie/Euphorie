@@ -9,6 +9,7 @@ from sh import wkhtmltopdf
 from six.moves.urllib.parse import quote
 
 import logging
+import six
 
 
 try:
@@ -60,7 +61,10 @@ class PdfView(BrowserView):
         with TemporaryDirectory(prefix="euphoprient") as tmpdir:
             html_file = Path(tmpdir) / "index.html"
             pdf_file = Path(tmpdir) / "index.pdf"
-            html_file.write_text(content)
+            if six.PY2:
+                html_file.write_text(content.encode("utf-8"))
+            else:
+                html_file.write_text(content)
             wkhtmltopdf_args.extend([html_file, pdf_file])
             xvfb_run.wkhtmltopdf(*wkhtmltopdf_args)
             return pdf_file.bytes()

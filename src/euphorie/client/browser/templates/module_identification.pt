@@ -110,7 +110,7 @@
                       value="previous"
                       i18n:translate="label_previous"
               >Previous</button>
-              <button class="pat-button continue"
+              <button class="pat-button default continue"
                       name="next"
                       type="submit"
                       value="next"
@@ -131,7 +131,7 @@
                   value="previous"
                   i18n:translate="label_previous"
           >Previous</button>
-          <button class="pat-button continue"
+          <button class="pat-button default continue"
                   name="next"
                   type="submit"
                   value="next"
