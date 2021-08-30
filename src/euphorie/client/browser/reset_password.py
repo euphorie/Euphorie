@@ -163,11 +163,15 @@ class ResetPasswordRequest(BaseForm):
         data, error = self.extractData()
         if error:
             return
-        if not self.send_mail(data["email"]):
+        email = data.get("email")
+        if not self.send_mail(email):
             return
         msg = _(
-            u"An email will be sent "
-            u"if we can find an account for the inserted email address"
+            "message_password_recovery_email_sent",
+            default=u"An email will be sent to ${email} "
+            u"if we can find an account for this email address. Please use the "
+            u"link inside the e-mail to reset your password.",
+            mapping={"email": email},
         )
         redir_url = self.request.get("came_from") or self.context.absolute_url()
         if not redir_url.endswith("login"):

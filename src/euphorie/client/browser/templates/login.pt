@@ -256,6 +256,14 @@
               >Learn more</a>
             </p>
 
+
+            <tal:statusmsg tal:repeat="message webhelpers/messages">
+              <p class="pat-message notice"
+                 id="${message/id}-body"
+                 tal:content="message/message | nothing"
+              >Status message</p>
+            </tal:statusmsg>
+
           </div>
 
           <div class="pat-rich long-read"
