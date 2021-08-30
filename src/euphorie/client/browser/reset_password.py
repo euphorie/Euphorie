@@ -89,6 +89,10 @@ class ResetPasswordRequest(BaseForm):
             u"with the instructions to reset your password."
         ),
     )
+    button_label = _(
+        u"label__send_password_reminder",
+        default="Send password reminder",
+    )
 
     email_template = ViewPageTemplateFile("templates/password_recovery_email.pt")
 
@@ -205,6 +209,7 @@ class ResetPasswordForm(BaseForm):
         u"description_reset_password_form",
         default=u"",
     )
+    button_label = _("Save changes")
 
     def publishTraverse(self, request, name):
         return self
@@ -249,7 +254,7 @@ class ResetPasswordForm(BaseForm):
             msg=_("Your password was successfully changed."),
         )
 
-    @button.buttonAndHandler(_(u"Save changes"))
+    @button.buttonAndHandler(_(u"Save"))
     def save_handler(self, action):
         """Check if the security token is correct and if it is
         change the account password with the provided value
