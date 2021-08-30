@@ -232,7 +232,7 @@ class Unpublish(BrowserView):
                 "success",
             )
         else:
-            api.portlal.show_message(
+            api.portal.show_message(
                 _("message_unpublish_cancel", default=u"Cancelled unpublish action."),
                 self.request,
                 "notice",
