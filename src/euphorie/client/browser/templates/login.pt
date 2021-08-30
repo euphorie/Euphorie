@@ -219,8 +219,13 @@
                 >
                   Terms and conditions</a>
                 <input name="terms"
+                       required
                        type="checkbox"
                 />
+                <em class="message warning"
+                    tal:condition="exists:errors/terms"
+                    tal:content="errors/terms"
+                >Invalid terms</em>
               </label>
             </fieldset>
 

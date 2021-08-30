@@ -117,6 +117,13 @@ class Login(BrowserView):
             self.errors["password"] = _(
                 "error_password_mismatch", default=u"Passwords do not match"
             )
+        if not form.get("terms"):
+            self.errors["terms"] = _(
+                "error_terms_not_accepted",
+                default=u"An accout can only be created for you if you accept the "
+                u"terms and conditions.",
+            )
+
         if self.errors:
             return False
 
@@ -150,7 +157,9 @@ class Login(BrowserView):
             account.account_type = config.CONVERTED_ACCOUNT
             account.created = datetime.datetime.now()
         else:
-            account = model.Account(loginname=loginname, password=form.get("password1"))
+            account = model.Account(
+                loginname=loginname, password=form.get("password1"), tc_approved=1
+            )
         Session().add(account)
         log.info("Registered new account %s", loginname)
         v_url = urlsplit(self.request.URL + "/success").path.replace("@@", "")
@@ -159,6 +168,7 @@ class Login(BrowserView):
 
     def __call__(self):
         context = aq_inner(self.context)
+        self.errors = {}
 
         form = self.request.form
 
