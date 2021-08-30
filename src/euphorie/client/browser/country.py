@@ -433,10 +433,19 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
     @memoize
     def tools(self):
         filters = self.get_filters()
-        return [
+        tools = [
             (None, survey.getObject(), survey.getId)
             for survey in api.content.find(
                 object_provides="euphorie.content.survey.ISurvey", **filters
+            )
+        ]
+        # We must filter out tools marked as obsolete or preview
+        return [
+            record
+            for record in tools
+            if (
+                not getattr(record[1], "preview", None)
+                and not getattr(record[1], "obsolete", None)
             )
         ]
 
