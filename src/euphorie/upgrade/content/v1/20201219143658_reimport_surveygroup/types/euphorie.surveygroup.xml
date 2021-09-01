@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <object name="euphorie.surveygroup" meta_type="Dexterity FTI"
-   i18n:domain="euphorie" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
  <!-- Basic information -->
- <property name="title" i18n:translate="">OiRA Tool</property>
- <property name="description" i18n:translate="">A survey.</property>
+ <property name="title">OiRA Tool</property>
+ <property name="description">A survey.</property>
  <property name="content_icon">folder_icon.gif</property>
  <property name="global_allow">False</property>
  <property name="allow_discussion">False</property>

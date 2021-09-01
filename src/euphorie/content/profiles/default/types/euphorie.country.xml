@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <object name="euphorie.country" meta_type="Dexterity FTI"
-   i18n:domain="euphorie" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
  <!-- Basic information -->
- <property name="title" i18n:translate="">Country</property>
- <property name="description"
-     i18n:translate="">A folder for all sectors in a country.</property>
+ <property name="title">Country</property>
+ <property name="description">A folder for all sectors in a country.</property>
  <property name="content_icon">folder_icon.gif</property> 
 
  <property name="global_allow">False</property>

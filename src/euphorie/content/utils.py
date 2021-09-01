@@ -112,8 +112,8 @@ TOOL_TYPES = OrderedDict(
                 ),
                 "intro_extra_always_present": _(
                     "select_add_existing_measure",
-                    default=u"Select or add any measures that are <strong>already in "
-                    u"place</strong>.",
+                    default=u"Select or add any measures that are <strong>already "
+                    u"implemented</strong>.",
                 ),
                 "button_add_extra": _(
                     "button_add_existing_measure",

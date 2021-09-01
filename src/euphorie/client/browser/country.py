@@ -548,7 +548,7 @@ class MyRAsPortlet(PortletBase):
     @property
     def label_start_session(self):
         label = api.portal.translate(
-            _(u"link_start_session", default=u"start a new session")
+            _(u"link_start_session", default=u"Start a new risk assessment")
         )
         return capitalize(label)
 

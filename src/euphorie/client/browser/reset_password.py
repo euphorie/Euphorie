@@ -34,7 +34,7 @@ class ResetPasswordFormSchema(model.Schema):
         title=_(u"label_new_password", default=u"Desired password"),
     )
     new_password_confirmation = schema.Password(
-        title=_(u"label_new_password", default=u"Confirm your password"),
+        title=_(u"label_confirm_password", default=u"Confirm your password"),
     )
 
     @invariant

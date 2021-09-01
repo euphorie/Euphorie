@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <object name="euphorie.documentation" meta_type="Dexterity FTI"
-   i18n:domain="euphorie" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
  <!-- Basic information -->
- <property name="title" i18n:translate="">Documentation</property>
- <property name="description"
-     i18n:translate="">A folder for all documentation for a specific language.</property>
+ <property name="title">Documentation</property>
+ <property name="description">A folder for all documentation for a specific language.</property>
  <property name="content_icon">folder_icon.gif</property> 
 
  <property name="global_allow">True</property>

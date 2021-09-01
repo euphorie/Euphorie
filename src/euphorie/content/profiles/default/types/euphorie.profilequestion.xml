@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <object name="euphorie.profilequestion" meta_type="Dexterity FTI"
-   xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-   i18n:domain="euphorie">
+  i18n:domain="euphorie"  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+   >
 
  <!-- Basic information -->
  <property name="title" i18n:translate="">Profile question</property>
- <property name="description" i18n:translate=""></property>
+ <property name="description"></property>
  <property name="content_icon">document_icon.gif</property>
  <property name="global_allow">False</property>
  <property name="allow_discussion">False</property>

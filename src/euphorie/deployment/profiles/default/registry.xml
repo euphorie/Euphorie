@@ -1,5 +1,4 @@
 <registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-          i18n:domain="euphorie"
 >
   <record field="default_language"
           interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
@@ -105,8 +104,8 @@
   </record>
   <record name="euphorie.client_url">
     <field type="plone.registry.field.TextLine">
-      <title i18n:translate="">Euphorie client URL</title>
-      <description i18n:translate="">The URL of the client portal</description>
+      <title>Euphorie client URL</title>
+      <description>The URL of the client portal</description>
       <default>http://localhost:8080/Plone/client</default>
       <missing_value>http://localhost:8080/Plone/client</missing_value>
       <required>False</required>
@@ -114,8 +113,8 @@
   </record>
   <record name="euphorie.allow_guest_accounts">
     <field type="plone.registry.field.Bool">
-      <title i18n:translate="">Euphorie allow guest accounts</title>
-      <description i18n:translate="">If checked guest accounts will be allowed</description>
+      <title>Euphorie allow guest accounts</title>
+      <description>If checked guest accounts will be allowed</description>
       <default>False</default>
       <missing_value>False</missing_value>
       <required>False</required>
@@ -123,8 +122,8 @@
   </record>
   <record name="euphorie.allow_social_sharing">
     <field type="plone.registry.field.Bool">
-      <title i18n:translate="">Euphorie allow social sharing</title>
-      <description i18n:translate="">If checked social sharing will be allowed</description>
+      <title>Euphorie allow social sharing</title>
+      <description>If checked social sharing will be allowed</description>
       <default>False</default>
       <missing_value>False</missing_value>
       <required>False</required>
@@ -132,8 +131,8 @@
   </record>
   <record name="euphorie.allow_user_defined_risks">
     <field type="plone.registry.field.Bool">
-      <title i18n:translate="">Euphorie allow user defined risks</title>
-      <description i18n:translate="">If checked user defined risks will be allowed</description>
+      <title>Euphorie allow user defined risks</title>
+      <description>If checked user defined risks will be allowed</description>
       <default>False</default>
       <missing_value>False</missing_value>
       <required>False</required>
@@ -141,7 +140,7 @@
   </record>
   <record name="euphorie.default_country">
     <field type="plone.registry.field.TextLine">
-      <title i18n:translate="">Euphorie default country</title>
+      <title>Euphorie default country</title>
       <default />
       <missing_value />
       <required>False</required>
@@ -149,7 +148,7 @@
   </record>
   <record name="euphorie.extra_text_identification">
     <field type="plone.registry.field.Text">
-      <title i18n:translate="">Euphorie extra text identification</title>
+      <title>Euphorie extra text identification</title>
       <default />
       <missing_value />
       <required>False</required>
@@ -157,7 +156,7 @@
   </record>
   <record name="euphorie.library">
     <field type="plone.registry.field.Text">
-      <title i18n:translate="">Euphorie library</title>
+      <title>Euphorie library</title>
       <default />
       <missing_value />
       <required>False</required>
@@ -165,15 +164,15 @@
   </record>
   <record name="euphorie.max_login_attempts">
     <field type="plone.registry.field.Int">
-      <title i18n:translate="">Euphorie max login attempts</title>
+      <title>Euphorie max login attempts</title>
       <default>0</default>
       <missing_value>0</missing_value>
     </field>
   </record>
   <record name="euphorie.terms_and_conditions">
     <field type="plone.registry.field.Bool">
-      <title i18n:translate="">Euphorie terms and condition</title>
-      <description i18n:translate="">Should the user accept the terms and conditions</description>
+      <title>Euphorie terms and condition</title>
+      <description>Should the user accept the terms and conditions</description>
       <default>False</default>
       <missing_value>False</missing_value>
       <required>False</required>
@@ -181,7 +180,7 @@
   </record>
   <record name="euphorie.use_archive_feature">
     <field type="plone.registry.field.Bool">
-      <title i18n:translate="">use_archive_feature</title>
+      <title>use archive feature</title>
       <default>False</default>
       <missing_value>False</missing_value>
       <required>False</required>
@@ -189,7 +188,7 @@
   </record>
   <record name="euphorie.use_clone_feature">
     <field type="plone.registry.field.Bool">
-      <title i18n:translate="">use_clone_feature</title>
+      <title>use clone feature</title>
       <default>False</default>
       <missing_value>False</missing_value>
       <required>False</required>
@@ -197,8 +196,8 @@
   </record>
   <record name="euphorie.use_existing_measures">
     <field type="plone.registry.field.Bool">
-      <title i18n:translate="">Euphorie use existing measures</title>
-      <description i18n:translate="">If checked existing measures will be used</description>
+      <title>Euphorie use existing measures</title>
+      <description>If checked existing measures will be used</description>
       <default>False</default>
       <missing_value>False</missing_value>
       <required>False</required>
@@ -206,7 +205,7 @@
   </record>
   <record name="euphorie.use_involve_phase">
     <field type="plone.registry.field.Bool">
-      <title i18n:translate="">use_involve_phase</title>
+      <title>use involve phase</title>
       <default>False</default>
       <missing_value>False</missing_value>
       <required>False</required>
@@ -214,8 +213,8 @@
   </record>
   <record name="euphorie.use_integrated_action_plan">
     <field type="plone.registry.field.Bool">
-      <title i18n:translate="">Euphorie use integrated action plan</title>
-      <description i18n:translate="">If checked the integrated action plan will be used</description>
+      <title>Euphorie use integrated action plan</title>
+      <description>If checked the integrated action plan will be used</description>
       <default>False</default>
       <missing_value>False</missing_value>
       <required>False</required>
@@ -223,7 +222,7 @@
   </record>
   <record name="euphorie.use_publication_feature">
     <field type="plone.registry.field.Bool">
-      <title i18n:translate="">use_publication_feature</title>
+      <title>use publication feature</title>
       <default>False</default>
       <missing_value>False</missing_value>
       <required>False</required>
@@ -231,7 +230,7 @@
   </record>
   <record name="euphorie.use_training_module">
     <field type="plone.registry.field.Bool">
-      <title i18n:translate="">use_training_module</title>
+      <title>use training module</title>
       <default>False</default>
       <missing_value>False</missing_value>
       <required>False</required>
@@ -239,8 +238,8 @@
   </record>
   <record name="plonetheme.nuplone.appconfigtile_navigation">
     <field type="plone.registry.field.Text">
-      <title i18n:translate="">Configure the navigation tile</title>
-      <description i18n:translate="">Some json to configure the navigation tile</description>
+      <title>Configure the navigation tile</title>
+      <description>Some json to configure the navigation tile</description>
       <value_type type="plone.registry.field.TextLine" />
       <default>{
   "tiles": "\nnavtree [context.portal_type in ['euphorie.profilequestion', 'euphorie.module', 'euphorie.risk', 'euphorie.solution', 'euphorie.survey', 'euphorie.surveygroup', 'euphorie.folder', 'euphorie.documentation', 'euphorie.help', 'euphorie.page'] ]\neuphorie.usermgmt.navtree [context.portal_type=='euphorie.country' and request.getURL().endswith('@@manage-users')]",
@@ -254,8 +253,8 @@
   </record>
   <record name="plonetheme.nuplone.appconfigtile_actions">
     <field type="plone.registry.field.Text">
-      <title i18n:translate="">Configure the actions tile</title>
-      <description i18n:translate="">Some json to configure the actions tile</description>
+      <title>Configure the actions tile</title>
+      <description>Some json to configure the actions tile</description>
       <value_type type="plone.registry.field.TextLine" />
       <default>{
   "tiles": "\neuphorie.search\neuphorie.versions [view_type==\"view\" and context.portal_type in ['euphorie.module', 'euphorie.risk', 'euphorie.solution', 'euphorie.survey', 'euphorie.surveygroup'] ]\nlanguage",
@@ -273,8 +272,8 @@
   </record>
   <record name="plonetheme.nuplone.appconfigtile_scripts">
     <field type="plone.registry.field.Text">
-      <title i18n:translate="">Configure the scripts tile</title>
-      <description i18n:translate="">Some json to configure the scripts tile</description>
+      <title>Configure the scripts tile</title>
+      <description>Some json to configure the scripts tile</description>
       <value_type type="plone.registry.field.TextLine" />
       <default>{
   "tiles": "\neuphorie.scripts",
@@ -288,8 +287,8 @@
   </record>
   <record name="plonetheme.nuplone.appconfigtile_client-analytics">
     <field type="plone.registry.field.Text">
-      <title i18n:translate="">Configure the client-analytics tile</title>
-      <description i18n:translate="">Some json to configure the client-analytics tile</description>
+      <title>Configure the client-analytics tile</title>
+      <description>Some json to configure the client-analytics tile</description>
       <value_type type="plone.registry.field.TextLine" />
       <default>{"type": "analytics"}</default>
       <missing_value>{"type": "analytics"}</missing_value>

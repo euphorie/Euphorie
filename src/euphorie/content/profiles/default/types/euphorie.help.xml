@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <object name="euphorie.help" meta_type="Dexterity FTI"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-   i18n:domain="euphorie">
+   >
 
  <!-- Basic information -->
- <property name="title" i18n:translate="">Online help</property>
- <property name="description" i18n:translate="">The help text for the client.</property>
+ <property name="title">Online help</property>
+ <property name="description">The help text for the client.</property>
  <property name="content_icon">document_icon.gif</property>
  <property name="global_allow">False</property>
  <property name="allow_discussion">False</property>

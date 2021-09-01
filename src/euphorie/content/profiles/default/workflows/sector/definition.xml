@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <dc-workflow workflow_id="sector"
              xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-             i18n:domain="euphorie"
              title="Sector workflow"
              description="One-state workflow for sector objects, giving edit access to its contents to the sector user."
              state_variable="review_state" initial_state="hidden"
-             i18n:attributes="title; description">
+             >
  <permission>Euphorie: Add new RIE Content</permission>
  <permission>Access contents information</permission>
  <permission>Add portal content</permission>
@@ -13,8 +12,8 @@
  <permission>View</permission>
  <permission>Euphorie: Publish a survey</permission>
 
- <state state_id="hidden" title="Active" i18n:attributes="title">
-   <description i18n:translate="">
+ <state state_id="hidden" title="Active" >
+   <description>
      The One And Only state
    </description>
   <permission-map name="Euphorie: Add new RIE Content"

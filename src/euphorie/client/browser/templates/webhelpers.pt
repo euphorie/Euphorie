@@ -724,7 +724,7 @@
           <p class="functions">
             <a class="icon-trash pat-forward"
                href="#pick-sm-${solution/id}"
-               title="Remove this measure"
+               title="Delete this measure"
                data-pat-forward="selector: #sm-${solution/id}"
                i18n:attributes="title label_remove_measure"
                i18n:translate=""

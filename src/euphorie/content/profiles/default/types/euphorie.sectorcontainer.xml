@@ -2,12 +2,11 @@
 <object name="euphorie.sectorcontainer"
    meta_type="Dexterity FTI"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-   i18n:domain="euphorie">
+   >
 
  <!-- Basic information -->
- <property name="title" i18n:translate="">Sector Folder</property>
- <property name="description"
-     i18n:translate="">A folder which can contain sectors.</property>
+ <property name="title">Sector Folder</property>
+ <property name="description">A folder which can contain sectors.</property>
  <property name="content_icon">folder_icon.gif</property>
  <property name="global_allow">True</property>
  <property name="allow_discussion">False</property>

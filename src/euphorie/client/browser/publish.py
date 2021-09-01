@@ -359,7 +359,7 @@ class PreviewSurvey(form.Form):
         self.publish()
         IStatusMessage(self.request).add(
             _(
-                u"no_translate_link_published_success",
+                u"no_translate_link_preview_success",
                 default=(
                     u'${text_message_preview_success}: <a href="${url}">${url}</a>.'
                 ),
