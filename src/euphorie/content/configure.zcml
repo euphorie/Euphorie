@@ -3,7 +3,7 @@
            xmlns:five="http://namespaces.zope.org/five"
            xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
            xmlns:z3c="http://namespaces.zope.org/z3c"
-           i18n_domain="euphorie">
+           >
 
     <include package="ftw.upgrade" />
     <include package="plone.app.z3cform" />
