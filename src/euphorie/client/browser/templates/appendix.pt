@@ -22,7 +22,7 @@
       <a href="http://osha.europa.eu"
          target="_blank"
          i18n:translate="appendix_produced_by"
-      >EU-OSHA</a>
+      >Produced by EU-OSHA.</a>
       <a href="${webhelpers/about_url}"
          i18n:translate="appendix_about"
       >About</a>
