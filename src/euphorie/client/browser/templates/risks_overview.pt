@@ -48,6 +48,10 @@ dl.status dt a {
     display: block;
     font-size: 150%;
 }
+dl.status.report dt a::after {
+	content: none;
+}
+
 dl.status dd {
     margin-left: 0;
     position: relative;
@@ -184,7 +188,7 @@ ul.title {margin-bottom:3em;}
           </li>
         </ul>
 
-        <dl class="status">
+        <dl class="status report">
           <tal:loop repeat="module status">
             <tal:defs define="
                         num_ok python:module.get('ok', 0);
