@@ -319,6 +319,10 @@
 	msgid "Authored by…"
 	msgstr "Authored by…"
 
+	#| msgid label_author
+	msgid "Author"
+	msgstr "Author"
+
 	#| msgid label_available_tools
 	msgid "Available OiRA tools"
 	msgstr "Available OiRA tools"

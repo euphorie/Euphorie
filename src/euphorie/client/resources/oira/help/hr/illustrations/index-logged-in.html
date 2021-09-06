@@ -48,7 +48,11 @@
 
 		<link rel="icon" type="image/png" href="../../../favicon/apple-touch-icon.png" />
 	</head>
-	<body id="body" data-page-layout="dashboard" data-layout-layout="homescreen" class=" osh-off osc-off osc-size-normal osc-s-off ">
+	<body 
+		id="body" 
+		data-page-layout="dashboard" 
+		data-layout-layout="homescreen" 
+		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div id="main" class="sidebar-off">
 	<header 
@@ -130,7 +134,7 @@
             class="toolbar-section navigation"
             id="assessments-toolbar-navigation">
             <nav 
-    class="toolbar-subnav pat-button-cluster"
+    class="pat-tabs pat-button-cluster"
     id="homescreen-sections">
     <a 
         href="/index-logged-in.html" 
@@ -152,6 +156,10 @@
         href="/certificates/"
         data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
         class="pat-inject">Certificates</a>
+    <a 
+        href="/third-parties/"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+        class="pat-inject">Contractors</a>
 </nav>
         </div>
     </div>
@@ -242,10 +250,10 @@
                 </p>
             </article>
             <ul 
-                class="ras">
+                class="data-matrix hd">
                 
                     <li 
-                        class="ra "
+                        class="row "
                         >
                         <h4 
                             class="name field">
@@ -268,7 +276,30 @@
                     </li>
                 
                     <li 
-                        class="ra "
+                        class="row "
+                        >
+                        <h4 
+                            class="name field">
+                            <a 
+                                href="ass-commercial-guarding-leicester#content" 
+                                data-pat-inject="source: #content; target: #content; && source: #osc; target: #osc; history: record;" 
+                                class="pat-inject follow">Commercial guarding, Leicester</a>
+                        </h4>
+                        <p 
+                            class="date field">
+                            <span class="last-saved">Last saved <time class=" pat-display-time last-saved" data-pat-display-time="from-now: true" datetime="2020-01-25T08:00Z">19-07-2018</time></span>
+                        </p>
+                        <p 
+                            class="field icons">
+                            <a 
+                                href="/feedback/ass-menu-compact#more-menu" 
+                                class="icon more-menu iconified icon-ellipsis pat-tooltip inactive" 
+                                data-pat-tooltip="source: ajax; position-list: tr">More</a>
+                        </p>
+                    </li>
+                
+                    <li 
+                        class="row "
                         >
                         <h4 
                             class="name field">
@@ -291,7 +322,7 @@
                     </li>
                 
                     <li 
-                        class="ra "
+                        class="row "
                         >
                         <h4 
                             class="name field">
@@ -314,7 +345,7 @@
                     </li>
                 
                     <li 
-                        class="ra "
+                        class="row "
                         >
                         <h4 
                             class="name field">
@@ -336,39 +367,17 @@
                         </p>
                     </li>
                 
-                    <li 
-                        class="ra "
-                        >
-                        <h4 
-                            class="name field">
-                            <a 
-                                href="ass-guarding-at-barcelona-building#content" 
-                                data-pat-inject="source: #content; target: #content; && source: #osc; target: #osc; history: record;" 
-                                class="pat-inject follow">Guarding at Barcelona building</a>
-                        </h4>
-                        <p 
-                            class="date field">
-                            <span class="last-saved">Last saved <time class=" pat-display-time last-saved" data-pat-display-time="from-now: true" datetime="2020-01-25T08:00Z">19-07-2018</time></span>
-                        </p>
-                        <p 
-                            class="field icons">
-                            <a 
-                                href="/feedback/ass-menu-compact#more-menu" 
-                                class="icon more-menu iconified icon-ellipsis pat-tooltip inactive" 
-                                data-pat-tooltip="source: ajax; position-list: tr">More</a>
-                        </p>
-                    </li>
-                
             </ul>
         </div>
         <div 
             class="portlet-footer">
             <a 
-                href="/tools#content" 
+                href="/assessments#content"
                 class="pat-inject more-link">More risk assessments…</a>
         </div>
     </div>
 </div>
+
                     
                 
                     
@@ -512,15 +521,21 @@
 			</h2>
 	    
 	    <!-- <a href="/new-session.html#document-content" id="button-new-session-quick" data-pat-modal="class: large" class="no-label pat-modal iconified icon-plus" title="Start a new assessment">New</a> -->
-        <div class="pat-collapsible context-menu closed align-right" data-pat-collapsible="close-trigger: *:not(#more-menu)" id="more-menu">
-            <strong class="context-menu-label iconified more-menu-trigger">Više</strong>
-            <ul class="menu">
+        <div 
+        	class="pat-collapsible pat-context-menu closed align-right" 
+        	data-pat-collapsible="close-trigger: *:not(#more-menu)" 
+        	id="more-menu">
+            <strong 
+            	class="context-menu-label iconified more-menu-trigger">Više</strong>
+            <ul 
+            	class="menu">
             	<li>
-                    <a href="/new-session.html#document-content"
-                       data-pat-modal="class: large"
-                       class="no-label pat-modal icon-plus pat-switch"
-                       data-pat-switch="body osc-s-* osc-s-off"
-                       title=""></a>
+                    <a 
+                    	href="/new-session.html#document-content"
+                        data-pat-modal="class: medium panel"
+                        class="no-label pat-modal icon-plus pat-switch"
+                        data-pat-switch="body osc-s-* osc-s-off"
+                        title=""></a>
                 </li>
                 <li>
                     <label class="pat-checklist"><input type="checkbox" name="archived" /> </label>

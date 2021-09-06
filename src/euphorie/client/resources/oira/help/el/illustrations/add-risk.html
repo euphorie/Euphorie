@@ -48,7 +48,11 @@
 
 		<link rel="icon" type="image/png" href="../../../favicon/apple-touch-icon.png" />
 	</head>
-	<body id="body" data-page-layout="risk-other" data-layout-layout="risk-assessment" class=" osh-off osc-off osc-size-normal osc-s-off ">
+	<body 
+		id="body" 
+		data-page-layout="risk-other" 
+		data-layout-layout="risk-assessment" 
+		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div id="main" class="sidebar-off">
 	<header 
@@ -239,6 +243,18 @@
 
               
 
+                
+
+              
+
+                
+
+              
+
+                
+
+              
+
               <li id="other-risks" class="">
                 <a href="/ass-commercial-guarding-leicester/items/other-risks"
                     class="pat-switch pat-inject"
@@ -293,6 +309,12 @@
                             The entrance floor is often wet
                           </a>
                         </li>
+                      
+                    
+                      
+                    
+                      
+                    
                       
                     
                       
@@ -386,17 +408,23 @@
 	method="get"
 	action="/feedback/simulated-add-risk-feedback#main-content"
 	data-pat-inject="history: record;"
-	class="pat-inject">
+	class="pat-inject panel-style">
 	<div
 		id="content-pane">
 
-		<nav class="page-actions">
-			<a
-		 		href="/feedback/confirmation-delete-risk.html#document-content"
-		 	   	class="iconified icon-trash pat-modal"
-		 	   	data-pat-inject="source: #document-content; target: #document-content"
-		 	   	title=""></a>
-		</nav>
+		<div
+		    class="pat-toolbar">
+	        <div 
+		        class="toolbar-section quick-functions"
+		        id="assessments-toolbar-quick-functions"> 
+				<a
+			 		href="/feedback/confirmation-delete-risk.html#document-content"
+			 	   	class="icon icon-trash pat-modal"
+			 	   	data-pat-inject="source: #document-content; target: #document-content"
+	                data-pat-modal="class: panel small"
+			 	   	title=""></a>
+	  		</div>
+	  	</div>
 
 		<fieldset
 			class="content-mirror risk-title pat-inject pat-autosubmit pat-subform"
@@ -442,48 +470,51 @@
 		</fieldset>
 		
 
-
-
 		
-		<fieldset
-			class="evaluation pat-well notice vertical pat-depends"
-			data-pat-depends="condition: answer=no; transition: slide">
-			<p
-				class="problem-description">
-				<strong></strong>
-			</p>
-			<fieldset class="pat-checklist radio">
-				<legend>Select the priority of this risk</legend>
-				<label>
-					<input
-						type="radio"
-						name="chance" /> Low</label>
-				<label>
-					<input
-						type="radio"
-						name="chance" /> Medium</label>
-				<label>
-					<input
-						type="radio"
-						name="chance" /> High</label>
+			<fieldset
+				class="evaluation pat-well notice vertical pat-depends"
+				data-pat-depends="condition: answer=no; transition: slide">
+				<p
+					class="problem-description">
+					<strong></strong>
+				</p>
+				<fieldset class="pat-checklist radio">
+					<legend>Select the priority of this risk</legend>
+					<label>
+						<input
+							type="radio"
+							name="chance" /> Low</label>
+					<label>
+						<input
+							type="radio"
+							name="chance" /> Medium</label>
+					<label>
+						<input
+							type="radio"
+							name="chance" /> High</label>
+				</fieldset>
 			</fieldset>
-		</fieldset>
 		
 
-		<fieldset
-			class="pat-collapsible open vertical risk-module">
-			<legend>
+		<div
+			class="pat-collapsible open risk-module form-panel">
+			<h3
+				class="form-separation-header">
 				Πληροφορίες
-			</legend>
+			</h3>
 	        <fieldset
-	        	class="row" >
+	        	class="vertical row" >
 	            <label
 	            	id="image-upload"
 	            	class="four columns image-uploader pat-subform pat-autosubmit pat-inject discrete-injection"
-	            	data-pat-inject="url: /tool/2014-03-08-powerpoints-are-exposed#image-upload" title="Upload an image that illustrates this risk.">
+	            	data-pat-inject="url: /ass-private-security-grafton-street/items/2014-05-01-powerpoints-are-exposed#image-upload" 
+	            	title="Upload an image that illustrates this risk.">
 	                
-	                <span class="pat-button upload-button">Φόρτωση  εικόνας</span>label_upload_image
-	                <input type="file" name="illustration" />
+	                <span 
+	                	class="pat-button upload-button">Φόρτωση  εικόνας</span>
+	                <input 
+	                	type="file" 
+	                	name="illustration" />
 	            </label>
 	            <label
 	            	class="eight columns">
@@ -493,35 +524,40 @@
 	                	placeholder="Δώστε ορισμένες περαιτέρω πληροφορίες σχετικά με τον εν λόγω κίνδυνο."></textarea>
 	            </label>
 	        </fieldset>
-		</fieldset>
+		</div>
 
 		
 
-		<fieldset
-			class="pat-collapsible closed risk-module">
-			<legend>
+		<div
+			class="form-panel pat-collapsible closed risk-module">
+			<h3
+				class="form-separation-header">
 				Σχόλια / Υφιστάμενα μέτρα (αν υπάρχουν)
-			</legend>
+			</h3>
 			<fieldset
 				class="vertical">
-				<textarea
-					id="comments-field"
-					name="comments"
-					placeholder="Παρακαλώ υποβάλλετε στο πεδίο αυτό τυχόν σχόλια σχετικά με την παραπάνω ερώτηση. Τα σχόλια αυτά θα χρησιμοποιηθούν στο Σχέδιο Δράσης."
-					cols="70"
-					rows="3"
-					class="span-15"></textarea>
+				<label>
+					<textarea
+						id="comments-field"
+						name="comments"
+						placeholder="Παρακαλώ υποβάλλετε στο πεδίο αυτό τυχόν σχόλια σχετικά με την παραπάνω ερώτηση. Τα σχόλια αυτά θα χρησιμοποιηθούν στο Σχέδιο Δράσης."
+						cols="70"
+						rows="3"
+						class="span-15"></textarea>
+				</label>
 			</fieldset>
-		</fieldset>
+		</div>
 
-		<article hidden id="full-content">
+		<article 
+			hidden 
+			id="full-content">
 			
 		</article>
 
 	</div>
 
 	<p
-		class="button-bar"
+		class="button-bar pat-bumper"
 		id="nav-bar">
 		<button
 			type="submit"
@@ -577,15 +613,21 @@
 			</h2>
 	    
 	    <!-- <a href="/new-session.html#document-content" id="button-new-session-quick" data-pat-modal="class: large" class="no-label pat-modal iconified icon-plus" title="Start a new assessment">New</a> -->
-        <div class="pat-collapsible context-menu closed align-right" data-pat-collapsible="close-trigger: *:not(#more-menu)" id="more-menu">
-            <strong class="context-menu-label iconified more-menu-trigger"></strong>
-            <ul class="menu">
+        <div 
+        	class="pat-collapsible pat-context-menu closed align-right" 
+        	data-pat-collapsible="close-trigger: *:not(#more-menu)" 
+        	id="more-menu">
+            <strong 
+            	class="context-menu-label iconified more-menu-trigger"></strong>
+            <ul 
+            	class="menu">
             	<li>
-                    <a href="/new-session.html#document-content"
-                       data-pat-modal="class: large"
-                       class="no-label pat-modal icon-plus pat-switch"
-                       data-pat-switch="body osc-s-* osc-s-off"
-                       title=""></a>
+                    <a 
+                    	href="/new-session.html#document-content"
+                        data-pat-modal="class: medium panel"
+                        class="no-label pat-modal icon-plus pat-switch"
+                        data-pat-switch="body osc-s-* osc-s-off"
+                        title=""></a>
                 </li>
                 <li>
                     <label class="pat-checklist"><input type="checkbox" name="archived" /> </label>

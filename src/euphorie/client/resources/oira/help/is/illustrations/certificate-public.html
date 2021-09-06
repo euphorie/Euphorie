@@ -48,7 +48,11 @@
 
 		<link rel="icon" type="image/png" href="../../../favicon/apple-touch-icon.png" />
 	</head>
-	<body id="body" data-page-layout="certificate-public" data-layout-layout="generic" class=" osh-off osc-off osc-size-normal osc-s-off ">
+	<body 
+		id="body" 
+		data-page-layout="certificate-public" 
+		data-layout-layout="generic" 
+		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div id="main" class="sidebar-off">
 	<header 
@@ -102,13 +106,22 @@
 		
 
 		
-<div id="main-content">
-	<div id="content-pane">
-		<div class="container">
-			<div class="row">
-				<div class="seven columns">
-					<a href="https://oiraproject.eu/en/certificates/1238498789" id="certificate" target="_blank" class="certificate-container">
-                    
+<div 
+	id="main-content">
+	<div 
+		id="content-pane">
+		<div 
+			class="container">
+			<div 
+				class="row">
+				<div 
+					class="seven columns">
+					<a 
+						href="https://oiraproject.eu/en/certificates/1238498789" 
+						id="certificate" 
+						target="_blank" 
+						class="certificate-container">
+                    	
 
 <article class="style-8 type-public certificate pat-auto-scale">
     <img class="certificate-backdrop" src="../../../certificates/certificate-8.svg">
@@ -121,7 +134,8 @@
 </article>
 					</a>
 				</div>
-				<div class="five columns">
+				<div 
+					class="five columns">
 					<!-- <article class="pat-rich">
 						<p>
 							Congratulations with earning the certificate for <strong>“Buckets and broomsticks”</strong>.
@@ -142,14 +156,14 @@
 									class="pat-subform pat-inject"
 									data-pat-inject="source: #certificate; target: #certificate;">
 									
-									<input type="text" name="" required value="Sacrebleu & Fils European Trucking Ltd."  placeholder="Your company name" />
+									<input type="text" name="title" required value="Sacrebleu & Fils European Trucking Ltd."  placeholder="Your company name" />
 								</label>
 								<label>
 									Departement/Region
 									<input type="text" name="" />
 								</label>
 								<label>
-									SIRET number
+									Company identification number
 									<input type="text" name="" />
 								</label>
 								<label>
@@ -170,9 +184,10 @@
 								<div
 									class="button-bar">
 									<button
-										class="default pat-button"
+										class="default pat-button disabled pat-depends"
 										type="submit"
 										name="publish"
+										data-pat-depends="condition: title; action: enable"
 										formaction="/certificate-public-published">
 										Gefa út
 									</button>
@@ -197,6 +212,7 @@
 	</div>
 </div>
 
+
 	</div>
 </div>
 
@@ -215,15 +231,21 @@
 			</h2>
 	    
 	    <!-- <a href="/new-session.html#document-content" id="button-new-session-quick" data-pat-modal="class: large" class="no-label pat-modal iconified icon-plus" title="Start a new assessment">New</a> -->
-        <div class="pat-collapsible context-menu closed align-right" data-pat-collapsible="close-trigger: *:not(#more-menu)" id="more-menu">
-            <strong class="context-menu-label iconified more-menu-trigger">Meira</strong>
-            <ul class="menu">
+        <div 
+        	class="pat-collapsible pat-context-menu closed align-right" 
+        	data-pat-collapsible="close-trigger: *:not(#more-menu)" 
+        	id="more-menu">
+            <strong 
+            	class="context-menu-label iconified more-menu-trigger">Meira</strong>
+            <ul 
+            	class="menu">
             	<li>
-                    <a href="/new-session.html#document-content"
-                       data-pat-modal="class: large"
-                       class="no-label pat-modal icon-plus pat-switch"
-                       data-pat-switch="body osc-s-* osc-s-off"
-                       title=""></a>
+                    <a 
+                    	href="/new-session.html#document-content"
+                        data-pat-modal="class: medium panel"
+                        class="no-label pat-modal icon-plus pat-switch"
+                        data-pat-switch="body osc-s-* osc-s-off"
+                        title=""></a>
                 </li>
                 <li>
                     <label class="pat-checklist"><input type="checkbox" name="archived" /> </label>
