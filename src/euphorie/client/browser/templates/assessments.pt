@@ -41,12 +41,12 @@
              "
         >
           <metal:assessments_list metal:define-macro="assessments_list">
-            <ul class="ras"
+            <ul class="data-matrix"
                 tal:define="
                   show_extra_fields show_extra_fields|python:False;
                 "
             >
-              <li class="ra"
+              <li class="row"
                   tal:repeat="session sessions"
               >
 
