@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-12.0.9 (unreleased)
+12.0.9 (2021-09-08)
 -------------------
 
 - re-do FR report for MSA with three (!) logos
