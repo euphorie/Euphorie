@@ -5,8 +5,8 @@ Changelog
 12.0.9 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- re-do FR report for MSA with three (!) logos
+- Cosmetic changes
 
 12.0.8 (2021-08-21)
 -------------------
