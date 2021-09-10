@@ -1,5 +1,6 @@
 # coding=utf-8
 from euphorie.client import model
+from euphorie.client.browser.login import Login
 from euphorie.client.authentication import EuphorieAccountPlugin
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.tests.database import DatabaseTests
@@ -8,6 +9,7 @@ from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
 from Products.PluggableAuthService.interfaces.plugins import IExtractionPlugin
 from Products.PluggableAuthService.interfaces.plugins import IUserEnumerationPlugin
 from Products.PluggableAuthService.interfaces.plugins import IUserFactoryPlugin
+from unittest import TestCase
 from z3c.saconfig import Session
 from zope.interface import directlyProvides
 from zope.interface.verify import verifyClass
@@ -193,4 +195,37 @@ class EuphorieAccountPluginTests(DatabaseTests):
             response.redirect_url,
             "http://www.example.com/base/@@login?"
             "came_from=http%3A%2F%2Fwww.example.com%2Fclient%3Fone%3D1",
+        )
+
+
+class PasswordPolicyTests(TestCase):
+
+    def setUp(self):
+        self.login_view = Login(None, None)
+
+    def test_password_valid(self):
+        self.assertTrue(self.login_view.is_valid_password("Abcdef123456"))
+
+    def test_password_length(self):
+        self.assertFalse(
+            self.login_view.is_valid_password("Ab12"),
+            "Minimal length not enforced",
+        )
+
+    def test_password_upper_case(self):
+        self.assertFalse(
+            self.login_view.is_valid_password("abcdef123456"),
+            "Upper case letter not enforced",
+        )
+
+    def test_password_lower_case(self):
+        self.assertFalse(
+            self.login_view.is_valid_password("ABCDEF123456"),
+            "Lower case letter not enforced",
+        )
+
+    def test_password_digit(self):
+        self.assertFalse(
+            self.login_view.is_valid_password("ABCDEFghijkl"),
+            "Digit not enforced",
         )

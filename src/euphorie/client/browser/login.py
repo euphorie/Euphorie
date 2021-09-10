@@ -98,6 +98,27 @@ class Login(BrowserView):
         for session in sessions:
             session.account_id = account.id
 
+    def is_valid_password(self, password):
+        if (
+            len(password) < 12
+            or not re.search("[A-Z]", password)
+            or not re.search("[a-z]", password)
+            or not re.search("[1-9]", password)
+        ):
+            return False
+        return True
+
+    def check_password_policy(self, password):
+        if not self.is_valid_password(password):
+            return _(
+                "error_password_policy_violation",
+                default=(
+                    u"The password needs to be at least 12 characters long and "
+                    u"needs to contain at least one lower case letter, one upper "
+                    u"case letter and one digit."
+                )
+            )
+
     def _tryRegistration(self):
         form = self.request.form
         loginname = form.get("email")
@@ -117,6 +138,10 @@ class Login(BrowserView):
             self.errors["password"] = _(
                 "error_password_mismatch", default=u"Passwords do not match"
             )
+        else:
+            policy_error = self.check_password_policy(form.get("password1"))
+            if policy_error:
+                self.errors["password"] = policy_error
         if not form.get("terms"):
             self.errors["terms"] = _(
                 "error_terms_not_accepted",
