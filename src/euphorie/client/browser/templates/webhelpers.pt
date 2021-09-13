@@ -634,10 +634,10 @@
                   id="comment"
                   cols="80"
                   name="comment:utf8:ustring"
-                  placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
+                  placeholder="This comment will be visible in the report. Use it for anything else you might want to write about this risk."
                   rows="3"
                   tal:content="context/comment"
-                  i18n:attributes="placeholder label_comment"
+                  i18n:attributes="placeholder placeholder_comment_field"
         >
         </textarea>
       </fieldset>
