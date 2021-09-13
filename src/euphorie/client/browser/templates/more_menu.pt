@@ -11,9 +11,11 @@
       <ul class="menu"
           tal:define="
             webhelpers here/@@webhelpers;
-            can_archive webhelpers/can_archive_session;
+            session nocall:here/session;
+            has_tree session/hasTree;
+            can_archive python:webhelpers.can_archive_session and has_tree;
             can_delete webhelpers/can_delete_session;
-            can_duplicate webhelpers/can_duplicate_session;
+            can_duplicate python:webhelpers.can_duplicate_session and has_tree;
             archive_url string:${here/absolute_url}/@@confirmation-archive-session#document-content;
             delete_url string:${here/absolute_url}/@@confirmation-delete-session#document-content;
             clone_url string:${here/absolute_url}/@@confirmation-clone-session#document-content;
@@ -46,7 +48,7 @@
           >Duplicate</a>
         </li>
         <li>
-          <a class="pat-modal close-panel icon-chart-line"
+          <a class="pat-modal close-panel icon-chart-line ${python: not has_tree and 'disabled' or ''}"
              href="${here/absolute_url}/@@status#status-report"
              title="Status"
              data-pat-modal="class: medium"
