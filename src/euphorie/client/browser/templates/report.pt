@@ -39,15 +39,17 @@
           <fieldset class="vertical"
                     id="comments"
           >
-            <textarea id="commentsField"
-                      cols="70"
-                      name="comment:utf8:ustring"
-                      placeholder="Please leave any extra comments that should be included in the report in this field."
-                      rows="5"
-                      tal:content="here/session/report_comment"
-                      i18n:attributes="placeholder label_report_comment"
-            >
-            </textarea>
+            <label>
+              <textarea id="commentsField"
+                        cols="70"
+                        name="comment:utf8:ustring"
+                        placeholder="Please leave any extra comments that should be included in the report in this field."
+                        rows="5"
+                        tal:content="here/session/report_comment"
+                        i18n:attributes="placeholder label_report_comment"
+              >
+              </textarea>
+            </label>
           </fieldset>
           <p class="buttonBar">
             <button class="pat-button"
