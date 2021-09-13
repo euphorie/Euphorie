@@ -64,8 +64,8 @@
         </tal:help>
         <br />
         <br />
-        <a class="pat-forward"
-           href="/feedback/osh.html#osh-toggle"
+        <a class="close-panel pat-switch"
+           href="#osh-toggle"
            data-pat-forward="selector: #osh-toggle"
            data-pat-switch="body osh-on osh-off"
            i18n:translate="screen_help_switch_off"
