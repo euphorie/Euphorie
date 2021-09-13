@@ -56,6 +56,9 @@
                      data-pat-inject="source: #content; target: #content; history: record"
                   >
                   ${session/title}
+                    <em tal:condition="not:session/title">
+                      [<tal:i18n i18n:translate="label_missing_title">Title is missing</tal:i18n>]
+                    </em>
                   </a>
                 </h4>
                 <p class="tool field"
