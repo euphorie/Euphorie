@@ -74,7 +74,9 @@ class Node(NodeMixin):
 
 class SurveyTemplatesMixin(object):
     # switch from radio buttons to dropdown above this number of tools
-    tools_threshold = 12
+    # Note: since there's a CSS glitch with displaying radio buttons, we always
+    # show the the dropdown
+    tools_threshold = 0
 
     # Here, we assemble the list of available tools for starting a new session
 
