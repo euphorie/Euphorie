@@ -17,13 +17,13 @@
   >
     <p id="appendix">
       <tal:block repeat="page webhelpers/appendix_documents">
-        <a href="${page/url}">${page/title}</a>
+        <a class="appendix-segment" href="${page/url}">${page/title}</a>
       </tal:block>
-      <a href="http://osha.europa.eu"
+      <a class="appendix-segment" href="http://osha.europa.eu"
          target="_blank"
          i18n:translate="appendix_produced_by"
       >Produced by EU-OSHA.</a>
-      <a href="${webhelpers/about_url}"
+      <a class="appendix-segment" href="${webhelpers/about_url}"
          i18n:translate="appendix_about"
       >About</a>
     </p>
