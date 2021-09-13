@@ -74,8 +74,9 @@
               ></p>
             </div>
           </metal:messages_below_article>
-          <fieldset class="vertical pat-inject pat-subform"
+          <fieldset class="vertical pat-inject pat-subform ${python: 'pat-autosubmit' if view.data_pat_autosubmit else None}"
                     data-pat-inject="url: ; source: #main-content; target: #main-content"
+                    data-pat-autosubmit="${python: view.data_pat_autosubmit if view.data_pat_autosubmit else None}"
                     tal:condition="can_edit"
           >
             <metal:widgets define-slot="widgets">

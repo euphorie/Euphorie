@@ -144,6 +144,7 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
     ignoreContext = True
     schema = IStartFormSchema
     variation_class = "variation-risk-assessment"
+    data_pat_autosubmit = "delay: 2000ms"
 
     @property
     def template(self):
