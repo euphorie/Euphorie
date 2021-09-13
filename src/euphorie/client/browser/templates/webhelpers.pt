@@ -630,16 +630,18 @@
       <fieldset class="vertical"
                 id="comments"
       >
-        <textarea class="span-15"
-                  id="comment"
-                  cols="80"
-                  name="comment:utf8:ustring"
-                  placeholder="This comment will be visible in the report. Use it for anything else you might want to write about this risk."
-                  rows="3"
-                  tal:content="context/comment"
-                  i18n:attributes="placeholder placeholder_comment_field"
-        >
-        </textarea>
+        <label>
+          <textarea class="span-15"
+                    id="comment"
+                    cols="80"
+                    name="comment:utf8:ustring"
+                    placeholder="This comment will be visible in the report. Use it for anything else you might want to write about this risk."
+                    rows="3"
+                    tal:content="context/comment"
+                    i18n:attributes="placeholder placeholder_comment_field"
+          >
+          </textarea>
+        </label>
       </fieldset>
     </fieldset>
   </metal:risk_comments>
