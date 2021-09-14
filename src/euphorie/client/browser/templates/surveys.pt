@@ -18,6 +18,25 @@
              is_anonymous webhelpers/anonymous;
            "
       >
+
+        <article class="pat-rich"
+                 id="screen-intro"
+                 tal:condition="is_anonymous"
+        >
+          <h1 i18n:translate="label_try_oira">
+                Try OiRA
+          </h1>
+          <p i18n:translate="explanation_try_oira">
+                Try any of the tools below anonymously by clicking on the button 'Test session' of the tool of your choice.
+                In a test session you cannot save your work. All progess will be lost unless you
+            <a href="${webhelpers/country_or_client_url}/@@login#registration"
+               i18n:name="label_link_register"
+               i18n:translate="label_link_register"
+            >register</a>.
+          </p>
+
+        </article>
+
         <metal:homescreen_navigation use-macro="here/view/macros/homescreen_navigation">
           <metal:slot fill-slot="view_options">
             <div class="pat-collapsible pat-context-menu closed align-left no-label icon-filter"
@@ -101,7 +120,7 @@
             <div class="toolbar-section quick-functions"
                  id="assessments-toolbar-quick-functions"
             >
-              <label class="pat-toolbar-function pat-toolbar-search-field">
+              <label class="pat-toolbar-function pat-toolbar-search-field ${python:'fixed' if is_anonymous else None}">
                 <input name="SearchableText"
                        placeholder="Search tools"
                        type="search"
