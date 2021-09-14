@@ -48,6 +48,10 @@ class SurveySessionsView(SessionsView):
         session.flush()  # flush so we get a session id
         return survey_session
 
+    def __call__(self):
+        self.set_language()
+        return self.index()
+
 
 class DefaultIntroductionView(BrowserView):
     """

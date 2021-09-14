@@ -15,9 +15,12 @@
              id="tools-toolbar"
              tal:define="
                dashboard_tab webhelpers/get_dashboard_tab;
+               is_anonymous webhelpers/anonymous;
              "
         >
-          <div class="toolbar-navigation-area">
+          <div class="toolbar-navigation-area"
+               tal:condition="not:is_anonymous"
+          >
             <div class="toolbar-section navigation"
                  id="assessments-toolbar-navigation"
             >

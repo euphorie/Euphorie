@@ -311,7 +311,7 @@
   <browser:page
       name="surveys"
       for="euphorie.client.country.IClientCountry"
-      permission="zope2.View"
+      permission="zope2.Public"
       class=".country.Surveys"
       template="templates/surveys.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
@@ -339,7 +339,7 @@
   <browser:page
       name="index_html"
       for="euphorie.content.survey.ISurvey"
-      permission="zope2.View"
+      permission="zope2.Public"
       class=".survey.SurveySessionsView"
       template="templates/tool_sessions.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
@@ -351,14 +351,6 @@
       permission="zope2.View"
       class=".survey.DefaultIntroductionView"
       template="templates/default_introduction.pt"
-      layer="euphorie.client.interfaces.IClientSkinLayer"
-      />
-
-  <browser:page
-      name="oira-tool"
-      for="euphorie.content.survey.ISurvey"
-      permission="zope2.Public"
-      template="templates/oira_tool.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 

@@ -13,7 +13,11 @@
 
   <body>
     <metal:slot fill-slot="content">
-      <div id="content-pane">
+      <div id="content-pane"
+           tal:define="
+             is_anonymous webhelpers/anonymous;
+           "
+      >
         <metal:homescreen_navigation use-macro="here/view/macros/homescreen_navigation">
           <metal:slot fill-slot="view_options">
             <div class="pat-collapsible pat-context-menu closed align-left no-label icon-filter"
@@ -91,8 +95,8 @@
                 </fieldset>
               </fieldset>
             </div>
-
           </metal:slot>
+
           <metal:slot fill-slot="quick_functions">
             <div class="toolbar-section quick-functions"
                  id="assessments-toolbar-quick-functions"
@@ -104,7 +108,6 @@
                 />
               </label>
             </div>
-
           </metal:slot>
         </metal:homescreen_navigation>
 
@@ -168,8 +171,15 @@
                     <a class="default small pat-button pat-inject"
                        href="${here/absolute_url}/${sector/getId}/@@new-session.html?survey=${tool_id}&amp;action=new"
                        data-pat-inject="history: record"
+                       tal:condition="not:is_anonymous"
                        i18n:translate="button_start_session"
                     >Start risk assessment</a>
+                    <a class="default small pat-button pat-inject"
+                       href="${webhelpers/country_or_client_url}/@@tryout?came_from=${tool/absolute_url}"
+                       data-pat-inject="history: record"
+                       tal:condition="is_anonymous"
+                       i18n:translate="button_start_test_session"
+                    >Test session</a>
                     <a class="small pat-button pat-inject"
                        href="${tool/absolute_url}#content"
                        data-pat-inject="history: record"

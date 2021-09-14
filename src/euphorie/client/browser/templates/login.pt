@@ -347,10 +347,8 @@
                 <li tal:condition="not:survey_url"
                     i18n:translate="text__test_session"
                 >
-                  <a class="pat-modal"
-                     href="${base_url}/new-session-test.html?${came_from_param}#document-content"
+                  <a href="${base_url}/@@surveys?${came_from_param}"
                      title="Start a new test session"
-                     data-pat-modal="class: large"
                      i18n:attributes="title tooltip__start_test_session"
                      i18n:name="link__test_session"
                   >Try a test session</a>
