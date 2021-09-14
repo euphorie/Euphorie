@@ -38,7 +38,7 @@
                 accept-charset="UTF-8"
                 action="${request/URL}"
                 method="post"
-                data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #navigation; target: #navigation;"
+                data-pat-inject="history: record; source: #content; target: #content;"
           >
             <fieldset class="vertical"
                       tal:repeat="question view/profile_questions"

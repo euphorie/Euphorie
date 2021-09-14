@@ -366,7 +366,7 @@
                 >
                   <a class="status pat-switch pat-inject"
                      href="${webhelpers/traversed_session/absolute_url}/@@status#content"
-                     data-pat-inject="history: record; source: #content; target: #content &amp;&amp; source: #navigation; target: #navigation"
+                     data-pat-inject="history: record; source: #content; target: #content"
                      data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off"
                      tal:condition="not:disabled"
                   ><tal:translate i18n:translate="navigation_status">Status</tal:translate>

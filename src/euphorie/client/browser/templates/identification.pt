@@ -37,7 +37,7 @@
         <p class="button-bar">
           <a class="pat-button pat-inject"
              href="${view/next_url}"
-             data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #navigation; target: #navigation;"
+             data-pat-inject="history: record; source: #content; target: #content;"
              i18n:translate="label_start_identification"
           >Start Risk Identification</a>
         </p>
