@@ -29,15 +29,17 @@
         <div id="content-pane">
           <metal:call use-macro="webhelpers/macros/toolbar" />
           <article class="pat-rich">
-            <h1 i18n:translate="hader_company_details">You are about to print the report... please complete the optional form and then proceed.</h1>
+            <h1 i18n:translate="header_feedback">Feedback.</h1>
 
             <p class="message error"
                tal:condition="view/status"
                i18n:translate="warn_fix_errors"
             >Please fix the indicated errors.</p>
-            <p i18n:translate="company_details_intro">
-        You are free to provide the information below. This information is meant to improve the tools and the services provided.
-        This data will not appear in the report.
+            <p class="summary"
+               i18n:translate="company_report_intro"
+            >
+        Thank you for using OiRA. Before we go to the report we would kindly like to ask you to give us some feedback via the survey below. This information is meant to improve the tools and the services provided.
+              <strong>This data will not appear in your reports.</strong>
             </p>
             <fieldset class="vertical">
               <label tal:define="
