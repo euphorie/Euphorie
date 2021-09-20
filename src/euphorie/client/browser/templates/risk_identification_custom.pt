@@ -20,7 +20,7 @@
                 "
     >
       <tal:block replace="tile:statusmessages" />
-      <form class="pat-inject"
+      <form class="pat-inject panel-style"
             accept-charset="UTF-8"
             action="${context/absolute_url}/@@identification"
             enctype="multipart/form-data"
@@ -208,56 +208,60 @@
           <!-- END Evaluation -->
 
           <!-- Information -->
-          <fieldset class="pat-collapsible open risk-module">
-            <legend i18n:translate="header_information">
-        Information
-            </legend>
-            <fieldset class="vertical ${python:webhelpers.use_training_module and 'pat-subform pat-inject' or None}"
-                      data-pat-autosubmit="1000ms"
-                      data-pat-inject="${python:webhelpers.use_training_module and 'source: #slide-content-1; target: #slide-content-1' or None}"
+          <div class="pat-collapsible open risk-module form-panel">
+            <h3 class="form-separation-header"
+                i18n:translate="header_information"
             >
-              <label class="four columns image-uploader pat-subform pat-autosubmit pat-inject discrete-injection"
-                     id="image-upload"
-                     title="Upload an image that illustrates this risk."
-                     data-pat-inject="url: ${upload_url}; source: #image-upload::element; target: #image-upload::element &amp;&amp; url: ${upload_url}; source: #messages; target: #messages;"
-                     tal:define="
-                       upload_url string:${here/absolute_url}/@@image-upload;
-                     "
-                     i18n:attributes="title"
+        Information
+            </h3>
+            <div class="panel-content">
+              <fieldset class="vertical row ${python:webhelpers.use_training_module and 'pat-subform pat-inject' or None}"
+                        data-pat-autosubmit="1000ms"
+                        data-pat-inject="${python:webhelpers.use_training_module and 'source: #slide-content-1; target: #slide-content-1' or None}"
               >
-                <tal:has_image condition="here/image_filename">
-                  <img src="${here/absolute_url}/@@image-display/image?name=${here/image_filename}" />
-                  <button class="icon-trash image-upload-remove-button focus"
-                          formaction="${here/absolute_url}/@@image-upload#image-upload"
-                          name="image-remove"
-                          type="submit"
-                          value="1"
-                          i18n:translate=""
-                  >
+                <label class="four columns image-uploader pat-subform pat-autosubmit pat-inject discrete-injection"
+                       id="image-upload"
+                       title="Upload an image that illustrates this risk."
+                       data-pat-inject="url: ${upload_url}; source: #image-upload::element; target: #image-upload::element &amp;&amp; url: ${upload_url}; source: #messages; target: #messages;"
+                       tal:define="
+                         upload_url string:${here/absolute_url}/@@image-upload;
+                       "
+                       i18n:attributes="title"
+                >
+                  <tal:has_image condition="here/image_filename">
+                    <img src="${here/absolute_url}/@@image-display/image?name=${here/image_filename}" />
+                    <button class="icon-trash image-upload-remove-button focus"
+                            formaction="${here/absolute_url}/@@image-upload#image-upload"
+                            name="image-remove"
+                            type="submit"
+                            value="1"
+                            i18n:translate=""
+                    >
               Remove
-                  </button>
-                </tal:has_image>
-                <span class="pat-button upload-button"
-                      i18n:translate=""
-                >Upload image</span>
-                <input accept=".jpg,.jpeg,.png,.gif"
-                       name="image"
-                       type="file"
+                    </button>
+                  </tal:has_image>
+                  <span class="pat-button upload-button"
+                        i18n:translate=""
+                  >Upload image</span>
+                  <input accept=".jpg,.jpeg,.png,.gif"
+                         name="image"
+                         type="file"
+                  />
+                </label>
+                <label class="eight columns">
+                  <textarea name="custom_description"
+                            placeholder="Provide some further information on this risk."
+                            rows="8"
+                            i18n:attributes="placeholder placeholder_custom_risk_description"
+                  >${context/custom_description}</textarea>
+                </label>
+                <input name="handle_custom_description"
+                       type="hidden"
+                       value="1"
                 />
-              </label>
-              <label class="eight columns">
-                <textarea name="custom_description"
-                          placeholder="Provide some further information on this risk."
-                          rows="8"
-                          i18n:attributes="placeholder placeholder_custom_risk_description"
-                >${context/custom_description}</textarea>
-              </label>
-              <input name="handle_custom_description"
-                     type="hidden"
-                     value="1"
-              />
-            </fieldset>
-          </fieldset>
+              </fieldset>
+            </div>
+          </div>
           <!-- END Information -->
 
           <!-- Training -->
