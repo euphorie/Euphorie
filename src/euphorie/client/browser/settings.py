@@ -109,6 +109,14 @@ class AccountSettings(AutoExtensibleForm, form.Form):
         if not data["new_password"]:
             flash(_(u"There were no changes to be saved."), "notice")
             return
+        login_view = api.content.get_view(
+            name="login",
+            context=self.context,
+            request=self.request,
+        )
+        error = login_view.check_password_policy(data["new_password"])
+        if error:
+            raise WidgetActionExecutionError("new_password", Invalid(error))
         if not user.verify_password(data["old_password"]):
             raise WidgetActionExecutionError(
                 "old_password", Invalid(_(u"Invalid password"))
