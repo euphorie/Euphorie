@@ -1,4 +1,12 @@
 
+	#| msgid message_outdated_browser
+	msgid "You are using an outdated web browser. As a result, the site might not function as expected. Please install a newer browser in order to make optimal use of this site."
+	msgstr "You are using an outdated web browser. As a result, the site might not function as expected. Please install a newer browser in order to make optimal use of this site."
+
+	#| msgid message_lesser_experience_no_javascript
+	msgid "You are using an outdated web browser. Because of this you won't have an optimal experience. Please install a newer browser in order to make optimal use of this site."
+	msgstr "You are using an outdated web browser. Because of this you won't have an optimal experience. Please install a newer browser in order to make optimal use of this site."
+
 	#| msgid message_password_requirements
 	msgid "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
 	msgstr "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
@@ -46,6 +54,10 @@
 	#| msgid button_add_custom_risk
 	msgid "Add a custom risk"
 	msgstr "Add a custom risk"
+
+	#| msgid label_close_message
+	msgid "Close this message"
+	msgstr "Close this message"
 
 	#| msgid button_continue
 	msgid "Continue"
