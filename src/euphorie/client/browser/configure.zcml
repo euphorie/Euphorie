@@ -747,6 +747,14 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="browser-warning"
+      for="*"
+      permission="zope2.Public"
+      template="templates/browser-warning.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <!-- help view (obsolete) -->
   <browser:page
       name="help"

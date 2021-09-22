@@ -53,6 +53,7 @@
 
     <script src="${webhelpers/js_url}"
             type="text/javascript"
+            tal:condition="not:webhelpers/is_outdated_browser"
     ></script>
     <script src="${webhelpers/client_url}/++resource++plone.session.refreshsupport.js"
             type="text/javascript"
@@ -427,6 +428,10 @@
     <tal:block replace="tile:client-analytics" />
 
     <metal:splashmessageslot define-slot="splash_message_slot" />
+
+    <metal:browser_warning define-slot="browser_warning_slot">
+      <metal:call use-macro="context/browser-warning/macros/warning" />
+    </metal:browser_warning>
 
     <metal:call use-macro="webhelpers/macros/webstats_js" />
 
