@@ -207,6 +207,10 @@ class DocxCompiler(BaseOfficeCompiler):
                 continue
             par_toc.insert_paragraph_before(heading, style="TOC Heading 1")
 
+        if data.get("comment"):
+            par_toc.insert_paragraph_before("")
+            par_toc.insert_paragraph_before(data["comment"])
+
         survey = self.context.aq_parent
 
         header = self.template.sections[self.sections_offset].header
