@@ -84,6 +84,7 @@
                      type="hidden"
                      value="${here/absolute_url}"
               />
+              <metal:honeypot use-macro="webhelpers/macros/honeypot" />
             </form>
 
             <p class="button-bar"

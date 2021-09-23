@@ -201,6 +201,7 @@
                            type="hidden"
                            value="${tool/absolute_url}"
                     />
+                    <metal:honeypot use-macro="webhelpers/macros/honeypot" />
                     <a class="small pat-button pat-inject"
                        href="${tool/absolute_url}#content"
                        data-pat-inject="history: record"
