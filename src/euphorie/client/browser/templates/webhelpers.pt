@@ -1099,7 +1099,7 @@
   <metal:toolbar define-macro="toolbar">
     <div class="pat-toolbar">
       <metal:actions define-slot="page-actions">
-<!--         <a class="icon-share iconified pat-tooltip"
+        <!--         <a class="icon-share iconified pat-tooltip"
            href="${request/ACTUAL_URL}#sharing-menu"
            title="Share this OiRA-Tool"
            data-pat-tooltip="source: ajax; position-list: tr"
@@ -1129,5 +1129,26 @@
   >
     <span tal:replace="structure webhelpers/get_webstats_js"></span>
   </metal:webstats_js>
+
+  <metal:honeypot define-macro="honeypot">
+    <label class="zavat-chalav-ve-devach">
+            Name
+      <input id="name"
+             autocomplete="off"
+             name="user_name"
+             placeholder="Your name here"
+             type="text"
+      />
+    </label>
+    <label class="zavat-chalav-ve-devach">
+            E-mail
+      <input id="email"
+             autocomplete="off"
+             name="user_email"
+             placeholder="Your e-mail here"
+             type="text"
+      />
+    </label>
+  </metal:honeypot>
 
 </html>
