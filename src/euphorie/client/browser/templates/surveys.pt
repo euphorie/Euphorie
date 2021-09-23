@@ -171,7 +171,7 @@
                     >${country/title}</a>
 
                     <a class="tag pat-inject"
-                       href="${here/absolute_url}/${view/__name__}?country=&Language=${tool_lang}"
+                       href="${here/absolute_url}/${view/__name__}?Language=${tool_lang}"
                        data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
                        tal:define="
                          tool_lang python: tool.Language().split('-')[0];
@@ -186,19 +186,36 @@
                     <p>${python:description.strip()}</p>
                   </section>
 
-                  <p class="button-bar">
+                  <form class="button-bar"
+                        action="${webhelpers/country_or_client_url}/@@tryout#main"
+                        method="post"
+                        data-pat-inject="history: record"
+                        tal:condition="is_anonymous"
+                  >
+                    <button class="default small pat-button"
+                            type="submit"
+                            value="start-ra"
+                            i18n:translate="button_start_test_session"
+                    >Test session</button>
+                    <input name="came_from"
+                           type="hidden"
+                           value="${tool/absolute_url}"
+                    />
+                    <a class="small pat-button pat-inject"
+                       href="${tool/absolute_url}#content"
+                       data-pat-inject="history: record"
+                       i18n:translate="button_information"
+                    >Information</a>
+                  </form>
+
+                  <p class="button-bar"
+                     tal:condition="not:is_anonymous"
+                  >
                     <a class="default small pat-button pat-inject"
                        href="${here/absolute_url}/${sector/getId}/@@new-session.html?survey=${tool_id}&amp;action=new"
                        data-pat-inject="history: record"
-                       tal:condition="not:is_anonymous"
                        i18n:translate="button_start_session"
                     >Start risk assessment</a>
-                    <a class="default small pat-button pat-inject"
-                       href="${webhelpers/country_or_client_url}/@@tryout?came_from=${tool/absolute_url}"
-                       data-pat-inject="history: record"
-                       tal:condition="is_anonymous"
-                       i18n:translate="button_start_test_session"
-                    >Test session</a>
                     <a class="small pat-button pat-inject"
                        href="${tool/absolute_url}#content"
                        data-pat-inject="history: record"
