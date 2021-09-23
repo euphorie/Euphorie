@@ -152,6 +152,10 @@ class Login(BrowserView):
         if self.errors:
             return False
 
+        # Check honeypot fields
+        if form.get("user_name") or form.get("user_email"):
+            return False
+
         session = Session()
         loginname = loginname.lower()
         account = (
