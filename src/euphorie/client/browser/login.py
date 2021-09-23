@@ -152,6 +152,10 @@ class Login(BrowserView):
         if self.errors:
             return False
 
+        # Check honeypot fields
+        if form.get("user_name") or form.get("user_email"):
+            return False
+
         session = Session()
         loginname = loginname.lower()
         account = (
@@ -295,6 +299,11 @@ class Tryout(SessionsView, Login):
         came_from = self.request.form.get("came_from")
         if not came_from:
             return self.request.response.redirect(api.portal.get().absolute_url())
+
+        # Check honeypot fields
+        if self.request.form.get("user_name") or self.request.form.get("user_email"):
+            return self.request.response.redirect(api.portal.get().absolute_url())
+
         account = self.createGuestAccount()
         self.login(account, False)
         client_url = self.request.client.absolute_url()

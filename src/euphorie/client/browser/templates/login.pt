@@ -208,6 +208,8 @@
             The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit.
             </p>
 
+            <metal:honeypot use-macro="webhelpers/macros/honeypot" />
+
             <fieldset class="pat-checklist">
               <label i18n:translate="label__agree_terms_conditions">
                 I agree with the
