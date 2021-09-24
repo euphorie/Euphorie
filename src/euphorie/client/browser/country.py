@@ -416,7 +416,7 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
             [
                 country
                 for country in self.request.client.values()
-                if IClientCountry.providedBy(country)
+                if (IClientCountry.providedBy(country) and len(country.objectIds()))
             ],
             key=lambda co: co.Title(),
         )
