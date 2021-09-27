@@ -54,8 +54,8 @@
                   <tal:i18n i18n:translate="">Country</tal:i18n>
                   <select name="country">
                     <option value="">All countries</option>
-                    <option selected="${python: 'selected' if view.country == country.getId() else None}"
-                            value="${country/getId}"
+                    <option selected="${python: 'selected' if view.country == country['id'] else None}"
+                            value="${country/id}"
                             tal:repeat="country view/countries"
                     >${country/Title}</option>
                   </select>

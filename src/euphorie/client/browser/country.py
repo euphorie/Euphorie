@@ -8,6 +8,7 @@ from euphorie.client.country import IClientCountry
 from euphorie.client.model import get_current_account
 from euphorie.client.sector import IClientSector
 from euphorie.content.survey import ISurvey
+from euphorie.content.utils import getRegionTitle
 from logging import getLogger
 from plone import api
 from plone.i18n.interfaces import ILanguageUtility
@@ -414,11 +415,14 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
     def countries(self):
         return sorted(
             [
-                country
+                {
+                    "id": country.getId(),
+                    "Title": getRegionTitle(self.request, country.getId()),
+                }
                 for country in self.request.client.values()
                 if (IClientCountry.providedBy(country) and len(country.objectIds()))
             ],
-            key=lambda co: co.Title(),
+            key=lambda co: co["Title"],
         )
 
     @property

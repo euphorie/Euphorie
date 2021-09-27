@@ -37,7 +37,7 @@ TAG = re.compile(u"<.*?>")
 UNWANTED = re.compile(u"(\r|&#13;|\xad)")
 WHITE = re.compile(" +")
 
-REGION_NAMES = {"eu": _(u"European Union")}
+REGION_NAMES = {"eu": _(u"European Union"), "EU": _(u"European Union")}
 
 CUSTOM_COUNTRY_NAMES = {
     # This are areas whose country codes have not stabilized enough
