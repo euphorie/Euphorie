@@ -214,6 +214,8 @@ class EuphorieAccountPlugin(BasePlugin):
         # a case, query like `get(user_id)` matches the 'id' column in Account
         # first. If the loginname that is an integer also corresponds to an id
         # in the Account table, we would find the wrong user.
+        if not IClientSkinLayer.providedBy(self.REQUEST):
+            return None
         if not name:
             return (
                 Session()
