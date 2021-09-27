@@ -11,14 +11,12 @@ from euphorie.content.survey import ISurvey
 from euphorie.content.utils import getRegionTitle
 from logging import getLogger
 from plone import api
-from plone.i18n.interfaces import ILanguageUtility
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
-from zope.component import getUtility
 
 import six
 
@@ -379,6 +377,11 @@ class Assessments(BrowserView):
 
 
 class Surveys(BrowserView, SurveyTemplatesMixin):
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
     def get_filters(self):
         filters = {}
         get = self.request.form.get
@@ -462,25 +465,15 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
             [
                 {
                     "code": code,
-                    "name": self.getNameForLanguageCode(code)
-                    if code
-                    else "All languages",
+                    "name": self.webhelpers.getNameForLanguageCode(code)
                 }
                 for code in api.portal.get_tool("portal_catalog").uniqueValuesFor(
                     "Language"
                 )
+                if code and code != "None"
             ],
-            key=lambda lang: lang["name"] if lang["code"] and lang["name"] else " ",
+            key=lambda lang: lang["code"],
         )
-
-    @property
-    @memoize_contextless
-    def lang_util(self):
-        return getUtility(ILanguageUtility)
-
-    @memoize_contextless
-    def getNameForLanguageCode(self, lang):
-        return self.lang_util.getNameForLanguageCode(lang)
 
 
 class PortletBase(BrowserView):

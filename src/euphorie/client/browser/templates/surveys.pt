@@ -53,7 +53,9 @@
                 <label>
                   <tal:i18n i18n:translate="">Country</tal:i18n>
                   <select name="country">
-                    <option value="">All countries</option>
+                    <option value=""
+                            i18n:translate=""
+                    >All countries</option>
                     <option selected="${python: 'selected' if view.country == country['id'] else None}"
                             value="${country/id}"
                             tal:repeat="country view/countries"
@@ -80,10 +82,13 @@
                 <label>
                   <tal:i18n i18n:translate="label_language">Language</tal:i18n>
                   <select name="Language">
+                    <option value=""
+                            i18n:translate=""
+                    >All languages</option>
                     <option selected="${python: 'selected' if request.get('Language') == lang['code'] else None}"
                             value="${lang/code}"
                             tal:repeat="lang view/languages"
-                    >${lang/name}</option>
+                    >${python:lang['code'].upper()} - ${lang/name}</option>
                   </select>
                 </label>
                 <!--                 <label>
