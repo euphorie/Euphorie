@@ -5,7 +5,7 @@ Changelog
 12.0.10 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- The euphorie user factory plugin is enabled now only in the client
 
 
 12.0.9 (2021-09-08)
