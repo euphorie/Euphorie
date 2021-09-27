@@ -422,7 +422,7 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
                 for country in self.request.client.values()
                 if (IClientCountry.providedBy(country) and len(country.objectIds()))
             ],
-            key=lambda co: co["Title"],
+            key=lambda co: "0" if co["id"] == "eu" else co["Title"],
         )
 
     @property
