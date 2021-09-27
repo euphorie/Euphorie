@@ -86,6 +86,7 @@
         <a class="pat-inject more-link"
            href="${here/absolute_url}/assessments#content"
            data-pat-inject="history: record"
+           i18n:translate="label_more_risk_assessments"
         >More risk assessments&hellip;</a>
       </div>
 

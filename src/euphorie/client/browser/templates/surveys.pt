@@ -124,6 +124,7 @@
                 <input name="SearchableText"
                        placeholder="Search tools"
                        type="search"
+                       i18n:attributes="placeholder label_search_tools"
                 />
               </label>
             </div>

@@ -75,7 +75,7 @@
                           toLocalizedTime nocall: context/@@plone/toLocalizedTime;
                         "
                   >
-                    <tal:i18n i18n:translate="">Started</tal:i18n>
+                    <tal:i18n i18n:translate="label_started">Started</tal:i18n>
                     <time datetime="${value}"
                           tal:define="
                             value session/created/isoformat|nothing;
