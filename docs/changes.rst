@@ -6,6 +6,7 @@ Changelog
 --------------------
 
 - The euphorie user factory plugin is enabled now only in the client
+- If the user has entered a general comment, make sure it appears in the report.
 
 
 12.0.9 (2021-09-08)
