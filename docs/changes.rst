@@ -5,8 +5,7 @@ Changelog
 12.0.11 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Translation fixed for LT
 
 12.0.10 (2021-09-29)
 --------------------
