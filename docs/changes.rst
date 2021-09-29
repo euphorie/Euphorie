@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-12.0.11 (unreleased)
+12.0.11 (2021-09-29)
 --------------------
 
 - Translation fixed for LT
