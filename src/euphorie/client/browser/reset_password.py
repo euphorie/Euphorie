@@ -90,7 +90,7 @@ class ResetPasswordRequest(BaseForm):
         ),
     )
     button_label = _(
-        u"label__send_password_reminder",
+        u"label_send_password_reminder",
         default="Send password reminder",
     )
 

@@ -92,7 +92,7 @@
                          name="SearchableText"
                          placeholder="Search"
                          type="search"
-                         i18n:attributes="placeholder osc_search_placeholder"
+                         i18n:attributes="placeholder header_search"
                   />
                 </label>
                 <fieldset class="advanced-search">

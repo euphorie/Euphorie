@@ -121,7 +121,7 @@
                 </li>
                 <li>
                   <a href="#more-information"
-                     i18n:translate="label__learn_more_about_oira"
+                     i18n:translate="label_learn_more_about_oira"
                   >Learn more about OiRA</a>
                 </li>
               </ul>
@@ -203,7 +203,7 @@
             </label>
 
             <p class="pat-message info"
-               i18n:translate="help__password_requirements"
+               i18n:translate="help_password_requirements"
             >
             The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit.
             </p>
@@ -211,15 +211,17 @@
             <metal:honeypot use-macro="webhelpers/macros/honeypot" />
 
             <fieldset class="pat-checklist">
-              <label i18n:translate="label__agree_terms_conditions">
+              <label>
+                <tal:i18n i18n:translate="label_agree_terms_conditions">
                 I agree with the
-                <a class="pat-modal"
-                   href="${base_url}/terms-conditions#document-content"
-                   data-pat-modal="class: sheet"
-                   i18n:name="link__terms_conditions"
-                   i18n:translate="label__terms_conditions"
-                >
-                  Terms and conditions</a>
+                  <a class="pat-modal"
+                     href="${base_url}/terms-conditions#document-content"
+                     data-pat-modal="class: sheet"
+                     i18n:name="link_terms_conditions"
+                     i18n:translate="label_terms_conditions"
+                  >
+                    Terms and conditions</a>
+                </tal:i18n>
                 <input name="terms"
                        required
                        type="checkbox"
@@ -234,7 +236,7 @@
             <p class="button-bar">
               <button class="default pat-button"
                       type="submit"
-                      i18n:translate="label__register"
+                      i18n:translate="header_register"
               >Register</button>
             </p>
 
@@ -247,19 +249,20 @@
               <a href="#intro">
                 <h1>OiRA</h1>
               </a>
-              <p class="byline"
-                 i18n:translate=""
-              >Online Interactive Risk Assessment</p>
+              <p class="byline">
+                <tal:i18n i18n:translate="oira_name_line_1">Online Interactive</tal:i18n>
+                <tal:i18n i18n:translate="oira_name_line_2">Risk Assessment</tal:i18n>
+              </p>
             </header>
             <p class="options">
               <a href="#login"
-                 i18n:translate="label__log_in"
+                 i18n:translate="label_login"
               >Log in</a>
               <a href="#registration"
-                 i18n:translate="label__register"
+                 i18n:translate="header_register"
               >Register</a>
               <a href="#more-information"
-                 i18n:translate="label__learn_more"
+                 i18n:translate="label_learn_more"
               >Learn more</a>
             </p>
 
@@ -280,6 +283,7 @@
               <div class="pat-toolbar-section">
                 <a class="pat-back-button"
                    href="#intro"
+                   i18n:translate="home_link"
                 >Home</a>
               </div>
             </div>
@@ -340,31 +344,31 @@
 
 
               <ul class="ctas">
-                <li i18n:translate="text__create_account">
+                <li i18n:translate="text_create_account">
                   <a href="#registration"
-                     i18n:name="link__register"
+                     i18n:name="link_register"
                   >Register</a>
-                if you like to use OiRA.
+                if you would like to use OiRA.
                 </li>
                 <li tal:condition="not:survey_url"
-                    i18n:translate="text__test_session"
+                    i18n:translate="text_test_session"
                 >
                   <a href="${base_url}/@@surveys?${came_from_param}"
                      title="Start a new test session"
-                     i18n:attributes="title tooltip__start_test_session"
-                     i18n:name="link__test_session"
+                     i18n:attributes="title tooltip_start_test_session"
+                     i18n:name="link_test_session"
                   >Try a test session</a>
                 if you only want to taste OiRA.
                 </li>
                 <li tal:condition="survey_url"
-                    i18n:translate="text__test_session"
+                    i18n:translate="text_test_session"
                 >
                   <a class="pat-modal"
                      href="${base_url}/@@tryout?${came_from_param}#document-content"
                      title="Start a new test session"
                      data-pat-modal="class: large"
-                     i18n:attributes="title tooltip__start_test_session"
-                     i18n:name="link__test_session"
+                     i18n:attributes="title tooltip_start_test_session"
+                     i18n:name="link_test_session"
                   >Try a test session</a>
                 if you only want to taste OiRA.
                 </li>
