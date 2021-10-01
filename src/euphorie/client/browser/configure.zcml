@@ -339,8 +339,17 @@
   <browser:page
       name="index_html"
       for="euphorie.content.survey.ISurvey"
-      permission="zope2.Public"
+      permission="zope2.View"
       class=".survey.SurveySessionsView"
+      template="templates/tool_sessions.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="tool-info"
+      for="euphorie.content.survey.ISurvey"
+      permission="zope2.Public"
+      class=".survey.SurveySessionsViewAnon"
       template="templates/tool_sessions.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />

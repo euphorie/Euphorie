@@ -5,6 +5,7 @@ from euphorie.client.model import get_current_account
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
 from z3c.saconfig import Session
+from zExceptions import Unauthorized
 
 
 class SurveySessionsView(SessionsView):
@@ -47,6 +48,15 @@ class SurveySessionsView(SessionsView):
         session.refresh(account)
         session.flush()  # flush so we get a session id
         return survey_session
+
+    def __call__(self):
+        if not self.account:
+            raise Unauthorized()
+        self.set_language()
+        return self.index()
+
+
+class SurveySessionsViewAnon(SurveySessionsView):
 
     def __call__(self):
         self.set_language()
