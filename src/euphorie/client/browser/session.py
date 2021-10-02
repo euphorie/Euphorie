@@ -44,7 +44,11 @@ from zope.i18n import translate
 from zope.lifecycleevent import ObjectModifiedEvent
 
 import re
-import urllib
+
+try:
+    from urllib import quote  # Python 2.X
+except ImportError:
+    from urllib.parse import quote  # Python 3+
 
 
 def sql_clone(obj, skip={}, session=None):
@@ -889,7 +893,7 @@ class Report(SessionMixin, BrowserView):
             if getattr(user, "account_type", None) == config.GUEST_ACCOUNT:
                 url = "%s/@@register?report_blurb=1&came_from=%s" % (
                     self.context.absolute_url(),
-                    urllib.quote(url, ""),
+                    quote(url, ""),
                 )
             return self.request.response.redirect(url)
 
