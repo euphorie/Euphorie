@@ -302,9 +302,23 @@ class EuphorieAccountPlugin(BasePlugin):
         if IBrowserView.providedBy(context):
             context = aq_parent(context)
 
-        login_url = "%s/@@login?%s" % (
-            context.absolute_url(),
-            urlencode(dict(came_from=current_url)),
+        # In case of a deep link (anything deeper than to the country), open
+        # the login form directly.
+        deep_link = False
+        try:
+            webhelpers = api.content.get_view("webhelpers", context, request)
+        except Exception:
+            pass
+        else:
+            path = current_url.split(webhelpers.client_url)[-1]
+            elems = [item for item in path.split("/") if item]
+            if len(elems) > 1:
+                deep_link = True
+
+        login_url = "{url}/@@login?{came_from}{fragment}".format(
+            url=context.absolute_url(),
+            came_from=urlencode(dict(came_from=current_url)),
+            fragment="#login" if deep_link else "",
         )
         response.redirect(login_url, lock=True)
         return True
