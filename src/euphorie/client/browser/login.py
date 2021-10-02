@@ -33,6 +33,7 @@ from zExceptions import Unauthorized
 
 import datetime
 import logging
+import os
 import re
 import six
 
@@ -116,7 +117,7 @@ class Login(BrowserView):
                     u"The password needs to be at least 12 characters long and "
                     u"needs to contain at least one lower case letter, one upper "
                     u"case letter and one digit."
-                )
+                ),
             )
 
     def _tryRegistration(self):
@@ -185,6 +186,13 @@ class Login(BrowserView):
             account.password = form.get("password1")
             account.account_type = config.CONVERTED_ACCOUNT
             account.created = datetime.datetime.now()
+            account.tc_approved = 1
+            msg = _(
+                "An account was created for you with email address ${email}",
+                mapping={"email": loginname},
+            )
+            api.portal.show_message(msg, self.request, "success")
+
         else:
             account = model.Account(
                 loginname=loginname, password=form.get("password1"), tc_approved=1
@@ -279,6 +287,19 @@ class Login(BrowserView):
         )
 
         return self.index()
+
+    def get_image_version(self, name):
+        """" Needed on the reports overview shown to the guest user
+        (view name: @@register_session)
+        """
+        fdir = os.path.join(
+            os.path.dirname(__file__), os.path.join("..", "resources", "media")
+        )
+        lang = getattr(self.request, "LANGUAGE", "en")
+        fname = "{0}_{1}".format(name, lang)
+        if os.path.isfile(os.path.join(fdir, fname + ".png")):
+            return fname
+        return name
 
 
 class Tryout(SessionsView, Login):

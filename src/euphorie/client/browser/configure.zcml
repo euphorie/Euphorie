@@ -582,6 +582,15 @@
       />
 
   <browser:page
+      name="register_session"
+      for="*"
+      permission="zope.Public"
+      class=".login.Login"
+      template="templates/register_session.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="new-session-test.html"
       for="*"
       permission="zope2.View"
