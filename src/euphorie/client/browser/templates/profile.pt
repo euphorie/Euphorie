@@ -187,7 +187,7 @@
             </section>
           </fieldset>
           <p class="buttonBar">
-            <button class="pat-button pat-switch"
+            <button class="pat-button default pat-switch"
                     type="submit"
                     data-pat-switch="selector: body; remove: sidebar-off; add: sidebar-on"
                     i18n:translate="label_save_and_continue"
