@@ -1,5 +1,5 @@
 from AccessControl import ClassSecurityInfo
-from App.class_init import InitializeClass
+from AccessControl.class_init import InitializeClass
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.content import MessageFactory as _
 from Products.PlonePAS.plugins import passwordpolicy
