@@ -1,7 +1,7 @@
 from plonetheme.nuplone.z3cform.interfaces import INuPloneFormLayer
-from zope.component.interfaces import ObjectEvent
 from zope.interface import implementer
 from zope.interface import Interface
+from zope.interface.interfaces import ObjectEvent
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 

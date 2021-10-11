@@ -8,8 +8,8 @@ User account plugins and authentication.
 from . import model
 from .interfaces import IClientSkinLayer
 from AccessControl import ClassSecurityInfo
+from AccessControl.class_init import InitializeClass
 from Acquisition import aq_parent
-from App.class_init import InitializeClass
 from euphorie.content.user import IUser
 from plone import api
 from plone.keyring.interfaces import IKeyManager
