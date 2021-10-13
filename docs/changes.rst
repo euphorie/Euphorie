@@ -5,8 +5,9 @@ Changelog
 12.0.12 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- date-picker: use "medium" output format that gives less problems in translations.
+- upgrade plone to 5.2.5
+- table "group": replace boolean column 'active' with date column 'deactivated'
 
 12.0.11 (2021-09-29)
 --------------------
