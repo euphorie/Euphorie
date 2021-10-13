@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-12.0.12 (unreleased)
+12.0.12 (2021-10-13)
 --------------------
 
 - date-picker: use "medium" output format that gives less problems in translations.
