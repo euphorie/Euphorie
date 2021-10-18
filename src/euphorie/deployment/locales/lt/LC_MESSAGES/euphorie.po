@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-29 08:42+0000\n"
+"POT-Creation-Date: 2021-10-18 13:32+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -252,7 +252,7 @@ msgstr "Ar tikrai norite pašalinti šį seansą? Šis veiksmas yra neatšaukiam
 msgid "Are you sure you want to proceed?"
 msgstr "Ar tikrai norite tęsti?"
 
-#: euphorie/content/behaviour/configure.zcml:33
+#: euphorie/content/behaviour/configure.zcml:29
 msgid "Automatically generate unique ids for content"
 msgstr ""
 
@@ -440,7 +440,7 @@ msgid "Did you like this tool? Share it with your colleagues and friends!"
 msgstr ""
 "Ar Jums patiko ši priemonė? Dalykitės ja su savo kolegomis ir draugais!"
 
-#: euphorie/content/behaviour/configure.zcml:12
+#: euphorie/content/behaviour/configure.zcml:11
 msgid "Dirty tree root"
 msgstr ""
 
@@ -452,7 +452,7 @@ msgstr "Ar turėčiau pasiruošti?"
 msgid "Documentation"
 msgstr "Dokumentai"
 
-#: euphorie/client/browser/session.py:373
+#: euphorie/client/browser/session.py:390
 msgid "Does this happen in multiple places?"
 msgstr "Ar taip atsitinka daugelyje vietų?"
 
@@ -481,7 +481,7 @@ msgid "Download the risks overview"
 msgstr "Atsisiųskite rizikų apžvalgą"
 
 #: euphorie/client/browser/templates/report_landing.pt:40
-#: euphorie/client/browser/templates/start.pt:164
+#: euphorie/client/browser/templates/start.pt:171
 msgid "E-mail"
 msgstr "E. paštas"
 
@@ -509,11 +509,11 @@ msgstr "Redaguoti Profilio klausimą"
 msgid "Email address/account name"
 msgstr "El. pašto adresas / paskyros pavadinimas"
 
-#: euphorie/client/browser/session.py:378
+#: euphorie/client/browser/session.py:395
 msgid "Enter the name of the location"
 msgstr "Nurodykite vietos pavadinimą"
 
-#: euphorie/client/browser/session.py:383
+#: euphorie/client/browser/session.py:400
 msgid "Enter the names of each location"
 msgstr "Nurodykite visų vietų pavadinimus"
 
@@ -621,7 +621,7 @@ msgstr ""
 msgid "Full report (Word document)"
 msgstr ""
 
-#: euphorie/content/behaviour/configure.zcml:26
+#: euphorie/content/behaviour/configure.zcml:23
 msgid "Generated unique ids are only unique within this context"
 msgstr ""
 
@@ -910,7 +910,7 @@ msgstr ""
 msgid "Online help"
 msgstr "Internetinis žinynas"
 
-#: euphorie/client/browser/session.py:1066
+#: euphorie/client/browser/session.py:1083
 #: euphorie/client/browser/templates/measures_overview.pt:63
 #: euphorie/client/browser/templates/report_landing.pt:172
 msgid "Overview of measures"
@@ -920,7 +920,7 @@ msgstr "Priemonių peržiūra"
 msgid "Overview of measures (PDF)"
 msgstr ""
 
-#: euphorie/client/browser/session.py:1056
+#: euphorie/client/browser/session.py:1073
 #: euphorie/client/browser/templates/report_landing.pt:142
 #: euphorie/client/browser/templates/risks_overview.pt:152
 msgid "Overview of risks"
@@ -1067,7 +1067,7 @@ msgstr "Serbijos Respublika"
 msgid "Resources: Legal references and attachments"
 msgstr ""
 
-#: euphorie/content/behaviour/configure.zcml:19
+#: euphorie/content/behaviour/configure.zcml:17
 msgid "Rich text description"
 msgstr ""
 
@@ -1088,7 +1088,7 @@ msgstr "GERAI"
 msgid "Risk present"
 msgstr "Dėmesio"
 
-#: euphorie/content/behaviour/configure.zcml:26
+#: euphorie/content/behaviour/configure.zcml:23
 msgid "Root node for unique id generation"
 msgstr ""
 
@@ -1139,11 +1139,11 @@ msgstr "Ekonominės veiklos informacija ir programos grupvavimas."
 msgid "Sector workflow"
 msgstr "Darbų srautas veiklos srityje"
 
-#: euphorie/client/browser/session.py:677
+#: euphorie/client/browser/session.py:694
 msgid "Session `${name}` has been archived."
 msgstr ""
 
-#: euphorie/client/browser/session.py:623
+#: euphorie/client/browser/session.py:640
 msgid "Session `${name}` has been deleted."
 msgstr "Sesija `${name}` panaikintas."
 
@@ -1326,7 +1326,7 @@ msgstr "Internetinė programa."
 msgid "The online risk assessment client interface for an Euphorie website"
 msgstr ""
 
-#: euphorie/client/browser/session.py:761
+#: euphorie/client/browser/session.py:778
 msgid "The risk assessment has been cloned"
 msgstr ""
 
@@ -1338,7 +1338,7 @@ msgstr "Nurodyta spalva yra netinkama."
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "Yra keturi pagrindiniai rizikos vertinimo proceso etapai. "
 
-#: euphorie/client/browser/session.py:600
+#: euphorie/client/browser/session.py:617
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
@@ -1367,7 +1367,7 @@ msgid ""
 "This is the recommended evaluation algorithm, based on the Kinney method"
 msgstr "Remiantis Kinney metodu, rekomenduojama naudoti šį vertinimo algoritmą"
 
-#: euphorie/content/behaviour/configure.zcml:12
+#: euphorie/content/behaviour/configure.zcml:11
 msgid "This makes objects keep track of changes in child objects."
 msgstr ""
 
@@ -1393,11 +1393,11 @@ msgstr ""
 msgid "This request could not be processed."
 msgstr ""
 
-#: euphorie/client/browser/templates/start.pt:142
+#: euphorie/client/browser/templates/start.pt:149
 msgid "This tool deserves to be known by the world! Share it!"
 msgstr "Pasaulis turi žinoti apie šią priemonę! Dalykitės!"
 
-#: euphorie/client/browser/session.py:165
+#: euphorie/client/browser/session.py:182
 msgid "This value must be greater than or equal to 1"
 msgstr ""
 
@@ -1410,7 +1410,7 @@ msgstr "Patarimas"
 msgid "Toggle on screen help"
 msgstr "Įjungti/išjungti paaiškinimus ekrane"
 
-#: euphorie/content/behaviour/configure.zcml:33
+#: euphorie/content/behaviour/configure.zcml:29
 msgid "Unique id for content"
 msgstr ""
 
@@ -1436,7 +1436,7 @@ msgstr "Įkelkite vaizdo failą, kuris iliustruoja šią riziką."
 msgid "Upload image"
 msgstr "Įkelti paveikslėlį"
 
-#: euphorie/content/behaviour/configure.zcml:19
+#: euphorie/content/behaviour/configure.zcml:17
 msgid "Use a rich text description for content types."
 msgstr ""
 
@@ -1507,7 +1507,7 @@ msgstr ""
 "priemone. Tačiau apsvarstykite, kas atliks rizikos vertinimą, kaip "
 "darbuotojai dalyvaus šiame procese ir pan."
 
-#: euphorie/client/browser/session.py:177
+#: euphorie/client/browser/session.py:194
 msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
@@ -2244,7 +2244,7 @@ msgstr "${online_help} tekstą taip pat galima keisti."
 msgid "documentation_online_help_online_help"
 msgstr "internetinis žinynas"
 
-#: euphorie/client/browser/session.py:175
+#: euphorie/client/browser/session.py:192
 msgid "download section"
 msgstr ""
 
@@ -2502,7 +2502,7 @@ msgstr ""
 msgid "explanation_risk_always_present"
 msgstr ""
 
-#: euphorie/client/browser/session.py:461
+#: euphorie/client/browser/session.py:478
 msgid "extra_text_identification"
 msgstr ""
 
@@ -4595,7 +4595,7 @@ msgid "label_select_standard_measures"
 msgstr "Pasirinkite standartines priemones"
 
 #. Default: "Enter a title for your Risk Assessment"
-#: euphorie/client/browser/session.py:72
+#: euphorie/client/browser/session.py:77
 msgid "label_session_title"
 msgstr "Įveskite rizikos vertinimo proceso pavadinimą"
 
@@ -4635,7 +4635,7 @@ msgid "label_start_identification"
 msgstr "Pradėti rizikų nustatymo procesą"
 
 #. Default: "Start"
-#: euphorie/client/browser/templates/start.pt:128
+#: euphorie/client/browser/templates/start.pt:135
 msgid "label_start_survey"
 msgstr "Pradžia"
 
@@ -4939,7 +4939,7 @@ msgstr ""
 "norite pašalinti pačią OiRA priemonę?"
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/session.py:159
+#: euphorie/client/browser/session.py:176
 msgid "message_field_required"
 msgstr ""
 
@@ -5112,7 +5112,7 @@ msgid "no_translate_link_add_measures"
 msgstr ""
 
 #. Default: "<a href='%s/@@report'>${text_download_section}</a>"
-#: euphorie/client/browser/session.py:171
+#: euphorie/client/browser/session.py:188
 msgid "no_translate_link_download_section"
 msgstr ""
 
@@ -5208,7 +5208,7 @@ msgid "portlet_header_versions"
 msgstr "Versijos"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:706
+#: euphorie/client/browser/session.py:723
 msgid "prefix_cloned_title"
 msgstr ""
 
@@ -5480,6 +5480,18 @@ msgstr "Svarbumas: ${percentage}"
 msgid "select_add_existing_measure"
 msgstr "Pasirinkti arba pridėti jau įdiegtas priemones."
 
+#. Default: "Once you have started an OiRA tool session, you will be able to stop before the end. You can restart it again at a later date by selecting the title of the OiRA tool session. You can save more than one session, provided you have given them different title names. Please remember your e-mail address, password and the title that you have given the OiRA tool session. By clicking on the Logout button, you are logged out actively. You are also logged out if you close your Browser. For security reasons it is better to actively log out."
+#: euphorie/client/browser/session.py:81
+msgid "session_title_tooltip"
+msgstr ""
+"Pradėję OiRA priemonės naudojimo seansą, jį sustabdyti galėsite prieš "
+"pabaigą. Jį vėl pradėti galėsite vėliau, pasirinkę OiRA priemonės naudojimo "
+"seanso pavadinimą. Suteikę skirtingus pavadinimus galite išsaugoti daugiau "
+"nei vieną seansą. Neužmirškite OiRA priemonės naudojimo seansui nurodyto el. "
+"pašto adreso, slaptažodžio ir pavadinimo. Paspaudę išsiregistravimo mygtuką, "
+"būsite išregistruoti. Išregistruoti taip pat būsite, jei uždarysite "
+"naršyklę. Saugumo sumetimais patariama išsiregistruoti."
+
 #. Default: "Not very severe"
 #: euphorie/client/browser/templates/webhelpers.pt:447
 #: euphorie/content/risk.py:428
@@ -5645,7 +5657,7 @@ msgstr "Šią OiRA priemonę iš internetinės programos pašalinkite."
 
 #. Default: "Added risks (by you)"
 #: euphorie/client/browser/publish.py:138
-#: euphorie/client/browser/session.py:471 euphorie/client/docx/compiler.py:108
+#: euphorie/client/browser/session.py:488 euphorie/client/docx/compiler.py:108
 msgid "title_other_risks"
 msgstr "Jūsų įtrauktos rizikos"
 
@@ -6069,14 +6081,3 @@ msgstr "Taip"
 
 #~ msgid "reminder_email_password"
 #~ msgstr "Slaptažodis"
-
-#~ msgid "session_title_tooltip"
-#~ msgstr ""
-#~ "Pradėję OiRA priemonės naudojimo seansą, jį sustabdyti galėsite prieš "
-#~ "pabaigą. Jį vėl pradėti galėsite vėliau, pasirinkę OiRA priemonės "
-#~ "naudojimo seanso pavadinimą. Suteikę skirtingus pavadinimus galite "
-#~ "išsaugoti daugiau nei vieną seansą. Neužmirškite OiRA priemonės naudojimo "
-#~ "seansui nurodyto el. pašto adreso, slaptažodžio ir pavadinimo. Paspaudę "
-#~ "išsiregistravimo mygtuką, būsite išregistruoti. Išregistruoti taip pat "
-#~ "būsite, jei uždarysite naršyklę. Saugumo sumetimais patariama "
-#~ "išsiregistruoti."
