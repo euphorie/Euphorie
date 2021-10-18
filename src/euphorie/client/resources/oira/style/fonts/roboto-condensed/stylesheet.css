@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('RobotoCondensed-Light.eot');
+    src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'),
+        url('RobotoCondensed-Light.eot?#iefix') format('embedded-opentype'),
+        url('RobotoCondensed-Light.woff2') format('woff2'),
+        url('RobotoCondensed-Light.woff') format('woff'),
+        url('RobotoCondensed-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('RobotoCondensed-LightItalic.eot');
+    src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'),
+        url('RobotoCondensed-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('RobotoCondensed-LightItalic.woff2') format('woff2'),
+        url('RobotoCondensed-LightItalic.woff') format('woff'),
+        url('RobotoCondensed-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('RobotoCondensed-BoldItalic.eot');
+    src: local('Roboto Condensed Bold Italic'), local('RobotoCondensed-BoldItalic'),
+        url('RobotoCondensed-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('RobotoCondensed-BoldItalic.woff2') format('woff2'),
+        url('RobotoCondensed-BoldItalic.woff') format('woff'),
+        url('RobotoCondensed-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('RobotoCondensed-Bold.eot');
+    src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'),
+        url('RobotoCondensed-Bold.eot?#iefix') format('embedded-opentype'),
+        url('RobotoCondensed-Bold.woff2') format('woff2'),
+        url('RobotoCondensed-Bold.woff') format('woff'),
+        url('RobotoCondensed-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('RobotoCondensed-Regular.eot');
+    src: local('Roboto Condensed'), local('RobotoCondensed-Regular'),
+        url('RobotoCondensed-Regular.eot?#iefix') format('embedded-opentype'),
+        url('RobotoCondensed-Regular.woff2') format('woff2'),
+        url('RobotoCondensed-Regular.woff') format('woff'),
+        url('RobotoCondensed-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Condensed';
+    src: url('RobotoCondensed-Italic.eot');
+    src: local('Roboto Condensed Italic'), local('RobotoCondensed-Italic'),
+        url('RobotoCondensed-Italic.eot?#iefix') format('embedded-opentype'),
+        url('RobotoCondensed-Italic.woff2') format('woff2'),
+        url('RobotoCondensed-Italic.woff') format('woff'),
+        url('RobotoCondensed-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+

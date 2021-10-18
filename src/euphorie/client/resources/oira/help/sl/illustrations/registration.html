@@ -70,34 +70,21 @@
 	</a>
 	
 	
-		<a href="#osc" 
-		   id="toggle-osc" 
-		   class="iconified pat-toggle" 
-		   data-pat-toggle="selector: body; value: osc-off osc-on && selector: body; value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
-	
 
 	
 
 	<a href="/feedback/osh.html#osh-osc-toggle" id="osh-target-osc-toggle" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
 	
 		<a 
-			href="/feedback/more-menu#menu-content" 
-		   	id="user-menu" 
-		   	class="iconified pat-tooltip pat-switch" 
-		   	data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
-		   	data-pat-tooltip="source: ajax">Menu</a>
+			href="/index#login" 
+			class="login"
+			title="Login with your existing personal account">
+			Login
+		</a>
 		<a 
-			href="/feedback/help-menu#menu-content" 
-		   	id="help-menu" 
-		   	class="iconified pat-tooltip pat-switch" 
-		   	data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
-		   	data-pat-tooltip="source: ajax">Help</a>
-		<a 
-			href="/index-logged-in.html" 
-		    data-pat-inject="source: #content; target: #content; history: record" 
-		    class="home pat-inject iconified icon-home pat-switch" 
-		    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
-		    title="Startup page">Dashboard</a>
+			href="/index#registration" 
+			class="registration" 
+			title="Register an account to use OiRA">Register</a>
 	
 </header>
 	<div id="content">
@@ -207,8 +194,8 @@
 				type="search" 
 				value="" 
 				class="quick-search pat-autofocus" 
-				placeholder="Search" />
-            <button type="submit" name="standard" value="main" class="search-button-main assistive">Search</button>
+				placeholder="" />
+            <button type="submit" name="standard" value="main" class="search-button-main assistive">Išči</button>
         </label>
 
 	    <fieldset class="advanced-search pat-inject pat-subform"
@@ -221,7 +208,7 @@
     <p class="clone search-rule row-1">
         <label class="pat-select field-choice pat-select">
             <select name="search-rule.data-field:records">
-                <option value="SearchableText">Any text field</option>
+                <option value="SearchableText"></option>
                 <optgroup label="Metadata">
                     <option value="Title">Title</option>
                     <option value="Description">Description</option>
@@ -242,9 +229,9 @@
         <span class="parameters lemma">
             <label class="pat-select">
                 <select name="search-rule.lemma-operator:records">
-                    <option value="contains">Contains</option>
-                    <option value="contains-not">Does not contain</option>
-                    <option value="equals">Equals</option>
+                    <option value="contains"></option>
+                    <option value="contains-not"></option>
+                    <option value="equals"></option>
                 </select>
             </label>
             <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
@@ -252,9 +239,9 @@
         <span class="parameters date">
             <label class="pat-select">
                 <select name="search-rule.date-operator:records">
-                    <option value="is">Is</option>
-                    <option value="is-before">Is before</option>
-                    <option value="is-after">Is after</option>
+                    <option value="is"></option>
+                    <option value="is-before"></option>
+                    <option value="is-after"></option>
                 </select>
             </label>
             <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
@@ -262,8 +249,8 @@
         <span class="parameters plant">
             <label class="pat-select">
                 <select name="search-rule.date-operator:records">
-                    <option value="equals">Equals</option>
-                    <option value="equals-not">Does not equal</option>
+                    <option value="equals"></option>
+                    <option value="equals-not"></option>
                 </select>
             </label>
             <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest lemma-field">
@@ -277,8 +264,8 @@
         <span class="parameters department">
             <label class="pat-select">
                 <select name="search-rule.date-operator:records">
-                    <option value="equals">Equals</option>
-                    <option value="equals-not">Does not equal</option>
+                    <option value="equals"></option>
+                    <option value="equals-not"></option>
                 </select>
             </label>
             <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest lemma-field">
@@ -298,8 +285,8 @@
 </fieldset>
 
 <p class="button-bar">
-    <button type="submit" class="pat-button icon-search small">Search</button>
-    <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small">Add another search rule</button>
+    <button type="submit" class="pat-button icon-search small">Išči</button>
+    <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small"></button>
 </p>
 
 <template id="clone-template">
@@ -307,16 +294,16 @@
     <label class="and-or pat-select bare">
         <select name="search-rule.and-or:records">
             <option value="and">
-                And…
+                
             </option>
             <option value="or">
-                Or…
+                
             </option>
         </select>
     </label>
     <label class="field-choice pat-select">
         <select name="search-rule.data-field:records">
-            <option value="SearchableText">Any text field</option>
+            <option value="SearchableText"></option>
             <optgroup label="Metadata">
                 <option value="Title">Title</option>
                 <option value="Description">Description</option>
@@ -334,9 +321,9 @@
     <span class="parameters lemma">
         <label class="pat-select">
             <select name="search-rule.lemma-operator:records">
-                <option value="contains">Contains</option>
-                <option value="contains-not">Does not contain</option>
-                <option value="equals">Equals</option>
+                <option value="contains"></option>
+                <option value="contains-not"></option>
+                <option value="equals"></option>
             </select>
         </label>
         <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
@@ -344,9 +331,9 @@
     <span class="parameters date">
         <label class="pat-select">
             <select name="search-rule.date-operator:records">
-                <option value="is">Is</option>
-                <option value="is-before">Is before</option>
-                <option value="is-after">Is after</option>
+                <option value="is"></option>
+                <option value="is-before"></option>
+                <option value="is-after"></option>
             </select>
         </label>
         <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
@@ -354,8 +341,8 @@
     <span class="parameters plant">
         <label class="pat-select">
             <select name="search-rule.date-operator:records">
-                <option value="equals">Equals</option>
-                <option value="equals-not">Does not equal</option>
+                <option value="equals"></option>
+                <option value="equals-not"></option>
             </select>
         </label>
         <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest">
@@ -369,8 +356,8 @@
     <span class="parameters department">
         <label class="pat-select">
             <select name="search-rule.date-operator:records">
-                <option value="equals">Equals</option>
-                <option value="equals-not">Does not equal</option>
+                <option value="equals"></option>
+                <option value="equals-not"></option>
             </select>
         </label>
         <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest">
@@ -386,18 +373,18 @@
             <option>142,   (GEPL74BAW)</option>
         </select>
     </span>
-    <button type="button" class="remove-clone">Remove</button>
+    <button type="button" class="remove-clone">Odstrani</button>
   </p>
 </template>
 
 
 			<fieldset class="toggle-bar pat-checklist free-form">
 			    <label class="pat-switch toggle-standard" data-pat-switch="#search-form view-extended view-compact">
-			        <input type="radio" name="search-mode" value="standard" checked> Standard search
+			        <input type="radio" name="search-mode" value="standard" checked> 
 			    </label>
 			    <label class="pat-switch toggle-advanced"
 			           data-pat-switch="#search-form view-compact view-extended && body osc-size-* osc-size-full">
-			        <input type="radio" name="search-mode" value="advanced"> Advanced search
+			        <input type="radio" name="search-mode" value="advanced"> 
 			    </label>
 			</fieldset>
 	    </fieldset>
@@ -453,52 +440,6 @@
 </aside>
 
 
-		
-		
-			<!-- <div 
-    class="pat-modal medium panel panel-browser-warning">
-    <h1>
-        Browser warning
-    </h1>
-    <div 
-        class="panel-body"
-        id="modal-panel-body">
-        <div 
-            class="container">
-            <div 
-                class="browser-warning">
-                <div 
-                    class="pat-rich">
-                    <p 
-                        class="message with-js">
-                        You are using an outdated web browser. As a result, the site might not function as expected. Please install a newer browser in order to make optimal use of this site.
-                    </p>
-                    <p 
-                        class="message without-js">
-                        You are using an outdated web browser. Because of this you won't have an optimal experience. Please install a newer browser in order to make optimal use of this site.
-                    </p>
-                </div>
-                <nav 
-                    class="browser-options">
-                    <a 
-                        class="icon-edge" 
-                        href="https://www.microsoft.com/nl-nl/edge">Microsoft Edge</a>
-                    <a  
-                        class="icon-chrome" 
-                        href="https://www.google.nl/chrome/">Google Chrome</a>
-                    <a  
-                        class="icon-firefox" 
-                        href="https://www.mozilla.org/nl/firefox/new/">Mozilla Firefox</a>
-                </nav>
-            </div>
-            <div 
-                class="button-bar">
-                <button
-                    class="pat-button close-panel">Close this message</button>
-            </div>
-        </div>
-    </div>
-</div> -->
 		
 	</body>
 </html>
