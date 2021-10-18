@@ -2,11 +2,36 @@ Changelog
 =========
 
 
-12.0.9 (unreleased)
--------------------
+12.0.13 (unreleased)
+--------------------
 
 - Nothing changed yet.
 
+
+12.0.12 (2021-10-13)
+--------------------
+
+- date-picker: use "medium" output format that gives less problems in translations.
+- upgrade plone to 5.2.5
+- table "group": replace boolean column 'active' with date column 'deactivated'
+
+12.0.11 (2021-09-29)
+--------------------
+
+- Translation fixed for LT
+
+12.0.10 (2021-09-29)
+--------------------
+
+- The euphorie user factory plugin is enabled now only in the client
+- If the user has entered a general comment, make sure it appears in the report.
+
+
+12.0.9 (2021-09-08)
+-------------------
+
+- re-do FR report for MSA with three (!) logos
+- Cosmetic changes
 
 12.0.8 (2021-08-21)
 -------------------

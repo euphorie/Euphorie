@@ -8,28 +8,24 @@
         title="Dirty tree root"
         description="This makes objects keep track of changes in child objects."
         provides=".dirtytree.IDirtyTreeRoot"
-        for="plone.dexterity.interfaces.IDexterityContent"
         />
 
     <plone:behavior
         title="Rich text description"
         description="Use a rich text description for content types."
         provides=".richdescription.IRichDescription"
-        for="plone.dexterity.interfaces.IDexterityContent"
         />
 
     <plone:behavior
         title="Root node for unique id generation"
         description="Generated unique ids are only unique within this context"
         provides=".uniqueid.IIdGenerationRoot"
-        for="plone.dexterity.interfaces.IDexterityContent"
         />
 
     <plone:behavior
         title="Unique id for content"
         description="Automatically generate unique ids for content"
         provides=".uniqueid.INameFromUniqueId"
-        for="plone.dexterity.interfaces.IDexterityContent"
         />
 
 </configure>

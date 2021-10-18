@@ -1,4 +1,5 @@
 # coding=utf-8
+from __future__ import absolute_import
 from alembic import command
 from alembic.config import Config
 from euphorie.client.model import Session

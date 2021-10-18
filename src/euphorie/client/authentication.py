@@ -8,8 +8,8 @@ User account plugins and authentication.
 from . import model
 from .interfaces import IClientSkinLayer
 from AccessControl import ClassSecurityInfo
+from AccessControl.class_init import InitializeClass
 from Acquisition import aq_parent
-from App.class_init import InitializeClass
 from euphorie.content.user import IUser
 from plone import api
 from plone.keyring.interfaces import IKeyManager
@@ -214,6 +214,8 @@ class EuphorieAccountPlugin(BasePlugin):
         # a case, query like `get(user_id)` matches the 'id' column in Account
         # first. If the loginname that is an integer also corresponds to an id
         # in the Account table, we would find the wrong user.
+        if not IClientSkinLayer.providedBy(self.REQUEST):
+            return None
         if not name:
             return (
                 Session()

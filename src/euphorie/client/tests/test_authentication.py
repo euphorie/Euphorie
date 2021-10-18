@@ -105,7 +105,10 @@ class EuphorieAccountPluginTests(DatabaseTests):
         session = Session()
         account = model.Account(loginname="john", password=u"jane")
         session.add(account)
+        request = MockRequest(ACTUAL_URL="http://www.example.com/client")
+        directlyProvides(request, IClientSkinLayer)
         plugin = EuphorieAccountPlugin("plugin")
+        plugin.REQUEST = request
         self.assertTrue(plugin.createUser("1", "john") is account)
 
     def testEnumerateUsers_Interface(self):

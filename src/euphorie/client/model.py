@@ -307,7 +307,12 @@ class Group(BaseObject):
     responsible_fullname = schema.Column(
         types.Unicode(32),
     )
-    active = schema.Column(types.Boolean(), default=True)
+
+    deactivated = schema.Column(
+        types.DateTime,
+        nullable=True,
+        default=None,
+    )
 
     children = relationship(
         "Group",
@@ -339,7 +344,7 @@ class Group(BaseObject):
         in the tree widget
         """
         title = u"{obs}{name}".format(
-            obs="[obs.] " if not self.active else "",
+            obs="[obs.] " if not self.deactivated else "",
             name=self.short_name or self.group_id,
         )
         if self.responsible_fullname:

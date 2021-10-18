@@ -78,6 +78,18 @@ class IStartFormSchema(model.Schema):
             "label_session_title", default=u"Enter a title for your Risk Assessment"
         ),
         required=True,
+        description=_(
+            "session_title_tooltip",
+            default=u"Once you have started an OiRA tool "
+            u"session, you will be able to stop before the end. You can restart it "
+            u"again at a later date by selecting the title of the OiRA tool session. "
+            u"You can save more than one session, provided you have given them "
+            u"different title names. Please remember your e-mail address, password "
+            u"and the title that you have given the OiRA tool session. By clicking "
+            u"on the Logout button, you are logged out actively. You are also logged "
+            u"out if you close your Browser. For security reasons it is better to "
+            u"actively log out.",
+        ),
     )
 
 
