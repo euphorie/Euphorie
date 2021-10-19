@@ -460,6 +460,12 @@ class Account(BaseObject):
         default=functions.now(),
     )
 
+    last_login = schema.Column(
+        types.DateTime,
+        nullable=True,
+        default=None,
+    )
+
     @property
     def groups(self):
         group = self.group

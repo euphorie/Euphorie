@@ -74,6 +74,7 @@ class Login(BrowserView):
             account.loginname,
             account.password,
         )
+        account.last_login = datetime.datetime.now()
         if remember:
             self.request.RESPONSE.cookies["__ac"]["expires"] = cookie_expiration_date(
                 120
