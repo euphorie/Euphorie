@@ -5,8 +5,8 @@ Changelog
 12.0.13 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Fix a language problem in the date picker for multilungual countries (happens
+  with cached sites)
 
 12.0.12 (2021-10-13)
 --------------------
