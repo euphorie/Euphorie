@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-12.0.14 (unreleased)
+12.0.14 (2021-10-20)
 --------------------
 
 - Record the date of last login (client) in a more canonical way
