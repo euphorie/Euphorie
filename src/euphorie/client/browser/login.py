@@ -23,6 +23,7 @@ from plone.session.plugins.session import cookie_expiration_date
 from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
+from Products.PlonePAS.events import UserLoggedInEvent
 from Products.statusmessages.interfaces import IStatusMessage
 from six.moves.urllib.parse import parse_qs
 from six.moves.urllib.parse import urlencode
@@ -30,6 +31,7 @@ from six.moves.urllib.parse import urlparse
 from six.moves.urllib.parse import urlsplit
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
+from zope.lifecycleevent import notify
 
 import datetime
 import logging
@@ -74,7 +76,7 @@ class Login(BrowserView):
             account.loginname,
             account.password,
         )
-        account.last_login = datetime.datetime.now()
+        notify(UserLoggedInEvent(account))
         if remember:
             self.request.RESPONSE.cookies["__ac"]["expires"] = cookie_expiration_date(
                 120
