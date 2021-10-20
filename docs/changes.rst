@@ -5,8 +5,7 @@ Changelog
 12.0.14 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Record the date of last login (client) in a more canonical way
 
 12.0.13 (2021-10-20)
 --------------------
