@@ -30,4 +30,6 @@
       	handler=".module.handle_custom_risks_order"
  	/>
 
+    <subscriber handler=".login.record_last_login" />
+
 </configure>

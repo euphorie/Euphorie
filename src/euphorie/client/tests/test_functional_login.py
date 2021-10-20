@@ -9,6 +9,7 @@ from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
 from transaction import commit
+from z3c.saconfig import Session
 from zope.interface import alsoProvides
 
 import datetime
@@ -114,6 +115,20 @@ class LoginTests(EuphorieFunctionalTestCase):
         self.assertTrue(
             re.search("trackPageview.*login_form/success", browser.contents) is not None
         )
+
+    def test_record_last_login_time(self):
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, BASIC_SURVEY)
+        account = addAccount(password="secret")
+        browser = self.get_browser()
+        browser.open(self.portal.client.nl.absolute_url())
+        browser.getLink("Login").click()
+        browser.getControl(name="__ac_name").value = "jane@example.com"
+        browser.getControl(name="__ac_password:utf8:ustring").value = "secret"
+        browser.getControl(name="next").click()
+        last_login = Session().query(account.__class__).one().last_login
+        delta = datetime.datetime.now(last_login.tzinfo) - last_login
+        self.assertAlmostEqual(delta.seconds / 10, 0)
 
 
 class RegisterTests(EuphorieIntegrationTestCase):
