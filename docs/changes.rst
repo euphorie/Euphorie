@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-12.0.13 (unreleased)
+12.0.13 (2021-10-20)
 --------------------
 
 - Fix a language problem in the date picker for multilungual countries (happens
