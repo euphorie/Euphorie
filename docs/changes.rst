@@ -7,6 +7,7 @@ Changelog
 
 - Fix a language problem in the date picker for multilungual countries (happens
   with cached sites)
+- Record the timestamp of when a client user logs in
 
 12.0.12 (2021-10-13)
 --------------------
