@@ -34,7 +34,7 @@ clean::
 	rm -rf docs/.build
 
 pot: bin/i18ndude
-	i18ndude rebuild-pot --exclude="generated prototype examples illustrations" --pot $(EUPHORIE_POT) src/euphorie --create euphorie
+	i18ndude rebuild-pot --exclude="generated prototype examples illustrations help" --pot $(EUPHORIE_POT) src/euphorie --create euphorie
 	$(MAKE) $(MFLAGS) $(EUPHORIE_PO_FILES)
 
 $(EUPHORIE_PO_FILES): src/euphorie/deployment/locales/euphorie.pot
