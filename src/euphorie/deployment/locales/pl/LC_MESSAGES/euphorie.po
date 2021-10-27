@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-18 14:20+0000\n"
+"POT-Creation-Date: 2021-10-25 13:32+0000\n"
 "PO-Revision-Date: 2013-06-27 22:07+0200\n"
 "Last-Translator: JC Brand <brand@syslab.com>\n"
 "Language-Team: Polish\n"
@@ -996,6 +996,10 @@ msgstr ""
 
 #: euphorie/client/browser/templates/help-menu.pt:19
 msgid "Toggle on screen help"
+msgstr ""
+
+#: euphorie/client/browser/templates/login.pt:356
+msgid "Try a test session"
 msgstr ""
 
 #: euphorie/client/browser/templates/publication_menu.pt:70
@@ -5115,6 +5119,11 @@ msgstr ""
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/risks_overview.pt:157
 msgid "use_it_to_risks_report"
+msgstr ""
+
+#. Default: "Register"
+#: euphorie/client/browser/templates/login.pt:348
+msgid "verb_register"
 msgstr ""
 
 #. Default: "Please verify if the profile is still accurate."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-18 14:20+0000\n"
+"POT-Creation-Date: 2021-10-25 13:32+0000\n"
 "PO-Revision-Date: 2016-07-28 15:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1097,6 +1097,10 @@ msgstr "Tipp"
 #: euphorie/client/browser/templates/help-menu.pt:19
 msgid "Toggle on screen help"
 msgstr "Hilfstexte ein-/ ausschalten"
+
+#: euphorie/client/browser/templates/login.pt:356
+msgid "Try a test session"
+msgstr ""
 
 #: euphorie/client/browser/templates/publication_menu.pt:70
 msgid "Unpublish Risk Assessment"
@@ -5656,6 +5660,11 @@ msgstr "Damit können Sie"
 #: euphorie/client/browser/templates/risks_overview.pt:157
 msgid "use_it_to_risks_report"
 msgstr "Damit können Sie"
+
+#. Default: "Register"
+#: euphorie/client/browser/templates/login.pt:348
+msgid "verb_register"
+msgstr ""
 
 #. Default: "Please verify if the profile is still accurate."
 #: euphorie/client/browser/templates/updated.pt:29

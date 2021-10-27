@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-18 14:20+0000\n"
+"POT-Creation-Date: 2021-10-25 13:32+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1066,6 +1066,10 @@ msgstr "Ieteikums"
 #: euphorie/client/browser/templates/help-menu.pt:19
 msgid "Toggle on screen help"
 msgstr "Ieslēdziet ekrāna palīdzību"
+
+#: euphorie/client/browser/templates/login.pt:356
+msgid "Try a test session"
+msgstr ""
 
 #: euphorie/client/browser/templates/publication_menu.pt:70
 msgid "Unpublish Risk Assessment"
@@ -5534,6 +5538,11 @@ msgstr "Izmantojiet to, lai"
 #: euphorie/client/browser/templates/risks_overview.pt:157
 msgid "use_it_to_risks_report"
 msgstr "Izmantojiet to, lai"
+
+#. Default: "Register"
+#: euphorie/client/browser/templates/login.pt:348
+msgid "verb_register"
+msgstr ""
 
 #. Default: "Please verify if the profile is still accurate."
 #: euphorie/client/browser/templates/updated.pt:29

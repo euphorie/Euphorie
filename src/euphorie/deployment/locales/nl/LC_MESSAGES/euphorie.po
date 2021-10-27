@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-18 14:20+0000\n"
+"POT-Creation-Date: 2021-10-25 13:32+0000\n"
 "PO-Revision-Date: 2013-06-27 22:14+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -153,11 +153,11 @@ msgstr "Aanvullende maatregel"
 
 #: euphorie/client/browser/templates/surveys.pt:56
 msgid "All countries"
-msgstr ""
+msgstr "Alle landen"
 
 #: euphorie/client/browser/templates/surveys.pt:85
 msgid "All languages"
-msgstr ""
+msgstr "Alle talen"
 
 #: euphorie/client/browser/login.py:190
 msgid "An account was created for you with email address ${email}"
@@ -324,7 +324,7 @@ msgstr "Creative Commons License"
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:26
 msgid "Custom risks"
-msgstr ""
+msgstr "Aangepaste risico's"
 
 #: euphorie/client/browser/settings.py:150
 #: euphorie/client/browser/templates/account-delete.pt:40
@@ -334,7 +334,7 @@ msgstr "Verwijder account"
 
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:15
 msgid "Delete custom risk"
-msgstr ""
+msgstr "Aangepast risico verwijderen"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:35
 msgid "Delete risk"
@@ -342,7 +342,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:15
 msgid "Delete risk assessment"
-msgstr ""
+msgstr "Risicobeoordeling verwijderen"
 
 #: euphorie/client/browser/templates/more_menu.pt:25
 msgid "Delete this session"
@@ -729,7 +729,7 @@ msgstr "informatie door te geven aan de betrokken personen."
 #: euphorie/client/browser/settings.py:65
 #: euphorie/content/widgets/password.py:18
 msgid "Password doesn't compare with confirmation value"
-msgstr ""
+msgstr "Wachtwoord komt niet overeen met bevestigingswaarde"
 
 #: euphorie/client/browser/templates/new-email.pt:26
 msgid ""
@@ -1067,6 +1067,10 @@ msgstr "Tip"
 #: euphorie/client/browser/templates/help-menu.pt:19
 msgid "Toggle on screen help"
 msgstr "Knop voor toelichting"
+
+#: euphorie/client/browser/templates/login.pt:356
+msgid "Try a test session"
+msgstr "Probeer een testsessie"
 
 #: euphorie/client/browser/templates/publication_menu.pt:70
 msgid "Unpublish Risk Assessment"
@@ -1502,7 +1506,7 @@ msgstr "Wijzig"
 #. Default: "Information"
 #: euphorie/client/browser/templates/surveys.pt:211
 msgid "button_information"
-msgstr ""
+msgstr "Informatie"
 
 #. Default: "Library"
 #: euphorie/deployment/tiles/templates/addbar.pt:10
@@ -1576,12 +1580,12 @@ msgstr "Gepubliceerd"
 
 #: euphorie/client/browser/templates/publication_menu.pt:36
 msgid "by"
-msgstr ""
+msgstr "door"
 
 #. Default: "Thank you for using OiRA. Before we go to the report we would kindly like to ask you to give us some feedback via the survey below. This information is meant to improve the tools and the services provided. <strong>This data will not appear in your reports.</strong>"
 #: euphorie/client/browser/templates/report_company.pt:38
 msgid "company_report_intro"
-msgstr ""
+msgstr "Dank u voor het gebruik van OiRA. Voordat we naar het rapport gaan, willen we u vriendelijk vragen om ons wat feedback te geven via de enquête hieronder. Deze informatie is bedoeld om de hulpmiddelen en de verleende diensten te verbeteren. <strong>Deze gegevens zullen niet in uw rapporten verschijnen.</strong>"
 
 #. Default: "Conservation and processing of information"
 #: euphorie/client/browser/templates/conditions-bare.pt:81
@@ -2040,7 +2044,7 @@ msgstr "Wachtwoorden komen niet overeen"
 #. Default: "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
 #: euphorie/client/browser/login.py:114
 msgid "error_password_policy_violation"
-msgstr ""
+msgstr "Het wachtwoord moet ten minste 12 tekens lang zijn en ten minste één kleine letter, één hoofdletter en één cijfer bevatten."
 
 #. Default: "An accout can only be created for you if you accept the terms and conditions."
 #: euphorie/client/browser/login.py:147
@@ -2377,7 +2381,7 @@ msgstr ""
 #. Default: "Feedback."
 #: euphorie/client/browser/templates/report_company.pt:32
 msgid "header_feedback"
-msgstr ""
+msgstr "Feedback."
 
 #. Default: "Identification"
 #: euphorie/content/risk.py:132
@@ -2486,7 +2490,7 @@ msgstr "Off-canvas menu"
 #. Default: "Risk assessment browser"
 #: euphorie/client/browser/templates/tooltips.pt:107
 msgid "header_osh_ra_browser"
-msgstr ""
+msgstr "Risicobeoordelingsbrowser"
 
 #. Default: "Session menu"
 #: euphorie/client/browser/templates/tooltips.pt:86
@@ -2496,7 +2500,7 @@ msgstr "Sessiemenu"
 #. Default: "Tool navigation"
 #: euphorie/client/browser/templates/tooltips.pt:95
 msgid "header_osh_tool_navigation"
-msgstr ""
+msgstr "Tool navigatie"
 
 #. Default: "Risks that have been identified, evaluated and have an Action Plan"
 #: euphorie/client/docx/views.py:219
@@ -3084,7 +3088,7 @@ msgstr ""
 #: euphorie/client/browser/templates/login.pt:205
 #: euphorie/client/browser/templates/register_session.pt:186
 msgid "help_password_requirements"
-msgstr ""
+msgstr "Het wachtwoord moet ten minste 12 tekens lang zijn en ten minste één kleine letter, één hoofdletter en één cijfer bevatten."
 
 #. Default: "This text should explain the 2 types of profile questions."
 #: euphorie/content/help.py:53
@@ -3255,7 +3259,7 @@ msgstr ""
 #. Default: "The risk assessment browser allows you to find risk assessments that were previously made by you. Start a new risk assessment by clicking on the &lsquo;+&rsquo; or make a copy of an existing risk assessment by clicking on the tripple dot symbol next to a risk assessment and select &lsquo;clone&rsquo; ."
 #: euphorie/client/browser/templates/tooltips.pt:110
 msgid "info_osh_ra_browser"
-msgstr ""
+msgstr "Met de risicobeoordelingsbrowser kunt u risicobeoordelingen vinden die eerder door u zijn gemaakt. Start een nieuwe risico-evaluatie door op de &lsquo;+&rsquo; te klikken of maak een kopie van een bestaande risico-evaluatie door te klikken op het driedubbele punt symbool naast een risico-evaluatie en selecteer &lsquo;klonen&rsquo;."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
 #: euphorie/client/browser/templates/tooltips.pt:89
@@ -3269,7 +3273,7 @@ msgstr ""
 #. Default: "This menu lets you navigate over all steps of your risk assessment. When you enter <em>Identification + Evaluation</em> or <em>Action Plan</em>, you will see the modules and risks of this assessment as sub-navigation. Using the navigation, you can jump back and forth over all parts of the tool at will."
 #: euphorie/client/browser/templates/tooltips.pt:98
 msgid "info_osh_tool_navigation"
-msgstr ""
+msgstr "Met dit menu kunt u navigeren door alle stappen van uw risicobeoordeling. Wanneer u <em>Identificatie + Evaluatie</em> of <em>Actieplan</em> invoert, ziet u de modules en risico's van deze beoordeling als subnavigatie. Met behulp van de navigatie kunt u naar believen heen en weer springen tussen alle onderdelen van de tool."
 
 #. Default: "The European Agency for Safety and Health at Work, European social partners, etc."
 #: euphorie/client/browser/templates/report_company.pt:164
@@ -3554,12 +3558,12 @@ msgstr "Begindatum"
 #: euphorie/client/browser/templates/login.pt:217
 #: euphorie/client/browser/templates/register_session.pt:198
 msgid "label_agree_terms_conditions"
-msgstr ""
+msgstr "Ik ga akkoord met de ${link_terms_conditions}"
 
 #. Default: "Alphabetical"
 #: euphorie/client/browser/templates/surveys.pt:112
 msgid "label_alphabetical"
-msgstr ""
+msgstr "Alfabetisch"
 
 #. Default: "Assessment"
 #: euphorie/client/browser/templates/shell.pt:279
@@ -3569,7 +3573,7 @@ msgstr ""
 #. Default: "Assessments"
 #: euphorie/client/browser/templates/sessions-dashboard.pt:39
 msgid "label_assessments"
-msgstr ""
+msgstr "Beoordelingen"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:28
@@ -3610,7 +3614,7 @@ msgstr "Classificatie code"
 #. Default: "Clone risk assessment"
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:15
 msgid "label_clone"
-msgstr ""
+msgstr "Risicobeoordeling klonen"
 
 #. Default: "Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
 #: euphorie/client/browser/templates/risk_actionplan.pt:119
@@ -3704,7 +3708,7 @@ msgstr "Verwijder"
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:28
 msgid "label_delete_risk"
 msgstr ""
-"U staat op het punt om dit risico te verwijderen &ldquo;${risk-name}&rdquo;."
+"U staat op het punt om dit risico te verwijderen: &ldquo;${risk-name}&rdquo;."
 
 #. Default: "Description"
 #: euphorie/client/browser/templates/webhelpers.pt:709
@@ -3771,7 +3775,7 @@ msgstr "Maatregel is al toegepast"
 #. Default: "Exit"
 #: euphorie/client/browser/templates/shell.pt:380
 msgid "label_exit"
-msgstr ""
+msgstr "Verlaten"
 
 #. Default: "Expertise"
 #: euphorie/client/browser/templates/webhelpers.pt:761
@@ -3916,12 +3920,12 @@ msgstr "Taal"
 #. Default: "Learn more"
 #: euphorie/client/browser/templates/login.pt:264
 msgid "label_learn_more"
-msgstr ""
+msgstr "Leer meer"
 
 #. Default: "Learn more about OiRA"
 #: euphorie/client/browser/templates/login.pt:123
 msgid "label_learn_more_about_oira"
-msgstr ""
+msgstr "Leer meer over OiRA"
 
 #. Default: "Legal and policy references"
 #: euphorie/client/browser/templates/panel-contents-preview.pt:75
@@ -4015,7 +4019,7 @@ msgstr "Vraagstelling"
 #. Default: "More risk assessments…"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:86
 msgid "label_more_risk_assessments"
-msgstr ""
+msgstr "Meer risicobeoordelingen…"
 
 #. Default: "Did this OiRA tool meet your needs?"
 #: euphorie/client/browser/company.py:150
@@ -4033,7 +4037,7 @@ msgstr "Nieuw wachtwoord"
 #. Default: "Again password"
 #: euphorie/client/browser/settings.py:56
 msgid "label_new_password_confirmation"
-msgstr ""
+msgstr "Opnieuw wachtwoord"
 
 #. Default: "New test session"
 #: euphorie/client/browser/templates/new-session-test.pt:20
@@ -4043,7 +4047,7 @@ msgstr "Nieuwe proefsessie"
 #. Default: "Newest first"
 #: euphorie/client/browser/templates/surveys.pt:105
 msgid "label_newest_first"
-msgstr ""
+msgstr "Nieuwste eerst"
 
 #. Default: "Next"
 #: euphorie/client/browser/templates/involve.pt:40
@@ -4128,7 +4132,7 @@ msgstr "Wachtwoord"
 #: euphorie/client/browser/templates/login.pt:197
 #: euphorie/client/browser/templates/register_session.pt:178
 msgid "label_password_confirm"
-msgstr "Nogmaals wachtwoord"
+msgstr "Opnieuw wachtwoord"
 
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:309
@@ -4327,7 +4331,7 @@ msgstr "Opslaan en verder gaan met plan van aanpak"
 #. Default: "Search tools"
 #: euphorie/client/browser/templates/surveys.pt:129
 msgid "label_search_tools"
-msgstr ""
+msgstr "Zoek tools"
 
 #. Default: "Section"
 #: euphorie/client/browser/report.py:148
@@ -4361,7 +4365,7 @@ msgstr "Start een nieuwe RI&E in de volgende branche"
 #: euphorie/client/browser/templates/new-session.pt:76
 #: euphorie/client/browser/templates/portlet-available-tools.pt:69
 msgid "label_select_oira_tool"
-msgstr "Kies uit een van onderstaande instrumenten"
+msgstr "Selecteer een OiRA tool"
 
 #. Default: "Select standard measures"
 #: euphorie/client/browser/templates/webhelpers.pt:979
@@ -4371,7 +4375,7 @@ msgstr "Selecteer standaardmaatregelen"
 #. Default: "Send password reminder"
 #: euphorie/client/browser/reset_password.py:92
 msgid "label_send_password_reminder"
-msgstr ""
+msgstr "Wachtwoordherinnering sturen"
 
 #. Default: "Enter a title for your Risk Assessment"
 #: euphorie/client/browser/session.py:77
@@ -4403,7 +4407,7 @@ msgstr "Oplossingsrichting"
 #. Default: "Sorting"
 #: euphorie/client/browser/templates/surveys.pt:103
 msgid "label_sorting"
-msgstr ""
+msgstr "Sorteren"
 
 #. Default: "Start Risk Identification"
 #: euphorie/client/browser/templates/identification.pt:38
@@ -4460,7 +4464,7 @@ msgstr "Titel van geïmporteerde RI&E"
 #: euphorie/client/browser/templates/login.pt:217
 #: euphorie/client/browser/templates/register_session.pt:198
 msgid "label_terms_conditions"
-msgstr ""
+msgstr "algemene voorwaarden"
 
 #. Default: "Test session"
 #: euphorie/client/browser/templates/shell.pt:164
@@ -4513,7 +4517,7 @@ msgstr "Soort OiRA-tool"
 #. Default: "Tools"
 #: euphorie/client/browser/templates/sessions-dashboard.pt:34
 msgid "label_tools"
-msgstr ""
+msgstr "Tools"
 
 #. Default: "Try OiRA"
 #: euphorie/client/browser/templates/surveys.pt:26
@@ -4763,7 +4767,7 @@ msgstr ""
 #. Default: "An email will be sent to ${email} if we can find an account for this email address. Please use the link inside the e-mail to reset your password."
 #: euphorie/client/browser/reset_password.py:173
 msgid "message_password_recovery_email_sent"
-msgstr ""
+msgstr "Er zal een e-mail worden gestuurd naar ${email} als we een account voor dit e-mailadres kunnen vinden. Gebruik de link in de e-mail om uw wachtwoord opnieuw in te stellen."
 
 #. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:368
@@ -4976,7 +4980,7 @@ msgstr ""
 #. Default: "This comment will be visible in the report. Use it for anything else you might want to write about this risk."
 #: euphorie/client/browser/templates/webhelpers.pt:634
 msgid "placeholder_comment_field"
-msgstr ""
+msgstr "Deze commentaar zal zichtbaar zijn in het rapport. Gebruik het voor iets anders dat u over dit risico zou willen schrijven."
 
 #. Default: "Provide some further information on this risk."
 #: euphorie/client/browser/templates/risk_identification_custom.pt:252
@@ -4993,7 +4997,7 @@ msgstr ""
 #. Default: "Search risk assessments"
 #: euphorie/client/browser/templates/assessments.pt:21
 msgid "placeholder_search_risk_assessments"
-msgstr ""
+msgstr "Zoek risicobeoordelingen"
 
 #. Default: "Versions"
 #: euphorie/deployment/tiles/templates/versions.pt:11
@@ -5250,7 +5254,7 @@ msgstr "Top 5 risico"
 #. Default: "Switch tips off now"
 #: euphorie/client/browser/templates/tooltips.pt:66
 msgid "screen_help_switch_off"
-msgstr ""
+msgstr "Tips nu uitschakelen"
 
 #. Default: "No items found."
 #: euphorie/deployment/browser/templates/context_search.pt:21
@@ -5387,12 +5391,12 @@ msgstr ""
 #. Default: "${link_register} if you would like to use OiRA."
 #: euphorie/client/browser/templates/login.pt:348
 msgid "text_create_account"
-msgstr ""
+msgstr "${link_register} als u OiRA wilt gebruiken."
 
 #. Default: "${link_test_session} if you only want to taste OiRA."
 #: euphorie/client/browser/templates/login.pt:356
 msgid "text_test_session"
-msgstr ""
+msgstr "${link_test_session} als u alleen van OiRA wilt proeven."
 
 #. Default: "About"
 #: euphorie/client/browser/templates/about.pt:24
@@ -5584,6 +5588,11 @@ msgstr "Te gebruiken om"
 #: euphorie/client/browser/templates/risks_overview.pt:157
 msgid "use_it_to_risks_report"
 msgstr "Te gebruiken om"
+
+#. Default: "Register"
+#: euphorie/client/browser/templates/login.pt:348
+msgid "verb_register"
+msgstr "Registreer"
 
 #. Default: "Please verify if the profile is still accurate."
 #: euphorie/client/browser/templates/updated.pt:29
