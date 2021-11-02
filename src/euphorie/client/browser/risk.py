@@ -292,6 +292,13 @@ class RiskBase(BrowserView):
                     )
                 )
 
+    def _get_next(self, reply):
+        _next = reply.get("next", None)
+        # In Safari browser we get a list
+        if isinstance(_next, list):
+            _next = _next.pop()
+        return _next
+
 
 class IdentificationView(RiskBase):
     """A view for displaying a question in the identification phase"""
@@ -511,13 +518,6 @@ class IdentificationView(RiskBase):
     @property
     def title(self):
         return self.session.title
-
-    def _get_next(self, reply):
-        _next = reply.get("next", None)
-        # In Safari browser we get a list
-        if isinstance(_next, list):
-            _next = _next.pop()
-        return _next
 
     def check_render_condition(self):
         # Render the page only if the user has edit rights,
@@ -1058,7 +1058,6 @@ class ActionPlanView(RiskBase):
             and self.my_tool_type in self.tti.types_existing_measures
         )
 
-        self.next_is_report = self.previous_is_identification = False
         # already compute "next" here, so that we can know in the template
         # if the next step might be the report phase, in which case we
         # need to switch off the sidebar
@@ -1070,7 +1069,6 @@ class ActionPlanView(RiskBase):
             url = "{session_url}/@@report".format(
                 session_url=self.webhelpers.traversed_session.absolute_url()
             )
-            self.next_is_report = True
         else:
             url = "{session_url}/{path}/@@actionplan".format(
                 path="/".join(next_question.short_path),
@@ -1089,7 +1087,6 @@ class ActionPlanView(RiskBase):
                 path="/".join(previous.short_path),
                 session_url=self.webhelpers.traversed_session.absolute_url(),
             )
-            self.previous_is_identification = True
 
         if self.request.method == "POST":
             reply = self.request.form
@@ -1104,7 +1101,8 @@ class ActionPlanView(RiskBase):
             if changes:
                 self.session.touch()
 
-            if reply["next"] == "previous":
+            _next = self._get_next(reply)
+            if _next == "previous":
                 url = previous_url
             return self.request.response.redirect(url)
 
