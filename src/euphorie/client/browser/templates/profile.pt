@@ -41,7 +41,6 @@
               id="profile-form"
               action="${request/URL}"
               method="post"
-              novalidate="novalidate"
               data-pat-inject="history: record; source: #content; target: #content;"
               data-pat-validation="message-date: This value must be a valid date;
                            message-datetime: This value must be a valid date and time;
@@ -116,7 +115,6 @@
                            hidden="hidden"
                     >
                       <input class="pat-depends"
-                             autofocus="autofocus"
                              name="${question/id}:utf8:utext:list"
                              placeholder="${question/label_single_occurance} #{1}"
                              size="40"
@@ -134,8 +132,10 @@
                            tal:condition="not:current"
                     >
                       <input class="pat-depends"
-                             name="${question/id}:utf8:utext:list"
+                             size="40"
+                             type="text"
                              required="required"
+                             name="${question/id}:utf8:utext:list"
                              data-pat-depends="condition: pq${question/id}.present=yes; action: both;"
                       />
                     </label>
