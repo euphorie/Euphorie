@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-12.0.15 (unreleased)
+12.0.15 (2021-11-03)
 --------------------
 
 - Translation fixes for Involve phase (FI and BE)
