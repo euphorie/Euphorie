@@ -5,8 +5,7 @@ Changelog
 12.0.15 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Translation fixes for Involve phase (FI and BE)
 
 12.0.14 (2021-10-20)
 --------------------

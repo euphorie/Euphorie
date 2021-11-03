@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-18 13:32+0000\n"
+"POT-Creation-Date: 2021-10-25 13:08+0000\n"
 "PO-Revision-Date: 2013-10-23 10:03+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1226,7 +1226,7 @@ msgstr "Standardna rešitev"
 msgid "Started"
 msgstr ""
 
-#: euphorie/client/browser/login.py:237
+#: euphorie/client/browser/login.py:240
 #: euphorie/client/browser/templates/new-session-test.pt:154
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -2339,7 +2339,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "50 do 249 zaposlenih"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:287
+#: euphorie/client/browser/login.py:290
 msgid "error_email_in_use"
 msgstr "Račun s tem e-poštnim naslovom že obstaja."
 
@@ -2354,7 +2354,7 @@ msgid "error_invalid_budget"
 msgstr "Vnesite proračun v evrih brez decimalk."
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:265
+#: euphorie/client/browser/login.py:268
 msgid "error_invalid_email"
 msgstr "Vnesite veljaven e-poštni naslov"
 
@@ -2369,17 +2369,17 @@ msgid "error_invalid_xml"
 msgstr "Naložite veljavno datoteko XML"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:261
+#: euphorie/client/browser/login.py:264
 msgid "error_missing_email"
 msgstr "Vnesite svoj e-poštni naslov"
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:269
+#: euphorie/client/browser/login.py:272
 msgid "error_missing_password"
 msgstr "Vnesite geslo"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:273
+#: euphorie/client/browser/login.py:276
 #: euphorie/client/browser/reset_password.py:220
 msgid "error_password_mismatch"
 msgstr "Gesli se ne ujemata"
@@ -3719,7 +3719,7 @@ msgstr ""
 "Izberite sektor, za katerega si želite ogledati ali prekopirati orodje OiRA."
 
 #. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:322
+#: euphorie/client/browser/login.py:325
 msgid "invalid_email"
 msgstr "Prosim vnesite veljaven E-naslov "
 

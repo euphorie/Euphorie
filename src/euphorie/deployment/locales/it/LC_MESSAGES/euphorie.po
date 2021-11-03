@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-18 13:32+0000\n"
+"POT-Creation-Date: 2021-10-25 13:08+0000\n"
 "PO-Revision-Date: 2013-11-26 11:57+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1234,7 +1234,7 @@ msgstr "Soluzione standard"
 msgid "Started"
 msgstr ""
 
-#: euphorie/client/browser/login.py:237
+#: euphorie/client/browser/login.py:240
 #: euphorie/client/browser/templates/new-session-test.pt:154
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -2386,7 +2386,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "Da 50 a 249 impiegati"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:287
+#: euphorie/client/browser/login.py:290
 msgid "error_email_in_use"
 msgstr "Un account con questo indirizzo e-mail è già esistente."
 
@@ -2401,7 +2401,7 @@ msgid "error_invalid_budget"
 msgstr "Inserire il budget in euro interi"
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:265
+#: euphorie/client/browser/login.py:268
 msgid "error_invalid_email"
 msgstr "Indicare un indirizzo e-mail valido"
 
@@ -2417,17 +2417,17 @@ msgid "error_invalid_xml"
 msgstr "Caricare un file XML valido"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:261
+#: euphorie/client/browser/login.py:264
 msgid "error_missing_email"
 msgstr "Indicare il proprio indirizzo e-mail"
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:269
+#: euphorie/client/browser/login.py:272
 msgid "error_missing_password"
 msgstr "Indicare una password"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:273
+#: euphorie/client/browser/login.py:276
 #: euphorie/client/browser/reset_password.py:220
 msgid "error_password_mismatch"
 msgstr "Le password non coincidono"
@@ -3790,7 +3790,7 @@ msgstr ""
 "tool OiRA."
 
 #. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:322
+#: euphorie/client/browser/login.py:325
 msgid "invalid_email"
 msgstr "Per favore inserire un indirizzo mail valido"
 

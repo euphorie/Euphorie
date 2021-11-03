@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-18 13:32+0000\n"
+"POT-Creation-Date: 2021-10-25 13:08+0000\n"
 "PO-Revision-Date: 2013-08-08 12:36+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1233,7 +1233,7 @@ msgstr "Solució estàndard"
 msgid "Started"
 msgstr ""
 
-#: euphorie/client/browser/login.py:237
+#: euphorie/client/browser/login.py:240
 #: euphorie/client/browser/templates/new-session-test.pt:154
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -2377,7 +2377,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "de 50 a 249 treballadors"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:287
+#: euphorie/client/browser/login.py:290
 msgid "error_email_in_use"
 msgstr "Ja hi ha un compte amb aquesta adreça electrònica."
 
@@ -2392,7 +2392,7 @@ msgid "error_invalid_budget"
 msgstr "Introdueixi el pressupost mitjançant un import enter en euros."
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:265
+#: euphorie/client/browser/login.py:268
 msgid "error_invalid_email"
 msgstr "Introdueixi una adreça electrònica vàlida"
 
@@ -2409,17 +2409,17 @@ msgid "error_invalid_xml"
 msgstr "Pugi un fitxer XML vàlid"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:261
+#: euphorie/client/browser/login.py:264
 msgid "error_missing_email"
 msgstr "Introdueixi l'adreça electrònica"
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:269
+#: euphorie/client/browser/login.py:272
 msgid "error_missing_password"
 msgstr "Introdueixi una contrasenya"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:273
+#: euphorie/client/browser/login.py:276
 #: euphorie/client/browser/reset_password.py:220
 msgid "error_password_mismatch"
 msgstr "Les contrasenyes no coincideixen"
@@ -3790,7 +3790,7 @@ msgid "intro_select_sector"
 msgstr "Seleccioni un sector per al qual vulgui veure o copiar una eina OiRA."
 
 #. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:322
+#: euphorie/client/browser/login.py:325
 msgid "invalid_email"
 msgstr "Si us plau introduïu una adreça electrònica vàlida."
 

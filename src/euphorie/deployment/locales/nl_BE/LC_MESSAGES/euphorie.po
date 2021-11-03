@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0.2dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-18 13:32+0000\n"
+"POT-Creation-Date: 2021-10-25 13:08+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1229,7 +1229,7 @@ msgstr "Standaardoplossing"
 msgid "Started"
 msgstr "Gestart op"
 
-#: euphorie/client/browser/login.py:237
+#: euphorie/client/browser/login.py:240
 #: euphorie/client/browser/templates/new-session-test.pt:154
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -2387,7 +2387,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "50 tot 249 werknemers"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:287
+#: euphorie/client/browser/login.py:290
 msgid "error_email_in_use"
 msgstr "Er bestaat al een account met dit e-mailadres."
 
@@ -2402,7 +2402,7 @@ msgid "error_invalid_budget"
 msgstr "Vul het budget in hele euro's in."
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:265
+#: euphorie/client/browser/login.py:268
 msgid "error_invalid_email"
 msgstr "Voer een geldig e-mailadres in"
 
@@ -2417,17 +2417,17 @@ msgid "error_invalid_xml"
 msgstr "Upload een geldig XML-bestand"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:261
+#: euphorie/client/browser/login.py:264
 msgid "error_missing_email"
 msgstr "Voer uw e-mailadres in"
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:269
+#: euphorie/client/browser/login.py:272
 msgid "error_missing_password"
 msgstr "Voer een wachtwoord in"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:273
+#: euphorie/client/browser/login.py:276
 #: euphorie/client/browser/reset_password.py:220
 msgid "error_password_mismatch"
 msgstr "Wachtwoorden komen niet overeen"
@@ -3804,7 +3804,7 @@ msgstr ""
 "Selecteer een sector waarvan u een OiRA-instrument wilt bekijken of kopiëren."
 
 #. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:322
+#: euphorie/client/browser/login.py:325
 msgid "invalid_email"
 msgstr "Gelieve een geldig e-mail adres in te geven."
 
@@ -5022,6 +5022,7 @@ msgstr "Gelieve dit veld in te vullen."
 #: euphorie/client/browser/templates/involve.pt:32
 msgid "message_involve_workers_how_to"
 msgstr ""
+"Bepaal de beste manier om uw personeel erbij te betrekken! U kunt bijvoorbeeld een vergadering of een focusgroep met werknemers houden en samen de respectieve delen van de risicobeoordeling doornemen. U kunt ook de inhoud van het instrument of delen ervan downloaden of afdrukken en ter informatie en feedback met uw werknemers delen."
 
 #. Default: "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href=\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction\">legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:27

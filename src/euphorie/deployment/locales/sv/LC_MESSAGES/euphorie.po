@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-18 13:32+0000\n"
+"POT-Creation-Date: 2021-10-25 13:08+0000\n"
 "PO-Revision-Date: 2013-06-27 22:15+0200\n"
 "Last-Translator: Robert <vansen@hotmail.com>\n"
 "Language-Team: sv <LL@li.org>\n"
@@ -1166,7 +1166,7 @@ msgstr "Standardlösningar"
 msgid "Started"
 msgstr ""
 
-#: euphorie/client/browser/login.py:237
+#: euphorie/client/browser/login.py:240
 #: euphorie/client/browser/templates/new-session-test.pt:154
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -2217,7 +2217,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "50-249 anställda"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:287
+#: euphorie/client/browser/login.py:290
 msgid "error_email_in_use"
 msgstr "Ett konto med denna e-postadress existerar redan."
 
@@ -2232,7 +2232,7 @@ msgid "error_invalid_budget"
 msgstr "Ange budget i euro (ental)."
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:265
+#: euphorie/client/browser/login.py:268
 msgid "error_invalid_email"
 msgstr "Ange en giltig e-postadress"
 
@@ -2247,17 +2247,17 @@ msgid "error_invalid_xml"
 msgstr "Ladda upp en giltig XML-fil"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:261
+#: euphorie/client/browser/login.py:264
 msgid "error_missing_email"
 msgstr "Ange din e-postadress"
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:269
+#: euphorie/client/browser/login.py:272
 msgid "error_missing_password"
 msgstr "Ange ett lösenord"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:273
+#: euphorie/client/browser/login.py:276
 #: euphorie/client/browser/reset_password.py:220
 msgid "error_password_mismatch"
 msgstr "Lösenorden stämmer inte överens"
@@ -3578,7 +3578,7 @@ msgid "intro_select_sector"
 msgstr "Välj den bransch som du vill visa eller kopiera till en undersökning."
 
 #. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:322
+#: euphorie/client/browser/login.py:325
 msgid "invalid_email"
 msgstr ""
 

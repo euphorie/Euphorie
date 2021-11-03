@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-18 13:32+0000\n"
+"POT-Creation-Date: 2021-10-25 13:08+0000\n"
 "PO-Revision-Date: 2015-02-10 11:55+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1221,7 +1221,7 @@ msgstr ""
 msgid "Started"
 msgstr "Fyrst framkvæmt"
 
-#: euphorie/client/browser/login.py:237
+#: euphorie/client/browser/login.py:240
 #: euphorie/client/browser/templates/new-session-test.pt:154
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -2315,7 +2315,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "50 til 249 starfsmenn"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:287
+#: euphorie/client/browser/login.py:290
 msgid "error_email_in_use"
 msgstr "Þetta tölvupóstfang er þegar með aðgang að OiRA"
 
@@ -2330,7 +2330,7 @@ msgid "error_invalid_budget"
 msgstr "Notið eingöngu tölustafi (ekki nota kommu og punkt)"
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:265
+#: euphorie/client/browser/login.py:268
 msgid "error_invalid_email"
 msgstr "Vinsamlegast setjið inn gilt tölvupóstfang"
 
@@ -2345,17 +2345,17 @@ msgid "error_invalid_xml"
 msgstr ""
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:261
+#: euphorie/client/browser/login.py:264
 msgid "error_missing_email"
 msgstr "Vinsamlegast settu inn tölvupóstfangið þitt."
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:269
+#: euphorie/client/browser/login.py:272
 msgid "error_missing_password"
 msgstr "Vinsamlegast veldu lykilorð"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:273
+#: euphorie/client/browser/login.py:276
 #: euphorie/client/browser/reset_password.py:220
 msgid "error_password_mismatch"
 msgstr "Lykilorðin eru ekki eins"
@@ -3697,7 +3697,7 @@ msgid "intro_select_sector"
 msgstr "Veldu atvinnusvið sem þú vilt skoða eða að afrita OiRA verkfæri."
 
 #. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:322
+#: euphorie/client/browser/login.py:325
 msgid "invalid_email"
 msgstr "Vinsamlega sláðu inn netfang."
 

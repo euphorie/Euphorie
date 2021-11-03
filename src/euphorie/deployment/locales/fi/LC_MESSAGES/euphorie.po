@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.1.1dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-18 13:32+0000\n"
+"POT-Creation-Date: 2021-10-25 13:08+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1234,7 +1234,7 @@ msgstr "Vakioratkaisu"
 msgid "Started"
 msgstr "Aloitettu"
 
-#: euphorie/client/browser/login.py:237
+#: euphorie/client/browser/login.py:240
 #: euphorie/client/browser/templates/new-session-test.pt:154
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -2368,7 +2368,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "50 – 249 työntekijää"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:287
+#: euphorie/client/browser/login.py:290
 msgid "error_email_in_use"
 msgstr "Tämän sähköpostiosoitteen sisältävä tili on jo olemassa."
 
@@ -2383,7 +2383,7 @@ msgid "error_invalid_budget"
 msgstr "Anna budjetti kokonaisina summina euroina."
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:265
+#: euphorie/client/browser/login.py:268
 msgid "error_invalid_email"
 msgstr "Kirjoita voimassaoleva sähköpostiosoite"
 
@@ -2398,17 +2398,17 @@ msgid "error_invalid_xml"
 msgstr "Lähetä kelvollinen XML-tiedosto"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:261
+#: euphorie/client/browser/login.py:264
 msgid "error_missing_email"
 msgstr "Kirjoita sähköpostiosoitteesi"
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:269
+#: euphorie/client/browser/login.py:272
 msgid "error_missing_password"
 msgstr "Kirjoita salasana"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:273
+#: euphorie/client/browser/login.py:276
 #: euphorie/client/browser/reset_password.py:220
 msgid "error_password_mismatch"
 msgstr "Salasanat eivät täsmää"
@@ -3764,7 +3764,7 @@ msgstr ""
 "työkalun."
 
 #. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:322
+#: euphorie/client/browser/login.py:325
 msgid "invalid_email"
 msgstr "Kirjoita voimassaoleva sähköpostiosoite."
 
@@ -4979,22 +4979,23 @@ msgstr "Täytä tämä kenttä."
 #: euphorie/client/browser/templates/involve.pt:32
 msgid "message_involve_workers_how_to"
 msgstr ""
+"Tunnista, mikä olisi teillä paras tapa "
+"saada henkilöstö mukaan. Onnistuisiko riskinarvioinnin toteutus esimerkiksi "
+"osana työyhteisöpalaveria tai kokoamalla henkilöstön edustajista "
+"arviointiryhmä, joka osallistuu riskinarviointiin? Yhteisen keskustelun "
+"pohjaksi ja palautteen saamiseksi voit myös ladata tai tulostaa "
+"riskinarvioitilomakkeen tai sen osioita henkilöstölle."
 
 #. Default: "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href=\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction\">legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:27
 msgid "message_involve_workers_requirement"
 msgstr ""
-"<p>Hyvän turvallisuusjohtamisen yksi avaintekijä on se, miten hyvin "
+"Hyvän turvallisuusjohtamisen yksi avaintekijä on se, miten hyvin "
 "henkilöstö saadaan osallistumaan mukaan turvallisuustoimintaan. Myös laki "
 "edellyttää työantajan ylläpitävän ja parantavan työturvallisuutta yhdessä "
 "työntekijöiden kanssa. Kun johto kannustaa henkilöstöä osallistumaan ja "
 "kuuntelee heidän ajatuksiaan, sitä paremmin turvallisuuden hallinnassa "
-"todennäköisesti onnistutaan.</p><p>Tunnista, mikä olisi teillä paras tapa "
-"saada henkilöstö mukaan. Onnistuisiko riskinarvioinnin toteutus esimerkiksi "
-"osana työyhteisöpalaveria tai kokoamalla henkilöstön edustajista "
-"arviointiryhmä, joka osallistuu riskinarviointiin? Yhteisen keskustelun "
-"pohjaksi ja palautteen saamiseksi voit myös ladata tai tulostaa "
-"riskinarvioitilomakkeen tai sen osioita henkilöstölle.</p>"
+"todennäköisesti onnistutaan."
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:212

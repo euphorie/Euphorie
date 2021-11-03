@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-18 13:32+0000\n"
+"POT-Creation-Date: 2021-10-25 13:08+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: Florakalman <florakalman@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1227,7 +1227,7 @@ msgstr "Standard megoldás"
 msgid "Started"
 msgstr "Elkezdve"
 
-#: euphorie/client/browser/login.py:237
+#: euphorie/client/browser/login.py:240
 #: euphorie/client/browser/templates/new-session-test.pt:154
 msgid "Starting a test session is not available in this OiRA application."
 msgstr "Ebben az OiRA alkalmazásban nem lehetséges teszt indítása"
@@ -2389,7 +2389,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "50 - 249 munkavállaló"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:287
+#: euphorie/client/browser/login.py:290
 msgid "error_email_in_use"
 msgstr "Ezzel az e-mailcímmel már létezik egy felhasználói fiók."
 
@@ -2404,7 +2404,7 @@ msgid "error_invalid_budget"
 msgstr "A költségvetést egészre kerekített euró összegben adja meg."
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:265
+#: euphorie/client/browser/login.py:268
 msgid "error_invalid_email"
 msgstr "Kérjük, adjon meg egy érvényes e-mailcímet"
 
@@ -2419,17 +2419,17 @@ msgid "error_invalid_xml"
 msgstr "Kérjük, érvényes XML fájlt töltsön fel"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:261
+#: euphorie/client/browser/login.py:264
 msgid "error_missing_email"
 msgstr "Kérjük, adja meg az e-mailcímét"
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:269
+#: euphorie/client/browser/login.py:272
 msgid "error_missing_password"
 msgstr "Kérjük, adjon meg egy jelszót"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:273
+#: euphorie/client/browser/login.py:276
 #: euphorie/client/browser/reset_password.py:220
 msgid "error_password_mismatch"
 msgstr "A jelszavak nem egyeznek"
@@ -3830,7 +3830,7 @@ msgstr ""
 "vagy másolni."
 
 #. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:322
+#: euphorie/client/browser/login.py:325
 msgid "invalid_email"
 msgstr "Kérem adjon meg érvényes e-mail címet."
 
@@ -5581,8 +5581,8 @@ msgstr ""
 "Miután elindította az OiRA eszköz munkafolyamatát, leállíthatja, mielőtt "
 "kész lenne. Később az OiRA eszköz munkafolyamatának címét kiválasztva "
 "újraindíthatja. Egynél több munkafolyamatot is elmenthet, amennyiben "
-"különböző neveket adott ezeknek. Ne felejtse el az e-mailcímét, jelszavát "
-"és az OiRA eszköz munkafolyamatának adott nevet. A Kijelentkezés gombra "
+"különböző neveket adott ezeknek. Ne felejtse el az e-mailcímét, jelszavát és "
+"az OiRA eszköz munkafolyamatának adott nevet. A Kijelentkezés gombra "
 "kattintva aktívan kijelentkezik. AKkor is kijelentkezik, ha lezárja a "
 "böngészőt. Biztonsági okokból jobb aktívan kijelentkezni."
 
