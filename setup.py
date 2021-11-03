@@ -26,7 +26,7 @@ setup(
     keywords="euphorie OiRA Interactive Risk Assessment",
     author="Wichert Akkerman and Syslab.com",
     author_email="info@syslab.com",
-    url="http://euphorie.readthedocs.org/en/latest/",
+    url="https://euphorie.readthedocs.org/en/latest/",
     license="GPL",
     packages=find_packages("src"),
     package_dir={"": "src"},
