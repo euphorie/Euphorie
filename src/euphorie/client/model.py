@@ -254,7 +254,7 @@ class SurveyTreeItem(BaseObject):
 
         item.session = self.session
         item.depth = self.depth + 1
-        item.path = (self.path and self.path or "") + "%03d" % index
+        item.path = (self.path or "") + "%03d" % index
         item.parent_id = self.id
         if self.profile_index != -1:
             item.profile_index = self.profile_index
