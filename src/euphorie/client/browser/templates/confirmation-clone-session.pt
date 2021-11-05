@@ -15,8 +15,8 @@
         <h1 panel-class-small=""
             i18n:translate="label_clone"
         >Clone risk assessment</h1>
-        <form class="wizard-box panel-class-small"
-              action="${context/absolute_url}/@@clone-session"
+        <form class="wizard-box panel-class-small pat-inject"
+              action="${context/absolute_url}/@@clone-session#content"
               method="post"
         >
           <div class="panel-body">
@@ -33,7 +33,7 @@
           </div>
           <div class="buttons panel-footer">
             <div class="container">
-              <button class="pat-button default"
+              <button class="pat-button default close-panel"
                       type="submit"
                       i18n:translate=""
               >
