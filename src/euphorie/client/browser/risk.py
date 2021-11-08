@@ -451,7 +451,7 @@ class IdentificationView(RiskBase):
                     # does not appear in the REQUEST
                     active_measures = set()
                     for entry in reply:
-                        if entry.startswith("measure"):
+                        if entry.startswith("measure") and entry.find("-") >= 0:
                             measure_id = entry.split("-")[-1]
                             active_measures.add(measure_id)
                     # Get the ids of all measures-in-place
