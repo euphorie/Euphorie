@@ -45,7 +45,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "chunks/" + ({}[chunkId]||chunkId) + "." + {"0":"f58114a6ca2b71082d5c","1":"c8eb15616dc4a8ce1cf0","2":"3c679fd09f63cd51c735","9":"22a86357f81347367190","10":"447b06fce196de3d683c","11":"1783ed240669806c0d0e","12":"d2e57d4af1a772607b0c","13":"943e8b9ca648a87f45b1","14":"83f80b263715e540d92f","15":"b6c85b1b024232cf7966","16":"fc9dfbc1ac554a45c752","17":"02959cb0f8a8d6a85ab1","18":"f3e7ebc004a1fe53a10f","19":"81e24686b0751f921f51","20":"b8122bdfc71e8e236322","21":"a864febc0be73c8ac7bb","22":"cc81768829a26bdad85c","23":"0d684dede561d7103396","24":"26e9dd2ee206100d4cb6","25":"ca6edecf93d967e82863","26":"1440714a00c0398e8cd0","27":"2aff8c926c2e87476a98","28":"393bf144d235e27dc65c","29":"1f84be7b80dc3a616d36","30":"fc75397f5a160aa67bb2","31":"28d8dcc23214a010cea0","32":"94f069e68b496d3239a4","33":"18bb3e5ffc2c5f4194ae","34":"f90be26c47e0f68f1be0","35":"b9ecc349ee5b76c04c6e","36":"fdf109d2030944bab634","37":"d6de14c1ec47b067970a","38":"15379c87312a284f4c29","39":"8f0555b16bc83eca430c","40":"5a6bd573ac718300fd6f","41":"811160e2d1fca7db4085","42":"8896035fdf6179e34b75","43":"390bb8e243c5cb12ae8b","44":"9c0de057f18513961540","45":"7d3762df524e2c38e35c","46":"19972628b3acce1590dc","47":"7c83612cfc41b46d7963","48":"b32a5179352dc1f3e525","49":"d590e025839c49ff965a","50":"2151b0ef594e29f1c11c","51":"52dc2896acf5c63bbfca","52":"623f49db4dfe1fbaadd4","53":"56e9e994cde3506ffe87","54":"7ef53c848eeabcfe6ee4","55":"c54ddd6eb4f58c59ddba","56":"449bd0e4017009cc872b","57":"c3a3117946667e227518","58":"d38b3b4726def9925e86","59":"57a194e3ed02851e88e0","60":"fd0c08c3cda5d080c154","61":"285edf3d21ffcc2de44e","62":"5be3959f3ea2b5588842","63":"ab53e6ddd950563adc93","64":"6e82f0ffb39aa09efac8","65":"43130391286bca48ba15","66":"0e4d19e02d616a3edf3a","67":"26b354be9b3cbc60ff0d","68":"3b3dd32d42fa65e9913d","69":"07661ac9039b2ef34f40","70":"cb8665b190dbb19bc18d","71":"4463b82e4dfbf49018c5","72":"f480cfe44d57eb987dd3","73":"d1c45e1065b5299dd382","74":"f5537226c36424231478","75":"9db7c43a7a3f392586c7","76":"2fd134579008b118825a","77":"d19bf4b97f63df3c45e8","78":"e736c05560a6dc6de37f","79":"1030db88e3a92a916717","80":"b40bda29ee8d340bd7f2","81":"5acf5b62e1de4e51e37a","82":"6bdb4cf19609e0896054","83":"bd188d30904a0f3f6278","84":"41f04cfb17f2a855c3d7","85":"8893979bca95bf85d49a","86":"3583f5d14fd39d9356c1","87":"854dc651507f5ad8fcf9","88":"18df9c1ea7cf80b09c47","89":"6d8223f0cbd610ed9db0","90":"930a8818e72702bb7c27","91":"57d59c45db09657a0ef3","92":"2104522e67c5f9d4ba40","93":"158453da47cfd8dbb61d","94":"dc5cc9fb51f56d157115","95":"d5f09f6cc69a3514d931","96":"d07000d1157070b44d71","97":"14d2600aed0d24e5444e","98":"6af202118b3f9d85c350","99":"e6d564546301f4e663e1","100":"95e8fab391199b321bdc","101":"769693494ee05533db91","102":"146421df5d9747f03c23","103":"5a81cbfe5ae6f6e774db","104":"68fedccbfdf3f6536b6e","105":"7606c737a37bc6cfe01f","106":"9d3cb89bd44a2614d591","107":"a2ed4d6a96f82326033c","108":"17ad60dd63bc2a62faf0","109":"17c5aa0c6bdb66d2dde0","110":"12a8a63eae1c4f28bbaa","111":"43bfe2100c9478fd651d","112":"1e755da677200cb7d8eb","113":"a70852437da1ac89105a","114":"eec126b050b12bbf0b5d","115":"777a2f0ffbc6cd7fa526","116":"e70db516c3c7a18563db","117":"eb3b4ec8f2c0b965b43e","118":"c72dca28afbf5963219b","119":"7d6e61ab605d9dc95dc5","120":"8ee8ab399020fcfe9b2b","121":"02884f307871ac06731a","122":"ef11b03b93ec8bdd0ae8","123":"90ba3b2d70bdbafdd557","124":"6c632561607ffe7ad960","125":"06a6609b7d20660b60a5","126":"c418a924bc0bd5e7b3e0","127":"7e297ab0f5a1cb4a60fd","128":"31b4086137ddd0d4f88f","129":"64c963ef5ab4f1760ae1","130":"aa445066cc2ca3e8eb79","131":"7f4ada4d316164d88082","132":"7206dd8a1da920ea150f","133":"a8f006f2b57df2d4ed05","134":"f85ca52ff562dc1cbdae","135":"a364126dc13390e861a0","136":"f0a2d3297bef5a9018aa","137":"d2fdf7d8f8188c0c4275","138":"76f6e941dfec62d8d5b7","139":"c512bb7bfd591ddd46f3","140":"12cf0aa4aac044c75aac","141":"cd21c967335415a6496d","142":"804506b7db7f047d6800","143":"da265e8a2f9784c36854","144":"640a66470e3ade3f744d","145":"14b2d835fa700fb9617e","146":"30489502656f00ade563","147":"eab8e295a4c250eae2a2","148":"2f086eb1d5de2d504728","149":"833616f846793ea5f241","150":"4a33667f4e1cde2bab89","151":"d4ee1caffe083c1bcd29","152":"890f2dfe0e17f37e0533","153":"8f3bdd68aa7bf936cd99","154":"3a23325dc7a6e0f4194c","155":"8c567a9685476d0dde36","156":"dea749455ec6f46ef0b1","157":"9ccb2ed62af452507107","158":"4175522f7c316d6cae34","159":"2b64432bf2a364e4ba6f","160":"4b8a1fbdbc22c5c4af6e","161":"b1f5f36e0af90575218e","162":"c449c3987ccdc83957cb","163":"82abfbcea59af4f0b8bd","164":"c826e0616bafda88e7fb"}[chunkId] + ".min.js"
+/******/ 		return __webpack_require__.p + "chunks/" + ({}[chunkId]||chunkId) + "." + {"0":"44e9acb70a3009d621ef","1":"e145dea083b65f506de6","2":"68e3d38b038ab15a58ef","9":"d511e4f5d9e0c9558c25","10":"40f2a4bfa71d6ea23cc5","11":"1a1419a65a94bbf44072","12":"60a75c1b20df46b426aa","13":"c896f2ebab0fd648f4d7","14":"0e3fa40f3de64f6ffb99","15":"0834fa9c80af5aaee0bb","16":"6a4860d9dfbd243e1368","17":"0101fdcd081e45c54431","18":"7aca765d4371f71818a7","19":"f192d7783182871d17bb","20":"8ed6e78df8153e6d3d8b","21":"c2e6568314b8c13951ba","22":"7af577341135222cdb6d","23":"c24f08cf88a3e669a1be","24":"8aeb618f916d646ebb72","25":"9ad435ee51202dae43b2","26":"5ce4f14eb5b1f539bee2","27":"413479d81ff060f71ca8","28":"d486e4ff16dd7ac757e3","29":"8dacab65f64b4cf0eb0a","30":"d18896b057ea9ae3e4de","31":"86e4088cc04f60e0801a","32":"87b14378e4d88c0ee6ca","33":"8e99760d3e8c0b3ab83c","34":"82fea87370970bb21270","35":"96c24bdd6792d525f79b","36":"991ab8f5ddea19f8334b","37":"fc072358c2256bc41c3f","38":"4fe6939d7867a70707c4","39":"52366a6d309eb0bb27e1","40":"c89b75ad185685d61af7","41":"4feeca29631491091cfa","42":"1637aa8d5e363253fd54","43":"537adea9231bea84fdf8","44":"2cc4cac21208660b953d","45":"eeb6db9777aa0d75c241","46":"4357dea987da61eb95e5","47":"caead3e7dee18cf8fd57","48":"d283e0e581ed303e11dd","49":"d4273dcb978690149786","50":"f61b80ac20490b62118f","51":"b4544fd4d969193b7f23","52":"57342300a3b0db1a6c4f","53":"ba4a20d9abb4933f3f97","54":"3c571af9c000a5a042d4","55":"bb96c84e4a3e80740c68","56":"c6346cc0ceb14dd87f30","57":"4e133b2a61ea1f682fc6","58":"aa8b2aba08216b3da12d","59":"542cc2e8feffff7ccee2","60":"22fef0b2c328426f43c9","61":"db170de7a10b6e673924","62":"190c018adbbd5d950268","63":"447ecdbf449b57a099dd","64":"8c78e26d112f00de9dd7","65":"c11b6739b38ee00900eb","66":"bf89c43b978537b425f2","67":"c55886d467cd1472c80d","68":"2682edb39692bc7ee156","69":"ec6504f51007da0c6453","70":"f77823ecf97a7d45e189","71":"c2fa489e4716321ec5de","72":"cc45bd2e767fc85238e7","73":"cd5c49c0858364411e2a","74":"05380f80a2a4fcd0026b","75":"6d1f380cd66972bc8aba","76":"b8218f7b26fbee1270ab","77":"24be0b6d1177c4624d8d","78":"b07d208d3d448ee225bb","79":"be4733ac2dfd119358c3","80":"c1ba3126bd86766caae1","81":"8ca4f7face6d73d8d4fc","82":"c8c613bf4e9d5a5de071","83":"55155827cfe0106a9d0e","84":"cb322a9d29807c50d36f","85":"67c49afe9e7cf7a67ca4","86":"6d56db5b856db0304351","87":"ebc14b4b46d6a9e3b53c","88":"0e3d515bbe0413fb719d","89":"a2580b793af2d247bcf5","90":"ecf6570fdbac6e10474b","91":"b39afaa5adcd1b32c016","92":"2c52fb9aad197183b93f","93":"78d904299193706d988b","94":"ca64f21fccce80b482a5","95":"3778012114795ce31a53","96":"1d516fce1a1806f56586","97":"250619ca3ace8c79de16","98":"dd7e7862f844f97e13e5","99":"625c3c54e1934e3051e2","100":"d7cc54e8b7b1193b99b6","101":"4dcb7dc8db585b756a4e","102":"9da688d5ab7594b34f29","103":"0afbd285dd2a40655dc8","104":"6b9ffe540dd1153b96a4","105":"0a13efa1a7cc1562b18b","106":"0b5a354cac6642957a9b","107":"57ee18932607cdac047d","108":"43ffebd34db7c2f69100","109":"d5c21a46ce62496e64ad","110":"7d957cd2ca6ed6787d6d","111":"3dd0ec6378b742d5183e","112":"20d3b707dcf0431d72e5","113":"7297f21bb24197315029","114":"9759e16972ec6e153212","115":"09f5dca146111f332064","116":"4eeb0256cf8a52c7a4a1","117":"56d94369755c75889fd5","118":"e23bbe2935a7ce71f852","119":"c6a1a14a293b617b6d5d","120":"e8a3614b42139d11c7a9","121":"f436d413b185975a24a7","122":"e3c5626fe5d204903d57","123":"2cca21b605a70389db4a","124":"e53a5dfec5a156041da3","125":"cb4b42fbcf0c9b51dce8","126":"c9c383bc83ff4d3eabf7","127":"2467e45f62800e68fefb","128":"936d788f7d8bb2e22c87","129":"6f258e7016ac25bb86bf","130":"33802a1060563f5a708a","131":"24215c9faaed4012c805","132":"ec69be40359f20beab29","133":"e410f59abdfc41585c47","134":"b2e037c27ca6414c7285","135":"9b3ecf8dddf2517cb7cc","136":"35db685999e3d70ba580","137":"34e6278d2574b31d14f5","138":"716563d6fa0db8daf2ca","139":"a3d149af6474da2d83fb","140":"d7b7d234ffb7fafb4cf8","141":"06982565f1bb19707114","142":"65cd75875e1c5f503cdd","143":"fa0531aa6a6c6a7e693b","144":"720943a0c0749d5984aa","145":"718de1037d4d5c6e368a","146":"8c723e95916582147fbd","147":"4842ce77a1684a9f3d82","148":"f0190724db259f0286ce","149":"8f85e9658b40134ae29c","150":"299e0fce4b2bd36b6ade","151":"ff0c1cebd44fc7c77409","152":"161288b2265396796753","153":"27d91617df2f5764fa41","154":"d0c1761a5ba48d971260","155":"673bdc8114ed2474bf98","156":"f81266739a0688dccc14","157":"8138bbd9b81d43d9430d","158":"ab00901f52a6062dc272","159":"be873fa7a5cf1ed97f2d","160":"138b0ad54046fff32f3d","161":"ca12aae9b005557f0cba","162":"8ed6090ffd6e64aa5699","163":"991928b22ff2082555c3","164":"1f614ab88d6e6b3f9640"}[chunkId] + ".min.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -198,7 +198,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 551);
+/******/ 	return __webpack_require__(__webpack_require__.s = 555);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -206,8 +206,8 @@
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
-var ___EXPOSE_LOADER_IMPORT___ = __webpack_require__(106);
-var ___EXPOSE_LOADER_GET_GLOBAL_THIS___ = __webpack_require__(107);
+var ___EXPOSE_LOADER_IMPORT___ = __webpack_require__(118);
+var ___EXPOSE_LOADER_GET_GLOBAL_THIS___ = __webpack_require__(119);
 var ___EXPOSE_LOADER_GLOBAL_THIS___ = ___EXPOSE_LOADER_GET_GLOBAL_THIS___;
 if (typeof ___EXPOSE_LOADER_GLOBAL_THIS___["$"] === 'undefined') ___EXPOSE_LOADER_GLOBAL_THIS___["$"] = ___EXPOSE_LOADER_IMPORT___;
 if (typeof ___EXPOSE_LOADER_GLOBAL_THIS___["jQuery"] === 'undefined') ___EXPOSE_LOADER_GLOBAL_THIS___["jQuery"] = ___EXPOSE_LOADER_IMPORT___;
@@ -222,8 +222,8 @@ module.exports = ___EXPOSE_LOADER_IMPORT___;
 "use strict";
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
-/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11);
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
+/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12);
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -906,7 +906,3079 @@ var utils = {
 
 /***/ }),
 
-/***/ 102:
+/***/ 10:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+/* harmony import */ var _logging__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+/**
+ * Patterns registry - Central registry and scan logic for patterns
+ *
+ * Copyright 2012-2013 Simplon B.V.
+ * Copyright 2012-2013 Florian Friesdorf
+ * Copyright 2013 Marko Durkovic
+ * Copyright 2013 Rok Garbas
+ * Copyright 2014-2015 Syslab.com GmBH, JC Brand
+ */
+
+/*
+ * changes to previous patterns.register/scan mechanism
+ * - if you want initialised class, do it in init
+ * - init returns set of elements actually initialised
+ * - handle once within init
+ * - no turnstile anymore
+ * - set pattern.jquery_plugin if you want it
+ */
+
+
+
+
+var log = _logging__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].getLogger("registry");
+var disable_re = /patterns-disable=([^&]+)/g;
+var dont_catch_re = /patterns-dont-catch/g;
+var disabled = {};
+var dont_catch = false;
+var match;
+
+while ((match = disable_re.exec(window.location.search)) !== null) {
+  disabled[match[1]] = true;
+  log.info("Pattern disabled via url config:", match[1]);
+}
+
+while ((match = dont_catch_re.exec(window.location.search)) !== null) {
+  dont_catch = true;
+  log.info("I will not catch init exceptions");
+}
+
+var registry = {
+  patterns: {},
+  // as long as the registry is not initialized, pattern
+  // registration just registers a pattern. Once init is called,
+  // the DOM is scanned. After that registering a new pattern
+  // results in rescanning the DOM only for this pattern.
+  initialized: false,
+  init: function init() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+      log.info("loaded: " + Object.keys(registry.patterns).sort().join(", "));
+      registry.scan(document.body);
+      registry.initialized = true;
+      log.info("finished initial scan.");
+    });
+  },
+  clear: function clear() {
+    // Removes all patterns from the registry. Currently only being
+    // used in tests.
+    this.patterns = {};
+  },
+  transformPattern: function transformPattern(name, content) {
+    var _pattern$prototype;
+
+    /* Call the transform method on the pattern with the given name, if
+     * it exists.
+     */
+    if (disabled[name]) {
+      log.debug("Skipping disabled pattern:", name);
+      return;
+    }
+
+    var pattern = registry.patterns[name];
+    var transform = pattern.transform || ((_pattern$prototype = pattern.prototype) === null || _pattern$prototype === void 0 ? void 0 : _pattern$prototype.transform);
+
+    if (transform) {
+      try {
+        transform(jquery__WEBPACK_IMPORTED_MODULE_0___default()(content));
+      } catch (e) {
+        if (dont_catch) {
+          throw e;
+        }
+
+        log.error("Transform error for pattern" + name, e);
+      }
+    }
+  },
+  initPattern: function initPattern(name, el, trigger) {
+    /* Initialize the pattern with the provided name and in the context
+     * of the passed in DOM element.
+     */
+    var $el = jquery__WEBPACK_IMPORTED_MODULE_0___default()(el);
+    var pattern = registry.patterns[name];
+
+    if (pattern.init) {
+      var plog = _logging__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].getLogger("pat." + name);
+
+      if ($el.is(pattern.trigger)) {
+        plog.debug("Initialising:", $el);
+
+        try {
+          pattern.init($el, null, trigger);
+          plog.debug("done.");
+        } catch (e) {
+          if (dont_catch) {
+            throw e;
+          }
+
+          plog.error("Caught error:", e);
+        }
+      }
+    }
+  },
+  orderPatterns: function orderPatterns(patterns) {
+    // XXX: Bit of a hack. We need the validation pattern to be
+    // parsed and initiated before the inject pattern. So we make
+    // sure here, that it appears first. Not sure what would be
+    // the best solution. Perhaps some kind of way to register
+    // patterns "before" or "after" other patterns.
+    if (patterns.includes("validation") && patterns.includes("inject")) {
+      patterns.splice(patterns.indexOf("validation"), 1);
+      patterns.unshift("validation");
+    }
+
+    return patterns;
+  },
+  scan: function scan(content, patterns, trigger) {
+    if (!content) {
+      return;
+    }
+
+    if (typeof content === "string") {
+      content = document.querySelector(content);
+    } else if (content.jquery) {
+      content = content[0];
+    }
+
+    var selectors = [];
+    patterns = this.orderPatterns(patterns || Object.keys(registry.patterns));
+
+    var _iterator = _createForOfIteratorHelper(patterns),
+        _step;
+
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var name = _step.value;
+        this.transformPattern(name, content);
+        var pattern = registry.patterns[name];
+
+        if (pattern.trigger) {
+          selectors.unshift(pattern.trigger);
+        }
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+
+    var matches = _dom__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].querySelectorAllAndMe(content, selectors.map(function (it) {
+      return it.trim().replace(/,$/, "");
+    }).join(","));
+    matches = matches.filter(function (el) {
+      var _el$parentNode, _el$parentNode$closes, _el$parentNode2, _el$parentNode2$close, _el$parentNode3, _el$parentNode3$close;
+
+      // Filter out patterns:
+      // - with class ``.cant-touch-this``
+      // - wrapped in ``.cant-touch-this`` elements
+      // - wrapped in ``<pre>`` elements
+      // - wrapped in ``<template>`` elements
+      return !el.matches(".cant-touch-this") && !(el !== null && el !== void 0 && (_el$parentNode = el.parentNode) !== null && _el$parentNode !== void 0 && (_el$parentNode$closes = _el$parentNode.closest) !== null && _el$parentNode$closes !== void 0 && _el$parentNode$closes.call(_el$parentNode, ".cant-touch-this")) && !(el !== null && el !== void 0 && (_el$parentNode2 = el.parentNode) !== null && _el$parentNode2 !== void 0 && (_el$parentNode2$close = _el$parentNode2.closest) !== null && _el$parentNode2$close !== void 0 && _el$parentNode2$close.call(_el$parentNode2, "pre")) && !(el !== null && el !== void 0 && (_el$parentNode3 = el.parentNode) !== null && _el$parentNode3 !== void 0 && (_el$parentNode3$close = _el$parentNode3.closest) !== null && _el$parentNode3$close !== void 0 && _el$parentNode3$close.call(_el$parentNode3, "template")) // NOTE: not strictly necessary. Template is a DocumentFragment and not reachable except for IE.
+      ;
+    }); // walk list backwards and initialize patterns inside-out.
+
+    var _iterator2 = _createForOfIteratorHelper(matches.reverse()),
+        _step2;
+
+    try {
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        var el = _step2.value;
+
+        var _iterator3 = _createForOfIteratorHelper(patterns),
+            _step3;
+
+        try {
+          for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+            var _name = _step3.value;
+            this.initPattern(_name, el, trigger);
+          }
+        } catch (err) {
+          _iterator3.e(err);
+        } finally {
+          _iterator3.f();
+        }
+      }
+    } catch (err) {
+      _iterator2.e(err);
+    } finally {
+      _iterator2.f();
+    }
+
+    document.body.classList.add("patterns-loaded");
+  },
+  register: function register(pattern, name) {
+    name = name || pattern.name;
+
+    if (!name) {
+      log.error("Pattern lacks a name:", pattern);
+      return false;
+    }
+
+    if (registry.patterns[name]) {
+      log.error("Already have a pattern called: " + name);
+      return false;
+    } // register pattern to be used for scanning new content
+
+
+    registry.patterns[name] = pattern; // register pattern as jquery plugin
+
+    if (pattern.jquery_plugin) {
+      var plugin_name = ("pat-" + name).replace(/-([a-zA-Z])/g, function (match, p1) {
+        return p1.toUpperCase();
+      });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default.a.fn[plugin_name] = _utils__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"].jqueryPlugin(pattern); // BBB 2012-12-10 and also for Mockup patterns.
+
+      jquery__WEBPACK_IMPORTED_MODULE_0___default.a.fn[plugin_name.replace(/^pat/, "pattern")] = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.fn[plugin_name];
+    }
+
+    log.debug("Registered pattern:", name, pattern);
+
+    if (registry.initialized) {
+      registry.scan(document.body, [name]);
+    }
+
+    return true;
+  }
+};
+/* harmony default export */ __webpack_exports__["a"] = (registry);
+
+/***/ }),
+
+/***/ 11:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, "a", function() { return /* reexport */ index_default; });
+
+// UNUSED EXPORTS: VERSION, restArguments, isObject, isNull, isUndefined, isBoolean, isElement, isString, isNumber, isDate, isRegExp, isError, isSymbol, isArrayBuffer, isDataView, isArray, isFunction, isArguments, isFinite, isNaN, isTypedArray, isEmpty, isMatch, isEqual, isMap, isWeakMap, isSet, isWeakSet, keys, allKeys, values, pairs, invert, functions, methods, extend, extendOwn, assign, defaults, create, clone, tap, get, has, mapObject, identity, constant, noop, toPath, property, propertyOf, matcher, matches, times, random, now, escape, unescape, templateSettings, template, result, uniqueId, chain, iteratee, partial, bind, bindAll, memoize, delay, defer, throttle, debounce, wrap, negate, compose, after, before, once, findKey, findIndex, findLastIndex, sortedIndex, indexOf, lastIndexOf, find, detect, findWhere, each, forEach, map, collect, reduce, foldl, inject, reduceRight, foldr, filter, select, reject, every, all, some, any, contains, includes, include, invoke, pluck, where, max, min, shuffle, sample, sortBy, groupBy, indexBy, countBy, partition, toArray, size, pick, omit, first, head, take, initial, last, rest, tail, drop, compact, flatten, without, uniq, unique, union, intersection, difference, unzip, transpose, zip, object, range, chunk, mixin
+
+// NAMESPACE OBJECT: ./node_modules/underscore/modules/index.js
+var modules_namespaceObject = {};
+__webpack_require__.r(modules_namespaceObject);
+__webpack_require__.d(modules_namespaceObject, "VERSION", function() { return _setup["e" /* VERSION */]; });
+__webpack_require__.d(modules_namespaceObject, "restArguments", function() { return restArguments; });
+__webpack_require__.d(modules_namespaceObject, "isObject", function() { return isObject; });
+__webpack_require__.d(modules_namespaceObject, "isNull", function() { return isNull; });
+__webpack_require__.d(modules_namespaceObject, "isUndefined", function() { return isUndefined; });
+__webpack_require__.d(modules_namespaceObject, "isBoolean", function() { return isBoolean; });
+__webpack_require__.d(modules_namespaceObject, "isElement", function() { return isElement; });
+__webpack_require__.d(modules_namespaceObject, "isString", function() { return isString; });
+__webpack_require__.d(modules_namespaceObject, "isNumber", function() { return isNumber; });
+__webpack_require__.d(modules_namespaceObject, "isDate", function() { return isDate; });
+__webpack_require__.d(modules_namespaceObject, "isRegExp", function() { return isRegExp; });
+__webpack_require__.d(modules_namespaceObject, "isError", function() { return isError; });
+__webpack_require__.d(modules_namespaceObject, "isSymbol", function() { return isSymbol; });
+__webpack_require__.d(modules_namespaceObject, "isArrayBuffer", function() { return isArrayBuffer; });
+__webpack_require__.d(modules_namespaceObject, "isDataView", function() { return modules_isDataView; });
+__webpack_require__.d(modules_namespaceObject, "isArray", function() { return isArray; });
+__webpack_require__.d(modules_namespaceObject, "isFunction", function() { return modules_isFunction; });
+__webpack_require__.d(modules_namespaceObject, "isArguments", function() { return modules_isArguments; });
+__webpack_require__.d(modules_namespaceObject, "isFinite", function() { return isFinite_isFinite; });
+__webpack_require__.d(modules_namespaceObject, "isNaN", function() { return isNaN_isNaN; });
+__webpack_require__.d(modules_namespaceObject, "isTypedArray", function() { return modules_isTypedArray; });
+__webpack_require__.d(modules_namespaceObject, "isEmpty", function() { return isEmpty; });
+__webpack_require__.d(modules_namespaceObject, "isMatch", function() { return isMatch; });
+__webpack_require__.d(modules_namespaceObject, "isEqual", function() { return isEqual; });
+__webpack_require__.d(modules_namespaceObject, "isMap", function() { return isMap; });
+__webpack_require__.d(modules_namespaceObject, "isWeakMap", function() { return isWeakMap; });
+__webpack_require__.d(modules_namespaceObject, "isSet", function() { return isSet; });
+__webpack_require__.d(modules_namespaceObject, "isWeakSet", function() { return isWeakSet; });
+__webpack_require__.d(modules_namespaceObject, "keys", function() { return keys_keys; });
+__webpack_require__.d(modules_namespaceObject, "allKeys", function() { return allKeys; });
+__webpack_require__.d(modules_namespaceObject, "values", function() { return values_values; });
+__webpack_require__.d(modules_namespaceObject, "pairs", function() { return pairs_pairs; });
+__webpack_require__.d(modules_namespaceObject, "invert", function() { return invert; });
+__webpack_require__.d(modules_namespaceObject, "functions", function() { return functions; });
+__webpack_require__.d(modules_namespaceObject, "methods", function() { return functions; });
+__webpack_require__.d(modules_namespaceObject, "extend", function() { return extend; });
+__webpack_require__.d(modules_namespaceObject, "extendOwn", function() { return extendOwn; });
+__webpack_require__.d(modules_namespaceObject, "assign", function() { return extendOwn; });
+__webpack_require__.d(modules_namespaceObject, "defaults", function() { return defaults; });
+__webpack_require__.d(modules_namespaceObject, "create", function() { return create; });
+__webpack_require__.d(modules_namespaceObject, "clone", function() { return clone; });
+__webpack_require__.d(modules_namespaceObject, "tap", function() { return tap; });
+__webpack_require__.d(modules_namespaceObject, "get", function() { return get; });
+__webpack_require__.d(modules_namespaceObject, "has", function() { return has_has; });
+__webpack_require__.d(modules_namespaceObject, "mapObject", function() { return mapObject; });
+__webpack_require__.d(modules_namespaceObject, "identity", function() { return identity; });
+__webpack_require__.d(modules_namespaceObject, "constant", function() { return constant; });
+__webpack_require__.d(modules_namespaceObject, "noop", function() { return noop; });
+__webpack_require__.d(modules_namespaceObject, "toPath", function() { return toPath; });
+__webpack_require__.d(modules_namespaceObject, "property", function() { return property; });
+__webpack_require__.d(modules_namespaceObject, "propertyOf", function() { return propertyOf; });
+__webpack_require__.d(modules_namespaceObject, "matcher", function() { return matcher_matcher; });
+__webpack_require__.d(modules_namespaceObject, "matches", function() { return matcher_matcher; });
+__webpack_require__.d(modules_namespaceObject, "times", function() { return times; });
+__webpack_require__.d(modules_namespaceObject, "random", function() { return random; });
+__webpack_require__.d(modules_namespaceObject, "now", function() { return now; });
+__webpack_require__.d(modules_namespaceObject, "escape", function() { return modules_escape; });
+__webpack_require__.d(modules_namespaceObject, "unescape", function() { return modules_unescape; });
+__webpack_require__.d(modules_namespaceObject, "templateSettings", function() { return templateSettings; });
+__webpack_require__.d(modules_namespaceObject, "template", function() { return template_template; });
+__webpack_require__.d(modules_namespaceObject, "result", function() { return result_result; });
+__webpack_require__.d(modules_namespaceObject, "uniqueId", function() { return uniqueId; });
+__webpack_require__.d(modules_namespaceObject, "chain", function() { return chain; });
+__webpack_require__.d(modules_namespaceObject, "iteratee", function() { return iteratee_iteratee; });
+__webpack_require__.d(modules_namespaceObject, "partial", function() { return modules_partial; });
+__webpack_require__.d(modules_namespaceObject, "bind", function() { return bind; });
+__webpack_require__.d(modules_namespaceObject, "bindAll", function() { return bindAll; });
+__webpack_require__.d(modules_namespaceObject, "memoize", function() { return memoize_memoize; });
+__webpack_require__.d(modules_namespaceObject, "delay", function() { return delay; });
+__webpack_require__.d(modules_namespaceObject, "defer", function() { return defer; });
+__webpack_require__.d(modules_namespaceObject, "throttle", function() { return throttle; });
+__webpack_require__.d(modules_namespaceObject, "debounce", function() { return debounce; });
+__webpack_require__.d(modules_namespaceObject, "wrap", function() { return wrap; });
+__webpack_require__.d(modules_namespaceObject, "negate", function() { return negate; });
+__webpack_require__.d(modules_namespaceObject, "compose", function() { return compose; });
+__webpack_require__.d(modules_namespaceObject, "after", function() { return after; });
+__webpack_require__.d(modules_namespaceObject, "before", function() { return before; });
+__webpack_require__.d(modules_namespaceObject, "once", function() { return once; });
+__webpack_require__.d(modules_namespaceObject, "findKey", function() { return findKey; });
+__webpack_require__.d(modules_namespaceObject, "findIndex", function() { return findIndex; });
+__webpack_require__.d(modules_namespaceObject, "findLastIndex", function() { return findLastIndex; });
+__webpack_require__.d(modules_namespaceObject, "sortedIndex", function() { return sortedIndex_sortedIndex; });
+__webpack_require__.d(modules_namespaceObject, "indexOf", function() { return indexOf; });
+__webpack_require__.d(modules_namespaceObject, "lastIndexOf", function() { return lastIndexOf; });
+__webpack_require__.d(modules_namespaceObject, "find", function() { return find; });
+__webpack_require__.d(modules_namespaceObject, "detect", function() { return find; });
+__webpack_require__.d(modules_namespaceObject, "findWhere", function() { return findWhere; });
+__webpack_require__.d(modules_namespaceObject, "each", function() { return each; });
+__webpack_require__.d(modules_namespaceObject, "forEach", function() { return each; });
+__webpack_require__.d(modules_namespaceObject, "map", function() { return map_map; });
+__webpack_require__.d(modules_namespaceObject, "collect", function() { return map_map; });
+__webpack_require__.d(modules_namespaceObject, "reduce", function() { return reduce; });
+__webpack_require__.d(modules_namespaceObject, "foldl", function() { return reduce; });
+__webpack_require__.d(modules_namespaceObject, "inject", function() { return reduce; });
+__webpack_require__.d(modules_namespaceObject, "reduceRight", function() { return reduceRight; });
+__webpack_require__.d(modules_namespaceObject, "foldr", function() { return reduceRight; });
+__webpack_require__.d(modules_namespaceObject, "filter", function() { return filter; });
+__webpack_require__.d(modules_namespaceObject, "select", function() { return filter; });
+__webpack_require__.d(modules_namespaceObject, "reject", function() { return reject; });
+__webpack_require__.d(modules_namespaceObject, "every", function() { return every; });
+__webpack_require__.d(modules_namespaceObject, "all", function() { return every; });
+__webpack_require__.d(modules_namespaceObject, "some", function() { return some; });
+__webpack_require__.d(modules_namespaceObject, "any", function() { return some; });
+__webpack_require__.d(modules_namespaceObject, "contains", function() { return contains; });
+__webpack_require__.d(modules_namespaceObject, "includes", function() { return contains; });
+__webpack_require__.d(modules_namespaceObject, "include", function() { return contains; });
+__webpack_require__.d(modules_namespaceObject, "invoke", function() { return invoke; });
+__webpack_require__.d(modules_namespaceObject, "pluck", function() { return pluck; });
+__webpack_require__.d(modules_namespaceObject, "where", function() { return where; });
+__webpack_require__.d(modules_namespaceObject, "max", function() { return max; });
+__webpack_require__.d(modules_namespaceObject, "min", function() { return min; });
+__webpack_require__.d(modules_namespaceObject, "shuffle", function() { return shuffle; });
+__webpack_require__.d(modules_namespaceObject, "sample", function() { return sample_sample; });
+__webpack_require__.d(modules_namespaceObject, "sortBy", function() { return sortBy; });
+__webpack_require__.d(modules_namespaceObject, "groupBy", function() { return groupBy; });
+__webpack_require__.d(modules_namespaceObject, "indexBy", function() { return indexBy; });
+__webpack_require__.d(modules_namespaceObject, "countBy", function() { return countBy; });
+__webpack_require__.d(modules_namespaceObject, "partition", function() { return modules_partition; });
+__webpack_require__.d(modules_namespaceObject, "toArray", function() { return toArray; });
+__webpack_require__.d(modules_namespaceObject, "size", function() { return size; });
+__webpack_require__.d(modules_namespaceObject, "pick", function() { return pick; });
+__webpack_require__.d(modules_namespaceObject, "omit", function() { return omit; });
+__webpack_require__.d(modules_namespaceObject, "first", function() { return first; });
+__webpack_require__.d(modules_namespaceObject, "head", function() { return first; });
+__webpack_require__.d(modules_namespaceObject, "take", function() { return first; });
+__webpack_require__.d(modules_namespaceObject, "initial", function() { return initial_initial; });
+__webpack_require__.d(modules_namespaceObject, "last", function() { return last_last; });
+__webpack_require__.d(modules_namespaceObject, "rest", function() { return rest_rest; });
+__webpack_require__.d(modules_namespaceObject, "tail", function() { return rest_rest; });
+__webpack_require__.d(modules_namespaceObject, "drop", function() { return rest_rest; });
+__webpack_require__.d(modules_namespaceObject, "compact", function() { return compact; });
+__webpack_require__.d(modules_namespaceObject, "flatten", function() { return flatten_flatten; });
+__webpack_require__.d(modules_namespaceObject, "without", function() { return without; });
+__webpack_require__.d(modules_namespaceObject, "uniq", function() { return uniq; });
+__webpack_require__.d(modules_namespaceObject, "unique", function() { return uniq; });
+__webpack_require__.d(modules_namespaceObject, "union", function() { return union; });
+__webpack_require__.d(modules_namespaceObject, "intersection", function() { return intersection; });
+__webpack_require__.d(modules_namespaceObject, "difference", function() { return difference; });
+__webpack_require__.d(modules_namespaceObject, "unzip", function() { return unzip; });
+__webpack_require__.d(modules_namespaceObject, "transpose", function() { return unzip; });
+__webpack_require__.d(modules_namespaceObject, "zip", function() { return zip; });
+__webpack_require__.d(modules_namespaceObject, "object", function() { return object_object; });
+__webpack_require__.d(modules_namespaceObject, "range", function() { return range; });
+__webpack_require__.d(modules_namespaceObject, "chunk", function() { return chunk; });
+__webpack_require__.d(modules_namespaceObject, "mixin", function() { return mixin; });
+__webpack_require__.d(modules_namespaceObject, "default", function() { return underscore_array_methods; });
+
+// EXTERNAL MODULE: ./node_modules/underscore/modules/_setup.js
+var _setup = __webpack_require__(2);
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/restArguments.js
+// Some functions take a variable number of arguments, or a few expected
+// arguments at the beginning and then a variable number of values to operate
+// on. This helper accumulates all remaining arguments past the function’s
+// argument length (or an explicit `startIndex`), into an array that becomes
+// the last argument. Similar to ES6’s "rest parameter".
+function restArguments(func, startIndex) {
+  startIndex = startIndex == null ? func.length - 1 : +startIndex;
+  return function() {
+    var length = Math.max(arguments.length - startIndex, 0),
+        rest = Array(length),
+        index = 0;
+    for (; index < length; index++) {
+      rest[index] = arguments[index + startIndex];
+    }
+    switch (startIndex) {
+      case 0: return func.call(this, rest);
+      case 1: return func.call(this, arguments[0], rest);
+      case 2: return func.call(this, arguments[0], arguments[1], rest);
+    }
+    var args = Array(startIndex + 1);
+    for (index = 0; index < startIndex; index++) {
+      args[index] = arguments[index];
+    }
+    args[startIndex] = rest;
+    return func.apply(this, args);
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isObject.js
+// Is a given variable an object?
+function isObject(obj) {
+  var type = typeof obj;
+  return type === 'function' || type === 'object' && !!obj;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isNull.js
+// Is a given value equal to null?
+function isNull(obj) {
+  return obj === null;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isUndefined.js
+// Is a given variable undefined?
+function isUndefined(obj) {
+  return obj === void 0;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isBoolean.js
+
+
+// Is a given value a boolean?
+function isBoolean(obj) {
+  return obj === true || obj === false || _setup["t" /* toString */].call(obj) === '[object Boolean]';
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isElement.js
+// Is a given value a DOM element?
+function isElement(obj) {
+  return !!(obj && obj.nodeType === 1);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_tagTester.js
+
+
+// Internal function for creating a `toString`-based type tester.
+function tagTester(name) {
+  var tag = '[object ' + name + ']';
+  return function(obj) {
+    return _setup["t" /* toString */].call(obj) === tag;
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isString.js
+
+
+/* harmony default export */ var isString = (tagTester('String'));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isNumber.js
+
+
+/* harmony default export */ var isNumber = (tagTester('Number'));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isDate.js
+
+
+/* harmony default export */ var isDate = (tagTester('Date'));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isRegExp.js
+
+
+/* harmony default export */ var isRegExp = (tagTester('RegExp'));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isError.js
+
+
+/* harmony default export */ var isError = (tagTester('Error'));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isSymbol.js
+
+
+/* harmony default export */ var isSymbol = (tagTester('Symbol'));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isArrayBuffer.js
+
+
+/* harmony default export */ var isArrayBuffer = (tagTester('ArrayBuffer'));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isFunction.js
+
+
+
+var isFunction = tagTester('Function');
+
+// Optimize `isFunction` if appropriate. Work around some `typeof` bugs in old
+// v8, IE 11 (#1621), Safari 8 (#1929), and PhantomJS (#2236).
+var nodelist = _setup["p" /* root */].document && _setup["p" /* root */].document.childNodes;
+if ( true && typeof Int8Array != 'object' && typeof nodelist != 'function') {
+  isFunction = function(obj) {
+    return typeof obj == 'function' || false;
+  };
+}
+
+/* harmony default export */ var modules_isFunction = (isFunction);
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_hasObjectTag.js
+
+
+/* harmony default export */ var _hasObjectTag = (tagTester('Object'));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_stringTagBug.js
+
+
+
+// In IE 10 - Edge 13, `DataView` has string tag `'[object Object]'`.
+// In IE 11, the most common among them, this problem also applies to
+// `Map`, `WeakMap` and `Set`.
+var hasStringTagBug = (
+      _setup["s" /* supportsDataView */] && _hasObjectTag(new DataView(new ArrayBuffer(8)))
+    ),
+    isIE11 = (typeof Map !== 'undefined' && _hasObjectTag(new Map));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isDataView.js
+
+
+
+
+
+var isDataView = tagTester('DataView');
+
+// In IE 10 - Edge 13, we need a different heuristic
+// to determine whether an object is a `DataView`.
+function ie10IsDataView(obj) {
+  return obj != null && modules_isFunction(obj.getInt8) && isArrayBuffer(obj.buffer);
+}
+
+/* harmony default export */ var modules_isDataView = (hasStringTagBug ? ie10IsDataView : isDataView);
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isArray.js
+
+
+
+// Is a given value an array?
+// Delegates to ECMA5's native `Array.isArray`.
+/* harmony default export */ var isArray = (_setup["k" /* nativeIsArray */] || tagTester('Array'));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_has.js
+
+
+// Internal function to check whether `key` is an own property name of `obj`.
+function has(obj, key) {
+  return obj != null && _setup["i" /* hasOwnProperty */].call(obj, key);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isArguments.js
+
+
+
+var isArguments = tagTester('Arguments');
+
+// Define a fallback version of the method in browsers (ahem, IE < 9), where
+// there isn't any inspectable "Arguments" type.
+(function() {
+  if (!isArguments(arguments)) {
+    isArguments = function(obj) {
+      return has(obj, 'callee');
+    };
+  }
+}());
+
+/* harmony default export */ var modules_isArguments = (isArguments);
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isFinite.js
+
+
+
+// Is a given object a finite number?
+function isFinite_isFinite(obj) {
+  return !isSymbol(obj) && Object(_setup["f" /* _isFinite */])(obj) && !isNaN(parseFloat(obj));
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isNaN.js
+
+
+
+// Is the given value `NaN`?
+function isNaN_isNaN(obj) {
+  return isNumber(obj) && Object(_setup["g" /* _isNaN */])(obj);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/constant.js
+// Predicate-generating function. Often useful outside of Underscore.
+function constant(value) {
+  return function() {
+    return value;
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_createSizePropertyCheck.js
+
+
+// Common internal logic for `isArrayLike` and `isBufferLike`.
+function createSizePropertyCheck(getSizeProperty) {
+  return function(collection) {
+    var sizeProperty = getSizeProperty(collection);
+    return typeof sizeProperty == 'number' && sizeProperty >= 0 && sizeProperty <= _setup["b" /* MAX_ARRAY_INDEX */];
+  }
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_shallowProperty.js
+// Internal helper to generate a function to obtain property `key` from `obj`.
+function shallowProperty(key) {
+  return function(obj) {
+    return obj == null ? void 0 : obj[key];
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_getByteLength.js
+
+
+// Internal helper to obtain the `byteLength` property of an object.
+/* harmony default export */ var _getByteLength = (shallowProperty('byteLength'));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_isBufferLike.js
+
+
+
+// Internal helper to determine whether we should spend extensive checks against
+// `ArrayBuffer` et al.
+/* harmony default export */ var _isBufferLike = (createSizePropertyCheck(_getByteLength));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isTypedArray.js
+
+
+
+
+
+// Is a given value a typed array?
+var typedArrayPattern = /\[object ((I|Ui)nt(8|16|32)|Float(32|64)|Uint8Clamped|Big(I|Ui)nt64)Array\]/;
+function isTypedArray(obj) {
+  // `ArrayBuffer.isView` is the most future-proof, so use it when available.
+  // Otherwise, fall back on the above regular expression.
+  return _setup["l" /* nativeIsView */] ? (Object(_setup["l" /* nativeIsView */])(obj) && !modules_isDataView(obj)) :
+                _isBufferLike(obj) && typedArrayPattern.test(_setup["t" /* toString */].call(obj));
+}
+
+/* harmony default export */ var modules_isTypedArray = (_setup["r" /* supportsArrayBuffer */] ? isTypedArray : constant(false));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_getLength.js
+
+
+// Internal helper to obtain the `length` property of an object.
+/* harmony default export */ var _getLength = (shallowProperty('length'));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_collectNonEnumProps.js
+
+
+
+
+// Internal helper to create a simple lookup structure.
+// `collectNonEnumProps` used to depend on `_.contains`, but this led to
+// circular imports. `emulatedSet` is a one-off solution that only works for
+// arrays of strings.
+function emulatedSet(keys) {
+  var hash = {};
+  for (var l = keys.length, i = 0; i < l; ++i) hash[keys[i]] = true;
+  return {
+    contains: function(key) { return hash[key]; },
+    push: function(key) {
+      hash[key] = true;
+      return keys.push(key);
+    }
+  };
+}
+
+// Internal helper. Checks `keys` for the presence of keys in IE < 9 that won't
+// be iterated by `for key in ...` and thus missed. Extends `keys` in place if
+// needed.
+function collectNonEnumProps(obj, keys) {
+  keys = emulatedSet(keys);
+  var nonEnumIdx = _setup["n" /* nonEnumerableProps */].length;
+  var constructor = obj.constructor;
+  var proto = modules_isFunction(constructor) && constructor.prototype || _setup["c" /* ObjProto */];
+
+  // Constructor is a special case.
+  var prop = 'constructor';
+  if (has(obj, prop) && !keys.contains(prop)) keys.push(prop);
+
+  while (nonEnumIdx--) {
+    prop = _setup["n" /* nonEnumerableProps */][nonEnumIdx];
+    if (prop in obj && obj[prop] !== proto[prop] && !keys.contains(prop)) {
+      keys.push(prop);
+    }
+  }
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/keys.js
+
+
+
+
+
+// Retrieve the names of an object's own properties.
+// Delegates to **ECMAScript 5**'s native `Object.keys`.
+function keys_keys(obj) {
+  if (!isObject(obj)) return [];
+  if (_setup["m" /* nativeKeys */]) return Object(_setup["m" /* nativeKeys */])(obj);
+  var keys = [];
+  for (var key in obj) if (has(obj, key)) keys.push(key);
+  // Ahem, IE < 9.
+  if (_setup["h" /* hasEnumBug */]) collectNonEnumProps(obj, keys);
+  return keys;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isEmpty.js
+
+
+
+
+
+
+// Is a given array, string, or object empty?
+// An "empty" object has no enumerable own-properties.
+function isEmpty(obj) {
+  if (obj == null) return true;
+  // Skip the more expensive `toString`-based type checks if `obj` has no
+  // `.length`.
+  var length = _getLength(obj);
+  if (typeof length == 'number' && (
+    isArray(obj) || isString(obj) || modules_isArguments(obj)
+  )) return length === 0;
+  return _getLength(keys_keys(obj)) === 0;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isMatch.js
+
+
+// Returns whether an object has a given set of `key:value` pairs.
+function isMatch(object, attrs) {
+  var _keys = keys_keys(attrs), length = _keys.length;
+  if (object == null) return !length;
+  var obj = Object(object);
+  for (var i = 0; i < length; i++) {
+    var key = _keys[i];
+    if (attrs[key] !== obj[key] || !(key in obj)) return false;
+  }
+  return true;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/underscore.js
+
+
+// If Underscore is called as a function, it returns a wrapped object that can
+// be used OO-style. This wrapper holds altered versions of all functions added
+// through `_.mixin`. Wrapped objects may be chained.
+function _(obj) {
+  if (obj instanceof _) return obj;
+  if (!(this instanceof _)) return new _(obj);
+  this._wrapped = obj;
+}
+
+_.VERSION = _setup["e" /* VERSION */];
+
+// Extracts the result from a wrapped and chained object.
+_.prototype.value = function() {
+  return this._wrapped;
+};
+
+// Provide unwrapping proxies for some methods used in engine operations
+// such as arithmetic and JSON stringification.
+_.prototype.valueOf = _.prototype.toJSON = _.prototype.value;
+
+_.prototype.toString = function() {
+  return String(this._wrapped);
+};
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_toBufferView.js
+
+
+// Internal function to wrap or shallow-copy an ArrayBuffer,
+// typed array or DataView to a new view, reusing the buffer.
+function toBufferView(bufferSource) {
+  return new Uint8Array(
+    bufferSource.buffer || bufferSource,
+    bufferSource.byteOffset || 0,
+    _getByteLength(bufferSource)
+  );
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isEqual.js
+
+
+
+
+
+
+
+
+
+
+
+// We use this string twice, so give it a name for minification.
+var tagDataView = '[object DataView]';
+
+// Internal recursive comparison function for `_.isEqual`.
+function eq(a, b, aStack, bStack) {
+  // Identical objects are equal. `0 === -0`, but they aren't identical.
+  // See the [Harmony `egal` proposal](https://wiki.ecmascript.org/doku.php?id=harmony:egal).
+  if (a === b) return a !== 0 || 1 / a === 1 / b;
+  // `null` or `undefined` only equal to itself (strict comparison).
+  if (a == null || b == null) return false;
+  // `NaN`s are equivalent, but non-reflexive.
+  if (a !== a) return b !== b;
+  // Exhaust primitive checks
+  var type = typeof a;
+  if (type !== 'function' && type !== 'object' && typeof b != 'object') return false;
+  return deepEq(a, b, aStack, bStack);
+}
+
+// Internal recursive comparison function for `_.isEqual`.
+function deepEq(a, b, aStack, bStack) {
+  // Unwrap any wrapped objects.
+  if (a instanceof _) a = a._wrapped;
+  if (b instanceof _) b = b._wrapped;
+  // Compare `[[Class]]` names.
+  var className = _setup["t" /* toString */].call(a);
+  if (className !== _setup["t" /* toString */].call(b)) return false;
+  // Work around a bug in IE 10 - Edge 13.
+  if (hasStringTagBug && className == '[object Object]' && modules_isDataView(a)) {
+    if (!modules_isDataView(b)) return false;
+    className = tagDataView;
+  }
+  switch (className) {
+    // These types are compared by value.
+    case '[object RegExp]':
+      // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
+    case '[object String]':
+      // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
+      // equivalent to `new String("5")`.
+      return '' + a === '' + b;
+    case '[object Number]':
+      // `NaN`s are equivalent, but non-reflexive.
+      // Object(NaN) is equivalent to NaN.
+      if (+a !== +a) return +b !== +b;
+      // An `egal` comparison is performed for other numeric values.
+      return +a === 0 ? 1 / +a === 1 / b : +a === +b;
+    case '[object Date]':
+    case '[object Boolean]':
+      // Coerce dates and booleans to numeric primitive values. Dates are compared by their
+      // millisecond representations. Note that invalid dates with millisecond representations
+      // of `NaN` are not equivalent.
+      return +a === +b;
+    case '[object Symbol]':
+      return _setup["d" /* SymbolProto */].valueOf.call(a) === _setup["d" /* SymbolProto */].valueOf.call(b);
+    case '[object ArrayBuffer]':
+    case tagDataView:
+      // Coerce to typed array so we can fall through.
+      return deepEq(toBufferView(a), toBufferView(b), aStack, bStack);
+  }
+
+  var areArrays = className === '[object Array]';
+  if (!areArrays && modules_isTypedArray(a)) {
+      var byteLength = _getByteLength(a);
+      if (byteLength !== _getByteLength(b)) return false;
+      if (a.buffer === b.buffer && a.byteOffset === b.byteOffset) return true;
+      areArrays = true;
+  }
+  if (!areArrays) {
+    if (typeof a != 'object' || typeof b != 'object') return false;
+
+    // Objects with different constructors are not equivalent, but `Object`s or `Array`s
+    // from different frames are.
+    var aCtor = a.constructor, bCtor = b.constructor;
+    if (aCtor !== bCtor && !(modules_isFunction(aCtor) && aCtor instanceof aCtor &&
+                             modules_isFunction(bCtor) && bCtor instanceof bCtor)
+                        && ('constructor' in a && 'constructor' in b)) {
+      return false;
+    }
+  }
+  // Assume equality for cyclic structures. The algorithm for detecting cyclic
+  // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
+
+  // Initializing stack of traversed objects.
+  // It's done here since we only need them for objects and arrays comparison.
+  aStack = aStack || [];
+  bStack = bStack || [];
+  var length = aStack.length;
+  while (length--) {
+    // Linear search. Performance is inversely proportional to the number of
+    // unique nested structures.
+    if (aStack[length] === a) return bStack[length] === b;
+  }
+
+  // Add the first object to the stack of traversed objects.
+  aStack.push(a);
+  bStack.push(b);
+
+  // Recursively compare objects and arrays.
+  if (areArrays) {
+    // Compare array lengths to determine if a deep comparison is necessary.
+    length = a.length;
+    if (length !== b.length) return false;
+    // Deep compare the contents, ignoring non-numeric properties.
+    while (length--) {
+      if (!eq(a[length], b[length], aStack, bStack)) return false;
+    }
+  } else {
+    // Deep compare objects.
+    var _keys = keys_keys(a), key;
+    length = _keys.length;
+    // Ensure that both objects contain the same number of properties before comparing deep equality.
+    if (keys_keys(b).length !== length) return false;
+    while (length--) {
+      // Deep compare each member
+      key = _keys[length];
+      if (!(has(b, key) && eq(a[key], b[key], aStack, bStack))) return false;
+    }
+  }
+  // Remove the first object from the stack of traversed objects.
+  aStack.pop();
+  bStack.pop();
+  return true;
+}
+
+// Perform a deep comparison to check if two objects are equal.
+function isEqual(a, b) {
+  return eq(a, b);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/allKeys.js
+
+
+
+
+// Retrieve all the enumerable property names of an object.
+function allKeys(obj) {
+  if (!isObject(obj)) return [];
+  var keys = [];
+  for (var key in obj) keys.push(key);
+  // Ahem, IE < 9.
+  if (_setup["h" /* hasEnumBug */]) collectNonEnumProps(obj, keys);
+  return keys;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_methodFingerprint.js
+
+
+
+
+// Since the regular `Object.prototype.toString` type tests don't work for
+// some types in IE 11, we use a fingerprinting heuristic instead, based
+// on the methods. It's not great, but it's the best we got.
+// The fingerprint method lists are defined below.
+function ie11fingerprint(methods) {
+  var length = _getLength(methods);
+  return function(obj) {
+    if (obj == null) return false;
+    // `Map`, `WeakMap` and `Set` have no enumerable keys.
+    var keys = allKeys(obj);
+    if (_getLength(keys)) return false;
+    for (var i = 0; i < length; i++) {
+      if (!modules_isFunction(obj[methods[i]])) return false;
+    }
+    // If we are testing against `WeakMap`, we need to ensure that
+    // `obj` doesn't have a `forEach` method in order to distinguish
+    // it from a regular `Map`.
+    return methods !== weakMapMethods || !modules_isFunction(obj[forEachName]);
+  };
+}
+
+// In the interest of compact minification, we write
+// each string in the fingerprints only once.
+var forEachName = 'forEach',
+    hasName = 'has',
+    commonInit = ['clear', 'delete'],
+    mapTail = ['get', hasName, 'set'];
+
+// `Map`, `WeakMap` and `Set` each have slightly different
+// combinations of the above sublists.
+var mapMethods = commonInit.concat(forEachName, mapTail),
+    weakMapMethods = commonInit.concat(mapTail),
+    setMethods = ['add'].concat(commonInit, forEachName, hasName);
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isMap.js
+
+
+
+
+/* harmony default export */ var isMap = (isIE11 ? ie11fingerprint(mapMethods) : tagTester('Map'));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isWeakMap.js
+
+
+
+
+/* harmony default export */ var isWeakMap = (isIE11 ? ie11fingerprint(weakMapMethods) : tagTester('WeakMap'));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isSet.js
+
+
+
+
+/* harmony default export */ var isSet = (isIE11 ? ie11fingerprint(setMethods) : tagTester('Set'));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/isWeakSet.js
+
+
+/* harmony default export */ var isWeakSet = (tagTester('WeakSet'));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/values.js
+
+
+// Retrieve the values of an object's properties.
+function values_values(obj) {
+  var _keys = keys_keys(obj);
+  var length = _keys.length;
+  var values = Array(length);
+  for (var i = 0; i < length; i++) {
+    values[i] = obj[_keys[i]];
+  }
+  return values;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/pairs.js
+
+
+// Convert an object into a list of `[key, value]` pairs.
+// The opposite of `_.object` with one argument.
+function pairs_pairs(obj) {
+  var _keys = keys_keys(obj);
+  var length = _keys.length;
+  var pairs = Array(length);
+  for (var i = 0; i < length; i++) {
+    pairs[i] = [_keys[i], obj[_keys[i]]];
+  }
+  return pairs;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/invert.js
+
+
+// Invert the keys and values of an object. The values must be serializable.
+function invert(obj) {
+  var result = {};
+  var _keys = keys_keys(obj);
+  for (var i = 0, length = _keys.length; i < length; i++) {
+    result[obj[_keys[i]]] = _keys[i];
+  }
+  return result;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/functions.js
+
+
+// Return a sorted list of the function names available on the object.
+function functions(obj) {
+  var names = [];
+  for (var key in obj) {
+    if (modules_isFunction(obj[key])) names.push(key);
+  }
+  return names.sort();
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_createAssigner.js
+// An internal function for creating assigner functions.
+function createAssigner(keysFunc, defaults) {
+  return function(obj) {
+    var length = arguments.length;
+    if (defaults) obj = Object(obj);
+    if (length < 2 || obj == null) return obj;
+    for (var index = 1; index < length; index++) {
+      var source = arguments[index],
+          keys = keysFunc(source),
+          l = keys.length;
+      for (var i = 0; i < l; i++) {
+        var key = keys[i];
+        if (!defaults || obj[key] === void 0) obj[key] = source[key];
+      }
+    }
+    return obj;
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/extend.js
+
+
+
+// Extend a given object with all the properties in passed-in object(s).
+/* harmony default export */ var extend = (createAssigner(allKeys));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/extendOwn.js
+
+
+
+// Assigns a given object with all the own properties in the passed-in
+// object(s).
+// (https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+/* harmony default export */ var extendOwn = (createAssigner(keys_keys));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/defaults.js
+
+
+
+// Fill in a given object with default properties.
+/* harmony default export */ var defaults = (createAssigner(allKeys, true));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_baseCreate.js
+
+
+
+// Create a naked function reference for surrogate-prototype-swapping.
+function ctor() {
+  return function(){};
+}
+
+// An internal function for creating a new object that inherits from another.
+function baseCreate(prototype) {
+  if (!isObject(prototype)) return {};
+  if (_setup["j" /* nativeCreate */]) return Object(_setup["j" /* nativeCreate */])(prototype);
+  var Ctor = ctor();
+  Ctor.prototype = prototype;
+  var result = new Ctor;
+  Ctor.prototype = null;
+  return result;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/create.js
+
+
+
+// Creates an object that inherits from the given prototype object.
+// If additional properties are provided then they will be added to the
+// created object.
+function create(prototype, props) {
+  var result = baseCreate(prototype);
+  if (props) extendOwn(result, props);
+  return result;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/clone.js
+
+
+
+
+// Create a (shallow-cloned) duplicate of an object.
+function clone(obj) {
+  if (!isObject(obj)) return obj;
+  return isArray(obj) ? obj.slice() : extend({}, obj);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/tap.js
+// Invokes `interceptor` with the `obj` and then returns `obj`.
+// The primary purpose of this method is to "tap into" a method chain, in
+// order to perform operations on intermediate results within the chain.
+function tap(obj, interceptor) {
+  interceptor(obj);
+  return obj;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/toPath.js
+
+
+
+// Normalize a (deep) property `path` to array.
+// Like `_.iteratee`, this function can be customized.
+function toPath(path) {
+  return isArray(path) ? path : [path];
+}
+_.toPath = toPath;
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_toPath.js
+
+
+
+// Internal wrapper for `_.toPath` to enable minification.
+// Similar to `cb` for `_.iteratee`.
+function _toPath_toPath(path) {
+  return _.toPath(path);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_deepGet.js
+// Internal function to obtain a nested property in `obj` along `path`.
+function deepGet(obj, path) {
+  var length = path.length;
+  for (var i = 0; i < length; i++) {
+    if (obj == null) return void 0;
+    obj = obj[path[i]];
+  }
+  return length ? obj : void 0;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/get.js
+
+
+
+
+// Get the value of the (deep) property on `path` from `object`.
+// If any property in `path` does not exist or if the value is
+// `undefined`, return `defaultValue` instead.
+// The `path` is normalized through `_.toPath`.
+function get(object, path, defaultValue) {
+  var value = deepGet(object, _toPath_toPath(path));
+  return isUndefined(value) ? defaultValue : value;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/has.js
+
+
+
+// Shortcut function for checking if an object has a given property directly on
+// itself (in other words, not on a prototype). Unlike the internal `has`
+// function, this public version can also traverse nested properties.
+function has_has(obj, path) {
+  path = _toPath_toPath(path);
+  var length = path.length;
+  for (var i = 0; i < length; i++) {
+    var key = path[i];
+    if (!has(obj, key)) return false;
+    obj = obj[key];
+  }
+  return !!length;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/identity.js
+// Keep the identity function around for default iteratees.
+function identity(value) {
+  return value;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/matcher.js
+
+
+
+// Returns a predicate for checking whether an object has a given set of
+// `key:value` pairs.
+function matcher_matcher(attrs) {
+  attrs = extendOwn({}, attrs);
+  return function(obj) {
+    return isMatch(obj, attrs);
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/property.js
+
+
+
+// Creates a function that, when passed an object, will traverse that object’s
+// properties down the given `path`, specified as an array of keys or indices.
+function property(path) {
+  path = _toPath_toPath(path);
+  return function(obj) {
+    return deepGet(obj, path);
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_optimizeCb.js
+// Internal function that returns an efficient (for current engines) version
+// of the passed-in callback, to be repeatedly applied in other Underscore
+// functions.
+function optimizeCb(func, context, argCount) {
+  if (context === void 0) return func;
+  switch (argCount == null ? 3 : argCount) {
+    case 1: return function(value) {
+      return func.call(context, value);
+    };
+    // The 2-argument case is omitted because we’re not using it.
+    case 3: return function(value, index, collection) {
+      return func.call(context, value, index, collection);
+    };
+    case 4: return function(accumulator, value, index, collection) {
+      return func.call(context, accumulator, value, index, collection);
+    };
+  }
+  return function() {
+    return func.apply(context, arguments);
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_baseIteratee.js
+
+
+
+
+
+
+
+
+// An internal function to generate callbacks that can be applied to each
+// element in a collection, returning the desired result — either `_.identity`,
+// an arbitrary callback, a property matcher, or a property accessor.
+function baseIteratee(value, context, argCount) {
+  if (value == null) return identity;
+  if (modules_isFunction(value)) return optimizeCb(value, context, argCount);
+  if (isObject(value) && !isArray(value)) return matcher_matcher(value);
+  return property(value);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/iteratee.js
+
+
+
+// External wrapper for our callback generator. Users may customize
+// `_.iteratee` if they want additional predicate/iteratee shorthand styles.
+// This abstraction hides the internal-only `argCount` argument.
+function iteratee_iteratee(value, context) {
+  return baseIteratee(value, context, Infinity);
+}
+_.iteratee = iteratee_iteratee;
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_cb.js
+
+
+
+
+// The function we call internally to generate a callback. It invokes
+// `_.iteratee` if overridden, otherwise `baseIteratee`.
+function cb(value, context, argCount) {
+  if (_.iteratee !== iteratee_iteratee) return _.iteratee(value, context);
+  return baseIteratee(value, context, argCount);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/mapObject.js
+
+
+
+// Returns the results of applying the `iteratee` to each element of `obj`.
+// In contrast to `_.map` it returns an object.
+function mapObject(obj, iteratee, context) {
+  iteratee = cb(iteratee, context);
+  var _keys = keys_keys(obj),
+      length = _keys.length,
+      results = {};
+  for (var index = 0; index < length; index++) {
+    var currentKey = _keys[index];
+    results[currentKey] = iteratee(obj[currentKey], currentKey, obj);
+  }
+  return results;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/noop.js
+// Predicate-generating function. Often useful outside of Underscore.
+function noop(){}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/propertyOf.js
+
+
+
+// Generates a function for a given object that returns a given property.
+function propertyOf(obj) {
+  if (obj == null) return noop;
+  return function(path) {
+    return get(obj, path);
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/times.js
+
+
+// Run a function **n** times.
+function times(n, iteratee, context) {
+  var accum = Array(Math.max(0, n));
+  iteratee = optimizeCb(iteratee, context, 1);
+  for (var i = 0; i < n; i++) accum[i] = iteratee(i);
+  return accum;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/random.js
+// Return a random integer between `min` and `max` (inclusive).
+function random(min, max) {
+  if (max == null) {
+    max = min;
+    min = 0;
+  }
+  return min + Math.floor(Math.random() * (max - min + 1));
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/now.js
+// A (possibly faster) way to get the current timestamp as an integer.
+/* harmony default export */ var now = (Date.now || function() {
+  return new Date().getTime();
+});
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_createEscaper.js
+
+
+// Internal helper to generate functions for escaping and unescaping strings
+// to/from HTML interpolation.
+function createEscaper(map) {
+  var escaper = function(match) {
+    return map[match];
+  };
+  // Regexes for identifying a key that needs to be escaped.
+  var source = '(?:' + keys_keys(map).join('|') + ')';
+  var testRegexp = RegExp(source);
+  var replaceRegexp = RegExp(source, 'g');
+  return function(string) {
+    string = string == null ? '' : '' + string;
+    return testRegexp.test(string) ? string.replace(replaceRegexp, escaper) : string;
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_escapeMap.js
+// Internal list of HTML entities for escaping.
+/* harmony default export */ var _escapeMap = ({
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#x27;',
+  '`': '&#x60;'
+});
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/escape.js
+
+
+
+// Function for escaping strings to HTML interpolation.
+/* harmony default export */ var modules_escape = (createEscaper(_escapeMap));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_unescapeMap.js
+
+
+
+// Internal list of HTML entities for unescaping.
+/* harmony default export */ var _unescapeMap = (invert(_escapeMap));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/unescape.js
+
+
+
+// Function for unescaping strings from HTML interpolation.
+/* harmony default export */ var modules_unescape = (createEscaper(_unescapeMap));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/templateSettings.js
+
+
+// By default, Underscore uses ERB-style template delimiters. Change the
+// following template settings to use alternative delimiters.
+/* harmony default export */ var templateSettings = (_.templateSettings = {
+  evaluate: /<%([\s\S]+?)%>/g,
+  interpolate: /<%=([\s\S]+?)%>/g,
+  escape: /<%-([\s\S]+?)%>/g
+});
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/template.js
+
+
+
+
+// When customizing `_.templateSettings`, if you don't want to define an
+// interpolation, evaluation or escaping regex, we need one that is
+// guaranteed not to match.
+var noMatch = /(.)^/;
+
+// Certain characters need to be escaped so that they can be put into a
+// string literal.
+var escapes = {
+  "'": "'",
+  '\\': '\\',
+  '\r': 'r',
+  '\n': 'n',
+  '\u2028': 'u2028',
+  '\u2029': 'u2029'
+};
+
+var escapeRegExp = /\\|'|\r|\n|\u2028|\u2029/g;
+
+function escapeChar(match) {
+  return '\\' + escapes[match];
+}
+
+// In order to prevent third-party code injection through
+// `_.templateSettings.variable`, we test it against the following regular
+// expression. It is intentionally a bit more liberal than just matching valid
+// identifiers, but still prevents possible loopholes through defaults or
+// destructuring assignment.
+var bareIdentifier = /^\s*(\w|\$)+\s*$/;
+
+// JavaScript micro-templating, similar to John Resig's implementation.
+// Underscore templating handles arbitrary delimiters, preserves whitespace,
+// and correctly escapes quotes within interpolated code.
+// NB: `oldSettings` only exists for backwards compatibility.
+function template_template(text, settings, oldSettings) {
+  if (!settings && oldSettings) settings = oldSettings;
+  settings = defaults({}, settings, _.templateSettings);
+
+  // Combine delimiters into one regular expression via alternation.
+  var matcher = RegExp([
+    (settings.escape || noMatch).source,
+    (settings.interpolate || noMatch).source,
+    (settings.evaluate || noMatch).source
+  ].join('|') + '|$', 'g');
+
+  // Compile the template source, escaping string literals appropriately.
+  var index = 0;
+  var source = "__p+='";
+  text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
+    source += text.slice(index, offset).replace(escapeRegExp, escapeChar);
+    index = offset + match.length;
+
+    if (escape) {
+      source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
+    } else if (interpolate) {
+      source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
+    } else if (evaluate) {
+      source += "';\n" + evaluate + "\n__p+='";
+    }
+
+    // Adobe VMs need the match returned to produce the correct offset.
+    return match;
+  });
+  source += "';\n";
+
+  var argument = settings.variable;
+  if (argument) {
+    // Insure against third-party code injection. (CVE-2021-23358)
+    if (!bareIdentifier.test(argument)) throw new Error(
+      'variable is not a bare identifier: ' + argument
+    );
+  } else {
+    // If a variable is not specified, place data values in local scope.
+    source = 'with(obj||{}){\n' + source + '}\n';
+    argument = 'obj';
+  }
+
+  source = "var __t,__p='',__j=Array.prototype.join," +
+    "print=function(){__p+=__j.call(arguments,'');};\n" +
+    source + 'return __p;\n';
+
+  var render;
+  try {
+    render = new Function(argument, '_', source);
+  } catch (e) {
+    e.source = source;
+    throw e;
+  }
+
+  var template = function(data) {
+    return render.call(this, data, _);
+  };
+
+  // Provide the compiled source as a convenience for precompilation.
+  template.source = 'function(' + argument + '){\n' + source + '}';
+
+  return template;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/result.js
+
+
+
+// Traverses the children of `obj` along `path`. If a child is a function, it
+// is invoked with its parent as context. Returns the value of the final
+// child, or `fallback` if any child is undefined.
+function result_result(obj, path, fallback) {
+  path = _toPath_toPath(path);
+  var length = path.length;
+  if (!length) {
+    return modules_isFunction(fallback) ? fallback.call(obj) : fallback;
+  }
+  for (var i = 0; i < length; i++) {
+    var prop = obj == null ? void 0 : obj[path[i]];
+    if (prop === void 0) {
+      prop = fallback;
+      i = length; // Ensure we don't continue iterating.
+    }
+    obj = modules_isFunction(prop) ? prop.call(obj) : prop;
+  }
+  return obj;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/uniqueId.js
+// Generate a unique integer id (unique within the entire client session).
+// Useful for temporary DOM ids.
+var idCounter = 0;
+function uniqueId(prefix) {
+  var id = ++idCounter + '';
+  return prefix ? prefix + id : id;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/chain.js
+
+
+// Start chaining a wrapped Underscore object.
+function chain(obj) {
+  var instance = _(obj);
+  instance._chain = true;
+  return instance;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_executeBound.js
+
+
+
+// Internal function to execute `sourceFunc` bound to `context` with optional
+// `args`. Determines whether to execute a function as a constructor or as a
+// normal function.
+function executeBound(sourceFunc, boundFunc, context, callingContext, args) {
+  if (!(callingContext instanceof boundFunc)) return sourceFunc.apply(context, args);
+  var self = baseCreate(sourceFunc.prototype);
+  var result = sourceFunc.apply(self, args);
+  if (isObject(result)) return result;
+  return self;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/partial.js
+
+
+
+
+// Partially apply a function by creating a version that has had some of its
+// arguments pre-filled, without changing its dynamic `this` context. `_` acts
+// as a placeholder by default, allowing any combination of arguments to be
+// pre-filled. Set `_.partial.placeholder` for a custom placeholder argument.
+var partial = restArguments(function(func, boundArgs) {
+  var placeholder = partial.placeholder;
+  var bound = function() {
+    var position = 0, length = boundArgs.length;
+    var args = Array(length);
+    for (var i = 0; i < length; i++) {
+      args[i] = boundArgs[i] === placeholder ? arguments[position++] : boundArgs[i];
+    }
+    while (position < arguments.length) args.push(arguments[position++]);
+    return executeBound(func, bound, this, this, args);
+  };
+  return bound;
+});
+
+partial.placeholder = _;
+/* harmony default export */ var modules_partial = (partial);
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/bind.js
+
+
+
+
+// Create a function bound to a given object (assigning `this`, and arguments,
+// optionally).
+/* harmony default export */ var bind = (restArguments(function(func, context, args) {
+  if (!modules_isFunction(func)) throw new TypeError('Bind must be called on a function');
+  var bound = restArguments(function(callArgs) {
+    return executeBound(func, bound, context, this, args.concat(callArgs));
+  });
+  return bound;
+}));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_isArrayLike.js
+
+
+
+// Internal helper for collection methods to determine whether a collection
+// should be iterated as an array or as an object.
+// Related: https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength
+// Avoids a very nasty iOS 8 JIT bug on ARM-64. #2094
+/* harmony default export */ var _isArrayLike = (createSizePropertyCheck(_getLength));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_flatten.js
+
+
+
+
+
+// Internal implementation of a recursive `flatten` function.
+function flatten(input, depth, strict, output) {
+  output = output || [];
+  if (!depth && depth !== 0) {
+    depth = Infinity;
+  } else if (depth <= 0) {
+    return output.concat(input);
+  }
+  var idx = output.length;
+  for (var i = 0, length = _getLength(input); i < length; i++) {
+    var value = input[i];
+    if (_isArrayLike(value) && (isArray(value) || modules_isArguments(value))) {
+      // Flatten current level of array or arguments object.
+      if (depth > 1) {
+        flatten(value, depth - 1, strict, output);
+        idx = output.length;
+      } else {
+        var j = 0, len = value.length;
+        while (j < len) output[idx++] = value[j++];
+      }
+    } else if (!strict) {
+      output[idx++] = value;
+    }
+  }
+  return output;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/bindAll.js
+
+
+
+
+// Bind a number of an object's methods to that object. Remaining arguments
+// are the method names to be bound. Useful for ensuring that all callbacks
+// defined on an object belong to it.
+/* harmony default export */ var bindAll = (restArguments(function(obj, keys) {
+  keys = flatten(keys, false, false);
+  var index = keys.length;
+  if (index < 1) throw new Error('bindAll must be passed function names');
+  while (index--) {
+    var key = keys[index];
+    obj[key] = bind(obj[key], obj);
+  }
+  return obj;
+}));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/memoize.js
+
+
+// Memoize an expensive function by storing its results.
+function memoize_memoize(func, hasher) {
+  var memoize = function(key) {
+    var cache = memoize.cache;
+    var address = '' + (hasher ? hasher.apply(this, arguments) : key);
+    if (!has(cache, address)) cache[address] = func.apply(this, arguments);
+    return cache[address];
+  };
+  memoize.cache = {};
+  return memoize;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/delay.js
+
+
+// Delays a function for the given number of milliseconds, and then calls
+// it with the arguments supplied.
+/* harmony default export */ var delay = (restArguments(function(func, wait, args) {
+  return setTimeout(function() {
+    return func.apply(null, args);
+  }, wait);
+}));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/defer.js
+
+
+
+
+// Defers a function, scheduling it to run after the current call stack has
+// cleared.
+/* harmony default export */ var defer = (modules_partial(delay, _, 1));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/throttle.js
+
+
+// Returns a function, that, when invoked, will only be triggered at most once
+// during a given window of time. Normally, the throttled function will run
+// as much as it can, without ever going more than once per `wait` duration;
+// but if you'd like to disable the execution on the leading edge, pass
+// `{leading: false}`. To disable execution on the trailing edge, ditto.
+function throttle(func, wait, options) {
+  var timeout, context, args, result;
+  var previous = 0;
+  if (!options) options = {};
+
+  var later = function() {
+    previous = options.leading === false ? 0 : now();
+    timeout = null;
+    result = func.apply(context, args);
+    if (!timeout) context = args = null;
+  };
+
+  var throttled = function() {
+    var _now = now();
+    if (!previous && options.leading === false) previous = _now;
+    var remaining = wait - (_now - previous);
+    context = this;
+    args = arguments;
+    if (remaining <= 0 || remaining > wait) {
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+      previous = _now;
+      result = func.apply(context, args);
+      if (!timeout) context = args = null;
+    } else if (!timeout && options.trailing !== false) {
+      timeout = setTimeout(later, remaining);
+    }
+    return result;
+  };
+
+  throttled.cancel = function() {
+    clearTimeout(timeout);
+    previous = 0;
+    timeout = context = args = null;
+  };
+
+  return throttled;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/debounce.js
+
+
+
+// When a sequence of calls of the returned function ends, the argument
+// function is triggered. The end of a sequence is defined by the `wait`
+// parameter. If `immediate` is passed, the argument function will be
+// triggered at the beginning of the sequence instead of at the end.
+function debounce(func, wait, immediate) {
+  var timeout, previous, args, result, context;
+
+  var later = function() {
+    var passed = now() - previous;
+    if (wait > passed) {
+      timeout = setTimeout(later, wait - passed);
+    } else {
+      timeout = null;
+      if (!immediate) result = func.apply(context, args);
+      // This check is needed because `func` can recursively invoke `debounced`.
+      if (!timeout) args = context = null;
+    }
+  };
+
+  var debounced = restArguments(function(_args) {
+    context = this;
+    args = _args;
+    previous = now();
+    if (!timeout) {
+      timeout = setTimeout(later, wait);
+      if (immediate) result = func.apply(context, args);
+    }
+    return result;
+  });
+
+  debounced.cancel = function() {
+    clearTimeout(timeout);
+    timeout = args = context = null;
+  };
+
+  return debounced;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/wrap.js
+
+
+// Returns the first function passed as an argument to the second,
+// allowing you to adjust arguments, run code before and after, and
+// conditionally execute the original function.
+function wrap(func, wrapper) {
+  return modules_partial(wrapper, func);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/negate.js
+// Returns a negated version of the passed-in predicate.
+function negate(predicate) {
+  return function() {
+    return !predicate.apply(this, arguments);
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/compose.js
+// Returns a function that is the composition of a list of functions, each
+// consuming the return value of the function that follows.
+function compose() {
+  var args = arguments;
+  var start = args.length - 1;
+  return function() {
+    var i = start;
+    var result = args[start].apply(this, arguments);
+    while (i--) result = args[i].call(this, result);
+    return result;
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/after.js
+// Returns a function that will only be executed on and after the Nth call.
+function after(times, func) {
+  return function() {
+    if (--times < 1) {
+      return func.apply(this, arguments);
+    }
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/before.js
+// Returns a function that will only be executed up to (but not including) the
+// Nth call.
+function before(times, func) {
+  var memo;
+  return function() {
+    if (--times > 0) {
+      memo = func.apply(this, arguments);
+    }
+    if (times <= 1) func = null;
+    return memo;
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/once.js
+
+
+
+// Returns a function that will be executed at most one time, no matter how
+// often you call it. Useful for lazy initialization.
+/* harmony default export */ var once = (modules_partial(before, 2));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/findKey.js
+
+
+
+// Returns the first key on an object that passes a truth test.
+function findKey(obj, predicate, context) {
+  predicate = cb(predicate, context);
+  var _keys = keys_keys(obj), key;
+  for (var i = 0, length = _keys.length; i < length; i++) {
+    key = _keys[i];
+    if (predicate(obj[key], key, obj)) return key;
+  }
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_createPredicateIndexFinder.js
+
+
+
+// Internal function to generate `_.findIndex` and `_.findLastIndex`.
+function createPredicateIndexFinder(dir) {
+  return function(array, predicate, context) {
+    predicate = cb(predicate, context);
+    var length = _getLength(array);
+    var index = dir > 0 ? 0 : length - 1;
+    for (; index >= 0 && index < length; index += dir) {
+      if (predicate(array[index], index, array)) return index;
+    }
+    return -1;
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/findIndex.js
+
+
+// Returns the first index on an array-like that passes a truth test.
+/* harmony default export */ var findIndex = (createPredicateIndexFinder(1));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/findLastIndex.js
+
+
+// Returns the last index on an array-like that passes a truth test.
+/* harmony default export */ var findLastIndex = (createPredicateIndexFinder(-1));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/sortedIndex.js
+
+
+
+// Use a comparator function to figure out the smallest index at which
+// an object should be inserted so as to maintain order. Uses binary search.
+function sortedIndex_sortedIndex(array, obj, iteratee, context) {
+  iteratee = cb(iteratee, context, 1);
+  var value = iteratee(obj);
+  var low = 0, high = _getLength(array);
+  while (low < high) {
+    var mid = Math.floor((low + high) / 2);
+    if (iteratee(array[mid]) < value) low = mid + 1; else high = mid;
+  }
+  return low;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_createIndexFinder.js
+
+
+
+
+// Internal function to generate the `_.indexOf` and `_.lastIndexOf` functions.
+function createIndexFinder(dir, predicateFind, sortedIndex) {
+  return function(array, item, idx) {
+    var i = 0, length = _getLength(array);
+    if (typeof idx == 'number') {
+      if (dir > 0) {
+        i = idx >= 0 ? idx : Math.max(idx + length, i);
+      } else {
+        length = idx >= 0 ? Math.min(idx + 1, length) : idx + length + 1;
+      }
+    } else if (sortedIndex && idx && length) {
+      idx = sortedIndex(array, item);
+      return array[idx] === item ? idx : -1;
+    }
+    if (item !== item) {
+      idx = predicateFind(_setup["q" /* slice */].call(array, i, length), isNaN_isNaN);
+      return idx >= 0 ? idx + i : -1;
+    }
+    for (idx = dir > 0 ? i : length - 1; idx >= 0 && idx < length; idx += dir) {
+      if (array[idx] === item) return idx;
+    }
+    return -1;
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/indexOf.js
+
+
+
+
+// Return the position of the first occurrence of an item in an array,
+// or -1 if the item is not included in the array.
+// If the array is large and already in sort order, pass `true`
+// for **isSorted** to use binary search.
+/* harmony default export */ var indexOf = (createIndexFinder(1, findIndex, sortedIndex_sortedIndex));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/lastIndexOf.js
+
+
+
+// Return the position of the last occurrence of an item in an array,
+// or -1 if the item is not included in the array.
+/* harmony default export */ var lastIndexOf = (createIndexFinder(-1, findLastIndex));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/find.js
+
+
+
+
+// Return the first value which passes a truth test.
+function find(obj, predicate, context) {
+  var keyFinder = _isArrayLike(obj) ? findIndex : findKey;
+  var key = keyFinder(obj, predicate, context);
+  if (key !== void 0 && key !== -1) return obj[key];
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/findWhere.js
+
+
+
+// Convenience version of a common use case of `_.find`: getting the first
+// object containing specific `key:value` pairs.
+function findWhere(obj, attrs) {
+  return find(obj, matcher_matcher(attrs));
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/each.js
+
+
+
+
+// The cornerstone for collection functions, an `each`
+// implementation, aka `forEach`.
+// Handles raw objects in addition to array-likes. Treats all
+// sparse array-likes as if they were dense.
+function each(obj, iteratee, context) {
+  iteratee = optimizeCb(iteratee, context);
+  var i, length;
+  if (_isArrayLike(obj)) {
+    for (i = 0, length = obj.length; i < length; i++) {
+      iteratee(obj[i], i, obj);
+    }
+  } else {
+    var _keys = keys_keys(obj);
+    for (i = 0, length = _keys.length; i < length; i++) {
+      iteratee(obj[_keys[i]], _keys[i], obj);
+    }
+  }
+  return obj;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/map.js
+
+
+
+
+// Return the results of applying the iteratee to each element.
+function map_map(obj, iteratee, context) {
+  iteratee = cb(iteratee, context);
+  var _keys = !_isArrayLike(obj) && keys_keys(obj),
+      length = (_keys || obj).length,
+      results = Array(length);
+  for (var index = 0; index < length; index++) {
+    var currentKey = _keys ? _keys[index] : index;
+    results[index] = iteratee(obj[currentKey], currentKey, obj);
+  }
+  return results;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_createReduce.js
+
+
+
+
+// Internal helper to create a reducing function, iterating left or right.
+function createReduce(dir) {
+  // Wrap code that reassigns argument variables in a separate function than
+  // the one that accesses `arguments.length` to avoid a perf hit. (#1991)
+  var reducer = function(obj, iteratee, memo, initial) {
+    var _keys = !_isArrayLike(obj) && keys_keys(obj),
+        length = (_keys || obj).length,
+        index = dir > 0 ? 0 : length - 1;
+    if (!initial) {
+      memo = obj[_keys ? _keys[index] : index];
+      index += dir;
+    }
+    for (; index >= 0 && index < length; index += dir) {
+      var currentKey = _keys ? _keys[index] : index;
+      memo = iteratee(memo, obj[currentKey], currentKey, obj);
+    }
+    return memo;
+  };
+
+  return function(obj, iteratee, memo, context) {
+    var initial = arguments.length >= 3;
+    return reducer(obj, optimizeCb(iteratee, context, 4), memo, initial);
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/reduce.js
+
+
+// **Reduce** builds up a single result from a list of values, aka `inject`,
+// or `foldl`.
+/* harmony default export */ var reduce = (createReduce(1));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/reduceRight.js
+
+
+// The right-associative version of reduce, also known as `foldr`.
+/* harmony default export */ var reduceRight = (createReduce(-1));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/filter.js
+
+
+
+// Return all the elements that pass a truth test.
+function filter(obj, predicate, context) {
+  var results = [];
+  predicate = cb(predicate, context);
+  each(obj, function(value, index, list) {
+    if (predicate(value, index, list)) results.push(value);
+  });
+  return results;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/reject.js
+
+
+
+
+// Return all the elements for which a truth test fails.
+function reject(obj, predicate, context) {
+  return filter(obj, negate(cb(predicate)), context);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/every.js
+
+
+
+
+// Determine whether all of the elements pass a truth test.
+function every(obj, predicate, context) {
+  predicate = cb(predicate, context);
+  var _keys = !_isArrayLike(obj) && keys_keys(obj),
+      length = (_keys || obj).length;
+  for (var index = 0; index < length; index++) {
+    var currentKey = _keys ? _keys[index] : index;
+    if (!predicate(obj[currentKey], currentKey, obj)) return false;
+  }
+  return true;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/some.js
+
+
+
+
+// Determine if at least one element in the object passes a truth test.
+function some(obj, predicate, context) {
+  predicate = cb(predicate, context);
+  var _keys = !_isArrayLike(obj) && keys_keys(obj),
+      length = (_keys || obj).length;
+  for (var index = 0; index < length; index++) {
+    var currentKey = _keys ? _keys[index] : index;
+    if (predicate(obj[currentKey], currentKey, obj)) return true;
+  }
+  return false;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/contains.js
+
+
+
+
+// Determine if the array or object contains a given item (using `===`).
+function contains(obj, item, fromIndex, guard) {
+  if (!_isArrayLike(obj)) obj = values_values(obj);
+  if (typeof fromIndex != 'number' || guard) fromIndex = 0;
+  return indexOf(obj, item, fromIndex) >= 0;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/invoke.js
+
+
+
+
+
+
+// Invoke a method (with arguments) on every item in a collection.
+/* harmony default export */ var invoke = (restArguments(function(obj, path, args) {
+  var contextPath, func;
+  if (modules_isFunction(path)) {
+    func = path;
+  } else {
+    path = _toPath_toPath(path);
+    contextPath = path.slice(0, -1);
+    path = path[path.length - 1];
+  }
+  return map_map(obj, function(context) {
+    var method = func;
+    if (!method) {
+      if (contextPath && contextPath.length) {
+        context = deepGet(context, contextPath);
+      }
+      if (context == null) return void 0;
+      method = context[path];
+    }
+    return method == null ? method : method.apply(context, args);
+  });
+}));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/pluck.js
+
+
+
+// Convenience version of a common use case of `_.map`: fetching a property.
+function pluck(obj, key) {
+  return map_map(obj, property(key));
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/where.js
+
+
+
+// Convenience version of a common use case of `_.filter`: selecting only
+// objects containing specific `key:value` pairs.
+function where(obj, attrs) {
+  return filter(obj, matcher_matcher(attrs));
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/max.js
+
+
+
+
+
+// Return the maximum element (or element-based computation).
+function max(obj, iteratee, context) {
+  var result = -Infinity, lastComputed = -Infinity,
+      value, computed;
+  if (iteratee == null || typeof iteratee == 'number' && typeof obj[0] != 'object' && obj != null) {
+    obj = _isArrayLike(obj) ? obj : values_values(obj);
+    for (var i = 0, length = obj.length; i < length; i++) {
+      value = obj[i];
+      if (value != null && value > result) {
+        result = value;
+      }
+    }
+  } else {
+    iteratee = cb(iteratee, context);
+    each(obj, function(v, index, list) {
+      computed = iteratee(v, index, list);
+      if (computed > lastComputed || computed === -Infinity && result === -Infinity) {
+        result = v;
+        lastComputed = computed;
+      }
+    });
+  }
+  return result;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/min.js
+
+
+
+
+
+// Return the minimum element (or element-based computation).
+function min(obj, iteratee, context) {
+  var result = Infinity, lastComputed = Infinity,
+      value, computed;
+  if (iteratee == null || typeof iteratee == 'number' && typeof obj[0] != 'object' && obj != null) {
+    obj = _isArrayLike(obj) ? obj : values_values(obj);
+    for (var i = 0, length = obj.length; i < length; i++) {
+      value = obj[i];
+      if (value != null && value < result) {
+        result = value;
+      }
+    }
+  } else {
+    iteratee = cb(iteratee, context);
+    each(obj, function(v, index, list) {
+      computed = iteratee(v, index, list);
+      if (computed < lastComputed || computed === Infinity && result === Infinity) {
+        result = v;
+        lastComputed = computed;
+      }
+    });
+  }
+  return result;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/sample.js
+
+
+
+
+
+
+// Sample **n** random values from a collection using the modern version of the
+// [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
+// If **n** is not specified, returns a single random element.
+// The internal `guard` argument allows it to work with `_.map`.
+function sample_sample(obj, n, guard) {
+  if (n == null || guard) {
+    if (!_isArrayLike(obj)) obj = values_values(obj);
+    return obj[random(obj.length - 1)];
+  }
+  var sample = _isArrayLike(obj) ? clone(obj) : values_values(obj);
+  var length = _getLength(sample);
+  n = Math.max(Math.min(n, length), 0);
+  var last = length - 1;
+  for (var index = 0; index < n; index++) {
+    var rand = random(index, last);
+    var temp = sample[index];
+    sample[index] = sample[rand];
+    sample[rand] = temp;
+  }
+  return sample.slice(0, n);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/shuffle.js
+
+
+// Shuffle a collection.
+function shuffle(obj) {
+  return sample_sample(obj, Infinity);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/sortBy.js
+
+
+
+
+// Sort the object's values by a criterion produced by an iteratee.
+function sortBy(obj, iteratee, context) {
+  var index = 0;
+  iteratee = cb(iteratee, context);
+  return pluck(map_map(obj, function(value, key, list) {
+    return {
+      value: value,
+      index: index++,
+      criteria: iteratee(value, key, list)
+    };
+  }).sort(function(left, right) {
+    var a = left.criteria;
+    var b = right.criteria;
+    if (a !== b) {
+      if (a > b || a === void 0) return 1;
+      if (a < b || b === void 0) return -1;
+    }
+    return left.index - right.index;
+  }), 'value');
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_group.js
+
+
+
+// An internal function used for aggregate "group by" operations.
+function group(behavior, partition) {
+  return function(obj, iteratee, context) {
+    var result = partition ? [[], []] : {};
+    iteratee = cb(iteratee, context);
+    each(obj, function(value, index) {
+      var key = iteratee(value, index, obj);
+      behavior(result, value, key);
+    });
+    return result;
+  };
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/groupBy.js
+
+
+
+// Groups the object's values by a criterion. Pass either a string attribute
+// to group by, or a function that returns the criterion.
+/* harmony default export */ var groupBy = (group(function(result, value, key) {
+  if (has(result, key)) result[key].push(value); else result[key] = [value];
+}));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/indexBy.js
+
+
+// Indexes the object's values by a criterion, similar to `_.groupBy`, but for
+// when you know that your index values will be unique.
+/* harmony default export */ var indexBy = (group(function(result, value, key) {
+  result[key] = value;
+}));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/countBy.js
+
+
+
+// Counts instances of an object that group by a certain criterion. Pass
+// either a string attribute to count by, or a function that returns the
+// criterion.
+/* harmony default export */ var countBy = (group(function(result, value, key) {
+  if (has(result, key)) result[key]++; else result[key] = 1;
+}));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/partition.js
+
+
+// Split a collection into two arrays: one whose elements all pass the given
+// truth test, and one whose elements all do not pass the truth test.
+/* harmony default export */ var modules_partition = (group(function(result, value, pass) {
+  result[pass ? 0 : 1].push(value);
+}, true));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/toArray.js
+
+
+
+
+
+
+
+
+// Safely create a real, live array from anything iterable.
+var reStrSymbol = /[^\ud800-\udfff]|[\ud800-\udbff][\udc00-\udfff]|[\ud800-\udfff]/g;
+function toArray(obj) {
+  if (!obj) return [];
+  if (isArray(obj)) return _setup["q" /* slice */].call(obj);
+  if (isString(obj)) {
+    // Keep surrogate pair characters together.
+    return obj.match(reStrSymbol);
+  }
+  if (_isArrayLike(obj)) return map_map(obj, identity);
+  return values_values(obj);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/size.js
+
+
+
+// Return the number of elements in a collection.
+function size(obj) {
+  if (obj == null) return 0;
+  return _isArrayLike(obj) ? obj.length : keys_keys(obj).length;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_keyInObj.js
+// Internal `_.pick` helper function to determine whether `key` is an enumerable
+// property name of `obj`.
+function keyInObj(value, key, obj) {
+  return key in obj;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/pick.js
+
+
+
+
+
+
+
+// Return a copy of the object only containing the allowed properties.
+/* harmony default export */ var pick = (restArguments(function(obj, keys) {
+  var result = {}, iteratee = keys[0];
+  if (obj == null) return result;
+  if (modules_isFunction(iteratee)) {
+    if (keys.length > 1) iteratee = optimizeCb(iteratee, keys[1]);
+    keys = allKeys(obj);
+  } else {
+    iteratee = keyInObj;
+    keys = flatten(keys, false, false);
+    obj = Object(obj);
+  }
+  for (var i = 0, length = keys.length; i < length; i++) {
+    var key = keys[i];
+    var value = obj[key];
+    if (iteratee(value, key, obj)) result[key] = value;
+  }
+  return result;
+}));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/omit.js
+
+
+
+
+
+
+
+
+// Return a copy of the object without the disallowed properties.
+/* harmony default export */ var omit = (restArguments(function(obj, keys) {
+  var iteratee = keys[0], context;
+  if (modules_isFunction(iteratee)) {
+    iteratee = negate(iteratee);
+    if (keys.length > 1) context = keys[1];
+  } else {
+    keys = map_map(flatten(keys, false, false), String);
+    iteratee = function(value, key) {
+      return !contains(keys, key);
+    };
+  }
+  return pick(obj, iteratee, context);
+}));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/initial.js
+
+
+// Returns everything but the last entry of the array. Especially useful on
+// the arguments object. Passing **n** will return all the values in
+// the array, excluding the last N.
+function initial_initial(array, n, guard) {
+  return _setup["q" /* slice */].call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/first.js
+
+
+// Get the first element of an array. Passing **n** will return the first N
+// values in the array. The **guard** check allows it to work with `_.map`.
+function first(array, n, guard) {
+  if (array == null || array.length < 1) return n == null || guard ? void 0 : [];
+  if (n == null || guard) return array[0];
+  return initial_initial(array, array.length - n);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/rest.js
+
+
+// Returns everything but the first entry of the `array`. Especially useful on
+// the `arguments` object. Passing an **n** will return the rest N values in the
+// `array`.
+function rest_rest(array, n, guard) {
+  return _setup["q" /* slice */].call(array, n == null || guard ? 1 : n);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/last.js
+
+
+// Get the last element of an array. Passing **n** will return the last N
+// values in the array.
+function last_last(array, n, guard) {
+  if (array == null || array.length < 1) return n == null || guard ? void 0 : [];
+  if (n == null || guard) return array[array.length - 1];
+  return rest_rest(array, Math.max(0, array.length - n));
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/compact.js
+
+
+// Trim out all falsy values from an array.
+function compact(array) {
+  return filter(array, Boolean);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/flatten.js
+
+
+// Flatten out an array, either recursively (by default), or up to `depth`.
+// Passing `true` or `false` as `depth` means `1` or `Infinity`, respectively.
+function flatten_flatten(array, depth) {
+  return flatten(array, depth, false);
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/difference.js
+
+
+
+
+
+// Take the difference between one array and a number of other arrays.
+// Only the elements present in just the first array will remain.
+/* harmony default export */ var difference = (restArguments(function(array, rest) {
+  rest = flatten(rest, true, true);
+  return filter(array, function(value){
+    return !contains(rest, value);
+  });
+}));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/without.js
+
+
+
+// Return a version of the array that does not contain the specified value(s).
+/* harmony default export */ var without = (restArguments(function(array, otherArrays) {
+  return difference(array, otherArrays);
+}));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/uniq.js
+
+
+
+
+
+// Produce a duplicate-free version of the array. If the array has already
+// been sorted, you have the option of using a faster algorithm.
+// The faster algorithm will not work with an iteratee if the iteratee
+// is not a one-to-one function, so providing an iteratee will disable
+// the faster algorithm.
+function uniq(array, isSorted, iteratee, context) {
+  if (!isBoolean(isSorted)) {
+    context = iteratee;
+    iteratee = isSorted;
+    isSorted = false;
+  }
+  if (iteratee != null) iteratee = cb(iteratee, context);
+  var result = [];
+  var seen = [];
+  for (var i = 0, length = _getLength(array); i < length; i++) {
+    var value = array[i],
+        computed = iteratee ? iteratee(value, i, array) : value;
+    if (isSorted && !iteratee) {
+      if (!i || seen !== computed) result.push(value);
+      seen = computed;
+    } else if (iteratee) {
+      if (!contains(seen, computed)) {
+        seen.push(computed);
+        result.push(value);
+      }
+    } else if (!contains(result, value)) {
+      result.push(value);
+    }
+  }
+  return result;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/union.js
+
+
+
+
+// Produce an array that contains the union: each distinct element from all of
+// the passed-in arrays.
+/* harmony default export */ var union = (restArguments(function(arrays) {
+  return uniq(flatten(arrays, true, true));
+}));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/intersection.js
+
+
+
+// Produce an array that contains every item shared between all the
+// passed-in arrays.
+function intersection(array) {
+  var result = [];
+  var argsLength = arguments.length;
+  for (var i = 0, length = _getLength(array); i < length; i++) {
+    var item = array[i];
+    if (contains(result, item)) continue;
+    var j;
+    for (j = 1; j < argsLength; j++) {
+      if (!contains(arguments[j], item)) break;
+    }
+    if (j === argsLength) result.push(item);
+  }
+  return result;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/unzip.js
+
+
+
+
+// Complement of zip. Unzip accepts an array of arrays and groups
+// each array's elements on shared indices.
+function unzip(array) {
+  var length = array && max(array, _getLength).length || 0;
+  var result = Array(length);
+
+  for (var index = 0; index < length; index++) {
+    result[index] = pluck(array, index);
+  }
+  return result;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/zip.js
+
+
+
+// Zip together multiple lists into a single array -- elements that share
+// an index go together.
+/* harmony default export */ var zip = (restArguments(unzip));
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/object.js
+
+
+// Converts lists into objects. Pass either a single array of `[key, value]`
+// pairs, or two parallel arrays of the same length -- one of keys, and one of
+// the corresponding values. Passing by pairs is the reverse of `_.pairs`.
+function object_object(list, values) {
+  var result = {};
+  for (var i = 0, length = _getLength(list); i < length; i++) {
+    if (values) {
+      result[list[i]] = values[i];
+    } else {
+      result[list[i][0]] = list[i][1];
+    }
+  }
+  return result;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/range.js
+// Generate an integer Array containing an arithmetic progression. A port of
+// the native Python `range()` function. See
+// [the Python documentation](https://docs.python.org/library/functions.html#range).
+function range(start, stop, step) {
+  if (stop == null) {
+    stop = start || 0;
+    start = 0;
+  }
+  if (!step) {
+    step = stop < start ? -1 : 1;
+  }
+
+  var length = Math.max(Math.ceil((stop - start) / step), 0);
+  var range = Array(length);
+
+  for (var idx = 0; idx < length; idx++, start += step) {
+    range[idx] = start;
+  }
+
+  return range;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/chunk.js
+
+
+// Chunk a single array into multiple arrays, each containing `count` or fewer
+// items.
+function chunk(array, count) {
+  if (count == null || count < 1) return [];
+  var result = [];
+  var i = 0, length = array.length;
+  while (i < length) {
+    result.push(_setup["q" /* slice */].call(array, i, i += count));
+  }
+  return result;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/_chainResult.js
+
+
+// Helper function to continue chaining intermediate results.
+function chainResult(instance, obj) {
+  return instance._chain ? _(obj).chain() : obj;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/mixin.js
+
+
+
+
+
+
+// Add your own custom functions to the Underscore object.
+function mixin(obj) {
+  each(functions(obj), function(name) {
+    var func = _[name] = obj[name];
+    _.prototype[name] = function() {
+      var args = [this._wrapped];
+      _setup["o" /* push */].apply(args, arguments);
+      return chainResult(this, func.apply(_, args));
+    };
+  });
+  return _;
+}
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/underscore-array-methods.js
+
+
+
+
+
+// Add all mutator `Array` functions to the wrapper.
+each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
+  var method = _setup["a" /* ArrayProto */][name];
+  _.prototype[name] = function() {
+    var obj = this._wrapped;
+    if (obj != null) {
+      method.apply(obj, arguments);
+      if ((name === 'shift' || name === 'splice') && obj.length === 0) {
+        delete obj[0];
+      }
+    }
+    return chainResult(this, obj);
+  };
+});
+
+// Add all accessor `Array` functions to the wrapper.
+each(['concat', 'join', 'slice'], function(name) {
+  var method = _setup["a" /* ArrayProto */][name];
+  _.prototype[name] = function() {
+    var obj = this._wrapped;
+    if (obj != null) obj = method.apply(obj, arguments);
+    return chainResult(this, obj);
+  };
+});
+
+/* harmony default export */ var underscore_array_methods = (_);
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/index.js
+// Named Exports
+// =============
+
+//     Underscore.js 1.13.1
+//     https://underscorejs.org
+//     (c) 2009-2021 Jeremy Ashkenas, Julian Gonggrijp, and DocumentCloud and Investigative Reporters & Editors
+//     Underscore may be freely distributed under the MIT license.
+
+// Baseline setup.
+
+
+
+// Object Functions
+// ----------------
+// Our most fundamental functions operate on any JavaScript object.
+// Most functions in Underscore depend on at least one function in this section.
+
+// A group of functions that check the types of core JavaScript values.
+// These are often informally referred to as the "isType" functions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Functions that treat an object as a dictionary of key-value pairs.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Utility Functions
+// -----------------
+// A bit of a grab bag: Predicate-generating functions for use with filters and
+// loops, string escaping and templating, create random numbers and unique ids,
+// and functions that facilitate Underscore's chaining and iteration conventions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Function (ahem) Functions
+// -------------------------
+// These functions take a function as an argument and return a new function
+// as the result. Also known as higher-order functions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Finders
+// -------
+// Functions that extract (the position of) a single element from an object
+// or array based on some criterion.
+
+
+
+
+
+
+
+
+
+// Collection Functions
+// --------------------
+// Functions that work on any collection of elements: either an array, or
+// an object of key-value pairs.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// `_.pick` and `_.omit` are actually object functions, but we put
+// them here in order to create a more natural reading order in the
+// monolithic build as they depend on `_.contains`.
+
+
+
+// Array Functions
+// ---------------
+// Functions that operate on arrays (and array-likes) only, because they’re
+// expressed in terms of operations on an ordered list of values.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// OOP
+// ---
+// These modules support the "object-oriented" calling style. See also
+// `underscore.js` and `index-default.js`.
+
+
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/index-default.js
+// Default Export
+// ==============
+// In this module, we mix our bundled exports into the `_` object and export
+// the result. This is analogous to setting `module.exports = _` in CommonJS.
+// Hence, this module is also the entry point of our UMD bundle and the package
+// entry point for CommonJS and AMD users. In other words, this is (the source
+// of) the module you are interfacing with when you do any of the following:
+//
+// ```js
+// // CommonJS
+// var _ = require('underscore');
+//
+// // AMD
+// define(['underscore'], function(_) {...});
+//
+// // UMD in the browser
+// // _ is available as a global variable
+// ```
+
+
+
+// Add all of the Underscore functions to the wrapper object.
+var index_default_ = mixin(modules_namespaceObject);
+// Legacy Node.js API.
+index_default_._ = index_default_;
+// Export the Underscore API.
+/* harmony default export */ var index_default = (index_default_);
+
+// CONCATENATED MODULE: ./node_modules/underscore/modules/index-all.js
+// ESM Exports
+// ===========
+// This module is the package entry point for ES module users. In other words,
+// it is the module they are interfacing with when they import from the whole
+// package instead of from a submodule, like this:
+//
+// ```js
+// import { map } from 'underscore';
+// ```
+//
+// The difference with `./index-default`, which is the package entry point for
+// CommonJS, AMD and UMD users, is purely technical. In ES modules, named and
+// default exports are considered to be siblings, so when you have a default
+// export, its properties are not automatically available as named exports. For
+// this reason, we re-export the named exports in addition to providing the same
+// default export as in `./index-default`.
+
+
+
+
+/***/ }),
+
+/***/ 114:
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -935,19 +4007,19 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ 103:
+/***/ 115:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parser", function() { return parser; });
-/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
+/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(24);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _core_jquery_ext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(41);
+/* harmony import */ var _core_jquery_ext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(46);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
-/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
+/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
+/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
 /* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4);
 /* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(1);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -994,7 +4066,7 @@ parser.addArgument("delay");
               }
 
               _context.next = 5;
-              return __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 80, 7));
+              return __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 87, 7));
 
             case 5:
               ImagesLoaded = _context.sent.default;
@@ -1086,11 +4158,11 @@ parser.addArgument("delay");
     }
   },
   onPatternsUpdate: function onPatternsUpdate(ev, data) {
-    if (data.pattern === "stacks") {
+    if ((data === null || data === void 0 ? void 0 : data.pattern) === "stacks") {
       if (data.originalEvent && data.originalEvent.type === "click") {
         this.smoothScroll();
       }
-    } else if (data.pattern === "scroll") {
+    } else if ((data === null || data === void 0 ? void 0 : data.pattern) === "scroll") {
       var href = this.$el[0].href;
       var fragment = href.indexOf("#") !== -1 && href.split("#").pop() || undefined;
 
@@ -1242,7 +4314,7 @@ parser.addArgument("delay");
 
 /***/ }),
 
-/***/ 104:
+/***/ 116:
 /***/ (function(module, exports, __webpack_require__) {
 
 // NOTE: Import this file before any other files
@@ -1265,7 +4337,7 @@ if (!__webpack_require__.p) {
 
 /***/ }),
 
-/***/ 105:
+/***/ 117:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -6015,7 +9087,9 @@ if (!__webpack_require__.p) {
             docElement.appendChild(inputElem);
             defaultView = document.defaultView; // Safari 2-4 allows the smiley as a value, despite making a slider
 
-            bool = defaultView.getComputedStyle && defaultView.getComputedStyle(inputElem, null).WebkitAppearance !== 'textfield' && inputElem.offsetHeight !== 0;
+            bool = defaultView.getComputedStyle && defaultView.getComputedStyle(inputElem, null).WebkitAppearance !== 'textfield' && // Mobile android web browser has false positive, so must
+            // check the height to see if the widget is actually there.
+            inputElem.offsetHeight !== 0;
             docElement.removeChild(inputElem);
           } else if (/^(search|tel)$/.test(inputElemType)) {// Spec doesn't define any special parsing or detectable UI
             //   behaviors so we pass these through as true
@@ -7103,11 +10177,11 @@ if (!__webpack_require__.p) {
     delete window.Modernizr;
   }
 })(window);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(102)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(114)(module)))
 
 /***/ }),
 
-/***/ 106:
+/***/ 118:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -17996,7 +21070,7 @@ return jQuery;
 
 /***/ }),
 
-/***/ 107:
+/***/ 119:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18033,18 +21107,249 @@ module.exports = function () {
 
   return g;
 }();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(39)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(41)))
 
 /***/ }),
 
-/***/ 108:
+/***/ 12:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+/* Utilities for DOM traversal or navigation */
+var DATA_STYLE_DISPLAY = "__patternslib__style__display";
+
+var toNodeArray = function toNodeArray(nodes) {
+  // Return an array of DOM nodes
+  if (nodes.jquery || nodes instanceof NodeList) {
+    // jQuery or document.querySelectorAll
+    nodes = _toConsumableArray(nodes);
+  } else if (nodes instanceof Array === false) {
+    nodes = [nodes];
+  }
+
+  return nodes;
+};
+
+var querySelectorAllAndMe = function querySelectorAllAndMe(el, selector) {
+  // Like querySelectorAll but including the element where it starts from.
+  // Returns an Array, not a NodeList
+  if (!el) {
+    return [];
+  }
+
+  var all = _toConsumableArray(el.querySelectorAll(selector));
+
+  if (el.matches(selector)) {
+    all.unshift(el); // start element should be first.
+  }
+
+  return all;
+};
+
+var wrap = function wrap(el, wrapper) {
+  // Wrap a element with a wrapper element.
+  // See: https://stackoverflow.com/a/13169465/1337474
+  el.parentNode.insertBefore(wrapper, el);
+  wrapper.appendChild(el);
+};
+
+var hide = function hide(el) {
+  // Hides the element with ``display: none``
+  if (el.style.display === "none") {
+    // Nothing to do.
+    return;
+  }
+
+  if (el.style.display) {
+    el[DATA_STYLE_DISPLAY] = el.style.display;
+  }
+
+  el.style.display = "none";
+};
+
+var show = function show(el) {
+  // Shows element by removing ``display: none`` and restoring the display
+  // value to whatever it was before.
+  var val = el[DATA_STYLE_DISPLAY] || null;
+  el.style.display = val;
+  delete el[DATA_STYLE_DISPLAY];
+};
+
+var find_parents = function find_parents(el, selector) {
+  var _el$parentNode, _el$parentNode$closes;
+
+  // Return all direct parents of ``el`` matching ``selector``.
+  // This matches against all parents but not the element itself.
+  // The order of elements is from the search starting point up to higher
+  // DOM levels.
+  var ret = [];
+  var parent = el === null || el === void 0 ? void 0 : (_el$parentNode = el.parentNode) === null || _el$parentNode === void 0 ? void 0 : (_el$parentNode$closes = _el$parentNode.closest) === null || _el$parentNode$closes === void 0 ? void 0 : _el$parentNode$closes.call(_el$parentNode, selector);
+
+  while (parent) {
+    var _parent$parentNode, _parent$parentNode$cl;
+
+    ret.push(parent);
+    parent = (_parent$parentNode = parent.parentNode) === null || _parent$parentNode === void 0 ? void 0 : (_parent$parentNode$cl = _parent$parentNode.closest) === null || _parent$parentNode$cl === void 0 ? void 0 : _parent$parentNode$cl.call(_parent$parentNode, selector);
+  }
+
+  return ret;
+};
+
+var find_scoped = function find_scoped(el, selector) {
+  // If the selector starts with an object id do a global search,
+  // otherwise do a local search.
+  return (selector.indexOf("#") === 0 ? document : el).querySelectorAll(selector);
+};
+
+var get_parents = function get_parents(el) {
+  // Return all HTMLElement parents of el, starting from the direct parent of el.
+  // The document itself is excluded because it's not a real DOM node.
+  var parents = [];
+  var parent = el === null || el === void 0 ? void 0 : el.parentNode;
+
+  while (parent) {
+    var _parent;
+
+    parents.push(parent);
+    parent = (_parent = parent) === null || _parent === void 0 ? void 0 : _parent.parentNode;
+    parent = parent instanceof HTMLElement ? parent : null;
+  }
+
+  return parents;
+};
+
+var is_visible = function is_visible(el) {
+  // Check, if element is visible in DOM.
+  // https://stackoverflow.com/a/19808107/1337474
+  return el.offsetWidth > 0 && el.offsetHeight > 0;
+};
+
+var create_from_string = function create_from_string(string) {
+  // Create a DOM element from a string.
+  var div = document.createElement("div");
+  div.innerHTML = string.trim();
+  return div.firstChild;
+}; // Event listener registration for easy-to-remove event listeners.
+// once Safari supports the ``signal`` option for addEventListener we can abort
+// event handlers by calling AbortController.abort().
+
+
+var event_listener_map = {};
+/**
+ * Add an event listener to a DOM element under a unique id.
+ * If a event is registered under the same id for the same element, the old hander is removed first.
+ *
+ * @param {DOM Node} el - The element to register the event for.
+ * @param {string} event_type - The event type to listen for.
+ * @param {string} id - A unique id under which the event is registered.
+ * @param {function} cb - The event handler / callback function.
+ * @param {Object} opts - Options for the addEventListener API.
+ *
+ */
+
+var add_event_listener = function add_event_listener(el, event_type, id, cb) {
+  var opts = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : {};
+
+  if (!(el !== null && el !== void 0 && el.addEventListener)) {
+    return; // nothing to do.
+  }
+
+  remove_event_listener(el, id); // do not register one listener twice.
+
+  if (!event_listener_map[el]) {
+    event_listener_map[el] = {};
+  }
+
+  event_listener_map[el][id] = [event_type, cb, opts.capture ? opts : undefined]; // prettier-ignore
+
+  el.addEventListener(event_type, cb, opts);
+};
+/**
+ * Remove an event listener from a DOM element under a unique id.
+ *
+ * @param {DOM Node} el - The element to register the event for.
+ * @param {string} id - A unique id under which the event is registered.
+ *
+ */
+
+
+var remove_event_listener = function remove_event_listener(el, id) {
+  if (!(el !== null && el !== void 0 && el.removeEventListener)) {
+    return; // nothing to do.
+  }
+
+  var el_events = event_listener_map[el];
+
+  if (!el_events) {
+    return;
+  }
+
+  var entries;
+
+  if (id) {
+    // remove event listener with specific id
+    var entry = el_events[id];
+    entries = entry ? [entry] : [];
+  } else {
+    // remove all event listeners of element
+    entries = Object.entries(el_events);
+  }
+
+  var _iterator = _createForOfIteratorHelper(entries || []),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var _entry = _step.value;
+      el.removeEventListener(_entry[0], _entry[1], _entry[2]);
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+};
+
+var dom = {
+  toNodeArray: toNodeArray,
+  querySelectorAllAndMe: querySelectorAllAndMe,
+  wrap: wrap,
+  hide: hide,
+  show: show,
+  find_parents: find_parents,
+  find_scoped: find_scoped,
+  get_parents: get_parents,
+  is_visible: is_visible,
+  create_from_string: create_from_string,
+  add_event_listener: add_event_listener,
+  remove_event_listener: remove_event_listener
+};
+/* harmony default export */ __webpack_exports__["a"] = (dom);
+
+/***/ }),
+
+/***/ 120:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export parser */
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
 /* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
 /**
@@ -18167,16 +21472,16 @@ parser.addArgument("max-height", 1000000);
 
 /***/ }),
 
-/***/ 109:
+/***/ 121:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export parser */
-/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
+/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
 /* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
-/* harmony import */ var _core_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11);
+/* harmony import */ var _core_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12);
 /* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
-/* harmony import */ var _core_jquery_ext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(41);
+/* harmony import */ var _core_jquery_ext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(46);
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -18465,250 +21770,19 @@ parser.addArgument("deselect", ".deselect-all");
 
 /***/ }),
 
-/***/ 11:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-/* Utilities for DOM traversal or navigation */
-var DATA_STYLE_DISPLAY = "__patternslib__style__display";
-
-var toNodeArray = function toNodeArray(nodes) {
-  // Return an array of DOM nodes
-  if (nodes.jquery || nodes instanceof NodeList) {
-    // jQuery or document.querySelectorAll
-    nodes = _toConsumableArray(nodes);
-  } else if (nodes instanceof Array === false) {
-    nodes = [nodes];
-  }
-
-  return nodes;
-};
-
-var querySelectorAllAndMe = function querySelectorAllAndMe(el, selector) {
-  // Like querySelectorAll but including the element where it starts from.
-  // Returns an Array, not a NodeList
-  if (!el) {
-    return [];
-  }
-
-  var all = _toConsumableArray(el.querySelectorAll(selector));
-
-  if (el.matches(selector)) {
-    all.unshift(el); // start element should be first.
-  }
-
-  return all;
-};
-
-var wrap = function wrap(el, wrapper) {
-  // Wrap a element with a wrapper element.
-  // See: https://stackoverflow.com/a/13169465/1337474
-  el.parentNode.insertBefore(wrapper, el);
-  wrapper.appendChild(el);
-};
-
-var hide = function hide(el) {
-  // Hides the element with ``display: none``
-  if (el.style.display === "none") {
-    // Nothing to do.
-    return;
-  }
-
-  if (el.style.display) {
-    el[DATA_STYLE_DISPLAY] = el.style.display;
-  }
-
-  el.style.display = "none";
-};
-
-var show = function show(el) {
-  // Shows element by removing ``display: none`` and restoring the display
-  // value to whatever it was before.
-  var val = el[DATA_STYLE_DISPLAY] || null;
-  el.style.display = val;
-  delete el[DATA_STYLE_DISPLAY];
-};
-
-var find_parents = function find_parents(el, selector) {
-  var _el$parentNode, _el$parentNode$closes;
-
-  // Return all direct parents of ``el`` matching ``selector``.
-  // This matches against all parents but not the element itself.
-  // The order of elements is from the search starting point up to higher
-  // DOM levels.
-  var ret = [];
-  var parent = el === null || el === void 0 ? void 0 : (_el$parentNode = el.parentNode) === null || _el$parentNode === void 0 ? void 0 : (_el$parentNode$closes = _el$parentNode.closest) === null || _el$parentNode$closes === void 0 ? void 0 : _el$parentNode$closes.call(_el$parentNode, selector);
-
-  while (parent) {
-    var _parent$parentNode, _parent$parentNode$cl;
-
-    ret.push(parent);
-    parent = (_parent$parentNode = parent.parentNode) === null || _parent$parentNode === void 0 ? void 0 : (_parent$parentNode$cl = _parent$parentNode.closest) === null || _parent$parentNode$cl === void 0 ? void 0 : _parent$parentNode$cl.call(_parent$parentNode, selector);
-  }
-
-  return ret;
-};
-
-var find_scoped = function find_scoped(el, selector) {
-  // If the selector starts with an object id do a global search,
-  // otherwise do a local search.
-  return (selector.indexOf("#") === 0 ? document : el).querySelectorAll(selector);
-};
-
-var get_parents = function get_parents(el) {
-  // Return all HTMLElement parents of el, starting from the direct parent of el.
-  // The document itself is excluded because it's not a real DOM node.
-  var parents = [];
-  var parent = el === null || el === void 0 ? void 0 : el.parentNode;
-
-  while (parent) {
-    var _parent;
-
-    parents.push(parent);
-    parent = (_parent = parent) === null || _parent === void 0 ? void 0 : _parent.parentNode;
-    parent = parent instanceof HTMLElement ? parent : null;
-  }
-
-  return parents;
-};
-
-var is_visible = function is_visible(el) {
-  // Check, if element is visible in DOM.
-  // https://stackoverflow.com/a/19808107/1337474
-  return el.offsetWidth > 0 && el.offsetHeight > 0;
-};
-
-var create_from_string = function create_from_string(string) {
-  // Create a DOM element from a string.
-  var div = document.createElement("div");
-  div.innerHTML = string.trim();
-  return div.firstChild;
-}; // Event listener registration for easy-to-remove event listeners.
-// once Safari supports the ``signal`` option for addEventListener we can abort
-// event handlers by calling AbortController.abort().
-
-
-var event_listener_map = {};
-/**
- * Add an event listener to a DOM element under a unique id.
- * If a event is registered under the same id for the same element, the old hander is removed first.
- *
- * @param {DOM Node} el - The element to register the event for.
- * @param {string} event_type - The event type to listen for.
- * @param {string} id - A unique id under which the event is registered.
- * @param {function} cb - The event handler / callback function.
- * @param {Object} opts - Options for the addEventListener API.
- *
- */
-
-var add_event_listener = function add_event_listener(el, event_type, id, cb) {
-  var opts = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : {};
-
-  if (!(el !== null && el !== void 0 && el.addEventListener)) {
-    return; // nothing to do.
-  }
-
-  remove_event_listener(el, id); // do not register one listener twice.
-
-  if (!event_listener_map[el]) {
-    event_listener_map[el] = {};
-  }
-
-  event_listener_map[el][id] = [event_type, cb, opts.capture ? opts : undefined]; // prettier-ignore
-
-  el.addEventListener(event_type, cb, opts);
-};
-/**
- * Remove an event listener from a DOM element under a unique id.
- *
- * @param {DOM Node} el - The element to register the event for.
- * @param {string} id - A unique id under which the event is registered.
- *
- */
-
-
-var remove_event_listener = function remove_event_listener(el, id) {
-  if (!(el !== null && el !== void 0 && el.removeEventListener)) {
-    return; // nothing to do.
-  }
-
-  var el_events = event_listener_map[el];
-
-  if (!el_events) {
-    return;
-  }
-
-  var entries;
-
-  if (id) {
-    // remove event listener with specific id
-    var entry = el_events[id];
-    entries = entry ? [entry] : [];
-  } else {
-    // remove all event listeners of element
-    entries = Object.entries(el_events);
-  }
-
-  var _iterator = _createForOfIteratorHelper(entries || []),
-      _step;
-
-  try {
-    for (_iterator.s(); !(_step = _iterator.n()).done;) {
-      var _entry = _step.value;
-      el.removeEventListener(_entry[0], _entry[1], _entry[2]);
-    }
-  } catch (err) {
-    _iterator.e(err);
-  } finally {
-    _iterator.f();
-  }
-};
-
-var dom = {
-  toNodeArray: toNodeArray,
-  querySelectorAllAndMe: querySelectorAllAndMe,
-  wrap: wrap,
-  hide: hide,
-  show: show,
-  find_parents: find_parents,
-  find_scoped: find_scoped,
-  get_parents: get_parents,
-  is_visible: is_visible,
-  create_from_string: create_from_string,
-  add_event_listener: add_event_listener,
-  remove_event_listener: remove_event_listener
-};
-/* harmony default export */ __webpack_exports__["a"] = (dom);
-
-/***/ }),
-
-/***/ 110:
+/***/ 122:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export parser */
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _core_jquery_ext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(41);
-/* harmony import */ var _inject_inject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(24);
-/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
+/* harmony import */ var _core_jquery_ext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(46);
+/* harmony import */ var _inject_inject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(27);
+/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 /* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4);
-/* harmony import */ var _core_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(22);
-/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(6);
+/* harmony import */ var _core_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(25);
+/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
 /* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(1);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -18909,7 +21983,7 @@ var debounce_scroll_timer = {
               }
 
               _context.next = 4;
-              return __webpack_require__.e(/* import() */ 19).then(__webpack_require__.bind(null, 103));
+              return __webpack_require__.e(/* import() */ 19).then(__webpack_require__.bind(null, 115));
 
             case 4:
               pat_scroll = _context.sent.default;
@@ -18989,16 +22063,16 @@ var debounce_scroll_timer = {
 
 /***/ }),
 
-/***/ 111:
+/***/ 123:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export parser */
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1);
-/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
+/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 /* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4);
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
@@ -19037,7 +22111,7 @@ parser.addArgument("effect-easing", "swing");
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.e(/* import() */ 18).then(__webpack_require__.bind(null, 332));
+              return __webpack_require__.e(/* import() */ 18).then(__webpack_require__.bind(null, 344));
 
             case 2:
               DependsHandler = _context.sent.default;
@@ -19252,17 +22326,17 @@ parser.addArgument("effect-easing", "swing");
 
 /***/ }),
 
-/***/ 112:
+/***/ 124:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parser", function() { return parser; });
-/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
+/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(24);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
+/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -19297,7 +22371,7 @@ parser.add_argument("output-format", null);
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.e(/* import() */ 0).then(__webpack_require__.t.bind(null, 195, 7));
+              return __webpack_require__.e(/* import() */ 0).then(__webpack_require__.t.bind(null, 207, 7));
 
             case 2:
               Moment = _context.sent.default;
@@ -19307,7 +22381,7 @@ parser.add_argument("output-format", null);
               lang = lang.substr(0, 2).toLowerCase();
               _context.prev = 6;
               _context.next = 9;
-              return __webpack_require__(113)("./".concat(lang, ".js"));
+              return __webpack_require__(125)("./".concat(lang, ".js"));
 
             case 9:
               Moment.locale(lang);
@@ -19352,682 +22426,682 @@ parser.add_argument("output-format", null);
 
 /***/ }),
 
-/***/ 113:
+/***/ 125:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"./af.js": [
-		196,
+		208,
 		0,
 		22
 	],
 	"./ar-dz.js": [
-		197,
+		209,
 		0,
 		23
 	],
 	"./ar-kw.js": [
-		198,
+		210,
 		0,
 		24
 	],
 	"./ar-ly.js": [
-		199,
+		211,
 		0,
 		25
 	],
 	"./ar-ma.js": [
-		200,
+		212,
 		0,
 		26
 	],
 	"./ar-sa.js": [
-		201,
+		213,
 		0,
 		27
 	],
 	"./ar-tn.js": [
-		202,
+		214,
 		0,
 		28
 	],
 	"./ar.js": [
-		203,
+		215,
 		0,
 		29
 	],
 	"./az.js": [
-		204,
+		216,
 		0,
 		30
 	],
 	"./be.js": [
-		205,
+		217,
 		0,
 		31
 	],
 	"./bg.js": [
-		206,
+		218,
 		0,
 		32
 	],
 	"./bm.js": [
-		207,
+		219,
 		0,
 		33
 	],
 	"./bn-bd.js": [
-		208,
+		220,
 		0,
 		34
 	],
 	"./bn.js": [
-		209,
+		221,
 		0,
 		35
 	],
 	"./bo.js": [
-		210,
+		222,
 		0,
 		36
 	],
 	"./br.js": [
-		211,
+		223,
 		0,
 		37
 	],
 	"./bs.js": [
-		212,
+		224,
 		0,
 		38
 	],
 	"./ca.js": [
-		213,
+		225,
 		0,
 		39
 	],
 	"./cs.js": [
-		214,
+		226,
 		0,
 		40
 	],
 	"./cv.js": [
-		215,
+		227,
 		0,
 		41
 	],
 	"./cy.js": [
-		216,
+		228,
 		0,
 		42
 	],
 	"./da.js": [
-		217,
+		229,
 		0,
 		43
 	],
 	"./de-at.js": [
-		218,
+		230,
 		0,
 		44
 	],
 	"./de-ch.js": [
-		219,
+		231,
 		0,
 		45
 	],
 	"./de.js": [
-		220,
+		232,
 		0,
 		46
 	],
 	"./dv.js": [
-		221,
+		233,
 		0,
 		47
 	],
 	"./el.js": [
-		222,
+		234,
 		0,
 		48
 	],
 	"./en-au.js": [
-		223,
+		235,
 		0,
 		49
 	],
 	"./en-ca.js": [
-		224,
+		236,
 		0,
 		50
 	],
 	"./en-gb.js": [
-		225,
+		237,
 		0,
 		51
 	],
 	"./en-ie.js": [
-		226,
+		238,
 		0,
 		52
 	],
 	"./en-il.js": [
-		227,
+		239,
 		0,
 		53
 	],
 	"./en-in.js": [
-		228,
+		240,
 		0,
 		54
 	],
 	"./en-nz.js": [
-		229,
+		241,
 		0,
 		55
 	],
 	"./en-sg.js": [
-		230,
+		242,
 		0,
 		56
 	],
 	"./eo.js": [
-		231,
+		243,
 		0,
 		57
 	],
 	"./es-do.js": [
-		232,
+		244,
 		0,
 		58
 	],
 	"./es-mx.js": [
-		233,
+		245,
 		0,
 		59
 	],
 	"./es-us.js": [
-		234,
+		246,
 		0,
 		60
 	],
 	"./es.js": [
-		235,
+		247,
 		0,
 		61
 	],
 	"./et.js": [
-		236,
+		248,
 		0,
 		62
 	],
 	"./eu.js": [
-		237,
+		249,
 		0,
 		63
 	],
 	"./fa.js": [
-		238,
+		250,
 		0,
 		64
 	],
 	"./fi.js": [
-		239,
+		251,
 		0,
 		65
 	],
 	"./fil.js": [
-		240,
+		252,
 		0,
 		66
 	],
 	"./fo.js": [
-		241,
+		253,
 		0,
 		67
 	],
 	"./fr-ca.js": [
-		242,
+		254,
 		0,
 		68
 	],
 	"./fr-ch.js": [
-		243,
+		255,
 		0,
 		69
 	],
 	"./fr.js": [
-		244,
+		256,
 		0,
 		70
 	],
 	"./fy.js": [
-		245,
+		257,
 		0,
 		71
 	],
 	"./ga.js": [
-		246,
+		258,
 		0,
 		72
 	],
 	"./gd.js": [
-		247,
+		259,
 		0,
 		73
 	],
 	"./gl.js": [
-		248,
+		260,
 		0,
 		74
 	],
 	"./gom-deva.js": [
-		249,
+		261,
 		0,
 		75
 	],
 	"./gom-latn.js": [
-		250,
+		262,
 		0,
 		76
 	],
 	"./gu.js": [
-		251,
+		263,
 		0,
 		77
 	],
 	"./he.js": [
-		252,
+		264,
 		0,
 		78
 	],
 	"./hi.js": [
-		253,
+		265,
 		0,
 		79
 	],
 	"./hr.js": [
-		254,
+		266,
 		0,
 		80
 	],
 	"./hu.js": [
-		255,
+		267,
 		0,
 		81
 	],
 	"./hy-am.js": [
-		256,
+		268,
 		0,
 		82
 	],
 	"./id.js": [
-		257,
+		269,
 		0,
 		83
 	],
 	"./is.js": [
-		258,
+		270,
 		0,
 		84
 	],
 	"./it-ch.js": [
-		259,
+		271,
 		0,
 		85
 	],
 	"./it.js": [
-		260,
+		272,
 		0,
 		86
 	],
 	"./ja.js": [
-		261,
+		273,
 		0,
 		87
 	],
 	"./jv.js": [
-		262,
+		274,
 		0,
 		88
 	],
 	"./ka.js": [
-		263,
+		275,
 		0,
 		89
 	],
 	"./kk.js": [
-		264,
+		276,
 		0,
 		90
 	],
 	"./km.js": [
-		265,
+		277,
 		0,
 		91
 	],
 	"./kn.js": [
-		266,
+		278,
 		0,
 		92
 	],
 	"./ko.js": [
-		267,
+		279,
 		0,
 		93
 	],
 	"./ku.js": [
-		268,
+		280,
 		0,
 		94
 	],
 	"./ky.js": [
-		269,
+		281,
 		0,
 		95
 	],
 	"./lb.js": [
-		270,
+		282,
 		0,
 		96
 	],
 	"./lo.js": [
-		271,
+		283,
 		0,
 		97
 	],
 	"./lt.js": [
-		272,
+		284,
 		0,
 		98
 	],
 	"./lv.js": [
-		273,
+		285,
 		0,
 		99
 	],
 	"./me.js": [
-		274,
+		286,
 		0,
 		100
 	],
 	"./mi.js": [
-		275,
+		287,
 		0,
 		101
 	],
 	"./mk.js": [
-		276,
+		288,
 		0,
 		102
 	],
 	"./ml.js": [
-		277,
+		289,
 		0,
 		103
 	],
 	"./mn.js": [
-		278,
+		290,
 		0,
 		104
 	],
 	"./mr.js": [
-		279,
+		291,
 		0,
 		105
 	],
 	"./ms-my.js": [
-		280,
+		292,
 		0,
 		106
 	],
 	"./ms.js": [
-		281,
+		293,
 		0,
 		107
 	],
 	"./mt.js": [
-		282,
+		294,
 		0,
 		108
 	],
 	"./my.js": [
-		283,
+		295,
 		0,
 		109
 	],
 	"./nb.js": [
-		284,
+		296,
 		0,
 		110
 	],
 	"./ne.js": [
-		285,
+		297,
 		0,
 		111
 	],
 	"./nl-be.js": [
-		286,
+		298,
 		0,
 		112
 	],
 	"./nl.js": [
-		287,
+		299,
 		0,
 		113
 	],
 	"./nn.js": [
-		288,
+		300,
 		0,
 		114
 	],
 	"./oc-lnc.js": [
-		289,
+		301,
 		0,
 		115
 	],
 	"./pa-in.js": [
-		290,
+		302,
 		0,
 		116
 	],
 	"./pl.js": [
-		291,
+		303,
 		0,
 		117
 	],
 	"./pt-br.js": [
-		292,
+		304,
 		0,
 		118
 	],
 	"./pt.js": [
-		293,
+		305,
 		0,
 		119
 	],
 	"./ro.js": [
-		294,
+		306,
 		0,
 		120
 	],
 	"./ru.js": [
-		295,
+		307,
 		0,
 		121
 	],
 	"./sd.js": [
-		296,
+		308,
 		0,
 		122
 	],
 	"./se.js": [
-		297,
+		309,
 		0,
 		123
 	],
 	"./si.js": [
-		298,
+		310,
 		0,
 		124
 	],
 	"./sk.js": [
-		299,
+		311,
 		0,
 		125
 	],
 	"./sl.js": [
-		300,
+		312,
 		0,
 		126
 	],
 	"./sq.js": [
-		301,
+		313,
 		0,
 		127
 	],
 	"./sr-cyrl.js": [
-		302,
+		314,
 		0,
 		128
 	],
 	"./sr.js": [
-		303,
+		315,
 		0,
 		129
 	],
 	"./ss.js": [
-		304,
+		316,
 		0,
 		130
 	],
 	"./sv.js": [
-		305,
+		317,
 		0,
 		131
 	],
 	"./sw.js": [
-		306,
+		318,
 		0,
 		132
 	],
 	"./ta.js": [
-		307,
+		319,
 		0,
 		133
 	],
 	"./te.js": [
-		308,
+		320,
 		0,
 		134
 	],
 	"./tet.js": [
-		309,
+		321,
 		0,
 		135
 	],
 	"./tg.js": [
-		310,
+		322,
 		0,
 		136
 	],
 	"./th.js": [
-		311,
+		323,
 		0,
 		137
 	],
 	"./tk.js": [
-		312,
+		324,
 		0,
 		138
 	],
 	"./tl-ph.js": [
-		313,
+		325,
 		0,
 		139
 	],
 	"./tlh.js": [
-		314,
+		326,
 		0,
 		140
 	],
 	"./tr.js": [
-		315,
+		327,
 		0,
 		141
 	],
 	"./tzl.js": [
-		316,
+		328,
 		0,
 		142
 	],
 	"./tzm-latn.js": [
-		317,
+		329,
 		0,
 		143
 	],
 	"./tzm.js": [
-		318,
+		330,
 		0,
 		144
 	],
 	"./ug-cn.js": [
-		319,
+		331,
 		0,
 		145
 	],
 	"./uk.js": [
-		320,
+		332,
 		0,
 		146
 	],
 	"./ur.js": [
-		321,
+		333,
 		0,
 		147
 	],
 	"./uz-latn.js": [
-		322,
+		334,
 		0,
 		148
 	],
 	"./uz.js": [
-		323,
+		335,
 		0,
 		149
 	],
 	"./vi.js": [
-		324,
+		336,
 		0,
 		150
 	],
 	"./x-pseudo.js": [
-		325,
+		337,
 		0,
 		151
 	],
 	"./yo.js": [
-		326,
+		338,
 		0,
 		152
 	],
 	"./zh-cn.js": [
-		327,
+		339,
 		0,
 		153
 	],
 	"./zh-hk.js": [
-		328,
+		340,
 		0,
 		154
 	],
 	"./zh-mo.js": [
-		329,
+		341,
 		0,
 		155
 	],
 	"./zh-tw.js": [
-		330,
+		342,
 		0,
 		156
 	]
@@ -20049,21 +23123,21 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 113;
+webpackAsyncContext.id = 125;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 114:
+/***/ 126:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export parser */
-/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
+/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(24);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _core_registry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+/* harmony import */ var _core_registry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
 /* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -20096,7 +23170,7 @@ var equaliser = {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 80, 7));
+              return __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 87, 7));
 
             case 2:
               ImagesLoaded = _context.sent.default;
@@ -20104,17 +23178,6 @@ var equaliser = {
                 var $container = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this),
                     options = parser.parse($container, opts);
                 $container.data("pat-equaliser", options);
-                /* Assumotion, we don't need this anymore if we use Mutation observers
-                // $container.on("pat-update.pat-equaliser", null, this, utils.debounce(equaliser._onEvent, 100));
-                // $container.on("patterns-injected.pat-equaliser", null, this, utils.debounce(equaliser._onEvent, 100));
-                // $container.parents('.pat-stacks').on("pat-update", null, this, utils.debounce(equaliser._onEvent, 100));
-                */
-
-                /* Assumotion, we don't need this anymore if we use Mutation observers
-                // $container.on("pat-update.pat-equaliser", null, this, utils.debounce(equaliser._onEvent, 100));
-                // $container.on("patterns-injected.pat-equaliser", null, this, utils.debounce(equaliser._onEvent, 100));
-                // $container.parents('.pat-stacks').on("pat-update", null, this, utils.debounce(equaliser._onEvent, 100));
-                */
                 jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).on("resize.pat-equaliser", null, this, _core_utils__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].debounce(equaliser._onEvent, 100));
                 ImagesLoaded(this, jquery__WEBPACK_IMPORTED_MODULE_1___default.a.proxy(function () {
                   equaliser._update(this);
@@ -20185,15 +23248,15 @@ _core_registry__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].register(equalise
 
 /***/ }),
 
-/***/ 115:
+/***/ 127:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _core_registry__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
+/* harmony import */ var _core_registry__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(10);
 /* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1);
-/* harmony import */ var _core_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(11);
+/* harmony import */ var _core_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(12);
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -20239,18 +23302,18 @@ _core_registry__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].register(legend);
 
 /***/ }),
 
-/***/ 116:
+/***/ 128:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export parser */
-/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
+/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(24);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
+/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
 /* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
+/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
 /* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(1);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -20308,12 +23371,12 @@ parser.addAlias("resize", "is-resize");
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.e(/* import() */ 11).then(__webpack_require__.t.bind(null, 331, 7));
+              return __webpack_require__.e(/* import() */ 11).then(__webpack_require__.t.bind(null, 343, 7));
 
             case 2:
               Masonry = _context.sent.default;
               _context.next = 5;
-              return __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 80, 7));
+              return __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 87, 7));
 
             case 5:
               ImagesLoaded = _context.sent.default;
@@ -20441,16 +23504,16 @@ parser.addAlias("resize", "is-resize");
 
 /***/ }),
 
-/***/ 117:
+/***/ 129:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export parser */
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
+/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 
 
 
@@ -20576,14 +23639,14 @@ parser.addArgument("current-class", "current");
 
 /***/ }),
 
-/***/ 118:
+/***/ 130:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export parser */
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
 
 
@@ -20609,7 +23672,7 @@ parser.addAlias("dragClass", "drag-class");
     /* Handler which gets called when pat-update is triggered within
      * the .pat-sortable element.
      */
-    if (data.pattern == "clone") {
+    if ((data === null || data === void 0 ? void 0 : data.pattern) == "clone") {
       this.recordPositions();
       data.$el.on("dragstart", this.onDragStart.bind(this));
       data.$el.on("dragend", this.onDragEnd.bind(this));
@@ -20785,7 +23848,79 @@ parser.addAlias("dragClass", "drag-class");
 
 /***/ }),
 
-/***/ 20:
+/***/ 2:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return VERSION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return root; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArrayProto; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return ObjProto; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return SymbolProto; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return push; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return slice; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return toString; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return hasOwnProperty; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return supportsArrayBuffer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return supportsDataView; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return nativeIsArray; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return nativeKeys; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return nativeCreate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return nativeIsView; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return _isNaN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return _isFinite; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return hasEnumBug; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return nonEnumerableProps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return MAX_ARRAY_INDEX; });
+// Current version.
+var VERSION = '1.13.1';
+
+// Establish the root object, `window` (`self`) in the browser, `global`
+// on the server, or `this` in some virtual machines. We use `self`
+// instead of `window` for `WebWorker` support.
+var root = typeof self == 'object' && self.self === self && self ||
+          typeof global == 'object' && global.global === global && global ||
+          Function('return this')() ||
+          {};
+
+// Save bytes in the minified (but not gzipped) version:
+var ArrayProto = Array.prototype, ObjProto = Object.prototype;
+var SymbolProto = typeof Symbol !== 'undefined' ? Symbol.prototype : null;
+
+// Create quick reference variables for speed access to core prototypes.
+var push = ArrayProto.push,
+    slice = ArrayProto.slice,
+    toString = ObjProto.toString,
+    hasOwnProperty = ObjProto.hasOwnProperty;
+
+// Modern feature detection.
+var supportsArrayBuffer = typeof ArrayBuffer !== 'undefined',
+    supportsDataView = typeof DataView !== 'undefined';
+
+// All **ECMAScript 5+** native function implementations that we hope to use
+// are declared here.
+var nativeIsArray = Array.isArray,
+    nativeKeys = Object.keys,
+    nativeCreate = Object.create,
+    nativeIsView = supportsArrayBuffer && ArrayBuffer.isView;
+
+// Create references to these builtin functions because we override them.
+var _isNaN = isNaN,
+    _isFinite = isFinite;
+
+// Keys in IE < 9 that won't be iterated by `for key in ...` and thus missed.
+var hasEnumBug = !{toString: null}.propertyIsEnumerable('toString');
+var nonEnumerableProps = ['valueOf', 'isPrototypeOf', 'toString',
+  'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
+
+// The largest integer that can be represented exactly.
+var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(41)))
+
+/***/ }),
+
+/***/ 24:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -21546,11 +24681,11 @@ try {
 
 /***/ }),
 
-/***/ 22:
+/***/ 25:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _logging__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+/* harmony import */ var _logging__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
 /**
  * Patterns store - store pattern state locally in the browser
  *
@@ -21687,22 +24822,22 @@ try {
 
 /***/ }),
 
-/***/ 24:
+/***/ 27:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export parser */
-/* harmony import */ var _core_jquery_ext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(41);
-/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(20);
+/* harmony import */ var _core_jquery_ext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(46);
+/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
-/* harmony import */ var _ajax_ajax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(36);
-/* harmony import */ var _core_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(11);
-/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(5);
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(11);
+/* harmony import */ var _ajax_ajax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(38);
+/* harmony import */ var _core_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(12);
+/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(6);
 /* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(4);
-/* harmony import */ var _core_registry__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(8);
+/* harmony import */ var _core_registry__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(10);
 /* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(1);
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -21948,7 +25083,7 @@ var inject = {
     opts = jquery__WEBPACK_IMPORTED_MODULE_2___default.a.extend({}, opts);
     var cfgs = parser.parse($el, opts, true);
     cfgs.forEach(function (cfg) {
-      cfg.$context = $el; // opts and cfg have priority, fallback to href/action
+      cfg.$context = $el; // opts and cfg have priority, fall back to href/action
 
       cfg.url = opts.url || cfg.url || $el.attr("href") || $el.attr("action") || $el.parents("form").attr("action") || ""; // separate selector from url
 
@@ -22287,7 +25422,10 @@ var inject = {
       }
     }
 
-    $el.trigger("pat-inject-success");
+    $el[0].dispatchEvent(new Event("pat-inject-success", {
+      bubbles: true,
+      cancelable: true
+    }));
   },
   _onInjectSuccess: function _onInjectSuccess($el, cfgs, ev) {
     var _this3 = this;
@@ -22369,9 +25507,8 @@ var inject = {
   },
   _onInjectError: function _onInjectError($el, cfgs, event) {
     return _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-      var _document$querySelect;
+      var explanation, status, timestamp, error_page, error_page_fragment, url_params, _document$querySelect, error_page_url, error_page_response, error_zone, msg_attr;
 
-      var explanation, fallback, status, timestamp, url_params, fallback_url, fallback_response, msg_attr;
       return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -22389,47 +25526,70 @@ var inject = {
               }
 
               url_params = new URLSearchParams(window.location.search);
-              fallback_url = (_document$querySelect = document.querySelector("meta[name=pat-inject-status-".concat(status, "]"))) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.getAttribute("content", false);
 
-              if (!(fallback_url && url_params.get("pat-inject-errorhandler.off") === null)) {
-                _context2.next = 20;
+              if (!(url_params.get("pat-inject-errorhandler.off") === null)) {
+                _context2.next = 24;
                 break;
               }
 
-              _context2.prev = 7;
-              _context2.next = 10;
-              return fetch(fallback_url, {
+              // Prepare a error page to be injected into the document.
+              // Try to get a suitable error message from pre-configured error pages.
+              error_page_url = (_document$querySelect = document.querySelector("meta[name^=pat-inject-status-".concat(status, "]"))) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.getAttribute("content", false);
+              error_page_fragment = error_page_url === null || error_page_url === void 0 ? void 0 : error_page_url.split("#")[1];
+              error_page_fragment = error_page_fragment ? "#".concat(error_page_fragment) : null;
+
+              if (error_page_fragment) {
+                error_page = document.createElement("html");
+                error_page.innerHTML = event.jqxhr.responseText;
+                error_page = error_page.querySelector(error_page_fragment);
+              }
+
+              if (!(!error_page && error_page_url)) {
+                _context2.next = 24;
+                break;
+              }
+
+              _context2.prev = 11;
+              _context2.next = 14;
+              return fetch(error_page_url, {
                 method: "GET"
               });
 
-            case 10:
-              fallback_response = _context2.sent;
-              fallback = document.createElement("html");
-              _context2.next = 14;
-              return fallback_response.text();
-
             case 14:
-              fallback.innerHTML = _context2.sent;
-              fallback = fallback.querySelector("body");
-              _context2.next = 20;
-              break;
+              error_page_response = _context2.sent;
+              error_page = document.createElement("html");
+              _context2.next = 18;
+              return error_page_response.text();
 
             case 18:
-              _context2.prev = 18;
-              _context2.t0 = _context2["catch"](7);
+              error_page.innerHTML = _context2.sent;
+              error_page = error_page.querySelector(error_page_fragment || "body");
+              _context2.next = 24;
+              break;
 
-            case 20:
+            case 22:
+              _context2.prev = 22;
+              _context2.t0 = _context2["catch"](11);
+
+            case 24:
               // clean up
               cfgs.forEach(function (cfg) {
-                if ("$injected" in cfg) cfg.$injected.remove();
+                if ("$injected" in cfg) {
+                  cfg.$injected.remove();
+                }
+
+                cfg.$target.removeClass(cfg.loadingClass);
+                $el.removeClass(cfg.executingClass);
               });
               $el.off("pat-ajax-success.pat-inject");
               $el.off("pat-ajax-error.pat-inject");
 
-              if (fallback) {
-                document.body.innerHTML = fallback.innerHTML;
+              if (error_page) {
+                error_zone = document.querySelector(error_page_fragment || "body");
+                error_zone.innerHTML = error_page.innerHTML;
+                _core_registry__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"].scan(error_zone); // initialize any patterns in error page
               } else {
-                msg_attr = fallback || "".concat(explanation, " Status is ").concat(status, " ").concat(event.jqxhr.statusText, ", time was ").concat(timestamp, ". You can click to close this.");
+                msg_attr = "".concat(explanation, " Status is ").concat(status, " ").concat(event.jqxhr.statusText, ", time was ").concat(timestamp, ". You can click to close this.");
                 jquery__WEBPACK_IMPORTED_MODULE_2___default()("body").attr("data-error-message", msg_attr);
                 jquery__WEBPACK_IMPORTED_MODULE_2___default()("body").on("click", function () {
                   jquery__WEBPACK_IMPORTED_MODULE_2___default()("body").removeAttr("data-error-message");
@@ -22437,12 +25597,12 @@ var inject = {
                 });
               }
 
-            case 24:
+            case 28:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[7, 18]]);
+      }, _callee2, null, [[11, 22]]);
     }))();
   },
   execute: function execute(cfgs, $el) {
@@ -23000,91 +26160,19 @@ _core_registry__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"].register(inject);
 
 /***/ }),
 
-/***/ 3:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return VERSION; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return root; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArrayProto; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return ObjProto; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return SymbolProto; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return push; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return slice; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return toString; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return hasOwnProperty; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return supportsArrayBuffer; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return supportsDataView; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return nativeIsArray; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return nativeKeys; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return nativeCreate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return nativeIsView; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return _isNaN; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return _isFinite; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return hasEnumBug; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return nonEnumerableProps; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return MAX_ARRAY_INDEX; });
-// Current version.
-var VERSION = '1.13.1';
-
-// Establish the root object, `window` (`self`) in the browser, `global`
-// on the server, or `this` in some virtual machines. We use `self`
-// instead of `window` for `WebWorker` support.
-var root = typeof self == 'object' && self.self === self && self ||
-          typeof global == 'object' && global.global === global && global ||
-          Function('return this')() ||
-          {};
-
-// Save bytes in the minified (but not gzipped) version:
-var ArrayProto = Array.prototype, ObjProto = Object.prototype;
-var SymbolProto = typeof Symbol !== 'undefined' ? Symbol.prototype : null;
-
-// Create quick reference variables for speed access to core prototypes.
-var push = ArrayProto.push,
-    slice = ArrayProto.slice,
-    toString = ObjProto.toString,
-    hasOwnProperty = ObjProto.hasOwnProperty;
-
-// Modern feature detection.
-var supportsArrayBuffer = typeof ArrayBuffer !== 'undefined',
-    supportsDataView = typeof DataView !== 'undefined';
-
-// All **ECMAScript 5+** native function implementations that we hope to use
-// are declared here.
-var nativeIsArray = Array.isArray,
-    nativeKeys = Object.keys,
-    nativeCreate = Object.create,
-    nativeIsView = supportsArrayBuffer && ArrayBuffer.isView;
-
-// Create references to these builtin functions because we override them.
-var _isNaN = isNaN,
-    _isFinite = isFinite;
-
-// Keys in IE < 9 that won't be iterated by `for key in ...` and thus missed.
-var hasEnumBug = !{toString: null}.propertyIsEnumerable('toString');
-var nonEnumerableProps = ['valueOf', 'isPrototypeOf', 'toString',
-  'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
-
-// The largest integer that can be represented exactly.
-var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(39)))
-
-/***/ }),
-
-/***/ 333:
+/***/ 345:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
+/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(24);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
+/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
 /* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
-/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
-/* harmony import */ var _inject_inject__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(24);
+/* harmony import */ var _core_base__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var _inject_inject__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(27);
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -23143,7 +26231,7 @@ var Markdown = _core_base__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"].extend
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return __webpack_require__.e(/* import() */ 162).then(__webpack_require__.t.bind(null, 553, 7));
+              return __webpack_require__.e(/* import() */ 162).then(__webpack_require__.t.bind(null, 557, 7));
 
             case 2:
               Showdown = _context2.sent.default;
@@ -23322,16 +26410,16 @@ _inject_inject__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"].registerTypeHandl
 
 /***/ }),
 
-/***/ 36:
+/***/ 38:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export parser */
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+/* harmony import */ var _core_logging__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
 /* harmony import */ var _core_parser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
-/* harmony import */ var _core_registry__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
+/* harmony import */ var _core_registry__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(10);
 /**
  * Patterns ajax - AJAX injection for forms and anchors
  *
@@ -23344,6 +26432,7 @@ _inject_inject__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"].registerTypeHandl
 
 var log = _core_logging__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].getLogger("pat.ajax");
 var parser = new _core_parser__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]("ajax");
+parser.addArgument("accept", "text/html");
 parser.addArgument("url", function ($el) {
   return ($el.is("a") ? $el.attr("href") : $el.is("form") ? $el.attr("action") : "").split("#")[0];
 });
@@ -23432,9 +26521,14 @@ var _ = {
         args = {
       context: $el,
       data: [$el.serialize(), clickedData].filter(Boolean).join("&"),
+      headers: {},
       url: cfg.url,
       method: $el.attr("method") ? $el.attr("method") : "GET"
     };
+
+    if (cfg.accept) {
+      args.headers.Accept = cfg.accept;
+    }
 
     if ($el.is("form") && $el.attr("method") && $el.attr("method").toUpperCase() == "POST") {
       var formdata = new FormData($el[0]);
@@ -23463,33 +26557,6 @@ _core_registry__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"].register(_);
 
 /***/ }),
 
-/***/ 39:
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-
 /***/ 4:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -23497,7 +26564,7 @@ module.exports = g;
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
-/* harmony import */ var _logging__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
+/* harmony import */ var _logging__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
 function _typeof2(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
@@ -24091,6 +27158,33 @@ ArgumentParser.prototype.add_argument = ArgumentParser.prototype.addArgument;
 /***/ }),
 
 /***/ 41:
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
+/***/ 46:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -24382,205 +27476,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default.a.fn.scopedFind = function (selector
 
 /***/ }),
 
-/***/ 5:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-/**
- * Patterns logging - minimal logging framework
- *
- * Copyright 2012 Simplon B.V.
- */
-// source: https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/bind
-if (!Function.prototype.bind) {
-  Function.prototype.bind = function (oThis) {
-    if (typeof this !== "function") {
-      // closest thing possible to the ECMAScript 5 internal IsCallable function
-      throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
-    }
-
-    var aArgs = Array.prototype.slice.call(arguments, 1),
-        fToBind = this,
-        fNOP = function fNOP() {},
-        fBound = function fBound() {
-      return fToBind.apply(this instanceof fNOP && oThis ? this : oThis, aArgs.concat(Array.prototype.slice.call(arguments)));
-    };
-
-    fNOP.prototype = this.prototype;
-    fBound.prototype = new fNOP();
-    return fBound;
-  };
-}
-
-var root, // root logger instance
-writer; // writer instance, used to output log entries
-
-var Level = {
-  DEBUG: 10,
-  INFO: 20,
-  WARN: 30,
-  ERROR: 40,
-  FATAL: 50
-};
-
-function IEConsoleWriter() {}
-
-IEConsoleWriter.prototype = {
-  output: function output(log_name, level, messages) {
-    // console.log will magically appear in IE8 when the user opens the
-    // F12 Developer Tools, so we have to test for it every time.
-    if (typeof window.console === "undefined" || typeof console.log === "undefined") return;
-    if (log_name) messages.unshift(log_name + ":");
-    var message = messages.join(" "); // Under some conditions console.log will be available but the
-    // other functions are missing.
-
-    if (_typeof(console.info) === undefined) {
-      var level_name;
-      if (level <= Level.DEBUG) level_name = "DEBUG";else if (level <= Level.INFO) level_name = "INFO";else if (level <= Level.WARN) level_name = "WARN";else if (level <= Level.ERROR) level_name = "ERROR";else level_name = "FATAL";
-      console.log("[" + level_name + "] " + message);
-    } else {
-      if (level <= Level.DEBUG) {
-        // console.debug exists but is deprecated
-        message = "[DEBUG] " + message;
-        console.log(message);
-      } else if (level <= Level.INFO) console.info(message);else if (level <= Level.WARN) console.warn(message);else console.error(message);
-    }
-  }
-};
-
-function ConsoleWriter() {}
-
-ConsoleWriter.prototype = {
-  output: function output(log_name, level, messages) {
-    if (log_name) messages.unshift(log_name + ":");
-
-    if (level <= Level.DEBUG) {
-      // console.debug exists but is deprecated
-      messages.unshift("[DEBUG]");
-      console.log.apply(console, messages);
-    } else if (level <= Level.INFO) console.info.apply(console, messages);else if (level <= Level.WARN) console.warn.apply(console, messages);else console.error.apply(console, messages);
-  }
-};
-
-function Logger(name, parent) {
-  this._loggers = {};
-  this.name = name || "";
-  this._parent = parent || null;
-
-  if (!parent) {
-    this._enabled = true;
-    this._level = Level.WARN;
-  }
-}
-
-Logger.prototype = {
-  getLogger: function getLogger(name) {
-    var path = name.split("."),
-        root = this,
-        route = this.name ? [this.name] : [];
-
-    while (path.length) {
-      var entry = path.shift();
-      route.push(entry);
-      if (!(entry in root._loggers)) root._loggers[entry] = new Logger(route.join("."), root);
-      root = root._loggers[entry];
-    }
-
-    return root;
-  },
-  _getFlag: function _getFlag(flag) {
-    var context = this;
-    flag = "_" + flag;
-
-    while (context !== null) {
-      if (context[flag] !== undefined) return context[flag];
-      context = context._parent;
-    }
-
-    return null;
-  },
-  setEnabled: function setEnabled(state) {
-    this._enabled = !!state;
-  },
-  isEnabled: function isEnabled() {
-    this._getFlag("enabled");
-  },
-  setLevel: function setLevel(level) {
-    if (typeof level === "number") this._level = level;else if (typeof level === "string") {
-      level = level.toUpperCase();
-      if (level in Level) this._level = Level[level];
-    }
-  },
-  getLevel: function getLevel() {
-    return this._getFlag("level");
-  },
-  log: function log(level, messages) {
-    if (!messages.length || !this._getFlag("enabled") || level < this._getFlag("level")) return;
-    messages = Array.prototype.slice.call(messages);
-    writer.output(this.name, level, messages);
-  },
-  debug: function debug() {
-    this.log(Level.DEBUG, arguments);
-  },
-  info: function info() {
-    this.log(Level.INFO, arguments);
-  },
-  warn: function warn() {
-    this.log(Level.WARN, arguments);
-  },
-  error: function error() {
-    this.log(Level.ERROR, arguments);
-  },
-  fatal: function fatal() {
-    this.log(Level.FATAL, arguments);
-  }
-};
-
-function getWriter() {
-  return writer;
-}
-
-function setWriter(w) {
-  writer = w;
-}
-
-if (!window.console || !window.console.log || typeof window.console.log.apply !== "function") {
-  setWriter(new IEConsoleWriter());
-} else {
-  setWriter(new ConsoleWriter());
-}
-
-root = new Logger();
-var logconfig = /loglevel(|-[^=]+)=([^&]+)/g,
-    match;
-
-while ((match = logconfig.exec(window.location.search)) !== null) {
-  var logger = match[1] === "" ? root : root.getLogger(match[1].slice(1));
-  logger.setLevel(match[2].toUpperCase());
-}
-
-var api = {
-  Level: Level,
-  getLogger: root.getLogger.bind(root),
-  setEnabled: root.setEnabled.bind(root),
-  isEnabled: root.isEnabled.bind(root),
-  setLevel: root.setLevel.bind(root),
-  getLevel: root.getLevel.bind(root),
-  debug: root.debug.bind(root),
-  info: root.info.bind(root),
-  warn: root.warn.bind(root),
-  error: root.error.bind(root),
-  fatal: root.fatal.bind(root),
-  getWriter: getWriter,
-  setWriter: setWriter
-};
-/* harmony default export */ __webpack_exports__["a"] = (api);
-
-/***/ }),
-
-/***/ 551:
+/***/ 555:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -24588,23 +27484,23 @@ var api = {
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/public_path.js
-var public_path = __webpack_require__(104);
+var public_path = __webpack_require__(116);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/.modernizrrc.js
-var _modernizrrc = __webpack_require__(105);
+var _modernizrrc = __webpack_require__(117);
 
 // EXTERNAL MODULE: ./node_modules/jquery/dist/jquery-exposed.js
 var jquery_exposed = __webpack_require__(0);
 var jquery_exposed_default = /*#__PURE__*/__webpack_require__.n(jquery_exposed);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/core/registry.js
-var registry = __webpack_require__(8);
+var registry = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./node_modules/underscore/modules/index-all.js + 159 modules
-var index_all = __webpack_require__(9);
+var index_all = __webpack_require__(11);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/core/base.js + 1 modules
-var base = __webpack_require__(6);
+var base = __webpack_require__(7);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/core/parser.js
 var parser = __webpack_require__(4);
@@ -24648,7 +27544,7 @@ pat_content_mirror_parser.add_argument("target");
   }
 }));
 // EXTERNAL MODULE: ./node_modules/regenerator-runtime/runtime.js
-var runtime = __webpack_require__(20);
+var runtime = __webpack_require__(24);
 
 // CONCATENATED MODULE: ./node_modules/@patternslib/pat-sortable-table/src/pat-sortable-table.js
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -24685,7 +27581,7 @@ pat_sortable_table_parser.addArgument("language-search-placeholder", "Search ter
             case 0:
               _this.options = pat_sortable_table_parser.parse(_this.$el, _this.options);
               _context.next = 3;
-              return __webpack_require__.e(/* import() */ 20).then(__webpack_require__.t.bind(null, 582, 7));
+              return __webpack_require__.e(/* import() */ 20).then(__webpack_require__.t.bind(null, 586, 7));
 
             case 3:
               pageLengthMenu = _this.options.page["length-menu"];
@@ -24721,16 +27617,16 @@ pat_sortable_table_parser.addArgument("language-search-placeholder", "Search ter
   }
 }));
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/pat/ajax/ajax.js
-var ajax = __webpack_require__(36);
+var ajax = __webpack_require__(38);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/pat/auto-scale/auto-scale.js
-var auto_scale = __webpack_require__(108);
+var auto_scale = __webpack_require__(120);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/core/jquery-ext.js
-var jquery_ext = __webpack_require__(41);
+var jquery_ext = __webpack_require__(46);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/core/logging.js
-var logging = __webpack_require__(5);
+var logging = __webpack_require__(6);
 
 // CONCATENATED MODULE: ./node_modules/@patternslib/patternslib/src/lib/input-change-events.js
 // helper functions to make all input elements
@@ -25012,11 +27908,11 @@ auto_suggest_parser.addAlias("pre-fill", "prefill");
           switch (_context.prev = _context.next) {
             case 0:
               if (window.__patternslib_import_styles) {
-                __webpack_require__.e(/* import() */ 10).then(__webpack_require__.bind(null, 583));
+                __webpack_require__.e(/* import() */ 10).then(__webpack_require__.bind(null, 587));
               }
 
               _context.next = 3;
-              return __webpack_require__.e(/* import() */ 161).then(__webpack_require__.t.bind(null, 584, 7));
+              return __webpack_require__.e(/* import() */ 161).then(__webpack_require__.t.bind(null, 588, 7));
 
             case 3:
               _this.options = auto_suggest_parser.parse(_this.el, _this.options);
@@ -25062,10 +27958,10 @@ auto_suggest_parser.addAlias("pre-fill", "prefill");
               _this.$el.select2(config);
 
               _this.$el.on("pat-update", function (e, data) {
-                if (data.pattern === "depends") {
-                  if (data.enabled === true) {
+                if ((data === null || data === void 0 ? void 0 : data.pattern) === "depends") {
+                  if ((data === null || data === void 0 ? void 0 : data.enabled) === true) {
                     _this.$el.select2("enable", true);
-                  } else if (data.enabled === false) {
+                  } else if ((data === null || data === void 0 ? void 0 : data.enabled) === false) {
                     _this.$el.select2("disable", true);
                   }
                 }
@@ -25579,15 +28475,15 @@ carousel_parser.addArgument("infinite", false);
           switch (_context.prev = _context.next) {
             case 0:
               if (window.__patternslib_import_styles) {
-                __webpack_require__.e(/* import() */ 15).then(__webpack_require__.bind(null, 585));
+                __webpack_require__.e(/* import() */ 15).then(__webpack_require__.bind(null, 589));
               }
 
               _context.next = 3;
-              return __webpack_require__.e(/* import() */ 163).then(__webpack_require__.t.bind(null, 586, 7));
+              return __webpack_require__.e(/* import() */ 163).then(__webpack_require__.t.bind(null, 590, 7));
 
             case 3:
               _context.next = 5;
-              return __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 80, 7));
+              return __webpack_require__.e(/* import() */ 1).then(__webpack_require__.t.bind(null, 87, 7));
 
             case 5:
               ImagesLoaded = _context.sent.default;
@@ -25684,10 +28580,10 @@ carousel_parser.addArgument("infinite", false);
   }
 }));
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/pat/checklist/checklist.js
-var checklist = __webpack_require__(109);
+var checklist = __webpack_require__(121);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/core/dom.js
-var dom = __webpack_require__(11);
+var dom = __webpack_require__(12);
 
 // CONCATENATED MODULE: ./node_modules/@patternslib/patternslib/src/pat/clone/clone.js
 function clone_toConsumableArray(arr) { return clone_arrayWithoutHoles(arr) || clone_iterableToArray(arr) || clone_unsupportedIterableToArray(arr) || clone_nonIterableSpread(); }
@@ -25934,7 +28830,7 @@ clone_parser.addAlias("remove-behavior", "remove-behaviour");
   }
 }));
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/pat/collapsible/collapsible.js
-var collapsible = __webpack_require__(110);
+var collapsible = __webpack_require__(122);
 
 // CONCATENATED MODULE: ./node_modules/@patternslib/patternslib/src/pat/date-picker/date-picker.js
 function date_picker_createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = date_picker_unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
@@ -26055,7 +28951,7 @@ date_picker_parser.addAlias("behaviour", "behavior");
               }
 
               _context.next = 14;
-              return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 112));
+              return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 124));
 
             case 14:
               PatDisplayTime = _context.sent.default;
@@ -26132,11 +29028,11 @@ date_picker_parser.addAlias("behaviour", "behavior");
 
             case 37:
               if (window.__patternslib_import_styles) {
-                __webpack_require__.e(/* import() */ 14).then(__webpack_require__.bind(null, 587));
+                __webpack_require__.e(/* import() */ 12).then(__webpack_require__.bind(null, 591));
               }
 
               _context.next = 40;
-              return Promise.all(/* import() */[__webpack_require__.e(0), __webpack_require__.e(159)]).then(__webpack_require__.t.bind(null, 588, 7));
+              return Promise.all(/* import() */[__webpack_require__.e(0), __webpack_require__.e(159)]).then(__webpack_require__.t.bind(null, 592, 7));
 
             case 40:
               Pikaday = _context.sent.default;
@@ -26225,16 +29121,16 @@ date_picker_parser.addAlias("behaviour", "behavior");
   }
 }));
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/pat/depends/depends.js
-var depends = __webpack_require__(111);
+var depends = __webpack_require__(123);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/pat/display-time/display-time.js
-var display_time = __webpack_require__(112);
+var display_time = __webpack_require__(124);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/pat/equaliser/equaliser.js
-var equaliser = __webpack_require__(114);
+var equaliser = __webpack_require__(126);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/pat/inject/inject.js
-var inject = __webpack_require__(24);
+var inject = __webpack_require__(27);
 
 // CONCATENATED MODULE: ./node_modules/@patternslib/patternslib/src/pat/expandable-tree/expandable-tree.js
 
@@ -26379,7 +29275,7 @@ modal_parser.addArgument("panel-header-content", ":first:not(.header)");
   trigger: "div.pat-modal, a.pat-modal, form.pat-modal, .pat-modal.pat-subform",
   init: function init($el, opts, trigger) {
     if (window.__patternslib_import_styles) {
-      __webpack_require__.e(/* import() */ 12).then(__webpack_require__.bind(null, 589));
+      __webpack_require__.e(/* import() */ 13).then(__webpack_require__.bind(null, 593));
     }
 
     this.options = modal_parser.parse(this.$el, opts);
@@ -26395,6 +29291,8 @@ modal_parser.addArgument("panel-header-content", ":first:not(.header)");
     }
   },
   _init_inject1: function _init_inject1() {
+    var _this = this;
+
     var opts = {
       target: "#pat-modal",
       class: "pat-modal" + (this.options["class"] ? " " + this.options["class"] : "")
@@ -26416,6 +29314,13 @@ modal_parser.addArgument("panel-header-content", ":first:not(.header)");
 
     this.$el.on("pat-inject-missingSource pat-inject-missingTarget", function () {
       jquery_exposed_default()("#pat-modal").detach();
+    });
+    this.el.addEventListener("pat-inject-success", function () {
+      // Dispatch the pat-modal-ready event after injection is done.
+      _this.el.dispatchEvent(new Event("pat-modal-ready", {
+        bubbles: true,
+        cancelable: true
+      }));
     });
     inject["a" /* default */].init(this.$el, opts);
   },
@@ -26455,6 +29360,10 @@ modal_parser.addArgument("panel-header-content", ":first:not(.header)");
     this.resize();
     this.setPosition();
     jquery_exposed_default()("body").addClass("modal-active");
+    this.el.dispatchEvent(new Event("pat-modal-ready", {
+      bubbles: true,
+      cancelable: true
+    }));
   },
   _init_handlers: function _init_handlers() {
     jquery_exposed_default()(document).on("click.pat-modal", "#pat-modal .close-panel[type!=submit]", this.destroy.bind(this));
@@ -26522,20 +29431,10 @@ modal_parser.addArgument("panel-header-content", ":first:not(.header)");
         height: modal_height + "px"
       });
       this.setPosition();
-    } // XXX: This is a hack. When you have a modal inside a
-    // modal.max-height, the CSS of the outermost modal affects the
-    // innermost .panel-body. By redrawing here, it's fixed.
-    //
-    // I think ideally the CSS needs to be fixed here, but I need to
-    // discuss with Cornelis first.
-
-
-    if (this.$el.parent().closest(".pat-modal").length > 0) {
-      utils["a" /* default */].redraw(this.$el.find(".panel-body"));
     }
   },
   destroy: function destroy() {
-    var _this = this;
+    var _this2 = this;
 
     return modal_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
       return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -26549,7 +29448,7 @@ modal_parser.addArgument("panel-header-content", ":first:not(.header)");
               // wait a tick for event handlers (e.g. form submit) have a chance to kick in first.
               jquery_exposed_default()(document).off(".pat-modal");
 
-              _this.$el.remove();
+              _this2.$el.remove();
 
               jquery_exposed_default()("body").removeClass("modal-active");
               jquery_exposed_default()("body").removeClass("modal-panel");
@@ -26563,18 +29462,18 @@ modal_parser.addArgument("panel-header-content", ":first:not(.header)");
     }))();
   },
   destroy_inject: function destroy_inject() {
-    var _this2 = this;
+    var _this3 = this;
 
     if (this.$el.find("form").hasClass("pat-inject")) {
       // if pat-inject in modal form, listen to patterns-inject-triggered and destroy first
       // once that has been triggered
       var destroy_handler = function destroy_handler() {
-        _this2.destroy();
+        _this3.destroy();
 
-        jquery_exposed_default()("body").off("patterns-inject-triggered", destroy_handler);
+        jquery_exposed_default()("body").off("pat-inject-success", destroy_handler);
       };
 
-      jquery_exposed_default()("body").on("patterns-inject-triggered", destroy_handler.bind(this));
+      jquery_exposed_default()("body").on("pat-inject-success", destroy_handler.bind(this));
     } else {
       // if working without injection, destroy after waiting a tick to let
       // eventually registered on-submit handlers kick in first.
@@ -26793,7 +29692,7 @@ class Fullscreen extends Base {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.e(/* import() */ 2).then(__webpack_require__.t.bind(null, 590, 7));
+              return __webpack_require__.e(/* import() */ 2).then(__webpack_require__.t.bind(null, 594, 7));
 
             case 2:
               Screenfull = _context.sent.default;
@@ -26877,7 +29776,7 @@ function fullscreen_close_asyncToGenerator(fn) { return function () { var self =
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.e(/* import() */ 2).then(__webpack_require__.t.bind(null, 590, 7));
+              return __webpack_require__.e(/* import() */ 2).then(__webpack_require__.t.bind(null, 594, 7));
 
             case 2:
               Screenfull = _context.sent.default;
@@ -26934,17 +29833,17 @@ gallery_parser.addArgument("effect-duration", 250);
           switch (_context.prev = _context.next) {
             case 0:
               if (window.__patternslib_import_styles) {
-                __webpack_require__.e(/* import() */ 13).then(__webpack_require__.bind(null, 591));
-                __webpack_require__.e(/* import() */ 9).then(__webpack_require__.bind(null, 592));
+                __webpack_require__.e(/* import() */ 14).then(__webpack_require__.bind(null, 595));
+                __webpack_require__.e(/* import() */ 9).then(__webpack_require__.bind(null, 596));
               }
 
               _context.next = 3;
-              return __webpack_require__.e(/* import() */ 158).then(__webpack_require__.t.bind(null, 593, 7));
+              return __webpack_require__.e(/* import() */ 158).then(__webpack_require__.t.bind(null, 597, 7));
 
             case 3:
               PhotoSwipe = _context.sent.default;
               _context.next = 6;
-              return __webpack_require__.e(/* import() */ 157).then(__webpack_require__.t.bind(null, 594, 7));
+              return __webpack_require__.e(/* import() */ 157).then(__webpack_require__.t.bind(null, 598, 7));
 
             case 6:
               PhotoSwipeUI = _context.sent.default;
@@ -26957,7 +29856,7 @@ gallery_parser.addArgument("effect-duration", 250);
               }
 
               _context.next = 11;
-              return __webpack_require__.e(/* import() */ 160).then(__webpack_require__.bind(null, 595));
+              return __webpack_require__.e(/* import() */ 160).then(__webpack_require__.bind(null, 599));
 
             case 11:
               Template = _context.sent.default;
@@ -27074,7 +29973,7 @@ var image_crop_ = {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.e(/* import() */ 21).then(__webpack_require__.t.bind(null, 596, 7));
+              return __webpack_require__.e(/* import() */ 21).then(__webpack_require__.t.bind(null, 600, 7));
 
             case 2:
               return _context.abrupt("return", $el.each(function () {
@@ -27215,13 +30114,13 @@ var image_crop_ = {
 registry["a" /* default */].register(image_crop_);
 /* harmony default export */ var image_crop = (image_crop_);
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/pat/legend/legend.js
-var legend = __webpack_require__(115);
+var legend = __webpack_require__(127);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/pat/markdown/markdown.js
-var markdown_markdown = __webpack_require__(333);
+var markdown_markdown = __webpack_require__(345);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/pat/masonry/masonry.js
-var masonry = __webpack_require__(116);
+var masonry = __webpack_require__(128);
 
 // CONCATENATED MODULE: ./node_modules/@patternslib/patternslib/src/pat/menu/menu.js
 
@@ -27279,7 +30178,7 @@ menu_parser.addArgument("nav-item-selector", "li"); // CSS Selector for navigati
   }
 }));
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/pat/navigation/navigation.js
-var navigation = __webpack_require__(117);
+var navigation = __webpack_require__(129);
 
 // CONCATENATED MODULE: ./node_modules/@patternslib/patternslib/src/pat/notification/notification.js
 /**
@@ -27399,7 +30298,7 @@ notification_parser.addArgument("close-text", "Close");
     var inject_opts = {
       target: "#pat-notification-temp"
     };
-    $el.on("pat-inject-success.pat-notification", function (e) {
+    $el[0].addEventListener("pat-inject-success", function (e) {
       var $trigger = jquery_exposed_default()(e.target),
           cfg = notification_parser.parse($trigger, {
         type: "banner"
@@ -27570,10 +30469,10 @@ var KEY_RESET = "__patternslib__pat_selectbox__reset";
   }
 }));
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/pat/scroll/scroll.js
-var scroll_scroll = __webpack_require__(103);
+var scroll_scroll = __webpack_require__(115);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/pat/sortable/sortable.js
-var sortable = __webpack_require__(118);
+var sortable = __webpack_require__(130);
 
 // CONCATENATED MODULE: ./node_modules/@patternslib/patternslib/src/pat/stacks/stacks.js
 /**
@@ -27817,7 +30716,7 @@ var subform_log = logging["a" /* default */].getLogger("subform");
   }
 }));
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/core/store.js
-var store = __webpack_require__(22);
+var store = __webpack_require__(25);
 
 // CONCATENATED MODULE: ./node_modules/@patternslib/patternslib/src/pat/switch/switch.js
 /**
@@ -27986,7 +30885,7 @@ var DEBOUNCE_TIMEOUT = 10; //logger.setLevel(logging.Level.DEBUG);
     // an immediate display of the element is done.
 
     jquery_exposed_default()("body").on("pat-update", function (e, data) {
-      if (_this.allowed_update_patterns.includes(data.pattern)) {
+      if (_this.allowed_update_patterns.includes(data === null || data === void 0 ? void 0 : data.pattern)) {
         tabs_logger.debug("pat-update received.");
         debounced_resize();
       }
@@ -28479,7 +31378,7 @@ var tooltip_parser = new parser["a" /* default */]("tooltip");
 var all_positions = ["tl", "tm", "tr", "rt", "rm", "rb", "br", "bm", "bl", "lb", "lm", "lt"];
 tooltip_parser.addArgument("position-list", [], all_positions, true);
 tooltip_parser.addArgument("position-policy", "auto", ["auto", "force"]);
-tooltip_parser.addArgument("trigger", "click", ["click", "hover"]);
+tooltip_parser.addArgument("trigger", "click", ["click", "hover", "none"]);
 tooltip_parser.addArgument("source", "title", ["ajax", "content", "title"]);
 tooltip_parser.addArgument("ajax-data-type", "html", ["html", "markdown"]);
 tooltip_parser.addArgument("closing", "auto", ["auto", "sticky", "close-button"]);
@@ -28488,6 +31387,7 @@ tooltip_parser.addArgument("mark-inactive", true);
 tooltip_parser.addArgument("class");
 tooltip_parser.addArgument("target", "body");
 tooltip_parser.addArgument("arrow-padding", null);
+tooltip_parser.addArgument("url", null);
 /* harmony default export */ var tooltip = (base["a" /* default */].extend({
   name: "tooltip",
   trigger: ".pat-tooltip, .pat-tooltip-ng",
@@ -28498,7 +31398,7 @@ tooltip_parser.addArgument("arrow-padding", null);
   },
   active_class: "tooltip-active-hover",
   inactive_class: "tooltip-inactive",
-  init: function init($el, opts) {
+  init: function init() {
     var _this = this;
 
     return tooltip_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
@@ -28510,15 +31410,15 @@ tooltip_parser.addArgument("arrow-padding", null);
               el = _this.el;
 
               if (window.__patternslib_import_styles) {
-                __webpack_require__.e(/* import() */ 16).then(__webpack_require__.bind(null, 597));
+                __webpack_require__.e(/* import() */ 16).then(__webpack_require__.bind(null, 601));
               }
 
               _context.next = 4;
-              return __webpack_require__.e(/* import() */ 164).then(__webpack_require__.bind(null, 599));
+              return __webpack_require__.e(/* import() */ 164).then(__webpack_require__.bind(null, 603));
 
             case 4:
               Tippy = _context.sent.default;
-              _this.options = tooltip_parser.parse(el, opts);
+              _this.options = tooltip_parser.parse(el, _this.options);
               _this.tippy_options = _this.parseOptionsForTippy(_this.options);
               defaultProps = {
                 animation: false,
@@ -28565,6 +31465,18 @@ tooltip_parser.addArgument("arrow-padding", null);
         }
       }, _callee);
     }))();
+  },
+  show: function show() {
+    // Show this tooltip
+    this.tippy.show();
+  },
+  hide: function hide() {
+    // Hide this tooltip
+    this.tippy.hide();
+  },
+  destroy: function destroy() {
+    // Remove this tooltip
+    this.tippy.destroy();
   },
   parseOptionsForTippy: function parseOptionsForTippy(opts) {
     var _this2 = this;
@@ -28637,6 +31549,9 @@ tooltip_parser.addArgument("arrow-padding", null);
       trigger: function trigger() {
         if (opts.trigger === "hover") {
           tippy_options.trigger = "mouseenter focus";
+        } else if (opts.trigger === "none") {
+          tippy_options.trigger = "manual";
+          tippy_options.hideOnClick = false;
         }
       },
       source: function source() {
@@ -28860,7 +31775,7 @@ tooltip_parser.addArgument("arrow-padding", null);
               return _context4.abrupt("return", undefined);
 
             case 2:
-              _this5$get_url_parts = _this5.get_url_parts(_this5.el.getAttribute("href")), url = _this5$get_url_parts.url, selector = _this5$get_url_parts.selector;
+              _this5$get_url_parts = _this5.get_url_parts(_this5.options.url || _this5.el.getAttribute("href")), url = _this5$get_url_parts.url, selector = _this5$get_url_parts.selector;
 
               if (!url) {
                 _context4.next = 24;
@@ -28910,14 +31825,22 @@ tooltip_parser.addArgument("arrow-padding", null);
               }
 
             case 25:
-              if (content) {
-                _this5.tippy.setContent(content);
-
-                _this5.tippy.popperInstance.forceUpdate(); // re-position tippy after content is known.
-
+              if (!content) {
+                _context4.next = 30;
+                break;
               }
 
-            case 26:
+              _this5.tippy.setContent(content);
+
+              _context4.next = 29;
+              return utils["a" /* default */].timeout(1);
+
+            case 29:
+              // Wait a tick before forceUpdate. Might fail due to unset popperInstance.
+              _this5.tippy.popperInstance.forceUpdate(); // re-position tippy after content is known.
+
+
+            case 30:
             case "end":
               return _context4.stop();
           }
@@ -28965,7 +31888,7 @@ tooltip_parser.addArgument("arrow-padding", null);
             switch (_context5.prev = _context5.next) {
               case 0:
                 _context5.next = 2;
-                return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 333));
+                return Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 345));
 
               case 2:
                 pat_markdown = _context5.sent;
@@ -29057,12 +31980,12 @@ var VALIDATION_TYPE_MAP = {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return __webpack_require__.e(/* import() */ 17).then(__webpack_require__.t.bind(null, 598, 7));
+              return __webpack_require__.e(/* import() */ 17).then(__webpack_require__.t.bind(null, 602, 7));
 
             case 2:
               Validate = _context.sent.default;
               _context.next = 5;
-              return __webpack_require__.e(/* import() */ 0).then(__webpack_require__.t.bind(null, 195, 7));
+              return __webpack_require__.e(/* import() */ 0).then(__webpack_require__.t.bind(null, 207, 7));
 
             case 5:
               Moment = _context.sent.default;
@@ -29447,13 +32370,13 @@ var VALIDATION_TYPE_MAP = {
      * form. In that case we need to remove and then reassign event
      * handlers.
      */
-    if (data.pattern == "clone" || data.pattern == "inject") {
+    if ((data === null || data === void 0 ? void 0 : data.pattern) == "clone" || (data === null || data === void 0 ? void 0 : data.pattern) == "inject") {
       this.$inputs.off("change.pat-validation");
       this.$el.off("submit.pat-validation");
       this.$el.off("pat-update.pat-validation");
       this.init();
 
-      if (data.pattern == "clone" && data.action == "remove") {
+      if ((data === null || data === void 0 ? void 0 : data.pattern) == "clone" && (data === null || data === void 0 ? void 0 : data.action) == "remove") {
         this.validateForm(ev);
       }
     }
@@ -29617,19 +32540,217 @@ registry["a" /* default */].init();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+/**
+ * Patterns logging - minimal logging framework
+ *
+ * Copyright 2012 Simplon B.V.
+ */
+// source: https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/bind
+if (!Function.prototype.bind) {
+  Function.prototype.bind = function (oThis) {
+    if (typeof this !== "function") {
+      // closest thing possible to the ECMAScript 5 internal IsCallable function
+      throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+    }
+
+    var aArgs = Array.prototype.slice.call(arguments, 1),
+        fToBind = this,
+        fNOP = function fNOP() {},
+        fBound = function fBound() {
+      return fToBind.apply(this instanceof fNOP && oThis ? this : oThis, aArgs.concat(Array.prototype.slice.call(arguments)));
+    };
+
+    fNOP.prototype = this.prototype;
+    fBound.prototype = new fNOP();
+    return fBound;
+  };
+}
+
+var root, // root logger instance
+writer; // writer instance, used to output log entries
+
+var Level = {
+  DEBUG: 10,
+  INFO: 20,
+  WARN: 30,
+  ERROR: 40,
+  FATAL: 50
+};
+
+function IEConsoleWriter() {}
+
+IEConsoleWriter.prototype = {
+  output: function output(log_name, level, messages) {
+    // console.log will magically appear in IE8 when the user opens the
+    // F12 Developer Tools, so we have to test for it every time.
+    if (typeof window.console === "undefined" || typeof console.log === "undefined") return;
+    if (log_name) messages.unshift(log_name + ":");
+    var message = messages.join(" "); // Under some conditions console.log will be available but the
+    // other functions are missing.
+
+    if (_typeof(console.info) === undefined) {
+      var level_name;
+      if (level <= Level.DEBUG) level_name = "DEBUG";else if (level <= Level.INFO) level_name = "INFO";else if (level <= Level.WARN) level_name = "WARN";else if (level <= Level.ERROR) level_name = "ERROR";else level_name = "FATAL";
+      console.log("[" + level_name + "] " + message);
+    } else {
+      if (level <= Level.DEBUG) {
+        // console.debug exists but is deprecated
+        message = "[DEBUG] " + message;
+        console.log(message);
+      } else if (level <= Level.INFO) console.info(message);else if (level <= Level.WARN) console.warn(message);else console.error(message);
+    }
+  }
+};
+
+function ConsoleWriter() {}
+
+ConsoleWriter.prototype = {
+  output: function output(log_name, level, messages) {
+    if (log_name) messages.unshift(log_name + ":");
+
+    if (level <= Level.DEBUG) {
+      // console.debug exists but is deprecated
+      messages.unshift("[DEBUG]");
+      console.log.apply(console, messages);
+    } else if (level <= Level.INFO) console.info.apply(console, messages);else if (level <= Level.WARN) console.warn.apply(console, messages);else console.error.apply(console, messages);
+  }
+};
+
+function Logger(name, parent) {
+  this._loggers = {};
+  this.name = name || "";
+  this._parent = parent || null;
+
+  if (!parent) {
+    this._enabled = true;
+    this._level = Level.WARN;
+  }
+}
+
+Logger.prototype = {
+  getLogger: function getLogger(name) {
+    var path = name.split("."),
+        root = this,
+        route = this.name ? [this.name] : [];
+
+    while (path.length) {
+      var entry = path.shift();
+      route.push(entry);
+      if (!(entry in root._loggers)) root._loggers[entry] = new Logger(route.join("."), root);
+      root = root._loggers[entry];
+    }
+
+    return root;
+  },
+  _getFlag: function _getFlag(flag) {
+    var context = this;
+    flag = "_" + flag;
+
+    while (context !== null) {
+      if (context[flag] !== undefined) return context[flag];
+      context = context._parent;
+    }
+
+    return null;
+  },
+  setEnabled: function setEnabled(state) {
+    this._enabled = !!state;
+  },
+  isEnabled: function isEnabled() {
+    this._getFlag("enabled");
+  },
+  setLevel: function setLevel(level) {
+    if (typeof level === "number") this._level = level;else if (typeof level === "string") {
+      level = level.toUpperCase();
+      if (level in Level) this._level = Level[level];
+    }
+  },
+  getLevel: function getLevel() {
+    return this._getFlag("level");
+  },
+  log: function log(level, messages) {
+    if (!messages.length || !this._getFlag("enabled") || level < this._getFlag("level")) return;
+    messages = Array.prototype.slice.call(messages);
+    writer.output(this.name, level, messages);
+  },
+  debug: function debug() {
+    this.log(Level.DEBUG, arguments);
+  },
+  info: function info() {
+    this.log(Level.INFO, arguments);
+  },
+  warn: function warn() {
+    this.log(Level.WARN, arguments);
+  },
+  error: function error() {
+    this.log(Level.ERROR, arguments);
+  },
+  fatal: function fatal() {
+    this.log(Level.FATAL, arguments);
+  }
+};
+
+function getWriter() {
+  return writer;
+}
+
+function setWriter(w) {
+  writer = w;
+}
+
+if (!window.console || !window.console.log || typeof window.console.log.apply !== "function") {
+  setWriter(new IEConsoleWriter());
+} else {
+  setWriter(new ConsoleWriter());
+}
+
+root = new Logger();
+var logconfig = /loglevel(|-[^=]+)=([^&]+)/g,
+    match;
+
+while ((match = logconfig.exec(window.location.search)) !== null) {
+  var logger = match[1] === "" ? root : root.getLogger(match[1].slice(1));
+  logger.setLevel(match[2].toUpperCase());
+}
+
+var api = {
+  Level: Level,
+  getLogger: root.getLogger.bind(root),
+  setEnabled: root.setEnabled.bind(root),
+  isEnabled: root.isEnabled.bind(root),
+  setLevel: root.setLevel.bind(root),
+  getLevel: root.getLevel.bind(root),
+  debug: root.debug.bind(root),
+  info: root.info.bind(root),
+  warn: root.warn.bind(root),
+  error: root.error.bind(root),
+  fatal: root.fatal.bind(root),
+  getWriter: getWriter,
+  setWriter: setWriter
+};
+/* harmony default export */ __webpack_exports__["a"] = (api);
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 
 // EXTERNAL MODULE: ./node_modules/regenerator-runtime/runtime.js
-var runtime = __webpack_require__(20);
+var runtime = __webpack_require__(24);
 
 // EXTERNAL MODULE: ./node_modules/jquery/dist/jquery-exposed.js
 var jquery_exposed = __webpack_require__(0);
 var jquery_exposed_default = /*#__PURE__*/__webpack_require__.n(jquery_exposed);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/core/registry.js
-var registry = __webpack_require__(8);
+var registry = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./node_modules/@patternslib/patternslib/src/core/logging.js
-var logging = __webpack_require__(5);
+var logging = __webpack_require__(6);
 
 // CONCATENATED MODULE: ./node_modules/@patternslib/patternslib/src/core/mockup-parser.js
 
@@ -29831,3078 +32952,6 @@ Base.extend = function (patternProps) {
 };
 
 /* harmony default export */ var base = __webpack_exports__["a"] = (Base);
-
-/***/ }),
-
-/***/ 8:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
-/* harmony import */ var _logging__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-/**
- * Patterns registry - Central registry and scan logic for patterns
- *
- * Copyright 2012-2013 Simplon B.V.
- * Copyright 2012-2013 Florian Friesdorf
- * Copyright 2013 Marko Durkovic
- * Copyright 2013 Rok Garbas
- * Copyright 2014-2015 Syslab.com GmBH, JC Brand
- */
-
-/*
- * changes to previous patterns.register/scan mechanism
- * - if you want initialised class, do it in init
- * - init returns set of elements actually initialised
- * - handle once within init
- * - no turnstile anymore
- * - set pattern.jquery_plugin if you want it
- */
-
-
-
-
-var log = _logging__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].getLogger("registry");
-var disable_re = /patterns-disable=([^&]+)/g;
-var dont_catch_re = /patterns-dont-catch/g;
-var disabled = {};
-var dont_catch = false;
-var match;
-
-while ((match = disable_re.exec(window.location.search)) !== null) {
-  disabled[match[1]] = true;
-  log.info("Pattern disabled via url config:", match[1]);
-}
-
-while ((match = dont_catch_re.exec(window.location.search)) !== null) {
-  dont_catch = true;
-  log.info("I will not catch init exceptions");
-}
-
-var registry = {
-  patterns: {},
-  // as long as the registry is not initialized, pattern
-  // registration just registers a pattern. Once init is called,
-  // the DOM is scanned. After that registering a new pattern
-  // results in rescanning the DOM only for this pattern.
-  initialized: false,
-  init: function init() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-      log.info("loaded: " + Object.keys(registry.patterns).sort().join(", "));
-      registry.scan(document.body);
-      registry.initialized = true;
-      log.info("finished initial scan.");
-    });
-  },
-  clear: function clear() {
-    // Removes all patterns from the registry. Currently only being
-    // used in tests.
-    this.patterns = {};
-  },
-  transformPattern: function transformPattern(name, content) {
-    var _pattern$prototype;
-
-    /* Call the transform method on the pattern with the given name, if
-     * it exists.
-     */
-    if (disabled[name]) {
-      log.debug("Skipping disabled pattern:", name);
-      return;
-    }
-
-    var pattern = registry.patterns[name];
-    var transform = pattern.transform || ((_pattern$prototype = pattern.prototype) === null || _pattern$prototype === void 0 ? void 0 : _pattern$prototype.transform);
-
-    if (transform) {
-      try {
-        transform(jquery__WEBPACK_IMPORTED_MODULE_0___default()(content));
-      } catch (e) {
-        if (dont_catch) {
-          throw e;
-        }
-
-        log.error("Transform error for pattern" + name, e);
-      }
-    }
-  },
-  initPattern: function initPattern(name, el, trigger) {
-    /* Initialize the pattern with the provided name and in the context
-     * of the passed in DOM element.
-     */
-    var $el = jquery__WEBPACK_IMPORTED_MODULE_0___default()(el);
-    var pattern = registry.patterns[name];
-
-    if (pattern.init) {
-      var plog = _logging__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"].getLogger("pat." + name);
-
-      if ($el.is(pattern.trigger)) {
-        plog.debug("Initialising:", $el);
-
-        try {
-          pattern.init($el, null, trigger);
-          plog.debug("done.");
-        } catch (e) {
-          if (dont_catch) {
-            throw e;
-          }
-
-          plog.error("Caught error:", e);
-        }
-      }
-    }
-  },
-  orderPatterns: function orderPatterns(patterns) {
-    // XXX: Bit of a hack. We need the validation pattern to be
-    // parsed and initiated before the inject pattern. So we make
-    // sure here, that it appears first. Not sure what would be
-    // the best solution. Perhaps some kind of way to register
-    // patterns "before" or "after" other patterns.
-    if (patterns.includes("validation") && patterns.includes("inject")) {
-      patterns.splice(patterns.indexOf("validation"), 1);
-      patterns.unshift("validation");
-    }
-
-    return patterns;
-  },
-  scan: function scan(content, patterns, trigger) {
-    if (!content) {
-      return;
-    }
-
-    if (typeof content === "string") {
-      content = document.querySelector(content);
-    } else if (content.jquery) {
-      content = content[0];
-    }
-
-    var selectors = [];
-    patterns = this.orderPatterns(patterns || Object.keys(registry.patterns));
-
-    var _iterator = _createForOfIteratorHelper(patterns),
-        _step;
-
-    try {
-      for (_iterator.s(); !(_step = _iterator.n()).done;) {
-        var name = _step.value;
-        this.transformPattern(name, content);
-        var pattern = registry.patterns[name];
-
-        if (pattern.trigger) {
-          selectors.unshift(pattern.trigger);
-        }
-      }
-    } catch (err) {
-      _iterator.e(err);
-    } finally {
-      _iterator.f();
-    }
-
-    var matches = _dom__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"].querySelectorAllAndMe(content, selectors.map(function (it) {
-      return it.trim().replace(/,$/, "");
-    }).join(","));
-    matches = matches.filter(function (el) {
-      var _el$parentNode, _el$parentNode$closes, _el$parentNode2, _el$parentNode2$close, _el$parentNode3, _el$parentNode3$close;
-
-      // Filter out patterns:
-      // - with class ``.cant-touch-this``
-      // - wrapped in ``.cant-touch-this`` elements
-      // - wrapped in ``<pre>`` elements
-      // - wrapped in ``<template>`` elements
-      return !el.matches(".cant-touch-this") && !(el !== null && el !== void 0 && (_el$parentNode = el.parentNode) !== null && _el$parentNode !== void 0 && (_el$parentNode$closes = _el$parentNode.closest) !== null && _el$parentNode$closes !== void 0 && _el$parentNode$closes.call(_el$parentNode, ".cant-touch-this")) && !(el !== null && el !== void 0 && (_el$parentNode2 = el.parentNode) !== null && _el$parentNode2 !== void 0 && (_el$parentNode2$close = _el$parentNode2.closest) !== null && _el$parentNode2$close !== void 0 && _el$parentNode2$close.call(_el$parentNode2, "pre")) && !(el !== null && el !== void 0 && (_el$parentNode3 = el.parentNode) !== null && _el$parentNode3 !== void 0 && (_el$parentNode3$close = _el$parentNode3.closest) !== null && _el$parentNode3$close !== void 0 && _el$parentNode3$close.call(_el$parentNode3, "template")) // NOTE: not strictly necessary. Template is a DocumentFragment and not reachable except for IE.
-      ;
-    }); // walk list backwards and initialize patterns inside-out.
-
-    var _iterator2 = _createForOfIteratorHelper(matches.reverse()),
-        _step2;
-
-    try {
-      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-        var el = _step2.value;
-
-        var _iterator3 = _createForOfIteratorHelper(patterns),
-            _step3;
-
-        try {
-          for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-            var _name = _step3.value;
-            this.initPattern(_name, el, trigger);
-          }
-        } catch (err) {
-          _iterator3.e(err);
-        } finally {
-          _iterator3.f();
-        }
-      }
-    } catch (err) {
-      _iterator2.e(err);
-    } finally {
-      _iterator2.f();
-    }
-
-    document.body.classList.add("patterns-loaded");
-  },
-  register: function register(pattern, name) {
-    name = name || pattern.name;
-
-    if (!name) {
-      log.error("Pattern lacks a name:", pattern);
-      return false;
-    }
-
-    if (registry.patterns[name]) {
-      log.error("Already have a pattern called: " + name);
-      return false;
-    } // register pattern to be used for scanning new content
-
-
-    registry.patterns[name] = pattern; // register pattern as jquery plugin
-
-    if (pattern.jquery_plugin) {
-      var plugin_name = ("pat-" + name).replace(/-([a-zA-Z])/g, function (match, p1) {
-        return p1.toUpperCase();
-      });
-      jquery__WEBPACK_IMPORTED_MODULE_0___default.a.fn[plugin_name] = _utils__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"].jqueryPlugin(pattern); // BBB 2012-12-10 and also for Mockup patterns.
-
-      jquery__WEBPACK_IMPORTED_MODULE_0___default.a.fn[plugin_name.replace(/^pat/, "pattern")] = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.fn[plugin_name];
-    }
-
-    log.debug("Registered pattern:", name, pattern);
-
-    if (registry.initialized) {
-      registry.scan(document.body, [name]);
-    }
-
-    return true;
-  }
-};
-/* harmony default export */ __webpack_exports__["a"] = (registry);
-
-/***/ }),
-
-/***/ 9:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, "a", function() { return /* reexport */ index_default; });
-
-// UNUSED EXPORTS: VERSION, restArguments, isObject, isNull, isUndefined, isBoolean, isElement, isString, isNumber, isDate, isRegExp, isError, isSymbol, isArrayBuffer, isDataView, isArray, isFunction, isArguments, isFinite, isNaN, isTypedArray, isEmpty, isMatch, isEqual, isMap, isWeakMap, isSet, isWeakSet, keys, allKeys, values, pairs, invert, functions, methods, extend, extendOwn, assign, defaults, create, clone, tap, get, has, mapObject, identity, constant, noop, toPath, property, propertyOf, matcher, matches, times, random, now, escape, unescape, templateSettings, template, result, uniqueId, chain, iteratee, partial, bind, bindAll, memoize, delay, defer, throttle, debounce, wrap, negate, compose, after, before, once, findKey, findIndex, findLastIndex, sortedIndex, indexOf, lastIndexOf, find, detect, findWhere, each, forEach, map, collect, reduce, foldl, inject, reduceRight, foldr, filter, select, reject, every, all, some, any, contains, includes, include, invoke, pluck, where, max, min, shuffle, sample, sortBy, groupBy, indexBy, countBy, partition, toArray, size, pick, omit, first, head, take, initial, last, rest, tail, drop, compact, flatten, without, uniq, unique, union, intersection, difference, unzip, transpose, zip, object, range, chunk, mixin
-
-// NAMESPACE OBJECT: ./node_modules/underscore/modules/index.js
-var modules_namespaceObject = {};
-__webpack_require__.r(modules_namespaceObject);
-__webpack_require__.d(modules_namespaceObject, "VERSION", function() { return _setup["e" /* VERSION */]; });
-__webpack_require__.d(modules_namespaceObject, "restArguments", function() { return restArguments; });
-__webpack_require__.d(modules_namespaceObject, "isObject", function() { return isObject; });
-__webpack_require__.d(modules_namespaceObject, "isNull", function() { return isNull; });
-__webpack_require__.d(modules_namespaceObject, "isUndefined", function() { return isUndefined; });
-__webpack_require__.d(modules_namespaceObject, "isBoolean", function() { return isBoolean; });
-__webpack_require__.d(modules_namespaceObject, "isElement", function() { return isElement; });
-__webpack_require__.d(modules_namespaceObject, "isString", function() { return isString; });
-__webpack_require__.d(modules_namespaceObject, "isNumber", function() { return isNumber; });
-__webpack_require__.d(modules_namespaceObject, "isDate", function() { return isDate; });
-__webpack_require__.d(modules_namespaceObject, "isRegExp", function() { return isRegExp; });
-__webpack_require__.d(modules_namespaceObject, "isError", function() { return isError; });
-__webpack_require__.d(modules_namespaceObject, "isSymbol", function() { return isSymbol; });
-__webpack_require__.d(modules_namespaceObject, "isArrayBuffer", function() { return isArrayBuffer; });
-__webpack_require__.d(modules_namespaceObject, "isDataView", function() { return modules_isDataView; });
-__webpack_require__.d(modules_namespaceObject, "isArray", function() { return isArray; });
-__webpack_require__.d(modules_namespaceObject, "isFunction", function() { return modules_isFunction; });
-__webpack_require__.d(modules_namespaceObject, "isArguments", function() { return modules_isArguments; });
-__webpack_require__.d(modules_namespaceObject, "isFinite", function() { return isFinite_isFinite; });
-__webpack_require__.d(modules_namespaceObject, "isNaN", function() { return isNaN_isNaN; });
-__webpack_require__.d(modules_namespaceObject, "isTypedArray", function() { return modules_isTypedArray; });
-__webpack_require__.d(modules_namespaceObject, "isEmpty", function() { return isEmpty; });
-__webpack_require__.d(modules_namespaceObject, "isMatch", function() { return isMatch; });
-__webpack_require__.d(modules_namespaceObject, "isEqual", function() { return isEqual; });
-__webpack_require__.d(modules_namespaceObject, "isMap", function() { return isMap; });
-__webpack_require__.d(modules_namespaceObject, "isWeakMap", function() { return isWeakMap; });
-__webpack_require__.d(modules_namespaceObject, "isSet", function() { return isSet; });
-__webpack_require__.d(modules_namespaceObject, "isWeakSet", function() { return isWeakSet; });
-__webpack_require__.d(modules_namespaceObject, "keys", function() { return keys_keys; });
-__webpack_require__.d(modules_namespaceObject, "allKeys", function() { return allKeys; });
-__webpack_require__.d(modules_namespaceObject, "values", function() { return values_values; });
-__webpack_require__.d(modules_namespaceObject, "pairs", function() { return pairs_pairs; });
-__webpack_require__.d(modules_namespaceObject, "invert", function() { return invert; });
-__webpack_require__.d(modules_namespaceObject, "functions", function() { return functions; });
-__webpack_require__.d(modules_namespaceObject, "methods", function() { return functions; });
-__webpack_require__.d(modules_namespaceObject, "extend", function() { return extend; });
-__webpack_require__.d(modules_namespaceObject, "extendOwn", function() { return extendOwn; });
-__webpack_require__.d(modules_namespaceObject, "assign", function() { return extendOwn; });
-__webpack_require__.d(modules_namespaceObject, "defaults", function() { return defaults; });
-__webpack_require__.d(modules_namespaceObject, "create", function() { return create; });
-__webpack_require__.d(modules_namespaceObject, "clone", function() { return clone; });
-__webpack_require__.d(modules_namespaceObject, "tap", function() { return tap; });
-__webpack_require__.d(modules_namespaceObject, "get", function() { return get; });
-__webpack_require__.d(modules_namespaceObject, "has", function() { return has_has; });
-__webpack_require__.d(modules_namespaceObject, "mapObject", function() { return mapObject; });
-__webpack_require__.d(modules_namespaceObject, "identity", function() { return identity; });
-__webpack_require__.d(modules_namespaceObject, "constant", function() { return constant; });
-__webpack_require__.d(modules_namespaceObject, "noop", function() { return noop; });
-__webpack_require__.d(modules_namespaceObject, "toPath", function() { return toPath; });
-__webpack_require__.d(modules_namespaceObject, "property", function() { return property; });
-__webpack_require__.d(modules_namespaceObject, "propertyOf", function() { return propertyOf; });
-__webpack_require__.d(modules_namespaceObject, "matcher", function() { return matcher_matcher; });
-__webpack_require__.d(modules_namespaceObject, "matches", function() { return matcher_matcher; });
-__webpack_require__.d(modules_namespaceObject, "times", function() { return times; });
-__webpack_require__.d(modules_namespaceObject, "random", function() { return random; });
-__webpack_require__.d(modules_namespaceObject, "now", function() { return now; });
-__webpack_require__.d(modules_namespaceObject, "escape", function() { return modules_escape; });
-__webpack_require__.d(modules_namespaceObject, "unescape", function() { return modules_unescape; });
-__webpack_require__.d(modules_namespaceObject, "templateSettings", function() { return templateSettings; });
-__webpack_require__.d(modules_namespaceObject, "template", function() { return template_template; });
-__webpack_require__.d(modules_namespaceObject, "result", function() { return result_result; });
-__webpack_require__.d(modules_namespaceObject, "uniqueId", function() { return uniqueId; });
-__webpack_require__.d(modules_namespaceObject, "chain", function() { return chain; });
-__webpack_require__.d(modules_namespaceObject, "iteratee", function() { return iteratee_iteratee; });
-__webpack_require__.d(modules_namespaceObject, "partial", function() { return modules_partial; });
-__webpack_require__.d(modules_namespaceObject, "bind", function() { return bind; });
-__webpack_require__.d(modules_namespaceObject, "bindAll", function() { return bindAll; });
-__webpack_require__.d(modules_namespaceObject, "memoize", function() { return memoize_memoize; });
-__webpack_require__.d(modules_namespaceObject, "delay", function() { return delay; });
-__webpack_require__.d(modules_namespaceObject, "defer", function() { return defer; });
-__webpack_require__.d(modules_namespaceObject, "throttle", function() { return throttle; });
-__webpack_require__.d(modules_namespaceObject, "debounce", function() { return debounce; });
-__webpack_require__.d(modules_namespaceObject, "wrap", function() { return wrap; });
-__webpack_require__.d(modules_namespaceObject, "negate", function() { return negate; });
-__webpack_require__.d(modules_namespaceObject, "compose", function() { return compose; });
-__webpack_require__.d(modules_namespaceObject, "after", function() { return after; });
-__webpack_require__.d(modules_namespaceObject, "before", function() { return before; });
-__webpack_require__.d(modules_namespaceObject, "once", function() { return once; });
-__webpack_require__.d(modules_namespaceObject, "findKey", function() { return findKey; });
-__webpack_require__.d(modules_namespaceObject, "findIndex", function() { return findIndex; });
-__webpack_require__.d(modules_namespaceObject, "findLastIndex", function() { return findLastIndex; });
-__webpack_require__.d(modules_namespaceObject, "sortedIndex", function() { return sortedIndex_sortedIndex; });
-__webpack_require__.d(modules_namespaceObject, "indexOf", function() { return indexOf; });
-__webpack_require__.d(modules_namespaceObject, "lastIndexOf", function() { return lastIndexOf; });
-__webpack_require__.d(modules_namespaceObject, "find", function() { return find; });
-__webpack_require__.d(modules_namespaceObject, "detect", function() { return find; });
-__webpack_require__.d(modules_namespaceObject, "findWhere", function() { return findWhere; });
-__webpack_require__.d(modules_namespaceObject, "each", function() { return each; });
-__webpack_require__.d(modules_namespaceObject, "forEach", function() { return each; });
-__webpack_require__.d(modules_namespaceObject, "map", function() { return map_map; });
-__webpack_require__.d(modules_namespaceObject, "collect", function() { return map_map; });
-__webpack_require__.d(modules_namespaceObject, "reduce", function() { return reduce; });
-__webpack_require__.d(modules_namespaceObject, "foldl", function() { return reduce; });
-__webpack_require__.d(modules_namespaceObject, "inject", function() { return reduce; });
-__webpack_require__.d(modules_namespaceObject, "reduceRight", function() { return reduceRight; });
-__webpack_require__.d(modules_namespaceObject, "foldr", function() { return reduceRight; });
-__webpack_require__.d(modules_namespaceObject, "filter", function() { return filter; });
-__webpack_require__.d(modules_namespaceObject, "select", function() { return filter; });
-__webpack_require__.d(modules_namespaceObject, "reject", function() { return reject; });
-__webpack_require__.d(modules_namespaceObject, "every", function() { return every; });
-__webpack_require__.d(modules_namespaceObject, "all", function() { return every; });
-__webpack_require__.d(modules_namespaceObject, "some", function() { return some; });
-__webpack_require__.d(modules_namespaceObject, "any", function() { return some; });
-__webpack_require__.d(modules_namespaceObject, "contains", function() { return contains; });
-__webpack_require__.d(modules_namespaceObject, "includes", function() { return contains; });
-__webpack_require__.d(modules_namespaceObject, "include", function() { return contains; });
-__webpack_require__.d(modules_namespaceObject, "invoke", function() { return invoke; });
-__webpack_require__.d(modules_namespaceObject, "pluck", function() { return pluck; });
-__webpack_require__.d(modules_namespaceObject, "where", function() { return where; });
-__webpack_require__.d(modules_namespaceObject, "max", function() { return max; });
-__webpack_require__.d(modules_namespaceObject, "min", function() { return min; });
-__webpack_require__.d(modules_namespaceObject, "shuffle", function() { return shuffle; });
-__webpack_require__.d(modules_namespaceObject, "sample", function() { return sample_sample; });
-__webpack_require__.d(modules_namespaceObject, "sortBy", function() { return sortBy; });
-__webpack_require__.d(modules_namespaceObject, "groupBy", function() { return groupBy; });
-__webpack_require__.d(modules_namespaceObject, "indexBy", function() { return indexBy; });
-__webpack_require__.d(modules_namespaceObject, "countBy", function() { return countBy; });
-__webpack_require__.d(modules_namespaceObject, "partition", function() { return modules_partition; });
-__webpack_require__.d(modules_namespaceObject, "toArray", function() { return toArray; });
-__webpack_require__.d(modules_namespaceObject, "size", function() { return size; });
-__webpack_require__.d(modules_namespaceObject, "pick", function() { return pick; });
-__webpack_require__.d(modules_namespaceObject, "omit", function() { return omit; });
-__webpack_require__.d(modules_namespaceObject, "first", function() { return first; });
-__webpack_require__.d(modules_namespaceObject, "head", function() { return first; });
-__webpack_require__.d(modules_namespaceObject, "take", function() { return first; });
-__webpack_require__.d(modules_namespaceObject, "initial", function() { return initial_initial; });
-__webpack_require__.d(modules_namespaceObject, "last", function() { return last_last; });
-__webpack_require__.d(modules_namespaceObject, "rest", function() { return rest_rest; });
-__webpack_require__.d(modules_namespaceObject, "tail", function() { return rest_rest; });
-__webpack_require__.d(modules_namespaceObject, "drop", function() { return rest_rest; });
-__webpack_require__.d(modules_namespaceObject, "compact", function() { return compact; });
-__webpack_require__.d(modules_namespaceObject, "flatten", function() { return flatten_flatten; });
-__webpack_require__.d(modules_namespaceObject, "without", function() { return without; });
-__webpack_require__.d(modules_namespaceObject, "uniq", function() { return uniq; });
-__webpack_require__.d(modules_namespaceObject, "unique", function() { return uniq; });
-__webpack_require__.d(modules_namespaceObject, "union", function() { return union; });
-__webpack_require__.d(modules_namespaceObject, "intersection", function() { return intersection; });
-__webpack_require__.d(modules_namespaceObject, "difference", function() { return difference; });
-__webpack_require__.d(modules_namespaceObject, "unzip", function() { return unzip; });
-__webpack_require__.d(modules_namespaceObject, "transpose", function() { return unzip; });
-__webpack_require__.d(modules_namespaceObject, "zip", function() { return zip; });
-__webpack_require__.d(modules_namespaceObject, "object", function() { return object_object; });
-__webpack_require__.d(modules_namespaceObject, "range", function() { return range; });
-__webpack_require__.d(modules_namespaceObject, "chunk", function() { return chunk; });
-__webpack_require__.d(modules_namespaceObject, "mixin", function() { return mixin; });
-__webpack_require__.d(modules_namespaceObject, "default", function() { return underscore_array_methods; });
-
-// EXTERNAL MODULE: ./node_modules/underscore/modules/_setup.js
-var _setup = __webpack_require__(3);
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/restArguments.js
-// Some functions take a variable number of arguments, or a few expected
-// arguments at the beginning and then a variable number of values to operate
-// on. This helper accumulates all remaining arguments past the function’s
-// argument length (or an explicit `startIndex`), into an array that becomes
-// the last argument. Similar to ES6’s "rest parameter".
-function restArguments(func, startIndex) {
-  startIndex = startIndex == null ? func.length - 1 : +startIndex;
-  return function() {
-    var length = Math.max(arguments.length - startIndex, 0),
-        rest = Array(length),
-        index = 0;
-    for (; index < length; index++) {
-      rest[index] = arguments[index + startIndex];
-    }
-    switch (startIndex) {
-      case 0: return func.call(this, rest);
-      case 1: return func.call(this, arguments[0], rest);
-      case 2: return func.call(this, arguments[0], arguments[1], rest);
-    }
-    var args = Array(startIndex + 1);
-    for (index = 0; index < startIndex; index++) {
-      args[index] = arguments[index];
-    }
-    args[startIndex] = rest;
-    return func.apply(this, args);
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isObject.js
-// Is a given variable an object?
-function isObject(obj) {
-  var type = typeof obj;
-  return type === 'function' || type === 'object' && !!obj;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isNull.js
-// Is a given value equal to null?
-function isNull(obj) {
-  return obj === null;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isUndefined.js
-// Is a given variable undefined?
-function isUndefined(obj) {
-  return obj === void 0;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isBoolean.js
-
-
-// Is a given value a boolean?
-function isBoolean(obj) {
-  return obj === true || obj === false || _setup["t" /* toString */].call(obj) === '[object Boolean]';
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isElement.js
-// Is a given value a DOM element?
-function isElement(obj) {
-  return !!(obj && obj.nodeType === 1);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_tagTester.js
-
-
-// Internal function for creating a `toString`-based type tester.
-function tagTester(name) {
-  var tag = '[object ' + name + ']';
-  return function(obj) {
-    return _setup["t" /* toString */].call(obj) === tag;
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isString.js
-
-
-/* harmony default export */ var isString = (tagTester('String'));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isNumber.js
-
-
-/* harmony default export */ var isNumber = (tagTester('Number'));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isDate.js
-
-
-/* harmony default export */ var isDate = (tagTester('Date'));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isRegExp.js
-
-
-/* harmony default export */ var isRegExp = (tagTester('RegExp'));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isError.js
-
-
-/* harmony default export */ var isError = (tagTester('Error'));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isSymbol.js
-
-
-/* harmony default export */ var isSymbol = (tagTester('Symbol'));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isArrayBuffer.js
-
-
-/* harmony default export */ var isArrayBuffer = (tagTester('ArrayBuffer'));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isFunction.js
-
-
-
-var isFunction = tagTester('Function');
-
-// Optimize `isFunction` if appropriate. Work around some `typeof` bugs in old
-// v8, IE 11 (#1621), Safari 8 (#1929), and PhantomJS (#2236).
-var nodelist = _setup["p" /* root */].document && _setup["p" /* root */].document.childNodes;
-if ( true && typeof Int8Array != 'object' && typeof nodelist != 'function') {
-  isFunction = function(obj) {
-    return typeof obj == 'function' || false;
-  };
-}
-
-/* harmony default export */ var modules_isFunction = (isFunction);
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_hasObjectTag.js
-
-
-/* harmony default export */ var _hasObjectTag = (tagTester('Object'));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_stringTagBug.js
-
-
-
-// In IE 10 - Edge 13, `DataView` has string tag `'[object Object]'`.
-// In IE 11, the most common among them, this problem also applies to
-// `Map`, `WeakMap` and `Set`.
-var hasStringTagBug = (
-      _setup["s" /* supportsDataView */] && _hasObjectTag(new DataView(new ArrayBuffer(8)))
-    ),
-    isIE11 = (typeof Map !== 'undefined' && _hasObjectTag(new Map));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isDataView.js
-
-
-
-
-
-var isDataView = tagTester('DataView');
-
-// In IE 10 - Edge 13, we need a different heuristic
-// to determine whether an object is a `DataView`.
-function ie10IsDataView(obj) {
-  return obj != null && modules_isFunction(obj.getInt8) && isArrayBuffer(obj.buffer);
-}
-
-/* harmony default export */ var modules_isDataView = (hasStringTagBug ? ie10IsDataView : isDataView);
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isArray.js
-
-
-
-// Is a given value an array?
-// Delegates to ECMA5's native `Array.isArray`.
-/* harmony default export */ var isArray = (_setup["k" /* nativeIsArray */] || tagTester('Array'));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_has.js
-
-
-// Internal function to check whether `key` is an own property name of `obj`.
-function has(obj, key) {
-  return obj != null && _setup["i" /* hasOwnProperty */].call(obj, key);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isArguments.js
-
-
-
-var isArguments = tagTester('Arguments');
-
-// Define a fallback version of the method in browsers (ahem, IE < 9), where
-// there isn't any inspectable "Arguments" type.
-(function() {
-  if (!isArguments(arguments)) {
-    isArguments = function(obj) {
-      return has(obj, 'callee');
-    };
-  }
-}());
-
-/* harmony default export */ var modules_isArguments = (isArguments);
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isFinite.js
-
-
-
-// Is a given object a finite number?
-function isFinite_isFinite(obj) {
-  return !isSymbol(obj) && Object(_setup["f" /* _isFinite */])(obj) && !isNaN(parseFloat(obj));
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isNaN.js
-
-
-
-// Is the given value `NaN`?
-function isNaN_isNaN(obj) {
-  return isNumber(obj) && Object(_setup["g" /* _isNaN */])(obj);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/constant.js
-// Predicate-generating function. Often useful outside of Underscore.
-function constant(value) {
-  return function() {
-    return value;
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_createSizePropertyCheck.js
-
-
-// Common internal logic for `isArrayLike` and `isBufferLike`.
-function createSizePropertyCheck(getSizeProperty) {
-  return function(collection) {
-    var sizeProperty = getSizeProperty(collection);
-    return typeof sizeProperty == 'number' && sizeProperty >= 0 && sizeProperty <= _setup["b" /* MAX_ARRAY_INDEX */];
-  }
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_shallowProperty.js
-// Internal helper to generate a function to obtain property `key` from `obj`.
-function shallowProperty(key) {
-  return function(obj) {
-    return obj == null ? void 0 : obj[key];
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_getByteLength.js
-
-
-// Internal helper to obtain the `byteLength` property of an object.
-/* harmony default export */ var _getByteLength = (shallowProperty('byteLength'));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_isBufferLike.js
-
-
-
-// Internal helper to determine whether we should spend extensive checks against
-// `ArrayBuffer` et al.
-/* harmony default export */ var _isBufferLike = (createSizePropertyCheck(_getByteLength));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isTypedArray.js
-
-
-
-
-
-// Is a given value a typed array?
-var typedArrayPattern = /\[object ((I|Ui)nt(8|16|32)|Float(32|64)|Uint8Clamped|Big(I|Ui)nt64)Array\]/;
-function isTypedArray(obj) {
-  // `ArrayBuffer.isView` is the most future-proof, so use it when available.
-  // Otherwise, fall back on the above regular expression.
-  return _setup["l" /* nativeIsView */] ? (Object(_setup["l" /* nativeIsView */])(obj) && !modules_isDataView(obj)) :
-                _isBufferLike(obj) && typedArrayPattern.test(_setup["t" /* toString */].call(obj));
-}
-
-/* harmony default export */ var modules_isTypedArray = (_setup["r" /* supportsArrayBuffer */] ? isTypedArray : constant(false));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_getLength.js
-
-
-// Internal helper to obtain the `length` property of an object.
-/* harmony default export */ var _getLength = (shallowProperty('length'));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_collectNonEnumProps.js
-
-
-
-
-// Internal helper to create a simple lookup structure.
-// `collectNonEnumProps` used to depend on `_.contains`, but this led to
-// circular imports. `emulatedSet` is a one-off solution that only works for
-// arrays of strings.
-function emulatedSet(keys) {
-  var hash = {};
-  for (var l = keys.length, i = 0; i < l; ++i) hash[keys[i]] = true;
-  return {
-    contains: function(key) { return hash[key]; },
-    push: function(key) {
-      hash[key] = true;
-      return keys.push(key);
-    }
-  };
-}
-
-// Internal helper. Checks `keys` for the presence of keys in IE < 9 that won't
-// be iterated by `for key in ...` and thus missed. Extends `keys` in place if
-// needed.
-function collectNonEnumProps(obj, keys) {
-  keys = emulatedSet(keys);
-  var nonEnumIdx = _setup["n" /* nonEnumerableProps */].length;
-  var constructor = obj.constructor;
-  var proto = modules_isFunction(constructor) && constructor.prototype || _setup["c" /* ObjProto */];
-
-  // Constructor is a special case.
-  var prop = 'constructor';
-  if (has(obj, prop) && !keys.contains(prop)) keys.push(prop);
-
-  while (nonEnumIdx--) {
-    prop = _setup["n" /* nonEnumerableProps */][nonEnumIdx];
-    if (prop in obj && obj[prop] !== proto[prop] && !keys.contains(prop)) {
-      keys.push(prop);
-    }
-  }
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/keys.js
-
-
-
-
-
-// Retrieve the names of an object's own properties.
-// Delegates to **ECMAScript 5**'s native `Object.keys`.
-function keys_keys(obj) {
-  if (!isObject(obj)) return [];
-  if (_setup["m" /* nativeKeys */]) return Object(_setup["m" /* nativeKeys */])(obj);
-  var keys = [];
-  for (var key in obj) if (has(obj, key)) keys.push(key);
-  // Ahem, IE < 9.
-  if (_setup["h" /* hasEnumBug */]) collectNonEnumProps(obj, keys);
-  return keys;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isEmpty.js
-
-
-
-
-
-
-// Is a given array, string, or object empty?
-// An "empty" object has no enumerable own-properties.
-function isEmpty(obj) {
-  if (obj == null) return true;
-  // Skip the more expensive `toString`-based type checks if `obj` has no
-  // `.length`.
-  var length = _getLength(obj);
-  if (typeof length == 'number' && (
-    isArray(obj) || isString(obj) || modules_isArguments(obj)
-  )) return length === 0;
-  return _getLength(keys_keys(obj)) === 0;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isMatch.js
-
-
-// Returns whether an object has a given set of `key:value` pairs.
-function isMatch(object, attrs) {
-  var _keys = keys_keys(attrs), length = _keys.length;
-  if (object == null) return !length;
-  var obj = Object(object);
-  for (var i = 0; i < length; i++) {
-    var key = _keys[i];
-    if (attrs[key] !== obj[key] || !(key in obj)) return false;
-  }
-  return true;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/underscore.js
-
-
-// If Underscore is called as a function, it returns a wrapped object that can
-// be used OO-style. This wrapper holds altered versions of all functions added
-// through `_.mixin`. Wrapped objects may be chained.
-function _(obj) {
-  if (obj instanceof _) return obj;
-  if (!(this instanceof _)) return new _(obj);
-  this._wrapped = obj;
-}
-
-_.VERSION = _setup["e" /* VERSION */];
-
-// Extracts the result from a wrapped and chained object.
-_.prototype.value = function() {
-  return this._wrapped;
-};
-
-// Provide unwrapping proxies for some methods used in engine operations
-// such as arithmetic and JSON stringification.
-_.prototype.valueOf = _.prototype.toJSON = _.prototype.value;
-
-_.prototype.toString = function() {
-  return String(this._wrapped);
-};
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_toBufferView.js
-
-
-// Internal function to wrap or shallow-copy an ArrayBuffer,
-// typed array or DataView to a new view, reusing the buffer.
-function toBufferView(bufferSource) {
-  return new Uint8Array(
-    bufferSource.buffer || bufferSource,
-    bufferSource.byteOffset || 0,
-    _getByteLength(bufferSource)
-  );
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isEqual.js
-
-
-
-
-
-
-
-
-
-
-
-// We use this string twice, so give it a name for minification.
-var tagDataView = '[object DataView]';
-
-// Internal recursive comparison function for `_.isEqual`.
-function eq(a, b, aStack, bStack) {
-  // Identical objects are equal. `0 === -0`, but they aren't identical.
-  // See the [Harmony `egal` proposal](https://wiki.ecmascript.org/doku.php?id=harmony:egal).
-  if (a === b) return a !== 0 || 1 / a === 1 / b;
-  // `null` or `undefined` only equal to itself (strict comparison).
-  if (a == null || b == null) return false;
-  // `NaN`s are equivalent, but non-reflexive.
-  if (a !== a) return b !== b;
-  // Exhaust primitive checks
-  var type = typeof a;
-  if (type !== 'function' && type !== 'object' && typeof b != 'object') return false;
-  return deepEq(a, b, aStack, bStack);
-}
-
-// Internal recursive comparison function for `_.isEqual`.
-function deepEq(a, b, aStack, bStack) {
-  // Unwrap any wrapped objects.
-  if (a instanceof _) a = a._wrapped;
-  if (b instanceof _) b = b._wrapped;
-  // Compare `[[Class]]` names.
-  var className = _setup["t" /* toString */].call(a);
-  if (className !== _setup["t" /* toString */].call(b)) return false;
-  // Work around a bug in IE 10 - Edge 13.
-  if (hasStringTagBug && className == '[object Object]' && modules_isDataView(a)) {
-    if (!modules_isDataView(b)) return false;
-    className = tagDataView;
-  }
-  switch (className) {
-    // These types are compared by value.
-    case '[object RegExp]':
-      // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
-    case '[object String]':
-      // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
-      // equivalent to `new String("5")`.
-      return '' + a === '' + b;
-    case '[object Number]':
-      // `NaN`s are equivalent, but non-reflexive.
-      // Object(NaN) is equivalent to NaN.
-      if (+a !== +a) return +b !== +b;
-      // An `egal` comparison is performed for other numeric values.
-      return +a === 0 ? 1 / +a === 1 / b : +a === +b;
-    case '[object Date]':
-    case '[object Boolean]':
-      // Coerce dates and booleans to numeric primitive values. Dates are compared by their
-      // millisecond representations. Note that invalid dates with millisecond representations
-      // of `NaN` are not equivalent.
-      return +a === +b;
-    case '[object Symbol]':
-      return _setup["d" /* SymbolProto */].valueOf.call(a) === _setup["d" /* SymbolProto */].valueOf.call(b);
-    case '[object ArrayBuffer]':
-    case tagDataView:
-      // Coerce to typed array so we can fall through.
-      return deepEq(toBufferView(a), toBufferView(b), aStack, bStack);
-  }
-
-  var areArrays = className === '[object Array]';
-  if (!areArrays && modules_isTypedArray(a)) {
-      var byteLength = _getByteLength(a);
-      if (byteLength !== _getByteLength(b)) return false;
-      if (a.buffer === b.buffer && a.byteOffset === b.byteOffset) return true;
-      areArrays = true;
-  }
-  if (!areArrays) {
-    if (typeof a != 'object' || typeof b != 'object') return false;
-
-    // Objects with different constructors are not equivalent, but `Object`s or `Array`s
-    // from different frames are.
-    var aCtor = a.constructor, bCtor = b.constructor;
-    if (aCtor !== bCtor && !(modules_isFunction(aCtor) && aCtor instanceof aCtor &&
-                             modules_isFunction(bCtor) && bCtor instanceof bCtor)
-                        && ('constructor' in a && 'constructor' in b)) {
-      return false;
-    }
-  }
-  // Assume equality for cyclic structures. The algorithm for detecting cyclic
-  // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
-
-  // Initializing stack of traversed objects.
-  // It's done here since we only need them for objects and arrays comparison.
-  aStack = aStack || [];
-  bStack = bStack || [];
-  var length = aStack.length;
-  while (length--) {
-    // Linear search. Performance is inversely proportional to the number of
-    // unique nested structures.
-    if (aStack[length] === a) return bStack[length] === b;
-  }
-
-  // Add the first object to the stack of traversed objects.
-  aStack.push(a);
-  bStack.push(b);
-
-  // Recursively compare objects and arrays.
-  if (areArrays) {
-    // Compare array lengths to determine if a deep comparison is necessary.
-    length = a.length;
-    if (length !== b.length) return false;
-    // Deep compare the contents, ignoring non-numeric properties.
-    while (length--) {
-      if (!eq(a[length], b[length], aStack, bStack)) return false;
-    }
-  } else {
-    // Deep compare objects.
-    var _keys = keys_keys(a), key;
-    length = _keys.length;
-    // Ensure that both objects contain the same number of properties before comparing deep equality.
-    if (keys_keys(b).length !== length) return false;
-    while (length--) {
-      // Deep compare each member
-      key = _keys[length];
-      if (!(has(b, key) && eq(a[key], b[key], aStack, bStack))) return false;
-    }
-  }
-  // Remove the first object from the stack of traversed objects.
-  aStack.pop();
-  bStack.pop();
-  return true;
-}
-
-// Perform a deep comparison to check if two objects are equal.
-function isEqual(a, b) {
-  return eq(a, b);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/allKeys.js
-
-
-
-
-// Retrieve all the enumerable property names of an object.
-function allKeys(obj) {
-  if (!isObject(obj)) return [];
-  var keys = [];
-  for (var key in obj) keys.push(key);
-  // Ahem, IE < 9.
-  if (_setup["h" /* hasEnumBug */]) collectNonEnumProps(obj, keys);
-  return keys;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_methodFingerprint.js
-
-
-
-
-// Since the regular `Object.prototype.toString` type tests don't work for
-// some types in IE 11, we use a fingerprinting heuristic instead, based
-// on the methods. It's not great, but it's the best we got.
-// The fingerprint method lists are defined below.
-function ie11fingerprint(methods) {
-  var length = _getLength(methods);
-  return function(obj) {
-    if (obj == null) return false;
-    // `Map`, `WeakMap` and `Set` have no enumerable keys.
-    var keys = allKeys(obj);
-    if (_getLength(keys)) return false;
-    for (var i = 0; i < length; i++) {
-      if (!modules_isFunction(obj[methods[i]])) return false;
-    }
-    // If we are testing against `WeakMap`, we need to ensure that
-    // `obj` doesn't have a `forEach` method in order to distinguish
-    // it from a regular `Map`.
-    return methods !== weakMapMethods || !modules_isFunction(obj[forEachName]);
-  };
-}
-
-// In the interest of compact minification, we write
-// each string in the fingerprints only once.
-var forEachName = 'forEach',
-    hasName = 'has',
-    commonInit = ['clear', 'delete'],
-    mapTail = ['get', hasName, 'set'];
-
-// `Map`, `WeakMap` and `Set` each have slightly different
-// combinations of the above sublists.
-var mapMethods = commonInit.concat(forEachName, mapTail),
-    weakMapMethods = commonInit.concat(mapTail),
-    setMethods = ['add'].concat(commonInit, forEachName, hasName);
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isMap.js
-
-
-
-
-/* harmony default export */ var isMap = (isIE11 ? ie11fingerprint(mapMethods) : tagTester('Map'));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isWeakMap.js
-
-
-
-
-/* harmony default export */ var isWeakMap = (isIE11 ? ie11fingerprint(weakMapMethods) : tagTester('WeakMap'));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isSet.js
-
-
-
-
-/* harmony default export */ var isSet = (isIE11 ? ie11fingerprint(setMethods) : tagTester('Set'));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/isWeakSet.js
-
-
-/* harmony default export */ var isWeakSet = (tagTester('WeakSet'));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/values.js
-
-
-// Retrieve the values of an object's properties.
-function values_values(obj) {
-  var _keys = keys_keys(obj);
-  var length = _keys.length;
-  var values = Array(length);
-  for (var i = 0; i < length; i++) {
-    values[i] = obj[_keys[i]];
-  }
-  return values;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/pairs.js
-
-
-// Convert an object into a list of `[key, value]` pairs.
-// The opposite of `_.object` with one argument.
-function pairs_pairs(obj) {
-  var _keys = keys_keys(obj);
-  var length = _keys.length;
-  var pairs = Array(length);
-  for (var i = 0; i < length; i++) {
-    pairs[i] = [_keys[i], obj[_keys[i]]];
-  }
-  return pairs;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/invert.js
-
-
-// Invert the keys and values of an object. The values must be serializable.
-function invert(obj) {
-  var result = {};
-  var _keys = keys_keys(obj);
-  for (var i = 0, length = _keys.length; i < length; i++) {
-    result[obj[_keys[i]]] = _keys[i];
-  }
-  return result;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/functions.js
-
-
-// Return a sorted list of the function names available on the object.
-function functions(obj) {
-  var names = [];
-  for (var key in obj) {
-    if (modules_isFunction(obj[key])) names.push(key);
-  }
-  return names.sort();
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_createAssigner.js
-// An internal function for creating assigner functions.
-function createAssigner(keysFunc, defaults) {
-  return function(obj) {
-    var length = arguments.length;
-    if (defaults) obj = Object(obj);
-    if (length < 2 || obj == null) return obj;
-    for (var index = 1; index < length; index++) {
-      var source = arguments[index],
-          keys = keysFunc(source),
-          l = keys.length;
-      for (var i = 0; i < l; i++) {
-        var key = keys[i];
-        if (!defaults || obj[key] === void 0) obj[key] = source[key];
-      }
-    }
-    return obj;
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/extend.js
-
-
-
-// Extend a given object with all the properties in passed-in object(s).
-/* harmony default export */ var extend = (createAssigner(allKeys));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/extendOwn.js
-
-
-
-// Assigns a given object with all the own properties in the passed-in
-// object(s).
-// (https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
-/* harmony default export */ var extendOwn = (createAssigner(keys_keys));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/defaults.js
-
-
-
-// Fill in a given object with default properties.
-/* harmony default export */ var defaults = (createAssigner(allKeys, true));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_baseCreate.js
-
-
-
-// Create a naked function reference for surrogate-prototype-swapping.
-function ctor() {
-  return function(){};
-}
-
-// An internal function for creating a new object that inherits from another.
-function baseCreate(prototype) {
-  if (!isObject(prototype)) return {};
-  if (_setup["j" /* nativeCreate */]) return Object(_setup["j" /* nativeCreate */])(prototype);
-  var Ctor = ctor();
-  Ctor.prototype = prototype;
-  var result = new Ctor;
-  Ctor.prototype = null;
-  return result;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/create.js
-
-
-
-// Creates an object that inherits from the given prototype object.
-// If additional properties are provided then they will be added to the
-// created object.
-function create(prototype, props) {
-  var result = baseCreate(prototype);
-  if (props) extendOwn(result, props);
-  return result;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/clone.js
-
-
-
-
-// Create a (shallow-cloned) duplicate of an object.
-function clone(obj) {
-  if (!isObject(obj)) return obj;
-  return isArray(obj) ? obj.slice() : extend({}, obj);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/tap.js
-// Invokes `interceptor` with the `obj` and then returns `obj`.
-// The primary purpose of this method is to "tap into" a method chain, in
-// order to perform operations on intermediate results within the chain.
-function tap(obj, interceptor) {
-  interceptor(obj);
-  return obj;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/toPath.js
-
-
-
-// Normalize a (deep) property `path` to array.
-// Like `_.iteratee`, this function can be customized.
-function toPath(path) {
-  return isArray(path) ? path : [path];
-}
-_.toPath = toPath;
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_toPath.js
-
-
-
-// Internal wrapper for `_.toPath` to enable minification.
-// Similar to `cb` for `_.iteratee`.
-function _toPath_toPath(path) {
-  return _.toPath(path);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_deepGet.js
-// Internal function to obtain a nested property in `obj` along `path`.
-function deepGet(obj, path) {
-  var length = path.length;
-  for (var i = 0; i < length; i++) {
-    if (obj == null) return void 0;
-    obj = obj[path[i]];
-  }
-  return length ? obj : void 0;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/get.js
-
-
-
-
-// Get the value of the (deep) property on `path` from `object`.
-// If any property in `path` does not exist or if the value is
-// `undefined`, return `defaultValue` instead.
-// The `path` is normalized through `_.toPath`.
-function get(object, path, defaultValue) {
-  var value = deepGet(object, _toPath_toPath(path));
-  return isUndefined(value) ? defaultValue : value;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/has.js
-
-
-
-// Shortcut function for checking if an object has a given property directly on
-// itself (in other words, not on a prototype). Unlike the internal `has`
-// function, this public version can also traverse nested properties.
-function has_has(obj, path) {
-  path = _toPath_toPath(path);
-  var length = path.length;
-  for (var i = 0; i < length; i++) {
-    var key = path[i];
-    if (!has(obj, key)) return false;
-    obj = obj[key];
-  }
-  return !!length;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/identity.js
-// Keep the identity function around for default iteratees.
-function identity(value) {
-  return value;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/matcher.js
-
-
-
-// Returns a predicate for checking whether an object has a given set of
-// `key:value` pairs.
-function matcher_matcher(attrs) {
-  attrs = extendOwn({}, attrs);
-  return function(obj) {
-    return isMatch(obj, attrs);
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/property.js
-
-
-
-// Creates a function that, when passed an object, will traverse that object’s
-// properties down the given `path`, specified as an array of keys or indices.
-function property(path) {
-  path = _toPath_toPath(path);
-  return function(obj) {
-    return deepGet(obj, path);
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_optimizeCb.js
-// Internal function that returns an efficient (for current engines) version
-// of the passed-in callback, to be repeatedly applied in other Underscore
-// functions.
-function optimizeCb(func, context, argCount) {
-  if (context === void 0) return func;
-  switch (argCount == null ? 3 : argCount) {
-    case 1: return function(value) {
-      return func.call(context, value);
-    };
-    // The 2-argument case is omitted because we’re not using it.
-    case 3: return function(value, index, collection) {
-      return func.call(context, value, index, collection);
-    };
-    case 4: return function(accumulator, value, index, collection) {
-      return func.call(context, accumulator, value, index, collection);
-    };
-  }
-  return function() {
-    return func.apply(context, arguments);
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_baseIteratee.js
-
-
-
-
-
-
-
-
-// An internal function to generate callbacks that can be applied to each
-// element in a collection, returning the desired result — either `_.identity`,
-// an arbitrary callback, a property matcher, or a property accessor.
-function baseIteratee(value, context, argCount) {
-  if (value == null) return identity;
-  if (modules_isFunction(value)) return optimizeCb(value, context, argCount);
-  if (isObject(value) && !isArray(value)) return matcher_matcher(value);
-  return property(value);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/iteratee.js
-
-
-
-// External wrapper for our callback generator. Users may customize
-// `_.iteratee` if they want additional predicate/iteratee shorthand styles.
-// This abstraction hides the internal-only `argCount` argument.
-function iteratee_iteratee(value, context) {
-  return baseIteratee(value, context, Infinity);
-}
-_.iteratee = iteratee_iteratee;
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_cb.js
-
-
-
-
-// The function we call internally to generate a callback. It invokes
-// `_.iteratee` if overridden, otherwise `baseIteratee`.
-function cb(value, context, argCount) {
-  if (_.iteratee !== iteratee_iteratee) return _.iteratee(value, context);
-  return baseIteratee(value, context, argCount);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/mapObject.js
-
-
-
-// Returns the results of applying the `iteratee` to each element of `obj`.
-// In contrast to `_.map` it returns an object.
-function mapObject(obj, iteratee, context) {
-  iteratee = cb(iteratee, context);
-  var _keys = keys_keys(obj),
-      length = _keys.length,
-      results = {};
-  for (var index = 0; index < length; index++) {
-    var currentKey = _keys[index];
-    results[currentKey] = iteratee(obj[currentKey], currentKey, obj);
-  }
-  return results;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/noop.js
-// Predicate-generating function. Often useful outside of Underscore.
-function noop(){}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/propertyOf.js
-
-
-
-// Generates a function for a given object that returns a given property.
-function propertyOf(obj) {
-  if (obj == null) return noop;
-  return function(path) {
-    return get(obj, path);
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/times.js
-
-
-// Run a function **n** times.
-function times(n, iteratee, context) {
-  var accum = Array(Math.max(0, n));
-  iteratee = optimizeCb(iteratee, context, 1);
-  for (var i = 0; i < n; i++) accum[i] = iteratee(i);
-  return accum;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/random.js
-// Return a random integer between `min` and `max` (inclusive).
-function random(min, max) {
-  if (max == null) {
-    max = min;
-    min = 0;
-  }
-  return min + Math.floor(Math.random() * (max - min + 1));
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/now.js
-// A (possibly faster) way to get the current timestamp as an integer.
-/* harmony default export */ var now = (Date.now || function() {
-  return new Date().getTime();
-});
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_createEscaper.js
-
-
-// Internal helper to generate functions for escaping and unescaping strings
-// to/from HTML interpolation.
-function createEscaper(map) {
-  var escaper = function(match) {
-    return map[match];
-  };
-  // Regexes for identifying a key that needs to be escaped.
-  var source = '(?:' + keys_keys(map).join('|') + ')';
-  var testRegexp = RegExp(source);
-  var replaceRegexp = RegExp(source, 'g');
-  return function(string) {
-    string = string == null ? '' : '' + string;
-    return testRegexp.test(string) ? string.replace(replaceRegexp, escaper) : string;
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_escapeMap.js
-// Internal list of HTML entities for escaping.
-/* harmony default export */ var _escapeMap = ({
-  '&': '&amp;',
-  '<': '&lt;',
-  '>': '&gt;',
-  '"': '&quot;',
-  "'": '&#x27;',
-  '`': '&#x60;'
-});
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/escape.js
-
-
-
-// Function for escaping strings to HTML interpolation.
-/* harmony default export */ var modules_escape = (createEscaper(_escapeMap));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_unescapeMap.js
-
-
-
-// Internal list of HTML entities for unescaping.
-/* harmony default export */ var _unescapeMap = (invert(_escapeMap));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/unescape.js
-
-
-
-// Function for unescaping strings from HTML interpolation.
-/* harmony default export */ var modules_unescape = (createEscaper(_unescapeMap));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/templateSettings.js
-
-
-// By default, Underscore uses ERB-style template delimiters. Change the
-// following template settings to use alternative delimiters.
-/* harmony default export */ var templateSettings = (_.templateSettings = {
-  evaluate: /<%([\s\S]+?)%>/g,
-  interpolate: /<%=([\s\S]+?)%>/g,
-  escape: /<%-([\s\S]+?)%>/g
-});
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/template.js
-
-
-
-
-// When customizing `_.templateSettings`, if you don't want to define an
-// interpolation, evaluation or escaping regex, we need one that is
-// guaranteed not to match.
-var noMatch = /(.)^/;
-
-// Certain characters need to be escaped so that they can be put into a
-// string literal.
-var escapes = {
-  "'": "'",
-  '\\': '\\',
-  '\r': 'r',
-  '\n': 'n',
-  '\u2028': 'u2028',
-  '\u2029': 'u2029'
-};
-
-var escapeRegExp = /\\|'|\r|\n|\u2028|\u2029/g;
-
-function escapeChar(match) {
-  return '\\' + escapes[match];
-}
-
-// In order to prevent third-party code injection through
-// `_.templateSettings.variable`, we test it against the following regular
-// expression. It is intentionally a bit more liberal than just matching valid
-// identifiers, but still prevents possible loopholes through defaults or
-// destructuring assignment.
-var bareIdentifier = /^\s*(\w|\$)+\s*$/;
-
-// JavaScript micro-templating, similar to John Resig's implementation.
-// Underscore templating handles arbitrary delimiters, preserves whitespace,
-// and correctly escapes quotes within interpolated code.
-// NB: `oldSettings` only exists for backwards compatibility.
-function template_template(text, settings, oldSettings) {
-  if (!settings && oldSettings) settings = oldSettings;
-  settings = defaults({}, settings, _.templateSettings);
-
-  // Combine delimiters into one regular expression via alternation.
-  var matcher = RegExp([
-    (settings.escape || noMatch).source,
-    (settings.interpolate || noMatch).source,
-    (settings.evaluate || noMatch).source
-  ].join('|') + '|$', 'g');
-
-  // Compile the template source, escaping string literals appropriately.
-  var index = 0;
-  var source = "__p+='";
-  text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
-    source += text.slice(index, offset).replace(escapeRegExp, escapeChar);
-    index = offset + match.length;
-
-    if (escape) {
-      source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
-    } else if (interpolate) {
-      source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
-    } else if (evaluate) {
-      source += "';\n" + evaluate + "\n__p+='";
-    }
-
-    // Adobe VMs need the match returned to produce the correct offset.
-    return match;
-  });
-  source += "';\n";
-
-  var argument = settings.variable;
-  if (argument) {
-    // Insure against third-party code injection. (CVE-2021-23358)
-    if (!bareIdentifier.test(argument)) throw new Error(
-      'variable is not a bare identifier: ' + argument
-    );
-  } else {
-    // If a variable is not specified, place data values in local scope.
-    source = 'with(obj||{}){\n' + source + '}\n';
-    argument = 'obj';
-  }
-
-  source = "var __t,__p='',__j=Array.prototype.join," +
-    "print=function(){__p+=__j.call(arguments,'');};\n" +
-    source + 'return __p;\n';
-
-  var render;
-  try {
-    render = new Function(argument, '_', source);
-  } catch (e) {
-    e.source = source;
-    throw e;
-  }
-
-  var template = function(data) {
-    return render.call(this, data, _);
-  };
-
-  // Provide the compiled source as a convenience for precompilation.
-  template.source = 'function(' + argument + '){\n' + source + '}';
-
-  return template;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/result.js
-
-
-
-// Traverses the children of `obj` along `path`. If a child is a function, it
-// is invoked with its parent as context. Returns the value of the final
-// child, or `fallback` if any child is undefined.
-function result_result(obj, path, fallback) {
-  path = _toPath_toPath(path);
-  var length = path.length;
-  if (!length) {
-    return modules_isFunction(fallback) ? fallback.call(obj) : fallback;
-  }
-  for (var i = 0; i < length; i++) {
-    var prop = obj == null ? void 0 : obj[path[i]];
-    if (prop === void 0) {
-      prop = fallback;
-      i = length; // Ensure we don't continue iterating.
-    }
-    obj = modules_isFunction(prop) ? prop.call(obj) : prop;
-  }
-  return obj;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/uniqueId.js
-// Generate a unique integer id (unique within the entire client session).
-// Useful for temporary DOM ids.
-var idCounter = 0;
-function uniqueId(prefix) {
-  var id = ++idCounter + '';
-  return prefix ? prefix + id : id;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/chain.js
-
-
-// Start chaining a wrapped Underscore object.
-function chain(obj) {
-  var instance = _(obj);
-  instance._chain = true;
-  return instance;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_executeBound.js
-
-
-
-// Internal function to execute `sourceFunc` bound to `context` with optional
-// `args`. Determines whether to execute a function as a constructor or as a
-// normal function.
-function executeBound(sourceFunc, boundFunc, context, callingContext, args) {
-  if (!(callingContext instanceof boundFunc)) return sourceFunc.apply(context, args);
-  var self = baseCreate(sourceFunc.prototype);
-  var result = sourceFunc.apply(self, args);
-  if (isObject(result)) return result;
-  return self;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/partial.js
-
-
-
-
-// Partially apply a function by creating a version that has had some of its
-// arguments pre-filled, without changing its dynamic `this` context. `_` acts
-// as a placeholder by default, allowing any combination of arguments to be
-// pre-filled. Set `_.partial.placeholder` for a custom placeholder argument.
-var partial = restArguments(function(func, boundArgs) {
-  var placeholder = partial.placeholder;
-  var bound = function() {
-    var position = 0, length = boundArgs.length;
-    var args = Array(length);
-    for (var i = 0; i < length; i++) {
-      args[i] = boundArgs[i] === placeholder ? arguments[position++] : boundArgs[i];
-    }
-    while (position < arguments.length) args.push(arguments[position++]);
-    return executeBound(func, bound, this, this, args);
-  };
-  return bound;
-});
-
-partial.placeholder = _;
-/* harmony default export */ var modules_partial = (partial);
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/bind.js
-
-
-
-
-// Create a function bound to a given object (assigning `this`, and arguments,
-// optionally).
-/* harmony default export */ var bind = (restArguments(function(func, context, args) {
-  if (!modules_isFunction(func)) throw new TypeError('Bind must be called on a function');
-  var bound = restArguments(function(callArgs) {
-    return executeBound(func, bound, context, this, args.concat(callArgs));
-  });
-  return bound;
-}));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_isArrayLike.js
-
-
-
-// Internal helper for collection methods to determine whether a collection
-// should be iterated as an array or as an object.
-// Related: https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength
-// Avoids a very nasty iOS 8 JIT bug on ARM-64. #2094
-/* harmony default export */ var _isArrayLike = (createSizePropertyCheck(_getLength));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_flatten.js
-
-
-
-
-
-// Internal implementation of a recursive `flatten` function.
-function flatten(input, depth, strict, output) {
-  output = output || [];
-  if (!depth && depth !== 0) {
-    depth = Infinity;
-  } else if (depth <= 0) {
-    return output.concat(input);
-  }
-  var idx = output.length;
-  for (var i = 0, length = _getLength(input); i < length; i++) {
-    var value = input[i];
-    if (_isArrayLike(value) && (isArray(value) || modules_isArguments(value))) {
-      // Flatten current level of array or arguments object.
-      if (depth > 1) {
-        flatten(value, depth - 1, strict, output);
-        idx = output.length;
-      } else {
-        var j = 0, len = value.length;
-        while (j < len) output[idx++] = value[j++];
-      }
-    } else if (!strict) {
-      output[idx++] = value;
-    }
-  }
-  return output;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/bindAll.js
-
-
-
-
-// Bind a number of an object's methods to that object. Remaining arguments
-// are the method names to be bound. Useful for ensuring that all callbacks
-// defined on an object belong to it.
-/* harmony default export */ var bindAll = (restArguments(function(obj, keys) {
-  keys = flatten(keys, false, false);
-  var index = keys.length;
-  if (index < 1) throw new Error('bindAll must be passed function names');
-  while (index--) {
-    var key = keys[index];
-    obj[key] = bind(obj[key], obj);
-  }
-  return obj;
-}));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/memoize.js
-
-
-// Memoize an expensive function by storing its results.
-function memoize_memoize(func, hasher) {
-  var memoize = function(key) {
-    var cache = memoize.cache;
-    var address = '' + (hasher ? hasher.apply(this, arguments) : key);
-    if (!has(cache, address)) cache[address] = func.apply(this, arguments);
-    return cache[address];
-  };
-  memoize.cache = {};
-  return memoize;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/delay.js
-
-
-// Delays a function for the given number of milliseconds, and then calls
-// it with the arguments supplied.
-/* harmony default export */ var delay = (restArguments(function(func, wait, args) {
-  return setTimeout(function() {
-    return func.apply(null, args);
-  }, wait);
-}));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/defer.js
-
-
-
-
-// Defers a function, scheduling it to run after the current call stack has
-// cleared.
-/* harmony default export */ var defer = (modules_partial(delay, _, 1));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/throttle.js
-
-
-// Returns a function, that, when invoked, will only be triggered at most once
-// during a given window of time. Normally, the throttled function will run
-// as much as it can, without ever going more than once per `wait` duration;
-// but if you'd like to disable the execution on the leading edge, pass
-// `{leading: false}`. To disable execution on the trailing edge, ditto.
-function throttle(func, wait, options) {
-  var timeout, context, args, result;
-  var previous = 0;
-  if (!options) options = {};
-
-  var later = function() {
-    previous = options.leading === false ? 0 : now();
-    timeout = null;
-    result = func.apply(context, args);
-    if (!timeout) context = args = null;
-  };
-
-  var throttled = function() {
-    var _now = now();
-    if (!previous && options.leading === false) previous = _now;
-    var remaining = wait - (_now - previous);
-    context = this;
-    args = arguments;
-    if (remaining <= 0 || remaining > wait) {
-      if (timeout) {
-        clearTimeout(timeout);
-        timeout = null;
-      }
-      previous = _now;
-      result = func.apply(context, args);
-      if (!timeout) context = args = null;
-    } else if (!timeout && options.trailing !== false) {
-      timeout = setTimeout(later, remaining);
-    }
-    return result;
-  };
-
-  throttled.cancel = function() {
-    clearTimeout(timeout);
-    previous = 0;
-    timeout = context = args = null;
-  };
-
-  return throttled;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/debounce.js
-
-
-
-// When a sequence of calls of the returned function ends, the argument
-// function is triggered. The end of a sequence is defined by the `wait`
-// parameter. If `immediate` is passed, the argument function will be
-// triggered at the beginning of the sequence instead of at the end.
-function debounce(func, wait, immediate) {
-  var timeout, previous, args, result, context;
-
-  var later = function() {
-    var passed = now() - previous;
-    if (wait > passed) {
-      timeout = setTimeout(later, wait - passed);
-    } else {
-      timeout = null;
-      if (!immediate) result = func.apply(context, args);
-      // This check is needed because `func` can recursively invoke `debounced`.
-      if (!timeout) args = context = null;
-    }
-  };
-
-  var debounced = restArguments(function(_args) {
-    context = this;
-    args = _args;
-    previous = now();
-    if (!timeout) {
-      timeout = setTimeout(later, wait);
-      if (immediate) result = func.apply(context, args);
-    }
-    return result;
-  });
-
-  debounced.cancel = function() {
-    clearTimeout(timeout);
-    timeout = args = context = null;
-  };
-
-  return debounced;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/wrap.js
-
-
-// Returns the first function passed as an argument to the second,
-// allowing you to adjust arguments, run code before and after, and
-// conditionally execute the original function.
-function wrap(func, wrapper) {
-  return modules_partial(wrapper, func);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/negate.js
-// Returns a negated version of the passed-in predicate.
-function negate(predicate) {
-  return function() {
-    return !predicate.apply(this, arguments);
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/compose.js
-// Returns a function that is the composition of a list of functions, each
-// consuming the return value of the function that follows.
-function compose() {
-  var args = arguments;
-  var start = args.length - 1;
-  return function() {
-    var i = start;
-    var result = args[start].apply(this, arguments);
-    while (i--) result = args[i].call(this, result);
-    return result;
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/after.js
-// Returns a function that will only be executed on and after the Nth call.
-function after(times, func) {
-  return function() {
-    if (--times < 1) {
-      return func.apply(this, arguments);
-    }
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/before.js
-// Returns a function that will only be executed up to (but not including) the
-// Nth call.
-function before(times, func) {
-  var memo;
-  return function() {
-    if (--times > 0) {
-      memo = func.apply(this, arguments);
-    }
-    if (times <= 1) func = null;
-    return memo;
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/once.js
-
-
-
-// Returns a function that will be executed at most one time, no matter how
-// often you call it. Useful for lazy initialization.
-/* harmony default export */ var once = (modules_partial(before, 2));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/findKey.js
-
-
-
-// Returns the first key on an object that passes a truth test.
-function findKey(obj, predicate, context) {
-  predicate = cb(predicate, context);
-  var _keys = keys_keys(obj), key;
-  for (var i = 0, length = _keys.length; i < length; i++) {
-    key = _keys[i];
-    if (predicate(obj[key], key, obj)) return key;
-  }
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_createPredicateIndexFinder.js
-
-
-
-// Internal function to generate `_.findIndex` and `_.findLastIndex`.
-function createPredicateIndexFinder(dir) {
-  return function(array, predicate, context) {
-    predicate = cb(predicate, context);
-    var length = _getLength(array);
-    var index = dir > 0 ? 0 : length - 1;
-    for (; index >= 0 && index < length; index += dir) {
-      if (predicate(array[index], index, array)) return index;
-    }
-    return -1;
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/findIndex.js
-
-
-// Returns the first index on an array-like that passes a truth test.
-/* harmony default export */ var findIndex = (createPredicateIndexFinder(1));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/findLastIndex.js
-
-
-// Returns the last index on an array-like that passes a truth test.
-/* harmony default export */ var findLastIndex = (createPredicateIndexFinder(-1));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/sortedIndex.js
-
-
-
-// Use a comparator function to figure out the smallest index at which
-// an object should be inserted so as to maintain order. Uses binary search.
-function sortedIndex_sortedIndex(array, obj, iteratee, context) {
-  iteratee = cb(iteratee, context, 1);
-  var value = iteratee(obj);
-  var low = 0, high = _getLength(array);
-  while (low < high) {
-    var mid = Math.floor((low + high) / 2);
-    if (iteratee(array[mid]) < value) low = mid + 1; else high = mid;
-  }
-  return low;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_createIndexFinder.js
-
-
-
-
-// Internal function to generate the `_.indexOf` and `_.lastIndexOf` functions.
-function createIndexFinder(dir, predicateFind, sortedIndex) {
-  return function(array, item, idx) {
-    var i = 0, length = _getLength(array);
-    if (typeof idx == 'number') {
-      if (dir > 0) {
-        i = idx >= 0 ? idx : Math.max(idx + length, i);
-      } else {
-        length = idx >= 0 ? Math.min(idx + 1, length) : idx + length + 1;
-      }
-    } else if (sortedIndex && idx && length) {
-      idx = sortedIndex(array, item);
-      return array[idx] === item ? idx : -1;
-    }
-    if (item !== item) {
-      idx = predicateFind(_setup["q" /* slice */].call(array, i, length), isNaN_isNaN);
-      return idx >= 0 ? idx + i : -1;
-    }
-    for (idx = dir > 0 ? i : length - 1; idx >= 0 && idx < length; idx += dir) {
-      if (array[idx] === item) return idx;
-    }
-    return -1;
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/indexOf.js
-
-
-
-
-// Return the position of the first occurrence of an item in an array,
-// or -1 if the item is not included in the array.
-// If the array is large and already in sort order, pass `true`
-// for **isSorted** to use binary search.
-/* harmony default export */ var indexOf = (createIndexFinder(1, findIndex, sortedIndex_sortedIndex));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/lastIndexOf.js
-
-
-
-// Return the position of the last occurrence of an item in an array,
-// or -1 if the item is not included in the array.
-/* harmony default export */ var lastIndexOf = (createIndexFinder(-1, findLastIndex));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/find.js
-
-
-
-
-// Return the first value which passes a truth test.
-function find(obj, predicate, context) {
-  var keyFinder = _isArrayLike(obj) ? findIndex : findKey;
-  var key = keyFinder(obj, predicate, context);
-  if (key !== void 0 && key !== -1) return obj[key];
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/findWhere.js
-
-
-
-// Convenience version of a common use case of `_.find`: getting the first
-// object containing specific `key:value` pairs.
-function findWhere(obj, attrs) {
-  return find(obj, matcher_matcher(attrs));
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/each.js
-
-
-
-
-// The cornerstone for collection functions, an `each`
-// implementation, aka `forEach`.
-// Handles raw objects in addition to array-likes. Treats all
-// sparse array-likes as if they were dense.
-function each(obj, iteratee, context) {
-  iteratee = optimizeCb(iteratee, context);
-  var i, length;
-  if (_isArrayLike(obj)) {
-    for (i = 0, length = obj.length; i < length; i++) {
-      iteratee(obj[i], i, obj);
-    }
-  } else {
-    var _keys = keys_keys(obj);
-    for (i = 0, length = _keys.length; i < length; i++) {
-      iteratee(obj[_keys[i]], _keys[i], obj);
-    }
-  }
-  return obj;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/map.js
-
-
-
-
-// Return the results of applying the iteratee to each element.
-function map_map(obj, iteratee, context) {
-  iteratee = cb(iteratee, context);
-  var _keys = !_isArrayLike(obj) && keys_keys(obj),
-      length = (_keys || obj).length,
-      results = Array(length);
-  for (var index = 0; index < length; index++) {
-    var currentKey = _keys ? _keys[index] : index;
-    results[index] = iteratee(obj[currentKey], currentKey, obj);
-  }
-  return results;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_createReduce.js
-
-
-
-
-// Internal helper to create a reducing function, iterating left or right.
-function createReduce(dir) {
-  // Wrap code that reassigns argument variables in a separate function than
-  // the one that accesses `arguments.length` to avoid a perf hit. (#1991)
-  var reducer = function(obj, iteratee, memo, initial) {
-    var _keys = !_isArrayLike(obj) && keys_keys(obj),
-        length = (_keys || obj).length,
-        index = dir > 0 ? 0 : length - 1;
-    if (!initial) {
-      memo = obj[_keys ? _keys[index] : index];
-      index += dir;
-    }
-    for (; index >= 0 && index < length; index += dir) {
-      var currentKey = _keys ? _keys[index] : index;
-      memo = iteratee(memo, obj[currentKey], currentKey, obj);
-    }
-    return memo;
-  };
-
-  return function(obj, iteratee, memo, context) {
-    var initial = arguments.length >= 3;
-    return reducer(obj, optimizeCb(iteratee, context, 4), memo, initial);
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/reduce.js
-
-
-// **Reduce** builds up a single result from a list of values, aka `inject`,
-// or `foldl`.
-/* harmony default export */ var reduce = (createReduce(1));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/reduceRight.js
-
-
-// The right-associative version of reduce, also known as `foldr`.
-/* harmony default export */ var reduceRight = (createReduce(-1));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/filter.js
-
-
-
-// Return all the elements that pass a truth test.
-function filter(obj, predicate, context) {
-  var results = [];
-  predicate = cb(predicate, context);
-  each(obj, function(value, index, list) {
-    if (predicate(value, index, list)) results.push(value);
-  });
-  return results;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/reject.js
-
-
-
-
-// Return all the elements for which a truth test fails.
-function reject(obj, predicate, context) {
-  return filter(obj, negate(cb(predicate)), context);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/every.js
-
-
-
-
-// Determine whether all of the elements pass a truth test.
-function every(obj, predicate, context) {
-  predicate = cb(predicate, context);
-  var _keys = !_isArrayLike(obj) && keys_keys(obj),
-      length = (_keys || obj).length;
-  for (var index = 0; index < length; index++) {
-    var currentKey = _keys ? _keys[index] : index;
-    if (!predicate(obj[currentKey], currentKey, obj)) return false;
-  }
-  return true;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/some.js
-
-
-
-
-// Determine if at least one element in the object passes a truth test.
-function some(obj, predicate, context) {
-  predicate = cb(predicate, context);
-  var _keys = !_isArrayLike(obj) && keys_keys(obj),
-      length = (_keys || obj).length;
-  for (var index = 0; index < length; index++) {
-    var currentKey = _keys ? _keys[index] : index;
-    if (predicate(obj[currentKey], currentKey, obj)) return true;
-  }
-  return false;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/contains.js
-
-
-
-
-// Determine if the array or object contains a given item (using `===`).
-function contains(obj, item, fromIndex, guard) {
-  if (!_isArrayLike(obj)) obj = values_values(obj);
-  if (typeof fromIndex != 'number' || guard) fromIndex = 0;
-  return indexOf(obj, item, fromIndex) >= 0;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/invoke.js
-
-
-
-
-
-
-// Invoke a method (with arguments) on every item in a collection.
-/* harmony default export */ var invoke = (restArguments(function(obj, path, args) {
-  var contextPath, func;
-  if (modules_isFunction(path)) {
-    func = path;
-  } else {
-    path = _toPath_toPath(path);
-    contextPath = path.slice(0, -1);
-    path = path[path.length - 1];
-  }
-  return map_map(obj, function(context) {
-    var method = func;
-    if (!method) {
-      if (contextPath && contextPath.length) {
-        context = deepGet(context, contextPath);
-      }
-      if (context == null) return void 0;
-      method = context[path];
-    }
-    return method == null ? method : method.apply(context, args);
-  });
-}));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/pluck.js
-
-
-
-// Convenience version of a common use case of `_.map`: fetching a property.
-function pluck(obj, key) {
-  return map_map(obj, property(key));
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/where.js
-
-
-
-// Convenience version of a common use case of `_.filter`: selecting only
-// objects containing specific `key:value` pairs.
-function where(obj, attrs) {
-  return filter(obj, matcher_matcher(attrs));
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/max.js
-
-
-
-
-
-// Return the maximum element (or element-based computation).
-function max(obj, iteratee, context) {
-  var result = -Infinity, lastComputed = -Infinity,
-      value, computed;
-  if (iteratee == null || typeof iteratee == 'number' && typeof obj[0] != 'object' && obj != null) {
-    obj = _isArrayLike(obj) ? obj : values_values(obj);
-    for (var i = 0, length = obj.length; i < length; i++) {
-      value = obj[i];
-      if (value != null && value > result) {
-        result = value;
-      }
-    }
-  } else {
-    iteratee = cb(iteratee, context);
-    each(obj, function(v, index, list) {
-      computed = iteratee(v, index, list);
-      if (computed > lastComputed || computed === -Infinity && result === -Infinity) {
-        result = v;
-        lastComputed = computed;
-      }
-    });
-  }
-  return result;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/min.js
-
-
-
-
-
-// Return the minimum element (or element-based computation).
-function min(obj, iteratee, context) {
-  var result = Infinity, lastComputed = Infinity,
-      value, computed;
-  if (iteratee == null || typeof iteratee == 'number' && typeof obj[0] != 'object' && obj != null) {
-    obj = _isArrayLike(obj) ? obj : values_values(obj);
-    for (var i = 0, length = obj.length; i < length; i++) {
-      value = obj[i];
-      if (value != null && value < result) {
-        result = value;
-      }
-    }
-  } else {
-    iteratee = cb(iteratee, context);
-    each(obj, function(v, index, list) {
-      computed = iteratee(v, index, list);
-      if (computed < lastComputed || computed === Infinity && result === Infinity) {
-        result = v;
-        lastComputed = computed;
-      }
-    });
-  }
-  return result;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/sample.js
-
-
-
-
-
-
-// Sample **n** random values from a collection using the modern version of the
-// [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
-// If **n** is not specified, returns a single random element.
-// The internal `guard` argument allows it to work with `_.map`.
-function sample_sample(obj, n, guard) {
-  if (n == null || guard) {
-    if (!_isArrayLike(obj)) obj = values_values(obj);
-    return obj[random(obj.length - 1)];
-  }
-  var sample = _isArrayLike(obj) ? clone(obj) : values_values(obj);
-  var length = _getLength(sample);
-  n = Math.max(Math.min(n, length), 0);
-  var last = length - 1;
-  for (var index = 0; index < n; index++) {
-    var rand = random(index, last);
-    var temp = sample[index];
-    sample[index] = sample[rand];
-    sample[rand] = temp;
-  }
-  return sample.slice(0, n);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/shuffle.js
-
-
-// Shuffle a collection.
-function shuffle(obj) {
-  return sample_sample(obj, Infinity);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/sortBy.js
-
-
-
-
-// Sort the object's values by a criterion produced by an iteratee.
-function sortBy(obj, iteratee, context) {
-  var index = 0;
-  iteratee = cb(iteratee, context);
-  return pluck(map_map(obj, function(value, key, list) {
-    return {
-      value: value,
-      index: index++,
-      criteria: iteratee(value, key, list)
-    };
-  }).sort(function(left, right) {
-    var a = left.criteria;
-    var b = right.criteria;
-    if (a !== b) {
-      if (a > b || a === void 0) return 1;
-      if (a < b || b === void 0) return -1;
-    }
-    return left.index - right.index;
-  }), 'value');
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_group.js
-
-
-
-// An internal function used for aggregate "group by" operations.
-function group(behavior, partition) {
-  return function(obj, iteratee, context) {
-    var result = partition ? [[], []] : {};
-    iteratee = cb(iteratee, context);
-    each(obj, function(value, index) {
-      var key = iteratee(value, index, obj);
-      behavior(result, value, key);
-    });
-    return result;
-  };
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/groupBy.js
-
-
-
-// Groups the object's values by a criterion. Pass either a string attribute
-// to group by, or a function that returns the criterion.
-/* harmony default export */ var groupBy = (group(function(result, value, key) {
-  if (has(result, key)) result[key].push(value); else result[key] = [value];
-}));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/indexBy.js
-
-
-// Indexes the object's values by a criterion, similar to `_.groupBy`, but for
-// when you know that your index values will be unique.
-/* harmony default export */ var indexBy = (group(function(result, value, key) {
-  result[key] = value;
-}));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/countBy.js
-
-
-
-// Counts instances of an object that group by a certain criterion. Pass
-// either a string attribute to count by, or a function that returns the
-// criterion.
-/* harmony default export */ var countBy = (group(function(result, value, key) {
-  if (has(result, key)) result[key]++; else result[key] = 1;
-}));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/partition.js
-
-
-// Split a collection into two arrays: one whose elements all pass the given
-// truth test, and one whose elements all do not pass the truth test.
-/* harmony default export */ var modules_partition = (group(function(result, value, pass) {
-  result[pass ? 0 : 1].push(value);
-}, true));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/toArray.js
-
-
-
-
-
-
-
-
-// Safely create a real, live array from anything iterable.
-var reStrSymbol = /[^\ud800-\udfff]|[\ud800-\udbff][\udc00-\udfff]|[\ud800-\udfff]/g;
-function toArray(obj) {
-  if (!obj) return [];
-  if (isArray(obj)) return _setup["q" /* slice */].call(obj);
-  if (isString(obj)) {
-    // Keep surrogate pair characters together.
-    return obj.match(reStrSymbol);
-  }
-  if (_isArrayLike(obj)) return map_map(obj, identity);
-  return values_values(obj);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/size.js
-
-
-
-// Return the number of elements in a collection.
-function size(obj) {
-  if (obj == null) return 0;
-  return _isArrayLike(obj) ? obj.length : keys_keys(obj).length;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_keyInObj.js
-// Internal `_.pick` helper function to determine whether `key` is an enumerable
-// property name of `obj`.
-function keyInObj(value, key, obj) {
-  return key in obj;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/pick.js
-
-
-
-
-
-
-
-// Return a copy of the object only containing the allowed properties.
-/* harmony default export */ var pick = (restArguments(function(obj, keys) {
-  var result = {}, iteratee = keys[0];
-  if (obj == null) return result;
-  if (modules_isFunction(iteratee)) {
-    if (keys.length > 1) iteratee = optimizeCb(iteratee, keys[1]);
-    keys = allKeys(obj);
-  } else {
-    iteratee = keyInObj;
-    keys = flatten(keys, false, false);
-    obj = Object(obj);
-  }
-  for (var i = 0, length = keys.length; i < length; i++) {
-    var key = keys[i];
-    var value = obj[key];
-    if (iteratee(value, key, obj)) result[key] = value;
-  }
-  return result;
-}));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/omit.js
-
-
-
-
-
-
-
-
-// Return a copy of the object without the disallowed properties.
-/* harmony default export */ var omit = (restArguments(function(obj, keys) {
-  var iteratee = keys[0], context;
-  if (modules_isFunction(iteratee)) {
-    iteratee = negate(iteratee);
-    if (keys.length > 1) context = keys[1];
-  } else {
-    keys = map_map(flatten(keys, false, false), String);
-    iteratee = function(value, key) {
-      return !contains(keys, key);
-    };
-  }
-  return pick(obj, iteratee, context);
-}));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/initial.js
-
-
-// Returns everything but the last entry of the array. Especially useful on
-// the arguments object. Passing **n** will return all the values in
-// the array, excluding the last N.
-function initial_initial(array, n, guard) {
-  return _setup["q" /* slice */].call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/first.js
-
-
-// Get the first element of an array. Passing **n** will return the first N
-// values in the array. The **guard** check allows it to work with `_.map`.
-function first(array, n, guard) {
-  if (array == null || array.length < 1) return n == null || guard ? void 0 : [];
-  if (n == null || guard) return array[0];
-  return initial_initial(array, array.length - n);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/rest.js
-
-
-// Returns everything but the first entry of the `array`. Especially useful on
-// the `arguments` object. Passing an **n** will return the rest N values in the
-// `array`.
-function rest_rest(array, n, guard) {
-  return _setup["q" /* slice */].call(array, n == null || guard ? 1 : n);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/last.js
-
-
-// Get the last element of an array. Passing **n** will return the last N
-// values in the array.
-function last_last(array, n, guard) {
-  if (array == null || array.length < 1) return n == null || guard ? void 0 : [];
-  if (n == null || guard) return array[array.length - 1];
-  return rest_rest(array, Math.max(0, array.length - n));
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/compact.js
-
-
-// Trim out all falsy values from an array.
-function compact(array) {
-  return filter(array, Boolean);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/flatten.js
-
-
-// Flatten out an array, either recursively (by default), or up to `depth`.
-// Passing `true` or `false` as `depth` means `1` or `Infinity`, respectively.
-function flatten_flatten(array, depth) {
-  return flatten(array, depth, false);
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/difference.js
-
-
-
-
-
-// Take the difference between one array and a number of other arrays.
-// Only the elements present in just the first array will remain.
-/* harmony default export */ var difference = (restArguments(function(array, rest) {
-  rest = flatten(rest, true, true);
-  return filter(array, function(value){
-    return !contains(rest, value);
-  });
-}));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/without.js
-
-
-
-// Return a version of the array that does not contain the specified value(s).
-/* harmony default export */ var without = (restArguments(function(array, otherArrays) {
-  return difference(array, otherArrays);
-}));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/uniq.js
-
-
-
-
-
-// Produce a duplicate-free version of the array. If the array has already
-// been sorted, you have the option of using a faster algorithm.
-// The faster algorithm will not work with an iteratee if the iteratee
-// is not a one-to-one function, so providing an iteratee will disable
-// the faster algorithm.
-function uniq(array, isSorted, iteratee, context) {
-  if (!isBoolean(isSorted)) {
-    context = iteratee;
-    iteratee = isSorted;
-    isSorted = false;
-  }
-  if (iteratee != null) iteratee = cb(iteratee, context);
-  var result = [];
-  var seen = [];
-  for (var i = 0, length = _getLength(array); i < length; i++) {
-    var value = array[i],
-        computed = iteratee ? iteratee(value, i, array) : value;
-    if (isSorted && !iteratee) {
-      if (!i || seen !== computed) result.push(value);
-      seen = computed;
-    } else if (iteratee) {
-      if (!contains(seen, computed)) {
-        seen.push(computed);
-        result.push(value);
-      }
-    } else if (!contains(result, value)) {
-      result.push(value);
-    }
-  }
-  return result;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/union.js
-
-
-
-
-// Produce an array that contains the union: each distinct element from all of
-// the passed-in arrays.
-/* harmony default export */ var union = (restArguments(function(arrays) {
-  return uniq(flatten(arrays, true, true));
-}));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/intersection.js
-
-
-
-// Produce an array that contains every item shared between all the
-// passed-in arrays.
-function intersection(array) {
-  var result = [];
-  var argsLength = arguments.length;
-  for (var i = 0, length = _getLength(array); i < length; i++) {
-    var item = array[i];
-    if (contains(result, item)) continue;
-    var j;
-    for (j = 1; j < argsLength; j++) {
-      if (!contains(arguments[j], item)) break;
-    }
-    if (j === argsLength) result.push(item);
-  }
-  return result;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/unzip.js
-
-
-
-
-// Complement of zip. Unzip accepts an array of arrays and groups
-// each array's elements on shared indices.
-function unzip(array) {
-  var length = array && max(array, _getLength).length || 0;
-  var result = Array(length);
-
-  for (var index = 0; index < length; index++) {
-    result[index] = pluck(array, index);
-  }
-  return result;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/zip.js
-
-
-
-// Zip together multiple lists into a single array -- elements that share
-// an index go together.
-/* harmony default export */ var zip = (restArguments(unzip));
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/object.js
-
-
-// Converts lists into objects. Pass either a single array of `[key, value]`
-// pairs, or two parallel arrays of the same length -- one of keys, and one of
-// the corresponding values. Passing by pairs is the reverse of `_.pairs`.
-function object_object(list, values) {
-  var result = {};
-  for (var i = 0, length = _getLength(list); i < length; i++) {
-    if (values) {
-      result[list[i]] = values[i];
-    } else {
-      result[list[i][0]] = list[i][1];
-    }
-  }
-  return result;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/range.js
-// Generate an integer Array containing an arithmetic progression. A port of
-// the native Python `range()` function. See
-// [the Python documentation](https://docs.python.org/library/functions.html#range).
-function range(start, stop, step) {
-  if (stop == null) {
-    stop = start || 0;
-    start = 0;
-  }
-  if (!step) {
-    step = stop < start ? -1 : 1;
-  }
-
-  var length = Math.max(Math.ceil((stop - start) / step), 0);
-  var range = Array(length);
-
-  for (var idx = 0; idx < length; idx++, start += step) {
-    range[idx] = start;
-  }
-
-  return range;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/chunk.js
-
-
-// Chunk a single array into multiple arrays, each containing `count` or fewer
-// items.
-function chunk(array, count) {
-  if (count == null || count < 1) return [];
-  var result = [];
-  var i = 0, length = array.length;
-  while (i < length) {
-    result.push(_setup["q" /* slice */].call(array, i, i += count));
-  }
-  return result;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/_chainResult.js
-
-
-// Helper function to continue chaining intermediate results.
-function chainResult(instance, obj) {
-  return instance._chain ? _(obj).chain() : obj;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/mixin.js
-
-
-
-
-
-
-// Add your own custom functions to the Underscore object.
-function mixin(obj) {
-  each(functions(obj), function(name) {
-    var func = _[name] = obj[name];
-    _.prototype[name] = function() {
-      var args = [this._wrapped];
-      _setup["o" /* push */].apply(args, arguments);
-      return chainResult(this, func.apply(_, args));
-    };
-  });
-  return _;
-}
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/underscore-array-methods.js
-
-
-
-
-
-// Add all mutator `Array` functions to the wrapper.
-each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
-  var method = _setup["a" /* ArrayProto */][name];
-  _.prototype[name] = function() {
-    var obj = this._wrapped;
-    if (obj != null) {
-      method.apply(obj, arguments);
-      if ((name === 'shift' || name === 'splice') && obj.length === 0) {
-        delete obj[0];
-      }
-    }
-    return chainResult(this, obj);
-  };
-});
-
-// Add all accessor `Array` functions to the wrapper.
-each(['concat', 'join', 'slice'], function(name) {
-  var method = _setup["a" /* ArrayProto */][name];
-  _.prototype[name] = function() {
-    var obj = this._wrapped;
-    if (obj != null) obj = method.apply(obj, arguments);
-    return chainResult(this, obj);
-  };
-});
-
-/* harmony default export */ var underscore_array_methods = (_);
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/index.js
-// Named Exports
-// =============
-
-//     Underscore.js 1.13.1
-//     https://underscorejs.org
-//     (c) 2009-2021 Jeremy Ashkenas, Julian Gonggrijp, and DocumentCloud and Investigative Reporters & Editors
-//     Underscore may be freely distributed under the MIT license.
-
-// Baseline setup.
-
-
-
-// Object Functions
-// ----------------
-// Our most fundamental functions operate on any JavaScript object.
-// Most functions in Underscore depend on at least one function in this section.
-
-// A group of functions that check the types of core JavaScript values.
-// These are often informally referred to as the "isType" functions.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Functions that treat an object as a dictionary of key-value pairs.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Utility Functions
-// -----------------
-// A bit of a grab bag: Predicate-generating functions for use with filters and
-// loops, string escaping and templating, create random numbers and unique ids,
-// and functions that facilitate Underscore's chaining and iteration conventions.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Function (ahem) Functions
-// -------------------------
-// These functions take a function as an argument and return a new function
-// as the result. Also known as higher-order functions.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Finders
-// -------
-// Functions that extract (the position of) a single element from an object
-// or array based on some criterion.
-
-
-
-
-
-
-
-
-
-// Collection Functions
-// --------------------
-// Functions that work on any collection of elements: either an array, or
-// an object of key-value pairs.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// `_.pick` and `_.omit` are actually object functions, but we put
-// them here in order to create a more natural reading order in the
-// monolithic build as they depend on `_.contains`.
-
-
-
-// Array Functions
-// ---------------
-// Functions that operate on arrays (and array-likes) only, because they’re
-// expressed in terms of operations on an ordered list of values.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// OOP
-// ---
-// These modules support the "object-oriented" calling style. See also
-// `underscore.js` and `index-default.js`.
-
-
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/index-default.js
-// Default Export
-// ==============
-// In this module, we mix our bundled exports into the `_` object and export
-// the result. This is analogous to setting `module.exports = _` in CommonJS.
-// Hence, this module is also the entry point of our UMD bundle and the package
-// entry point for CommonJS and AMD users. In other words, this is (the source
-// of) the module you are interfacing with when you do any of the following:
-//
-// ```js
-// // CommonJS
-// var _ = require('underscore');
-//
-// // AMD
-// define(['underscore'], function(_) {...});
-//
-// // UMD in the browser
-// // _ is available as a global variable
-// ```
-
-
-
-// Add all of the Underscore functions to the wrapper object.
-var index_default_ = mixin(modules_namespaceObject);
-// Legacy Node.js API.
-index_default_._ = index_default_;
-// Export the Underscore API.
-/* harmony default export */ var index_default = (index_default_);
-
-// CONCATENATED MODULE: ./node_modules/underscore/modules/index-all.js
-// ESM Exports
-// ===========
-// This module is the package entry point for ES module users. In other words,
-// it is the module they are interfacing with when they import from the whole
-// package instead of from a submodule, like this:
-//
-// ```js
-// import { map } from 'underscore';
-// ```
-//
-// The difference with `./index-default`, which is the package entry point for
-// CommonJS, AMD and UMD users, is purely technical. In ES modules, named and
-// default exports are considered to be siblings, so when you have a default
-// export, its properties are not automatically available as named exports. For
-// this reason, we re-export the named exports in addition to providing the same
-// default export as in `./index-default`.
-
-
-
 
 /***/ })
 
