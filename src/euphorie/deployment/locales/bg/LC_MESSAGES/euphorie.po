@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0.2dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-11-10 08:05+0000\n"
+"POT-Creation-Date: 2021-11-10 11:47+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: bg <LL@li.org>\n"
@@ -475,7 +475,7 @@ msgstr ""
 "разполагате, а по-късно, при възможност,  да продължите от мястото, където "
 "сте прекъснали."
 
-#: euphorie/client/browser/webhelpers.py:861
+#: euphorie/client/browser/webhelpers.py:862
 msgid "I wish to share the following with you"
 msgstr "Искам да споделя следното с вас"
 
@@ -492,7 +492,7 @@ msgid "Important"
 msgstr "Важно"
 
 #: euphorie/client/browser/templates/plain.pt:224
-#: euphorie/client/browser/templates/shell.pt:164
+#: euphorie/client/browser/templates/shell.pt:165
 msgid "Info"
 msgstr "Информация"
 
@@ -539,7 +539,7 @@ msgstr "запазено"
 msgid "Learn more about this tool&hellip;"
 msgstr "Научете повече за този инструмент…"
 
-#: euphorie/client/browser/templates/shell.pt:414
+#: euphorie/client/browser/templates/shell.pt:415
 msgid "Loading Risk Assessments&hellip;"
 msgstr ""
 
@@ -1503,7 +1503,7 @@ msgstr "Отменяне"
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:158
 #: euphorie/client/browser/templates/surveys.pt:49
-#: euphorie/client/browser/webhelpers.py:858
+#: euphorie/client/browser/webhelpers.py:859
 msgid "button_close"
 msgstr "затвори"
 
@@ -2700,6 +2700,11 @@ msgstr "Какво е проектът OiRA (онлайн интерактивн
 msgid "header_why_oira"
 msgstr "Защо беше създаден проектът OiRA"
 
+#. Default: "Browser warning"
+#: euphorie/client/browser/templates/browser-warning.pt:17
+msgid "heading_browser_warning"
+msgstr ""
+
 #. Default: "Comments"
 #: euphorie/client/browser/templates/webhelpers.pt:624
 msgid "heading_comments"
@@ -3035,7 +3040,7 @@ msgstr ""
 "gif формат и не съдържа специални символи."
 
 #. Default: "Help"
-#: euphorie/client/browser/templates/shell.pt:188
+#: euphorie/client/browser/templates/shell.pt:189
 msgid "help_link"
 msgstr ""
 
@@ -3227,7 +3232,7 @@ msgstr "Ако не посочите име, то ще бъде взето от 
 
 #. Default: "Home"
 #: euphorie/client/browser/templates/login.pt:284
-#: euphorie/client/browser/templates/shell.pt:134
+#: euphorie/client/browser/templates/shell.pt:135
 msgid "home_link"
 msgstr "Информационен панел"
 
@@ -3539,7 +3544,7 @@ msgstr "Акаунтът е заключен"
 #. Default: "Action Plan"
 #: euphorie/client/browser/templates/login.pt:315
 #: euphorie/client/browser/templates/report_identification.pt:145
-#: euphorie/client/browser/templates/shell.pt:300
+#: euphorie/client/browser/templates/shell.pt:301
 msgid "label_action_plan"
 msgstr "План за действие"
 
@@ -3588,7 +3593,7 @@ msgid "label_alphabetical"
 msgstr "Азбучен ред"
 
 #. Default: "Assessment"
-#: euphorie/client/browser/templates/shell.pt:279
+#: euphorie/client/browser/templates/shell.pt:280
 msgid "label_assessment"
 msgstr "Оценяване"
 
@@ -3637,6 +3642,11 @@ msgstr "Код за класификация"
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:15
 msgid "label_clone"
 msgstr "Клониране на оценка на риска"
+
+#. Default: "Close this message"
+#: euphorie/client/browser/templates/browser-warning.pt:50
+msgid "label_close_message"
+msgstr ""
 
 #. Default: "Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
 #: euphorie/client/browser/templates/risk_actionplan.pt:119
@@ -3768,7 +3778,7 @@ msgstr "Показване на специално уведомление за �
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:313
 #: euphorie/client/browser/templates/report_identification.pt:135
-#: euphorie/client/browser/templates/shell.pt:279
+#: euphorie/client/browser/templates/shell.pt:280
 msgid "label_evaluation"
 msgstr "Оценяване"
 
@@ -3794,7 +3804,7 @@ msgid "label_existing_measure"
 msgstr "Мерки, които вече са изпълнени"
 
 #. Default: "Exit"
-#: euphorie/client/browser/templates/shell.pt:380
+#: euphorie/client/browser/templates/shell.pt:381
 msgid "label_exit"
 msgstr "Изход"
 
@@ -3890,7 +3900,7 @@ msgstr "Как да извършите оценка на риска"
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:311
 #: euphorie/client/browser/templates/report_identification.pt:125
-#: euphorie/client/browser/templates/shell.pt:277
+#: euphorie/client/browser/templates/shell.pt:278
 msgid "label_identification"
 msgstr "Определяне"
 
@@ -3917,7 +3927,7 @@ msgid "label_introduction"
 msgstr "Уводен текст"
 
 #. Default: "Involve"
-#: euphorie/client/browser/templates/shell.pt:253
+#: euphorie/client/browser/templates/shell.pt:254
 msgid "label_involve"
 msgstr "Включване"
 
@@ -4160,7 +4170,7 @@ msgstr "Паролата отново"
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:309
 #: euphorie/client/browser/templates/report_identification.pt:113
-#: euphorie/client/browser/templates/shell.pt:233
+#: euphorie/client/browser/templates/shell.pt:234
 msgid "label_preparation"
 msgstr "Подготовка"
 
@@ -4250,7 +4260,7 @@ msgstr "Изтрий тази мярка"
 #. Default: "Report"
 #: euphorie/client/browser/templates/report_identification.pt:155
 #: euphorie/client/browser/templates/report_landing.pt:43
-#: euphorie/client/browser/templates/shell.pt:325
+#: euphorie/client/browser/templates/shell.pt:326
 msgid "label_report"
 msgstr "Доклад"
 
@@ -4490,7 +4500,7 @@ msgid "label_terms_conditions"
 msgstr "условията и реда"
 
 #. Default: "Test session"
-#: euphorie/client/browser/templates/shell.pt:164
+#: euphorie/client/browser/templates/shell.pt:165
 msgid "label_testsession"
 msgstr ""
 
@@ -4736,7 +4746,7 @@ msgid "menu_import"
 msgstr "Импортиране на OiRA инструмент"
 
 #. Default: "Training"
-#: euphorie/client/browser/templates/shell.pt:346
+#: euphorie/client/browser/templates/shell.pt:347
 msgid "menu_training"
 msgstr ""
 
@@ -4779,6 +4789,11 @@ msgstr ""
 "го споделите с цел получаване на информация или обратна връзка от "
 "работниците Ви."
 
+#. Default: "You are using an outdated web browser. Because of this you won't have an optimal experience. Please install a newer browser in order to make optimal use of this site."
+#: euphorie/client/browser/templates/browser-warning.pt:31
+msgid "message_lesser_experience_no_javascript"
+msgstr ""
+
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:212
 msgid "message_lock_warn"
@@ -4801,6 +4816,11 @@ msgstr "Няма сектори за тази страна."
 msgid "message_not_delete_published_sector"
 msgstr ""
 "Не можете да изтриете сектор, който съдържа публикувани OiRA инструменти."
+
+#. Default: "You are using an outdated web browser. As a result, the site might not function as expected. Please install a newer browser in order to make optimal use of this site."
+#: euphorie/client/browser/templates/browser-warning.pt:26
+msgid "message_outdated_browser"
+msgstr ""
 
 #. Default: "An email will be sent to ${email} if we can find an account for this email address. Please use the link inside the e-mail to reset your password."
 #: euphorie/client/browser/reset_password.py:173
@@ -4851,7 +4871,7 @@ msgid "module_optional"
 msgstr "Този ${number} не е задължителен."
 
 #. Default: "More"
-#: euphorie/client/browser/templates/shell.pt:180
+#: euphorie/client/browser/templates/shell.pt:181
 msgid "more_link"
 msgstr ""
 
@@ -4895,7 +4915,7 @@ msgstr "Настройки"
 
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:51
-#: euphorie/client/browser/templates/shell.pt:372
+#: euphorie/client/browser/templates/shell.pt:373
 #: euphorie/client/browser/templates/webhelpers.pt:62
 msgid "navigation_status"
 msgstr "Статус"
@@ -5090,7 +5110,7 @@ msgid "probability_small"
 msgstr "Малка"
 
 #. Default: "${completion_percentage}% Complete"
-#: euphorie/client/browser/webhelpers.py:296
+#: euphorie/client/browser/webhelpers.py:297
 msgid "progress_indicator_title"
 msgstr "${completion_percentage}% завършен"
 
@@ -5560,7 +5580,7 @@ msgid "toc_header"
 msgstr "Съдържание"
 
 #. Default: "Show/hide menu"
-#: euphorie/client/browser/templates/shell.pt:151
+#: euphorie/client/browser/templates/shell.pt:152
 msgid "tooltip_menu_toggle"
 msgstr "Скрий/Покажи меню"
 

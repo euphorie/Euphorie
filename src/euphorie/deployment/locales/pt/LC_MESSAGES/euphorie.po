@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 5.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-11-10 08:05+0000\n"
+"POT-Creation-Date: 2021-11-10 11:47+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -473,7 +473,7 @@ msgstr ""
 "Contudo, pode dedicar o seu tempo conforme as suas disponibilidades, podendo "
 "fazer interrupções e continuar a avaliação quando for mais conveniente."
 
-#: euphorie/client/browser/webhelpers.py:861
+#: euphorie/client/browser/webhelpers.py:862
 msgid "I wish to share the following with you"
 msgstr "Clique para seguir ligação"
 
@@ -490,7 +490,7 @@ msgid "Important"
 msgstr "Importante"
 
 #: euphorie/client/browser/templates/plain.pt:224
-#: euphorie/client/browser/templates/shell.pt:164
+#: euphorie/client/browser/templates/shell.pt:165
 msgid "Info"
 msgstr "Informação"
 
@@ -535,7 +535,7 @@ msgstr "guardada"
 msgid "Learn more about this tool&hellip;"
 msgstr "Saiba mais sobre esta ferramenta…"
 
-#: euphorie/client/browser/templates/shell.pt:414
+#: euphorie/client/browser/templates/shell.pt:415
 msgid "Loading Risk Assessments&hellip;"
 msgstr ""
 
@@ -1482,7 +1482,7 @@ msgstr "Cancelar"
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:158
 #: euphorie/client/browser/templates/surveys.pt:49
-#: euphorie/client/browser/webhelpers.py:858
+#: euphorie/client/browser/webhelpers.py:859
 msgid "button_close"
 msgstr "Fechar"
 
@@ -2678,6 +2678,11 @@ msgstr "O que é o projeto OiRA (Online Interactive Risk Assessment)"
 msgid "header_why_oira"
 msgstr "Porquê o projeto OiRA"
 
+#. Default: "Browser warning"
+#: euphorie/client/browser/templates/browser-warning.pt:17
+msgid "heading_browser_warning"
+msgstr ""
+
 #. Default: "Comments"
 #: euphorie/client/browser/templates/webhelpers.pt:624
 msgid "heading_comments"
@@ -3008,7 +3013,7 @@ msgstr ""
 "jpg ou gif e que não contém carateres especiais."
 
 #. Default: "Help"
-#: euphorie/client/browser/templates/shell.pt:188
+#: euphorie/client/browser/templates/shell.pt:189
 msgid "help_link"
 msgstr ""
 
@@ -3197,7 +3202,7 @@ msgstr "Se não especificar um título, o mesmo será retirado da entrada."
 
 #. Default: "Home"
 #: euphorie/client/browser/templates/login.pt:284
-#: euphorie/client/browser/templates/shell.pt:134
+#: euphorie/client/browser/templates/shell.pt:135
 msgid "home_link"
 msgstr "Painel de controlo"
 
@@ -3506,7 +3511,7 @@ msgstr "A conta está bloqueada"
 #. Default: "Action Plan"
 #: euphorie/client/browser/templates/login.pt:315
 #: euphorie/client/browser/templates/report_identification.pt:145
-#: euphorie/client/browser/templates/shell.pt:300
+#: euphorie/client/browser/templates/shell.pt:301
 msgid "label_action_plan"
 msgstr "Plano de Ação"
 
@@ -3555,7 +3560,7 @@ msgid "label_alphabetical"
 msgstr "Por ordem alfabética"
 
 #. Default: "Assessment"
-#: euphorie/client/browser/templates/shell.pt:279
+#: euphorie/client/browser/templates/shell.pt:280
 msgid "label_assessment"
 msgstr "Avaliação"
 
@@ -3604,6 +3609,11 @@ msgstr "Código de classificação"
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:15
 msgid "label_clone"
 msgstr "Duplicar a avaliação do risco"
+
+#. Default: "Close this message"
+#: euphorie/client/browser/templates/browser-warning.pt:50
+msgid "label_close_message"
+msgstr ""
 
 #. Default: "Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
 #: euphorie/client/browser/templates/risk_actionplan.pt:119
@@ -3735,7 +3745,7 @@ msgstr "Mostrar uma notificação personalizada para esta ferramenta OiRA?"
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:313
 #: euphorie/client/browser/templates/report_identification.pt:135
-#: euphorie/client/browser/templates/shell.pt:279
+#: euphorie/client/browser/templates/shell.pt:280
 msgid "label_evaluation"
 msgstr "Avaliação"
 
@@ -3761,7 +3771,7 @@ msgid "label_existing_measure"
 msgstr "Medida já executada"
 
 #. Default: "Exit"
-#: euphorie/client/browser/templates/shell.pt:380
+#: euphorie/client/browser/templates/shell.pt:381
 msgid "label_exit"
 msgstr "Sair"
 
@@ -3857,7 +3867,7 @@ msgstr "Realizar a sua avaliação de riscos"
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:311
 #: euphorie/client/browser/templates/report_identification.pt:125
-#: euphorie/client/browser/templates/shell.pt:277
+#: euphorie/client/browser/templates/shell.pt:278
 msgid "label_identification"
 msgstr "Identificação"
 
@@ -3884,7 +3894,7 @@ msgid "label_introduction"
 msgstr "Texto de introdução"
 
 #. Default: "Involve"
-#: euphorie/client/browser/templates/shell.pt:253
+#: euphorie/client/browser/templates/shell.pt:254
 msgid "label_involve"
 msgstr "Envolvimento"
 
@@ -4125,7 +4135,7 @@ msgstr "Coloque novamente a sua palavra-passe"
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:309
 #: euphorie/client/browser/templates/report_identification.pt:113
-#: euphorie/client/browser/templates/shell.pt:233
+#: euphorie/client/browser/templates/shell.pt:234
 msgid "label_preparation"
 msgstr "Preparação"
 
@@ -4214,7 +4224,7 @@ msgstr "Apagar esta medida"
 #. Default: "Report"
 #: euphorie/client/browser/templates/report_identification.pt:155
 #: euphorie/client/browser/templates/report_landing.pt:43
-#: euphorie/client/browser/templates/shell.pt:325
+#: euphorie/client/browser/templates/shell.pt:326
 msgid "label_report"
 msgstr "Relatório"
 
@@ -4453,7 +4463,7 @@ msgid "label_terms_conditions"
 msgstr "Termos e Condições"
 
 #. Default: "Test session"
-#: euphorie/client/browser/templates/shell.pt:164
+#: euphorie/client/browser/templates/shell.pt:165
 msgid "label_testsession"
 msgstr ""
 
@@ -4696,7 +4706,7 @@ msgid "menu_import"
 msgstr "Importar a Ferramenta OiRA "
 
 #. Default: "Training"
-#: euphorie/client/browser/templates/shell.pt:346
+#: euphorie/client/browser/templates/shell.pt:347
 msgid "menu_training"
 msgstr ""
 
@@ -4741,6 +4751,11 @@ msgstr ""
 "incentivar a participação ativa dos trabalhadores e estabelecer um diálogo "
 "entre estes e os quadros de chefia."
 
+#. Default: "You are using an outdated web browser. Because of this you won't have an optimal experience. Please install a newer browser in order to make optimal use of this site."
+#: euphorie/client/browser/templates/browser-warning.pt:31
+msgid "message_lesser_experience_no_javascript"
+msgstr ""
+
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:212
 msgid "message_lock_warn"
@@ -4763,6 +4778,11 @@ msgstr "Não existem setores para este país."
 msgid "message_not_delete_published_sector"
 msgstr ""
 "Não é possível apagar um setor que contenha Ferramentas OiRA publicadas."
+
+#. Default: "You are using an outdated web browser. As a result, the site might not function as expected. Please install a newer browser in order to make optimal use of this site."
+#: euphorie/client/browser/templates/browser-warning.pt:26
+msgid "message_outdated_browser"
+msgstr ""
 
 #. Default: "An email will be sent to ${email} if we can find an account for this email address. Please use the link inside the e-mail to reset your password."
 #: euphorie/client/browser/reset_password.py:173
@@ -4814,7 +4834,7 @@ msgid "module_optional"
 msgstr "Este ${number} é opcional."
 
 #. Default: "More"
-#: euphorie/client/browser/templates/shell.pt:180
+#: euphorie/client/browser/templates/shell.pt:181
 msgid "more_link"
 msgstr ""
 
@@ -4858,7 +4878,7 @@ msgstr "Definições"
 
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:51
-#: euphorie/client/browser/templates/shell.pt:372
+#: euphorie/client/browser/templates/shell.pt:373
 #: euphorie/client/browser/templates/webhelpers.pt:62
 msgid "navigation_status"
 msgstr "Estado"
@@ -5055,7 +5075,7 @@ msgid "probability_small"
 msgstr "Pequena"
 
 #. Default: "${completion_percentage}% Complete"
-#: euphorie/client/browser/webhelpers.py:296
+#: euphorie/client/browser/webhelpers.py:297
 msgid "progress_indicator_title"
 msgstr "${completion_percentage}% Completo"
 
@@ -5522,7 +5542,7 @@ msgid "toc_header"
 msgstr "Conteúdos"
 
 #. Default: "Show/hide menu"
-#: euphorie/client/browser/templates/shell.pt:151
+#: euphorie/client/browser/templates/shell.pt:152
 msgid "tooltip_menu_toggle"
 msgstr "Mostrar/ocultar menu"
 
