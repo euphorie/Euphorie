@@ -63,6 +63,7 @@ setup(
         "repoze.formapi",
         "setuptools",
         "sh",
+        "user_agents",
         "z3c.form",
         "z3c.schema",
         "z3c.saconfig",

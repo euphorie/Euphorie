@@ -40,6 +40,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from six.moves.urllib.parse import urlencode
+from user_agents import parse
 from ZODB.POSException import POSKeyError
 from zope.component import getMultiAdapter
 from zope.component import getUtility
@@ -1053,6 +1054,12 @@ class WebHelpers(BrowserView):
         else:
             query = query.order_by(table.modified.desc(), table.title)
         return query
+
+    @memoize
+    def is_outdated_browser(self):
+        ua_string = self.request.get("HTTP_USER_AGENT", "")
+        ua = parse(ua_string)
+        return ua.browser.family == "IE"
 
     def __call__(self):
         return self
