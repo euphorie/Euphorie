@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0syslab18\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-25 13:32+0000\n"
+"POT-Creation-Date: 2021-11-10 08:05+0000\n"
 "PO-Revision-Date: 2013-10-23 15:53+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -602,7 +602,7 @@ msgstr "Meno"
 msgid "New"
 msgstr ""
 
-#: euphorie/client/browser/templates/profile.pt:76
+#: euphorie/client/browser/templates/profile.pt:75
 #: euphorie/client/browser/templates/updated.pt:67
 #: euphorie/content/browser/templates/survey_view.pt:42
 msgid "No"
@@ -809,7 +809,7 @@ msgstr ""
 "Registrácia vám umožňuje jednoducho sa kedykoľvek prihlásiť a pokračovať v "
 "predchádzajúcich hodnoteniach alebo začať nové hodnotenia."
 
-#: euphorie/client/browser/templates/profile.pt:126
+#: euphorie/client/browser/templates/profile.pt:124
 #: euphorie/client/browser/templates/risk_identification_custom.pt:233
 #: euphorie/client/browser/templates/updated.pt:117
 msgid "Remove"
@@ -1113,7 +1113,7 @@ msgstr "Pre koho je určený nástroj OiRA?"
 msgid "Why do I have to register?"
 msgstr "Prečo sa musím zaregistrovať?"
 
-#: euphorie/client/browser/templates/profile.pt:68
+#: euphorie/client/browser/templates/profile.pt:67
 #: euphorie/client/browser/templates/updated.pt:59
 #: euphorie/content/browser/templates/survey_view.pt:39
 msgid "Yes"

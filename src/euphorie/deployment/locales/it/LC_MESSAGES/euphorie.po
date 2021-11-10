@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-25 13:32+0000\n"
+"POT-Creation-Date: 2021-11-10 08:05+0000\n"
 "PO-Revision-Date: 2013-11-26 11:57+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -618,7 +618,7 @@ msgstr "Nome"
 msgid "New"
 msgstr "Nuova"
 
-#: euphorie/client/browser/templates/profile.pt:76
+#: euphorie/client/browser/templates/profile.pt:75
 #: euphorie/client/browser/templates/updated.pt:67
 #: euphorie/content/browser/templates/survey_view.pt:42
 msgid "No"
@@ -830,7 +830,7 @@ msgstr ""
 "La registrazione permette di accedere in modo semplice, in qualsiasi "
 "momento, per continuare le valutazioni iniziate o per avviarne delle nuove."
 
-#: euphorie/client/browser/templates/profile.pt:126
+#: euphorie/client/browser/templates/profile.pt:124
 #: euphorie/client/browser/templates/risk_identification_custom.pt:233
 #: euphorie/client/browser/templates/updated.pt:117
 msgid "Remove"
@@ -1143,7 +1143,7 @@ msgstr "A cosa serve lo strumento OiRA?"
 msgid "Why do I have to register?"
 msgstr "Perché devo registrarmi?"
 
-#: euphorie/client/browser/templates/profile.pt:68
+#: euphorie/client/browser/templates/profile.pt:67
 #: euphorie/client/browser/templates/updated.pt:59
 #: euphorie/content/browser/templates/survey_view.pt:39
 msgid "Yes"

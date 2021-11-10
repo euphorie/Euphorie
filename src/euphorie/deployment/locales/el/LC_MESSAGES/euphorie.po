@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 2.2\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-25 13:32+0000\n"
+"POT-Creation-Date: 2021-11-10 08:05+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
@@ -203,7 +203,9 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-delete-risk.pt:29
 msgid "Are you sure you want to continue? This action can not be reverted."
-msgstr "Είστε βέβαιοι ότι θέλετε να συνεχίσετε; Αυτή η ενέργεια δεν μπορεί να αναστραφεί."
+msgstr ""
+"Είστε βέβαιοι ότι θέλετε να συνεχίσετε; Αυτή η ενέργεια δεν μπορεί να "
+"αναστραφεί."
 
 #: euphorie/client/browser/risk.py:55
 msgid ""
@@ -641,7 +643,7 @@ msgstr "Όνομα"
 msgid "New"
 msgstr "Νέα Εκτίμηση Κινδύνου"
 
-#: euphorie/client/browser/templates/profile.pt:76
+#: euphorie/client/browser/templates/profile.pt:75
 #: euphorie/client/browser/templates/updated.pt:67
 #: euphorie/content/browser/templates/survey_view.pt:42
 msgid "No"
@@ -862,7 +864,7 @@ msgstr ""
 "Η εγγραφή αυτή σας επιτρέπει να συνδέεστε οποιαδήποτε στιγμή για να "
 "συνεχίσετε προηγούμενες Εκτιμήσεις Κινδύνου ή για να ξεκινήσετε νέες."
 
-#: euphorie/client/browser/templates/profile.pt:126
+#: euphorie/client/browser/templates/profile.pt:124
 #: euphorie/client/browser/templates/risk_identification_custom.pt:233
 #: euphorie/client/browser/templates/updated.pt:117
 msgid "Remove"
@@ -1176,7 +1178,7 @@ msgstr "Για ποιους προορίζεται το εργαλείο OiRA"
 msgid "Why do I have to register?"
 msgstr "Γιατί πρέπει να εγγραφώ ως χρήστης του εργαλείου OiRA;"
 
-#: euphorie/client/browser/templates/profile.pt:68
+#: euphorie/client/browser/templates/profile.pt:67
 #: euphorie/client/browser/templates/updated.pt:59
 #: euphorie/content/browser/templates/survey_view.pt:39
 msgid "Yes"
@@ -1665,7 +1667,13 @@ msgstr "από"
 #. Default: "Thank you for using OiRA. Before we go to the report we would kindly like to ask you to give us some feedback via the survey below. This information is meant to improve the tools and the services provided. <strong>This data will not appear in your reports.</strong>"
 #: euphorie/client/browser/templates/report_company.pt:38
 msgid "company_report_intro"
-msgstr "Σας ευχαριστούμε που χρησιμοποιείτε τα εργαλεία OiRA. Πριν αποκτήσετε πρόσβαση στην τελική έκθεση (Μελέτη Εκτίμησης Κινδύνου), θα θέλαμε να σας ζητήσουμε ορισμένες πληροφορίες μέσω του ερωτηματολογίου που ακολουθεί. <strong>Αυτές οι πληροφορίες δεν πρόκειται να εμφανίζονται στο κείμενο της τελικής έκθεσης.</strong> Αξιοποιούνται αποκλειστικά για τη βελτίωση των εργαλείων και των παρεχόμενων υπηρεσιών."
+msgstr ""
+"Σας ευχαριστούμε που χρησιμοποιείτε τα εργαλεία OiRA. Πριν αποκτήσετε "
+"πρόσβαση στην τελική έκθεση (Μελέτη Εκτίμησης Κινδύνου), θα θέλαμε να σας "
+"ζητήσουμε ορισμένες πληροφορίες μέσω του ερωτηματολογίου που ακολουθεί. "
+"<strong>Αυτές οι πληροφορίες δεν πρόκειται να εμφανίζονται στο κείμενο της "
+"τελικής έκθεσης.</strong> Αξιοποιούνται αποκλειστικά για τη βελτίωση των "
+"εργαλείων και των παρεχόμενων υπηρεσιών."
 
 #. Default: "Conservation and processing of information"
 #: euphorie/client/browser/templates/conditions-bare.pt:81
@@ -2131,7 +2139,10 @@ msgstr "Οι κωδικοί πρόσβασης δεν είναι ίδιοι"
 #. Default: "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
 #: euphorie/client/browser/login.py:114
 msgid "error_password_policy_violation"
-msgstr "Ο κωδικός πρόσβασης πρέπει να αποτελείται από  τουλάχιστον 12 χαρακτήρες και να περιλαμβάνει τουλάχιστον ένα κεφαλαίο γράμμα, ένα πεζό γράμμα και ένα αριθμητικό ψηφίο."
+msgstr ""
+"Ο κωδικός πρόσβασης πρέπει να αποτελείται από  τουλάχιστον 12 χαρακτήρες και "
+"να περιλαμβάνει τουλάχιστον ένα κεφαλαίο γράμμα, ένα πεζό γράμμα και ένα "
+"αριθμητικό ψηφίο."
 
 #. Default: "An accout can only be created for you if you accept the terms and conditions."
 #: euphorie/client/browser/login.py:147
@@ -3170,7 +3181,10 @@ msgstr ""
 #: euphorie/client/browser/templates/login.pt:205
 #: euphorie/client/browser/templates/register_session.pt:186
 msgid "help_password_requirements"
-msgstr "Ο κωδικός πρόσβασης πρέπει να αποτελείται από  τουλάχιστον 12 χαρακτήρες και να περιλαμβάνει τουλάχιστον ένα κεφαλαίο γράμμα, ένα πεζό γράμμα και ένα αριθμητικό ψηφίο."
+msgstr ""
+"Ο κωδικός πρόσβασης πρέπει να αποτελείται από  τουλάχιστον 12 χαρακτήρες και "
+"να περιλαμβάνει τουλάχιστον ένα κεφαλαίο γράμμα, ένα πεζό γράμμα και ένα "
+"αριθμητικό ψηφίο."
 
 #. Default: "This text should explain the 2 types of profile questions."
 #: euphorie/content/help.py:53
@@ -3346,7 +3360,13 @@ msgstr ""
 #. Default: "The risk assessment browser allows you to find risk assessments that were previously made by you. Start a new risk assessment by clicking on the &lsquo;+&rsquo; or make a copy of an existing risk assessment by clicking on the tripple dot symbol next to a risk assessment and select &lsquo;clone&rsquo; ."
 #: euphorie/client/browser/templates/tooltips.pt:110
 msgid "info_osh_ra_browser"
-msgstr "Ο κατάλογος Μελετών Εκτίμησης Κινδύνου σας επιτρέπει να έχετε πρόσβαση στις μελέτες που είχαν εκπονηθεί από εσάς στο παρελθόν. Ξεκινήστε μια νέα Μελέτη Εκτίμησης Κινδύνου κάνοντας κλικ στο &lsquo;+&rsquo; ή δημιουργήστε ένα πιστό αντίγραφο μιας υπάρχουσας  Μελέτης Εκτίμησης  Κινδύνου κάνοντας κλικ στο σύμβολο της τριπλής κουκκίδας δίπλα στο όνομα της μελέτης που σας ενδιαφέρει.  Στη συνέχεια, επιλέξτε &lsquo;Πιστό αντίγραφο (κλώνος)&rsquo;."
+msgstr ""
+"Ο κατάλογος Μελετών Εκτίμησης Κινδύνου σας επιτρέπει να έχετε πρόσβαση στις "
+"μελέτες που είχαν εκπονηθεί από εσάς στο παρελθόν. Ξεκινήστε μια νέα Μελέτη "
+"Εκτίμησης Κινδύνου κάνοντας κλικ στο &lsquo;+&rsquo; ή δημιουργήστε ένα "
+"πιστό αντίγραφο μιας υπάρχουσας  Μελέτης Εκτίμησης  Κινδύνου κάνοντας κλικ "
+"στο σύμβολο της τριπλής κουκκίδας δίπλα στο όνομα της μελέτης που σας "
+"ενδιαφέρει.  Στη συνέχεια, επιλέξτε &lsquo;Πιστό αντίγραφο (κλώνος)&rsquo;."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
 #: euphorie/client/browser/templates/tooltips.pt:89
@@ -3360,7 +3380,13 @@ msgstr ""
 #. Default: "This menu lets you navigate over all steps of your risk assessment. When you enter <em>Identification + Evaluation</em> or <em>Action Plan</em>, you will see the modules and risks of this assessment as sub-navigation. Using the navigation, you can jump back and forth over all parts of the tool at will."
 #: euphorie/client/browser/templates/tooltips.pt:98
 msgid "info_osh_tool_navigation"
-msgstr "Αυτό το μενού σάς επιτρέπει να πλοηγηθείτε σε όλα τα βήματα της Μελέτης Εκτίμησης Κινδύνου. Όταν επιλέγετε <em>Αναγνώριση + Αξιολόγηση</em> ή <em>Σχέδιο Δράσης</em>, θα μπορείτε να έχετε πρόσβαση σε ένα υπο-μενού με τις θεματικές ενότητες και τους κινδύνους. Χρησιμοποιώντας αυτή τη δυνατότητα πλοήγησης, μπορείτε να μετακινείστε κάθε φορά όπως εσείς επιθυμείτε, μπροστά ή πίσω, σε όλα τα μέρη του εργαλείου."
+msgstr ""
+"Αυτό το μενού σάς επιτρέπει να πλοηγηθείτε σε όλα τα βήματα της Μελέτης "
+"Εκτίμησης Κινδύνου. Όταν επιλέγετε <em>Αναγνώριση + Αξιολόγηση</em> ή "
+"<em>Σχέδιο Δράσης</em>, θα μπορείτε να έχετε πρόσβαση σε ένα υπο-μενού με "
+"τις θεματικές ενότητες και τους κινδύνους. Χρησιμοποιώντας αυτή τη "
+"δυνατότητα πλοήγησης, μπορείτε να μετακινείστε κάθε φορά όπως εσείς "
+"επιθυμείτε, μπροστά ή πίσω, σε όλα τα μέρη του εργαλείου."
 
 #. Default: "The European Agency for Safety and Health at Work, European social partners, etc."
 #: euphorie/client/browser/templates/report_company.pt:164
@@ -4899,7 +4925,11 @@ msgstr ""
 #. Default: "An email will be sent to ${email} if we can find an account for this email address. Please use the link inside the e-mail to reset your password."
 #: euphorie/client/browser/reset_password.py:173
 msgid "message_password_recovery_email_sent"
-msgstr "Αν εντοπισθεί ότι υπάρχει ήδη λογαριασμός  με αυτή τη διεύθυνση ηλεκτρονικού ταχυδρομείου, θα  σταλεί ένα  μήνυμα στο ${email}. Ο κωδικός πρόσβασης μπορεί να οριστεί εκ νέου, χρησιμοποιώντας τον ηλεκτρονικό σύνδεσμο που θα περιέχεται σε αυτό το μήνυμα."
+msgstr ""
+"Αν εντοπισθεί ότι υπάρχει ήδη λογαριασμός  με αυτή τη διεύθυνση ηλεκτρονικού "
+"ταχυδρομείου, θα  σταλεί ένα  μήνυμα στο ${email}. Ο κωδικός πρόσβασης "
+"μπορεί να οριστεί εκ νέου, χρησιμοποιώντας τον ηλεκτρονικό σύνδεσμο που θα "
+"περιέχεται σε αυτό το μήνυμα."
 
 #. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:368
@@ -5117,7 +5147,10 @@ msgstr ""
 #. Default: "This comment will be visible in the report. Use it for anything else you might want to write about this risk."
 #: euphorie/client/browser/templates/webhelpers.pt:634
 msgid "placeholder_comment_field"
-msgstr "Αυτό το σχόλιο θα εμφανίζεται στην τελική έκθεση (Μελέτη Εκτίμησης Κινδύνου). Χρησιμοποιήστε αυτό το πεδίο  για να καταγράψετε οτιδήποτε άλλο επιθυμείτε για αυτόν τον κίνδυνο."
+msgstr ""
+"Αυτό το σχόλιο θα εμφανίζεται στην τελική έκθεση (Μελέτη Εκτίμησης "
+"Κινδύνου). Χρησιμοποιήστε αυτό το πεδίο  για να καταγράψετε οτιδήποτε άλλο "
+"επιθυμείτε για αυτόν τον κίνδυνο."
 
 #. Default: "Provide some further information on this risk."
 #: euphorie/client/browser/templates/risk_identification_custom.pt:252
@@ -5543,7 +5576,8 @@ msgstr "${link_register} εκτέλεση της κανονικής έκδοση
 #. Default: "${link_test_session} if you only want to taste OiRA."
 #: euphorie/client/browser/templates/login.pt:356
 msgid "text_test_session"
-msgstr "{link_test_session} εκτέλεση της δοκιμαστικής έκδοσης του εργαλείου OiRA"
+msgstr ""
+"{link_test_session} εκτέλεση της δοκιμαστικής έκδοσης του εργαλείου OiRA"
 
 #. Default: "About"
 #: euphorie/client/browser/templates/about.pt:24

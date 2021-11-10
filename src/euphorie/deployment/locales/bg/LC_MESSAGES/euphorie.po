@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0.2dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-25 13:32+0000\n"
+"POT-Creation-Date: 2021-11-10 08:05+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: bg <LL@li.org>\n"
@@ -619,7 +619,7 @@ msgstr "Име"
 msgid "New"
 msgstr "Нова"
 
-#: euphorie/client/browser/templates/profile.pt:76
+#: euphorie/client/browser/templates/profile.pt:75
 #: euphorie/client/browser/templates/updated.pt:67
 #: euphorie/content/browser/templates/survey_view.pt:42
 msgid "No"
@@ -832,7 +832,7 @@ msgstr ""
 "Регистрацията Ви предоставя достъп до Вашия профил по всяко време, за да "
 "можете да продължите предишни оценки или да започнете нови."
 
-#: euphorie/client/browser/templates/profile.pt:126
+#: euphorie/client/browser/templates/profile.pt:124
 #: euphorie/client/browser/templates/risk_identification_custom.pt:233
 #: euphorie/client/browser/templates/updated.pt:117
 msgid "Remove"
@@ -1138,7 +1138,7 @@ msgstr "За кого е предназначен инструментът OiRA?
 msgid "Why do I have to register?"
 msgstr "Защо да се регистрирам?"
 
-#: euphorie/client/browser/templates/profile.pt:68
+#: euphorie/client/browser/templates/profile.pt:67
 #: euphorie/client/browser/templates/updated.pt:59
 #: euphorie/content/browser/templates/survey_view.pt:39
 msgid "Yes"
@@ -5021,7 +5021,9 @@ msgstr ""
 #. Default: "This comment will be visible in the report. Use it for anything else you might want to write about this risk."
 #: euphorie/client/browser/templates/webhelpers.pt:634
 msgid "placeholder_comment_field"
-msgstr "Този коментар ще бъде видим в доклада. Използвайте го за всяка информация, която искате да добавите за този риск."
+msgstr ""
+"Този коментар ще бъде видим в доклада. Използвайте го за всяка информация, "
+"която искате да добавите за този риск."
 
 #. Default: "Provide some further information on this risk."
 #: euphorie/client/browser/templates/risk_identification_custom.pt:252

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-25 13:32+0000\n"
+"POT-Creation-Date: 2021-11-10 08:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -609,7 +609,7 @@ msgstr "Naziv"
 msgid "New"
 msgstr "Nova"
 
-#: euphorie/client/browser/templates/profile.pt:76
+#: euphorie/client/browser/templates/profile.pt:75
 #: euphorie/client/browser/templates/updated.pt:67
 #: euphorie/content/browser/templates/survey_view.pt:42
 msgid "No"
@@ -817,7 +817,7 @@ msgstr ""
 "Registracija vam omogućava jednostavnu prijavu u bilo koje doba, radi "
 "nastavka prethodne procjene ili pokretanja nove."
 
-#: euphorie/client/browser/templates/profile.pt:126
+#: euphorie/client/browser/templates/profile.pt:124
 #: euphorie/client/browser/templates/risk_identification_custom.pt:233
 #: euphorie/client/browser/templates/updated.pt:117
 msgid "Remove"
@@ -1128,7 +1128,7 @@ msgstr "Kome je OiRA alat namijenjen?"
 msgid "Why do I have to register?"
 msgstr "Zašto se moram registrirati?"
 
-#: euphorie/client/browser/templates/profile.pt:68
+#: euphorie/client/browser/templates/profile.pt:67
 #: euphorie/client/browser/templates/updated.pt:59
 #: euphorie/content/browser/templates/survey_view.pt:39
 msgid "Yes"
@@ -1597,7 +1597,11 @@ msgstr "od"
 #. Default: "Thank you for using OiRA. Before we go to the report we would kindly like to ask you to give us some feedback via the survey below. This information is meant to improve the tools and the services provided. <strong>This data will not appear in your reports.</strong>"
 #: euphorie/client/browser/templates/report_company.pt:38
 msgid "company_report_intro"
-msgstr "Hvala vam što koristite OiRA. Prije nego što prijeđemo na izvješće, ljubazno vas molimo da nam date povratne informacije putem ankete u nastavku. Ove informacije imaju za cilj poboljšati alate i pružene usluge. <strong>Ti se podaci neće pojaviti u vašim izvješćima.</strong>"
+msgstr ""
+"Hvala vam što koristite OiRA. Prije nego što prijeđemo na izvješće, ljubazno "
+"vas molimo da nam date povratne informacije putem ankete u nastavku. Ove "
+"informacije imaju za cilj poboljšati alate i pružene usluge. <strong>Ti se "
+"podaci neće pojaviti u vašim izvješćima.</strong>"
 
 #. Default: "Conservation and processing of information"
 #: euphorie/client/browser/templates/conditions-bare.pt:81
@@ -2060,7 +2064,9 @@ msgstr "Lozinke se ne podudaraju"
 #. Default: "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
 #: euphorie/client/browser/login.py:114
 msgid "error_password_policy_violation"
-msgstr "Zaporka mora imati najmanje 12 znakova i mora sadržavati najmanje jedno malo slovo, jedno veliko slovo i jednu znamenku."
+msgstr ""
+"Zaporka mora imati najmanje 12 znakova i mora sadržavati najmanje jedno malo "
+"slovo, jedno veliko slovo i jednu znamenku."
 
 #. Default: "An accout can only be created for you if you accept the terms and conditions."
 #: euphorie/client/browser/login.py:147
@@ -3070,7 +3076,9 @@ msgstr ""
 #: euphorie/client/browser/templates/login.pt:205
 #: euphorie/client/browser/templates/register_session.pt:186
 msgid "help_password_requirements"
-msgstr "Zaporka mora imati najmanje 12 znakova i mora sadržavati najmanje jedno malo slovo, jedno veliko slovo i jednu znamenku."
+msgstr ""
+"Zaporka mora imati najmanje 12 znakova i mora sadržavati najmanje jedno malo "
+"slovo, jedno veliko slovo i jednu znamenku."
 
 #. Default: "This text should explain the 2 types of profile questions."
 #: euphorie/content/help.py:53
@@ -4756,7 +4764,10 @@ msgstr "Ne možete izbristi sektor koji sadrži objavljene OiRA alate."
 #. Default: "An email will be sent to ${email} if we can find an account for this email address. Please use the link inside the e-mail to reset your password."
 #: euphorie/client/browser/reset_password.py:173
 msgid "message_password_recovery_email_sent"
-msgstr "e-mail poruka će biti poslana na ${email} ako uspijemo pronaći račun za ovu adresu e -pošte. Molimo koristite vezu unutar e-pošte za poništavanje lozinke."
+msgstr ""
+"e-mail poruka će biti poslana na ${email} ako uspijemo pronaći račun za ovu "
+"adresu e -pošte. Molimo koristite vezu unutar e-pošte za poništavanje "
+"lozinke."
 
 #. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:368
@@ -4972,7 +4983,9 @@ msgstr ""
 #. Default: "This comment will be visible in the report. Use it for anything else you might want to write about this risk."
 #: euphorie/client/browser/templates/webhelpers.pt:634
 msgid "placeholder_comment_field"
-msgstr "Komentar će biti vidljiv u izvješću. Koristite ga za bilo što drugo što biste mogli pisati o ovom riziku."
+msgstr ""
+"Komentar će biti vidljiv u izvješću. Koristite ga za bilo što drugo što "
+"biste mogli pisati o ovom riziku."
 
 #. Default: "Provide some further information on this risk."
 #: euphorie/client/browser/templates/risk_identification_custom.pt:252

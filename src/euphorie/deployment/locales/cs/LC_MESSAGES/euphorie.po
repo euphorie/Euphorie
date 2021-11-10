@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 3.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-25 13:32+0000\n"
+"POT-Creation-Date: 2021-11-10 08:05+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -602,7 +602,7 @@ msgstr "Jméno"
 msgid "New"
 msgstr "Nová"
 
-#: euphorie/client/browser/templates/profile.pt:76
+#: euphorie/client/browser/templates/profile.pt:75
 #: euphorie/client/browser/templates/updated.pt:67
 #: euphorie/content/browser/templates/survey_view.pt:42
 msgid "No"
@@ -814,7 +814,7 @@ msgstr ""
 "Je možné také vytisknout dokumentaci o prevenci rizik – zprávu, akční plán a "
 "přehled rizik."
 
-#: euphorie/client/browser/templates/profile.pt:126
+#: euphorie/client/browser/templates/profile.pt:124
 #: euphorie/client/browser/templates/risk_identification_custom.pt:233
 #: euphorie/client/browser/templates/updated.pt:117
 msgid "Remove"
@@ -1116,7 +1116,7 @@ msgstr "Pro koho je OiRA určena?"
 msgid "Why do I have to register?"
 msgstr "Proč je nutná registrace?"
 
-#: euphorie/client/browser/templates/profile.pt:68
+#: euphorie/client/browser/templates/profile.pt:67
 #: euphorie/client/browser/templates/updated.pt:59
 #: euphorie/content/browser/templates/survey_view.pt:39
 msgid "Yes"
@@ -1560,7 +1560,11 @@ msgstr "-"
 #. Default: "Thank you for using OiRA. Before we go to the report we would kindly like to ask you to give us some feedback via the survey below. This information is meant to improve the tools and the services provided. <strong>This data will not appear in your reports.</strong>"
 #: euphorie/client/browser/templates/report_company.pt:38
 msgid "company_report_intro"
-msgstr "Děkujeme, že používáte systém OiRA. Než přejdeme ke zprávě, rádi bychom vás požádali o zpětnou vazbu prostřednictvím níže uvedeného dotazníku. Tyto informace mají sloužit ke zlepšení nástrojů a poskytovaných služeb. <strong>Tyto údaje se ve vašich výkazech nezobrazí.</strong>"
+msgstr ""
+"Děkujeme, že používáte systém OiRA. Než přejdeme ke zprávě, rádi bychom vás "
+"požádali o zpětnou vazbu prostřednictvím níže uvedeného dotazníku. Tyto "
+"informace mají sloužit ke zlepšení nástrojů a poskytovaných služeb. "
+"<strong>Tyto údaje se ve vašich výkazech nezobrazí.</strong>"
 
 #. Default: "Conservation and processing of information"
 #: euphorie/client/browser/templates/conditions-bare.pt:81
@@ -2004,7 +2008,9 @@ msgstr "Hesla se neshodují"
 #. Default: "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
 #: euphorie/client/browser/login.py:114
 msgid "error_password_policy_violation"
-msgstr "Heslo musí mít alespoň 12 znaků a musí obsahovat alespoň jedno malé písmeno, jedno velké písmeno a jednu číslici."
+msgstr ""
+"Heslo musí mít alespoň 12 znaků a musí obsahovat alespoň jedno malé písmeno, "
+"jedno velké písmeno a jednu číslici."
 
 #. Default: "An accout can only be created for you if you accept the terms and conditions."
 #: euphorie/client/browser/login.py:147
@@ -2997,7 +3003,9 @@ msgstr ""
 #: euphorie/client/browser/templates/login.pt:205
 #: euphorie/client/browser/templates/register_session.pt:186
 msgid "help_password_requirements"
-msgstr "Heslo musí mít alespoň 12 znaků a musí obsahovat alespoň jedno malé písmeno, jedno velké písmeno a jednu číslici."
+msgstr ""
+"Heslo musí mít alespoň 12 znaků a musí obsahovat alespoň jedno malé písmeno, "
+"jedno velké písmeno a jednu číslici."
 
 #. Default: "This text should explain the 2 types of profile questions."
 #: euphorie/content/help.py:53
@@ -3156,7 +3164,12 @@ msgstr ""
 #. Default: "The risk assessment browser allows you to find risk assessments that were previously made by you. Start a new risk assessment by clicking on the &lsquo;+&rsquo; or make a copy of an existing risk assessment by clicking on the tripple dot symbol next to a risk assessment and select &lsquo;clone&rsquo; ."
 #: euphorie/client/browser/templates/tooltips.pt:110
 msgid "info_osh_ra_browser"
-msgstr "Seznam provedených hodnocení rizik umožňuje vyhledat hodnocení rizik, která jste již dříve provedli. Nové hodnocení rizik zahájíte kliknutím na &lsquo;+&rsquo; nebo vytvořte kopii stávajícího hodnocení rizik kliknutím na symbol trojtečky (…) vedle hodnocení rizik a výběrem možnosti &lsquo;kopírovat&rsquo;."
+msgstr ""
+"Seznam provedených hodnocení rizik umožňuje vyhledat hodnocení rizik, která "
+"jste již dříve provedli. Nové hodnocení rizik zahájíte kliknutím na &lsquo;"
+"+&rsquo; nebo vytvořte kopii stávajícího hodnocení rizik kliknutím na symbol "
+"trojtečky (…) vedle hodnocení rizik a výběrem možnosti &lsquo;"
+"kopírovat&rsquo;."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
 #: euphorie/client/browser/templates/tooltips.pt:89
@@ -3169,7 +3182,11 @@ msgstr ""
 #. Default: "This menu lets you navigate over all steps of your risk assessment. When you enter <em>Identification + Evaluation</em> or <em>Action Plan</em>, you will see the modules and risks of this assessment as sub-navigation. Using the navigation, you can jump back and forth over all parts of the tool at will."
 #: euphorie/client/browser/templates/tooltips.pt:98
 msgid "info_osh_tool_navigation"
-msgstr "Tato nabídka umožňuje procházet všechny kroky nástroje pro hodnocení rizik. Po zadání <em>Identifikace + Hodnocení</em> nebo <em>Akční plán</em> se zobrazí jejich obsah. Pomocí navigace můžete libovolně procházet všechny části nástroje."
+msgstr ""
+"Tato nabídka umožňuje procházet všechny kroky nástroje pro hodnocení rizik. "
+"Po zadání <em>Identifikace + Hodnocení</em> nebo <em>Akční plán</em> se "
+"zobrazí jejich obsah. Pomocí navigace můžete libovolně procházet všechny "
+"části nástroje."
 
 #. Default: "The European Agency for Safety and Health at Work, European social partners, etc."
 #: euphorie/client/browser/templates/report_company.pt:164
@@ -4660,7 +4677,9 @@ msgstr ""
 #. Default: "An email will be sent to ${email} if we can find an account for this email address. Please use the link inside the e-mail to reset your password."
 #: euphorie/client/browser/reset_password.py:173
 msgid "message_password_recovery_email_sent"
-msgstr "Na adresu ${email} bude zaslán e-mail, pokud existuje účet pro tuto e-mailovou adresu. Pro obnovení hesla použijte odkaz v e-mailu."
+msgstr ""
+"Na adresu ${email} bude zaslán e-mail, pokud existuje účet pro tuto e-"
+"mailovou adresu. Pro obnovení hesla použijte odkaz v e-mailu."
 
 #. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:368
@@ -4873,7 +4892,9 @@ msgstr ""
 #. Default: "This comment will be visible in the report. Use it for anything else you might want to write about this risk."
 #: euphorie/client/browser/templates/webhelpers.pt:634
 msgid "placeholder_comment_field"
-msgstr "Tento komentář bude zobrazen v závěrečné zprávě. Použijte jej jako poznámku k hodnocení rizika."
+msgstr ""
+"Tento komentář bude zobrazen v závěrečné zprávě. Použijte jej jako poznámku "
+"k hodnocení rizika."
 
 #. Default: "Provide some further information on this risk."
 #: euphorie/client/browser/templates/risk_identification_custom.pt:252

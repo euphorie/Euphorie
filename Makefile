@@ -12,7 +12,7 @@ clean::
 	-rm ${TARGETS}
 
 bin/buildout:
-	python3.8 -m venv .
+	python3.7 -m venv .
 	bin/pip install -r requirements.txt
 
 bin/i18ndude bin/test bin/sphinx-build: bin/buildout buildout.cfg versions.cfg devel.cfg setup.py
