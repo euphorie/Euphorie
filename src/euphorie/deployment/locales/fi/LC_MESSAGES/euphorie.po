@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-11-10 11:47+0000\n"
+"POT-Creation-Date: 2021-11-10 15:44+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 
 #: euphorie/client/browser/templates/login.pt:315
-#: euphorie/client/browser/templates/login.pt:110
 msgid ""
 "${action-plan} In the fourth stage of the assessment you can decide what "
 "steps you will take to address the risks you have identified previously and "
@@ -38,7 +37,6 @@ msgstr ""
 "sekä riskien hallintatoimista."
 
 #: euphorie/client/browser/templates/login.pt:313
-#: euphorie/client/browser/templates/login.pt:108
 msgid ""
 "${evaluation} Here you will be able to determine the level of risk attached "
 "to each of the items you identified as 'need to be addressed' in the "
@@ -49,7 +47,6 @@ msgstr ""
 "hallintatoimet turvallisuuden kannalta merkityksellisimpiin tekijöihin."
 
 #: euphorie/client/browser/templates/login.pt:311
-#: euphorie/client/browser/templates/login.pt:106
 msgid ""
 "${identification} OiRA will present a series of potential health and safety "
 "hazards or problems that could exist in your workplace. By answering the "
@@ -64,7 +61,6 @@ msgstr ""
 "palata vastaamaan niihin myöhemmin."
 
 #: euphorie/client/browser/templates/report_landing.pt:87
-#: euphorie/client/browser/templates/report_landing.pt:127
 msgid ""
 "${manage} the problems/risks in your workplace (specific tasks, expertise, "
 "responsibilities, deadlines)."
@@ -74,7 +70,6 @@ msgstr ""
 "budjetti)."
 
 #: euphorie/client/browser/templates/login.pt:309
-#: euphorie/client/browser/templates/login.pt:104
 msgid ""
 "${preparation} This gives you an overview of the particular assessment you "
 "are about to begin and can allow you to further customise the assessment to "
@@ -85,7 +80,6 @@ msgstr ""
 "henkilöistä ja henkilöstön osallistumisesta."
 
 #: euphorie/client/browser/templates/report_landing.pt:59
-#: euphorie/client/browser/templates/report_landing.pt:97
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
 msgstr "${provide-evidence} työsuojeluviranomaisille (työsuojelutarkastus)."
 
@@ -160,7 +154,6 @@ msgid "Added a copy of \"${title}\" to your OiRA tool."
 msgstr ""
 
 #: euphorie/client/browser/templates/webhelpers.pt:849
-#: euphorie/client/browser/templates/webhelpers.pt:846
 msgid "Additional Measure"
 msgstr "Lisätoimenpide"
 
@@ -172,22 +165,19 @@ msgstr "Kaikki maat"
 msgid "All languages"
 msgstr "Kaikki kieliversiot"
 
-#: euphorie/client/browser/login.py:190
+#: euphorie/client/browser/login.py:193
 msgid "An account was created for you with email address ${email}"
 msgstr ""
 
 #: euphorie/client/browser/settings.py:209
-#: euphorie/client/browser/settings.py:201
 msgid "An error occured while sending the confirmation email."
 msgstr "Virhe vahvistusviestin lähetyksessä."
 
 #: euphorie/client/browser/reset_password.py:110
-#: euphorie/client/browser/reset_password.py:106
 msgid "An error occured while sending the password reset instructions"
 msgstr ""
 
 #: euphorie/client/browser/templates/more_menu.pt:34
-#: euphorie/client/browser/templates/more_menu.pt:31
 msgid "Archive"
 msgstr ""
 
@@ -226,7 +216,6 @@ msgstr "Saatavilla olevat OiRA-työkalut"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:34
 #: euphorie/client/browser/templates/sessions-dashboard.pt:128
-#: euphorie/client/browser/templates/sessions-dashboard.pt:63
 msgid "Back"
 msgstr ""
 
@@ -236,7 +225,6 @@ msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:25
 #: euphorie/client/browser/templates/more_menu.pt:42
-#: euphorie/client/browser/templates/more_menu.pt:38
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
@@ -248,7 +236,6 @@ msgstr ""
 #: euphorie/client/browser/reset_password.py:194
 #: euphorie/client/browser/templates/account-delete.pt:45
 #: euphorie/client/browser/templates/account-settings.pt:49
-#: euphorie/client/browser/reset_password.py:186
 msgid "Cancel"
 msgstr "Peruuta"
 
@@ -261,7 +248,6 @@ msgid "Candidate country"
 msgstr "Ehdokasvaltio"
 
 #: euphorie/client/browser/templates/user-menu.pt:39
-#: euphorie/client/browser/templates/user-menu.pt:52
 msgid "Change email address"
 msgstr "Vaihda sähköpostiosoite"
 
@@ -288,12 +274,10 @@ msgid "Comments"
 msgstr ""
 
 #: euphorie/client/browser/settings.py:234
-#: euphorie/client/browser/settings.py:226
 msgid "Confirm OiRA email address change"
 msgstr "Vahvista OiRA-sähköpostiosoitteen muutos"
 
 #: euphorie/client/browser/templates/report_landing.pt:54
-#: euphorie/client/browser/templates/report_landing.pt:92
 msgid ""
 "Contains: all the information and input provided by you throughout the risk "
 "assessment process."
@@ -301,33 +285,27 @@ msgstr ""
 "Sisältää kaikki tiedot, jotka olet antanut riskinarviointiprosessin aikana."
 
 #: euphorie/client/browser/templates/report_landing.pt:144
-#: euphorie/client/browser/templates/report_landing.pt:186
 msgid "Contains: an overview of the measures to be implemented."
 msgstr "Sisältö: yhteenveto toteutettavista toimenpiteistä."
 
 #: euphorie/client/browser/templates/report_landing.pt:114
-#: euphorie/client/browser/templates/report_landing.pt:156
 msgid "Contains: an overview of the risks identified"
 msgstr "Sisältö: yhteenveto riskeistä."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
-#: euphorie/client/browser/templates/report_landing.pt:122
 msgid ""
 "Contains: main elements to effectively manage the risks at your workplace."
 msgstr "Sisältö: keskeiset tekijät työpaikan riskien tehokkaaseen hallintaan."
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:67
-#: euphorie/client/browser/templates/module_identification_custom.pt:62
 msgid "Continue to action plan"
 msgstr "Jatka toimintasuunnitelmaan"
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:65
-#: euphorie/client/browser/templates/module_identification_custom.pt:60
 msgid "Continue to report"
 msgstr "Jatka raporttiin"
 
 #: euphorie/client/browser/templates/surveys.pt:54
-#: euphorie/content/profiles/default/types/euphorie.country.xml
 msgid "Country"
 msgstr "Maa"
 
@@ -350,8 +328,6 @@ msgstr "Muut tunnistetut riskitekijät"
 #: euphorie/client/browser/settings.py:150
 #: euphorie/client/browser/templates/account-delete.pt:40
 #: euphorie/client/browser/templates/user-menu.pt:45
-#: euphorie/client/browser/settings.py:142
-#: euphorie/client/browser/templates/user-menu.pt:58
 msgid "Delete account"
 msgstr "Poista tili"
 
@@ -360,7 +336,6 @@ msgid "Delete custom risk"
 msgstr "Poista lisätty riskitekijä"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:35
-#: euphorie/client/browser/templates/risk_identification_custom.pt:32
 msgid "Delete risk"
 msgstr ""
 
@@ -369,27 +344,22 @@ msgid "Delete risk assessment"
 msgstr "Poista riskinarviointi"
 
 #: euphorie/client/browser/templates/more_menu.pt:25
-#: euphorie/client/browser/templates/more_menu.pt:23
 msgid "Delete this session"
 msgstr "Poista tämä riskinarviointi"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:51
-#: euphorie/client/browser/templates/risk_identification_custom.pt:47
 msgid "Describe the risk..."
 msgstr "Kuvaile riski…"
 
 #: euphorie/client/browser/templates/report_landing.pt:176
-#: euphorie/client/browser/templates/report_landing.pt:26
 msgid "Did you like this tool? Share it with your colleagues and friends!"
 msgstr "Piditkö tästä työkalusta? Jaa se työtovereillesi ja kavereillesi!"
 
 #: euphorie/client/browser/templates/login.pt:339
-#: euphorie/client/browser/templates/login.pt:129
 msgid "Do I need to prepare?"
 msgstr "Miten valmistaudun?"
 
 #: euphorie/client/browser/session.py:391
-#: euphorie/client/browser/session.py:390
 msgid "Does this happen in multiple places?"
 msgstr "Tapahtuuko tätä useammassa paikassa?"
 
@@ -399,8 +369,6 @@ msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:190
 #: euphorie/client/browser/templates/start.pt:161
-#: euphorie/client/browser/templates/report_landing.pt:40
-#: euphorie/client/browser/templates/start.pt:171
 msgid "E-mail"
 msgstr "Sähköposti"
 
@@ -429,12 +397,10 @@ msgid "Email address/account name"
 msgstr "Sähköpostiosoite/tilinimi"
 
 #: euphorie/client/browser/session.py:396
-#: euphorie/client/browser/session.py:395
 msgid "Enter the name of the location"
 msgstr "Esitä sijaintipaikan nimi"
 
 #: euphorie/client/browser/session.py:401
-#: euphorie/client/browser/session.py:400
 msgid "Enter the names of each location"
 msgstr "Esitä jokaisen sijaintipaikan nimi"
 
@@ -444,7 +410,6 @@ msgstr "Euroopan unioni"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:66
 #: euphorie/client/browser/templates/sessions-dashboard.pt:160
-#: euphorie/client/browser/templates/sessions-dashboard.pt:95
 msgid "Expand sidebar"
 msgstr ""
 
@@ -458,12 +423,10 @@ msgid "Filters"
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:81
-#: euphorie/client/browser/templates/report_landing.pt:121
 msgid "Format: Office Open XML Workbook (.xlsx)"
 msgstr "Formaatti: Office Open XML Workbook (.xlsx)"
 
 #: euphorie/client/browser/templates/report_landing.pt:113
-#: euphorie/client/browser/templates/report_landing.pt:155
 msgid "Format: Portable Document Format (.pdf)"
 msgstr "Muoto: Portable Document Format (.pdf)"
 
@@ -484,7 +447,6 @@ msgid "Hide archived risk assessments"
 msgstr ""
 
 #: euphorie/client/browser/templates/login.pt:322
-#: euphorie/client/browser/templates/login.pt:116
 msgid "How long will it take?"
 msgstr "Kauanko riskien arvioinnin tekeminen kestää?"
 
@@ -493,12 +455,10 @@ msgid "How to use this tool"
 msgstr "Kuinka käyttää tätä työkalua"
 
 #: euphorie/client/browser/templates/login.pt:299
-#: euphorie/client/browser/templates/login.pt:96
 msgid "However, OiRA is designed to be of most value to smaller businesses."
 msgstr "Lähtökohtaisesti OiRA on kehitetty pienten yritysten tarpeisiin."
 
 #: euphorie/client/browser/templates/login.pt:325
-#: euphorie/client/browser/templates/login.pt:118
 msgid ""
 "However, you can spend whatever time you have available on an assessment and "
 "then return to it when convenient to pick up from the same point you left "
@@ -510,7 +470,6 @@ msgstr ""
 "sinun on helppo palata siihen kohtaan, johon viimeksi jäit."
 
 #: euphorie/client/browser/webhelpers.py:862
-#: euphorie/client/browser/webhelpers.py:845
 msgid "I wish to share the following with you"
 msgstr "Haluan jakaa seuraavan kanssasi"
 
@@ -523,13 +482,11 @@ msgid "Import OiRA Tool version"
 msgstr ""
 
 #: euphorie/client/browser/templates/tooltips.pt:21
-#: euphorie/client/browser/templates/tooltips.pt:22
 msgid "Important"
 msgstr "Tärkeää"
 
 #: euphorie/client/browser/templates/plain.pt:224
 #: euphorie/client/browser/templates/shell.pt:165
-#: euphorie/client/browser/templates/shell.pt:158
 msgid "Info"
 msgstr "Tiedot"
 
@@ -546,17 +503,14 @@ msgstr ""
 "tai GIF-muodossa."
 
 #: euphorie/client/browser/settings.py:122
-#: euphorie/client/browser/settings.py:114
 msgid "Invalid password"
 msgstr "Väärä salasana"
 
 #: euphorie/client/browser/reset_password.py:242
-#: euphorie/client/browser/reset_password.py:233
 msgid "Invalid security token, try to request a new one"
 msgstr ""
 
 #: euphorie/client/browser/templates/login.pt:324
-#: euphorie/client/browser/templates/login.pt:117
 msgid ""
 "It's impossible to say how long an assessment will take in general as the "
 "tools differ according to sectors and countries."
@@ -571,18 +525,14 @@ msgstr "Kosovo"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:135
 #: euphorie/client/browser/templates/status_info.pt:73
 #: euphorie/client/browser/templates/tool_sessions.pt:137
-#: euphorie/client/browser/templates/status_info.pt:72
-#: euphorie/client/browser/templates/tool_sessions.pt:55
 msgid "Last saved"
 msgstr "tallennettu"
 
 #: euphorie/client/browser/templates/start.pt:61
-#: euphorie/client/browser/templates/start.pt:72
 msgid "Learn more about this tool&hellip;"
 msgstr "Lisätietoja tästä työkalusta…"
 
 #: euphorie/client/browser/templates/shell.pt:415
-#: euphorie/client/browser/templates/shell.pt:421
 msgid "Loading Risk Assessments&hellip;"
 msgstr ""
 
@@ -591,13 +541,11 @@ msgid "Login"
 msgstr "Sisäänkirjautuminen"
 
 #: euphorie/client/browser/templates/report_landing.pt:87
-#: euphorie/client/browser/templates/report_landing.pt:127
 msgid "Manage"
 msgstr "Toteuttaessasi"
 
 #: euphorie/client/browser/templates/webhelpers.pt:846
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
-#: euphorie/client/browser/templates/webhelpers.pt:843
 msgid "Measure"
 msgstr "Toimenpide"
 
@@ -611,7 +559,6 @@ msgid "Module"
 msgstr "Moduuli"
 
 #: euphorie/client/browser/templates/report_landing.pt:162
-#: euphorie/client/browser/templates/report_landing.pt:60
 msgid "Monitor and assess whether necessary measures have been introduced."
 msgstr ""
 "auttaa seuraamaan ja arvioimaan, onko toimenpiteet tehty suunnitellusti ja "
@@ -619,7 +566,6 @@ msgstr ""
 
 #: euphorie/client/browser/templates/measures_overview.pt:70
 #: euphorie/client/browser/templates/report_landing.pt:150
-#: euphorie/client/browser/templates/report_landing.pt:192
 msgid "Monitor the measures to be implemented in the forthcoming 3 months."
 msgstr ""
 "Seuraa suunniteltujen toimenpiteiden toteutumista tulevan kolmen kuukauden "
@@ -627,8 +573,6 @@ msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:120
 #: euphorie/client/browser/templates/risks_overview.pt:160
-#: euphorie/client/browser/templates/report_landing.pt:162
-#: euphorie/client/browser/templates/risks_overview.pt:156
 msgid "Monitor whether risks / measures are properly dealt with."
 msgstr "Seuraa, huolehditaanko riskeistä/toimenpiteistä asianmukaisesti."
 
@@ -639,8 +583,6 @@ msgstr "Montenegro"
 #: euphorie/client/browser/templates/assessments.pt:95
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:167
 #: euphorie/client/browser/templates/tool_sessions.pt:157
-#: euphorie/client/browser/templates/portlet-my-ras.pt:92
-#: euphorie/client/browser/templates/tool_sessions.pt:75
 msgid "More"
 msgstr ""
 
@@ -667,14 +609,12 @@ msgstr "Nimi"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:58
 #: euphorie/client/browser/templates/sessions-dashboard.pt:152
-#: euphorie/client/browser/templates/sessions-dashboard.pt:87
 msgid "New"
 msgstr "Uusi"
 
 #: euphorie/client/browser/templates/profile.pt:75
 #: euphorie/client/browser/templates/updated.pt:67
 #: euphorie/content/browser/templates/survey_view.pt:42
-#: euphorie/client/browser/templates/profile.pt:76
 msgid "No"
 msgstr "Ei"
 
@@ -695,8 +635,6 @@ msgid "Official OiRA Logo"
 msgstr "Virallinen OiRA-logo"
 
 #: euphorie/deployment/browser/search.py:17
-#: euphorie/content/profiles/default/types/euphorie.surveygroup.xml
-#: euphorie/upgrade/content/v1/20201219143658_reimport_surveygroup/types/euphorie.surveygroup.xml
 msgid "OiRA Tool"
 msgstr ""
 
@@ -705,7 +643,6 @@ msgid "OiRA Tool import"
 msgstr ""
 
 #: euphorie/deployment/browser/search.py:16
-#: euphorie/content/profiles/default/types/euphorie.survey.xml
 msgid "OiRA Tool version"
 msgstr "OiRA-riskinarvioinnin versio"
 
@@ -715,7 +652,6 @@ msgstr ""
 "OiRA-väline, jossa ”jo käytössä olevat toimenpiteet” voidaan määritellä."
 
 #: euphorie/client/browser/templates/login.pt:298
-#: euphorie/client/browser/templates/login.pt:94
 msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
 "that might exist in their workplace."
@@ -724,7 +660,6 @@ msgstr ""
 "työterveyteen ja työturvallisuuteen liittyviä riskejä."
 
 #: euphorie/client/browser/templates/login.pt:300
-#: euphorie/client/browser/templates/login.pt:97
 msgid ""
 "OiRA is designed specifically to support them in assessing the risks at work "
 "and helping them to produce a documented risk assessment including an action "
@@ -735,12 +670,10 @@ msgstr ""
 "toimenpiteitä riskien poistamiseksi tai pienentämiseksi."
 
 #: euphorie/client/browser/reset_password.py:127
-#: euphorie/client/browser/reset_password.py:123
 msgid "OiRA password reset instructions"
 msgstr "OiRA: ohjeet salasanan vaihtamiseksi"
 
 #: euphorie/client/browser/templates/login.pt:293
-#: euphorie/client/browser/templates/login.pt:78
 msgid ""
 "OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
 "that allows you to perform a health and safety risk assessment of your "
@@ -753,8 +686,6 @@ msgstr ""
 #: euphorie/client/browser/session.py:1084
 #: euphorie/client/browser/templates/measures_overview.pt:63
 #: euphorie/client/browser/templates/report_landing.pt:129
-#: euphorie/client/browser/session.py:1083
-#: euphorie/client/browser/templates/report_landing.pt:172
 msgid "Overview of measures"
 msgstr "Yhteenveto toteutettavista toimenpiteistä"
 
@@ -765,9 +696,6 @@ msgstr ""
 #: euphorie/client/browser/session.py:1074
 #: euphorie/client/browser/templates/report_landing.pt:101
 #: euphorie/client/browser/templates/risks_overview.pt:156
-#: euphorie/client/browser/session.py:1073
-#: euphorie/client/browser/templates/report_landing.pt:142
-#: euphorie/client/browser/templates/risks_overview.pt:152
 msgid "Overview of risks"
 msgstr "Yhteenveto riskeistä"
 
@@ -776,7 +704,6 @@ msgid "Overview of risks (PDF)"
 msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:161
-#: euphorie/client/browser/templates/report_landing.pt:59
 msgid ""
 "Pass information on to the people concerned (workers, safety "
 "representatives, employers, experts in occupational safety and health, etc.)"
@@ -788,8 +715,6 @@ msgstr ""
 #: euphorie/client/browser/templates/measures_overview.pt:69
 #: euphorie/client/browser/templates/report_landing.pt:119
 #: euphorie/client/browser/templates/risks_overview.pt:159
-#: euphorie/client/browser/templates/report_landing.pt:161
-#: euphorie/client/browser/templates/risks_overview.pt:155
 msgid "Pass information to the people concerned."
 msgstr "Välitä tiedot asianomaisille henkilöille."
 
@@ -826,7 +751,6 @@ msgstr "Ota huomioon kaavakkeen alla olevat esimerkit."
 #: euphorie/client/browser/templates/risks_overview.pt:325
 #: euphorie/client/browser/templates/status_info.pt:259
 #: euphorie/client/browser/templates/webhelpers.pt:155
-#: euphorie/client/browser/templates/risks_overview.pt:321
 msgid "Postponed"
 msgstr "arvioimatta"
 
@@ -857,12 +781,10 @@ msgstr ""
 "toistettava useaan kertaan (moduulien TOISTETTAVUUS)."
 
 #: euphorie/client/browser/templates/report_landing.pt:59
-#: euphorie/client/browser/templates/report_landing.pt:97
 msgid "Provide evidence"
 msgstr "näyttönä"
 
 #: euphorie/client/browser/templates/report_landing.pt:160
-#: euphorie/client/browser/templates/report_landing.pt:58
 msgid "Provide evidence for supervisory authorities."
 msgstr ""
 "on näyttönä riskien arvioinnista ja hallintatoimista "
@@ -877,7 +799,6 @@ msgid "Read more"
 msgstr "Lue lisää"
 
 #: euphorie/client/browser/templates/report_landing.pt:163
-#: euphorie/client/browser/templates/report_landing.pt:61
 msgid ""
 "Record any revision if circumstances change (new machines, new workers, as a "
 "result of findings of any accident investigations, etc.)"
@@ -900,7 +821,6 @@ msgid "Regions"
 msgstr "Alueet"
 
 #: euphorie/client/browser/templates/login.pt:333
-#: euphorie/client/browser/templates/login.pt:124
 msgid ""
 "Registering allows you to simply log in at any time to continue previous "
 "assessments or to start new ones."
@@ -913,8 +833,6 @@ msgstr ""
 #: euphorie/client/browser/templates/profile.pt:124
 #: euphorie/client/browser/templates/risk_identification_custom.pt:233
 #: euphorie/client/browser/templates/updated.pt:117
-#: euphorie/client/browser/templates/profile.pt:126
-#: euphorie/client/browser/templates/risk_identification_custom.pt:226
 msgid "Remove"
 msgstr "Poista"
 
@@ -932,7 +850,6 @@ msgid "Risk"
 msgstr "Riski"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:119
-#: euphorie/client/browser/templates/tool_sessions.pt:40
 msgid "Risk assessments made with this tool"
 msgstr "Tämän välineen avulla tehdyt riskinarvioinnit"
 
@@ -949,19 +866,16 @@ msgid "Run slideshow"
 msgstr ""
 
 #: euphorie/client/browser/reset_password.py:187
-#: euphorie/client/browser/reset_password.py:179
 msgid "Save"
 msgstr "Tallenna"
 
 #: euphorie/client/browser/reset_password.py:212
 #: euphorie/client/browser/settings.py:99
 #: euphorie/client/browser/templates/account-settings.pt:44
-#: euphorie/client/browser/reset_password.py:248
 msgid "Save changes"
 msgstr "Tallenna muutokset"
 
 #: euphorie/client/browser/templates/report_landing.pt:29
-#: euphorie/client/browser/templates/report_landing.pt:54
 msgid ""
 "Save the report on your computer and print it. You can also modify it or add "
 "more information. Please note that changes made on your pc will NOT be saved "
@@ -973,7 +887,6 @@ msgstr ""
 "sovellukseen."
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:103
-#: euphorie/deployment/tiles/configure.zcml:59
 msgid "Search"
 msgstr ""
 
@@ -984,12 +897,10 @@ msgid "Sector"
 msgstr "Toimiala"
 
 #: euphorie/client/browser/session.py:695
-#: euphorie/client/browser/session.py:694
 msgid "Session `${name}` has been archived."
 msgstr ""
 
 #: euphorie/client/browser/session.py:641
-#: euphorie/client/browser/session.py:640
 msgid "Session `${name}` has been deleted."
 msgstr "Riskinarviointi \"${name}\" on poistettu."
 
@@ -1015,7 +926,6 @@ msgid "Standard"
 msgstr "Vakio"
 
 #: euphorie/client/browser/templates/webhelpers.pt:661
-#: euphorie/client/browser/templates/webhelpers.pt:658
 msgid "Standard measures"
 msgstr "Ehdotetut toimenpiteet"
 
@@ -1023,9 +933,8 @@ msgstr "Ehdotetut toimenpiteet"
 msgid "Standard solution"
 msgstr "Vakioratkaisu"
 
-#: euphorie/client/browser/login.py:379
+#: euphorie/client/browser/login.py:382
 #: euphorie/client/browser/templates/new-session-test.pt:154
-#: euphorie/client/browser/login.py:240
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
 
@@ -1077,7 +986,6 @@ msgstr ""
 "asiantuntemuksen. Tätä toimintoa ei voi kumota. Haluatko varmasti jatkaa?"
 
 #: euphorie/client/browser/templates/login.pt:332
-#: euphorie/client/browser/templates/login.pt:123
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
 "assessment is to create an OiRA account - this is a simple and quick process."
@@ -1094,7 +1002,6 @@ msgid ""
 msgstr ""
 
 #: euphorie/client/browser/session.py:779
-#: euphorie/client/browser/session.py:778
 msgid "The risk assessment has been cloned"
 msgstr ""
 
@@ -1103,12 +1010,10 @@ msgid "The specified colour is not valid."
 msgstr "Määritetty väri ei ole kelvollinen."
 
 #: euphorie/client/browser/templates/login.pt:307
-#: euphorie/client/browser/templates/login.pt:102
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "Työpaikan riskien arvioinnissa on neljä keskeistä vaihetta:"
 
 #: euphorie/client/browser/session.py:618
-#: euphorie/client/browser/session.py:617
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
@@ -1121,7 +1026,6 @@ msgid "This OiRA tool was offered to you by ${external_site}"
 msgstr "Tämän OiRA-työvälineen tarjosi sinulle ${external_site}"
 
 #: euphorie/client/browser/settings.py:291
-#: euphorie/client/browser/settings.py:283
 msgid "This email address is not available."
 msgstr "Tämä sähköposti ei ole käytettävissä."
 
@@ -1160,28 +1064,22 @@ msgid "This question must ask the user if this profile applies to them."
 msgstr ""
 
 #: euphorie/client/browser/settings.py:322
-#: euphorie/client/browser/settings.py:314
 msgid "This request could not be processed."
 msgstr ""
 
 #: euphorie/client/browser/templates/start.pt:139
-#: euphorie/client/browser/templates/start.pt:149
 msgid "This tool deserves to be known by the world! Share it!"
 msgstr "Kaikkien kannattaa tutustua tähän työkaluun! Jaa se!"
 
 #: euphorie/client/browser/session.py:183
-#: euphorie/client/browser/session.py:182
 msgid "This value must be greater than or equal to 1"
 msgstr ""
 
 #: euphorie/client/browser/templates/tooltips.pt:58
-#: euphorie/client/browser/templates/tooltips.pt:59
 msgid "Tip"
 msgstr "Vihje"
 
 #: euphorie/client/browser/templates/help-menu.pt:19
-#: euphorie/client/browser/templates/help-menu.pt:24
-#: euphorie/client/browser/templates/user-menu.pt:33
 msgid "Toggle on screen help"
 msgstr "Ohjeen näyttöpainike"
 
@@ -1196,7 +1094,6 @@ msgstr ""
 #: euphorie/client/browser/templates/risks_overview.pt:333
 #: euphorie/client/browser/templates/status_info.pt:267
 #: euphorie/client/browser/templates/webhelpers.pt:152
-#: euphorie/client/browser/templates/risks_overview.pt:329
 msgid "Unvisited"
 msgstr "vastaus puuttuu"
 
@@ -1205,22 +1102,18 @@ msgid "Upload"
 msgstr "Lähetys"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:222
-#: euphorie/client/browser/templates/risk_identification_custom.pt:215
 msgid "Upload an image that illustrates this risk."
 msgstr "Lataa tätä riskiä havainnollistava kuva."
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:243
-#: euphorie/client/browser/templates/risk_identification_custom.pt:236
 msgid "Upload image"
 msgstr "Lataa kuva"
 
 #: euphorie/client/browser/templates/report_landing.pt:157
-#: euphorie/client/browser/templates/report_landing.pt:55
 msgid "Use the report to:"
 msgstr "Raportti on hyödyksi yrityksen arjessa, sillä se:"
 
 #: euphorie/client/browser/templates/report_landing.pt:167
-#: euphorie/client/browser/templates/report_landing.pt:65
 msgid ""
 "We recommend that you always keep an updated printed version of your risk "
 "assessment (report) available in your company!"
@@ -1229,29 +1122,24 @@ msgstr ""
 "riskinarviointiraportistasi !"
 
 #: euphorie/client/browser/templates/login.pt:305
-#: euphorie/client/browser/templates/login.pt:101
 msgid "What do I have to do?"
 msgstr "Mitä minun on tehtävä?"
 
 #: euphorie/client/browser/templates/login.pt:292
-#: euphorie/client/browser/templates/login.pt:77
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
 msgstr "Mikä OiRA (Online Interactive Risk Assessment) on?"
 
 #: euphorie/client/browser/templates/login.pt:296
-#: euphorie/client/browser/templates/login.pt:93
 msgid "Who is the OiRA tool for?"
 msgstr "Kenelle OiRA on tarkoitettu?"
 
 #: euphorie/client/browser/templates/login.pt:330
-#: euphorie/client/browser/templates/login.pt:122
 msgid "Why do I have to register?"
 msgstr "Miksi minun on rekisteröidyttävä?"
 
 #: euphorie/client/browser/templates/profile.pt:67
 #: euphorie/client/browser/templates/updated.pt:59
 #: euphorie/content/browser/templates/survey_view.pt:39
-#: euphorie/client/browser/templates/profile.pt:68
 msgid "Yes"
 msgstr "Kyllä"
 
@@ -1270,7 +1158,6 @@ msgstr ""
 "riski, jota haluat käyttää, niin se kopioituu riskinarviointipohjaan."
 
 #: euphorie/client/browser/templates/login.pt:341
-#: euphorie/client/browser/templates/login.pt:130
 msgid ""
 "You do not need any kind of specific preparation to start using the tool, "
 "however you should take some time to think about who is going to carry out "
@@ -1284,14 +1171,12 @@ msgstr ""
 "otetaan mukaan prosessiin."
 
 #: euphorie/client/browser/session.py:195
-#: euphorie/client/browser/session.py:194
 msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
 msgstr ""
 
 #: euphorie/client/browser/templates/login.pt:334
-#: euphorie/client/browser/templates/login.pt:125
 msgid ""
 "You have to make sure to be in possession of a printed, accurate and up-"
 "dated risk assessment (at any time)."
@@ -1300,7 +1185,6 @@ msgstr ""
 "ajantasainen riskien arviointi."
 
 #: euphorie/client/browser/settings.py:334
-#: euphorie/client/browser/settings.py:326
 msgid "Your email address has been updated."
 msgstr "Sähköpostiosoitteesi on päivitetty."
 
@@ -1310,8 +1194,6 @@ msgstr "Salasanasi vahvistusta varten"
 
 #: euphorie/client/browser/reset_password.py:254
 #: euphorie/client/browser/settings.py:125
-#: euphorie/client/browser/reset_password.py:245
-#: euphorie/client/browser/settings.py:117
 msgid "Your password was successfully changed."
 msgstr "Salasanasi on muutettu."
 
@@ -1467,7 +1349,6 @@ msgstr ""
 
 #. Default: "Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary."
 #: euphorie/client/browser/templates/webhelpers.pt:794
-#: euphorie/client/browser/templates/webhelpers.pt:791
 msgid "actionplan_measure_budget_tooltip"
 msgstr ""
 "Toimenpiteiden toteutuksesta saattaa syntyä kustannuksia, joihin tulee "
@@ -1476,7 +1357,6 @@ msgstr ""
 
 #. Default: "Appoint someone in your company to be responsible for the implementation of this measure. This person will have the authority to take the steps described in the Plan and/or the responsibility to ensure that they are carried out."
 #: euphorie/client/browser/templates/webhelpers.pt:776
-#: euphorie/client/browser/templates/webhelpers.pt:773
 msgid "actionplan_measure_responsible_tooltip"
 msgstr ""
 "Nimeä tälle toimenpiteelle vastuuhenkilö, joka on valtuutettu toimenpiteiden "
@@ -1484,7 +1364,6 @@ msgstr ""
 
 #. Default: "Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)"
 #: euphorie/client/browser/templates/webhelpers.pt:872
-#: euphorie/client/browser/templates/webhelpers.pt:869
 msgid "actionplan_measure_tooltip"
 msgstr ""
 "Kuvaa: Henkilöstöön, tiloihin, laitteisiin tms. kohdentuva yleinen "
@@ -1494,7 +1373,6 @@ msgstr ""
 
 #. Default: "Describe the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any)."
 #: euphorie/client/browser/templates/webhelpers.pt:887
-#: euphorie/client/browser/templates/webhelpers.pt:884
 msgid "actionplan_requirements_tooltip"
 msgstr ""
 "Kuvaa: yrityksessä toimenpiteiden toteuttamiseksi tarvittava asiantuntemus "
@@ -1514,7 +1392,6 @@ msgstr "lisää uusi OiRA-riskinarviointi"
 
 #. Default: "Agree and continue"
 #: euphorie/client/browser/templates/conditions.pt:46
-#: euphorie/client/browser/templates/conditions.pt:128
 msgid "agree_and_continue"
 msgstr "Hyväksy ja jatka"
 
@@ -1531,7 +1408,6 @@ msgstr "Kolme vakiokriteeriä"
 
 #. Default: "About"
 #: euphorie/client/browser/templates/appendix.pt:26
-#: euphorie/client/browser/templates/appendix.pt:27
 msgid "appendix_about"
 msgstr "Tietoja"
 
@@ -1566,7 +1442,6 @@ msgstr "${Risks}: myönteiset lausumat, jotka sisältyvät moduuleihin."
 
 #. Default: "Add"
 #: euphorie/client/browser/templates/webhelpers.pt:681
-#: euphorie/client/browser/templates/webhelpers.pt:678
 msgid "button_add"
 msgstr "Lisää"
 
@@ -1577,7 +1452,6 @@ msgstr "Lisää maajohtaja"
 
 #. Default: "Add a custom risk"
 #: euphorie/client/browser/templates/module_identification_custom.pt:40
-#: euphorie/client/browser/templates/module_identification_custom.pt:39
 msgid "button_add_custom_risk"
 msgstr "Lisää tavanomainen riski"
 
@@ -1610,7 +1484,6 @@ msgstr ""
 #: euphorie/client/browser/publish.py:285
 #: euphorie/client/browser/settings.py:127
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:37
-#: euphorie/client/browser/settings.py:119
 msgid "button_cancel"
 msgstr "Peruuta"
 
@@ -1618,7 +1491,6 @@ msgstr "Peruuta"
 #: euphorie/client/browser/templates/new-session-test.pt:158
 #: euphorie/client/browser/templates/surveys.pt:49
 #: euphorie/client/browser/webhelpers.py:859
-#: euphorie/client/browser/webhelpers.py:842
 msgid "button_close"
 msgstr "Sulje"
 
@@ -1746,13 +1618,11 @@ msgstr ""
 
 #. Default: "Conservation and processing of information"
 #: euphorie/client/browser/templates/conditions-bare.pt:81
-#: euphorie/client/browser/templates/conditions.pt:90
 msgid "conditions_conservation_header"
 msgstr "Tietojen säilyttäminen ja käsittely"
 
 #. Default: "We keep your data, which is inaccessible for external users, until you delete your account and your session(s)."
 #: euphorie/client/browser/templates/conditions-bare.pt:83
-#: euphorie/client/browser/templates/conditions.pt:92
 msgid "conditions_conservation_keep_data"
 msgstr ""
 "Säilytämme tietosi, joihin ulkoiset käyttäjät eivät pääse käsiksi, kunnes "
@@ -1760,13 +1630,11 @@ msgstr ""
 
 #. Default: "EU-OSHA stores data on our servers in Zamudio, Spain."
 #: euphorie/client/browser/templates/conditions-bare.pt:87
-#: euphorie/client/browser/templates/conditions.pt:96
 msgid "conditions_conservation_storage"
 msgstr "EU-OSHA tallentaa tiedot Zamudio, Espanjassa oleviin palvelimiin."
 
 #. Default: "EU-OSHA regularly reviews its compliance with this Privacy Policy. Any enquiries and complaints regarding our privacy policy can be sent to the DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}."
 #: euphorie/client/browser/templates/conditions-bare.pt:111
-#: euphorie/client/browser/templates/conditions.pt:120
 msgid "conditions_contact"
 msgstr ""
 "EU-OSHA tarkistaa säännöllisesti, että tietosuojaa noudatetaan. "
@@ -1776,19 +1644,16 @@ msgstr ""
 
 #. Default: "Contact information"
 #: euphorie/client/browser/templates/conditions-bare.pt:103
-#: euphorie/client/browser/templates/conditions.pt:112
 msgid "conditions_contact_header"
 msgstr "Yhteystiedot"
 
 #. Default: "Data controller"
 #: euphorie/client/browser/templates/conditions-bare.pt:75
-#: euphorie/client/browser/templates/conditions.pt:84
 msgid "conditions_datacontroller_header"
 msgstr "Tietojen käsittelystä vastaava"
 
 #. Default: "You can use the Account settings and your saved OiRA Session(s) to review, control and delete the information stored in your Account and in your Session(s)."
 #: euphorie/client/browser/templates/conditions-bare.pt:93
-#: euphorie/client/browser/templates/conditions.pt:102
 msgid "conditions_datareview"
 msgstr ""
 "Voit käyttää tiliasetuksia ja tallennettuja OiRA-istuntojasi tilissäsi ja "
@@ -1796,13 +1661,11 @@ msgstr ""
 
 #. Default: "Reviewing and removing your information"
 #: euphorie/client/browser/templates/conditions-bare.pt:91
-#: euphorie/client/browser/templates/conditions.pt:100
 msgid "conditions_datareview_header"
 msgstr "Tietojesi tarkistus ja poisto"
 
 #. Default: "Cookies &ndash; When you visit the site and select a language, we send a cookie to your computer or other device to store your language selection. This cookie stays in your browser until you close it. When you visit the site and log in, we send a cookie with your login information to keep you logged in during your visit. This cookie stays on your computer until you close your browser. Most browsers are initially set up to accept cookies, but you can reset your browser to refuse all cookies or to indicate when a cookie is being sent. However, some features and services may not function properly if your cookies are disabled."
 #: euphorie/client/browser/templates/conditions-bare.pt:58
-#: euphorie/client/browser/templates/conditions.pt:67
 msgid "conditions_info_cookies"
 msgstr ""
 "Evästeet – Kun vierailet sivulla ja valitset kielen, lähetämme evästeen "
@@ -1817,7 +1680,6 @@ msgstr ""
 
 #. Default: "Email account: this is necessary to access the online application, edit the input data, and delete the OiRA account. You can enter any valid e-mail address. Email addresses will not be used for commercial purposes."
 #: euphorie/client/browser/templates/conditions-bare.pt:50
-#: euphorie/client/browser/templates/conditions.pt:59
 msgid "conditions_info_email"
 msgstr ""
 "Sähköpostitili: tämä on tarpeellista sovellukseen pääsyä, tiedon muokkausta "
@@ -1827,7 +1689,6 @@ msgstr ""
 
 #. Default: "The kind of information we collect: when you sign up for an OiRA account and you enter data into the OiRA application we are asking you for the following information:"
 #: euphorie/client/browser/templates/conditions-bare.pt:45
-#: euphorie/client/browser/templates/conditions.pt:54
 msgid "conditions_info_entry"
 msgstr ""
 "Keräämämme tiedot: kun kirjaudut OiRA-tilillesi ja syötät tietoja OiRA-"
@@ -1835,13 +1696,11 @@ msgstr ""
 
 #. Default: "The Information we collect and for what purposes"
 #: euphorie/client/browser/templates/conditions-bare.pt:43
-#: euphorie/client/browser/templates/conditions.pt:52
 msgid "conditions_info_header"
 msgstr "Keräämämme tiedot ja mihin tarkoitukseen ne kerätään"
 
 #. Default: "Log information &ndash; When you access the service, our servers automatically record information that your browser sends whenever you visit a website. These server logs may include information such as your web request, your interaction with a service, browser type, browser language, the date and time of your request. IP addresses are not stored in the system."
 #: euphorie/client/browser/templates/conditions-bare.pt:62
-#: euphorie/client/browser/templates/conditions.pt:71
 msgid "conditions_info_logs"
 msgstr ""
 "Lokitiedot – Kun tulet palveluun, meidän palvelimemme kirjaa automaattisesti "
@@ -1851,13 +1710,11 @@ msgstr ""
 "aika. IP-osoitteet eivät tallennu järjestelmään."
 
 #: euphorie/client/browser/templates/conditions-bare.pt:73
-#: euphorie/client/browser/templates/conditions.pt:82
 msgid "conditions_info_not_personal"
 msgstr ""
 
 #. Default: "Any information you provide in the free text fields of the application (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc). The input of information in the free text fields is voluntary."
 #: euphorie/client/browser/templates/conditions-bare.pt:54
-#: euphorie/client/browser/templates/conditions.pt:63
 msgid "conditions_info_text"
 msgstr ""
 "Kaikki vapaassa tekstikentässä antamasi tiedot (esim. toimenpide riskin "
@@ -1865,13 +1722,11 @@ msgstr ""
 "vapaaseen tekstikenttään on vapaaehtoista."
 
 #: euphorie/client/browser/templates/conditions-bare.pt:71
-#: euphorie/client/browser/templates/conditions.pt:80
 msgid "conditions_info_use_develop"
 msgstr ""
 
 #. Default: "In addition to the above mentioned purposes, we may use the information we collect to provide, maintain, protect, and improve our services and develop new services. In any case no personal data will be used for processing of data."
 #: euphorie/client/browser/templates/conditions-bare.pt:67
-#: euphorie/client/browser/templates/conditions.pt:76
 msgid "conditions_info_use_intro"
 msgstr ""
 "Yllä mainitun lisäksi saatamme käyttää keräämiämme tietoja palvelujemme "
@@ -1880,13 +1735,11 @@ msgstr ""
 "tietojen käsittelyyn."
 
 #: euphorie/client/browser/templates/conditions-bare.pt:72
-#: euphorie/client/browser/templates/conditions.pt:81
 msgid "conditions_info_use_statistics"
 msgstr ""
 
 #. Default: "The OiRA (Online interactive Risk Assessment) application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application."
 #: euphorie/client/browser/templates/conditions-bare.pt:32
-#: euphorie/client/browser/templates/conditions.pt:41
 msgid "conditions_intro1"
 msgstr ""
 "OiRA (Vuorovaikutteinen riskinarviointiprojekti verkossa) -sovellus on "
@@ -1896,7 +1749,6 @@ msgstr ""
 
 #. Default: "Your personal data is processed in line with Regulation (EC) N&deg; 45/2001 of the European Parliament and of the Council of 18 December 2000 on the protection of individuals with regard to the processing of personal data by the Community institutions and bodies and on the free movement of such data. Further details of the privacy policy of EU-OSHA and the full text of the Regulation can be accessed at: ${url}."
 #: euphorie/client/browser/templates/conditions-bare.pt:38
-#: euphorie/client/browser/templates/conditions.pt:47
 msgid "conditions_intro2"
 msgstr ""
 "Henkilökohtaisten tietojesi käsittely noudattaa Euroopan parlamentin ja "
@@ -1907,7 +1759,6 @@ msgstr ""
 
 #. Default: "We take appropriate security measures to protect against unauthorized access to or unauthorized alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices and security measures, including appropriate encryption of communication and physical security measures to guard against unauthorized access to systems where we store personal data. IP addresses are not saved so that end-users can not be identified through their access."
 #: euphorie/client/browser/templates/conditions-bare.pt:99
-#: euphorie/client/browser/templates/conditions.pt:108
 msgid "conditions_security"
 msgstr ""
 "Suojelemme tietoja niin, että niihin ei pääse tai niitä ei voi muuttaa, "
@@ -1920,13 +1771,11 @@ msgstr ""
 
 #. Default: "Information security"
 #: euphorie/client/browser/templates/conditions-bare.pt:97
-#: euphorie/client/browser/templates/conditions.pt:106
 msgid "conditions_security_header"
 msgstr "Tietojen turvallisuus"
 
 #. Default: "The data controller is the European Agency for Safety and Health at Work, Bilbao."
 #: euphorie/client/browser/templates/conditions-bare.pt:77
-#: euphorie/client/browser/templates/conditions.pt:86
 msgid "condtions_datacontroller"
 msgstr ""
 "Tietojen käsittelystä vastaa Euroopan työterveys- ja työturvallisuusvirasto, "
@@ -1935,21 +1784,18 @@ msgstr ""
 #. Default: "both own staff and an external consultant or service provider"
 #: euphorie/client/browser/company.py:75
 #: euphorie/client/browser/templates/report_company.pt:126
-#: euphorie/client/browser/templates/report_company.pt:123
 msgid "conductor_both"
 msgstr "sekä oma henkilökunta että ulkoinen konsultti tai palveluntarjoaja"
 
 #. Default: "own staff"
 #: euphorie/client/browser/company.py:65
 #: euphorie/client/browser/templates/report_company.pt:114
-#: euphorie/client/browser/templates/report_company.pt:111
 msgid "conductor_staff"
 msgstr "oma henkilökunta"
 
 #. Default: "an external consultant or service provider"
 #: euphorie/client/browser/company.py:68
 #: euphorie/client/browser/templates/report_company.pt:120
-#: euphorie/client/browser/templates/report_company.pt:117
 msgid "conductor_third_party"
 msgstr "ulkoinen konsultti tai palveluntarjoaja"
 
@@ -2009,7 +1855,6 @@ msgstr ""
 "”Kyllä”."
 
 #: euphorie/client/browser/reset_password.py:208
-#: euphorie/client/browser/reset_password.py:200
 msgid "description_reset_password_form"
 msgstr ""
 
@@ -2081,7 +1926,6 @@ msgid "documentation_online_help_online_help"
 msgstr "online-apu"
 
 #: euphorie/client/browser/session.py:193
-#: euphorie/client/browser/session.py:192
 msgid "download section"
 msgstr ""
 
@@ -2139,7 +1983,6 @@ msgstr ""
 
 #. Default: "Please confirm your new email address by clicking on the link in the email that will be sent in a few minutes to \"${email}\". Please note that the new email address is also your new login name."
 #: euphorie/client/browser/settings.py:297
-#: euphorie/client/browser/settings.py:289
 msgid "email_change_pending"
 msgstr ""
 "Vahvista uusi sähköpostiosoitteesi napauttamalla linkkiä sähköpostissa, joka "
@@ -2149,33 +1992,29 @@ msgstr ""
 #. Default: "10 to 49 employees"
 #: euphorie/client/browser/company.py:42
 #: euphorie/client/browser/templates/report_company.pt:84
-#: euphorie/client/browser/templates/report_company.pt:81
 msgid "employee_numbers_10_to_49"
 msgstr "10 – 49 työntekijää"
 
 #. Default: "1 to 9 employees"
 #: euphorie/client/browser/company.py:38
 #: euphorie/client/browser/templates/report_company.pt:78
-#: euphorie/client/browser/templates/report_company.pt:75
 msgid "employee_numbers_1_to_9"
 msgstr "1 – 9 työntekijää"
 
 #. Default: "250 or more employees"
 #: euphorie/client/browser/company.py:52
 #: euphorie/client/browser/templates/report_company.pt:96
-#: euphorie/client/browser/templates/report_company.pt:93
 msgid "employee_numbers_250_or_more"
 msgstr "yli 250 työntekijää"
 
 #. Default: "50 to 249 employees"
 #: euphorie/client/browser/company.py:46
 #: euphorie/client/browser/templates/report_company.pt:90
-#: euphorie/client/browser/templates/report_company.pt:87
 msgid "employee_numbers_50_to_249"
 msgstr "50 – 249 työntekijää"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:168 euphorie/client/browser/login.py:290
+#: euphorie/client/browser/login.py:171
 msgid "error_email_in_use"
 msgstr "Tämän sähköpostiosoitteen sisältävä tili on jo olemassa."
 
@@ -2186,12 +2025,11 @@ msgstr "Tämä kirjautumisnimi on jo käytössä."
 
 #. Default: "Please enter the budget in whole Euros."
 #: euphorie/client/browser/templates/webhelpers.pt:790
-#: euphorie/client/browser/templates/webhelpers.pt:787
 msgid "error_invalid_budget"
 msgstr "Anna budjetti kokonaisina summina euroina."
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:131 euphorie/client/browser/login.py:268
+#: euphorie/client/browser/login.py:134
 msgid "error_invalid_email"
 msgstr "Kirjoita voimassaoleva sähköpostiosoite"
 
@@ -2206,32 +2044,30 @@ msgid "error_invalid_xml"
 msgstr "Lähetä kelvollinen XML-tiedosto"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:127 euphorie/client/browser/login.py:264
+#: euphorie/client/browser/login.py:130
 msgid "error_missing_email"
 msgstr "Kirjoita sähköpostiosoitteesi"
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:135 euphorie/client/browser/login.py:272
+#: euphorie/client/browser/login.py:138
 msgid "error_missing_password"
 msgstr "Kirjoita salasana"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:139
+#: euphorie/client/browser/login.py:142
 #: euphorie/client/browser/reset_password.py:229
-#: euphorie/client/browser/login.py:276
-#: euphorie/client/browser/reset_password.py:220
 msgid "error_password_mismatch"
 msgstr "Salasanat eivät täsmää"
 
 #. Default: "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
-#: euphorie/client/browser/login.py:114
+#: euphorie/client/browser/login.py:117
 msgid "error_password_policy_violation"
 msgstr ""
 "Salasanan tulee sisältää vähintään 12 merkkiä, joista vähintään yhden merkin "
 "tulee olla pieni kirjain, yhden iso kirjain ja yhden numero."
 
 #. Default: "An accout can only be created for you if you accept the terms and conditions."
-#: euphorie/client/browser/login.py:147
+#: euphorie/client/browser/login.py:150
 msgid "error_terms_not_accepted"
 msgstr ""
 
@@ -2369,7 +2205,6 @@ msgid "explanation_try_oira"
 msgstr ""
 
 #: euphorie/client/browser/session.py:479
-#: euphorie/client/browser/session.py:478
 msgid "extra_text_identification"
 msgstr ""
 
@@ -2474,7 +2309,6 @@ msgstr ""
 
 #. Default: "Actions"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:158
-#: euphorie/client/browser/templates/risk_identification_custom.pt:154
 msgid "header_actions"
 msgstr ""
 
@@ -2520,25 +2354,21 @@ msgstr "Arviointi"
 
 #. Default: "Example of a measures overview report in PDF format"
 #: euphorie/client/browser/templates/register_session.pt:103
-#: euphorie/client/browser/templates/register.pt:103
 msgid "header_example_report_measures"
 msgstr "Esimerkki toimenpiteiden yhteenvetoraportista PDF-muodossa"
 
 #. Default: "Example of a full report in Word format (.docx)"
 #: euphorie/client/browser/templates/register_session.pt:50
-#: euphorie/client/browser/templates/register.pt:50
 msgid "header_example_report_rft"
 msgstr "Esimerkki koko raportista Word format -muodossa (.docx)."
 
 #. Default: "Example of a risk overview report in PDF format"
 #: euphorie/client/browser/templates/register_session.pt:89
-#: euphorie/client/browser/templates/register.pt:89
 msgid "header_example_report_risks"
 msgstr "Esimerkki riskien yhteenvetoraportista PDF-muodossa"
 
 #. Default: "Example of an action plan in Office Open XML Workbook format (.xlsx)"
 #: euphorie/client/browser/templates/register_session.pt:64
-#: euphorie/client/browser/templates/register.pt:64
 msgid "header_example_report_xlsx"
 msgstr ""
 "Esimerkki toimintasuunnitelmasta Office Open XML Workbook -muodossa (.xlsx)."
@@ -2557,7 +2387,6 @@ msgstr "Tunnistus"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:212
 #: euphorie/client/browser/templates/risk_macros.pt:177
 #: euphorie/content/browser/templates/module_view.pt:35
-#: euphorie/client/browser/templates/risk_identification_custom.pt:208
 msgid "header_information"
 msgstr "Lisätietoja"
 
@@ -2583,8 +2412,6 @@ msgstr "Lisenssit"
 
 #. Default: "Login"
 #: euphorie/client/browser/templates/tooltips.pt:11
-#: euphorie/client/browser/templates/login_form.pt:26
-#: euphorie/client/browser/templates/shell.pt:174
 msgid "header_login"
 msgstr "Kirjaudu sisään"
 
@@ -2605,7 +2432,6 @@ msgstr "Toimenpide"
 
 #. Default: "Measures"
 #: euphorie/client/browser/templates/risk_identification.pt:56
-#: euphorie/client/browser/templates/risk_identification.pt:59
 msgid "header_measures"
 msgstr "Toimenpiteet"
 
@@ -2648,13 +2474,11 @@ msgstr "OiRA Riskien arviointi"
 
 #. Default: "Menu toggle"
 #: euphorie/client/browser/templates/tooltips.pt:51
-#: euphorie/client/browser/templates/tooltips.pt:52
 msgid "header_osh_hamburger"
 msgstr "Valikon vaihtopainike"
 
 #. Default: "Off canvas menu"
 #: euphorie/client/browser/templates/tooltips.pt:77
-#: euphorie/client/browser/templates/tooltips.pt:78
 msgid "header_osh_menu"
 msgstr "Piilovalikko"
 
@@ -2665,7 +2489,6 @@ msgstr "Selainnäkymä riskinarvioinneista"
 
 #. Default: "Session menu"
 #: euphorie/client/browser/templates/tooltips.pt:86
-#: euphorie/client/browser/templates/tooltips.pt:87
 msgid "header_osh_session_menu"
 msgstr "Istuntovalikko"
 
@@ -2707,29 +2530,23 @@ msgstr "OiRA-työkalun julkaisu"
 
 #. Default: "Questions answered per module"
 #: euphorie/client/browser/templates/status_info.pt:135
-#: euphorie/client/browser/templates/status_info.pt:134
 msgid "header_questions_answered"
 msgstr "Riskinarvioinnin eteneminen"
 
 #. Default: "Register"
 #: euphorie/client/browser/templates/login.pt:144
 #: euphorie/client/browser/templates/register_session.pt:115
-#: euphorie/client/browser/templates/register.pt:115
-#: euphorie/client/browser/templates/shell.pt:179
 msgid "header_register"
 msgstr "Rekisteröidy käyttäjäksi"
 
 #. Default: "Reporting"
 #: euphorie/client/browser/templates/register_session.pt:27
 #: euphorie/client/browser/templates/report.pt:30
-#: euphorie/client/browser/templates/register.pt:27
-#: euphorie/client/browser/templates/report.pt:29
 msgid "header_reporting"
 msgstr "Raportointi"
 
 #. Default: "Resources"
 #: euphorie/client/browser/templates/risk_identification.pt:88
-#: euphorie/client/browser/templates/risk_identification.pt:91
 msgid "header_resources"
 msgstr "Lisätietoa"
 
@@ -2751,7 +2568,6 @@ msgstr "Kuinka usein ihmiset altistuvat tälle riskille?"
 #. Default: "Select the priority of this risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:187
 #: euphorie/client/browser/templates/webhelpers.pt:547
-#: euphorie/client/browser/templates/risk_identification_custom.pt:183
 msgid "header_risk_priority"
 msgstr "Määritä riskin suuruus"
 
@@ -2879,7 +2695,6 @@ msgstr "riskitaso korkea"
 
 #. Default: "Involve your coworkers"
 #: euphorie/client/browser/templates/involve.pt:25
-#: euphorie/client/browser/templates/involve.pt:24
 msgid "heading_involve_your_coworkers"
 msgstr "Tehkää yhdessä!"
 
@@ -2895,169 +2710,141 @@ msgstr "riskitaso kohtalainen"
 
 #. Default: "${num_high_risks} High priority risk"
 #: euphorie/client/browser/templates/risks_overview.pt:374
-#: euphorie/client/browser/templates/risks_overview.pt:370
 msgid "heading_num_high_prio_risks"
 msgstr "${num_high_risks} riskitasoltaan korkea"
 
 #. Default: "${num_high_risks} High priority risks"
 #: euphorie/client/browser/templates/risks_overview.pt:378
-#: euphorie/client/browser/templates/risks_overview.pt:374
 msgid "heading_num_high_prio_risks_2"
 msgstr "${num_high_risks} riskitasoltaan korkeaa"
 
 #. Default: "${num_high_risks} High priority risks"
 #: euphorie/client/browser/templates/risks_overview.pt:382
-#: euphorie/client/browser/templates/risks_overview.pt:378
 msgid "heading_num_high_prio_risks_3_4"
 msgstr "${num_high_risks} riskitasoltaan korkeaa"
 
 #. Default: "${num_high_risks} High priority risks"
 #: euphorie/client/browser/templates/risks_overview.pt:386
-#: euphorie/client/browser/templates/risks_overview.pt:382
 msgid "heading_num_high_prio_risks_5_or_more"
 msgstr "${num_high_risks} riskitasoltaan korkeaa"
 
 #. Default: "${num_low_risks} Low priority risk"
 #: euphorie/client/browser/templates/risks_overview.pt:408
-#: euphorie/client/browser/templates/risks_overview.pt:404
 msgid "heading_num_low_prio_risks"
 msgstr "${num_low_risks} riskitasoltaan vähäinen"
 
 #. Default: "${num_low_risks} Low priority risks"
 #: euphorie/client/browser/templates/risks_overview.pt:412
-#: euphorie/client/browser/templates/risks_overview.pt:408
 msgid "heading_num_low_prio_risks_2"
 msgstr "${num_low_risks} riskitasoltaan vähäistä"
 
 #. Default: "${num_low_risks} Low priority risks"
 #: euphorie/client/browser/templates/risks_overview.pt:416
-#: euphorie/client/browser/templates/risks_overview.pt:412
 msgid "heading_num_low_prio_risks_3_4"
 msgstr "${num_low_risks} riskitasoltaan vähäistä"
 
 #. Default: "${num_low_risks} Low priority risks"
 #: euphorie/client/browser/templates/risks_overview.pt:420
-#: euphorie/client/browser/templates/risks_overview.pt:416
 msgid "heading_num_low_prio_risks_5_or_more"
 msgstr "${num_low_risks} riskitasoltaan vähäistä"
 
 #. Default: "${num_medium_risks} Medium priority risk"
 #: euphorie/client/browser/templates/risks_overview.pt:391
-#: euphorie/client/browser/templates/risks_overview.pt:387
 msgid "heading_num_medium_prio_risks"
 msgstr "${num_medium_risks} riskitasoltaan kohtalainen"
 
 #. Default: "${num_medium_risks} Medium priority risks"
 #: euphorie/client/browser/templates/risks_overview.pt:395
-#: euphorie/client/browser/templates/risks_overview.pt:391
 msgid "heading_num_medium_prio_risks_2"
 msgstr "${num_medium_risks} riskitasoltaan kohtalaista"
 
 #. Default: "${num_medium_risks} Medium priority risks"
 #: euphorie/client/browser/templates/risks_overview.pt:399
-#: euphorie/client/browser/templates/risks_overview.pt:395
 msgid "heading_num_medium_prio_risks_3_4"
 msgstr "${num_medium_risks} riskitasoltaan kohtalaista"
 
 #. Default: "${num_medium_risks} Medium priority risks"
 #: euphorie/client/browser/templates/risks_overview.pt:403
-#: euphorie/client/browser/templates/risks_overview.pt:399
 msgid "heading_num_medium_prio_risks_5_or_more"
 msgstr "${num_medium_risks} riskitasoltaan kohtalaista"
 
 #. Default: "${num_postponed_risks} Risk postponed"
 #: euphorie/client/browser/templates/risks_overview.pt:464
-#: euphorie/client/browser/templates/risks_overview.pt:460
 msgid "heading_num_postponed_prio_risks"
 msgstr "${num_postponed_risks} arvioimatta"
 
 #. Default: "${num_postponed_risks} Risks postponed"
 #: euphorie/client/browser/templates/risks_overview.pt:468
-#: euphorie/client/browser/templates/risks_overview.pt:464
 msgid "heading_num_postponed_prio_risks_2"
 msgstr "${num_postponed_risks} arvioimatta"
 
 #. Default: "${num_postponed_risks} Risks postponed"
 #: euphorie/client/browser/templates/risks_overview.pt:472
-#: euphorie/client/browser/templates/risks_overview.pt:468
 msgid "heading_num_postponed_prio_risks_3_4"
 msgstr "${num_postponed_risks} arvioimatta"
 
 #. Default: "${num_postponed_risks} Risks postponed"
 #: euphorie/client/browser/templates/risks_overview.pt:476
-#: euphorie/client/browser/templates/risks_overview.pt:472
 msgid "heading_num_postponed_prio_risks_5_or_more"
 msgstr "${num_postponed_risks} arvioimatta"
 
 #. Default: "${num_todo_risks} Risk not answered"
 #: euphorie/client/browser/templates/risks_overview.pt:481
-#: euphorie/client/browser/templates/risks_overview.pt:477
 msgid "heading_num_todo_prio_risks"
 msgstr "${num_todo_risks} vastaus puuttuu"
 
 #. Default: "${num_todo_risks} Risks not answered"
 #: euphorie/client/browser/templates/risks_overview.pt:485
-#: euphorie/client/browser/templates/risks_overview.pt:481
 msgid "heading_num_todo_prio_risks_2"
 msgstr "${num_todo_risks} vastausta puuttuu"
 
 #. Default: "${num_todo_risks} Risks not answered"
 #: euphorie/client/browser/templates/risks_overview.pt:489
-#: euphorie/client/browser/templates/risks_overview.pt:485
 msgid "heading_num_todo_prio_risks_3_4"
 msgstr "${num_todo_risks} vastausta puuttuu"
 
 #. Default: "${num_todo_risks} Risks not answered"
 #: euphorie/client/browser/templates/risks_overview.pt:493
-#: euphorie/client/browser/templates/risks_overview.pt:489
 msgid "heading_num_todo_prio_risks_5_or_more"
 msgstr "${num_todo_risks} vastausta puuttuu"
 
 #. Default: "${num_possible_risks} Possible Risk"
 #: euphorie/client/browser/templates/risks_overview.pt:440
-#: euphorie/client/browser/templates/risks_overview.pt:436
 msgid "heading_possible_risks"
 msgstr "${num_possible_risks} mahdollinen riskitekijä"
 
 #. Default: "${num_possible_risks} Possible Risks"
 #: euphorie/client/browser/templates/risks_overview.pt:444
-#: euphorie/client/browser/templates/risks_overview.pt:440
 msgid "heading_possible_risks_2"
 msgstr "${num_possible_risks} mahdollista riskitekijää"
 
 #. Default: "${num_possible_risks} Possible Risks"
 #: euphorie/client/browser/templates/risks_overview.pt:448
-#: euphorie/client/browser/templates/risks_overview.pt:444
 msgid "heading_possible_risks_3_4"
 msgstr "${num_possible_risks} mahdollista riskitekijää"
 
 #. Default: "${num_possible_risks} Possible Risks"
 #: euphorie/client/browser/templates/risks_overview.pt:452
-#: euphorie/client/browser/templates/risks_overview.pt:448
 msgid "heading_possible_risks_5_or_more"
 msgstr "${num_possible_risks} mahdollista riskitekijää"
 
 #. Default: "${num_present_risks} Present Risk"
 #: euphorie/client/browser/templates/risks_overview.pt:351
-#: euphorie/client/browser/templates/risks_overview.pt:347
 msgid "heading_present_risks"
 msgstr "${num_present_risks} tunnistettu riskitekijä"
 
 #. Default: "${num_present_risks} Present Risks"
 #: euphorie/client/browser/templates/risks_overview.pt:355
-#: euphorie/client/browser/templates/risks_overview.pt:351
 msgid "heading_present_risks_2"
 msgstr "${num_present_risks} tunnistettua riskitekijää"
 
 #. Default: "${num_present_risks} Present Risks"
 #: euphorie/client/browser/templates/risks_overview.pt:359
-#: euphorie/client/browser/templates/risks_overview.pt:355
 msgid "heading_present_risks_3_4"
 msgstr "${num_present_risks} tunnistettua riskitekijää"
 
 #. Default: "${num_present_risks} Present Risks"
 #: euphorie/client/browser/templates/risks_overview.pt:363
-#: euphorie/client/browser/templates/risks_overview.pt:359
 msgid "heading_present_risks_5_or_more"
 msgstr "${num_present_risks} tunnistettua riskitekijää"
 
@@ -3419,7 +3206,6 @@ msgstr "Jos et anna nimitystä, se otetaan syötteestä."
 #. Default: "Home"
 #: euphorie/client/browser/templates/login.pt:284
 #: euphorie/client/browser/templates/shell.pt:135
-#: euphorie/client/browser/templates/shell.pt:192
 msgid "home_link"
 msgstr "Ohjausnäkymä"
 
@@ -3430,7 +3216,6 @@ msgstr "Ovatko edellä valitut toimenpiteet riittäviä?"
 
 #. Default: "Your login name and/or password were entered incorrectly. Please check and try again or ${request_an_email_reminder}."
 #: euphorie/client/browser/templates/login.pt:82
-#: euphorie/client/browser/templates/login_form.pt:44
 msgid "incorrect_login"
 msgstr ""
 "Olet antanut väärän sähköpostiosoitteen ja/tai salasanan. Tarkista ne ja "
@@ -3438,7 +3223,6 @@ msgstr ""
 
 #. Default: "The menu toggle lets you hide and show the risk assessment browser to find previously made risk assessments. Hide the menu when you are concentrating on making a risk assessment or show it when you are clicking about between various parts of the application."
 #: euphorie/client/browser/templates/tooltips.pt:52
-#: euphorie/client/browser/templates/tooltips.pt:53
 msgid "info_osh_hamburger"
 msgstr ""
 "Valikon vaihtopainikkeen avulla voit piilottaa valikon: näkyviin jää "
@@ -3448,7 +3232,6 @@ msgstr ""
 
 #. Default: "The new off canvas menu provides access to the core functions of the applications. Also on mobile!"
 #: euphorie/client/browser/templates/tooltips.pt:80
-#: euphorie/client/browser/templates/tooltips.pt:81
 msgid "info_osh_menu"
 msgstr ""
 "Uuden piilovalikon kautta pääset sovellusten keskeisiin toimintoihin. Toimii "
@@ -3464,7 +3247,6 @@ msgstr ""
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
 #: euphorie/client/browser/templates/tooltips.pt:89
-#: euphorie/client/browser/templates/tooltips.pt:90
 msgid "info_osh_session_menu"
 msgstr ""
 "Voit luoda tästä valikosta uuden OiRA-riskinarvioinnin tai valita aiemmin "
@@ -3483,7 +3265,6 @@ msgstr ""
 
 #. Default: "The European Agency for Safety and Health at Work, European social partners, etc."
 #: euphorie/client/browser/templates/report_company.pt:164
-#: euphorie/client/browser/templates/report_company.pt:161
 msgid "info_referer_eu_institution"
 msgstr ""
 "Euroopan työterveys- ja työturvallisuusvirasto, eurooppalaiset "
@@ -3491,7 +3272,6 @@ msgstr ""
 
 #. Default: "Ministry, Labour Inspectorate, National Institute for Safety and Health at Work, etc."
 #: euphorie/client/browser/templates/report_company.pt:157
-#: euphorie/client/browser/templates/report_company.pt:154
 msgid "info_referer_national_public_institution"
 msgstr ""
 "ministeriö, työsuojeluviranomainen, kansallinen työterveys- ja "
@@ -3499,7 +3279,6 @@ msgstr ""
 
 #. Default: "You can register in one single step just by entering a valid email address."
 #: euphorie/client/browser/templates/tooltips.pt:40
-#: euphorie/client/browser/templates/tooltips.pt:41
 msgid "info_register1"
 msgstr ""
 "Voit rekisteröityä nopeasti antamalla vain voimassa olevan "
@@ -3507,13 +3286,11 @@ msgstr ""
 
 #. Default: "Main benefits of having an account:"
 #: euphorie/client/browser/templates/tooltips.pt:41
-#: euphorie/client/browser/templates/tooltips.pt:42
 msgid "info_register2"
 msgstr "Tärkein hyöty tilin perustamisesta:"
 
 #. Default: "You may switch this on screen help feature on or off at any time by selecting &ldquo;Toggle on screen help&rdquo; from the menu at the top right on the toolbar."
 #: euphorie/client/browser/templates/tooltips.pt:61
-#: euphorie/client/browser/templates/tooltips.pt:62
 msgid "info_screen_help"
 msgstr ""
 "Voit laittaa tämän näytön aputoiminnon päälle tai pois päältä milloin "
@@ -3573,7 +3350,6 @@ msgstr ""
 
 #. Default: "You can print the ${list-of-risks}."
 #: euphorie/client/browser/templates/identification.pt:31
-#: euphorie/client/browser/templates/identification.pt:30
 msgid "intro_identification"
 msgstr "${list-of-risks}"
 
@@ -3611,7 +3387,6 @@ msgstr ""
 #. Default: "It is possible for you to print out the contents of the tool to enable you to look for the information at the relevant workplace (by walking around and looking at what could cause harm, or by consulting the workers and/or their representatives about problems they have encountered). You can then introduce the information into the tool."
 #: euphorie/client/browser/templates/identification.pt:27
 #: euphorie/client/browser/templates/panel-contents-preview.pt:34
-#: euphorie/client/browser/templates/identification.pt:26
 msgid "intro_print_identification_1"
 msgstr ""
 "Voit siirtyä suoraan riskien tunnistamiseen napsauttamalla ”Aloita riskien "
@@ -3620,7 +3395,6 @@ msgstr ""
 #. Default: "You may also wish to distribute the contents among the workers and/or their representatives and invite them to participate in identifying the hazards/problems, evaluating the risks and deciding on preventive action.Their feedback should be taken into account when filling in this tool."
 #: euphorie/client/browser/templates/identification.pt:28
 #: euphorie/client/browser/templates/panel-contents-preview.pt:35
-#: euphorie/client/browser/templates/identification.pt:27
 msgid "intro_print_identification_2"
 msgstr ""
 "Voit aloittaa riskien tunnistamisen myös tulostamalla ensin "
@@ -3673,7 +3447,7 @@ msgstr ""
 "työkalun."
 
 #. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:58 euphorie/client/browser/login.py:325
+#: euphorie/client/browser/login.py:60
 msgid "invalid_email"
 msgstr "Kirjoita voimassaoleva sähköpostiosoite."
 
@@ -3731,8 +3505,6 @@ msgstr "Tili on lukittu"
 #: euphorie/client/browser/templates/login.pt:315
 #: euphorie/client/browser/templates/report_identification.pt:145
 #: euphorie/client/browser/templates/shell.pt:301
-#: euphorie/client/browser/templates/login.pt:110
-#: euphorie/client/browser/templates/shell.pt:297
 msgid "label_action_plan"
 msgstr "Toimintasuunnitelma"
 
@@ -3740,13 +3512,11 @@ msgstr "Toimintasuunnitelma"
 #: euphorie/client/browser/report.py:147
 #: euphorie/client/browser/templates/webhelpers.pt:789
 #: euphorie/client/docx/compiler.py:426
-#: euphorie/client/browser/templates/webhelpers.pt:786
 msgid "label_action_plan_budget"
 msgstr "Budjetti"
 
 #. Default: "Action plan"
 #: euphorie/client/browser/templates/report_landing.pt:71
-#: euphorie/client/browser/templates/report_landing.pt:110
 msgid "label_action_plan_download"
 msgstr "Toimintasuunnitelma"
 
@@ -3754,7 +3524,6 @@ msgstr "Toimintasuunnitelma"
 #: euphorie/client/browser/report.py:124
 #: euphorie/client/browser/templates/webhelpers.pt:828
 #: euphorie/client/docx/compiler.py:428
-#: euphorie/client/browser/templates/webhelpers.pt:825
 msgid "label_action_plan_end"
 msgstr "Toimenpiteet toteutettu/tilanne kunnossa"
 
@@ -3762,7 +3531,6 @@ msgstr "Toimenpiteet toteutettu/tilanne kunnossa"
 #: euphorie/client/browser/report.py:145
 #: euphorie/client/browser/templates/webhelpers.pt:775
 #: euphorie/client/docx/compiler.py:424
-#: euphorie/client/browser/templates/webhelpers.pt:772
 msgid "label_action_plan_responsible"
 msgstr "Vastuuhenkilö"
 
@@ -3770,7 +3538,6 @@ msgstr "Vastuuhenkilö"
 #: euphorie/client/browser/report.py:119
 #: euphorie/client/browser/templates/webhelpers.pt:812
 #: euphorie/client/docx/compiler.py:427
-#: euphorie/client/browser/templates/webhelpers.pt:809
 msgid "label_action_plan_start"
 msgstr "Aikataulu: Toimenpiteiden suunnittelu"
 
@@ -3787,7 +3554,6 @@ msgstr "Aakkosjärjestys"
 
 #. Default: "Assessment"
 #: euphorie/client/browser/templates/shell.pt:280
-#: euphorie/client/browser/templates/shell.pt:276
 msgid "label_assessment"
 msgstr "Tunnistus ja arviointi"
 
@@ -3803,7 +3569,6 @@ msgstr "Sivun sisältö"
 
 #. Default: "Skip"
 #: euphorie/client/browser/templates/risk_identification.pt:128
-#: euphorie/client/browser/templates/risk_identification.pt:129
 msgid "label_button_skip"
 msgstr "Ohita"
 
@@ -3845,7 +3610,6 @@ msgstr ""
 
 #. Default: "Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
 #: euphorie/client/browser/templates/risk_actionplan.pt:119
-#: euphorie/client/browser/templates/webhelpers.pt:632
 msgid "label_comment"
 msgstr ""
 "Tähän voit lisätä tietoja tai kommentteja yllä olevaan liittyen. Ne näkyvät "
@@ -3854,14 +3618,12 @@ msgstr ""
 #. Default: "Your country"
 #: euphorie/client/browser/company.py:29
 #: euphorie/client/browser/templates/report_company.pt:49
-#: euphorie/client/browser/templates/report_company.pt:46
 msgid "label_company_country"
 msgstr "Maasi"
 
 #. Default: "The risk assessment was conducted by"
 #: euphorie/client/browser/company.py:62
 #: euphorie/client/browser/templates/report_company.pt:108
-#: euphorie/client/browser/templates/report_company.pt:105
 msgid "label_conductor"
 msgstr "Riskien arvioinnin on suorittanut"
 
@@ -3931,7 +3693,6 @@ msgstr "Oletusvakavuus"
 
 #. Default: "Delete"
 #: euphorie/client/browser/templates/more_menu.pt:25
-#: euphorie/client/browser/templates/more_menu.pt:23
 msgid "label_delete"
 msgstr "Poista"
 
@@ -3943,19 +3704,16 @@ msgstr "Olet poistamassa lisäämääsi riskitekijää: &ldquo;${risk-name}&rdqu
 #. Default: "Description"
 #: euphorie/client/browser/templates/webhelpers.pt:709
 #: euphorie/content/risk.py:92
-#: euphorie/client/browser/templates/webhelpers.pt:706
 msgid "label_description"
 msgstr "Kuvaus"
 
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:50
-#: euphorie/client/browser/templates/involve.pt:42
 msgid "label_download_tool_preview"
 msgstr "Lataa arviointilomake"
 
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:42
-#: euphorie/client/browser/templates/more_menu.pt:38
 msgid "label_duplicate"
 msgstr ""
 
@@ -3963,15 +3721,12 @@ msgstr ""
 #: euphorie/client/browser/reset_password.py:48
 #: euphorie/client/browser/templates/login.pt:59
 #: euphorie/client/browser/templates/register_session.pt:151
-#: euphorie/client/browser/templates/login_form.pt:68
-#: euphorie/client/browser/templates/register.pt:152
 msgid "label_email"
 msgstr "Sähköpostiosoite"
 
 #. Default: "Number of employees"
 #: euphorie/client/browser/company.py:33
 #: euphorie/client/browser/templates/report_company.pt:72
-#: euphorie/client/browser/templates/report_company.pt:69
 msgid "label_employee_numbers"
 msgstr "Työntekijöiden määrä"
 
@@ -3984,8 +3739,6 @@ msgstr "Näytä tälle OiRA-välineelle räätälöity ilmoitus"
 #: euphorie/client/browser/templates/login.pt:313
 #: euphorie/client/browser/templates/report_identification.pt:135
 #: euphorie/client/browser/templates/shell.pt:280
-#: euphorie/client/browser/templates/login.pt:108
-#: euphorie/client/browser/templates/shell.pt:276
 msgid "label_evaluation"
 msgstr "Arviointi"
 
@@ -4017,13 +3770,11 @@ msgstr "Poistu"
 
 #. Default: "Expertise"
 #: euphorie/client/browser/templates/webhelpers.pt:761
-#: euphorie/client/browser/templates/webhelpers.pt:758
 msgid "label_expertise"
 msgstr "Asiantuntemus"
 
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/webhelpers.pt:987
-#: euphorie/client/browser/templates/webhelpers.pt:984
 msgid "label_extra_add_measure"
 msgstr "Lisää muita toimenpiteitä"
 
@@ -4039,19 +3790,16 @@ msgstr "Sisällön otsikko"
 
 #. Default: "I forgot my password"
 #: euphorie/client/browser/templates/login.pt:116
-#: euphorie/client/browser/templates/login_form.pt:80
 msgid "label_forgot_password"
 msgstr "Olen unohtanut salasanani"
 
 #. Default: "Format"
 #: euphorie/client/browser/templates/report_landing.pt:53
-#: euphorie/client/browser/templates/report_landing.pt:91
 msgid "label_format"
 msgstr "Formaatti"
 
 #. Default: "General information"
 #: euphorie/client/browser/templates/status_info.pt:34
-#: euphorie/client/browser/templates/status_info.pt:33
 msgid "label_general_information"
 msgstr "Yhteenveto"
 
@@ -4113,8 +3861,6 @@ msgstr "Riskien arvioinnin toteuttaminen"
 #: euphorie/client/browser/templates/login.pt:311
 #: euphorie/client/browser/templates/report_identification.pt:125
 #: euphorie/client/browser/templates/shell.pt:278
-#: euphorie/client/browser/templates/login.pt:106
-#: euphorie/client/browser/templates/shell.pt:274
 msgid "label_identification"
 msgstr "Tunnistaminen"
 
@@ -4125,7 +3871,6 @@ msgstr "Kuvatiedosto"
 
 #. Default: "Implemented measure"
 #: euphorie/client/browser/templates/webhelpers.pt:706
-#: euphorie/client/browser/templates/webhelpers.pt:703
 msgid "label_implemented_measure"
 msgstr "Toteutettu toimenpide"
 
@@ -4143,7 +3888,6 @@ msgstr "Johdantoteksti"
 
 #. Default: "Involve"
 #: euphorie/client/browser/templates/shell.pt:254
-#: euphorie/client/browser/templates/shell.pt:250
 msgid "label_involve"
 msgstr "Osallistuminen ja yhteistyö"
 
@@ -4154,7 +3898,6 @@ msgstr "Siirry raporttiin"
 
 #. Default: "Keep me logged in."
 #: euphorie/client/browser/templates/login.pt:91
-#: euphorie/client/browser/templates/login_form.pt:100
 msgid "label_keep_logged_in"
 msgstr "Pidä minut sisäänkirjautuneena"
 
@@ -4189,7 +3932,6 @@ msgstr ""
 
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:99
-#: euphorie/client/browser/templates/login_form.pt:117
 msgid "label_login"
 msgstr "Sisäänkirjautuminen"
 
@@ -4200,7 +3942,6 @@ msgstr "Kirjautumisnimi"
 
 #. Default: "Password"
 #: euphorie/client/browser/templates/login.pt:69
-#: euphorie/client/browser/templates/login_form.pt:80
 msgid "label_login_password"
 msgstr "Salasana"
 
@@ -4224,7 +3965,6 @@ msgstr ""
 #: euphorie/client/browser/report.py:129
 #: euphorie/client/browser/templates/webhelpers.pt:876
 #: euphorie/client/docx/compiler.py:409
-#: euphorie/client/browser/templates/webhelpers.pt:873
 msgid "label_measure_action_plan"
 msgstr "Toimenpide riskin poistamiseksi tai pienentämiseksi"
 
@@ -4240,7 +3980,6 @@ msgstr ""
 #: euphorie/client/browser/report.py:137
 #: euphorie/client/browser/templates/webhelpers.pt:891
 #: euphorie/client/docx/compiler.py:418
-#: euphorie/client/browser/templates/webhelpers.pt:888
 msgid "label_measure_requirements"
 msgstr "Tarvittava asiantuntemus ja/tai ulkopuolisen tuen tarve"
 
@@ -4278,7 +4017,6 @@ msgstr "Lisää riskinarviointeja…"
 #. Default: "Did this OiRA tool meet your needs?"
 #: euphorie/client/browser/company.py:150
 #: euphorie/client/browser/templates/report_company.pt:212
-#: euphorie/client/browser/templates/report_company.pt:209
 msgid "label_needs_met"
 msgstr "Vastasiko tämä OiRA –riskinarviointi tarpeitasi?"
 
@@ -4286,7 +4024,6 @@ msgstr "Vastasiko tämä OiRA –riskinarviointi tarpeitasi?"
 #: euphorie/client/browser/reset_password.py:34
 #: euphorie/client/browser/settings.py:51
 #: euphorie/client/browser/templates/login.pt:184
-#: euphorie/client/browser/templates/register.pt:170
 msgid "label_new_password"
 msgstr "Anna salasana"
 
@@ -4309,8 +4046,6 @@ msgstr "Uusin ensin"
 #: euphorie/client/browser/templates/involve.pt:40
 #: euphorie/client/browser/templates/module_actionplan.pt:75
 #: euphorie/client/browser/templates/module_identification.pt:113
-#: euphorie/client/browser/templates/involve.pt:51
-#: euphorie/client/browser/templates/module_identification.pt:112
 msgid "label_next"
 msgstr "Seuraava"
 
@@ -4318,8 +4053,6 @@ msgstr "Seuraava"
 #: euphorie/client/browser/company.py:143
 #: euphorie/client/browser/templates/module_identification.pt:99
 #: euphorie/client/browser/templates/report_company.pt:200
-#: euphorie/client/browser/templates/module_identification.pt:98
-#: euphorie/client/browser/templates/report_company.pt:197
 msgid "label_no"
 msgstr "Ei"
 
@@ -4331,28 +4064,24 @@ msgstr ""
 #. Default: "No risk"
 #: euphorie/client/browser/templates/risks_overview.pt:262
 #: euphorie/client/browser/templates/status_info.pt:196
-#: euphorie/client/browser/templates/risks_overview.pt:258
 msgid "label_no_risk"
 msgstr "riskitekijä, joka ei aiheuta vaaraa tai haittaa"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:266
 #: euphorie/client/browser/templates/status_info.pt:200
-#: euphorie/client/browser/templates/risks_overview.pt:262
 msgid "label_no_risks_2"
 msgstr "riskitekijää, jotka eivät aiheuta vaaraa tai haittaa"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:270
 #: euphorie/client/browser/templates/status_info.pt:204
-#: euphorie/client/browser/templates/risks_overview.pt:266
 msgid "label_no_risks_3_4"
 msgstr "riskitekijää, jotka eivät aiheuta vaaraa tai haittaa"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:274
 #: euphorie/client/browser/templates/status_info.pt:208
-#: euphorie/client/browser/templates/risks_overview.pt:270
 msgid "label_no_risks_5_or_more"
 msgstr "riskitekijää, jotka eivät aiheuta vaaraa tai haittaa"
 
@@ -4395,7 +4124,6 @@ msgstr "Salasana"
 #. Default: "Again password"
 #: euphorie/client/browser/templates/login.pt:197
 #: euphorie/client/browser/templates/register_session.pt:178
-#: euphorie/client/browser/templates/register.pt:179
 msgid "label_password_confirm"
 msgstr "Toista salasana"
 
@@ -4403,8 +4131,6 @@ msgstr "Toista salasana"
 #: euphorie/client/browser/templates/login.pt:309
 #: euphorie/client/browser/templates/report_identification.pt:113
 #: euphorie/client/browser/templates/shell.pt:234
-#: euphorie/client/browser/templates/login.pt:104
-#: euphorie/client/browser/templates/shell.pt:230
 msgid "label_preparation"
 msgstr "Suunnittelu"
 
@@ -4417,16 +4143,12 @@ msgstr "Esikatselu"
 #: euphorie/client/browser/templates/module_identification.pt:107
 #: euphorie/client/browser/templates/module_identification_custom.pt:56
 #: euphorie/client/browser/templates/report_company.pt:260
-#: euphorie/client/browser/templates/module_identification.pt:106
-#: euphorie/client/browser/templates/report_company.pt:257
-#: euphorie/client/browser/templates/risk_actionplan.pt:134
 msgid "label_previous"
 msgstr "Edellinen"
 
 #. Default: "Print a tool preview"
 #: euphorie/client/browser/templates/involve.pt:45
 #: euphorie/client/browser/templates/panel-contents-preview.pt:39
-#: euphorie/client/browser/templates/involve.pt:37
 msgid "label_print_tool_preview"
 msgstr "Tulosta arviointilomake"
 
@@ -4446,14 +4168,12 @@ msgstr "Kysymys"
 #: euphorie/client/browser/templates/publication_menu.pt:27
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:146
 #: euphorie/client/browser/templates/status_info.pt:95
-#: euphorie/client/browser/templates/status_info.pt:94
 msgid "label_published"
 msgstr "Julkaistu"
 
 #. Default: "Would you recommend this OiRA tool to an enterprise similar to yours?"
 #: euphorie/client/browser/company.py:161
 #: euphorie/client/browser/templates/report_company.pt:236
-#: euphorie/client/browser/templates/report_company.pt:233
 msgid "label_recommend_tool"
 msgstr ""
 "Suosittelisitko tätä riskinarviointimenetelmää muille toimialasi yrityksille?"
@@ -4461,49 +4181,39 @@ msgstr ""
 #. Default: "Through which channel did you learn about this tool?"
 #: euphorie/client/browser/company.py:87
 #: euphorie/client/browser/templates/report_company.pt:138
-#: euphorie/client/browser/templates/report_company.pt:135
 msgid "label_referer"
 msgstr "Minkä kautta olet tutustunut tähän työkaluun?"
 
 #. Default: "register"
 #: euphorie/client/browser/templates/new-session-test.pt:129
-#: euphorie/client/browser/templates/login.pt:51
 msgid "label_register"
 msgstr "rekisteröidy"
 
 #. Default: "It's free."
 #: euphorie/client/browser/templates/register_session.pt:30
 #: euphorie/client/browser/templates/tooltips.pt:43
-#: euphorie/client/browser/templates/register.pt:30
-#: euphorie/client/browser/templates/tooltips.pt:44
 msgid "label_register_benefit_1"
 msgstr "Se on maksutonta."
 
 #. Default: "You can save your work online."
 #: euphorie/client/browser/templates/register_session.pt:31
 #: euphorie/client/browser/templates/tooltips.pt:44
-#: euphorie/client/browser/templates/register.pt:31
-#: euphorie/client/browser/templates/tooltips.pt:45
 msgid "label_register_benefit_2"
 msgstr "Voit tallentaa työsi verkossa."
 
 #. Default: "You can download a full report and an action plan."
 #: euphorie/client/browser/templates/register_session.pt:32
 #: euphorie/client/browser/templates/tooltips.pt:45
-#: euphorie/client/browser/templates/register.pt:32
-#: euphorie/client/browser/templates/tooltips.pt:46
 msgid "label_register_benefit_3"
 msgstr "Voit ladata raportin ja toimintasuunnitelman kokonaisuudessaan."
 
 #. Default: "register"
 #: euphorie/client/browser/templates/login.pt:109
-#: euphorie/client/browser/templates/login_form.pt:105
 msgid "label_register_first"
 msgstr "rekisteröidy"
 
 #. Default: "Delete this measure"
 #: euphorie/client/browser/templates/webhelpers.pt:727
-#: euphorie/client/browser/templates/webhelpers.pt:724
 msgid "label_remove_measure"
 msgstr "Poista tämä toimenpide"
 
@@ -4511,14 +4221,11 @@ msgstr "Poista tämä toimenpide"
 #: euphorie/client/browser/templates/report_identification.pt:155
 #: euphorie/client/browser/templates/report_landing.pt:43
 #: euphorie/client/browser/templates/shell.pt:326
-#: euphorie/client/browser/templates/report_landing.pt:83
-#: euphorie/client/browser/templates/shell.pt:322
 msgid "label_report"
 msgstr "Raportti"
 
 #. Default: "Please leave any extra comments that should be included in the report in this field."
 #: euphorie/client/browser/templates/report.pt:43
-#: euphorie/client/browser/templates/report.pt:41
 msgid "label_report_comment"
 msgstr "Lisää tähän tietoja tai kommentteja, jotka haluat näkyviin raportille."
 
@@ -4551,62 +4258,53 @@ msgstr "Riskityyppi"
 #. Default: "Risk with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:283
 #: euphorie/client/browser/templates/status_info.pt:217
-#: euphorie/client/browser/templates/risks_overview.pt:279
 msgid "label_risk_with_measure"
 msgstr "riskitekijä, jolle määritetty toimenpiteet"
 
 #. Default: "Risk without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:304
 #: euphorie/client/browser/templates/status_info.pt:238
-#: euphorie/client/browser/templates/risks_overview.pt:300
 msgid "label_risk_without_measure"
 msgstr "riskitekijä, josta puuttuu toimenpiteet"
 
 #. Default: "Risks with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:287
 #: euphorie/client/browser/templates/status_info.pt:221
-#: euphorie/client/browser/templates/risks_overview.pt:283
 msgid "label_risks_with_measure_2"
 msgstr "riskitekijää, joille määritetty toimenpiteet"
 
 #. Default: "Risks with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:291
 #: euphorie/client/browser/templates/status_info.pt:225
-#: euphorie/client/browser/templates/risks_overview.pt:287
 msgid "label_risks_with_measure_3_4"
 msgstr "riskitekijää, joille määritetty toimenpiteet"
 
 #. Default: "Risks with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:295
 #: euphorie/client/browser/templates/status_info.pt:229
-#: euphorie/client/browser/templates/risks_overview.pt:291
 msgid "label_risks_with_measure_5_or_more"
 msgstr "riskitekijää, joille määritetty toimenpiteet"
 
 #. Default: "Risks without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:308
 #: euphorie/client/browser/templates/status_info.pt:242
-#: euphorie/client/browser/templates/risks_overview.pt:304
 msgid "label_risks_without_measure_2"
 msgstr "riskitekijää, joista puuttuvat toimenpiteet"
 
 #. Default: "Risks without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:312
 #: euphorie/client/browser/templates/status_info.pt:246
-#: euphorie/client/browser/templates/risks_overview.pt:308
 msgid "label_risks_without_measure_3_4"
 msgstr "riskitekijää, joista puuttuvat hallintatoimet"
 
 #. Default: "Risks without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:316
 #: euphorie/client/browser/templates/status_info.pt:250
-#: euphorie/client/browser/templates/risks_overview.pt:312
 msgid "label_risks_without_measure_5_or_more"
 msgstr "riskitekijää, joista puuttuvat hallintatoimet"
 
 #. Default: "Save and add new risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:293
-#: euphorie/client/browser/templates/risk_identification_custom.pt:285
 msgid "label_save_and_add_new"
 msgstr "Tallenna ja lisää toinen riski"
 
@@ -4614,14 +4312,11 @@ msgstr "Tallenna ja lisää toinen riski"
 #: euphorie/client/browser/templates/profile.pt:190
 #: euphorie/client/browser/templates/report.pt:55
 #: euphorie/client/browser/templates/report_company.pt:265
-#: euphorie/client/browser/templates/report.pt:52
-#: euphorie/client/browser/templates/report_company.pt:262
 msgid "label_save_and_continue"
 msgstr "Tallenna ja jatka"
 
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:307
-#: euphorie/client/browser/templates/risk_identification_custom.pt:299
 msgid "label_save_and_finish"
 msgstr "Tallenna ja lopeta"
 
@@ -4647,7 +4342,6 @@ msgstr "Toimialan nimitys"
 
 #. Default: "Select one or more of the known common measures provided."
 #: euphorie/client/browser/templates/webhelpers.pt:667
-#: euphorie/client/browser/templates/webhelpers.pt:664
 msgid "label_select_measure"
 msgstr "Valitse yksi tai useampi tunnetuista yleisistä toimenpiteistä."
 
@@ -4667,7 +4361,6 @@ msgstr "Valitse OiRA-työkalu"
 
 #. Default: "Select standard measures"
 #: euphorie/client/browser/templates/webhelpers.pt:979
-#: euphorie/client/browser/templates/webhelpers.pt:976
 msgid "label_select_standard_measures"
 msgstr "Valitse toimenpiteet"
 
@@ -4693,7 +4386,6 @@ msgstr "Näytä 'ei sovelleta' vaihtoehto"
 
 #. Default: "Skip this step"
 #: euphorie/client/browser/templates/report_company.pt:270
-#: euphorie/client/browser/templates/report_company.pt:267
 msgid "label_skip"
 msgstr "Ohita tämä vaihe"
 
@@ -4709,20 +4401,17 @@ msgstr "Lajittele"
 
 #. Default: "Start Risk Identification"
 #: euphorie/client/browser/templates/identification.pt:38
-#: euphorie/client/browser/templates/identification.pt:37
 msgid "label_start_identification"
 msgstr "Aloita riskien tunnistaminen"
 
 #. Default: "Start"
 #: euphorie/client/browser/templates/start.pt:125
-#: euphorie/client/browser/templates/start.pt:135
 msgid "label_start_survey"
 msgstr "Aloita"
 
 #. Default: "Started"
 #: euphorie/client/browser/templates/assessments.pt:78
 #: euphorie/client/browser/templates/status_info.pt:54
-#: euphorie/client/browser/templates/status_info.pt:53
 msgid "label_started"
 msgstr "aloitettu"
 
@@ -4769,7 +4458,6 @@ msgstr "käyttöehdot"
 
 #. Default: "Test session"
 #: euphorie/client/browser/templates/shell.pt:165
-#: euphorie/client/browser/templates/shell.pt:158
 msgid "label_testsession"
 msgstr ""
 
@@ -4828,7 +4516,6 @@ msgstr ""
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:116
-#: euphorie/client/browser/templates/status_info.pt:115
 msgid "label_unpublished"
 msgstr ""
 
@@ -4854,7 +4541,6 @@ msgstr ""
 
 #. Default: "Used tool"
 #: euphorie/client/browser/templates/status_info.pt:39
-#: euphorie/client/browser/templates/status_info.pt:38
 msgid "label_used_tool"
 msgstr "OiRA-työkalu"
 
@@ -4865,20 +4551,17 @@ msgstr "Nimi"
 
 #. Default: "(&ge;1 measures)"
 #: euphorie/client/browser/templates/risks_overview.pt:426
-#: euphorie/client/browser/templates/risks_overview.pt:422
 msgid "label_with_measures"
 msgstr "(≥1 toimenpidettä)"
 
 #. Default: "(without measures)"
 #: euphorie/client/browser/templates/risks_overview.pt:428
-#: euphorie/client/browser/templates/risks_overview.pt:424
 msgid "label_without_measures"
 msgstr "(ilman toimenpiteitä)"
 
 #. Default: "Workers were invited to participate in the risk assessment"
 #: euphorie/client/browser/company.py:136
 #: euphorie/client/browser/templates/report_company.pt:188
-#: euphorie/client/browser/templates/report_company.pt:185
 msgid "label_workers_participated"
 msgstr "Työntekijöitä oli pyydetty osallistumaan riskinarviointiin"
 
@@ -4886,8 +4569,6 @@ msgstr "Työntekijöitä oli pyydetty osallistumaan riskinarviointiin"
 #: euphorie/client/browser/company.py:142
 #: euphorie/client/browser/templates/module_identification.pt:91
 #: euphorie/client/browser/templates/report_company.pt:194
-#: euphorie/client/browser/templates/module_identification.pt:90
-#: euphorie/client/browser/templates/report_company.pt:191
 msgid "label_yes"
 msgstr "Kyllä"
 
@@ -4936,40 +4617,33 @@ msgstr "Kirjaudu sisään"
 #: euphorie/client/browser/country.py:550
 #: euphorie/client/browser/templates/assessments.pt:28
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64
-#: euphorie/client/browser/country.py:424
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:58
 msgid "link_start_session"
 msgstr "luo uusi riskinarviointi"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:31
-#: euphorie/client/browser/templates/identification.pt:30
 msgid "list_of_risks"
 msgstr "Tulosta riskien arviointilomake"
 
 #. Default: "Discover how easy it is to create a risk assessment with OiRA."
 #: euphorie/client/browser/templates/tooltips.pt:33
-#: euphorie/client/browser/templates/tooltips.pt:34
 msgid "list_test_session_benefits1"
 msgstr ""
 "Kokeile, miten helposti riskinarviointi tehdään OiRA-sovelluksen avulla."
 
 #. Default: "Identify potential risks in your business and the measures to reduce them."
 #: euphorie/client/browser/templates/tooltips.pt:34
-#: euphorie/client/browser/templates/tooltips.pt:35
 msgid "list_test_session_benefits2"
 msgstr ""
 "Määritä yrityksesi mahdolliset riskit ja toimenpiteet niiden vähentämiseksi."
 
 #. Default: "Use it for vocational training."
 #: euphorie/client/browser/templates/tooltips.pt:35
-#: euphorie/client/browser/templates/tooltips.pt:36
 msgid "list_test_session_benefits3"
 msgstr "Hyödynnä OiRAa ammatillisessa koulutuksessa."
 
 #. Default: "${important} In a test session you cannot save your work. All progess will be lost unless you register."
 #: euphorie/client/browser/templates/tooltips.pt:21
-#: euphorie/client/browser/templates/tooltips.pt:22
 msgid "list_test_session_limitations1"
 msgstr ""
 "${important} Et voi tallentaa työtäsi kokeiluversiossa. Menetät kaikki "
@@ -4977,13 +4651,11 @@ msgstr ""
 
 #. Default: "You will not be able to print or download reports."
 #: euphorie/client/browser/templates/tooltips.pt:24
-#: euphorie/client/browser/templates/tooltips.pt:25
 msgid "list_test_session_limitations2"
 msgstr "Et pysty tulostamaan tai lataamaan raportteja."
 
 #. Default: "During a test session you will have the possibility at any time to register by clicking on the \"Register\" link at the top."
 #: euphorie/client/browser/templates/tooltips.pt:25
-#: euphorie/client/browser/templates/tooltips.pt:26
 msgid "list_test_session_limitations3"
 msgstr ""
 "Voit milloin tahansa kokeiluversion käytön aikana rekisteröityä "
@@ -5030,7 +4702,6 @@ msgstr "Tuo OiRA-työkalu"
 
 #. Default: "Training"
 #: euphorie/client/browser/templates/shell.pt:347
-#: euphorie/client/browser/templates/shell.pt:343
 msgid "menu_training"
 msgstr ""
 
@@ -5048,12 +4719,11 @@ msgstr ""
 
 #. Default: "Please fill out this field."
 #: euphorie/client/browser/session.py:177
-#: euphorie/client/browser/session.py:176
 msgid "message_field_required"
 msgstr "Täytä tämä kenttä."
 
 #. Default: "Decide on the best way to involve your staff! You can for example conduct a meeting or a focus group with workers and go through the respective parts in the risk assessment together. You can also download or print the content of the tool or parts of it and share it for information and feedback with your workers."
-#: euphorie/client/browser/templates/involve.pt:32
+#: euphorie/client/browser/templates/involve.pt:33
 msgid "message_involve_workers_how_to"
 msgstr ""
 "Tunnista, mikä olisi teillä paras tapa saada henkilöstö mukaan. Onnistuisiko "
@@ -5065,7 +4735,6 @@ msgstr ""
 
 #. Default: "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href=\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction\">legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:28
-#: euphorie/client/browser/templates/involve.pt:27
 msgid "message_involve_workers_requirement"
 msgstr ""
 "Hyvän turvallisuusjohtamisen yksi avaintekijä on se, miten hyvin henkilöstö "
@@ -5183,16 +4852,12 @@ msgstr "Käyttäjähallinta"
 #: euphorie/client/browser/templates/conditions.pt:57
 #: euphorie/client/browser/templates/help-menu.pt:26
 #: euphorie/client/browser/templates/webhelpers.pt:59
-#: euphorie/client/browser/templates/conditions.pt:139
-#: euphorie/client/browser/templates/help-menu.pt:31
-#: euphorie/client/browser/templates/user-menu.pt:40
 msgid "navigation_help"
 msgstr "Ohjeet"
 
 #. Default: "Logout"
 #: euphorie/client/browser/templates/user-menu.pt:51
 #: euphorie/client/browser/templates/webhelpers.pt:53
-#: euphorie/client/browser/templates/user-menu.pt:64
 msgid "navigation_logout"
 msgstr "Kirjaudu ulos"
 
@@ -5205,8 +4870,6 @@ msgstr "Asetukset"
 #: euphorie/client/browser/templates/more_menu.pt:51
 #: euphorie/client/browser/templates/shell.pt:373
 #: euphorie/client/browser/templates/webhelpers.pt:62
-#: euphorie/client/browser/templates/more_menu.pt:46
-#: euphorie/client/browser/templates/shell.pt:369
 msgid "navigation_status"
 msgstr "Riskinarvioinnin tila"
 
@@ -5247,7 +4910,6 @@ msgstr ""
 
 #. Default: "<a href='%s/@@report'>${text_download_section}</a>"
 #: euphorie/client/browser/session.py:189
-#: euphorie/client/browser/session.py:188
 msgid "no_translate_link_download_section"
 msgstr ""
 
@@ -5340,7 +5002,6 @@ msgstr ""
 
 #. Default: "Provide some further information on this risk."
 #: euphorie/client/browser/templates/risk_identification_custom.pt:252
-#: euphorie/client/browser/templates/risk_identification_custom.pt:245
 msgid "placeholder_custom_risk_description"
 msgstr "Anna lisätietoa tästä riskistä."
 
@@ -5363,7 +5024,6 @@ msgstr "Versiot"
 
 #. Default: "COPY"
 #: euphorie/client/browser/session.py:724
-#: euphorie/client/browser/session.py:723
 msgid "prefix_cloned_title"
 msgstr ""
 
@@ -5371,7 +5031,6 @@ msgstr ""
 #: euphorie/client/browser/templates/risk_identification_custom.pt:205
 #: euphorie/client/browser/templates/webhelpers.pt:565
 #: euphorie/content/risk.py:214
-#: euphorie/client/browser/templates/risk_identification_custom.pt:201
 msgid "priority_high"
 msgstr "korkea"
 
@@ -5379,7 +5038,6 @@ msgstr "korkea"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:193
 #: euphorie/client/browser/templates/webhelpers.pt:553
 #: euphorie/content/risk.py:212
-#: euphorie/client/browser/templates/risk_identification_custom.pt:189
 msgid "priority_low"
 msgstr "vähäinen"
 
@@ -5387,7 +5045,6 @@ msgstr "vähäinen"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:199
 #: euphorie/client/browser/templates/webhelpers.pt:559
 #: euphorie/content/risk.py:213
-#: euphorie/client/browser/templates/risk_identification_custom.pt:195
 msgid "priority_medium"
 msgstr "kohtalainen"
 
@@ -5411,7 +5068,6 @@ msgstr "epätodennäköinen"
 
 #. Default: "${completion_percentage}% Complete"
 #: euphorie/client/browser/webhelpers.py:297
-#: euphorie/client/browser/webhelpers.py:294
 msgid "progress_indicator_title"
 msgstr "${completion_percentage}% Täydellinen"
 
@@ -5426,48 +5082,41 @@ msgstr ""
 #. Default: "an employers' organisation"
 #: euphorie/client/browser/company.py:95
 #: euphorie/client/browser/templates/report_company.pt:144
-#: euphorie/client/browser/templates/report_company.pt:141
 msgid "referer_employers_organisation"
 msgstr "työnantajaorganisaatio"
 
 #. Default: "an European institution/administration"
 #: euphorie/client/browser/company.py:115
 #: euphorie/client/browser/templates/report_company.pt:163
-#: euphorie/client/browser/templates/report_company.pt:160
 msgid "referer_eu_institution"
 msgstr "eurooppalainen instituutio/hallinto"
 
 #. Default: "health and safety experts"
 #: euphorie/client/browser/company.py:122
 #: euphorie/client/browser/templates/report_company.pt:170
-#: euphorie/client/browser/templates/report_company.pt:167
 msgid "referer_health_safety_expert"
 msgstr "terveys- ja turvallisuusasiantuntijat"
 
 #. Default: "a national public institution/administration"
 #: euphorie/client/browser/company.py:108
 #: euphorie/client/browser/templates/report_company.pt:156
-#: euphorie/client/browser/templates/report_company.pt:153
 msgid "referer_national_public_institution"
 msgstr "kansallinen julkinen instituutio/hallinto"
 
 #. Default: "other channel"
 #: euphorie/client/browser/company.py:128
 #: euphorie/client/browser/templates/report_company.pt:176
-#: euphorie/client/browser/templates/report_company.pt:173
 msgid "referer_other"
 msgstr "jokin muu"
 
 #. Default: "a trade union organisation"
 #: euphorie/client/browser/company.py:102
 #: euphorie/client/browser/templates/report_company.pt:150
-#: euphorie/client/browser/templates/report_company.pt:147
 msgid "referer_trade_union"
 msgstr "ammattijärjestöorganisaatio"
 
 #. Default: "Don't have an account? Then please ${register_link} first."
 #: euphorie/client/browser/templates/login.pt:109
-#: euphorie/client/browser/templates/login_form.pt:105
 msgid "register_teaser"
 msgstr "Eikö sinulla ole tiliä? ${register_link} ensin."
 
@@ -5487,7 +5136,6 @@ msgstr ""
 
 #. Default: "We are sorry, this is a trial version and the download feature cannot be used. Register in just one step and gain access to the following benefits:"
 #: euphorie/client/browser/templates/register_session.pt:28
-#: euphorie/client/browser/templates/register.pt:28
 msgid "report_guest_register_intro"
 msgstr ""
 "Raportin lataustoiminto ei ole käytettävissä kokeiluversiossa. "
@@ -5502,7 +5150,6 @@ msgstr ""
 
 #. Default: "Now that you have finished identifying all the risks in your organisation and created an action plan you can create a report which lists all your results. You can, if desired, add some extra comments that should be included in this report in the field below."
 #: euphorie/client/browser/templates/report.pt:31
-#: euphorie/client/browser/templates/report.pt:30
 msgid "report_intro"
 msgstr ""
 "Olet nyt saanut valmiiksi riskien arvioinnin ja laatinut "
@@ -5551,7 +5198,6 @@ msgstr "Aikajana"
 
 #. Default: "reset your password"
 #: euphorie/client/browser/templates/login.pt:82
-#: euphorie/client/browser/templates/login_form.pt:44
 msgid "request_an_email_reminder"
 msgstr "pyydä sähköpostimuistutusta"
 
@@ -5781,20 +5427,17 @@ msgstr "Tietoja"
 
 #. Default: "Delete account"
 #: euphorie/client/browser/settings.py:140
-#: euphorie/client/browser/settings.py:132
 msgid "title_account_delete"
 msgstr "Poista tili"
 
 #. Default: "Account settings"
 #: euphorie/client/browser/settings.py:179
-#: euphorie/client/browser/settings.py:171
 msgid "title_account_settings"
 msgstr "Tiliasetukset"
 
 #. Default: "Change password"
 #: euphorie/client/browser/settings.py:92
 #: euphorie/client/browser/templates/user-menu.pt:33
-#: euphorie/client/browser/templates/user-menu.pt:46
 msgid "title_change_password"
 msgstr "Vaihda salasana"
 
@@ -5836,13 +5479,11 @@ msgstr "Poista tämä OiRA-työkalu online-asiakkaasta."
 #. Default: "Added risks (by you)"
 #: euphorie/client/browser/publish.py:138
 #: euphorie/client/browser/session.py:489 euphorie/client/docx/compiler.py:108
-#: euphorie/client/browser/session.py:488
 msgid "title_other_risks"
 msgstr "Muut tunnistetut riskitekijät"
 
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:204
-#: euphorie/client/browser/reset_password.py:196
 msgid "title_reset_password_form"
 msgstr "Vaihda salasana"
 
@@ -5858,7 +5499,6 @@ msgstr "Toimialat"
 
 #. Default: "Status of &ldquo;${survey_title}&rdquo;"
 #: euphorie/client/browser/templates/status_info.pt:25
-#: euphorie/client/browser/templates/status_info.pt:24
 msgid "title_status_of"
 msgstr "\"${survey_title}\" riskinarvioinnin eteneminen"
 
@@ -5866,7 +5506,6 @@ msgstr "\"${survey_title}\" riskinarvioinnin eteneminen"
 #: euphorie/client/browser/country.py:259
 #: euphorie/client/browser/templates/layout.pt:18
 #: euphorie/client/browser/templates/modal-template.pt:21
-#: euphorie/client/browser/country.py:256
 msgid "title_tool"
 msgstr "OiRA - Vuorovaikutteinen riskinarviointiprojekti verkossa"
 
@@ -5887,20 +5526,17 @@ msgstr "OiRA-työkalu on päivitetty"
 
 #. Default: "Status of &ldquo; ${survey_title}&rdquo;"
 #: euphorie/client/browser/templates/status_info.pt:30
-#: euphorie/client/browser/templates/status_info.pt:29
 msgid "title_with_vowel_status_of"
 msgstr "\"${survey_title}\" riskinarvioinnin eteneminen"
 
 #. Default: "Contents"
 #: euphorie/client/browser/templates/risks_overview.pt:172
 #: euphorie/client/docx/compiler.py:201
-#: euphorie/client/browser/templates/risks_overview.pt:168
 msgid "toc_header"
 msgstr "Sisältö"
 
 #. Default: "Show/hide menu"
 #: euphorie/client/browser/templates/shell.pt:152
-#: euphorie/client/browser/templates/shell.pt:145
 msgid "tooltip_menu_toggle"
 msgstr "Näytä/piilota valikko"
 
@@ -5947,19 +5583,16 @@ msgstr "OiRA-työkalun tuonti onnistui"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:85
-#: euphorie/client/browser/templates/report_landing.pt:125
 msgid "use_it_to_action_plan"
 msgstr "Hyödynnä:"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:57
-#: euphorie/client/browser/templates/report_landing.pt:95
 msgid "use_it_to_full_report"
 msgstr "Hyödynnä:"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:147
-#: euphorie/client/browser/templates/report_landing.pt:189
 msgid "use_it_to_measures_overview"
 msgstr "Hyödynnä:"
 
@@ -5970,13 +5603,11 @@ msgstr "Hyödynnä:"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:117
-#: euphorie/client/browser/templates/report_landing.pt:159
 msgid "use_it_to_risks_overview"
 msgstr "Hyödynnä:"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/risks_overview.pt:157
-#: euphorie/client/browser/templates/risks_overview.pt:153
 msgid "use_it_to_risks_report"
 msgstr "Hyödynnä:"
 
@@ -5992,7 +5623,6 @@ msgstr "Vahvista, jos profiili on edelleen oikein."
 
 #. Default: "Please fix the indicated errors."
 #: euphorie/client/browser/templates/report_company.pt:34
-#: euphorie/client/browser/templates/report_company.pt:33
 msgid "warn_fix_errors"
 msgstr "Korjaa mainitut virheet."
 
@@ -6022,475 +5652,152 @@ msgstr ""
 msgid "yes"
 msgstr "Kyllä"
 
-#: euphorie/client/browser/templates/portlet-my-ras.pt:83
-msgid "Started"
-msgstr "Aloitettu"
-
-#: euphorie/content/profiles/default/types/euphorie.documentation.xml
-msgid "A folder for all documentation for a specific language."
-msgstr "Tietyn kielen kaikkien dokumenttien kansio."
-
-#: euphorie/content/profiles/default/types/euphorie.country.xml
-msgid "A folder for all sectors in a country."
-msgstr "Kansio maan kaikille toimialoille."
-
-#: euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml
-msgid "A folder which can contain sectors."
-msgstr "Kansio, joka voi sisältää toimialoja."
-
-#: euphorie/content/profiles/default/types/euphorie.countrymanager.xml
-msgid "A manager for sectors in a country."
-msgstr "Maan toimialueiden johtaja."
-
-#: euphorie/content/profiles/default/types/euphorie.page.xml
-msgid "A page with text"
-msgstr "Tekstiä sisältävä sivu"
-
-#: euphorie/content/profiles/default/types/euphorie.risk.xml
-msgid "A risk."
-msgstr "Riski."
-
-#: euphorie/content/profiles/default/types/euphorie.solution.xml:8
-msgid "A solution."
-msgstr "Vakiotoimenpide riskin kohdalla."
-
-#: euphorie/content/profiles/default/types/euphorie.surveygroup.xml
-#: euphorie/upgrade/content/v1/20201219143658_reimport_surveygroup/types/euphorie.surveygroup.xml
-msgid "A survey."
-msgstr "Kysely."
-
-#: euphorie/content/profiles/default/types/euphorie.survey.xml
-msgid "A version of a survey."
-msgstr "Kyselyn versio"
-
-#: euphorie/content/profiles/default/workflows/sector/definition.xml
-msgid "Active"
-msgstr "Aktiivinen"
-
-#: euphorie/client/browser/reset_password.py:168
-msgid ""
-"An email will be sent if we can find an account for the inserted email "
-"address"
-msgstr ""
-"Sähköposti lähetetään, jos annetulla sähköpostiosoitteella on luotu OiRA-"
-"tili."
-
-#: euphorie/client/profiles/default/types/euphorie.clientcountry.xml
-msgid "Country information and grouping for the client."
-msgstr "Maatiedot ja ryhmitys asiakkaalle."
-
-#: euphorie/content/profiles/default/types/euphorie.countrymanager.xml
-msgid "Country manager"
-msgstr "Maajohtaja"
-
-#: euphorie/content/profiles/default/types/euphorie.documentation.xml
-msgid "Documentation"
-msgstr "Dokumentaatio"
-
-#: euphorie/client/browser/templates/report_landing.pt:52
-msgid "Download and print your report"
-msgstr "Lataa ja tulosta raporttisi"
-
-#: euphorie/client/browser/templates/report_landing.pt:115
-msgid "Download the action plan"
-msgstr "Lataa toimintasuunnitelma"
-
-#: euphorie/client/browser/templates/report_landing.pt:85
-msgid "Download the full report"
-msgstr "Lataa koko raportti"
-
-#: euphorie/client/browser/templates/report_landing.pt:179
-msgid "Download the measures overview"
-msgstr "Lataa yhteenveto toimenpiteistä."
-
-#: euphorie/client/browser/templates/report_landing.pt:149
-msgid "Download the risks overview"
-msgstr "Lataa yhteenveto riskeistä"
-
-#: euphorie/content/profiles/default/types/euphorie.folder.xml
-msgid "Folder"
-msgstr "Kansio"
-
-#: euphorie/content/profiles/default/workflows/sector/definition.xml
-msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
-msgstr ""
-"Yhden valtion työnkulku toimialaobjekteille antaen mahdollisuuden toimialan "
-"käyttäjälle muokata sen sisältöä."
-
-#: euphorie/content/profiles/default/types/euphorie.help.xml
-msgid "Online help"
-msgstr "Online-apu"
-
-#: euphorie/content/profiles/default/types/euphorie.page.xml
-msgid "Page"
-msgstr "Sivu"
-
-#: euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml
-msgid "Sector Folder"
-msgstr "Toimialakansio"
-
-#: euphorie/client/profiles/default/types/euphorie.clientsector.xml
-msgid "Sector information and grouping for the client."
-msgstr "Toimialatiedot ja ryhmitys asiakkaalle."
-
-#: euphorie/content/profiles/default/workflows/sector/definition.xml
-msgid "Sector workflow"
-msgstr "Toimialan työnkulku"
-
-#: euphorie/client/browser/templates/start.pt:40
-msgid "Share this OiRA-Tool"
-msgstr "Jaa tämä OiRA-työkalu"
-
-#: euphorie/content/profiles/default/types/euphorie.solution.xml:7
-msgid "Solution"
-msgstr "Toimenpide"
-
-#: euphorie/content/profiles/default/types/euphorie.surveygroup.xml:6
-msgid "Survey"
-msgstr "OiRA Riskien arviointi"
-
-#: euphorie/content/profiles/default/types/euphorie.survey.xml:7
-msgid "Survey version"
-msgstr "OiRA-riskinarvioinnin versio"
-
-#: euphorie/content/profiles/default/workflows/sector/definition.xml
-msgid "The One And Only state"
-msgstr "Yksi ja ainoa valtio"
-
-#: euphorie/content/profiles/default/types/euphorie.help.xml
-msgid "The help text for the client."
-msgstr "Aputeksti asiakkaalle."
-
-#: euphorie/client/profiles/default/types/euphorie.client.xml
-msgid "The online client."
-msgstr "Online-asiakas."
-
-#. Default: "Start a new session with this tool"
-#: euphorie/client/browser/templates/oira_tool.pt:30
-#: euphorie/client/browser/templates/tool_sessions.pt:85
-msgid "button_start_new_session"
-msgstr "Aloita uusi riskinarviointi"
-
-#. Default: "You are free to provide the information below. This information is meant to improve the tools and the services provided. This data will not appear in the report."
-#: euphorie/client/browser/templates/report_company.pt:37
-msgid "company_details_intro"
-msgstr ""
-"Sinulla on mahdollisuus antaa alla olevat tiedot. Näiden tietojen "
-"tarkoituksena on kehittää työkaluja ja palveluja. Nämä tiedot eivät näy "
-"raportissa."
-
-#. Default: "You are about to print the report... please complete the optional form and then proceed."
-#: euphorie/client/browser/templates/report_company.pt:31
-msgid "hader_company_details"
-msgstr ""
-"Haluat tulostaa tämän raportin... Täytä valinnainen lomake ja jatka sen "
-"jälkeen."
-
-#. Default: "Welcome"
-#: euphorie/client/browser/templates/login.pt:33
-msgid "header_welcome"
-msgstr "Tervetuloa"
-
-#. Default: "If you are a registered user, you can ${log_in} here."
-#: euphorie/client/browser/templates/login.pt:57
-msgid "label_login_here"
-msgstr "Jos olet jo rekisteröitynyt käyttäjäksi, ${log_in} tästä."
-
-#. Default: "Show less…"
-#: euphorie/client/browser/templates/login.pt:86
-msgid "label_show_less_hellip"
-msgstr "Näytä vähemmän"
-
-#. Default: "Show more…"
-#: euphorie/client/browser/templates/login.pt:82
-msgid "label_show_more_hellip"
-msgstr "Lue lisää…"
-
-#. Default: "run a test session"
-#: euphorie/client/browser/templates/login.pt:39
-msgid "label_tryout"
-msgstr "testaa kokeiluversiota"
-
-#: euphorie/client/browser/templates/login.pt:57
-msgid "log in"
-msgstr "kirjaudu sisään"
-
-#. Default: "Want to try OiRA? You may ${tryout_link} or ${register_link} to start for real."
-#: euphorie/client/browser/templates/login.pt:51
-msgid "teaser_try_oira"
-msgstr ""
-"Haluatko kokeilla OiRAa? Valitse ${tryout_link} tai ${register_link} "
-"käyttäjäksi."
-
-#: euphorie/content/profiles/default/types/euphorie.module.xml:8
-msgid "A module is grouping of risks"
-msgstr ""
-
-#: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
-msgid "A profile question is used to create optional or repetabled modules"
-msgstr ""
-
-#: euphorie/content/behaviour/configure.zcml:29
-msgid "Automatically generate unique ids for content"
-msgstr ""
-
-#: euphorie/deployment/tiles/configure.zcml:20
-msgid "Button bar to add and edit content"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Configure the actions tile"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Configure the client-analytics tile"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Configure the navigation tile"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Configure the scripts tile"
-msgstr ""
-
-#: euphorie/deployment/tiles/configure.zcml:20
-msgid "Content add bar"
-msgstr ""
-
-#: euphorie/content/configure.zcml:171
-msgid "Content types for defining sectors and surveys"
-msgstr ""
-
-#: euphorie/content/behaviour/configure.zcml:11
-msgid "Dirty tree root"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Euphorie allow guest accounts"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Euphorie allow social sharing"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Euphorie allow user defined risks"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Euphorie client URL"
-msgstr ""
-
-#: euphorie/content/configure.zcml:171
-msgid "Euphorie content types"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Euphorie default country"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Euphorie extra text identification"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Euphorie library"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Euphorie max login attempts"
-msgstr ""
-
-#: euphorie/client/configure.zcml:86
-msgid "Euphorie online client"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Euphorie terms and condition"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Euphorie use existing measures"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Euphorie use integrated action plan"
-msgstr ""
-
-#: euphorie/deployment/configure.zcml:28
-msgid "Euphorie website"
-msgstr ""
-
-#: euphorie/content/behaviour/configure.zcml:23
-msgid "Generated unique ids are only unique within this context"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "If checked existing measures will be used"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "If checked guest accounts will be allowed"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "If checked social sharing will be allowed"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "If checked the integrated action plan will be used"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "If checked user defined risks will be allowed"
-msgstr ""
-
-#: euphorie/deployment/tiles/configure.zcml:40
-msgid "Javascript utilities"
-msgstr ""
-
-#: euphorie/deployment/tiles/configure.zcml:50
-msgid "Navigation tree for sector management"
-msgstr ""
-
-#: euphorie/content/behaviour/configure.zcml:17
-msgid "Rich text description"
-msgstr ""
-
-#: euphorie/content/behaviour/configure.zcml:23
-msgid "Root node for unique id generation"
-msgstr ""
-
-#: euphorie/deployment/configure.zcml:28
-msgid "Setup a standard Euphorie website"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Should the user accept the terms and conditions"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Some json to configure the actions tile"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Some json to configure the client-analytics tile"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Some json to configure the navigation tile"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "Some json to configure the scripts tile"
-msgstr ""
-
-#: euphorie/deployment/tiles/configure.zcml:30
-msgid "Survey version management portlet"
-msgstr ""
-
-#: euphorie/deployment/tiles/configure.zcml:30
-msgid "Survey versions"
-msgstr ""
-
-#: euphorie/content/profiles/default/workflows/sector/definition.xml:16
-msgid "The One And Only state "
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "The URL of the client portal"
-msgstr ""
-
-#: euphorie/client/configure.zcml:86
-msgid "The online risk assessment client interface for an Euphorie website"
-msgstr ""
-
-#: euphorie/content/behaviour/configure.zcml:11
-msgid "This makes objects keep track of changes in child objects."
-msgstr ""
-
-#: euphorie/content/behaviour/configure.zcml:29
-msgid "Unique id for content"
-msgstr ""
-
-#: euphorie/content/behaviour/configure.zcml:17
-msgid "Use a rich text description for content types."
-msgstr ""
-
-#: euphorie/deployment/tiles/configure.zcml:50
-msgid "User management navigation tree"
-msgstr ""
-
-#: euphorie/deployment/tiles/configure.zcml:40
-msgid "Various javascript utility methods"
-msgstr ""
-
-msgid "Your password must contain at least 5 characters."
-msgstr ""
-
-#. Default: "If you do not have an account for the OiRA application yet, please ${register_link} to start for real ${tooltip_register}."
-#: euphorie/client/browser/templates/login.pt:71
-msgid "label_create_account"
-msgstr ""
-
-#. Default: "Search"
-#: euphorie/client/browser/templates/session-browser-sidebar.pt:91
-msgid "osc_search_placeholder"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "use_archive_feature"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "use_clone_feature"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "use_involve_phase"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "use_publication_feature"
-msgstr ""
-
-#: euphorie/deployment/profiles/default/registry.xml
-#: euphorie/upgrade/deployment/v1/20210203164946_configure_the_package_using_the_plone_registry/registry.xml
-msgid "use_training_module"
-msgstr ""
+#~ msgid "Started"
+#~ msgstr "Aloitettu"
+
+#~ msgid "A folder for all documentation for a specific language."
+#~ msgstr "Tietyn kielen kaikkien dokumenttien kansio."
+
+#~ msgid "A folder for all sectors in a country."
+#~ msgstr "Kansio maan kaikille toimialoille."
+
+#~ msgid "A folder which can contain sectors."
+#~ msgstr "Kansio, joka voi sisältää toimialoja."
+
+#~ msgid "A manager for sectors in a country."
+#~ msgstr "Maan toimialueiden johtaja."
+
+#~ msgid "A page with text"
+#~ msgstr "Tekstiä sisältävä sivu"
+
+#~ msgid "A risk."
+#~ msgstr "Riski."
+
+#~ msgid "A solution."
+#~ msgstr "Vakiotoimenpide riskin kohdalla."
+
+#~ msgid "A survey."
+#~ msgstr "Kysely."
+
+#~ msgid "A version of a survey."
+#~ msgstr "Kyselyn versio"
+
+#~ msgid "Active"
+#~ msgstr "Aktiivinen"
+
+#~ msgid ""
+#~ "An email will be sent if we can find an account for the inserted email "
+#~ "address"
+#~ msgstr ""
+#~ "Sähköposti lähetetään, jos annetulla sähköpostiosoitteella on luotu OiRA-"
+#~ "tili."
+
+#~ msgid "Country information and grouping for the client."
+#~ msgstr "Maatiedot ja ryhmitys asiakkaalle."
+
+#~ msgid "Country manager"
+#~ msgstr "Maajohtaja"
+
+#~ msgid "Documentation"
+#~ msgstr "Dokumentaatio"
+
+#~ msgid "Download and print your report"
+#~ msgstr "Lataa ja tulosta raporttisi"
+
+#~ msgid "Download the action plan"
+#~ msgstr "Lataa toimintasuunnitelma"
+
+#~ msgid "Download the full report"
+#~ msgstr "Lataa koko raportti"
+
+#~ msgid "Download the measures overview"
+#~ msgstr "Lataa yhteenveto toimenpiteistä."
+
+#~ msgid "Download the risks overview"
+#~ msgstr "Lataa yhteenveto riskeistä"
+
+#~ msgid "Folder"
+#~ msgstr "Kansio"
+
+#~ msgid ""
+#~ "One-state workflow for sector objects, giving edit access to its contents "
+#~ "to the sector user."
+#~ msgstr ""
+#~ "Yhden valtion työnkulku toimialaobjekteille antaen mahdollisuuden "
+#~ "toimialan käyttäjälle muokata sen sisältöä."
+
+#~ msgid "Online help"
+#~ msgstr "Online-apu"
+
+#~ msgid "Page"
+#~ msgstr "Sivu"
+
+#~ msgid "Sector Folder"
+#~ msgstr "Toimialakansio"
+
+#~ msgid "Sector information and grouping for the client."
+#~ msgstr "Toimialatiedot ja ryhmitys asiakkaalle."
+
+#~ msgid "Sector workflow"
+#~ msgstr "Toimialan työnkulku"
+
+#~ msgid "Share this OiRA-Tool"
+#~ msgstr "Jaa tämä OiRA-työkalu"
+
+#~ msgid "Solution"
+#~ msgstr "Toimenpide"
+
+#~ msgid "Survey"
+#~ msgstr "OiRA Riskien arviointi"
+
+#~ msgid "Survey version"
+#~ msgstr "OiRA-riskinarvioinnin versio"
+
+#~ msgid "The One And Only state"
+#~ msgstr "Yksi ja ainoa valtio"
+
+#~ msgid "The help text for the client."
+#~ msgstr "Aputeksti asiakkaalle."
+
+#~ msgid "The online client."
+#~ msgstr "Online-asiakas."
+
+#~ msgid "button_start_new_session"
+#~ msgstr "Aloita uusi riskinarviointi"
+
+#~ msgid "company_details_intro"
+#~ msgstr ""
+#~ "Sinulla on mahdollisuus antaa alla olevat tiedot. Näiden tietojen "
+#~ "tarkoituksena on kehittää työkaluja ja palveluja. Nämä tiedot eivät näy "
+#~ "raportissa."
+
+#~ msgid "hader_company_details"
+#~ msgstr ""
+#~ "Haluat tulostaa tämän raportin... Täytä valinnainen lomake ja jatka sen "
+#~ "jälkeen."
+
+#~ msgid "header_welcome"
+#~ msgstr "Tervetuloa"
+
+#~ msgid "label_login_here"
+#~ msgstr "Jos olet jo rekisteröitynyt käyttäjäksi, ${log_in} tästä."
+
+#~ msgid "label_show_less_hellip"
+#~ msgstr "Näytä vähemmän"
+
+#~ msgid "label_show_more_hellip"
+#~ msgstr "Lue lisää…"
+
+#~ msgid "label_tryout"
+#~ msgstr "testaa kokeiluversiota"
+
+#~ msgid "log in"
+#~ msgstr "kirjaudu sisään"
+
+#~ msgid "teaser_try_oira"
+#~ msgstr ""
+#~ "Haluatko kokeilla OiRAa? Valitse ${tryout_link} tai ${register_link} "
+#~ "käyttäjäksi."
 
 #~ msgid "Are the measures that are selected above sufficient?"
 #~ msgstr "Ovatko edellä valitut toimenpiteet riittäviä?"
