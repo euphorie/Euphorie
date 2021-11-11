@@ -5,7 +5,7 @@ Changelog
 12.0.16 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Cleaned out unnecessary files from the package.
 
 
 12.0.15 (2021-11-03)
