@@ -21251,7 +21251,7 @@ var create_from_string = function create_from_string(string) {
 var event_listener_map = {};
 /**
  * Add an event listener to a DOM element under a unique id.
- * If a event is registered under the same id for the same element, the old hander is removed first.
+ * If a event is registered under the same id for the same element, the old handler is removed first.
  *
  * @param {DOM Node} el - The element to register the event for.
  * @param {string} event_type - The event type to listen for.
@@ -29262,6 +29262,7 @@ function modal_arrayLikeToArray(arr, len) { if (len == null || len > arr.length)
 
 
 
+
 var modal_parser = new parser["a" /* default */]("modal");
 modal_parser.addArgument("class");
 modal_parser.addArgument("closing", ["close-button"], ["close-button", "outside"], true);
@@ -29273,6 +29274,8 @@ modal_parser.addArgument("panel-header-content", ":first:not(.header)");
   // div's are turned into modals
   // links, forms and subforms inject modals
   trigger: "div.pat-modal, a.pat-modal, form.pat-modal, .pat-modal.pat-subform",
+  els_close_panel: [],
+  els_close_panel_submit: [],
   init: function init($el, opts, trigger) {
     if (window.__patternslib_import_styles) {
       __webpack_require__.e(/* import() */ 13).then(__webpack_require__.bind(null, 593));
@@ -29366,10 +29369,43 @@ modal_parser.addArgument("panel-header-content", ":first:not(.header)");
     }));
   },
   _init_handlers: function _init_handlers() {
-    jquery_exposed_default()(document).on("click.pat-modal", "#pat-modal .close-panel[type!=submit]", this.destroy.bind(this));
-    jquery_exposed_default()(document).on("click.pat-modal", ".pat-modal .close-panel[type!=submit]", this.destroy.bind(this));
-    jquery_exposed_default()(document).on("click.pat-modal", "#pat-modal .close-panel[type=submit]", this.destroy_inject.bind(this));
-    jquery_exposed_default()(document).on("click.pat-modal", ".pat-modal .close-panel[type=submit]", this.destroy_inject.bind(this));
+    // All .close-panel buttons which are not submit buttons.
+    this.els_close_panel = this.el.querySelectorAll(".close-panel:not([type=submit])"); // All .close-panel buttons which are submit buttons.
+
+    this.els_close_panel_submit = this.el.querySelectorAll(".close-panel[type=submit]");
+
+    var _iterator = modal_createForOfIteratorHelper(this.els_close_panel),
+        _step;
+
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var _el = _step.value;
+        dom["a" /* default */].add_event_listener(_el, "click", "pat-modal--destroy--trigger", this.destroy.bind(this), {
+          once: true
+        });
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+
+    var _iterator2 = modal_createForOfIteratorHelper(this.els_close_panel_submit),
+        _step2;
+
+    try {
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        var _el2 = _step2.value;
+        dom["a" /* default */].add_event_listener(_el2, "click", "pat-modal--destroy-inject--trigger", this.destroy_inject.bind(this), {
+          once: true
+        });
+      }
+    } catch (err) {
+      _iterator2.e(err);
+    } finally {
+      _iterator2.f();
+    }
+
     jquery_exposed_default()(document).on("keyup.pat-modal", this._onKeyUp.bind(this));
 
     if (this.options.closing.indexOf("outside") !== -1) {
@@ -29394,12 +29430,12 @@ modal_parser.addArgument("panel-header-content", ":first:not(.header)");
   getTallestChild: function getTallestChild() {
     var $tallest_child;
 
-    var _iterator = modal_createForOfIteratorHelper(jquery_exposed_default()("*", this.$el)),
-        _step;
+    var _iterator3 = modal_createForOfIteratorHelper(jquery_exposed_default()("*", this.$el)),
+        _step3;
 
     try {
-      for (_iterator.s(); !(_step = _iterator.n()).done;) {
-        var child = _step.value;
+      for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+        var child = _step3.value;
         var $child = jquery_exposed_default()(child);
 
         if (typeof $tallest_child === "undefined") {
@@ -29409,9 +29445,9 @@ modal_parser.addArgument("panel-header-content", ":first:not(.header)");
         }
       }
     } catch (err) {
-      _iterator.e(err);
+      _iterator3.e(err);
     } finally {
-      _iterator.f();
+      _iterator3.f();
     }
 
     return $tallest_child;
@@ -29437,6 +29473,8 @@ modal_parser.addArgument("panel-header-content", ":first:not(.header)");
     var _this2 = this;
 
     return modal_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      var _iterator4, _step4, _el, _iterator5, _step5, _el3;
+
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -29446,6 +29484,32 @@ modal_parser.addArgument("panel-header-content", ":first:not(.header)");
 
             case 2:
               // wait a tick for event handlers (e.g. form submit) have a chance to kick in first.
+              _iterator4 = modal_createForOfIteratorHelper(_this2.els_close_panel);
+
+              try {
+                for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+                  _el = _step4.value;
+                  dom["a" /* default */].remove_event_listener(_el, "pat-modal--destroy--trigger");
+                }
+              } catch (err) {
+                _iterator4.e(err);
+              } finally {
+                _iterator4.f();
+              }
+
+              _iterator5 = modal_createForOfIteratorHelper(_this2.els_close_panel_submit);
+
+              try {
+                for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+                  _el3 = _step5.value;
+                  dom["a" /* default */].remove_event_listener(_el3, "pat-modal--destroy-inject--trigger");
+                }
+              } catch (err) {
+                _iterator5.e(err);
+              } finally {
+                _iterator5.f();
+              }
+
               jquery_exposed_default()(document).off(".pat-modal");
 
               _this2.$el.remove();
@@ -29453,7 +29517,7 @@ modal_parser.addArgument("panel-header-content", ":first:not(.header)");
               jquery_exposed_default()("body").removeClass("modal-active");
               jquery_exposed_default()("body").removeClass("modal-panel");
 
-            case 6:
+            case 10:
             case "end":
               return _context.stop();
           }
@@ -29464,16 +29528,18 @@ modal_parser.addArgument("panel-header-content", ":first:not(.header)");
   destroy_inject: function destroy_inject() {
     var _this3 = this;
 
-    if (this.$el.find("form").hasClass("pat-inject")) {
-      // if pat-inject in modal form, listen to patterns-inject-triggered and destroy first
-      // once that has been triggered
+    var form = this.el.querySelector("form.pat-inject");
+
+    if (form) {
+      // if the modal contains a for mwith pat-inject, wait for injection
+      // to be finished and then destroy the modal.
       var destroy_handler = function destroy_handler() {
         _this3.destroy();
 
-        jquery_exposed_default()("body").off("pat-inject-success", destroy_handler);
+        dom["a" /* default */].remove_event_listener(form, "pat-modal--destroy-inject");
       };
 
-      jquery_exposed_default()("body").on("pat-inject-success", destroy_handler.bind(this));
+      dom["a" /* default */].add_event_listener(form, "pat-inject-success", "pat-modal--destroy-inject", destroy_handler.bind(this));
     } else {
       // if working without injection, destroy after waiting a tick to let
       // eventually registered on-submit handlers kick in first.

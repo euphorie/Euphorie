@@ -20943,7 +20943,7 @@ var create_from_string = function create_from_string(string) {
 var event_listener_map = {};
 /**
  * Add an event listener to a DOM element under a unique id.
- * If a event is registered under the same id for the same element, the old hander is removed first.
+ * If a event is registered under the same id for the same element, the old handler is removed first.
  *
  * @param {DOM Node} el - The element to register the event for.
  * @param {string} event_type - The event type to listen for.
