@@ -2,10 +2,16 @@ Changelog
 =========
 
 
-12.0.16 (unreleased)
+12.0.17 (unreleased)
 --------------------
 
 - Nothing changed yet.
+
+
+12.0.16 (2021-11-11)
+--------------------
+
+- Cleaned out unnecessary files from the package.
 
 
 12.0.15 (2021-11-03)

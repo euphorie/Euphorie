@@ -18,7 +18,7 @@ TYPES_MAP = {
     "euphorie.page": u"Page",
 }
 
-SEARCHED_TYPES = TYPES_MAP.keys()
+SEARCHED_TYPES = list(TYPES_MAP.keys())
 
 
 class Search(BrowserView):
