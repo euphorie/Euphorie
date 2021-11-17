@@ -471,6 +471,14 @@
       />
 
   <browser:page
+      name="more_badge"
+      for="euphorie.client.model.SurveyTreeItem"
+      permission="euphorie.client.ViewSurvey"
+      template="templates/more_badge.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="more_menu"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
