@@ -1,4 +1,5 @@
 # coding=utf-8
+from plone import api
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm
@@ -9,7 +10,10 @@ import markdown
 
 class SolutionView(BrowserView):
     def render_md(self, text):
-        return markdown.markdown(text)
+        md_text = markdown.markdown(text)
+        transforms = api.portal.get_tool("portal_transforms")
+        data = transforms.convertTo("text/x-html-safe", md_text, mimetype="text/html")
+        return data.getData()
 
 
 class AddForm(DefaultAddForm):
