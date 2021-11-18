@@ -41,7 +41,7 @@
                  "
                  tal:condition="actions"
             >
-              <button class="pat-button"
+              <button class="pat-button default"
                       name="form.buttons.save"
                       type="submit"
                       i18n:translate="Save changes"
