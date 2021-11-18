@@ -197,11 +197,11 @@
               <label class="label-fragment-title pat-rich"><input checked="${python:measure['active'] and 'checked' or None}"
                        name="measure-standard-${measure/solution_id}"
                        type="checkbox"
-                /><tal:measure replace="structure measure/title" /></label>
+                /><tal:measure replace="structure python:webhelpers.get_safe_html(measure['title'])" /></label>
               <span class="label-fragment-description pat-rich"
                     tal:condition="description"
               ><pre class="pat-markdown"
-                     tal:content="structure description"
+                     tal:content="structure python:webhelpers.get_safe_html(description)"
                 >Description</pre></span>
             </div>
 
@@ -709,7 +709,7 @@
           <h4 i18n:translate="label_description">Description</h4>
           <div class="pat-rich">
             <pre class="pat-markdown"
-                 tal:content="structure measure/action"
+                 tal:content="structure python:webhelpers.get_safe_html(measure.action)"
             >Action</pre>
           </div>
         </div>
@@ -754,7 +754,7 @@
             </h4>
             <div class="pat-rich">
               <pre class="pat-markdown"
-                   tal:content="structure solution/action"
+                   tal:content="structure python:webhelpers.get_safe_html(solution['action'])"
               >Action</pre>
             </div>
             <tal:requirements condition="python: 'requirements' not in view.skip_fields and solution['requirements']">

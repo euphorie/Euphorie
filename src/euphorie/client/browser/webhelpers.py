@@ -936,6 +936,17 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def portal_transforms(self):
+        return api.portal.get_tool("portal_transforms")
+
+    def get_safe_html(self, text):
+        data = self.portal_transforms.convertTo(
+            "text/x-html-safe", text, mimetype="text/html"
+        )
+        return data.getData()
+
+    @property
+    @memoize
     def custom_js(self):
         """Return custom JavaScript where necessary"""
         return ""

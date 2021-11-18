@@ -5,8 +5,7 @@ Changelog
 12.0.17 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Prevent execution of malicious code entered as custom measure or training notes.
 
 12.0.16 (2021-11-11)
 --------------------
