@@ -88,7 +88,9 @@ def fix_urls(filepath):
     content = content.replace(
         "url(/media/", "url(++resource++euphorie.resources/media/"
     )
-
+    content = content.replace(
+        "url(/style/", "url(++resource++euphorie.resources/oira/style/"
+    )
     open(filepath, "w").write(content)
 
 
