@@ -2372,7 +2372,7 @@ msgstr "Imsieħba fl-iżvilupp"
 #. Default: "Evaluation"
 #: euphorie/content/risk.py:564
 msgid "header_evaluation"
-msgstr "Il-Valutazzjoni"
+msgstr "L-Evalwazzjoni"
 
 #. Default: "Example of a measures overview report in PDF format"
 #: euphorie/client/browser/templates/register_session.pt:103
@@ -2989,7 +2989,7 @@ msgstr "Reġistrazzjoni"
 #. Default: "3. Evaluation"
 #: euphorie/client/browser/templates/help.pt:43
 msgid "help_header_evaluation"
-msgstr "3. Il-Valutazzjoni"
+msgstr "3. L-Evalwazzjoni"
 
 #. Default: "What happens next?"
 #: euphorie/client/browser/templates/help.pt:52
@@ -3496,7 +3496,7 @@ msgstr "Il-Pjan ta' Azzjoni"
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/report_identification.pt:138
 msgid "iphone_label_evaluation"
-msgstr "Il-Valutazzjoni"
+msgstr "L-Evalwazzjoni"
 
 #. Default: "Identification"
 #: euphorie/client/browser/templates/report_identification.pt:128
@@ -3777,7 +3777,7 @@ msgstr "Trid turi notifika għal din l-għodda tal-OiRA?"
 #: euphorie/client/browser/templates/report_identification.pt:135
 #: euphorie/client/browser/templates/shell.pt:280
 msgid "label_evaluation"
-msgstr "Il-Valutazzjoni"
+msgstr "L-Evalwazzjoni"
 
 #. Default: "Evaluation method"
 #: euphorie/content/browser/templates/risk_view.pt:96
@@ -3856,7 +3856,7 @@ msgstr "Reġistrazzjoni"
 #: euphorie/content/browser/templates/help_view.pt:43
 #: euphorie/content/help.py:72
 msgid "label_help_evaluation"
-msgstr "3. Il-Valutazzjoni"
+msgstr "3. L-Evalwazzjoni"
 
 #. Default: "What happens next?"
 #: euphorie/content/browser/templates/help_view.pt:58
@@ -4411,7 +4411,7 @@ msgstr "Ibgħat tfakkira tal-password"
 #. Default: "Enter a title for your Risk Assessment"
 #: euphorie/client/browser/session.py:77
 msgid "label_session_title"
-msgstr "Daħħal titlu għall-Valutazzjoni tar-Riskji tiegħek"
+msgstr "Daħħal titlu għall-Evalwazzjoni tar-Riskji tiegħek"
 
 #. Default: "${read_more} about this risk."
 #: euphorie/client/browser/templates/risk_macros.pt:160
