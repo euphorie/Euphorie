@@ -157,7 +157,11 @@ class _StatusHelper(object):
             # top-level module, always include it in the toc
             if len(path) == 3:
                 title = titles[path]
-                if title == "title_other_risks" or title == u"Other risks":
+                if (
+                    title == "title_other_risks"
+                    or title == u"Other risks"
+                    or title == "Custom risks"
+                ):
                     title = title_custom_risks
                 toc[path] = {
                     "path": path,

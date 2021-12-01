@@ -135,7 +135,7 @@ def EnableCustomRisks(survey):
         container=survey,
         type="euphorie.module",
         id="custom-risks",
-        title=_(u"title_other_risks", default=u"Added risks (by you)"),
+        title=_(u"Custom risks", default=u"Custom risks"),
         safe_id=False,
         description=_(
             u"description_other_risks",

@@ -105,7 +105,7 @@ class BaseOfficeCompiler(object):
     @property
     def title_custom_risks(self):
         return translate(
-            _("title_other_risks", default=u"Added risks (by you)"),
+            _("Custom risks", default=u"Custom risks"),
             target_language=self.lang,
         )
 
