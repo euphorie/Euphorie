@@ -134,7 +134,7 @@
               id="registration"
               action="${context/absolute_url}/@@login#registration"
               method="post"
-              data-pat-validation="message-email: ${view/email_message|nothing}"
+              data-pat-validation="${webhelpers/pat_validation_messages}"
               tal:define="
                 errors view/errors;
               "

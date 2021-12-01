@@ -18,7 +18,6 @@ from euphorie.client.browser.country import SessionsView
 from euphorie.client.model import get_current_account
 from euphorie.content.survey import ISurvey
 from plone import api
-from plone.memoize.view import memoize
 from plone.session.plugins.session import cookie_expiration_date
 from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
 from Products.CMFCore.utils import getToolByName
@@ -52,13 +51,6 @@ EMAIL_RE = re.compile(
 class Login(BrowserView):
     error = False
     errors = {}
-
-    @property
-    @memoize
-    def email_message(self):
-        return api.portal.translate(
-            _(u"invalid_email", default=u"Please enter a valid email address."),
-        )
 
     def setLanguage(self, came_from):
         qs = urlparse(came_from)[4]
@@ -292,7 +284,7 @@ class Login(BrowserView):
         return self.index()
 
     def get_image_version(self, name):
-        """" Needed on the reports overview shown to the guest user
+        """Needed on the reports overview shown to the guest user
         (view name: @@register_session)
         """
         fdir = os.path.join(

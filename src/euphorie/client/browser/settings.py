@@ -74,6 +74,7 @@ class AccountDeleteSchema(model.Schema):
 
 class EmailChangeSchema(model.Schema):
     loginname = RFC822MailAddress(title=_(u"Email address/account name"), required=True)
+    directives.widget("loginname", type="email")
 
     password = schema.Password(
         title=_(u"Your password for confirmation"), required=True

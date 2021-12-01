@@ -28,10 +28,12 @@
           >Please bear in mind that by changing the email address, your login name will also change.</p>
         </article>
 
-        <form id="${view/id}"
+        <form class="pat-validation"
+              id="${view/id}"
               action="${request/getURL}"
               enctype="${view/enctype}"
               method="${view/method}"
+              data-pat-validation="${webhelpers/pat_validation_messages}"
         >
           <fieldset class="vertical">
             <tal:widget repeat="widget view/widgets/values"
