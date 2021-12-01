@@ -292,7 +292,7 @@ class Login(BrowserView):
         return self.index()
 
     def get_image_version(self, name):
-        """" Needed on the reports overview shown to the guest user
+        """Needed on the reports overview shown to the guest user
         (view name: @@register_session)
         """
         fdir = os.path.join(

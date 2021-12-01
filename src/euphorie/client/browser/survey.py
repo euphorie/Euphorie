@@ -57,7 +57,6 @@ class SurveySessionsView(SessionsView):
 
 
 class SurveySessionsViewAnon(SurveySessionsView):
-
     def __call__(self):
         self.set_language()
         return self.index()
