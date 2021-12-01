@@ -32,12 +32,12 @@
           </div>
           <div class="buttons panel-footer">
             <div class="container">
-              <button class="pat-button"
+              <button class="pat-button default"
                       type="submit"
               >
                 <tal:label i18n:translate="button_delete_risk">Yes, delete risk</tal:label>
               </button>
-              <button class="pat-button default close-panel"
+              <button class="pat-button close-panel"
                       type="button"
               >
                 <tal:label i18n:translate="button_cancel">Cancel</tal:label>
