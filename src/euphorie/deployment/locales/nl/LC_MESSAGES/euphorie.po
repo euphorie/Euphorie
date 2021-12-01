@@ -3592,7 +3592,7 @@ msgstr "Alfabetisch"
 #. Default: "Assessment"
 #: euphorie/client/browser/templates/shell.pt:280
 msgid "label_assessment"
-msgstr ""
+msgstr "Beoordeling"
 
 #. Default: "Assessments"
 #: euphorie/client/browser/templates/sessions-dashboard.pt:39
