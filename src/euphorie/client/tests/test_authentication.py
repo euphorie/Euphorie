@@ -1,7 +1,7 @@
 # coding=utf-8
 from euphorie.client import model
-from euphorie.client.browser.login import Login
 from euphorie.client.authentication import EuphorieAccountPlugin
+from euphorie.client.browser.login import Login
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.tests.database import DatabaseTests
 from Products.PluggableAuthService.interfaces.plugins import IAuthenticationPlugin
@@ -202,7 +202,6 @@ class EuphorieAccountPluginTests(DatabaseTests):
 
 
 class PasswordPolicyTests(TestCase):
-
     def setUp(self):
         self.login_view = Login(None, None)
 

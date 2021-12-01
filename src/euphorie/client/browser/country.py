@@ -463,10 +463,7 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
     def languages(self):
         return sorted(
             [
-                {
-                    "code": code,
-                    "name": self.webhelpers.getNameForLanguageCode(code)
-                }
+                {"code": code, "name": self.webhelpers.getNameForLanguageCode(code)}
                 for code in api.portal.get_tool("portal_catalog").uniqueValuesFor(
                     "Language"
                 )
