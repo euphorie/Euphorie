@@ -121,7 +121,7 @@
               action="${request/URL}"
               enctype="multipart/form-data"
               method="post"
-              data-pat-validation="message-email: ${view/email_message}"
+              data-pat-validation="${webhelpers/pat_validation_messages}"
               tal:define="
                 errors view/errors;
               "

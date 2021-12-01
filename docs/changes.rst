@@ -1,12 +1,18 @@
 Changelog
 =========
 
+13.0.0 (unreleased)
+-------------------
+
+BREAKING CHANGE: UI freshup
+
+- Prevent redirect to default country after registration.
+- Translation fixes for form validation messages.
 
 12.0.17 (unreleased)
 --------------------
 
 - Prevent execution of malicious code entered as custom measure or training notes.
-- Prevent redirect to default country after registration.
 
 12.0.16 (2021-11-11)
 --------------------

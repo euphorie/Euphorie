@@ -5153,7 +5153,7 @@ msgstr "Časovnica"
 #. Default: "reset your password"
 #: euphorie/client/browser/templates/login.pt:82
 msgid "request_an_email_reminder"
-msgstr "zahtevaj e-poštni opomnik"
+msgstr "zahtevajte e-poštni opomnik"
 
 #. Default: "Risk is present."
 #: euphorie/client/docx/compiler.py:275

@@ -46,6 +46,7 @@ from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.component.hooks import getSite
 from zope.deprecation import deprecate
+from zope.i18n import translate
 from zope.i18nmessageid import MessageFactory
 
 
@@ -1071,6 +1072,47 @@ class WebHelpers(BrowserView):
         ua_string = self.request.get("HTTP_USER_AGENT", "")
         ua = parse(ua_string)
         return ua.browser.family == "IE"
+
+    @property
+    def pat_validation_messages(self):
+        lang = getattr(self.request, "LANGUAGE", "en")
+        if "-" in lang:
+            elems = lang.split("-")
+            lang = "{0}_{1}".format(elems[0], elems[1].upper())
+        messages = {
+            "message-date": translate(
+                _("error_validation_date", default="This value must be a valid date"),
+                target_language=lang,
+            ),
+            "message-datetime": translate(
+                _(
+                    "error_validation_datetime",
+                    default="This value must be a valid date and time",
+                ),
+                target_language=lang,
+            ),
+            "message-email": translate(
+                _(
+                    "error_validation_email",
+                    default="This value must be a valid email address",
+                ),
+                target_language=lang,
+            ),
+            "message-number": translate(
+                _("error_validation_number", default="This value must be a number"),
+                target_language=lang,
+            ),
+            "message-required": translate(
+                _("message_field_required", default="Please fill out this field."),
+                target_language=lang,
+            ),
+        }
+        return "; ".join(
+            [
+                "{key}: {value}".format(key=key, value=value)
+                for key, value in messages.items()
+            ]
+        )
 
     def __call__(self):
         return self

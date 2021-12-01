@@ -168,17 +168,6 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
         return self.index
 
     @property
-    def message_required(self):
-        lang = getattr(self.request, "LANGUAGE", "en")
-        if "-" in lang:
-            elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        return translate(
-            _(u"message_field_required", default=u"Please fill out this field."),
-            target_language=lang,
-        )
-
-    @property
     def message_gt1(self):
         return api.portal.translate(_(u"This value must be greater than or equal to 1"))
 
@@ -409,18 +398,6 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
     def current_profile(self):
         return extractProfile(self.context.aq_parent, self.session)
 
-    @property
-    @memoize
-    def message_required(self):
-        lang = getattr(self.request, "LANGUAGE", "en")
-        if "-" in lang:
-            elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        return translate(
-            _(u"message_field_required", default=u"Please fill out this field."),
-            target_language=lang,
-        )
-
     def update(self):
         utils.setLanguage(self.request, self.survey, self.survey.language)
         if not self.profile_questions or self.request.method == "POST":
@@ -485,9 +462,7 @@ class ContentsPreview(BrowserView):
 
     @property
     def title_custom_risks(self):
-        return api.portal.translate(
-            _("title_other_risks", default=u"Added risks (by you)")
-        )
+        return api.portal.translate(_("Custom risks", default=u"Custom risks"))
 
     def get_session_nodes(self):
         """Return an ordered list of all tree items for the current survey.

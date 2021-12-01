@@ -54,7 +54,7 @@ def randomString(length=16):
 
 
 def get_translated_custom_risks_title(request):
-    return api.portal.translate(_("title_other_risks", default=u"Added risks (by you)"))
+    return api.portal.translate(_("Custom risks", default=u"Custom risks"))
 
 
 def HasText(html):
