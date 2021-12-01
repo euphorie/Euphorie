@@ -30,7 +30,7 @@
             method="POST"
             data-pat-inject="history: record; source: #content; target: #content"
             data-pat-validation="disable-selector: button[name='form.button.submit'];
-                           message-required: ${view/message_required};
+                                 ${webhelpers/pat_validation_messages};
                            message-min: ${view/message_gt1};
             "
       >

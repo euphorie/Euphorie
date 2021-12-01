@@ -26,7 +26,7 @@
             enctype="multipart/form-data"
             method="post"
             data-pat-inject="history: record; source: #step-2-topics; target: #step-2-topics &amp;&amp; source: #main-content; target: #main-content &amp;&amp; source: #toolbar; target: #toolbar &amp;&amp; source: #status; target: #status"
-            data-pat-validation="disable-selector: button[name='next']"
+            data-pat-validation="disable-selector: button[name='next']; ${webhelpers/pat_validation_messages}"
       >
         <a class="pat-scroll pat-scroll-animated"
            hidden

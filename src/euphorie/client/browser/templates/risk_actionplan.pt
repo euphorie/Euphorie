@@ -34,12 +34,9 @@
               data-pat-inject="history: record; source: #step-4-topics; target: #step-4-topics &amp;&amp; source: #content; target: #content"
               data-pat-scroll="selector: #content; trigger: auto; offset: 0"
               data-pat-validation="disable-selector: button[name='next'], .remove-clone;
-                                   message-date: This value must be a valid date;
-                                   message-datetime: This value must be a valid date and time;
-                                   message-email: This value must be a valid email address;
-                                   message-number: This value must be a number;
+                                   ${webhelpers/pat_validation_messages};
                                    message-min: ${view/message_positive_number};
-                                   message-required: This field is required;"
+                                   "
         >
           <div id="content-pane">
             <article class="rich pat-well warning"

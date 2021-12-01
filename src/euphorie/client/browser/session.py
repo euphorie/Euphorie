@@ -168,17 +168,6 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
         return self.index
 
     @property
-    def message_required(self):
-        lang = getattr(self.request, "LANGUAGE", "en")
-        if "-" in lang:
-            elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        return translate(
-            _(u"message_field_required", default=u"Please fill out this field."),
-            target_language=lang,
-        )
-
-    @property
     def message_gt1(self):
         return api.portal.translate(_(u"This value must be greater than or equal to 1"))
 
@@ -408,18 +397,6 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
     @memoize
     def current_profile(self):
         return extractProfile(self.context.aq_parent, self.session)
-
-    @property
-    @memoize
-    def message_required(self):
-        lang = getattr(self.request, "LANGUAGE", "en")
-        if "-" in lang:
-            elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        return translate(
-            _(u"message_field_required", default=u"Please fill out this field."),
-            target_language=lang,
-        )
 
     def update(self):
         utils.setLanguage(self.request, self.survey, self.survey.language)
