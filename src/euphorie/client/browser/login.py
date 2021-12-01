@@ -10,7 +10,6 @@ from ..utils import setLanguage
 from .conditions import approvedTermsAndConditions
 from Acquisition import aq_chain
 from Acquisition import aq_inner
-from Acquisition import aq_parent
 from euphorie.client import config
 from euphorie.client import MessageFactory as _
 from euphorie.client import model
@@ -220,7 +219,8 @@ class Login(BrowserView):
             self.setLanguage(came_from)
         else:
             # Set to country url
-            came_from = aq_parent(context).absolute_url()
+            webhelpers = api.content.get_view("webhelpers", context, self.request)
+            came_from = webhelpers.country_url
 
         account = get_current_account()
         self.allow_guest_accounts = api.portal.get_registry_record(
