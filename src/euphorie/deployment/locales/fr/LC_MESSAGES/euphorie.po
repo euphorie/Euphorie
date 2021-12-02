@@ -85,7 +85,8 @@ msgstr ""
 #: euphorie/client/browser/templates/report_landing.pt:59
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
 msgstr ""
-"${provide-evidence} auprès des autorités de contrôle (inspection du travail);"
+"${provide-evidence} qui sera transmis aux personnes concernées (salariés, "
+"délégués du personnel, experts en santé et sécurité au travail, etc.) ;"
 
 #: euphorie/client/browser/templates/webhelpers.pt:333
 msgid "${view/description_probability}"
@@ -795,7 +796,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:59
 msgid "Provide evidence"
-msgstr "Comme justificatif"
+msgstr "Comme support d’information"
 
 #: euphorie/client/browser/templates/report_landing.pt:160
 msgid "Provide evidence for supervisory authorities."
@@ -815,8 +816,8 @@ msgid ""
 "Record any revision if circumstances change (new machines, new workers, as a "
 "result of findings of any accident investigations, etc.)"
 msgstr ""
-"dans le cadre des actualisations (nouvelles machines, nouveaux locaux, à la "
-"suite d´un accident)."
+"pour le mettre à jour si de nouveaux risques sont identifiés dans votre "
+"entreprise (nouvelles machines, nouveaux locaux, à la suite d´un accident)."
 
 #: euphorie/client/browser/templates/publication_menu.pt:80
 msgid "Refresh publication date"
@@ -5283,12 +5284,13 @@ msgstr ""
 msgid "report_intro"
 msgstr ""
 "Maintenant que vous avez fini d'identifier tous les risques dans votre "
-"organisation et créé un plan d'action, vous pouvez éditer un rapport qui "
-"répertorie tous vos résultats ainsi qu’un plan d’action. Vous pouvez, si "
-"vous le voulez, ajouter ci-dessous des commentaires supplémentaires qui "
-"seront inclus dans ce rapport. Vous pouvez également télécharger ce rapport "
-"et l'enregistrer sur votre ordinateur. Vous pourrez ainsi le personnaliser, "
-"le compléter et le modifier comme vous le souhaitez."
+"organisation et sélectionné les mesures à mettre en œuvre, vous pouvez éditer "
+"un rapport qui répertorie tous vos résultats ainsi qu’un plan d’action. Vous "
+"pouvez, si vous le voulez, ajouter ci-dessous des commentaires "
+"supplémentaires qui seront inclus dans ce rapport. Vous pouvez également "
+"télécharger ce rapport et l'enregistrer sur votre ordinateur. Vous pourrez "
+"ainsi le personnaliser, le compléter et le modifier comme vous le "
+"souhaitez."
 
 #. Default: "Measures already in place:"
 #: euphorie/client/docx/compiler.py:647

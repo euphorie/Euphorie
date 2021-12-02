@@ -8,6 +8,7 @@ BREAKING CHANGE: UI freshup
 
 - Prevent redirect to default country after registration.
 - Translation fixes for form validation messages.
+- Translation fixes for report (FR)
 
 12.0.17 (unreleased)
 --------------------
