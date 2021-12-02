@@ -268,6 +268,34 @@ class PublishSurvey(form.Form):
         surveygroup = aq_parent(source)
         return surveygroup.published == source.id
 
+    def _has_same_structure(self, source, target):
+        for child_id in target.objectIds():
+            if child_id == "custom-risks":
+                continue
+            if child_id not in source:
+                return False
+            if not self._has_same_structure(source[child_id], target[child_id]):
+                return False
+        return True
+
+    def is_structure_changed(self):
+        source = aq_inner(self.context)
+        surveygroup = aq_parent(source)
+        sector = aq_parent(surveygroup)
+        country = aq_parent(sector)
+
+        client = getPortal(self.context).client
+        if country.id not in client:
+            return False
+        cl_country = client[country.id]
+        if sector.id not in cl_country:
+            return False
+        cl_sector = cl_country[sector.id]
+        if surveygroup.id not in cl_sector:
+            return False
+        target = cl_sector[surveygroup.id]
+        return not self._has_same_structure(source, target)
+
     def client_url(self):
         """Return the URL this survey will have after it is published."""
         client_url = api.portal.get_registry_record("euphorie.client_url", default="")

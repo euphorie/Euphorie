@@ -33,6 +33,12 @@
              i18n:translate="intro_publish_other_survey_published"
           >Are you sure you want to publish this OiRA Tool version? This will
             replace the current version.</p>
+          <p class="message warning"
+             tal:condition="view/is_structure_changed"
+             i18n:translate="intro_publish_survey_structure_changed"
+          >
+            The structure of your tool has changed. If you publish now, session data of removed modules and questions will be discarded.
+          </p>
         </tal:block>
 
         <p i18n:translate="help_publish_url">After publication the OiRA Tool will be available at
@@ -52,5 +58,3 @@
     </metal:content>
   </body>
 </html>
-
-
