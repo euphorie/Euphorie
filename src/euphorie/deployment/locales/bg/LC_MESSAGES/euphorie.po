@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-11-10 15:44+0000\n"
+"POT-Creation-Date: 2021-12-02 14:19+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: bg <LL@li.org>\n"
@@ -138,7 +138,7 @@ msgstr "Добавяне на Риск"
 msgid "Add Submodule"
 msgstr "Добавяне на Подмодул"
 
-#: euphorie/client/browser/templates/profile.pt:179
+#: euphorie/client/browser/templates/profile.pt:175
 #: euphorie/client/browser/templates/updated.pt:170
 msgid "Add another item"
 msgstr "Добавете друга точка"
@@ -163,11 +163,11 @@ msgstr "Всички страни"
 msgid "All languages"
 msgstr "Всички езици"
 
-#: euphorie/client/browser/login.py:193
+#: euphorie/client/browser/login.py:184
 msgid "An account was created for you with email address ${email}"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:209
+#: euphorie/client/browser/settings.py:210
 msgid "An error occured while sending the confirmation email."
 msgstr "Получи се грешка при изпращане на имейл потвърждението."
 
@@ -275,7 +275,7 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:234
+#: euphorie/client/browser/settings.py:235
 msgid "Confirm OiRA email address change"
 msgstr "Потвърждаване на промяна на OiRA имейл адрес"
 
@@ -326,11 +326,13 @@ msgstr "Криейтив комънс договор-ShareAlike версия 2.5
 msgid "Creative Commons License"
 msgstr "Лиценз Криейтив комънс"
 
+#: euphorie/client/browser/publish.py:138
+#: euphorie/client/browser/session.py:465
 #: euphorie/client/browser/templates/module_identification_custom.pt:26
 msgid "Custom risks"
 msgstr "Базови рискове"
 
-#: euphorie/client/browser/settings.py:150
+#: euphorie/client/browser/settings.py:151
 #: euphorie/client/browser/templates/account-delete.pt:40
 #: euphorie/client/browser/templates/user-menu.pt:45
 msgid "Delete account"
@@ -364,7 +366,7 @@ msgstr "Хареса ли ви този инструмент? Споделете
 msgid "Do I need to prepare?"
 msgstr "Необходима ли е подготовка?"
 
-#: euphorie/client/browser/session.py:391
+#: euphorie/client/browser/session.py:380
 msgid "Does this happen in multiple places?"
 msgstr "Случвали се на много места?"
 
@@ -401,11 +403,11 @@ msgstr "Редактиране на Профилиращ въпрос"
 msgid "Email address/account name"
 msgstr "Имейл адрес/име на акаунт"
 
-#: euphorie/client/browser/session.py:396
+#: euphorie/client/browser/session.py:385
 msgid "Enter the name of the location"
 msgstr "Посочете името на местонахождението"
 
-#: euphorie/client/browser/session.py:401
+#: euphorie/client/browser/session.py:390
 msgid "Enter the names of each location"
 msgstr "Посочете името на всяко местонахождение"
 
@@ -475,7 +477,7 @@ msgstr ""
 "разполагате, а по-късно, при възможност,  да продължите от мястото, където "
 "сте прекъснали."
 
-#: euphorie/client/browser/webhelpers.py:862
+#: euphorie/client/browser/webhelpers.py:863
 msgid "I wish to share the following with you"
 msgstr "Искам да споделя следното с вас"
 
@@ -483,7 +485,7 @@ msgstr "Искам да споделя следното с вас"
 msgid "Identifier"
 msgstr "Идентификатор"
 
-#: euphorie/content/browser/upload.py:452
+#: euphorie/content/browser/upload.py:457
 msgid "Import OiRA Tool version"
 msgstr ""
 
@@ -508,7 +510,7 @@ msgstr ""
 "Невалиден формат на файла на изображението. Моля, използвайте PNG, JPEG или "
 "GIF."
 
-#: euphorie/client/browser/settings.py:122
+#: euphorie/client/browser/settings.py:123
 msgid "Invalid password"
 msgstr "Невалидна парола"
 
@@ -531,7 +533,7 @@ msgstr "Косово"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:135
 #: euphorie/client/browser/templates/status_info.pt:73
-#: euphorie/client/browser/templates/tool_sessions.pt:137
+#: euphorie/client/browser/templates/tool_sessions.pt:140
 msgid "Last saved"
 msgstr "запазено"
 
@@ -589,7 +591,7 @@ msgstr "Черна гора"
 
 #: euphorie/client/browser/templates/assessments.pt:95
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:167
-#: euphorie/client/browser/templates/tool_sessions.pt:157
+#: euphorie/client/browser/templates/tool_sessions.pt:160
 msgid "More"
 msgstr ""
 
@@ -619,7 +621,7 @@ msgstr "Име"
 msgid "New"
 msgstr "Нова"
 
-#: euphorie/client/browser/templates/profile.pt:75
+#: euphorie/client/browser/templates/profile.pt:71
 #: euphorie/client/browser/templates/updated.pt:67
 #: euphorie/content/browser/templates/survey_view.pt:42
 msgid "No"
@@ -645,7 +647,7 @@ msgstr "Официално лого на OiRA"
 msgid "OiRA Tool"
 msgstr ""
 
-#: euphorie/content/browser/upload.py:152
+#: euphorie/content/browser/upload.py:153
 msgid "OiRA Tool import"
 msgstr ""
 
@@ -691,7 +693,7 @@ msgstr ""
 "инструмент, чрез който могат да се извършват оценки на риска за здравето и "
 "безопасността на работното място."
 
-#: euphorie/client/browser/session.py:1084
+#: euphorie/client/browser/session.py:1059
 #: euphorie/client/browser/templates/measures_overview.pt:63
 #: euphorie/client/browser/templates/report_landing.pt:129
 msgid "Overview of measures"
@@ -701,7 +703,7 @@ msgstr "Обзор на мерките"
 msgid "Overview of measures (PDF)"
 msgstr ""
 
-#: euphorie/client/browser/session.py:1074
+#: euphorie/client/browser/session.py:1049
 #: euphorie/client/browser/templates/report_landing.pt:101
 #: euphorie/client/browser/templates/risks_overview.pt:156
 msgid "Overview of risks"
@@ -832,7 +834,7 @@ msgstr ""
 "Регистрацията Ви предоставя достъп до Вашия профил по всяко време, за да "
 "можете да продължите предишни оценки или да започнете нови."
 
-#: euphorie/client/browser/templates/profile.pt:124
+#: euphorie/client/browser/templates/profile.pt:120
 #: euphorie/client/browser/templates/risk_identification_custom.pt:233
 #: euphorie/client/browser/templates/updated.pt:117
 msgid "Remove"
@@ -872,7 +874,7 @@ msgid "Save"
 msgstr "Запазване"
 
 #: euphorie/client/browser/reset_password.py:212
-#: euphorie/client/browser/settings.py:99
+#: euphorie/client/browser/settings.py:100
 #: euphorie/client/browser/templates/account-settings.pt:44
 msgid "Save changes"
 msgstr "Запазване на промените"
@@ -898,11 +900,11 @@ msgstr ""
 msgid "Sector"
 msgstr "Сектор"
 
-#: euphorie/client/browser/session.py:695
+#: euphorie/client/browser/session.py:670
 msgid "Session `${name}` has been archived."
 msgstr ""
 
-#: euphorie/client/browser/session.py:641
+#: euphorie/client/browser/session.py:616
 msgid "Session `${name}` has been deleted."
 msgstr "Сесия `${name}` е заличена."
 
@@ -923,7 +925,7 @@ msgstr ""
 msgid "Single occurance prompt"
 msgstr "Съобщение за еднократна поява"
 
-#: euphorie/content/browser/upload.py:128
+#: euphorie/content/browser/upload.py:129
 msgid "Standard"
 msgstr "Стандарт"
 
@@ -935,7 +937,7 @@ msgstr "Основни мерки"
 msgid "Standard solution"
 msgstr "Стандартно решение"
 
-#: euphorie/client/browser/login.py:382
+#: euphorie/client/browser/login.py:374
 #: euphorie/client/browser/templates/new-session-test.pt:154
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -1003,7 +1005,7 @@ msgid ""
 "phones and PDAs."
 msgstr ""
 
-#: euphorie/client/browser/session.py:779
+#: euphorie/client/browser/session.py:754
 msgid "The risk assessment has been cloned"
 msgstr ""
 
@@ -1015,11 +1017,11 @@ msgstr "Посоченият цвят не е валиден."
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "Оценката се извършва на четири основни етапа:"
 
-#: euphorie/client/browser/session.py:618
+#: euphorie/client/browser/session.py:593
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:110
+#: euphorie/client/browser/settings.py:111
 msgid "There were no changes to be saved."
 msgstr "Нямаше направени промени, които да бъдат запазени."
 
@@ -1027,7 +1029,7 @@ msgstr "Нямаше направени промени, които да бъда
 msgid "This OiRA tool was offered to you by ${external_site}"
 msgstr "Този инструмент OiRA Ви беше предложен от ${external_site}"
 
-#: euphorie/client/browser/settings.py:291
+#: euphorie/client/browser/settings.py:292
 msgid "This email address is not available."
 msgstr "Този имейл адрес не е наличен."
 
@@ -1064,7 +1066,7 @@ msgstr ""
 msgid "This question must ask the user if this profile applies to them."
 msgstr ""
 
-#: euphorie/client/browser/settings.py:322
+#: euphorie/client/browser/settings.py:323
 msgid "This request could not be processed."
 msgstr ""
 
@@ -1072,7 +1074,7 @@ msgstr ""
 msgid "This tool deserves to be known by the world! Share it!"
 msgstr "Този инструмент заслужава да бъде познат в цял свят! Споделете го!"
 
-#: euphorie/client/browser/session.py:183
+#: euphorie/client/browser/session.py:172
 msgid "This value must be greater than or equal to 1"
 msgstr ""
 
@@ -1098,7 +1100,7 @@ msgstr ""
 msgid "Unvisited"
 msgstr "Без отговор"
 
-#: euphorie/content/browser/upload.py:456
+#: euphorie/content/browser/upload.py:461
 msgid "Upload"
 msgstr "Качване"
 
@@ -1138,7 +1140,7 @@ msgstr "За кого е предназначен инструментът OiRA?
 msgid "Why do I have to register?"
 msgstr "Защо да се регистрирам?"
 
-#: euphorie/client/browser/templates/profile.pt:67
+#: euphorie/client/browser/templates/profile.pt:63
 #: euphorie/client/browser/templates/updated.pt:59
 #: euphorie/content/browser/templates/survey_view.pt:39
 msgid "Yes"
@@ -1178,7 +1180,7 @@ msgstr ""
 "профилиращ въпрос, тогава съответният модул ще бъде повторен посочения брой "
 "пъти."
 
-#: euphorie/client/browser/session.py:195
+#: euphorie/client/browser/session.py:184
 msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
@@ -1192,7 +1194,7 @@ msgstr ""
 "Уверете се, че разполагате с разпечатана, точна и актуализирана оценка за "
 "риска (по всяко време)."
 
-#: euphorie/client/browser/settings.py:334
+#: euphorie/client/browser/settings.py:335
 msgid "Your email address has been updated."
 msgstr "Вашият имейл адрес беше актуализиран."
 
@@ -1201,7 +1203,7 @@ msgid "Your password for confirmation"
 msgstr "Вашата парола за потвърждение"
 
 #: euphorie/client/browser/reset_password.py:254
-#: euphorie/client/browser/settings.py:125
+#: euphorie/client/browser/settings.py:126
 msgid "Your password was successfully changed."
 msgstr "Вашата парола беше променена успешно."
 
@@ -1495,7 +1497,7 @@ msgstr ""
 
 #. Default: "Cancel"
 #: euphorie/client/browser/publish.py:285
-#: euphorie/client/browser/settings.py:127
+#: euphorie/client/browser/settings.py:128
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:37
 msgid "button_cancel"
 msgstr "Отменяне"
@@ -1503,7 +1505,7 @@ msgstr "Отменяне"
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:158
 #: euphorie/client/browser/templates/surveys.pt:49
-#: euphorie/client/browser/webhelpers.py:859
+#: euphorie/client/browser/webhelpers.py:860
 msgid "button_close"
 msgstr "затвори"
 
@@ -1948,7 +1950,7 @@ msgstr " ${online_help} Тексът също може да бъде проме�
 msgid "documentation_online_help_online_help"
 msgstr "онлайн помощ"
 
-#: euphorie/client/browser/session.py:193
+#: euphorie/client/browser/session.py:182
 msgid "download section"
 msgstr ""
 
@@ -2007,7 +2009,7 @@ msgstr ""
 "'${email}', когато кликнете върху връзката за потвърждаване по-долу."
 
 #. Default: "Please confirm your new email address by clicking on the link in the email that will be sent in a few minutes to \"${email}\". Please note that the new email address is also your new login name."
-#: euphorie/client/browser/settings.py:297
+#: euphorie/client/browser/settings.py:298
 msgid "email_change_pending"
 msgstr ""
 "Моля, потвърдете новия си имейл адрес, като кликнете върху връзката в имейл "
@@ -2040,7 +2042,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "50 до 249 служители"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:171
+#: euphorie/client/browser/login.py:162
 msgid "error_email_in_use"
 msgstr "Акаунт с този имейл адрес вече съществува."
 
@@ -2055,7 +2057,7 @@ msgid "error_invalid_budget"
 msgstr "Моля, въведете бюджета в цели евро."
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:134
+#: euphorie/client/browser/login.py:125
 msgid "error_invalid_email"
 msgstr "Моля, въведете валиден имейл адрес"
 
@@ -2065,35 +2067,35 @@ msgid "error_invalid_login"
 msgstr "Името за вход може да се състои само от малки букви и цифри."
 
 #. Default: "Please upload a valid XML file"
-#: euphorie/content/browser/upload.py:467
+#: euphorie/content/browser/upload.py:472
 msgid "error_invalid_xml"
 msgstr "Моля, качете валиден XML файл"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:130
+#: euphorie/client/browser/login.py:121
 msgid "error_missing_email"
 msgstr "Моля, въведете своя имейл адрес"
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:138
+#: euphorie/client/browser/login.py:129
 msgid "error_missing_password"
 msgstr "Моля, въведете парола"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:142
+#: euphorie/client/browser/login.py:133
 #: euphorie/client/browser/reset_password.py:229
 msgid "error_password_mismatch"
 msgstr "Паролите не съвпадат"
 
 #. Default: "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
-#: euphorie/client/browser/login.py:117
+#: euphorie/client/browser/login.py:108
 msgid "error_password_policy_violation"
 msgstr ""
 "Паролата трябва да е дълга поне 12 символа и е необходимо да съдържа поне "
 "една малка буква, голяма буква и един символ."
 
 #. Default: "An accout can only be created for you if you accept the terms and conditions."
-#: euphorie/client/browser/login.py:150
+#: euphorie/client/browser/login.py:141
 msgid "error_terms_not_accepted"
 msgstr ""
 
@@ -2106,6 +2108,26 @@ msgstr "Тази дата трябва да съвпада или да е сле
 #: euphorie/client/browser/risk.py:68
 msgid "error_validation_before_end_date"
 msgstr "Тази дата трябва да е преди или да съвпада с крайната дата."
+
+#. Default: "This value must be a valid date"
+#: euphorie/client/browser/webhelpers.py:1084
+msgid "error_validation_date"
+msgstr ""
+
+#. Default: "This value must be a valid date and time"
+#: euphorie/client/browser/webhelpers.py:1088
+msgid "error_validation_datetime"
+msgstr ""
+
+#. Default: "This value must be a valid email address"
+#: euphorie/client/browser/webhelpers.py:1095
+msgid "error_validation_email"
+msgstr ""
+
+#. Default: "This value must be a number"
+#: euphorie/client/browser/webhelpers.py:1102
+msgid "error_validation_number"
+msgstr ""
 
 #. Default: "This value must be a positive whole number."
 #: euphorie/client/browser/risk.py:80
@@ -2228,7 +2250,7 @@ msgstr ""
 msgid "explanation_try_oira"
 msgstr ""
 
-#: euphorie/client/browser/session.py:479
+#: euphorie/client/browser/session.py:456
 msgid "extra_text_identification"
 msgstr ""
 
@@ -3177,7 +3199,7 @@ msgstr ""
 "Това е паролата, която Ви е необходима за вход в тази среда за редактиране."
 
 #. Default: "If you do not specify a title it will be taken from the input file."
-#: euphorie/content/browser/upload.py:102
+#: euphorie/content/browser/upload.py:103
 msgid "help_sector_title"
 msgstr "Ако не посочите име, то ще бъде взето от файла за въвеждане."
 
@@ -3226,7 +3248,7 @@ msgstr ""
 "OiRA инструмента в клиентите."
 
 #. Default: "If you do not specify a title it will be taken from the input."
-#: euphorie/content/browser/upload.py:118
+#: euphorie/content/browser/upload.py:119
 msgid "help_upload_surveygroup_title"
 msgstr "Ако не посочите име, то ще бъде взето от въведените данни."
 
@@ -3486,11 +3508,6 @@ msgid "intro_select_sector"
 msgstr ""
 "Изберете сектор, за който искате да видите или да копирате OiRA инструмент."
 
-#. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:60
-msgid "invalid_email"
-msgstr "Моля, въведете валиден адрес на електронна поща."
-
 #. Default: "Action Plan"
 #: euphorie/client/browser/templates/report_identification.pt:148
 msgid "iphone_label_action_plan"
@@ -3649,7 +3666,7 @@ msgid "label_close_message"
 msgstr ""
 
 #. Default: "Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
-#: euphorie/client/browser/templates/risk_actionplan.pt:119
+#: euphorie/client/browser/templates/risk_actionplan.pt:116
 msgid "label_comment"
 msgstr ""
 "Моля, оставете коментарите, които може да имате по горния въпрос, в това "
@@ -3976,7 +3993,7 @@ msgid "label_login"
 msgstr "Вход"
 
 #. Default: "Login name"
-#: euphorie/content/browser/upload.py:111 euphorie/content/user.py:85
+#: euphorie/content/browser/upload.py:112 euphorie/content/user.py:85
 msgid "label_login_name"
 msgstr "Име за вход"
 
@@ -4023,6 +4040,7 @@ msgstr "Експертно ниво и/или изисквания, които �
 
 #. Default: "Title is missing"
 #: euphorie/client/browser/templates/assessments.pt:60
+#: euphorie/client/browser/templates/tool_sessions.pt:134
 msgid "label_missing_title"
 msgstr ""
 
@@ -4351,7 +4369,7 @@ msgid "label_save_and_add_new"
 msgstr "Запазете и добавете друг риск."
 
 #. Default: "Save and continue"
-#: euphorie/client/browser/templates/profile.pt:190
+#: euphorie/client/browser/templates/profile.pt:186
 #: euphorie/client/browser/templates/report.pt:55
 #: euphorie/client/browser/templates/report_company.pt:265
 msgid "label_save_and_continue"
@@ -4378,7 +4396,7 @@ msgid "label_sector_description"
 msgstr "Моля, предоставете описание на Вашия сектор"
 
 #. Default: "Title of sector."
-#: euphorie/content/browser/upload.py:101
+#: euphorie/content/browser/upload.py:102
 msgid "label_sector_title"
 msgstr "Име на сектор."
 
@@ -4489,7 +4507,7 @@ msgid "label_survey_title"
 msgstr "Име на версия"
 
 #. Default: "Title of imported OiRA Tool"
-#: euphorie/content/browser/upload.py:117
+#: euphorie/content/browser/upload.py:118
 msgid "label_surveygroup_title"
 msgstr "Име на импортирания OiRA инструмент"
 
@@ -4568,12 +4586,12 @@ msgid "label_update"
 msgstr "Актуализация"
 
 #. Default: "XML file"
-#: euphorie/content/browser/upload.py:133
+#: euphorie/content/browser/upload.py:134
 msgid "label_upload_filename"
 msgstr "XML файл"
 
 #. Default: "Name for OiRA Tool version"
-#: euphorie/content/browser/upload.py:127
+#: euphorie/content/browser/upload.py:128
 msgid "label_upload_survey_title"
 msgstr "Име за версията на OiRA инструмента"
 
@@ -4658,7 +4676,7 @@ msgid "link_sign_in"
 msgstr "Вход"
 
 #. Default: "Start a new risk assessment"
-#: euphorie/client/browser/country.py:550
+#: euphorie/client/browser/country.py:547
 #: euphorie/client/browser/templates/assessments.pt:28
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64
 msgid "link_start_session"
@@ -4763,7 +4781,7 @@ msgid "message_delete_no_last_survey"
 msgstr "Не можете да изтриете единствената версия на OiRA инструмента."
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/session.py:177
+#: euphorie/client/browser/webhelpers.py:1106
 msgid "message_field_required"
 msgstr "Моля, попълнете това поле."
 
@@ -4789,10 +4807,11 @@ msgstr ""
 "го споделите с цел получаване на информация или обратна връзка от "
 "работниците Ви."
 
-#. Default: "You are using an outdated web browser. Because of this you won't have an optimal experience. Please install a newer browser in order to make optimal use of this site."
+#. Default: "Dear user, you are using an outdated web browser. Your web browser is not compatible with the technology used in OiRA. Please install a newer browser to be able to use OiRA tools."
 #: euphorie/client/browser/templates/browser-warning.pt:31
 msgid "message_lesser_experience_no_javascript"
 msgstr ""
+"Уважаеми потребители, използвате остарял уеб браузър. Вашият уеб браузър не е съвместим с технологията, използвана в OiRA. Инсталирайте по-нов браузър, за да можете да използвате инструментите на OiRA."
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:212
@@ -4817,7 +4836,7 @@ msgid "message_not_delete_published_sector"
 msgstr ""
 "Не можете да изтриете сектор, който съдържа публикувани OiRA инструменти."
 
-#. Default: "You are using an outdated web browser. As a result, the site might not function as expected. Please install a newer browser in order to make optimal use of this site."
+#. Default: "Dear user, you are using an outdated web browser. As a result, the site might not function as expected. Please install a newer browser in order to make optimal use of this site."
 #: euphorie/client/browser/templates/browser-warning.pt:26
 msgid "message_outdated_browser"
 msgstr ""
@@ -4956,7 +4975,7 @@ msgid "no_translate_link_add_measures"
 msgstr ""
 
 #. Default: "<a href='%s/@@report'>${text_download_section}</a>"
-#: euphorie/client/browser/session.py:189
+#: euphorie/client/browser/session.py:178
 msgid "no_translate_link_download_section"
 msgstr ""
 
@@ -5066,7 +5085,7 @@ msgid "portlet_header_versions"
 msgstr "Версии"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:724
+#: euphorie/client/browser/session.py:699
 msgid "prefix_cloned_title"
 msgstr ""
 
@@ -5110,7 +5129,7 @@ msgid "probability_small"
 msgstr "Малка"
 
 #. Default: "${completion_percentage}% Complete"
-#: euphorie/client/browser/webhelpers.py:297
+#: euphorie/client/browser/webhelpers.py:298
 msgid "progress_indicator_title"
 msgstr "${completion_percentage}% завършен"
 
@@ -5251,29 +5270,29 @@ msgid "risk_present"
 msgstr ""
 
 #. Default: "This is a ${priority_value} priority risk."
-#: euphorie/client/browser/templates/risk_actionplan.pt:81
+#: euphorie/client/browser/templates/risk_actionplan.pt:78
 #: euphorie/client/docx/compiler.py:316
 msgid "risk_priority"
 msgstr "Това е ${priority_value} приоритетен риск."
 
-#: euphorie/client/browser/templates/risk_actionplan.pt:103
+#: euphorie/client/browser/templates/risk_actionplan.pt:100
 msgid "risk_priority_${value}"
 msgstr ""
 
 #. Default: "high"
-#: euphorie/client/browser/templates/risk_actionplan.pt:92
+#: euphorie/client/browser/templates/risk_actionplan.pt:89
 #: euphorie/client/docx/compiler.py:314
 msgid "risk_priority_high"
 msgstr "високо"
 
 #. Default: "low"
-#: euphorie/client/browser/templates/risk_actionplan.pt:84
+#: euphorie/client/browser/templates/risk_actionplan.pt:81
 #: euphorie/client/docx/compiler.py:310
 msgid "risk_priority_low"
 msgstr "ниско"
 
 #. Default: "medium"
-#: euphorie/client/browser/templates/risk_actionplan.pt:88
+#: euphorie/client/browser/templates/risk_actionplan.pt:85
 #: euphorie/client/docx/compiler.py:312
 msgid "risk_priority_medium"
 msgstr "средно"
@@ -5470,17 +5489,17 @@ msgid "title_about"
 msgstr "За нас"
 
 #. Default: "Delete account"
-#: euphorie/client/browser/settings.py:140
+#: euphorie/client/browser/settings.py:141
 msgid "title_account_delete"
 msgstr "Изтриване на акаунт"
 
 #. Default: "Account settings"
-#: euphorie/client/browser/settings.py:179
+#: euphorie/client/browser/settings.py:180
 msgid "title_account_settings"
 msgstr "Настройки на акаунта"
 
 #. Default: "Change password"
-#: euphorie/client/browser/settings.py:92
+#: euphorie/client/browser/settings.py:93
 #: euphorie/client/browser/templates/user-menu.pt:33
 msgid "title_change_password"
 msgstr "Смяна на парола"
@@ -5519,12 +5538,6 @@ msgstr "Помощ"
 #: euphorie/deployment/tiles/templates/versions.pt:34
 msgid "title_help_unpublished"
 msgstr "Премахнете този OiRA инструмент от онлайн клиента."
-
-#. Default: "Added risks (by you)"
-#: euphorie/client/browser/publish.py:138
-#: euphorie/client/browser/session.py:489 euphorie/client/docx/compiler.py:108
-msgid "title_other_risks"
-msgstr "Добавени рискове (от Вас)"
 
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:204
@@ -5623,7 +5636,7 @@ msgstr ""
 "инструмент?"
 
 #. Default: "Succesfully imported the OiRA Tool"
-#: euphorie/content/browser/upload.py:472
+#: euphorie/content/browser/upload.py:477
 msgid "upload_success"
 msgstr "Успешно импортиран OiRA инстрмент"
 
@@ -5697,6 +5710,12 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Да"
+
+#~ msgid "invalid_email"
+#~ msgstr "Моля, въведете валиден адрес на електронна поща."
+
+#~ msgid "title_other_risks"
+#~ msgstr "Добавени рискове (от Вас)"
 
 #~ msgid "Started"
 #~ msgstr "публикуван"

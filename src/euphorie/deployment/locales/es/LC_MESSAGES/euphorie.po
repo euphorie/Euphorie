@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-11-10 15:44+0000\n"
+"POT-Creation-Date: 2021-12-02 14:19+0000\n"
 "PO-Revision-Date: 2013-07-30 15:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
@@ -140,7 +140,7 @@ msgstr "Agregar Riesgo"
 msgid "Add Submodule"
 msgstr "Agregar Submódulo"
 
-#: euphorie/client/browser/templates/profile.pt:179
+#: euphorie/client/browser/templates/profile.pt:175
 #: euphorie/client/browser/templates/updated.pt:170
 msgid "Add another item"
 msgstr "Añadir otro ítem"
@@ -165,11 +165,11 @@ msgstr "Todos los países"
 msgid "All languages"
 msgstr "Todos los idiomas"
 
-#: euphorie/client/browser/login.py:193
+#: euphorie/client/browser/login.py:184
 msgid "An account was created for you with email address ${email}"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:209
+#: euphorie/client/browser/settings.py:210
 msgid "An error occured while sending the confirmation email."
 msgstr "Se ha producido un error al enviar el correo de confirmación."
 
@@ -275,7 +275,7 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:234
+#: euphorie/client/browser/settings.py:235
 msgid "Confirm OiRA email address change"
 msgstr "Confirmar cambio de dirección de correo electrónico OiRA"
 
@@ -326,11 +326,13 @@ msgstr "Licencia genérica Creative Commons Attribution-ShareAlike 2.5"
 msgid "Creative Commons License"
 msgstr "Licencia Creative Commons"
 
+#: euphorie/client/browser/publish.py:138
+#: euphorie/client/browser/session.py:465
 #: euphorie/client/browser/templates/module_identification_custom.pt:26
 msgid "Custom risks"
 msgstr "Riesgos personalizados"
 
-#: euphorie/client/browser/settings.py:150
+#: euphorie/client/browser/settings.py:151
 #: euphorie/client/browser/templates/account-delete.pt:40
 #: euphorie/client/browser/templates/user-menu.pt:45
 msgid "Delete account"
@@ -364,7 +366,7 @@ msgstr "¿Le ha gustado esta herramienta? ¡Compártala con sus colegas y amigos
 msgid "Do I need to prepare?"
 msgstr "¿Necesito algún tipo de preparación previa?"
 
-#: euphorie/client/browser/session.py:391
+#: euphorie/client/browser/session.py:380
 msgid "Does this happen in multiple places?"
 msgstr "¿Sucede esto en varios lugares?"
 
@@ -401,11 +403,11 @@ msgstr "Editar Pregunta de perfil"
 msgid "Email address/account name"
 msgstr "Dirección de correo electrónico/nombre de la cuenta"
 
-#: euphorie/client/browser/session.py:396
+#: euphorie/client/browser/session.py:385
 msgid "Enter the name of the location"
 msgstr "Introduzca el nombre de la ubicación"
 
-#: euphorie/client/browser/session.py:401
+#: euphorie/client/browser/session.py:390
 msgid "Enter the names of each location"
 msgstr "Introduzca el nombre de cada ubicación"
 
@@ -474,7 +476,7 @@ msgstr ""
 "Sin embargo, puede seguir con la evaluación el tiempo de que disponga y "
 "después continuar en el mismo punto en que lo dejó."
 
-#: euphorie/client/browser/webhelpers.py:862
+#: euphorie/client/browser/webhelpers.py:863
 msgid "I wish to share the following with you"
 msgstr "Deseo compartir el siguiente enlace"
 
@@ -482,7 +484,7 @@ msgstr "Deseo compartir el siguiente enlace"
 msgid "Identifier"
 msgstr "Identificador"
 
-#: euphorie/content/browser/upload.py:452
+#: euphorie/content/browser/upload.py:457
 msgid "Import OiRA Tool version"
 msgstr ""
 
@@ -506,7 +508,7 @@ msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
 msgstr ""
 "Formato de archivo inválido para imagen. Por favor utilice PNG, JPEG o GIF."
 
-#: euphorie/client/browser/settings.py:122
+#: euphorie/client/browser/settings.py:123
 msgid "Invalid password"
 msgstr "Contraseña no válida"
 
@@ -530,7 +532,7 @@ msgstr "Kosovo"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:135
 #: euphorie/client/browser/templates/status_info.pt:73
-#: euphorie/client/browser/templates/tool_sessions.pt:137
+#: euphorie/client/browser/templates/tool_sessions.pt:140
 msgid "Last saved"
 msgstr "Guardado"
 
@@ -588,7 +590,7 @@ msgstr "Montenegro"
 
 #: euphorie/client/browser/templates/assessments.pt:95
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:167
-#: euphorie/client/browser/templates/tool_sessions.pt:157
+#: euphorie/client/browser/templates/tool_sessions.pt:160
 msgid "More"
 msgstr ""
 
@@ -618,7 +620,7 @@ msgstr "Nombre"
 msgid "New"
 msgstr "Nuevo"
 
-#: euphorie/client/browser/templates/profile.pt:75
+#: euphorie/client/browser/templates/profile.pt:71
 #: euphorie/client/browser/templates/updated.pt:67
 #: euphorie/content/browser/templates/survey_view.pt:42
 msgid "No"
@@ -644,7 +646,7 @@ msgstr "Logotipo oficial OiRA"
 msgid "OiRA Tool"
 msgstr ""
 
-#: euphorie/content/browser/upload.py:152
+#: euphorie/content/browser/upload.py:153
 msgid "OiRA Tool import"
 msgstr ""
 
@@ -690,7 +692,7 @@ msgstr ""
 "web que le permite realizar una evaluación de riesgos laborales en su lugar "
 "de trabajo."
 
-#: euphorie/client/browser/session.py:1084
+#: euphorie/client/browser/session.py:1059
 #: euphorie/client/browser/templates/measures_overview.pt:63
 #: euphorie/client/browser/templates/report_landing.pt:129
 msgid "Overview of measures"
@@ -700,7 +702,7 @@ msgstr "Resumen de medidas"
 msgid "Overview of measures (PDF)"
 msgstr ""
 
-#: euphorie/client/browser/session.py:1074
+#: euphorie/client/browser/session.py:1049
 #: euphorie/client/browser/templates/report_landing.pt:101
 #: euphorie/client/browser/templates/risks_overview.pt:156
 msgid "Overview of risks"
@@ -832,7 +834,7 @@ msgstr ""
 "Al estar registrado, puede conectarse en cualquier momento para continuar "
 "con la evaluación en curso o para comenzar otra nueva."
 
-#: euphorie/client/browser/templates/profile.pt:124
+#: euphorie/client/browser/templates/profile.pt:120
 #: euphorie/client/browser/templates/risk_identification_custom.pt:233
 #: euphorie/client/browser/templates/updated.pt:117
 msgid "Remove"
@@ -872,7 +874,7 @@ msgid "Save"
 msgstr "Guardar"
 
 #: euphorie/client/browser/reset_password.py:212
-#: euphorie/client/browser/settings.py:99
+#: euphorie/client/browser/settings.py:100
 #: euphorie/client/browser/templates/account-settings.pt:44
 msgid "Save changes"
 msgstr "Guardar cambios"
@@ -897,11 +899,11 @@ msgstr ""
 msgid "Sector"
 msgstr "Sector"
 
-#: euphorie/client/browser/session.py:695
+#: euphorie/client/browser/session.py:670
 msgid "Session `${name}` has been archived."
 msgstr ""
 
-#: euphorie/client/browser/session.py:641
+#: euphorie/client/browser/session.py:616
 msgid "Session `${name}` has been deleted."
 msgstr "Se ha borrado la sesión «${name}»."
 
@@ -922,7 +924,7 @@ msgstr ""
 msgid "Single occurance prompt"
 msgstr "Aviso de ocurrencia único"
 
-#: euphorie/content/browser/upload.py:128
+#: euphorie/content/browser/upload.py:129
 msgid "Standard"
 msgstr "Estándar"
 
@@ -934,7 +936,7 @@ msgstr "Medidas pre-establecidas"
 msgid "Standard solution"
 msgstr "Solución estándar"
 
-#: euphorie/client/browser/login.py:382
+#: euphorie/client/browser/login.py:374
 #: euphorie/client/browser/templates/new-session-test.pt:154
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -1002,7 +1004,7 @@ msgid ""
 "phones and PDAs."
 msgstr ""
 
-#: euphorie/client/browser/session.py:779
+#: euphorie/client/browser/session.py:754
 msgid "The risk assessment has been cloned"
 msgstr ""
 
@@ -1014,11 +1016,11 @@ msgstr "El color especificado no es válido."
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "El proceso de evaluación consta de cuatro etapas principales: "
 
-#: euphorie/client/browser/session.py:618
+#: euphorie/client/browser/session.py:593
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:110
+#: euphorie/client/browser/settings.py:111
 msgid "There were no changes to be saved."
 msgstr "Ningún cambio que guardar."
 
@@ -1026,7 +1028,7 @@ msgstr "Ningún cambio que guardar."
 msgid "This OiRA tool was offered to you by ${external_site}"
 msgstr "Esta herramienta OiRA ha sido creada por ${external_site}"
 
-#: euphorie/client/browser/settings.py:291
+#: euphorie/client/browser/settings.py:292
 msgid "This email address is not available."
 msgstr "La dirección de correo electrónico no está disponible."
 
@@ -1064,7 +1066,7 @@ msgstr ""
 msgid "This question must ask the user if this profile applies to them."
 msgstr ""
 
-#: euphorie/client/browser/settings.py:322
+#: euphorie/client/browser/settings.py:323
 msgid "This request could not be processed."
 msgstr ""
 
@@ -1074,7 +1076,7 @@ msgstr ""
 "Esta herramienta merece llegar al conocimiento de una audiencia mundial. "
 "¡Compártala!"
 
-#: euphorie/client/browser/session.py:183
+#: euphorie/client/browser/session.py:172
 msgid "This value must be greater than or equal to 1"
 msgstr ""
 
@@ -1100,7 +1102,7 @@ msgstr ""
 msgid "Unvisited"
 msgstr "Sin respuesta"
 
-#: euphorie/content/browser/upload.py:456
+#: euphorie/content/browser/upload.py:461
 msgid "Upload"
 msgstr "Cargar"
 
@@ -1140,7 +1142,7 @@ msgstr "¿Quiénes son los destinatarios de OiRA? "
 msgid "Why do I have to register?"
 msgstr "¿Por qué debo registrarme?"
 
-#: euphorie/client/browser/templates/profile.pt:67
+#: euphorie/client/browser/templates/profile.pt:63
 #: euphorie/client/browser/templates/updated.pt:59
 #: euphorie/content/browser/templates/survey_view.pt:39
 msgid "Yes"
@@ -1172,7 +1174,7 @@ msgstr ""
 "la evaluación de riesgos, de qué manera van a estar implicados sus "
 "trabajadores en el proceso, etc."
 
-#: euphorie/client/browser/session.py:195
+#: euphorie/client/browser/session.py:184
 msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
@@ -1186,7 +1188,7 @@ msgstr ""
 "Asegúrese de que dispone en todo momento de una evaluación impresa, precisa "
 "y actualizada."
 
-#: euphorie/client/browser/settings.py:334
+#: euphorie/client/browser/settings.py:335
 msgid "Your email address has been updated."
 msgstr "Su dirección de correo electrónico se ha actualizado."
 
@@ -1195,7 +1197,7 @@ msgid "Your password for confirmation"
 msgstr "Contraseña de confirmación"
 
 #: euphorie/client/browser/reset_password.py:254
-#: euphorie/client/browser/settings.py:125
+#: euphorie/client/browser/settings.py:126
 msgid "Your password was successfully changed."
 msgstr "Su contraseña se ha cambiado correctamente."
 
@@ -1486,7 +1488,7 @@ msgstr ""
 
 #. Default: "Cancel"
 #: euphorie/client/browser/publish.py:285
-#: euphorie/client/browser/settings.py:127
+#: euphorie/client/browser/settings.py:128
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:37
 msgid "button_cancel"
 msgstr "Cancelar"
@@ -1494,7 +1496,7 @@ msgstr "Cancelar"
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:158
 #: euphorie/client/browser/templates/surveys.pt:49
-#: euphorie/client/browser/webhelpers.py:859
+#: euphorie/client/browser/webhelpers.py:860
 msgid "button_close"
 msgstr "Cerrar"
 
@@ -1940,7 +1942,7 @@ msgstr "El ${online_help} texto puede ser modificado también."
 msgid "documentation_online_help_online_help"
 msgstr "Ayuda en linea"
 
-#: euphorie/client/browser/session.py:193
+#: euphorie/client/browser/session.py:182
 msgid "download section"
 msgstr ""
 
@@ -1997,7 +1999,7 @@ msgstr ""
 "cambiarán a '${email}' al hacer clic en el enlace de confirmación siguiente."
 
 #. Default: "Please confirm your new email address by clicking on the link in the email that will be sent in a few minutes to \"${email}\". Please note that the new email address is also your new login name."
-#: euphorie/client/browser/settings.py:297
+#: euphorie/client/browser/settings.py:298
 msgid "email_change_pending"
 msgstr ""
 "Confirme su nueva dirección de correo electrónico haciendo clic en el enlace "
@@ -2030,7 +2032,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "de 50 a 249 empleados"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:171
+#: euphorie/client/browser/login.py:162
 msgid "error_email_in_use"
 msgstr "Ya existe una cuenta con esta dirección de correo electrónico."
 
@@ -2045,7 +2047,7 @@ msgid "error_invalid_budget"
 msgstr "Introduzca un presupuesto en euros."
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:134
+#: euphorie/client/browser/login.py:125
 msgid "error_invalid_email"
 msgstr "Introduzca una dirección de correo electrónico válida"
 
@@ -2055,35 +2057,35 @@ msgid "error_invalid_login"
 msgstr "El nombre de login sólo puede tener minúsculas y números."
 
 #. Default: "Please upload a valid XML file"
-#: euphorie/content/browser/upload.py:467
+#: euphorie/content/browser/upload.py:472
 msgid "error_invalid_xml"
 msgstr "Cargue un archivo XML válido"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:130
+#: euphorie/client/browser/login.py:121
 msgid "error_missing_email"
 msgstr "Introduzca su dirección de correo electrónico"
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:138
+#: euphorie/client/browser/login.py:129
 msgid "error_missing_password"
 msgstr "Introduzca una contraseña"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:142
+#: euphorie/client/browser/login.py:133
 #: euphorie/client/browser/reset_password.py:229
 msgid "error_password_mismatch"
 msgstr "Las contraseñas no coinciden"
 
 #. Default: "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
-#: euphorie/client/browser/login.py:117
+#: euphorie/client/browser/login.py:108
 msgid "error_password_policy_violation"
 msgstr ""
 "La contraseña debe tener al menos 12 carácteres y debe contener al menos una "
 "letra minúscula, una letra mayúscula y un dígito."
 
 #. Default: "An accout can only be created for you if you accept the terms and conditions."
-#: euphorie/client/browser/login.py:150
+#: euphorie/client/browser/login.py:141
 msgid "error_terms_not_accepted"
 msgstr ""
 
@@ -2096,6 +2098,26 @@ msgstr "Esta fecha debe ser igual o posterior a la fecha de inicio."
 #: euphorie/client/browser/risk.py:68
 msgid "error_validation_before_end_date"
 msgstr "Esta fecha debe ser igual o anterior a la fecha de finalización."
+
+#. Default: "This value must be a valid date"
+#: euphorie/client/browser/webhelpers.py:1084
+msgid "error_validation_date"
+msgstr ""
+
+#. Default: "This value must be a valid date and time"
+#: euphorie/client/browser/webhelpers.py:1088
+msgid "error_validation_datetime"
+msgstr ""
+
+#. Default: "This value must be a valid email address"
+#: euphorie/client/browser/webhelpers.py:1095
+msgid "error_validation_email"
+msgstr ""
+
+#. Default: "This value must be a number"
+#: euphorie/client/browser/webhelpers.py:1102
+msgid "error_validation_number"
+msgstr ""
 
 #. Default: "This value must be a positive whole number."
 #: euphorie/client/browser/risk.py:80
@@ -2218,7 +2240,7 @@ msgstr ""
 msgid "explanation_try_oira"
 msgstr ""
 
-#: euphorie/client/browser/session.py:479
+#: euphorie/client/browser/session.py:456
 msgid "extra_text_identification"
 msgstr ""
 
@@ -3168,7 +3190,7 @@ msgstr ""
 "editor."
 
 #. Default: "If you do not specify a title it will be taken from the input file."
-#: euphorie/content/browser/upload.py:102
+#: euphorie/content/browser/upload.py:103
 msgid "help_sector_title"
 msgstr "Si no especifica un título se tomará del archivo de entrada."
 
@@ -3219,7 +3241,7 @@ msgstr ""
 "previa de la herramienta OiRA en los clientes."
 
 #. Default: "If you do not specify a title it will be taken from the input."
-#: euphorie/content/browser/upload.py:118
+#: euphorie/content/browser/upload.py:119
 msgid "help_upload_surveygroup_title"
 msgstr "Si no especifica un título se tomará del texto introducido."
 
@@ -3480,11 +3502,6 @@ msgid "intro_select_sector"
 msgstr ""
 "Seleccione el sector para el que desee ver o copiar una herramienta OiRA."
 
-#. Default: "Please enter a valid email address."
-#: euphorie/client/browser/login.py:60
-msgid "invalid_email"
-msgstr "Introduzca una dirección de correo electrónico válida"
-
 #. Default: "Action Plan"
 #: euphorie/client/browser/templates/report_identification.pt:148
 msgid "iphone_label_action_plan"
@@ -3643,7 +3660,7 @@ msgid "label_close_message"
 msgstr ""
 
 #. Default: "Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
-#: euphorie/client/browser/templates/risk_actionplan.pt:119
+#: euphorie/client/browser/templates/risk_actionplan.pt:116
 msgid "label_comment"
 msgstr ""
 "Por favor, deje cualquier comentario que tenga sobre la pregunta anterior en "
@@ -3970,7 +3987,7 @@ msgid "label_login"
 msgstr "Iniciar sesión"
 
 #. Default: "Login name"
-#: euphorie/content/browser/upload.py:111 euphorie/content/user.py:85
+#: euphorie/content/browser/upload.py:112 euphorie/content/user.py:85
 msgid "label_login_name"
 msgstr "Nombre de login"
 
@@ -4017,6 +4034,7 @@ msgstr "Nivel de experiencia y/o requisitos necesarios"
 
 #. Default: "Title is missing"
 #: euphorie/client/browser/templates/assessments.pt:60
+#: euphorie/client/browser/templates/tool_sessions.pt:134
 msgid "label_missing_title"
 msgstr ""
 
@@ -4344,7 +4362,7 @@ msgid "label_save_and_add_new"
 msgstr "Guardar y añadir otro riesgo"
 
 #. Default: "Save and continue"
-#: euphorie/client/browser/templates/profile.pt:190
+#: euphorie/client/browser/templates/profile.pt:186
 #: euphorie/client/browser/templates/report.pt:55
 #: euphorie/client/browser/templates/report_company.pt:265
 msgid "label_save_and_continue"
@@ -4371,7 +4389,7 @@ msgid "label_sector_description"
 msgstr "Introduzca una descripción del sector"
 
 #. Default: "Title of sector."
-#: euphorie/content/browser/upload.py:101
+#: euphorie/content/browser/upload.py:102
 msgid "label_sector_title"
 msgstr "Título del sector"
 
@@ -4483,7 +4501,7 @@ msgid "label_survey_title"
 msgstr "Nombre de la versión"
 
 #. Default: "Title of imported OiRA Tool"
-#: euphorie/content/browser/upload.py:117
+#: euphorie/content/browser/upload.py:118
 msgid "label_surveygroup_title"
 msgstr "Título de la herramienta OiRA importada"
 
@@ -4562,12 +4580,12 @@ msgid "label_update"
 msgstr "Actualizar"
 
 #. Default: "XML file"
-#: euphorie/content/browser/upload.py:133
+#: euphorie/content/browser/upload.py:134
 msgid "label_upload_filename"
 msgstr "Archivo XML"
 
 #. Default: "Name for OiRA Tool version"
-#: euphorie/content/browser/upload.py:127
+#: euphorie/content/browser/upload.py:128
 msgid "label_upload_survey_title"
 msgstr "Nombre de la versión de la herramienta OiRA"
 
@@ -4651,7 +4669,7 @@ msgid "link_sign_in"
 msgstr "Identifíquese"
 
 #. Default: "Start a new risk assessment"
-#: euphorie/client/browser/country.py:550
+#: euphorie/client/browser/country.py:547
 #: euphorie/client/browser/templates/assessments.pt:28
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64
 msgid "link_start_session"
@@ -4752,7 +4770,7 @@ msgid "message_delete_no_last_survey"
 msgstr "No puede borrar la única versión de la herramienta OiRA."
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/session.py:177
+#: euphorie/client/browser/webhelpers.py:1106
 msgid "message_field_required"
 msgstr "Faltan datos obligatorios."
 
@@ -4778,10 +4796,11 @@ msgstr ""
 "los trabajadores y se establece un diálogo entre los empleados y la "
 "dirección."
 
-#. Default: "You are using an outdated web browser. Because of this you won't have an optimal experience. Please install a newer browser in order to make optimal use of this site."
+#. Default: "Dear user, you are using an outdated web browser. Your web browser is not compatible with the technology used in OiRA. Please install a newer browser to be able to use OiRA tools."
 #: euphorie/client/browser/templates/browser-warning.pt:31
 msgid "message_lesser_experience_no_javascript"
 msgstr ""
+"Estimado usuario, está utilizando un navegador web obsoleto. Su navegador no es compatible con la tecnología utilizada en OiRA. Instale un navegador más reciente para poder utilizar las herramientas OiRA."
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:212
@@ -4805,7 +4824,7 @@ msgstr "No hay sectores para este país."
 msgid "message_not_delete_published_sector"
 msgstr "No puede borrar un sector que contiene herramientas OiRA publicadas."
 
-#. Default: "You are using an outdated web browser. As a result, the site might not function as expected. Please install a newer browser in order to make optimal use of this site."
+#. Default: "Dear user, you are using an outdated web browser. As a result, the site might not function as expected. Please install a newer browser in order to make optimal use of this site."
 #: euphorie/client/browser/templates/browser-warning.pt:26
 msgid "message_outdated_browser"
 msgstr ""
@@ -4946,7 +4965,7 @@ msgid "no_translate_link_add_measures"
 msgstr ""
 
 #. Default: "<a href='%s/@@report'>${text_download_section}</a>"
-#: euphorie/client/browser/session.py:189
+#: euphorie/client/browser/session.py:178
 msgid "no_translate_link_download_section"
 msgstr ""
 
@@ -5058,7 +5077,7 @@ msgid "portlet_header_versions"
 msgstr "Versiones"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:724
+#: euphorie/client/browser/session.py:699
 msgid "prefix_cloned_title"
 msgstr ""
 
@@ -5102,7 +5121,7 @@ msgid "probability_small"
 msgstr "Pequeña"
 
 #. Default: "${completion_percentage}% Complete"
-#: euphorie/client/browser/webhelpers.py:297
+#: euphorie/client/browser/webhelpers.py:298
 msgid "progress_indicator_title"
 msgstr "${completion_percentage}% completa"
 
@@ -5241,29 +5260,29 @@ msgid "risk_present"
 msgstr ""
 
 #. Default: "This is a ${priority_value} priority risk."
-#: euphorie/client/browser/templates/risk_actionplan.pt:81
+#: euphorie/client/browser/templates/risk_actionplan.pt:78
 #: euphorie/client/docx/compiler.py:316
 msgid "risk_priority"
 msgstr "Este es un riesgo prioritario ${priority_value}."
 
-#: euphorie/client/browser/templates/risk_actionplan.pt:103
+#: euphorie/client/browser/templates/risk_actionplan.pt:100
 msgid "risk_priority_${value}"
 msgstr ""
 
 #. Default: "high"
-#: euphorie/client/browser/templates/risk_actionplan.pt:92
+#: euphorie/client/browser/templates/risk_actionplan.pt:89
 #: euphorie/client/docx/compiler.py:314
 msgid "risk_priority_high"
 msgstr "alto"
 
 #. Default: "low"
-#: euphorie/client/browser/templates/risk_actionplan.pt:84
+#: euphorie/client/browser/templates/risk_actionplan.pt:81
 #: euphorie/client/docx/compiler.py:310
 msgid "risk_priority_low"
 msgstr "bajo"
 
 #. Default: "medium"
-#: euphorie/client/browser/templates/risk_actionplan.pt:88
+#: euphorie/client/browser/templates/risk_actionplan.pt:85
 #: euphorie/client/docx/compiler.py:312
 msgid "risk_priority_medium"
 msgstr "medio"
@@ -5460,17 +5479,17 @@ msgid "title_about"
 msgstr "Información sobre"
 
 #. Default: "Delete account"
-#: euphorie/client/browser/settings.py:140
+#: euphorie/client/browser/settings.py:141
 msgid "title_account_delete"
 msgstr "Borrar cuenta"
 
 #. Default: "Account settings"
-#: euphorie/client/browser/settings.py:179
+#: euphorie/client/browser/settings.py:180
 msgid "title_account_settings"
 msgstr "Ajustes de cuenta"
 
 #. Default: "Change password"
-#: euphorie/client/browser/settings.py:92
+#: euphorie/client/browser/settings.py:93
 #: euphorie/client/browser/templates/user-menu.pt:33
 msgid "title_change_password"
 msgstr "Cambiar contraseña"
@@ -5509,12 +5528,6 @@ msgstr "Ayuda"
 #: euphorie/deployment/tiles/templates/versions.pt:34
 msgid "title_help_unpublished"
 msgstr "Elimine esta herramienta OiRA del cliente online."
-
-#. Default: "Added risks (by you)"
-#: euphorie/client/browser/publish.py:138
-#: euphorie/client/browser/session.py:489 euphorie/client/docx/compiler.py:108
-msgid "title_other_risks"
-msgstr "Riesgos añadidos (por Ud)"
 
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:204
@@ -5611,7 +5624,7 @@ msgstr ""
 "¿Está seguro de que desea retirar la publicación de esta herramienta OiRA?"
 
 #. Default: "Succesfully imported the OiRA Tool"
-#: euphorie/content/browser/upload.py:472
+#: euphorie/content/browser/upload.py:477
 msgid "upload_success"
 msgstr "Herramienta OiRA importada con éxito"
 
@@ -5685,6 +5698,12 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Sí"
+
+#~ msgid "invalid_email"
+#~ msgstr "Introduzca una dirección de correo electrónico válida"
+
+#~ msgid "title_other_risks"
+#~ msgstr "Riesgos añadidos (por Ud)"
 
 #~ msgid "A folder for all documentation for a specific language."
 #~ msgstr "Una carpeta para toda la documentación de un idioma específico."

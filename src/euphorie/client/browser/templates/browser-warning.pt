@@ -26,12 +26,12 @@
               <p class="message with-js"
                  i18n:translate="message_outdated_browser"
               >
-                            You are using an outdated web browser. As a result, the site might not function as expected. Please install a newer browser in order to make optimal use of this site.
+                            Dear user, you are using an outdated web browser. As a result, the site might not function as expected. Please install a newer browser in order to make optimal use of this site.
               </p>
               <p class="message without-js"
                  i18n:translate="message_lesser_experience_no_javascript"
               >
-                            You are using an outdated web browser. Because of this you won't have an optimal experience. Please install a newer browser in order to make optimal use of this site.
+                            Dear user, you are using an outdated web browser. Your web browser is not compatible with the technology used in OiRA. Please install a newer browser to be able to use OiRA tools.
               </p>
             </div>
             <nav class="browser-options">
