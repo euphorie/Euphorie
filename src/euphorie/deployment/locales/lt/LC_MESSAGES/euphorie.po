@@ -4708,7 +4708,7 @@ msgstr ""
 #. Default: "Please fill out this field."
 #: euphorie/client/browser/webhelpers.py:1106
 msgid "message_field_required"
-msgstr ""
+msgstr "Šis laukas būtinas"
 
 #. Default: "Decide on the best way to involve your staff! You can for example conduct a meeting or a focus group with workers and go through the respective parts in the risk assessment together. You can also download or print the content of the tool or parts of it and share it for information and feedback with your workers."
 #: euphorie/client/browser/templates/involve.pt:33
