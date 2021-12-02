@@ -16,6 +16,7 @@ from Acquisition import aq_inner
 from euphorie.content import MessageFactory as _
 from euphorie.content.behaviors.toolcategory import IToolCategory
 from euphorie.content.utils import IToolTypesInfo
+from io import BytesIO
 from plone import api
 from plone.autoform.form import AutoExtensibleForm
 from plone.dexterity.utils import createContentInContainer
@@ -383,7 +384,11 @@ class SurveyImporter(object):
         enablde DOM.
         """
         if isinstance(input, six.string_types + (bytes,)):
-            sector = lxml.objectify.fromstring(safe_bytes(input))
+            parser = lxml.etree.XMLParser(huge_tree=True)
+            sector_tree = lxml.objectify.parse(
+                BytesIO(safe_bytes(input)), parser=parser
+            )
+            sector = lxml.objectify.fromstring(lxml.etree.tostring(sector_tree))
         else:
             sector = input
 
