@@ -3739,7 +3739,7 @@ msgstr "descarregar o conteúdo da ferramenta"
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:42
 msgid "label_duplicate"
-msgstr ""
+msgstr "Duplicar"
 
 #. Default: "Email address"
 #: euphorie/client/browser/reset_password.py:48

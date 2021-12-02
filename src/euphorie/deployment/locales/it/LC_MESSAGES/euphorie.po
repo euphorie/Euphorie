@@ -3263,6 +3263,8 @@ msgstr "Pannello di controllo"
 #: euphorie/content/utils.py:148
 msgid "implemented_measures_sufficient"
 msgstr ""
+"Oltre alle misure obbligatorie e alle eventuali misure di miglioramento "
+"già adottate sono previste ulteriori misure di miglioramento?"
 
 #. Default: "Your login name and/or password were entered incorrectly. Please check and try again or ${request_an_email_reminder}."
 #: euphorie/client/browser/templates/login.pt:82

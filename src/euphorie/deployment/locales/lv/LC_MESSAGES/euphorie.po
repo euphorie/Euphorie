@@ -4505,7 +4505,7 @@ msgstr "OiRA rīka veids"
 #. Default: "Tools"
 #: euphorie/client/browser/templates/sessions-dashboard.pt:34
 msgid "label_tools"
-msgstr ""
+msgstr "Rīki"
 
 #. Default: "Try OiRA"
 #: euphorie/client/browser/templates/surveys.pt:26
