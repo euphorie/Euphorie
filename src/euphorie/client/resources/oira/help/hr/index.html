@@ -46,7 +46,18 @@
 			property="og:image"
 			content="../../style/oira-tile.png" />
 
-		<link rel="icon" type="image/png" href="../../favicon/apple-touch-icon.png" />
+		<link 
+			rel="icon" 
+			type="image/png" 
+			href="../../favicon/apple-touch-icon.png" />
+
+		<meta 
+			name="theme-color" 
+			content="#10B2E4">
+
+		<!-- Manifest -->
+		<link rel="manifest" 
+			  href="/assets/oira/manifest/manifest.json">
 	</head>
 	<body
 		id="body"
@@ -89,8 +100,7 @@
 		<a 
 			href="/feedback/help-menu#menu-content" 
 		   	id="help-menu" 
-		   	class="iconified pat-tooltip pat-switch" 
-		   	data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+		   	class="iconified pat-tooltip" 
 		   	data-pat-tooltip="source: ajax">Help</a>
 		<a 
 			href="/index-logged-in.html" 
@@ -108,7 +118,9 @@
 		<div 
     id="main-content" 
     class="variation-help">
-    <div id="content-pane">
+    <div 
+        id="content-pane"
+        class="pat-scroll-box">
         <div class="container">
     <div class="long-read">
         <article class="pat-rich">
@@ -485,6 +497,12 @@
                        data-pat-inject="history: record">
                         Potvrde
                     </a>
+                
+            
+                
+            
+                
+            
                 
             
                 
