@@ -4789,6 +4789,12 @@ msgstr "Моля, попълнете това поле."
 #: euphorie/client/browser/templates/involve.pt:33
 msgid "message_involve_workers_how_to"
 msgstr ""
+"Решете кой е най-добрият начин да привлечете персонала си! Например, можете да "
+"проведете среща или да създадете фокусна група с участие на работници и да "
+"разгледате съответни фрагменти от Оценката на риска заедно. Също може да "
+"изтеглите или разпечатате съдържанието на инструмента или части от него и да "
+"го споделите с цел получаване на информация или обратна връзка от "
+"работниците Ви."
 
 #. Default: "One of the keys to good OSH leadership is getting workers involved. Employers have a <a href=\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-directive/the-osh-framework-directive-introduction\">legal duty</a> to consult employees on safety and health issues. But there are benefits to going beyond the minimum requirements. OSH management will be more likely to succeed if it encourages the active participation of workers and sets up a dialogue between employees and management."
 #: euphorie/client/browser/templates/involve.pt:28
@@ -4799,13 +4805,7 @@ msgstr ""
 "консултират с работниците по въпросите свързани с безопасността и здравето. "
 "Но има ползи да се премине отвъд минималните законови изисквания. "
 "Управлението на БЗР ще има по-голям успех ако се насърчава участието на "
-"работниците и се създава диалог между работниците и ръководството. Решете "
-"кой е най-добрият начин да привлечете персонала си! Например, можете да "
-"проведете среща или да създадете фокусна група с участие на работници и да "
-"разгледате съответни фрагменти от Оценката на риска заедно. Също може да "
-"изтеглите или разпечатате съдържанието на инструмента или части от него и да "
-"го споделите с цел получаване на информация или обратна връзка от "
-"работниците Ви."
+"работниците и се създава диалог между работниците и ръководството."
 
 #. Default: "Dear user, you are using an outdated web browser. Your web browser is not compatible with the technology used in OiRA. Please install a newer browser to be able to use OiRA tools."
 #: euphorie/client/browser/templates/browser-warning.pt:31
