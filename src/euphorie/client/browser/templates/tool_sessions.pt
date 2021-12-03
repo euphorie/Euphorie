@@ -36,6 +36,7 @@
             <a class="pat-back-button pat-inject"
                href="${country/absolute_url}/surveys"
                data-pat-inject="history: record; source: #content; target: #content;"
+               i18n:translate="label_tools"
             >Tools</a>
           </div>
         </div>
