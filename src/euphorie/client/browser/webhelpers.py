@@ -22,6 +22,7 @@ from euphorie.client.sector import IClientSector
 from euphorie.client.update import wasSurveyUpdated
 from euphorie.client.utils import getSecret
 from euphorie.content.survey import ISurvey
+from euphorie.content.utils import getRegionTitle
 from euphorie.content.utils import StripMarkup
 from euphorie.ghost import PathGhost
 from json import dumps
@@ -392,6 +393,10 @@ class WebHelpers(BrowserView):
         if info is not None:
             return info.get("native", info.get("name", None))
         return None
+
+    @memoize
+    def getTranslatedCountryName(self, country_id):
+        return getRegionTitle(self.request, country_id)
 
     @property
     @forever.memoize

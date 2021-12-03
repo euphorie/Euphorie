@@ -57,7 +57,7 @@
               <a class="tag pat-inject"
                  href="${country/absolute_url}/surveys?country=${country/id}#content"
                  data-pat-inject="history: record"
-              >${country/title}</a>
+              >${python: webhelpers.getTranslatedCountryName(country.getId())}</a>
 
               <a class="tag pat-inject"
                  href="${country/absolute_url}/surveys?language=${tool_lang}#content"
