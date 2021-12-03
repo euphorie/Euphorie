@@ -248,9 +248,7 @@ class ResetPasswordForm(BaseForm):
         account.password = data["new_password"]
         current_url = self.context.absolute_url()
         return self.redirect(
-            "{}/@@login_form?{}".format(
-                current_url, urlencode(dict(came_from=current_url))
-            ),
+            "{}/@@login?{}".format(current_url, urlencode(dict(came_from=current_url))),
             msg=_("Your password was successfully changed."),
         )
 
