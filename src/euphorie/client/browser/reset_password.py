@@ -226,7 +226,7 @@ class ResetPasswordForm(BaseForm):
         if errors:
             for err in errors:
                 if isinstance(err.error, Exception):
-                    err.message = _(
+                    self.error = _(
                         "error_password_mismatch", default=u"Passwords do not match"
                     )
             return
@@ -237,11 +237,18 @@ class ResetPasswordForm(BaseForm):
         try:
             ppr.verifyKey(key)
         except InvalidRequestError:
-            return self.redirect(
-                self.context.absolute_url() + "/@@reset_password_request",
-                msg=_("Invalid security token, try to request a new one"),
-                msg_type="error",
-            )
+            self.error = _("Invalid security token, try to request a new one")
+            return
+
+        login_view = api.content.get_view(
+            name="login",
+            context=self.context,
+            request=self.request,
+        )
+        error = login_view.check_password_policy(data["new_password"])
+        if error:
+            self.error = error
+            return
 
         account_id = ppr._requests.get(key)[0]
         account = Session().query(Account).filter(Account.id == account_id).one()
