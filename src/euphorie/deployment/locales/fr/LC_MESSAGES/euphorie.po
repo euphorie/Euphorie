@@ -85,8 +85,7 @@ msgstr ""
 #: euphorie/client/browser/templates/report_landing.pt:59
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
 msgstr ""
-"${provide-evidence} qui sera transmis aux personnes concernées (salariés, "
-"délégués du personnel, experts en santé et sécurité au travail, etc.) ;"
+"${provide-evidence} qui pourra être transmis aux personnes concernées : salariés, délégués du personnel, experts en santé et sécurité au travail, autorités de contrôle (inspection du travail); "
 
 #: euphorie/client/browser/templates/webhelpers.pt:333
 msgid "${view/description_probability}"
