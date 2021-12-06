@@ -136,7 +136,8 @@ def remove_empty_modules(nodes):
         for i in range(0, len(nodes)):
             node = nodes[i]
             inserted = False
-            for k in tree.keys():
+            keys = list(tree)
+            for k in keys:
                 if node.path.startswith(k[0]):
                     if tree[k]:
                         grow(tree[k], [node])
@@ -156,7 +157,8 @@ def remove_empty_modules(nodes):
                 del tree[k]
 
     def flatten(tree):
-        for k in tree.keys():
+        keys = list(tree)
+        for k in keys:
             ids.append(k[2])
             flatten(tree[k])
 
