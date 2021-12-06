@@ -47,6 +47,8 @@ class ClientCountry(Container):
         "lv": "lv",
         "pt": "pt",
         "si": "sl",
+        "sk": "sk",
+        "cz": "cs",
     }
 
     @property
