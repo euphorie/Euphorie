@@ -40,11 +40,8 @@
             </dt>
             <dd>
               <p>
-                <a class="pat-inject pat-switch close-panel"
-                   href="${survey/absolute_url}#content"
+                <a href="${survey/absolute_url}#content"
                    title="TOOL Name"
-                   data-pat-inject="history: record"
-                   data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: sidebar-on; add: sidebar-off &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal"
                 >${survey/title}</a>
               </p>
             </dd>
