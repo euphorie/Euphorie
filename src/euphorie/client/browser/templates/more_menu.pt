@@ -19,6 +19,7 @@
             archive_url string:${here/absolute_url}/@@confirmation-archive-session#document-content;
             delete_url string:${here/absolute_url}/@@confirmation-delete-session#document-content;
             clone_url string:${here/absolute_url}/@@confirmation-clone-session#document-content;
+            status_url string:${here/absolute_url}/@@status#status-report;
           "
       >
         <li>
@@ -49,7 +50,7 @@
         </li>
         <li>
           <a class="pat-modal close-panel icon-chart-line ${python: not has_tree and 'disabled' or ''}"
-             href="${here/absolute_url}/@@status#status-report"
+             href="${python:status_url if has_tree else None}"
              title="Status"
              data-pat-modal="class: medium"
              i18n:attributes="title navigation_status"

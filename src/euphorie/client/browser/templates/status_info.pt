@@ -17,15 +17,16 @@
              tal:define="
                title session/title|string:;
                status python:view.status;
+               title_initial python:title.lower() if title else '';
              "
     >
 
-      <h1 tal:condition="python:title.lower()[0] not in ('a', 'e', 'i', 'o', 'u')">
+      <h1 tal:condition="python:title_initial not in ('a', 'e', 'i', 'o', 'u')">
         <tal:title i18n:translate="title_status_of">Status of
           &ldquo;<tal:name i18n:name="survey_title">${title}</tal:name>&rdquo;
         </tal:title>
       </h1>
-      <h1 tal:condition="python:title.lower()[0] in ('a', 'e', 'i', 'o', 'u')"><tal:title i18n:translate="title_with_vowel_status_of">Status of
+      <h1 tal:condition="python:title_initial in ('a', 'e', 'i', 'o', 'u')"><tal:title i18n:translate="title_with_vowel_status_of">Status of
           &ldquo;
           <tal:name i18n:name="survey_title">${title}</tal:name>&rdquo;</tal:title>
       </h1>
