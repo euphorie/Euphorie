@@ -1094,7 +1094,7 @@ msgstr "Augšupielādēt attēlu, kas atspoguļo risku."
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:243
 msgid "Upload image"
-msgstr ""
+msgstr "Augšuplādēt attēlu"
 
 #: euphorie/client/browser/templates/report_landing.pt:157
 msgid "Use the report to:"
