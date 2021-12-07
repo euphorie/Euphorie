@@ -3187,7 +3187,7 @@ msgstr "Eru valdar úrbótaaðgerðir nægjanlegar til að hafa stjórn á áhæ
 msgid "incorrect_login"
 msgstr ""
 "Rangt notendanafn eða lykilorð. Athugaðu málið og reyndu aftur eða fáðu "
-"{request_an_email_reminder} um innskráningarupplýsingar þínar."
+"${request_an_email_reminder} um innskráningarupplýsingar þínar."
 
 #. Default: "The menu toggle lets you hide and show the risk assessment browser to find previously made risk assessments. Hide the menu when you are concentrating on making a risk assessment or show it when you are clicking about between various parts of the application."
 #: euphorie/client/browser/templates/tooltips.pt:52
