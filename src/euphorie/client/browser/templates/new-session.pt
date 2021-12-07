@@ -19,7 +19,7 @@
         <form class="wizard-box panel-class-small pat-inject"
               action="${request/URL}"
               method="post"
-              data-pat-inject="source: #content; target: #content; &amp;&amp; source: #splash-message; target: #splash-message;"
+              data-pat-inject="source: #content; target: #content; history: record &amp;&amp; source: #splash-message; target: #splash-message;"
         >
           <input name="action"
                  type="hidden"
