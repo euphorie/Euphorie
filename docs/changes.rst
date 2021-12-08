@@ -1,7 +1,7 @@
 Changelog
 =========
 
-13.0.0 (unreleased)
+13.0.0 (2021-12-08)
 -------------------
 
 BREAKING CHANGE: UI freshup
