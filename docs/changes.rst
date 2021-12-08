@@ -7,13 +7,8 @@ Changelog
 BREAKING CHANGE: UI freshup
 
 - Prevent redirect to default country after registration.
-- Translation fixes for form validation messages.
-- Translation fixes for report (FR)
+- Various Translation fixes 
 - Show a warning when republishing a tool with changed structure.
-
-12.0.17 (unreleased)
---------------------
-
 - Prevent execution of malicious code entered as custom measure or training notes.
 
 12.0.16 (2021-11-11)
