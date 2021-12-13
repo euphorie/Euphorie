@@ -208,11 +208,11 @@ class Login(BrowserView):
             if isinstance(came_from, list):
                 # If came_from is both in the querystring and the form data
                 came_from = came_from[0]
-            self.setLanguage(came_from)
         else:
             # Set to country url
             webhelpers = api.content.get_view("webhelpers", context, self.request)
             came_from = webhelpers.country_url
+        self.setLanguage(came_from)
 
         account = get_current_account()
         self.allow_guest_accounts = api.portal.get_registry_record(
