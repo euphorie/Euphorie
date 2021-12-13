@@ -45,6 +45,7 @@ class ClientCountry(Container):
         "it": "it",
         "lt": "lt",
         "lv": "lv",
+        "mt": "mt",
         "pt": "pt",
         "si": "sl",
         "sk": "sk",
