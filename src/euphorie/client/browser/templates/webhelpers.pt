@@ -1135,7 +1135,7 @@
             Name
       <input id="name"
              autocomplete="off"
-             name="user_name"
+             name="my_name"
              placeholder="Your name here"
              type="text"
       />
@@ -1144,7 +1144,7 @@
             E-mail
       <input id="email"
              autocomplete="off"
-             name="user_email"
+             name="my_email"
              placeholder="Your e-mail here"
              type="text"
       />
