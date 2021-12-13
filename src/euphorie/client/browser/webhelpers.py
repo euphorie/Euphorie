@@ -786,8 +786,11 @@ class WebHelpers(BrowserView):
     def timezoned_date(self, mydate=None):
         if mydate is None:
             return None
-        utc = tz.gettz(self.server_timezone)
-        return mydate.replace(tzinfo=utc)
+        # If the date already has a timezone, don't touch it
+        if mydate.tzinfo is not None:
+            return mydate
+        local_tz = tz.gettz(self.server_timezone)
+        return mydate.replace(tzinfo=local_tz)
 
     @property
     @memoize
