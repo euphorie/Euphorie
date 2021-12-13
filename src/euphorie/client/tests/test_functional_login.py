@@ -27,18 +27,17 @@ class GuestAccountTests(EuphorieFunctionalTestCase):
         api.portal.set_registry_record("euphorie.allow_guest_accounts", True)
         commit()
         browser.open(self.portal.client.nl.absolute_url())
-        self.assertTrue(re.search("run a test session", browser.contents) is not None)
+        self.assertIn("Try a test session", browser.contents)
         # No valid survey path is passed in came_from
         browser.open(
-            "%s/@@tryout?came_from=%s"
+            "%s/@@surveys?came_from=%s"
             % (
                 self.portal.client.nl.absolute_url(),
                 self.portal.client.nl.absolute_url(),
             )
         )
         # Therefore we land on the "start new session" page
-        self.assertTrue("Test session" in browser.contents)
-        self.assertTrue("Start a new session" in browser.contents)
+        self.assertIn("Test session", browser.contents)
 
     def test_guest_login_with_valid_survey(self):
         self.loginAsPortalOwner()
@@ -49,13 +48,13 @@ class GuestAccountTests(EuphorieFunctionalTestCase):
         api.portal.set_registry_record("euphorie.allow_guest_accounts", True)
         commit()
         browser.open(self.portal.client.nl.absolute_url())
-        self.assertTrue(re.search("run a test session", browser.contents) is not None)
+        self.assertIn("Try a test session", browser.contents)
         url = "{}/ict/software-development".format(self.portal.client.nl.absolute_url())
         # We pass in a valid survey path in came_from
         browser.open("{url}/@@tryout?came_from={url}".format(url=url))
         # Therefore we land on the start page of the survey
-        self.assertTrue("Test session" in browser.contents)
-        self.assertTrue("<h1>Software development</h1>" in browser.contents)
+        self.assertIn("Test session", browser.contents)
+        self.assertIn("<h1>Software development</h1>", browser.contents)
 
 
 class LoginTests(EuphorieFunctionalTestCase):
@@ -64,11 +63,10 @@ class LoginTests(EuphorieFunctionalTestCase):
         addSurvey(self.portal, BASIC_SURVEY)
         addAccount(password="secret")
         browser = self.get_browser()
-        browser.open(self.portal.client.nl.absolute_url())
-        browser.getLink("Login").click()
+        browser.open(self.portal.client.nl.absolute_url() + "/@@login")
         browser.getControl(name="__ac_name").value = "JANE@example.com"
         browser.getControl(name="__ac_password:utf8:ustring").value = "secret"
-        browser.getControl(name="next").click()
+        browser.getControl(name="login").click()
         self.assertTrue("@@login" not in browser.url)
 
     def test_use_session_cookie_by_default(self):
@@ -76,11 +74,10 @@ class LoginTests(EuphorieFunctionalTestCase):
         addSurvey(self.portal, BASIC_SURVEY)
         addAccount(password="secret")
         browser = self.get_browser()
-        browser.open(self.portal.client.nl.absolute_url())
-        browser.getLink("Login").click()
+        browser.open(self.portal.client.nl.absolute_url() + "/@@login")
         browser.getControl(name="__ac_name").value = "jane@example.com"
         browser.getControl(name="__ac_password:utf8:ustring").value = "secret"
-        browser.getControl(name="next").click()
+        browser.getControl(name="login").click()
         auth_cookie = browser.cookies.getinfo("__ac")
         self.assertEqual(auth_cookie["expires"], None)
 
@@ -89,12 +86,11 @@ class LoginTests(EuphorieFunctionalTestCase):
         addSurvey(self.portal, BASIC_SURVEY)
         addAccount(password="secret")
         browser = self.get_browser()
-        browser.open(self.portal.client.nl.absolute_url())
-        browser.getLink("Login").click()
+        browser.open(self.portal.client.nl.absolute_url() + "/@@login")
         browser.getControl(name="__ac_name").value = "jane@example.com"
         browser.getControl(name="__ac_password:utf8:ustring").value = "secret"
-        browser.getControl(name="remember").value = ["True"]
-        browser.getControl(name="next").click()
+        browser.getControl(name="remember").value = True
+        browser.getControl(name="login").click()
         auth_cookie = browser.cookies.getinfo("__ac")
         self.assertNotEqual(auth_cookie["expires"], None)
         delta = auth_cookie["expires"] - datetime.datetime.now(
@@ -107,13 +103,12 @@ class LoginTests(EuphorieFunctionalTestCase):
         addSurvey(self.portal, BASIC_SURVEY)
         addAccount(password="secret")
         browser = self.get_browser()
-        browser.open(self.portal.client.nl.absolute_url())
-        browser.getLink("Login").click()
+        browser.open(self.portal.client.nl.absolute_url() + "/@@login")
         browser.getControl(name="__ac_name").value = "JANE@example.com"
         browser.getControl(name="__ac_password:utf8:ustring").value = "secret"
-        browser.getControl(name="next").click()
+        browser.getControl(name="login").click()
         self.assertTrue(
-            re.search("trackPageview.*login_form/success", browser.contents) is not None
+            re.search("trackPageview.*login/success", browser.contents) is not None
         )
 
     def test_record_last_login_time(self):
@@ -121,11 +116,10 @@ class LoginTests(EuphorieFunctionalTestCase):
         addSurvey(self.portal, BASIC_SURVEY)
         account = addAccount(password="secret")
         browser = self.get_browser()
-        browser.open(self.portal.client.nl.absolute_url())
-        browser.getLink("Login").click()
+        browser.open(self.portal.client.nl.absolute_url() + "/@@login")
         browser.getControl(name="__ac_name").value = "jane@example.com"
         browser.getControl(name="__ac_password:utf8:ustring").value = "secret"
-        browser.getControl(name="next").click()
+        browser.getControl(name="login").click()
         last_login = Session().query(account.__class__).one().last_login
         delta = datetime.datetime.now(last_login.tzinfo) - last_login
         self.assertAlmostEqual(delta.seconds / 10, 0)
@@ -136,26 +130,29 @@ class RegisterTests(EuphorieIntegrationTestCase):
         with self._get_view("register", self.portal.client) as view:
             view.errors = {}
             view.request.form["email"] = "JANE@example.com"
-            view.request.form["password1"] = "secret"
-            view.request.form["password2"] = "secret"
+            view.request.form["password1"] = "Secret123Secret"
+            view.request.form["password2"] = "Secret123Secret"
+            view.request.form["terms"] = "on"
             account = view._tryRegistration()
             self.assertEqual(account.loginname, "jane@example.com")
 
-    def testConflictWithPloneAccount(self):
+    def test_conflict_with_plone_account(self):
         with self._get_view("register", self.portal.client) as view:
             view.errors = {}
             view.request.form["email"] = self.portal._owner[1]
-            view.request.form["password1"] = "secret"
-            view.request.form["password2"] = "secret"
+            view.request.form["password1"] = "Secret123Secret"
+            view.request.form["password2"] = "Secret123Secret"
+            view.request.form["terms"] = "on"
             self.assertEqual(view._tryRegistration(), False)
             self.assertTrue("email" in view.errors)
 
-    def testBasicEmailVerification(self):
+    def test_basic_email_verification(self):
         with self._get_view("register", self.portal.client) as view:
             view.errors = {}
             view.request.form["email"] = "wichert"
-            view.request.form["password1"] = "secret"
-            view.request.form["password2"] = "secret"
+            view.request.form["password1"] = "Secret123Secret"
+            view.request.form["password2"] = "Secret123Secret"
+            view.request.form["terms"] = "on"
             self.assertEqual(view._tryRegistration(), False)
             self.assertTrue("email" in view.errors)
 
@@ -168,9 +165,18 @@ class RegisterTests(EuphorieIntegrationTestCase):
             view.request.form["email"] = "wichert@wiggy.net"
             self.assertNotEqual(view._tryRegistration(), False)
 
+    def test_terms_not_accepted(self):
+        with self._get_view("register", self.portal.client) as view:
+            view.errors = {}
+            view.request.form["email"] = self.portal._owner[1]
+            view.request.form["password1"] = "Secret123Secret"
+            view.request.form["password2"] = "Secret123Secret"
+            self.assertEqual(view._tryRegistration(), False)
+            self.assertTrue("terms" in view.errors)
+
 
 class ResetPasswordTests(EuphorieFunctionalTestCase):
-    def addDummySurvey(self):
+    def add_dummy_survey(self):
         survey = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
                       <title>Sector title</title>
                       <survey>
@@ -181,17 +187,14 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
         addSurvey(self.portal, survey)
         self.logout()
 
-    def testUnknownAccount(self):
-        self.addDummySurvey()
+    def test_unknown_account(self):
+        self.add_dummy_survey()
         browser = self.get_browser()
         url = self.portal.client.nl.absolute_url()
 
-        browser.open(url)
-        browser.getLink("Login").click()
+        browser.open(url + "/@@login")
         browser.getLink("I forgot my password").click()
-        browser.getControl(
-            name="form.widgets.email"
-        ).value = "jane@example.com"  # noqa: E501
+        browser.getControl(name="form.widgets.email").value = "jane@example.com"
         browser.getControl(name="form.buttons.save").click()
 
         # We do not have any account here
@@ -199,18 +202,15 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
         # Even if the user does not exist, the form submission
         # will be successfully sent
         self.assertTrue(
-            browser.url.startswith(
-                "http://nohost/plone/client/nl/@@login?came_from"
-            )  # noqa: E501
+            browser.url.startswith("http://nohost/plone/client/nl/@@login?came_from")
         )
 
-    def testInvalidEmail(self):
-        self.addDummySurvey()
+    def test_invalid_email(self):
+        self.add_dummy_survey()
         browser = self.get_browser()
         url = self.portal.client.nl.absolute_url()
 
-        browser.open(url)
-        browser.getLink("Login").click()
+        browser.open(url + "/@@login")
         browser.getLink("I forgot my password").click()
         # Test an invalid email address
         browser.getControl(name="form.widgets.email").value = "jane @ joe.com"
@@ -221,17 +221,14 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
             "http://nohost/plone/client/nl/@@reset_password_request",
         )
 
-    def testEmail(self):
-        self.addDummySurvey()
+    def test_email(self):
+        self.add_dummy_survey()
         addAccount()
         mail_fixture = MockMailFixture()
         browser = self.get_browser()
-        browser.open(self.portal.client.nl.absolute_url())
-        browser.getLink("Login").click()
+        browser.open(self.portal.client.nl.absolute_url() + "/@@login")
         browser.getLink("I forgot my password").click()
-        browser.getControl(
-            name="form.widgets.email"
-        ).value = "jane@example.com"  # noqa: E501
+        browser.getControl(name="form.widgets.email").value = "jane@example.com"
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(len(mail_fixture.storage), 1)
         (args, kw) = mail_fixture.storage[0]
@@ -249,11 +246,10 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
         )
         self.assertTrue(u"/passwordreset/" in body)
 
-    def testInvalidResetKey(self):
-        """When the request key is invalid the user is invited
-        to request a new key
-        """
-        self.addDummySurvey()
+    def test_invalid_reset_key(self):
+        """When the request key is invalid the user is invited to request a new
+        key."""
+        self.add_dummy_survey()
         browser = self.get_browser()
         for url in (
             self.portal.client.nl.absolute_url() + "/passwordreset",
@@ -262,12 +258,9 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
             browser.open(url)
             browser.getControl(
                 name="form.widgets.new_password"
-            ).value = "secret"  # noqa: E501
+            ).value = "Secret123Secret"
             browser.getControl(
                 name="form.widgets.new_password_confirmation"
-            ).value = "secret"  # noqa: E501
+            ).value = "Secret123Secret"
             browser.getControl(label="Save changes").click()
-            self.assertEqual(
-                browser.url,
-                "http://nohost/plone/client/nl/@@reset_password_request",
-            )
+            self.assertIn("Invalid security token", browser.contents)
