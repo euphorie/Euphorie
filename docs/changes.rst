@@ -1,7 +1,7 @@
 Changelog
 =========
 
-13.0.1 (unreleased)
+13.0.1 (2021-12-13)
 -------------------
 
 - Fixes regarding translations and language handling
