@@ -1591,7 +1591,7 @@ msgstr "Avvia sessione"
 #: euphorie/client/browser/templates/surveys.pt:201
 #: euphorie/client/browser/templates/tool_sessions.pt:78
 msgid "button_start_test_session"
-msgstr ""
+msgstr "Sessione di prova"
 
 #. Default: "Unlock"
 #: euphorie/content/browser/templates/user_mgmt.pt:66
@@ -2239,6 +2239,7 @@ msgstr ""
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
 msgstr ""
+"Prova in forma anonima uno degli strumenti riportati in basso cliccando sul tasto «Sessione di prova» dello strumento scelto. In una sessione di prova non puoi salvare il tuo lavoro. Se non ti ${label_link_register}, tutti i progressi andranno persi."
 
 #: euphorie/client/browser/session.py:456
 msgid "extra_text_identification"
@@ -3980,7 +3981,7 @@ msgstr "Riferimenti normativi"
 #. Default: "register"
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "label_link_register"
-msgstr ""
+msgstr "registri"
 
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:99
@@ -4596,7 +4597,7 @@ msgstr "Strumenti"
 #. Default: "Try OiRA"
 #: euphorie/client/browser/templates/surveys.pt:26
 msgid "label_try_oira"
-msgstr ""
+msgstr "Prova OiRA"
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:116
@@ -5067,7 +5068,7 @@ msgstr "Facoltativo"
 #. Default: "No risk assessments were found for this selection."
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:182
 msgid "osc_search_no_results_for_search"
-msgstr ""
+msgstr "Non sono state trovate valutazioni del rischio per questa selezione."
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
 #: euphorie/client/docx/compiler.py:464

@@ -1539,7 +1539,7 @@ msgstr "Byrja"
 #: euphorie/client/browser/templates/surveys.pt:201
 #: euphorie/client/browser/templates/tool_sessions.pt:78
 msgid "button_start_test_session"
-msgstr ""
+msgstr "Prufulota"
 
 #. Default: "Unlock"
 #: euphorie/content/browser/templates/user_mgmt.pt:66
@@ -2180,6 +2180,7 @@ msgstr ""
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
 msgstr ""
+"Prófaðu öll verkfærin að neðan án þess að láta nafns getið með því að smella á hnappinn „Prufulota“ á verkfærinu sem þú valdir. Þú getur ekki vistað vinnu þína í prufulotu. Öll vinnan mun tapast nema þú ${label_link_register} þig."
 
 #: euphorie/client/browser/session.py:456
 msgid "extra_text_identification"
@@ -3879,7 +3880,7 @@ msgstr "Tilvísanir í önnur gögn s.s. lög, reglur og önnur opinber gögn"
 #. Default: "register"
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "label_link_register"
-msgstr ""
+msgstr "skráir"
 
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:99
@@ -4463,7 +4464,7 @@ msgstr "Verkfæri"
 #. Default: "Try OiRA"
 #: euphorie/client/browser/templates/surveys.pt:26
 msgid "label_try_oira"
-msgstr ""
+msgstr "Prófaðu OiRA"
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:116
@@ -4906,7 +4907,7 @@ msgstr ""
 #. Default: "No risk assessments were found for this selection."
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:182
 msgid "osc_search_no_results_for_search"
-msgstr ""
+msgstr "Ekkert áhættumat fannst í valinu."
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
 #: euphorie/client/docx/compiler.py:464

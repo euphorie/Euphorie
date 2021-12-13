@@ -5096,7 +5096,7 @@ msgstr "Opcionális"
 #. Default: "No risk assessments were found for this selection."
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:182
 msgid "osc_search_no_results_for_search"
-msgstr "Nem található kockázatértékelés a keresési kritériumok alapján."
+msgstr "Ehhez a kiválasztott szakaszhoz nem található kockázatértékelés."
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
 #: euphorie/client/docx/compiler.py:464

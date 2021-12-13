@@ -1644,7 +1644,7 @@ msgstr "Έναρξη της μελέτης Εκτίμησης Κινδύνου"
 #: euphorie/client/browser/templates/surveys.pt:201
 #: euphorie/client/browser/templates/tool_sessions.pt:78
 msgid "button_start_test_session"
-msgstr ""
+msgstr "Δοκιμαστική συνεδρία"
 
 #. Default: "Unlock"
 #: euphorie/content/browser/templates/user_mgmt.pt:66
@@ -2312,6 +2312,7 @@ msgstr ""
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
 msgstr ""
+"Δοκιμάστε ανώνυμα οποιοδήποτε από τα εργαλεία που ακολουθούν κάνοντας κλικ στο πλήκτρο «Δοκιμαστική συνεδρία» του εργαλείου της επιλογής σας. Στη δοκιμαστική συνεδρία δεν μπορείτε να αποθηκεύσετε το έργο σας. Εάν δεν ${label_link_register}, ό,τι έχετε κάνει ως τώρα θα χαθεί."
 
 #: euphorie/client/browser/session.py:456
 msgid "extra_text_identification"
@@ -4088,7 +4089,7 @@ msgstr "Νομικές αναφορές και αναφορές πολιτική
 #. Default: "register"
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "label_link_register"
-msgstr ""
+msgstr "εγγραφείτε"
 
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:99
@@ -4680,7 +4681,7 @@ msgstr "Εργαλεία"
 #. Default: "Try OiRA"
 #: euphorie/client/browser/templates/surveys.pt:26
 msgid "label_try_oira"
-msgstr ""
+msgstr "Δοκιμάστε το OiRA"
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:116
@@ -5157,7 +5158,7 @@ msgstr "Προαιρετικό"
 #. Default: "No risk assessments were found for this selection."
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:182
 msgid "osc_search_no_results_for_search"
-msgstr ""
+msgstr "Δεν βρέθηκε καμία εκτίμηση κινδύνου για την εν λόγω επιλογή."
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
 #: euphorie/client/docx/compiler.py:464

@@ -1555,7 +1555,7 @@ msgstr "Pradėkite sesia"
 #: euphorie/client/browser/templates/surveys.pt:201
 #: euphorie/client/browser/templates/tool_sessions.pt:78
 msgid "button_start_test_session"
-msgstr ""
+msgstr "Bandomoji sesija"
 
 #. Default: "Unlock"
 #: euphorie/content/browser/templates/user_mgmt.pt:66
@@ -2188,6 +2188,7 @@ msgstr ""
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
 msgstr ""
+"Išbandykite bet kurią iš toliau išvardytų priemonių be registracijos – pasirinkite priemonę ir spauskite mygtuką „Bandomoji sesija“. Bandomosios sesijos metu atlikto darbo išsaugoti negalite. Jeigu ${label_link_register}, negalėsite išsaugoti visos įrašytos informacijos."
 
 #: euphorie/client/browser/session.py:456
 msgid "extra_text_identification"
@@ -3918,7 +3919,7 @@ msgstr "Nuorodos į teisės aktus"
 #. Default: "register"
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "label_link_register"
-msgstr ""
+msgstr "neužsiregistruosite"
 
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:99
@@ -4501,7 +4502,7 @@ msgstr "Priemonės"
 #. Default: "Try OiRA"
 #: euphorie/client/browser/templates/surveys.pt:26
 msgid "label_try_oira"
-msgstr ""
+msgstr "Išbandykite OiRA"
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:116
@@ -4962,7 +4963,7 @@ msgstr "Papildomas"
 #. Default: "No risk assessments were found for this selection."
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:182
 msgid "osc_search_no_results_for_search"
-msgstr ""
+msgstr "Pagal šią parinktį nerasta jokių rizikos vertinimų."
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
 #: euphorie/client/docx/compiler.py:464

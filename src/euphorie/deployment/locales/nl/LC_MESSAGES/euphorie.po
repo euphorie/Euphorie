@@ -1562,7 +1562,7 @@ msgstr "Sessie starten"
 #: euphorie/client/browser/templates/surveys.pt:201
 #: euphorie/client/browser/templates/tool_sessions.pt:78
 msgid "button_start_test_session"
-msgstr ""
+msgstr "Proefsessie"
 
 #. Default: "Unlock"
 #: euphorie/content/browser/templates/user_mgmt.pt:66
@@ -2231,6 +2231,7 @@ msgstr ""
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
 msgstr ""
+"U kunt de onderstaande hulpmiddelen anoniem testen door te klikken op de knop “Proefsessie” van het hulpmiddel van uw keuze. Tijdens een proefsessie kunt u niet opslaan wat u invoert. Alle ingevoerde gegevens gaan verloren als u zich niet ${label_link_register}."
 
 #: euphorie/client/browser/session.py:456
 msgid "extra_text_identification"
@@ -3983,7 +3984,7 @@ msgstr "Wet- en regelgeving"
 #. Default: "register"
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "label_link_register"
-msgstr ""
+msgstr "registreert"
 
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:99
@@ -4569,7 +4570,7 @@ msgstr "Tools"
 #. Default: "Try OiRA"
 #: euphorie/client/browser/templates/surveys.pt:26
 msgid "label_try_oira"
-msgstr ""
+msgstr "Test OiRA"
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:116
@@ -5015,7 +5016,7 @@ msgstr "Optioneel"
 #. Default: "No risk assessments were found for this selection."
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:182
 msgid "osc_search_no_results_for_search"
-msgstr ""
+msgstr "Voor deze selectie werden geen risicobeoordelingen gevonden."
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
 #: euphorie/client/docx/compiler.py:464

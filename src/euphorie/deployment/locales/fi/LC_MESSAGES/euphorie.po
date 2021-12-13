@@ -1587,7 +1587,7 @@ msgstr "Aloita"
 #: euphorie/client/browser/templates/surveys.pt:201
 #: euphorie/client/browser/templates/tool_sessions.pt:78
 msgid "button_start_test_session"
-msgstr ""
+msgstr "Testi istunto"
 
 #. Default: "Unlock"
 #: euphorie/content/browser/templates/user_mgmt.pt:66
@@ -2225,6 +2225,7 @@ msgstr ""
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
 msgstr ""
+"Kokeile seuraavia työkaluja anonyymisti napsauttamalla valitsemasi työkalun Testi-istunto-painiketta. Et voi tallentaa työtäsi testi-istunnossa. Menetät kaikki tekemäsi muutokset, ellet ${label_link_register}."
 
 #: euphorie/client/browser/session.py:456
 msgid "extra_text_identification"
@@ -3945,7 +3946,7 @@ msgstr "Oikeudelliset ja toimintaperiaatteita koskevat viitteet"
 #. Default: "register"
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "label_link_register"
-msgstr ""
+msgstr "rekisteröity"
 
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:99
@@ -4530,7 +4531,7 @@ msgstr "OiRA-työkalut"
 #. Default: "Try OiRA"
 #: euphorie/client/browser/templates/surveys.pt:26
 msgid "label_try_oira"
-msgstr ""
+msgstr "Kokeile OiRAaa"
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:116
@@ -4987,7 +4988,7 @@ msgstr "Valinnainen"
 #. Default: "No risk assessments were found for this selection."
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:182
 msgid "osc_search_no_results_for_search"
-msgstr ""
+msgstr "Tähän valintaan ei löytynyt riskiarvioita."
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
 #: euphorie/client/docx/compiler.py:464

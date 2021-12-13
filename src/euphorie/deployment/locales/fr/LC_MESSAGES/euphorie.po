@@ -1615,7 +1615,7 @@ msgstr "Commencer la session"
 #: euphorie/client/browser/templates/surveys.pt:201
 #: euphorie/client/browser/templates/tool_sessions.pt:78
 msgid "button_start_test_session"
-msgstr ""
+msgstr "Session d’essai"
 
 #. Default: "Unlock"
 #: euphorie/content/browser/templates/user_mgmt.pt:66
@@ -2285,7 +2285,8 @@ msgstr ""
 #. Default: "Try any of the tools below anonymously by clicking on the button 'Test session' of the tool of your choice. In a test session you cannot save your work. All progess will be lost unless you ${label_link_register}."
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
-msgstr ""
+msgstr "Essayez OiRA"
+"Essayez l’un des outils ci-dessous de manière anonyme en cliquant sur le bouton «Session d’essai» de l’outil de votre choix. Dans une session d’essai, vous ne pouvez pas sauvegarder votre travail. Tous les progrès seront perdus si vous ne vous ${label_link_register} pas."
 
 #: euphorie/client/browser/session.py:456
 msgid "extra_text_identification"
@@ -4066,7 +4067,7 @@ msgstr "Références légales et de politique"
 #. Default: "register"
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "label_link_register"
-msgstr ""
+msgstr "inscrivez"
 
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:99
@@ -4653,7 +4654,7 @@ msgstr "Outils"
 #. Default: "Try OiRA"
 #: euphorie/client/browser/templates/surveys.pt:26
 msgid "label_try_oira"
-msgstr ""
+msgstr "Essayez OiRA"
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:116
@@ -5115,7 +5116,7 @@ msgstr "Optionnel"
 #. Default: "No risk assessments were found for this selection."
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:182
 msgid "osc_search_no_results_for_search"
-msgstr ""
+msgstr "Aucune évaluation des risques n’a été trouvée pour cette sélection."
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
 #: euphorie/client/docx/compiler.py:464

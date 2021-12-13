@@ -1574,7 +1574,7 @@ msgstr "Pokreni sesiju"
 #: euphorie/client/browser/templates/surveys.pt:201
 #: euphorie/client/browser/templates/tool_sessions.pt:78
 msgid "button_start_test_session"
-msgstr ""
+msgstr "Testna sesija"
 
 #. Default: "Unlock"
 #: euphorie/content/browser/templates/user_mgmt.pt:66
@@ -2224,6 +2224,7 @@ msgstr ""
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
 msgstr ""
+"Možete anonimno isprobati bilo koji alat u nastavku klikom na ikonu „Testna sesija” odabranog alata. Svoj rad u testnoj sesiji ne možete spremiti. Sve što ste učinili bit će izgubljeno ako se ne ${label_link_register}."
 
 #: euphorie/client/browser/session.py:456
 msgid "extra_text_identification"
@@ -3948,7 +3949,7 @@ msgstr "Pravila i pravne reference"
 #. Default: "register"
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "label_link_register"
-msgstr ""
+msgstr "registrirate"
 
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:99
@@ -4533,7 +4534,7 @@ msgstr "Alati"
 #. Default: "Try OiRA"
 #: euphorie/client/browser/templates/surveys.pt:26
 msgid "label_try_oira"
-msgstr ""
+msgstr "Isprobajte OiRA"
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:116
@@ -4994,7 +4995,7 @@ msgstr "Opcionalno"
 #. Default: "No risk assessments were found for this selection."
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:182
 msgid "osc_search_no_results_for_search"
-msgstr "Za ovaj odabir nisu pronađene procjene rizika."
+msgstr "Nije pronađena nijedna procjena rizika za ovu odabranu stavku."
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
 #: euphorie/client/docx/compiler.py:464
