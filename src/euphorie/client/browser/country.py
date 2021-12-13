@@ -472,6 +472,12 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
             key=lambda lang: lang["code"],
         )
 
+    def __call__(self):
+        utils.setLanguage(
+            self.request, self.context, getattr(self.context, "language", None)
+        )
+        return super(Surveys, self).__call__()
+
 
 class PortletBase(BrowserView):
     @property
