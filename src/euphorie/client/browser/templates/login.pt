@@ -97,6 +97,7 @@
 
             <div class="button-bar">
               <button class="pat-button default"
+                      name="login"
                       type="submit"
                       i18n:translate="label_login"
               >Log in</button>
@@ -235,6 +236,7 @@
 
             <p class="button-bar">
               <button class="default pat-button"
+                      name="register"
                       type="submit"
                       i18n:translate="header_register"
               >Register</button>
