@@ -35,3 +35,5 @@ lib/
 .Python
 pip-selfcheck.json
 src/euphorie/client/resources/brands/daimler
+lib64
+share/
