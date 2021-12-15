@@ -4,8 +4,8 @@ Changelog
 13.0.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Updated translations
+- Fix for print contents of tool modal
 
 13.0.1 (2021-12-13)
 -------------------

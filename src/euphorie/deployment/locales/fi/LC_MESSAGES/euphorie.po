@@ -1005,7 +1005,7 @@ msgstr ""
 
 #: euphorie/client/browser/session.py:754
 msgid "The risk assessment has been cloned"
-msgstr ""
+msgstr "Riskinarviointi on kloonattu."
 
 #: euphorie/content/colour.py:21
 msgid "The specified colour is not valid."
@@ -4005,7 +4005,7 @@ msgstr "Tarvittava asiantuntemus ja/tai ulkopuolisen tuen tarve"
 #: euphorie/client/browser/templates/assessments.pt:60
 #: euphorie/client/browser/templates/tool_sessions.pt:134
 msgid "label_missing_title"
-msgstr ""
+msgstr "Otsikko puuttuu"
 
 #. Default: "by"
 #: euphorie/client/browser/templates/status_info.pt:66
@@ -4251,7 +4251,7 @@ msgstr "Lisää tähän tietoja tai kommentteja, jotka haluat näkyviin raportil
 #. Default: "Date of editing"
 #: euphorie/client/docx/compiler.py:551
 msgid "label_report_date"
-msgstr ""
+msgstr "Muokkauspäivä"
 
 #. Default: "Staff who participated in the risk assessment"
 #: euphorie/client/docx/compiler.py:544

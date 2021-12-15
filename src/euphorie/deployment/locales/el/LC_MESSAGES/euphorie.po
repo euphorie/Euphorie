@@ -1042,7 +1042,7 @@ msgstr ""
 
 #: euphorie/client/browser/session.py:754
 msgid "The risk assessment has been cloned"
-msgstr ""
+msgstr "Η αξιολόγηση κινδύνου έχει κλωνοποιηθεί."
 
 #: euphorie/content/colour.py:21
 msgid "The specified colour is not valid."
@@ -4146,7 +4146,7 @@ msgstr "Απαιτήσεις"
 #: euphorie/client/browser/templates/assessments.pt:60
 #: euphorie/client/browser/templates/tool_sessions.pt:134
 msgid "label_missing_title"
-msgstr ""
+msgstr "Δεν υπάρχει τίτλος"
 
 #. Default: "by"
 #: euphorie/client/browser/templates/status_info.pt:66
@@ -4397,7 +4397,7 @@ msgstr ""
 #. Default: "Date of editing"
 #: euphorie/client/docx/compiler.py:551
 msgid "label_report_date"
-msgstr ""
+msgstr "Ημερομηνία έκδοσης"
 
 #. Default: "Staff who participated in the risk assessment"
 #: euphorie/client/docx/compiler.py:544

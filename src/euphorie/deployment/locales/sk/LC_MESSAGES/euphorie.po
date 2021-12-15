@@ -993,7 +993,7 @@ msgstr ""
 
 #: euphorie/client/browser/session.py:754
 msgid "The risk assessment has been cloned"
-msgstr "Hodnotenie rizík bolo skopírované"
+msgstr "Hodnotenie rizík bolo skopírované."
 
 #: euphorie/content/colour.py:21
 msgid "The specified colour is not valid."

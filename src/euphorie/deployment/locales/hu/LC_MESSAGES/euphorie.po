@@ -1003,7 +1003,7 @@ msgstr ""
 
 #: euphorie/client/browser/session.py:754
 msgid "The risk assessment has been cloned"
-msgstr "A kockázatértékelést lemásoltuk"
+msgstr "A kockázatértékelést klónozták."
 
 #: euphorie/content/colour.py:21
 msgid "The specified colour is not valid."

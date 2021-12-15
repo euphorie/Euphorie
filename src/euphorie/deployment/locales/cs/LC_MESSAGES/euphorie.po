@@ -986,7 +986,7 @@ msgstr ""
 
 #: euphorie/client/browser/session.py:754
 msgid "The risk assessment has been cloned"
-msgstr ""
+msgstr "Byl vytvořen duplikát posouzení rizik."
 
 #: euphorie/content/colour.py:21
 msgid "The specified colour is not valid."
@@ -3924,7 +3924,7 @@ msgstr "Míra potřebných znalostí a/nebo požadavků"
 #: euphorie/client/browser/templates/assessments.pt:60
 #: euphorie/client/browser/templates/tool_sessions.pt:134
 msgid "label_missing_title"
-msgstr ""
+msgstr "Název chybí"
 
 #. Default: "by"
 #: euphorie/client/browser/templates/status_info.pt:66
@@ -4171,7 +4171,7 @@ msgstr "Zde můžete přidat poznámky a komentáře."
 #. Default: "Date of editing"
 #: euphorie/client/docx/compiler.py:551
 msgid "label_report_date"
-msgstr ""
+msgstr "Datum úprav"
 
 #. Default: "Staff who participated in the risk assessment"
 #: euphorie/client/docx/compiler.py:544
