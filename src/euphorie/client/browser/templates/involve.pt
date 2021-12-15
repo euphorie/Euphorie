@@ -44,7 +44,7 @@
           >Next</a>
           <a class="icon-print pat-modal pat-button"
              href="${here/absolute_url}/@@panel-contents-preview#document-content"
-             data-pat-modal="class: small"
+             data-pat-modal="class: sheet"
              i18n:translate="label_print_tool_preview"
           >Print a tool preview</a>
           <a class="pat-button"
