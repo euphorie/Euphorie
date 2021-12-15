@@ -1,7 +1,7 @@
 Changelog
 =========
 
-13.0.2 (unreleased)
+13.0.2 (2021-12-15)
 -------------------
 
 - Updated translations
