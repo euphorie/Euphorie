@@ -51,5 +51,5 @@ class AuthenticationTests(EuphorieIntegrationTestCase):
         self.portal.acl_users._unauthorized()
         self.assertEqual(
             request.response.headers["location"],
-            "http://nohost/plone/@@login?came_from=http%3A%2F%2Fnohost",
+            "http://nohost/plone/@@login?came_from=http%3A%2F%2Fnohost#login",
         )
