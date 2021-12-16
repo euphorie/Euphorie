@@ -6,6 +6,7 @@ Changelog
 --------------------
 
 - Prevent execution of malicious code entered as custom measure or training notes.
+- Only allow users to create an new account in the client if self-registration is enabled
 
 12.0.16 (2021-11-11)
 --------------------

@@ -311,4 +311,13 @@
     </field>
     <value purge="false">--margin-bottom 1cm --margin-left 1.5cm --margin-right 1.5cm --margin-top 2cm --disable-javascript --viewport-size 10000x10000</value>
   </record>
+  <record name="plone.enable_self_reg" interface="Products.CMFPlone.interfaces.controlpanel.ISecuritySchema" field="enable_self_reg">
+    <field type="plone.registry.field.Bool">
+      <default>False</default>
+      <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="">Allows users to register themselves on the site. If not selected, only site managers can add new users.</description>
+      <required>False</required>
+      <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="">Enable self-registration</title>
+    </field>
+    <value>True</value>
+  </record>
 </registry>
