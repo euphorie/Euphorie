@@ -6,6 +6,7 @@ Changelog
 --------------------
 
 - Prevent execution of malicious code entered as custom measure or training notes.
+- Enter a toggle to disable self-registration
 
 12.0.16 (2021-11-11)
 --------------------

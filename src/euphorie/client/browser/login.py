@@ -327,6 +327,11 @@ class Register(BrowserView):
 
     def __call__(self):
         self.errors = {}
+        allowed = api.portal.get_registry_record(
+            "euphorie.allow_self_registration", default=True
+        )
+        if not allowed:
+            raise Unauthorized("No self registration allowed.")
         if self.request.method != "POST":
             return self.index()
         account = self._tryRegistration()

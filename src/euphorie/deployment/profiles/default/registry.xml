@@ -121,6 +121,15 @@
       <required>False</required>
     </field>
   </record>
+  <record name="euphorie.allow_self_registration">
+    <field type="plone.registry.field.Bool">
+      <title i18n:translate="">Euphorie: allow self registration</title>
+      <description i18n:translate="">If checked, anybody will be able to register a new account.</description>
+      <default>True</default>
+      <missing_value>True</missing_value>
+      <required>False</required>
+    </field>
+  </record>
   <record name="euphorie.allow_social_sharing">
     <field type="plone.registry.field.Bool">
       <title i18n:translate="">Euphorie allow social sharing</title>

@@ -145,6 +145,13 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def allow_self_registration(self):
+        return api.portal.get_registry_record(
+            "euphorie.allow_self_registration", default=True
+        )
+
+    @property
+    @memoize
     def use_involve_phase(self):
         return api.portal.get_registry_record(
             "euphorie.use_involve_phase", default=False
