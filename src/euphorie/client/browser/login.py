@@ -17,6 +17,7 @@ from euphorie.client.browser.country import SessionsView
 from euphorie.client.model import get_current_account
 from euphorie.content.survey import ISurvey
 from plone import api
+from plone.memoize.view import memoize
 from plone.session.plugins.session import cookie_expiration_date
 from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
 from Products.CMFCore.utils import getToolByName
@@ -50,6 +51,11 @@ EMAIL_RE = re.compile(
 class Login(BrowserView):
     error = False
     errors = {}
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
 
     def setLanguage(self, came_from):
         qs = urlparse(came_from)[4]
@@ -210,8 +216,7 @@ class Login(BrowserView):
                 came_from = came_from[0]
         else:
             # Set to country url
-            webhelpers = api.content.get_view("webhelpers", context, self.request)
-            came_from = webhelpers.country_url
+            came_from = self.webhelpers.country_url
         self.setLanguage(came_from)
 
         account = get_current_account()
@@ -242,6 +247,8 @@ class Login(BrowserView):
                     self.error = True
 
             elif form.get("action") == "register":
+                if not self.webhelpers.allow_self_registration:
+                    raise Unauthorized("No self registration allowed.")
                 account = self._tryRegistration()
                 if account:
                     pas = getToolByName(self.context, "acl_users")

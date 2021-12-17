@@ -27,6 +27,7 @@ BREAKING CHANGE: UI freshup
 - Various Translation fixes 
 - Show a warning when republishing a tool with changed structure.
 - Prevent execution of malicious code entered as custom measure or training notes.
+- Only allow users to create an new account in the client if self-registration is enabled
 
 12.0.16 (2021-11-11)
 --------------------
