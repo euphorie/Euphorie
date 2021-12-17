@@ -14,6 +14,7 @@ BASIC_SURVEY = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
              <title>ICT</title>
              <survey>
               <title>Software development</title>
+              <language>nl</language>
               <module optional="no">
                 <title>Module one</title>
                 <description>Quick description</description>
@@ -32,6 +33,7 @@ PROFILE_SURVEY = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
              <title>ICT</title>
              <survey>
               <title>Software development</title>
+              <language>nl</language>
               <profile-question>
                 <title>Profile one</title>
                 <question>List all your departments:</question>

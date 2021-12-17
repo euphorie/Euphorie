@@ -43,11 +43,12 @@ def testRequest():
     return request
 
 
-def registerUserInClient(browser, link="register"):
+def registerUserInClient(browser, link="Registreer"):
     browser.getLink(link).click()
     browser.getControl(name="email").value = "guest@example.com"
-    browser.getControl(name="password1:utf8:ustring").value = "guest"
-    browser.getControl(name="password2:utf8:ustring").value = "guest"
+    browser.getControl(name="password1:utf8:ustring").value = "Guest12345#!"
+    browser.getControl(name="password2:utf8:ustring").value = "Guest12345#!"
+    browser.getControl(name="terms").controls[0].click()
     browser.getControl(name="register").click()
     # Screw the terms and conditions, just go to the Dashboard...
     browser.getLink("Dashboard").click()
