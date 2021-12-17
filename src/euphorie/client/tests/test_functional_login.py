@@ -8,8 +8,12 @@ from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
+from plone.registry.interfaces import IRegistry
+from Products.CMFPlone.interfaces import ISecuritySchema
 from transaction import commit
 from z3c.saconfig import Session
+from zExceptions import Unauthorized
+from zope.component import getUtility
 from zope.interface import alsoProvides
 
 import datetime
@@ -173,6 +177,19 @@ class RegisterTests(EuphorieIntegrationTestCase):
             view.request.form["password2"] = "Secret123Secret"
             self.assertEqual(view._tryRegistration(), False)
             self.assertTrue("terms" in view.errors)
+
+    def test_registration_not_allowed(self):
+        registry = getUtility(IRegistry)
+        security_settings = registry.forInterface(ISecuritySchema, prefix="plone")
+        security_settings.enable_self_reg = False
+        with self._get_view("login", self.portal.client) as view:
+            view.errors = {}
+            view.request.form["email"] = "jane@example.com"
+            view.request.form["password1"] = "Secret123Secret"
+            view.request.form["password2"] = "Secret123Secret"
+            view.request.form["terms"] = "on"
+            with self.assertRaises(Unauthorized):
+                view._tryRegistration()
 
 
 class ResetPasswordTests(EuphorieFunctionalTestCase):
