@@ -11,6 +11,7 @@ class ProfileTests(EuphorieFunctionalTestCase):
                       <title>Sector title</title>
                       <survey>
                         <title>Survey title</title>
+                        <language>nl</language>
                         <profile-question>
                           <title>Multiple profile question</title>
                           <question>Profile titles</question>
@@ -61,6 +62,7 @@ class UpdateTests(EuphorieFunctionalTestCase):
                       <title>Sector title</title>
                       <survey>
                         <title>Survey title</title>
+                        <language>nl</language>
                         <profile-question>
                           <title>Multiple profile question</title>
                           <question>Profile titles</question>
@@ -133,6 +135,7 @@ class UpdateTests(EuphorieFunctionalTestCase):
                       <title>Sector title</title>
                       <survey>
                           <title>Survey title</title>
+                          <language>nl</language>
                           <module optional="true">
                               <title>Module Title</title>
                               <description>&lt;p&gt;Testing ticket #3860&lt;/p&gt;</description>
