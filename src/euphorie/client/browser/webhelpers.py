@@ -33,9 +33,11 @@ from plone.i18n.normalizer import idnormalizer
 from plone.memoize import forever
 from plone.memoize.instance import memoize
 from plone.memoize.view import memoize_contextless
+from plone.registry.interfaces import IRegistry
 from plonetheme.nuplone.utils import isAnonymous
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.interfaces import ISecuritySchema
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from six.moves.urllib.parse import urlencode
@@ -142,6 +144,13 @@ class WebHelpers(BrowserView):
         return api.portal.get_registry_record(
             "euphorie.allow_guest_accounts", default=False
         )
+
+    @property
+    @memoize
+    def allow_self_registration(self):
+        registry = getUtility(IRegistry)
+        security_settings = registry.forInterface(ISecuritySchema, prefix="plone")
+        return security_settings.enable_self_reg
 
     @property
     @memoize

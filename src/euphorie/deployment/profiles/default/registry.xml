@@ -311,4 +311,7 @@
     </field>
     <value purge="false">--margin-bottom 1cm --margin-left 1.5cm --margin-right 1.5cm --margin-top 2cm --disable-javascript --viewport-size 10000x10000</value>
   </record>
+  <record name="plone.enable_self_reg" interface="Products.CMFPlone.interfaces.controlpanel.ISecuritySchema" field="enable_self_reg">
+    <value>True</value>
+  </record>
 </registry>

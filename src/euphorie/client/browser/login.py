@@ -325,8 +325,15 @@ class Register(BrowserView):
             _(u"invalid_email", default=u"Please enter a valid email address."),
         )
 
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
     def __call__(self):
         self.errors = {}
+        if not self.webhelpers.allow_self_registration:
+            raise Unauthorized("No self registration allowed.")
         if self.request.method != "POST":
             return self.index()
         account = self._tryRegistration()
