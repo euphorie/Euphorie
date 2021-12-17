@@ -571,14 +571,6 @@
       template="templates/login.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
-  <browser:page
-      name="register"
-      for="*"
-      permission="zope.Public"
-      class=".login.Login"
-      template="templates/login.pt"
-      layer="euphorie.client.interfaces.IClientSkinLayer"
-      />
 
   <browser:page
       name="logout"

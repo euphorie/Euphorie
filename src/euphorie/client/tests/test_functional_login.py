@@ -127,7 +127,7 @@ class LoginTests(EuphorieFunctionalTestCase):
 
 class RegisterTests(EuphorieIntegrationTestCase):
     def test_lowercase_email(self):
-        with self._get_view("register", self.portal.client) as view:
+        with self._get_view("login", self.portal.client) as view:
             view.errors = {}
             view.request.form["email"] = "JANE@example.com"
             view.request.form["password1"] = "Secret123Secret"
@@ -137,7 +137,7 @@ class RegisterTests(EuphorieIntegrationTestCase):
             self.assertEqual(account.loginname, "jane@example.com")
 
     def test_conflict_with_plone_account(self):
-        with self._get_view("register", self.portal.client) as view:
+        with self._get_view("login", self.portal.client) as view:
             view.errors = {}
             view.request.form["email"] = self.portal._owner[1]
             view.request.form["password1"] = "Secret123Secret"
@@ -147,7 +147,7 @@ class RegisterTests(EuphorieIntegrationTestCase):
             self.assertTrue("email" in view.errors)
 
     def test_basic_email_verification(self):
-        with self._get_view("register", self.portal.client) as view:
+        with self._get_view("login", self.portal.client) as view:
             view.errors = {}
             view.request.form["email"] = "wichert"
             view.request.form["password1"] = "Secret123Secret"
@@ -166,7 +166,7 @@ class RegisterTests(EuphorieIntegrationTestCase):
             self.assertNotEqual(view._tryRegistration(), False)
 
     def test_terms_not_accepted(self):
-        with self._get_view("register", self.portal.client) as view:
+        with self._get_view("login", self.portal.client) as view:
             view.errors = {}
             view.request.form["email"] = self.portal._owner[1]
             view.request.form["password1"] = "Secret123Secret"
