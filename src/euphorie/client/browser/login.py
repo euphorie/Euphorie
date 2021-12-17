@@ -121,6 +121,8 @@ class Login(BrowserView):
             )
 
     def _tryRegistration(self):
+        if not self.webhelpers.allow_self_registration:
+            raise Unauthorized("No self registration allowed.")
         form = self.request.form
         loginname = form.get("email")
         if not loginname:
@@ -247,8 +249,6 @@ class Login(BrowserView):
                     self.error = True
 
             elif form.get("action") == "register":
-                if not self.webhelpers.allow_self_registration:
-                    raise Unauthorized("No self registration allowed.")
                 account = self._tryRegistration()
                 if account:
                     pas = getToolByName(self.context, "acl_users")
