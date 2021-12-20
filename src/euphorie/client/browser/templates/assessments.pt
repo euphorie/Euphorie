@@ -67,7 +67,7 @@
                   <a class="pat-inject tool field"
                      href="${here/aq_parent/absolute_url}/${session/zodb_path}"
                      data-pat-inject="history: record"
-                  >${session/tool/aq_parent/title}</a>
+                  >${session/tool/title}</a>
                 </p>
                 <p class="date field">
                   <span class="last-saved"
