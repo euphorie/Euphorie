@@ -36,17 +36,19 @@ class CountryFunctionalTests(EuphorieFunctionalTestCase):
         # come from, so I remove it in this test as well.
         self.assertEqual(browser.url, "http://nohost/plone/client/nl")
         self.assertEqual(
-            browser.getControl(name="survey").options, ["branche/vragenlijst"]
+            browser.getControl(name="survey").options, ["", "branche/vragenlijst"]
         )
         browser.open("%s?language=en" % self.portal.client["nl"].absolute_url())
-        self.assertEqual(browser.getControl(name="survey").options, ["sector/survey"])
+        self.assertEqual(
+            browser.getControl(name="survey").options, ["", "sector/survey"]
+        )
 
     def test_must_select_valid_survey(self):
         self.loginAsPortalOwner()
         addSurvey(self.portal, BASIC_SURVEY)
         browser = self.get_browser()
         browser.open(self.portal.client["nl"].absolute_url())
-        registerUserInClient(browser)
+        registerUserInClient(browser, link="Register")
         data = urlencode({"action": "new", "survey": "", "title:utf8:ustring": "Foo"})
         browser.handleErrors = False
         browser.open(browser.url, data)

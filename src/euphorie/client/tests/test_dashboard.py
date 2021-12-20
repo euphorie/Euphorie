@@ -76,7 +76,7 @@ class TestDashboard(EuphorieIntegrationTestCase):
 
                 # Check we can filter by language
                 view.request.__annotations__.clear()
-                view.request.locale.id.language = "pt"
+                view.request.locale.id.language = "nl"
                 another_one.language = "en"
                 self.assertListEqual(
                     [survey.getId() for survey in view.surveys],
@@ -84,14 +84,14 @@ class TestDashboard(EuphorieIntegrationTestCase):
                 )
 
                 view.request.__annotations__.clear()
-                another_one.language = "pt"
+                another_one.language = "nl"
                 self.assertListEqual(
                     [survey.getId() for survey in view.surveys],
                     ["another-one", "software-development"],
                 )
 
                 view.request.__annotations__.clear()
-                another_one.language = "pt_BR"
+                another_one.language = "nl_NL"
                 self.assertListEqual(
                     [survey.getId() for survey in view.surveys],
                     ["another-one", "software-development"],

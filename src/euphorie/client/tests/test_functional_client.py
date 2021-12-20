@@ -12,6 +12,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
                       <title>Sector title</title>
                       <survey>
                         <title>Survey title</title>
+                        <language>nl</language>
                         <evaluation-optional>false</evaluation-optional>
                         <module optional="false">
                           <title>Policy parent</title>
@@ -54,6 +55,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
                       <title>Sector title</title>
                       <survey>
                         <title>Survey title</title>
+                        <language>nl</language>
                         <evaluation-optional>false</evaluation-optional>
                         <module optional="false">
                           <title>Top5 parent</title>
@@ -95,6 +97,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
                       <title>Sector title</title>
                       <survey>
                         <title>Survey title</title>
+                        <language>nl</language>
                         <evaluation-optional>false</evaluation-optional>
                         <module optional="false">
                           <title>Top5 parent</title>
@@ -126,7 +129,7 @@ class SurveyTests(EuphorieFunctionalTestCase):
         browser.open("%s/1/1/@@identification" % session_url)
         browser.getControl(name="answer").value = ["no"]
         # No evaluation is necessary
-        self.assertTrue(
-            "The risk evaluation has been automatically done by the tool"
-            in browser.contents
+        self.assertIn(
+            "De tool heeft automatisch een risico-evaluatie uitgevoerd",
+            browser.contents,
         )
