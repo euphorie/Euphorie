@@ -151,6 +151,7 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
 
     variation_class = "variation-dashboard"
     _portlet_names = ["portlet-my-ras", "portlet-available-tools"]
+    form_action_name = "dashboard-switcher"
 
     @property
     @memoize
@@ -358,10 +359,16 @@ class SessionBrowserNavigator(BrowserView):
 
 
 class Assessments(BrowserView):
+
     @property
     @memoize
     def webhelpers(self):
         return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    @memoize
+    def form_action_name(self):
+        return self.__name__
 
     @property
     @memoize
@@ -381,6 +388,11 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
     @memoize
     def webhelpers(self):
         return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    @memoize
+    def form_action_name(self):
+        return self.__name__
 
     def get_filters(self):
         filters = {}

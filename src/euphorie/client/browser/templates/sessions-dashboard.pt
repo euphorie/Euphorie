@@ -57,7 +57,7 @@
           </div>
           <form class="toolbar-functions-area pat-inject pat-form pat-autosubmit"
                 id="toolbar-functions-area"
-                action="${here/absolute_url}/${view/__name__}#application-content"
+                action="${here/absolute_url}/${view/form_action_name}#application-content"
                 method="POST"
                 data-pat-inject="history: record"
           >
