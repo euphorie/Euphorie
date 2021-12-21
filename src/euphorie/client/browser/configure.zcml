@@ -148,6 +148,14 @@
       />
 
   <browser:page
+      name="status-tooltip"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="zope2.View"
+      template="templates/status-tooltip.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="start"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"

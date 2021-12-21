@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      i18n:domain="euphorie"
+>
+  <div id="status-sentinel"
+       hidden
+       tal:define="
+         webhelpers nocall:context/@@webhelpers;
+         session session|webhelpers/traversed_session/session;
+       "
+  >
+    <p i18n:translate="info_survey_completion">
+          You have completed <tal:name i18n:name="completed">${session/completion_percentage|string:0}</tal:name>% of the risk assessment.
+    </p>
+
+  </div>
+
+</html>
