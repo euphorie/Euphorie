@@ -382,6 +382,10 @@ class Assessments(BrowserView):
             include_archived=True,
         ).all()
 
+    @property
+    def form_action_name(self):
+        return self.__name__
+
 
 class Surveys(BrowserView, SurveyTemplatesMixin):
     @property
@@ -483,6 +487,10 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
             ],
             key=lambda lang: lang["code"],
         )
+
+    @property
+    def form_action_name(self):
+        return self.__name__
 
     def __call__(self):
         utils.setLanguage(
