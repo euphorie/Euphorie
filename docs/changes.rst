@@ -5,6 +5,8 @@ Changelog
 -------------------
 
 - Fix all tests.
+- Updated translations
+- Let country Malta (MT) use English (EN) as default language
 
 
 13.0.2 (2021-12-15)
