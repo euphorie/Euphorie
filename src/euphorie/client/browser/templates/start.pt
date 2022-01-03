@@ -118,7 +118,7 @@
             </metal:widgets>
           </dl>
         </div>
-        <div class="button-bar"
+        <div class="button-bar pat-bumper"
              id="nav-bar"
              tal:condition="can_edit"
         >
