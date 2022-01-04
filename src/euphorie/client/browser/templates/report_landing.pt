@@ -24,7 +24,7 @@
         <article class="pat-rich"
                  id="page-intro"
         >
-          <h1>Report</h1>
+          <h1 i18n:translate="label_report">Report</h1>
 
           <p class="summary"
              i18n:translate=""
