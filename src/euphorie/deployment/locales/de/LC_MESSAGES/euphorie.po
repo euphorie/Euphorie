@@ -888,9 +888,9 @@ msgid ""
 "more information. Please note that changes made on your pc will NOT be saved "
 "in the OiRA tool"
 msgstr ""
-"Speichern Sie Ihren Bericht auf Ihrem Computer ab, um ihn zu drucken. Sie "
+"Speichern Sie den Bericht auf Ihrem Computer ab, um ihn zu drucken. Sie "
 "können ihn auch bearbeiten oder weitere Informationen hinzufügen. Bitte "
-"denken Sie daran, dass alle Änderungen, die Sie an den Reports vornehmen, "
+"denken Sie daran, dass alle Änderungen, die Sie an den Dokumenten vornehmen, "
 "nicht im OiRA Tool abgespeichert werden."
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:103
