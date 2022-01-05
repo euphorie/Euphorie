@@ -359,7 +359,6 @@ class SessionBrowserNavigator(BrowserView):
 
 
 class Assessments(BrowserView):
-
     @property
     @memoize
     def webhelpers(self):
