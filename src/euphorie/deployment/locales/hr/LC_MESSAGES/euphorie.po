@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-05 10:15+0000\n"
+"POT-Creation-Date: 2022-01-05 10:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -322,12 +322,6 @@ msgstr "Creative Commons Attribution-ShareAlike 2.5 Generic License"
 #: euphorie/client/browser/templates/about.pt:182
 msgid "Creative Commons License"
 msgstr "Creative Commons licenca"
-
-#: euphorie/client/browser/publish.py:138
-#: euphorie/client/browser/session.py:465
-#: euphorie/client/browser/templates/module_identification_custom.pt:26
-msgid "Custom risks"
-msgstr "Prilagođeni rizik"
 
 #: euphorie/client/browser/settings.py:151
 #: euphorie/client/browser/templates/account-delete.pt:40
@@ -3227,7 +3221,7 @@ msgstr ""
 msgid "help_upload_surveygroup_title"
 msgstr "Ako ne navedete naziv, on će se uzeti iz ulazne datoteke."
 
-#. Default: "Home"
+#. Default: "Dashboard"
 #: euphorie/client/browser/templates/login.pt:286
 #: euphorie/client/browser/templates/shell.pt:135
 msgid "home_link"
@@ -3690,6 +3684,13 @@ msgstr "Trenutačan"
 #: euphorie/deployment/tiles/templates/versions.pt:49
 msgid "label_current_published"
 msgstr "Trenutačan/objavljen"
+
+#. Default: "Custom risks"
+#: euphorie/client/browser/publish.py:138
+#: euphorie/client/browser/session.py:465
+#: euphorie/client/browser/templates/module_identification_custom.pt:26
+msgid "label_custom_risks"
+msgstr "Prilagođeni rizik"
 
 #. Default: "Default severity"
 #: euphorie/content/browser/templates/risk_view.pt:117
@@ -4986,7 +4987,7 @@ msgstr "U ime poslodavca:"
 msgid "oira_consultation_workers"
 msgstr "U ime radnika:"
 
-#. Default: "Online Interactive"
+#. Default: "Online interactive"
 #: euphorie/client/browser/templates/login.pt:255
 #: euphorie/client/browser/templates/webhelpers.pt:41
 msgid "oira_name_line_1"
@@ -5678,6 +5679,9 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Da"
+
+#~ msgid "Custom risks"
+#~ msgstr "Prilagođeni rizik"
 
 #~ msgid "Try a test session"
 #~ msgstr "Isprobajte testnu sesiju"

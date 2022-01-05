@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-05 10:15+0000\n"
+"POT-Creation-Date: 2022-01-05 10:34+0000\n"
 "PO-Revision-Date: 2013-07-30 15:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
@@ -325,12 +325,6 @@ msgstr "Licencia genérica Creative Commons Attribution-ShareAlike 2.5"
 #: euphorie/client/browser/templates/about.pt:182
 msgid "Creative Commons License"
 msgstr "Licencia Creative Commons"
-
-#: euphorie/client/browser/publish.py:138
-#: euphorie/client/browser/session.py:465
-#: euphorie/client/browser/templates/module_identification_custom.pt:26
-msgid "Custom risks"
-msgstr "Riesgos personalizados"
 
 #: euphorie/client/browser/settings.py:151
 #: euphorie/client/browser/templates/account-delete.pt:40
@@ -3245,7 +3239,7 @@ msgstr ""
 msgid "help_upload_surveygroup_title"
 msgstr "Si no especifica un título se tomará del texto introducido."
 
-#. Default: "Home"
+#. Default: "Dashboard"
 #: euphorie/client/browser/templates/login.pt:286
 #: euphorie/client/browser/templates/shell.pt:135
 msgid "home_link"
@@ -3722,6 +3716,13 @@ msgstr "Actual"
 #: euphorie/deployment/tiles/templates/versions.pt:49
 msgid "label_current_published"
 msgstr "Actual/publicada"
+
+#. Default: "Custom risks"
+#: euphorie/client/browser/publish.py:138
+#: euphorie/client/browser/session.py:465
+#: euphorie/client/browser/templates/module_identification_custom.pt:26
+msgid "label_custom_risks"
+msgstr "Riesgos personalizados"
 
 #. Default: "Default severity"
 #: euphorie/content/browser/templates/risk_view.pt:117
@@ -5017,7 +5018,7 @@ msgstr "En nombre del empresario:"
 msgid "oira_consultation_workers"
 msgstr "En nombre de los trabajadores:"
 
-#. Default: "Online Interactive"
+#. Default: "Online interactive"
 #: euphorie/client/browser/templates/login.pt:255
 #: euphorie/client/browser/templates/webhelpers.pt:41
 msgid "oira_name_line_1"
@@ -5716,6 +5717,9 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Sí"
+
+#~ msgid "Custom risks"
+#~ msgstr "Riesgos personalizados"
 
 #~ msgid "Try a test session"
 #~ msgstr "Realice una sesión de prueba"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-05 10:15+0000\n"
+"POT-Creation-Date: 2022-01-05 10:34+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -335,12 +335,6 @@ msgstr ""
 #: euphorie/client/browser/templates/about.pt:182
 msgid "Creative Commons License"
 msgstr "Licence Creative Commons "
-
-#: euphorie/client/browser/publish.py:138
-#: euphorie/client/browser/session.py:465
-#: euphorie/client/browser/templates/module_identification_custom.pt:26
-msgid "Custom risks"
-msgstr "Ajouter d’autres risques"
 
 #: euphorie/client/browser/settings.py:151
 #: euphorie/client/browser/templates/account-delete.pt:40
@@ -3307,7 +3301,7 @@ msgstr ""
 msgid "help_upload_surveygroup_title"
 msgstr "Si vous ne spécifiez pas de titre, il sera pris dans l'entrée."
 
-#. Default: "Home"
+#. Default: "Dashboard"
 #: euphorie/client/browser/templates/login.pt:286
 #: euphorie/client/browser/templates/shell.pt:135
 msgid "home_link"
@@ -3810,6 +3804,13 @@ msgstr "En cours"
 #: euphorie/deployment/tiles/templates/versions.pt:49
 msgid "label_current_published"
 msgstr "En cours / Publiée"
+
+#. Default: "Custom risks"
+#: euphorie/client/browser/publish.py:138
+#: euphorie/client/browser/session.py:465
+#: euphorie/client/browser/templates/module_identification_custom.pt:26
+msgid "label_custom_risks"
+msgstr "Risques personnalisés"
 
 #. Default: "Default severity"
 #: euphorie/content/browser/templates/risk_view.pt:117
@@ -5111,7 +5112,7 @@ msgstr "Pour le compte de l'employeur :"
 msgid "oira_consultation_workers"
 msgstr "Pour le compte des salariés :"
 
-#. Default: "Online Interactive"
+#. Default: "Online interactive"
 #: euphorie/client/browser/templates/login.pt:255
 #: euphorie/client/browser/templates/webhelpers.pt:41
 msgid "oira_name_line_1"
@@ -5817,6 +5818,9 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Oui"
+
+#~ msgid "Custom risks"
+#~ msgstr "Ajouter d’autres risques"
 
 #~ msgid "Try a test session"
 #~ msgstr "Commencez une session test"

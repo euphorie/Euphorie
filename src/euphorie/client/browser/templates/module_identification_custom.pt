@@ -23,7 +23,7 @@
         <metal:call use-macro="webhelpers/macros/toolbar" />
         <article class="pat-rich">
           <tal:block replace="tile:statusmessages" />
-          <h1 i18n:translate="">Custom risks</h1>
+          <h1 i18n:translate="label_custom_risks">Custom risks</h1>
 
           <p tal:content="structure module/description">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem

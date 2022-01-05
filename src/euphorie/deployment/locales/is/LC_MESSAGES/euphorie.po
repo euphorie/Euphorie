@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-05 10:15+0000\n"
+"POT-Creation-Date: 2022-01-05 10:34+0000\n"
 "PO-Revision-Date: 2015-02-10 11:55+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -319,12 +319,6 @@ msgstr ""
 #: euphorie/client/browser/templates/about.pt:182
 msgid "Creative Commons License"
 msgstr ""
-
-#: euphorie/client/browser/publish.py:138
-#: euphorie/client/browser/session.py:465
-#: euphorie/client/browser/templates/module_identification_custom.pt:26
-msgid "Custom risks"
-msgstr "Viðbót við áhættumat"
 
 #: euphorie/client/browser/settings.py:151
 #: euphorie/client/browser/templates/account-delete.pt:40
@@ -3171,7 +3165,7 @@ msgid "help_upload_surveygroup_title"
 msgstr ""
 "Ef þú tiltekur ekki nafn hér, verður það tekið úr því sem hlaðið er niður"
 
-#. Default: "Home"
+#. Default: "Dashboard"
 #: euphorie/client/browser/templates/login.pt:286
 #: euphorie/client/browser/templates/shell.pt:135
 msgid "home_link"
@@ -3622,6 +3616,13 @@ msgstr ""
 #: euphorie/deployment/tiles/templates/versions.pt:49
 msgid "label_current_published"
 msgstr ""
+
+#. Default: "Custom risks"
+#: euphorie/client/browser/publish.py:138
+#: euphorie/client/browser/session.py:465
+#: euphorie/client/browser/templates/module_identification_custom.pt:26
+msgid "label_custom_risks"
+msgstr "Viðbót við áhættumat"
 
 #. Default: "Default severity"
 #: euphorie/content/browser/templates/risk_view.pt:117
@@ -4899,7 +4900,7 @@ msgstr "f.h. atvinnuveitanda:"
 msgid "oira_consultation_workers"
 msgstr "f.h. starfsmanna:"
 
-#. Default: "Online Interactive"
+#. Default: "Online interactive"
 #: euphorie/client/browser/templates/login.pt:255
 #: euphorie/client/browser/templates/webhelpers.pt:41
 msgid "oira_name_line_1"
@@ -5594,6 +5595,9 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "já "
+
+#~ msgid "Custom risks"
+#~ msgstr "Viðbót við áhættumat"
 
 #~ msgid "Try a test session"
 #~ msgstr "Prófaðu prufukeyrslu"

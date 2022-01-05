@@ -462,7 +462,7 @@ class ContentsPreview(BrowserView):
 
     @property
     def title_custom_risks(self):
-        return api.portal.translate(_("Custom risks", default=u"Custom risks"))
+        return api.portal.translate(_("label_custom_risks", default=u"Custom risks"))
 
     def get_session_nodes(self):
         """Return an ordered list of all tree items for the current survey.

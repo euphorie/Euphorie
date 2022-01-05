@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-05 10:15+0000\n"
+"POT-Creation-Date: 2022-01-05 10:34+0000\n"
 "PO-Revision-Date: 2016-07-28 15:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -329,12 +329,6 @@ msgstr ""
 #: euphorie/client/browser/templates/about.pt:182
 msgid "Creative Commons License"
 msgstr "Creative Commons-Lizenz"
-
-#: euphorie/client/browser/publish.py:138
-#: euphorie/client/browser/session.py:465
-#: euphorie/client/browser/templates/module_identification_custom.pt:26
-msgid "Custom risks"
-msgstr ""
 
 #: euphorie/client/browser/settings.py:151
 #: euphorie/client/browser/templates/account-delete.pt:40
@@ -3280,7 +3274,7 @@ msgid "help_upload_surveygroup_title"
 msgstr ""
 "Wenn Sie keinen Namen angeben, wird ein Name aus der Eingabedatei übernommen."
 
-#. Default: "Home"
+#. Default: "Dashboard"
 #: euphorie/client/browser/templates/login.pt:286
 #: euphorie/client/browser/templates/shell.pt:135
 msgid "home_link"
@@ -3745,6 +3739,13 @@ msgstr "Aktuell"
 #: euphorie/deployment/tiles/templates/versions.pt:49
 msgid "label_current_published"
 msgstr "Aktuell/Veröffentlicht"
+
+#. Default: "Custom risks"
+#: euphorie/client/browser/publish.py:138
+#: euphorie/client/browser/session.py:465
+#: euphorie/client/browser/templates/module_identification_custom.pt:26
+msgid "label_custom_risks"
+msgstr "Weitere Gefährdungen"
 
 #. Default: "Default severity"
 #: euphorie/content/browser/templates/risk_view.pt:117
@@ -5042,7 +5043,7 @@ msgstr ""
 msgid "oira_consultation_workers"
 msgstr ""
 
-#. Default: "Online Interactive"
+#. Default: "Online interactive"
 #: euphorie/client/browser/templates/login.pt:255
 #: euphorie/client/browser/templates/webhelpers.pt:41
 msgid "oira_name_line_1"

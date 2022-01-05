@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-05 10:15+0000\n"
+"POT-Creation-Date: 2022-01-05 10:34+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -323,12 +323,6 @@ msgstr "Creative Commons Attribution-ShareAlike 2.5 generieke licentie"
 #: euphorie/client/browser/templates/about.pt:182
 msgid "Creative Commons License"
 msgstr "Creative Commons License"
-
-#: euphorie/client/browser/publish.py:138
-#: euphorie/client/browser/session.py:465
-#: euphorie/client/browser/templates/module_identification_custom.pt:26
-msgid "Custom risks"
-msgstr "Aangepaste risico's"
 
 #: euphorie/client/browser/settings.py:151
 #: euphorie/client/browser/templates/account-delete.pt:40
@@ -3257,7 +3251,7 @@ msgstr ""
 msgid "help_upload_surveygroup_title"
 msgstr "Als u geen titel opgeeft, zal titel uit het bestand worden gehaald."
 
-#. Default: "Home"
+#. Default: "Dashboard"
 #: euphorie/client/browser/templates/login.pt:286
 #: euphorie/client/browser/templates/shell.pt:135
 msgid "home_link"
@@ -3731,6 +3725,13 @@ msgstr "Huidig"
 #: euphorie/deployment/tiles/templates/versions.pt:49
 msgid "label_current_published"
 msgstr "Huidig / gepubliceerd"
+
+#. Default: "Custom risks"
+#: euphorie/client/browser/publish.py:138
+#: euphorie/client/browser/session.py:465
+#: euphorie/client/browser/templates/module_identification_custom.pt:26
+msgid "label_custom_risks"
+msgstr "Aangepaste risico's"
 
 #. Default: "Default severity"
 #: euphorie/content/browser/templates/risk_view.pt:117
@@ -5030,7 +5031,7 @@ msgstr "Namens de werkgever:"
 msgid "oira_consultation_workers"
 msgstr "Namens de arbeiders:"
 
-#. Default: "Online Interactive"
+#. Default: "Online interactive"
 #: euphorie/client/browser/templates/login.pt:255
 #: euphorie/client/browser/templates/webhelpers.pt:41
 msgid "oira_name_line_1"
@@ -5735,6 +5736,9 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Ja"
+
+#~ msgid "Custom risks"
+#~ msgstr "Aangepaste risico's"
 
 #~ msgid "Try a test session"
 #~ msgstr "Probeer een testsessie"
