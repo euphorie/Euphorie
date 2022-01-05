@@ -4,8 +4,7 @@ Changelog
 13.0.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Several translation updates and fixes
 
 13.0.3 (2021-12-22)
 -------------------
