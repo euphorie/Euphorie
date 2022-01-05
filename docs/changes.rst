@@ -1,7 +1,7 @@
 Changelog
 =========
 
-13.0.4 (unreleased)
+13.0.4 (2022-01-05)
 -------------------
 
 - Several translation updates and fixes
