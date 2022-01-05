@@ -1549,7 +1549,7 @@ msgstr "Paieška"
 #: euphorie/client/browser/templates/new-session.pt:109
 #: euphorie/client/browser/templates/portlet-available-tools.pt:99
 msgid "button_start_session"
-msgstr "Pradėkite sesia"
+msgstr "Pradėkite sesiją"
 
 #. Default: "Test session"
 #: euphorie/client/browser/templates/surveys.pt:201
