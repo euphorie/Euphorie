@@ -252,7 +252,7 @@
                 <h1>OiRA</h1>
               </a>
               <p class="byline">
-                <tal:i18n i18n:translate="oira_name_line_1">Online Interactive</tal:i18n>
+                <tal:i18n i18n:translate="oira_name_line_1">Online interactive</tal:i18n>
                 <tal:i18n i18n:translate="oira_name_line_2">Risk Assessment</tal:i18n>
               </p>
             </header>
@@ -286,7 +286,7 @@
                 <a class="pat-back-button"
                    href="#intro"
                    i18n:translate="home_link"
-                >Home</a>
+                >Dashboard</a>
               </div>
             </div>
             <article class="body-text pat-rich">
