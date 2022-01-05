@@ -73,7 +73,6 @@ setup(
         "zope.schema",
         "NuPlone >=2.0.0",
         "plone.uuid",
-        "pyrtf-ng",
         "openpyxl",
         "Chameleon",
         "backports.tempfile;python_version<'3'",
