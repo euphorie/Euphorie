@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-12-02 14:19+0000\n"
+"POT-Creation-Date: 2022-01-05 10:15+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-#: euphorie/client/browser/templates/login.pt:315
+#: euphorie/client/browser/templates/login.pt:317
 msgid ""
 "${action-plan} In the fourth stage of the assessment you can decide what "
 "steps you will take to address the risks you have identified previously and "
@@ -40,7 +40,7 @@ msgstr ""
 "βήμα  θα συνταχθεί αυτόματα από το εργαλείο η έκθεση (μελέτη Εκτίμησης "
 "Κινδύνου)."
 
-#: euphorie/client/browser/templates/login.pt:313
+#: euphorie/client/browser/templates/login.pt:315
 msgid ""
 "${evaluation} Here you will be able to determine the level of risk attached "
 "to each of the items you identified as 'need to be addressed' in the "
@@ -50,7 +50,7 @@ msgstr ""
 "μια συγκεκριμένη πηγή κινδύνου ή πρόβλημα που εσείς δηλώσατε στο προηγούμενο "
 "στάδιο της αναγνώρισης."
 
-#: euphorie/client/browser/templates/login.pt:311
+#: euphorie/client/browser/templates/login.pt:313
 msgid ""
 "${identification} OiRA will present a series of potential health and safety "
 "hazards or problems that could exist in your workplace. By answering the "
@@ -76,7 +76,7 @@ msgstr ""
 "(συμπεριλαμβάνοντας ειδικά καθήκοντα, διαθέσιμη ή απαιτούμενη εμπειρία, "
 "ανάθεση αρμοδιοτήτων, προθεσμίες)"
 
-#: euphorie/client/browser/templates/login.pt:309
+#: euphorie/client/browser/templates/login.pt:311
 msgid ""
 "${preparation} This gives you an overview of the particular assessment you "
 "are about to begin and can allow you to further customise the assessment to "
@@ -177,7 +177,7 @@ msgstr "Όλες οι χώρες"
 msgid "All languages"
 msgstr "Όλες οι γλώσσες"
 
-#: euphorie/client/browser/login.py:184
+#: euphorie/client/browser/login.py:192
 msgid "An account was created for you with email address ${email}"
 msgstr ""
 
@@ -189,7 +189,7 @@ msgstr "Σημειώθηκε ένα σφάλμα κατά την αποστολ�
 msgid "An error occured while sending the password reset instructions"
 msgstr ""
 
-#: euphorie/client/browser/templates/more_menu.pt:34
+#: euphorie/client/browser/templates/more_menu.pt:35
 msgid "Archive"
 msgstr ""
 
@@ -241,7 +241,7 @@ msgid "Browse risk assessments"
 msgstr ""
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:25
-#: euphorie/client/browser/templates/more_menu.pt:42
+#: euphorie/client/browser/templates/more_menu.pt:43
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
@@ -367,7 +367,7 @@ msgstr ""
 msgid "Delete risk assessment"
 msgstr "Διαγραφή της Μελέτης Εκτίμησης Κινδύνου"
 
-#: euphorie/client/browser/templates/more_menu.pt:25
+#: euphorie/client/browser/templates/more_menu.pt:26
 msgid "Delete this session"
 msgstr "Διαγράψτε αυτή τη μελέτη Εκτίμησης Κινδύνου"
 
@@ -381,7 +381,7 @@ msgstr ""
 "Σας άρεσε αυτό το εργαλείο; Μοιραστείτε το με τους συναδέλφους και τους "
 "φίλους σας!"
 
-#: euphorie/client/browser/templates/login.pt:339
+#: euphorie/client/browser/templates/login.pt:341
 msgid "Do I need to prepare?"
 msgstr "Χρειάζεται ειδική προετοιμασία;"
 
@@ -472,7 +472,7 @@ msgstr "Γερμανία"
 msgid "Hide archived risk assessments"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:322
+#: euphorie/client/browser/templates/login.pt:324
 msgid "How long will it take?"
 msgstr "Πόσο χρόνο θα χρειαστείτε ;"
 
@@ -480,7 +480,7 @@ msgstr "Πόσο χρόνο θα χρειαστείτε ;"
 msgid "How to use this tool"
 msgstr "Πώς να χρησιμοποιήσετε αυτό το εργαλείο"
 
-#: euphorie/client/browser/templates/login.pt:299
+#: euphorie/client/browser/templates/login.pt:301
 msgid "However, OiRA is designed to be of most value to smaller businesses."
 msgstr ""
 "Ωστόσο, το εργαλείο OiRA έχει σχεδιαστεί ώστε να είναι πιο επωφελές για τις "
@@ -490,7 +490,7 @@ msgstr ""
 "κινδύνων, όπου περιλαμβάνεται και ένα σχέδιο δράσης προσαρμοσμένο στις "
 "ιδιαίτερες ανάγκες κάθε επιχείρησης."
 
-#: euphorie/client/browser/templates/login.pt:325
+#: euphorie/client/browser/templates/login.pt:327
 msgid ""
 "However, you can spend whatever time you have available on an assessment and "
 "then return to it when convenient to pick up from the same point you left "
@@ -502,7 +502,7 @@ msgstr ""
 "άλλη στιγμή το θελήσετε στο μέλλον, συνεχίζοντας από το σημείο όπου "
 "σταματήσατε. "
 
-#: euphorie/client/browser/webhelpers.py:863
+#: euphorie/client/browser/webhelpers.py:880
 msgid "I wish to share the following with you"
 msgstr "Θέλω να μοιραστώ μαζί σας τα παρακάτω"
 
@@ -539,11 +539,11 @@ msgstr ""
 msgid "Invalid password"
 msgstr "Μη αποδεκτός κωδικός πρόσβασης"
 
-#: euphorie/client/browser/reset_password.py:242
+#: euphorie/client/browser/reset_password.py:240
 msgid "Invalid security token, try to request a new one"
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:324
+#: euphorie/client/browser/templates/login.pt:326
 msgid ""
 "It's impossible to say how long an assessment will take in general as the "
 "tools differ according to sectors and countries."
@@ -558,8 +558,8 @@ msgid "Kosovo"
 msgstr "Κοσσυφοπέδιο"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:135
-#: euphorie/client/browser/templates/status_info.pt:73
-#: euphorie/client/browser/templates/tool_sessions.pt:140
+#: euphorie/client/browser/templates/status_info.pt:71
+#: euphorie/client/browser/templates/tool_sessions.pt:141
 msgid "Last saved"
 msgstr "αποθηκεύτηκε"
 
@@ -615,7 +615,7 @@ msgstr "Μαυροβούνιο"
 
 #: euphorie/client/browser/templates/assessments.pt:95
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:167
-#: euphorie/client/browser/templates/tool_sessions.pt:160
+#: euphorie/client/browser/templates/tool_sessions.pt:161
 msgid "More"
 msgstr ""
 
@@ -684,7 +684,7 @@ msgid "OiRA Tool where \"Measures that are already in place\" can be defined."
 msgstr ""
 "Εργαλείο OiRA στο οποίο μπορούν να ορίζονται τα «Ήδη υφιστάμενα μέτρα»."
 
-#: euphorie/client/browser/templates/login.pt:298
+#: euphorie/client/browser/templates/login.pt:300
 msgid ""
 "OiRA can be used by anyone wishing to assess health and safety-related risks "
 "that might exist in their workplace."
@@ -696,7 +696,7 @@ msgstr ""
 # Important: we need the translation to contain a single blank character.
 # If we leave this translation simply empty, the English default will be
 # displayed
-#: euphorie/client/browser/templates/login.pt:300
+#: euphorie/client/browser/templates/login.pt:302
 msgid ""
 "OiRA is designed specifically to support them in assessing the risks at work "
 "and helping them to produce a documented risk assessment including an action "
@@ -711,7 +711,7 @@ msgstr ""
 msgid "OiRA password reset instructions"
 msgstr "Οδηγίες επαναφοράς κωδικού πρόσβασης στο εργαλείο OiRA"
 
-#: euphorie/client/browser/templates/login.pt:293
+#: euphorie/client/browser/templates/login.pt:295
 msgid ""
 "OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
 "that allows you to perform a health and safety risk assessment of your "
@@ -789,7 +789,7 @@ msgid "Please refer to the examples below the form."
 msgstr "Βλέπε τα παραδείγματα κάτω από το έντυπο"
 
 #: euphorie/client/browser/templates/risks_overview.pt:325
-#: euphorie/client/browser/templates/status_info.pt:259
+#: euphorie/client/browser/templates/status_info.pt:257
 #: euphorie/client/browser/templates/webhelpers.pt:155
 msgid "Postponed"
 msgstr "Κίνδυνος σε εκκρεμότητα"
@@ -858,7 +858,7 @@ msgstr "Περιφέρεια"
 msgid "Regions"
 msgstr "Περιφέρειες"
 
-#: euphorie/client/browser/templates/login.pt:333
+#: euphorie/client/browser/templates/login.pt:335
 msgid ""
 "Registering allows you to simply log in at any time to continue previous "
 "assessments or to start new ones."
@@ -885,7 +885,7 @@ msgstr ""
 msgid "Risk"
 msgstr "Κίνδυνος"
 
-#: euphorie/client/browser/templates/tool_sessions.pt:119
+#: euphorie/client/browser/templates/tool_sessions.pt:120
 msgid "Risk assessments made with this tool"
 msgstr "Εκτιμήσεις επικινδυνότητας με το εργαλείο αυτό"
 
@@ -969,7 +969,7 @@ msgstr "Προτεινόμενα μέτρα"
 msgid "Standard solution"
 msgstr "Στάνταρ λύση "
 
-#: euphorie/client/browser/login.py:374
+#: euphorie/client/browser/login.py:381
 #: euphorie/client/browser/templates/new-session-test.pt:154
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -1023,7 +1023,7 @@ msgstr ""
 "Η ενέργεια αυτή δεν μπορεί να αλλάξει στην συνέχεια. Είστε σίγουροι ότι "
 "επιθυμείτε να συνεχίσετε."
 
-#: euphorie/client/browser/templates/login.pt:332
+#: euphorie/client/browser/templates/login.pt:334
 msgid ""
 "The first thing you will be asked to do when you begin your first risk "
 "assessment is to create an OiRA account - this is a simple and quick process."
@@ -1048,7 +1048,7 @@ msgstr "Η αξιολόγηση κινδύνου έχει κλωνοποιηθε
 msgid "The specified colour is not valid."
 msgstr "Το χρώμα που καθορίστηκε δεν είναι αποδεκτό."
 
-#: euphorie/client/browser/templates/login.pt:307
+#: euphorie/client/browser/templates/login.pt:309
 msgid "There are four main stages to complete in the assessment process:"
 msgstr ""
 "Υπάρχουν τέσσερα βασικά στάδια για την ολοκλήρωση της διαδικασίας εκπόνησης "
@@ -1126,16 +1126,12 @@ msgstr "Συμβουλή"
 msgid "Toggle on screen help"
 msgstr "Εναλλαγή στη βοήθεια οθόνης"
 
-#: euphorie/client/browser/templates/login.pt:356
-msgid "Try a test session"
-msgstr "Δοκιμή"
-
 #: euphorie/client/browser/templates/publication_menu.pt:70
 msgid "Unpublish Risk Assessment"
 msgstr ""
 
 #: euphorie/client/browser/templates/risks_overview.pt:333
-#: euphorie/client/browser/templates/status_info.pt:267
+#: euphorie/client/browser/templates/status_info.pt:265
 #: euphorie/client/browser/templates/webhelpers.pt:152
 msgid "Unvisited"
 msgstr "Υπό εξέταση κίνδυνος"
@@ -1164,19 +1160,19 @@ msgstr ""
 "Σας συνιστούμε να κρατάτε πάντα  διαθέσιμη στην εταιρεία σας μιαν "
 "επικαιροποιημένη έντυπη έκδοση της έκθεσης (εκτίμηση κινδύνου)!"
 
-#: euphorie/client/browser/templates/login.pt:305
+#: euphorie/client/browser/templates/login.pt:307
 msgid "What do I have to do?"
 msgstr "Τι πρέπει να κάνω;"
 
-#: euphorie/client/browser/templates/login.pt:292
+#: euphorie/client/browser/templates/login.pt:294
 msgid "What is OiRA (Online Interactive Risk Assessment)?"
 msgstr "Τι είναι το εργαλείο OiRA (Online Interactive Risk Assessment);"
 
-#: euphorie/client/browser/templates/login.pt:296
+#: euphorie/client/browser/templates/login.pt:298
 msgid "Who is the OiRA tool for?"
 msgstr "Για ποιους προορίζεται το εργαλείο OiRA"
 
-#: euphorie/client/browser/templates/login.pt:330
+#: euphorie/client/browser/templates/login.pt:332
 msgid "Why do I have to register?"
 msgstr "Γιατί πρέπει να εγγραφώ ως χρήστης του εργαλείου OiRA;"
 
@@ -1202,7 +1198,7 @@ msgstr ""
 "κινδύνων (module) ή τον επιμέρους κίνδυνο που θέλετε να χρησιμοποιήσετε από "
 "τον παρακάτω κατάλογο και το στοιχείο αυτό θα αντιγραφεί στη μελέτη σας."
 
-#: euphorie/client/browser/templates/login.pt:341
+#: euphorie/client/browser/templates/login.pt:343
 msgid ""
 "You do not need any kind of specific preparation to start using the tool, "
 "however you should take some time to think about who is going to carry out "
@@ -1221,7 +1217,7 @@ msgid ""
 "this risk assessment in various forms in the ${download_section}."
 msgstr ""
 
-#: euphorie/client/browser/templates/login.pt:334
+#: euphorie/client/browser/templates/login.pt:336
 msgid ""
 "You have to make sure to be in possession of a printed, accurate and up-"
 "dated risk assessment (at any time)."
@@ -1238,7 +1234,7 @@ msgstr "Η διεύθυνση email σας έχει αλλάξει. "
 msgid "Your password for confirmation"
 msgstr "Ο κωδικός πρόσβασής σας για επιβεβαίωση"
 
-#: euphorie/client/browser/reset_password.py:254
+#: euphorie/client/browser/reset_password.py:259
 #: euphorie/client/browser/settings.py:126
 msgid "Your password was successfully changed."
 msgstr "Η αλλαγή του κωδικού πρόσβασής σας ολοκληρώθηκε με επιτυχία."
@@ -1540,7 +1536,7 @@ msgid "button_archive_session"
 msgstr ""
 
 #. Default: "Cancel"
-#: euphorie/client/browser/publish.py:285
+#: euphorie/client/browser/publish.py:313
 #: euphorie/client/browser/settings.py:128
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:37
 msgid "button_cancel"
@@ -1549,7 +1545,7 @@ msgstr "Άκυρο"
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:158
 #: euphorie/client/browser/templates/surveys.pt:49
-#: euphorie/client/browser/webhelpers.py:860
+#: euphorie/client/browser/webhelpers.py:877
 msgid "button_close"
 msgstr "κλείσιμο"
 
@@ -1603,7 +1599,7 @@ msgid "button_lock"
 msgstr "Κλείδωμα"
 
 #. Default: "Create preview"
-#: euphorie/client/browser/publish.py:357
+#: euphorie/client/browser/publish.py:385
 msgid "button_preview"
 msgstr "Δημιουργία προεπισκόπησης"
 
@@ -1613,7 +1609,7 @@ msgid "button_print"
 msgstr "Εκτύπωση"
 
 #. Default: "Publish"
-#: euphorie/client/browser/publish.py:292
+#: euphorie/client/browser/publish.py:320
 #: euphorie/deployment/tiles/templates/versions.pt:26
 msgid "button_publish"
 msgstr "Δημοσίευση"
@@ -1642,7 +1638,7 @@ msgstr "Έναρξη της μελέτης Εκτίμησης Κινδύνου"
 
 #. Default: "Test session"
 #: euphorie/client/browser/templates/surveys.pt:201
-#: euphorie/client/browser/templates/tool_sessions.pt:78
+#: euphorie/client/browser/templates/tool_sessions.pt:79
 msgid "button_start_test_session"
 msgstr "Δοκιμαστική συνεδρία"
 
@@ -2091,7 +2087,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "50 ως 249 εργαζόμενοι"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:162
+#: euphorie/client/browser/login.py:170
 msgid "error_email_in_use"
 msgstr "Υπάρχει ήδη λογαριασμός με αυτή τη διεύθυνση email."
 
@@ -2106,7 +2102,7 @@ msgid "error_invalid_budget"
 msgstr "Παρακαλώ εισάγετε τον προϋπολογισμό σε ακέραια ευρώ."
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:125
+#: euphorie/client/browser/login.py:133
 msgid "error_invalid_email"
 msgstr "Παρακαλώ εισάγετε μια αποδεκτή διεύθυνση email."
 
@@ -2123,23 +2119,23 @@ msgid "error_invalid_xml"
 msgstr "Παρακαλώ ανεβάστε ένα αποδεκτό αρχείο XML"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:121
+#: euphorie/client/browser/login.py:129
 msgid "error_missing_email"
 msgstr "Παρακαλώ εισάγετε τη διεύθυνση email σας."
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:129
+#: euphorie/client/browser/login.py:137
 msgid "error_missing_password"
 msgstr "Παρακαλώ εισάγετε έναν κωδικό πρόσβασης"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:133
+#: euphorie/client/browser/login.py:141
 #: euphorie/client/browser/reset_password.py:229
 msgid "error_password_mismatch"
 msgstr "Οι κωδικοί πρόσβασης δεν είναι ίδιοι"
 
 #. Default: "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
-#: euphorie/client/browser/login.py:108
+#: euphorie/client/browser/login.py:114
 msgid "error_password_policy_violation"
 msgstr ""
 "Ο κωδικός πρόσβασης πρέπει να αποτελείται από  τουλάχιστον 12 χαρακτήρες και "
@@ -2147,7 +2143,7 @@ msgstr ""
 "αριθμητικό ψηφίο."
 
 #. Default: "An accout can only be created for you if you accept the terms and conditions."
-#: euphorie/client/browser/login.py:141
+#: euphorie/client/browser/login.py:149
 msgid "error_terms_not_accepted"
 msgstr ""
 
@@ -2164,22 +2160,22 @@ msgstr ""
 "Αυτή η ημερομηνία δεν πρέπει να είναι μεταγενέστερη της ημερομηνίας λήξης."
 
 #. Default: "This value must be a valid date"
-#: euphorie/client/browser/webhelpers.py:1084
+#: euphorie/client/browser/webhelpers.py:1101
 msgid "error_validation_date"
 msgstr ""
 
 #. Default: "This value must be a valid date and time"
-#: euphorie/client/browser/webhelpers.py:1088
+#: euphorie/client/browser/webhelpers.py:1105
 msgid "error_validation_datetime"
 msgstr ""
 
 #. Default: "This value must be a valid email address"
-#: euphorie/client/browser/webhelpers.py:1095
+#: euphorie/client/browser/webhelpers.py:1112
 msgid "error_validation_email"
 msgstr ""
 
 #. Default: "This value must be a number"
-#: euphorie/client/browser/webhelpers.py:1102
+#: euphorie/client/browser/webhelpers.py:1119
 msgid "error_validation_number"
 msgstr ""
 
@@ -2312,7 +2308,10 @@ msgstr ""
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
 msgstr ""
-"Δοκιμάστε ανώνυμα οποιοδήποτε από τα εργαλεία που ακολουθούν κάνοντας κλικ στο πλήκτρο «Δοκιμαστική συνεδρία» του εργαλείου της επιλογής σας. Στη δοκιμαστική συνεδρία δεν μπορείτε να αποθηκεύσετε το έργο σας. Εάν δεν ${label_link_register}, ό,τι έχετε κάνει ως τώρα θα χαθεί."
+"Δοκιμάστε ανώνυμα οποιοδήποτε από τα εργαλεία που ακολουθούν κάνοντας κλικ "
+"στο πλήκτρο «Δοκιμαστική συνεδρία» του εργαλείου της επιλογής σας. Στη "
+"δοκιμαστική συνεδρία δεν μπορείτε να αποθηκεύσετε το έργο σας. Εάν δεν "
+"${label_link_register}, ό,τι έχετε κάνει ως τώρα θα χαθεί."
 
 #: euphorie/client/browser/session.py:456
 msgid "extra_text_identification"
@@ -2646,12 +2645,12 @@ msgid "header_publish"
 msgstr "Δημοσίευση Εργαλείου OiRA "
 
 #. Default: "Questions answered per module"
-#: euphorie/client/browser/templates/status_info.pt:135
+#: euphorie/client/browser/templates/status_info.pt:133
 msgid "header_questions_answered"
 msgstr "Ερωτήσεις που απαντήθηκαν ανά ενότητα"
 
 #. Default: "Register"
-#: euphorie/client/browser/templates/login.pt:144
+#: euphorie/client/browser/templates/login.pt:145
 #: euphorie/client/browser/templates/register_session.pt:115
 msgid "header_register"
 msgstr "Εγγραφή"
@@ -2810,7 +2809,7 @@ msgstr "Σχόλια / Υφιστάμενα μέτρα (αν υπάρχουν)"
 
 #. Default: "High priority risks"
 #: euphorie/client/browser/templates/measures_overview.pt:98
-#: euphorie/client/browser/templates/status_info.pt:278
+#: euphorie/client/browser/templates/status_info.pt:276
 msgid "heading_high_prio_risks"
 msgstr "Κίνδυνοι υψηλής επικινδυνότητας"
 
@@ -3206,7 +3205,7 @@ msgstr ""
 "χρήστης πρέπει να επιλέξει ένα πλαίσιο) ή με ΟΧΙ"
 
 #. Default: "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
-#: euphorie/client/browser/templates/login.pt:205
+#: euphorie/client/browser/templates/login.pt:206
 #: euphorie/client/browser/templates/register_session.pt:186
 msgid "help_password_requirements"
 msgstr ""
@@ -3237,7 +3236,7 @@ msgid "help_publish"
 msgstr "Δημοσίευση του επιλεγμένου εργαλείου OiRA με τις τελευταίες αλλαγές."
 
 #. Default: "After publication the OiRA Tool will be available at ${url}."
-#: euphorie/client/browser/templates/publish.pt:39
+#: euphorie/client/browser/templates/publish.pt:45
 msgid "help_publish_url"
 msgstr ""
 "Μετά τη δημοσίευση, το Εργαλείο OiRA θα είναι διαθέσιμο στη διεύθυνση "
@@ -3350,7 +3349,7 @@ msgid "help_upload_surveygroup_title"
 msgstr "Εάν δεν ορίσετε τίτλο, θα υιοθετηθεί από τα δεδομένα που θα εισάγετε."
 
 #. Default: "Home"
-#: euphorie/client/browser/templates/login.pt:284
+#: euphorie/client/browser/templates/login.pt:286
 #: euphorie/client/browser/templates/shell.pt:135
 msgid "home_link"
 msgstr "Πίνακας μελετών ΕΚ"
@@ -3456,6 +3455,11 @@ msgid "info_select_session"
 msgstr ""
 "Επιλέξτε μια προηγούμενη μελέτη Εκτίμησης Κινδύνου για να τη συμπληρώσετε ή "
 "να την αναθεωρήσετε ή ${start_session}."
+
+#. Default: "You have completed ${completed}% of the risk assessment."
+#: euphorie/client/browser/templates/status-tooltip.pt:18
+msgid "info_survey_completion"
+msgstr ""
 
 #. Default: "This is a test session. ${link_sign_in} to save your data."
 #: euphorie/client/browser/templates/plain.pt:220
@@ -3591,6 +3595,11 @@ msgstr ""
 "Είστε βέβαιοι ότι θέλετε να δημοσιεύσετε ξανά αυτό το Εργαλείο OiRA; Με αυτό "
 "τον τρόπο θα δημοσιευτούν όλες οι αλλαγές. "
 
+#. Default: "The structure of your OiRA tool has changed. If you publish now, existing users of this OiRA tool will lose parts of their answers. Please contact the OiRA team if you need assistance on this subject. You can also refer to the chapter “Re-working a published OiRA tool” of the OiRA manual."
+#: euphorie/client/browser/templates/publish.pt:36
+msgid "intro_publish_survey_structure_changed"
+msgstr ""
+
 #. Default: "Including the risks to your employees and your equipment? What if there is an accident with one of the machines? What if an employee is exposed to hazardous substances? A risk assessment helps you to define these risks and tackle them head on. A risk assessment mainly consists of two parts: a <em>list</em> with all the risks in your company and an <em>action plan</em> with details of how to deal with these risks. These two components allow you to limit the risks to your employees and your company, and therefore the financial risk."
 #: euphorie/client/browser/templates/default_introduction.pt:11
 msgid "intro_risk_aware"
@@ -3663,7 +3672,7 @@ msgid "label_account_locked"
 msgstr "Ο λογαριασμός είναι κλειδωμένος"
 
 #. Default: "Action Plan"
-#: euphorie/client/browser/templates/login.pt:315
+#: euphorie/client/browser/templates/login.pt:317
 #: euphorie/client/browser/templates/report_identification.pt:145
 #: euphorie/client/browser/templates/shell.pt:301
 msgid "label_action_plan"
@@ -3703,7 +3712,7 @@ msgid "label_action_plan_start"
 msgstr "Έναρξη εφαρμογής"
 
 #. Default: "I agree with the ${link_terms_conditions}"
-#: euphorie/client/browser/templates/login.pt:217
+#: euphorie/client/browser/templates/login.pt:218
 #: euphorie/client/browser/templates/register_session.pt:198
 msgid "label_agree_terms_conditions"
 msgstr "Συμφωνώ με τους ${link_terms_conditions}"
@@ -3853,7 +3862,7 @@ msgid "label_default_severity"
 msgstr "Προεπιλεγμένη σφοδρότητα"
 
 #. Default: "Delete"
-#: euphorie/client/browser/templates/more_menu.pt:25
+#: euphorie/client/browser/templates/more_menu.pt:26
 msgid "label_delete"
 msgstr "Διαγραφή"
 
@@ -3874,7 +3883,7 @@ msgid "label_download_tool_preview"
 msgstr "λήψη του περιεχομένου του εργαλείου"
 
 #. Default: "Duplicate"
-#: euphorie/client/browser/templates/more_menu.pt:42
+#: euphorie/client/browser/templates/more_menu.pt:43
 msgid "label_duplicate"
 msgstr "Πιστό αντίγραφο (κλώνος)"
 
@@ -3897,7 +3906,7 @@ msgid "label_enable_tool_notification"
 msgstr "Εμφάνιση εξατομικευμένης ειδοποίησης για το εν λόγω εργαλείο OiRA"
 
 #. Default: "Evaluation"
-#: euphorie/client/browser/templates/login.pt:313
+#: euphorie/client/browser/templates/login.pt:315
 #: euphorie/client/browser/templates/report_identification.pt:135
 #: euphorie/client/browser/templates/shell.pt:280
 msgid "label_evaluation"
@@ -3950,7 +3959,7 @@ msgid "label_file_caption"
 msgstr "Λεζάντα περιεχομένου"
 
 #. Default: "I forgot my password"
-#: euphorie/client/browser/templates/login.pt:116
+#: euphorie/client/browser/templates/login.pt:117
 msgid "label_forgot_password"
 msgstr "Ξέχασα τον κωδικό πρόσβασης"
 
@@ -3960,7 +3969,7 @@ msgid "label_format"
 msgstr "Τύπος"
 
 #. Default: "General information"
-#: euphorie/client/browser/templates/status_info.pt:34
+#: euphorie/client/browser/templates/status_info.pt:35
 msgid "label_general_information"
 msgstr "Γενικές πληροφορίες"
 
@@ -4019,7 +4028,7 @@ msgid "label_help_sessions"
 msgstr "Εκπόνηση εκτίμησης κινδύνου"
 
 #. Default: "Identification"
-#: euphorie/client/browser/templates/login.pt:311
+#: euphorie/client/browser/templates/login.pt:313
 #: euphorie/client/browser/templates/report_identification.pt:125
 #: euphorie/client/browser/templates/shell.pt:278
 msgid "label_identification"
@@ -4070,12 +4079,12 @@ msgid "label_language"
 msgstr "Γλώσσα"
 
 #. Default: "Learn more"
-#: euphorie/client/browser/templates/login.pt:264
+#: euphorie/client/browser/templates/login.pt:266
 msgid "label_learn_more"
 msgstr "Περισσότερες πληροφορίες"
 
 #. Default: "Learn more about OiRA"
-#: euphorie/client/browser/templates/login.pt:123
+#: euphorie/client/browser/templates/login.pt:124
 msgid "label_learn_more_about_oira"
 msgstr "Περισσότερες πληροφορίες  για τα εργαλεία OiRA"
 
@@ -4144,12 +4153,12 @@ msgstr "Απαιτήσεις"
 
 #. Default: "Title is missing"
 #: euphorie/client/browser/templates/assessments.pt:60
-#: euphorie/client/browser/templates/tool_sessions.pt:134
+#: euphorie/client/browser/templates/tool_sessions.pt:135
 msgid "label_missing_title"
 msgstr "Δεν υπάρχει τίτλος"
 
 #. Default: "by"
-#: euphorie/client/browser/templates/status_info.pt:66
+#: euphorie/client/browser/templates/status_info.pt:64
 msgid "label_modified_by"
 msgstr "από"
 
@@ -4185,7 +4194,7 @@ msgstr "Το εργαλείο OiRA εξυπηρετεί τις ανάγκες τ
 #. Default: "Desired password"
 #: euphorie/client/browser/reset_password.py:34
 #: euphorie/client/browser/settings.py:51
-#: euphorie/client/browser/templates/login.pt:184
+#: euphorie/client/browser/templates/login.pt:185
 msgid "label_new_password"
 msgstr "Επιθυμητός κωδικός πρόσβασης"
 
@@ -4225,25 +4234,25 @@ msgstr ""
 
 #. Default: "No risk"
 #: euphorie/client/browser/templates/risks_overview.pt:262
-#: euphorie/client/browser/templates/status_info.pt:196
+#: euphorie/client/browser/templates/status_info.pt:194
 msgid "label_no_risk"
 msgstr "Κανένας κίνδυνος/Ασφαλής κατάσταση"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:266
-#: euphorie/client/browser/templates/status_info.pt:200
+#: euphorie/client/browser/templates/status_info.pt:198
 msgid "label_no_risks_2"
 msgstr "Κανένας κίνδυνος/Ασφαλής κατάσταση"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:270
-#: euphorie/client/browser/templates/status_info.pt:204
+#: euphorie/client/browser/templates/status_info.pt:202
 msgid "label_no_risks_3_4"
 msgstr "Κανένας κίνδυνος/Ασφαλής κατάσταση"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:274
-#: euphorie/client/browser/templates/status_info.pt:208
+#: euphorie/client/browser/templates/status_info.pt:206
 msgid "label_no_risks_5_or_more"
 msgstr "Κανένας κίνδυνος/Ασφαλής κατάσταση"
 
@@ -4284,13 +4293,13 @@ msgid "label_password"
 msgstr "Κωδικός"
 
 #. Default: "Again password"
-#: euphorie/client/browser/templates/login.pt:197
+#: euphorie/client/browser/templates/login.pt:198
 #: euphorie/client/browser/templates/register_session.pt:178
 msgid "label_password_confirm"
 msgstr "Επανάληψη κωδικού πρόσβασης"
 
 #. Default: "Preparation"
-#: euphorie/client/browser/templates/login.pt:309
+#: euphorie/client/browser/templates/login.pt:311
 #: euphorie/client/browser/templates/report_identification.pt:113
 #: euphorie/client/browser/templates/shell.pt:234
 msgid "label_preparation"
@@ -4329,7 +4338,7 @@ msgstr "Ερώτηση"
 #. Default: "Published"
 #: euphorie/client/browser/templates/publication_menu.pt:27
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:146
-#: euphorie/client/browser/templates/status_info.pt:95
+#: euphorie/client/browser/templates/status_info.pt:93
 msgid "label_published"
 msgstr "Δημοσιεύτηκε"
 
@@ -4371,7 +4380,7 @@ msgstr ""
 "και το σχέδιο δράσης."
 
 #. Default: "register"
-#: euphorie/client/browser/templates/login.pt:109
+#: euphorie/client/browser/templates/login.pt:110
 msgid "label_register_first"
 msgstr "εγγραφή"
 
@@ -4382,7 +4391,7 @@ msgstr "Διαγραφή αυτού του μέτρου"
 
 #. Default: "Report"
 #: euphorie/client/browser/templates/report_identification.pt:155
-#: euphorie/client/browser/templates/report_landing.pt:43
+#: euphorie/client/browser/templates/report_landing.pt:27
 #: euphorie/client/browser/templates/shell.pt:326
 msgid "label_report"
 msgstr "Έκθεση"
@@ -4422,49 +4431,49 @@ msgstr "Τύπος κινδύνου"
 
 #. Default: "Risk with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:283
-#: euphorie/client/browser/templates/status_info.pt:217
+#: euphorie/client/browser/templates/status_info.pt:215
 msgid "label_risk_with_measure"
 msgstr "Κίνδυνος με αναφορά μέτρου(-ων)"
 
 #. Default: "Risk without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:304
-#: euphorie/client/browser/templates/status_info.pt:238
+#: euphorie/client/browser/templates/status_info.pt:236
 msgid "label_risk_without_measure"
 msgstr "Κίνδυνος χωρίς αναφορά μέτρου(-ων)"
 
 #. Default: "Risks with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:287
-#: euphorie/client/browser/templates/status_info.pt:221
+#: euphorie/client/browser/templates/status_info.pt:219
 msgid "label_risks_with_measure_2"
 msgstr "Κίνδυνος με αναφορά μέτρου(-ων)"
 
 #. Default: "Risks with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:291
-#: euphorie/client/browser/templates/status_info.pt:225
+#: euphorie/client/browser/templates/status_info.pt:223
 msgid "label_risks_with_measure_3_4"
 msgstr "Κίνδυνος με αναφορά μέτρου(-ων)"
 
 #. Default: "Risks with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:295
-#: euphorie/client/browser/templates/status_info.pt:229
+#: euphorie/client/browser/templates/status_info.pt:227
 msgid "label_risks_with_measure_5_or_more"
 msgstr "Κίνδυνος με αναφορά μέτρου(-ων)"
 
 #. Default: "Risks without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:308
-#: euphorie/client/browser/templates/status_info.pt:242
+#: euphorie/client/browser/templates/status_info.pt:240
 msgid "label_risks_without_measure_2"
 msgstr "Κίνδυνος χωρίς αναφορά μέτρου(-ων)"
 
 #. Default: "Risks without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:312
-#: euphorie/client/browser/templates/status_info.pt:246
+#: euphorie/client/browser/templates/status_info.pt:244
 msgid "label_risks_without_measure_3_4"
 msgstr "Κίνδυνος χωρίς αναφορά μέτρου(-ων)"
 
 #. Default: "Risks without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:316
-#: euphorie/client/browser/templates/status_info.pt:250
+#: euphorie/client/browser/templates/status_info.pt:248
 msgid "label_risks_without_measure_5_or_more"
 msgstr "Κίνδυνος χωρίς αναφορά μέτρου(-ων)"
 
@@ -4578,9 +4587,14 @@ msgstr "Ξεκίνησε την Αναγνώριση των Κινδύνων"
 msgid "label_start_survey"
 msgstr "Έναρξη"
 
+#. Default: "Start a test session"
+#: euphorie/client/browser/templates/login.pt:358
+msgid "label_start_test_session"
+msgstr "Ξεκινήστε μια δοκιμαστική συνεδρία"
+
 #. Default: "Started"
 #: euphorie/client/browser/templates/assessments.pt:78
-#: euphorie/client/browser/templates/status_info.pt:54
+#: euphorie/client/browser/templates/status_info.pt:52
 msgid "label_started"
 msgstr "ημερομηνία έναρξης"
 
@@ -4620,7 +4634,7 @@ msgid "label_surveygroup_title"
 msgstr "Τίτλος εισαχθέντος εργαλείου OiRA"
 
 #. Default: "Terms and conditions"
-#: euphorie/client/browser/templates/login.pt:217
+#: euphorie/client/browser/templates/login.pt:218
 #: euphorie/client/browser/templates/register_session.pt:198
 msgid "label_terms_conditions"
 msgstr "Όρους και τις προϋποθέσεις"
@@ -4675,6 +4689,7 @@ msgstr "Τύπος εργαλείου OiRA"
 
 #. Default: "Tools"
 #: euphorie/client/browser/templates/sessions-dashboard.pt:34
+#: euphorie/client/browser/templates/tool_sessions.pt:36
 msgid "label_tools"
 msgstr "Εργαλεία"
 
@@ -4684,7 +4699,7 @@ msgid "label_try_oira"
 msgstr "Δοκιμάστε το OiRA"
 
 #. Default: "Unpublished"
-#: euphorie/client/browser/templates/status_info.pt:116
+#: euphorie/client/browser/templates/status_info.pt:114
 msgid "label_unpublished"
 msgstr ""
 
@@ -4709,7 +4724,7 @@ msgid "label_use_location_question"
 msgstr ""
 
 #. Default: "Used tool"
-#: euphorie/client/browser/templates/status_info.pt:39
+#: euphorie/client/browser/templates/status_info.pt:40
 msgid "label_used_tool"
 msgstr "Εργαλείο που χρησιμοποιήθηκε ως βάση"
 
@@ -4784,7 +4799,7 @@ msgid "link_sign_in"
 msgstr "Σύνδεση"
 
 #. Default: "Start a new risk assessment"
-#: euphorie/client/browser/country.py:547
+#: euphorie/client/browser/country.py:565
 #: euphorie/client/browser/templates/assessments.pt:28
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64
 msgid "link_start_session"
@@ -4896,7 +4911,7 @@ msgid "message_delete_no_last_survey"
 msgstr "Δεν μπορείτε να διαγράψετε τη μοναδική έκδοση εργαλείου OiRA."
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/webhelpers.py:1106
+#: euphorie/client/browser/webhelpers.py:1123
 msgid "message_field_required"
 msgstr "Το πεδίο είναι υποχρεωτικό."
 
@@ -4933,7 +4948,10 @@ msgstr ""
 #: euphorie/client/browser/templates/browser-warning.pt:31
 msgid "message_lesser_experience_no_javascript"
 msgstr ""
-"Αγαπητέ χρήστη, χρησιμοποιείτε ένα παρωχημένο πρόγραμμα περιήγησης ιστού. Το πρόγραμμα περιήγησης ιστού που χρησιμοποιείτε δεν είναι συμβατό με την τεχνολογία που χρησιμοποιείται στο OiRA. Εγκαταστήστε νεότερο πρόγραμμα περιήγησης για να μπορείτε να χρησιμοποιείτε τα εργαλεία OiRA."
+"Αγαπητέ χρήστη, χρησιμοποιείτε ένα παρωχημένο πρόγραμμα περιήγησης ιστού. Το "
+"πρόγραμμα περιήγησης ιστού που χρησιμοποιείτε δεν είναι συμβατό με την "
+"τεχνολογία που χρησιμοποιείται στο OiRA. Εγκαταστήστε νεότερο πρόγραμμα "
+"περιήγησης για να μπορείτε να χρησιμοποιείτε τα εργαλεία OiRA."
 
 #. Default: "Please be aware that you have %s more login attempts before your account will be locked."
 #: euphorie/content/user.py:212
@@ -4972,14 +4990,14 @@ msgstr ""
 "περιέχεται σε αυτό το μήνυμα."
 
 #. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at"
-#: euphorie/client/browser/publish.py:368
+#: euphorie/client/browser/publish.py:396
 msgid "message_preview_success"
 msgstr ""
 "Επιτυχής δημιουργία προεπισκόπησης για το εργαλείο OiRA. Διατίθεται στη "
 "διεύθυνση"
 
 #. Default: "Succesfully published the OiRA Tool. It can be accessed at"
-#: euphorie/client/browser/publish.py:303
+#: euphorie/client/browser/publish.py:331
 msgid "message_publish_success"
 msgstr "Επιτυχής δημοσίευση του εργαλείου OiRA. Μπορεί να γίνει πρόσβαση στο"
 
@@ -5057,7 +5075,7 @@ msgid "navigation_settings"
 msgstr "Ρυθμίσεις"
 
 #. Default: "Status"
-#: euphorie/client/browser/templates/more_menu.pt:51
+#: euphorie/client/browser/templates/more_menu.pt:52
 #: euphorie/client/browser/templates/shell.pt:373
 #: euphorie/client/browser/templates/webhelpers.pt:62
 msgid "navigation_status"
@@ -5104,12 +5122,12 @@ msgid "no_translate_link_download_section"
 msgstr ""
 
 #. Default: "${text_message_preview_success}: <a href=\"${url}\">${url}</a>."
-#: euphorie/client/browser/publish.py:361
+#: euphorie/client/browser/publish.py:389
 msgid "no_translate_link_preview_success"
 msgstr ""
 
 #. Default: "${text_message_publish_success}: <a href=\"${url}\">${url}</a>."
-#: euphorie/client/browser/publish.py:296
+#: euphorie/client/browser/publish.py:324
 msgid "no_translate_link_published_success"
 msgstr ""
 
@@ -5134,13 +5152,13 @@ msgid "oira_consultation_workers"
 msgstr "Εκ μέρους των εργαζομένων: "
 
 #. Default: "Online Interactive"
-#: euphorie/client/browser/templates/login.pt:253
+#: euphorie/client/browser/templates/login.pt:255
 #: euphorie/client/browser/templates/webhelpers.pt:41
 msgid "oira_name_line_1"
 msgstr "Online διαδραστική"
 
 #. Default: "Risk Assessment"
-#: euphorie/client/browser/templates/login.pt:254
+#: euphorie/client/browser/templates/login.pt:256
 #: euphorie/client/browser/templates/webhelpers.pt:44
 msgid "oira_name_line_2"
 msgstr "Αξιολόγηση κινδύνων"
@@ -5258,7 +5276,7 @@ msgid "probability_small"
 msgstr "Χαμηλή"
 
 #. Default: "${completion_percentage}% Complete"
-#: euphorie/client/browser/webhelpers.py:298
+#: euphorie/client/browser/webhelpers.py:308
 msgid "progress_indicator_title"
 msgstr "${completion_percentage}% πλήρης"
 
@@ -5308,7 +5326,7 @@ msgid "referer_trade_union"
 msgstr "οργάνωση εργαζομένων"
 
 #. Default: "Don't have an account? Then please ${register_link} first."
-#: euphorie/client/browser/templates/login.pt:109
+#: euphorie/client/browser/templates/login.pt:110
 msgid "register_teaser"
 msgstr "Δεν έχετε λογαριασμό; Εάν όχι, απαιτείται πρώτα ${register_link}."
 
@@ -5609,15 +5627,15 @@ msgid "text_add_measures"
 msgstr ""
 
 #. Default: "${link_register} if you would like to use OiRA."
-#: euphorie/client/browser/templates/login.pt:348
+#: euphorie/client/browser/templates/login.pt:350
 msgid "text_create_account"
 msgstr "${link_register} εκτέλεση της κανονικής έκδοσης του εργαλείου OiRA."
 
 #. Default: "${link_test_session} if you only want to taste OiRA."
-#: euphorie/client/browser/templates/login.pt:356
+#: euphorie/client/browser/templates/login.pt:358
 msgid "text_test_session"
 msgstr ""
-"{link_test_session} εκτέλεση της δοκιμαστικής έκδοσης του εργαλείου OiRA"
+"${link_test_session} εκτέλεση της δοκιμαστικής έκδοσης του εργαλείου OiRA"
 
 #. Default: "About"
 #: euphorie/client/browser/templates/about.pt:24
@@ -5691,12 +5709,12 @@ msgid "title_sectors"
 msgstr "Κλάδοι"
 
 #. Default: "Status of &ldquo;${survey_title}&rdquo;"
-#: euphorie/client/browser/templates/status_info.pt:25
+#: euphorie/client/browser/templates/status_info.pt:26
 msgid "title_status_of"
 msgstr "Παρούσα κατάσταση της μελέτης Εκτίμησης Κινδύνου ${survey_title}"
 
 #. Default: "OiRA - Online interactive Risk Assessment"
-#: euphorie/client/browser/country.py:259
+#: euphorie/client/browser/country.py:260
 #: euphorie/client/browser/templates/layout.pt:18
 #: euphorie/client/browser/templates/modal-template.pt:21
 msgid "title_tool"
@@ -5718,7 +5736,7 @@ msgid "title_updated"
 msgstr "Το Εργαλείο OiRA έχει ενημερωθεί"
 
 #. Default: "Status of &ldquo; ${survey_title}&rdquo;"
-#: euphorie/client/browser/templates/status_info.pt:30
+#: euphorie/client/browser/templates/status_info.pt:31
 msgid "title_with_vowel_status_of"
 msgstr "Παρούσα κατάσταση της μελέτης Εκτίμησης Κινδύνου ${survey_title}"
 
@@ -5734,7 +5752,7 @@ msgid "tooltip_menu_toggle"
 msgstr "Εμφάνιση/απόκρυψη μενού"
 
 #. Default: "Start a new test session"
-#: euphorie/client/browser/templates/login.pt:356
+#: euphorie/client/browser/templates/login.pt:358
 msgid "tooltip_start_test_session"
 msgstr ""
 
@@ -5808,7 +5826,7 @@ msgid "use_it_to_risks_report"
 msgstr "Αξιοποιήστε το"
 
 #. Default: "Register"
-#: euphorie/client/browser/templates/login.pt:348
+#: euphorie/client/browser/templates/login.pt:350
 msgid "verb_register"
 msgstr "Εγγραφή"
 
@@ -5848,6 +5866,9 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Ναι"
+
+#~ msgid "Try a test session"
+#~ msgstr "Δοκιμή"
 
 #~ msgid "invalid_email"
 #~ msgstr "Παρακαλώ εισάγετε μια έγκυρη διεύθυνση ηλεκτρονικού ταχυδρομείου."

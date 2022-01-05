@@ -31,7 +31,7 @@ class GuestAccountTests(EuphorieFunctionalTestCase):
         api.portal.set_registry_record("euphorie.allow_guest_accounts", True)
         commit()
         browser.open(self.portal.client.nl.absolute_url())
-        self.assertIn("Try a test session", browser.contents)
+        self.assertIn("Start a test session", browser.contents)
         # No valid survey path is passed in came_from
         browser.open(
             "%s/@@surveys?came_from=%s"
@@ -52,7 +52,7 @@ class GuestAccountTests(EuphorieFunctionalTestCase):
         api.portal.set_registry_record("euphorie.allow_guest_accounts", True)
         commit()
         browser.open(self.portal.client.nl.absolute_url())
-        self.assertIn("Try a test session", browser.contents)
+        self.assertIn("Start a test session", browser.contents)
         url = "{}/ict/software-development".format(self.portal.client.nl.absolute_url())
         # We pass in a valid survey path in came_from
         browser.open("{url}/@@tryout?came_from={url}".format(url=url))

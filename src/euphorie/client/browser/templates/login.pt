@@ -358,8 +358,8 @@
                   <a href="${base_url}/@@surveys?${came_from_param}"
                      title="Start a new test session"
                      i18n:attributes="title tooltip_start_test_session"
-                     i18n:name="link_test_session" i18n:translate=""
-                  >Try a test session</a>
+                     i18n:name="link_test_session" i18n:translate="label_start_test_session"
+                  >Start a test session</a>
                 if you only want to taste OiRA.
                 </li>
                 <li tal:condition="survey_url"
@@ -368,8 +368,8 @@
                   <a href="${base_url}/@@tryout?${came_from_param}#document-content"
                      title="Start a new test session"
                      i18n:attributes="title tooltip_start_test_session"
-                     i18n:name="link_test_session"  i18n:translate=""
-                  >Try a test session</a>
+                     i18n:name="link_test_session"  i18n:translate="label_start_test_session"
+                  >Start a test session</a>
                 if you only want to taste OiRA.
                 </li>
               </ul>
