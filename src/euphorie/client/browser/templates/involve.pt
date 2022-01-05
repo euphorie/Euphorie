@@ -23,7 +23,7 @@
         <metal:call use-macro="webhelpers/macros/toolbar" />
         <article class="pat-rich">
           <h1 i18n:translate="heading_involve_your_coworkers">
-			Involve your coworkers
+			Involve your workers
           </h1>
           <p i18n:translate="message_involve_workers_requirement">
             One of the keys to good OSH leadership is getting workers involved. Employers have a

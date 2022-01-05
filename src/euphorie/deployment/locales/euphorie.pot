@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2022-01-05 10:41+0000\n"
+"POT-Creation-Date: 2022-01-05 10:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2352,7 +2352,7 @@ msgstr ""
 msgid "heading_high_prio_risks"
 msgstr ""
 
-#. Default: "Involve your coworkers"
+#. Default: "Involve your workers"
 #: euphorie/client/browser/templates/involve.pt:25
 msgid "heading_involve_your_coworkers"
 msgstr ""
