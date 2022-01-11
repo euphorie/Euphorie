@@ -4,7 +4,7 @@ Changelog
 13.0.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Internal: re-organised package
 
 
 13.0.4 (2022-01-05)
