@@ -1,7 +1,7 @@
 Changelog
 =========
 
-13.0.5 (unreleased)
+13.0.5 (2022-01-11)
 -------------------
 
 - Internal: re-organised package
