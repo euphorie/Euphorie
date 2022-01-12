@@ -24,11 +24,6 @@
           rel="stylesheet"
           type="text/css"
     />
-    <link href="${portal_url}/++resource++euphorie.resources/redactor.min.css?t=${resources_timestamp}"
-          media="all"
-          rel="stylesheet"
-          type="text/css"
-    />
     <style media="all"
            type="text/css"
     >
@@ -82,7 +77,7 @@
     </p>
     <tal:block replace="tile:actions" />
     <tal:block replace="tile:footer" />
-    <script src="${portal_url}/++resource++euphorie.resources/oira.cms.min.js?t=${resources_timestamp}"></script>
+    <script src="${portal_url}/++resource++NuPlone.bundle/oira.cms.min.js?t=${resources_timestamp}"></script>
     <script type="text/javascript">
       var plone = { portal_url : '${portal_url}',
                     context_url : '${context/absolute_url}' };
