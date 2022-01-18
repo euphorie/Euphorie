@@ -398,6 +398,10 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
     def current_profile(self):
         return extractProfile(self.context.aq_parent, self.session)
 
+    @property
+    def has_location_questions(self):
+        return any([x["use_location_question"] for x in self.profile_questions])
+
     def update(self):
         utils.setLanguage(self.request, self.survey, self.survey.language)
         if not self.profile_questions or self.request.method == "POST":

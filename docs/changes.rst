@@ -4,8 +4,9 @@ Changelog
 13.0.6 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Profile page: if none of the profile questions uses the location question, do
+  not show the intro text that informs about multiple locations
+  Refs #MOI-532
 
 13.0.5 (2022-01-11)
 -------------------
