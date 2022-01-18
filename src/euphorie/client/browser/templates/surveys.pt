@@ -183,7 +183,7 @@
                          tool_lang python: tool.Language().split('-')[0];
                        "
                        tal:condition="tool_lang"
-                    >${python: webhelpers.getNameForLanguageCode(tool_lang)}</a>
+                    >${python: webhelpers.getNameForLanguageCode(tool_lang, native=False)}</a>
 
                   </p>
                   <section class="summary"

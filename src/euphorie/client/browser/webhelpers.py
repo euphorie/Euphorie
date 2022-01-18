@@ -396,11 +396,13 @@ class WebHelpers(BrowserView):
         return lang
 
     @memoize_contextless
-    def getNameForLanguageCode(self, langCode):
+    def getNameForLanguageCode(self, langCode, native=True):
         lang_util = getUtility(ILanguageUtility)
         info = lang_util.getAvailableLanguageInformation().get(langCode, None)
         if info is not None:
-            return info.get("native", info.get("name", None))
+            if native:
+                return info.get("native", info.get("name", None))
+            return info.get("name", None)
         return None
 
     @memoize
