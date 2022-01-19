@@ -1,7 +1,7 @@
 Changelog
 =========
 
-13.0.6 (unreleased)
+13.0.6 (2022-01-19)
 -------------------
 
 - Profile page: if none of the profile questions uses the location question, do
