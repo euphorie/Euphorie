@@ -402,7 +402,12 @@ class WebHelpers(BrowserView):
         if info is not None:
             if native:
                 return info.get("native", info.get("name", None))
-            return info.get("name", None)
+            lang_names = self.request.locale.displayNames.languages
+            name = lang_names.get(langCode, langCode)
+            # Better show the (English) full name than only the language code
+            if name == langCode:
+                name = info.get("name")
+            return name.capitalize()
         return None
 
     @memoize
