@@ -1,7 +1,7 @@
 Changelog
 =========
 
-13.0.7 (unreleased)
+13.0.7 (2022-01-19)
 -------------------
 
 - Fix display of language name on tools page
