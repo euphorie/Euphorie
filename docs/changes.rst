@@ -7,6 +7,9 @@ Changelog
 - Profile page: if none of the profile questions uses the location question, do
   not show the intro text that informs about multiple locations
   Refs #MOI-532
+- On the OiRA tools page, show the language of each individual tool translated
+  to the currently active language
+  Refs #MOI-529
 
 13.0.5 (2022-01-11)
 -------------------
