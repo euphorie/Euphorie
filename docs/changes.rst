@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-12.0.17 (unreleased)
+12.0.17 (2022-01-28)
 --------------------
 
 - Prevent execution of malicious code entered as custom measure or training notes.
