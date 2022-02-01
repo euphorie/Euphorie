@@ -4,7 +4,8 @@ Changelog
 13.0.8 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix data import (see #348)
+  [ale-rt]
 
 
 13.0.7 (2022-01-19)

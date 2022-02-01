@@ -384,11 +384,15 @@ class SurveyImporter(object):
         enablde DOM.
         """
         if isinstance(input, six.string_types + (bytes,)):
-            parser = lxml.etree.XMLParser(huge_tree=True)
-            sector_tree = lxml.objectify.parse(
-                BytesIO(safe_bytes(input)), parser=parser
-            )
-            sector = lxml.objectify.fromstring(lxml.etree.tostring(sector_tree))
+            try:
+                sector = lxml.objectify.fromstring(safe_bytes(input))
+            except Exception:
+                # It might be that the file is huge, let's try a different approach
+                parser = lxml.etree.XMLParser(huge_tree=True)
+                sector_tree = lxml.objectify.parse(
+                    BytesIO(safe_bytes(input)), parser=parser
+                )
+                sector = lxml.objectify.fromstring(lxml.etree.tostring(sector_tree))
         else:
             sector = input
 
