@@ -6,6 +6,8 @@ Changelog
 
 - Fix data import (see #348)
   [ale-rt]
+- Translation fixes (MOI-534, MOI-535)
+- Make XML upload more forgiving towards mistakes (MOI-533)
 
 
 13.0.7 (2022-01-19)
