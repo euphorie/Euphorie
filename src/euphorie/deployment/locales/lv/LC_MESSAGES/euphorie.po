@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-05 10:44+0000\n"
+"POT-Creation-Date: 2022-02-08 14:12+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -137,7 +137,7 @@ msgstr "Pievienot: Risks"
 msgid "Add Submodule"
 msgstr "Pievienot: Apakšmodulis"
 
-#: euphorie/client/browser/templates/profile.pt:175
+#: euphorie/client/browser/templates/profile.pt:177
 #: euphorie/client/browser/templates/updated.pt:170
 msgid "Add another item"
 msgstr "Pievienot vēl vienu struktūrvienību"
@@ -462,7 +462,7 @@ msgstr ""
 "brīdī, un atgriezties jebkurā laikā, lai turpinātu procesu no vietas, kurā "
 "apstājāties iepriekšējā reizē."
 
-#: euphorie/client/browser/webhelpers.py:880
+#: euphorie/client/browser/webhelpers.py:887
 msgid "I wish to share the following with you"
 msgstr "Es vēlos dalīties ar Jums šādos jaunumos"
 
@@ -470,7 +470,7 @@ msgstr "Es vēlos dalīties ar Jums šādos jaunumos"
 msgid "Identifier"
 msgstr "Identifikators"
 
-#: euphorie/content/browser/upload.py:457
+#: euphorie/content/browser/upload.py:461
 msgid "Import OiRA Tool version"
 msgstr ""
 
@@ -599,7 +599,7 @@ msgstr "Vārds"
 msgid "New"
 msgstr "Jauna"
 
-#: euphorie/client/browser/templates/profile.pt:71
+#: euphorie/client/browser/templates/profile.pt:73
 #: euphorie/client/browser/templates/updated.pt:67
 #: euphorie/content/browser/templates/survey_view.pt:42
 msgid "No"
@@ -669,7 +669,7 @@ msgstr ""
 "interactive Risk Assessment). Tas ir tīmekļa rīks, kas ļauj veikt darba "
 "vides riska novērtēšanu Jūsu darbavietā. "
 
-#: euphorie/client/browser/session.py:1059
+#: euphorie/client/browser/session.py:1063
 #: euphorie/client/browser/templates/measures_overview.pt:63
 #: euphorie/client/browser/templates/report_landing.pt:129
 msgid "Overview of measures"
@@ -679,7 +679,7 @@ msgstr "Pārskats par veicamajiem pasākumiem"
 msgid "Overview of measures (PDF)"
 msgstr ""
 
-#: euphorie/client/browser/session.py:1049
+#: euphorie/client/browser/session.py:1053
 #: euphorie/client/browser/templates/report_landing.pt:101
 #: euphorie/client/browser/templates/risks_overview.pt:156
 msgid "Overview of risks"
@@ -813,7 +813,7 @@ msgstr ""
 "Pēc reģistrēšanās varēsiet ielogoties jebkurā laikā, lai turpinātu iepriekš "
 "uzsāktos novērtējumus vai veiktu jaunus."
 
-#: euphorie/client/browser/templates/profile.pt:120
+#: euphorie/client/browser/templates/profile.pt:122
 #: euphorie/client/browser/templates/risk_identification_custom.pt:233
 #: euphorie/client/browser/templates/updated.pt:117
 msgid "Remove"
@@ -878,11 +878,11 @@ msgstr ""
 msgid "Sector"
 msgstr "Sektors"
 
-#: euphorie/client/browser/session.py:670
+#: euphorie/client/browser/session.py:674
 msgid "Session `${name}` has been archived."
 msgstr ""
 
-#: euphorie/client/browser/session.py:616
+#: euphorie/client/browser/session.py:620
 msgid "Session `${name}` has been deleted."
 msgstr "Sesija `  ${name}` ir dzēsta."
 
@@ -981,7 +981,7 @@ msgid ""
 "phones and PDAs."
 msgstr ""
 
-#: euphorie/client/browser/session.py:754
+#: euphorie/client/browser/session.py:758
 msgid "The risk assessment has been cloned"
 msgstr "Riska novērtējums ir klonēts."
 
@@ -993,7 +993,7 @@ msgstr "Norādītā krāsa nav derīga."
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "Novērtēšanas procesā ietilpst četri galvenie posmi:"
 
-#: euphorie/client/browser/session.py:593
+#: euphorie/client/browser/session.py:597
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
@@ -1074,7 +1074,7 @@ msgstr ""
 msgid "Unvisited"
 msgstr "Neatbildēts"
 
-#: euphorie/content/browser/upload.py:461
+#: euphorie/content/browser/upload.py:465
 msgid "Upload"
 msgstr "Augšupielādēt"
 
@@ -1114,7 +1114,7 @@ msgstr "Kam paredzēts OiRA rīks? "
 msgid "Why do I have to register?"
 msgstr "Kāpēc man jāreģistrējas? "
 
-#: euphorie/client/browser/templates/profile.pt:63
+#: euphorie/client/browser/templates/profile.pt:65
 #: euphorie/client/browser/templates/updated.pt:59
 #: euphorie/content/browser/templates/survey_view.pt:39
 msgid "Yes"
@@ -1462,7 +1462,7 @@ msgstr "Atcelt"
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:158
 #: euphorie/client/browser/templates/surveys.pt:49
-#: euphorie/client/browser/webhelpers.py:877
+#: euphorie/client/browser/webhelpers.py:884
 msgid "button_close"
 msgstr "Aizvērt"
 
@@ -2015,7 +2015,7 @@ msgid "error_invalid_login"
 msgstr "Pieteikumvārdā drīkst būt vienīgi mazie burti un cipari."
 
 #. Default: "Please upload a valid XML file"
-#: euphorie/content/browser/upload.py:472
+#: euphorie/content/browser/upload.py:476
 msgid "error_invalid_xml"
 msgstr "Lūdzu, augšupielādējiet derīgu XML failu."
 
@@ -2058,22 +2058,22 @@ msgid "error_validation_before_end_date"
 msgstr "Šim datumam ir jābūt beigu datumam vai pirms tā."
 
 #. Default: "This value must be a valid date"
-#: euphorie/client/browser/webhelpers.py:1101
+#: euphorie/client/browser/webhelpers.py:1108
 msgid "error_validation_date"
 msgstr ""
 
 #. Default: "This value must be a valid date and time"
-#: euphorie/client/browser/webhelpers.py:1105
+#: euphorie/client/browser/webhelpers.py:1112
 msgid "error_validation_datetime"
 msgstr ""
 
 #. Default: "This value must be a valid email address"
-#: euphorie/client/browser/webhelpers.py:1112
+#: euphorie/client/browser/webhelpers.py:1119
 msgid "error_validation_email"
 msgstr ""
 
 #. Default: "This value must be a number"
-#: euphorie/client/browser/webhelpers.py:1119
+#: euphorie/client/browser/webhelpers.py:1126
 msgid "error_validation_number"
 msgstr ""
 
@@ -2199,7 +2199,7 @@ msgstr ""
 "sesija” jūsu izvēlētajā rīkā. Testa sesijā jūs nevarat saglabāt savu darbu. "
 "Ja ${label_link_register}, viss paveiktais pazudīs."
 
-#: euphorie/client/browser/session.py:456
+#: euphorie/client/browser/session.py:460
 msgid "extra_text_identification"
 msgstr ""
 
@@ -3665,7 +3665,7 @@ msgstr "Esoša / publicēta"
 
 #. Default: "Custom risks"
 #: euphorie/client/browser/publish.py:138
-#: euphorie/client/browser/session.py:465
+#: euphorie/client/browser/session.py:469
 #: euphorie/client/browser/templates/module_identification_custom.pt:26
 msgid "label_custom_risks"
 msgstr "Pielāgot riskus"
@@ -4317,7 +4317,7 @@ msgid "label_save_and_add_new"
 msgstr "Saglabāt un pievienot citu risku"
 
 #. Default: "Save and continue"
-#: euphorie/client/browser/templates/profile.pt:186
+#: euphorie/client/browser/templates/profile.pt:188
 #: euphorie/client/browser/templates/report.pt:55
 #: euphorie/client/browser/templates/report_company.pt:265
 msgid "label_save_and_continue"
@@ -4629,7 +4629,7 @@ msgid "link_sign_in"
 msgstr "Pieteikšanās"
 
 #. Default: "Start a new risk assessment"
-#: euphorie/client/browser/country.py:565
+#: euphorie/client/browser/country.py:564
 #: euphorie/client/browser/templates/assessments.pt:28
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64
 msgid "link_start_session"
@@ -4731,7 +4731,7 @@ msgid "message_delete_no_last_survey"
 msgstr "Jūs nevarat izdzēst vienīgo OiRA rīka versiju."
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/webhelpers.py:1123
+#: euphorie/client/browser/webhelpers.py:1130
 msgid "message_field_required"
 msgstr "Lūdzu, aizpildiet šo lauku."
 
@@ -5038,7 +5038,7 @@ msgid "portlet_header_versions"
 msgstr "Versijas"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:699
+#: euphorie/client/browser/session.py:703
 msgid "prefix_cloned_title"
 msgstr ""
 
@@ -5580,7 +5580,7 @@ msgid "unpublish_confirm"
 msgstr "Vai tiešām vēlaties atsaukt šī OiRA rīka publikāciju?"
 
 #. Default: "Succesfully imported the OiRA Tool"
-#: euphorie/content/browser/upload.py:477
+#: euphorie/content/browser/upload.py:481
 msgid "upload_success"
 msgstr "OiRA rīka importēšana bija veiksmīga."
 

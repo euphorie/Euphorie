@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-05 10:44+0000\n"
+"POT-Creation-Date: 2022-02-08 14:12+0000\n"
 "PO-Revision-Date: 2013-12-18 10:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -143,7 +143,7 @@ msgstr "Żid Riskju"
 msgid "Add Submodule"
 msgstr "Żid Modulu sekondarju"
 
-#: euphorie/client/browser/templates/profile.pt:175
+#: euphorie/client/browser/templates/profile.pt:177
 #: euphorie/client/browser/templates/updated.pt:170
 msgid "Add another item"
 msgstr "Żid oġġett ieħor"
@@ -473,7 +473,7 @@ msgstr ""
 "tiegħek fuq valutazzjoni, u mbagħad tista' tmur lura għaliha meta jkun komdu "
 "għalik u terġa' taqbadha minn fejn ħallejtha."
 
-#: euphorie/client/browser/webhelpers.py:880
+#: euphorie/client/browser/webhelpers.py:887
 msgid "I wish to share the following with you"
 msgstr "Nixtieq naqsam dan miegħek"
 
@@ -481,7 +481,7 @@ msgstr "Nixtieq naqsam dan miegħek"
 msgid "Identifier"
 msgstr "Identifikatur"
 
-#: euphorie/content/browser/upload.py:457
+#: euphorie/content/browser/upload.py:461
 msgid "Import OiRA Tool version"
 msgstr ""
 
@@ -611,7 +611,7 @@ msgstr "Isem"
 msgid "New"
 msgstr "Ġdida"
 
-#: euphorie/client/browser/templates/profile.pt:71
+#: euphorie/client/browser/templates/profile.pt:73
 #: euphorie/client/browser/templates/updated.pt:67
 #: euphorie/content/browser/templates/survey_view.pt:42
 msgid "No"
@@ -683,7 +683,7 @@ msgstr ""
 "fuq l-internet li tippermettilek twettaq valutazzjoni tar-riskji tas-saħħa u "
 "tas-sigurtà tal-post tax-xogħol tiegħek."
 
-#: euphorie/client/browser/session.py:1059
+#: euphorie/client/browser/session.py:1063
 #: euphorie/client/browser/templates/measures_overview.pt:63
 #: euphorie/client/browser/templates/report_landing.pt:129
 msgid "Overview of measures"
@@ -693,7 +693,7 @@ msgstr "Ħarsa ġenerali tal-miżuri."
 msgid "Overview of measures (PDF)"
 msgstr ""
 
-#: euphorie/client/browser/session.py:1049
+#: euphorie/client/browser/session.py:1053
 #: euphorie/client/browser/templates/report_landing.pt:101
 #: euphorie/client/browser/templates/risks_overview.pt:156
 msgid "Overview of risks"
@@ -825,7 +825,7 @@ msgstr ""
 "Meta tirreġistra tkun tista' sempliċement tilloggja fi kwalunkwe ħin biex "
 "tkompli valutazzjonijiet preċedenti jew biex tibda oħrajn ġodda."
 
-#: euphorie/client/browser/templates/profile.pt:120
+#: euphorie/client/browser/templates/profile.pt:122
 #: euphorie/client/browser/templates/risk_identification_custom.pt:233
 #: euphorie/client/browser/templates/updated.pt:117
 msgid "Remove"
@@ -890,11 +890,11 @@ msgstr ""
 msgid "Sector"
 msgstr "Settur"
 
-#: euphorie/client/browser/session.py:670
+#: euphorie/client/browser/session.py:674
 msgid "Session `${name}` has been archived."
 msgstr ""
 
-#: euphorie/client/browser/session.py:616
+#: euphorie/client/browser/session.py:620
 msgid "Session `${name}` has been deleted."
 msgstr "Sessjoni \"${name}\" tħassret."
 
@@ -997,7 +997,7 @@ msgid ""
 "phones and PDAs."
 msgstr ""
 
-#: euphorie/client/browser/session.py:754
+#: euphorie/client/browser/session.py:758
 msgid "The risk assessment has been cloned"
 msgstr "Il-valutazzjoni tar-riskju ġiet ikklonata."
 
@@ -1009,7 +1009,7 @@ msgstr "Il-kulur speċifikat mhuwiex validu."
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "Hemm erba' stadji ewlenin xi tlesti fil-proċess tal-valutazzjoni:"
 
-#: euphorie/client/browser/session.py:593
+#: euphorie/client/browser/session.py:597
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
@@ -1091,7 +1091,7 @@ msgstr ""
 msgid "Unvisited"
 msgstr "Ma saritx żjara"
 
-#: euphorie/content/browser/upload.py:461
+#: euphorie/content/browser/upload.py:465
 msgid "Upload"
 msgstr "Tella'"
 
@@ -1134,7 +1134,7 @@ msgstr "Għal minn tfasslet l-għodda tal-OiRA?"
 msgid "Why do I have to register?"
 msgstr "Għaliex għandi nirreġistra?"
 
-#: euphorie/client/browser/templates/profile.pt:63
+#: euphorie/client/browser/templates/profile.pt:65
 #: euphorie/client/browser/templates/updated.pt:59
 #: euphorie/content/browser/templates/survey_view.pt:39
 msgid "Yes"
@@ -1493,7 +1493,7 @@ msgstr "Ikkanċella"
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:158
 #: euphorie/client/browser/templates/surveys.pt:49
-#: euphorie/client/browser/webhelpers.py:877
+#: euphorie/client/browser/webhelpers.py:884
 msgid "button_close"
 msgstr "Agħlaq"
 
@@ -2055,7 +2055,7 @@ msgstr ""
 "Isem tal-login jista' jkun magħmul biss minn ittri u numri mhux kapitali."
 
 #. Default: "Please upload a valid XML file"
-#: euphorie/content/browser/upload.py:472
+#: euphorie/content/browser/upload.py:476
 msgid "error_invalid_xml"
 msgstr "Tella' fajl XML validu"
 
@@ -2098,22 +2098,22 @@ msgid "error_validation_before_end_date"
 msgstr "Din id-data għandha tkun fid-data ta' tmiem jew qabilha."
 
 #. Default: "This value must be a valid date"
-#: euphorie/client/browser/webhelpers.py:1101
+#: euphorie/client/browser/webhelpers.py:1108
 msgid "error_validation_date"
 msgstr ""
 
 #. Default: "This value must be a valid date and time"
-#: euphorie/client/browser/webhelpers.py:1105
+#: euphorie/client/browser/webhelpers.py:1112
 msgid "error_validation_datetime"
 msgstr ""
 
 #. Default: "This value must be a valid email address"
-#: euphorie/client/browser/webhelpers.py:1112
+#: euphorie/client/browser/webhelpers.py:1119
 msgid "error_validation_email"
 msgstr ""
 
 #. Default: "This value must be a number"
-#: euphorie/client/browser/webhelpers.py:1119
+#: euphorie/client/browser/webhelpers.py:1126
 msgid "error_validation_number"
 msgstr ""
 
@@ -2241,7 +2241,7 @@ msgstr ""
 "F’sessjoni tat-test ma tistax tissejvja x-xogħol tiegħek. Il-progress kollu "
 "jintilef sakemm ma ${label_link_register}."
 
-#: euphorie/client/browser/session.py:456
+#: euphorie/client/browser/session.py:460
 msgid "extra_text_identification"
 msgstr ""
 
@@ -3720,7 +3720,7 @@ msgstr "Attwali / Ippubblikata"
 
 #. Default: "Custom risks"
 #: euphorie/client/browser/publish.py:138
-#: euphorie/client/browser/session.py:465
+#: euphorie/client/browser/session.py:469
 #: euphorie/client/browser/templates/module_identification_custom.pt:26
 msgid "label_custom_risks"
 msgstr "Riskji personalizzati"
@@ -4374,7 +4374,7 @@ msgid "label_save_and_add_new"
 msgstr "Issejvja u żid riskju ieħor"
 
 #. Default: "Save and continue"
-#: euphorie/client/browser/templates/profile.pt:186
+#: euphorie/client/browser/templates/profile.pt:188
 #: euphorie/client/browser/templates/report.pt:55
 #: euphorie/client/browser/templates/report_company.pt:265
 msgid "label_save_and_continue"
@@ -4686,7 +4686,7 @@ msgid "link_sign_in"
 msgstr "Login"
 
 #. Default: "Start a new risk assessment"
-#: euphorie/client/browser/country.py:565
+#: euphorie/client/browser/country.py:564
 #: euphorie/client/browser/templates/assessments.pt:28
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64
 msgid "link_start_session"
@@ -4788,7 +4788,7 @@ msgstr ""
 "titħassar. Forsi ridt tneħħi l-Għodda tal-OiRA nnifisha?"
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/webhelpers.py:1123
+#: euphorie/client/browser/webhelpers.py:1130
 msgid "message_field_required"
 msgstr "Jekk jogħġbok imla din il-parti."
 
@@ -5096,7 +5096,7 @@ msgid "portlet_header_versions"
 msgstr "Verżjonijiet"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:699
+#: euphorie/client/browser/session.py:703
 msgid "prefix_cloned_title"
 msgstr ""
 
@@ -5646,7 +5646,7 @@ msgid "unpublish_confirm"
 msgstr "Żġur li tixtieq tneħħi din l-Għodda tal-OiRA mill-pubblikazzjoni?"
 
 #. Default: "Succesfully imported the OiRA Tool"
-#: euphorie/content/browser/upload.py:477
+#: euphorie/content/browser/upload.py:481
 msgid "upload_success"
 msgstr "L-Għodda tal-OiRA ġiet importata"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-05 10:44+0000\n"
+"POT-Creation-Date: 2022-02-08 14:12+0000\n"
 "PO-Revision-Date: 2013-10-23 10:03+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -138,7 +138,7 @@ msgstr "Dodaj Tveganje"
 msgid "Add Submodule"
 msgstr "Dodaj Podmodul"
 
-#: euphorie/client/browser/templates/profile.pt:175
+#: euphorie/client/browser/templates/profile.pt:177
 #: euphorie/client/browser/templates/updated.pt:170
 msgid "Add another item"
 msgstr "Dodaj vprašanje"
@@ -472,7 +472,7 @@ msgstr ""
 "Vendar pa si lahko za oceno vzamete toliko časa kot ga imate na voljo in se "
 "kasneje vrnete in nadaljujete, kjer ste prekinili."
 
-#: euphorie/client/browser/webhelpers.py:880
+#: euphorie/client/browser/webhelpers.py:887
 msgid "I wish to share the following with you"
 msgstr "Z vami želim deliti naslednje"
 
@@ -480,7 +480,7 @@ msgstr "Z vami želim deliti naslednje"
 msgid "Identifier"
 msgstr "Identifikator"
 
-#: euphorie/content/browser/upload.py:457
+#: euphorie/content/browser/upload.py:461
 msgid "Import OiRA Tool version"
 msgstr ""
 
@@ -609,7 +609,7 @@ msgstr "Ime"
 msgid "New"
 msgstr "Novo"
 
-#: euphorie/client/browser/templates/profile.pt:71
+#: euphorie/client/browser/templates/profile.pt:73
 #: euphorie/client/browser/templates/updated.pt:67
 #: euphorie/content/browser/templates/survey_view.pt:42
 msgid "No"
@@ -681,7 +681,7 @@ msgstr ""
 "interaktivno orodje, ki vam omogoča ocenjevanje tveganj na področju varnosti "
 "in zdravja v vašem delovnem okolju."
 
-#: euphorie/client/browser/session.py:1059
+#: euphorie/client/browser/session.py:1063
 #: euphorie/client/browser/templates/measures_overview.pt:63
 #: euphorie/client/browser/templates/report_landing.pt:129
 msgid "Overview of measures"
@@ -691,7 +691,7 @@ msgstr "Pregled ukrepov"
 msgid "Overview of measures (PDF)"
 msgstr ""
 
-#: euphorie/client/browser/session.py:1049
+#: euphorie/client/browser/session.py:1053
 #: euphorie/client/browser/templates/report_landing.pt:101
 #: euphorie/client/browser/templates/risks_overview.pt:156
 msgid "Overview of risks"
@@ -822,7 +822,7 @@ msgstr ""
 "Registracija vam omogoča enostavno prijavo kadar koli, da lahko nadaljujete "
 "s prejšnjo oceno ali začnete novo."
 
-#: euphorie/client/browser/templates/profile.pt:120
+#: euphorie/client/browser/templates/profile.pt:122
 #: euphorie/client/browser/templates/risk_identification_custom.pt:233
 #: euphorie/client/browser/templates/updated.pt:117
 msgid "Remove"
@@ -887,11 +887,11 @@ msgstr ""
 msgid "Sector"
 msgstr "Sektor"
 
-#: euphorie/client/browser/session.py:670
+#: euphorie/client/browser/session.py:674
 msgid "Session `${name}` has been archived."
 msgstr ""
 
-#: euphorie/client/browser/session.py:616
+#: euphorie/client/browser/session.py:620
 msgid "Session `${name}` has been deleted."
 msgstr "Seja `${name}` je bila izbrisana."
 
@@ -990,7 +990,7 @@ msgid ""
 "phones and PDAs."
 msgstr ""
 
-#: euphorie/client/browser/session.py:754
+#: euphorie/client/browser/session.py:758
 msgid "The risk assessment has been cloned"
 msgstr "Ocena tveganja je bila kopirana."
 
@@ -1002,7 +1002,7 @@ msgstr "Specificirana barva ni veljavna."
 msgid "There are four main stages to complete in the assessment process:"
 msgstr "Ocenjevalni postopek ima štiri glavne faze:"
 
-#: euphorie/client/browser/session.py:593
+#: euphorie/client/browser/session.py:597
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
@@ -1081,7 +1081,7 @@ msgstr ""
 msgid "Unvisited"
 msgstr "Neodgovorjeno"
 
-#: euphorie/content/browser/upload.py:461
+#: euphorie/content/browser/upload.py:465
 msgid "Upload"
 msgstr "Naloži"
 
@@ -1121,7 +1121,7 @@ msgstr "Komu je orodje OiRA namenjeno?"
 msgid "Why do I have to register?"
 msgstr "Zakaj se moram registrirati?"
 
-#: euphorie/client/browser/templates/profile.pt:63
+#: euphorie/client/browser/templates/profile.pt:65
 #: euphorie/client/browser/templates/updated.pt:59
 #: euphorie/content/browser/templates/survey_view.pt:39
 msgid "Yes"
@@ -1460,7 +1460,7 @@ msgstr "Prekliči"
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:158
 #: euphorie/client/browser/templates/surveys.pt:49
-#: euphorie/client/browser/webhelpers.py:877
+#: euphorie/client/browser/webhelpers.py:884
 msgid "button_close"
 msgstr "Zapri"
 
@@ -2005,7 +2005,7 @@ msgid "error_invalid_login"
 msgstr "Uporabniško ime je lahko sestavljeno samo iz majhnih črk in številk."
 
 #. Default: "Please upload a valid XML file"
-#: euphorie/content/browser/upload.py:472
+#: euphorie/content/browser/upload.py:476
 msgid "error_invalid_xml"
 msgstr "Naložite veljavno datoteko XML"
 
@@ -2051,22 +2051,22 @@ msgstr ""
 "njega."
 
 #. Default: "This value must be a valid date"
-#: euphorie/client/browser/webhelpers.py:1101
+#: euphorie/client/browser/webhelpers.py:1108
 msgid "error_validation_date"
 msgstr ""
 
 #. Default: "This value must be a valid date and time"
-#: euphorie/client/browser/webhelpers.py:1105
+#: euphorie/client/browser/webhelpers.py:1112
 msgid "error_validation_datetime"
 msgstr ""
 
 #. Default: "This value must be a valid email address"
-#: euphorie/client/browser/webhelpers.py:1112
+#: euphorie/client/browser/webhelpers.py:1119
 msgid "error_validation_email"
 msgstr ""
 
 #. Default: "This value must be a number"
-#: euphorie/client/browser/webhelpers.py:1119
+#: euphorie/client/browser/webhelpers.py:1126
 msgid "error_validation_number"
 msgstr ""
 
@@ -2193,7 +2193,7 @@ msgstr ""
 "shraniti svojega dela. Če se ne ${label_link_register}, bo ves napredek "
 "izgubljen."
 
-#: euphorie/client/browser/session.py:456
+#: euphorie/client/browser/session.py:460
 msgid "extra_text_identification"
 msgstr ""
 
@@ -3643,7 +3643,7 @@ msgstr "Trenutna/objavljena"
 
 #. Default: "Custom risks"
 #: euphorie/client/browser/publish.py:138
-#: euphorie/client/browser/session.py:465
+#: euphorie/client/browser/session.py:469
 #: euphorie/client/browser/templates/module_identification_custom.pt:26
 msgid "label_custom_risks"
 msgstr "Vaša dodana tveganja"
@@ -4297,7 +4297,7 @@ msgid "label_save_and_add_new"
 msgstr "Shrani in dodaj drugo tveganje"
 
 #. Default: "Save and continue"
-#: euphorie/client/browser/templates/profile.pt:186
+#: euphorie/client/browser/templates/profile.pt:188
 #: euphorie/client/browser/templates/report.pt:55
 #: euphorie/client/browser/templates/report_company.pt:265
 msgid "label_save_and_continue"
@@ -4609,7 +4609,7 @@ msgid "link_sign_in"
 msgstr "Prijava"
 
 #. Default: "Start a new risk assessment"
-#: euphorie/client/browser/country.py:565
+#: euphorie/client/browser/country.py:564
 #: euphorie/client/browser/templates/assessments.pt:28
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64
 msgid "link_start_session"
@@ -4711,7 +4711,7 @@ msgid "message_delete_no_last_survey"
 msgstr "Ne morete izbrisati samo različice orodja OiRA."
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/webhelpers.py:1123
+#: euphorie/client/browser/webhelpers.py:1130
 msgid "message_field_required"
 msgstr "Prosimo, izpolnite polje."
 
@@ -5017,7 +5017,7 @@ msgid "portlet_header_versions"
 msgstr "Različice"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:699
+#: euphorie/client/browser/session.py:703
 msgid "prefix_cloned_title"
 msgstr ""
 
@@ -5559,7 +5559,7 @@ msgid "unpublish_confirm"
 msgstr "Ste prepričani, da želite preklicati objavo tega orodja OiRA?"
 
 #. Default: "Succesfully imported the OiRA Tool"
-#: euphorie/content/browser/upload.py:477
+#: euphorie/content/browser/upload.py:481
 msgid "upload_success"
 msgstr "Uspešno uvoženo orodje OiRA"
 
