@@ -226,7 +226,7 @@ class SurveyImporter(object):
         )
         EnsureInterface(risk)
         risk.type = node.get("type")
-        risk.description = six.text_type(node.description)
+        risk.description = six.text_type(getattr(node, "description", ""))
         risk.problem_description = el_unicode(node, "problem-description")
         risk.legal_reference = el_unicode(node, "legal-reference")
         risk.show_notapplicable = el_bool(node, "show-not-applicable")
