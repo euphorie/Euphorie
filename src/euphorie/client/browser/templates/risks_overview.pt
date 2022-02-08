@@ -331,7 +331,12 @@ ul.title {margin-bottom:3em;}
                     >
                       <strong class="number">${num_todo}</strong>
                       <em class="label"
-                          i18n:translate=""
+                          tal:condition="python:num_todo<=1"
+                          i18n:translate="label_unvisited_singular"
+                      >Unvisited</em>
+                      <em class="label"
+                          tal:condition="python:num_todo>1"
+                          i18n:translate="label_unvisited_plural"
                       >Unvisited</em>
                     </li>
                   </ul>
