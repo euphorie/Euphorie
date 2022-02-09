@@ -1,7 +1,7 @@
 Changelog
 =========
 
-13.0.8 (unreleased)
+13.0.8 (2022-02-09)
 -------------------
 
 - Fix data import (see #348)
