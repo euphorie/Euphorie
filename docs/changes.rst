@@ -5,7 +5,7 @@ Changelog
 12.0.18 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- upgrade plone to 5.2.7
 
 
 12.0.17 (2022-01-28)
