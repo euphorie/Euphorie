@@ -3289,7 +3289,7 @@ msgstr "Galvenās priekšrocības, ja izveidosiet savu kontu"
 msgid "info_screen_help"
 msgstr ""
 "Jūs varat jebkurā laikā ieslēgt vai izslēgt šo uz ekrāna esošo palīdzības "
-"funkciju, noklikšķinot uz ${questionmark} augšā rīkjoslas labajā pusē."
+"funkciju, noklikšķinot uz “Ieslēdziet ekrāna palīdzību” augšā rīkjoslas labajā pusē."
 
 #. Default: "Select an earlier session to complete or review or ${start_session}."
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64

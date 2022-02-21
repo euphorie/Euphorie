@@ -3395,7 +3395,7 @@ msgstr "Principaux avantages liés à la possession d'un compte:"
 msgid "info_screen_help"
 msgstr ""
 "Vous pouvez activer ou désactiver cette fonction à tout moment en cliquant "
-"sur le ${questionmark} en haut à droite de la barre d'outil."
+"sur “Afficher les options d’aide” en haut à droite de la barre d'outil."
 
 #. Default: "Select an earlier session to complete or review or ${start_session}."
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64

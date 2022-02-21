@@ -3332,7 +3332,7 @@ msgstr "Principales beneficios de tener una cuenta:"
 msgid "info_screen_help"
 msgstr ""
 "Puede activar o desactivar la función de ayuda en pantalla en cualquier "
-"momento haciendo clic en ${questionmark} en la parte superior derecha de la "
+"momento haciendo clic en “Activar la pantalla de ayuda” en la parte superior derecha de la "
 "barra de herramientas."
 
 #. Default: "Select an earlier session to complete or review or ${start_session}."

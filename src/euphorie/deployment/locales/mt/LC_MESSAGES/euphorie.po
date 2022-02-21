@@ -3337,7 +3337,7 @@ msgstr "Il-benefiċċji ewlenin meta jkollok kont:"
 msgid "info_screen_help"
 msgstr ""
 "Dan tista' tattivah jew titfih mill-funzjoni tal-għajnuna fuq l-iskrin billi "
-"tikklikkja fuq il-${questionmark} min-naħa tal-lemin ta' fuq tat-toolbar."
+"tikklikkja fuq “Agħfas fuq screen help” min-naħa tal-lemin ta' fuq tat-toolbar."
 
 #. Default: "Select an earlier session to complete or review or ${start_session}."
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64

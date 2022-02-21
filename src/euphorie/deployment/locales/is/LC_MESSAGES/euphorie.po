@@ -3245,7 +3245,7 @@ msgstr "Helstu kostir þess að stofna aðgang:"
 msgid "info_screen_help"
 msgstr ""
 "Þú getur kveikt eða slökkt á þessum hjálpareiginleika hvenær sem er með því "
-"að smella á ${questionmark} efst í hægra horni verkfærastikunnar."
+"að smella á “Virkja aðstoð á skjá” efst í hægra horni verkfærastikunnar."
 
 #. Default: "Select an earlier session to complete or review or ${start_session}."
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64

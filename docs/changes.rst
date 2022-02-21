@@ -5,6 +5,7 @@ Changelog
 -------------------
 
 - upgrade plone to 5.2.7
+- MOI-510, Adjust translations in on-screen Help
 
 
 13.0.8 (2022-02-09)

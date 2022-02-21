@@ -3310,7 +3310,7 @@ msgstr "Glavne pogodnosti kada imate račun:"
 msgid "info_screen_help"
 msgstr ""
 "Ovu značajku pomoći na zaslonu možete uključiti ili isključiti u bilo kojem "
-"trenutku klikom na $ {questionmark} u gornjem desnom dijelu alatne trake."
+"trenutku klikom na “Uključi pomoć na zaslonu” u gornjem desnom dijelu alatne trake."
 
 #. Default: "Select an earlier session to complete or review or ${start_session}."
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64

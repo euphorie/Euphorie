@@ -3278,7 +3278,7 @@ msgid "info_screen_help"
 msgstr ""
 "Šią ekrane matomą funkciją galite bet kuriuo metu įjungti arba išjungti "
 "spustelėję įrankių juostos viršutinėje dešinėje pusėje esančią piktogramą "
-"${questionmark}."
+"“Įjungti/išjungti paaiškinimus ekrane”."
 
 #. Default: "Select an earlier session to complete or review or ${start_session}."
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64

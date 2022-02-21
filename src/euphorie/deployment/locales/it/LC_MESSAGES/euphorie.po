@@ -3340,7 +3340,7 @@ msgstr "Vantaggi del possesso di un account:"
 msgid "info_screen_help"
 msgstr ""
 "È possibile attivare o disattivare questa funzione di aiuto a schermo in "
-"qualsiasi momento, facendo clic su ${questionmark} in alto a destra nella "
+"qualsiasi momento, facendo clic su “Attiva la schermata di aiuto” in alto a destra nella "
 "barra degli strumenti."
 
 #. Default: "Select an earlier session to complete or review or ${start_session}."

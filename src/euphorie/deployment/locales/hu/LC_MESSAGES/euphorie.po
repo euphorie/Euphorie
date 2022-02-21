@@ -3391,7 +3391,7 @@ msgstr "A regisztráció főbb előnyei:"
 #: euphorie/client/browser/templates/tooltips.pt:61
 msgid "info_screen_help"
 msgstr ""
-"Bármikor be- és kikapcsolhatja a súgót a Idquo;Toggle on screen helprdquo; "
+"Bármikor be- és kikapcsolhatja a súgót a “Segítség bekapcsolása” "
 "gombra kattintva az eszköztár jobb felső sarkán lévő menüben."
 
 #. Default: "Select an earlier session to complete or review or ${start_session}."

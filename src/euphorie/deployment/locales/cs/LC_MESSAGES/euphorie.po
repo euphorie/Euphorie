@@ -3238,7 +3238,7 @@ msgstr "Hlavní výhody účtu:"
 msgid "info_screen_help"
 msgstr ""
 "Tuto funkci nápovědy na obrazovce můžete zapnout nebo vypnout klepnutím na "
-"${questionmark} v pravém horním rohu panelu nástrojů."
+"“Přepínejte nápovědu na obrazovce” v pravém horním rohu panelu nástrojů."
 
 #. Default: "Select an earlier session to complete or review or ${start_session}."
 #: euphorie/client/browser/templates/portlet-my-ras.pt:64
