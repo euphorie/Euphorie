@@ -1,7 +1,7 @@
 Changelog
 =========
 
-13.0.9 (unreleased)
+13.0.9 (2022-02-23)
 -------------------
 
 - upgrade plone to 5.2.7
