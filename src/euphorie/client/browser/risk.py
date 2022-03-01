@@ -678,9 +678,11 @@ class IdentificationView(RiskBase):
         self.show_existing_measures = False
 
         # Fill some labels with default texts
-        self.answer_yes = default_type_data["answer_yes"]
-        self.answer_no = default_type_data["answer_no"]
-        self.answer_na = default_type_data["answer_na"]
+        self.answer_yes = tool_type_data.get(
+            "answer_yes", default_type_data["answer_yes"]
+        )
+        self.answer_no = tool_type_data.get("answer_no", default_type_data["answer_no"])
+        self.answer_na = tool_type_data.get("answer_na", default_type_data["answer_na"])
         self.intro_extra = ""
         self.intro_questions = tool_type_data.get("intro_questions", "")
         if getattr(self.risk, "risk_always_present", False):
