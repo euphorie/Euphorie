@@ -28,6 +28,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         image = MockImage("hot stuff here")
         root = self.root()
         view = ExportSurvey(None, None)
+        view.include_images = True
         node = view.exportImage(root, image)
         self.assertTrue(node in root)
         self.assertEqual(
@@ -40,6 +41,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         image = MockImage("hot stuff here", "test.gif", "image/gif")
         root = self.root()
         view = ExportSurvey(None, None)
+        view.include_images = True
         image = view.exportImage(root, image, u"Captiøn")
         self.assertEqual(
             safe_nativestring(etree.tostring(image, pretty_print=True)),
@@ -210,6 +212,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         risk.caption2 = u"Image caption 2"
         root = self.root()
         view = ExportSurvey(None, None)
+        view.include_images = True
         view.exportRisk(root, risk)
         self.assertEqual(
             safe_nativestring(etree.tostring(root, pretty_print=True)),
@@ -350,6 +353,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         module.image = MockImage("hot stuff here")
         root = self.root()
         view = ExportSurvey(None, None)
+        view.include_images = True
         view.exportModule(root, module)
         self.assertEqual(
             safe_nativestring(etree.tostring(root, pretty_print=True)),
@@ -737,7 +741,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         survey.language = "en-GB"
         survey.tool_type = "existing_measures"
         view = ExportSurvey(survey, TestRequest())
-        output = view()
+        output = view.render_output().decode("utf-8")
         response = view.request.response
         self.assertEqual(response.getHeader("Content-Type"), "text/xml")
         self.assertEqual(
