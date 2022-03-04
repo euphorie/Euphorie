@@ -51,11 +51,6 @@
 			type="image/png" 
 			href="../../../favicon/apple-touch-icon.png" />
 
-		<meta 
-			name="theme-color" 
-			content="#10B2E4">
-
-		<!-- Manifest -->
 		<link rel="manifest" 
 			  href="/assets/oira/manifest/manifest.json">
 	</head>
@@ -65,7 +60,9 @@
 		data-layout-layout="risk-assessment"
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
-		<div id="main" class="sidebar-off">
+		<div 
+	id="main" 
+	class="sidebar-off">
 	<header 
 	id="toolbar">
 	<a 
@@ -103,6 +100,13 @@
 		   	data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
 		   	data-pat-tooltip="source: ajax">Menu</a>
 		<a 
+            href="/feedback/messages-unread#menu-content" 
+            id="messages-menu" 
+            data-pat-tooltip="source: ajax"
+            class="pat-tooltip icon iconified icon-chat pat-push">
+            Messages <sup id="messages-unread-count" class="counter digit-1">1</sup>
+        </a> 
+		<a 
 			href="/feedback/help-menu#menu-content" 
 		   	id="help-menu" 
 		   	class="iconified pat-tooltip" 
@@ -115,7 +119,8 @@
 		    title="Startup page">Dashboard</a>
 	
 </header>
-	<div id="content">
+	<div 
+		id="content">
 		
 
 		
@@ -124,8 +129,9 @@
 
 
 
-<aside id="tree" 
-       class="variation-risk-assessment">
+<aside 
+	id="tree" 
+    class="variation-risk-assessment">
     <a href="/feedback/osh.html#osh-tool-navigation" id="osh-target-tool-navigation" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
 
 
@@ -667,8 +673,9 @@
 
 </aside>
 
-<div id="main-content" 
-     class="variation-risk-assessment">
+<div 
+	id="main-content" 
+    class="variation-risk-assessment">
     
 <form 
 	method="get" 
@@ -678,45 +685,32 @@
 		id="content-pane">
 
 		<div
-    class="pat-toolbar">
+    class="pat-toolbar sticky"
+    id="assessment-toolbar">   
+    <div
+        class="toolbar-functions-area">   
+           
+        <div 
+            class="toolbar-section quick-functions"
+            id="assessments-toolbar-quick-functions"> 
+            
 
-<!--     <div
-        class="toolbar-section view-options">
-        <a 
-            href="#status-sentinel"
-            data-pat-inject="history: record"
-            class="pat-inject pat-progress-bar pat-tooltip"
-            data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-            <strong
-                class="progress-bar-segment"
-                style="width: 40%">
-                40%
-            </strong>
-        </a>
-    </div> -->
+            <a 
+                href="#status-sentinel"
+                data-pat-inject="history: record"
+                class="icon pat-inject progress pat-tooltip"
+                data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+               <strong 
+                    class="pie-graph"
+                    data-percentage="0"
+                    title="0% Complete">0%</strong>
+            </a>
 
-    
-
-    <div 
-        class="toolbar-section quick-functions"
-        id="assessments-toolbar-quick-functions"> 
-
-        <a 
-            href="#status-sentinel"
-            data-pat-inject="history: record"
-            class="icon pat-inject progress pat-tooltip"
-            data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-           <strong 
-                class="pie-graph"
-                data-percentage="0"
-                title="0% Complete">0%</strong>
-        </a>
-
-        <div
-            hidden
-            id="status-sentinel">
-                
+            <div
+                hidden
+                id="status-sentinel">
                     
+                        
 
 <p>
     You've completed <strong>0%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -732,18 +726,18 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
-                
-                
-                <p>
-                    View the <a href="/ass-commercial-guarding-leicester/status#content" class="pat-inject close-panel">Status screen</a> for more details.
-                </p>
+                    
+                    
+                    <p>
+                        View the <a href="/ass-commercial-guarding-leicester/status#content" class="pat-inject close-panel">Status screen</a> for more details.
+                    </p>
+            </div>
+            <a 
+                href="/feedback/ass-menu#more-menu" 
+                class="icon more pat-tooltip" 
+                data-pat-tooltip="source: ajax; position-list: tr">More</a>
         </div>
-        <a 
-            href="/feedback/ass-menu#more-menu" 
-            class="icon more pat-tooltip" 
-            data-pat-tooltip="source: ajax; position-list: tr">More</a>
     </div>
-
 </div>
 		
 		<article 
@@ -805,9 +799,19 @@ this site.</em></p>
 	</div>
 	
 		
-			<p class="button-bar" id="nav-bar">
-				<button type="submit" name="previous" formaction="#content" value="previous" class="pat-button back">Zurück</button>
-				<button type="submit" name="next" value="next" class="pat-button continue">Suivant</button>
+			<p 
+				class="button-bar pat-bumper" 
+				id="nav-bar">
+				<button 
+					type="submit" 
+					name="previous" 
+					formaction="#content" 
+					value="previous" 
+					class="pat-button back">Zurück</button>
+				<button 
+					type="submit" 
+					name="next" 
+					value="next" class="pat-button continue">Suivant</button>
 			</p>
 		
 	
@@ -826,7 +830,8 @@ this site.</em></p>
 	</div>
 </div>
 
-<aside id="osc">
+<aside 
+	id="osc">
 	
 
 <form id="osc-header" action="/index-logged-in#browser" class="pat-inject pat-autosubmit">
@@ -841,16 +846,16 @@ this site.</em></p>
 			</h2>
 	    
 	    <!-- <a href="/new-session.html#document-content" id="button-new-session-quick" data-pat-modal="class: large" class="no-label pat-modal iconified icon-plus" title="Start a new assessment">New</a> -->
-        <div 
-        	class="pat-collapsible pat-context-menu closed align-right" 
-        	data-pat-collapsible="close-trigger: *:not(#more-menu)" 
+        <div
+        	class="pat-collapsible pat-context-menu closed align-right"
+        	data-pat-collapsible="close-trigger: *:not(#more-menu)"
         	id="more-menu">
-            <strong 
+            <strong
             	class="context-menu-label iconified more-menu-trigger"></strong>
-            <ul 
+            <ul
             	class="menu">
             	<li>
-                    <a 
+                    <a
                     	href="/new-session.html#document-content"
                         data-pat-modal="class: medium panel"
                         class="no-label pat-modal icon-plus pat-switch"
@@ -872,9 +877,11 @@ this site.</em></p>
 	
     <button id="button-osc-expand" class="no-label iconified icon-resize-full pat-toggle" data-pat-toggle="selector: body; value: osc-size-full osc-size-normal" title=""></button>
 </form>
+
 	<a href="/feedback/osh.html#osh-ra-browser" id="osh-target-ra-browser" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
 
-	<div id="navigation">
+	<div 
+		id="navigation">
 		
 			<div id="miller-columns" class="miller-columns">
 				
