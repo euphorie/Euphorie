@@ -40,69 +40,73 @@
                show_extra_fields python:True;
              "
         >
-          <metal:assessments_list metal:define-macro="assessments_list">
-            <ul class="data-matrix"
-                tal:define="
-                  show_extra_fields show_extra_fields|python:False;
-                "
-            >
-              <li class="row"
-                  tal:repeat="session sessions"
-              >
-
-                <h4 class="name field">
-                  <a class="pat-inject follow"
-                     href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@start"
-                     data-pat-inject="source: #content; target: #content; history: record"
+          <div class="portlet">
+            <div class="content">
+              <metal:assessments_list metal:define-macro="assessments_list">
+                <ul class="data-matrix"
+                    tal:define="
+                      show_extra_fields show_extra_fields|python:False;
+                    "
+                >
+                  <li class="row"
+                      tal:repeat="session sessions"
                   >
+
+                    <h4 class="name field">
+                      <a class="pat-inject follow"
+                         href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@start"
+                         data-pat-inject="source: #content; target: #content; history: record"
+                      >
                   ${session/title}
-                    <em tal:condition="not:session/title">
-                      [<tal:i18n i18n:translate="label_missing_title">Title is missing</tal:i18n>]
-                    </em>
-                  </a>
-                </h4>
-                <p class="tool field"
-                   tal:condition="show_extra_fields|python:False"
-                >
-                  <a class="pat-inject tool field"
-                     href="${here/aq_parent/absolute_url}/${session/zodb_path}"
-                     data-pat-inject="history: record"
-                  >${session/tool/title}</a>
-                </p>
-                <p class="date field">
-                  <span class="last-saved"
-                        tal:define="
-                          toLocalizedTime nocall: context/@@plone/toLocalizedTime;
-                        "
-                  >
-                    <tal:i18n i18n:translate="label_started">Started</tal:i18n>
-                    <time datetime="${value}"
-                          tal:define="
-                            value session/created/isoformat|nothing;
-                          "
-                    >${python:toLocalizedTime(value)}</time>
-                  </span>
-                </p>
-                <p class="field icons"
-                   tal:define="
-                     disabled python:False;
-                   "
-                >
-                  <metal:status_icon use-macro="here/certificate_macros/macros/status_icon"
-                                     tal:condition="show_extra_fields|python:False"
-                  />
+                        <em tal:condition="not:session/title">
+                          [<tal:i18n i18n:translate="label_missing_title">Title is missing</tal:i18n>]
+                        </em>
+                      </a>
+                    </h4>
+                    <p class="tool field"
+                       tal:condition="show_extra_fields|python:False"
+                    >
+                      <a class="pat-inject tool field"
+                         href="${here/aq_parent/absolute_url}/${session/zodb_path}"
+                         data-pat-inject="history: record"
+                      >${session/tool/title}</a>
+                    </p>
+                    <p class="date field">
+                      <span class="last-saved"
+                            tal:define="
+                              toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+                            "
+                      >
+                        <tal:i18n i18n:translate="label_started">Started</tal:i18n>
+                        <time datetime="${value}"
+                              tal:define="
+                                value session/created/isoformat|nothing;
+                              "
+                        >${python:toLocalizedTime(value)}</time>
+                      </span>
+                    </p>
+                    <p class="field icons"
+                       tal:define="
+                         disabled python:False;
+                       "
+                    >
+                      <metal:status_icon use-macro="here/certificate_macros/macros/status_icon"
+                                         tal:condition="show_extra_fields|python:False"
+                      />
 
-                  <a class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-                     href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@more_menu#more-menu"
-                     data-pat-tooltip="source: ajax; position-list: tr"
-                     i18n:translate=""
-                  >More</a>
+                      <a class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+                         href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@more_menu#more-menu"
+                         data-pat-tooltip="source: ajax; position-list: tr"
+                         i18n:translate=""
+                      >More</a>
 
-                </p>
-              </li>
-            </ul>
+                    </p>
+                  </li>
+                </ul>
 
-          </metal:assessments_list>
+              </metal:assessments_list>
+            </div>
+          </div>
         </div>
       </div>
     </metal:slot>
