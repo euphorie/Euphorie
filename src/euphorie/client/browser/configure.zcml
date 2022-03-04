@@ -290,6 +290,14 @@
       />
 
   <browser:page
+      name="publication_badge"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      template="templates/publication_badge.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="view"
       for="euphorie.client.country.IClientCountry"
       permission="zope2.View"

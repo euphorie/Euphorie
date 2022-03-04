@@ -1115,6 +1115,7 @@
                         active python: page_section == 'status' and 'active' or '';
                         disabled python:page_section=='' or (page_section=='preparation' and new_session);
                       ">
+            <a tal:replace="structure here/@@publication_badge|nothing"></a>
             <metal:macro use-macro="context/certificate_macros/macros/status_icon" />
           </tal:status>
           <a tal:replace="structure here/@@more_badge|nothing"></a>
