@@ -1,10 +1,10 @@
 Changelog
 =========
 
-13.0.10 (unreleased)
---------------------
+13.1.0 (unreleased)
+-------------------
 
-- Nothing changed yet.
+- Further improvements in the UI (use of color highlights, etc)
 
 
 13.0.9 (2022-02-23)
