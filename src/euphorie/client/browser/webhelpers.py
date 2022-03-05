@@ -177,6 +177,11 @@ class WebHelpers(BrowserView):
             "euphorie.use_publication_feature", default=False
         )
 
+    @memoize
+    def use_publication_feature_for_session(self, session):
+        # to be overwritten as needed
+        return self.use_publication_feature
+
     @property
     @memoize
     def use_clone_feature(self):
