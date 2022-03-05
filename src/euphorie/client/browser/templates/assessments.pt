@@ -111,7 +111,7 @@
                       <a class="icon locking ${python:session.published and 'locked' or 'unlocked'} pat-tooltip"
                          href="${here/aq_parent/absolute_url}/${session/zodb_path}/++session++${session/id}/@@publication_menu#publication-menu"
                          data-pat-tooltip="source: ajax; position-list: tr"
-                         tal:condition="python:webhelpers.use_publication_feature and show_extra_fields"
+                         tal:condition="python:webhelpers.use_publication_feature_for_session(session) and show_extra_fields"
                       >Published
                         <time class="pat-display-time"
                               datetime="2018-03-28T08:00Z"
