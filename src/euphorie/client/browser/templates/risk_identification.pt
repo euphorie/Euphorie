@@ -33,7 +33,9 @@
            href="#content-pane"
            data-pat-scroll="selector: #content-pane; trigger: auto; offset: 0"
         >Scroll to top</a>
-        <div id="content-pane">
+        <div class="pat-scroll-box"
+             id="content-pane"
+        >
           <metal:call use-macro="webhelpers/macros/toolbar" />
           <h2 class="risk-title">${here/title}</h2>
 
@@ -78,6 +80,14 @@
           />
           <!-- END Information -->
 
+          <!-- Comments -->
+          <metal:call use-macro="webhelpers/macros/risk_comments"
+                      tal:define="
+                        default_state python:view.get_collapsible_section_state('comments');
+                      "
+          />
+          <!-- END Comments -->
+
           <!-- Resources -->
           <article class="pat-rich pat-collapsible ${default_state} risk-module form-panel"
                    tal:define="
@@ -101,13 +111,6 @@
           <metal:call use-macro="context/training_slide/macros/training_slide" />
           <!-- END Training -->
 
-          <!-- Comments -->
-          <metal:call use-macro="webhelpers/macros/risk_comments"
-                      tal:define="
-                        default_state python:view.get_collapsible_section_state('comments');
-                      "
-          />
-          <!-- END Comments -->
 
         </div>
         <p class="button-bar pat-bumper"
