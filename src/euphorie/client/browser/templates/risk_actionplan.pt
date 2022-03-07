@@ -96,15 +96,39 @@
                     </select>
                   priority risk.
                   </label>
-                  <label tal:condition="python:readonly and not skip_evaluation"
-                         i18n:translate="risk_priority"
-                  >
+
+                  <tal:readonly tal:condition="python:readonly and not skip_evaluation">
+                    <tal:switch switch="value">
+                      <tal:case case="string:low">
+                        <label i18n:translate="risk_priority">
                   This is a
-                    <strong i18n:name="priority_value"
-                            i18n:translate=""
-                    >risk_priority_${value}</strong>
+                          <strong i18n:name="priority_value"
+                                  i18n:translate="risk_priority_low"
+                          >low</strong>
                   priority risk.
-                  </label>
+                        </label>
+                      </tal:case>
+                      <tal:case case="string:medium">
+                        <label i18n:translate="risk_priority">
+                  This is a
+                          <strong i18n:name="priority_value"
+                                  i18n:translate="risk_priority_medium"
+                          >medium</strong>
+                  priority risk.
+                        </label>
+                      </tal:case>
+                      <tal:case case="string:high">
+                        <label i18n:translate="risk_priority">
+                  This is a
+                          <strong i18n:name="priority_value"
+                                  i18n:translate="risk_priority_high"
+                          >high</strong>
+                  priority risk.
+                        </label>
+                      </tal:case>
+                    </tal:switch>
+                  </tal:readonly>
+
                 </fieldset>
                 <metal:call use-macro="here/risk_macros/macros/risk_info_actionplan" />
               </tal:priority>
