@@ -281,6 +281,15 @@
       />
 
   <browser:page
+      name="publication_date"
+      for="euphorie.client.model.SurveyTreeItem"
+      permission="euphorie.client.ViewSurvey"
+      class=".session.PublicationMenu"
+      allowed_attributes="set_date reset_date unset_date"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="publication_menu"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
@@ -290,8 +299,25 @@
       />
 
   <browser:page
+      name="publication_menu"
+      for="euphorie.client.model.SurveyTreeItem"
+      permission="euphorie.client.ViewSurvey"
+      class=".session.PublicationMenu"
+      template="templates/publication_menu.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="publication_badge"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      template="templates/publication_badge.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="publication_badge"
+      for="euphorie.client.model.SurveyTreeItem"
       template="templates/publication_badge.pt"
       permission="euphorie.client.ViewSurvey"
       layer="euphorie.client.interfaces.IClientSkinLayer"
