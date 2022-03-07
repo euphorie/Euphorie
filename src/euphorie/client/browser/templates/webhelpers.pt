@@ -620,7 +620,10 @@
   </metal:additional_files>
 
   <metal:risk_comments define-macro="risk_comments">
-    <fieldset class="pat-collapsible risk-module ${default_state|nothing} form-panel">
+    <fieldset class="pat-collapsible risk-module ${default_state|nothing} form-panel"
+              id="page-module-comments"
+              data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 120px"
+    >
       <h3 class="form-separation-header"
           i18n:translate="heading_comments"
       >
@@ -635,7 +638,8 @@
                     id="comment"
                     cols="80"
                     name="comment:utf8:ustring"
-                    placeholder="This comment will be visible in the report. Use it for anything else you might want to write about this risk."
+                    placeholder="This comment will be visible in the report. Use it for anything else you might want to
+rite about this risk."
                     rows="3"
                     tal:content="context/comment"
                     i18n:attributes="placeholder placeholder_comment_field"
@@ -1097,30 +1101,34 @@
 
 
   <metal:toolbar define-macro="toolbar">
-    <div class="pat-toolbar">
-      <metal:actions define-slot="page-actions">
-        <!--         <a class="icon-share iconified pat-tooltip"
+    <div class="pat-toolbar sticky"
+         id="assessments-toolbar"
+    >
+      <div class="toolbar-functions-area">
+        <metal:actions define-slot="page-actions">
+          <!--         <a class="icon-share iconified pat-tooltip"
            href="${request/ACTUAL_URL}#sharing-menu"
            title="Share this OiRA-Tool"
            data-pat-tooltip="source: ajax; position-list: tr"
            tal:condition="webhelpers/allow_social_sharing"
            i18n:attributes="title"
         >Share</a> -->
-        <div class="toolbar-section quick-functions"
-             id="assessments-toolbar-quick-functions"
-        >
-          <tal:status tal:define="
-                        session_start_view nocall:here/@@start|webhelpers/traversed_session/@@start;
-                        new_session session_start_view/is_new_session;
-                        active python: page_section == 'status' and 'active' or '';
-                        disabled python:page_section=='' or (page_section=='preparation' and new_session);
-                      ">
-            <a tal:replace="structure here/@@publication_badge|nothing"></a>
-            <metal:macro use-macro="context/certificate_macros/macros/status_icon" />
-          </tal:status>
-          <a tal:replace="structure here/@@more_badge|nothing"></a>
-        </div>
-      </metal:actions>
+          <div class="toolbar-section quick-functions"
+               id="assessments-toolbar-quick-functions"
+          >
+            <tal:status tal:define="
+                          session_start_view nocall:here/@@start|webhelpers/traversed_session/@@start;
+                          new_session session_start_view/is_new_session;
+                          active python: page_section == 'status' and 'active' or '';
+                          disabled python:page_section=='' or (page_section=='preparation' and new_session);
+                        ">
+              <a tal:replace="structure here/@@publication_badge|nothing"></a>
+              <metal:macro use-macro="context/certificate_macros/macros/status_icon" />
+            </tal:status>
+            <a tal:replace="structure here/@@more_badge|nothing"></a>
+          </div>
+        </metal:actions>
+      </div>
     </div>
   </metal:toolbar>
 
