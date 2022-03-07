@@ -38,7 +38,10 @@
                                    message-min: ${view/message_positive_number};
                                    "
         >
-          <div id="content-pane">
+          <div class="pat-scroll-box"
+               id="content-pane"
+          >
+            <metal:call use-macro="webhelpers/macros/toolbar" />
             <article class="rich pat-well warning"
                      id="${view/risk_number}"
             >
@@ -112,16 +115,23 @@
             <fieldset class="vertical"
                       id="comments"
             >
-              <label>
-                <textarea id="commentsField"
-                          cols="70"
+              <div class="pat-rich-editor pat-rich toolbar-detached">
+                <textarea class="pat-tiptap"
                           name="comment:utf8:ustring"
-                          placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
-                          rows="3"
-                          tal:content="context/comment|nothing"
-                          i18n:attributes="placeholder label_comment"
-                ></textarea>
-              </label>
+                          placeholder="These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
+                          data-pat-tiptap="
+        toolbar-external: #assessments-toolbar;
+        source-panel: #pat-modal.panel-html-source-editor;
+        image-panel: #pat-modal.image-picker;
+        link-panel: #pat-modal .link-panel;
+        context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments
+        url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
+        url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}"
+                          tal:content="context/comment"
+                          i18n:attributes="placeholder placeholder_comment_field"
+                >
+                </textarea>
+              </div>
             </fieldset>
 
           </div>
