@@ -633,19 +633,24 @@
       <fieldset class="vertical"
                 id="comments"
       >
-        <label>
-          <textarea class="span-15"
-                    id="comment"
-                    cols="80"
+        <div class="pat-rich-editor pat-rich toolbar-detached">
+          <textarea class="pat-tiptap"
                     name="comment:utf8:ustring"
-                    placeholder="This comment will be visible in the report. Use it for anything else you might want to
-rite about this risk."
-                    rows="3"
+                    placeholder="These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
+                    data-pat-tiptap="
+        toolbar-external: #assessments-toolbar;
+        source-panel: #pat-modal.panel-html-source-editor;
+        image-panel: #pat-modal.image-picker;
+        link-panel: #pat-modal .link-panel;
+        context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments
+        url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
+        url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}"
                     tal:content="context/comment"
                     i18n:attributes="placeholder placeholder_comment_field"
           >
           </textarea>
-        </label>
+        </div>
+
       </fieldset>
     </fieldset>
   </metal:risk_comments>
@@ -1105,6 +1110,75 @@ rite about this risk."
          id="assessments-toolbar"
     >
       <div class="toolbar-functions-area">
+        <div class="toolbar-section editor">
+          <div class="editor-toolbar tiptap"
+               id="editor-toolbar-assessment"
+          >
+            <div class="pat-collapsible pat-context-menu closed align-left no-label icon-paragraph"
+                 id="formatting-menu"
+                 data-pat-collapsible="close-trigger: .context-menu:not(#formatting-menu),.close-menu;"
+            >
+              <strong class="context-menu-label menu-trigger pat-tooltip"
+                      data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+              >Formatting</strong>
+              <p class="close-menu">Close</p>
+              <ul class="menu-list">
+                <li>
+                  <button class="button-heading-level-4 icon-header"
+                          type="button"
+                  >Header level 4</button>
+                </li>
+                <li>
+                  <button class="button-paragraph icon-paragraph"
+                          type="button"
+                  >Normal</button>
+                </li>
+                <li>
+                  <button class="button-blockquote icon-quote-left"
+                          type="button"
+                  >Quote</button>
+                </li>
+              </ul>
+            </div>
+            <button class="icon icon-bold button-bold pat-tooltip"
+                    type="button"
+                    data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+            >Bold</button>
+
+
+            <button class="icon icon-italic button-italic pat-tooltip"
+                    type="button"
+                    data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+            >Italic</button>
+            <a class="icon icon-link button-link pat-modal pat-tooltip"
+               href="#tiptap-modal-hyperlink-fieldname-comments#document-content"
+               data-pat-modal="class: medium panel panel-hyperlink"
+               data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+            >Hyperlink</a>
+            <div class="pat-collapsible pat-context-menu closed align-left no-label icon-list"
+                 id="list-menu"
+                 type="button"
+                 data-pat-collapsible="close-trigger: .context-menu:not(#list-menu),.close-menu;"
+            >
+              <strong class="context-menu-label menu-trigger pat-tooltip"
+                      data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+              >Lists</strong>
+              <p class="close-menu">Close</p>
+              <ul class="menu-list">
+                <li>
+                  <button class="button-unordered-list icon-list-bullet"
+                          type="button"
+                  >Bullet list</button>
+                </li>
+                <li>
+                  <button class="button-ordered-list icon-list-numbered"
+                          type="button"
+                  >Ordered list</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <metal:actions define-slot="page-actions">
           <!--         <a class="icon-share iconified pat-tooltip"
            href="${request/ACTUAL_URL}#sharing-menu"
