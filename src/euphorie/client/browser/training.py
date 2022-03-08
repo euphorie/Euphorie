@@ -185,16 +185,14 @@ class TrainingSlide(BrowserView):
                 )
         return urls
 
-    def slides(self, standalone=False):
+    def slide_contents(self, standalone=False):
 
-        slides = [
-            {
-                "slide_type": self.item_type,
-                "slide_template": self.slide_template,
-                "measures": self.measures,
-            }
-        ]
-        return slides
+        return {
+            "slide_type": self.item_type,
+            "slide_template": self.slide_template,
+            "measures": self.measures,
+            "training_notes": self.training_notes,
+        }
 
 
 class TrainingView(BrowserView, survey._StatusHelper):
@@ -254,13 +252,13 @@ class TrainingView(BrowserView, survey._StatusHelper):
                 module_in_context = module.__of__(self.webhelpers.traversed_session)
                 module_in_context.REQUEST["for_download"] = self.for_download
                 _view = module_in_context.restrictedTraverse("training_slide")
-                slides = _view.slides()
+                slide_contents = _view.slide_contents()
                 data.update(
                     {
                         module_path: {
                             "item": module_in_context,
                             "training_view": _view,
-                            "slides": slides,
+                            "slide_contents": slide_contents,
                         }
                     }
                 )
@@ -268,13 +266,13 @@ class TrainingView(BrowserView, survey._StatusHelper):
             risk_in_context = risk.__of__(self.webhelpers.traversed_session)
             risk_in_context.REQUEST["for_download"] = self.for_download
             _view = risk_in_context.restrictedTraverse("training_slide")
-            slides = _view.slides()
+            slide_contents = _view.slide_contents()
             data.update(
                 {
                     risk.path: {
                         "item": risk_in_context,
                         "training_view": _view,
-                        "slides": slides,
+                        "slide_contents": slide_contents,
                     }
                 }
             )
@@ -285,7 +283,16 @@ class TrainingView(BrowserView, survey._StatusHelper):
         # The title slide is not part of the dataset, therefore start with 1
         count = 1
         for data in self.slide_data.values():
-            count += len(data["slides"])
+            count += 1
+            for measure_id in data["slide_contents"]["measures"]:
+                if data["slide_contents"]["measures"][measure_id]["active"]:
+                    count += 1
+                    break
+            if (
+                data["item"].type != "module"
+                and data["slide_contents"]["training_notes"]
+            ):
+                count += 1
         return count
 
     def __call__(self):
