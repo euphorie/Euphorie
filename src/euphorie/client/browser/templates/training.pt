@@ -272,7 +272,7 @@
               <p class="button-bar">
                 <a class="pat-button pat-inject default"
                    id="assessments-training-start-button"
-                   href="training-slides#slide-1"
+                   href="${here/absolute_url}/@@training-slides#slide-1"
                    data-pat-inject="target: #slide-0"
                    i18n:translate=""
                 >Start</a>
