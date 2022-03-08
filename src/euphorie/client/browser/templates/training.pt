@@ -9,30 +9,299 @@
       tal:define="
         client nocall:request/client;
         webhelpers nocall:context/@@webhelpers;
-        presentation_metadata view/slide_data;
-        slides presentation_metadata/slides|nothing;
+        slide_data view/slide_data|python:[];
       "
       i18n:domain="euphorie"
 >
 
   <body>
-    <metal:slot fill-slot="content">
-      <tal:block replace="tile:statusmessages" />
-
-      <h2>Placeholder</h2>
-
-      <div id="canvas-toolbar"
-           hidden="hidden"
+    <metal:slot fill-slot="content"
+                tal:define="
+                  view_name string:@@${view/__name__};
+                  can_edit webhelpers/can_edit_session;
+                  counter python:0;
+                  slide_total_count view/slide_total_count;
+                  count_offset python:1;
+                  question_intro_url view/question_intro_url|nothing;
+                "
+    >
+      <div class="pat-scroll-box"
+           id="content-pane"
       >
-        <a class="pat-button float-after"
-           i18n:translate=""
-        >Download as PowerPoint file</a>
-        <button class="pat-button float-after"
-                i18n:translate=""
-        >Run slideshow</button>
+        <tal:block replace="tile:statusmessages" />
+        <div class="pat-toolbar sticky"
+             id="training-toolbar"
+        >
+          <div class="toolbar-section">
+            <a class="icon icon-th-list pat-tooltip"
+               href="#toc-trainings"
+               title="Table of contents"
+               data-pat-tooltip="position-list: tl; source: ajax; class: toc"
+               i18n:attributes="title label_table_of_contents"
+               i18n:translate="label_table_of_contents"
+            >
+                    Table of contents
+            </a>
+            <div id="toc-trainings"
+                 hidden
+            >
+              <nav class="assessment-toc">
+                <tal:items repeat="slide_path slide_data/keys">
+                  <tal:slides define="
+                                slide_info python:slide_data[slide_path];
+                                training_view python:slide_info['training_view'];
+                                slides python:slide_info['slides'];
+                              "
+                              repeat="slide slides"
+                  >
+                    <a class="item ${slide_type} pat-scroll close-panel"
+                       href="#card-title-${training_view/number}"
+                       tal:define="
+                         slide_type slide/slide_type;
+                       "
+                    >
+                      <span class="number field"><strong class="index-number">${training_view/number}</strong></span>
+                      <span class="label field">${training_view/slide_title}</span>
+                    </a>
+                  </tal:slides>
+                </tal:items>
+              </nav>
+            </div>
+          </div>
+          <div class="toolbar-section quick-functions"
+               id="trainings-toolbar-quick-functions"
+          >
+            <button class="pat-button icon-desktop default pat-fullscreen"
+                    data-pat-fullscreen="selector:#slide-0"
+            ><tal:training condition="question_intro_url"
+                            i18n:translate=""
+              >Take training and test</tal:training><tal:notraining condition="not:question_intro_url"
+                              i18n:translate=""
+              >Run slideshow</tal:notraining></button>
+
+            <a class="icon more pat-tooltip"
+               href="#assessments-more-menu-trainings"
+               data-pat-tooltip="position-list: tr; source: ajax"
+               i18n:translate=""
+            >More&hellip;</a>
+            <div id="assessments-more-menu-trainings"
+                 hidden
+            >
+              <ul class="menu">
+                <li>
+                  <a class="icon-download"
+                     href="${here/absolute_url}/@@pptx"
+                     i18n:translate=""
+                  >Download as PowerPoint file</a>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="presentation-slide stand-alone"
+             id="title-card"
+        >
+          <section class="slide-content template-cover pat-auto-scale"
+                   data-pat-auto-scale="size: contain"
+          >
+            <h1 class="slide-title">
+                ${view/session/title}
+            </h1>
+            <p class="slide-byline"
+               i18n:translate="label_online_oira_training"
+            >
+                Online OiRA training
+            </p>
+            <p class="button-bar">
+              <a class="pat-button pat-inject default"
+                 id="assessments-training-start-button"
+                 href="training-slides#slide-1"
+                 data-pat-inject="target: #slide-0"
+                 i18n:translate=""
+              >Start</a>
+            </p>
+            <figure class="tool-icon">
+              <img alt=""
+                   src="${view/tool_image_url}"
+              />
+            </figure>
+            <figure class="organisation-logo">
+              <img alt=""
+                   src=""
+              />
+            </figure>
+          </section>
+        </div>
+
+        <div class="presentation-sections">
+          <tal:items repeat="slide_path slide_data/keys">
+            <tal:slides define="
+                          slide_info python:slide_data[slide_path];
+                          item python:slide_info['item'];
+                          training_view python:slide_info['training_view'];
+                          slides python:slide_info['slides'];
+                        "
+                        repeat="slide slides"
+            >
+              <div class="training-card"
+                   tal:define="
+                     slide_template slide/slide_template;
+                     global counter python:counter+1;
+                     content_item nocall:training_view/zodb_elem;
+                     slide_type slide/slide_type;
+                     description training_view/description;
+                     image_urls training_view/image_urls;
+                     measures slide/measures;
+                     training_notes training_view/training_notes|nothing;
+                   "
+              >
+                <div class="training-card-section"
+                     id="section-${counter}"
+                >
+                  <section class="section-content ${slide_template}"
+                           id="card-content-${counter}"
+                  >
+                    <section class="card-body pat-rich">
+                      <h2 class="card-title"
+                          id="card-title-${training_view/number}"
+                      >
+                        <span class="card-title-number">${training_view/number}
+                        </span>
+                        <span class="card-title-label">${training_view/slide_title}</span>
+                      </h2>
+                      <section class="description"
+                               tal:condition="python:slide_type!='module'"
+                      >
+                        <div class="card-illustrations pat-gallery"
+                             tal:condition="image_urls"
+                        >
+                          <figure class="illustration"
+                                  tal:repeat="image_url image_urls"
+                          >
+                            <a href="${image_url}">
+                              <img src="${image_url}"
+                                   title=""
+                              />
+                            </a>
+                          </figure>
+                        </div>
+                        <span tal:replace="structure description"></span>
+                      </section>
+                      <tal:module condition="python:slide_type=='module'">
+                        <div class="card-hero"
+                             tal:condition="image_urls"
+                        >
+                          <figure class="illustration">
+                            <a href="${python:image_urls[0]}">
+                              <img src="${python:image_urls[0]}"
+                                   title=""
+                              />
+                            </a>
+                          </figure>
+                        </div>
+                        <span tal:replace="structure description"></span>
+                      </tal:module>
+                    </section>
+                  </section>
+                </div>
+                <div class="training-card-section concatenate template-measures"
+                     id="section-${counter}"
+                     tal:condition="measures"
+                >
+                  <section class="mode-view section-content template-measures"
+                           id="card-content-${counter}"
+                  >
+                    <section class="card-body pat-rich">
+                      <h3 class="card-subtitle"
+                          i18n:translate="label_measures"
+                      >
+                    Measures
+                      </h3>
+                      <ul class="measure-list"
+                          id="card-measures-"
+                      >
+                        <tal:measures tal:repeat="measure_id measures">
+                          <li tal:define="
+                                measure_text python:measures[measure_id]['action'];
+                              "
+                              tal:condition="python:measures[measure_id]['active'] and measure_text"
+                              tal:content="structure measure_text"
+                          >measure</li>
+                        </tal:measures>
+                      </ul>
+                    </section>
+                  </section>
+                </div>
+
+                <div class="training-card-section concatenate template-notes"
+                     id="section-${counter}"
+                     tal:condition="training_notes"
+                >
+                  <section class="mode-view section-content template-measures"
+                           id="card-content-${counter}"
+                  >
+                    <section class="card-body pat-rich">
+                      <h3 class="card-subtitle"
+                          i18n:translate="label_notes"
+                      >
+                    Notes
+                      </h3>
+                      <span tal:replace="structure training_notes"></span>
+                    </section>
+                  </section>
+                </div>
+              </div>
+
+            </tal:slides>
+          </tal:items>
+        </div>
+
+        <div class="presentation-placeholder">
+          <div class="presentation-slide"
+               id="slide-0"
+          >
+
+            <section class="slide-content template-cover pat-auto-scale"
+                     data-pat-auto-scale="size: contain"
+            >
+              <h1 class="slide-title">
+                    ${view/session/title}
+              </h1>
+              <p class="slide-byline"
+                 i18n:translate="label_online_oira_training"
+              >
+                    Online OiRA training
+              </p>
+              <p class="button-bar">
+                <a class="pat-button pat-inject default"
+                   id="assessments-training-start-button"
+                   href="training-slides#slide-1"
+                   data-pat-inject="target: #slide-0"
+                   i18n:translate=""
+                >Start</a>
+              </p>
+              <figure class="tool-icon">
+                <img alt=""
+                     src="${view/tool_image_url}"
+                />
+              </figure>
+              <figure class="organisation-logo">
+                <img alt=""
+                     src=""
+                />
+              </figure>
+            </section>
+          </div>
+        </div>
+
+
+        <tal:nodata condition="not:slide_data">
+          <h2 i18n:translate="">No training content is available</h2>
+        </tal:nodata>
+
       </div>
-
-
     </metal:slot>
   </body>
 </html>

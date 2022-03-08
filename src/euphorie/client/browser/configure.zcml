@@ -126,7 +126,6 @@
       for="euphorie.client.model.Risk"
       permission="euphorie.client.ViewSurvey"
       class="euphorie.client.browser.training.TrainingSlide"
-      template="templates/training-slide.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
@@ -135,7 +134,6 @@
       for="euphorie.client.model.Module"
       permission="euphorie.client.ViewSurvey"
       class="euphorie.client.browser.training.TrainingSlide"
-      template="templates/training-slide.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 

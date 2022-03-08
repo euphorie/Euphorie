@@ -62,11 +62,11 @@ class TrainingSlide(BrowserView):
     def number(self):
         if self.is_custom:
             num_elems = self.context.number.split(".")
-            number = u".".join([u"Ω"] + num_elems[1:])
+            number = ".".join(["Ω"] + num_elems[1:])
         else:
             number = self.context.number
         if self.item_type == "module":
-            number = u"{}.0".format(number)
+            number = "{}.0".format(number)
         return number
 
     @property
@@ -79,8 +79,7 @@ class TrainingSlide(BrowserView):
     def slide_template(self):
         if self.item_type == "module":
             return "template-module"
-        if self.description or self.image:
-            return "template-two-column"
+        # there seems to be a profile template, don't when that should be used.
         return "template-default"
 
     @property
@@ -107,23 +106,25 @@ class TrainingSlide(BrowserView):
 
     @property
     def training_notes(self):
-        training_notes = getattr(self.context, "training_notes", "") or ""
+        training_notes = getattr(self.context, "comment", "") or ""
         if self.for_download:
             training_notes = markdown.markdown(training_notes)
         return training_notes
 
     @property
-    def existing_measures(self):
+    def measures(self):
         if self.item_type != "risk":
             return {}
         measures = OrderedDict()
         for measure in list(self.context.in_place_standard_measures) + list(
             self.context.in_place_custom_measures
+            + list(self.context.standard_measures)
+            + list(self.context.custom_measures)
         ):
             measures.update(
                 {
                     measure.id: {
-                        "action": measure.action,
+                        "action": self.webhelpers.get_safe_html(measure.action),
                         "active": measure.used_in_training,
                     }
                 }
@@ -159,13 +160,38 @@ class TrainingSlide(BrowserView):
                 )
         return image
 
+    @property
+    def image_urls(self):
+        urls = []
+        if self.is_custom:
+            if not getattr(self.context, "image_data", None):
+                return None
+            urls.append(
+                f"{self.webhelpers.traversed_session.absolute_url()}/"
+                f"{'/'.join(self.context.short_path)}"
+                f"/@@image-display/training_export?name=${self.context.image_filename}"
+            )
+            return urls
+        field_names = ["image"]
+        scale_name = "training_title"
+        if self.item_type == "risk":
+            field_names.extend(["image2", "image3", "image4"])
+            scale_name = "training"
+        for fname in field_names:
+            image = getattr(self.zodb_elem, fname, None)
+            if image and image.data:
+                urls.append(
+                    f"{self.zodb_elem.absolute_url()}/@@images/{fname}/{scale_name}"
+                )
+        return urls
+
     def slides(self, standalone=False):
 
         slides = [
             {
                 "slide_type": self.item_type,
                 "slide_template": self.slide_template,
-                "content": self.existing_measures,
+                "measures": self.measures,
             }
         ]
         return slides
@@ -207,6 +233,13 @@ class TrainingView(BrowserView, survey._StatusHelper):
                 self.context.absolute_url(),
             )
             return
+
+    @property
+    @memoize
+    def tool_image_url(self):
+        survey = self.context.aq_parent
+        if getattr(survey, "image", None):
+            return f"{survey.absolute_url()}/@@images/image/large"
 
     @property
     @memoize
