@@ -20,7 +20,6 @@
                   view_name string:@@${view/__name__};
                   can_edit webhelpers/can_edit_session;
                   counter python:0;
-                  slide_total_count view/slide_total_count;
                   count_offset python:1;
                   question_intro_url view/question_intro_url|nothing;
                 "
@@ -47,13 +46,11 @@
             >
               <nav class="assessment-toc">
                 <tal:items repeat="slide_path slide_data/keys">
-                  <tal:slides define="
-                                slide_info python:slide_data[slide_path];
-                                training_view python:slide_info['training_view'];
-                                slides python:slide_info['slides'];
-                              "
-                              repeat="slide slides"
-                  >
+                  <tal:slide define="
+                               slide_info python:slide_data[slide_path];
+                               training_view python:slide_info['training_view'];
+                               slide python:slide_info['slide_contents'];
+                             ">
                     <a class="item ${slide_type} pat-scroll close-panel"
                        href="#card-title-${training_view/number}"
                        tal:define="
@@ -63,7 +60,7 @@
                       <span class="number field"><strong class="index-number">${training_view/number}</strong></span>
                       <span class="label field">${training_view/slide_title}</span>
                     </a>
-                  </tal:slides>
+                  </tal:slide>
                 </tal:items>
               </nav>
             </div>
@@ -137,14 +134,12 @@
 
         <div class="presentation-sections">
           <tal:items repeat="slide_path slide_data/keys">
-            <tal:slides define="
-                          slide_info python:slide_data[slide_path];
-                          item python:slide_info['item'];
-                          training_view python:slide_info['training_view'];
-                          slides python:slide_info['slides'];
-                        "
-                        repeat="slide slides"
-            >
+            <tal:slide define="
+                         slide_info python:slide_data[slide_path];
+                         item python:slide_info['item'];
+                         training_view python:slide_info['training_view'];
+                         slide python:slide_info['slide_contents'];
+                       ">
               <div class="training-card"
                    tal:define="
                      slide_template slide/slide_template;
@@ -254,7 +249,7 @@
                 </div>
               </div>
 
-            </tal:slides>
+            </tal:slide>
           </tal:items>
         </div>
 
