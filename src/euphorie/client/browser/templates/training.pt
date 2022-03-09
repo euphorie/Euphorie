@@ -182,7 +182,7 @@
                             </a>
                           </figure>
                         </div>
-                        <span tal:replace="structure description"></span>
+                        <span tal:replace="structure python:webhelpers.get_safe_html(description)"></span>
                       </section>
                       <tal:module condition="python:slide_type=='module'">
                         <div class="card-hero"
@@ -196,7 +196,7 @@
                             </a>
                           </figure>
                         </div>
-                        <span tal:replace="structure description"></span>
+                        <span tal:replace="structure python:webhelpers.get_safe_html(description)"></span>
                       </tal:module>
                     </section>
                   </section>
@@ -222,7 +222,7 @@
                                 measure_text python:measures[measure_id]['action'];
                               "
                               tal:condition="python:measures[measure_id]['active'] and measure_text"
-                              tal:content="structure measure_text"
+                              tal:content="structure python:webhelpers.get_safe_html(measure_text)"
                           >measure</li>
                         </tal:measures>
                       </ul>
@@ -243,7 +243,7 @@
                       >
                     Notes
                       </h3>
-                      <span tal:replace="structure training_notes"></span>
+                      <span tal:replace="structure python:webhelpers.get_safe_html(training_notes)"></span>
                     </section>
                   </section>
                 </div>
