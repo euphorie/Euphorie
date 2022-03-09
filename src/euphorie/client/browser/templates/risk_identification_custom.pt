@@ -28,19 +28,22 @@
             data-pat-inject="history: record;"
       >
         <div id="content-pane">
-          <div class="pat-toolbar">
-            <div class="toolbar-section quick-functions"
-                 id="assessments-toolbar-quick-functions"
-            >
-              <a class="icon icon-trash pat-modal"
-                 href="${context/absolute_url}/@@confirmation-delete-risk#document-content"
-                 title="Delete risk"
-                 data-pat-inject="source: #document-content; target: #document-content"
-                 data-pat-modal="class: panel small"
-                 i18n:attributes="title"
-              >Delete risk</a>
-            </div>
-          </div>
+          <metal:toolbar use-macro="webhelpers/macros/toolbar">
+            <metal:actions fill-slot="page-actions">
+              <div class="toolbar-section quick-functions"
+                   id="assessments-toolbar-quick-functions"
+              >
+                <a class="icon icon-trash pat-modal"
+                   href="${context/absolute_url}/@@confirmation-delete-risk#document-content"
+                   title="Delete risk"
+                   data-pat-inject="source: #document-content; target: #document-content"
+                   data-pat-modal="class: panel small"
+                   i18n:attributes="title"
+                >Delete risk</a>
+              </div>
+            </metal:actions>
+          </metal:toolbar>
+
 
           <fieldset class="content-mirror risk-title pat-inject pat-autosubmit pat-subform"
                     data-pat-autosubmit="1000ms"
