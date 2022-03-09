@@ -14,6 +14,7 @@ from euphorie.client.utils import randomString
 from plone import api
 from plone.autoform import directives
 from plone.autoform.form import AutoExtensibleForm
+from plone.memoize.instance import memoize
 from plone.supermodel import model
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
@@ -39,6 +40,43 @@ import socket
 
 
 log = logging.getLogger(__name__)
+
+
+class UserMenu(BrowserView):
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    def menu_contents(self):
+        return [
+            {
+                "class_outer": "menu-item-change-password",
+                "class_inner": "icon-key",
+                "url": f"{self.webhelpers.country_url}/account-settings",
+                "label": _("title_change_password", default="Change password"),
+            },
+            {
+                "class_outer": "menu-item-change-email-address",
+                "class_inner": "icon-mail",
+                "url": f"{self.webhelpers.country_url}/new-email",
+                "label": _("Change email address"),
+            },
+            {
+                "class_outer": "menu-item-delete-account",
+                "class_inner": "icon-cancel-circle",
+                "url": f"{self.webhelpers.country_url}/account-delete",
+                "label": _("Delete account"),
+            },
+            {
+                "class_outer": "menu-item-logout",
+                "class_inner": "icon-exit",
+                "url": f"{self.webhelpers.country_url}/logout",
+                "label": _("navigation_logout", default="Logout"),
+            },
+        ]
 
 
 class PasswordChangeSchema(model.Schema):

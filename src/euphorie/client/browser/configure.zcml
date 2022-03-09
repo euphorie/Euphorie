@@ -602,6 +602,7 @@
       for="*"
       permission="zope2.View"
       template="templates/user-menu.pt"
+      class=".settings.UserMenu"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
