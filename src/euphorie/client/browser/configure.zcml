@@ -668,14 +668,6 @@
       />
 
   <browser:page
-      name="help_menu"
-      for="*"
-      permission="zope2.View"
-      template="templates/help-menu.pt"
-      layer="euphorie.client.interfaces.IClientSkinLayer"
-      />
-
-  <browser:page
       name="clone-session"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="zope2.View"
@@ -820,16 +812,6 @@
       for="*"
       permission="zope2.Public"
       template="templates/browser-warning.pt"
-      layer="euphorie.client.interfaces.IClientSkinLayer"
-      />
-
-  <!-- help view (obsolete) -->
-  <browser:page
-      name="help"
-      for="*"
-      permission="zope2.Public"
-      class=".help.HelpView"
-      template="templates/help.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
