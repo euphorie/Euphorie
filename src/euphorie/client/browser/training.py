@@ -203,6 +203,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
     variation_class = "variation-risk-assessment"
     skip_unanswered = False
     for_download = False
+    more_menu_contents = []
 
     @property
     @memoize
