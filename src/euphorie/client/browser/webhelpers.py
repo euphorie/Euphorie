@@ -462,6 +462,10 @@ class WebHelpers(BrowserView):
     def logoMode(self):
         return "alien" if "alien" in self.extra_css else "native"
 
+    def check_markup(self, text):
+        if StripMarkup(text).strip():
+            return text
+
     @property
     @memoize
     def extra_css(self):
