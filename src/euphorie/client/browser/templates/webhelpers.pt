@@ -1181,13 +1181,6 @@
           </div>
         </div>
         <metal:actions define-slot="page-actions">
-          <!--         <a class="icon-share iconified pat-tooltip"
-           href="${request/ACTUAL_URL}#sharing-menu"
-           title="Share this OiRA-Tool"
-           data-pat-tooltip="source: ajax; position-list: tr"
-           tal:condition="webhelpers/allow_social_sharing"
-           i18n:attributes="title"
-        >Share</a> -->
           <div class="toolbar-section quick-functions"
                id="assessments-toolbar-quick-functions"
           >
@@ -1198,6 +1191,7 @@
                           disabled python:page_section=='' or (page_section=='preparation' and new_session);
                         ">
               <a tal:replace="structure here/@@publication_badge|nothing"></a>
+              <a tal:replace="structure here/@@sharing_badge|nothing"></a>
               <metal:macro use-macro="context/certificate_macros/macros/status_icon" />
             </tal:status>
             <a tal:replace="structure here/@@more_badge|nothing"></a>

@@ -528,6 +528,23 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <!-- Sharing -->
+  <browser:page
+      name="sharing_badge"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      template="templates/sharing_badge.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="sharing_badge"
+      for="euphorie.client.model.SurveyTreeItem"
+      permission="euphorie.client.ViewSurvey"
+      template="templates/sharing_badge.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <browser:page
       name="confirmation-delete-session"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
