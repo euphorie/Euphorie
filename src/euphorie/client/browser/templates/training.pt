@@ -79,17 +79,17 @@
             <a class="icon more pat-tooltip"
                href="#assessments-more-menu-trainings"
                data-pat-tooltip="position-list: tr; source: ajax"
+               tal:condition="view/more_menu_contents"
                i18n:translate=""
             >More&hellip;</a>
             <div id="assessments-more-menu-trainings"
                  hidden
             >
               <ul class="menu">
-                <li>
-                  <a class="icon-download"
-                     href="${here/absolute_url}/@@pptx"
-                     i18n:translate=""
-                  >Download as PowerPoint file</a>
+                <li tal:repeat="entry view/more_menu_contents">
+                  <a class="${entry/class}"
+                     href="${entry/url}"
+                  >${entry/label}</a>
                 </li>
 
               </ul>
