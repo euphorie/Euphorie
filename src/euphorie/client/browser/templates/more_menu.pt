@@ -24,26 +24,27 @@
       >
         <li>
           <a class="close-panel icon-trash pat-modal ${python: not can_delete and 'disabled' or ''}"
-             data-pat-modal="class: panel small"
              href="${python:can_delete and delete_url or None}"
              title="Delete this session"
+             data-pat-modal="class: panel small"
              i18n:attributes="title"
              i18n:translate="label_delete"
           >Delete</a>
         </li>
         <li tal:condition="webhelpers/use_archive_feature">
           <a class="close-panel icon-archive pat-modal ${python: not can_archive and 'disabled' or ''}"
-             data-pat-modal="class: panel small"
              href="${python:can_archive and archive_url or None}"
              title="Archive"
+             data-pat-modal="class: panel small"
              i18n:attributes="title"
+             i18n:translate=""
           >Archive</a>
         </li>
         <li tal:condition="webhelpers/use_clone_feature">
           <a class="close-panel pat-modal icon-clone ${python: not can_duplicate and 'disabled' or ''}"
-             data-pat-modal="class: panel small"
              href="${python: can_duplicate and clone_url or None}"
              title="By cloning a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point."
+             data-pat-modal="class: panel small"
              i18n:attributes="title"
              i18n:translate="label_duplicate"
           >Duplicate</a>
