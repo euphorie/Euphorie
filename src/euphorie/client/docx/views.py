@@ -135,7 +135,7 @@ class OfficeDocumentView(BrowserView):
                 {
                     u"title": sql_risk.title.strip(),
                     u"description": risk_description,
-                    u"comment": _escape_text(sql_risk.comment),
+                    u"comment": sql_risk.comment,
                     u"actions": actions,
                     u"measures": measures,
                     u"epilogue": u"",
