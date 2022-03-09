@@ -211,17 +211,36 @@
           <!-- END Evaluation -->
 
           <!-- Information -->
-          <div class="pat-collapsible open risk-module form-panel">
+          <div class="pat-collapsible open risk-module form-panel"
+               id="page-module-information"
+          >
             <h3 class="form-separation-header"
                 i18n:translate="header_information"
             >
         Information
             </h3>
             <div class="panel-content">
-              <fieldset class="vertical row ${python:webhelpers.use_training_module and 'pat-subform pat-inject' or None}"
-                        data-pat-autosubmit="1000ms"
-                        data-pat-inject="${python:webhelpers.use_training_module and 'source: #slide-content-1; target: #slide-content-1' or None}"
-              >
+              <fieldset class="vertical row">
+                <div class="eight columns">
+
+                  <div class="pat-rich-editor pat-rich toolbar-detached">
+                    <textarea class="pat-tiptap"
+                              name="custom_description:utf8:ustring"
+                              placeholder="These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
+                              data-pat-tiptap="
+                toolbar-external: #assessments-toolbar;
+                source-panel: #pat-modal.panel-html-source-editor;
+                image-panel: #pat-modal.image-picker;
+                link-panel: #pat-modal .link-panel;
+                context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments
+                url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
+                url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}"
+                              tal:content="context/custom_description"
+                              i18n:attributes="placeholder placeholder_comment_field"
+                    >
+                    </textarea>
+                  </div>
+                </div>
                 <label class="four columns image-uploader pat-subform pat-autosubmit pat-inject discrete-injection"
                        id="image-upload"
                        title="Upload an image that illustrates this risk."
@@ -250,13 +269,6 @@
                          name="image"
                          type="file"
                   />
-                </label>
-                <label class="eight columns">
-                  <textarea name="custom_description"
-                            placeholder="Provide some further information on this risk."
-                            rows="8"
-                            i18n:attributes="placeholder placeholder_custom_risk_description"
-                  >${context/custom_description}</textarea>
                 </label>
                 <input name="handle_custom_description"
                        type="hidden"
