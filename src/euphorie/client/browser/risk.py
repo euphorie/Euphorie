@@ -480,7 +480,9 @@ class IdentificationView(RiskBase):
 
             # This only happens on custom risks
             if reply.get("handle_custom_description"):
-                self.context.custom_description = reply.get("custom_description")
+                self.context.custom_description = self.webhelpers.check_markup(
+                    reply.get("custom_description")
+                )
 
             if reply.get("title"):
                 self.context.title = reply.get("title")
@@ -547,7 +549,7 @@ class IdentificationView(RiskBase):
         # any answer-related data, since the request might have come
         # from a sub-form.
         if answer:
-            self.context.comment = reply.get("comment")
+            self.context.comment = self.webhelpers.check_markup(reply.get("comment"))
             self.context.postponed = answer == "postponed"
             if self.context.postponed:
                 self.context.identification = None
@@ -1093,7 +1095,7 @@ class ActionPlanView(RiskBase):
         if self.request.method == "POST":
             reply = self.request.form
             session = Session()
-            context.comment = reply.get("comment")
+            context.comment = self.webhelpers.check_markup(reply.get("comment"))
             context.priority = reply.get("priority")
 
             new_plans, changes = self.extract_plans_from_request()
