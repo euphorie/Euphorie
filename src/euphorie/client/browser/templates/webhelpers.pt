@@ -639,7 +639,7 @@
                       name="comment:utf8:ustring"
                       placeholder="These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
                       data-pat-tiptap="
-        toolbar-external: #assessments-toolbar;
+        toolbar-external: #assessment-toolbar;
         source-panel: #pat-modal.panel-html-source-editor;
         image-panel: #pat-modal.image-picker;
         link-panel: #pat-modal .link-panel;
@@ -1108,7 +1108,7 @@
 
   <metal:toolbar define-macro="toolbar">
     <div class="pat-toolbar sticky"
-         id="assessments-toolbar"
+         id="assessment-toolbar"
     >
       <div class="toolbar-functions-area">
         <div class="toolbar-section editor">
@@ -1182,7 +1182,7 @@
         </div>
         <metal:actions define-slot="page-actions">
           <div class="toolbar-section quick-functions"
-               id="assessments-toolbar-quick-functions"
+               id="assessment-toolbar-quick-functions"
           >
             <tal:status tal:define="
                           session_start_view nocall:here/@@start|webhelpers/traversed_session/@@start;
