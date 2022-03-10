@@ -625,9 +625,9 @@
               data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 120px"
     >
       <h3 class="form-separation-header"
-          i18n:translate="heading_comments"
+          i18n:translate="label_notes"
       >
-            Comments
+            Notes
       </h3>
 
       <metal:rich_comments_inner define-macro="rich_comments_inner">

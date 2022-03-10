@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-09 17:32+0000\n"
+"POT-Creation-Date: 2022-03-10 15:32+0000\n"
 "PO-Revision-Date: 2016-07-28 15:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2764,7 +2764,6 @@ msgid "heading_browser_warning"
 msgstr ""
 
 #. Default: "Comments"
-#: euphorie/client/browser/templates/webhelpers.pt:627
 #: euphorie/client/docx/compiler.py:346
 msgid "heading_comments"
 msgstr "Bemerkungen"
@@ -4209,6 +4208,11 @@ msgstr ""
 "Nein, weitere Maßnahmen sind notwendig <strong>(weiter unten einzutragen)</"
 "strong>"
 
+#. Default: "Notes"
+#: euphorie/client/browser/templates/webhelpers.pt:627
+msgid "label_notes"
+msgstr "Anmerkungen"
+
 #. Default: "Current Password"
 #: euphorie/client/browser/settings.py:84
 msgid "label_old_password"
@@ -4274,7 +4278,7 @@ msgid "label_profilequestion_question"
 msgstr "Frage"
 
 #. Default: "Published"
-#: euphorie/client/browser/templates/publication_badge.pt:17
+#: euphorie/client/browser/templates/publication_badge.pt:15
 #: euphorie/client/browser/templates/publication_menu.pt:27
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:146
 msgid "label_published"
@@ -4635,7 +4639,7 @@ msgid "label_try_oira"
 msgstr ""
 
 #. Default: "Unpublished"
-#: euphorie/client/browser/templates/publication_badge.pt:26
+#: euphorie/client/browser/templates/publication_badge.pt:23
 #: euphorie/client/browser/templates/status_info.pt:114
 msgid "label_unpublished"
 msgstr ""
