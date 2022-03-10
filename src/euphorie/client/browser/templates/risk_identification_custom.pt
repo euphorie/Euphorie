@@ -31,7 +31,7 @@
           <metal:toolbar use-macro="webhelpers/macros/toolbar">
             <metal:actions fill-slot="page-actions">
               <div class="toolbar-section quick-functions"
-                   id="assessments-toolbar-quick-functions"
+                   id="assessment-toolbar-quick-functions"
               >
                 <a class="icon icon-trash pat-modal"
                    href="${context/absolute_url}/@@confirmation-delete-risk#document-content"
@@ -228,7 +228,7 @@
                               name="custom_description:utf8:ustring"
                               placeholder="These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
                               data-pat-tiptap="
-                toolbar-external: #assessments-toolbar;
+                toolbar-external: #assessment-toolbar;
                 source-panel: #pat-modal.panel-html-source-editor;
                 image-panel: #pat-modal.image-picker;
                 link-panel: #pat-modal .link-panel;
