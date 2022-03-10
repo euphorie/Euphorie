@@ -31,68 +31,70 @@
         <div class="pat-toolbar sticky"
              id="training-toolbar"
         >
-          <div class="toolbar-section">
-            <a class="icon icon-th-list pat-tooltip"
-               href="#toc-trainings"
-               title="Table of contents"
-               data-pat-tooltip="position-list: tl; source: ajax; class: toc"
-               i18n:attributes="title label_table_of_contents"
-               i18n:translate="label_table_of_contents"
-            >
+          <div class="toolbar-functions-area">
+            <div class="toolbar-section">
+              <a class="icon icon-th-list pat-tooltip"
+                 href="#toc-trainings"
+                 title="Table of contents"
+                 data-pat-tooltip="position-list: tl; source: ajax; class: toc"
+                 i18n:attributes="title label_table_of_contents"
+                 i18n:translate="label_table_of_contents"
+              >
                     Table of contents
-            </a>
-            <div id="toc-trainings"
-                 hidden
-            >
-              <nav class="assessment-toc">
-                <tal:items repeat="slide_path slide_data/keys">
-                  <tal:slide define="
-                               slide_info python:slide_data[slide_path];
-                               training_view python:slide_info['training_view'];
-                               slide python:slide_info['slide_contents'];
-                             ">
-                    <a class="item ${slide_type} pat-scroll close-panel"
-                       href="#card-title-${training_view/number}"
-                       tal:define="
-                         slide_type slide/slide_type;
-                       "
-                    >
-                      <span class="number field"><strong class="index-number">${training_view/number}</strong></span>
-                      <span class="label field">${training_view/slide_title}</span>
-                    </a>
-                  </tal:slide>
-                </tal:items>
-              </nav>
+              </a>
+              <div id="toc-trainings"
+                   hidden
+              >
+                <nav class="assessment-toc">
+                  <tal:items repeat="slide_path slide_data/keys">
+                    <tal:slide define="
+                                 slide_info python:slide_data[slide_path];
+                                 training_view python:slide_info['training_view'];
+                                 slide python:slide_info['slide_contents'];
+                               ">
+                      <a class="item ${slide_type} pat-scroll close-panel"
+                         href="#card-title-${training_view/number}"
+                         tal:define="
+                           slide_type slide/slide_type;
+                         "
+                      >
+                        <span class="number field"><strong class="index-number">${training_view/number}</strong></span>
+                        <span class="label field">${training_view/slide_title}</span>
+                      </a>
+                    </tal:slide>
+                  </tal:items>
+                </nav>
+              </div>
             </div>
-          </div>
-          <div class="toolbar-section quick-functions"
-               id="trainings-toolbar-quick-functions"
-          >
-            <button class="pat-button icon-desktop default pat-fullscreen"
-                    data-pat-fullscreen="selector:#slide-0"
-            ><tal:training condition="question_intro_url"
-                            i18n:translate=""
-              >Take training and test</tal:training><tal:notraining condition="not:question_intro_url"
-                              i18n:translate=""
-              >Run slideshow</tal:notraining></button>
-
-            <a class="icon more pat-tooltip"
-               href="#assessments-more-menu-trainings"
-               data-pat-tooltip="position-list: tr; source: ajax"
-               tal:condition="view/more_menu_contents"
-               i18n:translate=""
-            >More&hellip;</a>
-            <div id="assessments-more-menu-trainings"
-                 hidden
+            <div class="toolbar-section quick-functions"
+                 id="training-toolbar-quick-functions"
             >
-              <ul class="menu">
-                <li tal:repeat="entry view/more_menu_contents">
-                  <a class="${entry/class}"
-                     href="${entry/url}"
-                  >${entry/label}</a>
-                </li>
+              <button class="pat-button icon-desktop default pat-fullscreen"
+                      data-pat-fullscreen="selector:#slide-0"
+              ><tal:training condition="question_intro_url"
+                              i18n:translate=""
+                >Take training and test</tal:training><tal:notraining condition="not:question_intro_url"
+                                i18n:translate=""
+                >Run slideshow</tal:notraining></button>
 
-              </ul>
+              <a class="icon more pat-tooltip"
+                 href="#assessments-more-menu-trainings"
+                 data-pat-tooltip="position-list: tr; source: ajax"
+                 tal:condition="view/more_menu_contents"
+                 i18n:translate=""
+              >More&hellip;</a>
+              <div id="assessments-more-menu-trainings"
+                   hidden
+              >
+                <ul class="menu">
+                  <li tal:repeat="entry view/more_menu_contents">
+                    <a class="${entry/class}"
+                       href="${entry/url}"
+                    >${entry/label}</a>
+                  </li>
+
+                </ul>
+              </div>
             </div>
           </div>
         </div>
