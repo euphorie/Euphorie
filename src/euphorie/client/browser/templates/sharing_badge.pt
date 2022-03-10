@@ -1,7 +1,7 @@
 <tal:sharing define="
                webhelpers here/@@webhelpers;
              ">
-  <a class="icon-share iconified pat-tooltip"
+  <a class="icon-share icon pat-tooltip"
      href="${request/ACTUAL_URL}#sharing-menu"
      title="Share this OiRA-Tool"
      data-pat-tooltip="source: ajax; position-list: tr"
