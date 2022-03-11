@@ -9,7 +9,7 @@
       tal:define="
         client nocall:request/client;
         webhelpers nocall:context/@@webhelpers;
-        slide_data view/slide_data|python:[];
+        slide_data view/slide_data|python:{};
       "
       i18n:domain="euphorie"
 >
@@ -47,7 +47,7 @@
               <p class="button-bar">
                 <a class="pat-button pat-inject default"
                    id="assessments-training-start-button"
-                   href="training-slides#slide-1"
+                   href="${here/absolute_url}/@@training-slides#slide-1"
                    data-pat-inject="target: #slide-0"
                    i18n:translate=""
                 >Start</a>
@@ -114,11 +114,16 @@
                   </section>
 
                   <metal:footer define-macro="footer">
-                    <footer class="slide-footer">
+                    <footer class="slide-footer"
+                            tal:define="
+                              end python:counter==slide_total_count;
+                            "
+                    >
                       <p class="colofon">
 
                         <strong class="slide-number">${training_view/number}</strong>
                          |
+
 
             ${view/session/title} | ${training_view/slide_date} | Page ${counter} of ${slide_total_count}
                       </p>
@@ -133,7 +138,16 @@
                         <a class="pat-inject default pat-button continue slide-nav-next"
                            href="${here/absolute_url}/@@training-slides#slide-${python:counter+1}"
                            data-pat-inject="target: #slide-0"
+                           tal:condition="not: end"
                         >Next</a>
+                        <button class="default pat-button close-fullscreen"
+                                href="${here/absolute_url}/@@training#slide-0"
+                                name="close"
+                                type="button"
+                                tal:condition="end"
+                        >
+        Close
+                        </button>
 
                       </p>
                     </footer>
