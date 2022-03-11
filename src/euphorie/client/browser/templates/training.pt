@@ -9,7 +9,7 @@
       tal:define="
         client nocall:request/client;
         webhelpers nocall:context/@@webhelpers;
-        slide_data view/slide_data|python:[];
+        slide_data view/slide_data|python:{};
       "
       i18n:domain="euphorie"
 >
@@ -22,6 +22,7 @@
                   counter python:0;
                   count_offset python:1;
                   question_intro_url view/question_intro_url|nothing;
+                  logo view/logo_url;
                 "
     >
       <div class="pat-scroll-box"
@@ -126,9 +127,11 @@
                    src="${view/tool_image_url}"
               />
             </figure>
-            <figure class="organisation-logo">
+            <figure class="organisation-logo"
+                    tal:condition="logo"
+            >
               <img alt=""
-                   src=""
+                   src="${logo}"
               />
             </figure>
           </section>
@@ -284,9 +287,11 @@
                      src="${view/tool_image_url}"
                 />
               </figure>
-              <figure class="organisation-logo">
+              <figure class="organisation-logo"
+                      tal:condition="logo"
+              >
                 <img alt=""
-                     src=""
+                     src="${logo}"
                 />
               </figure>
             </section>

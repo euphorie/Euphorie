@@ -121,6 +121,8 @@ class TrainingSlide(BrowserView):
             + list(self.context.standard_measures)
             + list(self.context.custom_measures)
         ):
+            if not measure.action:
+                continue
             measures.update(
                 {
                     measure.id: {
@@ -239,6 +241,13 @@ class TrainingView(BrowserView, survey._StatusHelper):
         survey = self.context.aq_parent
         if getattr(survey, "image", None):
             return f"{survey.absolute_url()}/@@images/image/large"
+
+    @property
+    def logo_url(self):
+        logo = self.webhelpers.get_sector_logo
+        if logo:
+            return f"{self.webhelpers.portal_url}/{logo.url}"
+        return f"{self.webhelpers.portal_url}/++resource++euphorie.resources/media/oira-logo-colour.png"  # noqa: E501
 
     @property
     @memoize
