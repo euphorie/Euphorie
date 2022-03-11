@@ -308,6 +308,9 @@ class TrainingView(BrowserView, survey._StatusHelper):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
 
+        # XXXX This whole block is not being used at the moment, since the
+        # training page does not post anything.
+        # We don't yet know where the handling of measure selection will happen
         if self.request.environ["REQUEST_METHOD"] == "POST":
             active_measures = set()
             for entry in self.request.form:
