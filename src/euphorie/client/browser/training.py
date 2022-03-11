@@ -290,8 +290,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
 
     @property
     def slide_total_count(self):
-        # The title slide is not part of the dataset, therefore start with 1
-        count = 1
+        count = 0
         for data in self.slide_data.values():
             count += 1
             for measure_id in data["slide_contents"]["measures"]:
