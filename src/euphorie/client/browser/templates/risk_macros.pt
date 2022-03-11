@@ -256,7 +256,7 @@
             </a>
           </figure>
         </div>
-        <tal:text replace="structure risk/description">description</tal:text>
+        <tal:text replace="structure python:webhelpers.get_safe_html(risk.description)">description</tal:text>
       </section>
     </article>
   </metal:riskinfo>
