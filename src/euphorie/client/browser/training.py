@@ -353,4 +353,5 @@ class TrainingView(BrowserView, survey._StatusHelper):
                 )
             self.webhelpers.traversed_session.session.touch()
 
+        self.request.RESPONSE.addHeader("Cache-Control", "public,max-age=60")
         return self.index()
