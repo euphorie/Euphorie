@@ -125,7 +125,11 @@
                          |
 
 
-            ${view/session/title} | ${training_view/slide_date} | Page ${counter} of ${slide_total_count}
+            ${view/session/title} | ${training_view/slide_date} |
+                        <tal:i18n i18n:translate="label_page">Page</tal:i18n>
+                        ${counter}
+                        <tal:i18n i18n:translate="label_page_of">of</tal:i18n>
+                         ${slide_total_count}
                       </p>
                       <p class="controls">
 
@@ -165,10 +169,8 @@
                            id="slide-content-${counter}"
                   >
                     <section class="slide-body pat-rich pat-scroll-box">
-                      <h3 class="slide-subtitle"
-                          i18n:translate="label_measures"
-                      >
-                    Measures
+                      <h3 class="slide-subtitle">
+                    ${view/heading_measures}
                       </h3>
                       <ul>
                         <tal:measures tal:repeat="measure_id measures">

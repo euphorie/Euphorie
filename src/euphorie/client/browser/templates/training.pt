@@ -214,10 +214,8 @@
                            id="card-content-${counter}"
                   >
                     <section class="card-body pat-rich">
-                      <h3 class="card-subtitle"
-                          i18n:translate="label_measures"
-                      >
-                    Measures
+                      <h3 class="card-subtitle">
+                    ${view/heading_measures}
                       </h3>
                       <ul class="measure-list"
                           id="card-measures-"

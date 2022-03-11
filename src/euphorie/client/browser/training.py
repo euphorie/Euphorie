@@ -1,6 +1,7 @@
 # coding=utf-8
 from collections import OrderedDict
 from datetime import date
+from euphorie import MessageFactory as _
 from euphorie.client import survey
 from euphorie.client import utils as client_utils
 from logging import getLogger
@@ -207,6 +208,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
     skip_unanswered = False
     for_download = False
     more_menu_contents = []
+    heading_measures = _("header_measures", default="Measures")
 
     @property
     @memoize
