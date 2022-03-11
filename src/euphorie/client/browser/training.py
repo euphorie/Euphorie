@@ -3,6 +3,7 @@ from collections import OrderedDict
 from datetime import date
 from euphorie import MessageFactory as _
 from euphorie.client import survey
+from euphorie.client import utils
 from euphorie.client import utils as client_utils
 from logging import getLogger
 from plone import api
@@ -310,6 +311,9 @@ class TrainingView(BrowserView, survey._StatusHelper):
     def __call__(self):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
+
+        survey = self.webhelpers._survey
+        utils.setLanguage(self.request, survey, survey.language)
 
         # XXXX This whole block is not being used at the moment, since the
         # training page does not post anything.
