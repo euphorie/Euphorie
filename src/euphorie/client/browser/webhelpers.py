@@ -831,9 +831,10 @@ class WebHelpers(BrowserView):
         sector = self.sector
         if sector is None:
             return None
-        images = getMultiAdapter((sector, self.request), name="images")
+        real_sector = sector._sector()
+        images = getMultiAdapter((real_sector, self.request), name="images")
         try:
-            return images.scale("logo", height=100, direction="up") or None
+            return images.scale("logo", height=400, direction="up") or None
         except POSKeyError:
             return None
 
