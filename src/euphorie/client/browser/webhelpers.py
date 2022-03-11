@@ -210,7 +210,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def default_country(self):
-        return api.portal.get_registry_record("euphorie.default_country", default=u"")
+        return api.portal.get_registry_record("euphorie.default_country", default="")
 
     @property
     @memoize
@@ -312,7 +312,7 @@ class WebHelpers(BrowserView):
             completion_percentage = self.traversed_session.session.completion_percentage
         title = _(
             "progress_indicator_title",
-            default=u"${completion_percentage}% Complete",
+            default="${completion_percentage}% Complete",
             mapping={"completion_percentage": completion_percentage or 0},
         )
         return api.portal.translate(title)
@@ -471,7 +471,7 @@ class WebHelpers(BrowserView):
     def extra_css(self):
         sector = self.sector
         if sector is None:
-            return u""
+            return ""
 
         sector = aq_base(sector)
         parts = []
@@ -497,7 +497,7 @@ class WebHelpers(BrowserView):
         else:
             return _(
                 "title_tool",
-                default=u"OiRA - Online interactive Risk Assessment",
+                default="OiRA - Online interactive Risk Assessment",
             )
 
     @property
@@ -829,6 +829,13 @@ class WebHelpers(BrowserView):
         except POSKeyError:
             return None
 
+    @memoize
+    def get_tool_image_url(self, survey=None):
+        if not survey:
+            survey = self._survey
+        if getattr(survey, "image", None):
+            return f"{survey.absolute_url()}/@@images/image/large"
+
     def messages(self):
         status = IStatusMessage(self.request)
         messages = status.show()
@@ -890,10 +897,10 @@ class WebHelpers(BrowserView):
         return message
 
     def closetext(self):
-        return api.portal.translate(_(u"button_close", default=u"Close"))
+        return api.portal.translate(_("button_close", default="Close"))
 
     def email_sharing_text(self):
-        return api.portal.translate(_(u"I wish to share the following with you"))
+        return api.portal.translate(_("I wish to share the following with you"))
 
     def getSecret(self):
         return getSecret()
@@ -962,7 +969,7 @@ class WebHelpers(BrowserView):
 
     def as_md(self, text):
         """Return a text with Carriage Returns formatted as a Markdown."""
-        return u"\r\n".join([x for x in text.split("\r")])
+        return "\r\n".join([x for x in text.split("\r")])
 
     def show_logo(self):
         """In plain Euphorie, the logo is always shown"""
