@@ -226,7 +226,7 @@
                   <div class="pat-rich-editor pat-rich toolbar-detached">
                     <textarea class="pat-tiptap"
                               name="custom_description:utf8:ustring"
-                              placeholder="These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
+                              placeholder="${view/notes_placeholder}"
                               data-pat-tiptap="
                 toolbar-external: #assessment-toolbar;
                 source-panel: #pat-modal.panel-html-source-editor;
@@ -236,7 +236,6 @@
                 url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
                 url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}"
                               tal:content="context/custom_description"
-                              i18n:attributes="placeholder placeholder_comment_field"
                     >
                     </textarea>
                   </div>

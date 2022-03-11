@@ -299,6 +299,21 @@ class RiskBase(BrowserView):
             _next = _next.pop()
         return _next
 
+    @property
+    def notes_placeholder(self):
+        if self.webhelpers.use_training_module:
+            return _(
+                "placeholder_comment_field_training",
+                default="These notes will be visible in the report and the training. "
+                "Use it for anything else you might want to write about this risk.",
+            )
+        else:
+            return _(
+                "placeholder_comment_field",
+                default="These notes will be visible in the report. Use it for "
+                "anything else you might want to write about this risk.",
+            )
+
 
 class IdentificationView(RiskBase):
     """A view for displaying a question in the identification phase"""
