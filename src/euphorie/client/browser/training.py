@@ -109,7 +109,8 @@ class TrainingSlide(BrowserView):
         training_notes = getattr(self.context, "comment", "") or ""
         if self.for_download:
             training_notes = markdown.markdown(training_notes)
-        return training_notes
+        if self.webhelpers.check_markup(training_notes):
+            return training_notes
 
     @property
     def measures(self):
