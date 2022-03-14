@@ -10,6 +10,7 @@
 /.installed.cfg
 /.mr.developer.cfg
 /bin
+/eggs
 /develop-eggs
 /local/
 /parts
