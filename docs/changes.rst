@@ -1,10 +1,12 @@
 Changelog
 =========
 
-13.1.0 (unreleased)
+14.0.0 (unreleased)
 -------------------
 
 - Further improvements in the UI (use of color highlights, etc)
+- Rich editing (pat-tiptap) is now used for the Notes and custom risk description
+- Officially drop support for python2.7
 
 
 13.0.9 (2022-02-23)

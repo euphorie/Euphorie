@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = "13.1.0.dev0"
+version = "14.0.0.dev0"
 
 setup(
     name="Euphorie",
@@ -15,8 +15,6 @@ setup(
         "Framework :: Plone",
         "Framework :: Plone :: 5.2",
         "License :: OSI Approved :: GNU General Public License (GPL)",
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
