@@ -99,8 +99,7 @@ class WebHelpers(BrowserView):
     css_path = "++resource++euphorie.resources/{brand}/style/all.css"
     css_path_min = "++resource++euphorie.resources/{brand}/style/all.css"
 
-    js_name = "bundle.js"
-    js_name_min = "bundle.min.js"
+    js_name = "bundle.min.js"
 
     favicon_path = "++resource++euphorie.resources/{brand}/favicon/apple-touch-icon.png"
 
@@ -585,7 +584,7 @@ class WebHelpers(BrowserView):
         return "{}/{}/{}?t={}".format(
             self.client_url,
             self.script_path,
-            self.js_name if not self.debug_mode else self.js_name_min,
+            self.js_name,
             self.resources_timestamp,
         )
 
