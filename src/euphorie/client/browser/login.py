@@ -18,9 +18,11 @@ from euphorie.client.model import get_current_account
 from euphorie.content.survey import ISurvey
 from plone import api
 from plone.memoize.view import memoize
+from plone.session import tktauth
 from plone.session.plugins.session import cookie_expiration_date
 from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import safe_bytes
 from Products.Five import BrowserView
 from Products.PlonePAS.events import UserLoggedInEvent
 from Products.statusmessages.interfaces import IStatusMessage
@@ -37,6 +39,12 @@ import logging
 import os
 import re
 import six
+
+
+try:
+    from base64 import decodebytes
+except ImportError:
+    from base64 import decodestring as decodebytes  # python2.x
 
 
 log = logging.getLogger(__name__)
@@ -89,8 +97,22 @@ class Login(BrowserView):
             )  # noqa: E501
 
     def transferGuestSession(self, account_id):
-        """Transfer session(s) from guest account to an existing user account"""
+        """Transfer session(s) from guest account to an existing user account.
+        Check that the account from which we want to transfer the session(s)
+        corresponds to the currently logged-in one (= guest session) as given via
+        the __ac cookie.
+        """
         if not account_id:
+            return
+        cookie = self.request.cookies.get("__ac")
+        if not cookie:
+            return
+        ticket = decodebytes(safe_bytes(cookie))
+        try:
+            cookie_values = tktauth.splitTicket(ticket)
+        except ValueError:
+            return
+        if len(cookie_values) < 2 or cookie_values[1] != account_id:
             return
         account = get_current_account()
         sessions = Session.query(model.SurveySession).filter(

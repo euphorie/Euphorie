@@ -4,8 +4,10 @@ Changelog
 13.0.10 (unreleased)
 --------------------
 
-- Nothing changed yet.
-
+- Security fix: when the session(s) of a guest account are transferred
+  to an existing regular account, make sure that the source account really
+  is currently logged in. Do not allow to transfer sessions from any other
+  account (guest or otherwise) apart from the currently active guest account.
 
 13.0.9 (2022-02-23)
 -------------------
