@@ -162,7 +162,7 @@
         >Read more</tal:more>
         about this risk.
       </h4>
-      <tal:description tal:replace="structure risk/description" />
+      <tal:description tal:replace="structure python:webhelpers.get_safe_html(risk.description)" />
     </div>
     <tal:custom condition="is_custom_risk">
       <span tal:replace="structure context/custom_description"></span>

@@ -174,10 +174,10 @@
     >
 
       <!-- Existing Measures -->
-      <fieldset class="pat-checklist pat-clone ${python:'pat-inject pat-autosubmit pat-subform' if (webhelpers.use_training_module or webhelpers.integrated_action_plan) else None}"
+      <fieldset class="pat-checklist pat-clone ${python:'pat-inject pat-autosubmit pat-subform' if webhelpers.integrated_action_plan else None}"
                 id="risk_identification_form"
-                data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button; remove-confirmation: Sind Sie sicher, dass Sie die eingetragene bestehende Schutzmaßnahme entfernen wollen?; remove-behaviour: none"
-                data-pat-inject="${python:'source: #slide-content-1; target: #slide-content-1;' if webhelpers.use_training_module else None} ${python:'&amp;&amp; source: #panel-action-plan; target: #panel-action-plan' if webhelpers.integrated_action_plan else None}"
+                data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button; remove-behaviour: none"
+                data-pat-inject="${python:'source: #panel-action-plan; target: #panel-action-plan' if webhelpers.integrated_action_plan else None}"
       >
         <tal:existing_measures condition="view/show_existing_measures">
           <article class="pat-rich">
@@ -218,7 +218,7 @@
                         name="measure-custom-${measure/solution_id}"
                         placeholder="${view/placeholder_add_extra}"
                         rows="3"
-                        tal:content="structure python:measure['text']"
+                        tal:content="structure python:webhelpers.get_safe_html(measure['text'])"
               ></textarea>
               <button class="icon-trash iconified remove-clone"
                       title="${view/button_remove_extra}"
@@ -577,7 +577,7 @@
              tal:condition="view/has_legal"
     >
       <h4 i18n:translate="label_legal_reference">Legal and policy references</h4>
-      <tal:legal replace="structure risk/legal_reference">
+      <tal:legal replace="structure python:webhelpers.get_safe_html(risk.legal_reference)">
         The requirements for fridges are defined in section 13.1 section a
         of the health code.
       </tal:legal>

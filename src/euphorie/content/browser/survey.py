@@ -13,6 +13,7 @@ from plone import api
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm
+from plone.memoize.instance import memoize
 from plonetheme.nuplone.skin import actions
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
@@ -102,12 +103,28 @@ class EditForm(DefaultEditForm):
             catalog.indexObject(aq_parent(aq_inner(self.context)))
         return changes
 
+    @property
+    @memoize
+    def portal_transforms(self):
+        return api.portal.get_tool("portal_transforms")
+
+    def get_safe_html(self, text):
+        data = self.portal_transforms.convertTo(
+            "text/x-html-safe", text, mimetype="text/html"
+        )
+        return data.getData()
+
     def updateWidgets(self):
         super(EditForm, self).updateWidgets()
         if not api.portal.get_registry_record(
             "euphorie.use_integrated_action_plan", default=False
         ):
             self.widgets["integrated_action_plan"].mode = "hidden"
+        for fname in ("introduction",):
+            value = self.widgets[fname].value or ""
+            safe_value = self.get_safe_html(value)
+            if value != safe_value:
+                self.widgets[fname].value = safe_value
 
 
 class Delete(actions.Delete):

@@ -3,10 +3,12 @@ from ..module import IModule
 from ..risk import IRisk
 from ..utils import DragDropHelper
 from euphorie.content import MessageFactory as _
+from plone import api
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm
 from plone.dexterity.interfaces import IDexterityFTI
+from plone.memoize.instance import memoize
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from zope.component import getMultiAdapter
@@ -47,6 +49,17 @@ class ModuleView(BrowserView, DragDropHelper):
             fti = getUtility(IDexterityFTI, name=portal_type)
             return fti.Title()
 
+    @property
+    @memoize
+    def portal_transforms(self):
+        return api.portal.get_tool("portal_transforms")
+
+    def get_safe_html(self, text):
+        data = self.portal_transforms.convertTo(
+            "text/x-html-safe", text, mimetype="text/html"
+        )
+        return data.getData()
+
 
 class AddForm(DefaultAddForm):
     portal_type = "euphorie.module"
@@ -83,9 +96,25 @@ class EditForm(DefaultEditForm):
             type_name = fti.Title()
         return _(u"Edit ${name}", mapping={"name": type_name})
 
+    @property
+    @memoize
+    def portal_transforms(self):
+        return api.portal.get_tool("portal_transforms")
+
+    def get_safe_html(self, text):
+        data = self.portal_transforms.convertTo(
+            "text/x-html-safe", text, mimetype="text/html"
+        )
+        return data.getData()
+
     def updateWidgets(self):
         super(EditForm, self).updateWidgets()
         self.widgets["title"].addClass("span-7")
+        for fname in ("description", "solution_direction"):
+            value = self.widgets[fname].value or ""
+            safe_value = self.get_safe_html(value)
+            if value != safe_value:
+                self.widgets[fname].value = safe_value
 
     def extractData(self, setErrors=True):
         data = super(EditForm, self).extractData(setErrors)
