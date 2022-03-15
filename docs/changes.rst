@@ -4,7 +4,9 @@ Changelog
 13.0.10 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- When a user tries to operate on a session without enough rights,
+  they are redirected to the sessions overview
+  [ale-rt]
 
 
 13.0.9 (2022-02-23)
