@@ -54,7 +54,7 @@
                                  slide python:slide_info['slide_contents'];
                                ">
                       <a class="item ${slide_type} pat-scroll close-panel"
-                         href="#card-title-${training_view/number}"
+                         href="#card-title-${training_view/number_id}"
                          tal:define="
                            slide_type slide/slide_type;
                          "
@@ -165,7 +165,7 @@
                   >
                     <section class="card-body pat-rich">
                       <h2 class="card-title"
-                          id="card-title-${training_view/number}"
+                          id="card-title-${training_view/number_id}"
                       >
                         <span class="card-title-number">${training_view/number}
                         </span>

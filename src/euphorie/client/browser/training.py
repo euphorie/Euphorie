@@ -61,6 +61,7 @@ class TrainingSlide(BrowserView):
         return "for_download" in self.request and self.request["for_download"]
 
     @property
+    @memoize
     def number(self):
         if self.is_custom:
             num_elems = self.context.number.split(".")
@@ -70,6 +71,10 @@ class TrainingSlide(BrowserView):
         if self.item_type == "module":
             number = "{}.0".format(number)
         return number
+
+    @property
+    def number_id(self):
+        return self.number.replace(".", "-")
 
     @property
     def slide_title(self):
