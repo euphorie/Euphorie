@@ -316,16 +316,25 @@ class WebHelpers(BrowserView):
         )
         return api.portal.translate(title)
 
+    @memoize
+    def get_came_from(self, default=None):
+        came_from = self.request.form.get("came_from")
+        if not came_from:
+            return default
+        if isinstance(came_from, list):
+            # If came_from is both in the querystring and the form data
+            came_from = came_from[0]
+        put = getToolByName(self.context, "portal_url")
+        if came_from and not put.isURLInPortal(came_from):
+            return default
+        return came_from
+
     @property
     @memoize
     def came_from(self):
-        came_from = self.request.form.get("came_from")
-        if not came_from:
-            return aq_parent(self.context).absolute_url()
-        if not isinstance(came_from, list):
-            return came_from
-        # If came_from is both in the querystring and the form data
-        return came_from[0]
+        default = aq_parent(self.context).absolute_url()
+        came_from = self.get_came_from(default=default)
+        return came_from
 
     @property
     @memoize
