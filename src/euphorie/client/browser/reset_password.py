@@ -177,7 +177,10 @@ class ResetPasswordRequest(BaseForm):
             u"link inside the e-mail to reset your password.",
             mapping={"email": email},
         )
-        redir_url = self.request.get("came_from") or self.context.absolute_url()
+        webhelpers = api.content.get_view(
+            name="webhelpers", context=self.context, request=self.request
+        )
+        redir_url = webhelpers.get_came_from(default=self.context.absolute_url())
         if not redir_url.endswith("login"):
             redir_url = "{0}/@@login?{1}#login".format(
                 redir_url, urlencode({"came_from": redir_url})

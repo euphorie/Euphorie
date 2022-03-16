@@ -211,14 +211,7 @@ class Login(BrowserView):
 
         form = self.request.form
 
-        came_from = form.get("came_from")
-        if came_from:
-            if isinstance(came_from, list):
-                # If came_from is both in the querystring and the form data
-                came_from = came_from[0]
-        else:
-            # Set to country url
-            came_from = self.webhelpers.country_url
+        came_from = self.webhelpers.get_came_from(default=self.webhelpers.country_url)
         self.setLanguage(came_from)
 
         account = get_current_account()
@@ -362,13 +355,10 @@ class CreateTestSession(Tryout):
             "euphorie.allow_guest_accounts", default=False
         )
         context = aq_inner(self.context)
-        came_from = self.request.form.get("came_from")
-        if came_from:
-            if isinstance(came_from, list):
-                # If came_from is both in the querystring and the form data
-                came_from = came_from[0]
-        else:
-            came_from = context.absolute_url()
+        webhelpers = api.content.get_view(
+            name="webhelpers", context=self.context, request=self.request
+        )
+        came_from = webhelpers.get_came_from(default=context.absolute_url())
         self.register_url = "%s/@@login?%s#registration" % (
             context.absolute_url(),
             urlencode({"came_from": came_from}),

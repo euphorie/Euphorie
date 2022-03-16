@@ -4,7 +4,7 @@ Changelog
 14.0.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Improved redirect security
 
 
 14.0.0 (2022-03-16)
