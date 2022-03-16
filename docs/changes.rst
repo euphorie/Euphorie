@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.0.0 (unreleased)
+14.0.0 (2022-03-16)
 -------------------
 
 - Further improvements in the UI (use of color highlights, etc)
