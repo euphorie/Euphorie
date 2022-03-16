@@ -424,6 +424,79 @@
       </tal:logo>
     </tal:anon>
 
+    <!-- modal link editor -->
+    <template id="tiptap-modal-hyperlink-fieldname-comments">
+      <h1>Edit Link</h1>
+      <div class="panel-body link-panel">
+        <div class="container">
+          <form class="pat-form">
+            <fieldset class="vertical">
+              <fieldset class="group url">
+                <legend i18n:translate="">URL</legend>
+                <span class="button-field type-url">
+                  <input class="pat-autofocus"
+                         name="tiptap-href"
+                         oninput="if (this.value) { this.nextElementSibling.href = this.value; } else { this.nextElementSibling.removeAttribute('href'); }"
+                         type="url"
+                         value=""
+                  />
+                  <a class="follow"
+                     id="event-url-follow-button"
+                     href=""
+                     target="_blank"
+                     title="Visit this URL"
+                     i18n:attributes="title"
+                     i18n:translate=""
+                  >Follow</a>
+                </span>
+              </fieldset>
+              <label>
+                <tal:i18n i18n:translate="">Link text</tal:i18n>
+                <input name="tiptap-text"
+                       type="text"
+                />
+              </label>
+            </fieldset>
+          </form>
+          <div class="buttons button-bar pat-bumper"
+               id="modal-button-bar"
+          >
+            <button class="pat-button default close-panel icon-ok-circle"
+                    name="tiptap-confirm"
+                    type="submit"
+                    i18n:translate=""
+            >Insert</button>
+            <button class="pat-button close-panel icon-cancel-circle"
+                    type="button"
+                    i18n:translate=""
+            >Cancel</button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <!-- context menu link -->
+    <template id="tiptap-context-menu-hyperlink-fieldname-comments">
+      <ul class="menu tiptap-link-context-menu">
+        <li>
+          <a class="icon-link close-panel tiptap-open-new-link"
+             href=""
+             target="_blank"
+             i18n:translate=""
+          >Visit linked web page</a>
+        </li>
+        <li>
+          <a class="icon-pencil close-panel tiptap-edit-link"
+             i18n:translate=""
+          >Edit link</a>
+        </li>
+        <li>
+          <a class="icon-unlink close-panel tiptap-unlink"
+             i18n:translate=""
+          >Unlink</a>
+        </li>
+      </ul>
+    </template>
 
     <tal:block replace="tile:client-analytics" />
 

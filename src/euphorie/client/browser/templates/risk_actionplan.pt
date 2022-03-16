@@ -38,7 +38,10 @@
                                    message-min: ${view/message_positive_number};
                                    "
         >
-          <div id="content-pane">
+          <div class="pat-scroll-box"
+               id="content-pane"
+          >
+            <metal:call use-macro="webhelpers/macros/toolbar" />
             <article class="rich pat-well warning"
                      id="${view/risk_number}"
             >
@@ -93,15 +96,39 @@
                     </select>
                   priority risk.
                   </label>
-                  <label tal:condition="python:readonly and not skip_evaluation"
-                         i18n:translate="risk_priority"
-                  >
+
+                  <tal:readonly tal:condition="python:readonly and not skip_evaluation">
+                    <tal:switch switch="value">
+                      <tal:case case="string:low">
+                        <label i18n:translate="risk_priority">
                   This is a
-                    <strong i18n:name="priority_value"
-                            i18n:translate=""
-                    >risk_priority_${value}</strong>
+                          <strong i18n:name="priority_value"
+                                  i18n:translate="risk_priority_low"
+                          >low</strong>
                   priority risk.
-                  </label>
+                        </label>
+                      </tal:case>
+                      <tal:case case="string:medium">
+                        <label i18n:translate="risk_priority">
+                  This is a
+                          <strong i18n:name="priority_value"
+                                  i18n:translate="risk_priority_medium"
+                          >medium</strong>
+                  priority risk.
+                        </label>
+                      </tal:case>
+                      <tal:case case="string:high">
+                        <label i18n:translate="risk_priority">
+                  This is a
+                          <strong i18n:name="priority_value"
+                                  i18n:translate="risk_priority_high"
+                          >high</strong>
+                  priority risk.
+                        </label>
+                      </tal:case>
+                    </tal:switch>
+                  </tal:readonly>
+
                 </fieldset>
                 <metal:call use-macro="here/risk_macros/macros/risk_info_actionplan" />
               </tal:priority>
@@ -109,20 +136,7 @@
 
             <metal:call use-macro="webhelpers/macros/action_plan" />
 
-            <fieldset class="vertical"
-                      id="comments"
-            >
-              <label>
-                <textarea id="commentsField"
-                          cols="70"
-                          name="comment:utf8:ustring"
-                          placeholder="Please leave any comments you may have on the question above in this field. These comments will be used in the action plan."
-                          rows="3"
-                          tal:content="context/comment|nothing"
-                          i18n:attributes="placeholder label_comment"
-                ></textarea>
-              </label>
-            </fieldset>
+            <metal:call use-macro="webhelpers/macros/rich_comments_inner" />
 
           </div>
           <p class="button-bar pat-bumper"

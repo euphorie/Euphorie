@@ -102,6 +102,17 @@ class RiskView(BrowserView, DragDropHelper):
             IKinneyEvaluation["default_effect"], self.my_context.default_effect
         )
 
+    @property
+    @memoize
+    def portal_transforms(self):
+        return api.portal.get_tool("portal_transforms")
+
+    def get_safe_html(self, text):
+        data = self.portal_transforms.convertTo(
+            "text/x-html-safe", text, mimetype="text/html"
+        )
+        return data.getData()
+
 
 class AddForm(DefaultAddForm):
 
@@ -190,6 +201,17 @@ class EditForm(DefaultEditForm):
         )
 
     @property
+    @memoize
+    def portal_transforms(self):
+        return api.portal.get_tool("portal_transforms")
+
+    def get_safe_html(self, text):
+        data = self.portal_transforms.convertTo(
+            "text/x-html-safe", text, mimetype="text/html"
+        )
+        return data.getData()
+
+    @property
     def tool_type(self):
         return get_tool_type(self.my_context)
 
@@ -217,6 +239,11 @@ class EditForm(DefaultEditForm):
             self.widgets["existing_measures"].mode = "hidden"
         else:
             self.widgets["existing_measures"].mode = "display"
+        for fname in ("description", "legal_reference"):
+            value = self.widgets[fname].value or ""
+            safe_value = self.get_safe_html(value)
+            if value != safe_value:
+                self.widgets[fname].value = safe_value
 
     def extractData(self, setErrors=True):
         data = super(EditForm, self).extractData(setErrors)

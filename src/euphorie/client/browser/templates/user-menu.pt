@@ -12,46 +12,19 @@
   <body i18n:domain="euphorie">
     <metal:slot fill-slot="content"
                 tal:define="
-                  webhelpers nocall:context/@@webhelpers;
-                  base_url webhelpers/base_url;
-                  country_url webhelpers/country_url;
+                  menu_contents view/menu_contents;
                 "
     >
       <section id="menu-content">
         <ul class="menu">
-          <li class="menu-item-sidebar">
-            <a class="icon-menu pat-switch close-panel"
-               id="burger"
-               href="${base_url}/session-browser-sidebar#osc"
-               title="Show/hide menu"
-               data-pat-switch="selector: body; remove: osc-s-off; add: osc-s-on"
+          <li class="${entry/class_outer}"
+              tal:repeat="entry menu_contents"
+          >
+            <a class="${entry/class_inner}"
+               href="${entry/url}"
+               target="${python:entry.get('target', None)}"
                i18n:translate=""
-            >Browse risk assessments</a>
-          </li>
-
-          <li class="menu-item-change-password">
-            <a class="icon-key"
-               href="${country_url}/account-settings"
-               i18n:translate="title_change_password"
-            >Change password</a>
-          </li>
-          <li class="menu-item-change-email-address">
-            <a class="icon-mail"
-               href="${country_url}/new-email"
-               i18n:translate=""
-            >Change email address</a>
-          </li>
-          <li class="menu-item-delete-account">
-            <a class="icon-cancel-circled"
-               href="${country_url}/account-delete"
-               i18n:translate=""
-            >Delete account</a>
-          </li>
-          <li class="menu-item-logout">
-            <a class="icon-logout"
-               href="${country_url}/logout"
-               i18n:translate="navigation_logout"
-            >Logout</a>
+            >${entry/label}</a>
           </li>
         </ul>
       </section>

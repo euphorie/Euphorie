@@ -1,12 +1,14 @@
 Changelog
 =========
 
-13.0.10 (unreleased)
---------------------
+14.0.0 (unreleased)
+-------------------
 
+- Further improvements in the UI (use of color highlights, etc)
+- Rich editing (pat-tiptap) is now used for the Notes and custom risk description
+- Officially drop support for python2.7
 - When a user tries to operate on a session without enough rights,
   they are redirected to the sessions overview
-  [ale-rt]
 
 
 13.0.9 (2022-02-23)
@@ -76,7 +78,7 @@ Changelog
 BREAKING CHANGE: UI freshup
 
 - Prevent redirect to default country after registration.
-- Various Translation fixes 
+- Various Translation fixes
 - Show a warning when republishing a tool with changed structure.
 - Prevent execution of malicious code entered as custom measure or training notes.
 - Only allow users to create an new account in the client if self-registration is enabled

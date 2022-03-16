@@ -281,11 +281,45 @@
       />
 
   <browser:page
+      name="publication_date"
+      for="euphorie.client.model.SurveyTreeItem"
+      permission="euphorie.client.ViewSurvey"
+      class=".session.PublicationMenu"
+      allowed_attributes="set_date reset_date unset_date"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="publication_menu"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
       class=".session.PublicationMenu"
       template="templates/publication_menu.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="publication_menu"
+      for="euphorie.client.model.SurveyTreeItem"
+      permission="euphorie.client.ViewSurvey"
+      class=".session.PublicationMenu"
+      template="templates/publication_menu.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="publication_badge"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      template="templates/publication_badge.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="publication_badge"
+      for="euphorie.client.model.SurveyTreeItem"
+      template="templates/publication_badge.pt"
+      permission="euphorie.client.ViewSurvey"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
@@ -494,6 +528,23 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <!-- Sharing -->
+  <browser:page
+      name="sharing_badge"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      template="templates/sharing_badge.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="sharing_badge"
+      for="euphorie.client.model.SurveyTreeItem"
+      permission="euphorie.client.ViewSurvey"
+      template="templates/sharing_badge.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <browser:page
       name="confirmation-delete-session"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
@@ -551,6 +602,7 @@
       for="*"
       permission="zope2.View"
       template="templates/user-menu.pt"
+      class=".settings.UserMenu"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
@@ -612,14 +664,6 @@
       permission="zope2.View"
       class=".login.CreateTestSession"
       template="templates/new-session-test.pt"
-      layer="euphorie.client.interfaces.IClientSkinLayer"
-      />
-
-  <browser:page
-      name="help_menu"
-      for="*"
-      permission="zope2.View"
-      template="templates/help-menu.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
@@ -768,16 +812,6 @@
       for="*"
       permission="zope2.Public"
       template="templates/browser-warning.pt"
-      layer="euphorie.client.interfaces.IClientSkinLayer"
-      />
-
-  <!-- help view (obsolete) -->
-  <browser:page
-      name="help"
-      for="*"
-      permission="zope2.Public"
-      class=".help.HelpView"
-      template="templates/help.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 

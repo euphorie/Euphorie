@@ -1,0 +1,46 @@
+<tal:sharing define="
+               webhelpers here/@@webhelpers;
+             ">
+  <a class="icon-share icon pat-tooltip"
+     href="${request/ACTUAL_URL}#sharing-menu"
+     title="Share this OiRA-Tool"
+     data-pat-tooltip="source: ajax; position-list: tr"
+     tal:condition="webhelpers/allow_social_sharing"
+     i18n:attributes="title"
+  >Share</a>
+  <div id="sharing-menu"
+       hidden="hidden"
+       tal:condition="webhelpers/allow_social_sharing"
+  >
+
+    <p class="pat-message notice"
+       i18n:translate=""
+    >
+        This tool deserves to be known by the world! Share it!
+    </p>
+
+    <ul class="menu">
+      <li>
+        <a class="twitter icon-twitter"
+           href="http://twitter.com/share?url=${webhelpers/survey_url}"
+           onclick="javascript:_paq.push(['trackEvent', 'SocialSharing', 'Twitter', 'Start']);"
+           target="sharing"
+        >Twitter</a>
+      </li>
+      <li>
+        <a class="facebook icon-facebook"
+           href="http://www.facebook.com/sharer.php?u=${webhelpers/base_url}/@@tryout?${webhelpers/came_from_param}"
+           onclick="javascript:_paq.push(['trackEvent', 'SocialSharing', 'Facebook', 'Start']);"
+           target="sharing"
+        >Facebook</a>
+      </li>
+      <li>
+        <a class="email icon-mail"
+           href="mailto:?subject=OiRA — ${webhelpers/tool_name}&amp;body=${webhelpers/email_sharing_text}: ${webhelpers/survey_url}"
+           onclick="javascript:_paq.push(['trackEvent', 'SocialSharing', 'Email', 'Start']);"
+           i18n:translate=""
+        >E-mail</a>
+      </li>
+    </ul>
+  </div>
+</tal:sharing>

@@ -18,7 +18,7 @@
 
 		
 			<script
-				src="../../../script/bundle-help.js"
+				src="../../../script/bundle-help.min.js"
 				type="text/javascript"></script>
 		
 
@@ -51,11 +51,6 @@
 			type="image/png" 
 			href="../../../favicon/apple-touch-icon.png" />
 
-		<meta 
-			name="theme-color" 
-			content="#10B2E4">
-
-		<!-- Manifest -->
 		<link rel="manifest" 
 			  href="/assets/oira/manifest/manifest.json">
 	</head>
@@ -65,7 +60,9 @@
 		data-layout-layout="assessment-page"
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
-		<div id="main" class="sidebar-off">
+		<div 
+	id="main" 
+	class="sidebar-off">
 	<header 
 	id="toolbar">
 	<a 
@@ -98,6 +95,13 @@
 		   	data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
 		   	data-pat-tooltip="source: ajax">Menu</a>
 		<a 
+            href="/feedback/messages-unread#menu-content" 
+            id="messages-menu" 
+            data-pat-tooltip="source: ajax"
+            class="pat-tooltip icon iconified icon-chat pat-push">
+            Messages <sup id="messages-unread-count" class="counter digit-1">1</sup>
+        </a> 
+		<a 
 			href="/feedback/help-menu#menu-content" 
 		   	id="help-menu" 
 		   	class="iconified pat-tooltip" 
@@ -110,7 +114,8 @@
 		    title="Startup page">Dashboard</a>
 	
 </header>
-	<div id="content">
+	<div 
+		id="content">
 		
 
 		
@@ -119,8 +124,9 @@
 
 
 
-<aside id="tree" 
-       class="variation-risk-assessment">
+<aside 
+	id="tree" 
+    class="variation-risk-assessment">
     <a href="/feedback/osh.html#osh-tool-navigation" id="osh-target-tool-navigation" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
 
 
@@ -662,8 +668,9 @@
 
 </aside>
 
-<div id="main-content" 
-     class="variation-risk-assessment">
+<div 
+	id="main-content" 
+    class="variation-risk-assessment">
     
 
 <a href="/feedback/osh.html#osh-risk" id="osh-target-risk" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
@@ -671,51 +678,148 @@
 <form 
 	method="get" 
 	action="" 
-	class="pat-inject panel-style" 
+	class="pat-form pat-inject panel-style" 
 	data-pat-inject="source: #main-content; target: #main-content; && source: #toolbar; target: #toolbar; && source: #step-2-topics; target: #step-2-topics; && source: #status; target: #status;">
 	<div 
+		class="pat-scroll-box" 
 		id="content-pane">
 
 		<div
-    class="pat-toolbar">
-
-<!--     <div
-        class="toolbar-section view-options">
-        <a 
-            href="#status-sentinel"
-            data-pat-inject="history: record"
-            class="pat-inject pat-progress-bar pat-tooltip"
-            data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-            <strong
-                class="progress-bar-segment"
-                style="width: 40%">
-                40%
-            </strong>
-        </a>
-    </div> -->
-
+    class="pat-toolbar sticky"
+    id="assessment-toolbar">   
+    <div
+        class="toolbar-functions-area">   
+           
+            <div 
+                class="toolbar-section editor">
+                <div
+    id="editor-toolbar-assessment"
+    class="editor-toolbar tiptap">
     
-
-    <div 
-        class="toolbar-section quick-functions"
-        id="assessments-toolbar-quick-functions"> 
-
-        <a 
-            href="#status-sentinel"
-            data-pat-inject="history: record"
-            class="icon pat-inject progress pat-tooltip"
-            data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-           <strong 
-                class="pie-graph"
-                data-percentage="0"
-                title="0% Complete">0%</strong>
-        </a>
-
-        <div
-            hidden
-            id="status-sentinel">
-                
+        
+            <div
+                class="pat-collapsible pat-context-menu closed align-left no-label icon-paragraph"
+                data-pat-collapsible="close-trigger: .context-menu:not(#formatting-menu),.close-menu;"
+                id="formatting-menu">
+                <strong
+                    class="context-menu-label menu-trigger pat-tooltip"
+                    data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Formatting</strong>
+                <p
+                    class="close-menu">Close</p>
+                <ul
+                    class="menu-list">
                     
+                    
+                    
+                    
+                        <li>
+                            <button
+                                type="button"
+                                class="button-heading-level-4 icon-header">Header level 4</button>
+                        </li>
+                    
+                    
+                    
+                    
+                        <li>
+                            <button
+                                type="button"
+                                class="button-paragraph icon-paragraph">Normal</button>
+                        </li>
+                    
+                    
+                        <li>
+                            <button
+                                type="button"
+                                class="button-blockquote icon-quote-left">Quote</button>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+        
+        
+        	<button
+                type="button"
+                class="icon icon-bold button-bold pat-tooltip"
+                data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Bold</button>
+        
+        
+        	<button
+                type="button"
+                class="icon icon-italic button-italic pat-tooltip"
+                data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Italic</button>
+        
+        
+        
+            <a
+                class="icon icon-link button-link pat-modal pat-tooltip"
+                data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+                data-pat-modal="class: medium panel panel-hyperlink"
+                href="/feedback/panel-hyperlink#document-content">Hyperlink</a>
+        
+        
+        
+            <div
+                type="button"
+                class="pat-collapsible pat-context-menu closed align-left no-label icon-list"
+                data-pat-collapsible="close-trigger: .context-menu:not(#list-menu),.close-menu;"
+                id="list-menu">
+                <strong
+                    class="context-menu-label menu-trigger pat-tooltip"
+                    data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Lists</strong>
+                <p
+                    class="close-menu">Close</p>
+                <ul
+                    class="menu-list">
+                    
+                        <li>
+                            <button
+                                type="button"
+                                class="button-unordered-list icon-list-bullet">Bullet list</button>
+                        </li>
+                    
+                    
+                        <li>
+                            <button
+                                type="button"
+                                class="button-ordered-list icon-list-numbered">Ordered list</button>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+        
+        
+        
+        
+        
+    
+</div>
+
+            </div>  
+           
+        <div 
+            class="toolbar-section quick-functions"
+            id="assessment-toolbar-quick-functions"> 
+            
+
+            <a 
+                href="#status-sentinel"
+                data-pat-inject="history: record"
+                class="icon pat-inject progress pat-tooltip"
+                data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+               <strong 
+                    class="pie-graph"
+                    data-percentage="0"
+                    title="0% Complete">0%</strong>
+            </a>
+
+            <div
+                hidden
+                id="status-sentinel">
+                    
+                        
 
 <p>
     You've completed <strong>0%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -731,18 +835,18 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
-                
-                
-                <p>
-                    View the <a href="/ass-commercial-guarding-leicester/status#content" class="pat-inject close-panel">Status screen</a> for more details.
-                </p>
+                    
+                    
+                    <p>
+                        View the <a href="/ass-commercial-guarding-leicester/status#content" class="pat-inject close-panel">Status screen</a> for more details.
+                    </p>
+            </div>
+            <a 
+                href="/feedback/ass-menu#more-menu" 
+                class="icon more pat-tooltip" 
+                data-pat-tooltip="source: ajax; position-list: tr">More</a>
         </div>
-        <a 
-            href="/feedback/ass-menu#more-menu" 
-            class="icon more pat-tooltip" 
-            data-pat-tooltip="source: ajax; position-list: tr">More</a>
     </div>
-
 </div>
 
 		<h2 
@@ -830,29 +934,43 @@
 
 
 
+
+
+
+
+
+
+
 <article 
+    data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 120px"
     class="pat-rich pat-collapsible open risk-module form-panel"
     id="page-module-information">
     <h3
         class="form-separation-header">
         Informacija
     </h3>
-    
-        <div class="image-collage pat-gallery count-1 float-before">
-            
-                <a href="../../../../media/private-security-eu/waarschuwing_-_biogevaarlijk.png"
-                   class="image">
-                   
-                        <img 
-                             src="../../../../media/private-security-eu/waarschuwing_-_biogevaarlijk.png"
-                             alt=""
-                        />
+    <section 
+        class="pat-rich">
+        
+            <div 
+                class="illustrations pat-gallery">
+                
                     
-                </a>
-            
-        </div>
-    
-    <p><strong>BIOLOGICAL HAZARDS</strong></p>
+                        <figure 
+                            class="illustration">
+                            <a 
+                                href="../../../../media/private-security-eu/waarschuwing_-_biogevaarlijk.png">
+                                <img 
+                                    src="../../../../media/private-security-eu/waarschuwing_-_biogevaarlijk.png"
+                                    title="" />
+                            </a>
+                        </figure>
+                    
+                
+            </div>
+        
+
+        <p><strong>BIOLOGICAL HAZARDS</strong></p>
 
 <ul>
   <li><strong>What?</strong> Biological agents, i.e. microorganisms, cell cultures and parasites living in the human body, which may cause infections, allergies or poisoning. These microorganisms can penetrate the human body through a wound, an animal bite or needle injuries. They can also be inhaled or swallowed. There is a risk of viral and bacteriological infections such as <strong>HIV, hepatitis or tuberculosis, tetanus, <a href="http://www.hse.gov.uk/legionnaires/">legionella</a></strong>, …</li>
@@ -864,12 +982,56 @@ the private security guards about the risks and measures in place (e.g.
 required vaccinations).</p>
 
 
+    </section>
 </article>
+
+
+
+<fieldset 
+    id="page-module-comments" 
+    data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 120px"
+	  class="pat-collapsible open risk-module form-panel">
+    <h3
+        class="form-separation-header">
+        
+    </h3>
+    <fieldset 
+    	class="vertical">
+        
+        
+        <div 
+            class="pat-rich-editor pat-rich toolbar-detached">
+            
+    <textarea
+      
+      class="pat-tiptap "
+      placeholder="These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
+      data-pat-tiptap="
+        toolbar-external: #assessment-toolbar;
+        source-panel: #pat-modal.panel-html-source-editor;
+        image-panel: #pat-modal.image-picker;
+        link-panel: #pat-modal.panel-hyperlink;
+        context-menu-link: /feedback/hyperlink-menu#document-content;
+        context-menu-mentions: /feedback/panel-mentions-tiptap#document-content;
+        url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
+        context-menu-tags: /feedback/panel-tags-tiptap#document-content;
+        url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}">
+</textarea>
+
+
+            </div>
+    </fieldset>
+</fieldset>
+
+
+
 
 
 	
 
 <article 
+    id="page-module-resources" 
+    data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 120px"
     class="pat-rich pat-collapsible closed risk-module form-panel">
     <h3
         class="form-separation-header">
@@ -898,270 +1060,119 @@ required vaccinations).</p>
 </article>
 
 
+<div 
+    class="comments" 
+    id="comments-document-comments">
 
-	
-
-<fieldset 
-	class="pat-collapsible closed risk-module form-panel">
-    <h3
-        class="form-separation-header">
-        
-    </h3>
-    <!-- 
-
-
-<div class="presentation-slide" id="slide-1">
-    <section id="slide-content-1" class="mode-view slide-content
-            
-                
-                    template-two-column
-                
-             pat-auto-scale" >
-        <p class="toggle pat-switch" data-pat-switch="selector: #slide-content-1; add: mode-view; remove: mode-edit">
-            Click to edit
+    <div 
+        class="document-comments-header">
+        <a 
+            href="/">
+            <img 
+                src="../../../../media/avatar-viviana-sulca.jpg" 
+                alt="" 
+                class="pat-avatar ">
+            <h4 
+                class="name">
+                Viviāna Šulca
+            </h4>
+        </a>
+        <p 
+            class="byline">
+            <em 
+                class="action">edited this item</em> <time>12 days ago</time>
         </p>
-        <h1 class="slide-title">
-            1.1.6 Exposure to biological substances is prevented or controlled.
-        </h1>
-        <section class="slide-body pat-rich">
-            <section class="column-1">
-                 
-                    
-                        
-                            <section class="description" id="slide-description">
-                               <p class='MsoNormal'><strong>BIOLOGICAL HAZARDS</strong></p>&#13; <ul><li><strong>What?</strong> Biological agents, i.e. microorganisms, cell cultures and parasites living in the human body, which may cause infections, allergies or poisoning. These microorganisms can penetrate the human body through a wound, an animal bite or needle injuries. They can also be inhaled or swallowed. There is a risk of viral and bacteriological infections such as <strong>HIV, hepatitis or tuberculosis, tetanus, <a title='' href='http://www.hse.gov.uk/legionnaires/' target='_blank' rel='nofollow'>legionella</a></strong>, ...</li>&#13; <li><strong>Who?</strong> All private security staff in specific work environments such as hospitals or with eventual biological risks. </li>&#13; </ul><p>Make sure the client informs you (the private security services company) and the private security guards about the risks and measures in place (e.g. required vaccinations).</p>
-                            </section>
-                        
-                    
-                
-            </section>
+    </div>
 
-            <section class="column-2">
-                
-                    
-                        <figure class="illustration">
-                            <img src="../../../style/placeholder-16x9.png"
-                                 class="fixed-aspect-ratio"
-                                 alt=""
-                                 style="background-image: url(../../../../media/private-security-eu/waarschuwing_-_biogevaarlijk.png)"
-                                 title="" />
-                        </figure>
-                    
-                
-                <div class="training-notes">
-                    <fieldset class="content-mirror pat-inject pat-autosubmit pat-subform"
-                              data-pat-inject="url: /assets/oira/help/hr/illustrations/2014-01-08-exposure-to-biological-substances-is-prevented-or-controlled; source: #training-notes-preview-1; target: #training-notes-preview-1;">
-                        <p class="notes output" id="training-content-preview-1"><em class="placeholder"></em></p>
-                        <textarea class="pat-content-mirror pat-switch" data-pat-switch="selector: #slide-content-1; add: mode-edit; remove: mode-view" placeholder="" data-pat-content-mirror="target: #training-content-preview-1"></textarea>
-                    </fieldset>
-                    <div id="training-notes-preview-1" class="training-notes-preview">
-                        
-                            <p>
-                                <em class="placeholder"></em>
-                            </p>
-                        
-                    </div>
-                </div>
-            </section>
-        </section>
-        
-            <footer class="slide-footer">
-                <p class="organisation-name">
-                    <strong></strong>
-                </p>
-                <p class="colofon">
-                    Private Security EU / department /  / Page 1
-                </p>
-            </footer>
-        
-    </section>
-</div>
-
-
- -->
-
-	
-	
-	
-
-	
-	
-	
-
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-			<div class="presentation-slide" id="slide-1">
-    <section id="slide-content-1" class="mode-view slide-content
-        
-            
-                template-two-column
-            
-         pat-auto-scale" 
-             data-pat-auto-scale="size: contain">
-        <p class="toggle pat-switch" 
-           data-pat-switch="selector: #slide-content-1; remove: mode-*; add: mode-view">
-            Click to edit
-        </p>
-        <h1 class="slide-title">
-                1.1.6 Exposure to biological substances is prevented or controlled.
-        </h1>
-        <section class="slide-body pat-rich">
-            <section class="column-1">
-                 
-                    
-                         
-                            
-                                
-                                    <figure class="illustration">
-                                        <img src="../../../style/placeholder-16x9.png"
-                                             class="fixed-aspect-ratio"
-                                             alt=""
-                                             style="background-image: url(../../../../media/private-security-eu/waarschuwing_-_biogevaarlijk.png)"
-                                             title="" />
-                                    </figure>
-                                
-                            
-                            <section class="description" id="slide-description">
-                               <p><strong>BIOLOGICAL HAZARDS</strong></p>
-
-<ul>
-  <li><strong>What?</strong> Biological agents, i.e. microorganisms, cell cultures and parasites living in the human body, which may cause infections, allergies or poisoning. These microorganisms can penetrate the human body through a wound, an animal bite or needle injuries. They can also be inhaled or swallowed. There is a risk of viral and bacteriological infections such as <strong>HIV, hepatitis or tuberculosis, tetanus, <a href="http://www.hse.gov.uk/legionnaires/">legionella</a></strong>, …</li>
-  <li><strong>Who?</strong> All private security staff in specific work environments such as hospitals or with eventual biological risks.</li>
-</ul>
-
-<p>Make sure the client informs you (the private security services company) and
-the private security guards about the risks and measures in place (e.g.
-required vaccinations).</p>
-
-
-                            </section>
-                        
-                    
-                
-            </section>
-
-            <section class="column-2">
-                
-                    
-
-                
-                    
-
-<div class="training-notes">
-    <fieldset class="content-mirror pat-inject pat-autosubmit pat-subform"
-              data-pat-inject="url: /ass-commercial-guarding-leicester/items/2014-01-08-exposure-to-biological-substances-is-prevented-or-controlled; source: #training-notes-preview-1; target: #training-notes-preview-1;">
-        <p class="notes output" id="training-content-preview-1"><em class="placeholder"></em></p>
-        <textarea class="pat-content-mirror pat-switch"
-                  data-pat-switch="selector: #slide-content-1; add: mode-edit-notes; remove: mode-view"
-                  placeholder=""
-                  data-pat-content-mirror="target: #training-content-preview-1"></textarea>
-    </fieldset>
-    <div id="training-notes-preview-1"
-         class="training-notes-preview">
-        
-            <p>
-                <em class="placeholder"></em>
-            </p>
+    <div 
+        id="comment-trail" 
+        class="comment-trail">
         
     </div>
-</div>
-
-                
-            </section>
-
-        </section>
-        
-    <footer class="slide-footer">
-        <p class="organisation-name">
-            <strong></strong>
-        </p>
-        <p class="colofon">
-            Private Security EU / department / 8 January 2014 / Page 1 of 0
-        </p>
-    </footer>
-
-    </section>
-    <a href="/training#slide-0" data-pat-inject="target: #slide-0" class="pat-inject slide-nav-prev">Previous</a>
-
-    <a href="#slide-2" data-pat-inject="target: #slide-0" class="pat-inject slide-nav-next">Next</a>
-
-</div>
-
-
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-</fieldset>
-
-
-
-
-<fieldset 
-	class="pat-collapsible closed risk-module form-panel">
-    <h3
-        class="form-separation-header">
-        Komentari
-    </h3>
+    
     <fieldset 
-    	class="vertical">
-      <label>
-        <textarea 
-        	id="comments-field" 
-        	name="comments" 
-        	placeholder="Ovdje možete ostaviti komentar na postavljeno pitanje. Komentar će se koristiti u planu mjera." 
-        	cols="80" 
-        	rows="3"></textarea>
-      </label>
-    </fieldset>
+    id="my-comments" 
+    class="post-box pat-subform pat-inject update-social status-inactive " 
+    action="/feedback/comment-well-said.html#comment-trail" 
+    data-pat-inject="target: #comment-trail">
+    
+
+    <p 
+        class="content-mirror"
+        ><span 
+            class="text" 
+            id="mirror-my-comments"
+            ><em 
+                class="placeholder">Leave a comment</em
+        ></span
+        ><em 
+            class="selected-users" 
+            id="selected-users"></em
+        ><em 
+            class="selected-tags" 
+            id="selected-tags"></em></p>
+    <textarea 
+        placeholder="Leave a comment" 
+        class="pat-content-mirror pat-switch " 
+        data-pat-content-mirror="target: #mirror-my-comments" 
+        data-pat-switch="#my-comments status-inactive status-active"></textarea>
+    <!-- <a class="iconified icon-attach" href="panel-attachment.html">Attach file or reference</a> -->
+    
+        <fieldset 
+            class="attachments pat-subform pat-autosubmit pat-inject" data-pat-inject="url: /feedback/attachment-waste-not-want-not.html; source: #attachments; target: #my-comments-attachment-previews">
+            <label 
+                class="iconified icon-attach pat-switch" 
+                data-pat-switch="#my-comments status-* status-attach">
+                <input 
+                    multiple 
+                    type="file"  
+                    accept="image/*,.docx,.doc,.xlsx,.xls,.pptx,.ppt,.pdf" 
+                    title="Attach a file"> Attach a file (or create a picture)</label>
+            <p 
+                class="attachment-previews" 
+                id="my-comments-attachment-previews">
+                No attachments selected.
+            </p>
+            <!-- <button type="submit" hidden formaction="/feedback/attachment-waste-not-want-not.html">Upload attachments</button> -->
+        </fieldset>
+    
+    
+    <div 
+        class="button-bar">
+        
+            <a 
+                class="iconified icon-user-add pat-tooltip" 
+                id="my-comments-mentions-toggle"
+                data-pat-tooltip="position-list: tl; source: ajax; class: mentions;" 
+                href="/feedback/panel-mentions.html#document-content">Mention people</a>
+        
+        
+            <a 
+                class="iconified icon-tags pat-tooltip" 
+                id="my-comments-tags-toggle"
+                data-pat-tooltip="position: tl; source: ajax; class: tags;" 
+                href="/feedback/panel-tags.html#document-content">Add tags</a>
+        
+
+        <button 
+            class="default pat-button pat-switch close-panel" 
+            data-pat-switch="selector: #my-comments; remove: status-* ; add: status-inactive && selector: #my-comments-reply-button; remove: executed" 
+            type="submit">Send</button>
+        <button 
+            class="pat-button pat-switch close-panel" 
+            data-pat-switch="selector: #my-comments; remove: status-*; add: status-inactive && selector: #my-comments-reply-button; remove: executed" 
+            type="reset">Cancel</button>
+
+        
+
+        <!-- <a class="iconified icon-users" href="panel-visibility.html">Define who can see this</a> -->
+        
+    </div>
+
 </fieldset>
 
+
+</div>
 	</div>
 
 	<p 
@@ -1201,7 +1212,8 @@ required vaccinations).</p>
 	</div>
 </div>
 
-<aside id="osc">
+<aside 
+	id="osc">
 	
 
 <form id="osc-header" action="/index-logged-in#browser" class="pat-inject pat-autosubmit">
@@ -1216,16 +1228,16 @@ required vaccinations).</p>
 			</h2>
 	    
 	    <!-- <a href="/new-session.html#document-content" id="button-new-session-quick" data-pat-modal="class: large" class="no-label pat-modal iconified icon-plus" title="Start a new assessment">New</a> -->
-        <div 
-        	class="pat-collapsible pat-context-menu closed align-right" 
-        	data-pat-collapsible="close-trigger: *:not(#more-menu)" 
+        <div
+        	class="pat-collapsible pat-context-menu closed align-right"
+        	data-pat-collapsible="close-trigger: *:not(#more-menu)"
         	id="more-menu">
-            <strong 
+            <strong
             	class="context-menu-label iconified more-menu-trigger">Više</strong>
-            <ul 
+            <ul
             	class="menu">
             	<li>
-                    <a 
+                    <a
                     	href="/new-session.html#document-content"
                         data-pat-modal="class: medium panel"
                         class="no-label pat-modal icon-plus pat-switch"
@@ -1247,9 +1259,11 @@ required vaccinations).</p>
 	
     <button id="button-osc-expand" class="no-label iconified icon-resize-full pat-toggle" data-pat-toggle="selector: body; value: osc-size-full osc-size-normal" title=""></button>
 </form>
+
 	<a href="/feedback/osh.html#osh-ra-browser" id="osh-target-ra-browser" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
 
-	<div id="navigation">
+	<div 
+		id="navigation">
 		
 			<div id="miller-columns" class="miller-columns">
 				

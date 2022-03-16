@@ -158,7 +158,7 @@
                 >
                   <figure class="tool-icon">
                     <img src="++resource++euphorie.resources/oira/style/placeholder-1x1.png"
-                         style="background-image: url(${python: '/'.join((tool.absolute_url(), '@@images/image/large')) if tool.image else None})"
+                         style="background-image: url(${python:webhelpers.get_tool_image_url(tool)})"
                     />
                   </figure>
                 </a>

@@ -99,8 +99,7 @@ class WebHelpers(BrowserView):
     css_path = "++resource++euphorie.resources/{brand}/style/all.css"
     css_path_min = "++resource++euphorie.resources/{brand}/style/all.css"
 
-    js_name = "bundle.js"
-    js_name_min = "bundle.min.js"
+    js_name = "bundle.min.js"
 
     favicon_path = "++resource++euphorie.resources/{brand}/favicon/apple-touch-icon.png"
 
@@ -177,6 +176,11 @@ class WebHelpers(BrowserView):
             "euphorie.use_publication_feature", default=False
         )
 
+    @memoize
+    def use_publication_feature_for_session(self, session):
+        # to be overwritten as needed
+        return self.use_publication_feature
+
     @property
     @memoize
     def use_clone_feature(self):
@@ -205,7 +209,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def default_country(self):
-        return api.portal.get_registry_record("euphorie.default_country", default=u"")
+        return api.portal.get_registry_record("euphorie.default_country", default="")
 
     @property
     @memoize
@@ -307,7 +311,7 @@ class WebHelpers(BrowserView):
             completion_percentage = self.traversed_session.session.completion_percentage
         title = _(
             "progress_indicator_title",
-            default=u"${completion_percentage}% Complete",
+            default="${completion_percentage}% Complete",
             mapping={"completion_percentage": completion_percentage or 0},
         )
         return api.portal.translate(title)
@@ -457,12 +461,16 @@ class WebHelpers(BrowserView):
     def logoMode(self):
         return "alien" if "alien" in self.extra_css else "native"
 
+    def check_markup(self, text):
+        if StripMarkup(text).strip():
+            return text
+
     @property
     @memoize
     def extra_css(self):
         sector = self.sector
         if sector is None:
-            return u""
+            return ""
 
         sector = aq_base(sector)
         parts = []
@@ -488,7 +496,7 @@ class WebHelpers(BrowserView):
         else:
             return _(
                 "title_tool",
-                default=u"OiRA - Online interactive Risk Assessment",
+                default="OiRA - Online interactive Risk Assessment",
             )
 
     @property
@@ -576,7 +584,7 @@ class WebHelpers(BrowserView):
         return "{}/{}/{}?t={}".format(
             self.client_url,
             self.script_path,
-            self.js_name if not self.debug_mode else self.js_name_min,
+            self.js_name,
             self.resources_timestamp,
         )
 
@@ -820,6 +828,13 @@ class WebHelpers(BrowserView):
         except POSKeyError:
             return None
 
+    @memoize
+    def get_tool_image_url(self, survey=None):
+        if not survey:
+            survey = self._survey
+        if getattr(survey, "image", None):
+            return f"{survey.absolute_url()}/@@images/image/large"
+
     def messages(self):
         status = IStatusMessage(self.request)
         messages = status.show()
@@ -881,10 +896,10 @@ class WebHelpers(BrowserView):
         return message
 
     def closetext(self):
-        return api.portal.translate(_(u"button_close", default=u"Close"))
+        return api.portal.translate(_("button_close", default="Close"))
 
     def email_sharing_text(self):
-        return api.portal.translate(_(u"I wish to share the following with you"))
+        return api.portal.translate(_("I wish to share the following with you"))
 
     def getSecret(self):
         return getSecret()
@@ -953,7 +968,7 @@ class WebHelpers(BrowserView):
 
     def as_md(self, text):
         """Return a text with Carriage Returns formatted as a Markdown."""
-        return u"\r\n".join([x for x in text.split("\r")])
+        return "\r\n".join([x for x in text.split("\r")])
 
     def show_logo(self):
         """In plain Euphorie, the logo is always shown"""

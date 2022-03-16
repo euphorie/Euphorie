@@ -1,0 +1,28 @@
+<tal:define define="
+              webhelpers nocall:context/@@webhelpers;
+              can_edit webhelpers/can_edit_session;
+              session here/session;
+              language here/plone_portal_state/language;
+              menu_url string:${here/absolute_url}/@@publication_menu#publication-menu;
+              state session/review_state;
+            "
+            condition="webhelpers/use_publication_feature"
+>
+  <a class="icon-lock${python:'-open' if state!='published' else None} text-button pat-tooltip"
+     href="${menu_url}"
+     data-pat-tooltip="source: ajax; position-list: tr"
+     i18n:domain="euphorie"
+  ><tal:switch switch="state"><tal:case case="string:published"><tal:i18n i18n:translate="label_published">Published</tal:i18n>
+        <time class="pat-display-time"
+              datetime="${value}"
+              data-pat-display-time="from-now: true; locale: ${language};"
+              tal:define="
+                value python:webhelpers.timezoned_date(session.published);
+              "
+        >${value}</time>
+      </tal:case><tal:case case="default"
+                i18n:translate="label_unpublished"
+      >Unpublished</tal:case>
+    </tal:switch>
+  </a>
+</tal:define>

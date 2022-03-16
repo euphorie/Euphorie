@@ -60,7 +60,7 @@
             </figure>
 
 
-            <tal:description content="structure module/description">
+            <tal:description content="structure python:webhelpers.get_safe_html(module.description)">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
             ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
@@ -81,7 +81,7 @@
                       tal:condition="module/optional"
             >
               <fieldset class="pat-checklist radio">
-                <legend tal:content="structure module/question">question</legend>
+                <legend tal:content="structure python:webhelpers.get_safe_html(module.question)">question</legend>
                 <label>
                   <input checked="${python:'checked' if (context.postponed is False and not context.skip_children) else None}"
                          name="skip_children:boolean"

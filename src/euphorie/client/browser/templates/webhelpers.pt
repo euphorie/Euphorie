@@ -174,10 +174,10 @@
     >
 
       <!-- Existing Measures -->
-      <fieldset class="pat-checklist pat-clone ${python:'pat-inject pat-autosubmit pat-subform' if (webhelpers.use_training_module or webhelpers.integrated_action_plan) else None}"
+      <fieldset class="pat-checklist pat-clone ${python:'pat-inject pat-autosubmit pat-subform' if webhelpers.integrated_action_plan else None}"
                 id="risk_identification_form"
-                data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button; remove-confirmation: Sind Sie sicher, dass Sie die eingetragene bestehende Schutzmaßnahme entfernen wollen?; remove-behaviour: none"
-                data-pat-inject="${python:'source: #slide-content-1; target: #slide-content-1;' if webhelpers.use_training_module else None} ${python:'&amp;&amp; source: #panel-action-plan; target: #panel-action-plan' if webhelpers.integrated_action_plan else None}"
+                data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button; remove-behaviour: none"
+                data-pat-inject="${python:'source: #panel-action-plan; target: #panel-action-plan' if webhelpers.integrated_action_plan else None}"
       >
         <tal:existing_measures condition="view/show_existing_measures">
           <article class="pat-rich">
@@ -218,7 +218,7 @@
                         name="measure-custom-${measure/solution_id}"
                         placeholder="${view/placeholder_add_extra}"
                         rows="3"
-                        tal:content="structure python:measure['text']"
+                        tal:content="structure python:webhelpers.get_safe_html(measure['text'])"
               ></textarea>
               <button class="icon-trash iconified remove-clone"
                       title="${view/button_remove_extra}"
@@ -577,7 +577,7 @@
              tal:condition="view/has_legal"
     >
       <h4 i18n:translate="label_legal_reference">Legal and policy references</h4>
-      <tal:legal replace="structure risk/legal_reference">
+      <tal:legal replace="structure python:webhelpers.get_safe_html(risk.legal_reference)">
         The requirements for fridges are defined in section 13.1 section a
         of the health code.
       </tal:legal>
@@ -620,29 +620,38 @@
   </metal:additional_files>
 
   <metal:risk_comments define-macro="risk_comments">
-    <fieldset class="pat-collapsible risk-module ${default_state|nothing} form-panel">
+    <fieldset class="pat-collapsible risk-module ${default_state|nothing} form-panel"
+              id="page-module-comments"
+              data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 120px"
+    >
       <h3 class="form-separation-header"
-          i18n:translate="heading_comments"
+          i18n:translate="label_notes"
       >
-            Comments
+            Notes
       </h3>
 
-      <fieldset class="vertical"
-                id="comments"
-      >
-        <label>
-          <textarea class="span-15"
-                    id="comment"
-                    cols="80"
-                    name="comment:utf8:ustring"
-                    placeholder="This comment will be visible in the report. Use it for anything else you might want to write about this risk."
-                    rows="3"
-                    tal:content="context/comment"
-                    i18n:attributes="placeholder placeholder_comment_field"
-          >
-          </textarea>
-        </label>
-      </fieldset>
+      <metal:rich_comments_inner define-macro="rich_comments_inner">
+        <fieldset class="vertical"
+                  id="comments"
+        >
+          <div class="pat-rich-editor pat-rich toolbar-detached">
+            <textarea class="pat-tiptap"
+                      name="comment:utf8:ustring"
+                      placeholder="${view/notes_placeholder}"
+                      data-pat-tiptap="
+        toolbar-external: #assessment-toolbar;
+        source-panel: #pat-modal.panel-html-source-editor;
+        image-panel: #pat-modal.image-picker;
+        link-panel: #pat-modal .link-panel;
+        context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments
+        url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
+        url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}"
+                      tal:content="context/comment"
+            >
+            </textarea>
+          </div>
+        </fieldset>
+      </metal:rich_comments_inner>
     </fieldset>
   </metal:risk_comments>
 
@@ -813,10 +822,10 @@
               <input class="pat-date-picker"
                      id="solution-planning-start-${solution/id}"
                      name="measure.planning_start:records"
-                     type="text"
+                     type="date"
                      value="${python:measure.planning_start if measure else None}"
                      data-pat-date-picker="output-format: D MMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json?set_language=${language}"
-                     data-pat-validation="${python:u'type: date; not-after: #solution-planning-end-{number}; message-date: {message}'.format(number=solution['id'], message=view.message_date_before) if 'planning_end' not in view.skip_fields else None}"
+                     data-pat-validation="${python:u'not-after: #solution-planning-end-{number}; message-date: {message}'.format(number=solution['id'], message=view.message_date_before) if 'planning_end' not in view.skip_fields else None}"
               />
             </label>
 
@@ -830,10 +839,10 @@
               <input class="pat-date-picker"
                      id="solution-planning-end-${solution/id}"
                      name="measure.planning_end:records"
-                     type="text"
+                     type="date"
                      value="${python:measure.planning_end if measure else None}"
                      data-pat-date-picker="output-format: D MMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json?set_language=${language}"
-                     data-pat-validation="type: date; not-before: #solution-planning-start-${solution/id}; message-date: ${view/message_date_after}"
+                     data-pat-validation="not-before: #solution-planning-start-${solution/id}; message-date: ${view/message_date_after}"
               />
             </label>
 
@@ -949,7 +958,7 @@
                      type="date"
                      value="${actionplan/planning_start|nothing}"
                      data-pat-date-picker="output-format: D MMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json?set_language=${language}"
-                     data-pat-validation="${python:u'type: date; not-after: #planning-end-{number}; message-date: {message}'.format(number=number, message=view.message_date_before) if 'planning_end' not in view.skip_fields else None}"
+                     data-pat-validation="${python:u'not-after: #planning-end-{number}; message-date: {message}'.format(number=number, message=view.message_date_before) if 'planning_end' not in view.skip_fields else None}"
               />
             </label>
 
@@ -966,7 +975,7 @@
                      type="date"
                      value="${actionplan/planning_end|nothing}"
                      data-pat-date-picker="output-format: D MMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json?set_language=${language}"
-                     data-pat-validation="type: date; not-before: #planning-start-${number}; message-date: ${view/message_date_after}"
+                     data-pat-validation="not-before: #planning-start-${number}; message-date: ${view/message_date_after}"
               />
             </label>
           </fieldset>
@@ -1077,7 +1086,7 @@
                    name="measure.planning_start:records"
                    type="date"
                    data-pat-date-picker="output-format: D MMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json?set_language=${language}"
-                   data-pat-validation="${python:u'type: date; not-after: #planning-end-#{1}; message-date: %s' % view.message_date_before if 'planning_end' not in view.skip_fields else None}"
+                   data-pat-validation="${python:u'not-after: #planning-end-#{1}; message-date: %s' % view.message_date_before if 'planning_end' not in view.skip_fields else None}"
             />
           </label>
           <label tal:condition="python: 'planning_end' not in view.skip_fields">
@@ -1087,7 +1096,7 @@
                    name="measure.planning_end:records"
                    type="date"
                    data-pat-date-picker="output-format: D MMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json?set_language=${language}"
-                   data-pat-validation="type:date; not-before: #planning-start-#{1}; message-date: ${view/message_date_after}"
+                   data-pat-validation="not-before: #planning-start-#{1}; message-date: ${view/message_date_after}"
             />
           </label>
         </fieldset>
@@ -1097,29 +1106,97 @@
 
 
   <metal:toolbar define-macro="toolbar">
-    <div class="pat-toolbar">
-      <metal:actions define-slot="page-actions">
-        <!--         <a class="icon-share iconified pat-tooltip"
-           href="${request/ACTUAL_URL}#sharing-menu"
-           title="Share this OiRA-Tool"
-           data-pat-tooltip="source: ajax; position-list: tr"
-           tal:condition="webhelpers/allow_social_sharing"
-           i18n:attributes="title"
-        >Share</a> -->
-        <div class="toolbar-section quick-functions"
-             id="assessments-toolbar-quick-functions"
-        >
-          <tal:status tal:define="
-                        session_start_view nocall:here/@@start|webhelpers/traversed_session/@@start;
-                        new_session session_start_view/is_new_session;
-                        active python: page_section == 'status' and 'active' or '';
-                        disabled python:page_section=='' or (page_section=='preparation' and new_session);
-                      ">
-            <metal:macro use-macro="context/certificate_macros/macros/status_icon" />
-          </tal:status>
-          <a tal:replace="structure here/@@more_badge|nothing"></a>
+    <div class="pat-toolbar sticky"
+         id="assessment-toolbar"
+    >
+      <div class="toolbar-functions-area">
+        <div class="toolbar-section editor">
+          <div class="editor-toolbar tiptap"
+               id="editor-toolbar-assessment"
+          >
+            <div class="pat-collapsible pat-context-menu closed align-left no-label icon-paragraph"
+                 id="formatting-menu"
+                 data-pat-collapsible="close-trigger: .context-menu:not(#formatting-menu),.close-menu;"
+            >
+              <strong class="context-menu-label menu-trigger pat-tooltip"
+                      data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+              >Formatting</strong>
+              <p class="close-menu">Close</p>
+              <ul class="menu-list">
+                <li>
+                  <button class="button-heading-level-4 icon-header"
+                          type="button"
+                  >Header level 4</button>
+                </li>
+                <li>
+                  <button class="button-paragraph icon-paragraph"
+                          type="button"
+                  >Normal</button>
+                </li>
+                <li>
+                  <button class="button-blockquote icon-quote-left"
+                          type="button"
+                  >Quote</button>
+                </li>
+              </ul>
+            </div>
+            <button class="icon icon-bold button-bold pat-tooltip"
+                    type="button"
+                    data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+            >Bold</button>
+
+
+            <button class="icon icon-italic button-italic pat-tooltip"
+                    type="button"
+                    data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+            >Italic</button>
+            <a class="icon icon-link button-link pat-modal pat-tooltip"
+               href="#tiptap-modal-hyperlink-fieldname-comments#document-content"
+               data-pat-modal="class: medium panel panel-hyperlink"
+               data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+            >Hyperlink</a>
+            <div class="pat-collapsible pat-context-menu closed align-left no-label icon-list"
+                 id="list-menu"
+                 type="button"
+                 data-pat-collapsible="close-trigger: .context-menu:not(#list-menu),.close-menu;"
+            >
+              <strong class="context-menu-label menu-trigger pat-tooltip"
+                      data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+              >Lists</strong>
+              <p class="close-menu">Close</p>
+              <ul class="menu-list">
+                <li>
+                  <button class="button-unordered-list icon-list-bullet"
+                          type="button"
+                  >Bullet list</button>
+                </li>
+                <li>
+                  <button class="button-ordered-list icon-list-numbered"
+                          type="button"
+                  >Ordered list</button>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </metal:actions>
+        <metal:actions define-slot="page-actions">
+          <div class="toolbar-section quick-functions"
+               id="assessment-toolbar-quick-functions"
+          >
+            <tal:status tal:define="
+                          session_start_view nocall:here/@@start|webhelpers/traversed_session/@@start;
+                          new_session session_start_view/is_new_session;
+                          active python: page_section == 'status' and 'active' or '';
+                          disabled python:page_section=='' or (page_section=='preparation' and new_session);
+                        ">
+              <a tal:replace="structure here/@@publication_badge|nothing"></a>
+              <a tal:replace="structure here/@@sharing_badge|nothing"></a>
+              <metal:macro use-macro="context/certificate_macros/macros/status_icon" />
+            </tal:status>
+            <a tal:replace="structure here/@@more_badge|nothing"></a>
+          </div>
+        </metal:actions>
+      </div>
     </div>
   </metal:toolbar>
 

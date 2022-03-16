@@ -14,6 +14,7 @@ from euphorie.client.utils import randomString
 from plone import api
 from plone.autoform import directives
 from plone.autoform.form import AutoExtensibleForm
+from plone.memoize.instance import memoize
 from plone.supermodel import model
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
@@ -41,19 +42,55 @@ import socket
 log = logging.getLogger(__name__)
 
 
+class UserMenu(BrowserView):
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    def menu_contents(self):
+        return [
+            {
+                "class_outer": "menu-item-change-password",
+                "class_inner": "icon-key",
+                "url": f"{self.webhelpers.country_url}/account-settings",
+                "label": _("title_change_password", default="Change password"),
+            },
+            {
+                "class_outer": "menu-item-change-email-address",
+                "class_inner": "icon-mail",
+                "url": f"{self.webhelpers.country_url}/new-email",
+                "label": _("Change email address"),
+            },
+            {
+                "class_outer": "menu-item-delete-account",
+                "class_inner": "icon-cancel-circle",
+                "url": f"{self.webhelpers.country_url}/account-delete",
+                "label": _("Delete account"),
+            },
+            {
+                "class_outer": "menu-item-logout",
+                "class_inner": "icon-exit",
+                "url": f"{self.webhelpers.country_url}/logout",
+                "label": _("navigation_logout", default="Logout"),
+            },
+        ]
+
+
 class PasswordChangeSchema(model.Schema):
     old_password = schema.Password(
-        title=_(u"label_old_password", default=u"Current Password"), required=True
+        title=_("label_old_password", default="Current Password"), required=True
     )
     directives.widget(old_password="z3c.form.browser.password.PasswordFieldWidget")
 
     new_password = schema.Password(
-        title=_(u"label_new_password", default=u"Desired password")
+        title=_("label_new_password", default="Desired password")
     )
     directives.widget(new_password="z3c.form.browser.password.PasswordFieldWidget")
 
     new_password_confirmation = schema.Password(
-        title=_(u"label_new_password_confirmation", default=u"Again password")
+        title=_("label_new_password_confirmation", default="Again password")
     )
     directives.widget(
         new_password_confirmation="z3c.form.browser.password.PasswordFieldWidget"
@@ -66,19 +103,15 @@ class PasswordChangeSchema(model.Schema):
 
 
 class AccountDeleteSchema(model.Schema):
-    password = schema.Password(
-        title=_(u"Your password for confirmation"), required=True
-    )
+    password = schema.Password(title=_("Your password for confirmation"), required=True)
     directives.widget(password="z3c.form.browser.password.PasswordFieldWidget")
 
 
 class EmailChangeSchema(model.Schema):
-    loginname = RFC822MailAddress(title=_(u"Email address/account name"), required=True)
+    loginname = RFC822MailAddress(title=_("Email address/account name"), required=True)
     directives.widget("loginname", type="email")
 
-    password = schema.Password(
-        title=_(u"Your password for confirmation"), required=True
-    )
+    password = schema.Password(title=_("Your password for confirmation"), required=True)
     directives.widget(password="z3c.form.browser.password.PasswordFieldWidget")
 
 
@@ -90,14 +123,14 @@ class AccountSettings(AutoExtensibleForm, form.Form):
     schema = PasswordChangeSchema
     ignoreContext = True
 
-    label = _(u"title_change_password", default=u"Change password")
+    label = _("title_change_password", default="Change password")
 
     def updateWidgets(self):
         super(AccountSettings, self).updateWidgets()
         self.widgets["old_password"].addClass("password")
         self.widgets["new_password"].addClass("password")
 
-    @button.buttonAndHandler(_(u"Save changes"), name="save")
+    @button.buttonAndHandler(_("Save changes"), name="save")
     def handleSave(self, action):
         flash = IStatusMessage(self.request).addStatusMessage
         (data, errors) = self.extractData()
@@ -108,7 +141,7 @@ class AccountSettings(AutoExtensibleForm, form.Form):
 
         user = get_current_account()
         if not data["new_password"]:
-            flash(_(u"There were no changes to be saved."), "notice")
+            flash(_("There were no changes to be saved."), "notice")
             return
         login_view = api.content.get_view(
             name="login",
@@ -120,12 +153,12 @@ class AccountSettings(AutoExtensibleForm, form.Form):
             raise WidgetActionExecutionError("new_password", Invalid(error))
         if not user.verify_password(data["old_password"]):
             raise WidgetActionExecutionError(
-                "old_password", Invalid(_(u"Invalid password"))
+                "old_password", Invalid(_("Invalid password"))
             )
         user.password = data["new_password"]
-        flash(_(u"Your password was successfully changed."), "success")
+        flash(_("Your password was successfully changed."), "success")
 
-    @button.buttonAndHandler(_("button_cancel", default=u"Cancel"), name="cancel")
+    @button.buttonAndHandler(_("button_cancel", default="Cancel"), name="cancel")
     def handleCancel(self, action):
         self.request.response.redirect(self.request.client.absolute_url())
 
@@ -138,7 +171,7 @@ class DeleteAccount(AutoExtensibleForm, form.Form):
     schema = AccountDeleteSchema
     ignoreContext = True
 
-    label = _(u"title_account_delete", default=u"Delete account")
+    label = _("title_account_delete", default="Delete account")
 
     def updateWidgets(self):
         super(DeleteAccount, self).updateWidgets()
@@ -148,7 +181,7 @@ class DeleteAccount(AutoExtensibleForm, form.Form):
         pas = getToolByName(self.context, "acl_users")
         pas.resetCredentials(self.request, self.request.response)
 
-    @button.buttonAndHandler(_(u"Delete account"), name="delete")
+    @button.buttonAndHandler(_("Delete account"), name="delete")
     def handleDelete(self, action):
         (data, errors) = self.extractData()
         if errors:
@@ -156,15 +189,13 @@ class DeleteAccount(AutoExtensibleForm, form.Form):
 
         user = get_current_account()
         if not user.verify_password(data["password"]):
-            raise WidgetActionExecutionError(
-                "password", Invalid(_(u"Invalid password"))
-            )
+            raise WidgetActionExecutionError("password", Invalid(_("Invalid password")))
 
         Session.delete(user)
         self.logout()
         self.request.response.redirect(self.request.client.absolute_url())
 
-    @button.buttonAndHandler(_("button_cancel", default=u"Cancel"), name="cancel")
+    @button.buttonAndHandler(_("button_cancel", default="Cancel"), name="cancel")
     def handleCancel(self, action):
         self.request.response.redirect(self.request.client.absolute_url())
 
@@ -177,7 +208,7 @@ class NewEmail(AutoExtensibleForm, form.Form):
     email_template = ViewPageTemplateFile("templates/confirm-email.pt")
     ignoreContext = True
 
-    label = _(u"title_account_settings", default=u"Account settings")
+    label = _("title_account_settings", default="Account settings")
 
     @property
     def email_from_name(self):
@@ -207,7 +238,7 @@ class NewEmail(AutoExtensibleForm, form.Form):
         account_query = Session.query(Account).filter(Account.id == account.id)
         if not account_query.count():
             log.error("Account could not be fetched")
-            flash(_(u"An error occured while sending the confirmation email."), "error")
+            flash(_("An error occured while sending the confirmation email."), "error")
             return False
         account = account_query.one()
         if account.change_request is None:
@@ -232,7 +263,7 @@ class NewEmail(AutoExtensibleForm, form.Form):
             confirm_url=confirm_url,
         )
         subject = translate(
-            _(u"Confirm OiRA email address change"), context=self.request
+            _("Confirm OiRA email address change"), context=self.request
         )
         mail = CreateEmailTo(
             self.email_from_name, self.email_from_address, login, subject, body
@@ -245,7 +276,7 @@ class NewEmail(AutoExtensibleForm, form.Form):
             log.error(
                 "MailHost error sending email confirmation to %s: %s", account.email, e
             )
-            flash(_(u"An error occured while sending the confirmation email."), "error")
+            flash(_("An error occured while sending the confirmation email."), "error")
             return False
         except smtplib.SMTPException as e:
             log.error(
@@ -253,18 +284,18 @@ class NewEmail(AutoExtensibleForm, form.Form):
                 account.email,
                 e,
             )
-            flash(_(u"An error occured while sending the confirmation email."), "error")
+            flash(_("An error occured while sending the confirmation email."), "error")
             return False
         except socket.error as e:
             log.error(
                 "Socket error sending confirmation email to %s: %s", account.email, e[1]
             )
-            flash(_(u"An error occured while sending the confirmation email."), "error")
+            flash(_("An error occured while sending the confirmation email."), "error")
             return False
 
         return True
 
-    @button.buttonAndHandler(_(u"Save changes"), name="save")
+    @button.buttonAndHandler(_("Save changes"), name="save")
     def handleSave(self, action):
         flash = IStatusMessage(self.request).addStatusMessage
 
@@ -275,21 +306,19 @@ class NewEmail(AutoExtensibleForm, form.Form):
 
         user = get_current_account()
         if not user.verify_password(data["password"]):
-            raise WidgetActionExecutionError(
-                "password", Invalid(_(u"Invalid password"))
-            )
+            raise WidgetActionExecutionError("password", Invalid(_("Invalid password")))
 
         settings_url = "%s/account-settings" % url
         if not data["loginname"] or data["loginname"].strip() == user.loginname:
             self.request.response.redirect(settings_url)
-            flash(_(u"There were no changes to be saved."), "notice")
+            flash(_("There were no changes to be saved."), "notice")
             return
 
         login = data["loginname"].strip().lower()
         existing = Session.query(Account.id).filter(Account.loginname == login)
         if existing.count():
             raise WidgetActionExecutionError(
-                "loginname", Invalid(_(u"This email address is not available."))
+                "loginname", Invalid(_("This email address is not available."))
             )
 
         self.initiateRequest(user, login)
@@ -298,10 +327,10 @@ class NewEmail(AutoExtensibleForm, form.Form):
             _(
                 "email_change_pending",
                 default=(
-                    u"Please confirm your new email address by clicking on "
-                    u"the link in the email that will be sent in a few "
-                    u'minutes to "${email}". Please note that the new '
-                    u"email address is also your new login name."
+                    "Please confirm your new email address by clicking on "
+                    "the link in the email that will be sent in a few "
+                    'minutes to "${email}". Please note that the new '
+                    "email address is also your new login name."
                 ),
                 mapping={"email": data["loginname"]},
             ),
@@ -309,7 +338,7 @@ class NewEmail(AutoExtensibleForm, form.Form):
         )
         self.request.response.redirect("%s/" % url)
 
-    @button.buttonAndHandler(_("button_cancel", default=u"Cancel"), name="cancel")
+    @button.buttonAndHandler(_("button_cancel", default="Cancel"), name="cancel")
     def handleCancel(self, action):
         self.request.response.redirect(self.request.client.absolute_url())
 
@@ -320,13 +349,13 @@ class ChangeEmail(BrowserView):
         flash = IStatusMessage(self.request).addStatusMessage
         key = self.request.get("key")
         if key is None:
-            flash(_(u"This request could not be processed."), "warning")
+            flash(_("This request could not be processed."), "warning")
             self.request.response.redirect(url)
             return
 
         request = Session.query(AccountChangeRequest).get(key)
         if request is None:
-            flash(_(u"This request could not be processed."), "warning")
+            flash(_("This request could not be processed."), "warning")
             self.request.response.redirect(url)
             return
 

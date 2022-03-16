@@ -5,6 +5,7 @@ from anytree.node.util import _repr
 from euphorie import MessageFactory as _
 from euphorie.client import utils
 from euphorie.client.country import IClientCountry
+from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import get_current_account
 from euphorie.client.sector import IClientSector
 from euphorie.content.survey import ISurvey
@@ -17,6 +18,7 @@ from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
+from zope.interface import directlyProvides
 
 import six
 
@@ -370,6 +372,10 @@ class Assessments(BrowserView):
         return self.__name__
 
     @property
+    def template(self):
+        return self.index
+
+    @property
     @memoize
     def sessions(self):
         searchable_text = self.request.get("SearchableText", None)
@@ -533,6 +539,16 @@ class MyRAsPortlet(PortletBase):
         if self.surveys:
             return "2"
         return "3"
+
+    @property
+    def assessments_list_macro(self):
+        """Get the listing macro from the assessments template"""
+        request = self.request.clone()
+        # This is needed, since the view might be subclassed and therefore
+        # associated with a different skin-layer.
+        directlyProvides(request, IClientSkinLayer)
+        view = api.content.get_view("assessments", self.context, request)
+        return view.template.macros["assessments_list"]
 
     @property
     @memoize_contextless

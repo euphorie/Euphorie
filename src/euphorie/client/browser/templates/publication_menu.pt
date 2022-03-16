@@ -55,7 +55,7 @@
               <form class="pat-inject"
                     action="${here/absolute_url}/@@publication_date/set_date#content"
               >
-                <button class="icon-publish"
+                <button class="icon-lock close-panel"
                         type="submit"
                         i18n:translate=""
                 >Publish Risk Assessment</button>
@@ -67,7 +67,7 @@
               <form class="pat-inject"
                     action="${here/absolute_url}/@@publication_date/unset_date#content"
               >
-                <button class="icon-cancel-circled"
+                <button class="icon-lock-open close-panel"
                         type="submit"
                         i18n:translate=""
                 >Unpublish Risk Assessment</button>
