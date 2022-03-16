@@ -88,16 +88,44 @@ class Login(BrowserView):
                 120 * 24 * 60 * 60
             )  # noqa: E501
 
-    def transferGuestSession(self, account_id):
-        """Transfer session(s) from guest account to an existing user account"""
-        if not account_id:
+    def transferGuestSession(self):
+        """Transfer session(s) from guest account to an existing user account
+
+        The guest account is expected to go the login form as an authenticated user.
+
+        For this reason we can know from the session plugin who he is even
+        if during the request process we are now logged in as a new user.
+        """
+        plugin = self.context.acl_users.session
+        old_credentials = plugin.authenticateCredentials(
+            plugin.extractCredentials(self.request)
+        )
+        if old_credentials is None:
+            # We came here as anonymous user, no need to proceed
             return
-        account = get_current_account()
+
+        old_authenticated_account_id = old_credentials[0]
+
+        if (
+            Session.query(model.Account)
+            .filter(
+                model.Account.account_type == config.CONVERTED_ACCOUNT,
+                model.Account.id == old_authenticated_account_id,
+            )
+            .first()
+        ) is None:
+            # We check that the previously authenticated user was actually
+            # a guest account that has been converted.
+            # This prevents that a regular logged in user A logs in as B
+            # and then all the sessions are transferred to B
+            return
+
+        new_account = get_current_account()
         sessions = Session.query(model.SurveySession).filter(
-            model.SurveySession.account_id == account_id
+            model.SurveySession.account_id == old_authenticated_account_id
         )
         for session in sessions:
-            session.account_id = account.id
+            session.account_id = new_account.id
 
     def is_valid_password(self, password):
         if (
@@ -181,9 +209,8 @@ class Login(BrowserView):
             )
             return False
 
-        guest_account_id = self.request.form.get("guest_account_id")
-        if guest_account_id:
-            account = get_current_account()
+        account = get_current_account()
+        if account and account.account_type == config.GUEST_ACCOUNT:
             account.loginname = loginname
             account.password = form.get("password1")
             account.account_type = config.CONVERTED_ACCOUNT
@@ -194,12 +221,11 @@ class Login(BrowserView):
                 mapping={"email": loginname},
             )
             api.portal.show_message(msg, self.request, "success")
-
         else:
             account = model.Account(
                 loginname=loginname, password=form.get("password1"), tc_approved=1
             )
-        Session().add(account)
+            Session().add(account)
         log.info("Registered new account %s", loginname)
         v_url = urlsplit(self.request.URL + "/success").path.replace("@@", "")
         trigger_extra_pageview(self.request, v_url)
@@ -239,7 +265,7 @@ class Login(BrowserView):
                     isinstance(account, model.Account)
                     and account.getUserName() == form.get("__ac_name", "").lower()
                 ):
-                    self.transferGuestSession(form.get("guest_account_id"))
+                    self.transferGuestSession()
                     self.login(account, bool(self.request.form.get("remember")))
                     v_url = urlsplit(self.request.URL + "/success").path.replace(
                         "@@", ""
