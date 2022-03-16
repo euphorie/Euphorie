@@ -774,7 +774,7 @@ class CloneSession(SessionMixin, BrowserView):
         if not self.webhelpers.can_view_session:
             # The user cannot call this view to go the sessions overview.
             return self.request.response.redirect(self.webhelpers.client_url)
-        return super().__call__()
+        return super(CloneSession, self).__call__()
 
 
 class PublicationMenu(SessionMixin, BrowserView):

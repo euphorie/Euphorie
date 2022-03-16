@@ -1097,6 +1097,10 @@ class SurveySession(BaseObject):
         return client.restrictedTraverse(str(self.zodb_path), None)
 
     @property
+    def traversed_session(self):
+        return self.tool.restrictedTraverse("++session++%s" % self.id)
+
+    @property
     def country(self):
         return str(self.zodb_path).split("/")[0]
 
