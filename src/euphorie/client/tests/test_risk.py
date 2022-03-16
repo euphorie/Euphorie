@@ -1,9 +1,14 @@
+from euphorie.client import model
 from euphorie.client.browser.risk import IdentificationView
 from euphorie.client.model import Risk
+from euphorie.client.tests.utils import addAccount
+from euphorie.client.tests.utils import addSurvey
 from euphorie.content.risk import IFrenchEvaluation as IFr
 from euphorie.content.risk import IKinneyEvaluation as IKi
 from euphorie.content.survey import Survey
+from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
+from plone import api
 from Products.CMFPlone.tests.dummy import Image
 from Products.CMFPlone.utils import safe_unicode
 from zope.publisher.interfaces import NotFound
@@ -147,69 +152,87 @@ class EvaluationViewTests(unittest.TestCase):
 
 
 class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
+    def setUp(self):
+        super(TestRiskImageDownloadUpload, self).setUp()
+        self.loginAsPortalOwner()
+        self.account = addAccount(password="secret")
+        addSurvey(self.portal, BASIC_SURVEY)
+        survey_session = model.SurveySession(
+            title=u"Dummy session",
+            zodb_path="nl/ict/software-development",
+            account=self.account,
+        )
+        self.risk = survey_session.addChild(
+            model.Risk(title=u"risk 1", zodb_path="1")
+        ).__of__(survey_session.traversed_session)
+        model.Session.add(survey_session)
+
     def test_upload(self):
-        risk = Risk(path="000")
-        with self._get_view("image-upload", risk) as view:
-            # Just calling the view with no request returns to the
-            # @@identification page
-            view()
-            self.assertDictEqual(
-                view.request.response.headers, {"location": "/@@identification"}
-            )
+        with api.env.adopt_user(user=self.account):
+            with self._get_view("image-upload", self.risk) as view:
+                # Just calling the view with no request returns to the
+                # @@identification page
+                view()
+                self.assertDictEqual(
+                    view.request.response.headers,
+                    {
+                        "location": "http://nohost/plone/client/nl/ict/software-development/++session++1/1/@@identification"  # noqa: E501
+                    },
+                )
 
-            # Uploading an image will save it to the risk
-            view.request.form["image"] = Image()
-            view()
-            self.assertTrue(risk.image_data.startswith(b"GIF"))
-            self.assertEqual(risk.image_filename, u"dummy.gif")
+                # Uploading an image will save it to the risk
+                view.request.form["image"] = Image()
+                view()
+                self.assertTrue(self.risk.image_data.startswith(b"GIF"))
+                self.assertEqual(self.risk.image_filename, u"dummy.gif")
 
-            # We can also require to remove the image
-            view.request.form.pop("image")
-            view.request.form["image-remove"] = "1"
-            view()
-            self.assertIsNone(risk.image_data)
-            self.assertFalse(risk.image_filename)
+                # We can also require to remove the image
+                view.request.form.pop("image")
+                view.request.form["image-remove"] = "1"
+                view()
+                self.assertIsNone(self.risk.image_data)
+                self.assertFalse(self.risk.image_filename)
 
-            # If we have a scale wipe it
-            risk.image_data_scaled = b"foo"
-            view.request.form["image"] = Image()
-            view()
-            self.assertEqual(risk.image_filename, u"dummy.gif")
-            self.assertIsNone(risk.image_data_scaled)
+                # If we have a scale wipe it
+                self.risk.image_data_scaled = b"foo"
+                view.request.form["image"] = Image()
+                view()
+                self.assertEqual(self.risk.image_filename, u"dummy.gif")
+                self.assertIsNone(self.risk.image_data_scaled)
 
-            # but do not wipe it if we are uploading the same image again
-            risk.image_data_scaled = b"foo"
-            view()
-            self.assertEqual(risk.image_data_scaled, b"foo")
+                # but do not wipe it if we are uploading the same image again
+                self.risk.image_data_scaled = b"foo"
+                view()
+                self.assertEqual(self.risk.image_data_scaled, b"foo")
 
     def test_download(self):
-        risk = Risk(path="000")
-        with self._get_view("image-display", risk) as view:
-            # If the risk has no image raise a not found
-            with self.assertRaises(NotFound):
-                view()
+        with api.env.adopt_user(user=self.account):
+            with self._get_view("image-display", self.risk) as view:
+                # If the risk has no image raise a not found
+                with self.assertRaises(NotFound):
+                    view()
 
-            # Otherwise return the file
-            risk.image_data = Image.data
-            risk.image_filename = safe_unicode(Image.filename)
-            self.assertTrue(view().startswith(b"GIF"))
-            self.assertDictEqual(
-                view.request.response.headers,
-                {
-                    "accept-ranges": "bytes",
-                    "content-length": "168",
-                    "content-type": "image/gif",
-                },
-            )
+                # Otherwise return the file
+                self.risk.image_data = Image.data
+                self.risk.image_filename = safe_unicode(Image.filename)
+                self.assertTrue(view().startswith(b"GIF"))
+                self.assertDictEqual(
+                    view.request.response.headers,
+                    {
+                        "accept-ranges": "bytes",
+                        "content-length": "168",
+                        "content-type": "image/gif",
+                    },
+                )
 
-            # Check that we can crop and scale the image on the fly
-            view.fieldname = "image_training"
-            self.assertTrue(view().startswith(b"\x89PNG"))
-            self.assertDictEqual(
-                view.request.response.headers,
-                {
-                    "accept-ranges": "bytes",
-                    "content-length": "6971",
-                    "content-type": "image/png",
-                },
-            )
+                # Check that we can crop and scale the image on the fly
+                view.fieldname = "image_training"
+                self.assertTrue(view().startswith(b"\x89PNG"))
+                self.assertDictEqual(
+                    view.request.response.headers,
+                    {
+                        "accept-ranges": "bytes",
+                        "content-length": "6971",
+                        "content-type": "image/png",
+                    },
+                )

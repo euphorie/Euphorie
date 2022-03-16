@@ -438,6 +438,10 @@ class Involve(SessionMixin, BrowserView):
         )
 
     def __call__(self):
+        if not self.webhelpers.can_view_session:
+            # The user cannot call this view, to go the sessions overview.
+            return self.request.response.redirect(self.webhelpers.client_url)
+
         utils.setLanguage(self.request, self.survey, self.survey.language)
         return super(Involve, self).__call__()
 
@@ -753,6 +757,10 @@ class CloneSession(SessionMixin, BrowserView):
 
     def clone(self):
         """Clone this session and redirect to the start view"""
+        if not self.webhelpers.can_view_session:
+            # The user cannot call this view to go the sessions overview.
+            return self.request.response.redirect(self.webhelpers.client_url)
+
         new_session = self.get_cloned_session()
         api.portal.show_message(
             _("The risk assessment has been cloned"), self.request, "success"
@@ -761,6 +769,12 @@ class CloneSession(SessionMixin, BrowserView):
             contexturl=aq_parent(self.context).absolute_url(), sessionid=new_session.id
         )
         self.request.response.redirect(target)
+
+    def __call__(self):
+        if not self.webhelpers.can_view_session:
+            # The user cannot call this view to go the sessions overview.
+            return self.request.response.redirect(self.webhelpers.client_url)
+        return super(CloneSession, self).__call__()
 
 
 class PublicationMenu(SessionMixin, BrowserView):
