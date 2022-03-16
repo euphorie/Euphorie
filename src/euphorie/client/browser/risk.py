@@ -418,6 +418,12 @@ class IdentificationView(RiskBase):
         return condition
 
     def __call__(self):
+        # Render the page only if the user has edit rights,
+        # otherwise redirect to the start page of the session.
+        if not self.webhelpers.can_edit_session:
+            return self.request.response.redirect(
+                self.context.aq_parent.absolute_url() + "/@@start"
+            )
         super(IdentificationView, self).__call__()
         self.check_render_condition()
 
@@ -900,7 +906,15 @@ class ImageUpload(BrowserView):
             "{}/@@identification".format(self.context.absolute_url())
         )
 
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context.aq_parent, self.request)
+
     def __call__(self):
+        if not self.webhelpers.can_view_session:
+            # The user cannot call this view to go the sessions overview.
+            return self.request.response.redirect(self.webhelpers.client_url)
         if self.request.form.get("image"):
             image = self.request.form["image"]
             new_data = image.read()
@@ -935,6 +949,11 @@ class ImageDisplay(DisplayFile):
     ../@@image-display/image_large/${here/image_filename}
     """
 
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context.aq_parent, self.request)
+
     def get_or_create_image_scaled(self):
         """Get the image scaled"""
         if self.context.image_data_scaled:
@@ -968,6 +987,12 @@ class ImageDisplay(DisplayFile):
             image_data = self.context.image_data
 
         return NamedBlobImage(image_data, filename=self.context.image_filename)
+
+    def __call__(self):
+        if not self.webhelpers.can_view_session:
+            # The user cannot call this view to go the sessions overview.
+            return self.request.response.redirect(self.webhelpers.client_url)
+        return super(ImageDisplay, self).__call__()
 
 
 class ActionPlanView(RiskBase):
@@ -1191,6 +1216,9 @@ class ConfirmationDeleteRisk(BrowserView):
 
     def __call__(self, *args, **kwargs):
         """Before rendering check if we can find session title"""
+        if not self.webhelpers.can_view_session:
+            # The user cannot call this view to go the sessions overview.
+            return self.request.response.redirect(self.webhelpers.client_url)
         self.risk_title
         return super(ConfirmationDeleteRisk, self).__call__(*args, **kwargs)
 
@@ -1199,6 +1227,10 @@ class DeleteRisk(BrowserView):
     """View name: @@delete-risk"""
 
     def __call__(self):
+        if not self.webhelpers.can_view_session:
+            # The user cannot call this view to go the sessions overview.
+            return self.request.response.redirect(self.webhelpers.client_url)
+
         risk_id = self.request.form.get("risk_id", None)
         if risk_id:
             try:
