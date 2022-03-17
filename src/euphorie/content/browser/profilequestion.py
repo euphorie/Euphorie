@@ -2,9 +2,11 @@
 from ..module import IModule
 from ..risk import IRisk
 from euphorie.content import MessageFactory as _
+from plone import api
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm
+from plone.memoize.instance import memoize
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.component import getMultiAdapter
@@ -35,6 +37,17 @@ class ProfileQuestionView(BrowserView):
             if IModule.providedBy(child)
         ]
 
+    @property
+    @memoize
+    def portal_transforms(self):
+        return api.portal.get_tool("portal_transforms")
+
+    def get_safe_html(self, text):
+        data = self.portal_transforms.convertTo(
+            "text/x-html-safe", text, mimetype="text/html"
+        )
+        return data.getData()
+
 
 class AddForm(DefaultAddForm):
     """View name: euphorie.profilequestion"""
@@ -56,3 +69,22 @@ class EditForm(DefaultEditForm):
     @property
     def label(self):
         return _(u"Edit Profile question")
+
+    @property
+    @memoize
+    def portal_transforms(self):
+        return api.portal.get_tool("portal_transforms")
+
+    def get_safe_html(self, text):
+        data = self.portal_transforms.convertTo(
+            "text/x-html-safe", text, mimetype="text/html"
+        )
+        return data.getData()
+
+    def updateWidgets(self):
+        super(EditForm, self).updateWidgets()
+        for fname in ("description",):
+            value = self.widgets[fname].value or ""
+            safe_value = self.get_safe_html(value)
+            if value != safe_value:
+                self.widgets[fname].value = safe_value

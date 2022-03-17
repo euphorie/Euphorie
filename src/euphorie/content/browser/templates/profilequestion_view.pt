@@ -19,7 +19,7 @@
                    "
     >
       <div class="introduction">
-        <p tal:replace="structure context/description">Van belang is dat de spuitlans de juiste lengte heeft om rechtopstaand te werken. Een gebogen spuitlans geeft een hogere polsbelasting en wordt daarom afgeraden.</p>
+        <p tal:replace="structure python:view.get_safe_html(context.description)">Van belang is dat de spuitlans de juiste lengte heeft om rechtopstaand te werken. Een gebogen spuitlans geeft een hogere polsbelasting en wordt daarom afgeraden.</p>
       </div>
 
       <h2 i18n:translate="header_information">Information</h2>
