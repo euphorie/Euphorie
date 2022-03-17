@@ -135,16 +135,6 @@
                  type="hidden"
                  value="register"
           />
-          <tal:guest_account define="
-                               account webhelpers/get_current_account;
-                             "
-                             condition="is_guest_account|nothing"
-          >
-            <input name="guest_account_id"
-                   type="hidden"
-                   value="${account/id|nothing}"
-            />
-          </tal:guest_account>
           <fieldset class="vertical">
 
             <label class="${python:'error' if 'email' in errors else None}">
