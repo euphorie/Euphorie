@@ -177,7 +177,7 @@
       <fieldset class="pat-checklist pat-clone ${python:'pat-inject pat-autosubmit pat-subform' if webhelpers.integrated_action_plan else None}"
                 id="risk_identification_form"
                 data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button; remove-behaviour: none"
-                data-pat-inject="${python:'source: #panel-action-plan; target: #panel-action-plan' if webhelpers.integrated_action_plan else None}"
+                data-pat-inject="${python:'source: #panel-action-plan::element; target: #panel-action-plan::element' if webhelpers.integrated_action_plan else None}"
       >
         <tal:existing_measures condition="view/show_existing_measures">
           <article class="pat-rich">
