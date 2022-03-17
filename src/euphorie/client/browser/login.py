@@ -109,7 +109,7 @@ class Login(BrowserView):
         if (
             Session.query(model.Account)
             .filter(
-                model.Account.account_type == config.CONVERTED_ACCOUNT,
+                model.Account.account_type == config.GUEST_ACCOUNT,
                 model.Account.id == old_authenticated_account_id,
             )
             .first()
