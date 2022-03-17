@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.0.1 (unreleased)
+14.0.1 (2022-03-17)
 -------------------
 
 - Do not use the guest_account_id in the login and register forms
