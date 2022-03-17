@@ -44,15 +44,6 @@
                  tal:condition="request/came_from|nothing"
           />
 
-          <input name="guest_account_id"
-                 type="hidden"
-                 value="${account/id|nothing}"
-                 tal:define="
-                   account webhelpers/get_current_account;
-                 "
-                 tal:condition="is_guest_account|nothing"
-          />
-
           <fieldset class="vertical">
 
             <label>
@@ -154,15 +145,6 @@
                  type="hidden"
                  value="${request/came_from}"
                  tal:condition="request/came_from|nothing"
-          />
-
-          <input name="guest_account_id"
-                 type="hidden"
-                 value="${account/id|nothing}"
-                 tal:define="
-                   account webhelpers/get_current_account;
-                 "
-                 tal:condition="is_guest_account|nothing"
           />
 
           <fieldset class="vertical">

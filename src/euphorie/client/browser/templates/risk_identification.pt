@@ -53,6 +53,7 @@
           <!-- Action Plan -->
           <tal:action_plan condition="webhelpers/integrated_action_plan">
             <div class="pat-collapsible open risk-module pat-depends hidden form-panel"
+                 id="panel-action-plan"
                  data-pat-depends="transition: slide; ${view/action_plan_condition}"
             >
               <h3 class="form-separation-header"

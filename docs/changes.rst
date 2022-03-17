@@ -4,8 +4,12 @@ Changelog
 14.0.1 (unreleased)
 -------------------
 
+- Do not use the guest_account_id in the login and register forms
+  because we have better ways to know it
 - Improved redirect security
 - Improved error handling
+- Fix injection-related problem on tools with integrated action plan that also
+  use measures in place
 
 
 14.0.0 (2022-03-16)
