@@ -179,11 +179,11 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
             return ""
         return super().render()
 
-    def exportImage(self, parent, image, caption=None):
+    def exportImage(self, parent, image, caption=None, tagname="image"):
         """:returns: base64 encoded image."""
         if not self.include_images:
             return
-        node = etree.SubElement(parent, "image")
+        node = etree.SubElement(parent, tagname)
         if image.contentType:
             node.attrib["content-type"] = image.contentType
         if image.filename:
@@ -231,7 +231,11 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
             )
 
         if getattr(survey, "external_site_logo", None):
-            self.exportImage(node, survey.external_site_logo)
+            self.exportImage(
+                node, survey.external_site_logo, tagname="external_site_logo"
+            )
+        if getattr(survey, "image", None):
+            self.exportImage(node, survey.image)
 
         for child in survey.values():
             if IProfileQuestion.providedBy(child):
