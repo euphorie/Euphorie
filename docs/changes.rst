@@ -5,6 +5,7 @@ Changelog
 -------------------
 
 - Improved redirect security
+- Improved error handling
 
 
 14.0.0 (2022-03-16)
