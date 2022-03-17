@@ -8,8 +8,10 @@ from euphorie.content.solution import Solution
 from euphorie.content.survey import Survey
 from euphorie.content.surveygroup import SurveyGroup
 from euphorie.testing import EuphorieIntegrationTestCase
+from io import BytesIO
 from lxml import etree
 from Products.CMFPlone.utils import safe_nativestring
+from zipfile import ZipFile
 from zope.publisher.browser import TestRequest
 
 
@@ -763,3 +765,52 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             "  </survey>\n"
             "</sector>\n",
         )
+
+    def testRenderZip(self):
+        surveygroup = SurveyGroup()
+        surveygroup.id = "mysector"
+        surveygroup.title = "Generic sector"
+        surveygroup._setOb("standard", Survey())
+        survey = surveygroup["standard"]  # Acquisition wrap
+        survey.id = "dummy"
+        survey.title = u"Standard"
+        survey.introduction = "Wie grün sind deine Blätter?"
+        survey.classification_code = None
+        survey.evaluation_optional = False
+        survey.integrated_action_plan = True
+        survey.language = "en-GB"
+        survey.tool_type = "existing_measures"
+        view = ExportSurvey(survey, TestRequest())
+        view.export_as_plain_text = True
+        output = view.render_output()
+        zip_file = ZipFile(BytesIO(output), mode="r")
+        response = view.request.response
+        self.assertEqual(response.getHeader("Content-Type"), "application/zip")
+        self.assertEqual(
+            response.getHeader("Content-Disposition"),
+            'attachment; filename="mysector.zip"',
+        )
+        self.assertEqual(
+            zip_file.namelist(), ["mysector_word_count.txt", "mysector.xml"]
+        )
+        with zip_file.open("mysector_word_count.txt") as txt_file:
+            txt = txt_file.read().decode("utf-8").strip()
+            self.assertEqual(txt, "Generic sector Wie grün sind deine Blätter?")
+        with zip_file.open("mysector.xml") as xml_file:
+            xml = xml_file.read().decode("utf-8")
+            self.assertEqual(
+                xml,
+                "<?xml version='1.0' encoding='utf-8'?>\n"
+                '<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
+                "  <survey>\n"
+                "    <title>Generic sector</title>\n"
+                "    <introduction>Wie grün sind deine Blätter?</introduction>\n"
+                "    <language>en-GB</language>\n"
+                "    <tool_type>existing_measures</tool_type>\n"
+                "    <measures_text_handling>full</measures_text_handling>\n"
+                "    <integrated_action_plan>true</integrated_action_plan>\n"
+                "    <evaluation-algorithm>kinney</evaluation-algorithm>\n"
+                "    <evaluation-optional>false</evaluation-optional>\n"
+                "  </survey>\n"
+                "</sector>\n",
+            )
