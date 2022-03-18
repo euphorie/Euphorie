@@ -33,6 +33,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
+from z3c.form.interfaces import HIDDEN_MODE
 from ZODB.POSException import ConflictError
 from zope.component import getMultiAdapter
 from zope.component import getUtility
@@ -58,6 +59,21 @@ class SurveyView(BrowserView, DragDropHelper):
             for child in self.context.values()
             if IModule.providedBy(child) or IProfileQuestion.providedBy(child)
         ]
+
+    @property
+    @memoize
+    def training_questions(self):
+        return self.context.listFolderContents(
+            {"portal_type": "euphorie.training_question"}
+        )
+
+    @property
+    def show_training_questions(self):
+        if not api.portal.get_registry_record(
+            "euphorie.use_training_module", default=False
+        ):
+            return False
+        return getattr(self.context, "enable_web_training", False)
 
     @property
     def group(self):
@@ -144,7 +160,11 @@ class EditForm(DefaultEditForm):
         if not api.portal.get_registry_record(
             "euphorie.use_integrated_action_plan", default=False
         ):
-            self.widgets["integrated_action_plan"].mode = "hidden"
+            self.widgets["integrated_action_plan"].mode = HIDDEN_MODE
+        if not api.portal.get_registry_record(
+            "euphorie.use_training_module", default=False
+        ):
+            self.widgets["enable_web_training"].mode = HIDDEN_MODE
         for fname in ("introduction",):
             value = self.widgets[fname].value or ""
             safe_value = self.get_safe_html(value)

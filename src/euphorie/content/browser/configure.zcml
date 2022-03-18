@@ -395,6 +395,16 @@
       permission="cmf.ModifyPortalContent"
       />
 
+   <!-- Training -->
+  <browser:page
+      name="nuplone-view"
+      for="euphorie.content.training_question.ITrainingQuestion"
+      class=".surveygroup.SurveyGroupView"
+      template="templates/training_question.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
 
   <!-- Library -->
   <browser:page
