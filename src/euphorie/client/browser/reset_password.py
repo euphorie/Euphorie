@@ -11,6 +11,7 @@ from plone.supermodel import model
 from Products.CMFPlone.PasswordResetTool import InvalidRequestError
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MailHost.MailHost import MailHostError
+from requests.utils import is_ipv4_address
 from six.moves.urllib.parse import urlencode
 from z3c.form import button
 from z3c.form.form import EditForm
@@ -112,6 +113,12 @@ class ResetPasswordRequest(BaseForm):
         )
         return False
 
+    def get_remote_host(self):
+        forwarded_for = self.request.get("HTTP_X_FORWARDED_FOR")
+        if is_ipv4_address(forwarded_for):
+            return forwarded_for
+        return self.request.get("REMOTE_ADDR")
+
     def send_mail(self, email):
         account = Session.query(Account).filter(Account.loginname == email).first()
         if not account:
@@ -121,6 +128,7 @@ class ResetPasswordRequest(BaseForm):
 
         ppr = api.portal.get_tool("portal_password_reset")
         reset_info = ppr.requestReset(account.id)
+        reset_info["host"] = self.get_remote_host()
         mailhost = api.portal.get_tool("MailHost")
         body = self.email_template(**reset_info)
         subject = translate(
