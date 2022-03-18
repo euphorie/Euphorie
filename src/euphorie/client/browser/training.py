@@ -1,16 +1,25 @@
 # coding=utf-8
 from collections import OrderedDict
 from datetime import date
+from datetime import datetime
 from euphorie import MessageFactory as _
 from euphorie.client import survey
 from euphorie.client import utils
 from euphorie.client import utils as client_utils
+from euphorie.client.model import Training
+from json import dumps
+from json import loads
 from logging import getLogger
 from plone import api
 from plone.memoize.instance import memoize
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
+from random import shuffle
+from sqlalchemy.orm.exc import NoResultFound
 from z3c.saconfig import Session
+from zExceptions import Unauthorized
+from zope.interface import implementer
+from zope.publisher.interfaces import IPublishTraverse
 
 import markdown
 
@@ -208,7 +217,61 @@ class TrainingSlide(BrowserView):
         }
 
 
-class TrainingView(BrowserView, survey._StatusHelper):
+class TrainingBase(object):
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    @memoize
+    def session(self):
+        """Return the session for this context/request"""
+        return self.context.session
+
+    @property
+    def survey_title(self):
+        return self.webhelpers._survey.title
+
+    @property
+    @memoize
+    def questions(self):
+        survey = self.webhelpers._survey
+        return survey.listFolderContents({"portal_type": "euphorie.training_question"})
+
+    @memoize
+    def get_or_create_training(self):
+        """Return the training for this session"""
+        account_id = self.webhelpers.get_current_account().id
+        session_id = self.webhelpers.session_id
+        try:
+            return (
+                Session.query(Training)
+                .filter(
+                    Training.session_id == session_id, Training.account_id == account_id
+                )
+                .one()
+            )
+        except NoResultFound:
+            pass
+        status = "in_progress" if self.questions else "correct"
+        training = Training(
+            account_id=account_id,
+            session_id=session_id,
+            status=status,
+            time=datetime.now(),
+            answers="{}",
+        )
+        Session.add(training)
+        return training
+
+    @property
+    @memoize
+    def training_status(self):
+        return self.get_or_create_training().status
+
+
+class TrainingView(BrowserView, survey._StatusHelper, TrainingBase):
     """The view that shows the main-menu Training module
     Currently not active in default Euphorie
     """
@@ -220,15 +283,16 @@ class TrainingView(BrowserView, survey._StatusHelper):
     heading_measures = _("header_measures", default="Measures")
 
     @property
-    @memoize
-    def webhelpers(self):
-        return self.context.restrictedTraverse("webhelpers")
-
-    @property
-    @memoize
-    def session(self):
-        """Return the session for this context/request"""
-        return self.context.session
+    def question_intro_url(self):
+        survey = self.webhelpers._survey
+        if not getattr(survey, "enable_web_training", False):
+            return ""
+        view_name = "slide_question_success"
+        if survey.listFolderContents(
+            {"portal_type": "euphorie.training_question"}
+        ) and self.training_status not in ("correct", "success"):
+            view_name = "slide_question_intro"
+        return "{}/@@{}".format(self.context.absolute_url(), view_name)
 
     def slicePath(self, path):
         while path:
@@ -373,3 +437,164 @@ class TrainingView(BrowserView, survey._StatusHelper):
 
         self.request.RESPONSE.addHeader("Cache-Control", "public,max-age=60")
         return self.index()
+
+
+class SlideQuestionIntro(BrowserView, TrainingBase):
+    """The slide that introduces the questions"""
+
+    def first_question_url(self):
+        """Check the questions in the survey and take the first one"""
+        if not self.questions:
+            return ""
+        return "{base_url}/@@slide_question/{slide_id}".format(
+            base_url=self.context.absolute_url(), slide_id=self.questions[0].getId()
+        )
+
+
+@implementer(IPublishTraverse)
+class SlideQuestion(SlideQuestionIntro):
+    """The view for a question slide, the question id has to be passed
+    as a traversal parameter
+    """
+
+    def publishTraverse(self, request, name):
+        self.question_id = name
+        return self
+
+    @property
+    @memoize
+    def question(self):
+        """The question we want to display"""
+        return self.webhelpers._survey[self.question_id]
+
+    @property
+    @memoize
+    def answers(self):
+        """Return the randomized answers for this question"""
+        question = self.question
+        answers = [
+            question.right_answer,
+            question.wrong_answer_1,
+            question.wrong_answer_2,
+        ]
+        shuffle(answers)
+        return answers
+
+    @property
+    def progress(self):
+        """Return a progress indicator, something like 2/3"""
+        idx = self.questions.index(self.question)
+        return "{}/{}".format(idx + 1, len(self.questions))
+
+    @property
+    @memoize
+    def previous_question(self):
+        idx = self.questions.index(self.question)
+        if idx == 0:
+            return
+        try:
+            return self.questions[idx - 1]
+        except IndexError:
+            pass
+
+    @property
+    @memoize
+    def next_question(self):
+        idx = self.questions.index(self.question)
+        try:
+            return self.questions[idx + 1]
+        except IndexError:
+            pass
+
+    @property
+    def next_url(self):
+        """Go to next question (if we have one) or to the success or try again slides"""
+        next_question = self.next_question
+        if next_question:
+            next_slide = "slide_question/{}".format(next_question.getId())
+        elif self.get_or_create_training().status == "correct":
+            next_slide = "slide_question_success"
+        else:
+            next_slide = "slide_question_try_again"
+        return "{}/@@{}".format(self.context.absolute_url(), next_slide)
+
+    def initialize_training(self):
+        """Initialize the training.
+        This is particularly important if the user starts again the training
+        after a first attempt
+        """
+        training = self.get_or_create_training()
+        training.answers = "{}"
+        training.status = "in_progress"
+        training.time = datetime.now()
+
+    def post(self):
+        if not self.previous_question:
+            self.initialize_training()
+        training = self.get_or_create_training()
+        answer = safe_unicode(self.request.form["answer"])
+        answer_history = loads(training.answers)
+        answer_history[self.question_id] = answer == self.question.right_answer
+        training.answers = dumps(answer_history)
+        training.time = datetime.now()
+        if not self.next_question:
+            training.status = "correct" if all(answer_history.values()) else "failed"
+
+    def posted(self):
+        if self.request.method != "POST":
+            return False
+        self.post()
+        return True
+
+    def validate(self):
+        previous_question = self.previous_question
+        if not previous_question:
+            return
+        training = self.get_or_create_training()
+        try:
+            answers = loads(training.answers)
+        except ValueError:
+            answers = {}
+        if not answers:
+            raise Unauthorized(_("You should start the training from the beginning"))
+        if previous_question.getId() not in answers:
+            raise Unauthorized(_("It seems you missed a slide"))
+
+    def __call__(self):
+        self.validate()
+        if self.posted():
+            return self.request.response.redirect(self.next_url)
+        return super(SlideQuestion, self).__call__(self)
+
+
+class SlideQuestionSuccess(SlideQuestionIntro):
+    def post(self):
+        pass
+        # training = self.get_or_create_training()
+        # if bool(self.request.form.get("legal_crap")):
+        #     training.status = "success"
+        # else:
+        #     training.status = "correct"
+
+    def __call__(self):
+        training = self.get_or_create_training()
+        if training.status not in ("correct", "success"):
+            raise Unauthorized("You do not own the certificate")
+        if self.request.method == "POST":
+            return self.post()
+        return super(SlideQuestionSuccess, self).__call__()
+
+
+class SlideQuestionTryAgain(SlideQuestionIntro):
+    @property
+    def failed_questions(self):
+        training = self.get_or_create_training()
+        try:
+            answers = loads(training.answers)
+        except ValueError:
+            answers = {}
+        return [
+            question.title
+            for question in self.questions
+            if not answers.get(question.getId())
+        ]

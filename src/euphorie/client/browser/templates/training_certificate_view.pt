@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+  <metal:slot fill-slot="content">
+    <div id="content-pane">
+      <div class="container">
+        <div class="row">
+          <div class="eight columns">
+            <div class="certificate-container">
+              <tal:certificate replace="structure here/@@training-certificate-inner" />
+            </div>
+          </div>
+          <div class="four columns">
+            <a class="pat-button"
+               href="${here/absolute_url}/@@training_certificate"
+               target="new"
+               i18n:translate=""
+            >Print certificate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </metal:slot>
+
+  <metal:slot fill-slot="aside-navigator">
+    <div id="navigation">
+      <a class="pat-inject icon-search"
+         hidden="hidden"
+         href="${here/absolute_url}/@@session-browser-sidebar"
+         data-pat-inject="source: #navigation; target: #navigation; trigger: autoload; &amp;&amp; source: #osc-header; target: #osc-header; trigger: autoload"
+         i18n:translate=""
+      >Loading Risk Assessments&hellip;</a>
+    </div>
+  </metal:slot>
+
+</html>

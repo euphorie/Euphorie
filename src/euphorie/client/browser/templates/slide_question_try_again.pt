@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+  <metal:slot fill-slot="content">
+    <div class="presentation-slide"
+         id="slide-0"
+    >
+      <section class="mode-view slide-content pat-auto-scale template-default"
+               id="slide-content-questions-intro"
+               data-pat-auto-scale="size: contain"
+               tal:define="
+                 failed_questions view/failed_questions;
+               "
+      >
+        <section class="slide-body pat-rich"
+                 id="slide-content-questions-intro"
+        >
+          <section class="information">
+            <div class="pat-rich">
+              <p tal:condition="python:len(failed_questions)==1"
+                 i18n:translate=""
+              >
+                  You are almost there. The following question was answered wrongly.
+              </p>
+              <p tal:condition="python:len(failed_questions)&gt;1"
+                 i18n:translate=""
+              >
+                  You are almost there. The following questions were answered wrongly.
+              </p>
+              <blockquote class="question"
+                          tal:repeat="question failed_questions"
+              >
+                <p>${question}</p>
+              </blockquote>
+              <p tal:condition="python:len(failed_questions)==1"
+                 i18n:translate=""
+              >
+                  Repeat the questions to find the correct answer and try again.
+              </p>
+              <p tal:condition="python:len(failed_questions)&gt;1"
+                 i18n:translate=""
+              >
+                  Repeat the questions to find the correct answers and try again.
+              </p>
+            </div>
+            <p class="button-bar">
+              <a class="pat-button default pat-inject"
+                 href="${view/first_question_url}"
+                 data-pat-inject="source: #slide-0; target: #slide-0;"
+                 i18n:translate=""
+              >
+                  Re-run the questions
+              </a>
+            </p>
+          </section>
+        </section>
+      </section>
+    </div>
+  </metal:slot>
+</html>

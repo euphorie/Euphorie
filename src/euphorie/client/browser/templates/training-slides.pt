@@ -142,15 +142,21 @@
                            data-pat-inject="target: #slide-0"
                            tal:condition="not: end"
                         >Next</a>
-                        <button class="default pat-button close-fullscreen"
-                                href="${here/absolute_url}/@@training#slide-0"
-                                name="close"
-                                type="button"
-                                tal:condition="end"
-                        >
-        Close
-                        </button>
-
+                        <tal:end condition="end">
+                          <button class="default pat-button close-fullscreen"
+                                  href="${here/absolute_url}/@@training#slide-0"
+                                  name="close"
+                                  type="button"
+                                  tal:condition="not:question_intro_url"
+                          >
+            Close
+                          </button>
+                          <a class="pat-inject default pat-button continue slide-nav-next"
+                             href="${question_intro_url}#slide-0"
+                             data-pat-inject="target: #slide-0"
+                             tal:condition="question_intro_url"
+                          >Questions</a>
+                        </tal:end>
                       </p>
                     </footer>
                   </metal:footer>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+  <metal:slot fill-slot="content">
+    <div class="presentation-slide"
+         id="slide-0"
+    >
+      <section class="mode-view slide-content pat-auto-scale template-default"
+               id="slide-content-questions-intro"
+               data-pat-auto-scale="size: contain"
+      >
+        <section class="slide-body pat-rich"
+                 id="slide-content-questions-intro"
+        >
+
+          <form class="slide-body pat-inject"
+                action="${context/absolute_url}/@@${view/__name__}/${view/question_id}"
+                method="post"
+                data-pat-inject="source: #slide-0; target: #slide-0"
+          >
+            <h1 class="slide-title">
+              <tal:i18n i18n:translate="">Question</tal:i18n>
+             ${view/progress}
+            </h1>
+            <fieldset class="pat-checklist radio">
+              <legend>${view/question/title}</legend>
+              <label tal:repeat="answer view/answers">
+                <input name="answer"
+                       type="radio"
+                       value="${answer}"
+                />
+                  ${answer}
+              </label>
+            </fieldset>
+            <p class="button-bar">
+              <button class="pat-button default pat-depends"
+                      type="submit"
+                      data-pat-depends="condition: answer; action: enable"
+                      i18n:translate=""
+              >
+                  Continue
+              </button>
+            </p>
+          </form>
+        </section>
+      </section>
+    </div>
+  </metal:slot>
+</html>
