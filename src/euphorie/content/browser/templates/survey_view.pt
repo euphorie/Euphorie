@@ -9,60 +9,94 @@
       metal:use-macro="context/@@layout/macros/layout"
       i18n:domain="euphorie"
 >
+
+  <head>
+    <script src="${client/++resource++euphorie.content.behaviour}/content.js"
+            type="text/javascript"
+    ></script>
+  </head>
   <body>
     <metal:title fill-slot="title">${view/group/title}</metal:title>
     <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar" /></metal:bar>
     <metal:content fill-slot="content"
                    tal:define="
                      can_edit python:tools.checkPermission('Modify portal content');
+                     media_url string:++resource++euphorie.resources/oira/style;
+                     integrated_action_plan python:getattr(context, 'integrated_action_plan', False);
                    "
     >
       <h2 i18n:translate="header_information">Information</h2>
 
       <dl class="grid span-9">
-        <dt i18n:translate="label_evaluation_phase">Evaluation phase</dt>
-        <dd tal:condition="context/evaluation_optional"
-            i18n:translate="optional"
-        >Optional</dd>
-        <dd tal:condition="not:context/evaluation_optional"
-            i18n:translate="mandatory"
-        >Mandatory</dd>
         <dt i18n:translate="label_classification_code">Classification code</dt>
         <dd tal:condition="context/classification_code">${context/classification_code}</dd>
         <dd tal:condition="not:context/classification_code"><em i18n:translate="not_set">Not set</em></dd>
         <dt i18n:translate="label_language">Language</dt>
         <dd tal:condition="context/language">${python:tools.languageName(context.language, context.language)}</dd>
         <dd tal:condition="not:context/language"><em i18n:translate="not_set">Not set</em></dd>
-        <dt i18n:translate="label_tool_type">Type of OiRA Tool</dt>
-        <dd>${context/get_tool_type_name}</dd>
-        <dt i18n:translate="label_integrated_action_plan">Integrated Action Plan</dt>
-        <dd tal:condition="context/integrated_action_plan"
+        <dt i18n:translate="label_enable_tool_notification">Show a custom notification for this OiRA tool?</dt>
+        <dd tal:condition="context/hasNotification"
             i18n:translate="Yes"
         >Yes</dd>
-        <dd tal:condition="not:context/integrated_action_plan"
+        <dd tal:condition="not:context/hasNotification"
+            i18n:translate="No"
+        >No</dd>
+        <dt i18n:translate="label_tool_type">Type of OiRA Tool</dt>
+        <dd>${context/get_tool_type_name}</dd>
+        <tal:tool_category condition="view/use_tool_category">
+          <dt i18n:translate="title_tool_category">Tool category</dt>
+          <dd>${python:", ".join(getattr(context, 'tool_category', []) or [])}</dd>
+        </tal:tool_category>
+        <dt i18n:translate="label_integrated_action_plan">Integrated Action Plan</dt>
+        <dd tal:condition="integrated_action_plan"
+            i18n:translate="Yes"
+        >Yes</dd>
+        <dd tal:condition="not:integrated_action_plan"
             i18n:translate="No"
         >No</dd>
       </dl>
 
-      <tal:intro condition="python:context.introduction">
-        <h2 i18n:translate="label_introduction">Introduction text</h2>
-        <p tal:replace="structure context/introduction"></p>
-      </tal:intro>
+      <p style="clear:both"
+         i18n:translate="message_download_tool_contents"
+      >You can
+        <a href="${here/absolute_url}/survey-contents-docx"
+           i18n:name="link_download_tool_contents"
+           i18n:translate="link_download_tool_contents"
+        >download the contents of this OiRA tool in Word format</a>.</p>
 
-      <h2 i18n:translate="header_modules_and_profile_questions">Modules and Profile Questions</h2>
-      <p tal:condition="python:not view.children"
-         i18n:translate="no_profile_questions_or_modules"
-      >This survey has no profile questions or modules.</p>
-      <tal:children condition="python:view.children">
-        <ol class="${python:'sortable' if can_edit and len(view.children)&gt;1 else None}">
-          <div class="sortable-explanation">
-            ${view/sortable_explanation}
-          </div>
-          <li id="child-${child/id}"
-              tal:repeat="child view/children"
-          ><a href="${child/url}">${child/title}</a></li>
-        </ol>
-      </tal:children>
+      <tal:block define="
+                   children view/modules_and_profile_questions;
+                   sortable python:'sortable' if can_edit and len(children)&gt;1 else None;
+                 ">
+        <h2 i18n:translate="header_modules_and_profile_questions">Modules and Profile Questions</h2>
+
+        <p tal:condition="not:python:children"
+           i18n:translate="no_profile_questions_or_modules"
+        >This OiRA Tool has no profile questions or modules</p>
+
+        <tal:children condition="python:children">
+          <ol class="${sortable}"
+              tal:condition="python:children"
+          >
+            <div class="sortable-explanation">
+          ${view/sortable_explanation}
+            </div>
+
+            <li id="child-${child/id}"
+                tal:repeat="child children"
+            >
+              <img src="${media_url}/folder_icon.png"
+                   tal:condition="not:child/is_profile_question"
+              />
+              <img src="${media_url}/question.png"
+                   tal:condition="child/is_profile_question"
+              />
+              <a href="${child/url}">${child/title}</a>
+            </li>
+          </ol>
+        </tal:children>
+      </tal:block>
+
     </metal:content>
   </body>
 </html>

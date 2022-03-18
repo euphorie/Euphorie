@@ -217,6 +217,14 @@
       class=".export.ExportSurvey"
       />
 
+  <browser:page
+      name="survey-contents-docx"
+      for="euphorie.content.survey.ISurvey"
+      class=".survey.ContentsOfSurvey"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
   <!-- SurveyGroup -->
   <browser:page
       name="nuplone-view"

@@ -5,6 +5,9 @@ Changelog
 -------------------
 
 - Password Reset: Verify IP address validity
+- Consolidate the "survey view" in the CMS by merging back developments done in
+  subprojects (OSHA-OiRA and Daimler).
+  This includes the possibility to export the complete contents of an OiRA tool as Word file
 
 
 14.0.1 (2022-03-17)
