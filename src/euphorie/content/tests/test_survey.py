@@ -66,7 +66,7 @@ class ViewTests(EuphorieIntegrationTestCase):
     def test_update_no_children(self):
         survey = Survey()
         view = SurveyView(survey, self._request())
-        self.assertEqual(view.children, [])
+        self.assertEqual(view.modules_and_profile_questions, [])
 
     def test_update_with_profile(self):
         survey = Survey()
@@ -75,7 +75,7 @@ class ViewTests(EuphorieIntegrationTestCase):
         survey._setObject("child", child, suppress_events=True)
         view = SurveyView(survey, self._request())
         view._morph = mock.Mock(return_value="info")
-        self.assertEqual(view.children, ["info"])
+        self.assertEqual(view.modules_and_profile_questions, ["info"])
 
     def test_update_with_module(self):
         survey = Survey()
@@ -84,21 +84,26 @@ class ViewTests(EuphorieIntegrationTestCase):
         survey._setObject("child", child, suppress_events=True)
         view = SurveyView(survey, self._request())
         view._morph = mock.Mock(return_value="info")
-        self.assertEqual(view.children, ["info"])
+        self.assertEqual(view.modules_and_profile_questions, ["info"])
 
     def test_update_other_child(self):
         survey = Survey()
         view = SurveyView(survey, self._request())
         child = Mock(id="child", title=u"Child")
         survey._setObject("child", child, suppress_events=True)
-        self.assertEqual(view.children, [])
+        self.assertEqual(view.modules_and_profile_questions, [])
 
     def test_moprh(self):
         child = Mock(id="child", title=u"Child")
         view = SurveyView(None, self._request())
         self.assertEqual(
             view._morph(child),
-            {"id": "child", "title": u"Child", "url": "http://nohost/child"},
+            {
+                "id": "child",
+                "title": "Child",
+                "url": "http://nohost/child",
+                "is_profile_question": False,
+            },
         )
 
 
