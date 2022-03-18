@@ -4,7 +4,7 @@ Changelog
 14.0.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Password Reset: Verify IP address validity
 
 
 14.0.1 (2022-03-17)
@@ -16,7 +16,6 @@ Changelog
 - Improved error handling
 - Fix injection-related problem on tools with integrated action plan that also
   use measures in place
-- Password Reset: Verify IP address validity
 
 
 14.0.0 (2022-03-16)
