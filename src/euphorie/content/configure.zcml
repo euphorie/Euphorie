@@ -163,6 +163,11 @@
         factory=".risk.ImageSizeValidator"
         />
 
+    <adapter
+        factory=".training_question.ConstructionFilter"
+        name="euphorie.training_question"
+        />
+
     <include package=".behaviour" />
 
     <genericsetup:registerProfile
