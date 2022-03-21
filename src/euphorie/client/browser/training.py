@@ -280,6 +280,7 @@ class TrainingView(BrowserView, survey._StatusHelper, TrainingBase):
     heading_measures = _("header_measures", default="Measures")
 
     @property
+    @memoize
     def question_intro_url(self):
         survey = self.webhelpers._survey
         if not getattr(survey, "enable_web_training", False):
@@ -290,6 +291,11 @@ class TrainingView(BrowserView, survey._StatusHelper, TrainingBase):
         ) and self.training_status not in ("correct", "success"):
             view_name = "slide_question_intro"
         return "{}/@@{}".format(self.context.absolute_url(), view_name)
+
+    @property
+    def enable_training_questions(self):
+        """Explicit property that can be overwritten in subpackages"""
+        return bool(self.question_intro_url)
 
     def slicePath(self, path):
         while path:
