@@ -12,6 +12,7 @@ from json import loads
 from logging import getLogger
 from plone import api
 from plone.memoize.instance import memoize
+from plone.memoize.view import memoize as view_memoize
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from random import shuffle
@@ -33,7 +34,7 @@ class TrainingSlide(BrowserView):
     """
 
     @property
-    @memoize
+    @view_memoize
     def webhelpers(self):
         return api.content.get_view("webhelpers", self.context, self.request)
 
@@ -216,12 +217,12 @@ class TrainingSlide(BrowserView):
 
 class TrainingBase(object):
     @property
-    @memoize
+    @view_memoize
     def webhelpers(self):
         return api.content.get_view("webhelpers", self.context, self.request)
 
     @property
-    @memoize
+    @view_memoize
     def session(self):
         """Return the session for this context/request"""
         return self.context.session
@@ -231,7 +232,7 @@ class TrainingBase(object):
         return self.webhelpers._survey.title
 
     @property
-    @memoize
+    @view_memoize
     def questions(self):
         survey = self.webhelpers._survey
         return survey.listFolderContents({"portal_type": "euphorie.training_question"})
@@ -263,14 +264,13 @@ class TrainingBase(object):
         return training
 
     @property
-    @memoize
+    @view_memoize
     def training_status(self):
         return self.get_or_create_training().status
 
 
 class TrainingView(BrowserView, survey._StatusHelper, TrainingBase):
     """The view that shows the main-menu Training module
-    Currently not active in default Euphorie
     """
 
     variation_class = "variation-risk-assessment"
@@ -280,7 +280,7 @@ class TrainingView(BrowserView, survey._StatusHelper, TrainingBase):
     heading_measures = _("header_measures", default="Measures")
 
     @property
-    @memoize
+    @view_memoize
     def question_intro_url(self):
         survey = self.webhelpers._survey
         if not getattr(survey, "enable_web_training", False):
@@ -303,7 +303,7 @@ class TrainingView(BrowserView, survey._StatusHelper, TrainingBase):
             path = path[3:]
 
     @property
-    @memoize
+    @view_memoize
     def title_image(self):
         try:
             return self.context.aq_parent.external_site_logo.data
@@ -315,7 +315,7 @@ class TrainingView(BrowserView, survey._StatusHelper, TrainingBase):
             return
 
     @property
-    @memoize
+    @view_memoize
     def tool_image_url(self):
         survey = self.context.aq_parent
         if getattr(survey, "image", None):
@@ -329,7 +329,7 @@ class TrainingView(BrowserView, survey._StatusHelper, TrainingBase):
         return f"{self.webhelpers.portal_url}/++resource++euphorie.resources/media/oira-logo-colour.png"  # noqa: E501
 
     @property
-    @memoize
+    @view_memoize
     def slide_data(self):
         modules = self.getModulePaths()
         risks = self.getRisks(modules, skip_unanswered=self.skip_unanswered)
@@ -465,13 +465,13 @@ class SlideQuestion(SlideQuestionIntro):
         return self
 
     @property
-    @memoize
+    @view_memoize
     def question(self):
         """The question we want to display"""
         return self.webhelpers._survey[self.question_id]
 
     @property
-    @memoize
+    @view_memoize
     def answers(self):
         """Return the randomized answers for this question"""
         question = self.question
@@ -490,7 +490,7 @@ class SlideQuestion(SlideQuestionIntro):
         return "{}/{}".format(idx + 1, len(self.questions))
 
     @property
-    @memoize
+    @view_memoize
     def previous_question(self):
         idx = self.questions.index(self.question)
         if idx == 0:
@@ -501,7 +501,7 @@ class SlideQuestion(SlideQuestionIntro):
             pass
 
     @property
-    @memoize
+    @view_memoize
     def next_question(self):
         idx = self.questions.index(self.question)
         try:
@@ -573,11 +573,6 @@ class SlideQuestion(SlideQuestionIntro):
 class SlideQuestionSuccess(SlideQuestionIntro):
     def post(self):
         pass
-        # training = self.get_or_create_training()
-        # if bool(self.request.form.get("legal_crap")):
-        #     training.status = "success"
-        # else:
-        #     training.status = "correct"
 
     def __call__(self):
         training = self.get_or_create_training()
