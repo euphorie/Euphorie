@@ -215,7 +215,15 @@ class TrainingSlide(BrowserView):
         }
 
 
-class TrainingBase(object):
+class TrainingView(BrowserView, survey._StatusHelper):
+    """The view that shows the main-menu Training module"""
+
+    variation_class = "variation-risk-assessment"
+    skip_unanswered = False
+    for_download = False
+    more_menu_contents = []
+    heading_measures = _("header_measures", default="Measures")
+
     @property
     @view_memoize
     def webhelpers(self):
@@ -226,16 +234,6 @@ class TrainingBase(object):
     def session(self):
         """Return the session for this context/request"""
         return self.context.session
-
-    @property
-    def survey_title(self):
-        return self.webhelpers._survey.title
-
-    @property
-    @view_memoize
-    def questions(self):
-        survey = self.webhelpers._survey
-        return survey.listFolderContents({"portal_type": "euphorie.training_question"})
 
     @memoize
     def get_or_create_training(self):
@@ -268,17 +266,6 @@ class TrainingBase(object):
     def training_status(self):
         return self.get_or_create_training().status
 
-
-class TrainingView(BrowserView, survey._StatusHelper, TrainingBase):
-    """The view that shows the main-menu Training module
-    """
-
-    variation_class = "variation-risk-assessment"
-    skip_unanswered = False
-    for_download = False
-    more_menu_contents = []
-    heading_measures = _("header_measures", default="Measures")
-
     @property
     @view_memoize
     def question_intro_url(self):
@@ -291,6 +278,12 @@ class TrainingView(BrowserView, survey._StatusHelper, TrainingBase):
         ) and self.training_status not in ("correct", "success"):
             view_name = "slide_question_intro"
         return "{}/@@{}".format(self.context.absolute_url(), view_name)
+
+    @property
+    @view_memoize
+    def questions(self):
+        survey = self.webhelpers._survey
+        return survey.listFolderContents({"portal_type": "euphorie.training_question"})
 
     @property
     def enable_training_questions(self):
@@ -442,8 +435,17 @@ class TrainingView(BrowserView, survey._StatusHelper, TrainingBase):
         return self.index()
 
 
-class SlideQuestionIntro(BrowserView, TrainingBase):
+class SlideQuestionIntro(TrainingView):
     """The slide that introduces the questions"""
+
+    @property
+    @view_memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    def survey_title(self):
+        return self.webhelpers._survey.title
 
     def first_question_url(self):
         """Check the questions in the survey and take the first one"""
@@ -567,7 +569,7 @@ class SlideQuestion(SlideQuestionIntro):
         self.validate()
         if self.posted():
             return self.request.response.redirect(self.next_url)
-        return super(SlideQuestion, self).__call__(self)
+        return super(SlideQuestion, self).__call__()
 
 
 class SlideQuestionSuccess(SlideQuestionIntro):
