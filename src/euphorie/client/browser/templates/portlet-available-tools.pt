@@ -107,6 +107,7 @@
                  type="hidden"
                  value="new"
           />
+          <tal:csrf replace="structure context/@@authenticator/authenticator" />
 
         </form>
       </div>

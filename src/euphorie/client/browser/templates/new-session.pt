@@ -118,6 +118,7 @@
               >Cancel</button>
             </div>
           </div>
+          <tal:csrf replace="structure context/@@authenticator/authenticator" />
         </form>
       </div>
     </metal:slot>

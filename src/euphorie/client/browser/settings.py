@@ -15,6 +15,7 @@ from plone import api
 from plone.autoform import directives
 from plone.autoform.form import AutoExtensibleForm
 from plone.memoize.instance import memoize
+from plone.protect.interfaces import IDisableCSRFProtection
 from plone.supermodel import model
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
@@ -29,6 +30,7 @@ from z3c.saconfig import Session
 from z3c.schema.email import RFC822MailAddress
 from zope import schema
 from zope.i18n import translate
+from zope.interface import alsoProvides
 from zope.interface import directlyProvides
 from zope.interface import Invalid
 from zope.interface import invariant
@@ -360,6 +362,7 @@ class ChangeEmail(BrowserView):
             return
 
         request.account.loginname = request.value
+        alsoProvides(self.request, IDisableCSRFProtection)
         Session.delete(request)
         flash(_("Your email address has been updated."), "success")
         self.request.response.redirect(url)

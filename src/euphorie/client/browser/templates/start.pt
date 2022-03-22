@@ -129,6 +129,7 @@
                   i18n:translate="label_start_survey"
           >Start</button>
         </div>
+        <tal:csrf replace="structure context/@@authenticator/authenticator" />
       </form>
 
     </metal:slot>
