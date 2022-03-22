@@ -32,11 +32,18 @@ class TrainingSlide(BrowserView):
     """Template / macro to hold the training slide markup
     Currently not active in default Euphorie
     """
+    heading_measures = _("header_measures", default="Measures")
 
     @property
     @view_memoize
     def webhelpers(self):
         return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    @view_memoize
+    def session(self):
+        """Return the session for this context/request"""
+        return self.context.session
 
     @property
     @memoize
