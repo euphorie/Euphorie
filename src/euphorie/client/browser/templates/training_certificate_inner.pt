@@ -1,4 +1,4 @@
-<article class="style-7 type- certificate ${python: 'pat-auto-scale' if request.getURL().endswith('/@@certificate-view') else ''}"
+<article class="style-7 type- certificate ${python: 'pat-auto-scale' if request.getURL().endswith('/@@training-certificate-view') else ''}"
          tal:define="
            webhelpers nocall:view/webhelpers;
            account webhelpers/get_current_account;

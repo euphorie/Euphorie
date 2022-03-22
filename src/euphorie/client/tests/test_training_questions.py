@@ -102,7 +102,7 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
             # There is a certificate view but we cannot see it
             # if we have not started the training
             with self._get_view(
-                "training_certificate", traversed_session, self.request.clone()
+                "training-certificate", traversed_session, self.request.clone()
             ) as view:
                 with self.assertRaises(Unauthorized):
                     view()
@@ -188,7 +188,7 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
                 # There is a certificate view but we cannot see it
                 # if we have not completed the training
                 with self._get_view(
-                    "training_certificate", traversed_session, self.request.clone()
+                    "training-certificate", traversed_session, self.request.clone()
                 ) as certificate:
                     with self.assertRaises(Unauthorized):
                         certificate()
@@ -220,7 +220,7 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
             # There is a certificate view but we cannot see it
             # if we have not completed the training succesfully
             with self._get_view(
-                "training_certificate", traversed_session, self.request.clone()
+                "training-certificate", traversed_session, self.request.clone()
             ) as view:
                 with self.assertRaises(Unauthorized):
                     view()
@@ -255,6 +255,6 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
 
             # Now we can view the certificate!
             with self._get_view(
-                "training_certificate", traversed_session, self.request.clone()
+                "training-certificate", traversed_session, self.request.clone()
             ) as view:
                 view()
