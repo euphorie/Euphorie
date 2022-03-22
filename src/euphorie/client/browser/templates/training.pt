@@ -195,11 +195,9 @@
                              tal:condition="image_urls"
                         >
                           <figure class="illustration">
-                            <a href="${python:image_urls[0]}">
-                              <img src="${python:image_urls[0]}"
-                                   title=""
-                              />
-                            </a>
+                            <img src="${python:image_urls[0]}"
+                                 title=""
+                            />
                           </figure>
                         </div>
                         <span tal:replace="structure python:webhelpers.get_safe_html(description)"></span>
