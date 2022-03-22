@@ -134,6 +134,7 @@
                         <a class="pat-inject pat-button back slide-nav-prev"
                            href="${here/absolute_url}/@@training-slides#slide-${python:counter-1}"
                            data-pat-inject="target: #slide-0"
+                           i18n:translate="label_previous"
                         >Previous</a>
 
 
@@ -141,6 +142,7 @@
                            href="${here/absolute_url}/@@training-slides#slide-${python:counter+1}"
                            data-pat-inject="target: #slide-0"
                            tal:condition="not: end"
+                           i18n:translate="label_next"
                         >Next</a>
                         <tal:end condition="end">
                           <button class="default pat-button close-fullscreen"
@@ -148,6 +150,7 @@
                                   name="close"
                                   type="button"
                                   tal:condition="not:question_intro_url"
+                                  i18n:translate="button_close"
                           >
             Close
                           </button>
@@ -155,6 +158,7 @@
                              href="${question_intro_url}#slide-0"
                              data-pat-inject="target: #slide-0"
                              tal:condition="question_intro_url"
+                             i18n:translate="button_training_questions"
                           >Questions</a>
                         </tal:end>
                       </p>
