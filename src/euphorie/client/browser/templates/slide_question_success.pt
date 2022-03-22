@@ -39,7 +39,7 @@
 
               <p class="controls">
                 <a class="pat-button pat-depends"
-                   href="${here/absolute_url}/@@training_certificate"
+                   href="${here/absolute_url}/@@training-certificate"
                    target="new"
                    i18n:translate=""
                 >Print</a>

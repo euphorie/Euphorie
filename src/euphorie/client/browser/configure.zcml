@@ -201,11 +201,20 @@
       />
 
   <browser:page
-      name="training_certificate"
+      name="training-certificate"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       class=".training.SlideQuestionSuccess"
       template="templates/training_certificate.pt"
       permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="portlet-my-trainings"
+      for="euphorie.client.country.IClientCountry"
+      class=".training.MyTrainingsPortlet"
+      template="templates/portlet-my-trainings.pt"
+      permission="zope2.View"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 

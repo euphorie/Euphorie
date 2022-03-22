@@ -573,6 +573,8 @@ class SlideQuestion(SlideQuestionIntro):
 
 
 class SlideQuestionSuccess(SlideQuestionIntro):
+    variation_class = ""
+
     def post(self):
         pass
 
@@ -597,4 +599,43 @@ class SlideQuestionTryAgain(SlideQuestionIntro):
             question.title
             for question in self.questions
             if not answers.get(question.getId())
+        ]
+
+
+class MyTrainingsPortlet(BrowserView):
+    columns = "1"
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    @memoize
+    def my_unfinished_trainings(self):
+        account_id = self.webhelpers.get_current_account().id
+        return [
+            session
+            for session in (
+                Session.query(Training)
+                .filter(Training.account_id == account_id, Training.status != "correct")
+                .order_by(Training.time.desc())
+                .all()
+            )
+            if session.session.tool
+        ]
+
+    @property
+    @memoize
+    def my_certificates(self):
+        account_id = self.webhelpers.get_current_account().id
+        return [
+            session
+            for session in (
+                Session.query(Training)
+                .filter(Training.account_id == account_id, Training.status == "correct")
+                .order_by(Training.time.desc())
+                .all()
+            )
+            if session.session.tool
         ]
