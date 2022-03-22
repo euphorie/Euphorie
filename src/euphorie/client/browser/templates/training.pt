@@ -92,6 +92,7 @@
                   <li tal:repeat="entry view/more_menu_contents">
                     <a class="${entry/class}"
                        href="${entry/url}"
+                       data-pat-modal="${entry/data_pat_modal|nothing}"
                     >${entry/label}</a>
                   </li>
 
