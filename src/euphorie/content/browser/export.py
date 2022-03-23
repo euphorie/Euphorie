@@ -9,6 +9,7 @@ View name: @@export
 
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from bs4 import BeautifulSoup
 from euphorie.client.utils import HasText
 from euphorie.content import MessageFactory as _
 from euphorie.content.behaviors.toolcategory import IToolCategory
@@ -23,14 +24,21 @@ from euphorie.content.solution import ISolution
 from euphorie.content.survey import get_tool_type
 from euphorie.content.utils import StripMarkup
 from euphorie.content.utils import StripUnwanted
+from io import BytesIO
 from lxml import etree
 from plone.autoform.form import AutoExtensibleForm
+from plonetheme.nuplone.z3cform.directives import depends
 from Products.CMFPlone.utils import safe_bytes
 from z3c.form import button
 from z3c.form import form
+from zipfile import ZipFile
 from zope import schema
 from zope.interface import Interface
 
+import re
+
+
+all_breaks = re.compile("(\n|\r)+")
 
 try:
     from base64 import encodebytes
@@ -135,6 +143,22 @@ class IExportSurveySchema(Interface):
         default=True,
     )
 
+    depends("export_as_plain_text", "include_images", "off")
+    export_as_plain_text = schema.Bool(
+        title=_(
+            "label_export_as_plain_text",
+            default="Export additionally as plain text file",
+        ),
+        description=_(
+            "description_export_as_plain_text",
+            default="The plain text file will contain all translatable text without "
+            "formatting. This file can be used to determine a word count for "
+            "estimating the cost of translation.",
+        ),
+        required=False,
+        default=False,
+    )
+
 
 class ExportSurvey(AutoExtensibleForm, form.Form):
     """The upload view for a :obj:`euphorie.content.sector`
@@ -144,9 +168,9 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
 
     schema = IExportSurveySchema
     ignoreContext = True
-    form_name = _(u"Export OiRA Tool")
+    form_name = _("Export OiRA Tool")
 
-    @button.buttonAndHandler(_(u"Export"))
+    @button.buttonAndHandler(_("Export"))
     def handleExport(self, action):
         (data, errors) = self.extractData()
         self.include_images = data.get("include_images")
@@ -157,19 +181,54 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
         )
         self.include_risk_legal_texts = data.get("include_risk_legal_texts")
         self.include_measures = data.get("include_measures")
+        export_as_plain_text = data.get("export_as_plain_text")
         output = etree.Element("sector", nsmap=NSMAP)
         self.exportSurvey(output, self.context)
         response = self.request.response
-        filename = "%s.xml" % aq_parent(aq_inner(self.context)).id
-        response.setHeader(
-            "Content-Disposition", u'attachment; filename="%s"' % filename
+        rendered_xml = etree.tostring(
+            output, pretty_print=True, xml_declaration=True, encoding="utf-8"
         )
-        response.setHeader("Content-Type", "text/xml")
-        self.request.response.write(
-            etree.tostring(
-                output, pretty_print=True, xml_declaration=True, encoding="utf-8"
+        context_id = aq_parent(aq_inner(self.context)).id
+        if export_as_plain_text and not self.include_images:
+            outer_soup = BeautifulSoup(rendered_xml, "lxml")
+            # Some tags of the survey contain only functional information, such
+            # as true/false or calculated/evaluated
+            # Strip them for the word counting
+            functional_tags = (
+                "classification-code",
+                "evaluation-method",
+                "evaluation-optional",
+                "integrated_action_plan",
+                "language",
+                "measures_text_handling",
+                "show-not-applicable",
+                "tool_type",
             )
-        )
+            for tag in functional_tags:
+                entities = outer_soup.findAll(tag)
+                [entity.extract() for entity in entities]
+            # The extracted texts contain HTML entities such as &lt;p&gt;
+            # We need to convert them to real tags to be able to strip them too for
+            # word counting
+            inner_soup = BeautifulSoup(outer_soup.get_text(), "html.parser")
+            text = inner_soup.get_text()
+            text = all_breaks.sub(" ", text)
+            zip_output = BytesIO()
+            with ZipFile(zip_output, mode="w") as zip:
+                zip.writestr(f"{context_id}_word_count.txt", text)
+                zip.writestr(f"{context_id}.xml", rendered_xml)
+            self.request.response.setHeader("Content-Type", "application/zip")
+            self.request.response.setHeader(
+                "Content-Disposition", f"attachment; filename={context_id}.zip"
+            )
+            self.request.response.write(zip_output.getvalue())
+        else:
+            filename = "%s.xml" % aq_parent(aq_inner(self.context)).id
+            response.setHeader(
+                "Content-Disposition", 'attachment; filename="%s"' % filename
+            )
+            response.setHeader("Content-Type", "text/xml")
+            self.request.response.write(rendered_xml)
 
     def render(self):
         if self.request.response.headers.get("content-disposition", "").startswith(
