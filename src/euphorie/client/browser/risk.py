@@ -1203,6 +1203,11 @@ class ConfirmationDeleteRisk(BrowserView):
     no_splash = True
 
     @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
     def risk_title(self):
         return self.context.title
 
@@ -1225,6 +1230,11 @@ class ConfirmationDeleteRisk(BrowserView):
 
 class DeleteRisk(BrowserView):
     """View name: @@delete-risk"""
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
 
     def __call__(self):
         if not self.webhelpers.can_view_session:
