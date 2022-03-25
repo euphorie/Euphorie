@@ -651,7 +651,11 @@ class IdentificationView(RiskBase):
                     _id = k.rsplit("-", 1)[-1]
                     if int(bool(reply.get("measure-{}".format(_id)))):
                         new_measures.append(
-                            model.ActionPlan(action=val, plan_type="in_place_custom")
+                            model.ActionPlan(
+                                action=val,
+                                plan_type="in_place_custom",
+                                used_in_training=saved_custom_measures.get(_id, True),
+                            )
                         )
             # Now add the custom measures in their correct order
             for k in sorted(new_custom_measures.keys()):
