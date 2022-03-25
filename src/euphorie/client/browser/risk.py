@@ -170,20 +170,73 @@ class RiskBase(BrowserView):
 
     def extract_plans_from_request(self):
         """Create new ActionPlan objects by parsing the Request."""
+        context = aq_inner(self.context)
+        form = self.request.form
+        context_measures = context.standard_measures + context.custom_measures
+        if form.get("handle_training_measures"):
+            # Gather all (database-) ids of the active measures. That means, those
+            # measures where the checkboxes are ticked in the training configuration.
+            # Remember: a measure that has been deselected (checkbox unticked)
+            # does not appear in the REQUEST
+            active_measures = []
+            for entry in form:
+                if entry.startswith("training-measure") and entry.find("-") >= 0:
+                    measure_id = entry.split("-")[-1]
+                    active_measures.append(measure_id)
+            # Get the ids of all measures-in-place and map them to the solution-ids
+            # Remember: the solution-id is the ZODB-id of the respective solution
+            # inside the risk in the CMS. We us it to identify the standard measures.
+            # The custom measures will not have a solution-id
+            all_measures = {
+                str(measure.id): measure.solution_id for measure in context_measures
+            }
+            # The following 2 mappings will be used if the handling of measures in
+            # place is also part of this request (further down)
+            # Make a mapping of solution-id to used-in-training state for the
+            # standard measures
+            saved_solutions = {
+                v: k in active_measures for (k, v) in all_measures.items() if v
+            }
+            # Make a mapping of database-id to used-in-training state for the
+            # custom measures
+            saved_custom_measures = {
+                k: k in active_measures for (k, v) in all_measures.items() if not v
+            }
+        else:
+            # The following 2 mappings will be used if the handling of measures in
+            # place is also part of this request (further down)
+            # We do not have training configuration in the REQUEST. We need
+            # to build the mapping of solution-id to used-in-training state
+            # via the information stored in the the database...
+            saved_solutions = {
+                plan.solution_id: plan.used_in_training
+                for plan in self.context.standard_measures
+            }
+            # ... and also for the custom measures
+            saved_custom_measures = {
+                str(plan.id): plan.used_in_training
+                for plan in self.context.custom_measures
+            }
         new_plans = []
         added = 0
         updated = 0
         existing_plans = {}
-        context = aq_inner(self.context)
-        for plan in context.standard_measures + context.custom_measures:
-            existing_plans[str(plan.id)] = plan
-        form = self.request.form
         form["action_plans"] = []
+        for plan in context_measures:
+            existing_plans[str(plan.id)] = plan
         for i in range(0, len(form.get("measure", []))):
             measure = dict([p for p in form["measure"][i].items() if p[1].strip()])
             form["action_plans"].append(measure)
             if len(measure):
                 plan_type = measure.get("plan_type", "measure_custom")
+                if plan_type == "measure_standard":
+                    used_in_training = saved_solutions.get(
+                        measure.get("solution_id"), True
+                    )
+                else:
+                    used_in_training = saved_custom_measures.get(
+                        measure.get("id"), True
+                    )
                 solution_id = measure.get("solution_id", None)
                 if plan_type == "measure_standard" and not form.get(
                     "sm-%s" % solution_id
@@ -247,6 +300,7 @@ class RiskBase(BrowserView):
                         planning_end=p_end,
                         plan_type=plan_type,
                         solution_id=solution_id,
+                        used_in_training=used_in_training,
                     )
                 )
         removed = len(existing_plans)

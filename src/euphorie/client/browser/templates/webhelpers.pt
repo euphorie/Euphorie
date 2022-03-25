@@ -832,6 +832,13 @@
                  type="hidden"
                  value="${solution/requirements}"
           />
+          <tal:comment condition="nothing">
+            We need to provide a value for id, so that further down in the form, where we list the custom measures, the id lands in the correct entry of the measures dictionary.
+          </tal:comment>
+          <input name="measure.id:records"
+                 type="hidden"
+                 value="-"
+          />
           <section class="pat-rich">
             <h4 i18n:translate="label_description">
               Description
