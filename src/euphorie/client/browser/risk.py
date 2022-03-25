@@ -549,8 +549,8 @@ class IdentificationView(RiskBase):
         # Case: the user has selected or de-selected a measure
         # from the training configuration
         if reply.get("handle_training_measures"):
-            # Gather all ids of the active measures, that means,
-            # where the checkboxes are ticked.
+            # Gather all (database-) ids of the active measures. That means, those
+            # measures where the checkboxes are ticked in the training configuration.
             # Remember: a measure that has been deselected (checkbox unticked)
             # does not appear in the REQUEST
             active_measures = []
@@ -559,14 +559,25 @@ class IdentificationView(RiskBase):
                     measure_id = entry.split("-")[-1]
                     active_measures.append(measure_id)
             # Get the ids of all measures-in-place and map them to the solution-ids
+            # Remember: the solution-id is the ZODB-id of the respective solution
+            # inside the risk in the CMS. We us it to identify the standard measures.
+            # The custom measures will not have a solution-id
             all_measures = {
                 str(measure.id): measure.solution_id
                 for measure in list(self.context.in_place_standard_measures)
                 + list(self.context.in_place_custom_measures)
             }
-            # Make a mapping of solution-id to used-in-training state
+            # The following 2 mappings will be used if the handling of measures in
+            # place is also part of this request (further down)
+            # Make a mapping of solution-id to used-in-training state for the
+            # standard measures
             saved_solutions = {
                 v: k in active_measures for (k, v) in all_measures.items() if v
+            }
+            # Make a mapping of database-id to used-in-training state for the
+            # custom measures
+            saved_custom_measures = {
+                k: k in active_measures for (k, v) in all_measures.items() if not v
             }
             # Additionally store the (database) ids of all measures that have been
             # deactivated. In case we do not handle measures in place in this
@@ -574,14 +585,19 @@ class IdentificationView(RiskBase):
             # set to used_in_training=False at the end of this method
             deselected_measures = [k for k in all_measures if k not in active_measures]
         else:
+            # The following 2 mappings will be used if the handling of measures in
+            # place is also part of this request (further down)
             # We do not have training configuration in the REQUEST. We need
             # to build the mapping of solution-id to used-in-training state
-            # via the information stored in the the data-base.
-            # This mapping will be used if the handling of measures in place is
-            # also part of this request.
+            # via the information stored in the the database...
             saved_solutions = {
                 plan.solution_id: plan.used_in_training
                 for plan in self.context.in_place_standard_measures
+            }
+            # ... and also for the custom measures
+            saved_custom_measures = {
+                str(plan.id): plan.used_in_training
+                for plan in self.context.in_place_custom_measures
             }
             deselected_measures = []
             active_measures = []
@@ -626,7 +642,9 @@ class IdentificationView(RiskBase):
                 elif k.startswith("measure-custom"):
                     _id = k.rsplit("-", 1)[-1]
                     new_custom_measures[_id] = model.ActionPlan(
-                        action=val, plan_type="in_place_custom"
+                        action=val,
+                        plan_type="in_place_custom",
+                        used_in_training=saved_custom_measures.get(_id, True),
                     )
                 # This only happens on custom risks
                 elif k.startswith("present-measure") and val.strip() != "":
