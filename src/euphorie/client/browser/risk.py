@@ -459,46 +459,6 @@ class IdentificationView(RiskBase):
                     self.context.action_plans.extend(new_plans)
                     changed = changes or changed
 
-            if self.webhelpers.use_training_module:
-                if reply.get("handle_training_notes"):
-                    self.context.training_notes = reply.get("training_notes")
-                    changed = True
-                # Case: the user has selected or de-selected a measure
-                # from the training slide
-                if reply.get("handle_training_measures_for"):
-                    # Gather all ids of the active measures, that means,
-                    # where the checkboxes are ticked.
-                    # Remember: a measure that has been deselected (checkbox unticked)
-                    # does not appear in the REQUEST
-                    active_measures = set()
-                    for entry in reply:
-                        if entry.startswith("measure") and entry.find("-") >= 0:
-                            measure_id = entry.split("-")[-1]
-                            active_measures.add(measure_id)
-                    # Get the ids of all measures-in-place
-                    all_measures = set(
-                        [
-                            str(measure.id)
-                            for measure in list(self.context.in_place_standard_measures)
-                            + list(self.context.in_place_custom_measures)
-                        ]
-                    )
-                    # All measures that are not present in the REQUEST are deselected
-                    deselected_measures = all_measures - active_measures
-                    if active_measures:
-                        session.execute(
-                            "UPDATE action_plan set used_in_training=true where id in ({ids})".format(  # noqa: E501
-                                ids=",".join(active_measures)
-                            )
-                        )
-                    if deselected_measures:
-                        session.execute(
-                            "UPDATE action_plan set used_in_training=false where id in ({ids})".format(  # noqa: E501
-                                ids=",".join(deselected_measures)
-                            )
-                        )
-                    changed = True
-
             # This only happens on custom risks
             if reply.get("handle_custom_description"):
                 self.context.custom_description = self.webhelpers.check_markup(
@@ -586,12 +546,48 @@ class IdentificationView(RiskBase):
     def set_measure_data(self, reply, session):
 
         changed = False
-        if self.use_existing_measures and reply.get("handle_measures_in_place"):
-            new_measures = []
+        # Case: the user has selected or de-selected a measure
+        # from the training configuration
+        if reply.get("handle_training_measures"):
+            # Gather all ids of the active measures, that means,
+            # where the checkboxes are ticked.
+            # Remember: a measure that has been deselected (checkbox unticked)
+            # does not appear in the REQUEST
+            active_measures = []
+            for entry in reply:
+                if entry.startswith("training-measure") and entry.find("-") >= 0:
+                    measure_id = entry.split("-")[-1]
+                    active_measures.append(measure_id)
+            # Get the ids of all measures-in-place and map them to the solution-ids
+            all_measures = {
+                str(measure.id): measure.solution_id
+                for measure in list(self.context.in_place_standard_measures)
+                + list(self.context.in_place_custom_measures)
+            }
+            # Make a mapping of solution-id to used-in-training state
+            saved_solutions = {
+                v: k in active_measures for (k, v) in all_measures.items() if v
+            }
+            # Additionally store the (database) ids of all measures that have been
+            # deactivated. In case we do not handle measures in place in this
+            # request further down, we need to make sure that those measues get
+            # set to used_in_training=False at the end of this method
+            deselected_measures = [k for k in all_measures if k not in active_measures]
+        else:
+            # We do not have training configuration in the REQUEST. We need
+            # to build the mapping of solution-id to used-in-training state
+            # via the information stored in the the data-base.
+            # This mapping will be used if the handling of measures in place is
+            # also part of this request.
             saved_solutions = {
                 plan.solution_id: plan.used_in_training
                 for plan in self.context.in_place_standard_measures
             }
+            deselected_measures = []
+            active_measures = []
+
+        if reply.get("handle_measures_in_place"):
+            new_measures = []
             # First, check which of the standard solutions were selected
             for solution in self.solutions_provided_by_tool:
                 # If the solution was already added as a measure, retrieve the info
@@ -649,6 +645,23 @@ class IdentificationView(RiskBase):
 
             if new_measures:
                 self.context.action_plans.extend(new_measures)
+                changed = True
+        else:
+            # If we did not handle any measures in place, check if we need to take
+            # care of training measures that need to be activated or deactivated
+            if active_measures:
+                session.execute(
+                    "UPDATE action_plan set used_in_training=true where id in ({ids})".format(  # noqa: E501
+                        ids=",".join(active_measures)
+                    )
+                )
+                changed = True
+            if deselected_measures:
+                session.execute(
+                    "UPDATE action_plan set used_in_training=false where id in ({ids})".format(  # noqa: E501
+                        ids=",".join(deselected_measures)
+                    )
+                )
                 changed = True
         return changed
 
@@ -877,6 +890,38 @@ class IdentificationView(RiskBase):
                 }
             )
         return existing_measures
+
+    @property
+    def existing_measures_training(self):
+        measures = dict()
+        for measure in list(self.context.in_place_standard_measures) + list(
+            self.context.in_place_custom_measures
+        ):
+            measures.update(
+                {
+                    measure.id: {
+                        "action": measure.action,
+                        "active": measure.used_in_training,
+                    }
+                }
+            )
+        return measures
+
+    @property
+    def planned_measures_training(self):
+        measures = dict()
+        for measure in list(self.context.standard_measures) + list(
+            self.context.custom_measures
+        ):
+            measures.update(
+                {
+                    measure.id: {
+                        "action": measure.action,
+                        "active": measure.used_in_training,
+                    }
+                }
+            )
+        return measures
 
     @property
     def use_problem_description(self):
