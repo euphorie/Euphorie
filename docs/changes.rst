@@ -10,6 +10,7 @@ Changelog
   This includes the possibility to export the complete contents of an OiRA tool as Word file
 - For the XML export of Surveys, give the user the posibility of de-selecting
   certain parts (images, legal texts, etc)
+- Fix bug that prevented deleting Omega risks
 
 
 14.0.1 (2022-03-17)

@@ -30,6 +30,7 @@ from plone.app.event.base import localized_now
 from plone.autoform.form import AutoExtensibleForm
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
+from plone.protect.utils import addTokenToUrl
 from plone.supermodel import model
 from Products.CMFPlone import PloneLocalesMessageFactory
 from Products.Five import BrowserView
@@ -227,7 +228,7 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
         # show the "start" page again
         if "form.button.submit" in self.request:
             return self.request.response.redirect(
-                "%s/@@profile" % self.context.absolute_url()
+                addTokenToUrl("%s/@@profile" % self.context.absolute_url())
             )
 
 

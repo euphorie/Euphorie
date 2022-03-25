@@ -3,4 +3,9 @@
     <include package="plone.app.dexterity" file="overrides.zcml" />
     <include package=".behaviour" file="overrides.zcml" />
 
+    <adapter
+        name="plone.protect.autocsrf"
+        factory=".protect.EuphorieProtectTransform"
+        />
+
 </configure>
