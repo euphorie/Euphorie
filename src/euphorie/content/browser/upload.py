@@ -17,7 +17,6 @@ from euphorie.content import MessageFactory as _
 from euphorie.content.behaviors.toolcategory import IToolCategory
 from euphorie.content.utils import IToolTypesInfo
 from io import BytesIO
-from plone import api
 from plone.autoform.form import AutoExtensibleForm
 from plone.dexterity.utils import createContentInContainer
 from plone.namedfile import field as filefield
@@ -166,9 +165,6 @@ class SurveyImporter(object):
 
     def __init__(self, context):
         self.context = context
-        self.use_existing_measures = api.portal.get_registry_record(
-            "euphorie.use_existing_measures"
-        )
 
     def ImportImage(self, node):
         """
@@ -231,8 +227,6 @@ class SurveyImporter(object):
         risk.legal_reference = el_unicode(node, "legal-reference")
         risk.show_notapplicable = el_bool(node, "show-not-applicable")
         risk.external_id = attr_unicode(node, "external-id")
-        if self.use_existing_measures:
-            risk.existing_measures = el_unicode(node, "existing_measures")
 
         if risk.type == "risk":
             em = getattr(node, "evaluation-method", None)
@@ -359,10 +353,14 @@ class SurveyImporter(object):
         survey.integrated_action_plan = el_bool(node, "integrated_action_plan")
         survey.evaluation_optional = el_bool(node, "evaluation-optional")
         survey.external_id = attr_unicode(node, "external-id")
-        external_site_logo = getattr(node, "image", None)
+        external_site_logo = getattr(node, "external_site_logo", None)
         if external_site_logo is not None:
             (image, caption) = self.ImportImage(external_site_logo)
             survey.external_site_logo = image
+        lead_image = getattr(node, "image", None)
+        if lead_image is not None:
+            (image, caption) = self.ImportImage(lead_image)
+            survey.image = image
 
         if IToolCategory.providedBy(survey):
             IToolCategory(survey).tool_category = [

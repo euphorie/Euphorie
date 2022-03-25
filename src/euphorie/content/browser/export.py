@@ -9,7 +9,9 @@ View name: @@export
 
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from bs4 import BeautifulSoup
 from euphorie.client.utils import HasText
+from euphorie.content import MessageFactory as _
 from euphorie.content.behaviors.toolcategory import IToolCategory
 from euphorie.content.browser.upload import COMMA_REPLACEMENT
 from euphorie.content.browser.upload import NSMAP
@@ -22,12 +24,21 @@ from euphorie.content.solution import ISolution
 from euphorie.content.survey import get_tool_type
 from euphorie.content.utils import StripMarkup
 from euphorie.content.utils import StripUnwanted
+from io import BytesIO
 from lxml import etree
-from plone import api
+from plone.autoform.form import AutoExtensibleForm
+from plonetheme.nuplone.z3cform.directives import depends
 from Products.CMFPlone.utils import safe_bytes
-from Products.CMFPlone.utils import safe_nativestring
-from Products.Five import BrowserView
+from z3c.form import button
+from z3c.form import form
+from zipfile import ZipFile
+from zope import schema
+from zope.interface import Interface
 
+import re
+
+
+all_breaks = re.compile("(\n|\r)+")
 
 try:
     from base64 import encodebytes
@@ -49,20 +60,201 @@ def getToken(field, value, default=None):
         return default
 
 
-class ExportSurvey(BrowserView):
-    """View name: @@export"""
+class IExportSurveySchema(Interface):
+    """Fields used for configuring the export"""
 
-    def __init__(self, context, request):
-        super(ExportSurvey, self).__init__(context, request)
-        self.use_existing_measures = api.portal.get_registry_record(
-            "euphorie.use_existing_measures", default=False
+    include_images = schema.Bool(
+        title=_("label_survey_export_include_images", default="Include images"),
+        description=_(
+            "description_survey_export_include_images",
+            default="All images contained in the OiRA tool can be exported along "
+            "with the textual content. When the OiRA tool is then imported again, "
+            "all images will be present. Please note that including images may "
+            "result in a considerably larger file size.",
+        ),
+        required=False,
+        default=False,
+    )
+    include_intro_text = schema.Bool(
+        title=_(
+            "label_survey_export_include_intro_text",
+            default="Include introduction text",
+        ),
+        description=_(
+            "description_survey_export_include_intro_text",
+            default="The introduction text describes the general purpose of the OiRA "
+            "tool. It usually gives the end users an idea what to expect in the tool "
+            "and whether it will be relevant for them. The default is to include "
+            "this text.",
+        ),
+        required=False,
+        default=True,
+    )
+    include_module_solution_texts = schema.Bool(
+        title=_(
+            "label_survey_export_include_module_solution_texts",
+            default="Include “Solution” texts on modules",
+        ),
+        description=_(
+            "description_survey_export_include_module_solution_texts",
+            "The “Solution” description” on modules is a deprecated kind of text "
+            "that is no longer being used. The default is to skip this.",
+        ),
+        required=False,
+        default=False,
+    )
+    include_module_description_texts = schema.Bool(
+        title=_(
+            "label_survey_export_include_module_description_texts",
+            default="Include “Description” texts on modules",
+        ),
+        description=_(
+            "description_survey_export_include_module_description_texts",
+            default="Every module comes with an introductive description. The default "
+            "is to include this text.",
+        ),
+        required=False,
+        default=True,
+    )
+    include_risk_legal_texts = schema.Bool(
+        title=_(
+            "label_survey_export_include_risk_legal_texts",
+            default="Include “Legal and policy references” texts on risks",
+        ),
+        description=_(
+            "description_survey_export_include_risk_legal_texts",
+            default="If the OiRA tool is exported because it should be made available "
+            "for a different country, the legal texts might not apply there. Therefore "
+            "the default is to skip these texts.",
+        ),
+        required=False,
+        default=True,
+    )
+    include_measures = schema.Bool(
+        title=_("label_survey_export_include_measures", default="Include measures"),
+        description=_(
+            "description_survey_export_include_measures",
+            default="For each risk, a number of common measures – sometimes also "
+            "referred to as “Solutions” – can be defined. While the default setting "
+            "is to include them in the export, they may be excluded if required, "
+            "for example to accommodate for a limited translation budget.",
+        ),
+        required=False,
+        default=True,
+    )
+
+    depends("export_as_plain_text", "include_images", "off")
+    export_as_plain_text = schema.Bool(
+        title=_(
+            "label_export_as_plain_text",
+            default="Export additionally as plain text file",
+        ),
+        description=_(
+            "description_export_as_plain_text",
+            default="The plain text file will contain all translatable text without "
+            "formatting. This file can be used to determine a word count for "
+            "estimating the cost of translation.",
+        ),
+        required=False,
+        default=False,
+    )
+
+
+class ExportSurvey(AutoExtensibleForm, form.Form):
+    """The upload view for a :obj:`euphorie.content.sector`
+
+    View name: @@upload
+    """
+
+    schema = IExportSurveySchema
+    ignoreContext = True
+    form_name = _("Export OiRA Tool")
+    # defaults
+    include_images = False
+    include_intro_text = True
+    include_module_solution_texts = False
+    include_module_description_texts = True
+    include_risk_legal_texts = False
+    include_measures = True
+    export_as_plain_text = False
+
+    @button.buttonAndHandler(_("Export"))
+    def handleExport(self, action):
+        (data, errors) = self.extractData()
+        self.include_images = data.get("include_images")
+        self.include_intro_text = data.get("include_intro_text")
+        self.include_module_solution_texts = data.get("include_module_solution_texts")
+        self.include_module_description_texts = data.get(
+            "include_module_description_texts"
         )
-        nsmap = NSMAP.copy()
-        del nsmap[None]
+        self.include_risk_legal_texts = data.get("include_risk_legal_texts")
+        self.include_measures = data.get("include_measures")
+        self.export_as_plain_text = data.get("export_as_plain_text")
+        rendered_output = self.render_output()
+        self.request.response.write(rendered_output)
 
-    def exportImage(self, parent, image, caption=None):
+    def render_output(self):
+        output = etree.Element("sector", nsmap=NSMAP)
+        self.exportSurvey(output, self.context)
+        response = self.request.response
+        rendered_xml = etree.tostring(
+            output, pretty_print=True, xml_declaration=True, encoding="utf-8"
+        )
+        context_id = aq_parent(aq_inner(self.context)).id
+        if self.export_as_plain_text and not self.include_images:
+            outer_soup = BeautifulSoup(rendered_xml, "lxml")
+            # Some tags of the survey contain only functional information, such
+            # as true/false or calculated/evaluated
+            # Strip them for the word counting
+            functional_tags = (
+                "classification-code",
+                "evaluation-method",
+                "evaluation-algorithm",
+                "evaluation-optional",
+                "integrated_action_plan",
+                "language",
+                "measures_text_handling",
+                "show-not-applicable",
+                "tool_type",
+            )
+            for tag in functional_tags:
+                entities = outer_soup.findAll(tag)
+                [entity.extract() for entity in entities]
+            # The extracted texts contain HTML entities such as &lt;p&gt;
+            # We need to convert them to real tags to be able to strip them too for
+            # word counting
+            inner_soup = BeautifulSoup(outer_soup.get_text(), "html.parser")
+            text = inner_soup.get_text()
+            text = all_breaks.sub(" ", text)
+            zip_output = BytesIO()
+            with ZipFile(zip_output, mode="w") as zip:
+                zip.writestr(f"{context_id}_word_count.txt", text)
+                zip.writestr(f"{context_id}.xml", rendered_xml)
+            self.request.response.setHeader("Content-Type", "application/zip")
+            self.request.response.setHeader(
+                "Content-Disposition", f'attachment; filename="{context_id}.zip"'
+            )
+            return zip_output.getvalue()
+        else:
+            response.setHeader(
+                "Content-Disposition", f'attachment; filename="{context_id}.xml"'
+            )
+            response.setHeader("Content-Type", "text/xml")
+            return rendered_xml
+
+    def render(self):
+        if self.request.response.headers.get("content-disposition", "").startswith(
+            "attachment"
+        ):
+            # We just generated an attachment, no need to render the form
+            return ""
+        return super().render()
+
+    def exportImage(self, parent, image, caption=None, tagname="image"):
         """:returns: base64 encoded image."""
-        node = etree.SubElement(parent, "image")
+        if not self.include_images:
+            return
+        node = etree.SubElement(parent, tagname)
         if image.contentType:
             node.attrib["content-type"] = image.contentType
         if image.filename:
@@ -81,7 +273,7 @@ class ExportSurvey(BrowserView):
         if getattr(survey, "external_id", None):
             node.attrib["external-id"] = survey.external_id
         etree.SubElement(node, "title").text = aq_parent(survey).title
-        if StripMarkup(survey.introduction):
+        if self.include_intro_text and StripMarkup(survey.introduction):
             etree.SubElement(node, "introduction").text = StripUnwanted(
                 survey.introduction
             )
@@ -110,7 +302,11 @@ class ExportSurvey(BrowserView):
             )
 
         if getattr(survey, "external_site_logo", None):
-            self.exportImage(node, survey.external_site_logo)
+            self.exportImage(
+                node, survey.external_site_logo, tagname="external_site_logo"
+            )
+        if getattr(survey, "image", None):
+            self.exportImage(node, survey.image)
 
         for child in survey.values():
             if IProfileQuestion.providedBy(child):
@@ -159,13 +355,15 @@ class ExportSurvey(BrowserView):
         if getattr(module, "external_id", None):
             node.attrib["external-id"] = module.external_id
         etree.SubElement(node, "title").text = module.title
-        if HasText(module.description):
+        if self.include_module_description_texts and HasText(module.description):
             etree.SubElement(node, "description").text = StripUnwanted(
                 module.description
             )
         if module.optional:
             etree.SubElement(node, "question").text = module.question
-        if StripMarkup(module.solution_direction):
+        if self.include_module_solution_texts and StripMarkup(
+            module.solution_direction
+        ):
             etree.SubElement(node, "solution-direction").text = StripUnwanted(
                 module.solution_direction
             )
@@ -189,15 +387,13 @@ class ExportSurvey(BrowserView):
             risk.problem_description
         )
         etree.SubElement(node, "description").text = StripUnwanted(risk.description)
-        if StripMarkup(risk.legal_reference):
+        if self.include_risk_legal_texts and StripMarkup(risk.legal_reference):
             etree.SubElement(node, "legal-reference").text = StripUnwanted(
                 risk.legal_reference
             )
         etree.SubElement(node, "show-not-applicable").text = (
             "true" if risk.show_notapplicable else "false"
         )
-        if self.use_existing_measures:
-            etree.SubElement(node, "existing_measures").text = risk.existing_measures
         if risk.type == "risk":
             method = etree.SubElement(node, "evaluation-method")
             method.text = risk.evaluation_method
@@ -233,11 +429,14 @@ class ExportSurvey(BrowserView):
             if image is not None:
                 self.exportImage(node, image, getattr(risk, "caption" + postfix, None))
 
-        solutions = [child for child in risk.values() if ISolution.providedBy(child)]
-        if solutions:
-            sols = etree.SubElement(node, "solutions")
-            for solution in solutions:
-                self.exportSolution(sols, solution)
+        if self.include_measures:
+            solutions = [
+                child for child in risk.values() if ISolution.providedBy(child)
+            ]
+            if solutions:
+                sols = etree.SubElement(node, "solutions")
+                for solution in solutions:
+                    self.exportSolution(sols, solution)
         return node
 
     def exportSolution(self, parent, solution):
@@ -253,21 +452,3 @@ class ExportSurvey(BrowserView):
                 solution.requirements
             )
         return node
-
-    def __call__(self):
-        """:returns: an XML export of a Survey.
-        :rtype: str
-        """
-        output = etree.Element("sector", nsmap=NSMAP)
-        self.exportSurvey(output, self.context)
-        response = self.request.response
-        filename = "%s.xml" % aq_parent(aq_inner(self.context)).id
-        response.setHeader(
-            "Content-Disposition", u'attachment; filename="%s"' % filename
-        )
-        response.setHeader("Content-Type", "text/xml")
-        return safe_nativestring(
-            etree.tostring(
-                output, pretty_print=True, xml_declaration=True, encoding="utf-8"
-            )
-        )
