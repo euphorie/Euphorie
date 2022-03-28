@@ -1011,38 +1011,6 @@ class IdentificationView(RiskBase):
         return existing_measures
 
     @property
-    def existing_measures_training(self):
-        measures = dict()
-        for measure in list(self.context.in_place_standard_measures) + list(
-            self.context.in_place_custom_measures
-        ):
-            measures.update(
-                {
-                    measure.id: {
-                        "action": measure.action,
-                        "active": measure.used_in_training,
-                    }
-                }
-            )
-        return measures
-
-    @property
-    def planned_measures_training(self):
-        measures = dict()
-        for measure in list(self.context.standard_measures) + list(
-            self.context.custom_measures
-        ):
-            measures.update(
-                {
-                    measure.id: {
-                        "action": measure.action,
-                        "active": measure.used_in_training,
-                    }
-                }
-            )
-        return measures
-
-    @property
     def use_problem_description(self):
         text = self.context.problem_description or ""
         return bool(text.strip())

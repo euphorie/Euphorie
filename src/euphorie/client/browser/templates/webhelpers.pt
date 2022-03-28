@@ -623,6 +623,9 @@
     <div class="pat-collapsible risk-module form-panel"
          id="page-module-training"
          data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 120px"
+         tal:define="
+           training_view nocall:here/@@training_slide;
+         "
          tal:condition="webhelpers/use_training_module"
     >
       <h3 class="form-separation-header"
@@ -639,57 +642,59 @@
            id="page-module-training-panel-content"
            style=""
       >
-        <p class="pat-message info"
-           i18n:translate="description-training-configuration"
-        >
-    Please tick anything that you might like to exclude from the training. Items that are greyed out will not be displayed on the training card.
-        </p>
-        <fieldset class="vertical"
-                  tal:define="
-                    existing_measures view/existing_measures_training;
-                    planned_measures view/planned_measures_training;
-                  "
-        >
-
-          <fieldset class="pat-checklist show-and-hide has-value checked"
-                    tal:condition="existing_measures"
+        <metal:training_configuration_inner define-macro="training_configuration_inner">
+          <p class="pat-message info"
+             i18n:translate="description-training-configuration"
           >
-            <p class="legend"
-               i18n:translate="label_existing_measures"
-            >Already implemented measures</p>
-
-            <tal:measures repeat="measure_id existing_measures">
-              <label>
-                <input class=""
-                       checked="${python:'checked' if existing_measures[measure_id]['active'] else None}"
-                       name="training-measure-in-place-${measure_id}"
-                       type="checkbox"
-                />
-                <tal:measure replace="structure python:webhelpers.get_safe_html(existing_measures[measure_id]['action'])" />
-              </label>
-            </tal:measures>
-          </fieldset>
-
-          <fieldset class="pat-checklist show-and-hide has-value checked"
-                    tal:condition="planned_measures"
+        Please tick anything that you might like to exclude from the training. Items that are greyed out will not be displayed on the training card.
+          </p>
+          <fieldset class="vertical"
+                    tal:define="
+                      existing_measures training_view/existing_measures_training;
+                      planned_measures training_view/planned_measures_training;
+                    "
           >
-            <p class="legend"
-               i18n:translate="label_planned_measures"
-            >Planned measures</p>
 
-            <tal:measures repeat="measure_id planned_measures">
+            <fieldset class="pat-checklist show-and-hide has-value checked"
+                      tal:condition="existing_measures"
+            >
+              <p class="legend"
+                 i18n:translate="label_existing_measures"
+              >Already implemented measures</p>
 
-              <label>
-                <input class=""
-                       checked="${python:'checked' if planned_measures[measure_id]['active'] else None}"
-                       name="training-measure-planned-${measure_id}"
-                       type="checkbox"
-                />
-                <tal:measure replace="structure python:webhelpers.get_safe_html(planned_measures[measure_id]['action'])" />
-              </label>
-            </tal:measures>
+              <tal:measures repeat="measure_id existing_measures">
+                <label>
+                  <input class=""
+                         checked="${python:'checked' if existing_measures[measure_id]['active'] else None}"
+                         name="training-measure-in-place-${measure_id}"
+                         type="checkbox"
+                  />
+                  <tal:measure replace="structure python:webhelpers.get_safe_html(existing_measures[measure_id]['action'])" />
+                </label>
+              </tal:measures>
+            </fieldset>
+
+            <fieldset class="pat-checklist show-and-hide has-value checked"
+                      tal:condition="planned_measures"
+            >
+              <p class="legend"
+                 i18n:translate="label_planned_measures"
+              >Planned measures</p>
+
+              <tal:measures repeat="measure_id planned_measures">
+
+                <label>
+                  <input class=""
+                         checked="${python:'checked' if planned_measures[measure_id]['active'] else None}"
+                         name="training-measure-planned-${measure_id}"
+                         type="checkbox"
+                  />
+                  <tal:measure replace="structure python:webhelpers.get_safe_html(planned_measures[measure_id]['action'])" />
+                </label>
+              </tal:measures>
+            </fieldset>
           </fieldset>
-        </fieldset>
+        </metal:training_configuration_inner>
       </div>
     </div>
   </metal:training_configuration>
