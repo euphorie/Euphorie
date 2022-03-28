@@ -662,7 +662,7 @@
               <label>
                 <input class=""
                        checked="${python:'checked' if existing_measures[measure_id]['active'] else None}"
-                       name="training-measure-${measure_id}"
+                       name="training-measure-in-place-${measure_id}"
                        type="checkbox"
                 />
                 <tal:measure replace="structure python:webhelpers.get_safe_html(existing_measures[measure_id]['action'])" />
@@ -682,7 +682,7 @@
               <label>
                 <input class=""
                        checked="${python:'checked' if planned_measures[measure_id]['active'] else None}"
-                       name="training-measure-${measure_id}"
+                       name="training-measure-planned-${measure_id}"
                        type="checkbox"
                 />
                 <tal:measure replace="structure python:webhelpers.get_safe_html(planned_measures[measure_id]['action'])" />
