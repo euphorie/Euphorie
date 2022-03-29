@@ -63,18 +63,18 @@ class ISector(model.Schema, IUser, IBasic):
     directives.write_permission(locked="euphorie.content.ManageCountry")
 
     contact_name = schema.TextLine(
-        title=_("label_contact_name", default=u"Contact name"), required=True
+        title=_("label_contact_name", default="Contact name"), required=True
     )
 
     directives.order_after(contact_email="contact_name")
 
     logo = filefield.NamedBlobImage(
-        title=_("label_logo", default=u"Logo"),
+        title=_("label_logo", default="Logo"),
         description=_(
             "help_image_upload",
-            default=u"Upload an image. Make sure your image is of format "
-            u"png, jpg or gif and does not contain any special "
-            u"characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+            default="Upload an image. Make sure your image is of format "
+            "png, jpg or gif and does not contain any special "
+            "characters. The minimum size is 1000 (width) x 430 (height) pixels.",
         ),
         required=False,
     )
@@ -100,7 +100,7 @@ class Sector(Container):
 @indexer(ISector)
 def SearchableTextIndexer(obj):
     return " ".join(
-        [obj.title, obj.description, obj.contact_name or u"", obj.contact_email or u""]
+        [obj.title, obj.description, obj.contact_name or "", obj.contact_email or ""]
     )
 
 

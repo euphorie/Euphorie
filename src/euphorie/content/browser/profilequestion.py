@@ -56,7 +56,7 @@ class AddForm(DefaultAddForm):
 
     @property
     def label(self):
-        return _(u"Add Profile question")
+        return _("Add Profile question")
 
 
 class AddView(DefaultAddView):
@@ -68,7 +68,7 @@ class EditForm(DefaultEditForm):
 
     @property
     def label(self):
-        return _(u"Edit Profile question")
+        return _("Edit Profile question")
 
     @property
     @memoize

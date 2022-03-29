@@ -89,7 +89,7 @@ class RemoveArchetypesLeftovers(UpgradeStep):
             cp = api.portal.get_tool("portal_controlpanel")
             cp.unregisterConfiglet("IndexingSettings")
             for iface, name in (
-                (IIndexingConfig, u""),
+                (IIndexingConfig, ""),
                 (IPortalCatalogQueueProcessor, "portal-catalog"),
             ):
                 unregisterUtility(portal, iface, name)

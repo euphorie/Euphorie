@@ -32,10 +32,10 @@ logger = getLogger(__name__)
 
 class ResetPasswordFormSchema(model.Schema):
     new_password = schema.Password(
-        title=_(u"label_new_password", default=u"Desired password"),
+        title=_("label_new_password", default="Desired password"),
     )
     new_password_confirmation = schema.Password(
-        title=_(u"label_confirm_password", default=u"Confirm your password"),
+        title=_("label_confirm_password", default="Confirm your password"),
     )
 
     @invariant
@@ -46,7 +46,7 @@ class ResetPasswordFormSchema(model.Schema):
 
 class ResetPasswordRequestSchema(model.Schema):
     email = Email(
-        title=_(u"label_email", default=u"Email address"),
+        title=_("label_email", default="Email address"),
     )
 
 
@@ -80,18 +80,15 @@ class ResetPasswordRequest(BaseForm):
     schema = ResetPasswordRequestSchema
 
     label = _(
-        u"title_reset_password_request",
-        default=u"Password recovery",
+        "title_reset_password_request",
+        default="Password recovery",
     )
     description = _(
         "description_reset_password_request",
-        (
-            u"We will send you an email "
-            u"with the instructions to reset your password."
-        ),
+        ("We will send you an email " "with the instructions to reset your password."),
     )
     button_label = _(
-        u"label_send_password_reminder",
+        "label_send_password_reminder",
         default="Send password reminder",
     )
 
@@ -109,7 +106,7 @@ class ResetPasswordRequest(BaseForm):
         """Log an error message, set the view error attribute and return False"""
         logger.error(msg)
         self.error = _(
-            u"An error occured while sending the password reset instructions",
+            "An error occured while sending the password reset instructions",
         )
         return False
 
@@ -132,7 +129,7 @@ class ResetPasswordRequest(BaseForm):
         mailhost = api.portal.get_tool("MailHost")
         body = self.email_template(**reset_info)
         subject = translate(
-            _(u"OiRA password reset instructions"),
+            _("OiRA password reset instructions"),
             context=self.request,
         )
         mail = CreateEmailTo(
@@ -180,9 +177,9 @@ class ResetPasswordRequest(BaseForm):
             return
         msg = _(
             "message_password_recovery_email_sent",
-            default=u"An email will be sent to ${email} "
-            u"if we can find an account for this email address. Please use the "
-            u"link inside the e-mail to reset your password.",
+            default="An email will be sent to ${email} "
+            "if we can find an account for this email address. Please use the "
+            "link inside the e-mail to reset your password.",
             mapping={"email": email},
         )
         webhelpers = api.content.get_view(
@@ -195,14 +192,14 @@ class ResetPasswordRequest(BaseForm):
             )
         self.redirect(redir_url, msg)
 
-    @button.buttonAndHandler(_(u"Save"))
+    @button.buttonAndHandler(_("Save"))
     def next_handler(self, action):
         """Check if the security token is correct and if it is
         change the account password with the provided value
         """
         self.do_next()
 
-    @button.buttonAndHandler(_(u"Cancel"))
+    @button.buttonAndHandler(_("Cancel"))
     def handleCancel(self, action):
         self.redirect(self.context.absolute_url())
 
@@ -213,12 +210,12 @@ class ResetPasswordForm(BaseForm):
     schema = ResetPasswordFormSchema
 
     label = _(
-        u"title_reset_password_form",
-        default=u"Reset password",
+        "title_reset_password_form",
+        default="Reset password",
     )
     description = _(
-        u"description_reset_password_form",
-        default=u"",
+        "description_reset_password_form",
+        default="",
     )
     button_label = _("Save changes")
 
@@ -238,7 +235,7 @@ class ResetPasswordForm(BaseForm):
             for err in errors:
                 if isinstance(err.error, Exception):
                     self.error = _(
-                        "error_password_mismatch", default=u"Passwords do not match"
+                        "error_password_mismatch", default="Passwords do not match"
                     )
             return
 
@@ -270,13 +267,13 @@ class ResetPasswordForm(BaseForm):
             msg=_("Your password was successfully changed."),
         )
 
-    @button.buttonAndHandler(_(u"Save"))
+    @button.buttonAndHandler(_("Save"))
     def save_handler(self, action):
         """Check if the security token is correct and if it is
         change the account password with the provided value
         """
         self.do_save()
 
-    @button.buttonAndHandler(_(u"Cancel"))
+    @button.buttonAndHandler(_("Cancel"))
     def handleCancel(self, action):
         self.redirect(self.context.absolute_url())

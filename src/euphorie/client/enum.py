@@ -112,17 +112,17 @@ if __name__ == "__main__":
         "foo",
         MetaData("sqlite:///"),
         Column("id", Integer, primary_key=True),
-        Column("e", Enum([u"foobar", u"baz", u"quux", None])),
+        Column("e", Enum(["foobar", "baz", "quux", None])),
     )
     t.create()
 
-    t.insert().execute(e=u"foobar")
-    t.insert().execute(e=u"baz")
-    t.insert().execute(e=u"quux")
+    t.insert().execute(e="foobar")
+    t.insert().execute(e="baz")
+    t.insert().execute(e="quux")
     t.insert().execute(e=None)
 
     try:
-        t.insert().execute(e=u"lala")
+        t.insert().execute(e="lala")
         assert False
     except AssertionError:
         pass

@@ -11,7 +11,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         self.loginAsPortalOwner()
         addSurvey(self.portal, BASIC_SURVEY)
         survey = self.portal.client.nl["ict"]["software-development"]
-        survey.evaluation_algorithm = u"french"
+        survey.evaluation_algorithm = "french"
         survey["1"]["2"].type = "risk"
         browser = self.get_browser()
         browser.open(survey.absolute_url())
@@ -19,7 +19,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
         browser.getForm(action="new-session").submit()
-        browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode(
+        browser.getControl(name="form.widgets.title").value = "Sessiøn".encode(
             "utf-8"
         )  # noqa
         # Start the survey
@@ -60,7 +60,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
         browser.getForm(action="new-session").submit()
-        browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode(
+        browser.getControl(name="form.widgets.title").value = "Sessiøn".encode(
             "utf-8"
         )  # noqa
         # Start the survey
@@ -107,7 +107,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
         browser.getForm(action="new-session").submit()
-        browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode(
+        browser.getControl(name="form.widgets.title").value = "Sessiøn".encode(
             "utf-8"
         )  # noqa
         # Start the survey
@@ -147,7 +147,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
         browser.getForm(action="new-session").submit()
-        browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode(
+        browser.getControl(name="form.widgets.title").value = "Sessiøn".encode(
             "utf-8"
         )  # noqa
         # Start the survey

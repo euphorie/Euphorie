@@ -9,19 +9,19 @@ class Mock(object):
 
 class RichDescriptionTests(unittest.TestCase):
     def testMissing(self):
-        self.assertEqual(Description(object())(), u"")
+        self.assertEqual(Description(object())(), "")
 
     def testEmpty(self):
         obj = Mock()
-        obj.description = u""
-        self.assertEqual(Description(obj)(), u"")
+        obj.description = ""
+        self.assertEqual(Description(obj)(), "")
 
     def testSimpleText(self):
         obj = Mock()
-        obj.description = u"Test"
-        self.assertEqual(Description(obj)(), u"Test")
+        obj.description = "Test"
+        self.assertEqual(Description(obj)(), "Test")
 
     def testMarkup(self):
         obj = Mock()
-        obj.description = u"Test <em>me</me> <strong>now</strong>"
-        self.assertEqual(Description(obj)(), u"Test me now")
+        obj.description = "Test <em>me</me> <strong>now</strong>"
+        self.assertEqual(Description(obj)(), "Test me now")

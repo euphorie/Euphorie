@@ -9,7 +9,7 @@ class PublishTests(EuphorieFunctionalTestCase):
         self.loginAsPortalOwner()
         self.sectors = self.portal.sectors
         createContentInContainer(
-            self.sectors.nl, "euphorie.sector", checkConstraints=False, title=u"dining"
+            self.sectors.nl, "euphorie.sector", checkConstraints=False, title="dining"
         )
         self.sector = self.sectors.nl.dining
 
@@ -17,17 +17,17 @@ class PublishTests(EuphorieFunctionalTestCase):
             self.sector,
             "euphorie.surveygroup",
             checkConstraints=False,
-            title=u"Restaurants",
+            title="Restaurants",
         )
         self.surveygroup = self.sector.restaurants
 
         createContentInContainer(
-            self.surveygroup, "euphorie.survey", checkConstraints=False, title=u"Survey"
+            self.surveygroup, "euphorie.survey", checkConstraints=False, title="Survey"
         )
         self.survey = self.surveygroup.survey
 
         createContentInContainer(
-            self.survey, "euphorie.risk", checkConstraints=False, title=u"Risk"
+            self.survey, "euphorie.risk", checkConstraints=False, title="Risk"
         )
         self.risk = self.survey["1"]
         return self.survey

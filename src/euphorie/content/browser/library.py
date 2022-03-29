@@ -209,7 +209,7 @@ class LibraryInsert(BrowserView):
 
         api.portal.show_message(
             _(
-                u'Added a copy of "${title}" to your OiRA tool.',
+                'Added a copy of "${title}" to your OiRA tool.',
                 mapping={"title": copy.title},
             ),
             request=self.request,

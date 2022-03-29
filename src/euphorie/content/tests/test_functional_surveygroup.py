@@ -188,16 +188,16 @@ class AddFormTests(EuphorieFunctionalTestCase):
 
     def testCopyPreservesOrder(self):
         original_order = [
-            u"one",
-            u"two",
-            u"three",
-            u"four",
-            u"five",
-            u"six",
-            u"seven",
-            u"eight",
-            u"nine",
-            u"ten",
+            "one",
+            "two",
+            "three",
+            "four",
+            "five",
+            "six",
+            "seven",
+            "eight",
+            "nine",
+            "ten",
         ]
         module = self.createModule()
         for title in original_order:
@@ -212,16 +212,16 @@ class AddFormTests(EuphorieFunctionalTestCase):
 
     def testReorderThenCopyTemplateKeepsOrder(self):
         original_order = [
-            u"one",
-            u"two",
-            u"three",
-            u"four",
-            u"five",
-            u"six",
-            u"seven",
-            u"eight",
-            u"nine",
-            u"ten",
+            "one",
+            "two",
+            "three",
+            "four",
+            "five",
+            "six",
+            "seven",
+            "eight",
+            "nine",
+            "ten",
         ]
         sorted_order = list(sorted(original_order))
         module = self.createModule()
@@ -260,11 +260,11 @@ class AddFormTests(EuphorieFunctionalTestCase):
 
     def testCopyEvaluationAlgorithmFromGroup(self):
         survey = aq_parent(self.createModule())
-        survey.aq_parent.evaluation_algorithm = u"french"
+        survey.aq_parent.evaluation_algorithm = "french"
         request = survey.REQUEST
         container = self.portal.sectors.nl.sector
         target = self._create(
-            container, "euphorie.surveygroup", "target", evaluation_algorithm=u"kinney"
+            container, "euphorie.surveygroup", "target", evaluation_algorithm="kinney"
         )
         AddForm(container, request).copyTemplate(survey, target)
-        self.assertEqual(target.evaluation_algorithm, u"french")
+        self.assertEqual(target.evaluation_algorithm, "french")

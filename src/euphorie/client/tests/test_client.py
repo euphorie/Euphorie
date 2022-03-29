@@ -11,7 +11,7 @@ class ViewTests(EuphorieIntegrationTestCase):
         from euphorie.content.survey import Survey
 
         if "sector" not in country:
-            sector = ClientSector(id="sector", title=u"Test sector")
+            sector = ClientSector(id="sector", title="Test sector")
             country._setOb("sector", sector)
         else:
             sector = country["sector"]
@@ -47,26 +47,26 @@ class ViewTests(EuphorieIntegrationTestCase):
 
     def test_surveys_WrongLanguage(self):
         country = ClientCountry()
-        self.addSurvey(country, "en", u"Test survey")
+        self.addSurvey(country, "en", "Test survey")
         self.assertEqual(self.surveys(country, "nl"), [])
 
     def test_surveys_SameLanguage(self):
         country = ClientCountry()
-        self.addSurvey(country, "en", u"Test survey")
+        self.addSurvey(country, "en", "Test survey")
         self.assertEqual(
-            self.surveys(country, "en"), [{"id": "sector/en", "title": u"Test survey"}]
+            self.surveys(country, "en"), [{"id": "sector/en", "title": "Test survey"}]
         )
 
     def test_surveys_SurveyHasDialect(self):
         country = ClientCountry()
-        self.addSurvey(country, "en-GB", u"Test survey")
+        self.addSurvey(country, "en-GB", "Test survey")
         self.assertEqual(
             self.surveys(country, "en"),
-            [{"id": "sector/en-GB", "title": u"Test survey"}],
+            [{"id": "sector/en-GB", "title": "Test survey"}],
         )
 
     def test_surveys_SkipPreview(self):
         country = ClientCountry()
-        survey = self.addSurvey(country, "en", u"Test survey")
+        survey = self.addSurvey(country, "en", "Test survey")
         survey.preview = True
         self.assertEqual(self.surveys(country, "en"), [])

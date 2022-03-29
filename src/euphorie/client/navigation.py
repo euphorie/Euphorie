@@ -141,7 +141,7 @@ def getTreeData(
         # The custom risks don't have a real number, but an Omega instead
         if obj.zodb_path.find("custom-risks") > -1:
             num_elems = number.split(".")
-            number = u".".join([u"Ω"] + num_elems[1:])
+            number = ".".join(["Ω"] + num_elems[1:])
         info = {
             "id": obj.id,
             "number": number,
@@ -230,7 +230,7 @@ def getTreeData(
                     if IProfileQuestion.providedBy(
                         module
                     ) and not ICustomRisksModule.providedBy(aq_parent(module)):
-                        info["type"] = u"location"
+                        info["type"] = "location"
                         info["children"] = [
                             morph(sub) for sub in obj.children(filter=filter)
                         ]
@@ -264,7 +264,7 @@ def getTreeData(
                 if IProfileQuestion.providedBy(
                     module
                 ) and not ICustomRisksModule.providedBy(aq_parent(module)):
-                    new["type"] = u"location"
+                    new["type"] = "location"
             new["children"] = result["children"]
             result["children"] = [new]
 

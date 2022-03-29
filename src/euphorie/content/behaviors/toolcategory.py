@@ -11,12 +11,12 @@ from zope.interface import provider
 class IToolCategory(model.Schema):
 
     tool_category = schema.List(
-        title=_("title_tool_category", default=u"Tool category"),
+        title=_("title_tool_category", default="Tool category"),
         description=_(
             "description_tool_category",
-            default=u"Select one or more categories to which this OiRA tool "
-            u"is relevant. The user will then find this tool under the chosen"
-            u" categories.",
+            default="Select one or more categories to which this OiRA tool "
+            "is relevant. The user will then find this tool under the chosen"
+            " categories.",
         ),
         required=False,
         value_type=schema.Choice(

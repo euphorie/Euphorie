@@ -142,9 +142,9 @@ class Login(BrowserView):
             return _(
                 "error_password_policy_violation",
                 default=(
-                    u"The password needs to be at least 12 characters long and "
-                    u"needs to contain at least one lower case letter, one upper "
-                    u"case letter and one digit."
+                    "The password needs to be at least 12 characters long and "
+                    "needs to contain at least one lower case letter, one upper "
+                    "case letter and one digit."
                 ),
             )
 
@@ -155,19 +155,19 @@ class Login(BrowserView):
         loginname = form.get("email")
         if not loginname:
             self.errors["email"] = _(
-                "error_missing_email", default=u"Please enter your email address"
+                "error_missing_email", default="Please enter your email address"
             )
         elif not EMAIL_RE.match(loginname):
             self.errors["email"] = _(
-                "error_invalid_email", default=u"Please enter a valid email address"
+                "error_invalid_email", default="Please enter a valid email address"
             )
         if not form.get("password1"):
             self.errors["password"] = _(
-                "error_missing_password", default=u"Please enter a password"
+                "error_missing_password", default="Please enter a password"
             )
         elif form.get("password1") != form.get("password2"):
             self.errors["password"] = _(
-                "error_password_mismatch", default=u"Passwords do not match"
+                "error_password_mismatch", default="Passwords do not match"
             )
         else:
             policy_error = self.check_password_policy(form.get("password1"))
@@ -176,8 +176,8 @@ class Login(BrowserView):
         if not form.get("terms"):
             self.errors["terms"] = _(
                 "error_terms_not_accepted",
-                default=u"An accout can only be created for you if you accept the "
-                u"terms and conditions.",
+                default="An accout can only be created for you if you accept the "
+                "terms and conditions.",
             )
 
         if self.errors:
@@ -197,7 +197,7 @@ class Login(BrowserView):
         if account:
             self.errors["email"] = _(
                 "error_email_in_use",
-                default=u"An account with this email address already exists.",
+                default="An account with this email address already exists.",
             )
             return False
 
@@ -205,7 +205,7 @@ class Login(BrowserView):
         if pm.getMemberById(loginname) is not None:
             self.errors["email"] = _(
                 "error_email_in_use",
-                default=u"An account with this email address already exists.",
+                default="An account with this email address already exists.",
             )
             return False
 
@@ -395,8 +395,8 @@ class CreateTestSession(Tryout):
                 flash = IStatusMessage(self.request).addStatusMessage
                 flash(
                     _(
-                        u"Starting a test session is not available in this OiRA "
-                        u"application."
+                        "Starting a test session is not available in this OiRA "
+                        "application."
                     ),
                     "error",
                 )

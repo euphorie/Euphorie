@@ -87,9 +87,9 @@ class OfficeDocumentView(BrowserView):
             risks = self.get_risks_for(sql_module)
             modules.append(
                 {
-                    u"title": module_title,
-                    u"checked": bool(risks),
-                    u"risks": risks,
+                    "title": module_title,
+                    "checked": bool(risks),
+                    "risks": risks,
                 }
             )
         return modules
@@ -133,15 +133,15 @@ class OfficeDocumentView(BrowserView):
                 actions = []
             risks.append(
                 {
-                    u"title": sql_risk.title.strip(),
-                    u"description": risk_description,
-                    u"comment": sql_risk.comment,
-                    u"actions": actions,
-                    u"measures": measures,
-                    u"epilogue": u"",
-                    u"justifiable": sql_risk.identification,
-                    u"number": sql_risk.number,
-                    u"priority": sql_risk.priority,
+                    "title": sql_risk.title.strip(),
+                    "description": risk_description,
+                    "comment": sql_risk.comment,
+                    "actions": actions,
+                    "measures": measures,
+                    "epilogue": "",
+                    "justifiable": sql_risk.identification,
+                    "number": sql_risk.number,
+                    "priority": sql_risk.priority,
                 }
             )
         return risks
@@ -207,7 +207,7 @@ class ActionPlanDocxView(OfficeDocumentView):
         heading = self.t(
             _(
                 "header_oira_report_download",
-                default=u"OiRA Report: “${title}”",
+                default="OiRA Report: “${title}”",
                 mapping=dict(title=title),
             ),
         )
@@ -218,29 +218,29 @@ class ActionPlanDocxView(OfficeDocumentView):
             self.t(
                 _(
                     "header_present_risks",
-                    default=u"Risks that have been identified, "
-                    u"evaluated and have an Action Plan",
+                    default="Risks that have been identified, "
+                    "evaluated and have an Action Plan",
                 )
             ),
             self.t(
                 _(
                     "header_unevaluated_risks",
-                    default=u"Risks that have been identified but "
-                    u"do NOT have an Action Plan",
+                    default="Risks that have been identified but "
+                    "do NOT have an Action Plan",
                 )
             ),
             self.t(
                 _(
                     "header_unanswered_risks",
-                    default=u'Hazards/problems that have been "parked" '
-                    u"and are still to be dealt with",
+                    default='Hazards/problems that have been "parked" '
+                    "and are still to be dealt with",
                 )
             ),
             self.t(
                 _(
                     "header_risks_not_present",
-                    default=u"Hazards/problems that have been managed "
-                    u"or are not present in your organisation",
+                    default="Hazards/problems that have been managed "
+                    "or are not present in your organisation",
                 )
             ),
         ]
@@ -290,7 +290,7 @@ class ActionPlanDocxView(OfficeDocumentView):
         """Return the document filename"""
         filename = _(
             "filename_report_actionplan",
-            default=u"Action plan ${title}",
+            default="Action plan ${title}",
             mapping={"title": self.context.session.title},
         )
         filename = translate(filename, context=self.request)
@@ -330,7 +330,7 @@ class IdentificationReportDocxView(OfficeDocumentView):
         """Return the document filename"""
         filename = _(
             "filename_report_identification",
-            default=u"Identification report ${title}",
+            default="Identification report ${title}",
             mapping=dict(title=self.context.session.title),
         )
         filename = translate(filename, context=self.request)

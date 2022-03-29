@@ -39,9 +39,9 @@ class IProfileQuestion(model.Schema, IRichDescription, IBasic):
     """
 
     question = schema.TextLine(
-        title=_("label_profilequestion_question", default=u"Question"),
+        title=_("label_profilequestion_question", default="Question"),
         description=_(
-            u"This question must ask the user if this profile " u"applies to them."
+            "This question must ask the user if this profile " "applies to them."
         ),
         required=True,
     )
@@ -50,15 +50,15 @@ class IProfileQuestion(model.Schema, IRichDescription, IBasic):
     use_location_question = schema.Bool(
         title=_(
             "label_use_location_question",
-            default=u"Ask the user about (multiple) locations?",
+            default="Ask the user about (multiple) locations?",
         ),
         description=_(
-            u"description_use_location_question",
-            default=u"If this part is active, the user will be asked to "
-            u"enter the name of all locations for which this module applies. "
-            u"This means, the module will be repeated as many times as there "
-            u"are locations. If you do not need this repeatable behaviour, "
-            u"untick the checkbox to turn it off.",
+            "description_use_location_question",
+            default="If this part is active, the user will be asked to "
+            "enter the name of all locations for which this module applies. "
+            "This means, the module will be repeated as many times as there "
+            "are locations. If you do not need this repeatable behaviour, "
+            "untick the checkbox to turn it off.",
         ),
         required=False,
         default=True,
@@ -66,20 +66,20 @@ class IProfileQuestion(model.Schema, IRichDescription, IBasic):
 
     depends("label_multiple_present", "use_location_question", "on")
     label_multiple_present = ConditionalTextLine(
-        title=_(u"Multiple item question"),
+        title=_("Multiple item question"),
         required=True,
         description=_(
-            u"This question must ask the user if the service is "
-            u"offered in more than one location."
+            "This question must ask the user if the service is "
+            "offered in more than one location."
         ),
     )
     directives.widget(label_multiple_present="euphorie.content.risk.TextLines4Rows")
 
     depends("label_single_occurance", "use_location_question", "on")
     label_single_occurance = ConditionalTextLine(
-        title=_(u"Single occurance prompt"),
+        title=_("Single occurance prompt"),
         description=_(
-            u"This must ask the user for the name of the " u"relevant location."
+            "This must ask the user for the name of the " "relevant location."
         ),
         required=True,
     )
@@ -87,9 +87,9 @@ class IProfileQuestion(model.Schema, IRichDescription, IBasic):
 
     depends("label_multiple_occurances", "use_location_question", "on")
     label_multiple_occurances = ConditionalTextLine(
-        title=_(u"Multiple occurance prompt"),
+        title=_("Multiple occurance prompt"),
         description=_(
-            u"This must ask the user for the names of all " u"relevant locations."
+            "This must ask the user for the names of all " "relevant locations."
         ),
         required=True,
     )

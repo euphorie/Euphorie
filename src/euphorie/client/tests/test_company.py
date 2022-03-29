@@ -27,7 +27,7 @@ class TestCompanyViews(EuphorieIntegrationTestCase):
         account = addAccount(password="secret")
         survey_session = model.SurveySession(
             id=456,
-            title=u"Dummy session",
+            title="Dummy session",
             created=datetime(2021, 4, 9, 9, 11, 31),
             modified=datetime(2021, 4, 9, 9, 11, 52),
             zodb_path="nl/ict/software-development",
@@ -44,10 +44,10 @@ class TestCompanyViews(EuphorieIntegrationTestCase):
                 "report_company", traversed_survey_session, survey_session
             ) as view:
                 view.request.form = {
-                    "form.widgets.conductor": u"staff",
-                    "form.widgets.country": u"nl",
-                    "form.widgets.employees": u"10-49",
-                    "form.widgets.referer": u"health-safety-experts",
+                    "form.widgets.conductor": "staff",
+                    "form.widgets.country": "nl",
+                    "form.widgets.employees": "10-49",
+                    "form.widgets.referer": "health-safety-experts",
                     "form.widgets.workers_participated": False,
                     "form.widgets.needs_met": True,
                     "form.widgets.recommend_tool": True,

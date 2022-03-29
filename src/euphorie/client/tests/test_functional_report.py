@@ -22,7 +22,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
         browser.getForm(action="new-session").submit()
-        browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode(
+        browser.getControl(name="form.widgets.title").value = "Sessiøn".encode(
             "utf-8"
         )  # noqa
         # Start the survey
@@ -33,7 +33,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         risk.identification = "no"
         risk.action_plans.append(
             model.ActionPlan(
-                action_plan=u"Do something awesome",
+                action_plan="Do something awesome",
                 planning_start=datetime.date(1, 2, 3),
             )
         )
@@ -56,7 +56,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
         browser.getForm(action="new-session").submit()
-        browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode(
+        browser.getControl(name="form.widgets.title").value = "Sessiøn".encode(
             "utf-8"
         )  # noqa
         # Start the survey
@@ -78,7 +78,7 @@ class ReportTests(EuphorieFunctionalTestCase):
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
         browser.getForm(action="new-session").submit()
-        browser.getControl(name="form.widgets.title").value = u"Sessiøn".encode(
+        browser.getControl(name="form.widgets.title").value = "Sessiøn".encode(
             "utf-8"
         )  # noqa
         # Start the survey

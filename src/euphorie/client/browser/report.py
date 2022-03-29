@@ -107,28 +107,28 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
         )
 
     priority_names = {
-        "low": _(u"label_timeline_priority_low", default=u"Low"),
-        "medium": _(u"label_timeline_priority_medium", default=u"Medium"),
-        "high": _(u"label_timeline_priority_high", default=u"High"),
+        "low": _("label_timeline_priority_low", default="Low"),
+        "medium": _("label_timeline_priority_medium", default="Medium"),
+        "high": _("label_timeline_priority_high", default="High"),
     }
 
     columns = [
         (
             "measure",
             "planning_start",
-            _("label_action_plan_start", default=u"Planning start"),
+            _("label_action_plan_start", default="Planning start"),
         ),
         (
             "measure",
             "planning_end",
-            _("label_action_plan_end", default=u"Planning end"),
+            _("label_action_plan_end", default="Planning end"),
         ),
         (
             "measure",
             "action",
             _(
                 "label_measure_action_plan",
-                default=u"General approach " u"(to eliminate or reduce the risk)",
+                default="General approach " "(to eliminate or reduce the risk)",
             ),
         ),
         (
@@ -136,20 +136,20 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
             "requirements",
             _(
                 "label_measure_requirements",
-                default=u"Level of expertise and/or requirements needed",
+                default="Level of expertise and/or requirements needed",
             ),
         ),
         (
             "measure",
             "responsible",
-            _("label_action_plan_responsible", default=u"Who is responsible?"),
+            _("label_action_plan_responsible", default="Who is responsible?"),
         ),
-        ("measure", "budget", _("label_action_plan_budget", default=u"Budget")),
-        ("module", "title", _("label_section", default=u"Section")),
-        ("risk", "number", _("label_risk_number", default=u"Risk number")),
-        ("risk", "title", _("report_timeline_risk_title", default=u"Risk")),
-        ("risk", "priority", _("report_timeline_priority", default=u"Priority")),
-        ("risk", "comment", _("report_timeline_comment", default=u"Comments")),
+        ("measure", "budget", _("label_action_plan_budget", default="Budget")),
+        ("module", "title", _("label_section", default="Section")),
+        ("risk", "number", _("label_risk_number", default="Risk number")),
+        ("risk", "title", _("report_timeline_risk_title", default="Risk")),
+        ("risk", "priority", _("report_timeline_priority", default="Priority")),
+        ("risk", "comment", _("report_timeline_comment", default="Comments")),
     ]
 
     def priority_name(self, priority):
@@ -163,7 +163,7 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
         book = Workbook()
         sheet = book.worksheets[0]
         sheet.title = translate(
-            _("report_timeline_title", default=u"Timeline"), context=self.request
+            _("report_timeline_title", default="Timeline"), context=self.request
         )
         survey = self.context.aq_parent
 
@@ -199,7 +199,7 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
                     elif key == "number":
                         if risk.is_custom_risk:
                             num_elems = value.split(".")
-                            value = u".".join([u"Ω"] + num_elems[1:])
+                            value = ".".join(["Ω"] + num_elems[1:])
                 elif ntype == "module":
                     if key == "title":
                         if risk.is_custom_risk:
@@ -230,7 +230,7 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
         book = self.create_workbook()
         filename = _(
             "filename_report_timeline",
-            default=u"Timeline for ${title}",
+            default="Timeline for ${title}",
             mapping={"title": self.session.title},
         )
         filename = translate(filename, context=self.request)

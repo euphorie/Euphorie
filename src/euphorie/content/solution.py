@@ -26,11 +26,11 @@ class ISolution(model.Schema):
     """
 
     description = schema.Text(
-        title=_("label_module_description", u"Description"),
+        title=_("label_module_description", "Description"),
         description=_(
             "help_module_description",
-            default=u"Include any relevant information that may be "
-            u"helpful for the end-user.",
+            default="Include any relevant information that may be "
+            "helpful for the end-user.",
         ),
         required=True,
     )
@@ -39,12 +39,12 @@ class ISolution(model.Schema):
     action_plan = schema.Text(
         title=_(
             "label_measure_action_plan",
-            default=u"General approach (to eliminate or reduce the risk)",
+            default="General approach (to eliminate or reduce the risk)",
         ),
         description=_(
             "help_measure_action_plan",
-            default=u"Describe your general approach to eliminate or (if "
-            u"the risk is not avoidable) reduce the risk.",
+            default="Describe your general approach to eliminate or (if "
+            "the risk is not avoidable) reduce the risk.",
         ),
         required=False,
     )
@@ -52,12 +52,12 @@ class ISolution(model.Schema):
     prevention_plan = schema.Text(
         title=_(
             "label_measure_prevention_plan",
-            default=u"Specific action(s) required to implement this " u"approach",
+            default="Specific action(s) required to implement this " "approach",
         ),
         description=_(
             "help_measure_prevention_plan",
-            default=u"Describe the specific action(s) required to "
-            u"implement this approach (to eliminate or to reduce the risk).",
+            default="Describe the specific action(s) required to "
+            "implement this approach (to eliminate or to reduce the risk).",
         ),
         required=False,
     )
@@ -67,18 +67,18 @@ class ISolution(model.Schema):
         title=_(
             "label_measure_action",
             default=(
-                u"General approach (to eliminate or reduce the risk) + "
-                u"Specific action(s) required to implement this approach"
+                "General approach (to eliminate or reduce the risk) + "
+                "Specific action(s) required to implement this approach"
             ),
         ),
         description=_(
             "help_measure_action",
             default=(
-                u"Describe your general approach to eliminate or "
-                u"(if the risk is not avoidable) "
-                u"reduce the risk. + Describe the specific action(s) "
-                u"required to implement this approach "
-                u"(to eliminate or to reduce the risk)."
+                "Describe your general approach to eliminate or "
+                "(if the risk is not avoidable) "
+                "reduce the risk. + Describe the specific action(s) "
+                "required to implement this approach "
+                "(to eliminate or to reduce the risk)."
             ),
         ),
         required=True,
@@ -87,16 +87,16 @@ class ISolution(model.Schema):
     requirements = schema.Text(
         title=_(
             "label_measure_requirements",
-            default=u"Level of expertise and/or requirements needed",
+            default="Level of expertise and/or requirements needed",
         ),
         description=_(
             "help_measure_requirements",
-            default=u"Describe the level of expertise needed to implement "
-            u'the measure, for instance "common sense (no OSH knowledge '
-            u'required)", "no specific OSH expertise, but minimum OSH '
-            u"knowledge or training and/or consultation of OSH guidance "
-            u'required", or "OSH expert". You can also describe here '
-            u"any other additional requirement (if any).",
+            default="Describe the level of expertise needed to implement "
+            'the measure, for instance "common sense (no OSH knowledge '
+            'required)", "no specific OSH expertise, but minimum OSH '
+            "knowledge or training and/or consultation of OSH guidance "
+            'required", or "OSH expert". You can also describe here '
+            "any other additional requirement (if any).",
         ),
         required=False,
     )
@@ -118,7 +118,7 @@ class ISolution(model.Schema):
 
 @implementer(ISolution)
 class Solution(Item):
-    title = _("title_common_solution", default=u"Measure")
+    title = _("title_common_solution", default="Measure")
     prevention_plan = None
     requirements = None
     portal_type = "euphorie.solution"

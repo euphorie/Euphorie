@@ -12,21 +12,21 @@ class TreeTests(EuphorieFunctionalTestCase):
         self.client = self.portal.client
         self.client.invokeFactory("euphorie.clientcountry", "nl")
         createContentInContainer(
-            self.client.nl, "euphorie.sector", checkConstraints=False, title=u"dining"
+            self.client.nl, "euphorie.sector", checkConstraints=False, title="dining"
         )
         self.sector = self.client.nl.dining
         createContentInContainer(
-            self.sector, "euphorie.survey", checkConstraints=False, title=u"Survey"
+            self.sector, "euphorie.survey", checkConstraints=False, title="Survey"
         )
         self.survey = self.sector.survey
         return self.survey
 
     def createSurveySession(self):
         self.sqlsession = Session()
-        account = model.Account(loginname=u"jane", password=u"secret")
+        account = model.Account(loginname="jane", password="secret")
         self.sqlsession.add(account)
         self.session = model.SurveySession(
-            title=u"Session", zodb_path="nl/dining/survey", account=account
+            title="Session", zodb_path="nl/dining/survey", account=account
         )
         self.sqlsession.add(self.session)
         self.sqlsession.flush()
@@ -89,7 +89,7 @@ class GetSessionTreeTests(TreeTests):
 
     def testSingleModule(self):
         session = self.createSurveySession()
-        session.addChild(model.Module(title=u"Root", module_id="1", zodb_path="1"))
+        session.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         tree = update.getSessionTree(session)
         self.assertEqual(len(tree), 1)
         self.assertEqual(tree[0].zodb_path, "1")
@@ -98,11 +98,11 @@ class GetSessionTreeTests(TreeTests):
 
     def testModuleAndRisk(self):
         session = self.createSurveySession()
-        root = model.Module(title=u"Root", module_id="1", zodb_path="1")
+        root = model.Module(title="Root", module_id="1", zodb_path="1")
         session.addChild(root)
         root.addChild(
             model.Risk(
-                title=u"Risk 1",
+                title="Risk 1",
                 risk_id="1",
                 zodb_path="1/1",
                 type="risk",
@@ -123,7 +123,7 @@ class TreeChangesTests(TreeTests):
     def test_nothing_changes(self):
         session = self.createSurveySession()
         session_module = model.Module(
-            title=u"Root",
+            title="Root",
             module_id="1",
             zodb_path="1",
             skip_children=False,
@@ -132,7 +132,7 @@ class TreeChangesTests(TreeTests):
         session.addChild(session_module)
         session_module.addChild(
             model.Risk(
-                title=u"Risk 1",
+                title="Risk 1",
                 risk_id="2",
                 zodb_path="1/2",
                 type="risk",
@@ -148,7 +148,7 @@ class TreeChangesTests(TreeTests):
         session = self.createSurveySession()
         for i in range(2):
             session_module = model.Module(
-                title=u"Root",
+                title="Root",
                 module_id="1",
                 zodb_path="1",
                 skip_children=False,
@@ -157,7 +157,7 @@ class TreeChangesTests(TreeTests):
             session.addChild(session_module)
             session_module.addChild(
                 model.Risk(
-                    title=u"Risk 1",
+                    title="Risk 1",
                     risk_id="2",
                     zodb_path="1/2",
                     type="risk",
@@ -181,7 +181,7 @@ class TreeChangesTests(TreeTests):
         session = self.createSurveySession()
         session.addChild(
             model.Module(
-                title=u"Root", module_id="1", zodb_path="1", has_description=False
+                title="Root", module_id="1", zodb_path="1", has_description=False
             )
         )
         survey = self.createClientSurvey()
@@ -192,7 +192,7 @@ class TreeChangesTests(TreeTests):
 
     def testProfileActsAsModule(self):
         session = self.createSurveySession()
-        session.addChild(model.Module(title=u"Root", module_id="1", zodb_path="1"))
+        session.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
         changes = update.treeChanges(session, survey)
@@ -200,7 +200,7 @@ class TreeChangesTests(TreeTests):
 
     def testRemoveModule(self):
         session = self.createSurveySession()
-        session.addChild(model.Module(title=u"Root", module_id="1", zodb_path="1"))
+        session.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         survey = self.createClientSurvey()
         changes = update.treeChanges(session, survey)
         self.assertEqual(changes, set([("1", "module", "remove")]))
@@ -209,12 +209,12 @@ class TreeChangesTests(TreeTests):
         session = self.createSurveySession()
         session.addChild(
             model.Module(
-                title=u"Root", module_id="1", zodb_path="1", has_description=False
+                title="Root", module_id="1", zodb_path="1", has_description=False
             )
         )
         session.addChild(
             model.Risk(
-                title=u"Risk 1",
+                title="Risk 1",
                 risk_id="1",
                 zodb_path="1/1",
                 type="risk",
@@ -229,7 +229,7 @@ class TreeChangesTests(TreeTests):
     def test_module_lost_description(self):
         session = self.createSurveySession()
         session_module = model.Module(
-            title=u"Root",
+            title="Root",
             module_id="1",
             zodb_path="1",
             skip_children=False,
@@ -239,14 +239,14 @@ class TreeChangesTests(TreeTests):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.module", "1")
         module = survey["1"]
-        module.description = u"<p></p>"
+        module.description = "<p></p>"
         changes = update.treeChanges(session, survey)
         self.assertEqual(changes, set([("1", "module", "modified")]))
 
     def test_module_gained_description(self):
         session = self.createSurveySession()
         session_module = model.Module(
-            title=u"Root",
+            title="Root",
             module_id="1",
             zodb_path="1",
             skip_children=False,
@@ -256,14 +256,14 @@ class TreeChangesTests(TreeTests):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.module", "1")
         module = survey["1"]
-        module.description = u"<p>Hello</p>"
+        module.description = "<p>Hello</p>"
         changes = update.treeChanges(session, survey)
         self.assertEqual(changes, set([("1", "module", "modified")]))
 
     def testModuleMadeRequired(self):
         session = self.createSurveySession()
         session_module = model.Module(
-            title=u"Root", module_id="1", zodb_path="1", skip_children=True
+            title="Root", module_id="1", zodb_path="1", skip_children=True
         )
         session.addChild(session_module)
         survey = self.createClientSurvey()
@@ -281,7 +281,7 @@ class TreeChangesTests(TreeTests):
         """
         session = self.createSurveySession()
         session_module = model.Module(
-            title=u"Root",
+            title="Root",
             module_id="1",
             zodb_path="1",
             has_description=True,

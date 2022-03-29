@@ -14,18 +14,18 @@ class IPage(model.Schema, IRichDescription, IBasic):
     """A basic page."""
 
     description = HtmlText(
-        title=_("label_module_description", u"Description"),
+        title=_("label_module_description", "Description"),
         description=_(
             "help_module_description",
-            default=u"Include any relevant information that may be "
-            u"helpful for the end-user.",
+            default="Include any relevant information that may be "
+            "helpful for the end-user.",
         ),
         required=True,
     )
     directives.widget(description=WysiwygFieldWidget)
     directives.order_after(description="title")
 
-    body = HtmlText(title=_("label_body", u"Page content"), required=True)
+    body = HtmlText(title=_("label_body", "Page content"), required=True)
     directives.widget(body=WysiwygFieldWidget)
 
 

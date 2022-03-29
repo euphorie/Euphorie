@@ -24,7 +24,7 @@ class AddBarTileTests(EuphorieFunctionalTestCase):
         tile = self.tile(survey)
         tile.update()
         action = list(filter(lambda fti: fti.id == "euphorie.module", tile.actions))[0]
-        self.assertEqual(action.title, u"Module")
+        self.assertEqual(action.title, "Module")
 
     def testModuleNameInsideModule(self):
         # To be able to determine what button label to display, we explicitly
@@ -35,5 +35,5 @@ class AddBarTileTests(EuphorieFunctionalTestCase):
         tile = self.tile(module)
         tile.update()
         for action in filter(lambda fti: fti.id == "euphorie.submodule", tile.actions):
-            self.assertEqual(action.title, u"Submodule")
+            self.assertEqual(action.title, "Submodule")
             return

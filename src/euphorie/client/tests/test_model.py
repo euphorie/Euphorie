@@ -19,9 +19,9 @@ except ImportError:
 
 def createSurvey():
     session = Session()
-    account = model.Account(loginname=u"jane", password=u"secret")
+    account = model.Account(loginname="jane", password="secret")
     session.add(account)
-    survey = model.SurveySession(title=u"Session", zodb_path="survey", account=account)
+    survey = model.SurveySession(title="Session", zodb_path="survey", account=account)
     session.add(survey)
     session.flush()
     return (session, survey)
@@ -69,13 +69,13 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
             context_filter = model.SurveySession.get_context_filter(self.portal)
             self.assertSetEqual(
                 {clause.value for clause in context_filter.right.element.clauses},
-                {u"eu/eusector/eusurvey", u"nl/nlsector/nlsurvey"},
+                {"eu/eusector/eusurvey", "nl/nlsector/nlsurvey"},
             )
 
             context_filter = model.SurveySession.get_context_filter(self.portal.client)
             self.assertSetEqual(
                 {clause.value for clause in context_filter.right.element.clauses},
-                {u"eu/eusector/eusurvey", u"nl/nlsector/nlsurvey"},
+                {"eu/eusector/eusurvey", "nl/nlsector/nlsurvey"},
             )
 
             context_filter = model.SurveySession.get_context_filter(
@@ -83,7 +83,7 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
             )
             self.assertSetEqual(
                 {clause.value for clause in context_filter.right.element.clauses},
-                {u"eu/eusector/eusurvey"},
+                {"eu/eusector/eusurvey"},
             )
 
             context_filter = model.SurveySession.get_context_filter(self.portal.sectors)
@@ -91,35 +91,29 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
 
     def testNoChildren(self):
         (ses, survey) = createSurvey()
-        root = survey.addChild(
-            model.Module(title=u"Root", module_id="1", zodb_path="1")
-        )
+        root = survey.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         ses.add(root)
         ses.flush()
         self.assertEqual(root.children().count(), 0)
 
     def testAddChild(self):
         (ses, survey) = createSurvey()
-        root = survey.addChild(
-            model.Module(title=u"Root", module_id="1", zodb_path="1")
-        )
+        root = survey.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         ses.add(root)
-        root.addChild(model.Module(title=u"Module", module_id="1", zodb_path="1/1"))
+        root.addChild(model.Module(title="Module", module_id="1", zodb_path="1/1"))
         ses.flush()
         self.assertEqual(root.children().count(), 1)
 
     def testChildOrder(self):
         (ses, survey) = createSurvey()
-        root = survey.addChild(
-            model.Module(title=u"Root", module_id="1", zodb_path="1")
-        )
+        root = survey.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         ses.add(root)
         ses.flush()
-        root.addChild(model.Module(title=u"Profile 5", module_id="5", zodb_path="1/5"))
-        root.addChild(model.Module(title=u"Profile 1", module_id="1", zodb_path="1/1"))
-        root.addChild(model.Module(title=u"Profile 3", module_id="3", zodb_path="1/3"))
+        root.addChild(model.Module(title="Profile 5", module_id="5", zodb_path="1/5"))
+        root.addChild(model.Module(title="Profile 1", module_id="1", zodb_path="1/1"))
+        root.addChild(model.Module(title="Profile 3", module_id="3", zodb_path="1/3"))
         ses.flush()
-        self.assertEqual([c.module_id for c in list(root.children())], [u"5", "1", "3"])
+        self.assertEqual([c.module_id for c in list(root.children())], ["5", "1", "3"])
 
     def testReset_NoChildren(self):
         (ses, survey) = createSurvey()
@@ -131,9 +125,7 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
 
     def testReset_SingleChild(self):
         (ses, survey) = createSurvey()
-        root = survey.addChild(
-            model.Module(title=u"Root", module_id="1", zodb_path="1")
-        )
+        root = survey.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         ses.add(root)
         children = ses.query(model.SurveyTreeItem.id).filter(
             model.SurveyTreeItem.session == survey
@@ -148,9 +140,7 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
 
     def testHasTree_SingleChild(self):
         (ses, survey) = createSurvey()
-        root = survey.addChild(
-            model.Module(title=u"Root", module_id="1", zodb_path="1")
-        )
+        root = survey.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         ses.add(root)
         self.assertEqual(survey.hasTree(), True)
 
@@ -159,11 +149,11 @@ class RiskPresentFilterTests(EuphorieIntegrationTestCase):
     def createData(self):
         (self.session, self.survey) = createSurvey()
         self.mod1 = model.Module(
-            title=u"Module 1", module_id="1", zodb_path="1", skip_children=False
+            title="Module 1", module_id="1", zodb_path="1", skip_children=False
         )
         self.survey.addChild(self.mod1)
         self.q1 = model.Risk(
-            title=u"Risk 1",
+            title="Risk 1",
             risk_id="1",
             zodb_path="1/1",
             type="risk",
@@ -195,11 +185,11 @@ class RiskPresentNoTop5FilterTests(EuphorieIntegrationTestCase):
     def createData(self):
         (self.session, self.survey) = createSurvey()
         self.mod1 = model.Module(
-            title=u"Module 1", module_id="1", zodb_path="1", skip_children=False
+            title="Module 1", module_id="1", zodb_path="1", skip_children=False
         )
         self.survey.addChild(self.mod1)
         self.q1 = model.Risk(
-            title=u"Risk 1",
+            title="Risk 1",
             risk_id="1",
             zodb_path="1/1",
             type="risk",
@@ -236,11 +226,11 @@ class ModuleWithRiskFilterTests(EuphorieIntegrationTestCase):
     def createData(self):
         (self.session, self.survey) = createSurvey()
         self.mod1 = model.Module(
-            title=u"Module 1", module_id="1", zodb_path="1", skip_children=False
+            title="Module 1", module_id="1", zodb_path="1", skip_children=False
         )
         self.survey.addChild(self.mod1)
         self.q1 = model.Risk(
-            title=u"Risk 1",
+            title="Risk 1",
             risk_id="1",
             zodb_path="1/1",
             type="risk",
@@ -271,7 +261,7 @@ class ModuleWithRiskFilterTests(EuphorieIntegrationTestCase):
         (self.session, self.survey) = createSurvey()
         self.session.add(self.survey)
         self.mod1 = model.Module(
-            title=u"Module 1", module_id="1", zodb_path="1", skip_children=False
+            title="Module 1", module_id="1", zodb_path="1", skip_children=False
         )
         self.survey.addChild(self.mod1)
         self.assertEqual(self.query().count(), 0)

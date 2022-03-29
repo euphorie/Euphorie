@@ -107,7 +107,7 @@ def ImportSector(plone, options, filename):
         if hasattr(sector, name):
             raise Abort("There is already a survey named '%s'" % name)
 
-        log.info(u"Importing survey '%s' with version '%s'", name, options.version)
+        log.info("Importing survey '%s' with version '%s'", name, options.version)
         importer = SurveyImporter(sector)
         survey = importer(xml_sector, name, options.version)
 

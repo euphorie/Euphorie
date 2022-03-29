@@ -57,14 +57,14 @@ COMMA_REPLACEMENT = "__COMMA__"
 
 
 def attr_unicode(node, attr, default=None):
-    value = six.text_type(node.attrib.get(attr, u"")).strip()
+    value = six.text_type(node.attrib.get(attr, "")).strip()
     if not value:
         return default
     return value
 
 
 def attr_vocabulary(node, tag, field, default=None):
-    value = node.get(tag, u"").strip() if node else None
+    value = node.get(tag, "").strip() if node else None
     if not value:
         return default
     try:
@@ -98,39 +98,38 @@ class IImportSector(Interface):
     """The fields used for importing a :obj:`euphorie.content.sector`."""
 
     sector_title = schema.TextLine(
-        title=_("label_sector_title", default=u"Title of sector."),
+        title=_("label_sector_title", default="Title of sector."),
         description=_(
             "help_sector_title",
-            default=u"If you do not specify a title it will be taken "
-            u"from the input file.",
+            default="If you do not specify a title it will be taken "
+            "from the input file.",
         ),
         required=False,
     )
 
     sector_login = LoginField(
-        title=_("label_login_name", default=u"Login name"),
+        title=_("label_login_name", default="Login name"),
         required=True,
         constraint=validLoginValue,
     )
 
     surveygroup_title = schema.TextLine(
-        title=_("label_surveygroup_title", default=u"Title of imported OiRA Tool"),
+        title=_("label_surveygroup_title", default="Title of imported OiRA Tool"),
         description=_(
             "help_upload_surveygroup_title",
-            default=u"If you do not specify a title it will be taken "
-            u"from the input.",
+            default="If you do not specify a title it will be taken " "from the input.",
         ),
         required=False,
     )
 
     survey_title = schema.TextLine(
-        title=_("label_upload_survey_title", default=u"Name for OiRA Tool version"),
-        default=_(u"Standard"),
+        title=_("label_upload_survey_title", default="Name for OiRA Tool version"),
+        default=_("Standard"),
         required=True,
     )
 
     file = filefield.NamedFile(
-        title=_("label_upload_filename", default=u"XML file"), required=True
+        title=_("label_upload_filename", default="XML file"), required=True
     )
 
 
@@ -138,23 +137,22 @@ class IImportSurvey(Interface):
     """The fields used for importing a :obj:`euphorie.content.survey`."""
 
     surveygroup_title = schema.TextLine(
-        title=_("label_surveygroup_title", default=u"Title of imported OiRA Tool"),
+        title=_("label_surveygroup_title", default="Title of imported OiRA Tool"),
         description=_(
             "help_upload_surveygroup_title",
-            default=u"If you do not specify a title it will be taken "
-            u"from the input.",
+            default="If you do not specify a title it will be taken " "from the input.",
         ),
         required=False,
     )
 
     survey_title = schema.TextLine(
-        title=_("label_upload_survey_title", default=u"Name for OiRA Tool version"),
-        default=_(u"OiRA Tool import"),
+        title=_("label_upload_survey_title", default="Name for OiRA Tool version"),
+        default=_("OiRA Tool import"),
         required=True,
     )
 
     file = filefield.NamedFile(
-        title=_("label_upload_filename", default=u"XML file"), required=True
+        title=_("label_upload_filename", default="XML file"), required=True
     )
 
 
@@ -176,11 +174,11 @@ class SurveyImporter(object):
         filename = attr_unicode(node, "filename")
         contentType = node.get("content-type", None)
         if not filename:
-            basename = u"image%d.%%s" % random.randint(1, 2 ** 16)
+            basename = "image%d.%%s" % random.randint(1, 2**16)
             if contentType and "/" in contentType:
-                filename = basename % contentType.split(u"/")[1]
+                filename = basename % contentType.split("/")[1]
             else:
-                filename = basename % u"jpg"
+                filename = basename % "jpg"
         image = NamedBlobImage(
             data=decodebytes(safe_bytes(str(node.text))),
             contentType=contentType,
@@ -233,7 +231,7 @@ class SurveyImporter(object):
             risk.evaluation_method = em.text if em else "estimated"
             if risk.evaluation_method == "calculated":
                 evaluation_algorithm = risk.evaluation_algorithm()
-                if evaluation_algorithm == u"kinney":
+                if evaluation_algorithm == "kinney":
                     risk.default_probability = attr_vocabulary(
                         em,
                         "default-probability",
@@ -245,7 +243,7 @@ class SurveyImporter(object):
                     risk.default_effect = attr_vocabulary(
                         em, "default-effect", IKinneyEvaluation["default_effect"]
                     )
-                elif evaluation_algorithm == u"french":
+                elif evaluation_algorithm == "french":
                     risk.default_severity = attr_vocabulary(
                         em, "default-severity", IFrenchEvaluation["default_severity"]
                     )
@@ -456,11 +454,11 @@ class ImportSurvey(AutoExtensibleForm, form.Form):
 
     schema = IImportSurvey
     ignoreContext = True
-    form_name = _(u"Import OiRA Tool version")
+    form_name = _("Import OiRA Tool version")
 
     importer_factory = SurveyImporter
 
-    @button.buttonAndHandler(_(u"Upload"))
+    @button.buttonAndHandler(_("Upload"))
     def handleUpload(self, action):
         (data, errors) = self.extractData()
         input = data["file"].data
@@ -471,12 +469,12 @@ class ImportSurvey(AutoExtensibleForm, form.Form):
             raise WidgetActionExecutionError(
                 "file",
                 Invalid(
-                    _("error_invalid_xml", default=u"Please upload a valid XML file")
+                    _("error_invalid_xml", default="Please upload a valid XML file")
                 ),
             )
 
         IStatusMessage(self.request).addStatusMessage(
-            _("upload_success", default=u"Succesfully imported the OiRA Tool"),
+            _("upload_success", default="Succesfully imported the OiRA Tool"),
             type="success",
         )
         state = getMultiAdapter((survey, self.request), name="plone_context_state")

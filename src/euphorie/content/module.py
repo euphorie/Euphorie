@@ -48,11 +48,11 @@ class IModule(model.Schema, IRichDescription, IBasic):
     """
 
     description = HtmlText(
-        title=_("label_module_description", u"Description"),
+        title=_("label_module_description", "Description"),
         description=_(
             "help_module_description",
-            default=u"Include any relevant information that may be "
-            u"helpful for the end-user.",
+            default="Include any relevant information that may be "
+            "helpful for the end-user.",
         ),
         required=False,
     )
@@ -60,11 +60,11 @@ class IModule(model.Schema, IRichDescription, IBasic):
     directives.order_after(description="title")
 
     optional = schema.Bool(
-        title=_("label_module_optional", default=u"This module is optional"),
+        title=_("label_module_optional", default="This module is optional"),
         description=_(
             "help_module_optional",
-            default=u"Allows the end-user to skip this module and "
-            u"everything inside it.",
+            default="Allows the end-user to skip this module and "
+            "everything inside it.",
         ),
         required=False,
         default=False,
@@ -72,37 +72,37 @@ class IModule(model.Schema, IRichDescription, IBasic):
 
     depends("question", "optional", "on")
     question = ConditionalTextLine(
-        title=_("label_module_question", default=u"Question"),
+        title=_("label_module_question", default="Question"),
         description=_(
             "help_module_question",
-            default=u"The question to ask the end-user if this module is "
-            u"optional. It must be formulated so that it is answerable "
-            u"with YES (the end-user will have to tick a box) or NO",
+            default="The question to ask the end-user if this module is "
+            "optional. It must be formulated so that it is answerable "
+            "with YES (the end-user will have to tick a box) or NO",
         ),
         required=True,
     )
 
     image = filefield.NamedBlobImage(
-        title=_("label_image", default=u"Image file"),
+        title=_("label_image", default="Image file"),
         description=_(
             "help_image_upload",
-            default=u"Upload an image. Make sure your image is of format "
-            u"png, jpg or gif and does not contain any special "
-            u"characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+            default="Upload an image. Make sure your image is of format "
+            "png, jpg or gif and does not contain any special "
+            "characters. The minimum size is 1000 (width) x 430 (height) pixels.",
         ),
         required=False,
     )
     caption = schema.TextLine(
-        title=_("label_caption", default=u"Image caption"), required=False
+        title=_("label_caption", default="Image caption"), required=False
     )
 
     solution_direction = HtmlText(
-        title=_("label_solution_direction", default=u"Solution"),
+        title=_("label_solution_direction", default="Solution"),
         description=_(
             "help_solution_direction",
-            default=u"This information will appear in the Action plan step "
-            u"and should include an overview of general solution(s) "
-            u"related to this module.",
+            default="This information will appear in the Action plan step "
+            "and should include an overview of general solution(s) "
+            "related to this module.",
         ),
         required=False,
     )
@@ -110,10 +110,10 @@ class IModule(model.Schema, IRichDescription, IBasic):
 
     model.fieldset(
         "additional_content",
-        label=_("header_additional_content", default=u"Additional content"),
+        label=_("header_additional_content", default="Additional content"),
         description=_(
             "intro_additional_content",
-            default=u"Attach any additional content you consider helpful "
+            default="Attach any additional content you consider helpful "
             "for the user",
         ),
         fields=[
@@ -129,59 +129,59 @@ class IModule(model.Schema, IRichDescription, IBasic):
     )
 
     file1 = filefield.NamedBlobFile(
-        title=_("label_file", default=u"Content file"),
+        title=_("label_file", default="Content file"),
         description=_(
             "help_content_upload",
-            default=u"Upload a file that contains additional information, "
-            u"like a PDF, Word document or spreadsheet. Optionally provide "
-            u"a descriptive caption for your file.",
+            default="Upload a file that contains additional information, "
+            "like a PDF, Word document or spreadsheet. Optionally provide "
+            "a descriptive caption for your file.",
         ),
         required=False,
     )
     file1_caption = schema.TextLine(
-        title=_("label_file_caption", default=u"Content caption"), required=False
+        title=_("label_file_caption", default="Content caption"), required=False
     )
 
     file2 = filefield.NamedBlobFile(
-        title=_("label_file", default=u"Content file"),
+        title=_("label_file", default="Content file"),
         description=_(
             "help_content_upload",
-            default=u"Upload a file that contains additional information, "
-            u"like a PDF, Word document or spreadsheet. Optionally provide "
-            u"a descriptive caption for your file.",
+            default="Upload a file that contains additional information, "
+            "like a PDF, Word document or spreadsheet. Optionally provide "
+            "a descriptive caption for your file.",
         ),
         required=False,
     )
     file2_caption = schema.TextLine(
-        title=_("label_file_caption", default=u"Content caption"), required=False
+        title=_("label_file_caption", default="Content caption"), required=False
     )
 
     file3 = filefield.NamedBlobFile(
-        title=_("label_file", default=u"Content file"),
+        title=_("label_file", default="Content file"),
         description=_(
             "help_content_upload",
-            default=u"Upload a file that contains additional information, "
-            u"like a PDF, Word document or spreadsheet. Optionally provide "
-            u"a descriptive caption for your file.",
+            default="Upload a file that contains additional information, "
+            "like a PDF, Word document or spreadsheet. Optionally provide "
+            "a descriptive caption for your file.",
         ),
         required=False,
     )
     file3_caption = schema.TextLine(
-        title=_("label_file_caption", default=u"Content caption"), required=False
+        title=_("label_file_caption", default="Content caption"), required=False
     )
 
     file4 = filefield.NamedBlobFile(
-        title=_("label_file", default=u"Content file"),
+        title=_("label_file", default="Content file"),
         description=_(
             "help_content_upload",
-            default=u"Upload a file that contains additional information, "
-            u"like a PDF, Word document or spreadsheet. Optionally provide "
-            u"a descriptive caption for your file.",
+            default="Upload a file that contains additional information, "
+            "like a PDF, Word document or spreadsheet. Optionally provide "
+            "a descriptive caption for your file.",
         ),
         required=False,
     )
     file4_caption = schema.TextLine(
-        title=_("label_file_caption", default=u"Content caption"), required=False
+        title=_("label_file_caption", default="Content caption"), required=False
     )
 
 

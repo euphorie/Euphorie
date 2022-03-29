@@ -46,11 +46,11 @@ class ISurvey(model.Schema, IBasic):
     """
 
     title = schema.TextLine(
-        title=_("label_survey_title", default=u"Version name"),
+        title=_("label_survey_title", default="Version name"),
         description=_(
             "help_survey_title",
-            default=u"This is the title of this OiRA Tool version. This "
-            u"name is never shown to users.",
+            default="This is the title of this OiRA Tool version. This "
+            "name is never shown to users.",
         ),
         required=True,
     )
@@ -59,52 +59,52 @@ class ISurvey(model.Schema, IBasic):
     directives.omitted("description")
 
     introduction = HtmlText(
-        title=_("label_introduction", default=u"Introduction text"),
+        title=_("label_introduction", default="Introduction text"),
         description=_(
-            u"The introduction text is shown when starting a new "
-            u"OiRA Tool session. If no introduction is provided here a "
-            u"standard text will be shown. Please keep this text brief "
-            u"so it will easily fit on screens of small devices such as "
-            u"phones and PDAs."
+            "The introduction text is shown when starting a new "
+            "OiRA Tool session. If no introduction is provided here a "
+            "standard text will be shown. Please keep this text brief "
+            "so it will easily fit on screens of small devices such as "
+            "phones and PDAs."
         ),
         required=False,
     )
     directives.widget(introduction=WysiwygFieldWidget)
 
     evaluation_optional = schema.Bool(
-        title=_("label_evaluation_optional", default=u"Evaluation may be skipped"),
+        title=_("label_evaluation_optional", default="Evaluation may be skipped"),
         description=_(
             "help_evaluation_optional",
-            default=u"This option allows users to skip the evaluation " u"phase.",
+            default="This option allows users to skip the evaluation " "phase.",
         ),
         default=False,
         required=False,
     )
 
     language = schema.Choice(
-        title=_("label_language", default=u"Language"),
+        title=_("label_language", default="Language"),
         vocabulary="plone.app.vocabularies.AvailableContentLanguages",
-        default=u"en",
+        default="en",
         required=True,
     )
 
     classification_code = schema.TextLine(
-        title=_("label_classification_code", default=u"Classification code"),
+        title=_("label_classification_code", default="Classification code"),
         description=_(
             "help_classification_code",
-            default=u"A code identifying this sector. Classification "
-            u"codes are defined by national standards bodies "
-            u"and based on revision 2 of the NACE standard.",
+            default="A code identifying this sector. Classification "
+            "codes are defined by national standards bodies "
+            "and based on revision 2 of the NACE standard.",
         ),
         required=False,
     )
 
     tool_type = schema.Choice(
-        title=_("label_tool_type", default=u"Type of OiRA Tool"),
+        title=_("label_tool_type", default="Type of OiRA Tool"),
         description=_(
             "description_tool_type",
-            default=u"This selection determines, which variant of an OiRA Tool"
-            u' will be created. If you are not sure, select "Classic".',
+            default="This selection determines, which variant of an OiRA Tool"
+            ' will be created. If you are not sure, select "Classic".',
         ),
         vocabulary="euphorie.tool_types_vocabulary",
         defaultFactory=get_tool_type_default,
@@ -114,17 +114,17 @@ class ISurvey(model.Schema, IBasic):
     measures_text_handling = schema.Choice(
         title=_(
             "measures_text_handling",
-            default=u"Handling of measures text (if measures-in-place are used)",
+            default="Handling of measures text (if measures-in-place are used)",
         ),
         description=_(
             "description_measures_text_handling",
             default=(
-                u"Defines how the “Measures in place” options are displayed "
-                u"to the user. "
-                u"Choose “Simple” if the texts for Description and General Approach "
-                u"are identical in your measures. "
-                u"Choose “Full” if the texts in General Approach "
-                u"provide more details than the Description."
+                "Defines how the “Measures in place” options are displayed "
+                "to the user. "
+                "Choose “Simple” if the texts for Description and General Approach "
+                "are identical in your measures. "
+                "Choose “Full” if the texts in General Approach "
+                "provide more details than the Description."
             ),
         ),
         vocabulary="euphorie.measures_text_handling_vocabulary",
@@ -133,12 +133,12 @@ class ISurvey(model.Schema, IBasic):
     )
 
     integrated_action_plan = schema.Bool(
-        title=_("label_integrated_action_plan", default=u"Integrated Action Plan"),
+        title=_("label_integrated_action_plan", default="Integrated Action Plan"),
         description=_(
             "description_integrated_action_plan",
-            default=u"If selected, the option to plan measures will be offered "
-            u"directly on the “Identification” page. There will be no separate "
-            u"“Action Plan” step in the navigation.",
+            default="If selected, the option to plan measures will be offered "
+            "directly on the “Identification” page. There will be no separate "
+            "“Action Plan” step in the navigation.",
         ),
         required=False,
         default=False,
@@ -147,13 +147,13 @@ class ISurvey(model.Schema, IBasic):
     enable_tool_notification = schema.Bool(
         title=_(
             "label_enable_tool_notification",
-            default=u"Show a custom notification for this OiRA tool?",
+            default="Show a custom notification for this OiRA tool?",
         ),
         description=_(
-            u"description_tool_notification",
-            default=u"If you enter text here, it will be shown to users "
-            u"in a pop-up when they open the tool. It can be used for "
-            u"notifying users about changes.",
+            "description_tool_notification",
+            default="If you enter text here, it will be shown to users "
+            "in a pop-up when they open the tool. It can be used for "
+            "notifying users about changes.",
         ),
         required=False,
         default=False,
@@ -161,13 +161,13 @@ class ISurvey(model.Schema, IBasic):
 
     depends("tool_notification_title", "enable_tool_notification", "on")
     tool_notification_title = ConditionalTextLine(
-        title=_("label_tool_notification_title", default=u"Tool notification title"),
+        title=_("label_tool_notification_title", default="Tool notification title"),
         required=True,
     )
 
     depends("tool_notification_message", "enable_tool_notification", "on")
     tool_notification_message = ConditionalHtmlText(
-        title=_("label_tool_notification", default=u"Tool notification message"),
+        title=_("label_tool_notification", default="Tool notification message"),
         required=True,
     )
     directives.widget(tool_notification_message=WysiwygFieldWidget)
@@ -244,7 +244,7 @@ class Survey(Container):
         return [child for child in self.values() if IProfileQuestion.providedBy(child)]
 
     def get_tool_type_name(self):
-        """ Returns the human readable name of the chosen tool type """
+        """Returns the human readable name of the chosen tool type"""
         my_tool_type = get_tool_type(self)
         tti = getUtility(IToolTypesInfo)
         tool_types = tti()
@@ -260,7 +260,7 @@ def SearchableTextIndexer(obj):
             obj.title,
             StripMarkup(obj.description),
             StripMarkup(obj.introduction),
-            obj.classification_code or u"",
+            obj.classification_code or "",
         ]
     )
 
@@ -273,11 +273,11 @@ def LanguageIndexer(obj):
 
 class ISurveyAddSchema(model.Schema):
     title = schema.TextLine(
-        title=_("label_survey_title", default=u"Version name"),
+        title=_("label_survey_title", default="Version name"),
         description=_(
             "help_survey_title",
-            default=u"This is the title of this OiRA Tool version. This "
-            u"name is never shown to users.",
+            default="This is the title of this OiRA Tool version. This "
+            "name is never shown to users.",
         ),
         required=True,
     )

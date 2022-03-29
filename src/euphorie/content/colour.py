@@ -18,7 +18,7 @@ VALID_COLOUR = re.compile(r"^#?[0-9a-f]+$")
 
 
 class InvalidColour(ValidationError):
-    __doc__ = _(u"The specified colour is not valid.")
+    __doc__ = _("The specified colour is not valid.")
 
 
 class IColour(IBytesLine):

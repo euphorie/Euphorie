@@ -34,15 +34,15 @@ def update_custom_risks_module_texts(context):
                         custom = getattr(survey, "custom-risks", None)
                         if custom:
                             custom.question = _(
-                                u"question_other_risks",
+                                "question_other_risks",
                                 default=(
-                                    u"<p><strong>Important:</strong> In "
-                                    u"order to avoid duplicating risks, "
-                                    u"we strongly recommend you "
-                                    u"to go first through all the previous modules, "
-                                    u"if you have not done it yet.</p>"
-                                    u"<p>If you don't need to add risks, "
-                                    u"please continue.</p>"
+                                    "<p><strong>Important:</strong> In "
+                                    "order to avoid duplicating risks, "
+                                    "we strongly recommend you "
+                                    "to go first through all the previous modules, "
+                                    "if you have not done it yet.</p>"
+                                    "<p>If you don't need to add risks, "
+                                    "please continue.</p>"
                                 ),
                             )
                         if is_new:

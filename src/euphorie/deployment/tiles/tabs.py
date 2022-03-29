@@ -54,7 +54,7 @@ class SiteRootTabsTile(TabsTile):
         self.tabs = [
             {
                 "id": "sectors",
-                "title": _("nav_surveys", default=u"OiRA Tools"),
+                "title": _("nav_surveys", default="OiRA Tools"),
                 "url": self.portal.sectors.absolute_url(),
                 "class": "current" if current == "sectors" else None,
             }
@@ -66,7 +66,7 @@ class SiteRootTabsTile(TabsTile):
             self.tabs.append(
                 {
                     "id": "usermgmt",
-                    "title": _("nav_usermanagement", default=u"User management"),
+                    "title": _("nav_usermanagement", default="User management"),
                     "url": "%s/@@manage-users" % country_url,
                     "class": "current" if current == "usermgmt" else None,
                 }
@@ -76,7 +76,7 @@ class SiteRootTabsTile(TabsTile):
             self.tabs.append(
                 {
                     "id": "documents",
-                    "title": _("nav_documents", default=u"Documents"),
+                    "title": _("nav_documents", default="Documents"),
                     "url": self.portal.documents.absolute_url(),
                     "class": "current" if current == "documents" else None,
                 }
@@ -86,7 +86,7 @@ class SiteRootTabsTile(TabsTile):
             self.tabs.append(
                 {
                     "id": "help",
-                    "title": _("nav_help", default=u"Help"),
+                    "title": _("nav_help", default="Help"),
                     "url": "%s/help" % country_url,
                     "class": "current" if current == "help" else None,
                 }

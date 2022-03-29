@@ -113,7 +113,7 @@ def treeChanges(session, survey, profile=None):
                     # skipped.
                     results.add((entry["zodb_path"], nodes[0].type, "modified"))
             if node.type == entry["type"] == "risk":
-                if entry["always_present"] and node.identification != u"no":
+                if entry["always_present"] and node.identification != "no":
                     results.add((entry["zodb_path"], node.type, "modified"))
                 if entry["risk_type"] != node.risk_type:
                     results.add((entry["zodb_path"], node.type, "modified"))

@@ -190,7 +190,7 @@ class AddForm(DefaultAddForm):
             survey = self.copyTemplate(survey, obj)
             self.immediate_view = survey.absolute_url()
         else:
-            title = api.portal.translate(_("survey_default_title", default=u"Standard"))
+            title = api.portal.translate(_("survey_default_title", default="Standard"))
 
             obj = aq_inner(self.context)[obj.id]
             survey = createContentInContainer(obj, "euphorie.survey", title=title)
@@ -225,15 +225,15 @@ class Unpublish(BrowserView):
             api.portal.show_message(
                 _(
                     "message_unpublish_success",
-                    default=u"This OiRA Tool is now no longer available in "
-                    u"the client.",
+                    default="This OiRA Tool is now no longer available in "
+                    "the client.",
                 ),
                 self.request,
                 "success",
             )
         else:
             api.portal.show_message(
-                _("message_unpublish_cancel", default=u"Cancelled unpublish action."),
+                _("message_unpublish_cancel", default="Cancelled unpublish action."),
                 self.request,
                 "notice",
             )

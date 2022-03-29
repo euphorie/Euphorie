@@ -17,13 +17,13 @@ class TestDashboard(EuphorieIntegrationTestCase):
         self.account = addAccount(password="secret")
         # We setup two surveys, an archived one and one which is not archived
         survey_session = model.SurveySession(
-            title=u"Dummy session 1",
+            title="Dummy session 1",
             zodb_path="nl/ict/software-development",
             account=self.account,
         )
         model.Session.add(survey_session)
         survey_session = model.SurveySession(
-            title=u"Dummy session 2",
+            title="Dummy session 2",
             zodb_path="nl/ict/software-development",
             account=self.account,
         )
@@ -45,7 +45,7 @@ class TestDashboard(EuphorieIntegrationTestCase):
                     another_one = api.content.create(
                         container=country.ict,
                         type="euphorie.survey",
-                        title=u"Another one",
+                        title="Another one",
                     )
 
                 self.assertListEqual(

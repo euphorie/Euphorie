@@ -28,11 +28,11 @@ log = logging.getLogger(__name__)
 
 class ISurveyGroup(model.Schema, IBasic):
     title = schema.TextLine(
-        title=_("label_title", default=u"Title"),
+        title=_("label_title", default="Title"),
         description=_(
             "help_surveygroup_title",
-            default=u"The title of this OiRA Tool. This title is used in "
-            u"the OiRA Tool overview in the clients.",
+            default="The title of this OiRA Tool. This title is used in "
+            "the OiRA Tool overview in the clients.",
         ),
         required=True,
     )
@@ -41,11 +41,11 @@ class ISurveyGroup(model.Schema, IBasic):
     directives.omitted("description")
 
     obsolete = schema.Bool(
-        title=_("label_survey_obsolete", default=u"Obsolete OiRA tool"),
+        title=_("label_survey_obsolete", default="Obsolete OiRA tool"),
         description=_(
             "help_survey_obsolete",
-            default=u"This OiRA Tool is obsolete; it has been retired or "
-            u"replaced with another OiRA Tool.",
+            default="This OiRA Tool is obsolete; it has been retired or "
+            "replaced with another OiRA Tool.",
         ),
         default=False,
         required=False,
@@ -53,19 +53,19 @@ class ISurveyGroup(model.Schema, IBasic):
 
     directives.omitted(IEditForm, "evaluation_algorithm")
     evaluation_algorithm = schema.Choice(
-        title=_("label_survey_evaluation_algorithm", default=u"Evaluation algorithm"),
+        title=_("label_survey_evaluation_algorithm", default="Evaluation algorithm"),
         vocabulary=SimpleVocabulary(
             [
                 SimpleTerm(
-                    u"kinney",
-                    title=_("algorithm_kinney", default=u"Standard three criteria"),
+                    "kinney",
+                    title=_("algorithm_kinney", default="Standard three criteria"),
                 ),
                 SimpleTerm(
-                    u"french", title=_("french", default=u"Simplified two criteria")
+                    "french", title=_("french", default="Simplified two criteria")
                 ),
             ]
         ),
-        default=u"kinney",
+        default="kinney",
         required=True,
     )
 
@@ -77,7 +77,7 @@ class SurveyGroup(Container):
     """
 
     published = None
-    evaluation_algorithm = u"kinney"
+    evaluation_algorithm = "kinney"
     obsolete = False
 
     def _canCopy(self, op=0):

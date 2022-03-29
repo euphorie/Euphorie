@@ -45,10 +45,10 @@ class ReportIntegrationTests(EuphorieIntegrationTestCase):
             )
 
         sqlsession = Session()
-        account = model.Account(loginname=u"jane", password=u"secret")
+        account = model.Account(loginname="jane", password="secret")
         sqlsession.add(account)
         session = model.SurveySession(
-            title=u"Session", zodb_path="eu/sector/survey", account=account
+            title="Session", zodb_path="eu/sector/survey", account=account
         )
         sqlsession.add(session)
         sqlsession.flush()
@@ -316,7 +316,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
 
         measures = view.get_measures()
         self.assertEqual(len(measures), 1)
-        self.assertEqual(measures[0][0].module_id, u"2")
+        self.assertEqual(measures[0][0].module_id, "2")
 
     def test_get_measures_return_risks_without_measures(self):
         view = self._get_timeline()
@@ -364,7 +364,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
                     identification="no",
                     action_plans=[
                         model.ActionPlan(
-                            action=u"Measure 1 for %s" % session.account.loginname
+                            action="Measure 1 for %s" % session.account.loginname
                         )
                     ],
                 )
@@ -396,10 +396,10 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
                 identification="no",
                 action_plans=[
                     model.ActionPlan(
-                        action=u"Plan 2", planning_start=datetime.date(2011, 12, 15)
+                        action="Plan 2", planning_start=datetime.date(2011, 12, 15)
                     ),
                     model.ActionPlan(
-                        action=u"Plan 1", planning_start=datetime.date(2011, 11, 15)
+                        action="Plan 1", planning_start=datetime.date(2011, 11, 15)
                     ),
                 ],
             )
@@ -411,11 +411,11 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
 
         measures = view.get_measures()
         self.assertEqual(len(measures), 2)
-        self.assertEqual([row[2].action for row in measures], [u"Plan 1", u"Plan 2"])
+        self.assertEqual([row[2].action for row in measures], ["Plan 1", "Plan 2"])
 
     def test_priority_name_known_priority(self):
         view = self._get_timeline()
-        self.assertEqual(view.priority_name("high"), u"High")
+        self.assertEqual(view.priority_name("high"), "High")
 
     def test_priority_name_known_unpriority(self):
         view = self._get_timeline()
@@ -434,23 +434,23 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         view = self._get_timeline()
         module = model.Module(
             zodb_path="1",
-            title=u"Top-level Module title",
+            title="Top-level Module title",
         )
         risk = model.Risk(
             zodb_path="1/2/3",
             risk_id="1",
-            title=u"Risk title",
+            title="Risk title",
             priority="high",
             identification="no",
             path="001002003",
-            comment=u"Risk comment",
+            comment="Risk comment",
         )
         plan = model.ActionPlan(
-            action=u"Plan 2", planning_start=datetime.date(2011, 12, 15), budget=500
+            action="Plan 2", planning_start=datetime.date(2011, 12, 15), budget=500
         )
         survey = view.context.aq_parent
         zodb_node = mock.Mock()
-        zodb_node.problem_description = u"This is wrong."
+        zodb_node.problem_description = "This is wrong."
         survey.restrictedTraverse.return_value = zodb_node
 
         view.get_measures = lambda: [(module, risk, plan)]
@@ -461,7 +461,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         # planning end
         self.assertEqual(sheet["B2"].value, None)
         # action plan
-        self.assertEqual(sheet["C2"].value, u"Plan 2")
+        self.assertEqual(sheet["C2"].value, "Plan 2")
         # requirements
         self.assertEqual(sheet["D2"].value, None)
         # responsible
@@ -469,46 +469,46 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
         # budget
         self.assertEqual(sheet["F2"].value, 500)
         # module title
-        self.assertEqual(sheet["G2"].value, u"Top-level Module title")
+        self.assertEqual(sheet["G2"].value, "Top-level Module title")
         # risk number
-        self.assertEqual(sheet["H2"].value, u"1.2.3")
+        self.assertEqual(sheet["H2"].value, "1.2.3")
         # risk title
-        self.assertEqual(sheet["I2"].value, u"This is wrong.")
+        self.assertEqual(sheet["I2"].value, "This is wrong.")
         # risk priority
-        self.assertEqual(sheet["J2"].value, u"High")
+        self.assertEqual(sheet["J2"].value, "High")
         # risk comment
-        self.assertEqual(sheet["K2"].value, u"Risk comment")
+        self.assertEqual(sheet["K2"].value, "Risk comment")
 
     def test_create_workbook_no_problem_description(self):
         view = self._get_timeline()
         module = model.Module(
             zodb_path="1",
             path="001",
-            title=u"Top-level Module title",
+            title="Top-level Module title",
         )
         risk = model.Risk(
             zodb_path="1/2/3",
             risk_id="1",
-            title=u"Risk title",
+            title="Risk title",
             priority="high",
             identification="no",
             path="001002003",
-            comment=u"Risk comment",
+            comment="Risk comment",
         )
         survey = view.context.aq_parent
         survey.ProfileQuestions = lambda: []
         zodb_node = mock.Mock()
-        zodb_node.title = u"Risk title."
-        zodb_node.problem_description = u"  "
+        zodb_node.title = "Risk title."
+        zodb_node.problem_description = "  "
         survey.restrictedTraverse.return_value = zodb_node
         view.getRisks = lambda x: [(module, risk)]
         sheet = view.create_workbook().worksheets[0]
-        self.assertEqual(sheet["I2"].value, u"Risk title")
+        self.assertEqual(sheet["I2"].value, "Risk title")
 
     def test_render_value(self):
         with api.env.adopt_user(user=self.account):
             view = self._get_timeline()
-            view.context.session.title = u"Acmè"
+            view.context.session.title = "Acmè"
             survey = view.context.aq_parent
             survey.ProfileQuestions = lambda: []
             view.__call__()
@@ -517,7 +517,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
                 response.headers["content-type"],
                 "application/vnd.openxmlformats-" "officedocument.spreadsheetml.sheet",
             )
-            quoted_filename = quote(u"Timeline for Acmè.xlsx".encode("utf-8"))
+            quoted_filename = quote("Timeline for Acmè.xlsx".encode("utf-8"))
             self.assertEqual(quoted_filename, "Timeline%20for%20Acm%C3%A8.xlsx")
             self.assertEqual(
                 response.headers["content-disposition"],

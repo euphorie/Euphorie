@@ -18,7 +18,7 @@ class Lock(BrowserView):
         if self.request.method != "POST":
             raise Unauthorized
         authenticator = getMultiAdapter(
-            (self.context, self.request), name=u"authenticator"
+            (self.context, self.request), name="authenticator"
         )
         if not authenticator.verify():
             raise Unauthorized
@@ -28,7 +28,7 @@ class Lock(BrowserView):
             api.portal.show_message(
                 _(
                     "message_user_locked",
-                    default=u'Account "${title}" has been locked.',
+                    default='Account "${title}" has been locked.',
                     mapping=dict(title=self.context.title),
                 ),
                 self.request,
@@ -38,7 +38,7 @@ class Lock(BrowserView):
             api.portal.show_message(
                 _(
                     "message_user_unlocked",
-                    default=u'Account "${title}" has been unlocked.',
+                    default='Account "${title}" has been unlocked.',
                     mapping=dict(title=self.context.title),
                 ),
                 self.request,

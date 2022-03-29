@@ -24,11 +24,11 @@ class ConditionalField(object):
 
 
 class ConditionalTextLine(schema.TextLine, ConditionalField):
-    """ A Text line that is only shown under certain conditions """
+    """A Text line that is only shown under certain conditions"""
 
 
 class ConditionalHtmlText(HtmlText, ConditionalField):
-    """ HTML Text field that is only shown under certain conditions """
+    """HTML Text field that is only shown under certain conditions"""
 
 
 @implementer(IValidator)

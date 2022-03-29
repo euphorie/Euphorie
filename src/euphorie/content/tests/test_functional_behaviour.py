@@ -61,17 +61,17 @@ class RichDescriptionTests(EuphorieIntegrationTestCase):
 
     def testNoMarkup(self):
         module = self.createModule()
-        module.description = u"Raw text"
+        module.description = "Raw text"
         module.indexObject()
         brain = self.portal.portal_catalog(portal_type="euphorie.module")[0]
-        self.assertEqual(brain.Description, u"Raw text")
+        self.assertEqual(brain.Description, "Raw text")
 
     def testStrayBracket(self):
         module = self.createModule()
-        module.description = u"Test <em>me</em> >"
+        module.description = "Test <em>me</em> >"
         module.indexObject()
         brain = self.portal.portal_catalog(portal_type="euphorie.module")[0]
-        self.assertEqual(brain.Description, u"Test me >")
+        self.assertEqual(brain.Description, "Test me >")
 
     def testNone(self):
         module = self.createModule()

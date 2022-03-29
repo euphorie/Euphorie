@@ -40,7 +40,7 @@ class EditForm(DefaultEditForm):
 
     schema = ISector
     default_fieldset_label = None
-    formErrorsMessage = u"Please correct the indicated errors."
+    formErrorsMessage = "Please correct the indicated errors."
 
     def extractData(self):
         self.fields = self.fields.omit("title", "login")
@@ -90,8 +90,8 @@ class Delete(actions.Delete):
             flash(
                 _(
                     "message_not_delete_published_sector",
-                    default=u"You can not delete a sector that contains published "
-                    u"OiRA Tools.",
+                    default="You can not delete a sector that contains published "
+                    "OiRA Tools.",
                 ),
                 "error",
             )

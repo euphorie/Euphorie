@@ -37,8 +37,8 @@ class INameFromUniqueId(Interface):
     """
 
     id = schema.TextLine(
-        title=_(u"Identifier"),
-        description=_(u"This is a unique identifier for this object."),
+        title=_("Identifier"),
+        description=_("This is a unique identifier for this object."),
         required=True,
     )
 

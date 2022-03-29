@@ -35,8 +35,8 @@ class IRichDescription(model.Schema):
     """
 
     description = schema.Text(
-        title=_(u"Summary"),
-        description=_(u"A short summary of the content."),
+        title=_("Summary"),
+        description=_("A short summary of the content."),
         required=False,
     )
     directives.widget(description=WysiwygFieldWidget)
@@ -48,7 +48,7 @@ def Description(obj):
     """Indexer for rich text descriptions fields. Return a plain text
     version of the description for use in the Plone catalog.
     """
-    d = getattr(obj, "description", u"")
+    d = getattr(obj, "description", "")
     if d is None:
         return None
 
