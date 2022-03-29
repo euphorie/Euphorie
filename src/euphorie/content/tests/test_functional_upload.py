@@ -48,7 +48,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         )
         importer = upload.SurveyImporter(None)
         (image, caption) = importer.ImportImage(snippet)
-        self.assertEqual(caption, u"Key image")
+        self.assertEqual(caption, "Key image")
         self.assertTrue(isinstance(caption, six.text_type))
         self.assertEqual(image.contentType, "image/gif")
         self.assertEqual(image.filename, "myfile.gif")
@@ -72,7 +72,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         importer = upload.SurveyImporter(None)
         (image, caption) = importer.ImportImage(snippet)
         self.assertEqual(caption, None)
-        self.assertEqual(image.filename, u"tiny.gif")
+        self.assertEqual(image.filename, "tiny.gif")
         # Required by the interface :(
         self.assertTrue(isinstance(image.filename, six.text_type))
         self.assertEqual(image.contentType, "image/gif")
@@ -90,15 +90,15 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         importer = upload.SurveyImporter(None)
         solution = importer.ImportSolution(snippet, risk)
         self.assertEqual(risk.keys(), ["3"])
-        self.assertEqual(solution.description, u"Add more abstraction layers")
+        self.assertEqual(solution.description, "Add more abstraction layers")
         self.assertTrue(isinstance(solution.description, six.text_type))
-        self.assertEqual(solution.action_plan, u"Add another level")
+        self.assertEqual(solution.action_plan, "Add another level")
         self.assertTrue(isinstance(solution.action_plan, six.text_type))
         self.assertEqual(
-            solution.prevention_plan, u"Ask a code reviewer to verify the design"
+            solution.prevention_plan, "Ask a code reviewer to verify the design"
         )
         self.assertTrue(isinstance(solution.prevention_plan, six.text_type))
-        self.assertEqual(solution.requirements, u"A good understanding of architecture")
+        self.assertEqual(solution.requirements, "A good understanding of architecture")
         self.assertTrue(isinstance(solution.requirements, six.text_type))
 
     def testImportSolution_MissingFields(self):
@@ -111,8 +111,8 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         risk = self.createRisk()
         importer = upload.SurveyImporter(None)
         solution = importer.ImportSolution(snippet, risk)
-        self.assertEqual(solution.description, u"Add more abstraction layers")
-        self.assertEqual(solution.action_plan, u"Add another level")
+        self.assertEqual(solution.description, "Add more abstraction layers")
+        self.assertEqual(solution.action_plan, "Add another level")
         self.assertEqual(solution.prevention_plan, None)
         self.assertEqual(solution.requirements, None)
 
@@ -130,18 +130,18 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         module = self.createModule()
         importer = upload.SurveyImporter(None)
         risk = importer.ImportRisk(snippet, module)
-        self.assertEqual(risk.title, u"Are your desks at the right height?")
+        self.assertEqual(risk.title, "Are your desks at the right height?")
         self.assertTrue(isinstance(risk.title, six.text_type))
         self.assertEqual(
-            risk.problem_description, u"Not all desks are set to the right height."
+            risk.problem_description, "Not all desks are set to the right height."
         )
         self.assertTrue(isinstance(risk.problem_description, six.text_type))
         self.assertEqual(
             risk.description,
-            u"<p>The right height is important to prevent back problems.</p>",
+            "<p>The right height is important to prevent back problems.</p>",
         )
         self.assertTrue(isinstance(risk.description, six.text_type))
-        self.assertEqual(risk.legal_reference, u"<p>See ARBO policies.</p>")
+        self.assertEqual(risk.legal_reference, "<p>See ARBO policies.</p>")
         self.assertTrue(isinstance(risk.legal_reference, six.text_type))
         self.assertEqual(risk.show_notapplicable, True)
         self.assertEqual(risk.keys(), [])
@@ -168,13 +168,13 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         importer = upload.SurveyImporter(None)
         risk = importer.ImportRisk(snippet, module)
         self.assertEqual(risk.image.filename, "tiny.gif")
-        self.assertEqual(risk.caption, u"Key image")
+        self.assertEqual(risk.caption, "Key image")
         self.assertEqual(risk.image2.filename, "tiny.gif")
-        self.assertEqual(risk.caption2, u"Image 2")
+        self.assertEqual(risk.caption2, "Image 2")
         self.assertEqual(risk.image3.filename, "tiny.gif")
-        self.assertEqual(risk.caption3, u"Image 3")
+        self.assertEqual(risk.caption3, "Image 3")
         self.assertEqual(risk.image4.filename, "tiny.gif")
-        self.assertEqual(risk.caption4, u"Image 4")
+        self.assertEqual(risk.caption4, "Image 4")
 
     def testImportRisk_DirectEvaluation(self):
         snippet = objectify.fromstring(
@@ -222,7 +222,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.loginAsPortalOwner()
         module = self.createModule()
         group = aq_parent(aq_parent(module))
-        group.evaluation_algorithm = u"french"
+        group.evaluation_algorithm = "french"
         importer = upload.SurveyImporter(None)
         risk = importer.ImportRisk(snippet, module)
         self.assertTrue(IFrenchEvaluation.providedBy(risk))
@@ -252,7 +252,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.assertEqual(risk.keys(), ["3"])
         solution = risk["3"]
         self.assertTrue(isinstance(solution, Solution))
-        self.assertEqual(solution.description, u"Use height-adjustable desks")
+        self.assertEqual(solution.description, "Use height-adjustable desks")
 
     def testImportModule(self):
         snippet = objectify.fromstring(
@@ -266,16 +266,16 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         survey = self.createSurvey()
         importer = upload.SurveyImporter(None)
         module = importer.ImportModule(snippet, survey)
-        self.assertEqual(module.title, u"Design patterns")
+        self.assertEqual(module.title, "Design patterns")
         self.assertTrue(isinstance(module.title, six.text_type))
         self.assertEqual(module.optional, False)
         self.assertEqual(module.question, None)
         self.assertEqual(
-            module.description, u"<p>Software design patterns are critical.</p>"
+            module.description, "<p>Software design patterns are critical.</p>"
         )
         self.assertTrue(isinstance(module.description, six.text_type))
         self.assertEqual(
-            module.solution_direction, u"<p>Buy the book from the gang of four.</p>"
+            module.solution_direction, "<p>Buy the book from the gang of four.</p>"
         )
         self.assertTrue(isinstance(module.solution_direction, six.text_type))
         self.assertEqual(module.keys(), [])
@@ -296,7 +296,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         module = importer.ImportModule(snippet, survey)
         self.assertNotEqual(module.image, None)
         self.assertEqual(module.image.contentType, "image/gif")
-        self.assertEqual(module.caption, u"My caption")
+        self.assertEqual(module.caption, "My caption")
 
     def testImportModule_Optional(self):
         snippet = objectify.fromstring(
@@ -311,7 +311,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         importer = upload.SurveyImporter(None)
         module = importer.ImportModule(snippet, survey)
         self.assertEqual(module.optional, True)
-        self.assertEqual(module.question, u"Have you used design patterns?")
+        self.assertEqual(module.question, "Have you used design patterns?")
 
     def testImportModule_WithSubModule(self):
         snippet = objectify.fromstring(
@@ -331,7 +331,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.assertEqual(module.keys(), ["2"])
         module = module["2"]
         self.assertTrue(isinstance(module, Module))
-        self.assertEqual(module.title, u"Iterators")
+        self.assertEqual(module.title, "Iterators")
 
     def testImportModule_WithRisk(self):
         snippet = objectify.fromstring(
@@ -352,7 +352,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.assertEqual(module.keys(), ["2"])
         risk = module["2"]
         self.assertTrue(isinstance(risk, Risk))
-        self.assertEqual(risk.title, u"New hires are not aware of design patterns.")
+        self.assertEqual(risk.title, "New hires are not aware of design patterns.")
 
     def testImportProfileQuestion(self):
         snippet = objectify.fromstring(
@@ -366,13 +366,13 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         survey = self.createSurvey()
         importer = upload.SurveyImporter(None)
         profile = importer.ImportProfileQuestion(snippet, survey)
-        self.assertEqual(profile.title, u"Laptop usage")
+        self.assertEqual(profile.title, "Laptop usage")
         self.assertTrue(isinstance(profile.title, six.text_type))
-        self.assertEqual(profile.question, u"Do your employees use laptops?")
+        self.assertEqual(profile.question, "Do your employees use laptops?")
         self.assertTrue(isinstance(profile.question, six.text_type))
         self.assertEqual(
             profile.description,
-            u"<p>Laptops are very common in the modern workplace.</p>",
+            "<p>Laptops are very common in the modern workplace.</p>",
         )
         self.assertTrue(isinstance(profile.description, six.text_type))
         self.assertEqual(profile.keys(), [])
@@ -411,7 +411,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.assertEqual(profile.keys(), ["2"])
         module = profile["2"]
         self.assertTrue(isinstance(module, Module))
-        self.assertEqual(module.title, u"Design patterns")
+        self.assertEqual(module.title, "Design patterns")
 
     def testImportProfileQuestion_WithRisk(self):
         snippet = objectify.fromstring(
@@ -433,7 +433,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.assertEqual(profile.keys(), ["2"])
         risk = profile["2"]
         self.assertTrue(isinstance(risk, Risk))
-        self.assertEqual(risk.title, u"New hires are not aware of design patterns.")
+        self.assertEqual(risk.title, "New hires are not aware of design patterns.")
 
     def testImportSurvey(self):
         snippet = objectify.fromstring(
@@ -447,12 +447,12 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         importer = upload.SurveyImporter(None)
-        survey = importer.ImportSurvey(snippet, surveygroup, u"Fresh import")
+        survey = importer.ImportSurvey(snippet, surveygroup, "Fresh import")
         self.assertEqual(surveygroup.keys(), ["fresh-import"])
         self.assertEqual(survey.keys(), [])
-        self.assertEqual(survey.title, u"Fresh import")
+        self.assertEqual(survey.title, "Fresh import")
         self.assertTrue(isinstance(survey.title, six.text_type))
-        self.assertEqual(survey.classification_code, u"A.1.2.3")
+        self.assertEqual(survey.classification_code, "A.1.2.3")
         self.assertTrue(isinstance(survey.language, str))
         self.assertEqual(survey.language, "nl")
         self.assertTrue(isinstance(survey.classification_code, six.text_type))
@@ -471,12 +471,12 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         importer = upload.SurveyImporter(None)
-        survey = importer.ImportSurvey(snippet, surveygroup, u"Fresh import")
+        survey = importer.ImportSurvey(snippet, surveygroup, "Fresh import")
         self.assertEqual(surveygroup.keys(), ["fresh-import"])
         self.assertEqual(survey.keys(), ["1"])
         module = survey["1"]
         self.assertTrue(isinstance(module, Module))
-        self.assertEqual(module.title, u"Design patterns")
+        self.assertEqual(module.title, "Design patterns")
 
     def testImportSurvey_WithProfileQuestion(self):
         snippet = objectify.fromstring(
@@ -492,12 +492,12 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         importer = upload.SurveyImporter(None)
-        survey = importer.ImportSurvey(snippet, surveygroup, u"Fresh import")
+        survey = importer.ImportSurvey(snippet, surveygroup, "Fresh import")
         self.assertEqual(surveygroup.keys(), ["fresh-import"])
         self.assertEqual(survey.keys(), ["1"])
         profile = survey["1"]
         self.assertTrue(isinstance(profile, ProfileQuestion))
-        self.assertEqual(profile.title, u"Laptop usage")
+        self.assertEqual(profile.title, "Laptop usage")
 
     def testImportSurvey_ChildOrdering(self):
         snippet = objectify.fromstring(
@@ -526,14 +526,14 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.loginAsPortalOwner()
         surveygroup = self.createSurveyGroup()
         importer = upload.SurveyImporter(None)
-        survey = importer.ImportSurvey(snippet, surveygroup, u"Fresh import")
+        survey = importer.ImportSurvey(snippet, surveygroup, "Fresh import")
         self.assertEqual(surveygroup.keys(), ["fresh-import"])
         self.assertEqual(survey.keys(), ["1", "2", "3", "4"])
         children = survey.values()
-        self.assertEqual(children[0].title, u"Module one")
-        self.assertEqual(children[1].title, u"Profile one")
-        self.assertEqual(children[2].title, u"Module two")
-        self.assertEqual(children[3].title, u"Profile two")
+        self.assertEqual(children[0].title, "Module one")
+        self.assertEqual(children[1].title, "Profile one")
+        self.assertEqual(children[2].title, "Module two")
+        self.assertEqual(children[3].title, "Profile two")
 
 
 class SectorImporterTests(EuphorieFunctionalTestCase):
@@ -549,7 +549,7 @@ class SectorImporterTests(EuphorieFunctionalTestCase):
         self.loginAsPortalOwner()
         country = self.portal.sectors.nl
         importer = upload.SectorImporter(country)
-        importer(snippet, None, "login", None, u"Import")
+        importer(snippet, None, "login", None, "Import")
         self.assertEqual(country.keys(), ["help", "software-development-sector"])
         sector = country["software-development-sector"]
         self.assertEqual(sector.title, "Software development sector")
@@ -578,11 +578,11 @@ class SectorImporterTests(EuphorieFunctionalTestCase):
         self.loginAsPortalOwner()
         country = self.portal.sectors.nl
         importer = upload.SectorImporter(country)
-        importer(snippet, None, None, None, u"Import")
+        importer(snippet, None, None, None, "Import")
         sector = country["software-development-sector"]
-        self.assertEqual(sector.login, u"coders")
-        self.assertEqual(sector.contact_name, u"Team lead")
-        self.assertEqual(sector.contact_email, u"discard@simplon.biz")
+        self.assertEqual(sector.login, "coders")
+        self.assertEqual(sector.contact_name, "Team lead")
+        self.assertEqual(sector.contact_email, "discard@simplon.biz")
         self.assertEqual(sector.password, "s3cr3t")
 
     def testImportSurvey_WithLogo(self):
@@ -595,7 +595,7 @@ class SectorImporterTests(EuphorieFunctionalTestCase):
         self.loginAsPortalOwner()
         country = self.portal.sectors.nl
         importer = upload.SectorImporter(country)
-        importer(snippet, None, "login", None, u"Import")
+        importer(snippet, None, "login", None, "Import")
         sector = country["software-development-sector"]
         self.assertNotEqual(sector.logo, None)
         self.assertEqual(sector.logo.filename, "tiny.gif")

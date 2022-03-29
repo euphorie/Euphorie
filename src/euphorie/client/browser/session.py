@@ -76,20 +76,20 @@ def sql_clone(obj, skip={}, session=None):
 class IStartFormSchema(model.Schema):
     title = schema.TextLine(
         title=_(
-            "label_session_title", default=u"Enter a title for your Risk Assessment"
+            "label_session_title", default="Enter a title for your Risk Assessment"
         ),
         required=True,
         description=_(
             "session_title_tooltip",
-            default=u"Once you have started an OiRA tool "
-            u"session, you will be able to stop before the end. You can restart it "
-            u"again at a later date by selecting the title of the OiRA tool session. "
-            u"You can save more than one session, provided you have given them "
-            u"different title names. Please remember your e-mail address, password "
-            u"and the title that you have given the OiRA tool session. By clicking "
-            u"on the Logout button, you are logged out actively. You are also logged "
-            u"out if you close your Browser. For security reasons it is better to "
-            u"actively log out.",
+            default="Once you have started an OiRA tool "
+            "session, you will be able to stop before the end. You can restart it "
+            "again at a later date by selecting the title of the OiRA tool session. "
+            "You can save more than one session, provided you have given them "
+            "different title names. Please remember your e-mail address, password "
+            "and the title that you have given the OiRA tool session. By clicking "
+            "on the Logout button, you are logged out actively. You are also logged "
+            "out if you close your Browser. For security reasons it is better to "
+            "actively log out.",
         ),
     )
 
@@ -170,7 +170,7 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
 
     @property
     def message_gt1(self):
-        return api.portal.translate(_(u"This value must be greater than or equal to 1"))
+        return api.portal.translate(_("This value must be greater than or equal to 1"))
 
     @memoize
     def get_pat_messages_above_title(self):
@@ -178,14 +178,14 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
         if not self.webhelpers.can_edit_session:
             link_download_section = _(
                 "no_translate_link_download_section",
-                default=u"<a href='%s/@@report'>${text_download_section}</a>"
+                default="<a href='%s/@@report'>${text_download_section}</a>"
                 % self.context.absolute_url(),
-                mapping={"text_download_section": _(u"download section")},
+                mapping={"text_download_section": _("download section")},
             )
             message = _(
-                u"You don't have edit rights for this risk assesment, "
-                u"but you can download "
-                u"this risk assessment in various forms in the ${download_section}.",
+                "You don't have edit rights for this risk assesment, "
+                "but you can download "
+                "this risk assessment in various forms in the ${download_section}.",
                 mapping={"download_section": link_download_section},
             )
             return [api.portal.translate(message)]
@@ -378,17 +378,17 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
                 "label_multiple_present": getattr(
                     child,
                     "label_multiple_present",
-                    _(u"Does this happen in multiple places?"),
+                    _("Does this happen in multiple places?"),
                 ),
                 "label_single_occurance": getattr(
                     child,
                     "label_single_occurance",
-                    _(u"Enter the name of the location"),
+                    _("Enter the name of the location"),
                 ),
                 "label_multiple_occurances": getattr(
                     child,
                     "label_multiple_occurances",
-                    _(u"Enter the names of each location"),
+                    _("Enter the names of each location"),
                 ),
             }
             for child in self.context.ProfileQuestions()
@@ -458,11 +458,11 @@ class ContentsPreview(BrowserView):
     @property
     def extra_text(self):
         have_extra = api.portal.get_registry_record(
-            "euphorie.extra_text_identification", default=u""
+            "euphorie.extra_text_identification", default=""
         )
         if not have_extra:
             return None
-        return api.portal.translate(_(u"extra_text_identification", default=u""))
+        return api.portal.translate(_("extra_text_identification", default=""))
 
     @property
     @memoize
@@ -471,7 +471,7 @@ class ContentsPreview(BrowserView):
 
     @property
     def title_custom_risks(self):
-        return api.portal.translate(_("label_custom_risks", default=u"Custom risks"))
+        return api.portal.translate(_("label_custom_risks", default="Custom risks"))
 
     def get_session_nodes(self):
         """Return an ordered list of all tree items for the current survey.
@@ -516,7 +516,7 @@ class ContentsPreview(BrowserView):
             if not ISolution.providedBy(solution):
                 continue
             if mode == "full":
-                text = u"{title}<br/>{description}".format(
+                text = "{title}<br/>{description}".format(
                     title=solution.description, description=solution.action
                 )
             else:
@@ -578,7 +578,7 @@ class Identification(SessionMixin, BrowserView):
     @property
     def extra_text(self):
         have_extra = api.portal.get_registry_record(
-            "euphorie.extra_text_identification", default=u""
+            "euphorie.extra_text_identification", default=""
         )
         if not have_extra:
             return None
@@ -590,7 +590,7 @@ class Identification(SessionMixin, BrowserView):
             elems = lang.split("-")
             lang = "{0}_{1}".format(elems[0], elems[1].upper())
         return translate(
-            _(u"extra_text_identification", default=u""), target_language=lang
+            _("extra_text_identification", default=""), target_language=lang
         )
 
     def __call__(self):
@@ -623,7 +623,7 @@ class DeleteSession(SessionMixin, BrowserView):
         Session.delete(self.context.session)
         api.portal.show_message(
             _(
-                u"Session `${name}` has been deleted.",
+                "Session `${name}` has been deleted.",
                 mapping={"name": self.context.session.title},
             ),
             self.request,
@@ -676,7 +676,7 @@ class ArchiveSession(SessionMixin, BrowserView):
         session.archived = localized_now()
         self.notify_modified()
         api.portal.show_message(
-            _(u"Session `${name}` has been archived.", mapping={"name": session.title}),
+            _("Session `${name}` has been archived.", mapping={"name": session.title}),
             self.request,
             "success",
         )
@@ -704,8 +704,8 @@ class CloneSession(SessionMixin, BrowserView):
             session=sql_session,
         )
         lang = getattr(self.request, "LANGUAGE", "en")
-        new_session.title = u"{}: {}".format(
-            translate(_("prefix_cloned_title", default=u"COPY"), target_language=lang),
+        new_session.title = "{}: {}".format(
+            translate(_("prefix_cloned_title", default="COPY"), target_language=lang),
             new_session.title,
         )
         account = self.webhelpers.get_current_account()
@@ -933,7 +933,7 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
             date_lang = lang.split("-")[0]
             elems = lang.split("-")
             lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        self.date = u"{0} {1} {2}".format(
+        self.date = "{0} {1} {2}".format(
             now.strftime("%d"),
             translate(
                 PloneLocalesMessageFactory(
@@ -1175,7 +1175,7 @@ class MeasuresOverview(Status):
                 number = module.number
                 if "custom-risks" in module.zodb_path:
                     num_elems = number.split(".")
-                    number = u".".join([u"Ω"] + num_elems[1:])
+                    number = ".".join(["Ω"] + num_elems[1:])
                     title = api.portal.translate(_(title))
                 main_modules[path] = {"name": title, "number": number, "risks": risks}
 

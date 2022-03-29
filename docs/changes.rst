@@ -11,6 +11,7 @@ Changelog
 - For the XML export of Surveys, give the user the posibility of de-selecting
   certain parts (images, legal texts, etc)
 - Fix bug that prevented deleting Omega risks
+- Code: apply black 22.3.0
 
 
 14.0.1 (2022-03-17)

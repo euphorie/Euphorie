@@ -11,31 +11,29 @@ class PublicationTests(EuphorieIntegrationTestCase):
 
     def createSurvey(self):
         self.portal.sectors.nl.invokeFactory(
-            "euphorie.sector", "dining", title=u"Fine diningÂ®"
+            "euphorie.sector", "dining", title="Fine diningÂ®"
         )
         self.sector = self.portal.sectors.nl.dining
-        self.sector.invokeFactory("euphorie.surveygroup", "survey", title=u"Survey")
+        self.sector.invokeFactory("euphorie.surveygroup", "survey", title="Survey")
         self.surveygroup = self.sector.survey
-        self.surveygroup.invokeFactory(
-            "euphorie.survey", "version1", title=u"Version 1"
-        )
+        self.surveygroup.invokeFactory("euphorie.survey", "version1", title="Version 1")
         self.survey = self.surveygroup.version1
         return self.survey
 
     def testPublishEmptySurvey(self):
         self.createSurvey()
-        self.surveygroup.evaluation_algorithm = u"dummy"
+        self.surveygroup.evaluation_algorithm = "dummy"
         view = self.survey.restrictedTraverse("@@publish")
         view.publish()
         self.assertEqual(set(self.client.objectIds()), set(["nl"]))
         self.assertEqual(self.client.nl.objectIds(), ["dining"])
         sector = self.client.nl.dining
         self.assertEqual(sector.portal_type, "euphorie.clientsector")
-        self.assertEqual(sector.Title(), u"Fine diningÂ®")
+        self.assertEqual(sector.Title(), "Fine diningÂ®")
         survey = sector.survey
         self.assertEqual(survey.portal_type, "euphorie.survey")
-        self.assertEqual(survey.evaluation_algorithm, u"dummy")
-        self.assertEqual(survey.title, u"Survey")
+        self.assertEqual(survey.evaluation_algorithm, "dummy")
+        self.assertEqual(survey.title, "Survey")
         self.assertEqual(survey.objectIds(), [])
 
     def testPublishSurveyWithQuestion(self):
@@ -43,7 +41,7 @@ class PublicationTests(EuphorieIntegrationTestCase):
         modid = self.survey.invokeFactory("euphorie.module", "module")
         module = getattr(self.survey, modid)
         qid = module.invokeFactory(
-            "euphorie.risk", "risk", title=u"Do you offer take away?"
+            "euphorie.risk", "risk", title="Do you offer take away?"
         )
         view = self.survey.restrictedTraverse("@@publish")
         view.publish()
@@ -74,7 +72,7 @@ class PublicationTests(EuphorieIntegrationTestCase):
         )
         self.createSurvey()
         self.sector.logo = NamedBlobImage(
-            data=white_gif, contentType="image/gif", filename=u"white.gif"
+            data=white_gif, contentType="image/gif", filename="white.gif"
         )
         view = self.survey.restrictedTraverse("@@publish")
         view.publish()
@@ -83,7 +81,7 @@ class PublicationTests(EuphorieIntegrationTestCase):
         images = client_sector.restrictedTraverse("@@images")
         white_scale = images.scale("logo", height=100, direction="up").data.data
         self.sector.logo = NamedBlobImage(
-            data=black_gif, contentType="image/gif", filename=u"black.gif"
+            data=black_gif, contentType="image/gif", filename="black.gif"
         )
         view.publish()
         self.assertEqual(client_sector.logo.data, black_gif)

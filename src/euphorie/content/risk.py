@@ -65,11 +65,11 @@ class IRisk(model.Schema, IRichDescription, IBasic):
     """A possible risk that can be present in an organisation."""
 
     title = schema.TextLine(
-        title=_("label_statement", default=u"Affirmative statement"),
+        title=_("label_statement", default="Affirmative statement"),
         description=_(
             "help_statement",
-            default=u"This is a short affirmative statement about a "
-            u"possible risk (e.g. The building is well maintained.)",
+            default="This is a short affirmative statement about a "
+            "possible risk (e.g. The building is well maintained.)",
         ),
         required=True,
     )
@@ -77,11 +77,11 @@ class IRisk(model.Schema, IRichDescription, IBasic):
     directives.order_before(title="*")
 
     problem_description = schema.TextLine(
-        title=_("label_problem_description", default=u"Negative statement"),
+        title=_("label_problem_description", default="Negative statement"),
         description=_(
             "help_problem_description",
-            default=u"This is the inverse of the affirmative "
-            u"statement (e.g. The building is not well maintained.)",
+            default="This is the inverse of the affirmative "
+            "statement (e.g. The building is not well maintained.)",
         ),
         required=True,
     )
@@ -89,11 +89,11 @@ class IRisk(model.Schema, IRichDescription, IBasic):
     directives.order_after(problem_description="title")
 
     description = HtmlText(
-        title=_("label_description", default=u"Description"),
+        title=_("label_description", default="Description"),
         description=_(
             "help_risk_description",
-            default=u"Describe the risk. Include any relevant information "
-            u"that may be helpful for the end-user.",
+            default="Describe the risk. Include any relevant information "
+            "that may be helpful for the end-user.",
         ),
         required=True,
     )
@@ -103,17 +103,17 @@ class IRisk(model.Schema, IRichDescription, IBasic):
     existing_measures = TextLinesWithBreaks(
         title=_(
             "deprecated_label_existing_measures",
-            default=u"Measures that are already in place (Only shown here for "
-            u"reference! Use the “Add Measure” button on the Risk for adding "
-            u"measures that are shown to the user during Identification.)",
+            default="Measures that are already in place (Only shown here for "
+            "reference! Use the “Add Measure” button on the Risk for adding "
+            "measures that are shown to the user during Identification.)",
         ),
         description=_(
             "help_existing_measures",
-            default=u"Use this field to define (common) measures that the "
-            u"user might have already implemented. "
-            u"Separate measures with a line break (Enter). The user will be "
-            u"able to deselect those measures that are not applicable to their"
-            u"situation.",
+            default="Use this field to define (common) measures that the "
+            "user might have already implemented. "
+            "Separate measures with a line break (Enter). The user will be "
+            "able to deselect those measures that are not applicable to their"
+            "situation.",
         ),
         required=False,
     )
@@ -121,7 +121,7 @@ class IRisk(model.Schema, IRichDescription, IBasic):
     directives.order_after(existing_measures="description")
 
     legal_reference = HtmlText(
-        title=_("label_legal_reference", default=u"Legal and policy references"),
+        title=_("label_legal_reference", default="Legal and policy references"),
         required=False,
     )
     directives.widget(legal_reference="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
@@ -129,46 +129,46 @@ class IRisk(model.Schema, IRichDescription, IBasic):
 
     model.fieldset(
         "identification",
-        label=_("header_identification", default=u"Identification"),
+        label=_("header_identification", default="Identification"),
         fields=["show_notapplicable"],
     )
 
     show_notapplicable = schema.Bool(
-        title=_("label_show_notapplicable", default=u"Show `not applicable' option"),
+        title=_("label_show_notapplicable", default="Show `not applicable' option"),
         description=_(
             "help_show_notapplicable",
-            default=u"Offer a `not applicable' option in addition "
-            u"to the standard yes/no options.",
+            default="Offer a `not applicable' option in addition "
+            "to the standard yes/no options.",
         ),
         default=False,
     )
 
     type = schema.Choice(
-        title=_("label_risk_type", default=u"Risk type"),
+        title=_("label_risk_type", default="Risk type"),
         description=_(
             "help_risk_type",
-            default=u'"Priority risk" is one of the high risks in the '
-            u'sector. "Risk" is related to the workplace or to the work '
-            u'carried out. "Policy" refers to agreements, procedures, '
-            u"and management decisions.",
+            default='"Priority risk" is one of the high risks in the '
+            'sector. "Risk" is related to the workplace or to the work '
+            'carried out. "Policy" refers to agreements, procedures, '
+            "and management decisions.",
         ),
         vocabulary=SimpleVocabulary(
             [
-                SimpleTerm(u"top5", title=_("risktype_top5", default=u"Priority risk")),
-                SimpleTerm(u"risk", title=_("risktype_risk", default="Risk")),
-                SimpleTerm(u"policy", title=_("risktype_policy", default=u"Policy")),
+                SimpleTerm("top5", title=_("risktype_top5", default="Priority risk")),
+                SimpleTerm("risk", title=_("risktype_risk", default="Risk")),
+                SimpleTerm("policy", title=_("risktype_policy", default="Policy")),
             ]
         ),
-        default=u"risk",
+        default="risk",
         required=True,
     )
 
     depends("risk_always_present", "type", "==", "risk")
     risk_always_present = schema.Bool(
-        title=_("label_risk_always_present", default=u"Risk is always present"),
+        title=_("label_risk_always_present", default="Risk is always present"),
         description=_(
             "description_risk_always_present",
-            default=u'If selected, the user will not be able to answer "Yes" or '
+            default='If selected, the user will not be able to answer "Yes" or '
             '"No", since the risk is considered to be always present. The '
             "Evaluation and Action Plan will behave in the same way as for "
             "regular risks.",
@@ -179,38 +179,36 @@ class IRisk(model.Schema, IRichDescription, IBasic):
 
     depends("evaluation_method", "type", "==", "risk")
     evaluation_method = schema.Choice(
-        title=_("label_evaluation_method", default=u"Evaluation method"),
+        title=_("label_evaluation_method", default="Evaluation method"),
         description=_(
             "help_evaluation_method",
-            default=u"Select 'estimated' if calcuation is not necessary "
-            u"or not possible.",
+            default="Select 'estimated' if calcuation is not necessary "
+            "or not possible.",
         ),
         vocabulary=SimpleVocabulary(
             [
+                SimpleTerm("direct", title=_("evalmethod_direct", default="Estimated")),
                 SimpleTerm(
-                    u"direct", title=_("evalmethod_direct", default=u"Estimated")
+                    "calculated",
+                    title=_("evalmethod_calculated", default="Calculated"),
                 ),
                 SimpleTerm(
-                    u"calculated",
-                    title=_("evalmethod_calculated", default=u"Calculated"),
-                ),
-                SimpleTerm(
-                    u"fixed", title=_("evalmethod_fixed", default=u"Skip evaluation")
+                    "fixed", title=_("evalmethod_fixed", default="Skip evaluation")
                 ),
             ]
         ),
-        default=u"calculated",
+        default="calculated",
         required=False,
     )
 
     depends("fixed_priority", "type", "==", "risk")
     depends("fixed_priority", "evaluation_method", "==", "fixed")
     fixed_priority = schema.Choice(
-        title=_("report_timeline_priority", default=u"Priority"),
+        title=_("report_timeline_priority", default="Priority"),
         vocabulary=SimpleVocabulary(
             [
-                SimpleTerm("low", title=_("priority_low", default=u"Low")),
-                SimpleTerm("medium", title=_("priority_medium", default=u"Medium")),
+                SimpleTerm("low", title=_("priority_low", default="Low")),
+                SimpleTerm("medium", title=_("priority_medium", default="Medium")),
                 SimpleTerm("high", title=_("priority_high", default="High")),
             ]
         ),
@@ -221,17 +219,17 @@ class IRisk(model.Schema, IRichDescription, IBasic):
     depends("default_priority", "type", "==", "risk")
     depends("default_priority", "evaluation_method", "==", "direct")
     default_priority = schema.Choice(
-        title=_("label_default_priority", default=u"Default priority"),
+        title=_("label_default_priority", default="Default priority"),
         description=_(
             "help_default_priority",
-            default=u"You can help the end-user by selecting a default "
-            u"priority. He/she can still change the priority.",
+            default="You can help the end-user by selecting a default "
+            "priority. He/she can still change the priority.",
         ),
         vocabulary=SimpleVocabulary(
             [
-                SimpleTerm("none", title=_("no_default", default=u"No default")),
-                SimpleTerm("low", title=_("priority_low", default=u"Low")),
-                SimpleTerm("medium", title=_("priority_medium", default=u"Medium")),
+                SimpleTerm("none", title=_("no_default", default="No default")),
+                SimpleTerm("low", title=_("priority_low", default="Low")),
+                SimpleTerm("medium", title=_("priority_medium", default="Medium")),
                 SimpleTerm("high", title=_("priority_high", default="High")),
             ]
         ),
@@ -241,83 +239,83 @@ class IRisk(model.Schema, IRichDescription, IBasic):
 
     model.fieldset(
         "main_image",
-        label=_("header_main_image", default=u"Main image"),
+        label=_("header_main_image", default="Main image"),
         description=_(
             "intro_main_image",
-            default=u"The main image will get a more prominent position "
-            u"in the client than the other images.",
+            default="The main image will get a more prominent position "
+            "in the client than the other images.",
         ),
         fields=["image", "caption"],
     )
 
     image = filefield.NamedBlobImage(
-        title=_("label_image", default=u"Image file"),
+        title=_("label_image", default="Image file"),
         description=_(
             "help_image_upload",
-            default=u"Upload an image. Make sure your image is of format "
-            u"png, jpg or gif and does not contain any special "
-            u"characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+            default="Upload an image. Make sure your image is of format "
+            "png, jpg or gif and does not contain any special "
+            "characters. The minimum size is 1000 (width) x 430 (height) pixels.",
         ),
         required=False,
     )
     caption = schema.TextLine(
-        title=_("label_caption", default=u"Image caption"), required=False
+        title=_("label_caption", default="Image caption"), required=False
     )
 
     model.fieldset(
         "secondary_images",
-        label=_("header_secondary_images", default=u"Secondary images"),
+        label=_("header_secondary_images", default="Secondary images"),
         fields=["image2", "caption2", "image3", "caption3", "image4", "caption4"],
     )
 
     image2 = filefield.NamedBlobImage(
-        title=_("label_image", default=u"Image file"),
+        title=_("label_image", default="Image file"),
         description=_(
             "help_image_upload",
-            default=u"Upload an image. Make sure your image is of format "
-            u"png, jpg or gif and does not contain any special "
-            u"characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+            default="Upload an image. Make sure your image is of format "
+            "png, jpg or gif and does not contain any special "
+            "characters. The minimum size is 1000 (width) x 430 (height) pixels.",
         ),
         required=False,
     )
     caption2 = schema.TextLine(
-        title=_("label_caption", default=u"Image caption"), required=False
+        title=_("label_caption", default="Image caption"), required=False
     )
 
     image3 = filefield.NamedBlobImage(
-        title=_("label_image", default=u"Image file"),
+        title=_("label_image", default="Image file"),
         description=_(
             "help_image_upload",
-            default=u"Upload an image. Make sure your image is of format "
-            u"png, jpg or gif and does not contain any special "
-            u"characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+            default="Upload an image. Make sure your image is of format "
+            "png, jpg or gif and does not contain any special "
+            "characters. The minimum size is 1000 (width) x 430 (height) pixels.",
         ),
         required=False,
     )
     caption3 = schema.TextLine(
-        title=_("label_caption", default=u"Image caption"), required=False
+        title=_("label_caption", default="Image caption"), required=False
     )
 
     image4 = filefield.NamedBlobImage(
-        title=_("label_image", default=u"Image file"),
+        title=_("label_image", default="Image file"),
         description=_(
             "help_image_upload",
-            default=u"Upload an image. Make sure your image is of format "
-            u"png, jpg or gif and does not contain any special "
-            u"characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+            default="Upload an image. Make sure your image is of format "
+            "png, jpg or gif and does not contain any special "
+            "characters. The minimum size is 1000 (width) x 430 (height) pixels.",
         ),
         required=False,
     )
     caption4 = schema.TextLine(
-        title=_("label_caption", default=u"Image caption"), required=False
+        title=_("label_caption", default="Image caption"), required=False
     )
 
     model.fieldset(
         "additional_content",
-        label=_("header_additional_content", default=u"Additional content"),
+        label=_("header_additional_content", default="Additional content"),
         description=_(
             "intro_additional_content",
-            default=u"Attach any additional content you consider helpful "
+            default="Attach any additional content you consider helpful "
             "for the user",
         ),
         fields=[
@@ -333,59 +331,59 @@ class IRisk(model.Schema, IRichDescription, IBasic):
     )
 
     file1 = filefield.NamedBlobFile(
-        title=_("label_file", default=u"Content file"),
+        title=_("label_file", default="Content file"),
         description=_(
             "help_content_upload",
-            default=u"Upload a file that contains additional information, "
-            u"like a PDF, Word document or spreadsheet. Optionally provide "
-            u"a descriptive caption for your file.",
+            default="Upload a file that contains additional information, "
+            "like a PDF, Word document or spreadsheet. Optionally provide "
+            "a descriptive caption for your file.",
         ),
         required=False,
     )
     file1_caption = schema.TextLine(
-        title=_("label_file_caption", default=u"Content caption"), required=False
+        title=_("label_file_caption", default="Content caption"), required=False
     )
 
     file2 = filefield.NamedBlobFile(
-        title=_("label_file", default=u"Content file"),
+        title=_("label_file", default="Content file"),
         description=_(
             "help_content_upload",
-            default=u"Upload a file that contains additional information, "
-            u"like a PDF, Word document or spreadsheet. Optionally provide "
-            u"a descriptive caption for your file.",
+            default="Upload a file that contains additional information, "
+            "like a PDF, Word document or spreadsheet. Optionally provide "
+            "a descriptive caption for your file.",
         ),
         required=False,
     )
     file2_caption = schema.TextLine(
-        title=_("label_file_caption", default=u"Content caption"), required=False
+        title=_("label_file_caption", default="Content caption"), required=False
     )
 
     file3 = filefield.NamedBlobFile(
-        title=_("label_file", default=u"Content file"),
+        title=_("label_file", default="Content file"),
         description=_(
             "help_content_upload",
-            default=u"Upload a file that contains additional information, "
-            u"like a PDF, Word document or spreadsheet. Optionally provide "
-            u"a descriptive caption for your file.",
+            default="Upload a file that contains additional information, "
+            "like a PDF, Word document or spreadsheet. Optionally provide "
+            "a descriptive caption for your file.",
         ),
         required=False,
     )
     file3_caption = schema.TextLine(
-        title=_("label_file_caption", default=u"Content caption"), required=False
+        title=_("label_file_caption", default="Content caption"), required=False
     )
 
     file4 = filefield.NamedBlobFile(
-        title=_("label_file", default=u"Content file"),
+        title=_("label_file", default="Content file"),
         description=_(
             "help_content_upload",
-            default=u"Upload a file that contains additional information, "
-            u"like a PDF, Word document or spreadsheet. Optionally provide "
-            u"a descriptive caption for your file.",
+            default="Upload a file that contains additional information, "
+            "like a PDF, Word document or spreadsheet. Optionally provide "
+            "a descriptive caption for your file.",
         ),
         required=False,
     )
     file4_caption = schema.TextLine(
-        title=_("label_file_caption", default=u"Content caption"), required=False
+        title=_("label_file_caption", default="Content caption"), required=False
     )
 
 
@@ -413,25 +411,25 @@ class IFrenchEvaluation(model.Schema):
     depends("default_severity", "type", "==", "risk")
     depends("default_severity", "evaluation_method", "==", "calculated")
     default_severity = schema.Choice(
-        title=_("label_default_severity", default=u"Default severity"),
+        title=_("label_default_severity", default="Default severity"),
         description=_(
             "help_default_severity",
-            default=u"Indicate the severity if this risk occurs.",
+            default="Indicate the severity if this risk occurs.",
         ),
         vocabulary=SimpleVocabulary(
             [
-                SimpleTerm(0, "none", title=_("no default", default=u"No default")),
-                SimpleTerm(1, "weak", title=_("severity_weak", default=u"Weak")),
+                SimpleTerm(0, "none", title=_("no default", default="No default")),
+                SimpleTerm(1, "weak", title=_("severity_weak", default="Weak")),
                 SimpleTerm(
                     5,
                     "not-severe",
-                    title=_("severity_not_severe", default=u"Not very severe"),
+                    title=_("severity_not_severe", default="Not very severe"),
                 ),
-                SimpleTerm(7, "severe", title=_("severity_severe", default=u"Severe")),
+                SimpleTerm(7, "severe", title=_("severity_severe", default="Severe")),
                 SimpleTerm(
                     10,
                     "very-severe",
-                    title=_("severity_very_severe", default=u"Very severe"),
+                    title=_("severity_very_severe", default="Very severe"),
                 ),
             ]
         ),
@@ -442,30 +440,28 @@ class IFrenchEvaluation(model.Schema):
     depends("default_frequency", "type", "==", "risk")
     depends("default_frequency", "evaluation_method", "==", "calculated")
     default_frequency = schema.Choice(
-        title=_("label_default_frequency", default=u"Default frequency"),
+        title=_("label_default_frequency", default="Default frequency"),
         description=_(
             "help_default_frequency",
-            default=u"Indicate how often this risk occurs in a " u"normal situation.",
+            default="Indicate how often this risk occurs in a " "normal situation.",
         ),
         vocabulary=SimpleVocabulary(
             [
-                SimpleTerm(0, "none", title=_("no default", default=u"No default")),
-                SimpleTerm(
-                    1, "rare", title=_("frequency_french_rare", default=u"Rare")
-                ),
+                SimpleTerm(0, "none", title=_("no default", default="No default")),
+                SimpleTerm(1, "rare", title=_("frequency_french_rare", default="Rare")),
                 SimpleTerm(
                     3,
                     "not-often",
-                    title=_("frequency_french_not_often", default=u"Not very often"),
+                    title=_("frequency_french_not_often", default="Not very often"),
                 ),
                 SimpleTerm(
-                    7, "often", title=_("frequency_french_often", default=u"Often")
+                    7, "often", title=_("frequency_french_often", default="Often")
                 ),
                 SimpleTerm(
                     9,
                     "regularly",
                     title=_(
-                        "frequency_french_regularly", default=u"Very often or regularly"
+                        "frequency_french_regularly", default="Very often or regularly"
                     ),
                 ),
             ]
@@ -479,20 +475,20 @@ class IKinneyEvaluation(model.Schema):
     depends("default_probability", "type", "==", "risk")
     depends("default_probability", "evaluation_method", "==", "calculated")
     default_probability = schema.Choice(
-        title=_("label_default_probability", default=u"Default probability"),
+        title=_("label_default_probability", default="Default probability"),
         description=_(
             "help_default_probability",
-            default=u"Indicate how likely occurence of this risk "
-            u"is in a normal situation.",
+            default="Indicate how likely occurence of this risk "
+            "is in a normal situation.",
         ),
         vocabulary=SimpleVocabulary(
             [
-                SimpleTerm(0, "none", title=_("no default", default=u"No default")),
-                SimpleTerm(1, "small", title=_("probability_small", default=u"Small")),
+                SimpleTerm(0, "none", title=_("no default", default="No default")),
+                SimpleTerm(1, "small", title=_("probability_small", default="Small")),
                 SimpleTerm(
-                    3, "medium", title=_("probability_medium", default=u"Medium")
+                    3, "medium", title=_("probability_medium", default="Medium")
                 ),
-                SimpleTerm(5, "large", title=_("probability_large", default=u"Large")),
+                SimpleTerm(5, "large", title=_("probability_large", default="Large")),
             ]
         ),
         required=False,
@@ -502,26 +498,26 @@ class IKinneyEvaluation(model.Schema):
     depends("default_frequency", "type", "==", "risk")
     depends("default_frequency", "evaluation_method", "==", "calculated")
     default_frequency = schema.Choice(
-        title=_("label_default_frequency", default=u"Default frequency"),
+        title=_("label_default_frequency", default="Default frequency"),
         description=_(
             "help_default_frequency",
-            default=u"Indicate how often this risk occurs in a " u"normal situation.",
+            default="Indicate how often this risk occurs in a " "normal situation.",
         ),
         vocabulary=SimpleVocabulary(
             [
-                SimpleTerm(0, "none", title=_("no default", default=u"No default")),
+                SimpleTerm(0, "none", title=_("no default", default="No default")),
                 SimpleTerm(
                     1,
                     "almost-never",
-                    title=_("frequency_almostnever", default=u"Almost never"),
+                    title=_("frequency_almostnever", default="Almost never"),
                 ),
                 SimpleTerm(
-                    4, "regular", title=_("frequency_regularly", default=u"Regularly")
+                    4, "regular", title=_("frequency_regularly", default="Regularly")
                 ),
                 SimpleTerm(
                     7,
                     "constant",
-                    title=_("frequency_constantly", default=u"Constantly"),
+                    title=_("frequency_constantly", default="Constantly"),
                 ),
             ]
         ),
@@ -532,24 +528,24 @@ class IKinneyEvaluation(model.Schema):
     depends("default_effect", "type", "==", "risk")
     depends("default_effect", "evaluation_method", "==", "calculated")
     default_effect = schema.Choice(
-        title=_("label_default_severity", default=u"Default severity"),
+        title=_("label_default_severity", default="Default severity"),
         description=_(
             "help_default_severity",
-            default=u"Indicate the severity if this risk occurs.",
+            default="Indicate the severity if this risk occurs.",
         ),
         vocabulary=SimpleVocabulary(
             [
-                SimpleTerm(0, "none", title=_("no default", default=u"No default")),
-                SimpleTerm(1, "weak", title=_("effect_weak", default=u"Weak severity")),
+                SimpleTerm(0, "none", title=_("no default", default="No default")),
+                SimpleTerm(1, "weak", title=_("effect_weak", default="Weak severity")),
                 SimpleTerm(
                     5,
                     "significant",
-                    title=_("effect_significant", default=u"Significant severity"),
+                    title=_("effect_significant", default="Significant severity"),
                 ),
                 SimpleTerm(
                     10,
                     "high",
-                    title=_("effect_high", default=u"High (very high) severity"),
+                    title=_("effect_high", default="High (very high) severity"),
                 ),
             ]
         ),
@@ -561,12 +557,12 @@ class IKinneyEvaluation(model.Schema):
 class IKinneyRisk(IRisk, IKinneyEvaluation):
     model.fieldset(
         "evaluation",
-        label=_("header_evaluation", default=u"Evaluation"),
+        label=_("header_evaluation", default="Evaluation"),
         description=_(
             "intro_evaluation",
-            default=u"You can specify how the risks priority is "
-            u"evaluated. For more details see the online "
-            u"manual.",
+            default="You can specify how the risks priority is "
+            "evaluated. For more details see the online "
+            "manual.",
         ),
         fields=[
             "type",
@@ -584,12 +580,12 @@ class IKinneyRisk(IRisk, IKinneyEvaluation):
 class IFrenchRisk(IRisk, IFrenchEvaluation):
     model.fieldset(
         "evaluation",
-        label=_("header_evaluation", default=u"Evaluation"),
+        label=_("header_evaluation", default="Evaluation"),
         description=_(
             "intro_evaluation",
-            default=u"You can specify how the risks priority is "
-            u"evaluated. For more details see the online "
-            u"manual.",
+            default="You can specify how the risks priority is "
+            "evaluated. For more details see the online "
+            "manual.",
         ),
         fields=[
             "type",
@@ -684,7 +680,7 @@ class Risk(Container):
             measure = description
             if webhelpers.country in ("it",):
                 if prevention_plan:
-                    measure = u"%s: %s" % (measure, prevention_plan)
+                    measure = "%s: %s" % (measure, prevention_plan)
             measures.append(measure)
 
         return measures
@@ -695,7 +691,7 @@ def EnsureInterface(risk):
     evaluation method of the survey group.
     """
     algorithm = evaluation_algorithm(risk)
-    if algorithm == u"french":
+    if algorithm == "french":
         alsoProvides(risk, IFrenchRisk)
         noLongerProvides(risk, IKinneyRisk)
     else:
@@ -713,7 +709,7 @@ def evaluation_algorithm(context):
     for parent in aq_chain(aq_inner(context)):
         if ISurveyGroup.providedBy(parent):
             return parent.evaluation_algorithm
-    return u"kinney"
+    return "kinney"
 
 
 @indexer(IRisk)

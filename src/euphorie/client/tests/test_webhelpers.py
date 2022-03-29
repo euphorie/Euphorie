@@ -76,7 +76,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         "ORDER BY session.modified DESC, session.title"
                     ),
                 )
-                foo_group = model.Group(group_id=u"foo")
+                foo_group = model.Group(group_id="foo")
                 account.group = foo_group
                 model.Session.flush()
                 self.assertEqual(
@@ -140,7 +140,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         "ORDER BY session.modified DESC, session.title"
                     ),
                 )
-                bar_group = model.Group(group_id=u"bar")
+                bar_group = model.Group(group_id="bar")
                 self.assertEqual(
                     self._get_query_filters(
                         view.get_sessions_query(

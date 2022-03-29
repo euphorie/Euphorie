@@ -14,12 +14,12 @@ class CleanupContent(BrowserView):
         for brain in ct(portal_type="euphorie.risk"):
             obj = brain.getObject()
             pd = getattr(obj, "problem_description", None)
-            if pd and u"[info]" in pd:
+            if pd and "[info]" in pd:
                 path = "/".join(obj.getPhysicalPath())
                 msg = "Removing bogus problem description for %s" % path
                 log.debug(msg)
                 output.append(msg)
-                obj.problem_description = u""
+                obj.problem_description = ""
 
         if not output:
             return "No problematic problem descriptions found"

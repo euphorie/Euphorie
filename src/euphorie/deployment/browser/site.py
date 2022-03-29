@@ -116,7 +116,7 @@ class ManageEnsureInterface(BrowserView):
 
 
 class UpdateCompletionPercentage(WebHelpers):
-    """ Utility view to fill in missing values for completion_percentage """
+    """Utility view to fill in missing values for completion_percentage"""
 
     flush_threshold = 50
 
@@ -232,7 +232,7 @@ class FixOmegaPaths(BrowserView):
             i = 1
             num = risk.zodb_path.split("/")[-1]
             while i < 100:
-                new_zodb_path = u"custom-risks/{}".format(num)
+                new_zodb_path = "custom-risks/{}".format(num)
                 conflict = session.query(SurveyTreeItem).filter(
                     and_(
                         SurveyTreeItem.session_id == risk.session_id,

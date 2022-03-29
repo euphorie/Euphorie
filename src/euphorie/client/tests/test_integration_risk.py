@@ -23,23 +23,23 @@ class RiskIntegrationTests(EuphorieIntegrationTestCase):
             )
 
         sqlsession = Session()
-        account = model.Account(loginname=u"jane", password=u"secret")
+        account = model.Account(loginname="jane", password="secret")
         sqlsession.add(account)
         session = model.SurveySession(
-            title=u"Session", zodb_path="eu/sector/survey", account=account
+            title="Session", zodb_path="eu/sector/survey", account=account
         )
         sqlsession.add(session)
         sqlsession.flush()
 
         module = session.addChild(
             model.Module(
-                title=u"Root", module_id="1", zodb_path="1", has_description=False
+                title="Root", module_id="1", zodb_path="1", has_description=False
             )
         )
         module = module.__of__(client_survey)
         risk = session.addChild(
             model.Risk(
-                title=u"Risk 1",
+                title="Risk 1",
                 risk_id="1",
                 zodb_path="1/1",
                 type="risk",

@@ -70,7 +70,7 @@ class ViewTests(EuphorieIntegrationTestCase):
 
     def test_update_with_profile(self):
         survey = Survey()
-        child = Mock(id="child", title=u"Child")
+        child = Mock(id="child", title="Child")
         alsoProvides(child, IProfileQuestion)
         survey._setObject("child", child, suppress_events=True)
         view = SurveyView(survey, self._request())
@@ -79,7 +79,7 @@ class ViewTests(EuphorieIntegrationTestCase):
 
     def test_update_with_module(self):
         survey = Survey()
-        child = Mock(id="child", title=u"Child")
+        child = Mock(id="child", title="Child")
         alsoProvides(child, IModule)
         survey._setObject("child", child, suppress_events=True)
         view = SurveyView(survey, self._request())
@@ -89,12 +89,12 @@ class ViewTests(EuphorieIntegrationTestCase):
     def test_update_other_child(self):
         survey = Survey()
         view = SurveyView(survey, self._request())
-        child = Mock(id="child", title=u"Child")
+        child = Mock(id="child", title="Child")
         survey._setObject("child", child, suppress_events=True)
         self.assertEqual(view.modules_and_profile_questions, [])
 
     def test_moprh(self):
-        child = Mock(id="child", title=u"Child")
+        child = Mock(id="child", title="Child")
         view = SurveyView(None, self._request())
         self.assertEqual(
             view._morph(child),

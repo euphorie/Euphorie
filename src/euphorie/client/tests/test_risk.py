@@ -59,14 +59,14 @@ class EvaluationViewTests(unittest.TestCase):
     def test_evaluation_algorithm_fallback(self):
         view = self.EvaluationView()
         risk = self.Risk()
-        self.assertEqual(view.evaluation_algorithm(risk), u"kinney")
+        self.assertEqual(view.evaluation_algorithm(risk), "kinney")
 
     def test_evaluation_algorithm_survey_parent(self):
         view = self.EvaluationView()
         survey = Survey()
-        survey.evaluation_algorithm = u"dummy"
+        survey.evaluation_algorithm = "dummy"
         risk = self.Risk().__of__(survey)
-        self.assertEqual(view.evaluation_algorithm(risk), u"dummy")
+        self.assertEqual(view.evaluation_algorithm(risk), "dummy")
 
     def test_calculatePriority_kinney_nothing_set(self):
         view = self.EvaluationView()
@@ -158,12 +158,12 @@ class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
         self.account = addAccount(password="secret")
         addSurvey(self.portal, BASIC_SURVEY)
         survey_session = model.SurveySession(
-            title=u"Dummy session",
+            title="Dummy session",
             zodb_path="nl/ict/software-development",
             account=self.account,
         )
         self.risk = survey_session.addChild(
-            model.Risk(title=u"risk 1", zodb_path="1")
+            model.Risk(title="risk 1", zodb_path="1")
         ).__of__(survey_session.traversed_session)
         model.Session.add(survey_session)
 
@@ -184,7 +184,7 @@ class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
                 view.request.form["image"] = Image()
                 view()
                 self.assertTrue(self.risk.image_data.startswith(b"GIF"))
-                self.assertEqual(self.risk.image_filename, u"dummy.gif")
+                self.assertEqual(self.risk.image_filename, "dummy.gif")
 
                 # We can also require to remove the image
                 view.request.form.pop("image")
@@ -197,7 +197,7 @@ class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
                 self.risk.image_data_scaled = b"foo"
                 view.request.form["image"] = Image()
                 view()
-                self.assertEqual(self.risk.image_filename, u"dummy.gif")
+                self.assertEqual(self.risk.image_filename, "dummy.gif")
                 self.assertIsNone(self.risk.image_data_scaled)
 
                 # but do not wipe it if we are uploading the same image again

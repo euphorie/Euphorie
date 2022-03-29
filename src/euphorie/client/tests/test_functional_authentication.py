@@ -10,7 +10,7 @@ from zope.interface import noLongerProvides
 
 
 class AuthenticationTests(EuphorieIntegrationTestCase):
-    def createAccount(self, login="john", password=u"jane"):
+    def createAccount(self, login="john", password="jane"):
         session = Session()
         account = Account(loginname=login, password=password)
         session.add(account)

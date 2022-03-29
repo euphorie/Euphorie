@@ -22,7 +22,7 @@ def handle_custom_risks_order(context, event):
     # to avoid constraint errors
     for risk in custom_risks:
         risk.path = risk.path + "000"
-        risk.zodb_path = risk.zodb_path + u"000"
+        risk.zodb_path = risk.zodb_path + "000"
 
     ordered_custom_risks = (
         session.query(SurveyTreeItem)
@@ -38,7 +38,7 @@ def handle_custom_risks_order(context, event):
 
     # Iterate over the risks in their natural order. Close any gaps in numbering
     for count, risk in enumerate(ordered_custom_risks):
-        risk.zodb_path = u"custom-risks/{}".format(count + 1)
+        risk.zodb_path = "custom-risks/{}".format(count + 1)
 
     # Now, set the path according to the zodb_path (= natural order)
     for risk in custom_risks:

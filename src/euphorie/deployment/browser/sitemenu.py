@@ -29,14 +29,14 @@ class Sitemenu(sitemenu.Sitemenu):
         if menu is not None:
             children = menu["children"]
         else:
-            menu = {"title": nu_("menu_organise", default=u"Organise")}
+            menu = {"title": nu_("menu_organise", default="Organise")}
             children = menu["children"] = []
 
         context_url = aq_inner(self.context).absolute_url()
         if ISurvey.providedBy(self.context) and checkPermission(self.context, "View"):
             children.append(
                 {
-                    "title": _("menu_export", default=u"XML export"),
+                    "title": _("menu_export", default="XML export"),
                     "url": "%s/@@export" % context_url,
                 }
             )
@@ -45,7 +45,7 @@ class Sitemenu(sitemenu.Sitemenu):
         ):
             children.append(
                 {
-                    "title": _("menu_import", default=u"Import OiRA Tool"),
+                    "title": _("menu_import", default="Import OiRA Tool"),
                     "url": "%s/@@upload" % context_url,
                 }
             )

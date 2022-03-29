@@ -62,11 +62,11 @@ class TrainingSlide(BrowserView):
     def number(self):
         if self.is_custom:
             num_elems = self.context.number.split(".")
-            number = u".".join([u"Ω"] + num_elems[1:])
+            number = ".".join(["Ω"] + num_elems[1:])
         else:
             number = self.context.number
         if self.item_type == "module":
-            number = u"{}.0".format(number)
+            number = "{}.0".format(number)
         return number
 
     @property

@@ -25,45 +25,45 @@ def setupVarious(context):
 
 
 COUNTRIES = {
-    "at": (u"Austria", "eu-member"),
-    "be": (u"Belgium", "eu-member"),
-    "bg": (u"Bulgaria", "eu-member"),
-    "se": (u"Sweden", "eu-member"),
-    "cy": (u"Cyprus", "eu-member"),
-    "cz": (u"The Czech Republic", "eu-member"),
-    "de": (u"Germany", "eu-member"),
-    "dk": (u"Denmark", "eu-member"),
-    "ee": (u"Estonia", "eu-member"),
-    "es": (u"Spain", "eu-member"),
-    "fi": (u"Finland", "eu-member"),
-    "fr": (u"France", "eu-member"),
-    "gb": (u"The United Kingdom", "eu-member"),
-    "gr": (u"Greece", "eu-member"),
-    "hu": (u"Hungary", "eu-member"),
-    "ie": (u"Ireland", "eu-member"),
-    "it": (u"Italy", "eu-member"),
-    "lt": (u"Lithuania", "eu-member"),
-    "lu": (u"Luxembourg", "eu-member"),
-    "lv": (u"Latvia", "eu-member"),
-    "mt": (u"Malta", "eu-member"),
-    "nl": (u"The Netherlands", "eu-member"),
-    "pl": (u"Poland", "eu-member"),
-    "pt": (u"Portugal", "eu-member"),
-    "ro": (u"Romania", "eu-member"),
-    "sk": (u"Slovakia", "eu-member"),
-    "si": (u"Slovenia", "eu-member"),
-    "li": (u"Liechtenstein", "efta"),
-    "no": (u"Norway", "efta"),
-    "ch": (u"Switzerland", "efta"),
-    "hr": (u"Republic of Croatia", "candidate-eu"),
-    "is": (u"Republic of Iceland", "candidate-eu"),
-    "mk": (u"F.Y.R. Macedonia", "candidate-eu"),
-    "me": (u"Montenegro", "candidate-eu"),
-    "tr": (u"Republic of Turkey", "candidate-eu"),
-    "al": (u"Republic of Albania", "potential-candidate-eu"),
-    "ba": (u"Bosnia and Herzegovina", "potential-candidate-eu"),
-    "cs": (u"Kosovo", "potential-candidate-eu"),
-    "rs": (u"Republic of Serbia", "potential-candidate-eu"),
+    "at": ("Austria", "eu-member"),
+    "be": ("Belgium", "eu-member"),
+    "bg": ("Bulgaria", "eu-member"),
+    "se": ("Sweden", "eu-member"),
+    "cy": ("Cyprus", "eu-member"),
+    "cz": ("The Czech Republic", "eu-member"),
+    "de": ("Germany", "eu-member"),
+    "dk": ("Denmark", "eu-member"),
+    "ee": ("Estonia", "eu-member"),
+    "es": ("Spain", "eu-member"),
+    "fi": ("Finland", "eu-member"),
+    "fr": ("France", "eu-member"),
+    "gb": ("The United Kingdom", "eu-member"),
+    "gr": ("Greece", "eu-member"),
+    "hu": ("Hungary", "eu-member"),
+    "ie": ("Ireland", "eu-member"),
+    "it": ("Italy", "eu-member"),
+    "lt": ("Lithuania", "eu-member"),
+    "lu": ("Luxembourg", "eu-member"),
+    "lv": ("Latvia", "eu-member"),
+    "mt": ("Malta", "eu-member"),
+    "nl": ("The Netherlands", "eu-member"),
+    "pl": ("Poland", "eu-member"),
+    "pt": ("Portugal", "eu-member"),
+    "ro": ("Romania", "eu-member"),
+    "sk": ("Slovakia", "eu-member"),
+    "si": ("Slovenia", "eu-member"),
+    "li": ("Liechtenstein", "efta"),
+    "no": ("Norway", "efta"),
+    "ch": ("Switzerland", "efta"),
+    "hr": ("Republic of Croatia", "candidate-eu"),
+    "is": ("Republic of Iceland", "candidate-eu"),
+    "mk": ("F.Y.R. Macedonia", "candidate-eu"),
+    "me": ("Montenegro", "candidate-eu"),
+    "tr": ("Republic of Turkey", "candidate-eu"),
+    "al": ("Republic of Albania", "potential-candidate-eu"),
+    "ba": ("Bosnia and Herzegovina", "potential-candidate-eu"),
+    "cs": ("Kosovo", "potential-candidate-eu"),
+    "rs": ("Republic of Serbia", "potential-candidate-eu"),
 }
 
 for i in REGION_NAMES.items():
@@ -104,7 +104,7 @@ def setupInitialContent(site):
                 country,
                 "euphorie.page",
                 id="help",
-                title=u"Help",
+                title="Help",
                 checkConstraints=False,
             )
             log.info("Added help section for country %s (%s)", country_id, title)
@@ -123,7 +123,7 @@ def setupInitialContent(site):
         log.info("Added Euphorie client instance")
 
     if "documents" not in present:
-        site.invokeFactory("euphorie.folder", "documents", title=u"Documents")
+        site.invokeFactory("euphorie.folder", "documents", title="Documents")
         log.info("Added documents folder")
     documents = site.documents
 
@@ -155,7 +155,7 @@ def setupInitialContent(site):
                 "euphorie.page",
                 docs,
                 "appendix",
-                title=u"Appendix",
+                title="Appendix",
             )
             log.info("Added appendix folder for language %s (%s)", name, code)
 

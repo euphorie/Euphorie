@@ -93,8 +93,8 @@ class EuphorieFixture(PloneSandboxLayer):
         with mock.patch(
             "plone.i18n.utility.LanguageUtility.listSupportedLanguages",
             return_value=[
-                (u"de", u"German"),
-                (u"nl", u"Dutch"),
+                ("de", "German"),
+                ("nl", "Dutch"),
             ],
         ):
             quickInstallProduct(portal, "euphorie.deployment.tests")

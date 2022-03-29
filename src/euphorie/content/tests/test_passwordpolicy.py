@@ -11,10 +11,10 @@ from Products.statusmessages.interfaces import IStatusMessage
 class PasswordPolicyTests(EuphorieIntegrationTestCase):
     def testPasswordPolicy(self):
         err_msg = _(
-            u"password_policy_conditions",
-            default=u"Your password must contain at least 5 characters, "
-            u"including at least one capital letter, one number and "
-            u"one special character (e.g. $, # or @).",
+            "password_policy_conditions",
+            default="Your password must contain at least 5 characters, "
+            "including at least one capital letter, one number and "
+            "one special character (e.g. $, # or @).",
         )
         regtool = api.portal.get_tool("portal_registration")
         self.assertEqual(regtool.pasValidation("password", "secret"), err_msg)

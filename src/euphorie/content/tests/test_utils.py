@@ -14,22 +14,22 @@ class StripMarkupTests(unittest.TestCase):
 
     def testEmpty(self):
         obj = Mock()
-        obj.description = u""
-        self.assertEqual(self.StripMarkup(u""), u"")
+        obj.description = ""
+        self.assertEqual(self.StripMarkup(""), "")
 
     def testNoMarkup(self):
-        self.assertEqual(self.StripMarkup(u"Test"), u"Test")
+        self.assertEqual(self.StripMarkup("Test"), "Test")
 
     def testSingleTag(self):
-        self.assertEqual(self.StripMarkup(u"Test <em>me</me>"), u"Test me")
+        self.assertEqual(self.StripMarkup("Test <em>me</me>"), "Test me")
 
     def testMultipleTags(self):
         self.assertEqual(
-            self.StripMarkup(u"Test <em>me</me> <strong>now</strong>"), u"Test me now"
+            self.StripMarkup("Test <em>me</me> <strong>now</strong>"), "Test me now"
         )
 
     def testStrayBracket(self):
-        self.assertEqual(self.StripMarkup(u"Test <em>me</em> >"), u"Test me >")
+        self.assertEqual(self.StripMarkup("Test <em>me</em> >"), "Test me >")
 
 
 class getTermTitleByValueTests(unittest.TestCase):
@@ -40,8 +40,8 @@ class getTermTitleByValueTests(unittest.TestCase):
         self.assertEqual(self.getTermTitleByValue(make_field([]), "dummy"), "dummy")
 
     def testKnownValue(self):
-        field = make_field([(1, "token", u"Title")])
-        self.assertEqual(self.getTermTitleByValue(field, 1), u"Title")
+        field = make_field([(1, "token", "Title")])
+        self.assertEqual(self.getTermTitleByValue(field, 1), "Title")
 
 
 class TestGetTermTitleByToken(unittest.TestCase):
@@ -49,8 +49,8 @@ class TestGetTermTitleByToken(unittest.TestCase):
         self.assertEqual(getTermTitleByToken(make_field([]), "dummy"), "dummy")
 
     def testKnownToken(self):
-        field = make_field([(1, "token", u"Title")])
-        self.assertEqual(getTermTitleByToken(field, "token"), u"Title")
+        field = make_field([(1, "token", "Title")])
+        self.assertEqual(getTermTitleByToken(field, "token"), "Title")
 
 
 class Mock:

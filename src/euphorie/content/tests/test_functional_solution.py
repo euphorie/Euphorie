@@ -10,7 +10,7 @@ def _create(container, *args, **kwargs):
     return getattr(container, newid)
 
 
-def createSolution(algorithm=u"kinney"):
+def createSolution(algorithm="kinney"):
     portal = getSite()
     country = portal.sectors.nl
     sector = _create(country, "euphorie.sector", "sector")

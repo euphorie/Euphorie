@@ -167,8 +167,8 @@ class Delete(actions.Delete):
             flash(
                 _(
                     "message_no_delete_published_survey",
-                    default=u"You cannot delete an OiRA Tool version that is "
-                    u"published. Please unpublish it first.",
+                    default="You cannot delete an OiRA Tool version that is "
+                    "published. Please unpublish it first.",
                 ),
                 "error",
             )
@@ -186,9 +186,9 @@ class Delete(actions.Delete):
             flash(
                 _(
                     "message_delete_no_last_survey",
-                    default=u"This is the only version of the OiRA Tool and can "
-                    u"therefore not be deleted. Did you perhaps want to "
-                    u"remove the OiRA Tool itself?",
+                    default="This is the only version of the OiRA Tool and can "
+                    "therefore not be deleted. Did you perhaps want to "
+                    "remove the OiRA Tool itself?",
                 ),
                 "error",
             )
@@ -223,11 +223,11 @@ class ContentsOfSurveyCompiler(IdentificationReportCompiler):
         header_table.cell(0, 1).paragraphs[0].text = formatDate(request, date.today())
 
         if getattr(self.context, "published"):
-            footer_txt = u"This OiRA tool was last published {date}.".format(
+            footer_txt = "This OiRA tool was last published {date}.".format(
                 date=self.context.published.strftime("%Y/%m/%d")
             )
         else:
-            footer_txt = u"This OiRA tool is currently not published."
+            footer_txt = "This OiRA tool is currently not published."
 
         footer = self.template.sections[0].footer
         paragraph = footer.tables[0].cell(0, 0).paragraphs[0]
@@ -239,23 +239,23 @@ class ContentsOfSurveyCompiler(IdentificationReportCompiler):
         doc.add_paragraph(heading, style="Heading 1")
 
         for node in nodes:
-            title = u"[{0}] {1}".format(
+            title = "[{0}] {1}".format(
                 translate(_(node.typus), target_language=self.lang), node.title
             )
             number = node.number
 
             doc.add_paragraph(
-                u"%s %s" % (number, title), style="Heading %d" % (node.depth + 1)
+                "%s %s" % (number, title), style="Heading %d" % (node.depth + 1)
             )
 
             if node.typus == "Risk":
                 doc.add_paragraph(
-                    u"[%s] %s"
+                    "[%s] %s"
                     % (
                         translate(
                             _(
                                 "label_problem_description",
-                                default=u"Negative statement",
+                                default="Negative statement",
                             ),
                             target_language=self.lang,
                         ),
@@ -278,7 +278,7 @@ class ContentsOfSurveyCompiler(IdentificationReportCompiler):
                     legal_heading = translate(
                         _(
                             "header_legal_references",
-                            default=u"Legal and policy references",
+                            default="Legal and policy references",
                         ),
                         target_language=self.lang,
                     )
@@ -374,12 +374,12 @@ class ContentsOfSurvey(IdentificationReportDocxView):
                     continue
                 i += 1
                 number[depth - 1] = str(i)
-                description = u"<ul>"
+                description = "<ul>"
                 for field in ("action", "requirements"):
                     value = getattr(child, field, "") or ""
                     if value:
-                        description = u"{0}<li>{1}</li>".format(description, value)
-                description = u"{0}</ul>".format(description)
+                        description = "{0}<li>{1}</li>".format(description, value)
+                description = "{0}</ul>".format(description)
                 self.nodes.append(
                     Node(
                         title=child.description,
@@ -414,7 +414,7 @@ class ContentsOfSurvey(IdentificationReportDocxView):
         """Return the document filename"""
         filename = _(
             "filename_tool_contents",
-            default=u"Contents of OIRA tool ${title}",
+            default="Contents of OIRA tool ${title}",
             mapping=dict(title=self.context.title),
         )
         return "{}.docx".format(translate(filename, context=self.request))

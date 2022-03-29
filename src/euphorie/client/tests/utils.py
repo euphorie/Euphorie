@@ -12,7 +12,7 @@ from ZPublisher.HTTPResponse import HTTPResponse
 import sys
 
 
-def addAccount(login="jane@example.com", password=u"Øle"):
+def addAccount(login="jane@example.com", password="Øle"):
     account = model.Account(
         loginname=login,
         password=password,
@@ -28,7 +28,7 @@ def addSurvey(portal, xml_survey):
     """Add a survey to the portal. This function requires that you are already
     loggin in as portal owner."""
     importer = upload.SectorImporter(portal.sectors.nl)
-    sector = importer(xml_survey, None, None, None, u"test import")
+    sector = importer(xml_survey, None, None, None, "test import")
     survey = sector.values()[0]["test-import"]
     publisher = publish.PublishSurvey(survey, portal.REQUEST)
     publisher.publish()

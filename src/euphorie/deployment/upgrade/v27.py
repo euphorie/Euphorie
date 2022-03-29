@@ -42,7 +42,7 @@ def unifiy_fields(walker):
             prevention_plan = solution.prevention_plan
             prevention_plan = prevention_plan and prevention_plan.strip() or ""
             if prevention_plan:
-                action = u"{0}\n{1}".format(action, prevention_plan)
+                action = "{0}\n{1}".format(action, prevention_plan)
             solution.action = action
             if count % 100 == 0:
                 log.info("Handled %d items" % count)
@@ -88,7 +88,7 @@ def get_pre_defined_measures(solutions, country):
         measure = description
         if country in ("it",):
             if prevention_plan:
-                measure = u"%s: %s" % (measure, prevention_plan)
+                measure = "%s: %s" % (measure, prevention_plan)
         measures[measure] = item.id
 
     return measures

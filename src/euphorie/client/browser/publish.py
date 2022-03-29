@@ -135,21 +135,21 @@ def EnableCustomRisks(survey):
         container=survey,
         type="euphorie.module",
         id="custom-risks",
-        title=_(u"label_custom_risks", default=u"Custom risks"),
+        title=_("label_custom_risks", default="Custom risks"),
         safe_id=False,
         description=_(
-            u"description_other_risks",
-            default=u"In case you have identified "
-            u"risks not included in the tool, you are able to add them now:",
+            "description_other_risks",
+            default="In case you have identified "
+            "risks not included in the tool, you are able to add them now:",
         ),
         optional=True,
         question=_(
-            u"question_other_risks",
-            default=u"<p><strong>Important:"
-            u"</strong> In order to avoid duplicating risks, we strongly "
-            u"recommend you to go first through all the previous modules, if "
-            u"you have not done it yet.</p><p>If you don't need to add risks, "
-            u"please continue.</p>",
+            "question_other_risks",
+            default="<p><strong>Important:"
+            "</strong> In order to avoid duplicating risks, we strongly "
+            "recommend you to go first through all the previous modules, if "
+            "you have not done it yet.</p><p>If you don't need to add risks, "
+            "please continue.</p>",
         ),
     )
     try:
@@ -310,29 +310,29 @@ class PublishSurvey(form.Form):
         country = aq_parent(sector)
         return "/".join([client_url, country.id, sector.id, surveygroup.id])
 
-    @button.buttonAndHandler(_(u"button_cancel", default=u"Cancel"))
+    @button.buttonAndHandler(_("button_cancel", default="Cancel"))
     def handleCancel(self, action):
         state = getMultiAdapter(
             (aq_inner(self.context), self.request), name="plone_context_state"
         )
         self.request.response.redirect(state.view_url())
 
-    @button.buttonAndHandler(_(u"button_publish", default=u"Publish"))
+    @button.buttonAndHandler(_("button_publish", default="Publish"))
     def handlePublish(self, action):
         self.publish()
         IStatusMessage(self.request).add(
             _(
-                u"no_translate_link_published_success",
+                "no_translate_link_published_success",
                 default=(
-                    u'${text_message_publish_success}: <a href="${url}">${url}</a>.'
+                    '${text_message_publish_success}: <a href="${url}">${url}</a>.'
                 ),
                 mapping={
                     "url": self.client_url(),
                     "text_message_publish_success": _(
-                        u"message_publish_success",
+                        "message_publish_success",
                         default=(
-                            u"Succesfully published the OiRA Tool. It can be accessed "
-                            u"at"
+                            "Succesfully published the OiRA Tool. It can be accessed "
+                            "at"
                         ),
                     ),
                 },
@@ -375,29 +375,29 @@ class PreviewSurvey(form.Form):
 
         return "/".join([client_url, country.id, sector.id, "preview"])
 
-    @button.buttonAndHandler(_(u"button_cancel", default=u"Cancel"))
+    @button.buttonAndHandler(_("button_cancel", default="Cancel"))
     def handleCancel(self, action):
         state = getMultiAdapter(
             (aq_inner(self.context), self.request), name="plone_context_state"
         )
         self.request.response.redirect(state.view_url())
 
-    @button.buttonAndHandler(_(u"button_preview", default=u"Create preview"))
+    @button.buttonAndHandler(_("button_preview", default="Create preview"))
     def handlePreview(self, action):
         self.publish()
         IStatusMessage(self.request).add(
             _(
-                u"no_translate_link_preview_success",
+                "no_translate_link_preview_success",
                 default=(
-                    u'${text_message_preview_success}: <a href="${url}">${url}</a>.'
+                    '${text_message_preview_success}: <a href="${url}">${url}</a>.'
                 ),
                 mapping={
                     "url": self.preview_url(),
                     "text_message_preview_success": _(
-                        u"message_preview_success",
+                        "message_preview_success",
                         default=(
-                            u"Succesfully created a preview for the OiRA Tool. It can "
-                            u"be accessed at"
+                            "Succesfully created a preview for the OiRA Tool. It can "
+                            "be accessed at"
                         ),
                     ),
                 },

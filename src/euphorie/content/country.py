@@ -26,12 +26,12 @@ class ICountry(model.Schema, IBasic):
         title=_("Country grouping"),
         vocabulary=SimpleVocabulary(
             [
-                SimpleTerm(u"region", title=_("Region")),
-                SimpleTerm(u"eu-member", title=_(u"EU member state")),
-                SimpleTerm(u"efta", title=_(u"EFTA country")),
-                SimpleTerm(u"candidate-eu", title=_(u"Candidate country")),
+                SimpleTerm("region", title=_("Region")),
+                SimpleTerm("eu-member", title=_("EU member state")),
+                SimpleTerm("efta", title=_("EFTA country")),
+                SimpleTerm("candidate-eu", title=_("Candidate country")),
                 SimpleTerm(
-                    u"potential-candidate-eu", title=_(u"Potential candidate country")
+                    "potential-candidate-eu", title=_("Potential candidate country")
                 ),
             ]
         ),
@@ -43,26 +43,26 @@ class ICountry(model.Schema, IBasic):
     risk_default_collapsible_sections = schema.List(
         title=_(
             "label__risk_default_collapsible_sections",
-            u"Expanded sections on risk page",
+            "Expanded sections on risk page",
         ),
         description=_(
             "help__risk_default_collapsible_sections",
-            u"Define, which information sections should be open by "
-            u"default on a risk identification page. Sections not checked "
-            u"will be shown intially in collapsed mode, but the user can always "
-            u"open those sections with a click.",
+            "Define, which information sections should be open by "
+            "default on a risk identification page. Sections not checked "
+            "will be shown intially in collapsed mode, but the user can always "
+            "open those sections with a click.",
         ),
         value_type=schema.Choice(
             vocabulary=SimpleVocabulary(
                 [
                     SimpleTerm(
-                        u"collapsible_section_information", title=_(u"Information")
+                        "collapsible_section_information", title=_("Information")
                     ),
                     SimpleTerm(
-                        u"collapsible_section_resources",
-                        title=_(u"Resources: Legal references and attachments"),
+                        "collapsible_section_resources",
+                        title=_("Resources: Legal references and attachments"),
                     ),
-                    SimpleTerm(u"collapsible_section_comments", title=_(u"Comments")),
+                    SimpleTerm("collapsible_section_comments", title=_("Comments")),
                 ]
             )
         ),
@@ -72,25 +72,25 @@ class ICountry(model.Schema, IBasic):
 
     directives.widget(default_reports=CheckBoxFieldWidget)
     default_reports = schema.List(
-        title=_("label__default_reports", u"Available reports"),
+        title=_("label__default_reports", "Available reports"),
         description=_(
             "help__default_reports",
-            u"Define, which reports are offered to the user on the Report page.",
+            "Define, which reports are offered to the user on the Report page.",
         ),
         value_type=schema.Choice(
             vocabulary=SimpleVocabulary(
                 [
-                    SimpleTerm(u"report_full", title=_(u"Full report (Word document)")),
+                    SimpleTerm("report_full", title=_("Full report (Word document)")),
                     SimpleTerm(
-                        u"report_action_plan",
-                        title=_(u"Action plan (Excel spreadsheet)"),
+                        "report_action_plan",
+                        title=_("Action plan (Excel spreadsheet)"),
                     ),
                     SimpleTerm(
-                        u"report_overview_risks", title=_(u"Overview of risks (PDF)")
+                        "report_overview_risks", title=_("Overview of risks (PDF)")
                     ),
                     SimpleTerm(
-                        u"report_overview_measures",
-                        title=_(u"Overview of measures (PDF)"),
+                        "report_overview_measures",
+                        title=_("Overview of measures (PDF)"),
                     ),
                 ]
             )

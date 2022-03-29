@@ -33,32 +33,32 @@ csv.register_dialect(
 
 IMAGE_MIN_SIZE = (1000, 430)
 
-TAG = re.compile(u"<.*?>")
-UNWANTED = re.compile(u"(\r|&#13;|\xad)")
+TAG = re.compile("<.*?>")
+UNWANTED = re.compile("(\r|&#13;|\xad)")
 WHITE = re.compile(" +")
 
-REGION_NAMES = {"eu": _(u"European Union"), "EU": _(u"European Union")}
+REGION_NAMES = {"eu": _("European Union"), "EU": _("European Union")}
 
 CUSTOM_COUNTRY_NAMES = {
     # This are areas whose country codes have not stabilized enough
     # to have arrived in the Unicode consortiums translations,
     # or where we use and old/incorrect country code.
-    "CS": _(u"Kosovo"),
-    "ME": _(u"Montenegro"),
-    "RS": _(u"Republic of Serbia"),
+    "CS": _("Kosovo"),
+    "ME": _("Montenegro"),
+    "RS": _("Republic of Serbia"),
     # Political issue, Macedonia can't be called Macedonia...
-    "MK": _(u"F.Y.R. Macedonia"),
+    "MK": _("F.Y.R. Macedonia"),
 }
 
 # New concept: "Type" or "Flavour" of an OiRA tool. Apart from the "Classic"
 # one, we add the type "With measures that are already in place".
 link_add_measures = _(
     "no_translate_link_add_measures",
-    default=u"<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>",  # noqa: E501
+    default="<a class='add-clone' id='add-in-place-measure-button'>${text_add_measures}</a>",  # noqa: E501
     mapping={
         "text_add_measures": _(
             "text_add_measures",
-            default=u"add all measures that have already been implemented",
+            default="add all measures that have already been implemented",
         )
     },
 )
@@ -69,7 +69,7 @@ TOOL_TYPES = OrderedDict(
             "classic",
             {
                 "use_omega_risks": True,
-                "title": _(u"Classic OiRA Tool with positive and negative statements."),
+                "title": _("Classic OiRA Tool with positive and negative statements."),
                 "description": "",
                 "intro_extra": "",
                 "intro_extra_always_present": "",
@@ -81,17 +81,15 @@ TOOL_TYPES = OrderedDict(
                 "custom_placeholder_add_extra": "",
                 "placeholder_add_extra_always_present": "",
                 "intro_questions": "",
-                "answer_yes": _("label_yes", default=u"Yes"),
-                "answer_no": _("label_no", default=u"No"),
-                "answer_yes_integrated_ap": _(
-                    "label_yes_integrated_ap", default=u"Yes"
-                ),
-                "answer_no_integrated_ap": _("label_no_integrated_ap", default=u"No"),
-                "answer_na": _("label_not_applicable", default=u"Not applicable"),
+                "answer_yes": _("label_yes", default="Yes"),
+                "answer_no": _("label_no", default="No"),
+                "answer_yes_integrated_ap": _("label_yes_integrated_ap", default="Yes"),
+                "answer_no_integrated_ap": _("label_no_integrated_ap", default="No"),
+                "answer_na": _("label_not_applicable", default="Not applicable"),
                 "custom_intro_extra": "",
                 "custom_intro_questions": _(
                     "is_risk_acceptable",
-                    default=u"Is this risk acceptable or under control?",
+                    default="Is this risk acceptable or under control?",
                 ),
                 "custom_button_add_extra": "",
             },
@@ -101,82 +99,82 @@ TOOL_TYPES = OrderedDict(
             {
                 "use_omega_risks": True,
                 "title": _(
-                    u'OiRA Tool where "Measures that are already in place" can be '
-                    u"defined."
+                    'OiRA Tool where "Measures that are already in place" can be '
+                    "defined."
                 ),
                 "description": "",
                 "intro_extra": _(
                     "select_add_existing_measure",
-                    default=u"Select or add any measures that are <strong>already "
-                    u"implemented</strong>.",
+                    default="Select or add any measures that are <strong>already "
+                    "implemented</strong>.",
                 ),
                 "intro_extra_always_present": _(
                     "select_add_existing_measure",
-                    default=u"Select or add any measures that are <strong>already "
-                    u"implemented</strong>.",
+                    default="Select or add any measures that are <strong>already "
+                    "implemented</strong>.",
                 ),
                 "button_add_extra": _(
                     "button_add_existing_measure",
-                    default=u"Add another measure implemented already",
+                    default="Add another measure implemented already",
                 ),
                 "button_add_extra_always_present": _(
                     "button_add_existing_measure",
-                    default=u"Add another measure implemented already",
+                    default="Add another measure implemented already",
                 ),
                 "button_remove_extra": _(
                     "button_remove_existing_measure",
-                    default=u"Remove this existing measure",
+                    default="Remove this existing measure",
                 ),
                 "button_remove_extra_always_present": _(
                     "button_remove_existing_measure",
-                    default=u"Remove this existing measure",
+                    default="Remove this existing measure",
                 ),
                 "placeholder_add_extra": _(
                     "placeholder_new_existing",
-                    default=u"Describe a measure that is already in place but not yet "
-                    u"listed here.",
+                    default="Describe a measure that is already in place but not yet "
+                    "listed here.",
                 ),
                 "custom_placeholder_add_extra": _(
                     "custom_placeholder_new_existing",
-                    default=u"Describe a measure that is already in place.",
+                    default="Describe a measure that is already in place.",
                 ),
                 "placeholder_add_extra_always_present": _(
                     "placeholder_new_existing",
-                    default=u"Describe a measure that is already in place but not yet "
-                    u"listed here.",
+                    default="Describe a measure that is already in place but not yet "
+                    "listed here.",
                 ),
                 "intro_questions": _(
                     "implemented_measures_sufficient",
-                    default=u"Are the measures that are already implemented sufficient?",  # noqa: E501
+                    default="Are the measures that are already implemented sufficient?",  # noqa: E501
                 ),
                 "answer_yes": _(
                     "label_yes_sufficient",
-                    default=u"Yes, the remaining risk is acceptable",
+                    default="Yes, the remaining risk is acceptable",
                 ),
                 "answer_no": _(
-                    "label_not_sufficient", default=u"No, more measures are required"
+                    "label_not_sufficient", default="No, more measures are required"
                 ),
                 "answer_yes_integrated_ap": _(
                     "label_yes_sufficient",
-                    default=u"Yes, the remaining risk is acceptable",
+                    default="Yes, the remaining risk is acceptable",
                 ),
                 "answer_no_integrated_ap": _(
                     "label_not_sufficient_integrated_ap",
-                    default=u"No, more measures are required <strong>(to be added below)</strong>",  # noqa: E501
+                    default="No, more measures are required <strong>(to be added below)</strong>",  # noqa: E501
                 ),
-                "answer_na": _("label_not_applicable", default=u"Not applicable"),
+                "answer_na": _("label_not_applicable", default="Not applicable"),
                 "custom_intro_extra": _(
                     "add_existing_measure",
-                    default=u"Add any measures that are <strong>already implemented"
-                    u"</strong>.",
+                    default="Add any measures that are <strong>already implemented"
+                    "</strong>.",
                 ),
                 "custom_intro_questions": _(
                     "implemented_measures_sufficient",
-                    default=u"Are the measures that are already implemented sufficient?",  # noqa: E501
+                    default="Are the measures that are already implemented sufficient?",  # noqa: E501
                 ),
                 "custom_button_add_extra": _(
                     "custom_button_add_existing_measure",
-                    default=u"Add an already implemented measure",
+                    default="Add an already implemented measure",
                 ),
             },
         ),
@@ -186,14 +184,14 @@ TOOL_TYPES = OrderedDict(
 
 class IToolTypesInfo(Interface):
     def __call__():
-        """ Returns info (data-structure) about available tool types"""
+        """Returns info (data-structure) about available tool types"""
 
     def types_existing_measures():
         """Returns all tool type names that use the "Measures already in
         place" feature"""
 
     def default_tool_type():
-        """ Returns the default type of tool, valid for this installation"""
+        """Returns the default type of tool, valid for this installation"""
 
 
 @implementer(IToolTypesInfo)
@@ -238,10 +236,8 @@ class MeasuresTextHandlingVocabulary(object):
     def __call__(self, context):
 
         terms = [
-            SimpleTerm(
-                "full", title=_(u"Full (show Description and General Approach)")
-            ),
-            SimpleTerm("simple", title=_(u"Simple (show only General Approach)")),
+            SimpleTerm("full", title=_("Full (show Description and General Approach)")),
+            SimpleTerm("simple", title=_("Simple (show only General Approach)")),
         ]
         return SimpleVocabulary(terms)
 
@@ -253,8 +249,8 @@ def ensure_image_size(value):
     if INamedBlobImage.providedBy(value):
         img_size = value.getImageSize()
         if img_size < IMAGE_MIN_SIZE:
-            msg = u"Image “{}” is too small. ".format(value.filename)
-            msg += u"The minimum size is {} (width) x {} (height) pixels. ".format(
+            msg = "Image “{}” is too small. ".format(value.filename)
+            msg += "The minimum size is {} (width) x {} (height) pixels. ".format(
                 *IMAGE_MIN_SIZE
             )
             msg += "Your image has a size of {} x {}.".format(*img_size)
@@ -276,18 +272,18 @@ def getSurvey(context):
 def StripMarkup(markup):
     """Strip all markup from a HTML fragment."""
     if not markup:
-        return u""
+        return ""
 
-    txt = TAG.sub(u" ", markup)
-    return WHITE.sub(u" ", txt).strip()
+    txt = TAG.sub(" ", markup)
+    return WHITE.sub(" ", txt).strip()
 
 
 def StripUnwanted(text):
     """Strip unwanted elements from a text fragment"""
     if not text:
-        return u""
+        return ""
 
-    return UNWANTED.sub(u"", text)
+    return UNWANTED.sub("", text)
 
 
 def getTermTitleByValue(field, token):
@@ -359,15 +355,15 @@ class DragDropHelper(object):
     def sortable_explanation(self):
         return api.portal.translate(
             NuPloneMessageFactory(
-                u"Change order of items by dragging the handle",
-                default=u"Change order of items by dragging the handle",
+                "Change order of items by dragging the handle",
+                default="Change order of items by dragging the handle",
             ),
         )
 
 
 class UserExport(BrowserView):
     def __call__(self):
-        ret = u"<html><body><h1>User Export</h1>"
+        ret = "<html><body><h1>User Export</h1>"
         from euphorie.content.countrymanager import ICountryManager
         from euphorie.content.sector import ISector
 
@@ -380,19 +376,19 @@ class UserExport(BrowserView):
             sectors = [item for item in country.values() if ISector.providedBy(item)]
             if len(managers) + len(sectors) == 0:
                 continue
-            ret += u"<h2>{}</h2>".format(country.title)
-            ret += u"<h3>Country managers</h3><ul>"
+            ret += "<h2>{}</h2>".format(country.title)
+            ret += "<h3>Country managers</h3><ul>"
             for manager in managers:
-                ret += u"<li>{}, {}</li>".format(manager.title, manager.contact_email)
-            ret += u"</ul>"
-            ret += u"<h3>Sector managers</h3><dl>"
+                ret += "<li>{}, {}</li>".format(manager.title, manager.contact_email)
+            ret += "</ul>"
+            ret += "<h3>Sector managers</h3><dl>"
             for sector in sectors:
-                ret += u"<dt><strong>Sector: {}</strong></dt><dd>{}, {}</dd>".format(
+                ret += "<dt><strong>Sector: {}</strong></dt><dd>{}, {}</dd>".format(
                     sector.title, sector.contact_name, sector.contact_email
                 )
-            ret += u"</dl>"
+            ret += "</dl>"
 
-        ret += u"</body></html>"
+        ret += "</body></html>"
         return ret
 
 

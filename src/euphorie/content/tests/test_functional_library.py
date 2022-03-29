@@ -21,17 +21,17 @@ class LibraryTests(EuphorieFunctionalTestCase):
     }
     library = [
         {
-            "title": u"Library Sector Title",
+            "title": "Library Sector Title",
             "url": "http://localhost/sector",
             "surveys": [
                 {
-                    "title": u"Library Survey Title",
+                    "title": "Library Survey Title",
                     "path": "/portal/sector/survey/version",
                     "url": "http://localhost/portal/sector/survey/version",
                     "portal_type": "euphorie.sector",
                     "children": [
                         {
-                            "title": u"Library Risk",
+                            "title": "Library Risk",
                             "number": "1",
                             "path": "/portal/sector/surveys/version/1",
                             "url": "http://localhost/portal/sector/surveys/version/1",

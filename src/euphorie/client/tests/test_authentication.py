@@ -75,23 +75,23 @@ class EuphorieAccountPluginTests(DatabaseTests):
 
     def test_authenticate_login_unknown_account(self):
         plugin = EuphorieAccountPlugin("plugin")
-        credentials = {"login": "login", "password": u"secret"}
+        credentials = {"login": "login", "password": "secret"}
         self.assertEqual(plugin._authenticate_login(credentials), None)
 
     def test_authenticate_login_valid_login(self):
         session = Session()
-        account = model.Account(loginname="john", password=u"jane")
+        account = model.Account(loginname="john", password="jane")
         session.add(account)
         plugin = EuphorieAccountPlugin("plugin")
-        credentials = {"login": "john", "password": u"jane"}
+        credentials = {"login": "john", "password": "jane"}
         self.assertTrue(plugin._authenticate_login(credentials) is not None)
 
     def test_authenticate_login_not_case_sensitive(self):
         session = Session()
-        account = model.Account(loginname="john", password=u"jane")
+        account = model.Account(loginname="john", password="jane")
         session.add(account)
         plugin = EuphorieAccountPlugin("plugin")
-        credentials = {"login": "JoHn", "password": u"jane"}
+        credentials = {"login": "JoHn", "password": "jane"}
         self.assertTrue(plugin._authenticate_login(credentials) is not None)
 
     def test_CreateUser_interface(self):
@@ -103,7 +103,7 @@ class EuphorieAccountPluginTests(DatabaseTests):
 
     def testCreateUser_ValidAccount(self):
         session = Session()
-        account = model.Account(loginname="john", password=u"jane")
+        account = model.Account(loginname="john", password="jane")
         session.add(account)
         request = MockRequest(ACTUAL_URL="http://www.example.com/client")
         directlyProvides(request, IClientSkinLayer)
@@ -116,14 +116,14 @@ class EuphorieAccountPluginTests(DatabaseTests):
 
     def testEnumerateUsers_NoInexactMatch(self):
         session = Session()
-        account = model.Account(loginname="john", password=u"jane")
+        account = model.Account(loginname="john", password="jane")
         session.add(account)
         plugin = EuphorieAccountPlugin("plugin")
         self.assertEqual(plugin.enumerateUsers(login="john", exact_match=False), [])
 
     def test_EnumerateUsers_search_by_id(self):
         session = Session()
-        account = model.Account(loginname="john", password=u"jane")
+        account = model.Account(loginname="john", password="jane")
         session.add(account)
         request = MockRequest(ACTUAL_URL="http://www.example.com/client")
         directlyProvides(request, IClientSkinLayer)
@@ -136,7 +136,7 @@ class EuphorieAccountPluginTests(DatabaseTests):
 
     def test_EnumerateUsers_search_by_login(self):
         session = Session()
-        account = model.Account(loginname="john", password=u"jane")
+        account = model.Account(loginname="john", password="jane")
         session.add(account)
         request = MockRequest(ACTUAL_URL="http://www.example.com/client")
         directlyProvides(request, IClientSkinLayer)
@@ -149,7 +149,7 @@ class EuphorieAccountPluginTests(DatabaseTests):
 
     def test_EnumerateUsers_search_by_login_and_id(self):
         session = Session()
-        account = model.Account(loginname="john", password=u"jane")
+        account = model.Account(loginname="john", password="jane")
         session.add(account)
         request = MockRequest(ACTUAL_URL="http://www.example.com/client")
         directlyProvides(request, IClientSkinLayer)

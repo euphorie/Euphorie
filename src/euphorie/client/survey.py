@@ -159,7 +159,7 @@ class _StatusHelper(object):
                 title = titles[path]
                 if (
                     title == "title_other_risks"
-                    or title == u"Other risks"
+                    or title == "Other risks"
                     or title == "Custom risks"
                 ):
                     title = title_custom_risks
@@ -176,7 +176,7 @@ class _StatusHelper(object):
             # sub-module (location) or location container
             else:
                 if path in location_titles:
-                    title = u"{0} - {1}".format(location_titles[path], titles[path])
+                    title = "{0} - {1}".format(location_titles[path], titles[path])
                     toc[path[:3]]["locations"].append(
                         {"path": path, "title": titles[path], "number": number}
                     )

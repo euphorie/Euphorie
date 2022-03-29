@@ -53,33 +53,33 @@ class RiskBase(BrowserView):
     def __call__(self):
         self.delete_confirmation = api.portal.translate(
             _(
-                u"Are you sure you want to delete this measure? This action can "
-                u"not be reverted."
+                "Are you sure you want to delete this measure? This action can "
+                "not be reverted."
             )
         )
         self.override_confirmation = api.portal.translate(
             _(
-                u"The current text in the fields 'Action plan', 'Prevention plan' and "
-                u"'Requirements' of this measure will be overwritten. "
-                u"This action cannot be reverted. Are you sure you want to continue?"
+                "The current text in the fields 'Action plan', 'Prevention plan' and "
+                "'Requirements' of this measure will be overwritten. "
+                "This action cannot be reverted. Are you sure you want to continue?"
             )
         )
         self.message_date_before = api.portal.translate(
             _(
-                u"error_validation_before_end_date",
-                default=u"This date must be on or before the end date.",
+                "error_validation_before_end_date",
+                default="This date must be on or before the end date.",
             )
         )
         self.message_date_after = api.portal.translate(
             _(
-                u"error_validation_after_start_date",
-                default=u"This date must be on or after the start date.",
+                "error_validation_after_start_date",
+                default="This date must be on or after the start date.",
             )
         )
         self.message_positive_number = api.portal.translate(
             _(
-                u"error_validation_positive_whole_number",
-                default=u"This value must be a positive whole number.",
+                "error_validation_positive_whole_number",
+                default="This value must be a positive whole number.",
             )
         )
 
@@ -263,7 +263,7 @@ class RiskBase(BrowserView):
                 return api.portal.translate(
                     _(
                         "action_measures_true_solutions_true",
-                        default=u"Select or describe any further measure to reduce the risk.",  # noqa: E501  # noqa: E501
+                        default="Select or describe any further measure to reduce the risk.",  # noqa: E501  # noqa: E501
                     )
                 )
             # Case: measures-in-place==true, solutions==false
@@ -271,7 +271,7 @@ class RiskBase(BrowserView):
                 return api.portal.translate(
                     _(
                         "action_measures_true_solutions_false",
-                        default=u"Describe any further measure to reduce the risk.",
+                        default="Describe any further measure to reduce the risk.",
                     )
                 )
         else:
@@ -280,7 +280,7 @@ class RiskBase(BrowserView):
                 return api.portal.translate(
                     _(
                         "action_measures_false_solutions_true",
-                        default=u"Select or describe the specific measures required to reduce the risk.",  # noqa: E501
+                        default="Select or describe the specific measures required to reduce the risk.",  # noqa: E501
                     )
                 )
             # Case: measures-in-place==false, solutions==false
@@ -288,7 +288,7 @@ class RiskBase(BrowserView):
                 return api.portal.translate(
                     _(
                         "action_measures_false_solutions_false",
-                        default=u"Describe the specific measures required to reduce the risk.",  # noqa: E501
+                        default="Describe the specific measures required to reduce the risk.",  # noqa: E501
                     )
                 )
 
@@ -341,7 +341,7 @@ class IdentificationView(RiskBase):
         "frequency": None,
         "severity": None,
         "priority": None,
-        "comment": u"",
+        "comment": "",
         "training_notes": None,
         "custom_description": None,
     }
@@ -385,7 +385,7 @@ class IdentificationView(RiskBase):
     @property
     @memoize
     def skip_evaluation(self):
-        """ Default value is False, but it can be tweaked in certain conditions"""
+        """Default value is False, but it can be tweaked in certain conditions"""
         if self.italy_special and (
             (
                 self.risk
@@ -408,7 +408,7 @@ class IdentificationView(RiskBase):
 
     @property
     def action_plan_condition(self):
-        """ In what circumstances will the integrated Action Plan be shown"""
+        """In what circumstances will the integrated Action Plan be shown"""
         condition = "condition: answer=no"
         if not self.is_custom_risk and (
             self.risk.type == "top5" or self.risk.risk_always_present
@@ -681,17 +681,17 @@ class IdentificationView(RiskBase):
         self.risk_number = self.context.number
 
         self.description_probability = _(
-            u"help_default_probability",
-            default=u"Indicate how "
-            u"likely occurence of this risk is in a normal situation.",
+            "help_default_probability",
+            default="Indicate how "
+            "likely occurence of this risk is in a normal situation.",
         )
         self.description_frequency = _(
-            u"help_default_frequency",
-            default=u"Indicate how often this " u"risk occurs in a normal situation.",
+            "help_default_frequency",
+            default="Indicate how often this " "risk occurs in a normal situation.",
         )
         self.description_severity = _(
-            u"help_default_severity",
-            default=u"Indicate the " u"severity if this risk occurs.",
+            "help_default_severity",
+            default="Indicate the " "severity if this risk occurs.",
         )
 
         tool_types = self.tti()
@@ -810,7 +810,7 @@ class IdentificationView(RiskBase):
                 .filter(
                     and_(
                         model.SurveyTreeItem.session == self.session,
-                        model.Module.zodb_path == u"custom-risks",
+                        model.Module.zodb_path == "custom-risks",
                     )
                 )
                 .first()
@@ -938,7 +938,7 @@ class ImageUpload(BrowserView):
                 self.context.image_filename = new_name
         elif self.request.form.get("image-remove"):
             self.context.image_data = None
-            self.context.image_filename = u""
+            self.context.image_filename = ""
         return self.redirect()
 
 
@@ -1017,7 +1017,7 @@ class ActionPlanView(RiskBase):
     @property
     @memoize
     def skip_evaluation(self):
-        """ Default value is False, but it can be tweaked in certain conditions"""
+        """Default value is False, but it can be tweaked in certain conditions"""
         if self.italy_special and (
             (
                 self.risk
@@ -1153,8 +1153,8 @@ class ActionPlanView(RiskBase):
         self.title = context.parent.title
 
         if self.is_custom_risk:
-            self.risk.description = u""
-            self.risk.evaluation_method = u""
+            self.risk.description = ""
+            self.risk.evaluation_method = ""
 
         self.image_class = IMAGE_CLASS[self.number_images]
         self.risk_number = self.context.number
@@ -1192,9 +1192,9 @@ def calculate_priority(db_risk, risk):
 def evaluation_algorithm(risk):
     for parent in aq_chain(aq_inner(risk)):
         if ISurvey.providedBy(parent):
-            return getattr(parent, "evaluation_algorithm", u"kinney")
+            return getattr(parent, "evaluation_algorithm", "kinney")
     else:
-        return u"kinney"
+        return "kinney"
 
 
 class ConfirmationDeleteRisk(BrowserView):

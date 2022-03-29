@@ -45,7 +45,7 @@ else:
     basedir = "."
 
 if not os.path.isdir(basedir):
-    usage(sys.stderr, u"The directory you provided does not exists")
+    usage(sys.stderr, "The directory you provided does not exists")
 
 dirs = [
     x

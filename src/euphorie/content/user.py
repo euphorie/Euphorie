@@ -43,7 +43,7 @@ RE_LOGIN = re.compile(r"^[a-z][a-z0-9-]+$")
 
 
 class DuplicateLoginError(ValidationError):
-    __doc__ = _("error_existing_login", default=u"This login name is already taken.")
+    __doc__ = _("error_existing_login", default="This login name is already taken.")
 
 
 def validLoginValue(value):
@@ -51,8 +51,8 @@ def validLoginValue(value):
         raise Invalid(
             _(
                 "error_invalid_login",
-                default=u"A login name may only consist of lowercase letters "
-                u"and numbers.",
+                default="A login name may only consist of lowercase letters "
+                "and numbers.",
             )
         )
     return True
@@ -75,28 +75,28 @@ def _check_password(value):
 
 
 class IUser(model.Schema):
-    title = schema.TextLine(title=_("label_user_title", default=u"Name"), required=True)
+    title = schema.TextLine(title=_("label_user_title", default="Name"), required=True)
 
     contact_email = schema.TextLine(
-        title=_("label_contact_email", default=u"Contact email address"), required=True
+        title=_("label_contact_email", default="Contact email address"), required=True
     )
 
     login = LoginField(
-        title=_("label_login_name", default=u"Login name"),
+        title=_("label_login_name", default="Login name"),
         required=True,
         constraint=validLoginValue,
     )
     directives.write_permission(login="euphorie.content.ManageCountry")
 
     password = schema.Password(
-        title=_("label_password", default=u"Password"),
+        title=_("label_password", default="Password"),
         required=True,
         constraint=_check_password,
     )
     directives.widget(password=PasswordWithConfirmationFieldWidget)
 
     locked = schema.Bool(
-        title=_("label_account_locked", default=u"Account is locked"),
+        title=_("label_account_locked", default="Account is locked"),
         required=False,
         default=False,
     )
@@ -172,7 +172,7 @@ class UserAuthentication(UserProvider):
             IStatusMessage(self.context.REQUEST).add(
                 _(
                     "message_user_locked",
-                    default=u'Account "${title}" has been locked.',
+                    default='Account "${title}" has been locked.',
                     mapping=dict(title=self.context.title),
                 ),
                 "warn",
@@ -211,8 +211,8 @@ class UserAuthentication(UserProvider):
             IStatusMessage(self.context.REQUEST).add(
                 _(
                     "message_lock_warn",
-                    default=u"Please be aware that you have %s more login "
-                    u"attempts before your account will be locked."
+                    default="Please be aware that you have %s more login "
+                    "attempts before your account will be locked."
                     % (max_attempts - self.context._v_login_attempts),
                 ),
                 "warn",
@@ -225,7 +225,7 @@ class UserAuthentication(UserProvider):
             IStatusMessage(self.context.REQUEST).add(
                 _(
                     "message_user_locked",
-                    default=u'Account "${title}" has been locked.',
+                    default='Account "${title}" has been locked.',
                     mapping=dict(title=self.context.title),
                 ),
                 "warn",
@@ -288,7 +288,7 @@ class UserProperties(UserProvider):
         for (content_prop, user_prop) in self.property_map:
             value = getattr(self.context, content_prop)
             # None values are not allowed so replace those with an empty string
-            properties[user_prop] = (value is not None) and value or u""
+            properties[user_prop] = (value is not None) and value or ""
         return properties
 
     def setPropertiesForUser(self, user, propertysheet):

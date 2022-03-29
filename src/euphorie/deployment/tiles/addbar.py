@@ -16,7 +16,7 @@ class AddBarTile(Tile):
                 # explicitly set the action.id to the fake "euphorie.submodule"
                 if action.id == "euphorie.module":
                     actions[i] = FactoryInfo(
-                        "euphorie.submodule", _(u"Submodule"), *action[2:]
+                        "euphorie.submodule", _("Submodule"), *action[2:]
                     )
                     break
         self.actions = sorted(actions, key=lambda x: x.title)
@@ -26,5 +26,5 @@ class AddBarTile(Tile):
     def __call__(self):
         self.update()
         if not (self.actions or self.can_edit):
-            return u""
+            return ""
         return self.index()

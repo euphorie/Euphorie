@@ -57,7 +57,7 @@ def _create(container, *args, **kwargs):
 def createSector(
     portal,
     id="sector",
-    title=u"Test Sector",
+    title="Test Sector",
     login=None,
     password=None,
     country="nl",
@@ -82,8 +82,8 @@ def createSector(
 def addSurvey(
     sector,
     snippet=BASIC_SURVEY,
-    surveygroup_title=u"Test survey",
-    survey_title=u"Standard version",
+    surveygroup_title="Test survey",
+    survey_title="Standard version",
 ):
     from euphorie.content.browser import upload
 

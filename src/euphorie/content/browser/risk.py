@@ -78,7 +78,7 @@ class RiskView(BrowserView, DragDropHelper):
 
     @property
     def default_frequency(self):
-        if self.evaluation_algorithm == u"french":
+        if self.evaluation_algorithm == "french":
             return getTermTitleByValue(
                 IFrenchEvaluation["default_frequency"],
                 self.my_context.default_frequency,
@@ -136,7 +136,7 @@ class AddForm(DefaultAddForm):
 
     @property
     def schema(self):
-        if self.evaluation_algorithm == u"french":
+        if self.evaluation_algorithm == "french":
             return IFrenchRisk
         else:
             return IKinneyRisk

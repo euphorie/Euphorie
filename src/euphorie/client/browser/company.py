@@ -26,31 +26,31 @@ from zope.schema.vocabulary import SimpleVocabulary
 class CompanySchema(Schema):
     # Note the ideal type, but there is no convenient country field
     country = schema.TextLine(
-        title=_("label_company_country", default=u"Your country"), required=False
+        title=_("label_company_country", default="Your country"), required=False
     )
 
     employees = schema.Choice(
-        title=_("label_employee_numbers", default=u"Number of employees"),
+        title=_("label_employee_numbers", default="Number of employees"),
         vocabulary=SimpleVocabulary(
             [
                 SimpleTerm(
-                    u"1-9",
-                    title=_("employee_numbers_1_to_9", default=u"1 to 9 employees"),
+                    "1-9",
+                    title=_("employee_numbers_1_to_9", default="1 to 9 employees"),
                 ),
                 SimpleTerm(
-                    u"10-49",
-                    title=_("employee_numbers_10_to_49", default=u"10 to 49 employees"),
+                    "10-49",
+                    title=_("employee_numbers_10_to_49", default="10 to 49 employees"),
                 ),
                 SimpleTerm(
-                    u"50-249",
+                    "50-249",
                     title=_(
-                        "employee_numbers_50_to_249", default=u"50 to 249 employees"
+                        "employee_numbers_50_to_249", default="50 to 249 employees"
                     ),
                 ),
                 SimpleTerm(
-                    u"250+",
+                    "250+",
                     title=_(
-                        "employee_numbers_250_or_more", default=u"250 or more employees"
+                        "employee_numbers_250_or_more", default="250 or more employees"
                     ),
                 ),
             ]
@@ -59,23 +59,23 @@ class CompanySchema(Schema):
     )
 
     conductor = schema.Choice(
-        title=_("label_conductor", default=u"The risk assessment was conducted by"),
+        title=_("label_conductor", default="The risk assessment was conducted by"),
         vocabulary=SimpleVocabulary(
             [
-                SimpleTerm(u"staff", title=_("conductor_staff", default=u"own staff")),
+                SimpleTerm("staff", title=_("conductor_staff", default="own staff")),
                 SimpleTerm(
-                    u"third-party",
+                    "third-party",
                     title=_(
                         "conductor_third_party",
-                        default=u"an external consultant or service provider",
+                        default="an external consultant or service provider",
                     ),
                 ),
                 SimpleTerm(
-                    u"both",
+                    "both",
                     title=_(
                         "conductor_both",
-                        default=u"both own staff and an external consultant or "
-                        u"service provider",
+                        default="both own staff and an external consultant or "
+                        "service provider",
                     ),
                 ),
             ]
@@ -86,47 +86,45 @@ class CompanySchema(Schema):
     referer = schema.Choice(
         title=_(
             "label_referer",
-            default=u"Through which channel did you learn about this " u"tool?",
+            default="Through which channel did you learn about this " "tool?",
         ),
         vocabulary=SimpleVocabulary(
             [
                 SimpleTerm(
-                    u"employers-organisation",
+                    "employers-organisation",
                     title=_(
                         "referer_employers_organisation",
-                        default=u"an employers' organisation",
+                        default="an employers' organisation",
                     ),
                 ),
                 SimpleTerm(
-                    u"trade-union",
+                    "trade-union",
                     title=_(
-                        "referer_trade_union", default=u"a trade union organisation"
+                        "referer_trade_union", default="a trade union organisation"
                     ),
                 ),
                 SimpleTerm(
-                    u"national-public-institution",
+                    "national-public-institution",
                     title=_(
                         "referer_national_public_institution",
-                        default=u"a national public " u"institution/administration",
+                        default="a national public " "institution/administration",
                     ),
                 ),
                 SimpleTerm(
-                    u"eu-institution",
+                    "eu-institution",
                     title=_(
                         "referer_eu_institution",
-                        default=u"an European institution/administration",
+                        default="an European institution/administration",
                     ),
                 ),
                 SimpleTerm(
-                    u"health-safety-experts",
+                    "health-safety-experts",
                     title=_(
                         "referer_health_safety_expert",
-                        default=u"health and safety experts",
+                        default="health and safety experts",
                     ),
                 ),
-                SimpleTerm(
-                    u"other", title=_("referer_other", default=u"other channel")
-                ),
+                SimpleTerm("other", title=_("referer_other", default="other channel")),
             ]
         ),
         required=False,
@@ -135,23 +133,23 @@ class CompanySchema(Schema):
     workers_participated = schema.Choice(
         title=_(
             "label_workers_participated",
-            default=u"Workers were invited to participate in the " u"risk assessment",
+            default="Workers were invited to participate in the " "risk assessment",
         ),
         vocabulary=SimpleVocabulary(
             [
-                SimpleTerm(True, title=_("label_yes", default=u"Yes")),
-                SimpleTerm(False, title=_("label_no", default=u"No")),
+                SimpleTerm(True, title=_("label_yes", default="Yes")),
+                SimpleTerm(False, title=_("label_no", default="No")),
             ]
         ),
         required=False,
     )
 
     needs_met = schema.Choice(
-        title=_("label_needs_met", default=u"Did this OiRA tool meet your needs?"),
+        title=_("label_needs_met", default="Did this OiRA tool meet your needs?"),
         vocabulary=SimpleVocabulary(
             [
-                SimpleTerm(True, title=_("label_yes", default=u"Yes")),
-                SimpleTerm(False, title=_("label_no", default=u"No")),
+                SimpleTerm(True, title=_("label_yes", default="Yes")),
+                SimpleTerm(False, title=_("label_no", default="No")),
             ]
         ),
         required=False,
@@ -160,13 +158,13 @@ class CompanySchema(Schema):
     recommend_tool = schema.Choice(
         title=_(
             "label_recommend_tool",
-            default=u"Would you recommend this OiRA tool to an enterprise "
-            u"similar to yours?",
+            default="Would you recommend this OiRA tool to an enterprise "
+            "similar to yours?",
         ),
         vocabulary=SimpleVocabulary(
             [
-                SimpleTerm(True, title=_("label_yes", default=u"Yes")),
-                SimpleTerm(False, title=_("label_no", default=u"No")),
+                SimpleTerm(True, title=_("label_yes", default="Yes")),
+                SimpleTerm(False, title=_("label_no", default="No")),
             ]
         ),
         required=False,
@@ -174,7 +172,7 @@ class CompanySchema(Schema):
 
     directives.mode(timestamp="hidden")
     timestamp = schema.Datetime(
-        title=u"Timestamp",
+        title="Timestamp",
         required=False,
     )
 
@@ -231,7 +229,7 @@ class Company(AutoExtensibleForm, form.Form):
         content = self.getContent()
         applyChanges(self, content, data)
 
-    @button.buttonAndHandler(u"Previous")
+    @button.buttonAndHandler("Previous")
     def handlePrevious(self, action):
         (data, errors) = self.extractData()
         if errors:
@@ -242,7 +240,7 @@ class Company(AutoExtensibleForm, form.Form):
         url = "%s/@@report" % self.context.absolute_url()
         self.request.response.redirect(url)
 
-    @button.buttonAndHandler(u"Next")
+    @button.buttonAndHandler("Next")
     def handleNext(self, action):
         (data, errors) = self.extractData()
         if errors:
@@ -253,13 +251,13 @@ class Company(AutoExtensibleForm, form.Form):
         url = "%s/@@report_view" % self.context.absolute_url()
         self.request.response.redirect(url)
 
-    @button.buttonAndHandler(u"Skip")
+    @button.buttonAndHandler("Skip")
     def handleSkip(self, action):
         # XXX: This a hack. We need to know if a company report has been
         # skipped but can't add new SQL columns. So we mark the country 'xx'.
         data = {
             "conductor": None,
-            "country": u"xx",
+            "country": "xx",
             "employees": None,
             "referer": None,
             "workers_participated": None,

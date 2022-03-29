@@ -38,9 +38,9 @@ class PdfView(BrowserView):
     def footer_options(self):
         return (
             "--footer-right",
-            u"{} [page] {} [topage]".format(
-                api.portal.translate(_(u"label_page", default=u"Page")),
-                api.portal.translate(_(u"label_page_of", default=u"of")),
+            "{} [page] {} [topage]".format(
+                api.portal.translate(_("label_page", default="Page")),
+                api.portal.translate(_("label_page_of", default="of")),
             ),
             "--footer-font-size",
             "8",
@@ -77,7 +77,7 @@ class PdfView(BrowserView):
         view = context.restrictedTraverse(view_name)
         pdf = self.view_to_pdf(view)
 
-        filename = u"{} - {}.pdf".format(
+        filename = "{} - {}.pdf".format(
             api.portal.translate(view.label), view.session.title
         ).encode("utf-8")
 

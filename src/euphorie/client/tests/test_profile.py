@@ -24,7 +24,7 @@ def createContainer(id, profile=False):
 
     @implementer(IQuestionContainer)
     class Container(dict):
-        title = u"container"
+        title = "container"
         description = None
 
         def __init__(self, id):
@@ -42,7 +42,7 @@ def createRisk(id):
 
     @implementer(IRisk)
     class Risk(object):
-        title = u"risk"
+        title = "risk"
         type = "risk"
         default_probability = 0
         default_frequency = 0
@@ -64,7 +64,7 @@ def createModule(id):
 
     @implementer(IModule, IQuestionContainer)
     class Module(dict):
-        title = u"module"
+        title = "module"
         description = None
         optional = False
         solution_direction = False
@@ -80,15 +80,15 @@ class AddToTreeTests(EuphorieIntegrationTestCase):
     def setUp(self):
         super(AddToTreeTests, self).setUp()
         self.session = Session()
-        account = model.Account(id=1, loginname=u"jane", password=u"secret")
+        account = model.Account(id=1, loginname="jane", password="secret")
         self.session.add(account)
         self.survey = model.SurveySession(
-            title=u"Survey", zodb_path="survey", account=account
+            title="Survey", zodb_path="survey", account=account
         )
         self.session.add(self.survey)
         self.session.flush()
         self.root = self.survey.addChild(
-            model.Module(title=u"test session", module_id="1", zodb_path="1")
+            model.Module(title="test session", module_id="1", zodb_path="1")
         )
 
     def testAddNonInterestingNode(self):
@@ -103,7 +103,7 @@ class AddToTreeTests(EuphorieIntegrationTestCase):
 
         child = children[0]
         self.assertTrue(isinstance(child, model.Risk))
-        self.assertEqual(child.title, u"risk")
+        self.assertEqual(child.title, "risk")
         self.assertEqual(child.risk_id, "13")
         self.assertEqual(child.risk_type, "risk")
 
@@ -132,13 +132,13 @@ class AddToTreeTests(EuphorieIntegrationTestCase):
         self.assertEqual(len(children), 1)
         child = children[0]
         self.assertTrue(isinstance(child, model.Module))
-        self.assertEqual(child.title, u"container")
+        self.assertEqual(child.title, "container")
         self.assertEqual(child.module_id, "13")
 
     def testOverrideTitle(self):
         question = createRisk("13")
-        AddToTree(self.root, question, title=u"other title")
-        self.assertEqual(self.root.children().first().title, u"other title")
+        AddToTree(self.root, question, title="other title")
+        self.assertEqual(self.root.children().first().title, "other title")
 
     def testContainerWithChildren(self):
         container = createContainer("13")
@@ -155,17 +155,17 @@ class AddToTreeTests(EuphorieIntegrationTestCase):
         # This is a test for #96
         container = createContainer("2")
         container["2"] = createContainer("3")
-        AddToTree(self.root, container, [], title=u"Top level title", profile_index=1)
+        AddToTree(self.root, container, [], title="Top level title", profile_index=1)
         children = list(self.root.children())
         self.assertEqual(len(children), 1)
         child = children[0]
-        self.assertEqual(child.title, u"Top level title")
+        self.assertEqual(child.title, "Top level title")
         # Profile index is forced back to 0 since root has profile index 0
         self.assertEqual(child.profile_index, 0)
 
     def test_item_with_description(self):
         question = createRisk("13")
-        question.description = u"<p>Hello!</p>"
+        question.description = "<p>Hello!</p>"
         AddToTree(self.root, question)
         children = list(self.root.children())
         child = children[0]
@@ -173,7 +173,7 @@ class AddToTreeTests(EuphorieIntegrationTestCase):
 
     def test_item_without_description(self):
         question = createRisk("13")
-        question.description = u"<p></p>"
+        question.description = "<p></p>"
         AddToTree(self.root, question)
         children = list(self.root.children())
         child = children[0]
@@ -193,10 +193,10 @@ class BuildSurveyTreeTests(EuphorieIntegrationTestCase):
     def setUp(self):
         super(BuildSurveyTreeTests, self).setUp()
         self.session = Session()
-        account = model.Account(id=1, loginname=u"jane", password=u"secret")
+        account = model.Account(id=1, loginname="jane", password="secret")
         self.session.add(account)
         self.survey = model.SurveySession(
-            title=u"Survey", zodb_path="survey", account=account
+            title="Survey", zodb_path="survey", account=account
         )
         self.session.add(self.survey)
         self.session.flush()
@@ -276,7 +276,7 @@ class ExtractProfileTests(TreeTests):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.module", "1")
         session = self.createSurveySession()
-        session.addChild(model.Module(title=u"Root", module_id="1", zodb_path="1"))
+        session.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         self.assertEqual(self.extractProfile(survey, session), {})
 
     def testOptionalProfileQuestionNotSelected(self):
@@ -293,7 +293,7 @@ class ExtractProfileTests(TreeTests):
         pq = survey["1"]
         pq.use_location_question = False
         session = self.createSurveySession()
-        session.addChild(model.Module(title=u"Root", module_id="1", zodb_path="1"))
+        session.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         self.assertEqual(self.extractProfile(survey, session), {"1": True})
 
     def testRepeatableProfileQuestionNotSelected(self):
@@ -306,12 +306,12 @@ class ExtractProfileTests(TreeTests):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
         pq = survey["1"]
-        pq.title = u"Repeatable profile question"
+        pq.title = "Repeatable profile question"
         session = self.createSurveySession()
         session.addChild(
-            model.Module(title=u"First answer", module_id="1", zodb_path="1")
+            model.Module(title="First answer", module_id="1", zodb_path="1")
         )
-        self.assertEqual(self.extractProfile(survey, session), {"1": [u"First answer"]})
+        self.assertEqual(self.extractProfile(survey, session), {"1": ["First answer"]})
 
 
 class Profile_getDesiredProfile_Tests(TreeTests):
@@ -378,7 +378,7 @@ class Profile_getDesiredProfile_Tests(TreeTests):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
         self.assertEqual(
-            self.getDesiredProfile(survey, {"1": [u"   "], "pq1.present": "yes"}),
+            self.getDesiredProfile(survey, {"1": ["   "], "pq1.present": "yes"}),
             {"1": []},
         )
 
@@ -386,10 +386,8 @@ class Profile_getDesiredProfile_Tests(TreeTests):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
         self.assertEqual(
-            self.getDesiredProfile(
-                survey, {"1": [u"one", u"two"], "pq1.present": "yes"}
-            ),
-            {"1": [u"one"]},
+            self.getDesiredProfile(survey, {"1": ["one", "two"], "pq1.present": "yes"}),
+            {"1": ["one"]},
         )
 
     def test_profile_with_two_answers_multiple_active(self):
@@ -398,17 +396,17 @@ class Profile_getDesiredProfile_Tests(TreeTests):
         self.assertEqual(
             self.getDesiredProfile(
                 survey,
-                {"1": [u"one", u"two"], "pq1.present": "yes", "pq1.multiple": "yes"},
+                {"1": ["one", "two"], "pq1.present": "yes", "pq1.multiple": "yes"},
             ),
-            {"1": [u"one", "two"]},
+            {"1": ["one", "two"]},
         )
 
     def test_profile_strip_whitespace(self):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
         self.assertEqual(
-            self.getDesiredProfile(survey, {"1": [u" *** "], "pq1.present": "yes"}),
-            {"1": [u"***"]},
+            self.getDesiredProfile(survey, {"1": [" *** "], "pq1.present": "yes"}),
+            {"1": ["***"]},
         )
 
 
@@ -426,7 +424,7 @@ class Profile_setupSession_Tests(TreeTests):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.module", "1")
         mod = survey["1"]
-        mod.title = u"Module one"
+        mod.title = "Module one"
         view = self.makeView(survey)
 
         session = view.session
@@ -440,7 +438,7 @@ class Profile_setupSession_Tests(TreeTests):
         survey.invokeFactory("euphorie.profilequestion", "1")
         view = self.makeView(survey)
         session = view.session
-        view.request.form["1"] = [u"one"]
+        view.request.form["1"] = ["one"]
         view.request.form["pq1.present"] = "yes"
         with api.env.adopt_user(user=session.account):
             view.setupSession()
@@ -461,7 +459,7 @@ class Profile_setupSession_Tests(TreeTests):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.module", "1")
         mod = survey["1"]
-        mod.title = u"Module one"
+        mod.title = "Module one"
         view = self.makeView(survey)
         with mock.patch("euphorie.client.profile.extractProfile", return_value={}):
             session = view.session
@@ -480,11 +478,11 @@ class Profile_setupSession_Tests(TreeTests):
         view = self.makeView(survey)
         with mock.patch(
             "euphorie.client.profile.extractProfile",
-            return_value={"1": [u"London"], "2": True},
+            return_value={"1": ["London"], "2": True},
         ):
             session = view.session
-            BuildSurveyTree(survey, {"1": [u"London"], "2": True}, session)
-            view.request.form["1"] = [u"London"]
+            BuildSurveyTree(survey, {"1": ["London"], "2": True}, session)
+            view.request.form["1"] = ["London"]
             view.request.form["pq1.present"] = "yes"
             view.request.form["pq2.present"] = "yes"
             with api.env.adopt_user(user=session.account):
@@ -542,11 +540,11 @@ class Profile_setupSession_Tests(TreeTests):
         view = self.makeView(survey)
         survey_view = api.content.get_view("index_html", survey, view.request)
         new_session = survey_view.create_survey_session(
-            u"a",
+            "a",
             view.session.account,
-            report_comment=u"b",
+            report_comment="b",
         )
-        self.assertEqual(new_session.title, u"a")
+        self.assertEqual(new_session.title, "a")
         self.assertEqual(new_session.account, view.session.account)
         self.assertEqual(new_session.zodb_path, view.session.zodb_path)
-        self.assertEqual(new_session.report_comment, u"b")
+        self.assertEqual(new_session.report_comment, "b")

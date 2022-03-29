@@ -7,15 +7,15 @@ from Products.Five import BrowserView
 
 
 TYPES_MAP = {
-    "euphorie.documentation": u"Documentation",
-    "euphorie.help": u"Help",
-    "euphorie.sector": _(u"Sector"),
-    "euphorie.module": _(u"Module"),
-    "euphorie.profilequestion": _(u"Profile question"),
-    "euphorie.risk": _(u"Risk"),
-    "euphorie.survey": _(u"OiRA Tool version"),
-    "euphorie.surveygroup": _(u"OiRA Tool"),
-    "euphorie.page": u"Page",
+    "euphorie.documentation": "Documentation",
+    "euphorie.help": "Help",
+    "euphorie.sector": _("Sector"),
+    "euphorie.module": _("Module"),
+    "euphorie.profilequestion": _("Profile question"),
+    "euphorie.risk": _("Risk"),
+    "euphorie.survey": _("OiRA Tool version"),
+    "euphorie.surveygroup": _("OiRA Tool"),
+    "euphorie.page": "Page",
 }
 
 SEARCHED_TYPES = list(TYPES_MAP.keys())
@@ -54,7 +54,7 @@ class ContextSearch(BrowserView):
         if not qs:
             return
 
-        qs = u'"{}*"'.format(safe_unicode(qs))
+        qs = '"{}*"'.format(safe_unicode(qs))
         path = "/".join(self.context.getPhysicalPath())
         query = {"SearchableText": qs, "portal_type": SEARCHED_TYPES, "path": path}
 

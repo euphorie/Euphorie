@@ -42,10 +42,10 @@ class VersioningTests(EuphorieIntegrationTestCase):
         survey = self.createSurvey()
         handleSurveyPublish(survey, ActionSucceededEvent(survey, None, "publish", None))
         self.assertEqual(
-            self.portal.client["nl"]["sector"]["test-survey"]["1"].title, u"Module one"
+            self.portal.client["nl"]["sector"]["test-survey"]["1"].title, "Module one"
         )
-        survey["1"].title = u"Module two"
+        survey["1"].title = "Module two"
         handleSurveyPublish(survey, ActionSucceededEvent(survey, None, "update", None))
         self.assertEqual(
-            self.portal.client["nl"]["sector"]["test-survey"]["1"].title, u"Module two"
+            self.portal.client["nl"]["sector"]["test-survey"]["1"].title, "Module two"
         )

@@ -50,12 +50,12 @@ class TestURLs(EuphorieIntegrationTestCase):
         self.client._setOb("en", ClientCountry("en"))
         country = self.client["en"]
         country._setOb("sector", ClientSector("sector"))
-        country["sector"].title = u"Test sector"
+        country["sector"].title = "Test sector"
         country["sector"].id = "sector"
         sector = country["sector"]
         survey = Survey("survey")
-        survey.title = u"Test Survey"
-        survey.introduction = u"This is a survey that is well suited for tests"
+        survey.title = "Test Survey"
+        survey.introduction = "This is a survey that is well suited for tests"
         survey.language = "en"
         sector._setOb("survey", survey)
 
@@ -105,22 +105,22 @@ class HasTextTests(unittest.TestCase):
         self.assertEqual(utils.HasText(None), False)
 
     def testEmpty(self):
-        self.assertEqual(utils.HasText(u""), False)
+        self.assertEqual(utils.HasText(""), False)
 
     def testSimpleText(self):
-        self.assertEqual(utils.HasText(u"Hello, World"), True)
+        self.assertEqual(utils.HasText("Hello, World"), True)
 
     def testWhitespaceOnly(self):
-        self.assertEqual(utils.HasText(u"   &nbsp;"), False)
+        self.assertEqual(utils.HasText("   &nbsp;"), False)
 
     def testTagsOnly(self):
-        self.assertEqual(utils.HasText(u"<strong></strong>"), False)
+        self.assertEqual(utils.HasText("<strong></strong>"), False)
 
     def testWhitespaceInTag(self):
-        self.assertEqual(utils.HasText(u"<strong>  </strong>"), False)
+        self.assertEqual(utils.HasText("<strong>  </strong>"), False)
 
     def testTagsAndText(self):
-        self.assertEqual(utils.HasText(u"<strong>STRONG</strong>"), True)
+        self.assertEqual(utils.HasText("<strong>STRONG</strong>"), True)
 
 
 class RandomStringTests(unittest.TestCase):

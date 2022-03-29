@@ -20,87 +20,87 @@ from plone.supermodel import model
 
 class IOnlineHelp(model.Schema):
     introduction = HtmlText(
-        title=_("label_help_introduction", default=u"Introduction"),
+        title=_("label_help_introduction", default="Introduction"),
         description=_(
-            "help_help_introduction", default=u"General information on risk assessment"
+            "help_help_introduction", default="General information on risk assessment"
         ),
         required=True,
     )
     directives.widget(introduction=WysiwygFieldWidget)
 
     authentication = HtmlText(
-        title=_("label_help_authentication", default=u"Registration"),
+        title=_("label_help_authentication", default="Registration"),
         description=_(
             "help_authentication",
-            default=u"This text should explain how to register and login.",
+            default="This text should explain how to register and login.",
         ),
         required=True,
     )
     directives.widget(authentication=WysiwygFieldWidget)
 
     sessions = HtmlText(
-        title=_("label_help_sessions", default=u"Carrying out your risk assessment"),
+        title=_("label_help_sessions", default="Carrying out your risk assessment"),
         description=_(
             "help_sessions",
-            default=u"This text should describe the main functions of the OiRA Tool.",
+            default="This text should describe the main functions of the OiRA Tool.",
         ),
         required=True,
     )
     directives.widget(sessions=WysiwygFieldWidget)
 
     preparation = HtmlText(
-        title=_("label_help_preparation", default=u"1. Preparation"),
+        title=_("label_help_preparation", default="1. Preparation"),
         description=_(
             "help_preparation",
-            default=u"This text should explain the 2 types of profile questions.",
+            default="This text should explain the 2 types of profile questions.",
         ),
         required=True,
     )
     directives.widget(preparation=WysiwygFieldWidget)
 
     identification = HtmlText(
-        title=_("label_help_identification", default=u"2. Identification"),
+        title=_("label_help_identification", default="2. Identification"),
         description=_(
             "help_identification",
-            default=u"This text should explain how the risk identification works.",
+            default="This text should explain how the risk identification works.",
         ),
         required=True,
     )
     directives.widget(identification=WysiwygFieldWidget)
 
     evaluation = HtmlText(
-        title=_("label_help_evaluation", default=u"3. Evaluation"),
+        title=_("label_help_evaluation", default="3. Evaluation"),
         description=_(
             "help_evaluation",
-            default=u"This text should explain how to evaluate the identified risks.",
+            default="This text should explain how to evaluate the identified risks.",
         ),
         required=True,
     )
     directives.widget(evaluation=WysiwygFieldWidget)
 
     actionplan = HtmlText(
-        title=_("label_help_actionplan", default=u"4. Action Plan"),
+        title=_("label_help_actionplan", default="4. Action Plan"),
         description=_(
             "help_actionplan",
-            default=u"This text should explain how to fill in the Action plan.",
+            default="This text should explain how to fill in the Action plan.",
         ),
         required=True,
     )
     directives.widget(actionplan=WysiwygFieldWidget)
 
     report = HtmlText(
-        title=_("label_help_reports", default=u"5. Report"),
+        title=_("label_help_reports", default="5. Report"),
         description=_(
             "help_reports",
-            default=u"This text should describe how the report can either be saved or printed.",  # noqa: E501
+            default="This text should describe how the report can either be saved or printed.",  # noqa: E501
         ),
         required=True,
     )
     directives.widget(report=WysiwygFieldWidget)
 
     finalwords = HtmlText(
-        title=_("label_help_finalwords", default=u"What happens next?"),
-        description=_("help_finalwords", default=u"General final recommendations."),
+        title=_("label_help_finalwords", default="What happens next?"),
+        description=_("help_finalwords", default="General final recommendations."),
         required=True,
     )
     directives.widget(finalwords=WysiwygFieldWidget)

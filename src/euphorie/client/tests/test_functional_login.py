@@ -254,14 +254,14 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
         self.assertEqual(mto, "jane@example.com")
         self.assertEqual(
             six.text_type(mail["Subject"]),
-            u"OiRA password reset instructions",
+            "OiRA password reset instructions",
         )
         body = (
             mail.get_payload(0)
             .get_payload(decode=True)
             .decode(mail.get_content_charset("utf-8"))
         )
-        self.assertTrue(u"/passwordreset/" in body)
+        self.assertTrue("/passwordreset/" in body)
 
     def test_invalid_reset_key(self):
         """When the request key is invalid the user is invited to request a new

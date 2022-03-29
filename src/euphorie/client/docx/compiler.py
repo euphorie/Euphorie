@@ -51,7 +51,7 @@ def delete_paragraph(paragraph):
 def node_title(node, zodbnode):
     # 2885: Non-present risks and unanswered risks are shown affirmatively,
     # i.e 'title'
-    if node.type != "risk" or node.identification in [u"n/a", u"yes", None]:
+    if node.type != "risk" or node.identification in ["n/a", "yes", None]:
         return node.title
     # The other two groups of risks are shown negatively, i.e
     # 'problem_description'
@@ -105,7 +105,7 @@ class BaseOfficeCompiler(object):
     @property
     def title_custom_risks(self):
         return translate(
-            _("label_custom_risks", default=u"Custom risks"),
+            _("label_custom_risks", default="Custom risks"),
             target_language=self.lang,
         )
 
@@ -198,7 +198,7 @@ class DocxCompiler(BaseOfficeCompiler):
         """This fills the workspace activity run with some text"""
         request = self.request
         self.template.paragraphs[self.paragraphs_offset].text = data["heading"]
-        txt = self.t(_("toc_header", default=u"Contents"))
+        txt = self.t(_("toc_header", default="Contents"))
         par_contents = self.template.paragraphs[self.paragraphs_offset + 1]
         par_contents.text = txt
         par_toc = self.template.paragraphs[self.paragraphs_offset + 2]
@@ -221,8 +221,8 @@ class DocxCompiler(BaseOfficeCompiler):
         footer_txt = self.t(
             _(
                 "report_survey_revision",
-                default=u"This document was based on the OiRA Tool '${title}' "
-                u"of revision date ${date}.",
+                default="This document was based on the OiRA Tool '${title}' "
+                "of revision date ${date}.",
                 mapping={
                     "title": survey.published[1],
                     "date": formatDate(request, survey.published[2]),
@@ -259,10 +259,10 @@ class DocxCompiler(BaseOfficeCompiler):
             number = node.number
             if "custom-risks" in node.zodb_path:
                 num_elems = number.split(".")
-                number = u".".join([u"Ω"] + num_elems[1:])
+                number = ".".join(["Ω"] + num_elems[1:])
 
             doc.add_paragraph(
-                u"%s %s" % (number, title), style="Heading %d" % (node.depth + 1)
+                "%s %s" % (number, title), style="Heading %d" % (node.depth + 1)
             )
 
             if node.type != "risk":
@@ -277,25 +277,25 @@ class DocxCompiler(BaseOfficeCompiler):
                 ) and not node.risk_type == "top5":
                     msg = _(
                         "risk_unanswered",
-                        default=u"This risk still needs to be inventorised.",
+                        default="This risk still needs to be inventorised.",
                     )
                 if node.risk_type == "top5":
                     if node.postponed or not node.identification:
                         msg = _(
                             "top5_risk_not_present",
-                            default=u"This risk is not present in your "
-                            u"organisation, but since the sector organisation "
-                            u"considers this one of the priority risks it must "
-                            u"be included in this report.",
+                            default="This risk is not present in your "
+                            "organisation, but since the sector organisation "
+                            "considers this one of the priority risks it must "
+                            "be included in this report.",
                         )
                     elif node.identification == "yes":
                         # we need this distinction for Dutch RIE
                         msg = _(
                             "top5_risk_not_present_answer_yes",
-                            default=u"This risk is not present in your "
-                            u"organisation, but since the sector organisation "
-                            u"considers this one of the priority risks it must "
-                            u"be included in this report.",
+                            default="This risk is not present in your "
+                            "organisation, but since the sector organisation "
+                            "considers this one of the priority risks it must "
+                            "be included in this report.",
                         )
                 if msg:
                     doc.add_paragraph(self.t(msg), style="RiskPriority")
@@ -306,11 +306,11 @@ class DocxCompiler(BaseOfficeCompiler):
                 and not self.italy_special
             ):
                 if node.priority == "low":
-                    level = _("risk_priority_low", default=u"low")
+                    level = _("risk_priority_low", default="low")
                 elif node.priority == "medium":
-                    level = _("risk_priority_medium", default=u"medium")
+                    level = _("risk_priority_medium", default="medium")
                 elif node.priority == "high":
-                    level = _("risk_priority_high", default=u"high")
+                    level = _("risk_priority_high", default="high")
 
                 msg = _(
                     "risk_priority",
@@ -356,7 +356,7 @@ class DocxCompiler(BaseOfficeCompiler):
                     legal_heading = translate(
                         _(
                             "header_legal_references",
-                            default=u"Legal and policy references",
+                            default="Legal and policy references",
                         ),
                         target_language=self.lang,
                     )
@@ -394,12 +394,12 @@ class DocxCompiler(BaseOfficeCompiler):
                         continue
 
                     if len(action_plans) == 1:
-                        heading = self.t(_("header_measure_single", default=u"Measure"))
+                        heading = self.t(_("header_measure_single", default="Measure"))
                     else:
                         heading = self.t(
                             _(
                                 "header_measure",
-                                default=u"Measure ${index}",
+                                default="Measure ${index}",
                                 mapping={"index": idx + 1},
                             )
                         )
@@ -411,7 +411,7 @@ class DocxCompiler(BaseOfficeCompiler):
             self.t(
                 _(
                     "label_measure_action_plan",
-                    default=u"General approach (to " u"eliminate or reduce the risk)",
+                    default="General approach (to " "eliminate or reduce the risk)",
                 )
             )
         ]
@@ -420,15 +420,15 @@ class DocxCompiler(BaseOfficeCompiler):
                 self.t(
                     _(
                         "label_measure_requirements",
-                        default=u"Level of expertise and/or requirements needed",
+                        default="Level of expertise and/or requirements needed",
                     )
                 ),
                 self.t(
-                    _("label_action_plan_responsible", default=u"Who is responsible?")
+                    _("label_action_plan_responsible", default="Who is responsible?")
                 ),
-                self.t(_("label_action_plan_budget", default=u"Budget")),
-                self.t(_("label_action_plan_start", default=u"Planning start")),
-                self.t(_("label_action_plan_end", default=u"Planning end")),
+                self.t(_("label_action_plan_budget", default="Budget")),
+                self.t(_("label_action_plan_start", default="Planning start")),
+                self.t(_("label_action_plan_end", default="Planning end")),
             ]
 
         m = measure
@@ -479,7 +479,7 @@ class DocxCompiler(BaseOfficeCompiler):
         workers = self.t(
             _("oira_consultation_workers", default="On behalf of the workers:")
         )
-        paragraph.text = u"{0}\t\t\t{1}".format(employer, workers)
+        paragraph.text = "{0}\t\t\t{1}".format(employer, workers)
         cell.add_paragraph()
         cell.add_paragraph()
 
@@ -521,7 +521,7 @@ class DocxCompilerFullTable(DocxCompiler):
 
     justifiable_map = {"yes": "Oui", "no": "Non"}
 
-    title_extra = u""
+    title_extra = ""
 
     def __init__(self, context, request=None):
         super(DocxCompilerFullTable, self).__init__(context, request)
@@ -542,16 +542,16 @@ class DocxCompilerFullTable(DocxCompiler):
     def session_title_lookup(self):
         lookup = {
             0: {
-                0: {"fname": "title", "title": _(u"label_title", default=u"Title")},
+                0: {"fname": "title", "title": _("label_title", default="Title")},
                 2: {
                     "title": _(
-                        u"label_report_staff",
-                        default=u"Staff who participated in the risk assessment",
+                        "label_report_staff",
+                        default="Staff who participated in the risk assessment",
                     )
                 },
                 4: {
                     "fname": "today",
-                    "title": _(u"label_report_date", default=u"Date of editing"),
+                    "title": _("label_report_date", default="Date of editing"),
                 },
             }
         }
@@ -599,7 +599,7 @@ class DocxCompilerFullTable(DocxCompiler):
             ].insert_paragraph_before(data["comment"])
 
         header = self.template.sections[self.sections_offset].header
-        header.paragraphs[1].text = u"{title}{extra}".format(
+        header.paragraphs[1].text = "{title}{extra}".format(
             title=data["survey_title"], extra=self.title_extra.strip()
         )
 
@@ -608,7 +608,7 @@ class DocxCompilerFullTable(DocxCompiler):
         # The footer contains a table with 3 columns:
         # left we have a logo, center for text, right for the page numbers
         cell1, cell2, cell3 = footer.tables[0].row_cells(0)
-        cell2.paragraphs[0].text = u"{}".format(date.today().strftime("%d.%m.%Y"))
+        cell2.paragraphs[0].text = "{}".format(date.today().strftime("%d.%m.%Y"))
 
     def set_cell_risk(self, cell, risk):
         """Take the risk and add the appropriate text:
@@ -621,15 +621,15 @@ class DocxCompilerFullTable(DocxCompiler):
             priority = risk.get("priority", "high")
             if priority:
                 if priority == "low":
-                    level = _("risk_priority_low", default=u"low")
+                    level = _("risk_priority_low", default="low")
                 elif priority == "medium":
-                    level = _("risk_priority_medium", default=u"medium")
+                    level = _("risk_priority_medium", default="medium")
                 elif priority == "high":
-                    level = _("risk_priority_high", default=u"high")
+                    level = _("risk_priority_high", default="high")
                 paragraph = cell.add_paragraph(
-                    u"{}: {}".format(
+                    "{}: {}".format(
                         api.portal.translate(
-                            _(u"report_timeline_priority", default="Priority")
+                            _("report_timeline_priority", default="Priority")
                         ),
                         api.portal.translate(level),
                     ),
@@ -648,8 +648,8 @@ class DocxCompilerFullTable(DocxCompiler):
                 cell.add_paragraph(
                     api.portal.translate(
                         _(
-                            u"report_measures_in_place",
-                            default=u"Measures already in place:",
+                            "report_measures_in_place",
+                            default="Measures already in place:",
                         )
                     ),
                     style="Risk Italics",
@@ -672,11 +672,11 @@ class DocxCompilerFullTable(DocxCompiler):
                 paragraph = cell.add_paragraph(style="Measure Indent")
                 run = paragraph.add_run()
                 run.text = api.portal.translate(
-                    _(u"report_competences", default=u"Required expertise:")
+                    _("report_competences", default="Required expertise:")
                 )
                 run.underline = True
                 run = paragraph.add_run()
-                run.text = u" "
+                run.text = " "
                 run = paragraph.add_run()
                 run.text = (_simple_breaks(action["requirements"]),)
 
@@ -684,8 +684,8 @@ class DocxCompilerFullTable(DocxCompiler):
                 paragraph = cell.add_paragraph(
                     api.portal.translate(
                         _(
-                            u"report_responsible",
-                            default=u"Responsible: ${responsible_name}",
+                            "report_responsible",
+                            default="Responsible: ${responsible_name}",
                             mapping={"responsible_name": action["responsible"]},
                         )
                     ),
@@ -696,8 +696,8 @@ class DocxCompilerFullTable(DocxCompiler):
                 paragraph = cell.add_paragraph(
                     api.portal.translate(
                         _(
-                            u"report_end_date",
-                            default=u"To be done by: ${date}",
+                            "report_end_date",
+                            default="To be done by: ${date}",
                             mapping={"date": action["planning_end"]},
                         )
                     ),
@@ -832,12 +832,12 @@ class DocxCompilerFrance(DocxCompilerFullTable):
     @property
     def title_extra(self):
         return self.title_extra_by_sector_mapping.get(
-            self.registry_key, u"- Evaluation des risques professionnels"
+            self.registry_key, "- Evaluation des risques professionnels"
         )
 
 
 class DocxCompilerItaly(DocxCompilerFullTable):
-    """ WIP: Copy of the French report"""
+    """WIP: Copy of the French report"""
 
     sections_offset = 1
     paragraphs_offset = 32
@@ -854,7 +854,7 @@ class DocxCompilerItaly(DocxCompilerFullTable):
     @property
     def session_title_lookup(self):
         lookup = {
-            0: {0: {"fname": "title", "title": _(u"label_title", default=u"Title")}}
+            0: {0: {"fname": "title", "title": _("label_title", default="Title")}}
         }
         return lookup
 
@@ -867,20 +867,18 @@ class DocxCompilerItaly(DocxCompilerFullTable):
             run.font.bold = True
             run.text = risk["number"]
             run = p.add_run()
-            run.text = u" %s" % risk["title"]
+            run.text = " %s" % risk["title"]
 
         if not_applicable_risks:
             doc.add_paragraph()
-            doc.add_paragraph(
-                u"Adempimenti e rischi non applicabili", style="Heading 2"
-            )
+            doc.add_paragraph("Adempimenti e rischi non applicabili", style="Heading 2")
             for risk in not_applicable_risks:
                 print_risk(risk)
 
         if unanswered_risks:
             doc.add_paragraph()
             doc.add_paragraph(
-                u"I seguenti rischi non sono stati ancora valutati", style="Heading 2"
+                "I seguenti rischi non sono stati ancora valutati", style="Heading 2"
             )
             doc.add_paragraph()
             for risk in unanswered_risks:
@@ -905,8 +903,8 @@ class IdentificationReportCompiler(DocxCompiler):
         footer_txt = self.t(
             _(
                 "report_identification_revision",
-                default=u"This document was based on the OiRA Tool '${title}' "
-                u"of revision date ${date}.",
+                default="This document was based on the OiRA Tool '${title}' "
+                "of revision date ${date}.",
                 mapping={
                     "title": survey.published[1],
                     "date": formatDate(request, survey.published[2]),

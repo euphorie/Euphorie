@@ -28,7 +28,7 @@ logger = getLogger(__name__)
 
 def capitalize(text):
     if text:
-        return u"{0}{1}".format(text[0].upper(), text[1:])
+        return "{0}{1}".format(text[0].upper(), text[1:])
 
 
 class Node(NodeMixin):
@@ -234,7 +234,7 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
             self.request.response.redirect(context.absolute_url())
             return
 
-        title = info.get("title", u"").strip()
+        title = info.get("title", "").strip()
 
         survey_view = api.content.get_view("index_html", survey, self.request)
         survey_session = survey_view.create_survey_session(title, account)
@@ -259,7 +259,7 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
 
     def tool_byline(self):
         title = api.portal.translate(
-            _("title_tool", default=u"OiRA - Online interactive Risk Assessment")
+            _("title_tool", default="OiRA - Online interactive Risk Assessment")
         )
         return title.split("-")[-1].strip()
 
@@ -334,7 +334,7 @@ class SessionBrowserNavigator(BrowserView):
             return ""
         if len(searchable_text) < 3:
             return ""
-        return u"%{}%".format(safe_unicode(searchable_text))
+        return "%{}%".format(safe_unicode(searchable_text))
 
     @memoize
     def leaf_groups(self, groupid=None):
@@ -577,7 +577,7 @@ class MyRAsPortlet(PortletBase):
     @property
     def label_start_session(self):
         label = api.portal.translate(
-            _(u"link_start_session", default=u"Start a new risk assessment")
+            _("link_start_session", default="Start a new risk assessment")
         )
         return capitalize(label)
 

@@ -23,7 +23,7 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
         account = addAccount(password="secret")
         survey_session = model.SurveySession(
             id=123,
-            title=u"Dummy session",
+            title="Dummy session",
             created=datetime(2012, 4, 22, 23, 5, 12),
             modified=datetime(2012, 4, 23, 11, 50, 30),
             zodb_path="nl/ict/software-development",
@@ -113,7 +113,7 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
     def test_modify_updates_last_modifier(self):
         account = addAccount(password="secret")
         survey_session = model.SurveySession(
-            title=u"Dummy session", account=account, zodb_path=""
+            title="Dummy session", account=account, zodb_path=""
         )
         self.assertEqual(survey_session.modified, None)
         self.assertEqual(survey_session.last_modifier, None)

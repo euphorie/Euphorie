@@ -44,7 +44,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         root = self.root()
         view = ExportSurvey(None, None)
         view.include_images = True
-        image = view.exportImage(root, image, u"Captiøn")
+        image = view.exportImage(root, image, "Captiøn")
         self.assertEqual(
             safe_nativestring(etree.tostring(image, pretty_print=True)),
             '<image xmlns="http://xml.simplon.biz/euphorie/survey/1.0" '
@@ -55,8 +55,8 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testSolution_Minimal(self):
         solution = Solution()
-        solution.description = u"<p>Test description</p>"
-        solution.action = u"Sample action plan"
+        solution.description = "<p>Test description</p>"
+        solution.action = "Sample action plan"
         solution.requirements = None
         root = self.root()
         view = ExportSurvey(None, None)
@@ -73,9 +73,9 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testSolution_Complete(self):
         solution = Solution()
-        solution.description = u"<p>Tést description</p>"
-        solution.action = u"Sample actiøn plan"
-        solution.requirements = u"Requîrements"
+        solution.description = "<p>Tést description</p>"
+        solution.action = "Sample actiøn plan"
+        solution.requirements = "Requîrements"
         root = self.root()
         view = ExportSurvey(None, None)
         node = view.exportSolution(root, solution)
@@ -92,9 +92,9 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
     def testRisk_Minimal(self):
         risk = Risk()
         risk.type = "top5"
-        risk.title = u"Can your windows be locked?"
-        risk.problem_description = u"Not all your windows can be locked"
-        risk.description = u"<p>Locking windows is critical.</p>"
+        risk.title = "Can your windows be locked?"
+        risk.problem_description = "Not all your windows can be locked"
+        risk.description = "<p>Locking windows is critical.</p>"
         risk.legal_reference = None
         risk.show_notapplicable = False
         root = self.root()
@@ -118,9 +118,9 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
     def testRisk_DirectEvaluation(self):
         risk = Risk()
         risk.type = "risk"
-        risk.title = u"Can your windows be locked?"
-        risk.problem_description = u"Not all your windows can be locked"
-        risk.description = u"<p>Locking windows is critical.</p>"
+        risk.title = "Can your windows be locked?"
+        risk.problem_description = "Not all your windows can be locked"
+        risk.description = "<p>Locking windows is critical.</p>"
         risk.legal_reference = None
         risk.show_notapplicable = True
         risk.evaluation_method = "direct"
@@ -147,9 +147,9 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
     def testRisk_CalculatedEvaluation(self):
         risk = Risk()
         risk.type = "risk"
-        risk.title = u"Can your windows be locked?"
-        risk.problem_description = u"Not all your windows can be locked"
-        risk.description = u"<p>Locking windows is critical.</p>"
+        risk.title = "Can your windows be locked?"
+        risk.problem_description = "Not all your windows can be locked"
+        risk.description = "<p>Locking windows is critical.</p>"
         risk.legal_reference = None
         risk.show_notapplicable = True
         risk.evaluation_method = "calculated"
@@ -178,10 +178,10 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
     def testRisk_LegalReferenceNoText(self):
         risk = Risk()
         risk.type = "top5"
-        risk.title = u"Can your windows be locked?"
-        risk.problem_description = u"Not all your windows can be locked"
-        risk.description = u"<p>Locking windows is critical.</p>"
-        risk.legal_reference = u"<p><br/></p>"
+        risk.title = "Can your windows be locked?"
+        risk.problem_description = "Not all your windows can be locked"
+        risk.description = "<p>Locking windows is critical.</p>"
+        risk.legal_reference = "<p><br/></p>"
         risk.show_notapplicable = False
         root = self.root()
         view = ExportSurvey(None, None)
@@ -203,15 +203,15 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
     def testRisk_TwoImages(self):
         risk = Risk()
         risk.type = "top5"
-        risk.title = u"Can your windows be locked?"
-        risk.problem_description = u"Not all your windows can be locked"
-        risk.description = u"<p>Locking windows is critical.</p>"
+        risk.title = "Can your windows be locked?"
+        risk.problem_description = "Not all your windows can be locked"
+        risk.description = "<p>Locking windows is critical.</p>"
         risk.legal_reference = None
         risk.show_notapplicable = False
         risk.image = MockImage("hot stuff here")
-        risk.caption = u"Image caption 1"
+        risk.caption = "Image caption 1"
         risk.image2 = MockImage("hot stuff here")
-        risk.caption2 = u"Image caption 2"
+        risk.caption2 = "Image caption 2"
         root = self.root()
         view = ExportSurvey(None, None)
         view.include_images = True
@@ -237,14 +237,14 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
     def testRisk_WithSolution(self):
         risk = Risk()
         risk.type = "top5"
-        risk.title = u"Can your windows be locked?"
-        risk.problem_description = u"Not all your windows can be locked"
-        risk.description = u"<p>Locking windows is critical.</p>"
+        risk.title = "Can your windows be locked?"
+        risk.problem_description = "Not all your windows can be locked"
+        risk.description = "<p>Locking windows is critical.</p>"
         risk.legal_reference = None
         risk.show_notapplicable = False
         solution = Solution()
-        solution.description = u"<p>Test description</p>"
-        solution.action = u"Sample action plan"
+        solution.description = "<p>Test description</p>"
+        solution.action = "Sample action plan"
         solution.requirements = None
         risk._setOb("1", solution)
         root = self.root()
@@ -273,7 +273,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testModule_Minimal(self):
         module = Module()
-        module.title = u"Office buildings"
+        module.title = "Office buildings"
         module.optional = False
         module.solution_direction = None
         root = self.root()
@@ -291,8 +291,8 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testModule_with_description(self):
         module = Module()
-        module.title = u"Office buildings"
-        module.description = u"<p>Owning property brings risks.</p>"
+        module.title = "Office buildings"
+        module.description = "<p>Owning property brings risks.</p>"
         module.solution_direction = None
         module.optional = False
         root = self.root()
@@ -306,10 +306,10 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testModule_Optional(self):
         module = Module()
-        module.title = u"Office buildings"
-        module.description = u"<p>Owning property brings risks.</p>"
+        module.title = "Office buildings"
+        module.description = "<p>Owning property brings risks.</p>"
         module.optional = True
-        module.question = u"Do you have an office building?"
+        module.question = "Do you have an office building?"
         module.solution_direction = None
         root = self.root()
         view = ExportSurvey(None, None)
@@ -328,10 +328,10 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testModule_SolutionDirectionNoText(self):
         module = Module()
-        module.title = u"Office buildings"
-        module.description = u"<p>Owning property brings risks.</p>"
+        module.title = "Office buildings"
+        module.description = "<p>Owning property brings risks.</p>"
         module.optional = False
-        module.solution_direction = u"<p><br/></p>"
+        module.solution_direction = "<p><br/></p>"
         root = self.root()
         view = ExportSurvey(None, None)
         view.exportModule(root, module)
@@ -348,8 +348,8 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testModule_Image(self):
         module = Module()
-        module.title = u"Office buildings"
-        module.description = u"<p>Owning property brings risks.</p>"
+        module.title = "Office buildings"
+        module.description = "<p>Owning property brings risks.</p>"
         module.optional = False
         module.solution_direction = None
         module.image = MockImage("hot stuff here")
@@ -372,15 +372,15 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testModule_WithRisk(self):
         module = Module()
-        module.title = u"Office buildings"
-        module.description = u"<p>Owning property brings risks.</p>"
+        module.title = "Office buildings"
+        module.description = "<p>Owning property brings risks.</p>"
         module.optional = False
         module.solution_direction = None
         risk = Risk()
         risk.type = "top5"
-        risk.title = u"Can your windows be locked?"
-        risk.problem_description = u"Not all your windows can be locked"
-        risk.description = u"<p>Locking windows is critical.</p>"
+        risk.title = "Can your windows be locked?"
+        risk.problem_description = "Not all your windows can be locked"
+        risk.description = "<p>Locking windows is critical.</p>"
         risk.legal_reference = None
         risk.show_notapplicable = False
         module._setOb("1", risk)
@@ -408,13 +408,13 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testModule_WithSubModule(self):
         module = Module()
-        module.title = u"Office buildings"
-        module.description = u"<p>Owning property brings risks.</p>"
+        module.title = "Office buildings"
+        module.description = "<p>Owning property brings risks.</p>"
         module.optional = False
         module.solution_direction = None
         submodule = Module()
-        submodule.title = u"Parking"
-        submodule.description = u"<p>All about parking garages.</p>"
+        submodule.title = "Parking"
+        submodule.description = "<p>All about parking garages.</p>"
         submodule.optional = False
         submodule.solution_direction = None
         module._setOb("1", submodule)
@@ -439,8 +439,8 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testProfileQuestion_Minimal(self):
         profile = ProfileQuestion()
-        profile.title = u"Office buildings"
-        profile.question = u"Do you have an office building?"
+        profile.title = "Office buildings"
+        profile.question = "Do you have an office building?"
         profile.use_location_question = False
         root = self.root()
         view = ExportSurvey(None, None)
@@ -459,12 +459,12 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testProfileQuestion_LocationQuestions(self):
         profile = ProfileQuestion()
-        profile.title = u"Office buildings"
-        profile.question = u"Do you have an office building?"
-        profile.label_multiple_present = u"Do you have more than one building?"
-        profile.label_single_occurance = u"Enter the name of your building."
+        profile.title = "Office buildings"
+        profile.question = "Do you have an office building?"
+        profile.label_multiple_present = "Do you have more than one building?"
+        profile.label_single_occurance = "Enter the name of your building."
         profile.label_multiple_occurances = (
-            u"Enter the names of each of your buildings."  # noqa
+            "Enter the names of each of your buildings."  # noqa
         )
         root = self.root()
         view = ExportSurvey(None, None)
@@ -489,8 +489,8 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testProfileQuestion_with_description(self):
         profile = ProfileQuestion()
-        profile.title = u"Office buildings"
-        profile.description = u"<p>Owning property brings risks.</p>"
+        profile.title = "Office buildings"
+        profile.description = "<p>Owning property brings risks.</p>"
         root = self.root()
         view = ExportSurvey(None, None)
         view.exportProfileQuestion(root, profile)
@@ -502,8 +502,8 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testProfileQuestion_WithoutQuestion(self):
         profile = ProfileQuestion()
-        profile.title = u"Office buildings"
-        profile.description = u"<p>Owning property brings risks.</p>"
+        profile.title = "Office buildings"
+        profile.description = "<p>Owning property brings risks.</p>"
         profile.use_location_question = False
         root = self.root()
         view = ExportSurvey(None, None)
@@ -523,14 +523,14 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testProfileQuestion_WithRisk(self):
         profile = ProfileQuestion()
-        profile.title = u"Office buildings"
-        profile.question = u"Do you have an office buildings?"
-        profile.description = u"<p>Owning property brings risks.</p>"
+        profile.title = "Office buildings"
+        profile.question = "Do you have an office buildings?"
+        profile.description = "<p>Owning property brings risks.</p>"
         risk = Risk()
         risk.type = "top5"
-        risk.title = u"Can your windows be locked?"
-        risk.problem_description = u"Not all your windows can be locked"
-        risk.description = u"<p>Locking windows is critical.</p>"
+        risk.title = "Can your windows be locked?"
+        risk.problem_description = "Not all your windows can be locked"
+        risk.description = "<p>Locking windows is critical.</p>"
         risk.legal_reference = None
         risk.show_notapplicable = False
         profile._setOb("1", risk)
@@ -560,12 +560,12 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testProfileQuestion_WithModule(self):
         profile = ProfileQuestion()
-        profile.title = u"Office buildings"
-        profile.question = u"Do you have an office buildings?"
-        profile.description = u"<p>Owning property brings risks.</p>"
+        profile.title = "Office buildings"
+        profile.question = "Do you have an office buildings?"
+        profile.description = "<p>Owning property brings risks.</p>"
         module = Module()
-        module.title = u"Office buildings"
-        module.description = u"<p>Owning property brings risks.</p>"
+        module.title = "Office buildings"
+        module.description = "<p>Owning property brings risks.</p>"
         module.optional = False
         module.solution_direction = None
         profile._setOb("1", module)
@@ -592,11 +592,11 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testSurvey_Minimal(self):
         surveygroup = SurveyGroup()
-        surveygroup.title = u"Generic sector"
-        surveygroup.evaluation_algorithm = u"french"
+        surveygroup.title = "Generic sector"
+        surveygroup.evaluation_algorithm = "french"
         surveygroup._setOb("standard", Survey())
         survey = surveygroup["standard"]  # Acquisition wrap
-        survey.title = u"Standard"
+        survey.title = "Standard"
         survey.introduction = None
         survey.classification_code = None
         survey.evaluation_optional = False
@@ -622,11 +622,11 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testSurvey_IntroductionNoText(self):
         surveygroup = SurveyGroup()
-        surveygroup.title = u"Generic sector"
+        surveygroup.title = "Generic sector"
         surveygroup._setOb("standard", Survey())
         survey = surveygroup["standard"]  # Acquisition wrap
-        survey.title = u"Standard"
-        survey.introduction = u"<p><br/></p>"
+        survey.title = "Standard"
+        survey.introduction = "<p><br/></p>"
         survey.classification_code = None
         survey.evaluation_optional = False
         survey.language = "en-GB"
@@ -650,18 +650,18 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testSurvey_WithProfileQuestion(self):
         surveygroup = SurveyGroup()
-        surveygroup.title = u"Generic sector"
+        surveygroup.title = "Generic sector"
         surveygroup._setOb("standard", Survey())
         survey = surveygroup["standard"]  # Acquisition wrap
-        survey.title = u"Generic sector"
+        survey.title = "Generic sector"
         survey.introduction = None
         survey.classification_code = None
         survey.evaluation_optional = False
         survey.language = "en-GB"
         profile = ProfileQuestion()
-        profile.title = u"Office buildings"
-        profile.question = u"Do you have an office buildings?"
-        profile.description = u"<p>Owning property brings risks.</p>"
+        profile.title = "Office buildings"
+        profile.question = "Do you have an office buildings?"
+        profile.description = "<p>Owning property brings risks.</p>"
         profile.type = "optional"
         survey._setOb("1", profile)
         root = self.root()
@@ -691,17 +691,17 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
 
     def testSurvey_WithModule(self):
         surveygroup = SurveyGroup()
-        surveygroup.title = u"Generic sector"
+        surveygroup.title = "Generic sector"
         surveygroup._setOb("standard", Survey())
         survey = surveygroup["standard"]  # Acquisition wrap
-        survey.title = u"Generic sector"
+        survey.title = "Generic sector"
         survey.introduction = None
         survey.classification_code = None
         survey.evaluation_optional = False
         survey.language = "en-GB"
         module = Module()
-        module.title = u"Office buildings"
-        module.description = u"<p>Owning property brings risks.</p>"
+        module.title = "Office buildings"
+        module.description = "<p>Owning property brings risks.</p>"
         module.optional = False
         module.solution_direction = None
         survey._setOb("1", module)
@@ -731,11 +731,11 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
     def testRender(self):
         surveygroup = SurveyGroup()
         surveygroup.id = "mysector"
-        surveygroup.title = u"Generic sector"
+        surveygroup.title = "Generic sector"
         surveygroup._setOb("standard", Survey())
         survey = surveygroup["standard"]  # Acquisition wrap
         survey.id = "dummy"
-        survey.title = u"Standard"
+        survey.title = "Standard"
         survey.introduction = None
         survey.classification_code = None
         survey.evaluation_optional = False
@@ -773,7 +773,7 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
         surveygroup._setOb("standard", Survey())
         survey = surveygroup["standard"]  # Acquisition wrap
         survey.id = "dummy"
-        survey.title = u"Standard"
+        survey.title = "Standard"
         survey.introduction = "Wie grün sind deine Blätter?"
         survey.classification_code = None
         survey.evaluation_optional = False

@@ -18,7 +18,7 @@ class RiskTests(EuphorieIntegrationTestCase):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
 
-    def createRisk(self, algorithm=u"kinney"):
+    def createRisk(self, algorithm="kinney"):
         country = self.portal.sectors.nl
         sector = self._create(country, "euphorie.sector", "sector")
         surveygroup = self._create(
@@ -48,12 +48,12 @@ class RiskTests(EuphorieIntegrationTestCase):
 
     def testDefaultEvaluationAlgorithm(self):
         risk = Risk()
-        self.assertEqual(risk.evaluation_algorithm(), u"kinney")
+        self.assertEqual(risk.evaluation_algorithm(), "kinney")
 
     def testFrenchEvaluationAlgorithm(self):
         self.loginAsPortalOwner()
-        risk = self.createRisk(u"french")
-        self.assertEqual(risk.evaluation_algorithm(), u"french")
+        risk = self.createRisk("french")
+        self.assertEqual(risk.evaluation_algorithm(), "french")
 
 
 class RiskFunctionalTests(EuphorieFunctionalTestCase):
@@ -67,7 +67,7 @@ class RiskFunctionalTests(EuphorieFunctionalTestCase):
         newid = container.invokeFactory(*args, **kwargs)
         return getattr(container, newid)
 
-    def createRisk(self, algorithm=u"kinney"):
+    def createRisk(self, algorithm="kinney"):
         country = self.portal.sectors.nl
         sector = self._create(country, "euphorie.sector", "sector")
         surveygroup = self._create(
@@ -82,34 +82,34 @@ class RiskFunctionalTests(EuphorieFunctionalTestCase):
     def testDescriptionSanitised(self):
         self.loginAsPortalOwner()
         risk = self.createRisk()
-        risk.title = u"Risk title"
-        risk.problem_description = u"Problem description"
+        risk.title = "Risk title"
+        risk.problem_description = "Problem description"
         browser = self.get_browser(logged_in=True)
         browser.open("%s/@@edit" % risk.absolute_url())
-        browser.getControl(name="form.widgets.description").value = u"Raw text"
+        browser.getControl(name="form.widgets.description").value = "Raw text"
         browser.handleErrors = False
         browser.getControl(name="form.buttons.save").click()
-        self.assertEqual(risk.description, u"<p>Raw text</p>")
+        self.assertEqual(risk.description, "<p>Raw text</p>")
 
     def testLegalReferenceSanitised(self):
         self.loginAsPortalOwner()
         risk = self.createRisk()
-        risk.title = u"Risk title"
-        risk.description = u"<p>Description</p>"
-        risk.problem_description = u"Problem description"
+        risk.title = "Risk title"
+        risk.description = "<p>Description</p>"
+        risk.problem_description = "Problem description"
         browser = self.get_browser(logged_in=True)
         browser.open("%s/@@edit" % risk.absolute_url())
-        browser.getControl(name="form.widgets.legal_reference").value = u"Raw text"
+        browser.getControl(name="form.widgets.legal_reference").value = "Raw text"
         browser.getControl(name="form.buttons.save").click()
-        self.assertEqual(risk.legal_reference, u"<p>Raw text</p>")
+        self.assertEqual(risk.legal_reference, "<p>Raw text</p>")
 
     def testFrenchEvaluationOptionsShown(self):
         self.loginAsPortalOwner()
-        risk = self.createRisk(u"french")
+        risk = self.createRisk("french")
         risk.default_frequency = 9
         risk.default_severity = 7
         group = aq_parent(aq_parent(aq_parent(risk)))
-        self.assertEqual(group.evaluation_algorithm, u"french")
+        self.assertEqual(group.evaluation_algorithm, "french")
         browser = self.get_browser(logged_in=True)
         browser.handleErrors = False
         browser.open(risk.absolute_url())
@@ -146,16 +146,16 @@ class RiskFunctionalTests(EuphorieFunctionalTestCase):
         # See https://github.com/euphorie/Euphorie/pull/98
         self.loginAsPortalOwner()
         risk = self.createRisk()
-        risk.title = u"Risk title"
-        risk.description = u"<p>Description</p>"
-        risk.problem_description = u"Problem description"
+        risk.title = "Risk title"
+        risk.description = "<p>Description</p>"
+        risk.problem_description = "Problem description"
         browser = self.get_browser(logged_in=True)
         browser.open("%s/@@edit" % risk.absolute_url())
-        browser.getControl(name="form.widgets.evaluation_method").value = [u"fixed"]
-        browser.getControl(name="form.widgets.default_priority").value = [u"low"]
-        browser.getControl(name="form.widgets.fixed_priority").value = [u"high"]
+        browser.getControl(name="form.widgets.evaluation_method").value = ["fixed"]
+        browser.getControl(name="form.widgets.default_priority").value = ["low"]
+        browser.getControl(name="form.widgets.fixed_priority").value = ["high"]
         browser.getControl(name="form.buttons.save").click()
-        self.assertEqual(risk.fixed_priority, u"high")
+        self.assertEqual(risk.fixed_priority, "high")
 
 
 class ConstructionFilterTests(EuphorieIntegrationTestCase):

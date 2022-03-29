@@ -89,23 +89,23 @@ class SectorAsUserTests(EuphorieIntegrationTestCase):
 
     def testGetUserProperties(self):
         sector = self.createSector()
-        sector.title = u"This is a sector"
-        sector.contact_email = u"sector@example.com"
+        sector.title = "This is a sector"
+        sector.contact_email = "sector@example.com"
         account = self.portal.acl_users.getUser("sector")
         self.assertEqual(account.getProperty("fullname"), "This is a sector")
         self.assertEqual(account.getProperty("email"), "sector@example.com")
 
     def testSetProperties(self):
         sector = self.createSector()
-        sector.title = u"This is a sector"
+        sector.title = "This is a sector"
         account = self.portal.acl_users.getUser("sector")
-        account.setProperties(fullname=u"My New Name")
-        self.assertEqual(sector.title, u"My New Name")
+        account.setProperties(fullname="My New Name")
+        self.assertEqual(sector.title, "My New Name")
 
     def testResetPassword(self):
         # Part of https://code.simplon.biz/tracker/tno-euphorie/ticket/111
         sector = self.createSector()
-        sector.title = u"This is a sector"
+        sector.title = "This is a sector"
         pas = self.portal.acl_users
         auth = UserAuthentication(sector)
         self.assertEqual(auth.authenticateCredentials(dict(password="s3cr3t")), None)
@@ -151,9 +151,9 @@ class SectorBrowserTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.contact_email").value = "max@example.com"
         browser.getControl(name="form.buttons.save").click()
         self.assertTrue(
-            u"Your password must contain at least 5 characters, "
-            u"including at least one capital letter, one number and "
-            u"one special character (e.g. $, # or @)." in browser.contents
+            "Your password must contain at least 5 characters, "
+            "including at least one capital letter, one number and "
+            "one special character (e.g. $, # or @)." in browser.contents
         )
 
     def testPasswordConfirmation(self):
@@ -171,7 +171,7 @@ class SectorBrowserTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.contact_email").value = "max@example.com"
         browser.getControl(name="form.buttons.save").click()
         self.assertIn(
-            u"Password doesn't compare with confirmation value", browser.contents
+            "Password doesn't compare with confirmation value", browser.contents
         )
 
 
@@ -257,11 +257,11 @@ class GetSurveysTests(EuphorieIntegrationTestCase):
                     "url": "http://nohost/plone/sectors/nl/sector/test-survey",
                     "published": False,
                     "id": "test-survey",
-                    "title": u"Test survey",
+                    "title": "Test survey",
                     "surveys": [
                         {
                             "id": "standard-version",
-                            "title": u"Standard version",
+                            "title": "Standard version",
                             "current": True,
                             "url": "http://nohost/plone/sectors/nl/sector/"
                             "test-survey/standard-version",
@@ -281,22 +281,22 @@ class GetSurveysTests(EuphorieIntegrationTestCase):
         addSurvey(sector, EMPTY_SURVEY, "Test survey 2")
         result = self.getSurveys(survey)
         self.assertEqual(len(result), 2)
-        self.assertEqual(result[0]["title"], u"Test survey")
-        self.assertEqual(result[1]["title"], u"Test survey 2")
+        self.assertEqual(result[0]["title"], "Test survey")
+        self.assertEqual(result[1]["title"], "Test survey 2")
 
     def testSurveygroupTwoSurveys(self):
         sector = createSector(self.portal)
         survey = addSurvey(sector, EMPTY_SURVEY)
         surveygroup = sector["test-survey"]
         surveygroup.invokeFactory(
-            "euphorie.survey", "next-edition", title=u"Very latest"
+            "euphorie.survey", "next-edition", title="Very latest"
         )
         result = self.getSurveys(survey)
         self.assertEqual(len(result), 1)
         self.assertEqual(len(result[0]["surveys"]), 2)
         self.assertEqual(result[0]["surveys"][0]["current"], True)
         self.assertEqual(result[0]["surveys"][1]["current"], False)
-        self.assertEqual(result[0]["surveys"][1]["title"], u"Very latest")
+        self.assertEqual(result[0]["surveys"][1]["title"], "Very latest")
 
     def testPublishedSurvey(self):
         sector = createSector(self.portal)
