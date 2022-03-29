@@ -497,6 +497,9 @@ class ContentsPreview(BrowserView):
         else:
             return node.title
 
+    def get_description(self, node):
+        return self.zodb_node(node).description
+
     def get_legal_references(self, node):
         """We might add some logic to never show legal references depending
         on a setting per country / survey.

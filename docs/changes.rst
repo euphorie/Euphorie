@@ -13,6 +13,7 @@ Changelog
 - Fix image display on risk assessment page, allowing for different aspect ratios
 - Fix bug that prevented deleting Omega risks
 - Code: apply black 22.3.0
+- Consolidated involve phase previews.
 
 
 14.0.1 (2022-03-17)

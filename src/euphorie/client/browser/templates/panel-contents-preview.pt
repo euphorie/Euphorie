@@ -57,11 +57,13 @@
                       <ul class="risks">
                         <li class="risk"
                             tal:define="
+                              description python:view.get_description(node);
                               legal_references python:view.get_legal_references(node);
                               solutions python:view.get_solutions(node);
                             "
                         >
-                            ${node/title}
+                          <em>${node/title}</em>
+                          <p tal:replace="structure description"></p>
                           <ul class="manual-checklist"
                               tal:condition="solutions"
                           >
