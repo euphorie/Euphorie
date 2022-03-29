@@ -10,6 +10,7 @@ Changelog
   This includes the possibility to export the complete contents of an OiRA tool as Word file
 - For the XML export of Surveys, give the user the posibility of de-selecting
   certain parts (images, legal texts, etc)
+- Fix image display on risk assessment page, allowing for different aspect ratios
 - Fix bug that prevented deleting Omega risks
 
 
