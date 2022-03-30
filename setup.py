@@ -69,7 +69,7 @@ setup(
         "zope.i18nmessageid",
         "zope.interface",
         "zope.schema",
-        "NuPlone >=2.0.0",
+        "NuPlone >=2.1.0",
         "plone.uuid",
         "openpyxl",
         "Chameleon",

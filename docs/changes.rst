@@ -12,6 +12,7 @@ Changelog
   certain parts (images, legal texts, etc)
 - Fix image display on risk assessment page, allowing for different aspect ratios
 - Fix bug that prevented deleting Omega risks
+- Update JavaScript used in CMS bundle (which now comes from NuPlone)
 - Code: apply black 22.3.0
 
 
