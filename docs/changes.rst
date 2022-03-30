@@ -14,6 +14,7 @@ Changelog
 - Fix bug that prevented deleting Omega risks
 - Update JavaScript used in CMS bundle (which now comes from NuPlone)
 - Code: apply black 22.3.0
+- Consolidated involve phase previews.
 
 
 14.0.1 (2022-03-17)

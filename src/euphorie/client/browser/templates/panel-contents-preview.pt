@@ -57,15 +57,17 @@
                       <ul class="risks">
                         <li class="risk"
                             tal:define="
+                              description python:view.get_description(node);
                               legal_references python:view.get_legal_references(node);
                               solutions python:view.get_solutions(node);
                             "
                         >
-                            ${node/title}
+                          <em>${node/title}</em>
+                          <p tal:replace="structure python:webhelpers.get_safe_html(description)"></p>
                           <ul class="manual-checklist"
                               tal:condition="solutions"
                           >
-                            <li tal:repeat="solution solutions"><tal:solution replace="structure solution">text</tal:solution></li>
+                            <li tal:repeat="solution solutions"><tal:solution replace="structure python:webhelpers.get_safe_html(solution)">text</tal:solution></li>
                           </ul>
                           <div class="legal-references"
                                tal:condition="legal_references"
@@ -84,7 +86,7 @@
                                 <h6 i18n:translate="label_legal_reference">Legal and policy references</h6>
                               </tal:case>
                             </tal:switch>
-                            <tal:legal replace="structure legal_references">
+                            <tal:legal replace="structure python:webhelpers.get_safe_html(legal_references)">
                                 The requirements for fridges are defined in section 13.1 of the health code.
                             </tal:legal>
                           </div>

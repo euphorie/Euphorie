@@ -925,6 +925,6 @@ class IdentificationReportCompiler(DocxCompiler):
             show_priority=False,
             always_print_description=True,
             skip_legal_references=False,
-            skip_existing_measures=True,
-            skip_planned_measures=True,
+            skip_existing_measures=False,
+            skip_planned_measures=False,
         )

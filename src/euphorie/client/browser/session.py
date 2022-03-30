@@ -497,6 +497,14 @@ class ContentsPreview(BrowserView):
         else:
             return node.title
 
+    def get_description(self, node):
+        if node.zodb_path.find("custom-risks") > -1:
+            risk = Session.query(Risk).filter(Risk.id == node.id).first()
+            if risk:
+                return risk.custom_description
+        else:
+            return self.zodb_node(node).description
+
     def get_legal_references(self, node):
         """We might add some logic to never show legal references depending
         on a setting per country / survey.
