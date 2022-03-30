@@ -262,6 +262,11 @@ class TrainingView(BrowserView, survey._StatusHelper):
         """Return the session for this context/request"""
         return self.context.session
 
+    @property
+    @memoize
+    def timestamp(self):
+        return self.session.modified.strftime("%s%M%H%d%m")
+
     def slicePath(self, path):
         while path:
             yield path[:3].lstrip("0")

@@ -21,6 +21,7 @@
                   count_offset python:1;
                   slide_total_count view/slide_total_count;
                   question_intro_url view/question_intro_url|nothing;
+                  timestamp view/timestamp;
                 "
     >
       <div class="pat-scroll-box"
@@ -47,8 +48,8 @@
               <p class="button-bar">
                 <a class="pat-button pat-inject default"
                    id="assessments-training-start-button"
-                   href="${here/absolute_url}/@@training-slides#slide-1"
-                   data-pat-inject="target: #slide-0"
+                   href="${here/absolute_url}/@@training-slides?t=${timestamp}#slide-1"
+                   data-pat-inject="target: #slide-0; browser-cache: cache"
                    i18n:translate=""
                 >Start</a>
               </p>
@@ -133,14 +134,14 @@
                       <p class="controls">
 
                         <a class="pat-inject pat-button back slide-nav-prev"
-                           href="${here/absolute_url}/@@training-slides#slide-${python:counter-1}"
-                           data-pat-inject="target: #slide-0"
+                           href="${here/absolute_url}/@@training-slides?t=${timestamp}#slide-${python:counter-1}"
+                           data-pat-inject="target: #slide-0; browser-cache: cache"
                         >Previous</a>
 
 
                         <a class="pat-inject default pat-button continue slide-nav-next"
-                           href="${here/absolute_url}/@@training-slides#slide-${python:counter+1}"
-                           data-pat-inject="target: #slide-0"
+                           href="${here/absolute_url}/@@training-slides?t=${timestamp}#slide-${python:counter+1}"
+                           data-pat-inject="target: #slide-0; browser-cache: cache"
                            tal:condition="not: end"
                         >Next</a>
                         <button class="default pat-button close-fullscreen"
@@ -232,8 +233,8 @@
                 <p class="button-bar">
                   <a class="pat-button pat-inject default"
                      id="assessments-training-start-button"
-                     href="${here/absolute_url}/@@training-slides#slide-1"
-                     data-pat-inject="target: #slide-0"
+                     href="${here/absolute_url}/@@training-slides?t=${timestamp}#slide-1"
+                     data-pat-inject="target: #slide-0; browser-cache: cache"
                      i18n:translate=""
                   >Start</a>
                 </p>
