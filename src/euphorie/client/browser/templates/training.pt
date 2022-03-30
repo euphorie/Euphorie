@@ -251,7 +251,7 @@
                     <form class="pat-form wizard-box panel-class- pat-inject"
                           action="${request/URL}"
                           method="post"
-                          data-pat-inject="source: #section-measures-${counter}; target: #section-measures-${counter}"
+                          data-pat-inject="source: #section-measures-${counter}; target: #section-measures-${counter} &amp;&amp; source: #slide-0; target: #slide-0"
                     >
                       <input name="risk_id"
                              type="hidden"
