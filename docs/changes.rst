@@ -6,6 +6,8 @@ Changelog
 
 - New feature: A "Training" page is available per risk assessment that assembles all modules
   and risks into cards / slides for an online training
+- The Training can be enhanced with a set of questions that are shown to the user at the end.
+  If they are answered correctly, the user earns a certificate
 
 
 14.0.2 (2022-03-30)
