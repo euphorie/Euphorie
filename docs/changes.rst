@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.0.2 (unreleased)
+14.0.2 (2022-03-30)
 -------------------
 
 - Password Reset: Verify IP address validity
