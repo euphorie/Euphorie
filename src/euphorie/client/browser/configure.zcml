@@ -421,6 +421,86 @@
       />
 
   <browser:page
+      name="panel-add-user-to-organisation"
+      for="euphorie.client.country.IClientCountry"
+      class=".organisation.PanelAddUser"
+      template="templates/panel-add-user-to-organisation.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="panel-add-organisation"
+      for="euphorie.client.country.IClientCountry"
+      class=".organisation.PanelAddOrganisation"
+      template="templates/panel-add-organisation.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+
+  <browser:page
+      name="panel-edit-organisation"
+      for="euphorie.client.country.IClientCountry"
+      class=".organisation.PanelEditOrganisation"
+      template="templates/panel-edit-organisation.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="organisation-logo"
+      for="euphorie.client.country.IClientCountry"
+      class=".organisation.OrganisationLogo"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="panel-organisation-member-edit"
+      for="euphorie.client.country.IClientCountry"
+      class=".organisation.PanelMemberEdit"
+      template="templates/panel-organisation-member-edit.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="panel-organisation-member-remove"
+      for="euphorie.client.country.IClientCountry"
+      class=".organisation.PanelMemberRemove"
+      template="templates/panel-organisation-member-remove.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="organisation-member-more-menu"
+      for="euphorie.client.country.IClientCountry"
+      class=".organisation.MemberMoreMenu"
+      template="templates/organisation-member-more-menu.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="organisation"
+      for="euphorie.client.country.IClientCountry"
+      class=".organisation.View"
+      template="templates/organisation.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="confirm-organisation-invite"
+      for="euphorie.client.country.IClientCountry"
+      class=".organisation.ConfirmInvite"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="portlet-my-ras"
       for="euphorie.client.country.IClientCountry"
       permission="zope2.View"

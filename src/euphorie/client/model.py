@@ -968,7 +968,10 @@ class SurveySession(BaseObject):
             an object account will be used to extract the account id,
             from an iterable we will try to extract the account ids
         """
+        # TODO: this is too complex
+        include_organisation_members = False
         if account is True:
+            include_organisation_members = True
             account = get_current_account()
 
         if isinstance(account, Account):
@@ -977,20 +980,33 @@ class SurveySession(BaseObject):
         if not account:
             return False
 
-        if isinstance(account, (int, six.string_types)):
+        if not include_organisation_members and isinstance(
+            account, (int, six.string_types)
+        ):
             return cls.account_id == account
 
-        try:
-            account_ids = {getattr(item, "id", item) for item in account}
-        except TypeError:
-            log.error("Cannot understand the account parameter: %r", account)
-            raise
+        if include_organisation_members:
+            account_ids = {account}
+            # Add the owner id of the organisations where the account is member of
+            account_ids.update(
+                Session.query(OrganisationMembership.owner_id).filter(
+                    OrganisationMembership.member_id == account
+                )
+            )
+        else:
+            try:
+                # This works when we pass an iterable of accounts or ids
+                account_ids = {getattr(item, "id", item) for item in account}
+            except TypeError:
+                # this happens when account is not an iterable
+                log.error("Cannot understand the account parameter: %r", account)
+                raise
+            account_ids = {
+                item
+                for item in account_ids
+                if item and isinstance(item, (int, six.string_types))
+            }
 
-        account_ids = {
-            item
-            for item in account_ids
-            if item and isinstance(item, (int, six.string_types))
-        }
         if not account_ids:
             return False
 
@@ -1352,6 +1368,62 @@ class Training(BaseObject):
     status = schema.Column(types.Unicode)
 
 
+class Organisation(BaseObject):
+    """A table to store some data about an organisation"""
+
+    __tablename__ = "organisation"
+
+    organisation_id = schema.Column(
+        types.Integer(),
+        primary_key=True,
+        autoincrement=True,
+    )
+    owner_id = schema.Column(
+        types.Integer(),
+        schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
+        nullable=False,
+    )
+    title = schema.Column(types.UnicodeText())
+    image_data = schema.Column(types.LargeBinary())
+    image_data_scaled = schema.Column(types.LargeBinary())
+    image_filename = schema.Column(types.UnicodeText())
+    owner = orm.relation(
+        Account,
+        backref=orm.backref(
+            "organisation",
+            uselist=False,
+            cascade="all, delete, delete-orphan",
+            foreign_keys=[owner_id],
+        ),
+    )
+
+
+class OrganisationMembership(BaseObject):
+    """This table wants to mimic the concept of an organisation for Euphorie.
+
+    The goal is to share permissions to work on sessions from another user.
+    """
+
+    __tablename__ = "organisation_membership"
+
+    organisation_id = schema.Column(
+        types.Integer(),
+        primary_key=True,
+        autoincrement=True,
+    )
+    owner_id = schema.Column(
+        types.Integer(),
+        schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
+        nullable=False,
+    )
+    member_id = schema.Column(
+        types.Integer(),
+        schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
+        nullable=False,
+    )
+    member_role = schema.Column(types.UnicodeText())
+
+
 _instrumented = False
 if not _instrumented:
     metadata._decl_registry = {}
@@ -1366,6 +1438,8 @@ if not _instrumented:
         AccountChangeRequest,
         Company,
         Training,
+        Organisation,
+        OrganisationMembership,
     ]:
         declarative.api.instrument_declarative(cls, metadata._decl_registry, metadata)
     _instrumented = True

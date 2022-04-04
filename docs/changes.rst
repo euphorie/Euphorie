@@ -4,6 +4,7 @@ Changelog
 14.2.0 (unreleased)
 -------------------
 
+- Introduce the concept of "organisations"
 - Upgrade plone to 5.2.9
 - Fix the way ``get_survey_templates`` handles a survey with an unset category.
 - Remove the ghost module and its tests

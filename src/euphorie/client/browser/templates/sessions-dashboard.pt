@@ -50,7 +50,12 @@
                    href="${here/absolute_url}/certificates"
                    data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                 >Certificates</a>
-            -->
+                -->
+                <a class="pat-inject ${python:'current' if dashboard_tab=='organisation' else None}"
+                   href="${here/absolute_url}/@@organisation"
+                   data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+                   i18n:translate=""
+                >Organisation</a>
               </nav>
 
             </div>
@@ -60,6 +65,7 @@
                 action="${here/absolute_url}/${view/form_action_name}#application-content"
                 method="POST"
                 data-pat-inject="history: record"
+                tal:condition="view/form_action_name|nothing"
           >
             <div class="toolbar-section view-options"
                  id="assessments-toolbar-view-options"

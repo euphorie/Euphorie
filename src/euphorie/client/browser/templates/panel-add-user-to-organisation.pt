@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@modal-template/macros/shell"
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div class="pat-modal medium panel"
+           id="document-content"
+      >
+        <h1 class="panel-class-panel"
+            i18n:translate=""
+        >
+          New user
+        </h1>
+
+        <form class="pat-form wizard-box panel-class-panel"
+              action="${request/getURL}#org-${python:view.organisation.organisation_id}"
+              method="post"
+              target="_blank"
+        >
+          <div class="panel-body"
+               id="modal-panel-body"
+          >
+            <div class="container">
+              <p class="pat-message notice"
+                 i18n:translate=""
+              >
+                When you click continue,
+                your e-mail client will open with a new e-mail
+                with a link in it that people can use to join your organisation.
+                The link is valid for five days and
+                you may send it to as many people as you would like
+                to join your organisation.
+              </p>
+
+              <fieldset class="vertical">
+                <fieldset class="pat-checklist radio">
+                  <legend i18n:translate="">Select the role your new members will get</legend>
+                  <label>
+                    <input checked="checked"
+                           name="role"
+                           type="radio"
+                           value="member"
+                    />
+                    <tal:i18n i18n:translate="">Member</tal:i18n>
+                  </label>
+                  <label>
+                    <input name="role"
+                           type="radio"
+                           value="manager"
+                    />
+                    <tal:i18n i18n:translate="">Manager/Policy maker</tal:i18n>
+                  </label>
+                  <label>
+                    <input name="role"
+                           type="radio"
+                           value="admin"
+                    />
+                    <tal:i18n i18n:translate="">Administrator</tal:i18n>
+                  </label>
+                  <p class="pat-message info pat-depends"
+                     data-pat-depends="role=admin"
+                     i18n:translate=""
+                  >
+                    Administrators can create, edit and remove user accounts. Administrators can also make risk assessments, lock risk assessments, create trainings and take trainings.
+                  </p>
+                  <p class="pat-message info pat-depends"
+                     data-pat-depends="role=manager"
+                     i18n:translate=""
+                  >
+                    Managers/Policy makers can make risk assessments, lock risk assessments, create trainings and take trainings.
+                  </p>
+                  <p class="pat-message info pat-depends"
+                     data-pat-depends="role=member"
+                     i18n:translate=""
+                  >
+                    Members can make risk assessments and take trainings.
+                  </p>
+                </fieldset>
+
+                <p class="pat-button-bar">
+                  <tal:todo condition="nothing">
+                    This has to be changed into a button to generate a token only if needed.
+                  </tal:todo>
+                  <button class="pat-button default close-panel"
+                          type="submit"
+                          i18n:translate=""
+                  >
+                    Send e-mail
+                  </button>
+                  <button class="pat-button cancel close-panel"
+                          type="button"
+                          i18n:translate=""
+                  >
+                    Cancel
+                  </button>
+                </p>
+              </fieldset>
+            </div>
+          </div>
+        </form>
+      </div>
+    </metal:slot>
+  </body>
+</html>
