@@ -8,6 +8,7 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from euphorie.client import MessageFactory as _
 from euphorie.client.docx.html import HtmlToWord
+from euphorie.content.solution import ISolution
 from euphorie.content.survey import get_tool_type
 from euphorie.content.utils import IToolTypesInfo
 from euphorie.content.utils import UNWANTED
@@ -363,47 +364,62 @@ class DocxCompiler(BaseOfficeCompiler):
                     doc.add_paragraph(legal_heading, style="Legal Heading")
                     doc = HtmlToWord(_sanitize_html(legal_reference), doc)
 
-            skip_planned_measures = extra.get("skip_planned_measures", False)
-            if (
-                self.use_existing_measures
-                and self.tool_type in self.tti.types_existing_measures
-                and not extra.get("skip_existing_measures", False)
+            if not extra.get("use_solutions", False):
+                skip_planned_measures = extra.get("skip_planned_measures", False)
+                skip_existing_measures = extra.get("skip_existing_measures", False)
+                self.add_measures(
+                    skip_planned_measures, skip_existing_measures, node, doc
+                )
+            elif zodb_node is not None:
+                self.add_solutions(zodb_node, doc)
+
+    def add_measures(self, skip_planned_measures, skip_existing_measures, node, doc):
+        if (
+            self.use_existing_measures
+            and self.tool_type in self.tti.types_existing_measures
+            and not skip_existing_measures
+        ):
+            if self.italy_special:
+                skip_planned_measures = True
+
+            for (idx, action_plan) in enumerate(
+                node.in_place_standard_measures + node.in_place_custom_measures
             ):
-                if self.italy_special:
-                    skip_planned_measures = True
-
-                for (idx, action_plan) in enumerate(
-                    node.in_place_standard_measures + node.in_place_custom_measures
-                ):
-                    heading = (
-                        self.t(
-                            _(
-                                "label_existing_measure",
-                                default="Measure already implemented",
-                            )
+                heading = (
+                    self.t(
+                        _(
+                            "label_existing_measure",
+                            default="Measure already implemented",
                         )
-                        + " "
-                        + str(idx + 1)
                     )
-                    self.add_measure(doc, heading, action_plan, implemented=True)
+                    + " "
+                    + str(idx + 1)
+                )
+                self.add_measure(doc, heading, action_plan, implemented=True)
 
-            if not skip_planned_measures:
-                action_plans = node.standard_measures + node.custom_measures
-                for (idx, measure) in enumerate(action_plans):
-                    if not measure.action:
-                        continue
+        if not skip_planned_measures:
+            action_plans = node.standard_measures + node.custom_measures
+            for (idx, measure) in enumerate(action_plans):
+                if not measure.action:
+                    continue
 
-                    if len(action_plans) == 1:
-                        heading = self.t(_("header_measure_single", default="Measure"))
-                    else:
-                        heading = self.t(
-                            _(
-                                "header_measure",
-                                default="Measure ${index}",
-                                mapping={"index": idx + 1},
-                            )
+                if len(action_plans) == 1:
+                    heading = self.t(_("header_measure_single", default="Measure"))
+                else:
+                    heading = self.t(
+                        _(
+                            "header_measure",
+                            default="Measure ${index}",
+                            mapping={"index": idx + 1},
                         )
-                    self.add_measure(doc, heading, measure)
+                    )
+                self.add_measure(doc, heading, measure)
+
+    def add_solutions(self, zodb_node, doc):
+        for solution in zodb_node.values():
+            if not ISolution.providedBy(solution):
+                continue
+            self.add_measure(doc, solution.description, solution, implemented=True)
 
     def add_measure(self, doc, heading, measure, implemented=False):
         doc.add_paragraph(heading, style="Measure Heading")
@@ -927,4 +943,5 @@ class IdentificationReportCompiler(DocxCompiler):
             skip_legal_references=False,
             skip_existing_measures=False,
             skip_planned_measures=False,
+            use_solutions=True,
         )
