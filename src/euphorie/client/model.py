@@ -1105,6 +1105,28 @@ class SurveySession(BaseObject):
         return str(self.zodb_path).split("/")[0]
 
 
+class Membership(BaseObject):
+    """Memberships in a user's organisation."""
+
+    __tablename__ = "membership"
+
+    owner_id = schema.Column(
+        types.Integer(),
+        schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
+        primary_key=True,
+        nullable=False,
+        index=True,
+    )
+    member_id = schema.Column(
+        types.Integer(),
+        schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    owner = relationship("Account", backref="owner_of", foreign_keys=[owner_id])
+    member = relationship("Account", backref="member_of", foreign_keys=[member_id])
+
+
 class Company(BaseObject):
     """Information about a company."""
 
@@ -1294,6 +1316,7 @@ if not _instrumented:
         Account,
         AccountChangeRequest,
         Company,
+        Membership,
     ]:
         declarative.api.instrument_declarative(cls, metadata._decl_registry, metadata)
     _instrumented = True
