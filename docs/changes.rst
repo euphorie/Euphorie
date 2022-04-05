@@ -4,7 +4,7 @@ Changelog
 14.0.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Further tweaks to the involve phase previews.
 
 
 14.0.2 (2022-03-30)
