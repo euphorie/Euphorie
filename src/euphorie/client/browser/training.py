@@ -309,9 +309,9 @@ class TrainingView(BrowserView, survey._StatusHelper):
     @view_memoize
     def questions(self):
         training = self.get_or_create_training()
-        question_ids = loads(training.answers).keys()
+        answer_history = loads(training.answers)
         survey = self.webhelpers._survey
-        return [survey.get(q_id) for q_id in question_ids]
+        return [survey.get(q_id) for q_id in answer_history]
 
     @property
     def enable_training_questions(self):
