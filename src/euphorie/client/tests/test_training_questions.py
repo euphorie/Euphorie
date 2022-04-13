@@ -75,7 +75,7 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
             ) as view:
                 self.assertEqual(len(view.questions), 2)
                 self.assertListEqual(
-                    [x.getId() for x in view.questions],
+                    list(view.questions),
                     ["question-2", "question-3"],
                 )
                 self.assertEqual(
@@ -116,7 +116,7 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
             ) as view:
                 self.assertEqual(len(view.questions), 3)
                 self.assertListEqual(
-                    [x.getId() for x in view.questions],
+                    list(view.questions),
                     ["question-3", "question-2", "question-1"],
                 )
                 self.assertEqual(
@@ -140,8 +140,10 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
                 view.question_id = "question-3"
                 self.assertEqual(view.progress, "1/3")
                 self.assertEqual(view.question.title, "Who are you?")
-                self.assertIsNone(view.previous_question)
-                self.assertEqual(view.next_question.title, "Life on Mars?")
+                self.assertIsNone(view.previous_question_id)
+                self.assertEqual(
+                    self.survey[view.next_question_id].title, "Life on Mars?"
+                )
                 self.assertEqual(
                     view.next_url,
                     "http://nohost/plone/client/nl/ict/software-development/++session++1/@@slide_question/question-2",  # noqa: E501
@@ -151,8 +153,10 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
                 view.request.__annotations__.clear()
                 self.assertEqual(view.progress, "2/3")
                 self.assertEqual(view.question.title, "Life on Mars?")
-                self.assertEqual(view.previous_question.title, "Who are you?")
-                self.assertEqual(view.next_question.title, "Why?")
+                self.assertEqual(
+                    self.survey[view.previous_question_id].title, "Who are you?"
+                )
+                self.assertEqual(self.survey[view.next_question_id].title, "Why?")
                 self.assertEqual(
                     view.next_url,
                     "http://nohost/plone/client/nl/ict/software-development/++session++1/@@slide_question/question-1",  # noqa: E501
@@ -162,8 +166,10 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
                 view.request.__annotations__.clear()
                 self.assertEqual(view.progress, "3/3")
                 self.assertEqual(view.question.title, "Why?")
-                self.assertEqual(view.previous_question.title, "Life on Mars?")
-                self.assertIsNone(view.next_question)
+                self.assertEqual(
+                    self.survey[view.previous_question_id].title, "Life on Mars?"
+                )
+                self.assertIsNone(view.next_question_id)
                 self.assertEqual(
                     view.next_url,
                     "http://nohost/plone/client/nl/ict/software-development/++session++1/@@slide_question_try_again",  # noqa: E501

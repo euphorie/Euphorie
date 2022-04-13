@@ -295,10 +295,8 @@ class TrainingView(BrowserView, survey._StatusHelper):
             return ""
         view_name = "slide_question_success"
         if api.content.find(
-            **{
-                "portal_type": "euphorie.training_question",
-                "path": "/".join(survey.getPhysicalPath()),
-            }
+            obj=survey,
+            portal_type="euphorie.training_question",
         ) and self.training_status not in ("correct", "success"):
             view_name = "slide_question_intro"
         return "{}/@@{}".format(self.context.absolute_url(), view_name)
@@ -308,8 +306,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
     def questions(self):
         training = self.get_or_create_training()
         answer_history = loads(training.answers)
-        survey = self.webhelpers._survey
-        return [survey.get(q_id) for q_id in answer_history]
+        return list(answer_history)
 
     @property
     def enable_training_questions(self):
@@ -478,7 +475,7 @@ class SlideQuestionIntro(TrainingView):
         if not self.questions:
             return ""
         return "{base_url}/@@slide_question/{slide_id}".format(
-            base_url=self.context.absolute_url(), slide_id=self.questions[0].getId()
+            base_url=self.context.absolute_url(), slide_id=self.questions[0]
         )
 
 
@@ -514,13 +511,13 @@ class SlideQuestion(SlideQuestionIntro):
     @property
     def progress(self):
         """Return a progress indicator, something like 2/3"""
-        idx = self.questions.index(self.question)
+        idx = self.questions.index(self.question_id)
         return "{}/{}".format(idx + 1, len(self.questions))
 
     @property
     @view_memoize
-    def previous_question(self):
-        idx = self.questions.index(self.question)
+    def previous_question_id(self):
+        idx = self.questions.index(self.question_id)
         if idx == 0:
             return
         try:
@@ -530,8 +527,8 @@ class SlideQuestion(SlideQuestionIntro):
 
     @property
     @view_memoize
-    def next_question(self):
-        idx = self.questions.index(self.question)
+    def next_question_id(self):
+        idx = self.questions.index(self.question_id)
         try:
             return self.questions[idx + 1]
         except IndexError:
@@ -540,9 +537,9 @@ class SlideQuestion(SlideQuestionIntro):
     @property
     def next_url(self):
         """Go to next question (if we have one) or to the success or try again slides"""
-        next_question = self.next_question
-        if next_question:
-            next_slide = "slide_question/{}".format(next_question.getId())
+        next_question_id = self.next_question_id
+        if next_question_id:
+            next_slide = "slide_question/{}".format(next_question_id)
         elif self.get_or_create_training().status == "correct":
             next_slide = "slide_question_success"
         else:
@@ -563,7 +560,7 @@ class SlideQuestion(SlideQuestionIntro):
         training.time = datetime.now()
 
     def post(self):
-        if not self.previous_question:
+        if not self.previous_question_id:
             self.initialize_training()
         training = self.get_or_create_training()
         answer = safe_unicode(self.request.form["answer"])
@@ -571,7 +568,7 @@ class SlideQuestion(SlideQuestionIntro):
         answer_history[self.question_id] = answer == self.question.right_answer
         training.answers = dumps(answer_history)
         training.time = datetime.now()
-        if not self.next_question:
+        if not self.next_question_id:
             training.status = (
                 "correct"
                 if all([answer is True for answer in answer_history.values()])
@@ -585,8 +582,8 @@ class SlideQuestion(SlideQuestionIntro):
         return True
 
     def validate(self):
-        previous_question = self.previous_question
-        if not previous_question:
+        previous_question_id = self.previous_question_id
+        if not previous_question_id:
             return
         training = self.get_or_create_training()
         try:
@@ -595,7 +592,7 @@ class SlideQuestion(SlideQuestionIntro):
             answers = {}
         if all([answer is None for answer in answers]):
             raise Unauthorized(_("You should start the training from the beginning"))
-        if answers.get(previous_question.getId()) is None:
+        if answers.get(previous_question_id) is None:
             raise Unauthorized(_("It seems you missed a slide"))
 
     def __call__(self):
@@ -628,10 +625,11 @@ class SlideQuestionTryAgain(SlideQuestionIntro):
             answers = loads(training.answers)
         except ValueError:
             answers = {}
+        survey = self.webhelpers._survey
         return [
-            question.title
-            for question in self.questions
-            if answers.get(question.getId()) is False
+            survey.get(question_id).title
+            for question_id in self.questions
+            if answers.get(question_id) is False
         ]
 
 
