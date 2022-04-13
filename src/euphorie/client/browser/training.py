@@ -15,6 +15,7 @@ from plone.memoize.instance import memoize
 from plone.memoize.view import memoize as view_memoize
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
+from random import sample
 from random import shuffle
 from sqlalchemy.orm.exc import NoResultFound
 from z3c.saconfig import Session
@@ -238,6 +239,20 @@ class TrainingView(BrowserView, survey._StatusHelper):
         """Return the session for this context/request"""
         return self.context.session
 
+    def get_initial_answers(self):
+        """Pick a subset of questions, shuffle them, and initialize the answers with
+        None.
+        """
+        survey = self.webhelpers._survey
+        all_questions = survey.listFolderContents(
+            {"portal_type": "euphorie.training_question"}
+        )
+        num_training_questions = getattr(survey, "num_training_questions", None) or len(
+            all_questions
+        )
+        questions = sample(all_questions, k=num_training_questions)
+        return {q.getId(): None for q in questions}
+
     @memoize
     def get_or_create_training(self):
         """Return the training for this session"""
@@ -253,13 +268,15 @@ class TrainingView(BrowserView, survey._StatusHelper):
             )
         except NoResultFound:
             pass
-        status = "in_progress" if self.questions else "correct"
+        answers = self.get_initial_answers()
+        status = "in_progress" if answers else "correct"
+
         training = Training(
             account_id=account_id,
             session_id=session_id,
             status=status,
             time=datetime.now(),
-            answers="{}",
+            answers=dumps(answers),
         )
         Session.add(training)
         return training
@@ -285,8 +302,10 @@ class TrainingView(BrowserView, survey._StatusHelper):
     @property
     @view_memoize
     def questions(self):
+        training = self.get_or_create_training()
+        question_ids = loads(training.answers).keys()
         survey = self.webhelpers._survey
-        return survey.listFolderContents({"portal_type": "euphorie.training_question"})
+        return [survey.get(q_id) for q_id in question_ids]
 
     @property
     def enable_training_questions(self):
@@ -532,8 +551,11 @@ class SlideQuestion(SlideQuestionIntro):
         after a first attempt
         """
         training = self.get_or_create_training()
-        training.answers = "{}"
-        training.status = "in_progress"
+        answer_history = loads(training.answers)
+        if not all([answer is None for answer in answer_history.values()]):
+            answer_history = {q_id: None for q_id in answer_history}
+            training.answers = dumps(answer_history)
+        training.status = "in_progress" if answer_history else "correct"
         training.time = datetime.now()
 
     def post(self):
@@ -546,7 +568,11 @@ class SlideQuestion(SlideQuestionIntro):
         training.answers = dumps(answer_history)
         training.time = datetime.now()
         if not self.next_question:
-            training.status = "correct" if all(answer_history.values()) else "failed"
+            training.status = (
+                "correct"
+                if all([answer is True for answer in answer_history.values()])
+                else "failed"
+            )
 
     def posted(self):
         if self.request.method != "POST":
@@ -563,9 +589,9 @@ class SlideQuestion(SlideQuestionIntro):
             answers = loads(training.answers)
         except ValueError:
             answers = {}
-        if not answers:
+        if all([answer is None for answer in answers]):
             raise Unauthorized(_("You should start the training from the beginning"))
-        if previous_question.getId() not in answers:
+        if answers.get(previous_question.getId()) is None:
             raise Unauthorized(_("It seems you missed a slide"))
 
     def __call__(self):
@@ -601,7 +627,7 @@ class SlideQuestionTryAgain(SlideQuestionIntro):
         return [
             question.title
             for question in self.questions
-            if not answers.get(question.getId())
+            if answers.get(question.getId()) is False
         ]
 
 

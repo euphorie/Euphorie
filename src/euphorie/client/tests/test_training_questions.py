@@ -5,6 +5,7 @@ from euphorie.client.tests.utils import addSurvey
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
+from random import seed
 from zExceptions import Unauthorized
 from zope.interface import alsoProvides
 
@@ -29,6 +30,7 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
             company=model.Company(country="nl", employees="1-9", referer="other"),
         )
         model.Session.add(survey_session)
+        seed(a="test_training_questions")
 
     def _create_questions(self):
         with api.env.adopt_user("admin"):
@@ -60,6 +62,28 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
                 wrong_answer_2="David Bowie",
             )
 
+    def test_num_training_questions(self):
+        traversed_session = self.survey.restrictedTraverse("++session++1")
+        seed(a="test_num_training_questions")
+        with api.env.adopt_user(user=self.account):
+            self.survey.enable_web_training = True
+            self.survey.num_training_questions = 2
+            self._create_questions()
+
+            with self._get_view(
+                "slide_question_intro", traversed_session, self.request.clone()
+            ) as view:
+                self.assertEqual(len(view.questions), 2)
+                self.assertListEqual(
+                    [x.getId() for x in view.questions],
+                    ["question-2", "question-3"],
+                )
+                self.assertEqual(
+                    view.first_question_url(),
+                    "http://nohost/plone/client/nl/ict/software-development/"
+                    "++session++1/@@slide_question/question-2",
+                )
+
     def test_training_questions(self):
         traversed_session = self.survey.restrictedTraverse("++session++1")
         with api.env.adopt_user(user=self.account):
@@ -90,13 +114,14 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
             with self._get_view(
                 "slide_question_intro", traversed_session, self.request.clone()
             ) as view:
+                self.assertEqual(len(view.questions), 3)
                 self.assertListEqual(
                     [x.getId() for x in view.questions],
-                    ["question-1", "question-2", "question-3"],
+                    ["question-3", "question-2", "question-1"],
                 )
                 self.assertEqual(
                     view.first_question_url(),
-                    "http://nohost/plone/client/nl/ict/software-development/++session++1/@@slide_question/question-1",  # noqa: E501
+                    "http://nohost/plone/client/nl/ict/software-development/++session++1/@@slide_question/question-3",  # noqa: E501
                 )
 
             # There is a certificate view but we cannot see it
@@ -112,9 +137,9 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
                 "slide_question", traversed_session, self.request.clone()
             ) as view:
                 # emulate traversing and test some method/properties
-                view.question_id = "question-1"
+                view.question_id = "question-3"
                 self.assertEqual(view.progress, "1/3")
-                self.assertEqual(view.question.title, "Why?")
+                self.assertEqual(view.question.title, "Who are you?")
                 self.assertIsNone(view.previous_question)
                 self.assertEqual(view.next_question.title, "Life on Mars?")
                 self.assertEqual(
@@ -126,17 +151,17 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
                 view.request.__annotations__.clear()
                 self.assertEqual(view.progress, "2/3")
                 self.assertEqual(view.question.title, "Life on Mars?")
-                self.assertEqual(view.previous_question.title, "Why?")
-                self.assertEqual(view.next_question.title, "Who are you?")
+                self.assertEqual(view.previous_question.title, "Who are you?")
+                self.assertEqual(view.next_question.title, "Why?")
                 self.assertEqual(
                     view.next_url,
-                    "http://nohost/plone/client/nl/ict/software-development/++session++1/@@slide_question/question-3",  # noqa: E501
+                    "http://nohost/plone/client/nl/ict/software-development/++session++1/@@slide_question/question-1",  # noqa: E501
                 )
 
-                view.question_id = "question-3"
+                view.question_id = "question-1"
                 view.request.__annotations__.clear()
                 self.assertEqual(view.progress, "3/3")
-                self.assertEqual(view.question.title, "Who are you?")
+                self.assertEqual(view.question.title, "Why?")
                 self.assertEqual(view.previous_question.title, "Life on Mars?")
                 self.assertIsNone(view.next_question)
                 self.assertEqual(
@@ -145,7 +170,7 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
                 )
 
                 # Check validation so that we do not call the wrong slide
-                view.question_id = "question-1"
+                view.question_id = "question-3"
                 view.request.__annotations__.clear()
                 view.validate()
 
@@ -154,24 +179,25 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
                 with self.assertRaises(Unauthorized):
                     view.validate()
 
-                view.question_id = "question-3"
+                view.question_id = "question-1"
                 view.request.__annotations__.clear()
                 with self.assertRaises(Unauthorized):
                     view.validate()
 
                 # Try to give some answer
-                view.question_id = "question-1"
+                view.question_id = "question-3"
                 view.request.__annotations__.clear()
                 view.request.method = "POST"
-                view.request.form["answer"] = "Because!"
+                view.request.form["answer"] = "The Who 🞋"
                 self.assertEqual(view(), view.next_url)
                 self.assertEqual(
-                    view.get_or_create_training().answers, '{"question-1": true}'
+                    view.get_or_create_training().answers,
+                    '{"question-3": true, "question-2": null, "question-1": null}',
                 )
                 self.assertEqual(view.get_or_create_training().status, "in_progress")
 
                 # Now we can see the first two slides
-                view.question_id = "question-1"
+                view.question_id = "question-3"
                 view.request.__annotations__.clear()
                 self.assertIsNone(view.validate())
 
@@ -180,7 +206,7 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
                 self.assertIsNone(view.validate())
 
                 # but not yet the last...
-                view.question_id = "question-3"
+                view.question_id = "question-1"
                 view.request.__annotations__.clear()
                 with self.assertRaises(Unauthorized):
                     view.validate()
@@ -203,12 +229,12 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
                 )
 
                 # We answer correctly the third answer
-                view.question_id = "question-3"
+                view.question_id = "question-1"
                 view.request.__annotations__.clear()
-                view.request.form["answer"] = "The Who 🞋"
+                view.request.form["answer"] = "Because!"
                 self.assertEqual(view(), view.next_url)
                 self.assertIn(
-                    '"question-3": true', view.get_or_create_training().answers
+                    '"question-1": true', view.get_or_create_training().answers
                 )
                 self.assertEqual(view.get_or_create_training().status, "failed")
 
@@ -229,23 +255,24 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
             with self._get_view(
                 "slide_question", traversed_session, self.request.clone()
             ) as view:
-                view.question_id = "question-1"
+                view.question_id = "question-3"
                 view.request.method = "POST"
-                view.request.form["answer"] = "Because!"
+                view.request.form["answer"] = "The Who 🞋"
                 view()
 
                 # Trying again resets resets the answers
                 self.assertEqual(
-                    view.get_or_create_training().answers, '{"question-1": true}'
+                    view.get_or_create_training().answers,
+                    '{"question-3": true, "question-2": null, "question-1": null}',
                 )
                 view.question_id = "question-2"
                 view.request.__annotations__.clear()
                 view.request.form["answer"] = "Probably not"
                 view()
 
-                view.question_id = "question-3"
+                view.question_id = "question-1"
                 view.request.__annotations__.clear()
-                view.request.form["answer"] = "The Who 🞋"
+                view.request.form["answer"] = "Because!"
                 view()
                 self.assertEqual(view(), view.next_url)
                 self.assertEqual(
