@@ -244,14 +244,17 @@ class TrainingView(BrowserView, survey._StatusHelper):
         None.
         """
         survey = self.webhelpers._survey
-        all_questions = survey.listFolderContents(
-            {"portal_type": "euphorie.training_question"}
+        all_questions = api.content.find(
+            **{
+                "portal_type": "euphorie.training_question",
+                "path": "/".join(survey.getPhysicalPath()),
+            }
         )
         num_training_questions = getattr(survey, "num_training_questions", None) or len(
             all_questions
         )
-        questions = sample(all_questions, k=num_training_questions)
-        return {q.getId(): None for q in questions}
+        questions = sample(list(all_questions), k=num_training_questions)
+        return {q.getId: None for q in questions}
 
     @memoize
     def get_or_create_training(self):
@@ -293,8 +296,11 @@ class TrainingView(BrowserView, survey._StatusHelper):
         if not getattr(survey, "enable_web_training", False):
             return ""
         view_name = "slide_question_success"
-        if survey.listFolderContents(
-            {"portal_type": "euphorie.training_question"}
+        if api.content.find(
+            **{
+                "portal_type": "euphorie.training_question",
+                "path": "/".join(survey.getPhysicalPath()),
+            }
         ) and self.training_status not in ("correct", "success"):
             view_name = "slide_question_intro"
         return "{}/@@{}".format(self.context.absolute_url(), view_name)
