@@ -245,7 +245,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
         """
         survey = self.webhelpers._survey
         all_questions = api.content.find(
-            obj=survey,
+            context=survey,
             portal_type="euphorie.training_question",
         )
         num_training_questions = getattr(survey, "num_training_questions", None) or len(
