@@ -303,7 +303,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
 
     @property
     @view_memoize
-    def questions(self):
+    def question_ids(self):
         training = self.get_or_create_training()
         answer_history = loads(training.answers)
         return list(answer_history)
@@ -472,10 +472,10 @@ class SlideQuestionIntro(TrainingView):
 
     def first_question_url(self):
         """Check the questions in the survey and take the first one"""
-        if not self.questions:
+        if not self.question_ids:
             return ""
         return "{base_url}/@@slide_question/{slide_id}".format(
-            base_url=self.context.absolute_url(), slide_id=self.questions[0]
+            base_url=self.context.absolute_url(), slide_id=self.question_ids[0]
         )
 
 
@@ -511,26 +511,26 @@ class SlideQuestion(SlideQuestionIntro):
     @property
     def progress(self):
         """Return a progress indicator, something like 2/3"""
-        idx = self.questions.index(self.question_id)
-        return "{}/{}".format(idx + 1, len(self.questions))
+        idx = self.question_ids.index(self.question_id)
+        return "{}/{}".format(idx + 1, len(self.question_ids))
 
     @property
     @view_memoize
     def previous_question_id(self):
-        idx = self.questions.index(self.question_id)
+        idx = self.question_ids.index(self.question_id)
         if idx == 0:
             return
         try:
-            return self.questions[idx - 1]
+            return self.question_ids[idx - 1]
         except IndexError:
             pass
 
     @property
     @view_memoize
     def next_question_id(self):
-        idx = self.questions.index(self.question_id)
+        idx = self.question_ids.index(self.question_id)
         try:
-            return self.questions[idx + 1]
+            return self.question_ids[idx + 1]
         except IndexError:
             pass
 
@@ -628,7 +628,7 @@ class SlideQuestionTryAgain(SlideQuestionIntro):
         survey = self.webhelpers._survey
         return [
             survey.get(question_id).title
-            for question_id in self.questions
+            for question_id in self.question_ids
             if answers.get(question_id) is False
         ]
 

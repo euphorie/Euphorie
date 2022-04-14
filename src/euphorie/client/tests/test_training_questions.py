@@ -73,9 +73,9 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
             with self._get_view(
                 "slide_question_intro", traversed_session, self.request.clone()
             ) as view:
-                self.assertEqual(len(view.questions), 2)
+                self.assertEqual(len(view.question_ids), 2)
                 self.assertListEqual(
-                    list(view.questions),
+                    list(view.question_ids),
                     ["question-2", "question-3"],
                 )
                 self.assertEqual(
@@ -114,9 +114,9 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
             with self._get_view(
                 "slide_question_intro", traversed_session, self.request.clone()
             ) as view:
-                self.assertEqual(len(view.questions), 3)
+                self.assertEqual(len(view.question_ids), 3)
                 self.assertListEqual(
-                    list(view.questions),
+                    list(view.question_ids),
                     ["question-3", "question-2", "question-1"],
                 )
                 self.assertEqual(
