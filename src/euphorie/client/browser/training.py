@@ -295,7 +295,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
             return ""
         view_name = "slide_question_success"
         if api.content.find(
-            obj=survey,
+            context=survey,
             portal_type="euphorie.training_question",
         ) and self.training_status not in ("correct", "success"):
             view_name = "slide_question_intro"
