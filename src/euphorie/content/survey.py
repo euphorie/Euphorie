@@ -156,6 +156,22 @@ class ISurvey(model.Schema, IBasic):
         required=False,
     )
 
+    depends("num_training_questions", "enable_web_training", "on")
+    num_training_questions = schema.Int(
+        title=_(
+            "label_num_training_questions",
+            default="Number of questions asked after training",
+        ),
+        description=_(
+            "help_num_training_questions",
+            default="Please enter the number of questions to be shown at the end of "
+            "your training session. If the number is lower than the number of existing "
+            "questions, the questions will be picked randomly. Empty the field to show "
+            "all questions.",
+        ),
+        required=False,
+    )
+
     enable_tool_notification = schema.Bool(
         title=_(
             "label_enable_tool_notification",
