@@ -1,0 +1,54 @@
+<article class="style-7 type- certificate ${python: 'pat-auto-scale' if request.getURL().endswith('/@@training-certificate-view') else ''}"
+         tal:define="
+           webhelpers nocall:view/webhelpers;
+           account webhelpers/get_current_account;
+           toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+           certificate view/get_or_create_training;
+         "
+         i18n:domain="euphorie"
+>
+  <img class="certificate-backdrop"
+       src="${webhelpers/certificates_url}/certificate-7.svg"
+  />
+  <h1 class="certificate-title"
+      i18n:translate=""
+  >
+    Certificate
+  </h1>
+  <p class="certificate-title-byline"
+     i18n:translate=""
+  >
+    This certificate is presented to
+  </p>
+  <p class="certificate-user-name">
+    ${python: account.loginname}
+  </p>
+  <p class="certificate-achievement"
+     i18n:translate=""
+  >
+    For successfully finishing the training for
+    <strong class="certificate-session-name"
+            i18n:name="session"
+    >${here/session/title}</strong>
+    on
+    <time class="certificate-date"
+          i18n:name="date"
+    >${python:toLocalizedTime(certificate.time)}</time>.
+  </p>
+  <table class="certificate-colofon">
+    <tbody>
+      <tr>
+        <th class="tool"
+            i18n:translate=""
+        >Tool</th>
+        <th class="department"
+            i18n:translate=""
+        >Country</th>
+      </tr>
+      <tr>
+        <td class="tool">${webhelpers/_survey/title}</td>
+        <td class="department">${webhelpers/country_name}</td>
+      </tr>
+    </tbody>
+  </table>
+</article>

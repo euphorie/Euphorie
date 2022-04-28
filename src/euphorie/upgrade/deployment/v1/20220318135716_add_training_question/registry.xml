@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="ploneintranet">
+  <record name="plone.displayed_types" interface="Products.CMFPlone.interfaces.controlpanel.INavigationSchema" field="displayed_types">
+    <value purge="false">
+      <element>euphorie.training_question</element>
+    </value>
+  </record>
+  <record name="plonetheme.nuplone.appconfigtile_navigation">
+    <value>{
+  "tiles": "\nnavtree [context.portal_type in ['euphorie.profilequestion', 'euphorie.module', 'euphorie.risk', 'euphorie.solution', 'euphorie.survey', 'euphorie.surveygroup', 'euphorie.folder', 'euphorie.documentation', 'euphorie.help', 'euphorie.page', 'euphorie.training_question'] ]\neuphorie.usermgmt.navtree [context.portal_type=='euphorie.country' and request.getURL().endswith('@@manage-users')]",
+  "type": "group"
+}</value>
+  </record>
+
+</registry>

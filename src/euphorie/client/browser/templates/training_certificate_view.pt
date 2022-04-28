@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+  <metal:slot fill-slot="content">
+    <div id="content-pane">
+      <div class="container">
+        <div class="row">
+          <div class="eight columns">
+            <div class="certificate-container">
+              <tal:certificate replace="structure here/@@training-certificate-inner" />
+            </div>
+          </div>
+          <div class="four columns">
+            <a class="pat-button"
+               href="${here/absolute_url}/@@training-certificate"
+               target="new"
+               i18n:translate=""
+            >Print certificate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </metal:slot>
+
+
+</html>

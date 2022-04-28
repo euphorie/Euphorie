@@ -1,0 +1,81 @@
+<tal:portlet define="
+               trainings view/my_unfinished_trainings;
+               certificates view/my_certificates;
+             "
+             condition="python:trainings or certificates"
+             i18n:domain="euphorie"
+>
+  <div class="portlet span-${view/columns}"
+       id="portlet-training"
+  >
+    <div class="content">
+      <article class="portlet-intro">
+        <header class="portlet-title-group">
+          <h2 class="portlet-title"
+              i18n:translate=""
+          >
+            Training
+          </h2>
+        </header>
+      </article>
+      <div class="portlet-body"
+           id="portlet-training-body"
+      >
+        <tal:unfinished condition="trainings">
+          <h3 i18n:translate="">
+          My unfinished trainings
+          </h3>
+          <ul class="links"
+              tal:condition="trainings"
+          >
+            <li tal:repeat="training trainings">
+              <a class="pat-inject"
+                 href="${tool/absolute_url}/++session++${session/id}/@@training#content"
+                 data-pat-inject="history: record"
+                 tal:define="
+                   session training/session;
+                   tool nocall:session/tool;
+                 "
+              >
+              ${session/title}
+              </a>
+            </li>
+          </ul>
+        </tal:unfinished>
+        <h3 i18n:translate="">
+          My certificates
+        </h3>
+        <tal:for repeat="certificate certificates">
+          <div class="training"
+               tal:define="
+                 session certificate/session;
+                 tool nocall:session/tool;
+                 traversed_session python:tool.restrictedTraverse('++session++{}'.format(session.id));
+                 session_url string:${tool/absolute_url}/++session++${session/id};
+               "
+          >
+            <h4 class="training-title">
+              <a class="pat-inject"
+                 href="${session_url}/@@training"
+                 data-pat-inject="source: #content; target: #content; history: record"
+              >
+                ${session/title}
+              </a>
+            </h4>
+            <a class="certificate-link pat-auto-scale pat-inject"
+               href="${session_url}/@@training-certificate-view"
+               data-pat-inject="source: #content; target: #content; history: record"
+            >
+              <tal:certificate replace="structure traversed_session/@@training-certificate" />
+            </a>
+          </div>
+        </tal:for>
+        <p tal:condition="not:certificates"
+           i18n:translate=""
+        >
+          No certificates yet
+        </p>
+      </div>
+    </div>
+  </div>
+</tal:portlet>

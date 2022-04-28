@@ -136,6 +136,7 @@
                         <a class="pat-inject pat-button back slide-nav-prev"
                            href="${here/absolute_url}/@@training-slides?t=${timestamp}#slide-${python:counter-1}"
                            data-pat-inject="target: #slide-0; browser-cache: cache"
+                           i18n:translate="label_previous"
                         >Previous</a>
 
 
@@ -143,16 +144,25 @@
                            href="${here/absolute_url}/@@training-slides?t=${timestamp}#slide-${python:counter+1}"
                            data-pat-inject="target: #slide-0; browser-cache: cache"
                            tal:condition="not: end"
+                           i18n:translate="label_next"
                         >Next</a>
-                        <button class="default pat-button close-fullscreen"
-                                href="${here/absolute_url}/@@training#slide-0"
-                                name="close"
-                                type="button"
-                                tal:condition="end"
-                        >
-        Close
-                        </button>
-
+                        <tal:end condition="end">
+                          <button class="default pat-button close-fullscreen"
+                                  href="${here/absolute_url}/@@training#slide-0"
+                                  name="close"
+                                  type="button"
+                                  tal:condition="not:question_intro_url"
+                                  i18n:translate="button_close"
+                          >
+            Close
+                          </button>
+                          <a class="pat-inject default pat-button continue slide-nav-next"
+                             href="${question_intro_url}#slide-0"
+                             data-pat-inject="target: #slide-0"
+                             tal:condition="question_intro_url"
+                             i18n:translate="button_training_questions"
+                          >Questions</a>
+                        </tal:end>
                       </p>
                     </footer>
                   </metal:footer>

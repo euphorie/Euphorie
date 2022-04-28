@@ -23,6 +23,7 @@ from plone.memoize.instance import memoize
 from Products.CMFPlone.utils import safe_nativestring
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
+from sqlalchemy import func
 from sqlalchemy import orm
 from sqlalchemy import schema
 from sqlalchemy import sql
@@ -1281,6 +1282,37 @@ class ActionPlan(BaseObject):
     )
 
 
+class Training(BaseObject):
+    """Data table to record trainings"""
+
+    __tablename__ = "training"
+
+    id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
+    time = schema.Column(types.DateTime(), nullable=True, default=func.now())
+    account_id = schema.Column(
+        types.Integer(),
+        schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
+        nullable=False,
+    )
+    account = orm.relation(
+        Account,
+        backref=orm.backref("training", cascade="all, delete, delete-orphan"),
+    )
+    session_id = schema.Column(
+        types.Integer(),
+        schema.ForeignKey("session.id", onupdate="CASCADE", ondelete="CASCADE"),
+        nullable=False,
+    )
+    session = orm.relation(
+        "SurveySession",
+        cascade="all,delete-orphan",
+        single_parent=True,
+        backref=orm.backref("training", uselist=False, cascade="all"),
+    )
+    answers = schema.Column(types.Unicode, default="[]")
+    status = schema.Column(types.Unicode)
+
+
 _instrumented = False
 if not _instrumented:
     metadata._decl_registry = {}
@@ -1294,6 +1326,7 @@ if not _instrumented:
         Account,
         AccountChangeRequest,
         Company,
+        Training,
     ]:
         declarative.api.instrument_declarative(cls, metadata._decl_registry, metadata)
     _instrumented = True

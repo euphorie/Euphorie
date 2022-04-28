@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        meta_type="Dexterity FTI"
+        name="euphorie.survey"
+        i18n:domain="euphorie"
+>
+  <property name="allowed_content_types"
+            purge="false"
+  >
+    <element value="euphorie.training_question" />
+  </property>
+
+</object>
