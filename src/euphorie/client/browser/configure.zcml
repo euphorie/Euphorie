@@ -147,6 +147,78 @@
       />
 
   <browser:page
+      name="slide_question_intro"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".training.SlideQuestionIntro"
+      template="templates/slide_question_intro.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="slide_question"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".training.SlideQuestion"
+      template="templates/slide_question.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="slide_question_success"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".training.SlideQuestionSuccess"
+      template="templates/slide_question_success.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="slide_question_try_again"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".training.SlideQuestionTryAgain"
+      template="templates/slide_question_try_again.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="training-certificate-inner"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".training.SlideQuestionSuccess"
+      template="templates/training_certificate_inner.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="training-certificate-view"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".training.SlideQuestionSuccess"
+      template="templates/training_certificate_view.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="training-certificate"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".training.SlideQuestionSuccess"
+      template="templates/training_certificate.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="portlet-my-trainings"
+      for="euphorie.client.country.IClientCountry"
+      class=".training.MyTrainingsPortlet"
+      template="templates/portlet-my-trainings.pt"
+      permission="zope2.View"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="certificate_macros"
       for="*"
       permission="euphorie.client.ViewSurvey"

@@ -21,5 +21,6 @@
       <bound-workflow workflow_id="survey"/>
     </type>
     <type type_id="euphorie.surveygroup"/>
+    <type type_id="euphorie.training_question" />
   </bindings>
 </object>

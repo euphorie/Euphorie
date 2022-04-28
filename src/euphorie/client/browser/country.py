@@ -152,7 +152,6 @@ class SurveyTemplatesMixin(object):
 class SessionsView(BrowserView, SurveyTemplatesMixin):
 
     variation_class = "variation-dashboard"
-    _portlet_names = ["portlet-my-ras", "portlet-available-tools"]
     form_action_name = "dashboard-switcher"
 
     @property
@@ -164,6 +163,13 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
     @memoize
     def survey_session_model(self):
         return self.webhelpers.survey_session_model
+
+    @property
+    def _portlet_names(self):
+        names = ["portlet-my-ras", "portlet-available-tools"]
+        if self.webhelpers.use_training_module:
+            names.append("portlet-my-trainings")
+        return names
 
     @property
     @memoize

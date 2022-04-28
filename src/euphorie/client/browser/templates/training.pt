@@ -22,6 +22,7 @@
                   counter python:0;
                   count_offset python:1;
                   question_intro_url view/question_intro_url|nothing;
+                  enable_training_questions view/enable_training_questions;
                   logo view/logo_url;
                 "
     >
@@ -72,9 +73,9 @@
             >
               <button class="pat-button icon-desktop default pat-fullscreen"
                       data-pat-fullscreen="selector:#slide-0"
-              ><tal:training condition="question_intro_url"
+              ><tal:training condition="enable_training_questions"
                               i18n:translate=""
-                >Take training and test</tal:training><tal:notraining condition="not:question_intro_url"
+                >Take training and test</tal:training><tal:notraining condition="not:enable_training_questions"
                                 i18n:translate=""
                 >Run slideshow</tal:notraining></button>
 
@@ -91,6 +92,7 @@
                   <li tal:repeat="entry view/more_menu_contents">
                     <a class="${entry/class}"
                        href="${entry/url}"
+                       data-pat-modal="${entry/data_pat_modal|nothing}"
                     >${entry/label}</a>
                   </li>
 
@@ -194,11 +196,9 @@
                              tal:condition="image_urls"
                         >
                           <figure class="illustration">
-                            <a href="${python:image_urls[0]}">
-                              <img src="${python:image_urls[0]}"
-                                   title=""
-                              />
-                            </a>
+                            <img src="${python:image_urls[0]}"
+                                 title=""
+                            />
                           </figure>
                         </div>
                         <span tal:replace="structure python:webhelpers.get_safe_html(description)"></span>

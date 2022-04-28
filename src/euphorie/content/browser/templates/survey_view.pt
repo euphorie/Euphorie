@@ -97,6 +97,33 @@
         </tal:children>
       </tal:block>
 
+      <tal:training_questions define="
+                                training_questions view/training_questions;
+                              "
+                              condition="view/show_training_questions"
+      >
+        <h2 i18n:translate="header_training_questions">Training Questions</h2>
+        <ol class="${python:'sortable' if can_edit and len(training_questions)&gt;1 else ''}"
+            tal:condition="training_questions"
+        >
+          <li id="question-${question/getId}"
+              tal:repeat="question training_questions"
+          >
+            <a href="${question/absolute_url}">
+              <em class="icon euphorie-training_question">(Training question)</em>
+              ${question/Title}
+            </a>
+          </li>
+        </ol>
+        <p class="pat-notice"
+           tal:condition="not:training_questions"
+           i18n:translate=""
+        >
+          There are no training questions yet
+        </p>
+      </tal:training_questions>
+
+
     </metal:content>
   </body>
 </html>

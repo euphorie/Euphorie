@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout"
+      i18n:domain="euphorie"
+>
+  <body>
+    <metal:bar fill-slot="buttonbar"><tal:tile replace="tile:euphorie.addbar" /></metal:bar>
+    <metal:title fill-slot="title">${here/title}</metal:title>
+    <metal:content fill-slot="content">
+      <dl class="grid span-9">
+        <dt i18n:translate="">Right answer</dt>
+        <dd>${context/right_answer}</dd>
+        <dt i18n:translate="">First wrong answer</dt>
+        <dd>${context/wrong_answer_1}</dd>
+        <dt i18n:translate="">Second wrong answer</dt>
+        <dd>${context/wrong_answer_2}</dd>
+      </dl>
+    </metal:content>
+  </body>
+</html>

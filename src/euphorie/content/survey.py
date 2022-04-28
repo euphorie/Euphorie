@@ -144,6 +144,34 @@ class ISurvey(model.Schema, IBasic):
         default=False,
     )
 
+    enable_web_training = schema.Bool(
+        title=_("label_enable_web_training", default="Enable Web Based Training?"),
+        description=_(
+            "help_enable_web_training",
+            default="If this option is activated, users will be able to take an "
+            "online training with this OiRA tool. A successful training will be "
+            "recorded and shown with a certificate on the user's dashbooard. You "
+            "will be asked to provide Training Questions for the final exam.",
+        ),
+        required=False,
+    )
+
+    depends("num_training_questions", "enable_web_training", "on")
+    num_training_questions = schema.Int(
+        title=_(
+            "label_num_training_questions",
+            default="Number of questions asked after training",
+        ),
+        description=_(
+            "help_num_training_questions",
+            default="Please enter the number of questions to be shown at the end of "
+            "your training session. If the number is lower than the number of existing "
+            "questions, the questions will be picked randomly. Empty the field to show "
+            "all questions.",
+        ),
+        required=False,
+    )
+
     enable_tool_notification = schema.Bool(
         title=_(
             "label_enable_tool_notification",
