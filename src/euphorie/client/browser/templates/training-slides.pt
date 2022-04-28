@@ -21,6 +21,7 @@
                   count_offset python:1;
                   slide_total_count view/slide_total_count;
                   question_intro_url view/question_intro_url|nothing;
+                  timestamp view/timestamp;
                 "
     >
       <div class="pat-scroll-box"
@@ -47,8 +48,8 @@
               <p class="button-bar">
                 <a class="pat-button pat-inject default"
                    id="assessments-training-start-button"
-                   href="${here/absolute_url}/@@training-slides#slide-1"
-                   data-pat-inject="target: #slide-0"
+                   href="${here/absolute_url}/@@training-slides?t=${timestamp}#slide-1"
+                   data-pat-inject="target: #slide-0; browser-cache: cache"
                    i18n:translate=""
                 >Start</a>
               </p>
@@ -78,6 +79,7 @@
                          description training_view/description;
                          image_urls training_view/image_urls;
                          measures slide/measures;
+                         active_measures python:[entry for entry in measures.values() if entry['active']];
                          training_notes training_view/training_notes|nothing;
                        ">
               <div class="presentation-slide"
@@ -132,15 +134,15 @@
                       <p class="controls">
 
                         <a class="pat-inject pat-button back slide-nav-prev"
-                           href="${here/absolute_url}/@@training-slides#slide-${python:counter-1}"
-                           data-pat-inject="target: #slide-0"
+                           href="${here/absolute_url}/@@training-slides?t=${timestamp}#slide-${python:counter-1}"
+                           data-pat-inject="target: #slide-0; browser-cache: cache"
                            i18n:translate="label_previous"
                         >Previous</a>
 
 
                         <a class="pat-inject default pat-button continue slide-nav-next"
-                           href="${here/absolute_url}/@@training-slides#slide-${python:counter+1}"
-                           data-pat-inject="target: #slide-0"
+                           href="${here/absolute_url}/@@training-slides?t=${timestamp}#slide-${python:counter+1}"
+                           data-pat-inject="target: #slide-0; browser-cache: cache"
                            tal:condition="not: end"
                            i18n:translate="label_next"
                         >Next</a>
@@ -166,7 +168,7 @@
                   </metal:footer>
                 </section>
               </div>
-              <tal:measures condition="measures">
+              <tal:measures condition="active_measures">
                 <div class="presentation-slide concatenate template-measures"
                      id="slide-${counter}"
                      tal:define="
@@ -181,11 +183,11 @@
                     ${view/heading_measures}
                       </h3>
                       <ul>
-                        <tal:measures tal:repeat="measure_id measures">
+                        <tal:measures tal:repeat="measure active_measures">
                           <li tal:define="
-                                measure_text python:measures[measure_id]['action'];
+                                measure_text python:measure['action'];
                               "
-                              tal:condition="python:measures[measure_id]['active'] and measure_text"
+                              tal:condition="measure_text"
                               tal:content="structure python:webhelpers.get_safe_html(measure_text)"
                           >measure</li>
                         </tal:measures>
@@ -241,8 +243,8 @@
                 <p class="button-bar">
                   <a class="pat-button pat-inject default"
                      id="assessments-training-start-button"
-                     href="${here/absolute_url}/@@training-slides#slide-1"
-                     data-pat-inject="target: #slide-0"
+                     href="${here/absolute_url}/@@training-slides?t=${timestamp}#slide-1"
+                     data-pat-inject="target: #slide-0; browser-cache: cache"
                      i18n:translate=""
                   >Start</a>
                 </p>

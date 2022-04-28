@@ -170,20 +170,73 @@ class RiskBase(BrowserView):
 
     def extract_plans_from_request(self):
         """Create new ActionPlan objects by parsing the Request."""
+        context = aq_inner(self.context)
+        form = self.request.form
+        context_measures = context.standard_measures + context.custom_measures
+        if form.get("handle_training_measures"):
+            # Gather all (database-) ids of the active measures. That means, those
+            # measures where the checkboxes are ticked in the training configuration.
+            # Remember: a measure that has been deselected (checkbox unticked)
+            # does not appear in the REQUEST
+            active_measures = []
+            for entry in form:
+                if entry.startswith("training-measure") and entry.find("-") >= 0:
+                    measure_id = entry.split("-")[-1]
+                    active_measures.append(measure_id)
+            # Get the ids of all measures-in-place and map them to the solution-ids
+            # Remember: the solution-id is the ZODB-id of the respective solution
+            # inside the risk in the CMS. We us it to identify the standard measures.
+            # The custom measures will not have a solution-id
+            all_measures = {
+                str(measure.id): measure.solution_id for measure in context_measures
+            }
+            # The following 2 mappings will be used if the handling of measures in
+            # place is also part of this request (further down)
+            # Make a mapping of solution-id to used-in-training state for the
+            # standard measures
+            saved_solutions = {
+                v: k in active_measures for (k, v) in all_measures.items() if v
+            }
+            # Make a mapping of database-id to used-in-training state for the
+            # custom measures
+            saved_custom_measures = {
+                k: k in active_measures for (k, v) in all_measures.items() if not v
+            }
+        else:
+            # The following 2 mappings will be used if the handling of measures in
+            # place is also part of this request (further down)
+            # We do not have training configuration in the REQUEST. We need
+            # to build the mapping of solution-id to used-in-training state
+            # via the information stored in the the database...
+            saved_solutions = {
+                plan.solution_id: plan.used_in_training
+                for plan in self.context.standard_measures
+            }
+            # ... and also for the custom measures
+            saved_custom_measures = {
+                str(plan.id): plan.used_in_training
+                for plan in self.context.custom_measures
+            }
         new_plans = []
         added = 0
         updated = 0
         existing_plans = {}
-        context = aq_inner(self.context)
-        for plan in context.standard_measures + context.custom_measures:
-            existing_plans[str(plan.id)] = plan
-        form = self.request.form
         form["action_plans"] = []
+        for plan in context_measures:
+            existing_plans[str(plan.id)] = plan
         for i in range(0, len(form.get("measure", []))):
             measure = dict([p for p in form["measure"][i].items() if p[1].strip()])
             form["action_plans"].append(measure)
             if len(measure):
                 plan_type = measure.get("plan_type", "measure_custom")
+                if plan_type == "measure_standard":
+                    used_in_training = saved_solutions.get(
+                        measure.get("solution_id"), True
+                    )
+                else:
+                    used_in_training = saved_custom_measures.get(
+                        measure.get("id"), True
+                    )
                 solution_id = measure.get("solution_id", None)
                 if plan_type == "measure_standard" and not form.get(
                     "sm-%s" % solution_id
@@ -247,6 +300,7 @@ class RiskBase(BrowserView):
                         planning_end=p_end,
                         plan_type=plan_type,
                         solution_id=solution_id,
+                        used_in_training=used_in_training,
                     )
                 )
         removed = len(existing_plans)
@@ -459,46 +513,6 @@ class IdentificationView(RiskBase):
                     self.context.action_plans.extend(new_plans)
                     changed = changes or changed
 
-            if self.webhelpers.use_training_module:
-                if reply.get("handle_training_notes"):
-                    self.context.training_notes = reply.get("training_notes")
-                    changed = True
-                # Case: the user has selected or de-selected a measure
-                # from the training slide
-                if reply.get("handle_training_measures_for"):
-                    # Gather all ids of the active measures, that means,
-                    # where the checkboxes are ticked.
-                    # Remember: a measure that has been deselected (checkbox unticked)
-                    # does not appear in the REQUEST
-                    active_measures = set()
-                    for entry in reply:
-                        if entry.startswith("measure") and entry.find("-") >= 0:
-                            measure_id = entry.split("-")[-1]
-                            active_measures.add(measure_id)
-                    # Get the ids of all measures-in-place
-                    all_measures = set(
-                        [
-                            str(measure.id)
-                            for measure in list(self.context.in_place_standard_measures)
-                            + list(self.context.in_place_custom_measures)
-                        ]
-                    )
-                    # All measures that are not present in the REQUEST are deselected
-                    deselected_measures = all_measures - active_measures
-                    if active_measures:
-                        session.execute(
-                            "UPDATE action_plan set used_in_training=true where id in ({ids})".format(  # noqa: E501
-                                ids=",".join(active_measures)
-                            )
-                        )
-                    if deselected_measures:
-                        session.execute(
-                            "UPDATE action_plan set used_in_training=false where id in ({ids})".format(  # noqa: E501
-                                ids=",".join(deselected_measures)
-                            )
-                        )
-                    changed = True
-
             # This only happens on custom risks
             if reply.get("handle_custom_description"):
                 self.context.custom_description = self.webhelpers.check_markup(
@@ -586,18 +600,94 @@ class IdentificationView(RiskBase):
     def set_measure_data(self, reply, session):
 
         changed = False
-        if self.use_existing_measures and reply.get("handle_measures_in_place"):
-            new_measures = []
-            saved_solutions = {
+        # Case: the user has selected or de-selected a measure
+        # from the training configuration
+        if reply.get("handle_training_measures"):
+            # Gather all (database-) ids of the active measures. That means, those
+            # measures where the checkboxes are ticked in the training configuration.
+            # Remember: a measure that has been deselected (checkbox unticked)
+            # does not appear in the REQUEST
+            active_measures_in_place = []
+            active_measures_planned = []
+            for entry in reply:
+                if (
+                    entry.startswith("training-measure-in-place")
+                    and entry.find("-") >= 0
+                ):
+                    measure_id = entry.split("-")[-1]
+                    active_measures_in_place.append(measure_id)
+                elif (
+                    entry.startswith("training-measure-planned")
+                    and entry.find("-") >= 0
+                ):
+                    measure_id = entry.split("-")[-1]
+                    active_measures_planned.append(measure_id)
+            # Get the ids of all measures-in-place and map them to the solution-ids
+            # Remember: the solution-id is the ZODB-id of the respective solution
+            # inside the risk in the CMS. We us it to identify the standard measures.
+            # The custom measures will not have a solution-id
+            all_in_place_measures = {
+                str(measure.id): measure.solution_id
+                for measure in list(self.context.in_place_standard_measures)
+                + list(self.context.in_place_custom_measures)
+            }
+            all_planned_measures = {
+                str(measure.id): measure.solution_id
+                for measure in list(self.context.standard_measures)
+                + list(self.context.custom_measures)
+            }
+            # The following 2 mappings will be used if the handling of measures in
+            # place is also part of this request (further down)
+            # Make a mapping of solution-id to used-in-training state for the
+            # standard measures
+            saved_in_place_solutions = {
+                v: k in active_measures_in_place
+                for (k, v) in all_in_place_measures.items()
+                if v
+            }
+            # Make a mapping of database-id to used-in-training state for the
+            # custom measures
+            saved_in_place_custom_measures = {
+                k: k in active_measures_in_place
+                for (k, v) in all_in_place_measures.items()
+                if not v
+            }
+            # Additionally store the (database) ids of all measures that have been
+            # deactivated. In case we do not handle measures in place in this
+            # request further down, we need to make sure that those measues get
+            # set to used_in_training=False at the end of this method
+            deselected_in_place_measures = [
+                k for k in all_in_place_measures if k not in active_measures_in_place
+            ]
+            deselected_planned_measures = [
+                k for k in all_planned_measures if k not in active_measures_planned
+            ]
+        else:
+            # The following 2 mappings will be used if the handling of measures in
+            # place is also part of this request (further down)
+            # We do not have training configuration in the REQUEST. We need
+            # to build the mapping of solution-id to used-in-training state
+            # via the information stored in the the database...
+            saved_in_place_solutions = {
                 plan.solution_id: plan.used_in_training
                 for plan in self.context.in_place_standard_measures
             }
+            # ... and also for the custom measures
+            saved_in_place_custom_measures = {
+                str(plan.id): plan.used_in_training
+                for plan in self.context.in_place_custom_measures
+            }
+            deselected_in_place_measures = deselected_planned_measures = []
+            active_measures_in_place = active_measures_planned = []
+
+        if reply.get("handle_measures_in_place"):
+            new_measures = []
             # First, check which of the standard solutions were selected
             for solution in self.solutions_provided_by_tool:
                 # If the solution was already added as a measure, retrieve the info
                 # whether it was de-selected for the training, so that we don't
                 # forcefully activate all measures for the training again.
-                used_in_training = saved_solutions.get(solution.id, True)
+                used_in_training = saved_in_place_solutions.get(solution.id, True)
                 if reply.get("measure-standard-%s" % solution.id):
                     new_measures.append(
                         model.ActionPlan(
@@ -630,14 +720,22 @@ class IdentificationView(RiskBase):
                 elif k.startswith("measure-custom"):
                     _id = k.rsplit("-", 1)[-1]
                     new_custom_measures[_id] = model.ActionPlan(
-                        action=val, plan_type="in_place_custom"
+                        action=val,
+                        plan_type="in_place_custom",
+                        used_in_training=saved_in_place_custom_measures.get(_id, True),
                     )
                 # This only happens on custom risks
                 elif k.startswith("present-measure") and val.strip() != "":
                     _id = k.rsplit("-", 1)[-1]
                     if int(bool(reply.get("measure-{}".format(_id)))):
                         new_measures.append(
-                            model.ActionPlan(action=val, plan_type="in_place_custom")
+                            model.ActionPlan(
+                                action=val,
+                                plan_type="in_place_custom",
+                                used_in_training=saved_in_place_custom_measures.get(
+                                    _id, True
+                                ),
+                            )
                         )
             # Now add the custom measures in their correct order
             for k in sorted(new_custom_measures.keys()):
@@ -649,6 +747,40 @@ class IdentificationView(RiskBase):
 
             if new_measures:
                 self.context.action_plans.extend(new_measures)
+                changed = True
+        else:
+            # If we did not handle any measures in place, check if we need to take
+            # care of training measures that need to be activated or deactivated
+            if active_measures_in_place:
+                session.execute(
+                    "UPDATE action_plan set used_in_training=true where id in ({ids})".format(  # noqa: E501
+                        ids=",".join(active_measures_in_place)
+                    )
+                )
+                changed = True
+            if deselected_in_place_measures:
+                session.execute(
+                    "UPDATE action_plan set used_in_training=false where id in ({ids})".format(  # noqa: E501
+                        ids=",".join(deselected_in_place_measures)
+                    )
+                )
+                changed = True
+        # In case we're not dealing with an integrated action plan, de-/ activate
+        # planned measures as necessary
+        if not self.webhelpers.integrated_action_plan:
+            if active_measures_planned:
+                session.execute(
+                    "UPDATE action_plan set used_in_training=true where id in ({ids})".format(  # noqa: E501
+                        ids=",".join(active_measures_planned)
+                    )
+                )
+                changed = True
+            if deselected_planned_measures:
+                session.execute(
+                    "UPDATE action_plan set used_in_training=false where id in ({ids})".format(  # noqa: E501
+                        ids=",".join(deselected_planned_measures)
+                    )
+                )
                 changed = True
         return changed
 

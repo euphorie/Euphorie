@@ -6,6 +6,8 @@ Changelog
 
 - New feature: A "Training" page is available per risk assessment that assembles all modules
   and risks into cards / slides for an online training
+- For the Training, the user can define which of the planned or in-place measures are part of the
+  training
 - The Training can be enhanced with a set of questions that are shown to the user at the end.
   If they are answered correctly, the user earns a certificate
 - Further tweaks to the involve phase previews.

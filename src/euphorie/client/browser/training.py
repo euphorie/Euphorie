@@ -6,6 +6,7 @@ from euphorie import MessageFactory as _
 from euphorie.client import survey
 from euphorie.client import utils
 from euphorie.client import utils as client_utils
+from euphorie.client.model import Risk
 from euphorie.client.model import Training
 from json import dumps
 from json import loads
@@ -218,6 +219,38 @@ class TrainingSlide(BrowserView):
             "training_notes": self.training_notes,
         }
 
+    @property
+    def existing_measures_training(self):
+        measures = dict()
+        for measure in list(self.context.in_place_standard_measures) + list(
+            self.context.in_place_custom_measures
+        ):
+            measures.update(
+                {
+                    measure.id: {
+                        "action": measure.action,
+                        "active": measure.used_in_training,
+                    }
+                }
+            )
+        return measures
+
+    @property
+    def planned_measures_training(self):
+        measures = dict()
+        for measure in list(self.context.standard_measures) + list(
+            self.context.custom_measures
+        ):
+            measures.update(
+                {
+                    measure.id: {
+                        "action": measure.action,
+                        "active": measure.used_in_training,
+                    }
+                }
+            )
+        return measures
+
 
 class TrainingView(BrowserView, survey._StatusHelper):
     """The view that shows the main-menu Training module"""
@@ -238,6 +271,11 @@ class TrainingView(BrowserView, survey._StatusHelper):
     def session(self):
         """Return the session for this context/request"""
         return self.context.session
+
+    @property
+    @memoize
+    def timestamp(self):
+        return self.session.modified.strftime("%s%M%H%d%m")
 
     def get_initial_answers(self):
         """Pick a subset of questions, shuffle them, and initialize the answers with
@@ -399,6 +437,75 @@ class TrainingView(BrowserView, survey._StatusHelper):
                 count += 1
         return count
 
+    def handle_measure_configuration(self, reply):
+        session = Session()
+        risk = session.query(Risk).filter(Risk.id == reply["risk_id"]).first()
+        if not risk:
+            return
+        # Gather all (database-) ids of the active measures. That means, those
+        # measures where the checkboxes are ticked in the training configuration.
+        # Remember: a measure that has been deselected (checkbox unticked)
+        # does not appear in the REQUEST
+        active_measures_in_place = []
+        active_measures_planned = []
+        for entry in reply:
+            if entry.startswith("training-measure-in-place") and entry.find("-") >= 0:
+                measure_id = entry.split("-")[-1]
+                active_measures_in_place.append(measure_id)
+            elif entry.startswith("training-measure-planned") and entry.find("-") >= 0:
+                measure_id = entry.split("-")[-1]
+                active_measures_planned.append(measure_id)
+        # Get the (database-) ids of all measures-in-place / planned measures
+        all_in_place_measures = {
+            str(measure.id)
+            for measure in list(risk.in_place_standard_measures)
+            + list(risk.in_place_custom_measures)
+        }
+        all_planned_measures = {
+            str(measure.id)
+            for measure in list(risk.standard_measures) + list(risk.custom_measures)
+        }
+        # Additionally store the (database-) ids of all measures that have been
+        # deactivated.
+        deselected_in_place_measures = [
+            k for k in all_in_place_measures if k not in active_measures_in_place
+        ]
+        deselected_planned_measures = [
+            k for k in all_planned_measures if k not in active_measures_planned
+        ]
+
+        changed = False
+        if active_measures_in_place:
+            session.execute(
+                "UPDATE action_plan set used_in_training=true where id in ({ids})".format(  # noqa: E501
+                    ids=",".join(active_measures_in_place)
+                )
+            )
+            changed = True
+        if deselected_in_place_measures:
+            session.execute(
+                "UPDATE action_plan set used_in_training=false where id in ({ids})".format(  # noqa: E501
+                    ids=",".join(deselected_in_place_measures)
+                )
+            )
+            changed = True
+        if active_measures_planned:
+            session.execute(
+                "UPDATE action_plan set used_in_training=true where id in ({ids})".format(  # noqa: E501
+                    ids=",".join(active_measures_planned)
+                )
+            )
+            changed = True
+        if deselected_planned_measures:
+            session.execute(
+                "UPDATE action_plan set used_in_training=false where id in ({ids})".format(  # noqa: E501
+                    ids=",".join(deselected_planned_measures)
+                )
+            )
+            changed = True
+        if changed:
+            self.webhelpers.traversed_session.session.touch()
+
     def __call__(self):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
@@ -406,53 +513,10 @@ class TrainingView(BrowserView, survey._StatusHelper):
         survey = self.webhelpers._survey
         utils.setLanguage(self.request, survey, survey.language)
 
-        # XXXX This whole block is not being used at the moment, since the
-        # training page does not post anything.
-        # We don't yet know where the handling of measure selection will happen
         if self.request.environ["REQUEST_METHOD"] == "POST":
-            active_measures = set()
-            for entry in self.request.form:
-                # Case A: the user has modified the notes of the "text" training slides
-                if entry.startswith("training_notes"):
-                    index = entry.split("-")[-1]
-                    sql_item = self.slide_data[index]["item"]
-                    value = safe_unicode(self.request[entry])
-                    sql_item.training_notes = value
-                # an entry of this kind is relevant for Case B below
-                elif entry.startswith("measure"):
-                    measure_id = entry.split("-")[-1]
-                    active_measures.add(measure_id)
-            # Case B: the user has selected or de-selected a measure
-            # from one of the "measures" training slides
-            if "handle_training_measures_for" in self.request.form:
-                index = self.request.form["handle_training_measures_for"].split("-")[-1]
-                sql_item = self.slide_data[index]["item"]
-                view = self.slide_data[index]["training_view"]
-                all_measures = set([str(key) for key in view.existing_measures.keys()])
-                deselected_measures = all_measures - active_measures
-                session = Session()
-                if active_measures:
-                    session.execute(
-                        "UPDATE action_plan set used_in_training=true "
-                        "where id in ({ids})".format(ids=",".join(active_measures))
-                    )
-                if deselected_measures:
-                    session.execute(
-                        "UPDATE action_plan set used_in_training=false "
-                        "where id in ({ids})".format(ids=",".join(deselected_measures))
-                    )
-                self.webhelpers.traversed_session.session.touch()
-                # We need to compute the URL manually from the "path"
-                # given in the sql-element
-                # Reason: the sql_item has the context of our session,
-                # but is not aware of the full parent-hierarchy of module/submodule
-                self.request.RESPONSE.redirect(
-                    "{session}/{path}/@@training_slide".format(
-                        session=self.context.absolute_url(),
-                        path="/".join(self.slicePath(sql_item.path)),
-                    )
-                )
-            self.webhelpers.traversed_session.session.touch()
+            reply = self.request.form
+            if "risk_id" in reply:
+                self.handle_measure_configuration(reply)
 
         self.request.RESPONSE.addHeader("Cache-Control", "public,max-age=60")
         return self.index()

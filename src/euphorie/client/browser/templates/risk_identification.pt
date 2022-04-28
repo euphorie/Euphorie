@@ -108,6 +108,10 @@
           </article>
           <!-- END Resources -->
 
+          <!-- Training -->
+          <metal:call use-macro="webhelpers/macros/training_configuration" />
+          <!-- END Training -->
+
 
         </div>
         <p class="button-bar pat-bumper"
