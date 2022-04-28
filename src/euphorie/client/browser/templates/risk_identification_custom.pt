@@ -278,14 +278,6 @@
           </div>
           <!-- END Information -->
 
-          <!-- Training -->
-          <metal:call use-macro="context/training_slide/macros/training_slide"
-                      tal:define="
-                        template view/slide_template;
-                      "
-          />
-          <!-- END Training -->
-
           <!-- Comments -->
           <metal:call use-macro="webhelpers/macros/risk_comments"
                       tal:define="

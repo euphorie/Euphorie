@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        client nocall:request/client;
+        webhelpers nocall:context/@@webhelpers;
+        slide_data view/slide_data|python:{};
+      "
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content"
+                tal:define="
+                  counter python:0;
+                  count_offset python:1;
+                  slide_total_count view/slide_total_count;
+                  question_intro_url view/question_intro_url|nothing;
+                "
+    >
+      <div class="pat-scroll-box"
+           id="content-pane"
+      >
+        <form class="slide-show"
+              action=""
+        >
+
+          <div class="presentation-slide"
+               id="slide-0"
+          >
+            <section class="slide-content template-cover pat-auto-scale"
+                     data-pat-auto-scale="size: contain"
+            >
+              <h1 class="slide-title">
+                ${view/session/title}
+              </h1>
+              <p class="slide-byline"
+                 i18n:translate="label_online_oira_training"
+              >
+                Online OiRA training
+              </p>
+              <p class="button-bar">
+                <a class="pat-button pat-inject default"
+                   id="assessments-training-start-button"
+                   href="${here/absolute_url}/@@training-slides#slide-1"
+                   data-pat-inject="target: #slide-0"
+                   i18n:translate=""
+                >Start</a>
+              </p>
+              <figure class="tool-icon">
+                <img alt=""
+                     src="${view/tool_image_url}"
+                />
+              </figure>
+              <figure class="organisation-logo">
+                <img alt=""
+                     src=""
+                />
+              </figure>
+            </section>
+          </div>
+
+          <tal:items repeat="slide_path slide_data/keys">
+            <tal:slide define="
+                         slide_info python:slide_data[slide_path];
+                         item python:slide_info['item'];
+                         training_view python:slide_info['training_view'];
+                         slide python:slide_info['slide_contents'];
+                         slide_template slide/slide_template;
+                         global counter python:counter+1;
+                         content_item nocall:training_view/zodb_elem;
+                         slide_type slide/slide_type;
+                         description training_view/description;
+                         image_urls training_view/image_urls;
+                         measures slide/measures;
+                         training_notes training_view/training_notes|nothing;
+                       ">
+              <div class="presentation-slide"
+                   id="slide-${counter}"
+              >
+                <section class="mode-view slide-content ${slide_template} pat-auto-scale"
+                         id="slide-content-${counter}"
+                         data-pat-auto-scale="size: contain"
+                >
+                  <p class="toggle pat-switch"
+                     data-pat-switch="selector: #slide-content-${counter}; add: mode-view; remove: mode-*"
+                     i18n:translate=""
+                  >Click to edit</p>
+                  <section class="slide-body pat-rich pat-scroll-box">
+                    <h1 class="slide-title">
+                      <span class="slide-number">${training_view/number}
+                      </span>
+                        ${training_view/slide_title}
+                    </h1>
+                    <div class="slide-illustrations"
+                         tal:condition="image_urls"
+                    >
+                      <figure class="illustration"
+                              tal:repeat="image_url image_urls"
+                      >
+                        <img src="${image_url}"
+                             title=""
+                        />
+                      </figure>
+                    </div>
+                    <span tal:replace="structure python:webhelpers.get_safe_html(description)"></span>
+                  </section>
+
+                  <metal:footer define-macro="footer">
+                    <footer class="slide-footer"
+                            tal:define="
+                              end python:counter==slide_total_count;
+                            "
+                    >
+                      <p class="colofon">
+
+                        <strong class="slide-number">${training_view/number}</strong>
+                         |
+
+
+            ${view/session/title} | ${training_view/slide_date} |
+                        <tal:i18n i18n:translate="label_page">Page</tal:i18n>
+                        ${counter}
+                        <tal:i18n i18n:translate="label_page_of">of</tal:i18n>
+                         ${slide_total_count}
+                      </p>
+                      <p class="controls">
+
+                        <a class="pat-inject pat-button back slide-nav-prev"
+                           href="${here/absolute_url}/@@training-slides#slide-${python:counter-1}"
+                           data-pat-inject="target: #slide-0"
+                        >Previous</a>
+
+
+                        <a class="pat-inject default pat-button continue slide-nav-next"
+                           href="${here/absolute_url}/@@training-slides#slide-${python:counter+1}"
+                           data-pat-inject="target: #slide-0"
+                           tal:condition="not: end"
+                        >Next</a>
+                        <button class="default pat-button close-fullscreen"
+                                href="${here/absolute_url}/@@training#slide-0"
+                                name="close"
+                                type="button"
+                                tal:condition="end"
+                        >
+        Close
+                        </button>
+
+                      </p>
+                    </footer>
+                  </metal:footer>
+                </section>
+              </div>
+              <tal:measures condition="measures">
+                <div class="presentation-slide concatenate template-measures"
+                     id="slide-${counter}"
+                     tal:define="
+                       global counter python:counter+1;
+                     "
+                >
+                  <section class="mode-view slide-content template-measures pat-auto-scale"
+                           id="slide-content-${counter}"
+                  >
+                    <section class="slide-body pat-rich pat-scroll-box">
+                      <h3 class="slide-subtitle">
+                    ${view/heading_measures}
+                      </h3>
+                      <ul>
+                        <tal:measures tal:repeat="measure_id measures">
+                          <li tal:define="
+                                measure_text python:measures[measure_id]['action'];
+                              "
+                              tal:condition="python:measures[measure_id]['active'] and measure_text"
+                              tal:content="structure python:webhelpers.get_safe_html(measure_text)"
+                          >measure</li>
+                        </tal:measures>
+                      </ul>
+                    </section>
+                    <metal:footer use-macro="template/macros/footer" />
+                  </section>
+                </div>
+              </tal:measures>
+
+              <tal:notes condition="training_notes">
+                <div class="presentation-slide concatenate template-notes"
+                     id="slide-${counter}"
+                     tal:define="
+                       global counter python:counter+1;
+                     "
+                >
+                  <section class="mode-view slide-content template-measures pat-auto-scale"
+                           id="slide-content-${counter}"
+                  >
+                    <section class="slide-body pat-rich pat-scroll-box">
+                      <h3 class="card-subtitle"
+                          i18n:translate="label_notes"
+                      >
+                    Notes
+                      </h3>
+                      <span tal:replace="structure python:webhelpers.get_safe_html(training_notes)"></span>
+                    </section>
+                    <metal:footer use-macro="template/macros/footer" />
+                  </section>
+                </div>
+              </tal:notes>
+
+            </tal:slide>
+          </tal:items>
+
+          <div class="presentation-placeholder">
+            <div class="presentation-slide"
+                 id="slide-0"
+            >
+
+              <section class="slide-content template-cover pat-auto-scale"
+                       data-pat-auto-scale="size: contain"
+              >
+                <h1 class="slide-title">
+                    ${view/session/title}
+                </h1>
+                <p class="slide-byline"
+                   i18n:translate="label_online_oira_training"
+                >
+                    Online OiRA training
+                </p>
+                <p class="button-bar">
+                  <a class="pat-button pat-inject default"
+                     id="assessments-training-start-button"
+                     href="${here/absolute_url}/@@training-slides#slide-1"
+                     data-pat-inject="target: #slide-0"
+                     i18n:translate=""
+                  >Start</a>
+                </p>
+                <figure class="tool-icon">
+                  <img alt=""
+                       src="${view/tool_image_url}"
+                  />
+                </figure>
+                <figure class="organisation-logo">
+                  <img alt=""
+                       src=""
+                  />
+                </figure>
+              </section>
+            </div>
+          </div>
+
+
+          <tal:nodata condition="not:slide_data">
+            <h2 i18n:translate="">No training content is available</h2>
+          </tal:nodata>
+        </form>
+
+      </div>
+    </metal:slot>
+  </body>
+</html>

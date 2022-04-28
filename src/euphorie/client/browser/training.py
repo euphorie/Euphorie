@@ -1,7 +1,9 @@
 # coding=utf-8
 from collections import OrderedDict
 from datetime import date
+from euphorie import MessageFactory as _
 from euphorie.client import survey
+from euphorie.client import utils
 from euphorie.client import utils as client_utils
 from logging import getLogger
 from plone import api
@@ -59,6 +61,7 @@ class TrainingSlide(BrowserView):
         return "for_download" in self.request and self.request["for_download"]
 
     @property
+    @memoize
     def number(self):
         if self.is_custom:
             num_elems = self.context.number.split(".")
@@ -67,6 +70,13 @@ class TrainingSlide(BrowserView):
             number = self.context.number
         if self.item_type == "module":
             number = "{}.0".format(number)
+        return number
+
+    @property
+    def number_id(self):
+        number = self.number.replace(".", "-")
+        if self.is_custom:
+            number = number.replace("Ω", "omega")
         return number
 
     @property
@@ -79,8 +89,7 @@ class TrainingSlide(BrowserView):
     def slide_template(self):
         if self.item_type == "module":
             return "template-module"
-        if self.description or self.image:
-            return "template-two-column"
+        # there seems to be a profile template, don't when that should be used.
         return "template-default"
 
     @property
@@ -107,23 +116,28 @@ class TrainingSlide(BrowserView):
 
     @property
     def training_notes(self):
-        training_notes = getattr(self.context, "training_notes", "") or ""
+        training_notes = getattr(self.context, "comment", "") or ""
         if self.for_download:
             training_notes = markdown.markdown(training_notes)
-        return training_notes
+        if self.webhelpers.check_markup(training_notes):
+            return training_notes
 
     @property
-    def existing_measures(self):
+    def measures(self):
         if self.item_type != "risk":
             return {}
         measures = OrderedDict()
         for measure in list(self.context.in_place_standard_measures) + list(
             self.context.in_place_custom_measures
+            + list(self.context.standard_measures)
+            + list(self.context.custom_measures)
         ):
+            if not measure.action:
+                continue
             measures.update(
                 {
                     measure.id: {
-                        "action": measure.action,
+                        "action": self.webhelpers.get_safe_html(measure.action),
                         "active": measure.used_in_training,
                     }
                 }
@@ -159,16 +173,39 @@ class TrainingSlide(BrowserView):
                 )
         return image
 
-    def slides(self, standalone=False):
+    @property
+    def image_urls(self):
+        urls = []
+        if self.is_custom:
+            if not getattr(self.context, "image_data", None):
+                return None
+            urls.append(
+                f"{self.webhelpers.traversed_session.absolute_url()}/"
+                f"{'/'.join(self.context.short_path)}"
+                f"/@@image-display/training_export?name=${self.context.image_filename}"
+            )
+            return urls
+        field_names = ["image"]
+        scale_name = "training_title"
+        if self.item_type == "risk":
+            field_names.extend(["image2", "image3", "image4"])
+            scale_name = "training"
+        for fname in field_names:
+            image = getattr(self.zodb_elem, fname, None)
+            if image and image.data:
+                urls.append(
+                    f"{self.zodb_elem.absolute_url()}/@@images/{fname}/{scale_name}"
+                )
+        return urls
 
-        slides = [
-            {
-                "slide_type": self.item_type,
-                "slide_template": self.slide_template,
-                "content": self.existing_measures,
-            }
-        ]
-        return slides
+    def slide_contents(self, standalone=False):
+
+        return {
+            "slide_type": self.item_type,
+            "slide_template": self.slide_template,
+            "measures": self.measures,
+            "training_notes": self.training_notes,
+        }
 
 
 class TrainingView(BrowserView, survey._StatusHelper):
@@ -179,6 +216,8 @@ class TrainingView(BrowserView, survey._StatusHelper):
     variation_class = "variation-risk-assessment"
     skip_unanswered = False
     for_download = False
+    more_menu_contents = []
+    heading_measures = _("header_measures", default="Measures")
 
     @property
     @memoize
@@ -210,6 +249,20 @@ class TrainingView(BrowserView, survey._StatusHelper):
 
     @property
     @memoize
+    def tool_image_url(self):
+        survey = self.context.aq_parent
+        if getattr(survey, "image", None):
+            return f"{survey.absolute_url()}/@@images/image/large"
+
+    @property
+    def logo_url(self):
+        logo = self.webhelpers.get_sector_logo
+        if logo:
+            return f"{self.webhelpers.portal_url}/{logo.url}"
+        return f"{self.webhelpers.portal_url}/++resource++euphorie.resources/media/oira-logo-colour.png"  # noqa: E501
+
+    @property
+    @memoize
     def slide_data(self):
         modules = self.getModulePaths()
         risks = self.getRisks(modules, skip_unanswered=self.skip_unanswered)
@@ -221,13 +274,13 @@ class TrainingView(BrowserView, survey._StatusHelper):
                 module_in_context = module.__of__(self.webhelpers.traversed_session)
                 module_in_context.REQUEST["for_download"] = self.for_download
                 _view = module_in_context.restrictedTraverse("training_slide")
-                slides = _view.slides()
+                slide_contents = _view.slide_contents()
                 data.update(
                     {
                         module_path: {
                             "item": module_in_context,
                             "training_view": _view,
-                            "slides": slides,
+                            "slide_contents": slide_contents,
                         }
                     }
                 )
@@ -235,13 +288,13 @@ class TrainingView(BrowserView, survey._StatusHelper):
             risk_in_context = risk.__of__(self.webhelpers.traversed_session)
             risk_in_context.REQUEST["for_download"] = self.for_download
             _view = risk_in_context.restrictedTraverse("training_slide")
-            slides = _view.slides()
+            slide_contents = _view.slide_contents()
             data.update(
                 {
                     risk.path: {
                         "item": risk_in_context,
                         "training_view": _view,
-                        "slides": slides,
+                        "slide_contents": slide_contents,
                     }
                 }
             )
@@ -249,16 +302,30 @@ class TrainingView(BrowserView, survey._StatusHelper):
 
     @property
     def slide_total_count(self):
-        # The title slide is not part of the dataset, therefore start with 1
-        count = 1
+        count = 0
         for data in self.slide_data.values():
-            count += len(data["slides"])
+            count += 1
+            for measure_id in data["slide_contents"]["measures"]:
+                if data["slide_contents"]["measures"][measure_id]["active"]:
+                    count += 1
+                    break
+            if (
+                data["item"].type != "module"
+                and data["slide_contents"]["training_notes"]
+            ):
+                count += 1
         return count
 
     def __call__(self):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
 
+        survey = self.webhelpers._survey
+        utils.setLanguage(self.request, survey, survey.language)
+
+        # XXXX This whole block is not being used at the moment, since the
+        # training page does not post anything.
+        # We don't yet know where the handling of measure selection will happen
         if self.request.environ["REQUEST_METHOD"] == "POST":
             active_measures = set()
             for entry in self.request.form:
@@ -304,4 +371,5 @@ class TrainingView(BrowserView, survey._StatusHelper):
                 )
             self.webhelpers.traversed_session.session.touch()
 
+        self.request.RESPONSE.addHeader("Cache-Control", "public,max-age=60")
         return self.index()

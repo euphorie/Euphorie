@@ -1,9 +1,11 @@
 Changelog
 =========
 
-14.0.3 (unreleased)
+14.1.0 (unreleased)
 -------------------
 
+- New feature: A "Training" page is available per risk assessment that assembles all modules
+  and risks into cards / slides for an online training
 - Further tweaks to the involve phase previews.
 
 
