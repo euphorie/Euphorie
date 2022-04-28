@@ -6,6 +6,7 @@ Changelog
 
 - New feature: A "Training" page is available per risk assessment that assembles all modules
   and risks into cards / slides for an online training
+- Further tweaks to the involve phase previews.
 
 
 14.0.2 (2022-03-30)

@@ -76,7 +76,6 @@ setup(
         "backports.tempfile;python_version<'3'",
     ],
     tests_require=[
-        "mock;python_version<'3'",
         "plone.app.testing",
     ],
     extras_require={
