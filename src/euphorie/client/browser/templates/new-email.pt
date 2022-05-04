@@ -28,16 +28,12 @@
           >Please bear in mind that by changing the email address, your login name will also change.</p>
         </article>
 
-      <tal:comment condition="nothing">
-  pat-validation is disabled because of a bug in Chrome with date validation.
-  See scrum #279
-      </tal:comment>
-        <form class="Xpat-validation"
+        <form class="pat-validation"
               id="${view/id}"
               action="${request/getURL}"
               enctype="${view/enctype}"
               method="${view/method}"
-              data-Xpat-validation="${webhelpers/pat_validation_messages}"
+              data-pat-validation="${webhelpers/pat_validation_messages}"
         >
           <fieldset class="vertical">
             <tal:widget repeat="widget view/widgets/values"

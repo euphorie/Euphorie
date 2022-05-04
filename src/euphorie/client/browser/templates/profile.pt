@@ -44,7 +44,7 @@
               action="${request/URL}"
               method="post"
               data-pat-inject="history: record; source: #content; target: #content;"
-              data-Xpat-validation="${webhelpers/pat_validation_messages}"
+              data-pat-validation="${webhelpers/pat_validation_messages}"
         >
           <fieldset class="vertical"
                     tal:repeat="question view/profile_questions"

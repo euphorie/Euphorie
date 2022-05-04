@@ -1,6 +1,12 @@
 Changelog
 =========
 
+14.0.4 (unreleased)
+-------------------
+
+- Restore all pat-validation. The bug with date validation in Chrome is fixed in Patternslib 7.10.0.
+
+
 14.0.3 (2022-05-04)
 -------------------
 
