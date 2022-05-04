@@ -11,6 +11,7 @@ Changelog
 - The Training can be enhanced with a set of questions that are shown to the user at the end.
   If they are answered correctly, the user earns a certificate
 - Further tweaks to the involve phase previews.
+- Disable pat-validation due to a bug in Chrome with date validation.
 
 
 14.0.2 (2022-03-30)

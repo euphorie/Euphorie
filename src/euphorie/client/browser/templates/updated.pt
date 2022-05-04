@@ -128,7 +128,7 @@
                                name="${question/id}:utf8:utext:list"
                                required="required"
                                data-pat-depends="condition: pq${question/id}.present=yes; action: both;"
-                               data-pat-validation="message-required: Please enter a name here"
+                               data-Xpat-validation="message-required: Please enter a name here"
                         />
                       </label>
                       <tal:locations repeat="title current">
