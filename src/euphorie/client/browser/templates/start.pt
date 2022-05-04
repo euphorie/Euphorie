@@ -25,11 +25,15 @@
          href="${here/webhelpers/traversed_session/absolute_url}/@@update-completion-percentage"
          data-pat-inject="trigger: autoload; source: #document-content; target: #percentage-placeholder::element; loading-class:; history: none"
       >Compute completion percentage</a>
-      <form class="pat-form pat-inject pat-validation"
+      <tal:comment condition="nothing">
+  pat-validation is disabled because of a bug in Chrome with date validation.
+  See scrum #279
+      </tal:comment>
+      <form class="pat-form pat-inject Xpat-validation"
             action="${request/URL}"
             method="POST"
             data-pat-inject="history: record; source: #content; target: #content"
-            data-pat-validation="disable-selector: button[name='form.button.submit'];
+            data-Xpat-validation="disable-selector: button[name='form.button.submit'];
                                  ${webhelpers/pat_validation_messages};
                            message-min: ${view/message_gt1};
             "

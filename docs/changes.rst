@@ -1,6 +1,12 @@
 Changelog
 =========
 
+14.0.3 (Unreleased)
+-------------------
+
+- Disable pat-validation due to a bug in Chrome with date validation.
+
+
 14.0.2 (2022-03-30)
 -------------------
 
