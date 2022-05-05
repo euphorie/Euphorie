@@ -35,16 +35,12 @@
           </ul>
         </article>
 
-        <tal:comment condition="nothing">
-  pat-validation is disabled because of a bug in validation radio inputs
-  https://github.com/Patternslib/Patterns/issues/744
-        </tal:comment>
-        <form class="Xpat-validation pat-inject"
+        <form class="pat-validation pat-inject"
               id="profile-form"
               action="${request/URL}"
               method="post"
               data-pat-inject="history: record; source: #content; target: #content;"
-              data-Xpat-validation="${webhelpers/pat_validation_messages}"
+              data-pat-validation="${webhelpers/pat_validation_messages}"
         >
           <fieldset class="vertical"
                     tal:repeat="question view/profile_questions"

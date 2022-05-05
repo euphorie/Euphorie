@@ -27,17 +27,12 @@
                  errors python:exists('actionplan/errors') and actionplan['errors'] or {};
                ">
 
-      <tal:comment condition="nothing">
-  pat-validation is disabled because of a bug in Chrome with date validation.
-  See scrum #279
-      </tal:comment>
-        <!-- Disable validation on the action plan, since an empty budget field falsely gets claimed as being required! -->
-        <form class="Xpat-validation pat-inject pat-scroll"
+        <form class="pat-validation pat-inject pat-scroll"
               action="${context/absolute_url}/@@actionplan"
               method="post"
               data-pat-inject="history: record; source: #step-4-topics; target: #step-4-topics &amp;&amp; source: #content; target: #content"
               data-pat-scroll="selector: #content; trigger: auto; offset: 0"
-              data-Xpat-validation="disable-selector: button[name='next'], .remove-clone;
+              data-pat-validation="disable-selector: button[name='next'], .remove-clone;
                                    ${webhelpers/pat_validation_messages};
                                    message-min: ${view/message_positive_number};
                                    "

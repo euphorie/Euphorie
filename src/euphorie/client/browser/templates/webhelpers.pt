@@ -825,7 +825,7 @@
                      type="date"
                      value="${python:measure.planning_start if measure else None}"
                      data-pat-date-picker="output-format: D MMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json?set_language=${language}"
-                     data-Xpat-validation="${python:u'not-after: #solution-planning-end-{number}; message-date: {message}'.format(number=solution['id'], message=view.message_date_before) if 'planning_end' not in view.skip_fields else None}"
+                     data-pat-validation="${python:u'not-after: #solution-planning-end-{number}; message-date: {message}'.format(number=solution['id'], message=view.message_date_before) if 'planning_end' not in view.skip_fields else None}"
               />
             </label>
 
@@ -842,7 +842,7 @@
                      type="date"
                      value="${python:measure.planning_end if measure else None}"
                      data-pat-date-picker="output-format: D MMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json?set_language=${language}"
-                     data-Xpat-validation="not-before: #solution-planning-start-${solution/id}; message-date: ${view/message_date_after}"
+                     data-pat-validation="not-before: #solution-planning-start-${solution/id}; message-date: ${view/message_date_after}"
               />
             </label>
 
@@ -958,7 +958,7 @@
                      type="date"
                      value="${actionplan/planning_start|nothing}"
                      data-pat-date-picker="output-format: D MMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json?set_language=${language}"
-                     data-Xpat-validation="${python:u'not-after: #planning-end-{number}; message-date: {message}'.format(number=number, message=view.message_date_before) if 'planning_end' not in view.skip_fields else None}"
+                     data-pat-validation="${python:u'not-after: #planning-end-{number}; message-date: {message}'.format(number=number, message=view.message_date_before) if 'planning_end' not in view.skip_fields else None}"
               />
             </label>
 
@@ -975,7 +975,7 @@
                      type="date"
                      value="${actionplan/planning_end|nothing}"
                      data-pat-date-picker="output-format: D MMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json?set_language=${language}"
-                     data-Xpat-validation="not-before: #planning-start-${number}; message-date: ${view/message_date_after}"
+                     data-pat-validation="not-before: #planning-start-${number}; message-date: ${view/message_date_after}"
               />
             </label>
           </fieldset>
@@ -1086,7 +1086,7 @@
                    name="measure.planning_start:records"
                    type="date"
                    data-pat-date-picker="output-format: D MMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json?set_language=${language}"
-                   data-Xpat-validation="${python:u'not-after: #planning-end-#{1}; message-date: %s' % view.message_date_before if 'planning_end' not in view.skip_fields else None}"
+                   data-pat-validation="${python:u'not-after: #planning-end-#{1}; message-date: %s' % view.message_date_before if 'planning_end' not in view.skip_fields else None}"
             />
           </label>
           <label tal:condition="python: 'planning_end' not in view.skip_fields">
@@ -1096,7 +1096,7 @@
                    name="measure.planning_end:records"
                    type="date"
                    data-pat-date-picker="output-format: D MMM YYYY; locale: ${language}; week-numbers: show; i18n: ${webhelpers/country_url}/@@date-picker-i18n.json?set_language=${language}"
-                   data-Xpat-validation="not-before: #planning-start-#{1}; message-date: ${view/message_date_after}"
+                   data-pat-validation="not-before: #planning-start-#{1}; message-date: ${view/message_date_after}"
             />
           </label>
         </fieldset>

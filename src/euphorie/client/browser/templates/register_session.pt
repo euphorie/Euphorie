@@ -116,16 +116,12 @@
         </article>
 
 
-      <tal:comment condition="nothing">
-  pat-validation is disabled because of a bug in Chrome with date validation.
-  See scrum #279
-      </tal:comment>
-        <form class="Xpat-validation"
+        <form class="pat-validation"
               accept-charset="UTF-8"
               action="${request/URL}"
               enctype="multipart/form-data"
               method="post"
-              data-Xpat-validation="${webhelpers/pat_validation_messages}"
+              data-pat-validation="${webhelpers/pat_validation_messages}"
               tal:define="
                 errors view/errors;
               "
