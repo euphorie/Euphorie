@@ -30,11 +30,7 @@
              i18n:translate="verify_profile"
           >Please verify if the profile is still accurate.</p>
 
-          <tal:comment condition="nothing">
-  pat-validation is disabled because of a bug in validation radio inputs
-  https://github.com/Patternslib/Patterns/issues/744
-          </tal:comment>
-          <form class="pat-inject Xpat-validation"
+          <form class="pat-inject pat-validation"
                 accept-charset="UTF-8"
                 action="${request/URL}"
                 method="post"
