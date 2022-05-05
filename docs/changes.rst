@@ -4,6 +4,7 @@ Changelog
 14.0.4 (unreleased)
 -------------------
 
+- New bundle based on Patternslib 7.10.0.
 - Restore all pat-validation. The bug with date validation in Chrome is fixed in Patternslib 7.10.0.
 
 
