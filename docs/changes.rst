@@ -4,6 +4,7 @@ Changelog
 14.1.0 (unreleased)
 -------------------
 
+- New bundle based on Patternslib 7.10.0 with pat-validation fixes.
 - New feature: A "Training" page is available per risk assessment that assembles all modules
   and risks into cards / slides for an online training
 - For the Training, the user can define which of the planned or in-place measures are part of the
