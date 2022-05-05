@@ -18,7 +18,7 @@
 
 		
 			<script
-				src="../../../script/bundle-help.min.js"
+				src="../../../script/bundle.min.js"
 				type="text/javascript"></script>
 		
 
@@ -1469,6 +1469,7 @@
         
         
         
+        
     
 </div>
 
@@ -1477,7 +1478,25 @@
         <div 
             class="toolbar-section quick-functions"
             id="assessment-toolbar-quick-functions"> 
+
             
+                <a 
+                    href="/preparation.html#publication-menu" 
+                    class="icon-lock text-button pat-tooltip" 
+                    data-pat-tooltip="source: ajax; position-list: tr">Locked <time class="pat-display-time" data-pat-display-time="from-now: true; locale: en" datetime="2018-03-28T08:00Z">2018-03-28</time></a>
+            
+
+            <!-- <button 
+                type="submit" 
+                formaction="/preparation.html" 
+                class="pat-button icon-lock" 
+                title="Lock this Risk Assessment">Lock</button> -->
+                
+            <a 
+                href="/preparation.html#sharing-menu" 
+                class="icon-share icon pat-tooltip" 
+                data-pat-tooltip="source: ajax; position-list: tr">Share</a>
+
 
             <a 
                 href="#status-sentinel"
@@ -1568,7 +1587,7 @@
     data-pat-depends="condition: answer=no; transition: slide">
     <h3
         class="form-separation-header">
-        Measures
+        Planned measures
     </h3>
     <section class="pat-rich">
         
@@ -2098,20 +2117,18 @@
         toolbar-external: #assessment-toolbar;
         source-panel: #pat-modal.panel-html-source-editor;
         image-panel: #pat-modal.image-picker;
+        embed-panel: ;
         link-panel: #pat-modal.panel-hyperlink;
-        context-menu-link: /feedback/hyperlink-menu#document-content;
-        context-menu-mentions: /feedback/panel-mentions-tiptap#document-content;
-        url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
-        context-menu-tags: /feedback/panel-tags-tiptap#document-content;
-        url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}">
+        link-menu: /feedback/hyperlink-menu#document-content;
+        mentions-menu: /feedback/panel-mentions-tiptap#document-content;
+        tags-menu: /feedback/panel-tags-tiptap#document-content"
+    >
 </textarea>
 
 
             </div>
     </fieldset>
 </fieldset>
-
-
 
 
 
@@ -2146,6 +2163,61 @@
         </ul>
     </section>
 </article>
+
+
+
+	
+
+<div 
+    id="page-module-training" 
+    data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 120px"
+	class="pat-collapsible closed risk-module form-panel">
+    <h3
+        class="form-separation-header">
+        
+    </h3>
+
+	
+	
+	
+
+	<div 
+		id="page-module-training-panel-content" 
+		class="panel-content">
+
+		<p 
+    class="pat-message info">
+    Please tick anything that you might like to exclude from the training. Items that are greyed out will not be displayed on the training card.
+</p>
+
+<fieldset 
+    class="vertical">
+    
+
+    
+
+    <fieldset 
+        class="pat-checklist show-and-hide">
+        
+        <label>
+            <input
+                type="checkbox"
+                name="existing-measures"
+                checked />
+                Information
+        </label>
+        <label>
+            <input
+                type="checkbox"
+                name="existing-measures"
+                checked />
+                Notes
+        </label>
+    </fieldset>
+</fieldset>
+
+	</div>
+</div>
 
 
 <div 
