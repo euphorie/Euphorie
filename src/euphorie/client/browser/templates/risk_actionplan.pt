@@ -27,7 +27,6 @@
                  errors python:exists('actionplan/errors') and actionplan['errors'] or {};
                ">
 
-        <!-- Disable validation on the action plan, since an empty budget field falsely gets claimed as being required! -->
         <form class="pat-validation pat-inject pat-scroll"
               action="${context/absolute_url}/@@actionplan"
               method="post"
