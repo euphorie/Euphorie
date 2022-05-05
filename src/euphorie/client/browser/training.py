@@ -285,8 +285,9 @@ class TrainingView(BrowserView, survey._StatusHelper):
         all_questions = survey.listFolderContents(
             {"portal_type": "euphorie.training_question"}
         )
-        num_training_questions = getattr(survey, "num_training_questions", None) or len(
-            all_questions
+        num_training_questions = min(
+            getattr(survey, "num_training_questions", None) or len(all_questions),
+            len(all_questions),
         )
         questions = sample(all_questions, k=num_training_questions)
         return {q.getId(): None for q in questions}
