@@ -165,10 +165,11 @@
                 <div class="tool-info">
                   <h2 class="tool-title">${tool/title}</h2>
 
-                  <p class="tool-tags tag-cloud" tal:condition="nothing">
+                  <p class="tool-tags tag-cloud">
 
                     <a class="tag pat-inject"
                        data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
+                       tal:condition="nothing"
                     >${sector/title}</a>
 
                     <a class="tag pat-inject"
