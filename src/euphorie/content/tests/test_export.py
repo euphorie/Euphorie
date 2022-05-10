@@ -814,3 +814,50 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
                 "  </survey>\n"
                 "</sector>\n",
             )
+
+    def testEtranslateRenderWithHTML(self):
+        profile = ProfileQuestion()
+        profile.title = "Office buildings"
+        profile.question = "Do you have an office building?"
+        profile.description = "<p>No</p><p>container</p>"
+        root = self.root()
+        view = ExportSurvey(None, None)
+        view.is_etranslate_compatible = True
+        node = view.exportProfileQuestion(root, profile)
+        self.assertTrue(node in root)
+        self.assertEqual(
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
+            '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
+            "  <profile-question>\n"
+            "    <title>Office buildings</title>\n"
+            "    <question>Do you have an office building?</question>\n"
+            "    <description>\n"
+            "      <p>No</p>\n"
+            "      <p>container</p>\n"
+            "    </description>\n"
+            "    <use-location-question>true</use-location-question>\n"
+            "  </profile-question>\n"
+            "</root>\n",
+        )
+
+    def testEtranslateRenderWithoutHTML(self):
+        profile = ProfileQuestion()
+        profile.title = "Office buildings"
+        profile.question = "Do you have an office building?"
+        profile.description = "Plain text"
+        root = self.root()
+        view = ExportSurvey(None, None)
+        view.is_etranslate_compatible = True
+        node = view.exportProfileQuestion(root, profile)
+        self.assertTrue(node in root)
+        self.assertEqual(
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
+            '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
+            "  <profile-question>\n"
+            "    <title>Office buildings</title>\n"
+            "    <question>Do you have an office building?</question>\n"
+            "    <description>Plain text</description>\n"
+            "    <use-location-question>true</use-location-question>\n"
+            "  </profile-question>\n"
+            "</root>\n",
+        )
