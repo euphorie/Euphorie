@@ -73,11 +73,18 @@ def attr_vocabulary(node, tag, field, default=None):
         return default
 
 
-def el_unicode(node, tag, default=None):
+def el_unicode(node, tag, default=None, is_etranslate_compatible=False):
     value = getattr(node, tag, None)
     if value is None:
         return default
-    return six.text_type(value)
+    if is_etranslate_compatible:
+        # Remove the outer XML element e.g. <description>
+        # Fixme: this is ugly and may be error prone
+        wrapped_xml = lxml.etree.tostring(value, encoding="unicode", pretty_print=True)
+        unwrapped_html = "".join(wrapped_xml.strip().split("\n")[1:-1])
+        return unwrapped_html
+    else:
+        return six.text_type(value)
 
 
 def el_string(node, tag, default=None):
@@ -155,11 +162,22 @@ class IImportSurvey(Interface):
         title=_("label_upload_filename", default="XML file"), required=True
     )
 
+    is_etranslate_compatible = schema.Bool(
+        title=_(
+            "label_is_etranslate_compatible",
+            default="Import XML translation from eTranslate",
+        ),
+        required=False,
+        default=False,
+    )
+
 
 class SurveyImporter(object):
     """Import a survey version from an XML file and create a new survey group
     and survey. This assumes the current context is a sector.
     """
+
+    is_etranslate_compatible = False
 
     def __init__(self, context):
         self.context = context
@@ -280,7 +298,9 @@ class SurveyImporter(object):
             survey, "euphorie.module", title=six.text_type(node.title)
         )
         module.optional = node.get("optional") == "true"
-        module.description = el_unicode(node, "description")
+        module.description = el_unicode(
+            node, "description", is_etranslate_compatible=self.is_etranslate_compatible
+        )
         module.external_id = attr_unicode(node, "external-id")
         if module.optional:
             module.question = six.text_type(node.question)
@@ -340,7 +360,9 @@ class SurveyImporter(object):
         :returns: :obj:`euphorie.content.survey`.
         """
         survey = createContentInContainer(group, "euphorie.survey", title=version_title)
-        survey.introduction = el_unicode(node, "introduction")
+        survey.introduction = el_unicode(
+            node, "introduction", is_etranslate_compatible=self.is_etranslate_compatible
+        )
         survey.classification_code = el_unicode(node, "classification-code")
         survey.language = el_string(node, "language")
         tti = getUtility(IToolTypesInfo)
@@ -372,13 +394,16 @@ class SurveyImporter(object):
                 self.ImportModule(child, survey)
         return survey
 
-    def __call__(self, input, surveygroup_title, survey_title):
+    def __call__(
+        self, input, surveygroup_title, survey_title, is_etranslate_compatible
+    ):
         """Import a new survey from the XML data in `input` and create a
         new survey with the given `title`.
 
         `input` has to be either the raw XML input, or a `lxml.objectify`
         enablde DOM.
         """
+        self.is_etranslate_compatible = is_etranslate_compatible
         if isinstance(input, six.string_types + (bytes,)):
             try:
                 sector = lxml.objectify.fromstring(safe_bytes(input))
@@ -464,7 +489,12 @@ class ImportSurvey(AutoExtensibleForm, form.Form):
         input = data["file"].data
         importer = self.importer_factory(self.context)
         try:
-            survey = importer(input, data["surveygroup_title"], data["survey_title"])
+            survey = importer(
+                input,
+                data["surveygroup_title"],
+                data["survey_title"],
+                data["is_etranslate_compatible"],
+            )
         except lxml.etree.XMLSyntaxError:
             raise WidgetActionExecutionError(
                 "file",
