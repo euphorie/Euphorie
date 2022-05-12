@@ -27,6 +27,7 @@ from euphorie.content.utils import StripUnwanted
 from io import BytesIO
 from lxml import etree
 from lxml import html
+from plone import api
 from plone.autoform.form import AutoExtensibleForm
 from plonetheme.nuplone.z3cform.directives import depends
 from Products.CMFPlone.utils import safe_bytes
@@ -467,7 +468,17 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
         if getattr(solution, "external_id", None):
             node.attrib["external-id"] = solution.external_id
         etree.SubElement(node, "description").text = StripUnwanted(solution.description)
-        etree.SubElement(node, "action").text = StripUnwanted(solution.action)
+        stripped_action = StripUnwanted(solution.action)
+        if ISolution.providedBy(solution) and self.is_etranslate_compatible:
+            solution_view = api.content.get_view(
+                context=solution, name="nuplone-view", request=self.request
+            )
+            action_html = solution_view.render_md(stripped_action)
+            action_with_br = action_html.replace("\n", "<br/>")
+            fragment = html.fragment_fromstring(action_with_br, "action")
+            node.append(fragment)
+        else:
+            etree.SubElement(node, "action").text = stripped_action
         if solution.requirements:
             etree.SubElement(node, "requirements").text = StripUnwanted(
                 solution.requirements
