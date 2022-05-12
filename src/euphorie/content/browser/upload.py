@@ -215,7 +215,11 @@ class SurveyImporter(object):
         :returns: :obj:`euphorie.content.solution`.
         """
         solution = createContentInContainer(risk, "euphorie.solution")
-        solution.description = six.text_type(node.description)
+        solution.description = el_unicode(
+            node,
+            "description",
+            is_etranslate_compatible=self.is_etranslate_compatible,
+        )
         solution.action = six.text_type(
             getattr(node, "action", None) or node.description
         )
