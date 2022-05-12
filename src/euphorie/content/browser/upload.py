@@ -220,9 +220,12 @@ class SurveyImporter(object):
             "description",
             is_etranslate_compatible=self.is_etranslate_compatible,
         )
-        solution.action = six.text_type(
-            getattr(node, "action", None) or node.description
+        action = el_unicode(
+            node,
+            "action",
+            is_etranslate_compatible=self.is_etranslate_compatible,
         )
+        solution.action = action or node.description
         solution.action_plan = six.text_type(getattr(node, "action-plan", ""))
         solution.prevention_plan = el_unicode(node, "prevention-plan")
         solution.requirements = el_unicode(node, "requirements")
