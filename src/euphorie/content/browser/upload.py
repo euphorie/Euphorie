@@ -238,8 +238,14 @@ class SurveyImporter(object):
         )
         EnsureInterface(risk)
         risk.type = node.get("type")
-        risk.description = six.text_type(getattr(node, "description", ""))
-        risk.problem_description = el_unicode(node, "problem-description")
+        risk.description = el_unicode(
+            node, "description", is_etranslate_compatible=self.is_etranslate_compatible
+        )
+        risk.problem_description = el_unicode(
+            node,
+            "problem-description",
+            is_etranslate_compatible=self.is_etranslate_compatible,
+        )
         risk.legal_reference = el_unicode(node, "legal-reference")
         risk.show_notapplicable = el_bool(node, "show-not-applicable")
         risk.external_id = attr_unicode(node, "external-id")
@@ -337,7 +343,9 @@ class SurveyImporter(object):
             profile = createContentInContainer(
                 survey, "euphorie.profilequestion", title=six.text_type(node.title)
             )
-        profile.description = el_unicode(node, "description")
+        profile.description = el_unicode(
+            node, "description", is_etranslate_compatible=self.is_etranslate_compatible
+        )
         profile.question = six.text_type(node.question)
         profile.external_id = attr_unicode(node, "external-id")
         for fname in ProfileQuestionLocationFields:
