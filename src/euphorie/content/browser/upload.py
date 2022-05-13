@@ -17,6 +17,7 @@ from euphorie.content import MessageFactory as _
 from euphorie.content.behaviors.toolcategory import IToolCategory
 from euphorie.content.utils import IToolTypesInfo
 from io import BytesIO
+from markdownify import markdownify
 from plone.autoform.form import AutoExtensibleForm
 from plone.dexterity.utils import createContentInContainer
 from plone.namedfile import field as filefield
@@ -73,7 +74,9 @@ def attr_vocabulary(node, tag, field, default=None):
         return default
 
 
-def el_unicode(node, tag, default=None, is_etranslate_compatible=False):
+def el_unicode(
+    node, tag, default=None, is_etranslate_compatible=False, convert_to_markdown=False
+):
     value = getattr(node, tag, None)
     if value is None:
         return default
@@ -82,7 +85,10 @@ def el_unicode(node, tag, default=None, is_etranslate_compatible=False):
         # Fixme: this is ugly and may be error prone
         wrapped_xml = lxml.etree.tostring(value, encoding="unicode", pretty_print=True)
         unwrapped_html = "".join(wrapped_xml.strip().split("\n")[1:-1])
-        return unwrapped_html
+        if convert_to_markdown:
+            return markdownify(unwrapped_html)
+        else:
+            return unwrapped_html
     else:
         return six.text_type(value)
 
@@ -220,6 +226,7 @@ class SurveyImporter(object):
             node,
             "action",
             is_etranslate_compatible=self.is_etranslate_compatible,
+            convert_to_markdown=True
         )
         solution.action = action or node.description
         solution.action_plan = six.text_type(getattr(node, "action-plan", ""))

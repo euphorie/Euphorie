@@ -44,6 +44,7 @@ setup(
         "ftw.upgrade",
         "htmllaundry",
         "lxml",
+        "markdownify",
         "path.py",
         "plone.app.dexterity [relations]",
         "plone.app.folder",
