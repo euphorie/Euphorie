@@ -306,19 +306,46 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
                 node, "classification-code"
             ).text = survey.classification_code
         etree.SubElement(node, "language").text = survey.language
-        etree.SubElement(node, "tool_type").text = get_tool_type(survey)
-        etree.SubElement(node, "measures_text_handling").text = getattr(
-            survey, "measures_text_handling", "full"
-        )
-        etree.SubElement(node, "integrated_action_plan").text = (
-            "true" if getattr(survey, "integrated_action_plan", False) else "false"
-        )
-        etree.SubElement(node, "evaluation-algorithm").text = aq_parent(
-            survey
-        ).evaluation_algorithm
-        etree.SubElement(node, "evaluation-optional").text = (
-            "true" if survey.evaluation_optional else "false"
-        )
+        if self.is_etranslate_compatible:
+            etree.SubElement(node, "tool_type", attrib={"value": get_tool_type(survey)})
+            etree.SubElement(
+                node,
+                "measures_text_handling",
+                attrib={"value": getattr(survey, "measures_text_handling", "full")},
+            )
+            etree.SubElement(
+                node,
+                "integrated_action_plan",
+                attrib={
+                    "value": "true"
+                    if getattr(survey, "integrated_action_plan", False)
+                    else "false"
+                },
+            )
+            etree.SubElement(
+                node,
+                "evaluation-algorithm",
+                attrib={"value": aq_parent(survey).evaluation_algorithm},
+            )
+            etree.SubElement(
+                node,
+                "evaluation-optional",
+                attrib={"value": "true" if survey.evaluation_optional else "false"},
+            )
+        else:
+            etree.SubElement(node, "tool_type").text = get_tool_type(survey)
+            etree.SubElement(node, "measures_text_handling").text = getattr(
+                survey, "measures_text_handling", "full"
+            )
+            etree.SubElement(node, "integrated_action_plan").text = (
+                "true" if getattr(survey, "integrated_action_plan", False) else "false"
+            )
+            etree.SubElement(node, "evaluation-algorithm").text = aq_parent(
+                survey
+            ).evaluation_algorithm
+            etree.SubElement(node, "evaluation-optional").text = (
+                "true" if survey.evaluation_optional else "false"
+            )
         if IToolCategory.providedBy(survey):
             tool_category = IToolCategory(survey).tool_category or []
             etree.SubElement(node, "tool-category").text = ", ".join(
@@ -413,9 +440,16 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
             node = self._add_string_or_html(
                 node, risk.legal_reference, "legal-reference"
             )
-        etree.SubElement(node, "show-not-applicable").text = (
-            "true" if risk.show_notapplicable else "false"
-        )
+        if self.is_etranslate_compatible:
+            etree.SubElement(
+                node,
+                "show-not-applicable",
+                attrib={"value": "true" if risk.show_notapplicable else "false"},
+            )
+        else:
+            etree.SubElement(node, "show-not-applicable").text = (
+                "true" if risk.show_notapplicable else "false"
+            )
         if risk.type == "risk":
             method = etree.SubElement(node, "evaluation-method")
             method.text = risk.evaluation_method
