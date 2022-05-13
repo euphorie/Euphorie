@@ -104,7 +104,8 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
     def testImportSolutionFromEtranslate(self):
         snippet = objectify.fromstring(
             """<solution xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
-             <description><p>Add more abstraction layers</p></description>
+             <description>Add more abstraction layers</description>
+             <action><p>With HTML</p></action>
              <action-plan>Add another level</action-plan>
              <prevention-plan>Ask a code reviewer to verify the design</prevention-plan>
              <requirements>A good understanding of architecture</requirements>
@@ -116,9 +117,9 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         solution = importer.ImportSolution(snippet, risk)
         self.assertEqual(risk.keys(), ["3"])
         self.assertEqual(
-            solution.description.strip(), "<p>Add more abstraction layers</p>"
+            solution.action.strip(), "<p>With HTML</p>"
         )
-        self.assertTrue(isinstance(solution.description, six.text_type))
+        self.assertTrue(isinstance(solution.action, six.text_type))
 
     def testImportSolution_MissingFields(self):
         snippet = objectify.fromstring(
