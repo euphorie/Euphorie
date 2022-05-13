@@ -473,9 +473,9 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
             solution_view = api.content.get_view(
                 context=solution, name="nuplone-view", request=self.request
             )
-            action_html = solution_view.render_md(stripped_action)
-            action_with_br = action_html.replace("\n", "<br/>")
-            fragment = html.fragment_fromstring(action_with_br, "action")
+            action_with_br = stripped_action.replace("\n", "<br/>")
+            action_html = solution_view.render_md(action_with_br)
+            fragment = html.fragment_fromstring(action_html, "action")
             node.append(fragment)
         else:
             etree.SubElement(node, "action").text = stripped_action
