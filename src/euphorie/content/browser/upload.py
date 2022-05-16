@@ -398,7 +398,6 @@ class SurveyImporter(object):
             survey.measures_text_handling = (
                 getattr(node, "measures_text_handling").get("value") or "full"
             )
-            import pdb; pdb.set_trace()
             survey.integrated_action_plan = attr_bool(
                 node, "integrated_action_plan", "value"
             )
