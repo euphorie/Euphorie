@@ -226,7 +226,7 @@ class SurveyImporter(object):
             node,
             "action",
             is_etranslate_compatible=self.is_etranslate_compatible,
-            convert_to_markdown=True
+            convert_to_markdown=True,
         )
         solution.action = action or node.description
         solution.action_plan = six.text_type(getattr(node, "action-plan", ""))
@@ -384,6 +384,19 @@ class SurveyImporter(object):
         survey.classification_code = el_unicode(node, "classification-code")
         survey.language = el_string(node, "language")
         tti = getUtility(IToolTypesInfo)
+        if self.is_etranslate_compatible:
+            survey.tool_type = (
+                getattr(node, "tool_type").get("value") or tti.default_tool_type
+            )
+            survey.measures_text_handling = (
+                getattr(node, "measures_text_handling").get("value") or "full"
+            )
+            survey.integrated_action_plan = getattr(node, "integrated_action_plan").get(
+                "value"
+            )
+            survey.evaluation_optional = getattr(node, "evaluation-optional").get(
+                "value"
+            )
         survey.tool_type = el_string(node, "tool_type", tti.default_tool_type)
         survey.measures_text_handling = el_string(
             node, "measures_text_handling", "full"
