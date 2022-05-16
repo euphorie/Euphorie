@@ -74,6 +74,13 @@ def attr_vocabulary(node, tag, field, default=None):
         return default
 
 
+def attr_bool(node, tag, attr, default=False):
+    value = getattr(node, tag).get(attr)
+    if value is None:
+        return default
+    return value == "true"
+
+
 def el_unicode(
     node, tag, default=None, is_etranslate_compatible=False, convert_to_markdown=False
 ):
@@ -391,18 +398,18 @@ class SurveyImporter(object):
             survey.measures_text_handling = (
                 getattr(node, "measures_text_handling").get("value") or "full"
             )
-            survey.integrated_action_plan = getattr(node, "integrated_action_plan").get(
-                "value"
+            import pdb; pdb.set_trace()
+            survey.integrated_action_plan = attr_bool(
+                node, "integrated_action_plan", "value"
             )
-            survey.evaluation_optional = getattr(node, "evaluation-optional").get(
-                "value"
+            survey.evaluation_optional = attr_bool(node, "evaluation-optional", "value")
+        else:
+            survey.tool_type = el_string(node, "tool_type", tti.default_tool_type)
+            survey.measures_text_handling = el_string(
+                node, "measures_text_handling", "full"
             )
-        survey.tool_type = el_string(node, "tool_type", tti.default_tool_type)
-        survey.measures_text_handling = el_string(
-            node, "measures_text_handling", "full"
-        )
-        survey.integrated_action_plan = el_bool(node, "integrated_action_plan")
-        survey.evaluation_optional = el_bool(node, "evaluation-optional")
+            survey.integrated_action_plan = el_bool(node, "integrated_action_plan")
+            survey.evaluation_optional = el_bool(node, "evaluation-optional")
         survey.external_id = attr_unicode(node, "external-id")
         external_site_logo = getattr(node, "external_site_logo", None)
         if external_site_logo is not None:
