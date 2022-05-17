@@ -105,7 +105,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         snippet = objectify.fromstring(
             """<solution xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
              <description>Add more abstraction layers</description>
-             <action><p>With HTML</p></action>
+             <action>With <strong>HTML</strong><br/></action>
              <action-plan>Add another level</action-plan>
              <prevention-plan>Ask a code reviewer to verify the design</prevention-plan>
              <requirements>A good understanding of architecture</requirements>
@@ -117,7 +117,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         solution = importer.ImportSolution(snippet, risk)
         self.assertEqual(risk.keys(), ["3"])
         self.assertEqual(
-            solution.action.strip(), "<p>With HTML</p>"
+            solution.action, "With **HTML**  \n"
         )
         self.assertTrue(isinstance(solution.action, six.text_type))
 

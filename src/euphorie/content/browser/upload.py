@@ -88,10 +88,11 @@ def el_unicode(
     if value is None:
         return default
     if is_etranslate_compatible:
-        # Remove the outer XML element e.g. <description>
-        # Fixme: this is ugly and may be error prone
+        # We need to remove the outer XML element e.g. <description>
         wrapped_xml = lxml.etree.tostring(value, encoding="unicode", pretty_print=True)
-        unwrapped_html = "".join(wrapped_xml.strip().split("\n")[1:-1])
+        end_of_first_tag = wrapped_xml.find(">") + 1
+        start_of_last_tag = wrapped_xml.rfind("<")
+        unwrapped_html = wrapped_xml[end_of_first_tag:start_of_last_tag]
         if convert_to_markdown:
             return markdownify(unwrapped_html)
         else:
