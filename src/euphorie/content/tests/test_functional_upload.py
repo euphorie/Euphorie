@@ -478,6 +478,26 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.assertTrue(isinstance(survey.classification_code, six.text_type))
         self.assertEqual(survey.evaluation_optional, True)
 
+    def testImportSurveyFromEtranslate(self):
+        snippet = objectify.fromstring(
+            """<survey xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
+             <title>Software development</title>
+             <measures_text_handling value="partial"/>
+             <tool_type value="existing_measures"/>
+             <evaluation-optional value="true"/>
+             <integrated_action_plan>false</integrated_action_plan>
+           </survey>"""
+        )
+        self.loginAsPortalOwner()
+        surveygroup = self.createSurveyGroup()
+        importer = upload.SurveyImporter(None)
+        importer.is_etranslate_compatible = True
+        survey = importer.ImportSurvey(snippet, surveygroup, "Fresh import")
+        self.assertEqual(survey.measures_text_handling, "partial")
+        self.assertEqual(survey.tool_type, "existing_measures")
+        self.assertEqual(survey.evaluation_optional, True)
+        self.assertEqual(survey.integrated_action_plan, False)
+
     def testImportSurvey_WithModule(self):
         snippet = objectify.fromstring(
             """<survey optional="no" xmlns="http://xml.simplon.biz/euphorie/survey/1.0">

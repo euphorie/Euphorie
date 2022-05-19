@@ -64,6 +64,14 @@ def attr_unicode(node, attr, default=None):
     return value
 
 
+def attr_string(node, tag, attr, default=None):
+    value = default
+    element = getattr(node, tag, None)
+    if element != None:
+        value = element.attrib.get(attr)
+    return value
+
+
 def attr_vocabulary(node, tag, field, default=None):
     value = node.get(tag, "").strip() if node else None
     if not value:
@@ -75,9 +83,10 @@ def attr_vocabulary(node, tag, field, default=None):
 
 
 def attr_bool(node, tag, attr, default=False):
-    value = getattr(node, tag).get(attr)
-    if value is None:
-        return default
+    value = default
+    element = getattr(node, tag, None)
+    if element != None:
+        value = element.get(attr)
     return value == "true"
 
 
@@ -393,11 +402,11 @@ class SurveyImporter(object):
         survey.language = el_string(node, "language")
         tti = getUtility(IToolTypesInfo)
         if self.is_etranslate_compatible:
-            survey.tool_type = (
-                getattr(node, "tool_type").get("value") or tti.default_tool_type
+            survey.tool_type = attr_string(
+                node, "tool_type", "value", tti.default_tool_type
             )
-            survey.measures_text_handling = (
-                getattr(node, "measures_text_handling").get("value") or "full"
+            survey.measures_text_handling = attr_string(
+                node, "measures_text_handling", "value", "full"
             )
             survey.integrated_action_plan = attr_bool(
                 node, "integrated_action_plan", "value"
