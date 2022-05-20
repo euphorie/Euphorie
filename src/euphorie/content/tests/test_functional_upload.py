@@ -116,9 +116,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         importer.is_etranslate_compatible = True
         solution = importer.ImportSolution(snippet, risk)
         self.assertEqual(risk.keys(), ["3"])
-        self.assertEqual(
-            solution.action, "With **HTML**  \n"
-        )
+        self.assertEqual(solution.action, "With **HTML**  \n")
         self.assertTrue(isinstance(solution.action, six.text_type))
 
     def testImportSolution_MissingFields(self):
