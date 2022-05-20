@@ -67,7 +67,7 @@ def attr_unicode(node, attr, default=None):
 def attr_string(node, tag, attr, default=None):
     value = default
     element = getattr(node, tag, None)
-    if element != None:
+    if element is not None:
         value = element.attrib.get(attr)
     return value
 
@@ -85,7 +85,7 @@ def attr_vocabulary(node, tag, field, default=None):
 def attr_bool(node, tag, attr, default=False):
     value = default
     element = getattr(node, tag, None)
-    if element != None:
+    if element is not None:
         value = element.get(attr)
     return value == "true"
 
