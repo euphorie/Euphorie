@@ -62,6 +62,38 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
                 wrong_answer_2="David Bowie",
             )
 
+    def test_training_enabled(self):
+        traversed_session = self.survey.restrictedTraverse("++session++1")
+        self.portal.sectors.nl.enable_web_training = False
+        with api.env.adopt_user(user=self.account):
+            with self._get_view(
+                "start", traversed_session, self.request.clone()
+            ) as view:
+                self.assertNotIn(
+                    "Training",
+                    view(),
+                    msg="Training disabled on country but link visible",
+                )
+
+            self.survey.enable_web_training = True
+            self._create_questions()
+            with self._get_view(
+                "start", traversed_session, self.request.clone()
+            ) as view:
+                self.assertNotIn(
+                    "Training",
+                    view(),
+                    msg="Training disabled on country but link visible",
+                )
+
+            self.portal.sectors.nl.enable_web_training = True
+            with self._get_view(
+                "start", traversed_session, self.request.clone()
+            ) as view:
+                self.assertIn(
+                    "Training", view(), msg="Training enabled but link invisible"
+                )
+
     def test_num_training_questions(self):
         traversed_session = self.survey.restrictedTraverse("++session++1")
         seed(a="test_num_training_questions")

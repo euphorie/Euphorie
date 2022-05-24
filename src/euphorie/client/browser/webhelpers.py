@@ -165,9 +165,11 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def use_training_module(self):
-        return api.portal.get_registry_record(
+        globally_enabled = api.portal.get_registry_record(
             "euphorie.use_training_module", default=False
         )
+        country_enabled = self.content_country_obj.enable_web_training
+        return globally_enabled and country_enabled
 
     @property
     @memoize
