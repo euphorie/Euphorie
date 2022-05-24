@@ -442,7 +442,7 @@ class SurveyImporter(object):
         return survey
 
     def __call__(
-        self, input, surveygroup_title, survey_title, is_etranslate_compatible
+        self, input, surveygroup_title, survey_title, is_etranslate_compatible=False
     ):
         """Import a new survey from the XML data in `input` and create a
         new survey with the given `title`.
