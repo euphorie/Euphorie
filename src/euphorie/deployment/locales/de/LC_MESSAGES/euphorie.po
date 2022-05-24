@@ -260,7 +260,7 @@ msgstr "Kandidatenland"
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:13
 msgid "Certificate"
-msgstr ""
+msgstr "Zertifikat"
 
 #: euphorie/client/browser/settings.py:66
 msgid "Change email address"
@@ -272,7 +272,7 @@ msgstr "Klassisches OiRA Tool mit positiven und negativen Aussagen"
 
 #: euphorie/client/browser/templates/training-slides.pt:92
 msgid "Click to edit"
-msgstr ""
+msgstr "Zum Bearbeiten klicken"
 
 #: euphorie/content/browser/templates/profilequestion_add.pt:104
 #: euphorie/content/browser/templates/profilequestion_edit.pt:111
@@ -421,7 +421,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training.pt:247
 msgid "Edit training card"
-msgstr ""
+msgstr "Unterweisungskarte bearbeiten"
 
 #: euphorie/client/browser/settings.py:113
 msgid "Email address/account name"
@@ -472,7 +472,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:34
 msgid "For successfully finishing the training for ${session} on ${date}."
-msgstr ""
+msgstr "Für den erfolgreichen Abschluss der Unterweisung für ${session} am ${date}."
 
 #: euphorie/client/browser/templates/report_landing.pt:81
 msgid "Format: Office Open XML Workbook (.xlsx)"
@@ -565,7 +565,7 @@ msgstr ""
 
 #: euphorie/client/browser/training.py:659
 msgid "It seems you missed a slide"
-msgstr ""
+msgstr "Sie haben anscheinend eine Präsentationsfolie übersehen"
 
 #: euphorie/client/browser/templates/login.pt:308
 msgid ""
@@ -649,7 +649,7 @@ msgstr "Mehr"
 
 #: euphorie/client/browser/templates/training.pt:82
 msgid "More&hellip;"
-msgstr ""
+msgstr "Mehr&hellip;"
 
 #: euphorie/content/browser/templates/profilequestion_view.pt:32
 msgid "Multiple Item Question"
@@ -666,7 +666,7 @@ msgstr "Aufforderung bei mehreren Standorten"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:45
 msgid "My certificates"
-msgstr ""
+msgstr "Meine Zertifikate"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "My risk assessments"
@@ -674,7 +674,7 @@ msgstr "Meine Gefährdungsbeurteilungen"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:25
 msgid "My unfinished trainings"
-msgstr ""
+msgstr "Meine unbeendeten Unterweisungen"
 
 #: euphorie/content/browser/templates/user_mgmt.pt:88
 msgid "Name"
@@ -693,11 +693,11 @@ msgstr "Nein"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:73
 msgid "No certificates yet"
-msgstr ""
+msgstr "Noch keine Zertifikate"
 
 #: euphorie/client/browser/templates/publication_menu.pt:92
 msgid "No information about the last editor is available."
-msgstr ""
+msgstr "Keine Information über den letzten Bearbeiter verfügbar."
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:176
 msgid "No risk assessments are available for this selection."
@@ -706,7 +706,7 @@ msgstr "Für diese Suchanfrage wurden keine GBUs gefunden."
 #: euphorie/client/browser/templates/training-slides.pt:267
 #: euphorie/client/browser/templates/training.pt:351
 msgid "No training content is available"
-msgstr ""
+msgstr "Kein Unterweisungsinhalt verfügbar."
 
 #: euphorie/content/browser/templates/profilequestion_view.pt:33
 msgid "Not provided"
@@ -848,11 +848,11 @@ msgstr "Potenzielles Kandidatenland"
 
 #: euphorie/client/browser/templates/slide_question_success.pt:41
 msgid "Print"
-msgstr ""
+msgstr "Drucken"
 
 #: euphorie/client/browser/templates/training_certificate_view.pt:20
 msgid "Print certificate"
-msgstr ""
+msgstr "Zertifikat drucken"
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml
 #: euphorie/deployment/browser/search.py:14
@@ -887,7 +887,7 @@ msgstr "GBU veröffentlichen"
 #: euphorie/client/browser/templates/slide_question.pt:28
 #: euphorie/content/training_question.py:17
 msgid "Question"
-msgstr ""
+msgstr "Frage"
 
 #: euphorie/client/browser/templates/slide_question_try_again.pt:53
 msgid "Re-run the questions"
@@ -1055,7 +1055,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:37
 msgid "Start the questions"
-msgstr ""
+msgstr "Fragenteil starten"
 
 #: euphorie/client/browser/login.py:397
 #: euphorie/client/browser/templates/new-session-test.pt:154
@@ -1160,7 +1160,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:18
 msgid "This certificate is presented to"
-msgstr ""
+msgstr "Dieses Zertifikat wurde erstellt für"
 
 #: euphorie/client/browser/settings.py:323
 msgid "This email address is not available."
@@ -1226,11 +1226,11 @@ msgstr "Hilfstexte ein-/ ausschalten"
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:41
 msgid "Tool"
-msgstr ""
+msgstr "Tool"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:14
 msgid "Training"
-msgstr ""
+msgstr "Unterweisung"
 
 #: euphorie/content/profiles/default/types/euphorie.training_question.xml
 #: euphorie/upgrade/deployment/v1/20220318135716_add_training_question/types/euphorie.training_question.xml
@@ -1323,7 +1323,7 @@ msgstr ""
 msgid ""
 "You can now answer a few questions to prove that you master this topic and "
 "earn your certificate."
-msgstr ""
+msgstr "Sie können nun ein paar Fragen beantworten um zu zeigen, daß Sie dieses Thema beherrschen und ein Zertifikat erhalten."
 
 #: euphorie/content/browser/templates/library.pt:18
 msgid ""
@@ -1366,11 +1366,11 @@ msgstr ""
 
 #: euphorie/client/browser/training.py:657
 msgid "You should start the training from the beginning"
-msgstr ""
+msgstr "Sie sollten die Unterweisung vom Start beginnen"
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:29
 msgid "You're done with the training slides!"
-msgstr ""
+msgstr "Sie sind fertig mit der Unterweisung!"
 
 #: euphorie/client/browser/settings.py:367
 msgid "Your email address has been updated."
@@ -2048,7 +2048,7 @@ msgstr ""
 #. Default: "Please tick anything that you might like to exclude from the training. Items that are greyed out will not be displayed on the training card."
 #: euphorie/client/browser/templates/webhelpers.pt:646
 msgid "description-training-configuration"
-msgstr "Bitte klicken Sie alles an, was Sie vom Training ausschließen möchten. Elemente, die ausgegraut sind, werden nicht auf den Trainingskarten angezeigt."
+msgstr "Bitte klicken Sie alles an, was Sie von der Unterweisung ausschließen möchten. Elemente, die ausgegraut sind, werden nicht auf den Unterweisungskarten angezeigt."
 
 #. Default: "The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk &ndash; if you consider it necessary &ndash; in the action plan."
 #: euphorie/client/browser/templates/webhelpers.pt:570
@@ -2933,7 +2933,7 @@ msgstr "Nutzungsbedingungen"
 #. Default: "Training Questions"
 #: euphorie/content/browser/templates/survey_view.pt:105
 msgid "header_training_questions"
-msgstr ""
+msgstr "Unterweisungsfragen"
 
 #. Default: "Hazards/problems that have been \"parked\" and are still to be dealt with"
 #: euphorie/client/docx/views.py:233
@@ -4341,7 +4341,7 @@ msgstr "Frage"
 #. Default: "More risk assessments…"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:87
 msgid "label_more_risk_assessments"
-msgstr ""
+msgstr "Weitere GBUs…"
 
 #. Default: "Did this OiRA tool meet your needs?"
 #: euphorie/client/browser/company.py:148
@@ -4452,7 +4452,7 @@ msgstr "Aktuelles Passwort"
 #: euphorie/client/browser/templates/training-slides.pt:43
 #: euphorie/client/browser/templates/training.pt:114
 msgid "label_online_oira_training"
-msgstr ""
+msgstr "OiRA Online Unterweisung"
 
 #. Default: "Page"
 #: euphorie/client/browser/pdf.py:42
@@ -4850,7 +4850,7 @@ msgstr "Name des importierten OiRA-Tools"
 #. Default: "Table of contents"
 #: euphorie/client/browser/templates/training.pt:38
 msgid "label_table_of_contents"
-msgstr ""
+msgstr "Inhalt"
 
 #. Default: "Terms and conditions"
 #: euphorie/client/browser/templates/login.pt:200
@@ -4920,7 +4920,7 @@ msgstr ""
 #. Default: "Congratulations, you have now earned your certificate for this topic."
 #: euphorie/client/browser/templates/slide_question_success.pt:29
 msgid "label_training_congratulations"
-msgstr ""
+msgstr "Herzlichen Glückwunsch, Sie haben ein Zertifkat für dieses Thema erhalten."
 
 #. Default: "Try OiRA"
 #: euphorie/client/browser/templates/surveys.pt:26
