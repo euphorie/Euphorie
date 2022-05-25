@@ -26,16 +26,22 @@ app = locals()["app"]
 setSite(app["Plone2"])
 wt = app["Plone2"]["portal_workflow"]
 
-for page_num in range(26):
+for page_num in range(255):
     url = "{}/en/oira-tools?search_api_fulltext=&sort_by=title" "&page={}".format(
         BASE_URL, page_num
     )
     page = requests.get(url).text
     tree = etree.HTML(page)
-    for elem in tree.findall(".//div[@class='views-field views-field-nothing']"):
+    tool_elements = tree.findall(".//div[@class='views-field views-field-nothing']")
+    if not tool_elements:
+        log.warning("Stopping at page {} (no more tools found)".format(page_num))
+        break
+    for elem in tool_elements:
         link = elem.find(".//div[@class='tool-link']/a")
         if link is not None:
-            path = "/".join(unquote(link.attrib["href"]).strip().split("/")[-3:])
+            path = "/".join(
+                unquote(link.attrib["href"]).strip().rstrip("/").split("/")[-3:]
+            )
         else:
             continue
 
@@ -45,7 +51,7 @@ for page_num in range(26):
             log.warning("Tool not found: {}".format(path))
             continue
 
-        img = elem.find(".//div[@class='views-field views-field-field-image']/img")
+        img = elem.find(".//div[@class='views-field views-field-field-image']//img")
         if img is None:
             log.warning("No image for {}".format(path))
             continue
@@ -60,17 +66,16 @@ for page_num in range(26):
         blob_image = None
         if not posixpath.exists(filepath):
             log.warning(
-                "Image file not found: {} ({}). Attempting download".format(
-                    filepath, sourcename
+                "{}: Image file not found: {} ({}). Attempting download".format(
+                    path, filepath, sourcename
                 )
             )
             with TemporaryDirectory(prefix="euphorieimage") as tmpdir:
-                temp_file_path = f"{tmpdir}/{filename}"
                 urllib.request.urlretrieve(
-                    "{}{}".format(BASE_URL, img.attrib["src"]), temp_file_path
+                    "{}{}".format(BASE_URL, img.attrib["src"]), filepath
                 )
                 try:
-                    with open(temp_file_path, "rb") as imagefile:
+                    with open(filepath, "rb") as imagefile:
                         blob_image = NamedBlobImage(
                             data=imagefile.read(), filename=filename
                         )
