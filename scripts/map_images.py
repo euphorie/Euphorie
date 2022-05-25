@@ -3,6 +3,7 @@ from pathlib import posixpath
 from plone.namedfile.file import NamedBlobImage
 from tempfile import TemporaryDirectory
 from urllib.parse import unquote
+from urllib.parse import urlparse
 from zope.component.hooks import setSite
 
 import logging
@@ -40,7 +41,10 @@ for page_num in range(255):
         link = elem.find(".//div[@class='tool-link']/a")
         if link is not None:
             path = "/".join(
-                unquote(link.attrib["href"]).strip().rstrip("/").split("/")[-3:]
+                urlparse(unquote(link.attrib["href"]))
+                .path.strip()
+                .rstrip("/")
+                .split("/")[-3:]
             )
         else:
             continue
@@ -55,7 +59,7 @@ for page_num in range(255):
         if img is None:
             log.warning("No image for {}".format(path))
             continue
-        sourcename = img.attrib["src"].split("/")[-1]
+        sourcename = urlparse(img.attrib["src"]).path.split("/")[-1]
         basename = unquote(sourcename.split(".")[0]).strip()
         if " " in basename:
             name = " ".join([part for part in basename.split(" ")[:-1]])
