@@ -10,6 +10,7 @@ from ..survey import ISurveyAddSchema
 from ..utils import DragDropHelper
 from ..utils import IToolTypesInfo
 from Acquisition import aq_base
+from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from datetime import date
@@ -21,6 +22,7 @@ from euphorie.client.docx.html import HtmlToWord
 from euphorie.client.docx.views import IdentificationReportDocxView
 from euphorie.content import MessageFactory as _
 from euphorie.content.behaviors.toolcategory import IToolCategory
+from euphorie.content.country import ICountry
 from OFS.event import ObjectClonedEvent
 from plone import api
 from plone.dexterity.browser.add import DefaultAddForm
@@ -165,6 +167,14 @@ class EditForm(DefaultEditForm):
             "euphorie.use_training_module", default=False
         ):
             self.widgets["enable_web_training"].mode = HIDDEN_MODE
+            self.widgets["num_training_questions"].mode = HIDDEN_MODE
+        else:
+            for obj in aq_chain(aq_inner(self.context)):
+                if ICountry.providedBy(obj):
+                    if not obj.enable_web_training:
+                        self.widgets["enable_web_training"].mode = HIDDEN_MODE
+                        self.widgets["num_training_questions"].mode = HIDDEN_MODE
+                        break
         for fname in ("introduction",):
             value = self.widgets[fname].value or ""
             safe_value = self.get_safe_html(value)

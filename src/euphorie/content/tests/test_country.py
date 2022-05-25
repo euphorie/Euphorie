@@ -26,3 +26,10 @@ class CountryTests(EuphorieIntegrationTestCase):
             country.default_reports,
             ["report_full", "report_action_plan", "report_overview_risks"],
         )
+
+    def testDefaultTraining(self):
+        country = self.createCountry()
+        self.assertEqual(
+            country.enable_web_training,
+            True,
+        )

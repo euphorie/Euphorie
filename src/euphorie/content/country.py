@@ -99,6 +99,17 @@ class ICountry(model.Schema, IBasic):
         required=False,
     )
 
+    enable_web_training = schema.Bool(
+        title=_("label_enable_web_training", default="Enable Web Based Training?"),
+        description=_(
+            "help_enable_web_training_country",
+            default="If this option is activated, an online training can be enabled on "
+            "OiRA tools in this country.",
+        ),
+        required=False,
+        default=True,
+    )
+
 
 @implementer(ICountry)
 class Country(Container):
