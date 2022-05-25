@@ -17,6 +17,7 @@ from euphorie.content import MessageFactory as _
 from euphorie.content.behaviors.toolcategory import IToolCategory
 from euphorie.content.utils import IToolTypesInfo
 from io import BytesIO
+from markdownify import markdownify
 from plone.autoform.form import AutoExtensibleForm
 from plone.dexterity.utils import createContentInContainer
 from plone.namedfile import field as filefield
@@ -63,6 +64,14 @@ def attr_unicode(node, attr, default=None):
     return value
 
 
+def attr_string(node, tag, attr, default=None):
+    value = default
+    element = getattr(node, tag, None)
+    if element is not None:
+        value = element.attrib.get(attr)
+    return value
+
+
 def attr_vocabulary(node, tag, field, default=None):
     value = node.get(tag, "").strip() if node else None
     if not value:
@@ -73,11 +82,32 @@ def attr_vocabulary(node, tag, field, default=None):
         return default
 
 
-def el_unicode(node, tag, default=None):
+def attr_bool(node, tag, attr, default=False):
+    value = default
+    element = getattr(node, tag, None)
+    if element is not None:
+        value = element.get(attr)
+    return value == "true"
+
+
+def el_unicode(
+    node, tag, default=None, is_etranslate_compatible=False, convert_to_markdown=False
+):
     value = getattr(node, tag, None)
     if value is None:
         return default
-    return six.text_type(value)
+    if is_etranslate_compatible:
+        # We need to remove the outer XML element e.g. <description>
+        wrapped_xml = lxml.etree.tostring(value, encoding="unicode", pretty_print=True)
+        end_of_first_tag = wrapped_xml.find(">") + 1
+        start_of_last_tag = wrapped_xml.rfind("<")
+        unwrapped_html = wrapped_xml[end_of_first_tag:start_of_last_tag]
+        if convert_to_markdown:
+            return markdownify(unwrapped_html)
+        else:
+            return unwrapped_html
+    else:
+        return six.text_type(value)
 
 
 def el_string(node, tag, default=None):
@@ -155,11 +185,22 @@ class IImportSurvey(Interface):
         title=_("label_upload_filename", default="XML file"), required=True
     )
 
+    is_etranslate_compatible = schema.Bool(
+        title=_(
+            "label_is_etranslate_compatible",
+            default="Import XML translation from eTranslate",
+        ),
+        required=False,
+        default=False,
+    )
+
 
 class SurveyImporter(object):
     """Import a survey version from an XML file and create a new survey group
     and survey. This assumes the current context is a sector.
     """
+
+    is_etranslate_compatible = False
 
     def __init__(self, context):
         self.context = context
@@ -198,9 +239,13 @@ class SurveyImporter(object):
         """
         solution = createContentInContainer(risk, "euphorie.solution")
         solution.description = six.text_type(node.description)
-        solution.action = six.text_type(
-            getattr(node, "action", None) or node.description
+        action = el_unicode(
+            node,
+            "action",
+            is_etranslate_compatible=self.is_etranslate_compatible,
+            convert_to_markdown=True,
         )
+        solution.action = action or node.description
         solution.action_plan = six.text_type(getattr(node, "action-plan", ""))
         solution.prevention_plan = el_unicode(node, "prevention-plan")
         solution.requirements = el_unicode(node, "requirements")
@@ -220,8 +265,14 @@ class SurveyImporter(object):
         )
         EnsureInterface(risk)
         risk.type = node.get("type")
-        risk.description = six.text_type(getattr(node, "description", ""))
-        risk.problem_description = el_unicode(node, "problem-description")
+        risk.description = el_unicode(
+            node, "description", is_etranslate_compatible=self.is_etranslate_compatible
+        )
+        risk.problem_description = el_unicode(
+            node,
+            "problem-description",
+            is_etranslate_compatible=self.is_etranslate_compatible,
+        )
         risk.legal_reference = el_unicode(node, "legal-reference")
         risk.show_notapplicable = el_bool(node, "show-not-applicable")
         risk.external_id = attr_unicode(node, "external-id")
@@ -280,7 +331,9 @@ class SurveyImporter(object):
             survey, "euphorie.module", title=six.text_type(node.title)
         )
         module.optional = node.get("optional") == "true"
-        module.description = el_unicode(node, "description")
+        module.description = el_unicode(
+            node, "description", is_etranslate_compatible=self.is_etranslate_compatible
+        )
         module.external_id = attr_unicode(node, "external-id")
         if module.optional:
             module.question = six.text_type(node.question)
@@ -317,7 +370,9 @@ class SurveyImporter(object):
             profile = createContentInContainer(
                 survey, "euphorie.profilequestion", title=six.text_type(node.title)
             )
-        profile.description = el_unicode(node, "description")
+        profile.description = el_unicode(
+            node, "description", is_etranslate_compatible=self.is_etranslate_compatible
+        )
         profile.question = six.text_type(node.question)
         profile.external_id = attr_unicode(node, "external-id")
         for fname in ProfileQuestionLocationFields:
@@ -340,16 +395,30 @@ class SurveyImporter(object):
         :returns: :obj:`euphorie.content.survey`.
         """
         survey = createContentInContainer(group, "euphorie.survey", title=version_title)
-        survey.introduction = el_unicode(node, "introduction")
+        survey.introduction = el_unicode(
+            node, "introduction", is_etranslate_compatible=self.is_etranslate_compatible
+        )
         survey.classification_code = el_unicode(node, "classification-code")
         survey.language = el_string(node, "language")
         tti = getUtility(IToolTypesInfo)
-        survey.tool_type = el_string(node, "tool_type", tti.default_tool_type)
-        survey.measures_text_handling = el_string(
-            node, "measures_text_handling", "full"
-        )
-        survey.integrated_action_plan = el_bool(node, "integrated_action_plan")
-        survey.evaluation_optional = el_bool(node, "evaluation-optional")
+        if self.is_etranslate_compatible:
+            survey.tool_type = attr_string(
+                node, "tool_type", "value", tti.default_tool_type
+            )
+            survey.measures_text_handling = attr_string(
+                node, "measures_text_handling", "value", "full"
+            )
+            survey.integrated_action_plan = attr_bool(
+                node, "integrated_action_plan", "value"
+            )
+            survey.evaluation_optional = attr_bool(node, "evaluation-optional", "value")
+        else:
+            survey.tool_type = el_string(node, "tool_type", tti.default_tool_type)
+            survey.measures_text_handling = el_string(
+                node, "measures_text_handling", "full"
+            )
+            survey.integrated_action_plan = el_bool(node, "integrated_action_plan")
+            survey.evaluation_optional = el_bool(node, "evaluation-optional")
         survey.external_id = attr_unicode(node, "external-id")
         external_site_logo = getattr(node, "external_site_logo", None)
         if external_site_logo is not None:
@@ -372,13 +441,16 @@ class SurveyImporter(object):
                 self.ImportModule(child, survey)
         return survey
 
-    def __call__(self, input, surveygroup_title, survey_title):
+    def __call__(
+        self, input, surveygroup_title, survey_title, is_etranslate_compatible=False
+    ):
         """Import a new survey from the XML data in `input` and create a
         new survey with the given `title`.
 
         `input` has to be either the raw XML input, or a `lxml.objectify`
         enablde DOM.
         """
+        self.is_etranslate_compatible = is_etranslate_compatible
         if isinstance(input, six.string_types + (bytes,)):
             try:
                 sector = lxml.objectify.fromstring(safe_bytes(input))
@@ -464,7 +536,12 @@ class ImportSurvey(AutoExtensibleForm, form.Form):
         input = data["file"].data
         importer = self.importer_factory(self.context)
         try:
-            survey = importer(input, data["surveygroup_title"], data["survey_title"])
+            survey = importer(
+                input,
+                data["surveygroup_title"],
+                data["survey_title"],
+                data["is_etranslate_compatible"],
+            )
         except lxml.etree.XMLSyntaxError:
             raise WidgetActionExecutionError(
                 "file",

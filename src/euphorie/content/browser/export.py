@@ -26,6 +26,8 @@ from euphorie.content.utils import StripMarkup
 from euphorie.content.utils import StripUnwanted
 from io import BytesIO
 from lxml import etree
+from lxml import html
+from plone import api
 from plone.autoform.form import AutoExtensibleForm
 from plonetheme.nuplone.z3cform.directives import depends
 from Products.CMFPlone.utils import safe_bytes
@@ -158,6 +160,19 @@ class IExportSurveySchema(Interface):
         required=False,
         default=False,
     )
+    is_etranslate_compatible = schema.Bool(
+        title=_(
+            "label_is_etranslate_compatible",
+            default="Export in eTranslate compatible XML",
+        ),
+        description=_(
+            "description_is_etranslate_compatible",
+            default="The default export escapes HTML, which is not supported"
+            "by eTranslate",
+        ),
+        required=False,
+        default=False,
+    )
 
 
 class ExportSurvey(AutoExtensibleForm, form.Form):
@@ -177,6 +192,16 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
     include_risk_legal_texts = False
     include_measures = True
     export_as_plain_text = False
+    is_etranslate_compatible = False
+
+    def _add_string_or_html(self, node, text, element):
+        stripped_text = StripUnwanted(text)
+        if self.is_etranslate_compatible:
+            html_fragment = html.fragment_fromstring(stripped_text, element)
+            node.append(html_fragment)
+        else:
+            etree.SubElement(node, element).text = stripped_text
+        return node
 
     @button.buttonAndHandler(_("Export"))
     def handleExport(self, action):
@@ -190,6 +215,7 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
         self.include_risk_legal_texts = data.get("include_risk_legal_texts")
         self.include_measures = data.get("include_measures")
         self.export_as_plain_text = data.get("export_as_plain_text")
+        self.is_etranslate_compatible = data.get("is_etranslate_compatible")
         rendered_output = self.render_output()
         self.request.response.write(rendered_output)
 
@@ -274,27 +300,52 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
             node.attrib["external-id"] = survey.external_id
         etree.SubElement(node, "title").text = aq_parent(survey).title
         if self.include_intro_text and StripMarkup(survey.introduction):
-            etree.SubElement(node, "introduction").text = StripUnwanted(
-                survey.introduction
-            )
+            node = self._add_string_or_html(node, survey.introduction, "introduction")
         if survey.classification_code:
             etree.SubElement(
                 node, "classification-code"
             ).text = survey.classification_code
         etree.SubElement(node, "language").text = survey.language
-        etree.SubElement(node, "tool_type").text = get_tool_type(survey)
-        etree.SubElement(node, "measures_text_handling").text = getattr(
-            survey, "measures_text_handling", "full"
-        )
-        etree.SubElement(node, "integrated_action_plan").text = (
-            "true" if getattr(survey, "integrated_action_plan", False) else "false"
-        )
-        etree.SubElement(node, "evaluation-algorithm").text = aq_parent(
-            survey
-        ).evaluation_algorithm
-        etree.SubElement(node, "evaluation-optional").text = (
-            "true" if survey.evaluation_optional else "false"
-        )
+        if self.is_etranslate_compatible:
+            etree.SubElement(node, "tool_type", attrib={"value": get_tool_type(survey)})
+            etree.SubElement(
+                node,
+                "measures_text_handling",
+                attrib={"value": getattr(survey, "measures_text_handling", "full")},
+            )
+            etree.SubElement(
+                node,
+                "integrated_action_plan",
+                attrib={
+                    "value": "true"
+                    if getattr(survey, "integrated_action_plan", False)
+                    else "false"
+                },
+            )
+            etree.SubElement(
+                node,
+                "evaluation-algorithm",
+                attrib={"value": aq_parent(survey).evaluation_algorithm},
+            )
+            etree.SubElement(
+                node,
+                "evaluation-optional",
+                attrib={"value": "true" if survey.evaluation_optional else "false"},
+            )
+        else:
+            etree.SubElement(node, "tool_type").text = get_tool_type(survey)
+            etree.SubElement(node, "measures_text_handling").text = getattr(
+                survey, "measures_text_handling", "full"
+            )
+            etree.SubElement(node, "integrated_action_plan").text = (
+                "true" if getattr(survey, "integrated_action_plan", False) else "false"
+            )
+            etree.SubElement(node, "evaluation-algorithm").text = aq_parent(
+                survey
+            ).evaluation_algorithm
+            etree.SubElement(node, "evaluation-optional").text = (
+                "true" if survey.evaluation_optional else "false"
+            )
         if IToolCategory.providedBy(survey):
             tool_category = IToolCategory(survey).tool_category or []
             etree.SubElement(node, "tool-category").text = ", ".join(
@@ -324,12 +375,12 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
             node.attrib["external-id"] = profile.external_id
         etree.SubElement(node, "title").text = profile.title
         # Use title if question is not available (Euphorie < 2.0rc2 data)
-        etree.SubElement(node, "question").text = profile.question or profile.title
+        if HasText(profile.question):
+            node = self._add_string_or_html(node, profile.question, "question")
+        else:
+            etree.SubElement(node, "question").text = profile.title
         if HasText(profile.description):
-            etree.SubElement(node, "description").text = StripUnwanted(
-                profile.description
-            )
-
+            node = self._add_string_or_html(node, profile.description, "description")
         for fname in ProfileQuestionLocationFields:
             value = getattr(profile, fname, None)
             if value:
@@ -356,9 +407,7 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
             node.attrib["external-id"] = module.external_id
         etree.SubElement(node, "title").text = module.title
         if self.include_module_description_texts and HasText(module.description):
-            etree.SubElement(node, "description").text = StripUnwanted(
-                module.description
-            )
+            node = self._add_string_or_html(node, module.description, "description")
         if module.optional:
             etree.SubElement(node, "question").text = module.question
         if self.include_module_solution_texts and StripMarkup(
@@ -386,14 +435,21 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
         etree.SubElement(node, "problem-description").text = StripUnwanted(
             risk.problem_description
         )
-        etree.SubElement(node, "description").text = StripUnwanted(risk.description)
+        node = self._add_string_or_html(node, risk.description, "description")
         if self.include_risk_legal_texts and StripMarkup(risk.legal_reference):
-            etree.SubElement(node, "legal-reference").text = StripUnwanted(
-                risk.legal_reference
+            node = self._add_string_or_html(
+                node, risk.legal_reference, "legal-reference"
             )
-        etree.SubElement(node, "show-not-applicable").text = (
-            "true" if risk.show_notapplicable else "false"
-        )
+        if self.is_etranslate_compatible:
+            etree.SubElement(
+                node,
+                "show-not-applicable",
+                attrib={"value": "true" if risk.show_notapplicable else "false"},
+            )
+        else:
+            etree.SubElement(node, "show-not-applicable").text = (
+                "true" if risk.show_notapplicable else "false"
+            )
         if risk.type == "risk":
             method = etree.SubElement(node, "evaluation-method")
             method.text = risk.evaluation_method
@@ -446,7 +502,17 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
         if getattr(solution, "external_id", None):
             node.attrib["external-id"] = solution.external_id
         etree.SubElement(node, "description").text = StripUnwanted(solution.description)
-        etree.SubElement(node, "action").text = StripUnwanted(solution.action)
+        stripped_action = StripUnwanted(solution.action)
+        if ISolution.providedBy(solution) and self.is_etranslate_compatible:
+            solution_view = api.content.get_view(
+                context=solution, name="nuplone-view", request=self.request
+            )
+            action_with_br = stripped_action.replace("\n", "<br/>")
+            action_html = solution_view.render_md(action_with_br)
+            fragment = html.fragment_fromstring(action_html, "action")
+            node.append(fragment)
+        else:
+            etree.SubElement(node, "action").text = stripped_action
         if solution.requirements:
             etree.SubElement(node, "requirements").text = StripUnwanted(
                 solution.requirements
