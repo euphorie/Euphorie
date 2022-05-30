@@ -51,35 +51,56 @@ class RiskBase(BrowserView):
     style_buttons = None
 
     def __call__(self):
-        self.delete_confirmation = api.portal.translate(
+        pass
+
+    @property
+    @memoize
+    def delete_confirmation(self):
+        return api.portal.translate(
             _(
                 "Are you sure you want to delete this measure? This action can "
                 "not be reverted."
             )
         )
-        self.override_confirmation = api.portal.translate(
+
+    @property
+    @memoize
+    def override_confirmation(self):
+        return api.portal.translate(
             _(
                 "The current text in the fields 'Action plan', 'Prevention plan' and "
                 "'Requirements' of this measure will be overwritten. "
                 "This action cannot be reverted. Are you sure you want to continue?"
             )
         )
-        self.message_date_before = api.portal.translate(
-            _(
-                "error_validation_before_end_date",
-                default="This date must be on or before the end date.",
-            )
-        )
-        self.message_date_after = api.portal.translate(
+
+    @property
+    @memoize
+    def message_date_after(self):
+        return api.portal.translate(
             _(
                 "error_validation_after_start_date",
                 default="This date must be on or after the start date.",
             )
         )
-        self.message_positive_number = api.portal.translate(
+
+    @property
+    @memoize
+    def message_positive_number(self):
+        return api.portal.translate(
             _(
                 "error_validation_positive_whole_number",
                 default="This value must be a positive whole number.",
+            )
+        )
+
+    @property
+    @memoize
+    def message_date_before(self):
+        return api.portal.translate(
+            _(
+                "error_validation_before_end_date",
+                default="This date must be on or before the end date.",
             )
         )
 
