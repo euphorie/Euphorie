@@ -15,6 +15,20 @@ Changelog
 - Further tweaks to the involve phase previews.
 
 
+14.0.4 (2022-05-05)
+-------------------
+
+- Reactivate previously deactivated pat-validation for radio inputs. The Bug described in https://github.com/Patternslib/Patterns/issues/744 is fixed.
+- New bundle based on Patternslib 7.10.0.
+- Restore all pat-validation. The bug with date validation in Chrome is fixed in Patternslib 7.10.0.
+
+
+14.0.3 (2022-05-04)
+-------------------
+
+- Disable pat-validation due to a bug in Chrome with date validation.
+
+
 14.0.2 (2022-03-30)
 -------------------
 
