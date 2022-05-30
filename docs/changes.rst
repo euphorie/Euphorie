@@ -4,7 +4,7 @@ Changelog
 14.1.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fixed error message in wrong language after login.
 
 
 14.1.0 (2022-05-30)
