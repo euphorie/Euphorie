@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.1.0 (unreleased)
+14.1.0 (2022-05-30)
 -------------------
 
 - Reactivate previously deactivated pat-validation for radio inputs. The Bug described in https://github.com/Patternslib/Patterns/issues/744 is fixed.
