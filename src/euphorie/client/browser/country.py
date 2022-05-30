@@ -143,7 +143,7 @@ class SurveyTemplatesMixin(object):
                 if not isinstance(categories, list):
                     categories = [categories]
                 if not categories:
-                    categories = [None]
+                    categories = ["None"]
                 for category in categories:
                     survey_items.append((category, survey, id))
         return sorted(survey_items, key=lambda x: (x[0], x[1].title))

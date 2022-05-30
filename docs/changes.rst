@@ -5,6 +5,7 @@ Changelog
 -------------------
 
 - Fixed error message in wrong language after login.
+- Fixed issue with “Start a new risk assessment” link.
 
 
 14.1.0 (2022-05-30)
