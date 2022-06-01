@@ -5,7 +5,7 @@ Changelog
 12.0.19 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Fix dutch translations [ale-rt]
 
 
 12.0.18 (2022-03-01)
