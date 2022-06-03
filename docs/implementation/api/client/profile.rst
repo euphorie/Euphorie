@@ -9,10 +9,3 @@
 
 .. autofunction:: extractProfile
 
-.. autofunction:: set_session_profile
-
-.. autoclass:: Profile
-   :members:
-
-.. autoclass:: Update
-

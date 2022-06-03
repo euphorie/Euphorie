@@ -11,6 +11,4 @@
 
 .. autofunction:: wasSurveyUpdated
 
-.. autofunction:: redirectOnSurveyUpdate
-
 .. autoclass:: Node

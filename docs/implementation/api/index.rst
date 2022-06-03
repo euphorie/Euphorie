@@ -5,6 +5,7 @@ Code reference
    :maxdepth: 2
 
    content/behaviour
+   content/behaviors
    content/fti
    content/login
    content/module
@@ -16,34 +17,38 @@ Code reference
    content/risk
    content/solution
    content/profilequestion
+   content/training_question
    content/countrymanager
    content/documentation
    content/help
-   content/library
-   content/export
-   content/upload
    content/user
    content/colour
+   content/browser/library
+   content/browser/export
+   content/browser/upload
+   content/browser/module
    client/client
    client/country
    client/sector
-   client/cookie
    client/model
-   client/module
-   client/risk
-   client/report
-   client/company
    client/navigation
    client/profile
-   client/appendix
-   client/help
-   client/publish
-   client/session
    client/authentication
-   client/login
-   client/layout
    client/survey
    client/update
    client/utils
-   client/settings
+   client/browser/client
+   client/browser/sector
+   client/browser/country
+   client/browser/survey
+   client/browser/module
+   client/browser/risk
+   client/browser/training
+   client/browser/report
+   client/browser/company
+   client/browser/publish
+   client/browser/session
+   client/browser/login
+   client/browser/settings
+   client/browser/webhelpers
 

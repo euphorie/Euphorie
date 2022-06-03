@@ -27,19 +27,3 @@ Interfaces
    :members:
 
 
-Views
------
-
-.. autoclass:: View
-   :members:
-
-.. autoclass:: Add
-   :members:
-
-.. autoclass:: Edit
-   :members:
-
-
-
-
-

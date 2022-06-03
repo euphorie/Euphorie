@@ -1,5 +1,5 @@
 :mod:`euphorie.content.solution`
-===============================
+================================
 
 .. automodule:: euphorie.content.solution
 
@@ -15,9 +15,3 @@ Interfaces
 
 .. autointerface:: ISolution
    :members:
-
-
-Views
------
-
-.. autoclass:: View
