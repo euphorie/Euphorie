@@ -1,7 +1,7 @@
-:mod:`euphorie.client.publish`
-==============================
+:mod:`euphorie.client.browser.publish`
+======================================
 
-.. automodule:: euphorie.client.publish
+.. automodule:: euphorie.client.browser.publish
 
 .. autoclass:: PublishSurvey
    :members:

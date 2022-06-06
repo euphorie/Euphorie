@@ -18,14 +18,5 @@
    :members:
 
 
-Views
------
-
-.. autoclass:: View
-   :members:
-
-.. autoclass:: Edit
-
-
 
 

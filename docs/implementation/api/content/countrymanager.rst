@@ -22,9 +22,3 @@ Account support
 .. autoclass:: CountryManagerLocalRoleProvider
    :members:
 
-
-Views
------
-
-.. autoclass:: View
-

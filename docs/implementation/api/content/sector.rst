@@ -16,13 +16,3 @@ Account support
 .. autoclass:: SectorLocalRoleProvider
    :members:
 
-
-Views
------
-
-.. autoclass:: View
-
-.. autoclass:: ColourPreview
-
-.. autoclass:: Settings
-

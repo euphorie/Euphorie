@@ -8,12 +8,6 @@
 .. autoclass:: Client
 
 
-Views
------
-
-.. autoclass:: View
-
-
 Account support
 ---------------
 

@@ -1,3 +1,5 @@
+.. _workflow-survey:
+
 Workflow
 ========
 

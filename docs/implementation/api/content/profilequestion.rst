@@ -16,13 +16,3 @@ Interfaces
 
 .. autointerface:: IProfileQuestion
    :members:
-
-Views
------
-
-.. autoclass:: View
-   :members:
-
-
-.. autoclass:: AddForm
-   :members:

@@ -196,12 +196,14 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
         """List of messages we want to display under the risk assesment article
 
         Those messages should be iterable.
-        Example of a good returned value:
-        [
-            (message1a, message1b, message1c),
-            (message2a, message2),
-            ...
-        ]
+        Example of a good returned value::
+
+            [
+                (message1a, message1b, message1c),
+                (message2a, message2),
+                ...
+            ]
+
         """
         return []
 
