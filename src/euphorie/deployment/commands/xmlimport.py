@@ -58,7 +58,7 @@ def GetSector(country, xml_sector, options):
     if sector is not None:
         return sector
 
-    log.info("Creating new sector '%s' with password '%s'", login, password)
+    log.info("Creating new sector %r", login)
     id = country.invokeFactory(
         "euphorie.sector", login, title=options.sector or xml_sector.title.text.strip()
     )
