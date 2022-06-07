@@ -178,7 +178,7 @@ msgstr "Il-lingwi kollha"
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:23
 msgid "Almost done&hellip;"
-msgstr ""
+msgstr "Kważi lest/a&hellip;"
 
 #: euphorie/client/browser/login.py:219
 msgid "An account was created for you with email address ${email}"
@@ -289,7 +289,7 @@ msgstr "Eżempju ta’ klijent għal okkorrenzi multipli."
 #: euphorie/client/browser/templates/portlet-my-ras.pt:37
 #: euphorie/client/browser/templates/slide_question_success.pt:47
 msgid "Close"
-msgstr ""
+msgstr "Għalaq"
 
 #: euphorie/content/country.py:65
 msgid "Comments"
@@ -324,7 +324,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/slide_question.pt:42
 msgid "Continue"
-msgstr ""
+msgstr "Kompli"
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:67
 msgid "Continue to action plan"
@@ -418,7 +418,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training.pt:247
 msgid "Edit training card"
-msgstr ""
+msgstr "Editja l-karta tat-taħriġ"
 
 #: euphorie/client/browser/settings.py:113
 msgid "Email address/account name"
@@ -469,7 +469,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:34
 msgid "For successfully finishing the training for ${session} on ${date}."
-msgstr ""
+msgstr "Għaddejt b’suċċess it-taħriġ għal ${session} fi ${date}."
 
 #: euphorie/client/browser/templates/report_landing.pt:81
 msgid "Format: Office Open XML Workbook (.xlsx)"
@@ -661,7 +661,7 @@ msgstr "Tfakkira ta’ okkorrenza multipla"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:45
 msgid "My certificates"
-msgstr ""
+msgstr "Iċ-ċertifikati tiegħi"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "My risk assessments"
@@ -669,7 +669,7 @@ msgstr "L-evalwazzjonijiet tar-riskju tiegħi"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:25
 msgid "My unfinished trainings"
-msgstr ""
+msgstr "It-taħriġ tiegħi mhux mitmum"
 
 #: euphorie/content/browser/templates/user_mgmt.pt:88
 msgid "Name"
@@ -842,11 +842,11 @@ msgstr "Pajjiż potenzjalment kandidat"
 
 #: euphorie/client/browser/templates/slide_question_success.pt:41
 msgid "Print"
-msgstr ""
+msgstr "Ipprintja"
 
 #: euphorie/client/browser/templates/training_certificate_view.pt:20
 msgid "Print certificate"
-msgstr ""
+msgstr "Ipprintja ċ-ċertifikat"
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml
 #: euphorie/deployment/browser/search.py:14
@@ -881,7 +881,7 @@ msgstr ""
 #: euphorie/client/browser/templates/slide_question.pt:28
 #: euphorie/content/training_question.py:17
 msgid "Question"
-msgstr ""
+msgstr "Mistoqsija"
 
 #: euphorie/client/browser/templates/slide_question_try_again.pt:53
 msgid "Re-run the questions"
@@ -966,7 +966,7 @@ msgstr "Riskju preżenti"
 
 #: euphorie/client/browser/templates/training.pt:78
 msgid "Run slideshow"
-msgstr ""
+msgstr "Ibda s-slideshow"
 
 #: euphorie/client/browser/reset_password.py:195
 #: euphorie/client/browser/templates/training.pt:273
@@ -1048,7 +1048,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:37
 msgid "Start the questions"
-msgstr ""
+msgstr "Ibda l-mistoqsijiet"
 
 #: euphorie/client/browser/login.py:397
 #: euphorie/client/browser/templates/new-session-test.pt:154
@@ -1083,7 +1083,7 @@ msgstr "Sommarju"
 
 #: euphorie/client/browser/templates/training.pt:76
 msgid "Take training and test"
-msgstr ""
+msgstr "Segwi t-taħriġ u għamel it-test"
 
 #: euphorie/client/browser/templates/about.pt:142
 msgid "The Netherlands"
@@ -1213,11 +1213,11 @@ msgstr "Agħfas fuq screen help"
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:41
 msgid "Tool"
-msgstr ""
+msgstr "Għodda"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:14
 msgid "Training"
-msgstr ""
+msgstr "Taħriġ"
 
 #: euphorie/content/profiles/default/types/euphorie.training_question.xml
 #: euphorie/upgrade/deployment/v1/20220318135716_add_training_question/types/euphorie.training_question.xml
@@ -1313,7 +1313,7 @@ msgstr ""
 msgid ""
 "You can now answer a few questions to prove that you master this topic and "
 "earn your certificate."
-msgstr ""
+msgstr "Issa tista’ twieġeb ftit mistoqsijiet biex turi li fhimt dan is-suġġett u tirċievi ċ-ċertifikat tiegħek."
 
 #: euphorie/content/browser/templates/library.pt:18
 msgid ""
@@ -1357,7 +1357,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:29
 msgid "You're done with the training slides!"
-msgstr ""
+msgstr "I-islides tat-taħriġ lesti!"
 
 #: euphorie/client/browser/settings.py:367
 msgid "Your email address has been updated."
@@ -1772,7 +1772,7 @@ msgstr "Sessjoni tat-test"
 #. Default: "Questions"
 #: euphorie/client/browser/templates/training-slides.pt:159
 msgid "button_training_questions"
-msgstr ""
+msgstr "Mistoqsijiet"
 
 #. Default: "Unlock"
 #: euphorie/content/browser/templates/user_mgmt.pt:66
@@ -2028,7 +2028,7 @@ msgstr ""
 #. Default: "Please tick anything that you might like to exclude from the training. Items that are greyed out will not be displayed on the training card."
 #: euphorie/client/browser/templates/webhelpers.pt:646
 msgid "description-training-configuration"
-msgstr ""
+msgstr "Jekk jogħġbok immarka kull ħaġa li tixtieq teskludi mit-taħriġ. Oġġetti li jidhru griżi mhux se jintwerew fuq il-karta tat-taħriġ."
 
 #. Default: "The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk &ndash; if you consider it necessary &ndash; in the action plan."
 #: euphorie/client/browser/templates/webhelpers.pt:570
@@ -4064,7 +4064,7 @@ msgstr "Il-miżura diġà implimentata"
 #. Default: "Already implemented measures"
 #: euphorie/client/browser/templates/webhelpers.pt:661
 msgid "label_existing_measures"
-msgstr ""
+msgstr "Miżuri diġà mplimentati"
 
 #. Default: "Exit"
 #: euphorie/client/browser/templates/shell.pt:380
@@ -4429,7 +4429,7 @@ msgstr "Password Attwali"
 #: euphorie/client/browser/templates/training-slides.pt:43
 #: euphorie/client/browser/templates/training.pt:114
 msgid "label_online_oira_training"
-msgstr ""
+msgstr "Taħriġ tal-OiRA online"
 
 #. Default: "Page"
 #: euphorie/client/browser/pdf.py:42
@@ -4458,7 +4458,7 @@ msgstr "Erġa password"
 #. Default: "Planned measures"
 #: euphorie/client/browser/templates/webhelpers.pt:680
 msgid "label_planned_measures"
-msgstr ""
+msgstr "Miżuri ppjanati"
 
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:293
@@ -4889,12 +4889,12 @@ msgstr "Għodda"
 #. Default: "Your achievement will be listed under &ldquo;My trainings&rdquo; in the training portlet on the dashboard. From there you can always view or print your certificate if you like."
 #: euphorie/client/browser/templates/slide_question_success.pt:32
 msgid "label_training_achievement_listed"
-msgstr ""
+msgstr "Il-kisba tiegħek se tkun inkluża taħt &ldquo;It-taħriġ tiegħi&rdquo; fit-taqsima tat-taħriġ fuq id-dashboard. Minn hemm tista’ tara jew tipprintja ċ-ċertifikat tiegħek."
 
 #. Default: "Congratulations, you have now earned your certificate for this topic."
 #: euphorie/client/browser/templates/slide_question_success.pt:29
 msgid "label_training_congratulations"
-msgstr ""
+msgstr "Prosit, issa ksibt iċ-ċertifikat tiegħek għal dan is-suġġett."
 
 #. Default: "Try OiRA"
 #: euphorie/client/browser/templates/surveys.pt:26
@@ -5102,7 +5102,7 @@ msgstr "Importa Għodda tal-OiRA"
 #: euphorie/client/browser/templates/shell.pt:346
 #: euphorie/client/browser/templates/webhelpers.pt:631
 msgid "menu_training"
-msgstr ""
+msgstr "Taħriġ"
 
 #. Default: "Please choose a country of which you would like to view or copy an OiRA Tool."
 #: euphorie/content/browser/templates/sectorcontainer_view.pt:18
