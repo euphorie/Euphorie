@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.1.1 (unreleased)
+14.1.1 (2022-06-07)
 -------------------
 
 - Fixed error message in wrong language after login.
