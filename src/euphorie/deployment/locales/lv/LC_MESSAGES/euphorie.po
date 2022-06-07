@@ -172,7 +172,7 @@ msgstr "Visas valodas"
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:23
 msgid "Almost done&hellip;"
-msgstr ""
+msgstr "Gandrīz pabeigts"
 
 #: euphorie/client/browser/login.py:219
 msgid "An account was created for you with email address ${email}"
@@ -253,7 +253,7 @@ msgstr "Kandidātvalsts"
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:13
 msgid "Certificate"
-msgstr ""
+msgstr "Sertifikāts"
 
 #: euphorie/client/browser/settings.py:66
 msgid "Change email address"
@@ -280,7 +280,7 @@ msgstr "Piemērs ar klientu, kuram vairākreizēja uzvedne."
 #: euphorie/client/browser/templates/portlet-my-ras.pt:37
 #: euphorie/client/browser/templates/slide_question_success.pt:47
 msgid "Close"
-msgstr ""
+msgstr "Aizvērt"
 
 #: euphorie/content/country.py:65
 msgid "Comments"
@@ -313,7 +313,7 @@ msgstr "Satur: galvenos elementus, lai efektīvi novērstu darba vides riskus."
 
 #: euphorie/client/browser/templates/slide_question.pt:42
 msgid "Continue"
-msgstr ""
+msgstr "Turpināt"
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:67
 msgid "Continue to action plan"
@@ -408,7 +408,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training.pt:247
 msgid "Edit training card"
-msgstr ""
+msgstr "Labot apmācību lapu"
 
 #: euphorie/client/browser/settings.py:113
 msgid "Email address/account name"
@@ -459,7 +459,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:34
 msgid "For successfully finishing the training for ${session} on ${date}."
-msgstr ""
+msgstr "Izsniegts, pabeidzot apmācības par rīku &ldquo;${session}&rdquo; ${date}."
 
 #: euphorie/client/browser/templates/report_landing.pt:81
 msgid "Format: Office Open XML Workbook (.xlsx)"
@@ -649,7 +649,7 @@ msgstr "Vairākreizēja uzvedne"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:45
 msgid "My certificates"
-msgstr ""
+msgstr "Mani sertifikāti"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "My risk assessments"
@@ -657,7 +657,7 @@ msgstr "Mani riska novērtējumi"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:25
 msgid "My unfinished trainings"
-msgstr ""
+msgstr "Manas pabeigtās apmācības"
 
 #: euphorie/content/browser/templates/user_mgmt.pt:88
 msgid "Name"
@@ -827,11 +827,11 @@ msgstr "Potenciāla kandidātvalsts"
 
 #: euphorie/client/browser/templates/slide_question_success.pt:41
 msgid "Print"
-msgstr ""
+msgstr "Drukāt"
 
 #: euphorie/client/browser/templates/training_certificate_view.pt:20
 msgid "Print certificate"
-msgstr ""
+msgstr "Izdrukāt sertifikātu"
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml
 #: euphorie/deployment/browser/search.py:14
@@ -868,7 +868,7 @@ msgstr ""
 #: euphorie/client/browser/templates/slide_question.pt:28
 #: euphorie/content/training_question.py:17
 msgid "Question"
-msgstr ""
+msgstr "Jautājums"
 
 #: euphorie/client/browser/templates/slide_question_try_again.pt:53
 msgid "Re-run the questions"
@@ -954,7 +954,7 @@ msgstr "Uzmanību"
 
 #: euphorie/client/browser/templates/training.pt:78
 msgid "Run slideshow"
-msgstr ""
+msgstr "Rādīt slīdrādi"
 
 #: euphorie/client/browser/reset_password.py:195
 #: euphorie/client/browser/templates/training.pt:273
@@ -1036,7 +1036,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:37
 msgid "Start the questions"
-msgstr ""
+msgstr "Sākt jautājumus"
 
 #: euphorie/client/browser/login.py:397
 #: euphorie/client/browser/templates/new-session-test.pt:154
@@ -1069,7 +1069,7 @@ msgstr "Kopsavilkums"
 
 #: euphorie/client/browser/templates/training.pt:76
 msgid "Take training and test"
-msgstr ""
+msgstr "Uzsākt apmācības un testu"
 
 #: euphorie/client/browser/templates/about.pt:142
 msgid "The Netherlands"
@@ -1197,11 +1197,11 @@ msgstr "Ieslēdziet ekrāna palīdzību"
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:41
 msgid "Tool"
-msgstr ""
+msgstr "Rīks"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:14
 msgid "Training"
-msgstr ""
+msgstr "Apmācības"
 
 #: euphorie/content/profiles/default/types/euphorie.training_question.xml
 #: euphorie/upgrade/deployment/v1/20220318135716_add_training_question/types/euphorie.training_question.xml
@@ -1294,7 +1294,7 @@ msgstr ""
 msgid ""
 "You can now answer a few questions to prove that you master this topic and "
 "earn your certificate."
-msgstr ""
+msgstr "Tagad Jūs varat atbildēt uz dažiem jautājumiem, lai pierādītu, ka esat apguvis tēmu un lai iegūtu apliecinājumu (sertifikātu)."
 
 #: euphorie/content/browser/templates/library.pt:18
 msgid ""
@@ -1337,7 +1337,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:29
 msgid "You're done with the training slides!"
-msgstr ""
+msgstr "Jūs esat pabeidzis apmācības!"
 
 #: euphorie/client/browser/settings.py:367
 msgid "Your email address has been updated."
@@ -1742,7 +1742,7 @@ msgstr "Testa sesija"
 #. Default: "Questions"
 #: euphorie/client/browser/templates/training-slides.pt:159
 msgid "button_training_questions"
-msgstr ""
+msgstr "Jautājumi"
 
 #. Default: "Unlock"
 #: euphorie/content/browser/templates/user_mgmt.pt:66
@@ -1993,7 +1993,7 @@ msgstr ""
 #. Default: "Please tick anything that you might like to exclude from the training. Items that are greyed out will not be displayed on the training card."
 #: euphorie/client/browser/templates/webhelpers.pt:646
 msgid "description-training-configuration"
-msgstr ""
+msgstr "Lūdzu uzklikšķiniet, ja vēlaties daļu no teksta izslēgt no apmācībām. Teksts, kas tiek iekrāsots pelēks, netiks parādīts apmācību sadaļā."
 
 #. Default: "The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk &ndash; if you consider it necessary &ndash; in the action plan."
 #: euphorie/client/browser/templates/webhelpers.pt:570
@@ -4010,7 +4010,7 @@ msgstr "Pasākums jau īstenots"
 #. Default: "Already implemented measures"
 #: euphorie/client/browser/templates/webhelpers.pt:661
 msgid "label_existing_measures"
-msgstr ""
+msgstr "Jau ieviestie pasākumi"
 
 #. Default: "Exit"
 #: euphorie/client/browser/templates/shell.pt:380
@@ -4373,7 +4373,7 @@ msgstr "Esošā parole"
 #: euphorie/client/browser/templates/training-slides.pt:43
 #: euphorie/client/browser/templates/training.pt:114
 msgid "label_online_oira_training"
-msgstr ""
+msgstr "Tiešsaistes OiRA apmācības"
 
 #. Default: "Page"
 #: euphorie/client/browser/pdf.py:42
@@ -4402,7 +4402,7 @@ msgstr "Atkārtoti ievadiet paroli"
 #. Default: "Planned measures"
 #: euphorie/client/browser/templates/webhelpers.pt:680
 msgid "label_planned_measures"
-msgstr ""
+msgstr "Plānotie pasākumi"
 
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:293
@@ -4832,12 +4832,12 @@ msgstr "Rīki"
 #. Default: "Your achievement will be listed under &ldquo;My trainings&rdquo; in the training portlet on the dashboard. From there you can always view or print your certificate if you like."
 #: euphorie/client/browser/templates/slide_question_success.pt:32
 msgid "label_training_achievement_listed"
-msgstr ""
+msgstr "Jūsu sasniegumi tiks parādīti informācijas paneļa sadaļā &ldquo;Manas apmācības&rdquo;. Šajā vietā pieejamos apliecinājumus (sertifikātus) Jūs vienmēr varēsiet apskatīties un izdrukāt arī vēlāk."
 
 #. Default: "Congratulations, you have now earned your certificate for this topic."
 #: euphorie/client/browser/templates/slide_question_success.pt:29
 msgid "label_training_congratulations"
-msgstr ""
+msgstr "Apsveicam! Jūs esat ieguvis apliecinājumu (sertifikātu) par šo tēmu."
 
 #. Default: "Try OiRA"
 #: euphorie/client/browser/templates/surveys.pt:26
@@ -5048,7 +5048,7 @@ msgstr "Importēt OiRA rīku"
 #: euphorie/client/browser/templates/shell.pt:346
 #: euphorie/client/browser/templates/webhelpers.pt:631
 msgid "menu_training"
-msgstr ""
+msgstr "Apmācības"
 
 #. Default: "Please choose a country of which you would like to view or copy an OiRA Tool."
 #: euphorie/content/browser/templates/sectorcontainer_view.pt:18
