@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-12.0.19 (unreleased)
+12.0.19 (2022-06-08)
 --------------------
 
 - Fix dutch translations [ale-rt]
