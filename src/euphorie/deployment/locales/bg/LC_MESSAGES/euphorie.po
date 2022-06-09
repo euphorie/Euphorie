@@ -259,7 +259,7 @@ msgstr "Страна-кандидат"
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:13
 msgid "Certificate"
-msgstr ""
+msgstr "Cертификат"
 
 #: euphorie/client/browser/settings.py:66
 msgid "Change email address"

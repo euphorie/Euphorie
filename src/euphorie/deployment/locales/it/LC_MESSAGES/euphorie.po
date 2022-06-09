@@ -177,7 +177,7 @@ msgstr "Tutte le lingue"
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:23
 msgid "Almost done&hellip;"
-msgstr ""
+msgstr "Quasi fatto&hellip;"
 
 #: euphorie/client/browser/login.py:219
 msgid "An account was created for you with email address ${email}"
@@ -263,7 +263,7 @@ msgstr "Paese candidato"
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:13
 msgid "Certificate"
-msgstr ""
+msgstr "Attestato"
 
 #: euphorie/client/browser/settings.py:66
 msgid "Change email address"
@@ -291,7 +291,7 @@ msgstr "Esempio cliente per occorrenze multiple"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:37
 #: euphorie/client/browser/templates/slide_question_success.pt:47
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #: euphorie/content/country.py:65
 msgid "Comments"
@@ -326,7 +326,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/slide_question.pt:42
 msgid "Continue"
-msgstr ""
+msgstr "Continua"
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:67
 msgid "Continue to action plan"
@@ -420,7 +420,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training.pt:247
 msgid "Edit training card"
-msgstr ""
+msgstr "Modifica la scheda della formazione"
 
 #: euphorie/client/browser/settings.py:113
 msgid "Email address/account name"
@@ -471,7 +471,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:34
 msgid "For successfully finishing the training for ${session} on ${date}."
-msgstr ""
+msgstr "Per aver terminato con successo la formazione sullo strumento ${session} in data ${date}."
 
 #: euphorie/client/browser/templates/report_landing.pt:81
 msgid "Format: Office Open XML Workbook (.xlsx)"
@@ -664,7 +664,7 @@ msgstr "Localizzazioni multiple"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:45
 msgid "My certificates"
-msgstr ""
+msgstr "I miei attestati"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "My risk assessments"
@@ -672,7 +672,7 @@ msgstr "Le mie valutazioni del rischio"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:25
 msgid "My unfinished trainings"
-msgstr ""
+msgstr "Formazione da completare"
 
 #: euphorie/content/browser/templates/user_mgmt.pt:88
 msgid "Name"
@@ -844,11 +844,11 @@ msgstr "Possibili Paesi candidati"
 
 #: euphorie/client/browser/templates/slide_question_success.pt:41
 msgid "Print"
-msgstr ""
+msgstr "Stampa"
 
 #: euphorie/client/browser/templates/training_certificate_view.pt:20
 msgid "Print certificate"
-msgstr ""
+msgstr "Stampa attestato"
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml
 #: euphorie/deployment/browser/search.py:14
@@ -885,7 +885,7 @@ msgstr ""
 #: euphorie/client/browser/templates/slide_question.pt:28
 #: euphorie/content/training_question.py:17
 msgid "Question"
-msgstr ""
+msgstr "Domanda"
 
 #: euphorie/client/browser/templates/slide_question_try_again.pt:53
 msgid "Re-run the questions"
@@ -971,7 +971,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training.pt:78
 msgid "Run slideshow"
-msgstr ""
+msgstr "Avvia lo slideshow"
 
 #: euphorie/client/browser/reset_password.py:195
 #: euphorie/client/browser/templates/training.pt:273
@@ -1053,7 +1053,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:37
 msgid "Start the questions"
-msgstr ""
+msgstr "Inizia le domande"
 
 #: euphorie/client/browser/login.py:397
 #: euphorie/client/browser/templates/new-session-test.pt:154
@@ -1088,7 +1088,7 @@ msgstr "Sintesi"
 
 #: euphorie/client/browser/templates/training.pt:76
 msgid "Take training and test"
-msgstr ""
+msgstr "Fai la formazione e il test"
 
 #: euphorie/client/browser/templates/about.pt:142
 msgid "The Netherlands"
@@ -1217,11 +1217,11 @@ msgstr "Attiva la schermata di aiuto"
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:41
 msgid "Tool"
-msgstr ""
+msgstr "Strumento"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:14
 msgid "Training"
-msgstr ""
+msgstr "Formazione"
 
 #: euphorie/content/profiles/default/types/euphorie.training_question.xml
 #: euphorie/upgrade/deployment/v1/20220318135716_add_training_question/types/euphorie.training_question.xml
@@ -1314,7 +1314,7 @@ msgstr ""
 msgid ""
 "You can now answer a few questions to prove that you master this topic and "
 "earn your certificate."
-msgstr ""
+msgstr "Ora puoi rispondere alle domande per verificare la tua comprensione dell’argomento e ricevere l’attestato."
 
 #: euphorie/content/browser/templates/library.pt:18
 msgid ""
@@ -1355,7 +1355,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:29
 msgid "You're done with the training slides!"
-msgstr ""
+msgstr "Hai terminato le slides per la formazione!"
 
 #: euphorie/client/browser/settings.py:367
 msgid "Your email address has been updated."
@@ -1765,7 +1765,7 @@ msgstr "Sessione di prova"
 #. Default: "Questions"
 #: euphorie/client/browser/templates/training-slides.pt:159
 msgid "button_training_questions"
-msgstr ""
+msgstr "Domande"
 
 #. Default: "Unlock"
 #: euphorie/content/browser/templates/user_mgmt.pt:66
@@ -2026,7 +2026,7 @@ msgstr ""
 #. Default: "Please tick anything that you might like to exclude from the training. Items that are greyed out will not be displayed on the training card."
 #: euphorie/client/browser/templates/webhelpers.pt:646
 msgid "description-training-configuration"
-msgstr ""
+msgstr "Seleziona tutto ciò che vuoi escludere dalla formazione; tutti gli elementi evidenziati in grigio non verranno visualizzati nella scheda della formazione."
 
 #. Default: "The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk &ndash; if you consider it necessary &ndash; in the action plan."
 #: euphorie/client/browser/templates/webhelpers.pt:570
@@ -4062,7 +4062,7 @@ msgstr "Misura già attuata"
 #. Default: "Already implemented measures"
 #: euphorie/client/browser/templates/webhelpers.pt:661
 msgid "label_existing_measures"
-msgstr ""
+msgstr "Misure già adottate"
 
 #. Default: "Exit"
 #: euphorie/client/browser/templates/shell.pt:380
@@ -4437,7 +4437,7 @@ msgstr "Password attuale"
 #: euphorie/client/browser/templates/training-slides.pt:43
 #: euphorie/client/browser/templates/training.pt:114
 msgid "label_online_oira_training"
-msgstr ""
+msgstr "OiRA formazione online"
 
 #. Default: "Page"
 #: euphorie/client/browser/pdf.py:42
@@ -4466,7 +4466,7 @@ msgstr "Ripetere password"
 #. Default: "Planned measures"
 #: euphorie/client/browser/templates/webhelpers.pt:680
 msgid "label_planned_measures"
-msgstr ""
+msgstr "Misure programmate"
 
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:293
@@ -4916,12 +4916,12 @@ msgstr "Strumenti"
 #. Default: "Your achievement will be listed under &ldquo;My trainings&rdquo; in the training portlet on the dashboard. From there you can always view or print your certificate if you like."
 #: euphorie/client/browser/templates/slide_question_success.pt:32
 msgid "label_training_achievement_listed"
-msgstr ""
+msgstr "Il tuo risultato sarà elencato nella &ldquo;mia formazione&rdquo; sotto la voce formazione della dashboard. Da li puoi sempre vedere o stampare il tuo attestato."
 
 #. Default: "Congratulations, you have now earned your certificate for this topic."
 #: euphorie/client/browser/templates/slide_question_success.pt:29
 msgid "label_training_congratulations"
-msgstr ""
+msgstr "Congratulazioni! Hai ottenuto l’attestato per questo argomento."
 
 #. Default: "Try OiRA"
 #: euphorie/client/browser/templates/surveys.pt:26
@@ -5132,7 +5132,7 @@ msgstr "Importare strumento OiRA"
 #: euphorie/client/browser/templates/shell.pt:346
 #: euphorie/client/browser/templates/webhelpers.pt:631
 msgid "menu_training"
-msgstr ""
+msgstr "Formazione"
 
 #. Default: "Please choose a country of which you would like to view or copy an OiRA Tool."
 #: euphorie/content/browser/templates/sectorcontainer_view.pt:18
