@@ -72,7 +72,7 @@ class SiteRootTabsTile(TabsTile):
                 }
             )
 
-        if api.user.has_permission("Manage portal", user=self.user):
+        if api.user.has_permission("Manage portal"):
             self.tabs.append(
                 {
                     "id": "documents",
