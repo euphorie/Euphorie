@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.1.2 (unreleased)
+14.1.2 (2022-06-15)
 -------------------
 
 - Fixed permission check in tabs.
