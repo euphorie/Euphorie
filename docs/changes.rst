@@ -5,6 +5,8 @@ Changelog
 -------------------
 
 - Fixed permission check in tabs.
+- Updated help/javascript/styles from prototype.
+- Updated translations.
 
 
 14.1.1 (2022-06-07)
