@@ -149,6 +149,34 @@
 
           <fieldset class="vertical">
 
+            <label class="${python:'error' if 'first_name' in errors else None}">
+              <i18n:msg translate="label_first_name_optional">First name (optional)</i18n:msg>
+              <input class="pat-autofocus"
+                     name="first_name"
+                     required
+                     type="text"
+                     value="${request/first_name|nothing}"
+              />
+              <em class="message warning"
+                  tal:condition="exists:errors/first_name"
+                  tal:content="errors/first_name"
+              >Invalid first name</em>
+            </label>
+
+            <label class="${python:'error' if 'last_name' in errors else None}">
+              <i18n:msg translate="label_last_name_optional">Last name (optional)</i18n:msg>
+              <input class="pat-autofocus"
+                     name="last_name"
+                     required
+                     type="text"
+                     value="${request/last_name|nothing}"
+              />
+              <em class="message warning"
+                  tal:condition="exists:errors/last_name"
+                  tal:content="errors/last_name"
+              >Invalid last name</em>
+            </label>
+
             <label class="${python:'error' if 'email' in errors else None}">
               <i18n:msg translate="label_email">Email address</i18n:msg>
               <input class="pat-autofocus"
