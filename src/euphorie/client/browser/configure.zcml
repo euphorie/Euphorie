@@ -854,6 +854,14 @@
 
   <!-- settings -->
   <browser:page
+      name="preferences"
+      for="euphorie.client.country.IClientCountry"
+      permission="euphorie.client.ViewSurvey"
+      class=".settings.Preferences"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="account-settings"
       for="euphorie.client.country.IClientCountry"
       permission="euphorie.client.ViewSurvey"

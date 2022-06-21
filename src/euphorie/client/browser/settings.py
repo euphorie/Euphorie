@@ -54,6 +54,12 @@ class UserMenu(BrowserView):
     def menu_contents(self):
         return [
             {
+                "class_outer": "menu-item-preferences",
+                "class_inner": "icon-cog",
+                "url": f"{self.webhelpers.country_url}/preferences",
+                "label": _("title_preferences", default="Preferences"),
+            },
+            {
                 "class_outer": "menu-item-change-password",
                 "class_inner": "icon-key",
                 "url": f"{self.webhelpers.country_url}/account-settings",
@@ -115,6 +121,39 @@ class EmailChangeSchema(model.Schema):
 
     password = schema.Password(title=_("Your password for confirmation"), required=True)
     directives.widget(password="z3c.form.browser.password.PasswordFieldWidget")
+
+
+class PreferencesSchema(model.Schema):
+    first_name = schema.TextLine(
+        title=_("label_first_name", default="First name"), required=False
+    )
+    last_name = schema.TextLine(
+        title=_("label_last_name", default="Last name"), required=False
+    )
+
+
+class Preferences(AutoExtensibleForm, form.Form):
+
+    template = ViewPageTemplateFile("templates/preferences.pt")
+
+    schema = PreferencesSchema
+
+    def getContent(self):
+        user = get_current_account()
+        directlyProvides(user, PreferencesSchema)
+        return user
+
+    @button.buttonAndHandler(_("Save"), name="save")
+    def handleSave(self, action):
+        flash = IStatusMessage(self.request).addStatusMessage
+        (data, errors) = self.extractData()
+        if errors:
+            for error in errors:
+                flash(error.message, "notice")
+            return
+        user = get_current_account()
+        user.first_name = data["first_name"]
+        user.last_name = data["last_name"]
 
 
 class AccountSettings(AutoExtensibleForm, form.Form):
@@ -210,7 +249,7 @@ class NewEmail(AutoExtensibleForm, form.Form):
     email_template = ViewPageTemplateFile("templates/confirm-email.pt")
     ignoreContext = True
 
-    label = _("title_account_settings", default="Account settings")
+    label = _("title_change_email", default="Change email address")
 
     @property
     def email_from_name(self):

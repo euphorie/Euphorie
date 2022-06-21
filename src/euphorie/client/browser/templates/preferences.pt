@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+  <body>
+    <metal:content fill-slot="content">
+      <form class="pat-form pat-inject panel-style pat-validate"
+            id="${view/id}"
+            action="${request/getURL}#content"
+            enctype="${view/enctype}"
+            method="${view/method}"
+      >
+        <div class="pat-toolbar sticky">
+          <div class="toolbar-functions-area"
+               id="toolbar-functions-area-preferences"
+          >
+            <div class="toolbar-section quick-functions"
+                 id="preferences-toolbar-quick-functions"
+            >
+              <button class="pat-button default"
+                      name="form.buttons.save"
+                      type="submit"
+                      i18n:translate=""
+              >Save</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="container"
+             id="app-content-preferences"
+        >
+          <fieldset class="form-panel pat-collapsible true section horizontal has-value open focus"
+                    id="patterns-label-personal-details"
+                    data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 100px"
+          >
+            <h3 class="form-separation-header collapsible-open"
+                i18n:translate="title_personal_details"
+            >Personal details
+            </h3>
+            <div class="panel-content"><tal:widget repeat="widget view/widgets/values">
+                <label class="">
+                ${widget/label}
+                  <input class=""
+                         name="${widget/name}"
+                         size=""
+                         type="text"
+                         value="${widget/value}"
+                  />
+                </label><br />
+              </tal:widget>
+            </div>
+          </fieldset>
+        </div>
+      </form>
+    </metal:content>
+  </body>
+</html>

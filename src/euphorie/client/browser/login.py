@@ -216,6 +216,8 @@ class Login(BrowserView):
             account.account_type = config.CONVERTED_ACCOUNT
             account.created = datetime.datetime.now()
             account.tc_approved = 1
+            account.first_name = form.get("first_name")
+            account.last_name = form.get("last_name")
             msg = _(
                 "An account was created for you with email address ${email}",
                 mapping={"email": loginname},
@@ -223,7 +225,11 @@ class Login(BrowserView):
             api.portal.show_message(msg, self.request, "success")
         else:
             account = model.Account(
-                loginname=loginname, password=form.get("password1"), tc_approved=1
+                loginname=loginname,
+                password=form.get("password1"),
+                tc_approved=1,
+                first_name=form.get("first_name"),
+                last_name=form.get("last_name"),
             )
             Session().add(account)
         log.info("Registered new account %s", loginname)

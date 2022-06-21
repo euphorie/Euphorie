@@ -5,6 +5,7 @@ Changelog
 -------------------
 
 - Stricter password reset handling.
+- Users can enter and edit their first name and last name.
 
 
 14.1.2 (2022-06-15)
