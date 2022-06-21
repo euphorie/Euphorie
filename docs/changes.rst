@@ -4,7 +4,7 @@ Changelog
 14.1.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Stricter password reset handling.
 
 
 14.1.2 (2022-06-15)
