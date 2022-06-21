@@ -140,6 +140,20 @@ class RegisterTests(EuphorieIntegrationTestCase):
             account = view._tryRegistration()
             self.assertEqual(account.loginname, "jane@example.com")
 
+    def test_first_name_last_name(self):
+        with self._get_view("login", self.portal.client) as view:
+            view.errors = {}
+            view.request.form["first_name"] = "Jane"
+            view.request.form["last_name"] = "Doe"
+            view.request.form["email"] = "JANE@example.com"
+            view.request.form["password1"] = "Secret123Secret"
+            view.request.form["password2"] = "Secret123Secret"
+            view.request.form["terms"] = "on"
+            account = view._tryRegistration()
+            self.assertEqual(account.loginname, "jane@example.com")
+            self.assertEqual(account.first_name, "Jane")
+            self.assertEqual(account.last_name, "Doe")
+
     def test_conflict_with_plone_account(self):
         with self._get_view("login", self.portal.client) as view:
             view.errors = {}

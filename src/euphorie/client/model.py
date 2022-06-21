@@ -467,6 +467,17 @@ class Account(BaseObject):
         default=None,
     )
 
+    first_name = schema.Column(
+        types.Unicode(),
+        nullable=True,
+        default=None,
+    )
+    last_name = schema.Column(
+        types.Unicode(),
+        nullable=True,
+        default=None,
+    )
+
     @property
     def groups(self):
         group = self.group
