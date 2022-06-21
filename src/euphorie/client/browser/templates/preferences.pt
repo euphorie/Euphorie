@@ -54,6 +54,8 @@
               </tal:widget>
             </div>
           </fieldset>
-        </div></form></metal:content>
+        </div>
+      </form>
+    </metal:content>
   </body>
 </html>
