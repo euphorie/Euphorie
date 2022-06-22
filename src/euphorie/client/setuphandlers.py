@@ -31,3 +31,5 @@ def setupVarious(context):
     pas = site.acl_users
     if not pas.objectIds([EuphorieAccountPlugin.meta_type]):
         add_account_plugin(pas)
+    ppr = api.portal.get_tool("portal_password_reset")
+    ppr.setExpirationTimeout(0.5)

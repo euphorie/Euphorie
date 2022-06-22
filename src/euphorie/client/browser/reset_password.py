@@ -102,6 +102,11 @@ class ResetPasswordRequest(BaseForm):
     def email_from_address(self):
         return api.portal.get_registry_record("plone.email_from_address")
 
+    def expiration_timeout(self):
+        ppr = api.portal.get_tool("portal_password_reset")
+        timeout = ppr.getExpirationTimeout() or 0
+        return int(timeout * 24)  # timeout is in days, but templates want in hours.
+
     def log_error(self, msg):
         """Log an error message, set the view error attribute and return False"""
         logger.error(msg)
@@ -124,6 +129,12 @@ class ResetPasswordRequest(BaseForm):
             return True
 
         ppr = api.portal.get_tool("portal_password_reset")
+        # Clean out previous requests by this user
+        for token, value in ppr._requests.items():
+            if value[0] == account.id:
+                del ppr._requests[token]
+                ppr._p_changed = 1
+
         reset_info = ppr.requestReset(account.id)
         reset_info["host"] = self.get_remote_host()
         mailhost = api.portal.get_tool("MailHost")
@@ -219,6 +230,15 @@ class ResetPasswordForm(BaseForm):
     )
     button_label = _("Save changes")
 
+    def update(self):
+        super(ResetPasswordForm, self).update()
+        key = self.key
+        ppr = api.portal.get_tool("portal_password_reset")
+        try:
+            ppr.verifyKey(key)
+        except InvalidRequestError:
+            self.error = _("Invalid security token, try to request a new one")
+
     def publishTraverse(self, request, name):
         return self
 
@@ -258,9 +278,20 @@ class ResetPasswordForm(BaseForm):
             self.error = error
             return
 
-        account_id = ppr._requests.get(key)[0]
+        account_id, expiry = ppr._requests.get(key)
+        if ppr.expired(expiry):
+            del ppr._requests[key]
+            ppr._p_changed = 1
+            self.error = _("This URL has expired, try to request a new one")
+            return
+
         account = Session().query(Account).filter(Account.id == account_id).one()
         account.password = data["new_password"]
+
+        # clean out the request
+        del ppr._requests[key]
+        ppr._p_changed = 1
+
         current_url = self.context.absolute_url()
         return self.redirect(
             "{}/@@login?{}".format(current_url, urlencode(dict(came_from=current_url))),

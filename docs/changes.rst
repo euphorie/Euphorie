@@ -4,6 +4,7 @@ Changelog
 14.1.3 (unreleased)
 -------------------
 
+- Stricter password reset handling.
 - Users can enter and edit their first name and last name.
 
 

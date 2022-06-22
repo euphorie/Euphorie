@@ -19,6 +19,7 @@ from zope.interface import alsoProvides
 import datetime
 import re
 import six
+import transaction
 
 
 class GuestAccountTests(EuphorieFunctionalTestCase):
@@ -295,3 +296,170 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
             ).value = "Secret123Secret"
             browser.getControl(label="Save changes").click()
             self.assertIn("Invalid security token", browser.contents)
+
+    def test_token_invalid_after_use(self):
+        self.add_dummy_survey()
+        addAccount()
+        mail_fixture = MockMailFixture()
+
+        browser = self.get_browser()
+        url = self.portal.client.nl.absolute_url()
+
+        browser.open(url + "/@@login")
+        browser.getLink("I forgot my password").click()
+        browser.getControl(name="form.widgets.email").value = "jane@example.com"
+        browser.getControl(name="form.buttons.save").click()
+
+        args = mail_fixture.storage[0][0]
+        mail = args[0]
+        mail_text = "".join(
+            [
+                (part.get_payload(decode=True) or b"").decode(
+                    part.get_content_charset("iso-8859-1")
+                )
+                for part in mail.walk()
+            ]
+        )
+
+        reset_url = re.search("http.*passwordreset/\\S*", mail_text).group(0)
+        browser.open(reset_url)
+        browser.getControl(name="form.widgets.new_password").value = "Test12345678"
+        browser.getControl(
+            name="form.widgets.new_password_confirmation"
+        ).value = "Test12345678"
+        browser.getControl(name="form.buttons.save").click()
+
+        self.assertIn("success", browser.contents)
+
+        # Token has been used already - second time should fail
+        browser.open(reset_url)
+        self.assertIn("Invalid security token", browser.contents)
+
+        # You're free to fill in the form but it won't work
+        browser.getControl(name="form.widgets.new_password").value = "Test12345670"
+        browser.getControl(
+            name="form.widgets.new_password_confirmation"
+        ).value = "Test12345670"
+        browser.getControl(name="form.buttons.save").click()
+
+        self.assertNotIn("success", browser.contents)
+
+    def test_token_invalid_after_new_request(self):
+        self.add_dummy_survey()
+        addAccount()
+        mail_fixture = MockMailFixture()
+
+        browser = self.get_browser()
+        url = self.portal.client.nl.absolute_url()
+
+        browser.open(url + "/@@login")
+        browser.getLink("I forgot my password").click()
+        browser.getControl(name="form.widgets.email").value = "jane@example.com"
+        browser.getControl(name="form.buttons.save").click()
+
+        # Request another password reset without using the first one
+
+        browser.open(url + "/@@login")
+        browser.getLink("I forgot my password").click()
+        browser.getControl(name="form.widgets.email").value = "jane@example.com"
+        browser.getControl(name="form.buttons.save").click()
+
+        args = mail_fixture.storage[0][0]
+        mail = args[0]
+        mail_text = "".join(
+            [
+                (part.get_payload(decode=True) or b"").decode(
+                    part.get_content_charset("iso-8859-1")
+                )
+                for part in mail.walk()
+            ]
+        )
+
+        # Now try using the first token
+        reset_url = re.search("http.*passwordreset/\\S*", mail_text).group(0)
+        browser.open(reset_url)
+        self.assertIn("Invalid security token", browser.contents)
+
+        # You're free to fill in the form but it won't work
+        browser.getControl(name="form.widgets.new_password").value = "Test12345678"
+        browser.getControl(
+            name="form.widgets.new_password_confirmation"
+        ).value = "Test12345678"
+        browser.getControl(name="form.buttons.save").click()
+
+        self.assertNotIn("success", browser.contents)
+
+    def test_token_expired(self):
+        self.add_dummy_survey()
+        addAccount()
+        mail_fixture = MockMailFixture()
+
+        browser = self.get_browser()
+        url = self.portal.client.nl.absolute_url()
+
+        browser.open(url + "/@@login")
+        browser.getLink("I forgot my password").click()
+        browser.getControl(name="form.widgets.email").value = "jane@example.com"
+        browser.getControl(name="form.buttons.save").click()
+
+        args = mail_fixture.storage[0][0]
+        mail = args[0]
+        mail_text = "".join(
+            [
+                (part.get_payload(decode=True) or b"").decode(
+                    part.get_content_charset("iso-8859-1")
+                )
+                for part in mail.walk()
+            ]
+        )
+        token = re.search("passwordreset/(\\S*)", mail_text).group(1)
+        # fake that the token has expired
+        ppr = api.portal.get_tool("portal_password_reset")
+        ppr._requests[token] = (ppr._requests[token][0], datetime.datetime(2001, 1, 1))
+        ppr._p_changed = 1
+        transaction.commit()
+
+        reset_url = re.search("http.*passwordreset/\\S*", mail_text).group(0)
+        browser.open(reset_url)
+        self.assertIn("Invalid security token", browser.contents)
+
+        # You're free to fill in the form but it won't work
+
+        browser.getControl(name="form.widgets.new_password").value = "Test12345678"
+        browser.getControl(
+            name="form.widgets.new_password_confirmation"
+        ).value = "Test12345678"
+        browser.getControl(name="form.buttons.save").click()
+
+        self.assertNotIn("success", browser.contents)
+        self.assertIn("Invalid security token", browser.contents)
+
+    def test_token_expires_after_12_hours(self):
+        self.add_dummy_survey()
+        addAccount()
+        mail_fixture = MockMailFixture()
+
+        browser = self.get_browser()
+        url = self.portal.client.nl.absolute_url()
+
+        browser.open(url + "/@@login")
+        browser.getLink("I forgot my password").click()
+        browser.getControl(name="form.widgets.email").value = "jane@example.com"
+        browser.getControl(name="form.buttons.save").click()
+
+        args = mail_fixture.storage[0][0]
+        mail = args[0]
+        mail_text = "".join(
+            [
+                (part.get_payload(decode=True) or b"").decode(
+                    part.get_content_charset("iso-8859-1")
+                )
+                for part in mail.walk()
+            ]
+        )
+        token = re.search("passwordreset/(\\S*)", mail_text).group(1)
+        ppr = api.portal.get_tool("portal_password_reset")
+        _, expiry = ppr._requests[token]
+        self.assertLessEqual(
+            expiry, datetime.datetime.now() + datetime.timedelta(hours=12)
+        )
