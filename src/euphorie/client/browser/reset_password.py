@@ -130,7 +130,6 @@ class ResetPasswordRequest(BaseForm):
                 del ppr._requests[token]
                 ppr._p_changed = 1
 
-        ppr.setExpirationTimeout(0.5)
         reset_info = ppr.requestReset(account.id)
         reset_info["host"] = self.get_remote_host()
         mailhost = api.portal.get_tool("MailHost")
