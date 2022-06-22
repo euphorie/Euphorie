@@ -102,6 +102,11 @@ class ResetPasswordRequest(BaseForm):
     def email_from_address(self):
         return api.portal.get_registry_record("plone.email_from_address")
 
+    def expiration_timeout(self):
+        ppr = api.portal.get_tool("portal_password_reset")
+        timeout = ppr.getExpirationTimeout() or 0
+        return int(timeout * 24)  # timeout is in days, but templates want in hours.
+
     def log_error(self, msg):
         """Log an error message, set the view error attribute and return False"""
         logger.error(msg)
