@@ -26,6 +26,7 @@ Changelog
 14.1.0 (2022-05-30)
 -------------------
 
+- Upgrade plone to 5.2.8
 - Reactivate previously deactivated pat-validation for radio inputs. The Bug described in https://github.com/Patternslib/Patterns/issues/744 is fixed.
 - New bundle based on Patternslib 7.10.0 with pat-validation fixes.
 - New feature: A "Training" page is available per risk assessment that assembles all modules
