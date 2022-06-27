@@ -26,7 +26,9 @@
             enctype="${view/enctype}"
             method="${view/method}"
       >
-        <div id="content-pane">
+        <div class="pat-scroll-box"
+             id="content-pane"
+        >
           <metal:call use-macro="webhelpers/macros/toolbar" />
           <article class="pat-rich">
             <h1 i18n:translate="header_feedback">Feedback.</h1>

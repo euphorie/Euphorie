@@ -15,7 +15,9 @@
 
   <body>
     <metal:slot fill-slot="content">
-      <div id="content-pane">
+      <div class="pat-scroll-box"
+           id="content-pane"
+      >
         <tal:block replace="tile:statusmessages" />
         <article class="pat-rich">
           <h1 i18n:translate="header_profile">Tailor the risk assessment to your organisation</h1>

@@ -34,7 +34,9 @@
                            message-min: ${view/message_gt1};
             "
       >
-        <div id="content-pane">
+        <div class="pat-scroll-box"
+             id="content-pane"
+        >
           <metal:call use-macro="webhelpers/macros/toolbar" />
           <metal:messages_above_title define-slot="messages_above_title">
             <p class="pat-message notice"

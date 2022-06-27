@@ -27,7 +27,9 @@
             method="POST"
             data-pat-inject="history: record;"
       >
-        <div id="content-pane">
+        <div class="pat-scroll-box"
+             id="content-pane"
+        >
           <metal:toolbar use-macro="webhelpers/macros/toolbar">
             <metal:actions fill-slot="page-actions">
               <div class="toolbar-section quick-functions"
