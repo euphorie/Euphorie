@@ -19,7 +19,9 @@
                   module nocall:view/module;
                 "
     >
-      <div id="content-pane">
+      <div class="pat-scroll-box"
+           id="content-pane"
+      >
         <article class="pat-rich">
           <metal:call use-macro="webhelpers/macros/toolbar" />
           <h1>${module/Title}</h1>

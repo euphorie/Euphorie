@@ -15,7 +15,9 @@
 
   <body>
     <metal:slot fill-slot="content">
-      <div id="content-pane">
+      <div class="pat-scroll-box"
+           id="content-pane"
+      >
         <h1 i18n:translate="title_updated">OiRA Tool was updated</h1>
 
         <article class="rich">

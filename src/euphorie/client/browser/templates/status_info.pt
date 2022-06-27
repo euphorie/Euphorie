@@ -2,7 +2,8 @@
 <metal:macro define-macro="status"
              i18n:domain="euphorie"
 >
-  <div id="content-pane"
+  <div class="pat-scroll-box"
+       id="content-pane"
        tal:define="
          language view/preferred_language;
          toLocalizedTime nocall: context/@@plone/toLocalizedTime;
@@ -263,11 +264,11 @@
                       >
                         <strong class="number">${num_todo}</strong>
                         <em class="label"
-                            tal:condition="python:num_todo<=1"
+                            tal:condition="python:num_todo&lt;=1"
                             i18n:translate="label_unvisited_singular"
                         >Unvisited</em>
                         <em class="label"
-                            tal:condition="python:num_todo>1"
+                            tal:condition="python:num_todo&gt;1"
                             i18n:translate="label_unvisited_plural"
                         >Unvisited</em>
                       </li>
