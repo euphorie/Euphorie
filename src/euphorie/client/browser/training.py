@@ -260,6 +260,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
     for_download = False
     more_menu_contents = []
     heading_measures = _("header_measures", default="Measures")
+    show_slide_byline = True
 
     @property
     @view_memoize

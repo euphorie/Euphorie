@@ -41,6 +41,7 @@
                 ${view/session/title}
               </h1>
               <p class="slide-byline"
+                 tal:condition="view/show_slide_byline|python:True"
                  i18n:translate="label_online_oira_training"
               >
                 Online OiRA training
