@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.1.3 (unreleased)
+14.1.3 (2022-06-29)
 -------------------
 
 - Stricter password reset handling.
