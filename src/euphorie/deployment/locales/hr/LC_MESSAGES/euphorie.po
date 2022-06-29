@@ -171,7 +171,7 @@ msgstr "Svi jezici"
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:23
 msgid "Almost done&hellip;"
-msgstr ""
+msgstr "Skoro je gotovo&hellip;"
 
 #: euphorie/client/browser/login.py:219
 msgid "An account was created for you with email address ${email}"
@@ -318,7 +318,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/slide_question.pt:42
 msgid "Continue"
-msgstr ""
+msgstr "Nastavi"
 
 #: euphorie/client/browser/templates/module_identification_custom.pt:67
 msgid "Continue to action plan"
@@ -413,7 +413,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training.pt:247
 msgid "Edit training card"
-msgstr ""
+msgstr "Uredi karticu za osposobljavanje"
 
 #: euphorie/client/browser/settings.py:113
 msgid "Email address/account name"
@@ -464,7 +464,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:34
 msgid "For successfully finishing the training for ${session} on ${date}."
-msgstr ""
+msgstr "Za uspješno završavanje osposobljavanja za $ {session} dana ${date}. "
 
 #: euphorie/client/browser/templates/report_landing.pt:81
 msgid "Format: Office Open XML Workbook (.xlsx)"
@@ -655,7 +655,7 @@ msgstr "Iniciranje više događaja"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:45
 msgid "My certificates"
-msgstr ""
+msgstr "Moje potvrde"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "My risk assessments"
@@ -663,7 +663,7 @@ msgstr "Moje procjene rizika"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:25
 msgid "My unfinished trainings"
-msgstr ""
+msgstr "Moja nezavršena osposobljavanja"
 
 #: euphorie/content/browser/templates/user_mgmt.pt:88
 msgid "Name"
@@ -831,11 +831,11 @@ msgstr "Država potencijalni kandidat"
 
 #: euphorie/client/browser/templates/slide_question_success.pt:41
 msgid "Print"
-msgstr ""
+msgstr "Ispis"
 
 #: euphorie/client/browser/templates/training_certificate_view.pt:20
 msgid "Print certificate"
-msgstr ""
+msgstr "Ispis potvrde"
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml
 #: euphorie/deployment/browser/search.py:14
@@ -870,7 +870,7 @@ msgstr "Objavite procjenu rizika"
 #: euphorie/client/browser/templates/slide_question.pt:28
 #: euphorie/content/training_question.py:17
 msgid "Question"
-msgstr ""
+msgstr "Pitanje"
 
 #: euphorie/client/browser/templates/slide_question_try_again.pt:53
 msgid "Re-run the questions"
@@ -954,7 +954,7 @@ msgstr "Postoji rizik"
 
 #: euphorie/client/browser/templates/training.pt:78
 msgid "Run slideshow"
-msgstr "Pokrenite prezentaciju"
+msgstr "Pokreni dijaprojekciju"
 
 #: euphorie/client/browser/reset_password.py:195
 #: euphorie/client/browser/templates/training.pt:273
@@ -1036,7 +1036,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:37
 msgid "Start the questions"
-msgstr ""
+msgstr "Kreni s pitanjima"
 
 #: euphorie/client/browser/login.py:397
 #: euphorie/client/browser/templates/new-session-test.pt:154
@@ -1070,7 +1070,7 @@ msgstr "Sažetak"
 
 #: euphorie/client/browser/templates/training.pt:76
 msgid "Take training and test"
-msgstr ""
+msgstr "Pristupite osposobljavanju i testiranju"
 
 #: euphorie/client/browser/templates/about.pt:142
 msgid "The Netherlands"
@@ -1203,11 +1203,11 @@ msgstr "Uključi pomoć na zaslonu"
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:41
 msgid "Tool"
-msgstr ""
+msgstr "Alat"
 
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:14
 msgid "Training"
-msgstr ""
+msgstr "Osposobljavanje"
 
 #: euphorie/content/profiles/default/types/euphorie.training_question.xml
 #: euphorie/upgrade/deployment/v1/20220318135716_add_training_question/types/euphorie.training_question.xml
@@ -1300,7 +1300,7 @@ msgstr ""
 msgid ""
 "You can now answer a few questions to prove that you master this topic and "
 "earn your certificate."
-msgstr ""
+msgstr "Sada možete odgovoriti na nekoliko pitanja kako biste dokazali da vladate ovom temom i zaradili svoju potvrdu."
 
 #: euphorie/content/browser/templates/library.pt:18
 msgid ""
@@ -1345,7 +1345,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/slide_question_intro.pt:29
 msgid "You're done with the training slides!"
-msgstr ""
+msgstr "Završili ste sa slajdovima osposobljavanja!"
 
 #: euphorie/client/browser/settings.py:367
 msgid "Your email address has been updated."
@@ -1749,7 +1749,7 @@ msgstr "Testna sesija"
 #. Default: "Questions"
 #: euphorie/client/browser/templates/training-slides.pt:159
 msgid "button_training_questions"
-msgstr ""
+msgstr "Pitanja"
 
 #. Default: "Unlock"
 #: euphorie/content/browser/templates/user_mgmt.pt:66
@@ -2000,7 +2000,7 @@ msgstr ""
 #. Default: "Please tick anything that you might like to exclude from the training. Items that are greyed out will not be displayed on the training card."
 #: euphorie/client/browser/templates/webhelpers.pt:646
 msgid "description-training-configuration"
-msgstr ""
+msgstr "Molimo označite sve što želite isključiti iz osposobljavanja. Stavke koje su označene sivom bojom neće biti prikazane na kartici za osposobljavanje."
 
 #. Default: "The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk &ndash; if you consider it necessary &ndash; in the action plan."
 #: euphorie/client/browser/templates/webhelpers.pt:570
@@ -4032,7 +4032,7 @@ msgstr "Već provedena mjera"
 #. Default: "Already implemented measures"
 #: euphorie/client/browser/templates/webhelpers.pt:661
 msgid "label_existing_measures"
-msgstr ""
+msgstr "Provedene mjere"
 
 #. Default: "Exit"
 #: euphorie/client/browser/templates/shell.pt:380
@@ -4397,7 +4397,7 @@ msgstr "Trenutačna lozinka"
 #: euphorie/client/browser/templates/training-slides.pt:43
 #: euphorie/client/browser/templates/training.pt:114
 msgid "label_online_oira_training"
-msgstr ""
+msgstr "OiRA osposobljavanje putem interneta"
 
 #. Default: "Page"
 #: euphorie/client/browser/pdf.py:42
@@ -4426,7 +4426,7 @@ msgstr "Ponavljanje zaporke"
 #. Default: "Planned measures"
 #: euphorie/client/browser/templates/webhelpers.pt:680
 msgid "label_planned_measures"
-msgstr ""
+msgstr "Planirane mjere"
 
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:293
@@ -4855,12 +4855,12 @@ msgstr "Alati"
 #. Default: "Your achievement will be listed under &ldquo;My trainings&rdquo; in the training portlet on the dashboard. From there you can always view or print your certificate if you like."
 #: euphorie/client/browser/templates/slide_question_success.pt:32
 msgid "label_training_achievement_listed"
-msgstr ""
+msgstr "Vaša postignuća bit će navedena na portalu za osposobljavanje pod sekcijom &ldquo;Moja osposobljavanja&rdquo;. Tamo uvijek možete pregledati ili ispisati svoju potvrdu ukoliko želite."
 
 #. Default: "Congratulations, you have now earned your certificate for this topic."
 #: euphorie/client/browser/templates/slide_question_success.pt:29
 msgid "label_training_congratulations"
-msgstr ""
+msgstr "Čestitamo, zaslužili ste svoju potvrdu za ovu temu."
 
 #. Default: "Try OiRA"
 #: euphorie/client/browser/templates/surveys.pt:26

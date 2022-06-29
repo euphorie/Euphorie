@@ -468,7 +468,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/training_certificate_inner.pt:34
 msgid "For successfully finishing the training for ${session} on ${date}."
-msgstr "Za uspešen zaključek usposabljanja &ldquo;${session}&rdquo; dne ${date}"
+msgstr "za uspešen zaključek usposabljanja &ldquo;${session}&rdquo; dne ${date}"
 
 #: euphorie/client/browser/templates/report_landing.pt:81
 msgid "Format: Office Open XML Workbook (.xlsx)"
