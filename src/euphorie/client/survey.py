@@ -161,6 +161,7 @@ class _StatusHelper(object):
                     title == "title_other_risks"
                     or title == "Other risks"
                     or title == "Custom risks"
+                    or title == "label_custom_risks"
                 ):
                     title = title_custom_risks
                 toc[path] = {
