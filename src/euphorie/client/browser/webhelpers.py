@@ -22,7 +22,6 @@ from euphorie.client.utils import getSecret
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import getRegionTitle
 from euphorie.content.utils import StripMarkup
-from euphorie.ghost import PathGhost
 from json import dumps
 from logging import getLogger
 from os import path
@@ -856,8 +855,6 @@ class WebHelpers(BrowserView):
     def tool_notification(self):
         message = None
         obj = self._survey
-        if isinstance(obj, PathGhost):
-            obj = self.context.aq_parent
         if ISurvey.providedBy(obj) and obj.hasNotification():
             now = datetime.now()
             message = dict(

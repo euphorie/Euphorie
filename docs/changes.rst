@@ -5,6 +5,9 @@ Changelog
 -------------------
 
 - Fix the way ``get_survey_templates`` handles a survey with an unset category.
+- Remove the ghost module and its tests
+  because it is not used since quite some time
+  [ale-rt]
 
 
 14.1.5 (2022-07-13)
