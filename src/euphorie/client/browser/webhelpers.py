@@ -274,8 +274,12 @@ class WebHelpers(BrowserView):
             .filter(SurveyTreeItem.session_id == session.id)
             .filter(SurveyTreeItem.type == "module")
             .filter(SurveyTreeItem.skip_children == False)  # noqa: E712
-        ).order_by(SurveyTreeItem.depth)
-        risks = Session.query(Risk).filter(Risk.session_id == session.id)
+        ).order_by(SurveyTreeItem.path)
+        risks = (
+            Session.query(Risk)
+            .filter(Risk.session_id == session.id)
+            .order_by(Risk.path)
+        )
         total_risks = 0
         answered_risks = 0
 
@@ -285,17 +289,32 @@ class WebHelpers(BrowserView):
                 module.parent and recursive_skip_children(module.parent)
             )
 
-        for risk in risks:
+        def relevant_modules():
             for module in modules:
                 if not module.path:
                     # XXX When does a module not have a path?
                     continue
                 if recursive_skip_children(module):
                     continue
-                if risk.path.startswith(module.path) and risk.depth == module.depth + 1:
-                    total_risks += 1
-                    if risk.identification is not None:
-                        answered_risks += 1
+                yield module
+
+        module_iterator = relevant_modules()
+        module = next(module_iterator, None)
+        for risk in risks:
+            while module and not (
+                risk.path.startswith(module.path) and risk.depth == module.depth + 1
+            ):
+                module = next(module_iterator, None)
+            if not module:
+                # We have a risk that does not have a corresponding module.
+                # The module may be optional. Start over with iterating through the
+                # modules and continue with the next risk.
+                module_iterator = relevant_modules()
+                module = next(module_iterator, None)
+                continue
+            total_risks += 1
+            if risk.identification is not None:
+                answered_risks += 1
 
         completion_percentage = (
             int(round((answered_risks * 1.0 / total_risks * 1.0) * 100.0))

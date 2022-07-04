@@ -243,6 +243,12 @@ class completion_percentage_tests(EuphorieIntegrationTestCase):
         self.q2 = self.mod2.addChild(
             model.Risk(title="question 2", risk_id="2", zodb_path="k/c")
         )
+        self.mod3 = self.survey.addChild(
+            model.Module(title="module 3", module_id="3", zodb_path="p")
+        )
+        self.q2 = self.mod2.addChild(
+            model.Risk(title="question 3", risk_id="3", zodb_path="p/d")
+        )
         self.q1.postponed = False
         self.q1.identification = "yes"
         self.mod2.skip_children = True
