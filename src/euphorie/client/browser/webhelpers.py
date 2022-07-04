@@ -269,12 +269,13 @@ class WebHelpers(BrowserView):
     def update_completion_percentage(self, session=None):
         if not session:
             session = self.traversed_session.session
-        query = (
+        modules = (
             Session.query(SurveyTreeItem)
             .filter(SurveyTreeItem.session_id == session.id)
             .filter(SurveyTreeItem.type == "module")
             .filter(SurveyTreeItem.skip_children == False)  # noqa: E712
         ).order_by(SurveyTreeItem.depth)
+        risks = Session.query(Risk).filter(Risk.session_id == session.id)
         total_risks = 0
         answered_risks = 0
 
@@ -284,23 +285,17 @@ class WebHelpers(BrowserView):
                 module.parent and recursive_skip_children(module.parent)
             )
 
-        for module in query:
-            if not module.path:
-                # XXX When does a module not have a path?
-                continue
-            if recursive_skip_children(module):
-                continue
-            total_risks_query = (
-                Session.query(Risk)
-                .filter(Risk.session_id == session.id)
-                .filter(Risk.path.like(module.path + "%"))
-                .filter(Risk.depth == module.depth + 1)
-            )
-            total_risks = total_risks + total_risks_query.count()
-            answered_risks_query = total_risks_query.filter(
-                Risk.identification != None  # noqa: E711
-            )
-            answered_risks = answered_risks + answered_risks_query.count()
+        for risk in risks:
+            for module in modules:
+                if not module.path:
+                    # XXX When does a module not have a path?
+                    continue
+                if recursive_skip_children(module):
+                    continue
+                if risk.path.startswith(module.path) and risk.depth == module.depth + 1:
+                    total_risks += 1
+                    if risk.identification is not None:
+                        answered_risks += 1
 
         completion_percentage = (
             int(round((answered_risks * 1.0 / total_risks * 1.0) * 100.0))
