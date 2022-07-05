@@ -1,0 +1,2 @@
+(self.webpackChunk_patternslib_patternslib=self.webpackChunk_patternslib_patternslib||[]).push([[1331],{91331:function(){FullCalendar.globalLocales.push(function(){"use strict";return{code:"en-nz",week:{dow:1,doy:4},buttonHints:{prev:"Previous $0",next:"Next $0",today:"This $0"},viewHint:"$0 view",navLinkHint:"Go to $0",moreLinkHint:e=>`Show ${e} more event${1===e?"":"s"}`}}())}}]);
+//# sourceMappingURL=1331.1379041baae652b1eafc.min.js.map

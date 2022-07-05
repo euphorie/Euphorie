@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_patternslib_patternslib=self.webpackChunk_patternslib_patternslib||[]).push([[3163],{3163:function(e,t){Object.defineProperty(t,"__esModule",{value:!0});t.default={code:"ug",buttonText:{month:"ئاي",week:"ھەپتە",day:"كۈن",list:"كۈنتەرتىپ"},allDayText:"پۈتۈن كۈن"}}}]);
+//# sourceMappingURL=3163.e86649c8547b3a93be02.min.js.map

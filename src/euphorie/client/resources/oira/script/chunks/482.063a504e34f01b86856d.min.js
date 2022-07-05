@@ -1,0 +1,2 @@
+(self.webpackChunk_patternslib_patternslib=self.webpackChunk_patternslib_patternslib||[]).push([[482],{30482:function(){FullCalendar.globalLocales.push(function(){"use strict";return{code:"sl",week:{dow:1,doy:7},buttonText:{prev:"Prejšnji",next:"Naslednji",today:"Trenutni",month:"Mesec",week:"Teden",day:"Dan",list:"Dnevni red"},weekText:"Teden",allDayText:"Ves dan",moreLinkText:"več",noEventsText:"Ni dogodkov za prikaz"}}())}}]);
+//# sourceMappingURL=482.063a504e34f01b86856d.min.js.map

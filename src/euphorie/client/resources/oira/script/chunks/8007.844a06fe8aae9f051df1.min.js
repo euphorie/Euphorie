@@ -1,0 +1,2 @@
+(self.webpackChunk_patternslib_patternslib=self.webpackChunk_patternslib_patternslib||[]).push([[8007],{88007:function(){FullCalendar.globalLocales.push(function(){"use strict";return{code:"hr",week:{dow:1,doy:7},buttonText:{prev:"Prijašnji",next:"Sljedeći",today:"Danas",month:"Mjesec",week:"Tjedan",day:"Dan",list:"Raspored"},weekText:"Tje",allDayText:"Cijeli dan",moreLinkText:function(e){return"+ još "+e},noEventsText:"Nema događaja za prikaz"}}())}}]);
+//# sourceMappingURL=8007.844a06fe8aae9f051df1.min.js.map

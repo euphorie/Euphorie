@@ -1,0 +1,2 @@
+(self.webpackChunk_patternslib_patternslib=self.webpackChunk_patternslib_patternslib||[]).push([[6974],{46974:function(){FullCalendar.globalLocales.push(function(){"use strict";return{code:"ar-ly",week:{dow:6,doy:12},direction:"rtl",buttonText:{prev:"السابق",next:"التالي",today:"اليوم",month:"شهر",week:"أسبوع",day:"يوم",list:"أجندة"},weekText:"أسبوع",allDayText:"اليوم كله",moreLinkText:"أخرى",noEventsText:"أي أحداث لعرض"}}())}}]);
+//# sourceMappingURL=6974.84de8345f3ad995d05ea.min.js.map

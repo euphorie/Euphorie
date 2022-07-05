@@ -1,0 +1,2 @@
+(self.webpackChunk_patternslib_patternslib=self.webpackChunk_patternslib_patternslib||[]).push([[6819],{16819:function(){FullCalendar.globalLocales.push(function(){"use strict";return{code:"ug",buttonText:{month:"ئاي",week:"ھەپتە",day:"كۈن",list:"كۈنتەرتىپ"},allDayText:"پۈتۈن كۈن"}}())}}]);
+//# sourceMappingURL=6819.b3226cc7e4080ebdf1e9.min.js.map

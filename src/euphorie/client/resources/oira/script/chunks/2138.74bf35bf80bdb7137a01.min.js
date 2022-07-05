@@ -1,0 +1,2 @@
+(self.webpackChunk_patternslib_patternslib=self.webpackChunk_patternslib_patternslib||[]).push([[2138],{22138:function(){FullCalendar.globalLocales.push(function(){"use strict";return{code:"uz",buttonText:{month:"Oy",week:"Xafta",day:"Kun",list:"Kun tartibi"},allDayText:"Kun bo'yi",moreLinkText:function(t){return"+ yana "+t},noEventsText:"Ko'rsatish uchun voqealar yo'q"}}())}}]);
+//# sourceMappingURL=2138.74bf35bf80bdb7137a01.min.js.map

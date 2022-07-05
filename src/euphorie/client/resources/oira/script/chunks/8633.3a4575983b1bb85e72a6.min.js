@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_patternslib_patternslib=self.webpackChunk_patternslib_patternslib||[]).push([[8633],{68633:function(e,t){Object.defineProperty(t,"__esModule",{value:!0});t.default={code:"el",week:{dow:1,doy:4},buttonText:{prev:"Προηγούμενος",next:"Επόμενος",today:"Σήμερα",month:"Μήνας",week:"Εβδομάδα",day:"Ημέρα",list:"Ατζέντα"},weekText:"Εβδ",allDayText:"Ολοήμερο",moreLinkText:"περισσότερα",noEventsText:"Δεν υπάρχουν γεγονότα προς εμφάνιση"}}}]);
+//# sourceMappingURL=8633.3a4575983b1bb85e72a6.min.js.map

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_patternslib_patternslib=self.webpackChunk_patternslib_patternslib||[]).push([[2222],{52222:function(e,t){Object.defineProperty(t,"__esModule",{value:!0});t.default={code:"cs",week:{dow:1,doy:4},buttonText:{prev:"Dříve",next:"Později",today:"Nyní",month:"Měsíc",week:"Týden",day:"Den",list:"Agenda"},weekText:"Týd",allDayText:"Celý den",moreLinkText:function(e){return"+další: "+e},noEventsText:"Žádné akce k zobrazení"}}}]);
+//# sourceMappingURL=2222.a6704dcef9bbf0c0ba64.min.js.map

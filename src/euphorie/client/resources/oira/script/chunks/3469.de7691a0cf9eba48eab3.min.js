@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_patternslib_patternslib=self.webpackChunk_patternslib_patternslib||[]).push([[3469],{33469:function(e,t){Object.defineProperty(t,"__esModule",{value:!0});t.default={code:"az",week:{dow:1,doy:4},buttonText:{prev:"Əvvəl",next:"Sonra",today:"Bu Gün",month:"Ay",week:"Həftə",day:"Gün",list:"Gündəm"},weekText:"Həftə",allDayText:"Bütün Gün",moreLinkText:function(e){return"+ daha çox "+e},noEventsText:"Göstərmək üçün hadisə yoxdur"}}}]);
+//# sourceMappingURL=3469.de7691a0cf9eba48eab3.min.js.map

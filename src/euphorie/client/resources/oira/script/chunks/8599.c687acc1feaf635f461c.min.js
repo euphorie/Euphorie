@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_patternslib_patternslib=self.webpackChunk_patternslib_patternslib||[]).push([[8599],{68599:function(e,t){Object.defineProperty(t,"__esModule",{value:!0});t.default={code:"id",week:{dow:1,doy:7},buttonText:{prev:"mundur",next:"maju",today:"hari ini",month:"Bulan",week:"Minggu",day:"Hari",list:"Agenda"},weekText:"Mg",allDayText:"Sehari penuh",moreLinkText:"lebih",noEventsText:"Tidak ada acara untuk ditampilkan"}}}]);
+//# sourceMappingURL=8599.c687acc1feaf635f461c.min.js.map

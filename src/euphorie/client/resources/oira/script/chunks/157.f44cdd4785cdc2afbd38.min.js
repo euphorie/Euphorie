@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_patternslib_patternslib=self.webpackChunk_patternslib_patternslib||[]).push([[157],{40157:function(t,e,r){r.r(e),r.d(e,{TableRow:function(){return a},default:function(){return a}});var n=r(19958);const a=n.Node.create({name:"tableRow",addOptions:()=>({HTMLAttributes:{}}),content:"(tableCell | tableHeader)*",tableRole:"row",parseHTML:()=>[{tag:"tr"}],renderHTML({HTMLAttributes:t}){return["tr",(0,n.mergeAttributes)(this.options.HTMLAttributes,t),0]}})}}]);
+//# sourceMappingURL=157.f44cdd4785cdc2afbd38.min.js.map

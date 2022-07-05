@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_patternslib_patternslib=self.webpackChunk_patternslib_patternslib||[]).push([[2570],{2570:function(e,t){Object.defineProperty(t,"__esModule",{value:!0});var n={code:"en-nz",week:{dow:1,doy:4},buttonHints:{prev:"Previous $0",next:"Next $0",today:"This $0"},viewHint:"$0 view",navLinkHint:"Go to $0",moreLinkHint:e=>`Show ${e} more event${1===e?"":"s"}`};t.default=n}}]);
+//# sourceMappingURL=2570.bfae378b84320618859e.min.js.map
