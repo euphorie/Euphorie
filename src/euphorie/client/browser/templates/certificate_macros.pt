@@ -15,6 +15,7 @@
                      meta:interpolation="true"
                      tal:define="
                        session session|webhelpers/traversed_session/session;
+                       completion_percentage session/completion_percentage;
                      "
                      i18n:domain="euphorie"
   >
@@ -25,10 +26,10 @@
        tal:condition="not:disabled"
     >
       <strong class="pie-graph"
-              title="${python:webhelpers.get_progress_indicator_title(completion_percentage=session.completion_percentage)}"
-              data-percentage="${session/completion_percentage|string:0}"
+              title="${python:webhelpers.get_progress_indicator_title(completion_percentage=completion_percentage)}"
+              data-percentage="${completion_percentage}"
               tal:condition="webhelpers/show_completion_percentage"
-      >${session/completion_percentage|string:0}%</strong>
+      >${completion_percentage}%</strong>
     </a>
   </metal:status_icon>
 </html>
