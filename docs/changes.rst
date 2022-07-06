@@ -4,7 +4,8 @@ Changelog
 14.1.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Deprecate the @@update-completion-percentage view
+  `#419 <https://github.com/euphorie/Euphorie/pull/419>`_.
 
 
 14.1.4 (2022-07-06)
@@ -1744,6 +1745,7 @@ Bugfixes
 
 6.0rc3 - April 23, 2013
 -----------------------
+
 
 - Update Dutch, Latvian, Lithuanian and Finnish translations.
 - Use https in stylesheets (for google fonts).
