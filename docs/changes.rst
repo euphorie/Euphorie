@@ -4,7 +4,7 @@ Changelog
 14.1.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Updated CSS to latest version of prototype.
 
 
 14.1.3 (2022-06-29)
