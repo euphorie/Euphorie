@@ -4,7 +4,7 @@ Changelog
 14.1.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- “Show more” button on tool view if there are existing sessions.
 
 
 14.1.3 (2022-06-29)
