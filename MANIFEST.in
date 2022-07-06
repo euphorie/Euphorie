@@ -1,5 +1,13 @@
 include *.rst
 include *.txt
+exclude TODO.md
+exclude .git-blame-ignore-revs
+exclude .pep8
+exclude .pre-commit-config.yaml
+exclude Makefile
+exclude mapping.plone
+recursive-exclude scripts *
+recursive-exclude src/euphorie/deployment/locales *.py
 recursive-include src/euphorie *.zcml
 recursive-include src/euphorie/deployment/locales *.mo
 recursive-include src/euphorie/deployment/locales *.po
@@ -38,6 +46,6 @@ graft src/euphorie/client/docx/templates
 recursive-exclude src/euphorie *.pt.py
 recursive-exclude src/euphorie *.pt.pyc
 prune Work
-prune *.pyc
+global-exclude *.pyc
 prune src/euphorie/client/resources/brands/daimler
 recursive-include etc *.ini
