@@ -117,7 +117,8 @@
                 >
                   <button class="pat-button pat-switch focus"
                           data-pat-switch="#tool-body-text show-less show-more"
-                  >Lesen Sie mehr</button>
+                          i18n:translate="label_read_more"
+                  >Read more</button>
                 </p>
               </section>
             </div>
