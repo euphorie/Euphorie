@@ -6,6 +6,7 @@ Changelog
 
 - Deprecate the @@update-completion-percentage view
   `#419 <https://github.com/euphorie/Euphorie/pull/419>`_.
+- “Show more” button on tool view if there are existing sessions.
 
 
 14.1.4 (2022-07-06)
