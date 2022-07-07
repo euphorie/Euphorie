@@ -12,6 +12,9 @@
     <div id="content-pane">
       <article id="help">
         <p>
+          <strong>DEPRECATED!</strong>
+        </p>
+        <p>
         This view updates the values of completion_percentage for existing sessions.
         </p>
         <p>

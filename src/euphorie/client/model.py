@@ -697,12 +697,6 @@ class SurveySession(BaseObject):
         default=None,
     )
 
-    completion_percentage = schema.Column(
-        types.Integer,
-        nullable=True,
-        default=0,
-    )
-
     zodb_path = schema.Column(types.String(512), nullable=False)
 
     report_comment = schema.Column(types.UnicodeText())
@@ -1115,6 +1109,40 @@ class SurveySession(BaseObject):
     @property
     def country(self):
         return str(self.zodb_path).split("/")[0]
+
+    @property
+    def completion_percentage(self):
+        module_query = (
+            Session.query(SurveyTreeItem)
+            .filter(SurveyTreeItem.session_id == self.id)
+            .filter(SurveyTreeItem.type == "module")
+        ).order_by(SurveyTreeItem.path)
+
+        good_module_ids = set()
+        bad_module_ids = set()
+        for module in module_query:
+            if module.parent_id in bad_module_ids or module.skip_children:
+                bad_module_ids.add(module.id)
+            else:
+                good_module_ids.add(module.id)
+
+        if not good_module_ids:
+            return 0
+
+        total_risks_query = Session.query(Risk).filter(
+            Risk.parent_id.in_(good_module_ids)
+        )
+        total = total_risks_query.count()
+
+        if not total:
+            return 0
+
+        answered = float(
+            total_risks_query.filter(Risk.identification != None).count()  # noqa: E711
+        )
+
+        completion_percentage = int(round(answered / total * 100.0))
+        return completion_percentage
 
 
 class Company(BaseObject):

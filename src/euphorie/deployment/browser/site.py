@@ -3,7 +3,6 @@ from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.client.browser.webhelpers import WebHelpers
-from euphorie.client.model import Account
 from euphorie.client.model import ActionPlan
 from euphorie.client.model import Session
 from euphorie.client.model import SurveySession
@@ -25,6 +24,7 @@ from sqlalchemy import and_
 from sqlalchemy import sql
 from time import time
 from zope.component import adapter
+from zope.deprecation import deprecate
 from zope.interface import alsoProvides
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 
@@ -133,41 +133,11 @@ class UpdateCompletionPercentage(WebHelpers):
         else:
             return 0
 
+    @deprecate(
+        "Not needed anymore because the completion_percentage is now calculated. "
+        "Deprecated in version 14.1.4.dev0"
+    )
     def __call__(self):
-        if self.request.method == "POST":
-            self.log("Updating completion_percentage")
-            b_size = self.request.get("b_size", 1000)
-            b_start = self.request.get("b_start", 0)
-            self.log("Limiting to {} sessions; starting at {}".format(b_size, b_start))
-            query = Session.query(SurveySession)
-            if "overwrite" not in self.request.form:
-                query = query.filter(
-                    SurveySession.completion_percentage == None  # noqa: E711
-                )
-                self.log("Ignoring sessions with existing non-null values")
-            else:
-                self.log("Overwriting existing non-null values")
-            query = (
-                query.join(
-                    Account,
-                    sql.and_(
-                        Account.id == SurveySession.account_id,
-                        Account.account_type != "guest",
-                    ),
-                )
-                .order_by(SurveySession.modified.desc())
-                .offset(b_start)
-                .limit(b_size)
-            )
-            total = query.count()
-            self.log("Found {} sessions".format(total))
-            cnt = 0
-            for session in query:
-                self.update_completion_percentage(session)
-                cnt += 1
-                if cnt % self.flush_threshold == 0:
-                    self.log("Handled {0} out of {1} sessions".format(cnt, total))
-            self.log("Done")
         return self.index()
 
 
