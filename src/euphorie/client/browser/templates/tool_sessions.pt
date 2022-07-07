@@ -100,17 +100,26 @@
             </p>
           </div>
           <div class="tool-description">
-            <div class="pat-rich tool-body-text">
+            <div class="pat-rich tool-text">
               <h1 class="tool-name">${context/Title}</h1>
               <section class="summary"
                        tal:condition="python:description.strip()"
               >
                 <p tal:content="description"></p>
               </section>
-              <section class="tool-body-text"
+              <section class="body ${python: 'show-less' if sessions else ''}"
+                       id="tool-body-text"
                        tal:condition="python:introduction.strip()"
               >
                 <p tal:replace="structure introduction"></p>
+                <p class="more-bar pat-bumper"
+                   tal:condition="sessions"
+                >
+                  <button class="pat-button pat-switch focus"
+                          data-pat-switch="#tool-body-text show-less show-more"
+                          i18n:translate="label_read_more"
+                  >Read more</button>
+                </p>
               </section>
             </div>
 
