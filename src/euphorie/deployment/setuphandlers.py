@@ -22,6 +22,7 @@ def setupVarious(context):
     setupInitialContent(site)
     setupVersioning(site)
     registerPasswordPolicy(site)
+    setupSecureSessionCookie(site)
 
 
 COUNTRIES = {
@@ -216,3 +217,11 @@ def registerPasswordPolicy(site):
                     info["interface"],
                     [plugin.getId()],
                 )
+
+
+def setupSecureSessionCookie(site):
+    session = api.portal.get_tool("acl_users").get("session")
+    if not session:
+        return
+    if not session.secure:
+        session.secure = True

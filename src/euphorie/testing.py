@@ -99,6 +99,10 @@ class EuphorieFixture(PloneSandboxLayer):
         ):
             quickInstallProduct(portal, "euphorie.deployment.tests")
 
+        session = portal.acl_users.get("session")
+        # In tests we don't have secure connections
+        session.secure = False
+
     def testSetUp(self):
         """XXX testSetUp and testTearDown should not be necessary, but it seems
         SQL data is not correctly cleared at the end of a test method run,
