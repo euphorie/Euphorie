@@ -232,7 +232,7 @@ class Login(BrowserView):
                 last_name=form.get("last_name"),
             )
             Session().add(account)
-        log.info("Registered new account %s", loginname)
+        log.info("Registered new account %r", loginname)
         v_url = urlsplit(self.request.URL + "/success").path.replace("@@", "")
         trigger_extra_pageview(self.request, v_url)
         return account
