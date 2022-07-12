@@ -14,10 +14,8 @@ from euphorie.client.client import IClient
 from euphorie.client.country import IClientCountry
 from euphorie.client.model import get_current_account
 from euphorie.client.model import Group
-from euphorie.client.model import Risk
 from euphorie.client.model import Session
 from euphorie.client.model import SurveySession
-from euphorie.client.model import SurveyTreeItem
 from euphorie.client.sector import IClientSector
 from euphorie.client.update import wasSurveyUpdated
 from euphorie.client.utils import getSecret
@@ -204,11 +202,8 @@ class WebHelpers(BrowserView):
     def use_help_section(self):
         return api.portal.get_registry_record("euphorie.use_help_section", default=True)
 
-    @property
-    @memoize
-    def show_completion_percentage(self):
-        """Feature switch, can be overwritten in subclass"""
-        return False
+    # Feature switch, can be overwritten in subclass
+    show_completion_percentage = False
 
     @property
     @memoize
@@ -266,49 +261,16 @@ class WebHelpers(BrowserView):
         traversed_session = self.traversed_session
         return traversed_session.session.id if traversed_session else ""
 
+    @memoize
+    @deprecate(
+        "Replace with session.completion_percentage "
+        "or self.traversed_session.session.completion_percentage. "
+        "Deprecated in version 14.1.4.dev0"
+    )
     def update_completion_percentage(self, session=None):
         if not session:
             session = self.traversed_session.session
-        query = (
-            Session.query(SurveyTreeItem)
-            .filter(SurveyTreeItem.session_id == session.id)
-            .filter(SurveyTreeItem.type == "module")
-            .filter(SurveyTreeItem.skip_children == False)  # noqa: E712
-        ).order_by(SurveyTreeItem.depth)
-        total_risks = 0
-        answered_risks = 0
-
-        @memoize
-        def recursive_skip_children(module):
-            return module.skip_children or (
-                module.parent and recursive_skip_children(module.parent)
-            )
-
-        for module in query:
-            if not module.path:
-                # XXX When does a module not have a path?
-                continue
-            if recursive_skip_children(module):
-                continue
-            total_risks_query = (
-                Session.query(Risk)
-                .filter(Risk.session_id == session.id)
-                .filter(Risk.path.like(module.path + "%"))
-                .filter(Risk.depth == module.depth + 1)
-            )
-            total_risks = total_risks + total_risks_query.count()
-            answered_risks_query = total_risks_query.filter(
-                Risk.identification != None  # noqa: E711
-            )
-            answered_risks = answered_risks + answered_risks_query.count()
-
-        completion_percentage = (
-            int(round((answered_risks * 1.0 / total_risks * 1.0) * 100.0))
-            if total_risks
-            else 0
-        )
-        session.completion_percentage = completion_percentage
-        return completion_percentage
+        return session.completion_percentage
 
     def get_progress_indicator_title(self, completion_percentage=None):
         if completion_percentage is None and self.traversed_session is not None:

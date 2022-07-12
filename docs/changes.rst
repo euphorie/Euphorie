@@ -1,10 +1,19 @@
 Changelog
 =========
 
-14.1.4 (unreleased)
+14.1.5 (unreleased)
 -------------------
 
 - Fix label_custom_risks on client status page https://github.com/syslabcom/scrum/issues/370
+- Deprecate the @@update-completion-percentage view
+  `#419 <https://github.com/euphorie/Euphorie/pull/419>`_.
+- “Show more” button on tool view if there are existing sessions.
+
+
+14.1.4 (2022-07-06)
+-------------------
+
+- Updated CSS to latest version of prototype.
 
 
 14.1.3 (2022-06-29)
@@ -1738,6 +1747,7 @@ Bugfixes
 
 6.0rc3 - April 23, 2013
 -----------------------
+
 
 - Update Dutch, Latvian, Lithuanian and Finnish translations.
 - Use https in stylesheets (for google fonts).
