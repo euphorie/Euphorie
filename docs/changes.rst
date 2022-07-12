@@ -4,6 +4,7 @@ Changelog
 14.1.5 (unreleased)
 -------------------
 
+- Fix label_custom_risks on client status page https://github.com/syslabcom/scrum/issues/370
 - Deprecate the @@update-completion-percentage view
   `#419 <https://github.com/euphorie/Euphorie/pull/419>`_.
 - “Show more” button on tool view if there are existing sessions.
