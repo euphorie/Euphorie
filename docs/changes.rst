@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.1.5 (unreleased)
+14.1.5 (2022-07-13)
 -------------------
 
 - Fix label_custom_risks on client status page https://github.com/syslabcom/scrum/issues/370
