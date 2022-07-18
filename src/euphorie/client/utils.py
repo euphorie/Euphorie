@@ -100,7 +100,7 @@ def setLanguage(request, context, lang=None):
         lang = lang.split("-")[0]
         res = lt.setLanguageCookie(lang=lang, request=request)
         if res is None:
-            log.warning("Failed to switch language to %s", lang)
+            log.warning("Failed to switch language to %r", lang)
             lt.setLanguageCookie(lang="en", request=request)
             lang = "en"
 

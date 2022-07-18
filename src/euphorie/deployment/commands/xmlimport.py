@@ -32,7 +32,7 @@ class Abort(RuntimeError):
 def GetCountry(plone, options):
     sectors = plone.sectors
     if not hasattr(sectors, options.country):
-        log.info("Creating missing country %s", options.country)
+        log.info("Creating missing country %r", options.country)
         sectors.invokeFactory(
             "euphorie.country", options.country, title=options.country
         )
@@ -107,7 +107,7 @@ def ImportSector(plone, options, filename):
         if hasattr(sector, name):
             raise Abort("There is already a survey named '%s'" % name)
 
-        log.info("Importing survey '%s' with version '%s'", name, options.version)
+        log.info("Importing survey '%r' with version '%r'", name, options.version)
         importer = SurveyImporter(sector)
         survey = importer(xml_sector, name, options.version)
 
@@ -221,11 +221,11 @@ def main(app, args):
     for arg in args:
         transaction.begin()
         try:
-            log.info("Importing %s", arg)
+            log.info("Importing %r", arg)
             ImportSector(plone, options, arg)
             trans = transaction.get()
             trans.setUser("-commandline-")
-            trans.note("Import of %s" % arg)
+            trans.note("Import of %r" % arg)
             trans.commit()
         except lxml.etree.XMLSyntaxError as e:
             transaction.abort()
