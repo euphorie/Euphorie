@@ -146,7 +146,7 @@ class SurveyTemplatesMixin(object):
                     categories = ["None"]
                 for category in categories:
                     survey_items.append((category, survey, id))
-        return sorted(survey_items, key=lambda x: (x[0], x[1].title))
+        return sorted(survey_items, key=lambda x: (x[0] or "None", x[1].title))
 
 
 class SessionsView(BrowserView, SurveyTemplatesMixin):

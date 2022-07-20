@@ -4,7 +4,7 @@ Changelog
 14.1.6 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix the way ``get_survey_templates`` handles a survey with an unset category.
 
 
 14.1.5 (2022-07-13)
