@@ -1,4 +1,4 @@
-"""empty message
+"""The boolean active column becomes the deactivated date time column
 
 Revision ID: 20211011114527
 Revises: 20210409113814

@@ -1,4 +1,4 @@
-"""empty message
+"""Add the training table
 
 Revision ID: 20220318135716
 Revises: 20211019165915

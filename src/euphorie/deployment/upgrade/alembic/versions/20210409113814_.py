@@ -1,4 +1,4 @@
-"""empty message
+"""Add a timestamp to the company table
 
 Revision ID: 20210409113814
 Revises: 29

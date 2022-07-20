@@ -1,4 +1,4 @@
-"""empty message
+"""Add the columns first_name and last_name to the account table
 
 Revision ID: 20220620103222
 Revises: 20220318135716
