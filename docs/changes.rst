@@ -1,9 +1,10 @@
 Changelog
 =========
 
-14.1.6 (unreleased)
+14.2.0 (unreleased)
 -------------------
 
+- Upgrade plone to 5.2.9
 - Fix the way ``get_survey_templates`` handles a survey with an unset category.
 
 
