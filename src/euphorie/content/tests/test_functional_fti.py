@@ -1,5 +1,4 @@
 # coding=utf-8
-from ...ghost import PathGhost
 from ..fti import check_fti_paste_allowed
 from euphorie.content.fti import ConditionalDexterityFTI
 from euphorie.content.fti import IConstructionFilter
@@ -84,12 +83,6 @@ class check_fti_paste_allowed_tests(unittest.TestCase):
 
     def test_refuse_non_portal_content(self):
         self.assertRaises(ValueError, self.check_fti_paste_allowed, None, mock.Mock())
-
-    def test_do_not_use_acquisition_to_get_portal_type(self):
-        parent = PathGhost("parent")
-        parent.portal_type = "euphorie.risk"
-        content = PathGhost("child").__of__(parent)
-        self.assertRaises(ValueError, self.check_fti_paste_allowed, None, content)
 
     def test_content_without_fti(self):
         content = mock.Mock()

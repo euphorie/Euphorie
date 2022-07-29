@@ -42,12 +42,6 @@
         />
 
     <browser:defaultView
-        for="euphorie.ghost.PathGhost"
-        layer=".interfaces.IClientSkinLayer"
-        name="index_html"
-        />
-
-    <browser:defaultView
         for=".model.BaseObject"
         layer=".interfaces.IClientSkinLayer"
         name="index_html"
