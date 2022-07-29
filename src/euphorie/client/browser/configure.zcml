@@ -902,4 +902,13 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="robots.txt"
+      for="*"
+      permission="zope2.Public"
+      class=".robots.RobotsView"
+      template="templates/robots.txt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
 </configure>

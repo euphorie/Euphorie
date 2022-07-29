@@ -9,6 +9,8 @@ Changelog
 - Remove the ghost module and its tests
   because it is not used since quite some time
   [ale-rt]
+- scrum/378 Add a robots.txt view to the client
+  [cillianderoiste]
 
 
 14.1.5 (2022-07-13)
