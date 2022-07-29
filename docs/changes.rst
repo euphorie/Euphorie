@@ -11,6 +11,9 @@ Changelog
   [ale-rt]
 - scrum/378 Add a robots.txt view to the client
   [cillianderoiste]
+- Upgrade step to handle the decomissioning of the ``training_notes`` field
+  `#426 <https://github.com/euphorie/Euphorie/pull/426>`_.
+  [ale-rt]
 
 
 14.1.5 (2022-07-13)
@@ -3131,4 +3134,3 @@ Released on February 23rd, 2010
 
 - Initial release.
   [wichert]
-
