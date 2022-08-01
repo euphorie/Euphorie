@@ -5,6 +5,8 @@ Changelog
 -------------------
 
 - Introduce the concept of "organisations"
+- Added an `@@export.json` view that allows to export a session and the related content in a single json file.
+  [ale-rt]
 - Upgrade plone to 5.2.9
 - Fix the way ``get_survey_templates`` handles a survey with an unset category.
 - Remove the ghost module and its tests

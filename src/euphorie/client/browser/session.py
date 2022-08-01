@@ -7,6 +7,7 @@ from decimal import Decimal
 from euphorie import MessageFactory as _
 from euphorie.client import config
 from euphorie.client import utils
+from euphorie.client.adapters.json import SAJsonEncoder
 from euphorie.client.model import ACTION_PLAN_FILTER
 from euphorie.client.model import ActionPlan
 from euphorie.client.model import get_current_account
@@ -44,6 +45,7 @@ from zope.event import notify
 from zope.i18n import translate
 from zope.lifecycleevent import ObjectModifiedEvent
 
+import json
 import re
 
 
@@ -1192,3 +1194,27 @@ class MeasuresOverview(Status):
         self.modules = []
         for key in sorted(main_modules.keys()):
             self.modules.append(main_modules[key])
+
+
+class ExportJsonView(BrowserView):
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    def verify_view_permission(self):
+        if api.user.has_permission("Manage portal"):
+            return True
+        if not self.webhelpers.can_view_session:
+            raise Unauthorized
+
+    def get_payload(self):
+        """Serialize the session and its contents"""
+        session = self.context.session
+        return json.dumps(session, cls=SAJsonEncoder, indent=2, sort_keys=True)
+
+    def __call__(self):
+        self.verify_view_permission()
+        payload = self.get_payload()
+        self.request.response.setHeader("Content-Type", "application/json")
+        return payload

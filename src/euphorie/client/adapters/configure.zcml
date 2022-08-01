@@ -17,4 +17,8 @@
       provides="zope.publisher.interfaces.IPublishTraverse"
       />
 
+  <adapter factory=".json.SA2DictAdapter" />
+  <adapter factory=".json.Risk2DictAdapter" />
+  <adapter factory=".json.SurveySession2DictAdapter" />
+
 </configure>
