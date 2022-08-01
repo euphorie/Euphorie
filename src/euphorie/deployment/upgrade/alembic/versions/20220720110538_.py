@@ -62,7 +62,7 @@ def upgrade():
 
 
 def downgrade():
-    if not has_table("organisation"):
+    if has_table("organisation"):
         op.drop_table("organisation")
     if has_table("organisation_membership"):
         op.drop_table("organisation_membership")
