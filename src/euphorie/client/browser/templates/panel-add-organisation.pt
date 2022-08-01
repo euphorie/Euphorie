@@ -59,23 +59,19 @@
           >
             <div class="container">
 
-
               <button class="pat-button default icon-ok-circle close-panel"
                       type="submit"
+                      i18n:translate=""
               >
-                            Save
+                Save
               </button>
-
-
-
 
               <button class="pat-button close-panel icon-cancel-circle"
                       type="button"
+                      i18n:translate=""
               >
-                            Cancel
+                Cancel
               </button>
-
-
 
             </div>
           </div>
