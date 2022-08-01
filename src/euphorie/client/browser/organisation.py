@@ -457,7 +457,7 @@ class PanelEditOrganisation(OrganisationBaseView):
         if not organisation:
             return
 
-        # Check if the organisation should be visible to the current account
+        # Check if the organisation should be workable for the current account
         account_id = account.id
         if organisation.owner_id == account_id:
             # The user is the owner, return the organisation
