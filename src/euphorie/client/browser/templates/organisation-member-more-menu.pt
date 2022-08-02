@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div id="content-pane">
+        <div id="application-content">
+          <div id="member-more-menu">
+            <ul class="menu">
+              <li>
+                <a class="icon-pencil pat-modal close-panel"
+                   href="${here/@@absolute_url}/@@panel-organisation-member-edit/${request/membership_id}#document-content"
+                   data-pat-modal="class: medium panel"
+                >Edit</a>
+              </li>
+              <li>
+                <a class="icon-trash pat-modal close-panel"
+                   href="${here/@@absolute_url}/@@panel-organisation-member-remove/${request/membership_id}#document-content"
+                   data-pat-modal="class: medium panel"
+                >Remove</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </metal:slot>
+
+  </body>
+</html>

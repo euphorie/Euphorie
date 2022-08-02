@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@modal-template/macros/shell"
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div class="pat-modal medium panel"
+           id="document-content"
+      >
+        <h1 class="panel-class-"
+            i18n:translate=""
+        >
+          Edit
+          <tal:i18n i18n:name="name">${view/edited_member/loginname}</tal:i18n>
+        </h1>
+
+        <form class="pat-form wizard-box panel-class- pat-inject"
+              action="${request/getURL}#org-${python:view.organisation.organisation_id}"
+              method="post"
+        >
+          <div class="panel-body"
+               id="modal-panel-body"
+          >
+            <div class="container">
+              <fieldset class="form-panel horizontal">
+                <tal:comment condition="XXX|nothing">
+                  Does it make sense for the organisation admin to manage other users metadata?
+                  <!--label>
+                    First name (Optional)
+                    <input class="pat-autofocus"
+                          name="first_name"
+                          required
+                          type="text"
+                    />
+                  </label>
+                  <label>
+                    Last name (Optional)
+                    <input name="family_name"
+                          required
+                          type="text"
+                    />
+                  </label>
+                  <label>
+                    E-mail
+                    <input name="email"
+                          required
+                          type="email"
+                    />
+                  </label-->
+                </tal:comment>
+                <fieldset class="pat-checklist radio">
+                  <legend></legend>
+                  <label tal:repeat="option view/role_options">
+                    <input checked="${option/checked|nothing}"
+                           name="role"
+                           type="radio"
+                           value="${option/value}"
+                    />
+                    ${option/label}
+                  </label>
+                  <p class="pat-message info pat-depends"
+                     data-pat-depends="role=admin"
+                     i18n:translate=""
+                  >
+                    Administrators can create, edit and remove user accounts. Administrators can also make risk assessments, lock risk assessments, create trainings and take trainings.
+                  </p>
+                  <p class="pat-message info pat-depends"
+                     data-pat-depends="role=manager"
+                     i18n:translate=""
+                  >
+                    Managers/Policy makers can make risk assessments, lock risk assessments, create trainings and take trainings.
+                  </p>
+                  <p class="pat-message info pat-depends"
+                     data-pat-depends="role=member"
+                     i18n:translate=""
+                  >
+                    Members can make risk assessments and take trainings.
+                  </p>
+                </fieldset>
+              </fieldset>
+            </div>
+          </div>
+          <div class="buttons pat-bumper panel-footer"
+               id="modal-panel-footer"
+          >
+            <div class="container">
+              <button class="pat-button default icon-ok-circle close-panel"
+                      type="submit"
+                      i18n:translate=""
+              >
+                Save
+              </button>
+              <button class="pat-button close-panel icon-cancel-circle"
+                      type="button"
+                      i18n:translate=""
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </metal:slot>
+  </body>
+</html>

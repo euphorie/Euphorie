@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@modal-template/macros/shell"
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div class="pat-modal medium panel"
+           id="document-content"
+      >
+        <h1 class="panel-class-panel"
+            i18n:translate=""
+        >
+          Remove
+        </h1>
+
+        <form class="pat-form wizard-box panel-class-panel pat-inject"
+              action="${request/getURL}#org-${python:view.organisation.organisation_id}"
+              method="post"
+        >
+          <div class="panel-body"
+               id="modal-panel-body"
+          >
+            <div class="container">
+              <p class="pat-message notice"
+                 i18n:translate=""
+              >
+                Are you sure you want to remove
+                <strong i18n:name="name">${view/member_to_remove/loginname}</strong>
+                from
+                <strong>${python: view.get_organisation_title(view.organisation)}</strong>?
+              </p>
+
+              <fieldset class="vertical">
+                <p class="pat-button-bar">
+                  <button class="pat-button default icon-trash close-panel"
+                          type="submit"
+                          i18n:translate=""
+                  >
+                    Remove
+                  </button>
+                  <button class="pat-button cancel close-panel"
+                          type="button"
+                          i18n:translate=""
+                  >
+                    Cancel
+                  </button>
+                </p>
+              </fieldset>
+            </div>
+          </div>
+        </form>
+      </div>
+    </metal:slot>
+  </body>
+</html>

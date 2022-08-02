@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@modal-template/macros/shell"
+      i18n:domain="euphorie"
+>
+  <body>
+    <metal:slot fill-slot="content">
+      <div class="pat-modal medium panel"
+           id="document-content"
+           tal:define="
+             organisation python:view.organisation;
+             has_logo python:organisation and organisation.image_data is not None;
+           "
+      >
+        <h1 class="panel-class-"
+            i18n:translate=""
+        >
+          Edit
+        </h1>
+        <form class="pat-form wizard-box panel-class-panel pat-inject pat-validation"
+              action="${request/getURL}#org-${python:view.organisation.organisation_id}"
+              enctype="multipart/form-data"
+              data-pat-inject="#org-${python:view.organisation.organisation_id} &amp;&amp; .finger-tabs-tabs"
+              method="post"
+        >
+          <div class="panel-body"
+               id="modal-panel-body"
+          >
+            <div class="container">
+              <fieldset class="form-panel horizontal">
+                <label>
+                  <tal:i18n i18n:translate="">
+                    Organisation name
+                  </tal:i18n>
+                  <input class="pat-autofocus"
+                         name="title"
+                         type="text"
+                         value="${request/title|organisation/title|nothing}"
+                         required="required"
+                  />
+                </label>
+                <tal:condition condition="not:has_logo">
+                  <label>
+                    <tal:i18n i18n:translate="">
+                        Logo (Optional)
+                    </tal:i18n>
+                    <input name="logo"
+                           type="file"
+                    />
+                  </label>
+                  <input name="logo_operation"
+                         type="hidden"
+                         value="upload"
+                  />
+                </tal:condition>
+                <tal:condition condition="has_logo">
+                  <label>
+                    <tal:i18n i18n:translate="">
+                          Logo (Optional)
+                    </tal:i18n>
+                    <input class="pat-depends"
+                           name="logo"
+                           type="file"
+                           data-pat-depends="condition:logo_operation=upload; action: enable"
+                    />
+                  </label>
+                  <fieldset class="pat-checklist radio">
+                    <label>
+                      <tal:i18n i18n:translate="">
+                        Keep the existing logo
+                      </tal:i18n>
+                      <input checked="checked"
+                             name="logo_operation"
+                             type="radio"
+                             value="keep"
+                      />
+                    </label>
+                    <label>
+                      <tal:i18n i18n:translate="">
+                        Replace the existing logo
+                      </tal:i18n>
+                      <input name="logo_operation"
+                             type="radio"
+                             value="upload"
+                      />
+                    </label>
+                    <label>
+                      <tal:i18n i18n:translate="">
+                        Remove the existing logo
+                      </tal:i18n>
+                      <input name="logo_operation"
+                             type="radio"
+                             value="remove"
+                      />
+                    </label>
+                  </fieldset>
+                </tal:condition>
+              </fieldset>
+
+              <p class="pat-button-bar">
+                <button class="pat-button default icon-ok-circle close-panel"
+                        type="submit"
+                        value="1"
+                >
+                                        Save
+                </button>
+                <button class="pat-button cancel close-panel icon-cancel-circle"
+                        type="button"
+                        i18n:translate=""
+                >
+                    Cancel
+                </button>
+              </p>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </metal:slot>
+  </body>
+</html>

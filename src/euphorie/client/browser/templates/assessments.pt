@@ -80,17 +80,30 @@
                         >${python:toLocalizedTime(value)}</time>
                       </span>
                     </p>
-                    <p class="status field">
-                      <span class="value">
-                        <tal:i18n i18n:translate="">Last saved</tal:i18n>
+                    <p class="date field">
+                      <span class="last-saved"
+                            i18n:translate="last_edited_when"
+                      >
+                        Last edited
                         <time class="pat-display-time"
                               datetime="${value}"
                               data-pat-display-time="from-now: true; locale: ${language}"
                               tal:define="
                                 value python:webhelpers.timezoned_date(session.modified);
                               "
-                        >${value}</time>
+                              i18n:name="time"
+                        >
+                          ${value}
+                        </time>
                       </span>
+                      <tal:i18n tal:condition="python:session.last_modifier"
+                                i18n:translate="by_who"
+                      >
+                        by
+                        <tal:i18n i18n:name="who">
+                          ${python: session.last_modifier.loginname}
+                        </tal:i18n>
+                      </tal:i18n>
                     </p>
                     <p class="tool field"
                        tal:condition="show_extra_fields"

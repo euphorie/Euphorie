@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@modal-template/macros/shell"
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div class="pat-modal medium panel"
+           id="document-content"
+      >
+        <h1 class="panel-class-panel"
+            i18n:translate=""
+        >
+          Add organisation
+        </h1>
+
+        <form class="pat-form wizard-box panel-class-panel pat-validation"
+              action="${request/getURL}#portlet-company"
+              enctype="multipart/form-data"
+              method="post"
+        >
+          <div class="panel-body"
+               id="modal-panel-body"
+          >
+            <div class="container">
+              <fieldset class="form-panel horizontal">
+                <label>
+                  <tal:i18n i18n:translate="">
+                    Organisation name
+                  </tal:i18n>
+                  <input class="pat-autofocus"
+                         name="title"
+                         required="required"
+                         type="text"
+                         value="${view/default_organisation_title}"
+                  />
+                </label>
+                <label>
+                  <tal:i18n i18n:translate="">
+                      Logo (Optional)
+                  </tal:i18n>
+                  <input name="logo"
+                         type="file"
+                  />
+                </label>
+              </fieldset>
+
+            </div>
+          </div>
+
+          <div class="buttons pat-bumper panel-footer"
+               id="modal-panel-footer"
+          >
+            <div class="container">
+
+              <button class="pat-button default icon-ok-circle close-panel"
+                      type="submit"
+                      i18n:translate=""
+              >
+                Save
+              </button>
+
+              <button class="pat-button close-panel icon-cancel-circle"
+                      type="button"
+                      i18n:translate=""
+              >
+                Cancel
+              </button>
+
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </metal:slot>
+  </body>
+</html>

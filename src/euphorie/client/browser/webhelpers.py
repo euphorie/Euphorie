@@ -14,6 +14,7 @@ from euphorie.client.client import IClient
 from euphorie.client.country import IClientCountry
 from euphorie.client.model import get_current_account
 from euphorie.client.model import Group
+from euphorie.client.model import OrganisationMembership
 from euphorie.client.model import Session
 from euphorie.client.model import SurveySession
 from euphorie.client.sector import IClientSector
@@ -40,6 +41,7 @@ from Products.CMFPlone.interfaces import ISecuritySchema
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from six.moves.urllib.parse import urlencode
+from sqlalchemy import and_
 from user_agents import parse
 from ZODB.POSException import POSKeyError
 from zope.component import getMultiAdapter
@@ -609,8 +611,8 @@ class WebHelpers(BrowserView):
         return ""
 
     def get_dashboard_tab(self):
-        head, tail = path.split(self.request.PATH_INFO)
-        if tail in ["surveys", "assessments"]:
+        tail = path.split(self.request.PATH_INFO)[-1].lstrip("@@").rstrip("/")
+        if tail in ["surveys", "assessments", "organisation"]:
             return tail
         return "dashboard"
 
@@ -897,7 +899,25 @@ class WebHelpers(BrowserView):
         if not account:
             return False
         session = self.traversed_session.session
-        return session in account.sessions or session in account.acquired_sessions
+
+        # Check if it is my session
+        if session.account_id == account.id:
+            return True
+
+        # Check if it is a session of my organisation
+        if (
+            Session()
+            .query(OrganisationMembership)
+            .filter(
+                and_(
+                    OrganisationMembership.owner_id == session.account_id,
+                    OrganisationMembership.member_id == account.id,
+                )
+            )
+            .count()
+        ):
+            return True
+        return session in account.acquired_sessions
 
     @property
     @memoize
