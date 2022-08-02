@@ -69,13 +69,34 @@ class OrganisationBaseView(BaseView):
         )
         return organisations
 
+    @property
+    def default_organisation_title(self):
+        """Return the default title for a new organisation
+        or an orgasination without a title set
+        """
+        account = self.webhelpers.get_current_account()
+        name = account.first_name or account.loginname
+        return api.portal.translate(
+            _(
+                "default_organisation_title",
+                default="Organisation of ${name}",
+                mapping={"name": name},
+            )
+        )
+
     def get_organisation_title(self, organisation):
         """Return the title of the organisation."""
         if not organisation:
             return "TODO: FIXME"
-        if organisation.title:
-            return organisation.title
-        return self.sqlsession.query(Account).get(organisation.owner_id).loginname
+        return organisation.title or self.default_organisation_title
+
+    @property
+    @memoize
+    def organisation_title(self):
+        """The title of the organisation bound to this account (if it exists)
+        or the account login name
+        """
+        return self.get_organisation_title(self.organisation)
 
     def get_member_role_id(self, organization, user):
         """Return the role of the user in the organization."""
@@ -101,17 +122,6 @@ class OrganisationBaseView(BaseView):
                 return api.portal.translate(role["label"])
         return role_id
 
-    @property
-    @memoize
-    def organisation_title(self):
-        """The title of the organisation bound to this account (if it exists)
-        ot the account login name
-        """
-        organisation = self.organisation
-        if organisation is not None:
-            return organisation.title
-        return self.webhelpers.get_current_account().loginname
-
 
 class View(OrganisationBaseView):
     @memoize
@@ -129,17 +139,6 @@ class View(OrganisationBaseView):
 
 
 class PanelAddOrganisation(OrganisationBaseView):
-    @property
-    def default_organisation_title(self):
-        """Return the default title for the new organisation."""
-        return api.portal.translate(
-            _(
-                "default_organisation_title",
-                default="Organisation of ${user}",
-                mapping={"user": self.webhelpers.get_current_account().loginname},
-            )
-        )
-
     def handle_POST(self):
         """Handle the POST request"""
         title = self.request.form.get("title")

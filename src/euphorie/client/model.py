@@ -515,6 +515,17 @@ class Account(BaseObject):
         """
         return self.loginname
 
+    @property
+    def title(self):
+        """Return the joined first_name and last_name of the account if present
+
+        If they are not fallback to the loginname
+        """
+        return (
+            " ".join((self.first_name or "", self.last_name or "")).strip()
+            or self.loginname
+        )
+
     def getUserName(self):
         """Return the login name."""
         return self.loginname

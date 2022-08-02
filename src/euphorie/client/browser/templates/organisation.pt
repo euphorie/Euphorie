@@ -91,7 +91,7 @@
                       <ul class="data-matrix">
                         <li class="row" tal:define="user python:organisation.owner">
                           <h4 class="user field">
-                            <strong class="name">${user/loginname}</strong>
+                            <strong class="name">${user/title}</strong>
                           </h4>
                           <p class="field role" i18n:translate="">
                             Owner
@@ -101,7 +101,7 @@
                             tal:repeat="membership python:view.get_memberships(organisation)"
                         >
                           <h4 class="user field">
-                            <strong class="name">${membership/Account/loginname}</strong>
+                            <strong class="name">${membership/Account/title}</strong>
                           </h4>
                           <p class="field role">
                             ${python:view.translate_role_id(membership.OrganisationMembership.member_role)}
