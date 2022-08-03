@@ -991,4 +991,12 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="export.json"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="zope2.View"
+      class=".session.ExportJsonView"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
 </configure>
