@@ -21,7 +21,7 @@
     This certificate is presented to
   </p>
   <p class="certificate-user-name">
-    ${python: account.loginname}
+    ${python: account.title}
   </p>
   <p class="certificate-achievement"
      i18n:translate=""

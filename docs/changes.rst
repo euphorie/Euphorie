@@ -17,6 +17,8 @@ Changelog
 - Upgrade step to handle the decomissioning of the ``training_notes`` field
   `#426 <https://github.com/euphorie/Euphorie/pull/426>`_.
   [ale-rt]
+- The training certificate shows the fullname of the user if present
+  [ale-rt]
 
 
 14.1.5 (2022-07-13)
