@@ -19,6 +19,9 @@ Changelog
   [ale-rt]
 - The training certificate shows the fullname of the user if present
   [ale-rt]
+- Removed the “Keep me logged in”-checkbox. Limit login session to 12 hours or 30 minutes of inactivity.
+  `#454 <https://github.com/syslabcom/scrum/issues/454>`_
+  [reinhardt]
 
 
 14.1.5 (2022-07-13)

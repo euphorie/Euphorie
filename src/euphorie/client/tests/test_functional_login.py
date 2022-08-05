@@ -74,7 +74,7 @@ class LoginTests(EuphorieFunctionalTestCase):
         browser.getControl(name="login").click()
         self.assertTrue("@@login" not in browser.url)
 
-    def test_use_session_cookie_by_default(self):
+    def test_cookie_expiration(self):
         self.loginAsPortalOwner()
         addSurvey(self.portal, BASIC_SURVEY)
         addAccount(password="secret")
@@ -82,26 +82,13 @@ class LoginTests(EuphorieFunctionalTestCase):
         browser.open(self.portal.client.nl.absolute_url() + "/@@login")
         browser.getControl(name="__ac_name").value = "jane@example.com"
         browser.getControl(name="__ac_password:utf8:ustring").value = "secret"
-        browser.getControl(name="login").click()
-        auth_cookie = browser.cookies.getinfo("__ac")
-        self.assertEqual(auth_cookie["expires"], None)
-
-    def test_remember_user_sets_cookie_expiration(self):
-        self.loginAsPortalOwner()
-        addSurvey(self.portal, BASIC_SURVEY)
-        addAccount(password="secret")
-        browser = self.get_browser()
-        browser.open(self.portal.client.nl.absolute_url() + "/@@login")
-        browser.getControl(name="__ac_name").value = "jane@example.com"
-        browser.getControl(name="__ac_password:utf8:ustring").value = "secret"
-        browser.getControl(name="remember").value = True
         browser.getControl(name="login").click()
         auth_cookie = browser.cookies.getinfo("__ac")
         self.assertNotEqual(auth_cookie["expires"], None)
         delta = auth_cookie["expires"] - datetime.datetime.now(
             auth_cookie["expires"].tzinfo
         )
-        self.assertTrue(delta.days > 100)
+        self.assertAlmostEqual(delta.seconds, 12 * 60 * 60, delta=60)
 
     def test_extra_ga_pageview_post_login(self):
         self.loginAsPortalOwner()

@@ -26,10 +26,18 @@ def add_account_plugin(pas):
     enable_plugin_and_move_to_top(pas, pas.euphorie)
 
 
+def set_up_session_plugin(pas):
+    if "session" in pas:
+        pas.session.cookie_lifetime = 0.5
+        pas.session.timeout = 180
+        pas.session.refresh_interval = 90
+
+
 def setupVarious(context):
     site = api.portal.get()
     pas = site.acl_users
     if not pas.objectIds([EuphorieAccountPlugin.meta_type]):
         add_account_plugin(pas)
+    set_up_session_plugin(pas)
     ppr = api.portal.get_tool("portal_password_reset")
     ppr.setExpirationTimeout(0.5)

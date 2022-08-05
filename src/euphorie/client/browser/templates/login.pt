@@ -77,15 +77,6 @@
               >reset your password</a>.
             </p>
 
-            <fieldset class="pat-checklist">
-              <label>
-                <i18n:msg translate="label_keep_logged_in">Keep me logged in.</i18n:msg>
-                <input name="remember"
-                       type="checkbox"
-                />
-              </label>
-            </fieldset>
-
             <div class="button-bar">
               <button class="pat-button default"
                       name="login"

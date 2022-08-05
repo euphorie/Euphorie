@@ -18,7 +18,6 @@ from euphorie.client.model import get_current_account
 from euphorie.content.survey import ISurvey
 from plone import api
 from plone.memoize.view import memoize
-from plone.session.plugins.session import cookie_expiration_date
 from plonetheme.nuplone.tiles.analytics import trigger_extra_pageview
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
@@ -71,7 +70,7 @@ class Login(BrowserView):
                 lang = [lang]
             setLanguage(self.request, self.context, lang=lang[0])
 
-    def login(self, account, remember):
+    def login(self, account):
         pas = getToolByName(self.context, "acl_users")
         pas.updateCredentials(
             self.request,
@@ -80,13 +79,6 @@ class Login(BrowserView):
             account.password,
         )
         notify(UserLoggedInEvent(account))
-        if remember:
-            self.request.RESPONSE.cookies["__ac"]["expires"] = cookie_expiration_date(
-                120
-            )  # noqa: E501
-            self.request.RESPONSE.cookies["__ac"]["max_age"] = (
-                120 * 24 * 60 * 60
-            )  # noqa: E501
 
     def transferGuestSession(self):
         """Transfer session(s) from guest account to an existing user account
@@ -265,7 +257,7 @@ class Login(BrowserView):
                     and account.getUserName() == form.get("__ac_name", "").lower()
                 ):
                     self.transferGuestSession()
-                    self.login(account, bool(self.request.form.get("remember")))
+                    self.login(account)
                     v_url = urlsplit(self.request.URL + "/success").path.replace(
                         "@@", ""
                     )
@@ -353,7 +345,7 @@ class Tryout(SessionsView, Login):
             return self.request.response.redirect(api.portal.get().absolute_url())
 
         account = self.createGuestAccount()
-        self.login(account, False)
+        self.login(account)
         client_url = self.request.client.absolute_url()
         came_from = came_from.replace(client_url, "")
         if came_from.startswith("/"):
@@ -411,7 +403,7 @@ class CreateTestSession(Tryout):
                 form = self.request.form
                 if form["action"] == "new":
                     account = self.createGuestAccount()
-                    self.login(account, False)
+                    self.login(account)
                     self._NewSurvey(form, account)
         self._updateSurveys()
         return self.index()
