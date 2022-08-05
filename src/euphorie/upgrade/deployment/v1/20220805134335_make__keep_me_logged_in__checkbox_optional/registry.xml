@@ -1,0 +1,11 @@
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  <record name="euphorie.use_remember_login">
+    <field type="plone.registry.field.Bool">
+      <title>Show "Keep me logged in" checkbox</title>
+      <default>True</default>
+      <missing_value>True</missing_value>
+      <required>False</required>
+    </field>
+    <value>True</value>
+  </record>
+</registry>

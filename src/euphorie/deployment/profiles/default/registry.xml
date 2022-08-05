@@ -1,5 +1,4 @@
-<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
->
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n">
   <record field="default_language"
           interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
           name="plone.default_language"
@@ -236,6 +235,15 @@
       <required>False</required>
     </field>
   </record>
+  <record name="euphorie.use_remember_login">
+    <field type="plone.registry.field.Bool">
+      <title>Show "Keep me logged in" checkbox</title>
+      <default>True</default>
+      <missing_value>True</missing_value>
+      <required>False</required>
+    </field>
+    <value>True</value>
+  </record>
   <record name="plonetheme.nuplone.appconfigtile_navigation">
     <field type="plone.registry.field.Text">
       <title>Configure the navigation tile</title>
@@ -262,7 +270,7 @@
   "id": "portlets",
   "wrapper": "div"
 }</default>
-    <missing_value>{
+      <missing_value>{
   "tiles": "\neuphorie.search\neuphorie.versions [view_type==\"view\" and context.portal_type in ['euphorie.module', 'euphorie.risk', 'euphorie.solution', 'euphorie.survey', 'euphorie.surveygroup'] ]\nlanguage",
   "type": "group",
   "id": "portlets",
@@ -310,7 +318,10 @@
     </field>
     <value purge="false">--margin-bottom 1cm --margin-left 1.5cm --margin-right 1.5cm --margin-top 2cm --disable-javascript --viewport-size 10000x10000</value>
   </record>
-  <record name="plone.enable_self_reg" interface="Products.CMFPlone.interfaces.controlpanel.ISecuritySchema" field="enable_self_reg">
+  <record field="enable_self_reg"
+          interface="Products.CMFPlone.interfaces.controlpanel.ISecuritySchema"
+          name="plone.enable_self_reg"
+  >
     <value>True</value>
   </record>
 </registry>

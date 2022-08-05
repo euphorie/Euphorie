@@ -77,7 +77,9 @@
               >reset your password</a>.
             </p>
 
-            <fieldset class="pat-checklist">
+            <fieldset class="pat-checklist"
+                      tal:condition="python:context.portal_registry.get('euphorie.use_remember_login', True)"
+            >
               <label>
                 <i18n:msg translate="label_keep_logged_in">Keep me logged in.</i18n:msg>
                 <input name="remember"
@@ -356,7 +358,8 @@
               <ul class="ctas">
                 <li i18n:translate="text_create_account">
                   <a href="#registration"
-                     i18n:name="link_register" i18n:translate="verb_register"
+                     i18n:name="link_register"
+                     i18n:translate="verb_register"
                   >Register</a>
                 if you would like to use OiRA.
                 </li>
@@ -366,7 +369,8 @@
                   <a href="${base_url}/@@surveys?${came_from_param}"
                      title="Start a new test session"
                      i18n:attributes="title tooltip_start_test_session"
-                     i18n:name="link_test_session" i18n:translate="label_start_test_session"
+                     i18n:name="link_test_session"
+                     i18n:translate="label_start_test_session"
                   >Start a test session</a>
                 if you only want to taste OiRA.
                 </li>
@@ -376,7 +380,8 @@
                   <a href="${base_url}/@@tryout?${came_from_param}#document-content"
                      title="Start a new test session"
                      i18n:attributes="title tooltip_start_test_session"
-                     i18n:name="link_test_session"  i18n:translate="label_start_test_session"
+                     i18n:name="link_test_session"
+                     i18n:translate="label_start_test_session"
                   >Start a test session</a>
                 if you only want to taste OiRA.
                 </li>
