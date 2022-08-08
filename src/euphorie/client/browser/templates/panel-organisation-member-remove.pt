@@ -34,7 +34,7 @@
                 Are you sure you want to remove
                 <strong i18n:name="name">${view/member_to_remove/loginname}</strong>
                 from
-                <strong>${python: view.get_organisation_title(view.organisation)}</strong>?
+                <strong i18n:name="organisation">${python: view.get_organisation_title(view.organisation)}</strong>?
               </p>
 
               <fieldset class="vertical">
