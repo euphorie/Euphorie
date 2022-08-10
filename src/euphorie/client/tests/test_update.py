@@ -294,3 +294,41 @@ class TreeChangesTests(TreeTests):
         module.optional = True
         changes = update.treeChanges(session, survey)
         self.assertEqual(changes, set([]))
+
+
+class MeasureChangeTests(TreeTests):
+    def test_update_measure_types(self):
+        survey = self.createClientSurvey()
+        session = self.createSurveySession()
+        survey.invokeFactory("euphorie.module", "1")
+        survey["1"].invokeFactory("euphorie.risk", "2")
+        solution_id = survey["1"]["2"].invokeFactory("euphorie.solution", "test")
+
+        root = session.addChild(
+            model.Module(title="Root", module_id="1", zodb_path="1")
+        )
+        risk = root.addChild(
+            model.Risk(
+                title="Risk 1",
+                risk_id="2",
+                zodb_path="1/2",
+                type="risk",
+                identification="no",
+            )
+        )
+        solution = model.ActionPlan(
+            solution_id=solution_id,
+            action_plan="This is the plan",
+            plan_type="in_place_standard",
+            risk=risk,
+        )
+
+        session.update_measure_types(survey)
+        self.assertEqual(solution.plan_type, "in_place_standard")
+
+        risk_zodb = survey["1"]["2"]
+        risk_zodb.manage_delObjects([solution_id])
+        if hasattr(risk_zodb, "_memojito_"):
+            risk_zodb._memojito_.clear()
+        session.update_measure_types(survey)
+        self.assertEqual(solution.plan_type, "in_place_custom")

@@ -799,6 +799,27 @@ class SurveySession(BaseObject):
                     item.title = zodb_item.title
         self.refreshed = datetime.datetime.now()
 
+    def update_measure_types(self, survey):
+        """Update measure types in the session according to changes in the tool.
+        Specifically, if an `in_place_standard` measure is deleted in the tool, it
+        disappears from the identification phase of the session unless we change its
+        type to `in_place_custom`.
+        """
+        in_place_standard_measures = (
+            Session.query(Risk, ActionPlan)
+            .filter(Risk.id == ActionPlan.risk_id)
+            .filter(Risk.session_id == self.id)
+            .filter(ActionPlan.plan_type == "in_place_standard")
+            .all()
+        )
+        for risk, measure in in_place_standard_measures:
+            risk_zodb = survey.restrictedTraverse(risk.zodb_path.split("/"))
+            solution_ids_zodb = [sol.id for sol in risk_zodb._solutions]
+            if measure.solution_id not in solution_ids_zodb:
+                # The measure is in the session but not in the tool. It has probably
+                # been deleted. Keep it visible by making it a custom measure.
+                measure.plan_type = "in_place_custom"
+
     def addChild(self, item):
         sqlsession = Session()
         query = (
