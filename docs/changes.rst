@@ -21,6 +21,8 @@ Changelog
   [ale-rt]
 - Measures that are deleted in the CMS stay visible in the client.
   [reinhardt]
+- Improved dashboard tab marker.
+  [reinhardt]
 
 
 14.1.5 (2022-07-13)
