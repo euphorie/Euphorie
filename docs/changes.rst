@@ -19,6 +19,8 @@ Changelog
   [ale-rt]
 - The training certificate shows the fullname of the user if present
   [ale-rt]
+- Measures that are deleted in the CMS stay visible in the client.
+  [reinhardt]
 
 
 14.1.5 (2022-07-13)

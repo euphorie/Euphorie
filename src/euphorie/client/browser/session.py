@@ -329,8 +329,15 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
             # Touch means: the modification timestamp is set.
             # But we need to make sure the refreshed marker is up to date!
             survey_session.refresh_survey(survey)
-            return survey_session
+            new_session = survey_session
+        else:
+            new_session = self.rebuild_session(survey, profile)
 
+        new_session.update_measure_types(survey)
+        return new_session
+
+    def rebuild_session(self, survey, profile):
+        survey_session = self.session
         params = {}
         # Some values might not be present, depending on the type of survey session
         _marker = object()
