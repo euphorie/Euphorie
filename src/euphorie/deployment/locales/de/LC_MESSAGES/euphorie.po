@@ -1952,7 +1952,7 @@ msgstr "durch"
 #. Default: "by ${who}"
 #: euphorie/client/browser/templates/assessments.pt:103
 msgid "by_who"
-msgstr ""
+msgstr "von ${who}"
 
 #. Default: "Thank you for using OiRA. Before we go to the report we would kindly like to ask you to give us some feedback via the survey below. This information is meant to improve the tools and the services provided. <strong>This data will not appear in your reports.</strong>"
 #: euphorie/client/browser/templates/report_company.pt:40
@@ -5208,7 +5208,7 @@ msgstr "Zuletzt bearbeitet von ${name} am ${date}."
 #. Default: "Last edited ${time}"
 #: euphorie/client/browser/templates/assessments.pt:88
 msgid "last_edited_when"
-msgstr ""
+msgstr "Zuletzt gespeichert"
 
 #. Default: "${label} Version you are currently reviewing"
 #: euphorie/deployment/tiles/templates/versions.pt:84
