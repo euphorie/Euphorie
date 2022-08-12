@@ -255,6 +255,7 @@ class GetSurveysTests(EuphorieIntegrationTestCase):
             [
                 {
                     "url": "http://nohost/plone/sectors/nl/sector/test-survey",
+                    "obsolete": False,
                     "published": False,
                     "id": "test-survey",
                     "title": "Test survey",

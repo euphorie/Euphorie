@@ -23,6 +23,8 @@ Changelog
   [reinhardt]
 - Improved dashboard tab marker.
   [reinhardt]
+- Tool overview on country level.
+  [reinhardt]
 
 
 14.1.5 (2022-07-13)
