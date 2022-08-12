@@ -5208,7 +5208,7 @@ msgstr "Zuletzt bearbeitet von ${name} am ${date}."
 #. Default: "Last edited ${time}"
 #: euphorie/client/browser/templates/assessments.pt:88
 msgid "last_edited_when"
-msgstr "Zuletzt gespeichert"
+msgstr "Zuletzt gespeichert ${time}"
 
 #. Default: "${label} Version you are currently reviewing"
 #: euphorie/deployment/tiles/templates/versions.pt:84
