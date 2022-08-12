@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout"
+      i18n:domain="euphorie"
+>
+  <body>
+    <metal:title fill-slot="title">${view/title}</metal:title>
+    <metal:content fill-slot="content">
+      <h2 i18n:translate="header_sector_survey_list">OiRA Tools</h2>
+      <p class="message notice"
+         tal:condition="not:view/sectors"
+         i18n:translate="message_no_tools"
+      >
+        There are no tools for this country.
+      </p>
+
+      <ul tal:condition="view/sectors">
+        <tal:sector tal:repeat="sector view/sectors">
+          <h5><a href="${sector/url}">${sector/title}</a></h5>
+          <ul tal:define="
+                surveys python:view.get_tools(sector['id']);
+              "
+              tal:condition="surveys"
+          >
+            <li class="${python:'published' if group['published'] else ''} ${python:'obsolete' if group['obsolete'] else ''}"
+                tal:repeat="group surveys"
+            >
+              <label><a href="${group/url}">${group/title}</a>
+                <span tal:condition="group/published">(published)</span>
+                <span tal:condition="group/obsolete">(obsolete)</span>
+              </label>
+              <ul class="surveyVersions"
+                  tal:condition="group/surveys"
+              >
+                <li class="${python:'published' if survey['published'] else ''}"
+                    tal:repeat="survey group/surveys"
+                >
+                  <label><a href="${survey/url}">${survey/title}</a>
+                    <span tal:condition="survey/published">*</span>
+                  </label>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </tal:sector>
+      </ul>
+    </metal:content>
+  </body>
+</html>

@@ -143,6 +143,7 @@ def getSurveys(context):
     * ``title`` surveygroup title
     * ``url``: URL for the surveygroup
     * ``published``: boolean indicating if this surveygroup is published
+    * ``obsolete``: boolean indicating if this surveygroup is obsolete
     * ``surveys``: list of surveys for the surveygroup. Each entry is a
       dictionary with the following keys:
 
@@ -207,6 +208,7 @@ def getSurveys(context):
             "title": group.title,
             "url": group.absolute_url(),
             "published": bool(group.published),
+            "obsolete": bool(group.obsolete),
         }
         info["surveys"] = [
             morph(group, survey)

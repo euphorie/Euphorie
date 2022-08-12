@@ -4,7 +4,8 @@ Changelog
 14.1.6 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Tool overview on country level.
+  [reinhardt]
 
 
 14.1.5 (2022-07-13)
