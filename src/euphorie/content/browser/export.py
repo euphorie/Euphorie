@@ -22,6 +22,7 @@ from euphorie.content.risk import IKinneyEvaluation
 from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import get_tool_type
+from euphorie.content.training_question import ITrainingQuestion
 from euphorie.content.utils import StripMarkup
 from euphorie.content.utils import StripUnwanted
 from io import BytesIO
@@ -364,6 +365,8 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
                 self.exportProfileQuestion(node, child)
             if IModule.providedBy(child):
                 self.exportModule(node, child)
+            if ITrainingQuestion.providedBy(child):
+                self.exportTrainingQuestion(node, child)
         return node
 
     def exportProfileQuestion(self, parent, profile):
@@ -517,4 +520,20 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
             etree.SubElement(node, "requirements").text = StripUnwanted(
                 solution.requirements
             )
+        return node
+
+    def exportTrainingQuestion(self, parent, training_question):
+        """:returns: An XML node with the details
+        of an :obj:`euphorie.training_question`."""
+        node = etree.SubElement(parent, "training_question")
+        etree.SubElement(node, "title").text = StripUnwanted(training_question.title)
+        etree.SubElement(node, "right_answer").text = StripUnwanted(
+            training_question.right_answer
+        )
+        etree.SubElement(node, "wrong_answer_1").text = StripUnwanted(
+            training_question.wrong_answer_1
+        )
+        etree.SubElement(node, "wrong_answer_2").text = StripUnwanted(
+            training_question.wrong_answer_2
+        )
         return node
