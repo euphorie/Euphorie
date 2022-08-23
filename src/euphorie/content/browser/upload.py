@@ -90,6 +90,14 @@ def attr_bool(node, tag, attr, default=False):
     return value == "true"
 
 
+def attr_int(node, tag, attr, default=None):
+    value = default
+    element = getattr(node, tag, None)
+    if element is not None:
+        value = int(element.get(attr))
+    return value
+
+
 def el_unicode(
     node, tag, default=None, is_etranslate_compatible=False, convert_to_markdown=False
 ):
@@ -386,6 +394,22 @@ class SurveyImporter(object):
             self.ImportModule(child, profile)
         return profile
 
+    def ImportTrainingQuestion(self, node, survey):
+        """
+        Create a new :obj:`euphorie.training_question` object for a
+        :obj:`euphorie.training_question` given the details for a Training Question
+        as an XML node.
+
+        :returns: :obj:`euphorie.training_question`.
+        """
+        training_question = createContentInContainer(
+            survey, "euphorie.training_question", title=six.text_type(node.title)
+        )
+        training_question.right_answer = six.text_type(node.right_answer)
+        training_question.wrong_answer_1 = six.text_type(node.wrong_answer_1)
+        training_question.wrong_answer_2 = six.text_type(node.wrong_answer_2)
+        return training_question
+
     def ImportSurvey(self, node, group, version_title):
         """
         Create a new :obj:`euphorie.content.survey` object for a
@@ -401,6 +425,8 @@ class SurveyImporter(object):
         survey.classification_code = el_unicode(node, "classification-code")
         survey.language = el_string(node, "language")
         tti = getUtility(IToolTypesInfo)
+        survey.enable_web_training = attr_bool(node, "enable_web_training", "value")
+        survey.num_training_questions = attr_int(node, "num_training_questions", "value")
         if self.is_etranslate_compatible:
             survey.tool_type = attr_string(
                 node, "tool_type", "value", tti.default_tool_type
@@ -439,6 +465,8 @@ class SurveyImporter(object):
                 self.ImportProfileQuestion(child, survey)
             elif child.tag == XMLNS + "module":
                 self.ImportModule(child, survey)
+            elif child.tag == XMLNS + "training_question":
+                self.ImportTrainingQuestion(child, survey)
         return survey
 
     def __call__(

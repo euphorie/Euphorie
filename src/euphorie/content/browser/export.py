@@ -307,6 +307,17 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
                 node, "classification-code"
             ).text = survey.classification_code
         etree.SubElement(node, "language").text = survey.language
+        etree.SubElement(
+            node,
+            "enable_web_training",
+            attrib={"value": "true" if survey.enable_web_training else "false"},
+        )
+        if survey.num_training_questions:
+            etree.SubElement(
+                node,
+                "num_training_questions",
+                attrib={"value": str(survey.num_training_questions)},
+            )
         if self.is_etranslate_compatible:
             etree.SubElement(node, "tool_type", attrib={"value": get_tool_type(survey)})
             etree.SubElement(
