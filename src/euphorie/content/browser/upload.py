@@ -426,7 +426,9 @@ class SurveyImporter(object):
         survey.language = el_string(node, "language")
         tti = getUtility(IToolTypesInfo)
         survey.enable_web_training = attr_bool(node, "enable_web_training", "value")
-        survey.num_training_questions = attr_int(node, "num_training_questions", "value")
+        survey.num_training_questions = attr_int(
+            node, "num_training_questions", "value"
+        )
         if self.is_etranslate_compatible:
             survey.tool_type = attr_string(
                 node, "tool_type", "value", tti.default_tool_type
