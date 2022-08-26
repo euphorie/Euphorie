@@ -1,6 +1,7 @@
 # coding=utf-8
 from Acquisition import aq_inner
 from euphorie.content.countrymanager import ICountryManager
+from euphorie.content.sector import getSurveys
 from euphorie.content.sector import ISector
 from euphorie.content.utils import CUSTOM_COUNTRY_NAMES
 from plone.dexterity.browser.add import DefaultAddForm
@@ -93,3 +94,10 @@ class ManageUsers(BrowserView):
         ]
         managers_dict.sort(key=lambda s: s["title"].lower())
         return managers_dict
+
+
+class Tools(CountryView):
+    @memoize
+    def get_tools(self, sector_id):
+        sector = self.context.get(sector_id)
+        return getSurveys(sector)
