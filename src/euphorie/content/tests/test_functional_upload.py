@@ -578,7 +578,7 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         snippet = objectify.fromstring(
             """<training_question>
               <title>How many rivets were used in the Titanic?</title>
-              <w>3,000,000</right_answer>
+              <right_answer>3,000,000</right_answer>
               <wrong_answer_1>None, it was glued together</wrong_answer_1>
               <wrong_answer_2>300,000</wrong_answer_2>
             </training_question>
