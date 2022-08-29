@@ -22,6 +22,7 @@ from euphorie.content.risk import IKinneyEvaluation
 from euphorie.content.risk import IRisk
 from euphorie.content.solution import ISolution
 from euphorie.content.survey import get_tool_type
+from euphorie.content.training_question import ITrainingQuestion
 from euphorie.content.utils import StripMarkup
 from euphorie.content.utils import StripUnwanted
 from io import BytesIO
@@ -306,6 +307,16 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
                 node, "classification-code"
             ).text = survey.classification_code
         etree.SubElement(node, "language").text = survey.language
+        enable_web_training = getattr(survey, "enable_web_training", False)
+        if enable_web_training:
+            etree.SubElement(node, "enable_web_training", attrib={"value": "true"})
+        num_training_questions = getattr(survey, "num_training_questions", False)
+        if num_training_questions:
+            etree.SubElement(
+                node,
+                "num_training_questions",
+                attrib={"value": str(num_training_questions)},
+            )
         if self.is_etranslate_compatible:
             etree.SubElement(node, "tool_type", attrib={"value": get_tool_type(survey)})
             etree.SubElement(
@@ -364,6 +375,8 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
                 self.exportProfileQuestion(node, child)
             if IModule.providedBy(child):
                 self.exportModule(node, child)
+            if ITrainingQuestion.providedBy(child):
+                self.exportTrainingQuestion(node, child)
         return node
 
     def exportProfileQuestion(self, parent, profile):
@@ -517,4 +530,20 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
             etree.SubElement(node, "requirements").text = StripUnwanted(
                 solution.requirements
             )
+        return node
+
+    def exportTrainingQuestion(self, parent, training_question):
+        """:returns: An XML node with the details
+        of an :obj:`euphorie.training_question`."""
+        node = etree.SubElement(parent, "training_question")
+        etree.SubElement(node, "title").text = StripUnwanted(training_question.title)
+        etree.SubElement(node, "right_answer").text = StripUnwanted(
+            training_question.right_answer
+        )
+        etree.SubElement(node, "wrong_answer_1").text = StripUnwanted(
+            training_question.wrong_answer_1
+        )
+        etree.SubElement(node, "wrong_answer_2").text = StripUnwanted(
+            training_question.wrong_answer_2
+        )
         return node

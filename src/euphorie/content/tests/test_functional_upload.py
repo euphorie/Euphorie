@@ -10,6 +10,7 @@ from euphorie.content.solution import Solution
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
 from lxml import objectify
+from plone import api
 from plone.dexterity.utils import createContentInContainer
 from plone.namedfile.file import NamedBlobImage
 from plone.uuid.interfaces import IUUID
@@ -572,6 +573,31 @@ class SurveyImporterTests(EuphorieIntegrationTestCase):
         self.assertEqual(children[1].title, "Profile one")
         self.assertEqual(children[2].title, "Module two")
         self.assertEqual(children[3].title, "Profile two")
+
+    def testImportTrainingQuestion(self):
+        snippet = objectify.fromstring(
+            """<training_question>
+              <title>How many rivets were used in the Titanic?</title>
+              <right_answer>3,000,000</right_answer>
+              <wrong_answer_1>None, it was glued together</wrong_answer_1>
+              <wrong_answer_2>300,000</wrong_answer_2>
+            </training_question>
+            """
+        )
+        self.loginAsPortalOwner()
+        survey = self.createSurvey()
+        survey.enable_web_training = True
+        importer = upload.SurveyImporter(None)
+        api.portal.set_registry_record("euphorie.use_training_module", True)
+        training_question = importer.ImportTrainingQuestion(snippet, survey)
+        self.assertEqual(
+            training_question.title, "How many rivets were used in the Titanic?"
+        )
+        self.assertEqual(training_question.right_answer, "3,000,000")
+        self.assertEqual(
+            training_question.wrong_answer_1, "None, it was glued together"
+        )
+        self.assertEqual(training_question.wrong_answer_2, "300,000")
 
 
 class SectorImporterTests(EuphorieFunctionalTestCase):

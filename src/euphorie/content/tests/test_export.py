@@ -7,6 +7,7 @@ from euphorie.content.risk import Risk
 from euphorie.content.solution import Solution
 from euphorie.content.survey import Survey
 from euphorie.content.surveygroup import SurveyGroup
+from euphorie.content.training_question import TrainingQuestion
 from euphorie.testing import EuphorieIntegrationTestCase
 from io import BytesIO
 from lxml import etree
@@ -587,6 +588,28 @@ class ExportSurveyTests(EuphorieIntegrationTestCase):
             "risks.&lt;/p&gt;</description>\n"
             "    </module>\n"
             "  </profile-question>\n"
+            "</root>\n",
+        )
+
+    def testTrainingQuestion(self):
+        training_question = TrainingQuestion()
+        training_question.title = "What is the answer?"
+        training_question.right_answer = "Yes"
+        training_question.wrong_answer_1 = "No"
+        training_question.wrong_answer_2 = "Maybe"
+        root = self.root()
+        view = ExportSurvey(None, None)
+        node = view.exportTrainingQuestion(root, training_question)
+        self.assertTrue(node in root)
+        self.assertEqual(
+            safe_nativestring(etree.tostring(root, pretty_print=True)),
+            '<root xmlns="http://xml.simplon.biz/euphorie/survey/1.0">\n'
+            "  <training_question>\n"
+            "    <title>What is the answer?</title>\n"
+            "    <right_answer>Yes</right_answer>\n"
+            "    <wrong_answer_1>No</wrong_answer_1>\n"
+            "    <wrong_answer_2>Maybe</wrong_answer_2>\n"
+            "  </training_question>\n"
             "</root>\n",
         )
 
