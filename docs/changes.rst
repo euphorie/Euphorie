@@ -25,6 +25,8 @@ Changelog
   [reinhardt]
 - Tool overview on country level.
   [reinhardt]
+- Remove the home and help link when the user is not authenticated
+  [ale-rt]
 
 
 14.1.5 (2022-07-13)
