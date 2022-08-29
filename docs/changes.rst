@@ -4,6 +4,8 @@ Changelog
 14.2.0 (unreleased)
 -------------------
 
+- Export/import training questions
+  `#435 <https://github.com/euphorie/Euphorie/pull/435>`_.
 - Introduce the concept of "organisations"
 - Added an `@@export.json` view that allows to export a session and the related content in a single json file.
   [ale-rt]
