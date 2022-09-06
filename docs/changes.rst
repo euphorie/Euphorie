@@ -29,6 +29,8 @@ Changelog
   [reinhardt]
 - Remove the home and help link when the user is not authenticated
   [ale-rt]
+- Formatting is available in measures description.
+  [reinhardt]
 
 
 14.1.5 (2022-07-13)
