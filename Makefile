@@ -76,7 +76,7 @@ resources-install:   # bundle
 .po.mo:
 	msgfmt -c --statistics -o $@ $<
 
-theme: bundle jekyll resources-install
+theme: jekyll resources-install
 
 
 # DEV
