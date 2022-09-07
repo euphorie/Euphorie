@@ -54,13 +54,13 @@ prototype:: ## Get the latest version of the prototype
 		cd prototype && git pull; \
 	fi;
 
-bundle: prototype
-	cd prototype && make bundle
-
 jekyll:
 	@echo 'DO: rm prototype/stamp-bundler to force Jekyll re-install'
 	@cd prototype && make jekyll
 
+
+.PHONY: bundle
+bundle: resources-install
 resources-install:   # bundle
 	cp -R prototype/_site/assets/* src/euphorie/client/resources/
 	## For the script directory, always start with a clean slate
@@ -71,6 +71,7 @@ resources-install:   # bundle
 	cp prototype/_site/depts/index.html src/euphorie/client/resources/oira/depts.html
 	@./scripts/proto2diazo.py
 	@echo "To update the oira.cms bundle, go to ../NuPlone and run ``make bundle`` there."
+
 
 .po.mo:
 	msgfmt -c --statistics -o $@ $<
