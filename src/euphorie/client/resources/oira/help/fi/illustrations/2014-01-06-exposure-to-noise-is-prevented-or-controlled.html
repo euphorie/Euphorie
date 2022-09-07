@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="de">
+	lang="en">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -16,9 +16,11 @@
 			href="../../../style/all.css"
 			type="text/css">
 
-		<script
-			src="../../../script/bundle.min.js"
-			type="text/javascript"></script>
+		
+			<script
+				src="../../../script/bundle.min.js"
+				type="text/javascript"></script>
+		
 
 		<!-- Following line is ONLY for the prototype. -->
 		<meta
@@ -808,7 +810,7 @@
                 <a 
                     href="/preparation.html#publication-menu" 
                     class="icon-lock text-button pat-tooltip" 
-                    data-pat-tooltip="source: ajax; position-list: tr">Locked <time class="pat-display-time" data-pat-display-time="from-now: true; locale: de" datetime="2018-03-28T08:00Z">2018-03-28</time></a>
+                    data-pat-tooltip="source: ajax; position-list: tr">Locked <time class="pat-display-time" data-pat-display-time="from-now: true; locale: en" datetime="2018-03-28T08:00Z">2018-03-28</time></a>
             
 
             <!-- <button 
@@ -995,7 +997,7 @@ sound.</p>
     <textarea
       
       class="pat-tiptap "
-      placeholder="Bitte hinterlassen Sie mögliche Kommentare, die Sie zu der genannten Gefährdung haben. Diese Kommentare werden auch im Aktionsplan und den Berichten angezeigt."
+      placeholder="These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
       data-pat-tiptap="
         toolbar-external: #assessment-toolbar;
         source-panel: #pat-modal.panel-html-source-editor;
@@ -1087,14 +1089,14 @@ sound.</p>
                 type="checkbox"
                 name="existing-measures"
                 checked />
-                Informationen
+                Information
         </label>
         <label>
             <input
                 type="checkbox"
                 name="existing-measures"
                 checked />
-                Anmerkungen
+                Notes
         </label>
     </fieldset>
 </fieldset>
@@ -1146,7 +1148,7 @@ sound.</p>
             class="text" 
             id="mirror-my-comments"
             ><em 
-                class="placeholder">Kommentar verfassen</em
+                class="placeholder">Leave a comment</em
         ></span
         ><em 
             class="selected-users" 
@@ -1155,7 +1157,7 @@ sound.</p>
             class="selected-tags" 
             id="selected-tags"></em></p>
     <textarea 
-        placeholder="Kommentar verfassen" 
+        placeholder="Leave a comment" 
         class="pat-content-mirror pat-switch " 
         data-pat-content-mirror="target: #mirror-my-comments" 
         data-pat-switch="#my-comments status-inactive status-active"></textarea>
@@ -1200,11 +1202,11 @@ sound.</p>
         <button 
             class="default pat-button pat-switch close-panel" 
             data-pat-switch="selector: #my-comments; remove: status-* ; add: status-inactive && selector: #my-comments-reply-button; remove: executed" 
-            type="submit">Abschicken</button>
+            type="submit">Send</button>
         <button 
             class="pat-button pat-switch close-panel" 
             data-pat-switch="selector: #my-comments; remove: status-*; add: status-inactive && selector: #my-comments-reply-button; remove: executed" 
-            type="reset">Abbrechen</button>
+            type="reset">Cancel</button>
 
         
 
