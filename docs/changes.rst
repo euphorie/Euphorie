@@ -29,6 +29,8 @@ Changelog
   [reinhardt]
 - Remove the home and help link when the user is not authenticated
   [ale-rt]
+- Transform risk notes (comment field) to safe HTML when saving.
+  [reinhardt]
 
 
 14.1.5 (2022-07-13)
