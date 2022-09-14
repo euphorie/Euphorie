@@ -605,7 +605,7 @@ class IdentificationView(RiskBase):
         # any answer-related data, since the request might have come
         # from a sub-form.
         if answer:
-            self.context.comment = self.webhelpers.check_markup(reply.get("comment"))
+            self.context.comment = self.webhelpers.get_safe_html(reply.get("comment"))
             self.context.postponed = answer == "postponed"
             if self.context.postponed:
                 self.context.identification = None
@@ -1288,7 +1288,7 @@ class ActionPlanView(RiskBase):
         if self.request.method == "POST":
             reply = self.request.form
             session = Session()
-            context.comment = self.webhelpers.check_markup(reply.get("comment"))
+            context.comment = self.webhelpers.get_safe_html(reply.get("comment"))
             context.priority = reply.get("priority")
 
             new_plans, changes = self.extract_plans_from_request()
