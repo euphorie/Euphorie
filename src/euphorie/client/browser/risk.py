@@ -264,7 +264,7 @@ class RiskBase(BrowserView):
                 ):
                     continue
                 action = measure.get("action", "").strip()
-                if not action:
+                if not self.webhelpers.check_markup(action):
                     continue
                 budget = measure.get("budget")
                 budget = budget and budget.split(",")[0].split(".")[0]
@@ -313,7 +313,7 @@ class RiskBase(BrowserView):
                     added += 1
                 new_plans.append(
                     model.ActionPlan(
-                        action=measure.get("action"),
+                        action=self.webhelpers.get_safe_html(measure.get("action")),
                         requirements=measure.get("requirements"),
                         responsible=measure.get("responsible"),
                         budget=budget,

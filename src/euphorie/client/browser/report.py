@@ -172,6 +172,7 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
                 title, context=self.request
             )
 
+        portal_transforms = api.portal.get_tool("portal_transforms")
         row = 2
         for (module, risk, measure) in self.get_measures():
             if risk.identification in ["n/a", "yes"]:
@@ -186,6 +187,8 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
                 value = None
                 if ntype == "measure":
                     value = getattr(measure, key, None)
+                    if key == "action" and value:
+                        value = portal_transforms.convertToData("text/plain", value)
                 elif ntype == "risk":
                     value = getattr(risk, key, None)
                     if key == "priority":
