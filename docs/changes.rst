@@ -31,6 +31,8 @@ Changelog
   [ale-rt]
 - Formatting is available in measures description.
   [reinhardt]
+- Transform risk notes (comment field) to safe HTML when saving.
+  [reinhardt]
 
 
 14.1.5 (2022-07-13)
