@@ -165,7 +165,7 @@ def disableRedirectTracking(site):
     # Add additional setup code here
     from plone.app.redirector.interfaces import IRedirectionStorage
     from zope.component import getSiteManager
-    from zope.component.interfaces import IComponentRegistry
+    from zope.interface.interfaces import IComponentRegistry
 
     sm = getSiteManager(site)
     if sm is None or not IComponentRegistry.providedBy(sm):
