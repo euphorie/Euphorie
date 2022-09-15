@@ -2,7 +2,7 @@
   <div class="portlet span-${view/columns}"
        id="portlet-my-ras"
        tal:define="
-         sessions view/sessions;
+         sessions_by_organisation view/sessions_by_organisation;
        "
   >
     <div class="content"
@@ -17,7 +17,7 @@
       <article class="portlet-intro">
         <header class="portlet-title-group">
           <h2 class="portlet-title">
-            <tal:title i18n:translate="">My risk assessments</tal:title>
+            <tal:title i18n:translate="">Risk assessments</tal:title>
             <em tal:condition="my_group">(${my_group/short_name})</em>
           </h2>
         </header>
@@ -59,7 +59,7 @@
       <div class="portlet-body"
            id="portlet-body-my-ras"
       >
-        <tal:sessions condition="sessions">
+        <tal:sessions condition="sessions_by_organisation">
           <article class="pat-rich">
             <p i18n:translate="info_select_session">Select an earlier session to complete or review or
               <a class="pat-modal icon-plus-circle"
@@ -70,9 +70,20 @@
               >Start a new risk assessment</a>.
             </p>
           </article>
-          <metal:assessments_list use-macro="view/assessments_list_macro" />
+          <tal:organisation tal:repeat="organisation sessions_by_organisation">
+            <h3 class="separation-title"
+                tal:condition="organisation"
+            >
+              ${python: view.organisation_view.get_organisation_title(organisation)}
+            </h3>
+            <metal:assessments_list use-macro="view/assessments_list_macro"
+                                    tal:define="
+                                      sessions python: sessions_by_organisation[organisation];
+                                    "
+            />
+          </tal:organisation>
         </tal:sessions>
-        <tal:no-sessions condition="not:sessions">
+        <tal:no-sessions condition="not:sessions_by_organisation">
           <article class="pat-rich">
             <p>
               <a class="pat-modal icon-plus-circle"
