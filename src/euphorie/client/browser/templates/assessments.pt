@@ -101,7 +101,7 @@
                       >
                         by
                         <tal:i18n i18n:name="who">
-                          ${python: session.last_modifier.loginname}
+                          ${python: session.last_modifier.title}
                         </tal:i18n>
                       </tal:i18n>
                     </p>
