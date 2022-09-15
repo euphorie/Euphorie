@@ -4,7 +4,7 @@
       tal:omit-tag=""
       i18n:domain="euphorie"
       meta:interpolation="true">
-  <ul id="navigation" class="navigation">
+  <ul id="navigation" class="navigation pat-navigation">
     <tal:block define='countries python:view.countries.get("region")' condition="python:countries">
       <li class="${python:'active' if any([c['current'] for c in countries]) else None}"><tal:span i18n:translate="">Regions</tal:span>
         <ul>

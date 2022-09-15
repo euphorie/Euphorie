@@ -214,7 +214,7 @@
                          "
           />
           <metal:slot define-slot="aside-navigator">
-            <ol class="navigation"
+            <ol class="navigation pat-navigation"
                 id="steps"
             >
               <tal:if_not_anon define="

@@ -47,7 +47,7 @@
               <div id="toc-trainings"
                    hidden
               >
-                <nav class="assessment-toc">
+                <nav class="assessment-toc pat-navigation">
                   <tal:items repeat="slide_path slide_data/keys">
                     <tal:slide define="
                                  slide_info python:slide_data[slide_path];

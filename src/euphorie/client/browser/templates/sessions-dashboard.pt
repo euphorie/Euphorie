@@ -24,7 +24,7 @@
             <div class="toolbar-section navigation"
                  id="assessments-toolbar-navigation"
             >
-              <nav class="pat-tabs pat-button-cluster"
+              <nav class="pat-tabs pat-button-cluster pat-navigation"
                    id="homescreen-sections"
               >
                 <a class="icon icon-gauge pat-inject ${python:'current' if dashboard_tab=='dashboard' else None}"
