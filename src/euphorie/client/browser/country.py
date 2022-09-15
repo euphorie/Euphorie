@@ -18,6 +18,7 @@ from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
+from zope.deprecation import deprecate
 from zope.interface import directlyProvides
 
 import six
@@ -570,6 +571,16 @@ class MyRAsPortlet(PortletBase):
 
     @property
     @memoize
+    def organisation_view(self):
+        """Get the organisation view to reuse its methods"""
+        return api.content.get_view("organisation", self.context, self.request)
+
+    @property
+    @memoize
+    @deprecate(
+        "Replace with self.sessions_by_organisation (which is a dict), "
+        "deprecated in version 14.2"
+    )
     def sessions(self):
         """We want the archived sessions"""
         return (
@@ -579,6 +590,33 @@ class MyRAsPortlet(PortletBase):
             .limit(5)
             .all()
         )
+
+    @property
+    @memoize
+    def sessions_by_organisation(self):
+        """Return the sessions grouped by organisation"""
+        sessions_by_organisation = {}
+        base_query = self.webhelpers.get_sessions_query(
+            context=self.context, include_archived=not self.hide_archived
+        )
+
+        account = self.webhelpers.get_current_account()
+        if not account.organisation:
+            sessions = base_query.limit(5).all()
+            if sessions:
+                sessions_by_organisation[None] = sessions
+
+        account_id_column = self.webhelpers.survey_session_model.account_id
+        for organisation in self.organisation_view.organisations:
+            sessions = (
+                base_query.filter(account_id_column == organisation.owner_id)
+                .limit(5)
+                .all()
+            )
+            if sessions:
+                sessions_by_organisation[organisation] = sessions
+
+        return sessions_by_organisation
 
     @property
     def label_start_session(self):

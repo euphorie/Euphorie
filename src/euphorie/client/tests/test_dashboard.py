@@ -105,7 +105,10 @@ class TestDashboard(EuphorieIntegrationTestCase):
             with self._get_view("portlet-my-ras", country) as view:
                 # The portlet by default hides the archived sessions
                 self.assertTrue(view.hide_archived)
-                self.assertEqual(len(view.sessions), 1)
+
+                self.assertEqual(
+                    len(view.sessions_by_organisation[self.account.organisation]), 1
+                )
 
                 view.request.__annotations__.clear()
 
@@ -113,14 +116,18 @@ class TestDashboard(EuphorieIntegrationTestCase):
                 # that by default is marked (we need and empty marker to check this)
                 view.request.set("hide_archived_marker", "1")
                 self.assertFalse(view.hide_archived)
-                self.assertEqual(len(view.sessions), 2)
+                self.assertEqual(
+                    len(view.sessions_by_organisation[self.account.organisation]), 2
+                )
 
                 view.request.__annotations__.clear()
 
                 # If the checbox is marked, the sessions are hidden again
                 view.request.set("hide_archived", "1")
                 self.assertTrue(view.hide_archived)
-                self.assertEqual(len(view.sessions), 1)
+                self.assertEqual(
+                    len(view.sessions_by_organisation[self.account.organisation]), 1
+                )
 
             with self._get_view("session-browser-sidebar", country) as view:
                 self.assertEqual(len(view.leaf_sessions()), 1)
