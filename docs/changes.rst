@@ -10,6 +10,8 @@ Changelog
 - Added an `@@export.json` view that allows to export a session and the related content in a single json file.
   [ale-rt]
 - Upgrade plone to 5.2.9
+- Clean up warnings
+  [ale-rt]
 - Fix the way ``get_survey_templates`` handles a survey with an unset category.
 - Remove the ghost module and its tests
   because it is not used since quite some time

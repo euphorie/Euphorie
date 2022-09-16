@@ -1,66 +1,66 @@
 <registry xmlns:i18n="http://xml.zope.org/namespaces/i18n">
   <record field="default_language"
-          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          interface="plone.i18n.interfaces.ILanguageSchema"
           name="plone.default_language"
   >
     <value>en-us</value>
   </record>
   <record field="use_path_negotiation"
-          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          interface="plone.i18n.interfaces.ILanguageSchema"
           name="plone.use_path_negotiation"
   >
     <value>False</value>
   </record>
   <record field="use_cookie_negotiation"
-          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          interface="plone.i18n.interfaces.ILanguageSchema"
           name="plone.use_cookie_negotiation"
   >
     <value>True</value>
   </record>
   <record field="authenticated_users_only"
-          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          interface="plone.i18n.interfaces.ILanguageSchema"
           name="plone.authenticated_users_only"
   >
     <value>False</value>
   </record>
   <record field="use_combined_language_codes"
-          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          interface="plone.i18n.interfaces.ILanguageSchema"
           name="plone.use_combined_language_codes"
   >
     <value>True</value>
   </record>
   <record field="use_request_negotiation"
-          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          interface="plone.i18n.interfaces.ILanguageSchema"
           name="plone.use_request_negotiation"
   >
     <value>False</value>
   </record>
   <record field="use_cctld_negotiation"
-          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          interface="plone.i18n.interfaces.ILanguageSchema"
           name="plone.use_cctld_negotiation"
   >
     <value>False</value>
   </record>
   <record field="use_subdomain_negotiation"
-          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          interface="plone.i18n.interfaces.ILanguageSchema"
           name="plone.use_subdomain_negotiation"
   >
     <value>False</value>
   </record>
   <record field="use_content_negotiation"
-          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          interface="plone.i18n.interfaces.ILanguageSchema"
           name="plone.use_content_negotiation"
   >
     <value>False</value>
   </record>
   <record field="display_flags"
-          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          interface="plone.i18n.interfaces.ILanguageSchema"
           name="plone.display_flags"
   >
     <value>False</value>
   </record>
   <record field="available_languages"
-          interface="Products.CMFPlone.interfaces.controlpanel.ILanguageSchema"
+          interface="plone.i18n.interfaces.ILanguageSchema"
           name="plone.available_languages"
   >
     <value>
