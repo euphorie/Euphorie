@@ -35,6 +35,8 @@ Changelog
   [reinhardt]
 - Transform risk notes (comment field) to safe HTML when saving.
   [reinhardt]
+- Added filters to the assessments view.
+  [reinhardt]
 
 
 14.1.5 (2022-07-13)

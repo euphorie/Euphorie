@@ -383,16 +383,49 @@ class Assessments(BrowserView):
         return self.index
 
     @property
+    def organisation_options(self):
+        organisation_view = api.content.get_view(
+            "organisation", self.context, self.request
+        )
+        return [
+            {
+                "label": organisation.title,
+                "value": organisation.owner_id,
+                "selected": "selected"
+                if str(organisation.owner_id) == self.request.get("organisation", "")
+                else None,
+            }
+            for organisation in organisation_view.organisations
+        ]
+
+    def is_filter_active(self):
+        """True if any filters in the request parameters are different from the
+        defaults.
+        """
+        return (
+            self.request.get("organisation")
+            or self.request.get("sort_on", "alphabetical") != "alphabetical"
+        )
+
+    @property
     @memoize
     def sessions(self):
         searchable_text = self.request.get("SearchableText", None)
         if searchable_text and "%" not in searchable_text:
             searchable_text = "%{}%".format(searchable_text)
+        sort_on_value = self.request.get("sort_on", "alphabetical")
+        if sort_on_value == "alphabetical":
+            order_by = self.webhelpers.survey_session_model.title
+        else:
+            order_by = False
+        organisation_value = self.request.get("organisation", "")
         return self.webhelpers.get_sessions_query(
             context=self.context,
             searchable_text=searchable_text,
             include_archived=True,
-        ).all()
+            filter_by_account=organisation_value or True,
+            order_by=order_by,
+        )
 
 
 class Surveys(BrowserView, SurveyTemplatesMixin):
