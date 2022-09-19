@@ -1,13 +1,11 @@
 # coding=utf-8
 from euphorie.client import model
-from euphorie.client.browser.webhelpers import WebHelpers
 from euphorie.client.tests.utils import addAccount
 from euphorie.client.tests.utils import addSurvey
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
 from plone.app.testing.interfaces import SITE_OWNER_NAME
-from unittest import TestCase
 
 
 class TestWebhelpers(EuphorieIntegrationTestCase):
@@ -478,37 +476,3 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
         with api.env.adopt_user(user=account3):
             with self._get_view("webhelpers", traversed_session1) as view:
                 self.assertFalse(view.can_view_session)
-
-
-class TestWebhelpersUnit(TestCase):
-    def get_webhelpers(self, path):
-        class DummyRequest:
-            def __init__(self, path):
-                self.PATH_INFO = path
-
-        return WebHelpers(None, DummyRequest(path))
-
-    def test_get_dashboard_tab(self):
-        webhelpers = self.get_webhelpers(
-            "/VirtualHostBase/https/oira.local:443/VirtualHostRoot/_vh_daimler"
-            "/Plone/client/de/assessments"
-        )
-        self.assertEqual(webhelpers.get_dashboard_tab(), "assessments")
-
-        webhelpers = self.get_webhelpers(
-            "/VirtualHostBase/https/oira.local:443/VirtualHostRoot/_vh_daimler"
-            "/Plone/client/de/assessments/"
-        )
-        self.assertEqual(webhelpers.get_dashboard_tab(), "assessments")
-
-        webhelpers = self.get_webhelpers(
-            "/VirtualHostBase/https/oira.local:443/VirtualHostRoot/_vh_daimler"
-            "/Plone/client/de/@@assessments"
-        )
-        self.assertEqual(webhelpers.get_dashboard_tab(), "assessments")
-
-        webhelpers = self.get_webhelpers(
-            "/VirtualHostBase/https/oira.local:443/VirtualHostRoot/_vh_daimler"
-            "/Plone/client/de/@@assessments/"
-        )
-        self.assertEqual(webhelpers.get_dashboard_tab(), "assessments")

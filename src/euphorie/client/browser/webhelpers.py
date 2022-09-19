@@ -104,7 +104,6 @@ class WebHelpers(BrowserView):
 
     group_model = Group
     survey_session_model = SurveySession
-    dashboard_tabs = ["surveys", "assessments", "organisation"]
 
     def to_decimal(self, value):
         """Transform value in to a decimal"""
@@ -610,12 +609,6 @@ class WebHelpers(BrowserView):
                 return NAME_TO_PHASE[tail]
             head, tail = path.split(head)
         return ""
-
-    def get_dashboard_tab(self):
-        tail = path.split(self.request.PATH_INFO.rstrip("/"))[-1].lstrip("@@")
-        if tail in self.dashboard_tabs:
-            return tail
-        return "dashboard"
 
     @property
     def came_from_param(self):
