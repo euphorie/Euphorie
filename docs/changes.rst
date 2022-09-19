@@ -4,6 +4,8 @@ Changelog
 14.2.0 (unreleased)
 -------------------
 
+- Upgrade Patternslib to 9.2.1.
+  [thet]
 - Export/import training questions
   `#435 <https://github.com/euphorie/Euphorie/pull/435>`_.
 - Introduce the concept of "organisations"
