@@ -4586,7 +4586,7 @@ msgstr ""
 #. Default: "Read more"
 #: euphorie/client/browser/templates/tool_sessions.pt:118
 msgid "label_read_more"
-msgstr ""
+msgstr "Nánari upplýsingar"
 
 #. Default: "Would you recommend this OiRA tool to an enterprise similar to yours?"
 #: euphorie/client/browser/company.py:159
