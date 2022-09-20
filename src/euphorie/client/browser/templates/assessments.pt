@@ -15,7 +15,60 @@
     <metal:slot fill-slot="content">
       <div id="content-pane">
         <metal:homescreen_navigation use-macro="here/view/macros/homescreen_navigation">
-          <metal:slot fill-slot="view_options" />
+          <metal:slot fill-slot="view_options">
+            <div class="pat-collapsible pat-context-menu align-left no-label icon-filter closed"
+                 id="filter-menu"
+                 data-pat-collapsible="close-trigger: .context-menu:not(#filter-menu),.close-menu;"
+            >
+              <strong class="context-menu-label menu-trigger"
+                      id="filters-trigger"
+                      i18n:translate=""
+              >Filter</strong>
+              <div class="panel-content">
+                <p class="close-menu"
+                   i18n:translate=""
+                >Close</p>
+                <fieldset class="vertical">
+
+                  <label>
+                    <tal:i18n i18n:translate="label_organisation">Organisation</tal:i18n>
+                    <select name="organisation">
+                      <option value=""
+                              i18n:translate="label_all_organisations"
+                      >
+                          All organisations
+                      </option>
+                      <option selected="${option/selected}"
+                              value="${option/value}"
+                              tal:repeat="option view/organisation_options"
+                      >${option/label}</option>
+                    </select>
+                  </label>
+
+                  <fieldset class="group">
+                    <legend i18n:translate="label_sorting">Sorting</legend>
+                    <fieldset class="pat-checklist radio">
+                      <label><tal:i18n i18n:translate="label_alphabetical">Alphabetical</tal:i18n>
+                        <input checked="${python:'checked' if request.get('sort_on', 'alphabetical') == 'alphabetical' else None}"
+                               name="sort_on"
+                               type="radio"
+                               value="alphabetical"
+                        />
+                      </label>
+                      <label><tal:i18n i18n:translate="label_newest_first">Newest first</tal:i18n>
+                        <input checked="${python:'checked' if request.get('sort_on', 'alphabetical') == 'modified' else None}"
+                               name="sort_on"
+                               type="radio"
+                               value="modified"
+                        />
+                      </label>
+                    </fieldset>
+                  </fieldset>
+
+                </fieldset>
+              </div>
+            </div>
+          </metal:slot>
           <metal:slot fill-slot="quick_functions">
             <metal:assessment_quick_functions define-macro="assessment_quick_functions">
               <label class="pat-toolbar-function pat-toolbar-search-field">
@@ -42,6 +95,26 @@
                show_extra_fields python:True;
              "
         >
+          <div class="canvas-alert-bar"
+               tal:condition="view/is_filter_active"
+          >
+            <p class="pat-message warning">
+              <a class="pat-button pat-inject float-after"
+                 href="${request/URL}?SearchableText=${request/SearchableText}"
+                 data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
+                 i18n:translate="label_remove_filters"
+              >Remove filters</a>
+              <tal:i18n i18n:translate="notice_filters_active">There are
+                <a class="pat-forward"
+                   href="#filters-trigger"
+                   data-pat-forward="#filters-trigger"
+                   i18n:name="link_filters"
+                   i18n:translate="label_link_filters"
+                >filters</a>
+                  active on this page.
+              </tal:i18n>
+            </p>
+          </div>
           <div class="portlet">
             <div class="content">
               <metal:assessments_list metal:define-macro="assessments_list">
