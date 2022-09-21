@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.1.6 (unreleased)
+14.1.6 (2022-09-21)
 -------------------
 
 - Tool overview on country level.
