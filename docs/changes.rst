@@ -29,8 +29,6 @@ Changelog
   [reinhardt]
 - Improved dashboard tab marker.
   [reinhardt]
-- Tool overview on country level.
-  [reinhardt]
 - Remove the home and help link when the user is not authenticated
   [ale-rt]
 - Formatting is available in measures description.
@@ -38,6 +36,13 @@ Changelog
 - Transform risk notes (comment field) to safe HTML when saving.
   [reinhardt]
 - Added filters to the assessments view.
+  [reinhardt]
+
+
+14.1.6 (2022-09-21)
+-------------------
+
+- Tool overview on country level.
   [reinhardt]
 
 
