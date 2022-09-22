@@ -100,7 +100,7 @@
           >
             <p class="pat-message warning">
               <a class="pat-button pat-inject float-after"
-                 href="${request/URL}?SearchableText=${request/SearchableText}"
+                 href="${request/URL}?SearchableText=${request/SearchableText|nothing}"
                  data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
                  i18n:translate="label_remove_filters"
               >Remove filters</a>
