@@ -62,30 +62,31 @@
           </div>
           <form class="toolbar-functions-area pat-inject pat-form pat-autosubmit"
                 id="toolbar-functions-area"
-                action="${here/absolute_url}/${view/form_action_name}#application-content"
+                action="${here/absolute_url}/${view/form_action_name|string:}#application-content"
                 method="POST"
                 data-pat-inject="history: record"
-                tal:condition="view/form_action_name|nothing"
           >
-            <div class="toolbar-section view-options"
-                 id="assessments-toolbar-view-options"
-            >
-              <metal:slot define-slot="view_options">
-                <label class="pat-select bare"
-                       tal:replace="nothing"
-                >
-                  <select name="dashboard-view">
-                    <option><!-- Show internal assessments -->Default view</option>
-                    <option><!-- Fremdfirmen Darstellung --><!-- Show external assessments --><!-- Fremdfirmen GBUs Darstellung -->Fremdfirmenkoordination</option>
-                  </select>
-                </label>
-              </metal:slot>
-            </div>
-            <div class="toolbar-section quick-functions"
-                 id="assessments-toolbar-quick-functions"
-            >
-              <metal:slot define-slot="quick_functions" />
-            </div>
+            <tal:functions tal:condition="view/form_action_name|nothing">
+              <div class="toolbar-section view-options"
+                   id="assessments-toolbar-view-options"
+              >
+                <metal:slot define-slot="view_options">
+                  <label class="pat-select bare"
+                         tal:replace="nothing"
+                  >
+                    <select name="dashboard-view">
+                      <option><!-- Show internal assessments -->Default view</option>
+                      <option><!-- Fremdfirmen Darstellung --><!-- Show external assessments --><!-- Fremdfirmen GBUs Darstellung -->Fremdfirmenkoordination</option>
+                    </select>
+                  </label>
+                </metal:slot>
+              </div>
+              <div class="toolbar-section quick-functions"
+                   id="assessments-toolbar-quick-functions"
+              >
+                <metal:slot define-slot="quick_functions" />
+              </div>
+            </tal:functions>
           </form>
         </div>
       </metal:homescreen_navigation>
