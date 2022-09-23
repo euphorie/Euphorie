@@ -59,19 +59,23 @@ jekyll:
 	@cd prototype && make jekyll
 
 
-.PHONY: bundle
-bundle: resources-install
-resources-install:   # bundle
+.PHONY: resources-install
+resources-install:
 	cp -R prototype/_site/assets/* src/euphorie/client/resources/
-	## For the script directory, always start with a clean slate
-	rm -rf src/euphorie/client/resources/oira/script
-	## Copy the bundle directly from assets, not from _site
-	cp -R prototype/assets/oira/script src/euphorie/client/resources/oira/
 	cp -R prototype/_site/media src/euphorie/client/resources/
 	cp prototype/_site/depts/index.html src/euphorie/client/resources/oira/depts.html
 	@./scripts/proto2diazo.py
+	make bundle
 	@echo "To update the oira.cms bundle, go to ../NuPlone and run ``make bundle`` there."
 
+
+.PHONY: bundle
+bundle:
+	@## For the script directory, always start with a clean slate
+	@rm -rf src/euphorie/client/resources/oira/script
+	@## Copy the bundle directly from assets, not from _site
+	@cp -R prototype/assets/oira/script src/euphorie/client/resources/oira/
+	@echo "Copied script directory from prototype to src/euphorie/client/resources/oira/script"
 
 .po.mo:
 	msgfmt -c --statistics -o $@ $<
