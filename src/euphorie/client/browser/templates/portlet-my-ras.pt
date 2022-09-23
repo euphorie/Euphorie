@@ -1,6 +1,6 @@
 <tal:portlet i18n:domain="euphorie">
   <div class="portlet span-${view/columns}"
-       id="portlet-my-ras"
+       id="portlet-my-risk-assessments"
        tal:define="
          sessions_by_organisation view/sessions_by_organisation;
        "
@@ -76,11 +76,32 @@
             >
               ${python: view.organisation_view.get_organisation_title(organisation)}
             </h3>
-            <metal:assessments_list use-macro="view/assessments_list_macro"
-                                    tal:define="
-                                      sessions python: sessions_by_organisation[organisation];
-                                    "
-            />
+            <tal:sessions tal:define="
+                            sessions python: sessions_by_organisation[organisation];
+                          ">
+              <metal:assessments_list use-macro="view/assessments_list_macro" />
+              <p class="list-footer"
+                 tal:condition="sessions"
+              >
+                <a class="pat-inject more-link"
+                   href="${here/absolute_url}/assessments#content"
+                   data-pat-inject="history: record"
+                   tal:condition="not: organisation"
+                   i18n:translate="label_more_risk_assessments"
+                >
+                  More risk assessments&hellip;
+                </a>
+                <a class="pat-inject more-link"
+                   href="${here/absolute_url}/assessments?organisation=${organisation/owner_id}#content"
+                   data-pat-inject="history: record"
+                   tal:condition="organisation"
+                   i18n:translate="label_more_risk_assessments_for"
+                >
+                  More risk assessments for
+                  <tal:i18n i18n:name="organisation">${python: view.organisation_view.get_organisation_title(organisation)}</tal:i18n>&hellip;
+                </a>
+              </p>
+            </tal:sessions>
           </tal:organisation>
         </tal:sessions>
         <tal:no-sessions condition="not:sessions_by_organisation">
@@ -92,14 +113,6 @@
             </p>
           </article>
         </tal:no-sessions>
-      </div>
-
-      <div class="portlet-footer">
-        <a class="pat-inject more-link"
-           href="${here/absolute_url}/assessments#content"
-           data-pat-inject="history: record"
-           i18n:translate="label_more_risk_assessments"
-        >More risk assessments&hellip;</a>
       </div>
 
     </div>

@@ -374,7 +374,6 @@ class Assessments(BrowserView):
         return api.content.get_view("webhelpers", self.context, self.request)
 
     @property
-    @memoize
     def form_action_name(self):
         return self.__name__
 
