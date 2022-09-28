@@ -103,6 +103,7 @@ class WebHelpers(BrowserView):
     favicon_path = "++resource++euphorie.resources/{brand}/favicon/apple-touch-icon.png"
 
     group_model = Group
+    hide_organisation_tab = False
     survey_session_model = SurveySession
     dashboard_tabs = ["surveys", "assessments", "organisation"]
 
