@@ -55,6 +55,7 @@
                    href="${here/absolute_url}/@@organisation"
                    data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                    i18n:translate=""
+                   tal:condition="not:webhelpers/hide_organisation_tab"
                 >Organisation</a>
               </nav>
 
