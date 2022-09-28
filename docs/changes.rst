@@ -4,7 +4,7 @@ Changelog
 14.2.0 (unreleased)
 -------------------
 
-- Upgrade Patternslib to 9.5.0.
+- Upgrade Patternslib to 9.6.0.
   [thet]
 - Export/import training questions
   `#435 <https://github.com/euphorie/Euphorie/pull/435>`_.
