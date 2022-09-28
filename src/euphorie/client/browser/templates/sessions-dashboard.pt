@@ -14,7 +14,6 @@
         <div class="pat-toolbar"
              id="tools-toolbar"
              tal:define="
-               dashboard_tab webhelpers/get_dashboard_tab;
                is_anonymous webhelpers/anonymous;
              "
         >
@@ -27,16 +26,16 @@
               <nav class="pat-tabs pat-button-cluster pat-navigation"
                    id="homescreen-sections"
               >
-                <a class="icon icon-gauge pat-inject ${python:'current' if dashboard_tab=='dashboard' else None}"
+                <a class="icon icon-gauge pat-inject"
                    href="${here/absolute_url}"
                    data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                 >Home</a>
-                <a class="pat-inject ${python:'current' if dashboard_tab=='surveys' else None}"
+                <a class="pat-inject"
                    href="${here/absolute_url}/surveys"
                    data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                    i18n:translate="label_tools"
                 >Tools</a>
-                <a class="pat-inject ${python:'current' if dashboard_tab=='assessments' else None}"
+                <a class="pat-inject"
                    href="${here/absolute_url}/assessments"
                    data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                    i18n:translate="label_assessments"
@@ -51,7 +50,7 @@
                    data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                 >Certificates</a>
                 -->
-                <a class="pat-inject ${python:'current' if dashboard_tab=='organisation' else None}"
+                <a class="pat-inject"
                    href="${here/absolute_url}/@@organisation"
                    data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                    i18n:translate=""

@@ -4,6 +4,8 @@ Changelog
 14.2.0 (unreleased)
 -------------------
 
+- Dashboard tab marker is now set via pat-navigation.
+  [reinhardt, thet]
 - Upgrade Patternslib to 9.5.0.
   [thet]
 - Export/import training questions
@@ -27,7 +29,7 @@ Changelog
   [ale-rt]
 - Measures that are deleted in the CMS stay visible in the client.
   [reinhardt]
-- Improved dashboard tab marker.
+- Tool overview on country level.
   [reinhardt]
 - Remove the home and help link when the user is not authenticated
   [ale-rt]
