@@ -47,29 +47,6 @@ class OrganisationBaseView(BaseView):
     ]
 
     @property
-    @memoize
-    def organisations(self):
-        account = self.webhelpers.get_current_account()
-        if not account:
-            return []
-
-        organisations = []
-        if account.organisation:
-            # Add the user own organisation (if present)
-            organisations.append(account.organisation)
-
-        # Extend with the organisation the account is member of
-        organisations.extend(
-            self.sqlsession.query(Organisation)
-            .join(
-                OrganisationMembership,
-                Organisation.owner_id == OrganisationMembership.owner_id,
-            )
-            .filter(OrganisationMembership.member_id == account.id)
-        )
-        return organisations
-
-    @property
     def default_organisation_title(self):
         """Return the default title for a new organisation
         or an orgasination without a title set
@@ -121,6 +98,32 @@ class OrganisationBaseView(BaseView):
             if role["value"] == role_id:
                 return api.portal.translate(role["label"])
         return role_id
+
+    @property
+    @memoize
+    def organisations(self):
+        account = self.webhelpers.get_current_account()
+        if not account:
+            return []
+
+        organisations = []
+        if account.organisation:
+            # Add the user own organisation (if present)
+            organisations.append(account.organisation)
+
+        # Extend with the organisation the account is member of
+        organisations.extend(
+            sorted(
+                self.sqlsession.query(Organisation)
+                .join(
+                    OrganisationMembership,
+                    Organisation.owner_id == OrganisationMembership.owner_id,
+                )
+                .filter(OrganisationMembership.member_id == account.id),
+                key=self.get_organisation_title,
+            )
+        )
+        return organisations
 
 
 class View(OrganisationBaseView):

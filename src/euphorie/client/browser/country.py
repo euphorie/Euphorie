@@ -627,28 +627,35 @@ class MyRAsPortlet(PortletBase):
     @memoize
     def sessions_by_organisation(self):
         """Return the sessions grouped by organisation"""
-        sessions_by_organisation = {}
         base_query = self.webhelpers.get_sessions_query(
             context=self.context, include_archived=not self.hide_archived
         )
 
-        account = self.webhelpers.get_current_account()
-        if not account.organisation:
-            sessions = base_query.limit(5).all()
-            if sessions:
-                sessions_by_organisation[None] = sessions
-
         account_id_column = self.webhelpers.survey_session_model.account_id
+
+        sessions_by_organisation = []
+        known_owner_ids = set()
         for organisation in self.organisation_view.organisations:
+            known_owner_ids.add(organisation.owner_id)
             sessions = (
                 base_query.filter(account_id_column == organisation.owner_id)
                 .limit(5)
                 .all()
             )
             if sessions:
-                sessions_by_organisation[organisation] = sessions
+                sessions_by_organisation.append((organisation, sessions))
 
-        return sessions_by_organisation
+        account = self.webhelpers.get_current_account()
+        if not account.organisation:
+            sessions = (
+                base_query.filter(account_id_column.notin_(known_owner_ids))
+                .limit(5)
+                .all()
+            )
+            if sessions:
+                sessions_by_organisation.insert(0, (None, sessions))
+
+        return dict(sessions_by_organisation)
 
     @property
     def label_start_session(self):
