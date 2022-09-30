@@ -655,7 +655,7 @@ class MyRAsPortlet(PortletBase):
             if sessions:
                 sessions_by_organisation.insert(0, (None, sessions))
 
-        return {key: value for key, value in sessions_by_organisation}
+        return dict(sessions_by_organisation)
 
     @property
     def label_start_session(self):
