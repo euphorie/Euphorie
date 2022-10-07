@@ -425,6 +425,10 @@
       </tal:logo>
     </tal:anon>
 
+    <div id="modal-container">
+      <!-- Modal contents go here -->
+    </div>
+
     <!-- modal link editor -->
     <template id="tiptap-modal-hyperlink-fieldname-comments">
       <h1>Edit Link</h1>
