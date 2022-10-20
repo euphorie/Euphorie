@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="en">
+	lang="de">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -17,10 +17,9 @@
 			type="text/css">
 
 		
-			<script
-				src="../../../script/bundle.min.js"
-				type="text/javascript"></script>
-		
+    <script>window.__patternslib_public_path__ = "/++resource++euphorie.resources/oira/script/";</script>
+    <script src="/++resource++euphorie.resources/oira/script/polyfills-loader.js" type="text/javascript"></script>
+<script src="../../../script/bundle.min.js"></script>
 
 		<!-- Following line is ONLY for the prototype. -->
 		<meta
@@ -127,6 +126,26 @@
 	id="main-content">
 	<div 
 		id="content-pane">
+
+		<div
+		    class="pat-toolbar"
+		    id="certificate-toolbar">
+		    <form 
+		        id="toolbar-functions-area"
+		        action="/assessments/index-filtered#application-content" 
+		        data-pat-inject="history: record"
+		        class="toolbar-functions-area pat-inject pat-form pat-autosubmit">
+				<div
+					class="toolbar-section quick-navigation">
+					<a
+						href="/certificates/"
+					    data-pat-inject="history: record; source: #content; target: #content;"
+					    class="pat-back-button pat-inject">Zertifikate</a>
+				</div>
+		    </form>
+		</div>
+
+
 		<div 
 			class="container">
 			<div 
@@ -144,14 +163,17 @@
     class="style-8 type-public certificate pat-auto-scale">
     <img 
         class="certificate-backdrop" 
-        src="../../../certificates/certificate-8.svg">
+        
+            src="../../../certificates/certificate-8.svg"
+        
+        >
     <h1 
         class="certificate-title"></h1>
     <p 
         class="certificate-title-byline"></p>
     
         <p 
-            class="certificate-user-name">Sacrebleu & Fils European Trucking Ltd.</p>
+            class="certificate-user-name"></p>
         <p 
             class="certificate-achievement"> <strong class="certificate-tool-name">“Transport routier”</strong> on <time class="certificate-date">7 September 2019</time>.</p>
     
@@ -558,6 +580,3 @@
 		
 	</body>
 </html>
-
-    <script>window.__patternslib_public_path__ = "/++resource++euphorie.resources/oira/script/";</script>
-    <script src="/++resource++euphorie.resources/oira/script/polyfills-loader.js" type="text/javascript"></script>
