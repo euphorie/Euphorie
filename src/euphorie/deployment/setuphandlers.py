@@ -120,7 +120,7 @@ def setupInitialContent(site):
 
     if "client" not in present:
         site.invokeFactory("euphorie.client", "client", title="Client")
-        # wt.doActionFor(site.client, "publish")
+        api.content.transition(site.client, to_state="published")
         log.info("Added Euphorie client instance")
 
     if "documents" not in present:

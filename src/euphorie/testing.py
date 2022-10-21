@@ -1,4 +1,3 @@
-# coding=utf-8
 from contextlib import contextmanager
 from euphorie.client import model
 from euphorie.client.interfaces import IClientSkinLayer
@@ -75,6 +74,9 @@ class EuphorieFixture(PloneSandboxLayer):
         default_zpublisher_encoding("utf-8")
 
     def setUpPloneSite(self, portal):
+        pw = api.portal.get_tool("portal_workflow")
+        pw.setDefaultChain("simple_publication_workflow")
+
         quickInstallProduct(portal, "plonetheme.nuplone")
         quickInstallProduct(portal, "euphorie.client")
         quickInstallProduct(portal, "euphorie.content")
