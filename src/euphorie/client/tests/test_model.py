@@ -297,26 +297,6 @@ class AccountTests(DatabaseTests):
         user = model.Account()
         self.assertEqual(user.has_permission("Euphorie: View a Survey", None), True)
 
-    def testNonLicetLoviNonLicetBovi(self):
-        user = model.Account()
-        self.assertEqual(user.allowed(None, _what_not_even_god_should_do), False)
-
-    def testHasAnonymousRole(self):
-        user = model.Account()
-        self.assertEqual(user.allowed(None, "Anonymous"), True)
-
-    def testHasAuthenticatedRole(self):
-        user = model.Account()
-        self.assertEqual(user.allowed(None, "Authenticated"), True)
-
-    def testHasEuphorieUserRole(self):
-        user = model.Account()
-        self.assertEqual(user.allowed(None, "EuphorieUser"), True)
-
-    def testNoOtherRole(self):
-        user = model.Account()
-        self.assertEqual(user.allowed(None, "Manager"), False)
-
     def testAccountType(self):
         (self.session, self.survey) = createSurvey()
         account = self.survey.account
@@ -459,6 +439,34 @@ class AccountTests(DatabaseTests):
         self.assertListEqual(account2.sessions, [survey2])
         self.assertListEqual(account1.acquired_sessions, [survey1, survey2])
         self.assertListEqual(account2.acquired_sessions, [survey2])
+
+
+class AccountIntegrationTests(EuphorieIntegrationTestCase):
+    def setUp(self):
+        super().setUp()
+        self.allowed = model.Account().allowed
+        self.client = self.portal.client
+
+    def test_not_licet_iovi_not_licet_bovi(self):
+        self.assertFalse(self.allowed(self.client, _what_not_even_god_should_do))
+
+    def test_has_anonymous_role(self):
+        self.assertTrue(self.allowed(self.client, ["Anonymous"]))
+
+    def test_has_authenticated_role(self):
+        self.assertTrue(self.allowed(self.client, ["Authenticated"]))
+
+    def test_has_euphorie_user_role(self):
+        self.assertTrue(self.allowed(self.client, ["EuphorieUser"]))
+
+    def test_has_reader_role(self):
+        self.assertTrue(self.allowed(self.client, ["EuphorieUser"]))
+
+    def test_no_other_role(self):
+        self.assertFalse(self.allowed(self.client, ["Manager"]))
+
+    def test_has_no_reader_role_on_portal(self):
+        self.assertFalse(self.allowed(self.portal, ["Reader"]))
 
 
 class SurveySessionDBTests(DatabaseTests):

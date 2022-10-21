@@ -11,6 +11,9 @@ Changelog
 - Introduce the concept of "organisations"
 - Sanitize the permissions handling in the client section
   [ale-rt]
+- Add the postgres user to the Authenticated Users,
+  allow the user to be checked for the reader role
+  [ale-rt]
 - Added an `@@export.json` view that allows to export a session and the related content in a single json file.
   [ale-rt]
 - Upgrade plone to 5.2.9
