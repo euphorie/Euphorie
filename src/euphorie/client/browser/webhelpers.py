@@ -107,6 +107,8 @@ class WebHelpers(BrowserView):
     survey_session_model = SurveySession
     dashboard_tabs = ["surveys", "assessments", "organisation"]
 
+    surveys_page_should_be_private = False
+
     def to_decimal(self, value):
         """Transform value in to a decimal"""
         return Decimal(value)

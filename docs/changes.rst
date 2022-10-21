@@ -14,6 +14,8 @@ Changelog
 - Upgrade plone to 5.2.9
 - Clean up warnings
   [ale-rt]
+- Added an hook to allow customizing who can see the public ``@@surveys`` view
+  [ale-rt]
 - Fix the way ``get_survey_templates`` handles a survey with an unset category.
 - Remove the ghost module and its tests
   because it is not used since quite some time

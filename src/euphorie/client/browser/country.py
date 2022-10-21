@@ -528,7 +528,18 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
             key=lambda lang: lang["code"],
         )
 
+    def check_allowed(self):
+        """This view is public but we add an hook
+        so that some customer can have it private
+        """
+        if not self.webhelpers.surveys_page_should_be_private:
+            return True
+        if self.webhelpers.get_current_account():
+            return True
+        raise Unauthorized()
+
     def __call__(self):
+        self.check_allowed()
         utils.setLanguage(
             self.request, self.context, getattr(self.context, "language", None)
         )
