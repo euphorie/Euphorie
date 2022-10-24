@@ -10,8 +10,5 @@
     <permission name="View" acquire="False">
       <role name="Authenticated" />
     </permission>
-    <permission name="Public, everyone can access" acquire="True">
-      <role name="Anonymous" />
-    </permission>
   </permissions>
 </rolemap>
