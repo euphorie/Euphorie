@@ -9,6 +9,8 @@ Changelog
 - Export/import training questions
   `#435 <https://github.com/euphorie/Euphorie/pull/435>`_.
 - Introduce the concept of "organisations"
+- Sanitize the permissions handling in the client section
+  [ale-rt]
 - Added an `@@export.json` view that allows to export a session and the related content in a single json file.
   [ale-rt]
 - Upgrade plone to 5.2.9

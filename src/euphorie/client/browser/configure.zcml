@@ -512,7 +512,7 @@
   <browser:page
       name="surveys"
       for="euphorie.client.country.IClientCountry"
-      permission="zope2.Public"
+      permission="zope2.View"
       class=".country.Surveys"
       template="templates/surveys.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
