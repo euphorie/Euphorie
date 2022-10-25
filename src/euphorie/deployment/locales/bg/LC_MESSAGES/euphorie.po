@@ -179,8 +179,7 @@ msgid ""
 "Administrators can create, edit and remove user accounts. Administrators can "
 "also make risk assessments, lock risk assessments, create trainings and take "
 "trainings."
-msgstr "Администраторите могат да създават, редактират
-и премахват потребителски профили. Също така администраторите могат да изготвят оценки на риска, да заключват оценки на риска, да създават обучения и да се включват в обучения."
+msgstr "Администраторите могат да създават, редактират и премахват потребителски профили. Също така администраторите могат да изготвят оценки на риска, да заключват оценки на риска, да създават обучения и да се включват в обучения."
 
 #: euphorie/client/browser/templates/surveys.pt:56
 msgid "All countries"

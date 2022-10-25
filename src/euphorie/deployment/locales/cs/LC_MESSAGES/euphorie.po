@@ -1681,8 +1681,7 @@ msgstr "výhodách"
 #. Default: "\n            I hereby invite you to join our organisation on OiRA.\n            Once you've accepted your membership,\n            we can collaborate on risk assessments.\n\n            Please log in or register via the link below\n            and accept your membership.\n            This link will stay valid for ${days_to_keep} days.\n\n            ${link}\n            "
 #: euphorie/client/browser/organisation.py:234
 msgid "body_add_user_to_organisation_email"
-msgstr "\n            Tímto vás zvu, abyste se připojili k naší organizaci na OiRA.\n            Jakmile přijmete své členství,\n            můžeme spolupracovat na hodnocení rizik.\n\n            Přihlaste se nebo zaregistrujte prostřednictvím odkazu\n            níže
-a přijměte své členství.\n            Tento odkaz zůstane platný ${days_to_keep} dní.\n\n            ${link}\n            "
+msgstr "\n            Tímto vás zvu, abyste se připojili k naší organizaci na OiRA.\n            Jakmile přijmete své členství,\n            můžeme spolupracovat na hodnocení rizik.\n\n            Přihlaste se nebo zaregistrujte prostřednictvím odkazu níže\n            a přijměte své členství.\n            Tento odkaz zůstane platný ${days_to_keep} dní.\n\n            ${link}\n            "
 
 #. Default: "${Modules} (and potentially sub-modules): containers providing a logical structure"
 #: euphorie/content/browser/templates/profilequestion_add.pt:53
