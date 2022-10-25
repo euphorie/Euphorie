@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-08-08 12:36+0000\n"
+"POT-Creation-Date: 2022-10-18 07:20+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: Florakalman <florakalman@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,7 +85,7 @@ msgstr ""
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
 msgstr "${provide-evidence} felügyelő szervek részére (munkaügyi felügyelet)."
 
-#: euphorie/client/browser/templates/assessments.pt:54
+#: euphorie/client/browser/templates/assessments.pt:127
 msgid "${python:'Archived' if session.is_archived else None}"
 msgstr ""
 
@@ -250,7 +250,7 @@ msgid "Available OiRA tools"
 msgstr "Elérhető OiRA eszközök"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:34
-#: euphorie/client/browser/templates/sessions-dashboard.pt:134
+#: euphorie/client/browser/templates/sessions-dashboard.pt:136
 msgid "Back"
 msgstr "Vissza"
 
@@ -301,6 +301,7 @@ msgstr "Ügyfélpélda egyszeri előfordulásra."
 msgid "Client example for multiple occurances."
 msgstr "Kliens példa a többszöri előfordulásra."
 
+#: euphorie/client/browser/templates/assessments.pt:28
 #: euphorie/client/browser/templates/portlet-my-ras.pt:37
 #: euphorie/client/browser/templates/slide_question_success.pt:47
 msgid "Close"
@@ -399,7 +400,7 @@ msgstr "Tetszett Önnek ez az eszköz? Ossza meg kollégáival és barátaival!"
 msgid "Do I need to prepare?"
 msgstr "Fel kell készülni?"
 
-#: euphorie/client/browser/session.py:385
+#: euphorie/client/browser/session.py:392
 msgid "Does this happen in multiple places?"
 msgstr "Ez több helyen is előfordul?"
 
@@ -432,7 +433,7 @@ msgstr "${name} szerkesztése"
 msgid "Edit Profile question"
 msgstr "Profilkérdés szerkesztése"
 
-#: euphorie/client/browser/templates/shell.pt:488
+#: euphorie/client/browser/templates/shell.pt:490
 msgid "Edit link"
 msgstr ""
 
@@ -444,11 +445,11 @@ msgstr ""
 msgid "Email address/account name"
 msgstr "E-mailcím/felhasználói fiók neve"
 
-#: euphorie/client/browser/session.py:390
+#: euphorie/client/browser/session.py:397
 msgid "Enter the name of the location"
 msgstr "Adja meg a helyszín nevét"
 
-#: euphorie/client/browser/session.py:395
+#: euphorie/client/browser/session.py:402
 msgid "Enter the names of each location"
 msgstr "Adja meg mindegyik helyszín nevét"
 
@@ -457,21 +458,25 @@ msgid "European Union"
 msgstr "Európai Unió"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:66
-#: euphorie/client/browser/templates/sessions-dashboard.pt:166
+#: euphorie/client/browser/templates/sessions-dashboard.pt:168
 msgid "Expand sidebar"
 msgstr "Oldalsáv mutatása"
 
-#: euphorie/content/browser/export.py:206
+#: euphorie/content/browser/export.py:207
 msgid "Export"
 msgstr ""
 
-#: euphorie/content/browser/export.py:186
+#: euphorie/content/browser/export.py:187
 msgid "Export OiRA Tool"
 msgstr ""
 
 #: euphorie/content/utils.py:50
 msgid "F.Y.R. Macedonia"
 msgstr "F.Y.R. Macedónia"
+
+#: euphorie/client/browser/templates/assessments.pt:23
+msgid "Filter"
+msgstr ""
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:32
 #: euphorie/client/browser/templates/surveys.pt:46
@@ -483,7 +488,7 @@ msgstr "Szűrők"
 msgid "First wrong answer"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:442
+#: euphorie/client/browser/templates/shell.pt:444
 msgid "Follow"
 msgstr ""
 
@@ -539,7 +544,7 @@ msgstr ""
 "rendelkezésére áll, majd egy későbbi alkalmas időpontban újra megnyithatja, "
 "és ott folytathatja, ahol abbahagyta."
 
-#: euphorie/client/browser/webhelpers.py:877
+#: euphorie/client/browser/webhelpers.py:879
 msgid "I wish to share the following with you"
 msgstr "Szeretném megosztani veletek a következőket"
 
@@ -547,7 +552,7 @@ msgstr "Szeretném megosztani veletek a következőket"
 msgid "Identifier"
 msgstr "Azonosító"
 
-#: euphorie/content/browser/upload.py:529
+#: euphorie/content/browser/upload.py:559
 msgid "Import OiRA Tool version"
 msgstr "OiRA eszköz importálása"
 
@@ -566,7 +571,7 @@ msgstr "Információ"
 msgid "Information"
 msgstr "Információ"
 
-#: euphorie/client/browser/templates/shell.pt:463
+#: euphorie/client/browser/templates/shell.pt:465
 msgid "Insert"
 msgstr ""
 
@@ -613,11 +618,11 @@ msgstr "Legutoljára mentve"
 msgid "Learn more about this tool&hellip;"
 msgstr "Tudjon meg többet erről az eszközről…"
 
-#: euphorie/client/browser/templates/shell.pt:453
+#: euphorie/client/browser/templates/shell.pt:455
 msgid "Link text"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:414
+#: euphorie/client/browser/templates/shell.pt:416
 msgid "Loading Risk Assessments&hellip;"
 msgstr "Kockázatértékelések betöltése&hellip;"
 
@@ -660,11 +665,11 @@ msgstr "Az intézkedésért felelős:"
 msgid "Member"
 msgstr ""
 
-#: euphorie/client/browser/organisation.py:725
+#: euphorie/client/browser/organisation.py:728
 msgid "Member removed"
 msgstr ""
 
-#: euphorie/client/browser/organisation.py:668
+#: euphorie/client/browser/organisation.py:671
 msgid "Member updated"
 msgstr ""
 
@@ -699,7 +704,7 @@ msgstr ""
 msgid "Montenegro"
 msgstr "Montenegró"
 
-#: euphorie/client/browser/templates/assessments.pt:134
+#: euphorie/client/browser/templates/assessments.pt:207
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:167
 #: euphorie/client/browser/templates/tool_sessions.pt:170
 msgid "More"
@@ -726,10 +731,6 @@ msgstr "Többszöri előfordulás adatbevitel"
 msgid "My certificates"
 msgstr ""
 
-#: euphorie/client/browser/templates/portlet-my-ras.pt:20
-msgid "My risk assessments"
-msgstr "Kockázatértékeléseim"
-
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:25
 msgid "My unfinished trainings"
 msgstr ""
@@ -739,7 +740,7 @@ msgid "Name"
 msgstr "Név"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:58
-#: euphorie/client/browser/templates/sessions-dashboard.pt:158
+#: euphorie/client/browser/templates/sessions-dashboard.pt:160
 msgid "New"
 msgstr "Új"
 
@@ -782,7 +783,7 @@ msgstr "Hivatalos OiRA Logo"
 msgid "OiRA Tool"
 msgstr "OiRA eszköz"
 
-#: euphorie/content/browser/upload.py:180
+#: euphorie/content/browser/upload.py:188
 msgid "OiRA Tool import"
 msgstr "OiRA eszköz importálás"
 
@@ -833,7 +834,7 @@ msgstr ""
 msgid "Organisation"
 msgstr ""
 
-#: euphorie/client/browser/organisation.py:162
+#: euphorie/client/browser/organisation.py:165
 msgid "Organisation added"
 msgstr ""
 
@@ -842,7 +843,7 @@ msgstr ""
 msgid "Organisation name"
 msgstr ""
 
-#: euphorie/client/browser/session.py:1090
+#: euphorie/client/browser/session.py:1097
 #: euphorie/client/browser/templates/measures_overview.pt:63
 #: euphorie/client/browser/templates/report_landing.pt:131
 msgid "Overview of measures"
@@ -852,7 +853,7 @@ msgstr "Intézkedések áttekintése"
 msgid "Overview of measures (PDF)"
 msgstr "Az intézkedések áttekintése (PDF)"
 
-#: euphorie/client/browser/session.py:1080
+#: euphorie/client/browser/session.py:1087
 #: euphorie/client/browser/templates/report_landing.pt:103
 #: euphorie/client/browser/templates/risks_overview.pt:156
 msgid "Overview of risks"
@@ -1043,6 +1044,10 @@ msgstr ""
 msgid "Risk"
 msgstr "Kockázat"
 
+#: euphorie/client/browser/templates/portlet-my-ras.pt:20
+msgid "Risk assessments"
+msgstr ""
+
 #: euphorie/client/browser/templates/tool_sessions.pt:129
 msgid "Risk assessments made with this tool"
 msgstr "Kockázatértékelések, amelyek ezzel az eszközzel készültek"
@@ -1105,11 +1110,11 @@ msgstr ""
 msgid "Send e-mail"
 msgstr ""
 
-#: euphorie/client/browser/session.py:691
+#: euphorie/client/browser/session.py:698
 msgid "Session `${name}` has been archived."
 msgstr "A `${name}` fejezet archiválásra került."
 
-#: euphorie/client/browser/session.py:637
+#: euphorie/client/browser/session.py:644
 msgid "Session `${name}` has been deleted."
 msgstr "A `${name}` fejezet törlésre került."
 
@@ -1130,7 +1135,7 @@ msgstr "Egyszerű (csak az Általános megközelítés mutatása)"
 msgid "Single occurance prompt"
 msgstr "Egyszeri előfordulás adatbevitel"
 
-#: euphorie/content/browser/upload.py:157
+#: euphorie/content/browser/upload.py:165
 msgid "Standard"
 msgstr "Standard"
 
@@ -1226,11 +1231,11 @@ msgstr ""
 "hogy ez a szöveg rövid legyen, hogy jól olvasható legyen kisméretű "
 "hordozható eszközökön, mint a telefonok és PDA-k."
 
-#: euphorie/client/browser/session.py:779
+#: euphorie/client/browser/session.py:786
 msgid "The risk assessment has been cloned"
 msgstr "A kockázatértékelést klónozták."
 
-#: euphorie/client/browser/organisation.py:291
+#: euphorie/client/browser/organisation.py:294
 msgid "The role is invalid"
 msgstr ""
 
@@ -1246,7 +1251,7 @@ msgstr "Az értékelési folyamat elvégzésének négy fő szakasza van:"
 msgid "There are no training questions yet"
 msgstr ""
 
-#: euphorie/client/browser/session.py:614
+#: euphorie/client/browser/session.py:621
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 "Nem áll rendelkezésre elegendő információ ahhoz, hogy tovább lépjen az "
@@ -1336,11 +1341,11 @@ msgstr ""
 msgid "Training question"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:434
+#: euphorie/client/browser/templates/shell.pt:436
 msgid "URL"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:493
+#: euphorie/client/browser/templates/shell.pt:495
 msgid "Unlink"
 msgstr ""
 
@@ -1352,7 +1357,7 @@ msgstr "Kockázatértékelés visszavonása"
 msgid "Unvisited"
 msgstr "Megválaszolatlan"
 
-#: euphorie/content/browser/upload.py:533
+#: euphorie/content/browser/upload.py:563
 msgid "Upload"
 msgstr "Feltöltés"
 
@@ -1368,11 +1373,11 @@ msgstr "Kép feltöltése"
 msgid "Use the report to:"
 msgstr "Jelentés felhasználása:"
 
-#: euphorie/client/browser/templates/shell.pt:481
+#: euphorie/client/browser/templates/shell.pt:483
 msgid "Visit linked web page"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:442
+#: euphorie/client/browser/templates/shell.pt:444
 msgid "Visit this URL"
 msgstr ""
 
@@ -1418,7 +1423,7 @@ msgstr "Igen"
 msgid "Yes, clone risk assessment"
 msgstr "Igen, másolja le a kockázatértékelést"
 
-#: euphorie/client/browser/organisation.py:151
+#: euphorie/client/browser/organisation.py:154
 msgid "You already have an organisation."
 msgstr ""
 
@@ -1473,7 +1478,7 @@ msgstr ""
 "Biztosítsa, hogy (mindig) kéznél legyen a kockázatértékelés kinyomtatott, "
 "pontos és frissített változta."
 
-#: euphorie/client/browser/organisation.py:147
+#: euphorie/client/browser/organisation.py:150
 msgid "You need to specify a title for the organisation."
 msgstr ""
 
@@ -1665,7 +1670,7 @@ msgstr ""
 "vagy felelős ezek végrehajtásáért."
 
 #. Default: "Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)"
-#: euphorie/client/browser/templates/webhelpers.pt:968
+#: euphorie/client/browser/templates/webhelpers.pt:969
 msgid "actionplan_measure_tooltip"
 msgstr ""
 "Adja meg: 1) mi az általános megközelítés a kockázat kiküszöbölésére vagy "
@@ -1678,7 +1683,7 @@ msgstr ""
 "szakértő\". Itt megadhat további kiegészítő követelményeket is (ha vannak)."
 
 #. Default: "Describe the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any)."
-#: euphorie/client/browser/templates/webhelpers.pt:983
+#: euphorie/client/browser/templates/webhelpers.pt:996
 msgid "actionplan_requirements_tooltip"
 msgstr ""
 "Az intézkedés megvalósításához szükséges szakértelem leírása, például &bdquo;"
@@ -1732,7 +1737,7 @@ msgid "benefits"
 msgstr "előnyök"
 
 #. Default: "\n            I hereby invite you to join our organisation on OiRA.\n            Once you've accepted your membership,\n            we can collaborate on risk assessments.\n\n            Please log in or register via the link below\n            and accept your membership.\n            This link will stay valid for ${days_to_keep} days.\n\n            ${link}\n            "
-#: euphorie/client/browser/organisation.py:231
+#: euphorie/client/browser/organisation.py:234
 msgid "body_add_user_to_organisation_email"
 msgstr ""
 
@@ -1928,7 +1933,7 @@ msgid "by"
 msgstr "által"
 
 #. Default: "by ${who}"
-#: euphorie/client/browser/templates/assessments.pt:103
+#: euphorie/client/browser/templates/assessments.pt:176
 msgid "by_who"
 msgstr ""
 
@@ -2162,7 +2167,7 @@ msgid "custom_placeholder_new_existing"
 msgstr "Adja meg az intézkedést ami már érvényben van."
 
 #. Default: "Organisation of ${name}"
-#: euphorie/client/browser/organisation.py:80
+#: euphorie/client/browser/organisation.py:57
 msgid "default_organisation_title"
 msgstr ""
 
@@ -2188,7 +2193,7 @@ msgstr ""
 "ndash; az intézkedési tervben."
 
 #. Default: "The plain text file will contain all translatable text without formatting. This file can be used to determine a word count for estimating the cost of translation."
-#: euphorie/content/browser/export.py:154
+#: euphorie/content/browser/export.py:155
 msgid "description_export_as_plain_text"
 msgstr ""
 
@@ -2201,7 +2206,7 @@ msgstr ""
 "nem lesz külön &bdquo;Intézkedési terv&rdquo; lépés."
 
 #. Default: "The default export escapes HTML, which is not supportedby eTranslate"
-#: euphorie/content/browser/export.py:168
+#: euphorie/content/browser/export.py:169
 msgid "description_is_etranslate_compatible"
 msgstr ""
 
@@ -2240,32 +2245,32 @@ msgstr ""
 "intézkedési terv ugyanúgy működik mint a többi kockázat esetében."
 
 #. Default: "All images contained in the OiRA tool can be exported along with the textual content. When the OiRA tool is then imported again, all images will be present. Please note that including images may result in a considerably larger file size."
-#: euphorie/content/browser/export.py:70
+#: euphorie/content/browser/export.py:71
 msgid "description_survey_export_include_images"
 msgstr ""
 
 #. Default: "The introduction text describes the general purpose of the OiRA tool. It usually gives the end users an idea what to expect in the tool and whether it will be relevant for them. The default is to include this text."
-#: euphorie/content/browser/export.py:85
+#: euphorie/content/browser/export.py:86
 msgid "description_survey_export_include_intro_text"
 msgstr ""
 
 #. Default: "For each risk, a number of common measures – sometimes also referred to as “Solutions” – can be defined. While the default setting is to include them in the export, they may be excluded if required, for example to accommodate for a limited translation budget."
-#: euphorie/content/browser/export.py:137
+#: euphorie/content/browser/export.py:138
 msgid "description_survey_export_include_measures"
 msgstr ""
 
 #. Default: "Every module comes with an introductive description. The default is to include this text."
-#: euphorie/content/browser/export.py:113
+#: euphorie/content/browser/export.py:114
 msgid "description_survey_export_include_module_description_texts"
 msgstr ""
 
 #. Default: "The “Solution” description” on modules is a deprecated kind of text that is no longer being used. The default is to skip this."
-#: euphorie/content/browser/export.py:100
+#: euphorie/content/browser/export.py:101
 msgid "description_survey_export_include_module_solution_texts"
 msgstr ""
 
 #. Default: "If the OiRA tool is exported because it should be made available for a different country, the legal texts might not apply there. Therefore the default is to skip these texts."
-#: euphorie/content/browser/export.py:126
+#: euphorie/content/browser/export.py:127
 msgid "description_survey_export_include_risk_legal_texts"
 msgstr ""
 
@@ -2447,7 +2452,7 @@ msgid "error_invalid_login"
 msgstr "A bejelentkezési név csak kisbetűkből és számokból állhat."
 
 #. Default: "Please upload a valid XML file"
-#: euphorie/content/browser/upload.py:549
+#: euphorie/content/browser/upload.py:579
 msgid "error_invalid_xml"
 msgstr "Kérjük, érvényes XML fájlt töltsön fel"
 
@@ -2493,22 +2498,22 @@ msgstr ""
 "Ennek a dátumnak megegyezőnek vagy kisebbnek kell lenni, mint a kezdő dátum."
 
 #. Default: "This value must be a valid date"
-#: euphorie/client/browser/webhelpers.py:1118
+#: euphorie/client/browser/webhelpers.py:1120
 msgid "error_validation_date"
 msgstr ""
 
 #. Default: "This value must be a valid date and time"
-#: euphorie/client/browser/webhelpers.py:1122
+#: euphorie/client/browser/webhelpers.py:1124
 msgid "error_validation_datetime"
 msgstr ""
 
 #. Default: "This value must be a valid email address"
-#: euphorie/client/browser/webhelpers.py:1129
+#: euphorie/client/browser/webhelpers.py:1131
 msgid "error_validation_email"
 msgstr ""
 
 #. Default: "This value must be a number"
-#: euphorie/client/browser/webhelpers.py:1136
+#: euphorie/client/browser/webhelpers.py:1138
 msgid "error_validation_number"
 msgstr ""
 
@@ -2640,7 +2645,7 @@ msgstr ""
 "munkamenetben nem tudja elmenteni a munkát. Minden előrehaladást elveszít, "
 "kivéve, ha ${label_link_register}."
 
-#: euphorie/client/browser/session.py:469
+#: euphorie/client/browser/session.py:476
 msgid "extra_text_identification"
 msgstr "extra_text_identification"
 
@@ -2655,7 +2660,7 @@ msgid "filename_report_identification"
 msgstr "Azonosítási jelentés ${title}"
 
 #. Default: "Timeline for ${title}"
-#: euphorie/client/browser/report.py:231
+#: euphorie/client/browser/report.py:234
 msgid "filename_report_timeline"
 msgstr "${title} ütemezése"
 
@@ -3058,6 +3063,7 @@ msgid "header_secondary_images"
 msgstr "Másodlagos képek"
 
 #. Default: "OiRA Tools"
+#: euphorie/content/browser/templates/country_tools.pt:15
 #: euphorie/content/browser/templates/sector_view.pt:15
 msgid "header_sector_survey_list"
 msgstr "OiRA eszközök"
@@ -3641,7 +3647,7 @@ msgstr ""
 "Ez az a jelszó, amellyel bejelentkezhet ebbe a szerkesztői környezetbe."
 
 #. Default: "If you do not specify a title it will be taken from the input file."
-#: euphorie/content/browser/upload.py:132
+#: euphorie/content/browser/upload.py:140
 msgid "help_sector_title"
 msgstr "Ha nem ad meg címet, akkor azt a bemeneti fájl adataiból vesszük át."
 
@@ -3692,7 +3698,7 @@ msgstr ""
 "áttekintésében a klienseken."
 
 #. Default: "If you do not specify a title it will be taken from the input."
-#: euphorie/content/browser/upload.py:148
+#: euphorie/content/browser/upload.py:156
 msgid "help_upload_surveygroup_title"
 msgstr "Ha nem ad meg címet, akkor azt a bemeneti adatokból vesszük át."
 
@@ -4012,7 +4018,7 @@ msgstr "A felhasználói fiókot zárolták"
 #. Default: "Action Plan"
 #: euphorie/client/browser/templates/login.pt:327
 #: euphorie/client/browser/templates/report_identification.pt:145
-#: euphorie/client/browser/templates/shell.pt:300
+#: euphorie/client/browser/templates/shell.pt:302
 msgid "label_action_plan"
 msgstr "Cselekvési terv"
 
@@ -4055,13 +4061,19 @@ msgstr "Tervezés kezdete"
 msgid "label_agree_terms_conditions"
 msgstr "Egyetértek a ${link_terms_conditions}"
 
+#. Default: "All organisations"
+#: euphorie/client/browser/templates/assessments.pt:36
+msgid "label_all_organisations"
+msgstr ""
+
 #. Default: "Alphabetical"
+#: euphorie/client/browser/templates/assessments.pt:51
 #: euphorie/client/browser/templates/surveys.pt:112
 msgid "label_alphabetical"
 msgstr "Abc sorrend"
 
 #. Default: "Assessment"
-#: euphorie/client/browser/templates/shell.pt:279
+#: euphorie/client/browser/templates/shell.pt:281
 msgid "label_assessment"
 msgstr "Értékelés"
 
@@ -4165,7 +4177,7 @@ msgstr "Jelenlegi / Közzétett"
 
 #. Default: "Custom risks"
 #: euphorie/client/browser/publish.py:138
-#: euphorie/client/browser/session.py:478
+#: euphorie/client/browser/session.py:485
 #: euphorie/client/browser/templates/module_identification_custom.pt:28
 msgid "label_custom_risks"
 msgstr "Szokásos kockázatok"
@@ -4252,7 +4264,7 @@ msgstr ""
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:325
 #: euphorie/client/browser/templates/report_identification.pt:135
-#: euphorie/client/browser/templates/shell.pt:279
+#: euphorie/client/browser/templates/shell.pt:281
 msgid "label_evaluation"
 msgstr "Értékelés"
 
@@ -4278,7 +4290,7 @@ msgid "label_existing_measures"
 msgstr ""
 
 #. Default: "Exit"
-#: euphorie/client/browser/templates/shell.pt:380
+#: euphorie/client/browser/templates/shell.pt:382
 msgid "label_exit"
 msgstr "Kilépés"
 
@@ -4288,12 +4300,12 @@ msgid "label_expertise"
 msgstr "Szakértelem"
 
 #. Default: "Export additionally as plain text file"
-#: euphorie/content/browser/export.py:150
+#: euphorie/content/browser/export.py:151
 msgid "label_export_as_plain_text"
 msgstr ""
 
 #. Default: "Add an extra measure"
-#: euphorie/client/browser/templates/webhelpers.pt:1083
+#: euphorie/client/browser/templates/webhelpers.pt:1097
 msgid "label_extra_add_measure"
 msgstr "További intézkedés hozzáadása"
 
@@ -4389,7 +4401,7 @@ msgstr "Kockázatértékelés végrehajtása"
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:323
 #: euphorie/client/browser/templates/report_identification.pt:125
-#: euphorie/client/browser/templates/shell.pt:277
+#: euphorie/client/browser/templates/shell.pt:279
 msgid "label_identification"
 msgstr "Azonosítás"
 
@@ -4415,13 +4427,13 @@ msgid "label_introduction"
 msgstr "Bevezető szöveg"
 
 #. Default: "Involve"
-#: euphorie/client/browser/templates/shell.pt:253
+#: euphorie/client/browser/templates/shell.pt:255
 msgid "label_involve"
 msgstr "Bevonás"
 
 #. Default: "Export in eTranslate compatible XML"
-#: euphorie/content/browser/export.py:164
-#: euphorie/content/browser/upload.py:189
+#: euphorie/content/browser/export.py:165
+#: euphorie/content/browser/upload.py:197
 msgid "label_is_etranslate_compatible"
 msgstr ""
 
@@ -4469,6 +4481,11 @@ msgstr "Tudjon meg többet az OiRA-ról!"
 msgid "label_legal_reference"
 msgstr "Hivatkozások jogszabályokra és szabályzatokra"
 
+#. Default: "filters"
+#: euphorie/client/browser/templates/assessments.pt:108
+msgid "label_link_filters"
+msgstr ""
+
 #. Default: "register"
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "label_link_register"
@@ -4480,7 +4497,7 @@ msgid "label_login"
 msgstr "Bejelentkezés"
 
 #. Default: "Login name"
-#: euphorie/content/browser/upload.py:141 euphorie/content/user.py:85
+#: euphorie/content/browser/upload.py:149 euphorie/content/user.py:85
 msgid "label_login_name"
 msgstr "Bejelentkezési név"
 
@@ -4509,7 +4526,7 @@ msgstr ""
 
 #. Default: "General approach (to eliminate or reduce the risk)"
 #: euphorie/client/browser/report.py:129
-#: euphorie/client/browser/templates/webhelpers.pt:972
+#: euphorie/client/browser/templates/webhelpers.pt:975
 #: euphorie/client/docx/compiler.py:428
 msgid "label_measure_action_plan"
 msgstr "Általános megközelítés (a kockázat kiküszöbölésére vagy csökkentésére)"
@@ -4522,13 +4539,13 @@ msgstr "A megoldás bevezetéséhez szükséges konkrét lépés(ek)"
 
 #. Default: "Level of expertise and/or requirements needed"
 #: euphorie/client/browser/report.py:137
-#: euphorie/client/browser/templates/webhelpers.pt:987
+#: euphorie/client/browser/templates/webhelpers.pt:1000
 #: euphorie/client/docx/compiler.py:437
 msgid "label_measure_requirements"
 msgstr "Szükséges szakértelem és/vagy követelmények szintje"
 
 #. Default: "Title is missing"
-#: euphorie/client/browser/templates/assessments.pt:67
+#: euphorie/client/browser/templates/assessments.pt:140
 #: euphorie/client/browser/templates/tool_sessions.pt:144
 msgid "label_missing_title"
 msgstr "Hiányzik a cím"
@@ -4555,9 +4572,14 @@ msgid "label_module_question"
 msgstr "Kérdés"
 
 #. Default: "More risk assessments…"
-#: euphorie/client/browser/templates/portlet-my-ras.pt:87
+#: euphorie/client/browser/templates/portlet-my-ras.pt:86
 msgid "label_more_risk_assessments"
 msgstr "További kockázatértékelések..."
+
+#. Default: "More risk assessments for ${organisation}…"
+#: euphorie/client/browser/templates/portlet-my-ras.pt:101
+msgid "label_more_risk_assessments_for"
+msgstr ""
 
 #. Default: "Did this OiRA tool meet your needs?"
 #: euphorie/client/browser/company.py:148
@@ -4583,6 +4605,7 @@ msgid "label_new_session_test"
 msgstr "Új teszt változat"
 
 #. Default: "Newest first"
+#: euphorie/client/browser/templates/assessments.pt:58
 #: euphorie/client/browser/templates/surveys.pt:105
 msgid "label_newest_first"
 msgstr "Legújabb először"
@@ -4668,6 +4691,11 @@ msgstr "Jelenlegi jelszó"
 msgid "label_online_oira_training"
 msgstr ""
 
+#. Default: "Organisation"
+#: euphorie/client/browser/templates/assessments.pt:34
+msgid "label_organisation"
+msgstr ""
+
 #. Default: "Page"
 #: euphorie/client/browser/pdf.py:42
 #: euphorie/client/browser/templates/training-slides.pt:130
@@ -4700,7 +4728,7 @@ msgstr ""
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:321
 #: euphorie/client/browser/templates/report_identification.pt:113
-#: euphorie/client/browser/templates/shell.pt:233
+#: euphorie/client/browser/templates/shell.pt:235
 msgid "label_preparation"
 msgstr "Előkészítés"
 
@@ -4787,6 +4815,11 @@ msgstr "Letölthet egy teljes kockázatértékelést és intézkedési tervet."
 msgid "label_register_first"
 msgstr "Regisztráció"
 
+#. Default: "Remove filters"
+#: euphorie/client/browser/templates/assessments.pt:102
+msgid "label_remove_filters"
+msgstr ""
+
 #. Default: "Delete this measure"
 #: euphorie/client/browser/templates/webhelpers.pt:816
 msgid "label_remove_measure"
@@ -4795,7 +4828,7 @@ msgstr "Az intézkedés törlése"
 #. Default: "Report"
 #: euphorie/client/browser/templates/report_identification.pt:155
 #: euphorie/client/browser/templates/report_landing.pt:29
-#: euphorie/client/browser/templates/shell.pt:325
+#: euphorie/client/browser/templates/shell.pt:327
 msgid "label_report"
 msgstr "Jelentés"
 
@@ -4913,7 +4946,7 @@ msgid "label_sector_description"
 msgstr "Kérjük adja meg az ágazata leírását"
 
 #. Default: "Title of sector."
-#: euphorie/content/browser/upload.py:131
+#: euphorie/content/browser/upload.py:139
 msgid "label_sector_title"
 msgstr "Ágazat címe."
 
@@ -4937,7 +4970,7 @@ msgid "label_select_oira_tool"
 msgstr "OiRA eszköz kiválasztása"
 
 #. Default: "Select standard measures"
-#: euphorie/client/browser/templates/webhelpers.pt:1075
+#: euphorie/client/browser/templates/webhelpers.pt:1089
 msgid "label_select_standard_measures"
 msgstr "Standard intézkedések kiválasztása"
 
@@ -4972,6 +5005,7 @@ msgid "label_solution_direction"
 msgstr "Megoldás"
 
 #. Default: "Sorting"
+#: euphorie/client/browser/templates/assessments.pt:49
 #: euphorie/client/browser/templates/surveys.pt:103
 msgid "label_sorting"
 msgstr "Válogatás"
@@ -4992,7 +5026,7 @@ msgid "label_start_test_session"
 msgstr ""
 
 #. Default: "Started"
-#: euphorie/client/browser/templates/assessments.pt:75
+#: euphorie/client/browser/templates/assessments.pt:148
 #: euphorie/client/browser/templates/status_info.pt:53
 msgid "label_started"
 msgstr "Megkezdve"
@@ -5013,32 +5047,32 @@ msgid "label_survey_evaluation_algorithm"
 msgstr "Értékelési algoritmus"
 
 #. Default: "Include images"
-#: euphorie/content/browser/export.py:69
+#: euphorie/content/browser/export.py:70
 msgid "label_survey_export_include_images"
 msgstr ""
 
 #. Default: "Include introduction text"
-#: euphorie/content/browser/export.py:81
+#: euphorie/content/browser/export.py:82
 msgid "label_survey_export_include_intro_text"
 msgstr ""
 
 #. Default: "Include measures"
-#: euphorie/content/browser/export.py:136
+#: euphorie/content/browser/export.py:137
 msgid "label_survey_export_include_measures"
 msgstr ""
 
 #. Default: "Include “Description” texts on modules"
-#: euphorie/content/browser/export.py:109
+#: euphorie/content/browser/export.py:110
 msgid "label_survey_export_include_module_description_texts"
 msgstr ""
 
 #. Default: "Include “Solution” texts on modules"
-#: euphorie/content/browser/export.py:96
+#: euphorie/content/browser/export.py:97
 msgid "label_survey_export_include_module_solution_texts"
 msgstr ""
 
 #. Default: "Include “Legal and policy references” texts on risks"
-#: euphorie/content/browser/export.py:122
+#: euphorie/content/browser/export.py:123
 msgid "label_survey_export_include_risk_legal_texts"
 msgstr ""
 
@@ -5058,7 +5092,7 @@ msgid "label_survey_title"
 msgstr "Verzió neve"
 
 #. Default: "Title of imported OiRA Tool"
-#: euphorie/content/browser/upload.py:147
+#: euphorie/content/browser/upload.py:155
 msgid "label_surveygroup_title"
 msgstr "Importált OiRA eszköz címe"
 
@@ -5166,12 +5200,12 @@ msgid "label_update"
 msgstr "Frissítés"
 
 #. Default: "XML file"
-#: euphorie/content/browser/upload.py:162
+#: euphorie/content/browser/upload.py:170
 msgid "label_upload_filename"
 msgstr "XML fájl"
 
 #. Default: "Name for OiRA Tool version"
-#: euphorie/content/browser/upload.py:156
+#: euphorie/content/browser/upload.py:164
 msgid "label_upload_survey_title"
 msgstr "Az OiRA eszköz verziójának neve"
 
@@ -5229,7 +5263,7 @@ msgid "last_edited_by"
 msgstr "Utoljára módosította: ${name} , ekkor: ${date}."
 
 #. Default: "Last edited ${time}"
-#: euphorie/client/browser/templates/assessments.pt:88
+#: euphorie/client/browser/templates/assessments.pt:161
 msgid "last_edited_when"
 msgstr ""
 
@@ -5266,8 +5300,8 @@ msgid "link_sign_in"
 msgstr "Bejelentkezés"
 
 #. Default: "Start a new risk assessment"
-#: euphorie/client/browser/country.py:586
-#: euphorie/client/browser/templates/assessments.pt:29
+#: euphorie/client/browser/country.py:663
+#: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
 msgstr "Új kockázatértékelés"
@@ -5352,33 +5386,33 @@ msgid "menu_import"
 msgstr "OiRA eszköz importálása"
 
 #. Default: "Training"
-#: euphorie/client/browser/templates/shell.pt:346
+#: euphorie/client/browser/templates/shell.pt:348
 #: euphorie/client/browser/templates/webhelpers.pt:631
 msgid "menu_training"
 msgstr "Oktatás"
 
 #. Default: "You are already a member of the ${name} organisation."
-#: euphorie/client/browser/organisation.py:407
+#: euphorie/client/browser/organisation.py:410
 msgid "message_add_user_to_organisation_already_member"
 msgstr ""
 
 #. Default: "The invitation from the ${name} organisation is not valid anymore."
-#: euphorie/client/browser/organisation.py:377
+#: euphorie/client/browser/organisation.py:380
 msgid "message_add_user_to_organisation_expired"
 msgstr ""
 
 #. Default: "We could not find the invitation you are looking for."
-#: euphorie/client/browser/organisation.py:366
+#: euphorie/client/browser/organisation.py:369
 msgid "message_add_user_to_organisation_invalid"
 msgstr ""
 
 #. Default: "You cannot add yourself to your organisation."
-#: euphorie/client/browser/organisation.py:390
+#: euphorie/client/browser/organisation.py:393
 msgid "message_add_user_to_organisation_self"
 msgstr ""
 
 #. Default: "You have been added to the ${name} organisation."
-#: euphorie/client/browser/organisation.py:423
+#: euphorie/client/browser/organisation.py:426
 msgid "message_add_user_to_organisation_success"
 msgstr ""
 
@@ -5402,7 +5436,7 @@ msgid "message_download_tool_contents"
 msgstr ""
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/webhelpers.py:1140
+#: euphorie/client/browser/webhelpers.py:1142
 msgid "message_field_required"
 msgstr "Kérem töltse ki ezt a mezőt!"
 
@@ -5454,6 +5488,11 @@ msgstr ""
 #: euphorie/content/browser/templates/country_view.pt:19
 msgid "message_no_sectors"
 msgstr "Ehhez az országhoz nincsenek ágazatok."
+
+#. Default: "There are no tools for this country."
+#: euphorie/content/browser/templates/country_tools.pt:16
+msgid "message_no_tools"
+msgstr ""
 
 #. Default: "You can not delete a sector that contains published OiRA Tools."
 #: euphorie/content/browser/sector.py:91
@@ -5559,7 +5598,7 @@ msgstr "Beállítások"
 
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:53
-#: euphorie/client/browser/templates/shell.pt:372
+#: euphorie/client/browser/templates/shell.pt:374
 #: euphorie/client/browser/templates/webhelpers.pt:62
 msgid "navigation_status"
 msgstr "Állapot"
@@ -5623,6 +5662,11 @@ msgstr "Nincs beállítva"
 #: euphorie/content/browser/templates/countrymanager_view.pt:19
 msgid "notice_country_manager"
 msgstr "${country} országos igazgatója."
+
+#. Default: "There are ${link_filters} active on this page."
+#: euphorie/client/browser/templates/assessments.pt:108
+msgid "notice_filters_active"
+msgstr ""
 
 #. Default: "On behalf of the employer:"
 #: euphorie/client/docx/compiler.py:493
@@ -5699,7 +5743,7 @@ msgstr ""
 "felsorolás."
 
 #. Default: "Search risk assessments"
-#: euphorie/client/browser/templates/assessments.pt:22
+#: euphorie/client/browser/templates/assessments.pt:75
 #: euphorie/client/browser/templates/organisation.pt:22
 msgid "placeholder_search_risk_assessments"
 msgstr "Keresés a munkahelyi kockázatértékelések között"
@@ -5710,7 +5754,7 @@ msgid "portlet_header_versions"
 msgstr "Verziók"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:720
+#: euphorie/client/browser/session.py:727
 msgid "prefix_cloned_title"
 msgstr "MÁSOLÁS"
 
@@ -5754,7 +5798,7 @@ msgid "probability_small"
 msgstr "Kicsi"
 
 #. Default: "${completion_percentage}% Complete"
-#: euphorie/client/browser/webhelpers.py:279
+#: euphorie/client/browser/webhelpers.py:281
 msgid "progress_indicator_title"
 msgstr "${completion_percentage}% Kész"
 
@@ -6040,7 +6084,7 @@ msgid "severity_weak_help"
 msgstr "Nem kell abbahagyni a munkát"
 
 #. Default: "Confirm OiRA membership to ’${organisation}’"
-#: euphorie/client/browser/organisation.py:218
+#: euphorie/client/browser/organisation.py:221
 msgid "subject_add_user_to_organisation_email"
 msgstr ""
 
@@ -6191,7 +6235,7 @@ msgid "title_status_of"
 msgstr "A ${survey_title} státusza"
 
 #. Default: "OiRA - Online interactive Risk Assessment"
-#: euphorie/client/browser/country.py:268
+#: euphorie/client/browser/country.py:269
 #: euphorie/client/browser/templates/layout.pt:18
 #: euphorie/client/browser/templates/modal-template.pt:21
 msgid "title_tool"
@@ -6267,7 +6311,7 @@ msgid "unpublish_confirm"
 msgstr "Biztosan szeretné megszüntetni ennek az OiRA eszköznek a közzétételét?"
 
 #. Default: "Succesfully imported the OiRA Tool"
-#: euphorie/content/browser/upload.py:554
+#: euphorie/content/browser/upload.py:584
 msgid "upload_success"
 msgstr "Az OiRA eszközt sikerült importálni"
 
@@ -6341,6 +6385,9 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Igen"
+
+#~ msgid "My risk assessments"
+#~ msgstr "Kockázatértékeléseim"
 
 #~ msgid "title_account_settings"
 #~ msgstr "Felhasználói fiók beállításai"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-08-08 12:36+0000\n"
+"POT-Creation-Date: 2022-10-18 07:20+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,7 +83,7 @@ msgstr ""
 "${provide-evidence} priežiūros institucijoms (pvz., darbo inspekcijai) "
 "pateikti. "
 
-#: euphorie/client/browser/templates/assessments.pt:54
+#: euphorie/client/browser/templates/assessments.pt:127
 msgid "${python:'Archived' if session.is_archived else None}"
 msgstr ""
 
@@ -158,7 +158,7 @@ msgstr "Pridėkite medžiagą iš bibliotekos"
 #: euphorie/client/browser/templates/organisation.pt:54
 #: euphorie/client/browser/templates/panel-add-organisation.pt:17
 msgid "Add organisation"
-msgstr ""
+msgstr "Pridėti organizaciją"
 
 #: euphorie/content/browser/library.py:211
 msgid "Added a copy of \"${title}\" to your OiRA tool."
@@ -171,7 +171,7 @@ msgstr "Papildoma priemonė"
 #: euphorie/client/browser/organisation.py:45
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:66
 msgid "Administrator"
-msgstr ""
+msgstr "Administratorius"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:68
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:68
@@ -179,7 +179,7 @@ msgid ""
 "Administrators can create, edit and remove user accounts. Administrators can "
 "also make risk assessments, lock risk assessments, create trainings and take "
 "trainings."
-msgstr ""
+msgstr "Administratoriai gali kurti, redaguoti ir pašalinti naudotojų paskyras. Administratoriai taip pat gali atlikti rizikos vertinimus, blokuoti rizikos vertinimus, rengti mokymus ir dalyvauti mokymuose."
 
 #: euphorie/client/browser/templates/surveys.pt:56
 msgid "All countries"
@@ -240,14 +240,14 @@ msgstr "Ar tikrai norite tęsti?"
 
 #: euphorie/client/browser/templates/panel-organisation-member-remove.pt:37
 msgid "Are you sure you want to remove ${name} from ${organisation}?"
-msgstr ""
+msgstr "Ar tikrai norite pašalinti ${name} iš ${organisation}?"
 
 #: euphorie/client/browser/templates/portlet-available-tools.pt:14
 msgid "Available OiRA tools"
 msgstr "Esamos OiRA priemonės"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:34
-#: euphorie/client/browser/templates/sessions-dashboard.pt:134
+#: euphorie/client/browser/templates/sessions-dashboard.pt:136
 msgid "Back"
 msgstr ""
 
@@ -300,6 +300,7 @@ msgstr "Kliento pateikiamas vienkartinio naudojimo pavyzdys."
 msgid "Client example for multiple occurances."
 msgstr "Kliento pateikiamas daugkartinio naudojimo pavyzdys."
 
+#: euphorie/client/browser/templates/assessments.pt:28
 #: euphorie/client/browser/templates/portlet-my-ras.pt:37
 #: euphorie/client/browser/templates/slide_question_success.pt:47
 msgid "Close"
@@ -399,7 +400,7 @@ msgstr ""
 msgid "Do I need to prepare?"
 msgstr "Ar turėčiau pasiruošti?"
 
-#: euphorie/client/browser/session.py:385
+#: euphorie/client/browser/session.py:392
 msgid "Does this happen in multiple places?"
 msgstr "Ar taip atsitinka daugelyje vietų?"
 
@@ -421,7 +422,7 @@ msgstr "ES valstybė narė"
 
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:20
 msgid "Edit"
-msgstr ""
+msgstr "Redaguoti"
 
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:21
 #: euphorie/content/browser/module.py:97
@@ -432,7 +433,7 @@ msgstr "Redaguoti ${name}"
 msgid "Edit Profile question"
 msgstr "Redaguoti Profilio klausimą"
 
-#: euphorie/client/browser/templates/shell.pt:488
+#: euphorie/client/browser/templates/shell.pt:490
 msgid "Edit link"
 msgstr ""
 
@@ -444,11 +445,11 @@ msgstr "Redaguoti mokymo kortelę"
 msgid "Email address/account name"
 msgstr "El. pašto adresas / paskyros pavadinimas"
 
-#: euphorie/client/browser/session.py:390
+#: euphorie/client/browser/session.py:397
 msgid "Enter the name of the location"
 msgstr "Nurodykite vietos pavadinimą"
 
-#: euphorie/client/browser/session.py:395
+#: euphorie/client/browser/session.py:402
 msgid "Enter the names of each location"
 msgstr "Nurodykite visų vietų pavadinimus"
 
@@ -457,21 +458,25 @@ msgid "European Union"
 msgstr "Europos Sąjunga"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:66
-#: euphorie/client/browser/templates/sessions-dashboard.pt:166
+#: euphorie/client/browser/templates/sessions-dashboard.pt:168
 msgid "Expand sidebar"
 msgstr ""
 
-#: euphorie/content/browser/export.py:206
+#: euphorie/content/browser/export.py:207
 msgid "Export"
 msgstr ""
 
-#: euphorie/content/browser/export.py:186
+#: euphorie/content/browser/export.py:187
 msgid "Export OiRA Tool"
 msgstr ""
 
 #: euphorie/content/utils.py:50
 msgid "F.Y.R. Macedonia"
 msgstr "Buvusioji Jugoslavijos Respublika Makedonija"
+
+#: euphorie/client/browser/templates/assessments.pt:23
+msgid "Filter"
+msgstr ""
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:32
 #: euphorie/client/browser/templates/surveys.pt:46
@@ -483,7 +488,7 @@ msgstr ""
 msgid "First wrong answer"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:442
+#: euphorie/client/browser/templates/shell.pt:444
 msgid "Follow"
 msgstr ""
 
@@ -536,7 +541,7 @@ msgstr ""
 "Tačiau vertinimui skirkite tiek laiko, kiek jo turite – bet kada galėsite "
 "tęsti nuo tos vietos, kur baigėte praeitą kartą."
 
-#: euphorie/client/browser/webhelpers.py:877
+#: euphorie/client/browser/webhelpers.py:879
 msgid "I wish to share the following with you"
 msgstr "Noriu pasidalinti šia informacija su jumis"
 
@@ -544,7 +549,7 @@ msgstr "Noriu pasidalinti šia informacija su jumis"
 msgid "Identifier"
 msgstr "Identifikatorius"
 
-#: euphorie/content/browser/upload.py:529
+#: euphorie/content/browser/upload.py:559
 msgid "Import OiRA Tool version"
 msgstr ""
 
@@ -563,7 +568,7 @@ msgstr "Informacija"
 msgid "Information"
 msgstr "Informacija"
 
-#: euphorie/client/browser/templates/shell.pt:463
+#: euphorie/client/browser/templates/shell.pt:465
 msgid "Insert"
 msgstr ""
 
@@ -593,7 +598,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:74
 msgid "Keep the existing logo"
-msgstr ""
+msgstr "Palikti esantį logo/ženklą"
 
 #: euphorie/content/utils.py:46
 msgid "Kosovo"
@@ -609,11 +614,11 @@ msgstr "išsaugota"
 msgid "Learn more about this tool&hellip;"
 msgstr "Sužinokite daugiau apie šį įrankį…"
 
-#: euphorie/client/browser/templates/shell.pt:453
+#: euphorie/client/browser/templates/shell.pt:455
 msgid "Link text"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:414
+#: euphorie/client/browser/templates/shell.pt:416
 msgid "Loading Risk Assessments&hellip;"
 msgstr ""
 
@@ -624,7 +629,7 @@ msgstr "Prisijungimas"
 #: euphorie/client/browser/templates/panel-add-organisation.pt:45
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:49
 msgid "Logo (Optional)"
-msgstr ""
+msgstr "Logo/ ženklas"
 
 #: euphorie/client/browser/templates/report_landing.pt:89
 msgid "Manage"
@@ -633,14 +638,14 @@ msgstr "savo darbo vietoje"
 #: euphorie/client/browser/organisation.py:41
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:59
 msgid "Manager/Policy maker"
-msgstr ""
+msgstr "Vadovas/Atsakingas asmuo"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:74
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:74
 msgid ""
 "Managers/Policy makers can make risk assessments, lock risk assessments, "
 "create trainings and take trainings."
-msgstr ""
+msgstr "Vadovai/atsakingi asmenys gali atlikti rizikos vertinimus, blokuoti rizikos vertinimus, kurti ir dalyvauti mokymuose."
 
 #: euphorie/client/browser/templates/webhelpers.pt:942
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
@@ -654,20 +659,20 @@ msgstr "Atsakingas už priemonės įgyvendinimą"
 #: euphorie/client/browser/organisation.py:37
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:52
 msgid "Member"
-msgstr ""
+msgstr "Narys"
 
-#: euphorie/client/browser/organisation.py:725
+#: euphorie/client/browser/organisation.py:728
 msgid "Member removed"
-msgstr ""
+msgstr "Narys pašalintas"
 
-#: euphorie/client/browser/organisation.py:668
+#: euphorie/client/browser/organisation.py:671
 msgid "Member updated"
-msgstr ""
+msgstr "Narys atnaujintas"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:80
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:80
 msgid "Members can make risk assessments and take trainings."
-msgstr ""
+msgstr "Nariai gali atlikti rizikos vertinimą ir dalyvauti mokymuose."
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml
 #: euphorie/deployment/browser/search.py:13
@@ -694,7 +699,7 @@ msgstr "Stebėkite rizikas / priemonių tinkamą įgyvendinimą."
 msgid "Montenegro"
 msgstr "Juodkalnija"
 
-#: euphorie/client/browser/templates/assessments.pt:134
+#: euphorie/client/browser/templates/assessments.pt:207
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:167
 #: euphorie/client/browser/templates/tool_sessions.pt:170
 msgid "More"
@@ -721,10 +726,6 @@ msgstr "Daugkartinis raginimas"
 msgid "My certificates"
 msgstr "Mano sertifikatai"
 
-#: euphorie/client/browser/templates/portlet-my-ras.pt:20
-msgid "My risk assessments"
-msgstr "Mano atlikti rizikos vertinimai"
-
 #: euphorie/client/browser/templates/portlet-my-trainings.pt:25
 msgid "My unfinished trainings"
 msgstr "Mano nebaigti mokymai"
@@ -734,13 +735,13 @@ msgid "Name"
 msgstr "Vardas"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:58
-#: euphorie/client/browser/templates/sessions-dashboard.pt:158
+#: euphorie/client/browser/templates/sessions-dashboard.pt:160
 msgid "New"
 msgstr "Naujas"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:17
 msgid "New user"
-msgstr ""
+msgstr "Naujas naudotojas"
 
 #: euphorie/client/browser/templates/profile.pt:71
 #: euphorie/client/browser/templates/updated.pt:65
@@ -777,7 +778,7 @@ msgstr "Oficialus OiRA logotipas"
 msgid "OiRA Tool"
 msgstr ""
 
-#: euphorie/content/browser/upload.py:180
+#: euphorie/content/browser/upload.py:188
 msgid "OiRA Tool import"
 msgstr ""
 
@@ -822,18 +823,18 @@ msgstr ""
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:54
 msgid "Organisation"
-msgstr ""
+msgstr "Organizacija"
 
-#: euphorie/client/browser/organisation.py:162
+#: euphorie/client/browser/organisation.py:165
 msgid "Organisation added"
-msgstr ""
+msgstr "Organizacija pridėta"
 
 #: euphorie/client/browser/templates/panel-add-organisation.pt:34
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:37
 msgid "Organisation name"
-msgstr ""
+msgstr "Organizacijos pavadinimas"
 
-#: euphorie/client/browser/session.py:1090
+#: euphorie/client/browser/session.py:1097
 #: euphorie/client/browser/templates/measures_overview.pt:63
 #: euphorie/client/browser/templates/report_landing.pt:131
 msgid "Overview of measures"
@@ -843,7 +844,7 @@ msgstr "Priemonių peržiūra"
 msgid "Overview of measures (PDF)"
 msgstr ""
 
-#: euphorie/client/browser/session.py:1080
+#: euphorie/client/browser/session.py:1087
 #: euphorie/client/browser/templates/report_landing.pt:103
 #: euphorie/client/browser/templates/risks_overview.pt:156
 msgid "Overview of risks"
@@ -855,7 +856,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/organisation.pt:96
 msgid "Owner"
-msgstr ""
+msgstr "Vadovaujantis asmuo (savininkas)"
 
 #: euphorie/client/browser/templates/report_landing.pt:163
 msgid ""
@@ -1001,7 +1002,7 @@ msgstr "Pašalinti"
 
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:93
 msgid "Remove the existing logo"
-msgstr ""
+msgstr "Pašalinti esantį ženklą"
 
 #: euphorie/client/browser/templates/slide_question_try_again.pt:41
 msgid "Repeat the questions to find the correct answer and try again."
@@ -1013,7 +1014,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:84
 msgid "Replace the existing logo"
-msgstr ""
+msgstr "Pakeisti esantį ženklą"
 
 #: euphorie/content/utils.py:48
 msgid "Republic of Serbia"
@@ -1032,6 +1033,10 @@ msgstr ""
 #: euphorie/deployment/browser/search.py:15
 msgid "Risk"
 msgstr "Rizika"
+
+#: euphorie/client/browser/templates/portlet-my-ras.pt:20
+msgid "Risk assessments"
+msgstr ""
 
 #: euphorie/client/browser/templates/tool_sessions.pt:129
 msgid "Risk assessments made with this tool"
@@ -1088,17 +1093,17 @@ msgstr "Ekonominė veikla"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:45
 msgid "Select the role your new members will get"
-msgstr ""
+msgstr "Pasirinkite, kokį vaidmenį gaus Jūsų nauji nariai"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:92
 msgid "Send e-mail"
-msgstr ""
+msgstr "Siųsti el.laišką"
 
-#: euphorie/client/browser/session.py:691
+#: euphorie/client/browser/session.py:698
 msgid "Session `${name}` has been archived."
 msgstr ""
 
-#: euphorie/client/browser/session.py:637
+#: euphorie/client/browser/session.py:644
 msgid "Session `${name}` has been deleted."
 msgstr "Sesija `${name}` panaikintas."
 
@@ -1119,7 +1124,7 @@ msgstr ""
 msgid "Single occurance prompt"
 msgstr "Vienkartinis raginimas"
 
-#: euphorie/content/browser/upload.py:157
+#: euphorie/content/browser/upload.py:165
 msgid "Standard"
 msgstr "Standartinis"
 
@@ -1212,11 +1217,11 @@ msgid ""
 "phones and PDAs."
 msgstr ""
 
-#: euphorie/client/browser/session.py:779
+#: euphorie/client/browser/session.py:786
 msgid "The risk assessment has been cloned"
 msgstr "Rizikos vertinimas buvo pakartotas."
 
-#: euphorie/client/browser/organisation.py:291
+#: euphorie/client/browser/organisation.py:294
 msgid "The role is invalid"
 msgstr ""
 
@@ -1232,7 +1237,7 @@ msgstr "Yra keturi pagrindiniai rizikos vertinimo proceso etapai. "
 msgid "There are no training questions yet"
 msgstr ""
 
-#: euphorie/client/browser/session.py:614
+#: euphorie/client/browser/session.py:621
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
@@ -1316,11 +1321,11 @@ msgstr "Mokymas"
 msgid "Training question"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:434
+#: euphorie/client/browser/templates/shell.pt:436
 msgid "URL"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:493
+#: euphorie/client/browser/templates/shell.pt:495
 msgid "Unlink"
 msgstr ""
 
@@ -1332,7 +1337,7 @@ msgstr ""
 msgid "Unvisited"
 msgstr "Neatsakyta"
 
-#: euphorie/content/browser/upload.py:533
+#: euphorie/content/browser/upload.py:563
 msgid "Upload"
 msgstr "Įkelti"
 
@@ -1348,11 +1353,11 @@ msgstr "Įkelti paveikslėlį"
 msgid "Use the report to:"
 msgstr "Naudokite ataskaitą:"
 
-#: euphorie/client/browser/templates/shell.pt:481
+#: euphorie/client/browser/templates/shell.pt:483
 msgid "Visit linked web page"
 msgstr ""
 
-#: euphorie/client/browser/templates/shell.pt:442
+#: euphorie/client/browser/templates/shell.pt:444
 msgid "Visit this URL"
 msgstr ""
 
@@ -1378,7 +1383,7 @@ msgid ""
 "a link in it that people can use to join your organisation. The link is "
 "valid for five days and you may send it to as many people as you would like "
 "to join your organisation."
-msgstr ""
+msgstr "Paspaudę tęsti, Jūsų el.pašto lange atsidarys naujas laiškas su nuoroda, kurią kiti galės naudoti norėdami prisijungti prie Jūsų organizacijos. Nuoroda galioja penkias dienas ir ją galite išsiųsti neribotam žmonių skaičiui prisijungti prie Jūsų organizacijos."
 
 #: euphorie/client/browser/templates/login.pt:308
 msgid "Who is the OiRA tool for?"
@@ -1398,7 +1403,7 @@ msgstr "Taip"
 msgid "Yes, clone risk assessment"
 msgstr "Taip, kopijuoti rizikos vertinimą."
 
-#: euphorie/client/browser/organisation.py:151
+#: euphorie/client/browser/organisation.py:154
 msgid "You already have an organisation."
 msgstr ""
 
@@ -1453,7 +1458,7 @@ msgstr ""
 "Įsitikinkite, kad turite atspausdintą, tikslų ir atnaujintą rizikos "
 "vertinimą."
 
-#: euphorie/client/browser/organisation.py:147
+#: euphorie/client/browser/organisation.py:150
 msgid "You need to specify a title for the organisation."
 msgstr ""
 
@@ -1634,7 +1639,7 @@ msgstr ""
 "(arba) užtikrinti, kad jie yra atliekami."
 
 #. Default: "Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)"
-#: euphorie/client/browser/templates/webhelpers.pt:968
+#: euphorie/client/browser/templates/webhelpers.pt:969
 msgid "actionplan_measure_tooltip"
 msgstr ""
 "Nurodykite: 1) koks yra pagrindinis būdas pašalinti arba (jei neišvengiama) "
@@ -1642,7 +1647,7 @@ msgstr ""
 "(pašalinti arba sumažinti riziką) pritaikyti."
 
 #. Default: "Describe the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any)."
-#: euphorie/client/browser/templates/webhelpers.pt:983
+#: euphorie/client/browser/templates/webhelpers.pt:996
 msgid "actionplan_requirements_tooltip"
 msgstr ""
 "Nurodykite: 3) koks yra reikalingų žinių lygis, pavyzdžiui, „sveikas protas "
@@ -1692,9 +1697,9 @@ msgid "benefits"
 msgstr "nauda"
 
 #. Default: "\n            I hereby invite you to join our organisation on OiRA.\n            Once you've accepted your membership,\n            we can collaborate on risk assessments.\n\n            Please log in or register via the link below\n            and accept your membership.\n            This link will stay valid for ${days_to_keep} days.\n\n            ${link}\n            "
-#: euphorie/client/browser/organisation.py:231
+#: euphorie/client/browser/organisation.py:234
 msgid "body_add_user_to_organisation_email"
-msgstr ""
+msgstr "\n            Kviečiu prisijungti prie mūsų organizacijos vertinant riziką su OiRA.\n            Patvirtinę narystę, galime bendradarbiauti vertindami profesinę riziką.\n\n            Prisijunkite arba prisiregistruokite paspaudę žemiau nurodytą nuorodą ir patvirtinkite savo narystę.\n            Ši nuoroda galioja ${days_to_keep} dienas.\n\n            ${link}\n            "
 
 #. Default: "${Modules} (and potentially sub-modules): containers providing a logical structure"
 #: euphorie/content/browser/templates/profilequestion_add.pt:53
@@ -1888,7 +1893,7 @@ msgid "by"
 msgstr "atliko"
 
 #. Default: "by ${who}"
-#: euphorie/client/browser/templates/assessments.pt:103
+#: euphorie/client/browser/templates/assessments.pt:176
 msgid "by_who"
 msgstr ""
 
@@ -2110,9 +2115,9 @@ msgid "custom_placeholder_new_existing"
 msgstr ""
 
 #. Default: "Organisation of ${name}"
-#: euphorie/client/browser/organisation.py:80
+#: euphorie/client/browser/organisation.py:57
 msgid "default_organisation_title"
-msgstr ""
+msgstr "Organizacijos ${name}"
 
 #. Default: "Measures that are already in place (Only shown here for reference! Use the “Add Measure” button on the Risk for adding measures that are shown to the user during Identification.)"
 #: euphorie/content/risk.py:104
@@ -2134,7 +2139,7 @@ msgstr ""
 "manysite, kad tai reikalinga, galėsite pakeisti šios rizikos dydį."
 
 #. Default: "The plain text file will contain all translatable text without formatting. This file can be used to determine a word count for estimating the cost of translation."
-#: euphorie/content/browser/export.py:154
+#: euphorie/content/browser/export.py:155
 msgid "description_export_as_plain_text"
 msgstr ""
 
@@ -2144,7 +2149,7 @@ msgid "description_integrated_action_plan"
 msgstr ""
 
 #. Default: "The default export escapes HTML, which is not supportedby eTranslate"
-#: euphorie/content/browser/export.py:168
+#: euphorie/content/browser/export.py:169
 msgid "description_is_etranslate_compatible"
 msgstr ""
 
@@ -2176,32 +2181,32 @@ msgid "description_risk_always_present"
 msgstr ""
 
 #. Default: "All images contained in the OiRA tool can be exported along with the textual content. When the OiRA tool is then imported again, all images will be present. Please note that including images may result in a considerably larger file size."
-#: euphorie/content/browser/export.py:70
+#: euphorie/content/browser/export.py:71
 msgid "description_survey_export_include_images"
 msgstr ""
 
 #. Default: "The introduction text describes the general purpose of the OiRA tool. It usually gives the end users an idea what to expect in the tool and whether it will be relevant for them. The default is to include this text."
-#: euphorie/content/browser/export.py:85
+#: euphorie/content/browser/export.py:86
 msgid "description_survey_export_include_intro_text"
 msgstr ""
 
 #. Default: "For each risk, a number of common measures – sometimes also referred to as “Solutions” – can be defined. While the default setting is to include them in the export, they may be excluded if required, for example to accommodate for a limited translation budget."
-#: euphorie/content/browser/export.py:137
+#: euphorie/content/browser/export.py:138
 msgid "description_survey_export_include_measures"
 msgstr ""
 
 #. Default: "Every module comes with an introductive description. The default is to include this text."
-#: euphorie/content/browser/export.py:113
+#: euphorie/content/browser/export.py:114
 msgid "description_survey_export_include_module_description_texts"
 msgstr ""
 
 #. Default: "The “Solution” description” on modules is a deprecated kind of text that is no longer being used. The default is to skip this."
-#: euphorie/content/browser/export.py:100
+#: euphorie/content/browser/export.py:101
 msgid "description_survey_export_include_module_solution_texts"
 msgstr ""
 
 #. Default: "If the OiRA tool is exported because it should be made available for a different country, the legal texts might not apply there. Therefore the default is to skip these texts."
-#: euphorie/content/browser/export.py:126
+#: euphorie/content/browser/export.py:127
 msgid "description_survey_export_include_risk_legal_texts"
 msgstr ""
 
@@ -2375,7 +2380,7 @@ msgid "error_invalid_login"
 msgstr "Prisijungimo vardą gali sudaryti tik mažosios raidės ir skaičiai."
 
 #. Default: "Please upload a valid XML file"
-#: euphorie/content/browser/upload.py:549
+#: euphorie/content/browser/upload.py:579
 msgid "error_invalid_xml"
 msgstr "Įkelkite tinkamą XML failą"
 
@@ -2418,22 +2423,22 @@ msgid "error_validation_before_end_date"
 msgstr "Ši data turi sutapti su pabaigos data arba būti už ją ankstesnė."
 
 #. Default: "This value must be a valid date"
-#: euphorie/client/browser/webhelpers.py:1118
+#: euphorie/client/browser/webhelpers.py:1120
 msgid "error_validation_date"
 msgstr ""
 
 #. Default: "This value must be a valid date and time"
-#: euphorie/client/browser/webhelpers.py:1122
+#: euphorie/client/browser/webhelpers.py:1124
 msgid "error_validation_datetime"
 msgstr ""
 
 #. Default: "This value must be a valid email address"
-#: euphorie/client/browser/webhelpers.py:1129
+#: euphorie/client/browser/webhelpers.py:1131
 msgid "error_validation_email"
 msgstr ""
 
 #. Default: "This value must be a number"
-#: euphorie/client/browser/webhelpers.py:1136
+#: euphorie/client/browser/webhelpers.py:1138
 msgid "error_validation_number"
 msgstr ""
 
@@ -2560,7 +2565,7 @@ msgstr ""
 "sesijos metu atlikto darbo išsaugoti negalite. Jeigu ${label_link_register}, "
 "negalėsite išsaugoti visos įrašytos informacijos."
 
-#: euphorie/client/browser/session.py:469
+#: euphorie/client/browser/session.py:476
 msgid "extra_text_identification"
 msgstr ""
 
@@ -2575,7 +2580,7 @@ msgid "filename_report_identification"
 msgstr "Nustatymo ataskaitos ${title}"
 
 #. Default: "Timeline for ${title}"
-#: euphorie/client/browser/report.py:231
+#: euphorie/client/browser/report.py:234
 msgid "filename_report_timeline"
 msgstr "${title} laiko skalė"
 
@@ -2973,6 +2978,7 @@ msgid "header_secondary_images"
 msgstr "Papildomi atvaizdai"
 
 #. Default: "OiRA Tools"
+#: euphorie/content/browser/templates/country_tools.pt:15
 #: euphorie/content/browser/templates/sector_view.pt:15
 msgid "header_sector_survey_list"
 msgstr "OiRA priemonės"
@@ -3532,7 +3538,7 @@ msgid "help_sector_password"
 msgstr "Šiuo slaptažodžiu turite jungtis prie rengyklės aplinkos."
 
 #. Default: "If you do not specify a title it will be taken from the input file."
-#: euphorie/content/browser/upload.py:132
+#: euphorie/content/browser/upload.py:140
 msgid "help_sector_title"
 msgstr "Pavadinimo nenurodžius, jis bus paimtas iš pradinio failo."
 
@@ -3583,7 +3589,7 @@ msgstr ""
 "priemonės apžvalgoje."
 
 #. Default: "If you do not specify a title it will be taken from the input."
-#: euphorie/content/browser/upload.py:148
+#: euphorie/content/browser/upload.py:156
 msgid "help_upload_surveygroup_title"
 msgstr "Pavadinimo nenurodžius, jis bus paimtas iš pradinio failo."
 
@@ -3896,7 +3902,7 @@ msgstr "Paskyra užblokuota"
 #. Default: "Action Plan"
 #: euphorie/client/browser/templates/login.pt:327
 #: euphorie/client/browser/templates/report_identification.pt:145
-#: euphorie/client/browser/templates/shell.pt:300
+#: euphorie/client/browser/templates/shell.pt:302
 msgid "label_action_plan"
 msgstr "Veiksmų planas"
 
@@ -3939,13 +3945,19 @@ msgstr "Įgyvendinimo pradžia"
 msgid "label_agree_terms_conditions"
 msgstr "Sutinku su ${link_terms_conditions}"
 
+#. Default: "All organisations"
+#: euphorie/client/browser/templates/assessments.pt:36
+msgid "label_all_organisations"
+msgstr ""
+
 #. Default: "Alphabetical"
+#: euphorie/client/browser/templates/assessments.pt:51
 #: euphorie/client/browser/templates/surveys.pt:112
 msgid "label_alphabetical"
 msgstr "Abėcėlės tvarka"
 
 #. Default: "Assessment"
-#: euphorie/client/browser/templates/shell.pt:279
+#: euphorie/client/browser/templates/shell.pt:281
 msgid "label_assessment"
 msgstr "Vertinimas"
 
@@ -4049,7 +4061,7 @@ msgstr "Dabartinis / išleistas"
 
 #. Default: "Custom risks"
 #: euphorie/client/browser/publish.py:138
-#: euphorie/client/browser/session.py:478
+#: euphorie/client/browser/session.py:485
 #: euphorie/client/browser/templates/module_identification_custom.pt:28
 msgid "label_custom_risks"
 msgstr "Papildoma rizika"
@@ -4136,7 +4148,7 @@ msgstr ""
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:325
 #: euphorie/client/browser/templates/report_identification.pt:135
-#: euphorie/client/browser/templates/shell.pt:279
+#: euphorie/client/browser/templates/shell.pt:281
 msgid "label_evaluation"
 msgstr "Vertinimas"
 
@@ -4162,7 +4174,7 @@ msgid "label_existing_measures"
 msgstr "Jau įgyvendintos priemonės"
 
 #. Default: "Exit"
-#: euphorie/client/browser/templates/shell.pt:380
+#: euphorie/client/browser/templates/shell.pt:382
 msgid "label_exit"
 msgstr "Išeiti"
 
@@ -4172,12 +4184,12 @@ msgid "label_expertise"
 msgstr "Kompetencija"
 
 #. Default: "Export additionally as plain text file"
-#: euphorie/content/browser/export.py:150
+#: euphorie/content/browser/export.py:151
 msgid "label_export_as_plain_text"
 msgstr ""
 
 #. Default: "Add an extra measure"
-#: euphorie/client/browser/templates/webhelpers.pt:1083
+#: euphorie/client/browser/templates/webhelpers.pt:1097
 msgid "label_extra_add_measure"
 msgstr "Įtraukite papildomą priemonę"
 
@@ -4194,12 +4206,12 @@ msgstr "Turinio pavadinimas"
 #. Default: "First name"
 #: euphorie/client/browser/settings.py:128
 msgid "label_first_name"
-msgstr ""
+msgstr "Vardas"
 
 #. Default: "First name (optional)"
 #: euphorie/client/browser/templates/login.pt:155
 msgid "label_first_name_optional"
-msgstr ""
+msgstr "Vardas"
 
 #. Default: "I forgot my password"
 #: euphorie/client/browser/templates/login.pt:110
@@ -4273,7 +4285,7 @@ msgstr "Atlikite rizikos vertinimą"
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:323
 #: euphorie/client/browser/templates/report_identification.pt:125
-#: euphorie/client/browser/templates/shell.pt:277
+#: euphorie/client/browser/templates/shell.pt:279
 msgid "label_identification"
 msgstr "Nustatymas"
 
@@ -4299,13 +4311,13 @@ msgid "label_introduction"
 msgstr "Įvado tekstas"
 
 #. Default: "Involve"
-#: euphorie/client/browser/templates/shell.pt:253
+#: euphorie/client/browser/templates/shell.pt:255
 msgid "label_involve"
 msgstr "Įtraukti"
 
 #. Default: "Export in eTranslate compatible XML"
-#: euphorie/content/browser/export.py:164
-#: euphorie/content/browser/upload.py:189
+#: euphorie/content/browser/export.py:165
+#: euphorie/content/browser/upload.py:197
 msgid "label_is_etranslate_compatible"
 msgstr ""
 
@@ -4329,12 +4341,12 @@ msgstr "Kalba"
 #. Default: "Last name"
 #: euphorie/client/browser/settings.py:131
 msgid "label_last_name"
-msgstr ""
+msgstr "Pavardė"
 
 #. Default: "Last name (optional)"
 #: euphorie/client/browser/templates/login.pt:168
 msgid "label_last_name_optional"
-msgstr ""
+msgstr "Pavardė"
 
 #. Default: "Learn more"
 #: euphorie/client/browser/templates/login.pt:276
@@ -4353,6 +4365,11 @@ msgstr "Daugiau apie OiRA"
 msgid "label_legal_reference"
 msgstr "Nuorodos į teisės aktus"
 
+#. Default: "filters"
+#: euphorie/client/browser/templates/assessments.pt:108
+msgid "label_link_filters"
+msgstr ""
+
 #. Default: "register"
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "label_link_register"
@@ -4364,7 +4381,7 @@ msgid "label_login"
 msgstr "Prisijungimo vardas"
 
 #. Default: "Login name"
-#: euphorie/content/browser/upload.py:141 euphorie/content/user.py:85
+#: euphorie/content/browser/upload.py:149 euphorie/content/user.py:85
 msgid "label_login_name"
 msgstr "Prisijungimo vardas"
 
@@ -4391,7 +4408,7 @@ msgstr ""
 
 #. Default: "General approach (to eliminate or reduce the risk)"
 #: euphorie/client/browser/report.py:129
-#: euphorie/client/browser/templates/webhelpers.pt:972
+#: euphorie/client/browser/templates/webhelpers.pt:975
 #: euphorie/client/docx/compiler.py:428
 msgid "label_measure_action_plan"
 msgstr "Pagrindinis sprendimas (pašalinti arba sumažinti riziką)"
@@ -4405,13 +4422,13 @@ msgstr ""
 
 #. Default: "Level of expertise and/or requirements needed"
 #: euphorie/client/browser/report.py:137
-#: euphorie/client/browser/templates/webhelpers.pt:987
+#: euphorie/client/browser/templates/webhelpers.pt:1000
 #: euphorie/client/docx/compiler.py:437
 msgid "label_measure_requirements"
 msgstr "Reikalingų žinių ir (arba) reikalavimų lygis"
 
 #. Default: "Title is missing"
-#: euphorie/client/browser/templates/assessments.pt:67
+#: euphorie/client/browser/templates/assessments.pt:140
 #: euphorie/client/browser/templates/tool_sessions.pt:144
 msgid "label_missing_title"
 msgstr "Trūksta antraštės"
@@ -4438,9 +4455,14 @@ msgid "label_module_question"
 msgstr "Klausimas"
 
 #. Default: "More risk assessments…"
-#: euphorie/client/browser/templates/portlet-my-ras.pt:87
+#: euphorie/client/browser/templates/portlet-my-ras.pt:86
 msgid "label_more_risk_assessments"
 msgstr "Daugiau atliktų rizikos vertinimų…"
+
+#. Default: "More risk assessments for ${organisation}…"
+#: euphorie/client/browser/templates/portlet-my-ras.pt:101
+msgid "label_more_risk_assessments_for"
+msgstr ""
 
 #. Default: "Did this OiRA tool meet your needs?"
 #: euphorie/client/browser/company.py:148
@@ -4466,6 +4488,7 @@ msgid "label_new_session_test"
 msgstr "Nauja bandomoji sesija"
 
 #. Default: "Newest first"
+#: euphorie/client/browser/templates/assessments.pt:58
 #: euphorie/client/browser/templates/surveys.pt:105
 msgid "label_newest_first"
 msgstr "Pirmiausia naujausi"
@@ -4551,6 +4574,11 @@ msgstr "Dabartinis slaptažodis"
 msgid "label_online_oira_training"
 msgstr "Internetinis OiRA mokymas"
 
+#. Default: "Organisation"
+#: euphorie/client/browser/templates/assessments.pt:34
+msgid "label_organisation"
+msgstr "Organizacija"
+
 #. Default: "Page"
 #: euphorie/client/browser/pdf.py:42
 #: euphorie/client/browser/templates/training-slides.pt:130
@@ -4583,7 +4611,7 @@ msgstr "Planuojamos priemonės"
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:321
 #: euphorie/client/browser/templates/report_identification.pt:113
-#: euphorie/client/browser/templates/shell.pt:233
+#: euphorie/client/browser/templates/shell.pt:235
 msgid "label_preparation"
 msgstr "Paruošimas"
 
@@ -4670,6 +4698,11 @@ msgstr "Galite atsisiųsti išsamią ataskaitą ir veiksmų planą."
 msgid "label_register_first"
 msgstr "registruotis"
 
+#. Default: "Remove filters"
+#: euphorie/client/browser/templates/assessments.pt:102
+msgid "label_remove_filters"
+msgstr ""
+
 #. Default: "Delete this measure"
 #: euphorie/client/browser/templates/webhelpers.pt:816
 msgid "label_remove_measure"
@@ -4678,7 +4711,7 @@ msgstr "Pašalinti šią priemonę"
 #. Default: "Report"
 #: euphorie/client/browser/templates/report_identification.pt:155
 #: euphorie/client/browser/templates/report_landing.pt:29
-#: euphorie/client/browser/templates/shell.pt:325
+#: euphorie/client/browser/templates/shell.pt:327
 msgid "label_report"
 msgstr "Ataskaita"
 
@@ -4794,7 +4827,7 @@ msgid "label_sector_description"
 msgstr "Pateikite savo ekonominės veiklos aprašymą"
 
 #. Default: "Title of sector."
-#: euphorie/content/browser/upload.py:131
+#: euphorie/content/browser/upload.py:139
 msgid "label_sector_title"
 msgstr "Ekonominės veiklos pavadinimas."
 
@@ -4818,7 +4851,7 @@ msgid "label_select_oira_tool"
 msgstr "Pasirinkite OiRA priemonę"
 
 #. Default: "Select standard measures"
-#: euphorie/client/browser/templates/webhelpers.pt:1075
+#: euphorie/client/browser/templates/webhelpers.pt:1089
 msgid "label_select_standard_measures"
 msgstr "Pasirinkite standartines priemones"
 
@@ -4853,6 +4886,7 @@ msgid "label_solution_direction"
 msgstr "Sprendimas"
 
 #. Default: "Sorting"
+#: euphorie/client/browser/templates/assessments.pt:49
 #: euphorie/client/browser/templates/surveys.pt:103
 msgid "label_sorting"
 msgstr "Rūšiuoti"
@@ -4873,7 +4907,7 @@ msgid "label_start_test_session"
 msgstr "Bandomoji sesija"
 
 #. Default: "Started"
-#: euphorie/client/browser/templates/assessments.pt:75
+#: euphorie/client/browser/templates/assessments.pt:148
 #: euphorie/client/browser/templates/status_info.pt:53
 msgid "label_started"
 msgstr "Pradėta"
@@ -4894,32 +4928,32 @@ msgid "label_survey_evaluation_algorithm"
 msgstr "Vertinimo algoritmas"
 
 #. Default: "Include images"
-#: euphorie/content/browser/export.py:69
+#: euphorie/content/browser/export.py:70
 msgid "label_survey_export_include_images"
 msgstr ""
 
 #. Default: "Include introduction text"
-#: euphorie/content/browser/export.py:81
+#: euphorie/content/browser/export.py:82
 msgid "label_survey_export_include_intro_text"
 msgstr ""
 
 #. Default: "Include measures"
-#: euphorie/content/browser/export.py:136
+#: euphorie/content/browser/export.py:137
 msgid "label_survey_export_include_measures"
 msgstr ""
 
 #. Default: "Include “Description” texts on modules"
-#: euphorie/content/browser/export.py:109
+#: euphorie/content/browser/export.py:110
 msgid "label_survey_export_include_module_description_texts"
 msgstr ""
 
 #. Default: "Include “Solution” texts on modules"
-#: euphorie/content/browser/export.py:96
+#: euphorie/content/browser/export.py:97
 msgid "label_survey_export_include_module_solution_texts"
 msgstr ""
 
 #. Default: "Include “Legal and policy references” texts on risks"
-#: euphorie/content/browser/export.py:122
+#: euphorie/content/browser/export.py:123
 msgid "label_survey_export_include_risk_legal_texts"
 msgstr ""
 
@@ -4939,7 +4973,7 @@ msgid "label_survey_title"
 msgstr "Versijos pavadinimas"
 
 #. Default: "Title of imported OiRA Tool"
-#: euphorie/content/browser/upload.py:147
+#: euphorie/content/browser/upload.py:155
 msgid "label_surveygroup_title"
 msgstr "Įkeltos OiRA priemonės pavadinimas"
 
@@ -5050,12 +5084,12 @@ msgid "label_update"
 msgstr "Naujinti"
 
 #. Default: "XML file"
-#: euphorie/content/browser/upload.py:162
+#: euphorie/content/browser/upload.py:170
 msgid "label_upload_filename"
 msgstr "XML failas"
 
 #. Default: "Name for OiRA Tool version"
-#: euphorie/content/browser/upload.py:156
+#: euphorie/content/browser/upload.py:164
 msgid "label_upload_survey_title"
 msgstr "OiRA priemonės versijos pavadinimas"
 
@@ -5113,7 +5147,7 @@ msgid "last_edited_by"
 msgstr ""
 
 #. Default: "Last edited ${time}"
-#: euphorie/client/browser/templates/assessments.pt:88
+#: euphorie/client/browser/templates/assessments.pt:161
 msgid "last_edited_when"
 msgstr ""
 
@@ -5149,8 +5183,8 @@ msgid "link_sign_in"
 msgstr "Prisijungimo vardas"
 
 #. Default: "Start a new risk assessment"
-#: euphorie/client/browser/country.py:586
-#: euphorie/client/browser/templates/assessments.pt:29
+#: euphorie/client/browser/country.py:663
+#: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
 msgstr "pradėkite naują sesiją"
@@ -5228,35 +5262,35 @@ msgid "menu_import"
 msgstr "Įkelti OiRA priemonę"
 
 #. Default: "Training"
-#: euphorie/client/browser/templates/shell.pt:346
+#: euphorie/client/browser/templates/shell.pt:348
 #: euphorie/client/browser/templates/webhelpers.pt:631
 msgid "menu_training"
 msgstr "Mokymas"
 
 #. Default: "You are already a member of the ${name} organisation."
-#: euphorie/client/browser/organisation.py:407
+#: euphorie/client/browser/organisation.py:410
 msgid "message_add_user_to_organisation_already_member"
-msgstr ""
+msgstr "Jūs jau esate organizacijos ${name} narys."
 
 #. Default: "The invitation from the ${name} organisation is not valid anymore."
-#: euphorie/client/browser/organisation.py:377
+#: euphorie/client/browser/organisation.py:380
 msgid "message_add_user_to_organisation_expired"
-msgstr ""
+msgstr "Kvietimas iš organizacijos ${name} nebegalioja."
 
 #. Default: "We could not find the invitation you are looking for."
-#: euphorie/client/browser/organisation.py:366
+#: euphorie/client/browser/organisation.py:369
 msgid "message_add_user_to_organisation_invalid"
-msgstr ""
+msgstr "Nepavyko rasti jūsų ieškomo kvietimo."
 
 #. Default: "You cannot add yourself to your organisation."
-#: euphorie/client/browser/organisation.py:390
+#: euphorie/client/browser/organisation.py:393
 msgid "message_add_user_to_organisation_self"
-msgstr ""
+msgstr "Negalite įtraukti savęs į organizaciją."
 
 #. Default: "You have been added to the ${name} organisation."
-#: euphorie/client/browser/organisation.py:423
+#: euphorie/client/browser/organisation.py:426
 msgid "message_add_user_to_organisation_success"
-msgstr ""
+msgstr "Buvote įtraukti į ${name} organizaciją."
 
 #. Default: "Please choose a country of which you would like to view or copy an OiRA Tool."
 #: euphorie/content/browser/templates/sectorcontainer_view.pt:18
@@ -5278,7 +5312,7 @@ msgid "message_download_tool_contents"
 msgstr ""
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/webhelpers.py:1140
+#: euphorie/client/browser/webhelpers.py:1142
 msgid "message_field_required"
 msgstr "Šis laukas būtinas"
 
@@ -5331,6 +5365,11 @@ msgstr ""
 #: euphorie/content/browser/templates/country_view.pt:19
 msgid "message_no_sectors"
 msgstr "Nėra jokių šios šalies ekonominių veiklų."
+
+#. Default: "There are no tools for this country."
+#: euphorie/content/browser/templates/country_tools.pt:16
+msgid "message_no_tools"
+msgstr ""
 
 #. Default: "You can not delete a sector that contains published OiRA Tools."
 #: euphorie/content/browser/sector.py:91
@@ -5436,7 +5475,7 @@ msgstr "Parametrai"
 
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:53
-#: euphorie/client/browser/templates/shell.pt:372
+#: euphorie/client/browser/templates/shell.pt:374
 #: euphorie/client/browser/templates/webhelpers.pt:62
 msgid "navigation_status"
 msgstr "Būsena"
@@ -5500,6 +5539,11 @@ msgstr "Nenustatytas"
 #: euphorie/content/browser/templates/countrymanager_view.pt:19
 msgid "notice_country_manager"
 msgstr "${country} administratorius."
+
+#. Default: "There are ${link_filters} active on this page."
+#: euphorie/client/browser/templates/assessments.pt:108
+msgid "notice_filters_active"
+msgstr ""
 
 #. Default: "On behalf of the employer:"
 #: euphorie/client/docx/compiler.py:493
@@ -5572,7 +5616,7 @@ msgid "placeholder_new_existing"
 msgstr "Aprašyti jau įdiegtą, bet čia nenurodytą priemonę."
 
 #. Default: "Search risk assessments"
-#: euphorie/client/browser/templates/assessments.pt:22
+#: euphorie/client/browser/templates/assessments.pt:75
 #: euphorie/client/browser/templates/organisation.pt:22
 msgid "placeholder_search_risk_assessments"
 msgstr "Ieškoti rizikos vertinimą"
@@ -5583,7 +5627,7 @@ msgid "portlet_header_versions"
 msgstr "Versijos"
 
 #. Default: "COPY"
-#: euphorie/client/browser/session.py:720
+#: euphorie/client/browser/session.py:727
 msgid "prefix_cloned_title"
 msgstr ""
 
@@ -5627,7 +5671,7 @@ msgid "probability_small"
 msgstr "Nedidelė"
 
 #. Default: "${completion_percentage}% Complete"
-#: euphorie/client/browser/webhelpers.py:279
+#: euphorie/client/browser/webhelpers.py:281
 msgid "progress_indicator_title"
 msgstr "${completion_percentage}% Baigtas"
 
@@ -5908,9 +5952,9 @@ msgid "severity_weak_help"
 msgstr "Nutraukti darbo nereikia"
 
 #. Default: "Confirm OiRA membership to ’${organisation}’"
-#: euphorie/client/browser/organisation.py:218
+#: euphorie/client/browser/organisation.py:221
 msgid "subject_add_user_to_organisation_email"
-msgstr ""
+msgstr "Patvirtinti OiRA narystę ’${organisation}’"
 
 #. Default: "Standard"
 #: euphorie/content/browser/surveygroup.py:193
@@ -6035,12 +6079,12 @@ msgstr "Šią OiRA priemonę iš internetinės programos pašalinkite."
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:43
 msgid "title_personal_details"
-msgstr ""
+msgstr "Asmeninė informacija"
 
 #. Default: "Preferences"
 #: euphorie/client/browser/settings.py:60
 msgid "title_preferences"
-msgstr ""
+msgstr "Pageidavimai"
 
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:223
@@ -6063,7 +6107,7 @@ msgid "title_status_of"
 msgstr "${survey_title} statusas"
 
 #. Default: "OiRA - Online interactive Risk Assessment"
-#: euphorie/client/browser/country.py:268
+#: euphorie/client/browser/country.py:269
 #: euphorie/client/browser/templates/layout.pt:18
 #: euphorie/client/browser/templates/modal-template.pt:21
 msgid "title_tool"
@@ -6139,7 +6183,7 @@ msgid "unpublish_confirm"
 msgstr "Ar tikrai norite pašalinti publikuojamą OiRA priemonę?"
 
 #. Default: "Succesfully imported the OiRA Tool"
-#: euphorie/content/browser/upload.py:554
+#: euphorie/content/browser/upload.py:584
 msgid "upload_success"
 msgstr "OiRA priemonė sėkmingai įkelta"
 
@@ -6213,6 +6257,9 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Taip"
+
+#~ msgid "My risk assessments"
+#~ msgstr "Mano atlikti rizikos vertinimai"
 
 #~ msgid "title_account_settings"
 #~ msgstr "Paskyros nustatymai"
