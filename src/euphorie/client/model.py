@@ -1154,6 +1154,16 @@ class SurveySession(BaseObject):
     def traversed_session(self):
         return self.tool.restrictedTraverse("++session++%s" % self.id)
 
+    def absolute_url(self):
+        """The URL for this session is based on the tool's URL.
+        To it (if it can be fetched) we add a traverser with the session id.
+        """
+        client = api.portal.get().client
+        tool = client.unrestrictedTraverse(self.zodb_path, None)
+        if tool is None:
+            raise ValueError("No tool found for session %s" % self.id)
+        return f"{tool.absolute_url()}/++session++{self.id}"
+
     @property
     def country(self):
         return str(self.zodb_path).split("/")[0]

@@ -1,6 +1,5 @@
 # coding=utf-8
 from Acquisition import aq_inner
-from Acquisition import aq_parent
 from collections import defaultdict
 from datetime import datetime
 from decimal import Decimal
@@ -419,11 +418,7 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
         if not self.profile_questions or self.request.method == "POST":
             new_session = self.setupSession()
             self.request.response.redirect(
-                "{base_url}/++session++{session_id}/{target}".format(
-                    base_url=self.context.aq_parent.absolute_url(),
-                    session_id=new_session.id,
-                    target=self.next_view_name,
-                )
+                f"{new_session.absolute_url()}/{self.next_view_name}"
             )
 
 
@@ -785,9 +780,7 @@ class CloneSession(SessionMixin, BrowserView):
         api.portal.show_message(
             _("The risk assessment has been cloned"), self.request, "success"
         )
-        target = "{contexturl}/++session++{sessionid}/@@start?new_clone=1".format(
-            contexturl=aq_parent(self.context).absolute_url(), sessionid=new_session.id
-        )
+        target = f"{new_session.absolute_url()}/@@start?new_clone=1"
         self.request.response.redirect(target)
 
     def __call__(self):

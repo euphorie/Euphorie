@@ -136,7 +136,7 @@
                 >
                   <h4 class="name field">
                     <a class="pat-inject follow"
-                       href="${here/absolute_url}/++session++${session/id}/@@start"
+                       href="${session/absolute_url}/@@start"
                        data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
                     >
                       ${session/title}
@@ -159,7 +159,7 @@
                   </p>
                   <p class="field icons">
                     <a class="publication-menu iconified icon-${python:session.published and 'published' or 'unpublished'} pat-tooltip"
-                       href="${here/absolute_url}/++session++${session/id}/@@publication_menu#publication-menu"
+                       href="${session/absolute_url}/@@publication_menu#publication-menu"
                        data-pat-tooltip="source: ajax; position-list: tr"
                        tal:condition="webhelpers/use_publication_feature"
                     >Published
@@ -168,7 +168,7 @@
                             data-pat-display-time="from-now: true"
                       >2018-03-28</time></a>
                     <a class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-                       href="${here/absolute_url}/++session++${session/id}/@@more_menu#more-menu"
+                       href="${session/absolute_url}/@@more_menu#more-menu"
                        data-pat-tooltip="source: ajax; position-list: tr"
                        i18n:translate=""
                     >More</a>

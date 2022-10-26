@@ -30,14 +30,13 @@
           >
             <li tal:repeat="training trainings">
               <a class="pat-inject"
-                 href="${tool/absolute_url}/++session++${session/id}/@@training#content"
+                 href="${session/absolute_url}/@@training#content"
                  data-pat-inject="history: record"
                  tal:define="
                    session training/session;
-                   tool nocall:session/tool;
                  "
               >
-              ${session/title}
+                ${session/title}
               </a>
             </li>
           </ul>
@@ -49,9 +48,8 @@
           <div class="training"
                tal:define="
                  session certificate/session;
-                 tool nocall:session/tool;
-                 traversed_session python:tool.restrictedTraverse('++session++{}'.format(session.id));
-                 session_url string:${tool/absolute_url}/++session++${session/id};
+                 traversed_session python:session.traversed_session;
+                 session_url string:${session/absolute_url};
                "
           >
             <h4 class="training-title">

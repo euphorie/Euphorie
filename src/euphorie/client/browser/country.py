@@ -246,22 +246,17 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
         survey_view = api.content.get_view("index_html", survey, self.request)
         survey_session = survey_view.create_survey_session(title, account)
         self.request.response.redirect(
-            "{base_url}/++session++{session_id}/@@start"
-            "?initial_view=1&new_session=1".format(
-                base_url=survey.absolute_url(), session_id=survey_session.id
-            )
+            f"{survey_session.absolute_url()}/@@start?initial_view=1&new_session=1"
         )
 
     def _ContinueSurvey(self, info):
         """Utility method to continue an existing session."""
         session = Session.query(self.survey_session_model).get(info["session"])
-        survey = self.request.client.restrictedTraverse(str(session.zodb_path))
         extra = ""
         if info.get("new_clone", None):
             extra = "&new_clone=1"
         self.request.response.redirect(
-            "%s/++session++%s/@@resume?initial_view=1%s"
-            % (survey.absolute_url(), session.id, extra)
+            f"{session.absolute_url()}/@@resume?initial_view=1{extra}"
         )
 
     def tool_byline(self):
