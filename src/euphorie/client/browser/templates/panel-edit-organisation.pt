@@ -106,6 +106,7 @@
                 <button class="pat-button default icon-ok-circle close-panel"
                         type="submit"
                         value="1"
+                        i18n:translate=""
                 >
                                         Save
                 </button>

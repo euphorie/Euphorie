@@ -119,11 +119,13 @@
                            tal:condition="python: can_add or can_edit"
                       >
                         <a class="default pat-button pat-modal"
+                           i18n:translate=""
                            href="${here/absolute_url}/@@panel-add-user-to-organisation/${organisation/organisation_id}#document-content"
                            data-pat-modal="class: small panel"
                            tal:condition="python: can_add"
                         >Add user</a>
                         <a class="pat-button pat-modal"
+                           i18n:translate=""
                            href="${here/absolute_url}/@@panel-edit-organisation/${organisation/organisation_id}#document-content"
                            data-pat-modal="class: medium panel"
                            tal:condition="python: can_edit"
