@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-26 12:05+0000\n"
+"POT-Creation-Date: 2022-10-26 14:46+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -159,6 +159,10 @@ msgstr "Pridėkite medžiagą iš bibliotekos"
 #: euphorie/client/browser/templates/panel-add-organisation.pt:17
 msgid "Add organisation"
 msgstr "Pridėti organizaciją"
+
+#: euphorie/client/browser/templates/organisation.pt:121
+msgid "Add user"
+msgstr "Pridėti naują naudotoją"
 
 #: euphorie/content/browser/library.py:211
 msgid "Added a copy of \"${title}\" to your OiRA tool."
@@ -439,6 +443,10 @@ msgstr "Redaguoti Profilio klausimą"
 #: euphorie/client/browser/templates/shell.pt:490
 msgid "Edit link"
 msgstr ""
+
+#: euphorie/client/browser/templates/organisation.pt:127
+msgid "Edit organisation"
+msgstr "Redaguoti organizaciją"
 
 #: euphorie/client/browser/templates/training.pt:248
 msgid "Edit training card"
@@ -1930,7 +1938,10 @@ msgstr ""
 #. Default: "For any further information regarding the handling of their personal data, data subjects can address their request to EU-OSHA Data Protection Officer at: dpo(at)osha.europa.eu."
 #: euphorie/client/browser/templates/conditions-bare.pt:108
 msgid "conditions_part10_entry"
-msgstr "Norėdami gauti daugiau informacijos apie savo asmens duomenų tvarkymą duomenų subjektai gali pateikti prašymą EU-OSHA duomenų apsaugos pareigūnui adresu: dpo(at)osha.europa.eu."
+msgstr ""
+"Norėdami gauti daugiau informacijos apie savo asmens duomenų tvarkymą "
+"duomenų subjektai gali pateikti prašymą EU-OSHA duomenų apsaugos pareigūnui "
+"adresu: dpo(at)osha.europa.eu."
 
 #. Default: "Request for information"
 #: euphorie/client/browser/templates/conditions-bare.pt:106
@@ -1940,7 +1951,10 @@ msgstr "Prašymas pateikti informaciją"
 #. Default: "Data subjects are entitled to make recourse to the European Data Protection Supervisor: ${url} , should they consider that the processing operations do not comply with the Regulation."
 #: euphorie/client/browser/templates/conditions-bare.pt:115
 msgid "conditions_part11_entry"
-msgstr "Duomenų subjektai turi teisę kreiptis į Europos duomenų apsaugos priežiūros pareigūną: ${url}, jei mano, kad duomenų tvarkymo veiksmai neatitinka Reglamente nustatytų reikalavimų."
+msgstr ""
+"Duomenų subjektai turi teisę kreiptis į Europos duomenų apsaugos priežiūros "
+"pareigūną: ${url}, jei mano, kad duomenų tvarkymo veiksmai neatitinka "
+"Reglamente nustatytų reikalavimų."
 
 #. Default: "Recourse to the EDPS"
 #: euphorie/client/browser/templates/conditions-bare.pt:112
@@ -1965,17 +1979,29 @@ msgstr "Duomenų tvarkymo pradžios data"
 #. Default: "Head of Unit Prevention and Research Unit (information(at)osha.europa.eu)"
 #: euphorie/client/browser/templates/conditions-bare.pt:34
 msgid "conditions_part1_entry"
-msgstr "Prevencijos ir mokslinių tyrimų skyriaus vadovas (information(at)osha.europa.eu)"
+msgstr ""
+"Prevencijos ir mokslinių tyrimų skyriaus vadovas (information(at)osha.europa."
+"eu)"
 
 #. Default: "Organisational part of the Agency entrusted with the processing of personal data"
 #: euphorie/client/browser/templates/conditions-bare.pt:32
 msgid "conditions_part1_header"
-msgstr "Agentūros struktūrinio padalinio darbuotojas, kuriam pavesta tvarkyti asmens duomenis"
+msgstr ""
+"Agentūros struktūrinio padalinio darbuotojas, kuriam pavesta tvarkyti asmens "
+"duomenis"
 
 #. Default: "The purpose of the processing operation is the creation of and log-in to your OiRA (Online interactive Risk Assessment) account, the creation of risk assessments, action-plans and reports. Email addresses might be used for the sending of newsletters (if the option has been selected). The OiRA application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This privacy policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application."
 #: euphorie/client/browser/templates/conditions-bare.pt:40
 msgid "conditions_part2_entry"
-msgstr "Duomenys tvarkomi tam, kad būtų sukurta jūsų OiRA (internetinio interaktyvaus rizikos vertinimo) paskyra, prie kurios galėtumėte prisijungti, kurti rizikos vertinimus, veiksmų planus ir ataskaitas. E. paštu gali būti siunčiami naujienlaiškiai (jei buvo pažymėta atitinkama parinktis). OiRA programa – tai Europos darbuotojų saugos ir sveikatos agentūros (EU-OSHA) jums naudotis sukurta priemonė. Ši privatumo politika taikoma visiems produktams, paslaugoms ir interneto svetainėms, kuriomis EU-OSHA siūlo naudotis naudojant OiRA programą."
+msgstr ""
+"Duomenys tvarkomi tam, kad būtų sukurta jūsų OiRA (internetinio "
+"interaktyvaus rizikos vertinimo) paskyra, prie kurios galėtumėte "
+"prisijungti, kurti rizikos vertinimus, veiksmų planus ir ataskaitas. E. "
+"paštu gali būti siunčiami naujienlaiškiai (jei buvo pažymėta atitinkama "
+"parinktis). OiRA programa – tai Europos darbuotojų saugos ir sveikatos "
+"agentūros (EU-OSHA) jums naudotis sukurta priemonė. Ši privatumo politika "
+"taikoma visiems produktams, paslaugoms ir interneto svetainėms, kuriomis EU-"
+"OSHA siūlo naudotis naudojant OiRA programą."
 
 #. Default: "Purpose"
 #: euphorie/client/browser/templates/conditions-bare.pt:38
@@ -1985,7 +2011,10 @@ msgstr "Paskirtis"
 #. Default: "Council Regulation (EU) 2019/126 of the European Parliament and of the Council of 16 January 2019 establishing the European Agency for Safety and Health at Work (EU-OSHA), and repealing Council Regulation (EC) No 2062/94."
 #: euphorie/client/browser/templates/conditions-bare.pt:46
 msgid "conditions_part3_entry"
-msgstr "2019 m. sausio 16 d. Europos Parlamento ir Tarybos reglamentas (ES) 2019/126, kuriuo įsteigiama Europos darbuotojų saugos ir sveikatos agentūra (ES-OSHA) ir panaikinamas Tarybos reglamentas (EB) Nr. 2062/94."
+msgstr ""
+"2019 m. sausio 16 d. Europos Parlamento ir Tarybos reglamentas (ES) "
+"2019/126, kuriuo įsteigiama Europos darbuotojų saugos ir sveikatos agentūra "
+"(ES-OSHA) ir panaikinamas Tarybos reglamentas (EB) Nr. 2062/94."
 
 #. Default: "Legal basis"
 #: euphorie/client/browser/templates/conditions-bare.pt:44
@@ -1995,22 +2024,40 @@ msgstr "Teisinis pagrindas"
 #. Default: "E-mail address: an email is necessary to access the online application, edit the input data, and delete the OiRA account. The email address is also used for sending newsletters (if the option has been selected)."
 #: euphorie/client/browser/templates/conditions-bare.pt:54
 msgid "conditions_part4_1_entry"
-msgstr "E. pašto adresas: e. paštas reikalingas tam, kad būtų galima prisijungti prie internetinės programos, redaguoti įvesties duomenis ir šalinti OiRA paskyrą. E. paštu taip pat gali būti siunčiami naujienlaiškiai (jei buvo pažymėta atitinkama parinktis)."
+msgstr ""
+"E. pašto adresas: e. paštas reikalingas tam, kad būtų galima prisijungti "
+"prie internetinės programos, redaguoti įvesties duomenis ir šalinti OiRA "
+"paskyrą. E. paštu taip pat gali būti siunčiami naujienlaiškiai (jei buvo "
+"pažymėta atitinkama parinktis)."
 
 #. Default: "Any information you provide in the free text fields of the application of the OiRA tools and in the action plan of your risk assessments - (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc.). The input of information in the free text fields just as any other personal data put into the tool is done voluntarily and based on consent."
 #: euphorie/client/browser/templates/conditions-bare.pt:55
 msgid "conditions_part4_2_entry"
-msgstr "Visa informacija, kurią pateikiate OiRA priemonių programos laisvos formos teksto laukeliuose ir savo rizikos vertinimų veiksmų plane (pvz., kai nurodote kovos su rizika priemonę, už šios priemonės vykdymą atsakingą asmenį ir pan.). Informacija laisvos formos teksto laukeliuose, kaip ir bet kokie kiti asmens duomenys, pateikiami priemonėje savanoriškai ir gavus sutikimą."
+msgstr ""
+"Visa informacija, kurią pateikiate OiRA priemonių programos laisvos formos "
+"teksto laukeliuose ir savo rizikos vertinimų veiksmų plane (pvz., kai "
+"nurodote kovos su rizika priemonę, už šios priemonės vykdymą atsakingą "
+"asmenį ir pan.). Informacija laisvos formos teksto laukeliuose, kaip ir bet "
+"kokie kiti asmens duomenys, pateikiami priemonėje savanoriškai ir gavus "
+"sutikimą."
 
 #. Default: "This website collects web statistics with Matomo that is entirely hosted in EU- OSHA’s servers, located in the European Union. The IP address is received by Matomo for geographical statistic purpose only (country, region and city)."
 #: euphorie/client/browser/templates/conditions-bare.pt:58
 msgid "conditions_part4_3_entry"
-msgstr "Šioje svetainėje svetainės lankymo statistika renkama naudojantis „Matomo“, kurių visa priegloba užtikrinama Europos Sąjungoje esančiuose EU-OSHA serveriuose. „Matomo“ IP adresą gauna tik geografinės statistikos duomenims (apie šalį, regioną ir miestą) rinkti."
+msgstr ""
+"Šioje svetainėje svetainės lankymo statistika renkama naudojantis „Matomo“, "
+"kurių visa priegloba užtikrinama Europos Sąjungoje esančiuose EU-OSHA "
+"serveriuose. „Matomo“ IP adresą gauna tik geografinės statistikos duomenims "
+"(apie šalį, regioną ir miestą) rinkti."
 
 #. Default: "The OiRA software does collect statistics from logged in users based on aggregated data on number of accounts and risk assessments per tool by country, broken down to months."
 #: euphorie/client/browser/templates/conditions-bare.pt:62
 msgid "conditions_part4_4_entry"
-msgstr "OiRA programinėje įrangoje renkami prisijungusių naudotojų statistiniai duomenys, atsižvelgiant į suvestinius duomenis apie paskyrų ir rizikos vertinimų skaičių kiekvienoje priemonėje, pagal šalį, suskirstyti pagal mėnesius."
+msgstr ""
+"OiRA programinėje įrangoje renkami prisijungusių naudotojų statistiniai "
+"duomenys, atsižvelgiant į suvestinius duomenis apie paskyrų ir rizikos "
+"vertinimų skaičių kiekvienoje priemonėje, pagal šalį, suskirstyti pagal "
+"mėnesius."
 
 #. Default: "Type of data processed"
 #: euphorie/client/browser/templates/conditions-bare.pt:51
@@ -2020,7 +2067,14 @@ msgstr "Tvarkomų duomenų pobūdis"
 #. Default: "The processing is based on Article 5.1 (d),(a) of <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Regulation (EU) 2018/1725</a> of the European Parliament and of the Council of 23 October 2018 on the protection of natural persons with regard to the processing of personal data by the Union institutions, bodies, offices and agencies and on the free movement of such data (hereinafter the Regulation)."
 #: euphorie/client/browser/templates/conditions-bare.pt:68
 msgid "conditions_part5_entry"
-msgstr "Duomenys tvarkomi remiantis 2018 m. spalio 23 d. Europos Parlamento ir Tarybos <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Reglamento (ES) 2018/1725</a> dėl fizinių asmenų apsaugos Sąjungos institucijoms, organams, tarnyboms ir agentūroms tvarkant asmens duomenis ir dėl laisvo tokių duomenų judėjimo (toliau – Reglamentas) 5 straipsnio 1 dalies a ir d punktais."
+msgstr ""
+"Duomenys tvarkomi remiantis 2018 m. spalio 23 d. Europos Parlamento ir "
+"Tarybos <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv"
+"%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Reglamento "
+"(ES) 2018/1725</a> dėl fizinių asmenų apsaugos Sąjungos institucijoms, "
+"organams, tarnyboms ir agentūroms tvarkant asmens duomenis ir dėl laisvo "
+"tokių duomenų judėjimo (toliau – Reglamentas) 5 straipsnio 1 dalies a ir d "
+"punktais."
 
 #. Default: "Lawfulness of processing"
 #: euphorie/client/browser/templates/conditions-bare.pt:66
@@ -2030,7 +2084,12 @@ msgstr "Duomenų tvarkymo teisėtumas"
 #. Default: "Personal data can be accessed by EU-OSHA staff members in charge of OiRA and EU-OSHA’s technical providers based on requests from OiRA users in case of technical problems. In addition, OiRA users can grant other OiRA users access to their risk assessments, action-plans and reports."
 #: euphorie/client/browser/templates/conditions-bare.pt:75
 msgid "conditions_part6_entry"
-msgstr "Asmens duomenys prieinami OiRA dirbantiems EU-OSHA darbuotojams ir EU-OSHA techninių paslaugų teikėjams, kurie sprendžia OiRA naudotojų prašomas išspręsti technines problemas. Be to, OiRA naudotojai gali suteikti kitiems OiRA naudotojams prieigą prie savo rizikos vertinimų, veiksmų planų ir ataskaitų."
+msgstr ""
+"Asmens duomenys prieinami OiRA dirbantiems EU-OSHA darbuotojams ir EU-OSHA "
+"techninių paslaugų teikėjams, kurie sprendžia OiRA naudotojų prašomas "
+"išspręsti technines problemas. Be to, OiRA naudotojai gali suteikti kitiems "
+"OiRA naudotojams prieigą prie savo rizikos vertinimų, veiksmų planų ir "
+"ataskaitų."
 
 #. Default: "Data recipients"
 #: euphorie/client/browser/templates/conditions-bare.pt:73
@@ -2040,17 +2099,31 @@ msgstr "Duomenų gavėjai"
 #. Default: "Data subjects have the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or, where applicable, the right to object to processing or the right to withdraw consent at any time without affecting the lawfulness of processing based on consent before its withdrawal (Articles 17, 18, 19, 20, 22, 23 and 24 of the Regulation)."
 #: euphorie/client/browser/templates/conditions-bare.pt:81
 msgid "conditions_part7_1_entry"
-msgstr "Duomenų subjektai turi teisę prašyti, kad duomenų valdytojas leistų susipažinti su duomenų subjekto asmens duomenimis ir juos ištaisytų arba ištrintų, arba apribotų duomenų tvarkymą, o tam tikrais atvejais teisę nesutikti, kad duomenys būtų tvarkomi, arba teisę bet kuriuo metu atšaukti sutikimą, nedarant poveikio sutikimu grindžiamo duomenų tvarkymo prieš sutikimo atšaukimą teisėtumui (Reglamento 17, 18, 19, 20, 22, 23 or 24 straipsniai)."
+msgstr ""
+"Duomenų subjektai turi teisę prašyti, kad duomenų valdytojas leistų "
+"susipažinti su duomenų subjekto asmens duomenimis ir juos ištaisytų arba "
+"ištrintų, arba apribotų duomenų tvarkymą, o tam tikrais atvejais teisę "
+"nesutikti, kad duomenys būtų tvarkomi, arba teisę bet kuriuo metu atšaukti "
+"sutikimą, nedarant poveikio sutikimu grindžiamo duomenų tvarkymo prieš "
+"sutikimo atšaukimą teisėtumui (Reglamento 17, 18, 19, 20, 22, 23 or 24 "
+"straipsniai)."
 
 #. Default: "Any requests to exercise one of those rights should be directed per email to information(at)osha.europa.eu, mentioning the organisational part of the Agency entrusted with the processing operation as indicated in this privacy statement and the name of the processing operation, including in the subject the words “data protection”."
 #: euphorie/client/browser/templates/conditions-bare.pt:85
 msgid "conditions_part7_2_entry"
-msgstr "Visi prašymai pasinaudoti bet kuria iš minėtų teisių turi būti siunčiami e. paštu adresu information(at)osha.europa.eu, nurodant agentūros padalinio darbuotoją, kuriam pavesta atlikti duomenų tvarkymo operaciją, kaip nurodyta šiame pareiškime apie privatumo apsaugą, ir duomenų tvarkymo operacijos pavadinimą, įskaitant laiško pavadinime Žodžius „duomenų apsauga“."
+msgstr ""
+"Visi prašymai pasinaudoti bet kuria iš minėtų teisių turi būti siunčiami e. "
+"paštu adresu information(at)osha.europa.eu, nurodant agentūros padalinio "
+"darbuotoją, kuriam pavesta atlikti duomenų tvarkymo operaciją, kaip nurodyta "
+"šiame pareiškime apie privatumo apsaugą, ir duomenų tvarkymo operacijos "
+"pavadinimą, įskaitant laiško pavadinime Žodžius „duomenų apsauga“."
 
 #. Default: "Data subjects’ rights can be restricted only in the cases foreseen in Art 25 of the Regulation."
 #: euphorie/client/browser/templates/conditions-bare.pt:89
 msgid "conditions_part7_3_entry"
-msgstr "Duomenų subjektų teisės gali būti ribojamos tik Reglamento 25 straipsnyje numatytais atvejais."
+msgstr ""
+"Duomenų subjektų teisės gali būti ribojamos tik Reglamento 25 straipsnyje "
+"numatytais atvejais."
 
 #. Default: "The data subject’s rights"
 #: euphorie/client/browser/templates/conditions-bare.pt:79
@@ -2060,7 +2133,10 @@ msgstr "Duomenų subjekto teisės"
 #. Default: "We keep your data which is inaccessible for external users until you delete your account and/or your session(s). EU-OSHA stores data on our servers located in EU territory."
 #: euphorie/client/browser/templates/conditions-bare.pt:95
 msgid "conditions_part8_entry"
-msgstr "Mes saugome jūsų duomenis, su kuriais negali susipažinti išorės naudotojai, iki tada, kai ištrinate savo paskyrą ir (arba) seansą (-us). EU-OSHA saugo duomenis ES teritorijoje esančiuose mūsų serveriuose."
+msgstr ""
+"Mes saugome jūsų duomenis, su kuriais negali susipažinti išorės naudotojai, "
+"iki tada, kai ištrinate savo paskyrą ir (arba) seansą (-us). EU-OSHA saugo "
+"duomenis ES teritorijoje esančiuose mūsų serveriuose."
 
 #. Default: "Information on the conservation period of data"
 #: euphorie/client/browser/templates/conditions-bare.pt:93
@@ -2070,7 +2146,13 @@ msgstr "Informacija apie duomenų saugojimo trukmę"
 #. Default: "We take appropriate security measures to protect against unauthorised access to or unauthorised alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices, appropriate encryption of communication and physical security measures to guard against unauthorised access to systems where we store personal data."
 #: euphorie/client/browser/templates/conditions-bare.pt:102
 msgid "conditions_part9_entry"
-msgstr "Siekdami užtikrinti apsaugą nuo neteisėtos prieigos prie duomenų arba neteisėto duomenų pakeitimo, atskleidimo arba sunaikinimo, imamės reikiamų saugumo priemonių. Be kita ko, atliekame duomenų rinkimo, saugojimo ir tvarkymo praktikos vidaus peržiūras, užtikriname atitinkamą ryšio šifravimą ir fizines saugumo priemones, padedančias apsisaugoti nuo neteisėtos prieigos prie sistemų, kuriose saugome asmens duomenis."
+msgstr ""
+"Siekdami užtikrinti apsaugą nuo neteisėtos prieigos prie duomenų arba "
+"neteisėto duomenų pakeitimo, atskleidimo arba sunaikinimo, imamės reikiamų "
+"saugumo priemonių. Be kita ko, atliekame duomenų rinkimo, saugojimo ir "
+"tvarkymo praktikos vidaus peržiūras, užtikriname atitinkamą ryšio šifravimą "
+"ir fizines saugumo priemones, padedančias apsisaugoti nuo neteisėtos "
+"prieigos prie sistemų, kuriose saugome asmens duomenis."
 
 #. Default: "Security measures"
 #: euphorie/client/browser/templates/conditions-bare.pt:100

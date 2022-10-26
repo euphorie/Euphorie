@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-26 12:05+0000\n"
+"POT-Creation-Date: 2022-10-26 14:46+0000\n"
 "PO-Revision-Date: 2013-06-27 22:14+0200\n"
 "Last-Translator: Wichert Akkerman <wichert@wiggy.net>\n"
 "Language-Team: nl <LL@li.org>\n"
@@ -155,6 +155,10 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-organisation.pt:17
 msgid "Add organisation"
 msgstr "Voeg organisatie toe"
+
+#: euphorie/client/browser/templates/organisation.pt:121
+msgid "Add user"
+msgstr "Voeg gebruiker toe"
 
 #: euphorie/content/browser/library.py:211
 msgid "Added a copy of \"${title}\" to your OiRA tool."
@@ -439,6 +443,10 @@ msgstr ""
 #: euphorie/client/browser/templates/shell.pt:490
 msgid "Edit link"
 msgstr ""
+
+#: euphorie/client/browser/templates/organisation.pt:127
+msgid "Edit organisation"
+msgstr "Toon organisatie"
 
 #: euphorie/client/browser/templates/training.pt:248
 msgid "Edit training card"
@@ -1938,7 +1946,10 @@ msgstr ""
 #. Default: "For any further information regarding the handling of their personal data, data subjects can address their request to EU-OSHA Data Protection Officer at: dpo(at)osha.europa.eu."
 #: euphorie/client/browser/templates/conditions-bare.pt:108
 msgid "conditions_part10_entry"
-msgstr "Betrokkenen kunnen voor het verkrijgen van meer informatie over de verwerking van hun persoonsgegevens een verzoek hiertoe indienen bij de functionaris voor gegevensbescherming van EU-OSHA via: dpo(at)osha.europa.eu."
+msgstr ""
+"Betrokkenen kunnen voor het verkrijgen van meer informatie over de "
+"verwerking van hun persoonsgegevens een verzoek hiertoe indienen bij de "
+"functionaris voor gegevensbescherming van EU-OSHA via: dpo(at)osha.europa.eu."
 
 #. Default: "Request for information"
 #: euphorie/client/browser/templates/conditions-bare.pt:106
@@ -1948,7 +1959,11 @@ msgstr "Verzoek om informatie"
 #. Default: "Data subjects are entitled to make recourse to the European Data Protection Supervisor: ${url} , should they consider that the processing operations do not comply with the Regulation."
 #: euphorie/client/browser/templates/conditions-bare.pt:115
 msgid "conditions_part11_entry"
-msgstr "Betrokkenen hebben het recht om een beroep op de Europese Toezichthouder voor gegevensbescherming te doen: ${url}, indien zij van mening zijn dat de verwerkingen niet in overeenstemming met de verordening hebben plaatsgevonden."
+msgstr ""
+"Betrokkenen hebben het recht om een beroep op de Europese Toezichthouder "
+"voor gegevensbescherming te doen: ${url}, indien zij van mening zijn dat de "
+"verwerkingen niet in overeenstemming met de verordening hebben "
+"plaatsgevonden."
 
 #. Default: "Recourse to the EDPS"
 #: euphorie/client/browser/templates/conditions-bare.pt:112
@@ -1973,17 +1988,29 @@ msgstr "Datum waarop de verwerking begint"
 #. Default: "Head of Unit Prevention and Research Unit (information(at)osha.europa.eu)"
 #: euphorie/client/browser/templates/conditions-bare.pt:34
 msgid "conditions_part1_entry"
-msgstr "Hoofd van de eenheid Preventie en Onderzoek (information(at)osha.europa.eu)"
+msgstr ""
+"Hoofd van de eenheid Preventie en Onderzoek (information(at)osha.europa.eu)"
 
 #. Default: "Organisational part of the Agency entrusted with the processing of personal data"
 #: euphorie/client/browser/templates/conditions-bare.pt:32
 msgid "conditions_part1_header"
-msgstr "Organisatieonderdeel van het Agentschap belast met de verwerking van persoonsgegevens"
+msgstr ""
+"Organisatieonderdeel van het Agentschap belast met de verwerking van "
+"persoonsgegevens"
 
 #. Default: "The purpose of the processing operation is the creation of and log-in to your OiRA (Online interactive Risk Assessment) account, the creation of risk assessments, action-plans and reports. Email addresses might be used for the sending of newsletters (if the option has been selected). The OiRA application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This privacy policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application."
 #: euphorie/client/browser/templates/conditions-bare.pt:40
 msgid "conditions_part2_entry"
-msgstr "Het doel van de verwerking is het aanmaken van en inloggen op uw account bij OiRA (Online interactive Risk Assessment – online interactieve risicobeoordeling) en het opstellen van risicobeoordelingen, actieplannen en verslagen. E-mailadressen kunnen worden gebruikt voor de toezending van nieuwsbrieven (als deze optie is geselecteerd). De OiRA-applicatie is een instrument dat aan u beschikbaar is gesteld door het Europees Agentschap voor veiligheid en gezondheid op het werk (EU-OSHA). Dit privacybeleid geldt voor alle producten, diensten en websites die door EU-OSHA worden aangeboden in het kader van de OiRA-applicatie."
+msgstr ""
+"Het doel van de verwerking is het aanmaken van en inloggen op uw account bij "
+"OiRA (Online interactive Risk Assessment – online interactieve "
+"risicobeoordeling) en het opstellen van risicobeoordelingen, actieplannen en "
+"verslagen. E-mailadressen kunnen worden gebruikt voor de toezending van "
+"nieuwsbrieven (als deze optie is geselecteerd). De OiRA-applicatie is een "
+"instrument dat aan u beschikbaar is gesteld door het Europees Agentschap "
+"voor veiligheid en gezondheid op het werk (EU-OSHA). Dit privacybeleid geldt "
+"voor alle producten, diensten en websites die door EU-OSHA worden aangeboden "
+"in het kader van de OiRA-applicatie."
 
 #. Default: "Purpose"
 #: euphorie/client/browser/templates/conditions-bare.pt:38
@@ -1993,7 +2020,11 @@ msgstr "Doel"
 #. Default: "Council Regulation (EU) 2019/126 of the European Parliament and of the Council of 16 January 2019 establishing the European Agency for Safety and Health at Work (EU-OSHA), and repealing Council Regulation (EC) No 2062/94."
 #: euphorie/client/browser/templates/conditions-bare.pt:46
 msgid "conditions_part3_entry"
-msgstr "Verordening (EU) 2019/126 van het Europees Parlement en de Raad van 16 januari 2019 tot oprichting van het Europees Agentschap voor de veiligheid en de gezondheid op het werk (EU-OSHA) en tot intrekking van Verordening (EG) nr. 2062/94 van de Raad."
+msgstr ""
+"Verordening (EU) 2019/126 van het Europees Parlement en de Raad van 16 "
+"januari 2019 tot oprichting van het Europees Agentschap voor de veiligheid "
+"en de gezondheid op het werk (EU-OSHA) en tot intrekking van Verordening "
+"(EG) nr. 2062/94 van de Raad."
 
 #. Default: "Legal basis"
 #: euphorie/client/browser/templates/conditions-bare.pt:44
@@ -2003,22 +2034,39 @@ msgstr "Rechtsgrondslag"
 #. Default: "E-mail address: an email is necessary to access the online application, edit the input data, and delete the OiRA account. The email address is also used for sending newsletters (if the option has been selected)."
 #: euphorie/client/browser/templates/conditions-bare.pt:54
 msgid "conditions_part4_1_entry"
-msgstr "E-mailadres: een e-mailadres is noodzakelijk voor toegang tot de onlineapplicatie, om de ingevoerde gegevens te bewerken en om het OiRA-account te verwijderen. Het door u opgegeven e-mailadres wordt ook gebruikt voor de toezending van nieuwsbrieven (als deze optie is geselecteerd)."
+msgstr ""
+"E-mailadres: een e-mailadres is noodzakelijk voor toegang tot de "
+"onlineapplicatie, om de ingevoerde gegevens te bewerken en om het OiRA-"
+"account te verwijderen. Het door u opgegeven e-mailadres wordt ook gebruikt "
+"voor de toezending van nieuwsbrieven (als deze optie is geselecteerd)."
 
 #. Default: "Any information you provide in the free text fields of the application of the OiRA tools and in the action plan of your risk assessments - (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc.). The input of information in the free text fields just as any other personal data put into the tool is done voluntarily and based on consent."
 #: euphorie/client/browser/templates/conditions-bare.pt:55
 msgid "conditions_part4_2_entry"
-msgstr "Alle informatie die u aanlevert in de vrije-tekstvelden van de applicatie van de OiRA-tools en in het actieplan van uw risicobeoordelingen (bv. wanneer u een maatregel ter bestrijding van een risico invoert, de persoon die verantwoordelijk is voor de maatregel enz.). Het invoeren van informatie in de vrije-tekstvelden gebeurt, net als bij alle andere persoonsgegevens in de tool, vrijwillig en op basis van toestemming."
+msgstr ""
+"Alle informatie die u aanlevert in de vrije-tekstvelden van de applicatie "
+"van de OiRA-tools en in het actieplan van uw risicobeoordelingen (bv. "
+"wanneer u een maatregel ter bestrijding van een risico invoert, de persoon "
+"die verantwoordelijk is voor de maatregel enz.). Het invoeren van informatie "
+"in de vrije-tekstvelden gebeurt, net als bij alle andere persoonsgegevens in "
+"de tool, vrijwillig en op basis van toestemming."
 
 #. Default: "This website collects web statistics with Matomo that is entirely hosted in EU- OSHA’s servers, located in the European Union. The IP address is received by Matomo for geographical statistic purpose only (country, region and city)."
 #: euphorie/client/browser/templates/conditions-bare.pt:58
 msgid "conditions_part4_3_entry"
-msgstr "Deze website verzamelt webstatistieken met Matomo, dat in zijn geheel wordt gehost op de servers van EU-OSHA, die in de Europese Unie staan opgesteld. Matomo ontvangt het IP-adres uitsluitend met het oog op geografische statistieken (land, regio en stad)."
+msgstr ""
+"Deze website verzamelt webstatistieken met Matomo, dat in zijn geheel wordt "
+"gehost op de servers van EU-OSHA, die in de Europese Unie staan opgesteld. "
+"Matomo ontvangt het IP-adres uitsluitend met het oog op geografische "
+"statistieken (land, regio en stad)."
 
 #. Default: "The OiRA software does collect statistics from logged in users based on aggregated data on number of accounts and risk assessments per tool by country, broken down to months."
 #: euphorie/client/browser/templates/conditions-bare.pt:62
 msgid "conditions_part4_4_entry"
-msgstr "De OiRA-software verzamelt statistieken van ingelogde gebruikers op basis van geaggregeerde gegevens over het aantal accounts en risicobeoordelingen per tool per land, uitgesplitst per maand."
+msgstr ""
+"De OiRA-software verzamelt statistieken van ingelogde gebruikers op basis "
+"van geaggregeerde gegevens over het aantal accounts en risicobeoordelingen "
+"per tool per land, uitgesplitst per maand."
 
 #. Default: "Type of data processed"
 #: euphorie/client/browser/templates/conditions-bare.pt:51
@@ -2028,7 +2076,15 @@ msgstr "Type verwerkte gegevens"
 #. Default: "The processing is based on Article 5.1 (d),(a) of <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Regulation (EU) 2018/1725</a> of the European Parliament and of the Council of 23 October 2018 on the protection of natural persons with regard to the processing of personal data by the Union institutions, bodies, offices and agencies and on the free movement of such data (hereinafter the Regulation)."
 #: euphorie/client/browser/templates/conditions-bare.pt:68
 msgid "conditions_part5_entry"
-msgstr "De verwerking vindt plaats op basis van artikel 5, lid 1, punten a) en d), van <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Verordening (EU) 2018/1725</a> van het Europees Parlement en de Raad van 23 oktober 2018 betreffende de bescherming van natuurlijke personen in verband met de verwerking van persoonsgegevens door de instellingen, organen en instanties van de Unie en betreffende het vrije verkeer van die gegevens (hierna “de verordening” genoemd)."
+msgstr ""
+"De verwerking vindt plaats op basis van artikel 5, lid 1, punten a) en d), "
+"van <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv"
+"%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Verordening "
+"(EU) 2018/1725</a> van het Europees Parlement en de Raad van 23 oktober 2018 "
+"betreffende de bescherming van natuurlijke personen in verband met de "
+"verwerking van persoonsgegevens door de instellingen, organen en instanties "
+"van de Unie en betreffende het vrije verkeer van die gegevens (hierna “de "
+"verordening” genoemd)."
 
 #. Default: "Lawfulness of processing"
 #: euphorie/client/browser/templates/conditions-bare.pt:66
@@ -2038,7 +2094,12 @@ msgstr "Rechtmatigheid van de verwerking"
 #. Default: "Personal data can be accessed by EU-OSHA staff members in charge of OiRA and EU-OSHA’s technical providers based on requests from OiRA users in case of technical problems. In addition, OiRA users can grant other OiRA users access to their risk assessments, action-plans and reports."
 #: euphorie/client/browser/templates/conditions-bare.pt:75
 msgid "conditions_part6_entry"
-msgstr "De persoonsgegevens zijn toegankelijk voor de personeelsleden van EU-OSHA die verantwoordelijk zijn voor OiRA, alsook voor de technische leveranciers van EU-OSHA op basis van verzoeken van OiRA-gebruikers in geval van technische problemen. Ook kunnen OiRA-gebruikers andere OiRA-gebruikers toegang verlenen tot hun risicobeoordelingen, actieplannen en verslagen."
+msgstr ""
+"De persoonsgegevens zijn toegankelijk voor de personeelsleden van EU-OSHA "
+"die verantwoordelijk zijn voor OiRA, alsook voor de technische leveranciers "
+"van EU-OSHA op basis van verzoeken van OiRA-gebruikers in geval van "
+"technische problemen. Ook kunnen OiRA-gebruikers andere OiRA-gebruikers "
+"toegang verlenen tot hun risicobeoordelingen, actieplannen en verslagen."
 
 #. Default: "Data recipients"
 #: euphorie/client/browser/templates/conditions-bare.pt:73
@@ -2048,17 +2109,32 @@ msgstr "Ontvangers van de gegevens"
 #. Default: "Data subjects have the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or, where applicable, the right to object to processing or the right to withdraw consent at any time without affecting the lawfulness of processing based on consent before its withdrawal (Articles 17, 18, 19, 20, 22, 23 and 24 of the Regulation)."
 #: euphorie/client/browser/templates/conditions-bare.pt:81
 msgid "conditions_part7_1_entry"
-msgstr "Betrokkenen hebben het recht de verwerkingsverantwoordelijke te verzoeken om inzage, rectificatie of wissing van de persoonsgegevens of om beperking van de hen betreffende verwerking, of, in voorkomend geval, het recht om tegen de verwerking bezwaar te maken of het recht om de toestemming te allen tijde in te trekken, zonder dat dit afbreuk doet aan de rechtmatigheid van de verwerking op basis van de toestemming vóór de intrekking daarvan (artikelen 17, 18, 19, 20, 22, 23 en 24 van de verordening)."
+msgstr ""
+"Betrokkenen hebben het recht de verwerkingsverantwoordelijke te verzoeken om "
+"inzage, rectificatie of wissing van de persoonsgegevens of om beperking van "
+"de hen betreffende verwerking, of, in voorkomend geval, het recht om tegen "
+"de verwerking bezwaar te maken of het recht om de toestemming te allen tijde "
+"in te trekken, zonder dat dit afbreuk doet aan de rechtmatigheid van de "
+"verwerking op basis van de toestemming vóór de intrekking daarvan (artikelen "
+"17, 18, 19, 20, 22, 23 en 24 van de verordening)."
 
 #. Default: "Any requests to exercise one of those rights should be directed per email to information(at)osha.europa.eu, mentioning the organisational part of the Agency entrusted with the processing operation as indicated in this privacy statement and the name of the processing operation, including in the subject the words “data protection”."
 #: euphorie/client/browser/templates/conditions-bare.pt:85
 msgid "conditions_part7_2_entry"
-msgstr "Alle verzoeken tot uitoefening van een van deze rechten moeten per e-mail worden gericht aan information(at)osha.europa.eu, onder vermelding van het organisatieonderdeel van EU-OSHA dat is belast met de verwerking, zoals aangegeven in deze privacyverklaring, en de benaming van de verwerkingshandeling, met het woord “gegevensbescherming” in de onderwerpregel."
+msgstr ""
+"Alle verzoeken tot uitoefening van een van deze rechten moeten per e-mail "
+"worden gericht aan information(at)osha.europa.eu, onder vermelding van het "
+"organisatieonderdeel van EU-OSHA dat is belast met de verwerking, zoals "
+"aangegeven in deze privacyverklaring, en de benaming van de "
+"verwerkingshandeling, met het woord “gegevensbescherming” in de "
+"onderwerpregel."
 
 #. Default: "Data subjects’ rights can be restricted only in the cases foreseen in Art 25 of the Regulation."
 #: euphorie/client/browser/templates/conditions-bare.pt:89
 msgid "conditions_part7_3_entry"
-msgstr "De rechten van betrokkenen kunnen uitsluitend worden beperkt in de in artikel 25 van de verordening beschreven gevallen."
+msgstr ""
+"De rechten van betrokkenen kunnen uitsluitend worden beperkt in de in "
+"artikel 25 van de verordening beschreven gevallen."
 
 #. Default: "The data subject’s rights"
 #: euphorie/client/browser/templates/conditions-bare.pt:79
@@ -2068,7 +2144,10 @@ msgstr "De rechten van betrokkenen"
 #. Default: "We keep your data which is inaccessible for external users until you delete your account and/or your session(s). EU-OSHA stores data on our servers located in EU territory."
 #: euphorie/client/browser/templates/conditions-bare.pt:95
 msgid "conditions_part8_entry"
-msgstr "Wij bewaren uw gegevens, die niet voor externe gebruikers toegankelijk zijn, tot u uw account en/of uw sessie(s) verwijdert. EU-OSHA bewaart de gegevens op zijn servers, die op het grondgebied van de Europese Unie staan opgesteld."
+msgstr ""
+"Wij bewaren uw gegevens, die niet voor externe gebruikers toegankelijk zijn, "
+"tot u uw account en/of uw sessie(s) verwijdert. EU-OSHA bewaart de gegevens "
+"op zijn servers, die op het grondgebied van de Europese Unie staan opgesteld."
 
 #. Default: "Information on the conservation period of data"
 #: euphorie/client/browser/templates/conditions-bare.pt:93
@@ -2078,7 +2157,14 @@ msgstr "Informatie over de bewaartermijn van gegevens"
 #. Default: "We take appropriate security measures to protect against unauthorised access to or unauthorised alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices, appropriate encryption of communication and physical security measures to guard against unauthorised access to systems where we store personal data."
 #: euphorie/client/browser/templates/conditions-bare.pt:102
 msgid "conditions_part9_entry"
-msgstr "Wij nemen passende beveiligingsmaatregelen om gegevens te beschermen tegen toegang door onbevoegden en tegen de ongeoorloofde wijziging, bekendmaking of vernietiging van gegevens. Deze maatregelen omvatten onder andere interne evaluaties van onze praktijken met betrekking tot het verzamelen, opslaan en verwerken van gegevens, passende encryptie van communicatie en fysieke beveiligingsmaatregelen ter voorkoming van ongeoorloofde toegang tot systemen waarop we persoonsgegevens bewaren."
+msgstr ""
+"Wij nemen passende beveiligingsmaatregelen om gegevens te beschermen tegen "
+"toegang door onbevoegden en tegen de ongeoorloofde wijziging, bekendmaking "
+"of vernietiging van gegevens. Deze maatregelen omvatten onder andere interne "
+"evaluaties van onze praktijken met betrekking tot het verzamelen, opslaan en "
+"verwerken van gegevens, passende encryptie van communicatie en fysieke "
+"beveiligingsmaatregelen ter voorkoming van ongeoorloofde toegang tot "
+"systemen waarop we persoonsgegevens bewaren."
 
 #. Default: "Security measures"
 #: euphorie/client/browser/templates/conditions-bare.pt:100

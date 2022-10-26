@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2022-10-26 14:28+0000\n"
+"POT-Creation-Date: 2022-10-26 15:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -118,6 +118,10 @@ msgstr ""
 #: euphorie/client/browser/templates/organisation.pt:54
 #: euphorie/client/browser/templates/panel-add-organisation.pt:17
 msgid "Add organisation"
+msgstr ""
+
+#: euphorie/client/browser/templates/organisation.pt:121
+msgid "Add user"
 msgstr ""
 
 #: euphorie/content/browser/library.py:211
@@ -375,6 +379,10 @@ msgstr ""
 
 #: euphorie/client/browser/templates/shell.pt:490
 msgid "Edit link"
+msgstr ""
+
+#: euphorie/client/browser/templates/organisation.pt:127
+msgid "Edit organisation"
 msgstr ""
 
 #: euphorie/client/browser/templates/training.pt:248

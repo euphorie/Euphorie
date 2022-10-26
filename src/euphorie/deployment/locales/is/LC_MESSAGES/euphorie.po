@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-26 12:05+0000\n"
+"POT-Creation-Date: 2022-10-26 14:46+0000\n"
 "PO-Revision-Date: 2015-02-10 11:55+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -153,6 +153,10 @@ msgstr "Bæta við efni úr verkfærasafni"
 #: euphorie/client/browser/templates/organisation.pt:54
 #: euphorie/client/browser/templates/panel-add-organisation.pt:17
 msgid "Add organisation"
+msgstr ""
+
+#: euphorie/client/browser/templates/organisation.pt:121
+msgid "Add user"
 msgstr ""
 
 #: euphorie/content/browser/library.py:211
@@ -434,6 +438,10 @@ msgstr "Breyta spurningu um starfsemi"
 
 #: euphorie/client/browser/templates/shell.pt:490
 msgid "Edit link"
+msgstr ""
+
+#: euphorie/client/browser/templates/organisation.pt:127
+msgid "Edit organisation"
 msgstr ""
 
 #: euphorie/client/browser/templates/training.pt:248
@@ -1890,7 +1898,9 @@ msgstr ""
 #. Default: "For any further information regarding the handling of their personal data, data subjects can address their request to EU-OSHA Data Protection Officer at: dpo(at)osha.europa.eu."
 #: euphorie/client/browser/templates/conditions-bare.pt:108
 msgid "conditions_part10_entry"
-msgstr "Til að fá frekari upplýsingar um meðferð persónuupplýsinga geta skráðir aðilar sent beiðni til gagnaverndarfulltrúa EU-OSHA á: dpo@osha.europa.eu."
+msgstr ""
+"Til að fá frekari upplýsingar um meðferð persónuupplýsinga geta skráðir "
+"aðilar sent beiðni til gagnaverndarfulltrúa EU-OSHA á: dpo@osha.europa.eu."
 
 #. Default: "Request for information"
 #: euphorie/client/browser/templates/conditions-bare.pt:106
@@ -1900,7 +1910,10 @@ msgstr "Beiðni um upplýsingar"
 #. Default: "Data subjects are entitled to make recourse to the European Data Protection Supervisor: ${url} , should they consider that the processing operations do not comply with the Regulation."
 #: euphorie/client/browser/templates/conditions-bare.pt:115
 msgid "conditions_part11_entry"
-msgstr "Skráðir aðilar eiga rétt á að skjóta máli sínu til Evrópsku persónuverndarstofnunarinnar: ${url}, kunni þeir að telja að vinnsla gagna hafi ekki verið í samræmi við reglugerð."
+msgstr ""
+"Skráðir aðilar eiga rétt á að skjóta máli sínu til Evrópsku "
+"persónuverndarstofnunarinnar: ${url}, kunni þeir að telja að vinnsla gagna "
+"hafi ekki verið í samræmi við reglugerð."
 
 #. Default: "Recourse to the EDPS"
 #: euphorie/client/browser/templates/conditions-bare.pt:112
@@ -1930,12 +1943,20 @@ msgstr "Yfirmaður Forvarna- og rannsóknasviðs (information(hjá)osha.europa.e
 #. Default: "Organisational part of the Agency entrusted with the processing of personal data"
 #: euphorie/client/browser/templates/conditions-bare.pt:32
 msgid "conditions_part1_header"
-msgstr "Kerfishluta stofnunarinnar er falið að annast vinnslu persónuupplýsinga"
+msgstr ""
+"Kerfishluta stofnunarinnar er falið að annast vinnslu persónuupplýsinga"
 
 #. Default: "The purpose of the processing operation is the creation of and log-in to your OiRA (Online interactive Risk Assessment) account, the creation of risk assessments, action-plans and reports. Email addresses might be used for the sending of newsletters (if the option has been selected). The OiRA application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This privacy policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application."
 #: euphorie/client/browser/templates/conditions-bare.pt:40
 msgid "conditions_part2_entry"
-msgstr "Tilgangurinn með úrvinnslunni er að búa til og skrá þig inn á OiRA (Online interactive Risk Assessment) reikninginn þinn til að búa til áhættumat, aðgerðaráætlanir og skýrslur. Netföng geta verið notuð til að senda fréttabréf (ef slíkt hefur verið valið). Oira hugbúnaðurinn er verkfæri sem Evrópska vinnuverndarstofnunin (EU-OSHA) færir þér. Þessi persónuverndarstefna gildir fyrir allar vörur, þjónustu og vefsíður sem EU-OSHA býður upp á innan ramma OiRA hugbúnaðarins."
+msgstr ""
+"Tilgangurinn með úrvinnslunni er að búa til og skrá þig inn á OiRA (Online "
+"interactive Risk Assessment) reikninginn þinn til að búa til áhættumat, "
+"aðgerðaráætlanir og skýrslur. Netföng geta verið notuð til að senda "
+"fréttabréf (ef slíkt hefur verið valið). Oira hugbúnaðurinn er verkfæri sem "
+"Evrópska vinnuverndarstofnunin (EU-OSHA) færir þér. Þessi "
+"persónuverndarstefna gildir fyrir allar vörur, þjónustu og vefsíður sem EU-"
+"OSHA býður upp á innan ramma OiRA hugbúnaðarins."
 
 #. Default: "Purpose"
 #: euphorie/client/browser/templates/conditions-bare.pt:38
@@ -1945,7 +1966,10 @@ msgstr "Tilgangur"
 #. Default: "Council Regulation (EU) 2019/126 of the European Parliament and of the Council of 16 January 2019 establishing the European Agency for Safety and Health at Work (EU-OSHA), and repealing Council Regulation (EC) No 2062/94."
 #: euphorie/client/browser/templates/conditions-bare.pt:46
 msgid "conditions_part3_entry"
-msgstr "Reglugerð ráðsins (ESB) 2019/126 frá Evrópuþinginu og ráðinu frá 16. janúar 2019 sem kom á stofn Vinnuverndarstofnun Evrópu (EU-OSHA), og afnam reglugerð ráðsins (EB) nr. 2062/94."
+msgstr ""
+"Reglugerð ráðsins (ESB) 2019/126 frá Evrópuþinginu og ráðinu frá 16. janúar "
+"2019 sem kom á stofn Vinnuverndarstofnun Evrópu (EU-OSHA), og afnam "
+"reglugerð ráðsins (EB) nr. 2062/94."
 
 #. Default: "Legal basis"
 #: euphorie/client/browser/templates/conditions-bare.pt:44
@@ -1955,22 +1979,37 @@ msgstr "Lagagrundvöllur"
 #. Default: "E-mail address: an email is necessary to access the online application, edit the input data, and delete the OiRA account. The email address is also used for sending newsletters (if the option has been selected)."
 #: euphorie/client/browser/templates/conditions-bare.pt:54
 msgid "conditions_part4_1_entry"
-msgstr "Tölvupóstfang: tölvupóstur er nauðsynlegur til að fá aðgang að hugbúnaðinum á netinu, breyta ílagsgögnum og eyða OiRA aðganginum þínum. Netfangið er einnig notað til að senda fréttabréf (ef slíkt hefur verið valið)."
+msgstr ""
+"Tölvupóstfang: tölvupóstur er nauðsynlegur til að fá aðgang að hugbúnaðinum "
+"á netinu, breyta ílagsgögnum og eyða OiRA aðganginum þínum. Netfangið er "
+"einnig notað til að senda fréttabréf (ef slíkt hefur verið valið)."
 
 #. Default: "Any information you provide in the free text fields of the application of the OiRA tools and in the action plan of your risk assessments - (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc.). The input of information in the free text fields just as any other personal data put into the tool is done voluntarily and based on consent."
 #: euphorie/client/browser/templates/conditions-bare.pt:55
 msgid "conditions_part4_2_entry"
-msgstr "Allar upplýsingar sem þú setur inn á opna textasvæðinu í hugbúnaðinum í OiRA tólunum og í aðgerðaráætluninni í áhættumati þínu (t.d. þegar þú setur inn aðgerð til að takast á við hættu, einstaklingurinn sem er ábyrgur fyrir ráðstöfuninni o.s.frv). Að setja inn upplýsingar á opnu textasvæðin líkt og allar aðrar persónuupplýsingum sem eru settar í tólið er gert á sjálfviljugan hátt og byggir á samþykki."
+msgstr ""
+"Allar upplýsingar sem þú setur inn á opna textasvæðinu í hugbúnaðinum í OiRA "
+"tólunum og í aðgerðaráætluninni í áhættumati þínu (t.d. þegar þú setur inn "
+"aðgerð til að takast á við hættu, einstaklingurinn sem er ábyrgur fyrir "
+"ráðstöfuninni o.s.frv). Að setja inn upplýsingar á opnu textasvæðin líkt og "
+"allar aðrar persónuupplýsingum sem eru settar í tólið er gert á "
+"sjálfviljugan hátt og byggir á samþykki."
 
 #. Default: "This website collects web statistics with Matomo that is entirely hosted in EU- OSHA’s servers, located in the European Union. The IP address is received by Matomo for geographical statistic purpose only (country, region and city)."
 #: euphorie/client/browser/templates/conditions-bare.pt:58
 msgid "conditions_part4_3_entry"
-msgstr "Þessi vefsíða safnar veftölfræði með Matomo sem er hýstur í heild sinni á netþjónum EU-OSHA, sem staðsettir eru í Evrópusambandinu. Matomo fær aðeins IP-töluna til að fá landfræðilegar tölfræðiupplýsingar (land, svæði og borg)."
+msgstr ""
+"Þessi vefsíða safnar veftölfræði með Matomo sem er hýstur í heild sinni á "
+"netþjónum EU-OSHA, sem staðsettir eru í Evrópusambandinu. Matomo fær aðeins "
+"IP-töluna til að fá landfræðilegar tölfræðiupplýsingar (land, svæði og borg)."
 
 #. Default: "The OiRA software does collect statistics from logged in users based on aggregated data on number of accounts and risk assessments per tool by country, broken down to months."
 #: euphorie/client/browser/templates/conditions-bare.pt:62
 msgid "conditions_part4_4_entry"
-msgstr "OiRA hugbúnaðurinn safnar tölfræði frá innskráðum notendum út frá gögnum sem er safnað saman um fjölda aðganga og hversu oft áhættumat er gert með hverju tóli eftir landi, skipt niður í mánuði."
+msgstr ""
+"OiRA hugbúnaðurinn safnar tölfræði frá innskráðum notendum út frá gögnum sem "
+"er safnað saman um fjölda aðganga og hversu oft áhættumat er gert með hverju "
+"tóli eftir landi, skipt niður í mánuði."
 
 #. Default: "Type of data processed"
 #: euphorie/client/browser/templates/conditions-bare.pt:51
@@ -1980,7 +2019,13 @@ msgstr "Gagnategundir sem unnið er úr"
 #. Default: "The processing is based on Article 5.1 (d),(a) of <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Regulation (EU) 2018/1725</a> of the European Parliament and of the Council of 23 October 2018 on the protection of natural persons with regard to the processing of personal data by the Union institutions, bodies, offices and agencies and on the free movement of such data (hereinafter the Regulation)."
 #: euphorie/client/browser/templates/conditions-bare.pt:68
 msgid "conditions_part5_entry"
-msgstr "Úrvinnslan byggir á grein 5.1 (d) í <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">reglugerð (ESB) 2018/1725</a> frá Evrópuþinginu og ráðinu frá 23. október 2018 um vernd einstaklinga þegar kemur að vinnslu á persónuupplýsingum hjá stofnunum Evrópusambandsins og upplýsingum um frjálsa för og slíkum upplýsingum (hér eftir Reglugerðin)."
+msgstr ""
+"Úrvinnslan byggir á grein 5.1 (d) í <a href=\"https://eur-lex.europa.eu/"
+"legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL"
+"%3A2018%3A295%3ATOC\">reglugerð (ESB) 2018/1725</a> frá Evrópuþinginu og "
+"ráðinu frá 23. október 2018 um vernd einstaklinga þegar kemur að vinnslu á "
+"persónuupplýsingum hjá stofnunum Evrópusambandsins og upplýsingum um frjálsa "
+"för og slíkum upplýsingum (hér eftir Reglugerðin)."
 
 #. Default: "Lawfulness of processing"
 #: euphorie/client/browser/templates/conditions-bare.pt:66
@@ -1990,7 +2035,12 @@ msgstr "Lögmæti vinnslunnar"
 #. Default: "Personal data can be accessed by EU-OSHA staff members in charge of OiRA and EU-OSHA’s technical providers based on requests from OiRA users in case of technical problems. In addition, OiRA users can grant other OiRA users access to their risk assessments, action-plans and reports."
 #: euphorie/client/browser/templates/conditions-bare.pt:75
 msgid "conditions_part6_entry"
-msgstr "Starfsfólk EU-OSHA, sem hefur umsjón með OiRA, hefur aðgang að persónuupplýsingum og tæknilegir þjónustuveitendur EU-OSHA ef notendur OiRA hafa lagt fram beiðni um slíkt við tæknileg vandamál. Auk þess geta notendur OiRA veitt öðrum notendum OiRA aðgang að áhættumötum, aðgerðaráætlunum og skýrslum sínum."
+msgstr ""
+"Starfsfólk EU-OSHA, sem hefur umsjón með OiRA, hefur aðgang að "
+"persónuupplýsingum og tæknilegir þjónustuveitendur EU-OSHA ef notendur OiRA "
+"hafa lagt fram beiðni um slíkt við tæknileg vandamál. Auk þess geta notendur "
+"OiRA veitt öðrum notendum OiRA aðgang að áhættumötum, aðgerðaráætlunum og "
+"skýrslum sínum."
 
 #. Default: "Data recipients"
 #: euphorie/client/browser/templates/conditions-bare.pt:73
@@ -2000,17 +2050,30 @@ msgstr "Viðtakendur gagna"
 #. Default: "Data subjects have the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or, where applicable, the right to object to processing or the right to withdraw consent at any time without affecting the lawfulness of processing based on consent before its withdrawal (Articles 17, 18, 19, 20, 22, 23 and 24 of the Regulation)."
 #: euphorie/client/browser/templates/conditions-bare.pt:81
 msgid "conditions_part7_1_entry"
-msgstr "Skráðir aðilar hafa rétt á að biðja ábyrgðaraðila gagna um aðgang að og leiðréttingu eða eyðingu á persónuupplýsingum eða takmörkun á vinnslu persónuupplýsinga, eða þar sem það á við, réttinn á að andmæla vinnslu eða réttinn á að draga til baka samþykki hvenær sem er án þess að það hafi áhrif á lögmæti vinnslu sem byggist á samþykki áður en það er dregið til baka (greinar 17, 18, 19, 20, 22, 23 og 24 í reglugerðinni)."
+msgstr ""
+"Skráðir aðilar hafa rétt á að biðja ábyrgðaraðila gagna um aðgang að og "
+"leiðréttingu eða eyðingu á persónuupplýsingum eða takmörkun á vinnslu "
+"persónuupplýsinga, eða þar sem það á við, réttinn á að andmæla vinnslu eða "
+"réttinn á að draga til baka samþykki hvenær sem er án þess að það hafi áhrif "
+"á lögmæti vinnslu sem byggist á samþykki áður en það er dregið til baka "
+"(greinar 17, 18, 19, 20, 22, 23 og 24 í reglugerðinni)."
 
 #. Default: "Any requests to exercise one of those rights should be directed per email to information(at)osha.europa.eu, mentioning the organisational part of the Agency entrusted with the processing operation as indicated in this privacy statement and the name of the processing operation, including in the subject the words “data protection”."
 #: euphorie/client/browser/templates/conditions-bare.pt:85
 msgid "conditions_part7_2_entry"
-msgstr "Allar beiðnir um að nýta einhver af þessum réttindum skal senda með tölvupósti á information@osha.europa.eu, þar sem taka skal fram skipulagshluta stofnunarinnar sem sér um úrvinnsluferlið eins og vísað er til í þessari friðhelgisyfirlýsingu og nafnið á úrvinnsluferlinu, og láta orðin „data protection“ koma fyrir í efnislínunni."
+msgstr ""
+"Allar beiðnir um að nýta einhver af þessum réttindum skal senda með "
+"tölvupósti á information@osha.europa.eu, þar sem taka skal fram "
+"skipulagshluta stofnunarinnar sem sér um úrvinnsluferlið eins og vísað er "
+"til í þessari friðhelgisyfirlýsingu og nafnið á úrvinnsluferlinu, og láta "
+"orðin „data protection“ koma fyrir í efnislínunni."
 
 #. Default: "Data subjects’ rights can be restricted only in the cases foreseen in Art 25 of the Regulation."
 #: euphorie/client/browser/templates/conditions-bare.pt:89
 msgid "conditions_part7_3_entry"
-msgstr "Réttindi skráðra aðila er aðeins hægt að takmarka í málum sem eru séð fyrir í 25. grein reglugerðarinnar."
+msgstr ""
+"Réttindi skráðra aðila er aðeins hægt að takmarka í málum sem eru séð fyrir "
+"í 25. grein reglugerðarinnar."
 
 #. Default: "The data subject’s rights"
 #: euphorie/client/browser/templates/conditions-bare.pt:79
@@ -2020,7 +2083,10 @@ msgstr "Réttindi skráðra aðila"
 #. Default: "We keep your data which is inaccessible for external users until you delete your account and/or your session(s). EU-OSHA stores data on our servers located in EU territory."
 #: euphorie/client/browser/templates/conditions-bare.pt:95
 msgid "conditions_part8_entry"
-msgstr "Við geymum gögnin þín sem eru óaðgengileg utanaðkomandi notendum þangað til þú eyðir aðganginum þínum og/eða setunni/setunum þínum. EU-OSHA geymir gögn á netþjónum sem eru staðsettir innan svæðis ESB."
+msgstr ""
+"Við geymum gögnin þín sem eru óaðgengileg utanaðkomandi notendum þangað til "
+"þú eyðir aðganginum þínum og/eða setunni/setunum þínum. EU-OSHA geymir gögn "
+"á netþjónum sem eru staðsettir innan svæðis ESB."
 
 #. Default: "Information on the conservation period of data"
 #: euphorie/client/browser/templates/conditions-bare.pt:93
@@ -2030,7 +2096,13 @@ msgstr "Upplýsingar um geymslutíma gagna"
 #. Default: "We take appropriate security measures to protect against unauthorised access to or unauthorised alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices, appropriate encryption of communication and physical security measures to guard against unauthorised access to systems where we store personal data."
 #: euphorie/client/browser/templates/conditions-bare.pt:102
 msgid "conditions_part9_entry"
-msgstr "Við gerum viðeigandi öryggisráðstafanir til að koma í veg fyrir óheimilaðan aðgang að, eða óheimilaðri breytingu á, birtingu eða eyðingu gagna. Þar undir fellur innri endurskoðun á gagnasöfnun okkar, verklagi við geymslu og úrvinnslu, viðeigandi dulkóðun á samskiptum og áþreifanlegar öryggisráðstafanir til að koma í veg fyrir óheimilan aðgang að kerfum okkar þar sem persónuupplýsingar eru geymdar."
+msgstr ""
+"Við gerum viðeigandi öryggisráðstafanir til að koma í veg fyrir óheimilaðan "
+"aðgang að, eða óheimilaðri breytingu á, birtingu eða eyðingu gagna. Þar "
+"undir fellur innri endurskoðun á gagnasöfnun okkar, verklagi við geymslu og "
+"úrvinnslu, viðeigandi dulkóðun á samskiptum og áþreifanlegar "
+"öryggisráðstafanir til að koma í veg fyrir óheimilan aðgang að kerfum okkar "
+"þar sem persónuupplýsingar eru geymdar."
 
 #. Default: "Security measures"
 #: euphorie/client/browser/templates/conditions-bare.pt:100

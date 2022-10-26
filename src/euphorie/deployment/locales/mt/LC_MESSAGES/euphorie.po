@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-26 12:05+0000\n"
+"POT-Creation-Date: 2022-10-26 14:46+0000\n"
 "PO-Revision-Date: 2013-12-18 10:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -164,6 +164,10 @@ msgstr "Żid kontenut mil-librerija"
 #: euphorie/client/browser/templates/panel-add-organisation.pt:17
 msgid "Add organisation"
 msgstr "Żid organizzazzjoni"
+
+#: euphorie/client/browser/templates/organisation.pt:121
+msgid "Add user"
+msgstr "Żid utent"
 
 #: euphorie/content/browser/library.py:211
 msgid "Added a copy of \"${title}\" to your OiRA tool."
@@ -446,6 +450,10 @@ msgstr "mistoqsija Editja l-Profil"
 #: euphorie/client/browser/templates/shell.pt:490
 msgid "Edit link"
 msgstr ""
+
+#: euphorie/client/browser/templates/organisation.pt:127
+msgid "Edit organisation"
+msgstr "Editja l-organizzazzjoni"
 
 #: euphorie/client/browser/templates/training.pt:248
 msgid "Edit training card"
@@ -1972,7 +1980,11 @@ msgstr ""
 #. Default: "For any further information regarding the handling of their personal data, data subjects can address their request to EU-OSHA Data Protection Officer at: dpo(at)osha.europa.eu."
 #: euphorie/client/browser/templates/conditions-bare.pt:108
 msgid "conditions_part10_entry"
-msgstr "Għal kwalunkwe informazzjoni ulterjuri rigward il-ġestjoni tad-data personali tagħhom, is-suġġetti tad-data jistgħu jindirizzaw it-talba tagħhom lill-Uffiċjal tal-Protezzjoni tad-Data tal-EU-OSHA fuq: dpo(at)osha.europa.eu."
+msgstr ""
+"Għal kwalunkwe informazzjoni ulterjuri rigward il-ġestjoni tad-data "
+"personali tagħhom, is-suġġetti tad-data jistgħu jindirizzaw it-talba tagħhom "
+"lill-Uffiċjal tal-Protezzjoni tad-Data tal-EU-OSHA fuq: dpo(at)osha.europa."
+"eu."
 
 #. Default: "Request for information"
 #: euphorie/client/browser/templates/conditions-bare.pt:106
@@ -1982,7 +1994,10 @@ msgstr "Talba għall-informazzjoni"
 #. Default: "Data subjects are entitled to make recourse to the European Data Protection Supervisor: ${url} , should they consider that the processing operations do not comply with the Regulation."
 #: euphorie/client/browser/templates/conditions-bare.pt:115
 msgid "conditions_part11_entry"
-msgstr "Is-suġġetti tad-data huma intitolati jagħmlu rikors quddiem il-Kontrollur Ewropew għall-Protezzjoni tad-Data: ${url}, jekk iqisu li l-operazzjonijiet tal-ipproċessar ma jkunux konformi mar-Regolament."
+msgstr ""
+"Is-suġġetti tad-data huma intitolati jagħmlu rikors quddiem il-Kontrollur "
+"Ewropew għall-Protezzjoni tad-Data: ${url}, jekk iqisu li l-operazzjonijiet "
+"tal-ipproċessar ma jkunux konformi mar-Regolament."
 
 #. Default: "Recourse to the EDPS"
 #: euphorie/client/browser/templates/conditions-bare.pt:112
@@ -2007,17 +2022,30 @@ msgstr "Id-data meta jibda l-ipproċessar"
 #. Default: "Head of Unit Prevention and Research Unit (information(at)osha.europa.eu)"
 #: euphorie/client/browser/templates/conditions-bare.pt:34
 msgid "conditions_part1_entry"
-msgstr "Kap tal-Unità għall-Unità Prevenzjoni u Riċerka (information(at)osha.europa.eu)"
+msgstr ""
+"Kap tal-Unità għall-Unità Prevenzjoni u Riċerka (information(at)osha.europa."
+"eu)"
 
 #. Default: "Organisational part of the Agency entrusted with the processing of personal data"
 #: euphorie/client/browser/templates/conditions-bare.pt:32
 msgid "conditions_part1_header"
-msgstr "Il-parti organizzazzjonali tal-Aġenzija fdata bl-ipproċessar tad-data personali"
+msgstr ""
+"Il-parti organizzazzjonali tal-Aġenzija fdata bl-ipproċessar tad-data "
+"personali"
 
 #. Default: "The purpose of the processing operation is the creation of and log-in to your OiRA (Online interactive Risk Assessment) account, the creation of risk assessments, action-plans and reports. Email addresses might be used for the sending of newsletters (if the option has been selected). The OiRA application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This privacy policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application."
 #: euphorie/client/browser/templates/conditions-bare.pt:40
 msgid "conditions_part2_entry"
-msgstr "L-għan tal-operazzjoni tal-ipproċessar huwa l-ħolqien u l-login tal-kont OiRA (Valutazzjoni tar-Riskju Interattiva Online) tiegħek, il-ħolqien ta’ valutazzjonijiet tar-riskju, pjanijiet ta’ azzjoni u rapporti. L-indirizzi tal-email jistgħu jintużaw biex jintbagħtu l-bulettini (jekk tkun intgħażlet l-opzjoni). L-applikazzjoni OiRA hija strument li tqiegħed għad-dispożizzjoni tiegħek mill-Aġenzija Ewropea għas-Sigurtà u s-Saħħa fuq il-Post tax-Xogħol (EU-OSHA). Din il-politika ta’ privatezza tapplika għall-prodotti, is-servizzi u s-siti web kollha offruti mill-EU-OSHA fil-qafas tal-applikazzjoni OiRA."
+msgstr ""
+"L-għan tal-operazzjoni tal-ipproċessar huwa l-ħolqien u l-login tal-kont "
+"OiRA (Valutazzjoni tar-Riskju Interattiva Online) tiegħek, il-ħolqien ta’ "
+"valutazzjonijiet tar-riskju, pjanijiet ta’ azzjoni u rapporti. L-indirizzi "
+"tal-email jistgħu jintużaw biex jintbagħtu l-bulettini (jekk tkun intgħażlet "
+"l-opzjoni). L-applikazzjoni OiRA hija strument li tqiegħed għad-"
+"dispożizzjoni tiegħek mill-Aġenzija Ewropea għas-Sigurtà u s-Saħħa fuq il-"
+"Post tax-Xogħol (EU-OSHA). Din il-politika ta’ privatezza tapplika għall-"
+"prodotti, is-servizzi u s-siti web kollha offruti mill-EU-OSHA fil-qafas tal-"
+"applikazzjoni OiRA."
 
 #. Default: "Purpose"
 #: euphorie/client/browser/templates/conditions-bare.pt:38
@@ -2027,7 +2055,11 @@ msgstr "Għan"
 #. Default: "Council Regulation (EU) 2019/126 of the European Parliament and of the Council of 16 January 2019 establishing the European Agency for Safety and Health at Work (EU-OSHA), and repealing Council Regulation (EC) No 2062/94."
 #: euphorie/client/browser/templates/conditions-bare.pt:46
 msgid "conditions_part3_entry"
-msgstr "Ir-Regolament tal-Kunsill (UE) 2019/126 tal-Parlament Ewropew u tal-Kunsill tas-16 ta’ Jannar 2019 li jistabbilixxi l-Aġenzija Ewropea għas-Sigurtà u s-Saħħa fuq il-Post tax-Xogħol (EU-OSHA), u li jħassar ir-Regolament tal-Kunsill (KE) Nru 2062/94."
+msgstr ""
+"Ir-Regolament tal-Kunsill (UE) 2019/126 tal-Parlament Ewropew u tal-Kunsill "
+"tas-16 ta’ Jannar 2019 li jistabbilixxi l-Aġenzija Ewropea għas-Sigurtà u s-"
+"Saħħa fuq il-Post tax-Xogħol (EU-OSHA), u li jħassar ir-Regolament tal-"
+"Kunsill (KE) Nru 2062/94."
 
 #. Default: "Legal basis"
 #: euphorie/client/browser/templates/conditions-bare.pt:44
@@ -2037,22 +2069,38 @@ msgstr "Bażi ġuridika"
 #. Default: "E-mail address: an email is necessary to access the online application, edit the input data, and delete the OiRA account. The email address is also used for sending newsletters (if the option has been selected)."
 #: euphorie/client/browser/templates/conditions-bare.pt:54
 msgid "conditions_part4_1_entry"
-msgstr "Indirizz tal-email: hemm bżonn ta’ email biex taċċessa l-applikazzjoni online, teditja d-data tal-input, u tħassar il-kont OiRA. L-indirizz tal-email jintuża wkoll biex jintbagħtu l-bulettini (jekk tintgħażel l-opzjoni)."
+msgstr ""
+"Indirizz tal-email: hemm bżonn ta’ email biex taċċessa l-applikazzjoni "
+"online, teditja d-data tal-input, u tħassar il-kont OiRA. L-indirizz tal-"
+"email jintuża wkoll biex jintbagħtu l-bulettini (jekk tintgħażel l-opzjoni)."
 
 #. Default: "Any information you provide in the free text fields of the application of the OiRA tools and in the action plan of your risk assessments - (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc.). The input of information in the free text fields just as any other personal data put into the tool is done voluntarily and based on consent."
 #: euphorie/client/browser/templates/conditions-bare.pt:55
 msgid "conditions_part4_2_entry"
-msgstr "Kwalunkwe informazzjoni li inti tipprovdi fil-kaxex tat-test liberu tal-applikazzjoni tal-għodod OiRA u fil-pjan ta’ azzjoni tal-valutazzjonijiet tar-riskju tiegħek — (eż. meta ddaħħal miżura biex tindirizza riskju, il-persuna responsabbli minn dik il-miżura, eċċ). L-input ta’ informazzjoni fil-kaxex tat-test liberu bħal kwalunkwe data personali oħra mdaħħla fl-għodda ssir b’mod volontarju u abbażi ta’ kunsens."
+msgstr ""
+"Kwalunkwe informazzjoni li inti tipprovdi fil-kaxex tat-test liberu tal-"
+"applikazzjoni tal-għodod OiRA u fil-pjan ta’ azzjoni tal-valutazzjonijiet "
+"tar-riskju tiegħek — (eż. meta ddaħħal miżura biex tindirizza riskju, il-"
+"persuna responsabbli minn dik il-miżura, eċċ). L-input ta’ informazzjoni fil-"
+"kaxex tat-test liberu bħal kwalunkwe data personali oħra mdaħħla fl-għodda "
+"ssir b’mod volontarju u abbażi ta’ kunsens."
 
 #. Default: "This website collects web statistics with Matomo that is entirely hosted in EU- OSHA’s servers, located in the European Union. The IP address is received by Matomo for geographical statistic purpose only (country, region and city)."
 #: euphorie/client/browser/templates/conditions-bare.pt:58
 msgid "conditions_part4_3_entry"
-msgstr "Dan is-sit web jiġbor l-istatistika tal-web permezz ta’ Matomo li hija kompletament ospitata fis-servers tal-EU-OSHA, li jinsabu fl-Unjoni Ewropea. L-indirizz tal-Proprjetà Intellettwali jiġi riċevut minn Matomo għall-finijiet ta’ statistika ġeografika biss (pajjiż, reġjun u belt)."
+msgstr ""
+"Dan is-sit web jiġbor l-istatistika tal-web permezz ta’ Matomo li hija "
+"kompletament ospitata fis-servers tal-EU-OSHA, li jinsabu fl-Unjoni Ewropea. "
+"L-indirizz tal-Proprjetà Intellettwali jiġi riċevut minn Matomo għall-"
+"finijiet ta’ statistika ġeografika biss (pajjiż, reġjun u belt)."
 
 #. Default: "The OiRA software does collect statistics from logged in users based on aggregated data on number of accounts and risk assessments per tool by country, broken down to months."
 #: euphorie/client/browser/templates/conditions-bare.pt:62
 msgid "conditions_part4_4_entry"
-msgstr "Is-software OiRA jiġbor l-istatistika mill-utenti lloggjati abbażi tad-data aggregata dwar l-għadd ta’ kontijiet u l-valutazzjonijiet tar-riskju għal kull għodda skont il-pajjiż, imqassma f’xhur."
+msgstr ""
+"Is-software OiRA jiġbor l-istatistika mill-utenti lloggjati abbażi tad-data "
+"aggregata dwar l-għadd ta’ kontijiet u l-valutazzjonijiet tar-riskju għal "
+"kull għodda skont il-pajjiż, imqassma f’xhur."
 
 #. Default: "Type of data processed"
 #: euphorie/client/browser/templates/conditions-bare.pt:51
@@ -2062,7 +2110,14 @@ msgstr "It-tip ta’ data pproċessata"
 #. Default: "The processing is based on Article 5.1 (d),(a) of <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Regulation (EU) 2018/1725</a> of the European Parliament and of the Council of 23 October 2018 on the protection of natural persons with regard to the processing of personal data by the Union institutions, bodies, offices and agencies and on the free movement of such data (hereinafter the Regulation)."
 #: euphorie/client/browser/templates/conditions-bare.pt:68
 msgid "conditions_part5_entry"
-msgstr "L-ipproċessar huwa bbażat fuq l-Artikolu 5.1 (d),(a) tar-<a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Regolament (UE) 2018/1725</a> tal-Parlament Ewropew u tal-Kunsill tat-23 ta’ Ottubru 2018 dwar il-protezzjoni ta’ persuni fiżiċi fir-rigward tal-ipproċessar ta’ data personali mill-istituzzjonijiet, korpi, uffiċċji u aġenziji tal-Unjoni u dwar il-moviment liberu ta’ tali data (minn hawn ’il quddiem ir-Regolament)."
+msgstr ""
+"L-ipproċessar huwa bbażat fuq l-Artikolu 5.1 (d),(a) tar-<a href=\"https://"
+"eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ."
+"L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Regolament (UE) "
+"2018/1725</a> tal-Parlament Ewropew u tal-Kunsill tat-23 ta’ Ottubru 2018 "
+"dwar il-protezzjoni ta’ persuni fiżiċi fir-rigward tal-ipproċessar ta’ data "
+"personali mill-istituzzjonijiet, korpi, uffiċċji u aġenziji tal-Unjoni u "
+"dwar il-moviment liberu ta’ tali data (minn hawn ’il quddiem ir-Regolament)."
 
 #. Default: "Lawfulness of processing"
 #: euphorie/client/browser/templates/conditions-bare.pt:66
@@ -2072,7 +2127,13 @@ msgstr "Legalità tal-ipproċessar"
 #. Default: "Personal data can be accessed by EU-OSHA staff members in charge of OiRA and EU-OSHA’s technical providers based on requests from OiRA users in case of technical problems. In addition, OiRA users can grant other OiRA users access to their risk assessments, action-plans and reports."
 #: euphorie/client/browser/templates/conditions-bare.pt:75
 msgid "conditions_part6_entry"
-msgstr "Id-data personali tista’ tiġi aċċessata mill-membri tal-persunal tal-EU-OSHA inkarigati mill-OiRA u mill-fornituri tekniċi tal-EU-OSHA abbażi ta’ talbiet mill-utenti tal-OiRA f’każ ta’ problemi tekniċi. Barra minn hekk, l-utenti tal-OiRA jistgħu jagħtu aċċess lill-utenti l-oħra tal-OiRA għall-valutazzjonijiet tar-riskju, għall-pjanijiet ta’ azzjoni u għar-rapporti tagħhom."
+msgstr ""
+"Id-data personali tista’ tiġi aċċessata mill-membri tal-persunal tal-EU-OSHA "
+"inkarigati mill-OiRA u mill-fornituri tekniċi tal-EU-OSHA abbażi ta’ talbiet "
+"mill-utenti tal-OiRA f’każ ta’ problemi tekniċi. Barra minn hekk, l-utenti "
+"tal-OiRA jistgħu jagħtu aċċess lill-utenti l-oħra tal-OiRA għall-"
+"valutazzjonijiet tar-riskju, għall-pjanijiet ta’ azzjoni u għar-rapporti "
+"tagħhom."
 
 #. Default: "Data recipients"
 #: euphorie/client/browser/templates/conditions-bare.pt:73
@@ -2082,17 +2143,32 @@ msgstr "Reċipjenti tad-data"
 #. Default: "Data subjects have the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or, where applicable, the right to object to processing or the right to withdraw consent at any time without affecting the lawfulness of processing based on consent before its withdrawal (Articles 17, 18, 19, 20, 22, 23 and 24 of the Regulation)."
 #: euphorie/client/browser/templates/conditions-bare.pt:81
 msgid "conditions_part7_1_entry"
-msgstr "Is-suġġetti tad-data għandhom id-dritt li jitolbu mingħand il-kontrollur aċċess għal u rettifika jew tħassir ta’ data personali jew restrizzjoni tal-ipproċessar rigward is-suġġett tad-data jew, fejn applikabbli, id-dritt li joġġezzjonaw għall-ipproċessar jew id-dritt ta’ rtirar ta’ kunsens fi kwalunkwe ħin mingħajr ma dan jaffettwa l-legalità tal-ipproċessar ibbażat fuq il-kunsens qabel l-irtirar tiegħu (l-Artikoli 17, 18, 19, 20, 22, 23 u 24 tar-Regolament)."
+msgstr ""
+"Is-suġġetti tad-data għandhom id-dritt li jitolbu mingħand il-kontrollur "
+"aċċess għal u rettifika jew tħassir ta’ data personali jew restrizzjoni tal-"
+"ipproċessar rigward is-suġġett tad-data jew, fejn applikabbli, id-dritt li "
+"joġġezzjonaw għall-ipproċessar jew id-dritt ta’ rtirar ta’ kunsens fi "
+"kwalunkwe ħin mingħajr ma dan jaffettwa l-legalità tal-ipproċessar ibbażat "
+"fuq il-kunsens qabel l-irtirar tiegħu (l-Artikoli 17, 18, 19, 20, 22, 23 u "
+"24 tar-Regolament)."
 
 #. Default: "Any requests to exercise one of those rights should be directed per email to information(at)osha.europa.eu, mentioning the organisational part of the Agency entrusted with the processing operation as indicated in this privacy statement and the name of the processing operation, including in the subject the words “data protection”."
 #: euphorie/client/browser/templates/conditions-bare.pt:85
 msgid "conditions_part7_2_entry"
-msgstr "Kwalunkwe talba biex jiġi eżerċitat wieħed minn dawk id-drittijiet għandha tintbagħat permezz ta’ email fuq information(at)osha.europa.eu, fejn tissemma l-parti organizzazzjonali tal-Aġenzija fdata bl-operazzjoni tal-ipproċessar kif indikat f’din id-dikjarazzjoni ta’ privatezza u l-isem tal-operazzjoni tal-ipproċessar, filwaqt li fis-suġġett jiġu inklużi l-kliem „protezzjoni tad-data”."
+msgstr ""
+"Kwalunkwe talba biex jiġi eżerċitat wieħed minn dawk id-drittijiet għandha "
+"tintbagħat permezz ta’ email fuq information(at)osha.europa.eu, fejn "
+"tissemma l-parti organizzazzjonali tal-Aġenzija fdata bl-operazzjoni tal-"
+"ipproċessar kif indikat f’din id-dikjarazzjoni ta’ privatezza u l-isem tal-"
+"operazzjoni tal-ipproċessar, filwaqt li fis-suġġett jiġu inklużi l-kliem "
+"„protezzjoni tad-data”."
 
 #. Default: "Data subjects’ rights can be restricted only in the cases foreseen in Art 25 of the Regulation."
 #: euphorie/client/browser/templates/conditions-bare.pt:89
 msgid "conditions_part7_3_entry"
-msgstr "Id-drittijiet tas-suġġetti tad-data jistgħu jkunu ristretti biss fil-każijiet previsti fl-Artikolu 25 tar-Regolament."
+msgstr ""
+"Id-drittijiet tas-suġġetti tad-data jistgħu jkunu ristretti biss fil-"
+"każijiet previsti fl-Artikolu 25 tar-Regolament."
 
 #. Default: "The data subject’s rights"
 #: euphorie/client/browser/templates/conditions-bare.pt:79
@@ -2102,7 +2178,10 @@ msgstr "Id-drittijiet tas-suġġett tad-data"
 #. Default: "We keep your data which is inaccessible for external users until you delete your account and/or your session(s). EU-OSHA stores data on our servers located in EU territory."
 #: euphorie/client/browser/templates/conditions-bare.pt:95
 msgid "conditions_part8_entry"
-msgstr "Aħna nżommu d-data tiegħek li hija inaċċessibbli għall-utenti esterni sakemm inti tħassar il-kont tiegħek u/jew is-sessjoni(jiet) tiegħek. L-EU-OSHA taħżen id-data fuq is-servers tagħna li jinsabu fit-territorju tal-UE."
+msgstr ""
+"Aħna nżommu d-data tiegħek li hija inaċċessibbli għall-utenti esterni sakemm "
+"inti tħassar il-kont tiegħek u/jew is-sessjoni(jiet) tiegħek. L-EU-OSHA "
+"taħżen id-data fuq is-servers tagħna li jinsabu fit-territorju tal-UE."
 
 #. Default: "Information on the conservation period of data"
 #: euphorie/client/browser/templates/conditions-bare.pt:93
@@ -2112,7 +2191,13 @@ msgstr "Informazzjoni dwar il-perjodu ta’ konservazzjoni tad-data"
 #. Default: "We take appropriate security measures to protect against unauthorised access to or unauthorised alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices, appropriate encryption of communication and physical security measures to guard against unauthorised access to systems where we store personal data."
 #: euphorie/client/browser/templates/conditions-bare.pt:102
 msgid "conditions_part9_entry"
-msgstr "Aħna nieħdu miżuri ta’ sigurtà xierqa biex nipproteġu kontra l-aċċess mhux awtorizzat jew il-bdil, il-kxif jew il-qerda mhux awtorizzati tad-data . Dawn jinkludu rieżamijiet interni tal-prattiki tal-ġbir, tal-ħażna u tal-ipproċessar tad-data tagħna, il-kriptaġġ xieraq tal-komunikazzjoni u l-miżuri ta’ sigurtà fiżika bħala protezzjoni kontra aċċess mhux awtorizzat għas-sistemi fejn naħżnu d-data personali."
+msgstr ""
+"Aħna nieħdu miżuri ta’ sigurtà xierqa biex nipproteġu kontra l-aċċess mhux "
+"awtorizzat jew il-bdil, il-kxif jew il-qerda mhux awtorizzati tad-data . "
+"Dawn jinkludu rieżamijiet interni tal-prattiki tal-ġbir, tal-ħażna u tal-"
+"ipproċessar tad-data tagħna, il-kriptaġġ xieraq tal-komunikazzjoni u l-"
+"miżuri ta’ sigurtà fiżika bħala protezzjoni kontra aċċess mhux awtorizzat "
+"għas-sistemi fejn naħżnu d-data personali."
 
 #. Default: "Security measures"
 #: euphorie/client/browser/templates/conditions-bare.pt:100
