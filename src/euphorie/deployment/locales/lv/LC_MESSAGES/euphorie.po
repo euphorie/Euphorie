@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-18 07:20+0000\n"
+"POT-Creation-Date: 2022-10-26 12:05+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -178,7 +178,10 @@ msgid ""
 "Administrators can create, edit and remove user accounts. Administrators can "
 "also make risk assessments, lock risk assessments, create trainings and take "
 "trainings."
-msgstr "Administratori var izveidot, labot un dzēst lietotāju kontus. Administratori arī var veikt riska novērtējumu, slēgt riska novērtējumus, izveidot apmācības un piedalīties apmācībās"
+msgstr ""
+"Administratori var izveidot, labot un dzēst lietotāju kontus. Administratori "
+"arī var veikt riska novērtējumu, slēgt riska novērtējumus, izveidot "
+"apmācības un piedalīties apmācībās"
 
 #: euphorie/client/browser/templates/surveys.pt:56
 msgid "All countries"
@@ -644,7 +647,9 @@ msgstr "Vadītājs/Politikas veidotājs"
 msgid ""
 "Managers/Policy makers can make risk assessments, lock risk assessments, "
 "create trainings and take trainings."
-msgstr "Vadītāji/Politikas veidotāji var veikt riska novērtējumu, slēgt riska novērtējumu, izveidot apmācības un piedalīties apmācībās"
+msgstr ""
+"Vadītāji/Politikas veidotāji var veikt riska novērtējumu, slēgt riska "
+"novērtējumu, izveidot apmācības un piedalīties apmācībās"
 
 #: euphorie/client/browser/templates/webhelpers.pt:942
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
@@ -1388,7 +1393,11 @@ msgid ""
 "a link in it that people can use to join your organisation. The link is "
 "valid for five days and you may send it to as many people as you would like "
 "to join your organisation."
-msgstr "Kad Jūs uzklikšķināsiet turpināt, atvērsies Jūsu epasts ar jaunu vēstuli, kas saturēs saiti, ar kuras palīdzību cilvēki varēs pievienoties Jūsu organizācijai. Šī saite būs derīga piecas dienas, un jūs varat to nosūtīt tik daudz jūsu organizācijas darbiniekiem, cik vēlaties."
+msgstr ""
+"Kad Jūs uzklikšķināsiet turpināt, atvērsies Jūsu epasts ar jaunu vēstuli, "
+"kas saturēs saiti, ar kuras palīdzību cilvēki varēs pievienoties Jūsu "
+"organizācijai. Šī saite būs derīga piecas dienas, un jūs varat to nosūtīt "
+"tik daudz jūsu organizācijas darbiniekiem, cik vēlaties."
 
 #: euphorie/client/browser/templates/login.pt:308
 msgid "Who is the OiRA tool for?"
@@ -1712,7 +1721,18 @@ msgstr "priekšrocībām"
 #. Default: "\n            I hereby invite you to join our organisation on OiRA.\n            Once you've accepted your membership,\n            we can collaborate on risk assessments.\n\n            Please log in or register via the link below\n            and accept your membership.\n            This link will stay valid for ${days_to_keep} days.\n\n            ${link}\n            "
 #: euphorie/client/browser/organisation.py:234
 msgid "body_add_user_to_organisation_email"
-msgstr "\n            Ar šo es uzaicinu pievienoties organizācijai OiRA.\n            Kad būsiet piekritis dalībai, mēs varēsim sadarboties, lai novērtētu riskus.\n\n            Lūdzu ielogoties vai arī reģistrēties ar zemāk esošo saiti un apstiprināt dalību.\n            Šī saite būs derīga ${days_to_keep} dienas.\n\n            ${link}\n            "
+msgstr ""
+"\n"
+"            Ar šo es uzaicinu pievienoties organizācijai OiRA.\n"
+"            Kad būsiet piekritis dalībai, mēs varēsim sadarboties, lai "
+"novērtētu riskus.\n"
+"\n"
+"            Lūdzu ielogoties vai arī reģistrēties ar zemāk esošo saiti un "
+"apstiprināt dalību.\n"
+"            Šī saite būs derīga ${days_to_keep} dienas.\n"
+"\n"
+"            ${link}\n"
+"            "
 
 #. Default: "${Modules} (and potentially sub-modules): containers providing a logical structure"
 #: euphorie/content/browser/templates/profilequestion_add.pt:53
@@ -1919,174 +1939,155 @@ msgstr ""
 "tiks izmantota tikai, lai uzlabotu rīkus un piedāvātos pakalpojumus. "
 "<strong>Šī informācija netiks iekļauta Jūsu dokumentos.</strong>"
 
-#. Default: "Conservation and processing of information"
-#: euphorie/client/browser/templates/conditions-bare.pt:81
-msgid "conditions_conservation_header"
-msgstr "Informācijas uzglabāšana un apstrāde"
+#. Default: "For any further information regarding the handling of their personal data, data subjects can address their request to EU-OSHA Data Protection Officer at: dpo(at)osha.europa.eu."
+#: euphorie/client/browser/templates/conditions-bare.pt:108
+msgid "conditions_part10_entry"
+msgstr "Lai iegūtu papildinformāciju par personas datu apstrādi, datu subjekti var nosūtīt pieprasījumu EU-OSHA datu aizsardzības speciālistam, rakstot uz adresi: dpo(at)osha.europa.eu."
 
-#. Default: "We keep your data, which is inaccessible for external users, until you delete your account and your session(s)."
-#: euphorie/client/browser/templates/conditions-bare.pt:83
-msgid "conditions_conservation_keep_data"
-msgstr ""
-"Līdz konta un sesiju dzēšanas brīdim mēs uzglabājam jūsu datus tā, lai tie "
-"nebūtu pieejami ārējiem lietotājiem."
+#. Default: "Request for information"
+#: euphorie/client/browser/templates/conditions-bare.pt:106
+msgid "conditions_part10_header"
+msgstr "Informācijas pieprasījums"
 
-#. Default: "EU-OSHA stores data on our servers in Zamudio, Spain."
-#: euphorie/client/browser/templates/conditions-bare.pt:87
-msgid "conditions_conservation_storage"
-msgstr "EU-OSHA uzglabā datus mūsu serveros Zamudio, Spānija."
+#. Default: "Data subjects are entitled to make recourse to the European Data Protection Supervisor: ${url} , should they consider that the processing operations do not comply with the Regulation."
+#: euphorie/client/browser/templates/conditions-bare.pt:115
+msgid "conditions_part11_entry"
+msgstr "Datu subjektiem ir tiesības vērsties pie Eiropas Datu aizsardzības uzraudzītāja (EDAU) vietnē ${url}, ja viņi uzskata, ka apstrādes darbības neatbilst Regulai."
 
-#. Default: "EU-OSHA regularly reviews its compliance with this Privacy Policy. Any enquiries and complaints regarding our privacy policy can be sent to the DPO of EU-OSHA at ${dpo-email} or to the EDPS at ${edps-email}."
-#: euphorie/client/browser/templates/conditions-bare.pt:111
-msgid "conditions_contact"
-msgstr ""
-"EU-OSHA regulāri pārskata organizācijas atbilstību šai Privātuma politikai. "
-"Visus jautājumus un sūdzības par mūsu privātuma politiku var sūtīt DPO EU-"
-"OSHA uz šādu adresi: ${dpo-email} vai EDPS uz šādu adresi: ${edps-email}."
+#. Default: "Recourse to the EDPS"
+#: euphorie/client/browser/templates/conditions-bare.pt:112
+msgid "conditions_part11_header"
+msgstr "Vēršanās pie EDAU"
 
-#. Default: "Contact information"
-#: euphorie/client/browser/templates/conditions-bare.pt:103
-msgid "conditions_contact_header"
-msgstr "Kontaktinformācija"
+#. Default: "Date of creation of the OiRA account."
+#: euphorie/client/browser/templates/conditions-bare.pt:121
+msgid "conditions_part12_1_entry"
+msgstr "Dienā, kad tiek izveidots OiRA konts."
 
-#. Default: "Data controller"
-#: euphorie/client/browser/templates/conditions-bare.pt:75
-msgid "conditions_datacontroller_header"
-msgstr "Datu izmantošanas uzraugs"
+#. Default: "Privacy statement last updated: 7/10/2022"
+#: euphorie/client/browser/templates/conditions-bare.pt:124
+msgid "conditions_part12_2_entry"
+msgstr "Paziņojums par privātumu pēdējo reizi atjaunināts: 7.10.2022."
 
-#. Default: "You can use the Account settings and your saved OiRA Session(s) to review, control and delete the information stored in your Account and in your Session(s)."
-#: euphorie/client/browser/templates/conditions-bare.pt:93
-msgid "conditions_datareview"
-msgstr ""
-"Varat izmantot konta iestatījumus un saglabātās OiRA sesijas, lai "
-"pārskatītu, kontrolētu un dzēstu informāciju, kas saglabāta jūsu kontā un "
-"sesijās."
+#. Default: "Date when processing starts"
+#: euphorie/client/browser/templates/conditions-bare.pt:119
+msgid "conditions_part12_header"
+msgstr "Datums, kad sākas datu apstrāde"
 
-#. Default: "Reviewing and removing your information"
-#: euphorie/client/browser/templates/conditions-bare.pt:91
-msgid "conditions_datareview_header"
-msgstr "Savas informācijas pārskatīšana un izņemšana"
+#. Default: "Head of Unit Prevention and Research Unit (information(at)osha.europa.eu)"
+#: euphorie/client/browser/templates/conditions-bare.pt:34
+msgid "conditions_part1_entry"
+msgstr "Profilakses un pētniecības nodaļas vadītājs (information(at)osha.europa.eu)"
 
-#. Default: "Cookies &ndash; When you visit the site and select a language, we send a cookie to your computer or other device to store your language selection. This cookie stays in your browser until you close it. When you visit the site and log in, we send a cookie with your login information to keep you logged in during your visit. This cookie stays on your computer until you close your browser. Most browsers are initially set up to accept cookies, but you can reset your browser to refuse all cookies or to indicate when a cookie is being sent. However, some features and services may not function properly if your cookies are disabled."
-#: euphorie/client/browser/templates/conditions-bare.pt:58
-msgid "conditions_info_cookies"
-msgstr ""
-"Sīkfaili – brīdī, kad apmeklējat šo vietni un atlasāt valodu, mēs uz jūsu "
-"datoru vai citu ierīci nosūtām sīkfailu, lai tas saglabātu informāciju par "
-"izvēlēto valodu. Sīkfails paliek jūsu pārlūkprogrammā līdz brīdim, kad to "
-"aizverat. Kad apmeklējat vietni un piesakāties sistēmā, mēs nosūtām sīkfailu "
-"ar jūsu pieteikšanās informāciju, lai jūs apmeklējuma laikā paliktu "
-"pieteicies sistēmā. Sīkfails paliek datorā līdz pārlūkprogrammas "
-"aizvēršanai. Daudzām pārlūkprogrammām sākotnējie iestatījumi paredz pieņemt "
-"sīkfailus, taču jūs varat mainīt iestatījumus tā, lai visi sīkfaili tiktu "
-"noraidīti vai arī lai parādītos brīdinājums par sīkfaila sūtīšanu. Tomēr "
-"atcerieties, ka atspējotu sīkfailu dēļ dažas funkcijas un pakalpojumi var "
-"darboties nepilnīgi."
-
-#. Default: "Email account: this is necessary to access the online application, edit the input data, and delete the OiRA account. You can enter any valid e-mail address. Email addresses will not be used for commercial purposes."
-#: euphorie/client/browser/templates/conditions-bare.pt:50
-msgid "conditions_info_email"
-msgstr ""
-"E-pasta konts: tas ir nepieciešams , lai piekļūtu tiešsaistes lietotnei, "
-"rediģētu ievadītos datus un dzēstu OiRA kontu. Varat ievadīt jebkuru derīgu "
-"e-pasta adresi. E-pasta adreses netiks izmantotas komerciālos nolūkos."
-
-#. Default: "The kind of information we collect: when you sign up for an OiRA account and you enter data into the OiRA application we are asking you for the following information:"
-#: euphorie/client/browser/templates/conditions-bare.pt:45
-msgid "conditions_info_entry"
-msgstr ""
-"Kādu informāciju mēs ievācam: kad jūs reģistrējat OiRA kontu un ievadāt "
-"datus lietotnē (interaktīvai riska novērtēšanai tiešsaistē), mēs jums lūdzam "
-"norādīt tālāk minēto informāciju."
-
-#. Default: "The Information we collect and for what purposes"
-#: euphorie/client/browser/templates/conditions-bare.pt:43
-msgid "conditions_info_header"
-msgstr "Ievāktās informācijas veidi un nolūki"
-
-#. Default: "Log information &ndash; When you access the service, our servers automatically record information that your browser sends whenever you visit a website. These server logs may include information such as your web request, your interaction with a service, browser type, browser language, the date and time of your request. IP addresses are not stored in the system."
-#: euphorie/client/browser/templates/conditions-bare.pt:62
-msgid "conditions_info_logs"
-msgstr ""
-"Žurnālu informācija – kad jūs piekļūstat šim pakalpojumam, mūsu serveri "
-"automātiski reģistrē informāciju, ko jūsu pārlūkprogramma nosūta ikreiz, kad "
-"apmeklējat kādu tīmekļa vietni. Šajos servera žurnālos var būt tāda "
-"informācija kā jūsu tīmekļa pieprasījums, mijiedarbība ar pakalpojumu, "
-"pārlūkprogrammas veids, pārlūkprogrammas valoda, pieprasījuma datums un "
-"laiks. Sistēmā netiek saglabātas IP adreses."
-
-#: euphorie/client/browser/templates/conditions-bare.pt:73
-msgid "conditions_info_not_personal"
-msgstr ""
-
-#. Default: "Any information you provide in the free text fields of the application (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc). The input of information in the free text fields is voluntary."
-#: euphorie/client/browser/templates/conditions-bare.pt:54
-msgid "conditions_info_text"
-msgstr ""
-"Visa informācija, ko ievadāt brīvajos teksta laukos lietotnē un rīcības "
-"plānā (piemēram, kad ievadāt riska novēršanas līdzekli, par to atbildīgo "
-"personu u.c.). Informācijas ievadīšana brīvajos teksta laukos nav obligāta."
-
-#: euphorie/client/browser/templates/conditions-bare.pt:71
-msgid "conditions_info_use_develop"
-msgstr ""
-
-#. Default: "In addition to the above mentioned purposes, we may use the information we collect to provide, maintain, protect, and improve our services and develop new services. In any case no personal data will be used for processing of data."
-#: euphorie/client/browser/templates/conditions-bare.pt:67
-msgid "conditions_info_use_intro"
-msgstr ""
-"Papildus iepriekš minētajiem nolūkiem jūsu informāciju varam izmantot, arī "
-"lai sniegtu, uzturētu, aizsargātu un uzlabotu mūsu pakalpojumus un "
-"izstrādātu jaunus. Datu apstrādē nekādā gadījumā netiks izmantoti personas "
-"dati."
-
-#: euphorie/client/browser/templates/conditions-bare.pt:72
-msgid "conditions_info_use_statistics"
-msgstr ""
-
-#. Default: "The OiRA (Online interactive Risk Assessment) application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application."
+#. Default: "Organisational part of the Agency entrusted with the processing of personal data"
 #: euphorie/client/browser/templates/conditions-bare.pt:32
-msgid "conditions_intro1"
-msgstr ""
-"OiRA lietotne jeb interaktīvā riska novērtēšana tiešsaistē ir rīks, ko "
-"piedāvā Eiropas Darba drošības un veselības aizsardzības aģentūra (EU-OSHA). "
-"Šī privātuma politika attiecas uz visiem produktiem, pakalpojumiem un "
-"tīmekļa vietnēm, kuras EU-OSHA piedāvā OiRA lietotnē."
+msgid "conditions_part1_header"
+msgstr "Aģentūras organizatoriskā daļa, kurai uzticēta personas datu apstrāde"
 
-#. Default: "Your personal data is processed in line with Regulation (EC) N&deg; 45/2001 of the European Parliament and of the Council of 18 December 2000 on the protection of individuals with regard to the processing of personal data by the Community institutions and bodies and on the free movement of such data. Further details of the privacy policy of EU-OSHA and the full text of the Regulation can be accessed at: ${url}."
+#. Default: "The purpose of the processing operation is the creation of and log-in to your OiRA (Online interactive Risk Assessment) account, the creation of risk assessments, action-plans and reports. Email addresses might be used for the sending of newsletters (if the option has been selected). The OiRA application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This privacy policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application."
+#: euphorie/client/browser/templates/conditions-bare.pt:40
+msgid "conditions_part2_entry"
+msgstr "Apstrādes darbības mērķis ir izveidot un pieslēgties jūsu OiRA (tiešsaistes interaktīvā riska novērtējuma) kontam, izveidot riska novērtējumus, rīcības plānus un ziņojumus. Biļetenu nosūtīšanai var izmantot e-pasta adreses (ja ir izvēlēta opcija). OiRA lietotne ir rīks, ko jums nodrošina Eiropas Darba drošības un veselības aizsardzības aģentūra (EU-OSHA). Šo privātuma politiku piemēro visiem EU-OSHA piedāvātajiem produktiem, pakalpojumiem un tīmekļa vietnēm OiRA lietotnes ietvaros."
+
+#. Default: "Purpose"
 #: euphorie/client/browser/templates/conditions-bare.pt:38
-msgid "conditions_intro2"
-msgstr ""
-"Jūsu personas dati tiek apstrādāti atbilstoši Regulai (EK) Nr. 45/2001 par "
-"fizisku personu aizsardzību attiecībā uz personas datu apstrādi Kopienas "
-"iestādēs un struktūrās un par šādu datu brīvu apriti. Plašāku informāciju "
-"par EU-OSHA privātuma politiku un pilno regulas tekstu var saņemt vietnē: "
-"${url}."
+msgid "conditions_part2_header"
+msgstr "Nolūks"
 
-#. Default: "We take appropriate security measures to protect against unauthorized access to or unauthorized alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices and security measures, including appropriate encryption of communication and physical security measures to guard against unauthorized access to systems where we store personal data. IP addresses are not saved so that end-users can not be identified through their access."
-#: euphorie/client/browser/templates/conditions-bare.pt:99
-msgid "conditions_security"
-msgstr ""
-"Mēs izmantojam piemērotus drošības līdzekļus, lai nepieļautu nesankcionētu "
-"piekļuvi datiem, to nesankcionētu mainīšanu, atklāšanu vai iznīcināšanu: "
-"datu krājuma iekšējas pārbaudes, noteiktas uzglabāšanas un apstrādes "
-"metodes, un aizsardzības līdzekļus, piemēram, pienācīgu saziņas šifrēšanu un "
-"fiziskus aizsardzības līdzekļus, lai nepieļautu nesankcionētu piekļuvi "
-"sistēmām, kurās uzglabājam personas datus. Dati nevienam nav nekādā veidā "
-"pieejami. Mēs nesaglabājam IP adreses, lai tās nevarētu izmantot lietotāja "
-"identificēšanai."
+#. Default: "Council Regulation (EU) 2019/126 of the European Parliament and of the Council of 16 January 2019 establishing the European Agency for Safety and Health at Work (EU-OSHA), and repealing Council Regulation (EC) No 2062/94."
+#: euphorie/client/browser/templates/conditions-bare.pt:46
+msgid "conditions_part3_entry"
+msgstr "Eiropas Parlamenta un Padomes 2019. gada 16. janvāra Regula (ES) 2019/126, ar ko izveido Eiropas Darba drošības un veselības aizsardzības aģentūru (EU-OSHA) un atceļ Padomes Regulu (EK) Nr. 2062/94."
 
-#. Default: "Information security"
-#: euphorie/client/browser/templates/conditions-bare.pt:97
-msgid "conditions_security_header"
-msgstr "Informācijas drošība"
+#. Default: "Legal basis"
+#: euphorie/client/browser/templates/conditions-bare.pt:44
+msgid "conditions_part3_header"
+msgstr "Juridiskais pamats"
 
-#. Default: "The data controller is the European Agency for Safety and Health at Work, Bilbao."
-#: euphorie/client/browser/templates/conditions-bare.pt:77
-msgid "condtions_datacontroller"
-msgstr ""
-"Datu izmantošanas uzraugs ir Endrjū Smits (Andrew Smith), Eiropas darba "
-"drošības un veselības aizsardzības aģentūra, Bilbao."
+#. Default: "E-mail address: an email is necessary to access the online application, edit the input data, and delete the OiRA account. The email address is also used for sending newsletters (if the option has been selected)."
+#: euphorie/client/browser/templates/conditions-bare.pt:54
+msgid "conditions_part4_1_entry"
+msgstr "E-pasta adrese: e-pasts ir nepieciešams, lai piekļūtu tiešsaistes lietotnei, rediģētu ievades datus un dzēstu OiRA kontu. E-pasta adresi izmanto arī, lai nosūtītu biļetenus (ja ir izvēlēta opcija)."
+
+#. Default: "Any information you provide in the free text fields of the application of the OiRA tools and in the action plan of your risk assessments - (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc.). The input of information in the free text fields just as any other personal data put into the tool is done voluntarily and based on consent."
+#: euphorie/client/browser/templates/conditions-bare.pt:55
+msgid "conditions_part4_2_entry"
+msgstr "Visa informācija, ko jūs sniedzat OiRA rīku lietotnes brīvajos teksta laukos un jūsu riska novērtējumu rīcības plānā (piem., ja jūs ievadāt riska novēršanas pasākumu, par pasākumu atbildīgo personu u. tml.). Informāciju brīvajos teksta laukos un jebkurus citus rīkā sniegtos personas datus ievada brīvprātīgi, un to pamatā ir piekrišana."
+
+#. Default: "This website collects web statistics with Matomo that is entirely hosted in EU- OSHA’s servers, located in the European Union. The IP address is received by Matomo for geographical statistic purpose only (country, region and city)."
+#: euphorie/client/browser/templates/conditions-bare.pt:58
+msgid "conditions_part4_3_entry"
+msgstr "Šajā tīmekļa vietnē ir apkopota tīmekļa statistika ar lietotni Matomo, ko pilnībā mitina EU-OSHA serveros, kuri atrodas Eiropas Savienībā. Matomo saņem IP adresi tikai ģeogrāfiskās statistikas nolūkos (valsti, reģionu un pilsētu)."
+
+#. Default: "The OiRA software does collect statistics from logged in users based on aggregated data on number of accounts and risk assessments per tool by country, broken down to months."
+#: euphorie/client/browser/templates/conditions-bare.pt:62
+msgid "conditions_part4_4_entry"
+msgstr "OiRA programmatūra apkopo statistiku no aktīvajiem lietotājiem, pamatojoties uz apkopotajiem datiem par vairākiem kontiem un riska novērtējumiem par katru rīku pēc valsts, iedalot tos pa mēnešiem."
+
+#. Default: "Type of data processed"
+#: euphorie/client/browser/templates/conditions-bare.pt:51
+msgid "conditions_part4_header"
+msgstr "Apstrādāto datu veids"
+
+#. Default: "The processing is based on Article 5.1 (d),(a) of <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Regulation (EU) 2018/1725</a> of the European Parliament and of the Council of 23 October 2018 on the protection of natural persons with regard to the processing of personal data by the Union institutions, bodies, offices and agencies and on the free movement of such data (hereinafter the Regulation)."
+#: euphorie/client/browser/templates/conditions-bare.pt:68
+msgid "conditions_part5_entry"
+msgstr "Datu apstrāde ir pamatota ar Eiropas Parlamenta un Padomes 2018. gada 23. oktobra <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Regulas (ES) 2018/1725</a> par fizisku personu aizsardzību attiecībā uz personas datu apstrādi Savienības iestādēs, struktūrās, birojos un aģentūrās un par šādu datu brīvu apriti (turpmāk “Regulas”) 5. panta 1. punkta d) un a) apakšpunktu."
+
+#. Default: "Lawfulness of processing"
+#: euphorie/client/browser/templates/conditions-bare.pt:66
+msgid "conditions_part5_header"
+msgstr "Datu apstrādes likumība"
+
+#. Default: "Personal data can be accessed by EU-OSHA staff members in charge of OiRA and EU-OSHA’s technical providers based on requests from OiRA users in case of technical problems. In addition, OiRA users can grant other OiRA users access to their risk assessments, action-plans and reports."
+#: euphorie/client/browser/templates/conditions-bare.pt:75
+msgid "conditions_part6_entry"
+msgstr "Personas datiem var piekļūt EU-OSHA darbinieki, kas atbild par OiRA, un EU-OSHA tehniskie pakalpojumu sniedzēji, pamatojoties uz OiRA lietotāju pieprasījumiem tehnisku problēmu gadījumā. Turklāt OiRA lietotāji var piešķirt citiem OiRA lietotājiem piekļuvi saviem riska novērtējumiem, rīcības plāniem un ziņojumiem."
+
+#. Default: "Data recipients"
+#: euphorie/client/browser/templates/conditions-bare.pt:73
+msgid "conditions_part6_header"
+msgstr "Datu saņēmēji"
+
+#. Default: "Data subjects have the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or, where applicable, the right to object to processing or the right to withdraw consent at any time without affecting the lawfulness of processing based on consent before its withdrawal (Articles 17, 18, 19, 20, 22, 23 and 24 of the Regulation)."
+#: euphorie/client/browser/templates/conditions-bare.pt:81
+msgid "conditions_part7_1_entry"
+msgstr "Datu subjektiem ir tiesības pieprasīt no pārziņa piekļuvi personas datiem un to labošanu vai dzēšanu, vai ierobežot tādu datu apstrādi, kas attiecas uz datu subjektu, vai attiecīgā gadījumā tiesības iebilst pret apstrādi vai tiesības jebkurā brīdī atsaukt piekrišanu, neietekmējot tādas apstrādes likumīgumu, kuras pamatā ir pirms atsaukuma sniegta piekrišana (Regulas 17., 18., 19., 20., 22., 23. un 24. pants)."
+
+#. Default: "Any requests to exercise one of those rights should be directed per email to information(at)osha.europa.eu, mentioning the organisational part of the Agency entrusted with the processing operation as indicated in this privacy statement and the name of the processing operation, including in the subject the words “data protection”."
+#: euphorie/client/browser/templates/conditions-bare.pt:85
+msgid "conditions_part7_2_entry"
+msgstr "Pieprasījumi par iepriekšminēto tiesību īstenošanu jānosūta pa e-pastu uz information@osha.europa.eu, norādot to aģentūras organizatorisko daļu, kurai uzticēta apstrādes darbība, kā norādīts šajā paziņojumā par privātumu, un apstrādes darbības nosaukumu, tostarp temata laukā norādot vārdus “datu aizsardzība”."
+
+#. Default: "Data subjects’ rights can be restricted only in the cases foreseen in Art 25 of the Regulation."
+#: euphorie/client/browser/templates/conditions-bare.pt:89
+msgid "conditions_part7_3_entry"
+msgstr "Tikai gadījumos, kas norādīti Regulas 25. pantā, var ierobežot subjektu tiesības."
+
+#. Default: "The data subject’s rights"
+#: euphorie/client/browser/templates/conditions-bare.pt:79
+msgid "conditions_part7_header"
+msgstr "Datu subjekta tiesības"
+
+#. Default: "We keep your data which is inaccessible for external users until you delete your account and/or your session(s). EU-OSHA stores data on our servers located in EU territory."
+#: euphorie/client/browser/templates/conditions-bare.pt:95
+msgid "conditions_part8_entry"
+msgstr "Jūsu dati nav pieejami ārējiem lietotājiem, un mēs tos glabāsim, līdz jūs izdzēsīsiet savu kontu un/vai savu(-as) sesiju(-as). EU-OSHA glabā datus mūsu serveros, kas atrodas ES teritorijā."
+
+#. Default: "Information on the conservation period of data"
+#: euphorie/client/browser/templates/conditions-bare.pt:93
+msgid "conditions_part8_header"
+msgstr "Informācija par datu glabāšanas periodu"
+
+#. Default: "We take appropriate security measures to protect against unauthorised access to or unauthorised alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices, appropriate encryption of communication and physical security measures to guard against unauthorised access to systems where we store personal data."
+#: euphorie/client/browser/templates/conditions-bare.pt:102
+msgid "conditions_part9_entry"
+msgstr "Mēs veicam piemērotus drošības pasākumus, lai aizsargātu pret nesankcionētu piekļuvi datiem, to nesankcionētu pārveidošanu un datu atklāšanu vai iznīcināšanu. Tie ietver datu vākšanas, uzglabāšanas un apstrādes prakses iekšēju pārskatīšanu, saziņas atbilstošu šifrēšanu un fiziskus drošības pasākumus aizsardzībai pret nesankcionētu piekļuvi sistēmām, kurās mēs glabājam personas datus."
+
+#. Default: "Security measures"
+#: euphorie/client/browser/templates/conditions-bare.pt:100
+msgid "conditions_part9_header"
+msgstr "Drošības pasākumi"
 
 #. Default: "both own staff and an external consultant or service provider"
 #: euphorie/client/browser/company.py:75
@@ -2721,6 +2722,16 @@ msgstr "Konsultēšanās ar darbiniekiem un viņu dalība"
 msgid "header_country_managers"
 msgstr "Vadītāji valstī"
 
+#. Default: "DATA PROTECTION NOTICE"
+#: euphorie/client/browser/templates/conditions-bare.pt:28
+msgid "header_data_protection_notice"
+msgstr "PAZIŅOJUMS PAR DATU AIZSARDZĪBU"
+
+#. Default: "OIRA TOOL USERS"
+#: euphorie/client/browser/templates/conditions-bare.pt:28
+msgid "header_data_protection_notice2"
+msgstr "OIRA RĪKA LIETOTĀJI"
+
 #. Default: "Development and pilot phase &ndash; 2009-2011"
 #: euphorie/client/browser/templates/about.pt:103
 msgid "header_devel_phase"
@@ -3028,7 +3039,6 @@ msgid "header_submodules"
 msgstr "Apakšmoduļi"
 
 #. Default: "Terms and conditions"
-#: euphorie/client/browser/templates/conditions-bare.pt:28
 #: euphorie/client/browser/templates/conditions.pt:17
 msgid "header_terms"
 msgstr "Noteikumi un nosacījumi"
@@ -4075,6 +4085,11 @@ msgstr "Esoša / publicēta"
 msgid "label_custom_risks"
 msgstr "Pielāgot riskus"
 
+#. Default: "Data protection notice"
+#: euphorie/client/browser/templates/login.pt:228
+msgid "label_data_protection_notice"
+msgstr "paziņojums par datu aizsardzību"
+
 #. Default: "Default severity"
 #: euphorie/content/browser/templates/risk_view.pt:117
 msgid "label_default_effect"
@@ -4993,7 +5008,6 @@ msgid "label_table_of_contents"
 msgstr ""
 
 #. Default: "Terms and conditions"
-#: euphorie/client/browser/templates/login.pt:228
 #: euphorie/client/browser/templates/register_session.pt:188
 msgid "label_terms_conditions"
 msgstr "Noteikumiem"
@@ -6262,6 +6276,126 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Jā"
+
+#~ msgid "conditions_conservation_header"
+#~ msgstr "Informācijas uzglabāšana un apstrāde"
+
+#~ msgid "conditions_conservation_keep_data"
+#~ msgstr ""
+#~ "Līdz konta un sesiju dzēšanas brīdim mēs uzglabājam jūsu datus tā, lai "
+#~ "tie nebūtu pieejami ārējiem lietotājiem."
+
+#~ msgid "conditions_conservation_storage"
+#~ msgstr "EU-OSHA uzglabā datus mūsu serveros Zamudio, Spānija."
+
+#~ msgid "conditions_contact"
+#~ msgstr ""
+#~ "EU-OSHA regulāri pārskata organizācijas atbilstību šai Privātuma "
+#~ "politikai. Visus jautājumus un sūdzības par mūsu privātuma politiku var "
+#~ "sūtīt DPO EU-OSHA uz šādu adresi: ${dpo-email} vai EDPS uz šādu adresi: "
+#~ "${edps-email}."
+
+#~ msgid "conditions_contact_header"
+#~ msgstr "Kontaktinformācija"
+
+#~ msgid "conditions_datacontroller_header"
+#~ msgstr "Datu izmantošanas uzraugs"
+
+#~ msgid "conditions_datareview"
+#~ msgstr ""
+#~ "Varat izmantot konta iestatījumus un saglabātās OiRA sesijas, lai "
+#~ "pārskatītu, kontrolētu un dzēstu informāciju, kas saglabāta jūsu kontā un "
+#~ "sesijās."
+
+#~ msgid "conditions_datareview_header"
+#~ msgstr "Savas informācijas pārskatīšana un izņemšana"
+
+#~ msgid "conditions_info_cookies"
+#~ msgstr ""
+#~ "Sīkfaili – brīdī, kad apmeklējat šo vietni un atlasāt valodu, mēs uz jūsu "
+#~ "datoru vai citu ierīci nosūtām sīkfailu, lai tas saglabātu informāciju "
+#~ "par izvēlēto valodu. Sīkfails paliek jūsu pārlūkprogrammā līdz brīdim, "
+#~ "kad to aizverat. Kad apmeklējat vietni un piesakāties sistēmā, mēs "
+#~ "nosūtām sīkfailu ar jūsu pieteikšanās informāciju, lai jūs apmeklējuma "
+#~ "laikā paliktu pieteicies sistēmā. Sīkfails paliek datorā līdz "
+#~ "pārlūkprogrammas aizvēršanai. Daudzām pārlūkprogrammām sākotnējie "
+#~ "iestatījumi paredz pieņemt sīkfailus, taču jūs varat mainīt iestatījumus "
+#~ "tā, lai visi sīkfaili tiktu noraidīti vai arī lai parādītos brīdinājums "
+#~ "par sīkfaila sūtīšanu. Tomēr atcerieties, ka atspējotu sīkfailu dēļ dažas "
+#~ "funkcijas un pakalpojumi var darboties nepilnīgi."
+
+#~ msgid "conditions_info_email"
+#~ msgstr ""
+#~ "E-pasta konts: tas ir nepieciešams , lai piekļūtu tiešsaistes lietotnei, "
+#~ "rediģētu ievadītos datus un dzēstu OiRA kontu. Varat ievadīt jebkuru "
+#~ "derīgu e-pasta adresi. E-pasta adreses netiks izmantotas komerciālos "
+#~ "nolūkos."
+
+#~ msgid "conditions_info_entry"
+#~ msgstr ""
+#~ "Kādu informāciju mēs ievācam: kad jūs reģistrējat OiRA kontu un ievadāt "
+#~ "datus lietotnē (interaktīvai riska novērtēšanai tiešsaistē), mēs jums "
+#~ "lūdzam norādīt tālāk minēto informāciju."
+
+#~ msgid "conditions_info_header"
+#~ msgstr "Ievāktās informācijas veidi un nolūki"
+
+#~ msgid "conditions_info_logs"
+#~ msgstr ""
+#~ "Žurnālu informācija – kad jūs piekļūstat šim pakalpojumam, mūsu serveri "
+#~ "automātiski reģistrē informāciju, ko jūsu pārlūkprogramma nosūta ikreiz, "
+#~ "kad apmeklējat kādu tīmekļa vietni. Šajos servera žurnālos var būt tāda "
+#~ "informācija kā jūsu tīmekļa pieprasījums, mijiedarbība ar pakalpojumu, "
+#~ "pārlūkprogrammas veids, pārlūkprogrammas valoda, pieprasījuma datums un "
+#~ "laiks. Sistēmā netiek saglabātas IP adreses."
+
+#~ msgid "conditions_info_text"
+#~ msgstr ""
+#~ "Visa informācija, ko ievadāt brīvajos teksta laukos lietotnē un rīcības "
+#~ "plānā (piemēram, kad ievadāt riska novēršanas līdzekli, par to atbildīgo "
+#~ "personu u.c.). Informācijas ievadīšana brīvajos teksta laukos nav "
+#~ "obligāta."
+
+#~ msgid "conditions_info_use_intro"
+#~ msgstr ""
+#~ "Papildus iepriekš minētajiem nolūkiem jūsu informāciju varam izmantot, "
+#~ "arī lai sniegtu, uzturētu, aizsargātu un uzlabotu mūsu pakalpojumus un "
+#~ "izstrādātu jaunus. Datu apstrādē nekādā gadījumā netiks izmantoti "
+#~ "personas dati."
+
+#~ msgid "conditions_intro1"
+#~ msgstr ""
+#~ "OiRA lietotne jeb interaktīvā riska novērtēšana tiešsaistē ir rīks, ko "
+#~ "piedāvā Eiropas Darba drošības un veselības aizsardzības aģentūra (EU-"
+#~ "OSHA). Šī privātuma politika attiecas uz visiem produktiem, pakalpojumiem "
+#~ "un tīmekļa vietnēm, kuras EU-OSHA piedāvā OiRA lietotnē."
+
+#~ msgid "conditions_intro2"
+#~ msgstr ""
+#~ "Jūsu personas dati tiek apstrādāti atbilstoši Regulai (EK) Nr. 45/2001 "
+#~ "par fizisku personu aizsardzību attiecībā uz personas datu apstrādi "
+#~ "Kopienas iestādēs un struktūrās un par šādu datu brīvu apriti. Plašāku "
+#~ "informāciju par EU-OSHA privātuma politiku un pilno regulas tekstu var "
+#~ "saņemt vietnē: ${url}."
+
+#~ msgid "conditions_security"
+#~ msgstr ""
+#~ "Mēs izmantojam piemērotus drošības līdzekļus, lai nepieļautu "
+#~ "nesankcionētu piekļuvi datiem, to nesankcionētu mainīšanu, atklāšanu vai "
+#~ "iznīcināšanu: datu krājuma iekšējas pārbaudes, noteiktas uzglabāšanas un "
+#~ "apstrādes metodes, un aizsardzības līdzekļus, piemēram, pienācīgu saziņas "
+#~ "šifrēšanu un fiziskus aizsardzības līdzekļus, lai nepieļautu "
+#~ "nesankcionētu piekļuvi sistēmām, kurās uzglabājam personas datus. Dati "
+#~ "nevienam nav nekādā veidā pieejami. Mēs nesaglabājam IP adreses, lai tās "
+#~ "nevarētu izmantot lietotāja identificēšanai."
+
+#~ msgid "conditions_security_header"
+#~ msgstr "Informācijas drošība"
+
+#~ msgid "condtions_datacontroller"
+#~ msgstr ""
+#~ "Datu izmantošanas uzraugs ir Endrjū Smits (Andrew Smith), Eiropas darba "
+#~ "drošības un veselības aizsardzības aģentūra, Bilbao."
 
 #~ msgid "My risk assessments"
 #~ msgstr "Mani riska novērtējumi"
