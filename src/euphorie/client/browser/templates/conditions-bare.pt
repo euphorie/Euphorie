@@ -25,93 +25,103 @@
         <div class="container">
           <div id="terms-conditions">
             <article class="pat-rich long-read">
-              <h1 i18n:translate="header_terms">Terms and conditions</h1>
+              <h1><span i18n:translate="header_data_protection_notice">DATA PROTECTION NOTICE</span><br /><span i18n:translate="header_data_protection_notice2">OIRA TOOL USERS</span></h1>
 
               <metal:macro define-macro="terms-conditions-text">
 
-                <p i18n:translate="conditions_intro1">
-    The OiRA (Online interactive Risk Assessment) application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This Privacy Policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application.
+                <h2 i18n:translate="conditions_part1_header">Organisational part of the Agency entrusted with the processing of personal data</h2>
+
+                <p i18n:translate="conditions_part1_entry">
+                    Head of Unit Prevention and Research Unit (information(at)osha.europa.eu)
                 </p>
 
-                <p i18n:translate="conditions_intro2">
-    Your personal data is processed in line with Regulation (EC) N&deg; 45/2001 of the European Parliament and of the Council of 18 December 2000 on the protection of individuals with regard to the processing of personal data by the Community institutions and bodies and on the free movement of such data. Further details of the privacy policy of EU-OSHA and the full text of the Regulation can be accessed at:
-                  <a href="http://osha.europa.eu/en/privacy-policy"
-                     i18n:name="url"
-                  >http://osha.europa.eu/en/privacy-policy</a>.
+                <h2 i18n:translate="conditions_part2_header">Purpose</h2>
+
+                <p i18n:translate="conditions_part2_entry">
+                    The purpose of the processing operation is the creation of and log-in to your OiRA (Online interactive Risk Assessment) account, the creation of risk assessments, action-plans and reports. Email addresses might be used for the sending of newsletters (if the option has been selected). The OiRA application is an instrument put at your disposal by the European Agency for Safety and Health at Work (EU-OSHA). This privacy policy applies to all products, services and websites offered by EU-OSHA in the framework of the OiRA application.
                 </p>
 
-                <h2 i18n:translate="conditions_info_header">The Information we collect and for what purposes</h2>
+                <h2 i18n:translate="conditions_part3_header">Legal basis</h2>
 
-                <p i18n:translate="conditions_info_entry">
-  The kind of information we collect: when you sign up for an OiRA account and you enter data into the OiRA application we are asking you for the following information:
+                <p i18n:translate="conditions_part3_entry">
+                    Council Regulation (EU) 2019/126 of the European Parliament and of the Council of 16 January 2019 establishing the European Agency for Safety and Health at Work (EU-OSHA), and repealing Council Regulation (EC) No 2062/94.
                 </p>
+
+
+                <h2 i18n:translate="conditions_part4_header">Type of data processed</h2>
 
                 <ul>
-                  <li i18n:translate="conditions_info_email">
-      Email account: this is necessary to access the online application, edit the input data, and delete the OiRA account. You can enter any valid e-mail address. Email addresses will not be used for commercial purposes.
-                  </li>
-
-                  <li i18n:translate="conditions_info_text">
-      Any information you provide in the free text fields of the application (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc). The input of information in the free text fields is voluntary.
-                  </li>
-
-                  <li i18n:translate="conditions_info_cookies">
-      Cookies &ndash; When you visit the site and select a language, we send a cookie to your computer or other device to store your language selection. This cookie stays in your browser until you close it. When you visit the site and log in, we send a cookie with your login information to keep you logged in during your visit. This cookie stays on your computer until you close your browser.  Most browsers are initially set up to accept cookies, but you can reset your browser to refuse all cookies or to indicate when a cookie is being sent. However, some features and services may not function properly if your cookies are disabled.
-                  </li>
-
-                  <li i18n:translate="conditions_info_logs">
-      Log information &ndash; When you access the service, our servers automatically record information that your browser sends whenever you visit a website. These server logs may include information such as your web request, your interaction with a service, browser type, browser language, the date and time of your request. IP addresses are not stored in the system.
-                  </li>
+                    <li i18n:translate="conditions_part4_1_entry">E-mail address: an email is necessary to access the online application, edit the input data, and delete the OiRA account. The email address is also used for sending newsletters (if the option has been selected).</li>
+                    <li i18n:translate="conditions_part4_2_entry">Any information you provide in the free text fields of the application of the OiRA tools and in the action plan of your risk assessments - (e.g. when you input a measure to tackle a risk, the person responsible for that measure, etc.). The input of information in the free text fields just as any other personal data put into the tool is done voluntarily and based on consent.</li>
                 </ul>
 
-                <p i18n:translate="conditions_info_use_intro">
-    In addition to the above mentioned purposes, we may use the information we collect to provide, maintain, protect, and improve our services and develop new services. In any case no personal data will be used for processing of data.
-                </p>
-                <!-- Keep these for now to not break translations. -->
-                <p i18n:translate="conditions_info_use_develop"></p>
-                <p i18n:translate="conditions_info_use_statistics"></p>
-                <p i18n:translate="conditions_info_not_personal"></p>
-
-                <h2 i18n:translate="conditions_datacontroller_header">Data controller</h2>
-
-                <p i18n:translate="condtions_datacontroller">
-    The data controller is the European Agency for Safety and Health at Work, Bilbao.
+                <p i18n:translate="conditions_part4_3_entry">
+                    This website collects web statistics with Matomo that is entirely hosted in EU- OSHA’s servers, located in the European Union. The IP address is received by Matomo for geographical statistic purpose only (country, region and city).
                 </p>
 
-                <h2 i18n:translate="conditions_conservation_header">Conservation and processing of information</h2>
-
-                <p i18n:translate="conditions_conservation_keep_data">
-    We keep your data, which is inaccessible for external users, until you delete your account and your session(s).
+                <p i18n:translate="conditions_part4_4_entry">
+                    The OiRA software does collect statistics from logged in users based on aggregated data on number of accounts and risk assessments per tool by country, broken down to months.
                 </p>
 
-                <p i18n:translate="conditions_conservation_storage">
-    EU-OSHA stores data on our servers in Zamudio, Spain.
+                <h2 i18n:translate="conditions_part5_header">Lawfulness of processing</h2>
+
+                <p i18n:translate="conditions_part5_entry">
+                    The processing is based on Article 5.1 (d),(a) of <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC">Regulation (EU) 2018/1725</a> of the European Parliament and of the Council of 23 October 2018 on the protection of natural persons with regard to the processing of personal data by the Union institutions, bodies, offices and agencies and on the free movement of such data (hereinafter the Regulation).     
                 </p>
 
-                <h2 i18n:translate="conditions_datareview_header">Reviewing and removing your information</h2>
 
-                <p i18n:translate="conditions_datareview">
-    You can use the Account settings and your saved OiRA Session(s) to review, control and delete the information stored in your Account and in your Session(s).
+                <h2 i18n:translate="conditions_part6_header">Data recipients</h2>
+
+                <p i18n:translate="conditions_part6_entry">
+                    Personal data can be accessed by EU-OSHA staff members in charge of OiRA and EU-OSHA’s technical providers based on requests from OiRA users in case of technical problems. In addition, OiRA users can grant other OiRA users access to their risk assessments, action-plans and reports.  
                 </p>
 
-                <h2 i18n:translate="conditions_security_header">Information security</h2>
+                <h2 i18n:translate="conditions_part7_header">The data subject’s rights</h2>
 
-                <p i18n:translate="conditions_security">
-    We take appropriate security measures to protect against unauthorized access to or unauthorized alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices and security measures, including appropriate encryption of communication and physical security measures to guard against unauthorized access to systems where we store personal data. IP addresses are not saved so that end-users can not be identified through their access.
+                <p i18n:translate="conditions_part7_1_entry">
+                    Data subjects have the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or, where applicable, the right to object to processing or the right to withdraw consent at any time without affecting the lawfulness of processing based on consent before its withdrawal (Articles 17, 18, 19, 20, 22, 23 and 24 of the Regulation).
                 </p>
 
-                <h2 i18n:translate="conditions_contact_header">Contact information</h2>
-
-                <p i18n:translate="conditions_contact">
-    EU-OSHA regularly reviews its compliance with this Privacy Policy.  Any enquiries and complaints regarding our privacy policy can be sent to the DPO of EU-OSHA at
-                  <a href="mailto:DPO@osha.europa.eu"
-                     i18n:name="dpo-email"
-                  >DPO@osha.europa.eu</a>
-    or to the EDPS at
-                  <a href="mailto:edps@edps.europa.eu"
-                     i18n:name="edps-email"
-                  >edps@edps.europa.eu</a>.
+                <p i18n:translate="conditions_part7_2_entry">
+                    Any requests to exercise one of those rights should be directed per email to information(at)osha.europa.eu, mentioning the organisational part of the Agency entrusted with the processing operation as indicated in this privacy statement and the name of the processing operation, including in the subject the words “data protection”.
                 </p>
+
+                <p i18n:translate="conditions_part7_3_entry">
+                    Data subjects’ rights can be restricted only in the cases foreseen in Art 25 of the Regulation.
+                </p>
+
+                <h2 i18n:translate="conditions_part8_header">Information on the conservation period of data</h2>
+
+                <p i18n:translate="conditions_part8_entry">
+                    We keep your data which is inaccessible for external users until you delete your account and/or your session(s). EU-OSHA stores data on our servers located in EU territory.
+                </p>
+
+
+                <h2 i18n:translate="conditions_part9_header">Security measures</h2>
+
+                <p i18n:translate="conditions_part9_entry">
+                    We take appropriate security measures to protect against unauthorised access to or unauthorised alteration, disclosure or destruction of data. These include internal reviews of our data collection, storage and processing practices, appropriate encryption of communication and physical security measures to guard against unauthorised access to systems where we store personal data.
+                </p>
+
+                <h2 i18n:translate="conditions_part10_header">Request for information</h2>
+
+                <p i18n:translate="conditions_part10_entry">
+                    For any further information regarding the handling of their personal data, data subjects can address their request to EU-OSHA Data Protection Officer at: dpo(at)osha.europa.eu.
+                </p>
+
+                <h2 i18n:translate="conditions_part11_header">Recourse to the EDPS</h2>
+
+                <p i18n:translate="conditions_part11_entry">
+                    Data subjects are entitled to make recourse to the European Data Protection Supervisor: <a href="http://www.edps.europa.eu/" 
+     i18n:name="url">http://www.edps.europa.eu</a> , should they consider that the processing operations do not comply with the Regulation.
+                </p>
+
+                <h2 i18n:translate="conditions_part12_header">Date when processing starts</h2>
+
+                <p i18n:translate="conditions_part12_1_entry">
+                    Date of creation of the OiRA account.
+                </p>
+                <p><em i18n:translate="conditions_part12_2_entry">Privacy statement last updated: 7/10/2022</em></p>
 
               </metal:macro>
 

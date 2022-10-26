@@ -229,9 +229,9 @@
                      href="${base_url}/terms-conditions#document-content"
                      data-pat-modal="class: sheet"
                      i18n:name="link_terms_conditions"
-                     i18n:translate="label_terms_conditions"
+                     i18n:translate="label_data_protection_notice"
                   >
-                    Terms and conditions</a>
+                    Data protection notice</a>
                 </tal:i18n>
                 <input name="terms"
                        required
