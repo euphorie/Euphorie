@@ -673,11 +673,11 @@ msgstr "Член"
 
 #: euphorie/client/browser/organisation.py:728
 msgid "Member removed"
-msgstr ""
+msgstr "Премахнато членство"
 
 #: euphorie/client/browser/organisation.py:671
 msgid "Member updated"
-msgstr ""
+msgstr "Актуализирано членство"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:80
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:80
@@ -842,7 +842,7 @@ msgstr "Организация"
 
 #: euphorie/client/browser/organisation.py:165
 msgid "Organisation added"
-msgstr ""
+msgstr "Добавена организация"
 
 #: euphorie/client/browser/templates/panel-add-organisation.pt:34
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:37
@@ -1743,7 +1743,7 @@ msgstr "предимства"
 #. Default: "\n            I hereby invite you to join our organisation on OiRA.\n            Once you've accepted your membership,\n            we can collaborate on risk assessments.\n\n            Please log in or register via the link below\n            and accept your membership.\n            This link will stay valid for ${days_to_keep} days.\n\n            ${link}\n            "
 #: euphorie/client/browser/organisation.py:234
 msgid "body_add_user_to_organisation_email"
-msgstr ""
+msgstr "\n            С настоящето Ви каня да се присъедините към нашата организация в OiRA.\n            След като приемете Вашето членство, ние можем да Ви съдействаме при изготвянето на оценките на риска.\n\n            Моля, влезте или се регистрирайте чрез долупосочения линк  и приемете Вашето членство.\n            Този линк ще е валиден за ${days_to_keep} дни.\n\n            ${link}\n            "
 
 #. Default: "${Modules} (and potentially sub-modules): containers providing a logical structure"
 #: euphorie/content/browser/templates/profilequestion_add.pt:53
@@ -5348,27 +5348,27 @@ msgstr "Обучение"
 #. Default: "You are already a member of the ${name} organisation."
 #: euphorie/client/browser/organisation.py:410
 msgid "message_add_user_to_organisation_already_member"
-msgstr ""
+msgstr "Вие вече сте член на организацията ${name}."
 
 #. Default: "The invitation from the ${name} organisation is not valid anymore."
 #: euphorie/client/browser/organisation.py:380
 msgid "message_add_user_to_organisation_expired"
-msgstr ""
+msgstr "Поканата от организацията ${name} вече не е валидна."
 
 #. Default: "We could not find the invitation you are looking for."
 #: euphorie/client/browser/organisation.py:369
 msgid "message_add_user_to_organisation_invalid"
-msgstr ""
+msgstr "Не можем да открием поканата, която търсите."
 
 #. Default: "You cannot add yourself to your organisation."
 #: euphorie/client/browser/organisation.py:393
 msgid "message_add_user_to_organisation_self"
-msgstr ""
+msgstr "Не може да добавите сам себе си към Вашата организация."
 
 #. Default: "You have been added to the ${name} organisation."
 #: euphorie/client/browser/organisation.py:426
 msgid "message_add_user_to_organisation_success"
-msgstr ""
+msgstr "Вие бяхте добавени към организацията ${name}."
 
 #. Default: "Please choose a country of which you would like to view or copy an OiRA Tool."
 #: euphorie/content/browser/templates/sectorcontainer_view.pt:18
@@ -6031,7 +6031,7 @@ msgstr "Не е необходимо спиране на работа"
 #. Default: "Confirm OiRA membership to ’${organisation}’"
 #: euphorie/client/browser/organisation.py:221
 msgid "subject_add_user_to_organisation_email"
-msgstr ""
+msgstr "Потвърдете членство в OiRA за ’${organisation}’"
 
 #. Default: "Standard"
 #: euphorie/content/browser/surveygroup.py:193
