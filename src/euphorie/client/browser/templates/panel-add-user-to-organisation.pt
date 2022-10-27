@@ -51,7 +51,8 @@
                     />
                     <tal:i18n i18n:translate="">Member</tal:i18n>
                   </label>
-                  <label>
+                  <label tal:condition="nothing">
+                    # XXX commented for the moment because it is still under discussion
                     <input name="role"
                            type="radio"
                            value="manager"
