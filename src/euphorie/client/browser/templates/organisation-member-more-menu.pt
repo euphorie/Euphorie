@@ -19,12 +19,14 @@
                 <a class="icon-pencil pat-modal close-panel"
                    href="${here/@@absolute_url}/@@panel-organisation-member-edit/${request/membership_id}#document-content"
                    data-pat-modal="class: medium panel"
+                   i18n:translate=""
                 >Edit</a>
               </li>
               <li>
                 <a class="icon-trash pat-modal close-panel"
                    href="${here/@@absolute_url}/@@panel-organisation-member-remove/${request/membership_id}#document-content"
                    data-pat-modal="class: medium panel"
+                   i18n:translate=""
                 >Remove</a>
               </li>
             </ul>
