@@ -36,10 +36,11 @@ class OrganisationBaseView(BaseView):
             "value": "member",
             "label": _("Member"),
         },
-        {
-            "value": "manager",
-            "label": _("Manager/Policy maker"),
-        },
+        # XXX commented for the moment because it is still under discussion
+        # {
+        #     "value": "manager",
+        #     "label": _("Manager/Policy maker"),
+        # },
         {
             "value": "admin",
             "label": _("Administrator"),
