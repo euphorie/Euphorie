@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-26 14:46+0000\n"
+"POT-Creation-Date: 2022-10-27 12:55+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: Florakalman <florakalman@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -424,6 +424,7 @@ msgstr "EU tagállamok"
 msgid "EU member state"
 msgstr "EU tagállam"
 
+#: euphorie/client/browser/templates/organisation-member-more-menu.pt:19
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:20
 msgid "Edit"
 msgstr ""
@@ -1012,9 +1013,9 @@ msgstr ""
 "Ha regisztrál, bármikor bejelentkezhet, és folytathatja az előző "
 "értékeléseket vagy újat kezdhet."
 
+#: euphorie/client/browser/templates/organisation-member-more-menu.pt:26
 #: euphorie/client/browser/templates/panel-organisation-member-remove.pt:17
 #: euphorie/client/browser/templates/profile.pt:120
-#: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "Remove"
 msgstr "Eltávolítás"
 

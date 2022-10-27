@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-26 14:46+0000\n"
+"POT-Creation-Date: 2022-10-27 12:55+0000\n"
 "PO-Revision-Date: 2013-07-30 15:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
@@ -431,6 +431,7 @@ msgstr "Estados miembro de la UE"
 msgid "EU member state"
 msgstr "Miembro de la UE"
 
+#: euphorie/client/browser/templates/organisation-member-more-menu.pt:19
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:20
 msgid "Edit"
 msgstr "Editar"
@@ -1024,9 +1025,9 @@ msgstr ""
 "Al estar registrado, puede conectarse en cualquier momento para continuar "
 "con la evaluación en curso o para comenzar otra nueva."
 
+#: euphorie/client/browser/templates/organisation-member-more-menu.pt:26
 #: euphorie/client/browser/templates/panel-organisation-member-remove.pt:17
 #: euphorie/client/browser/templates/profile.pt:120
-#: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "Remove"
 msgstr "Eliminar"
 

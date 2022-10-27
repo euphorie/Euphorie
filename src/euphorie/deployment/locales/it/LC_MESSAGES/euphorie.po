@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-26 14:46+0000\n"
+"POT-Creation-Date: 2022-10-27 12:57+0000\n"
 "PO-Revision-Date: 2013-11-26 11:57+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -187,7 +187,10 @@ msgid ""
 "Administrators can create, edit and remove user accounts. Administrators can "
 "also make risk assessments, lock risk assessments, create trainings and take "
 "trainings."
-msgstr "Gli amministratori possono creare, modificare, e rimuovere gli account, inoltre possono effettuare la valutazione dei rischi, bloccare la valutazione dei rischi, creare materiali formativi e seguire la formazione."
+msgstr ""
+"Gli amministratori possono creare, modificare, e rimuovere gli account, "
+"inoltre possono effettuare la valutazione dei rischi, bloccare la "
+"valutazione dei rischi, creare materiali formativi e seguire la formazione."
 
 #: euphorie/client/browser/templates/surveys.pt:56
 msgid "All countries"
@@ -433,6 +436,7 @@ msgstr "Stato membro UE"
 msgid "EU member state"
 msgstr "Stato membro UE"
 
+#: euphorie/client/browser/templates/organisation-member-more-menu.pt:19
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:20
 msgid "Edit"
 msgstr "Modifica"
@@ -666,7 +670,9 @@ msgstr "Dirigenti/Manager"
 msgid ""
 "Managers/Policy makers can make risk assessments, lock risk assessments, "
 "create trainings and take trainings."
-msgstr "I Dirigenti/Manager possono effettuare la valutazione dei rischi, bloccare la valutazione dei rischi, creare material formative e seguire la formazione."
+msgstr ""
+"I Dirigenti/Manager possono effettuare la valutazione dei rischi, bloccare "
+"la valutazione dei rischi, creare material formative e seguire la formazione."
 
 #: euphorie/client/browser/templates/webhelpers.pt:942
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
@@ -693,7 +699,8 @@ msgstr "Utente aggiornato"
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:80
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:80
 msgid "Members can make risk assessments and take trainings."
-msgstr "I membri possono effettuare la valutazione dei rischi e seguire la formazione"
+msgstr ""
+"I membri possono effettuare la valutazione dei rischi e seguire la formazione"
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml
 #: euphorie/deployment/browser/search.py:13
@@ -1019,9 +1026,9 @@ msgstr ""
 "La registrazione permette di accedere in modo semplice, in qualsiasi "
 "momento, per continuare le valutazioni iniziate o per avviarne delle nuove."
 
+#: euphorie/client/browser/templates/organisation-member-more-menu.pt:26
 #: euphorie/client/browser/templates/panel-organisation-member-remove.pt:17
 #: euphorie/client/browser/templates/profile.pt:120
-#: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "Remove"
 msgstr "Rimuovi"
 
@@ -1417,7 +1424,12 @@ msgid ""
 "a link in it that people can use to join your organisation. The link is "
 "valid for five days and you may send it to as many people as you would like "
 "to join your organisation."
-msgstr "Cliccando sul pulsante “continua” sarà generata automaticamente una mail contenente il link utilizzabile per accedere alla valutazione dei rischi operata dalla tua oraganizzazione. Il link è valido per cinque giorni e lo puoi inviare a tutte le persone che desideri che collaborino alla tua valutazione."
+msgstr ""
+"Cliccando sul pulsante “continua” sarà generata automaticamente una mail "
+"contenente il link utilizzabile per accedere alla valutazione dei rischi "
+"operata dalla tua oraganizzazione. Il link è valido per cinque giorni e lo "
+"puoi inviare a tutte le persone che desideri che collaborino alla tua "
+"valutazione."
 
 #: euphorie/client/browser/templates/login.pt:308
 msgid "Who is the OiRA tool for?"
@@ -1742,7 +1754,17 @@ msgstr "vantaggi"
 #. Default: "\n            I hereby invite you to join our organisation on OiRA.\n            Once you've accepted your membership,\n            we can collaborate on risk assessments.\n\n            Please log in or register via the link below\n            and accept your membership.\n            This link will stay valid for ${days_to_keep} days.\n\n            ${link}\n            "
 #: euphorie/client/browser/organisation.py:234
 msgid "body_add_user_to_organisation_email"
-msgstr "\n            Ti invito a collaborare alla valutazione dei rischi effettuata con OiRA.\n            Registrati e accetta la richiesta di collaborazione al link seguente.\n\n            Questo link rimarrà attivo per ${days_to_keep} giorni.\n\n            ${link}\n            "
+msgstr ""
+"\n"
+"            Ti invito a collaborare alla valutazione dei rischi effettuata "
+"con OiRA.\n"
+"            Registrati e accetta la richiesta di collaborazione al link "
+"seguente.\n"
+"\n"
+"            Questo link rimarrà attivo per ${days_to_keep} giorni.\n"
+"\n"
+"            ${link}\n"
+"            "
 
 #. Default: "${Modules} (and potentially sub-modules): containers providing a logical structure"
 #: euphorie/content/browser/templates/profilequestion_add.pt:53
@@ -4725,7 +4747,7 @@ msgstr "OiRA formazione online"
 #. Default: "Organisation"
 #: euphorie/client/browser/templates/assessments.pt:34
 msgid "label_organisation"
-msgstr Organizzazione""
+msgstr "Organizzazione"
 
 #. Default: "Page"
 #: euphorie/client/browser/pdf.py:42

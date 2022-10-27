@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2022-10-26 15:51+0000\n"
+"POT-Creation-Date: 2022-10-27 12:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -364,6 +364,7 @@ msgstr ""
 msgid "EU member state"
 msgstr ""
 
+#: euphorie/client/browser/templates/organisation-member-more-menu.pt:19
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:20
 msgid "Edit"
 msgstr ""
@@ -884,9 +885,9 @@ msgstr ""
 msgid "Registering allows you to simply log in at any time to continue previous assessments or to start new ones."
 msgstr ""
 
+#: euphorie/client/browser/templates/organisation-member-more-menu.pt:26
 #: euphorie/client/browser/templates/panel-organisation-member-remove.pt:17
 #: euphorie/client/browser/templates/profile.pt:120
-#: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "Remove"
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-10-26 14:46+0000\n"
+"POT-Creation-Date: 2022-10-27 12:57+0000\n"
 "PO-Revision-Date: 2013-10-23 15:53+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -424,6 +424,7 @@ msgstr "Členské štáty EÚ"
 msgid "EU member state"
 msgstr "Členský štát EÚ"
 
+#: euphorie/client/browser/templates/organisation-member-more-menu.pt:19
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:20
 msgid "Edit"
 msgstr "Upraviť"
@@ -1008,9 +1009,9 @@ msgstr ""
 "Registrácia vám umožňuje jednoducho sa prihlásiť kedykoľvek, aby ste mohli "
 "pokračovať v predchádzajúcich hodnoteniach alebo začať nové."
 
+#: euphorie/client/browser/templates/organisation-member-more-menu.pt:26
 #: euphorie/client/browser/templates/panel-organisation-member-remove.pt:17
 #: euphorie/client/browser/templates/profile.pt:120
-#: euphorie/client/browser/templates/risk_identification_custom.pt:256
 msgid "Remove"
 msgstr "Odstrániť"
 
