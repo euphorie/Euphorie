@@ -54,40 +54,43 @@
                 <a class="pat-inject ${python:'current' if dashboard_tab=='organisation' else None}"
                    href="${here/absolute_url}/@@organisation"
                    data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
-                   i18n:translate=""
                    tal:condition="not:webhelpers/hide_organisation_tab"
+                   i18n:translate=""
                 >Organisation</a>
               </nav>
 
             </div>
           </div>
+          <div class="toolbar-functions-area"
+               id="toolbar-functions-area"
+               tal:condition="not:view/form_action_name|nothing"
+          ></div>
           <form class="toolbar-functions-area pat-inject pat-form pat-autosubmit"
                 id="toolbar-functions-area"
-                action="${here/absolute_url}/${view/form_action_name|string:}#application-content"
+                action="${here/absolute_url}/${view/form_action_name}#application-content"
                 method="POST"
                 data-pat-inject="history: record"
+                tal:condition="view/form_action_name|nothing"
           >
-            <tal:functions tal:condition="view/form_action_name|nothing">
-              <div class="toolbar-section view-options"
-                   id="assessments-toolbar-view-options"
-              >
-                <metal:slot define-slot="view_options">
-                  <label class="pat-select bare"
-                         tal:replace="nothing"
-                  >
-                    <select name="dashboard-view">
-                      <option><!-- Show internal assessments -->Default view</option>
-                      <option><!-- Fremdfirmen Darstellung --><!-- Show external assessments --><!-- Fremdfirmen GBUs Darstellung -->Fremdfirmenkoordination</option>
-                    </select>
-                  </label>
-                </metal:slot>
-              </div>
-              <div class="toolbar-section quick-functions"
-                   id="assessments-toolbar-quick-functions"
-              >
-                <metal:slot define-slot="quick_functions" />
-              </div>
-            </tal:functions>
+            <div class="toolbar-section view-options"
+                 id="assessments-toolbar-view-options"
+            >
+              <metal:slot define-slot="view_options">
+                <label class="pat-select bare"
+                       tal:replace="nothing"
+                >
+                  <select name="dashboard-view">
+                    <option><!-- Show internal assessments -->Default view</option>
+                    <option><!-- Fremdfirmen Darstellung --><!-- Show external assessments --><!-- Fremdfirmen GBUs Darstellung -->Fremdfirmenkoordination</option>
+                  </select>
+                </label>
+              </metal:slot>
+            </div>
+            <div class="toolbar-section quick-functions"
+                 id="assessments-toolbar-quick-functions"
+            >
+              <metal:slot define-slot="quick_functions" />
+            </div>
           </form>
         </div>
       </metal:homescreen_navigation>
