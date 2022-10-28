@@ -162,7 +162,7 @@ class PanelAddOrganisation(OrganisationBaseView):
             organisation.image_data = logo.read()
             organisation.image_filename = logo.filename
             # The scale will be recreated on the fly
-            organisation.image_scaled = None
+            organisation.image_data_scaled = None
         return self.redirect(msg=_("Organisation added"))
 
 
@@ -503,10 +503,10 @@ class PanelEditOrganisation(OrganisationBaseView):
                 organisation.image_data = logo.read()
                 organisation.image_filename = logo.filename
                 # The scale will be recreated on the fly
-                organisation.image_scaled = None
+                organisation.image_data_scaled = None
         elif logo_operation == "remove":
             organisation.image_data = None
-            organisation.image_scaled = None
+            organisation.image_data_scaled = None
             organisation.image_filename = None
         self.redirect(target=f"{self.context.absolute_url()}/@@organisation")
 
