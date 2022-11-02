@@ -3,7 +3,8 @@ Changelog
 
 14.2.0 (unreleased)
 -------------------
-
+- Support for Python 3.10.
+  [thet]
 - Upgrade Patternslib to 9.7.0-alpha.5
   [thet]
 - Export/import training questions
