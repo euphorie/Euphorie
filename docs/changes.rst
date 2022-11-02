@@ -13,7 +13,7 @@ Changelog
   [ale-rt]
 - Added an `@@export.json` view that allows to export a session and the related content in a single json file.
   [ale-rt]
-- Upgrade plone to 5.2.9
+- Upgrade plone to 5.2.10
 - Clean up warnings
   [ale-rt]
 - Fix the way ``get_survey_templates`` handles a survey with an unset category.
