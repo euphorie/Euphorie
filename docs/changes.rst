@@ -39,6 +39,7 @@ Changelog
   [reinhardt]
 - Added filters to the assessments view.
   [reinhardt]
+- Updated styles.
 
 
 14.1.6 (2022-09-21)
