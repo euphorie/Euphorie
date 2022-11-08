@@ -518,7 +518,12 @@ class TrainingView(BrowserView, survey._StatusHelper):
             if "risk_id" in reply:
                 self.handle_measure_configuration(reply)
 
-        self.request.RESPONSE.addHeader("Cache-Control", "public,max-age=60")
+        # XXX This is commented because it causes problems on logout, see:
+        # - https://github.com/euphorie/Euphorie/issues/475
+        #
+        # We should come out with a better solution that does not require setting
+        # the cache headers here.
+        # self.request.RESPONSE.addHeader("Cache-Control", "public,max-age=60")
         return self.index()
 
 
