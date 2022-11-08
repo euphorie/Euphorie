@@ -1059,11 +1059,11 @@ msgstr "Risco"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "Risk assessments"
-msgstr ""
+msgstr "Avaliações de risco"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:129
 msgid "Risk assessments made with this tool"
-msgstr "Guarde e adicione outro risco"
+msgstr "Avaliações de risco feitas com esta ferramenta"
 
 #: euphorie/client/browser/templates/webhelpers.pt:158
 msgid "Risk not present"
@@ -4519,7 +4519,7 @@ msgstr "Mais avaliações dos riscos…"
 #. Default: "More risk assessments for ${organisation}…"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:101
 msgid "label_more_risk_assessments_for"
-msgstr ""
+msgstr "Mais avaliações dos riscos para ${organisation}…"
 
 #. Default: "Did this OiRA tool meet your needs?"
 #: euphorie/client/browser/company.py:148

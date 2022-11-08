@@ -1051,7 +1051,7 @@ msgstr "Riziko"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "Risk assessments"
-msgstr ""
+msgstr "Hodnotenia rizík"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:129
 msgid "Risk assessments made with this tool"
@@ -4584,12 +4584,12 @@ msgstr "Otázka"
 #. Default: "More risk assessments…"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:86
 msgid "label_more_risk_assessments"
-msgstr "Ďalšie hodnotenia rizík"
+msgstr "Ďalšie hodnotenia rizík…"
 
 #. Default: "More risk assessments for ${organisation}…"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:101
 msgid "label_more_risk_assessments_for"
-msgstr ""
+msgstr "Ďalšie hodnotenia rizík pre ${organisation}…"
 
 #. Default: "Did this OiRA tool meet your needs?"
 #: euphorie/client/browser/company.py:148

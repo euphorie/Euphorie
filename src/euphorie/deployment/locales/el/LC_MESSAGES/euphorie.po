@@ -1107,7 +1107,7 @@ msgstr "Κίνδυνος"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "Risk assessments"
-msgstr ""
+msgstr "Μελέτες Εκτίμησης Κινδύνου"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:129
 msgid "Risk assessments made with this tool"
@@ -4738,7 +4738,7 @@ msgstr "Περισσότερες  Μελέτες Εκτίμησης Κινδύν
 #. Default: "More risk assessments for ${organisation}…"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:101
 msgid "label_more_risk_assessments_for"
-msgstr ""
+msgstr "Περισσότερες  Μελέτες Εκτίμησης Κινδύνου για ${organisation}…"
 
 #. Default: "Did this OiRA tool meet your needs?"
 #: euphorie/client/browser/company.py:148
