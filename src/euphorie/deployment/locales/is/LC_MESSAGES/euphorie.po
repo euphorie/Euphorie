@@ -1049,7 +1049,7 @@ msgstr "Áhætta "
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "Risk assessments"
-msgstr ""
+msgstr "Áhættumat"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:129
 msgid "Risk assessments made with this tool"
@@ -4491,7 +4491,7 @@ msgstr "Fleiri áhættumöt…"
 #. Default: "More risk assessments for ${organisation}…"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:101
 msgid "label_more_risk_assessments_for"
-msgstr ""
+msgstr "Fleiri áhættumöt ${organisation}…"
 
 #. Default: "Did this OiRA tool meet your needs?"
 #: euphorie/client/browser/company.py:148

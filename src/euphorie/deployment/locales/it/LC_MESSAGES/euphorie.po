@@ -188,9 +188,7 @@ msgid ""
 "also make risk assessments, lock risk assessments, create trainings and take "
 "trainings."
 msgstr ""
-"Gli amministratori possono creare, modificare, e rimuovere gli account, "
-"inoltre possono effettuare la valutazione dei rischi, bloccare la "
-"valutazione dei rischi, creare materiali formativi e seguire la formazione."
+"Gli amministratori possono creare, modificare, e rimuovere gli account, inoltre possono effettuare la valutazione dei rischi, bloccare la valutazione dei rischi, creare materiali formativi e seguire la formazione."
 
 #: euphorie/client/browser/templates/surveys.pt:56
 msgid "All countries"
@@ -444,7 +442,7 @@ msgstr "Modifica"
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:21
 #: euphorie/content/browser/module.py:97
 msgid "Edit ${name}"
-msgstr "Modificare ${name}"
+msgstr "Modifica ${name}"
 
 #: euphorie/content/browser/profilequestion.py:71
 msgid "Edit Profile question"
@@ -663,16 +661,14 @@ msgstr "Gestire"
 #: euphorie/client/browser/organisation.py:41
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:59
 msgid "Manager/Policy maker"
-msgstr "Dirigenti/Manager"
+msgstr "Valutatore"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:74
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:74
 msgid ""
 "Managers/Policy makers can make risk assessments, lock risk assessments, "
 "create trainings and take trainings."
-msgstr ""
-"I Dirigenti/Manager possono effettuare la valutazione dei rischi, bloccare "
-"la valutazione dei rischi, creare material formative e seguire la formazione."
+msgstr "I valutatori possono effettuare la valutazione dei rischi, bloccare la valutazione dei rischi, seguire la formazione."
 
 #: euphorie/client/browser/templates/webhelpers.pt:942
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
@@ -686,7 +682,7 @@ msgstr "misure da implementare da"
 #: euphorie/client/browser/organisation.py:37
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:52
 msgid "Member"
-msgstr "Valutatore"
+msgstr "Consulente"
 
 #: euphorie/client/browser/organisation.py:728
 msgid "Member removed"
@@ -699,8 +695,7 @@ msgstr "Utente aggiornato"
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:80
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:80
 msgid "Members can make risk assessments and take trainings."
-msgstr ""
-"I membri possono effettuare la valutazione dei rischi e seguire la formazione"
+msgstr "I consulenti possono collaborare alla valutazione dei rischi e seguire la formazione."
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml
 #: euphorie/deployment/browser/search.py:13
@@ -887,7 +882,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/organisation.pt:96
 msgid "Owner"
-msgstr "Proprietario"
+msgstr "Amministratore"
 
 #: euphorie/client/browser/templates/report_landing.pt:163
 msgid ""
@@ -1068,7 +1063,7 @@ msgstr "Rischio"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "Risk assessments"
-msgstr ""
+msgstr "Valutazioni del rischio"
 
 #: euphorie/client/browser/templates/tool_sessions.pt:129
 msgid "Risk assessments made with this tool"
@@ -1424,12 +1419,7 @@ msgid ""
 "a link in it that people can use to join your organisation. The link is "
 "valid for five days and you may send it to as many people as you would like "
 "to join your organisation."
-msgstr ""
-"Cliccando sul pulsante “continua” sarà generata automaticamente una mail "
-"contenente il link utilizzabile per accedere alla valutazione dei rischi "
-"operata dalla tua oraganizzazione. Il link è valido per cinque giorni e lo "
-"puoi inviare a tutte le persone che desideri che collaborino alla tua "
-"valutazione."
+msgstr "Cliccando sul pulsante “continua” sarà generata automaticamente una mail contenente il link utilizzabile per accedere alla valutazione dei rischi operata dalla tua oraganizzazione. Il link è valido per cinque giorni e lo puoi inviare a tutte le persone che desideri che collaborino alla tua valutazione."
 
 #: euphorie/client/browser/templates/login.pt:308
 msgid "Who is the OiRA tool for?"
@@ -1754,17 +1744,7 @@ msgstr "vantaggi"
 #. Default: "\n            I hereby invite you to join our organisation on OiRA.\n            Once you've accepted your membership,\n            we can collaborate on risk assessments.\n\n            Please log in or register via the link below\n            and accept your membership.\n            This link will stay valid for ${days_to_keep} days.\n\n            ${link}\n            "
 #: euphorie/client/browser/organisation.py:234
 msgid "body_add_user_to_organisation_email"
-msgstr ""
-"\n"
-"            Ti invito a collaborare alla valutazione dei rischi effettuata "
-"con OiRA.\n"
-"            Registrati e accetta la richiesta di collaborazione al link "
-"seguente.\n"
-"\n"
-"            Questo link rimarrà attivo per ${days_to_keep} giorni.\n"
-"\n"
-"            ${link}\n"
-"            "
+msgstr "\n            Ti invito a collaborare alla valutazione dei rischi effettuata con OiRA. Registrati e accetta la richiesta di collaborazione al link seguente.\n\n            Questo link rimarrà attivo per ${days_to_keep} giorni.\n\n            ${link}\n            "
 
 #. Default: "${Modules} (and potentially sub-modules): containers providing a logical structure"
 #: euphorie/content/browser/templates/profilequestion_add.pt:53
@@ -4620,7 +4600,7 @@ msgstr "Altre valutazioni…"
 #. Default: "More risk assessments for ${organisation}…"
 #: euphorie/client/browser/templates/portlet-my-ras.pt:101
 msgid "label_more_risk_assessments_for"
-msgstr ""
+msgstr "Altre valutazioni per ${organisation}…"
 
 #. Default: "Did this OiRA tool meet your needs?"
 #: euphorie/client/browser/company.py:148
@@ -5812,7 +5792,7 @@ msgstr ""
 #. Default: "These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
 #: euphorie/client/browser/risk.py:380
 msgid "placeholder_comment_field_training"
-msgstr ""
+msgstr "Queste note saranno visibili nel Documento di valutazione dei rischi (Report) e nel materiale formativo. Puoi utilizzarle per aggiungere informazioni su questo rischio."
 
 #. Default: "Describe a measure that is already in place but not yet listed here."
 #: euphorie/content/utils.py:132
@@ -6311,7 +6291,7 @@ msgstr "Dettagli personali"
 #. Default: "Preferences"
 #: euphorie/client/browser/settings.py:60
 msgid "title_preferences"
-msgstr "Utente"
+msgstr "Impostazioni"
 
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:223
