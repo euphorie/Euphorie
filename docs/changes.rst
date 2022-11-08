@@ -4,6 +4,9 @@ Changelog
 14.2.0 (unreleased)
 -------------------
 
+- Disable the cache control settings on the certificate pages.
+  Refs. `#475 <https://github.com/euphorie/Euphorie/issues/475>`_.
+  [ale-rt]
 - Upgrade Patternslib to 9.7.0-alpha.5
   [thet]
 - Export/import training questions
