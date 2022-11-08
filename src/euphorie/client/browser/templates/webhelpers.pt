@@ -213,13 +213,24 @@
                      name="measure-custom-${measure/solution_id}"
                      type="checkbox"
               />
-              <textarea autofocus="autofocus"
-                        cols="50"
-                        name="measure-custom-${measure/solution_id}"
-                        placeholder="${view/placeholder_add_extra}"
-                        rows="3"
-                        tal:content="structure python:webhelpers.get_safe_html(measure['text'])"
-              ></textarea>
+              <div class="pat-rich-editor pat-rich toolbar-detached">
+                <textarea class="pat-tiptap"
+                          autofocus="autofocus"
+                          cols="50"
+                          name="measure-custom-${measure/solution_id}"
+                          placeholder="${view/placeholder_add_extra}"
+                          rows="3"
+                          data-pat-tiptap="
+                            toolbar-external: #assessment-toolbar;
+                            source-panel: #pat-modal.panel-html-source-editor;
+                            image-panel: #pat-modal.image-picker;
+                            link-panel: #pat-modal .link-panel;
+                            context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments
+                            url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
+                            url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}"
+                          tal:content="structure python:webhelpers.get_safe_html(measure['text'])"
+                ></textarea>
+              </div>
               <button class="icon-trash iconified remove-clone"
                       title="${view/button_remove_extra}"
               >Remove</button>
@@ -240,11 +251,22 @@
                      name="use-new-measure-#{1}"
                      type="checkbox"
               />
-              <textarea cols="50"
-                        name="new-measure-#{1}"
-                        placeholder="${view/placeholder_add_extra}"
-                        rows="3"
-              ></textarea>
+              <div class="pat-rich-editor pat-rich toolbar-detached">
+                <textarea class="pat-tiptap"
+                          cols="50"
+                          name="new-measure-#{1}"
+                          placeholder="${view/placeholder_add_extra}"
+                          rows="3"
+                          data-pat-tiptap="
+                            toolbar-external: #assessment-toolbar;
+                            source-panel: #pat-modal.panel-html-source-editor;
+                            image-panel: #pat-modal.image-picker;
+                            link-panel: #pat-modal .link-panel;
+                            context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments
+                            url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
+                            url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}"
+                ></textarea>
+              </div>
               <button class="icon-trash iconified remove-clone"
                       title="${view/button_remove_extra}"
               >Remove</button>
@@ -719,13 +741,13 @@
                       name="comment:utf8:ustring"
                       placeholder="${view/notes_placeholder}"
                       data-pat-tiptap="
-        toolbar-external: #assessment-toolbar;
-        source-panel: #pat-modal.panel-html-source-editor;
-        image-panel: #pat-modal.image-picker;
-        link-panel: #pat-modal .link-panel;
-        context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments
-        url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
-        url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}"
+                        toolbar-external: #assessment-toolbar;
+                        source-panel: #pat-modal.panel-html-source-editor;
+                        image-panel: #pat-modal.image-picker;
+                        link-panel: #pat-modal .link-panel;
+                        context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments
+                        url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
+                        url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}"
                       tal:content="context/comment"
             >
             </textarea>
