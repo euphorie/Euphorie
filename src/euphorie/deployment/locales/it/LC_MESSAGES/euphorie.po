@@ -854,7 +854,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:54
 msgid "Organisation"
-msgstr "Organizzazione"
+msgstr "Organizzazioni"
 
 #: euphorie/client/browser/organisation.py:165
 msgid "Organisation added"
@@ -887,7 +887,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/organisation.pt:96
 msgid "Owner"
-msgstr "Valutatore"
+msgstr "Proprietario"
 
 #: euphorie/client/browser/templates/report_landing.pt:163
 msgid ""
@@ -4747,7 +4747,7 @@ msgstr "OiRA formazione online"
 #. Default: "Organisation"
 #: euphorie/client/browser/templates/assessments.pt:34
 msgid "label_organisation"
-msgstr "Organizzazione"
+msgstr "Organizzazioni"
 
 #. Default: "Page"
 #: euphorie/client/browser/pdf.py:42
@@ -6180,7 +6180,7 @@ msgstr "Non è necessario fermare il lavoro"
 #. Default: "Confirm OiRA membership to ’${organisation}’"
 #: euphorie/client/browser/organisation.py:221
 msgid "subject_add_user_to_organisation_email"
-msgstr "Conferma la partecipazione ad OiRA di ’${organisation}’"
+msgstr "Collabora alla valutazione dei rischi di ’${organisation}’ con OiRA"
 
 #. Default: "Standard"
 #: euphorie/content/browser/surveygroup.py:193
@@ -6311,7 +6311,7 @@ msgstr "Dettagli personali"
 #. Default: "Preferences"
 #: euphorie/client/browser/settings.py:60
 msgid "title_preferences"
-msgstr "Preferenze"
+msgstr "Utente"
 
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:223
