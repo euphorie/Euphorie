@@ -7,4 +7,5 @@
          name view/name;
          fieldname view/field/__name__;
        "
+       tal:attributes="required python:'required' if view.field.required else None"
 />
