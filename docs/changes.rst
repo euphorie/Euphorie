@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.2.0 (unreleased)
+14.2.0 (2022-11-09)
 -------------------
 
 - Disable the cache control settings on the certificate pages.

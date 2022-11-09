@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = "14.2.0.dev0"
+version = "14.2.0"
 
 setup(
     name="Euphorie",
