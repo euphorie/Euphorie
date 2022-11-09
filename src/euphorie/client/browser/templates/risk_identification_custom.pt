@@ -230,13 +230,9 @@
                               name="custom_description:utf8:ustring"
                               placeholder="${view/notes_placeholder}"
                               data-pat-tiptap="
-                toolbar-external: #assessment-toolbar;
-                source-panel: #pat-modal.panel-html-source-editor;
-                image-panel: #pat-modal.image-picker;
-                link-panel: #pat-modal .link-panel;
-                context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments
-                url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
-                url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}"
+                                  toolbar-external: #assessment-toolbar;
+                                  link-panel: #pat-modal .link-panel;
+                                  context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
                               tal:content="context/custom_description"
                     >
                     </textarea>
