@@ -1,12 +1,19 @@
 Changelog
 =========
 
-14.2.0 (unreleased)
+14.2.1 (unreleased)
 -------------------
 
 - Fix issue where tiptap context menu didn't load.
   Refs: `#477 <https://github.com/euphorie/Euphorie/issues/477>`_.
   [thet]
+- Formatting is available for in-place measures.
+  [reinhardt]
+
+
+14.2.0 (2022-11-09)
+-------------------
+
 - Disable the cache control settings on the certificate pages.
   Refs. `#475 <https://github.com/euphorie/Euphorie/issues/475>`_.
   [ale-rt]
