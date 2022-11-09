@@ -221,13 +221,9 @@
                           placeholder="${view/placeholder_add_extra}"
                           rows="3"
                           data-pat-tiptap="
-                            toolbar-external: #assessment-toolbar;
-                            source-panel: #pat-modal.panel-html-source-editor;
-                            image-panel: #pat-modal.image-picker;
-                            link-panel: #pat-modal .link-panel;
-                            context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments
-                            url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
-                            url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}"
+                              toolbar-external: #assessment-toolbar;
+                              link-panel: #pat-modal .link-panel;
+                              context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
                           tal:content="structure python:webhelpers.get_safe_html(measure['text'])"
                 ></textarea>
               </div>
@@ -258,13 +254,9 @@
                           placeholder="${view/placeholder_add_extra}"
                           rows="3"
                           data-pat-tiptap="
-                            toolbar-external: #assessment-toolbar;
-                            source-panel: #pat-modal.panel-html-source-editor;
-                            image-panel: #pat-modal.image-picker;
-                            link-panel: #pat-modal .link-panel;
-                            context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments
-                            url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
-                            url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}"
+                              toolbar-external: #assessment-toolbar;
+                              link-panel: #pat-modal .link-panel;
+                              context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
                 ></textarea>
               </div>
               <button class="icon-trash iconified remove-clone"
@@ -741,13 +733,9 @@
                       name="comment:utf8:ustring"
                       placeholder="${view/notes_placeholder}"
                       data-pat-tiptap="
-                        toolbar-external: #assessment-toolbar;
-                        source-panel: #pat-modal.panel-html-source-editor;
-                        image-panel: #pat-modal.image-picker;
-                        link-panel: #pat-modal .link-panel;
-                        context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments
-                        url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
-                        url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}"
+                          toolbar-external: #assessment-toolbar;
+                          link-panel: #pat-modal .link-panel;
+                          context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
                       tal:content="context/comment"
             >
             </textarea>
@@ -1000,13 +988,9 @@
                           rows="3"
                           type="text"
                           data-pat-tiptap="
-        toolbar-external: #assessment-toolbar;
-        source-panel: #pat-modal.panel-html-source-editor;
-        image-panel: #pat-modal.image-picker;
-        link-panel: #pat-modal .link-panel;
-        context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments
-        url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
-        url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}"
+                              toolbar-external: #assessment-toolbar;
+                              link-panel: #pat-modal .link-panel;
+                              context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
                           tal:content="actionplan/action|nothing"
                           i18n:attributes="placeholder label_measure_action_plan"
                 ></textarea>
@@ -1158,13 +1142,9 @@
                         rows="3"
                         type="text"
                         data-pat-tiptap="
-        toolbar-external: #assessment-toolbar;
-        source-panel: #pat-modal.panel-html-source-editor;
-        image-panel: #pat-modal.image-picker;
-        link-panel: #pat-modal .link-panel;
-        context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments
-        url-scheme-mentions: https://quaive.cornelis.amsterdam/users/{USER};
-        url-scheme-tags:  https://quaive.cornelis.amsterdam/tags/{TAG}"
+                            toolbar-external: #assessment-toolbar;
+                            link-panel: #pat-modal .link-panel;
+                            context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
                         i18n:attributes="placeholder label_measure_action_plan"
               ></textarea>
             </div>
