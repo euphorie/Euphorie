@@ -807,9 +807,15 @@
 
             
                 <a 
+                    title="Lock this assessment" 
                     href="/preparation.html#publication-menu" 
-                    class="icon-lock text-button pat-tooltip" 
-                    data-pat-tooltip="source: ajax; position-list: tr">Locked <time class="pat-display-time" data-pat-display-time="from-now: true; locale: de" datetime="2018-03-28T08:00Z">2018-03-28</time></a>
+                    class="icon-lock-open icon pat-tooltip" 
+                    data-pat-tooltip="source: ajax; position-list: tr; trigger: click; source: ajax">Unlocked 
+                    <!-- <time 
+                            class="pat-display-time" 
+                        data-pat-display-time="from-now: true; locale: de" 
+                        datetime="2018-03-28T08:00Z">2018-03-28</time> -->
+                </a>
             
 
             <!-- <button 
@@ -912,14 +918,16 @@
 
 	
     
-    <fieldset 
-        class="evaluation pat-well notice pat-depends vertical"
+    <div 
+        class="risk-module evaluation pat-well notice pat-depends vertical"
         data-pat-depends="condition: answer=no; transition: slide">
         
-            <p class="problem-description">
+            <p 
+                class="problem-description">
                 <strong>Collisions, bumps, and jamming are not prevented.</strong>
             </p>
-            <fieldset class="pat-checklist radio">
+            <fieldset 
+                class="pat-checklist radio">
                 <legend>Odaberite prioritet za ovaj rizik</legend>
                 <label><input type="radio" name="chance" value="low" /> Mali</label>
                 <label><input type="radio" name="chance" value="medium" /> Srednja</label>
@@ -927,7 +935,7 @@
             </fieldset>
 
         
-    </fieldset>
+    </div>
 
 
 
