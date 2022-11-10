@@ -807,9 +807,15 @@
 
             
                 <a 
+                    title="Lock this assessment" 
                     href="/preparation.html#publication-menu" 
-                    class="icon-lock text-button pat-tooltip" 
-                    data-pat-tooltip="source: ajax; position-list: tr">Locked <time class="pat-display-time" data-pat-display-time="from-now: true; locale: de" datetime="2018-03-28T08:00Z">2018-03-28</time></a>
+                    class="icon-lock-open icon pat-tooltip" 
+                    data-pat-tooltip="source: ajax; position-list: tr; trigger: click; source: ajax">Unlocked 
+                    <!-- <time 
+                            class="pat-display-time" 
+                        data-pat-display-time="from-now: true; locale: de" 
+                        datetime="2018-03-28T08:00Z">2018-03-28</time> -->
+                </a>
             
 
             <!-- <button 
@@ -912,26 +918,32 @@
 
 	
     
-    <fieldset 
-        class="evaluation pat-well notice pat-depends vertical"
+    <div 
+        class="risk-module evaluation pat-well notice pat-depends vertical"
         data-pat-depends="condition: answer=no; transition: slide">
         
-            <p class="problem-description">
+            <p 
+                class="problem-description">
                 <strong>Exposure to biological substances is neither prevented nor controlled</strong>
             </p>
-            <p class="instruction">
+            <p 
+                class="instruction">
                 Попълнете отговорите на следните въпроси. Въз основа на вашите отговори системата ще изчисли нивото на приоритет на  риска. На по-късен етап ще имате възможност да го промените.
             </p>
-            <fieldset class="pat-checklist radio">
+            <fieldset 
+                class="pat-checklist radio">
                 <legend>
                     Каква е вероятността това да се случи?
-                    <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">Indicate how likely occurence of this risk is in a normal situation.</dfn>
+                    <dfn 
+                        class="icon-help-circle iconified pat-tooltip" 
+                        data-pat-tooltip="source: content; position-list: lt">Indicate how likely occurence of this risk is in a normal situation.</dfn>
                 </legend>
                 <label><input type="radio" name="chance" value="small" checked="checked" /> Малка</label>
                 <label><input type="radio" name="chance" value="medium" /> Средна</label>
                 <label><input type="radio" name="chance" value="large" /> Голяма</label>
             </fieldset>
-            <fieldset class="pat-checklist radio">
+            <fieldset 
+                class="pat-checklist radio">
                 <legend>
                     Колко често хора са изложени на риск?
                     <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">Indicate how often this risk occurs in a normal situation.</dfn>
@@ -940,7 +952,8 @@
                 <label><input type="radio" name="exposed" value="re" checked="checked"  /> Редовно</label>
                 <label><input type="radio" name="exposed" value="co" /> Постоянно</label>
             </fieldset>
-            <fieldset class="pat-checklist radio">
+            <fieldset 
+                class="pat-checklist radio">
                 <legend>
                     Какво е нивото на сериозност на нараняването ?
                     <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">Indicate the default severity of this risk occurs.</dfn>
@@ -950,7 +963,7 @@
                 <label><input type="radio" name="effect" value="hs" checked="checked"  /> Високо (много високо) ниво на сериозност</label>
             </fieldset>
         
-    </fieldset>
+    </div>
 
 
 

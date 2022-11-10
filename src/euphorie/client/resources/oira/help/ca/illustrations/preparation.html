@@ -242,9 +242,15 @@
 
             
                 <a 
+                    title="Lock this assessment" 
                     href="/preparation.html#publication-menu" 
-                    class="icon-lock text-button pat-tooltip" 
-                    data-pat-tooltip="source: ajax; position-list: tr">Locked <time class="pat-display-time" data-pat-display-time="from-now: true; locale: de" datetime="2018-03-28T08:00Z">2018-03-28</time></a>
+                    class="icon-lock-open icon pat-tooltip" 
+                    data-pat-tooltip="source: ajax; position-list: tr; trigger: click; source: ajax">Unlocked 
+                    <!-- <time 
+                            class="pat-display-time" 
+                        data-pat-display-time="from-now: true; locale: de" 
+                        datetime="2018-03-28T08:00Z">2018-03-28</time> -->
+                </a>
             
 
             <!-- <button 
@@ -397,41 +403,27 @@
 <div 
     id="publication-menu" 
     hidden>
-    <div 
-        class="pat-message notice">
-        <p>
-            <!-- Diplay this paragraph only when the assessment is locked. -->
-            <strong>Locked 
-                <time 
-                    class="pat-display-time" 
-                    data-pat-display-time="from-now: true;locale: de" 
-                    datetime="2018-03-28T08:00Z">2018-03-28</time>
-            </strong>
-        </p>
-        <p>
-            Last edited by <a href="mailto:hans@mittelmaier.de">Hans Mittelmaier</a> on 7 November 2018.
-        </p>
-    </div>
+    
+        <div 
+            class="pat-message notice">
+            <p>
+                Last edited by <a href="mailto:hans@mittelmaier.de">Hans Mittelmaier</a> on 7 November 2022.
+            </p>
+        </div>
+    
     <ul 
         class="menu">
-        <li>
-            <form 
-                action="/preparation.html#content" 
-                class="pat-inject">
-                <button 
-                    type="submit" 
-                    class="icon-lock-open">Unlock Risk Assessment</button>
-            </form>
-        </li>
-        <li>
-            <form   
-                action="/preparation.html#content" 
-                class="pat-inject">
-                <button 
-                    type="submit" 
-                    class="icon-arrows-cw">Refresh locking date</button>
-            </form>
-        </li>
+        
+            <li>
+                <form 
+                    action="/preparation-read-only.html#content" 
+                    class="pat-inject close-panel">
+                    <button 
+                        type="submit" 
+                        class="icon-lock">Lock Risk Assessment</button>
+                </form>
+            </li>
+          
     </ul>
 </div>
 

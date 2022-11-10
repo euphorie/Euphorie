@@ -807,9 +807,15 @@
 
             
                 <a 
+                    title="Lock this assessment" 
                     href="/preparation.html#publication-menu" 
-                    class="icon-lock text-button pat-tooltip" 
-                    data-pat-tooltip="source: ajax; position-list: tr">Locked <time class="pat-display-time" data-pat-display-time="from-now: true; locale: de" datetime="2018-03-28T08:00Z">2018-03-28</time></a>
+                    class="icon-lock-open icon pat-tooltip" 
+                    data-pat-tooltip="source: ajax; position-list: tr; trigger: click; source: ajax">Unlocked 
+                    <!-- <time 
+                            class="pat-display-time" 
+                        data-pat-display-time="from-now: true; locale: de" 
+                        datetime="2018-03-28T08:00Z">2018-03-28</time> -->
+                </a>
             
 
             <!-- <button 
@@ -912,26 +918,32 @@
 
 	
     
-    <fieldset 
-        class="evaluation pat-well notice pat-depends vertical"
+    <div 
+        class="risk-module evaluation pat-well notice pat-depends vertical"
         data-pat-depends="condition: answer=no; transition: slide">
         
-            <p class="problem-description">
+            <p 
+                class="problem-description">
                 <strong>Exposure to biological substances is neither prevented nor controlled</strong>
             </p>
-            <p class="instruction">
+            <p 
+                class="instruction">
                 Παρακαλούμε απαντήστε στις ακόλουθες ερωτήσεις. Με βάση τις απαντήσεις σας το εργαλείο αυτόματα και για κάθε περίπτωση κινδύνου, θα υπολογίσει την “εκτίμηση επικινδυνότητας”. Στη συνέχεια, μπορείτε αν θέλετε να τροποποιήσετε την εκτίμηση επικινδυνότητας.
             </p>
-            <fieldset class="pat-checklist radio">
+            <fieldset 
+                class="pat-checklist radio">
                 <legend>
                     Ποια η πιθανότητα να προκληθεί αυτός ο κίνδυνος;
-                    <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">Indicate how likely occurence of this risk is in a normal situation.</dfn>
+                    <dfn 
+                        class="icon-help-circle iconified pat-tooltip" 
+                        data-pat-tooltip="source: content; position-list: lt">Indicate how likely occurence of this risk is in a normal situation.</dfn>
                 </legend>
                 <label><input type="radio" name="chance" value="small" checked="checked" /> Χαμηλή</label>
                 <label><input type="radio" name="chance" value="medium" /> Μέτρια</label>
                 <label><input type="radio" name="chance" value="large" /> Υψηλή</label>
             </fieldset>
-            <fieldset class="pat-checklist radio">
+            <fieldset 
+                class="pat-checklist radio">
                 <legend>
                     Πόσο συχνά εκτίθενται άνθρωποι σε αυτό τον κίνδυνο;
                     <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">Indicate how often this risk occurs in a normal situation.</dfn>
@@ -940,7 +952,8 @@
                 <label><input type="radio" name="exposed" value="re" checked="checked"  /> Τακτικά</label>
                 <label><input type="radio" name="exposed" value="co" /> Διαρκώς</label>
             </fieldset>
-            <fieldset class="pat-checklist radio">
+            <fieldset 
+                class="pat-checklist radio">
                 <legend>
                     Ποια είναι η σοβαρότητα των επιπτώσεων?
                     <dfn class="icon-help-circle iconified pat-tooltip" data-pat-tooltip="source: content; position-list: lt">Indicate the default severity of this risk occurs.</dfn>
@@ -950,7 +963,7 @@
                 <label><input type="radio" name="effect" value="hs" checked="checked"  /> Μεγάλη σοβαρότητα επιπτώσεων</label>
             </fieldset>
         
-    </fieldset>
+    </div>
 
 
 
