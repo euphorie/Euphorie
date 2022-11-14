@@ -4,6 +4,9 @@ Changelog
 14.2.1 (unreleased)
 -------------------
 
+- Fix a padding issue in the risk evaluation template.
+  Refs: `#688 <https://github.com/syslabcom/scrum/issues/688>`_.
+  [thet]
 - Fix issue where tiptap context menu didn't load.
   Refs: `#477 <https://github.com/euphorie/Euphorie/issues/477>`_.
   [thet]

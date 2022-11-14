@@ -178,7 +178,7 @@
           <!-- END Action Plan -->
 
           <!-- Evaluation -->
-          <fieldset class="pat-well notice pat-depends vertical evaluation"
+          <div class="risk-module pat-well notice pat-depends vertical evaluation"
                     id="evaluation"
                     data-pat-depends="condition: answer=no; transition: slide"
                     tal:condition="not:view/skip_evaluation"
@@ -209,7 +209,7 @@
                 />
                 <tal:span i18n:translate="priority_high">High</tal:span></label>
             </fieldset>
-          </fieldset>
+          </div>
           <!-- END Evaluation -->
 
           <!-- Information -->
