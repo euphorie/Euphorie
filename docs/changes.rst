@@ -12,6 +12,9 @@ Changelog
   [thet]
 - Formatting is available for in-place measures.
   [reinhardt]
+- Mailing lists json view.
+  `#739 <https://github.com/syslabcom/scrum/issues/739>`_.
+  [reinhardt]
 
 
 14.2.0 (2022-11-09)
