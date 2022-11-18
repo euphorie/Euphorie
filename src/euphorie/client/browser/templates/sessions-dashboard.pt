@@ -11,6 +11,13 @@
     <tal:block replace="tile:statusmessages" />
     <div id="content-pane">
       <metal:homescreen_navigation define-macro="homescreen_navigation">
+        <tal:banner replace="structure here/@@dashboard-banner|nothing">
+          Proto foresees a banner in the dashboard,
+          that can be used for call for actions, see:
+
+          - https://oira.cornelis.amsterdam/index-logged-in
+
+        </tal:banner>
         <div class="pat-toolbar"
              id="tools-toolbar"
              tal:define="
