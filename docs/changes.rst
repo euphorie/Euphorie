@@ -4,6 +4,9 @@ Changelog
 14.2.1 (unreleased)
 -------------------
 
+- Prepare the dashboard to have banners
+  Refs: `#747 <https://github.com/syslabcom/scrum/issues/747>`_.
+  [ale]
 - Fix a padding issue in the risk evaluation template.
   Refs: `#688 <https://github.com/syslabcom/scrum/issues/688>`_.
   [thet]
