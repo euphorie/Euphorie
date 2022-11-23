@@ -88,13 +88,21 @@
                          name="measure-${measure/solution_id}"
                          type="checkbox"
                   />
-                  <textarea class=""
-                            cols="50"
-                            name="present-measure-${measure/solution_id}"
-                            placeholder="${view/placeholder_add_extra}"
-                            rows="3"
-                            data-pat-autosubmit="1000ms"
-                  >${python:measure['text']}</textarea>
+                </label>
+                <label>
+                  <div class="pat-rich-editor pat-rich toolbar-detached">
+                    <textarea class="pat-tiptap"
+                              cols="50"
+                              name="present-measure-${measure/solution_id}"
+                              placeholder="${view/placeholder_add_extra}"
+                              rows="3"
+                              data-pat-autosubmit="1000ms"
+                              data-pat-tiptap="
+                              toolbar-external: #assessment-toolbar;
+                              link-panel: #pat-modal .link-panel;
+                              context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
+                    >${python:measure['text']}</textarea>
+                  </div>
                 </label>
               </tal:measures>
               <input name="handle_measures_in_place"
@@ -102,28 +110,35 @@
                      value="1"
               />
 
-              <label class="clone"
-                     id="in-place-measure-template"
-                     hidden="hidden"
-              >
-                <input class="pat-autofocus"
-                       autofocus="autofocus"
-                       checked="checked"
-                       disabled="disabled"
-                       name="use-new-measure-#{1}"
-                       type="checkbox"
-                />
-                <textarea class=""
-                          cols="50"
-                          name="new-measure-#{1}"
-                          placeholder="${view/placeholder_add_extra}"
-                          rows="3"
-                          data-pat-autosubmit="1000ms"
-                ></textarea>
-                <button class="icon-trash iconified remove-clone"
-                        title="${view/button_remove_extra}"
-                >Remove</button>
-              </label>
+              <template id="in-place-measure-template">
+                <label class="clone"
+                       hidden="hidden"
+                >
+                  <input class="pat-autofocus"
+                         autofocus="autofocus"
+                         checked="checked"
+                         disabled="disabled"
+                         name="use-new-measure-#{1}"
+                         type="checkbox"
+                  />
+                  <div class="pat-rich-editor pat-rich toolbar-detached">
+                    <textarea class="pat-tiptap"
+                              cols="50"
+                              name="new-measure-#{1}"
+                              placeholder="${view/placeholder_add_extra}"
+                              rows="3"
+                              data-pat-autosubmit="1000ms"
+                              data-pat-tiptap="
+                              toolbar-external: #assessment-toolbar;
+                              link-panel: #pat-modal .link-panel;
+                              context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
+                    ></textarea>
+                  </div>
+                  <button class="icon-trash iconified remove-clone"
+                          title="${view/button_remove_extra}"
+                  >Remove</button>
+                </label>
+              </template>
 
             </fieldset>
 
@@ -179,9 +194,9 @@
 
           <!-- Evaluation -->
           <div class="risk-module pat-well notice pat-depends vertical evaluation"
-                    id="evaluation"
-                    data-pat-depends="condition: answer=no; transition: slide"
-                    tal:condition="not:view/skip_evaluation"
+               id="evaluation"
+               data-pat-depends="condition: answer=no; transition: slide"
+               tal:condition="not:view/skip_evaluation"
           >
             <p class="problem-description"><strong>${here/title}</strong></p>
             <fieldset class="pat-checklist radio"
