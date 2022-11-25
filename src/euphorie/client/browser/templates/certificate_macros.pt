@@ -20,7 +20,7 @@
                      i18n:domain="euphorie"
   >
     <a class="icon progress pat-tooltip"
-       href="${request/client/absolute_url}/${session/zodb_path}/++session++${session/id}/@@status-tooltip#status-sentinel"
+       href="${session/absolute_url}/@@status-tooltip#status-sentinel"
        data-pat-inject="history: record"
        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr"
        tal:condition="not:disabled"

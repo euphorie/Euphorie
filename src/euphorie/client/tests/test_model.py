@@ -144,6 +144,19 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
         ses.add(root)
         self.assertEqual(survey.hasTree(), True)
 
+    def test_absolute_url(self):
+        survey = createSurvey()[1]
+        with self.assertRaises(ValueError):
+            survey.absolute_url()
+
+        # We now set the zodb_path to something
+        # traversable in the context of the client folder
+        survey.zodb_path = ""
+
+        self.assertEqual(
+            survey.absolute_url(), "http://nohost/plone/client/++session++1"
+        )
+
 
 class RiskPresentFilterTests(EuphorieIntegrationTestCase):
     def createData(self):
