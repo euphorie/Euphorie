@@ -4,7 +4,9 @@ Changelog
 14.2.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add the postgres user to the Authenticated Users,
+  allow the user to be checked for the reader role
+  [ale-rt]
 
 
 14.2.1 (2022-11-25)
@@ -35,9 +37,6 @@ Changelog
   `#435 <https://github.com/euphorie/Euphorie/pull/435>`_.
 - Introduce the concept of "organisations"
 - Sanitize the permissions handling in the client section
-  [ale-rt]
-- Add the postgres user to the Authenticated Users,
-  allow the user to be checked for the reader role
   [ale-rt]
 - Added an `@@export.json` view that allows to export a session and the related content in a single json file.
   [ale-rt]
