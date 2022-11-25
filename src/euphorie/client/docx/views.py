@@ -172,7 +172,7 @@ def _escape_text(txt):
 
 def _get_action_plan(action):
     action_plan = {}
-    action_plan["text"] = _escape_text(action.action)
+    action_plan["text"] = action.action
     requirements = getattr(action, "requirements") or ""
     action_plan["requirements"] = _escape_text(requirements)
     if action.responsible:

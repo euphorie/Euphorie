@@ -682,8 +682,7 @@ class DocxCompilerFullTable(DocxCompiler):
         for idx, action in enumerate(risk["actions"]):
             if idx != 0:
                 paragraph = cell.add_paragraph()
-            paragraph.style = "Measure List"
-            paragraph.text = _simple_breaks(action["text"])
+            HtmlToWord(_simple_breaks(action["text"]), cell, style="Measure List")
             if action.get("requirements", None):
                 paragraph = cell.add_paragraph(style="Measure Indent")
                 run = paragraph.add_run()

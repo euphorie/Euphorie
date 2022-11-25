@@ -7,6 +7,8 @@ Changelog
 - Add the postgres user to the Authenticated Users,
   allow the user to be checked for the reader role
   [ale-rt]
+- Docx report: fix for in-place measures.
+  [reinhardt]
 
 
 14.2.1 (2022-11-25)
