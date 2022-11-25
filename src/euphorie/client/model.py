@@ -11,9 +11,11 @@ from __future__ import division
 from AccessControl.interfaces import IUser
 from AccessControl.PermissionRole import _what_not_even_god_should_do
 from AccessControl.SecurityInfo import ClassSecurityInfo
+from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from collections import defaultdict
+from euphorie.client.client import IClient
 from euphorie.client.enum import Enum
 from OFS.interfaces import IApplication
 from plone import api
@@ -530,6 +532,9 @@ class Account(BaseObject):
         """Return the login name."""
         return self.loginname
 
+    def getGroups(self):
+        return ["AuthenticatedUsers"]
+
     def getRoles(self):
         """Return all global roles for this user."""
 
@@ -557,7 +562,7 @@ class Account(BaseObject):
         """Check if the user has a permission in a context."""
         return perm == "Euphorie: View a Survey"
 
-    def allowed(self, object, object_roles=None):
+    def allowed(self, context, object_roles=None):
         """Check if this account has any of the requested roles in the context
         of `object`."""
         if object_roles is _what_not_even_god_should_do:
@@ -566,9 +571,10 @@ class Account(BaseObject):
         if object_roles is None:
             return True
 
-        for role in ["Anonymous", "Authenticated", "EuphorieUser"]:
-            if role in object_roles:
-                return True
+        for obj in aq_chain(aq_inner(context)):
+            if IClient.providedBy(obj):
+                allowed_roles = {"Anonymous", "Authenticated", "EuphorieUser", "Reader"}
+                return bool(allowed_roles & set(object_roles))
 
         return False
 
