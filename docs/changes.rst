@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.2.1 (unreleased)
+14.2.1 (2022-11-25)
 -------------------
 
 - Prepare the dashboard to have banners
