@@ -127,7 +127,7 @@
                     <li class="item type-risk-assessment">
                       <span class="object-name field">
                         <a class="session-name pat-inject pat-switch"
-                           href="${sessioon/absolute_url}/@@start"
+                           href="${session/absolute_url}/@@start"
                            data-pat-inject="source: #content; target: #content; history:record "
                            data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal"
                         >${session/title}</a>
