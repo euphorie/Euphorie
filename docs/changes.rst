@@ -4,6 +4,9 @@ Changelog
 14.3.0 (unreleased)
 -------------------
 
+- Fix json export of session to extend the risk and module serialized data with
+  the info coming from the tree table
+  [ale-rt]
 - Add the postgres user to the Authenticated Users,
   allow the user to be checked for the reader role
   [ale-rt]

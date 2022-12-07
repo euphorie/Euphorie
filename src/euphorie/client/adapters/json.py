@@ -36,12 +36,17 @@ class SA2DictAdapter:
     def get_children(self):
         return {}
 
+    @property
+    def columns(self):
+        """Return a list of column names for this table."""
+        return [column.key for column in self.context.__table__.columns]
+
     def __call__(self):
         table = self.context.__table__
         data = {}
-        for column in table.columns:
+        for column in self.columns:
             try:
-                data[column.key] = getattr(self.context, column.key)
+                data[column] = getattr(self.context, column)
             except AttributeError:
                 # Happens when using polymorphic tables:
                 # the object might no have all the attributes set
@@ -54,19 +59,43 @@ class SA2DictAdapter:
         }
 
 
+@adapter(SurveyTreeItem)
+class SurveyTreeItem2DictAdapter(SA2DictAdapter):
+    @property
+    def columns(self):
+        """This adapter is used for all the tables that inherit from SurveyTreeItem,
+        namely Risk and Module.
+        For those objects we want to return the columns from their own table
+        plus the one of the SurveyTreeItem table.
+        """
+        columns = super().columns
+        new_columns = [
+            column.key
+            for column in SurveyTreeItem.__table__.columns
+            if column.key not in columns
+        ]
+        return columns + new_columns
+
+
 @adapter(Risk)
-class Risk2DictAdapter(SA2DictAdapter):
+class Risk2DictAdapter(SurveyTreeItem2DictAdapter):
     def get_children(self):
-        return {
-            ActionPlan.__table__.name: Session.query(ActionPlan).filter(
-                ActionPlan.risk_id == self.context.id
-            )
-        }
+        """Overwrite the default get_children method to include the action plans"""
+        children = super().get_children()
+        children[ActionPlan.__table__.name] = Session.query(ActionPlan).filter(
+            ActionPlan.risk_id == self.context.id
+        )
+        return children
 
 
 @adapter(SurveySession)
 class SurveySession2DictAdapter(SA2DictAdapter):
     def get_children(self):
+        """Overwrite the default get_children method to include:
+        - the company
+        - survey tree items (modules and risks)
+        - training
+        """
         return {
             klass.__table__.name: Session.query(klass).filter(
                 klass.session_id == self.context.id
