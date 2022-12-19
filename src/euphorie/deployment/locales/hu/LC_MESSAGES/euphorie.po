@@ -6279,7 +6279,7 @@ msgstr "Személyes adatok"
 #. Default: "Preferences"
 #: euphorie/client/browser/settings.py:60
 msgid "title_preferences"
-msgstr Beállítások"
+msgstr "Beállítások"
 
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:223
