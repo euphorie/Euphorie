@@ -158,11 +158,11 @@ msgstr "Tartalom hozzáadása a könyvtárból"
 #: euphorie/client/browser/templates/organisation.pt:54
 #: euphorie/client/browser/templates/panel-add-organisation.pt:17
 msgid "Add organisation"
-msgstr ""
+msgstr "Szervezet hozzáadása"
 
 #: euphorie/client/browser/templates/organisation.pt:121
 msgid "Add user"
-msgstr ""
+msgstr "Felhasználó hozzáadása"
 
 #: euphorie/content/browser/library.py:211
 msgid "Added a copy of \"${title}\" to your OiRA tool."
@@ -175,7 +175,7 @@ msgstr "További intézkedés(ek)"
 #: euphorie/client/browser/organisation.py:45
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:66
 msgid "Administrator"
-msgstr ""
+msgstr "Adminisztrátor"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:68
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:68
@@ -183,7 +183,7 @@ msgid ""
 "Administrators can create, edit and remove user accounts. Administrators can "
 "also make risk assessments, lock risk assessments, create trainings and take "
 "trainings."
-msgstr ""
+msgstr "Az adminisztrátorok létrehozhatnak, szerkeszthetnek és eltávolíthatnak felhasználói fiókokat. Az adminisztrátorok szintén elkészíthetnek kokckázatértékeléseket, lezárhatnak kockázatértékleéseket, létrehozhatnak és elvégezhetnek képzéseket."
 
 #: euphorie/client/browser/templates/surveys.pt:56
 msgid "All countries"
@@ -247,7 +247,7 @@ msgstr "Biztosan folytatja?"
 
 #: euphorie/client/browser/templates/panel-organisation-member-remove.pt:37
 msgid "Are you sure you want to remove ${name} from ${organisation}?"
-msgstr ""
+msgstr "Biztsan el kívánja távolítani a ${name} nevű felhasználót a ${organisation} nevű szervezetből?"
 
 #: euphorie/client/browser/templates/portlet-available-tools.pt:14
 msgid "Available OiRA tools"
@@ -427,7 +427,7 @@ msgstr "EU tagállam"
 #: euphorie/client/browser/templates/organisation-member-more-menu.pt:19
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:20
 msgid "Edit"
-msgstr ""
+msgstr "Szerkesztés"
 
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:21
 #: euphorie/content/browser/module.py:97
@@ -444,7 +444,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/organisation.pt:127
 msgid "Edit organisation"
-msgstr ""
+msgstr "Szervezet szerkesztése"
 
 #: euphorie/client/browser/templates/training.pt:248
 msgid "Edit training card"
@@ -611,7 +611,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:74
 msgid "Keep the existing logo"
-msgstr ""
+msgstr "Meglévő logó megtartása"
 
 #: euphorie/content/utils.py:46
 msgid "Kosovo"
@@ -642,7 +642,7 @@ msgstr "Bejelentkezés"
 #: euphorie/client/browser/templates/panel-add-organisation.pt:45
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:49
 msgid "Logo (Optional)"
-msgstr ""
+msgstr "Logó (opcionális)"
 
 #: euphorie/client/browser/templates/report_landing.pt:89
 msgid "Manage"
@@ -672,20 +672,20 @@ msgstr "Az intézkedésért felelős:"
 #: euphorie/client/browser/organisation.py:37
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:52
 msgid "Member"
-msgstr ""
+msgstr "Tag"
 
 #: euphorie/client/browser/organisation.py:728
 msgid "Member removed"
-msgstr ""
+msgstr "Tag eltávolítva"
 
 #: euphorie/client/browser/organisation.py:671
 msgid "Member updated"
-msgstr ""
+msgstr "Tag frissítve"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:80
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:80
 msgid "Members can make risk assessments and take trainings."
-msgstr ""
+msgstr "A tagok elkészíthetik a kockázatértékeléseket és részt vehetnek képzéseken."
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml
 #: euphorie/deployment/browser/search.py:13
@@ -755,7 +755,7 @@ msgstr "Új"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:17
 msgid "New user"
-msgstr ""
+msgstr "Új felhasználó"
 
 #: euphorie/client/browser/templates/profile.pt:71
 #: euphorie/client/browser/templates/updated.pt:65
@@ -841,16 +841,16 @@ msgstr ""
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:54
 msgid "Organisation"
-msgstr ""
+msgstr "Szervezet"
 
 #: euphorie/client/browser/organisation.py:165
 msgid "Organisation added"
-msgstr ""
+msgstr "Szervezet csatlakoztatva"
 
 #: euphorie/client/browser/templates/panel-add-organisation.pt:34
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:37
 msgid "Organisation name"
-msgstr ""
+msgstr "Szervezet neve"
 
 #: euphorie/client/browser/session.py:1097
 #: euphorie/client/browser/templates/measures_overview.pt:63
@@ -874,7 +874,7 @@ msgstr "A kockázatok áttekintése (PDF)"
 
 #: euphorie/client/browser/templates/organisation.pt:96
 msgid "Owner"
-msgstr ""
+msgstr "Tulajdonos"
 
 #: euphorie/client/browser/templates/report_landing.pt:163
 msgid ""
@@ -1021,7 +1021,7 @@ msgstr "Eltávolítás"
 
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:93
 msgid "Remove the existing logo"
-msgstr ""
+msgstr "Meglévő logó eltávolítása"
 
 #: euphorie/client/browser/templates/slide_question_try_again.pt:41
 msgid "Repeat the questions to find the correct answer and try again."
@@ -1033,7 +1033,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:84
 msgid "Replace the existing logo"
-msgstr ""
+msgstr "Meglévő logó lecserélése"
 
 #: euphorie/content/utils.py:48
 msgid "Republic of Serbia"
@@ -1113,11 +1113,11 @@ msgstr "Ágazat"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:45
 msgid "Select the role your new members will get"
-msgstr ""
+msgstr "Válassza ki az új felhasználó szerepét"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:92
 msgid "Send e-mail"
-msgstr ""
+msgstr "E-mail küldése"
 
 #: euphorie/client/browser/session.py:698
 msgid "Session `${name}` has been archived."
@@ -1412,7 +1412,7 @@ msgid ""
 "a link in it that people can use to join your organisation. The link is "
 "valid for five days and you may send it to as many people as you would like "
 "to join your organisation."
-msgstr ""
+msgstr "Ha a folytatás gombra kattint, az e-mail kliense megnyit egy új e-mailt, amelyben egy link található, amelyen keresztül az emberek csatlakozhatnak a szervezethez. A link öt napig érvényes, és annyi embernek küldheti el, ahányan csak szeretnének csatlakozni a szervezetéhez."
 
 #: euphorie/client/browser/templates/login.pt:308
 msgid "Who is the OiRA tool for?"
@@ -1748,7 +1748,7 @@ msgstr "előnyök"
 #. Default: "\n            I hereby invite you to join our organisation on OiRA.\n            Once you've accepted your membership,\n            we can collaborate on risk assessments.\n\n            Please log in or register via the link below\n            and accept your membership.\n            This link will stay valid for ${days_to_keep} days.\n\n            ${link}\n            "
 #: euphorie/client/browser/organisation.py:234
 msgid "body_add_user_to_organisation_email"
-msgstr ""
+msgstr "\n            Ezúton meghívom Önt, hogy csatlakozzon szervezetünk OiRA rendszeréhez.\n            Amint elfogadta a tagságát, együtt tudunk működni a kockázatértékelések elkészítésében.\n\n            Kérjük jelentkezzen be vagy regisztráljon a lenti linken keresztül és fogadaja el a tagságát.\n            Ez a link $(napok száma amíg érvényes) napig marad érvényben.\n\n            ${link}\n            "
 
 #. Default: "${Modules} (and potentially sub-modules): containers providing a logical structure"
 #: euphorie/content/browser/templates/profilequestion_add.pt:53
@@ -2223,7 +2223,7 @@ msgstr "Adja meg az intézkedést ami már érvényben van."
 #. Default: "Organisation of ${name}"
 #: euphorie/client/browser/organisation.py:57
 msgid "default_organisation_title"
-msgstr ""
+msgstr "${name} nevű szervezet"
 
 #. Default: "Measures that are already in place (Only shown here for reference! Use the “Add Measure” button on the Risk for adding measures that are shown to the user during Identification.)"
 #: euphorie/content/risk.py:104
@@ -4390,12 +4390,12 @@ msgstr "Tartalom felirat"
 #. Default: "First name"
 #: euphorie/client/browser/settings.py:128
 msgid "label_first_name"
-msgstr ""
+msgstr "Keresztnév"
 
 #. Default: "First name (optional)"
 #: euphorie/client/browser/templates/login.pt:155
 msgid "label_first_name_optional"
-msgstr ""
+msgstr "Keresztnév (opcionális)"
 
 #. Default: "I forgot my password"
 #: euphorie/client/browser/templates/login.pt:110
@@ -4525,12 +4525,12 @@ msgstr "Nyelv"
 #. Default: "Last name"
 #: euphorie/client/browser/settings.py:131
 msgid "label_last_name"
-msgstr ""
+msgstr "Vezetéknév"
 
 #. Default: "Last name (optional)"
 #: euphorie/client/browser/templates/login.pt:168
 msgid "label_last_name_optional"
-msgstr ""
+msgstr "Vezetéknév (opcionális)"
 
 #. Default: "Learn more"
 #: euphorie/client/browser/templates/login.pt:276
@@ -4762,7 +4762,7 @@ msgstr ""
 #. Default: "Organisation"
 #: euphorie/client/browser/templates/assessments.pt:34
 msgid "label_organisation"
-msgstr ""
+msgstr "Szervezet"
 
 #. Default: "Page"
 #: euphorie/client/browser/pdf.py:42
@@ -5461,27 +5461,27 @@ msgstr "Oktatás"
 #. Default: "You are already a member of the ${name} organisation."
 #: euphorie/client/browser/organisation.py:410
 msgid "message_add_user_to_organisation_already_member"
-msgstr ""
+msgstr "Ön már tagja a(z) ${name} nevű szervezetnek."
 
 #. Default: "The invitation from the ${name} organisation is not valid anymore."
 #: euphorie/client/browser/organisation.py:380
 msgid "message_add_user_to_organisation_expired"
-msgstr ""
+msgstr "A meghívás a(z) ${name} nevű zervezettől már nem érvényes."
 
 #. Default: "We could not find the invitation you are looking for."
 #: euphorie/client/browser/organisation.py:369
 msgid "message_add_user_to_organisation_invalid"
-msgstr ""
+msgstr "Nem található a keresett meghívó."
 
 #. Default: "You cannot add yourself to your organisation."
 #: euphorie/client/browser/organisation.py:393
 msgid "message_add_user_to_organisation_self"
-msgstr ""
+msgstr "Ön nem tud csatlakozni a szervezethez."
 
 #. Default: "You have been added to the ${name} organisation."
 #: euphorie/client/browser/organisation.py:426
 msgid "message_add_user_to_organisation_success"
-msgstr ""
+msgstr "Ön sikeresen csatlakozott a(z) ${name} nevű szervezethez."
 
 #. Default: "Please choose a country of which you would like to view or copy an OiRA Tool."
 #: euphorie/content/browser/templates/sectorcontainer_view.pt:18
@@ -6153,7 +6153,7 @@ msgstr "Nem kell abbahagyni a munkát"
 #. Default: "Confirm OiRA membership to ’${organisation}’"
 #: euphorie/client/browser/organisation.py:221
 msgid "subject_add_user_to_organisation_email"
-msgstr ""
+msgstr "Erősítse meg OiRA tagságát a ’${organisation}’ nevű szervezetben"
 
 #. Default: "Standard"
 #: euphorie/content/browser/surveygroup.py:193
@@ -6274,12 +6274,12 @@ msgstr "Az OiRA eszköz eltávolítása az online kliensről."
 #. Default: "Personal details"
 #: euphorie/client/browser/templates/preferences.pt:43
 msgid "title_personal_details"
-msgstr ""
+msgstr "Személyes adatok"
 
 #. Default: "Preferences"
 #: euphorie/client/browser/settings.py:60
 msgid "title_preferences"
-msgstr ""
+msgstr Beállítások"
 
 #. Default: "Reset password"
 #: euphorie/client/browser/reset_password.py:223
