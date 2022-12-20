@@ -82,8 +82,10 @@ class Risk2DictAdapter(SurveyTreeItem2DictAdapter):
     def get_children(self):
         """Overwrite the default get_children method to include the action plans"""
         children = super().get_children()
-        children[ActionPlan.__table__.name] = Session.query(ActionPlan).filter(
-            ActionPlan.risk_id == self.context.id
+        children[ActionPlan.__table__.name] = (
+            Session.query(ActionPlan)
+            .filter(ActionPlan.risk_id == self.context.id)
+            .order_by(ActionPlan.id)
         )
         return children
 
@@ -97,9 +99,9 @@ class SurveySession2DictAdapter(SA2DictAdapter):
         - training
         """
         return {
-            klass.__table__.name: Session.query(klass).filter(
-                klass.session_id == self.context.id
-            )
+            klass.__table__.name: Session.query(klass)
+            .filter(klass.session_id == self.context.id)
+            .order_by(klass.id)
             for klass in [Company, SurveyTreeItem, Training]
         }
 
