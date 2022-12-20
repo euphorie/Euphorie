@@ -9,6 +9,8 @@ Changelog
   [ale-rt]
 - Docx report: fix for in-place measures.
   [reinhardt]
+- Upgrade plone to 5.2.10
+  [ale-rt]
 
 
 14.2.1 (2022-11-25)
