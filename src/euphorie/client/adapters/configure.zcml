@@ -18,6 +18,7 @@
       />
 
   <adapter factory=".json.SA2DictAdapter" />
+  <adapter factory=".json.SurveyTreeItem2DictAdapter" />
   <adapter factory=".json.Risk2DictAdapter" />
   <adapter factory=".json.SurveySession2DictAdapter" />
 
