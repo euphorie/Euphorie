@@ -16,7 +16,7 @@ Changelog
   [ale-rt]
 - Decoupled loading of the dashboard.
   Refs: `#712 <https://github.com/syslabcom/scrum/issues/712>`_.
-  [reinhardt]
+  [reinhardt, thet]
 
 
 14.2.1 (2022-11-25)

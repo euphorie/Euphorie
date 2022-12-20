@@ -56,6 +56,11 @@ def registerUserInClient(browser, link="Registreer"):
     # if "terms-and-conditions" in browser.url:
     #     browser.getForm().submit()
 
+    # Now, let's directly open the dashboard contents.
+    # We need to do that manually since the test browser does not handle
+    # JavaScript (pat-inject with trigger autoload).
+    browser.open(f"{browser.url}/@@dashboard")
+
 
 class MockMailFixture(object):
     def __init__(self):
