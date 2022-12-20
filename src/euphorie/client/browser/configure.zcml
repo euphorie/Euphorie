@@ -412,6 +412,15 @@
       />
 
   <browser:page
+      name="dashboard"
+      for="euphorie.client.country.IClientCountry"
+      permission="zope2.View"
+      class=".country.SessionsView"
+      template="templates/sessions-dashboard-content.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="assessments"
       for="euphorie.client.country.IClientCountry"
       permission="zope2.View"

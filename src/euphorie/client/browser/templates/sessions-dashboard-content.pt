@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+  <metal:slot fill-slot="content">
+    <div id="content-pane">
+      <div id="application-content">
+        <div class="row pat-masonry"
+             id="dashboard"
+             data-pat-masonry="column-width: .grid-sizer; gutter: 0; item-selector: .portlet; stamp: .stamp;"
+        >
+          <div class="grid-sizer"></div>
+          <tal:portlets repeat="portlet view/portlets"
+                        replace="structure portlet"
+          />
+        </div>
+      </div>
+    </div>
+  </metal:slot>
+</html>

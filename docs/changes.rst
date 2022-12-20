@@ -14,6 +14,9 @@ Changelog
   [reinhardt]
 - Upgrade plone to 5.2.10
   [ale-rt]
+- Decoupled loading of the dashboard.
+  Refs: `#712 <https://github.com/syslabcom/scrum/issues/712>`_.
+  [reinhardt]
 
 
 14.2.1 (2022-11-25)

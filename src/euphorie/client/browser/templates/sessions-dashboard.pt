@@ -102,19 +102,13 @@
         </div>
       </metal:homescreen_navigation>
       <div id="application-content">
-        <div class="row pat-masonry"
-             id="dashboard"
-             data-pat-masonry="column-width: .grid-sizer; gutter: 0; item-selector: .portlet; stamp: .stamp;"
-        >
-          <div class="grid-sizer"></div>
-          <tal:portlets repeat="portlet view/portlets"
-                        replace="structure portlet"
-          />
-        </div>
+        <a class="pat-inject infinite-scrolling-trigger"
+           href="${context/absolute_url}/@@dashboard#application-content"
+           data-pat-inject="trigger: autoload"
+        >Loading&hellip;</a>
       </div>
-    </div>
 
-  </metal:slot>
+    </div></metal:slot>
 
   <metal:slot fill-slot="splash_message_slot">
     <div class="splash-message"
