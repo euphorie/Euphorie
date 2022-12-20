@@ -18,6 +18,11 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser = self.get_browser()
         browser.open(survey_url)
         registerUserInClient(browser)
+        # We need to manually open the portlet view as the test browser
+        # does not handle JavaScript.
+        browser.open(
+            self.portal.client["nl"].absolute_url() + "/@@portlet-available-tools"
+        )
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
         browser.getForm(action="new-session").submit()
@@ -50,6 +55,11 @@ class ReportTests(EuphorieFunctionalTestCase):
         browser = self.get_browser()
         browser.open(survey_url)
         registerUserInClient(browser)
+        # We need to manually open the portlet view as the test browser
+        # does not handle JavaScript.
+        browser.open(
+            self.portal.client["nl"].absolute_url() + "/@@portlet-available-tools"
+        )
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
         browser.getForm(action="new-session").submit()
@@ -70,6 +80,11 @@ class ReportTests(EuphorieFunctionalTestCase):
         survey_url = self.portal.client.nl["ict"]["software-development"].absolute_url()
         browser.open(survey_url)
         registerUserInClient(browser)
+        # We need to manually open the portlet view as the test browser
+        # does not handle JavaScript.
+        browser.open(
+            self.portal.client["nl"].absolute_url() + "/@@portlet-available-tools"
+        )
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
         browser.getForm(action="new-session").submit()

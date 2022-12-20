@@ -1,6 +1,6 @@
 <tal:portlet i18n:domain="euphorie">
   <div class="portlet span-${view/columns}"
-       id="portlet-my-risk-assessments"
+       id="${view/element_id}"
        tal:define="
          sessions_by_organisation view/sessions_by_organisation;
        "
