@@ -26,6 +26,7 @@ class TraversedSurveySession(Implicit, Traversable):
         self.__of__(parent)
         self.session_id = int(session_id)
         self.id = "++session++{session_id}".format(session_id=self.session_id)
+        self.zodb_path = "/".join(parent.getPhysicalPath()[-3:])
 
     def getId(self):
         return self.id
@@ -35,7 +36,10 @@ class TraversedSurveySession(Implicit, Traversable):
         try:
             return (
                 Session.query(SurveySession)
-                .filter(SurveySession.id == self.session_id)
+                .filter(
+                    SurveySession.id == self.session_id,
+                    SurveySession.zodb_path == self.zodb_path,
+                )
                 .one()
             )
         except NoResultFound:

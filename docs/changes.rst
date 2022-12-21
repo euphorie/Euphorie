@@ -10,6 +10,8 @@ Changelog
 - Add the postgres user to the Authenticated Users,
   allow the user to be checked for the reader role
   [ale-rt]
+- Allow a session to be traversed in the context of its own tool only
+  [ale-rt]
 - Docx report: fix for in-place measures.
   [reinhardt]
 - Upgrade plone to 5.2.10

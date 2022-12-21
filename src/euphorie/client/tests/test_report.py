@@ -279,7 +279,7 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
     def _create_session(self, dbsession=None):
         if dbsession is None:
             dbsession = Session()
-        session = SurveySession(account=self.account, zodb_path="survey")
+        session = SurveySession(account=self.account, zodb_path="test/dummy-survey")
         dbsession.add(session)
         dbsession.flush()
         return session
