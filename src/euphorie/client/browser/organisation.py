@@ -48,6 +48,10 @@ class OrganisationBaseView(BaseView):
     ]
 
     @property
+    def is_training_enabled(self):
+        return self.webhelpers.use_training_module
+
+    @property
     def default_organisation_title(self):
         """Return the default title for a new organisation
         or an orgasination without a title set

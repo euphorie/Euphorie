@@ -65,24 +65,47 @@
                     />
                     ${option/label}
                   </label>
-                  <p class="pat-message info pat-depends"
-                     data-pat-depends="role=admin"
-                     i18n:translate=""
-                  >
-                    Administrators can create, edit and remove user accounts. Administrators can also make risk assessments, lock risk assessments, create trainings and take trainings.
-                  </p>
-                  <p class="pat-message info pat-depends"
-                     data-pat-depends="role=manager"
-                     i18n:translate=""
-                  >
-                    Managers/Policy makers can make risk assessments, lock risk assessments, create trainings and take trainings.
-                  </p>
-                  <p class="pat-message info pat-depends"
-                     data-pat-depends="role=member"
-                     i18n:translate=""
-                  >
-                    Members can make risk assessments and take trainings.
-                  </p>
+
+                  <tal:training_enabled tal:condition="view/is_training_enabled">
+                    <p class="pat-message info pat-depends"
+                       data-pat-depends="role=admin"
+                       i18n:translate=""
+                    >
+                      Administrators can create, edit and remove user accounts. Administrators can also make risk assessments, lock risk assessments, create trainings and take trainings.
+                    </p>
+                    <p class="pat-message info pat-depends"
+                       data-pat-depends="role=manager"
+                       i18n:translate=""
+                    >
+                      Managers/Policy makers can make risk assessments, lock risk assessments, create trainings and take trainings.
+                    </p>
+                    <p class="pat-message info pat-depends"
+                       data-pat-depends="role=member"
+                       i18n:translate=""
+                    >
+                      Members can make risk assessments and take trainings.
+                    </p>
+                  </tal:training_enabled>
+                  <tal:training_disabled tal:condition="not:view/is_training_enabled">
+                    <p class="pat-message info pat-depends"
+                       data-pat-depends="role=admin"
+                       i18n:translate="description_role_admin__training_disabled"
+                    >
+                    Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and lock risk assessments.
+                    </p>
+                    <p class="pat-message info pat-depends"
+                       data-pat-depends="role=manager"
+                       i18n:translate="description_role_manager__training_disabled"
+                    >
+                    Managers/Policy makers can make risk assessments and lock risk assessments.
+                    </p>
+                    <p class="pat-message info pat-depends"
+                       data-pat-depends="role=member"
+                       i18n:translate="description_role_member__training_disabled"
+                    >
+                    Members can make risk assessments.
+                    </p>
+                  </tal:training_disabled>
                 </fieldset>
               </fieldset>
             </div>
