@@ -4,11 +4,15 @@ from euphorie.content.countrymanager import ICountryManager
 from euphorie.content.sector import getSurveys
 from euphorie.content.sector import ISector
 from euphorie.content.utils import CUSTOM_COUNTRY_NAMES
+from io import StringIO
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm
 from plone.memoize.instance import memoize
 from Products.Five import BrowserView
+
+import csv
+import datetime
 
 
 class CountryView(BrowserView):
@@ -101,3 +105,39 @@ class Tools(CountryView):
     def get_tools(self, sector_id):
         sector = self.context.get(sector_id)
         return getSurveys(sector)
+
+    def download_csv(self):
+        fieldnames = [
+            "Sector",
+            "Tool Title",
+            "Version Title",
+            "URL",
+            "published",
+            "obsolete",
+        ]
+        buffer = StringIO()
+        writer = csv.DictWriter(buffer, fieldnames=fieldnames)
+        writer.writeheader()
+        for sector in self.sectors:
+            for group in self.get_tools(sector["id"]):
+                for survey in group["surveys"]:
+                    writer.writerow(
+                        {
+                            "Sector": sector["title"],
+                            "Tool Title": group["title"],
+                            "Version Title": survey["title"],
+                            "URL": survey["url"],
+                            "published": "published" if survey["published"] else "",
+                            "obsolete": "obsolete" if group["obsolete"] else "",
+                        }
+                    )
+        csv_data = buffer.getvalue()
+        buffer.close()
+        response = self.request.RESPONSE
+        today_iso = datetime.date.today().isoformat()
+        response.setHeader(
+            "Content-Disposition",
+            f"attachment; filename=oira_tools_{self.context.id}_{today_iso}.csv",
+        )
+        response.setHeader("Content-Type", "text/csv;charset=utf-8")
+        return csv_data

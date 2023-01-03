@@ -84,6 +84,15 @@
       template="templates/country_tools.pt"
       />
 
+  <browser:page
+      name="country-tools.csv"
+      for="euphorie.content.country.ICountry"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      class=".country.Tools"
+      attribute="download_csv"
+      permission="zope2.View"
+      />
+
   <!-- CountryManager -->
   <browser:page
       name="nuplone-view"
