@@ -13,6 +13,7 @@
     <metal:title fill-slot="title">${view/title}</metal:title>
     <metal:content fill-slot="content">
       <h2 i18n:translate="header_sector_survey_list">OiRA Tools</h2>
+      <a class="button" href="${context/absolute_url}/@@country-tools.csv" i18n:translate="header_sector_survey_download">Download spreadsheet</a>
       <p class="message notice"
          tal:condition="not:view/sectors"
          i18n:translate="message_no_tools"

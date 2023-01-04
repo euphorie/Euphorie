@@ -16,6 +16,8 @@ Changelog
   [reinhardt]
 - Upgrade plone to 5.2.10
   [ale-rt]
+- CSV download for tool overview on country level.
+  [reinhardt]
 
 
 14.2.1 (2022-11-25)
