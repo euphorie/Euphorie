@@ -4,6 +4,8 @@ Changelog
 14.3.0 (unreleased)
 -------------------
 
+- Add the @@country-tools view to the site menu.
+  [thet]
 - Fix json export of session to extend the risk and module serialized data with
   the info coming from the tree table
   [ale-rt]
