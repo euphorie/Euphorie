@@ -1583,7 +1583,7 @@ MODULE_WITH_RISK_TOP5_TNO_FILTER = sql.and_(
                         Risk.risk_type == "top5",
                         sql.or_(
                             sql.not_(Risk.identification.in_(["n/a", "yes"])),
-                            Risk.identification == None,  # noqa: E712
+                            Risk.identification is None,
                         ),
                     ),
                 ),
@@ -1604,7 +1604,7 @@ MODULE_WITH_RISK_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER = sql.and_(
                 child_node.id == Risk.sql_risk_id,
                 child_node.type == "risk",
                 sql.not_(Risk.risk_type.in_(["top5", "policy"])),
-                sql.not_(Risk.skip_evaluation == True),
+                sql.not_(Risk.skip_evaluation is True),
                 Risk.identification == "no",
                 child_node.depth > SurveyTreeItem.depth,
                 child_node.path.like(SurveyTreeItem.path + "%"),
@@ -1708,7 +1708,7 @@ MODULE_WITH_UNANSWERED_RISKS_FILTER = sql.and_(
                 child_node.session_id == SurveyTreeItem.session_id,
                 child_node.id == Risk.sql_risk_id,
                 child_node.type == "risk",
-                Risk.identification == None,
+                Risk.identification is None,
                 child_node.depth > SurveyTreeItem.depth,
                 child_node.path.like(SurveyTreeItem.path + "%"),
             )
