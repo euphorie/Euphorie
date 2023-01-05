@@ -23,7 +23,7 @@ from Products.PluggableAuthService.interfaces.plugins import IUserEnumerationPlu
 from Products.PluggableAuthService.interfaces.plugins import IUserFactoryPlugin
 from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
 from Products.PluggableAuthService.utils import classImplements
-from six.moves.urllib.parse import urlencode
+from urllib.parse import urlencode
 from z3c.saconfig import Session
 from zope.component import getUtility
 from zope.publisher.interfaces.browser import IBrowserView
@@ -61,7 +61,7 @@ def generate_token(user):
     # directly here. This is fine since here we do not care how the password
     # is stored: even if it is hashed the token will be fine.
     hasher.update(user.password.encode("utf-8"))
-    return "%s-%s" % (user.login, hasher.hexdigest())
+    return f"{user.login}-{hasher.hexdigest()}"
 
 
 def authenticate_cms_token(context, token):
@@ -78,8 +78,8 @@ def authenticate_cms_token(context, token):
 
 
 def graceful_recovery(default=None, log_args=True):
-    """Decorator to safely use SQLAlchemy in PAS plugins. This decorator
-    makes sure SQL exceptions are caught and logged.
+    """Decorator to safely use SQLAlchemy in PAS plugins. This decorator makes
+    sure SQL exceptions are caught and logged.
 
     Code from Malthe Borch's pas.plugins.sqlalchemy package.
     """
@@ -98,7 +98,7 @@ def graceful_recovery(default=None, log_args=True):
                 try:
                     exc_str = str(e)
                 except Exception:
-                    exc_str = "<%s at 0x%x>" % (e.__class__.__name__, id(e))
+                    exc_str = f"<{e.__class__.__name__} at 0x{id(e):x}>"
 
                 log.critical(
                     "caught SQL-exception: "
@@ -109,7 +109,7 @@ def graceful_recovery(default=None, log_args=True):
                         ", ".join(
                             [repr(arg) for arg in args]
                             + [
-                                "%s=%s" % (name, repr(value))
+                                f"{name}={repr(value)}"
                                 for (name, value) in kwargs.items()
                             ]
                         ),
@@ -151,7 +151,7 @@ class EuphorieAccountPlugin(BasePlugin):
         self.title = title
 
     def extractCredentials(self, request):
-        """IExtractionPlugin implementation"""
+        """IExtractionPlugin implementation."""
         token = request.getHeader("X-Euphorie-Token")
         if token:
             return {"api-token": token}
@@ -160,7 +160,7 @@ class EuphorieAccountPlugin(BasePlugin):
 
     @security.private
     def _authenticate_token(self, credentials):
-        """IAuthenticationPlugin implementation"""
+        """IAuthenticationPlugin implementation."""
         token = credentials.get("api-token")
         if not token:
             return None
@@ -206,7 +206,7 @@ class EuphorieAccountPlugin(BasePlugin):
 
     @graceful_recovery()
     def createUser(self, user_id, name):
-        """IUserFactoryPlugin implementation"""
+        """IUserFactoryPlugin implementation."""
         # It only happens with a call from the authomatic plugin that name
         # is empty. In that case, user_id is actually the user's loginname.
         # Force a an explicit search by loginname in that case.
@@ -237,9 +237,9 @@ class EuphorieAccountPlugin(BasePlugin):
         exact_match=False,
         sort_by=None,
         max_results=None,
-        **kw
+        **kw,
     ):
-        """IUserEnumerationPlugin implementation"""
+        """IUserEnumerationPlugin implementation."""
         if not exact_match:
             return []
         if not IClientSkinLayer.providedBy(self.REQUEST):
@@ -260,7 +260,7 @@ class EuphorieAccountPlugin(BasePlugin):
 
     def updateUser(self, user_id, login_name):
         """Changes the user's username. New method available since Plone 4.3.
-            Euphorie doesn't support this.
+        Euphorie doesn't support this.
 
         :returns: False
         """
@@ -283,7 +283,7 @@ class EuphorieAccountPlugin(BasePlugin):
         )
 
     def challenge(self, request, response):
-        """IChallengePlugin implementation"""
+        """IChallengePlugin implementation."""
         if not IClientSkinLayer.providedBy(request):
             return False
 

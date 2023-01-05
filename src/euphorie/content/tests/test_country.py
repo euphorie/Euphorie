@@ -1,4 +1,3 @@
-# coding=utf-8
 from Acquisition import aq_parent
 from euphorie.content.tests.utils import createSector
 from euphorie.testing import EuphorieIntegrationTestCase

@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client import model
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api

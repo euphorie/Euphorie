@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client import CONDITIONS_VERSION
 from euphorie.client import model
 from euphorie.client.browser import publish
@@ -25,8 +24,11 @@ def addAccount(login="jane@example.com", password="Øle"):
 
 
 def addSurvey(portal, xml_survey):
-    """Add a survey to the portal. This function requires that you are already
-    loggin in as portal owner."""
+    """Add a survey to the portal.
+
+    This function requires that you are already loggin in as portal
+    owner.
+    """
     importer = upload.SectorImporter(portal.sectors.nl)
     sector = importer(xml_survey, None, None, None, "test import")
     survey = sector.values()[0]["test-import"]
@@ -35,8 +37,11 @@ def addSurvey(portal, xml_survey):
 
 
 def testRequest():
-    """Create a new request object. This is based on the code in
-    :py:func`Testing.makerequest.makerequest`."""
+    """Create a new request object.
+
+    This is based on the code in
+    :py:func`Testing.makerequest.makerequest`.
+    """
     environ = {"SERVER_NAME": "localhost", "SERVER_PORT": "80", "REQUEST_METHOD": "GET"}
     request = HTTPRequest(sys.stdin, environ, HTTPResponse())
     request._steps = ["Plone"]
@@ -57,7 +62,7 @@ def registerUserInClient(browser, link="Registreer"):
     #     browser.getForm().submit()
 
 
-class MockMailFixture(object):
+class MockMailFixture:
     def __init__(self):
         self.storage = storage = []
 

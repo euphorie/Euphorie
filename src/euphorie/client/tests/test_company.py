@@ -1,4 +1,3 @@
-# coding=utf-8
 from datetime import datetime
 from datetime import timedelta
 from euphorie.client import model
@@ -13,7 +12,7 @@ from plone import api
 try:
     from unittest import mock
 except ImportError:
-    import mock
+    from unittest import mock
 
 
 class TestCompanyViews(EuphorieIntegrationTestCase):

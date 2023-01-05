@@ -1,4 +1,3 @@
-# coding=utf-8
 from datetime import timedelta
 from euphorie.client import model
 from euphorie.client.tests.utils import addAccount
@@ -11,7 +10,7 @@ from plone.app.event.base import localized_now
 
 class TestDashboard(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(TestDashboard, self).setUp()
+        super().setUp()
         self.loginAsPortalOwner()
         addSurvey(self.portal, BASIC_SURVEY)
         self.account = addAccount(password="secret")

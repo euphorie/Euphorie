@@ -31,6 +31,7 @@ except ImportError:
 
 class IRichDescription(model.Schema):
     """Simple behaviour for content types with a HTML description.
+
     Replaces the standard description field with a rich text version.
     """
 
@@ -45,8 +46,10 @@ class IRichDescription(model.Schema):
 
 @indexer(IRichDescription)
 def Description(obj):
-    """Indexer for rich text descriptions fields. Return a plain text
-    version of the description for use in the Plone catalog.
+    """Indexer for rich text descriptions fields.
+
+    Return a plain text version of the description for use in the Plone
+    catalog.
     """
     d = getattr(obj, "description", "")
     if d is None:

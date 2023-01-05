@@ -1,4 +1,3 @@
-# coding=utf-8
 from datetime import datetime
 from euphorie.client import model
 from euphorie.client.tests.utils import addAccount
@@ -15,9 +14,8 @@ from zope.lifecycleevent import ObjectModifiedEvent
 
 class TestSurveyViews(EuphorieIntegrationTestCase):
     def test_survey_publication_date_views(self):
-        """We have some views to display and set the published column
-        for a survey session
-        """
+        """We have some views to display and set the published column for a
+        survey session."""
         with api.env.adopt_user("admin"):
             survey = addSurvey(self.portal, BASIC_SURVEY)
         account = addAccount(password="secret")

@@ -1,4 +1,3 @@
-# vi: encoding=utf-8
 from Acquisition import aq_base
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import Account

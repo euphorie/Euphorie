@@ -1,4 +1,3 @@
-# coding=utf-8
 from .fti import ConditionalDexterityFTI
 from .fti import IConstructionFilter
 from euphorie.content import MessageFactory as _
@@ -12,7 +11,7 @@ from zope.interface import Interface
 
 
 class ITrainingQuestion(model.Schema):
-    """A simple schema that adds three answer fields to the content type"""
+    """A simple schema that adds three answer fields to the content type."""
 
     title = schema.Text(title=_("Question"))
     right_answer = schema.Text(title=_("Right answer"))
@@ -22,15 +21,15 @@ class ITrainingQuestion(model.Schema):
 
 @implementer(ITrainingQuestion)
 class TrainingQuestion(Container):
-    """A Question for the training"""
+    """A Question for the training."""
 
 
 @adapter(ConditionalDexterityFTI, Interface)
 @implementer(IConstructionFilter)
-class ConstructionFilter(object):
-    """FTI construction filter for :py:class:`TrainingQuestion` objects. This filter
-     prevents creating Training Questions if the OiRA Tool is not configured to
-     provide online taining.
+class ConstructionFilter:
+    """FTI construction filter for :py:class:`TrainingQuestion` objects. This
+    filter prevents creating Training Questions if the OiRA Tool is not
+    configured to provide online taining.
 
     This multi adapter requires the use of the conditional FTI as implemented
     by :py:class:`euphorie.content.fti.ConditionalDexterityFTI`.

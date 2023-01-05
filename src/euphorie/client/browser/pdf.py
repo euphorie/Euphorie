@@ -1,4 +1,3 @@
-# coding=utf-8
 from collections import namedtuple
 from euphorie import MessageFactory as _
 from path import Path
@@ -6,10 +5,9 @@ from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
 from sh import wkhtmltopdf
-from six.moves.urllib.parse import quote
+from urllib.parse import quote
 
 import logging
-import six
 
 
 try:
@@ -61,10 +59,7 @@ class PdfView(BrowserView):
         with TemporaryDirectory(prefix="euphoprient") as tmpdir:
             html_file = Path(tmpdir) / "index.html"
             pdf_file = Path(tmpdir) / "index.pdf"
-            if six.PY2:
-                html_file.write_text(content.encode("utf-8"))
-            else:
-                html_file.write_text(content)
+            html_file.write_text(content)
             wkhtmltopdf_args.extend([html_file, pdf_file])
             xvfb_run.wkhtmltopdf(*wkhtmltopdf_args)
             return pdf_file.bytes()

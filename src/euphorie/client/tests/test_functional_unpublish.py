@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client.browser.publish import handleSurveyUnpublish
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.content.tests.utils import createSector
@@ -9,7 +8,7 @@ from OFS.SimpleItem import SimpleItem
 
 class handleSurveyUnpublishTests(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(handleSurveyUnpublishTests, self).setUp()
+        super().setUp()
         self.loginAsPortalOwner()
         self.client = self.portal.client
 

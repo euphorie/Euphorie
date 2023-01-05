@@ -3,7 +3,7 @@ from ftw.upgrade import UpgradeStep
 
 
 class UpgradeToAlembicHead(UpgradeStep):
-    """Create the OrganisationMembership table"""
+    """Create the OrganisationMembership table."""
 
     def __call__(self):
         alembic_upgrade()

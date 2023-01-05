@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client.country import ClientCountry
 from euphorie.testing import EuphorieIntegrationTestCase
 from zope.annotation import IAttributeAnnotatable
@@ -24,7 +23,7 @@ class ViewTests(EuphorieIntegrationTestCase):
 
     def surveys(self, country, language):
         @implementer(IAttributeAnnotatable)
-        class Request(object):
+        class Request:
             environ = {"REQUEST_METHOD": "GET"}
             form = {}
 

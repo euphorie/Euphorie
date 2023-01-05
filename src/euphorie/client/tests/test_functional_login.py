@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client import model
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.tests.utils import addAccount
@@ -18,7 +17,6 @@ from zope.interface import alsoProvides
 
 import datetime
 import re
-import six
 import transaction
 
 
@@ -54,7 +52,7 @@ class GuestAccountTests(EuphorieFunctionalTestCase):
         commit()
         browser.open(self.portal.client.nl.absolute_url())
         self.assertIn("Start a test session", browser.contents)
-        url = "{}/ict/software-development".format(self.portal.client.nl.absolute_url())
+        url = f"{self.portal.client.nl.absolute_url()}/ict/software-development"
         # We pass in a valid survey path in came_from
         browser.open("{url}/@@tryout?came_from={url}".format(url=url))
         # Therefore we land on the start page of the survey
@@ -268,7 +266,7 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
         self.assertEqual(mfrom, "discard@simplon.biz")
         self.assertEqual(mto, "jane@example.com")
         self.assertEqual(
-            six.text_type(mail["Subject"]),
+            str(mail["Subject"]),
             "OiRA password reset instructions",
         )
         body = (

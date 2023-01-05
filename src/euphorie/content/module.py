@@ -207,7 +207,6 @@ validator.WidgetValidatorDiscriminators(
 
 @implementer(IModule, IQuestionContainer)
 class Module(Container):
-
     image = None
     caption = None
     file1 = None
@@ -225,10 +224,10 @@ class Module(Container):
         ob = frame.f_locals.get("ob")
         if ob is not None and INameFromUniqueId.providedBy(ob):
             return get_next_id(self)
-        return super(Module, self)._get_id(orig_id)
+        return super()._get_id(orig_id)
 
     def _verifyObjectPaste(self, object, validate_src=True):
-        super(Module, self)._verifyObjectPaste(object, validate_src)
+        super()._verifyObjectPaste(object, validate_src)
         if validate_src:
             check_fti_paste_allowed(self, object)
             if IQuestionContainer.providedBy(object):
@@ -240,15 +239,16 @@ class Module(Container):
 
 @indexer(IModule)
 def SearchableTextIndexer(obj):
-    """Index title, description and solution_direction"""
+    """Index title, description and solution_direction."""
     return " ".join(
         [obj.title, StripMarkup(obj.description), StripMarkup(obj.solution_direction)]
     )
 
 
 def tree_depth(obj):
-    """Determine how deeply nested a module structure is. This is the opposite
-    of item_depth.
+    """Determine how deeply nested a module structure is.
+
+    This is the opposite of item_depth.
     """
     submodules = [v for v in obj.values() if IQuestionContainer.providedBy(v)]
     if not submodules:
@@ -273,10 +273,10 @@ def item_depth(item):
 
 @adapter(ConditionalDexterityFTI, Interface)
 @implementer(IConstructionFilter)
-class ConstructionFilter(object):
-    """FTI construction filter for :py:class:`Module` objects. This filter
-    does two things: it restricts the maximum depth at which a module can
-    be created, and it prevents creating of modules if the current container
+class ConstructionFilter:
+    """FTI construction filter for :py:class:`Module` objects. This filter does
+    two things: it restricts the maximum depth at which a module can be
+    created, and it prevents creating of modules if the current container
     already contains a risk.
 
     This multi adapter requires the use of the conditional FTI as implemented

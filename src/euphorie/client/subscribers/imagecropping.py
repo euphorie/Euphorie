@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from plone.app.imagecropping.browser.settings import ISettings
 from plone.registry.interfaces import IRegistry
 from Products.CMFPlone.utils import getAllowedSizes
@@ -11,8 +10,9 @@ FIELDNAMES = ("image", "external_site_logo")
 
 
 def _initial_size(ix, iy, sx, sy):
-    """we need a best fit centered selection. Shamelessly copied from
-    plone.app.imaging.browser.editor
+    """we need a best fit centered selection.
+
+    Shamelessly copied from plone.app.imaging.browser.editor
     """
     ix, iy, sx, sy = map(float, (ix, iy, sx, sy))
     # aspect ratio of original

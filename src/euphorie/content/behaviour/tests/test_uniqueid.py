@@ -17,7 +17,7 @@ class Mock(Acquisition.Implicit):
 
 class IdGenerationTests(PlacelessSetup, unittest.TestCase):
     def setUp(self):
-        super(IdGenerationTests, self).setUp()
+        super().setUp()
         from zope.annotation.attribute import AttributeAnnotations
         from zope.component import provideAdapter
 

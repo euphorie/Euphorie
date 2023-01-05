@@ -22,18 +22,18 @@ from zope.interface import Interface
 class IIdGenerationRoot(Interface):
     """Marker interface for objects which act as the root for ids.
 
-    Generated ids do not always need to be globally unique. Objects
-    with this marked interface (or dexterity behaviour) act as
-    uniqueness root.
+    Generated ids do not always need to be globally unique. Objects with
+    this marked interface (or dexterity behaviour) act as uniqueness
+    root.
     """
 
 
 class INameFromUniqueId(Interface):
     """Marker interface for objects which should get a unique id.
 
-    Objects with this interface automatically get a unique id when they are
-    added to an container (as long as INameChooser is used). Ids are unique
-    within the context of IIdGenerationRoot.
+    Objects with this interface automatically get a unique id when they
+    are added to an container (as long as INameChooser is used). Ids are
+    unique within the context of IIdGenerationRoot.
     """
 
     id = schema.TextLine(
@@ -68,7 +68,7 @@ class UniqueNameChooser(NormalizingNameChooser):
     """
 
     def _assertId(self, object):
-        """Make sure the object has a unique id"""
+        """Make sure the object has a unique id."""
         if getattr(object, "id", False):
             return
         object.id = get_next_id(self.context)
@@ -78,4 +78,4 @@ class UniqueNameChooser(NormalizingNameChooser):
             self._assertId(object)
             return object.id
         else:
-            return super(UniqueNameChooser, self).chooseName(name, object)
+            return super().chooseName(name, object)

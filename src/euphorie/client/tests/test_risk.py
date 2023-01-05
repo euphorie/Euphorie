@@ -19,7 +19,7 @@ import unittest
 try:
     from unittest import mock
 except ImportError:
-    import mock
+    from unittest import mock
 
 
 class EvaluationViewTests(unittest.TestCase):
@@ -153,7 +153,7 @@ class EvaluationViewTests(unittest.TestCase):
 
 class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(TestRiskImageDownloadUpload, self).setUp()
+        super().setUp()
         self.loginAsPortalOwner()
         self.account = addAccount(password="secret")
         addSurvey(self.portal, BASIC_SURVEY)

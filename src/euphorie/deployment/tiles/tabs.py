@@ -1,4 +1,3 @@
-# coding=utf-8
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from euphorie.content import MessageFactory as _
@@ -34,9 +33,8 @@ class SiteRootTabsTile(TabsTile):
                 return obj
 
     def is_country_manager(self):
-        """Check if we are in the context of a country and
-        if we have enough permissions to manage it
-        """
+        """Check if we are in the context of a country and if we have enough
+        permissions to manage it."""
         country = self.get_current_country()
         if not country:
             return False

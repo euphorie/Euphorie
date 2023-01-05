@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client.tests.utils import addSurvey
 from euphorie.client.tests.utils import registerUserInClient
 from euphorie.testing import EuphorieFunctionalTestCase

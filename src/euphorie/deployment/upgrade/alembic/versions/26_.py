@@ -1,9 +1,8 @@
-"""empty message
+"""Empty message.
 
 Revision ID: 26
 Revises: 25
 Create Date: 2020-02-03 15:42:46.758366
-
 """
 from alembic import op
 

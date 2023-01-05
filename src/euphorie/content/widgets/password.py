@@ -38,7 +38,7 @@ def PasswordWithConfirmationFieldWidget(field, request):
 @implementer(IValidator)
 class PasswordWithConfirmationValidator(SimpleFieldValidator):
     def validate(self, value):
-        """Check that the password value is equl to the confirmation value
+        """Check that the password value is equl to the confirmation value.
 
         This has been inspired by p01.widget.password
         """

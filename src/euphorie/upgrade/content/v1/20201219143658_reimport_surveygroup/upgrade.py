@@ -3,7 +3,7 @@ from plone import api
 
 
 class ReImportSurveyGroup(UpgradeStep):
-    """Re-import SurveyGroup type definition"""
+    """Re-import SurveyGroup type definition."""
 
     def __call__(self):
         # First, delete exisiting type registration for euphorie.surveygroup

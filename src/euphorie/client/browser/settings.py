@@ -22,7 +22,7 @@ from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MailHost.MailHost import MailHostError
 from Products.statusmessages.interfaces import IStatusMessage
-from six.moves.urllib.parse import urlencode
+from urllib.parse import urlencode
 from z3c.form import button
 from z3c.form import form
 from z3c.form.interfaces import WidgetActionExecutionError
@@ -38,7 +38,6 @@ from zope.interface import invariant
 import datetime
 import logging
 import smtplib
-import socket
 
 
 log = logging.getLogger(__name__)
@@ -133,7 +132,6 @@ class PreferencesSchema(model.Schema):
 
 
 class Preferences(AutoExtensibleForm, form.Form):
-
     template = ViewPageTemplateFile("templates/preferences.pt")
 
     schema = PreferencesSchema
@@ -157,7 +155,7 @@ class Preferences(AutoExtensibleForm, form.Form):
 
 
 class AccountSettings(AutoExtensibleForm, form.Form):
-    """View name: @@account-settings"""
+    """View name: @@account-settings."""
 
     template = ViewPageTemplateFile("templates/account-settings.pt")
 
@@ -167,7 +165,7 @@ class AccountSettings(AutoExtensibleForm, form.Form):
     label = _("title_change_password", default="Change password")
 
     def updateWidgets(self):
-        super(AccountSettings, self).updateWidgets()
+        super().updateWidgets()
         self.widgets["old_password"].addClass("password")
         self.widgets["new_password"].addClass("password")
 
@@ -205,7 +203,7 @@ class AccountSettings(AutoExtensibleForm, form.Form):
 
 
 class DeleteAccount(AutoExtensibleForm, form.Form):
-    """ "View name: @@account-delete"""
+    """ "View name: @@account-delete."""
 
     template = ViewPageTemplateFile("templates/account-delete.pt")
 
@@ -215,7 +213,7 @@ class DeleteAccount(AutoExtensibleForm, form.Form):
     label = _("title_account_delete", default="Delete account")
 
     def updateWidgets(self):
-        super(DeleteAccount, self).updateWidgets()
+        super().updateWidgets()
         self.widgets["password"].addClass("password")
 
     def logout(self):
@@ -242,7 +240,6 @@ class DeleteAccount(AutoExtensibleForm, form.Form):
 
 
 class NewEmail(AutoExtensibleForm, form.Form):
-
     template = ViewPageTemplateFile("templates/new-email.pt")
 
     schema = EmailChangeSchema
@@ -260,11 +257,11 @@ class NewEmail(AutoExtensibleForm, form.Form):
         return api.portal.get_registry_record("plone.email_from_address")
 
     def updateFields(self):
-        super(NewEmail, self).updateFields()
+        super().updateFields()
         self.fields["password"].ignoreContext = True
 
     def updateWidgets(self):
-        super(NewEmail, self).updateWidgets()
+        super().updateWidgets()
         self.widgets["password"].addClass("password")
 
     def getContent(self):
@@ -291,7 +288,7 @@ class NewEmail(AutoExtensibleForm, form.Form):
         account.change_request.value = login
 
         client_url = self.request.client.absolute_url()
-        confirm_url = "%s/confirm-change?%s" % (
+        confirm_url = "{}/confirm-change?{}".format(
             client_url,
             urlencode({"key": account.change_request.id}),
         )
@@ -327,7 +324,7 @@ class NewEmail(AutoExtensibleForm, form.Form):
             )
             flash(_("An error occured while sending the confirmation email."), "error")
             return False
-        except socket.error as e:
+        except OSError as e:
             log.error(
                 "Socket error sending confirmation email to %s: %s", account.email, e[1]
             )

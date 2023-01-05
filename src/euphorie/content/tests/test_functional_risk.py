@@ -1,4 +1,3 @@
-# coding=utf-8
 from Acquisition import aq_parent
 from euphorie.content.risk import EnsureInterface
 from euphorie.content.risk import Risk
@@ -10,7 +9,6 @@ from plone.app.testing import SITE_OWNER_NAME
 from plone.app.testing import SITE_OWNER_PASSWORD
 
 import re
-import six
 
 
 class RiskTests(EuphorieIntegrationTestCase):
@@ -39,7 +37,7 @@ class RiskTests(EuphorieIntegrationTestCase):
         self.loginAsPortalOwner()
         risk = self.createRisk()
         types = [fti.id for fti in risk.allowedContentTypes()]
-        self.assertEqual(set(types), set(["euphorie.solution"]))
+        self.assertEqual(set(types), {"euphorie.solution"})
 
     def testCanBeCopied(self):
         self.loginAsPortalOwner()
@@ -57,7 +55,6 @@ class RiskTests(EuphorieIntegrationTestCase):
 
 
 class RiskFunctionalTests(EuphorieFunctionalTestCase):
-
     _default_credentials = {
         "username": SITE_OWNER_NAME,
         "password": SITE_OWNER_PASSWORD,
@@ -137,10 +134,7 @@ class RiskFunctionalTests(EuphorieFunctionalTestCase):
         image_url = match.group(1)
         browser.open(image_url)
         self.assertEqual(browser.isHtml, False)
-        if six.PY2:
-            self.assertEqual(browser.headers.maintype, "image")
-        else:
-            self.assertEqual(browser.headers.get_content_maintype(), "image")
+        self.assertEqual(browser.headers.get_content_maintype(), "image")
 
     def testFixedPriorityForm(self):
         # See https://github.com/euphorie/Euphorie/pull/98
@@ -160,7 +154,7 @@ class RiskFunctionalTests(EuphorieFunctionalTestCase):
 
 class ConstructionFilterTests(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(ConstructionFilterTests, self).setUp()
+        super().setUp()
         self.loginAsPortalOwner()
 
     def _create(self, container, *args, **kwargs):

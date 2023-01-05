@@ -24,10 +24,10 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.PlonePAS.events import UserLoggedInEvent
 from Products.statusmessages.interfaces import IStatusMessage
-from six.moves.urllib.parse import parse_qs
-from six.moves.urllib.parse import urlencode
-from six.moves.urllib.parse import urlparse
-from six.moves.urllib.parse import urlsplit
+from urllib.parse import parse_qs
+from urllib.parse import urlencode
+from urllib.parse import urlparse
+from urllib.parse import urlsplit
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
 from zope.lifecycleevent import notify
@@ -36,7 +36,6 @@ import datetime
 import logging
 import os
 import re
-import six
 
 
 log = logging.getLogger(__name__)
@@ -67,7 +66,7 @@ class Login(BrowserView):
             elif ISurvey.providedBy(self.context):
                 lang = self.context.language
         if lang:
-            if isinstance(lang, six.string_types):
+            if isinstance(lang, str):
                 lang = [lang]
             setLanguage(self.request, self.context, lang=lang[0])
 
@@ -89,7 +88,7 @@ class Login(BrowserView):
             )  # noqa: E501
 
     def transferGuestSession(self):
-        """Transfer session(s) from guest account to an existing user account
+        """Transfer session(s) from guest account to an existing user account.
 
         The guest account is expected to go the login form as an authenticated user.
 
@@ -291,7 +290,7 @@ class Login(BrowserView):
                     "euphorie.terms_and_conditions", default=False
                 ) and not approvedTermsAndConditions(account):
                     self.request.RESPONSE.redirect(
-                        "{0}/terms-and-conditions?{1}".format(
+                        "{}/terms-and-conditions?{}".format(
                             context.absolute_url(),
                             urlencode({"came_from": came_from}),
                         )
@@ -300,15 +299,15 @@ class Login(BrowserView):
                     self.request.RESPONSE.redirect(came_from)
                 return
 
-        self.reset_password_request_url = "{0}/@@reset_password_request?{1}".format(
+        self.reset_password_request_url = "{}/@@reset_password_request?{}".format(
             context.absolute_url(),
             urlencode({"came_from": came_from}),
         )
-        self.register_url = "{0}/@@login#registration?{1}".format(
+        self.register_url = "{}/@@login#registration?{}".format(
             context.absolute_url(),
             urlencode({"came_from": came_from}),
         )
-        self.tryout_url = "{0}/@@tryout?{1}".format(
+        self.tryout_url = "{}/@@tryout?{}".format(
             context.absolute_url(),
             urlencode({"came_from": came_from}),
         )
@@ -316,21 +315,22 @@ class Login(BrowserView):
         return self.index()
 
     def get_image_version(self, name):
-        """Needed on the reports overview shown to the guest user
-        (view name: @@register_session)
+        """Needed on the reports overview shown to the guest user (view name:
+
+        @@register_session)
         """
         fdir = os.path.join(
             os.path.dirname(__file__), os.path.join("..", "resources", "media")
         )
         lang = getattr(self.request, "LANGUAGE", "en")
-        fname = "{0}_{1}".format(name, lang)
+        fname = f"{name}_{lang}"
         if os.path.isfile(os.path.join(fdir, fname + ".png")):
             return fname
         return name
 
 
 class Tryout(SessionsView, Login):
-    """Create a guest account
+    """Create a guest account.
 
     View name: @@tryout
     """
@@ -377,7 +377,7 @@ class Tryout(SessionsView, Login):
 
 
 class CreateTestSession(Tryout):
-    """Create a guest session
+    """Create a guest session.
 
     View name: @@new-session-test.html
     """
@@ -391,7 +391,7 @@ class CreateTestSession(Tryout):
             name="webhelpers", context=self.context, request=self.request
         )
         came_from = webhelpers.get_came_from(default=context.absolute_url())
-        self.register_url = "%s/@@login?%s#registration" % (
+        self.register_url = "{}/@@login?{}#registration".format(
             context.absolute_url(),
             urlencode({"came_from": came_from}),
         )
@@ -419,7 +419,6 @@ class CreateTestSession(Tryout):
 
 class Logout(BrowserView):
     def __call__(self):
-
         pas = getToolByName(self.context, "acl_users")
         pas.resetCredentials(self.request, self.request.response)
 

@@ -4,7 +4,7 @@ from zope.sqlalchemy.datamanager import SessionDataManager
 
 class EuphorieProtectTransform(ProtectTransform):
     def _registered_objects(self):
-        registered = super(EuphorieProtectTransform, self)._registered_objects()
+        registered = super()._registered_objects()
         app = self.request.PARENTS[-1]
         for name, conn in app._p_jar.connections.items():
             if name == "temporary":

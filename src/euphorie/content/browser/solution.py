@@ -1,4 +1,3 @@
-# coding=utf-8
 from plone import api
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
@@ -17,11 +16,10 @@ class SolutionView(BrowserView):
 
 
 class AddForm(DefaultAddForm):
-
     portal_type = "euphorie.solution"
 
     def updateWidgets(self):
-        super(AddForm, self).updateWidgets()
+        super().updateWidgets()
         self.widgets["action_plan"].mode = "hidden"
         self.widgets["prevention_plan"].mode = "hidden"
         self.widgets["action"].rows = 15
@@ -33,7 +31,7 @@ class AddView(DefaultAddView):
 
 class EditForm(DefaultEditForm):
     def updateWidgets(self):
-        super(EditForm, self).updateWidgets()
+        super().updateWidgets()
         self.widgets["action_plan"].mode = "hidden"
         self.widgets["prevention_plan"].mode = "hidden"
         self.widgets["action"].rows = 15

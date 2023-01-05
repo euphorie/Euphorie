@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from euphorie.content import MessageFactory as _
 from euphorie.content.vocabularies import RegistryValueVocabulary
 from plone.autoform.interfaces import IFormFieldProvider
@@ -9,7 +8,6 @@ from zope.interface import provider
 
 @provider(IFormFieldProvider)
 class IToolCategory(model.Schema):
-
     tool_category = schema.List(
         title=_("title_tool_category", default="Tool category"),
         description=_(

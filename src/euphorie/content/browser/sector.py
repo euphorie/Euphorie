@@ -1,4 +1,3 @@
-# coding=utf-8
 from ..sector import getSurveys
 from ..sector import ISector
 from Acquisition import aq_inner
@@ -37,7 +36,6 @@ class SectorView(BrowserView):
 
 
 class EditForm(DefaultEditForm):
-
     schema = ISector
     default_fieldset_label = None
     formErrorsMessage = "Please correct the indicated errors."
@@ -48,7 +46,7 @@ class EditForm(DefaultEditForm):
             del self.widgets["title"]
         if "login" in self.widgets:
             del self.widgets["login"]
-        return super(EditForm, self).extractData()
+        return super().extractData()
 
 
 class VersionCommand(BrowserView):

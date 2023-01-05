@@ -1,4 +1,3 @@
-# coding=utf-8
 from AccessControl.SecurityManagement import getSecurityManager
 from AccessControl.SecurityManagement import newSecurityManager
 from euphorie.content.tests.utils import addSurvey
@@ -29,9 +28,7 @@ class SurveyTests(EuphorieIntegrationTestCase):
         self.loginAsPortalOwner()
         survey = self.createSurvey()
         types = [fti.id for fti in survey.allowedContentTypes()]
-        self.assertEqual(
-            set(types), set(["euphorie.module", "euphorie.profilequestion"])
-        )
+        self.assertEqual(set(types), {"euphorie.module", "euphorie.profilequestion"})
 
     def testCanDeleteItemsWhenNotPublished(self):
         self.loginAsPortalOwner()

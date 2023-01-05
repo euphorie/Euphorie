@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.content.tests.utils import _create
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone.dexterity.interfaces import IDexterityFTI

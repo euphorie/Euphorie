@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client import model
 from euphorie.client.authentication import EuphorieAccountPlugin
 from euphorie.client.browser.login import Login
@@ -18,15 +17,15 @@ from zope.interface.verify import verifyClass
 try:
     from unittest import mock
 except ImportError:
-    import mock
+    from unittest import mock
 
 
-class MockContext(object):
+class MockContext:
     def absolute_url(self):
         return "http://www.example.com/base"
 
 
-class MockRequest(object):
+class MockRequest:
     PUBLISHED = MockContext()
 
     def __init__(self, **kw):
@@ -38,7 +37,7 @@ class MockRequest(object):
     getHeader = get
 
 
-class MockResponse(object):
+class MockResponse:
     def redirect(self, url, lock):
         self.redirect_url = url
         self.redirect_lock = lock

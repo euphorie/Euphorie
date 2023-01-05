@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client.model import SurveyTreeItem
 from sqlalchemy import and_
 from sqlalchemy import Integer
@@ -38,7 +37,7 @@ def handle_custom_risks_order(context, event):
 
     # Iterate over the risks in their natural order. Close any gaps in numbering
     for count, risk in enumerate(ordered_custom_risks):
-        risk.zodb_path = "custom-risks/{}".format(count + 1)
+        risk.zodb_path = f"custom-risks/{count + 1}"
 
     # Now, set the path according to the zodb_path (= natural order)
     for risk in custom_risks:

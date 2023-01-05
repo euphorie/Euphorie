@@ -1,4 +1,3 @@
-# coding=utf-8
 from Acquisition import aq_parent
 from euphorie.content.browser.surveygroup import AddForm
 from euphorie.testing import EuphorieFunctionalTestCase
@@ -39,7 +38,7 @@ class SurveyGroupTests(EuphorieIntegrationTestCase):
     def testAllowedContentTypes(self):
         surveygroup = self.createSurveyGroup()
         types = [fti.id for fti in surveygroup.allowedContentTypes()]
-        self.assertEqual(set(types), set(["euphorie.survey"]))
+        self.assertEqual(set(types), {"euphorie.survey"})
 
     def testCanNotBeCopied(self):
         surveygroup = self.createSurveyGroup()
@@ -115,8 +114,7 @@ class HandleSurveyDeleteVerificationTests(EuphorieIntegrationTestCase):
 
     def testDeleteOneOfManySurvey(self):
         """It should be possible to delete one of many surveys, when it's not
-        published.
-        """
+        published."""
         surveygroup = self.createSurveyGroup()
         self._create(surveygroup, "euphorie.survey", "dummy")
         survey = self._create(surveygroup, "euphorie.survey", "survey")
@@ -128,8 +126,7 @@ class HandleSurveyDeleteVerificationTests(EuphorieIntegrationTestCase):
 
     def testDeleteOnlySurvey(self):
         """Validation should fail when trying to delete the only survey in a
-        surveygroup
-        """
+        surveygroup."""
         surveygroup = self.createSurveyGroup()
         survey = self._create(surveygroup, "euphorie.survey", "survey")
         deleteaction = component.getMultiAdapter(
@@ -138,7 +135,7 @@ class HandleSurveyDeleteVerificationTests(EuphorieIntegrationTestCase):
         self.assertEqual(deleteaction.verify(surveygroup, survey), False)
 
     def testDeletePublishedSurvey(self):
-        """Validation should fail when trying to delete a published survey"""
+        """Validation should fail when trying to delete a published survey."""
         surveygroup = self.createSurveyGroup()
         self._create(surveygroup, "euphorie.survey", "dummy")
         survey = self._create(surveygroup, "euphorie.survey", "survey")
@@ -150,7 +147,7 @@ class HandleSurveyDeleteVerificationTests(EuphorieIntegrationTestCase):
         self.assertEqual(deleteaction.verify(surveygroup, survey), False)
 
     def testDeleteUnPublishedSurvey(self):
-        """It should be possible to delete unpublished surveys"""
+        """It should be possible to delete unpublished surveys."""
         surveygroup = self.createSurveyGroup()
         self._create(surveygroup, "euphorie.survey", "dummy")
         survey = self._create(surveygroup, "euphorie.survey", "survey")

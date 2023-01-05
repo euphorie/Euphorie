@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client import model
 from euphorie.client.tests.utils import addAccount
 from euphorie.client.tests.utils import addSurvey
@@ -11,12 +10,12 @@ from zExceptions import Unauthorized
 try:
     from unittest import mock
 except ImportError:
-    import mock
+    from unittest import mock
 
 
 class TestArchivingViews(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(TestArchivingViews, self).setUp()
+        super().setUp()
         self.loginAsPortalOwner()
         addSurvey(self.portal, BASIC_SURVEY)
         self.account = addAccount(password="secret")

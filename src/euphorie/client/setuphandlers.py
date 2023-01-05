@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client.authentication import addEuphorieAccountPlugin
 from euphorie.client.authentication import EuphorieAccountPlugin
 from plone import api

@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client import model
 from euphorie.client import utils
 from euphorie.client.docx.compiler import _sanitize_html
@@ -15,20 +14,20 @@ from plone import api
 from plone.memoize.view import memoize
 from Products.CMFPlone.utils import safe_nativestring
 from Products.Five import BrowserView
-from six.moves.urllib.parse import quote
 from sqlalchemy import sql
+from urllib.parse import quote
 from z3c.saconfig import Session
 from zope.i18n import translate
 
 
 class OfficeDocumentView(BrowserView):
-    """Base view that generates an office document and returns it"""
+    """Base view that generates an office document and returns it."""
 
     _compiler = None
     _content_type = ""
 
     def get_data(self, for_download=False):
-        """Return the data for the compiler"""
+        """Return the data for the compiler."""
         return {}
 
     @property
@@ -37,7 +36,7 @@ class OfficeDocumentView(BrowserView):
         return api.content.get_view("webhelpers", self.context, self.request)
 
     def get_payload(self):
-        """Compile the template and return the file as a string"""
+        """Compile the template and return the file as a string."""
         output = BytesIO()
         compiler = self._compiler(self.context, self.request)
         compiler.compile(self.get_data(for_download=True))
@@ -50,8 +49,7 @@ class OfficeDocumentView(BrowserView):
 
     def get_session_nodes(self):
         """Return an ordered list of all relevant tree items for the current
-        survey.
-        """
+        survey."""
         query = (
             Session.query(model.SurveyTreeItem)
             .filter(model.SurveyTreeItem.session == self.context.session)
@@ -68,7 +66,7 @@ class OfficeDocumentView(BrowserView):
         return query.all()
 
     def get_modules(self):
-        """Returns the modules for this session"""
+        """Returns the modules for this session."""
         sql_modules = (
             Session.query(model.Module)
             .filter(
@@ -151,7 +149,7 @@ class OfficeDocumentView(BrowserView):
             return self.request.response.redirect(self.webhelpers.client_url)
         self.request.response.setHeader(
             "Content-Disposition",
-            "attachment; filename*=UTF-8''{}".format(quote(self._filename)),
+            f"attachment; filename*=UTF-8''{quote(self._filename)}",
         )
         self.request.response.setHeader(
             "Content-Type",
@@ -185,13 +183,13 @@ def _get_action_plan(action):
 
 
 class ActionPlanDocxView(OfficeDocumentView):
-    """Generate a report based on a basic docx template"""
+    """Generate a report based on a basic docx template."""
 
     _compiler = DocxCompiler
     _content_type = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"  # noqa: E 501
 
     def __init__(self, context, request):
-        super(ActionPlanDocxView, self).__init__(context, request)
+        super().__init__(context, request)
         country = self.webhelpers.country
         tool_type = get_tool_type(self.webhelpers._survey)
         if country == "it":
@@ -287,7 +285,7 @@ class ActionPlanDocxView(OfficeDocumentView):
 
     @property
     def _filename(self):
-        """Return the document filename"""
+        """Return the document filename."""
         filename = _(
             "filename_report_actionplan",
             default="Action plan ${title}",
@@ -298,14 +296,15 @@ class ActionPlanDocxView(OfficeDocumentView):
 
 
 class IdentificationReportDocxView(OfficeDocumentView):
-    """Generate a report based on a basic docx template"""
+    """Generate a report based on a basic docx template."""
 
     _compiler = IdentificationReportCompiler
     _content_type = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"  # noqa: E 501
 
     def get_session_nodes(self):
-        """Return an ordered list of all tree items for the current
-        survey. By OSHA's request, optional submodules are always included.
+        """Return an ordered list of all tree items for the current survey.
+
+        By OSHA's request, optional submodules are always included.
         """
         query = (
             Session.query(model.SurveyTreeItem)
@@ -327,7 +326,7 @@ class IdentificationReportDocxView(OfficeDocumentView):
 
     @property
     def _filename(self):
-        """Return the document filename"""
+        """Return the document filename."""
         filename = _(
             "filename_report_identification",
             default="Identification report ${title}",

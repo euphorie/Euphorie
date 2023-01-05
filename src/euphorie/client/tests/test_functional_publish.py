@@ -1,11 +1,10 @@
-# vim: fileencoding=utf-8
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone.namedfile.file import NamedBlobImage
 
 
 class PublicationTests(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(PublicationTests, self).setUp()
+        super().setUp()
         self.client = self.portal.client
         self.loginAsPortalOwner()
 
@@ -25,7 +24,7 @@ class PublicationTests(EuphorieIntegrationTestCase):
         self.surveygroup.evaluation_algorithm = "dummy"
         view = self.survey.restrictedTraverse("@@publish")
         view.publish()
-        self.assertEqual(set(self.client.objectIds()), set(["nl"]))
+        self.assertEqual(set(self.client.objectIds()), {"nl"})
         self.assertEqual(self.client.nl.objectIds(), ["dining"])
         sector = self.client.nl.dining
         self.assertEqual(sector.portal_type, "euphorie.clientsector")

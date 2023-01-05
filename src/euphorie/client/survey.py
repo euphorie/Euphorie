@@ -25,8 +25,7 @@ import logging
 log = logging.getLogger(__name__)
 
 
-class _StatusHelper(object):
-
+class _StatusHelper:
     COUNTRIES_WITHOUT_HIGH_RISKS = ["it"]
 
     @property
@@ -98,7 +97,8 @@ class _StatusHelper(object):
             path = path[3:]
 
     def getModulePaths(self):
-        """Return a list of all the top-level modules belonging to this survey."""
+        """Return a list of all the top-level modules belonging to this
+        survey."""
         session_id = self.session.id
         if not session_id:
             return []
@@ -123,8 +123,7 @@ class _StatusHelper(object):
 
     def getModules(self):
         """Return a list of dicts of all the top-level modules and locations
-        belonging to this survey.
-        """
+        belonging to this survey."""
         sql_session = self.sql_session
         session_id = self.session.id
         module_paths = self.getModulePaths()
@@ -177,13 +176,13 @@ class _StatusHelper(object):
             # sub-module (location) or location container
             else:
                 if path in location_titles:
-                    title = "{0} - {1}".format(location_titles[path], titles[path])
+                    title = f"{location_titles[path]} - {titles[path]}"
                     toc[path[:3]]["locations"].append(
                         {"path": path, "title": titles[path], "number": number}
                     )
                 else:
                     log.warning(
-                        "Status: found a path for a submodule {0} for which "
+                        "Status: found a path for a submodule {} for which "
                         "there's no location title.".format(path)
                     )
                     continue
@@ -204,8 +203,7 @@ class _StatusHelper(object):
 
     def getRisks(self, module_paths, skip_unanswered=False):
         """Return a list of risk dicts for risks that belong to the modules
-        with paths as specified in module_paths.
-        """
+        with paths as specified in module_paths."""
         global request
         request = self.request
         if not len(module_paths):
@@ -216,9 +214,7 @@ class _StatusHelper(object):
         # skipped optional modules are excluded
         # This means top-level module paths like 001 or 001002 can be replaced
         # by several sub-modules paths like 001002, 001003 and 001002001
-        path_clause = [
-            model.SurveyTreeItem.path.like("{}%".format(mp)) for mp in module_paths
-        ]
+        path_clause = [model.SurveyTreeItem.path.like(f"{mp}%") for mp in module_paths]
 
         module_query = (
             sql_session.query(model.SurveyTreeItem)

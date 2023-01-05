@@ -1,4 +1,3 @@
-# coding=utf-8
 from plone import api
 from plone.app.testing.interfaces import SITE_OWNER_NAME
 

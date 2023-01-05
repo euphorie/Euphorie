@@ -1,4 +1,3 @@
-# coding=utf-8
 from Acquisition import Implicit
 from euphorie.client.model import Session
 from euphorie.client.model import SurveySession
@@ -15,17 +14,17 @@ from zope.traversing.namespace import SimpleHandler
 
 
 class ITraversedSurveySession(Interface):
-    """Interface for TraversedSurveySessions"""
+    """Interface for TraversedSurveySessions."""
 
 
 @implementer(ITraversedSurveySession)
 class TraversedSurveySession(Implicit, Traversable):
-    """A traversable session object"""
+    """A traversable session object."""
 
     def __init__(self, parent, session_id):
         self.__of__(parent)
         self.session_id = int(session_id)
-        self.id = "++session++{session_id}".format(session_id=self.session_id)
+        self.id = f"++session++{self.session_id}"
         self.zodb_path = "/".join(parent.getPhysicalPath()[-3:])
 
     def getId(self):
@@ -48,7 +47,6 @@ class TraversedSurveySession(Implicit, Traversable):
 
 @adapter(ISurvey, IBrowserRequest)
 class SessionTraversal(SimpleHandler):
-
     factory = TraversedSurveySession
 
     def traverse(self, session_id, ignored):

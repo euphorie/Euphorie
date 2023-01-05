@@ -1,4 +1,3 @@
-# coding=utf-8
 from .. import MessageFactory as _
 from euphorie.content.behaviour.richdescription import IRichDescription
 from euphorie.content.utils import StripMarkup

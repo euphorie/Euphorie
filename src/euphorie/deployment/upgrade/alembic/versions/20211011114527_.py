@@ -1,9 +1,8 @@
-"""The boolean active column becomes the deactivated date time column
+"""The boolean active column becomes the deactivated date time column.
 
 Revision ID: 20211011114527
 Revises: 20210409113814
 Create Date: 2021-10-11 09:45:27.876273
-
 """
 from alembic import op
 
@@ -18,7 +17,7 @@ depends_on = None
 
 
 def upgrade():
-    """The boolean active column becomes the deactivated date time column"""
+    """The boolean active column becomes the deactivated date time column."""
     op.add_column("group", sa.Column("deactivated", sa.DateTime(), nullable=True))
     op.execute("""UPDATE "group" SET deactivated = '1970-01-01' WHERE active = FALSE""")
     op.drop_column("group", "active")

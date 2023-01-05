@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client.tests.utils import addSurvey
 from euphorie.client.tests.utils import registerUserInClient
 from euphorie.testing import EuphorieFunctionalTestCase
@@ -127,9 +126,10 @@ class UpdateTests(EuphorieFunctionalTestCase):
     # This test is disabled because the queries used in copySessionData
     # are not compatible with SQLite.
     def XtestSkipChildrenFalseForMandatoryModules(self):
-        """Mandatory modules must have skip_children=False. It's possible that
-        the module was optional with skip_children=True and now after the
-        update must be mandatory.
+        """Mandatory modules must have skip_children=False.
+
+        It's possible that the module was optional with
+        skip_children=True and now after the update must be mandatory.
         """
         survey = """<sector xmlns="http://xml.simplon.biz/euphorie/survey/1.0">
                       <title>Sector title</title>

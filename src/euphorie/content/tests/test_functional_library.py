@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.content.tests.utils import addSurvey
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.content.tests.utils import createSector
@@ -11,7 +10,7 @@ from plone.app.testing import SITE_OWNER_PASSWORD
 try:
     from unittest import mock
 except ImportError:
-    import mock
+    from unittest import mock
 
 
 class LibraryTests(EuphorieFunctionalTestCase):

@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client import utils
 from euphorie.client.browser.webhelpers import WebHelpers
 from euphorie.client.country import ClientCountry
@@ -14,7 +13,7 @@ from zope.interface import alsoProvides
 import unittest
 
 
-class MockRequest(object):
+class MockRequest:
     form = {}
 
     def __init__(self, agent=None):
@@ -23,7 +22,7 @@ class MockRequest(object):
             self.__headers["User-Agent"] = agent
 
     def purge_memoize(self):
-        """Clean up the memoize cache"""
+        """Clean up the memoize cache."""
         try:
             self.__annotations__.pop("plone.memoize", None)
         except AttributeError:
@@ -33,14 +32,14 @@ class MockRequest(object):
         return self.__headers.get(key, default)
 
 
-class MockSession(object):
+class MockSession:
     def __init__(self, account=None):
         self.account = account
 
 
 class TestURLs(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(TestURLs, self).setUp()
+        super().setUp()
         # Set locals
         request = testRequest()
         locals.request = request

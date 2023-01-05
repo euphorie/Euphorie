@@ -1,4 +1,3 @@
-# coding=utf-8
 from ..module import IModule
 from ..risk import IRisk
 from euphorie.content import MessageFactory as _
@@ -13,7 +12,7 @@ from zope.component import getMultiAdapter
 
 
 class ProfileQuestionView(BrowserView):
-    """View name: @@nuplone-view"""
+    """View name: @@nuplone-view."""
 
     def _morph(self, child):
         state = getMultiAdapter((child, self.request), name="plone_context_state")
@@ -21,7 +20,7 @@ class ProfileQuestionView(BrowserView):
 
     @property
     def risks(self):
-        """List risks in current context"""
+        """List risks in current context."""
         return [
             self._morph(child)
             for child in self.context.values()
@@ -30,7 +29,7 @@ class ProfileQuestionView(BrowserView):
 
     @property
     def modules(self):
-        """List modules in current context"""
+        """List modules in current context."""
         return [
             self._morph(child)
             for child in self.context.values()
@@ -50,7 +49,7 @@ class ProfileQuestionView(BrowserView):
 
 
 class AddForm(DefaultAddForm):
-    """View name: euphorie.profilequestion"""
+    """View name: euphorie.profilequestion."""
 
     template = ViewPageTemplateFile("templates/profilequestion_add.pt")
 
@@ -82,7 +81,7 @@ class EditForm(DefaultEditForm):
         return data.getData()
 
     def updateWidgets(self):
-        super(EditForm, self).updateWidgets()
+        super().updateWidgets()
         for fname in ("description",):
             value = self.widgets[fname].value or ""
             safe_value = self.get_safe_html(value)

@@ -1,9 +1,8 @@
-"""Add the last_login column to the account table
+"""Add the last_login column to the account table.
 
 Revision ID: 20211019165915
 Revises: 20211011114527
 Create Date: 2021-10-19 16:59:15.046779
-
 """
 from alembic import op
 

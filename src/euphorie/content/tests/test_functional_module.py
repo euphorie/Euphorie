@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
@@ -29,7 +28,7 @@ class ModuleTests(EuphorieIntegrationTestCase):
         self.loginAsPortalOwner()
         module = self.createModule()
         types = [fti.id for fti in module.allowedContentTypes()]
-        self.assertEqual(set(types), set(["euphorie.module", "euphorie.risk"]))
+        self.assertEqual(set(types), {"euphorie.module", "euphorie.risk"})
 
     def testConditionalFtiUsed(self):
         from euphorie.content.fti import ConditionalDexterityFTI
@@ -100,7 +99,6 @@ class ConstructionFilterTests(EuphorieIntegrationTestCase):
 
 
 class FunctionalTests(EuphorieFunctionalTestCase):
-
     _default_credentials = {
         "username": SITE_OWNER_NAME,
         "password": SITE_OWNER_PASSWORD,

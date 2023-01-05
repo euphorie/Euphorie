@@ -32,7 +32,7 @@ class Colour(schema.BytesLine):
     _type = str
 
     def _validate(self, value):
-        super(Colour, self)._validate(value)
+        super()._validate(value)
         if not VALID_COLOUR.match(value):
             raise InvalidColour(value)
 

@@ -1,10 +1,10 @@
-""" Try to add an image binary column and an image_filename column to the risk table
-    Also add column "refreshed" to the session table and copy data from modified
+"""Try to add an image binary column and an image_filename column to the risk
+table Also add column "refreshed" to the session table and copy data from
+modified.
 
 Revision ID: 24
 Revises:
 Create Date: 2019-09-09 10:24:51.539339
-
 """
 from alembic import op
 

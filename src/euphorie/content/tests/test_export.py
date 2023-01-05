@@ -1,4 +1,3 @@
-# coding: utf-8
 from euphorie.content.browser.export import ExportSurvey
 from euphorie.content.browser.upload import NSMAP
 from euphorie.content.module import Module
@@ -16,7 +15,7 @@ from zipfile import ZipFile
 from zope.publisher.browser import TestRequest
 
 
-class MockImage(object):
+class MockImage:
     def __init__(self, data, filename=None, contentType=None):
         self.data = data
         self.filename = filename

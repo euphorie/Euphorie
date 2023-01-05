@@ -14,7 +14,6 @@ import logging
 import lxml.etree
 import lxml.objectify
 import os.path
-import six
 import sys
 import transaction
 import zExceptions
@@ -69,12 +68,12 @@ def GetSector(country, xml_sector, options):
     if hasattr(xml_sector, "contact"):
         xml_contact = xml_sector.contact
         if hasattr(xml_contact, "name"):
-            sector.contact_name = six.text_type(xml_contact.name.text)
+            sector.contact_name = str(xml_contact.name.text)
         if hasattr(xml_contact, "email"):
-            sector.contact_email = six.text_type(xml_contact.email.text)
+            sector.contact_email = str(xml_contact.email.text)
     if options.logo is not None:
         sector.logo = NamedBlobImage(
-            data=open(options.logo, "r").read(),
+            data=open(options.logo).read(),
             filename=safe_unicode(os.path.basename(options.logo)),
         )
     if options.main_colour:
@@ -85,7 +84,7 @@ def GetSector(country, xml_sector, options):
 
 
 def ImportSector(plone, options, filename):
-    input = open(filename, "r")
+    input = open(filename)
     dom = lxml.objectify.parse(input)
     xml_sector = dom.getroot()
     country = GetCountry(plone, options)
@@ -102,7 +101,7 @@ def ImportSector(plone, options, filename):
     sm = getSecurityManager()
     try:
         newSecurityManager(None, sectoruser)
-        name = options.name or six.text_type(xml_sector.survey.title.text)
+        name = options.name or str(xml_sector.survey.title.text)
 
         if hasattr(sector, name):
             raise Abort("There is already a survey named '%s'" % name)

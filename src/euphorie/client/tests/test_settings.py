@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client.model import Account
 from euphorie.client.model import AccountChangeRequest
 from euphorie.client.tests.utils import addSurvey
@@ -14,7 +13,7 @@ import datetime
 
 class AccountSettingsTests(EuphorieFunctionalTestCase):
     def setUp(self):
-        super(AccountSettingsTests, self).setUp()
+        super().setUp()
         self.loginAsPortalOwner()
         addSurvey(self.portal, BASIC_SURVEY)
         survey = self.portal.client["nl"]["ict"]["software-development"]
@@ -73,7 +72,7 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
 
 class AccountDeleteTests(EuphorieFunctionalTestCase):
     def setUp(self):
-        super(AccountDeleteTests, self).setUp()
+        super().setUp()
         self.loginAsPortalOwner()
         addSurvey(self.portal, BASIC_SURVEY)
         survey = self.portal.client["nl"]["ict"]["software-development"]
@@ -106,7 +105,7 @@ class AccountDeleteTests(EuphorieFunctionalTestCase):
 
 class NewEmailTests(EuphorieFunctionalTestCase):
     def setUp(self):
-        super(NewEmailTests, self).setUp()
+        super().setUp()
         self.loginAsPortalOwner()
         addSurvey(self.portal, BASIC_SURVEY)
         survey = self.portal.client["nl"]["ict"]["software-development"]
@@ -117,7 +116,7 @@ class NewEmailTests(EuphorieFunctionalTestCase):
         self.email_send = self._mail_fixture.storage
 
     def tearDown(self):
-        super(NewEmailTests, self).tearDown()
+        super().tearDown()
         del self._mail_fixture
 
     def testNoDefaultPassword(self):

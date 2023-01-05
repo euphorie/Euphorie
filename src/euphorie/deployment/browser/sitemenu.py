@@ -1,4 +1,3 @@
-# coding=utf-8
 from AccessControl import getSecurityManager
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
@@ -17,7 +16,7 @@ class Sitemenu(sitemenu.Sitemenu):
     @property
     def actions(self):
         """See plonetheme.nuplone.skin.sitemenu.py."""
-        menu = super(Sitemenu, self).actions or {}
+        menu = super().actions or {}
         children = menu.get("children")
         if not children:
             return None
@@ -61,7 +60,7 @@ class Sitemenu(sitemenu.Sitemenu):
             return "%s/@@settings" % home.absolute_url()
 
     def organise(self):
-        menu = super(Sitemenu, self).organise()
+        menu = super().organise()
         if menu is not None:
             children = menu["children"]
         else:

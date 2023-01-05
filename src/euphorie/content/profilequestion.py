@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Profile Question
 ----------------
@@ -110,10 +109,10 @@ class ProfileQuestion(Container):
         ob = frame.f_locals.get("ob")
         if ob is not None and INameFromUniqueId.providedBy(ob):
             return get_next_id(self)
-        return super(ProfileQuestion, self)._get_id(orig_id)
+        return super()._get_id(orig_id)
 
     def _verifyObjectPaste(self, object, validate_src=True):
-        super(ProfileQuestion, self)._verifyObjectPaste(object, validate_src)
+        super()._verifyObjectPaste(object, validate_src)
         if validate_src:
             check_fti_paste_allowed(self, object)
             if IQuestionContainer.providedBy(object):
@@ -125,5 +124,5 @@ class ProfileQuestion(Container):
 
 @indexer(IProfileQuestion)
 def SearchableTextIndexer(obj):
-    """Index the title and description"""
+    """Index the title and description."""
     return " ".join([obj.title, StripMarkup(obj.description)])

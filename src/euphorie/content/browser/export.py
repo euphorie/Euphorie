@@ -64,7 +64,7 @@ def getToken(field, value, default=None):
 
 
 class IExportSurveySchema(Interface):
-    """Fields used for configuring the export"""
+    """Fields used for configuring the export."""
 
     include_images = schema.Bool(
         title=_("label_survey_export_include_images", default="Include images"),
@@ -292,7 +292,7 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
         return node
 
     def exportSurvey(self, parent, survey):
-        """Export a survey given a parent and the survey itself
+        """Export a survey given a parent and the survey itself.
 
         :returns: An XML node with the details of an :obj:`euphorie.content.survey`.
         """

@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Solution
 --------
@@ -134,7 +133,7 @@ class Solution(Item):
 
 @indexer(ISolution)
 def SearchableTextIndexer(obj):
-    """Index the problem_description, question and solution_direction"""
+    """Index the problem_description, question and solution_direction."""
     return " ".join(
         [
             obj.description,

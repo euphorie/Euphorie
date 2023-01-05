@@ -3,7 +3,7 @@ from euphorie.content.behaviour.richdescription import Description
 import unittest
 
 
-class Mock(object):
+class Mock:
     pass
 
 

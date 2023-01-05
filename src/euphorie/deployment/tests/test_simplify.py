@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.testing import EuphorieFunctionalTestCase
 from plone.app.redirector.interfaces import IFourOhFourView
 from plone.app.redirector.interfaces import IRedirectionStorage

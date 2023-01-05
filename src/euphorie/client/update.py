@@ -7,9 +7,10 @@ import collections
 
 
 def getSurveyTree(survey, profile=None):
-    """Return a list of all modules, profile questions and risks in
-    a survey. Each entry is represented by a dict with a `zodb_path`
-    and `type` key.
+    """Return a list of all modules, profile questions and risks in a survey.
+
+    Each entry is represented by a dict with a `zodb_path` and `type`
+    key.
     """
     # XXX Can this be cached on the survey instance?
     nodes = []
@@ -49,10 +50,12 @@ def getSurveyTree(survey, profile=None):
     return nodes
 
 
-class Node(object):
-    """Utility class to store information for a survey tree node. This is a
-    subset of the data in :py:class:`euphorie.client.model.SurveyTreeItem` and
-    is hashable so it can be stored in a `set`.
+class Node:
+    """Utility class to store information for a survey tree node.
+
+    This is a subset of the data in
+    :py:class:`euphorie.client.model.SurveyTreeItem` and is hashable so
+    it can be stored in a `set`.
     """
 
     def __init__(self, item):
@@ -65,7 +68,7 @@ class Node(object):
         self.risk_type = item.type == "risk" and item.risk_type or None
 
     def __repr__(self):
-        return "<Node zodb_path=%s type=%s path=%s>" % (
+        return "<Node zodb_path={} type={} path={}>".format(
             self.zodb_path,
             self.type,
             self.path,
@@ -88,10 +91,11 @@ def getSessionTree(session):
 
 
 def treeChanges(session, survey, profile=None):
-    """Determine a list of changes in a survey for an existing session. The
-    list of changes is returned as a list of tuples listing the ZODB path,
-    the object type (one of `profile`, `module` or `risk`) and the change type
-    (one of `add`, `remove` or 'modified').
+    """Determine a list of changes in a survey for an existing session.
+
+    The list of changes is returned as a list of tuples listing the ZODB
+    path, the object type (one of `profile`, `module` or `risk`) and the
+    change type (one of `add`, `remove` or 'modified').
     """
     surveytree = getSurveyTree(survey, profile)
     sestree = set(getSessionTree(session))
@@ -137,10 +141,11 @@ def treeChanges(session, survey, profile=None):
 
 def wasSurveyUpdated(session, survey):
     """Check if a survey was updated (ie republished) after the last
-    modification in a session. If the survey was updated but no changes
-    were made in its structure, for example if there were only textual
-    changes, this method updates the timestap on the survey session
-    and pretends there was no update.
+    modification in a session.
+
+    If the survey was updated but no changes were made in its structure,
+    for example if there were only textual changes, this method updates
+    the timestap on the survey session and pretends there was no update.
     """
     # BBB: Old surveys had no published timestamp. Can be removed post
     # site launch.

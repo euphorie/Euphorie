@@ -1,4 +1,3 @@
-# -*- coding: UTF-8 -*-
 from datetime import date
 from euphorie.client import model
 from euphorie.client.interfaces import IClientSkinLayer
@@ -28,8 +27,7 @@ def walk(node):
         if ISolution.providedBy(sub_node):
             yield sub_node
         if IDexterityContainer.providedBy(sub_node):
-            for sub_sub_node in walk(sub_node):
-                yield sub_sub_node
+            yield from walk(sub_node)
 
 
 def unifiy_fields(walker):
@@ -42,7 +40,7 @@ def unifiy_fields(walker):
             prevention_plan = solution.prevention_plan
             prevention_plan = prevention_plan and prevention_plan.strip() or ""
             if prevention_plan:
-                action = "{0}\n{1}".format(action, prevention_plan)
+                action = f"{action}\n{prevention_plan}"
             solution.action = action
             if count % 100 == 0:
                 log.info("Handled %d items" % count)
@@ -61,20 +59,18 @@ def unifiy_fields(walker):
 
 
 def unify_action_fields_in_solution(context):
-
     site = api.portal.get()
     section = "sectors"
     walker = walk(getattr(site, section))
-    log.info('Iterating over section "{}"'.format(section))
+    log.info(f'Iterating over section "{section}"')
     unifiy_fields(walker)
 
 
 def unify_action_fields_in_solution_client(context):
-
     site = api.portal.get()
     section = "client"
     walker = walk(getattr(site, section))
-    log.info('Iterating over section "{}"'.format(section))
+    log.info(f'Iterating over section "{section}"')
     unifiy_fields(walker)
 
 
@@ -88,7 +84,7 @@ def get_pre_defined_measures(solutions, country):
         measure = description
         if country in ("it",):
             if prevention_plan:
-                measure = "%s: %s" % (measure, prevention_plan)
+                measure = f"{measure}: {prevention_plan}"
         measures[measure] = item.id
 
     return measures
@@ -112,7 +108,7 @@ def migrate_actgion_plans(context):
         try:
             tool = client.restrictedTraverse(tool_path)
         except KeyError:
-            log.warning("No tool in client found for {}".format(tool_path))
+            log.warning(f"No tool in client found for {tool_path}")
             continue
         country = tool_path.split("/")[0]
         sessions = (
@@ -132,12 +128,12 @@ def migrate_actgion_plans(context):
             if skip_count % 5 == 0:
                 log.info("Skipped the first %d, already handled" % skip_count)
             continue
-        log.info("\n\nHandle tool {}".format(tool_path))
+        log.info(f"\n\nHandle tool {tool_path}")
         risks_by_path = {}
         solutions_by_path = {}
         measures_by_path = {}
         for session in sessions:
-            log.info("Session {}".format(session.id))
+            log.info(f"Session {session.id}")
             risks = (
                 Session.query(model.Risk)
                 .filter(model.Risk.session_id == session.id)
@@ -152,9 +148,7 @@ def migrate_actgion_plans(context):
                     try:
                         zodb_risk = tool.restrictedTraverse(risk_path)
                     except Exception:
-                        log.warning(
-                            "Risk {} not found in tool {}".format(risk_path, tool_path)
-                        )
+                        log.warning(f"Risk {risk_path} not found in tool {tool_path}")
                         continue
                     else:
                         if not IRisk.providedBy(zodb_risk):

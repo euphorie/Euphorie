@@ -1,4 +1,3 @@
-# coding=utf-8
 from Acquisition import aq_parent
 from euphorie.testing import EuphorieIntegrationTestCase
 
@@ -25,7 +24,7 @@ class ProfileQuestionTests(EuphorieIntegrationTestCase):
         self.loginAsPortalOwner()
         pq = self.createProfileQuestion()
         types = [fti.id for fti in pq.allowedContentTypes()]
-        self.assertEqual(set(types), set(["euphorie.module", "euphorie.risk"]))
+        self.assertEqual(set(types), {"euphorie.module", "euphorie.risk"})
 
     def testCanBeCopied(self):
         self.loginAsPortalOwner()

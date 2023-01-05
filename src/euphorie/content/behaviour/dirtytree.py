@@ -41,8 +41,9 @@ def _touchTree(parent):
 
 
 def handleObjectMove(obj, event):
-    """Event handler for object moves. This includes objects added
-    to and removed from containers.
+    """Event handler for object moves.
+
+    This includes objects added to and removed from containers.
     """
     if event.oldParent is not None:
         _touchTree(event.oldParent)
@@ -51,14 +52,16 @@ def handleObjectMove(obj, event):
 
 
 def handleObjectModified(obj, event):
-    """Event handler for object moves. This includes objects added
-    to and removed from containers.
+    """Event handler for object moves.
+
+    This includes objects added to and removed from containers.
     """
     _touchTree(event.object)
 
 
 def handleSurveyPublish(obj, event):
-    """Event handler for workflow events on a dirty tree root. This
-    resets the dirty flag.
+    """Event handler for workflow events on a dirty tree root.
+
+    This resets the dirty flag.
     """
     obj.dirty = False

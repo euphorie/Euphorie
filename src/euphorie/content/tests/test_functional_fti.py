@@ -1,4 +1,3 @@
-# coding=utf-8
 from ..fti import check_fti_paste_allowed
 from euphorie.content.fti import ConditionalDexterityFTI
 from euphorie.content.fti import IConstructionFilter
@@ -15,12 +14,12 @@ import unittest
 try:
     from unittest import mock
 except ImportError:
-    import mock
+    from unittest import mock
 
 
 @implementer(IConstructionFilter)
 @adapter(ConditionalDexterityFTI, Module)
-class Veto(object):
+class Veto:
     def __init__(self, fti, container):
         self.fti = fti
         self.container = container
@@ -31,7 +30,7 @@ class Veto(object):
 
 class ConditionalDexterityFTITests(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(ConditionalDexterityFTITests, self).setUp()
+        super().setUp()
         self.loginAsPortalOwner()
 
     def _create(self, container, *args, **kwargs):

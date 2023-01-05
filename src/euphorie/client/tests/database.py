@@ -9,7 +9,7 @@ class DatabaseTests(unittest.TestCase):
     create_tables = True
 
     def setUp(self):
-        super(DatabaseTests, self).setUp()
+        super().setUp()
         from euphorie.client import model
         from Products.Five import fiveconfigure
         from z3c.saconfig import Session
@@ -24,7 +24,7 @@ class DatabaseTests(unittest.TestCase):
             model.metadata.create_all(Session.bind, checkfirst=True)
 
     def tearDown(self):
-        super(DatabaseTests, self).tearDown()
+        super().tearDown()
         from euphorie.client import model
         from z3c.saconfig import Session
 

@@ -20,11 +20,13 @@ DummyBrain = _DummyBrain()
 
 @adapter(Interface, NuPloneSkin)
 @implementer(INavtreeFactory)
-class EuphorieNavtreeFactory(object):
-    """Special navigation tree for the Euphorie surveys. This navtree
-    factory modifies the navtree data to remove the survey level from
-    the navtree and making the survey contents appear directly underneath
-    the surveygroup. This hides versioning implementation from the user.
+class EuphorieNavtreeFactory:
+    """Special navigation tree for the Euphorie surveys.
+
+    This navtree factory modifies the navtree data to remove the survey
+    level from the navtree and making the survey contents appear
+    directly underneath the surveygroup. This hides versioning
+    implementation from the user.
     """
 
     def __init__(self, context, request):
@@ -58,9 +60,10 @@ class EuphorieNavtreeFactory(object):
 
 
 class UserManagementNavtree(Tile):
-    """Special navigation tree for the usermanagement page. This tree
-    uses the locale to get the proper names for the countries instead
-    of using the titles of the country objects.
+    """Special navigation tree for the usermanagement page.
+
+    This tree uses the locale to get the proper names for the countries
+    instead of using the titles of the country objects.
     """
 
     def update(self):

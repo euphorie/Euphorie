@@ -1,4 +1,3 @@
-# coding=utf-8
 from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
@@ -29,7 +28,6 @@ from zope.interface import alsoProvides
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 import logging
-import six
 
 
 log = logging.getLogger(__name__)
@@ -52,12 +50,13 @@ class Frontpage(BrowserView):
 class SitePublishTraverser(DefaultPublishTraverse):
     """Publish traverser to manage access to the CMS API.
 
-    This traverser marks the request with IClientSkinLayer. We can not use
-    BeforeTraverseEvent since in Zope 2 that is only fired for site objects.
+    This traverser marks the request with IClientSkinLayer. We can not
+    use BeforeTraverseEvent since in Zope 2 that is only fired for site
+    objects.
     """
 
     def publishTraverse(self, request, name):
-        return super(SitePublishTraverser, self).publishTraverse(request, name)
+        return super().publishTraverse(request, name)
 
 
 class EuphorieRefreshResourcesTimestamp(BrowserView):
@@ -71,20 +70,19 @@ class EuphorieRefreshResourcesTimestamp(BrowserView):
     def refresh_timestamp(self):
         alsoProvides(self.request, IDisableCSRFProtection)
         api.portal.set_registry_record(
-            "euphorie.deployment.resources_timestamp", six.text_type(int(time()))
+            "euphorie.deployment.resources_timestamp", str(int(time()))
         )
 
     def __call__(self):
-        """Refresh the registry record that adds a timestamp
-        to the resources urls
-        """
+        """Refresh the registry record that adds a timestamp to the resources
+        urls."""
         self.refresh_timestamp()
         return "OK"
 
 
 class GetEuphorieResourcesTimestamp(EuphorieRefreshResourcesTimestamp):
     def __call__(self):
-        """Get the resource timestamp"""
+        """Get the resource timestamp."""
         return self.resources_timestamp
 
 
@@ -95,8 +93,7 @@ class ManageEnsureInterface(BrowserView):
                 if IRisk.providedBy(sub_node):
                     yield sub_node
                 if IDexterityContainer.providedBy(sub_node):
-                    for sub_sub_node in walk(sub_node):
-                        yield sub_sub_node
+                    yield from walk(sub_node)
 
         count = 0
         walker = walk(self.context)
@@ -108,15 +105,14 @@ class ManageEnsureInterface(BrowserView):
         return count
 
     def __call__(self):
-        """Iterate over all risks in the current context and ensure that they have the
-        correct interface
-        """
+        """Iterate over all risks in the current context and ensure that they
+        have the correct interface."""
         count = self.set_evaluation_method_interfaces()
         return "Handled %d risks" % count
 
 
 class UpdateCompletionPercentage(WebHelpers):
-    """Utility view to fill in missing values for completion_percentage"""
+    """Utility view to fill in missing values for completion_percentage."""
 
     flush_threshold = 50
 
@@ -202,7 +198,7 @@ class FixOmegaPaths(BrowserView):
             i = 1
             num = risk.zodb_path.split("/")[-1]
             while i < 100:
-                new_zodb_path = "custom-risks/{}".format(num)
+                new_zodb_path = f"custom-risks/{num}"
                 conflict = session.query(SurveyTreeItem).filter(
                     and_(
                         SurveyTreeItem.session_id == risk.session_id,

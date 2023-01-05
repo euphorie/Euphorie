@@ -25,7 +25,6 @@
 from Products.CMFPlone.utils import safe_unicode
 from sqlalchemy import types
 
-import six
 import uuid
 
 
@@ -35,7 +34,7 @@ class UUID(types.TypeEngine):
 
     def bind_processor(self, dialect):
         def convert(value):
-            if isinstance(value, six.string_types):
+            if isinstance(value, str):
                 return value
             elif isinstance(value, uuid.UUID):
                 return str(value)
@@ -82,7 +81,7 @@ class Enum(types.TypeDecorator):
         # The length of the string/unicode column should be the longest string
         # in values
         size = max([len(v) for v in values if v is not None])
-        super(Enum, self).__init__(size)
+        super().__init__(size)
 
     def process_bind_param(self, value, dialect):
         if self.empty_to_none and value == "":

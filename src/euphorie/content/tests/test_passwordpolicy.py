@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.content import MessageFactory as _
 from euphorie.content.tests.utils import createSector
 from euphorie.testing import EuphorieIntegrationTestCase

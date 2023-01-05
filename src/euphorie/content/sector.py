@@ -47,8 +47,7 @@ log = logging.getLogger(__name__)
 class ISector(model.Schema, IUser, IBasic):
     """Sector object.
 
-    A sector is a national organisation for a specific type of
-    industry.
+    A sector is a national organisation for a specific type of industry.
     """
 
     directives.order_before(title="*")
@@ -84,8 +83,8 @@ class ISector(model.Schema, IUser, IBasic):
 class Sector(Container):
     """A sector of industry.
 
-    A sector also acts as a user account in the system, using the membrane
-    framework.
+    A sector also acts as a user account in the system, using the
+    membrane framework.
     """
 
     portal_type = "euphorie.clientsector"
@@ -106,11 +105,11 @@ def SearchableTextIndexer(obj):
 
 @adapter(ISector)
 @implementer(ILocalRoleProvider)
-class SectorLocalRoleProvider(object):
+class SectorLocalRoleProvider:
     """`borg.localrole` provider for :obj:`ISector` instances.
 
-    This local role provider gives the sector user itself the
-    `Sector` local role.
+    This local role provider gives the sector user itself the `Sector`
+    local role.
     """
 
     def __init__(self, context):
@@ -154,7 +153,6 @@ def getSurveys(context):
         published version of the surveygroup
       * ``current``: boolean indicating if the *context* is inside this survey
       * ``versions``: list of published versions
-
     """
     current_version = None
     for sector in aq_chain(aq_inner(context)):

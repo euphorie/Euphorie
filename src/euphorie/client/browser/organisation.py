@@ -53,9 +53,8 @@ class OrganisationBaseView(BaseView):
 
     @property
     def default_organisation_title(self):
-        """Return the default title for a new organisation
-        or an orgasination without a title set
-        """
+        """Return the default title for a new organisation or an orgasination
+        without a title set."""
         account = self.webhelpers.get_current_account()
         name = account.first_name or account.loginname
         return api.portal.translate(
@@ -76,8 +75,7 @@ class OrganisationBaseView(BaseView):
     @memoize
     def organisation_title(self):
         """The title of the organisation bound to this account (if it exists)
-        or the account login name
-        """
+        or the account login name."""
         return self.get_organisation_title(self.organisation)
 
     def get_member_role_id(self, organization, user):
@@ -148,7 +146,7 @@ class View(OrganisationBaseView):
 
 class PanelAddOrganisation(OrganisationBaseView):
     def handle_POST(self):
-        """Handle the POST request"""
+        """Handle the POST request."""
         title = self.request.form.get("title")
         if not title:
             return self.redirect(
@@ -172,7 +170,7 @@ class PanelAddOrganisation(OrganisationBaseView):
 
 @implementer(IPublishTraverse)
 class PanelAddUser(OrganisationBaseView):
-    """Panel to add a new user to an organisation"""
+    """Panel to add a new user to an organisation."""
 
     storage_key = "euphorie.add_user_to_organisation_tokens"
     days_to_keep = 5
@@ -186,7 +184,8 @@ class PanelAddUser(OrganisationBaseView):
     @property
     @memoize_contextless
     def organisation(self):
-        """Get the organisation requested, defaults to the current user organisation"""
+        """Get the organisation requested, defaults to the current user
+        organisation."""
         organisation_id = self.request.get(self.organisation_id_key)
         account = self.webhelpers.get_current_account()
         if not organisation_id:
@@ -305,7 +304,7 @@ class PanelAddUser(OrganisationBaseView):
 
 @implementer(IPublishTraverse)
 class ConfirmInvite(BaseView):
-    """Confirm the invite to join an organisation"""
+    """Confirm the invite to join an organisation."""
 
     storage_key = PanelAddUser.storage_key
 
@@ -360,6 +359,7 @@ class ConfirmInvite(BaseView):
 
     def lookup_token_and_redirect(self):
         """Check that:
+
         - we have the token
         - the token is valid
         - the token is not expired
@@ -441,7 +441,7 @@ class ConfirmInvite(BaseView):
 
 @implementer(IPublishTraverse)
 class PanelEditOrganisation(OrganisationBaseView):
-    """Panel to edit a user organisation"""
+    """Panel to edit a user organisation."""
 
     organisation_id_key = "organisation_id"
 
@@ -452,7 +452,8 @@ class PanelEditOrganisation(OrganisationBaseView):
     @property
     @memoize_contextless
     def organisation(self):
-        """Get the organisation requested, defaults to the current user organisation"""
+        """Get the organisation requested, defaults to the current user
+        organisation."""
         organisation_id = self.request.get(self.organisation_id_key)
         account = self.webhelpers.get_current_account()
         if not organisation_id:
@@ -492,7 +493,7 @@ class PanelEditOrganisation(OrganisationBaseView):
         return self.organisation and self.organisation.image_data is not None
 
     def handle_POST(self):
-        """Handle the POST request"""
+        """Handle the POST request."""
         organisation = self.organisation
         if not organisation:
             organisation = Organisation(
@@ -517,7 +518,7 @@ class PanelEditOrganisation(OrganisationBaseView):
 
 @implementer(IPublishTraverse)
 class OrganisationLogo(OrganisationBaseView):
-    """View to serve the organisation logo"""
+    """View to serve the organisation logo."""
 
     organisation_id_key = "organisation_id"
 
@@ -528,7 +529,8 @@ class OrganisationLogo(OrganisationBaseView):
     @property
     @memoize_contextless
     def organisation(self):
-        """Get the organisation requested, defaults to the current user organisation"""
+        """Get the organisation requested, defaults to the current user
+        organisation."""
         organisation_id = self.request.get(self.organisation_id_key)
         account = self.webhelpers.get_current_account()
         if not organisation_id:
@@ -562,7 +564,7 @@ class OrganisationLogo(OrganisationBaseView):
         raise Unauthorized("You are not a member of this organisation")
 
     def get_or_create_image_scaled(self):
-        """Get the image scaled"""
+        """Get the image scaled."""
         organisation = self.organisation
         if organisation.image_data_scaled:
             return organisation.image_data_scaled
@@ -606,7 +608,7 @@ class MemberMoreMenu(OrganisationBaseView):
 
 @implementer(IPublishTraverse)
 class PanelMemberEdit(OrganisationBaseView):
-    """Panel to edit a member in the context of this organisation"""
+    """Panel to edit a member in the context of this organisation."""
 
     def publishTraverse(self, request, membership_id):
         request.set("membership_id", membership_id)
@@ -615,7 +617,7 @@ class PanelMemberEdit(OrganisationBaseView):
     @property
     @memoize
     def membership(self):
-        """Return the role of the member in the organisation"""
+        """Return the role of the member in the organisation."""
         membership_id = self.request.get("membership_id")
         account = self.webhelpers.get_current_account()
         membership = (
@@ -648,12 +650,12 @@ class PanelMemberEdit(OrganisationBaseView):
     @property
     @memoize
     def edited_member(self):
-        """Return the member to edit"""
+        """Return the member to edit."""
         return self.sqlsession.query(Account).get(self.membership.member_id)
 
     @property
     def role_options(self):
-        """Return a list of options for the role field"""
+        """Return a list of options for the role field."""
         options = deepcopy(self._known_roles)
         current_value = self.membership.member_role
         for option in options:
@@ -666,7 +668,7 @@ class PanelMemberEdit(OrganisationBaseView):
             raise NotFound("Member not found")
 
     def handle_POST(self):
-        """Handle the POST request"""
+        """Handle the POST request."""
         new_role = self.request.form.get("role")
         # Validate that the role is something allowed
         if new_role != self.membership.member_role:
@@ -679,7 +681,7 @@ class PanelMemberEdit(OrganisationBaseView):
 
 @implementer(IPublishTraverse)
 class PanelMemberRemove(OrganisationBaseView):
-    """Panel to remove a member from this organisation"""
+    """Panel to remove a member from this organisation."""
 
     def publishTraverse(self, request, membership_id):
         request.set("membership_id", membership_id)
@@ -688,7 +690,7 @@ class PanelMemberRemove(OrganisationBaseView):
     @property
     @memoize
     def membership(self):
-        """Return the role of the member in the organisation"""
+        """Return the role of the member in the organisation."""
         membership_id = self.request.get("membership_id")
         account = self.webhelpers.get_current_account()
         membership = (
@@ -728,6 +730,6 @@ class PanelMemberRemove(OrganisationBaseView):
             raise NotFound("Member not found")
 
     def handle_POST(self):
-        """Handle the POST request"""
+        """Handle the POST request."""
         self.sqlsession.delete(self.membership)
         return self.redirect(msg=_("Member removed"))

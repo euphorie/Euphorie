@@ -109,8 +109,7 @@ class IOnlineHelp(model.Schema):
 @indexer(IOnlineHelp)
 def SearchableTextIndexer(obj):
     """Index the introduction, authentication, sessions, identification,
-    evaluation, actionplan, report and finalwords.
-    """
+    evaluation, actionplan, report and finalwords."""
     return " ".join(
         [
             StripMarkup(obj.introduction),

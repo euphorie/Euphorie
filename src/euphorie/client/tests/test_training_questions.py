@@ -11,12 +11,11 @@ from zope.interface import alsoProvides
 
 
 class TestTrainingQuestions(EuphorieIntegrationTestCase):
-    """There is a possibility to add training questions in a survey and evaluate
-    the user comprehension of the training
-    """
+    """There is a possibility to add training questions in a survey and
+    evaluate the user comprehension of the training."""
 
     def setUp(self):
-        super(TestTrainingQuestions, self).setUp()
+        super().setUp()
         with api.env.adopt_user("admin"):
             addSurvey(self.portal, BASIC_SURVEY)
         self.account = addAccount(password="secret")

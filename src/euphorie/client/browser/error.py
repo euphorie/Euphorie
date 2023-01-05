@@ -1,4 +1,3 @@
-# coding=utf-8
 from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
@@ -33,5 +32,4 @@ class ErrorView(BrowserView):
 
 
 class NotFound(ErrorView):
-
     pass

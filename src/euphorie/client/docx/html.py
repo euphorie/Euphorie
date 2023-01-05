@@ -1,4 +1,3 @@
-# coding=utf-8
 from lxml import etree
 
 import docx
@@ -7,8 +6,7 @@ import lxml.html
 
 
 def add_hyperlink(paragraph, url, text, style):
-    """
-    A function that places a hyperlink within a paragraph object.
+    """A function that places a hyperlink within a paragraph object.
 
     :param paragraph: The paragraph we are adding the hyperlink to.
     :param url: A string containing the required url
@@ -46,7 +44,7 @@ def add_hyperlink(paragraph, url, text, style):
     return hyperlink
 
 
-class _HtmlToWord(object):
+class _HtmlToWord:
     def handleInlineText(self, node, p):
         """Handler for elements which can only contain inline text (p, li)"""
         run = p.add_run()

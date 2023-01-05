@@ -1,4 +1,3 @@
-# coding=utf-8
 from AccessControl.PermissionRole import _what_not_even_god_should_do
 from datetime import timedelta
 from euphorie.client import config
@@ -14,7 +13,7 @@ from z3c.saconfig import Session
 try:
     from unittest import mock
 except ImportError:
-    import mock
+    from unittest import mock
 
 
 def createSurvey():
@@ -29,14 +28,13 @@ def createSurvey():
 
 class SurveySessionTests(EuphorieIntegrationTestCase):
     def test_iface(self):
-        """SurveySessions are marked by the ISurveySession interface"""
+        """SurveySessions are marked by the ISurveySession interface."""
         survey = createSurvey()[-1]
         self.assertTrue(model.ISurveySession.providedBy(survey))
 
     def test_is_archived(self):
-        """Verify that a session is archived when the archived attribute
-        is set and it is in the past
-        """
+        """Verify that a session is archived when the archived attribute is set
+        and it is in the past."""
         session = model.SurveySession()
         self.assertIsNone(session.archived)
         self.assertFalse(session.is_archived)
@@ -408,8 +406,7 @@ class AccountTests(DatabaseTests):
 
     def testSessionAcquisition(self):
         """Users belonging to a group should be able to see all the sessions
-        belonging to the group and the group children
-        """
+        belonging to the group and the group children."""
         session = Session()
         group1 = model.Group(group_id="1")
         session.add(group1)

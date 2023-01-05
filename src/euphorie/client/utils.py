@@ -20,7 +20,6 @@ from zope.i18nmessageid import MessageFactory
 import email.utils as emailutils
 import logging
 import random
-import six
 import threading
 
 
@@ -47,8 +46,11 @@ def getSecret():
 
 
 def randomString(length=16):
-    """Return 32 bytes of random data. Only characters which do not require
-    special escaping in HTML or URLs are generated."""
+    """Return 32 bytes of random data.
+
+    Only characters which do not require special escaping in HTML or
+    URLs are generated.
+    """
     safe_characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-"
     return "".join(random.choice(safe_characters) for idx in range(length))
 
@@ -73,7 +75,7 @@ def CreateEmailTo(sender_name, sender_email, recipient, subject, body):
     mail["Message-Id"] = emailutils.make_msgid()
     mail["Date"] = emailutils.formatdate(localtime=True)
     mail.set_param("charset", "utf-8")
-    if isinstance(body, six.text_type):
+    if isinstance(body, str):
         mail.attach(MIMEText(body.encode("utf-8"), "plain", "utf-8"))
     else:
         mail.attach(MIMEText(body))
@@ -82,11 +84,12 @@ def CreateEmailTo(sender_name, sender_email, recipient, subject, body):
 
 
 def setLanguage(request, context, lang=None):
-    """Switch Plone to another language. If no language is given via the
-    `lang` parameter the language is taken from a `language`
-    request parameter. If a dialect was chosen but is not available the main
-    language is used instead. If the main language is also unavailable switch
-    back to English.
+    """Switch Plone to another language.
+
+    If no language is given via the `lang` parameter the language is
+    taken from a `language` request parameter. If a dialect was chosen
+    but is not available the main language is used instead. If the main
+    language is also unavailable switch back to English.
     """
     if lang is None:
         lang = request.form.get("language")
@@ -168,8 +171,8 @@ def remove_empty_modules(nodes):
 
 def get_unactioned_nodes(ls, filter_for_measures=False):
     """Takes a list of modules and risks and removes all risks that have been
-    actioned (i.e has at least one valid action plan).
-    Also remove all modules that have lost all their risks in the process
+    actioned (i.e has at least one valid action plan). Also remove all modules
+    that have lost all their risks in the process.
 
     See https://syslab.com/proj/issues/2885
     """
@@ -197,8 +200,8 @@ def get_unactioned_nodes(ls, filter_for_measures=False):
 
 def get_actioned_nodes(ls):
     """Takes a list of modules and risks and removes all risks that are *not*
-    actioned (i.e does not have at least one valid action plan)
-    Also remove all modules that have lost all their risks in the process.
+    actioned (i.e does not have at least one valid action plan) Also remove all
+    modules that have lost all their risks in the process.
 
     See https://syslab.com/proj/issues/2885
     """

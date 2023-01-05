@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client import model
 from euphorie.client.browser.session import Profile
 from euphorie.client.profile import AddToTree
@@ -15,7 +14,7 @@ from zope.interface import alsoProvides
 try:
     from unittest import mock
 except ImportError:
-    import mock
+    from unittest import mock
 
 
 def createContainer(id, profile=False):
@@ -41,7 +40,7 @@ def createRisk(id):
     from zope.interface import implementer
 
     @implementer(IRisk)
-    class Risk(object):
+    class Risk:
         title = "risk"
         type = "risk"
         default_probability = 0
@@ -78,7 +77,7 @@ def createModule(id):
 
 class AddToTreeTests(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(AddToTreeTests, self).setUp()
+        super().setUp()
         self.session = Session()
         account = model.Account(id=1, loginname="jane", password="secret")
         self.session.add(account)
@@ -191,7 +190,7 @@ class AddToTreeTests(EuphorieIntegrationTestCase):
 
 class BuildSurveyTreeTests(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(BuildSurveyTreeTests, self).setUp()
+        super().setUp()
         self.session = Session()
         account = model.Account(id=1, loginname="jane", password="secret")
         self.session.add(account)
@@ -316,7 +315,7 @@ class ExtractProfileTests(TreeTests):
 
 class Profile_getDesiredProfile_Tests(TreeTests):
     def getDesiredProfile(self, survey, form):
-        class Request(object):
+        class Request:
             def __init__(self, form):
                 self.form = form
 
