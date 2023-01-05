@@ -18,6 +18,8 @@ Changelog
   [ale-rt]
 - CSV download for tool overview on country level.
   [reinhardt]
+- Organisation: Reflect whether training is enabled when adding a user.
+  [reinhardt]
 
 
 14.2.1 (2022-11-25)
