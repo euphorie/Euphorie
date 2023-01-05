@@ -1,4 +1,3 @@
-# -*- coding: UTF-8 -*-
 from euphorie.client import model
 from euphorie.content.behaviour.uniqueid import get_next_id
 from euphorie.content.solution import ISolution
@@ -27,10 +26,8 @@ def add_column_for_training_notes(context):
 
 
 def update_nav_types_registry(context):
-    """There is a new registry record called
-    plone.displayed_types
-    that determines what types get shown in the navigation
-    """
+    """There is a new registry record called plone.displayed_types that
+    determines what types get shown in the navigation."""
     loadMigrationProfile(context, "profile-euphorie.deployment.upgrade:to_0020")
 
 

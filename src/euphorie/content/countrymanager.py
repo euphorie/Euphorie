@@ -23,7 +23,8 @@ from zope.interface import implementer
 
 
 class ICountryManager(model.Schema, IUser):
-    """A country manager is responsible for managing sectors in their country."""
+    """A country manager is responsible for managing sectors in their
+    country."""
 
 
 @implementer(ICountryManager, IAttributeUUID)
@@ -41,13 +42,13 @@ class CountryManager(Item):
 
 @indexer(ICountryManager)
 def SearchableTextIndexer(obj):
-    """Index the title, contact_name and contact_email"""
+    """Index the title, contact_name and contact_email."""
     return " ".join([obj.title, obj.contact_name, obj.contact_email])
 
 
 @adapter(ICountry)
 @implementer(ILocalRoleProvider)
-class CountryManagerLocalRoleProvider(object):
+class CountryManagerLocalRoleProvider:
     """`borg.localrole` provider for :py:class:`ICountryManager` instances.
 
     This local role provider gives country managers the Administrator

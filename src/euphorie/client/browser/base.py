@@ -5,7 +5,6 @@ from z3c.saconfig import Session
 
 
 class BaseView(BrowserView):
-
     default_target_view = ""
 
     @property
@@ -14,7 +13,8 @@ class BaseView(BrowserView):
         return Session()
 
     def redirect(self, target=None, msg="", msg_type="notice"):
-        """Redirect the user to a meaningfull place and add a status message"""
+        """Redirect the user to a meaningfull place and add a status
+        message."""
         if target is None:
             target = self.context.absolute_url()
             if self.default_target_view:

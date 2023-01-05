@@ -21,12 +21,13 @@ class EuphoriePasswordPolicy(passwordpolicy.PasswordPolicyPlugin):
     security.declarePrivate("validateUserInfo")
 
     def validateUserInfo(self, user, set_id, set_info):
-        """See IValidationPlugin. Used to validate password property"""
+        """See IValidationPlugin.
+
+        Used to validate password property
+        """
         if IClientSkinLayer.providedBy(globalrequest.getRequest()):
             # We don't enforce the custom password policy for client users
-            return super(EuphoriePasswordPolicy, self).validateUserInfo(
-                user, set_id, set_info
-            )
+            return super().validateUserInfo(user, set_id, set_info)
 
         if not set_info:
             return []

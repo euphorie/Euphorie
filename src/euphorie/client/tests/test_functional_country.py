@@ -1,9 +1,8 @@
-# coding=utf-8
 from euphorie.client.tests.utils import addSurvey
 from euphorie.client.tests.utils import registerUserInClient
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieFunctionalTestCase
-from six.moves.urllib.parse import urlencode
+from urllib.parse import urlencode
 
 
 class CountryFunctionalTests(EuphorieFunctionalTestCase):

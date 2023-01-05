@@ -1,4 +1,3 @@
-# coding=utf-8
 from Acquisition import aq_inner
 from euphorie.client import model
 from euphorie.client import utils
@@ -35,7 +34,7 @@ class IdentificationView(BrowserView):
     @property
     @memoize
     def survey(self):
-        """This is the survey dexterity object"""
+        """This is the survey dexterity object."""
         return self.webhelpers._survey
 
     @property
@@ -45,7 +44,7 @@ class IdentificationView(BrowserView):
     @property
     @memoize
     def next_question(self):
-        """Try to understand what the next question will be"""
+        """Try to understand what the next question will be."""
         return FindNextQuestion(
             self.context,
             dbsession=self.context.aq_parent.session,
@@ -55,7 +54,7 @@ class IdentificationView(BrowserView):
     @property
     @memoize
     def previous_question(self):
-        """Try to understand what the previous question will be"""
+        """Try to understand what the previous question will be."""
         return FindPreviousQuestion(
             self.context,
             dbsession=self.context.aq_parent.session,
@@ -65,7 +64,7 @@ class IdentificationView(BrowserView):
     @property
     @memoize
     def next_question_url(self):
-        """Return the URL to the next question"""
+        """Return the URL to the next question."""
         if not self.next_question:
             return ""
         return "{parent_url}/{next_question_path}/@@{view}".format(
@@ -77,7 +76,7 @@ class IdentificationView(BrowserView):
     @property
     @memoize
     def previous_question_url(self):
-        """Return the URL to the previous question"""
+        """Return the URL to the previous question."""
         if not self.previous_question:
             return ""
         return "{parent_url}/{next_question_path}/@@{view}".format(
@@ -89,7 +88,7 @@ class IdentificationView(BrowserView):
     @property
     @memoize
     def next_phase_url(self):
-        """Return the URL to the next question"""
+        """Return the URL to the next question."""
         if self.integrated_action_plan:
             return "{parent_url}/@@report".format(
                 parent_url=self.context.aq_parent.absolute_url()
@@ -136,7 +135,7 @@ class IdentificationView(BrowserView):
         self.module = module
         number_files = 0
         for i in range(1, 5):
-            number_files += getattr(self.module, "file{0}".format(i), None) and 1 or 0
+            number_files += getattr(self.module, f"file{i}", None) and 1 or 0
         self.has_files = number_files > 0
         self.next_is_actionplan = not self.next_question
         if ICustomRisksModule.providedBy(module):
@@ -149,6 +148,7 @@ class IdentificationView(BrowserView):
 
     def save_and_continue(self, module):
         """We received a POST request.
+
         Submit the form and figure out where to go next.
         """
         context = aq_inner(self.context)
@@ -225,9 +225,7 @@ class IdentificationView(BrowserView):
 
 class ActionPlanView(BrowserView):
     """The introduction page for an :obj:`euphorie.content.module` in an action
-    plan.
-
-    """
+    plan."""
 
     variation_class = "variation-risk-assessment"
     phase = "actionplan"
@@ -241,7 +239,7 @@ class ActionPlanView(BrowserView):
     @property
     @memoize
     def survey(self):
-        """This is the survey dexterity object"""
+        """This is the survey dexterity object."""
         return self.webhelpers._survey
 
     @property
@@ -299,7 +297,7 @@ class ActionPlanView(BrowserView):
             self.context, self.context.session, filter=self.question_filter
         )
         if previous is None:
-            self.previous_url = "%s/@@%s" % (
+            self.previous_url = "{}/@@{}".format(
                 self.context.aq_parent.absolute_url(),
                 self.phase,
             )

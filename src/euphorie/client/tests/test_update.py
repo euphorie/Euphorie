@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client import model
 from euphorie.client import update
 from euphorie.testing import EuphorieFunctionalTestCase
@@ -175,7 +174,7 @@ class TreeChangesTests(TreeTests):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.module", "1")
         changes = update.treeChanges(session, survey)
-        self.assertEqual(changes, set([("1", "module", "add")]))
+        self.assertEqual(changes, {("1", "module", "add")})
 
     def test_add_new_risk(self):
         session = self.createSurveySession()
@@ -188,7 +187,7 @@ class TreeChangesTests(TreeTests):
         survey.invokeFactory("euphorie.module", "1")
         survey["1"].invokeFactory("euphorie.risk", "2")
         changes = update.treeChanges(session, survey)
-        self.assertEqual(changes, set([("1/2", "risk", "add")]))
+        self.assertEqual(changes, {("1/2", "risk", "add")})
 
     def testProfileActsAsModule(self):
         session = self.createSurveySession()
@@ -196,14 +195,14 @@ class TreeChangesTests(TreeTests):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.profilequestion", "1")
         changes = update.treeChanges(session, survey)
-        self.assertEqual(changes, set([]))
+        self.assertEqual(changes, set())
 
     def testRemoveModule(self):
         session = self.createSurveySession()
         session.addChild(model.Module(title="Root", module_id="1", zodb_path="1"))
         survey = self.createClientSurvey()
         changes = update.treeChanges(session, survey)
-        self.assertEqual(changes, set([("1", "module", "remove")]))
+        self.assertEqual(changes, {("1", "module", "remove")})
 
     def test_remove_risk(self):
         session = self.createSurveySession()
@@ -224,7 +223,7 @@ class TreeChangesTests(TreeTests):
         survey = self.createClientSurvey()
         survey.invokeFactory("euphorie.module", "1")
         changes = update.treeChanges(session, survey)
-        self.assertEqual(changes, set([("1/1", "risk", "remove")]))
+        self.assertEqual(changes, {("1/1", "risk", "remove")})
 
     def test_module_lost_description(self):
         session = self.createSurveySession()
@@ -241,7 +240,7 @@ class TreeChangesTests(TreeTests):
         module = survey["1"]
         module.description = "<p></p>"
         changes = update.treeChanges(session, survey)
-        self.assertEqual(changes, set([("1", "module", "modified")]))
+        self.assertEqual(changes, {("1", "module", "modified")})
 
     def test_module_gained_description(self):
         session = self.createSurveySession()
@@ -258,7 +257,7 @@ class TreeChangesTests(TreeTests):
         module = survey["1"]
         module.description = "<p>Hello</p>"
         changes = update.treeChanges(session, survey)
-        self.assertEqual(changes, set([("1", "module", "modified")]))
+        self.assertEqual(changes, {("1", "module", "modified")})
 
     def testModuleMadeRequired(self):
         session = self.createSurveySession()
@@ -271,7 +270,7 @@ class TreeChangesTests(TreeTests):
         module = survey["1"]
         module.optional = False
         changes = update.treeChanges(session, survey)
-        self.assertEqual(changes, set([("1", "module", "modified")]))
+        self.assertEqual(changes, {("1", "module", "modified")})
 
     def test_module_made_optional(self):
         """
@@ -293,7 +292,7 @@ class TreeChangesTests(TreeTests):
         module = survey["1"]
         module.optional = True
         changes = update.treeChanges(session, survey)
-        self.assertEqual(changes, set([]))
+        self.assertEqual(changes, set())
 
 
 class MeasureChangeTests(TreeTests):

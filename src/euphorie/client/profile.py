@@ -118,8 +118,8 @@ def get_custom_risks(session):
 
 
 def BuildSurveyTree(survey, profile, dbsession, old_session=None):
-    """(Re)build the survey SQL tree. The existing tree for the
-    session is deleted before a new tree is created.
+    """(Re)build the survey SQL tree. The existing tree for the session is
+    deleted before a new tree is created.
 
     :param survey: survey to build tree for
     :type survey: :py:class:`euphorie.content.survey.Survey`
@@ -193,7 +193,6 @@ def extractProfile(survey, survey_session):
     For repetable profile questions the value is a list of titles as provided
     by the user. This format is compatible with
     :py:meth:`Profile.getDesiredProfile`.
-
     """
     questions = [
         {"id": child.id, "use_location_question": child.use_location_question}

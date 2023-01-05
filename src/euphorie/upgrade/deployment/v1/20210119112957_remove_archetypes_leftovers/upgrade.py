@@ -1,4 +1,3 @@
-# coding=utf-8
 from ftw.upgrade import UpgradeStep
 from plone import api
 from plone.app.upgrade.utils import loadMigrationProfile
@@ -35,9 +34,9 @@ def unregisterUtility(context, iface, name=""):
 
 class RemoveArchetypesLeftovers(UpgradeStep):
     """Remove Archetypes Leftovers and persistent traces of collecive.indexing
-    Run this BEFORE you migrate to plone5.2
-    See https://community.plone.org/t/upgrade-to-5-2-failing-with-iatcttool-has-no-attribute-iro/8909/10  # noqa: E501
-    """
+    Run this BEFORE you migrate to plone5.2 See
+    https://community.plone.org/t/upgrade-to-5-2-failing-with-iatcttool-has-no-
+    attribute-iro/8909/10  # noqa: E501."""
 
     def __call__(self):
         portal = api.portal.get()
@@ -55,9 +54,9 @@ class RemoveArchetypesLeftovers(UpgradeStep):
         for tool in tools:
             try:
                 portal.manage_delObjects([tool])
-                log.info("Deleted {}".format(tool))
+                log.info(f"Deleted {tool}")
             except AttributeError:
-                log.info("{} not found".format(tool))
+                log.info(f"{tool} not found")
 
         # reapply uninstall to get rid of IATCTTool component
         try:
@@ -77,7 +76,7 @@ class RemoveArchetypesLeftovers(UpgradeStep):
             if bad_behaviors:
                 behaviors = [x for x in fti.behaviors if x not in bad_behaviors]
                 fti.behaviors = behaviors
-                log.warning("Removed {} for FTI {}".format(bad_behaviors, fti.id))
+                log.warning(f"Removed {bad_behaviors} for FTI {fti.id}")
 
         # Unregister persistent traces of collective.indexing
         try:

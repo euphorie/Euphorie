@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client.browser import publish
 from euphorie.testing import EuphorieFunctionalTestCase
 from plone.dexterity.utils import createContentInContainer

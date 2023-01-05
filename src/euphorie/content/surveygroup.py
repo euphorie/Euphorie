@@ -72,9 +72,7 @@ class ISurveyGroup(model.Schema, IBasic):
 
 @implementer(ISurveyGroup)
 class SurveyGroup(Container):
-    """
-    A Survey Group is a container for several Survey versions
-    """
+    """A Survey Group is a container for several Survey versions."""
 
     published = None
     evaluation_algorithm = "kinney"

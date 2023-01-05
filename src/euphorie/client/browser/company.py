@@ -218,7 +218,7 @@ class Company(AutoExtensibleForm, form.Form):
     def update(self):
         if not self.webhelpers.can_view_session:
             return self.request.response.redirect(self.webhelpers.client_url)
-        super(Company, self).update()
+        super().update()
         self._assertCompany()
 
     def getContent(self):

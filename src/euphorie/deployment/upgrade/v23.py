@@ -1,4 +1,3 @@
-# -*- coding: UTF-8 -*-
 from euphorie.client import MessageFactory as _
 from euphorie.client.browser.publish import EnableCustomRisks
 from euphorie.client.country import IClientCountry
@@ -13,7 +12,7 @@ log = logging.getLogger(__name__)
 
 
 def update_custom_risks_module_texts(context):
-    """ """
+    """"""
     if not api.portal.get_registry_record("euphorie.allow_user_defined_risks"):
         log.warning(
             "Custom risks are not enabled. Set 'allow_user_defined_risks' to "

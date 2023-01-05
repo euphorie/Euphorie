@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client.model import Organisation
 from euphorie.client.model import Session
 from euphorie.client.tests.utils import addAccount

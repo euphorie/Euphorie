@@ -1,4 +1,3 @@
-# coding=utf-8
 from ..interfaces import IQuestionContainer
 from ..module import IModule
 from ..profilequestion import IProfileQuestion
@@ -87,10 +86,11 @@ class SurveyView(BrowserView, DragDropHelper):
 
 
 class AddForm(DefaultAddForm):
-    """Custom add form for :obj:`Survey` instances. This form is
-    needlessly complicated: it should use a schema and a vocabulary
-    to offer a list of template surveys, but this is impossible since
-    vocabulary factories always get a None context. See
+    """Custom add form for :obj:`Survey` instances.
+
+    This form is needlessly complicated: it should use a schema and a
+    vocabulary to offer a list of template surveys, but this is
+    impossible since vocabulary factories always get a None context. See
     http://code.google.com/p/dexterity/issues/detail?id=125
     """
 
@@ -139,7 +139,7 @@ class AddView(DefaultAddView):
 
 class EditForm(DefaultEditForm):
     def applyChanges(self, data):
-        changes = super(EditForm, self).applyChanges(data)
+        changes = super().applyChanges(data)
         if changes:
             # Reindex our parents title.
             catalog = getToolByName(self.context, "portal_catalog")
@@ -158,7 +158,7 @@ class EditForm(DefaultEditForm):
         return data.getData()
 
     def updateWidgets(self):
-        super(EditForm, self).updateWidgets()
+        super().updateWidgets()
         if not api.portal.get_registry_record(
             "euphorie.use_integrated_action_plan", default=False
         ):
@@ -184,8 +184,7 @@ class EditForm(DefaultEditForm):
 
 class Delete(actions.Delete):
     """Special delete action class which prevents deletion of published surveys
-    or of the last survey in a group.
-    """
+    or of the last survey in a group."""
 
     def verify(self, container, context):
         flash = IStatusMessage(self.request).addStatusMessage
@@ -228,9 +227,8 @@ class Delete(actions.Delete):
 
 class ContentsOfSurveyCompiler(IdentificationReportCompiler):
     def __init__(self, context, request=None):
-        """Read the docx template and initialize some instance attributes
-        that will be used to compile the template
-        """
+        """Read the docx template and initialize some instance attributes that
+        will be used to compile the template."""
         self.context = context
         self.request = request
         self.template = Document(self._template_filename)
@@ -240,7 +238,6 @@ class ContentsOfSurveyCompiler(IdentificationReportCompiler):
         self.italy_special = False
 
     def set_session_title_row(self, data):
-
         request = self.request
 
         # Remove existing paragraphs
@@ -269,13 +266,13 @@ class ContentsOfSurveyCompiler(IdentificationReportCompiler):
         doc.add_paragraph(heading, style="Heading 1")
 
         for node in nodes:
-            title = "[{0}] {1}".format(
+            title = "[{}] {}".format(
                 translate(_(node.typus), target_language=self.lang), node.title
             )
             number = node.number
 
             doc.add_paragraph(
-                "%s %s" % (number, title), style="Heading %d" % (node.depth + 1)
+                f"{number} {title}", style="Heading %d" % (node.depth + 1)
             )
 
             if node.typus == "Risk":
@@ -316,8 +313,7 @@ class ContentsOfSurveyCompiler(IdentificationReportCompiler):
                     doc = HtmlToWord(_sanitize_html(legal_reference), doc)
 
 
-class Node(object):
-
+class Node:
     title = ""
     typus = ""
     depth = 0
@@ -345,12 +341,11 @@ class Node(object):
         self.problem_description = problem_description
 
 
-class MockWebHelpers(object):
+class MockWebHelpers:
     can_view_session = True
 
 
 class ContentsOfSurvey(IdentificationReportDocxView):
-
     _compiler = ContentsOfSurveyCompiler
     nodes = []
     # Webhelpers are actually not needed for _this_ computation. But the
@@ -360,7 +355,7 @@ class ContentsOfSurvey(IdentificationReportDocxView):
     webhelpers = MockWebHelpers()
 
     def __init__(self, request, context):
-        super(ContentsOfSurvey, self).__init__(request, context)
+        super().__init__(request, context)
         self.nodes = []
 
     def AddToTree(self, node, depth, number):
@@ -408,8 +403,8 @@ class ContentsOfSurvey(IdentificationReportDocxView):
                 for field in ("action", "requirements"):
                     value = getattr(child, field, "") or ""
                     if value:
-                        description = "{0}<li>{1}</li>".format(description, value)
-                description = "{0}</ul>".format(description)
+                        description = f"{description}<li>{value}</li>"
+                description = f"{description}</ul>"
                 self.nodes.append(
                     Node(
                         title=child.description,
@@ -441,10 +436,10 @@ class ContentsOfSurvey(IdentificationReportDocxView):
 
     @property
     def _filename(self):
-        """Return the document filename"""
+        """Return the document filename."""
         filename = _(
             "filename_tool_contents",
             default="Contents of OIRA tool ${title}",
             mapping=dict(title=self.context.title),
         )
-        return "{}.docx".format(translate(filename, context=self.request))
+        return f"{translate(filename, context=self.request)}.docx"

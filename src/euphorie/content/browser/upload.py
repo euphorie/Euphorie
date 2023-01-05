@@ -37,7 +37,6 @@ import lxml.etree
 import lxml.objectify
 import mimetypes
 import random
-import six
 
 
 try:
@@ -58,7 +57,7 @@ COMMA_REPLACEMENT = "__COMMA__"
 
 
 def attr_unicode(node, attr, default=None):
-    value = six.text_type(node.attrib.get(attr, "")).strip()
+    value = str(node.attrib.get(attr, "")).strip()
     if not value:
         return default
     return value
@@ -115,7 +114,7 @@ def el_unicode(
         else:
             return unwrapped_html
     else:
-        return six.text_type(value)
+        return str(value)
 
 
 def el_string(node, tag, default=None):
@@ -203,9 +202,11 @@ class IImportSurvey(Interface):
     )
 
 
-class SurveyImporter(object):
+class SurveyImporter:
     """Import a survey version from an XML file and create a new survey group
-    and survey. This assumes the current context is a sector.
+    and survey.
+
+    This assumes the current context is a sector.
     """
 
     is_etranslate_compatible = False
@@ -214,8 +215,7 @@ class SurveyImporter(object):
         self.context = context
 
     def ImportImage(self, node):
-        """
-        Import a base64 encoded image from an XML node.
+        """Import a base64 encoded image from an XML node.
 
         :param node: lxml.objectified XML node of image element
         :rtype: (:py:class:`NamedImage`, unicode) tuple
@@ -246,7 +246,7 @@ class SurveyImporter(object):
         :returns: :obj:`euphorie.content.solution`.
         """
         solution = createContentInContainer(risk, "euphorie.solution")
-        solution.description = six.text_type(node.description)
+        solution.description = str(node.description)
         action = el_unicode(
             node,
             "action",
@@ -254,7 +254,7 @@ class SurveyImporter(object):
             convert_to_markdown=True,
         )
         solution.action = action or node.description
-        solution.action_plan = six.text_type(getattr(node, "action-plan", ""))
+        solution.action_plan = str(getattr(node, "action-plan", ""))
         solution.prevention_plan = el_unicode(node, "prevention-plan")
         solution.requirements = el_unicode(node, "requirements")
         solution.external_id = attr_unicode(node, "external-id")
@@ -268,9 +268,7 @@ class SurveyImporter(object):
 
         :returns: :obj:`euphorie.content.risk`.
         """
-        risk = createContentInContainer(
-            module, "euphorie.risk", title=six.text_type(node.title)
-        )
+        risk = createContentInContainer(module, "euphorie.risk", title=str(node.title))
         EnsureInterface(risk)
         risk.type = node.get("type")
         risk.description = el_unicode(
@@ -336,7 +334,7 @@ class SurveyImporter(object):
         :returns: :obj:`euphorie.content.module`.
         """
         module = createContentInContainer(
-            survey, "euphorie.module", title=six.text_type(node.title)
+            survey, "euphorie.module", title=str(node.title)
         )
         module.optional = node.get("optional") == "true"
         module.description = el_unicode(
@@ -344,7 +342,7 @@ class SurveyImporter(object):
         )
         module.external_id = attr_unicode(node, "external-id")
         if module.optional:
-            module.question = six.text_type(node.question)
+            module.question = str(node.question)
         module.solution_direction = el_unicode(node, "solution-direction")
 
         for child in node.iterchildren(tag=XMLNS + "risk"):
@@ -371,17 +369,17 @@ class SurveyImporter(object):
         type = node.get("type")
         if type == "optional":
             profile = createContentInContainer(
-                survey, "euphorie.module", title=six.text_type(node.title)
+                survey, "euphorie.module", title=str(node.title)
             )
             profile.optional = True
         else:
             profile = createContentInContainer(
-                survey, "euphorie.profilequestion", title=six.text_type(node.title)
+                survey, "euphorie.profilequestion", title=str(node.title)
             )
         profile.description = el_unicode(
             node, "description", is_etranslate_compatible=self.is_etranslate_compatible
         )
-        profile.question = six.text_type(node.question)
+        profile.question = str(node.question)
         profile.external_id = attr_unicode(node, "external-id")
         for fname in ProfileQuestionLocationFields:
             setattr(profile, fname, el_unicode(node, fname.replace("_", "-")))
@@ -403,11 +401,11 @@ class SurveyImporter(object):
         :returns: :obj:`euphorie.training_question`.
         """
         training_question = createContentInContainer(
-            survey, "euphorie.training_question", title=six.text_type(node.title)
+            survey, "euphorie.training_question", title=str(node.title)
         )
-        training_question.right_answer = six.text_type(node.right_answer)
-        training_question.wrong_answer_1 = six.text_type(node.wrong_answer_1)
-        training_question.wrong_answer_2 = six.text_type(node.wrong_answer_2)
+        training_question.right_answer = str(node.right_answer)
+        training_question.wrong_answer_1 = str(node.wrong_answer_1)
+        training_question.wrong_answer_2 = str(node.wrong_answer_2)
         return training_question
 
     def ImportSurvey(self, node, group, version_title):
@@ -474,14 +472,14 @@ class SurveyImporter(object):
     def __call__(
         self, input, surveygroup_title, survey_title, is_etranslate_compatible=False
     ):
-        """Import a new survey from the XML data in `input` and create a
-        new survey with the given `title`.
+        """Import a new survey from the XML data in `input` and create a new
+        survey with the given `title`.
 
-        `input` has to be either the raw XML input, or a `lxml.objectify`
-        enablde DOM.
+        `input` has to be either the raw XML input, or a
+        `lxml.objectify` enablde DOM.
         """
         self.is_etranslate_compatible = is_etranslate_compatible
-        if isinstance(input, six.string_types + (bytes,)):
+        if isinstance(input, (str,) + (bytes,)):
             try:
                 sector = lxml.objectify.fromstring(safe_bytes(input))
             except Exception:
@@ -498,7 +496,7 @@ class SurveyImporter(object):
         sg = createContentInContainer(
             root,
             "euphorie.surveygroup",
-            title=surveygroup_title or six.text_type(sector.survey.title),
+            title=surveygroup_title or str(sector.survey.title),
         )
 
         return self.ImportSurvey(sector.survey, sg, survey_title)
@@ -510,7 +508,7 @@ class SectorImporter(SurveyImporter):
     def __call__(
         self, input, sector_title, sector_login, surveygroup_title, survey_title
     ):
-        if isinstance(input, six.string_types + (bytes,)):
+        if isinstance(input, (str,) + (bytes,)):
             sector = lxml.objectify.fromstring(safe_bytes(input))
         else:
             sector = input
@@ -518,7 +516,7 @@ class SectorImporter(SurveyImporter):
         country = aq_inner(self.context)
 
         if not sector_title:
-            sector_title = six.text_type(sector.title)
+            sector_title = str(sector.title)
         root = createContentInContainer(country, "euphorie.sector", title=sector_title)
 
         account = getattr(sector, "account", None)
@@ -541,7 +539,7 @@ class SectorImporter(SurveyImporter):
             sg = createContentInContainer(
                 root,
                 "euphorie.surveygroup",
-                title=surveygroup_title or six.text_type(sector.survey.title),
+                title=surveygroup_title or str(sector.survey.title),
             )
             self.ImportSurvey(sector.survey, sg, survey_title)
 

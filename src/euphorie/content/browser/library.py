@@ -1,5 +1,3 @@
-# coding=utf-8
-
 from Acquisition import aq_base
 from Acquisition import aq_inner
 from euphorie.content import MessageFactory as _
@@ -46,7 +44,8 @@ def is_allowed(context, item):
 
 
 def get_library(context):
-    """Get a list of sectors, based on the the euphorie.library registry record
+    """Get a list of sectors, based on the the euphorie.library registry
+    record.
 
     :returns: A list of dicts with details for sectors
     :rtype: list
@@ -168,18 +167,17 @@ def assign_ids(context, tree):
 class Library(BrowserView):
     def __call__(self):
         """Set view attributes to define the current library, depth and
-        at_root, which is True when the context is the root of the library.
-        """
+        at_root, which is True when the context is the root of the library."""
         self.library = get_library(self.context)
         if not self.library:
             raise NotFound(self, "library", self.request)
         self.depth = item_depth(aq_inner(self.context))
         self.at_root = not self.depth
-        return super(Library, self).__call__()
+        return super().__call__()
 
 
 class LibraryInsert(BrowserView):
-    """Copy an item from the Library to the current context
+    """Copy an item from the Library to the current context.
 
     View name: @@library-insert
     """

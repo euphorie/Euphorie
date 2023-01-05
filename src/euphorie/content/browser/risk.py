@@ -1,4 +1,3 @@
-# coding=utf-8
 from ..risk import evaluation_algorithm
 from ..risk import IFrenchEvaluation
 from ..risk import IFrenchRisk
@@ -115,12 +114,11 @@ class RiskView(BrowserView, DragDropHelper):
 
 
 class AddForm(DefaultAddForm):
-
     portal_type = "euphorie.risk"
     default_fieldset_label = None
 
     def __init__(self, context, request):
-        super(AddForm, self).__init__(context, request)
+        super().__init__(context, request)
         self.order = [
             "header_identification",
             "header_evaluation",
@@ -142,11 +140,11 @@ class AddForm(DefaultAddForm):
             return IKinneyRisk
 
     def updateFields(self):
-        super(AddForm, self).updateFields()
+        super().updateFields()
         self.groups.sort(key=lambda g: self.order.index(g.label))
 
     def updateWidgets(self):
-        super(AddForm, self).updateWidgets()
+        super().updateWidgets()
         self.widgets["title"].addClass("span-7")
         self.widgets["existing_measures"].mode = "hidden"
 
@@ -173,7 +171,6 @@ class AddView(DefaultAddView):
 
 
 class EditForm(DefaultEditForm):
-
     portal_type = "euphorie.risk"
     default_fieldset_label = None
 
@@ -216,7 +213,7 @@ class EditForm(DefaultEditForm):
         return get_tool_type(self.my_context)
 
     def __init__(self, context, request):
-        super(EditForm, self).__init__(context, request)
+        super().__init__(context, request)
         self.order = [
             "header_identification",
             "header_evaluation",
@@ -226,11 +223,11 @@ class EditForm(DefaultEditForm):
         ]
 
     def updateFields(self):
-        super(EditForm, self).updateFields()
+        super().updateFields()
         self.groups.sort(key=lambda g: self.order.index(g.label))
 
     def updateWidgets(self):
-        super(EditForm, self).updateWidgets()
+        super().updateWidgets()
         self.widgets["title"].addClass("span-7")
         tt = getUtility(IToolTypesInfo)
         if not (
@@ -246,7 +243,7 @@ class EditForm(DefaultEditForm):
                 self.widgets[fname].value = safe_value
 
     def extractData(self, setErrors=True):
-        data = super(EditForm, self).extractData(setErrors)
+        data = super().extractData(setErrors)
         if data[0]["evaluation_method"] == "fixed":
             del data[0]["default_priority"]
 

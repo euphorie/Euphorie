@@ -1,4 +1,3 @@
-# coding=utf-8
 from AccessControl import getSecurityManager
 from Acquisition import aq_base
 from Acquisition import aq_chain
@@ -40,8 +39,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import ISecuritySchema
 from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
-from six.moves.urllib.parse import urlencode
 from sqlalchemy import and_
+from urllib.parse import urlencode
 from user_agents import parse
 from ZODB.POSException import POSKeyError
 from zope.component import getMultiAdapter
@@ -108,7 +107,7 @@ class WebHelpers(BrowserView):
     dashboard_tabs = ["surveys", "assessments", "organisation"]
 
     def to_decimal(self, value):
-        """Transform value in to a decimal"""
+        """Transform value in to a decimal."""
         return Decimal(value)
 
     @property
@@ -242,10 +241,12 @@ class WebHelpers(BrowserView):
                 return obj
 
     def redirectOnSurveyUpdate(self):
-        """Utility method for views to check if a survey has been updated,
-        and if so redirect the user to the update confirmation page is
-        generated. The return value is `True` if an update is required and
-        `False` otherwise."""
+        """Utility method for views to check if a survey has been updated, and
+        if so redirect the user to the update confirmation page is generated.
+
+        The return value is `True` if an update is required and `False`
+        otherwise.
+        """
         traversed_session = self.traversed_session
         session = traversed_session.session
         survey = traversed_session.aq_parent
@@ -339,8 +340,10 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def selected_country(self):
-        """Return the country id that is present in the path. Fall back to the
-        default_country"""
+        """Return the country id that is present in the path.
+
+        Fall back to the default_country
+        """
         country = self.county_obj_via_parents
         if country:
             return country.getId()
@@ -399,7 +402,7 @@ class WebHelpers(BrowserView):
     @property
     @forever.memoize
     def available_help_languages(self):
-        exclude = set(["illustrations"])
+        exclude = {"illustrations"}
         return set(resource_listdir("euphorie.client", "resources/oira/help")) - exclude
 
     @property
@@ -430,7 +433,8 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def country(self):
-        """XXX it would be better to write this country id, consider deprecating this"""
+        """XXX it would be better to write this country id, consider
+        deprecating this."""
         obj = self.country_obj
         if not obj:
             return ""
@@ -465,8 +469,10 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def sector_title(self):
-        """Return the title to use for the current sector. If the current
-        context is not in a sector return the agency name instead.
+        """Return the title to use for the current sector.
+
+        If the current context is not in a sector return the agency name
+        instead.
         """
         sector = self.sector
         if sector is not None and getattr(aq_base(sector), "logo", None) is not None:
@@ -500,15 +506,18 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def country_or_client_url(self):
-        """Return the country URL, but fall back to the client URL in case
-        the country URL is None.
-        Relevant in tests only, as far as I can see"""
+        """Return the country URL, but fall back to the client URL in case the
+        country URL is None.
+
+        Relevant in tests only, as far as I can see
+        """
         return self.country_url or self.client_url
 
     def _base_url(self):
         """Return a base URL to be used for non-survey specific pages.
-        If we are in a survey the help page will be located there. Otherwise
-        the country will be used as parent.
+
+        If we are in a survey the help page will be located there.
+        Otherwise the country will be used as parent.
         """
         base_url = self.survey_url()
         if base_url is not None and aq_inner(self.context).absolute_url().startswith(
@@ -533,17 +542,17 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def certificates_url(self):
-        return "{}/{}".format(self.client_url, self.certificates_path)
+        return f"{self.client_url}/{self.certificates_path}"
 
     @property
     @memoize
     def media_url(self):
-        return "{}/{}".format(self.client_url, self.media_path)
+        return f"{self.client_url}/{self.media_path}"
 
     @property
     @memoize
     def style_url(self):
-        return "{}/{}".format(self.client_url, self.style_path)
+        return f"{self.client_url}/{self.style_path}"
 
     @property
     @memoize
@@ -633,17 +642,21 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def help_url(self):
-        """Return the URL to the current online help page. If we are in a
-        survey the help page will be located there. Otherwise the country
-        will be used as parent."""
+        """Return the URL to the current online help page.
+
+        If we are in a survey the help page will be located there.
+        Otherwise the country will be used as parent.
+        """
         return "%s/help" % self._base_url()
 
     @property
     @memoize
     def about_url(self):
-        """Return the URL to the current online about page. If we are in a
-        survey the help page will be located there. Otherwise the country
-        will be used as parent."""
+        """Return the URL to the current online about page.
+
+        If we are in a survey the help page will be located there.
+        Otherwise the country will be used as parent.
+        """
         return "%s/about" % self._base_url()
 
     @property
@@ -693,8 +706,8 @@ class WebHelpers(BrowserView):
     def survey_url(self, phase=None):
         """Return the URL for the curreny survey.
 
-        If a phase is specified the URL for the first page of that
-        phase is returned.
+        If a phase is specified the URL for the first page of that phase
+        is returned.
         """
         survey = self._survey
         if not survey:
@@ -707,8 +720,8 @@ class WebHelpers(BrowserView):
 
     @memoize
     def survey_zodb_path(self):
-        """
-        Construct zodb_path from current survey.
+        """Construct zodb_path from current survey.
+
         Helper method, since I don't always trust self.session.zodb_path
         """
         elems = []
@@ -737,9 +750,8 @@ class WebHelpers(BrowserView):
         return self._survey is not None
 
     def is_initialised_session(self, session):
-        """
-        A session without children has not passed the Identification phase yet
-        """
+        """A session without children has not passed the Identification phase
+        yet."""
         return session.children().count()
 
     @property
@@ -767,7 +779,7 @@ class WebHelpers(BrowserView):
 
         base_url = self._base_url()
         return [
-            {"url": "%s/appendix/%s" % (base_url, page.id), "title": page.Title()}
+            {"url": f"{base_url}/appendix/{page.id}", "title": page.Title()}
             for page in appendix.values()
         ]
 
@@ -775,8 +787,7 @@ class WebHelpers(BrowserView):
     @memoize
     def is_iphone(self):
         """Check if the current request is from an iPhone or similar device
-        (such as an iPod touch).
-        """
+        (such as an iPod touch)."""
         agent = self.request.get_header("User-Agent", "")
         return "iPhone" in agent
 
@@ -849,7 +860,7 @@ class WebHelpers(BrowserView):
             message = dict(
                 title=StripMarkup(motd.description),
                 text=motd.body,
-                id="motd{0}{1}".format(
+                id="motd{}{}".format(
                     motd.modification_date.strftime("%Y%m%d%H%M%S"),
                     now.strftime("%Y%m%d"),
                 ),
@@ -948,7 +959,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def is_owner(self):
-        """Check if the current user is the owner of the session"""
+        """Check if the current user is the owner of the session."""
         session = self.traversed_session.session
         return self.get_current_account() == session.account
 
@@ -958,7 +969,7 @@ class WebHelpers(BrowserView):
         return self.use_clone_feature
 
     def resume(self, session):
-        """Resume a session for the current user if he is allowed to"""
+        """Resume a session for the current user if he is allowed to."""
         raise Exception("Obsolete, we traverse to sessions now")
 
     def as_md(self, text):
@@ -966,7 +977,7 @@ class WebHelpers(BrowserView):
         return "\r\n".join([x for x in text.split("\r")])
 
     def show_logo(self):
-        """In plain Euphorie, the logo is always shown"""
+        """In plain Euphorie, the logo is always shown."""
         return True
 
     @property
@@ -985,19 +996,17 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def custom_js(self):
-        """Return custom JavaScript where necessary"""
+        """Return custom JavaScript where necessary."""
         return ""
 
     @memoize_contextless
     def date_picker_i18n_json(self):
-        """Taken from:
-        https://github.com/ploneintranet/ploneintranet/blob/master/src/ploneintranet/layout/browser/date_picker.py  # noqa: E501
+        """Taken from: https://github.com/ploneintranet/ploneintranet/blob/mast
+        er/src/ploneintranet/layout/browser/date_picker.py  # noqa: E501.
 
-        Use this like:
-        <input class="pat-date-picker"
-               ...
-               data-pat-date-picker="...; i18n: ${portal_url}/@@date-picker-i18n.json; ..."
-               />
+        Use this like: <input class="pat-date-picker"        ... data-
+        pat-date-picker="...; i18n: ${portal_url}/@@date-
+        picker-i18n.json; ..."        />
         """
         json = dumps(
             {
@@ -1058,7 +1067,7 @@ class WebHelpers(BrowserView):
         filter_by_group=False,
         table=None,
     ):
-        """Method to return a query that looks for sessions
+        """Method to return a query that looks for sessions.
 
         :param context: limits the sessions under this context
         :param searchable_text: filters on survey title
@@ -1114,7 +1123,7 @@ class WebHelpers(BrowserView):
         lang = getattr(self.request, "LANGUAGE", "en")
         if "-" in lang:
             elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
+            lang = f"{elems[0]}_{elems[1].upper()}"
         messages = {
             "message-date": translate(
                 _("error_validation_date", default="This value must be a valid date"),
@@ -1143,12 +1152,7 @@ class WebHelpers(BrowserView):
                 target_language=lang,
             ),
         }
-        return "; ".join(
-            [
-                "{key}: {value}".format(key=key, value=value)
-                for key, value in messages.items()
-            ]
-        )
+        return "; ".join([f"{key}: {value}" for key, value in messages.items()])
 
     def __call__(self):
         return self

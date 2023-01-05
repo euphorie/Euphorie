@@ -1,4 +1,3 @@
-# coding=utf-8
 from ..module import IModule
 from ..risk import IRisk
 from ..utils import DragDropHelper
@@ -16,7 +15,7 @@ from zope.component import getUtility
 
 
 class ModuleView(BrowserView, DragDropHelper):
-    """View name: @@nuplone-view"""
+    """View name: @@nuplone-view."""
 
     def _morph(self, child):
         state = getMultiAdapter((child, self.request), name="plone_context_state")
@@ -24,7 +23,7 @@ class ModuleView(BrowserView, DragDropHelper):
 
     @property
     def modules(self):
-        """List modules in current context"""
+        """List modules in current context."""
         return [
             self._morph(child)
             for child in self.context.values()
@@ -33,7 +32,7 @@ class ModuleView(BrowserView, DragDropHelper):
 
     @property
     def risks(self):
-        """List risks in current context"""
+        """List risks in current context."""
         return [
             self._morph(child)
             for child in self.context.values()
@@ -80,8 +79,8 @@ class AddView(DefaultAddView):
 
 
 class EditForm(DefaultEditForm):
-    """Override for the standard edit form so we can change the form title
-    for submodules.
+    """Override for the standard edit form so we can change the form title for
+    submodules.
 
     View name: @@edit
     """
@@ -108,7 +107,7 @@ class EditForm(DefaultEditForm):
         return data.getData()
 
     def updateWidgets(self):
-        super(EditForm, self).updateWidgets()
+        super().updateWidgets()
         self.widgets["title"].addClass("span-7")
         for fname in ("description", "solution_direction"):
             value = self.widgets[fname].value or ""
@@ -117,7 +116,7 @@ class EditForm(DefaultEditForm):
                 self.widgets[fname].value = safe_value
 
     def extractData(self, setErrors=True):
-        data = super(EditForm, self).extractData(setErrors)
+        data = super().extractData(setErrors)
 
         # If there is a validation error on the form, consume all status messages,
         # so that they don't appear in the form. We only want to show validation

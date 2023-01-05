@@ -1,4 +1,3 @@
-# -*- coding: UTF-8 -*-
 from euphorie.deployment.upgrade.utils import alembic_upgrade_to
 
 import logging

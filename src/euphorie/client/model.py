@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Model
 -----
@@ -7,7 +6,6 @@ Mainly: the connection between the ZODB-based content of the backend and the
 SQL-based individual session content of the client users.
 Also: PAS-based user account for users of the client
 """
-from __future__ import division
 from AccessControl.interfaces import IUser
 from AccessControl.PermissionRole import _what_not_even_god_should_do
 from AccessControl.SecurityInfo import ClassSecurityInfo
@@ -48,7 +46,6 @@ import logging
 import OFS.Traversable
 import random
 import re
-import six
 
 
 BCRYPTED_PATTERN = re.compile(r"^\$2[aby]?\$\d{1,2}\$[.\/A-Za-z0-9]{53}$")
@@ -74,9 +71,9 @@ def GenerateSecret(length=32):
 class BaseObject(OFS.Traversable.Traversable, Acquisition.Implicit):
     """Zope 2-style base class for our models.
 
-    This base class allows SQL based objects to act like normal Zope 2 objects.
-    In particular it allows acquisition to find skin objects and keeps
-    absolute_url() and getPhysicalPath() working.
+    This base class allows SQL based objects to act like normal Zope 2
+    objects. In particular it allows acquisition to find skin objects
+    and keeps absolute_url() and getPhysicalPath() working.
     """
 
     __init__ = declarative.api._declarative_constructor
@@ -120,10 +117,10 @@ class BaseObject(OFS.Traversable.Traversable, Acquisition.Implicit):
 class SurveyTreeItem(BaseObject):
     """A tree of questions.
 
-    The data is stored in the form of a materialized tree. The path is built
-    using a list of item numbers. Each item number has three digits and uses
-    0-prefixing to make sure we can use simple string sorting to produce a
-    sorted tree.
+    The data is stored in the form of a materialized tree. The path is
+    built using a list of item numbers. Each item number has three
+    digits and uses 0-prefixing to make sure we can use simple string
+    sorting to produce a sorted tree.
     """
 
     __tablename__ = "tree"
@@ -343,20 +340,19 @@ class Group(BaseObject):
 
     @property
     def fullname(self):
-        """This is the name that will be display in the selectors and
-        in the tree widget
-        """
+        """This is the name that will be display in the selectors and in the
+        tree widget."""
         title = "{obs}{name}".format(
             obs="[obs.] " if not self.deactivated else "",
             name=self.short_name or self.group_id,
         )
         if self.responsible_fullname:
-            title += ", {}".format(self.responsible_fullname)
+            title += f", {self.responsible_fullname}"
         return title
 
     @property
     def descendantids(self):
-        """Return all the groups in the hierarchy flattened"""
+        """Return all the groups in the hierarchy flattened."""
         structure = self._group_structure
         ids = []
 
@@ -372,7 +368,7 @@ class Group(BaseObject):
 
     @property
     def descendants(self):
-        """Return all the groups in the hierarchy flattened"""
+        """Return all the groups in the hierarchy flattened."""
         return list(
             Session.query(self.__class__).filter(
                 self.__class__.group_id.in_(self.descendantids)
@@ -381,7 +377,7 @@ class Group(BaseObject):
 
     @property
     def parents(self):
-        """Return all the groups in the hierarchy flattened"""
+        """Return all the groups in the hierarchy flattened."""
         group = self
         parents = []
         while True:
@@ -394,9 +390,8 @@ class Group(BaseObject):
     @property
     @memoize
     def _group_structure(self):
-        """Return a dict like structure
-        with the group ids as keys and the children group ids as values
-        """
+        """Return a dict like structure with the group ids as keys and the
+        children group ids as values."""
         tree = defaultdict(set)
         for groupid, parentid in Session.query(Group.group_id, Group.parent_id).filter(
             Group.parent_id != None  # noqa: E711
@@ -406,7 +401,7 @@ class Group(BaseObject):
 
     @property
     def acquired_sessions(self):
-        """All the session relative to this group and its children"""
+        """All the session relative to this group and its children."""
         group_ids = [self.group_id]
         group_ids.extend(g.group_id for g in self.descendants)
         return (
@@ -417,7 +412,7 @@ class Group(BaseObject):
 
     @property
     def sessions(self):
-        """All the session relative to this group"""
+        """All the session relative to this group."""
         group_ids = [self.group_id]
         return (
             Session.query(SurveySession)
@@ -428,8 +423,10 @@ class Group(BaseObject):
 
 @implementer(IUser)
 class Account(BaseObject):
-    """A user account. Users have to register with euphorie before they can
-    start a survey session. A single account can have multiple survey sessions.
+    """A user account.
+
+    Users have to register with euphorie before they can start a survey
+    session. A single account can have multiple survey sessions.
     """
 
     __tablename__ = "account"
@@ -513,13 +510,13 @@ class Account(BaseObject):
     @property
     def login(self):
         """This synchs naming with :obj:`euphorie.content.user.IUser` and is
-        needed by the authentication tools.
-        """
+        needed by the authentication tools."""
         return self.loginname
 
     @property
     def title(self):
-        """Return the joined first_name and last_name of the account if present
+        """Return the joined first_name and last_name of the account if
+        present.
 
         If they are not fallback to the loginname
         """
@@ -580,12 +577,11 @@ class Account(BaseObject):
 
     @ram.cache(_forever_cache_key)
     def verify_password(self, password):
-        """Verify the given password against the one
-        stored in the account table
-        """
+        """Verify the given password against the one stored in the account
+        table."""
         if not password:
             return False
-        if not isinstance(password, six.string_types):
+        if not isinstance(password, str):
             return False
         if password == self.password:
             return True
@@ -593,7 +589,7 @@ class Account(BaseObject):
         return bcrypt.checkpw(password, self.password)
 
     def hash_password(self):
-        """hash the account password using bcrypt"""
+        """Hash the account password using bcrypt."""
         try:
             password = self.password
         except AttributeError:
@@ -652,7 +648,7 @@ class AccountChangeRequest(BaseObject):
 
 
 class ISurveySession(Interface):
-    """Marker interface for a SurveySession object"""
+    """Marker interface for a SurveySession object."""
 
 
 @implementer(ISurveySession)
@@ -766,6 +762,7 @@ class SurveySession(BaseObject):
     @property
     def review_state(self):
         """Check if it the published column.
+
         If it has return 'published' otherwise return 'private'
         """
         return "published" if self.published else "private"
@@ -786,11 +783,13 @@ class SurveySession(BaseObject):
     def refresh_survey(self, survey=None):
         """Mark the session with the current date to indicate that is has been
         refreshed with the latest version of the Survey (from Zope).
-        If survey is passed, update all titles in the tree, based on the CMS
-        version of the survey, i.e. update all titles of modules and risks.
-        Those are used in the navigation. If a title change is the only change
-        in the CMS, the survey session is not re-created. Therefore this
-        method ensures that the titles are updated where necessary.
+
+        If survey is passed, update all titles in the tree, based on the
+        CMS version of the survey, i.e. update all titles of modules and
+        risks. Those are used in the navigation. If a title change is
+        the only change in the CMS, the survey session is not re-
+        created. Therefore this method ensures that the titles are
+        updated where necessary.
         """
         if survey:
             query = Session.query(SurveyTreeItem).filter(
@@ -806,10 +805,12 @@ class SurveySession(BaseObject):
         self.refreshed = datetime.datetime.now()
 
     def update_measure_types(self, survey):
-        """Update measure types in the session according to changes in the tool.
-        Specifically, if an `in_place_standard` measure is deleted in the tool, it
-        disappears from the identification phase of the session unless we change its
-        type to `in_place_custom`.
+        """Update measure types in the session according to changes in the
+        tool.
+
+        Specifically, if an `in_place_standard` measure is deleted in
+        the tool, it disappears from the identification phase of the
+        session unless we change its type to `in_place_custom`.
         """
         in_place_standard_measures = (
             Session.query(Risk, ActionPlan)
@@ -997,7 +998,7 @@ class SurveySession(BaseObject):
 
     @classmethod
     def get_account_filter(cls, account=None):
-        """Filter only the sessions for the given account
+        """Filter only the sessions for the given account.
 
         :param acount: True means current account.
             A falsish value means do not filter.
@@ -1018,9 +1019,7 @@ class SurveySession(BaseObject):
         if not account:
             return False
 
-        if not include_organisation_members and isinstance(
-            account, (int, six.string_types)
-        ):
+        if not include_organisation_members and isinstance(account, (int, (str,))):
             return cls.account_id == account
 
         if include_organisation_members:
@@ -1040,9 +1039,7 @@ class SurveySession(BaseObject):
                 log.error("Cannot understand the account parameter: %r", account)
                 raise
             account_ids = {
-                item
-                for item in account_ids
-                if item and isinstance(item, (int, six.string_types))
+                item for item in account_ids if item and isinstance(item, (int, (str,)))
             }
 
         if not account_ids:
@@ -1056,7 +1053,7 @@ class SurveySession(BaseObject):
 
     @classmethod
     def get_group_filter(cls, group=None):
-        """Filter only the sessions for the given group
+        """Filter only the sessions for the given group.
 
         :param group: True means the current account's group.
             A falsish value means do not filter.
@@ -1074,7 +1071,7 @@ class SurveySession(BaseObject):
         if not group:
             return False
 
-        if isinstance(group, (int, six.string_types)):
+        if isinstance(group, (int, (str,))):
             return cls.group_id == group
 
         try:
@@ -1084,9 +1081,7 @@ class SurveySession(BaseObject):
             raise
 
         group_ids = {
-            item
-            for item in group_ids
-            if item and isinstance(item, (int, six.string_types))
+            item for item in group_ids if item and isinstance(item, (int, (str,)))
         }
         if not group_ids:
             return False
@@ -1099,14 +1094,14 @@ class SurveySession(BaseObject):
 
     @classmethod
     def get_archived_filter(cls):
-        """Filter sessions that are archived"""
+        """Filter sessions that are archived."""
         return sql.or_(
             cls.archived >= localized_now(), cls.archived == None  # noqa: E711
         )
 
     @classmethod
     def _get_context_tools(cls, context):
-        """Return the set of tools we can find under this context"""
+        """Return the set of tools we can find under this context."""
         if not context:
             return set()
 
@@ -1139,7 +1134,7 @@ class SurveySession(BaseObject):
 
     @classmethod
     def get_context_filter(cls, context):
-        """Filter sessions under this context using the zodb_path column"""
+        """Filter sessions under this context using the zodb_path column."""
         surveys = cls._get_context_tools(context)
         if not surveys:
             return False
@@ -1162,7 +1157,9 @@ class SurveySession(BaseObject):
 
     def absolute_url(self):
         """The URL for this session is based on the tool's URL.
-        To it (if it can be fetched) we add a traverser with the session id.
+
+        To it (if it can be fetched) we add a traverser with the session
+        id.
         """
         client = api.portal.get().client
         tool = client.unrestrictedTraverse(self.zodb_path, None)
@@ -1386,7 +1383,7 @@ class ActionPlan(BaseObject):
 
 
 class Training(BaseObject):
-    """Data table to record trainings"""
+    """Data table to record trainings."""
 
     __tablename__ = "training"
 
@@ -1417,7 +1414,7 @@ class Training(BaseObject):
 
 
 class Organisation(BaseObject):
-    """A table to store some data about an organisation"""
+    """A table to store some data about an organisation."""
 
     __tablename__ = "organisation"
 
@@ -1449,7 +1446,8 @@ class Organisation(BaseObject):
 class OrganisationMembership(BaseObject):
     """This table wants to mimic the concept of an organisation for Euphorie.
 
-    The goal is to share permissions to work on sessions from another user.
+    The goal is to share permissions to work on sessions from another
+    user.
     """
 
     __tablename__ = "organisation_membership"
@@ -1748,8 +1746,8 @@ del child_node
 
 
 def get_current_account():
-    """XXX this would be better placed in an api module,
-    but we need to avoid circular dependencies
+    """XXX this would be better placed in an api module, but we need to avoid
+    circular dependencies.
 
     :return: The current Account instance if a user can be found,
              otherwise None
@@ -1763,12 +1761,13 @@ def get_current_account():
 
 
 class DefaultView(BrowserView):
-    """Default @@index_html view for the objects in the model"""
+    """Default @@index_html view for the objects in the model."""
 
     def __call__(self):
         """Somebody called the default view for this object:
-        we do not want this to happen so we display a message and redirect the user
-        to the session start page
+
+        we do not want this to happen so we display a message and
+        redirect the user to the session start page
         """
         api.portal.show_message(
             "Wrong URL: %s" % self.request.getURL(), self.request, "warning"

@@ -12,8 +12,9 @@ logger = getLogger()
 class DecommissionTheTrainingNotesField(UpgradeStep):
     """Decommission the training_notes field.
 
-    For the moment we are not going to remove the field from the database,
-    but we copy the values to the comment column if it has no entry.
+    For the moment we are not going to remove the field from the
+    database, but we copy the values to the comment column if it has no
+    entry.
     """
 
     def __call__(self):

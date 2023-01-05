@@ -1,4 +1,3 @@
-# coding=utf-8
 from ..browser.survey import SurveyView
 from euphorie.content.module import IModule
 from euphorie.content.profilequestion import IProfileQuestion
@@ -21,7 +20,7 @@ import unittest
 try:
     from unittest import mock
 except ImportError:
-    import mock
+    from unittest import mock
 
 
 class Mock(Acquisition.Explicit):
@@ -38,7 +37,7 @@ class Mock(Acquisition.Explicit):
 
 class ViewTests(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(ViewTests, self).setUp()
+        super().setUp()
         provideAdapter(AttributeAnnotations)
         provideAdapter(DefaultOrdering)
         provideAdapter(
@@ -54,7 +53,7 @@ class ViewTests(EuphorieIntegrationTestCase):
         )
 
     def tearDown(self):
-        super(ViewTests, self).tearDown()
+        super().tearDown()
         del SurveyView.__view_name__
         del SurveyView.module_info
 

@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.content.utils import getTermTitleByToken
 from euphorie.content.utils import getTermTitleByValue
 from euphorie.content.utils import StripMarkup

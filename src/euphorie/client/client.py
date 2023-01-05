@@ -24,22 +24,21 @@ from ZPublisher.BaseRequest import DefaultPublishTraverse
 class IClient(model.Schema, IBasic):
     """The online client.
 
-    The online client is implemented as a container with all available surveys.
-    The default view for all survey elements inside this container is changed
-    to the client user interface. This is done using a simple traversal
-    adapter.
+    The online client is implemented as a container with all available
+    surveys. The default view for all survey elements inside this
+    container is changed to the client user interface. This is done
+    using a simple traversal adapter.
     """
 
 
 @implementer(IClient)
 class Client(Container):
-
     exclude_from_nav = True
 
 
 @adapter(IClient)
 @implementer(IMembraneUserObject)
-class ClientUserProvider(object):
+class ClientUserProvider:
     """Expose the client as a user to the system.
 
     This is used as ownership for all client data.
@@ -57,13 +56,13 @@ class ClientUserProvider(object):
 
 @adapter(IClient)
 @implementer(ILocalRoleProvider)
-class ClientLocalRolesProvider(object):
+class ClientLocalRolesProvider:
     """`borg.localrole` provider for :obj:`IClient` instances.
 
     This local role provider gives the client user itself the
     `CountryManager` local role. This allows publication of surveys
-    inside the client since the publication machinery always
-    runs under the client user.
+    inside the client since the publication machinery always runs under
+    the client user.
     """
 
     def __init__(self, client):
@@ -82,8 +81,9 @@ class ClientLocalRolesProvider(object):
 class ClientPublishTraverser(DefaultPublishTraverse):
     """Publish traverser to setup the skin layer.
 
-    This traverser marks the request with IClientSkinLayer. We can not use
-    BeforeTraverseEvent since in Zope 2 that is only fired for site objects.
+    This traverser marks the request with IClientSkinLayer. We can not
+    use BeforeTraverseEvent since in Zope 2 that is only fired for site
+    objects.
     """
 
     def publishTraverse(self, request, name):
@@ -98,4 +98,4 @@ class ClientPublishTraverser(DefaultPublishTraverse):
             if not IBrowserSkinType.providedBy(iface)
         ]
         directlyProvides(request, IClientSkinLayer, ifaces)
-        return super(ClientPublishTraverser, self).publishTraverse(request, name)
+        return super().publishTraverse(request, name)

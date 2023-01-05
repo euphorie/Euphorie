@@ -3,6 +3,6 @@ from zope.interface import implementer
 
 
 @implementer(INonInstallable)
-class HideEuphorieProducts(object):
+class HideEuphorieProducts:
     def getNonInstallableProducts(self):
         return ["euphorie.content", "euphorie.client"]

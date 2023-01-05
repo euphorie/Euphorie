@@ -1,4 +1,3 @@
-# coding=utf-8
 from Acquisition import aq_inner
 from anytree import NodeMixin
 from anytree.node.util import _repr
@@ -21,15 +20,13 @@ from zExceptions import Unauthorized
 from zope.deprecation import deprecate
 from zope.interface import directlyProvides
 
-import six
-
 
 logger = getLogger(__name__)
 
 
 def capitalize(text):
     if text:
-        return "{0}{1}".format(text[0].upper(), text[1:])
+        return f"{text[0].upper()}{text[1:]}"
 
 
 class Node(NodeMixin):
@@ -40,19 +37,18 @@ class Node(NodeMixin):
 
     @property
     def groups(self):
-        """Assume childrens are groups and return them sorted by title"""
+        """Assume childrens are groups and return them sorted by title."""
         return sorted(self.children, key=lambda x: x.title)
 
     @property
     def sessions(self):
-        """Assume childrens are sessions and return them sorted by
-        reversed modification date
-        """
+        """Assume childrens are sessions and return them sorted by reversed
+        modification date."""
         return sorted(self.children, key=lambda x: x.context.modified, reverse=True)
 
     @property
     def survey_templates(self):
-        """Return all children that are survey_templates, sorted by title"""
+        """Return all children that are survey_templates, sorted by title."""
         return sorted(
             (item for item in self.children if item.type == "survey_template"),
             key=lambda x: x.title.lower(),
@@ -60,7 +56,7 @@ class Node(NodeMixin):
 
     @property
     def categories(self):
-        """Return all children that are categories, sorted by title"""
+        """Return all children that are categories, sorted by title."""
         return sorted(
             (item for item in self.children if item.type == "category"),
             key=lambda x: x.title,
@@ -74,7 +70,7 @@ class Node(NodeMixin):
         return _repr(self, args=args, nameblacklist=["context"])
 
 
-class SurveyTemplatesMixin(object):
+class SurveyTemplatesMixin:
     # switch from radio buttons to dropdown above this number of tools
     # Note: since there's a CSS glitch with displaying radio buttons, we always
     # show the the dropdown
@@ -140,7 +136,7 @@ class SurveyTemplatesMixin(object):
                 if getattr(survey, "obsolete", False):
                     continue
                 categories = getattr(survey, "tool_category", None)
-                id = "%s/%s" % (sector.id, survey.id)
+                id = f"{sector.id}/{survey.id}"
                 if not isinstance(categories, list):
                     categories = [categories]
                 if not categories:
@@ -151,7 +147,6 @@ class SurveyTemplatesMixin(object):
 
 
 class SessionsView(BrowserView, SurveyTemplatesMixin):
-
     variation_class = "variation-dashboard"
     form_action_name = "dashboard-switcher"
 
@@ -196,7 +191,7 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
     @property
     @memoize_contextless
     def account(self):
-        """The currently authenticated account"""
+        """The currently authenticated account."""
         return get_current_account()
 
     def _updateSurveys(self):
@@ -219,7 +214,7 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
                     and not survey.language.strip().startswith(language)
                 ):
                     continue
-                info = {"id": "%s/%s" % (sector.id, survey.id), "title": survey.title}
+                info = {"id": f"{sector.id}/{survey.id}", "title": survey.title}
                 if getattr(survey, "obsolete", False):
                     # getattr needed for surveys which were published before
                     # the obsolete flag added.
@@ -284,11 +279,11 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
         elif action == "continue":
             return self._ContinueSurvey(reply)
         self._updateSurveys()
-        return super(SessionsView, self).__call__()
+        return super().__call__()
 
 
 class SessionBrowserNavigator(BrowserView):
-    """Logic to build the navigator for the sessions"""
+    """Logic to build the navigator for the sessions."""
 
     no_splash = True
 
@@ -314,7 +309,7 @@ class SessionBrowserNavigator(BrowserView):
 
     @memoize
     def get_root_group(self, groupid=None):
-        """Return the group that is the root of the navigation tree"""
+        """Return the group that is the root of the navigation tree."""
         if not groupid:
             groupid = self.groupid
         if not groupid:
@@ -327,16 +322,14 @@ class SessionBrowserNavigator(BrowserView):
     @property
     @memoize
     def searchable_text(self):
-        """Return the text we need to search in postgres
-        already surrounded with '%'
-        Allow a minimum size of 3 characters to reduce the load.
-        """
+        """Return the text we need to search in postgres already surrounded
+        with '%' Allow a minimum size of 3 characters to reduce the load."""
         searchable_text = self.request.get("SearchableText")
-        if not isinstance(searchable_text, six.string_types):
+        if not isinstance(searchable_text, str):
             return ""
         if len(searchable_text) < 3:
             return ""
-        return "%{}%".format(safe_unicode(searchable_text))
+        return f"%{safe_unicode(searchable_text)}%"
 
     @memoize
     def leaf_groups(self, groupid=None):
@@ -347,14 +340,14 @@ class SessionBrowserNavigator(BrowserView):
 
     @memoize
     def leaf_sessions(self):
-        """The sessions we want to display in the navigation"""
+        """The sessions we want to display in the navigation."""
         query = self.webhelpers.get_sessions_query(
             context=self.webhelpers.country_obj, searchable_text=self.searchable_text
         )
         return query.all()
 
     def has_content(self):
-        """Checks if we have something meaningfull to display"""
+        """Checks if we have something meaningfull to display."""
         if len(self.leaf_groups()):
             return True
         if len(self.leaf_sessions()):
@@ -394,8 +387,7 @@ class Assessments(BrowserView):
 
     def is_filter_active(self):
         """True if any filters in the request parameters are different from the
-        defaults.
-        """
+        defaults."""
         return (
             self.request.get("organisation")
             or self.request.get("sort_on", "alphabetical") != "alphabetical"
@@ -406,7 +398,7 @@ class Assessments(BrowserView):
     def sessions(self):
         searchable_text = self.request.get("SearchableText", None)
         if searchable_text and "%" not in searchable_text:
-            searchable_text = "%{}%".format(searchable_text)
+            searchable_text = f"%{searchable_text}%"
         sort_on_value = self.request.get("sort_on", "alphabetical")
         if sort_on_value == "alphabetical":
             order_by = self.webhelpers.survey_session_model.title
@@ -527,7 +519,7 @@ class Surveys(BrowserView, SurveyTemplatesMixin):
         utils.setLanguage(
             self.request, self.context, getattr(self.context, "language", None)
         )
-        return super(Surveys, self).__call__()
+        return super().__call__()
 
 
 class PortletBase(BrowserView):
@@ -576,7 +568,7 @@ class MyRAsPortlet(PortletBase):
 
     @property
     def assessments_list_macro(self):
-        """Get the listing macro from the assessments template"""
+        """Get the listing macro from the assessments template."""
         request = self.request.clone()
         # This is needed, since the view might be subclassed and therefore
         # associated with a different skin-layer.
@@ -587,10 +579,8 @@ class MyRAsPortlet(PortletBase):
     @property
     @memoize_contextless
     def hide_archived(self):
-        """By default we hide the archived session and
-        we have a checkbox that shows with a sibling
-        hide_archived_marker input field
-        """
+        """By default we hide the archived session and we have a checkbox that
+        shows with a sibling hide_archived_marker input field."""
         if self.request.get("hide_archived_marker"):
             if not self.request.get("hide_archived"):
                 return False
@@ -599,7 +589,7 @@ class MyRAsPortlet(PortletBase):
     @property
     @memoize
     def organisation_view(self):
-        """Get the organisation view to reuse its methods"""
+        """Get the organisation view to reuse its methods."""
         return api.content.get_view("organisation", self.context, self.request)
 
     @property
@@ -609,7 +599,7 @@ class MyRAsPortlet(PortletBase):
         "deprecated in version 14.2"
     )
     def sessions(self):
-        """We want the archived sessions"""
+        """We want the archived sessions."""
         return (
             self.webhelpers.get_sessions_query(
                 context=self.context, include_archived=not self.hide_archived
@@ -621,7 +611,7 @@ class MyRAsPortlet(PortletBase):
     @property
     @memoize
     def sessions_by_organisation(self):
-        """Return the sessions grouped by organisation"""
+        """Return the sessions grouped by organisation."""
         base_query = self.webhelpers.get_sessions_query(
             context=self.context, include_archived=not self.hide_archived
         )
@@ -661,5 +651,4 @@ class MyRAsPortlet(PortletBase):
 
 
 class AvailableToolsPortlet(PortletBase, SurveyTemplatesMixin):
-
     pass

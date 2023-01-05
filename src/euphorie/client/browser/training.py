@@ -1,4 +1,3 @@
-# coding=utf-8
 from collections import OrderedDict
 from datetime import date
 from datetime import datetime
@@ -31,9 +30,8 @@ logger = getLogger(__name__)
 
 
 class TrainingSlide(BrowserView):
-    """Template / macro to hold the training slide markup
-    Currently not active in default Euphorie
-    """
+    """Template / macro to hold the training slide markup Currently not active
+    in default Euphorie."""
 
     @property
     @view_memoize
@@ -81,7 +79,7 @@ class TrainingSlide(BrowserView):
         else:
             number = self.context.number
         if self.item_type == "module":
-            number = "{}.0".format(number)
+            number = f"{number}.0"
         return number
 
     @property
@@ -211,7 +209,6 @@ class TrainingSlide(BrowserView):
         return urls
 
     def slide_contents(self, standalone=False):
-
         return {
             "slide_type": self.item_type,
             "slide_template": self.slide_template,
@@ -253,7 +250,7 @@ class TrainingSlide(BrowserView):
 
 
 class TrainingView(BrowserView, survey._StatusHelper):
-    """The view that shows the main-menu Training module"""
+    """The view that shows the main-menu Training module."""
 
     variation_class = "variation-risk-assessment"
     skip_unanswered = False
@@ -270,7 +267,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
     @property
     @view_memoize
     def session(self):
-        """Return the session for this context/request"""
+        """Return the session for this context/request."""
         return self.context.session
 
     @property
@@ -279,9 +276,8 @@ class TrainingView(BrowserView, survey._StatusHelper):
         return self.session.modified.strftime("%s%M%H%d%m")
 
     def get_initial_answers(self):
-        """Pick a subset of questions, shuffle them, and initialize the answers with
-        None.
-        """
+        """Pick a subset of questions, shuffle them, and initialize the answers
+        with None."""
         survey = self.webhelpers._survey
         all_questions = survey.listFolderContents(
             {"portal_type": "euphorie.training_question"}
@@ -295,7 +291,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
 
     @memoize
     def get_or_create_training(self):
-        """Return the training for this session"""
+        """Return the training for this session."""
         account_id = self.webhelpers.get_current_account().id
         session_id = self.webhelpers.session_id
         try:
@@ -337,7 +333,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
             {"portal_type": "euphorie.training_question"}
         ) and self.training_status not in ("correct", "success"):
             view_name = "slide_question_intro"
-        return "{}/@@{}".format(self.context.absolute_url(), view_name)
+        return f"{self.context.absolute_url()}/@@{view_name}"
 
     @property
     @view_memoize
@@ -348,7 +344,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
 
     @property
     def enable_training_questions(self):
-        """Explicit property that can be overwritten in subpackages"""
+        """Explicit property that can be overwritten in subpackages."""
         return bool(self.question_intro_url)
 
     def slicePath(self, path):
@@ -528,7 +524,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
 
 
 class SlideQuestionIntro(TrainingView):
-    """The slide that introduces the questions"""
+    """The slide that introduces the questions."""
 
     @property
     @view_memoize
@@ -540,7 +536,7 @@ class SlideQuestionIntro(TrainingView):
         return self.webhelpers._survey.title
 
     def first_question_url(self):
-        """Check the questions in the survey and take the first one"""
+        """Check the questions in the survey and take the first one."""
         if not self.question_ids:
             return ""
         return "{base_url}/@@slide_question/{slide_id}".format(
@@ -550,9 +546,8 @@ class SlideQuestionIntro(TrainingView):
 
 @implementer(IPublishTraverse)
 class SlideQuestion(SlideQuestionIntro):
-    """The view for a question slide, the question id has to be passed
-    as a traversal parameter
-    """
+    """The view for a question slide, the question id has to be passed as a
+    traversal parameter."""
 
     def publishTraverse(self, request, name):
         self.question_id = name
@@ -561,13 +556,13 @@ class SlideQuestion(SlideQuestionIntro):
     @property
     @view_memoize
     def question(self):
-        """The question we want to display"""
+        """The question we want to display."""
         return self.webhelpers._survey[self.question_id]
 
     @property
     @view_memoize
     def answers(self):
-        """Return the randomized answers for this question"""
+        """Return the randomized answers for this question."""
         question = self.question
         answers = [
             question.right_answer,
@@ -579,9 +574,9 @@ class SlideQuestion(SlideQuestionIntro):
 
     @property
     def progress(self):
-        """Return a progress indicator, something like 2/3"""
+        """Return a progress indicator, something like 2/3."""
         idx = self.question_ids.index(self.question_id)
-        return "{}/{}".format(idx + 1, len(self.question_ids))
+        return f"{idx + 1}/{len(self.question_ids)}"
 
     @property
     @view_memoize
@@ -605,20 +600,22 @@ class SlideQuestion(SlideQuestionIntro):
 
     @property
     def next_url(self):
-        """Go to next question (if we have one) or to the success or try again slides"""
+        """Go to next question (if we have one) or to the success or try again
+        slides."""
         next_question_id = self.next_question_id
         if next_question_id:
-            next_slide = "slide_question/{}".format(next_question_id)
+            next_slide = f"slide_question/{next_question_id}"
         elif self.get_or_create_training().status == "correct":
             next_slide = "slide_question_success"
         else:
             next_slide = "slide_question_try_again"
-        return "{}/@@{}".format(self.context.absolute_url(), next_slide)
+        return f"{self.context.absolute_url()}/@@{next_slide}"
 
     def initialize_training(self):
         """Initialize the training.
-        This is particularly important if the user starts again the training
-        after a first attempt
+
+        This is particularly important if the user starts again the
+        training after a first attempt
         """
         training = self.get_or_create_training()
         answer_history = loads(training.answers)
@@ -668,7 +665,7 @@ class SlideQuestion(SlideQuestionIntro):
         self.validate()
         if self.posted():
             return self.request.response.redirect(self.next_url)
-        return super(SlideQuestion, self).__call__()
+        return super().__call__()
 
 
 class SlideQuestionSuccess(SlideQuestionIntro):
@@ -683,7 +680,7 @@ class SlideQuestionSuccess(SlideQuestionIntro):
             raise Unauthorized("You do not own the certificate")
         if self.request.method == "POST":
             return self.post()
-        return super(SlideQuestionSuccess, self).__call__()
+        return super().__call__()
 
 
 class SlideQuestionTryAgain(SlideQuestionIntro):

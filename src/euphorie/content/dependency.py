@@ -19,24 +19,24 @@ from zope.interface import implementer
 from zope.interface import Interface
 
 
-class ConditionalField(object):
-    """Marker class for conditional fields"""
+class ConditionalField:
+    """Marker class for conditional fields."""
 
 
 class ConditionalTextLine(schema.TextLine, ConditionalField):
-    """A Text line that is only shown under certain conditions"""
+    """A Text line that is only shown under certain conditions."""
 
 
 class ConditionalHtmlText(HtmlText, ConditionalField):
-    """HTML Text field that is only shown under certain conditions"""
+    """HTML Text field that is only shown under certain conditions."""
 
 
 @implementer(IValidator)
 @adapter(Interface, Interface, IForm, ConditionalField, Interface)
 class ConditionalFieldValidator(BaseValidator):
     def validate(self, value):
-        """
-        Only validate for required if the condition for the field is met.
+        """Only validate for required if the condition for the field is met.
+
         If the field that our widget depends on is not checked, set the
         flag for ignoring validation for required.
         """
@@ -56,4 +56,4 @@ class ConditionalFieldValidator(BaseValidator):
                 # of z3c.form.validation is called, with the updated widget.
                 self.widget.ignoreRequiredOnValidation = not d_value
 
-        return super(ConditionalFieldValidator, self).validate(value)
+        return super().validate(value)

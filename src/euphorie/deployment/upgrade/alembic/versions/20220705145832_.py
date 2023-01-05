@@ -3,7 +3,6 @@
 Revision ID: 20220705145832
 Revises: 20220620103222
 Create Date: 2022-07-05 14:55:08.235238
-
 """
 from alembic import op
 

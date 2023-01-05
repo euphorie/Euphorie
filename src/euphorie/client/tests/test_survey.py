@@ -1,5 +1,3 @@
-# coding=utf-8
-
 from euphorie.client import model
 from euphorie.testing import EuphorieIntegrationTestCase
 from z3c.saconfig import Session
@@ -7,7 +5,7 @@ from z3c.saconfig import Session
 
 class completion_percentage_tests(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(completion_percentage_tests, self).setUp()
+        super().setUp()
         self.session = Session()
         account = model.Account(loginname="jane", password="secret")
         self.session.add(account)

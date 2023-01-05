@@ -1,4 +1,3 @@
-# coding=utf-8
 from ..surveygroup import ISurveyGroup
 from Acquisition import aq_inner
 from Acquisition import aq_parent
@@ -13,7 +12,7 @@ from plone.dexterity.utils import createContentInContainer
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from six.moves.urllib.parse import urlencode
+from urllib.parse import urlencode
 from ZODB.POSException import ConflictError
 from zope.component import getUtility
 from zope.event import notify
@@ -36,9 +35,11 @@ class SurveyGroupView(BrowserView):
 
 
 class AddForm(DefaultAddForm):
-    """Custom add form for :obj:`Survey` instances. This add form adds a
-    the :obj:`ITemplateSchema` schema, which allows users to pick a template
-    survey to use as a basis for the new survey.
+    """Custom add form for :obj:`Survey` instances.
+
+    This add form adds a the :obj:`ITemplateSchema` schema, which allows
+    users to pick a template survey to use as a basis for the new
+    survey.
     """
 
     portal_type = "euphorie.surveygroup"
@@ -46,7 +47,7 @@ class AddForm(DefaultAddForm):
     template = ViewPageTemplateFile("templates/surveygroup_add.pt")
 
     def update(self):
-        super(AddForm, self).update()
+        super().update()
         sector = aq_inner(self.context)
         country = aq_parent(sector)
         self.my_country = country.id
@@ -168,7 +169,7 @@ class AddForm(DefaultAddForm):
         return copy
 
     def createAndAdd(self, data):
-        obj = super(AddForm, self).createAndAdd(data)
+        obj = super().createAndAdd(data)
         obj = aq_inner(self.context)[obj.id]
 
         form = self.request.form
@@ -180,7 +181,7 @@ class AddForm(DefaultAddForm):
                 bits = form["sector.%s" % country_id].split(".", 1)
                 sector = country[bits[0]]
                 surveygroup = sector[bits[1]]
-                survey_id = form["survey.%s.%s" % (country_id, surveygroup.id)]
+                survey_id = form[f"survey.{country_id}.{surveygroup.id}"]
                 survey = surveygroup[survey_id]
             else:
                 sg_local = form["surveygroup.local"]
@@ -245,7 +246,7 @@ class Unpublish(BrowserView):
         if self.request.method == "POST":
             self.post()
         else:
-            return super(Unpublish, self).__call__()
+            return super().__call__()
 
 
 class VersionCommand(BrowserView):
@@ -255,9 +256,7 @@ class VersionCommand(BrowserView):
         survey_id = self.request.form.get("survey")
         response = self.request.response
         if action == "publish":
-            response.redirect(
-                "%s/%s/@@publish" % (surveygroup.absolute_url(), survey_id)
-            )
+            response.redirect(f"{surveygroup.absolute_url()}/{survey_id}/@@publish")
         elif action == "unpublish":
             response.redirect("%s/@@unpublish" % surveygroup.absolute_url())
         elif action == "clone":

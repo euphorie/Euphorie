@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client import model
 from euphorie.client import navigation
 from euphorie.client.browser.risk import ActionPlanView
@@ -151,8 +150,7 @@ class FindPreviousQuestionTests(EuphorieIntegrationTestCase):
 
 class ActionPlanNavigationTests(EuphorieIntegrationTestCase):
     """Test if the filter determining which modules and risks to show during
-    the action plan phase are correct.
-    """
+    the action plan phase are correct."""
 
     def filter(self):
         return ActionPlanView.question_filter

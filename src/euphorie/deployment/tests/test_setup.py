@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
 from time import time
@@ -29,7 +28,7 @@ class SetupTests(EuphorieIntegrationTestCase):
     def testHideComponentProducts(self):
         qi = self.portal.portal_quickinstaller
         installable = qi.listInstallableProducts(skipInstalled=False)
-        installable = set([product["id"] for product in installable])
+        installable = {product["id"] for product in installable}
         self.assertTrue("euphorie.content" not in installable)
         self.assertTrue("euphorie.client" not in installable)
 

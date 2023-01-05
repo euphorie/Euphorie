@@ -1,4 +1,3 @@
-# -*- coding: UTF-8 -*-
 """
 Risk
 ----
@@ -601,7 +600,6 @@ class IFrenchRisk(IRisk, IFrenchEvaluation):
 
 @implementer(IRisk)
 class Risk(Container):
-
     type = "risk"
 
     default_probability = 0
@@ -632,15 +630,17 @@ class Risk(Container):
         ob = frame.f_locals.get("ob")
         if ob is not None and INameFromUniqueId.providedBy(ob):
             return get_next_id(self)
-        return super(Risk, self)._get_id(orig_id)
+        return super()._get_id(orig_id)
 
     def _verifyObjectPaste(self, object, validate_src=True):
-        super(Risk, self)._verifyObjectPaste(object, validate_src)
+        super()._verifyObjectPaste(object, validate_src)
         if validate_src:
             check_fti_paste_allowed(self, object)
 
     def evaluation_algorithm(self):
-        """Return the evaluation algorithm used by this risk. The
+        """Return the evaluation algorithm used by this risk.
+
+        The
         algorithm is determined by the `evaluation_algorithm` flag
         for the parent :py:class:`euphorie.content.surveygroup.SurveyGroup`.
         """
@@ -680,7 +680,7 @@ class Risk(Container):
             measure = description
             if webhelpers.country in ("it",):
                 if prevention_plan:
-                    measure = "%s: %s" % (measure, prevention_plan)
+                    measure = f"{measure}: {prevention_plan}"
             measures.append(measure)
 
         return measures
@@ -688,8 +688,7 @@ class Risk(Container):
 
 def EnsureInterface(risk):
     """Make sure a risk has the correct interface set for, matching the
-    evaluation method of the survey group.
-    """
+    evaluation method of the survey group."""
     algorithm = evaluation_algorithm(risk)
     if algorithm == "french":
         alsoProvides(risk, IFrenchRisk)
@@ -700,7 +699,9 @@ def EnsureInterface(risk):
 
 
 def evaluation_algorithm(context):
-    """Return the evaluation algorithm used in a given context. The
+    """Return the evaluation algorithm used in a given context.
+
+    The
     algorithm is determined by the `evaluation_algorithm` flag
     for the parent :py:class:`euphorie.content.surveygroup.SurveyGroup`.
     """
@@ -726,10 +727,10 @@ def SearchableTextIndexer(obj):
 
 @adapter(ConditionalDexterityFTI, Interface)
 @implementer(IConstructionFilter)
-class ConstructionFilter(object):
+class ConstructionFilter:
     """FTI construction filter for :py:class:`Risk` objects. This filter
-     prevents creating of modules if the current container already contains a
-     module.
+    prevents creating of modules if the current container already contains a
+    module.
 
     This multi adapter requires the use of the conditional FTI as implemented
     by :py:class:`euphorie.content.fti.ConditionalDexterityFTI`.
@@ -740,8 +741,9 @@ class ConstructionFilter(object):
         self.container = container
 
     def checkForModules(self):
-        """Check if the container already contains a module. If so refuse to
-        allow creation of a risk.
+        """Check if the container already contains a module.
+
+        If so refuse to allow creation of a risk.
         """
         for key in self.container:
             pt = self.container[key].portal_type

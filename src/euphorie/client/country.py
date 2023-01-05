@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Country
 -------
@@ -26,7 +25,6 @@ class IClientCountry(model.Schema, IBasic):
 
 @implementer(IClientCountry)
 class ClientCountry(Container):
-
     country_type = None
 
     # Many countries only have one language. Use it as the default

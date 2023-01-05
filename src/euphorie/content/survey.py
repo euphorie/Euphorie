@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Survey
 ======
@@ -209,8 +208,9 @@ class SurveyAttributeField(ParentAttributeField):
 
 
 def get_tool_type(context):
-    """Return the tool type used in a given context. The type is set on
-    the survey.
+    """Return the tool type used in a given context.
+
+    The type is set on the survey.
     """
     from euphorie.content.survey import ISurvey  # XXX Circular
 
@@ -241,18 +241,17 @@ class Survey(Container):
         ob = frame.f_locals.get("ob")
         if ob is not None and INameFromUniqueId.providedBy(ob):
             return get_next_id(self)
-        return super(Survey, self)._get_id(orig_id)
+        return super()._get_id(orig_id)
 
     def _verifyObjectPaste(self, object, validate_src=True):
-        super(Survey, self)._verifyObjectPaste(object, validate_src)
+        super()._verifyObjectPaste(object, validate_src)
         if validate_src:
             check_fti_paste_allowed(self, object)
 
     def hasProfile(self):
         """Check if this survey has any profile questions.
 
-        .. todo::
-           Implement the deprecation checking
+        .. todo::    Implement the deprecation checking
         """
 
         for child in self.values():
@@ -262,9 +261,7 @@ class Survey(Container):
             return False
 
     def hasNotification(self):
-        """
-        Checks if a notification message was set
-        """
+        """Checks if a notification message was set."""
         return self.enable_tool_notification or False
 
     def ProfileQuestions(self):
@@ -272,7 +269,7 @@ class Survey(Container):
         return [child for child in self.values() if IProfileQuestion.providedBy(child)]
 
     def get_tool_type_name(self):
-        """Returns the human readable name of the chosen tool type"""
+        """Returns the human readable name of the chosen tool type."""
         my_tool_type = get_tool_type(self)
         tti = getUtility(IToolTypesInfo)
         tool_types = tti()

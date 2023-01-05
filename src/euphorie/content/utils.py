@@ -1,15 +1,14 @@
-# -*- coding: utf-8 -*-
 from .. import MessageFactory as _
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from collections import OrderedDict
+from io import StringIO
 from plone import api
 from plone.namedfile.interfaces import INamedBlobImage
 from plonetheme.nuplone import MessageFactory as NuPloneMessageFactory
 from plonetheme.nuplone.utils import checkPermission
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
-from six import StringIO
 from zope.component import queryUtility
 from zope.i18nmessageid.message import Message
 from zope.interface import implementer
@@ -184,18 +183,18 @@ TOOL_TYPES = OrderedDict(
 
 class IToolTypesInfo(Interface):
     def __call__():
-        """Returns info (data-structure) about available tool types"""
+        """Returns info (data-structure) about available tool types."""
 
     def types_existing_measures():
-        """Returns all tool type names that use the "Measures already in
-        place" feature"""
+        """Returns all tool type names that use the "Measures already in place"
+        feature."""
 
     def default_tool_type():
-        """Returns the default type of tool, valid for this installation"""
+        """Returns the default type of tool, valid for this installation."""
 
 
 @implementer(IToolTypesInfo)
-class ToolTypesInfo(object):
+class ToolTypesInfo:
     def __call__(self):
         return TOOL_TYPES
 
@@ -218,7 +217,7 @@ def get_tool_type_default():
 
 
 @implementer(IVocabularyFactory)
-class ToolTypesVocabulary(object):
+class ToolTypesVocabulary:
     def __call__(self, context):
         tti = queryUtility(IToolTypesInfo)
         terms = []
@@ -232,9 +231,8 @@ ToolTypesVocabularyFactory = ToolTypesVocabulary()
 
 
 @implementer(IVocabularyFactory)
-class MeasuresTextHandlingVocabulary(object):
+class MeasuresTextHandlingVocabulary:
     def __call__(self, context):
-
         terms = [
             SimpleTerm("full", title=_("Full (show Description and General Approach)")),
             SimpleTerm("simple", title=_("Simple (show only General Approach)")),
@@ -249,7 +247,7 @@ def ensure_image_size(value):
     if INamedBlobImage.providedBy(value):
         img_size = value.getImageSize()
         if img_size < IMAGE_MIN_SIZE:
-            msg = "Image “{}” is too small. ".format(value.filename)
+            msg = f"Image “{value.filename}” is too small. "
             msg += "The minimum size is {} (width) x {} (height) pixels. ".format(
                 *IMAGE_MIN_SIZE
             )
@@ -279,7 +277,7 @@ def StripMarkup(markup):
 
 
 def StripUnwanted(text):
-    """Strip unwanted elements from a text fragment"""
+    """Strip unwanted elements from a text fragment."""
     if not text:
         return ""
 
@@ -351,7 +349,7 @@ def summarizeCountries(container, request, current_country=None, permission=None
     return result
 
 
-class DragDropHelper(object):
+class DragDropHelper:
     def sortable_explanation(self):
         return api.portal.translate(
             NuPloneMessageFactory(
@@ -376,10 +374,10 @@ class UserExport(BrowserView):
             sectors = [item for item in country.values() if ISector.providedBy(item)]
             if len(managers) + len(sectors) == 0:
                 continue
-            ret += "<h2>{}</h2>".format(country.title)
+            ret += f"<h2>{country.title}</h2>"
             ret += "<h3>Country managers</h3><ul>"
             for manager in managers:
-                ret += "<li>{}, {}</li>".format(manager.title, manager.contact_email)
+                ret += f"<li>{manager.title}, {manager.contact_email}</li>"
             ret += "</ul>"
             ret += "<h3>Sector managers</h3><dl>"
             for sector in sectors:
@@ -400,7 +398,7 @@ class UserExportCSV(BrowserView):
         fieldnames = ["fullname", "email"]
         buffer = StringIO()
         writer = csv.DictWriter(buffer, fieldnames=fieldnames, dialect="bilbomatica")
-        writer.writerow(dict((fn, fn) for fn in fieldnames))
+        writer.writerow({fn: fn for fn in fieldnames})
         for id, country in aq_inner(self.context).objectItems():
             if len(id) != 2:
                 continue

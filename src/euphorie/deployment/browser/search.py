@@ -54,7 +54,7 @@ class ContextSearch(BrowserView):
         if not qs:
             return
 
-        qs = '"{}*"'.format(safe_unicode(qs))
+        qs = f'"{safe_unicode(qs)}*"'
         path = "/".join(self.context.getPhysicalPath())
         query = {"SearchableText": qs, "portal_type": SEARCHED_TYPES, "path": path}
 

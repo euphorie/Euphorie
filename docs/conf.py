@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # repoze.atemplate documentation build configuration file
 #

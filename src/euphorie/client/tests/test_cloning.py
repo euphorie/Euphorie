@@ -1,4 +1,3 @@
-# coding=utf-8
 from datetime import datetime
 from euphorie.client import model
 from euphorie.client.tests.utils import addAccount
@@ -10,7 +9,7 @@ from plone import api
 
 class TestCloningViews(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(TestCloningViews, self).setUp()
+        super().setUp()
         self.loginAsPortalOwner()
         addSurvey(self.portal, BASIC_SURVEY)
         self.jane = addAccount("jane@example.com", password="secret")
@@ -73,7 +72,7 @@ class TestCloningViews(EuphorieIntegrationTestCase):
                 clone = view.get_cloned_session()
                 # The cloned session has a lot in common with the original one
                 # The title is prefixed with a COPY marker
-                self.assertEqual(clone.title, "COPY: {}".format(original.title))
+                self.assertEqual(clone.title, f"COPY: {original.title}")
                 self.assertEqual(clone.company.country, original.company.country)
                 # But is marked with the account that made the clone
                 self.assertEqual(original.account.login, "jane@example.com")

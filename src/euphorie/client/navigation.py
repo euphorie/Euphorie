@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Navigation
 ----------
@@ -62,7 +61,9 @@ def FindPreviousQuestion(after, dbsession, filter=None):
 
 def first(func, iter):
     """Find the first item in an iterable for which func(item) is True.
-    If not item is find None is returned."""
+
+    If not item is find None is returned.
+    """
 
     for i in iter:
         if func(i):
@@ -80,7 +81,7 @@ def getTreeData(
     survey=None,
     no_current=False,
 ):
-    """Assemble data for a navigation tree
+    """Assemble data for a navigation tree.
 
     This function returns a nested dictionary structure reflecting the
     elements for a navigation tree. The tree will all sibling questions of
@@ -236,7 +237,7 @@ def getTreeData(
                         ]
                 children.append(info)
             me["children"] = children
-            types = set([c["type"] for c in me["children"]])
+            types = {c["type"] for c in me["children"]}
             me["leaf_module"] = "risk" in types
 
     elif isinstance(element, model.Risk):

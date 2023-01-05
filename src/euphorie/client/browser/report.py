@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Report
 ------
@@ -17,8 +16,8 @@ from openpyxl.writer.excel import save_virtual_workbook
 from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
-from six.moves.urllib.parse import quote
 from sqlalchemy import sql
+from urllib.parse import quote
 from zope.i18n import translate
 
 import logging
@@ -69,9 +68,9 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
         return self.context.session
 
     def get_measures(self):
-        """Find all data that should be included in the report.
-           Re-use the helper methods from Status to compute the
-           filtered module paths and the relevant risks.
+        """Find all data that should be included in the report. Re-use the
+        helper methods from Status to compute the filtered module paths and the
+        relevant risks.
 
         The data is returned as a list of tuples containing a
         :py:class:`Module <euphorie.client.model.Module>`,

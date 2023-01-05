@@ -1,4 +1,3 @@
-# coding=utf-8
 from Acquisition import aq_inner
 from euphorie.client import CONDITIONS_VERSION
 from euphorie.client.model import get_current_account

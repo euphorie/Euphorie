@@ -1,13 +1,9 @@
-# coding=utf-8
-"""
-Traverse a tree item.
-Tree items are polymorphic entities on the main table
-from euphorie.client.model.SurveyTreeItem on the column type
+"""Traverse a tree item. Tree items are polymorphic entities on the main table
+from euphorie.client.model.SurveyTreeItem on the column type.
 
 We have two possible objects:
 - euphorie.client.model.Module (type `module`)
 - euphorie.client.model.Risk (type `risk`)
-
 """
 from euphorie.client.adapters.session_traversal import ITraversedSurveySession
 from euphorie.client.model import Session
@@ -20,13 +16,13 @@ from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 @adapter(ITraversedSurveySession, IBrowserRequest)
 class TraversedSessionPublishTraverser(DefaultPublishTraverse):
-    """Traverser for the Survey session children"""
+    """Traverser for the Survey session children."""
 
     def _make_path(self, pathid):
         return pathid.zfill(3)
 
     def publishTraverse(self, request, pathid):
-        """Return a traversable SQL object"""
+        """Return a traversable SQL object."""
         query = (
             Session.query(SurveyTreeItem)
             .filter(SurveyTreeItem.session == self.context.session)
@@ -40,7 +36,7 @@ class TraversedSessionPublishTraverser(DefaultPublishTraverse):
 
 @adapter(SurveyTreeItem, IBrowserRequest)
 class SurveyTreeItemPublishTraverser(TraversedSessionPublishTraverser):
-    """Traverser for the Survey session children"""
+    """Traverser for the Survey session children."""
 
     def _make_path(self, pathid):
         return self.context.path + pathid.zfill(3)

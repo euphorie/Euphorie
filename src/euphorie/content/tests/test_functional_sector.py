@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.content.sector import getSurveys
 from euphorie.content.tests.utils import addSurvey
 from euphorie.content.tests.utils import createSector
@@ -16,7 +15,7 @@ from zope.component import getMultiAdapter
 
 class SectorTests(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(SectorTests, self).setUp()
+        super().setUp()
         self.client = self.portal.client
         self.loginAsPortalOwner()
 
@@ -36,7 +35,7 @@ class SectorTests(EuphorieIntegrationTestCase):
     def testAllowedContentTypes(self):
         sector = self.createSector()
         types = [fti.id for fti in sector.allowedContentTypes()]
-        self.assertEqual(set(types), set(["euphorie.surveygroup"]))
+        self.assertEqual(set(types), {"euphorie.surveygroup"})
 
     def testCanNotBeCopied(self):
         sector = self.createSector()
@@ -117,7 +116,6 @@ class SectorAsUserTests(EuphorieIntegrationTestCase):
 
 
 class SectorBrowserTests(EuphorieFunctionalTestCase):
-
     _default_credentials = {
         "username": SITE_OWNER_NAME,
         "password": SITE_OWNER_PASSWORD,
@@ -238,7 +236,7 @@ class PermissionTests(EuphorieIntegrationTestCase):
 
 class GetSurveysTests(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(GetSurveysTests, self).setUp()
+        super().setUp()
         self.loginAsPortalOwner()
 
     def getSurveys(self, context):

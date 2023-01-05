@@ -1,4 +1,3 @@
-# coding=utf-8
 from datetime import datetime
 from euphorie.client import model
 from euphorie.client.tests.utils import addAccount

@@ -1,4 +1,3 @@
-# coding=utf-8
 from Acquisition import aq_inner
 from euphorie.content.utils import summarizeCountries
 from Products.Five import BrowserView

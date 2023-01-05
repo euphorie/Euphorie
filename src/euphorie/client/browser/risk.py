@@ -1,4 +1,3 @@
-# coding=utf-8
 """
 Risk
 ----
@@ -44,7 +43,6 @@ IMAGE_CLASS = {0: "", 1: "twelve", 2: "six", 3: "four", 4: "three"}
 
 
 class RiskBase(BrowserView):
-
     # Which fields should be skipped? Default are none, i.e. show all
     skip_fields = []
     # What extra style to use for buttons like "Add measure". Default is None.
@@ -117,7 +115,7 @@ class RiskBase(BrowserView):
     @property
     @memoize
     def survey(self):
-        """This is the survey dexterity object"""
+        """This is the survey dexterity object."""
         return self.webhelpers._survey
 
     @property
@@ -131,17 +129,17 @@ class RiskBase(BrowserView):
 
     @property
     def solutions_provided_by_tool(self):
-        """
-        Return all the solutions that are defined for this risk in the CMS
-        """
+        """Return all the solutions that are defined for this risk in the
+        CMS."""
         return getattr(self.risk, "_solutions", [])
 
     @property
     @memoize
     def solutions_available_for_action_plan(self):
-        """
-        Return those pre-defined solutions that are not already marked as being
-        in place. Those remaining solutions are available as suggestions in the
+        """Return those pre-defined solutions that are not already marked as
+        being in place.
+
+        Those remaining solutions are available as suggestions in the
         Action Plan
         """
         if self.is_custom_risk:
@@ -391,7 +389,7 @@ class RiskBase(BrowserView):
 
 
 class IdentificationView(RiskBase):
-    """A view for displaying a question in the identification phase"""
+    """A view for displaying a question in the identification phase."""
 
     default_template = ViewPageTemplateFile("templates/risk_identification.pt")
     custom_risk_template = ViewPageTemplateFile(
@@ -445,7 +443,7 @@ class IdentificationView(RiskBase):
     def get_collapsible_section_state(self, collapsible_section_name):
         return (
             ""
-            if "collapsible_section_{0}".format(collapsible_section_name)
+            if f"collapsible_section_{collapsible_section_name}"
             in self.default_collapsible_sections
             else "closed"
         )
@@ -460,7 +458,8 @@ class IdentificationView(RiskBase):
     @property
     @memoize
     def skip_evaluation(self):
-        """Default value is False, but it can be tweaked in certain conditions"""
+        """Default value is False, but it can be tweaked in certain
+        conditions."""
         if self.italy_special and (
             (
                 self.risk
@@ -474,8 +473,8 @@ class IdentificationView(RiskBase):
     @property
     @memoize
     def evaluation_condition(self):
-        """In what circumstances will the Evaluation panel be shown, provided that
-        evaluation is not skipped in general?"""
+        """In what circumstances will the Evaluation panel be shown, provided
+        that evaluation is not skipped in general?"""
         condition = "condition: answer=no"
         if self.italy_special and not self.skip_evaluation:
             condition = "condition: answer=no or answer=yes"
@@ -483,7 +482,7 @@ class IdentificationView(RiskBase):
 
     @property
     def action_plan_condition(self):
-        """In what circumstances will the integrated Action Plan be shown"""
+        """In what circumstances will the integrated Action Plan be shown."""
         condition = "condition: answer=no"
         if not self.is_custom_risk and (
             self.risk.type == "top5" or self.risk.risk_always_present
@@ -499,7 +498,7 @@ class IdentificationView(RiskBase):
             return self.request.response.redirect(
                 self.context.aq_parent.absolute_url() + "/@@start"
             )
-        super(IdentificationView, self).__call__()
+        super().__call__()
         self.check_render_condition()
 
         utils.setLanguage(self.request, self.survey, self.survey.language)
@@ -619,7 +618,6 @@ class IdentificationView(RiskBase):
                     self.context.priority = reply.get("priority")
 
     def set_measure_data(self, reply, session):
-
         changed = False
         # Case: the user has selected or de-selected a measure
         # from the training configuration
@@ -748,7 +746,7 @@ class IdentificationView(RiskBase):
                 # This only happens on custom risks
                 elif k.startswith("present-measure") and val.strip() != "":
                     _id = k.rsplit("-", 1)[-1]
-                    if int(bool(reply.get("measure-{}".format(_id)))):
+                    if int(bool(reply.get(f"measure-{_id}"))):
                         new_measures.append(
                             model.ActionPlan(
                                 action=val,
@@ -811,9 +809,7 @@ class IdentificationView(RiskBase):
         number_images = getattr(self.risk, "image", None) and 1 or 0
         if number_images:
             for i in range(2, 5):
-                number_images += (
-                    getattr(self.risk, "image{0}".format(i), None) and 1 or 0
-                )
+                number_images += getattr(self.risk, f"image{i}", None) and 1 or 0
         return number_images
 
     def _prepare_risk(self):
@@ -826,7 +822,7 @@ class IdentificationView(RiskBase):
         self.image_class = IMAGE_CLASS[self.number_images]
         number_files = 0
         for i in range(1, 5):
-            number_files += getattr(self.risk, "file{0}".format(i), None) and 1 or 0
+            number_files += getattr(self.risk, f"file{i}", None) and 1 or 0
         self.has_files = number_files > 0
         self.has_legal = utils.HasText(getattr(self.risk, "legal_reference", None))
         self.show_resources = self.has_legal or self.has_files
@@ -1056,7 +1052,7 @@ class IdentificationView(RiskBase):
 class ImageUpload(BrowserView):
     def redirect(self):
         return self.request.response.redirect(
-            "{}/@@identification".format(self.context.absolute_url())
+            f"{self.context.absolute_url()}/@@identification"
         )
 
     @property
@@ -1075,7 +1071,7 @@ class ImageUpload(BrowserView):
                 try:
                     pil_img = PIL.Image.open(BytesIO(new_data))
                     pil_img.crop()
-                except IOError:
+                except OSError:
                     api.portal.show_message(
                         _(
                             "Invalid file format for image. Please use PNG, JPEG or GIF."  # noqa: E501
@@ -1096,8 +1092,8 @@ class ImageUpload(BrowserView):
 
 
 class ImageDisplay(DisplayFile):
-    """Return the image stored in the risk (if present).
-    Allows also to get the image scaled if invoked like:
+    """Return the image stored in the risk (if present). Allows also to get the
+    image scaled if invoked like:
 
     ../@@image-display/image_large/${here/image_filename}
     """
@@ -1108,7 +1104,7 @@ class ImageDisplay(DisplayFile):
         return api.content.get_view("webhelpers", self.context.aq_parent, self.request)
 
     def get_or_create_image_scaled(self):
-        """Get the image scaled"""
+        """Get the image scaled."""
         if self.context.image_data_scaled:
             return self.context.image_data_scaled
         image = PIL.Image.open(BytesIO(self.context.image_data))
@@ -1145,7 +1141,7 @@ class ImageDisplay(DisplayFile):
         if not self.webhelpers.can_view_session:
             # The user cannot call this view to go the sessions overview.
             return self.request.response.redirect(self.webhelpers.client_url)
-        return super(ImageDisplay, self).__call__()
+        return super().__call__()
 
 
 class ActionPlanView(RiskBase):
@@ -1170,7 +1166,8 @@ class ActionPlanView(RiskBase):
     @property
     @memoize
     def skip_evaluation(self):
-        """Default value is False, but it can be tweaked in certain conditions"""
+        """Default value is False, but it can be tweaked in certain
+        conditions."""
         if self.italy_special and (
             (
                 self.risk
@@ -1202,8 +1199,7 @@ class ActionPlanView(RiskBase):
 
     def _extractViewData(self):
         """Extract the data from the current context and build a data structure
-        that is usable by the view.
-        """
+        that is usable by the view."""
 
     def _fieldsToDate(self, year, month, day):
         if not day or not year:
@@ -1225,14 +1221,12 @@ class ActionPlanView(RiskBase):
             number_images = getattr(self.risk, "image", None) and 1 or 0
             if number_images:
                 for i in range(2, 5):
-                    number_images += (
-                        getattr(self.risk, "image{0}".format(i), None) and 1 or 0
-                    )
+                    number_images += getattr(self.risk, f"image{i}", None) and 1 or 0
 
         return number_images
 
     def __call__(self):
-        super(ActionPlanView, self).__call__()
+        super().__call__()
         # Render the page only if the user has edit rights,
         # otherwise redirect to the start page of the session.
         if not self.webhelpers.can_edit_session:
@@ -1317,8 +1311,8 @@ class ActionPlanView(RiskBase):
 def calculate_priority(db_risk, risk):
     """Update the risk priority.
 
-    This method can be used for risks using a calculated evaluation method
-    to determine the priority absed on the subquestions.
+    This method can be used for risks using a calculated evaluation
+    method to determine the priority absed on the subquestions.
     """
     assert risk.evaluation_method == "calculated"
     if risk.type in ["top5", "policy"]:
@@ -1351,7 +1345,7 @@ def evaluation_algorithm(risk):
 
 
 class ConfirmationDeleteRisk(BrowserView):
-    """View name: @@confirmation-delete-risk"""
+    """View name: @@confirmation-delete-risk."""
 
     no_splash = True
 
@@ -1370,19 +1364,19 @@ class ConfirmationDeleteRisk(BrowserView):
 
     @property
     def form_action(self):
-        return "{0}/@@delete-risk".format(aq_parent(self.context).absolute_url())
+        return f"{aq_parent(self.context).absolute_url()}/@@delete-risk"
 
     def __call__(self, *args, **kwargs):
-        """Before rendering check if we can find session title"""
+        """Before rendering check if we can find session title."""
         if not self.webhelpers.can_view_session:
             # The user cannot call this view to go the sessions overview.
             return self.request.response.redirect(self.webhelpers.client_url)
         self.risk_title
-        return super(ConfirmationDeleteRisk, self).__call__(*args, **kwargs)
+        return super().__call__(*args, **kwargs)
 
 
 class DeleteRisk(BrowserView):
-    """View name: @@delete-risk"""
+    """View name: @@delete-risk."""
 
     @property
     @memoize

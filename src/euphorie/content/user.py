@@ -63,7 +63,7 @@ class LoginField(schema.TextLine):
 
 
 def _check_password(value):
-    """Check that the password satisfies our site policy"""
+    """Check that the password satisfies our site policy."""
     if not value:
         return True
     regtool = api.portal.get_tool("portal_registration")
@@ -120,7 +120,7 @@ class UniqueLoginValidator(BaseValidator):
 
         :raises: DuplicateLoginError
         """
-        super(UniqueLoginValidator, self).validate(value)
+        super().validate(value)
         site = getUtility(ISiteRoot)
         for parent in aq_chain(site):
             if hasattr(aq_base(parent), "acl_users"):
@@ -129,7 +129,7 @@ class UniqueLoginValidator(BaseValidator):
 
 
 @adapter(IUser)
-class UserProvider(object):
+class UserProvider:
     """Base class for membrane adapters for :obj:`IUser` instances.
 
     This base class implements the
@@ -259,10 +259,10 @@ class UserChanger(UserProvider):
 @adapter(IUser, schema.interfaces.IPassword)
 @implementer(IDataManager)
 class PasswordDataManager(AttributeField):
-    """Hash passwords before storing them"""
+    """Hash passwords before storing them."""
 
     def set(self, value):
-        super(PasswordDataManager, self).set(bcrypt.hashpw(value, bcrypt.gensalt()))
+        super().set(bcrypt.hashpw(value, bcrypt.gensalt()))
 
 
 @adapter(IUser)

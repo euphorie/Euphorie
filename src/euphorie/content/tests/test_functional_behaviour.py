@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.content.behaviour.dirtytree import clearDirty
 from euphorie.content.behaviour.dirtytree import isDirty
 from euphorie.content.tests.utils import addSurvey
@@ -12,7 +11,7 @@ from zope.lifecycleevent import ObjectModifiedEvent
 
 class DirtyTreeTests(EuphorieIntegrationTestCase):
     def setUp(self):
-        super(DirtyTreeTests, self).setUp()
+        super().setUp()
         self.loginAsPortalOwner()
 
     def create(self):

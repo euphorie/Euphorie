@@ -6,8 +6,10 @@ from zope.component import adapter
 
 @adapter(IMembraneUser, IUserLoggedInEvent)
 def SectorLoginHandler(account, event):
-    """Event handler for logins on the Plone site. This is used to redirect
-    sectors on login to their own section of the site.
+    """Event handler for logins on the Plone site.
+
+    This is used to redirect sectors on login to their own section of
+    the site.
     """
     request = getattr(account, "REQUEST", None)
     if request is None:

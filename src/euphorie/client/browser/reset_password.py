@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie import MessageFactory as _
 from euphorie.client.model import Account
 from euphorie.client.utils import CreateEmailTo
@@ -12,7 +11,7 @@ from Products.CMFPlone.PasswordResetTool import InvalidRequestError
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.MailHost.MailHost import MailHostError
 from requests.utils import is_ipv4_address
-from six.moves.urllib.parse import urlencode
+from urllib.parse import urlencode
 from z3c.form import button
 from z3c.form.form import EditForm
 from z3c.saconfig import Session
@@ -24,7 +23,6 @@ from zope.interface import invariant
 from zope.publisher.interfaces import IPublishTraverse
 
 import smtplib
-import socket
 
 
 logger = getLogger(__name__)
@@ -51,7 +49,7 @@ class ResetPasswordRequestSchema(model.Schema):
 
 
 class BaseForm(AutoExtensibleForm, EditForm):
-    """Base class for password the reset forms"""
+    """Base class for password the reset forms."""
 
     title = ""
     description = ""
@@ -61,20 +59,21 @@ class BaseForm(AutoExtensibleForm, EditForm):
         return self.index
 
     def redirect(self, target, msg="", msg_type="notice"):
-        """Redirect the user to a meaningfull place and add a status message"""
+        """Redirect the user to a meaningfull place and add a status
+        message."""
         if msg:
             api.portal.show_message(msg, self.request, msg_type)
         self.request.response.redirect(target)
 
     def updateActions(self):
-        """Fix the button classes"""
-        super(BaseForm, self).updateActions()
+        """Fix the button classes."""
+        super().updateActions()
         for action in self.actions.values():
             action.klass = "pat-button"
 
 
 class ResetPasswordRequest(BaseForm):
-    """Request a link to reset the password"""
+    """Request a link to reset the password."""
 
     ignoreContext = True
     schema = ResetPasswordRequestSchema
@@ -108,7 +107,8 @@ class ResetPasswordRequest(BaseForm):
         return int(timeout * 24)  # timeout is in days, but templates want in hours.
 
     def log_error(self, msg):
-        """Log an error message, set the view error attribute and return False"""
+        """Log an error message, set the view error attribute and return
+        False."""
         logger.error(msg)
         self.error = _(
             "An error occured while sending the password reset instructions",
@@ -172,7 +172,7 @@ class ResetPasswordRequest(BaseForm):
                 "smtplib error sending password reset instructions to {}: {}"
             ).format(account.email, e)
             return self.log_error(msg)
-        except socket.error as e:
+        except OSError as e:
             msg = ("Socket error sending password reset instructions to {}: {}").format(
                 account.email, e[1]
             )
@@ -198,16 +198,15 @@ class ResetPasswordRequest(BaseForm):
         )
         redir_url = webhelpers.get_came_from(default=self.context.absolute_url())
         if not redir_url.endswith("login"):
-            redir_url = "{0}/@@login?{1}#login".format(
+            redir_url = "{}/@@login?{}#login".format(
                 redir_url, urlencode({"came_from": redir_url})
             )
         self.redirect(redir_url, msg)
 
     @button.buttonAndHandler(_("Save"))
     def next_handler(self, action):
-        """Check if the security token is correct and if it is
-        change the account password with the provided value
-        """
+        """Check if the security token is correct and if it is change the
+        account password with the provided value."""
         self.do_next()
 
     @button.buttonAndHandler(_("Cancel"))
@@ -231,7 +230,7 @@ class ResetPasswordForm(BaseForm):
     button_label = _("Save changes")
 
     def update(self):
-        super(ResetPasswordForm, self).update()
+        super().update()
         key = self.key
         ppr = api.portal.get_tool("portal_password_reset")
         try:
@@ -245,11 +244,11 @@ class ResetPasswordForm(BaseForm):
     @property
     @memoize_contextless
     def key(self):
-        """Extract the key from the URL"""
+        """Extract the key from the URL."""
         return self.request.getURL().rpartition("/")[-1]
 
     def do_save(self):
-        """Execute the save action"""
+        """Execute the save action."""
         (data, errors) = self.extractData()
         if errors:
             for err in errors:
@@ -294,15 +293,14 @@ class ResetPasswordForm(BaseForm):
 
         current_url = self.context.absolute_url()
         return self.redirect(
-            "{}/@@login?{}".format(current_url, urlencode(dict(came_from=current_url))),
+            f"{current_url}/@@login?{urlencode(dict(came_from=current_url))}",
             msg=_("Your password was successfully changed."),
         )
 
     @button.buttonAndHandler(_("Save"))
     def save_handler(self, action):
-        """Check if the security token is correct and if it is
-        change the account password with the provided value
-        """
+        """Check if the security token is correct and if it is change the
+        account password with the provided value."""
         self.do_save()
 
     @button.buttonAndHandler(_("Cancel"))

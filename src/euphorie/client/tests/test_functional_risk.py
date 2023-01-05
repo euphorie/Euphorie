@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.client.tests.utils import addSurvey
 from euphorie.client.tests.utils import registerUserInClient
 from euphorie.content.tests.utils import BASIC_SURVEY
@@ -19,9 +18,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
         browser.getForm(action="new-session").submit()
-        browser.getControl(name="form.widgets.title").value = "Sessiøn".encode(
-            "utf-8"
-        )  # noqa
+        browser.getControl(name="form.widgets.title").value = "Sessiøn".encode()  # noqa
         # Start the survey
         browser.getControl(name="form.button.submit").click()
         session_url = browser.url.replace("/@@identification", "")
@@ -44,10 +41,8 @@ class RiskTests(EuphorieFunctionalTestCase):
         self.assertEqual(browser.getControl(name="priority").value, ["high"])
 
     def XtestPreventEarlyDate(self):
-        """
-        Deactivated until we decide what to do about this kind of validation
-        error check
-        """
+        """Deactivated until we decide what to do about this kind of validation
+        error check."""
         # Test for http://code.simplon.biz/tracker/tno-euphorie/ticket/150
         self.loginAsPortalOwner()
         addSurvey(self.portal, BASIC_SURVEY)
@@ -60,9 +55,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
         browser.getForm(action="new-session").submit()
-        browser.getControl(name="form.widgets.title").value = "Sessiøn".encode(
-            "utf-8"
-        )  # noqa
+        browser.getControl(name="form.widgets.title").value = "Sessiøn".encode()  # noqa
         # Start the survey
         browser.getControl(name="form.button.submit").click()
         # Identify the risk
@@ -93,10 +86,8 @@ class RiskTests(EuphorieFunctionalTestCase):
         self.assertTrue("Please enter a year between 2000 and 2100" in browser.contents)
 
     def Xtest_do_not_abort_on_far_future(self):
-        """
-        Deactivated, since such a far-future date can not be entered any more
-        in modern browsers
-        """
+        """Deactivated, since such a far-future date can not be entered any
+        more in modern browsers."""
         # Test for http://code.simplon.biz/tracker/tno-euphorie/ticket/150
         self.loginAsPortalOwner()
         addSurvey(self.portal, BASIC_SURVEY)
@@ -107,9 +98,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
         browser.getForm(action="new-session").submit()
-        browser.getControl(name="form.widgets.title").value = "Sessiøn".encode(
-            "utf-8"
-        )  # noqa
+        browser.getControl(name="form.widgets.title").value = "Sessiøn".encode()  # noqa
         # Start the survey
         browser.getControl(name="form.button.submit").click()
         # Identify the risk
@@ -147,9 +136,7 @@ class RiskTests(EuphorieFunctionalTestCase):
         # Create a new survey session
         browser.getControl(name="survey").value = ["ict/software-development"]
         browser.getForm(action="new-session").submit()
-        browser.getControl(name="form.widgets.title").value = "Sessiøn".encode(
-            "utf-8"
-        )  # noqa
+        browser.getControl(name="form.widgets.title").value = "Sessiøn".encode()  # noqa
         # Start the survey
         browser.getControl(name="form.button.submit").click()
         session_url = browser.url.replace("/@@identification", "")

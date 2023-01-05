@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# coding=utf-8
 import logging
 import os
 import re
@@ -19,7 +18,7 @@ ILLUSTRATION_JS_SNIPPET = """
 
 
 def strip_help(filepath):
-    """Fix the urls in filepath"""
+    """Fix the urls in filepath."""
     logger.info("Rewriting resource URLs in %s", filepath)
     content = None
     try:
@@ -75,7 +74,7 @@ def strip_help(filepath):
 
 
 def fix_urls(filepath):
-    """Fix the urls in filepath"""
+    """Fix the urls in filepath."""
     logger.info("Rewriting resource URLs in %s", filepath)
     content = None
     try:

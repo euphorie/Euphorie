@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.content.passwordpolicy import EuphoriePasswordPolicy
 from euphorie.content.utils import REGION_NAMES
 from plone import api

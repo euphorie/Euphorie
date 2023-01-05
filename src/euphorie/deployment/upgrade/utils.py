@@ -1,5 +1,3 @@
-# coding=utf-8
-from __future__ import absolute_import
 from alembic import command
 from alembic import op
 from alembic.config import Config
@@ -39,23 +37,21 @@ def ColumnExists(session, table, column):
 
 
 def has_table(name):
-    """Utility function that can be used in alembic upgrades
-    to check if a table exists
-    """
+    """Utility function that can be used in alembic upgrades to check if a
+    table exists."""
     return name in inspect(op.get_bind()).get_table_names()
 
 
 def has_column(table_name, column_name):
-    """Utility function that can be used in alembic upgrades
-    to check if a column exists
-    """
+    """Utility function that can be used in alembic upgrades to check if a
+    column exists."""
     bind = op.get_bind()
     columns = inspect(bind).get_columns(table_name)
     return any(column["name"] == column_name for column in columns)
 
 
 def alembic_upgrade():
-    """Upgrade the database to the alembic head"""
+    """Upgrade the database to the alembic head."""
     script_location = resource_filename("euphorie.deployment.upgrade", "alembic")
     url = Session().bind.engine.url.__to_string__(hide_password=False)
     alembic_cfg = Config()

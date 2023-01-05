@@ -10,9 +10,9 @@ class IClientSkinLayer(IDefaultBrowserLayer, INuPloneFormLayer):
 
 
 class ICustomRisksModifiedEvent(Interface):
-    """Custom risks were modified"""
+    """Custom risks were modified."""
 
 
 @implementer(ICustomRisksModifiedEvent)
 class CustomRisksModifiedEvent(ObjectEvent):
-    """Custom risks were modified"""
+    """Custom risks were modified."""

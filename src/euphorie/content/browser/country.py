@@ -1,4 +1,3 @@
-# coding=utf-8
 from Acquisition import aq_inner
 from euphorie.content.countrymanager import ICountryManager
 from euphorie.content.sector import getSurveys
@@ -41,7 +40,7 @@ class AddForm(DefaultAddForm):
     portal_type = "euphorie.country"
 
     def updateWidgets(self):
-        super(AddForm, self).updateWidgets()
+        super().updateWidgets()
         self.widgets["country_type"].mode = "hidden"
 
 
@@ -51,7 +50,7 @@ class AddView(DefaultAddView):
 
 class EditForm(DefaultEditForm):
     def updateWidgets(self):
-        super(EditForm, self).updateWidgets()
+        super().updateWidgets()
         self.widgets["country_type"].mode = "hidden"
 
 

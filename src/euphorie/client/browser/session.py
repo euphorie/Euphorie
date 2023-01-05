@@ -1,4 +1,3 @@
-# coding=utf-8
 from Acquisition import aq_inner
 from collections import defaultdict
 from datetime import datetime
@@ -55,10 +54,10 @@ except ImportError:
 
 
 def sql_clone(obj, skip={}, session=None):
-    """Clone a sql object avoiding the properties in the skip parameter
+    """Clone a sql object avoiding the properties in the skip parameter.
 
-    The skip parameter is optional but you probably want to always pass the
-    primary key
+    The skip parameter is optional but you probably want to always pass
+    the primary key
     """
     # Never copy the _sa_instance_state attribute
     skip.add("_sa_instance_state")
@@ -95,11 +94,12 @@ class IStartFormSchema(model.Schema):
     )
 
 
-class SessionMixin(object):
-    """Mostly properties we want to reuse for the views in the context of a session"""
+class SessionMixin:
+    """Mostly properties we want to reuse for the views in the context of a
+    session."""
 
     def update(self):
-        super(SessionMixin, self).update()
+        super().update()
         utils.setLanguage(self.request, self.survey, self.survey.language)
 
     @property
@@ -110,7 +110,7 @@ class SessionMixin(object):
     @property
     @memoize
     def survey(self):
-        """This is the survey dexterity object"""
+        """This is the survey dexterity object."""
         return self.webhelpers._survey
 
     @property
@@ -175,7 +175,8 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
 
     @memoize
     def get_pat_messages_above_title(self):
-        """List of messages we want to display above the risk assesment title"""
+        """List of messages we want to display above the risk assesment
+        title."""
         if not self.webhelpers.can_edit_session:
             link_download_section = _(
                 "no_translate_link_download_section",
@@ -194,7 +195,8 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
 
     @memoize
     def get_pat_multiple_messages_below_article(self):
-        """List of messages we want to display under the risk assesment article
+        """List of messages we want to display under the risk assesment
+        article.
 
         Those messages should be iterable.
         Example of a good returned value::
@@ -204,7 +206,6 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
                 (message2a, message2),
                 ...
             ]
-
         """
         return []
 
@@ -218,7 +219,7 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
     def update(self):
         self.verify_view_permission()
         utils.setLanguage(self.request, self.survey, self.survey.language)
-        super(Start, self).update()
+        super().update()
         if self.request.method != "POST":
             return
 
@@ -283,11 +284,11 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
                 # is repeatable
                 if match:
                     continue
-                if not form.get("pq{0}.present".format(id), "") == "yes":
+                if not form.get(f"pq{id}.present", "") == "yes":
                     continue
                 if isinstance(answer, list):
                     profile[id] = list(filter(None, (a.strip() for a in answer)))
-                    if form.get("pq{0}.multiple".format(id), "") != "yes":
+                    if form.get(f"pq{id}.multiple", "") != "yes":
                         profile[id] = profile[id][:1]
                 else:
                     profile[id] = answer
@@ -423,13 +424,13 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
 
 
 class Update(Profile):
-    """Update a survey session after a survey has been republished. If a
-    the survey has a profile the user is asked to confirm the current
-    profile before continuing.
+    """Update a survey session after a survey has been republished. If a the
+    survey has a profile the user is asked to confirm the current profile
+    before continuing.
 
-    The behaviour is exactly the same as the normal start page for a session
-    (see the :py:class:`Profile` view), but uses a different template with more
-    detailed instructions for the user.
+    The behaviour is exactly the same as the normal start page for a
+    session (see the :py:class:`Profile` view), but uses a different
+    template with more detailed instructions for the user.
     """
 
 
@@ -450,11 +451,11 @@ class Involve(SessionMixin, BrowserView):
             return self.request.response.redirect(self.webhelpers.client_url)
 
         utils.setLanguage(self.request, self.survey, self.survey.language)
-        return super(Involve, self).__call__()
+        return super().__call__()
 
 
 class ContentsPreview(BrowserView):
-    """A View for displaying the full contents of a tool and printing them
+    """A View for displaying the full contents of a tool and printing them.
 
     View name: @@contents-preview
     """
@@ -481,6 +482,7 @@ class ContentsPreview(BrowserView):
 
     def get_session_nodes(self):
         """Return an ordered list of all tree items for the current survey.
+
         By OSHA's request, optional submodules are always included.
         """
         query = (
@@ -512,9 +514,8 @@ class ContentsPreview(BrowserView):
             return self.zodb_node(node).description
 
     def get_legal_references(self, node):
-        """We might add some logic to never show legal references depending
-        on a setting per country / survey.
-        """
+        """We might add some logic to never show legal references depending on
+        a setting per country / survey."""
         zodb_node = self.zodb_node(node)
         if not zodb_node:
             return
@@ -602,7 +603,7 @@ class Identification(SessionMixin, BrowserView):
         # For the specific oira translation, we rewrite to "nl_BE"
         if "-" in lang:
             elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
+            lang = f"{elems[0]}_{elems[1].upper()}"
         return translate(
             _("extra_text_identification", default=""), target_language=lang
         )
@@ -624,11 +625,11 @@ class Identification(SessionMixin, BrowserView):
         if self.webhelpers.use_involve_phase:
             self.request.RESPONSE.redirect(self.next_url)
         else:
-            return super(Identification, self).__call__()
+            return super().__call__()
 
 
 class DeleteSession(SessionMixin, BrowserView):
-    """View name: @@delete-session"""
+    """View name: @@delete-session."""
 
     def __call__(self):
         if not self.webhelpers.can_delete_session:
@@ -647,7 +648,7 @@ class DeleteSession(SessionMixin, BrowserView):
 
 
 class ConfirmationDeleteSession(SessionMixin, BrowserView):
-    """View name: @@confirmation-delete-session"""
+    """View name: @@confirmation-delete-session."""
 
     no_splash = True
 
@@ -660,7 +661,7 @@ class ConfirmationDeleteSession(SessionMixin, BrowserView):
 
 
 class ConfirmationArchiveSession(SessionMixin, BrowserView):
-    """View name: @@confirmation-archive-session"""
+    """View name: @@confirmation-archive-session."""
 
     no_splash = True
 
@@ -673,7 +674,7 @@ class ConfirmationArchiveSession(SessionMixin, BrowserView):
 
 
 class ArchiveSession(SessionMixin, BrowserView):
-    """View name: @@archive-session"""
+    """View name: @@archive-session."""
 
     def notify_modified(self):
         notify(ObjectModifiedEvent(self.context.session))
@@ -698,7 +699,7 @@ class ArchiveSession(SessionMixin, BrowserView):
 
 
 class CloneSession(SessionMixin, BrowserView):
-    """View name: @@confirmation-clone-session"""
+    """View name: @@confirmation-clone-session."""
 
     def get_cloned_session(self):
         sql_session = Session
@@ -771,7 +772,7 @@ class CloneSession(SessionMixin, BrowserView):
         return new_session
 
     def clone(self):
-        """Clone this session and redirect to the start view"""
+        """Clone this session and redirect to the start view."""
         if not self.webhelpers.can_view_session:
             # The user cannot call this view to go the sessions overview.
             return self.request.response.redirect(self.webhelpers.client_url)
@@ -787,14 +788,14 @@ class CloneSession(SessionMixin, BrowserView):
         if not self.webhelpers.can_view_session:
             # The user cannot call this view to go the sessions overview.
             return self.request.response.redirect(self.webhelpers.client_url)
-        return super(CloneSession, self).__call__()
+        return super().__call__()
 
 
 class PublicationMenu(SessionMixin, BrowserView):
     @property
     @memoize_contextless
     def portal(self):
-        """The currently authenticated account"""
+        """The currently authenticated account."""
         return api.portal.get()
 
     def redirect(self):
@@ -802,18 +803,18 @@ class PublicationMenu(SessionMixin, BrowserView):
         return self.request.response.redirect(target)
 
     def reset_date(self):
-        """Reset the session date to now"""
+        """Reset the session date to now."""
         session = self.context.session
         session.published = datetime.now()
         session.last_publisher = get_current_account()
         return self.redirect()
 
     def set_date(self):
-        """Set the session date to now"""
+        """Set the session date to now."""
         return self.reset_date()
 
     def unset_date(self):
-        """Unset the session date"""
+        """Unset the session date."""
         session = self.context.session
         session.published = None
         session.last_publisher = None
@@ -868,9 +869,8 @@ class ActionPlanView(SessionMixin, BrowserView):
         return self.webhelpers.country == "it"
 
     def __call__(self):
-        """Render the page only if the user has edit rights,
-        otherwise redirect to the start page of the session.
-        """
+        """Render the page only if the user has edit rights, otherwise redirect
+        to the start page of the session."""
         if not self.webhelpers.can_edit_session:
             return self.request.response.redirect(
                 self.context.absolute_url() + "/@@start"
@@ -882,7 +882,7 @@ class ActionPlanView(SessionMixin, BrowserView):
                 self.context.absolute_url() + "/@@report"
             )
         utils.setLanguage(self.request, self.survey, self.survey.language)
-        return super(ActionPlanView, self).__call__()
+        return super().__call__()
 
 
 class Report(SessionMixin, BrowserView):
@@ -911,14 +911,14 @@ class Report(SessionMixin, BrowserView):
 
             user = get_current_account()
             if getattr(user, "account_type", None) == config.GUEST_ACCOUNT:
-                url = "%s/@@register_session?came_from=%s" % (
+                url = "{}/@@register_session?came_from={}".format(
                     self.context.absolute_url(),
                     quote(url, ""),
                 )
             return self.request.response.redirect(url)
 
         utils.setLanguage(self.request, self.survey, self.survey.language)
-        return super(Report, self).__call__()
+        return super().__call__()
 
 
 class Status(SessionMixin, BrowserView, _StatusHelper):
@@ -944,12 +944,12 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
         if "-" in lang:
             date_lang = lang.split("-")[0]
             elems = lang.split("-")
-            lang = "{0}_{1}".format(elems[0], elems[1].upper())
-        self.date = "{0} {1} {2}".format(
+            lang = f"{elems[0]}_{elems[1].upper()}"
+        self.date = "{} {} {}".format(
             now.strftime("%d"),
             translate(
                 PloneLocalesMessageFactory(
-                    "month_{0}".format(now.strftime("%b").lower()),
+                    "month_{}".format(now.strftime("%b").lower()),
                     default=now.strftime("%B"),
                 ),
                 target_language=date_lang,
@@ -967,9 +967,8 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
             self.session_title = None
 
     def getStatus(self):
-        """Gather a list of the modules and locations in this survey as well
-        as data around their state of completion.
-        """
+        """Gather a list of the modules and locations in this survey as well as
+        data around their state of completion."""
         session = Session()
         total_ok = 0
         total_with_measures = 0
@@ -1071,11 +1070,11 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
         utils.setLanguage(self.request, self.survey, self.survey.language)
         self.update()
         self.getStatus()
-        return super(Status, self).__call__()
+        return super().__call__()
 
 
 class RisksOverview(Status):
-    """Implements the "Overview of Risks" report, see #10967"""
+    """Implements the "Overview of Risks" report, see #10967."""
 
     label = _("Overview of risks")
 
@@ -1085,13 +1084,13 @@ class RisksOverview(Status):
 
 
 class MeasuresOverview(Status):
-    """Implements the "Overview of Measures" report, see #10967"""
+    """Implements the "Overview of Measures" report, see #10967."""
 
     label = _("Overview of measures")
 
     def update(self):
         self.verify_view_permission()
-        super(MeasuresOverview, self).update()
+        super().update()
         lang = getattr(self.request, "LANGUAGE", "en")
         if "-" in lang:
             lang = lang.split("-")[0]
@@ -1105,7 +1104,7 @@ class MeasuresOverview(Status):
         self.monthstrings = [
             translate(
                 PloneLocalesMessageFactory(
-                    "month_{0}_abbr".format(month.lower()), default=month
+                    f"month_{month.lower()}_abbr", default=month
                 ),
                 target_language=lang,
             )
@@ -1209,7 +1208,7 @@ class ExportJsonView(BrowserView):
             raise Unauthorized
 
     def get_payload(self):
-        """Serialize the session and its contents"""
+        """Serialize the session and its contents."""
         session = self.context.session
         return json.dumps(session, cls=SAJsonEncoder, indent=2, sort_keys=True)
 

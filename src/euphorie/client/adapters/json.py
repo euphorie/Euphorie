@@ -19,12 +19,11 @@ import json
 
 class ISA2DictAdapter(Interface):
     def get_children():
-        """Return a dictionary containing
-        whatever you like to be defined as children of this table
-        """
+        """Return a dictionary containing whatever you like to be defined as
+        children of this table."""
 
     def __call__():
-        """Return a dictionary representation of this object"""
+        """Return a dictionary representation of this object."""
 
 
 @implementer(ISA2DictAdapter)
@@ -63,10 +62,11 @@ class SA2DictAdapter:
 class SurveyTreeItem2DictAdapter(SA2DictAdapter):
     @property
     def columns(self):
-        """This adapter is used for all the tables that inherit from SurveyTreeItem,
-        namely Risk and Module.
-        For those objects we want to return the columns from their own table
-        plus the one of the SurveyTreeItem table.
+        """This adapter is used for all the tables that inherit from
+        SurveyTreeItem, namely Risk and Module.
+
+        For those objects we want to return the columns from their own
+        table plus the one of the SurveyTreeItem table.
         """
         columns = super().columns
         new_columns = [
@@ -80,7 +80,8 @@ class SurveyTreeItem2DictAdapter(SA2DictAdapter):
 @adapter(Risk)
 class Risk2DictAdapter(SurveyTreeItem2DictAdapter):
     def get_children(self):
-        """Overwrite the default get_children method to include the action plans"""
+        """Overwrite the default get_children method to include the action
+        plans."""
         children = super().get_children()
         children[ActionPlan.__table__.name] = (
             Session.query(ActionPlan)
@@ -94,6 +95,7 @@ class Risk2DictAdapter(SurveyTreeItem2DictAdapter):
 class SurveySession2DictAdapter(SA2DictAdapter):
     def get_children(self):
         """Overwrite the default get_children method to include:
+
         - the company
         - survey tree items (modules and risks)
         - training
@@ -107,7 +109,6 @@ class SurveySession2DictAdapter(SA2DictAdapter):
 
 
 class SAJsonEncoder(json.JSONEncoder):
-
     __children_mapping__ = {
         "session": [Company, SurveyTreeItem, Training],
         "risk": [ActionPlan],

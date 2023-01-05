@@ -14,4 +14,4 @@ from plone.supermodel import model
 
 
 class IDocumentationFolder(model.Schema, IBasic):
-    """A folder for all documentation for a specific language"""
+    """A folder for all documentation for a specific language."""

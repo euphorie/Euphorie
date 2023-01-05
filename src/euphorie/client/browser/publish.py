@@ -4,7 +4,6 @@ Publish
 
 Copy and publish Surveys from the admin to the client database.
 """
-from __future__ import absolute_import
 from AccessControl.SecurityManagement import getSecurityManager
 from AccessControl.SecurityManagement import newSecurityManager
 from AccessControl.SecurityManagement import setSecurityManager
@@ -124,8 +123,7 @@ def CopyToClient(survey, preview=False):
 
 def EnableCustomRisks(survey):
     """In order to allow the user to add custom risks, we create a new special
-    module (marked with ICustomRisksModule) in which they may be created.
-    """
+    module (marked with ICustomRisksModule) in which they may be created."""
     if not api.portal.get_registry_record("euphorie.allow_user_defined_risks"):
         return 0
     if "custom-risks" in survey.keys():
@@ -202,9 +200,8 @@ def handleSurveyPublish(survey, event):
 
 
 def handleSurveyUnpublish(survey, event):
-    """Event handler (subscriber) to take care of unpublishing a survey
-    from the client.
-    """
+    """Event handler (subscriber) to take care of unpublishing a survey from
+    the client."""
     surveygroup = aq_parent(survey)
     sector = aq_parent(surveygroup)
     country = aq_parent(sector)

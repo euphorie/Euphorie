@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.content.tests.utils import addSurvey
 from euphorie.content.tests.utils import createSector
 from euphorie.testing import EuphorieIntegrationTestCase

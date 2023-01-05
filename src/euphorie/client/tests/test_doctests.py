@@ -1,4 +1,3 @@
-# coding=utf-8
 from euphorie.testing import EUPHORIE_FUNCTIONAL_TESTING
 from plone.testing import layered
 

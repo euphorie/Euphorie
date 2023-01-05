@@ -29,14 +29,13 @@ import euphorie.deployment
 try:
     from unittest import mock
 except ImportError:
-    import mock
+    from unittest import mock
 
 
 NO_SAVEPOINT_SUPPORT.remove("sqlite")
 
 
 class EuphorieFixture(PloneSandboxLayer):
-
     saconfig_filename = "configure.zcml"
 
     defaultBases = (PLONE_FIXTURE,)
@@ -107,9 +106,8 @@ class EuphorieFixture(PloneSandboxLayer):
 
     def testSetUp(self):
         """XXX testSetUp and testTearDown should not be necessary, but it seems
-        SQL data is not correctly cleared at the end of a test method run,
-        even if testTearDown does an explicit transaction.abort()
-        """
+        SQL data is not correctly cleared at the end of a test method run, even
+        if testTearDown does an explicit transaction.abort()"""
         model.metadata.create_all(Session.bind, checkfirst=True)
 
     def testTearDown(self):
@@ -118,7 +116,6 @@ class EuphorieFixture(PloneSandboxLayer):
 
 
 class EuphorieRobotFixture(EuphorieFixture):
-
     saconfig_filename = "robot.zcml"
 
 
@@ -158,6 +155,7 @@ class EuphorieIntegrationTestCase(TestCase):
     @contextmanager
     def _get_view(self, name, obj, survey_session=None, client=None):
         """Get's a view with a proper fresh request.
+
         If survey_session is set the SessionManager will be configured
         """
         old_request = getRequest()
@@ -187,6 +185,7 @@ class EuphorieFunctionalTestCase(EuphorieIntegrationTestCase):
 
     def get_browser(self, logged_in=False, credentials={}):
         """Return a browser, potentially a logged in one.
+
         The default credentials are the admin ones
         """
         commit()

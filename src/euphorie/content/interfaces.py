@@ -8,7 +8,7 @@ from zope.interface.interfaces import ObjectEvent
 
 
 class IEuphorieContentLayer(NuPloneSkin):
-    """Marker interface for Euphorie content"""
+    """Marker interface for Euphorie content."""
 
 
 class IObjectPublishedEvent(IObjectClonedEvent):
@@ -30,12 +30,10 @@ class SurveyUnpublishEvent(ObjectEvent):
 
 
 class IQuestionContainer(Interface):
-    """Marker interface for objects that are used for grouping, but
-    not for risks.
-    """
+    """Marker interface for objects that are used for grouping, but not for
+    risks."""
 
 
 class ICustomRisksModule(Interface):
     """Marker interface to mark a module specifically designated for adding
-    custom risks.
-    """
+    custom risks."""
