@@ -1,5 +1,6 @@
 # coding=utf-8
 from AccessControl import getSecurityManager
+from AccessControl import Unauthorized
 from Acquisition import aq_inner
 from euphorie.content import MessageFactory as _
 from euphorie.content.sector import ISector
@@ -13,6 +14,41 @@ from Products.membrane.interfaces.user import IMembraneUser
 
 
 class Sitemenu(sitemenu.Sitemenu):
+    @property
+    def actions(self):
+        """See plonetheme.nuplone.skin.sitemenu.py."""
+        menu = super(Sitemenu, self).actions or {}
+        children = menu.get("children")
+        if not children:
+            return None
+
+        submenu = self.menu_country_tools()
+        if submenu:
+            self.add_submenu(children, submenu)
+        if children:
+            return menu
+        else:
+            return None
+
+    def menu_country_tools(self):
+        context = aq_inner(self.context)
+
+        # We try to traverse to the view. It would fail for the wrong context
+        # (not an ICountry) or if permissions are not met.
+        try:
+            self.context.restrictedTraverse("@@country-tools")
+        except (AttributeError, Unauthorized):
+            return None
+
+        menu = {"title": _("menu_admin", default="Admin")}
+        menu["children"] = [
+            {
+                "title": _("menu_country_tools", default="Tools for this country"),
+                "url": "%s/@@country-tools" % context.absolute_url(),
+            }
+        ]
+        return menu
+
     @property
     def settings_url(self):
         user = getSecurityManager().getUser()
