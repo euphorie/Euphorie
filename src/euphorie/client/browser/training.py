@@ -701,6 +701,7 @@ class SlideQuestionTryAgain(SlideQuestionIntro):
 
 class MyTrainingsPortlet(BrowserView):
     columns = "1"
+    element_id = "portlet-training"
 
     @property
     @memoize

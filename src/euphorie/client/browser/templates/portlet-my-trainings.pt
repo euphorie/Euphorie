@@ -6,7 +6,7 @@
              i18n:domain="euphorie"
 >
   <div class="portlet span-${view/columns}"
-       id="portlet-training"
+       id="${view/element_id}"
   >
     <div class="content">
       <article class="portlet-intro">

@@ -22,6 +22,9 @@ Changelog
   [reinhardt]
 - Organisation: Reflect whether training is enabled when adding a user.
   [reinhardt]
+- Decoupled loading of the dashboard portlets.
+  Refs: `#712 <https://github.com/syslabcom/scrum/issues/712>`_.
+  [reinhardt, thet]
 
 
 14.2.1 (2022-11-25)

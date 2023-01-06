@@ -560,6 +560,8 @@ class PortletBase(BrowserView):
 
 
 class MyRAsPortlet(PortletBase):
+    element_id = "portlet-my-risk-assessments"
+
     @property
     def columns(self):
         if self.surveys:
@@ -651,4 +653,4 @@ class MyRAsPortlet(PortletBase):
 
 
 class AvailableToolsPortlet(PortletBase, SurveyTemplatesMixin):
-    pass
+    element_id = "portlet-available-tools"

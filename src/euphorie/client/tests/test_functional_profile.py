@@ -40,6 +40,11 @@ class ProfileTests(EuphorieFunctionalTestCase):
             self.portal.client.nl["sector-title"]["survey-title"].absolute_url()
         )
         registerUserInClient(browser)
+        # We need to manually open the portlet view as the test browser
+        # does not handle JavaScript.
+        browser.open(
+            self.portal.client["nl"].absolute_url() + "/@@portlet-available-tools"
+        )
         # Create a new survey session
         browser.getControl(name="survey").value = ["sector-title/survey-title"]
         browser.getForm(action="new-session").submit()

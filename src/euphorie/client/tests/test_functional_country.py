@@ -29,15 +29,30 @@ class CountryFunctionalTests(EuphorieFunctionalTestCase):
         # version
         browser.open("%s?language=nl" % self.portal.client.absolute_url())
         registerUserInClient(browser, link="Registreer")
-        # Note, this used to test that the URL was that of the client,
-        # in the correct country (nl), with `?language=nl-NL` appended.
-        # I don't see where in the code this language URL parameter would
-        # come from, so I remove it in this test as well.
-        self.assertEqual(browser.url, "http://nohost/plone/client/nl")
+        # We need to manually open the portlet view as the test browser
+        # does not handle JavaScript.
+        browser.open(
+            self.portal.client["nl"].absolute_url() + "/@@portlet-available-tools"
+        )
         self.assertEqual(
             browser.getControl(name="survey").options, ["", "branche/vragenlijst"]
         )
+
+        # Still Dutch
+        browser.open(
+            self.portal.client["nl"].absolute_url() + "/@@portlet-available-tools"
+        )
+        self.assertEqual(
+            browser.getControl(name="survey").options, ["", "branche/vragenlijst"]
+        )
+
+        # Now, switch to English
         browser.open("%s?language=en" % self.portal.client["nl"].absolute_url())
+        # We need to manually open the portlet view as the test browser
+        # does not handle JavaScript.
+        browser.open(
+            self.portal.client["nl"].absolute_url() + "/@@portlet-available-tools"
+        )
         self.assertEqual(
             browser.getControl(name="survey").options, ["", "sector/survey"]
         )

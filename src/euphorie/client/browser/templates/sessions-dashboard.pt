@@ -107,13 +107,27 @@
              data-pat-masonry="column-width: .grid-sizer; gutter: 0; item-selector: .portlet; stamp: .stamp;"
         >
           <div class="grid-sizer"></div>
-          <tal:portlets repeat="portlet view/portlets"
-                        replace="structure portlet"
-          />
+          <tal:portlets repeat="portlet view/portlets">
+            <div class="portlet span-${portlet/columns|string:1}"
+                 id="${portlet/element_id}"
+                 tal:condition="portlet/element_id|nothing"
+            >
+              <a class="pat-inject infinite-scrolling-trigger"
+                 href="${context/absolute_url}/@@${portlet/__name__}#${portlet/element_id}"
+                 data-pat-inject="trigger: autoload"
+              >Loading&hellip;</a>
+            </div>
+            <tal:comment replace="nothing"><!-- Fallback: If the view has no element_id member, we can't properly pre-render the div --></tal:comment>
+            <a class="pat-inject infinite-scrolling-trigger"
+               href="${context/absolute_url}/@@${portlet/__name__}"
+               data-pat-inject="trigger: autoload; target: self::element"
+               tal:condition="not:portlet/element_id|nothing"
+            >Loading&hellip;</a>
+          </tal:portlets>
         </div>
       </div>
-    </div>
 
+    </div>
   </metal:slot>
 
   <metal:slot fill-slot="splash_message_slot">

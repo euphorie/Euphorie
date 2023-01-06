@@ -1,6 +1,6 @@
 <tal:portlet i18n:domain="euphorie">
   <div class="portlet span-1"
-       id="portlet-available-tools"
+       id="${view/element_id}"
        tal:define="
          root view/get_survey_templates_tree_root;
          threshold view/tools_threshold;
