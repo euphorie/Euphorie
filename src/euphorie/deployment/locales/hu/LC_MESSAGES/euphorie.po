@@ -5380,7 +5380,7 @@ msgstr "Utoljára módosította: ${name} , ekkor: ${date}."
 #. Default: "Last edited ${time}"
 #: euphorie/client/browser/templates/assessments.pt:161
 msgid "last_edited_when"
-msgstr ""
+msgstr "Utoljára módosította ${time}"
 
 #. Default: "${label} Version you are currently reviewing"
 #: euphorie/deployment/tiles/templates/versions.pt:84
