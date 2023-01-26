@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.3.0 (unreleased)
+14.3.0 (2023-01-26)
 -------------------
 
 - Add the @@country-tools view to the site menu.
