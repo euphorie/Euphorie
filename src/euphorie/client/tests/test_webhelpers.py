@@ -478,6 +478,50 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
             with self._get_view("webhelpers", traversed_session1) as view:
                 self.assertFalse(view.can_view_session)
 
+    def test_is_survey(self):
+        """Test if webhelper's context is within a survey."""
+
+        # Setup basic content.
+
+        account = addAccount("foo", password="secret")
+
+        with api.env.adopt_user("admin"):
+            addSurvey(self.portal, BASIC_SURVEY)
+
+        survey_session = model.SurveySession(
+            id=1,
+            title="Dummy session",
+            zodb_path="nl/ict/software-development",
+            account=account,
+        )
+        model.Session.add(survey_session)
+
+        traversed_session = self.portal.client.nl.ict[
+            "software-development"
+        ].restrictedTraverse("++session++1")
+
+        # Tests
+
+        with self._get_view("webhelpers", self.portal) as view:
+            self.assertFalse(view.is_survey)
+
+        with self._get_view("webhelpers", self.portal.client) as view:
+            self.assertFalse(view.is_survey)
+
+        with self._get_view("webhelpers", self.portal.client.nl) as view:
+            self.assertFalse(view.is_survey)
+
+        with self._get_view("webhelpers", self.portal.client.nl.ict) as view:
+            self.assertFalse(view.is_survey)
+
+        with self._get_view(
+            "webhelpers", self.portal.client.nl.ict["software-development"]
+        ) as view:
+            self.assertTrue(view.is_survey)
+
+        with self._get_view("webhelpers", traversed_session) as view:
+            self.assertTrue(view.is_survey)
+
 
 class TestWebhelpersUnit(TestCase):
     def get_webhelpers(self, path):

@@ -4,6 +4,9 @@ Changelog
 14.3.1 (unreleased)
 -------------------
 
+- Add `is_survey` to the webhelper to determine if the webhelper's context is within a survey or not.
+  [thet]
+
 - Align with proto: Survey toolbar needs class auto-hide.
   [thet]
 

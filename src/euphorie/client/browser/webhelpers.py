@@ -702,6 +702,14 @@ class WebHelpers(BrowserView):
             if ISurvey.providedBy(parent):
                 return parent
 
+    @property
+    @memoize
+    def is_survey(self):
+        """Return `True` if the webhelper's context is within a survey, `False`
+        otherwise.
+        """
+        return bool(self._survey)
+
     @memoize
     def survey_url(self, phase=None):
         """Return the URL for the curreny survey.
