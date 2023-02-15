@@ -144,11 +144,6 @@
         </a>
         <tal:anon condition="python:not is_anonymous or webhelpers.is_guest_account">
           <a class="iconified pat-toggle"
-             id="toggle-tree"
-             href="#tree"
-             data-pat-toggle="selector: #main; value: sidebar-off sidebar-on;"
-          >Toggle tree</a>
-          <a class="iconified pat-toggle"
              id="toggle-osc"
              href="#osc"
              title="Show/hide menu"

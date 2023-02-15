@@ -4,6 +4,10 @@ Changelog
 14.3.1 (unreleased)
 -------------------
 
+- Only display the survey tree toggler within survey sessions.
+  Ref: scrum-953
+  [thet]
+
 - Add `is_survey` to the webhelper to determine if the webhelper's context is within a survey or not.
   [thet]
 

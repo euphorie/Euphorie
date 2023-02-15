@@ -1228,6 +1228,11 @@
     >
       <div class="toolbar-functions-area">
         <div class="toolbar-section editor">
+          <a class="icon menu pat-toggle"
+             id="toggle-tree"
+             href="#tree"
+             data-pat-toggle="selector: #main; value: sidebar-off sidebar-on;"
+          >Toggle tree</a>
           <div class="editor-toolbar tiptap"
                id="editor-toolbar-assessment"
           >
