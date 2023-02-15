@@ -5,6 +5,13 @@ import htmllaundry
 import lxml.html
 
 
+# tag to style mapping which will be used over styles from the source document.
+ENFORCE_STYLES = {
+    "ul": "List Bullet",
+    "ol": "List Number",
+}
+
+
 def add_hyperlink(paragraph, url, text, style):
     """A function that places a hyperlink within a paragraph object.
 
@@ -75,14 +82,12 @@ class _HtmlToWord:
         return p
 
     def handleElement(self, node, doc, style=None):
+        style = ENFORCE_STYLES.get(node.tag) or style
+
         if node.tag in ["p", "li", "strong", "b", "em", "i", "u", "a"]:
             p = doc.add_paragraph(style=style)
             p = self.handleInlineText(node, p)
         elif node.tag in ["ul", "ol"]:
-            if node.tag == "ul":
-                style = "List Bullet"
-            else:
-                style = "List Number"
             for sub in node:
                 if sub.tag == "li":
                     p = doc.add_paragraph(style=style)
