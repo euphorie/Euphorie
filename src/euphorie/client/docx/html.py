@@ -85,16 +85,16 @@ class _HtmlToWord:
         style = ENFORCE_STYLES.get(node.tag) or style
 
         if node.tag in [
-            "p",
-            "li",
-            "strong",
-            "b",
-            "em",
-            "i",
-            "u",
             "a",
-            "h4",
+            "b",
             "blockquote",
+            "em",
+            "h4",
+            "i",
+            "li",
+            "p",
+            "strong",
+            "u",
         ]:
             p = doc.add_paragraph(style=style)
             p = self.handleInlineText(node, p)
