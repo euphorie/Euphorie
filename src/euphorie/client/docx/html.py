@@ -119,4 +119,29 @@ class _HtmlToWord:
         return doc
 
 
+class _HtmlToWordSingleParagraph(_HtmlToWord):
+    def handleElement(self, node, elem, style=None):
+        """Override that assumes `elem` is a paragraph; therefore doesn't add new
+        paragraphs"""
+        if node.tag in ["p", "li", "strong", "b", "em", "i", "u", "a"]:
+            self.handleInlineText(node, elem)
+            elem.add_run().text = "\n"
+        elif node.tag in ["ul", "ol"]:
+
+            for sub in node:
+                if sub.tag == "li":
+                    self.handleInlineText(sub, elem)
+                    elem.add_run().text = "\n"
+
+        tail = node.tail
+        # Prevent unwanted empty lines inside listings and paragraphs that come
+        # from newlines in the markup
+        # if node.tag in ['li', 'p', 'strong', 'em', 'b', 'i']:
+        tail = tail and tail.strip()
+        if tail and not elem.text.endswith(tail):
+            elem.add_run().text = tail
+        return elem
+
+
 HtmlToWord = _HtmlToWord()
+HtmlToWordSingleParagraph = _HtmlToWordSingleParagraph()
