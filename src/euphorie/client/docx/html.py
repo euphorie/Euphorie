@@ -84,13 +84,25 @@ class _HtmlToWord:
     def handleElement(self, node, doc, style=None):
         style = ENFORCE_STYLES.get(node.tag) or style
 
-        if node.tag in ["p", "li", "strong", "b", "em", "i", "u", "a"]:
+        if node.tag in [
+            "p",
+            "li",
+            "strong",
+            "b",
+            "em",
+            "i",
+            "u",
+            "a",
+            "h4",
+            "blockquote",
+        ]:
             p = doc.add_paragraph(style=style)
             p = self.handleInlineText(node, p)
         elif node.tag in ["ul", "ol"]:
             for sub in node:
                 if sub.tag == "li":
                     p = doc.add_paragraph(style=style)
+                    p.paragraph_format.left_indent = docx.shared.Inches(1)
                     p = self.handleInlineText(sub, p)
 
         tail = node.tail
@@ -102,7 +114,7 @@ class _HtmlToWord:
             doc.add_paragraph(tail)
         return doc
 
-    def __call__(self, markup, doc, style=None):
+    def __call__(self, markup, doc, style=None, next_style=None):
         if not markup or not markup.strip():
             return doc
         try:
@@ -113,35 +125,14 @@ class _HtmlToWord:
             doc.add_paragraph(text)
             return doc
 
-        for node in markup_doc.find("body"):
-            doc = self.handleElement(node, doc, style)
+        for idx, node in enumerate(markup_doc.find("body")):
+            if idx == 0:
+                p_style = style
+            else:
+                p_style = next_style
+            doc = self.handleElement(node, doc, p_style)
 
         return doc
 
 
-class _HtmlToWordSingleParagraph(_HtmlToWord):
-    def handleElement(self, node, elem, style=None):
-        """Override that assumes `elem` is a paragraph; therefore doesn't add new
-        paragraphs"""
-        if node.tag in ["p", "li", "strong", "b", "em", "i", "u", "a"]:
-            self.handleInlineText(node, elem)
-            elem.add_run().text = "\n"
-        elif node.tag in ["ul", "ol"]:
-
-            for sub in node:
-                if sub.tag == "li":
-                    self.handleInlineText(sub, elem)
-                    elem.add_run().text = "\n"
-
-        tail = node.tail
-        # Prevent unwanted empty lines inside listings and paragraphs that come
-        # from newlines in the markup
-        # if node.tag in ['li', 'p', 'strong', 'em', 'b', 'i']:
-        tail = tail and tail.strip()
-        if tail and not elem.text.endswith(tail):
-            elem.add_run().text = tail
-        return elem
-
-
 HtmlToWord = _HtmlToWord()
-HtmlToWordSingleParagraph = _HtmlToWordSingleParagraph()
