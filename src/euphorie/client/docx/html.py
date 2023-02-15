@@ -129,7 +129,7 @@ class _HtmlToWord:
             if idx == 0:
                 p_style = style
             else:
-                p_style = next_style
+                p_style = next_style or style
             doc = self.handleElement(node, doc, p_style)
 
         return doc
