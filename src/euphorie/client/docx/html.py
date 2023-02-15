@@ -98,7 +98,7 @@ class _HtmlToWord:
         # from newlines in the markup
         # if node.tag in ['li', 'p', 'strong', 'em', 'b', 'i']:
         tail = tail and tail.strip()
-        if tail:
+        if tail and not doc.text.endswith(tail):
             doc.add_paragraph(tail)
         return doc
 
