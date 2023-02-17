@@ -2872,7 +2872,7 @@ msgstr "Ontwikkeling en pilotfase - 2009-2011"
 #. Default: "Development partners"
 #: euphorie/client/browser/templates/about.pt:117
 msgid "header_development_partners"
-msgstr "ontwikkelingspartners"
+msgstr "Ontwikkelingspartners"
 
 #. Default: "Evaluation"
 #: euphorie/content/risk.py:560
