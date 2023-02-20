@@ -43,7 +43,7 @@ class SiteRootTabsTile(TabsTile):
 
     def get_current_url(self):
         currentUrl = self.request.getURL()[len(self.portal.absolute_url()) :]
-        for (test, id) in self.current_map:
+        for test, id in self.current_map:
             if test.match(currentUrl):
                 return id
 

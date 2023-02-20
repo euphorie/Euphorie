@@ -285,7 +285,7 @@ class UserProperties(UserProvider):
 
     def getPropertiesForUser(self, user, request=None):
         properties = {}
-        for (content_prop, user_prop) in self.property_map:
+        for content_prop, user_prop in self.property_map:
             value = getattr(self.context, content_prop)
             # None values are not allowed so replace those with an empty string
             properties[user_prop] = (value is not None) and value or ""
@@ -294,7 +294,7 @@ class UserProperties(UserProvider):
     def setPropertiesForUser(self, user, propertysheet):
         marker = []
         changes = set()
-        for (content_prop, user_prop) in self.property_map:
+        for content_prop, user_prop in self.property_map:
             value = propertysheet.getProperty(user_prop, default=marker)
             if value is not marker:
                 setattr(self.context, content_prop, value)

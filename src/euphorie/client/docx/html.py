@@ -79,7 +79,6 @@ class _HtmlToWord:
             p = doc.add_paragraph(style=style)
             p = self.handleInlineText(node, p)
         elif node.tag in ["ul", "ol"]:
-
             if node.tag == "ul":
                 style = "List Bullet"
             else:

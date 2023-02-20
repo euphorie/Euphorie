@@ -119,7 +119,7 @@ def build_survey_tree(context, root):
     todo = collections.deque([(root, [], tree["children"])])
     while todo:
         (node, index, child_list) = todo.popleft()
-        for (ix, child) in enumerate(node.values(), 1):
+        for ix, child in enumerate(node.values(), 1):
             if not (IQuestionContainer.providedBy(child) or IRisk.providedBy(child)):
                 continue
             child_index = index + [str(ix)]

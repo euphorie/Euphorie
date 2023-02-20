@@ -272,7 +272,7 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
         """
         profile = {}
         form = self.request.form
-        for (id, answer) in form.items():
+        for id, answer in form.items():
             match = self.id_patt.match(id)
             if match:
                 id = match.group(1)
@@ -974,7 +974,7 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
         total_with_measures = 0
         modules = self.getModules()
         filtered_risks = self.getRisks([m["path"] for m in modules.values()])
-        for (module, risk) in filtered_risks:
+        for module, risk in filtered_risks:
             module_path = module.path
             has_measures = False
             if risk.identification in ["yes", "n/a"]:

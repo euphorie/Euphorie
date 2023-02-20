@@ -124,7 +124,6 @@ class IdentificationView(BrowserView):
             return self.save_and_continue(module)
 
         if IProfileQuestion.providedBy(module) and context.depth == 2:
-
             if self.next_question is None:
                 url = self.next_phase_url
             else:

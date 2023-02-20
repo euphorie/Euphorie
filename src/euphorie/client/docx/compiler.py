@@ -378,7 +378,7 @@ class DocxCompiler(BaseOfficeCompiler):
             if self.italy_special:
                 skip_planned_measures = True
 
-            for (idx, action_plan) in enumerate(
+            for idx, action_plan in enumerate(
                 node.in_place_standard_measures + node.in_place_custom_measures
             ):
                 heading = (
@@ -395,7 +395,7 @@ class DocxCompiler(BaseOfficeCompiler):
 
         if not skip_planned_measures:
             action_plans = node.standard_measures + node.custom_measures
-            for (idx, measure) in enumerate(action_plans):
+            for idx, measure in enumerate(action_plans):
                 if not measure.action:
                     continue
 
