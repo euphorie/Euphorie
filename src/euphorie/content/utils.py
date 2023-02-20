@@ -222,7 +222,7 @@ class ToolTypesVocabulary:
         tti = queryUtility(IToolTypesInfo)
         terms = []
         if tti is not None:
-            for (key, val) in tti().items():
+            for key, val in tti().items():
                 terms.append(SimpleTerm(key, title=val["title"]))
         return SimpleVocabulary(terms)
 

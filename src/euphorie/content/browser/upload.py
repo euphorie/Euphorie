@@ -312,7 +312,7 @@ class SurveyImporter:
                     em, "default-priority", IRisk["default_priority"]
                 )
 
-        for (index, child) in enumerate(node.iterchildren(tag=XMLNS + "image")):
+        for index, child in enumerate(node.iterchildren(tag=XMLNS + "image")):
             postfix = "" if not index else str(index + 1)
             (image, caption) = self.ImportImage(child)
             setattr(risk, "image" + postfix, image)

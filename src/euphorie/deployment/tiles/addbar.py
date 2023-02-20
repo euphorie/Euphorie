@@ -11,7 +11,7 @@ class AddBarTile(Tile):
     def update(self):
         actions = getFactoriesInContext(self.context)
         if IModule.providedBy(self.context):
-            for (i, action) in enumerate(actions):
+            for i, action in enumerate(actions):
                 # To be able to determine what button label to display, we
                 # explicitly set the action.id to the fake "euphorie.submodule"
                 if action.id == "euphorie.module":

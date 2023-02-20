@@ -100,7 +100,6 @@ class TestDashboard(EuphorieIntegrationTestCase):
         country = self.portal.client.nl
 
         with api.env.adopt_user(user=self.account):
-
             with self._get_view("portlet-my-ras", country) as view:
                 # The portlet by default hides the archived sessions
                 self.assertTrue(view.hide_archived)

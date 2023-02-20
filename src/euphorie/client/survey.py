@@ -327,7 +327,7 @@ class _StatusHelper:
                     return mp
 
         filtered_risks = []
-        for (module, risk) in risks.all():
+        for module, risk in risks.all():
             if risk.identification != "n/a":
                 if (
                     skip_unanswered

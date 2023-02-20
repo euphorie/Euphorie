@@ -169,7 +169,7 @@ def BuildSurveyTree(survey, profile, dbsession, old_session=None):
                     profile_index=-1,
                     skip_children=True,
                 )
-                for (index, title) in enumerate(p):
+                for index, title in enumerate(p):
                     AddToTree(profile_question, child, title=title, profile_index=index)
             # If we get a bool, it will be True, because of `if not p` above
             # Simply add the profile to the tree, don't care about locations

@@ -27,7 +27,6 @@ def update_custom_risks_module_texts(context):
             for sector in country.objectValues():
                 if IClientSector.providedBy(sector):
                     for survey in sector.objectValues():
-
                         is_new = EnableCustomRisks(survey)
                         count += 1
                         custom = getattr(survey, "custom-risks", None)

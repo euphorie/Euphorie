@@ -88,7 +88,7 @@ def setupInitialContent(site):
         log.info("Added sectors folder")
 
     sectors = site.sectors
-    for (country_id, info) in COUNTRIES.items():
+    for country_id, info in COUNTRIES.items():
         (title, country_type) = info
         if country_id not in sectors:
             sectors.invokeFactory(
@@ -133,7 +133,7 @@ def setupInitialContent(site):
 
     lt = getToolByName(site, "portal_languages")
     present_languages = documents.objectIds()
-    for (code, name) in lt.listSupportedLanguages():
+    for code, name in lt.listSupportedLanguages():
         if code not in present_languages:
             documents.invokeFactory(
                 "euphorie.documentation",

@@ -385,7 +385,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
         risks = self.getRisks(modules, skip_unanswered=self.skip_unanswered)
         seen_modules = []
         data = OrderedDict()
-        for (module, risk) in risks:
+        for module, risk in risks:
             module_path = module.path
             if module_path not in seen_modules:
                 module_in_context = module.__of__(self.webhelpers.traversed_session)

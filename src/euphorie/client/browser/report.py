@@ -82,7 +82,7 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
         module_paths = self.getModulePaths()
         risk_data = self.getRisks(module_paths)
         measure_data = []
-        for (module, risk) in risk_data:
+        for module, risk in risk_data:
             action_plan_q = self.sql_session.query(model.ActionPlan).filter(
                 sql.and_(
                     model.ActionPlan.risk_id == risk.id,
@@ -166,14 +166,14 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
         )
         survey = self.context.aq_parent
 
-        for (column, (ntype, key, title)) in enumerate(self.columns):
+        for column, (ntype, key, title) in enumerate(self.columns):
             sheet.cell(row=1, column=column + 1).value = translate(
                 title, context=self.request
             )
 
         portal_transforms = api.portal.get_tool("portal_transforms")
         row = 2
-        for (module, risk, measure) in self.get_measures():
+        for module, risk, measure in self.get_measures():
             if risk.identification in ["n/a", "yes"]:
                 continue
 
@@ -182,7 +182,7 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
                 zodb_node = None
             else:
                 zodb_node = survey.restrictedTraverse(risk.zodb_path.split("/"))
-            for (ntype, key, title) in self.columns:
+            for ntype, key, title in self.columns:
                 value = None
                 if ntype == "measure":
                     value = getattr(measure, key, None)
