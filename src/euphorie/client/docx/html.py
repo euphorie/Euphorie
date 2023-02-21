@@ -5,6 +5,13 @@ import htmllaundry
 import lxml.html
 
 
+# tag to style mapping which will be used over styles from the source document.
+ENFORCE_STYLES = {
+    "ul": "List Bullet",
+    "ol": "List Number",
+}
+
+
 def add_hyperlink(paragraph, url, text, style):
     """A function that places a hyperlink within a paragraph object.
 
@@ -75,17 +82,27 @@ class _HtmlToWord:
         return p
 
     def handleElement(self, node, doc, style=None):
-        if node.tag in ["p", "li", "strong", "b", "em", "i", "u", "a"]:
+        style = ENFORCE_STYLES.get(node.tag) or style
+
+        if node.tag in [
+            "a",
+            "b",
+            "blockquote",
+            "em",
+            "h4",
+            "i",
+            "li",
+            "p",
+            "strong",
+            "u",
+        ]:
             p = doc.add_paragraph(style=style)
             p = self.handleInlineText(node, p)
         elif node.tag in ["ul", "ol"]:
-            if node.tag == "ul":
-                style = "List Bullet"
-            else:
-                style = "List Number"
             for sub in node:
                 if sub.tag == "li":
                     p = doc.add_paragraph(style=style)
+                    p.paragraph_format.left_indent = docx.shared.Inches(1)
                     p = self.handleInlineText(sub, p)
 
         tail = node.tail
@@ -93,11 +110,11 @@ class _HtmlToWord:
         # from newlines in the markup
         # if node.tag in ['li', 'p', 'strong', 'em', 'b', 'i']:
         tail = tail and tail.strip()
-        if tail:
+        if tail and not doc.text.endswith(tail):
             doc.add_paragraph(tail)
         return doc
 
-    def __call__(self, markup, doc, style=None):
+    def __call__(self, markup, doc, style=None, next_style=None):
         if not markup or not markup.strip():
             return doc
         try:
@@ -108,8 +125,12 @@ class _HtmlToWord:
             doc.add_paragraph(text)
             return doc
 
-        for node in markup_doc.find("body"):
-            doc = self.handleElement(node, doc, style)
+        for idx, node in enumerate(markup_doc.find("body")):
+            if idx == 0:
+                p_style = style
+            else:
+                p_style = next_style or style
+            doc = self.handleElement(node, doc, p_style)
 
         return doc
 
