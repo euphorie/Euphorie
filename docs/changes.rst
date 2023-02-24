@@ -4,7 +4,8 @@ Changelog
 14.3.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add info paragraph to the country-tools view.
+  [reinhardt]
 
 
 14.3.0 (2023-01-26)
