@@ -195,7 +195,10 @@ class IdentificationView(BrowserView):
     def add_custom_risk(self):
         sql_risks = self.context.children()
         if sql_risks.count():
-            counter_id = max([int(risk.path[-3:]) for risk in sql_risks.all()]) + 1
+            counter_id = (
+                max([int(risk.zodb_path.split("/")[-1]) for risk in sql_risks.all()])
+                + 1
+            )
         else:
             counter_id = 1
 

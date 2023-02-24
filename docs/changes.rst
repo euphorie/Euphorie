@@ -5,6 +5,11 @@ Changelog
 -------------------
 
 - Add info paragraph to the country-tools view.
+  Ref: scrum-956
+  [reinhardt]
+
+- Fix issue where custom risk could not be added.
+  Ref: scrum-911
   [reinhardt]
 
 
