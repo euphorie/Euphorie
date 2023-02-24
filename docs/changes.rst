@@ -4,7 +4,8 @@ Changelog
 14.3.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix issue where custom risk could not be added.
+  [reinhardt]
 
 
 14.3.0 (2023-01-26)
