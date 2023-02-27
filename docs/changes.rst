@@ -3,6 +3,8 @@ Changelog
 
 14.3.1 (unreleased)
 -------------------
+- Update CSS and scripts to latest from prototype.
+  [thet]
 
 - Survey tree navigation: Fix status entry switch statement, simplify templates.
   Ref: scrum-953
