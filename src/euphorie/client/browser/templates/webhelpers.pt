@@ -1223,7 +1223,7 @@
 
 
   <metal:toolbar define-macro="toolbar">
-    <div class="pat-toolbar sticky"
+    <div class="pat-toolbar sticky auto-hide"
          id="assessment-toolbar"
     >
       <div class="toolbar-functions-area">

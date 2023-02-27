@@ -4,6 +4,9 @@ Changelog
 14.3.1 (unreleased)
 -------------------
 
+- Align with proto: Survey toolbar needs class auto-hide.
+  [thet]
+
 - Cleanup: Remove unused template report_identification.pt.
   [thet]
 
