@@ -4,6 +4,10 @@ Changelog
 14.3.1 (unreleased)
 -------------------
 
+- Survey tree navigation: Fix status entry switch statement, simplify templates.
+  Ref: scrum-953
+  [thet]
+
 - Cleanup: Move is_new_session to webhelpers view.
   [thet]
 
