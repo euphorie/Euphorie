@@ -104,6 +104,27 @@ undevln:
 		echo "Restored generated bundles"
 
 
+# From: oira.prototype
+# Download the latest Patternslib universal bundle from GitHub releases and
+# replace the existing one.
+# Also see: https://stackoverflow.com/a/42040905/1337474
+# You can use the `PATTERNSLIB_VERSION` environment variable to download a
+# specific version, e.g. a pre-release version which would not be picked up
+# automatically.
+# This can be used like so:
+# `PATTERNSLIB_VERSION=9.7.0-alpha.5 make update-patterns`
+.PHONY: update-patterns
+update-patterns:
+ifndef PATTERNSLIB_VERSION
+	$(eval PATTERNSLIB_VERSION := $(shell curl https://api.github.com/repos/patternslib/Patterns/releases/latest -s | jq .tag_name -r))
+endif
+	wget https://github.com/Patternslib/Patterns/releases/download/$(PATTERNSLIB_VERSION)/patternslib-bundle-$(PATTERNSLIB_VERSION).zip
+	unzip patternslib-bundle-$(PATTERNSLIB_VERSION).zip
+	rm -Rf src/euphorie/client/resources/oira/script
+	mv patternslib-bundle-$(PATTERNSLIB_VERSION) src/euphorie/client/resources/oira/script
+	rm patternslib-bundle-$(PATTERNSLIB_VERSION).zip
+
+
 .PHONY: all clean docs jenkins pot
 .SUFFIXES:
 .SUFFIXES: .po .mo .css .min.css
