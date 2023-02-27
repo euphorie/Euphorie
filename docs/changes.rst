@@ -4,6 +4,9 @@ Changelog
 14.3.1 (unreleased)
 -------------------
 
+- Cleanup: Remove unused template report_identification.pt.
+  [thet]
+
 - Add info paragraph to the country-tools view.
   Ref: scrum-956
   [reinhardt]
