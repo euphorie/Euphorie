@@ -1162,5 +1162,13 @@ class WebHelpers(BrowserView):
         }
         return "; ".join([f"{key}: {value}" for key, value in messages.items()])
 
+    @property
+    @memoize
+    def is_new_session(self):
+        if self.request.get("new_session"):
+            return True
+        session = self.traversed_session.session
+        return session.children().count() == 0
+
     def __call__(self):
         return self

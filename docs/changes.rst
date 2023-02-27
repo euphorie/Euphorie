@@ -4,6 +4,9 @@ Changelog
 14.3.1 (unreleased)
 -------------------
 
+- Cleanup: Move is_new_session to webhelpers view.
+  [thet]
+
 - Only display the survey tree toggler within survey sessions.
   Ref: scrum-953
   [thet]

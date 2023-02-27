@@ -118,11 +118,6 @@ class SessionMixin:
     def session(self):
         return self.context.session
 
-    def is_new_session(self):
-        if self.request.get("new_session"):
-            return True
-        return self.session.children().count() == 0
-
     @property
     @memoize
     def has_profile(self):
