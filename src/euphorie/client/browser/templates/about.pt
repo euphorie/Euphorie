@@ -141,10 +141,7 @@
             /
               <tal:span i18n:translate="">The Netherlands</tal:span>
             </li>
-            <li>
-              <a class="external-link"
-                 href="https://www.simplon.biz/"
-              >Simplon</a>
+            <li>Simplon
             /
               <tal:span i18n:translate="">The Netherlands</tal:span>
             </li>
