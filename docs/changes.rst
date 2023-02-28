@@ -4,6 +4,10 @@ Changelog
 14.3.1 (unreleased)
 -------------------
 
+- Add headings for existing and planned measures, respectively.
+  Refs: `#997 <https://github.com/syslabcom/scrum/issues/997>`_.
+  [reinhardt]
+
 - Add info paragraph to the country-tools view.
   Ref: scrum-956
   [reinhardt]

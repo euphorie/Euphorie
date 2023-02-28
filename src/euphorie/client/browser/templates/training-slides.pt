@@ -79,8 +79,10 @@
                          slide_type slide/slide_type;
                          description training_view/description;
                          image_urls training_view/image_urls;
-                         measures slide/measures;
-                         active_measures python:[entry for entry in measures.values() if entry['active']];
+                         measures_in_place slide/measures_in_place;
+                         active_measures_in_place python:[entry for entry in measures_in_place.values() if entry['active']];
+                         measures_planned slide/measures_planned;
+                         active_measures_planned python:[entry for entry in measures_planned.values() if entry['active']];
                          training_notes training_view/training_notes|nothing;
                        ">
               <div class="presentation-slide"
@@ -169,7 +171,7 @@
                   </metal:footer>
                 </section>
               </div>
-              <tal:measures condition="active_measures">
+              <tal:measures condition="active_measures_in_place">
                 <div class="presentation-slide concatenate template-measures"
                      id="slide-${counter}"
                      tal:define="
@@ -181,10 +183,40 @@
                   >
                     <section class="slide-body pat-rich pat-scroll-box">
                       <h3 class="slide-subtitle">
-                    ${view/heading_measures}
+                    ${view/heading_measures_in_place}
                       </h3>
                       <ul>
-                        <tal:measures tal:repeat="measure active_measures">
+                        <tal:measures tal:repeat="measure active_measures_in_place">
+                          <li tal:define="
+                                measure_text python:measure['action'];
+                              "
+                              tal:condition="measure_text"
+                              tal:content="structure python:webhelpers.get_safe_html(measure_text)"
+                          >measure</li>
+                        </tal:measures>
+                      </ul>
+                    </section>
+                    <metal:footer use-macro="template/macros/footer" />
+                  </section>
+                </div>
+              </tal:measures>
+
+              <tal:measures condition="active_measures_planned">
+                <div class="presentation-slide concatenate template-measures"
+                     id="slide-${counter}"
+                     tal:define="
+                       global counter python:counter+1;
+                     "
+                >
+                  <section class="mode-view slide-content template-measures pat-auto-scale"
+                           id="slide-content-${counter}"
+                  >
+                    <section class="slide-body pat-rich pat-scroll-box">
+                      <h3 class="slide-subtitle">
+                    ${view/heading_measures_planned}
+                      </h3>
+                      <ul>
+                        <tal:measures tal:repeat="measure active_measures_planned">
                           <li tal:define="
                                 measure_text python:measure['action'];
                               "
