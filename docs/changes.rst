@@ -26,6 +26,10 @@ Changelog
 - Cleanup: Remove unused template report_identification.pt.
   [thet]
 
+- Add headings for existing and planned measures, respectively.
+  Refs: `#997 <https://github.com/syslabcom/scrum/issues/997>`_.
+  [reinhardt]
+
 - Add info paragraph to the country-tools view.
   Ref: scrum-956
   [reinhardt]

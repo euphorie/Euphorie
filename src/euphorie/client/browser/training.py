@@ -133,14 +133,12 @@ class TrainingSlide(BrowserView):
             return training_notes
 
     @property
-    def measures(self):
+    def measures_in_place(self):
         if self.item_type != "risk":
             return {}
         measures = OrderedDict()
         for measure in list(self.context.in_place_standard_measures) + list(
             self.context.in_place_custom_measures
-            + list(self.context.standard_measures)
-            + list(self.context.custom_measures)
         ):
             if not measure.action:
                 continue
@@ -153,6 +151,33 @@ class TrainingSlide(BrowserView):
                 }
             )
 
+        return measures
+
+    @property
+    def measures_planned(self):
+        if self.item_type != "risk":
+            return {}
+        measures = OrderedDict()
+        for measure in list(self.context.standard_measures) + list(
+            self.context.custom_measures
+        ):
+            if not measure.action:
+                continue
+            measures.update(
+                {
+                    measure.id: {
+                        "action": self.webhelpers.get_safe_html(measure.action),
+                        "active": measure.used_in_training,
+                    }
+                }
+            )
+
+        return measures
+
+    @property
+    def measures(self):
+        measures = self.measures_in_place
+        measures.update(self.measures_planned)
         return measures
 
     @property
@@ -212,7 +237,8 @@ class TrainingSlide(BrowserView):
         return {
             "slide_type": self.item_type,
             "slide_template": self.slide_template,
-            "measures": self.measures,
+            "measures_in_place": self.measures_in_place,
+            "measures_planned": self.measures_planned,
             "training_notes": self.training_notes,
         }
 
@@ -256,7 +282,10 @@ class TrainingView(BrowserView, survey._StatusHelper):
     skip_unanswered = False
     for_download = False
     more_menu_contents = []
-    heading_measures = _("header_measures", default="Measures")
+    heading_measures_in_place = _(
+        "label_existing_measures", default="Already implemented measures"
+    )
+    heading_measures_planned = _("label_planned_measures", default="Planned measures")
     show_slide_byline = True
 
     @property
@@ -422,8 +451,12 @@ class TrainingView(BrowserView, survey._StatusHelper):
         count = 0
         for data in self.slide_data.values():
             count += 1
-            for measure_id in data["slide_contents"]["measures"]:
-                if data["slide_contents"]["measures"][measure_id]["active"]:
+            for measure_id in data["slide_contents"]["measures_in_place"]:
+                if data["slide_contents"]["measures_in_place"][measure_id]["active"]:
+                    count += 1
+                    break
+            for measure_id in data["slide_contents"]["measures_planned"]:
+                if data["slide_contents"]["measures_planned"][measure_id]["active"]:
                     count += 1
                     break
             if (
