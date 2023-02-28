@@ -137,7 +137,13 @@
                   <h4 class="name field">
                     <a class="pat-inject follow"
                        href="${session/absolute_url}/@@start"
-                       data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc; history: record"
+                       data-pat-inject="
+                          source: #content; target: #content;
+                              &amp;&amp;
+                          source: #osc; target: #osc;
+                              &amp;&amp;
+                          source: #toolbar; target: #toolbar;
+                          history: record"
                     >
                       ${session/title}
                       <em tal:condition="not:session/title">

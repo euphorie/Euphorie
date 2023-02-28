@@ -1223,11 +1223,16 @@
 
 
   <metal:toolbar define-macro="toolbar">
-    <div class="pat-toolbar sticky"
+    <div class="pat-toolbar sticky auto-hide"
          id="assessment-toolbar"
     >
       <div class="toolbar-functions-area">
         <div class="toolbar-section editor">
+          <a class="icon menu pat-toggle"
+             id="toggle-tree"
+             href="#tree"
+             data-pat-toggle="selector: #main; value: sidebar-off sidebar-on;"
+          >Toggle tree</a>
           <div class="editor-toolbar tiptap"
                id="editor-toolbar-assessment"
           >
@@ -1301,8 +1306,7 @@
                id="assessment-toolbar-quick-functions"
           >
             <tal:status tal:define="
-                          session_start_view nocall:here/@@start|webhelpers/traversed_session/@@start;
-                          new_session session_start_view/is_new_session;
+                          new_session webhelpers/is_new_session;
                           active python: page_section == 'status' and 'active' or '';
                           disabled python:page_section=='' or (page_section=='preparation' and new_session);
                         ">

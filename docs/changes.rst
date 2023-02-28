@@ -3,6 +3,28 @@ Changelog
 
 14.3.1 (unreleased)
 -------------------
+- Update CSS and scripts to latest from prototype.
+  [thet]
+
+- Survey tree navigation: Fix status entry switch statement, simplify templates.
+  Ref: scrum-953
+  [thet]
+
+- Cleanup: Move is_new_session to webhelpers view.
+  [thet]
+
+- Only display the survey tree toggler within survey sessions.
+  Ref: scrum-953
+  [thet]
+
+- Add `is_survey` to the webhelper to determine if the webhelper's context is within a survey or not.
+  [thet]
+
+- Align with proto: Survey toolbar needs class auto-hide.
+  [thet]
+
+- Cleanup: Remove unused template report_identification.pt.
+  [thet]
 
 - Add info paragraph to the country-tools view.
   Ref: scrum-956

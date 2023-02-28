@@ -702,6 +702,14 @@ class WebHelpers(BrowserView):
             if ISurvey.providedBy(parent):
                 return parent
 
+    @property
+    @memoize
+    def is_survey(self):
+        """Return `True` if the webhelper's context is within a survey, `False`
+        otherwise.
+        """
+        return bool(self._survey)
+
     @memoize
     def survey_url(self, phase=None):
         """Return the URL for the curreny survey.
@@ -1153,6 +1161,155 @@ class WebHelpers(BrowserView):
             ),
         }
         return "; ".join([f"{key}: {value}" for key, value in messages.items()])
+
+    @property
+    @memoize
+    def is_new_session(self):
+        if self.request.get("new_session"):
+            return True
+        session = self.traversed_session.session
+        return session.children().count() == 0
+
+    @property
+    @memoize
+    def survey_tree_data(self):
+        if self.anonymous:
+            return []
+
+        section = self.get_phase()
+        can_edit = self.can_edit_session
+        is_new_session = self.is_new_session
+        url = self.traversed_session.absolute_url()
+        integrated_action_plan = self.integrated_action_plan
+
+        data = []
+
+        active = section == "preparation"
+        disabled = section == ""
+        data.append(
+            {
+                "active": active,
+                "disabled": disabled,
+                "class": f'{"active" if active else ""}{"disabled" if disabled else ""}',  # noqa: E501
+                "id": "step-1",
+                "name": "preparation",
+                "href": f"{url}/@@start#content",
+                "title": api.portal.translate(
+                    _("label_preparation", default="Preparation")
+                ),
+                "has_tree": False,
+            }
+        )
+
+        if self.use_involve_phase:
+            active = section == "involve"
+            disabled = section == "" or (section == "preparation" and is_new_session)
+            data.append(
+                {
+                    "active": active,
+                    "disabled": disabled,
+                    "class": f'{"active" if active else ""}{"disabled" if disabled else ""}',  # noqa: E501
+                    "id": "step-involve",
+                    "name": "involve",
+                    "href": f"{url}/@@involve#content",
+                    "title": api.portal.translate(
+                        _("label_involve", default="Involve")
+                    ),
+                    "has_tree": False,
+                }
+            )
+
+        active = section == "identification"
+        disabled = (section in ("", "preparation") and is_new_session) or not can_edit
+
+        title = ""
+        if integrated_action_plan:
+            title = api.portal.translate(_("label_assesment", "Assessment"))
+        else:
+            t1 = api.portal.translate(_("label_identification", "Identification"))
+            t2 = api.portal.translate(_("label_evaluation", "Evaluation"))
+            title = f"{t1} + {t2}"
+        data.append(
+            {
+                "active": active,
+                "disabled": disabled,
+                "class": f'{"active" if active else ""}{"disabled" if disabled else ""}',  # noqa: E501
+                "id": "step-2",
+                "name": "identification",
+                "href": f"{url}/@@identification#content",
+                "title": title,
+                "has_tree": active,
+            }
+        )
+
+        if not integrated_action_plan:
+            # The tree for the action section uses the same structure as the
+            # identification tree, with the only differences that only risks
+            # and their parent modules are shown and that the entire tree is
+            # expanded.
+            active = section == "actionplan"
+            data.append(
+                {
+                    "active": active,
+                    "disabled": disabled,
+                    "class": f'{"active" if active else ""}{"disabled" if disabled else ""}',  # noqa: E501
+                    "id": "step-4",
+                    "name": "action-plan",
+                    "href": f"{url}/@@actionplan#content",
+                    "title": api.portal.translate(
+                        _("label_action_plan", default="Action Plan")
+                    ),
+                    "has_tree": active,
+                }
+            )
+
+        # TODO: check if guest.
+        active = section == "report"
+        data.append(
+            {
+                "active": active,
+                "disabled": disabled,
+                "class": f'{"active" if active else ""}{"disabled" if disabled else ""}',  # noqa: E501
+                "id": "step-5",
+                "name": "report",
+                "href": f"{url}/@@report#content",
+                "title": api.portal.translate(_("label_report", default="Report")),
+                "has_tree": False,
+            }
+        )
+
+        if self.use_training_module:
+            active = section == "training"
+            data.append(
+                {
+                    "active": active,
+                    "disabled": disabled,
+                    "class": f'{"active" if active else ""}{"disabled" if disabled else ""}',  # noqa: E501
+                    "id": "step-6",
+                    "name": "training",
+                    "href": f"{url}/@@training#content",
+                    "title": api.portal.translate(
+                        _("menu_training", default="Training")
+                    ),
+                    "has_tree": False,
+                }
+            )
+
+        active = section == "status"
+        data.append(
+            {
+                "active": active,
+                "disabled": disabled,
+                "class": f'{"active" if active else ""}{"disabled" if disabled else ""}',  # noqa: E501
+                "id": "status",
+                "name": "status",
+                "href": f"{url}/@@status#content",
+                "title": api.portal.translate(_("navigation_status", default="Status")),
+                "has_tree": False,
+            }
+        )
+
+        return data
 
     def __call__(self):
         return self

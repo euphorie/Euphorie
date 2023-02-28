@@ -35,6 +35,11 @@
         >
           <div class="toolbar-functions-area">
             <div class="toolbar-section">
+              <a class="icon menu pat-toggle"
+                 id="toggle-tree"
+                 href="#tree"
+                 data-pat-toggle="selector: #main; value: sidebar-off sidebar-on;"
+              >Toggle tree</a>
               <a class="icon icon-th-list pat-tooltip"
                  href="#toc-trainings"
                  title="Table of contents"
