@@ -239,6 +239,7 @@ class TrainingSlide(BrowserView):
             "slide_template": self.slide_template,
             "measures_in_place": self.measures_in_place,
             "measures_planned": self.measures_planned,
+            "measures": self.measures,  # BBB
             "training_notes": self.training_notes,
         }
 
