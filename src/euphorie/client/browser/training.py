@@ -233,7 +233,7 @@ class TrainingSlide(BrowserView):
                 )
         return urls
 
-    def slide_contents(self, standalone=False):
+    def slide_contents(self):
         return {
             "slide_type": self.item_type,
             "slide_template": self.slide_template,
