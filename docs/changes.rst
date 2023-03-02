@@ -38,6 +38,9 @@ Changelog
   Ref: scrum-911
   [reinhardt]
 
+- Fix the layout of the Budget field for measures
+  Ref: scrum-901
+  [cillianderoiste]
 
 14.3.0 (2023-01-26)
 -------------------
