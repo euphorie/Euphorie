@@ -185,6 +185,9 @@ class DocxCompiler(BaseOfficeCompiler):
         self.context = context
         self.request = request
         self.template = Document(self._template_filename)
+
+        self.compiler = HtmlToWord()
+
         self.use_existing_measures = api.portal.get_registry_record(
             "euphorie.use_existing_measures", default=False
         )
@@ -337,14 +340,14 @@ class DocxCompiler(BaseOfficeCompiler):
                 else:
                     description = zodb_node.description
 
-                doc = HtmlToWord(_sanitize_html(description or ""), doc)
+                self.compiler(_sanitize_html(description or ""), doc)
 
             if node.comment and node.comment.strip():
                 msg = translate(
                     _("heading_comments", default="Comments"), target_language=self.lang
                 )
                 doc.add_paragraph(msg, style="Measure Heading")
-                doc = HtmlToWord(_sanitize_html(node.comment or ""), doc)
+                self.compiler(_sanitize_html(node.comment or ""), doc)
 
             if not extra.get("skip_legal_references", True):
                 legal_reference = getattr(zodb_node, "legal_reference", None)
@@ -358,7 +361,7 @@ class DocxCompiler(BaseOfficeCompiler):
                         target_language=self.lang,
                     )
                     doc.add_paragraph(legal_heading, style="Legal Heading")
-                    doc = HtmlToWord(_sanitize_html(legal_reference), doc)
+                    self.compiler(_sanitize_html(legal_reference), doc)
 
             if not extra.get("use_solutions", False):
                 skip_planned_measures = extra.get("skip_planned_measures", False)
@@ -455,7 +458,7 @@ class DocxCompiler(BaseOfficeCompiler):
             ]
         for heading, value in zip(headings, values):
             doc.add_paragraph(heading, style="MeasureField")
-            doc = HtmlToWord(value, doc, style="MeasureText")
+            self.compiler(value, doc, style="MeasureText")
 
     def set_consultation_box(self):
         doc = self.template
@@ -648,9 +651,9 @@ class DocxCompilerFullTable(DocxCompiler):
                 paragraph.runs[0].italic = True
 
         if risk["comment"] and risk["comment"].strip():
-            HtmlToWord(risk["comment"], cell, style="Risk Normal")
+            self.compiler(risk["comment"], cell, style="Risk Normal")
         if self.show_risk_descriptions:
-            HtmlToWord(risk["description"], cell)
+            self.compiler(risk["description"], cell)
         if risk["measures"]:
             if self.show_risk_descriptions:
                 cell.add_paragraph()
@@ -665,7 +668,7 @@ class DocxCompilerFullTable(DocxCompiler):
                     style="Risk Italics",
                 )
             for measure in risk["measures"]:
-                HtmlToWord(_simple_breaks(measure), cell, style="Risk Italics List")
+                self.compiler(_simple_breaks(measure), cell, style="Risk Italics List")
         paragraph = cell.add_paragraph(style="Risk Normal")
 
     def set_cell_actions(self, cell, risk):
@@ -677,7 +680,7 @@ class DocxCompilerFullTable(DocxCompiler):
         for idx, action in enumerate(risk["actions"]):
             if idx != 0:
                 paragraph = cell.add_paragraph()
-            HtmlToWord(_simple_breaks(action["text"]), cell, style="Measure List")
+            self.compiler(_simple_breaks(action["text"]), cell, style="Measure List")
             if action.get("requirements", None):
                 paragraph = cell.add_paragraph(style="Measure Indent")
                 run = paragraph.add_run()

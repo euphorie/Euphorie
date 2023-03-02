@@ -51,7 +51,7 @@ def add_hyperlink(paragraph, url, text, style):
     return hyperlink
 
 
-class _HtmlToWord:
+class HtmlToWord:
     def handleInlineText(self, node, p):
         """Handler for elements which can only contain inline text (p, li)"""
         run = p.add_run()
@@ -133,6 +133,3 @@ class _HtmlToWord:
             doc = self.handleElement(node, doc, p_style)
 
         return doc
-
-
-HtmlToWord = _HtmlToWord()
