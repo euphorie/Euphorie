@@ -901,15 +901,13 @@
                    data-pat-tooltip="source: content; position-list: lt"
                    i18n:translate="actionplan_measure_budget_tooltip"
               >Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary.</dfn>
-              <span class="composed currency-field">
-                <input class="currency"
-                       id="solution-budget-${solution/id}"
-                       min="0"
-                       name="measure.budget:records"
-                       type="number"
-                       value="${python:measure.budget if measure else None}"
-                />
-              </span>
+              <input class="currency"
+                     id="solution-budget-${solution/id}"
+                     min="0"
+                     name="measure.budget:records"
+                     type="number"
+                     value="${python:measure.budget if measure else None}"
+              />
             </label>
 
             <label tal:define="
@@ -1044,15 +1042,13 @@
                    data-pat-tooltip="source: content; position-list: lt"
                    i18n:translate="actionplan_measure_budget_tooltip"
               >Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary.</dfn>
-              <span class="composed currency-field">
-                <input class="currency"
-                       id="input-budget-${number}"
-                       min="0"
-                       name="measure.budget:records"
-                       type="number"
-                       value="${actionplan/budget|nothing}"
-                />
-              </span>
+              <input class="currency"
+                     id="input-budget-${number}"
+                     min="0"
+                     name="measure.budget:records"
+                     type="number"
+                     value="${actionplan/budget|nothing}"
+              />
             </label>
 
             <label tal:define="
@@ -1187,14 +1183,12 @@
                  data-pat-tooltip="source: content; position-list: lt"
                  i18n:translate="actionplan_measure_budget_tooltip"
             >Although some measures do not cost any money, most do. The measures should therefore be budgeted for; include them in the annual budget round if necessary.</dfn>
-            <span class="composed currency-field">
-              <input class="currency"
-                     id="input-budget-#{1}"
-                     min="0"
-                     name="measure.budget:records"
-                     type="number"
-              />
-            </span>
+            <input class="currency"
+                   id="input-budget-#{1}"
+                   min="0"
+                   name="measure.budget:records"
+                   type="number"
+            />
           </label>
           <label>
             <tal:label i18n:translate="label_action_plan_start">Planning start</tal:label>
