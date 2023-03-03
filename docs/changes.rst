@@ -11,6 +11,10 @@ Changelog
   Refs: `#1025 <https://github.com/syslabcom/scrum/issues/1025>`_.
   [ale-rt]
 
+- Add a save button in the identification form
+  Refs: `#996 <https://github.com/syslabcom/scrum/issues/996>`_.
+  [ale-rt]
+
 - Remove some obsolete JavaScript.
   Remove the polyfills-loader (IE11 compatibility) and the patternslib public
   path (base directory for JavaScript assets) variable. Both are not used
