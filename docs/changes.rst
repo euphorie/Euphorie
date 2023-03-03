@@ -3,6 +3,13 @@ Changelog
 
 14.3.1 (unreleased)
 -------------------
+
+- HtmlToWord: Fix problem with different documents for each report compilation.
+  This fixes a problem where a bullet number counter was not reset among
+  multiple docx compilations, resulting in different documents for the same
+  report when downloaded multiple times.
+  [thet]
+
 - Update CSS and scripts to latest from prototype.
   [thet]
 

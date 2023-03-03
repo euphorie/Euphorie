@@ -232,6 +232,9 @@ class ContentsOfSurveyCompiler(IdentificationReportCompiler):
         self.context = context
         self.request = request
         self.template = Document(self._template_filename)
+
+        self.compiler = HtmlToWord()
+
         self.use_existing_measures = False
         self.tool_type = get_tool_type(self.context)
         self.tti = getUtility(IToolTypesInfo)
@@ -293,7 +296,7 @@ class ContentsOfSurveyCompiler(IdentificationReportCompiler):
 
             description = node.description
 
-            doc = HtmlToWord(_sanitize_html(description or ""), doc)
+            self.compiler(_sanitize_html(description or ""), doc)
 
             if node.typus != "Risk":
                 continue
@@ -310,7 +313,7 @@ class ContentsOfSurveyCompiler(IdentificationReportCompiler):
                         target_language=self.lang,
                     )
                     doc.add_paragraph(legal_heading, style="Legal Heading")
-                    doc = HtmlToWord(_sanitize_html(legal_reference), doc)
+                    self.compiler(_sanitize_html(legal_reference), doc)
 
 
 class Node:
