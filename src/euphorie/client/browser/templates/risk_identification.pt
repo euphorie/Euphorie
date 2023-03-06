@@ -44,6 +44,9 @@
           <!-- END Identificaton -->
 
           <!-- Action Plan -->
+          <fieldset class="pat-inject pat-autosubmit pat-subform discrete-injection"
+          data-pat-autosubmit="100ms"
+          data-pat-inject="source: #page-module-training-panel-content; target: #page-module-training-panel-content">
           <tal:action_plan condition="webhelpers/integrated_action_plan">
             <div class="pat-collapsible open risk-module pat-depends hidden form-panel"
                  id="panel-action-plan"
@@ -60,6 +63,7 @@
               <metal:call use-macro="webhelpers/macros/action_plan" />
             </div>
           </tal:action_plan>
+          </fieldset>
           <!-- END Action Plan -->
 
           <!-- Evaluation -->
