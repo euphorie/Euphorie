@@ -30,7 +30,13 @@
            "
       >
         <tal:block replace="tile:statusmessages" />
+        <tal:banner replace="structure here/@@tool-banner|nothing">
+          Proto foresees a banner in the tool view,
+          that can be used for call for actions, see:
 
+          - https://oira.cornelis.amsterdam/tools/audio-visual-productions
+
+        </tal:banner>
         <div class="pat-toolbar">
           <div class="toolbar-section quick-navigation">
             <a class="pat-back-button pat-inject"
