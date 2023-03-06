@@ -4,6 +4,12 @@ Changelog
 14.3.1 (unreleased)
 -------------------
 
+- Remove some obsolete JavaScript.
+  Remove the polyfills-loader (IE11 compatibility) and the patternslib public
+  path (base directory for JavaScript assets) variable. Both are not used
+  anymore.
+  [thet]
+
 - HtmlToWord: Fix problem with different documents for each report compilation.
   This fixes a problem where a bullet number counter was not reset among
   multiple docx compilations, resulting in different documents for the same
