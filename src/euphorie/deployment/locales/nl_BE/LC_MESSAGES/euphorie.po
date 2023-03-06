@@ -2862,7 +2862,7 @@ msgstr "Aanvullende bronnen voor deze module"
 #. Default: "Consultation and participation of workers"
 #: euphorie/client/browser/templates/default_introduction.pt:20
 msgid "header_consultation_of_workers"
-msgstr "Raadpleging en deelname van arbeiders"
+msgstr "Raadpleging en deelname van werknemers"
 
 #. Default: "Country managers"
 #: euphorie/content/browser/templates/user_mgmt.pt:79
@@ -5330,7 +5330,7 @@ msgstr "(zonder maatregelen)"
 #: euphorie/client/browser/company.py:134
 #: euphorie/client/browser/templates/report_company.pt:190
 msgid "label_workers_participated"
-msgstr "Arbeiders werden uitgenodigd om deel te nemen aan de risicobeoordeling"
+msgstr "Werknemers werden uitgenodigd om deel te nemen aan de risicobeoordeling"
 
 #. Default: "Yes"
 #: euphorie/client/browser/company.py:140
@@ -5762,7 +5762,7 @@ msgstr "Namens de werkgever:"
 #. Default: "On behalf of the workers:"
 #: euphorie/client/docx/compiler.py:496
 msgid "oira_consultation_workers"
-msgstr "Namens de arbeiders:"
+msgstr "Namens de werknemers:"
 
 #. Default: "Online interactive"
 #: euphorie/client/browser/templates/login.pt:265
