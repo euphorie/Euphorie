@@ -59,6 +59,10 @@ Changelog
   Ref: scrum-901
   [cillianderoiste]
 
+- Fix password reset link when called on session
+  Ref: scrum-1026
+  [reinhardt]
+
 14.3.0 (2023-01-26)
 -------------------
 
