@@ -4,6 +4,9 @@ Changelog
 14.3.1 (unreleased)
 -------------------
 
+- Upgrade to Patternslib 9.8.3-alpha.0, fixing auto-submit issues with pat-clone.
+  [thet]
+
 - Foresee the possibility to have banners in the tool homepage
   Refs: `#1025 <https://github.com/syslabcom/scrum/issues/1025>`_.
   [ale-rt]
