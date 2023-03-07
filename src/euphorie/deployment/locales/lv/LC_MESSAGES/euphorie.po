@@ -2273,10 +2273,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:91
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:90
 msgid "description_role_admin__training_disabled"
-msgstr ""
-"Administratori var izveidot, labot un dzēst lietotāju kontus. Administratori "
-"arī var veikt riska novērtējumu, slēgt riska novērtējumus, izveidot "
-"apmācības un piedalīties apmācībās"
+msgstr "Administrators var izveidot, labot un dzēst lietotājus. Administrators var arī veikt darba vides riska novērtējumu un slēgt riska noērtējumus."
 
 #. Default: "Managers/Policy makers can make risk assessments and lock risk assessments."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:97
@@ -2288,7 +2285,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:103
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:102
 msgid "description_role_member__training_disabled"
-msgstr "Dalībnieki var veikt riska novērtējumu un piedalīties apmācībās."
+msgstr "Dalībnieki var veikt riska novērtējumu."
 
 #. Default: "All images contained in the OiRA tool can be exported along with the textual content. When the OiRA tool is then imported again, all images will be present. Please note that including images may result in a considerably larger file size."
 #: euphorie/content/browser/export.py:71
@@ -4915,12 +4912,12 @@ msgstr "Risks bez pasākuma"
 #. Default: "Administrator"
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:67
 msgid "label_role_admin"
-msgstr ""
+msgstr "Administrators"
 
 #. Default: "Member"
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:52
 msgid "label_role_member"
-msgstr ""
+msgstr "Dalībnieks"
 
 #. Default: "Save and add new risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:317

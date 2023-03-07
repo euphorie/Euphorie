@@ -2309,9 +2309,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:90
 msgid "description_role_admin__training_disabled"
 msgstr ""
-"Els administradors poden crear, editar y eliminar comptes d’usuari. Els "
-"administradors també poden fer avaluacions de riscos, bloquejar avaluacions, "
-"dissenyar formacions i rebre formació."
+"Els administradors poden crear, editar i eliminar comptes d'usuari. També poden fer avaluacions de riscos i bloquejar-les."
 
 #. Default: "Managers/Policy makers can make risk assessments and lock risk assessments."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:97
@@ -2323,8 +2321,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:103
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:102
 msgid "description_role_member__training_disabled"
-msgstr ""
-msgstr "Els membres poden fer avaluacions de riscos i rebre formació."
+msgstr "Els membres poden fer avaluacions de riscos."
 
 #. Default: "All images contained in the OiRA tool can be exported along with the textual content. When the OiRA tool is then imported again, all images will be present. Please note that including images may result in a considerably larger file size."
 #: euphorie/content/browser/export.py:71

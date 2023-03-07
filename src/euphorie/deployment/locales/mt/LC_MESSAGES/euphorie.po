@@ -2319,10 +2319,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:91
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:90
 msgid "description_role_admin__training_disabled"
-msgstr ""
-"Amministraturi jistgħu joħolqu, jeditjaw u jneħħu l-kontijiet tal-utent. "
-"Amministraturi jistgħu wkoll jagħmlu evalwazzjonijiet tar-riskju, jillokkjaw "
-"evalwazzjonijiet tar-riskju, joħolqu taħriġ u jieħdu taħriġ"
+msgstr "L-amministraturi jistgħu joħolqu, jeditjaw u jneħħu l-kontijiet tal-utent. L-amministraturi jistgħu wkoll jagħmlu evalwazzjonijiet tar-riskju u jillokkjaw evalwazzjonijiet tar-riskju."
 
 #. Default: "Managers/Policy makers can make risk assessments and lock risk assessments."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:97
@@ -2334,7 +2331,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:103
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:102
 msgid "description_role_member__training_disabled"
-msgstr "Membri jistgħu jagħmlu evalwazzjonijiet tar-riskju u jieħdu taħriġ"
+msgstr "Il-Membri jistgħu jagħmlu evalwazzjonijiet tar-riskju."
 
 #. Default: "All images contained in the OiRA tool can be exported along with the textual content. When the OiRA tool is then imported again, all images will be present. Please note that including images may result in a considerably larger file size."
 #: euphorie/content/browser/export.py:71
