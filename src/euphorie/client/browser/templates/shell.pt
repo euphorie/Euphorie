@@ -143,6 +143,20 @@
           </h1>
         </a>
         <tal:anon condition="python:not is_anonymous or webhelpers.is_guest_account">
+          <style>
+              @media only screen and (max-width: 768px) {
+                  #toolbar > a#toggle-osc, #toolbar > button#toggle-osc {
+                      /* Hotfix: Show the OSC menu in mobile nav. */
+                      /* Ref: scrum-1036. */
+                      display: inline-block;
+                  }
+                  #toolbar .title-group {
+                      /* Needed for Shrome/Safari but not Firefox. */
+                      /* For Firefox the logo is pushed a bit too far from the hamburger menu. */
+                      margin-left: 50px;
+                  }
+              }
+          </style>
           <a class="iconified pat-toggle"
              id="toggle-osc"
              href="#osc"
