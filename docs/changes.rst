@@ -4,6 +4,10 @@ Changelog
 14.3.1 (unreleased)
 -------------------
 
+- Foresee the possibility to have banners in the tool homepage
+  Refs: `#1025 <https://github.com/syslabcom/scrum/issues/1025>`_.
+  [ale-rt]
+
 - Remove some obsolete JavaScript.
   Remove the polyfills-loader (IE11 compatibility) and the patternslib public
   path (base directory for JavaScript assets) variable. Both are not used
