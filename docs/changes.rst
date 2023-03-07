@@ -63,6 +63,10 @@ Changelog
   Ref: scrum-1026
   [reinhardt]
 
+- Fix “loading” spinner when training dashboard is not displayed.
+  Ref: scrum-1027
+  [reinhardt]
+
 14.3.0 (2023-01-26)
 -------------------
 

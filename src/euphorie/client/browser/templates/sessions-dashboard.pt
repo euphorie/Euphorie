@@ -108,21 +108,23 @@
         >
           <div class="grid-sizer"></div>
           <tal:portlets repeat="portlet view/portlets">
-            <div class="portlet span-${portlet/columns|string:1}"
-                 id="${portlet/element_id}"
-                 tal:condition="portlet/element_id|nothing"
-            >
+            <tal:portlet condition="portlet/available|python:True">
+              <div class="portlet span-${portlet/columns|string:1}"
+                   id="${portlet/element_id}"
+                   tal:condition="portlet/element_id|nothing"
+              >
+                <a class="pat-inject infinite-scrolling-trigger"
+                   href="${context/absolute_url}/@@${portlet/__name__}#${portlet/element_id}"
+                   data-pat-inject="trigger: autoload"
+                >Loading&hellip;</a>
+              </div>
+              <tal:comment replace="nothing"><!-- Fallback: If the view has no element_id member, we can't properly pre-render the div --></tal:comment>
               <a class="pat-inject infinite-scrolling-trigger"
-                 href="${context/absolute_url}/@@${portlet/__name__}#${portlet/element_id}"
-                 data-pat-inject="trigger: autoload"
+                 href="${context/absolute_url}/@@${portlet/__name__}"
+                 data-pat-inject="trigger: autoload; target: self::element"
+                 tal:condition="not:portlet/element_id|nothing"
               >Loading&hellip;</a>
-            </div>
-            <tal:comment replace="nothing"><!-- Fallback: If the view has no element_id member, we can't properly pre-render the div --></tal:comment>
-            <a class="pat-inject infinite-scrolling-trigger"
-               href="${context/absolute_url}/@@${portlet/__name__}"
-               data-pat-inject="trigger: autoload; target: self::element"
-               tal:condition="not:portlet/element_id|nothing"
-            >Loading&hellip;</a>
+            </tal:portlet>
           </tal:portlets>
         </div>
       </div>
