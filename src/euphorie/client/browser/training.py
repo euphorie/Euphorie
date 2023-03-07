@@ -743,6 +743,10 @@ class MyTrainingsPortlet(BrowserView):
         return api.content.get_view("webhelpers", self.context, self.request)
 
     @property
+    def available(self):
+        return self.my_unfinished_trainings or self.my_certificates
+
+    @property
     @memoize
     def my_unfinished_trainings(self):
         account_id = self.webhelpers.get_current_account().id
