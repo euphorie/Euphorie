@@ -2322,11 +2322,8 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:91
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:90
 msgid "description_role_admin__training_disabled"
-msgstr ""
-"Az adminisztrátorok létrehozhatnak, szerkeszthetnek és eltávolíthatnak "
-"felhasználói fiókokat. Az adminisztrátorok szintén elkészíthetnek "
-"kokckázatértékeléseket, lezárhatnak kockázatértékleéseket, létrehozhatnak és "
-"elvégezhetnek képzéseket."
+msgstr "Az adminisztrátorok felhasználói fiókokat
+létrehozhatnak, módosíthatnak és eltávolíthatnak. Az adminisztrátorok szintén kidolgozhatnak kockázatértékeléseket és lezárhatnak kockázatértékeléseket."
 
 #. Default: "Managers/Policy makers can make risk assessments and lock risk assessments."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:97
@@ -2338,8 +2335,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:103
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:102
 msgid "description_role_member__training_disabled"
-msgstr ""
-"A tagok elkészíthetik a kockázatértékeléseket és részt vehetnek képzéseken."
+msgstr "A tagok kidolgozhatnak kockázatértékeléseket."
 
 #. Default: "All images contained in the OiRA tool can be exported along with the textual content. When the OiRA tool is then imported again, all images will be present. Please note that including images may result in a considerably larger file size."
 #: euphorie/content/browser/export.py:71
