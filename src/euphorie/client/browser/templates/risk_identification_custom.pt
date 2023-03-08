@@ -27,283 +27,287 @@
             method="POST"
             data-pat-inject="history: record;"
       >
-        <div class="pat-scroll-box"
-             id="content-pane"
+        <fieldset class="pat-autosubmit pat-inject pat-subform"
+                  data-pat-inject="source: #page-module-training-panel-content; target: #page-module-training-panel-content; history: none;"
         >
-          <metal:toolbar use-macro="webhelpers/macros/toolbar">
-            <metal:actions fill-slot="page-actions">
-              <div class="toolbar-section quick-functions"
-                   id="assessment-toolbar-quick-functions"
-              >
-                <a class="icon icon-trash pat-modal"
-                   href="${context/absolute_url}/@@confirmation-delete-risk#document-content"
-                   title="Delete risk"
-                   data-pat-inject="source: #document-content; target: #document-content"
-                   data-pat-modal="class: panel small"
-                   i18n:attributes="title"
-                >Delete risk</a>
-              </div>
-            </metal:actions>
-          </metal:toolbar>
-
-
-          <fieldset class="content-mirror risk-title pat-inject pat-autosubmit pat-subform"
-                    data-pat-autosubmit="1000ms"
-                    data-pat-inject="source: #steps; target: #steps ${python:'&amp;&amp; source: #evaluation; target: #evaluation' if not view.skip_evaluation else None} ${python:'&amp;&amp; source: #slide-content-1; target: #slide-content-1' if webhelpers.use_training_module else None}"
+          <div class="pat-scroll-box"
+               id="content-pane"
           >
-            <h2 class="output"
-                id="risk-title-main"
-            >${here/title}<em class="placeholder"
-                  tal:condition="not:here/title"
-                  i18n:translate=""
-              >Describe the risk...</em></h2>
-            <textarea class="pat-content-mirror"
-                      autofocus="autofocus"
-                      name="title"
-                      placeholder="Describe the risk..."
-                      data-pat-content-mirror="target: #risk-title-main"
-                      i18n:attributes="placeholder"
-            >${here/title}</textarea>
-          </fieldset>
-
-          <!-- Identification -->
-          <tal:existing-measures condition="view/use_existing_measures">
-            <fieldset class="add-measure-in-place-other pat-checklist measures-in-place pat-clone pat-inject pat-subform"
-                      id="add-measure-in-place"
-                      data-pat-autosubmit="1000ms"
-                      data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button;  remove-confirmation: Are you sure you want to remove this existing measure?"
-                      data-pat-inject="source: #add-measure-in-place; target: #add-measure-in-place ${python:webhelpers.use_training_module and '&amp;&amp; source: #slide-preview-existing-measures; target: #slide-preview-existing-measures' or None}"
-            >
-
-              <p class="pat-rich"
-                 tal:content="structure view/intro_extra"
-              ></p>
-              <tal:measures define="
-                              measures view/get_existing_measures_with_activation;
-                            "
-                            repeat="measure measures"
-              >
-                <label>
-                  <input checked="${python:measure['active'] and 'checked' or None}"
-                         name="measure-${measure/solution_id}"
-                         type="checkbox"
-                  />
-                </label>
-                <label>
-                  <div class="pat-rich-editor pat-rich toolbar-detached">
-                    <textarea class="pat-tiptap"
-                              cols="50"
-                              name="present-measure-${measure/solution_id}"
-                              placeholder="${view/placeholder_add_extra}"
-                              rows="3"
-                              data-pat-autosubmit="1000ms"
-                              data-pat-tiptap="
-                              toolbar-external: #assessment-toolbar;
-                              link-panel: #pat-modal .link-panel;
-                              context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
-                    >${python:measure['text']}</textarea>
-                  </div>
-                </label>
-              </tal:measures>
-              <input name="handle_measures_in_place"
-                     type="hidden"
-                     value="1"
-              />
-
-              <template id="in-place-measure-template">
-                <label class="clone"
-                       hidden="hidden"
+            <metal:toolbar use-macro="webhelpers/macros/toolbar">
+              <metal:actions fill-slot="page-actions">
+                <div class="toolbar-section quick-functions"
+                     id="assessment-toolbar-quick-functions"
                 >
-                  <input class="pat-autofocus"
-                         autofocus="autofocus"
-                         checked="checked"
-                         disabled="disabled"
-                         name="use-new-measure-#{1}"
-                         type="checkbox"
-                  />
-                  <div class="pat-rich-editor pat-rich toolbar-detached">
-                    <textarea class="pat-tiptap"
-                              cols="50"
-                              name="new-measure-#{1}"
-                              placeholder="${view/placeholder_add_extra}"
-                              rows="3"
-                              data-pat-autosubmit="1000ms"
-                              data-pat-tiptap="
-                              toolbar-external: #assessment-toolbar;
-                              link-panel: #pat-modal .link-panel;
-                              context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
-                    ></textarea>
-                  </div>
-                  <button class="icon-trash iconified remove-clone"
-                          title="${view/button_remove_extra}"
-                  >Remove</button>
-                </label>
-              </template>
-
-            </fieldset>
-
-
-            <div class="button-bar cloning">
-              <button class="add-clone small pat-button icon-plus-circle"
-                      id="add-in-place-measure-button"
-                      title="${view/button_add_extra}"
-                      type="button"
-              >${view/button_add_extra}</button>
-            </div>
-          </tal:existing-measures>
-
-
-          <fieldset class="pat-checklist radio pat-rich">
-            <legend>
-              <tal:intro content="structure view/intro_questions" />
-            </legend>
-            <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
-                     name="answer"
-                     type="radio"
-                     value="yes"
-              /><tal:answer replace="structure view/answer_yes" /></label>
-            <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
-                     name="answer"
-                     type="radio"
-                     value="no"
-              /><tal:answer replace="structure view/answer_no" /></label>
-          </fieldset>
-          <!-- END Identification -->
-
-          <!-- Action Plan -->
-          <tal:action_plan condition="webhelpers/integrated_action_plan">
-            <div class="pat-collapsible open risk-module pat-depends visible"
-                 data-pat-depends="transition: slide; ${view/action_plan_condition}"
-            >
-              <h3 class="collapsible-open"
-                  i18n:translate="header_actions"
-              >
-                Actions
-              </h3>
-              <div class="panel-content"
-                   id="panel-action-plan"
-              >
-                <section class="pat-rich">
-                  <p tal:content="view/action_plan_instruction_text">Instruction</p>
-                </section>
-                <metal:call use-macro="webhelpers/macros/action_plan" />
-              </div>
-            </div>
-          </tal:action_plan>
-          <!-- END Action Plan -->
-
-          <!-- Evaluation -->
-          <div class="risk-module pat-well notice pat-depends vertical evaluation"
-               id="evaluation"
-               data-pat-depends="condition: answer=no; transition: slide"
-               tal:condition="not:view/skip_evaluation"
-          >
-            <p class="problem-description"><strong>${here/title}</strong></p>
-            <fieldset class="pat-checklist radio"
-                      tal:define="
-                        value context/priority;
-                      "
-            >
-              <p i18n:translate="header_risk_priority">Select the priority of this risk</p>
-              <label><input checked="${python:'checked' if value=='low' else None}"
-                       name="priority"
-                       type="radio"
-                       value="low"
-                />
-                <tal:span i18n:translate="priority_low">Low</tal:span></label>
-              <label><input checked="${python:'checked' if value=='medium' else None}"
-                       name="priority"
-                       type="radio"
-                       value="medium"
-                />
-                <tal:span i18n:translate="priority_medium">Medium</tal:span></label>
-              <label><input checked="${python:'checked' if value=='high' else None}"
-                       name="priority"
-                       type="radio"
-                       value="high"
-                />
-                <tal:span i18n:translate="priority_high">High</tal:span></label>
-            </fieldset>
-          </div>
-          <!-- END Evaluation -->
-
-          <!-- Information -->
-          <div class="pat-collapsible open risk-module form-panel"
-               id="page-module-information"
-          >
-            <h3 class="form-separation-header"
-                i18n:translate="header_information"
-            >
-        Information
-            </h3>
-            <div class="panel-content">
-              <fieldset class="vertical row">
-                <div class="eight columns">
-
-                  <div class="pat-rich-editor pat-rich toolbar-detached">
-                    <textarea class="pat-tiptap"
-                              name="custom_description:utf8:ustring"
-                              placeholder="${view/notes_placeholder}"
-                              data-pat-tiptap="
-                                  toolbar-external: #assessment-toolbar;
-                                  link-panel: #pat-modal .link-panel;
-                                  context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
-                              tal:content="context/custom_description"
-                    >
-                    </textarea>
-                  </div>
+                  <a class="icon icon-trash pat-modal"
+                     href="${context/absolute_url}/@@confirmation-delete-risk#document-content"
+                     title="Delete risk"
+                     data-pat-inject="source: #document-content; target: #document-content"
+                     data-pat-modal="class: panel small"
+                     i18n:attributes="title"
+                  >Delete risk</a>
                 </div>
-                <label class="four columns image-uploader pat-subform pat-autosubmit pat-inject discrete-injection"
-                       id="image-upload"
-                       title="Upload an image that illustrates this risk."
-                       data-pat-inject="url: ${upload_url}; source: #image-upload::element; target: #image-upload::element &amp;&amp; url: ${upload_url}; source: #messages; target: #messages;"
-                       tal:define="
-                         upload_url string:${here/absolute_url}/@@image-upload;
-                       "
-                       i18n:attributes="title"
+              </metal:actions>
+            </metal:toolbar>
+
+
+            <fieldset class="content-mirror risk-title pat-inject pat-autosubmit pat-subform"
+                      data-pat-autosubmit="1000ms"
+                      data-pat-inject="source: #steps; target: #steps ${python:'&amp;&amp; source: #evaluation; target: #evaluation' if not view.skip_evaluation else None} ${python:'&amp;&amp; source: #slide-content-1; target: #slide-content-1' if webhelpers.use_training_module else None}"
+            >
+              <h2 class="output"
+                  id="risk-title-main"
+              >${here/title}<em class="placeholder"
+                    tal:condition="not:here/title"
+                    i18n:translate=""
+                >Describe the risk...</em></h2>
+              <textarea class="pat-content-mirror"
+                        autofocus="autofocus"
+                        name="title"
+                        placeholder="Describe the risk..."
+                        data-pat-content-mirror="target: #risk-title-main"
+                        i18n:attributes="placeholder"
+              >${here/title}</textarea>
+            </fieldset>
+
+            <!-- Identification -->
+            <tal:existing-measures condition="view/use_existing_measures">
+              <fieldset class="add-measure-in-place-other pat-checklist measures-in-place pat-clone pat-inject pat-subform"
+                        id="add-measure-in-place"
+                        data-pat-autosubmit="1000ms"
+                        data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button;  remove-confirmation: Are you sure you want to remove this existing measure?"
+                        data-pat-inject="source: #add-measure-in-place; target: #add-measure-in-place ${python:webhelpers.use_training_module and '&amp;&amp; source: #slide-preview-existing-measures; target: #slide-preview-existing-measures' or None}"
+              >
+
+                <p class="pat-rich"
+                   tal:content="structure view/intro_extra"
+                ></p>
+                <tal:measures define="
+                                measures view/get_existing_measures_with_activation;
+                              "
+                              repeat="measure measures"
                 >
-                  <tal:has_image condition="here/image_filename">
-                    <img src="${here/absolute_url}/@@image-display/image?name=${here/image_filename}" />
-                    <button class="icon-trash image-upload-remove-button focus"
-                            formaction="${here/absolute_url}/@@image-upload#image-upload"
-                            name="image-remove"
-                            type="submit"
-                            value="1"
-                            i18n:translate=""
-                    >
-              Remove
-                    </button>
-                  </tal:has_image>
-                  <span class="pat-button upload-button"
-                        i18n:translate=""
-                  >Upload image</span>
-                  <input accept=".jpg,.jpeg,.png,.gif"
-                         name="image"
-                         type="file"
-                  />
-                </label>
-                <input name="handle_custom_description"
+                  <label>
+                    <input checked="${python:measure['active'] and 'checked' or None}"
+                           name="measure-${measure/solution_id}"
+                           type="checkbox"
+                    />
+                  </label>
+                  <label>
+                    <div class="pat-rich-editor pat-rich toolbar-detached">
+                      <textarea class="pat-tiptap"
+                                cols="50"
+                                name="present-measure-${measure/solution_id}"
+                                placeholder="${view/placeholder_add_extra}"
+                                rows="3"
+                                data-pat-autosubmit="1000ms"
+                                data-pat-tiptap="
+                              toolbar-external: #assessment-toolbar;
+                              link-panel: #pat-modal .link-panel;
+                              context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
+                      >${python:measure['text']}</textarea>
+                    </div>
+                  </label>
+                </tal:measures>
+                <input name="handle_measures_in_place"
                        type="hidden"
                        value="1"
                 />
+
+                <template id="in-place-measure-template">
+                  <label class="clone"
+                         hidden="hidden"
+                  >
+                    <input class="pat-autofocus"
+                           autofocus="autofocus"
+                           checked="checked"
+                           disabled="disabled"
+                           name="use-new-measure-#{1}"
+                           type="checkbox"
+                    />
+                    <div class="pat-rich-editor pat-rich toolbar-detached">
+                      <textarea class="pat-tiptap"
+                                cols="50"
+                                name="new-measure-#{1}"
+                                placeholder="${view/placeholder_add_extra}"
+                                rows="3"
+                                data-pat-autosubmit="1000ms"
+                                data-pat-tiptap="
+                              toolbar-external: #assessment-toolbar;
+                              link-panel: #pat-modal .link-panel;
+                              context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
+                      ></textarea>
+                    </div>
+                    <button class="icon-trash iconified remove-clone"
+                            title="${view/button_remove_extra}"
+                    >Remove</button>
+                  </label>
+                </template>
+
+              </fieldset>
+
+
+              <div class="button-bar cloning">
+                <button class="add-clone small pat-button icon-plus-circle"
+                        id="add-in-place-measure-button"
+                        title="${view/button_add_extra}"
+                        type="button"
+                >${view/button_add_extra}</button>
+              </div>
+            </tal:existing-measures>
+
+
+            <fieldset class="pat-checklist radio pat-rich">
+              <legend>
+                <tal:intro content="structure view/intro_questions" />
+              </legend>
+              <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
+                       name="answer"
+                       type="radio"
+                       value="yes"
+                /><tal:answer replace="structure view/answer_yes" /></label>
+              <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
+                       name="answer"
+                       type="radio"
+                       value="no"
+                /><tal:answer replace="structure view/answer_no" /></label>
+            </fieldset>
+            <!-- END Identification -->
+
+            <!-- Action Plan -->
+            <tal:action_plan condition="webhelpers/integrated_action_plan">
+              <div class="pat-collapsible open risk-module pat-depends visible"
+                   data-pat-depends="transition: slide; ${view/action_plan_condition}"
+              >
+                <h3 class="collapsible-open"
+                    i18n:translate="header_actions"
+                >
+                Actions
+                </h3>
+                <div class="panel-content"
+                     id="panel-action-plan"
+                >
+                  <section class="pat-rich">
+                    <p tal:content="view/action_plan_instruction_text">Instruction</p>
+                  </section>
+                  <metal:call use-macro="webhelpers/macros/action_plan" />
+                </div>
+              </div>
+            </tal:action_plan>
+            <!-- END Action Plan -->
+
+            <!-- Evaluation -->
+            <div class="risk-module pat-well notice pat-depends vertical evaluation"
+                 id="evaluation"
+                 data-pat-depends="condition: answer=no; transition: slide"
+                 tal:condition="not:view/skip_evaluation"
+            >
+              <p class="problem-description"><strong>${here/title}</strong></p>
+              <fieldset class="pat-checklist radio"
+                        tal:define="
+                          value context/priority;
+                        "
+              >
+                <p i18n:translate="header_risk_priority">Select the priority of this risk</p>
+                <label><input checked="${python:'checked' if value=='low' else None}"
+                         name="priority"
+                         type="radio"
+                         value="low"
+                  />
+                  <tal:span i18n:translate="priority_low">Low</tal:span></label>
+                <label><input checked="${python:'checked' if value=='medium' else None}"
+                         name="priority"
+                         type="radio"
+                         value="medium"
+                  />
+                  <tal:span i18n:translate="priority_medium">Medium</tal:span></label>
+                <label><input checked="${python:'checked' if value=='high' else None}"
+                         name="priority"
+                         type="radio"
+                         value="high"
+                  />
+                  <tal:span i18n:translate="priority_high">High</tal:span></label>
               </fieldset>
             </div>
+            <!-- END Evaluation -->
+
+            <!-- Information -->
+            <div class="pat-collapsible open risk-module form-panel"
+                 id="page-module-information"
+            >
+              <h3 class="form-separation-header"
+                  i18n:translate="header_information"
+              >
+        Information
+              </h3>
+              <div class="panel-content">
+                <fieldset class="vertical row">
+                  <div class="eight columns">
+
+                    <div class="pat-rich-editor pat-rich toolbar-detached">
+                      <textarea class="pat-tiptap"
+                                name="custom_description:utf8:ustring"
+                                placeholder="${view/notes_placeholder}"
+                                data-pat-tiptap="
+                                  toolbar-external: #assessment-toolbar;
+                                  link-panel: #pat-modal .link-panel;
+                                  context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
+                                tal:content="context/custom_description"
+                      >
+                      </textarea>
+                    </div>
+                  </div>
+                  <label class="four columns image-uploader pat-subform pat-autosubmit pat-inject discrete-injection"
+                         id="image-upload"
+                         title="Upload an image that illustrates this risk."
+                         data-pat-inject="url: ${upload_url}; source: #image-upload::element; target: #image-upload::element &amp;&amp; url: ${upload_url}; source: #messages; target: #messages;"
+                         tal:define="
+                           upload_url string:${here/absolute_url}/@@image-upload;
+                         "
+                         i18n:attributes="title"
+                  >
+                    <tal:has_image condition="here/image_filename">
+                      <img src="${here/absolute_url}/@@image-display/image?name=${here/image_filename}" />
+                      <button class="icon-trash image-upload-remove-button focus"
+                              formaction="${here/absolute_url}/@@image-upload#image-upload"
+                              name="image-remove"
+                              type="submit"
+                              value="1"
+                              i18n:translate=""
+                      >
+              Remove
+                      </button>
+                    </tal:has_image>
+                    <span class="pat-button upload-button"
+                          i18n:translate=""
+                    >Upload image</span>
+                    <input accept=".jpg,.jpeg,.png,.gif"
+                           name="image"
+                           type="file"
+                    />
+                  </label>
+                  <input name="handle_custom_description"
+                         type="hidden"
+                         value="1"
+                  />
+                </fieldset>
+              </div>
+            </div>
+            <!-- END Information -->
+
+            <!-- Comments -->
+            <metal:call use-macro="webhelpers/macros/risk_comments"
+                        tal:define="
+                          default_state string:closed;
+                        "
+            />
+            <!-- END Comments -->
+
+            <!-- Training -->
+            <metal:call use-macro="webhelpers/macros/training_configuration" />
+            <!-- END Training -->
+
           </div>
-          <!-- END Information -->
-
-          <!-- Comments -->
-          <metal:call use-macro="webhelpers/macros/risk_comments"
-                      tal:define="
-                        default_state string:closed;
-                      "
-          />
-          <!-- END Comments -->
-
-          <!-- Training -->
-          <metal:call use-macro="webhelpers/macros/training_configuration" />
-          <!-- END Training -->
-
-        </div>
+        </fieldset>
 
         <p class="button-bar pat-bumper"
            id="nav-bar"
