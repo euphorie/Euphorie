@@ -6019,7 +6019,7 @@ msgstr "vraag een e-mailherinnering aan"
 
 #. Default: "Risk is present."
 #: euphorie/client/docx/compiler.py:275
-msgid "risk_present
+msgid "risk_present"
 msgstr "Dit risico is aanwezig."
 
 #. Default: "This is a ${priority_value} priority risk."
