@@ -3000,7 +3000,7 @@ msgstr "De beoordeling is niet ingewikkeld"
 #. Default: "Consultation of workers"
 #: euphorie/client/docx/compiler.py:478
 msgid "header_oira_report_consultation"
-msgstr "Raadpleging van arbeiders"
+msgstr "Raadpleging van werknemers"
 
 #. Default: "OiRA Report: “${title}”"
 #: euphorie/client/docx/views.py:208
