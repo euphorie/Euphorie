@@ -390,7 +390,7 @@ class Assessments(BrowserView):
         defaults."""
         return (
             self.request.get("organisation")
-            or self.request.get("sort_on", "alphabetical") != "alphabetical"
+            or self.request.get("sort_on", "modified") != "modified"
         )
 
     @property
@@ -399,7 +399,7 @@ class Assessments(BrowserView):
         searchable_text = self.request.get("SearchableText", None)
         if searchable_text and "%" not in searchable_text:
             searchable_text = f"%{searchable_text}%"
-        sort_on_value = self.request.get("sort_on", "alphabetical")
+        sort_on_value = self.request.get("sort_on", "modified")
         if sort_on_value == "alphabetical":
             order_by = self.webhelpers.survey_session_model.title
         else:
