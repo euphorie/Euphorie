@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.3.1 (unreleased)
+14.3.1 (2023-03-13)
 -------------------
 
 - Upgrade to Patternslib 9.8.3-alpha.0, fixing auto-submit issues with pat-clone.
