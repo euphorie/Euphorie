@@ -49,14 +49,14 @@
                     <legend i18n:translate="label_sorting">Sorting</legend>
                     <fieldset class="pat-checklist radio">
                       <label><tal:i18n i18n:translate="label_alphabetical">Alphabetical</tal:i18n>
-                        <input checked="${python:'checked' if request.get('sort_on', 'alphabetical') == 'alphabetical' else None}"
+                        <input checked="${python:'checked' if request.get('sort_on', 'modified') == 'alphabetical' else None}"
                                name="sort_on"
                                type="radio"
                                value="alphabetical"
                         />
                       </label>
                       <label><tal:i18n i18n:translate="label_newest_first">Newest first</tal:i18n>
-                        <input checked="${python:'checked' if request.get('sort_on', 'alphabetical') == 'modified' else None}"
+                        <input checked="${python:'checked' if request.get('sort_on', 'modified') == 'modified' else None}"
                                name="sort_on"
                                type="radio"
                                value="modified"

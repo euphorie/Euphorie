@@ -76,6 +76,10 @@ Changelog
   Ref: scrum-1027
   [reinhardt]
 
+- @@assessments: Change the default sort order to newest first
+  Ref: scrum-1040
+  [cillianderoiste]
+
 14.3.0 (2023-01-26)
 -------------------
 
