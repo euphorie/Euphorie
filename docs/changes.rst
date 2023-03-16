@@ -4,7 +4,8 @@ Changelog
 14.3.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Upgrade Plone to 5.2.11.
+  [thet]
 
 
 14.3.1 (2023-03-13)
