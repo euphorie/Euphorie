@@ -4,6 +4,10 @@ Changelog
 14.3.2 (unreleased)
 -------------------
 
+- Survey navigation: Fix class when navigation menu is active and disabled to
+  not render as "activedisabled".
+  [thet]
+
 - Upgrade Plone to 5.2.11.
   [thet]
 

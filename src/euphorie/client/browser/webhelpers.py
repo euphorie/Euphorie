@@ -1190,7 +1190,7 @@ class WebHelpers(BrowserView):
             {
                 "active": active,
                 "disabled": disabled,
-                "class": f'{"active" if active else ""}{"disabled" if disabled else ""}',  # noqa: E501
+                "class": f'{"active" if active else ""} {"disabled" if disabled else ""}',  # noqa: E501
                 "id": "step-1",
                 "name": "preparation",
                 "href": f"{url}/@@start#content",
@@ -1208,7 +1208,7 @@ class WebHelpers(BrowserView):
                 {
                     "active": active,
                     "disabled": disabled,
-                    "class": f'{"active" if active else ""}{"disabled" if disabled else ""}',  # noqa: E501
+                    "class": f'{"active" if active else ""} {"disabled" if disabled else ""}',  # noqa: E501
                     "id": "step-involve",
                     "name": "involve",
                     "href": f"{url}/@@involve#content",
@@ -1233,7 +1233,7 @@ class WebHelpers(BrowserView):
             {
                 "active": active,
                 "disabled": disabled,
-                "class": f'{"active" if active else ""}{"disabled" if disabled else ""}',  # noqa: E501
+                "class": f'{"active" if active else ""} {"disabled" if disabled else ""}',  # noqa: E501
                 "id": "step-2",
                 "name": "identification",
                 "href": f"{url}/@@identification#content",
@@ -1252,7 +1252,7 @@ class WebHelpers(BrowserView):
                 {
                     "active": active,
                     "disabled": disabled,
-                    "class": f'{"active" if active else ""}{"disabled" if disabled else ""}',  # noqa: E501
+                    "class": f'{"active" if active else ""} {"disabled" if disabled else ""}',  # noqa: E501
                     "id": "step-4",
                     "name": "action-plan",
                     "href": f"{url}/@@actionplan#content",
@@ -1269,7 +1269,7 @@ class WebHelpers(BrowserView):
             {
                 "active": active,
                 "disabled": disabled,
-                "class": f'{"active" if active else ""}{"disabled" if disabled else ""}',  # noqa: E501
+                "class": f'{"active" if active else ""} {"disabled" if disabled else ""}',  # noqa: E501
                 "id": "step-5",
                 "name": "report",
                 "href": f"{url}/@@report#content",
@@ -1284,7 +1284,7 @@ class WebHelpers(BrowserView):
                 {
                     "active": active,
                     "disabled": disabled,
-                    "class": f'{"active" if active else ""}{"disabled" if disabled else ""}',  # noqa: E501
+                    "class": f'{"active" if active else ""} {"disabled" if disabled else ""}',  # noqa: E501
                     "id": "step-6",
                     "name": "training",
                     "href": f"{url}/@@training#content",
@@ -1300,7 +1300,7 @@ class WebHelpers(BrowserView):
             {
                 "active": active,
                 "disabled": disabled,
-                "class": f'{"active" if active else ""}{"disabled" if disabled else ""}',  # noqa: E501
+                "class": f'{"active" if active else ""} {"disabled" if disabled else ""}',  # noqa: E501
                 "id": "status",
                 "name": "status",
                 "href": f"{url}/@@status#content",
