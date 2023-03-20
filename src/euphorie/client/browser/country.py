@@ -370,28 +370,48 @@ class Assessments(BrowserView):
         return self.index
 
     @property
-    def organisation_options(self):
+    @memoize
+    def organisations(self):
         organisation_view = api.content.get_view(
             "organisation", self.context, self.request
         )
+        return organisation_view.organisations
+
+    @property
+    def organisation_options(self):
+        selected_organisation = self.selected_organisation
         return [
             {
                 "label": organisation.title,
                 "value": organisation.owner_id,
-                "selected": "selected"
-                if str(organisation.owner_id) == self.request.get("organisation", "")
-                else None,
+                "selected": (
+                    "selected" if organisation == selected_organisation else None
+                ),
             }
-            for organisation in organisation_view.organisations
+            for organisation in self.organisations
         ]
 
     def is_filter_active(self):
         """True if any filters in the request parameters are different from the
         defaults."""
         return (
-            self.request.get("organisation")
+            self.request.get("organisation_owner_id")
             or self.request.get("sort_on", "modified") != "modified"
         )
+
+    @property
+    def selected_organisation(self):
+        """Return the organisation selected in the request
+        if it matches an organisation of the currently authenticated users.
+        """
+        organisation_value = self.request.get("organisation_owner_id", "")
+        try:
+            organisation_value = int(organisation_value)
+        except ValueError:
+            return
+        for organisation in self.organisations:
+            if organisation.owner_id == organisation_value:
+                return organisation
 
     @property
     @memoize
@@ -404,12 +424,17 @@ class Assessments(BrowserView):
             order_by = self.webhelpers.survey_session_model.title
         else:
             order_by = False
-        organisation_value = self.request.get("organisation", "")
+
+        if self.selected_organisation:
+            filter_by_account = self.selected_organisation.owner_id
+        else:
+            filter_by_account = True
+
         return self.webhelpers.get_sessions_query(
             context=self.context,
             searchable_text=searchable_text,
             include_archived=True,
-            filter_by_account=organisation_value or True,
+            filter_by_account=filter_by_account,
             order_by=order_by,
         )
 

@@ -23,6 +23,10 @@ Changelog
   Ref: scrum-1041
   [cillianderoiste]
 
+- Fix the assessment view to properly handle the account organisations
+  Refs: `#1043 <https://github.com/syslabcom/scrum/issues/1043>`_.
+  [ale-rt]
+
 
 14.3.1 (2023-03-13)
 -------------------
