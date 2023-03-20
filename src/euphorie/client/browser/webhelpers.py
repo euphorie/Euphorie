@@ -1265,6 +1265,8 @@ class WebHelpers(BrowserView):
 
         # TODO: check if guest.
         active = section == "report"
+        # The following menu items should be active even if can_edit is False.
+        disabled = (section in ("", "preparation") and is_new_session)
         data.append(
             {
                 "active": active,

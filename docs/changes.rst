@@ -4,6 +4,10 @@ Changelog
 14.3.2 (unreleased)
 -------------------
 
+- Survey navigation: When survey is archived or otherwise disabled the report,
+  training and status menu items should still be active.
+  [thet]
+
 - Survey navigation: Fix class when navigation menu is active and disabled to
   not render as "activedisabled".
   [thet]
