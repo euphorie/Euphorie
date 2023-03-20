@@ -1657,7 +1657,7 @@ Feature changes
 ~~~~~~~~~~~~~~~
 
 - Add and enforce a password policy (OSHA #10286)
-- When a sector our country manager is created, the new user receives an e-mail
+- When a sector or country manager is created, the new user receives an e-mail
   for setting the password; the admin no longer chooses the password initially
 - On existing country and sector manager accounts, an admin can still manually
   set a new password.
