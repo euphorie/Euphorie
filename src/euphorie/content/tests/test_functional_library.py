@@ -5,12 +5,7 @@ from euphorie.testing import EuphorieFunctionalTestCase
 from plone import api
 from plone.app.testing import SITE_OWNER_NAME
 from plone.app.testing import SITE_OWNER_PASSWORD
-
-
-try:
-    from unittest import mock
-except ImportError:
-    from unittest import mock
+from unittest import mock
 
 
 class LibraryTests(EuphorieFunctionalTestCase):

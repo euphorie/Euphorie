@@ -7,13 +7,8 @@ from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
 from plone.app.event.base import localized_now
 from sqlalchemy.exc import StatementError
+from unittest import mock
 from z3c.saconfig import Session
-
-
-try:
-    from unittest import mock
-except ImportError:
-    from unittest import mock
 
 
 def createSurvey():

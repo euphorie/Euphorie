@@ -8,16 +8,11 @@ from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
 from Products.PluggableAuthService.interfaces.plugins import IExtractionPlugin
 from Products.PluggableAuthService.interfaces.plugins import IUserEnumerationPlugin
 from Products.PluggableAuthService.interfaces.plugins import IUserFactoryPlugin
+from unittest import mock
 from unittest import TestCase
 from z3c.saconfig import Session
 from zope.interface import directlyProvides
 from zope.interface.verify import verifyClass
-
-
-try:
-    from unittest import mock
-except ImportError:
-    from unittest import mock
 
 
 class MockContext:

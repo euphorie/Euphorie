@@ -4,13 +4,8 @@ from euphorie.client.tests.utils import addSurvey
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
+from unittest import mock
 from zExceptions import Unauthorized
-
-
-try:
-    from unittest import mock
-except ImportError:
-    from unittest import mock
 
 
 class TestArchivingViews(EuphorieIntegrationTestCase):

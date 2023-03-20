@@ -3,18 +3,13 @@ from euphorie.content.fti import ConditionalDexterityFTI
 from euphorie.content.fti import IConstructionFilter
 from euphorie.content.module import Module
 from euphorie.testing import EuphorieIntegrationTestCase
+from unittest import mock
 from zope.component import adapter
 from zope.component import getGlobalSiteManager
 from zope.component import provideAdapter
 from zope.interface import implementer
 
 import unittest
-
-
-try:
-    from unittest import mock
-except ImportError:
-    from unittest import mock
 
 
 @implementer(IConstructionFilter)
