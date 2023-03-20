@@ -11,15 +11,10 @@ from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
 from Products.CMFPlone.tests.dummy import Image
 from Products.CMFPlone.utils import safe_unicode
+from unittest import mock
 from zope.publisher.interfaces import NotFound
 
 import unittest
-
-
-try:
-    from unittest import mock
-except ImportError:
-    from unittest import mock
 
 
 class EvaluationViewTests(unittest.TestCase):

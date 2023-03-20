@@ -17,6 +17,7 @@ from plone.testing import zope
 from plone.testing.zope import Browser
 from sqlalchemy import event
 from transaction import commit
+from unittest import mock
 from unittest import TestCase
 from z3c.saconfig import Session
 from Zope2.Startup.datatypes import default_zpublisher_encoding
@@ -24,12 +25,6 @@ from zope.interface import alsoProvides
 from zope.sqlalchemy.datamanager import NO_SAVEPOINT_SUPPORT
 
 import euphorie.deployment
-
-
-try:
-    from unittest import mock
-except ImportError:
-    from unittest import mock
 
 
 NO_SAVEPOINT_SUPPORT.remove("sqlite")

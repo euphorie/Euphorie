@@ -11,17 +11,12 @@ from euphorie.testing import EuphorieIntegrationTestCase
 from ExtensionClass import Base
 from plone import api
 from plone.app.testing.interfaces import SITE_OWNER_NAME
+from unittest import mock
 from urllib.parse import quote
 from z3c.saconfig import Session
 from zope.interface import alsoProvides
 
 import datetime
-
-
-try:
-    from unittest import mock
-except ImportError:
-    from unittest import mock
 
 
 # import unittest

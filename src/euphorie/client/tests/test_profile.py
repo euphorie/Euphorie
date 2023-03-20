@@ -7,14 +7,9 @@ from euphorie.client.tests.test_update import TreeTests
 from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
+from unittest import mock
 from z3c.saconfig import Session
 from zope.interface import alsoProvides
-
-
-try:
-    from unittest import mock
-except ImportError:
-    from unittest import mock
 
 
 def createContainer(id, profile=False):
