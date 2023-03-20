@@ -15,6 +15,14 @@ Changelog
 - Upgrade Plone to 5.2.11.
   [thet]
 
+- @@assessments: Change the default sort order to newest first
+  Ref: scrum-1040
+  [cillianderoiste]
+
+- Render siblings of the selected profile question module in the sidebar
+  Ref: scrum-1041
+  [cillianderoiste]
+
 
 14.3.1 (2023-03-13)
 -------------------
@@ -84,14 +92,6 @@ Changelog
 - Fix “loading” spinner when training dashboard is not displayed.
   Ref: scrum-1027
   [reinhardt]
-
-- @@assessments: Change the default sort order to newest first
-  Ref: scrum-1040
-  [cillianderoiste]
-
-- Render siblings of the selected profile question module in the sidebar
-  Ref: scrum-1041
-  [cillianderoiste]
 
 
 14.3.0 (2023-01-26)
