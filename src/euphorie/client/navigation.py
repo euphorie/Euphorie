@@ -260,14 +260,27 @@ def getTreeData(
         while len(parents) > 1:
             parent = parents.pop()
             new = morph(parent)
+            siblings = []
             if isinstance(parent, model.Module) and parent.depth == 2:
                 module = survey.restrictedTraverse(parent.zodb_path.split("/"))
                 if IProfileQuestion.providedBy(
                     module
                 ) and not ICustomRisksModule.providedBy(aq_parent(module)):
                     new["type"] = "location"
+                    # Include the siblings and the first level of the sibling trees so
+                    # that they are still visible and browsable from the sidebar
+                    for sibling in parent.siblings(model.Module, filter=filter):
+                        if sibling.id != new["id"]:
+                            info = morph(sibling)
+                            info["type"] = "location"
+                            children = []
+                            for child in sibling.children(filter=filter):
+                                child_info = morph(child)
+                                children.append(child_info)
+                            info["children"] = children
+                            siblings.append(info)
             new["children"] = result["children"]
-            result["children"] = [new]
+            result["children"] = [new] + siblings
 
         # Finally list all modules at the root level
         parent = parents.pop()

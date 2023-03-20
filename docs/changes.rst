@@ -89,6 +89,11 @@ Changelog
   Ref: scrum-1040
   [cillianderoiste]
 
+- Render siblings of the selected profile question module in the sidebar
+  Ref: scrum-1041
+  [cillianderoiste]
+
+
 14.3.0 (2023-01-26)
 -------------------
 
