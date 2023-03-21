@@ -381,6 +381,8 @@ class Assessments(BrowserView):
 
     @property
     def organisation_options(self):
+        """Return the organisations of the current user for displaying in a select box.
+        """
         selected_organisation = self.selected_organisation
         return [
             {
