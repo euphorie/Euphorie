@@ -372,8 +372,7 @@ class Assessments(BrowserView):
     @property
     @memoize
     def organisations(self):
-        """Return the organisations the current user is member of.
-        """
+        """Return the organisations the current user is member of."""
         organisation_view = api.content.get_view(
             "organisation", self.context, self.request
         )
@@ -381,8 +380,8 @@ class Assessments(BrowserView):
 
     @property
     def organisation_options(self):
-        """Return the organisations of the current user for displaying in a select box.
-        """
+        """Return the organisations of the current user
+        for displaying in a select box."""
         selected_organisation = self.selected_organisation
         return [
             {
