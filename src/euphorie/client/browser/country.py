@@ -428,6 +428,7 @@ class Assessments(BrowserView):
         if self.selected_organisation:
             filter_by_account = self.selected_organisation.owner_id
         else:
+            # `True` means filter for current account.
             filter_by_account = True
 
         return self.webhelpers.get_sessions_query(
