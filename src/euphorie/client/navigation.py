@@ -270,7 +270,10 @@ def getTreeData(
                     # Include the siblings and the first level of the sibling trees so
                     # that they are still visible and browsable from the sidebar
                     for sibling in parent.siblings(model.Module, filter=filter):
-                        if sibling.id != new["id"]:
+                        if sibling.id == new["id"]:
+                            new["children"] = result["children"]
+                            siblings.append(new)
+                        else:
                             info = morph(sibling)
                             info["type"] = "location"
                             children = []
@@ -279,8 +282,10 @@ def getTreeData(
                                 children.append(child_info)
                             info["children"] = children
                             siblings.append(info)
-            new["children"] = result["children"]
-            result["children"] = [new] + siblings
+            if not siblings:
+                new["children"] = result["children"]
+                siblings.append(new)
+            result["children"] = siblings
 
         # Finally list all modules at the root level
         parent = parents.pop()
