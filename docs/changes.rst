@@ -4,6 +4,12 @@ Changelog
 14.3.2 (unreleased)
 -------------------
 
+- Update buildout infrastructure.
+  [thet]
+
+- Remove unused dependencies and update outdated ones.
+  [thet]
+
 - Survey navigation: When survey is archived or otherwise disabled the report,
   training and status menu items should still be active.
   [thet]
