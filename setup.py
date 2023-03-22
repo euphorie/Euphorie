@@ -43,7 +43,7 @@ setup(
         "htmllaundry",
         "lxml",
         "markdownify",
-        "path.py",
+        "path",
         "plone.app.dexterity [relations]",
         "plone.app.folder",
         "plone.app.imagecropping < 3",
