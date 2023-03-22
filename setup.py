@@ -38,7 +38,7 @@ setup(
         "SQLAlchemy >=1.2.999999",
         "alembic",
         "anytree",
-        "py-bcrypt",
+        "bcrypt",
         "ftw.upgrade",
         "htmllaundry",
         "lxml",
