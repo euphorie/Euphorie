@@ -5787,7 +5787,7 @@ msgstr "Voor deze selectie werden geen risicobeoordelingen gevonden."
 #: euphorie/client/docx/compiler.py:483
 msgid "paragraph_oira_consultation_of_workers"
 msgstr ""
-"Hierbij verklaart ondergetekende dat de arbeiders werden geraadpleegd over "
+"Hierbij verklaart ondergetekende dat de werknemers werden geraadpleegd over "
 "de inhoud van dit document."
 
 #. Default: "Your password must contain at least 5 characters, including at least one capital letter, one number and one special character (e.g. $, # or @)."
