@@ -23,7 +23,8 @@ Changelog
   Ref: scrum-1041
   [cillianderoiste]
 
-- Fix the assessment view to properly handle the account organisations
+- Fix the assessments view to properly handle the account organisations
+  and restrict it to authenticated users.
   Refs: `#1043 <https://github.com/syslabcom/scrum/issues/1043>`_.
   [ale-rt]
 
