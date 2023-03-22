@@ -2322,8 +2322,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:91
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:90
 msgid "description_role_admin__training_disabled"
-msgstr "Az adminisztrátorok felhasználói fiókokat
-létrehozhatnak, módosíthatnak és eltávolíthatnak. Az adminisztrátorok szintén kidolgozhatnak kockázatértékeléseket és lezárhatnak kockázatértékeléseket."
+msgstr "Az adminisztrátorok felhasználói fiókokat létrehozhatnak, módosíthatnak és eltávolíthatnak. Az adminisztrátorok szintén kidolgozhatnak kockázatértékeléseket és lezárhatnak kockázatértékeléseket."
 
 #. Default: "Managers/Policy makers can make risk assessments and lock risk assessments."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:97
