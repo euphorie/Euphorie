@@ -4907,12 +4907,12 @@ msgstr "Tveganj brez ukrepa"
 #. Default: "Administrator"
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:67
 msgid "label_role_admin"
-msgstr ""
+msgstr "Administrator"
 
 #. Default: "Member"
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:52
 msgid "label_role_member"
-msgstr ""
+msgstr "Član"
 
 #. Default: "Save and add new risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:317

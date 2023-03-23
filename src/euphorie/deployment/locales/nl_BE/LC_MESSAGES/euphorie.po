@@ -4993,12 +4993,12 @@ msgstr "Risico‘s zonder maatregel"
 #. Default: "Administrator"
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:67
 msgid "label_role_admin"
-msgstr ""
+msgstr "Beheerder"
 
 #. Default: "Member"
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:52
 msgid "label_role_member"
-msgstr ""
+msgstr "Lid"
 
 #. Default: "Save and add new risk"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:317
