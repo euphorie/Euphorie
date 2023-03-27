@@ -627,6 +627,14 @@ class DocxCompilerFullTable(DocxCompiler):
 
         title, descripton, comment, measures in place
         """
+        self.set_cell_risk_title(cell, risk)
+        self.set_cell_risk_comment(cell, risk)
+        self.set_cell_risk_description(cell, risk)
+        self.set_cell_risk_measures(cell, risk)
+
+        cell.add_paragraph(style="Risk Normal")
+
+    def set_cell_risk_title(self, cell, risk):
         paragraph = cell.paragraphs[0]
         paragraph.style = "Risk Bold List"
         paragraph.text = risk["title"]
@@ -650,10 +658,15 @@ class DocxCompilerFullTable(DocxCompiler):
                 )
                 paragraph.runs[0].italic = True
 
+    def set_cell_risk_comment(self, cell, risk):
         if risk["comment"] and risk["comment"].strip():
             self.compiler(risk["comment"], cell, style="Risk Normal")
+
+    def set_cell_risk_description(self, cell, risk):
         if self.show_risk_descriptions:
             self.compiler(risk["description"], cell)
+
+    def set_cell_risk_measures(self, cell, risk):
         if risk["measures"]:
             if self.show_risk_descriptions:
                 cell.add_paragraph()
@@ -669,55 +682,63 @@ class DocxCompilerFullTable(DocxCompiler):
                 )
             for measure in risk["measures"]:
                 self.compiler(_simple_breaks(measure), cell, style="Risk Italics List")
-        paragraph = cell.add_paragraph(style="Risk Normal")
 
     def set_cell_actions(self, cell, risk):
         """Take the risk and add the appropriate text:
 
         planned measures
         """
-        paragraph = cell.paragraphs[0]
         for idx, action in enumerate(risk["actions"]):
             if idx != 0:
-                paragraph = cell.add_paragraph()
-            self.compiler(_simple_breaks(action["text"]), cell, style="Measure List")
-            if action.get("requirements", None):
-                paragraph = cell.add_paragraph(style="Measure Indent")
-                run = paragraph.add_run()
-                run.text = api.portal.translate(
-                    _("report_competences", default="Required expertise:")
-                )
-                run.underline = True
-                run = paragraph.add_run()
-                run.text = " "
-                run = paragraph.add_run()
-                run.text = (_simple_breaks(action["requirements"]),)
+                cell.add_paragraph()
+            self.set_cell_action_text(cell, action)
+            self.set_cell_action_responsible(cell, action)
+            self.set_cell_action_date(cell, action)
 
-            if action.get("responsible", None):
-                paragraph = cell.add_paragraph(
-                    api.portal.translate(
-                        _(
-                            "report_responsible",
-                            default="Responsible: ${responsible_name}",
-                            mapping={"responsible_name": action["responsible"]},
-                        )
-                    ),
-                    style="Measure Indent",
-                )
-                paragraph.runs[0].italic = True
-            if action.get("planning_end", None):
-                paragraph = cell.add_paragraph(
-                    api.portal.translate(
-                        _(
-                            "report_end_date",
-                            default="To be done by: ${date}",
-                            mapping={"date": action["planning_end"]},
-                        )
-                    ),
-                    style="Measure Indent",
-                )
+    def set_cell_action_text(self, cell, action):
+        self.compiler(_simple_breaks(action["text"]), cell, style="Measure List")
 
-                paragraph.runs[0].italic = True
+    def set_cell_action_requirements(self, cell, action):
+        if action.get("requirements", None):
+            paragraph = cell.add_paragraph(style="Measure Indent")
+            run = paragraph.add_run()
+            run.text = api.portal.translate(
+                _("report_competences", default="Required expertise:")
+            )
+            run.underline = True
+            run = paragraph.add_run()
+            run.text = " "
+            run = paragraph.add_run()
+            run.text = (_simple_breaks(action["requirements"]),)
+
+    def set_cell_action_responsible(self, cell, action):
+        if action.get("responsible", None):
+            paragraph = cell.add_paragraph(
+                api.portal.translate(
+                    _(
+                        "report_responsible",
+                        default="Responsible: ${responsible_name}",
+                        mapping={"responsible_name": action["responsible"]},
+                    )
+                ),
+                style="Measure Indent",
+            )
+            paragraph.runs[0].italic = True
+
+    def set_cell_action_date(self, cell, action):
+        if action.get("planning_end", None):
+            paragraph = cell.add_paragraph(
+                api.portal.translate(
+                    _(
+                        "report_end_date",
+                        default="To be done by: ${date}",
+                        mapping={"date": action["planning_end"]},
+                    )
+                ),
+                style="Measure Indent",
+            )
+
+            paragraph.runs[0].italic = True
 
     def merge_module_rows(self, row_module, row_risk):
         """This merges the the first cell of the given rows, the one containing
@@ -940,3 +961,68 @@ class IdentificationReportCompiler(DocxCompiler):
             skip_planned_measures=False,
             use_solutions=True,
         )
+
+
+class DocxCompilerShort(DocxCompilerFullTable):
+    _base_filename = "oira_short.docx"
+
+    justifiable_map = {"yes": "✅", "no": "❌"}
+
+    def set_cell_risk(self, cell, risk):
+        """Take the risk and add the appropriate text:
+
+        title, descripton, comment, measures in place
+        """
+        self.set_cell_risk_title(cell, risk)
+        self.set_cell_risk_description(cell, risk)
+        self.set_cell_risk_measures(cell, risk)
+        self.set_cell_risk_comment(cell, risk)
+
+        cell.add_paragraph(style="Risk Normal")
+
+    def set_cell_risk_comment(self, cell, risk):
+        if risk["comment"] and risk["comment"].strip():
+            cell.add_paragraph()
+            cell.add_paragraph(
+                api.portal.translate(
+                    _(
+                        "report_heading_comments",
+                        default="Comments:",
+                    )
+                ),
+                style="Risk Italics",
+            )
+            self.compiler(risk["comment"], cell, style="Risk Italics")
+
+    def set_cell_actions(self, cell, risk):
+        """Take the risk and add the appropriate text:
+
+        planned measures
+        """
+        cell.paragraphs[0]
+        for idx, action in enumerate(risk["actions"]):
+            if idx != 0:
+                cell.add_paragraph()
+            self.set_cell_action_text(cell, action)
+            self.set_cell_action_responsible(cell, action)
+
+    def set_cell_action_responsible(self, cell, action):
+        text_responsible = ""
+        if action.get("responsible", None):
+            text_responsible = action["responsible"]
+
+        if action.get("planning_end", None):
+            text_date = api.portal.translate(
+                _(
+                    "report_end_date_short",
+                    default="by ${date}",
+                    mapping={"date": action["planning_end"]},
+                )
+            )
+            text_responsible = " – ".join((text_responsible, text_date))
+        if text_responsible:
+            paragraph = cell.add_paragraph(
+                text_responsible,
+                style="Measure Indent",
+            )
+            paragraph.runs[0].italic = True

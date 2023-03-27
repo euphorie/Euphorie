@@ -5,6 +5,7 @@ from euphorie.client.docx.compiler import DocxCompiler
 from euphorie.client.docx.compiler import DocxCompilerFrance
 from euphorie.client.docx.compiler import DocxCompilerItaly
 from euphorie.client.docx.compiler import DocxCompilerItalyOriginal
+from euphorie.client.docx.compiler import DocxCompilerShort
 from euphorie.client.docx.compiler import IdentificationReportCompiler
 from euphorie.client.utils import get_translated_custom_risks_title
 from euphorie.content import MessageFactory as _
@@ -293,6 +294,10 @@ class ActionPlanDocxView(OfficeDocumentView):
         )
         filename = translate(filename, context=self.request)
         return safe_nativestring(filename) + ".docx"
+
+
+class ActionPlanShortDocxView(ActionPlanDocxView):
+    _compiler = DocxCompilerShort
 
 
 class IdentificationReportDocxView(OfficeDocumentView):
