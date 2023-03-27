@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.3.2 (unreleased)
+14.3.2 (2023-03-27)
 -------------------
 
 - Survey navigation: When survey is archived or otherwise disabled the report,
