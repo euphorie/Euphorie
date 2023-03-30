@@ -688,7 +688,7 @@ msgstr "Lid updated"
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:77
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:82
 msgid "Members can make risk assessments and take trainings."
-msgstr "De leden kunnen risicoanalyses maken en opleidingen volgen."
+msgstr "Leden kunnen risicobeoordelingen maken en trainingen volgen."
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml
 #: euphorie/deployment/browser/search.py:13

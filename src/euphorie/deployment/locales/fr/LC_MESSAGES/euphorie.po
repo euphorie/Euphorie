@@ -193,8 +193,7 @@ msgid ""
 "also make risk assessments, lock risk assessments, create trainings and take "
 "trainings."
 msgstr ""
-"Les administrateurs peuvent créer et supprimer les comptes utilisateurs, "
-"évaluer les risques et valider une évaluation."
+"Les administrateurs peuvent créer et supprimer les comptes utilisateurs, évaluer les risques et valider une évaluation et suivre des formations."
 
 #: euphorie/client/browser/templates/surveys.pt:56
 msgid "All countries"
@@ -701,7 +700,7 @@ msgstr "Membre mis à jour"
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:77
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:82
 msgid "Members can make risk assessments and take trainings."
-msgstr "Les invités peuvent évaluer les risques."
+msgstr "Les invités peuvent évaluer les risques et suivre des formations."
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml
 #: euphorie/deployment/browser/search.py:13
