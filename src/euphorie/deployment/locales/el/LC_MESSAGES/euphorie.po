@@ -2019,7 +2019,7 @@ msgstr "από"
 #. Default: "by ${who}"
 #: euphorie/client/browser/templates/assessments.pt:176
 msgid "by_who"
-msgstr ""
+msgstr "από ${who}"
 
 #. Default: "Thank you for using OiRA. Before we go to the report we would kindly like to ask you to give us some feedback via the survey below. This information is meant to improve the tools and the services provided. <strong>This data will not appear in your reports.</strong>"
 #: euphorie/client/browser/templates/report_company.pt:40
@@ -2378,11 +2378,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:91
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:90
 msgid "description_role_admin__training_disabled"
-msgstr ""
-"Οι &ldquo;Διαχειριστές&rdquo; μπορούν να δημιουργούν, να επεξεργάζονται και "
-"να διαγράφουν λογαριασμούς χρηστών. Επίσης, μπορούν να εκπονούν μελέτες "
-"εκτίμησης κινδύνου, να διαχειρίζονται μελέτες εκτίμησης κινδύνου, να "
-"αναπτύσσουν και να παρακολουθούν προγράμματα εκπαίδευσης."
+msgstr "Οι &ldquo;Διαχειριστές&rdquo; μπορούν να δημιουργούν, να επεξεργάζονται και να διαγράφουν λογαριασμούς χρηστών. Επίσης μπορούν να εκπονούν και να διαχειρίζονται (π.χ. να κλειδώνουν) το περιεχόμενο των μελετών εκτίμησης κινδύνου."
 
 #. Default: "Managers/Policy makers can make risk assessments and lock risk assessments."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:97
@@ -2395,8 +2391,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:102
 msgid "description_role_member__training_disabled"
 msgstr ""
-"Τα &ldquo;Μέλη&rdquo; μπορούν να εκπονούν μελέτες εκτίμησης κινδύνου και να "
-"παρακολουθούν προγράμματα εκπαίδευσης."
+"Τα &ldquo;Μέλη&rdquo; μπορούν να εκπονούν μελέτες εκτίμησης κινδύνου."
 
 #. Default: "All images contained in the OiRA tool can be exported along with the textual content. When the OiRA tool is then imported again, all images will be present. Please note that including images may result in a considerably larger file size."
 #: euphorie/content/browser/export.py:71
@@ -5464,7 +5459,7 @@ msgstr ""
 #. Default: "Last edited ${time}"
 #: euphorie/client/browser/templates/assessments.pt:161
 msgid "last_edited_when"
-msgstr ""
+msgstr "Τελευταία επεξεργασία ${time}"
 
 #. Default: "${label} Version you are currently reviewing"
 #: euphorie/deployment/tiles/templates/versions.pt:84
@@ -5946,7 +5941,7 @@ msgstr ""
 #. Default: "These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
 #: euphorie/client/browser/risk.py:380
 msgid "placeholder_comment_field_training"
-msgstr ""
+msgstr "Αυτές οι σημειώσεις θα εμφανίζονται στην έκθεση και στο υλικό των προγραμμάτων εκπαίδευσης. Χρησιμοποιήστε το πεδίο αυτό για να γράψετε οτιδήποτε άλλο θέλετε για αυτόν τον κίνδυνο."
 
 #. Default: "Describe a measure that is already in place but not yet listed here."
 #: euphorie/content/utils.py:132

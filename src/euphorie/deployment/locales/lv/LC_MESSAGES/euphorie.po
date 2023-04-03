@@ -1934,7 +1934,7 @@ msgstr ","
 #. Default: "by ${who}"
 #: euphorie/client/browser/templates/assessments.pt:176
 msgid "by_who"
-msgstr ""
+msgstr "Labojumus veica ${who}"
 
 #. Default: "Thank you for using OiRA. Before we go to the report we would kindly like to ask you to give us some feedback via the survey below. This information is meant to improve the tools and the services provided. <strong>This data will not appear in your reports.</strong>"
 #: euphorie/client/browser/templates/report_company.pt:40
@@ -5273,7 +5273,7 @@ msgstr ""
 #. Default: "Last edited ${time}"
 #: euphorie/client/browser/templates/assessments.pt:161
 msgid "last_edited_when"
-msgstr ""
+msgstr "Pēdējo reizi labots ${time}"
 
 #. Default: "${label} Version you are currently reviewing"
 #: euphorie/deployment/tiles/templates/versions.pt:84
@@ -5730,7 +5730,7 @@ msgstr ""
 #. Default: "These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
 #: euphorie/client/browser/risk.py:380
 msgid "placeholder_comment_field_training"
-msgstr ""
+msgstr "Šo piezīmi varēs redzēt pārskatā un apmācību datos. Izmantojiet šo lauku visiem tiem komentāriem, kurus vēlaties atspoguļot dokumentos."
 
 #. Default: "Describe a measure that is already in place but not yet listed here."
 #: euphorie/content/utils.py:132

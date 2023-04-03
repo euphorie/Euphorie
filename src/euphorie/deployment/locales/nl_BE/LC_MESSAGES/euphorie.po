@@ -5814,7 +5814,7 @@ msgstr ""
 #. Default: "These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
 #: euphorie/client/browser/risk.py:380
 msgid "placeholder_comment_field_training"
-msgstr ""
+msgstr "Deze aantekeningen zullen zichtbaar zijn in het rapport en de training. Gebruik het voor alles wat je over dit risico wilt schrijven"
 
 #. Default: "Describe a measure that is already in place but not yet listed here."
 #: euphorie/content/utils.py:132
