@@ -40,3 +40,6 @@ lib64
 share/
 pyvenv.cfg
 /src/euphorie/client/resources/oira/script/patternslib-*
+
+# Ignore pyenv config
+.python-version
