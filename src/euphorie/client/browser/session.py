@@ -26,6 +26,7 @@ from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.solution import ISolution
 from plone import api
 from plone.app.event.base import localized_now
+from plone.app.redirector.interfaces import IRedirectionStorage
 from plone.autoform.form import AutoExtensibleForm
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
@@ -39,6 +40,7 @@ from z3c.form.form import EditForm
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
 from zope import schema
+from zope.component import queryUtility
 from zope.event import notify
 from zope.i18n import translate
 from zope.lifecycleevent import ObjectModifiedEvent
@@ -327,6 +329,12 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
             new_session = survey_session
         else:
             new_session = self.rebuild_session(survey, profile)
+            redirector = queryUtility(IRedirectionStorage)
+            if redirector is not None:
+                redirector.add(
+                    "/".join(survey_session.traversed_session.getPhysicalPath()),
+                    "/".join(new_session.traversed_session.getPhysicalPath()),
+                )
 
         new_session.update_measure_types(survey)
         return new_session

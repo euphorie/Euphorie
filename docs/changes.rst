@@ -4,7 +4,9 @@ Changelog
 14.3.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Redirect to new session URL when tool is updated.
+  `#833 <https://github.com/syslabcom/scrum/issues/833>`_
+  [reinhardt]
 
 
 14.3.2 (2023-03-27)

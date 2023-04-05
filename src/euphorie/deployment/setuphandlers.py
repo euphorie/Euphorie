@@ -17,7 +17,6 @@ log = logging.getLogger(__name__)
 
 def setupVarious(context):
     site = api.portal.get()
-    disableRedirectTracking(site)
     setupInitialContent(site)
     setupVersioning(site)
     registerPasswordPolicy(site)
@@ -158,23 +157,6 @@ def setupInitialContent(site):
                 title="Appendix",
             )
             log.info("Added appendix folder for language %s (%s)", name, code)
-
-
-def disableRedirectTracking(site):
-    # Add additional setup code here
-    from plone.app.redirector.interfaces import IRedirectionStorage
-    from zope.component import getSiteManager
-    from zope.interface.interfaces import IComponentRegistry
-
-    sm = getSiteManager(site)
-    if sm is None or not IComponentRegistry.providedBy(sm):
-        log.warning(
-            "Failed to find a site manager, can not remove "
-            "IRedirectionStorage utility"
-        )
-        return
-
-    sm.unregisterUtility(provided=IRedirectionStorage)
 
 
 def setupVersioning(site):

@@ -1,6 +1,8 @@
 from AccessControl import getSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from plone import api
+from plone.memoize.view import memoize
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zExceptions.ExceptionFormatter import format_exception
@@ -32,4 +34,18 @@ class ErrorView(BrowserView):
 
 
 class NotFound(ErrorView):
-    pass
+    @property
+    @memoize
+    def plone_redirector_view(self):
+        return api.content.get_view(
+            context=self.__parent__, request=self.request, name="plone_redirector_view"
+        )
+
+    def __call__(self):
+        exception = self.context
+        error_type = exception.__class__.__name__
+        if error_type == "NotFound" and self.plone_redirector_view.attempt_redirect():
+            # if a redirect is possible attempt_redirect returns True
+            # and sets the proper location header
+            return
+        super().__call__()
