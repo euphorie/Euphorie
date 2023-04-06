@@ -1,5 +1,6 @@
 from Acquisition import Implicit
 from euphorie.client.model import Session
+from euphorie.client.model import SessionRedirect
 from euphorie.client.model import SurveySession
 from euphorie.content.survey import ISurvey
 from OFS.Traversable import Traversable
@@ -49,5 +50,20 @@ class TraversedSurveySession(Implicit, Traversable):
 class SessionTraversal(SimpleHandler):
     factory = TraversedSurveySession
 
+    def get_redirect(self, session_id):
+        query = Session.query(SessionRedirect).filter(
+            SessionRedirect.old_session_id == session_id
+        )
+        if query.count() == 0:
+            return None
+        new_session_id = query.one().new_session_id
+        return self.get_redirect(new_session_id) or new_session_id
+
     def traverse(self, session_id, ignored):
+        new_session_id = self.get_redirect(session_id)
+        if new_session_id:
+            new_traversed_session = self.factory(self.context, new_session_id)
+            # from zope.publisher.interfaces import Redirect
+            # raise Redirect(new_traversed_session.absolute_url())
+            return new_traversed_session
         return self.factory(self.context, session_id)
