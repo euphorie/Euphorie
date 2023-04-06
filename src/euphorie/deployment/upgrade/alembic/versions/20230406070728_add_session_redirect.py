@@ -22,11 +22,9 @@ def upgrade():
     if not has_table("session_redirect"):
         op.create_table(
             "session_redirect",
-            sa.Column("id", sa.Integer(), autoincrement=True, nullable=False),
             sa.Column("old_session_id", sa.Integer(), nullable=False),
             sa.Column("new_session_id", sa.Integer(), nullable=False),
-            sa.PrimaryKeyConstraint("id"),
-            sa.UniqueConstraint("old_session_id"),
+            sa.PrimaryKeyConstraint("old_session_id"),
         )
 
 

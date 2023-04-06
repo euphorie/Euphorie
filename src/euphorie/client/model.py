@@ -1211,8 +1211,7 @@ class SessionRedirect(BaseObject):
 
     __tablename__ = "session_redirect"
 
-    id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
-    old_session_id = schema.Column(types.Integer(), unique=True, nullable=False)
+    old_session_id = schema.Column(types.Integer(), primary_key=True, nullable=False)
     new_session_id = schema.Column(types.Integer(), nullable=False)
 
 
