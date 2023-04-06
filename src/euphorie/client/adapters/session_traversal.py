@@ -1,11 +1,13 @@
 from Acquisition import Implicit
 from euphorie.client.model import Session
+from euphorie.client.model import SessionRedirect
 from euphorie.client.model import SurveySession
 from euphorie.content.survey import ISurvey
 from OFS.Traversable import Traversable
 from plone.memoize.instance import memoizedproperty
 from sqlalchemy.orm.exc import NoResultFound
 from zExceptions import NotFound
+from zExceptions import Redirect
 from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import Interface
@@ -49,5 +51,23 @@ class TraversedSurveySession(Implicit, Traversable):
 class SessionTraversal(SimpleHandler):
     factory = TraversedSurveySession
 
+    def get_redirect(self, session_id):
+        query = Session.query(SessionRedirect).filter(
+            SessionRedirect.old_session_id == session_id
+        )
+        if query.count() == 0:
+            return None
+        new_session_id = query.one().new_session_id
+        return self.get_redirect(new_session_id) or new_session_id
+
     def traverse(self, session_id, ignored):
+        new_session_id = self.get_redirect(session_id)
+        if new_session_id:
+            new_traversed_session = self.factory(self.context, new_session_id)
+            raise Redirect(
+                "/".join(
+                    [new_traversed_session.__of__(self.context).absolute_url()]
+                    + self.context.REQUEST.path
+                )
+            )
         return self.factory(self.context, session_id)

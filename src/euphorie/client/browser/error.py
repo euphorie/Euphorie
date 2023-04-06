@@ -33,3 +33,9 @@ class ErrorView(BrowserView):
 
 class NotFound(ErrorView):
     pass
+
+
+class Redirect(BrowserView):
+    def __call__(self):
+        exception = aq_inner(self.context)
+        return self.request.response.redirect(exception.location)

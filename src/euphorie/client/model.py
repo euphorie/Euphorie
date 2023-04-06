@@ -1206,6 +1206,15 @@ class SurveySession(BaseObject):
         return completion_percentage
 
 
+class SessionRedirect(BaseObject):
+    """Mapping of old deleted sessions to their new rebuilt counterparts"""
+
+    __tablename__ = "session_redirect"
+
+    old_session_id = schema.Column(types.Integer(), primary_key=True, nullable=False)
+    new_session_id = schema.Column(types.Integer(), nullable=False)
+
+
 class Company(BaseObject):
     """Information about a company."""
 
@@ -1476,6 +1485,7 @@ if not _instrumented:
     for cls in [
         SurveyTreeItem,
         SurveySession,
+        SessionRedirect,
         Module,
         Risk,
         ActionPlan,

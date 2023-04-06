@@ -13,6 +13,7 @@ from euphorie.client.model import Module
 from euphorie.client.model import MODULE_WITH_RISK_OR_TOP5_FILTER
 from euphorie.client.model import Risk
 from euphorie.client.model import RISK_PRESENT_OR_TOP5_FILTER
+from euphorie.client.model import SessionRedirect
 from euphorie.client.model import SKIPPED_PARENTS
 from euphorie.client.model import SurveyTreeItem
 from euphorie.client.navigation import FindFirstQuestion
@@ -327,6 +328,11 @@ class Profile(SessionMixin, AutoExtensibleForm, EditForm):
             new_session = survey_session
         else:
             new_session = self.rebuild_session(survey, profile)
+            Session.add(
+                SessionRedirect(
+                    old_session_id=survey_session.id, new_session_id=new_session.id
+                )
+            )
 
         new_session.update_measure_types(survey)
         return new_session
