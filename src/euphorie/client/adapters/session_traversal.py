@@ -7,6 +7,7 @@ from OFS.Traversable import Traversable
 from plone.memoize.instance import memoizedproperty
 from sqlalchemy.orm.exc import NoResultFound
 from zExceptions import NotFound
+from zExceptions import Redirect
 from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import Interface
@@ -63,7 +64,10 @@ class SessionTraversal(SimpleHandler):
         new_session_id = self.get_redirect(session_id)
         if new_session_id:
             new_traversed_session = self.factory(self.context, new_session_id)
-            # from zope.publisher.interfaces import Redirect
-            # raise Redirect(new_traversed_session.absolute_url())
-            return new_traversed_session
+            raise Redirect(
+                "/".join(
+                    [new_traversed_session.__of__(self.context).absolute_url()]
+                    + self.context.REQUEST.path
+                )
+            )
         return self.factory(self.context, session_id)

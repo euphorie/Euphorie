@@ -879,6 +879,14 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="index.html"
+      for="zExceptions.Redirect"
+      permission="zope2.Public"
+      class=".error.Redirect"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <!-- Report -->
   <browser:page
       name="report_view"
