@@ -1224,7 +1224,7 @@ class WebHelpers(BrowserView):
 
         title = ""
         if integrated_action_plan:
-            title = api.portal.translate(_("label_assesment", "Assessment"))
+            title = api.portal.translate(_("label_assessment", "Assessment"))
         else:
             t1 = api.portal.translate(_("label_identification", "Identification"))
             t2 = api.portal.translate(_("label_evaluation", "Evaluation"))
