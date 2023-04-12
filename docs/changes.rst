@@ -7,6 +7,9 @@ Changelog
 - Fix typo in translation label.
   [ale-rt]
 
+- Make the get_safe_html methods safer.
+  [ale-rt]
+
 - Updated translations
   [angeldasangel]
 

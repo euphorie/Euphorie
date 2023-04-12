@@ -995,7 +995,7 @@ class WebHelpers(BrowserView):
 
     def get_safe_html(self, text):
         if not text:
-            return
+            return ""
         data = self.portal_transforms.convertTo(
             "text/x-html-safe", text, mimetype="text/html"
         )
