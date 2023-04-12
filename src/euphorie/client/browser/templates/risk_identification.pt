@@ -126,7 +126,7 @@
                   name="save"
                   type="submit"
                   value="save"
-                  i18n:translate="label_save"
+                  i18n:translate=""
           >Save</button>
           <button class="pat-button skip"
                   name="next"
