@@ -152,6 +152,8 @@ class EditForm(DefaultEditForm):
         return api.portal.get_tool("portal_transforms")
 
     def get_safe_html(self, text):
+        if not text:
+            return ""
         data = self.portal_transforms.convertTo(
             "text/x-html-safe", text, mimetype="text/html"
         )
