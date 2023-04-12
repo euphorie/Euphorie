@@ -7,6 +7,13 @@ Changelog
 - Fix typo in translation label.
   [ale-rt]
 
+- Updated translations
+  [angeldasangel]
+
+- Add a redirection mechanism to the point the user to an updated link
+  when a session tool is updated
+  [reinhardt]
+
 
 14.3.2 (2023-03-27)
 -------------------
