@@ -4,7 +4,8 @@ Changelog
 14.3.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix typo in translation label.
+  [ale-rt]
 
 
 14.3.2 (2023-03-27)
