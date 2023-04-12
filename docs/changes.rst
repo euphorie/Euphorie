@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.3.3 (unreleased)
+14.3.3 (2023-04-12)
 -------------------
 
 - Fix typo in translation label.
