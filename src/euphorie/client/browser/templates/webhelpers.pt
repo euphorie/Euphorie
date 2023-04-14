@@ -322,12 +322,12 @@
 
   <metal:risk_evaluation define-macro="risk_evaluation">
     <div class="risk-module pat-well notice pat-depends vertical evaluation"
-              id="evaluation"
-              data-pat-depends="${view/evaluation_condition}; transition: slide"
-              tal:define="
-                evaluation_method python:risk.type in ('policy', 'top5') and risk.type or risk.evaluation_method;
-              "
-              tal:condition="not:view/skip_evaluation"
+         id="evaluation"
+         data-pat-depends="${view/evaluation_condition}; transition: slide"
+         tal:define="
+           evaluation_method python:risk.type in ('policy', 'top5') and risk.type or risk.evaluation_method;
+         "
+         tal:condition="not:view/skip_evaluation"
     >
       <p class="problem-description"><strong>${view/risk/problem_description}</strong></p>
       <tal:block condition="python:evaluation_method=='calculated'">
