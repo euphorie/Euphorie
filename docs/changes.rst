@@ -4,7 +4,9 @@ Changelog
 14.3.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Do not display the note "The risk evaluation has been automatically done by the tool"
+  if there is an integrated action plan.
+  [ale-rt]
 
 
 14.3.3 (2023-04-12)

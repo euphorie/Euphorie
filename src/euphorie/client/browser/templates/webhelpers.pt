@@ -581,7 +581,9 @@
       </tal:block>
 
       <tal:block condition="python:evaluation_method in ('top5', 'policy', 'fixed')">
-        <p i18n:translate="description_automatic_evaluation">The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk &ndash; if you consider it necessary &ndash; in the action plan.</p>
+        <p tal:condition="not:webhelpers/integrated_action_plan"
+           i18n:translate="description_automatic_evaluation"
+        >The risk evaluation has been automatically done by the tool. You will be able to change the priority for this risk &ndash; if you consider it necessary &ndash; in the action plan.</p>
       </tal:block>
     </div>
   </metal:risk_evaluation>
