@@ -4,7 +4,8 @@ Changelog
 14.3.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Ask for confirmation when following an organisation invite link.
+  [reinhardt]
 
 
 14.3.3 (2023-04-12)

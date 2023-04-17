@@ -25,6 +25,11 @@ from zope.interface import alsoProvides
 from zope.interface import implementer
 from zope.publisher.interfaces import IPublishTraverse
 
+import logging
+
+
+logger = logging.getLogger(__name__)
+
 
 class OrganisationBaseView(BaseView):
     """Base class for all organisation views."""
@@ -337,6 +342,25 @@ class ConfirmInvite(BaseView):
         )
 
     @property
+    def organisation_admin_name(self):
+        organisation = self.organisation
+        if not organisation:
+            return ""
+        try:
+            user = (
+                self.sqlsession.query(Account)
+                .filter(Account.id == organisation.owner_id)
+                .first()
+            )
+        except Exception:
+            logger.warning("Unable to fetch account for username:")
+            logger.warning(organisation.owner_id)
+            return organisation.title
+        if not (user.last_name or user.first_name):
+            return user.loginname
+        return " ".join(filter(None, (user.first_name, user.last_name)))
+
+    @property
     def default_target_view(self):
         view = "@@organisation"
         organisation = self.organisation
@@ -435,8 +459,21 @@ class ConfirmInvite(BaseView):
             )
         )
 
-    def __call__(self):
-        self.lookup_token_and_redirect()
+    def handle_POST(self):
+        if self.request.form.get("submit", "") == "accept":
+            self.lookup_token_and_redirect()
+        else:
+            return self.redirect(
+                msg=_(
+                    "message_add_user_to_organisation_declined",
+                    default=(
+                        "You have declined the invitation to the ${name} "
+                        "organisation."
+                    ),
+                    mapping={"name": self.organisation.title},
+                ),
+                target=f"{self.context.absolute_url()}",
+            )
 
 
 @implementer(IPublishTraverse)
@@ -542,26 +579,7 @@ class OrganisationLogo(OrganisationBaseView):
         if not organisation:
             return
 
-        # Check if the organisation should be visible to the current account
-        account_id = account.id
-        if organisation.owner_id == account_id:
-            # The user is the owner, return the organisation
-            return organisation
-
-        if (
-            self.sqlsession.query(OrganisationMembership)
-            .filter(
-                sql.and_(
-                    OrganisationMembership.owner_id == organisation.owner_id,
-                    OrganisationMembership.member_id == account_id,
-                )
-            )
-            .count()
-        ):
-            # The user is a member, return the organisation
-            return organisation
-
-        raise Unauthorized("You are not a member of this organisation")
+        return organisation
 
     def get_or_create_image_scaled(self):
         """Get the image scaled."""

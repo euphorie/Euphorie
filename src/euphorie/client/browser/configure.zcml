@@ -496,6 +496,7 @@
       name="confirm-organisation-invite"
       for="euphorie.client.country.IClientCountry"
       class=".organisation.ConfirmInvite"
+      template="templates/confirm-organisation-invite.pt"
       permission="euphorie.client.ViewSurvey"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
