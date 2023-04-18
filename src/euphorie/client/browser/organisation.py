@@ -5,6 +5,7 @@ from euphorie.client.browser.base import BaseView
 from euphorie.client.model import Account
 from euphorie.client.model import Organisation
 from euphorie.client.model import OrganisationMembership
+from euphorie.client.utils import CreateEmailTo
 from plone import api
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
@@ -13,6 +14,7 @@ from plone.protect.interfaces import IDisableCSRFProtection
 from plone.scale.scale import scaleImage
 from plone.uuid.interfaces import IUUIDGenerator
 from Products.CMFPlone.utils import getAllowedSizes
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from sqlalchemy import sql
 from textwrap import dedent
 from time import time
@@ -312,6 +314,7 @@ class ConfirmInvite(BaseView):
     """Confirm the invite to join an organisation."""
 
     storage_key = PanelAddUser.storage_key
+    email_template = ViewPageTemplateFile("templates/notify-invite-accept.pt")
 
     def publishTraverse(self, request, token):
         self.request.set(self.storage_key, token)
@@ -363,6 +366,13 @@ class ConfirmInvite(BaseView):
         return user.title
 
     @property
+    def inviter_firstname(self):
+        user = self.inviter
+        if user is None:
+            return ""
+        return user.first_name or user.title
+
+    @property
     def default_target_view(self):
         view = "@@organisation"
         organisation = self.organisation
@@ -382,6 +392,45 @@ class ConfirmInvite(BaseView):
             # The user is a member, return the organisation
             return f"{view}#org-{organisation.organisation_id}"
         return view
+
+    @property
+    def email_from_name(self):
+        return api.portal.get_registry_record("plone.email_from_name")
+
+    @property
+    def email_from_address(self):
+        return api.portal.get_registry_record("plone.email_from_address")
+
+    def notify_inviter(self):
+        invitee = self.webhelpers.get_current_account()
+        invitee_firstname = invitee.first_name or invitee.title
+        body = self.email_template(
+            inviter=self.inviter_firstname,
+            invitee=invitee_firstname,
+            organisation=self.organisation.title,
+        )
+        subject = api.portal.translate(
+            _(
+                "subject_notify_invite_accept",
+                default="Confirm OiRA membership in '${organisation}'",
+                mapping={"organisation": self.organisation.title},
+            )
+        )
+        mail = CreateEmailTo(
+            self.email_from_name,
+            self.email_from_address,
+            invitee.email,
+            subject,
+            body,
+        )
+
+        api.portal.send_email(
+            body=mail,
+            recipient=self.inviter.email,
+            sender=self.email_from_address,
+            subject=subject,
+        )
+        logger.info("Sent email confirmation to %s", self.inviter.email)
 
     def lookup_token_and_redirect(self):
         """Check that:
@@ -452,6 +501,7 @@ class ConfirmInvite(BaseView):
         )
         alsoProvides(self.request, IDisableCSRFProtection)
         self.sqlsession.add(obj)
+        self.notify_inviter()
 
         return self.redirect(
             msg=_(
