@@ -34,7 +34,7 @@
                 </figure>
                 <article class="pat-rich">
                   <p i18n:translate="description_confirm_organisation_invite">
-                    <tal:user i18n:name="user">${view/organisation_admin_name}</tal:user>
+                    <tal:user i18n:name="user">${view/inviter_fullname}</tal:user>
                      has invited you to join this userʼs organisation. Once you&rsquo;ve accepted your membership, you can collaborate on risk assessments.
                   </p>
                 </article>

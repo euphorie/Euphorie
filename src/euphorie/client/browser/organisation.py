@@ -342,20 +342,24 @@ class ConfirmInvite(BaseView):
         )
 
     @property
-    def organisation_admin_name(self):
-        organisation = self.organisation
-        if not organisation:
-            return ""
+    @memoize_contextless
+    def inviter(self):
+        if not self.token_value:
+            return None
+        userid = self.token_value["userid"]
         try:
-            user = (
-                self.sqlsession.query(Account)
-                .filter(Account.id == organisation.owner_id)
-                .first()
-            )
+            user = self.sqlsession.query(Account).filter(Account.id == userid).first()
         except Exception:
             logger.warning("Unable to fetch account for username:")
-            logger.warning(organisation.owner_id)
-            return organisation.title
+            logger.warning(userid)
+            return None
+        return user
+
+    @property
+    def inviter_fullname(self):
+        user = self.inviter
+        if user is None:
+            return ""
         if not (user.last_name or user.first_name):
             return user.loginname
         return " ".join(filter(None, (user.first_name, user.last_name)))
