@@ -360,9 +360,7 @@ class ConfirmInvite(BaseView):
         user = self.inviter
         if user is None:
             return ""
-        if not (user.last_name or user.first_name):
-            return user.loginname
-        return " ".join(filter(None, (user.first_name, user.last_name)))
+        return user.title
 
     @property
     def default_target_view(self):
