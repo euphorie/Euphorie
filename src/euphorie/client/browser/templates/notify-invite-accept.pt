@@ -1,0 +1,17 @@
+<tal:root xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          xmlns:meta="http://xml.zope.org/namespaces/meta"
+          xmlns:tal="http://xml.zope.org/namespaces/tal"
+          meta:interpolation="true"
+          i18n:domain="euphorie"
+><tal:span i18n:translate="email_invite_accept_header">Dear
+    <tal:span replace="options/inviter"
+              i18n:name="recipient"
+    />,</tal:span>
+  <tal:span i18n:translate="email_invite_accept_main"><tal:span replace="options/invitee"
+              i18n:name="invitee"
+    />
+    has accepted your invitation to join
+    <tal:span replace="options/organisation"
+              i18n:name="organisation"
+    />.</tal:span>
+</tal:root>

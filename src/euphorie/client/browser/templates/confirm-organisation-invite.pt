@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content">
+
+      <div class="pat-scroll-box"
+           id="content-pane"
+      >
+        <div id="application-content">
+
+          <div class="portlet"
+               id="portlet-accept-membership"
+          >
+            <div class="content">
+              <div class="portlet-body"
+                   tal:define="
+                     organisation view/organisation;
+                   "
+              >
+                <figure class="portlet-logo">
+                  <img alt=""
+                       src="${here/absolute_url}/@@organisation-logo/${organisation/organisation_id}?q=${organisation/image_filename}"
+                       tal:condition="organisation/image_filename|nothing"
+                  />
+                </figure>
+                <article class="pat-rich">
+                  <p i18n:translate="description_confirm_organisation_invite">
+                    <tal:user i18n:name="user">${view/inviter_fullname}</tal:user>
+                     has invited you to join this userʼs organisation. Once you&rsquo;ve accepted your membership, you can collaborate on risk assessments.
+                  </p>
+                </article>
+                <form class="pat-inject button-bar"
+                      action="${request/URL}"
+                      method="POST"
+                >
+                  <button class="pat-button default accept"
+                          name="submit"
+                          type="submit"
+                          value="accept"
+                          i18n:translate=""
+                  >Accept</button>
+                  <button class="pat-button decline"
+                          name="submit"
+                          type="submit"
+                          value="decline"
+                          i18n:translate=""
+                  >Decline</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </metal:slot>
+
+  </body>
+</html>
