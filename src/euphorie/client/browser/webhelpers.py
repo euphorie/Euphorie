@@ -65,6 +65,7 @@ NAME_TO_PHASE = {
     "customization": "identification",
     "actionplan": "actionplan",
     "report": "report",
+    "consultancy": "consultancy",
     "status": "status",
     "help": "help",
     "new-email": "useraction",
@@ -160,6 +161,13 @@ class WebHelpers(BrowserView):
     def use_involve_phase(self):
         return api.portal.get_registry_record(
             "euphorie.use_involve_phase", default=False
+        )
+
+    @property
+    @memoize
+    def use_consultancy_phase(self):
+        return api.portal.get_registry_record(
+            "euphorie.use_consultancy_phase", default=False
         )
 
     @property
@@ -1260,6 +1268,23 @@ class WebHelpers(BrowserView):
                         _("label_action_plan", default="Action Plan")
                     ),
                     "has_tree": active,
+                }
+            )
+
+        if self.use_consultancy_phase:
+            active = section == "consultancy"
+            data.append(
+                {
+                    "active": active,
+                    "disabled": disabled,
+                    "class": f'{"active" if active else ""} {"disabled" if disabled else ""}',  # noqa: E501
+                    "id": "step-consultancy",
+                    "name": "consultancy",
+                    "href": f"{url}/@@consultancy#content",
+                    "title": api.portal.translate(
+                        _("label_consultancy", default="Consultancy")
+                    ),
+                    "has_tree": False,
                 }
             )
 
