@@ -459,7 +459,7 @@ msgstr "État membre de l'UE"
 #: euphorie/client/browser/templates/organisation-member-more-menu.pt:19
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:20
 msgid "Edit"
-msgstr "Créer"
+msgstr "Modifier"
 
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:21
 #: euphorie/content/browser/module.py:98
@@ -476,7 +476,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/organisation.pt:127
 msgid "Edit organisation"
-msgstr "Créer un établissement"
+msgstr "Modifier un établissement"
 
 #: euphorie/client/browser/templates/training.pt:280
 msgid "Edit training card"
