@@ -163,7 +163,7 @@ class IExportSurveySchema(Interface):
     )
     is_etranslate_compatible = schema.Bool(
         title=_(
-            "label_is_etranslate_compatible",
+            "label_export_etranslate_compatible",
             default="Export in eTranslate compatible XML",
         ),
         description=_(
