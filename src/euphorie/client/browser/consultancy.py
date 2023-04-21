@@ -36,6 +36,7 @@ class PanelRequestValidation(BaseView):
     def organisation(self):
         return self.webhelpers.traversed_session.session.account.organisation
 
+    @property
     def consultants(self):
         if not self.organisation:
             return []
@@ -53,5 +54,10 @@ class PanelRequestValidation(BaseView):
 
     def handle_POST(self):
         """Handle the POST request."""
-        # TODO: register the consultant for the session
+        consultant_id = self.request.form.get("consultant")
+        consultant = (
+            self.sqlsession.query(Account).filter(Account.id == consultant_id).one()
+        )
+        self.webhelpers.traversed_session.session.consultant = consultant
+        # XXX send mail
         self.redirect()

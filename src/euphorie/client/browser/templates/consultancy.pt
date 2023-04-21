@@ -15,6 +15,9 @@
     <metal:slot fill-slot="content">
       <div class="pat-scroll-box"
            id="content-pane"
+           tal:define="
+             consultant context/session/consultant|nothing;
+           "
       >
         <metal:call use-macro="webhelpers/macros/toolbar" />
         <tal:block replace="tile:statusmessages" />
@@ -33,7 +36,7 @@
         </article>
 
         <tal:comment replace="nothing">
-        TODO: depend on validation state
+        TODO: session validated (i.e. locked)
           <p class="pat-message success"
              i18n:translate="message_session_validated"
           >
@@ -42,17 +45,20 @@
             >Michel Moulin</a>
              has reviewed and validated this risk assessment.
           </p>
-          <p class="pat-message info"
-             i18n:translate="message_session_under_review"
-          >
-				This risk assessment is currently under review by
-            <a href="#"
-               i18n:name="consultant"
-            >Michel Moulin</a>.
-          </p>
         </tal:comment>
+        <p class="pat-message info"
+           tal:condition="consultant"
+           i18n:translate="message_session_under_review"
+        >
+				This risk assessment is currently under review by
+          <a href="mailto:${consultant/email}"
+             i18n:name="consultant"
+          >${consultant/title}</a>.
+        </p>
+
         <div class="button-bar pat-bumper"
              id="nav-bar"
+             tal:condition="not:consultant"
         >
           <a class="pat-modal pat-button default"
              href="${here/absolute_url}/@@panel-request-validation#document-content"
