@@ -907,6 +907,15 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="panel-validate-risk-assessment"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".consultancy.PanelValidateRiskAssessment"
+      template="templates/panel-validate-risk-assessment.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <!-- Report -->
   <browser:page
       name="report_view"

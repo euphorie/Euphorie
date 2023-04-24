@@ -1,0 +1,16 @@
+<tal:root xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          xmlns:meta="http://xml.zope.org/namespaces/meta"
+          xmlns:tal="http://xml.zope.org/namespaces/tal"
+          meta:interpolation="true"
+          i18n:domain="euphorie"
+><tal:span i18n:translate="email_assessment_validated_header">Dear
+    <tal:span replace="options/requester"
+              i18n:name="recipient"
+    />,</tal:span>
+  <tal:span i18n:translate="email_assessment_validated_main"><tal:span replace="options/consultant"
+              i18n:name="invitee"
+    />
+    has reviewed and validated your risk assessment.</tal:span>
+
+  <tal:span replace="options/assessment_link" />
+</tal:root>
