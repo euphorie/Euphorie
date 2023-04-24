@@ -17,6 +17,8 @@
            id="content-pane"
            tal:define="
              consultant context/session/consultant|nothing;
+             current_user webhelpers/get_current_account;
+             role_consultant python: consultant and current_user == consultant;
            "
       >
         <metal:call use-macro="webhelpers/macros/toolbar" />
@@ -25,49 +27,74 @@
         <article class="pat-rich"
                  id="page-intro"
         >
-          <h1 i18n:translate="label_consultancy">
+          <h1 tal:condition="not:role_consultant"
+              i18n:translate="label_consultancy"
+          >
             Consultancy
           </h1>
 
-          <p i18n:translate="message_find_consultants">
+          <p tal:condition="not:role_consultant"
+             i18n:translate="message_find_consultants"
+          >
             You have the option to request assistance in completing a risk assessment or to have a risk analysis performed by you, validated by an OSH consultant. An OSH consultant can give your risk assessment an offical validation mark.
           </p>
 
         </article>
 
-        <tal:comment replace="nothing">
+        <tal:role_user tal:condition="not:role_consultant">
+          <tal:comment replace="nothing">
         TODO: session validated (i.e. locked)
-          <p class="pat-message success"
-             i18n:translate="message_session_validated"
-          >
-            <a href="#"
-               i18n:name="consultant"
-            >Michel Moulin</a>
+            <p class="pat-message success"
+               i18n:translate="message_session_validated"
+            >
+              <a href="#"
+                 i18n:name="consultant"
+              >Michel Moulin</a>
              has reviewed and validated this risk assessment.
-          </p>
-        </tal:comment>
-        <p class="pat-message info"
-           tal:condition="consultant"
-           i18n:translate="message_session_under_review"
-        >
+            </p>
+          </tal:comment>
+          <p class="pat-message info"
+             tal:condition="consultant"
+             i18n:translate="message_session_under_review"
+          >
 				This risk assessment is currently under review by
-          <a href="mailto:${consultant/email}"
-             i18n:name="consultant"
-          >${consultant/title}</a>.
-        </p>
+            <a href="mailto:${consultant/email}"
+               i18n:name="consultant"
+            >${consultant/title}</a>.
+          </p>
 
-        <div class="button-bar pat-bumper"
-             id="nav-bar"
-             tal:condition="not:consultant"
+          <div class="button-bar pat-bumper"
+               id="nav-bar"
+               tal:condition="not:consultant"
+          >
+            <a class="pat-modal pat-button default"
+               href="${here/absolute_url}/@@panel-request-validation#document-content"
+               data-pat-modal="class: medium panel"
+               i18n:translate="label_request_validation_imp"
+            >Request validation</a>
+          </div>
+        </tal:role_user>
+
+        <tal:role_consultant tal:condition="role_consultant">
+          <p class="pat-message notice"
+             i18n:translate="message_you_are_requested_to_validate_assessment"
+          >
+            You are requested to review and validate this risk assessment.
+          </p>
+          <div class="button-bar pat-bumper"
+               id="nav-bar"
+          >
+            <a class="pat-modal pat-button default"
+               href="${here/absolute_url}/@@panel-validate-risk-assessment#document-content"
+               data-pat-modal="class: small panel"
+               i18n:translate="label_validate_this_risk_assessment_imp"
+            >Validate this risk assessment</a>
+          </div>
+        </tal:role_consultant>
+
+        <ul class="link-list"
+            tal:condition="not:role_consultant"
         >
-          <a class="pat-modal pat-button default"
-             href="${here/absolute_url}/@@panel-request-validation#document-content"
-             data-pat-modal="class: medium panel"
-             i18n:translate="label_request_validation_imp"
-          >Request validation</a>
-        </div>
-
-        <ul class="link-list">
           <li>
             <a class="pat-inject"
                href="${webhelpers/country_url}/consultants-countries"

@@ -3,6 +3,7 @@ from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import Organisation
 from euphorie.client.model import OrganisationMembership
 from euphorie.client.tests.utils import addSurvey
+from euphorie.client.tests.utils import MockMailFixture
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
@@ -68,6 +69,7 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
                 self.assertIn(self.consultant, view.consultants)
 
     def test_request_validation(self):
+        mail_fixture = MockMailFixture()
         with api.env.adopt_user(user=self.owner):
             with self._get_view(
                 "panel-request-validation",
@@ -80,4 +82,9 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
                 self.assertEqual(
                     self.traversed_session.session.consultant,
                     self.consultant,
+                )
+                self.assertEqual(len(mail_fixture.storage), 1)
+                self.assertEqual(
+                    mail_fixture.storage[0][0][1],
+                    "michel.moulin@example-consultancy.com",
                 )

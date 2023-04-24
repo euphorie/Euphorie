@@ -1,9 +1,17 @@
+from euphorie.client import MessageFactory as _
 from euphorie.client.browser.base import BaseView
 from euphorie.client.model import Account
 from euphorie.client.model import OrganisationMembership
+from euphorie.client.utils import CreateEmailTo
 from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 class Consultancy(BrowserView):
@@ -30,11 +38,12 @@ class PanelRequestValidation(BaseView):
     """ """
 
     default_target_view = "@@consultancy"
+    email_template = ViewPageTemplateFile("templates/notify-request-validation.pt")
 
     @property
     @memoize
     def organisation(self):
-        return self.webhelpers.traversed_session.session.account.organisation
+        return self.context.session.account.organisation
 
     @property
     def consultants(self):
@@ -52,12 +61,51 @@ class PanelRequestValidation(BaseView):
             .all()
         )
 
-    def handle_POST(self):
-        """Handle the POST request."""
+    @property
+    @memoize
+    def consultant(self):
         consultant_id = self.request.form.get("consultant")
         consultant = (
             self.sqlsession.query(Account).filter(Account.id == consultant_id).one()
         )
-        self.webhelpers.traversed_session.session.consultant = consultant
-        # XXX send mail
+        return consultant
+
+    def notify_consultant(self):
+        consultant = self.consultant
+        requester = self.webhelpers.get_current_account()
+        session = self.context
+        body = self.email_template(
+            consultant=self.consultant.first_name or consultant.title,
+            requester=requester.title,
+            assessment_title=session.title,
+            assessment_link=f"{session.absolute_url()}/@@start",
+        )
+        subject = api.portal.translate(
+            _(
+                "subject_request_validation",
+                default="Risk assessment validation request",
+            )
+        )
+        email_from_name = api.portal.get_registry_record("plone.email_from_name")
+        email_from_address = api.portal.get_registry_record("plone.email_from_address")
+        mail = CreateEmailTo(
+            email_from_name,
+            email_from_address,
+            consultant.email,
+            subject,
+            body,
+        )
+
+        api.portal.send_email(
+            body=mail,
+            recipient=self.consultant.email,
+            sender=email_from_address,
+            subject=subject,
+        )
+        logger.info("Sent validation request email to %s", self.consultant.email)
+
+    def handle_POST(self):
+        """Handle the POST request."""
+        self.context.session.consultant = self.consultant
+        self.notify_consultant()
         self.redirect()
