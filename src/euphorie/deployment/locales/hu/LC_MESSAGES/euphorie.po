@@ -1975,7 +1975,7 @@ msgstr "által"
 #. Default: "by ${who}"
 #: euphorie/client/browser/templates/assessments.pt:176
 msgid "by_who"
-msgstr ""
+msgstr "${who} által"
 
 #. Default: "Thank you for using OiRA. Before we go to the report we would kindly like to ask you to give us some feedback via the survey below. This information is meant to improve the tools and the services provided. <strong>This data will not appear in your reports.</strong>"
 #: euphorie/client/browser/templates/report_company.pt:40
@@ -5397,7 +5397,7 @@ msgstr "Utoljára módosította: ${name} , ekkor: ${date}."
 #. Default: "Last edited ${time}"
 #: euphorie/client/browser/templates/assessments.pt:161
 msgid "last_edited_when"
-msgstr "Utoljára módosította ${time}"
+msgstr "Utoljára szerkesztve ${time}"
 
 #. Default: "${label} Version you are currently reviewing"
 #: euphorie/deployment/tiles/templates/versions.pt:84
@@ -5880,7 +5880,7 @@ msgstr ""
 #. Default: "These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
 #: euphorie/client/browser/risk.py:378
 msgid "placeholder_comment_field_training"
-msgstr ""
+msgstr "Ezek a megjegyzések láthatóak lesznek a jegyzőkönyvben és a képzésben. Ezt használja arra hogyha a kockázatról bármi mást le kíván írni."
 
 #. Default: "Describe a measure that is already in place but not yet listed here."
 #: euphorie/content/utils.py:131
