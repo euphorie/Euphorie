@@ -1,3 +1,4 @@
+from AccessControl import Unauthorized
 from euphorie.client import MessageFactory as _
 from euphorie.client.browser.base import BaseView
 from euphorie.client.model import Account
@@ -104,8 +105,28 @@ class PanelRequestValidation(BaseView):
         )
         logger.info("Sent validation request email to %s", self.consultant.email)
 
+    @property
+    def is_admin(self):
+        organisation_view = api.content.get_view(
+            name="organisation",
+            context=self.webhelpers.country_obj,
+            request=self.request,
+        )
+        return organisation_view.get_member_role_id(
+            self.organisation, self.webhelpers.get_current_account()
+        ) in ["admin", "owner"]
+
     def handle_POST(self):
         """Handle the POST request."""
         self.context.session.consultant = self.consultant
         self.notify_consultant()
         self.redirect()
+
+    def __call__(self):
+        if not self.webhelpers.can_view_session:
+            return self.request.response.redirect(self.webhelpers.client_url)
+        if not self.is_admin:
+            raise Unauthorized(
+                "Only organisation administrators can request validation"
+            )
+        super().__call__()

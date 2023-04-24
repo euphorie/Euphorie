@@ -1,3 +1,4 @@
+from AccessControl import Unauthorized
 from euphorie.client import model
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import Organisation
@@ -67,6 +68,31 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
                 self.traversed_session.session,
             ) as view:
                 self.assertIn(self.consultant, view.consultants)
+
+    def test_request_validation_permission_denied(self):
+        other_member = model.Account(
+            loginname="siobhan@labyrinth.social",
+            password="secret",
+        )
+        self.session.add(other_member)
+        self.session.flush()
+
+        self.session.add(
+            OrganisationMembership(
+                owner_id=self.owner.id,
+                member_id=other_member.id,
+                member_role="member",
+            )
+        )
+        self.session.flush()
+
+        with api.env.adopt_user(user=other_member):
+            with self._get_view(
+                "panel-request-validation",
+                self.traversed_session,
+                self.traversed_session.session,
+            ) as view:
+                self.assertRaises(Unauthorized, view)
 
     def test_request_validation(self):
         mail_fixture = MockMailFixture()
