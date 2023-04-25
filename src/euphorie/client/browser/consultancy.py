@@ -6,7 +6,6 @@ from euphorie.client.model import OrganisationMembership
 from euphorie.client.utils import CreateEmailTo
 from plone import api
 from plone.memoize.view import memoize
-from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 import logging
@@ -15,34 +14,8 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class Consultancy(BrowserView):
-    """ """
-
-    variation_class = "variation-risk-assessment"
-
+class ConsultancyBaseView(BaseView):
     @property
-    @memoize
-    def webhelpers(self):
-        return api.content.get_view("webhelpers", self.context, self.request)
-
-    @property
-    def organisation(self):
-        return self.webhelpers.traversed_session.session.account.organisation
-
-    def __call__(self):
-        if not self.webhelpers.can_view_session:
-            return self.request.response.redirect(self.webhelpers.client_url)
-        return self.index()
-
-
-class PanelRequestValidation(BaseView):
-    """ """
-
-    default_target_view = "@@consultancy"
-    email_template = ViewPageTemplateFile("templates/notify-request-validation.pt")
-
-    @property
-    @memoize
     def organisation(self):
         return self.context.session.account.organisation
 
@@ -61,6 +34,24 @@ class PanelRequestValidation(BaseView):
             .order_by(Account.loginname)
             .all()
         )
+
+
+class Consultancy(ConsultancyBaseView):
+    """ """
+
+    variation_class = "variation-risk-assessment"
+
+    def __call__(self):
+        if not self.webhelpers.can_view_session:
+            return self.request.response.redirect(self.webhelpers.client_url)
+        return super().__call__()
+
+
+class PanelRequestValidation(ConsultancyBaseView):
+    """ """
+
+    default_target_view = "@@consultancy"
+    email_template = ViewPageTemplateFile("templates/notify-request-validation.pt")
 
     @property
     @memoize
@@ -132,7 +123,7 @@ class PanelRequestValidation(BaseView):
         return super().__call__()
 
 
-class PanelValidateRiskAssessment(BaseView):
+class PanelValidateRiskAssessment(ConsultancyBaseView):
     """ """
 
     default_target_view = "@@consultancy"
@@ -143,27 +134,6 @@ class PanelValidateRiskAssessment(BaseView):
     def requester(self):
         # TODO record requester in previous step
         return self.context.session.account
-
-    @property
-    @memoize
-    def organisation(self):
-        return self.context.session.account.organisation
-
-    @property
-    def consultants(self):
-        if not self.organisation:
-            return []
-        return (
-            self.sqlsession.query(Account)
-            .join(
-                OrganisationMembership,
-                OrganisationMembership.member_id == Account.id,
-            )
-            .filter(OrganisationMembership.owner_id == self.organisation.owner_id)
-            .filter(OrganisationMembership.member_role == "consultant")
-            .order_by(Account.loginname)
-            .all()
-        )
 
     @property
     def organisation_admins(self):
@@ -223,4 +193,4 @@ class PanelValidateRiskAssessment(BaseView):
             return self.request.response.redirect(self.webhelpers.client_url)
         if not self.webhelpers.get_current_account() in self.consultants:
             raise Unauthorized("Only consultants can validate risk assessments")
-        super().__call__()
+        return super().__call__()
