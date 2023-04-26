@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.3.4 (unreleased)
+14.3.4 (2023-04-26)
 -------------------
 
 - Do not display the note "The risk evaluation has been automatically done by the tool"
