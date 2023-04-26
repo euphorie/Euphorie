@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-04-21 04:44+0000\n"
+"POT-Creation-Date: 2023-04-21 06:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3812,6 +3812,11 @@ msgstr ""
 msgid "label_export_as_plain_text"
 msgstr ""
 
+#. Default: "Export in eTranslate compatible XML"
+#: euphorie/content/browser/export.py:165
+msgid "label_export_etranslate_compatible"
+msgstr ""
+
 #. Default: "Add an extra measure"
 #: euphorie/client/browser/templates/webhelpers.pt:1101
 msgid "label_extra_add_measure"
@@ -3941,8 +3946,7 @@ msgstr ""
 msgid "label_involve"
 msgstr ""
 
-#. Default: "Export in eTranslate compatible XML"
-#: euphorie/content/browser/export.py:165
+#. Default: "Import XML translation from eTranslate"
 #: euphorie/content/browser/upload.py:196
 msgid "label_is_etranslate_compatible"
 msgstr ""
