@@ -4,7 +4,8 @@ Changelog
 14.3.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix the translation in the title attribute of listed assessments
+  [ale-rt]
 
 
 14.3.4 (2023-04-26)

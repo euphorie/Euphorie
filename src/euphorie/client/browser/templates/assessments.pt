@@ -125,9 +125,8 @@
                     "
                 >
                   <li class="row ${python:'archived' if session.is_archived else None}"
-                      title="${python:'Archived' if session.is_archived else None}"
+                      title="${python: view.get_archived_label(session)}"
                       tal:repeat="session sessions"
-                      i18n:attributes="title"
                   >
 
                     <h4 class="name field">
