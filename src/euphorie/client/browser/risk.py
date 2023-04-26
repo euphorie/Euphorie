@@ -1256,9 +1256,12 @@ class ActionPlanView(RiskBase):
             context, dbsession=self.session, filter=self.risk_filter
         )
         if next_question is None:
-            # We ran out of questions, proceed to the report
-            url = "{session_url}/@@report".format(
-                session_url=self.webhelpers.traversed_session.absolute_url()
+            # We ran out of questions, proceed to the next phase
+            url = "{session_url}/{next_view_name}".format(
+                session_url=self.webhelpers.traversed_session.absolute_url(),
+                next_view_name="@@consultancy"
+                if self.webhelpers.use_consultancy_phase
+                else "@@report",
             )
         else:
             url = "{session_url}/{path}/@@actionplan".format(

@@ -670,6 +670,76 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                                 self.assertEqual(nav_tree[4]["disabled"], False)
                                 self.assertEqual(nav_tree[5]["disabled"], False)
 
+    def test_survey_tree_data__consultancy(self):
+        """Test the survey navigation tree data when consultancy is active."""
+
+        # Setup basic content.
+
+        account = addAccount("foo", password="secret")
+
+        with api.env.adopt_user("admin"):
+            addSurvey(self.portal, BASIC_SURVEY)
+
+        survey_session = model.SurveySession(
+            id=1,
+            title="Dummy session",
+            zodb_path="nl/ict/software-development",
+            account=account,
+        )
+        model.Session.add(survey_session)
+
+        traversed_session = self.portal.client.nl.ict[
+            "software-development"
+        ].restrictedTraverse("++session++1")
+
+        # Tests
+        with mock.patch(
+            "euphorie.client.browser.webhelpers.WebHelpers.use_consultancy_phase",
+            new_callable=mock.PropertyMock,
+        ) as use_training_module:
+            use_training_module.return_value = True
+            with mock.patch(
+                "euphorie.client.browser.webhelpers.WebHelpers.is_new_session",
+                new_callable=mock.PropertyMock,
+            ) as is_new_session:
+                is_new_session.return_value = False
+                with mock.patch(
+                    "euphorie.client.browser.webhelpers.WebHelpers.get_phase",
+                    return_value="preparation",
+                ):
+                    is_new_session.return_value = False
+                    with api.env.adopt_user(user=account):
+                        with self._get_view("webhelpers", traversed_session) as view:
+                            nav_tree = view.survey_tree_data
+
+                            self.assertEqual(nav_tree[0]["id"], "step-1")
+                            self.assertEqual(nav_tree[1]["id"], "step-2")
+                            self.assertEqual(nav_tree[2]["id"], "step-4")
+                            self.assertEqual(nav_tree[3]["id"], "step-consultancy")
+                            self.assertEqual(nav_tree[4]["id"], "step-5")
+                            self.assertEqual(nav_tree[5]["id"], "status")
+
+                            self.assertTrue("@@start" in nav_tree[0]["href"])
+                            self.assertTrue("@@identification" in nav_tree[1]["href"])
+                            self.assertTrue("@@actionplan" in nav_tree[2]["href"])
+                            self.assertTrue("@@consultancy" in nav_tree[3]["href"])
+                            self.assertTrue("@@report" in nav_tree[4]["href"])
+                            self.assertTrue("@@status" in nav_tree[5]["href"])
+
+                            self.assertEqual(nav_tree[0]["active"], True)
+                            self.assertEqual(nav_tree[1]["active"], False)
+                            self.assertEqual(nav_tree[2]["active"], False)
+                            self.assertEqual(nav_tree[3]["active"], False)
+                            self.assertEqual(nav_tree[4]["active"], False)
+                            self.assertEqual(nav_tree[5]["active"], False)
+
+                            self.assertEqual(nav_tree[0]["disabled"], False)
+                            self.assertEqual(nav_tree[1]["disabled"], False)
+                            self.assertEqual(nav_tree[2]["disabled"], False)
+                            self.assertEqual(nav_tree[3]["disabled"], False)
+                            self.assertEqual(nav_tree[4]["disabled"], False)
+                            self.assertEqual(nav_tree[5]["disabled"], False)
+
 
 class TestWebhelpersUnit(TestCase):
     def get_webhelpers(self, path):
