@@ -13,6 +13,8 @@ Changelog
 - Do not display the note "The risk evaluation has been automatically done by the tool"
   if there is an integrated action plan.
   [ale-rt]
+- Ask for confirmation when following an organisation invite link.
+  [reinhardt]
 
 
 14.3.3 (2023-04-12)
