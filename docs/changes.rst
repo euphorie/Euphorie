@@ -4,7 +4,7 @@ Changelog
 14.3.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Use Plone 5.2.12
 
 
 14.3.4 (2023-04-26)
