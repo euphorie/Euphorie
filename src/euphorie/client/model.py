@@ -27,6 +27,7 @@ from sqlalchemy import func
 from sqlalchemy import orm
 from sqlalchemy import schema
 from sqlalchemy import sql
+from sqlalchemy import Table
 from sqlalchemy import types
 from sqlalchemy.event import listen
 from sqlalchemy.ext import declarative
@@ -651,6 +652,22 @@ class ISurveySession(Interface):
     """Marker interface for a SurveySession object."""
 
 
+consultancy = Table(
+    "consultancy",
+    metadata,
+    schema.Column(
+        "session_id",
+        schema.ForeignKey("session.id", onupdate="CASCADE", ondelete="CASCADE"),
+        nullable=False,
+    ),
+    schema.Column(
+        "account_id",
+        schema.ForeignKey("account.id", onupdate="CASCADE", ondelete="CASCADE"),
+        nullable=False,
+    ),
+)
+
+
 @implementer(ISurveySession)
 class SurveySession(BaseObject):
     """Information about a user's session."""
@@ -737,6 +754,12 @@ class SurveySession(BaseObject):
         backref=orm.backref(
             "sessions", order_by=modified, cascade="all, delete, delete-orphan"
         ),
+    )
+
+    consultant = orm.relationship(
+        Account,
+        uselist=False,
+        secondary=consultancy,
     )
 
     migrated = schema.Column(
