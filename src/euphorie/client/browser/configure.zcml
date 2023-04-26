@@ -888,6 +888,25 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <!-- Consultancy -->
+  <browser:page
+      name="consultancy"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      permission="euphorie.client.ViewSurvey"
+      class=".consultancy.Consultancy"
+      template="templates/consultancy.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="panel-request-validation"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".consultancy.PanelRequestValidation"
+      template="templates/panel-request-validation.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <!-- Report -->
   <browser:page
       name="report_view"

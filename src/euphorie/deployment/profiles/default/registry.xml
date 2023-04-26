@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <registry xmlns:i18n="http://xml.zope.org/namespaces/i18n">
   <record field="default_language"
           interface="plone.i18n.interfaces.ILanguageSchema"
@@ -205,6 +206,14 @@
   <record name="euphorie.use_involve_phase">
     <field type="plone.registry.field.Bool">
       <title>use involve phase</title>
+      <default>False</default>
+      <missing_value>False</missing_value>
+      <required>False</required>
+    </field>
+  </record>
+  <record name="euphorie.use_consultancy_phase">
+    <field type="plone.registry.field.Bool">
+      <title>use consultancy phase</title>
       <default>False</default>
       <missing_value>False</missing_value>
       <required>False</required>
