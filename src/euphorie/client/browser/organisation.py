@@ -515,6 +515,11 @@ class ConfirmInvite(BaseView):
             )
         )
 
+    def __call__(self):
+        # XXX Confirmation page deactivated until it has translations,
+        # see syslabcom/scrum#1133
+        self.lookup_token_and_redirect()
+
     def handle_POST(self):
         if self.request.form.get("submit", "") == "accept":
             self.lookup_token_and_redirect()
