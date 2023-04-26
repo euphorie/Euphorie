@@ -505,7 +505,9 @@ class ConfirmInvite(BaseView):
         )
         alsoProvides(self.request, IDisableCSRFProtection)
         self.sqlsession.add(obj)
-        self.notify_inviter()
+        # XXX Confirmation mail deactivated until it has translations,
+        # see syslabcom/scrum#1133
+        # self.notify_inviter()
 
         return self.redirect(
             msg=_(
