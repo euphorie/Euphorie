@@ -129,4 +129,4 @@ class PanelRequestValidation(BaseView):
             raise Unauthorized(
                 "Only organisation administrators can request validation"
             )
-        super().__call__()
+        return super().__call__()
