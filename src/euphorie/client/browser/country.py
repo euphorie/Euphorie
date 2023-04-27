@@ -442,6 +442,11 @@ class Assessments(BrowserView):
             order_by=order_by,
         )
 
+    def get_archived_label(self, session):
+        if not session.is_archived:
+            return ""
+        return api.portal.translate(_("Archived"))
+
 
 class Surveys(BrowserView, SurveyTemplatesMixin):
     @property

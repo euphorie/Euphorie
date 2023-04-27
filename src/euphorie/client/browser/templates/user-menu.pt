@@ -23,7 +23,6 @@
             <a class="${entry/class_inner}"
                href="${entry/url}"
                target="${python:entry.get('target', None)}"
-               i18n:translate=""
             >${entry/label}</a>
           </li>
         </ul>

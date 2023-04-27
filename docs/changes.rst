@@ -4,6 +4,8 @@ Changelog
 14.3.5 (unreleased)
 -------------------
 
+- Fix the translation in the title attribute of listed assessments
+  [ale-rt]
 - Use Plone 5.2.12
 
 
