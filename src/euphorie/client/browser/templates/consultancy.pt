@@ -70,6 +70,13 @@
             <a class="pat-modal pat-button default"
                href="${here/absolute_url}/@@panel-request-validation#document-content"
                data-pat-modal="class: medium panel"
+               tal:condition="view/consultants"
+               i18n:translate="label_request_validation_imp"
+            >Request validation</a>
+            <a class="pat-modal pat-button default"
+               data-pat-modal="class: medium panel"
+               disabled="disabled"
+               tal:condition="not:view/consultants"
                i18n:translate="label_request_validation_imp"
             >Request validation</a>
           </div>
