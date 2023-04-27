@@ -114,3 +114,74 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
                     mail_fixture.storage[0][0][1],
                     "michel.moulin@example-consultancy.com",
                 )
+
+    def test_validate_permission_denied(self):
+        other_member = model.Account(
+            loginname="siobhan@labyrinth.social",
+            password="secret",
+        )
+        self.session.add(other_member)
+        self.session.flush()
+
+        self.session.add(
+            OrganisationMembership(
+                owner_id=self.owner.id,
+                member_id=other_member.id,
+                member_role="member",
+            )
+        )
+        self.session.flush()
+
+        self.traversed_session.session.consultant = self.consultant
+        with api.env.adopt_user(user=other_member):
+            with self._get_view(
+                "panel-validate-risk-assessment",
+                self.traversed_session,
+                self.traversed_session.session,
+            ) as view:
+                self.assertRaises(Unauthorized, view)
+
+    def test_validate_risk_assessment(self):
+        second_admin = model.Account(
+            loginname="jessica@labyrinth.social", password="secret"
+        )
+        self.session.add(second_admin)
+        self.session.flush()
+
+        self.session.add(
+            OrganisationMembership(
+                owner_id=self.owner.id,
+                member_id=second_admin.id,
+                member_role="admin",
+            )
+        )
+        self.session.flush()
+
+        mail_fixture = MockMailFixture()
+        self.traversed_session.session.consultant = self.consultant
+        with api.env.adopt_user(user=self.consultant):
+            with self._get_view(
+                "panel-validate-risk-assessment",
+                self.traversed_session,
+                self.traversed_session.session,
+            ) as view:
+                view.request.method = "POST"
+                view.request.form = {"approved": "1"}
+                view()
+                # consultant stays set
+                self.assertEqual(
+                    self.traversed_session.session.consultant,
+                    self.consultant,
+                )
+                # TODO check that assessment is locked
+                # self.assertTrue(self.traversed_session.session.locked)
+
+                self.assertEqual(len(mail_fixture.storage), 2)
+                recipients = {
+                    mail_fixture.storage[0][0][1],
+                    mail_fixture.storage[1][0][1],
+                }
+                self.assertSetEqual(
+                    recipients,
+                    {"valerie@labyrinth.social", "jessica@labyrinth.social"},
+                )

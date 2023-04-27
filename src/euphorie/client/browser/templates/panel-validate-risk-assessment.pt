@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@modal-template/macros/shell"
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div class="pat-modal medium panel"
+           id="document-content"
+      >
+        <h1 class="panel-class-panel"
+            i18n:translate="label_request_validation"
+        >
+          Request validation
+        </h1>
+
+        <form class="pat-inject"
+              id="validate-risk-assessment-form"
+              action="${request/getURL}#content"
+              method="POST"
+        >
+          <div class="panel-body"
+               id="modal-panel-body"
+          >
+            <div class="container">
+              <p class="pat-message notice"
+                 i18n:translate="message_click_to_validate"
+              >
+                Clicking on 'Validate' will lock the risk assessment &lsquo;<tal:assessment i18n:name="assessment">${context/session/title}</tal:assessment>&rsquo; and give it an official validated status.
+              </p>
+
+              <fieldset class="vertical">
+                <fieldset class="pat-checklist">
+                  <label>
+                    <tal:label i18n:translate="message_read_and_reviewd_assessment_and_approve">I have read and reviewed and where necessary corrected or enhanced this risk assessment and I approve of its contents.</tal:label>
+                    <input name="approved"
+                           required
+                           type="checkbox"
+                           value="1"
+                    />
+                  </label>
+                </fieldset>
+              </fieldset>
+              <div class="button-bar">
+                <button class="close-panel pat-button default"
+                        type="submit"
+                        i18n:translate="label_validate_imp"
+                >Validate</button>
+                <button class="close-panel pat-button"
+                        type="button"
+                        i18n:translate="label_cancel"
+                >Cancel</button>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </metal:slot>
+  </body>
+</html>

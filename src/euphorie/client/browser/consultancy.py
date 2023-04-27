@@ -130,3 +130,97 @@ class PanelRequestValidation(BaseView):
                 "Only organisation administrators can request validation"
             )
         return super().__call__()
+
+
+class PanelValidateRiskAssessment(BaseView):
+    """ """
+
+    default_target_view = "@@consultancy"
+    email_template = ViewPageTemplateFile("templates/notify-assessment-validated.pt")
+
+    @property
+    @memoize
+    def requester(self):
+        # TODO record requester in previous step
+        return self.context.session.account
+
+    @property
+    @memoize
+    def organisation(self):
+        return self.context.session.account.organisation
+
+    @property
+    def consultants(self):
+        if not self.organisation:
+            return []
+        return (
+            self.sqlsession.query(Account)
+            .join(
+                OrganisationMembership,
+                OrganisationMembership.member_id == Account.id,
+            )
+            .filter(OrganisationMembership.owner_id == self.organisation.owner_id)
+            .filter(OrganisationMembership.member_role == "consultant")
+            .order_by(Account.loginname)
+            .all()
+        )
+
+    @property
+    def organisation_admins(self):
+        organisation_view = api.content.get_view(
+            name="organisation",
+            context=self.webhelpers.country_obj,
+            request=self.request,
+        )
+        for account, membership in organisation_view.get_memberships(self.organisation):
+            if membership.member_role == "admin":
+                yield account
+        yield self.sqlsession.query(Account).filter(
+            Account.id == self.organisation.owner_id
+        ).one()
+
+    def notify_admins(self):
+        consultant = self.webhelpers.get_current_account()
+        subject = api.portal.translate(
+            _(
+                "subject_assessment_validated",
+                default="Risk assessment validated",
+            )
+        )
+        email_from_name = api.portal.get_registry_record("plone.email_from_name")
+        email_from_address = api.portal.get_registry_record("plone.email_from_address")
+        for admin in self.organisation_admins:
+            body = self.email_template(
+                consultant=consultant.title,
+                requester=admin.first_name or admin.title,
+                assessment_link=f"{self.context.absolute_url()}/@@consultancy",
+            )
+            mail = CreateEmailTo(
+                email_from_name,
+                email_from_address,
+                admin.email,
+                subject,
+                body,
+            )
+
+            api.portal.send_email(
+                body=mail,
+                recipient=admin.email,
+                sender=email_from_address,
+                subject=subject,
+            )
+        logger.info("Sent validation confirmation email to organisation admins")
+
+    def handle_POST(self):
+        """Handle the POST request."""
+        if self.request.form.get("approved", False):
+            # TODO: lock session
+            self.notify_admins()
+        self.redirect()
+
+    def __call__(self):
+        if not self.webhelpers.can_view_session:
+            return self.request.response.redirect(self.webhelpers.client_url)
+        if not self.webhelpers.get_current_account() in self.consultants:
+            raise Unauthorized("Only consultants can validate risk assessments")
+        super().__call__()
