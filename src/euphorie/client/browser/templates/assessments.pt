@@ -122,10 +122,11 @@
                     tal:define="
                       show_extra_fields show_extra_fields|python:False;
                       toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+                      get_archived_label nocall:view/get_archived_label|nocall:here/@@assessments/get_archived_label;
                     "
                 >
                   <li class="row ${python:'archived' if session.is_archived else None}"
-                      title="${python: view.get_archived_label(session)}"
+                      title="${python: get_archived_label(session)}"
                       tal:repeat="session sessions"
                   >
 
