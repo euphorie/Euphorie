@@ -505,9 +505,7 @@ class ConfirmInvite(BaseView):
         )
         alsoProvides(self.request, IDisableCSRFProtection)
         self.sqlsession.add(obj)
-        # XXX Confirmation mail deactivated until it has translations,
-        # see syslabcom/scrum#1133
-        # self.notify_inviter()
+        self.notify_inviter()
 
         return self.redirect(
             msg=_(
@@ -516,11 +514,6 @@ class ConfirmInvite(BaseView):
                 mapping={"name": organisation_title},
             )
         )
-
-    def __call__(self):
-        # XXX Confirmation page deactivated until it has translations,
-        # see syslabcom/scrum#1133
-        self.lookup_token_and_redirect()
 
     def handle_POST(self):
         if self.request.form.get("submit", "") == "accept":
