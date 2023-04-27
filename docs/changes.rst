@@ -6,6 +6,7 @@ Changelog
 
 - Fix the translation in the title attribute of listed assessments
   [ale-rt]
+- Use Plone 5.2.12
 
 
 14.3.4 (2023-04-26)
