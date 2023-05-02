@@ -4,6 +4,14 @@ Changelog
 14.3.5 (unreleased)
 -------------------
 
+- Update Patternslib to 9.9.0-alpha.4.
+  Ref: scrum-1135
+  [thet]
+
+- Update prototype from commit 377b0ce137546abb7a766154c39aea56fa467cb7
+  Ref: scrum-1135
+  [thet]
+
 - Adapt training view to prototype and add scroll-marker functionality to TOC.
   Ref: scrum-1135
   [thet]
