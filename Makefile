@@ -67,7 +67,20 @@ resources-install:
 	@./scripts/proto2diazo.py
 	make bundle
 	@echo "To update the oira.cms bundle, go to ../NuPlone and run ``make bundle`` there."
-
+	@# Prototype and Euphorie handle Patternslib bundle inclusion differently.
+	@# Let's update the bundle in a different step.
+	@rm -Rf src/euphorie/client/resources/oira/script/
+	@git checkout src/euphorie/client/resources/oira/script
+	@# Store the prototype commit id for better reproducibility.
+	@$(eval PROTOTYPE_COMMIT_ID := $(shell cd prototype && git rev-parse --verify HEAD))
+	@echo $(PROTOTYPE_COMMIT_ID) > PROTOTYPE_COMMIT_ID
+	@# Add and commit.
+	@git add src/euphorie/client/resources PROTOTYPE_COMMIT_ID
+	@git commit -m"Update prototype from commit $(PROTOTYPE_COMMIT_ID)" > /dev/null
+	@# Spit out info.
+	@echo ""
+	@echo "✅ Updated prototype from commit $(PROTOTYPE_COMMIT_ID)"
+	@echo ""
 
 .PHONY: bundle
 bundle:
@@ -123,6 +136,13 @@ endif
 	rm -Rf src/euphorie/client/resources/oira/script
 	mv patternslib-bundle-$(PATTERNSLIB_VERSION) src/euphorie/client/resources/oira/script
 	rm patternslib-bundle-$(PATTERNSLIB_VERSION).zip
+	@# Add and commit.
+	@git add src/euphorie/client/resources/oira/script
+	@git commit -m"Update Patternslib to $(PATTERNSLIB_VERSION)." > /dev/null
+	@# Spit out info.
+	@echo ""
+	@echo "🚀 Updated Patternslib to $(PATTERNSLIB_VERSION)."
+	@echo ""
 
 
 .PHONY: all clean docs jenkins pot
