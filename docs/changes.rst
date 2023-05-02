@@ -4,6 +4,10 @@ Changelog
 14.3.5 (unreleased)
 -------------------
 
+- Adapt training view to prototype and add scroll-marker functionality to TOC.
+  Ref: scrum-1135
+  [thet]
+
 - Fix the translation in the title attribute of listed assessments
   [ale-rt]
 - Use Plone 5.2.12

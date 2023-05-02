@@ -19,8 +19,6 @@
                 tal:define="
                   view_name string:@@${view/__name__};
                   can_edit webhelpers/can_edit_session;
-                  counter python:0;
-                  count_offset python:1;
                   question_intro_url view/question_intro_url|nothing;
                   enable_training_questions view/enable_training_questions;
                   logo view/logo_url;
@@ -59,8 +57,8 @@
                                  training_view python:slide_info['training_view'];
                                  slide python:slide_info['slide_contents'];
                                ">
-                      <a class="item ${slide_type} pat-scroll close-panel"
-                         href="#card-title-${training_view/number_id}"
+                      <a class="item ${slide_type} scroll-trigger"
+                         href="#card-content-${training_view/number_id}"
                          tal:define="
                            slide_type slide/slide_type;
                          "
@@ -156,7 +154,7 @@
               <div class="training-card"
                    tal:define="
                      slide_template slide/slide_template;
-                     global counter python:counter+1;
+                     counter training_view/number_id;
                      content_item nocall:training_view/zodb_elem;
                      slide_type slide/slide_type;
                      description training_view/description;
