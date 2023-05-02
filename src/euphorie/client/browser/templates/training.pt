@@ -130,7 +130,9 @@
             </p>
             <figure class="tool-icon">
               <img alt=""
-                   src="${view/tool_image_url}"
+                   src="${image_url}"
+                   tal:define="image_url view/tool_image_url"
+                   tal:condition="image_url"
               />
             </figure>
             <figure class="organisation-logo"
@@ -333,7 +335,8 @@
                     </section>
                   </div>
                 </div>
-              </div></tal:slide>
+              </div>
+            </tal:slide>
           </tal:items>
         </div>
 
@@ -363,7 +366,9 @@
               </p>
               <figure class="tool-icon">
                 <img alt=""
-                     src="${view/tool_image_url}"
+                     src="${image_url}"
+                     tal:define="image_url view/tool_image_url"
+                     tal:condition="image_url"
                 />
               </figure>
               <figure class="organisation-logo"
