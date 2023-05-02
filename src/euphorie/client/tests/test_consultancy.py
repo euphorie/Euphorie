@@ -1,6 +1,7 @@
 from AccessControl import Unauthorized
 from euphorie.client import model
 from euphorie.client.interfaces import IClientSkinLayer
+from euphorie.client.model import Consultancy
 from euphorie.client.model import Organisation
 from euphorie.client.model import OrganisationMembership
 from euphorie.client.tests.utils import addSurvey
@@ -106,7 +107,7 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
                 view.request.form = {"consultant": self.consultant.id}
                 view()
                 self.assertEqual(
-                    self.traversed_session.session.consultant,
+                    self.traversed_session.session.consultancy.account,
                     self.consultant,
                 )
                 self.assertEqual(len(mail_fixture.storage), 1)
@@ -132,7 +133,10 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
         )
         self.session.flush()
 
-        self.traversed_session.session.consultant = self.consultant
+        self.traversed_session.session.consultancy = Consultancy(
+            account=self.consultant,
+            session=self.traversed_session.session,
+        )
         with api.env.adopt_user(user=other_member):
             with self._get_view(
                 "panel-validate-risk-assessment",
@@ -158,7 +162,10 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
         self.session.flush()
 
         mail_fixture = MockMailFixture()
-        self.traversed_session.session.consultant = self.consultant
+        self.traversed_session.session.consultancy = Consultancy(
+            account=self.consultant,
+            session=self.traversed_session.session,
+        )
         with api.env.adopt_user(user=self.consultant):
             with self._get_view(
                 "panel-validate-risk-assessment",
@@ -170,9 +177,13 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
                 view()
                 # consultant stays set
                 self.assertEqual(
-                    self.traversed_session.session.consultant,
+                    self.traversed_session.session.consultancy.account,
                     self.consultant,
                 )
+                self.assertEqual(
+                    self.traversed_session.session.consultancy.status, "validated"
+                )
+
                 # TODO check that assessment is locked
                 # self.assertTrue(self.traversed_session.session.locked)
 
