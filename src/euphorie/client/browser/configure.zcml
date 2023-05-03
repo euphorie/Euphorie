@@ -893,7 +893,7 @@
       name="consultancy"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       permission="euphorie.client.ViewSurvey"
-      class=".consultancy.Consultancy"
+      class=".consultancy.ConsultancyView"
       template="templates/consultancy.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />

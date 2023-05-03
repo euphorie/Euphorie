@@ -27,7 +27,6 @@ from sqlalchemy import func
 from sqlalchemy import orm
 from sqlalchemy import schema
 from sqlalchemy import sql
-from sqlalchemy import Table
 from sqlalchemy import types
 from sqlalchemy.event import listen
 from sqlalchemy.ext import declarative
@@ -422,6 +421,37 @@ class Group(BaseObject):
         )
 
 
+class Consultancy(BaseObject):
+    """Information about consultancy on a session."""
+
+    __tablename__ = "consultancy"
+
+    session_id = schema.Column(
+        schema.ForeignKey("session.id", onupdate="CASCADE", ondelete="CASCADE"),
+        primary_key=True,
+    )
+    account_id = schema.Column(
+        schema.ForeignKey("account.id", onupdate="CASCADE", ondelete="CASCADE"),
+        primary_key=True,
+    )
+
+    session = orm.relationship(
+        "SurveySession",
+        uselist=False,
+        back_populates="consultancy",
+    )
+    account = orm.relationship(
+        "Account",
+        uselist=False,
+        back_populates="consultancy",
+    )
+
+    status = schema.Column(
+        types.Unicode(255),
+        default="pending",
+    )
+
+
 @implementer(IUser)
 class Account(BaseObject):
     """A user account.
@@ -476,6 +506,11 @@ class Account(BaseObject):
         types.Unicode(),
         nullable=True,
         default=None,
+    )
+    consultancy = orm.relationship(
+        "Consultancy",
+        uselist=False,
+        back_populates="account",
     )
 
     @property
@@ -652,22 +687,6 @@ class ISurveySession(Interface):
     """Marker interface for a SurveySession object."""
 
 
-consultancy = Table(
-    "consultancy",
-    metadata,
-    schema.Column(
-        "session_id",
-        schema.ForeignKey("session.id", onupdate="CASCADE", ondelete="CASCADE"),
-        nullable=False,
-    ),
-    schema.Column(
-        "account_id",
-        schema.ForeignKey("account.id", onupdate="CASCADE", ondelete="CASCADE"),
-        nullable=False,
-    ),
-)
-
-
 @implementer(ISurveySession)
 class SurveySession(BaseObject):
     """Information about a user's session."""
@@ -756,10 +775,10 @@ class SurveySession(BaseObject):
         ),
     )
 
-    consultant = orm.relationship(
-        Account,
+    consultancy = orm.relationship(
+        "Consultancy",
         uselist=False,
-        secondary=consultancy,
+        back_populates="session",
     )
 
     migrated = schema.Column(
@@ -1506,6 +1525,7 @@ _instrumented = False
 if not _instrumented:
     metadata._decl_registry = {}
     for cls in [
+        Consultancy,
         SurveyTreeItem,
         SurveySession,
         SessionRedirect,

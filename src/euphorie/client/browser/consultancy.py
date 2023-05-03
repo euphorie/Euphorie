@@ -2,6 +2,7 @@ from AccessControl import Unauthorized
 from euphorie.client import MessageFactory as _
 from euphorie.client.browser.base import BaseView
 from euphorie.client.model import Account
+from euphorie.client.model import Consultancy
 from euphorie.client.model import OrganisationMembership
 from euphorie.client.utils import CreateEmailTo
 from plone import api
@@ -36,7 +37,7 @@ class ConsultancyBaseView(BaseView):
         )
 
 
-class Consultancy(ConsultancyBaseView):
+class ConsultancyView(ConsultancyBaseView):
     """ """
 
     variation_class = "variation-risk-assessment"
@@ -109,7 +110,11 @@ class PanelRequestValidation(ConsultancyBaseView):
 
     def handle_POST(self):
         """Handle the POST request."""
-        self.context.session.consultant = self.consultant
+        consultancy = Consultancy(
+            account=self.consultant,
+            session=self.context.session,
+        )
+        self.context.session.consultancy = consultancy
         self.notify_consultant()
         self.redirect()
 
@@ -184,6 +189,7 @@ class PanelValidateRiskAssessment(ConsultancyBaseView):
     def handle_POST(self):
         """Handle the POST request."""
         if self.request.form.get("approved", False):
+            self.context.session.consultancy.status = "validated"
             # TODO: lock session
             self.notify_admins()
         self.redirect()

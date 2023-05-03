@@ -16,7 +16,9 @@
       <div class="pat-scroll-box"
            id="content-pane"
            tal:define="
-             consultant context/session/consultant|nothing;
+             consultant context/session/consultancy/account|nothing;
+             status context/session/consultancy/status|nothing;
+             is_validated python:status == 'validated';
              current_user webhelpers/get_current_account;
              role_consultant python: consultant and current_user == consultant;
            "
@@ -42,19 +44,17 @@
         </article>
 
         <tal:role_user tal:condition="not:role_consultant">
-          <tal:comment replace="nothing">
-        TODO: session validated (i.e. locked)
-            <p class="pat-message success"
-               i18n:translate="message_session_validated"
-            >
-              <a href="#"
-                 i18n:name="consultant"
-              >Michel Moulin</a>
+          <p class="pat-message success"
+             tal:condition="python:consultant and is_validated"
+             i18n:translate="message_session_validated"
+          >
+            <a href="mailto:${consultant/email}"
+               i18n:name="consultant"
+            >${consultant/title}</a>
              has reviewed and validated this risk assessment.
-            </p>
-          </tal:comment>
+          </p>
           <p class="pat-message info"
-             tal:condition="consultant"
+             tal:condition="python:consultant and not is_validated"
              i18n:translate="message_session_under_review"
           >
 				This risk assessment is currently under review by
@@ -74,8 +74,8 @@
                i18n:translate="label_request_validation_imp"
             >Request validation</a>
             <a class="pat-modal pat-button default"
-               data-pat-modal="class: medium panel"
                disabled="disabled"
+               data-pat-modal="class: medium panel"
                tal:condition="not:view/consultants"
                i18n:translate="label_request_validation_imp"
             >Request validation</a>
