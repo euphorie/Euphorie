@@ -69,27 +69,27 @@
                   <tal:training_enabled tal:condition="view/is_training_enabled">
                     <p class="pat-message info pat-depends"
                        data-pat-depends="role=admin"
-                       i18n:translate=""
+                       i18n:translate="message_role_administrator"
                     >
-                      Administrators can create, edit and remove user accounts. Administrators can also make risk assessments, lock risk assessments, create trainings and take trainings.
+                      Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings.
                     </p>
                     <p class="pat-message info pat-depends"
                        data-pat-depends="role=consultant"
-                       i18n:translate=""
+                       i18n:translate="message_role_consultant"
                     >
-                    Consultants can make and validate risk assessments and take trainings.
+                    Consultants can make and edit risk assessments, validate and approve risk assessments and create trainings.
                     </p>
                     <p class="pat-message info pat-depends"
                        data-pat-depends="role=manager"
-                       i18n:translate=""
+                       i18n:translate="message_role_manager"
                     >
-                      Managers/Policy makers can make risk assessments, lock risk assessments, create trainings and take trainings.
+                      Managers/Policy makers can make and edit risk assessments, lock risk assessments, create trainings and take trainings.
                     </p>
                     <p class="pat-message info pat-depends"
                        data-pat-depends="role=member"
-                       i18n:translate=""
                     >
-                      Members can make risk assessments and take trainings.
+                      <tal:i18n i18n:translate="message_role_member">Members can make risk assessments and take trainings.</tal:i18n>
+                      <strong i18n:translate="message_member_see_all">Members can view and edit all risk assessments of the organisation.</strong>
                     </p>
                   </tal:training_enabled>
                   <tal:training_disabled tal:condition="not:view/is_training_enabled">
@@ -97,25 +97,25 @@
                        data-pat-depends="role=admin"
                        i18n:translate="description_role_admin__training_disabled"
                     >
-                    Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and lock risk assessments.
+                    Administrators can create, edit and remove user accounts. Administrators can also make risk assessments, edit existing ones and lock risk assessments.
                     </p>
                     <p class="pat-message info pat-depends"
                        data-pat-depends="role=manager"
                        i18n:translate="description_role_manager__training_disabled"
                     >
-                    Managers/Policy makers can make risk assessments and lock risk assessments.
+                    Managers/Policy makers can make, edit and lock risk assessments.
                     </p>
                     <p class="pat-message info pat-depends"
                        data-pat-depends="role=consultant"
                        i18n:translate="description_role_consultant__training_disabled"
                     >
-                    Consultants can make and validate risk assessments.
+                    Consultants can make, edit, validate and approve risk assessments.
                     </p>
                     <p class="pat-message info pat-depends"
                        data-pat-depends="role=member"
-                       i18n:translate="description_role_member__training_disabled"
                     >
-                    Members can make risk assessments.
+                      <tal:i18n i18n:translate="description_role_member__training_disabled">Members can make risk assessments.</tal:i18n>
+                      <strong i18n:translate="message_member_see_all">Members can view and edit all risk assessments of the organisation.</strong>
                     </p>
                   </tal:training_disabled>
                 </fieldset>
