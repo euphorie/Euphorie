@@ -61,12 +61,18 @@ jekyll:
 
 .PHONY: resources-install
 resources-install:
-	@# Copy resources.
+	@echo "🧪 Copy resources from prototype."
+
 	@cp -R prototype/_site/assets/* src/euphorie/client/resources/
 	@cp -R prototype/_site/media src/euphorie/client/resources/
 	@cp prototype/_site/depts/index.html src/euphorie/client/resources/oira/depts.html
-	@# Fix resource paths.
+
+	@echo "🧪 Fix resource paths."
+
 	@./scripts/proto2diazo.py &> /dev/null
+
+	@echo "🧪 Git add and commit."
+
 	@# Prototype and Euphorie handle Patternslib bundle inclusion differently.
 	@# Let's update the bundle in a different step.
 	@rm -Rf src/euphorie/client/resources/oira/script/
@@ -76,8 +82,13 @@ resources-install:
 	@echo $(PROTOTYPE_COMMIT_ID) > PROTOTYPE_COMMIT_ID
 	@# Add and commit.
 	@git add src/euphorie/client/resources PROTOTYPE_COMMIT_ID
-	@git commit -m"Update prototype from commit $(PROTOTYPE_COMMIT_ID)" > /dev/null
+	@# commit, but ignore if nothing is to commit.
+	-@git commit -m"Update prototype from commit $(PROTOTYPE_COMMIT_ID)" > /dev/null
+
 	@# Spit out info.
+	@echo ""
+	@echo "📦 Resource dir size is: "
+	@cd src/euphorie/client/resources/ && du -sh
 	@echo ""
 	@echo "⚡ To update Patternslib:"
 	@echo "  - run ``make update-patterns``,"
@@ -129,22 +140,36 @@ undevln:
 .PHONY: update-patterns
 update-patterns:
 ifndef PATTERNSLIB_VERSION
+	@echo "🧪 Get the latest Patternslib version from GitHub (no pre-release)."
+
 	@# If no PATTERNSLIB_VERSION environment variable is defined,
 	@# Get the latest version from the GitHub API.
 	$(eval PATTERNSLIB_VERSION := $(shell curl https://api.github.com/repos/patternslib/Patterns/releases/latest -s | jq .tag_name -r))
+	@echo "🏷️  Patternslib version is: $(PATTERNSLIB_VERSION)"
+
 endif
+	@echo "🧪 Copy bundle from GitHub."
+
 	@# Download the Patternslib bundle.
-	wget https://github.com/Patternslib/Patterns/releases/download/$(PATTERNSLIB_VERSION)/patternslib-bundle-$(PATTERNSLIB_VERSION).zip
+	wget https://github.com/Patternslib/Patterns/releases/download/$(PATTERNSLIB_VERSION)/patternslib-bundle-$(PATTERNSLIB_VERSION).zip 1> /dev/null 2> /dev/null
 	@unzip patternslib-bundle-$(PATTERNSLIB_VERSION).zip > /dev/null
 	@# Replace the old Patternslib with the new one.
 	@rm -Rf src/euphorie/client/resources/oira/script
 	@mv patternslib-bundle-$(PATTERNSLIB_VERSION) src/euphorie/client/resources/oira/script
 	@# Cleanup.
 	@rm patternslib-bundle-$(PATTERNSLIB_VERSION).zip
+
+	@echo "🧪 Git add and commit."
+
 	@# Add and commit.
 	@git add src/euphorie/client/resources/oira/script
-	@git commit -m"Update Patternslib to $(PATTERNSLIB_VERSION)." > /dev/null
+	@# commit, but ignore if nothing is to commit.
+	-@git commit -m"Update Patternslib to $(PATTERNSLIB_VERSION)." > /dev/null
+
 	@# Spit out info.
+	@echo ""
+	@echo "📦 Script dir size is: "
+	@cd src/euphorie/client/resources/oira/script && du -sh
 	@echo ""
 	@echo "🚀 Updated Patternslib to $(PATTERNSLIB_VERSION)."
 	@echo ""
