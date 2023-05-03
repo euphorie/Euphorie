@@ -61,21 +61,34 @@ jekyll:
 
 .PHONY: resources-install
 resources-install:
-	cp -R prototype/_site/assets/* src/euphorie/client/resources/
-	cp -R prototype/_site/media src/euphorie/client/resources/
-	cp prototype/_site/depts/index.html src/euphorie/client/resources/oira/depts.html
-	@./scripts/proto2diazo.py
-	make bundle
-	@echo "To update the oira.cms bundle, go to ../NuPlone and run ``make bundle`` there."
+	@# Copy resources.
+	@cp -R prototype/_site/assets/* src/euphorie/client/resources/
+	@cp -R prototype/_site/media src/euphorie/client/resources/
+	@cp prototype/_site/depts/index.html src/euphorie/client/resources/oira/depts.html
+	@# Fix resource paths.
+	@./scripts/proto2diazo.py &> /dev/null
+	@# Prototype and Euphorie handle Patternslib bundle inclusion differently.
+	@# Let's update the bundle in a different step.
+	@rm -Rf src/euphorie/client/resources/oira/script/
+	@git checkout src/euphorie/client/resources/oira/script
+	@# Store the prototype commit id for better reproducibility.
+	@$(eval PROTOTYPE_COMMIT_ID := $(shell cd prototype && git rev-parse --verify HEAD))
+	@echo $(PROTOTYPE_COMMIT_ID) > PROTOTYPE_COMMIT_ID
+	@# Add and commit.
+	@git add src/euphorie/client/resources PROTOTYPE_COMMIT_ID
+	@git commit -m"Update prototype from commit $(PROTOTYPE_COMMIT_ID)" > /dev/null
+	@# Spit out info.
+	@echo ""
+	@echo "⚡ To update Patternslib:"
+	@echo "  - run ``make update-patterns``,"
+	@echo "  - or for a speficic version other than the latest non-pre release:"
+	@echo "    ``PATTERNSLIB_VERSION=9.7.0-alpha.5 make update-patterns``"
+	@echo ""
+	@echo "🗿 To update the oira.cms bundle, go to ../NuPlone and run ``make bundle`` there."
+	@echo ""
+	@echo "✅ Updated prototype from commit $(PROTOTYPE_COMMIT_ID)"
+	@echo ""
 
-
-.PHONY: bundle
-bundle:
-	@## For the script directory, always start with a clean slate
-	@rm -rf src/euphorie/client/resources/oira/script
-	@## Copy the bundle directly from assets, not from _site
-	@cp -R prototype/assets/oira/script src/euphorie/client/resources/oira/
-	@echo "Copied script directory from prototype to src/euphorie/client/resources/oira/script"
 
 .po.mo:
 	msgfmt -c --statistics -o $@ $<
@@ -116,13 +129,25 @@ undevln:
 .PHONY: update-patterns
 update-patterns:
 ifndef PATTERNSLIB_VERSION
+	@# If no PATTERNSLIB_VERSION environment variable is defined,
+	@# Get the latest version from the GitHub API.
 	$(eval PATTERNSLIB_VERSION := $(shell curl https://api.github.com/repos/patternslib/Patterns/releases/latest -s | jq .tag_name -r))
 endif
+	@# Download the Patternslib bundle.
 	wget https://github.com/Patternslib/Patterns/releases/download/$(PATTERNSLIB_VERSION)/patternslib-bundle-$(PATTERNSLIB_VERSION).zip
-	unzip patternslib-bundle-$(PATTERNSLIB_VERSION).zip
-	rm -Rf src/euphorie/client/resources/oira/script
-	mv patternslib-bundle-$(PATTERNSLIB_VERSION) src/euphorie/client/resources/oira/script
-	rm patternslib-bundle-$(PATTERNSLIB_VERSION).zip
+	@unzip patternslib-bundle-$(PATTERNSLIB_VERSION).zip > /dev/null
+	@# Replace the old Patternslib with the new one.
+	@rm -Rf src/euphorie/client/resources/oira/script
+	@mv patternslib-bundle-$(PATTERNSLIB_VERSION) src/euphorie/client/resources/oira/script
+	@# Cleanup.
+	@rm patternslib-bundle-$(PATTERNSLIB_VERSION).zip
+	@# Add and commit.
+	@git add src/euphorie/client/resources/oira/script
+	@git commit -m"Update Patternslib to $(PATTERNSLIB_VERSION)." > /dev/null
+	@# Spit out info.
+	@echo ""
+	@echo "🚀 Updated Patternslib to $(PATTERNSLIB_VERSION)."
+	@echo ""
 
 
 .PHONY: all clean docs jenkins pot

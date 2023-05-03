@@ -4,6 +4,13 @@ Changelog
 14.3.5 (unreleased)
 -------------------
 
+- Makefile resource update: Improve reproducibility.
+  Add and commit generated resources from "resources-install" and
+  "update-patterns" targets.
+  For "make resources-install" add the prototype commit id to a new
+  PROTOTYPE_COMMIT_ID file and the commit message.
+  For "make update-patterns" add the Patternslib version to the commit message.
+
 - Update Patternslib to 9.9.0-alpha.4.
   Ref: scrum-1135
   [thet]
