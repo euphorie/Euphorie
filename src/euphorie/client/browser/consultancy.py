@@ -197,6 +197,11 @@ class PanelValidateRiskAssessment(ConsultancyBaseView):
     def __call__(self):
         if not self.webhelpers.can_view_session:
             return self.request.response.redirect(self.webhelpers.client_url)
-        if not self.webhelpers.get_current_account() in self.consultants:
-            raise Unauthorized("Only consultants can validate risk assessments")
+        consultancy = self.context.session.consultancy
+        if not consultancy or (
+            self.webhelpers.get_current_account() != consultancy.account
+        ):
+            raise Unauthorized(
+                "Only the consultant assigned to a risk assessment can validate it"
+            )
         return super().__call__()

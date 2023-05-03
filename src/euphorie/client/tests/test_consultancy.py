@@ -116,7 +116,7 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
                     "michel.moulin@example-consultancy.com",
                 )
 
-    def test_validate_permission_denied(self):
+    def test_validate_permission_denied_to_other_member(self):
         other_member = model.Account(
             loginname="siobhan@labyrinth.social",
             password="secret",
@@ -138,6 +138,33 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
             session=self.traversed_session.session,
         )
         with api.env.adopt_user(user=other_member):
+            with self._get_view(
+                "panel-validate-risk-assessment",
+                self.traversed_session,
+                self.traversed_session.session,
+            ) as view:
+                self.assertRaises(Unauthorized, view)
+
+    def test_validate_permission_denied_to_other_consultant(self):
+        other_consultant = model.Account(
+            loginname="nancy.ann.ciancy@example-consultancy.com",
+            password="secret",
+        )
+        self.session.add(other_consultant)
+        self.session.flush()
+
+        self.session.add(
+            OrganisationMembership(
+                owner_id=self.owner.id,
+                member_id=other_consultant.id,
+                member_role="consultant",
+            )
+        )
+
+        self.session.flush()
+
+        self.traversed_session.session.consultant = self.consultant
+        with api.env.adopt_user(user=other_consultant):
             with self._get_view(
                 "panel-validate-risk-assessment",
                 self.traversed_session,
