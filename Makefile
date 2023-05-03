@@ -79,9 +79,9 @@ resources-install:
 	@git checkout src/euphorie/client/resources/oira/script
 	@# Store the prototype commit id for better reproducibility.
 	@$(eval PROTOTYPE_COMMIT_ID := $(shell cd prototype && git rev-parse --verify HEAD))
-	@echo $(PROTOTYPE_COMMIT_ID) > PROTOTYPE_COMMIT_ID
+	@echo $(PROTOTYPE_COMMIT_ID) > LATEST-PROTOTYPE
 	@# Add and commit.
-	@git add src/euphorie/client/resources PROTOTYPE_COMMIT_ID
+	@git add src/euphorie/client/resources LATEST-PROTOTYPE
 	@# commit, but ignore if nothing is to commit.
 	-@git commit -m"Update prototype from commit $(PROTOTYPE_COMMIT_ID)" > /dev/null
 
@@ -162,7 +162,8 @@ endif
 	@echo "🧪 Git add and commit."
 
 	@# Add and commit.
-	@git add src/euphorie/client/resources/oira/script
+	@echo $(PATTERNSLIB_VERSION) > LATEST-PATTERNSLIB
+	@git add src/euphorie/client/resources/oira/script LATEST-PATTERNSLIB
 	@# commit, but ignore if nothing is to commit.
 	-@git commit -m"Update Patternslib to $(PATTERNSLIB_VERSION)." > /dev/null
 
