@@ -1,15 +1,20 @@
 from AccessControl import Unauthorized
+from datetime import timezone
 from euphorie.client import MessageFactory as _
 from euphorie.client.browser.base import BaseView
 from euphorie.client.model import Account
 from euphorie.client.model import Consultancy
 from euphorie.client.model import OrganisationMembership
+from euphorie.client.model import SessionEvent
 from euphorie.client.utils import CreateEmailTo
+from json import JSONDecodeError
 from plone import api
+from plone.memoize import instance
 from plone.memoize.view import memoize
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 import html
+import json
 import logging
 
 
@@ -49,10 +54,53 @@ class ConsultancyBaseView(BaseView):
         )
 
 
+# TODO make this an adapter
+class SessionValidated:
+    def __init__(self, context):
+        self.context = context
+
+    @property
+    @instance.memoize
+    def note(self):
+        try:
+            return json.loads(self.context.note)
+        except JSONDecodeError:
+            logger.warning(
+                "Could not load note for session_event %r (%r)",
+                self.context.id,
+                self.context.note,
+            )
+            return {}
+
+    @property
+    def raw_time(self):
+        return self.context.time.replace(tzinfo=timezone.utc)
+
+    @property
+    def consultant_email(self):
+        return self.note["consultant_email"]
+
+    @property
+    def consultant_name(self):
+        return self.note["consultant_name"]
+
+
 class ConsultancyView(ConsultancyBaseView):
     """ """
 
     variation_class = "variation-risk-assessment"
+
+    @property
+    @memoize
+    def validated_info(self):
+        events = (
+            self.sqlsession.query(SessionEvent)
+            .filter(SessionEvent.session_id == self.context.session.id)
+            .filter(SessionEvent.action == "validated")
+            .order_by(SessionEvent.time.desc())
+        )
+        event = events.first()
+        return SessionValidated(event)
 
     def __call__(self):
         if not self.webhelpers.can_view_session:
@@ -118,6 +166,13 @@ class PanelRequestValidation(ConsultancyBaseView):
             session=self.context.session,
         )
         self.context.session.consultancy = consultancy
+        event = SessionEvent(
+            account_id=self.webhelpers.get_current_account().id,
+            session_id=self.context.session.id,
+            action="validation_requested",
+        )
+        self.sqlsession.add(event)
+
         self.notify_consultant()
         self.redirect()
 
@@ -186,6 +241,20 @@ class PanelValidateRiskAssessment(ConsultancyBaseView):
     def handle_POST(self):
         """Handle the POST request."""
         if self.request.form.get("approved", False):
+            consultant = self.webhelpers.get_current_account()
+            event = SessionEvent(
+                account_id=consultant.id,
+                session_id=self.context.session.id,
+                action="validated",
+                note=json.dumps(
+                    {
+                        "consultant_id": consultant.id,
+                        "consultant_email": consultant.email,
+                        "consultant_name": consultant.title,
+                    }
+                ),
+            )
+            self.sqlsession.add(event)
             self.context.session.consultancy.status = "validated"
             # TODO: lock session
             self.notify_admins()

@@ -431,8 +431,8 @@ class Consultancy(BaseObject):
         primary_key=True,
     )
     account_id = schema.Column(
-        schema.ForeignKey("account.id", onupdate="CASCADE", ondelete="CASCADE"),
-        primary_key=True,
+        schema.ForeignKey("account.id", onupdate="CASCADE", ondelete="SET NULL"),
+        nullable=True,
     )
 
     session = orm.relationship(
@@ -1248,6 +1248,37 @@ class SurveySession(BaseObject):
         return completion_percentage
 
 
+class SessionEvent(BaseObject):
+    """Data table to record events happening on sessions."""
+
+    __tablename__ = "session_event"
+
+    id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
+    time = schema.Column(types.DateTime(), nullable=False, default=func.now())
+    account_id = schema.Column(
+        types.Integer(),
+        schema.ForeignKey(Account.id, onupdate="CASCADE"),
+        nullable=True,
+    )
+    account = orm.relation(
+        Account,
+        backref=orm.backref("event"),
+    )
+    session_id = schema.Column(
+        types.Integer(),
+        schema.ForeignKey("session.id", onupdate="CASCADE", ondelete="CASCADE"),
+        nullable=False,
+    )
+    session = orm.relation(
+        "SurveySession",
+        cascade="all,delete-orphan",
+        single_parent=True,
+        backref=orm.backref("event", uselist=False, cascade="all"),
+    )
+    action = schema.Column(types.Unicode(32))
+    note = schema.Column(types.Unicode)
+
+
 class SessionRedirect(BaseObject):
     """Mapping of old deleted sessions to their new rebuilt counterparts"""
 
@@ -1528,6 +1559,7 @@ if not _instrumented:
         Consultancy,
         SurveyTreeItem,
         SurveySession,
+        SessionEvent,
         SessionRedirect,
         Module,
         Risk,

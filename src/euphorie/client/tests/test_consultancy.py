@@ -1,9 +1,13 @@
 from AccessControl import Unauthorized
+from datetime import datetime
+from datetime import timedelta
+from datetime import timezone
 from euphorie.client import model
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import Consultancy
 from euphorie.client.model import Organisation
 from euphorie.client.model import OrganisationMembership
+from euphorie.client.model import SessionEvent
 from euphorie.client.tests.utils import addSurvey
 from euphorie.client.tests.utils import MockMailFixture
 from euphorie.content.tests.utils import BASIC_SURVEY
@@ -11,6 +15,8 @@ from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
 from z3c.saconfig import Session
 from zope.interface import alsoProvides
+
+import json
 
 
 class TestSessionValidation(EuphorieIntegrationTestCase):
@@ -110,6 +116,21 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
                     self.traversed_session.session.consultancy.account,
                     self.consultant,
                 )
+                events = (
+                    self.session.query(SessionEvent)
+                    .filter(
+                        SessionEvent.session_id == self.traversed_session.session.id
+                    )
+                    .order_by(SessionEvent.time.desc())
+                    .all()
+                )
+                self.assertEqual(len(events), 1)
+                self.assertEqual(events[0].action, "validation_requested")
+                self.assertEqual(events[0].account_id, self.owner.id)
+                self.assertLessEqual(
+                    abs(events[0].time - datetime.utcnow()),
+                    timedelta(seconds=5),
+                )
                 self.assertEqual(len(mail_fixture.storage), 1)
                 self.assertEqual(
                     mail_fixture.storage[0][0][1],
@@ -186,13 +207,15 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
                 member_role="admin",
             )
         )
-        self.session.flush()
+        self.consultant.first_name = "Michel"
+        self.consultant.last_name = "Moulin"
 
         mail_fixture = MockMailFixture()
         self.traversed_session.session.consultancy = Consultancy(
             account=self.consultant,
             session=self.traversed_session.session,
         )
+        self.session.flush()
         with api.env.adopt_user(user=self.consultant):
             with self._get_view(
                 "panel-validate-risk-assessment",
@@ -202,24 +225,83 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
                 view.request.method = "POST"
                 view.request.form = {"approved": "1"}
                 view()
-                # consultant stays set
-                self.assertEqual(
-                    self.traversed_session.session.consultancy.account,
-                    self.consultant,
-                )
-                self.assertEqual(
-                    self.traversed_session.session.consultancy.status, "validated"
-                )
 
-                # TODO check that assessment is locked
-                # self.assertTrue(self.traversed_session.session.locked)
+        # consultant stays set
+        self.assertEqual(
+            self.traversed_session.session.consultancy.account,
+            self.consultant,
+        )
+        self.assertEqual(self.traversed_session.session.consultancy.status, "validated")
+        with api.env.adopt_user(user=self.owner):
+            with self._get_view(
+                "consultancy",
+                self.traversed_session,
+                self.traversed_session.session,
+            ) as view:
+                self.assertEqual(
+                    view.validated_info.consultant_email,
+                    "michel.moulin@example-consultancy.com",
+                )
+                self.assertEqual(view.validated_info.consultant_name, "Michel Moulin")
+            self.assertLessEqual(
+                abs(
+                    view.validated_info.raw_time
+                    - datetime.utcnow().replace(tzinfo=timezone.utc)
+                ),
+                timedelta(seconds=5),
+            )
 
-                self.assertEqual(len(mail_fixture.storage), 2)
-                recipients = {
-                    mail_fixture.storage[0][0][1],
-                    mail_fixture.storage[1][0][1],
+        # TODO check that assessment is locked
+        # self.assertTrue(self.traversed_session.session.locked)
+
+        self.assertEqual(len(mail_fixture.storage), 2)
+        recipients = {
+            mail_fixture.storage[0][0][1],
+            mail_fixture.storage[1][0][1],
+        }
+        self.assertSetEqual(
+            recipients,
+            {"valerie@labyrinth.social", "jessica@labyrinth.social"},
+        )
+
+    def test_delete_consultant(self):
+        now = datetime.utcnow().replace(tzinfo=timezone.utc)
+        self.traversed_session.session.consultancy = Consultancy(
+            account=self.consultant,
+            session=self.traversed_session.session,
+            status="validated",
+        )
+        event = SessionEvent(
+            account_id=self.consultant.id,
+            session_id=self.traversed_session.session.id,
+            action="validated",
+            time=now,
+            note=json.dumps(
+                {
+                    "consultant_id": self.consultant.id,
+                    "consultant_email": self.consultant.email,
+                    "consultant_name": "Michel Moulin",
                 }
-                self.assertSetEqual(
-                    recipients,
-                    {"valerie@labyrinth.social", "jessica@labyrinth.social"},
+            ),
+        )
+        self.session.add(event)
+
+        self.session.delete(self.consultant)
+        self.session.flush()
+
+        self.assertEqual(self.traversed_session.session.consultancy.status, "validated")
+        with api.env.adopt_user(user=self.owner):
+            with self._get_view(
+                "consultancy",
+                self.traversed_session,
+                self.traversed_session.session,
+            ) as view:
+                self.assertEqual(
+                    view.validated_info.consultant_email,
+                    "michel.moulin@example-consultancy.com",
                 )
+                self.assertEqual(view.validated_info.consultant_name, "Michel Moulin")
+            self.assertLessEqual(
+                abs(view.validated_info.raw_time - now),
+                timedelta(seconds=5),
+            )
