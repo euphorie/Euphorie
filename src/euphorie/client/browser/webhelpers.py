@@ -182,6 +182,24 @@ class WebHelpers(BrowserView):
         return country_enabled
 
     @property
+    def display_training_module(self):
+        if not self.use_training_module:
+            return False
+        traversed_session = self.traversed_session
+        if traversed_session is None:
+            return False
+
+        training_slide = api.content.get_view(
+            name="training_slide", context=self.context, request=self.request
+        )
+        if (
+            training_slide.existing_measures_training
+            or training_slide.planned_measures_training
+        ):
+            return True
+        return False
+
+    @property
     @memoize
     def use_publication_feature(self):
         return api.portal.get_registry_record(
