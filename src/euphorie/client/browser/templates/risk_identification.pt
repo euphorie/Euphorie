@@ -20,7 +20,7 @@
                 "
     >
       <tal:block replace="tile:statusmessages" />
-      <form class="pat-inject pat-validation panel-style"
+      <form class="pat-form pat-inject pat-validation panel-style"
             accept-charset="UTF-8"
             action="${here/absolute_url}/@@${view/__name__}"
             enctype="multipart/form-data"
