@@ -1,38 +1,64 @@
 <div xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:meta="http://xml.zope.org/namespaces/meta"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      tal:omit-tag=""
-      i18n:domain="euphorie"
-      meta:interpolation="true">
-  <ul id="navigation" class="navigation pat-navigation">
-    <tal:block define='countries python:view.countries.get("region")' condition="python:countries">
+     xmlns:meta="http://xml.zope.org/namespaces/meta"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     meta:interpolation="true"
+     tal:omit-tag=""
+     i18n:domain="euphorie"
+>
+  <ul class="navigation pat-navigation"
+      id="navigation"
+  >
+    <tal:block define='
+                 countries python:view.countries.get("region");
+               '
+               condition="python:countries"
+    >
       <li class="${python:'active' if any([c['current'] for c in countries]) else None}"><tal:span i18n:translate="">Regions</tal:span>
         <ul>
-          <li tal:repeat="country countries" class="${python:'active current' if country['current'] else None}"><a href="${country/url}">${country/title}</a></li>
-        </ul>  
+          <li class="${python:'active current' if country['current'] else None}"
+              tal:repeat="country countries"
+          ><a href="${country/url}">${country/title}</a></li>
+        </ul>
       </li>
     </tal:block>
-    <tal:block define='countries python:view.countries.get("eu-member")' condition="python:countries">
+    <tal:block define='
+                 countries python:view.countries.get("eu-member");
+               '
+               condition="python:countries"
+    >
       <li class="${python:'active' if any([c['current'] for c in countries]) else None}"><tal:span i18n:translate="">EU Member States</tal:span>
         <ul>
-          <li tal:repeat="country countries" class="${python:'active current' if country['current'] else None}"><a href="${country/url}">${country/title}</a></li>
-        </ul>  
+          <li class="${python:'active current' if country['current'] else None}"
+              tal:repeat="country countries"
+          ><a href="${country/url}">${country/title}</a></li>
+        </ul>
       </li>
     </tal:block>
-    <tal:block define='countries python:view.countries.get("candidate-eu")' condition="python:countries">
+    <tal:block define='
+                 countries python:view.countries.get("candidate-eu");
+               '
+               condition="python:countries"
+    >
       <li class="${python:'active' if any([c['current'] for c in countries]) else None}"><tal:span i18n:translate="">Candidate Countries</tal:span>
         <ul>
-          <li tal:repeat="country countries" class="${python:'active current' if country['current'] else None}"><a href="${country/url}">${country/title}</a></li>
-        </ul>  
+          <li class="${python:'active current' if country['current'] else None}"
+              tal:repeat="country countries"
+          ><a href="${country/url}">${country/title}</a></li>
+        </ul>
       </li>
     </tal:block>
-    <tal:block define='countries python:view.countries.get("potential-candidate-eu")' condition="python:countries">
+    <tal:block define='
+                 countries python:view.countries.get("potential-candidate-eu");
+               '
+               condition="python:countries"
+    >
       <li class="${python:'active' if any([c['current'] for c in countries]) else None}"><tal:span i18n:translate="">Potential Candidate Countries</tal:span>
         <ul>
-          <li tal:repeat="country countries" class="${python:'active current' if country['current'] else None}"><a href="${country/url}">${country/title}</a></li>
-        </ul>  
+          <li class="${python:'active current' if country['current'] else None}"
+              tal:repeat="country countries"
+          ><a href="${country/url}">${country/title}</a></li>
+        </ul>
       </li>
     </tal:block>
   </ul>
 </div>
-

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <object>
-  <membrane-type name="euphorie.client"/>
+  <membrane-type name="euphorie.client" />
 </object>

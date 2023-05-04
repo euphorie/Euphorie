@@ -1,8 +1,12 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <object name="euphorie.survey">
- <action title="Publish" action_id="publish" category="object" condition_expr=""
-   url_expr="string:${object_url}/@@publish" visible="True">
-   <permission value="Euphorie: Publish a Survey"/>
- </action>
+  <action action_id="publish"
+          category="object"
+          condition_expr=""
+          title="Publish"
+          url_expr="string:${object_url}/@@publish"
+          visible="True"
+  >
+    <permission value="Euphorie: Publish a Survey" />
+  </action>
 </object>
-

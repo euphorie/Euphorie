@@ -92,7 +92,11 @@
 
   </head>
 
-	<body id="body" data-page-layout="portal" data-layout-layout="shell" class="osh-off osc-off osc-size-normal osc-s-off">
+  <body class="osh-off osc-off osc-size-normal osc-s-off"
+        id="body"
+        data-layout-layout="shell"
+        data-page-layout="portal"
+  >
 
     <metal:block define-slot="content" />
 

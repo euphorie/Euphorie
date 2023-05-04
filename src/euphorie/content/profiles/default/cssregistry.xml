@@ -1,9 +1,16 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <object name="portal_css">
- <stylesheet title="" cacheable="True" compression="safe" cookable="True"
-   enabled="True"
-   expression="not: portal/portal_membership/isAnonymousUser"
-   id="++resource++farbtastic/farbtastic.css" media="" rel="stylesheet" rendering="import"
-   insert-after="member.css"/>
+  <stylesheet id="++resource++farbtastic/farbtastic.css"
+              cacheable="True"
+              compression="safe"
+              cookable="True"
+              enabled="True"
+              expression="not: portal/portal_membership/isAnonymousUser"
+              insert-after="member.css"
+              media=""
+              rel="stylesheet"
+              rendering="import"
+              title=""
+  />
 
 </object>

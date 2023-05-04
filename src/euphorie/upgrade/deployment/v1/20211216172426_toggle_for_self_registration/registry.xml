@@ -1,5 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <registry xmlns:i18n="http://xml.zope.org/namespaces/i18n">
-  <record name="plone.enable_self_reg" interface="Products.CMFPlone.interfaces.controlpanel.ISecuritySchema" field="enable_self_reg">
+  <record field="enable_self_reg"
+          interface="Products.CMFPlone.interfaces.controlpanel.ISecuritySchema"
+          name="plone.enable_self_reg"
+  >
     <value>True</value>
   </record>
 </registry>

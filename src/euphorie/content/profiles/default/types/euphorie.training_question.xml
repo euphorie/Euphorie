@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
         meta_type="Dexterity FTI"
         name="euphorie.training_question"
@@ -21,18 +21,26 @@
     <element value="euphorie.content.behaviour.uniqueid.INameFromUniqueId" />
   </property>
 
- <!-- View information -->
- <property name="immediate_view"/>
- <property name="default_view"/>
- <property name="default_view_fallback">False</property>
- <property name="view_methods">
- </property>
+  <!-- View information -->
+  <property name="immediate_view" />
+  <property name="default_view" />
+  <property name="default_view_fallback">False</property>
+  <property name="view_methods">
+</property>
 
- <!-- Method aliases -->
- <alias from="(Default)" to="(selected layout)"/>
- <alias from="edit" to="@@edit"/>
- <alias from="sharing" to="@@sharing"/>
- <alias from="view" to="@@view"/>
+  <!-- Method aliases -->
+  <alias from="(Default)"
+         to="(selected layout)"
+  />
+  <alias from="edit"
+         to="@@edit"
+  />
+  <alias from="sharing"
+         to="@@sharing"
+  />
+  <alias from="view"
+         to="@@view"
+  />
 
   <action action_id="view"
           category="object"

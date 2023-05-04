@@ -1,6 +1,8 @@
 <a class="icon more pat-tooltip"
-   tal:define="webhelpers nocall:context/@@webhelpers"
    href="${webhelpers/traversed_session/absolute_url}/@@more_menu#more-menu"
    data-pat-tooltip="source: ajax; position-list: tr"
+   tal:define="
+     webhelpers nocall:context/@@webhelpers;
+   "
    i18n:translate=""
 >More</a>

@@ -17,7 +17,10 @@
         Each folder can have several tool versions but only one version in each folder can be published. The published version is marked with *.
       </p>
       <p>
-        <a class="button" href="${context/absolute_url}/@@country-tools.csv" i18n:translate="header_sector_survey_download">Download spreadsheet</a>
+        <a class="button"
+           href="${context/absolute_url}/@@country-tools.csv"
+           i18n:translate="header_sector_survey_download"
+        >Download spreadsheet</a>
       </p>
       <p class="message notice"
          tal:condition="not:view/sectors"

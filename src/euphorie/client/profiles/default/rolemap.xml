@@ -1,15 +1,19 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <rolemap>
   <roles>
-    <role name="EuphorieUser"/>
+    <role name="EuphorieUser" />
   </roles>
   <permissions>
-    <permission name="Euphorie: Publish a Survey" acquire="True">
+    <permission acquire="True"
+                name="Euphorie: Publish a Survey"
+    >
       <role name="CountryManager" />
       <role name="Manager" />
       <role name="Sector" />
     </permission>
-    <permission name="Euphorie: View a Survey" acquire="False">
+    <permission acquire="False"
+                name="Euphorie: View a Survey"
+    >
       <role name="EuphorieUser" />
     </permission>
   </permissions>

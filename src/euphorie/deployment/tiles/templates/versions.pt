@@ -1,70 +1,105 @@
 <div xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      xmlns:meta="http://xml.zope.org/namespaces/meta"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      tal:condition="python:view.surveys"
-      meta:interpolation="true"
-      i18n:domain="euphorie"
-      id="portletVersioning" class="portlet contextual"
-      tal:define="tools nocall:context/@@tools">
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     xmlns:meta="http://xml.zope.org/namespaces/meta"
+     xmlns:metal="http://xml.zope.org/namespaces/metal"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     class="portlet contextual"
+     id="portletVersioning"
+     meta:interpolation="true"
+     tal:define="
+       tools nocall:context/@@tools;
+     "
+     tal:condition="python:view.surveys"
+     i18n:domain="euphorie"
+>
   <h3 i18n:translate="portlet_header_versions">Versions</h3>
 
   <div class="portletContent">
-    <form tal:repeat="group view/surveys" action="${group/url}/@@version-command" method="post">
+    <form action="${group/url}/@@version-command"
+          method="post"
+          tal:repeat="group view/surveys"
+    >
       <fieldset class="version">
         <legend>${group/title}</legend>
 
         <fieldset class="headerButtons">
           <button class="micro dependsOn-survey dependsAction-enable"
-                    title="Create a duplicate of the selected OiRA Tool"
-                    i18n:attributes="title help_add_version;"
-                    type="submit"
-                    name="action"
-                    value="clone"
-                    i18n:translate="button_add_version">Duplicate</button>
+                  name="action"
+                  title="Create a duplicate of the selected OiRA Tool"
+                  type="submit"
+                  value="clone"
+                  i18n:attributes="title help_add_version;"
+                  i18n:translate="button_add_version"
+          >Duplicate</button>
           <button class="micro dependsOn-survey dependsAction-enable"
-                    title="Publish the selected OiRA Tool live with its latest changes."
-                    i18n:attributes="title help_publish;"
-                    disabled="disabled"
-                    type="submit"
-                    name="action"
-                    value="publish"
-                    i18n:translate="button_publish">Publish</button>
+                  disabled="disabled"
+                  name="action"
+                  title="Publish the selected OiRA Tool live with its latest changes."
+                  type="submit"
+                  value="publish"
+                  i18n:attributes="title help_publish;"
+                  i18n:translate="button_publish"
+          >Publish</button>
           <button class="micro"
-                    title="Remove this OiRA Tool from the online client."
-                    i18n:attributes="title title_help_unpublished"
-                    disabled="${python:'disabled' if not group['published'] else None}"
-                    id="${group/id}"
-                    type="submit"
-                    name="action"
-                    value="unpublish"
-                    i18n:translate="button_unpublish">Unpublish</button>
+                  id="${group/id}"
+                  disabled="${python:'disabled' if not group['published'] else None}"
+                  name="action"
+                  title="Remove this OiRA Tool from the online client."
+                  type="submit"
+                  value="unpublish"
+                  i18n:attributes="title title_help_unpublished"
+                  i18n:translate="button_unpublish"
+          >Unpublish</button>
         </fieldset>
 
         <ul class="radioList surveyVersions">
-          <li tal:repeat="survey group/surveys" class="${python:' '.join(filter(None, ['current' if survey['current'] else None, 'published' if survey['published'] else None]))}">
-            <em tal:condition="python:survey['current'] and not survey['published']" class="sample current" i18n:translate="label_current">Current</em>
-            <em tal:condition="python:not survey['current'] and survey['published']" class="sample published" i18n:translate="label_published">Published</em>
-            <em tal:condition="python:survey['current'] and survey['published']" class="sample current published" i18n:translate="label_current_published">Current / Published</em>
-            <input type="radio"
+          <li class="${python:' '.join(filter(None, ['current' if survey['current'] else None, 'published' if survey['published'] else None]))}"
+              tal:repeat="survey group/surveys"
+          >
+            <em class="sample current"
+                tal:condition="python:survey['current'] and not survey['published']"
+                i18n:translate="label_current"
+            >Current</em>
+            <em class="sample published"
+                tal:condition="python:not survey['current'] and survey['published']"
+                i18n:translate="label_published"
+            >Published</em>
+            <em class="sample current published"
+                tal:condition="python:survey['current'] and survey['published']"
+                i18n:translate="label_current_published"
+            >Current / Published</em>
+            <input checked="${python:'checked' if survey['published'] else None}"
                    name="survey"
-                   value="${survey/id}"
-                   checked="${python:'checked' if survey['published'] else None}"
                    onclick="toggle_unpublish_button('${group/id}', '${not:survey/published}')"
-                   />
+                   type="radio"
+                   value="${survey/id}"
+            />
 
             <label><a href="${survey/url}">${survey/title}</a>
-            <tal:published condition="python:survey['published']"><br>
-              <tal:i18n i18n:translate="label_published">Published</tal:i18n>: ${python:survey['publication_date'].strftime('%Y/%m/%d')}
-            </tal:published>
+              <tal:published condition="python:survey['published']"><br />
+                <tal:i18n i18n:translate="label_published">Published</tal:i18n>: ${python:survey['publication_date'].strftime('%Y/%m/%d')}
+              </tal:published>
             </label>
-            <a class="floatAfter" href="${survey/url}/@@preview" i18n:translate="label_preview">Preview</a>
-            <a class="floatAfter" href="${survey/url}" i18n:translate="button_edit">Edit</a>
-            <a tal:condition="survey/modified" class="button icon upload floatAfter" href="${survey/url}/@@publish" i18n:translate="button_updated">Updated</a>
-            <ul tal:condition="python:survey['versions']" class="surveyRevisions" style="display: none">
+            <a class="floatAfter"
+               href="${survey/url}/@@preview"
+               i18n:translate="label_preview"
+            >Preview</a>
+            <a class="floatAfter"
+               href="${survey/url}"
+               i18n:translate="button_edit"
+            >Edit</a>
+            <a class="button icon upload floatAfter"
+               href="${survey/url}/@@publish"
+               tal:condition="survey/modified"
+               i18n:translate="button_updated"
+            >Updated</a>
+            <ul class="surveyRevisions"
+                style="display: none"
+                tal:condition="python:survey['versions']"
+            >
               <li tal:repeat="version survey/versions">${python:tools.formatDate(version["timestamp"])}
-              <!-- <a class="floatAfter" href="#" i18n:translate="button_view">View</a> --> </li>
+                <!-- <a class="floatAfter" href="#" i18n:translate="button_view">View</a> -->
+              </li>
             </ul>
           </li>
         </ul>
@@ -73,17 +108,40 @@
 
     <form action="${view/action_url}">
       <p class="buttonBar top">
-        <button class="micro" title="Start to write a new OiRA Tool. You will be asked whether you want to start off with a copy of an existing OiRA Tool." i18n:attributes="title help_create_new_version;" type="submit" name="action" value="new" i18n:translate="button_create_new">Create new OiRA Tool</button>
+        <button class="micro"
+                name="action"
+                title="Start to write a new OiRA Tool. You will be asked whether you want to start off with a copy of an existing OiRA Tool."
+                type="submit"
+                value="new"
+                i18n:attributes="title help_create_new_version;"
+                i18n:translate="button_create_new"
+        >Create new OiRA Tool</button>
       </p>
     </form>
 
     <div class="legend">
       <h5 i18n:translate="header_legend">Legend</h5>
       <ul class="legend">
-        <li class="published" i18n:translate="legend_published"><em class="sample published" i18n:name="label" i18n:translate="label_published">Published</em> Version that is currently online</li>
-        <li class="current" i18n:translate="legend_current"><em class="sample current" i18n:name="label" i18n:translate="label_current">Current</em> Version you are currently reviewing</li>
+        <li class="published"
+            i18n:translate="legend_published"
+        ><em class="sample published"
+              i18n:name="label"
+              i18n:translate="label_published"
+          >Published</em>
+          Version that is currently online</li>
+        <li class="current"
+            i18n:translate="legend_current"
+        ><em class="sample current"
+              i18n:name="label"
+              i18n:translate="label_current"
+          >Current</em>
+          Version you are currently reviewing</li>
       </ul>
-      <p i18n:translate="legend_updated"><em class="button icon upload" i18n:name="label" i18n:translate="label_update">Update</em> = This version has changes that are currently unpublished. Click the update icon to bring all the changes live</p>
+      <p i18n:translate="legend_updated"><em class="button icon upload"
+            i18n:name="label"
+            i18n:translate="label_update"
+        >Update</em>
+        = This version has changes that are currently unpublished. Click the update icon to bring all the changes live</p>
     </div>
   </div>
 </div>

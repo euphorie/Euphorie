@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <registry>
   <record name="euphorie.client.docx.title_extra_by_sector_mapping">
     <field type="plone.registry.field.Dict">
@@ -7,6 +8,6 @@
       <value_type type="plone.registry.field.TextLine" />
     </field>
     <value purge="false">
-    </value>
+</value>
   </record>
 </registry>

@@ -1,54 +1,79 @@
-<?xml version="1.0"?>
-<object name="euphorie.folder" meta_type="Dexterity FTI"
-   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+<?xml version="1.0" encoding="utf-8"?>
+<object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        meta_type="Dexterity FTI"
+        name="euphorie.folder"
+>
 
- <!-- Basic information -->
- <property name="title">Folder</property>
- <property name="content_icon">folder_icon.gif</property> 
+  <!-- Basic information -->
+  <property name="title">Folder</property>
+  <property name="content_icon">folder_icon.gif</property>
 
- <property name="global_allow">True</property>
- <property name="allow_discussion">False</property>
+  <property name="global_allow">True</property>
+  <property name="allow_discussion">False</property>
 
- <property name="filter_content_types">False</property>
- <property name="allowed_content_types">
- </property>
+  <property name="filter_content_types">False</property>
+  <property name="allowed_content_types">
+</property>
 
- <property name="klass">plone.dexterity.content.Container</property>
+  <property name="klass">plone.dexterity.content.Container</property>
 
- <property name="schema">euphorie.content.folder.IFolder</property>
- <property name="model_source"></property>
- <property name="model_file"></property>
+  <property name="schema">euphorie.content.folder.IFolder</property>
+  <property name="model_source" />
+  <property name="model_file" />
 
- <!-- List of enabled behaviors -->
- <property name="behaviors">
-  <element value="plone.app.content.interfaces.INameFromTitle" />
- </property>
+  <!-- List of enabled behaviors -->
+  <property name="behaviors">
+    <element value="plone.app.content.interfaces.INameFromTitle" />
+  </property>
 
- <!-- View information -->
- <property name="immediate_view"/>
- <property name="default_view"/>
- <property name="default_view_fallback">False</property>
- <property name="view_methods">
-  <element value="view"/>
- </property>
+  <!-- View information -->
+  <property name="immediate_view" />
+  <property name="default_view" />
+  <property name="default_view_fallback">False</property>
+  <property name="view_methods">
+    <element value="view" />
+  </property>
 
- <!-- Method aliases -->
- <alias from="(Default)" to="(selected layout)"/>
- <alias from="edit" to="@@edit"/>
- <alias from="sharing" to="@@sharing"/>
- <alias from="view" to="@@view"/>
+  <!-- Method aliases -->
+  <alias from="(Default)"
+         to="(selected layout)"
+  />
+  <alias from="edit"
+         to="@@edit"
+  />
+  <alias from="sharing"
+         to="@@sharing"
+  />
+  <alias from="view"
+         to="@@view"
+  />
 
- <!-- Actions -->
- <action title="View" action_id="view" category="object" condition_expr=""
-    url_expr="string:${object_url}" visible="True">
-  <permission value="View"/>
- </action>
- <action title="Edit" action_id="edit" category="object" condition_expr=""
-    url_expr="string:${object_url}/edit" visible="True">
-  <permission value="Modify portal content"/>
- </action>
- <action title="Upload" action_id="upload" category="object" condition_expr=""
-   url_expr="string:${object_url}/@@upload" visible="True">
-   <permission value="Euphorie: Add new Sector"/>
- </action>
+  <!-- Actions -->
+  <action action_id="view"
+          category="object"
+          condition_expr=""
+          title="View"
+          url_expr="string:${object_url}"
+          visible="True"
+  >
+    <permission value="View" />
+  </action>
+  <action action_id="edit"
+          category="object"
+          condition_expr=""
+          title="Edit"
+          url_expr="string:${object_url}/edit"
+          visible="True"
+  >
+    <permission value="Modify portal content" />
+  </action>
+  <action action_id="upload"
+          category="object"
+          condition_expr=""
+          title="Upload"
+          url_expr="string:${object_url}/@@upload"
+          visible="True"
+  >
+    <permission value="Euphorie: Add new Sector" />
+  </action>
 </object>

@@ -1,11 +1,17 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
-    <include package="plone.app.dexterity" file="overrides.zcml" />
-    <include package=".behaviour" file="overrides.zcml" />
+  <include
+      package="plone.app.dexterity"
+      file="overrides.zcml"
+      />
+  <include
+      package=".behaviour"
+      file="overrides.zcml"
+      />
 
-    <adapter
-        name="plone.protect.autocsrf"
-        factory=".protect.EuphorieProtectTransform"
-        />
+  <adapter
+      factory=".protect.EuphorieProtectTransform"
+      name="plone.protect.autocsrf"
+      />
 
 </configure>

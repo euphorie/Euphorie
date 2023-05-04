@@ -4,23 +4,23 @@
     >
 
   <adapter
-      provides="zope.publisher.interfaces.IPublishTraverse"
       factory=".site.SitePublishTraverser"
+      provides="zope.publisher.interfaces.IPublishTraverse"
       />
 
   <browser:page
       name="nuplone-view"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      permission="zope2.Public"
       class=".site.Frontpage"
+      permission="zope2.Public"
       layer="euphorie.content.interfaces.IEuphorieContentLayer"
       />
 
   <browser:page
       name="refresh-resources-timestamp"
       for="*"
-      permission="cmf.ManagePortal"
       class=".site.EuphorieRefreshResourcesTimestamp"
+      permission="cmf.ManagePortal"
       />
 
   <browser:page
@@ -33,47 +33,47 @@
   <browser:page
       name="manage-ensure-interface"
       for="*"
-      permission="cmf.ManagePortal"
       class=".site.ManageEnsureInterface"
+      permission="cmf.ManagePortal"
       />
 
   <browser:page
       name="repair-solution-id"
       for="*"
-      permission="cmf.ManagePortal"
       class=".site.RepairSolutionId"
+      permission="cmf.ManagePortal"
       />
 
   <browser:page
       name="fix-omega-paths"
       for="*"
-      permission="cmf.ManagePortal"
       class=".site.FixOmegaPaths"
+      permission="cmf.ManagePortal"
       />
 
   <browser:page
       name="update-completion-percentage"
       for="*"
-      permission="cmf.ManagePortal"
       class=".site.UpdateCompletionPercentage"
       template="templates/update-completion-percentage.pt"
+      permission="cmf.ManagePortal"
       />
 
   <browser:page
       name="search"
       for="*"
-      permission="zope2.View"
       class=".search.Search"
       template="templates/search.pt"
+      permission="zope2.View"
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <browser:page
       name="context-search"
       for="*"
-      permission="zope2.View"
       class=".search.ContextSearch"
       template="templates/context_search.pt"
+      permission="zope2.View"
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
@@ -83,9 +83,9 @@
         name="sitemenu"
         for="*"
         class="euphorie.deployment.browser.sitemenu.Sitemenu"
-        layer="euphorie.content.interfaces.IEuphorieContentLayer"
-        permission="zope2.Public"
         template="templates/sitemenu.pt"
+        permission="zope2.Public"
+        layer="euphorie.content.interfaces.IEuphorieContentLayer"
         />
   </configure>
 

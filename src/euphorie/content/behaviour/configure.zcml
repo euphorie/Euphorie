@@ -1,32 +1,36 @@
-<configure xmlns="http://namespaces.zope.org/zope"
-           xmlns:plone="http://namespaces.plone.org/plone"
-           i18n_domain="untranslated"
-           >
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="untranslated"
+    >
 
-    <adapter name="Description" factory=".richdescription.Description" />
+  <adapter
+      factory=".richdescription.Description"
+      name="Description"
+      />
 
-    <plone:behavior
-        title="Dirty tree root"
-        description="This makes objects keep track of changes in child objects."
-        provides=".dirtytree.IDirtyTreeRoot"
-        />
+  <plone:behavior
+      title="Dirty tree root"
+      description="This makes objects keep track of changes in child objects."
+      provides=".dirtytree.IDirtyTreeRoot"
+      />
 
-    <plone:behavior
-        title="Rich text description"
-        description="Use a rich text description for content types."
-        provides=".richdescription.IRichDescription"
-        />
+  <plone:behavior
+      title="Rich text description"
+      description="Use a rich text description for content types."
+      provides=".richdescription.IRichDescription"
+      />
 
-    <plone:behavior
-        title="Root node for unique id generation"
-        description="Generated unique ids are only unique within this context"
-        provides=".uniqueid.IIdGenerationRoot"
-        />
+  <plone:behavior
+      title="Root node for unique id generation"
+      description="Generated unique ids are only unique within this context"
+      provides=".uniqueid.IIdGenerationRoot"
+      />
 
-    <plone:behavior
-        title="Unique id for content"
-        description="Automatically generate unique ids for content"
-        provides=".uniqueid.INameFromUniqueId"
-        />
+  <plone:behavior
+      title="Unique id for content"
+      description="Automatically generate unique ids for content"
+      provides=".uniqueid.INameFromUniqueId"
+      />
 
 </configure>

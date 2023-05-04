@@ -1,5 +1,5 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
-    <adapter factory=".uniqueid.UniqueNameChooser" />
+  <adapter factory=".uniqueid.UniqueNameChooser" />
 
 </configure>

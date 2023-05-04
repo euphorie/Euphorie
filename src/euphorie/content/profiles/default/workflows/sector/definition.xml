@@ -1,116 +1,140 @@
-<?xml version="1.0"?>
-<dc-workflow workflow_id="sector"
-             xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-             title="Sector workflow"
+<?xml version="1.0" encoding="utf-8"?>
+<dc-workflow xmlns:i18n="http://xml.zope.org/namespaces/i18n"
              description="One-state workflow for sector objects, giving edit access to its contents to the sector user."
-             state_variable="review_state" initial_state="hidden"
-             >
- <permission>Euphorie: Add new RIE Content</permission>
- <permission>Access contents information</permission>
- <permission>Add portal content</permission>
- <permission>Modify portal content</permission>
- <permission>View</permission>
- <permission>Euphorie: Publish a survey</permission>
+             initial_state="hidden"
+             state_variable="review_state"
+             title="Sector workflow"
+             workflow_id="sector"
+>
+  <permission>Euphorie: Add new RIE Content</permission>
+  <permission>Access contents information</permission>
+  <permission>Add portal content</permission>
+  <permission>Modify portal content</permission>
+  <permission>View</permission>
+  <permission>Euphorie: Publish a survey</permission>
 
- <state state_id="hidden" title="Active" >
-   <description>
+  <state state_id="hidden"
+         title="Active"
+  >
+    <description>
      The One And Only state
    </description>
-  <permission-map name="Euphorie: Add new RIE Content"
-                  acquired="False">
-    <permission-role>Sector</permission-role>
-    <permission-role>CountryManager</permission-role>
-    <permission-role>Manager</permission-role>
-  </permission-map>
-  <permission-map name="Euphorie: Publish a survey"
-                  acquired="False">
-    <permission-role>Sector</permission-role>
-    <permission-role>CountryManager</permission-role>
-    <permission-role>Manager</permission-role>
-  </permission-map>
-  <permission-map name="Access contents information"
-                  acquired="False">
-    <permission-role>Authenticated</permission-role>
-    <permission-role>Sector</permission-role>
-    <permission-role>Manager</permission-role>
-    <permission-role>CountryManager</permission-role>
-  </permission-map>
-  <permission-map name="Add portal content"
-                  acquired="False">
-    <permission-role>Sector</permission-role>
-    <permission-role>Manager</permission-role>
-    <permission-role>CountryManager</permission-role>
-  </permission-map>
-  <permission-map name="Modify portal content"
-                  acquired="False">
-    <permission-role>Sector</permission-role>
-    <permission-role>Manager</permission-role>
-    <permission-role>CountryManager</permission-role>
-  </permission-map>
-  <permission-map name="View"
-                  acquired="True">
-    <permission-role>Authenticated</permission-role>
-    <permission-role>Sector</permission-role>
-    <permission-role>Manager</permission-role>
-    <permission-role>CountryManager</permission-role>
-  </permission-map>
- </state>
+    <permission-map acquired="False"
+                    name="Euphorie: Add new RIE Content"
+    >
+      <permission-role>Sector</permission-role>
+      <permission-role>CountryManager</permission-role>
+      <permission-role>Manager</permission-role>
+    </permission-map>
+    <permission-map acquired="False"
+                    name="Euphorie: Publish a survey"
+    >
+      <permission-role>Sector</permission-role>
+      <permission-role>CountryManager</permission-role>
+      <permission-role>Manager</permission-role>
+    </permission-map>
+    <permission-map acquired="False"
+                    name="Access contents information"
+    >
+      <permission-role>Authenticated</permission-role>
+      <permission-role>Sector</permission-role>
+      <permission-role>Manager</permission-role>
+      <permission-role>CountryManager</permission-role>
+    </permission-map>
+    <permission-map acquired="False"
+                    name="Add portal content"
+    >
+      <permission-role>Sector</permission-role>
+      <permission-role>Manager</permission-role>
+      <permission-role>CountryManager</permission-role>
+    </permission-map>
+    <permission-map acquired="False"
+                    name="Modify portal content"
+    >
+      <permission-role>Sector</permission-role>
+      <permission-role>Manager</permission-role>
+      <permission-role>CountryManager</permission-role>
+    </permission-map>
+    <permission-map acquired="True"
+                    name="View"
+    >
+      <permission-role>Authenticated</permission-role>
+      <permission-role>Sector</permission-role>
+      <permission-role>Manager</permission-role>
+      <permission-role>CountryManager</permission-role>
+    </permission-map>
+  </state>
 
- <variable variable_id="action" for_catalog="False"
-           for_status="True" update_always="True">
-  <description>Previous transition
+  <variable for_catalog="False"
+            for_status="True"
+            update_always="True"
+            variable_id="action"
+  >
+    <description>Previous transition
 </description>
-  <default>
+    <default>
 
-   <expression>transition/getId|nothing</expression>
-  </default>
-  <guard>
-  </guard>
- </variable>
- <variable variable_id="actor" for_catalog="False"
-           for_status="True" update_always="True">
-  <description>The ID of the user who performed the last transition
+      <expression>transition/getId|nothing</expression>
+    </default>
+    <guard>
+</guard>
+  </variable>
+  <variable for_catalog="False"
+            for_status="True"
+            update_always="True"
+            variable_id="actor"
+  >
+    <description>The ID of the user who performed the last transition
 </description>
-  <default>
+    <default>
 
-   <expression>user/getId</expression>
-  </default>
-  <guard>
-  </guard>
- </variable>
- <variable variable_id="comments" for_catalog="False"
-           for_status="True" update_always="True">
-  <description>Comment about the last transition
+      <expression>user/getId</expression>
+    </default>
+    <guard>
+</guard>
+  </variable>
+  <variable for_catalog="False"
+            for_status="True"
+            update_always="True"
+            variable_id="comments"
+  >
+    <description>Comment about the last transition
 </description>
-  <default>
+    <default>
 
-   <expression>python:state_change.kwargs.get('comment', '')</expression>
-  </default>
-  <guard>
-  </guard>
- </variable>
- <variable variable_id="review_history" for_catalog="False"
-           for_status="False" update_always="False">
-  <description>Provides access to workflow history
+      <expression>python:state_change.kwargs.get('comment', '')</expression>
+    </default>
+    <guard>
+</guard>
+  </variable>
+  <variable for_catalog="False"
+            for_status="False"
+            update_always="False"
+            variable_id="review_history"
+  >
+    <description>Provides access to workflow history
 </description>
-  <default>
+    <default>
 
-   <expression>state_change/getHistory</expression>
-  </default>
-  <guard>
-   <guard-permission>Request review</guard-permission>
-   <guard-permission>Review portal content</guard-permission>
-  </guard>
- </variable>
- <variable variable_id="time" for_catalog="False"
-           for_status="True" update_always="True">
-  <description>When the previous transition was performed
+      <expression>state_change/getHistory</expression>
+    </default>
+    <guard>
+      <guard-permission>Request review</guard-permission>
+      <guard-permission>Review portal content</guard-permission>
+    </guard>
+  </variable>
+  <variable for_catalog="False"
+            for_status="True"
+            update_always="True"
+            variable_id="time"
+  >
+    <description>When the previous transition was performed
 </description>
-  <default>
+    <default>
 
-   <expression>state_change/getDateTime</expression>
-  </default>
-  <guard>
-  </guard>
- </variable>
+      <expression>state_change/getDateTime</expression>
+    </default>
+    <guard>
+</guard>
+  </variable>
 </dc-workflow>

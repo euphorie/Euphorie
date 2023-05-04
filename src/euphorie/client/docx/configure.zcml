@@ -6,24 +6,24 @@
   <browser:page
       name="oira-report.docx"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
-      permission="zope2.View"
       class=".views.ActionPlanDocxView"
+      permission="zope2.View"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <browser:page
       name="oira-report-short.docx"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
-      permission="zope2.View"
       class=".views.ActionPlanShortDocxView"
+      permission="zope2.View"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
   <browser:page
       name="identification-report.docx"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
-      permission="zope2.View"
       class=".views.IdentificationReportDocxView"
+      permission="zope2.View"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 

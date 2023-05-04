@@ -4,13 +4,13 @@
     >
 
   <permission
-      title="Euphorie: Publish a Survey"
       id="euphorie.client.PublishSurvey"
+      title="Euphorie: Publish a Survey"
       />
 
   <permission
-      title="Euphorie: View a Survey"
       id="euphorie.client.ViewSurvey"
+      title="Euphorie: View a Survey"
       />
 
 </configure>
