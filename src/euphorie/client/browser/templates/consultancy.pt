@@ -83,20 +83,28 @@
         </tal:role_user>
 
         <tal:role_consultant tal:condition="role_consultant">
-          <p class="pat-message notice"
-             i18n:translate="message_you_are_requested_to_validate_assessment"
-          >
+          <tal:not_validated tal:condition="not:is_validated">
+            <p class="pat-message notice"
+               i18n:translate="message_you_are_requested_to_validate_assessment"
+            >
             You are requested to review and validate this risk assessment.
-          </p>
-          <div class="button-bar pat-bumper"
-               id="nav-bar"
+            </p>
+            <div class="button-bar pat-bumper"
+                 id="nav-bar"
+            >
+              <a class="pat-modal pat-button default"
+                 href="${here/absolute_url}/@@panel-validate-risk-assessment#document-content"
+                 data-pat-modal="class: small panel"
+                 i18n:translate="label_validate_this_risk_assessment_imp"
+              >Validate this risk assessment</a>
+            </div>
+          </tal:not_validated>
+          <p class="pat-message success"
+             tal:condition="is_validated"
+             i18n:translate="message_you_reviewed_and_validated_risk_assessment"
           >
-            <a class="pat-modal pat-button default"
-               href="${here/absolute_url}/@@panel-validate-risk-assessment#document-content"
-               data-pat-modal="class: small panel"
-               i18n:translate="label_validate_this_risk_assessment_imp"
-            >Validate this risk assessment</a>
-          </div>
+            You have reviewed and validated this risk assessment.
+          </p>
         </tal:role_consultant>
 
         <ul class="link-list"

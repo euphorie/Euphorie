@@ -135,12 +135,6 @@ class PanelValidateRiskAssessment(ConsultancyBaseView):
     email_template = ViewPageTemplateFile("templates/notify-assessment-validated.pt")
 
     @property
-    @memoize
-    def requester(self):
-        # TODO record requester in previous step
-        return self.context.session.account
-
-    @property
     def organisation_admins(self):
         organisation_view = api.content.get_view(
             name="organisation",
