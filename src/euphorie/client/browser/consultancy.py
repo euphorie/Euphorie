@@ -9,6 +9,7 @@ from plone import api
 from plone.memoize.view import memoize
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+import html
 import logging
 
 
@@ -67,11 +68,13 @@ class PanelRequestValidation(ConsultancyBaseView):
         consultant = self.consultant
         requester = self.webhelpers.get_current_account()
         session = self.context
-        body = self.email_template(
-            consultant=self.consultant.first_name or consultant.title,
-            requester=requester.title,
-            assessment_title=session.title,
-            assessment_link=f"{session.absolute_url()}/@@start",
+        body = html.unescape(
+            self.email_template(
+                consultant=self.consultant.first_name or consultant.title,
+                requester=requester.title,
+                assessment_title=session.title,
+                assessment_link=f"{session.absolute_url()}/@@start",
+            )
         )
         subject = api.portal.translate(
             _(

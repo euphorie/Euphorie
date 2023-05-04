@@ -1,7 +1,6 @@
 <tal:root xmlns:i18n="http://xml.zope.org/namespaces/i18n"
           xmlns:meta="http://xml.zope.org/namespaces/meta"
           xmlns:tal="http://xml.zope.org/namespaces/tal"
-          meta:interpolation="true"
           i18n:domain="euphorie"
 ><tal:span i18n:translate="email_request_validation_header">Dear
     <tal:span replace="options/consultant"
