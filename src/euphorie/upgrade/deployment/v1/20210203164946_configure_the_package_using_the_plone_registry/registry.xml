@@ -1,5 +1,5 @@
-<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
->
+<?xml version="1.0" encoding="utf-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n">
   <record name="euphorie.client_url">
     <field type="plone.registry.field.TextLine">
       <title>Euphorie client URL</title>
@@ -145,7 +145,7 @@
   "id": "portlets",
   "wrapper": "div"
 }</default>
-    <missing_value>{
+      <missing_value>{
   "tiles": "\neuphorie.search\neuphorie.versions [view_type==\"view\" and context.portal_type in ['euphorie.module', 'euphorie.risk', 'euphorie.solution', 'euphorie.survey', 'euphorie.surveygroup'] ]\nlanguage",
   "type": "group",
   "id": "portlets",

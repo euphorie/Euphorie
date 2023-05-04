@@ -55,9 +55,9 @@
                          href="${here/absolute_url}/@@panel-add-organisation#document-content"
                          title="Add organisation"
                          data-pat-modal="class: medium panel"
+                         tal:condition="not:account/organisation"
                          i18n:attributes="title"
                          i18n:translate=""
-                         tal:condition="not:account/organisation"
                       >Add organisation</a>
                     </p>
                     <ul class="finger-tabs-tabs">
@@ -77,61 +77,67 @@
                          id="org-${organisation/organisation_id}"
                          tal:repeat="organisation organisations"
                     >
-                    <tal:organisation tal:define="
-                      role_id python: view.get_member_role_id(organisation, account);
-                      can_edit python: role_id in ('owner', 'admin');
-                      can_add python: role_id in ('owner', 'admin');
-                    ">
-                      <figure class="organisation-logo">
-                        <img alt=""
-                             src="${here/absolute_url}/@@organisation-logo/${organisation/organisation_id}?q=${organisation/image_filename}"
-                             tal:condition="organisation/image_filename"
-                        />
-                      </figure>
-                      <ul class="data-matrix">
-                        <li class="row" tal:define="user python:organisation.owner">
-                          <h4 class="user field">
-                            <strong class="name">${user/title}</strong>
-                          </h4>
-                          <p class="field role" i18n:translate="">
+                      <tal:organisation tal:define="
+                                          role_id python: view.get_member_role_id(organisation, account);
+                                          can_edit python: role_id in ('owner', 'admin');
+                                          can_add python: role_id in ('owner', 'admin');
+                                        ">
+                        <figure class="organisation-logo">
+                          <img alt=""
+                               src="${here/absolute_url}/@@organisation-logo/${organisation/organisation_id}?q=${organisation/image_filename}"
+                               tal:condition="organisation/image_filename"
+                          />
+                        </figure>
+                        <ul class="data-matrix">
+                          <li class="row"
+                              tal:define="
+                                user python:organisation.owner;
+                              "
+                          >
+                            <h4 class="user field">
+                              <strong class="name">${user/title}</strong>
+                            </h4>
+                            <p class="field role"
+                               i18n:translate=""
+                            >
                             Owner
-                          </p>
-                        </li>
-                        <li class="row"
-                            tal:repeat="membership python:view.get_memberships(organisation)"
-                        >
-                          <h4 class="user field">
-                            <strong class="name">${membership/Account/title}</strong>
-                          </h4>
-                          <p class="field role">
+                            </p>
+                          </li>
+                          <li class="row"
+                              tal:repeat="membership python:view.get_memberships(organisation)"
+                          >
+                            <h4 class="user field">
+                              <strong class="name">${membership/Account/title}</strong>
+                            </h4>
+                            <p class="field role">
                             ${python:view.translate_role_id(membership.OrganisationMembership.member_role)}
-                          </p>
-                          <p class="icons field">
-                            <a class="icon more-menu iconified icon-ellipsis pat-tooltip"
-                               href="${here/absolute_url}/@@organisation-member-more-menu/${membership/OrganisationMembership/organisation_id}#member-more-menu"
-                               data-pat-tooltip="source: ajax; position-list: tr"
-                               tal:condition="python: can_add"
-                            >More</a>
-                          </p>
-                        </li>
-                      </ul>
-                      <div class="finger-tabs-sheet-buttons"
-                           tal:condition="python: can_add or can_edit"
-                      >
-                        <a class="default pat-button pat-modal"
-                           i18n:translate=""
-                           href="${here/absolute_url}/@@panel-add-user-to-organisation/${organisation/organisation_id}#document-content"
-                           data-pat-modal="class: small panel"
-                           tal:condition="python: can_add"
-                        >Add user</a>
-                        <a class="pat-button pat-modal"
-                           i18n:translate=""
-                           href="${here/absolute_url}/@@panel-edit-organisation/${organisation/organisation_id}#document-content"
-                           data-pat-modal="class: medium panel"
-                           tal:condition="python: can_edit"
-                        >Edit organisation</a>
-                      </div>
-                    </tal:organisation>
+                            </p>
+                            <p class="icons field">
+                              <a class="icon more-menu iconified icon-ellipsis pat-tooltip"
+                                 href="${here/absolute_url}/@@organisation-member-more-menu/${membership/OrganisationMembership/organisation_id}#member-more-menu"
+                                 data-pat-tooltip="source: ajax; position-list: tr"
+                                 tal:condition="python: can_add"
+                              >More</a>
+                            </p>
+                          </li>
+                        </ul>
+                        <div class="finger-tabs-sheet-buttons"
+                             tal:condition="python: can_add or can_edit"
+                        >
+                          <a class="default pat-button pat-modal"
+                             href="${here/absolute_url}/@@panel-add-user-to-organisation/${organisation/organisation_id}#document-content"
+                             data-pat-modal="class: small panel"
+                             tal:condition="python: can_add"
+                             i18n:translate=""
+                          >Add user</a>
+                          <a class="pat-button pat-modal"
+                             href="${here/absolute_url}/@@panel-edit-organisation/${organisation/organisation_id}#document-content"
+                             data-pat-modal="class: medium panel"
+                             tal:condition="python: can_edit"
+                             i18n:translate=""
+                          >Edit organisation</a>
+                        </div>
+                      </tal:organisation>
                     </div>
                   </div>
                 </div>

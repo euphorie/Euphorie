@@ -24,12 +24,12 @@
       handler="euphorie.client.browser.publish.handleSurveyUnpublish"
       />
 
-  	<subscriber
-      	for="euphorie.client.model.Module
-      		 euphorie.client.interfaces.CustomRisksModifiedEvent"
-      	handler=".module.handle_custom_risks_order"
- 	/>
+  <subscriber
+      for="euphorie.client.model.Module
+           euphorie.client.interfaces.CustomRisksModifiedEvent"
+      handler=".module.handle_custom_risks_order"
+      />
 
-    <subscriber handler=".login.record_last_login" />
+  <subscriber handler=".login.record_last_login" />
 
 </configure>

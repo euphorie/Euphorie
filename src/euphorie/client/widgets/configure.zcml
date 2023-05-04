@@ -5,35 +5,35 @@
 
   <z3c:widgetTemplate
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      view="euphorie.client.browser.session.Start"
+      widget="z3c.form.interfaces.ITextWidget"
       template="templates/text_input.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       mode="input"
-      view="euphorie.client.browser.session.Start"
-      widget="z3c.form.interfaces.ITextWidget"
       />
 
   <adapter
+      factory=".date.EuphorieDateFieldWidget"
       for="plone.app.z3cform.interfaces.IDateField
            euphorie.client.interfaces.IClientSkinLayer"
-      factory=".date.EuphorieDateFieldWidget"
       />
 
   <z3c:widgetTemplate
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      view="euphorie.client.browser.session.Start"
+      widget="plone.app.z3cform.interfaces.IDateWidget"
       template="templates/date_input.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       mode="input"
-      view="euphorie.client.browser.session.Start"
-      widget="plone.app.z3cform.interfaces.IDateWidget"
       />
 
   <z3c:widgetTemplate
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      view="euphorie.client.browser.session.Start"
+      widget="z3c.form.interfaces.ISingleCheckBoxWidget"
       template="templates/checkbox_input.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       mode="input"
-      view="euphorie.client.browser.session.Start"
-      widget="z3c.form.interfaces.ISingleCheckBoxWidget"
       />
 
 </configure>

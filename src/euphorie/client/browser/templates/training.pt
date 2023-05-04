@@ -131,7 +131,9 @@
             <figure class="tool-icon">
               <img alt=""
                    src="${image_url}"
-                   tal:define="image_url view/tool_image_url"
+                   tal:define="
+                     image_url view/tool_image_url;
+                   "
                    tal:condition="image_url"
               />
             </figure>
@@ -367,7 +369,9 @@
               <figure class="tool-icon">
                 <img alt=""
                      src="${image_url}"
-                     tal:define="image_url view/tool_image_url"
+                     tal:define="
+                       image_url view/tool_image_url;
+                     "
                      tal:condition="image_url"
                 />
               </figure>

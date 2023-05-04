@@ -37,7 +37,7 @@
              tal:condition="view/is_structure_changed"
              i18n:translate="intro_publish_survey_structure_changed"
           >
-            The structure of your OiRA tool has changed. If you publish now, existing users of this OiRA tool will lose parts of their answers. Please contact the OiRA team if you need assistance on this subject. You can also refer to the chapter “Re-working a published OiRA tool” of the OiRA manual.
+            The structure of your OiRA tool has changed. If you publish now, existing users of this OiRA tool will lose parts of their answers. Please contact the OiRA team if you need assistance on this subject. You can also refer to the chapter &ldquo;Re-working a published OiRA tool&rdquo; of the OiRA manual.
           </p>
         </tal:block>
 

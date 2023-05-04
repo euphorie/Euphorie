@@ -1,8 +1,15 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <object name="portal_types">
-  <object name="euphorie.survey" meta_type="Dexterity FTI" />
-  <object name="euphorie.client" meta_type="Dexterity FTI" />
-  <object name="euphorie.clientcountry" meta_type="Dexterity FTI" />
-  <object name="euphorie.clientsector" meta_type="Dexterity FTI" />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.survey"
+  />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.client"
+  />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.clientcountry"
+  />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.clientsector"
+  />
 </object>
-

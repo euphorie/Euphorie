@@ -1,18 +1,48 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <object name="portal_types">
-  <object name="euphorie.folder" meta_type="Dexterity FTI"/>
-  <object name="euphorie.sectorcontainer" meta_type="Dexterity FTI"/>
-  <object name="euphorie.country" meta_type="Dexterity FTI" />
-  <object name="euphorie.countrymanager" meta_type="Dexterity FTI" />
-  <object name="euphorie.documentation" meta_type="Dexterity FTI" />
-  <object name="euphorie.help" meta_type="Conditional Dexterity FTI" />
-  <object name="euphorie.sector" meta_type="Dexterity FTI" />
-  <object name="euphorie.module" meta_type="Conditional Dexterity FTI" />
-  <object name="euphorie.profilequestion" meta_type="Dexterity FTI" />
-  <object name="euphorie.risk" meta_type="Conditional Dexterity FTI" />
-  <object name="euphorie.solution" meta_type="Dexterity FTI" />
-  <object name="euphorie.survey" meta_type="Dexterity FTI" />
-  <object name="euphorie.surveygroup" meta_type="Dexterity FTI" />
-  <object name="euphorie.page" meta_type="Dexterity FTI" />
-  <object name="euphorie.training_question" meta_type="Conditional Dexterity FTI" />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.folder"
+  />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.sectorcontainer"
+  />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.country"
+  />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.countrymanager"
+  />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.documentation"
+  />
+  <object meta_type="Conditional Dexterity FTI"
+          name="euphorie.help"
+  />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.sector"
+  />
+  <object meta_type="Conditional Dexterity FTI"
+          name="euphorie.module"
+  />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.profilequestion"
+  />
+  <object meta_type="Conditional Dexterity FTI"
+          name="euphorie.risk"
+  />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.solution"
+  />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.survey"
+  />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.surveygroup"
+  />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.page"
+  />
+  <object meta_type="Conditional Dexterity FTI"
+          name="euphorie.training_question"
+  />
 </object>

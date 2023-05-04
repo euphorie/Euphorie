@@ -4,19 +4,19 @@
     >
 
   <z3c:widgetTemplate
+      widget=".password.IPasswordWithConfirmationWidget"
       template="templates/password_with_confirmation_input.pt"
       layer="plonetheme.nuplone.z3cform.interfaces.INuPloneFormLayer"
       mode="input"
-      widget=".password.IPasswordWithConfirmationWidget"
       />
 
   <configure package="z3c.form.browser">
 
     <z3c:widgetTemplate
+        widget="euphorie.content.widgets.password.IPasswordWithConfirmationWidget"
         template="password_display.pt"
         layer="plonetheme.nuplone.z3cform.interfaces.INuPloneFormLayer"
         mode="display"
-        widget="euphorie.content.widgets.password.IPasswordWithConfirmationWidget"
         />
 
   </configure>

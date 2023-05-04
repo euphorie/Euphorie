@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <registry>
   <record name="euphorie.client.docx.template_by_sector_mapping">
     <field type="plone.registry.field.Dict">

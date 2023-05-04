@@ -25,8 +25,8 @@
         <form class="pat-form wizard-box panel-class-panel pat-inject pat-validation"
               action="${request/getURL}#org-${python:view.organisation.organisation_id}"
               enctype="multipart/form-data"
-              data-pat-inject="#org-${python:view.organisation.organisation_id} &amp;&amp; .finger-tabs-tabs"
               method="post"
+              data-pat-inject="#org-${python:view.organisation.organisation_id} &amp;&amp; .finger-tabs-tabs"
         >
           <div class="panel-body"
                id="modal-panel-body"
@@ -39,9 +39,9 @@
                   </tal:i18n>
                   <input class="pat-autofocus"
                          name="title"
+                         required="required"
                          type="text"
                          value="${request/title|organisation/title|nothing}"
-                         required="required"
                   />
                 </label>
                 <tal:condition condition="not:has_logo">

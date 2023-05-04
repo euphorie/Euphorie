@@ -11,7 +11,9 @@
 
   <body i18n:domain="euphorie">
     <metal:slot fill-slot="content"
-                tal:define="webhelpers nocall:context/@@webhelpers"
+                tal:define="
+                  webhelpers nocall:context/@@webhelpers;
+                "
     >
       <section id="menu-content">
         <ul class="menu">

@@ -6,233 +6,235 @@
   <browser:page
       name="minimal_main_template"
       for="*"
-      permission="zope.Public"
       template="templates/minimal_main_template.pt"
+      permission="zope.Public"
       />
 
   <browser:page
       name="prefs_main_template"
       for="*"
-      permission="zope.Public"
       template="templates/prefs_main_template.pt"
+      permission="zope.Public"
       />
 
   <!-- Override NuPlone's layout.pt, so that we can add our redactor include -->
   <browser:page
       name="layout"
       for="*"
-      layer="euphorie.content.interfaces.IEuphorieContentLayer"
-      permission="zope2.Public"
       template="templates/layout.pt"
+      permission="zope2.Public"
+      layer="euphorie.content.interfaces.IEuphorieContentLayer"
       />
 
   <!-- Country -->
   <browser:page
       name="nuplone-view"
       for="euphorie.content.country.ICountry"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".country.CountryView"
-      permission="zope2.View"
       template="templates/country_view.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
-    <adapter
-        for="Products.CMFCore.interfaces.IFolderish
-             plonetheme.nuplone.skin.interfaces.NuPloneSkin
-             plone.dexterity.interfaces.IDexterityFTI"
-        provides="zope.publisher.interfaces.browser.IBrowserPage"
-        factory=".country.AddView"
-        name="euphorie.country"/>
-    <class class=".country.AddView">
-        <require
-            permission="euphorie.content.AddNewRIEContent"
-            interface="zope.publisher.interfaces.browser.IBrowserPage"
-            />
-    </class>
+  <adapter
+      factory=".country.AddView"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      for="Products.CMFCore.interfaces.IFolderish
+           plonetheme.nuplone.skin.interfaces.NuPloneSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      name="euphorie.country"
+      />
+  <class class=".country.AddView">
+    <require
+        permission="euphorie.content.AddNewRIEContent"
+        interface="zope.publisher.interfaces.browser.IBrowserPage"
+        />
+  </class>
 
   <browser:page
       name="nuplone-view"
       for="euphorie.content.help.IOnlineHelp"
-      permission="zope2.View"
       template="templates/help_view.pt"
+      permission="zope2.View"
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <browser:page
       name="edit"
       for="euphorie.content.country.ICountry"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".country.EditForm"
       permission="cmf.ModifyPortalContent"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <browser:page
       name="manage-users"
       for="euphorie.content.country.ICountry"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".country.ManageUsers"
-      permission="euphorie.content.ManageCountry"
       template="templates/user_mgmt.pt"
+      permission="euphorie.content.ManageCountry"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <browser:page
       name="country-tools"
       for="euphorie.content.country.ICountry"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".country.Tools"
-      permission="zope2.View"
       template="templates/country_tools.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <browser:page
       name="country-tools.csv"
       for="euphorie.content.country.ICountry"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".country.Tools"
       attribute="download_csv"
       permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <!-- CountryManager -->
   <browser:page
       name="nuplone-view"
       for="euphorie.content.countrymanager.ICountryManager"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
-      permission="zope2.View"
       template="templates/countrymanager_view.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <!-- DocumentationFolder -->
   <browser:page
       name="nuplone-view"
       for="euphorie.content.documentation.IDocumentationFolder"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
-      permission="zope2.View"
       template="templates/documentation_view.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <!-- Folder -->
   <browser:page
       name="nuplone-view"
       for="euphorie.content.folder.IFolder"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
-      permission="zope2.View"
       template="templates/folder_view.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <!-- Page -->
   <browser:page
       name="nuplone-view"
       for="euphorie.content.page.IPage"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
-      permission="zope2.View"
       template="templates/page_view.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <!-- Sector -->
   <browser:page
       name="nuplone-view"
       for="euphorie.content.sector.ISector"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".sector.SectorView"
-      permission="zope2.View"
       template="templates/sector_view.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <browser:page
       name="edit"
       for="euphorie.content.sector.ISector"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".sector.EditForm"
       permission="cmf.ModifyPortalContent"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <configure package="plonetheme.nuplone.skin">
     <browser:page
         name="delete"
         for="euphorie.content.sector.ISector"
-        layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
         class="euphorie.content.browser.sector.Delete"
-        permission="zope2.View"
         template="templates/delete.pt"
+        permission="zope2.View"
+        layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
         />
   </configure>
 
   <browser:page
       name="version-command"
       for="euphorie.content.sector.ISector"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".sector.VersionCommand"
       permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <browser:page
       name="upload"
       for="euphorie.content.sector.ISector"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
-      permission="euphorie.content.AddNewRIEContent"
       class=".upload.ImportSurvey"
+      permission="euphorie.content.AddNewRIEContent"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <!-- SectorContainer -->
   <browser:page
       name="nuplone-view"
       for="euphorie.content.sectorcontainer.ISectorContainer"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".sectorcontainer.SectorContainerView"
-      permission="zope2.View"
       template="templates/sectorcontainer_view.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <!-- Survey -->
   <browser:page
       name="nuplone-view"
       for="euphorie.content.survey.ISurvey"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".survey.SurveyView"
-      permission="zope2.View"
       template="templates/survey_view.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
-    <adapter
-        for="Products.CMFCore.interfaces.IFolderish
-             plonetheme.nuplone.skin.interfaces.NuPloneSkin
-             plone.dexterity.interfaces.IDexterityFTI"
-        provides="zope.publisher.interfaces.browser.IBrowserPage"
-        factory=".survey.AddView"
-        name="euphorie.survey"/>
-    <class class=".survey.AddView">
-        <require
-            permission="euphorie.content.AddNewRIEContent"
-            interface="zope.publisher.interfaces.browser.IBrowserPage"
-            />
-    </class>
+  <adapter
+      factory=".survey.AddView"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      for="Products.CMFCore.interfaces.IFolderish
+           plonetheme.nuplone.skin.interfaces.NuPloneSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      name="euphorie.survey"
+      />
+  <class class=".survey.AddView">
+    <require
+        permission="euphorie.content.AddNewRIEContent"
+        interface="zope.publisher.interfaces.browser.IBrowserPage"
+        />
+  </class>
 
   <browser:page
       name="edit"
       for="euphorie.content.survey.ISurvey"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".survey.EditForm"
       permission="cmf.ModifyPortalContent"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <configure package="plonetheme.nuplone.skin">
     <browser:page
         name="delete"
         for="euphorie.content.survey.ISurvey"
-        layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
         class="euphorie.content.browser.survey.Delete"
-        permission="zope2.View"
         template="templates/delete.pt"
+        permission="zope2.View"
+        layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
         />
   </configure>
 
   <browser:page
       name="export"
       for="euphorie.content.survey.ISurvey"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
-      permission="zope2.View"
       class=".export.ExportSurvey"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <browser:page
@@ -247,173 +249,177 @@
   <browser:page
       name="nuplone-view"
       for="euphorie.content.surveygroup.ISurveyGroup"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".surveygroup.SurveyGroupView"
-      permission="zope2.View"
       template="templates/surveygroup_view.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <adapter
+      factory=".surveygroup.AddView"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
       for="Products.CMFCore.interfaces.IFolderish
            plonetheme.nuplone.skin.interfaces.NuPloneSkin
            plone.dexterity.interfaces.IDexterityFTI"
-      provides="zope.publisher.interfaces.browser.IBrowserPage"
-      factory=".surveygroup.AddView"
-      name="euphorie.surveygroup"/>
+      name="euphorie.surveygroup"
+      />
   <class class=".surveygroup.AddView">
-      <require
-          permission="euphorie.content.AddNewRIEContent"
-          interface="zope.publisher.interfaces.browser.IBrowserPage"
-          />
+    <require
+        permission="euphorie.content.AddNewRIEContent"
+        interface="zope.publisher.interfaces.browser.IBrowserPage"
+        />
   </class>
 
   <browser:page
       name="unpublish"
       for="euphorie.content.surveygroup.ISurveyGroup"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".surveygroup.Unpublish"
-      permission="cmf.ModifyPortalContent"
       template="templates/surveygroup_unpublish.pt"
+      permission="cmf.ModifyPortalContent"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <browser:page
       name="version-command"
       for="euphorie.content.surveygroup.ISurveyGroup"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".surveygroup.VersionCommand"
       permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <!-- ProfileQuestion -->
   <browser:page
       name="nuplone-view"
       for="euphorie.content.profilequestion.IProfileQuestion"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".profilequestion.ProfileQuestionView"
-      permission="zope2.View"
       template="templates/profilequestion_view.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
-    <adapter
-        for="Products.CMFCore.interfaces.IFolderish
-             plonetheme.nuplone.skin.interfaces.NuPloneSkin
-             plone.dexterity.interfaces.IDexterityFTI"
-        provides="zope.publisher.interfaces.browser.IBrowserPage"
-        factory=".profilequestion.AddView"
-        name="euphorie.profilequestion"
+  <adapter
+      factory=".profilequestion.AddView"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      for="Products.CMFCore.interfaces.IFolderish
+           plonetheme.nuplone.skin.interfaces.NuPloneSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      name="euphorie.profilequestion"
+      />
+  <class class=".profilequestion.AddView">
+    <require
+        permission="euphorie.content.AddNewRIEContent"
+        interface="zope.publisher.interfaces.browser.IBrowserPage"
         />
-    <class class=".profilequestion.AddView">
-        <require
-            permission="euphorie.content.AddNewRIEContent"
-            interface="zope.publisher.interfaces.browser.IBrowserPage"
-            />
-    </class>
+  </class>
 
   <browser:page
       name="edit"
       for="euphorie.content.profilequestion.IProfileQuestion"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".profilequestion.EditForm"
       permission="cmf.ModifyPortalContent"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <!-- Module -->
   <browser:page
       name="nuplone-view"
       for="euphorie.content.module.IModule"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".module.ModuleView"
-      permission="zope2.View"
       template="templates/module_view.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
-    <adapter
-        for="Products.CMFCore.interfaces.IFolderish
-             plonetheme.nuplone.skin.interfaces.NuPloneSkin
-             plone.dexterity.interfaces.IDexterityFTI"
-        provides="zope.publisher.interfaces.browser.IBrowserPage"
-        factory=".module.AddView"
-        name="euphorie.module"/>
-    <class class=".module.AddView">
-        <require
-            permission="euphorie.content.AddNewRIEContent"
-            interface="zope.publisher.interfaces.browser.IBrowserPage"
-            />
-    </class>
+  <adapter
+      factory=".module.AddView"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      for="Products.CMFCore.interfaces.IFolderish
+           plonetheme.nuplone.skin.interfaces.NuPloneSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      name="euphorie.module"
+      />
+  <class class=".module.AddView">
+    <require
+        permission="euphorie.content.AddNewRIEContent"
+        interface="zope.publisher.interfaces.browser.IBrowserPage"
+        />
+  </class>
 
   <browser:page
       name="edit"
       for="euphorie.content.module.IModule"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".module.EditForm"
       permission="cmf.ModifyPortalContent"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <!-- Risk -->
   <browser:page
       name="nuplone-view"
       for="euphorie.content.risk.IRisk"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".risk.RiskView"
-      permission="zope2.View"
       template="templates/risk_view.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
-    <adapter
-        for="Products.CMFCore.interfaces.IFolderish
-             plonetheme.nuplone.skin.interfaces.NuPloneSkin
-             plone.dexterity.interfaces.IDexterityFTI"
-        provides="zope.publisher.interfaces.browser.IBrowserPage"
-        factory=".risk.AddView"
-        name="euphorie.risk"/>
-    <class class=".risk.AddView">
-        <require
-            permission="euphorie.content.AddNewRIEContent"
-            interface="zope.publisher.interfaces.browser.IBrowserPage"
-            />
-    </class>
+  <adapter
+      factory=".risk.AddView"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      for="Products.CMFCore.interfaces.IFolderish
+           plonetheme.nuplone.skin.interfaces.NuPloneSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      name="euphorie.risk"
+      />
+  <class class=".risk.AddView">
+    <require
+        permission="euphorie.content.AddNewRIEContent"
+        interface="zope.publisher.interfaces.browser.IBrowserPage"
+        />
+  </class>
 
   <browser:page
       name="edit"
       for="euphorie.content.risk.IRisk"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".risk.EditForm"
       permission="cmf.ModifyPortalContent"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <!-- Solution -->
   <browser:page
       name="nuplone-view"
       for="euphorie.content.solution.ISolution"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".solution.SolutionView"
-      permission="zope2.View"
       template="templates/solution_view.pt"
+      permission="zope2.View"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
-    <adapter
-        for="Products.CMFCore.interfaces.IFolderish
-             plonetheme.nuplone.skin.interfaces.NuPloneSkin
-             plone.dexterity.interfaces.IDexterityFTI"
-        provides="zope.publisher.interfaces.browser.IBrowserPage"
-        factory=".solution.AddView"
-        name="euphorie.solution"/>
-    <class class=".solution.AddView">
-        <require
-            permission="euphorie.content.AddNewRIEContent"
-            interface="zope.publisher.interfaces.browser.IBrowserPage"
-            />
-    </class>
+  <adapter
+      factory=".solution.AddView"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      for="Products.CMFCore.interfaces.IFolderish
+           plonetheme.nuplone.skin.interfaces.NuPloneSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      name="euphorie.solution"
+      />
+  <class class=".solution.AddView">
+    <require
+        permission="euphorie.content.AddNewRIEContent"
+        interface="zope.publisher.interfaces.browser.IBrowserPage"
+        />
+  </class>
 
   <browser:page
       name="edit"
       for="euphorie.content.solution.ISolution"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".solution.EditForm"
       permission="cmf.ModifyPortalContent"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
-   <!-- Training -->
+  <!-- Training -->
   <browser:page
       name="nuplone-view"
       for="euphorie.content.training_question.ITrainingQuestion"
@@ -428,27 +434,27 @@
   <browser:page
       name="library"
       for="euphorie.content.interfaces.IQuestionContainer"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".library.Library"
-      permission="euphorie.content.AddNewRIEContent"
       template="templates/library.pt"
+      permission="euphorie.content.AddNewRIEContent"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <browser:page
       name="library-insert"
       for="euphorie.content.interfaces.IQuestionContainer"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".library.LibraryInsert"
       permission="euphorie.content.AddNewRIEContent"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <!-- User -->
   <browser:page
       name="lock"
       for="euphorie.content.user.IUser"
-      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       class=".user.Lock"
       permission="euphorie.content.ManageCountry"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
 </configure>

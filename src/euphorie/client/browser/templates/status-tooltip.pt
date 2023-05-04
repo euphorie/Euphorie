@@ -15,7 +15,8 @@
        "
   >
     <p i18n:translate="info_survey_completion">
-      You have completed <tal:name i18n:name="completed">${session/completion_percentage}</tal:name>% of the risk assessment.
+      You have completed
+      <tal:name i18n:name="completed">${session/completion_percentage}</tal:name>% of the risk assessment.
     </p>
 
   </div>

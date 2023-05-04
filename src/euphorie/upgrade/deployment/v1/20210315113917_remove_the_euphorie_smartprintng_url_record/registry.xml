@@ -1,6 +1,11 @@
-<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="euphorie">
-  <record name="euphorie.smartprintng_url" remove="true" />
-    <record name="euphorie.wkhtmltopdf.options">
+<?xml version="1.0" encoding="utf-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="euphorie"
+>
+  <record name="euphorie.smartprintng_url"
+          remove="true"
+  />
+  <record name="euphorie.wkhtmltopdf.options">
     <field type="plone.registry.field.TextLine">
       <default />
       <title>Options to control wkhtmltopdf usage</title>

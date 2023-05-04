@@ -3,8 +3,9 @@
      xmlns:meta="http://xml.zope.org/namespaces/meta"
      xmlns:tal="http://xml.zope.org/namespaces/tal"
      meta:interpolation="false"
+     tal:omit-tag=""
      i18n:domain="euphorie"
-     tal:omit-tag="">
+>
   <script type="text/javascript">
 
 toggle_unpublish_button = function(group_id, published) {

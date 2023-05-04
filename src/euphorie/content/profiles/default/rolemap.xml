@@ -1,40 +1,54 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <rolemap>
   <roles>
     <role name="CountryManager" />
     <role name="Sector" />
   </roles>
   <permissions>
-    <permission name="CMFEditions: Apply version control" acquire="True">
+    <permission acquire="True"
+                name="CMFEditions: Apply version control"
+    >
       <role name="Manager" />
       <role name="Sector" />
       <role name="CountryManager" />
     </permission>
-    <permission name="CMFEditions: Access previous versions" acquire="True">
+    <permission acquire="True"
+                name="CMFEditions: Access previous versions"
+    >
       <role name="Manager" />
       <role name="Sector" />
       <role name="CountryManager" />
     </permission>
-    <permission name="CMFEditions: Revert to previous versions" acquire="True">
+    <permission acquire="True"
+                name="CMFEditions: Revert to previous versions"
+    >
       <role name="Manager" />
       <role name="Sector" />
       <role name="CountryManager" />
     </permission>
-    <permission name="CMFEditions: Save new version" acquire="True">
+    <permission acquire="True"
+                name="CMFEditions: Save new version"
+    >
       <role name="Manager" />
       <role name="Sector" />
       <role name="CountryManager" />
     </permission>
-    <permission name="Euphorie: Manage country" acquire="True">
+    <permission acquire="True"
+                name="Euphorie: Manage country"
+    >
       <role name="Manager" />
       <role name="CountryManager" />
     </permission>
-    <permission name="Euphorie: Add new RIE Content" acquire="True">
+    <permission acquire="True"
+                name="Euphorie: Add new RIE Content"
+    >
       <role name="Manager" />
       <role name="Sector" />
       <role name="CountryManager" />
     </permission>
-    <permission name="Euphorie: Delete published content" acquire="True">
+    <permission acquire="True"
+                name="Euphorie: Delete published content"
+    >
       <role name="CountryManager" />
       <role name="Manager" />
     </permission>

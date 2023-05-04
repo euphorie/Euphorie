@@ -199,17 +199,17 @@
            href="${webhelpers/session_overview_url}/help-menu.html#menu-content"
            data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
            data-pat-tooltip="source: ajax"
-           i18n:translate="help_link"
            tal:condition="python: not is_anonymous"
+           i18n:translate="help_link"
         >Help</a>
         <a class="home iconified icon-home ${python:'pat-inject pat-switch' if not is_anonymous else None}"
            href="${webhelpers/country_or_client_url}"
            title="Dashboard"
            data-pat-inject="source: #content; target: #content; history: record"
            data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+           tal:condition="python: not is_anonymous"
            i18n:attributes="title home_link"
            i18n:translate="home_link"
-           tal:condition="python: not is_anonymous"
         >Dashboard</a>
       </header>
       <div id="content">

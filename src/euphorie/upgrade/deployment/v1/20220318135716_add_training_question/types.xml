@@ -1,5 +1,9 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <object name="portal_types">
-  <object name="euphorie.survey" meta_type="Dexterity FTI" />
-  <object name="euphorie.training_question" meta_type="Conditional Dexterity FTI" />
+  <object meta_type="Dexterity FTI"
+          name="euphorie.survey"
+  />
+  <object meta_type="Conditional Dexterity FTI"
+          name="euphorie.training_question"
+  />
 </object>

@@ -3,11 +3,14 @@
     xmlns:upgrade-step="http://namespaces.zope.org/ftw.upgrade"
     >
 
-    <include package="ftw.upgrade" file="meta.zcml" />
+  <include
+      package="ftw.upgrade"
+      file="meta.zcml"
+      />
 
-    <upgrade-step:directory
-        profile="euphorie.content:default"
-        directory="v1"
-        />
+  <upgrade-step:directory
+      profile="euphorie.content:default"
+      directory="v1"
+      />
 
 </configure>

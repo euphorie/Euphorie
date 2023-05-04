@@ -10,12 +10,12 @@
   <tal:span i18n:translate="email_request_validation_intro"><tal:span replace="options/requester"
               i18n:name="requester"
     />
-    requested to validate the risk assessment ‘<tal:span replace="options/assessment_title"
+    requested to validate the risk assessment &lsquo;<tal:span replace="options/assessment_title"
               i18n:name="assessment"
-    />’.
+    />&rsquo;.
   </tal:span>
 
-  <tal:span i18n:translate="email_request_validation_instructions">Please click on the link below to visit the risk assessment. If you approve of the contents of the risk assessment, then please click on ‘Validate’ in the section ‘Consultancy’ to give the risk assessment an official validated status.
+  <tal:span i18n:translate="email_request_validation_instructions">Please click on the link below to visit the risk assessment. If you approve of the contents of the risk assessment, then please click on &lsquo;Validate&rsquo; in the section &lsquo;Consultancy&rsquo; to give the risk assessment an official validated status.
   </tal:span>
 
   <tal:span replace="options/assessment_link" />

@@ -1,8 +1,12 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <object name="portal_javascripts">
- <javascript cacheable="True" compression="safe" cookable="True"
-   enabled="True" expression="not: portal/portal_membership/isAnonymousUser"
-   id="++resource++farbtastic/farbtastic.js" inline="False"
-   insert-after="dropdown.js"/>
+  <javascript id="++resource++farbtastic/farbtastic.js"
+              cacheable="True"
+              compression="safe"
+              cookable="True"
+              enabled="True"
+              expression="not: portal/portal_membership/isAnonymousUser"
+              inline="False"
+              insert-after="dropdown.js"
+  />
 </object>
-
