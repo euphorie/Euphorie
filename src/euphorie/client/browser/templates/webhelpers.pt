@@ -642,7 +642,7 @@
          tal:define="
            training_view nocall:here/@@training_slide;
          "
-         tal:condition="webhelpers/use_training_module"
+         tal:condition="webhelpers/display_training_module"
     >
       <h3 class="form-separation-header"
           i18n:translate="menu_training"

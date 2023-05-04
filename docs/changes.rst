@@ -25,6 +25,10 @@ Changelog
 
 - Fix the translation in the title attribute of listed assessments
   [ale-rt]
+
+- When there is no measure to select, do not show the "Training" module
+  [ale-rt]
+
 - Use Plone 5.2.12
 
 
