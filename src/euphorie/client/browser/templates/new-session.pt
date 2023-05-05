@@ -16,7 +16,7 @@
         <h1 panel-class-small=""
             i18n:translate="header_new_session"
         >New session</h1>
-        <form class="wizard-box panel-class-small pat-inject"
+        <form class="pat-form wizard-box panel-class-small pat-inject"
               action="${request/URL}"
               method="post"
               data-pat-inject="source: #content; target: #content; history: record &amp;&amp; source: #splash-message; target: #splash-message;"
@@ -28,7 +28,6 @@
           <div class="panel-body"
                tal:define="
                  root view/get_survey_templates_tree_root;
-                 threshold view/tools_threshold;
                  template_count python:len(view.get_survey_templates());
                "
           >
@@ -37,42 +36,40 @@
                 <p i18n:translate="label_select_new_session">Start a new session by choosing one of the following sectoral tools.</p>
               </article>
 
-              <fieldset class="tool-list"
-                        tal:condition="python:template_count &lt;= threshold"
-              >
-                <metal:templates define-macro="templates">
-                  <tal:surveys define="
-                                 surveys root/survey_templates;
-                               ">
-                    <fieldset class="tools pat-checklist radio">
-                      <label class="tool"
-                             tal:repeat="survey surveys"
-                      >
-                        <input name="survey"
-                               type="radio"
-                               value="${survey/id}"
-                        />
-                        <strong class="field name">${survey/title}</strong>
-                      </label>
-                    </fieldset>
-                  </tal:surveys>
-                </metal:templates>
-                <tal:categories repeat="child root/categories">
-                  <fieldset class="department">
-                    <legend>${child/title}</legend>
-                    <tal:survey define="
-                                  root child;
-                                ">
-                      <metal:node use-macro="template/macros/templates" />
-                    </tal:survey>
-                  </fieldset>
-                </tal:categories>
-              </fieldset>
+              <fieldset class="vertical">
+                <fieldset class="group pat-checklist radio">
+                  <label>
+                    <tal:i18n i18n:translate="label_start_from_scratch">Start new risk assessment from scratch</tal:i18n>
+                    <input checked
+                           name="tabula"
+                           type="radio"
+                           value="rasa"
+                    />
+                  </label>
+                  <label>
+                    <tal:i18n i18n:translate="label_start_base_on_existing">Base on an existing risk assessment</tal:i18n>
+                    <input name="tabula"
+                           type="radio"
+                           value="plena"
+                    />
+                  </label>
+                  <p class="pat-depends pat-message info"
+                     data-pat-depends="condition: tabula=rasa"
+                     i18n:translate="help_start_from_scratch"
+                  >
+                        Start from scratch with an empty risk assessment.
+                  </p>
+                  <p class="pat-depends pat-message info"
+                     data-pat-depends="condition: tabula=plena"
+                     i18n:translate="help_start_base_on_existing"
+                  >
+                        Start based on an existing risk assessment. All content of the existing risk assessment will be copied over into the new risk assessment, which you can edit and augment at will.
+                  </p>
+                </fieldset>
 
-              <fieldset class="vertical"
-                        tal:condition="python:template_count &gt; threshold"
-              >
-                <label class="tool-list-many">
+                <label class="pat-depends tool-list-many"
+                       data-pat-depends="condition: tabula=rasa"
+                >
                   <select class="pat-autosuggest"
                           name="survey"
                           placeholder="Select an OiRA tool"
@@ -100,7 +97,27 @@
                     </tal:categories>
                   </select>
                 </label>
+
+
+                <label class="pat-depends tool-list-many"
+                       data-pat-depends="condition: tabula=plena"
+                >
+                  <tal:i18n i18n:translate="label_existing_assessment_base">Existing risk assessment to use as a base</tal:i18n>
+                  <input class="pat-autosuggest"
+                         name="ass"
+                         placeholder="Select a risk assessment"
+                         required
+                         type="text"
+                         data-pat-autosuggest="
+                            allow-new-words: false; 
+                            ajax-search-index: text; 
+                            maximum-selection-size: 1;
+                            ajax-url: ${here/absolute_url}/assessments.json;"
+                         i18n:attributes="placeholder label_select_assessment"
+                  />
+                </label>
               </fieldset>
+
             </div>
           </div>
 
