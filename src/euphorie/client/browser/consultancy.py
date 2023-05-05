@@ -22,6 +22,17 @@ class ConsultancyBaseView(BaseView):
         return self.context.session.account.organisation
 
     @property
+    def is_admin(self):
+        organisation_view = api.content.get_view(
+            name="organisation",
+            context=self.webhelpers.country_obj,
+            request=self.request,
+        )
+        return organisation_view.get_member_role_id(
+            self.organisation, self.webhelpers.get_current_account()
+        ) in ["admin", "owner"]
+
+    @property
     def consultants(self):
         if not self.organisation:
             return []
@@ -99,17 +110,6 @@ class PanelRequestValidation(ConsultancyBaseView):
             subject=subject,
         )
         logger.info("Sent validation request email to %s", self.consultant.email)
-
-    @property
-    def is_admin(self):
-        organisation_view = api.content.get_view(
-            name="organisation",
-            context=self.webhelpers.country_obj,
-            request=self.request,
-        )
-        return organisation_view.get_member_role_id(
-            self.organisation, self.webhelpers.get_current_account()
-        ) in ["admin", "owner"]
 
     def handle_POST(self):
         """Handle the POST request."""

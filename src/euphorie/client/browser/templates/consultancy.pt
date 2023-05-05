@@ -65,7 +65,7 @@
 
           <div class="button-bar pat-bumper"
                id="nav-bar"
-               tal:condition="not:consultant"
+               tal:condition="python:not consultant and view.is_admin"
           >
             <a class="pat-modal pat-button default"
                href="${here/absolute_url}/@@panel-request-validation#document-content"
@@ -125,6 +125,7 @@
             <a class="pat-modal"
                href="${webhelpers/country_url}/@@panel-add-user-to-organisation/${organisation/organisation_id}#document-content"
                data-pat-modal="class: small panel"
+               tal:condition="view/is_admin"
                i18n:translate=""
             >Add an OSH consultant to your organisation.</a>
           </li>
