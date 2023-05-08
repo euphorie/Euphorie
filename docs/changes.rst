@@ -4,6 +4,9 @@ Changelog
 14.3.5 (unreleased)
 -------------------
 
+- When creating a new assessment users can choose to duplicate an existing one
+  [reinhardt]
+
 - Makefile resource update: Improve reproducibility.
   Add and commit generated resources from "resources-install" and
   "update-patterns" targets.

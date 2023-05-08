@@ -21,10 +21,6 @@
               method="post"
               data-pat-inject="source: #content; target: #content; history: record &amp;&amp; source: #splash-message; target: #splash-message;"
         >
-          <input name="action"
-                 type="hidden"
-                 value="new"
-          />
           <div class="panel-body"
                tal:define="
                  root view/get_survey_templates_tree_root;
@@ -41,26 +37,26 @@
                   <label>
                     <tal:i18n i18n:translate="label_start_from_scratch">Start new risk assessment from scratch</tal:i18n>
                     <input checked
-                           name="tabula"
+                           name="action"
                            type="radio"
-                           value="rasa"
+                           value="new"
                     />
                   </label>
                   <label>
                     <tal:i18n i18n:translate="label_start_base_on_existing">Base on an existing risk assessment</tal:i18n>
-                    <input name="tabula"
+                    <input name="action"
                            type="radio"
-                           value="plena"
+                           value="clone"
                     />
                   </label>
                   <p class="pat-depends pat-message info"
-                     data-pat-depends="condition: tabula=rasa"
+                     data-pat-depends="condition: action=new"
                      i18n:translate="help_start_from_scratch"
                   >
                         Start from scratch with an empty risk assessment.
                   </p>
                   <p class="pat-depends pat-message info"
-                     data-pat-depends="condition: tabula=plena"
+                     data-pat-depends="condition: action=clone"
                      i18n:translate="help_start_base_on_existing"
                   >
                         Start based on an existing risk assessment. All content of the existing risk assessment will be copied over into the new risk assessment, which you can edit and augment at will.
@@ -68,7 +64,7 @@
                 </fieldset>
 
                 <label class="pat-depends tool-list-many"
-                       data-pat-depends="condition: tabula=rasa"
+                       data-pat-depends="condition: action=new"
                 >
                   <select class="pat-autosuggest"
                           name="survey"
@@ -100,13 +96,12 @@
 
 
                 <label class="pat-depends tool-list-many"
-                       data-pat-depends="condition: tabula=plena"
+                       data-pat-depends="condition: action=clone"
                 >
                   <tal:i18n i18n:translate="label_existing_assessment_base">Existing risk assessment to use as a base</tal:i18n>
                   <input class="pat-autosuggest"
-                         name="ass"
+                         name="session"
                          placeholder="Select a risk assessment"
-                         required
                          type="text"
                          data-pat-autosuggest="
                             allow-new-words: false; 
@@ -126,7 +121,7 @@
               <button class="pat-button default pat-depends close-panel"
                       name="next"
                       type="submit"
-                      data-pat-depends="condition: survey; action: enable"
+                      data-pat-depends="condition: (action=new and survey) or (action=clone and session); action: enable"
                       i18n:translate="button_start_session"
               >Start risk assessment</button>
               <button class="pat-button close-panel"

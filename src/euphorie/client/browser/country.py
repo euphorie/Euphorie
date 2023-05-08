@@ -20,6 +20,8 @@ from zExceptions import Unauthorized
 from zope.deprecation import deprecate
 from zope.interface import directlyProvides
 
+import json
+
 
 logger = getLogger(__name__)
 
@@ -254,6 +256,13 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
             f"{session.absolute_url()}/@@resume?initial_view=1{extra}"
         )
 
+    def _CloneSurvey(self, info):
+        session = Session.query(self.survey_session_model).get(info["session"])
+        clone_view = api.content.get_view(
+            "clone-session", session.traversed_session, self.request
+        )
+        clone_view.clone()
+
     def tool_byline(self):
         title = api.portal.translate(
             _("title_tool", default="OiRA - Online interactive Risk Assessment")
@@ -278,6 +287,8 @@ class SessionsView(BrowserView, SurveyTemplatesMixin):
             return self._NewSurvey(reply)
         elif action == "continue":
             return self._ContinueSurvey(reply)
+        if action == "clone":
+            return self._CloneSurvey(reply)
         self._updateSurveys()
         return super().__call__()
 
@@ -356,6 +367,8 @@ class SessionBrowserNavigator(BrowserView):
 
 
 class Assessments(BrowserView):
+    query_parameter = "SearchableText"
+
     @property
     @memoize
     def webhelpers(self):
@@ -419,7 +432,7 @@ class Assessments(BrowserView):
     @property
     @memoize
     def sessions(self):
-        searchable_text = self.request.get("SearchableText", None)
+        searchable_text = self.request.get(self.query_parameter, None)
         if searchable_text and "%" not in searchable_text:
             searchable_text = f"%{searchable_text}%"
         sort_on_value = self.request.get("sort_on", "modified")
@@ -446,6 +459,16 @@ class Assessments(BrowserView):
         if not session.is_archived:
             return ""
         return api.portal.translate(_("Archived"))
+
+
+class AssessmentsJson(Assessments):
+    query_parameter = "q"
+
+    def __call__(self):
+        self.request.response.setHeader("Content-Type", "application/json")
+        return json.dumps(
+            [{"id": session.id, "text": session.title} for session in self.sessions]
+        )
 
 
 class Surveys(BrowserView, SurveyTemplatesMixin):
