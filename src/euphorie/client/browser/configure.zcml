@@ -421,6 +421,14 @@
       />
 
   <browser:page
+      name="assessments.json"
+      for="euphorie.client.country.IClientCountry"
+      class=".country.AssessmentsJson"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="panel-add-user-to-organisation"
       for="euphorie.client.country.IClientCountry"
       class=".organisation.PanelAddUser"
