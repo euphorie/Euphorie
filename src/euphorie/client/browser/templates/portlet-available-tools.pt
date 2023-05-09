@@ -3,7 +3,6 @@
        id="${view/element_id}"
        tal:define="
          root view/get_survey_templates_tree_root;
-         threshold view/tools_threshold;
          template_count python:len(view.get_survey_templates());
        "
        tal:condition="template_count"
@@ -30,41 +29,7 @@
             </p>
           </article>
 
-          <fieldset class="tool-list"
-                    tal:condition="python:template_count &lt;= threshold"
-          >
-            <metal:templates define-macro="templates">
-              <tal:surveys define="
-                             surveys root/survey_templates;
-                           ">
-                <fieldset class="tools pat-checklist radio">
-                  <label class="tool"
-                         tal:repeat="survey surveys"
-                  >
-                    <input name="survey"
-                           type="radio"
-                           value="${survey/id}"
-                    />
-                    <strong class="field name">${survey/title}</strong>
-                  </label>
-                </fieldset>
-              </tal:surveys>
-            </metal:templates>
-            <tal:categories repeat="child root/categories">
-              <fieldset class="department">
-                <legend>${child/title}</legend>
-                <tal:survey define="
-                              root child;
-                            ">
-                  <metal:node use-macro="template/macros/templates" />
-                </tal:survey>
-              </fieldset>
-            </tal:categories>
-          </fieldset>
-
-          <fieldset class="vertical"
-                    tal:condition="python:template_count &gt; threshold"
-          >
+          <fieldset class="vertical">
             <label class="tool-list-many">
               <select class="pat-autosuggest"
                       name="survey"
