@@ -4,6 +4,10 @@ Changelog
 14.3.5 (unreleased)
 -------------------
 
+- Align with recent changes in prototype.
+  Ref: scrum-1205
+  [thet]
+
 - When creating a new assessment users can choose to duplicate an existing one
   [reinhardt]
 
