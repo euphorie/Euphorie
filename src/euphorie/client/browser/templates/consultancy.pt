@@ -45,13 +45,23 @@
 
         <tal:role_user tal:condition="not:role_consultant">
           <p class="pat-message success"
-             tal:condition="python:consultant and is_validated"
+             tal:define="
+               raw_time view/validated_info/raw_time|nothing;
+             "
+             tal:condition="python:is_validated"
              i18n:translate="message_session_validated"
           >
-            <a href="mailto:${consultant/email}"
+            <a href="mailto:${view/validated_info/consultant_email}"
                i18n:name="consultant"
-            >${consultant/title}</a>
-             has reviewed and validated this risk assessment.
+            >${view/validated_info/consultant_name}</a>
+          has reviewed and validated this risk assessment
+            <time class="date pat-display-time"
+                  datetime="${value}"
+                  data-pat-display-time="from-now: false; locale: ${language}"
+                  tal:define="
+                    value python:webhelpers.timezoned_date(raw_time);
+                  "
+            >${value}</time>.
           </p>
           <p class="pat-message info"
              tal:condition="python:consultant and not is_validated"
@@ -65,7 +75,7 @@
 
           <div class="button-bar pat-bumper"
                id="nav-bar"
-               tal:condition="python:not consultant and view.is_admin"
+               tal:condition="python:not is_validated and not consultant and view.is_admin"
           >
             <a class="pat-modal pat-button default"
                href="${here/absolute_url}/@@panel-request-validation#document-content"
