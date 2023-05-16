@@ -259,9 +259,7 @@ msgstr ""
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
-msgstr ""
-"Kopijuodami rizikos vertinimą, Jūs sukursite naują rizikos vertinimą pagal "
-"jau atlikto vertinimo turinį."
+msgstr "Dubliuodami rizikos vertinimą, Jūs sukursite naują rizikos vertinimą pagal jau atlikto vertinimo turinį."
 
 #: Euphorie/src/euphorie/client/browser/reset_password.py:212
 #: Euphorie/src/euphorie/client/browser/templates/account-delete.pt:45
@@ -1232,7 +1230,7 @@ msgstr ""
 
 #: Euphorie/src/euphorie/client/browser/session.py:783
 msgid "The risk assessment has been cloned"
-msgstr "Rizikos vertinimas buvo pakartotas."
+msgstr "Rizikos vertinimas pasikartojo."
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:309
 msgid "The role is invalid"
@@ -1418,7 +1416,7 @@ msgstr "Taip"
 
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:36
 msgid "Yes, clone risk assessment"
-msgstr "Taip, kopijuoti rizikos vertinimą."
+msgstr "Taip, pakartokite rizikos vertinimą."
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:168
 msgid "You already have an organisation."
@@ -3806,7 +3804,7 @@ msgstr ""
 "Rizikos vertinimo naršyklė leidžia rasti anksčiau atliktus rizikos "
 "vertinimus. Pradėkite naują rizikos vertinimą spausdami &lsquo;+&rsquo; arba "
 "padarykite esamo rizikos vertinimo kopiją spausdami trigubo taško simbolį "
-"šalia rizikos vertinimo ir pasirinkite &lsquo;Kopijuoti&rsquo;."
+"šalia rizikos vertinimo ir pasirinkite &lsquo;Dubliuoti&rsquo;."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
 #: Euphorie/src/euphorie/client/browser/templates/tooltips.pt:89
@@ -4158,7 +4156,7 @@ msgstr "Klasifikacijos kodas"
 #. Default: "Clone risk assessment"
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:15
 msgid "label_clone"
-msgstr "Kopijuoti rizikos vertinimą"
+msgstr "Pakartokite rizikos vertinimą"
 
 #. Default: "Close this message"
 #: Euphorie/src/euphorie/client/browser/templates/browser-warning.pt:50

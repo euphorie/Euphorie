@@ -267,10 +267,7 @@ msgstr ""
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
-msgstr ""
-"Copiando una valutazione del rischio già realizzata, puoi utilizzarla come "
-"base di partenza per creare una nuova valutazione dei rischi utilizzando i "
-"contenuti già predisposti."
+msgstr "Duplicando una valutazione del rischio già realizzata, puoi utilizzarla come base di partenza per creare una nuova valutazione dei rischi utilizzando i contenuti già predisposti."
 
 #: Euphorie/src/euphorie/client/browser/reset_password.py:212
 #: Euphorie/src/euphorie/client/browser/templates/account-delete.pt:45
@@ -1445,7 +1442,7 @@ msgstr "Sì"
 
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:36
 msgid "Yes, clone risk assessment"
-msgstr "Si, copia la valutazione dei rischi"
+msgstr "Si, duplica la valutazione dei rischi"
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:168
 msgid "You already have an organisation."

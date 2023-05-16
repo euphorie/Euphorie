@@ -266,10 +266,7 @@ msgstr ""
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
-msgstr ""
-"Meta tikkopja evalwazzjoni tar-riskju tkun qiegħed toħloq evalwazzjoni tar-"
-"riskju ġdida ibbażata fuq il-kontenut ta’ din l-evalwazzjoni tar-riskju "
-"bħala punt tat-tluq."
+msgstr "Meta tidduplika evalwazzjoni tar-riskju tkun qiegħed toħloq evalwazzjoni tar-riskju ġdida ibbażata fuq il-kontenut ta’ din l-evalwazzjoni tar-riskju bħala punt tat-tluq."
 
 #: Euphorie/src/euphorie/client/browser/reset_password.py:212
 #: Euphorie/src/euphorie/client/browser/templates/account-delete.pt:45
@@ -1248,7 +1245,7 @@ msgstr ""
 
 #: Euphorie/src/euphorie/client/browser/session.py:783
 msgid "The risk assessment has been cloned"
-msgstr "Il-valutazzjoni tar-riskju ġiet ikklonata."
+msgstr "Il-valutazzjoni tar-riskju ġiet duplikata."
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:309
 msgid "The role is invalid"
@@ -1441,7 +1438,7 @@ msgstr "Iva"
 
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:36
 msgid "Yes, clone risk assessment"
-msgstr "Iva, ikkopja l-evalwazzjoni tar-riskju"
+msgstr "Iva, idduplika l-evalwazzjoni tar-riskju"
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:168
 msgid "You already have an organisation."
@@ -3855,7 +3852,7 @@ msgstr ""
 "tar-riskju li kont għamilt qabel. Ibda evalwazzjoni tar-riskju ġdida billi "
 "tikklikkja fuq il-&lsquo;+&rsquo; jew tagħmel kopja ta’ evalwazzjoni tar-"
 "riskju eżistenti billi tikklikkja fuq is-simbolu tat-tliet tikek ħdejn l-"
-"evalwazzjoni tar-riskju u agħżel &lsquo;ikkopja&rsquo;."
+"evalwazzjoni tar-riskju u agħżel &lsquo;duplikat&rsquo;."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
 #: Euphorie/src/euphorie/client/browser/templates/tooltips.pt:89
@@ -4214,7 +4211,7 @@ msgstr "Kodiċi ta' Klassifikazzjoni"
 #. Default: "Clone risk assessment"
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:15
 msgid "label_clone"
-msgstr "Ikkopja l-evalwazzjoni tar-riskju"
+msgstr "Idduplika l-evalwazzjoni tar-riskju"
 
 #. Default: "Close this message"
 #: Euphorie/src/euphorie/client/browser/templates/browser-warning.pt:50

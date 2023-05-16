@@ -255,9 +255,7 @@ msgstr ""
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
-msgstr ""
-"Zkopírováním tohoto hodnocení rizika vytvoříte nové hodnocení založené na "
-"obsahu původního nástroje jako výchozího zdroje."
+msgstr "Duplikováním tohoto hodnocení rizika vytvoříte nové hodnocení založené na obsahu původního nástroje jako výchozího zdroje."
 
 #: Euphorie/src/euphorie/client/browser/reset_password.py:212
 #: Euphorie/src/euphorie/client/browser/templates/account-delete.pt:45
@@ -1416,7 +1414,7 @@ msgstr "Ano"
 
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:36
 msgid "Yes, clone risk assessment"
-msgstr "Ano, zkopírovat hodnocení rizik"
+msgstr "Ano, duplikujte hodnocení rizik"
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:168
 msgid "You already have an organisation."
@@ -3757,7 +3755,7 @@ msgstr ""
 "jste již dříve provedli. Nové hodnocení rizik zahájíte kliknutím na &lsquo;"
 "+&rsquo; nebo vytvořte kopii stávajícího hodnocení rizik kliknutím na symbol "
 "trojtečky (…) vedle hodnocení rizik a výběrem možnosti &lsquo;"
-"kopírovat&rsquo;."
+"duplikát&rsquo;."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
 #: Euphorie/src/euphorie/client/browser/templates/tooltips.pt:89
@@ -4100,7 +4098,7 @@ msgstr "Klasifikační kód"
 #. Default: "Clone risk assessment"
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:15
 msgid "label_clone"
-msgstr "Zkopírovat hodnocení rizik"
+msgstr "Duplikujte hodnocení rizik"
 
 #. Default: "Close this message"
 #: Euphorie/src/euphorie/client/browser/templates/browser-warning.pt:50
