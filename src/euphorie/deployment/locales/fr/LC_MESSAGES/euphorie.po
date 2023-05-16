@@ -1257,7 +1257,7 @@ msgstr ""
 
 #: Euphorie/src/euphorie/client/browser/session.py:783
 msgid "The risk assessment has been cloned"
-msgstr "L’évaluation des risques a été clonée."
+msgstr "L’évaluation des risques a été dupliquée."
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:309
 msgid "The role is invalid"

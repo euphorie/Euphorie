@@ -280,11 +280,7 @@ msgstr ""
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
-msgstr ""
-"Αν κατά την έναρξη μιας νέας μελέτης Εκτίμησης Κινδύνου επιλέξετε να "
-"χρησιμοποιηθεί ένα πιστό αντίγραφο (κλώνος) μιας παλαιότερης μελέτης,  τότε "
-"το περιεχόμενο της νέας μελέτης σας θα βασιστεί στο περιεχόμενο της "
-"παλαιότερης μελέτης."
+msgstr "Αν κατά την έναρξη μιας νέας μελέτης Εκτίμησης Κινδύνου επιλέξετε να χρησιμοποιηθεί ένα πιστό αντίγραφο μιας παλαιότερης μελέτης,  τότε το περιεχόμενο της νέας μελέτης σας θα βασιστεί στο περιεχόμενο της παλαιότερης μελέτης.."
 
 #: Euphorie/src/euphorie/client/browser/reset_password.py:212
 #: Euphorie/src/euphorie/client/browser/templates/account-delete.pt:45
@@ -1289,7 +1285,7 @@ msgstr ""
 
 #: Euphorie/src/euphorie/client/browser/session.py:783
 msgid "The risk assessment has been cloned"
-msgstr "Η αξιολόγηση κινδύνου έχει κλωνοποιηθεί."
+msgstr "Η αξιολόγηση κινδύνου έχει διπλασιαστεί."
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:309
 msgid "The role is invalid"
@@ -1482,8 +1478,7 @@ msgstr "Ναι"
 
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:36
 msgid "Yes, clone risk assessment"
-msgstr ""
-"Ναι, να δημιουγηθεί ένα πιστό αντίγραφο (κλώνος) της Εκτίμησης Κινδύνου"
+msgstr "Ναι, να δημιουγηθεί ένα πιστό αντίγραφο της Εκτίμησης Κινδύνου"
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:168
 msgid "You already have an organisation."
@@ -3960,7 +3955,7 @@ msgstr ""
 "Εκτίμησης Κινδύνου κάνοντας κλικ στο &lsquo;+&rsquo; ή δημιουργήστε ένα "
 "πιστό αντίγραφο μιας υπάρχουσας  Μελέτης Εκτίμησης  Κινδύνου κάνοντας κλικ "
 "στο σύμβολο της τριπλής κουκκίδας δίπλα στο όνομα της μελέτης που σας "
-"ενδιαφέρει.  Στη συνέχεια, επιλέξτε &lsquo;Πιστό αντίγραφο (κλώνος)&rsquo;."
+"ενδιαφέρει.  Στη συνέχεια, επιλέξτε &lsquo;Διπλότυπο&rsquo;."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
 #: Euphorie/src/euphorie/client/browser/templates/tooltips.pt:89
@@ -4326,7 +4321,7 @@ msgstr "Κωδικός κατάταξης"
 #. Default: "Clone risk assessment"
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:15
 msgid "label_clone"
-msgstr "Πιστό αντίγραφο (κλώνος) της Μελέτης Εκτίμησης Κινδύνου"
+msgstr "Πιστό αντίγραφο της Μελέτης Εκτίμησης Κινδύνου"
 
 #. Default: "Close this message"
 #: Euphorie/src/euphorie/client/browser/templates/browser-warning.pt:50

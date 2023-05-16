@@ -234,7 +234,7 @@ msgstr ""
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
-msgstr ""
+msgstr "By duplicating a risk assessment you will create a new risk assessment based on the contents of this risk assessment as a starting point."
 
 #: Euphorie/src/euphorie/client/browser/reset_password.py:212
 #: Euphorie/src/euphorie/client/browser/templates/account-delete.pt:45
@@ -1156,7 +1156,7 @@ msgstr ""
 
 #: Euphorie/src/euphorie/client/browser/session.py:783
 msgid "The risk assessment has been cloned"
-msgstr ""
+msgstr "The risk assessment has been duplicated"
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:309
 msgid "The role is invalid"
@@ -1336,7 +1336,7 @@ msgstr ""
 
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:36
 msgid "Yes, clone risk assessment"
-msgstr ""
+msgstr "Yes, duplicate risk assessment"
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:168
 msgid "You already have an organisation."
@@ -3450,7 +3450,7 @@ msgstr ""
 #. Default: "The risk assessment browser allows you to find risk assessments that were previously made by you. Start a new risk assessment by clicking on the &lsquo;+&rsquo; or make a copy of an existing risk assessment by clicking on the tripple dot symbol next to a risk assessment and select &lsquo;clone&rsquo; ."
 #: Euphorie/src/euphorie/client/browser/templates/tooltips.pt:110
 msgid "info_osh_ra_browser"
-msgstr ""
+msgstr "The risk assessment browser allows you to find risk assessments that were previously made by you. Start a new risk assessment by clicking on the &lsquo;+&rsquo; or make a copy of an existing risk assessment by clicking on the tripple dot symbol next to a risk assessment and select &lsquo;duplicate&rsquo; ."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
 #: Euphorie/src/euphorie/client/browser/templates/tooltips.pt:89
@@ -3742,7 +3742,7 @@ msgstr ""
 #. Default: "Clone risk assessment"
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:15
 msgid "label_clone"
-msgstr ""
+msgstr "Duplicate risk assessment"
 
 #. Default: "Close this message"
 #: Euphorie/src/euphorie/client/browser/templates/browser-warning.pt:50

@@ -259,9 +259,7 @@ msgstr ""
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
-msgstr ""
-"Door een risicoanalyse te klonen, zal u een nieuwe risicoanalyse creëren "
-"gebaseerd op de inhoud van deze risicoanalyse als startpunt."
+msgstr "Door een risicoanalyse te dupliceren, zal u een nieuwe risicoanalyse creëren gebaseerd op de inhoud van deze risicoanalyse als startpunt."
 
 #: Euphorie/src/euphorie/client/browser/reset_password.py:212
 #: Euphorie/src/euphorie/client/browser/templates/account-delete.pt:45
@@ -1234,7 +1232,7 @@ msgstr ""
 
 #: Euphorie/src/euphorie/client/browser/session.py:783
 msgid "The risk assessment has been cloned"
-msgstr "De risicobeoordeling is gekopieerd."
+msgstr "De risicobeoordeling is gedupliceerd."
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:309
 msgid "The role is invalid"
@@ -1422,7 +1420,7 @@ msgstr "Ja"
 
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:36
 msgid "Yes, clone risk assessment"
-msgstr "Ja, kloon risicoanalyse"
+msgstr "Ja, dubbele risicoanalyse"
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:168
 msgid "You already have an organisation."
@@ -3863,7 +3861,7 @@ msgstr ""
 "eerder door u zijn gemaakt. Start een nieuwe risico-evaluatie door op de "
 "&lsquo;+&rsquo; te klikken of maak een kopie van een bestaande risico-"
 "evaluatie door te klikken op het driedubbele punt symbool naast een risico-"
-"evaluatie en selecteer &lsquo;klonen&rsquo;."
+"evaluatie en selecteer &lsquo;dupliceren&rsquo;."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
 #: Euphorie/src/euphorie/client/browser/templates/tooltips.pt:89
@@ -4216,7 +4214,7 @@ msgstr "Classificatie code"
 #. Default: "Clone risk assessment"
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:15
 msgid "label_clone"
-msgstr "Risicobeoordeling klonen"
+msgstr "Risicobeoordeling dupliceren"
 
 #. Default: "Close this message"
 #: Euphorie/src/euphorie/client/browser/templates/browser-warning.pt:50

@@ -258,9 +258,7 @@ msgstr "Späť"
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
-msgstr ""
-"Vytvorením kópie hodnotenia rizík vytvoríte nové hodnotenie rizík na&nbsp;"
-"základe obsahu tohto hodnotenia rizík ako počiatočného bodu."
+msgstr "Duplikovaním hodnotenia rizík vytvoríte nové hodnotenie rizík na základe obsahu tohto hodnotenia rizík ako počiatočného bodu."
 
 #: Euphorie/src/euphorie/client/browser/reset_password.py:212
 #: Euphorie/src/euphorie/client/browser/templates/account-delete.pt:45
@@ -1236,7 +1234,7 @@ msgstr ""
 
 #: Euphorie/src/euphorie/client/browser/session.py:783
 msgid "The risk assessment has been cloned"
-msgstr "Hodnotenie rizík bolo skopírované."
+msgstr "Hodnotenie rizík bolo duplicitné."
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:309
 msgid "The role is invalid"
@@ -1426,7 +1424,7 @@ msgstr "Áno"
 
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:36
 msgid "Yes, clone risk assessment"
-msgstr "Áno, skopírovať hodnotenie rizík"
+msgstr "Áno, duplikovať hodnotenie rizík"
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:168
 msgid "You already have an organisation."
@@ -3824,7 +3822,7 @@ msgstr ""
 "Prehliadač hodnotenia rizík vám umožňuje nájsť vaše predchádzajúce "
 "hodnotenia rizík. Začnite nové hodnotenie rizík kliknutím na znamienko „+“ "
 "alebo si spravte kópiu existujúceho hodnotenia rizík kliknutím na symbol "
-"troch bodiek pri hodnotení rizík a vyberte „kopírovať“."
+"troch bodiek pri hodnotení rizík a vyberte „duplikovať“."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
 #: Euphorie/src/euphorie/client/browser/templates/tooltips.pt:89
@@ -4179,7 +4177,7 @@ msgstr "Kód klasifikácie"
 #. Default: "Clone risk assessment"
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:15
 msgid "label_clone"
-msgstr "Kopírovať hodnotenie rizík"
+msgstr "Duplikujte hodnotenie rizík"
 
 #. Default: "Close this message"
 #: Euphorie/src/euphorie/client/browser/templates/browser-warning.pt:50

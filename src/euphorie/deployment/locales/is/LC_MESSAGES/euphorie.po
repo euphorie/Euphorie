@@ -259,9 +259,7 @@ msgstr ""
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
-msgstr ""
-"Með því að afrita áhættumat er búið til nýtt áhættumat sem er byggt á gömlu "
-"mati, þ.e. gamla matið er notað sem uppkast af nýju."
+msgstr "Með því að afrita áhættumat er búið til nýtt áhættumat sem er byggt á gömlu mati, þ.e. gamla matið er notað sem uppkast af nýju."
 
 #: Euphorie/src/euphorie/client/browser/reset_password.py:212
 #: Euphorie/src/euphorie/client/browser/templates/account-delete.pt:45
@@ -1234,7 +1232,7 @@ msgstr ""
 
 #: Euphorie/src/euphorie/client/browser/session.py:783
 msgid "The risk assessment has been cloned"
-msgstr "Áhættumatið hefur verið klónað."
+msgstr "Áhættumatið hefur verið tvítekið."
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:309
 msgid "The role is invalid"
@@ -1420,7 +1418,7 @@ msgstr "Já"
 
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:36
 msgid "Yes, clone risk assessment"
-msgstr "Já, afrita allt"
+msgstr "Já, tvítekið allt"
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:168
 msgid "You already have an organisation."
@@ -3742,7 +3740,7 @@ msgid "info_osh_ra_browser"
 msgstr ""
 "Áhættumatsvafrarinn hjálpar til að finna áhættumöt sem þú hefur framkvæmt. "
 "Hefjið nýtt áhættumat með því að haka við &lsquo;+&rsquo; eða afritið eldra "
-"mat með því að haka við þriggja punkta táknið og veljið &lsquo;afrita&rsquo;."
+"mat með því að haka við þriggja punkta táknið og veljið &lsquo;tvítekið&rsquo;."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
 #: Euphorie/src/euphorie/client/browser/templates/tooltips.pt:89
@@ -4084,7 +4082,7 @@ msgstr "Flokkunarkóði"
 #. Default: "Clone risk assessment"
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:15
 msgid "label_clone"
-msgstr "Afrita áhættumat"
+msgstr "Tvítekið áhættumat"
 
 #. Default: "Close this message"
 #: Euphorie/src/euphorie/client/browser/templates/browser-warning.pt:50

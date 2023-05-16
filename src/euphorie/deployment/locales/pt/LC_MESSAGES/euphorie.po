@@ -262,9 +262,7 @@ msgstr ""
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
-msgstr ""
-"Ao duplicar uma avaliação de riscos, criará uma nova avaliação de riscos com "
-"base no conteúdo da avaliação de riscos inicial."
+msgstr "Ao duplicar uma avaliação de riscos, criará uma nova avaliação de riscos com base no conteúdo da avaliação de riscos inicial."
 
 #: Euphorie/src/euphorie/client/browser/reset_password.py:212
 #: Euphorie/src/euphorie/client/browser/templates/account-delete.pt:45
@@ -1241,7 +1239,7 @@ msgstr ""
 
 #: Euphorie/src/euphorie/client/browser/session.py:783
 msgid "The risk assessment has been cloned"
-msgstr "A avaliação de riscos foi clonada."
+msgstr "A avaliação de riscos foi duplicada."
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:309
 msgid "The role is invalid"

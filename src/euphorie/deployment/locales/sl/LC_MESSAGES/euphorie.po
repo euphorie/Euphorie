@@ -266,9 +266,7 @@ msgstr ""
 msgid ""
 "By cloning a risk assessment you will create a new risk assessment based on "
 "the contents of this risk assessment as a starting point."
-msgstr ""
-"S kloniranjem ocene tveganja boste ustvarili novo oceno tveganja, ki temelji "
-"na vsebini te osnovne ocene tveganja."
+msgstr "S podvajanjem ocene tveganja boste ustvarili novo oceno tveganja, ki temelji na vsebini te osnovne ocene tveganja."
 
 #: Euphorie/src/euphorie/client/browser/reset_password.py:212
 #: Euphorie/src/euphorie/client/browser/templates/account-delete.pt:45
@@ -1244,7 +1242,7 @@ msgstr ""
 
 #: Euphorie/src/euphorie/client/browser/session.py:783
 msgid "The risk assessment has been cloned"
-msgstr "Ocena tveganja je bila kopirana."
+msgstr "Ocena tveganja je bila podvojena."
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:309
 msgid "The role is invalid"
@@ -1433,7 +1431,7 @@ msgstr "Da"
 
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:36
 msgid "Yes, clone risk assessment"
-msgstr "Da, kloniraj oceno tveganja"
+msgstr "Da, podvoji oceno tveganja"
 
 #: Euphorie/src/euphorie/client/browser/organisation.py:168
 msgid "You already have an organisation."
@@ -3801,7 +3799,7 @@ msgstr ""
 "Brskalnik ocen tveganja vam omogoča, da poiščete ocene tveganja, ki ste jih "
 "predhodno naredili. Začnite z novo oceno tveganja s klikom na &lsquo;"
 "+&rsquo; ali naredite kopijo obstoječe ocene tveganja s klikom na simbol "
-"trojne pike poleg ocene tveganja in izberite &lsquo;izdelaj kopijo&rsquo;."
+"trojne pike poleg ocene tveganja in izberite &lsquo;podvoji&rsquo;."
 
 #. Default: "From this menu you can start a new session of an OiRA tool, or pick up a previous session to continue working on it. If you do not have an account for the OiRA application yet, you can start a test session to try it out immediately."
 #: Euphorie/src/euphorie/client/browser/templates/tooltips.pt:89
@@ -4145,7 +4143,7 @@ msgstr "Klasifikacijska koda"
 #. Default: "Clone risk assessment"
 #: Euphorie/src/euphorie/client/browser/templates/confirmation-clone-session.pt:15
 msgid "label_clone"
-msgstr "Izdelajte kopijo ocene tveganja"
+msgstr "Podvojite ocene tveganja"
 
 #. Default: "Close this message"
 #: Euphorie/src/euphorie/client/browser/templates/browser-warning.pt:50
