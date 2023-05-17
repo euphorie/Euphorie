@@ -4,7 +4,7 @@ Changelog
 14.3.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Deactivate the changes related to the consultant feature.
 
 
 14.3.4 (2023-04-26)

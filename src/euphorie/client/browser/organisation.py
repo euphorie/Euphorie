@@ -49,10 +49,6 @@ class OrganisationBaseView(BaseView):
         #     "label": _("Manager/Policy maker"),
         # },
         {
-            "value": "consultant",
-            "label": _("label_role_consultant", default="Consultant"),
-        },
-        {
             "value": "admin",
             "label": _("Administrator"),
         },

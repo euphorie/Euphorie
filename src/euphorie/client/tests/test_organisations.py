@@ -1,8 +1,6 @@
-from contextlib import contextmanager
 from euphorie.client.model import Organisation
 from euphorie.client.model import Session
 from euphorie.client.tests.utils import addAccount
-from euphorie.client.utils import getRequest
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
 from Products.statusmessages.interfaces import IStatusMessage
@@ -21,15 +19,6 @@ class TestOrganisations(EuphorieIntegrationTestCase):
             title="Acme",
         )
         Session.add(self.organisation)
-
-    @contextmanager
-    def _get_view(self, *args, post=False, **kwargs):
-        with super()._get_view(*args, **kwargs) as view:
-            if post:
-                request = getRequest()
-                request.method = "POST"
-                request.form["submit"] = "accept"
-            yield view
 
     def test_add_user_panel(self):
         with api.env.adopt_user("admin"):
@@ -99,7 +88,7 @@ class TestOrganisations(EuphorieIntegrationTestCase):
 
         with api.env.adopt_user(user=account2):
             with self._get_view(
-                "confirm-organisation-invite", self.portal.client.eu, post=True
+                "confirm-organisation-invite", self.portal.client.eu
             ) as view:
                 # Calling without a token returns a not found
                 with self.assertRaises(NotFound):
@@ -119,7 +108,7 @@ class TestOrganisations(EuphorieIntegrationTestCase):
         # Check that account1 will not consume its own token
         with api.env.adopt_user(user=self.account):
             with self._get_view(
-                "confirm-organisation-invite", self.portal.client.eu, post=True
+                "confirm-organisation-invite", self.portal.client.eu
             ) as view:
                 view.publishTraverse(None, token)()
                 self.assertEqual(
@@ -134,7 +123,7 @@ class TestOrganisations(EuphorieIntegrationTestCase):
         # Check that account2 can consume a good token
         with api.env.adopt_user(user=account2):
             with self._get_view(
-                "confirm-organisation-invite", self.portal.client.eu, post=True
+                "confirm-organisation-invite", self.portal.client.eu
             ) as view:
                 view.publishTraverse(None, token)()
                 self.assertEqual(
@@ -159,7 +148,7 @@ class TestOrganisations(EuphorieIntegrationTestCase):
         # Check that account2 cannot consume a good token more than once
         with api.env.adopt_user(user=account2):
             with self._get_view(
-                "confirm-organisation-invite", self.portal.client.eu, post=True
+                "confirm-organisation-invite", self.portal.client.eu
             ) as view:
                 view.publishTraverse(None, token)()
                 self.assertEqual(
@@ -175,7 +164,7 @@ class TestOrganisations(EuphorieIntegrationTestCase):
         # The same token can be used from account 3
         with api.env.adopt_user(user=account3):
             with self._get_view(
-                "confirm-organisation-invite", self.portal.client.eu, post=True
+                "confirm-organisation-invite", self.portal.client.eu
             ) as view:
                 view.publishTraverse(None, token)()
                 # We need to flush the data to the database
@@ -201,7 +190,7 @@ class TestOrganisations(EuphorieIntegrationTestCase):
         # Account 1 can accept
         with api.env.adopt_user(user=account1):
             with self._get_view(
-                "confirm-organisation-invite", self.portal.client.eu, post=True
+                "confirm-organisation-invite", self.portal.client.eu
             ) as view:
                 view.publishTraverse(None, token)()
 
@@ -215,7 +204,7 @@ class TestOrganisations(EuphorieIntegrationTestCase):
         # Check that account3 cannot consume an expired token
         with api.env.adopt_user(user=account3):
             with self._get_view(
-                "confirm-organisation-invite", self.portal.client.eu, post=True
+                "confirm-organisation-invite", self.portal.client.eu
             ) as view:
                 view.publishTraverse(None, token)()
                 self.assertEqual(
