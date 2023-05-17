@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.3.5 (unreleased)
+14.4.0 (unreleased)
 -------------------
 
 - Align with recent changes in prototype.
@@ -36,6 +36,9 @@ Changelog
 - When there is no measure to select, do not show the "Training" module
   [ale-rt]
 
+- Ask for confirmation when following an organisation invite link.
+  [reinhardt]
+
 - Use Plone 5.2.12
 
 
@@ -45,8 +48,6 @@ Changelog
 - Do not display the note "The risk evaluation has been automatically done by the tool"
   if there is an integrated action plan.
   [ale-rt]
-- Ask for confirmation when following an organisation invite link.
-  [reinhardt]
 
 
 14.3.3 (2023-04-12)
