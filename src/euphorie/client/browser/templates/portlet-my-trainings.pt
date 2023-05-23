@@ -48,7 +48,7 @@
           <div class="training"
                tal:define="
                  session certificate/session;
-                 traversed_session python:session.traversed_session;
+                 certificate_view python:view.get_certificate(session);
                  session_url string:${session/absolute_url};
                "
           >
@@ -63,8 +63,9 @@
             <a class="certificate-link pat-auto-scale pat-inject"
                href="${session_url}/@@training-certificate-view"
                data-pat-inject="source: #content; target: #content; history: record"
+               tal:condition="certificate_view"
             >
-              <tal:certificate replace="structure traversed_session/@@training-certificate" />
+              <tal:certificate replace="structure certificate_view" />
             </a>
           </div>
         </tal:for>
