@@ -775,3 +775,14 @@ class MyTrainingsPortlet(BrowserView):
             )
             if session.session.tool
         ]
+
+    def get_certificate(self, session):
+        traversed_session = session.traversed_session
+        # we cannot call the certificate view directly because if the tool was updated
+        # the view will try to redirect (redirectOnSurveyUpdate)
+        certificate_view = api.content.get_view(
+            name="training-certificate-inner",
+            context=traversed_session,
+            request=self.request,
+        )
+        return certificate_view.index()

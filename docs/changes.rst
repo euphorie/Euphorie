@@ -8,6 +8,10 @@ Changelog
   Ref: `scrum-1225 <https://github.com/syslabcom/scrum/issues/1225>`_
   [reinhardt]
 
+- Fix rendering certificate in portlet when tool has been updated.
+  Ref: scrum-1219
+  [reinhardt]
+
 - Align with recent changes in prototype.
   Ref: scrum-1205
   [thet]
