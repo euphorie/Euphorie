@@ -38,25 +38,33 @@ class OrganisationBaseView(BaseView):
 
     default_target_view = "@@organisation"
 
-    _known_roles = [
-        {
-            "value": "member",
-            "label": _("Member"),
-        },
-        # XXX commented for the moment because it is still under discussion
-        # {
-        #     "value": "manager",
-        #     "label": _("Manager/Policy maker"),
-        # },
-        {
-            "value": "consultant",
-            "label": _("label_role_consultant", default="Consultant"),
-        },
-        {
-            "value": "admin",
-            "label": _("Administrator"),
-        },
-    ]
+    @property
+    def _known_roles(self):
+        roles = [
+            {
+                "value": "member",
+                "label": _("Member"),
+            },
+            # XXX commented for the moment because it is still under discussion
+            # {
+            #     "value": "manager",
+            #     "label": _("Manager/Policy maker"),
+            # },
+            {
+                "value": "admin",
+                "label": _("Administrator"),
+            },
+        ]
+
+        if self.webhelpers.use_consultancy_phase:
+            roles.insert(
+                1,
+                {
+                    "value": "consultant",
+                    "label": _("label_role_consultant", default="Consultant"),
+                },
+            )
+        return roles
 
     @property
     def is_training_enabled(self):
@@ -191,6 +199,13 @@ class PanelAddUser(OrganisationBaseView):
     def publishTraverse(self, request, organisation_id):
         request.set(self.organisation_id_key, organisation_id)
         return self
+
+    @property
+    def role_options(self):
+        """Return a list of options for the role field."""
+        options = deepcopy(self._known_roles)
+        options[0]["checked"] = "checked"
+        return options
 
     @property
     @memoize_contextless

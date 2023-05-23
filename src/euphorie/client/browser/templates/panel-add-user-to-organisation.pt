@@ -43,35 +43,13 @@
               <fieldset class="vertical">
                 <fieldset class="pat-checklist radio">
                   <legend i18n:translate="">Select the role your new members will get</legend>
-                  <label>
-                    <input checked="checked"
+                  <label tal:repeat="option view/role_options">
+                    <input checked="${option/checked|nothing}"
                            name="role"
                            type="radio"
-                           value="member"
+                           value="${option/value}"
                     />
-                    <tal:i18n i18n:translate="label_role_member">Member</tal:i18n>
-                  </label>
-                  <label tal:condition="nothing">
-                    # XXX commented for the moment because it is still under discussion
-                    <input name="role"
-                           type="radio"
-                           value="manager"
-                    />
-                    <tal:i18n i18n:translate="">Manager/Policy maker</tal:i18n>
-                  </label>
-                  <label>
-                    <input name="role"
-                           type="radio"
-                           value="consultant"
-                    />
-                    <tal:i18n i18n:translate="label_role_consultant">Consultant</tal:i18n>
-                  </label>
-                  <label>
-                    <input name="role"
-                           type="radio"
-                           value="admin"
-                    />
-                    <tal:i18n i18n:translate="label_role_admin">Administrator</tal:i18n>
+                    ${option/label}
                   </label>
 
                   <tal:training_enabled tal:condition="view/is_training_enabled">
