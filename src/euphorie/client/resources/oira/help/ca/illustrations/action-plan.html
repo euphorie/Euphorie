@@ -16,7 +16,7 @@
 			href="../../../style/all.css"
 			type="text/css">
 
-		<script src="../../../script/patternslib-bundle-9.9.0-alpha.4/bundle.min.js"></script>
+		<script src="../../../script/bundle.min.js"></script>
 
 		<!-- Following line is ONLY for the prototype. -->
 		<meta
@@ -331,17 +331,26 @@
     
 
 
-<form method="get" action="/action-plan.html"
-      class="pat-inject pat-validation"
-      data-pat-inject="source: #main-content; target: #main-content; && source: #step-4-topics; target: #step-4-topics;"
-      data-pat-validation="disable-selector: button[name='next'], .remove-clone;
-                           message-date: This value must be a valid date;
-                           message-datetime: This value must be a valid date and time;
-                           message-email: This value must be a valid email address;
-                           message-number: This value must be a number;
-                           message-required: This field is required;"
+<form 
+	method="get" 
+	action="/action-plan.html"
+   class="pat-inject pat-validation pat-form"
+   data-pat-inject="
+   	source: #main-content; 
+   	target: #main-content; 
+   		&& 
+   	source: #step-4-topics; 
+   	target: #step-4-topics;"
+   data-pat-validation="
+   	disable-selector: button[name='next'], .remove-clone;
+      message-date: This value must be a valid date;
+      message-datetime: This value must be a valid date and time;
+      message-email: This value must be a valid email address;
+      message-number: This value must be a number;
+      message-required: This field is required;"
 >
-	<div id="content-pane">
+	<div
+		id="content-pane">
 		
 <article class="rich pat-well warning">
     <h2>
@@ -350,9 +359,10 @@
         
     </h2>
 
-    <fieldset class="">
+    <fieldset>
         <label>Aquest és un risc de prioritat
-            <select>
+            <select
+                class="pat-select">
                 <option>
                     baixa
                 </option>
@@ -370,7 +380,8 @@
 
     <p>A significant number of occupational accidents are related to <strong>moving around the client company’s premises, either inside or outside the buildings</strong> (e.g. static surveillance, rounds and surveillance patrols). These are...
 
-    <div class="pat-collapsible show-more closed">
+    <div 
+        class="pat-collapsible show-more closed">
         <h4>
             
             Més informació sobre aquest risc.
@@ -952,26 +963,32 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
     <!-- <a class="small pat-button pat-tooltip icon-up-circle" title="Use an predefined text to pre-fill your measure with." data-pat-tooltip="source: ajax; position-list: bm" href="#standard-solutions">Foo</a> -->
 </div>
 
-		<fieldset class="vertical">
+		<fieldset 
+			class="vertical">
           <label>
-			<textarea id="commentsField"
-			          name="comments"
-			          placeholder="Si us plau, deixeu en aquest camp qualsevol comentari que pugueu tenir sobre la pregunta de dalt."
-			          cols="70"
-			          rows="3"></textarea>
+			<textarea 
+				id="commentsField"
+			   name="comments"
+			   placeholder="Si us plau, deixeu en aquest camp qualsevol comentari que pugueu tenir sobre la pregunta de dalt."
+			   cols="70"
+			   rows="3"></textarea>
           </label>
 		</fieldset>
 
 	</div>
-	<p class="button-bar" id="nav-bar">
-		<button type="submit"
-		        name="previous"
-		        value="previous"
-		        class="pat-button back">Anterior</button>
-		<button type="submit"
-		        name="next"
-		        value="next"
-		        class="pat-button continue">Següent</button>
+	<p 
+		class="button-bar" 
+		id="nav-bar">
+		<button 
+			type="submit"
+		   name="previous"
+		   value="previous"
+		   class="pat-button back">Anterior</button>
+		<button 
+			type="submit"
+		   name="next"
+		   value="next"
+		   class="pat-button continue">Següent</button>
 	</p>
 </form>
 

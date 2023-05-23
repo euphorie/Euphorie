@@ -16,7 +16,7 @@
 			href="../../../style/all.css"
 			type="text/css">
 
-		<script src="../../../script/patternslib-bundle-9.9.0-alpha.4/bundle.min.js"></script>
+		<script src="../../../script/bundle.min.js"></script>
 
 		<!-- Following line is ONLY for the prototype. -->
 		<meta
@@ -151,6 +151,7 @@
 
 
 <div 
+    id="canvas-banner" 
     class="canvas-banner">
     <article
         class="banner-body">
@@ -163,6 +164,10 @@
         </a>
         <section
             class="banner-text">
+            <p
+                class="float-after banner-counter">
+                1/2
+            </p>
             <p>
                 Tip: Re-use existing risk assessments with the duplication feature.
                 
@@ -171,12 +176,27 @@
                 action="/index-logged-in#content"
                 class="button-bar pat-inject">
                 <a 
-                    href="../../en/pages/3-carrying-out-a-risk-assessment#content"
+                    data-pat-inject="
+                        source: #content; 
+                        target: #content; 
+                        history: record; 
+                        scroll: #duplication"
+                    href="../../en/pages/3-carrying-out-a-risk-assessment"
                     class="pat-inject pat-button default">Learn more…</a>
                 <button 
                     type="submit"
                     name="hide_banner" 
                     class="pat-button">Hide this message</button>
+
+                <div 
+                    class="float-after button-set clustered">
+                    <a 
+                        href="../../fr/illustrations/index-logged-in#canvas-banner"
+                        class="pat-inject pat-button no-label icon icon-angle-left">Previous tip</a>
+                    <a 
+                        href="../../fr/illustrations/index-logged-in#canvas-banner"
+                        class="pat-inject pat-button no-label icon icon-angle-right">Next tip</a>
+                </div>
             </form>
         </section>
     </article>

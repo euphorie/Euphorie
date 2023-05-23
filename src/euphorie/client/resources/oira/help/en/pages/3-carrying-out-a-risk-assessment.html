@@ -16,7 +16,7 @@
 			href="../../../style/all.css"
 			type="text/css">
 
-		<script src="../../../script/patternslib-bundle-9.9.0-alpha.4/bundle.min.js"></script>
+		<script src="../../../script/bundle.min.js"></script>
 
 		<!-- Following line is ONLY for the prototype. -->
 		<meta
@@ -146,11 +146,33 @@
 				
 				<h2 id="starting-a-new-session">Starting a new session</h2>
 
-<p>To start a new risk assessment, click the link ‘Start a new session’.</p>
+<h3 id="from-the-dashboard">From the dashboard</h3>
+
+<p>To start a new risk assessment from the homescreen, or ‘dashboard’ of OiRA, click the link ‘Start a new session’. A dialogue panel will appear with two different options for starting your assessment.</p>
+
+<h4 id="starting-a-risk-assessment-from-scratch">Starting a risk assessment from scratch</h4>
+
+<p>Use this option to start with a clean slate when you’re doing a certain risk assessment for the first time. You can chooose a tool from the tool dropdown to guide you through the assessment.</p>
+
+<h4 id="duplication">Base on an existing risk assessment</h4>
+
+<p>Use this option if you’ve already made a risk assessment with a certain tool before. You can select an existing risk assessment that you would like to reuse from the risk assessment dropdown, to use it as a base for a new risk assessment. For instance because you are re-assessing for another assessment period and you expect that you will only have to update the answer to some quetions or parts of the action plan.</p>
+
+<p>When you click ‘Start new risk assessment’, a duplicate is created of the selected previous risk assessment. Duplicates of a locked risk assessment will be unlocked.</p>
+
+<h3 id="from-the-tools-page">From the tools page</h3>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../en/illustrations/tools.html" scrolling="no">
+  </object>
+  <figcaption>The tools page.</figcaption>
+</figure>
+
+<p>You can also start a new risk assessment with a tool of choice from the tools overview page and also from an individual tool page. Click ‘Start risk assessment’ to start a new assessment based on your tool of choice. Also via this route you may choose between starting a risk assessment from scratch, or to base it on a previous assesssment. Only risk assessments that were made with the same tool will appear in the assessments dropdown. When you have never before made a risk assessment with the selected tool, then a new risk assessment will start immediately when you click ‘Start risk assessment’.</p>
 
 <h2 id="opening-a-risk-assessment">Opening a risk assessment</h2>
 
-<p>Once you have started a risk assessment, you can retrieve it at any time through the dashboard under the heading ‘My risk assessments’. Form here you can also start a new risk assessment.</p>
+<p>Once you have started a risk assessment, you can retrieve it at any time through the dashboard under the heading ‘My risk assessments’. From here you can also start a new risk assessment.</p>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../en/illustrations/index-logged-in.html" scrolling="no">
@@ -403,9 +425,51 @@ As mentioned above, the action plan is presented as a separate step in the menu 
 
 <p>Both standard measures and measures defined by you can be deleted again at any point.</p>
 
+<h2 id="consultancy">Consultancy</h2>
+
+<p>You have the option to request assistance in completing a risk assessment or to have a risk analysis performed by you and validated by an OSH consultant. An OSH consultant can give your risk assessment an offical validation mark.</p>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../en/illustrations/consultancy.html" scrolling="no">
+  </object>
+  <figcaption>Request consultancy.</figcaption>
+</figure>
+
+<h3 id="adding-a-consultant-to-your-organisation">Adding a consultant to your organisation</h3>
+
+<p>To get a validation for your assessment you need to give a consultant access to your risk assessments. SENTENCE ON HOW TO GENERALLY FIND A CONSULTANT.</p>
+
+<p>You can grant a consultant access to your risk assessments by adding the consultant as a user with access level ‘Validate’ to your organisation. Learn more about giving people access to your risk assessments in the topic <a href="../../en/pages/user-management.html">User management</a>.</p>
+
+<h3 id="requesting-a-validation">Requesting a validation</h3>
+
+<p>Once your consultant has access to your risk assessments, go to the section ‘Consultancy’ of your risk assessment and press the button ‘Request validation’.</p>
+
+<p>If more than one consultant has access to your risk assessments then choose the consultant you want to invite to validate your assessment and click ‘Send validation request’. The application will now send an e-mail to the consultant, inviting him or her to validate your risk assessment.</p>
+
+<p>The consultancy tab will now show “This risk assessment is currently under review by …” until the consultant has done the validation.</p>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../en/illustrations/consultancy-requested.html" scrolling="no">
+  </object>
+  <figcaption>Validation is requested and in progress.</figcaption>
+</figure>
+
+<p>When the consultant has validated the risk assessment, you will receive an e-mail reporting this. The consultancy tab will now indicate that the risk assessment has been validated.</p>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../en/illustrations/consultancy-validated.html" scrolling="no">
+  </object>
+  <figcaption>A validated and locked risk assessement.</figcaption>
+</figure>
+
+<p>The risk assessment is now locked from further editing so that it can keep its protected validated status.</p>
+
+<p>Should you want to make any changes to the risk assessment after validation, then you will need to unlock the risk assessment which will make it lose its validation status. You can at any time safely create a duplicate of a locked risk assessment and edit the duplicate. <a href="#duplication">Learn more about duplication</a>. <strong>Bear in mind that requesting a new validation might involve extra cost.</strong></p>
+
 <h2 id="report">Report</h2>
 
-<p>After finalising the action plan, you can produce a report.</p>
+<p>After finalising the risk assessment and its action plan, you can produce a report.</p>
 
 <p>If you want to leave a comment to be included in the report, type your text here and save it.</p>
 
