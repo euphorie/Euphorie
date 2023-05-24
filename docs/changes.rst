@@ -4,6 +4,9 @@ Changelog
 14.4.0 (unreleased)
 -------------------
 
+- Update Prototype from 55f072619c03f603b1b2227081dacec7efad9684
+  [reinhardt]
+
 - Updated Patternslib to 9.9.1, fixing pat-display-time issue
   [reinhardt]
 
