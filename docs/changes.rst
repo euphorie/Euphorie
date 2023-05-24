@@ -4,6 +4,9 @@ Changelog
 14.4.0 (unreleased)
 -------------------
 
+- Updated Patternslib to 9.9.1, fixing pat-display-time issue
+  [reinhardt]
+
 - Don't show consultant role if consultancy phase is disabled.
   Ref: `scrum-1225 <https://github.com/syslabcom/scrum/issues/1225>`_
   [reinhardt]
