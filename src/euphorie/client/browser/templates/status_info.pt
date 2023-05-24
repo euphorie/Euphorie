@@ -88,11 +88,11 @@
             </dd>
           </metal:last_modified>
           <metal:last_published define-slot="last_published">
-            <tal:published condition="webhelpers/use_publication_feature">
+            <tal:published condition="webhelpers/use_locking_feature">
               <tal:switch switch="session/review_state">
                 <tal:case case="string:published">
-                  <dt i18n:translate="label_published">
-                      Published
+                  <dt i18n:translate="label_locked">
+                      Locked
                   </dt>
                   <dd tal:define="
                         last_publisher session/last_publisher|nothing;

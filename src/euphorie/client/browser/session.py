@@ -40,6 +40,7 @@ from z3c.form.form import EditForm
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
 from zope import schema
+from zope.deprecation import deprecate
 from zope.event import notify
 from zope.i18n import translate
 from zope.lifecycleevent import ObjectModifiedEvent
@@ -792,34 +793,39 @@ class CloneSession(SessionMixin, BrowserView):
         return super().__call__()
 
 
-class PublicationMenu(SessionMixin, BrowserView):
-    @property
-    @memoize_contextless
-    def portal(self):
-        """The currently authenticated account."""
-        return api.portal.get()
-
-    def redirect(self):
-        target = self.request.get("HTTP_REFERER") or self.context.absolute_url()
+class PublicationMenu(BrowserView):
+    def redirect(self, target):
         return self.request.response.redirect(target)
 
+    @deprecate("Use the @@locking_view instead. Deprecated in version 15.0.0.dev0")
     def reset_date(self):
         """Reset the session date to now."""
-        session = self.context.session
-        session.published = datetime.now()
-        session.last_publisher = get_current_account()
-        return self.redirect()
+        target = f"{self.context.absolute_url()}/@@locking_view/refresh_lock"
+        return self.redirect(target)
 
+    @deprecate("Use the @@locking_view instead. Deprecated in version 15.0.0.dev0")
     def set_date(self):
         """Set the session date to now."""
-        return self.reset_date()
+        target = f"{self.context.absolute_url()}/@@locking_view/set_lock"
+        return self.redirect(target)
 
+    @deprecate("Use the @@locking_view instead. Deprecated in version 15.0.0.dev0")
     def unset_date(self):
         """Unset the session date."""
-        session = self.context.session
-        session.published = None
-        session.last_publisher = None
-        return self.redirect()
+        target = f"{self.context.absolute_url()}/@@locking_view/unset_lock"
+        return self.redirect(target)
+
+    @deprecate("Use the @@locking_view instead. Deprecated in version 15.0.0.dev0")
+    def __call__(self):
+        target = f"{self.context.absolute_url()}/@@locking_view"
+        return self.request.response.redirect(target)
+
+
+class PublicationBadge(BrowserView):
+    @deprecate("Use the @@locking_badge instead. Deprecated in version 15.0.0.dev0")
+    def __call__(self):
+        target = f"{self.context.absolute_url()}/@@locking_badge"
+        return self.request.response.redirect(target)
 
 
 class ActionPlanView(SessionMixin, BrowserView):

@@ -372,7 +372,6 @@
       name="publication_menu"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       class=".session.PublicationMenu"
-      template="templates/publication_menu.pt"
       permission="euphorie.client.ViewSurvey"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
@@ -381,7 +380,6 @@
       name="publication_menu"
       for="euphorie.client.model.SurveyTreeItem"
       class=".session.PublicationMenu"
-      template="templates/publication_menu.pt"
       permission="euphorie.client.ViewSurvey"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
@@ -389,7 +387,7 @@
   <browser:page
       name="publication_badge"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
-      template="templates/publication_badge.pt"
+      class=".session.PublicationBadge"
       permission="euphorie.client.ViewSurvey"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
@@ -397,7 +395,59 @@
   <browser:page
       name="publication_badge"
       for="euphorie.client.model.SurveyTreeItem"
-      template="templates/publication_badge.pt"
+      class=".session.PublicationBadge"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="locking_view"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".locking.LockingMenu"
+      allowed_attributes="set_lock refresh_lock unset_lock"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="locking_view"
+      for="euphorie.client.model.SurveyTreeItem"
+      class=".locking.LockingMenu"
+      allowed_attributes="set_lock refresh_lock unset_lock"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="locking_menu"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".locking.LockingMenu"
+      template="templates/locking_menu.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="locking_menu"
+      for="euphorie.client.model.SurveyTreeItem"
+      class=".locking.LockingMenu"
+      template="templates/locking_menu.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="locking_badge"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      template="templates/locking_badge.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="locking_badge"
+      for="euphorie.client.model.SurveyTreeItem"
+      template="templates/locking_badge.pt"
       permission="euphorie.client.ViewSurvey"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />

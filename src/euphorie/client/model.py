@@ -35,6 +35,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.sql import functions
 from z3c.saconfig import Session
 from zope.component.hooks import getSite
+from zope.deprecation import deprecate
 from zope.interface import implementer
 from zope.interface import Interface
 from zope.sqlalchemy import datamanager
@@ -802,19 +803,41 @@ class SurveySession(BaseObject):
         return archived <= localized_now()
 
     @property
-    def is_locked(self):
-        consultancy = self.consultancy
-        if not consultancy:
-            return False
-        return consultancy.status == "validated"
+    def last_locking_event(self):
+        """Return the last event relative to locking"""
+        query = (
+            Session.query(SessionEvent)
+            .filter(
+                SessionEvent.action.in_(("lock_set", "lock_reset", "lock_unset")),
+                SessionEvent.session_id == self.id,
+            )
+            .order_by(SessionEvent.time.desc())
+        )
+        return query.first()
 
     @property
+    def is_locked(self):
+        """Check if the session is locked."""
+        consultancy = self.consultancy
+        if consultancy and consultancy.status == "validated":
+            return True
+
+        event = self.last_locking_event
+        if not event:
+            return False
+        return event.action in ("lock_set", "lock_reset")
+
+    @property
+    @deprecate(
+        "Deprecated in version 15.0.0.dev0. "
+        "You might want to use self.is_locked instead."
+    )
     def review_state(self):
         """Check if it the published column.
 
         If it has return 'published' otherwise return 'private'
         """
-        return "published" if self.published else "private"
+        return "published" if self.is_locked else "private"
 
     def hasTree(self):
         return bool(
