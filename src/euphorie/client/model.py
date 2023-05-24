@@ -802,6 +802,13 @@ class SurveySession(BaseObject):
         return archived <= localized_now()
 
     @property
+    def is_locked(self):
+        consultancy = self.consultancy
+        if not consultancy:
+            return False
+        return consultancy.status == "validated"
+
+    @property
     def review_state(self):
         """Check if it the published column.
 
