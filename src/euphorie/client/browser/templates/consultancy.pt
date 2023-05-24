@@ -51,17 +51,17 @@
              tal:condition="python:is_validated"
              i18n:translate="message_session_validated"
           >
-            <a href="mailto:${view/validated_info/consultant_email}"
-               i18n:name="consultant"
-            >${view/validated_info/consultant_name}</a>
-          has reviewed and validated this risk assessment
-            <time class="date pat-display-time"
+            <time class="date-stamp pat-display-time"
                   datetime="${value}"
                   data-pat-display-time="from-now: false; locale: ${language}"
                   tal:define="
                     value python:webhelpers.timezoned_date(raw_time);
                   "
-            >${value}</time>.
+            >${value}</time>:
+            <a href="mailto:${view/validated_info/consultant_email}"
+               i18n:name="consultant"
+            >${view/validated_info/consultant_name}</a>
+          has reviewed and validated this risk assessment
           </p>
           <p class="pat-message info"
              tal:condition="python:consultant and not is_validated"
