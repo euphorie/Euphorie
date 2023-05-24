@@ -4,7 +4,7 @@ PLONE_PO_FILES = $(wildcard src/euphorie/deployment/locales/*/LC_MESSAGES/plone.
 MO_FILES       = $(EUPHORIE_PO_FILES:.po=.mo) $(PLONE_PO_FILES:.po=.mo)
 
 TARGETS        = $(MO_FILES)
-SHELL=/bin/bash
+SHELL=/usr/bin/env bash
 
 all: ${TARGETS}
 
