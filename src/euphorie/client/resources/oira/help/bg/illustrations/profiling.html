@@ -16,7 +16,7 @@
 			href="../../../style/all.css"
 			type="text/css">
 
-		<script src="../../../script/patternslib-bundle-9.9.0-alpha.4/bundle.min.js"></script>
+		<script src="../../../script/bundle.min.js"></script>
 
 		<!-- Following line is ONLY for the prototype. -->
 		<meta
@@ -232,11 +232,14 @@
 	id="main-content" 
     class="variation-risk-assessment">
     
-<div id="main-content">
-  <div id="content-pane">
-    <article class="pat-rich">
+<div 
+    id="main-content">
+    <div 
+        id="content-pane">
+        <article 
+            class="pat-rich">
 
-      <h1>Адаптирате оценката на риска към Вашата организация</h1>
+        <h1>Адаптирате оценката на риска към Вашата организация</h1>
 
         <p>За да се адаптира оценката на риска към Вашата организация, от Вас може да бъде поискано да:</p>
         <ul>
@@ -246,39 +249,77 @@
         </ul>
     </article>
 
-    <form class="pat-inject" method="get" action="assessment#main">
-        <fieldset class="vertical">
-              <h2>
+    <form 
+        class="pat-inject pat-form" 
+        method="get" 
+        action="assessment#main">
+        <fieldset 
+            class="vertical">
+            <h2
+                class="form-separation-header">
                 Commercial manned guarding
-              </h2>
+            </h2>
 
-              <fieldset class="pat-checklist radio">
+            <fieldset 
+                class="pat-checklist radio">
                 <legend>Does your organisation provide commercial manned guarding?</legend>
                 <label>
-                  <input type="radio" class="presence" required="required" name="pq492.present" value="yes"> Yes
+                    <input 
+                        type="radio" 
+                        class="presence" 
+                        required="required" 
+                        name="pq492.present" 
+                        value="yes"> Yes
                 </label>
                 <label>
-                  <input type="radio" class="presence" required="required" name="pq492.present" value="no"> No
+                    <input 
+                        type="radio" 
+                        class="presence" 
+                        required="required" 
+                        name="pq492.present" 
+                        value="no"> No
                 </label>
-              </fieldset>
+            </fieldset>
 
-              <fieldset class="pat-checklist radio pat-depends" data-pat-depends="pq492.present=yes">
+            <fieldset 
+                class="pat-checklist radio pat-depends" 
+                data-pat-depends="pq492.present=yes">
                 <legend>Do you offer this service in multiple locations?</legend>
                 <label>
-                  <input type="radio" class="multiple" name="pq492.multiple" value="yes"> Yes
+                    Yes
+                    <input 
+                        type="radio" 
+                        class="multiple" 
+                        name="pq492.multiple" 
+                        value="yes"> 
                 </label>
                 <label>
-                  <input type="radio" class="multiple" name="pq492.multiple" value="no" checked="checked"> No
+                    No
+                    <input 
+                        type="radio" 
+                        class="multiple" 
+                        name="pq492.multiple" 
+                        value="no" 
+                        checked="checked"> 
                   </label>
               </fieldset>
 
-              <fieldset class="group pat-depends" data-pat-depends="condition: pq492.present=yes and pq492.multiple">
+            <fieldset 
+                class="group pat-depends" 
+                data-pat-depends="condition: pq492.present=yes and pq492.multiple">
                 <legend>
-                  <span class="pat-depends" data-pat-depends="pq492.multiple=no">Please enter a name for the location you would like to assess.</span>
-                  <span class="pat-depends" data-pat-depends="pq492.multiple=yes">Please enter the name for each location you would like to assess.</span>
+                    <span 
+                        class="pat-depends" 
+                        data-pat-depends="pq492.multiple=no">Please enter a name for the location you would like to assess.</span>
+                    <span 
+                        class="pat-depends" 
+                        data-pat-depends="pq492.multiple=yes">Please enter the name for each location you would like to assess.</span>
                 </legend>
-                <fieldset class="group form-iteration pat-clone" data-pat-clone="template: #clone-template-1; trigger-element: #clone-set-1">
-                  <template id="clone-template-1">
+                <fieldset 
+                    class="group form-iteration pat-clone" 
+                    data-pat-clone="template: #clone-template-1; trigger-element: #clone-set-1">
+                <template 
+                    id="clone-template-1">
                     <label>
                       <input  
                         placeholder="Name of location #{1}" 
@@ -289,37 +330,48 @@
                     </label>
                   </template>
 
-                  <label>
+                <label>
                     <input  
-                      placeholder="Name of location" 
-                      size="40" 
-                      type="text" 
-                      name="492:utf8:utext:list" 
-                      class="pat-depends pat-autofocus" data-pat-depends="pq492.multiple=no" />
+                        placeholder="Name of location" 
+                        size="40" 
+                        type="text" 
+                        name="492:utf8:utext:list" 
+                        class="pat-depends pat-autofocus" 
+                        data-pat-depends="pq492.multiple=no" />
                     <input  
-                      placeholder="Name of location 1" 
-                      size="40" 
-                      type="text" 
-                      name="492:utf8:utext:list" 
-                      class="pat-depends pat-autofocus" data-pat-depends="pq492.multiple=yes" />
+                        placeholder="Name of location 1" 
+                        size="40" 
+                        type="text" 
+                        name="492:utf8:utext:list" 
+                        class="pat-depends pat-autofocus" 
+                        data-pat-depends="pq492.multiple=yes" />
                   </label>
                 </fieldset>
-                <p class="buttons pat-depends" data-pat-depends="pq492.multiple=yes">
-                  <button id="clone-set-1" class="pat-button icon-plus-circle add-clone" type="button">Add another item</button>
+                <p 
+                    class="buttons pat-depends" 
+                    data-pat-depends="pq492.multiple=yes">
+                    <button 
+                        id="clone-set-1" 
+                        class="pat-button icon-plus-circle add-clone" 
+                        type="button">Add another item</button>
                 </p>
               </fieldset>
            </fieldset>
 
-        <fieldset class="vertical">
+        <fieldset 
+            class="vertical">
 
-              <h2>Mobile partrolling/intervention after alarm</h2>
-              <fieldset class="pat-checklist radio">
+            <h2
+                class="form-separation-header">Mobile partrolling/intervention after alarm</h2>
+            <fieldset 
+                class="pat-checklist radio">
                 <legend>Does your organisation provide mobile patrolling / intervention after alarm?</legend>
                 <label><input type="radio" class="presence" required="required" name="pq504.present" value="yes"> Yes</label>
                 <label><input type="radio" class="presence" required="required" name="pq504.present" value="no" checked="checked"> No</label>
-              </fieldset>
+            </fieldset>
 
-              <fieldset class="pat-checklist radio pat-depends" data-pat-depends="pq504.present=yes">
+            <fieldset 
+                class="pat-checklist radio pat-depends" data-pat-depends="pq504.present=yes">
                 <legend>Do you offer this service in multiple locations?</legend>
                 <label>
                   <input type="radio" class="multiple" name="pq504.multiple" value="yes"> Yes
@@ -327,9 +379,10 @@
                 <label>
                   <input type="radio" class="multiple" name="pq504.multiple" value="no" checked="checked"> No
                 </label>
-              </fieldset>
+            </fieldset>
 
-              <fieldset class="group pat-depends" data-pat-depends="condition: pq504.present=yes and pq504.multiple">
+            <fieldset 
+                class="group pat-depends" data-pat-depends="condition: pq504.present=yes and pq504.multiple">
                 <legend>
                   <span class="pat-depends" data-pat-depends="pq504.multiple=no">Please enter a name for the location you would like to assess.</span>
                   <span class="pat-depends" data-pat-depends="pq504.multiple=yes">Please enter the name for each location you would like to assess.</span>
@@ -369,9 +422,12 @@
               </fieldset>
           </fieldset>
 
-        <fieldset class="vertical">
-              <h2>Event security</h2>
-              <fieldset class="pat-checklist radio">
+        <fieldset 
+            class="vertical">
+            <h2
+                class="form-separation-header">Event security</h2>
+            <fieldset 
+                class="pat-checklist radio">
                 <legend>Does your organisation provide event security?</legend>
                 <label><input type="radio" class="presence" required="required" name="pq505.present" value="yes"> Yes</label>
                 <label><input type="radio" class="presence" required="required" name="pq505.present" value="no" checked="checked"> No</label>
@@ -415,15 +471,20 @@
                   </label>
                 </fieldset>
 
-                <p class="buttons pat-depends" data-pat-depends="pq505.multiple=yes">
-                  <button id="clone-set-3" class="pat-button icon-plus-circle add-clone" type="button">Add another item</button>
+                <p 
+                    class="buttons pat-depends" 
+                    data-pat-depends="pq505.multiple=yes">
+                    <button 
+                        id="clone-set-3" 
+                        class="pat-button icon-plus-circle add-clone" type="button">Add another item</button>
                 </p>
               </fieldset>
         </fieldset>
 
-          <p class="button-bar">
+        <div 
+            class="button-bar">
               <button class="pat-button" type="submit">Save and continue</button>
-          </p>
+        </div>
     </form>
   </div>
 </div>
