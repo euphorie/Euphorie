@@ -47,6 +47,9 @@ Changelog
 - Ask for confirmation when following an organisation invite link.
   [reinhardt]
 
+- Remove from templates hardcoded date values.
+  [ale-rt]
+
 - Use Plone 5.2.12
 
 

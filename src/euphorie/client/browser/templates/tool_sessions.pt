@@ -174,11 +174,7 @@
                        href="${session/absolute_url}/@@publication_menu#publication-menu"
                        data-pat-tooltip="source: ajax; position-list: tr"
                        tal:condition="webhelpers/use_publication_feature"
-                    >Published
-                      <time class="pat-display-time"
-                            datetime="2018-03-28T08:00Z"
-                            data-pat-display-time="from-now: true"
-                      >2018-03-28</time></a>
+                    >Published</a>
                     <a class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
                        href="${session/absolute_url}/@@more_menu#more-menu"
                        data-pat-tooltip="source: ajax; position-list: tr"
