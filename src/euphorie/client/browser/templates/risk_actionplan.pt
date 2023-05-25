@@ -27,7 +27,7 @@
                  errors python:exists('actionplan/errors') and actionplan['errors'] or {};
                ">
 
-        <form class="pat-validation pat-inject pat-scroll"
+        <form class="pat-validation pat-inject pat-scroll pat-form"
               action="${context/absolute_url}/@@actionplan"
               method="post"
               data-pat-inject="history: record; source: #step-4-topics; target: #step-4-topics &amp;&amp; source: #content; target: #content"
@@ -77,7 +77,8 @@
                   <label tal:condition="python:not readonly and not skip_evaluation"
                          i18n:translate="risk_priority"
                   >This is a
-                    <select name="priority"
+                    <select class="pat-select"
+                            name="priority"
                             i18n:name="priority_value"
                     >
                       <option selected="${python:'selected' if value=='low' else None}"

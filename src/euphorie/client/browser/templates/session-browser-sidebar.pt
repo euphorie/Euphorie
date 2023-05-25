@@ -80,7 +80,7 @@
           <div class="miller-columns"
                id="miller-columns"
           >
-            <form class="search-form pat-inject view-compact"
+            <form class="search-form pat-inject view-compact pat-form"
                   action="${absolute_url}/@@${view/__name__}#browser"
             >
               <fieldset class="search-box-body">
