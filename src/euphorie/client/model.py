@@ -14,6 +14,8 @@ from Acquisition import aq_inner
 from Acquisition import aq_parent
 from collections import defaultdict
 from euphorie.client.client import IClient
+from euphorie.client.config import LOCKING_ACTIONS
+from euphorie.client.config import LOCKING_SET_ACTIONS
 from euphorie.client.enum import Enum
 from OFS.interfaces import IApplication
 from plone import api

@@ -1,4 +1,5 @@
 from euphorie.client import model
+from euphorie.client.config import LOCKING_ACTIONS
 from plone import api
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
@@ -59,7 +60,7 @@ class LockingMenu(BrowserView):
         """Reset the session date to now."""
         if not self.webhelpers.can_lock_session:
             raise Unauthorized()
-        self.create_event("lock_reset")
+        self.create_event("lock_refresh")
         return self.redirect()
 
     def set_lock(self):
