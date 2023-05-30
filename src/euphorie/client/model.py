@@ -808,7 +808,7 @@ class SurveySession(BaseObject):
         query = (
             Session.query(SessionEvent)
             .filter(
-                SessionEvent.action.in_(("lock_set", "lock_reset", "lock_unset")),
+                SessionEvent.action.in_(LOCKING_ACTIONS),
                 SessionEvent.session_id == self.id,
             )
             .order_by(SessionEvent.time.desc())
