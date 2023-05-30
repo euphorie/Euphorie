@@ -825,7 +825,7 @@ class SurveySession(BaseObject):
         event = self.last_locking_event
         if not event:
             return False
-        return event.action in ("lock_set", "lock_reset")
+        return event.action in LOCKING_SET_ACTIONS
 
     @property
     @deprecate(
