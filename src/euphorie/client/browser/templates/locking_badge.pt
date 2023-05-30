@@ -1,28 +1,26 @@
 <tal:available define="
                  locking_view nocall:here/@@locking_view;
                  webhelpers nocall:locking_view/webhelpers;
+                 session here/session;
                "
                condition="webhelpers/use_locking_feature"
 >
-  <a class="icon-lock${python:'-open' if not session.is_locked else None} text-button pat-tooltip"
+  <a class="icon icon-lock${python:'-open' if not session.is_locked else None} pat-tooltip"
      href="${here/absolute_url}/@@locking_menu#locking-menu"
      data-pat-tooltip="source: ajax; position-list: tr"
-     tal:define="
-       session here/session;
-       language here/plone_portal_state/language;
-     "
      i18n:domain="euphorie"
-  ><tal:switch switch="locking_view/state"><tal:case case="string:locked"><tal:i18n i18n:translate="label_locked">Locked</tal:i18n>
-        <time class="pat-display-time"
-              datetime="${value}"
-              data-pat-display-time="from-now: true; locale: ${language};"
-              tal:define="
-                value python:webhelpers.timezoned_date(locking_view.last_locking_event.time);
-              "
-        >${value}</time>
-      </tal:case><tal:case case="default"
+  >
+    <tal:switch switch="locking_view/state">
+      <tal:case case="string:locked"
+                i18n:translate="label_locked"
+      >
+        Locked
+      </tal:case>
+      <tal:case case="default"
                 i18n:translate="label_unlocked"
-      >Unlocked</tal:case>
+      >
+        Unlocked
+      </tal:case>
     </tal:switch>
   </a>
 </tal:available>
