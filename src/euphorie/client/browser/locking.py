@@ -7,7 +7,7 @@ from zExceptions import Unauthorized
 
 
 class LockingMenu(BrowserView):
-    lock_actions = ["lock_set", "lock_reset", "lock_unset"]
+    lock_actions = LOCKING_ACTIONS
 
     @property
     @memoize
