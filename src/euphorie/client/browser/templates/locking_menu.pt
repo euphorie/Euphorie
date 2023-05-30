@@ -14,6 +14,7 @@
            language view/portal/plone_portal_state/language;
            last_modifier session/last_modifier;
            last_locking_event view/last_locking_event;
+           is_locked python:session.is_locked;
          "
     >
       <div class="pat-message notice"
@@ -49,7 +50,7 @@
           <tal:i18n i18n:name="date">${python:toLocalizedTime(session.modified, long_format=1)}</tal:i18n>.
         </p>
       </div>
-      <tal:can_publish condition="webhelpers/can_lock_session">
+      <tal:can_publish condition="view/show_actions">
         <ul class="menu"
             tal:switch="view/state"
         >
