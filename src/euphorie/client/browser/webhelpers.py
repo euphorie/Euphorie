@@ -1064,13 +1064,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def can_unlock_session(self):
-        if not self.use_locking_feature:
-            return False
-        if self.is_owner:
-            return True
-        if self.is_manager:
-            return True
-        return False
+        return self.can_lock_session
 
     @property
     @memoize
