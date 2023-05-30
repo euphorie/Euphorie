@@ -2,7 +2,7 @@ About
 =====
 
 .. image:: https://github.com/euphorie/Euphorie/workflows/tests/badge.svg
-    :target: https://github.com/euphorie/Euphorie/actions?query=workflow%3Atests
+    :target: https://github.com/euphorie/Euphorie/actions?query=workflow%3Atests
 
 Euphorie is a tool for risk assessment.  It was developed by `SYSLAB`_ and `TNO`_
 in cooperation with `Simplon B.V.`_ and `Cornelis Kolbach`_ in commission of
@@ -32,6 +32,9 @@ at any point in time.
 
 Compatibility
 =============
+
+In Euphorie 15 the "publication feature" was changed in the more generic "locking feature".
+That makes the registry record ``euphorie.use_publication_feature`` obsolete.
 
 Euphorie 12 is meant to be used with Plone 5.2.
 Since Euphorie 12, NuPlone 2 is needed.

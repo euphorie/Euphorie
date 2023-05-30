@@ -5,40 +5,43 @@
       i18n:domain="euphorie"
 >
   <body>
-    <div id="publication-menu"
+    <div id="locking-menu"
          hidden="hidden"
          tal:define="
            webhelpers python:view.webhelpers;
            session view/context/session;
-           last_modifier session/last_modifier|nothing;
            toLocalizedTime nocall: here/@@plone/toLocalizedTime;
            language view/portal/plone_portal_state/language;
+           last_modifier session/last_modifier;
+           last_locking_event view/last_locking_event;
          "
     >
       <div class="pat-message notice"
-           tal:condition="last_modifier"
+           tal:condition="last_locking_event"
       >
         <p tal:define="
-             last_publisher session/last_publisher|nothing;
+             last_actor nocall:last_locking_event/account;
            "
-           tal:condition="session/published"
+           tal:condition="last_locking_event"
         >
           <!-- Diplay this paragraph only when the assessment is published. -->
-          <strong><tal:i18n i18n:translate="label_published">Published</tal:i18n>
+          <strong><tal:i18n i18n:translate="label_locked">Locked</tal:i18n>
             <time class="pat-display-time"
                   datetime="${value}"
                   data-pat-display-time="from-now: true; locale: ${language}"
                   tal:define="
-                    value python:webhelpers.timezoned_date(session.published);
+                    value python:webhelpers.timezoned_date(last_locking_event.time);
                   "
             >${value}</time>
-            <tal:publisher condition="last_publisher">
+            <tal:publisher condition="nocall:last_actor">
               <tal:i18n i18n:translate="by">by</tal:i18n>
-              <a href="mailto:${last_publisher/email}">${last_publisher/email}</a>
+              <a href="mailto:${last_actor/email}">${last_actor/title}</a>
             </tal:publisher>
           </strong>
         </p>
-        <p i18n:translate="last_edited_by">Last edited by
+        <p tal:condition="last_modifier"
+           i18n:translate="last_edited_by"
+        >Last edited by
           <a href="mailto:${last_modifier/email}"
              i18n:name="name"
           >${last_modifier/email}</a>
@@ -46,50 +49,50 @@
           <tal:i18n i18n:name="date">${python:toLocalizedTime(session.modified, long_format=1)}</tal:i18n>.
         </p>
       </div>
-      <tal:can_publish condition="webhelpers/can_publish_session">
+      <tal:can_publish condition="webhelpers/can_lock_session">
         <ul class="menu"
-            tal:switch="session/review_state"
+            tal:switch="view/state"
         >
-          <tal:case case="string:private">
+          <tal:case case="string:unlocked">
             <li>
               <form class="pat-inject"
-                    action="${here/absolute_url}/@@publication_date/set_date#content"
+                    action="${here/absolute_url}/@@locking_view/set_lock#content"
               >
                 <button class="icon-lock close-panel"
                         type="submit"
-                        i18n:translate=""
-                >Publish Risk Assessment</button>
+                        i18n:translate="label_lock_assessment"
+                >Lock this assessment</button>
               </form>
             </li>
           </tal:case>
-          <tal:case case="string:published">
+          <tal:case case="string:locked">
             <li>
               <form class="pat-inject"
-                    action="${here/absolute_url}/@@publication_date/unset_date#content"
+                    action="${here/absolute_url}/@@locking_view/unset_lock#content"
               >
                 <button class="icon-lock-open close-panel"
                         type="submit"
-                        i18n:translate=""
-                >Unpublish Risk Assessment</button>
+                        i18n:translate="label_unlock_session"
+                >Unlock this risk assessment</button>
               </form>
             </li>
             <li>
               <form class="pat-inject"
-                    action="${here/absolute_url}/@@publication_date/reset_date#content"
+                    action="${here/absolute_url}/@@locking_view/refresh_lock#content"
               >
                 <button class="icon-arrows-cw"
                         type="submit"
                         i18n:translate=""
-                >Refresh publication date</button>
+                >Refresh locking date</button>
               </form>
             </li>
           </tal:case>
         </ul>
       </tal:can_publish>
       <div class="pat-message notice"
-           tal:condition="not:last_modifier"
+           tal:condition="not:last_locking_event"
       >
-        <p i18n:translate="">No information about the last editor is available.</p>
+        <p i18n:translate="">No information about locking available.</p>
       </div>
     </div>
   </body>

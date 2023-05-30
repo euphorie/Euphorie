@@ -194,11 +194,12 @@
                       <metal:status_icon use-macro="here/certificate_macros/macros/status_icon"
                                          tal:condition="show_extra_fields|python:False"
                       />
-                      <a class="icon locking ${python:session.published and 'locked' or 'unlocked'} pat-tooltip"
-                         href="${session/absolute_url}/@@publication_menu#publication-menu"
+
+                      <a class="icon locking ${python:session.is_locked and 'locked' or 'unlocked'} pat-tooltip"
+                         href="${session/absolute_url}/@@locking_menu#locking-menu"
                          data-pat-tooltip="source: ajax; position-list: tr"
-                         tal:condition="python:webhelpers.use_publication_feature_for_session(session) and show_extra_fields"
-                      >Published</a>
+                         tal:condition="python:webhelpers.use_locking_feature_for_session(session) and show_extra_fields"
+                      >Locked</a>
 
                       <a class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
                          href="${session/absolute_url}/@@more_menu#more-menu"

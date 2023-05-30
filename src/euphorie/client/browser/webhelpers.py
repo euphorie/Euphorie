@@ -201,15 +201,33 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    @deprecate(
+        "Publication has been changed to locking. Deprecated in version 15.0.0.dev0"
+    )
     def use_publication_feature(self):
         return api.portal.get_registry_record(
-            "euphorie.use_publication_feature", default=False
+            "euphorie.use_locking_feature", default=False
         )
 
     @memoize
+    @deprecate(
+        "Publication has been changed to locking. Deprecated in version 15.0.0.dev0"
+    )
     def use_publication_feature_for_session(self, session):
         # to be overwritten as needed
-        return self.use_publication_feature
+        return self.use_locking_feature
+
+    @property
+    @memoize
+    def use_locking_feature(self):
+        return api.portal.get_registry_record(
+            "euphorie.use_locking_feature", default=False
+        )
+
+    @memoize
+    def use_locking_feature_for_session(self, session):
+        # to be overwritten as needed
+        return self.use_locking_feature
 
     @property
     @memoize
@@ -240,18 +258,24 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    @deprecate("Use current_account instead. Deprecated in version 15.0.0.dev0")
     def _user(self):
+        return self.current_account
+
+    @property
+    @memoize
+    def current_account(self):
         return self.get_current_account()
 
     @property
     @memoize
     def anonymous(self):
-        return isAnonymous(self._user)
+        return isAnonymous(self.current_account)
 
     @property
     @memoize
     def is_guest_account(self):
-        account = getattr(self._user, "account_type", None)
+        account = getattr(self.current_account, "account_type", None)
         return account == config.GUEST_ACCOUNT
 
     @property
@@ -1003,6 +1027,44 @@ class WebHelpers(BrowserView):
         """Check if the current user is the owner of the session."""
         session = self.traversed_session.session
         return self.get_current_account() == session.account
+
+    @property
+    @memoize
+    def is_manager(self):
+        """Check if the current user is a manager of the session."""
+        account = self.get_current_account()
+        if not account:
+            return False
+        session = self.traversed_session.session
+        if (
+            Session()
+            .query(OrganisationMembership)
+            .filter(
+                and_(
+                    OrganisationMembership.owner_id == session.account_id,
+                    OrganisationMembership.member_id == account.id,
+                    OrganisationMembership.member_role == "manager",
+                )
+            )
+            .count()
+        ):
+            return True
+
+    @property
+    @memoize
+    def can_lock_session(self):
+        if not self.use_locking_feature:
+            return False
+        if self.is_owner:
+            return True
+        if self.is_manager:
+            return True
+        return False
+
+    @property
+    @memoize
+    def can_unlock_session(self):
+        return self.can_lock_session
 
     @property
     @memoize

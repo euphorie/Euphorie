@@ -228,9 +228,9 @@
       <required>False</required>
     </field>
   </record>
-  <record name="euphorie.use_publication_feature">
+  <record name="euphorie.use_locking_feature">
     <field type="plone.registry.field.Bool">
-      <title>use publication feature</title>
+      <title>use locking feature</title>
       <default>False</default>
       <missing_value>False</missing_value>
       <required>False</required>

@@ -48,6 +48,10 @@ Changelog
   Ref: scrum-1135
   [thet]
 
+- The publication feature has been renamed to locking and it is now more powerful.
+  Ref.: scrum-1097
+  [ale-rt]
+
 - Fix the translation in the title attribute of listed assessments
   [ale-rt]
 

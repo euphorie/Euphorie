@@ -195,7 +195,7 @@
               id="button-osc-expand"
               title="Expand sidebar"
               data-pat-toggle="selector: body; value: osc-size-full osc-size-normal"
-              tal:condition="webhelpers/use_publication_feature"
+              tal:condition="webhelpers/use_locking_feature"
               i18n:attributes="title"
               i18n:translate=""
       >Expand sidebar</button>
