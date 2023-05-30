@@ -1031,7 +1031,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def is_manager(self):
-        """Check if the current user is the owner of the session."""
+        """Check if the current user is a manager of the session."""
         account = self.get_current_account()
         if not account:
             return False
