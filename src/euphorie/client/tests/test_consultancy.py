@@ -13,6 +13,7 @@ from euphorie.client.tests.utils import MockMailFixture
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
+from time import sleep
 from z3c.saconfig import Session
 from zope.interface import alsoProvides
 
@@ -231,7 +232,7 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
             self.traversed_session.session.consultancy.account,
             self.consultant,
         )
-        self.assertEqual(self.traversed_session.session.consultancy.status, "validated")
+        self.assertTrue(self.traversed_session.session.is_validated)
         with api.env.adopt_user(user=self.owner):
             with self._get_view(
                 "consultancy",
@@ -251,8 +252,7 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
                 timedelta(seconds=5),
             )
 
-        # TODO check that assessment is locked
-        # self.assertTrue(self.traversed_session.session.locked)
+        self.assertTrue(self.traversed_session.session.is_locked)
 
         self.assertEqual(len(mail_fixture.storage), 2)
         recipients = {
@@ -263,6 +263,70 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
             recipients,
             {"valerie@labyrinth.social", "jessica@labyrinth.social"},
         )
+
+        # We need to wait at least one second because the datetime
+        # is stored with that accuracy
+        sleep(1)
+
+        # if locking is enabled...
+        api.portal.set_registry_record("euphorie.use_locking_feature", True)
+        # ... then admin/owner can unlock
+        with api.env.adopt_user(user=self.owner):
+            with self._get_view(
+                "locking_view",
+                self.traversed_session,
+                self.traversed_session.session,
+            ) as view:
+                view.unset_lock()
+
+        self.session.flush()
+        self.assertTrue(self.traversed_session.session.is_validated)
+        self.assertFalse(self.traversed_session.session.is_locked)
+
+    def test_validate_locked_risk_assessment(self):
+        self.traversed_session.session.consultancy = Consultancy(
+            account=self.consultant,
+            session=self.traversed_session.session,
+        )
+
+        api.portal.set_registry_record("euphorie.use_locking_feature", True)
+        with api.env.adopt_user(user=self.owner):
+            with self._get_view(
+                "locking_view",
+                self.traversed_session,
+                self.traversed_session.session,
+            ) as view:
+                view.set_lock()
+                original_lock_event = view.last_locking_event
+
+        # Some time passes before the consultant validates the assessment
+        sleep(3)
+
+        with api.env.adopt_user(user=self.consultant):
+            with self._get_view(
+                "panel-validate-risk-assessment",
+                self.traversed_session,
+                self.traversed_session.session,
+            ) as view:
+                view.request.method = "POST"
+                view.request.form = {"approved": "1"}
+                view()
+
+        # consultant stays set
+        self.assertEqual(
+            self.traversed_session.session.consultancy.account,
+            self.consultant,
+        )
+        self.assertTrue(self.traversed_session.session.is_validated)
+        self.assertTrue(self.traversed_session.session.is_locked)
+        with self._get_view(
+            "locking_view",
+            self.traversed_session,
+            self.traversed_session.session,
+        ) as view:
+            lock_event = view.last_locking_event
+        self.assertEqual(lock_event.account, self.owner)
+        self.assertEqual(lock_event.time, original_lock_event.time)
 
     def test_delete_consultant(self):
         now = datetime.utcnow().replace(tzinfo=timezone.utc)
@@ -289,7 +353,7 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
         self.session.delete(self.consultant)
         self.session.flush()
 
-        self.assertEqual(self.traversed_session.session.consultancy.status, "validated")
+        self.assertTrue(self.traversed_session.session.is_validated)
         with api.env.adopt_user(user=self.owner):
             with self._get_view(
                 "consultancy",

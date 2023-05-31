@@ -256,6 +256,13 @@ class PanelValidateRiskAssessment(ConsultancyBaseView):
             )
             self.sqlsession.add(event)
             self.context.session.consultancy.status = "validated"
+            if not self.context.session.is_locked:
+                locking_view = api.content.get_view(
+                    name="locking_view",
+                    context=self.context,
+                    request=self.request,
+                )
+                locking_view.create_event("lock_set")
             self.notify_admins()
         self.redirect()
 
