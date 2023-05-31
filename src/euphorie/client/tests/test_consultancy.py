@@ -1,7 +1,6 @@
 from AccessControl import Unauthorized
 from datetime import datetime
 from datetime import timedelta
-from datetime import timezone
 from euphorie.client import model
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import Consultancy
@@ -128,7 +127,7 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
                 self.assertEqual(events[0].action, "validation_requested")
                 self.assertEqual(events[0].account_id, self.owner.id)
                 self.assertLessEqual(
-                    abs(events[0].time - datetime.utcnow()),
+                    abs(events[0].time - datetime.now()),
                     timedelta(seconds=5),
                 )
                 self.assertEqual(len(mail_fixture.storage), 1)
@@ -244,10 +243,7 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
                 )
                 self.assertEqual(view.validated_info.consultant_name, "Michel Moulin")
             self.assertLessEqual(
-                abs(
-                    view.validated_info.raw_time
-                    - datetime.utcnow().replace(tzinfo=timezone.utc)
-                ),
+                abs(view.validated_info.raw_time - datetime.now()),
                 timedelta(seconds=5),
             )
 
@@ -265,7 +261,7 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
         )
 
     def test_delete_consultant(self):
-        now = datetime.utcnow().replace(tzinfo=timezone.utc)
+        now = datetime.now()
         self.traversed_session.session.consultancy = Consultancy(
             account=self.consultant,
             session=self.traversed_session.session,

@@ -1,3 +1,4 @@
+from datetime import datetime
 from euphorie.client import model
 from euphorie.client.config import LOCKING_ACTIONS
 from plone import api
@@ -67,6 +68,7 @@ class LockingMenu(BrowserView):
             account_id=self.webhelpers.current_account.id,
             session_id=self.context.session.id,
             action=action,
+            time=datetime.now(),
         )
         model.Session.add(event)
 

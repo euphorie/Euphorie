@@ -31,7 +31,7 @@
                   datetime="${value}"
                   data-pat-display-time="from-now: true; locale: ${language}"
                   tal:define="
-                    value python:webhelpers.timezoned_date(last_locking_event.time);
+                    value python:webhelpers.timezoned_date(view.lock_time);
                   "
             >${value}</time>
             <tal:publisher condition="nocall:last_actor">

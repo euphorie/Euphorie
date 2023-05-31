@@ -1,5 +1,5 @@
 from AccessControl import Unauthorized
-from datetime import timezone
+from datetime import datetime
 from euphorie.client import MessageFactory as _
 from euphorie.client.browser.base import BaseView
 from euphorie.client.model import Account
@@ -74,7 +74,7 @@ class SessionValidated:
 
     @property
     def raw_time(self):
-        return self.context.time.replace(tzinfo=timezone.utc)
+        return self.context.time
 
     @property
     def consultant_email(self):
@@ -170,6 +170,7 @@ class PanelRequestValidation(ConsultancyBaseView):
             account_id=self.webhelpers.get_current_account().id,
             session_id=self.context.session.id,
             action="validation_requested",
+            time=datetime.now(),
         )
         self.sqlsession.add(event)
 
@@ -246,6 +247,7 @@ class PanelValidateRiskAssessment(ConsultancyBaseView):
                 account_id=consultant.id,
                 session_id=self.context.session.id,
                 action="validated",
+                time=datetime.now(),
                 note=json.dumps(
                     {
                         "consultant_id": consultant.id,
