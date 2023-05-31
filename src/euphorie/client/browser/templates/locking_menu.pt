@@ -25,8 +25,8 @@
            "
            tal:condition="last_locking_event"
         >
-          <!-- Diplay this paragraph only when the assessment is published. -->
-          <strong><tal:i18n i18n:translate="label_locked">Locked</tal:i18n>
+          <!-- Diplay this paragraph only when the assessment is locked. -->
+          <strong tal:condition="is_locked"><tal:i18n i18n:translate="label_locked">Locked</tal:i18n>
             <time class="pat-display-time"
                   datetime="${value}"
                   data-pat-display-time="from-now: true; locale: ${language}"
