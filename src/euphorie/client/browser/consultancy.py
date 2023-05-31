@@ -256,7 +256,6 @@ class PanelValidateRiskAssessment(ConsultancyBaseView):
             )
             self.sqlsession.add(event)
             self.context.session.consultancy.status = "validated"
-            # TODO: lock session
             self.notify_admins()
         self.redirect()
 
