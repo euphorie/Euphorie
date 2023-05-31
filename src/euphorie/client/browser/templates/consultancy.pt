@@ -38,7 +38,7 @@
           <p tal:condition="not:role_consultant"
              i18n:translate="message_find_consultants"
           >
-            You have the option to request assistance in completing a risk assessment or to have a risk analysis performed by you, validated by an OSH consultant. An OSH consultant can give your risk assessment an offical validation mark.
+            It is possible to request assistance in completing a risk assessment or to have a risk analysis performed by you and validated by an OSH consultant. An OSH consultant can give your risk assessment an offical validation mark. A validation can only be requested by users with the permission level &lsquo;Manage&rsquo; or higher.
           </p>
 
         </article>
