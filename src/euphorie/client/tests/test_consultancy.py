@@ -159,6 +159,12 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
             account=self.consultant,
             session=self.traversed_session.session,
         )
+        event = SessionEvent(
+            account_id=self.consultant.id,
+            session_id=self.traversed_session.session.id,
+            action="validation_requested",
+        )
+        self.session.add(event)
         with api.env.adopt_user(user=other_member):
             with self._get_view(
                 "panel-validate-risk-assessment",
@@ -216,6 +222,12 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
             account=self.consultant,
             session=self.traversed_session.session,
         )
+        event = SessionEvent(
+            account_id=self.consultant.id,
+            session_id=self.traversed_session.session.id,
+            action="validation_requested",
+        )
+        self.session.add(event)
         self.session.flush()
         with api.env.adopt_user(user=self.consultant):
             with self._get_view(
@@ -288,6 +300,12 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
             account=self.consultant,
             session=self.traversed_session.session,
         )
+        event = SessionEvent(
+            account_id=self.consultant.id,
+            session_id=self.traversed_session.session.id,
+            action="validation_requested",
+        )
+        self.session.add(event)
 
         api.portal.set_registry_record("euphorie.use_locking_feature", True)
         with api.env.adopt_user(user=self.owner):
@@ -333,7 +351,6 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
         self.traversed_session.session.consultancy = Consultancy(
             account=self.consultant,
             session=self.traversed_session.session,
-            status="validated",
         )
         event = SessionEvent(
             account_id=self.consultant.id,

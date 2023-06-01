@@ -449,11 +449,6 @@ class Consultancy(BaseObject):
         back_populates="consultancy",
     )
 
-    status = schema.Column(
-        types.Unicode(255),
-        default="pending",
-    )
-
 
 @implementer(IUser)
 class Account(BaseObject):

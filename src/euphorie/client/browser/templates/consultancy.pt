@@ -17,8 +17,7 @@
            id="content-pane"
            tal:define="
              consultant context/session/consultancy/account|nothing;
-             status context/session/consultancy/status|nothing;
-             is_validated python:status == 'validated';
+             is_validated context/session/is_validated|nothing;
              current_user webhelpers/get_current_account;
              role_consultant python: consultant and current_user == consultant;
            "
