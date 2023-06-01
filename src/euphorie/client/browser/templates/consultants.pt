@@ -41,10 +41,10 @@
             <h1 i18n:translate="label_oira_consultants">
               OiRA Consultants
             </h1>
-            <p tal:condition="content"
-               tal:replace="structure content"
+            <p tal:condition="python:content"
+               tal:replace="structure content/body"
             ></p>
-            <p tal:condition="not:content"
+            <p tal:condition="python:not content"
                i18n:translate="message_oira_consultants_no_info"
             >
               No information available
