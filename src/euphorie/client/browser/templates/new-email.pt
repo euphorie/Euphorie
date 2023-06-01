@@ -28,7 +28,7 @@
           >Please bear in mind that by changing the email address, your login name will also change.</p>
         </article>
 
-        <form class="pat-validation"
+        <form class="pat-form pat-validation"
               id="${view/id}"
               action="${request/getURL}"
               enctype="${view/enctype}"
