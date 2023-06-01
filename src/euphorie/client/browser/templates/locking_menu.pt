@@ -13,20 +13,33 @@
            toLocalizedTime nocall: here/@@plone/toLocalizedTime;
            language view/portal/plone_portal_state/language;
            last_modifier session/last_modifier;
-           last_locking_event view/last_locking_event;
-           is_locked python:session.is_locked;
+           last_locking_event session/last_locking_event;
+           last_validation_event session/last_validation_event;
          "
     >
-      <div class="pat-message notice"
-           tal:condition="last_locking_event"
-      >
-        <p tal:define="
-             last_actor nocall:last_locking_event/account;
-           "
-           tal:condition="last_locking_event"
-        >
+      <div class="pat-message notice">
+        <p tal:condition="python: last_validation_event">
+          <strong tal:define="
+                    last_actor nocall:last_validation_event/account;
+                  "><tal:i18n i18n:translate="label_validated">Validated</tal:i18n>
+            <time class="pat-display-time"
+                  datetime="${value}"
+                  data-pat-display-time="from-now: true; locale: ${language}"
+                  tal:define="
+                    value python:webhelpers.timezoned_date(last_locking_event.time);
+                  "
+            >${value}</time>
+            <tal:publisher condition="nocall:last_actor">
+              <tal:i18n i18n:translate="by">by</tal:i18n>
+              <a href="mailto:${last_actor/email}">${last_actor/title}</a>
+            </tal:publisher>
+          </strong>
+        </p>
+        <p tal:condition="python: last_locking_event">
           <!-- Diplay this paragraph only when the assessment is locked. -->
-          <strong tal:condition="is_locked"><tal:i18n i18n:translate="label_locked">Locked</tal:i18n>
+          <strong tal:define="
+                    last_actor nocall:last_locking_event/account;
+                  "><tal:i18n i18n:translate="label_locked">Locked</tal:i18n>
             <time class="pat-display-time"
                   datetime="${value}"
                   data-pat-display-time="from-now: true; locale: ${language}"
@@ -90,11 +103,6 @@
           </tal:case>
         </ul>
       </tal:can_publish>
-      <div class="pat-message notice"
-           tal:condition="not:last_locking_event"
-      >
-        <p i18n:translate="">No information about locking available.</p>
-      </div>
     </div>
   </body>
 </html>

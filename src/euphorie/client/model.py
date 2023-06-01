@@ -818,18 +818,30 @@ class SurveySession(BaseObject):
         return query.first()
 
     @property
-    def is_validated(self):
-        """Check if the session is validated."""
+    def last_validation_event(self):
+        """Return the last event relative to validation"""
         query = (
             Session.query(SessionEvent)
             .filter(
-                SessionEvent.action == "validated",
+                SessionEvent.action.in_(
+                    (
+                        "validated",
+                        # TODO add a state where the session is invalidated
+                    )
+                ),
                 SessionEvent.session_id == self.id,
             )
             .order_by(SessionEvent.time.desc())
         )
-        # TODO: There should be something to remove the validation at a certain point
-        return bool(query.count())
+        return query.first()
+
+    @property
+    def is_validated(self):
+        """Check if the session is validated."""
+        event = self.last_validation_event
+        if not event:
+            return False
+        return event.action == "validated"
 
     @property
     def is_locked(self):

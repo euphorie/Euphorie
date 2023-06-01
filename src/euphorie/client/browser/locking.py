@@ -25,11 +25,6 @@ class LockingMenu(BrowserView):
         """The currently authenticated account."""
         return api.portal.get()
 
-    @property
-    @memoize_contextless
-    def last_locking_event(self):
-        return self.context.session.last_locking_event
-
     def is_locked(self):
         """Return whether the session is locked."""
         return self.context.session.is_locked
@@ -54,13 +49,6 @@ class LockingMenu(BrowserView):
         if self.is_locked():
             return "locked"
         return "unlocked"
-
-    @property
-    def lock_time(self):
-        """Return the time of the last lock event."""
-        if self.last_locking_event is None:
-            return None
-        return self.last_locking_event.time
 
     def create_event(self, action):
         event = model.SessionEvent(
