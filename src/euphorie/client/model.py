@@ -449,11 +449,6 @@ class Consultancy(BaseObject):
         back_populates="consultancy",
     )
 
-    status = schema.Column(
-        types.Unicode(255),
-        default="pending",
-    )
-
 
 @implementer(IUser)
 class Account(BaseObject):
@@ -829,14 +824,12 @@ class SurveySession(BaseObject):
             .order_by(SessionEvent.time.desc())
         )
         # TODO: There should be something to remove the validation at a certain point
+        # see https://github.com/syslabcom/scrum/issues/1160
         return bool(query.count())
 
     @property
     def is_locked(self):
         """Check if the session is locked."""
-        if self.is_validated:
-            return True
-
         event = self.last_locking_event
         if not event:
             return False

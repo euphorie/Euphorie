@@ -34,13 +34,6 @@ class LockingMenu(BrowserView):
         """Return whether the session is locked."""
         return self.context.session.is_locked
 
-    def is_validated(self):
-        """Return whether the session is validated."""
-        consultancy = self.context.session.consultancy
-        if consultancy and consultancy.status == "validated":
-            return True
-        return self.context.session.consultancy
-
     def show_actions(self):
         """Return whether we should show the actions in the menu."""
         if self.is_locked:
