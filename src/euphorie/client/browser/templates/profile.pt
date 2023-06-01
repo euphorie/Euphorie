@@ -37,7 +37,7 @@
           </ul>
         </article>
 
-        <form class="pat-validation pat-inject"
+        <form class="pat-validation pat-inject pat-form"
               id="profile-form"
               action="${request/URL}"
               method="post"
