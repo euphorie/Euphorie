@@ -81,10 +81,10 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
                     view.set_lock(), traversed_survey_session.absolute_url()
                 )
                 self.assertEqual(
-                    view.last_locking_event.account, survey_session.account
+                    survey_session.last_locking_event.account, survey_session.account
                 )
                 self.assertTrue(survey_session.is_locked)
-                old_lock_time = view.last_locking_event.time
+                old_lock_time = survey_session.last_locking_event.time
 
                 view.request.__annotations__.clear()
                 # Changing the HTTP_REFERER will redirect there
@@ -94,7 +94,7 @@ class TestSurveyViews(EuphorieIntegrationTestCase):
                 # is stored with that accuracy
                 sleep(1)
                 self.assertEqual(view.refresh_lock(), "foo")
-                self.assertLess(old_lock_time, view.last_locking_event.time)
+                self.assertLess(old_lock_time, survey_session.last_locking_event.time)
 
                 sleep(1)
                 view.request.__annotations__.clear()
