@@ -638,11 +638,12 @@
   <metal:training_configuration define-macro="training_configuration">
     <div class="pat-collapsible risk-module form-panel"
          id="page-module-training"
+         style="${python:'' if webhelpers.display_training_module else 'display: none;'}"
          data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 120px"
          tal:define="
            training_view nocall:here/@@training_slide;
          "
-         tal:condition="webhelpers/display_training_module"
+         tal:condition="webhelpers/use_training_module"
     >
       <h3 class="form-separation-header"
           i18n:translate="menu_training"
