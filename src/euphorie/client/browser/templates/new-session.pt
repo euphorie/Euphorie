@@ -63,8 +63,14 @@
                   </p>
                 </fieldset>
 
+                <input name="survey"
+                       type="hidden"
+                       value="${request/survey}"
+                       tal:condition="request/survey|nothing"
+                />
                 <label class="pat-depends tool-list-many"
                        data-pat-depends="condition: action=new"
+                       tal:condition="python:not view.my_context == 'survey' and not request.get('survey', None)"
                 >
                   <select class="pat-autosuggest"
                           name="survey"
@@ -121,7 +127,7 @@
               <button class="pat-button default pat-depends close-panel"
                       name="next"
                       type="submit"
-                      data-pat-depends="condition: (action=new and survey) or (action=clone and session); action: enable"
+                      data-pat-depends="condition: (action=new${python:' and survey' if not view.my_context == 'survey' else ''}) or (action=clone and session); action: enable"
                       i18n:translate="button_start_session"
               >Start risk assessment</button>
               <button class="pat-button close-panel"
