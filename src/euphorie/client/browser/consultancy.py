@@ -28,6 +28,8 @@ class ConsultancyBaseView(BaseView):
 
     @property
     def is_admin(self):
+        if not self.organisation:
+            return False
         organisation_view = api.content.get_view(
             name="organisation",
             context=self.webhelpers.country_obj,
