@@ -46,7 +46,6 @@ setup(
         "markdownify",
         "path.py",
         "plone.app.dexterity [relations]",
-        "plone.app.folder",
         "plone.app.imagecropping < 3",
         "plone.app.redirector",
         "plone.app.vocabularies",
