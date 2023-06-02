@@ -4,6 +4,10 @@ Changelog
 15.0.0 (unreleased)
 -------------------
 
+- Fix selected measure text spanning whole page instead of bein shown in training module.
+  Ref: scrum-1205 item 2)
+  [thet]
+
 - Align with prototype to fix form style issues.
   Ref: scrum-1205
   [thet]
