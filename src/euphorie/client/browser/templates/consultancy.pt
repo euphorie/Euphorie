@@ -142,7 +142,7 @@
           <li>
             <a class="pat-inject"
                href="${webhelpers/country_url}/++resource++euphorie.resources/oira/help/${webhelpers/help_language}/pages/3-carrying-out-a-risk-assessment.html"
-               data-pat-inject="history: record; source: #content; target: #content"
+               data-pat-inject="history: record; source: #content; target: #content; scroll: #consultancy"
                i18n:translate=""
             >Learn more about consultancy.</a>
           </li>
