@@ -25,7 +25,8 @@
           <h1>${view/label}</h1>
         </article>
 
-        <form id="${view/id}"
+        <form class="pat-form"
+              id="${view/id}"
               action="${request/getURL}"
               enctype="${view/enctype}"
               method="${view/method}"
