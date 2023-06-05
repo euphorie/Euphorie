@@ -283,13 +283,21 @@ class Consultants(BrowserView):
     def webhelpers(self):
         return api.content.get_view("webhelpers", self.context, self.request)
 
+    @property
+    @memoize
     def content(self):
-        documents = api.portal.get().documents
+        help_folder = self.webhelpers.content_country_obj.help
         for lang in self.webhelpers._getLanguages():
-            docs = documents.get(lang, None)
+            docs = help_folder.get(lang, None)
             if docs is None:
                 continue
             consultants = docs.get("consultants", None)
             if consultants is not None:
-                return consultants
+                return consultants.body
+        # fall back to any available language
+        for docs in help_folder.objectValues():
+            consultants = docs.get("consultants", None)
+            if consultants is not None:
+                return consultants.body
+
         return ""
