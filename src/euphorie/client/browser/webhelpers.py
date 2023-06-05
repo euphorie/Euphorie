@@ -66,6 +66,7 @@ NAME_TO_PHASE = {
     "actionplan": "actionplan",
     "report": "report",
     "consultancy": "consultancy",
+    "consultants": "consultancy",
     "status": "status",
     "help": "help",
     "new-email": "useraction",

@@ -1224,80 +1224,82 @@
          id="assessment-toolbar"
     >
       <div class="toolbar-functions-area">
-        <div class="toolbar-section editor">
-          <a class="icon menu pat-toggle"
-             id="toggle-tree"
-             href="#tree"
-             data-pat-toggle="selector: #main; value: sidebar-off sidebar-on;"
-          >Toggle tree</a>
-          <div class="editor-toolbar tiptap"
-               id="editor-toolbar-assessment"
-          >
-            <div class="pat-collapsible pat-context-menu closed align-left no-label icon-paragraph"
-                 id="formatting-menu"
-                 data-pat-collapsible="close-trigger: .context-menu:not(#formatting-menu),.close-menu;"
+        <metal:editor define-slot="first-section">
+          <div class="toolbar-section editor">
+            <a class="icon menu pat-toggle"
+               id="toggle-tree"
+               href="#tree"
+               data-pat-toggle="selector: #main; value: sidebar-off sidebar-on;"
+            >Toggle tree</a>
+            <div class="editor-toolbar tiptap"
+                 id="editor-toolbar-assessment"
             >
-              <strong class="context-menu-label menu-trigger pat-tooltip"
+              <div class="pat-collapsible pat-context-menu closed align-left no-label icon-paragraph"
+                   id="formatting-menu"
+                   data-pat-collapsible="close-trigger: .context-menu:not(#formatting-menu),.close-menu;"
+              >
+                <strong class="context-menu-label menu-trigger pat-tooltip"
+                        data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+                >Formatting</strong>
+                <p class="close-menu">Close</p>
+                <ul class="menu-list">
+                  <li>
+                    <button class="button-heading-level-4 icon-header"
+                            type="button"
+                    >Header level 4</button>
+                  </li>
+                  <li>
+                    <button class="button-paragraph icon-paragraph"
+                            type="button"
+                    >Normal</button>
+                  </li>
+                  <li>
+                    <button class="button-blockquote icon-quote-left"
+                            type="button"
+                    >Quote</button>
+                  </li>
+                </ul>
+              </div>
+              <button class="icon icon-bold button-bold pat-tooltip"
+                      type="button"
                       data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
-              >Formatting</strong>
-              <p class="close-menu">Close</p>
-              <ul class="menu-list">
-                <li>
-                  <button class="button-heading-level-4 icon-header"
-                          type="button"
-                  >Header level 4</button>
-                </li>
-                <li>
-                  <button class="button-paragraph icon-paragraph"
-                          type="button"
-                  >Normal</button>
-                </li>
-                <li>
-                  <button class="button-blockquote icon-quote-left"
-                          type="button"
-                  >Quote</button>
-                </li>
-              </ul>
-            </div>
-            <button class="icon icon-bold button-bold pat-tooltip"
-                    type="button"
-                    data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
-            >Bold</button>
+              >Bold</button>
 
 
-            <button class="icon icon-italic button-italic pat-tooltip"
-                    type="button"
-                    data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
-            >Italic</button>
-            <a class="icon icon-link button-link pat-modal pat-tooltip"
-               href="#tiptap-modal-hyperlink-fieldname-comments#document-content"
-               data-pat-modal="class: medium panel panel-hyperlink"
-               data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
-            >Hyperlink</a>
-            <div class="pat-collapsible pat-context-menu closed align-left no-label icon-list"
-                 id="list-menu"
-                 type="button"
-                 data-pat-collapsible="close-trigger: .context-menu:not(#list-menu),.close-menu;"
-            >
-              <strong class="context-menu-label menu-trigger pat-tooltip"
+              <button class="icon icon-italic button-italic pat-tooltip"
+                      type="button"
                       data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
-              >Lists</strong>
-              <p class="close-menu">Close</p>
-              <ul class="menu-list">
-                <li>
-                  <button class="button-unordered-list icon-list-bullet"
-                          type="button"
-                  >Bullet list</button>
-                </li>
-                <li>
-                  <button class="button-ordered-list icon-list-numbered"
-                          type="button"
-                  >Ordered list</button>
-                </li>
-              </ul>
+              >Italic</button>
+              <a class="icon icon-link button-link pat-modal pat-tooltip"
+                 href="#tiptap-modal-hyperlink-fieldname-comments#document-content"
+                 data-pat-modal="class: medium panel panel-hyperlink"
+                 data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+              >Hyperlink</a>
+              <div class="pat-collapsible pat-context-menu closed align-left no-label icon-list"
+                   id="list-menu"
+                   type="button"
+                   data-pat-collapsible="close-trigger: .context-menu:not(#list-menu),.close-menu;"
+              >
+                <strong class="context-menu-label menu-trigger pat-tooltip"
+                        data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+                >Lists</strong>
+                <p class="close-menu">Close</p>
+                <ul class="menu-list">
+                  <li>
+                    <button class="button-unordered-list icon-list-bullet"
+                            type="button"
+                    >Bullet list</button>
+                  </li>
+                  <li>
+                    <button class="button-ordered-list icon-list-numbered"
+                            type="button"
+                    >Ordered list</button>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+        </metal:editor>
         <metal:actions define-slot="page-actions">
           <div class="toolbar-section quick-functions"
                id="assessment-toolbar-quick-functions"

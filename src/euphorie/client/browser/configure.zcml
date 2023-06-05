@@ -982,6 +982,15 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="consultants"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".consultancy.Consultants"
+      template="templates/consultants.pt"
+      permission="zope2.View"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <!-- Report -->
   <browser:page
       name="report_view"

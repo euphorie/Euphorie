@@ -11,6 +11,7 @@ from json import JSONDecodeError
 from plone import api
 from plone.memoize import instance
 from plone.memoize.view import memoize
+from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 import html
@@ -272,3 +273,33 @@ class PanelValidateRiskAssessment(ConsultancyBaseView):
                 "Only the consultant assigned to a risk assessment can validate it"
             )
         return super().__call__()
+
+
+class Consultants(BrowserView):
+    """Show a country/language specific page about finding consultants"""
+
+    variation_class = "variation-risk-assessment"  # to show left-hand navigation
+
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    @memoize
+    def content(self):
+        help_folder = self.webhelpers.content_country_obj.help
+        for lang in self.webhelpers._getLanguages():
+            docs = help_folder.get(lang, None)
+            if docs is None:
+                continue
+            consultants = docs.get("consultants", None)
+            if consultants is not None:
+                return consultants.body
+        # fall back to any available language
+        for docs in help_folder.objectValues():
+            consultants = docs.get("consultants", None)
+            if consultants is not None:
+                return consultants.body
+
+        return ""

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        webhelpers nocall:here/@@webhelpers;
+      "
+      i18n:domain="euphorie"
+>
+
+  <!-- The equivalent template in the Jekyll prototype is /consultants-france -->
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div id="content-pane">
+        <div class="pat-scroll-box"
+             id="content-pane"
+        >
+          <metal:call use-macro="webhelpers/macros/toolbar">
+            <metal:back fill-slot="first-section">
+              <div class="toolbar-section">
+                <a class="ueber-back-button pat-inject"
+                   href="${here/absolute_url}/@@consultancy#content"
+                   data-pat-inject="history: record"
+                   i18n:translate="label_consultancy"
+                >Consultancy</a>
+              </div>
+            </metal:back>
+          </metal:call>
+          <tal:block replace="tile:statusmessages" />
+
+          <article class="pat-rich"
+                   tal:define="
+                     content view/content|nothing;
+                   "
+          >
+            <h1 i18n:translate="label_oira_consultants">
+              OiRA Consultants
+            </h1>
+            <p tal:condition="content"
+               tal:replace="structure content"
+            ></p>
+            <p tal:condition="not:content"
+               i18n:translate="message_oira_consultants_no_info"
+            >
+              No information available
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </metal:slot>
+
+  </body>
+</html>
