@@ -97,9 +97,10 @@
             <p class="button-bar"
                tal:condition="not:is_anonymous"
             >
-              <a class="default pat-button pat-inject"
+              <a class="default pat-button pat-modal"
                  id="button-new-session"
-                 href="${here/absolute_url}/@@new-session.html?action=new"
+                 href="${here/absolute_url}/@@new-session.html#document-content"
+                 data-pat-modal="class: panel small"
                  tal:condition="not:is_anonymous"
                  i18n:translate="button_start_session"
               >Start risk assessment</a>

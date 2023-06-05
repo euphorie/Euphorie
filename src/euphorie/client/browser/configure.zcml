@@ -615,6 +615,14 @@
       />
 
   <browser:page
+      name="assessments.json"
+      for="euphorie.content.survey.ISurvey"
+      class=".country.AssessmentsJson"
+      permission="zope2.View"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="default_introduction"
       for="*"
       class=".survey.DefaultIntroductionView"
@@ -997,6 +1005,14 @@
       name="view"
       for="euphorie.client.sector.IClientSector"
       class=".sector.SectorView"
+      permission="zope2.View"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="assessments.json"
+      for="euphorie.client.sector.IClientSector"
+      class=".country.AssessmentsJson"
       permission="zope2.View"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
