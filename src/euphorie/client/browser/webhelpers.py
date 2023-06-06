@@ -167,9 +167,7 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def use_consultancy_phase(self):
-        return api.portal.get_registry_record(
-            "euphorie.use_consultancy_phase", default=False
-        )
+        return self.content_country_obj.enable_consultancy
 
     @property
     @memoize
