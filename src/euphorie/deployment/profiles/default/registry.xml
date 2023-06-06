@@ -211,14 +211,6 @@
       <required>False</required>
     </field>
   </record>
-  <record name="euphorie.use_consultancy_phase">
-    <field type="plone.registry.field.Bool">
-      <title>use consultancy phase</title>
-      <default>False</default>
-      <missing_value>False</missing_value>
-      <required>False</required>
-    </field>
-  </record>
   <record name="euphorie.use_integrated_action_plan">
     <field type="plone.registry.field.Bool">
       <title>Euphorie use integrated action plan</title>

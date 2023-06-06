@@ -110,6 +110,17 @@ class ICountry(model.Schema, IBasic):
         default=True,
     )
 
+    enable_consultancy = schema.Bool(
+        title=_("label_enable_consultancy", default="Enable Consultancy?"),
+        description=_(
+            "help_enable_consultancy_country",
+            default="If this option is activated, assessments can be reviewed and "
+            "validated by consultants.",
+        ),
+        required=False,
+        default=False,
+    )
+
 
 @implementer(ICountry)
 class Country(Container):
