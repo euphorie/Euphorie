@@ -17,7 +17,6 @@ from plone.i18n.normalizer.interfaces import IIDNormalizer
 from plonetheme.nuplone.utils import getPortal
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
-from Products.PortalTransforms.utils import safe_nativestring
 from zExceptions import NotFound
 from zope.component import getUtility
 from zope.event import notify
@@ -53,7 +52,7 @@ def get_library(context):
     record = api.portal.get_registry_record("euphorie.library", default="")
     if not record:
         return []
-    paths = [path.lstrip("/") for path in safe_nativestring(record).split()]
+    paths = [path.lstrip("/") for path in record.split()]
     if not paths:
         return []
     site = getPortal(context)
