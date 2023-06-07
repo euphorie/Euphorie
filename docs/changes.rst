@@ -4,6 +4,11 @@ Changelog
 15.0.0 (unreleased)
 -------------------
 
+- Show solution descriptions (also known as measure titles) in the Word report,
+  except for France and Italy when measures in place are active
+  Ref: `scrum-1245 <https://github.com/syslabcom/scrum/issues/1245>`_
+  [reinhardt]
+
 - Fix selected measure text spanning whole page instead of bein shown in training module.
   Ref: scrum-1205 item 2)
   [thet]
