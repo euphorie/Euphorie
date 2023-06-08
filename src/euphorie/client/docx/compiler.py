@@ -167,6 +167,8 @@ class BaseOfficeCompiler:
 class DocxCompiler(BaseOfficeCompiler):
     _base_filename = "oira.docx"
 
+    use_solution_description = True
+
     @property
     def _template_filename(self):
         return resource_filename(
@@ -194,6 +196,11 @@ class DocxCompiler(BaseOfficeCompiler):
         self.tool_type = get_tool_type(self.webhelpers._survey)
         self.tti = getUtility(IToolTypesInfo)
         self.italy_special = self.webhelpers.country == "it"
+
+    @property
+    @memoize
+    def survey(self):
+        return self.context.aq_parent
 
     def set_session_title_row(self, data):
         """This fills the workspace activity run with some text."""
@@ -447,7 +454,20 @@ class DocxCompiler(BaseOfficeCompiler):
             ]
 
         m = measure
-        values = [_simple_breaks(m.action or "")]
+        action = m.action
+        if self.use_solution_description and measure.plan_type in [
+            "in_place_standard",
+            "measure_standard",
+        ]:
+            action = "\n".join(
+                (
+                    self.survey.restrictedTraverse(
+                        "/".join((measure.risk.zodb_path, measure.solution_id))
+                    ).description,
+                    action,
+                )
+            )
+        values = [_simple_breaks(action or "")]
         if not implemented:
             values = values + [
                 _simple_breaks(m.requirements or ""),
@@ -696,7 +716,10 @@ class DocxCompilerFullTable(DocxCompiler):
             self.set_cell_action_date(cell, action)
 
     def set_cell_action_text(self, cell, action):
-        self.compiler(_simple_breaks(action["text"]), cell, style="Measure List")
+        action_text = action["text"]
+        if self.use_solution_description and "solution_description" in action:
+            action_text = "\n".join((action["solution_description"], action_text))
+        self.compiler(_simple_breaks(action_text), cell, style="Measure List")
 
     def set_cell_action_requirements(self, cell, action):
         if action.get("requirements", None):
@@ -851,6 +874,8 @@ class DocxCompilerFullTable(DocxCompiler):
 
 
 class DocxCompilerFrance(DocxCompilerFullTable):
+    use_solution_description = False
+
     @property
     @memoize
     def registry_key(self):
@@ -883,6 +908,7 @@ class DocxCompilerItaly(DocxCompilerFullTable):
     only_anwered_risks = True
     risk_answer_col = None
     risk_measures_col = 2
+    use_solution_description = False
 
     @property
     def session_title_lookup(self):

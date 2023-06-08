@@ -111,23 +111,32 @@ class OfficeDocumentView(BrowserView):
                 risk_description = ""
             risk_description = _sanitize_html(risk_description)
 
-            measures = [
-                measure.action
-                for measure in (
-                    sql_risk.in_place_standard_measures
-                    + sql_risk.in_place_custom_measures
-                )
-            ]
+            # XXX can we move this distinction to the compiler?
+            if self._compiler.use_solution_description:
+                measures = [
+                    f"{risk[measure.solution_id].description}\n{measure.action}"
+                    for measure in (sql_risk.in_place_standard_measures)
+                ]
+            else:
+                measures = [
+                    measure.action for measure in (sql_risk.in_place_standard_measures)
+                ]
+            measures.extend(
+                [measure.action for measure in (sql_risk.in_place_custom_measures)]
+            )
 
             if sql_risk.identification == "no" or (
                 risk and getattr(risk, "type", None) == "top5"
             ):
                 actions = [
-                    _get_action_plan(action)
-                    for action in (
-                        sql_risk.standard_measures + sql_risk.custom_measures
+                    _get_action_plan(
+                        action, solution=risk.get(action.solution_id, None)
                     )
+                    for action in (sql_risk.standard_measures)
                 ]
+                actions.extend(
+                    [_get_action_plan(action) for action in (sql_risk.custom_measures)]
+                )
             else:
                 actions = []
             risks.append(
@@ -169,9 +178,11 @@ def _escape_text(txt):
     return txt
 
 
-def _get_action_plan(action):
+def _get_action_plan(action, solution=None):
     action_plan = {}
     action_plan["text"] = action.action
+    if solution is not None:
+        action_plan["solution_description"] = solution.description
     requirements = getattr(action, "requirements") or ""
     action_plan["requirements"] = _escape_text(requirements)
     if action.responsible:
