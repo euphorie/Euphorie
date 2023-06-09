@@ -32,8 +32,6 @@ from sqlalchemy import sql
 from sqlalchemy import types
 from sqlalchemy.event import listen
 from sqlalchemy.ext.declarative.extensions import instrument_declarative
-from sqlalchemy.orm import backref
-from sqlalchemy.orm import relationship
 from sqlalchemy.orm.decl_base import _declarative_constructor
 from sqlalchemy.sql import functions
 from z3c.saconfig import Session
@@ -318,16 +316,16 @@ class Group(BaseObject):
         default=None,
     )
 
-    children = relationship(
+    children = orm.relationship(
         "Group",
-        backref=backref(
+        backref=orm.backref(
             "parent",
             remote_side=[group_id],
         ),
     )
-    accounts = relationship(
+    accounts = orm.relationship(
         "Account",
-        backref=backref(
+        backref=orm.backref(
             "group",
             remote_side=[group_id],
         ),
