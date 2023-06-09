@@ -765,11 +765,7 @@ class SurveySession(BaseObject):
 
     account = orm.relationship(
         Account,
-        backref=orm.backref(
-            "sessions",
-            order_by=modified,
-            cascade="all, delete, delete-orphan",
-        ),
+        back_populates="sessions",
         foreign_keys=[account_id],
     )
     last_modifier = orm.relationship(
@@ -1313,6 +1309,14 @@ class SurveySession(BaseObject):
 
         completion_percentage = int(round(answered / total * 100.0))
         return completion_percentage
+
+
+Account.sessions = orm.relationship(
+    SurveySession,
+    back_populates="account",
+    foreign_keys=[SurveySession.account_id],
+    cascade="all, delete-orphan",
+)
 
 
 class SessionEvent(BaseObject):
