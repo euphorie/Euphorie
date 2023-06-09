@@ -185,11 +185,11 @@ class SurveyTreeItem(BaseObject):
 
     __mapper_args__ = dict(polymorphic_on=type)
 
-    session = orm.relation(
+    session = orm.relationship(
         "SurveySession",
         cascade="all",
     )
-    #    parent = orm.relation("SurveyTreeItem", uselist=False)
+    #    parent = orm.relationship("SurveyTreeItem", uselist=False)
 
     @property
     def parent(self):
@@ -667,7 +667,7 @@ class AccountChangeRequest(BaseObject):
         nullable=False,
         unique=True,
     )
-    account = orm.relation(
+    account = orm.relationship(
         Account,
         backref=orm.backref(
             "change_request",
@@ -752,7 +752,7 @@ class SurveySession(BaseObject):
 
     report_comment = schema.Column(types.UnicodeText())
 
-    account = orm.relation(
+    account = orm.relationship(
         Account,
         backref=orm.backref(
             "sessions",
@@ -761,16 +761,16 @@ class SurveySession(BaseObject):
         ),
         foreign_keys=[account_id],
     )
-    last_modifier = orm.relation(
+    last_modifier = orm.relationship(
         Account,
         foreign_keys=[last_modifier_id],
     )
-    last_publisher = orm.relation(
+    last_publisher = orm.relationship(
         Account,
         foreign_keys=[last_publisher_id],
     )
 
-    group = orm.relation(
+    group = orm.relationship(
         Group,
         backref=orm.backref(
             "sessions", order_by=modified, cascade="all, delete, delete-orphan"
@@ -1316,7 +1316,7 @@ class SessionEvent(BaseObject):
         schema.ForeignKey(Account.id, onupdate="CASCADE"),
         nullable=True,
     )
-    account = orm.relation(
+    account = orm.relationship(
         Account,
         backref=orm.backref("event"),
     )
@@ -1325,7 +1325,7 @@ class SessionEvent(BaseObject):
         schema.ForeignKey("session.id", onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
     )
-    session = orm.relation(
+    session = orm.relationship(
         "SurveySession",
         cascade="all,delete-orphan",
         single_parent=True,
@@ -1356,7 +1356,7 @@ class Company(BaseObject):
         nullable=False,
         index=True,
     )
-    session = orm.relation(
+    session = orm.relationship(
         "SurveySession",
         cascade="all,delete-orphan",
         single_parent=True,
@@ -1512,7 +1512,7 @@ class ActionPlan(BaseObject):
         index=True,
     )
 
-    risk = orm.relation(
+    risk = orm.relationship(
         Risk,
         backref=orm.backref(
             "action_plans", order_by=id, cascade="all, delete, delete-orphan"
@@ -1532,7 +1532,7 @@ class Training(BaseObject):
         schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
     )
-    account = orm.relation(
+    account = orm.relationship(
         Account,
         backref=orm.backref("training", cascade="all, delete, delete-orphan"),
     )
@@ -1541,7 +1541,7 @@ class Training(BaseObject):
         schema.ForeignKey("session.id", onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
     )
-    session = orm.relation(
+    session = orm.relationship(
         "SurveySession",
         cascade="all,delete-orphan",
         single_parent=True,
@@ -1570,7 +1570,7 @@ class Organisation(BaseObject):
     image_data = schema.Column(types.LargeBinary())
     image_data_scaled = schema.Column(types.LargeBinary())
     image_filename = schema.Column(types.UnicodeText())
-    owner = orm.relation(
+    owner = orm.relationship(
         Account,
         backref=orm.backref(
             "organisation",
