@@ -1585,15 +1585,12 @@ class Organisation(BaseObject):
     image_data = schema.Column(types.LargeBinary())
     image_data_scaled = schema.Column(types.LargeBinary())
     image_filename = schema.Column(types.UnicodeText())
-    owner = orm.relationship(
-        Account,
-        backref=orm.backref(
-            "organisation",
-            uselist=False,
-            cascade="all, delete, delete-orphan",
-            foreign_keys=[owner_id],
-        ),
-    )
+    owner = orm.relationship(Account, back_populates="organisation")
+
+
+Account.organisation = orm.relationship(
+    Organisation, back_populates="owner", cascade="all, delete-orphan", uselist=False
+)
 
 
 class OrganisationMembership(BaseObject):
