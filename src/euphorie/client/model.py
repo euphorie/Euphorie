@@ -1366,12 +1366,7 @@ class Company(BaseObject):
         nullable=False,
         index=True,
     )
-    session = orm.relationship(
-        "SurveySession",
-        cascade="all,delete-orphan",
-        single_parent=True,
-        backref=orm.backref("company", uselist=False, cascade="all"),
-    )
+    session = orm.relationship(SurveySession, back_populates="company")
 
     country = schema.Column(types.String(3))
     employees = schema.Column(Enum([None, "1-9", "10-49", "50-249", "250+"]))
@@ -1393,6 +1388,11 @@ class Company(BaseObject):
     needs_met = schema.Column(types.Boolean())
     recommend_tool = schema.Column(types.Boolean())
     timestamp = schema.Column(types.DateTime(), nullable=True)
+
+
+SurveySession.company = orm.relationship(
+    Company, back_populates="session", cascade="all,delete-orphan", uselist=False
+)
 
 
 class Module(SurveyTreeItem):
