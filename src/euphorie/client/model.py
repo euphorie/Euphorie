@@ -335,6 +335,13 @@ class Group(BaseObject):
 
     brand = schema.Column(types.String(64))
 
+    sessions = orm.relationship(
+        "SurveySession",
+        back_populates="group",
+        order_by="SurveySession.modified",
+        cascade="all, delete-orphan",
+    )
+
     # Allow this class to be subclassed in other projects
     __mapper_args__ = {
         "polymorphic_identity": "euphorie",
@@ -408,16 +415,6 @@ class Group(BaseObject):
         """All the session relative to this group and its children."""
         group_ids = [self.group_id]
         group_ids.extend(g.group_id for g in self.descendants)
-        return (
-            Session.query(SurveySession)
-            .filter(SurveySession.group_id.in_(group_ids))
-            .all()
-        )
-
-    @property
-    def sessions(self):
-        """All the session relative to this group."""
-        group_ids = [self.group_id]
         return (
             Session.query(SurveySession)
             .filter(SurveySession.group_id.in_(group_ids))
@@ -779,9 +776,7 @@ class SurveySession(BaseObject):
 
     group = orm.relationship(
         Group,
-        backref=orm.backref(
-            "sessions", order_by=modified, cascade="all, delete, delete-orphan"
-        ),
+        back_populates="sessions",
     )
 
     consultancy = orm.relationship(
