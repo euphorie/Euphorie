@@ -1522,12 +1522,12 @@ class ActionPlan(BaseObject):
         index=True,
     )
 
-    risk = orm.relationship(
-        Risk,
-        backref=orm.backref(
-            "action_plans", order_by=id, cascade="all, delete, delete-orphan"
-        ),
-    )
+    risk = orm.relationship(Risk, back_populates="action_plans")
+
+
+Risk.action_plans = orm.relationship(
+    ActionPlan, back_populates="risk", cascade="all, delete-orphan"
+)
 
 
 class Training(BaseObject):
