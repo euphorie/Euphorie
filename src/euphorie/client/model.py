@@ -1542,10 +1542,7 @@ class Training(BaseObject):
         schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
     )
-    account = orm.relationship(
-        Account,
-        backref=orm.backref("training", cascade="all, delete, delete-orphan"),
-    )
+    account = orm.relationship(Account, back_populates="trainings")
     session_id = schema.Column(
         types.Integer(),
         schema.ForeignKey("session.id", onupdate="CASCADE", ondelete="CASCADE"),
@@ -1559,6 +1556,11 @@ class Training(BaseObject):
     )
     answers = schema.Column(types.Unicode, default="[]")
     status = schema.Column(types.Unicode)
+
+
+Account.trainings = orm.relationship(
+    Training, back_populates="account", cascade="all, delete-orphan"
+)
 
 
 class Organisation(BaseObject):
