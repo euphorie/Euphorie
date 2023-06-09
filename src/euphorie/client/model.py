@@ -1550,9 +1550,7 @@ class Training(BaseObject):
     )
     session = orm.relationship(
         "SurveySession",
-        cascade="all,delete-orphan",
-        single_parent=True,
-        backref=orm.backref("training", uselist=False, cascade="all"),
+        back_populates="trainings",
     )
     answers = schema.Column(types.Unicode, default="[]")
     status = schema.Column(types.Unicode)
@@ -1560,6 +1558,11 @@ class Training(BaseObject):
 
 Account.trainings = orm.relationship(
     Training, back_populates="account", cascade="all, delete-orphan"
+)
+
+
+SurveySession.trainings = orm.relationship(
+    Training, back_populates="session", cascade="all, delete-orphan"
 )
 
 
