@@ -1326,23 +1326,23 @@ class SessionEvent(BaseObject):
         schema.ForeignKey(Account.id, onupdate="CASCADE"),
         nullable=True,
     )
-    account = orm.relationship(
-        Account,
-        backref=orm.backref("event"),
-    )
+    account = orm.relationship(Account)
     session_id = schema.Column(
         types.Integer(),
         schema.ForeignKey("session.id", onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
     )
-    session = orm.relationship(
-        "SurveySession",
-        cascade="all,delete-orphan",
-        single_parent=True,
-        backref=orm.backref("event", uselist=False, cascade="all"),
-    )
+    session = orm.relationship(SurveySession, back_populates="events")
     action = schema.Column(types.Unicode(32))
     note = schema.Column(types.Unicode)
+
+
+Account.session_events = orm.relationship(SessionEvent, back_populates="account")
+
+
+SurveySession.events = orm.relationship(
+    SessionEvent, back_populates="session", cascade="all,delete-orphan"
+)
 
 
 class SessionRedirect(BaseObject):
