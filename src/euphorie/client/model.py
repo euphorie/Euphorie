@@ -316,19 +316,21 @@ class Group(BaseObject):
         default=None,
     )
 
+    parent = orm.relationship(
+        "Group",
+        back_populates="children",
+        remote_side=[group_id],
+    )
+
     children = orm.relationship(
         "Group",
-        backref=orm.backref(
-            "parent",
-            remote_side=[group_id],
-        ),
+        back_populates="parent",
+        remote_side=[parent_id],
     )
+
     accounts = orm.relationship(
         "Account",
-        backref=orm.backref(
-            "group",
-            remote_side=[group_id],
-        ),
+        back_populates="group",
     )
 
     brand = schema.Column(types.String(64))
@@ -513,6 +515,11 @@ class Account(BaseObject):
         "Consultancy",
         uselist=False,
         back_populates="account",
+    )
+
+    group = orm.relationship(
+        Group,
+        back_populates="accounts",
     )
 
     @property
