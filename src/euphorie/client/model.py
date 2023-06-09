@@ -31,9 +31,10 @@ from sqlalchemy import schema
 from sqlalchemy import sql
 from sqlalchemy import types
 from sqlalchemy.event import listen
-from sqlalchemy.ext import declarative
+from sqlalchemy.ext.declarative.extensions import instrument_declarative
 from sqlalchemy.orm import backref
 from sqlalchemy.orm import relationship
+from sqlalchemy.orm.decl_base import _declarative_constructor
 from sqlalchemy.sql import functions
 from z3c.saconfig import Session
 from zope.component.hooks import getSite
@@ -79,7 +80,7 @@ class BaseObject(OFS.Traversable.Traversable, Acquisition.Implicit):
     and keeps absolute_url() and getPhysicalPath() working.
     """
 
-    __init__ = declarative.api._declarative_constructor
+    __init__ = _declarative_constructor
     __allow_access_to_unprotected_subobjects__ = True
     __new__ = object.__new__
 
@@ -1629,7 +1630,7 @@ if not _instrumented:
         Organisation,
         OrganisationMembership,
     ]:
-        declarative.api.instrument_declarative(cls, metadata._decl_registry, metadata)
+        instrument_declarative(cls, metadata._decl_registry, metadata)
     _instrumented = True
 
 schema.Index("tree_session_path", SurveyTreeItem.session_id, SurveyTreeItem.path)
