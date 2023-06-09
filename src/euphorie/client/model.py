@@ -676,11 +676,7 @@ class AccountChangeRequest(BaseObject):
     )
     account = orm.relationship(
         Account,
-        backref=orm.backref(
-            "change_request",
-            uselist=False,
-            cascade="all, delete, delete-orphan",
-        ),
+        back_populates="change_request",
     )
     value = schema.Column(
         types.String(255),
@@ -690,6 +686,14 @@ class AccountChangeRequest(BaseObject):
         types.DateTime(),
         nullable=False,
     )
+
+
+Account.change_request = orm.relationship(
+    AccountChangeRequest,
+    back_populates="account",
+    cascade="all, delete-orphan",
+    uselist=False,
+)
 
 
 class ISurveySession(Interface):
