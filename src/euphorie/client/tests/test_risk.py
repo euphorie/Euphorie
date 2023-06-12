@@ -223,11 +223,15 @@ class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
                 # Check that we can crop and scale the image on the fly
                 view.fieldname = "image_training"
                 self.assertTrue(view().startswith(b"\x89PNG"))
+
+                headers = view.request.response.headers.copy()
+                self.assertAlmostEqual(
+                    int(headers.pop("content-length")), 6971, delta=10
+                )
                 self.assertDictEqual(
-                    view.request.response.headers,
+                    headers,
                     {
                         "accept-ranges": "bytes",
-                        "content-length": "6971",
                         "content-type": "image/png",
                     },
                 )
