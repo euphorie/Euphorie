@@ -5,35 +5,10 @@ from euphorie.client.model import Session
 from logging import getLogger
 from pkg_resources import resource_filename
 from sqlalchemy import inspect
-from sqlalchemy.exc import NoSuchTableError
-from sqlalchemy.schema import MetaData
-from sqlalchemy.schema import Table
 from zope.deprecation import deprecate
 
 
 logger = getLogger(__name__)
-
-
-def TableExists(session, table):
-    connection = session.bind
-    return connection.dialect.has_table(connection, table)
-
-
-def ColumnExists(session, table, column):
-    connection = session.bind
-    metadata = MetaData(connection)
-    table = Table(table, metadata)
-    try:
-        connection.dialect.reflecttable(
-            connection,
-            table,
-            None,
-            exclude_columns=tuple(),
-            resolve_fks=False,
-        )
-    except NoSuchTableError:
-        return False
-    return column in table.c
 
 
 def has_table(name):

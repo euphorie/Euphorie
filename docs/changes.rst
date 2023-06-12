@@ -77,6 +77,9 @@ Changelog
 - Remove from templates hardcoded date values.
   [ale-rt]
 
+- Use SQLAlchemy 1.4.
+  [ale-rt]
+
 - Use Plone 5.2.12
 
 

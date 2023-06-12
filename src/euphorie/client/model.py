@@ -31,9 +31,8 @@ from sqlalchemy import schema
 from sqlalchemy import sql
 from sqlalchemy import types
 from sqlalchemy.event import listen
-from sqlalchemy.ext import declarative
-from sqlalchemy.orm import backref
-from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative.extensions import instrument_declarative
+from sqlalchemy.orm.decl_base import _declarative_constructor
 from sqlalchemy.sql import functions
 from z3c.saconfig import Session
 from zope.component.hooks import getSite
@@ -79,7 +78,7 @@ class BaseObject(OFS.Traversable.Traversable, Acquisition.Implicit):
     and keeps absolute_url() and getPhysicalPath() working.
     """
 
-    __init__ = declarative.api._declarative_constructor
+    __init__ = _declarative_constructor
     __allow_access_to_unprotected_subobjects__ = True
     __new__ = object.__new__
 
@@ -186,11 +185,11 @@ class SurveyTreeItem(BaseObject):
 
     __mapper_args__ = dict(polymorphic_on=type)
 
-    session = orm.relation(
+    session = orm.relationship(
         "SurveySession",
         cascade="all",
     )
-    #    parent = orm.relation("SurveyTreeItem", uselist=False)
+    #    parent = orm.relationship("SurveyTreeItem", uselist=False)
 
     @property
     def parent(self):
@@ -317,22 +316,31 @@ class Group(BaseObject):
         default=None,
     )
 
-    children = relationship(
+    parent = orm.relationship(
         "Group",
-        backref=backref(
-            "parent",
-            remote_side=[group_id],
-        ),
+        back_populates="children",
+        remote_side=[group_id],
     )
-    accounts = relationship(
+
+    children = orm.relationship(
+        "Group",
+        back_populates="parent",
+        remote_side=[parent_id],
+    )
+
+    accounts = orm.relationship(
         "Account",
-        backref=backref(
-            "group",
-            remote_side=[group_id],
-        ),
+        back_populates="group",
     )
 
     brand = schema.Column(types.String(64))
+
+    sessions = orm.relationship(
+        "SurveySession",
+        back_populates="group",
+        order_by="SurveySession.modified",
+        cascade="all, delete-orphan",
+    )
 
     # Allow this class to be subclassed in other projects
     __mapper_args__ = {
@@ -407,16 +415,6 @@ class Group(BaseObject):
         """All the session relative to this group and its children."""
         group_ids = [self.group_id]
         group_ids.extend(g.group_id for g in self.descendants)
-        return (
-            Session.query(SurveySession)
-            .filter(SurveySession.group_id.in_(group_ids))
-            .all()
-        )
-
-    @property
-    def sessions(self):
-        """All the session relative to this group."""
-        group_ids = [self.group_id]
         return (
             Session.query(SurveySession)
             .filter(SurveySession.group_id.in_(group_ids))
@@ -514,6 +512,11 @@ class Account(BaseObject):
         "Consultancy",
         uselist=False,
         back_populates="account",
+    )
+
+    group = orm.relationship(
+        Group,
+        back_populates="accounts",
     )
 
     @property
@@ -668,13 +671,9 @@ class AccountChangeRequest(BaseObject):
         nullable=False,
         unique=True,
     )
-    account = orm.relation(
+    account = orm.relationship(
         Account,
-        backref=orm.backref(
-            "change_request",
-            uselist=False,
-            cascade="all, delete, delete-orphan",
-        ),
+        back_populates="change_request",
     )
     value = schema.Column(
         types.String(255),
@@ -684,6 +683,14 @@ class AccountChangeRequest(BaseObject):
         types.DateTime(),
         nullable=False,
     )
+
+
+Account.change_request = orm.relationship(
+    AccountChangeRequest,
+    back_populates="account",
+    cascade="all, delete-orphan",
+    uselist=False,
+)
 
 
 class ISurveySession(Interface):
@@ -753,29 +760,23 @@ class SurveySession(BaseObject):
 
     report_comment = schema.Column(types.UnicodeText())
 
-    account = orm.relation(
+    account = orm.relationship(
         Account,
-        backref=orm.backref(
-            "sessions",
-            order_by=modified,
-            cascade="all, delete, delete-orphan",
-        ),
+        back_populates="sessions",
         foreign_keys=[account_id],
     )
-    last_modifier = orm.relation(
+    last_modifier = orm.relationship(
         Account,
         foreign_keys=[last_modifier_id],
     )
-    last_publisher = orm.relation(
+    last_publisher = orm.relationship(
         Account,
         foreign_keys=[last_publisher_id],
     )
 
-    group = orm.relation(
+    group = orm.relationship(
         Group,
-        backref=orm.backref(
-            "sessions", order_by=modified, cascade="all, delete, delete-orphan"
-        ),
+        back_populates="sessions",
     )
 
     consultancy = orm.relationship(
@@ -1305,6 +1306,14 @@ class SurveySession(BaseObject):
         return completion_percentage
 
 
+Account.sessions = orm.relationship(
+    SurveySession,
+    back_populates="account",
+    foreign_keys=[SurveySession.account_id],
+    cascade="all, delete-orphan",
+)
+
+
 class SessionEvent(BaseObject):
     """Data table to record events happening on sessions."""
 
@@ -1317,23 +1326,23 @@ class SessionEvent(BaseObject):
         schema.ForeignKey(Account.id, onupdate="CASCADE"),
         nullable=True,
     )
-    account = orm.relation(
-        Account,
-        backref=orm.backref("event"),
-    )
+    account = orm.relationship(Account)
     session_id = schema.Column(
         types.Integer(),
         schema.ForeignKey("session.id", onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
     )
-    session = orm.relation(
-        "SurveySession",
-        cascade="all,delete-orphan",
-        single_parent=True,
-        backref=orm.backref("event", uselist=False, cascade="all"),
-    )
+    session = orm.relationship(SurveySession, back_populates="events")
     action = schema.Column(types.Unicode(32))
     note = schema.Column(types.Unicode)
+
+
+Account.session_events = orm.relationship(SessionEvent, back_populates="account")
+
+
+SurveySession.events = orm.relationship(
+    SessionEvent, back_populates="session", cascade="all,delete-orphan"
+)
 
 
 class SessionRedirect(BaseObject):
@@ -1357,12 +1366,7 @@ class Company(BaseObject):
         nullable=False,
         index=True,
     )
-    session = orm.relation(
-        "SurveySession",
-        cascade="all,delete-orphan",
-        single_parent=True,
-        backref=orm.backref("company", uselist=False, cascade="all"),
-    )
+    session = orm.relationship(SurveySession, back_populates="company")
 
     country = schema.Column(types.String(3))
     employees = schema.Column(Enum([None, "1-9", "10-49", "50-249", "250+"]))
@@ -1384,6 +1388,11 @@ class Company(BaseObject):
     needs_met = schema.Column(types.Boolean())
     recommend_tool = schema.Column(types.Boolean())
     timestamp = schema.Column(types.DateTime(), nullable=True)
+
+
+SurveySession.company = orm.relationship(
+    Company, back_populates="session", cascade="all,delete-orphan", uselist=False
+)
 
 
 class Module(SurveyTreeItem):
@@ -1513,12 +1522,12 @@ class ActionPlan(BaseObject):
         index=True,
     )
 
-    risk = orm.relation(
-        Risk,
-        backref=orm.backref(
-            "action_plans", order_by=id, cascade="all, delete, delete-orphan"
-        ),
-    )
+    risk = orm.relationship(Risk, back_populates="action_plans")
+
+
+Risk.action_plans = orm.relationship(
+    ActionPlan, back_populates="risk", cascade="all, delete-orphan"
+)
 
 
 class Training(BaseObject):
@@ -1533,23 +1542,28 @@ class Training(BaseObject):
         schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
     )
-    account = orm.relation(
-        Account,
-        backref=orm.backref("training", cascade="all, delete, delete-orphan"),
-    )
+    account = orm.relationship(Account, back_populates="trainings")
     session_id = schema.Column(
         types.Integer(),
         schema.ForeignKey("session.id", onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
     )
-    session = orm.relation(
+    session = orm.relationship(
         "SurveySession",
-        cascade="all,delete-orphan",
-        single_parent=True,
-        backref=orm.backref("training", uselist=False, cascade="all"),
+        back_populates="trainings",
     )
     answers = schema.Column(types.Unicode, default="[]")
     status = schema.Column(types.Unicode)
+
+
+Account.trainings = orm.relationship(
+    Training, back_populates="account", cascade="all, delete-orphan"
+)
+
+
+SurveySession.trainings = orm.relationship(
+    Training, back_populates="session", cascade="all, delete-orphan"
+)
 
 
 class Organisation(BaseObject):
@@ -1571,15 +1585,12 @@ class Organisation(BaseObject):
     image_data = schema.Column(types.LargeBinary())
     image_data_scaled = schema.Column(types.LargeBinary())
     image_filename = schema.Column(types.UnicodeText())
-    owner = orm.relation(
-        Account,
-        backref=orm.backref(
-            "organisation",
-            uselist=False,
-            cascade="all, delete, delete-orphan",
-            foreign_keys=[owner_id],
-        ),
-    )
+    owner = orm.relationship(Account, back_populates="organisation")
+
+
+Account.organisation = orm.relationship(
+    Organisation, back_populates="owner", cascade="all, delete-orphan", uselist=False
+)
 
 
 class OrganisationMembership(BaseObject):
@@ -1629,7 +1640,7 @@ if not _instrumented:
         Organisation,
         OrganisationMembership,
     ]:
-        declarative.api.instrument_declarative(cls, metadata._decl_registry, metadata)
+        instrument_declarative(cls, metadata._decl_registry, metadata)
     _instrumented = True
 
 schema.Index("tree_session_path", SurveyTreeItem.session_id, SurveyTreeItem.path)

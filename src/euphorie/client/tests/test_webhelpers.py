@@ -51,7 +51,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                 self.assertEqual(
                     self._get_query_filters(view.get_sessions_query()),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "session.account_id = ? AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
@@ -63,7 +63,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         view.get_sessions_query(include_archived=True)
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "session.account_id = ? "
                         "ORDER BY session.modified DESC, session.title"
                     ),
@@ -73,7 +73,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         view.get_sessions_query(searchable_text="foo")
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "session.account_id = ? AND "
                         "(session.archived >= ? OR session.archived IS NULL) AND "
                         "lower(session.title) LIKE lower(?) "
@@ -88,7 +88,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         view.get_sessions_query(filter_by_group=True)
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "session.account_id = ? AND "
                         "session.group_id = ? AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
@@ -100,7 +100,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         view.get_sessions_query(filter_by_account=False)
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
                     ),
@@ -112,7 +112,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         )
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "session.group_id = ? AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
@@ -125,7 +125,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         )
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "session.group_id = ? AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
@@ -138,7 +138,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         )
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "session.group_id = ? AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
@@ -153,8 +153,8 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         )
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
-                        "session.group_id IN (?, ?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
+                        "session.group_id IN (__[POSTCOMPILE_group_id_1]) AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
                     ),
@@ -189,7 +189,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                 self.assertEqual(
                     self._get_query_filters(view.get_sessions_query()),
                     (
-                        f"WHERE session.zodb_path IN (?) AND "
+                        f"WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         f"{session_filter} AND "
                         f"(session.archived >= ? OR session.archived IS NULL) "
                         f"ORDER BY session.modified DESC, session.title"
@@ -201,7 +201,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         view.get_sessions_query(include_archived=True)
                     ),
                     (
-                        f"WHERE session.zodb_path IN (?) AND "
+                        f"WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         f"{session_filter} "
                         f"ORDER BY session.modified DESC, session.title"
                     ),
@@ -211,7 +211,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         view.get_sessions_query(searchable_text="foo")
                     ),
                     (
-                        f"WHERE session.zodb_path IN (?) AND "
+                        f"WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         f"{session_filter} AND "
                         f"(session.archived >= ? OR session.archived IS NULL) AND "
                         f"lower(session.title) LIKE lower(?) "
@@ -226,7 +226,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         view.get_sessions_query(filter_by_group=True)
                     ),
                     (
-                        f"WHERE session.zodb_path IN (?) AND "
+                        f"WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         f"{session_filter} AND "
                         f"session.group_id = ? AND "
                         f"(session.archived >= ? OR session.archived IS NULL) "
@@ -238,7 +238,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         view.get_sessions_query(filter_by_account=False)
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
                     ),
@@ -250,7 +250,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         )
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "session.group_id = ? AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
@@ -263,7 +263,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         )
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "session.group_id = ? AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
@@ -276,7 +276,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         )
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "session.group_id = ? AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
@@ -291,8 +291,8 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         )
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
-                        "session.group_id IN (?, ?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
+                        "session.group_id IN (__[POSTCOMPILE_group_id_1]) AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
                     ),
@@ -300,14 +300,14 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
 
         # For account2 the filter is changed to include also the sessions of the
         # other organization members
-        session_filter = "session.account_id IN (?, ?)"
+        session_filter = "session.account_id IN (__[POSTCOMPILE_account_id_1])"
         with api.env.adopt_user(user=account2):
             # Check with no parameter
             with self._get_view("webhelpers", self.portal.client) as view:
                 self.assertEqual(
                     self._get_query_filters(view.get_sessions_query()),
                     (
-                        f"WHERE session.zodb_path IN (?) AND "
+                        f"WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         f"{session_filter} AND "
                         f"(session.archived >= ? OR session.archived IS NULL) "
                         f"ORDER BY session.modified DESC, session.title"
@@ -319,7 +319,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         view.get_sessions_query(include_archived=True)
                     ),
                     (
-                        f"WHERE session.zodb_path IN (?) AND "
+                        f"WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         f"{session_filter} "
                         f"ORDER BY session.modified DESC, session.title"
                     ),
@@ -329,7 +329,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         view.get_sessions_query(searchable_text="foo")
                     ),
                     (
-                        f"WHERE session.zodb_path IN (?) AND "
+                        f"WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         f"{session_filter} AND "
                         f"(session.archived >= ? OR session.archived IS NULL) AND "
                         f"lower(session.title) LIKE lower(?) "
@@ -344,7 +344,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         view.get_sessions_query(filter_by_group=True)
                     ),
                     (
-                        f"WHERE session.zodb_path IN (?) AND "
+                        f"WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         f"{session_filter} AND "
                         f"session.group_id = ? AND "
                         f"(session.archived >= ? OR session.archived IS NULL) "
@@ -356,7 +356,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         view.get_sessions_query(filter_by_account=False)
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
                     ),
@@ -368,7 +368,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         )
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "session.group_id = ? AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
@@ -381,7 +381,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         )
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "session.group_id = ? AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
@@ -394,7 +394,7 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         )
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
                         "session.group_id = ? AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
@@ -409,8 +409,8 @@ class TestWebhelpers(EuphorieIntegrationTestCase):
                         )
                     ),
                     (
-                        "WHERE session.zodb_path IN (?) AND "
-                        "session.group_id IN (?, ?) AND "
+                        "WHERE session.zodb_path IN (__[POSTCOMPILE_zodb_path_1]) AND "
+                        "session.group_id IN (__[POSTCOMPILE_group_id_1]) AND "
                         "(session.archived >= ? OR session.archived IS NULL) "
                         "ORDER BY session.modified DESC, session.title"
                     ),

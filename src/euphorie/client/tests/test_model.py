@@ -61,13 +61,13 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
 
             context_filter = model.SurveySession.get_context_filter(self.portal)
             self.assertSetEqual(
-                {clause.value for clause in context_filter.right.element.clauses},
+                set(context_filter.right.value),
                 {"eu/eusector/eusurvey", "nl/nlsector/nlsurvey"},
             )
 
             context_filter = model.SurveySession.get_context_filter(self.portal.client)
             self.assertSetEqual(
-                {clause.value for clause in context_filter.right.element.clauses},
+                set(context_filter.right.value),
                 {"eu/eusector/eusurvey", "nl/nlsector/nlsurvey"},
             )
 
@@ -75,7 +75,7 @@ class SurveySessionTests(EuphorieIntegrationTestCase):
                 self.portal.client.eu
             )
             self.assertSetEqual(
-                {clause.value for clause in context_filter.right.element.clauses},
+                set(context_filter.right.value),
                 {"eu/eusector/eusurvey"},
             )
 
@@ -495,7 +495,7 @@ class SurveySessionDBTests(DatabaseTests):
         )
         self.assertEqual(
             str(session.get_account_filter([account, "2"])),
-            "session.account_id IN (:account_id_1, :account_id_2)",
+            "session.account_id IN (__[POSTCOMPILE_account_id_1])",
         )
         with mock.patch("euphorie.client.model.get_current_account", return_value=None):
             self.assertEqual(str(session.get_account_filter(True)), "False")
@@ -542,7 +542,7 @@ class SurveySessionDBTests(DatabaseTests):
         )
         self.assertEqual(
             str(session.get_group_filter([group, "2"])),
-            "session.group_id IN (:group_id_1, :group_id_2)",
+            "session.group_id IN (__[POSTCOMPILE_group_id_1])",
         )
         with mock.patch("euphorie.client.model.get_current_account", return_value=None):
             self.assertEqual(str(session.get_group_filter(True)), "False")
