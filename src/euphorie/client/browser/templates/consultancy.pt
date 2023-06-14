@@ -57,6 +57,7 @@
                   tal:define="
                     value python:webhelpers.timezoned_date(raw_time);
                   "
+                  i18n:name="validation_time"
             >${value}</time>:
             <a href="mailto:${view/validated_info/consultant_email}"
                i18n:name="consultant"

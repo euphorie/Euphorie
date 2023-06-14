@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-06-14 08:28+0000\n"
+"POT-Creation-Date: 2023-06-14 11:29+0000\n"
 "PO-Revision-Date: 2013-10-23 10:03+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -146,7 +146,7 @@ msgstr "Dodaj Tveganje"
 msgid "Add Submodule"
 msgstr "Dodaj Podmodul"
 
-#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:135
+#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:136
 msgid "Add an OSH consultant to your organisation."
 msgstr ""
 
@@ -509,7 +509,7 @@ msgstr ""
 msgid "Filters"
 msgstr ""
 
-#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:124
+#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:125
 msgid "Find an OSH consultant."
 msgstr ""
 
@@ -643,7 +643,7 @@ msgstr "Kosovo"
 msgid "Last saved"
 msgstr "shranjeno"
 
-#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:143
+#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:144
 msgid "Learn more about consultancy."
 msgstr ""
 
@@ -4925,7 +4925,7 @@ msgid "label_request_validation"
 msgstr ""
 
 #. Default: "Request validation"
-#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:80
+#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:81
 msgid "label_request_validation_imp"
 msgstr ""
 
@@ -5347,7 +5347,7 @@ msgid "label_validate_imp"
 msgstr ""
 
 #. Default: "Validate this risk assessment"
-#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:105
+#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:106
 msgid "label_validate_this_risk_assessment_imp"
 msgstr ""
 
@@ -5708,12 +5708,12 @@ msgid "message_role_member"
 msgstr ""
 
 #. Default: "This risk assessment is currently under review by ${consultant}."
-#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:71
+#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:72
 msgid "message_session_under_review"
 msgstr ""
 
-#. Default: "<time class=\"date-stamp pat-display-time\" datetime=\"${value}\" data-pat-display-time=\"from-now: false; locale: ${language}\">${value}</time>: ${consultant} has reviewed and validated this risk assessment"
-#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:61
+#. Default: "${validation_time}: ${consultant} has reviewed and validated this risk assessment"
+#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:62
 msgid "message_session_validated"
 msgstr ""
 
@@ -5744,12 +5744,12 @@ msgid "message_warning_locking_after_validation"
 msgstr ""
 
 #. Default: "You are requested to review and validate this risk assessment."
-#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:97
+#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:98
 msgid "message_you_are_requested_to_validate_assessment"
 msgstr ""
 
 #. Default: "You have reviewed and validated this risk assessment."
-#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:112
+#: Euphorie/src/euphorie/client/browser/templates/consultancy.pt:113
 msgid "message_you_reviewed_and_validated_risk_assessment"
 msgstr ""
 
