@@ -4,14 +4,9 @@ from euphorie.content.profilequestion import IProfileQuestion
 from euphorie.content.survey import handleSurveyUnpublish
 from euphorie.content.survey import Survey
 from euphorie.testing import EuphorieIntegrationTestCase
-from plone.app.layout.globals.context import ContextState
-from plone.folder.default import DefaultOrdering
 from unittest import mock
-from zope.annotation.attribute import AttributeAnnotations
 from zope.annotation.interfaces import IAttributeAnnotatable
-from zope.component import provideAdapter
 from zope.interface import alsoProvides
-from zope.interface import Interface
 from zope.publisher.browser import TestRequest
 
 import Acquisition
@@ -31,27 +26,6 @@ class Mock(Acquisition.Explicit):
 
 
 class ViewTests(EuphorieIntegrationTestCase):
-    def setUp(self):
-        super().setUp()
-        provideAdapter(AttributeAnnotations)
-        provideAdapter(DefaultOrdering)
-        provideAdapter(
-            ContextState,
-            adapts=(Interface, Interface),
-            provides=Interface,
-            name="plone_context_state",
-        )
-        SurveyView.__view_name__ = "View"
-        SurveyView.module_info = Mock()
-        SurveyView.module_info.package_dotted_name = (
-            "euphorie.content.browser.survey.SurveyView"
-        )
-
-    def tearDown(self):
-        super().tearDown()
-        del SurveyView.__view_name__
-        del SurveyView.module_info
-
     def _request(self):
         req = TestRequest()
         alsoProvides(req, IAttributeAnnotatable)
