@@ -1,5 +1,6 @@
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
+from Products.CMFPlone.utils import get_installer
 from time import time
 
 
@@ -26,11 +27,10 @@ class SetupTests(EuphorieIntegrationTestCase):
         self.assertTrue(user is not None)
 
     def testHideComponentProducts(self):
-        qi = self.portal.portal_quickinstaller
-        installable = qi.listInstallableProducts(skipInstalled=False)
-        installable = {product["id"] for product in installable}
-        self.assertTrue("euphorie.content" not in installable)
-        self.assertTrue("euphorie.client" not in installable)
+        qi = get_installer(self.portal)
+        qi.is_product_installable("euphorie.client")
+        self.assertFalse(qi.is_product_installable("euphorie.client"))
+        self.assertFalse(qi.is_product_installable("euphorie.content"))
 
     def testNuPloneEnabled(self):
         st = self.portal.portal_skins
