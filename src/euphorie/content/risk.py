@@ -24,7 +24,6 @@ from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.autoform import directives
 from plone.dexterity.content import Container
 from plone.indexer import indexer
-from plone.memoize.instance import memoize
 from plone.namedfile import field as filefield
 from plone.namedfile.interfaces import INamedBlobImageField
 from plone.supermodel import model
@@ -660,7 +659,6 @@ class Risk(Container):
         self.default_priority = value
 
     @property
-    @memoize
     def _solutions(self):
         solutions = []
         for item in self.objectValues():
