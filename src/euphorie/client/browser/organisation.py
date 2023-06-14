@@ -431,8 +431,7 @@ class ConfirmInvite(BaseView):
         subject = api.portal.translate(
             _(
                 "subject_notify_invite_accept",
-                default="Confirm OiRA membership in '${organisation}'",
-                mapping={"organisation": self.organisation.title},
+                default="Membership to your organisation accepted",
             )
         )
         mail = CreateEmailTo(
