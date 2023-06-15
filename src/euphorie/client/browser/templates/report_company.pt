@@ -21,7 +21,7 @@
                   company view/session/company;
                 "
     >
-      <form class="concise"
+      <form class="pat-form concise"
             action="${request/getURL}"
             enctype="${view/enctype}"
             method="${view/method}"
