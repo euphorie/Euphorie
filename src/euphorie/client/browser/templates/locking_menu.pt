@@ -74,8 +74,8 @@
               >
                 <button class="icon-lock close-panel"
                         type="submit"
-                        i18n:translate="label_lock_assessment"
-                >Lock this assessment</button>
+                        i18n:translate="label_lock_risk_assessment"
+                >Lock Risk Assessment</button>
               </form>
             </li>
           </tal:case>
@@ -86,8 +86,8 @@
               >
                 <button class="icon-lock-open close-panel"
                         type="submit"
-                        i18n:translate="label_unlock_session"
-                >Unlock this risk assessment</button>
+                        i18n:translate="label_unlock_risk_assessment"
+                >Unlock Risk Assessment</button>
               </form>
             </li>
             <li>

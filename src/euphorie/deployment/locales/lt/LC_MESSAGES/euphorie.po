@@ -4556,9 +4556,9 @@ msgstr ""
 msgid "label_link_register"
 msgstr "neužsiregistruosite"
 
-#. Default: "Lock this assessment"
+#. Default: "Lock Risk Assessment"
 #: Euphorie/src/euphorie/client/browser/templates/locking_menu.pt:75
-msgid "label_lock_assessment"
+msgid "label_lock_risk_assessment"
 msgstr ""
 
 #. Default: "Locked"
@@ -5293,9 +5293,9 @@ msgstr "Sveikiname, gavote šios temos sertifikatą."
 msgid "label_try_oira"
 msgstr "Išbandykite OiRA"
 
-#. Default: "Unlock this risk assessment"
+#. Default: "Unlock Risk Assessment"
 #: Euphorie/src/euphorie/client/browser/templates/locking_menu.pt:87
-msgid "label_unlock_session"
+msgid "label_unlock_risk_assessment"
 msgstr ""
 
 #. Default: "Unlocked"
