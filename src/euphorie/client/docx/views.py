@@ -197,21 +197,21 @@ def _get_action_plan(action, solution=None):
 class ActionPlanDocxView(OfficeDocumentView):
     """Generate a report based on a basic docx template."""
 
-    _compiler = DocxCompiler
     _content_type = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"  # noqa: E 501
 
-    def __init__(self, context, request):
-        super().__init__(context, request)
+    @property
+    @memoize
+    def _compiler(self):
         country = self.webhelpers.country
         tool_type = get_tool_type(self.webhelpers._survey)
         if country == "it":
             if tool_type == "existing_measures":
-                self._compiler = DocxCompilerItaly
-            else:
-                self._compiler = DocxCompilerItalyOriginal
-        elif country == "fr":
+                return DocxCompilerItaly
+            return DocxCompilerItalyOriginal
+        if country == "fr":
             if tool_type == "existing_measures":
-                self._compiler = DocxCompilerFrance
+                return DocxCompilerFrance
+        return DocxCompiler
 
     def get_heading(self, title):
         heading = self.t(
