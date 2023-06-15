@@ -4611,9 +4611,9 @@ msgstr ""
 msgid "label_link_register"
 msgstr "registri"
 
-#. Default: "Lock this assessment"
+#. Default: "Lock Risk Assessment"
 #: Euphorie/src/euphorie/client/browser/templates/locking_menu.pt:75
-msgid "label_lock_assessment"
+msgid "label_lock_risk_assessment"
 msgstr ""
 
 #. Default: "Locked"
@@ -5381,9 +5381,9 @@ msgstr "Congratulazioni! Hai ottenuto l’attestato per questo argomento."
 msgid "label_try_oira"
 msgstr "Prova OiRA"
 
-#. Default: "Unlock this risk assessment"
+#. Default: "Unlock Risk Assessment"
 #: Euphorie/src/euphorie/client/browser/templates/locking_menu.pt:87
-msgid "label_unlock_session"
+msgid "label_unlock_risk_assessment"
 msgstr ""
 
 #. Default: "Unlocked"
