@@ -1,7 +1,7 @@
 Changelog
 =========
 
-14.3.6 (unreleased)
+14.3.6 (2023-06-15)
 -------------------
 
 - Backport https://github.com/euphorie/Euphorie/pull/561/commits
