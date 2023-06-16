@@ -81,6 +81,10 @@ Changelog
 - Use SQLAlchemy 1.4.
   [ale-rt]
 
+- Add some alias in exists query. Remove the need to delete from the scope the aliased instances by using factory methods.
+  Fixes #609.
+  [ale-rt]
+
 - Use Plone 5.2.12
 
 
