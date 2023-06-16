@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-06-14 11:29+0000\n"
+"POT-Creation-Date: 2023-06-16 05:57+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: Florakalman <florakalman@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2279,6 +2279,11 @@ msgstr ""
 "Válassza a &bdquo;Mindenre kiterjedő&rdquo; opciót, ha az Általános "
 "megközelítés több részletet tartalmaz, mint a Leírás."
 
+#. Default: "Find an OiRA consultant you want to contact or add to your organisation to provide support."
+#: Euphorie/src/euphorie/client/browser/templates/consultants.pt:44
+msgid "description_oira_consultants"
+msgstr ""
+
 #. Default: "In case you have identified risks not included in the tool, you are able to add them now:"
 #: Euphorie/src/euphorie/client/browser/publish.py:138
 msgid "description_other_risks"
@@ -3124,7 +3129,7 @@ msgstr "Regisztrál"
 
 #. Default: "Reporting"
 #: Euphorie/src/euphorie/client/browser/templates/register_session.pt:27
-#: Euphorie/src/euphorie/client/browser/templates/report.pt:32
+#: Euphorie/src/euphorie/client/browser/templates/report.pt:33
 msgid "header_reporting"
 msgstr "Jelentés"
 
@@ -5018,7 +5023,7 @@ msgid "label_report"
 msgstr "Jelentés"
 
 #. Default: "Please leave any extra comments that should be included in the report in this field."
-#: Euphorie/src/euphorie/client/browser/templates/report.pt:45
+#: Euphorie/src/euphorie/client/browser/templates/report.pt:46
 msgid "label_report_comment"
 msgstr ""
 "Kérjük, ebben a mezőben adja meg azokat a kiegészítő megjegyzéseket, "
@@ -5121,7 +5126,7 @@ msgstr "Mentés és új kockázat hozzáadása"
 
 #. Default: "Save and continue"
 #: Euphorie/src/euphorie/client/browser/templates/profile.pt:186
-#: Euphorie/src/euphorie/client/browser/templates/report.pt:57
+#: Euphorie/src/euphorie/client/browser/templates/report.pt:58
 #: Euphorie/src/euphorie/client/browser/templates/report_company.pt:267
 msgid "label_save_and_continue"
 msgstr "Mentés és folytatás"
@@ -5776,7 +5781,7 @@ msgstr ""
 "Nem törölhet olyan ágazatot, amely közzétett OiRA eszközöket tartalmaz."
 
 #. Default: "No information available"
-#: Euphorie/src/euphorie/client/browser/templates/consultants.pt:47
+#: Euphorie/src/euphorie/client/browser/templates/consultants.pt:52
 msgid "message_oira_consultants_no_info"
 msgstr ""
 
@@ -6230,7 +6235,7 @@ msgstr ""
 "alapul."
 
 #. Default: "Now that you have finished identifying all the risks in your organisation and created an action plan you can create a report which lists all your results. You can, if desired, add some extra comments that should be included in this report in the field below."
-#: Euphorie/src/euphorie/client/browser/templates/report.pt:33
+#: Euphorie/src/euphorie/client/browser/templates/report.pt:34
 msgid "report_intro"
 msgstr ""
 "Miután befejezte a szervezetben fellelhető összes kockázat azonosítását, "
