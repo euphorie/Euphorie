@@ -1652,19 +1652,22 @@ schema.Index(
     SurveyTreeItem.zodb_path,
 )
 
-parent = orm.aliased(SurveyTreeItem)
-# XXX This can be optimized by doing short-circuit on parent.type!=module
-SKIPPED_PARENTS = sql.exists().where(
-    sql.and_(
-        parent.session_id == SurveyTreeItem.session_id,
-        SurveyTreeItem.depth > parent.depth,
-        SurveyTreeItem.path.like(parent.path + "%"),
-        parent.skip_children == True,  # noqa: E712
-    )
-)
-del parent
 
-child_node = orm.aliased(SurveyTreeItem)
+def _SKIPPED_PARENTS_factory():
+    # XXX This can be optimized by doing short-circuit on parent.type!=module
+    parent = orm.aliased(SurveyTreeItem)
+    return sql.exists().where(
+        sql.and_(
+            parent.session_id == SurveyTreeItem.session_id,
+            SurveyTreeItem.depth > parent.depth,
+            SurveyTreeItem.path.like(parent.path + "%"),
+            parent.skip_children == True,  # noqa: E712
+        )
+    )
+
+
+SKIPPED_PARENTS = _SKIPPED_PARENTS_factory()
+
 
 NO_CUSTOM_RISKS_FILTER = sql.not_(
     sql.and_(
@@ -1684,85 +1687,111 @@ RISK_OR_MODULE_WITH_DESCRIPTION_FILTER = sql.or_(
     SurveyTreeItem.type != "module", SurveyTreeItem.has_description
 )
 
-# Used by tno.euphorie
-MODULE_WITH_RISK_FILTER = sql.and_(
-    SurveyTreeItem.type == "module",
-    SurveyTreeItem.skip_children == False,  # noqa: E712
-    sql.exists(
-        sql.select([child_node.id]).where(
-            sql.and_(
-                child_node.session_id == SurveyTreeItem.session_id,
-                child_node.id == Risk.sql_risk_id,
-                child_node.type == "risk",
-                Risk.identification == "no",
-                child_node.depth > SurveyTreeItem.depth,
-                child_node.path.like(SurveyTreeItem.path + "%"),
-            )
-        )
-    ),
-)
-
-MODULE_WITH_RISK_OR_TOP5_FILTER = sql.and_(
-    SurveyTreeItem.type == "module",
-    SurveyTreeItem.skip_children == False,  # noqa: E712
-    sql.exists(
-        sql.select([child_node.id]).where(
-            sql.and_(
-                child_node.session_id == SurveyTreeItem.session_id,
-                child_node.id == Risk.sql_risk_id,
-                child_node.type == "risk",
-                sql.or_(Risk.identification == "no", Risk.risk_type == "top5"),
-                child_node.depth > SurveyTreeItem.depth,
-                child_node.path.like(SurveyTreeItem.path + "%"),
-            )
-        )
-    ),
-)
 
 # Used by tno.euphorie
-MODULE_WITH_RISK_TOP5_TNO_FILTER = sql.and_(
-    SurveyTreeItem.type == "module",
-    SurveyTreeItem.skip_children == False,  # noqa: E712
-    sql.exists(
-        sql.select([child_node.id]).where(
-            sql.and_(
-                child_node.session_id == SurveyTreeItem.session_id,
-                child_node.id == Risk.sql_risk_id,
-                child_node.type == "risk",
-                sql.or_(
+def _MODULE_WITH_RISK_FILTER_factory():
+    child_node = orm.aliased(SurveyTreeItem)
+    return sql.and_(
+        SurveyTreeItem.type == "module",
+        SurveyTreeItem.skip_children == False,  # noqa: E712
+        sql.exists(
+            sql.select([child_node.id]).where(
+                sql.and_(
+                    child_node.session_id == SurveyTreeItem.session_id,
+                    child_node.id == Risk.sql_risk_id,
+                    child_node.type == "risk",
                     Risk.identification == "no",
-                    sql.and_(
-                        Risk.risk_type == "top5",
-                        sql.or_(
-                            sql.not_(Risk.identification.in_(["n/a", "yes"])),
-                            Risk.identification is None,
+                    child_node.depth > SurveyTreeItem.depth,
+                    child_node.path.like(SurveyTreeItem.path + "%"),
+                )
+            )
+        ),
+    )
+
+
+MODULE_WITH_RISK_FILTER = _MODULE_WITH_RISK_FILTER_factory()
+
+
+def _MODULE_WITH_RISK_OR_TOP5_FILTER_factory():
+    child_node = orm.aliased(SurveyTreeItem)
+    return sql.and_(
+        SurveyTreeItem.type == "module",
+        SurveyTreeItem.skip_children == False,  # noqa: E712
+        sql.exists(
+            sql.select([child_node.id]).where(
+                sql.and_(
+                    child_node.session_id == SurveyTreeItem.session_id,
+                    child_node.id == Risk.sql_risk_id,
+                    child_node.type == "risk",
+                    sql.or_(Risk.identification == "no", Risk.risk_type == "top5"),
+                    child_node.depth > SurveyTreeItem.depth,
+                    child_node.path.like(SurveyTreeItem.path + "%"),
+                )
+            )
+        ),
+    )
+
+
+MODULE_WITH_RISK_OR_TOP5_FILTER = _MODULE_WITH_RISK_OR_TOP5_FILTER_factory()
+
+
+def _MODULE_WITH_RISK_TOP5_TNO_FILTER_factory():
+    child_node = orm.aliased(SurveyTreeItem)
+    return sql.and_(
+        SurveyTreeItem.type == "module",
+        SurveyTreeItem.skip_children == False,  # noqa: E712
+        sql.exists(
+            sql.select([child_node.id]).where(
+                sql.and_(
+                    child_node.session_id == SurveyTreeItem.session_id,
+                    child_node.id == Risk.sql_risk_id,
+                    child_node.type == "risk",
+                    sql.or_(
+                        Risk.identification == "no",
+                        sql.and_(
+                            Risk.risk_type == "top5",
+                            sql.or_(
+                                sql.not_(Risk.identification.in_(["n/a", "yes"])),
+                                Risk.identification is None,
+                            ),
                         ),
                     ),
-                ),
-                child_node.depth > SurveyTreeItem.depth,
-                child_node.path.like(SurveyTreeItem.path + "%"),
+                    child_node.depth > SurveyTreeItem.depth,
+                    child_node.path.like(SurveyTreeItem.path + "%"),
+                )
             )
-        )
-    ),
-)
+        ),
+    )
 
-MODULE_WITH_RISK_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER = sql.and_(
-    SurveyTreeItem.type == "module",
-    SurveyTreeItem.skip_children == False,  # noqa: E712
-    sql.exists(
-        sql.select([child_node.id]).where(
-            sql.and_(
-                child_node.session_id == SurveyTreeItem.session_id,
-                child_node.id == Risk.sql_risk_id,
-                child_node.type == "risk",
-                sql.not_(Risk.risk_type.in_(["top5", "policy"])),
-                sql.not_(Risk.skip_evaluation is True),
-                Risk.identification == "no",
-                child_node.depth > SurveyTreeItem.depth,
-                child_node.path.like(SurveyTreeItem.path + "%"),
+
+# Used by tno.euphorie
+MODULE_WITH_RISK_TOP5_TNO_FILTER = _MODULE_WITH_RISK_TOP5_TNO_FILTER_factory()
+
+
+def _MODULE_WITH_RISK_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER_factory():
+    child_node = orm.aliased(SurveyTreeItem)
+    return sql.and_(
+        SurveyTreeItem.type == "module",
+        SurveyTreeItem.skip_children == False,  # noqa: E712
+        sql.exists(
+            sql.select([child_node.id]).where(
+                sql.and_(
+                    child_node.session_id == SurveyTreeItem.session_id,
+                    child_node.id == Risk.sql_risk_id,
+                    child_node.type == "risk",
+                    sql.not_(Risk.risk_type.in_(["top5", "policy"])),
+                    sql.not_(Risk.skip_evaluation is True),
+                    Risk.identification == "no",
+                    child_node.depth > SurveyTreeItem.depth,
+                    child_node.path.like(SurveyTreeItem.path + "%"),
+                )
             )
-        )
-    ),
+        ),
+    )
+
+
+MODULE_WITH_RISK_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER = (
+    _MODULE_WITH_RISK_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER_factory()
 )
 
 # Used by tno.euphorie
@@ -1795,17 +1824,23 @@ RISK_PRESENT_FILTER_TOP5_TNO_FILTER = sql.and_(
     ),
 )
 
-RISK_PRESENT_OR_TOP5_FILTER = sql.and_(
-    SurveyTreeItem.type == "risk",
-    sql.exists(
-        sql.select([Risk.sql_risk_id]).where(
-            sql.and_(
-                Risk.sql_risk_id == SurveyTreeItem.id,
-                sql.or_(Risk.identification == "no", Risk.risk_type == "top5"),
+
+def _RISK_PRESENT_OR_TOP5_FILTER_factory():
+    Risk_ = orm.aliased(Risk)
+    return sql.and_(
+        SurveyTreeItem.type == "risk",
+        sql.exists(
+            sql.select([Risk_.sql_risk_id]).where(
+                sql.and_(
+                    Risk_.sql_risk_id == SurveyTreeItem.id,
+                    sql.or_(Risk_.identification == "no", Risk_.risk_type == "top5"),
+                )
             )
-        )
-    ),
-)
+        ),
+    )
+
+
+RISK_PRESENT_OR_TOP5_FILTER = _RISK_PRESENT_OR_TOP5_FILTER_factory()
 
 RISK_PRESENT_NO_TOP5_NO_POLICY_DO_EVALUTE_FILTER = sql.and_(
     SurveyTreeItem.type == "risk",
@@ -1831,13 +1866,19 @@ ACTION_PLAN_FILTER = sql.or_(
     RISK_PRESENT_OR_TOP5_FILTER,
 )
 
-SKIPPED_MODULE = sql.exists().where(
-    sql.and_(
-        SurveyTreeItem.type == "module",
-        child_node.session_id == SurveyTreeItem.session_id,
-        child_node.skip_children == True,  # noqa: E712
+
+def _SKIPPED_MODULE_factory():
+    child_node = orm.aliased(SurveyTreeItem)
+    sql.exists().where(
+        sql.and_(
+            SurveyTreeItem.type == "module",
+            child_node.session_id == SurveyTreeItem.session_id,
+            child_node.skip_children == True,  # noqa: E712
+        )
     )
-)
+
+
+SKIPPED_MODULE = _SKIPPED_MODULE_factory
 
 UNANSWERED_RISKS_FILTER = sql.and_(
     SurveyTreeItem.type == "risk",
@@ -1851,39 +1892,51 @@ UNANSWERED_RISKS_FILTER = sql.and_(
     ),
 )
 
-MODULE_WITH_UNANSWERED_RISKS_FILTER = sql.and_(
-    SurveyTreeItem.type == "module",
-    SurveyTreeItem.skip_children == False,  # noqa: E712
-    sql.exists(
-        sql.select([child_node.id]).where(
-            sql.and_(
-                child_node.session_id == SurveyTreeItem.session_id,
-                child_node.id == Risk.sql_risk_id,
-                child_node.type == "risk",
-                Risk.identification is None,
-                child_node.depth > SurveyTreeItem.depth,
-                child_node.path.like(SurveyTreeItem.path + "%"),
-            )
-        )
-    ),
-)
 
-MODULE_WITH_RISKS_NOT_PRESENT_FILTER = sql.and_(
-    SurveyTreeItem.type == "module",
-    SurveyTreeItem.skip_children == False,  # noqa: E712
-    sql.exists(
-        sql.select([child_node.id]).where(
-            sql.and_(
-                child_node.session_id == SurveyTreeItem.session_id,
-                child_node.id == Risk.sql_risk_id,
-                child_node.type == "risk",
-                Risk.identification == "yes",
-                child_node.depth > SurveyTreeItem.depth,
-                child_node.path.like(SurveyTreeItem.path + "%"),
+def _MODULE_WITH_UNANSWERED_RISKS_FILTER_factory():
+    child_node = orm.aliased(SurveyTreeItem)
+    return sql.and_(
+        SurveyTreeItem.type == "module",
+        SurveyTreeItem.skip_children == False,  # noqa: E712
+        sql.exists(
+            sql.select([child_node.id]).where(
+                sql.and_(
+                    child_node.session_id == SurveyTreeItem.session_id,
+                    child_node.id == Risk.sql_risk_id,
+                    child_node.type == "risk",
+                    Risk.identification is None,
+                    child_node.depth > SurveyTreeItem.depth,
+                    child_node.path.like(SurveyTreeItem.path + "%"),
+                )
             )
-        )
-    ),
-)
+        ),
+    )
+
+
+MODULE_WITH_UNANSWERED_RISKS_FILTER = _MODULE_WITH_UNANSWERED_RISKS_FILTER_factory()
+
+
+def _MODULE_WITH_RISKS_NOT_PRESENT_FILTER_factory():
+    child_node = orm.aliased(SurveyTreeItem)
+    return sql.and_(
+        SurveyTreeItem.type == "module",
+        SurveyTreeItem.skip_children == False,  # noqa: E712
+        sql.exists(
+            sql.select([child_node.id]).where(
+                sql.and_(
+                    child_node.session_id == SurveyTreeItem.session_id,
+                    child_node.id == Risk.sql_risk_id,
+                    child_node.type == "risk",
+                    Risk.identification == "yes",
+                    child_node.depth > SurveyTreeItem.depth,
+                    child_node.path.like(SurveyTreeItem.path + "%"),
+                )
+            )
+        ),
+    )
+
+
+MODULE_WITH_RISKS_NOT_PRESENT_FILTER = _MODULE_WITH_RISKS_NOT_PRESENT_FILTER_factory()
 
 RISK_NOT_PRESENT_FILTER = sql.and_(
     SurveyTreeItem.type == "risk",
@@ -1895,8 +1948,6 @@ RISK_NOT_PRESENT_FILTER = sql.and_(
         )
     ),
 )
-
-del child_node
 
 
 def get_current_account():
