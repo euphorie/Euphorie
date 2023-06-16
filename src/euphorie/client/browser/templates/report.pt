@@ -18,7 +18,8 @@
   <body>
     <metal:slot fill-slot="content">
 
-      <form id="report_comment_form"
+      <form class="pat-form"
+            id="report_comment_form"
             accept-charset="UTF-8"
             action="${request/URL}"
             method="post"

@@ -15,6 +15,7 @@ Changelog
 
 - Align with prototype to fix form style issues.
   Ref: scrum-1205
+  Ref: scrum-1266
   [thet]
 
 - Update Prototype from 55f072619c03f603b1b2227081dacec7efad9684
