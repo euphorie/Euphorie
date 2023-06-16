@@ -1641,6 +1641,7 @@ if not _instrumented:
         OrganisationMembership,
     ]:
         instrument_declarative(cls, metadata._decl_registry, metadata)
+    orm.configure_mappers()
     _instrumented = True
 
 schema.Index("tree_session_path", SurveyTreeItem.session_id, SurveyTreeItem.path)
