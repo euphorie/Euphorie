@@ -17,25 +17,34 @@
            last_validation_event session/last_validation_event;
          "
     >
-      <div class="pat-message notice">
-        <p tal:condition="python: last_validation_event">
-          <strong tal:define="
-                    last_actor nocall:last_validation_event/account;
-                  "><tal:i18n i18n:translate="label_validated">Validated</tal:i18n>
-            <time class="pat-display-time"
-                  datetime="${value}"
-                  data-pat-display-time="from-now: true; locale: ${language}"
-                  tal:define="
-                    value python:webhelpers.timezoned_date(last_validation_event.time);
-                  "
-            >${value}</time>
-            <tal:publisher condition="nocall:last_actor">
-              <tal:i18n i18n:translate="by">by</tal:i18n>
-              <a href="mailto:${last_actor/email}">${last_actor/title}</a>
-            </tal:publisher>
-          </strong>
+      <div class="pat-message success"
+           tal:condition="session/is_validated"
+      >
+        <p tal:define="
+             raw_time view/validated_info/raw_time|nothing;
+             last_actor nocall:last_validation_event/account;
+           "
+           i18n:translate="message_session_validated"
+        >
+          <time class="date-stamp pat-display-time"
+                datetime="${value}"
+                data-pat-display-time="from-now: false; locale: ${language}"
+                tal:define="
+                  value python:webhelpers.timezoned_date(last_validation_event.time);
+                "
+                i18n:name="validation_time"
+          >${value}</time>:
+          <a href="mailto:${last_actor/email}"
+             i18n:name="consultant"
+          >${last_actor/title}</a>
+          has reviewed and validated this risk assessment
+
         </p>
-        <p tal:condition="python: last_locking_event">
+      </div>
+      <div class="pat-message notice"
+           tal:condition="not:session/is_validated"
+      >
+        <p tal:condition="session/is_locked">
           <!-- Diplay this paragraph only when the assessment is locked. -->
           <strong tal:define="
                     last_actor nocall:last_locking_event/account;
@@ -99,6 +108,15 @@
                         i18n:translate=""
                 >Refresh locking date</button>
               </form>
+            </li>
+          </tal:case>
+          <tal:case case="string:validated">
+            <li>
+              <a class="pat-inject icon-lock-open close-panel"
+                 href="${here/absolute_url}/@@panel-unlock-validated-risk-assessment"
+                 data-pat-inject="target: #pat-modal-panel-space"
+                 i18n:translate="label_unlock_and_invalidate_imp"
+              >Unlock and invalidate</a>
             </li>
           </tal:case>
         </ul>

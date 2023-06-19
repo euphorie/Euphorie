@@ -231,7 +231,7 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
             self.traversed_session.session.consultancy.account,
             self.consultant,
         )
-        self.assertEqual(self.traversed_session.session.consultancy.status, "validated")
+        self.assertTrue(self.traversed_session.session.is_validated)
         with api.env.adopt_user(user=self.owner):
             with self._get_view(
                 "consultancy",
@@ -243,16 +243,15 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
                     "michel.moulin@example-consultancy.com",
                 )
                 self.assertEqual(view.validated_info.consultant_name, "Michel Moulin")
-            self.assertLessEqual(
-                abs(
-                    view.validated_info.raw_time
-                    - datetime.utcnow().replace(tzinfo=timezone.utc)
-                ),
-                timedelta(seconds=5),
-            )
+                self.assertLessEqual(
+                    abs(
+                        view.validated_info.raw_time
+                        - datetime.utcnow().replace(tzinfo=timezone.utc)
+                    ),
+                    timedelta(seconds=5),
+                )
 
-        # TODO check that assessment is locked
-        # self.assertTrue(self.traversed_session.session.locked)
+        self.assertTrue(self.traversed_session.session.is_locked)
 
         self.assertEqual(len(mail_fixture.storage), 2)
         recipients = {
@@ -269,7 +268,6 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
         self.traversed_session.session.consultancy = Consultancy(
             account=self.consultant,
             session=self.traversed_session.session,
-            status="validated",
         )
         event = SessionEvent(
             account_id=self.consultant.id,
@@ -289,7 +287,7 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
         self.session.delete(self.consultant)
         self.session.flush()
 
-        self.assertEqual(self.traversed_session.session.consultancy.status, "validated")
+        self.assertTrue(self.traversed_session.session.is_validated)
         with api.env.adopt_user(user=self.owner):
             with self._get_view(
                 "consultancy",
@@ -305,3 +303,79 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
                 abs(view.validated_info.raw_time - now),
                 timedelta(seconds=5),
             )
+
+    def test_owner_invalidates_risk_assessment(self):
+        self.traversed_session.session.consultancy = Consultancy(
+            account=self.consultant,
+            session=self.traversed_session.session,
+        )
+        event = SessionEvent(
+            account_id=self.owner.id,
+            session_id=self.traversed_session.session.id,
+            action="validation_requested",
+            time=(datetime.utcnow() - timedelta(days=2)).replace(tzinfo=timezone.utc),
+        )
+        self.session.add(event)
+        event = SessionEvent(
+            account_id=self.consultant.id,
+            session_id=self.traversed_session.session.id,
+            action="validated",
+            time=(datetime.utcnow() - timedelta(days=1)).replace(tzinfo=timezone.utc),
+            note=json.dumps(
+                {
+                    "consultant_id": self.consultant.id,
+                    "consultant_email": self.consultant.email,
+                    "consultant_name": "Michel Moulin",
+                }
+            ),
+        )
+        self.session.add(event)
+
+        with api.env.adopt_user(user=self.owner):
+            with self._get_view(
+                "panel-unlock-validated-risk-assessment",
+                self.traversed_session,
+                self.traversed_session.session,
+            ) as view:
+                view.request.method = "POST"
+                view()
+
+        self.assertFalse(self.traversed_session.session.is_locked)
+
+    def test_invalidate_risk_assessment_permission_denied(self):
+        self.traversed_session.session.consultancy = Consultancy(
+            account=self.consultant,
+            session=self.traversed_session.session,
+        )
+        event = SessionEvent(
+            account_id=self.owner.id,
+            session_id=self.traversed_session.session.id,
+            action="validation_requested",
+            time=(datetime.utcnow() - timedelta(days=2)).replace(tzinfo=timezone.utc),
+        )
+        self.session.add(event)
+        event = SessionEvent(
+            account_id=self.consultant.id,
+            session_id=self.traversed_session.session.id,
+            action="validated",
+            time=(datetime.utcnow() - timedelta(days=1)).replace(tzinfo=timezone.utc),
+            note=json.dumps(
+                {
+                    "consultant_id": self.consultant.id,
+                    "consultant_email": self.consultant.email,
+                    "consultant_name": "Michel Moulin",
+                }
+            ),
+        )
+        self.session.add(event)
+
+        with api.env.adopt_user(user=self.consultant):
+            with self._get_view(
+                "panel-unlock-validated-risk-assessment",
+                self.traversed_session,
+                self.traversed_session.session,
+            ) as view:
+                view.request.method = "POST"
+                self.assertRaises(Unauthorized, view)
+
+        self.assertTrue(self.traversed_session.session.is_locked)

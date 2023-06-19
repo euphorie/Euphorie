@@ -17,8 +17,7 @@
            id="content-pane"
            tal:define="
              consultant context/session/consultancy/account|nothing;
-             status context/session/consultancy/status|nothing;
-             is_validated python:status == 'validated';
+             is_validated context/session/is_validated;
              current_user webhelpers/get_current_account;
              role_consultant python: consultant and current_user == consultant;
            "
@@ -47,6 +46,7 @@
           <p class="pat-message success"
              tal:define="
                raw_time view/validated_info/raw_time|nothing;
+               language here/plone_portal_state/language;
              "
              tal:condition="python:is_validated"
              i18n:translate="message_session_validated"

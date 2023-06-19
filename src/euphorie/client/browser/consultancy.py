@@ -275,6 +275,32 @@ class PanelValidateRiskAssessment(ConsultancyBaseView):
         return super().__call__()
 
 
+class PanelInvalidateRiskAssessment(ConsultancyBaseView):
+    """ """
+
+    default_target_view = "@@consultancy"
+
+    def handle_POST(self):
+        """Handle the POST request."""
+        event = SessionEvent(
+            account_id=api.user.get_current().id,
+            session_id=self.context.session.id,
+            action="invalidated",
+        )
+        self.sqlsession.add(event)
+        self.sqlsession.delete(self.context.session.consultancy)
+        self.redirect()
+
+    def __call__(self):
+        if not self.webhelpers.can_view_session:
+            return self.request.response.redirect(self.webhelpers.client_url)
+        if not self.is_admin:
+            raise Unauthorized(
+                "Only organisation administrators can invalidate an assessment"
+            )
+        return super().__call__()
+
+
 class Consultants(BrowserView):
     """Show a country/language specific page about finding consultants"""
 
