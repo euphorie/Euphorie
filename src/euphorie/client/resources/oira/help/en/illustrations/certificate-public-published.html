@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="de">
+	lang="en">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -137,7 +137,7 @@
 					<a
 						href="/certificates/"
 					    data-pat-inject="history: record; source: #content; target: #content;"
-					    class="pat-back-button pat-inject">Zertifikate</a>
+					    class="pat-back-button pat-inject">Certificates</a>
 				</div>
 		    </form>
 		</div>
@@ -325,14 +325,17 @@
 			<div id="miller-columns" class="miller-columns">
 				
 
-<form class="search-form pat-inject view-compact"
-	  id="search-form"
-	  action="/feedback/search-results.html#browser"
+<form 
+	class="pat-form search-form pat-inject view-compact"
+	id="search-form"
+	action="/feedback/search-results.html#browser"
 	  >
 
-	<fieldset class="search-box-body">
-        <label class="search-field pat-subform pat-inject pat-autosubmit"
-			   data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
+	<fieldset 
+		class="search-box-body">
+        <label 
+        	class="search-field pat-subform pat-inject pat-autosubmit"
+			data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
 			<input
 				type="search" 
 				value="" 
@@ -341,8 +344,9 @@
             <button type="submit" name="standard" value="main" class="search-button-main assistive">Search</button>
         </label>
 
-	    <fieldset class="advanced-search pat-inject pat-subform"
-				  data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
+	    <fieldset 
+	    	class="advanced-search pat-inject pat-subform"
+			data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
 
 	        
 
@@ -521,13 +525,24 @@
 </template>
 
 
-			<fieldset class="toggle-bar pat-checklist free-form">
-			    <label class="pat-switch toggle-standard" data-pat-switch="#search-form view-extended view-compact">
-			        <input type="radio" name="search-mode" value="standard" checked> Standard search
+			<fieldset 
+				class="toggle-bar pat-checklist free-form">
+			    <label 
+			    	class="pat-switch toggle-standard" 
+			    	data-pat-switch="#search-form view-extended view-compact">
+			        <input 
+			        	type="radio" 
+			        	name="search-mode" 
+			        	value="standard" 
+			        	checked> Standard search
 			    </label>
-			    <label class="pat-switch toggle-advanced"
-			           data-pat-switch="#search-form view-compact view-extended && body osc-size-* osc-size-full">
-			        <input type="radio" name="search-mode" value="advanced"> Advanced search
+			    <label 
+			    	class="pat-switch toggle-advanced"
+			        data-pat-switch="#search-form view-compact view-extended && body osc-size-* osc-size-full">
+			        <input 
+			        	type="radio" 
+			        	name="search-mode" 
+			        	value="advanced"> Advanced search
 			    </label>
 			</fieldset>
 	    </fieldset>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="de">
+	lang="en">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -149,9 +149,9 @@
 						Fine tune OiRA to your needs by allowwing more users access to your organisation or change the way your organisation appears within OiRA.
 					</p>
 				
-				<h2 id="organisation">Organisation</h2>
+				<h3 id="topic-organisation">Organisation</h3>
 
-<p>Every risk assessment belongs to an organisation. User who can access the organisation can access its risk assessments.</p>
+<p>Every risk assessment belongs to an organisation. Users who can access the organisation can access its risk assessments.</p>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../en/illustrations/organisation.html" scrolling="no">
@@ -159,23 +159,41 @@
   <figcaption>Example of an organisation screen with multiple organisations.</figcaption>
 </figure>
 
-<p>When you create a new user account, without using an invitation to an organisation, then an organisation is automatically created for you. The organisation is used for storing the risk assessments.</p>
+<p>When you create a new user account, without using an invitation to an organisation, an organisation is automatically created for you. The organisation is used for storing the risk assessments.</p>
 
-<p>The organisation screen may be reached through the main screen by clicking on the tab called ‘Organistion’.</p>
+<p>The organisation screen can be reached through the main screen by clicking on the tab called ‘Organisation’.</p>
 
-<p>With the organisation screen in front of you, you’ll see all organisations that you have access to listed on the left hand side. In most cases you will see only one organisation. But in case you have access to other organisations as well, for instance because you’re an OiRA consultant, then you’ll see more than one organistion listed.</p>
+<p>With the organisation screen in front of you, you’ll see all organisations that you have access to listed on the left-hand side. In most cases, you will see only one organisation. But in case you have access to other organisations as well, for instance because you’re an OiRA consultant, then you’ll see more than one organisation listed.</p>
 
-<p>The name of your organisation will by default sound like ‘Organisation of …’, where the … is replaced by the first name of the first user of this organisation. If the name of this user is unknown, then as a fallback this user’s e-mail address will be shown. It is possible to change the name of the organisation and to upload a logo for it by clicking on the button ‘Edit organisation’ on the right hand side.</p>
+<p>The name of your organisation will by default sound like ‘Organisation of …’, where the … is replaced by the first name of the first user of this organisation. If the name of this user is unknown, then as a fallback this user’s e-mail address will be shown. It is possible to change the name of the organisation and to upload a logo for it by clicking on the button ‘Edit organisation’ on the right-hand side.</p>
 
-<p>It is possible to create addittional organisations by clicking on the <span class="icon-plus"></span> sign.</p>
+<p>It is possible to create additional organisations by clicking on the <span class="icon-plus"></span> sign if you’re overseeing more than one organisation and you want to keep the risk assessments that belong to them separate.</p>
 
-<p>On the right hand slide you’ll see a list of users who can access the selected organisation. You should see your own name or your e-mail address amongst the list of users who can access the risk assessments of your organisation. Next to your name, you’ll see your role within the organisation. There are 3 possibles roles.</p>
+<h3 id="topic-user-management">User management</h3>
+
+<p>On the right-hand side, you’ll see a list of users who can access the selected organisation. You should see your own name (if it’s known to the system) or your e-mail address amongst the list of users who can access the risk assessments of your organisation.</p>
+
+<h4 id="editing-your-name">Editing your name</h4>
+
+<p>It’s recommended to enter your own name into the application, because it will improve your recognisability to other users throughout the application later on. You can change your name by clicking on the triple dot symbol <span class="icon-ellipsis"></span> at the end of the row that has your name on it and then choose ‘Edit’.</p>
+
+<h4 id="roles-and-permissions">Roles and permissions</h4>
+
+<p>Next to the names of the users, you’ll see your role within the organisation. There are 5 possible roles.</p>
 
 <ul>
-  <li><strong>Member</strong>: Can make risk assessments and take trainings.</li>
-  <li><strong>Managers/Policy maker</strong>: Can make risk assessments, lock risk assessments, create trainings and take trainings.</li>
-  <li><strong>Administrator</strong>:  Can create, edit and remove user accounts. Administrators can also make risk assessments, lock risk assessments, create trainings and take trainings.</li>
+  <li><strong>Basic</strong> — User can only take trainings.</li>
+  <li><strong>Edit</strong> — User can take trainings and view and edit all risk assessments.</li>
+  <li><strong>Manage</strong> — User can take trainings, view and edit all risk assessments, request validations and lock risk assessments.</li>
+  <li><strong>Validate</strong> — User can take trainings, view and edit all risk assessments and validate risk assessments.</li>
+  <li><strong>Full</strong> — User view and edit all content and add or remove users to or from the organiation.</li>
 </ul>
+
+<h4 id="adding-a-user-to-your-organisation">Adding a user to your organisation</h4>
+
+<p>You can add an extra user, such as an employee or an OSH consultant, to your organisation by clicking on the ‘Add user’ button. A panel will appear that asks you to choose the permission level for the new user. You can still change the permission level of the user afterwards. Once you’ve set the permission level, click ‘Invite by e-mail’ to send the invitation.</p>
+
+<p>When you click ‘Invite by e-mail’, your e-mail client will open with a new e-mail with a link in it that people can use to join your organisation. The link is valid for five days and you may send it to as many people as you would like to join your organisation.</p>
 
 			</div>
 		</article>
@@ -256,14 +274,17 @@
 			<div id="miller-columns" class="miller-columns">
 				
 
-<form class="search-form pat-inject view-compact"
-	  id="search-form"
-	  action="/feedback/search-results.html#browser"
+<form 
+	class="pat-form search-form pat-inject view-compact"
+	id="search-form"
+	action="/feedback/search-results.html#browser"
 	  >
 
-	<fieldset class="search-box-body">
-        <label class="search-field pat-subform pat-inject pat-autosubmit"
-			   data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
+	<fieldset 
+		class="search-box-body">
+        <label 
+        	class="search-field pat-subform pat-inject pat-autosubmit"
+			data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
 			<input
 				type="search" 
 				value="" 
@@ -272,8 +293,9 @@
             <button type="submit" name="standard" value="main" class="search-button-main assistive">Search</button>
         </label>
 
-	    <fieldset class="advanced-search pat-inject pat-subform"
-				  data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
+	    <fieldset 
+	    	class="advanced-search pat-inject pat-subform"
+			data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
 
 	        
 
@@ -452,13 +474,24 @@
 </template>
 
 
-			<fieldset class="toggle-bar pat-checklist free-form">
-			    <label class="pat-switch toggle-standard" data-pat-switch="#search-form view-extended view-compact">
-			        <input type="radio" name="search-mode" value="standard" checked> Standard search
+			<fieldset 
+				class="toggle-bar pat-checklist free-form">
+			    <label 
+			    	class="pat-switch toggle-standard" 
+			    	data-pat-switch="#search-form view-extended view-compact">
+			        <input 
+			        	type="radio" 
+			        	name="search-mode" 
+			        	value="standard" 
+			        	checked> Standard search
 			    </label>
-			    <label class="pat-switch toggle-advanced"
-			           data-pat-switch="#search-form view-compact view-extended && body osc-size-* osc-size-full">
-			        <input type="radio" name="search-mode" value="advanced"> Advanced search
+			    <label 
+			    	class="pat-switch toggle-advanced"
+			        data-pat-switch="#search-form view-compact view-extended && body osc-size-* osc-size-full">
+			        <input 
+			        	type="radio" 
+			        	name="search-mode" 
+			        	value="advanced"> Advanced search
 			    </label>
 			</fieldset>
 	    </fieldset>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="de">
+	lang="en">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -136,22 +136,28 @@
 
 
 
-<ol id="steps" class="navigation pat-navigation">
-  
-    <li id="step-1"
-        class="complete ">
-      <a href="//index#content"
-        data-pat-inject="history: record"
-        class="preparation pat-switch pat-inject"
-        data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Presentazione</a>
-    </li>
-    <li id="step-involve"
-        class="">
-      <a href="//involve#content"
-         class="involve pat-inject pat-switch"
-         data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
-         data-pat-inject="history: record">Processo di VR</a>
-    </li>
+<ol 
+    id="steps" 
+    class="navigation pat-navigation">
+    
+        <li 
+            id="step-1"
+            class="complete ">
+        <a 
+            href="//index#content"
+            data-pat-inject="history: record"
+            class="preparation pat-switch pat-inject"
+            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Presentazione</a>
+        </li>
+        <li 
+            id="step-involve"
+            class="">
+            <a 
+                href="//involve#content"
+                class="involve pat-inject pat-switch"
+                data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
+                data-pat-inject="history: record">Processo di VR</a>
+        </li>
     <li class=" " id="step-2">
 
       
@@ -183,7 +189,7 @@
             class="consultancy pat-switch pat-inject"
             data-pat-inject="history: record"
             data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
-            href="//consultancy#content">Beratung</a>
+            href="//consultancy#content">Consultancy</a>
     </li>
 
     <li id="step-5" class="active">
@@ -218,7 +224,7 @@
             href="//settings#content"
             data-pat-inject="history: record"
             class="settings pat-switch pat-inject"
-            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Einstellungen</a>
+            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Settings</a>
     </li>
     <li 
         id="home">
@@ -254,12 +260,12 @@
             
                 <a 
                     title="Lock this assessment" 
-                    href="/preparation.html#publication-menu" 
+                    href="#publication-menu" 
                     class="icon-lock-open icon pat-tooltip" 
                     data-pat-tooltip="source: ajax; position-list: tr; trigger: click; source: ajax">Unlocked 
                     <!-- <time 
                             class="pat-display-time" 
-                        data-pat-display-time="from-now: true; locale: de" 
+                        data-pat-display-time="from-now: true; locale: en" 
                         datetime="2018-03-28T08:00Z">2018-03-28</time> -->
                 </a>
             
@@ -284,8 +290,8 @@
             <div
                 hidden
                 id="status-sentinel">
+                
                     
-                        
 
 <p>
     You've completed <strong>0%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -301,11 +307,11 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
-                    
-                    
-                    <p>
-                        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more details.
-                    </p>
+                
+                
+                <p>
+                    View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more details.
+                </p>
             </div>
             
                 <a 
@@ -315,7 +321,7 @@
             
             
             <!-- <a 
-                class="default pat-button">Risikobewertung genehmigen</a>  --> 
+                class="default pat-button">Approve risk assessment</a>  --> 
         </div>
     </div>
 </div>
@@ -419,14 +425,17 @@
 			<div id="miller-columns" class="miller-columns">
 				
 
-<form class="search-form pat-inject view-compact"
-	  id="search-form"
-	  action="/feedback/search-results.html#browser"
+<form 
+	class="pat-form search-form pat-inject view-compact"
+	id="search-form"
+	action="/feedback/search-results.html#browser"
 	  >
 
-	<fieldset class="search-box-body">
-        <label class="search-field pat-subform pat-inject pat-autosubmit"
-			   data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
+	<fieldset 
+		class="search-box-body">
+        <label 
+        	class="search-field pat-subform pat-inject pat-autosubmit"
+			data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
 			<input
 				type="search" 
 				value="" 
@@ -435,8 +444,9 @@
             <button type="submit" name="standard" value="main" class="search-button-main assistive">Cercare</button>
         </label>
 
-	    <fieldset class="advanced-search pat-inject pat-subform"
-				  data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
+	    <fieldset 
+	    	class="advanced-search pat-inject pat-subform"
+			data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
 
 	        
 
@@ -615,13 +625,24 @@
 </template>
 
 
-			<fieldset class="toggle-bar pat-checklist free-form">
-			    <label class="pat-switch toggle-standard" data-pat-switch="#search-form view-extended view-compact">
-			        <input type="radio" name="search-mode" value="standard" checked> 
+			<fieldset 
+				class="toggle-bar pat-checklist free-form">
+			    <label 
+			    	class="pat-switch toggle-standard" 
+			    	data-pat-switch="#search-form view-extended view-compact">
+			        <input 
+			        	type="radio" 
+			        	name="search-mode" 
+			        	value="standard" 
+			        	checked> 
 			    </label>
-			    <label class="pat-switch toggle-advanced"
-			           data-pat-switch="#search-form view-compact view-extended && body osc-size-* osc-size-full">
-			        <input type="radio" name="search-mode" value="advanced"> 
+			    <label 
+			    	class="pat-switch toggle-advanced"
+			        data-pat-switch="#search-form view-compact view-extended && body osc-size-* osc-size-full">
+			        <input 
+			        	type="radio" 
+			        	name="search-mode" 
+			        	value="advanced"> 
 			    </label>
 			</fieldset>
 	    </fieldset>

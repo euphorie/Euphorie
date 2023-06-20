@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="de">
+	lang="en">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -136,22 +136,28 @@
 
 
 
-<ol id="steps" class="navigation pat-navigation">
-  
-    <li id="step-1"
-        class="complete ">
-      <a href="/ass-private-security-grafton-street/index#content"
-        data-pat-inject="history: record"
-        class="preparation pat-switch pat-inject"
-        data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Vorbereitung</a>
-    </li>
-    <li id="step-involve"
-        class="">
-      <a href="/ass-private-security-grafton-street/involve#content"
-         class="involve pat-inject pat-switch"
-         data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
-         data-pat-inject="history: record">Einbeziehen</a>
-    </li>
+<ol 
+    id="steps" 
+    class="navigation pat-navigation">
+    
+        <li 
+            id="step-1"
+            class="complete ">
+        <a 
+            href="/ass-private-security-grafton-street/index#content"
+            data-pat-inject="history: record"
+            class="preparation pat-switch pat-inject"
+            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Preparation</a>
+        </li>
+        <li 
+            id="step-involve"
+            class="">
+            <a 
+                href="/ass-private-security-grafton-street/involve#content"
+                class="involve pat-inject pat-switch"
+                data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
+                data-pat-inject="history: record">Involve</a>
+        </li>
     <li class=" " id="step-2">
 
       
@@ -159,7 +165,7 @@
       <a href="/ass-private-security-grafton-street/items/2014-01-01-commercial-manned-guarding#content"
          data-pat-inject="history: record"
          class="identification pat-switch pat-inject"
-         data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Beurteilung</a>
+         data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Assessment</a>
 
       
 
@@ -174,7 +180,7 @@
             class="consultancy pat-switch pat-inject"
             data-pat-inject="history: record"
             data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
-            href="/ass-private-security-grafton-street/consultancy#content">Beratung</a>
+            href="/ass-private-security-grafton-street/consultancy#content">Consultancy</a>
     </li>
 
     <li id="step-5" >
@@ -182,7 +188,7 @@
         <a class="report pat-switch pat-inject"
             data-pat-inject="history: record"
             data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
-            href="/ass-private-security-grafton-street/report#content">Bericht</a>
+            href="/ass-private-security-grafton-street/report#content">Report</a>
       
     </li>
 
@@ -191,7 +197,7 @@
         <a href="/ass-private-security-grafton-street/training#content"
             class="training pat-inject pat-switch"
             data-pat-inject="history: record"
-            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Unterweisung</a>
+            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Training</a>
       </li>
     
   
@@ -216,7 +222,7 @@
             href="/ass-private-security-grafton-street/settings#content"
             data-pat-inject="history: record"
             class="settings pat-switch pat-inject"
-            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Einstellungen</a>
+            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Settings</a>
     </li>
     <li 
         id="home">
@@ -224,7 +230,7 @@
             href="/assessments#content"
             data-pat-inject="history: record"
             class="home pat-switch pat-inject"
-            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Verlassen</a>
+            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Exit</a>
     </li>
     
 </ol>
@@ -263,14 +269,37 @@
             
                 <a 
                     title="Unlock this assessment" 
-                    href="/ass-private-security-grafton-street/consultancy#publication-menu" 
-                    class="icon-lock text-button pat-tooltip"
-                    data-pat-tooltip="source: ajax; position-list: tr; trigger: click; source: ajax">Locked 
-                    <time 
-                        class="pat-display-time" 
-                        data-pat-display-time="from-now: true;locale: de" 
-                        datetime="2022-12-08T20:13Z">2022-12-08</time>
+                    href="#publication-menu" 
+                    class="pat-select success locked text-button pat-tooltip"
+                    data-pat-tooltip="source: ajax; position-list: tr; trigger: click; source: ajax">Validated
                 </a>
+                <div 
+                    id="publication-menu" 
+                    hidden>
+                    
+                            
+                                <div 
+                                    class="pat-message success">
+                                    <p>
+                                        You have reviewed and validated this risk assessment.
+                                    </p>
+                                </div>
+                            
+                    
+                    <ul 
+                        class="menu">
+                        
+                            
+                                <li>
+                                    <a 
+    href="/feedback/panel-retract-validation"
+    class="pat-inject icon-cancel-alt-filled close-panel"
+    data-pat-inject="target: #pat-modal-panel-space">Retract validation</a>
+                                </li>
+                            
+                        
+                    </ul>
+                </div>
             
                 
             <a 
@@ -293,8 +322,8 @@
             <div
                 hidden
                 id="status-sentinel">
+                
                     
-                        
 
 <p>
     You've completed <strong>44%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -310,11 +339,11 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
-                    
-                    
-                    <p>
-                        View the <a href="/ass-private-security-grafton-street/status#content" class="pat-inject close-panel">Status screen</a> for more details.
-                    </p>
+                
+                
+                <p>
+                    View the <a href="/ass-private-security-grafton-street/status#content" class="pat-inject close-panel">Status screen</a> for more details.
+                </p>
             </div>
             
                 <a 
@@ -324,111 +353,30 @@
             
             
             <!-- <a 
-                class="default pat-button">Risikobewertung genehmigen</a>  --> 
+                class="default pat-button">Approve risk assessment</a>  --> 
         </div>
     </div>
 </div>
 
 	
-		<article 
-			class="pat-rich">
-			<h1>
-				Beratung
-			</h1>
-			<p>
-				Es besteht die Möglichkeit, Unterstützung bei der Durchführung einer Risikobewertung anzufordern oder eine Risikoanalyse von Ihnen durchführen und von einem Arbeitsschutzberater validieren zu lassen. Ein Arbeitsschutzberater kann Ihrer Risikobewertung ein offizielles Validierungszeichen geben. Eine Validierung kann nur von Benutzern mit der Berechtigungsstufe „Verwalten“ oder höher beantragt werden.
-			</p>
-		</article>
-
-
-		
-		
-
 		
 			<p 
 				class="pat-message success">
-				<time 
-					class="date-stamp">20 June 2023</time>:
-					<a href="mailto:michel@moulin.fr">Michel Moulin</a> hat diese Risikobewertung überprüft und validiert.
-
+				You have reviewed and validated this risk assessment.
 			</p>
+			<!-- <div 
+				class="button-bar">
+				<a 
+    href="/feedback/panel-unlock-validated-risk-assessment"
+    class="pat-inject pat-button"
+    data-pat-inject="target: #pat-modal-panel-space">Retract validation</a>
+			</div> -->
 		
-
-		<ul 
-			class="link-list">
-			<li>
-				<a 
-					class="pat-inject" 
-					data-pat-inject="
-						history: record; 
-						source: #content; 
-						target: #content"
-					href="/consultants-countries">Finden Sie einen OSH-Berater</a>
-			</li>
-			<li>
-				<a 
-					data-pat-modal="class: medium panel" 
-					class="pat-modal" 
-					href="/feedback/new-user#document-content">Fügen Sie Ihrer Organisation einen Arbeitsschutzberater hinzu</a>
-			</li>
-			<li>
-				<a 
-					class="pat-inject" 
-					data-pat-inject="
-						history: record; 
-						source: #content; 
-						target: #content; 
-						scroll: #consultancy"
-					href="../../en/pages/3-carrying-out-a-risk-assessment">Erfahren Sie mehr über Beratung</a>
-			</li>
-		</ul>
 	
 
 </div>
 
-<div 
-    id="publication-menu" 
-    hidden>
-    
-        <div 
-            class="pat-message notice">
-            <p>
-                <!-- Diplay this paragraph only when the assessment is locked. -->
-                <strong>Locked 
-                    <time 
-                        class="pat-display-time" 
-                        data-pat-display-time="from-now: true;locale: de" 
-                        datetime="2022-12-08T20:13Z">2022-12-08</time>
-                </strong>
-            </p>
-            <p>
-                Last edited by <a href="mailto:hans@mittelmaier.de">Michel Moulin</a> on 8 December 2022.
-            </p>
-        </div>
-    
-    <ul 
-        class="menu">
-        
-            <li>
-                <a 
-                    href="/feedback/panel-unlock-validated-risk-assessment#document-content"
-                    data-pat-modal="class: medium panel" 
-                    class="icon-lock-open pat-modal close-panel">
-                    GBU entsperren
-                </a>
-            </li>
-            <li>
-                <form   
-                    action="/preparation.html#content" 
-                    class="pat-inject close-panel">
-                    <button 
-                        type="submit" 
-                        class="icon-arrows-cw">Refresh locking date</button>
-                </form>
-            </li>
-        
-    </ul>
-</div>
+
 
     
 		<a href="#content-pane"
@@ -463,7 +411,7 @@
         	data-pat-collapsible="close-trigger: *:not(#more-menu)"
         	id="more-menu">
             <strong
-            	class="context-menu-label iconified more-menu-trigger">Mehr</strong>
+            	class="context-menu-label iconified more-menu-trigger">More…</strong>
             <ul
             	class="menu">
             	<li>
@@ -472,22 +420,22 @@
                         data-pat-modal="class: medium panel"
                         class="no-label pat-modal icon-plus pat-switch"
                         data-pat-switch="body osc-s-* osc-s-off"
-                        title="Neue GBU beginnen">Neue GBU</a>
+                        title="Start a new risk assessment">New risk assessment</a>
                 </li>
                 <li>
-                    <label class="pat-checklist"><input type="checkbox" name="archived" /> Archivierte GBUs anzeigen</label>
+                    <label class="pat-checklist"><input type="checkbox" name="archived" /> Show archived risk assessments</label>
                 </li>
                 <li>
                 	<fieldset class="pat-checklist radio">
-                        <label><input type="radio" value="all" name="ass-type" checked /> Alle GBU Arten</label>
-                        <label><input type="radio" value="regular" name="ass-type" /> Nur klassische GBUs</label>
-                        <label><input type="radio" value="contractor" name="ass-type" /> Nur Fremdfirmen-GBUs</label>
+                        <label><input type="radio" value="all" name="ass-type" checked /> All types of risk assessments</label>
+                        <label><input type="radio" value="regular" name="ass-type" /> Only regular risk assessments</label>
+                        <label><input type="radio" value="contractor" name="ass-type" /> Only contractor risk assessments</label>
                 	</fieldset>
                 </li>
             </ul>
         </div>
 	
-    <button id="button-osc-expand" class="no-label iconified icon-resize-full pat-toggle" data-pat-toggle="selector: body; value: osc-size-full osc-size-normal" title="Seitenleiste ausklappen">Seitenleiste ausklappen</button>
+    <button id="button-osc-expand" class="no-label iconified icon-resize-full pat-toggle" data-pat-toggle="selector: body; value: osc-size-full osc-size-normal" title="Expand sidebar">Expand sidebar</button>
 </form>
 
 	<a href="/feedback/osh.html#osh-ra-browser" id="osh-target-ra-browser" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
@@ -498,24 +446,28 @@
 			<div id="miller-columns" class="miller-columns">
 				
 
-<form class="search-form pat-inject view-compact"
-	  id="search-form"
-	  action="/feedback/search-results.html#browser"
+<form 
+	class="pat-form search-form pat-inject view-compact"
+	id="search-form"
+	action="/feedback/search-results.html#browser"
 	  >
 
-	<fieldset class="search-box-body">
-        <label class="search-field pat-subform pat-inject pat-autosubmit"
-			   data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
+	<fieldset 
+		class="search-box-body">
+        <label 
+        	class="search-field pat-subform pat-inject pat-autosubmit"
+			data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
 			<input
 				type="search" 
 				value="" 
 				class="quick-search pat-autofocus" 
-				placeholder="Suche" />
-            <button type="submit" name="standard" value="main" class="search-button-main assistive">Suchen</button>
+				placeholder="Search" />
+            <button type="submit" name="standard" value="main" class="search-button-main assistive">Search</button>
         </label>
 
-	    <fieldset class="advanced-search pat-inject pat-subform"
-				  data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
+	    <fieldset 
+	    	class="advanced-search pat-inject pat-subform"
+			data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
 
 	        
 
@@ -524,7 +476,7 @@
     <p class="clone search-rule row-1">
         <label class="pat-select field-choice pat-select">
             <select name="search-rule.data-field:records">
-                <option value="SearchableText">Beliebiges Textfeld</option>
+                <option value="SearchableText">Any text field</option>
                 <optgroup label="Metadata">
                     <option value="Title">Title</option>
                     <option value="Description">Description</option>
@@ -545,9 +497,9 @@
         <span class="parameters lemma">
             <label class="pat-select">
                 <select name="search-rule.lemma-operator:records">
-                    <option value="contains">Enthält</option>
-                    <option value="contains-not">Enthält nicht</option>
-                    <option value="equals">Ist gleich</option>
+                    <option value="contains">Contains</option>
+                    <option value="contains-not">Does not contain</option>
+                    <option value="equals">Equals</option>
                 </select>
             </label>
             <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
@@ -555,9 +507,9 @@
         <span class="parameters date">
             <label class="pat-select">
                 <select name="search-rule.date-operator:records">
-                    <option value="is">Ist</option>
-                    <option value="is-before">Ist vor</option>
-                    <option value="is-after">Ist nach</option>
+                    <option value="is">Is</option>
+                    <option value="is-before">Is before</option>
+                    <option value="is-after">Is after</option>
                 </select>
             </label>
             <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
@@ -565,8 +517,8 @@
         <span class="parameters plant">
             <label class="pat-select">
                 <select name="search-rule.date-operator:records">
-                    <option value="equals">Ist gleich</option>
-                    <option value="equals-not">Ist ungleich</option>
+                    <option value="equals">Equals</option>
+                    <option value="equals-not">Does not equal</option>
                 </select>
             </label>
             <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest lemma-field">
@@ -580,8 +532,8 @@
         <span class="parameters department">
             <label class="pat-select">
                 <select name="search-rule.date-operator:records">
-                    <option value="equals">Ist gleich</option>
-                    <option value="equals-not">Ist ungleich</option>
+                    <option value="equals">Equals</option>
+                    <option value="equals-not">Does not equal</option>
                 </select>
             </label>
             <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest lemma-field">
@@ -601,8 +553,8 @@
 </fieldset>
 
 <p class="button-bar">
-    <button type="submit" class="pat-button icon-search small">Suchen</button>
-    <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small">Neue Suchregel hinzufügen</button>
+    <button type="submit" class="pat-button icon-search small">Search</button>
+    <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small">Add another search rule</button>
 </p>
 
 <template id="clone-template">
@@ -610,16 +562,16 @@
     <label class="and-or pat-select bare">
         <select name="search-rule.and-or:records">
             <option value="and">
-                Und…
+                And…
             </option>
             <option value="or">
-                Oder…
+                Or…
             </option>
         </select>
     </label>
     <label class="field-choice pat-select">
         <select name="search-rule.data-field:records">
-            <option value="SearchableText">Beliebiges Textfeld</option>
+            <option value="SearchableText">Any text field</option>
             <optgroup label="Metadata">
                 <option value="Title">Title</option>
                 <option value="Description">Description</option>
@@ -637,9 +589,9 @@
     <span class="parameters lemma">
         <label class="pat-select">
             <select name="search-rule.lemma-operator:records">
-                <option value="contains">Enthält</option>
-                <option value="contains-not">Enthält nicht</option>
-                <option value="equals">Ist gleich</option>
+                <option value="contains">Contains</option>
+                <option value="contains-not">Does not contain</option>
+                <option value="equals">Equals</option>
             </select>
         </label>
         <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
@@ -647,9 +599,9 @@
     <span class="parameters date">
         <label class="pat-select">
             <select name="search-rule.date-operator:records">
-                <option value="is">Ist</option>
-                <option value="is-before">Ist vor</option>
-                <option value="is-after">Ist nach</option>
+                <option value="is">Is</option>
+                <option value="is-before">Is before</option>
+                <option value="is-after">Is after</option>
             </select>
         </label>
         <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
@@ -657,8 +609,8 @@
     <span class="parameters plant">
         <label class="pat-select">
             <select name="search-rule.date-operator:records">
-                <option value="equals">Ist gleich</option>
-                <option value="equals-not">Ist ungleich</option>
+                <option value="equals">Equals</option>
+                <option value="equals-not">Does not equal</option>
             </select>
         </label>
         <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest">
@@ -672,8 +624,8 @@
     <span class="parameters department">
         <label class="pat-select">
             <select name="search-rule.date-operator:records">
-                <option value="equals">Ist gleich</option>
-                <option value="equals-not">Ist ungleich</option>
+                <option value="equals">Equals</option>
+                <option value="equals-not">Does not equal</option>
             </select>
         </label>
         <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest">
@@ -689,18 +641,29 @@
             <option>142,   (GEPL74BAW)</option>
         </select>
     </span>
-    <button type="button" class="remove-clone">Entfernen</button>
+    <button type="button" class="remove-clone">Remove</button>
   </p>
 </template>
 
 
-			<fieldset class="toggle-bar pat-checklist free-form">
-			    <label class="pat-switch toggle-standard" data-pat-switch="#search-form view-extended view-compact">
-			        <input type="radio" name="search-mode" value="standard" checked> Standardsuche
+			<fieldset 
+				class="toggle-bar pat-checklist free-form">
+			    <label 
+			    	class="pat-switch toggle-standard" 
+			    	data-pat-switch="#search-form view-extended view-compact">
+			        <input 
+			        	type="radio" 
+			        	name="search-mode" 
+			        	value="standard" 
+			        	checked> Standard search
 			    </label>
-			    <label class="pat-switch toggle-advanced"
-			           data-pat-switch="#search-form view-compact view-extended && body osc-size-* osc-size-full">
-			        <input type="radio" name="search-mode" value="advanced"> Erweiterte Suche
+			    <label 
+			    	class="pat-switch toggle-advanced"
+			        data-pat-switch="#search-form view-compact view-extended && body osc-size-* osc-size-full">
+			        <input 
+			        	type="radio" 
+			        	name="search-mode" 
+			        	value="advanced"> Advanced search
 			    </label>
 			</fieldset>
 	    </fieldset>
