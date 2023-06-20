@@ -15,6 +15,7 @@
       for="*"
       template="templates/prefs_main_template.pt"
       permission="zope.Public"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
   <!-- Override NuPlone's layout.pt, so that we can add our redactor include -->
