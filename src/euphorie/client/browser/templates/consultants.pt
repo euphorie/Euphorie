@@ -39,12 +39,12 @@
                    "
           >
             <h1 i18n:translate="label_oira_consultants">
-              OiRA Consultants
+              OSH Consultants
             </h1>
             <p class="summary"
                i18n:translate="description_oira_consultants"
             >
-              Find an OiRA consultant you want to contact or add to your organisation to provide support.
+              Find an OSH consultant you want to contact or add to your organisation to provide support.
             </p>
             <p tal:condition="content"
                tal:replace="structure content"
