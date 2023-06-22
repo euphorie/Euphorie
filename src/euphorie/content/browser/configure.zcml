@@ -458,4 +458,22 @@
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
+  <browser:page
+      name="similar-titles"
+      for="*"
+      class=".similar_titles.SimilarTitles"
+      template="templates/similar_titles.pt"
+      permission="cmf.ManagePortal"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
+  <browser:page
+      name="similar-titles-details"
+      for="*"
+      class=".similar_titles_details.SimilarTitlesDetails"
+      template="templates/similar_titles_details.pt"
+      permission="cmf.ManagePortal"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
 </configure>
