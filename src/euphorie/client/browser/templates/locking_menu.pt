@@ -113,10 +113,10 @@
           <tal:case case="string:validated">
             <li>
               <a class="pat-inject icon-lock-open close-panel"
-                 href="${here/absolute_url}/@@panel-unlock-validated-risk-assessment"
+                 href="${here/absolute_url}/@@panel-invalidate-risk-assessment"
                  data-pat-inject="target: #pat-modal-panel-space"
-                 i18n:translate="label_unlock_and_invalidate_imp"
-              >Unlock and invalidate</a>
+                 i18n:translate="label_invalidate"
+              >Invalidate</a>
             </li>
           </tal:case>
         </ul>

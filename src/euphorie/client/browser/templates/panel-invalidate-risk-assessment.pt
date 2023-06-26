@@ -13,9 +13,9 @@
            id="document-content"
       >
         <h1 class="panel-class-panel"
-            i18n:translate="label_unlock_risk_assessment"
+            i18n:translate="label_invalidate_risk_assessment"
         >
-          Unlock risk assessment
+          Invalidate risk assessment
         </h1>
 
         <form class="pat-inject"
@@ -30,7 +30,7 @@
 
               <div class="pat-message warning icon-attention">
                 <p>
-                  <tal:unlock i18n:translate="message_unlock_ra">When you unlock this risk assessment, it will loose its validated status. You can still request for re-validation at a later time.</tal:unlock>
+                  <tal:invalidate i18n:translate="message_invalidate_ra">When you invalidate this risk assessment, it will lose its validated status. You can still request for re-validation at a later time.</tal:invalidate>
                   <strong i18n:translate="message_possible_extra_cost">
                     Additional costs may be charged by your consultant.
                   </strong>
@@ -39,15 +39,15 @@
 
               <article class="pat-rich">
                 <p i18n:translate="message_unlock_or_duplicate">
-                  If you want to continue working on a copy of this assessment, for instance to report on a new year, then you can use the option 'Duplicate'. Duplication will make a full copy of your assessment which will be unlocked.
+                  If you want to continue working on a copy of this assessment, for instance to report on a new year, then you can use the option 'Duplicate'. Duplication will make a full copy of your assessment which will be editable.
                 </p>
               </article>
 
               <div class="button-bar">
                 <button class="close-panel pat-button default"
                         type="submit"
-                        i18n:translate="label_unlock_and_invalidate_imp"
-                >Unlock and invalidate</button>
+                        i18n:translate="label_invalidate"
+                >Invalidate</button>
                 <button class="close-panel pat-button"
                         type="button"
                         i18n:translate="label_cancel"

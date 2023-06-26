@@ -333,7 +333,7 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
 
         with api.env.adopt_user(user=self.owner):
             with self._get_view(
-                "panel-unlock-validated-risk-assessment",
+                "panel-invalidate-risk-assessment",
                 self.traversed_session,
                 self.traversed_session.session,
             ) as view:
@@ -371,7 +371,7 @@ class TestSessionValidation(EuphorieIntegrationTestCase):
 
         with api.env.adopt_user(user=self.consultant):
             with self._get_view(
-                "panel-unlock-validated-risk-assessment",
+                "panel-invalidate-risk-assessment",
                 self.traversed_session,
                 self.traversed_session.session,
             ) as view:
