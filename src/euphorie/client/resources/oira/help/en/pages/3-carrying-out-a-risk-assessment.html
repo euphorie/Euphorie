@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="de">
+	lang="en">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -367,7 +367,7 @@ As mentioned above, the action plan is presented as a separate step in the menu 
 
 <p>You can both select from a list of measures proposed by the system and define your own measures.</p>
 
-<h3 id="seperate-action-plan">Seperate action plan</h3>
+<h3 id="separate-action-plan">Separate action plan</h3>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../en/illustrations/action-plan-landing.html" scrolling="no">
@@ -439,7 +439,7 @@ As mentioned above, the action plan is presented as a separate step in the menu 
 
 <p>To get a validation for your assessment you need to give a consultant access to your risk assessments. SENTENCE ON HOW TO GENERALLY FIND A CONSULTANT.</p>
 
-<p>You can grant a consultant access to your risk assessments by adding the consultant as a user with access level ‘Validate’ to your organisation. Learn more about giving people access to your risk assessments in the topic <a href="../../en/pages/user-management.html">User management</a>.</p>
+<p>You can grant a consultant access to your risk assessments by adding the consultant as a user with access level ‘Validate’ to your organisation. Learn more about giving people access to your risk assessments in the topic <a href="../../en/pages/6-user-management">User management</a>.</p>
 
 <h3 id="requesting-a-validation">Requesting a validation</h3>
 
@@ -485,7 +485,7 @@ As mentioned above, the action plan is presented as a separate step in the menu 
 
 <p>The small pie chart in the menu on the left shows you the progress you have made with the tool.</p>
 
-<p>The status section provides an overview of how many risks you have identified, how many of them you have addressed by deciding on measures and how many risks/statements you have still not responded to.</p>
+<p>The status section provides an overview of how many risks you have identified, how many of them you have addressed by deciding on measures, and how many risks/statements you have still not responded to.</p>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../en/illustrations/status.html" scrolling="no">
@@ -574,14 +574,17 @@ As mentioned above, the action plan is presented as a separate step in the menu 
 			<div id="miller-columns" class="miller-columns">
 				
 
-<form class="search-form pat-inject view-compact"
-	  id="search-form"
-	  action="/feedback/search-results.html#browser"
+<form 
+	class="pat-form search-form pat-inject view-compact"
+	id="search-form"
+	action="/feedback/search-results.html#browser"
 	  >
 
-	<fieldset class="search-box-body">
-        <label class="search-field pat-subform pat-inject pat-autosubmit"
-			   data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
+	<fieldset 
+		class="search-box-body">
+        <label 
+        	class="search-field pat-subform pat-inject pat-autosubmit"
+			data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
 			<input
 				type="search" 
 				value="" 
@@ -590,8 +593,9 @@ As mentioned above, the action plan is presented as a separate step in the menu 
             <button type="submit" name="standard" value="main" class="search-button-main assistive">Search</button>
         </label>
 
-	    <fieldset class="advanced-search pat-inject pat-subform"
-				  data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
+	    <fieldset 
+	    	class="advanced-search pat-inject pat-subform"
+			data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
 
 	        
 
@@ -770,13 +774,24 @@ As mentioned above, the action plan is presented as a separate step in the menu 
 </template>
 
 
-			<fieldset class="toggle-bar pat-checklist free-form">
-			    <label class="pat-switch toggle-standard" data-pat-switch="#search-form view-extended view-compact">
-			        <input type="radio" name="search-mode" value="standard" checked> Standard search
+			<fieldset 
+				class="toggle-bar pat-checklist free-form">
+			    <label 
+			    	class="pat-switch toggle-standard" 
+			    	data-pat-switch="#search-form view-extended view-compact">
+			        <input 
+			        	type="radio" 
+			        	name="search-mode" 
+			        	value="standard" 
+			        	checked> Standard search
 			    </label>
-			    <label class="pat-switch toggle-advanced"
-			           data-pat-switch="#search-form view-compact view-extended && body osc-size-* osc-size-full">
-			        <input type="radio" name="search-mode" value="advanced"> Advanced search
+			    <label 
+			    	class="pat-switch toggle-advanced"
+			        data-pat-switch="#search-form view-compact view-extended && body osc-size-* osc-size-full">
+			        <input 
+			        	type="radio" 
+			        	name="search-mode" 
+			        	value="advanced"> Advanced search
 			    </label>
 			</fieldset>
 	    </fieldset>
