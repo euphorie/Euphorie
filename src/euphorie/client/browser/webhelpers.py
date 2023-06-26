@@ -1063,9 +1063,6 @@ class WebHelpers(BrowserView):
     @property
     @memoize
     def can_unlock_session(self):
-        session = self.traversed_session.session
-        if session.is_validated:
-            return False
         return self.can_lock_session
 
     @property

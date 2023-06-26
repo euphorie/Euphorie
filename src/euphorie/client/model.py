@@ -826,8 +826,9 @@ class SurveySession(BaseObject):
             .filter(
                 SessionEvent.action.in_(
                     (
+                        "validation_requested",
                         "validated",
-                        # TODO add a state where the session is invalidated
+                        "invalidated",
                     )
                 ),
                 SessionEvent.session_id == self.id,

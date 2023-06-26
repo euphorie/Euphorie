@@ -983,6 +983,15 @@
       />
 
   <browser:page
+      name="panel-invalidate-risk-assessment"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".consultancy.PanelInvalidateRiskAssessment"
+      template="templates/panel-invalidate-risk-assessment.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="consultants"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       class=".consultancy.Consultants"

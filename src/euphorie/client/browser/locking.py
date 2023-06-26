@@ -25,28 +25,28 @@ class LockingMenu(BrowserView):
         """The currently authenticated account."""
         return api.portal.get()
 
+    @property
     def is_locked(self):
         """Return whether the session is locked."""
         return self.context.session.is_locked
 
+    @property
     def is_validated(self):
         """Return whether the session is validated."""
-        consultancy = self.context.session.consultancy
-        if consultancy and consultancy.status == "validated":
-            return True
-        return self.context.session.consultancy
+        return self.context.session.is_validated
 
     def show_actions(self):
         """Return whether we should show the actions in the menu."""
         if self.is_locked:
             return self.webhelpers.can_unlock_session
-        else:
-            return self.webhelpers.can_lock_session
+        return self.webhelpers.can_lock_session
 
     @property
     def state(self):
         """Return the state of the session."""
-        if self.is_locked():
+        if self.is_validated:
+            return "validated"
+        if self.is_locked:
             return "locked"
         return "unlocked"
 

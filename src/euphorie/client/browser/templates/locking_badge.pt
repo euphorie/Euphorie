@@ -4,23 +4,45 @@
                  session here/session;
                "
                condition="webhelpers/use_locking_feature"
+               i18n:domain="euphorie"
 >
-  <a class="icon icon-lock${python:'-open' if not session.is_locked else None} pat-tooltip"
-     href="${here/absolute_url}/@@locking_menu#locking-menu"
-     data-pat-tooltip="source: ajax; position-list: tr"
-     i18n:domain="euphorie"
-  >
-    <tal:switch switch="locking_view/state">
-      <tal:case case="string:locked"
-                i18n:translate="label_locked"
-      >
-        Locked
-      </tal:case>
-      <tal:case case="default"
-                i18n:translate="label_unlocked"
-      >
-        Unlocked
-      </tal:case>
-    </tal:switch>
-  </a>
+  <tal:switch switch="locking_view/state">
+    <tal:case case="string:locked">
+      <a class="icon-lock text-button pat-tooltip"
+         href="${here/absolute_url}/@@locking_menu#locking-menu"
+         title="Unlock this assessment"
+         data-pat-tooltip="source: ajax; position-list: tr; trigger: click"
+         tal:define="
+           time session/last_locking_event/time;
+           time_iso python:webhelpers.timezoned_date(time);
+           language here/plone_portal_state/language;
+         "
+         i18n:translate="label_locked_time"
+      >Locked
+        <time class="pat-display-time"
+              datetime="${time_iso}"
+              data-pat-display-time="from-now: true; locale: ${language}"
+              i18n:name="locking_time"
+        >${time_iso}</time>
+      </a>
+    </tal:case>
+    <tal:case case="string:validated">
+      <a class="pat-select success locked text-button pat-tooltip"
+         href="${here/absolute_url}/@@locking_menu#locking-menu"
+         title="Unlock this assessment"
+         data-pat-tooltip="source: ajax; position-list: tr; trigger: click; source: ajax"
+         i18n:translate="label_validated"
+      >Validated
+      </a>
+    </tal:case>
+    <tal:case case="default">
+      <a class="icon-lock-open icon pat-tooltip"
+         href="${here/absolute_url}/@@locking_menu#locking-menu"
+         title="Lock this assessment"
+         data-pat-tooltip="source: ajax; position-list: tr; trigger: click"
+         i18n:translate="label_unlocked"
+      >Unlocked
+      </a>
+    </tal:case>
+  </tal:switch>
 </tal:available>

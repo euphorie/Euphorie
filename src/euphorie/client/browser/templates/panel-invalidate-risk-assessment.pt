@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="context/@@modal-template/macros/shell"
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div class="pat-modal medium panel"
+           id="document-content"
+      >
+        <h1 class="panel-class-panel"
+            i18n:translate="label_invalidate_risk_assessment"
+        >
+          Invalidate risk assessment
+        </h1>
+
+        <form class="pat-inject"
+              id="organisation-edit-form"
+              action="${request/URL}#content"
+              method="POST"
+        >
+          <div class="panel-body"
+               id="modal-panel-body"
+          >
+            <div class="container">
+
+              <div class="pat-message warning icon-attention">
+                <p>
+                  <tal:invalidate i18n:translate="message_invalidate_ra">When you invalidate this risk assessment, it will lose its validated status. You can still request for re-validation at a later time.</tal:invalidate>
+                  <strong i18n:translate="message_possible_extra_cost">
+                    Additional costs may be charged by your consultant.
+                  </strong>
+                </p>
+              </div>
+
+              <article class="pat-rich">
+                <p i18n:translate="message_unlock_or_duplicate">
+                  If you want to continue working on a copy of this assessment, for instance to report on a new year, then you can use the option 'Duplicate'. Duplication will make a full copy of your assessment which will be editable.
+                </p>
+              </article>
+
+              <div class="button-bar">
+                <button class="close-panel pat-button default"
+                        type="submit"
+                        i18n:translate="label_invalidate"
+                >Invalidate</button>
+                <button class="close-panel pat-button"
+                        type="button"
+                        i18n:translate="label_cancel"
+                >Cancel</button>
+                <a class="pat-button float-after pat-injecte"
+                   href="${here/absolute_url}/@@clone-session?_authenticator=${context/@@authenticator/token}#content"
+                   i18n:translate="label_clone_imp"
+                >Duplicate
+                </a></div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </metal:slot>
+  </body>
+</html>

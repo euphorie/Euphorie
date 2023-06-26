@@ -245,7 +245,16 @@ class PanelValidateRiskAssessment(ConsultancyBaseView):
         """Handle the POST request."""
         if self.request.form.get("approved", False):
             consultant = self.webhelpers.get_current_account()
-            event = SessionEvent(
+            if not self.context.session.is_locked:
+                # Lock the assessment in addition to validating it to make sure that it
+                # goes back to the locked state when invalidating it
+                locked_event = SessionEvent(
+                    account_id=api.user.get_current().id,
+                    session_id=self.context.session.id,
+                    action="locked",
+                )
+                self.sqlsession.add(locked_event)
+            validated_event = SessionEvent(
                 account_id=consultant.id,
                 session_id=self.context.session.id,
                 action="validated",
@@ -257,7 +266,7 @@ class PanelValidateRiskAssessment(ConsultancyBaseView):
                     }
                 ),
             )
-            self.sqlsession.add(event)
+            self.sqlsession.add(validated_event)
             self.context.session.consultancy.status = "validated"
             self.notify_admins()
         self.redirect()
@@ -271,6 +280,32 @@ class PanelValidateRiskAssessment(ConsultancyBaseView):
         ):
             raise Unauthorized(
                 "Only the consultant assigned to a risk assessment can validate it"
+            )
+        return super().__call__()
+
+
+class PanelInvalidateRiskAssessment(ConsultancyBaseView):
+    """ """
+
+    default_target_view = "@@consultancy"
+
+    def handle_POST(self):
+        """Handle the POST request."""
+        invalidated_event = SessionEvent(
+            account_id=api.user.get_current().id,
+            session_id=self.context.session.id,
+            action="invalidated",
+        )
+        self.sqlsession.add(invalidated_event)
+        self.sqlsession.delete(self.context.session.consultancy)
+        self.redirect()
+
+    def __call__(self):
+        if not self.webhelpers.can_view_session:
+            return self.request.response.redirect(self.webhelpers.client_url)
+        if not self.is_admin:
+            raise Unauthorized(
+                "Only organisation administrators can invalidate an assessment"
             )
         return super().__call__()
 
