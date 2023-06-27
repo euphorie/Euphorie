@@ -1126,11 +1126,10 @@ class SurveySession(BaseObject):
         if include_organisation_members:
             account_ids = {account}
             # Add the owner id of the organisations where the account is member of
-            account_ids.update(
-                Session.query(OrganisationMembership.owner_id).filter(
-                    OrganisationMembership.member_id == account
-                )
+            owner_memberships = Session.query(OrganisationMembership.owner_id).filter(
+                OrganisationMembership.member_id == account
             )
+            account_ids.update(membership.owner_id for membership in owner_memberships)
         else:
             try:
                 # This works when we pass an iterable of accounts or ids
