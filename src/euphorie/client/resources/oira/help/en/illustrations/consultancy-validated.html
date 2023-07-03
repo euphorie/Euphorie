@@ -277,11 +277,16 @@
                     id="publication-menu" 
                     hidden>
                     
-                            
+                               
                                 <div 
                                     class="pat-message success">
+                                    
+                                    
+                                    
                                     <p>
-                                        You have reviewed and validated this risk assessment.
+                                        <time 
+                                            class="date-stamp">20 June 2023</time>:
+                                            <a href="mailto:michel@moulin.fr">Michel Moulin</a> has reviewed, validated and locked this risk assessment.
                                     </p>
                                 </div>
                             
@@ -289,12 +294,12 @@
                     <ul 
                         class="menu">
                         
-                            
+                               
                                 <li>
                                     <a 
-    href="/feedback/panel-retract-validation"
-    class="pat-inject icon-cancel-alt-filled close-panel"
-    data-pat-inject="target: #pat-modal-panel-space">Retract validation</a>
+    href="/feedback/panel-unlock-validated-risk-assessment"
+    class="pat-inject icon-lock-open close-panel"
+    data-pat-inject="target: #pat-modal-panel-space">Unlock and invalidate</a>
                                 </li>
                             
                         
@@ -359,19 +364,58 @@
 </div>
 
 	
+		<article 
+			class="pat-rich">
+			<h1>
+				Consultancy 
+			</h1>
+			<p>
+				It is possible to request assistance in completing a risk assessment or to have a risk analysis performed by you and validated by an OSH consultant. An OSH consultant can give your risk assessment an offical validation mark. A validation can only be requested by users with the permission level ‘Manage’ or higher.
+			</p>
+		</article>
+
+
+		
+		
+
 		
 			<p 
 				class="pat-message success">
-				You have reviewed and validated this risk assessment.
+				<time 
+					class="date-stamp">20 June 2023</time>:
+					<a href="mailto:michel@moulin.fr">Michel Moulin</a> has reviewed, validated and locked this risk assessment.
+
 			</p>
-			<!-- <div 
-				class="button-bar">
-				<a 
-    href="/feedback/panel-unlock-validated-risk-assessment"
-    class="pat-inject pat-button"
-    data-pat-inject="target: #pat-modal-panel-space">Retract validation</a>
-			</div> -->
 		
+
+		<ul 
+			class="link-list">
+			<li>
+				<a 
+					class="pat-inject" 
+					data-pat-inject="
+						history: record; 
+						source: #content; 
+						target: #content"
+					href="/consultants-france">Find an OSH consultant</a>
+			</li>
+			<li>
+				<a 
+					data-pat-modal="class: medium panel" 
+					class="pat-modal" 
+					href="/feedback/new-user#document-content">Add an OSH-consultant to your organisation</a>
+			</li>
+			<li>
+				<a 
+					class="pat-inject" 
+					data-pat-inject="
+						history: record; 
+						source: #content; 
+						target: #content; 
+						scroll: #consultancy"
+					href="../../en/pages/3-carrying-out-a-risk-assessment">Learn more about consultancy</a>
+			</li>
+		</ul>
 	
 
 </div>

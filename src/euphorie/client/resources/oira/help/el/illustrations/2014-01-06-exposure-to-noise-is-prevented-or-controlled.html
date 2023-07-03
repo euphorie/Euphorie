@@ -749,105 +749,103 @@
     id="editor-toolbar-assessment"
     class="editor-toolbar tiptap">
     
-        
-            <div
-                class="pat-collapsible pat-context-menu closed align-left no-label icon-paragraph"
-                data-pat-collapsible="close-trigger: .context-menu:not(#formatting-menu),.close-menu;"
-                id="formatting-menu">
-                <strong
-                    class="context-menu-label menu-trigger pat-tooltip"
-                    data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Formatting</strong>
-                <p
-                    class="close-menu">Close</p>
-                <ul
-                    class="menu-list">
-                    
-                    
-                    
-                    
-                        <li>
-                            <button
-                                type="button"
-                                class="button-heading-level-4 icon-header">Header level 4</button>
-                        </li>
-                    
-                    
-                    
-                    
-                        <li>
-                            <button
-                                type="button"
-                                class="button-paragraph icon-paragraph">Paragraph</button>
-                        </li>
-                    
-                    
-                        <li>
-                            <button
-                                type="button"
-                                class="button-blockquote icon-quote-left">Quote</button>
-                        </li>
-                    
-                    
-                </ul>
-            </div>
-        
-        
-        	<button
-                type="button"
-                class="icon icon-bold button-bold pat-tooltip"
-                data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Bold</button>
-        
-        
-        	<button
-                type="button"
-                class="icon icon-italic button-italic pat-tooltip"
-                data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Italic</button>
-        
-        
-        
-            <a
-                class="icon icon-link button-link pat-modal pat-tooltip"
-                data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
-                data-pat-modal="class: medium panel panel-hyperlink"
-                href="/feedback/panel-hyperlink#document-content">Hyperlink</a>
-        
-        
-        
-            <div
-                type="button"
-                class="pat-collapsible pat-context-menu closed align-left no-label icon-list"
-                data-pat-collapsible="close-trigger: .context-menu:not(#list-menu),.close-menu;"
-                id="list-menu">
-                <strong
-                    class="context-menu-label menu-trigger pat-tooltip"
-                    data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Lists</strong>
-                <p
-                    class="close-menu">Close</p>
-                <ul
-                    class="menu-list">
-                    
-                        <li>
-                            <button
-                                type="button"
-                                class="button-unordered-list icon-list-bullet">Unordered list</button>
-                        </li>
-                    
-                    
-                        <li>
-                            <button
-                                type="button"
-                                class="button-ordered-list icon-list-numbered">Ordered list</button>
-                        </li>
-                    
-                </ul>
-            </div>
-        
-        
-        
-        
-        
-        
-        
+        <div
+            class="pat-collapsible pat-context-menu closed align-left no-label icon-paragraph"
+            data-pat-collapsible="close-trigger: .context-menu:not(#formatting-menu),.close-menu;"
+            id="formatting-menu">
+            <strong
+                class="context-menu-label menu-trigger pat-tooltip"
+                data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Formatting</strong>
+            <p
+                class="close-menu">Close</p>
+            <ul
+                class="menu-list">
+                
+                
+                
+                
+                    <li>
+                        <button
+                            type="button"
+                            class="button-heading-level-4 icon-header">Header level 4</button>
+                    </li>
+                
+                
+                
+                
+                    <li>
+                        <button
+                            type="button"
+                            class="button-paragraph icon-paragraph">Paragraph</button>
+                    </li>
+                
+                
+                    <li>
+                        <button
+                            type="button"
+                            class="button-blockquote icon-quote-left">Quote</button>
+                    </li>
+                
+                
+            </ul>
+        </div>
+    
+    
+        <button
+            type="button"
+            class="icon icon-bold button-bold pat-tooltip"
+            data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Bold</button>
+    
+    
+        <button
+            type="button"
+            class="icon icon-italic button-italic pat-tooltip"
+            data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Italic</button>
+    
+    
+    
+        <a
+            class="icon icon-link button-link pat-modal pat-tooltip"
+            data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+            data-pat-modal="class: medium panel panel-hyperlink"
+            href="/feedback/panel-hyperlink#document-content">Hyperlink</a>
+    
+    
+    
+        <div
+            type="button"
+            class="pat-collapsible pat-context-menu closed align-left no-label icon-list"
+            data-pat-collapsible="close-trigger: .context-menu:not(#list-menu),.close-menu;"
+            id="list-menu">
+            <strong
+                class="context-menu-label menu-trigger pat-tooltip"
+                data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Lists</strong>
+            <p
+                class="close-menu">Close</p>
+            <ul
+                class="menu-list">
+                
+                    <li>
+                        <button
+                            type="button"
+                            class="button-unordered-list icon-list-bullet">Unordered list</button>
+                    </li>
+                
+                
+                    <li>
+                        <button
+                            type="button"
+                            class="button-ordered-list icon-list-numbered">Ordered list</button>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -1257,7 +1255,7 @@ sound.</p>
         <button 
             class="default pat-button pat-switch close-panel" 
             data-pat-switch="selector: #my-comments; remove: status-* ; add: status-inactive && selector: #my-comments-reply-button; remove: executed" 
-            type="submit">Send</button>
+            type="submit">Post</button>
         <button 
             class="pat-button pat-switch close-panel" 
             data-pat-switch="selector: #my-comments; remove: status-*; add: status-inactive && selector: #my-comments-reply-button; remove: executed" 
