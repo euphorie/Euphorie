@@ -459,10 +459,22 @@ class Assessments(BrowserView):
 class AssessmentsJson(Assessments):
     query_parameter = "q"
 
+    def get_title(self, session):
+        title = session.title
+        if not title:
+            title_missing = api.portal.translate(
+                _("label_missing_title", default="Title is missing")
+            )
+            title = f"[{title_missing}]"
+        return title
+
     def __call__(self):
         self.request.response.setHeader("Content-Type", "application/json")
         return json.dumps(
-            [{"id": session.id, "text": session.title} for session in self.sessions]
+            [
+                {"id": session.id, "text": self.get_title(session)}
+                for session in self.sessions
+            ]
         )
 
 
