@@ -1128,4 +1128,13 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="history_popup"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".history.HistoryPopup"
+      template="templates/history_popup.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
 </configure>

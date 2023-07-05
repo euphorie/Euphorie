@@ -20,4 +20,44 @@
   <adapter factory=".json.Risk2DictAdapter" />
   <adapter factory=".json.SurveySession2DictAdapter" />
 
+  <adapter
+      factory=".history_item.SessionStarted"
+      name="started"
+      />
+
+  <adapter
+      factory=".history_item.SessionValidationRequested"
+      name="validation_requested"
+      />
+
+  <adapter
+      factory=".history_item.SessionValidated"
+      name="validated"
+      />
+
+  <adapter
+      factory=".history_item.SessionInalidated"
+      name="invalidated"
+      />
+
+  <adapter
+      factory=".history_item.SessionLockSet"
+      name="lock_set"
+      />
+
+  <adapter
+      factory=".history_item.SessionLockUnset"
+      name="lock_unset"
+      />
+
+  <adapter
+      factory=".history_item.SessionLockRefresh"
+      name="lock_refresh"
+      />
+
+  <adapter
+      factory=".history_item.SessionArchived"
+      name="archived"
+      />
+
 </configure>
