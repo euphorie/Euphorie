@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="euphorie"
+>
+  <body>
+    <div id="object_history"
+         hidden
+         tal:define="
+           language here/@@plone_portal_state/language;
+           webhelpers nocall:here/@@webhelpers;
+         "
+    >
+      <div class="container">
+        <article class="pat-rich">
+          <h1 i18n:translate="">
+            Risk assessment history
+          </h1>
+        </article>
+
+        <a class="pat-scroll assistive"
+           href="#final-item"
+           data-pat-scroll="selector: #object-history-timeline #final-item; trigger: auto"
+        >Scroll towards the end.</a>
+
+        <ul class="object-history user-centric"
+            id="object-history-timeline"
+        >
+          <li class="${item/css_classes}"
+              id="${python: 'final-item' if repeat['item'].end else None}"
+              tal:repeat="item view/items"
+          >
+            <a class="meta"
+               href="mailto:${item/email|nothing}"
+            >
+              <img class="pat-avatar"
+                   alt=""
+                   src="${webhelpers/style_url}/defaultUser-168.png"
+              />
+              <h4 class="user-name">
+                ${item/email|nothing}
+              </h4>
+            </a>
+            <p class="byline">
+              <em class="action"
+                  tal:content="structure item/message"
+                  i18n:translate=""
+              >Note</em>
+              |
+              <time class="modification-date pat-display-time"
+                    datetime="${value}"
+                    data-pat-display-time="from-now: true; locale: ${language}"
+                    tal:define="
+                      value python:webhelpers.timezoned_date(item.raw_time);
+                    "
+              >${value}</time>
+            </p>
+            <tal:message define="
+                           message_title item/message_title|nothing;
+                           message_description item/message_description|nothing;
+                           message_date item/message_date|nothing;
+                         ">
+              <p class="message"
+                 tal:condition="python:message_title or message_date"
+              >
+                <strong class="sample-date"
+                        tal:condition="message_date"
+                >${message_date}:</strong>
+                <strong class="sample-subject"
+                        tal:condition="message_title"
+                >${message_title}</strong>
+                <strong class="sample-subject"
+                        tal:condition="not:message_title"
+                >&nbsp;</strong>
+                <br tal:condition="message_description" />
+                ${message_description}
+              </p>
+            </tal:message>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

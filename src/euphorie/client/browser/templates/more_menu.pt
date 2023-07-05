@@ -23,6 +23,15 @@
           "
       >
         <li>
+          <a class="close-panel icon-history pat-modal"
+             href="${here/absolute_url}/@@history_popup#object_history"
+             title="View the history of this risk assessment."
+             data-pat-modal="class: medium"
+             i18n:attributes="title"
+             i18n:translate="label_history"
+          >History</a>
+        </li>
+        <li>
           <a class="close-panel icon-trash pat-modal ${python: not can_delete and 'disabled' or ''}"
              href="${python:can_delete and delete_url or None}"
              title="Delete this session"
