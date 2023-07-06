@@ -1,4 +1,3 @@
-from datetime import timezone
 from euphorie.client import MessageFactory as _
 from euphorie.client.model import SessionEvent
 from euphorie.client.model import SurveySession
@@ -79,13 +78,6 @@ class SessionEventHistoryItem(HistoryItem):
                 self.context.note,
             )
             return {}
-
-    @property
-    def raw_time(self):
-        # The dates are stored in postgresql with UTC (but naive).
-        # Slap the UTC timezone on it.
-        time = getattr(self.context, self.time_attribute)
-        return time.replace(tzinfo=timezone.utc)
 
     def session_url(self):
         session = self.context.session
