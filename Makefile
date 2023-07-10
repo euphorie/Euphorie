@@ -33,7 +33,7 @@ docs:: bin/sphinx-build
 clean::
 	rm -rf docs/.build
 
-pot: bin/i18ndude
+pot:
 	i18ndude rebuild-pot --exclude="generated prototype examples illustrations help" --pot $(EUPHORIE_POT) src/euphorie --create euphorie
 	$(MAKE) $(MFLAGS) $(EUPHORIE_PO_FILES)
 
