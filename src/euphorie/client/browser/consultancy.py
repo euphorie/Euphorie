@@ -251,7 +251,7 @@ class PanelValidateRiskAssessment(ConsultancyBaseView):
                 locked_event = SessionEvent(
                     account_id=api.user.get_current().id,
                     session_id=self.context.session.id,
-                    action="locked",
+                    action="lock_set",
                 )
                 self.sqlsession.add(locked_event)
             validated_event = SessionEvent(
