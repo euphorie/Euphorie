@@ -105,7 +105,7 @@ msgstr "O ovom alatu"
 
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:43
 msgid "Accept"
-msgstr ""
+msgstr "Prihvati"
 
 #: euphorie/content/country.py:86
 msgid "Action plan (Excel spreadsheet)"
@@ -371,7 +371,7 @@ msgstr "Creative Commons licenca"
 
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:49
 msgid "Decline"
-msgstr ""
+msgstr "Odbij"
 
 #: euphorie/client/browser/settings.py:77
 #: euphorie/client/browser/templates/account-delete.pt:41
@@ -970,7 +970,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/locking_menu.pt:106
 msgid "Refresh locking date"
-msgstr ""
+msgstr "Osvježi datum zaključavanja"
 
 #: euphorie/content/country.py:29
 msgid "Region"
@@ -1030,7 +1030,7 @@ msgstr "Rizik"
 
 #: euphorie/client/browser/templates/history_popup.pt:17
 msgid "Risk assessment history"
-msgstr ""
+msgstr "Povijest procjene rizika"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "Risk assessments"
@@ -1357,7 +1357,7 @@ msgstr "Izvješće koristite za:"
 
 #: euphorie/client/browser/templates/more_menu.pt:26
 msgid "View the history of this risk assessment."
-msgstr ""
+msgstr "Pregled povijesti ove procjene rizika."
 
 #: euphorie/client/browser/templates/shell.pt:356
 msgid "Visit linked web page"
@@ -1459,8 +1459,7 @@ msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
 msgstr ""
-"Nemate prava uređivati ovu procjenu rizika, ali ovu procjenu rizika možete "
-"preuzeti u raznim oblicima u $ {download_section}."
+"Nemate prava za uređivanje ove procjene rizika, ali ovu procjenu rizika možete preuzeti u različitim oblicima u sekciji &lsquo;${download_section}&rsquo;."
 
 #: euphorie/client/browser/templates/login.pt:346
 msgid ""
@@ -2222,7 +2221,7 @@ msgstr ""
 #. Default: "${user} has invited you to join this userʼs organisation. Once you&rsquo;ve accepted your membership, you can collaborate on risk assessments."
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:35
 msgid "description_confirm_organisation_invite"
-msgstr ""
+msgstr "${user} vas je pozvao da se pridružite ovoj korisničkoj organizaciji. Nakon što prihvatite članstvo, možete surađivati na procjenama rizika."
 
 #. Default: "The plain text file will contain all translatable text without formatting. This file can be used to determine a word count for estimating the cost of translation."
 #: euphorie/content/browser/export.py:155
@@ -2397,7 +2396,7 @@ msgstr "pomoći na internetu"
 
 #: euphorie/client/browser/session.py:182
 msgid "download section"
-msgstr "preuzmite sekciju"
+msgstr "Preuzmi"
 
 #. Default: "High (very high) severity"
 #: euphorie/content/risk.py:547
@@ -2437,7 +2436,7 @@ msgstr "Adresa e-pošte"
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-assessment-validated.pt:7
 msgid "email_assessment_validated_header"
-msgstr ""
+msgstr "Poštovani ${recipient},"
 
 #. Default: "${invitee} has reviewed and validated your risk assessment."
 #: euphorie/client/browser/templates/notify-assessment-validated.pt:10
@@ -2478,7 +2477,7 @@ msgstr ""
 #. Default: "${invitee} has accepted your invitation to join ${organisation}."
 #: euphorie/client/browser/templates/notify-invite-accept.pt:14
 msgid "email_invite_accept_main"
-msgstr ""
+msgstr "${invitee} je prihvatio vaš poziv da se pridruži ${organisation}."
 
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-request-validation.pt:6
@@ -3748,7 +3747,7 @@ msgstr ""
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
 msgid "help_start_from_scratch"
-msgstr ""
+msgstr "Početak od nule s praznom procjenom rizika."
 
 #. Default: "This is a short affirmative statement about a possible risk (e.g. The building is well maintained.)"
 #: euphorie/content/risk.py:68
@@ -4360,7 +4359,7 @@ msgstr "Procjena se može preskočiti"
 #. Default: "Existing risk assessment to use as a base"
 #: euphorie/client/browser/templates/new-session.pt:107
 msgid "label_existing_assessment_base"
-msgstr ""
+msgstr "Postojeća procjena rizika koja se koristi kao osnova"
 
 #. Default: "Measure already implemented"
 #: euphorie/client/docx/compiler.py:396
@@ -4490,7 +4489,7 @@ msgstr "Izvršite svoju procjenu rizika"
 #. Default: "History"
 #: euphorie/client/browser/templates/more_menu.pt:26
 msgid "label_history"
-msgstr ""
+msgstr "Povijest"
 
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:323
@@ -4597,14 +4596,14 @@ msgstr "registrirate"
 #. Default: "Lock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:84
 msgid "label_lock_risk_assessment"
-msgstr ""
+msgstr "Zaključaj procjenu rizika"
 
 #. Default: "Locked"
 #: euphorie/client/browser/templates/locking_menu.pt:51
 #: euphorie/client/browser/templates/status_info.pt:94
 #: euphorie/client/browser/templates/tool_sessions.pt:174
 msgid "label_locked"
-msgstr ""
+msgstr "Zaključano"
 
 #. Default: "Locked ${locking_time}"
 #: euphorie/client/browser/templates/locking_badge.pt:22
@@ -5162,12 +5161,12 @@ msgstr "Raspored"
 #. Default: "Base on an existing risk assessment"
 #: euphorie/client/browser/templates/new-session.pt:46
 msgid "label_start_base_on_existing"
-msgstr ""
+msgstr "Izradi procjenu rizika na temelju postojeće"
 
 #. Default: "Start new risk assessment from scratch"
 #: euphorie/client/browser/templates/new-session.pt:38
 msgid "label_start_from_scratch"
-msgstr ""
+msgstr "Započni novu procjenu rizika otpočetka"
 
 #. Default: "Start Risk Identification"
 #: euphorie/client/browser/templates/identification.pt:40
@@ -5340,12 +5339,12 @@ msgstr "Isprobajte OiRA"
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
 msgid "label_unlock_risk_assessment"
-msgstr ""
+msgstr "Otključaj procjenu rizika"
 
 #. Default: "Unlocked"
 #: euphorie/client/browser/templates/locking_badge.pt:39
 msgid "label_unlocked"
-msgstr ""
+msgstr "Otključano"
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:115
@@ -5445,7 +5444,7 @@ msgstr "Da, preostali rizik je prihvatljiv"
 #. Default: "Last edited by ${name} on ${date}."
 #: euphorie/client/browser/templates/locking_menu.pt:72
 msgid "last_edited_by"
-msgstr "Posljednji put uredio  ${name} dana ${date}."
+msgstr "Zadnji uredio ${name} dana ${date}."
 
 #. Default: "Last edited ${time}"
 #: euphorie/client/browser/templates/assessments.pt:161
@@ -5534,15 +5533,15 @@ msgstr ""
 
 #: euphorie/client/adapters/history_item.py:115
 msgid "lock refreshed"
-msgstr ""
+msgstr "ponovno zaključao/la"
 
 #: euphorie/client/adapters/history_item.py:107
 msgid "lock set"
-msgstr ""
+msgstr "zaključao/la"
 
 #: euphorie/client/adapters/history_item.py:111
 msgid "lock unset"
-msgstr ""
+msgstr "otključao/la"
 
 #. Default: "You may get the best results if you upload a logo as a ${transparent} PNG file of at least 100 pixels in height. Uploading larger images is fine, the logo will be scaled down to the right size automatically."
 #: euphorie/content/browser/templates/sector_edit.pt:114
@@ -5601,7 +5600,7 @@ msgstr "Već ste član organizacije ${name}."
 #. Default: "You have declined the invitation to the ${name} organisation."
 #: euphorie/client/browser/organisation.py:537
 msgid "message_add_user_to_organisation_declined"
-msgstr ""
+msgstr "Odbili ste poziv organizacije ${name}."
 
 #. Default: "The invitation from the ${name} organisation is not valid anymore."
 #: euphorie/client/browser/organisation.py:478
@@ -5702,7 +5701,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:72
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:92
 msgid "message_member_see_all"
-msgstr ""
+msgstr "Članovi mogu pregledati i urediti sve procjene rizika organizacije."
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please unpublish it first."
 #: euphorie/content/browser/survey.py:199
@@ -6386,7 +6385,7 @@ msgstr "Nije potrebno zastati s radom"
 
 #: euphorie/client/adapters/history_item.py:51
 msgid "started assessment"
-msgstr ""
+msgstr "započeo/la procjenjivanje"
 
 #. Default: "Confirm OiRA membership to ’${organisation}’"
 #: euphorie/client/browser/organisation.py:251
@@ -6401,7 +6400,7 @@ msgstr ""
 #. Default: "Membership to your organisation accepted"
 #: euphorie/client/browser/organisation.py:432
 msgid "subject_notify_invite_accept"
-msgstr ""
+msgstr "Prihvaćeno članstvo vaše organizacije"
 
 #. Default: "Risk assessment validation request"
 #: euphorie/client/browser/consultancy.py:142
