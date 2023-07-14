@@ -46,6 +46,7 @@ import bcrypt
 import datetime
 import logging
 import OFS.Traversable
+import pytz
 import random
 import re
 
@@ -1980,6 +1981,12 @@ class DefaultView(BrowserView):
         webhelpers = api.content.get_view("webhelpers", self.context, self.request)
         target = webhelpers.traversed_session.absolute_url() + "/@@start"
         return self.request.response.redirect(target)
+
+
+@ram.cache(lambda _: "show_timezone_cache_key")
+def show_timezone():
+    timezone = Session.execute("SHOW TIMEZONE").first()
+    return pytz.timezone(timezone[0])
 
 
 __all__ = [
