@@ -1,5 +1,6 @@
 from euphorie.client import MessageFactory as _
 from euphorie.client.model import SessionEvent
+from euphorie.client.model import show_timezone
 from euphorie.client.model import SurveySession
 from json import JSONDecodeError
 from json import loads
@@ -78,6 +79,13 @@ class SessionEventHistoryItem(HistoryItem):
                 self.context.note,
             )
             return {}
+
+    @property
+    def raw_time(self):
+        """The dates are returned naive, localize them with the proper timezone"""
+        time = getattr(self.context, self.time_attribute)
+        timezone = show_timezone()
+        return timezone.localize(time)
 
     def session_url(self):
         session = self.context.session
