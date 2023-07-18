@@ -1002,9 +1002,11 @@ class WebHelpers(BrowserView):
         return True
 
     @property
-    @memoize
+    @deprecate(
+        "Publication has been changed to locking. Deprecated in version 15.0.0.dev0"
+    )
     def can_publish_session(self):
-        return self.can_edit_session
+        return self.can_lock_session
 
     @property
     @memoize
