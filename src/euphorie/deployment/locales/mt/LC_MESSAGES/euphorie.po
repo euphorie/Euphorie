@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-10 13:44+0000\n"
+"POT-Creation-Date: 2023-07-21 10:32+0000\n"
 "PO-Revision-Date: 2013-12-18 10:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -288,12 +288,6 @@ msgstr "Ibdel l-indirizz elettroniku"
 #: euphorie/content/utils.py:71
 msgid "Classic OiRA Tool with positive and negative statements."
 msgstr "L-għodda klassika OiRA b’dikjarazzjonijiet pożittivi u negattivi."
-
-#: euphorie/client/browser/templates/panel-request-validation.pt:31
-msgid ""
-"Click on 'Send validation request' to ask the selected OiRA consultant to "
-"review and validate your risk assessment."
-msgstr ""
 
 #: euphorie/client/browser/templates/training-slides.pt:95
 msgid "Click to edit"
@@ -5799,6 +5793,11 @@ msgstr "L-Għodda tal-OiRA ppubblikata. Tista' taraha"
 msgid "message_read_and_reviewd_assessment_and_approve"
 msgstr ""
 
+#. Default: "Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment."
+#: euphorie/client/browser/templates/panel-request-validation.pt:31
+msgid "message_request_validation"
+msgstr ""
+
 #. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:56
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:70
@@ -6494,8 +6493,8 @@ msgstr ""
 #: euphorie/client/browser/templates/new-session-test.pt:95
 msgid "testsession_register"
 msgstr ""
-"Jew ${register_link} minflok. Sir af għaliex għandek "
-"tirreġistra${tooltip_register}."
+"Jew ${register_link} minflok. Sir af għaliex għandek tirreġistra"
+"${tooltip_register}."
 
 #. Default: "add all measures that have already been implemented"
 #: euphorie/content/utils.py:58

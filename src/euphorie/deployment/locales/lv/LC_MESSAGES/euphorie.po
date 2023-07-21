@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-10 13:44+0000\n"
+"POT-Creation-Date: 2023-07-21 10:32+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -279,12 +279,6 @@ msgstr "Mainīt e-pasta adresi"
 #: euphorie/content/utils.py:71
 msgid "Classic OiRA Tool with positive and negative statements."
 msgstr "Klasisks OiRA rīks ar pozitīviem un negatīviem paziņojumiem."
-
-#: euphorie/client/browser/templates/panel-request-validation.pt:31
-msgid ""
-"Click on 'Send validation request' to ask the selected OiRA consultant to "
-"review and validate your risk assessment."
-msgstr ""
 
 #: euphorie/client/browser/templates/training-slides.pt:95
 msgid "Click to edit"
@@ -1587,9 +1581,9 @@ msgstr ""
 "OiRA projektu un tam domāto tīmekļa lietotni izstrādāja ${eu-osha}, par "
 "pamatu izmantojot riska novērtēšanas rīku (${RIE}) no Nīderlandes. Šo rīku "
 "ar Nīderlandes valdības finansējuma palīdzību izstrādāja TNO, sadarbojoties "
-"ar darba devēju organizāciju maziem un vidējiem uzņēmumiem: \"MKB-"
-"Nederland\", kā arī Nīderlandes Nodarbinātības ministriju. Arodbiedrības "
-"FNV, CNV un MHP palīdzēja turpināt lietotnes izstrādi."
+"ar darba devēju organizāciju maziem un vidējiem uzņēmumiem: \"MKB-Nederland"
+"\", kā arī Nīderlandes Nodarbinātības ministriju. Arodbiedrības FNV, CNV un "
+"MHP palīdzēja turpināt lietotnes izstrādi."
 
 #. Default: "The following technical partners contributed to the development of the OiRA project:"
 #: euphorie/client/browser/templates/about.pt:133
@@ -2055,12 +2049,12 @@ msgstr "Apstrādāto datu veids"
 msgid "conditions_part5_entry"
 msgstr ""
 "Datu apstrāde ir pamatota ar Eiropas Parlamenta un Padomes 2018. gada 23. "
-"oktobra <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?"
-"uri=uriserv%3AOJ.L_.2018.295.01.0039.01."
-"ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Regulas (ES) 2018/1725</a> par fizisku "
-"personu aizsardzību attiecībā uz personas datu apstrādi Savienības iestādēs, "
-"struktūrās, birojos un aģentūrās un par šādu datu brīvu apriti (turpmāk "
-"“Regulas”) 5. panta 1. punkta d) un a) apakšpunktu."
+"oktobra <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv"
+"%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Regulas "
+"(ES) 2018/1725</a> par fizisku personu aizsardzību attiecībā uz personas "
+"datu apstrādi Savienības iestādēs, struktūrās, birojos un aģentūrās un par "
+"šādu datu brīvu apriti (turpmāk “Regulas”) 5. panta 1. punkta d) un a) "
+"apakšpunktu."
 
 #. Default: "Lawfulness of processing"
 #: euphorie/client/browser/templates/conditions-bare.pt:66
@@ -3475,8 +3469,8 @@ msgstr "Šim tekstam jāizskaidro, kā novērtēt identificētos riskus."
 #: euphorie/content/risk.py:182
 msgid "help_evaluation_method"
 msgstr ""
-"Ja aprēķini nav nepieciešami vai iespējami, atlasiet \"aptuvens "
-"novērtējums\"."
+"Ja aprēķini nav nepieciešami vai iespējami, atlasiet \"aptuvens novērtējums"
+"\"."
 
 #. Default: "This option allows users to skip the evaluation phase."
 #: euphorie/content/survey.py:75
@@ -5735,6 +5729,11 @@ msgstr "OiRA rīks ir veiksmīgi publicēts. Tam var piekļūt šajā vietnē:"
 msgid "message_read_and_reviewd_assessment_and_approve"
 msgstr ""
 
+#. Default: "Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment."
+#: euphorie/client/browser/templates/panel-request-validation.pt:31
+msgid "message_request_validation"
+msgstr ""
+
 #. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:56
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:70
@@ -6427,8 +6426,8 @@ msgstr ""
 #: euphorie/client/browser/templates/new-session-test.pt:95
 msgid "testsession_register"
 msgstr ""
-"Vai ${register_link} tā vietā. Uzziniet, kāpēc vajadzētu "
-"reģistrēties${tooltip_register}."
+"Vai ${register_link} tā vietā. Uzziniet, kāpēc vajadzētu reģistrēties"
+"${tooltip_register}."
 
 #. Default: "add all measures that have already been implemented"
 #: euphorie/content/utils.py:58

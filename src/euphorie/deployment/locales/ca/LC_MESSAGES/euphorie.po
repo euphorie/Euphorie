@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-10 13:44+0000\n"
+"POT-Creation-Date: 2023-07-21 10:32+0000\n"
 "PO-Revision-Date: 2013-08-08 12:36+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -283,12 +283,6 @@ msgstr "Canviar l'adreça electrònica"
 
 #: euphorie/content/utils.py:71
 msgid "Classic OiRA Tool with positive and negative statements."
-msgstr ""
-
-#: euphorie/client/browser/templates/panel-request-validation.pt:31
-msgid ""
-"Click on 'Send validation request' to ask the selected OiRA consultant to "
-"review and validate your risk assessment."
 msgstr ""
 
 #: euphorie/client/browser/templates/training-slides.pt:95
@@ -2083,8 +2077,8 @@ msgstr "Tipus de dades tractades"
 #: euphorie/client/browser/templates/conditions-bare.pt:68
 msgid "conditions_part5_entry"
 msgstr ""
-"El tractament es basa en els apartats d) i a) de l'article 5.1 del <a "
-"href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ."
+"El tractament es basa en els apartats d) i a) de l'article 5.1 del <a href="
+"\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ."
 "L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Reglament (UE) "
 "2018/1725</a> del Parlament Europeu i del Consell, de 23 d’octubre de 2018, "
 "relatiu a la protecció de les persones físiques pel que fa al tractament de "
@@ -5788,6 +5782,11 @@ msgstr "L'eina OiRA s'ha publicat correctament. S'hi pot accedir mitjançant"
 msgid "message_read_and_reviewd_assessment_and_approve"
 msgstr ""
 
+#. Default: "Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment."
+#: euphorie/client/browser/templates/panel-request-validation.pt:31
+msgid "message_request_validation"
+msgstr ""
+
 #. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:56
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:70
@@ -6477,8 +6476,8 @@ msgstr ""
 #: euphorie/client/browser/templates/new-session-test.pt:95
 msgid "testsession_register"
 msgstr ""
-"O bé ${register_link}. Descobriu per què us hauríeu de "
-"registrar${tooltip_register}."
+"O bé ${register_link}. Descobriu per què us hauríeu de registrar"
+"${tooltip_register}."
 
 #. Default: "add all measures that have already been implemented"
 #: euphorie/content/utils.py:58

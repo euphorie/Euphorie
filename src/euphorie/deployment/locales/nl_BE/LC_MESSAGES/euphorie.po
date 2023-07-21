@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-10 13:44+0000\n"
+"POT-Creation-Date: 2023-07-21 10:32+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -283,12 +283,6 @@ msgstr "Wijzig e-mailadres"
 #: euphorie/content/utils.py:71
 msgid "Classic OiRA Tool with positive and negative statements."
 msgstr "Standaard OiRA-tool met positieve en negatieve stellingen."
-
-#: euphorie/client/browser/templates/panel-request-validation.pt:31
-msgid ""
-"Click on 'Send validation request' to ask the selected OiRA consultant to "
-"review and validate your risk assessment."
-msgstr ""
 
 #: euphorie/client/browser/templates/training-slides.pt:95
 msgid "Click to edit"
@@ -1462,7 +1456,9 @@ msgstr ""
 msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
-msgstr "U hebt geen wijzigingsrechten voor deze risicoanalyse, maar u kunt deze downloaden in de ${download_section}."
+msgstr ""
+"U hebt geen wijzigingsrechten voor deze risicoanalyse, maar u kunt deze "
+"downloaden in de ${download_section}."
 
 #: euphorie/client/browser/templates/login.pt:346
 msgid ""
@@ -1532,13 +1528,12 @@ msgstr ""
 #: euphorie/client/browser/templates/about.pt:70
 msgid "about_paragraph_1"
 msgstr ""
-"Ervaring toont ons dat ${key}. Daarom heeft EU-OSHA een ${easy} (het "
-"â€œOiRAâ€ - Online interactive Risk Assessment) ontwikkelt dat micro-"
-"ondernemingen en kleine ondernemingen kan helpen om een {step} aan te nemen "
-"â€“ starten met de ${identification} en ${evaluation} van risico's op de "
-"werkvloer, door middel van  het nemen van beslissingen over "
-"${preventive_actions} en het ondernemen van actie, voor monitoring en "
-"${reporting}."
+"Ervaring toont ons dat ${key}. Daarom heeft EU-OSHA een ${easy} (het â€œOiRAâ"
+"€ - Online interactive Risk Assessment) ontwikkelt dat micro-ondernemingen "
+"en kleine ondernemingen kan helpen om een {step} aan te nemen â€“ starten "
+"met de ${identification} en ${evaluation} van risico's op de werkvloer, door "
+"middel van  het nemen van beslissingen over ${preventive_actions} en het "
+"ondernemen van actie, voor monitoring en ${reporting}."
 
 #. Default: "easy-to-use and cost-free web application"
 #: euphorie/client/browser/templates/about.pt:42
@@ -2091,13 +2086,13 @@ msgstr "Type verwerkte gegevens"
 msgid "conditions_part5_entry"
 msgstr ""
 "De verwerking vindt plaats op basis van artikel 5, lid 1, punten a) en d), "
-"van <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?"
-"uri=uriserv%3AOJ.L_.2018.295.01.0039.01."
-"ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Verordening (EU) 2018/1725</a> van het "
-"Europees Parlement en de Raad van 23 oktober 2018 betreffende de bescherming "
-"van natuurlijke personen in verband met de verwerking van persoonsgegevens "
-"door de instellingen, organen en instanties van de Unie en betreffende het "
-"vrije verkeer van die gegevens (hierna “de verordening” genoemd)."
+"van <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv"
+"%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Verordening "
+"(EU) 2018/1725</a> van het Europees Parlement en de Raad van 23 oktober 2018 "
+"betreffende de bescherming van natuurlijke personen in verband met de "
+"verwerking van persoonsgegevens door de instellingen, organen en instanties "
+"van de Unie en betreffende het vrije verkeer van die gegevens (hierna “de "
+"verordening” genoemd)."
 
 #. Default: "Lawfulness of processing"
 #: euphorie/client/browser/templates/conditions-bare.pt:66
@@ -2256,7 +2251,9 @@ msgstr ""
 #. Default: "${user} has invited you to join this userʼs organisation. Once you&rsquo;ve accepted your membership, you can collaborate on risk assessments."
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:35
 msgid "description_confirm_organisation_invite"
-msgstr "${user} heeft u een uitnodiging gestuurd. Zodra u de uitnodiging hebt aanvaard, kunt u deelnemen aan de risicoanalyse van deze gebruiker."
+msgstr ""
+"${user} heeft u een uitnodiging gestuurd. Zodra u de uitnodiging hebt "
+"aanvaard, kunt u deelnemen aan de risicoanalyse van deze gebruiker."
 
 #. Default: "The plain text file will contain all translatable text without formatting. This file can be used to determine a word count for estimating the cost of translation."
 #: euphorie/content/browser/export.py:155
@@ -2503,7 +2500,9 @@ msgstr "Beste ${recipient},"
 #. Default: "${invitee} has accepted your invitation to join ${organisation}."
 #: euphorie/client/browser/templates/notify-invite-accept.pt:14
 msgid "email_invite_accept_main"
-msgstr "${invitee} heeft uw uitnodiging om lid te worden van ${organisation} aanvaard."
+msgstr ""
+"${invitee} heeft uw uitnodiging om lid te worden van ${organisation} "
+"aanvaard."
 
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-request-validation.pt:6
@@ -5822,6 +5821,11 @@ msgstr "Het OiRA-instrument is gepubliceerd. Het kan worden geopend op"
 #. Default: "I have read and reviewed and where necessary corrected or enhanced this risk assessment and I approve of its contents."
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
+msgstr ""
+
+#. Default: "Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment."
+#: euphorie/client/browser/templates/panel-request-validation.pt:31
+msgid "message_request_validation"
 msgstr ""
 
 #. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."

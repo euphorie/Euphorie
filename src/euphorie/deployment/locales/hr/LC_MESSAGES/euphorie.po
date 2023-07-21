@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-10 13:44+0000\n"
+"POT-Creation-Date: 2023-07-21 10:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -282,12 +282,6 @@ msgstr "Promijeni adresu e-pošte"
 #: euphorie/content/utils.py:71
 msgid "Classic OiRA Tool with positive and negative statements."
 msgstr "Uobičajeni alat OiRAs potvrdnim i niječnim tvrdnjama."
-
-#: euphorie/client/browser/templates/panel-request-validation.pt:31
-msgid ""
-"Click on 'Send validation request' to ask the selected OiRA consultant to "
-"review and validate your risk assessment."
-msgstr ""
 
 #: euphorie/client/browser/templates/training-slides.pt:95
 msgid "Click to edit"
@@ -1459,7 +1453,9 @@ msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
 msgstr ""
-"Nemate prava za uređivanje ove procjene rizika, ali ovu procjenu rizika možete preuzeti u različitim oblicima u sekciji &lsquo;${download_section}&rsquo;."
+"Nemate prava za uređivanje ove procjene rizika, ali ovu procjenu rizika "
+"možete preuzeti u različitim oblicima u sekciji &lsquo;${download_section}"
+"&rsquo;."
 
 #: euphorie/client/browser/templates/login.pt:346
 msgid ""
@@ -2061,8 +2057,8 @@ msgstr "Vrste podataka koji se obrađuju"
 #: euphorie/client/browser/templates/conditions-bare.pt:68
 msgid "conditions_part5_entry"
 msgstr ""
-"Obrada se temelji na članku 5. stavku 1. točkama (a) i (d)  <a "
-"href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ."
+"Obrada se temelji na članku 5. stavku 1. točkama (a) i (d)  <a href="
+"\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ."
 "L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Uredbe (EU) "
 "2018/1725</a>  Europskog parlamenta i Vijeća od 23. listopada 2018. o "
 "zaštiti pojedinaca u vezi s obradom osobnih podataka u institucijama, "
@@ -2221,7 +2217,9 @@ msgstr ""
 #. Default: "${user} has invited you to join this userʼs organisation. Once you&rsquo;ve accepted your membership, you can collaborate on risk assessments."
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:35
 msgid "description_confirm_organisation_invite"
-msgstr "${user} vas je pozvao da se pridružite ovoj korisničkoj organizaciji. Nakon što prihvatite članstvo, možete surađivati na procjenama rizika."
+msgstr ""
+"${user} vas je pozvao da se pridružite ovoj korisničkoj organizaciji. Nakon "
+"što prihvatite članstvo, možete surađivati na procjenama rizika."
 
 #. Default: "The plain text file will contain all translatable text without formatting. This file can be used to determine a word count for estimating the cost of translation."
 #: euphorie/content/browser/export.py:155
@@ -5761,6 +5759,11 @@ msgstr "OiRA alat je uspješno objavljen. Može mu se pristupiti na adresi"
 #. Default: "I have read and reviewed and where necessary corrected or enhanced this risk assessment and I approve of its contents."
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
+msgstr ""
+
+#. Default: "Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment."
+#: euphorie/client/browser/templates/panel-request-validation.pt:31
+msgid "message_request_validation"
 msgstr ""
 
 #. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."

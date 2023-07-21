@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-10 13:44+0000\n"
+"POT-Creation-Date: 2023-07-21 10:32+0000\n"
 "PO-Revision-Date: 2013-06-27 22:07+0200\n"
 "Last-Translator: JC Brand <brand@syslab.com>\n"
 "Language-Team: Polish\n"
@@ -259,12 +259,6 @@ msgstr ""
 
 #: euphorie/content/utils.py:71
 msgid "Classic OiRA Tool with positive and negative statements."
-msgstr ""
-
-#: euphorie/client/browser/templates/panel-request-validation.pt:31
-msgid ""
-"Click on 'Send validation request' to ask the selected OiRA consultant to "
-"review and validate your risk assessment."
 msgstr ""
 
 #: euphorie/client/browser/templates/training-slides.pt:95
@@ -1909,8 +1903,8 @@ msgstr "Tipo de dados tratados"
 #: euphorie/client/browser/templates/conditions-bare.pt:68
 msgid "conditions_part5_entry"
 msgstr ""
-"O tratamento tem por base o artigo 5.º, n.º 1, alíneas a) e d), do <a "
-"href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ."
+"O tratamento tem por base o artigo 5.º, n.º 1, alíneas a) e d), do <a href="
+"\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ."
 "L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Regulamento (UE) "
 "2018/1725</a>  do Parlamento Europeu e do Conselho, de 23 de outubro de "
 "2018, relativo à proteção das pessoas singulares no que diz respeito ao "
@@ -5370,6 +5364,11 @@ msgstr ""
 #. Default: "I have read and reviewed and where necessary corrected or enhanced this risk assessment and I approve of its contents."
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
+msgstr ""
+
+#. Default: "Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment."
+#: euphorie/client/browser/templates/panel-request-validation.pt:31
+msgid "message_request_validation"
 msgstr ""
 
 #. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-10 13:44+0000\n"
+"POT-Creation-Date: 2023-07-21 10:32+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -280,12 +280,6 @@ msgstr "Keisti el. pašto adresą"
 #: euphorie/content/utils.py:71
 msgid "Classic OiRA Tool with positive and negative statements."
 msgstr "Įprastinė OiRA priemonė su teigiamais ir neigiamais pareiškimais."
-
-#: euphorie/client/browser/templates/panel-request-validation.pt:31
-msgid ""
-"Click on 'Send validation request' to ask the selected OiRA consultant to "
-"review and validate your risk assessment."
-msgstr ""
 
 #: euphorie/client/browser/templates/training-slides.pt:95
 msgid "Click to edit"
@@ -2050,12 +2044,12 @@ msgstr "Tvarkomų duomenų pobūdis"
 msgid "conditions_part5_entry"
 msgstr ""
 "Duomenys tvarkomi remiantis 2018 m. spalio 23 d. Europos Parlamento ir "
-"Tarybos <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?"
-"uri=uriserv%3AOJ.L_.2018.295.01.0039.01."
-"ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Reglamento (ES) 2018/1725</a> dėl "
-"fizinių asmenų apsaugos Sąjungos institucijoms, organams, tarnyboms ir "
-"agentūroms tvarkant asmens duomenis ir dėl laisvo tokių duomenų judėjimo "
-"(toliau – Reglamentas) 5 straipsnio 1 dalies a ir d punktais."
+"Tarybos <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv"
+"%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Reglamento "
+"(ES) 2018/1725</a> dėl fizinių asmenų apsaugos Sąjungos institucijoms, "
+"organams, tarnyboms ir agentūroms tvarkant asmens duomenis ir dėl laisvo "
+"tokių duomenų judėjimo (toliau – Reglamentas) 5 straipsnio 1 dalies a ir d "
+"punktais."
 
 #. Default: "Lawfulness of processing"
 #: euphorie/client/browser/templates/conditions-bare.pt:66
@@ -5742,6 +5736,11 @@ msgstr "OiRA priemonė sėkmingai išleista. Ją galima rasti adresu"
 #. Default: "I have read and reviewed and where necessary corrected or enhanced this risk assessment and I approve of its contents."
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
+msgstr ""
+
+#. Default: "Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment."
+#: euphorie/client/browser/templates/panel-request-validation.pt:31
+msgid "message_request_validation"
 msgstr ""
 
 #. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."

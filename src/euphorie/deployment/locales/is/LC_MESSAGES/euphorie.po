@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-10 13:44+0000\n"
+"POT-Creation-Date: 2023-07-21 10:32+0000\n"
 "PO-Revision-Date: 2015-02-10 11:55+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -280,12 +280,6 @@ msgstr "Breyta tölvupóstfangi"
 #: euphorie/content/utils.py:71
 msgid "Classic OiRA Tool with positive and negative statements."
 msgstr "Venjulegt OiRA verkfæri með jákvæðum og neikvæðum fullyrðingum"
-
-#: euphorie/client/browser/templates/panel-request-validation.pt:31
-msgid ""
-"Click on 'Send validation request' to ask the selected OiRA consultant to "
-"review and validate your risk assessment."
-msgstr ""
 
 #: euphorie/client/browser/templates/training-slides.pt:95
 msgid "Click to edit"
@@ -2007,11 +2001,11 @@ msgstr "Gagnategundir sem unnið er úr"
 msgid "conditions_part5_entry"
 msgstr ""
 "Úrvinnslan byggir á grein 5.1 (d) í <a href=\"https://eur-lex.europa.eu/"
-"legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01."
-"ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">reglugerð (ESB) 2018/1725</a> frá "
-"Evrópuþinginu og ráðinu frá 23. október 2018 um vernd einstaklinga þegar "
-"kemur að vinnslu á persónuupplýsingum hjá stofnunum Evrópusambandsins og "
-"upplýsingum um frjálsa för og slíkum upplýsingum (hér eftir Reglugerðin)."
+"legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL"
+"%3A2018%3A295%3ATOC\">reglugerð (ESB) 2018/1725</a> frá Evrópuþinginu og "
+"ráðinu frá 23. október 2018 um vernd einstaklinga þegar kemur að vinnslu á "
+"persónuupplýsingum hjá stofnunum Evrópusambandsins og upplýsingum um frjálsa "
+"för og slíkum upplýsingum (hér eftir Reglugerðin)."
 
 #. Default: "Lawfulness of processing"
 #: euphorie/client/browser/templates/conditions-bare.pt:66
@@ -5431,8 +5425,8 @@ msgstr "Þú munt ekki geta prentað eða sótt skýrslur."
 #: euphorie/client/browser/templates/tooltips.pt:25
 msgid "list_test_session_limitations3"
 msgstr ""
-"Þú getur stofnað aðgang hvenær sem er með því að smella á tengilinn "
-"\"Nýskrá\" efst á síðunni."
+"Þú getur stofnað aðgang hvenær sem er með því að smella á tengilinn \"Nýskrá"
+"\" efst á síðunni."
 
 #: euphorie/client/adapters/history_item.py:115
 msgid "lock refreshed"
@@ -5648,6 +5642,11 @@ msgstr "Sending OiRA áhaldsins tókst. Það er aðgengilegt á"
 #. Default: "I have read and reviewed and where necessary corrected or enhanced this risk assessment and I approve of its contents."
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
+msgstr ""
+
+#. Default: "Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment."
+#: euphorie/client/browser/templates/panel-request-validation.pt:31
+msgid "message_request_validation"
 msgstr ""
 
 #. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."

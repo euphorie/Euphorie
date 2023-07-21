@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-10 13:44+0000\n"
+"POT-Creation-Date: 2023-07-21 10:32+0000\n"
 "PO-Revision-Date: 2013-07-30 15:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: es <LL@li.org>\n"
@@ -285,12 +285,6 @@ msgstr "Cambiar dirección de correo electrónico"
 #: euphorie/content/utils.py:71
 msgid "Classic OiRA Tool with positive and negative statements."
 msgstr "Herramienta OiRA clásica con afirmaciones positivas y negativas."
-
-#: euphorie/client/browser/templates/panel-request-validation.pt:31
-msgid ""
-"Click on 'Send validation request' to ask the selected OiRA consultant to "
-"review and validate your risk assessment."
-msgstr ""
 
 #: euphorie/client/browser/templates/training-slides.pt:95
 msgid "Click to edit"
@@ -3634,9 +3628,9 @@ msgstr ""
 "Describa el nivel de experiencia necesario para implantar la medida, por "
 "ejemplo \"sentido común (no se requieren conocimientos de OSH)\", \"no se "
 "requiere experiencia específica con OSH, pero se requiere un conocimiento "
-"sobre OSH mínimo o formación y/o consultoría sobre OSH\" o \"experto en "
-"OSH\". También puede describir aquí cualquier otro requisito adicional (si "
-"lo hay)."
+"sobre OSH mínimo o formación y/o consultoría sobre OSH\" o \"experto en OSH"
+"\". También puede describir aquí cualquier otro requisito adicional (si lo "
+"hay)."
 
 #. Default: "Include any relevant information that may be helpful for the end-user."
 #: euphorie/content/module.py:52 euphorie/content/page.py:17
@@ -5800,6 +5794,11 @@ msgstr "Herramienta OiRA publicada correctamente. Se puede acceder a través de"
 #. Default: "I have read and reviewed and where necessary corrected or enhanced this risk assessment and I approve of its contents."
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
+msgstr ""
+
+#. Default: "Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment."
+#: euphorie/client/browser/templates/panel-request-validation.pt:31
+msgid "message_request_validation"
 msgstr ""
 
 #. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."
