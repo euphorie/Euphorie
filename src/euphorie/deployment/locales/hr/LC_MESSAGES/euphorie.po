@@ -2472,7 +2472,7 @@ msgstr ""
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-invite-accept.pt:7
 msgid "email_invite_accept_header"
-msgstr ""
+msgstr "Poštovani ${recipient},"
 
 #. Default: "${invitee} has accepted your invitation to join ${organisation}."
 #: euphorie/client/browser/templates/notify-invite-accept.pt:14
@@ -2482,7 +2482,7 @@ msgstr "${invitee} je prihvatio vaš poziv da se pridruži ${organisation}."
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-request-validation.pt:6
 msgid "email_request_validation_header"
-msgstr ""
+msgstr "Poštovani ${recipient},"
 
 #. Default: "Please click on the link below to visit the risk assessment. If you approve of the contents of the risk assessment, then please click on &lsquo;Validate&rsquo; in the section &lsquo;Consultancy&rsquo; to give the risk assessment an official validated status."
 #: euphorie/client/browser/templates/notify-request-validation.pt:17
@@ -4359,7 +4359,7 @@ msgstr "Procjena se može preskočiti"
 #. Default: "Existing risk assessment to use as a base"
 #: euphorie/client/browser/templates/new-session.pt:107
 msgid "label_existing_assessment_base"
-msgstr "Postojeća procjena rizika koja se koristi kao osnova"
+msgstr ""
 
 #. Default: "Measure already implemented"
 #: euphorie/client/docx/compiler.py:396
@@ -4608,7 +4608,7 @@ msgstr "Zaključano"
 #. Default: "Locked ${locking_time}"
 #: euphorie/client/browser/templates/locking_badge.pt:22
 msgid "label_locked_time"
-msgstr ""
+msgstr "Zaključano ${locking_time}"
 
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:92
