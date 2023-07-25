@@ -1,7 +1,7 @@
 Changelog
 =========
 
-15.0.0 (unreleased)
+15.0.0 (2023-07-25)
 -------------------
 
 - Show solution descriptions (also known as measure titles) in the Word report,
