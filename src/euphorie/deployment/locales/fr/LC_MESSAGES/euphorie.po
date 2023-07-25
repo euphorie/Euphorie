@@ -1469,7 +1469,7 @@ msgstr ""
 msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
-msgstr "Vous n'avez pas de droits d'édition pour cette évaluation des risques, mais vous pouvez la télécharger dans la &ldquo;section téléchargement&rdquo;."
+msgstr "Vous n'avez pas de droits d'édition pour cette évaluation des risques, mais vous pouvez la télécharger dans la ${download_section}."
 
 #: euphorie/client/browser/templates/login.pt:346
 msgid ""
@@ -2272,7 +2272,7 @@ msgstr ""
 #. Default: "${user} has invited you to join this userʼs organisation. Once you&rsquo;ve accepted your membership, you can collaborate on risk assessments."
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:35
 msgid "description_confirm_organisation_invite"
-msgstr "vous pourrez collaborer à l'évaluation des risques de son entreprise."
+msgstr "${user} vous a envoyé une invitation. Une fois que vous aurez accepté, vous pourrez collaborer à l'évaluation des risques de son entreprise."
 
 #. Default: "The plain text file will contain all translatable text without formatting. This file can be used to determine a word count for estimating the cost of translation."
 #: euphorie/content/browser/export.py:155
@@ -2442,7 +2442,7 @@ msgstr "aide en ligne"
 
 #: euphorie/client/browser/session.py:182
 msgid "download section"
-msgstr ""
+msgstr "section téléchargement"
 
 #. Default: "High (very high) severity"
 #: euphorie/content/risk.py:547
@@ -5565,7 +5565,7 @@ msgstr "Oui, les mesures en place sont suffisantes"
 #. Default: "Last edited by ${name} on ${date}."
 #: euphorie/client/browser/templates/locking_menu.pt:72
 msgid "last_edited_by"
-msgstr "Dernière modification par ${nom} le ${date}."
+msgstr "Dernière modification par ${name} le ${date}."
 
 #. Default: "Last edited ${time}"
 #: euphorie/client/browser/templates/assessments.pt:161
@@ -5723,7 +5723,7 @@ msgstr "Vous êtes déjà membre de l’établissement de ${name}."
 #. Default: "You have declined the invitation to the ${name} organisation."
 #: euphorie/client/browser/organisation.py:537
 msgid "message_add_user_to_organisation_declined"
-msgstr "Vous avez décliné l'invitation de ${nom}."
+msgstr "Vous avez décliné l'invitation de ${name}."
 
 #. Default: "The invitation from the ${name} organisation is not valid anymore."
 #: euphorie/client/browser/organisation.py:478
@@ -5823,7 +5823,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:72
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:92
 msgid "message_member_see_all"
-msgstr "Les membres peuvent consulter et modifier l’évaluation des risques. "
+msgstr "Les membres peuvent consulter et modifier l’évaluation des risques."
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please unpublish it first."
 #: euphorie/content/browser/survey.py:199
@@ -6537,7 +6537,7 @@ msgstr "Analyse des Risques validée"
 #. Default: "Membership to your organisation accepted"
 #: euphorie/client/browser/organisation.py:432
 msgid "subject_notify_invite_accept"
-msgstr "Invitation acceptée "
+msgstr "Invitation acceptée"
 
 #. Default: "Risk assessment validation request"
 #: euphorie/client/browser/consultancy.py:142
