@@ -1732,7 +1732,6 @@ msgstr "hyödyt"
 #: euphorie/client/browser/organisation.py:264
 msgid "body_add_user_to_organisation_email"
 msgstr ""
-"\n"
 "            Tervetuloa organisaatiomme OiRAn käyttäjäksi.\n"
 "            Sen jälkeen, ku olet vahvistanut käyttäjätilisi, niin voimme "
 "yhdessä työstää OiRA -riskinarviointeja.\n"

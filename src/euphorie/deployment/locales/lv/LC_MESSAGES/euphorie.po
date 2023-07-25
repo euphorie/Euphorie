@@ -1711,7 +1711,6 @@ msgstr "priekšrocībām"
 #: euphorie/client/browser/organisation.py:264
 msgid "body_add_user_to_organisation_email"
 msgstr ""
-"\n"
 "            Ar šo es uzaicinu pievienoties organizācijai OiRA.\n"
 "            Kad būsiet piekritis dalībai, mēs varēsim sadarboties, lai "
 "novērtētu riskus.\n"

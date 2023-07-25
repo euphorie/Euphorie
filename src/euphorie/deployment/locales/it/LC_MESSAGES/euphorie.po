@@ -1734,7 +1734,6 @@ msgstr "vantaggi"
 #: euphorie/client/browser/organisation.py:264
 msgid "body_add_user_to_organisation_email"
 msgstr ""
-"\n"
 "            Ti invito a collaborare alla valutazione dei rischi effettuata "
 "con OiRA. Registrati e accetta la richiesta di collaborazione al link "
 "seguente.\n"

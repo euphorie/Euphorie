@@ -1738,7 +1738,6 @@ msgstr "benefiċċji"
 #: euphorie/client/browser/organisation.py:264
 msgid "body_add_user_to_organisation_email"
 msgstr ""
-"\n"
 "            B’dan nistiednek tingħaqad mal-organizzazzjoni tagħna fl-OiRA.\n"
 "            Ladarba tkun aċċettajt is-sħubija tiegħek,\n"
 "            nistgħu nikkollaboraw fuq evalwazzjonijiet tar-riskju.\n"

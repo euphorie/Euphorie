@@ -1717,7 +1717,6 @@ msgstr "pogodnostima"
 #: euphorie/client/browser/organisation.py:264
 msgid "body_add_user_to_organisation_email"
 msgstr ""
-"\n"
 "            Pozivam vas da se pridružite našoj organizaciji na OiRA "
 "platformi.\n"
 "            Nakon što prihvatite članstvo, možemo surađivati na procjenama "

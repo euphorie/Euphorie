@@ -1743,7 +1743,6 @@ msgstr "предимства"
 #: euphorie/client/browser/organisation.py:264
 msgid "body_add_user_to_organisation_email"
 msgstr ""
-"\n"
 "            С настоящето Ви каня да се присъедините към нашата организация в "
 "OiRA.\n"
 "            След като приемете Вашето членство, ние можем да Ви съдействаме "

@@ -1739,7 +1739,6 @@ msgstr "előnyök"
 #: euphorie/client/browser/organisation.py:264
 msgid "body_add_user_to_organisation_email"
 msgstr ""
-"\n"
 "            Ezúton meghívom Önt, hogy csatlakozzon szervezetünk OiRA "
 "rendszeréhez.\n"
 "            Amint elfogadta a tagságát, együtt tudunk működni a "
@@ -2426,7 +2425,7 @@ msgstr "online súgó"
 
 #: euphorie/client/browser/session.py:182
 msgid "download section"
-msgstr “letöltések”
+msgstr "letöltések"
 
 #. Default: "High (very high) severity"
 #: euphorie/content/risk.py:547
