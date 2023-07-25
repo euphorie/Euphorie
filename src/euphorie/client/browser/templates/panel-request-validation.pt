@@ -28,13 +28,13 @@
           >
             <div class="container">
               <article class="pat-rich">
-                <p i18n:translate="">
-              Click on 'Send validation request' to ask the selected OiRA consultant to review and validate your risk assessment.
+                <p i18n:translate="message_request_validation">
+              Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment.
                 </p>
               </article>
               <fieldset class="vertical">
                 <fieldset class="pat-checklist radio">
-                  <!-- <legend>OiRA Consultant</legend> -->
+                  <!-- <legend>OSH Consultant</legend> -->
                   <label tal:repeat="consultant view/consultants">
                     ${consultant/title}
                     <input checked="${python: 'checked' if repeat.consultant.start else None}"

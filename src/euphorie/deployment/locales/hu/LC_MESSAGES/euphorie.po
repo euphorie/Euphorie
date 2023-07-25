@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-10 13:44+0000\n"
+"POT-Creation-Date: 2023-07-21 10:32+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: Florakalman <florakalman@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,7 +107,7 @@ msgstr "Az eszközről"
 
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:43
 msgid "Accept"
-msgstr ""
+msgstr "Elfogad"
 
 #: euphorie/content/country.py:86
 msgid "Action plan (Excel spreadsheet)"
@@ -284,12 +284,6 @@ msgstr "E-mailcím megváltoztatása"
 msgid "Classic OiRA Tool with positive and negative statements."
 msgstr "Hagyományos OiRA eszköz pozitív és negatív állításokkal."
 
-#: euphorie/client/browser/templates/panel-request-validation.pt:31
-msgid ""
-"Click on 'Send validation request' to ask the selected OiRA consultant to "
-"review and validate your risk assessment."
-msgstr ""
-
 #: euphorie/client/browser/templates/training-slides.pt:95
 msgid "Click to edit"
 msgstr ""
@@ -372,7 +366,7 @@ msgstr "Creative Commons Licenc"
 
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:49
 msgid "Decline"
-msgstr ""
+msgstr "Elutasít"
 
 #: euphorie/client/browser/settings.py:77
 #: euphorie/client/browser/templates/account-delete.pt:41
@@ -980,7 +974,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/locking_menu.pt:106
 msgid "Refresh locking date"
-msgstr ""
+msgstr "Lezárás dátumának frissítése"
 
 #: euphorie/content/country.py:29
 msgid "Region"
@@ -1040,7 +1034,7 @@ msgstr "Kockázat"
 
 #: euphorie/client/browser/templates/history_popup.pt:17
 msgid "Risk assessment history"
-msgstr ""
+msgstr "Kockázatértékelés előzményei"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "Risk assessments"
@@ -1369,7 +1363,7 @@ msgstr "Jelentés felhasználása:"
 
 #: euphorie/client/browser/templates/more_menu.pt:26
 msgid "View the history of this risk assessment."
-msgstr ""
+msgstr "A kockázatértékelés előzményeinek megtekintése."
 
 #: euphorie/client/browser/templates/shell.pt:356
 msgid "Visit linked web page"
@@ -1469,8 +1463,7 @@ msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
 msgstr ""
-"Nincs szerkesztői hozzáférése a kockázatértékeléshez, de letöltheti "
-"különböző formátumokban innen: ${download_section}."
+"Önnek ehhez a kockázatértékeléshez nincs szerkesztési jogosultsága, de le tudja tölteni ezt a kockázatértékelést több formában a ${download_section} menüpont alatt."
 
 #: euphorie/client/browser/templates/login.pt:346
 msgid ""
@@ -2091,11 +2084,10 @@ msgstr ""
 "Az adatkezelés a természetes személyeknek a személyes adatok uniós "
 "intézmények, szervek, hivatalok és ügynökségek általi kezelése tekintetében "
 "való védelméről és az ilyen adatok szabad áramlásáról szóló, 2018. október "
-"23-i <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?"
-"uri=uriserv%3AOJ.L_.2018.295.01.0039.01."
-"ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">(EU) 2018/1725 európai parlamenti és "
-"tanácsi rendelet</a> (a továbbiakban: a rendelet) 5. cikke (1) bekezdésének "
-"d), a) pontján alapul."
+"23-i <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv"
+"%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">(EU) "
+"2018/1725 európai parlamenti és tanácsi rendelet</a> (a továbbiakban: a "
+"rendelet) 5. cikke (1) bekezdésének d), a) pontján alapul."
 
 #. Default: "Lawfulness of processing"
 #: euphorie/client/browser/templates/conditions-bare.pt:66
@@ -2253,7 +2245,7 @@ msgstr ""
 #. Default: "${user} has invited you to join this userʼs organisation. Once you&rsquo;ve accepted your membership, you can collaborate on risk assessments."
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:35
 msgid "description_confirm_organisation_invite"
-msgstr ""
+msgstr "${user} meghívta Önt, hogy csatlakozzon a szervezetéhez. Amint elfogadta a tagságot, közreműködhet a kockázatértékelésekben."
 
 #. Default: "The plain text file will contain all translatable text without formatting. This file can be used to determine a word count for estimating the cost of translation."
 #: euphorie/content/browser/export.py:155
@@ -2434,7 +2426,7 @@ msgstr "online súgó"
 
 #: euphorie/client/browser/session.py:182
 msgid "download section"
-msgstr "pont letöltése"
+msgstr “letöltések”
 
 #. Default: "High (very high) severity"
 #: euphorie/content/risk.py:547
@@ -2474,7 +2466,7 @@ msgstr "E-mailcím"
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-assessment-validated.pt:7
 msgid "email_assessment_validated_header"
-msgstr ""
+msgstr "Tisztelt ${recipient}!"
 
 #. Default: "${invitee} has reviewed and validated your risk assessment."
 #: euphorie/client/browser/templates/notify-assessment-validated.pt:10
@@ -2510,17 +2502,17 @@ msgstr ""
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-invite-accept.pt:7
 msgid "email_invite_accept_header"
-msgstr ""
+msgstr "Tisztelt ${recipient}!"
 
 #. Default: "${invitee} has accepted your invitation to join ${organisation}."
 #: euphorie/client/browser/templates/notify-invite-accept.pt:14
 msgid "email_invite_accept_main"
-msgstr ""
+msgstr "${requester} elfogadta a felkérését, hogy csatlakozzon az alábbi szervezethez: ${assessment}."
 
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-request-validation.pt:6
 msgid "email_request_validation_header"
-msgstr ""
+msgstr "Tisztelt ${recipient}!"
 
 #. Default: "Please click on the link below to visit the risk assessment. If you approve of the contents of the risk assessment, then please click on &lsquo;Validate&rsquo; in the section &lsquo;Consultancy&rsquo; to give the risk assessment an official validated status."
 #: euphorie/client/browser/templates/notify-request-validation.pt:17
@@ -3826,7 +3818,7 @@ msgstr ""
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
 msgid "help_start_from_scratch"
-msgstr ""
+msgstr "Egy üres kockázatértékelés kezdése az alapoktól."
 
 #. Default: "This is a short affirmative statement about a possible risk (e.g. The building is well maintained.)"
 #: euphorie/content/risk.py:68
@@ -4576,7 +4568,7 @@ msgstr "Kockázatértékelés végrehajtása"
 #. Default: "History"
 #: euphorie/client/browser/templates/more_menu.pt:26
 msgid "label_history"
-msgstr ""
+msgstr "Előzmények"
 
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:323
@@ -4683,19 +4675,19 @@ msgstr "regisztrálás"
 #. Default: "Lock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:84
 msgid "label_lock_risk_assessment"
-msgstr ""
+msgstr "Kockázatértékelés lezárása"
 
 #. Default: "Locked"
 #: euphorie/client/browser/templates/locking_menu.pt:51
 #: euphorie/client/browser/templates/status_info.pt:94
 #: euphorie/client/browser/templates/tool_sessions.pt:174
 msgid "label_locked"
-msgstr ""
+msgstr "Lezárt"
 
 #. Default: "Locked ${locking_time}"
 #: euphorie/client/browser/templates/locking_badge.pt:22
 msgid "label_locked_time"
-msgstr ""
+msgstr "Lezárt ${locking_time}"
 
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:92
@@ -5249,12 +5241,12 @@ msgstr "Válogatás"
 #. Default: "Base on an existing risk assessment"
 #: euphorie/client/browser/templates/new-session.pt:46
 msgid "label_start_base_on_existing"
-msgstr ""
+msgstr "Egy meglévő kockázatértékelés alapján"
 
 #. Default: "Start new risk assessment from scratch"
 #: euphorie/client/browser/templates/new-session.pt:38
 msgid "label_start_from_scratch"
-msgstr ""
+msgstr "Új kockázatértékelés kezdése az alapoktól"
 
 #. Default: "Start Risk Identification"
 #: euphorie/client/browser/templates/identification.pt:40
@@ -5424,12 +5416,12 @@ msgstr "OiRA kipróbálása"
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
 msgid "label_unlock_risk_assessment"
-msgstr ""
+msgstr "A kockázatértékelés feloldása"
 
 #. Default: "Unlocked"
 #: euphorie/client/browser/templates/locking_badge.pt:39
 msgid "label_unlocked"
-msgstr ""
+msgstr "Nyitott"
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:115
@@ -5529,7 +5521,7 @@ msgstr "Igen, a fentmaradó kockázat elfogadható."
 #. Default: "Last edited by ${name} on ${date}."
 #: euphorie/client/browser/templates/locking_menu.pt:72
 msgid "last_edited_by"
-msgstr "Utoljára módosította: ${name} , ekkor: ${date}."
+msgstr "Utoljára módosítva ${name} által, ${date} napján."
 
 #. Default: "Last edited ${time}"
 #: euphorie/client/browser/templates/assessments.pt:161
@@ -5620,15 +5612,15 @@ msgstr ""
 
 #: euphorie/client/adapters/history_item.py:115
 msgid "lock refreshed"
-msgstr ""
+msgstr "lezárás frissítve"
 
 #: euphorie/client/adapters/history_item.py:107
 msgid "lock set"
-msgstr ""
+msgstr "lezárva"
 
 #: euphorie/client/adapters/history_item.py:111
 msgid "lock unset"
-msgstr ""
+msgstr "feloldva"
 
 #. Default: "You may get the best results if you upload a logo as a ${transparent} PNG file of at least 100 pixels in height. Uploading larger images is fine, the logo will be scaled down to the right size automatically."
 #: euphorie/content/browser/templates/sector_edit.pt:114
@@ -5690,7 +5682,7 @@ msgstr "Ön már tagja a(z) ${name} nevű szervezetnek."
 #. Default: "You have declined the invitation to the ${name} organisation."
 #: euphorie/client/browser/organisation.py:537
 msgid "message_add_user_to_organisation_declined"
-msgstr ""
+msgstr "Ön elutasította a/az ${name} szervezet meghívását."
 
 #. Default: "The invitation from the ${name} organisation is not valid anymore."
 #: euphorie/client/browser/organisation.py:478
@@ -5766,8 +5758,8 @@ msgstr ""
 msgid "message_involve_workers_requirement"
 msgstr ""
 "A munkahelyi biztonság és egészségvédelem területén az egyik kulcs a "
-"munkavállalók bevonása.  A munkáltatók számára jogszabály írja elő, <a "
-"href=\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-"
+"munkavállalók bevonása.  A munkáltatók számára jogszabály írja elő, <a href="
+"\"https://osha.europa.eu/en/legislation/directives/the-osh-framework-"
 "directive/the-osh-framework-directive-introduction\">hogy</a> konzultáljanak "
 "a munkavállalókkal a munkahelyi egészségvédelmi és biztonsági kérdésekről.  "
 "Azonban a minimumkövetelményeken való túllépésnek vannak előnyei.  A "
@@ -5792,7 +5784,7 @@ msgstr "Felhasználói fiókot \"${title}\" zárolták."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:72
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:92
 msgid "message_member_see_all"
-msgstr ""
+msgstr "A tagok megtekinthetik és szerkeszthetik az összes, a szervezethez tartozó kockázatértékelést."
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please unpublish it first."
 #: euphorie/content/browser/survey.py:199
@@ -5853,6 +5845,11 @@ msgstr "Az OiRA eszköz közzététele sikeresen lezajlott. Itt nyitható meg:"
 #. Default: "I have read and reviewed and where necessary corrected or enhanced this risk assessment and I approve of its contents."
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
+msgstr ""
+
+#. Default: "Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment."
+#: euphorie/client/browser/templates/panel-request-validation.pt:31
+msgid "message_request_validation"
 msgstr ""
 
 #. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."
@@ -6483,7 +6480,7 @@ msgstr "Nem kell abbahagyni a munkát"
 
 #: euphorie/client/adapters/history_item.py:51
 msgid "started assessment"
-msgstr ""
+msgstr "elkezdett értékelés"
 
 #. Default: "Confirm OiRA membership to ’${organisation}’"
 #: euphorie/client/browser/organisation.py:251
@@ -6498,7 +6495,7 @@ msgstr ""
 #. Default: "Membership to your organisation accepted"
 #: euphorie/client/browser/organisation.py:432
 msgid "subject_notify_invite_accept"
-msgstr ""
+msgstr "Az Ön szervezetéhez tartozó tagság elfogadásra került "
 
 #. Default: "Risk assessment validation request"
 #: euphorie/client/browser/consultancy.py:142

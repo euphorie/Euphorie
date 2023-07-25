@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-10 13:44+0000\n"
+"POT-Creation-Date: 2023-07-21 10:32+0000\n"
 "PO-Revision-Date: 2013-08-08 12:36+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -110,7 +110,7 @@ msgstr "Quant a aquesta eina"
 
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:43
 msgid "Accept"
-msgstr ""
+msgstr "Acceptar"
 
 #: euphorie/content/country.py:86
 msgid "Action plan (Excel spreadsheet)"
@@ -285,12 +285,6 @@ msgstr "Canviar l'adreça electrònica"
 msgid "Classic OiRA Tool with positive and negative statements."
 msgstr ""
 
-#: euphorie/client/browser/templates/panel-request-validation.pt:31
-msgid ""
-"Click on 'Send validation request' to ask the selected OiRA consultant to "
-"review and validate your risk assessment."
-msgstr ""
-
 #: euphorie/client/browser/templates/training-slides.pt:95
 msgid "Click to edit"
 msgstr ""
@@ -374,7 +368,7 @@ msgstr "Llicència de Creative Commons"
 
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:49
 msgid "Decline"
-msgstr ""
+msgstr "Rebutjar"
 
 #: euphorie/client/browser/settings.py:77
 #: euphorie/client/browser/templates/account-delete.pt:41
@@ -984,7 +978,7 @@ msgstr " "
 
 #: euphorie/client/browser/templates/locking_menu.pt:106
 msgid "Refresh locking date"
-msgstr ""
+msgstr "Actualitzar la data de bloqueig"
 
 #: euphorie/content/country.py:29
 msgid "Region"
@@ -1044,7 +1038,7 @@ msgstr "Risc"
 
 #: euphorie/client/browser/templates/history_popup.pt:17
 msgid "Risk assessment history"
-msgstr ""
+msgstr "Historial de l'avaluació de riscos"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "Risk assessments"
@@ -1365,7 +1359,7 @@ msgstr "L’informe pot ser utilitzat per:"
 
 #: euphorie/client/browser/templates/more_menu.pt:26
 msgid "View the history of this risk assessment."
-msgstr ""
+msgstr "Visualitzar l'historial d'aquesta avaluació de riscos."
 
 #: euphorie/client/browser/templates/shell.pt:356
 msgid "Visit linked web page"
@@ -1467,7 +1461,7 @@ msgstr ""
 msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
-msgstr ""
+msgstr "No teniu drets d'edició per a aquesta avaluació de riscos, però podeu descarregar-la en diversos formats a la ${download_section}."
 
 #: euphorie/client/browser/templates/login.pt:346
 msgid ""
@@ -2083,8 +2077,8 @@ msgstr "Tipus de dades tractades"
 #: euphorie/client/browser/templates/conditions-bare.pt:68
 msgid "conditions_part5_entry"
 msgstr ""
-"El tractament es basa en els apartats d) i a) de l'article 5.1 del <a "
-"href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ."
+"El tractament es basa en els apartats d) i a) de l'article 5.1 del <a href="
+"\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ."
 "L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Reglament (UE) "
 "2018/1725</a> del Parlament Europeu i del Consell, de 23 d’octubre de 2018, "
 "relatiu a la protecció de les persones físiques pel que fa al tractament de "
@@ -2247,7 +2241,7 @@ msgstr ""
 #. Default: "${user} has invited you to join this userʼs organisation. Once you&rsquo;ve accepted your membership, you can collaborate on risk assessments."
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:35
 msgid "description_confirm_organisation_invite"
-msgstr ""
+msgstr "${user} us ha convidat a unir-vos a la seva organització. Un cop hagueu acceptat la invitació, podreu col·laborar en les avaluacions de riscos."
 
 #. Default: "The plain text file will contain all translatable text without formatting. This file can be used to determine a word count for estimating the cost of translation."
 #: euphorie/content/browser/export.py:155
@@ -2408,7 +2402,7 @@ msgstr "ajuda en línia"
 
 #: euphorie/client/browser/session.py:182
 msgid "download section"
-msgstr ""
+msgstr "secció de descàrrega"
 
 #. Default: "High (very high) severity"
 #: euphorie/content/risk.py:547
@@ -2448,7 +2442,7 @@ msgstr "Adreça electrònica"
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-assessment-validated.pt:7
 msgid "email_assessment_validated_header"
-msgstr ""
+msgstr "Benvolgut/uda ${recipient},"
 
 #. Default: "${invitee} has reviewed and validated your risk assessment."
 #: euphorie/client/browser/templates/notify-assessment-validated.pt:10
@@ -2484,17 +2478,17 @@ msgstr ""
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-invite-accept.pt:7
 msgid "email_invite_accept_header"
-msgstr ""
+msgstr "Benvolgut/uda ${recipient},"
 
 #. Default: "${invitee} has accepted your invitation to join ${organisation}."
 #: euphorie/client/browser/templates/notify-invite-accept.pt:14
 msgid "email_invite_accept_main"
-msgstr ""
+msgstr "${invitee} ha acceptat la vostra invitació per unir-se a ${organisation}."
 
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-request-validation.pt:6
 msgid "email_request_validation_header"
-msgstr ""
+msgstr "Benvolgut/uda ${recipient},"
 
 #. Default: "Please click on the link below to visit the risk assessment. If you approve of the contents of the risk assessment, then please click on &lsquo;Validate&rsquo; in the section &lsquo;Consultancy&rsquo; to give the risk assessment an official validated status."
 #: euphorie/client/browser/templates/notify-request-validation.pt:17
@@ -3771,7 +3765,7 @@ msgstr ""
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
 msgid "help_start_from_scratch"
-msgstr ""
+msgstr "Començar des de zero amb una avaluació de riscos buida."
 
 #. Default: "This is a short affirmative statement about a possible risk (e.g. The building is well maintained.)"
 #: euphorie/content/risk.py:68
@@ -4520,7 +4514,7 @@ msgstr "Preparant la seva avaluació de riscos"
 #. Default: "History"
 #: euphorie/client/browser/templates/more_menu.pt:26
 msgid "label_history"
-msgstr ""
+msgstr "Historial"
 
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:323
@@ -4627,19 +4621,19 @@ msgstr "registreu"
 #. Default: "Lock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:84
 msgid "label_lock_risk_assessment"
-msgstr ""
+msgstr "Bloquejar l'avaluació de riscos"
 
 #. Default: "Locked"
 #: euphorie/client/browser/templates/locking_menu.pt:51
 #: euphorie/client/browser/templates/status_info.pt:94
 #: euphorie/client/browser/templates/tool_sessions.pt:174
 msgid "label_locked"
-msgstr ""
+msgstr "Bloquejada"
 
 #. Default: "Locked ${locking_time}"
 #: euphorie/client/browser/templates/locking_badge.pt:22
 msgid "label_locked_time"
-msgstr ""
+msgstr "Bloquejada ${locking_time}"
 
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:92
@@ -5191,12 +5185,12 @@ msgstr "Ordenar"
 #. Default: "Base on an existing risk assessment"
 #: euphorie/client/browser/templates/new-session.pt:46
 msgid "label_start_base_on_existing"
-msgstr ""
+msgstr "Basar-se en una avaluació de riscos existent"
 
 #. Default: "Start new risk assessment from scratch"
 #: euphorie/client/browser/templates/new-session.pt:38
 msgid "label_start_from_scratch"
-msgstr ""
+msgstr "Iniciar una nova avaluació de riscos des de zero"
 
 #. Default: "Start Risk Identification"
 #: euphorie/client/browser/templates/identification.pt:40
@@ -5368,12 +5362,12 @@ msgstr "Provar OiRA"
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
 msgid "label_unlock_risk_assessment"
-msgstr ""
+msgstr "Desbloquejar l'avaluació de riscos"
 
 #. Default: "Unlocked"
 #: euphorie/client/browser/templates/locking_badge.pt:39
 msgid "label_unlocked"
-msgstr ""
+msgstr "Desbloquejada"
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:115
@@ -5473,7 +5467,7 @@ msgstr "Sí, el risc residual és acceptable"
 #. Default: "Last edited by ${name} on ${date}."
 #: euphorie/client/browser/templates/locking_menu.pt:72
 msgid "last_edited_by"
-msgstr ""
+msgstr "Editada per darrer cop per ${name} el ${date}."
 
 #. Default: "Last edited ${time}"
 #: euphorie/client/browser/templates/assessments.pt:161
@@ -5561,15 +5555,15 @@ msgstr ""
 
 #: euphorie/client/adapters/history_item.py:115
 msgid "lock refreshed"
-msgstr ""
+msgstr "actualització del bloqueig"
 
 #: euphorie/client/adapters/history_item.py:107
 msgid "lock set"
-msgstr ""
+msgstr "bloquejada"
 
 #: euphorie/client/adapters/history_item.py:111
 msgid "lock unset"
-msgstr ""
+msgstr "desbloquejada"
 
 #. Default: "You may get the best results if you upload a logo as a ${transparent} PNG file of at least 100 pixels in height. Uploading larger images is fine, the logo will be scaled down to the right size automatically."
 #: euphorie/content/browser/templates/sector_edit.pt:114
@@ -5629,7 +5623,7 @@ msgstr "Ja sou membre de l'organització ${name}."
 #. Default: "You have declined the invitation to the ${name} organisation."
 #: euphorie/client/browser/organisation.py:537
 msgid "message_add_user_to_organisation_declined"
-msgstr ""
+msgstr "Heu rebutjat la invitació de l'organització ${name}."
 
 #. Default: "The invitation from the ${name} organisation is not valid anymore."
 #: euphorie/client/browser/organisation.py:478
@@ -5724,7 +5718,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:72
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:92
 msgid "message_member_see_all"
-msgstr ""
+msgstr "Els membres poden visualitzar i editar totes les avaluacions de riscos de l'organització."
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please unpublish it first."
 #: euphorie/content/browser/survey.py:199
@@ -5786,6 +5780,11 @@ msgstr "L'eina OiRA s'ha publicat correctament. S'hi pot accedir mitjançant"
 #. Default: "I have read and reviewed and where necessary corrected or enhanced this risk assessment and I approve of its contents."
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
+msgstr ""
+
+#. Default: "Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment."
+#: euphorie/client/browser/templates/panel-request-validation.pt:31
+msgid "message_request_validation"
 msgstr ""
 
 #. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."
@@ -6410,7 +6409,7 @@ msgstr "No cal interrompre la feina"
 
 #: euphorie/client/adapters/history_item.py:51
 msgid "started assessment"
-msgstr ""
+msgstr "avaluació iniciada"
 
 #. Default: "Confirm OiRA membership to ’${organisation}’"
 #: euphorie/client/browser/organisation.py:251
@@ -6425,7 +6424,7 @@ msgstr ""
 #. Default: "Membership to your organisation accepted"
 #: euphorie/client/browser/organisation.py:432
 msgid "subject_notify_invite_accept"
-msgstr ""
+msgstr "Invitació per participar a la vostra organització acceptada"
 
 #. Default: "Risk assessment validation request"
 #: euphorie/client/browser/consultancy.py:142
@@ -6477,8 +6476,8 @@ msgstr ""
 #: euphorie/client/browser/templates/new-session-test.pt:95
 msgid "testsession_register"
 msgstr ""
-"O bé ${register_link}. Descobriu per què us hauríeu de "
-"registrar${tooltip_register}."
+"O bé ${register_link}. Descobriu per què us hauríeu de registrar"
+"${tooltip_register}."
 
 #. Default: "add all measures that have already been implemented"
 #: euphorie/content/utils.py:58
