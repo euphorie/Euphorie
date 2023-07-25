@@ -1713,7 +1713,6 @@ msgstr "koristi"
 #: euphorie/client/browser/organisation.py:264
 msgid "body_add_user_to_organisation_email"
 msgstr ""
-"\n"
 "            Vabimo vas, da se pridružite naši organizaciji na OiRA "
 "projektu.\n"
 "            Ko sprejmete članstvo, lahko sodelujemo pri ocenah tveganja.\n"

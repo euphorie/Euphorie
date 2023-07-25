@@ -1732,7 +1732,6 @@ msgstr "ventajas "
 #: euphorie/client/browser/organisation.py:264
 msgid "body_add_user_to_organisation_email"
 msgstr ""
-"\n"
 "            Os invito a uniros a nuestra organización en OiRA.\n"
 "            Una vez que haya aceptado la pertenencia, \n"
 "            podemos colaborar en evaluaciones de riesgos.\n"

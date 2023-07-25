@@ -1757,7 +1757,6 @@ msgstr "avantages"
 #: euphorie/client/browser/organisation.py:264
 msgid "body_add_user_to_organisation_email"
 msgstr ""
-"\n"
 "            Je vous invite par la présente à rejoindre notre évaluation des "
 "risques sur OiRA.\n"
 "            Une fois que vous avez accepté votre adhésion, nous pourrons "
@@ -5889,7 +5888,7 @@ msgstr "J'ai lu et revu et, le cas échéant, corrigé ou amélioré cette analy
 #. Default: "Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment."
 #: euphorie/client/browser/templates/panel-request-validation.pt:31
 msgid "message_request_validation"
-msgstr "Cliquez sur "Envoyer une demande de validation" pour demander au consultant OSH sélectionné d'examiner et de valider votre analyse des risques."
+msgstr "Cliquez sur «Envoyer une demande de validation» pour demander au consultant OSH sélectionné d'examiner et de valider votre analyse des risques."
 
 #. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:56

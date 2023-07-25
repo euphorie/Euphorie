@@ -1698,7 +1698,6 @@ msgstr "nauda"
 #: euphorie/client/browser/organisation.py:264
 msgid "body_add_user_to_organisation_email"
 msgstr ""
-"\n"
 "            Kviečiu prisijungti prie mūsų organizacijos vertinant riziką su "
 "OiRA.\n"
 "            Patvirtinę narystę, galime bendradarbiauti vertindami profesinę "

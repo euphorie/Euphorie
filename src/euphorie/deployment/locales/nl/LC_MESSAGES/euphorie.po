@@ -1708,7 +1708,6 @@ msgstr "voordelen"
 #: euphorie/client/browser/organisation.py:264
 msgid "body_add_user_to_organisation_email"
 msgstr ""
-"\n"
 "            Hierbij nodig ik u uit om lid te worden van onze organisatie op "
 "OiRA.\n"
 "            Zodra u uw lidmaatschap heeft geaccepteerd,\n"
