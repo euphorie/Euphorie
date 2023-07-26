@@ -30,3 +30,7 @@ repos:
           - --severity-level=medium
           - --confidence-level=medium
           - --skip=B608
+  - repo: https://github.com/syslabcom/slc.pre-commit
+    rev: main
+    hooks:
+      - id: check-po
