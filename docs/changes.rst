@@ -4,7 +4,8 @@ Changelog
 15.0.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Use Plone 5.2.13
+  [ale-rt]
 
 
 15.0.0 (2023-07-25)
