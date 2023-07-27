@@ -1,7 +1,7 @@
 Changelog
 =========
 
-15.0.1 (unreleased)
+15.0.1 (2023-07-27)
 -------------------
 
 - No longer try to add a Message-Id header in the sent email because it might fail.
