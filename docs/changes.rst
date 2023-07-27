@@ -4,6 +4,10 @@ Changelog
 15.0.1 (unreleased)
 -------------------
 
+- No longer try to add a Message-Id header in the sent email because it might fail.
+  It will be added anyway.
+  [ale-rt]
+
 - Use NuPlone 2.2.0
   [ale-rt]
 

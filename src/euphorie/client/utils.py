@@ -72,7 +72,6 @@ def CreateEmailTo(sender_name, sender_email, recipient, subject, body):
     mail["From"] = emailutils.formataddr((sender_name, sender_email))
     mail["To"] = recipient
     mail["Subject"] = Header(subject.encode("utf-8"), "utf-8")
-    mail["Message-Id"] = emailutils.make_msgid()
     mail["Date"] = emailutils.formatdate(localtime=True)
     mail.set_param("charset", "utf-8")
     if isinstance(body, str):
