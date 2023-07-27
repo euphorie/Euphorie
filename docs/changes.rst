@@ -4,6 +4,9 @@ Changelog
 15.0.1 (unreleased)
 -------------------
 
+- Use NuPlone 2.2.0
+  [ale-rt]
+
 - Use Plone 5.2.13
   [ale-rt]
 
