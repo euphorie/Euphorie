@@ -4,7 +4,8 @@ Changelog
 15.0.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix missing factory invocation that prevented to download docx reports.
+  [ale-rt]
 
 
 15.0.1 (2023-07-27)
