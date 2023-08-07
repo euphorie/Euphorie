@@ -1879,7 +1879,7 @@ def _SKIPPED_MODULE_factory():
     )
 
 
-SKIPPED_MODULE = _SKIPPED_MODULE_factory
+SKIPPED_MODULE = _SKIPPED_MODULE_factory()
 
 UNANSWERED_RISKS_FILTER = sql.and_(
     SurveyTreeItem.type == "risk",
