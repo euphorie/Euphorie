@@ -1,7 +1,7 @@
 Changelog
 =========
 
-15.0.2 (unreleased)
+15.0.2 (2023-08-08)
 -------------------
 
 - Fix missing factory invocation that prevented to download docx reports.
