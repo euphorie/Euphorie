@@ -4,7 +4,9 @@ Changelog
 15.0.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix download a tool preview, related to #1245
+  Ref: scrum-1508
+  [cillianderoiste]
 
 
 15.0.2 (2023-08-08)
