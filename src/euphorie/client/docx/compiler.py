@@ -455,10 +455,15 @@ class DocxCompiler(BaseOfficeCompiler):
 
         m = measure
         action = m.action
-        if self.use_solution_description and measure.plan_type in [
-            "in_place_standard",
-            "measure_standard",
-        ]:
+        if (
+            self.use_solution_description
+            and hasattr(measure, "plan_type")
+            and measure.plan_type
+            in [
+                "in_place_standard",
+                "measure_standard",
+            ]
+        ):
             action = "\n".join(
                 (
                     self.survey.restrictedTraverse(
