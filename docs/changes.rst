@@ -1,7 +1,7 @@
 Changelog
 =========
 
-15.0.3 (unreleased)
+15.0.3 (2023-09-05)
 -------------------
 
 - Fix download a tool preview, related to #1245
