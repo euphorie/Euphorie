@@ -2207,7 +2207,7 @@ msgstr ""
 #. Default: "${user} has invited you to join this userʼs organisation. Once you&rsquo;ve accepted your membership, you can collaborate on risk assessments."
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:35
 msgid "description_confirm_organisation_invite"
-msgstr ""
+msgstr "${user} ir uzaicinājis Jūs pievienoties savai organizācijai. Kad Jūs būsiet apstiprinājis savu pievienošanos, jūs varēsiet sadarboties, veicot darba vides riska novērtēšanu."
 
 #. Default: "The plain text file will contain all translatable text without formatting. This file can be used to determine a word count for estimating the cost of translation."
 #: euphorie/content/browser/export.py:155
