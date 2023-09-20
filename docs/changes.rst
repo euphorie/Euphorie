@@ -4,7 +4,9 @@ Changelog
 15.0.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fixed glitch in sessions list on tool info page
+  Ref: scrum-1555
+  [reinhardt]
 
 
 15.0.3 (2023-09-05)

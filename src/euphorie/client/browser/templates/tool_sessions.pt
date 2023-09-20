@@ -171,12 +171,6 @@
                     </span>
                   </p>
                   <p class="field icons">
-                    <a class="locking-menu iconified icon-${python:session.published and 'published' or 'unpublished'} pat-tooltip"
-                       href="${session/absolute_url}/@@locking_view#locking-menu"
-                       data-pat-tooltip="source: ajax; position-list: tr"
-                       tal:condition="webhelpers/use_locking_feature"
-                       i18n:translate="label_locked"
-                    >Locked</a>
                     <a class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
                        href="${session/absolute_url}/@@more_menu#more-menu"
                        data-pat-tooltip="source: ajax; position-list: tr"
