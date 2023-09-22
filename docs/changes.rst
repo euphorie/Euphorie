@@ -4,6 +4,8 @@ Changelog
 15.0.4 (unreleased)
 -------------------
 
+- Use Plone 5.2.14
+  [reinhardt]
 - Fixed glitch in sessions list on tool info page
   Ref: scrum-1555
   [reinhardt]
