@@ -106,7 +106,7 @@ msgstr "Par šo rīku"
 
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:43
 msgid "Accept"
-msgstr ""
+msgstr "Pieņemt"
 
 #: euphorie/content/country.py:86
 msgid "Action plan (Excel spreadsheet)"
@@ -360,7 +360,7 @@ msgstr "\"Creative Commons\" licence"
 
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:49
 msgid "Decline"
-msgstr ""
+msgstr "Atteikt"
 
 #: euphorie/client/browser/settings.py:77
 #: euphorie/client/browser/templates/account-delete.pt:41
@@ -965,7 +965,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/locking_menu.pt:106
 msgid "Refresh locking date"
-msgstr ""
+msgstr "Atjaunināt aizslēgšanas datumu"
 
 #: euphorie/content/country.py:29
 msgid "Region"
@@ -1025,7 +1025,7 @@ msgstr "Risks"
 
 #: euphorie/client/browser/templates/history_popup.pt:17
 msgid "Risk assessment history"
-msgstr ""
+msgstr "Riska novērtējuma vēsture"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "Risk assessments"
@@ -1346,7 +1346,7 @@ msgstr "Izmantojiet pārskatu, lai būtu iespējams:"
 
 #: euphorie/client/browser/templates/more_menu.pt:26
 msgid "View the history of this risk assessment."
-msgstr ""
+msgstr "Apskatīt darba vides riska novērtējuma vēsturi"
 
 #: euphorie/client/browser/templates/shell.pt:356
 msgid "Visit linked web page"
@@ -1447,7 +1447,7 @@ msgstr ""
 msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
-msgstr ""
+msgstr "Jums nav tiesības labot šo darba vides riska novērtējumu, bet Jūs varat to lejuplādēt dažādos formātos sadaļā ${download_section}."
 
 #: euphorie/client/browser/templates/login.pt:346
 msgid ""
@@ -2207,7 +2207,7 @@ msgstr ""
 #. Default: "${user} has invited you to join this userʼs organisation. Once you&rsquo;ve accepted your membership, you can collaborate on risk assessments."
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:35
 msgid "description_confirm_organisation_invite"
-msgstr ""
+msgstr "${user} ir uzaicinājis Jūs pievienoties savai organizācijai. Kad Jūs būsiet apstiprinājis savu pievienošanos, jūs varēsiet sadarboties, veicot darba vides riska novērtēšanu."
 
 #. Default: "The plain text file will contain all translatable text without formatting. This file can be used to determine a word count for estimating the cost of translation."
 #: euphorie/content/browser/export.py:155
@@ -2369,7 +2369,7 @@ msgstr "tiešsaistes palīdzība"
 
 #: euphorie/client/browser/session.py:182
 msgid "download section"
-msgstr ""
+msgstr "Lejuplādes sadaļa"
 
 #. Default: "High (very high) severity"
 #: euphorie/content/risk.py:547
@@ -2409,7 +2409,7 @@ msgstr "E-pasta adrese"
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-assessment-validated.pt:7
 msgid "email_assessment_validated_header"
-msgstr ""
+msgstr "Cien./God. ${recipient},"
 
 #. Default: "${invitee} has reviewed and validated your risk assessment."
 #: euphorie/client/browser/templates/notify-assessment-validated.pt:10
@@ -2451,7 +2451,7 @@ msgstr ""
 #. Default: "${invitee} has accepted your invitation to join ${organisation}."
 #: euphorie/client/browser/templates/notify-invite-accept.pt:14
 msgid "email_invite_accept_main"
-msgstr ""
+msgstr "${invitee} ir pieņēmis/-usi Jūsu uzaicinājumu pievienoties ${organisation} organizācijai."
 
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-request-validation.pt:6
@@ -3717,7 +3717,7 @@ msgstr ""
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
 msgid "help_start_from_scratch"
-msgstr ""
+msgstr "Sākt no 0 ar tukšu riska novērtējumu"
 
 #. Default: "This is a short affirmative statement about a possible risk (e.g. The building is well maintained.)"
 #: euphorie/content/risk.py:68
@@ -4459,7 +4459,7 @@ msgstr "Riska novērtējums"
 #. Default: "History"
 #: euphorie/client/browser/templates/more_menu.pt:26
 msgid "label_history"
-msgstr ""
+msgstr "Vēsture"
 
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:323
@@ -4566,19 +4566,19 @@ msgstr "nereģistrēsieties"
 #. Default: "Lock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:84
 msgid "label_lock_risk_assessment"
-msgstr ""
+msgstr "Aizslēgt darba vides riska novērtējumu"
 
 #. Default: "Locked"
 #: euphorie/client/browser/templates/locking_menu.pt:51
 #: euphorie/client/browser/templates/status_info.pt:94
 #: euphorie/client/browser/templates/tool_sessions.pt:174
 msgid "label_locked"
-msgstr ""
+msgstr "Aizslēgts"
 
 #. Default: "Locked ${locking_time}"
 #: euphorie/client/browser/templates/locking_badge.pt:22
 msgid "label_locked_time"
-msgstr ""
+msgstr "Aizslēgts ${locking_time}"
 
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:92
@@ -5130,12 +5130,12 @@ msgstr "Sakārtot"
 #. Default: "Base on an existing risk assessment"
 #: euphorie/client/browser/templates/new-session.pt:46
 msgid "label_start_base_on_existing"
-msgstr ""
+msgstr "Par pamatu izmantot esošu riska novērtējumu"
 
 #. Default: "Start new risk assessment from scratch"
 #: euphorie/client/browser/templates/new-session.pt:38
 msgid "label_start_from_scratch"
-msgstr ""
+msgstr "Sākt riska novērtējumu no 0"
 
 #. Default: "Start Risk Identification"
 #: euphorie/client/browser/templates/identification.pt:40
@@ -5308,12 +5308,12 @@ msgstr "Izmēģiniet OiRA"
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
 msgid "label_unlock_risk_assessment"
-msgstr ""
+msgstr "Atslēgt riska novērtējumu"
 
 #. Default: "Unlocked"
 #: euphorie/client/browser/templates/locking_badge.pt:39
 msgid "label_unlocked"
-msgstr ""
+msgstr "Atslēgts"
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:115
@@ -5413,7 +5413,7 @@ msgstr "Jā, atlikušais risks ir pieņemams"
 #. Default: "Last edited by ${name} on ${date}."
 #: euphorie/client/browser/templates/locking_menu.pt:72
 msgid "last_edited_by"
-msgstr ""
+msgstr "Pēdējais labojums: ${name}, veikts ${date}."
 
 #. Default: "Last edited ${time}"
 #: euphorie/client/browser/templates/assessments.pt:161
@@ -5502,15 +5502,15 @@ msgstr ""
 
 #: euphorie/client/adapters/history_item.py:115
 msgid "lock refreshed"
-msgstr ""
+msgstr "atjaunoja aizslēgumu"
 
 #: euphorie/client/adapters/history_item.py:107
 msgid "lock set"
-msgstr ""
+msgstr "aizslēdza"
 
 #: euphorie/client/adapters/history_item.py:111
 msgid "lock unset"
-msgstr ""
+msgstr "atslēdza"
 
 #. Default: "You may get the best results if you upload a logo as a ${transparent} PNG file of at least 100 pixels in height. Uploading larger images is fine, the logo will be scaled down to the right size automatically."
 #: euphorie/content/browser/templates/sector_edit.pt:114
@@ -5570,7 +5570,7 @@ msgstr "Jūs jau esat organizācijas ${name} biedrs."
 #. Default: "You have declined the invitation to the ${name} organisation."
 #: euphorie/client/browser/organisation.py:537
 msgid "message_add_user_to_organisation_declined"
-msgstr ""
+msgstr "Jūs esat atteicies no ${name} organizācijas uzaicinājuma."
 
 #. Default: "The invitation from the ${name} organisation is not valid anymore."
 #: euphorie/client/browser/organisation.py:478
@@ -5665,7 +5665,7 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:72
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:92
 msgid "message_member_see_all"
-msgstr ""
+msgstr "Dalībnieki var redzēt un labot visus Jūsu organizācijas darba vides riska novērtējumus."
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please unpublish it first."
 #: euphorie/content/browser/survey.py:199
@@ -6356,7 +6356,7 @@ msgstr "Nav nepieciešamības pārtraukt darbu"
 
 #: euphorie/client/adapters/history_item.py:51
 msgid "started assessment"
-msgstr ""
+msgstr "sāka riska novērtējumu"
 
 #. Default: "Confirm OiRA membership to ’${organisation}’"
 #: euphorie/client/browser/organisation.py:251
@@ -6371,7 +6371,7 @@ msgstr ""
 #. Default: "Membership to your organisation accepted"
 #: euphorie/client/browser/organisation.py:432
 msgid "subject_notify_invite_accept"
-msgstr ""
+msgstr "Dalība Jūsu organizācijā ir pieņemta"
 
 #. Default: "Risk assessment validation request"
 #: euphorie/client/browser/consultancy.py:142
