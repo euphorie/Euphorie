@@ -4,7 +4,8 @@ Changelog
 15.0.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Use NuPlone 2.2.1.
+  [cillianderoiste]
 
 
 15.0.4 (2023-09-25)
