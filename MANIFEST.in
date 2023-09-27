@@ -6,6 +6,8 @@ exclude .pep8
 exclude .pre-commit-config.yaml
 exclude Makefile
 exclude mapping.plone
+exclude LATEST-PATTERNSLIB
+exclude LATEST-PROTOTYPE
 recursive-exclude scripts *
 recursive-exclude src/euphorie/deployment/locales *.py
 recursive-include src/euphorie *.zcml
