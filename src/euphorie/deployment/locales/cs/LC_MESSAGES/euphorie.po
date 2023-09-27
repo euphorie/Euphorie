@@ -3667,7 +3667,7 @@ msgstr ""
 #. Default: "Start based on an existing risk assessment. All content of the existing risk assessment will be copied over into the new risk assessment, which you can edit and augment at will."
 #: euphorie/client/browser/templates/new-session.pt:58
 msgid "help_start_base_on_existing"
-msgstr ""
+msgstr "Začněte na základě již existujícího hodnocení rizik. Veškerý obsah již existujícího hodnocení rizik se zkopíruje do nového hodnocení rizik, které můžete libovolně upravovat a doplňovat."
 
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
@@ -4277,7 +4277,7 @@ msgstr "Vyhodnocení je možno přeskočit"
 #. Default: "Existing risk assessment to use as a base"
 #: euphorie/client/browser/templates/new-session.pt:107
 msgid "label_existing_assessment_base"
-msgstr ""
+msgstr "Existující hodnocení rizik, které se použije jako základ."
 
 #. Default: "Measure already implemented"
 #: euphorie/client/docx/compiler.py:396
@@ -5008,7 +5008,7 @@ msgstr "Název sektoru."
 #. Default: "Select a risk assessment"
 #: euphorie/client/browser/templates/new-session.pt:108
 msgid "label_select_assessment"
-msgstr ""
+msgstr "Vyberte hodnocení rizik"
 
 #. Default: "Select one or more of the known common measures provided."
 #: euphorie/client/browser/templates/webhelpers.pt:768

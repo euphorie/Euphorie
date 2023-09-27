@@ -3764,7 +3764,7 @@ msgstr ""
 #. Default: "Start based on an existing risk assessment. All content of the existing risk assessment will be copied over into the new risk assessment, which you can edit and augment at will."
 #: euphorie/client/browser/templates/new-session.pt:58
 msgid "help_start_base_on_existing"
-msgstr ""
+msgstr "Tome como base de partida una evaluación de riesgos existente. Todo el contenido de la evaluación de riesgos existente se copiará en la nueva evaluación de riesgos, que podrá editar y ampliar a voluntad."
 
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
@@ -4393,7 +4393,7 @@ msgstr "label_evaluation_optional"
 #. Default: "Existing risk assessment to use as a base"
 #: euphorie/client/browser/templates/new-session.pt:107
 msgid "label_existing_assessment_base"
-msgstr ""
+msgstr "Evaluación de riesgos existente que es posible emplear como base."
 
 #. Default: "Measure already implemented"
 #: euphorie/client/docx/compiler.py:396
@@ -5126,7 +5126,7 @@ msgstr "Título del sector"
 #. Default: "Select a risk assessment"
 #: euphorie/client/browser/templates/new-session.pt:108
 msgid "label_select_assessment"
-msgstr ""
+msgstr "Seleccione una evaluación de riesgos"
 
 #. Default: "Select one or more of the known common measures provided."
 #: euphorie/client/browser/templates/webhelpers.pt:768

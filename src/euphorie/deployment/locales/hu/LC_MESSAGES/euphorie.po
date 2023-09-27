@@ -3812,7 +3812,7 @@ msgstr ""
 #. Default: "Start based on an existing risk assessment. All content of the existing risk assessment will be copied over into the new risk assessment, which you can edit and augment at will."
 #: euphorie/client/browser/templates/new-session.pt:58
 msgid "help_start_base_on_existing"
-msgstr ""
+msgstr "Fogjon hozzá egy már meglévő kockázatértékelés alapján. A meglévő kockázatértékelés teljes tartalma átmásolódik az új kockázatértékelésbe, amelyet eztán tetszőlegesen szerkeszthet és bővíthet."
 
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
@@ -4437,7 +4437,7 @@ msgstr "Az értékelés átugorható"
 #. Default: "Existing risk assessment to use as a base"
 #: euphorie/client/browser/templates/new-session.pt:107
 msgid "label_existing_assessment_base"
-msgstr ""
+msgstr "A meglévő kockázatértékelés kiindulási alapként való felhasználása."
 
 #. Default: "Measure already implemented"
 #: euphorie/client/docx/compiler.py:396
@@ -5170,7 +5170,7 @@ msgstr "Ágazat címe."
 #. Default: "Select a risk assessment"
 #: euphorie/client/browser/templates/new-session.pt:108
 msgid "label_select_assessment"
-msgstr ""
+msgstr "Válasszon ki egy kockázatértékelést"
 
 #. Default: "Select one or more of the known common measures provided."
 #: euphorie/client/browser/templates/webhelpers.pt:768

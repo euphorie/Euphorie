@@ -3765,7 +3765,7 @@ msgstr ""
 #. Default: "Start based on an existing risk assessment. All content of the existing risk assessment will be copied over into the new risk assessment, which you can edit and augment at will."
 #: euphorie/client/browser/templates/new-session.pt:58
 msgid "help_start_base_on_existing"
-msgstr ""
+msgstr "Ibda abbażi ta’ valutazzjoni tar-riskju eżistenti. Il-kontenut kollu tal-valutazzjoni tar-riskju eżistenti se jiġi kkupjat fil-valutazzjoni tar-riskju l-ġdida, li tista’ teditja u żżid kif trid."
 
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
@@ -4391,7 +4391,7 @@ msgstr "Il-valutazzjoni tista' tinqabeż"
 #. Default: "Existing risk assessment to use as a base"
 #: euphorie/client/browser/templates/new-session.pt:107
 msgid "label_existing_assessment_base"
-msgstr ""
+msgstr "Valutazzjoni tar-riskju eżistenti biex tintuża bħala bażi."
 
 #. Default: "Measure already implemented"
 #: euphorie/client/docx/compiler.py:396
@@ -5124,7 +5124,7 @@ msgstr "Titlu tas-settur."
 #. Default: "Select a risk assessment"
 #: euphorie/client/browser/templates/new-session.pt:108
 msgid "label_select_assessment"
-msgstr ""
+msgstr "Agħżel valutazzjoni tar-riskju"
 
 #. Default: "Select one or more of the known common measures provided."
 #: euphorie/client/browser/templates/webhelpers.pt:768
