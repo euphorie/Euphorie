@@ -4,7 +4,7 @@ Changelog
 15.0.6 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Updated translations
 
 
 15.0.5 (2023-09-27)

@@ -3696,11 +3696,13 @@ msgstr ""
 #: euphorie/client/browser/templates/new-session.pt:58
 msgid "help_start_base_on_existing"
 msgstr ""
+"Startet basierend auf einer existierenden GBU. Der gesamte Inhalt der existierenden GBU "
+"wird in die neue GBU kopiert, die dann nach Belieben bearbeitet und erweitert werden kann."
 
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
 msgid "help_start_from_scratch"
-msgstr ""
+msgstr "Startet ganz von vorne mit einer neuen GBU."
 
 #. Default: "This is a short affirmative statement about a possible risk (e.g. The building is well maintained.)"
 #: euphorie/content/risk.py:68
@@ -4314,7 +4316,7 @@ msgstr "Bewertung kann übersprungen werden."
 #. Default: "Existing risk assessment to use as a base"
 #: euphorie/client/browser/templates/new-session.pt:107
 msgid "label_existing_assessment_base"
-msgstr ""
+msgstr "Existierende GBU, die als Basis verwendet werden soll"
 
 #. Default: "Measure already implemented"
 #: euphorie/client/docx/compiler.py:396
@@ -5048,7 +5050,7 @@ msgstr "Name der Branche"
 #. Default: "Select a risk assessment"
 #: euphorie/client/browser/templates/new-session.pt:108
 msgid "label_select_assessment"
-msgstr ""
+msgstr "Wählen Sie eine GBU"
 
 #. Default: "Select one or more of the known common measures provided."
 #: euphorie/client/browser/templates/webhelpers.pt:768
@@ -5122,12 +5124,12 @@ msgstr "Sortierung"
 #. Default: "Base on an existing risk assessment"
 #: euphorie/client/browser/templates/new-session.pt:46
 msgid "label_start_base_on_existing"
-msgstr ""
+msgstr "Auf einer existierenden GBU aufbauen"
 
 #. Default: "Start new risk assessment from scratch"
 #: euphorie/client/browser/templates/new-session.pt:38
 msgid "label_start_from_scratch"
-msgstr ""
+msgstr "Eine ganz neue GBU starten"
 
 #. Default: "Start Risk Identification"
 #: euphorie/client/browser/templates/identification.pt:40
