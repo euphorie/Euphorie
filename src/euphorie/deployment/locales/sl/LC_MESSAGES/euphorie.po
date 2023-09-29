@@ -3714,7 +3714,7 @@ msgstr ""
 #. Default: "Start based on an existing risk assessment. All content of the existing risk assessment will be copied over into the new risk assessment, which you can edit and augment at will."
 #: euphorie/client/browser/templates/new-session.pt:58
 msgid "help_start_base_on_existing"
-msgstr ""
+msgstr "Začnite na podlagi obstoječe ocene tveganja. Celotna vsebina obstoječe ocene tveganja se bo kopirala v novo oceno tveganja, ki jo lahko poljubno urejate in dopolnjujete."
 
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
@@ -4322,7 +4322,7 @@ msgstr "Ocenjevanje lahko preskočite"
 #. Default: "Existing risk assessment to use as a base"
 #: euphorie/client/browser/templates/new-session.pt:107
 msgid "label_existing_assessment_base"
-msgstr ""
+msgstr "Obstoječa ocena tveganja, ki se uporabi kot osnova."
 
 #. Default: "Measure already implemented"
 #: euphorie/client/docx/compiler.py:396
@@ -5055,7 +5055,7 @@ msgstr "Naslov sektorja."
 #. Default: "Select a risk assessment"
 #: euphorie/client/browser/templates/new-session.pt:108
 msgid "label_select_assessment"
-msgstr ""
+msgstr "Izberite oceno tveganja"
 
 #. Default: "Select one or more of the known common measures provided."
 #: euphorie/client/browser/templates/webhelpers.pt:768

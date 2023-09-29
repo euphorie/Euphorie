@@ -3695,9 +3695,7 @@ msgstr ""
 #. Default: "Start based on an existing risk assessment. All content of the existing risk assessment will be copied over into the new risk assessment, which you can edit and augment at will."
 #: euphorie/client/browser/templates/new-session.pt:58
 msgid "help_start_base_on_existing"
-msgstr ""
-"Startet basierend auf einer existierenden GBU. Der gesamte Inhalt der existierenden GBU "
-"wird in die neue GBU kopiert, die dann nach Belieben bearbeitet und erweitert werden kann."
+msgstr "Beginnen Sie auf der Grundlage einer bestehenden Gefährdungsbeurteilung. Der gesamte Inhalt der bestehenden Gefährdungsbeurteilung wird in die neue Gefährdungsbeurteilung kopiert, die Sie nach Belieben bearbeiten und ergänzen können."
 
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
@@ -4316,7 +4314,7 @@ msgstr "Bewertung kann übersprungen werden."
 #. Default: "Existing risk assessment to use as a base"
 #: euphorie/client/browser/templates/new-session.pt:107
 msgid "label_existing_assessment_base"
-msgstr "Existierende GBU, die als Basis verwendet werden soll"
+msgstr "Bestehende Gefährdungsbeurteilung zur Verwendung als Grundlage."
 
 #. Default: "Measure already implemented"
 #: euphorie/client/docx/compiler.py:396
@@ -5050,7 +5048,7 @@ msgstr "Name der Branche"
 #. Default: "Select a risk assessment"
 #: euphorie/client/browser/templates/new-session.pt:108
 msgid "label_select_assessment"
-msgstr "Wählen Sie eine GBU"
+msgstr "Wählen Sie eine Gefährdungsbeurteilung aus"
 
 #. Default: "Select one or more of the known common measures provided."
 #: euphorie/client/browser/templates/webhelpers.pt:768
