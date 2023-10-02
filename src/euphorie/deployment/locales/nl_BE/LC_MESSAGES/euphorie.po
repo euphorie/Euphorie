@@ -4359,7 +4359,7 @@ msgstr "Beschrijving"
 #. Default: "Download a tool preview"
 #: euphorie/client/browser/templates/involve.pt:52
 msgid "label_download_tool_preview"
-msgstr "Print een tool preview"
+msgstr "Download een tool preview"
 
 #. Default: "Duplicate"
 #: euphorie/client/browser/templates/more_menu.pt:53
