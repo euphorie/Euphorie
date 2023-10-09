@@ -646,6 +646,13 @@ class DocxCompilerFullTable(DocxCompiler):
         # left we have a logo, center for text, right for the page numbers
         cell1, cell2, cell3 = footer.tables[0].row_cells(0)
         cell2.paragraphs[0].text = "{}".format(date.today().strftime("%d.%m.%Y"))
+        inner = cell3.tables[0].cell(0, 1)
+        inner.paragraphs[0].runs[6].text = api.portal.translate(
+            _(
+                "label_page_of",
+                default="of",
+            ),
+        )
 
     def set_cell_risk(self, cell, risk):
         """Take the risk and add the appropriate text:
@@ -659,29 +666,32 @@ class DocxCompilerFullTable(DocxCompiler):
 
         cell.add_paragraph(style="Risk Normal")
 
+    def set_cell_risk_priority(self, cell, risk):
+        priority = risk.get("priority", "high")
+        if priority:
+            if priority == "low":
+                level = _("risk_priority_low", default="low")
+            elif priority == "medium":
+                level = _("risk_priority_medium", default="medium")
+            elif priority == "high":
+                level = _("risk_priority_high", default="high")
+            paragraph = cell.add_paragraph(
+                "{}: {}".format(
+                    api.portal.translate(
+                        _("report_timeline_priority", default="Priority")
+                    ),
+                    api.portal.translate(level),
+                ),
+                style="Measure Indent",
+            )
+            paragraph.runs[0].italic = True
+
     def set_cell_risk_title(self, cell, risk):
         paragraph = cell.paragraphs[0]
         paragraph.style = "Risk Bold List"
         paragraph.text = risk["title"]
         if self.show_priority:
-            priority = risk.get("priority", "high")
-            if priority:
-                if priority == "low":
-                    level = _("risk_priority_low", default="low")
-                elif priority == "medium":
-                    level = _("risk_priority_medium", default="medium")
-                elif priority == "high":
-                    level = _("risk_priority_high", default="high")
-                paragraph = cell.add_paragraph(
-                    "{}: {}".format(
-                        api.portal.translate(
-                            _("report_timeline_priority", default="Priority")
-                        ),
-                        api.portal.translate(level),
-                    ),
-                    style="Measure Indent",
-                )
-                paragraph.runs[0].italic = True
+            self.set_cell_risk_priority(cell, risk)
 
     def set_cell_risk_comment(self, cell, risk):
         if risk["comment"] and risk["comment"].strip():
@@ -997,7 +1007,15 @@ class IdentificationReportCompiler(DocxCompiler):
 class DocxCompilerShort(DocxCompilerFullTable):
     _base_filename = "oira_short.docx"
 
-    justifiable_map = {"yes": "✅", "no": "❌"}
+    justifiable_map = {"yes": "✅", "no": "❌", None: "⧁"}
+
+    def set_cell_risk_title(self, cell, risk):
+        paragraph = cell.paragraphs[0]
+        paragraph.style = "Risk Bold List"
+        paragraph.text = " ".join((risk["number"], risk["title"]))
+        paragraph.paragraph_format.left_indent = 0
+        if self.show_priority:
+            self.set_cell_risk_priority(cell, risk)
 
     def set_cell_risk(self, cell, risk):
         """Take the risk and add the appropriate text:
@@ -1052,6 +1070,10 @@ class DocxCompilerShort(DocxCompilerFullTable):
             )
             text_responsible = " – ".join((text_responsible, text_date))
         if text_responsible:
+            cell.add_paragraph(
+                "",
+                style="Measure Indent",
+            )
             paragraph = cell.add_paragraph(
                 text_responsible,
                 style="Measure Indent",
