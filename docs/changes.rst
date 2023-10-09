@@ -5,6 +5,9 @@ Changelog
 -------------------
 
 - Updated translations
+- Short report tweaks
+  Ref: scrum-1295
+  [reinhardt]
 
 
 15.0.5 (2023-09-27)
