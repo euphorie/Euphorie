@@ -784,11 +784,11 @@ class DocxCompilerFullTable(DocxCompiler):
 
         Also remove the horizontal borders between the not merged cells.
         """
-        for idx in range(1):
-            first_cell = row_module.cells[idx]
-            last_cell = row_risk.cells[idx]
-            self.set_cell_border(last_cell)
-            first_cell.merge(last_cell)
+        idx = 0
+        first_cell = row_module.cells[idx]
+        last_cell = row_risk.cells[idx]
+        self.set_cell_border(last_cell)
+        first_cell.merge(last_cell)
         for idx, cell in enumerate(row_risk.cells[1:]):
             self.set_cell_border(cell, settings=LEFT_RIGHT_BORDERS)
 
