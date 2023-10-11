@@ -1079,3 +1079,11 @@ class DocxCompilerShort(DocxCompilerFullTable):
                 style="Measure Indent",
             )
             paragraph.runs[0].italic = True
+
+    def merge_module_rows(self, row_module, row_risk):
+        """Override to not remove the horizontal borders between the unmerged cells."""
+        idx = 0
+        first_cell = row_module.cells[idx]
+        last_cell = row_risk.cells[idx]
+        self.set_cell_border(last_cell)
+        first_cell.merge(last_cell)
