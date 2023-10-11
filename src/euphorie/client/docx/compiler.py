@@ -1082,8 +1082,8 @@ class DocxCompilerShort(DocxCompilerFullTable):
 
     def merge_module_rows(self, row_module, row_risk):
         """Override to not remove the horizontal borders between the unmerged cells."""
-        for idx in range(1):
-            first_cell = row_module.cells[idx]
-            last_cell = row_risk.cells[idx]
-            self.set_cell_border(last_cell)
-            first_cell.merge(last_cell)
+        idx = 0
+        first_cell = row_module.cells[idx]
+        last_cell = row_risk.cells[idx]
+        self.set_cell_border(last_cell)
+        first_cell.merge(last_cell)
