@@ -1,7 +1,7 @@
 Changelog
 =========
 
-15.0.6 (unreleased)
+15.0.6 (2023-10-11)
 -------------------
 
 - Updated translations
