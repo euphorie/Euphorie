@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-21 10:32+0000\n"
+"POT-Creation-Date: 2023-10-11 08:41+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: lemoine <xuelinlem@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -715,7 +715,7 @@ msgstr "Monténégro"
 
 #: euphorie/client/browser/templates/assessments.pt:204
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:167
-#: euphorie/client/browser/templates/tool_sessions.pt:180
+#: euphorie/client/browser/templates/tool_sessions.pt:174
 msgid "More"
 msgstr ""
 
@@ -1469,7 +1469,9 @@ msgstr ""
 msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
-msgstr "Vous n'avez pas de droits d'édition pour cette évaluation des risques, mais vous pouvez la télécharger dans la ${download_section}."
+msgstr ""
+"Vous n'avez pas de droits d'édition pour cette évaluation des risques, mais "
+"vous pouvez la télécharger dans la ${download_section}."
 
 #: euphorie/client/browser/templates/login.pt:346
 msgid ""
@@ -1745,7 +1747,7 @@ msgstr "À propos"
 msgid "appendix_produced_by"
 msgstr "Produit par EU-OSHA."
 
-#: euphorie/client/adapters/history_item.py:57
+#: euphorie/client/adapters/history_item.py:58
 msgid "archived"
 msgstr ""
 
@@ -2271,7 +2273,9 @@ msgstr ""
 #. Default: "${user} has invited you to join this userʼs organisation. Once you&rsquo;ve accepted your membership, you can collaborate on risk assessments."
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:35
 msgid "description_confirm_organisation_invite"
-msgstr "${user} vous a envoyé une invitation. Une fois que vous aurez accepté, vous pourrez collaborer à l'évaluation des risques de son entreprise."
+msgstr ""
+"${user} vous a envoyé une invitation. Une fois que vous aurez accepté, vous "
+"pourrez collaborer à l'évaluation des risques de son entreprise."
 
 #. Default: "The plain text file will contain all translatable text without formatting. This file can be used to determine a word count for estimating the cost of translation."
 #: euphorie/content/browser/export.py:155
@@ -2296,7 +2300,9 @@ msgstr ""
 #. Default: "Find an OSH consultant you want to contact or add to your organisation to provide support."
 #: euphorie/client/browser/templates/consultants.pt:44
 msgid "description_oira_consultants"
-msgstr "Trouvez un service externe que vous voulez contacter ou ajouter à votre organisation."
+msgstr ""
+"Trouvez un service externe que vous voulez contacter ou ajouter à votre "
+"organisation."
 
 #. Default: "In case you have identified risks not included in the tool, you are able to add them now:"
 #: euphorie/client/browser/publish.py:138
@@ -2334,7 +2340,9 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:94
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:108
 msgid "description_role_consultant__training_disabled"
-msgstr "Les services externes peuvent effectuer, modifier, valider et approuver des analyses des risques."
+msgstr ""
+"Les services externes peuvent effectuer, modifier, valider et approuver des "
+"analyses des risques."
 
 #. Default: "Managers/Policy makers can make, edit and lock risk assessments."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:88
@@ -2531,12 +2539,18 @@ msgstr "Cher ${recipient},"
 #. Default: "Please click on the link below to visit the risk assessment. If you approve of the contents of the risk assessment, then please click on &lsquo;Validate&rsquo; in the section &lsquo;Consultancy&rsquo; to give the risk assessment an official validated status."
 #: euphorie/client/browser/templates/notify-request-validation.pt:17
 msgid "email_request_validation_instructions"
-msgstr "Cliquez sur le lien ci-dessous pour consulter l'analyse des risques. Si vous êtes d'accord avec le contenu de l'analyse des risques, cliquez sur 'Valider' dans la section 'Conseil' afin de donner à l'analyse des risques un statut officiel et validé."
+msgstr ""
+"Cliquez sur le lien ci-dessous pour consulter l'analyse des risques. Si vous "
+"êtes d'accord avec le contenu de l'analyse des risques, cliquez sur "
+"'Valider' dans la section 'Conseil' afin de donner à l'analyse des risques "
+"un statut officiel et validé."
 
 #. Default: "${requester} requested to validate the risk assessment &lsquo;${assessment}&rsquo;."
 #: euphorie/client/browser/templates/notify-request-validation.pt:12
 msgid "email_request_validation_intro"
-msgstr "${requester} demande de valider l'analyse des risques &lsquo;${assessment}&rsquo;."
+msgstr ""
+"${requester} demande de valider l'analyse des risques &lsquo;${assessment}"
+"&rsquo;."
 
 #. Default: "10 to 49 employees"
 #: euphorie/client/browser/company.py:42
@@ -2633,22 +2647,22 @@ msgid "error_validation_before_end_date"
 msgstr "Cette date doit se situer avant la date de fin."
 
 #. Default: "This value must be a valid date"
-#: euphorie/client/browser/webhelpers.py:1231
+#: euphorie/client/browser/webhelpers.py:1233
 msgid "error_validation_date"
 msgstr ""
 
 #. Default: "This value must be a valid date and time"
-#: euphorie/client/browser/webhelpers.py:1235
+#: euphorie/client/browser/webhelpers.py:1237
 msgid "error_validation_datetime"
 msgstr ""
 
 #. Default: "This value must be a valid email address"
-#: euphorie/client/browser/webhelpers.py:1242
+#: euphorie/client/browser/webhelpers.py:1244
 msgid "error_validation_email"
 msgstr ""
 
 #. Default: "This value must be a number"
-#: euphorie/client/browser/webhelpers.py:1249
+#: euphorie/client/browser/webhelpers.py:1251
 msgid "error_validation_number"
 msgstr ""
 
@@ -2796,7 +2810,7 @@ msgstr ""
 msgid "extra_text_identification"
 msgstr ""
 
-#. Default: "Action plan ${title}"
+#. Default: "Report ${title}"
 #: euphorie/client/docx/views.py:301
 msgid "filename_report_actionplan"
 msgstr "Rapport Oira ${title}"
@@ -2806,7 +2820,7 @@ msgstr "Rapport Oira ${title}"
 msgid "filename_report_identification"
 msgstr "Oira liste des risques ${title}"
 
-#. Default: "Timeline for ${title}"
+#. Default: "Action plan for ${title}"
 #: euphorie/client/browser/report.py:233
 msgid "filename_report_timeline"
 msgstr "Plan d’action ${title}"
@@ -3062,7 +3076,7 @@ msgid "header_not_complicated"
 msgstr "L’évaluation n’est pas compliquée."
 
 #. Default: "Consultation of workers"
-#: euphorie/client/docx/compiler.py:497
+#: euphorie/client/docx/compiler.py:502
 msgid "header_oira_report_consultation"
 msgstr "Consultation des salariés"
 
@@ -3821,7 +3835,10 @@ msgstr ""
 #. Default: "Start based on an existing risk assessment. All content of the existing risk assessment will be copied over into the new risk assessment, which you can edit and augment at will."
 #: euphorie/client/browser/templates/new-session.pt:58
 msgid "help_start_base_on_existing"
-msgstr "Commencer sur la base d’une évaluation des risques existante. Le contenu de l’évaluation des risques existante sera copié dans son intégralité dans la nouvelle évaluation, que vous pourrez modifier et augmenter à volonté."
+msgstr ""
+"Commencer sur la base d’une évaluation des risques existante. Le contenu de "
+"l’évaluation des risques existante sera copié dans son intégralité dans la "
+"nouvelle évaluation, que vous pourrez modifier et augmenter à volonté."
 
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
@@ -4153,7 +4170,7 @@ msgstr ""
 "Sélectionner un secteur pour lequel vous aimeriez visualiser ou copier un "
 "Outil OiRA."
 
-#: euphorie/client/adapters/history_item.py:103
+#: euphorie/client/adapters/history_item.py:111
 msgid "invalidated"
 msgstr "invalidé"
 
@@ -4184,7 +4201,7 @@ msgstr "Le compte est verrouillé"
 
 #. Default: "Action Plan"
 #: euphorie/client/browser/templates/login.pt:327
-#: euphorie/client/browser/webhelpers.py:1354
+#: euphorie/client/browser/webhelpers.py:1356
 msgid "label_action_plan"
 msgstr "Plan d’action"
 
@@ -4239,7 +4256,7 @@ msgid "label_alphabetical"
 msgstr "Alphabétique"
 
 #. Default: "Assessment"
-#: euphorie/client/browser/webhelpers.py:1321
+#: euphorie/client/browser/webhelpers.py:1323
 msgid "label_assessment"
 msgstr "Evaluation"
 
@@ -4326,7 +4343,7 @@ msgstr ""
 #. Default: "Consultancy"
 #: euphorie/client/browser/templates/consultancy.pt:31
 #: euphorie/client/browser/templates/consultants.pt:26
-#: euphorie/client/browser/webhelpers.py:1373
+#: euphorie/client/browser/webhelpers.py:1375
 msgid "label_consultancy"
 msgstr "Conseil"
 
@@ -4459,7 +4476,7 @@ msgstr ""
 
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:325
-#: euphorie/client/browser/webhelpers.py:1324
+#: euphorie/client/browser/webhelpers.py:1326
 msgid "label_evaluation"
 msgstr "Estimation"
 
@@ -4611,7 +4628,7 @@ msgstr "Historique"
 
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:323
-#: euphorie/client/browser/webhelpers.py:1323
+#: euphorie/client/browser/webhelpers.py:1325
 msgid "label_identification"
 msgstr "Identification"
 
@@ -4648,7 +4665,7 @@ msgid "label_invalidate_risk_assessment"
 msgstr "Invalider l’analyse des risques"
 
 #. Default: "Involve"
-#: euphorie/client/browser/webhelpers.py:1310
+#: euphorie/client/browser/webhelpers.py:1312
 msgid "label_involve"
 msgstr "Impliquer"
 
@@ -4719,7 +4736,6 @@ msgstr "Evaluation verrouillée"
 #. Default: "Locked"
 #: euphorie/client/browser/templates/locking_menu.pt:51
 #: euphorie/client/browser/templates/status_info.pt:94
-#: euphorie/client/browser/templates/tool_sessions.pt:174
 msgid "label_locked"
 msgstr "Verrouillé"
 
@@ -4951,6 +4967,7 @@ msgstr "Page"
 #. Default: "of"
 #: euphorie/client/browser/pdf.py:41
 #: euphorie/client/browser/templates/training-slides.pt:134
+#: euphorie/client/docx/compiler.py:651
 msgid "label_page_of"
 msgstr "sur"
 
@@ -4974,7 +4991,7 @@ msgstr "Mesures prévues"
 
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:321
-#: euphorie/client/browser/webhelpers.py:1292
+#: euphorie/client/browser/webhelpers.py:1294
 msgid "label_preparation"
 msgstr "Préparation"
 
@@ -5072,7 +5089,7 @@ msgstr "Effacer cette mesure"
 
 #. Default: "Report"
 #: euphorie/client/browser/templates/report_landing.pt:29
-#: euphorie/client/browser/webhelpers.py:1389
+#: euphorie/client/browser/webhelpers.py:1391
 msgid "label_report"
 msgstr "Rapport"
 
@@ -5082,12 +5099,12 @@ msgid "label_report_comment"
 msgstr "Vous pouvez écrire ici tout commentaire se rapportant à cette question"
 
 #. Default: "Date of editing"
-#: euphorie/client/docx/compiler.py:587
+#: euphorie/client/docx/compiler.py:592
 msgid "label_report_date"
 msgstr "Date d’édition"
 
 #. Default: "Staff who participated in the risk assessment"
-#: euphorie/client/docx/compiler.py:580
+#: euphorie/client/docx/compiler.py:585
 msgid "label_report_staff"
 msgstr "Le cas échéant : personnes consultées (nom, fonction…)"
 
@@ -5407,7 +5424,7 @@ msgstr "moyen"
 #. Default: "Title"
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:24
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:30
-#: euphorie/client/docx/compiler.py:578
+#: euphorie/client/docx/compiler.py:583
 msgid "label_title"
 msgstr "Titre"
 
@@ -5652,15 +5669,15 @@ msgstr ""
 "Pendant une session d’essai, vous aurez la possibilité à tout moment de vous "
 "inscrire en cliquant sur le lien  \"Inscription\" situé en haut de la page ."
 
-#: euphorie/client/adapters/history_item.py:115
+#: euphorie/client/adapters/history_item.py:123
 msgid "lock refreshed"
 msgstr "Verrou mis à jour"
 
-#: euphorie/client/adapters/history_item.py:107
+#: euphorie/client/adapters/history_item.py:115
 msgid "lock set"
 msgstr "Verrouillé"
 
-#: euphorie/client/adapters/history_item.py:111
+#: euphorie/client/adapters/history_item.py:119
 msgid "lock unset"
 msgstr "Déverrouillé"
 
@@ -5710,7 +5727,7 @@ msgstr "Importer outil OiRA"
 
 #. Default: "Training"
 #: euphorie/client/browser/templates/webhelpers.pt:647
-#: euphorie/client/browser/webhelpers.py:1405
+#: euphorie/client/browser/webhelpers.py:1407
 msgid "menu_training"
 msgstr "Formation"
 
@@ -5754,7 +5771,9 @@ msgstr ""
 #. Default: "Clicking on 'Validate' will lock the risk assessment &lsquo;${assessment}&rsquo; and give it an official validated status."
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:33
 msgid "message_click_to_validate"
-msgstr "En cliquant sur 'Valider', l'analyse des risques '${assessment}' est verrouillée et reçoit un statut officiel de validation."
+msgstr ""
+"En cliquant sur 'Valider', l'analyse des risques '${assessment}' est "
+"verrouillée et reçoit un statut officiel de validation."
 
 #. Default: "This is the only version of the OiRA Tool and can therefore not be deleted. Did you perhaps want to remove the OiRA Tool itself?"
 #: euphorie/content/browser/survey.py:218
@@ -5767,19 +5786,27 @@ msgid "message_download_tool_contents"
 msgstr ""
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/webhelpers.py:1253
+#: euphorie/client/browser/webhelpers.py:1255
 msgid "message_field_required"
 msgstr "Ce champ est requis."
 
 #. Default: "It is possible to request assistance in completing a risk assessment or to have a risk analysis performed by you and validated by an OSH consultant. An OSH consultant can give your risk assessment an offical validation mark. A validation can only be requested by users with the permission level &lsquo;Manage&rsquo; or higher."
 #: euphorie/client/browser/templates/consultancy.pt:37
 msgid "message_find_consultants"
-msgstr "Il est possible de demander de l'aide pour réaliser une analyse des risques ou de réaliser soi-même une analyse des risques et de la faire valider par un service externe de prévention et de protection au travail. Le service externe peut donner à votre analyse des risques une marque de validation officielle. Une validation ne peut être demandée que par les utilisateurs ayant le niveau d'autorisation requis. &lsquo;Manage&rsquo ; ou plus."
+msgstr ""
+"Il est possible de demander de l'aide pour réaliser une analyse des risques "
+"ou de réaliser soi-même une analyse des risques et de la faire valider par "
+"un service externe de prévention et de protection au travail. Le service "
+"externe peut donner à votre analyse des risques une marque de validation "
+"officielle. Une validation ne peut être demandée que par les utilisateurs "
+"ayant le niveau d'autorisation requis. &lsquo;Manage&rsquo ; ou plus."
 
 #. Default: "When you invalidate this risk assessment, it will lose its validated status. You can still request for re-validation at a later time."
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:33
 msgid "message_invalidate_ra"
-msgstr "Lorsque vous invalidez cette analyse des risques, elle perd son statut de validation. Vous pouvez toujours demander une nouvelle validation plus tard."
+msgstr ""
+"Lorsque vous invalidez cette analyse des risques, elle perd son statut de "
+"validation. Vous pouvez toujours demander une nouvelle validation plus tard."
 
 #. Default: "Decide on the best way to involve your staff! You can for example conduct a meeting or a focus group with workers and go through the respective parts in the risk assessment together. You can also download or print the content of the tool or parts of it and share it for information and feedback with your workers."
 #: euphorie/client/browser/templates/involve.pt:35
@@ -5883,12 +5910,16 @@ msgstr "Outil OiRA publié avec succès. Il est consultable à l’adresse"
 #. Default: "I have read and reviewed and where necessary corrected or enhanced this risk assessment and I approve of its contents."
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
-msgstr "J'ai lu et revu et, le cas échéant, corrigé ou amélioré cette analyse des risques et j'en approuve le contenu."
+msgstr ""
+"J'ai lu et revu et, le cas échéant, corrigé ou amélioré cette analyse des "
+"risques et j'en approuve le contenu."
 
 #. Default: "Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment."
 #: euphorie/client/browser/templates/panel-request-validation.pt:31
 msgid "message_request_validation"
-msgstr "Cliquez sur «Envoyer une demande de validation» pour demander au consultant OSH sélectionné d'examiner et de valider votre analyse des risques."
+msgstr ""
+"Cliquez sur «Envoyer une demande de validation» pour demander au consultant "
+"OSH sélectionné d'examiner et de valider votre analyse des risques."
 
 #. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:56
@@ -5900,7 +5931,10 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:62
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:76
 msgid "message_role_consultant"
-msgstr "Les services externes peuvent effectuer et modifier des analyses des risques, valider et approuver des analyses des risques et créer des formations."
+msgstr ""
+"Les services externes peuvent effectuer et modifier des analyses des "
+"risques, valider et approuver des analyses des risques et créer des "
+"formations."
 
 #. Default: "Managers/Policy makers can make and edit risk assessments, lock risk assessments, create trainings and take trainings."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:74
@@ -5923,12 +5957,18 @@ msgstr "Cette analyse des risques est actuellement examinée par ${consultant}."
 #: euphorie/client/browser/templates/consultancy.pt:62
 #: euphorie/client/browser/templates/locking_menu.pt:37
 msgid "message_session_validated"
-msgstr "${validation_time}: ${consultant} a examiné et validé cette analyse des risques"
+msgstr ""
+"${validation_time}: ${consultant} a examiné et validé cette analyse des "
+"risques"
 
 #. Default: "If you want to continue working on a copy of this assessment, for instance to report on a new year, then you can use the option 'Duplicate'. Duplication will make a full copy of your assessment which will be editable."
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:41
 msgid "message_unlock_or_duplicate"
-msgstr "Si vous souhaitez continuer à travailler sur une copie de cette analyse, par exemple pour établir un rapport sur une nouvelle année, vous pouvez utiliser l'option 'Dupliquer'. La duplication crée une copie complète de votre analyse, que vous pouvez éditer."
+msgstr ""
+"Si vous souhaitez continuer à travailler sur une copie de cette analyse, par "
+"exemple pour établir un rapport sur une nouvelle année, vous pouvez utiliser "
+"l'option 'Dupliquer'. La duplication crée une copie complète de votre "
+"analyse, que vous pouvez éditer."
 
 #. Default: "Cancelled unpublish action."
 #: euphorie/content/browser/surveygroup.py:237
@@ -5953,12 +5993,16 @@ msgstr "Le compte \"${title}\"a été déverrouillé."
 #. Default: "After your consultant has validated this risk assessment, it will be locked. Should you want to edit the risk assessment again, then you may always make a duplicate of this assessment at a later time."
 #: euphorie/client/browser/templates/panel-request-validation.pt:49
 msgid "message_warning_locking_after_validation"
-msgstr "Une fois que votre consultant a validé cette analyse des risques, elle est verrouillée. Si vous souhaitez retravailler l'analyse des risques, vous pouvez toujours créer ultérieurement un duplicata de cette analyse."
+msgstr ""
+"Une fois que votre consultant a validé cette analyse des risques, elle est "
+"verrouillée. Si vous souhaitez retravailler l'analyse des risques, vous "
+"pouvez toujours créer ultérieurement un duplicata de cette analyse."
 
 #. Default: "You are requested to review and validate this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:98
 msgid "message_you_are_requested_to_validate_assessment"
-msgstr "Il vous est demandé d'examiner et de valider cette analyse des risques."
+msgstr ""
+"Il vous est demandé d'examiner et de valider cette analyse des risques."
 
 #. Default: "You have reviewed and validated this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:113
@@ -6021,7 +6065,7 @@ msgstr "Paramètres"
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:62
 #: euphorie/client/browser/templates/webhelpers.pt:62
-#: euphorie/client/browser/webhelpers.py:1420
+#: euphorie/client/browser/webhelpers.py:1422
 msgid "navigation_status"
 msgstr "Avancement"
 
@@ -6091,12 +6135,12 @@ msgid "notice_filters_active"
 msgstr ""
 
 #. Default: "On behalf of the employer:"
-#: euphorie/client/docx/compiler.py:512
+#: euphorie/client/docx/compiler.py:517
 msgid "oira_consultation_employer"
 msgstr "Pour le compte de l’employeur :"
 
 #. Default: "On behalf of the workers:"
-#: euphorie/client/docx/compiler.py:515
+#: euphorie/client/docx/compiler.py:520
 msgid "oira_consultation_workers"
 msgstr "Pour le compte des salariés :"
 
@@ -6113,7 +6157,7 @@ msgid "oira_name_line_2"
 msgstr "des risques en ligne"
 
 #. Default: "Date:"
-#: euphorie/client/docx/compiler.py:522
+#: euphorie/client/docx/compiler.py:527
 msgid "oira_survey_date"
 msgstr "Date:"
 
@@ -6123,7 +6167,7 @@ msgid "osc_search_no_results_for_search"
 msgstr "Aucune évaluation des risques n’a été trouvée pour cette sélection."
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
-#: euphorie/client/docx/compiler.py:502
+#: euphorie/client/docx/compiler.py:507
 msgid "paragraph_oira_consultation_of_workers"
 msgstr ""
 "Le soussigné déclare par le présent document que les salariés ont été "
@@ -6281,17 +6325,17 @@ msgid "reminder_email_footer"
 msgstr ""
 
 #. Default: "Required expertise:"
-#: euphorie/client/docx/compiler.py:729
+#: euphorie/client/docx/compiler.py:744
 msgid "report_competences"
 msgstr "Compétences requises :"
 
 #. Default: "To be done by: ${date}"
-#: euphorie/client/docx/compiler.py:755
+#: euphorie/client/docx/compiler.py:770
 msgid "report_end_date"
 msgstr "Date de fin : ${date}"
 
 #. Default: "by ${date}"
-#: euphorie/client/docx/compiler.py:1042
+#: euphorie/client/docx/compiler.py:1065
 msgid "report_end_date_short"
 msgstr ""
 
@@ -6304,12 +6348,12 @@ msgstr ""
 "bénéficier des avantages suivants :"
 
 #. Default: "Comments:"
-#: euphorie/client/docx/compiler.py:1014
+#: euphorie/client/docx/compiler.py:1037
 msgid "report_heading_comments"
 msgstr ""
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:962
+#: euphorie/client/docx/compiler.py:977
 msgid "report_identification_revision"
 msgstr ""
 "Ce document s’est basé sur l’outil OiRA '${title}' de la date de révision "
@@ -6329,12 +6373,12 @@ msgstr ""
 "souhaitez."
 
 #. Default: "Measures already in place:"
-#: euphorie/client/docx/compiler.py:696
+#: euphorie/client/docx/compiler.py:711
 msgid "report_measures_in_place"
 msgstr "Mesures déjà en place :"
 
 #. Default: "Responsible: ${responsible_name}"
-#: euphorie/client/docx/compiler.py:741
+#: euphorie/client/docx/compiler.py:756
 msgid "report_responsible"
 msgstr "Responsable : ${responsible_name}"
 
@@ -6350,7 +6394,7 @@ msgid "report_timeline_comment"
 msgstr "Commentaires "
 
 #. Default: "Priority"
-#: euphorie/client/browser/report.py:150 euphorie/client/docx/compiler.py:673
+#: euphorie/client/browser/report.py:150 euphorie/client/docx/compiler.py:681
 #: euphorie/content/risk.py:206
 msgid "report_timeline_priority"
 msgstr "Priorité"
@@ -6519,7 +6563,7 @@ msgstr "Faible"
 msgid "severity_weak_help"
 msgstr "Accident ou maladie sans arrêt de travail"
 
-#: euphorie/client/adapters/history_item.py:51
+#: euphorie/client/adapters/history_item.py:52
 msgid "started assessment"
 msgstr "Evaluation commencée"
 
@@ -6802,11 +6846,11 @@ msgstr "Utilisez-le"
 msgid "use_it_to_risks_report"
 msgstr "Utilisez-le"
 
-#: euphorie/client/adapters/history_item.py:99
+#: euphorie/client/adapters/history_item.py:107
 msgid "validated"
 msgstr "validé"
 
-#: euphorie/client/adapters/history_item.py:95
+#: euphorie/client/adapters/history_item.py:103
 msgid "validation requested"
 msgstr "validation demandée"
 
