@@ -4,7 +4,11 @@ Changelog
 15.0.7 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Short report tweaks
+  Ref: scrum-1295
+- Fix error in Italy report
+- Change report download file names
+  Refs: scrum-1551
 
 
 15.0.6 (2023-10-11)
