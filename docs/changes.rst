@@ -1,7 +1,7 @@
 Changelog
 =========
 
-15.0.7 (unreleased)
+15.0.7 (2023-10-12)
 -------------------
 
 - Short report tweaks
