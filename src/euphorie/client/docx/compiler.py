@@ -646,13 +646,16 @@ class DocxCompilerFullTable(DocxCompiler):
         # left we have a logo, center for text, right for the page numbers
         cell1, cell2, cell3 = footer.tables[0].row_cells(0)
         cell2.paragraphs[0].text = "{}".format(date.today().strftime("%d.%m.%Y"))
-        inner = cell3.tables[0].cell(0, 1)
-        inner.paragraphs[0].runs[6].text = api.portal.translate(
-            _(
-                "label_page_of",
-                default="of",
-            ),
-        )
+        # Translate page number label
+        # except template for Italy which has a different structure
+        if cell3.tables:
+            inner = cell3.tables[0].cell(0, 1)
+            inner.paragraphs[0].runs[6].text = api.portal.translate(
+                _(
+                    "label_page_of",
+                    default="of",
+                ),
+            )
 
     def set_cell_risk(self, cell, risk):
         """Take the risk and add the appropriate text:
