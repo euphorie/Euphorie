@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-21 10:32+0000\n"
+"POT-Creation-Date: 2023-10-11 08:41+0000\n"
 "PO-Revision-Date: 2013-08-08 12:36+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -706,7 +706,7 @@ msgstr "Montenegro"
 
 #: euphorie/client/browser/templates/assessments.pt:204
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:167
-#: euphorie/client/browser/templates/tool_sessions.pt:180
+#: euphorie/client/browser/templates/tool_sessions.pt:174
 msgid "More"
 msgstr ""
 
@@ -1461,7 +1461,9 @@ msgstr ""
 msgid ""
 "You don't have edit rights for this risk assesment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
-msgstr "No teniu drets d'edició per a aquesta avaluació de riscos, però podeu descarregar-la en diversos formats a la ${download_section}."
+msgstr ""
+"No teniu drets d'edició per a aquesta avaluació de riscos, però podeu "
+"descarregar-la en diversos formats a la ${download_section}."
 
 #: euphorie/client/browser/templates/login.pt:346
 msgid ""
@@ -1719,7 +1721,7 @@ msgstr "Quant a"
 msgid "appendix_produced_by"
 msgstr "Creat per l'EU-OSHA."
 
-#: euphorie/client/adapters/history_item.py:57
+#: euphorie/client/adapters/history_item.py:58
 msgid "archived"
 msgstr ""
 
@@ -2240,7 +2242,9 @@ msgstr ""
 #. Default: "${user} has invited you to join this userʼs organisation. Once you&rsquo;ve accepted your membership, you can collaborate on risk assessments."
 #: euphorie/client/browser/templates/confirm-organisation-invite.pt:35
 msgid "description_confirm_organisation_invite"
-msgstr "${user} us ha convidat a unir-vos a la seva organització. Un cop hagueu acceptat la invitació, podreu col·laborar en les avaluacions de riscos."
+msgstr ""
+"${user} us ha convidat a unir-vos a la seva organització. Un cop hagueu "
+"acceptat la invitació, podreu col·laborar en les avaluacions de riscos."
 
 #. Default: "The plain text file will contain all translatable text without formatting. This file can be used to determine a word count for estimating the cost of translation."
 #: euphorie/content/browser/export.py:155
@@ -2482,7 +2486,8 @@ msgstr "Benvolgut/uda ${recipient},"
 #. Default: "${invitee} has accepted your invitation to join ${organisation}."
 #: euphorie/client/browser/templates/notify-invite-accept.pt:14
 msgid "email_invite_accept_main"
-msgstr "${invitee} ha acceptat la vostra invitació per unir-se a ${organisation}."
+msgstr ""
+"${invitee} ha acceptat la vostra invitació per unir-se a ${organisation}."
 
 #. Default: "Dear ${recipient},"
 #: euphorie/client/browser/templates/notify-request-validation.pt:6
@@ -2594,22 +2599,22 @@ msgid "error_validation_before_end_date"
 msgstr "Aquesta data ha de ser la data final o una data anterior."
 
 #. Default: "This value must be a valid date"
-#: euphorie/client/browser/webhelpers.py:1231
+#: euphorie/client/browser/webhelpers.py:1233
 msgid "error_validation_date"
 msgstr ""
 
 #. Default: "This value must be a valid date and time"
-#: euphorie/client/browser/webhelpers.py:1235
+#: euphorie/client/browser/webhelpers.py:1237
 msgid "error_validation_datetime"
 msgstr ""
 
 #. Default: "This value must be a valid email address"
-#: euphorie/client/browser/webhelpers.py:1242
+#: euphorie/client/browser/webhelpers.py:1244
 msgid "error_validation_email"
 msgstr ""
 
 #. Default: "This value must be a number"
-#: euphorie/client/browser/webhelpers.py:1249
+#: euphorie/client/browser/webhelpers.py:1251
 msgid "error_validation_number"
 msgstr ""
 
@@ -2743,20 +2748,20 @@ msgstr ""
 msgid "extra_text_identification"
 msgstr ""
 
-#. Default: "Action plan ${title}"
+#. Default: "Report ${title}"
 #: euphorie/client/docx/views.py:301
 msgid "filename_report_actionplan"
-msgstr "Pla d'acció ${title}"
+msgstr "Informe ${title}"
 
 #. Default: "Identification report ${title}"
 #: euphorie/client/docx/views.py:346
 msgid "filename_report_identification"
 msgstr "Informe d'identificació ${title}"
 
-#. Default: "Timeline for ${title}"
+#. Default: "Action plan for ${title}"
 #: euphorie/client/browser/report.py:233
 msgid "filename_report_timeline"
-msgstr "Cronologia per a ${title}"
+msgstr "Pla d'acció per a ${title}"
 
 #. Default: "Contents of OIRA tool ${title}"
 #: euphorie/content/browser/survey.py:445
@@ -3010,7 +3015,7 @@ msgid "header_not_complicated"
 msgstr "L'avaluació no és complicada"
 
 #. Default: "Consultation of workers"
-#: euphorie/client/docx/compiler.py:497
+#: euphorie/client/docx/compiler.py:502
 msgid "header_oira_report_consultation"
 msgstr "Consulta dels treballadors"
 
@@ -3759,7 +3764,10 @@ msgstr ""
 #. Default: "Start based on an existing risk assessment. All content of the existing risk assessment will be copied over into the new risk assessment, which you can edit and augment at will."
 #: euphorie/client/browser/templates/new-session.pt:58
 msgid "help_start_base_on_existing"
-msgstr "Comenceu a partir d'una avaluació de riscos existent. Tot el contingut de l'avaluació de riscos existent es copiarà a la nova avaluació de riscos, que podreu editar i ampliar a voluntat."
+msgstr ""
+"Comenceu a partir d'una avaluació de riscos existent. Tot el contingut de "
+"l'avaluació de riscos existent es copiarà a la nova avaluació de riscos, que "
+"podreu editar i ampliar a voluntat."
 
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
@@ -4060,7 +4068,7 @@ msgstr ""
 msgid "intro_select_sector"
 msgstr "Seleccioni un sector per al qual vulgui veure o copiar una eina OiRA."
 
-#: euphorie/client/adapters/history_item.py:103
+#: euphorie/client/adapters/history_item.py:111
 msgid "invalidated"
 msgstr ""
 
@@ -4091,7 +4099,7 @@ msgstr "El compte està bloquejat"
 
 #. Default: "Action Plan"
 #: euphorie/client/browser/templates/login.pt:327
-#: euphorie/client/browser/webhelpers.py:1354
+#: euphorie/client/browser/webhelpers.py:1356
 msgid "label_action_plan"
 msgstr "Pla d'acció"
 
@@ -4146,7 +4154,7 @@ msgid "label_alphabetical"
 msgstr "Alfabèticament"
 
 #. Default: "Assessment"
-#: euphorie/client/browser/webhelpers.py:1321
+#: euphorie/client/browser/webhelpers.py:1323
 msgid "label_assessment"
 msgstr "Avaluació"
 
@@ -4233,7 +4241,7 @@ msgstr ""
 #. Default: "Consultancy"
 #: euphorie/client/browser/templates/consultancy.pt:31
 #: euphorie/client/browser/templates/consultants.pt:26
-#: euphorie/client/browser/webhelpers.py:1373
+#: euphorie/client/browser/webhelpers.py:1375
 msgid "label_consultancy"
 msgstr ""
 
@@ -4365,7 +4373,7 @@ msgstr ""
 
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:325
-#: euphorie/client/browser/webhelpers.py:1324
+#: euphorie/client/browser/webhelpers.py:1326
 msgid "label_evaluation"
 msgstr "Avaluació"
 
@@ -4517,7 +4525,7 @@ msgstr "Historial"
 
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:323
-#: euphorie/client/browser/webhelpers.py:1323
+#: euphorie/client/browser/webhelpers.py:1325
 msgid "label_identification"
 msgstr "Identificació"
 
@@ -4554,7 +4562,7 @@ msgid "label_invalidate_risk_assessment"
 msgstr ""
 
 #. Default: "Involve"
-#: euphorie/client/browser/webhelpers.py:1310
+#: euphorie/client/browser/webhelpers.py:1312
 msgid "label_involve"
 msgstr "Implicació"
 
@@ -4625,7 +4633,6 @@ msgstr "Bloquejar l'avaluació de riscos"
 #. Default: "Locked"
 #: euphorie/client/browser/templates/locking_menu.pt:51
 #: euphorie/client/browser/templates/status_info.pt:94
-#: euphorie/client/browser/templates/tool_sessions.pt:174
 msgid "label_locked"
 msgstr "Bloquejada"
 
@@ -4852,6 +4859,7 @@ msgstr "Pàgina"
 #. Default: "of"
 #: euphorie/client/browser/pdf.py:41
 #: euphorie/client/browser/templates/training-slides.pt:134
+#: euphorie/client/docx/compiler.py:651
 msgid "label_page_of"
 msgstr "de"
 
@@ -4875,7 +4883,7 @@ msgstr "Mesures planificades"
 
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:321
-#: euphorie/client/browser/webhelpers.py:1292
+#: euphorie/client/browser/webhelpers.py:1294
 msgid "label_preparation"
 msgstr "Preparació"
 
@@ -4973,7 +4981,7 @@ msgstr "Esborrar aquesta mesura"
 
 #. Default: "Report"
 #: euphorie/client/browser/templates/report_landing.pt:29
-#: euphorie/client/browser/webhelpers.py:1389
+#: euphorie/client/browser/webhelpers.py:1391
 msgid "label_report"
 msgstr "Informe"
 
@@ -4985,12 +4993,12 @@ msgstr ""
 "la pregunta de dalt."
 
 #. Default: "Date of editing"
-#: euphorie/client/docx/compiler.py:587
+#: euphorie/client/docx/compiler.py:592
 msgid "label_report_date"
 msgstr "Data d'edició"
 
 #. Default: "Staff who participated in the risk assessment"
-#: euphorie/client/docx/compiler.py:580
+#: euphorie/client/docx/compiler.py:585
 msgid "label_report_staff"
 msgstr ""
 
@@ -5310,7 +5318,7 @@ msgstr "Mitjana"
 #. Default: "Title"
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:24
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:30
-#: euphorie/client/docx/compiler.py:578
+#: euphorie/client/docx/compiler.py:583
 msgid "label_title"
 msgstr "Títol"
 
@@ -5552,15 +5560,15 @@ msgstr ""
 "Durant una sessió de prova, en qualsevol moment teniu la possibilitat de "
 "registrar-vos fent clic a l'enllaç \"Registrar-me\" de la part superior."
 
-#: euphorie/client/adapters/history_item.py:115
+#: euphorie/client/adapters/history_item.py:123
 msgid "lock refreshed"
 msgstr "actualització del bloqueig"
 
-#: euphorie/client/adapters/history_item.py:107
+#: euphorie/client/adapters/history_item.py:115
 msgid "lock set"
 msgstr "bloquejada"
 
-#: euphorie/client/adapters/history_item.py:111
+#: euphorie/client/adapters/history_item.py:119
 msgid "lock unset"
 msgstr "desbloquejada"
 
@@ -5610,7 +5618,7 @@ msgstr "Importar una eina OiRA"
 
 #. Default: "Training"
 #: euphorie/client/browser/templates/webhelpers.pt:647
-#: euphorie/client/browser/webhelpers.py:1405
+#: euphorie/client/browser/webhelpers.py:1407
 msgid "menu_training"
 msgstr "Formació"
 
@@ -5665,7 +5673,7 @@ msgid "message_download_tool_contents"
 msgstr ""
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/webhelpers.py:1253
+#: euphorie/client/browser/webhelpers.py:1255
 msgid "message_field_required"
 msgstr "Manquen dades obligatòries."
 
@@ -5717,7 +5725,9 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:72
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:92
 msgid "message_member_see_all"
-msgstr "Els membres poden visualitzar i editar totes les avaluacions de riscos de l'organització."
+msgstr ""
+"Els membres poden visualitzar i editar totes les avaluacions de riscos de "
+"l'organització."
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please unpublish it first."
 #: euphorie/content/browser/survey.py:199
@@ -5917,7 +5927,7 @@ msgstr "Configuració"
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:62
 #: euphorie/client/browser/templates/webhelpers.pt:62
-#: euphorie/client/browser/webhelpers.py:1420
+#: euphorie/client/browser/webhelpers.py:1422
 msgid "navigation_status"
 msgstr "Grau d’emplenament"
 
@@ -5987,12 +5997,12 @@ msgid "notice_filters_active"
 msgstr ""
 
 #. Default: "On behalf of the employer:"
-#: euphorie/client/docx/compiler.py:512
+#: euphorie/client/docx/compiler.py:517
 msgid "oira_consultation_employer"
 msgstr "En nom de l'empresari:"
 
 #. Default: "On behalf of the workers:"
-#: euphorie/client/docx/compiler.py:515
+#: euphorie/client/docx/compiler.py:520
 msgid "oira_consultation_workers"
 msgstr "En nom dels treballadors:"
 
@@ -6009,7 +6019,7 @@ msgid "oira_name_line_2"
 msgstr "interactiva en línia"
 
 #. Default: "Date:"
-#: euphorie/client/docx/compiler.py:522
+#: euphorie/client/docx/compiler.py:527
 msgid "oira_survey_date"
 msgstr "Data:"
 
@@ -6019,7 +6029,7 @@ msgid "osc_search_no_results_for_search"
 msgstr "No s’han trobat avaluacions de riscos per aquesta selecció."
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
-#: euphorie/client/docx/compiler.py:502
+#: euphorie/client/docx/compiler.py:507
 msgid "paragraph_oira_consultation_of_workers"
 msgstr ""
 "Els sotasignats declaren que s'han consultat els treballadors sobre el "
@@ -6175,17 +6185,17 @@ msgid "reminder_email_footer"
 msgstr ""
 
 #. Default: "Required expertise:"
-#: euphorie/client/docx/compiler.py:729
+#: euphorie/client/docx/compiler.py:744
 msgid "report_competences"
 msgstr ""
 
 #. Default: "To be done by: ${date}"
-#: euphorie/client/docx/compiler.py:755
+#: euphorie/client/docx/compiler.py:770
 msgid "report_end_date"
 msgstr ""
 
 #. Default: "by ${date}"
-#: euphorie/client/docx/compiler.py:1042
+#: euphorie/client/docx/compiler.py:1065
 msgid "report_end_date_short"
 msgstr ""
 
@@ -6197,12 +6207,12 @@ msgstr ""
 "descarregar. Registreu-vos en un sol pas i accedireu als avantatges següents:"
 
 #. Default: "Comments:"
-#: euphorie/client/docx/compiler.py:1014
+#: euphorie/client/docx/compiler.py:1037
 msgid "report_heading_comments"
 msgstr ""
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:962
+#: euphorie/client/docx/compiler.py:977
 msgid "report_identification_revision"
 msgstr ""
 "Aquest document s'ha basat en l'eina OiRA \"${title}\" amb la data de "
@@ -6217,12 +6227,12 @@ msgstr ""
 "afegir comentaris addicionals a l'informe al camp que trobarà a continuació."
 
 #. Default: "Measures already in place:"
-#: euphorie/client/docx/compiler.py:696
+#: euphorie/client/docx/compiler.py:711
 msgid "report_measures_in_place"
 msgstr ""
 
 #. Default: "Responsible: ${responsible_name}"
-#: euphorie/client/docx/compiler.py:741
+#: euphorie/client/docx/compiler.py:756
 msgid "report_responsible"
 msgstr ""
 
@@ -6239,7 +6249,7 @@ msgid "report_timeline_comment"
 msgstr "Comentaris"
 
 #. Default: "Priority"
-#: euphorie/client/browser/report.py:150 euphorie/client/docx/compiler.py:673
+#: euphorie/client/browser/report.py:150 euphorie/client/docx/compiler.py:681
 #: euphorie/content/risk.py:206
 msgid "report_timeline_priority"
 msgstr "Prioritat"
@@ -6406,7 +6416,7 @@ msgstr "Baixa"
 msgid "severity_weak_help"
 msgstr "No cal interrompre la feina"
 
-#: euphorie/client/adapters/history_item.py:51
+#: euphorie/client/adapters/history_item.py:52
 msgid "started assessment"
 msgstr "avaluació iniciada"
 
@@ -6687,11 +6697,11 @@ msgstr "Feu-lo servir per"
 msgid "use_it_to_risks_report"
 msgstr "Feu-lo servir per"
 
-#: euphorie/client/adapters/history_item.py:99
+#: euphorie/client/adapters/history_item.py:107
 msgid "validated"
 msgstr ""
 
-#: euphorie/client/adapters/history_item.py:95
+#: euphorie/client/adapters/history_item.py:103
 msgid "validation requested"
 msgstr ""
 

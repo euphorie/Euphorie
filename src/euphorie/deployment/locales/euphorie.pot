@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-07-21 10:32+0000\n"
+"POT-Creation-Date: 2023-10-11 08:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -627,7 +627,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/assessments.pt:204
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:167
-#: euphorie/client/browser/templates/tool_sessions.pt:180
+#: euphorie/client/browser/templates/tool_sessions.pt:174
 msgid "More"
 msgstr ""
 
@@ -1463,7 +1463,7 @@ msgstr ""
 msgid "appendix_produced_by"
 msgstr ""
 
-#: euphorie/client/adapters/history_item.py:57
+#: euphorie/client/adapters/history_item.py:58
 msgid "archived"
 msgstr ""
 
@@ -2216,22 +2216,22 @@ msgid "error_validation_before_end_date"
 msgstr ""
 
 #. Default: "This value must be a valid date"
-#: euphorie/client/browser/webhelpers.py:1231
+#: euphorie/client/browser/webhelpers.py:1233
 msgid "error_validation_date"
 msgstr ""
 
 #. Default: "This value must be a valid date and time"
-#: euphorie/client/browser/webhelpers.py:1235
+#: euphorie/client/browser/webhelpers.py:1237
 msgid "error_validation_datetime"
 msgstr ""
 
 #. Default: "This value must be a valid email address"
-#: euphorie/client/browser/webhelpers.py:1242
+#: euphorie/client/browser/webhelpers.py:1244
 msgid "error_validation_email"
 msgstr ""
 
 #. Default: "This value must be a number"
-#: euphorie/client/browser/webhelpers.py:1249
+#: euphorie/client/browser/webhelpers.py:1251
 msgid "error_validation_number"
 msgstr ""
 
@@ -2339,7 +2339,7 @@ msgstr ""
 msgid "extra_text_identification"
 msgstr ""
 
-#. Default: "Action plan ${title}"
+#. Default: "Report ${title}"
 #: euphorie/client/docx/views.py:301
 msgid "filename_report_actionplan"
 msgstr ""
@@ -2349,7 +2349,7 @@ msgstr ""
 msgid "filename_report_identification"
 msgstr ""
 
-#. Default: "Timeline for ${title}"
+#. Default: "Action plan for ${title}"
 #: euphorie/client/browser/report.py:233
 msgid "filename_report_timeline"
 msgstr ""
@@ -2602,7 +2602,7 @@ msgid "header_not_complicated"
 msgstr ""
 
 #. Default: "Consultation of workers"
-#: euphorie/client/docx/compiler.py:497
+#: euphorie/client/docx/compiler.py:502
 msgid "header_oira_report_consultation"
 msgstr ""
 
@@ -3513,7 +3513,7 @@ msgstr ""
 msgid "intro_select_sector"
 msgstr ""
 
-#: euphorie/client/adapters/history_item.py:103
+#: euphorie/client/adapters/history_item.py:111
 msgid "invalidated"
 msgstr ""
 
@@ -3544,7 +3544,7 @@ msgstr ""
 
 #. Default: "Action Plan"
 #: euphorie/client/browser/templates/login.pt:327
-#: euphorie/client/browser/webhelpers.py:1354
+#: euphorie/client/browser/webhelpers.py:1356
 msgid "label_action_plan"
 msgstr ""
 
@@ -3599,7 +3599,7 @@ msgid "label_alphabetical"
 msgstr ""
 
 #. Default: "Assessment"
-#: euphorie/client/browser/webhelpers.py:1321
+#: euphorie/client/browser/webhelpers.py:1323
 msgid "label_assessment"
 msgstr ""
 
@@ -3687,7 +3687,7 @@ msgstr ""
 #. Default: "Consultancy"
 #: euphorie/client/browser/templates/consultancy.pt:31
 #: euphorie/client/browser/templates/consultants.pt:26
-#: euphorie/client/browser/webhelpers.py:1373
+#: euphorie/client/browser/webhelpers.py:1375
 msgid "label_consultancy"
 msgstr ""
 
@@ -3820,7 +3820,7 @@ msgstr ""
 
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:325
-#: euphorie/client/browser/webhelpers.py:1324
+#: euphorie/client/browser/webhelpers.py:1326
 msgid "label_evaluation"
 msgstr ""
 
@@ -3974,7 +3974,7 @@ msgstr ""
 
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:323
-#: euphorie/client/browser/webhelpers.py:1323
+#: euphorie/client/browser/webhelpers.py:1325
 msgid "label_identification"
 msgstr ""
 
@@ -4012,7 +4012,7 @@ msgid "label_invalidate_risk_assessment"
 msgstr ""
 
 #. Default: "Involve"
-#: euphorie/client/browser/webhelpers.py:1310
+#: euphorie/client/browser/webhelpers.py:1312
 msgid "label_involve"
 msgstr ""
 
@@ -4083,7 +4083,6 @@ msgstr ""
 #. Default: "Locked"
 #: euphorie/client/browser/templates/locking_menu.pt:51
 #: euphorie/client/browser/templates/status_info.pt:94
-#: euphorie/client/browser/templates/tool_sessions.pt:174
 msgid "label_locked"
 msgstr ""
 
@@ -4312,6 +4311,7 @@ msgstr ""
 #. Default: "of"
 #: euphorie/client/browser/pdf.py:41
 #: euphorie/client/browser/templates/training-slides.pt:134
+#: euphorie/client/docx/compiler.py:651
 msgid "label_page_of"
 msgstr ""
 
@@ -4335,7 +4335,7 @@ msgstr ""
 
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:321
-#: euphorie/client/browser/webhelpers.py:1292
+#: euphorie/client/browser/webhelpers.py:1294
 msgid "label_preparation"
 msgstr ""
 
@@ -4433,7 +4433,7 @@ msgstr ""
 
 #. Default: "Report"
 #: euphorie/client/browser/templates/report_landing.pt:29
-#: euphorie/client/browser/webhelpers.py:1389
+#: euphorie/client/browser/webhelpers.py:1391
 msgid "label_report"
 msgstr ""
 
@@ -4443,12 +4443,12 @@ msgid "label_report_comment"
 msgstr ""
 
 #. Default: "Date of editing"
-#: euphorie/client/docx/compiler.py:587
+#: euphorie/client/docx/compiler.py:592
 msgid "label_report_date"
 msgstr ""
 
 #. Default: "Staff who participated in the risk assessment"
-#: euphorie/client/docx/compiler.py:580
+#: euphorie/client/docx/compiler.py:585
 msgid "label_report_staff"
 msgstr ""
 
@@ -4768,7 +4768,7 @@ msgstr ""
 #. Default: "Title"
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:24
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:30
-#: euphorie/client/docx/compiler.py:578
+#: euphorie/client/docx/compiler.py:583
 msgid "label_title"
 msgstr ""
 
@@ -5000,15 +5000,15 @@ msgstr ""
 msgid "list_test_session_limitations3"
 msgstr ""
 
-#: euphorie/client/adapters/history_item.py:115
+#: euphorie/client/adapters/history_item.py:123
 msgid "lock refreshed"
 msgstr ""
 
-#: euphorie/client/adapters/history_item.py:107
+#: euphorie/client/adapters/history_item.py:115
 msgid "lock set"
 msgstr ""
 
-#: euphorie/client/adapters/history_item.py:111
+#: euphorie/client/adapters/history_item.py:119
 msgid "lock unset"
 msgstr ""
 
@@ -5054,7 +5054,7 @@ msgstr ""
 
 #. Default: "Training"
 #: euphorie/client/browser/templates/webhelpers.pt:647
-#: euphorie/client/browser/webhelpers.py:1405
+#: euphorie/client/browser/webhelpers.py:1407
 msgid "menu_training"
 msgstr ""
 
@@ -5109,7 +5109,7 @@ msgid "message_download_tool_contents"
 msgstr ""
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/webhelpers.py:1253
+#: euphorie/client/browser/webhelpers.py:1255
 msgid "message_field_required"
 msgstr ""
 
@@ -5341,7 +5341,7 @@ msgstr ""
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:62
 #: euphorie/client/browser/templates/webhelpers.pt:62
-#: euphorie/client/browser/webhelpers.py:1420
+#: euphorie/client/browser/webhelpers.py:1422
 msgid "navigation_status"
 msgstr ""
 
@@ -5411,12 +5411,12 @@ msgid "notice_filters_active"
 msgstr ""
 
 #. Default: "On behalf of the employer:"
-#: euphorie/client/docx/compiler.py:512
+#: euphorie/client/docx/compiler.py:517
 msgid "oira_consultation_employer"
 msgstr ""
 
 #. Default: "On behalf of the workers:"
-#: euphorie/client/docx/compiler.py:515
+#: euphorie/client/docx/compiler.py:520
 msgid "oira_consultation_workers"
 msgstr ""
 
@@ -5433,7 +5433,7 @@ msgid "oira_name_line_2"
 msgstr ""
 
 #. Default: "Date:"
-#: euphorie/client/docx/compiler.py:522
+#: euphorie/client/docx/compiler.py:527
 msgid "oira_survey_date"
 msgstr ""
 
@@ -5443,7 +5443,7 @@ msgid "osc_search_no_results_for_search"
 msgstr ""
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
-#: euphorie/client/docx/compiler.py:502
+#: euphorie/client/docx/compiler.py:507
 msgid "paragraph_oira_consultation_of_workers"
 msgstr ""
 
@@ -5585,17 +5585,17 @@ msgid "reminder_email_footer"
 msgstr ""
 
 #. Default: "Required expertise:"
-#: euphorie/client/docx/compiler.py:729
+#: euphorie/client/docx/compiler.py:744
 msgid "report_competences"
 msgstr ""
 
 #. Default: "To be done by: ${date}"
-#: euphorie/client/docx/compiler.py:755
+#: euphorie/client/docx/compiler.py:770
 msgid "report_end_date"
 msgstr ""
 
 #. Default: "by ${date}"
-#: euphorie/client/docx/compiler.py:1042
+#: euphorie/client/docx/compiler.py:1065
 msgid "report_end_date_short"
 msgstr ""
 
@@ -5605,12 +5605,12 @@ msgid "report_guest_register_intro"
 msgstr ""
 
 #. Default: "Comments:"
-#: euphorie/client/docx/compiler.py:1014
+#: euphorie/client/docx/compiler.py:1037
 msgid "report_heading_comments"
 msgstr ""
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:962
+#: euphorie/client/docx/compiler.py:977
 msgid "report_identification_revision"
 msgstr ""
 
@@ -5620,12 +5620,12 @@ msgid "report_intro"
 msgstr ""
 
 #. Default: "Measures already in place:"
-#: euphorie/client/docx/compiler.py:696
+#: euphorie/client/docx/compiler.py:711
 msgid "report_measures_in_place"
 msgstr ""
 
 #. Default: "Responsible: ${responsible_name}"
-#: euphorie/client/docx/compiler.py:741
+#: euphorie/client/docx/compiler.py:756
 msgid "report_responsible"
 msgstr ""
 
@@ -5641,7 +5641,7 @@ msgstr ""
 
 #. Default: "Priority"
 #: euphorie/client/browser/report.py:150
-#: euphorie/client/docx/compiler.py:673
+#: euphorie/client/docx/compiler.py:681
 #: euphorie/content/risk.py:206
 msgid "report_timeline_priority"
 msgstr ""
@@ -5801,7 +5801,7 @@ msgstr ""
 msgid "severity_weak_help"
 msgstr ""
 
-#: euphorie/client/adapters/history_item.py:51
+#: euphorie/client/adapters/history_item.py:52
 msgid "started assessment"
 msgstr ""
 
@@ -6065,11 +6065,11 @@ msgstr ""
 msgid "use_it_to_risks_report"
 msgstr ""
 
-#: euphorie/client/adapters/history_item.py:99
+#: euphorie/client/adapters/history_item.py:107
 msgid "validated"
 msgstr ""
 
-#: euphorie/client/adapters/history_item.py:95
+#: euphorie/client/adapters/history_item.py:103
 msgid "validation requested"
 msgstr ""
 

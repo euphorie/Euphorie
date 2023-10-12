@@ -232,7 +232,7 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
         book = self.create_workbook()
         filename = _(
             "filename_report_timeline",
-            default="Timeline for ${title}",
+            default="Action plan for ${title}",
             mapping={"title": self.session.title},
         )
         filename = translate(filename, context=self.request)

@@ -510,8 +510,8 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
                 response.headers["content-type"],
                 "application/vnd.openxmlformats-" "officedocument.spreadsheetml.sheet",
             )
-            quoted_filename = quote("Timeline for Acmè.xlsx".encode())
-            self.assertEqual(quoted_filename, "Timeline%20for%20Acm%C3%A8.xlsx")
+            quoted_filename = quote("Action plan for Acmè.xlsx".encode())
+            self.assertEqual(quoted_filename, "Action%20plan%20for%20Acm%C3%A8.xlsx")
             self.assertEqual(
                 response.headers["content-disposition"],
                 f"attachment; filename*=UTF-8''{quoted_filename}",

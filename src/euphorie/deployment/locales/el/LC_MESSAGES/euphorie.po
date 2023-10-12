@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-07-21 10:32+0000\n"
+"POT-Creation-Date: 2023-10-11 08:41+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: xl <xl@hol.gr>\n"
 "Language-Team: el <LL@li.org>\n"
@@ -660,7 +660,8 @@ msgstr "αποθηκεύτηκε"
 
 #: euphorie/client/browser/templates/consultancy.pt:144
 msgid "Learn more about consultancy."
-msgstr "Μάθετε περισσότερα σχετικά με τη διαδικασία συμβουλευτικής υποστήριξης."
+msgstr ""
+"Μάθετε περισσότερα σχετικά με τη διαδικασία συμβουλευτικής υποστήριξης."
 
 #: euphorie/client/browser/templates/start.pt:57
 msgid "Learn more about this tool&hellip;"
@@ -735,7 +736,7 @@ msgstr "Μαυροβούνιο"
 
 #: euphorie/client/browser/templates/assessments.pt:204
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:167
-#: euphorie/client/browser/templates/tool_sessions.pt:180
+#: euphorie/client/browser/templates/tool_sessions.pt:174
 msgid "More"
 msgstr ""
 
@@ -1781,7 +1782,7 @@ msgstr "Σχετικά"
 msgid "appendix_produced_by"
 msgstr "Δημιουργία EU-OSHA."
 
-#: euphorie/client/adapters/history_item.py:57
+#: euphorie/client/adapters/history_item.py:58
 msgid "archived"
 msgstr ""
 
@@ -2336,7 +2337,10 @@ msgstr ""
 #. Default: "Find an OSH consultant you want to contact or add to your organisation to provide support."
 #: euphorie/client/browser/templates/consultants.pt:44
 msgid "description_oira_consultants"
-msgstr "Αναζητείστε παρόχους συμβουλευτικών υπηρεσιών για την ΕΑΥ προκειμένου να έρθετε σε επαφή μαζί τους ή για να επιλέξετε αυτούς/-ές που επιθυμείτε να σας παρέχουν τις υπηρεσίες τους."
+msgstr ""
+"Αναζητείστε παρόχους συμβουλευτικών υπηρεσιών για την ΕΑΥ προκειμένου να "
+"έρθετε σε επαφή μαζί τους ή για να επιλέξετε αυτούς/-ές που επιθυμείτε να "
+"σας παρέχουν τις υπηρεσίες τους."
 
 #. Default: "In case you have identified risks not included in the tool, you are able to add them now:"
 #: euphorie/client/browser/publish.py:138
@@ -2375,7 +2379,10 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:94
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:108
 msgid "description_role_consultant__training_disabled"
-msgstr "Οι πάροχοι συμβουλευτικών υπηρεσιών για την ΕΑΥ μπορούν να εκπονήσουν, να επεξεργαστούν, να επικυρώσουν και να εγκρίνουν το περιεχόμενο μελετών εκτίμησης κινδύνου."
+msgstr ""
+"Οι πάροχοι συμβουλευτικών υπηρεσιών για την ΕΑΥ μπορούν να εκπονήσουν, να "
+"επεξεργαστούν, να επικυρώσουν και να εγκρίνουν το περιεχόμενο μελετών "
+"εκτίμησης κινδύνου."
 
 #. Default: "Managers/Policy makers can make, edit and lock risk assessments."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:88
@@ -2571,12 +2578,18 @@ msgstr "Αγαπητέ/ή ${recipient},"
 #. Default: "Please click on the link below to visit the risk assessment. If you approve of the contents of the risk assessment, then please click on &lsquo;Validate&rsquo; in the section &lsquo;Consultancy&rsquo; to give the risk assessment an official validated status."
 #: euphorie/client/browser/templates/notify-request-validation.pt:17
 msgid "email_request_validation_instructions"
-msgstr "Επιλέξτε τον παρακάτω σύνδεσμο για να έχετε πρόσβαση στη μελέτη εκτίμησης κινδύνου. Εάν συμφωνείτε με το περιεχόμενό της, κάντε κλικ στην επιλογή 'Επικύρωση' στην ενότητα 'Συμβουλευτική υποστήριξη' για να δώσετε στην συγκεκριμένη μελέτη εκτίμησης κινδύνου έναν επίσημο χαρακτήρα επικύρωσης."
+msgstr ""
+"Επιλέξτε τον παρακάτω σύνδεσμο για να έχετε πρόσβαση στη μελέτη εκτίμησης "
+"κινδύνου. Εάν συμφωνείτε με το περιεχόμενό της, κάντε κλικ στην επιλογή "
+"'Επικύρωση' στην ενότητα 'Συμβουλευτική υποστήριξη' για να δώσετε στην "
+"συγκεκριμένη μελέτη εκτίμησης κινδύνου έναν επίσημο χαρακτήρα επικύρωσης."
 
 #. Default: "${requester} requested to validate the risk assessment &lsquo;${assessment}&rsquo;."
 #: euphorie/client/browser/templates/notify-request-validation.pt:12
 msgid "email_request_validation_intro"
-msgstr "Ο/Η ${requester} ζήτησε να επικυρώσετε τη μελέτη εκτίμησης κινδύνου  &lsquo;${assessment}&rsquo;."
+msgstr ""
+"Ο/Η ${requester} ζήτησε να επικυρώσετε τη μελέτη εκτίμησης κινδύνου  &lsquo;"
+"${assessment}&rsquo;."
 
 #. Default: "10 to 49 employees"
 #: euphorie/client/browser/company.py:42
@@ -2676,22 +2689,22 @@ msgstr ""
 "Αυτή η ημερομηνία δεν πρέπει να είναι μεταγενέστερη της ημερομηνίας λήξης."
 
 #. Default: "This value must be a valid date"
-#: euphorie/client/browser/webhelpers.py:1231
+#: euphorie/client/browser/webhelpers.py:1233
 msgid "error_validation_date"
 msgstr ""
 
 #. Default: "This value must be a valid date and time"
-#: euphorie/client/browser/webhelpers.py:1235
+#: euphorie/client/browser/webhelpers.py:1237
 msgid "error_validation_datetime"
 msgstr ""
 
 #. Default: "This value must be a valid email address"
-#: euphorie/client/browser/webhelpers.py:1242
+#: euphorie/client/browser/webhelpers.py:1244
 msgid "error_validation_email"
 msgstr ""
 
 #. Default: "This value must be a number"
-#: euphorie/client/browser/webhelpers.py:1249
+#: euphorie/client/browser/webhelpers.py:1251
 msgid "error_validation_number"
 msgstr ""
 
@@ -2833,20 +2846,20 @@ msgstr ""
 msgid "extra_text_identification"
 msgstr ""
 
-#. Default: "Action plan ${title}"
+#. Default: "Report ${title}"
 #: euphorie/client/docx/views.py:301
 msgid "filename_report_actionplan"
-msgstr "Έκθεση κινδύνου ${title}"
+msgstr "Έκθεση ${title}"
 
 #. Default: "Identification report ${title}"
 #: euphorie/client/docx/views.py:346
 msgid "filename_report_identification"
 msgstr "Έκθεση της Εκτίμησης Κινδύνου ${title} "
 
-#. Default: "Timeline for ${title}"
+#. Default: "Action plan for ${title}"
 #: euphorie/client/browser/report.py:233
 msgid "filename_report_timeline"
-msgstr "Σχέδιο δράσης ${title}"
+msgstr "Σχέδιο Δράσης ${title}"
 
 #. Default: "Contents of OIRA tool ${title}"
 #: euphorie/content/browser/survey.py:445
@@ -3102,7 +3115,7 @@ msgid "header_not_complicated"
 msgstr "Η αξιολόγηση δεν είναι πολύπλοκη "
 
 #. Default: "Consultation of workers"
-#: euphorie/client/docx/compiler.py:497
+#: euphorie/client/docx/compiler.py:502
 msgid "header_oira_report_consultation"
 msgstr "Παροχή συμβουλών στους εργαζομένους "
 
@@ -3874,7 +3887,10 @@ msgstr ""
 #. Default: "Start based on an existing risk assessment. All content of the existing risk assessment will be copied over into the new risk assessment, which you can edit and augment at will."
 #: euphorie/client/browser/templates/new-session.pt:58
 msgid "help_start_base_on_existing"
-msgstr "Ξεκινήστε με βάση μια υφιστάμενη εκτίμηση κινδύνου. Όλο το περιεχόμενο της υφιστάμενης εκτίμησης κινδύνου θα αντιγραφεί στη νέα εκτίμηση κινδύνου, την οποία μπορείτε να επεξεργαστείτε και να συμπληρώσετε κατά βούληση."
+msgstr ""
+"Ξεκινήστε με βάση μια υφιστάμενη εκτίμηση κινδύνου. Όλο το περιεχόμενο της "
+"υφιστάμενης εκτίμησης κινδύνου θα αντιγραφεί στη νέα εκτίμηση κινδύνου, την "
+"οποία μπορείτε να επεξεργαστείτε και να συμπληρώσετε κατά βούληση."
 
 #. Default: "Start from scratch with an empty risk assessment."
 #: euphorie/client/browser/templates/new-session.pt:52
@@ -4187,7 +4203,7 @@ msgstr ""
 "Επιλέξτε έναν κλάδο για τον οποίο θέλετε να δείτε ή να αντιγράψετε ένα "
 "εργαλείο OiRA."
 
-#: euphorie/client/adapters/history_item.py:103
+#: euphorie/client/adapters/history_item.py:111
 msgid "invalidated"
 msgstr "ανάκληση της επικύρωσης"
 
@@ -4218,7 +4234,7 @@ msgstr "Ο λογαριασμός είναι κλειδωμένος"
 
 #. Default: "Action Plan"
 #: euphorie/client/browser/templates/login.pt:327
-#: euphorie/client/browser/webhelpers.py:1354
+#: euphorie/client/browser/webhelpers.py:1356
 msgid "label_action_plan"
 msgstr "Σχέδιο Δράσης"
 
@@ -4273,7 +4289,7 @@ msgid "label_alphabetical"
 msgstr "Αλφαβητικά"
 
 #. Default: "Assessment"
-#: euphorie/client/browser/webhelpers.py:1321
+#: euphorie/client/browser/webhelpers.py:1323
 msgid "label_assessment"
 msgstr "Διαχείριση Κινδύνων"
 
@@ -4360,7 +4376,7 @@ msgstr ""
 #. Default: "Consultancy"
 #: euphorie/client/browser/templates/consultancy.pt:31
 #: euphorie/client/browser/templates/consultants.pt:26
-#: euphorie/client/browser/webhelpers.py:1373
+#: euphorie/client/browser/webhelpers.py:1375
 msgid "label_consultancy"
 msgstr "Συμβουλευτική υποστήριξη"
 
@@ -4492,7 +4508,7 @@ msgstr ""
 
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:325
-#: euphorie/client/browser/webhelpers.py:1324
+#: euphorie/client/browser/webhelpers.py:1326
 msgid "label_evaluation"
 msgstr "Αξιολόγηση"
 
@@ -4644,7 +4660,7 @@ msgstr "Ιστορικό"
 
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:323
-#: euphorie/client/browser/webhelpers.py:1323
+#: euphorie/client/browser/webhelpers.py:1325
 msgid "label_identification"
 msgstr "Αναγνώριση"
 
@@ -4681,7 +4697,7 @@ msgid "label_invalidate_risk_assessment"
 msgstr "Ανάκληση επικύρωσης της μελέτης εκτίμησης κινδύνου"
 
 #. Default: "Involve"
-#: euphorie/client/browser/webhelpers.py:1310
+#: euphorie/client/browser/webhelpers.py:1312
 msgid "label_involve"
 msgstr "Συμμετοχή των εργαζομένων"
 
@@ -4752,7 +4768,6 @@ msgstr "Μη επιτρεπτή πρόσβαση στο αρχείο της με
 #. Default: "Locked"
 #: euphorie/client/browser/templates/locking_menu.pt:51
 #: euphorie/client/browser/templates/status_info.pt:94
-#: euphorie/client/browser/templates/tool_sessions.pt:174
 msgid "label_locked"
 msgstr "Μη προσβάσιμο αρχείο"
 
@@ -4981,6 +4996,7 @@ msgstr "Σελίδα"
 #. Default: "of"
 #: euphorie/client/browser/pdf.py:41
 #: euphorie/client/browser/templates/training-slides.pt:134
+#: euphorie/client/docx/compiler.py:651
 msgid "label_page_of"
 msgstr "από"
 
@@ -5004,7 +5020,7 @@ msgstr "Σχεδιαζόμενα μέτρα προς εφαρμογή"
 
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:321
-#: euphorie/client/browser/webhelpers.py:1292
+#: euphorie/client/browser/webhelpers.py:1294
 msgid "label_preparation"
 msgstr "Προετοιμασία"
 
@@ -5104,7 +5120,7 @@ msgstr "Διαγραφή αυτού του μέτρου"
 
 #. Default: "Report"
 #: euphorie/client/browser/templates/report_landing.pt:29
-#: euphorie/client/browser/webhelpers.py:1389
+#: euphorie/client/browser/webhelpers.py:1391
 msgid "label_report"
 msgstr "Έκθεση"
 
@@ -5116,12 +5132,12 @@ msgstr ""
 "ερώτηση"
 
 #. Default: "Date of editing"
-#: euphorie/client/docx/compiler.py:587
+#: euphorie/client/docx/compiler.py:592
 msgid "label_report_date"
 msgstr "Ημερομηνία έκδοσης"
 
 #. Default: "Staff who participated in the risk assessment"
-#: euphorie/client/docx/compiler.py:580
+#: euphorie/client/docx/compiler.py:585
 msgid "label_report_staff"
 msgstr ""
 
@@ -5445,7 +5461,7 @@ msgstr "Μέτρια"
 #. Default: "Title"
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:24
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:30
-#: euphorie/client/docx/compiler.py:578
+#: euphorie/client/docx/compiler.py:583
 msgid "label_title"
 msgstr "Τίτλος"
 
@@ -5698,15 +5714,15 @@ msgstr ""
 "να δημιουργήσετε λογαριασμό πρόσβασης στην επίσημη έκδοση ανά πάσα στιγμή, "
 "κάνοντας κλικ στον σύνδεσμο \"Εγγραφή\" στο πάνω μέρος της οθόνης."
 
-#: euphorie/client/adapters/history_item.py:115
+#: euphorie/client/adapters/history_item.py:123
 msgid "lock refreshed"
 msgstr "ανανέωση της απαγόρευσης πρόσβασης"
 
-#: euphorie/client/adapters/history_item.py:107
+#: euphorie/client/adapters/history_item.py:115
 msgid "lock set"
 msgstr "καθορισμός της απαγόρευσης πρόσβασης"
 
-#: euphorie/client/adapters/history_item.py:111
+#: euphorie/client/adapters/history_item.py:119
 msgid "lock unset"
 msgstr "κατάργηση της απαγόρευσης πρόσβασης"
 
@@ -5756,7 +5772,7 @@ msgstr "Εισαγωγή Εργαλείου OiRA "
 
 #. Default: "Training"
 #: euphorie/client/browser/templates/webhelpers.pt:647
-#: euphorie/client/browser/webhelpers.py:1405
+#: euphorie/client/browser/webhelpers.py:1407
 msgid "menu_training"
 msgstr "Πρόγραμμα εκπαίδευσης"
 
@@ -5804,7 +5820,10 @@ msgstr ""
 #. Default: "Clicking on 'Validate' will lock the risk assessment &lsquo;${assessment}&rsquo; and give it an official validated status."
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:33
 msgid "message_click_to_validate"
-msgstr "Επιλέξτε 'Επικύρωση' για να απαγορεύσετε πλέον τη δυνατότητα πρόσβασης στη μελέτη εκτίμησης κινδύνου '${assessment}' και για να της δώσετε έναν επίσημο χαρακτηρισμό επικύρωσης."
+msgstr ""
+"Επιλέξτε 'Επικύρωση' για να απαγορεύσετε πλέον τη δυνατότητα πρόσβασης στη "
+"μελέτη εκτίμησης κινδύνου '${assessment}' και για να της δώσετε έναν επίσημο "
+"χαρακτηρισμό επικύρωσης."
 
 #. Default: "This is the only version of the OiRA Tool and can therefore not be deleted. Did you perhaps want to remove the OiRA Tool itself?"
 #: euphorie/content/browser/survey.py:218
@@ -5817,19 +5836,30 @@ msgid "message_download_tool_contents"
 msgstr ""
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/webhelpers.py:1253
+#: euphorie/client/browser/webhelpers.py:1255
 msgid "message_field_required"
 msgstr "Το πεδίο είναι υποχρεωτικό."
 
 #. Default: "It is possible to request assistance in completing a risk assessment or to have a risk analysis performed by you and validated by an OSH consultant. An OSH consultant can give your risk assessment an offical validation mark. A validation can only be requested by users with the permission level &lsquo;Manage&rsquo; or higher."
 #: euphorie/client/browser/templates/consultancy.pt:37
 msgid "message_find_consultants"
-msgstr "Είναι δυνατό να ζητήσετε τεχνική βοήθεια για την ολοκλήρωση μιας μελέτης εκτίμησης κινδύνου ή για να επικυρώσετε μιαν ανάλυση κινδύνου που έχετε ήδη πραγματοποιήσει, αξιοποιώντας για τον σκοπό αυτό παρόχους συμβουλευτικών υπηρεσιών για την ΕΑΥ, οι οποίοι μπορεί να προσφέρουν έναν επίσημο χαρακτήρα επικύρωσης στη μελέτη σας. Η επικύρωση αυτή μπορεί να ζητηθεί μόνο από χρήστες που τους έχουν παραχωρηθεί κατ’ ελάχιστον δικαιώματα επιπέδου &lsquo;Διαχείριση&rsquo;."
+msgstr ""
+"Είναι δυνατό να ζητήσετε τεχνική βοήθεια για την ολοκλήρωση μιας μελέτης "
+"εκτίμησης κινδύνου ή για να επικυρώσετε μιαν ανάλυση κινδύνου που έχετε ήδη "
+"πραγματοποιήσει, αξιοποιώντας για τον σκοπό αυτό παρόχους συμβουλευτικών "
+"υπηρεσιών για την ΕΑΥ, οι οποίοι μπορεί να προσφέρουν έναν επίσημο χαρακτήρα "
+"επικύρωσης στη μελέτη σας. Η επικύρωση αυτή μπορεί να ζητηθεί μόνο από "
+"χρήστες που τους έχουν παραχωρηθεί κατ’ ελάχιστον δικαιώματα επιπέδου &lsquo;"
+"Διαχείριση&rsquo;."
 
 #. Default: "When you invalidate this risk assessment, it will lose its validated status. You can still request for re-validation at a later time."
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:33
 msgid "message_invalidate_ra"
-msgstr "Η επιλογή για ανάκληση επικύρωσης της μελέτης εκτίμησης κινδύνου, σημαίνει ότι αυτή η μελέτη δεν θα μπορεί  πλέον να χαρακτηρίζεται ως 'Επικυρωμένη μελέτη'. Είναι δυνατόν ωστόσο, σε ένα επόμενο στάδιο, να ζητήσετε να επαναληφθεί η διαδικασία επικύρωσής της."
+msgstr ""
+"Η επιλογή για ανάκληση επικύρωσης της μελέτης εκτίμησης κινδύνου, σημαίνει "
+"ότι αυτή η μελέτη δεν θα μπορεί  πλέον να χαρακτηρίζεται ως 'Επικυρωμένη "
+"μελέτη'. Είναι δυνατόν ωστόσο, σε ένα επόμενο στάδιο, να ζητήσετε να "
+"επαναληφθεί η διαδικασία επικύρωσής της."
 
 #. Default: "Decide on the best way to involve your staff! You can for example conduct a meeting or a focus group with workers and go through the respective parts in the risk assessment together. You can also download or print the content of the tool or parts of it and share it for information and feedback with your workers."
 #: euphorie/client/browser/templates/involve.pt:35
@@ -5926,7 +5956,10 @@ msgstr ""
 #. Default: "Additional costs may be charged by your consultant."
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:34
 msgid "message_possible_extra_cost"
-msgstr "Είναι πιθανόν, σε αυτή την περίπτωση, να επιβαρυνθείτε με επιπρόσθετη κοστολόγηση των σχετικών συμβουλευτικών υπηρεσιών από τον/την πάροχό τους, εφόσον κάτι τέτοιο έχει προσυμφωνηθεί."
+msgstr ""
+"Είναι πιθανόν, σε αυτή την περίπτωση, να επιβαρυνθείτε με επιπρόσθετη "
+"κοστολόγηση των σχετικών συμβουλευτικών υπηρεσιών από τον/την πάροχό τους, "
+"εφόσον κάτι τέτοιο έχει προσυμφωνηθεί."
 
 #. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:393
@@ -5943,12 +5976,17 @@ msgstr "Επιτυχής δημοσίευση του εργαλείου OiRA. Μ
 #. Default: "I have read and reviewed and where necessary corrected or enhanced this risk assessment and I approve of its contents."
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:39
 msgid "message_read_and_reviewd_assessment_and_approve"
-msgstr "Έχω διαβάσει, εξετάσει, διορθώσει ή και εμπλουτίσει, όπου κρίθηκε αναγκαίο, αυτή τη μελέτη εκτίμησης κινδύνου, της οποίας εγκρίνω το περιεχόμενο."
+msgstr ""
+"Έχω διαβάσει, εξετάσει, διορθώσει ή και εμπλουτίσει, όπου κρίθηκε αναγκαίο, "
+"αυτή τη μελέτη εκτίμησης κινδύνου, της οποίας εγκρίνω το περιεχόμενο."
 
 #. Default: "Click on 'Send validation request' to ask the selected OSH consultant to review and validate your risk assessment."
 #: euphorie/client/browser/templates/panel-request-validation.pt:31
 msgid "message_request_validation"
-msgstr "Επιλέξτε 'Αποστολή αιτήματος για επικύρωση' προκειμένου να ζητήσετε από τον επιλεγμένο πάροχο συμβουλευτικών υπηρεσιών για την ΕΑΥ, να εξετάσει και να επικυρώσει μια μελέτη εκτίμησης κινδύνου."
+msgstr ""
+"Επιλέξτε 'Αποστολή αιτήματος για επικύρωση' προκειμένου να ζητήσετε από τον "
+"επιλεγμένο πάροχο συμβουλευτικών υπηρεσιών για την ΕΑΥ, να εξετάσει και να "
+"επικυρώσει μια μελέτη εκτίμησης κινδύνου."
 
 #. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:56
@@ -5960,7 +5998,12 @@ msgstr ""
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:62
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:76
 msgid "message_role_consultant"
-msgstr "Οι πάροχοι συμβουλευτικών υπηρεσιών για την ΕΑΥ μπορούν να εκπονήσουν, να επεξεργαστούν, να επικυρώσουν και να εγκρίνουν το περιεχόμενο μελετών εκτίμησης κινδύνου, καθώς και να υλοποιήσουν προγράμματα εκπαίδευσης αξιοποιώντας τη σχετική λειτουργική δυνατότητα των εργαλείων OiRA (όπου διατίθεται)."
+msgstr ""
+"Οι πάροχοι συμβουλευτικών υπηρεσιών για την ΕΑΥ μπορούν να εκπονήσουν, να "
+"επεξεργαστούν, να επικυρώσουν και να εγκρίνουν το περιεχόμενο μελετών "
+"εκτίμησης κινδύνου, καθώς και να υλοποιήσουν προγράμματα εκπαίδευσης "
+"αξιοποιώντας τη σχετική λειτουργική δυνατότητα των εργαλείων OiRA (όπου "
+"διατίθεται)."
 
 #. Default: "Managers/Policy makers can make and edit risk assessments, lock risk assessments, create trainings and take trainings."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:74
@@ -5977,18 +6020,27 @@ msgstr ""
 #. Default: "This risk assessment is currently under review by ${consultant}."
 #: euphorie/client/browser/templates/consultancy.pt:72
 msgid "message_session_under_review"
-msgstr "Αυτή η μελέτη εκτίμησης κινδύνου εξετάζεται προς το παρόν από τον/την ${consultant}."
+msgstr ""
+"Αυτή η μελέτη εκτίμησης κινδύνου εξετάζεται προς το παρόν από τον/την "
+"${consultant}."
 
 #. Default: "${validation_time}: ${consultant} has reviewed and validated this risk assessment"
 #: euphorie/client/browser/templates/consultancy.pt:62
 #: euphorie/client/browser/templates/locking_menu.pt:37
 msgid "message_session_validated"
-msgstr "${validation_time}: Ο/Η ${consultant} έχει εξετάσει και έχει επικυρώσει αυτή τη μελέτη εκτίμησης κινδύνου"
+msgstr ""
+"${validation_time}: Ο/Η ${consultant} έχει εξετάσει και έχει επικυρώσει αυτή "
+"τη μελέτη εκτίμησης κινδύνου"
 
 #. Default: "If you want to continue working on a copy of this assessment, for instance to report on a new year, then you can use the option 'Duplicate'. Duplication will make a full copy of your assessment which will be editable."
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:41
 msgid "message_unlock_or_duplicate"
-msgstr "Εάν επιθυμείτε να συνεχίσετε να εργάζεστε σε ένα αντίγραφο αυτής της μελέτης, για παράδειγμα όταν πρόκειται για ένα νέο έτος εφαρμογής της, τότε μπορείτε να χρησιμοποιήσετε την επιλογή 'Πιστό αντίγραφο (κλώνος)'. Η επιλογή αυτή θα δημιουργήσει αυτόματα ένα πλήρες αντίγραφο της μελέτης σας, το οποίο θα είναι επεξεργάσιμο."
+msgstr ""
+"Εάν επιθυμείτε να συνεχίσετε να εργάζεστε σε ένα αντίγραφο αυτής της "
+"μελέτης, για παράδειγμα όταν πρόκειται για ένα νέο έτος εφαρμογής της, τότε "
+"μπορείτε να χρησιμοποιήσετε την επιλογή 'Πιστό αντίγραφο (κλώνος)'. Η "
+"επιλογή αυτή θα δημιουργήσει αυτόματα ένα πλήρες αντίγραφο της μελέτης σας, "
+"το οποίο θα είναι επεξεργάσιμο."
 
 #. Default: "Cancelled unpublish action."
 #: euphorie/content/browser/surveygroup.py:237
@@ -6013,12 +6065,19 @@ msgstr "Ο λογαριασμός \"${title}\" έχει ξεκλειδωθεί."
 #. Default: "After your consultant has validated this risk assessment, it will be locked. Should you want to edit the risk assessment again, then you may always make a duplicate of this assessment at a later time."
 #: euphorie/client/browser/templates/panel-request-validation.pt:49
 msgid "message_warning_locking_after_validation"
-msgstr "Μετά την ολοκλήρωση της διαδικασίας επικύρωσης της μελέτης εκτίμησης κινδύνου, δεν θα επιτρέπεται καμιά δυνατότητα πρόσβασης σε αυτήν. Αν επιθυμείτε να ανακτήσετε ξανά τη δυνατότητα επεξεργασίας της, τότε απαιτείται πάντα να έχετε δημιουργήσει προηγουμένως ένα πιστό αντίγραφό της (κλώνος), αξιοποιώντας τη σχετική λειτουργική δυνατότητα των εργαλείων OiRA."
+msgstr ""
+"Μετά την ολοκλήρωση της διαδικασίας επικύρωσης της μελέτης εκτίμησης "
+"κινδύνου, δεν θα επιτρέπεται καμιά δυνατότητα πρόσβασης σε αυτήν. Αν "
+"επιθυμείτε να ανακτήσετε ξανά τη δυνατότητα επεξεργασίας της, τότε "
+"απαιτείται πάντα να έχετε δημιουργήσει προηγουμένως ένα πιστό αντίγραφό της "
+"(κλώνος), αξιοποιώντας τη σχετική λειτουργική δυνατότητα των εργαλείων OiRA."
 
 #. Default: "You are requested to review and validate this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:98
 msgid "message_you_are_requested_to_validate_assessment"
-msgstr "Σας έχει ζητηθεί να εξετάσετε και να επικυρώσετε αυτή τη μελέτη εκτίμησης κινδύνου."
+msgstr ""
+"Σας έχει ζητηθεί να εξετάσετε και να επικυρώσετε αυτή τη μελέτη εκτίμησης "
+"κινδύνου."
 
 #. Default: "You have reviewed and validated this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:113
@@ -6081,7 +6140,7 @@ msgstr "Ρυθμίσεις"
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:62
 #: euphorie/client/browser/templates/webhelpers.pt:62
-#: euphorie/client/browser/webhelpers.py:1420
+#: euphorie/client/browser/webhelpers.py:1422
 msgid "navigation_status"
 msgstr "Παρούσα Κατάσταση"
 
@@ -6151,12 +6210,12 @@ msgid "notice_filters_active"
 msgstr ""
 
 #. Default: "On behalf of the employer:"
-#: euphorie/client/docx/compiler.py:512
+#: euphorie/client/docx/compiler.py:517
 msgid "oira_consultation_employer"
 msgstr "Εκ μέρους του εργοδότη: "
 
 #. Default: "On behalf of the workers:"
-#: euphorie/client/docx/compiler.py:515
+#: euphorie/client/docx/compiler.py:520
 msgid "oira_consultation_workers"
 msgstr "Εκ μέρους των εργαζομένων: "
 
@@ -6173,7 +6232,7 @@ msgid "oira_name_line_2"
 msgstr "Αξιολόγηση κινδύνων"
 
 #. Default: "Date:"
-#: euphorie/client/docx/compiler.py:522
+#: euphorie/client/docx/compiler.py:527
 msgid "oira_survey_date"
 msgstr "Ημερομηνία: "
 
@@ -6183,7 +6242,7 @@ msgid "osc_search_no_results_for_search"
 msgstr "Δεν βρέθηκε καμία εκτίμηση κινδύνου για την εν λόγω επιλογή."
 
 #. Default: "The undersigned hereby declare that the workers have been consulted on the content of this document."
-#: euphorie/client/docx/compiler.py:502
+#: euphorie/client/docx/compiler.py:507
 msgid "paragraph_oira_consultation_of_workers"
 msgstr ""
 "Ο κάτωθι υπογεγραμμένος δηλώνει διά του παρόντος ότι οι εργαζόμενοι έχουν "
@@ -6343,17 +6402,17 @@ msgid "reminder_email_footer"
 msgstr ""
 
 #. Default: "Required expertise:"
-#: euphorie/client/docx/compiler.py:729
+#: euphorie/client/docx/compiler.py:744
 msgid "report_competences"
 msgstr ""
 
 #. Default: "To be done by: ${date}"
-#: euphorie/client/docx/compiler.py:755
+#: euphorie/client/docx/compiler.py:770
 msgid "report_end_date"
 msgstr ""
 
 #. Default: "by ${date}"
-#: euphorie/client/docx/compiler.py:1042
+#: euphorie/client/docx/compiler.py:1065
 msgid "report_end_date_short"
 msgstr ""
 
@@ -6366,12 +6425,12 @@ msgstr ""
 "ακόλουθα οφέλη:"
 
 #. Default: "Comments:"
-#: euphorie/client/docx/compiler.py:1014
+#: euphorie/client/docx/compiler.py:1037
 msgid "report_heading_comments"
 msgstr ""
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:962
+#: euphorie/client/docx/compiler.py:977
 msgid "report_identification_revision"
 msgstr ""
 "Αυτό το έγγραφο βασίστηκε στο Εργαλείο OiRA '${title}' με ημερομηνία "
@@ -6388,12 +6447,12 @@ msgstr ""
 "πρέπει να συμπεριλαμβάνονται σε αυτή την αναφορά, στο παρακάτω πεδίο."
 
 #. Default: "Measures already in place:"
-#: euphorie/client/docx/compiler.py:696
+#: euphorie/client/docx/compiler.py:711
 msgid "report_measures_in_place"
 msgstr ""
 
 #. Default: "Responsible: ${responsible_name}"
-#: euphorie/client/docx/compiler.py:741
+#: euphorie/client/docx/compiler.py:756
 msgid "report_responsible"
 msgstr ""
 
@@ -6410,7 +6469,7 @@ msgid "report_timeline_comment"
 msgstr "Σχόλια"
 
 #. Default: "Priority"
-#: euphorie/client/browser/report.py:150 euphorie/client/docx/compiler.py:673
+#: euphorie/client/browser/report.py:150 euphorie/client/docx/compiler.py:681
 #: euphorie/content/risk.py:206
 msgid "report_timeline_priority"
 msgstr "Εκτίμηση Επικινδυνότητας"
@@ -6583,7 +6642,7 @@ msgstr "Μικρή "
 msgid "severity_weak_help"
 msgstr "Δεν χρειάζεται διακοπή από την εργασία "
 
-#: euphorie/client/adapters/history_item.py:51
+#: euphorie/client/adapters/history_item.py:52
 msgid "started assessment"
 msgstr "έναρξη της μελέτης"
 
@@ -6876,11 +6935,11 @@ msgstr "Αξιοποιήστε το"
 msgid "use_it_to_risks_report"
 msgstr "Αξιοποιήστε το"
 
-#: euphorie/client/adapters/history_item.py:99
+#: euphorie/client/adapters/history_item.py:107
 msgid "validated"
 msgstr "επικύρωση της μελέτης"
 
-#: euphorie/client/adapters/history_item.py:95
+#: euphorie/client/adapters/history_item.py:103
 msgid "validation requested"
 msgstr "αίτημα για επικύρωση της μελέτης"
 

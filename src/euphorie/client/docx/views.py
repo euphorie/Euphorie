@@ -300,7 +300,7 @@ class ActionPlanDocxView(OfficeDocumentView):
         """Return the document filename."""
         filename = _(
             "filename_report_actionplan",
-            default="Action plan ${title}",
+            default="Report ${title}",
             mapping={"title": self.context.session.title},
         )
         filename = translate(filename, context=self.request)
