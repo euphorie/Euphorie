@@ -9,5 +9,8 @@ except ImportError:
 
 @implementer(INonInstallable)
 class HideEuphorieProducts:
+    def getNonInstallableProfiles(self):
+        return []
+
     def getNonInstallableProducts(self):
         return ["euphorie.content", "euphorie.client"]
