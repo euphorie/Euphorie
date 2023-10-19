@@ -5,6 +5,7 @@ Revises: 20220318135716
 Create Date: 2022-06-20 10:33:43.713596
 """
 from alembic import op
+from euphorie.deployment.upgrade.utils import has_column
 
 import sqlalchemy as sa
 
@@ -17,8 +18,10 @@ depends_on = None
 
 
 def upgrade():
-    op.add_column("account", sa.Column("first_name", sa.Unicode(), nullable=True))
-    op.add_column("account", sa.Column("last_name", sa.Unicode(), nullable=True))
+    if not has_column("account", "first_name"):
+        op.add_column("account", sa.Column("first_name", sa.Unicode(), nullable=True))
+    if not has_column("account", "last_name"):
+        op.add_column("account", sa.Column("last_name", sa.Unicode(), nullable=True))
 
 
 def downgrade():

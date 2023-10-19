@@ -4,6 +4,8 @@ Changelog
 15.1.0 (unreleased)
 -------------------
 
+- Make alembic upgrades fail-safe.
+  [thet]
 - Fix error when freshly installing a Plone site where `getNonInstallableProfiles` is missing.
   Ref: https://github.com/plone/Products.CMFPlone/issues/3862
   [thet]
@@ -14,6 +16,7 @@ Changelog
   Refs: scrum-1550
 - Make the login plone 6 compatible
   [ale-rt]
+
 
 15.0.8 (2023-10-24)
 -------------------

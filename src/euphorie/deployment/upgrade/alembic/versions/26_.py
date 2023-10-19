@@ -5,6 +5,7 @@ Revises: 25
 Create Date: 2020-02-03 15:42:46.758366
 """
 from alembic import op
+from euphorie.deployment.upgrade.utils import has_column
 
 import sqlalchemy as sa
 
@@ -17,9 +18,10 @@ depends_on = None
 
 
 def upgrade():
-    op.add_column(
-        "session", sa.Column("completion_percentage", sa.Integer(), nullable=True)
-    )
+    if not has_column("session", "completion_percentage"):
+        op.add_column(
+            "session", sa.Column("completion_percentage", sa.Integer(), nullable=True)
+        )
 
 
 def downgrade():

@@ -7,6 +7,7 @@ Revises:
 Create Date: 2019-09-09 10:24:51.539339
 """
 from alembic import op
+from euphorie.deployment.upgrade.utils import has_column
 
 import sqlalchemy as sa
 
@@ -19,13 +20,19 @@ depends_on = None
 
 
 def upgrade():
-    op.add_column("risk", sa.Column("image_data", sa.LargeBinary(), nullable=True))
-    op.add_column(
-        "risk", sa.Column("image_data_scaled", sa.LargeBinary(), nullable=True)
-    )
-    op.add_column("risk", sa.Column("image_filename", sa.UnicodeText(), nullable=True))
-    op.add_column("session", sa.Column("refreshed", sa.DateTime(), nullable=True))
-    op.execute("UPDATE session SET refreshed = modified")
+    if not has_column("risk", "image_data"):
+        op.add_column("risk", sa.Column("image_data", sa.LargeBinary(), nullable=True))
+    if not has_column("risk", "image_data_scaled"):
+        op.add_column(
+            "risk", sa.Column("image_data_scaled", sa.LargeBinary(), nullable=True)
+        )
+    if not has_column("risk", "image_filename"):
+        op.add_column(
+            "risk", sa.Column("image_filename", sa.UnicodeText(), nullable=True)
+        )
+    if not has_column("session", "refreshed"):
+        op.add_column("session", sa.Column("refreshed", sa.DateTime(), nullable=True))
+        op.execute("UPDATE session SET refreshed = modified")
 
 
 def downgrade():
