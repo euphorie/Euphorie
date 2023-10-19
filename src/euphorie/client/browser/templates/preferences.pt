@@ -74,7 +74,7 @@
               <fieldset class="pat-checklist group checkbox">
                 <tal:loop repeat="category categories">
                   <label class="">
-                    <input checked="${python:'checked' if category.id in view.user_notification_categories else None}"
+                    <input checked="${python:'checked' if category.id in view.existing_notification_subscriptions else None}"
                            name="notifications.${category/id}:boolean:record"
                            type="checkbox"
                            value="true"

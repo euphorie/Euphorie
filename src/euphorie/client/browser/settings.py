@@ -10,6 +10,7 @@ from euphorie.client.interfaces import INotificationCategory
 from euphorie.client.model import Account
 from euphorie.client.model import AccountChangeRequest
 from euphorie.client.model import get_current_account
+from euphorie.client.model import NotificationSubscription
 from euphorie.client.utils import CreateEmailTo
 from euphorie.client.utils import randomString
 from plone import api
@@ -153,9 +154,26 @@ class Preferences(AutoExtensibleForm, form.Form):
             yield category[1]
 
     @property
-    def user_notification_categories(self):
-        user = get_current_account()
-        return []
+    def existing_notification_subscriptions(self):
+        subscriptions = Session.query(NotificationSubscription).filter(
+            NotificationSubscription.account_id == get_current_account().getId()
+        )
+        return {subscription.category: subscription for subscription in subscriptions}
+
+    def subscribe_notification(self, category):
+        if category in self.existing_notification_subscriptions:
+            return
+        Session.add(
+            NotificationSubscription(
+                account_id=get_current_account().getId(),
+                category=category,
+            )
+        )
+
+    def unsubscribe_notification(self, category):
+        subscription = self.existing_notification_subscriptions.get(category)
+        if subscription:
+            Session.delete(subscription)
 
     @button.buttonAndHandler(_("Save"), name="save")
     def handleSave(self, action):
@@ -168,6 +186,13 @@ class Preferences(AutoExtensibleForm, form.Form):
         user = get_current_account()
         user.first_name = data["first_name"]
         user.last_name = data["last_name"]
+
+        notifications = self.request.get("notifications", {})
+        for category in self.notification_categories:
+            if notifications.get(category.id):
+                self.subscribe_notification(category.id)
+            else:
+                self.unsubscribe_notification(category.id)
 
 
 class AccountSettings(AutoExtensibleForm, form.Form):
