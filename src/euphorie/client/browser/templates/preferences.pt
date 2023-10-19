@@ -36,9 +36,11 @@
           <div class="container"
                id="app-content-preferences"
           >
+
             <fieldset class="form-panel pat-collapsible true section horizontal has-value open focus"
                       id="patterns-label-personal-details"
                       data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 100px"
+                      tal:condition="view/show_personal_details"
             >
               <h3 class="form-separation-header collapsible-open"
                   i18n:translate="title_personal_details"
@@ -57,6 +59,35 @@
                 </tal:widget>
               </div>
             </fieldset>
+
+            <fieldset class="form-panel pat-collapsible true section horizontal"
+                      id="label-notifications"
+                      data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 100px"
+                      tal:define="categories view/notification_categories"
+                      tal:condition="python: view.show_notifications and categories"
+            >
+
+              <h3 class="form-separation-header"
+                  i18n:translate="label_mailings"
+              >Notifications
+              </h3>
+              <fieldset class="pat-checklist group checkbox">
+                <tal:loop repeat="category categories">
+                  <label class="">
+                    <input checked="${python:'checked' if category.id in view.user_notification_categories else None}"
+                           name="notifications.${category/id}:boolean:record"
+                           type="checkbox"
+                           value="true"
+                    />
+                    <strong class="label-fragment-title">${category/title}</strong>
+                    <p class="label-fragment-description">${category/description}</p>
+                  </label>
+                  <br />
+                </tal:loop>
+              </fieldset>
+
+            </fieldset>
+
           </div>
         </form>
       </div>

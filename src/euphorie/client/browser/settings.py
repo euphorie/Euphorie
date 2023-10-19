@@ -6,6 +6,7 @@ Change a user's password/email or delete an account.
 """
 from Acquisition import aq_inner
 from euphorie.client import MessageFactory as _
+from euphorie.client.interfaces import INotificationCategory
 from euphorie.client.model import Account
 from euphorie.client.model import AccountChangeRequest
 from euphorie.client.model import get_current_account
@@ -29,6 +30,7 @@ from z3c.form.interfaces import WidgetActionExecutionError
 from z3c.saconfig import Session
 from z3c.schema.email import RFC822MailAddress
 from zope import schema
+from zope.component import getAdapters
 from zope.i18n import translate
 from zope.interface import alsoProvides
 from zope.interface import directlyProvides
@@ -136,10 +138,24 @@ class Preferences(AutoExtensibleForm, form.Form):
 
     schema = PreferencesSchema
 
+    show_personal_details = True
+    show_notifications = False
+
     def getContent(self):
         user = get_current_account()
         directlyProvides(user, PreferencesSchema)
         return user
+
+    @property
+    def notification_categories(self):
+        categories = getAdapters((self.context, self.request), INotificationCategory)
+        for category in categories:
+            yield category[1]
+
+    @property
+    def user_notification_categories(self):
+        user = get_current_account()
+        return []
 
     @button.buttonAndHandler(_("Save"), name="save")
     def handleSave(self, action):
