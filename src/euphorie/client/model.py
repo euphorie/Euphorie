@@ -1621,6 +1621,18 @@ class OrganisationMembership(BaseObject):
     member_role = schema.Column(types.UnicodeText())
 
 
+class NotificationSubscription(BaseObject):
+    __tablename__ = "notification_subscription"
+
+    id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
+    account_id = schema.Column(
+        types.Integer(),
+        schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
+        nullable=False,
+    )
+    category = schema.Column(types.String(512), nullable=False)
+
+
 _instrumented = False
 if not _instrumented:
     metadata._decl_registry = {}
