@@ -1652,6 +1652,7 @@ if not _instrumented:
         Training,
         Organisation,
         OrganisationMembership,
+        NotificationSubscription,
     ]:
         instrument_declarative(cls, metadata._decl_registry, metadata)
     orm.configure_mappers()
