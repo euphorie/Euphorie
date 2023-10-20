@@ -4,7 +4,8 @@ Changelog
 15.0.8 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix sidebar error when there is no root group.
+  [thet]
 
 
 15.0.7 (2023-10-12)

@@ -323,7 +323,7 @@ class SessionBrowserNavigator(BrowserView):
         base_query = Session.query(self.group_model).order_by(
             self.group_model.short_name
         )
-        return base_query.filter(self.group_model.group_id == groupid).one()
+        return base_query.filter(self.group_model.group_id == groupid).one_or_none()
 
     @property
     @memoize
