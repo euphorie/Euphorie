@@ -6,6 +6,11 @@ from zope.interface.interfaces import ObjectEvent
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 
+INTERVAL_DAILY = "daily"
+INTERVAL_HOURLY = "hourly"
+INTERVAL_MINUTELY = "minutely"
+
+
 class IClientSkinLayer(IDefaultBrowserLayer, INuPloneFormLayer):
     """Zope skin layer for the online client."""
 
@@ -25,6 +30,10 @@ class INotificationCategory(Interface):
     id = Attribute("Id")  # The id of the category
     title = Attribute("Title")  # The title of the category
     description = Attribute("Description")  # A description of the category
+
+    # The interval, this notification should be checked.
+    # One of "daily", "hourly", "minutely"
+    interval = Attribute("Interval")
 
     def notify():
         """Send a notification."""
