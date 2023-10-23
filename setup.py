@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = "15.0.8.dev0"
+version = "15.1.0.dev0"
 
 setup(
     name="Euphorie",
@@ -16,7 +16,6 @@ setup(
         "Framework :: Plone :: 5.2",
         "License :: OSI Approved :: GNU General Public License (GPL)",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Software Development :: Libraries :: Python Modules",
@@ -31,6 +30,7 @@ setup(
     namespace_packages=[],
     include_package_data=True,
     zip_safe=False,
+    python_requires="~= 3.8",
     install_requires=[
         "Plone >=5.2",
         "AccessControl",
@@ -44,6 +44,7 @@ setup(
         "htmllaundry",
         "lxml",
         "markdownify",
+        "nltk",
         "path.py",
         "plone.app.dexterity [relations]",
         "plone.app.imagecropping < 3",
@@ -59,6 +60,7 @@ setup(
         "python-docx",
         "repoze.formapi",
         "setuptools",
+        "scikit-learn",
         "sh",
         "user_agents",
         "z3c.form",

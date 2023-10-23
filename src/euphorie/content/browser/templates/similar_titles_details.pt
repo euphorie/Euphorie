@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout"
+      i18n:domain="nuplone"
+>
+  <metal:css fill-slot="style_slot">
+
+    <style>
+  .results form {
+    padding: 1em 0.5em;
+    margin 0;
+  }
+
+  .results form:nth-child(odd) {
+    background-color: #f0f0f0;
+  }
+
+  #portlets {
+    display: none;
+  }
+  #content, #mainContent {
+    padding-left: 40px;
+    padding-right: 40px;
+    width: auto;
+  }
+
+  .results .details-button {
+    float: right;
+    background: none;
+  }
+    </style>
+
+  </metal:css>
+  <metal:title fill-slot="title">${view/label}</metal:title>
+  <metal:content fill-slot="content"
+                 tal:define="
+                   solutions_by_risk view/solutions_by_risk;
+                 "
+  >
+    <div tal:repeat="risk solutions_by_risk">
+      <h3>
+        <a href="${risk/absolute_url}">${risk/Title}</a>
+        <a class="tool"
+           href="${tool/absolute_url}"
+           tal:define="
+             tool python:view.get_tool_for_brain(risk);
+           "
+        >[${python: tool.Title()}]</a>
+      </h3>
+      <ul>
+        <li tal:repeat="solution python:solutions_by_risk[risk]">
+          <tal:solution replace="structure solution/Description" />
+        </li>
+      </ul>
+    </div>
+
+  </metal:content>
+</html>

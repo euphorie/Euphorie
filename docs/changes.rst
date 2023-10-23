@@ -1,11 +1,15 @@
 Changelog
 =========
 
-15.0.8 (unreleased)
+15.1.0 (unreleased)
 -------------------
 
 - Fix sidebar error when there is no root group.
   [thet]
+- Add a custom CSS slot.
+- Add a view to check for risks with similar titles.
+  (https://github.com/syslabcom/scrum/issues/1583)
+  [ale-rt]
 
 
 15.0.7 (2023-10-12)
@@ -158,6 +162,8 @@ Changelog
   [ale-rt]
 
 - Use Plone 5.2.12
+
+- Drop support for Python 3.7 that reached its EOL
 
 
 14.3.4 (2023-04-26)
