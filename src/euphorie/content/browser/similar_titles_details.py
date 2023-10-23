@@ -1,13 +1,17 @@
 from euphorie.content import MessageFactory as _
 from euphorie.content.surveygroup import ISurveyGroup
 from plone import api
+from plone.memoize.view import memoize
 from Products.Five import BrowserView
 
 
 class SimilarTitlesDetails(BrowserView):
-    """The upload view for a :obj:`euphorie.content.sector"""
+    """A view that shows the risks that have a title similar to the title
+    of the current risk.
+    """
 
     @property
+    @memoize
     def tool_cache(self):
         return {}
 

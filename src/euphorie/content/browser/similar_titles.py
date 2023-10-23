@@ -41,9 +41,8 @@ class ISimilarTitleSchema(Interface):
 
 
 class SimilarTitles(AutoExtensibleForm, form.Form):
-    """The upload view for a :obj:`euphorie.content.sector`
-
-    View name: @@upload
+    """
+    A form that allows you to find and display risks with similar titles.
     """
 
     schema = ISimilarTitleSchema
@@ -83,6 +82,7 @@ class SimilarTitles(AutoExtensibleForm, form.Form):
         return self.extracted_data.get("max_similarity", 1.0)
 
     @property
+    @memoize
     def tool_cache(self):
         return {}
 
