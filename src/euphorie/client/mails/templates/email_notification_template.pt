@@ -13,7 +13,7 @@
           portal_url proto/portal_url;
           lang proto/language;
         "
-        i18n:domain="ploneintranet"
+        i18n:domain="euphorie"
         i18n:target="view/target_language|nothing"
   >
 
