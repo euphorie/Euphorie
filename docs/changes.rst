@@ -1,7 +1,7 @@
 Changelog
 =========
 
-15.1.0 (unreleased)
+15.0.8 (2023-10-24)
 -------------------
 
 - Fix sidebar error when there is no root group.
