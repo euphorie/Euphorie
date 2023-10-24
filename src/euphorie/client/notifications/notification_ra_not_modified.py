@@ -21,8 +21,6 @@ class NotificationEmail(BaseEmail):
         return ""
 
 
-
-
 @implementer(INotificationCategory)
 class NotificationRANotModified:
     id = "euphorie_category_ra_not_modified"
@@ -40,7 +38,7 @@ class NotificationRANotModified:
     @property
     def description(self):
         # TODO: get XXX da\ys
-        self.notify()
+        #self.notify()
         return _(
             "notification_description__ra_not_modified",
             default="Notify when a risk assessment was not modified for ${days} days.",
@@ -81,9 +79,5 @@ class NotificationRANotModified:
                 email = manager.contact_email
                 # get email template
                 # send email
-
-                manager.notify(events)
-
-        __import__("pdb").set_trace()
 
         return events
