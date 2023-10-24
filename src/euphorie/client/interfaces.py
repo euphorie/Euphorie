@@ -35,5 +35,8 @@ class INotificationCategory(Interface):
     # One of "daily", "hourly", "minutely"
     interval = Attribute("Interval")
 
+    # Return True if this category is available for the current user.
+    available = Attribute("Available")
+
     def notify():
         """Send a notification."""
