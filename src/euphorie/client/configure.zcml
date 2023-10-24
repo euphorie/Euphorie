@@ -27,6 +27,7 @@
   <include package=".adapters" />
   <include package=".browser" />
   <include package=".notifications" />
+  <include package=".mails" />
   <include package=".subscribers" />
   <include package=".docx" />
   <include package=".widgets" />

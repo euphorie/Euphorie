@@ -1,0 +1,208 @@
+<metal:page define-macro="master">
+  <tal:doctype tal:replace="structure string:&lt;!DOCTYPE html&gt;" />
+  <tal:comment tal:condition="nothing">
+    Based on proto/_layouts/apps/mailings/mail-base.html
+  </tal:comment>
+  <html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        lang="${lang}"
+        style="line-height: 1.5"
+        tal:define="
+          proto nocall:here/@@proto;
+          portal_url proto/portal_url;
+          lang proto/language;
+        "
+        i18n:domain="ploneintranet"
+        i18n:target="view/target_language|nothing"
+  >
+
+    <head>
+      <style type="text/css">
+
+          a {
+          color: #009ee2;
+          }
+
+          @media screen and (max-width: 800px) {
+          table {
+          width: 100% !important;
+          padding: 0 !important;
+          }
+
+          #main {
+          max-width: 90% !important;
+          margin: 0 auto !important;
+          }
+
+          #header {
+          height: auto !important;
+          }
+
+          .news-item-image {
+          margin: 0 auto 20px !important;
+          display: block;
+          max-width: 500px !important;
+          }
+
+          .news-item-text {
+          padding: 0 0 50px 0 !important;
+          }
+          }
+      </style>
+      <style>@media print {#ghostery-tracker-tally {display:none !important}}</style>
+    </head>
+
+    <body align="center"
+          style="
+            background-color: #efefef;
+            line-height: 1.5;
+            padding: 0;
+            margin: 0;
+            font-family: Verdana,Geneva,sans-serif;
+          "
+    >
+      <table id="main"
+             align="center"
+             border="0"
+             cellpadding="0"
+             cellspacing="0"
+             style="
+              margin: 0 auto 80px;
+              line-height: 1.5;
+              border-collapse: collapse;
+              font-family: Verdana,Geneva,sans-serif;
+             "
+             width="100%"
+      >
+        <tbody style="line-height: 1.5">
+          <tr tal:condition="proto/email_logo_url">
+            <td id="header"
+                align="center"
+                height="160"
+                style="
+                  padding: 20px 0 0 0;
+                  text-align: center;
+                  height: 160px;
+              "
+            >
+              <a href="${portal_url}">
+                <img alt="${proto/site_title}"
+                     src="${proto/email_logo_url}"
+                     style="
+                      max-width: 100%;
+                      outline: none;
+                      display: inline-block;
+                      margin: 0 auto;
+                     "
+                />
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td align="center"
+                style="
+                  line-height: 1.5;
+                  text-align: center;
+                  font-family: Verdana,Geneva,sans-serif;
+                "
+            >
+              <table align="center"
+                     border="0"
+                     cellpadding="0"
+                     cellspacing="0"
+                     style="max-width: 100%;"
+                     width="800"
+              >
+                <tbody>
+                  <tr>
+                    <td align="center"
+                        style="max-width: 100%;"
+                        width="800"
+                    >
+                      <tal:comment condition="nothing">
+                        <!-- content: proto/_layouts/mail_digest.html -->
+                      </tal:comment>
+                      <table align="left"
+                             border="0"
+                             cellpadding="0"
+                             cellspacing="0"
+                             style="border-collapse: collapse;
+                                    width: 800px;
+                                    text-align: left;
+                                    margin: 0 auto;
+                                    float: none;"
+                             width="800"
+                      >
+                        <tal:comment condition="nothing">
+                          <!-- The slots below are filled from notifications/mails/templates/aggregated_email.pt -->
+                        </tal:comment>
+                        <metal:slot define-slot="header" />
+                        <metal:slot define-slot="body" />
+                        <tr tal:condition="nothing">
+                          <!-- TODO: limit number of notifications rendered, and link to more.
+                               <td>
+                               <p style="{{ default_styles }}">
+                               {% include patterns/i18n
+                               id="message_more_notifications_in_notifcations_app" %}
+                               </p>
+                               </td> -->
+                        </tr>
+                      </table>
+                      <tal:comment condition="nothing">
+                        <!-- /mail_digest.html -->
+                      </tal:comment>
+
+                    </td>
+                  </tr>
+                  <tr style="line-height: 1.5">
+                    <metal:slot define-slot="footer" />
+                    <td colspan="3"
+                        style="line-height: 1.5"
+                    >&nbsp;</td>
+                  </tr>
+                  <tr style="line-height: 1.5"
+                      tal:condition="view/show_preferences_link|python:request.get('preferences_on')"
+                  >
+                    <td align="center"
+                        style="
+                    line-height: 1.5;
+                    text-align: center;"
+                    >
+                      <hr style="
+                      margin: 30px 0;
+                      border: none;
+                      height: 1px;
+                      background-color: silver;
+                      line-height: 1.5" />
+                      <p style="
+                      color: gray;
+                      font-size: 10px;
+                      margin-bottom: 15px;
+                      text-align: center;
+                      line-height: 1.5;
+                      margin: 0 0 2em;
+                      font-family: Verdana,Geneva,sans-serif">
+                        <tal:block i18n:translate="notification_received_reason">
+                          You are receiving this because you are subscribed to notifications from
+                          <tal:i18n i18n:name="site_name">${proto/site_title}</tal:i18n>.
+                        </tal:block>
+                        <a href="${portal_url}/apps/preferences"
+                           style="
+                            line-height: 1.5;
+                            color: #009ee2;
+                           "
+                           i18n:translate=""
+                        >Change subscription settings</a>.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </body>
+  </html>
+</metal:page>

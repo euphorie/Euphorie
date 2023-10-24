@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    >
+
+  <browser:page
+      name="email-notification-template"
+      for="*"
+      template="templates/email_notification_template.pt"
+      permission="zope.Public"
+      layer="..interfaces.IClientSkinLayer"
+      />
+
+</configure>
