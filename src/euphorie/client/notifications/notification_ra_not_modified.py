@@ -1,4 +1,5 @@
 from euphorie.client import MessageFactory as _
+from euphorie.client.mails.base import BaseEmail
 from euphorie.client import utils
 from euphorie.client.interfaces import INotificationCategory
 from euphorie.client.interfaces import INTERVAL_DAILY
@@ -7,6 +8,19 @@ from z3c.saconfig import Session
 from zope.interface import implementer
 
 import datetime
+
+
+class NotificationEmail(BaseEmail):
+
+    @property
+    def subject(self):
+        return _("Erinnerung: Aktualisierung der Gefährdungsbeurteilung und Wiederholungsunterweisung")
+
+    @property
+    def sender(self):
+        return ""
+
+
 
 
 @implementer(INotificationCategory)
@@ -39,7 +53,7 @@ class NotificationRANotModified:
 
     @property
     def available(self):
-        # TODO: Check is user is allowed to set this setting.
+        # TODO: Check if user is allowed to set this setting.
         return True
 
     def notify(self):

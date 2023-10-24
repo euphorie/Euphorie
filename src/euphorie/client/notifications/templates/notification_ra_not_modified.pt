@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      lang="de"
+      metal:use-macro="context/email-notification-template/macros/master"
+      xml:lang="de"
+      i18n:domain="euphorie"
+>
+  <body>
+    <metal:content fill-slot="body">
+      <p i18n:translate="">Hallo ${view/first_name} ${view/last_name},</p>
+      <p i18n:translate="">Sie haben vor ${view/modification_threshold_days} Tagen Ihre Gefährdungsbeurteilung zuletzt bearbeitet (bzw. schreibgeschützt). Bitte denken Sie daran, Ihre Gefährdungsbeurteilung aktuell zu halten. Die jährliche Unterweisung Ihrer Mitarbeitenden ist nach  ${view/modification_threshold_days} Tagen zu wiederholen.</p>
+      <p i18n:translate="">
+        Mit diesem Link [session link] gelangen Sie zur Gefährdungsbeurteilung.
+      </p>
+      <p i18n:translate="">
+        Mit freundlichen Grüßen<br/>
+        Ihr OiRA Team
+      </p>
+      <p i18n:translate="">
+Dies ist eine automatisch generierte Mail. Wenn Sie keine Mails von OiRA erhalten möchten, können Sie dies hier ${view/settings_url} einstellen
+      </p>
+    </metal:content>
+  </body>
+</html>

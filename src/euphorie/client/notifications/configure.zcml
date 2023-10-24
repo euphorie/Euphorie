@@ -1,4 +1,15 @@
-<configure xmlns="http://namespaces.zope.org/zope">
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    >
+
+  <browser:page
+      name="notification-ra-not-modified--email"
+      for="*"
+      template="templates/notification_ra_not_modified.pt"
+      permission="zope.Public"
+      layer="..interfaces.IClientSkinLayer"
+      />
 
   <adapter
       factory=".notification_ra_not_modified.NotificationRANotModified"
