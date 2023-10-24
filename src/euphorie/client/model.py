@@ -1195,7 +1195,7 @@ class SurveySession(BaseObject):
 
     @classmethod
     def get_archived_filter(cls):
-        """Filter sessions that are archived."""
+        """Filter out sessions that are archived."""
         return sql.or_(
             cls.archived >= localized_now(), cls.archived == None  # noqa: E711
         )
