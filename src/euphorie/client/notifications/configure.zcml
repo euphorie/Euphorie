@@ -1,0 +1,10 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <adapter
+      factory=".notification_ra_not_modified.NotificationRANotModified"
+      for="*
+           ..interfaces.IClientSkinLayer"
+      name="euphorie_category_ra_not_modified"
+      />
+
+</configure>
