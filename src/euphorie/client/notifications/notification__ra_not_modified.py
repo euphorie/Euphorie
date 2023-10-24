@@ -80,4 +80,6 @@ class NotificationRANotModified:
                 # get email template
                 # send email
 
+        __import__("pdb").set_trace()
+
         return events
