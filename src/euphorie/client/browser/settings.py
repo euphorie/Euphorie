@@ -142,8 +142,13 @@ class Preferences(AutoExtensibleForm, form.Form):
     show_personal_details = True
     show_notifications = False
 
+    @property
+    @memoize
+    def current_user(self):
+        return get_current_account()
+
     def getContent(self):
-        user = get_current_account()
+        user = self.current_user
         directlyProvides(user, PreferencesSchema)
         return user
 
@@ -154,9 +159,10 @@ class Preferences(AutoExtensibleForm, form.Form):
             yield category[1]
 
     @property
+    @memoize
     def existing_notification_subscriptions(self):
         subscriptions = Session.query(NotificationSubscription).filter(
-            NotificationSubscription.account_id == get_current_account().getId()
+            NotificationSubscription.account_id == self.current_user.getId()
         )
         return {subscription.category: subscription for subscription in subscriptions}
 
@@ -167,7 +173,7 @@ class Preferences(AutoExtensibleForm, form.Form):
             return
         Session.add(
             NotificationSubscription(
-                account_id=get_current_account().getId(),
+                account_id=self.current_user.getId(),
                 category=category,
                 enabled=True,
             )
@@ -180,7 +186,7 @@ class Preferences(AutoExtensibleForm, form.Form):
             return
         Session.add(
             NotificationSubscription(
-                account_id=get_current_account().getId(),
+                account_id=self.current_user.getId(),
                 category=category,
                 enabled=False,
             )
@@ -194,7 +200,7 @@ class Preferences(AutoExtensibleForm, form.Form):
             for error in errors:
                 flash(error.message, "notice")
             return
-        user = get_current_account()
+        user = self.current_user
         user.first_name = data["first_name"]
         user.last_name = data["last_name"]
 
