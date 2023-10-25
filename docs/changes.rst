@@ -5,6 +5,8 @@ Changelog
 -------------------
 
 - Updated styles.
+- Short report tweaks
+  Ref: scrum-1295
 
 
 15.0.8 (2023-10-24)
