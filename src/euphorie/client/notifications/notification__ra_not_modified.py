@@ -10,7 +10,7 @@ from zope.interface import implementer
 import datetime
 
 
-class NotificationEmail(BaseEmail):
+class Email(BaseEmail):
 
     @property
     def subject(self):
@@ -22,7 +22,7 @@ class NotificationEmail(BaseEmail):
 
 
 @implementer(INotificationCategory)
-class NotificationRANotModified:
+class Notification:
     id = "euphorie_category_ra_not_modified"
     title = _(
         "notification_title__ra_not_modified",

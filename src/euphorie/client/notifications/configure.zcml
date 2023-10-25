@@ -4,15 +4,16 @@
     >
 
   <browser:page
-      name="notification-ra-not-modified--email"
+      name="notification--ra-not-modified--email"
       for="*"
-      template="templates/notification_ra_not_modified.pt"
+      class=".notification__ra_not_modified.Email"
+      template="templates/notification__ra_not_modified.pt"
       permission="zope.Public"
       layer="..interfaces.IClientSkinLayer"
       />
 
   <adapter
-      factory=".notification_ra_not_modified.NotificationRANotModified"
+      factory=".notification__ra_not_modified.Notification"
       for="*
            ..interfaces.IClientSkinLayer"
       name="euphorie_category_ra_not_modified"
