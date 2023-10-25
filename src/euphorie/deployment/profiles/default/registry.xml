@@ -246,10 +246,10 @@
     <value>True</value>
   </record>
   <record name="euphorie.notification__ra_not_modified__reminder_days">
-    <field type="plone.registry.field.Bool">
+    <field type="plone.registry.field.Int">
       <title>notifcation reminder risk assessment not modified (days)</title>
       <description>notifcation reminder in days after a risk assessment has not been modified</description>
-      <required>True</required>
+      <required>False</required>
     </field>
     <value>365</value>
   </record>
