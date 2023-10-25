@@ -245,6 +245,13 @@
     </field>
     <value>True</value>
   </record>
+  <record name="euphorie.notification__ra_not_modified__reminder_days">
+    <field type="plone.registry.field.Bool">
+      <title>notifcation reminder in days after a risk assessment has not been modified</title>
+      <required>True</required>
+    </field>
+    <value>365</value>
+  </record>
   <record name="plonetheme.nuplone.appconfigtile_navigation">
     <field type="plone.registry.field.Text">
       <title>Configure the navigation tile</title>
