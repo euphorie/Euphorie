@@ -9,6 +9,7 @@ from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 INTERVAL_DAILY = "daily"
 INTERVAL_HOURLY = "hourly"
 INTERVAL_MINUTELY = "minutely"
+INTERVAL_MANUAL = "manual"
 
 
 class IClientSkinLayer(IDefaultBrowserLayer, INuPloneFormLayer):
