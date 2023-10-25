@@ -476,4 +476,13 @@
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
+  <browser:page
+      name="find-solution-title-duplications"
+      for="euphorie.content.survey.ISurvey"
+      class=".survey.FindSolutionTitleDuplications"
+      template="templates/find-solution-title-duplications.pt"
+      permission="cmf.ManagePortal"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
 </configure>
