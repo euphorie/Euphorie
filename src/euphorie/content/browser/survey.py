@@ -448,3 +448,18 @@ class ContentsOfSurvey(IdentificationReportDocxView):
             mapping=dict(title=self.context.title),
         )
         return f"{translate(filename, context=self.request)}.docx"
+
+
+class FindSolutionTitleDuplications(BrowserView):
+    """"""
+
+    @property
+    def measures(self):
+        brains = api.content.find(
+            portal_type="euphorie.solution",
+            path="/".join(self.context.getPhysicalPath()),
+        )
+        for brain in brains:
+            obj = brain.getObject()
+            if obj.description in obj.action:
+                yield obj

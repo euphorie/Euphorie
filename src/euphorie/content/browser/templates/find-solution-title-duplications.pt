@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout"
+      i18n:domain="nuplone"
+>
+
+  <metal:title fill-slot="title">Find Measure Title Duplications</metal:title>
+  <metal:content fill-slot="content">
+    <article>
+      <dl>
+        <tal:measure tal:repeat="measure view/measures">
+          <dt><a href="${measure/absolute_url}">${measure/description}</a></dt>
+          <dd>${measure/action}</dd>
+        </tal:measure>
+      </dl>
+    </article>
+  </metal:content>
+</html>
