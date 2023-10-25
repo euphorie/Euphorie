@@ -1,9 +1,10 @@
 from euphorie.client import MessageFactory as _
-from euphorie.client.mails.base import BaseEmail
 from euphorie.client import utils
 from euphorie.client.interfaces import INotificationCategory
 from euphorie.client.interfaces import INTERVAL_DAILY
+from euphorie.client.mails.base import BaseEmail
 from euphorie.client.model import SurveySession
+from plone import api
 from z3c.saconfig import Session
 from zope.interface import implementer
 
@@ -11,10 +12,15 @@ import datetime
 
 
 class Email(BaseEmail):
-
     @property
     def subject(self):
-        return _("Erinnerung: Aktualisierung der Gefährdungsbeurteilung und Wiederholungsunterweisung")
+        return _(
+            "notification_mail_subject__ra_not_modified",
+            default=(
+                "Erinnerung: Aktualisierung der Gefährdungsbeurteilung "
+                "und Wiederholungsunterweisung"
+            ),
+        )
 
     @property
     def sender(self):
@@ -38,16 +44,19 @@ class Notification:
     @property
     def description(self):
         # TODO: get XXX da\ys
-        #self.notify()
+        # self.notify()
         return _(
             "notification_description__ra_not_modified",
             default="Notify when a risk assessment was not modified for ${days} days.",
-            mapping={"days": self.modification_threshold_days},
+            mapping={"days": self.reminder_days},
         )
 
     @property
-    def modification_threshold_days(self):
-        return 365
+    def reminder_days(self):
+        value = api.portal.get_registry_record(
+            "euphorie.notification__ra_not_modified__reminder_days", default=365
+        )
+        return value
 
     @property
     def available(self):
@@ -64,7 +73,7 @@ class Notification:
             .filter(SurveySession.get_archived_filter())
             .filter(
                 SurveySession.modified
-                <= (today - datetime.timedelta(days=self.modification_threshold_days))
+                <= (today - datetime.timedelta(days=self.reminder_days))
             )
         )
         events = query.all()
