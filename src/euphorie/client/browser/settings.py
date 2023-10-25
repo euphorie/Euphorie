@@ -166,28 +166,28 @@ class Preferences(AutoExtensibleForm, form.Form):
         )
         return {subscription.category: subscription for subscription in subscriptions}
 
-    def subscribe_notification(self, category):
-        category = self.existing_notification_subscriptions.get(category)
+    def subscribe_notification(self, category_id):
+        category = self.existing_notification_subscriptions.get(category_id)
         if category:
             category.enabled = True
             return
         Session.add(
             NotificationSubscription(
                 account_id=self.current_user.getId(),
-                category=category,
+                category=category_id,
                 enabled=True,
             )
         )
 
-    def unsubscribe_notification(self, category):
-        category = self.existing_notification_subscriptions.get(category)
+    def unsubscribe_notification(self, category_id):
+        category = self.existing_notification_subscriptions.get(category_id)
         if category:
             category.enabled = False
             return
         Session.add(
             NotificationSubscription(
                 account_id=self.current_user.getId(),
-                category=category,
+                category=category_id,
                 enabled=False,
             )
         )
@@ -204,12 +204,13 @@ class Preferences(AutoExtensibleForm, form.Form):
         user.first_name = data["first_name"]
         user.last_name = data["last_name"]
 
-        notifications = self.request.get("notifications", {})
-        for category in self.notification_categories:
-            if notifications.get(category.id):
-                self.subscribe_notification(category.id)
-            else:
-                self.unsubscribe_notification(category.id)
+        if self.show_notifications:
+            notifications = self.request.get("notifications", {})
+            for category in self.notification_categories:
+                if notifications.get(category.id):
+                    self.subscribe_notification(category.id)
+                else:
+                    self.unsubscribe_notification(category.id)
 
 
 class AccountSettings(AutoExtensibleForm, form.Form):
