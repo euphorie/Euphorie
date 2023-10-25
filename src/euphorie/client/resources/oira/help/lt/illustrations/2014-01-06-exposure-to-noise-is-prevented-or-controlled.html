@@ -465,6 +465,12 @@
                                       
                                     
                                     
+                                    
+                                      
+                                      
+                                      
+                                    
+                                    
                                   </ol>
                                 
                               </li>
@@ -520,10 +526,16 @@
                           
                             
                           
+                            
+                          
                         </ol>
                       
                     
                   </li>
+                
+
+              
+
                 
 
               
@@ -749,14 +761,31 @@
     id="editor-toolbar-assessment"
     class="editor-toolbar tiptap">
     
-        
-            <div
-                class="pat-collapsible pat-context-menu closed align-left no-label icon-paragraph"
-                data-pat-collapsible="close-trigger: .context-menu:not(#formatting-menu),.close-menu;"
-                id="formatting-menu">
-                <strong
-                    class="context-menu-label menu-trigger pat-tooltip"
-                    data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Formatting</strong>
+        <div
+            class="
+                pat-collapsible 
+                pat-context-menu 
+                formatting-menu
+                align-left 
+                no-label 
+                icon-paragraph 
+                closed"
+            data-pat-collapsible="
+                store: none;
+                scroll-selector: none;
+                trigger: #context-menu-trigger-formatting-editor-toolbar-assessment;
+                close-trigger: .context-menu:not(.formatting-menu),.close-menu;"
+            id="formatting-menu-editor-toolbar-assessment">
+            <strong
+                id="context-menu-trigger-formatting-editor-toolbar-assessment"
+                class="context-menu-label menu-trigger pat-tooltip"
+                data-pat-tooltip="
+                    trigger: hover; 
+                    source: content; 
+                    position-list: tm; 
+                    class: label">Formatting</strong>
+            <div 
+                class="panel-content">
                 <p
                     class="close-menu">Close</p>
                 <ul
@@ -790,37 +819,57 @@
                     
                 </ul>
             </div>
-        
-        
-        	<button
-                type="button"
-                class="icon icon-bold button-bold pat-tooltip"
-                data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Bold</button>
-        
-        
-        	<button
-                type="button"
-                class="icon icon-italic button-italic pat-tooltip"
-                data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Italic</button>
-        
-        
-        
-            <a
-                class="icon icon-link button-link pat-modal pat-tooltip"
-                data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
-                data-pat-modal="class: medium panel panel-hyperlink"
-                href="/feedback/panel-hyperlink#document-content">Hyperlink</a>
-        
-        
-        
-            <div
-                type="button"
-                class="pat-collapsible pat-context-menu closed align-left no-label icon-list"
-                data-pat-collapsible="close-trigger: .context-menu:not(#list-menu),.close-menu;"
-                id="list-menu">
-                <strong
-                    class="context-menu-label menu-trigger pat-tooltip"
-                    data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Lists</strong>
+        </div>
+    
+    
+        <button
+            type="button"
+            class="icon icon-bold button-bold pat-tooltip"
+            data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Bold</button>
+    
+    
+        <button
+            type="button"
+            class="icon icon-italic button-italic pat-tooltip"
+            data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label">Italic</button>
+    
+    
+    
+        <a
+            class="icon icon-link button-link pat-modal pat-tooltip"
+            data-pat-tooltip="trigger: hover; source: content; position-list: tm; class: label"
+            data-pat-modal="class: medium panel panel-hyperlink"
+            href="/feedback/panel-hyperlink#document-content">Hyperlink</a>
+    
+    
+    
+        <div
+            type="button"
+            class="
+                pat-collapsible 
+                pat-context-menu 
+                list-menu
+                closed align-left 
+                no-label 
+                icon-list"
+            data-pat-collapsible="
+                store: none;
+                scroll-selector: none;
+                trigger: #context-menu-trigger-list-editor-toolbar-assessment;
+                close-trigger: .context-menu:not(.list-menu),.close-menu;">
+            <strong
+                id="context-menu-trigger-list-editor-toolbar-assessment"
+                class="
+                    context-menu-label 
+                    menu-trigger 
+                    pat-tooltip"
+                data-pat-tooltip="
+                    trigger: hover; 
+                    source: content; 
+                    position-list: tm; 
+                    class: label">Lists</strong>
+            <div 
+                class="panel-content">
                 <p
                     class="close-menu">Close</p>
                 <ul
@@ -841,13 +890,14 @@
                     
                 </ul>
             </div>
-        
-        
-        
-        
-        
-        
-        
+        </div>
+    
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -861,7 +911,7 @@
                 <a 
                     title="Lock this assessment" 
                     href="#publication-menu" 
-                    class="icon-lock-open icon pat-tooltip" 
+                    class="icon-lock-open icon pat-tooltip " 
                     data-pat-tooltip="source: ajax; position-list: tr; trigger: click; source: ajax">Unlocked 
                     <!-- <time 
                             class="pat-display-time" 
@@ -869,6 +919,33 @@
                         datetime="2018-03-28T08:00Z">2018-03-28</time> -->
                 </a>
             
+
+            <div 
+                id="publication-menu" 
+                hidden>
+                
+                    <div 
+                        class="pat-message notice">
+                        <p>
+                            Last edited by <a href="mailto:hans@mittelmaier.de">Michel Moulin</a> on 8 December 2022.
+                        </p>
+                    </div>
+                
+                    <ul 
+                        class="menu">
+                        
+                        <li>
+                            <form 
+                                action="/preparation-read-only.html#content" 
+                                class="pat-inject close-panel">
+                                <button 
+                                    type="submit" 
+                                    class="icon-lock">Lock Risk Assessment</button>
+                            </form>
+                        </li>
+                    
+                </ul>
+            </div>
                 
             <a 
                 href="/preparation.html#sharing-menu" 
@@ -1047,25 +1124,21 @@ sound.</p>
         
         <div 
             class="pat-rich-editor pat-rich toolbar-detached">
-            
-    <textarea
-      
-      class="pat-tiptap "
-      placeholder="These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
-      data-pat-tiptap="
-        toolbar-external: #assessment-toolbar;
-        source-panel: #pat-modal.panel-html-source-editor;
-        image-panel: #pat-modal.image-picker;
-        embed-panel: ;
-        link-panel: #pat-modal.panel-hyperlink;
-        image-menu: ;
-        link-menu: /feedback/hyperlink-menu#document-content;
-        mentions-menu: /feedback/panel-mentions-tiptap#document-content;
-        tags-menu: /feedback/panel-tags-tiptap#document-content"
-    >
+            <textarea
+  
+  class="pat-tiptap "
+  placeholder="These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
+  data-pat-tiptap="
+    toolbar-external: #assessment-toolbar;
+    source-panel: #pat-modal.panel-html-source-editor;
+    image-panel: #pat-modal.image-picker;
+    embed-panel: ;
+    link-panel: #pat-modal.panel-hyperlink;
+    image-menu: ;
+    link-menu: /feedback/hyperlink-menu#document-content;
+    mentions-menu: /feedback/panel-mentions-tiptap#document-content;
+    tags-menu: /feedback/panel-tags-tiptap#document-content">
 </textarea>
-
-
             </div>
     </fieldset>
 </fieldset>
@@ -1257,7 +1330,7 @@ sound.</p>
         <button 
             class="default pat-button pat-switch close-panel" 
             data-pat-switch="selector: #my-comments; remove: status-* ; add: status-inactive && selector: #my-comments-reply-button; remove: executed" 
-            type="submit">Send</button>
+            type="submit">Post</button>
         <button 
             class="pat-button pat-switch close-panel" 
             data-pat-switch="selector: #my-comments; remove: status-*; add: status-inactive && selector: #my-comments-reply-button; remove: executed" 
@@ -1393,13 +1466,23 @@ sound.</p>
 
 	        
 
-<fieldset class="advanced pat-clone" data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
-    <input type="hidden" name="search-rule.and-or:records" value="" />
-    <p class="clone search-rule row-1">
-        <label class="pat-select field-choice pat-select">
-            <select name="search-rule.data-field:records">
-                <option value="SearchableText"></option>
-                <optgroup label="Metadata">
+<fieldset 
+    class="advanced pat-clone" 
+    data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
+    <input
+        type="hidden" 
+        name="search-rule.and-or:records" 
+        value="" />
+    <p 
+        class="clone search-rule row-1">
+        <label 
+            class="pat-select field-choice pat-select">
+            <select 
+                name="search-rule.data-field:records">
+                <option 
+                    value="SearchableText"></option>
+                <optgroup 
+                    label="Metadata">
                     <option value="Title">Title</option>
                     <option value="Description">Description</option>
                     <option value="content">Body text</option>
@@ -1416,34 +1499,54 @@ sound.</p>
                 </optgroup>
             </select>
         </label>
-        <span class="parameters lemma">
-            <label class="pat-select">
-                <select name="search-rule.lemma-operator:records">
+        <span 
+            class="parameters lemma">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.lemma-operator:records">
                     <option value="contains"></option>
                     <option value="contains-not"></option>
                     <option value="equals"></option>
                 </select>
             </label>
-            <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
+            <input 
+                type="text" 
+                name="search-rule.lemma-value:records" 
+                placeholder="Lemma" 
+                class="lemma-field" />
         </span>
-        <span class="parameters date">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters date">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="is"></option>
                     <option value="is-before"></option>
                     <option value="is-after"></option>
                 </select>
             </label>
-            <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
+            <input 
+                type="date" 
+                name="search-rule.date-value:records" 
+                placeholder="Date" 
+                class="date-field pat-date-picker" />
         </span>
-        <span class="parameters plant">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters plant">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="equals"></option>
                     <option value="equals-not"></option>
                 </select>
             </label>
-            <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest lemma-field">
+            <select 
+                name="search-rule.plant-value:records" 
+                placeholder="Plant code" 
+                class="pat-autosuggest lemma-field">
                 <option>001</option>
                 <option>002</option>
                 <option>003</option>
@@ -1451,14 +1554,20 @@ sound.</p>
                 <option>005</option>
             </select>
         </span>
-        <span class="parameters department">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters department">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="equals"></option>
                     <option value="equals-not"></option>
                 </select>
             </label>
-            <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest lemma-field">
+            <select 
+                name="search-rule.department-value:records" 
+                placeholder="Department name" 
+                class="pat-autosuggest lemma-field">
                 <option>103,   (GEPJW5W4P)</option>
                 <option>104,   (GEPJNROAL)</option>
                 <option>105,   (GEPJS5CBN)</option>
@@ -1474,27 +1583,46 @@ sound.</p>
     </p>
 </fieldset>
 
-<p class="button-bar">
-    <button type="submit" class="pat-button icon-search small">Paieška</button>
-    <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small"></button>
+<p 
+    class="button-bar">
+    <button 
+        type="submit" 
+        class="pat-button default icon-search">Paieška</button>
+    <button 
+        type="button" 
+        class="pat-button add-clone add-clone-rule icon-plus-circle"></button>
+
+    <a 
+        href="../../lt/illustrations/2014-01-06-exposure-to-noise-is-prevented-or-controlled#listing" 
+        class="pat-inject float-after pat-button">Reset</a>
 </p>
 
-<template id="clone-template">
-  <p class="clone search-rule animated fadeIn">
-    <label class="and-or pat-select bare">
-        <select name="search-rule.and-or:records">
-            <option value="and">
+<template 
+    id="clone-template">
+    <p 
+        class="clone search-rule animated fadeIn">
+    <label 
+        class="and-or pat-select bare">
+        <select 
+            name="search-rule.and-or:records">
+            <option 
+                value="and">
                 
             </option>
-            <option value="or">
+            <option 
+                value="or">
                 
             </option>
         </select>
     </label>
-    <label class="field-choice pat-select">
-        <select name="search-rule.data-field:records">
-            <option value="SearchableText"></option>
-            <optgroup label="Metadata">
+    <label 
+        class="field-choice pat-select">
+        <select 
+            name="search-rule.data-field:records">
+            <option 
+                value="SearchableText"></option>
+            <optgroup 
+                label="Metadata">
                 <option value="Title">Title</option>
                 <option value="Description">Description</option>
                 <option value="content">Body text</option>
@@ -1508,19 +1636,29 @@ sound.</p>
             </optgroup>
         </select>
     </label>
-    <span class="parameters lemma">
-        <label class="pat-select">
-            <select name="search-rule.lemma-operator:records">
+    <span 
+        class="parameters lemma">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.lemma-operator:records">
                 <option value="contains"></option>
                 <option value="contains-not"></option>
                 <option value="equals"></option>
             </select>
         </label>
-        <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
+        <input 
+            type="text" 
+            name="search-rule.lemma-value:records" 
+            placeholder="Lemma" 
+            class="lemma-field" />
     </span>
-    <span class="parameters date">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
+    <span 
+        class="parameters date">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
                 <option value="is"></option>
                 <option value="is-before"></option>
                 <option value="is-after"></option>
@@ -1528,9 +1666,12 @@ sound.</p>
         </label>
         <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
     </span>
-    <span class="parameters plant">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
+    <span 
+        class="parameters plant">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
                 <option value="equals"></option>
                 <option value="equals-not"></option>
             </select>

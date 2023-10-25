@@ -159,15 +159,15 @@
   <figcaption>Example of an organisation screen with multiple organisations.</figcaption>
 </figure>
 
-<p>When you create a new user account, without using an invitation to an organisation, an organisation is automatically created for you. The organisation is used for storing the risk assessments.</p>
+<p>When you create a new user account, without using an invitation to an organisation, you can create your own organisation by clicking the “Add organisation” button. The organisation is used for storing the risk assessments.</p>
 
 <p>The organisation screen can be reached through the main screen by clicking on the tab called ‘Organisation’.</p>
 
 <p>With the organisation screen in front of you, you’ll see all organisations that you have access to listed on the left-hand side. In most cases, you will see only one organisation. But in case you have access to other organisations as well, for instance because you’re an OiRA consultant, then you’ll see more than one organisation listed.</p>
 
-<p>The name of your organisation will by default sound like ‘Organisation of …’, where the … is replaced by the first name of the first user of this organisation. If the name of this user is unknown, then as a fallback this user’s e-mail address will be shown. It is possible to change the name of the organisation and to upload a logo for it by clicking on the button ‘Edit organisation’ on the right-hand side.</p>
+<p>When creating your own organisation, you can choose a name of the organisation and upload a logo for it. As a default, the name of your organisation will be suggested like ‘Organisation of …’, where the … is replaced by the first name of the first user of this organisation. If the name of this user is unknown, then as a fallback this user’s e-mail address will be shown.</p>
 
-<p>It is possible to create additional organisations by clicking on the <span class="icon-plus"></span> sign if you’re overseeing more than one organisation and you want to keep the risk assessments that belong to them separate.</p>
+<p>You can edit your organisation at a later point in time by clicking on the button ‘Edit organisation’ on the right-hand side.</p>
 
 <h3 id="topic-user-management">User management</h3>
 
@@ -175,18 +175,16 @@
 
 <h4 id="editing-your-name">Editing your name</h4>
 
-<p>It’s recommended to enter your own name into the application, because it will improve your recognisability to other users throughout the application later on. You can change your name by clicking on the triple dot symbol <span class="icon-ellipsis"></span> at the end of the row that has your name on it and then choose ‘Edit’.</p>
+<p>It’s recommended to enter your own name into the application, because it will improve your recognisability to other users throughout the application later on. You can change your name on the Preferences screen. This can be found in the personal menu personal menu.</p>
 
 <h4 id="roles-and-permissions">Roles and permissions</h4>
 
-<p>Next to the names of the users, you’ll see your role within the organisation. There are 5 possible roles.</p>
+<p>Next to the names of the users, you’ll see your role within the organisation. There are 3 possible roles.</p>
 
 <ul>
-  <li><strong>Basic</strong> — User can only take trainings.</li>
-  <li><strong>Edit</strong> — User can take trainings and view and edit all risk assessments.</li>
-  <li><strong>Manage</strong> — User can take trainings, view and edit all risk assessments, request validations and lock risk assessments.</li>
-  <li><strong>Validate</strong> — User can take trainings, view and edit all risk assessments and validate risk assessments.</li>
-  <li><strong>Full</strong> — User view and edit all content and add or remove users to or from the organiation.</li>
+  <li><strong>Member</strong> — Members can make risk assessments and take trainings. <strong>Members can view and edit all risk assessments of the organisation.</strong></li>
+  <li><strong>Consultant</strong> — Consultants can make and edit risk assessments, validate and approve risk assessments and create trainings.</li>
+  <li><strong>Administrator</strong> — Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings.</li>
 </ul>
 
 <h4 id="adding-a-user-to-your-organisation">Adding a user to your organisation</h4>
@@ -299,13 +297,23 @@
 
 	        
 
-<fieldset class="advanced pat-clone" data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
-    <input type="hidden" name="search-rule.and-or:records" value="" />
-    <p class="clone search-rule row-1">
-        <label class="pat-select field-choice pat-select">
-            <select name="search-rule.data-field:records">
-                <option value="SearchableText">Any text field</option>
-                <optgroup label="Metadata">
+<fieldset 
+    class="advanced pat-clone" 
+    data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
+    <input
+        type="hidden" 
+        name="search-rule.and-or:records" 
+        value="" />
+    <p 
+        class="clone search-rule row-1">
+        <label 
+            class="pat-select field-choice pat-select">
+            <select 
+                name="search-rule.data-field:records">
+                <option 
+                    value="SearchableText">Any text field</option>
+                <optgroup 
+                    label="Metadata">
                     <option value="Title">Title</option>
                     <option value="Description">Description</option>
                     <option value="content">Body text</option>
@@ -322,34 +330,54 @@
                 </optgroup>
             </select>
         </label>
-        <span class="parameters lemma">
-            <label class="pat-select">
-                <select name="search-rule.lemma-operator:records">
+        <span 
+            class="parameters lemma">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.lemma-operator:records">
                     <option value="contains">Contains</option>
                     <option value="contains-not">Does not contain</option>
                     <option value="equals">Equals</option>
                 </select>
             </label>
-            <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
+            <input 
+                type="text" 
+                name="search-rule.lemma-value:records" 
+                placeholder="Lemma" 
+                class="lemma-field" />
         </span>
-        <span class="parameters date">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters date">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="is">Is</option>
                     <option value="is-before">Is before</option>
                     <option value="is-after">Is after</option>
                 </select>
             </label>
-            <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
+            <input 
+                type="date" 
+                name="search-rule.date-value:records" 
+                placeholder="Date" 
+                class="date-field pat-date-picker" />
         </span>
-        <span class="parameters plant">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters plant">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="equals">Equals</option>
                     <option value="equals-not">Does not equal</option>
                 </select>
             </label>
-            <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest lemma-field">
+            <select 
+                name="search-rule.plant-value:records" 
+                placeholder="Plant code" 
+                class="pat-autosuggest lemma-field">
                 <option>001</option>
                 <option>002</option>
                 <option>003</option>
@@ -357,14 +385,20 @@
                 <option>005</option>
             </select>
         </span>
-        <span class="parameters department">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters department">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="equals">Equals</option>
                     <option value="equals-not">Does not equal</option>
                 </select>
             </label>
-            <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest lemma-field">
+            <select 
+                name="search-rule.department-value:records" 
+                placeholder="Department name" 
+                class="pat-autosuggest lemma-field">
                 <option>103,   (GEPJW5W4P)</option>
                 <option>104,   (GEPJNROAL)</option>
                 <option>105,   (GEPJS5CBN)</option>
@@ -380,27 +414,46 @@
     </p>
 </fieldset>
 
-<p class="button-bar">
-    <button type="submit" class="pat-button icon-search small">Search</button>
-    <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small">Add another search rule</button>
+<p 
+    class="button-bar">
+    <button 
+        type="submit" 
+        class="pat-button default icon-search">Search</button>
+    <button 
+        type="button" 
+        class="pat-button add-clone add-clone-rule icon-plus-circle">Add another search rule</button>
+
+    <a 
+        href="../../en/pages/configuring#listing" 
+        class="pat-inject float-after pat-button">Reset</a>
 </p>
 
-<template id="clone-template">
-  <p class="clone search-rule animated fadeIn">
-    <label class="and-or pat-select bare">
-        <select name="search-rule.and-or:records">
-            <option value="and">
+<template 
+    id="clone-template">
+    <p 
+        class="clone search-rule animated fadeIn">
+    <label 
+        class="and-or pat-select bare">
+        <select 
+            name="search-rule.and-or:records">
+            <option 
+                value="and">
                 And…
             </option>
-            <option value="or">
+            <option 
+                value="or">
                 Or…
             </option>
         </select>
     </label>
-    <label class="field-choice pat-select">
-        <select name="search-rule.data-field:records">
-            <option value="SearchableText">Any text field</option>
-            <optgroup label="Metadata">
+    <label 
+        class="field-choice pat-select">
+        <select 
+            name="search-rule.data-field:records">
+            <option 
+                value="SearchableText">Any text field</option>
+            <optgroup 
+                label="Metadata">
                 <option value="Title">Title</option>
                 <option value="Description">Description</option>
                 <option value="content">Body text</option>
@@ -414,19 +467,29 @@
             </optgroup>
         </select>
     </label>
-    <span class="parameters lemma">
-        <label class="pat-select">
-            <select name="search-rule.lemma-operator:records">
+    <span 
+        class="parameters lemma">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.lemma-operator:records">
                 <option value="contains">Contains</option>
                 <option value="contains-not">Does not contain</option>
                 <option value="equals">Equals</option>
             </select>
         </label>
-        <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
+        <input 
+            type="text" 
+            name="search-rule.lemma-value:records" 
+            placeholder="Lemma" 
+            class="lemma-field" />
     </span>
-    <span class="parameters date">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
+    <span 
+        class="parameters date">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
                 <option value="is">Is</option>
                 <option value="is-before">Is before</option>
                 <option value="is-after">Is after</option>
@@ -434,9 +497,12 @@
         </label>
         <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
     </span>
-    <span class="parameters plant">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
+    <span 
+        class="parameters plant">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
                 <option value="equals">Equals</option>
                 <option value="equals-not">Does not equal</option>
             </select>

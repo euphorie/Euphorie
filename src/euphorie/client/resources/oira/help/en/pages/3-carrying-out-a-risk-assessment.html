@@ -439,7 +439,7 @@ As mentioned above, the action plan is presented as a separate step in the menu 
 
 <p>To get a validation for your assessment you need to give a consultant access to your risk assessments.</p>
 
-<p>You can grant a consultant access to your risk assessments by adding the consultant as a user with access level ‘Validate’ to your organisation. Learn more about giving people access to your risk assessments in the topic "User management".</p>
+<p>You can grant a consultant access to your risk assessments by adding the consultant as a user with access level ‘Validate’ to your organisation. Learn more about giving people access to your risk assessments in the topic <a href="../../en/pages/configuring">User management</a>.</p>
 
 <h3 id="requesting-a-validation">Requesting a validation</h3>
 
@@ -466,6 +466,35 @@ As mentioned above, the action plan is presented as a separate step in the menu 
 <p>The risk assessment is now locked from further editing so that it can keep its protected validated status.</p>
 
 <p>Should you want to make any changes to the risk assessment after validation, then you will need to unlock the risk assessment which will make it lose its validation status. You can at any time safely create a duplicate of a locked risk assessment and edit the duplicate. <a href="#duplication">Learn more about duplication</a>. <strong>Bear in mind that requesting a new validation might involve extra cost.</strong></p>
+
+<h2 id="training">Training</h2>
+
+<p>The Preparing Training Material feature is designed to streamline your workflow by automatically generating training content as you undertake a risk assessment. The following instructions will guide you on how to best use this feature:</p>
+
+<h3 id="automatic-creation-of-training-material">Automatic Creation of Training Material</h3>
+
+<p>As you conduct a risk assessment, the system simultaneously compiles training material in the background. This ensures that every risk assessment is coupled with corresponding training resources, thus reducing the additional work necessary to prepare such material.</p>
+
+<h3 id="accessing-the-training-section">Accessing the Training Section</h3>
+
+<p>Each risk detailed within the system comes with a ‘Training’ section that can be expanded for a more comprehensive view. To access this, simply locate the ‘Training’ label associated with each risk and click to reveal its components.</p>
+
+<h4 id="tuning-the-training-material">Tuning the Training Material</h4>
+
+<p>Within the ‘Training’ section, you’ll find a variety of items that could be marked as relevant material for the training of your colleagues or employees. To select these, tick the checkboxes adjacent to each item you wish to incorporate into the training material.</p>
+
+<p>The training material may include the following items:</p>
+
+<ul>
+  <li>Already Implemented Measures: These are the preventative measures that have already been put into practice to mitigate the risk. If these are available, you can select them for inclusion.</li>
+  <li>Additional Measures: This includes any extra preventative steps that you’ve personally added to manage the risk.</li>
+  <li>Information Section: The information associated with each risk that provides details about its nature and potential impacts.</li>
+  <li>Notes: If there are any notes pertaining to a specific risk, these can be optionally included in the training material for additional context or insights.</li>
+</ul>
+
+<p>By following the above steps, you can ensure a thorough and personalised training experience for your team, complementing the risk assessments you undertake.</p>
+
+<p>Only trainings of <a href="#section-locking">locked risk assessments</a> are available to all users of your organisation.</p>
 
 <h2 id="report">Report</h2>
 
@@ -494,6 +523,20 @@ As mentioned above, the action plan is presented as a separate step in the menu 
 </figure>
 
 <p>When you enter the status screen, you can see how far you have progressed in each module. This can help you note where you still need to assess risks or provide measures for those risks that you have identified.</p>
+
+<h2 id="section-locking">Locking a risk assessment</h2>
+
+<p>If you’ve reached a stage where your risk assessment is stable, it might be helpful to communicate this to the rest of your organisation. One way to do so is by locking the risk assessment. Follow the steps below to lock a risk assessment.</p>
+
+<ol>
+  <li>Open a risk assessment, ensuring it is active on any page that isn’t ‘Training’ or ‘Settings’.</li>
+  <li>On the toolbar, click on the lock icon <span class="icon-lock-open"></span>.</li>
+  <li>A menu will appear. From this menu, select ‘Lock risk assessment’.</li>
+</ol>
+
+<p>Upon completing these steps, your risk assessment is immediately locked, which is made visisble by the locking icon now showing as closed <span class="icon-lock"></span>. Please note, only users with a ‘Manage’ or ‘Full’ permission level can lock or unlock risk assessments.</p>
+
+<p>Once a risk assessment is locked, it generates a training entry point. This will be visible under the ‘Trainings’ tab.</p>
 
 			</div>
 		</article>
@@ -599,13 +642,23 @@ As mentioned above, the action plan is presented as a separate step in the menu 
 
 	        
 
-<fieldset class="advanced pat-clone" data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
-    <input type="hidden" name="search-rule.and-or:records" value="" />
-    <p class="clone search-rule row-1">
-        <label class="pat-select field-choice pat-select">
-            <select name="search-rule.data-field:records">
-                <option value="SearchableText">Any text field</option>
-                <optgroup label="Metadata">
+<fieldset 
+    class="advanced pat-clone" 
+    data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
+    <input
+        type="hidden" 
+        name="search-rule.and-or:records" 
+        value="" />
+    <p 
+        class="clone search-rule row-1">
+        <label 
+            class="pat-select field-choice pat-select">
+            <select 
+                name="search-rule.data-field:records">
+                <option 
+                    value="SearchableText">Any text field</option>
+                <optgroup 
+                    label="Metadata">
                     <option value="Title">Title</option>
                     <option value="Description">Description</option>
                     <option value="content">Body text</option>
@@ -622,34 +675,54 @@ As mentioned above, the action plan is presented as a separate step in the menu 
                 </optgroup>
             </select>
         </label>
-        <span class="parameters lemma">
-            <label class="pat-select">
-                <select name="search-rule.lemma-operator:records">
+        <span 
+            class="parameters lemma">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.lemma-operator:records">
                     <option value="contains">Contains</option>
                     <option value="contains-not">Does not contain</option>
                     <option value="equals">Equals</option>
                 </select>
             </label>
-            <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
+            <input 
+                type="text" 
+                name="search-rule.lemma-value:records" 
+                placeholder="Lemma" 
+                class="lemma-field" />
         </span>
-        <span class="parameters date">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters date">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="is">Is</option>
                     <option value="is-before">Is before</option>
                     <option value="is-after">Is after</option>
                 </select>
             </label>
-            <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
+            <input 
+                type="date" 
+                name="search-rule.date-value:records" 
+                placeholder="Date" 
+                class="date-field pat-date-picker" />
         </span>
-        <span class="parameters plant">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters plant">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="equals">Equals</option>
                     <option value="equals-not">Does not equal</option>
                 </select>
             </label>
-            <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest lemma-field">
+            <select 
+                name="search-rule.plant-value:records" 
+                placeholder="Plant code" 
+                class="pat-autosuggest lemma-field">
                 <option>001</option>
                 <option>002</option>
                 <option>003</option>
@@ -657,14 +730,20 @@ As mentioned above, the action plan is presented as a separate step in the menu 
                 <option>005</option>
             </select>
         </span>
-        <span class="parameters department">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters department">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="equals">Equals</option>
                     <option value="equals-not">Does not equal</option>
                 </select>
             </label>
-            <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest lemma-field">
+            <select 
+                name="search-rule.department-value:records" 
+                placeholder="Department name" 
+                class="pat-autosuggest lemma-field">
                 <option>103,   (GEPJW5W4P)</option>
                 <option>104,   (GEPJNROAL)</option>
                 <option>105,   (GEPJS5CBN)</option>
@@ -680,27 +759,46 @@ As mentioned above, the action plan is presented as a separate step in the menu 
     </p>
 </fieldset>
 
-<p class="button-bar">
-    <button type="submit" class="pat-button icon-search small">Search</button>
-    <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small">Add another search rule</button>
+<p 
+    class="button-bar">
+    <button 
+        type="submit" 
+        class="pat-button default icon-search">Search</button>
+    <button 
+        type="button" 
+        class="pat-button add-clone add-clone-rule icon-plus-circle">Add another search rule</button>
+
+    <a 
+        href="../../en/pages/3-carrying-out-a-risk-assessment#listing" 
+        class="pat-inject float-after pat-button">Reset</a>
 </p>
 
-<template id="clone-template">
-  <p class="clone search-rule animated fadeIn">
-    <label class="and-or pat-select bare">
-        <select name="search-rule.and-or:records">
-            <option value="and">
+<template 
+    id="clone-template">
+    <p 
+        class="clone search-rule animated fadeIn">
+    <label 
+        class="and-or pat-select bare">
+        <select 
+            name="search-rule.and-or:records">
+            <option 
+                value="and">
                 And…
             </option>
-            <option value="or">
+            <option 
+                value="or">
                 Or…
             </option>
         </select>
     </label>
-    <label class="field-choice pat-select">
-        <select name="search-rule.data-field:records">
-            <option value="SearchableText">Any text field</option>
-            <optgroup label="Metadata">
+    <label 
+        class="field-choice pat-select">
+        <select 
+            name="search-rule.data-field:records">
+            <option 
+                value="SearchableText">Any text field</option>
+            <optgroup 
+                label="Metadata">
                 <option value="Title">Title</option>
                 <option value="Description">Description</option>
                 <option value="content">Body text</option>
@@ -714,19 +812,29 @@ As mentioned above, the action plan is presented as a separate step in the menu 
             </optgroup>
         </select>
     </label>
-    <span class="parameters lemma">
-        <label class="pat-select">
-            <select name="search-rule.lemma-operator:records">
+    <span 
+        class="parameters lemma">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.lemma-operator:records">
                 <option value="contains">Contains</option>
                 <option value="contains-not">Does not contain</option>
                 <option value="equals">Equals</option>
             </select>
         </label>
-        <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
+        <input 
+            type="text" 
+            name="search-rule.lemma-value:records" 
+            placeholder="Lemma" 
+            class="lemma-field" />
     </span>
-    <span class="parameters date">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
+    <span 
+        class="parameters date">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
                 <option value="is">Is</option>
                 <option value="is-before">Is before</option>
                 <option value="is-after">Is after</option>
@@ -734,9 +842,12 @@ As mentioned above, the action plan is presented as a separate step in the menu 
         </label>
         <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
     </span>
-    <span class="parameters plant">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
+    <span 
+        class="parameters plant">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
                 <option value="equals">Equals</option>
                 <option value="equals-not">Does not equal</option>
             </select>

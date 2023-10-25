@@ -257,6 +257,8 @@
                 
                   
                 
+                  
+                
               </ol>
 
             <ul class="legend">
@@ -850,25 +852,21 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
                 
                 <div 
                     class="pat-rich-editor pat-rich toolbar-detached">
-                    
-    <textarea
-      
-      class="pat-tiptap pat-autofocus"
-      placeholder="General approach (to eliminate or reduce the risk)"
-      data-pat-tiptap="
-        toolbar-external: #assessment-toolbar;
-        source-panel: #pat-modal.panel-html-source-editor;
-        image-panel: #pat-modal.image-picker;
-        embed-panel: ;
-        link-panel: #pat-modal.panel-hyperlink;
-        image-menu: ;
-        link-menu: /feedback/hyperlink-menu#document-content;
-        mentions-menu: /feedback/panel-mentions-tiptap#document-content;
-        tags-menu: /feedback/panel-tags-tiptap#document-content"
-    >
+                    <textarea
+  
+  class="pat-tiptap pat-autofocus"
+  placeholder="General approach (to eliminate or reduce the risk)"
+  data-pat-tiptap="
+    toolbar-external: #assessment-toolbar;
+    source-panel: #pat-modal.panel-html-source-editor;
+    image-panel: #pat-modal.image-picker;
+    embed-panel: ;
+    link-panel: #pat-modal.panel-hyperlink;
+    image-menu: ;
+    link-menu: /feedback/hyperlink-menu#document-content;
+    mentions-menu: /feedback/panel-mentions-tiptap#document-content;
+    tags-menu: /feedback/panel-tags-tiptap#document-content">
 </textarea>
-
-
                 </div>
             </fieldset>
             <fieldset
@@ -877,24 +875,20 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
                 
                 <div 
                     class="pat-rich-editor pat-rich toolbar-detached">
-                    
-    <textarea
-      
-      class="pat-tiptap "
-      placeholder="Level of expertise and/or requirements needed"
-      data-pat-tiptap="
-        toolbar-external: #assessment-toolbar;
-        source-panel: #pat-modal.panel-html-source-editor;
-        image-panel: #pat-modal.image-picker;
-        embed-panel: ;
-        link-panel: #pat-modal.panel-hyperlink;
-        image-menu: ;
-        link-menu: /feedback/hyperlink-menu#document-content;
-        mentions-menu: /feedback/panel-mentions-tiptap#document-content;
-        tags-menu: /feedback/panel-tags-tiptap#document-content"
-    ></textarea>
-
-
+                    <textarea
+  
+  class="pat-tiptap "
+  placeholder="Level of expertise and/or requirements needed"
+  data-pat-tiptap="
+    toolbar-external: #assessment-toolbar;
+    source-panel: #pat-modal.panel-html-source-editor;
+    image-panel: #pat-modal.image-picker;
+    embed-panel: ;
+    link-panel: #pat-modal.panel-hyperlink;
+    image-menu: ;
+    link-menu: /feedback/hyperlink-menu#document-content;
+    mentions-menu: /feedback/panel-mentions-tiptap#document-content;
+    tags-menu: /feedback/panel-tags-tiptap#document-content"></textarea>
             </fieldset>
         </fieldset>
 
@@ -1092,13 +1086,23 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
 
 	        
 
-<fieldset class="advanced pat-clone" data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
-    <input type="hidden" name="search-rule.and-or:records" value="" />
-    <p class="clone search-rule row-1">
-        <label class="pat-select field-choice pat-select">
-            <select name="search-rule.data-field:records">
-                <option value="SearchableText"></option>
-                <optgroup label="Metadata">
+<fieldset 
+    class="advanced pat-clone" 
+    data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
+    <input
+        type="hidden" 
+        name="search-rule.and-or:records" 
+        value="" />
+    <p 
+        class="clone search-rule row-1">
+        <label 
+            class="pat-select field-choice pat-select">
+            <select 
+                name="search-rule.data-field:records">
+                <option 
+                    value="SearchableText"></option>
+                <optgroup 
+                    label="Metadata">
                     <option value="Title">Title</option>
                     <option value="Description">Description</option>
                     <option value="content">Body text</option>
@@ -1115,34 +1119,54 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
                 </optgroup>
             </select>
         </label>
-        <span class="parameters lemma">
-            <label class="pat-select">
-                <select name="search-rule.lemma-operator:records">
+        <span 
+            class="parameters lemma">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.lemma-operator:records">
                     <option value="contains"></option>
                     <option value="contains-not"></option>
                     <option value="equals"></option>
                 </select>
             </label>
-            <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
+            <input 
+                type="text" 
+                name="search-rule.lemma-value:records" 
+                placeholder="Lemma" 
+                class="lemma-field" />
         </span>
-        <span class="parameters date">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters date">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="is"></option>
                     <option value="is-before"></option>
                     <option value="is-after"></option>
                 </select>
             </label>
-            <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
+            <input 
+                type="date" 
+                name="search-rule.date-value:records" 
+                placeholder="Date" 
+                class="date-field pat-date-picker" />
         </span>
-        <span class="parameters plant">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters plant">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="equals"></option>
                     <option value="equals-not"></option>
                 </select>
             </label>
-            <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest lemma-field">
+            <select 
+                name="search-rule.plant-value:records" 
+                placeholder="Plant code" 
+                class="pat-autosuggest lemma-field">
                 <option>001</option>
                 <option>002</option>
                 <option>003</option>
@@ -1150,14 +1174,20 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
                 <option>005</option>
             </select>
         </span>
-        <span class="parameters department">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters department">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="equals"></option>
                     <option value="equals-not"></option>
                 </select>
             </label>
-            <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest lemma-field">
+            <select 
+                name="search-rule.department-value:records" 
+                placeholder="Department name" 
+                class="pat-autosuggest lemma-field">
                 <option>103,   (GEPJW5W4P)</option>
                 <option>104,   (GEPJNROAL)</option>
                 <option>105,   (GEPJS5CBN)</option>
@@ -1173,27 +1203,46 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
     </p>
 </fieldset>
 
-<p class="button-bar">
-    <button type="submit" class="pat-button icon-search small">Zoek</button>
-    <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small"></button>
+<p 
+    class="button-bar">
+    <button 
+        type="submit" 
+        class="pat-button default icon-search">Zoek</button>
+    <button 
+        type="button" 
+        class="pat-button add-clone add-clone-rule icon-plus-circle"></button>
+
+    <a 
+        href="../../nl/illustrations/action-plan-action-add-standard-measure#listing" 
+        class="pat-inject float-after pat-button">Reset</a>
 </p>
 
-<template id="clone-template">
-  <p class="clone search-rule animated fadeIn">
-    <label class="and-or pat-select bare">
-        <select name="search-rule.and-or:records">
-            <option value="and">
+<template 
+    id="clone-template">
+    <p 
+        class="clone search-rule animated fadeIn">
+    <label 
+        class="and-or pat-select bare">
+        <select 
+            name="search-rule.and-or:records">
+            <option 
+                value="and">
                 
             </option>
-            <option value="or">
+            <option 
+                value="or">
                 
             </option>
         </select>
     </label>
-    <label class="field-choice pat-select">
-        <select name="search-rule.data-field:records">
-            <option value="SearchableText"></option>
-            <optgroup label="Metadata">
+    <label 
+        class="field-choice pat-select">
+        <select 
+            name="search-rule.data-field:records">
+            <option 
+                value="SearchableText"></option>
+            <optgroup 
+                label="Metadata">
                 <option value="Title">Title</option>
                 <option value="Description">Description</option>
                 <option value="content">Body text</option>
@@ -1207,19 +1256,29 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
             </optgroup>
         </select>
     </label>
-    <span class="parameters lemma">
-        <label class="pat-select">
-            <select name="search-rule.lemma-operator:records">
+    <span 
+        class="parameters lemma">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.lemma-operator:records">
                 <option value="contains"></option>
                 <option value="contains-not"></option>
                 <option value="equals"></option>
             </select>
         </label>
-        <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
+        <input 
+            type="text" 
+            name="search-rule.lemma-value:records" 
+            placeholder="Lemma" 
+            class="lemma-field" />
     </span>
-    <span class="parameters date">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
+    <span 
+        class="parameters date">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
                 <option value="is"></option>
                 <option value="is-before"></option>
                 <option value="is-after"></option>
@@ -1227,9 +1286,12 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
         </label>
         <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
     </span>
-    <span class="parameters plant">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
+    <span 
+        class="parameters plant">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
                 <option value="equals"></option>
                 <option value="equals-not"></option>
             </select>

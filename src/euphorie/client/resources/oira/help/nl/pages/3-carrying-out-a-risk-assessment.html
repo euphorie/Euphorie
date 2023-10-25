@@ -403,48 +403,6 @@ Zoals hierboven al opgemerkt, wordt het actieplan in het menu aan de linkerkant 
 
 <p>Zowel de standaardmaatregelen als de door u gedefinieerde maatregelen kunnen op elk gewenst moment weer worden verwijderd.</p>
 
-<h2 id="consultancy">Advies</h2>
-
-<p>U heeft de optie om hulp te vragen bij het invullen van een risicoanalyse of om zelf een risicoanalyse te maken en te laten valideren door een externe dienst voor preventie en bescherming op het werk. De externe dienst kan uw risicoanalyse een officiële validatiemarkering geven.</p>
-
-<figure class="screenshot">
-  <object class="pat-auto-scale" data="../../en/illustrations/consultancy.html" scrolling="no">
-  </object>
-  <figcaption>Advies vragen</figcaption>
-</figure>
-
-<h3 id="adding-a-consultant-to-your-organisation">Een externe dienst toevoegen aan uw organisatie</h3>
-
-<p>Om een validatie voor je analyse te bekomen, moet je de externe dienst toegang geven tot je risicoanalyses.
-U kunt een externe dienst toegang geven tot je risicoanalyses door de externe dienst als gebruiker met toegangsniveau "Valideren" toe te voegen aan je organisatie.</p>
-
-<h3 id="requesting-a-validation">Een validatie aanvragen</h3>
-
-<p>Zodra uw externe dienst toegang heeft tot je risicoanalyses, gaat u naar de sectie "Advies" van je risicoanalyse en druk je op de knop "Validatie aanvragen".</p>
-
-<p>Als meer dan één persoon toegang heeft tot uw risicoanalyses, kies dan de persoon die u wilt uitnodigen om uw analyse te valideren en klik op "Validatieverzoek verzenden". De applicatie stuurt nu een e-mail naar deze persoon met de uitnodiging om uw risicoanalyse te valideren.</p>
-
-<p>Het tabblad Advies toont nu "Deze risicoanalyse wordt momenteel beoordeeld door ..." totdat de externe dienst de validatie heeft uitgevoerd.</p>
-
-<figure class="screenshot">
-  <object class="pat-auto-scale" data="../../en/illustrations/consultancy-requested.html" scrolling="no">
-  </object>
-  <figcaption>De validatie is aangevraagd en in uitvoering.</figcaption>
-</figure>
-
-<p>Wanneer de externe dienst de risicoanalyse heeft gevalideerd, ontvangt u een e-mail waarin dit wordt gemeld. Het tabblad Advies geeft nu aan dat de risicoanalyse is gevalideerd.</p>
-
-<figure class="screenshot">
-  <object class="pat-auto-scale" data="../../en/illustrations/consultancy-validated.html" scrolling="no">
-  </object>
-  <figcaption>Een gevalideerde en vergrendelde risicoanalyse.</figcaption>
-</figure>
-
-<p>De risicoanalyse is nu geblokkeerd voor verdere bewerking, zodat het zijn beschermde gevalideerde status kan behouden.</p>
-
-<p>Als u na validatie wijzigingen wilt aanbrengen aan de risicoanalyse, dan moet u de risicoanalyse ontgrendelen, waardoor deze haar validatiestatus verliest. U kunt op elk moment veilig een duplicaat van een vergrendelde risicoanalyse maken en het duplicaat bewerken. <a href="#duplication">Meer informatie over duplicatie</a>. <strong>Houd er rekening mee dat het aanvragen van een nieuwe validatie extra kosten met zich mee kan brengen.</strong></p>
-
-
 <h2 id="rapport">Rapport</h2>
 
 <p>Na voltooiing van het actieplan kunt u een rapport opstellen.</p>
@@ -577,13 +535,23 @@ U kunt een externe dienst toegang geven tot je risicoanalyses door de externe di
 
 	        
 
-<fieldset class="advanced pat-clone" data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
-    <input type="hidden" name="search-rule.and-or:records" value="" />
-    <p class="clone search-rule row-1">
-        <label class="pat-select field-choice pat-select">
-            <select name="search-rule.data-field:records">
-                <option value="SearchableText"></option>
-                <optgroup label="Metadata">
+<fieldset 
+    class="advanced pat-clone" 
+    data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
+    <input
+        type="hidden" 
+        name="search-rule.and-or:records" 
+        value="" />
+    <p 
+        class="clone search-rule row-1">
+        <label 
+            class="pat-select field-choice pat-select">
+            <select 
+                name="search-rule.data-field:records">
+                <option 
+                    value="SearchableText"></option>
+                <optgroup 
+                    label="Metadata">
                     <option value="Title">Title</option>
                     <option value="Description">Description</option>
                     <option value="content">Body text</option>
@@ -600,34 +568,54 @@ U kunt een externe dienst toegang geven tot je risicoanalyses door de externe di
                 </optgroup>
             </select>
         </label>
-        <span class="parameters lemma">
-            <label class="pat-select">
-                <select name="search-rule.lemma-operator:records">
+        <span 
+            class="parameters lemma">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.lemma-operator:records">
                     <option value="contains"></option>
                     <option value="contains-not"></option>
                     <option value="equals"></option>
                 </select>
             </label>
-            <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
+            <input 
+                type="text" 
+                name="search-rule.lemma-value:records" 
+                placeholder="Lemma" 
+                class="lemma-field" />
         </span>
-        <span class="parameters date">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters date">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="is"></option>
                     <option value="is-before"></option>
                     <option value="is-after"></option>
                 </select>
             </label>
-            <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
+            <input 
+                type="date" 
+                name="search-rule.date-value:records" 
+                placeholder="Date" 
+                class="date-field pat-date-picker" />
         </span>
-        <span class="parameters plant">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters plant">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="equals"></option>
                     <option value="equals-not"></option>
                 </select>
             </label>
-            <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest lemma-field">
+            <select 
+                name="search-rule.plant-value:records" 
+                placeholder="Plant code" 
+                class="pat-autosuggest lemma-field">
                 <option>001</option>
                 <option>002</option>
                 <option>003</option>
@@ -635,14 +623,20 @@ U kunt een externe dienst toegang geven tot je risicoanalyses door de externe di
                 <option>005</option>
             </select>
         </span>
-        <span class="parameters department">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters department">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="equals"></option>
                     <option value="equals-not"></option>
                 </select>
             </label>
-            <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest lemma-field">
+            <select 
+                name="search-rule.department-value:records" 
+                placeholder="Department name" 
+                class="pat-autosuggest lemma-field">
                 <option>103,   (GEPJW5W4P)</option>
                 <option>104,   (GEPJNROAL)</option>
                 <option>105,   (GEPJS5CBN)</option>
@@ -658,27 +652,46 @@ U kunt een externe dienst toegang geven tot je risicoanalyses door de externe di
     </p>
 </fieldset>
 
-<p class="button-bar">
-    <button type="submit" class="pat-button icon-search small">Zoek</button>
-    <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small"></button>
+<p 
+    class="button-bar">
+    <button 
+        type="submit" 
+        class="pat-button default icon-search">Zoek</button>
+    <button 
+        type="button" 
+        class="pat-button add-clone add-clone-rule icon-plus-circle"></button>
+
+    <a 
+        href="../../nl/pages/3-carrying-out-a-risk-assessment#listing" 
+        class="pat-inject float-after pat-button">Reset</a>
 </p>
 
-<template id="clone-template">
-  <p class="clone search-rule animated fadeIn">
-    <label class="and-or pat-select bare">
-        <select name="search-rule.and-or:records">
-            <option value="and">
+<template 
+    id="clone-template">
+    <p 
+        class="clone search-rule animated fadeIn">
+    <label 
+        class="and-or pat-select bare">
+        <select 
+            name="search-rule.and-or:records">
+            <option 
+                value="and">
                 
             </option>
-            <option value="or">
+            <option 
+                value="or">
                 
             </option>
         </select>
     </label>
-    <label class="field-choice pat-select">
-        <select name="search-rule.data-field:records">
-            <option value="SearchableText"></option>
-            <optgroup label="Metadata">
+    <label 
+        class="field-choice pat-select">
+        <select 
+            name="search-rule.data-field:records">
+            <option 
+                value="SearchableText"></option>
+            <optgroup 
+                label="Metadata">
                 <option value="Title">Title</option>
                 <option value="Description">Description</option>
                 <option value="content">Body text</option>
@@ -692,19 +705,29 @@ U kunt een externe dienst toegang geven tot je risicoanalyses door de externe di
             </optgroup>
         </select>
     </label>
-    <span class="parameters lemma">
-        <label class="pat-select">
-            <select name="search-rule.lemma-operator:records">
+    <span 
+        class="parameters lemma">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.lemma-operator:records">
                 <option value="contains"></option>
                 <option value="contains-not"></option>
                 <option value="equals"></option>
             </select>
         </label>
-        <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
+        <input 
+            type="text" 
+            name="search-rule.lemma-value:records" 
+            placeholder="Lemma" 
+            class="lemma-field" />
     </span>
-    <span class="parameters date">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
+    <span 
+        class="parameters date">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
                 <option value="is"></option>
                 <option value="is-before"></option>
                 <option value="is-after"></option>
@@ -712,9 +735,12 @@ U kunt een externe dienst toegang geven tot je risicoanalyses door de externe di
         </label>
         <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
     </span>
-    <span class="parameters plant">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
+    <span 
+        class="parameters plant">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
                 <option value="equals"></option>
                 <option value="equals-not"></option>
             </select>

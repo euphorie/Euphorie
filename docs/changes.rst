@@ -4,7 +4,7 @@ Changelog
 15.1.0 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Updated styles.
 
 
 15.0.8 (2023-10-24)

@@ -273,34 +273,39 @@
                     class="pat-select success locked text-button pat-tooltip"
                     data-pat-tooltip="source: ajax; position-list: tr; trigger: click; source: ajax">Validated
                 </a>
-                <div 
-                    id="publication-menu" 
-                    hidden>
+            
+
+            <div 
+                id="publication-menu" 
+                hidden>
+                
                     
+                        <div 
+                            class="pat-message success">
                             
-                                <div 
-                                    class="pat-message success">
-                                    <p>
-                                        You have reviewed and validated this risk assessment.
-                                    </p>
-                                </div>
                             
                     
+                            <p>
+                                <time class="date-stamp">20 June 2023</time>:
+                                <a href="mailto:michel@moulin.fr">Michel Moulin</a> has reviewed, validated and locked this risk assessment.
+                            </p>
+                        </div>
+                    
+                
                     <ul 
                         class="menu">
                         
-                            
-                                <li>
-                                    <a 
-    href="/feedback/panel-retract-validation"
-    class="pat-inject icon-cancel-alt-filled close-panel"
-    data-pat-inject="target: #pat-modal-panel-space">Retract validation</a>
-                                </li>
-                            
                         
-                    </ul>
-                </div>
-            
+                        <li>
+                            <a 
+    href="/feedback/panel-unlock-validated-risk-assessment"
+    class="pat-inject icon-lock-open close-panel"
+    data-pat-inject="target: #pat-modal-panel-space">Unlock and invalidate</a>
+                        </li>
+                        
+                        
+                </ul>
+            </div>
                 
             <a 
                 href="/preparation.html#sharing-menu" 
@@ -359,19 +364,58 @@
 </div>
 
 	
+		<article 
+			class="pat-rich">
+			<h1>
+				Consultancy 
+			</h1>
+			<p>
+				It is possible to request assistance in completing a risk assessment or to have a risk analysis performed by you and validated by an OSH consultant. An OSH consultant can give your risk assessment an offical validation mark. A validation can only be requested by users with the permission level ‘Manage’ or higher.
+			</p>
+		</article>
+
+
+		
+		
+
 		
 			<p 
 				class="pat-message success">
-				You have reviewed and validated this risk assessment.
+				<time 
+					class="date-stamp">20 June 2023</time>:
+					<a href="mailto:michel@moulin.fr">Michel Moulin</a> has reviewed, validated and locked this risk assessment.
+
 			</p>
-			<!-- <div 
-				class="button-bar">
-				<a 
-    href="/feedback/panel-unlock-validated-risk-assessment"
-    class="pat-inject pat-button"
-    data-pat-inject="target: #pat-modal-panel-space">Retract validation</a>
-			</div> -->
 		
+
+		<ul 
+			class="link-list">
+			<li>
+				<a 
+					class="pat-inject" 
+					data-pat-inject="
+						history: record; 
+						source: #content; 
+						target: #content"
+					href="/consultants-france">Find an OSH consultant</a>
+			</li>
+			<li>
+				<a 
+					data-pat-modal="class: medium panel" 
+					class="pat-modal" 
+					href="/feedback/new-user#document-content">Add an OSH-consultant to your organisation</a>
+			</li>
+			<li>
+				<a 
+					class="pat-inject" 
+					data-pat-inject="
+						history: record; 
+						source: #content; 
+						target: #content; 
+						scroll: #consultancy"
+					href="../../en-roadmap/pages/3-carrying-out-a-risk-assessment">Learn more about consultancy</a>
+			</li>
+		</ul>
 	
 
 </div>
@@ -471,13 +515,23 @@
 
 	        
 
-<fieldset class="advanced pat-clone" data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
-    <input type="hidden" name="search-rule.and-or:records" value="" />
-    <p class="clone search-rule row-1">
-        <label class="pat-select field-choice pat-select">
-            <select name="search-rule.data-field:records">
-                <option value="SearchableText">Any text field</option>
-                <optgroup label="Metadata">
+<fieldset 
+    class="advanced pat-clone" 
+    data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
+    <input
+        type="hidden" 
+        name="search-rule.and-or:records" 
+        value="" />
+    <p 
+        class="clone search-rule row-1">
+        <label 
+            class="pat-select field-choice pat-select">
+            <select 
+                name="search-rule.data-field:records">
+                <option 
+                    value="SearchableText">Any text field</option>
+                <optgroup 
+                    label="Metadata">
                     <option value="Title">Title</option>
                     <option value="Description">Description</option>
                     <option value="content">Body text</option>
@@ -494,34 +548,54 @@
                 </optgroup>
             </select>
         </label>
-        <span class="parameters lemma">
-            <label class="pat-select">
-                <select name="search-rule.lemma-operator:records">
+        <span 
+            class="parameters lemma">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.lemma-operator:records">
                     <option value="contains">Contains</option>
                     <option value="contains-not">Does not contain</option>
                     <option value="equals">Equals</option>
                 </select>
             </label>
-            <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
+            <input 
+                type="text" 
+                name="search-rule.lemma-value:records" 
+                placeholder="Lemma" 
+                class="lemma-field" />
         </span>
-        <span class="parameters date">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters date">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="is">Is</option>
                     <option value="is-before">Is before</option>
                     <option value="is-after">Is after</option>
                 </select>
             </label>
-            <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
+            <input 
+                type="date" 
+                name="search-rule.date-value:records" 
+                placeholder="Date" 
+                class="date-field pat-date-picker" />
         </span>
-        <span class="parameters plant">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters plant">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="equals">Equals</option>
                     <option value="equals-not">Does not equal</option>
                 </select>
             </label>
-            <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest lemma-field">
+            <select 
+                name="search-rule.plant-value:records" 
+                placeholder="Plant code" 
+                class="pat-autosuggest lemma-field">
                 <option>001</option>
                 <option>002</option>
                 <option>003</option>
@@ -529,14 +603,20 @@
                 <option>005</option>
             </select>
         </span>
-        <span class="parameters department">
-            <label class="pat-select">
-                <select name="search-rule.date-operator:records">
+        <span 
+            class="parameters department">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
                     <option value="equals">Equals</option>
                     <option value="equals-not">Does not equal</option>
                 </select>
             </label>
-            <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest lemma-field">
+            <select 
+                name="search-rule.department-value:records" 
+                placeholder="Department name" 
+                class="pat-autosuggest lemma-field">
                 <option>103,   (GEPJW5W4P)</option>
                 <option>104,   (GEPJNROAL)</option>
                 <option>105,   (GEPJS5CBN)</option>
@@ -552,27 +632,46 @@
     </p>
 </fieldset>
 
-<p class="button-bar">
-    <button type="submit" class="pat-button icon-search small">Search</button>
-    <button type="button" class="pat-button add-clone add-clone-rule icon-plus-circle small">Add another search rule</button>
+<p 
+    class="button-bar">
+    <button 
+        type="submit" 
+        class="pat-button default icon-search">Search</button>
+    <button 
+        type="button" 
+        class="pat-button add-clone add-clone-rule icon-plus-circle">Add another search rule</button>
+
+    <a 
+        href="../../en/illustrations/consultancy-validated#listing" 
+        class="pat-inject float-after pat-button">Reset</a>
 </p>
 
-<template id="clone-template">
-  <p class="clone search-rule animated fadeIn">
-    <label class="and-or pat-select bare">
-        <select name="search-rule.and-or:records">
-            <option value="and">
+<template 
+    id="clone-template">
+    <p 
+        class="clone search-rule animated fadeIn">
+    <label 
+        class="and-or pat-select bare">
+        <select 
+            name="search-rule.and-or:records">
+            <option 
+                value="and">
                 And…
             </option>
-            <option value="or">
+            <option 
+                value="or">
                 Or…
             </option>
         </select>
     </label>
-    <label class="field-choice pat-select">
-        <select name="search-rule.data-field:records">
-            <option value="SearchableText">Any text field</option>
-            <optgroup label="Metadata">
+    <label 
+        class="field-choice pat-select">
+        <select 
+            name="search-rule.data-field:records">
+            <option 
+                value="SearchableText">Any text field</option>
+            <optgroup 
+                label="Metadata">
                 <option value="Title">Title</option>
                 <option value="Description">Description</option>
                 <option value="content">Body text</option>
@@ -586,19 +685,29 @@
             </optgroup>
         </select>
     </label>
-    <span class="parameters lemma">
-        <label class="pat-select">
-            <select name="search-rule.lemma-operator:records">
+    <span 
+        class="parameters lemma">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.lemma-operator:records">
                 <option value="contains">Contains</option>
                 <option value="contains-not">Does not contain</option>
                 <option value="equals">Equals</option>
             </select>
         </label>
-        <input type="text" name="search-rule.lemma-value:records" placeholder="Lemma" class="lemma-field" />
+        <input 
+            type="text" 
+            name="search-rule.lemma-value:records" 
+            placeholder="Lemma" 
+            class="lemma-field" />
     </span>
-    <span class="parameters date">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
+    <span 
+        class="parameters date">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
                 <option value="is">Is</option>
                 <option value="is-before">Is before</option>
                 <option value="is-after">Is after</option>
@@ -606,9 +715,12 @@
         </label>
         <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
     </span>
-    <span class="parameters plant">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
+    <span 
+        class="parameters plant">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
                 <option value="equals">Equals</option>
                 <option value="equals-not">Does not equal</option>
             </select>
