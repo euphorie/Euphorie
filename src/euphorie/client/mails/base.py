@@ -112,7 +112,7 @@ class BaseEmail(BrowserView):
 
         anchors = []
         for cnt, it in enumerate(soup(["a"])):
-            it.replace_with(f"{it.txt}[{cnt + 1}]")
+            it.replace_with(f"{it.text}[{cnt + 1}]")
             anchors.append(it["href"])
 
         text = "{}\n\n{}".format(

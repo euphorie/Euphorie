@@ -13,7 +13,7 @@ import datetime
 
 class Email(BaseEmail):
     @property
-    def subject(self):
+    def translatable_subject(self):
         return _(
             "notification_mail_subject__ra_not_modified",
             default=(
@@ -21,10 +21,6 @@ class Email(BaseEmail):
                 "und Wiederholungsunterweisung"
             ),
         )
-
-    @property
-    def sender(self):
-        return ""
 
 
 @implementer(INotificationCategory)
