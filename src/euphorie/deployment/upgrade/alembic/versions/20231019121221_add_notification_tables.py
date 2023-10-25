@@ -24,6 +24,7 @@ def upgrade():
             sa.Column("id", sa.Integer(), autoincrement=True, nullable=False),
             sa.Column("account_id", sa.Integer(), nullable=False),
             sa.Column("category", sa.String(length=512), nullable=False),
+            sa.Column("enabled", sa.Boolean(), nullable=False, default=False),
             sa.ForeignKeyConstraint(
                 ["account_id"], ["account.id"], onupdate="CASCADE", ondelete="CASCADE"
             ),

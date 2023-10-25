@@ -1631,6 +1631,7 @@ class NotificationSubscription(BaseObject):
         nullable=False,
     )
     category = schema.Column(types.String(512), nullable=False)
+    enabled = schema.Column(types.Boolean(), nullable=False, default=False)
 
 
 class NotificationsSent(BaseObject):
