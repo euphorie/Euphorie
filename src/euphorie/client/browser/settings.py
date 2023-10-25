@@ -161,19 +161,30 @@ class Preferences(AutoExtensibleForm, form.Form):
         return {subscription.category: subscription for subscription in subscriptions}
 
     def subscribe_notification(self, category):
-        if category in self.existing_notification_subscriptions:
+        category = self.existing_notification_subscriptions.get(category)
+        if category:
+            category.enabled = True
             return
         Session.add(
             NotificationSubscription(
                 account_id=get_current_account().getId(),
                 category=category,
+                enabled=True,
             )
         )
 
     def unsubscribe_notification(self, category):
-        subscription = self.existing_notification_subscriptions.get(category)
-        if subscription:
-            Session.delete(subscription)
+        category = self.existing_notification_subscriptions.get(category)
+        if category:
+            category.enabled = False
+            return
+        Session.add(
+            NotificationSubscription(
+                account_id=get_current_account().getId(),
+                category=category,
+                enabled=False,
+            )
+        )
 
     @button.buttonAndHandler(_("Save"), name="save")
     def handleSave(self, action):
