@@ -1,9 +1,9 @@
 from euphorie.client import MessageFactory as _
+from euphorie.client import model as model_euphorie
 from euphorie.client import utils
 from euphorie.client.interfaces import INotificationCategory
 from euphorie.client.interfaces import INTERVAL_DAILY
 from euphorie.client.mails.base import BaseEmail
-from euphorie.client.model import SurveySession
 from plone import api
 from z3c.saconfig import Session
 from zope.interface import implementer
@@ -69,13 +69,17 @@ class Notification:
         country_notifications = {}
 
         query = (
-            Session.query(SurveySession)
-            .filter(SurveySession.get_archived_filter())
+            Session.query(model_euphorie.SurveySession)
+            .filter(model_euphorie.SurveySession.get_archived_filter())
             .filter(
-                SurveySession.modified
+                model_euphorie.SurveySession.modified
                 <= (today - datetime.timedelta(days=self.reminder_days))
             )
         )
+
+        # TODO join (?) and filter for already sent notifications
+        # TODO: get manager users to send mails to. the code below is incorrect.
+
         events = query.all()
 
         for event in events:
