@@ -72,6 +72,7 @@ class Notification:
     )
     default = False
     interval = INTERVAL_DAILY
+    available = False
 
     def __init__(self, context, request):
         self.context = context
@@ -92,12 +93,10 @@ class Notification:
         )
         return value
 
-    @property
-    def available(self):
-        # TODO: Check if user is allowed to set this setting.
-        return True
-
     def notify(self):
+        if not self.available:
+            return
+
         today = datetime.date.today()
 
         country_notifications = {}
