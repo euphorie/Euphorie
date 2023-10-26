@@ -45,6 +45,13 @@ class Email(BaseEmail):
             )
         )
 
+    @property
+    def reminder_days(self):
+        value = api.portal.get_registry_record(
+            "euphorie.notification__ra_not_modified__reminder_days", default=365
+        )
+        return value
+
     def index(self):
         """The mail text."""
         full_name = self.webhelpers.get_user_fullname(self.account)
@@ -55,10 +62,11 @@ class Email(BaseEmail):
 
         return f"""Hallo {full_name},
 
-Sie haben vor 365 Tagen Ihre Gefährdungsbeurteilung zuletzt bearbeitet \
-(bzw. schreibgeschützt). Bitte denken Sie daran, Ihre Gefährdungsbeurteilung \
+Sie haben vor {self.reminder_days} Tagen Ihre Gefährdungsbeurteilung zuletzt \
+bearbeitet (bzw. schreibgeschützt). \
+Bitte denken Sie daran, Ihre Gefährdungsbeurteilung \
 aktuell zu halten. Die jährliche Unterweisung Ihrer Mitarbeitenden ist nach \
-365 Tagen zu wiederholen.
+{self.reminder_days} Tagen zu wiederholen.
 Mit diesem Link gelangen Sie zur Gefährdungsbeurteilung.
 
 {session_links}
@@ -77,7 +85,7 @@ class Notification(BaseNotification):
     )
     default = False
     interval = INTERVAL_DAILY
-    available = False
+    available = True
 
     @property
     def description(self):
@@ -93,6 +101,14 @@ class Notification(BaseNotification):
             "euphorie.notification__ra_not_modified__reminder_days", default=365
         )
         return value
+
+    def get_responsible_user(self, session):
+        # XXX get organisation manager / head of department
+        return (
+            Session.query(model_euphorie.Account)
+            .filter(model_euphorie.Account.id == session.account_id)
+            .one()
+        )
 
     def notify(self):
         if not self.available:
@@ -114,16 +130,43 @@ class Notification(BaseNotification):
         # TODO filter for already sent notifications
         # TODO: get manager users to send mails to. the code below is incorrect.
 
-        events = query.all()
+        sessions = query.all()
 
-        for event in events:
-            country_notifications.setdefault(event.country, []).append(event)
+        notifications = {}
+        for session in sessions:
+            account = self.get_responsible_user(session)
+            if "@" not in account.email:
+                continue
+            notifications.setdefault(
+                account.id,
+                {
+                    "account": account,
+                    "sessions": [],
+                },
+            )["sessions"].append(session)
 
-        for country, events in country_notifications.items():
+        for notification in notifications.values():
+            mail = api.content.get_view(
+                name="notification__ra-not-modified__email",
+                context={
+                    "account": notification["account"],
+                    "sessions": notification["sessions"],
+                },
+                request=self.request,
+            )
+            mail.send_email()
+
+        return notifications
+
+        for session in sessions:
+            country_notifications.setdefault(session.country, []).append(session)
+
+        for country, sessions in country_notifications.items():
             managers = utils.get_country_managers(self.context, country)
             for manager in managers:
+                pass
                 # TODO: check, if notification settings are enabled for user
-                email = manager.contact_email
+                # email = manager.contact_email
                 # get email template
                 # send email
 
@@ -134,4 +177,4 @@ class Notification(BaseNotification):
             #     ", ".join([session.title for session in notification["sessions"]]),
             # )
 
-        return events
+        return sessions
