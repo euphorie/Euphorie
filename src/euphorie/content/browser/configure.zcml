@@ -485,4 +485,13 @@
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
+  <browser:page
+      name="find-tools-with-duplications"
+      for="euphorie.content.country.ICountry"
+      class=".survey.FindToolsWithDuplications"
+      template="templates/find-tools-with-duplications.pt"
+      permission="cmf.ManagePortal"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
 </configure>
