@@ -1,3 +1,4 @@
+from email.utils import formataddr
 from euphorie.client import MessageFactory as _
 from euphorie.client import model as model_euphorie
 from euphorie.client import utils
@@ -13,6 +14,14 @@ import datetime
 
 class Email(BaseEmail):
     @property
+    def account(self):
+        return self.context["account"]
+
+    @property
+    def sessions(self):
+        return self.context["sessions"]
+
+    @property
     def translatable_subject(self):
         return _(
             "notification_mail_subject__ra_not_modified",
@@ -21,6 +30,37 @@ class Email(BaseEmail):
                 "und Wiederholungsunterweisung"
             ),
         )
+
+    @property
+    def recipient(self):
+        return formataddr(
+            (
+                self.webhelpers.get_user_fullname(self.account),
+                self.webhelpers.get_user_email(self.account),
+            )
+        )
+
+    def index(self):
+        """The mail text."""
+        full_name = self.webhelpers.get_user_fullname(self.account)
+        session_links = "\n".join(
+            f"* [{session.title}]({session.absolute_url()}/@@start)"
+            for session in self.sessions
+        )
+
+        return f"""Hallo {full_name},
+
+Sie haben vor 365 Tagen Ihre Gefährdungsbeurteilung zuletzt bearbeitet \
+(bzw. schreibgeschützt). Bitte denken Sie daran, Ihre Gefährdungsbeurteilung \
+aktuell zu halten. Die jährliche Unterweisung Ihrer Mitarbeitenden ist nach \
+365 Tagen zu wiederholen.
+Mit diesem Link gelangen Sie zur Gefährdungsbeurteilung.
+
+{session_links}
+
+Mit freundlichen Grüßen
+Ihr OiRA Team
+"""
 
 
 @implementer(INotificationCategory)
@@ -39,8 +79,6 @@ class Notification:
 
     @property
     def description(self):
-        # TODO: get XXX da\ys
-        # self.notify()
         return _(
             "notification_description__ra_not_modified",
             default="Notify when a risk assessment was not modified for ${days} days.",
@@ -73,7 +111,7 @@ class Notification:
             )
         )
 
-        # TODO join (?) and filter for already sent notifications
+        # TODO filter for already sent notifications
         # TODO: get manager users to send mails to. the code below is incorrect.
 
         events = query.all()

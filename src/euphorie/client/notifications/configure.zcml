@@ -4,10 +4,9 @@
     >
 
   <browser:page
-      name="notification--ra-not-modified--email"
+      name="notification__ra-not-modified__email"
       for="*"
       class=".notification__ra_not_modified.Email"
-      template="templates/notification__ra_not_modified.pt"
       permission="zope.Public"
       layer="..interfaces.IClientSkinLayer"
       />
