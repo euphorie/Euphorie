@@ -156,6 +156,8 @@ class Preferences(AutoExtensibleForm, form.Form):
     def notification_categories(self):
         categories = getAdapters((self.context, self.request), INotificationCategory)
         for category in categories:
+            if not category[1].available:
+                continue
             yield category[1]
 
     @property
