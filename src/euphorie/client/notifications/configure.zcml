@@ -23,7 +23,7 @@
       factory=".notification__ra_not_modified.Notification"
       for="*
            ..interfaces.IClientSkinLayer"
-      name="euphorie_category_ra_not_modified"
+      name="notification__ra_not_modified"
       />
 
 </configure>
