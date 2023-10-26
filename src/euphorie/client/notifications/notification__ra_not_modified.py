@@ -13,6 +13,10 @@ from zope.interface import implementer
 import datetime
 
 
+# from logging import getLogger
+# logger = getLogger(__name__)
+
+
 class Email(BaseEmail):
     @property
     def account(self):
@@ -123,6 +127,11 @@ class Notification(BaseNotification):
                 # get email template
                 # send email
 
-        __import__("pdb").set_trace()
+            # logger.info(
+            #     "Sent %s to %s for sessions %s",
+            #     self.id,
+            #     notification["account"].email,
+            #     ", ".join([session.title for session in notification["sessions"]]),
+            # )
 
         return events
