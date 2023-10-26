@@ -5,6 +5,7 @@ from euphorie.client import utils
 from euphorie.client.interfaces import INotificationCategory
 from euphorie.client.interfaces import INTERVAL_DAILY
 from euphorie.client.mails.base import BaseEmail
+from euphorie.client.notifications.base import BaseNotification
 from plone import api
 from z3c.saconfig import Session
 from zope.interface import implementer
@@ -64,7 +65,7 @@ Ihr OiRA Team
 
 
 @implementer(INotificationCategory)
-class Notification:
+class Notification(BaseNotification):
     id = "euphorie_category_ra_not_modified"
     title = _(
         "notification_title__ra_not_modified",
@@ -73,10 +74,6 @@ class Notification:
     default = False
     interval = INTERVAL_DAILY
     available = False
-
-    def __init__(self, context, request):
-        self.context = context
-        self.request = request
 
     @property
     def description(self):
