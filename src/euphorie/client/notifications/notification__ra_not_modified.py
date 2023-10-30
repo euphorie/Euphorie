@@ -1,11 +1,11 @@
 from email.utils import formataddr
 from euphorie.client import MessageFactory as _
 from euphorie.client import model as model_euphorie
-from euphorie.client import utils
 from euphorie.client.interfaces import INotificationCategory
 from euphorie.client.interfaces import INTERVAL_DAILY
 from euphorie.client.mails.base import BaseEmail
 from euphorie.client.notifications.base import BaseNotification
+from logging import getLogger
 from plone import api
 from z3c.saconfig import Session
 from zope.interface import implementer
@@ -13,8 +13,7 @@ from zope.interface import implementer
 import datetime
 
 
-# from logging import getLogger
-# logger = getLogger(__name__)
+logger = getLogger(__name__)
 
 
 class Email(BaseEmail):
@@ -116,8 +115,6 @@ class Notification(BaseNotification):
 
         today = datetime.date.today()
 
-        country_notifications = {}
-
         query = (
             Session.query(model_euphorie.SurveySession)
             .filter(model_euphorie.SurveySession.get_archived_filter())
@@ -137,6 +134,8 @@ class Notification(BaseNotification):
             account = self.get_responsible_user(session)
             if "@" not in account.email:
                 continue
+            if not self.notification_enabled(account):
+                continue
             notifications.setdefault(
                 account.id,
                 {
@@ -155,26 +154,9 @@ class Notification(BaseNotification):
                 request=self.request,
             )
             mail.send_email()
-
-        return notifications
-
-        for session in sessions:
-            country_notifications.setdefault(session.country, []).append(session)
-
-        for country, sessions in country_notifications.items():
-            managers = utils.get_country_managers(self.context, country)
-            for manager in managers:
-                pass
-                # TODO: check, if notification settings are enabled for user
-                # email = manager.contact_email
-                # get email template
-                # send email
-
-            # logger.info(
-            #     "Sent %s to %s for sessions %s",
-            #     self.id,
-            #     notification["account"].email,
-            #     ", ".join([session.title for session in notification["sessions"]]),
-            # )
-
-        return sessions
+            logger.info(
+                "Sent %s to %s for sessions %s",
+                self.id,
+                notification["account"].email,
+                ", ".join([session.title for session in notification["sessions"]]),
+            )
