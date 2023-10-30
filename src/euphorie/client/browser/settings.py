@@ -153,12 +153,12 @@ class Preferences(AutoExtensibleForm, form.Form):
         return user
 
     @property
-    def notification_categories(self):
-        categories = getAdapters((self.context, self.request), INotificationCategory)
-        for category in categories:
-            if not category[1].available:
+    def all_notifications(self):
+        notifications = getAdapters((self.context, self.request), INotificationCategory)
+        for notification in notifications:
+            if not notification[1].available:
                 continue
-            yield category[1]
+            yield notification[1]
 
     @property
     @memoize
@@ -169,9 +169,9 @@ class Preferences(AutoExtensibleForm, form.Form):
         return {subscription.category: subscription for subscription in subscriptions}
 
     def subscribe_notification(self, category_id):
-        category = self.existing_notification_subscriptions.get(category_id)
-        if category:
-            category.enabled = True
+        notification = self.existing_notification_subscriptions.get(category_id)
+        if notification:
+            notification.enabled = True
             return
         Session.add(
             NotificationSubscription(
@@ -182,9 +182,9 @@ class Preferences(AutoExtensibleForm, form.Form):
         )
 
     def unsubscribe_notification(self, category_id):
-        category = self.existing_notification_subscriptions.get(category_id)
-        if category:
-            category.enabled = False
+        notification = self.existing_notification_subscriptions.get(category_id)
+        if notification:
+            notification.enabled = False
             return
         Session.add(
             NotificationSubscription(
@@ -207,12 +207,11 @@ class Preferences(AutoExtensibleForm, form.Form):
         user.last_name = data["last_name"]
 
         if self.show_notifications:
-            notifications = self.request.get("notifications", {})
-            for category in self.notification_categories:
-                if notifications.get(category.id):
-                    self.subscribe_notification(category.id)
+            for notification in self.all_notifications:
+                if self.request.get("notifications", {}).get(notification.id):
+                    self.subscribe_notification(notification.id)
                 else:
-                    self.unsubscribe_notification(category.id)
+                    self.unsubscribe_notification(notification.id)
 
 
 class AccountSettings(AutoExtensibleForm, form.Form):

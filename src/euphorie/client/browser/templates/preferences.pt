@@ -63,8 +63,8 @@
             <fieldset class="form-panel pat-collapsible true section horizontal"
                       id="label-notifications"
                       data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 100px"
-                      tal:define="categories view/notification_categories"
-                      tal:condition="python: view.show_notifications and categories"
+                      tal:define="notifications view/all_notifications"
+                      tal:condition="python: view.show_notifications and notifications"
             >
 
               <h3 class="form-separation-header"
@@ -72,15 +72,15 @@
               >Notifications
               </h3>
               <fieldset class="pat-checklist group checkbox">
-                <tal:loop repeat="category categories">
+                <tal:loop repeat="notification notifications">
                   <label class="">
-                    <input checked="${python:'checked' if getattr(view.existing_notification_subscriptions.get(category.id, None), 'enabled', category.default) else None}"
-                           name="notifications.${category/id}:boolean:record"
+                    <input checked="${python:'checked' if getattr(view.existing_notification_subscriptions.get(notification.id, None), 'enabled', notification.default) else None}"
+                           name="notifications.${notification/id}:boolean:record"
                            type="checkbox"
                            value="true"
                     />
-                    <strong class="label-fragment-title">${category/title}</strong>
-                    <p class="label-fragment-description">${category/description}</p>
+                    <strong class="label-fragment-title">${notification/title}</strong>
+                    <p class="label-fragment-description">${notification/description}</p>
                   </label>
                   <br />
                 </tal:loop>
