@@ -77,7 +77,7 @@ Ihr OiRA Team
 
 @implementer(INotificationCategory)
 class Notification(BaseNotification):
-    id = "euphorie_category_ra_not_modified"
+    id = "notification__ra_not_modified"
     title = _(
         "notification_title__ra_not_modified",
         default="Notify on orphaned risk assessments.",
