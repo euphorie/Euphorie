@@ -155,10 +155,16 @@ class Preferences(AutoExtensibleForm, form.Form):
     @property
     def all_notifications(self):
         notifications = getAdapters((self.context, self.request), INotificationCategory)
-        for notification in notifications:
-            if not notification[1].available:
-                continue
-            yield notification[1]
+        # Return the available notifications, sorted by title.
+        notifications = [
+            notification[1]
+            for notification in notifications
+            if notification[1].available
+        ]
+        return sorted(
+            notifications,
+            key=lambda notification: translate(notification.title),
+        )
 
     @property
     @memoize
