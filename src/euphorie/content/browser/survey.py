@@ -463,3 +463,28 @@ class FindSolutionTitleDuplications(BrowserView):
             obj = brain.getObject()
             if obj.description in obj.action:
                 yield obj
+
+
+class FindToolsWithDuplications(BrowserView):
+
+    @property
+    def tools(self):
+        brains = api.content.find(
+            portal_type="euphorie.survey",
+            path="/".join(self.context.getPhysicalPath()),
+        )
+        tools = []
+        for brain in brains:
+            obj = brain.getObject()
+            if not obj.published:
+                continue
+            view = api.content.get_view(
+                name="find-solution-title-duplications",
+                context=obj,
+                request=self.request,
+            )
+            for measure in view.measures:
+                tools.append(obj)
+                # we're done if we found at least one measure
+                break
+        return tools

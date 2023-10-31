@@ -7,7 +7,7 @@ Changelog
 - Updated styles.
 - Short report tweaks
   Ref: scrum-1295
-- Added view `find-solution-title-duplications`
+- Added views to find measure title duplications
   Refs: scrum-1550
 
 
