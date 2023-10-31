@@ -72,12 +72,13 @@ class Login(BrowserView):
 
     def login(self, account, remember):
         pas = getToolByName(self.context, "acl_users")
-        pas.updateCredentials(
-            self.request,
-            self.request.RESPONSE,
-            account.loginname,
-            account.password,
-        )
+        with api.env.adopt_user(username=account.getUserName()):
+            pas.updateCredentials(
+                self.request,
+                self.request.RESPONSE,
+                account.loginname,
+                account.password,
+            )
         notify(UserLoggedInEvent(account))
         if remember:
             self.request.RESPONSE.cookies["__ac"]["expires"] = cookie_expiration_date(
@@ -276,12 +277,13 @@ class Login(BrowserView):
                 account = self._tryRegistration()
                 if account:
                     pas = getToolByName(self.context, "acl_users")
-                    pas.updateCredentials(
-                        self.request,
-                        self.request.response,
-                        account.getUserName(),
-                        account.password,
-                    )
+                    with api.env.adopt_user(username=account.getUserName()):
+                        pas.updateCredentials(
+                            self.request,
+                            self.request.response,
+                            account.getUserName(),
+                            account.password,
+                        )
                 else:
                     self.error = True
 
