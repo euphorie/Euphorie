@@ -1,9 +1,11 @@
 from email.utils import formataddr
 from euphorie.client import MessageFactory as _
-from euphorie.client import model as model_euphorie
 from euphorie.client.interfaces import INotificationCategory
 from euphorie.client.interfaces import INTERVAL_DAILY
 from euphorie.client.mails.base import BaseEmail
+from euphorie.client.model import Account
+from euphorie.client.model import OrganisationMembership
+from euphorie.client.model import SurveySession
 from euphorie.client.notifications.base import BaseNotification
 from logging import getLogger
 from plone import api
@@ -29,18 +31,15 @@ class Email(BaseEmail):
     def translatable_subject(self):
         return _(
             "notification_mail_subject__ra_not_modified",
-            default=(
-                "Erinnerung: Aktualisierung der Gefährdungsbeurteilung "
-                "und Wiederholungsunterweisung"
-            ),
+            default=("Erinnerung: Aktualisierung der Gefährdungsbeurteilung"),
         )
 
     @property
     def recipient(self):
         return formataddr(
             (
-                self.webhelpers.get_user_fullname(self.account),
-                self.webhelpers.get_user_email(self.account),
+                self.account.title,
+                self.account.email,
             )
         )
 
@@ -53,26 +52,28 @@ class Email(BaseEmail):
 
     def index(self):
         """The mail text."""
-        full_name = self.webhelpers.get_user_fullname(self.account)
         session_links = "\n".join(
             f"* [{session.title}]({session.absolute_url()}/@@start)"
             for session in self.sessions
         )
 
-        return f"""Hallo {full_name},
-
-Sie haben vor {self.reminder_days} Tagen Ihre Gefährdungsbeurteilung zuletzt \
+        return _(
+            "notification_mail_body__ra_not_modified",
+            default=(
+                """\
+Sie haben vor ${reminder_days} Tagen Ihre Gefährdungsbeurteilung zuletzt \
 bearbeitet (bzw. schreibgeschützt). \
-Bitte denken Sie daran, Ihre Gefährdungsbeurteilung \
-aktuell zu halten. Die jährliche Unterweisung Ihrer Mitarbeitenden ist nach \
-{self.reminder_days} Tagen zu wiederholen.
+Bitte denken Sie daran, Ihre Gefährdungsbeurteilung aktuell zu halten.
 Mit diesem Link gelangen Sie zur Gefährdungsbeurteilung.
 
-{session_links}
-
-Mit freundlichen Grüßen
-Ihr OiRA Team
+${session_links}
 """
+            ),
+            mapping={
+                "reminder_days": self.reminder_days,
+                "session_links": session_links,
+            },
+        )
 
 
 @implementer(INotificationCategory)
@@ -101,12 +102,12 @@ class Notification(BaseNotification):
         )
         return value
 
-    def get_responsible_user(self, session):
-        # XXX get organisation manager / head of department
+    def get_responsible_users(self, session):
         return (
-            Session.query(model_euphorie.Account)
-            .filter(model_euphorie.Account.id == session.account_id)
-            .one()
+            Session.query(Account)
+            .filter(OrganisationMembership.owner_id == session.account_id)
+            .filter(OrganisationMembership.member_role.in_(["admin", "manager"]))
+            .filter(OrganisationMembership.member_id == Account.id)
         )
 
     def notify(self):
@@ -116,33 +117,30 @@ class Notification(BaseNotification):
         today = datetime.date.today()
 
         query = (
-            Session.query(model_euphorie.SurveySession)
-            .filter(model_euphorie.SurveySession.get_archived_filter())
+            Session.query(SurveySession)
+            .filter(SurveySession.get_archived_filter())
             .filter(
-                model_euphorie.SurveySession.modified
+                SurveySession.modified
                 <= (today - datetime.timedelta(days=self.reminder_days))
             )
         )
 
         # TODO filter for already sent notifications
-        # TODO: get manager users to send mails to. the code below is incorrect.
 
         sessions = query.all()
 
         notifications = {}
         for session in sessions:
-            account = self.get_responsible_user(session)
-            if "@" not in account.email:
-                continue
-            if not self.notification_enabled(account):
-                continue
-            notifications.setdefault(
-                account.id,
-                {
-                    "account": account,
-                    "sessions": [],
-                },
-            )["sessions"].append(session)
+            for account in self.get_responsible_users(session):
+                if not self.notification_enabled(account):
+                    continue
+                notifications.setdefault(
+                    account.id,
+                    {
+                        "account": account,
+                        "sessions": [],
+                    },
+                )["sessions"].append(session)
 
         for notification in notifications.values():
             mail = api.content.get_view(
