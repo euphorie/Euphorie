@@ -466,7 +466,6 @@ class FindSolutionTitleDuplications(BrowserView):
 
 
 class FindToolsWithDuplications(BrowserView):
-
     @property
     def tools(self):
         brains = api.content.find(
