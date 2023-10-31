@@ -9,7 +9,8 @@ Changelog
   Ref: scrum-1295
 - Added views to find measure title duplications
   Refs: scrum-1550
-
+- Make the login plone 6 compatible
+  [ale-rt]
 
 15.0.8 (2023-10-24)
 -------------------
