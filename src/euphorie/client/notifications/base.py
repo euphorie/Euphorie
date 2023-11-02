@@ -44,17 +44,17 @@ class BaseEmailNotification(BaseEmail):
         return _(
             "notification_mail_text__base",
             default="""\
-Hallo ${full_name},
+Hello ${full_name},
 
 ${main_text}
 
 ${session_links}
 
-Mit freundlichen Grüßen
-Ihr OiRA Team
+Best regards
+Your OiRA Team
 
-**Dies ist eine automatisch generierte Mail. Wenn Sie keine Mails von OiRA erhalten \
-möchten, können Sie dies [hier einstellen](${preferences_link})**""",
+**This is an automatically generated mail. If you do not want to receive mails from OiRA, \
+you can change this [here](${preferences_link})**""",
             mapping={
                 "full_name": full_name,
                 "main_text": self.main_text,
