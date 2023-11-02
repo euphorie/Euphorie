@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-10-11 08:41+0000\n"
+"POT-Creation-Date: 2023-11-02 21:22+0000\n"
 "PO-Revision-Date: 2013-06-27 22:05+0200\n"
 "Last-Translator: JC Brand <brand@syslab.com>\n"
 "Language-Team: Estonian\n"
@@ -166,7 +166,7 @@ msgstr ""
 msgid "Almost done&hellip;"
 msgstr ""
 
-#: euphorie/client/browser/login.py:220
+#: euphorie/client/browser/login.py:221
 msgid "An account was created for you with email address ${email}"
 msgstr ""
 
@@ -617,6 +617,14 @@ msgstr ""
 msgid "Manage"
 msgstr ""
 
+#: euphorie/content/browser/similar_titles.py:34
+msgid "Maximum similarity"
+msgstr ""
+
+#: euphorie/content/browser/similar_titles.py:35
+msgid "Maximum similarity between titles"
+msgstr ""
+
 #: euphorie/client/browser/templates/webhelpers.pt:952
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
 msgid "Measure"
@@ -636,6 +644,14 @@ msgstr ""
 
 #: euphorie/client/browser/organisation.py:766
 msgid "Member updated"
+msgstr ""
+
+#: euphorie/content/browser/similar_titles.py:25
+msgid "Minimum similarity"
+msgstr ""
+
+#: euphorie/content/browser/similar_titles.py:26
+msgid "Minimum similarity between titles"
 msgstr ""
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml
@@ -770,6 +786,10 @@ msgid ""
 "OiRA stands for Online Interactive Risk Assessment. It is a web-based tool "
 "that allows you to perform a health and safety risk assessment of your "
 "workplace."
+msgstr ""
+
+#: euphorie/content/browser/similar_titles.py:181
+msgid "Operation cancelled."
 msgstr ""
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:61
@@ -986,6 +1006,10 @@ msgstr ""
 msgid "Risk present"
 msgstr ""
 
+#: euphorie/content/browser/similar_titles_details.py:31
+msgid "Risks similar to ${title}"
+msgstr ""
+
 #: euphorie/client/browser/templates/training.pt:81
 msgid "Run slideshow"
 msgstr ""
@@ -1010,6 +1034,7 @@ msgid ""
 msgstr ""
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:103
+#: euphorie/content/browser/similar_titles.py:171
 msgid "Search"
 msgstr ""
 
@@ -1048,6 +1073,10 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
+#: euphorie/content/browser/similar_titles.py:50
+msgid "Similar Titles OiRA Tool"
+msgstr ""
+
 #: euphorie/content/utils.py:238
 msgid "Simple (show only General Approach)"
 msgstr ""
@@ -1078,7 +1107,7 @@ msgstr ""
 msgid "Start the questions"
 msgstr ""
 
-#: euphorie/client/browser/login.py:403
+#: euphorie/client/browser/login.py:405
 #: euphorie/client/browser/templates/new-session-test.pt:119
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -1214,6 +1243,10 @@ msgstr ""
 
 #: euphorie/client/browser/settings.py:390
 msgid "This request could not be processed."
+msgstr ""
+
+#: euphorie/content/browser/similar_titles.py:53
+msgid "This tool allows you to find objects with similar titles."
 msgstr ""
 
 #: euphorie/client/browser/session.py:171
@@ -2251,7 +2284,7 @@ msgid "employee_numbers_50_to_249"
 msgstr ""
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:197
+#: euphorie/client/browser/login.py:198
 msgid "error_email_in_use"
 msgstr ""
 
@@ -2266,7 +2299,7 @@ msgid "error_invalid_budget"
 msgstr ""
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:160
+#: euphorie/client/browser/login.py:161
 msgid "error_invalid_email"
 msgstr ""
 
@@ -2281,28 +2314,28 @@ msgid "error_invalid_xml"
 msgstr ""
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:156
+#: euphorie/client/browser/login.py:157
 msgid "error_missing_email"
 msgstr ""
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:164
+#: euphorie/client/browser/login.py:165
 msgid "error_missing_password"
 msgstr ""
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:168
+#: euphorie/client/browser/login.py:169
 #: euphorie/client/browser/reset_password.py:256
 msgid "error_password_mismatch"
 msgstr ""
 
 #. Default: "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
-#: euphorie/client/browser/login.py:141
+#: euphorie/client/browser/login.py:142
 msgid "error_password_policy_violation"
 msgstr ""
 
 #. Default: "An accout can only be created for you if you accept the terms and conditions."
-#: euphorie/client/browser/login.py:176
+#: euphorie/client/browser/login.py:177
 msgid "error_terms_not_accepted"
 msgstr ""
 
@@ -4399,7 +4432,7 @@ msgstr ""
 #. Default: "of"
 #: euphorie/client/browser/pdf.py:41
 #: euphorie/client/browser/templates/training-slides.pt:134
-#: euphorie/client/docx/compiler.py:651
+#: euphorie/client/docx/compiler.py:654
 msgid "label_page_of"
 msgstr ""
 
@@ -5671,17 +5704,17 @@ msgid "reminder_email_footer"
 msgstr ""
 
 #. Default: "Required expertise:"
-#: euphorie/client/docx/compiler.py:744
+#: euphorie/client/docx/compiler.py:747
 msgid "report_competences"
 msgstr ""
 
 #. Default: "To be done by: ${date}"
-#: euphorie/client/docx/compiler.py:770
+#: euphorie/client/docx/compiler.py:773
 msgid "report_end_date"
 msgstr ""
 
 #. Default: "by ${date}"
-#: euphorie/client/docx/compiler.py:1065
+#: euphorie/client/docx/compiler.py:1068
 msgid "report_end_date_short"
 msgstr ""
 
@@ -5691,12 +5724,12 @@ msgid "report_guest_register_intro"
 msgstr ""
 
 #. Default: "Comments:"
-#: euphorie/client/docx/compiler.py:1037
+#: euphorie/client/docx/compiler.py:1040
 msgid "report_heading_comments"
 msgstr ""
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:977
+#: euphorie/client/docx/compiler.py:980
 msgid "report_identification_revision"
 msgstr ""
 
@@ -5706,12 +5739,12 @@ msgid "report_intro"
 msgstr ""
 
 #. Default: "Measures already in place:"
-#: euphorie/client/docx/compiler.py:711
+#: euphorie/client/docx/compiler.py:714
 msgid "report_measures_in_place"
 msgstr ""
 
 #. Default: "Responsible: ${responsible_name}"
-#: euphorie/client/docx/compiler.py:756
+#: euphorie/client/docx/compiler.py:759
 msgid "report_responsible"
 msgstr ""
 
@@ -5726,7 +5759,7 @@ msgid "report_timeline_comment"
 msgstr ""
 
 #. Default: "Priority"
-#: euphorie/client/browser/report.py:150 euphorie/client/docx/compiler.py:681
+#: euphorie/client/browser/report.py:150 euphorie/client/docx/compiler.py:684
 #: euphorie/content/risk.py:206
 msgid "report_timeline_priority"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-10-11 08:41+0000\n"
+"POT-Creation-Date: 2023-11-02 21:22+0000\n"
 "PO-Revision-Date: 2013-12-18 10:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -189,7 +189,7 @@ msgstr "Il-lingwi kollha"
 msgid "Almost done&hellip;"
 msgstr "Kważi lest/a&hellip;"
 
-#: euphorie/client/browser/login.py:220
+#: euphorie/client/browser/login.py:221
 msgid "An account was created for you with email address ${email}"
 msgstr ""
 
@@ -656,6 +656,14 @@ msgstr "Logo (mhux obbligatorju)"
 msgid "Manage"
 msgstr "Immaniġġja"
 
+#: euphorie/content/browser/similar_titles.py:34
+msgid "Maximum similarity"
+msgstr ""
+
+#: euphorie/content/browser/similar_titles.py:35
+msgid "Maximum similarity between titles"
+msgstr ""
+
 #: euphorie/client/browser/templates/webhelpers.pt:952
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
 msgid "Measure"
@@ -676,6 +684,14 @@ msgstr "Membru mneħħi"
 #: euphorie/client/browser/organisation.py:766
 msgid "Member updated"
 msgstr "Membru aġġornat"
+
+#: euphorie/content/browser/similar_titles.py:25
+msgid "Minimum similarity"
+msgstr ""
+
+#: euphorie/content/browser/similar_titles.py:26
+msgid "Minimum similarity between titles"
+msgstr ""
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml
 #: euphorie/deployment/browser/search.py:13
@@ -821,6 +837,10 @@ msgstr ""
 "OiRA tfisser Valutazzjoni tar-Riskji Interattiva Onlajn. Hija għodda bbażata "
 "fuq l-internet li tippermettilek twettaq valutazzjoni tar-riskji tas-saħħa u "
 "tas-sigurtà tal-post tax-xogħol tiegħek."
+
+#: euphorie/content/browser/similar_titles.py:181
+msgid "Operation cancelled."
+msgstr ""
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:61
 msgid "Organisation"
@@ -1054,6 +1074,10 @@ msgstr "Riskju mhux preżenti"
 msgid "Risk present"
 msgstr "Riskju preżenti"
 
+#: euphorie/content/browser/similar_titles_details.py:31
+msgid "Risks similar to ${title}"
+msgstr ""
+
 #: euphorie/client/browser/templates/training.pt:81
 msgid "Run slideshow"
 msgstr "Ibda s-slideshow"
@@ -1081,6 +1105,7 @@ msgstr ""
 "kompjuter tiegħek MA JIĠUX issejvjati fl-għodda tal-OiRA"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:103
+#: euphorie/content/browser/similar_titles.py:171
 msgid "Search"
 msgstr ""
 
@@ -1119,6 +1144,10 @@ msgstr "Uri librerija minn ${dropdown}."
 msgid "Sign in"
 msgstr "Idħol"
 
+#: euphorie/content/browser/similar_titles.py:50
+msgid "Similar Titles OiRA Tool"
+msgstr ""
+
 #: euphorie/content/utils.py:238
 msgid "Simple (show only General Approach)"
 msgstr ""
@@ -1149,7 +1178,7 @@ msgstr ""
 msgid "Start the questions"
 msgstr "Ibda l-mistoqsijiet"
 
-#: euphorie/client/browser/login.py:403
+#: euphorie/client/browser/login.py:405
 #: euphorie/client/browser/templates/new-session-test.pt:119
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -1304,6 +1333,10 @@ msgstr ""
 
 #: euphorie/client/browser/settings.py:390
 msgid "This request could not be processed."
+msgstr ""
+
+#: euphorie/content/browser/similar_titles.py:53
+msgid "This tool allows you to find objects with similar titles."
 msgstr ""
 
 #: euphorie/client/browser/session.py:171
@@ -2546,7 +2579,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "50 sa 249 impjegat"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:197
+#: euphorie/client/browser/login.py:198
 msgid "error_email_in_use"
 msgstr "Diġà jeżisti kont b'dan l-indirizz elettroniku."
 
@@ -2561,7 +2594,7 @@ msgid "error_invalid_budget"
 msgstr "Daħħal il-baġit f'Euros sħaħ."
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:160
+#: euphorie/client/browser/login.py:161
 msgid "error_invalid_email"
 msgstr "Daħħal indirizz elettroniku validu"
 
@@ -2577,30 +2610,30 @@ msgid "error_invalid_xml"
 msgstr "Tella' fajl XML validu"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:156
+#: euphorie/client/browser/login.py:157
 msgid "error_missing_email"
 msgstr "Daħħal l-indirizz elettroniku tiegħek"
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:164
+#: euphorie/client/browser/login.py:165
 msgid "error_missing_password"
 msgstr "Daħħal password"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:168
+#: euphorie/client/browser/login.py:169
 #: euphorie/client/browser/reset_password.py:256
 msgid "error_password_mismatch"
 msgstr "Il-passwords ma jaqblux"
 
 #. Default: "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
-#: euphorie/client/browser/login.py:141
+#: euphorie/client/browser/login.py:142
 msgid "error_password_policy_violation"
 msgstr ""
 "Il-password għanda tkun twila mill-inqas 12-il karattru u teħtieġ li jkun "
 "fiha mill-inqas ittra żgħira waħda, ittra waħda kbira u numru wieħed."
 
 #. Default: "An accout can only be created for you if you accept the terms and conditions."
-#: euphorie/client/browser/login.py:176
+#: euphorie/client/browser/login.py:177
 msgid "error_terms_not_accepted"
 msgstr ""
 
@@ -4871,7 +4904,7 @@ msgstr "Paġna"
 #. Default: "of"
 #: euphorie/client/browser/pdf.py:41
 #: euphorie/client/browser/templates/training-slides.pt:134
-#: euphorie/client/docx/compiler.py:651
+#: euphorie/client/docx/compiler.py:654
 msgid "label_page_of"
 msgstr "minn"
 
@@ -6199,17 +6232,17 @@ msgid "reminder_email_footer"
 msgstr ""
 
 #. Default: "Required expertise:"
-#: euphorie/client/docx/compiler.py:744
+#: euphorie/client/docx/compiler.py:747
 msgid "report_competences"
 msgstr ""
 
 #. Default: "To be done by: ${date}"
-#: euphorie/client/docx/compiler.py:770
+#: euphorie/client/docx/compiler.py:773
 msgid "report_end_date"
 msgstr ""
 
 #. Default: "by ${date}"
-#: euphorie/client/docx/compiler.py:1065
+#: euphorie/client/docx/compiler.py:1068
 msgid "report_end_date_short"
 msgstr ""
 
@@ -6222,12 +6255,12 @@ msgstr ""
 "ġejjin:"
 
 #. Default: "Comments:"
-#: euphorie/client/docx/compiler.py:1037
+#: euphorie/client/docx/compiler.py:1040
 msgid "report_heading_comments"
 msgstr ""
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:977
+#: euphorie/client/docx/compiler.py:980
 msgid "report_identification_revision"
 msgstr ""
 "Dan id-dokument ġie bbażat fuq l-Għodda tal-OiRA '${title}' b'data ta' "
@@ -6243,12 +6276,12 @@ msgstr ""
 "inklużi f'dan ir-rapport fil-qasam ta' hawn taħt."
 
 #. Default: "Measures already in place:"
-#: euphorie/client/docx/compiler.py:711
+#: euphorie/client/docx/compiler.py:714
 msgid "report_measures_in_place"
 msgstr ""
 
 #. Default: "Responsible: ${responsible_name}"
-#: euphorie/client/docx/compiler.py:756
+#: euphorie/client/docx/compiler.py:759
 msgid "report_responsible"
 msgstr ""
 
@@ -6265,7 +6298,7 @@ msgid "report_timeline_comment"
 msgstr "Kummenti"
 
 #. Default: "Priority"
-#: euphorie/client/browser/report.py:150 euphorie/client/docx/compiler.py:681
+#: euphorie/client/browser/report.py:150 euphorie/client/docx/compiler.py:684
 #: euphorie/content/risk.py:206
 msgid "report_timeline_priority"
 msgstr "Prijorità"
@@ -6504,8 +6537,8 @@ msgstr ""
 #: euphorie/client/browser/templates/new-session-test.pt:95
 msgid "testsession_register"
 msgstr ""
-"Jew ${register_link} minflok. Sir af għaliex għandek tirreġistra"
-"${tooltip_register}."
+"Jew ${register_link} minflok. Sir af għaliex għandek "
+"tirreġistra${tooltip_register}."
 
 #. Default: "add all measures that have already been implemented"
 #: euphorie/content/utils.py:58
