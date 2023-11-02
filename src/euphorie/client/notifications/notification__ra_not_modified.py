@@ -1,11 +1,10 @@
-from email.utils import formataddr
 from euphorie.client import MessageFactory as _
 from euphorie.client.interfaces import INotificationCategory
 from euphorie.client.interfaces import INTERVAL_DAILY
-from euphorie.client.mails.base import BaseEmail
 from euphorie.client.model import Account
 from euphorie.client.model import OrganisationMembership
 from euphorie.client.model import SurveySession
+from euphorie.client.notifications.base import BaseEmailNotification
 from euphorie.client.notifications.base import BaseNotification
 from logging import getLogger
 from plone import api
@@ -18,29 +17,26 @@ import datetime
 logger = getLogger(__name__)
 
 
-class Email(BaseEmail):
+class Email(BaseEmailNotification):
     @property
-    def account(self):
-        return self.context["account"]
-
-    @property
-    def sessions(self):
-        return self.context["sessions"]
+    def main_text(self):
+        return _(
+            "notification_mail_body__ra_not_modified",
+            default="""\
+Sie haben vor ${reminder_days} Tagen Ihre Gefährdungsbeurteilung zuletzt \
+bearbeitet (bzw. schreibgeschützt). Bitte denken Sie daran, Ihre \
+Gefährdungsbeurteilung aktuell zu halten.
+Mit diesem Link gelangen Sie zur Gefährdungsbeurteilung.""",
+            mapping={
+                "reminder_days": self.reminder_days,
+            },
+        )
 
     @property
     def translatable_subject(self):
         return _(
             "notification_mail_subject__ra_not_modified",
-            default=("Erinnerung: Aktualisierung der Gefährdungsbeurteilung"),
-        )
-
-    @property
-    def recipient(self):
-        return formataddr(
-            (
-                self.account.title,
-                self.account.email,
-            )
+            default="Erinnerung: Aktualisierung der Gefährdungsbeurteilung",
         )
 
     @property
@@ -49,31 +45,6 @@ class Email(BaseEmail):
             "euphorie.notification__ra_not_modified__reminder_days", default=365
         )
         return value
-
-    def index(self):
-        """The mail text."""
-        session_links = "\n".join(
-            f"* [{session.title}]({session.absolute_url()}/@@start)"
-            for session in self.sessions
-        )
-
-        return _(
-            "notification_mail_body__ra_not_modified",
-            default=(
-                """\
-Sie haben vor ${reminder_days} Tagen Ihre Gefährdungsbeurteilung zuletzt \
-bearbeitet (bzw. schreibgeschützt). \
-Bitte denken Sie daran, Ihre Gefährdungsbeurteilung aktuell zu halten.
-Mit diesem Link gelangen Sie zur Gefährdungsbeurteilung.
-
-${session_links}
-"""
-            ),
-            mapping={
-                "reminder_days": self.reminder_days,
-                "session_links": session_links,
-            },
-        )
 
 
 @implementer(INotificationCategory)
