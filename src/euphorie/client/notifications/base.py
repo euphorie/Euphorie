@@ -1,5 +1,67 @@
+from daimler.oira import _
+from email.utils import formataddr
 from euphorie.client import model
+from euphorie.client.mails.base import BaseEmail
+from plone import api
+from plone.memoize.view import memoize
 from z3c.saconfig import Session
+
+
+class BaseEmailNotification(BaseEmail):
+    @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", api.portal.get(), self.request)
+
+    @property
+    def account(self):
+        return self.context["account"]
+
+    @property
+    def sessions(self):
+        return self.context["sessions"]
+
+    @property
+    def recipient(self):
+        return formataddr(
+            (
+                self.webhelpers.get_user_fullname(self.account),
+                self.webhelpers.get_user_email(self.account),
+            )
+        )
+
+    def index(self):
+        """The mail text."""
+        full_name = self.webhelpers.get_user_fullname(self.account)
+        session_links = "\n".join(
+            [
+                f"* [{session.title}]({session.absolute_url()}/@@start)"
+                for session in self.sessions
+            ]
+        )
+        preferences_link = f"{self.webhelpers.country_url}/preferences"
+
+        return _(
+            "notification_mail_text__base",
+            default="""\
+Hallo ${full_name},
+
+${main_text}
+
+${session_links}
+
+Mit freundlichen Grüßen
+Ihr OiRA Team
+
+**Dies ist eine automatisch generierte Mail. Wenn Sie keine Mails von OiRA erhalten \
+möchten, können Sie dies [hier einstellen](${preferences_link})**""",
+            mapping={
+                "full_name": full_name,
+                "main_text": self.main_text,
+                "session_links": session_links,
+                "preferences_link": preferences_link,
+            },
+        )
 
 
 class BaseNotification:
