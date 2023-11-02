@@ -62,6 +62,7 @@ setup(
         "setuptools",
         "scikit-learn",
         "sh",
+        "stoneagehtml",
         "user_agents",
         "z3c.form",
         "z3c.schema",
