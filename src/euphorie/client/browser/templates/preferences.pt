@@ -63,7 +63,9 @@
             <fieldset class="form-panel pat-collapsible true section horizontal"
                       id="label-notifications"
                       data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 100px"
-                      tal:define="notifications view/all_notifications"
+                      tal:define="
+                        notifications view/all_notifications;
+                      "
                       tal:condition="python: view.show_notifications and notifications"
             >
 

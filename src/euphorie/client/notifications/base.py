@@ -54,8 +54,8 @@ ${session_links}
 Best regards
 Your OiRA Team
 
-**This is an automatically generated mail. If you do not want to receive mails from OiRA, \
-you can change this [here](${preferences_link})**""",
+**This is an automatically generated mail. If you do not want to receive mails \
+from OiRA, you can change this [here](${preferences_link})**""",
                 mapping={
                     "full_name": full_name,
                     "main_text": self.main_text,
