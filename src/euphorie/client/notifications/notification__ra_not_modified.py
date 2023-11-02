@@ -23,10 +23,9 @@ class Email(BaseEmailNotification):
         return _(
             "notification_mail_body__ra_not_modified",
             default="""\
-Sie haben vor ${reminder_days} Tagen Ihre Gefährdungsbeurteilung zuletzt \
-bearbeitet (bzw. schreibgeschützt). Bitte denken Sie daran, Ihre \
-Gefährdungsbeurteilung aktuell zu halten.
-Mit diesem Link gelangen Sie zur Gefährdungsbeurteilung.""",
+You have not modified your risk assessment for ${reminder_days} days. Please \
+remember to keep your risk assessment up to date.
+With this link you can access the risk assessment.""",
             mapping={
                 "reminder_days": self.reminder_days,
             },
@@ -36,7 +35,7 @@ Mit diesem Link gelangen Sie zur Gefährdungsbeurteilung.""",
     def translatable_subject(self):
         return _(
             "notification_mail_subject__ra_not_modified",
-            default="Erinnerung: Aktualisierung der Gefährdungsbeurteilung",
+            default="Reminder: Update of risk assessment",
         )
 
     @property
