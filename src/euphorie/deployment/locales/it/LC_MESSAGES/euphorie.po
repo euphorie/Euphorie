@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-10-11 08:41+0000\n"
+"POT-Creation-Date: 2023-11-02 21:22+0000\n"
 "PO-Revision-Date: 2013-11-26 11:57+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -188,7 +188,7 @@ msgstr "Tutte le lingue"
 msgid "Almost done&hellip;"
 msgstr "Quasi fatto&hellip;"
 
-#: euphorie/client/browser/login.py:220
+#: euphorie/client/browser/login.py:221
 msgid "An account was created for you with email address ${email}"
 msgstr ""
 
@@ -660,6 +660,14 @@ msgstr "Logo"
 msgid "Manage"
 msgstr "Gestire"
 
+#: euphorie/content/browser/similar_titles.py:34
+msgid "Maximum similarity"
+msgstr ""
+
+#: euphorie/content/browser/similar_titles.py:35
+msgid "Maximum similarity between titles"
+msgstr ""
+
 #: euphorie/client/browser/templates/webhelpers.pt:952
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
 msgid "Measure"
@@ -680,6 +688,14 @@ msgstr "Utente rimosso"
 #: euphorie/client/browser/organisation.py:766
 msgid "Member updated"
 msgstr "Utente aggiornato"
+
+#: euphorie/content/browser/similar_titles.py:25
+msgid "Minimum similarity"
+msgstr ""
+
+#: euphorie/content/browser/similar_titles.py:26
+msgid "Minimum similarity between titles"
+msgstr ""
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml
 #: euphorie/deployment/browser/search.py:13
@@ -826,6 +842,10 @@ msgstr ""
 "OiRA sta per valutazione interattiva online dei rischi. Si tratta di un tool "
 "disponibile sul web che permette di eseguire la valutazione dei rischi per "
 "la salute e la sicurezza sul proprio luogo di lavoro."
+
+#: euphorie/content/browser/similar_titles.py:181
+msgid "Operation cancelled."
+msgstr ""
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:61
 msgid "Organisation"
@@ -1061,6 +1081,10 @@ msgstr ""
 "Adempimenti e rischi per i quali sono previste ulteriori misure di "
 "miglioramento"
 
+#: euphorie/content/browser/similar_titles_details.py:31
+msgid "Risks similar to ${title}"
+msgstr ""
+
 #: euphorie/client/browser/templates/training.pt:81
 msgid "Run slideshow"
 msgstr "Avvia lo slideshow"
@@ -1088,6 +1112,7 @@ msgstr ""
 "sul tuo pc non saranno memorizzate sullo strumento Oira. "
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:103
+#: euphorie/content/browser/similar_titles.py:171
 msgid "Search"
 msgstr ""
 
@@ -1126,6 +1151,10 @@ msgstr "Mostra biblioteca da ${dropdown}."
 msgid "Sign in"
 msgstr "Registrazione"
 
+#: euphorie/content/browser/similar_titles.py:50
+msgid "Similar Titles OiRA Tool"
+msgstr ""
+
 #: euphorie/content/utils.py:238
 msgid "Simple (show only General Approach)"
 msgstr ""
@@ -1156,7 +1185,7 @@ msgstr ""
 msgid "Start the questions"
 msgstr "Inizia le domande"
 
-#: euphorie/client/browser/login.py:403
+#: euphorie/client/browser/login.py:405
 #: euphorie/client/browser/templates/new-session-test.pt:119
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -1310,6 +1339,10 @@ msgstr ""
 
 #: euphorie/client/browser/settings.py:390
 msgid "This request could not be processed."
+msgstr ""
+
+#: euphorie/content/browser/similar_titles.py:53
+msgid "This tool allows you to find objects with similar titles."
 msgstr ""
 
 #: euphorie/client/browser/session.py:171
@@ -2082,8 +2115,8 @@ msgstr "Tipo di dati trattati"
 #: euphorie/client/browser/templates/conditions-bare.pt:68
 msgid "conditions_part5_entry"
 msgstr ""
-"Il trattamento si basa sull’articolo 5, paragrafo 1, lettera a), del <a href="
-"\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ."
+"Il trattamento si basa sull’articolo 5, paragrafo 1, lettera a), del <a "
+"href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ."
 "L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">regolamento (UE) "
 "2018/1725</a> del Parlamento europeo e del Consiglio, del 23 ottobre 2018, "
 "sulla tutela delle persone fisiche in relazione al trattamento dei dati "
@@ -2545,7 +2578,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "Da 50 a 249 impiegati"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:197
+#: euphorie/client/browser/login.py:198
 msgid "error_email_in_use"
 msgstr "Un account con questo indirizzo e-mail è già esistente."
 
@@ -2560,7 +2593,7 @@ msgid "error_invalid_budget"
 msgstr "Inserire il budget in euro interi"
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:160
+#: euphorie/client/browser/login.py:161
 msgid "error_invalid_email"
 msgstr "Indicare un indirizzo e-mail valido"
 
@@ -2576,30 +2609,30 @@ msgid "error_invalid_xml"
 msgstr "Caricare un file XML valido"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:156
+#: euphorie/client/browser/login.py:157
 msgid "error_missing_email"
 msgstr "Indicare il proprio indirizzo e-mail"
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:164
+#: euphorie/client/browser/login.py:165
 msgid "error_missing_password"
 msgstr "Indicare una password"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:168
+#: euphorie/client/browser/login.py:169
 #: euphorie/client/browser/reset_password.py:256
 msgid "error_password_mismatch"
 msgstr "Le password non coincidono"
 
 #. Default: "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
-#: euphorie/client/browser/login.py:141
+#: euphorie/client/browser/login.py:142
 msgid "error_password_policy_violation"
 msgstr ""
 "La password deve essere lunga almeno 12 caratteri e deve contenere almeno "
 "una lettera maiuscula, almeno una lettera minuscola ed almeno un numero."
 
 #. Default: "An accout can only be created for you if you accept the terms and conditions."
-#: euphorie/client/browser/login.py:176
+#: euphorie/client/browser/login.py:177
 msgid "error_terms_not_accepted"
 msgstr ""
 
@@ -4878,7 +4911,7 @@ msgstr "pagina"
 #. Default: "of"
 #: euphorie/client/browser/pdf.py:41
 #: euphorie/client/browser/templates/training-slides.pt:134
-#: euphorie/client/docx/compiler.py:651
+#: euphorie/client/docx/compiler.py:654
 msgid "label_page_of"
 msgstr "di"
 
@@ -6249,17 +6282,17 @@ msgid "reminder_email_footer"
 msgstr ""
 
 #. Default: "Required expertise:"
-#: euphorie/client/docx/compiler.py:744
+#: euphorie/client/docx/compiler.py:747
 msgid "report_competences"
 msgstr "COMPETENZE RICHIESTE:"
 
 #. Default: "To be done by: ${date}"
-#: euphorie/client/docx/compiler.py:770
+#: euphorie/client/docx/compiler.py:773
 msgid "report_end_date"
 msgstr "DATA DI CONCLUSIONE: ${date}"
 
 #. Default: "by ${date}"
-#: euphorie/client/docx/compiler.py:1065
+#: euphorie/client/docx/compiler.py:1068
 msgid "report_end_date_short"
 msgstr ""
 
@@ -6272,12 +6305,12 @@ msgstr ""
 "l’accesso usufruendo dei seguenti vantaggi:"
 
 #. Default: "Comments:"
-#: euphorie/client/docx/compiler.py:1037
+#: euphorie/client/docx/compiler.py:1040
 msgid "report_heading_comments"
 msgstr ""
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:977
+#: euphorie/client/docx/compiler.py:980
 msgid "report_identification_revision"
 msgstr ""
 "Questo documento è stato basato sulla data di revisione ${date} del tool "
@@ -6301,12 +6334,12 @@ msgstr ""
 "Competente, ove nominato.</p>"
 
 #. Default: "Measures already in place:"
-#: euphorie/client/docx/compiler.py:711
+#: euphorie/client/docx/compiler.py:714
 msgid "report_measures_in_place"
 msgstr ""
 
 #. Default: "Responsible: ${responsible_name}"
-#: euphorie/client/docx/compiler.py:756
+#: euphorie/client/docx/compiler.py:759
 msgid "report_responsible"
 msgstr "RESPONSABILE: ${responsible_name}"
 
@@ -6323,7 +6356,7 @@ msgid "report_timeline_comment"
 msgstr "Commenti"
 
 #. Default: "Priority"
-#: euphorie/client/browser/report.py:150 euphorie/client/docx/compiler.py:681
+#: euphorie/client/browser/report.py:150 euphorie/client/docx/compiler.py:684
 #: euphorie/content/risk.py:206
 msgid "report_timeline_priority"
 msgstr "Priorità"
@@ -6566,8 +6599,8 @@ msgstr ""
 #: euphorie/client/browser/templates/new-session-test.pt:95
 msgid "testsession_register"
 msgstr ""
-"Oppure ${register_link}. Scopri perché è necessario registrarsi"
-"${tooltip_register}."
+"Oppure ${register_link}. Scopri perché è necessario "
+"registrarsi${tooltip_register}."
 
 #. Default: "add all measures that have already been implemented"
 #: euphorie/content/utils.py:58

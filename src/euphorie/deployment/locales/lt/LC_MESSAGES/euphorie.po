@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-10-11 08:41+0000\n"
+"POT-Creation-Date: 2023-11-02 21:22+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -184,7 +184,7 @@ msgstr "Visos kalbos"
 msgid "Almost done&hellip;"
 msgstr "Beveik baigta"
 
-#: euphorie/client/browser/login.py:220
+#: euphorie/client/browser/login.py:221
 msgid "An account was created for you with email address ${email}"
 msgstr ""
 
@@ -647,6 +647,14 @@ msgstr "Logo/ ženklas"
 msgid "Manage"
 msgstr "savo darbo vietoje"
 
+#: euphorie/content/browser/similar_titles.py:34
+msgid "Maximum similarity"
+msgstr ""
+
+#: euphorie/content/browser/similar_titles.py:35
+msgid "Maximum similarity between titles"
+msgstr ""
+
 #: euphorie/client/browser/templates/webhelpers.pt:952
 #: euphorie/content/profiles/default/types/euphorie.solution.xml
 msgid "Measure"
@@ -667,6 +675,14 @@ msgstr "Narys pašalintas"
 #: euphorie/client/browser/organisation.py:766
 msgid "Member updated"
 msgstr "Narys atnaujintas"
+
+#: euphorie/content/browser/similar_titles.py:25
+msgid "Minimum similarity"
+msgstr ""
+
+#: euphorie/content/browser/similar_titles.py:26
+msgid "Minimum similarity between titles"
+msgstr ""
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml
 #: euphorie/deployment/browser/search.py:13
@@ -810,6 +826,10 @@ msgstr ""
 "OiRA – tai interaktyvi internetinė rizikos vertinimo priemonė (angl. OiRA – "
 "Online interactive Risk Assessment). Naudojantis šia internetine priemone "
 "galima atlikti profesinės rizikos vertinimą darbo vietoje."
+
+#: euphorie/content/browser/similar_titles.py:181
+msgid "Operation cancelled."
+msgstr ""
 
 #: euphorie/client/browser/templates/sessions-dashboard.pt:61
 msgid "Organisation"
@@ -1040,6 +1060,10 @@ msgstr "GERAI"
 msgid "Risk present"
 msgstr "Dėmesio"
 
+#: euphorie/content/browser/similar_titles_details.py:31
+msgid "Risks similar to ${title}"
+msgstr ""
+
 #: euphorie/client/browser/templates/training.pt:81
 msgid "Run slideshow"
 msgstr "Paleisti skaidrių demonstraciją"
@@ -1067,6 +1091,7 @@ msgstr ""
 "jūsų kompiuteryje atlikti pakeitimai NEBUS išsaugoti OiRA priemonėje."
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:103
+#: euphorie/content/browser/similar_titles.py:171
 msgid "Search"
 msgstr ""
 
@@ -1105,6 +1130,10 @@ msgstr "Rodyti biblioteką iš ${dropdown}."
 msgid "Sign in"
 msgstr "Registruokitės"
 
+#: euphorie/content/browser/similar_titles.py:50
+msgid "Similar Titles OiRA Tool"
+msgstr ""
+
 #: euphorie/content/utils.py:238
 msgid "Simple (show only General Approach)"
 msgstr ""
@@ -1135,7 +1164,7 @@ msgstr ""
 msgid "Start the questions"
 msgstr "Pradėkite atsakinėti į klausimus"
 
-#: euphorie/client/browser/login.py:403
+#: euphorie/client/browser/login.py:405
 #: euphorie/client/browser/templates/new-session-test.pt:119
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
@@ -1284,6 +1313,10 @@ msgstr ""
 
 #: euphorie/client/browser/settings.py:390
 msgid "This request could not be processed."
+msgstr ""
+
+#: euphorie/content/browser/similar_titles.py:53
+msgid "This tool allows you to find objects with similar titles."
 msgstr ""
 
 #: euphorie/client/browser/session.py:171
@@ -2045,12 +2078,12 @@ msgstr "Tvarkomų duomenų pobūdis"
 msgid "conditions_part5_entry"
 msgstr ""
 "Duomenys tvarkomi remiantis 2018 m. spalio 23 d. Europos Parlamento ir "
-"Tarybos <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv"
-"%3AOJ.L_.2018.295.01.0039.01.ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Reglamento "
-"(ES) 2018/1725</a> dėl fizinių asmenų apsaugos Sąjungos institucijoms, "
-"organams, tarnyboms ir agentūroms tvarkant asmens duomenis ir dėl laisvo "
-"tokių duomenų judėjimo (toliau – Reglamentas) 5 straipsnio 1 dalies a ir d "
-"punktais."
+"Tarybos <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/?"
+"uri=uriserv%3AOJ.L_.2018.295.01.0039.01."
+"ENG&toc=OJ%3AL%3A2018%3A295%3ATOC\">Reglamento (ES) 2018/1725</a> dėl "
+"fizinių asmenų apsaugos Sąjungos institucijoms, organams, tarnyboms ir "
+"agentūroms tvarkant asmens duomenis ir dėl laisvo tokių duomenų judėjimo "
+"(toliau – Reglamentas) 5 straipsnio 1 dalies a ir d punktais."
 
 #. Default: "Lawfulness of processing"
 #: euphorie/client/browser/templates/conditions-bare.pt:66
@@ -2494,7 +2527,7 @@ msgid "employee_numbers_50_to_249"
 msgstr "Nuo 50 iki 249 darbuotojų"
 
 #. Default: "An account with this email address already exists."
-#: euphorie/client/browser/login.py:197
+#: euphorie/client/browser/login.py:198
 msgid "error_email_in_use"
 msgstr "Paskyra su šiuo el. pašto adresu jau galioja"
 
@@ -2509,7 +2542,7 @@ msgid "error_invalid_budget"
 msgstr "Biudžetą sudarinėkite sumas nurodydami eurais."
 
 #. Default: "Please enter a valid email address"
-#: euphorie/client/browser/login.py:160
+#: euphorie/client/browser/login.py:161
 msgid "error_invalid_email"
 msgstr "Įveskite galiojantį el. pašto adresą"
 
@@ -2524,30 +2557,30 @@ msgid "error_invalid_xml"
 msgstr "Įkelkite tinkamą XML failą"
 
 #. Default: "Please enter your email address"
-#: euphorie/client/browser/login.py:156
+#: euphorie/client/browser/login.py:157
 msgid "error_missing_email"
 msgstr "Įveskite savo el. pašto adresą"
 
 #. Default: "Please enter a password"
-#: euphorie/client/browser/login.py:164
+#: euphorie/client/browser/login.py:165
 msgid "error_missing_password"
 msgstr "Įveskite slaptažodį"
 
 #. Default: "Passwords do not match"
-#: euphorie/client/browser/login.py:168
+#: euphorie/client/browser/login.py:169
 #: euphorie/client/browser/reset_password.py:256
 msgid "error_password_mismatch"
 msgstr "Slaptažodis netinkamas"
 
 #. Default: "The password needs to be at least 12 characters long and needs to contain at least one lower case letter, one upper case letter and one digit."
-#: euphorie/client/browser/login.py:141
+#: euphorie/client/browser/login.py:142
 msgid "error_password_policy_violation"
 msgstr ""
 "Slaptažodį turi sudaryti mažiausiai 12 simbolių, iš kurių bent viena mažoji "
 "raidė, viena didžioji raidė ir vienas skaitmuo."
 
 #. Default: "An accout can only be created for you if you accept the terms and conditions."
-#: euphorie/client/browser/login.py:176
+#: euphorie/client/browser/login.py:177
 msgid "error_terms_not_accepted"
 msgstr ""
 
@@ -4811,7 +4844,7 @@ msgstr "Puslapis"
 #. Default: "of"
 #: euphorie/client/browser/pdf.py:41
 #: euphorie/client/browser/templates/training-slides.pt:134
-#: euphorie/client/docx/compiler.py:651
+#: euphorie/client/docx/compiler.py:654
 msgid "label_page_of"
 msgstr "iš"
 
@@ -6137,17 +6170,17 @@ msgid "reminder_email_footer"
 msgstr ""
 
 #. Default: "Required expertise:"
-#: euphorie/client/docx/compiler.py:744
+#: euphorie/client/docx/compiler.py:747
 msgid "report_competences"
 msgstr ""
 
 #. Default: "To be done by: ${date}"
-#: euphorie/client/docx/compiler.py:770
+#: euphorie/client/docx/compiler.py:773
 msgid "report_end_date"
 msgstr ""
 
 #. Default: "by ${date}"
-#: euphorie/client/docx/compiler.py:1065
+#: euphorie/client/docx/compiler.py:1068
 msgid "report_end_date_short"
 msgstr ""
 
@@ -6159,12 +6192,12 @@ msgstr ""
 "atsisiuntimo funkcija. Registracija trunka tik akimirką ir yra naudinga, nes:"
 
 #. Default: "Comments:"
-#: euphorie/client/docx/compiler.py:1037
+#: euphorie/client/docx/compiler.py:1040
 msgid "report_heading_comments"
 msgstr ""
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
-#: euphorie/client/docx/compiler.py:977
+#: euphorie/client/docx/compiler.py:980
 msgid "report_identification_revision"
 msgstr ""
 "Šis dokumentas remiasi OiRA priemone '${title}' (peržiūros data ${date})."
@@ -6179,12 +6212,12 @@ msgstr ""
 "kuriuos norite įtraukti į žemiau esantį ataskaitos laukelį."
 
 #. Default: "Measures already in place:"
-#: euphorie/client/docx/compiler.py:711
+#: euphorie/client/docx/compiler.py:714
 msgid "report_measures_in_place"
 msgstr ""
 
 #. Default: "Responsible: ${responsible_name}"
-#: euphorie/client/docx/compiler.py:756
+#: euphorie/client/docx/compiler.py:759
 msgid "report_responsible"
 msgstr ""
 
@@ -6200,7 +6233,7 @@ msgid "report_timeline_comment"
 msgstr "Pastabos"
 
 #. Default: "Priority"
-#: euphorie/client/browser/report.py:150 euphorie/client/docx/compiler.py:681
+#: euphorie/client/browser/report.py:150 euphorie/client/docx/compiler.py:684
 #: euphorie/content/risk.py:206
 msgid "report_timeline_priority"
 msgstr "Rizikos dydis"
