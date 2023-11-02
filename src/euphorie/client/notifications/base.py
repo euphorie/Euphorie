@@ -41,9 +41,10 @@ class BaseEmailNotification(BaseEmail):
         )
         preferences_link = f"{self.webhelpers.country_url}/preferences"
 
-        return _(
-            "notification_mail_text__base",
-            default="""\
+        return api.portal.translate(
+            _(
+                "notification_mail_text__base",
+                default="""\
 Hello ${full_name},
 
 ${main_text}
@@ -55,12 +56,13 @@ Your OiRA Team
 
 **This is an automatically generated mail. If you do not want to receive mails from OiRA, \
 you can change this [here](${preferences_link})**""",
-            mapping={
-                "full_name": full_name,
-                "main_text": self.main_text,
-                "session_links": session_links,
-                "preferences_link": preferences_link,
-            },
+                mapping={
+                    "full_name": full_name,
+                    "main_text": self.main_text,
+                    "session_links": session_links,
+                    "preferences_link": preferences_link,
+                },
+            )
         )
 
 
