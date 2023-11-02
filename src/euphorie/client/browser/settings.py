@@ -203,7 +203,7 @@ class AccountSettings(AutoExtensibleForm, form.Form):
 
 
 class DeleteAccount(AutoExtensibleForm, form.Form):
-    """ "View name: @@account-delete."""
+    """View name: @@account-delete."""
 
     template = ViewPageTemplateFile("templates/account-delete.pt")
 
