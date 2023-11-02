@@ -1,5 +1,5 @@
-from daimler.oira import _
 from email.utils import formataddr
+from euphorie.client import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.mails.base import BaseEmail
 from plone import api
