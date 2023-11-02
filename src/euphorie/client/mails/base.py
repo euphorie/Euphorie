@@ -1,5 +1,10 @@
 from bs4 import BeautifulSoup
+from email import encoders as Encoders
+from email.mime.base import MIMEBase
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from email.utils import formataddr
+from email.utils import formatdate
 from logging import getLogger
 from plone import api
 from plone.memoize.view import memoize
@@ -7,27 +12,10 @@ from plone.rfc822.interfaces import IPrimaryFieldInfo
 from Products.CMFPlone.utils import safe_encode
 from Products.Five import BrowserView
 from Products.PortalTransforms.utils import safe_nativestring
+from urllib.parse import quote
 
 import markdown
 import stoneagehtml
-
-
-try:  # python 2
-    from email import Encoders
-    from email.MIMEBase import MIMEBase
-    from email.MIMEMultipart import MIMEMultipart
-    from email.MIMEText import MIMEText
-    from email.Utils import formatdate
-except ImportError:  # python 3
-    from email import encoders as Encoders
-    from email.mime.base import MIMEBase
-    from email.mime.multipart import MIMEMultipart
-    from email.mime.text import MIMEText
-    from email.utils import formatdate
-try:
-    from urllib import quote  # for Python 2
-except ImportError:
-    from urllib.parse import quote  # for Python 3
 
 
 logger = getLogger(__name__)
