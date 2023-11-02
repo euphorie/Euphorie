@@ -293,7 +293,8 @@ def get_country_managers(context: object, country: str, active: bool = True) -> 
     country = site.restrictedTraverse(f"sectors/{country}")
 
     managers = [
-        manager for manager in country.values()
+        manager
+        for manager in country.values()
         if ICountryManager.providedBy(manager)
         # Return managers by active sate or all managers if active is None
         and (manager.locked == active if active is True or False else True)
