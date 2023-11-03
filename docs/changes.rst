@@ -4,6 +4,9 @@ Changelog
 15.1.0 (unreleased)
 -------------------
 
+- Add a notification framework for Euphorie and implement a basic, but disabled notification.
+  Refs: scrum-1572
+  [thet, reinhardt]
 - Cleanup: Reuse similar code for survey related views.
   [thet]
 - Fix incorrect named entity in configure.zcml.
