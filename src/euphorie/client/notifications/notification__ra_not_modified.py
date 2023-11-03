@@ -55,7 +55,7 @@ class Notification(BaseNotification):
     )
     default = False
     interval = INTERVAL_DAILY
-    available = True
+    available = False  # This feature is not yet available
 
     @property
     def description(self):
