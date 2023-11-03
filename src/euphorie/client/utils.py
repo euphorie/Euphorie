@@ -279,24 +279,3 @@ def get_italian_risk_not_present_nodes(session):
         .order_by(model.SurveyTreeItem.path)
     )
     return query.all()
-
-
-def get_country_managers(context: object, country: str, active: bool = True) -> list:
-    """Return a list of country managers for a country.
-
-    :param context: The context of the request.
-    :param country: The country for which to return the managers.
-    :return: A list of country managers.
-    """
-
-    site = api.portal.get()
-    country = site.restrictedTraverse(f"sectors/{country}")
-
-    managers = [
-        manager
-        for manager in country.values()
-        if ICountryManager.providedBy(manager)
-        # Return managers by active sate or all managers if active is None
-        and (manager.locked == active if active is True or False else True)
-    ]
-    return managers
