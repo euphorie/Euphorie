@@ -30,7 +30,7 @@ def upgrade():
             ),
             sa.PrimaryKeyConstraint("id"),
         )
-    if not has_table("notification_sent"):
+    if not has_table("notifications_sent"):
         op.create_table(
             "notifications_sent",
             sa.Column("id", sa.Integer(), autoincrement=True, nullable=False),
