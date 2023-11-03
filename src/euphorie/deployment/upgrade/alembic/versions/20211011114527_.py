@@ -5,6 +5,7 @@ Revises: 20210409113814
 Create Date: 2021-10-11 09:45:27.876273
 """
 from alembic import op
+from euphorie.deployment.upgrade.utils import has_column
 
 import sqlalchemy as sa
 
@@ -18,9 +19,13 @@ depends_on = None
 
 def upgrade():
     """The boolean active column becomes the deactivated date time column."""
-    op.add_column("group", sa.Column("deactivated", sa.DateTime(), nullable=True))
-    op.execute("""UPDATE "group" SET deactivated = '1970-01-01' WHERE active = FALSE""")
-    op.drop_column("group", "active")
+    if not has_column("group", "deactivated"):
+        op.add_column("group", sa.Column("deactivated", sa.DateTime(), nullable=True))
+        op.execute(
+            """UPDATE "group" SET deactivated = '1970-01-01' WHERE active = FALSE"""
+        )
+    if has_column("group", "active"):
+        op.drop_column("group", "active")
 
 
 def downgrade():
