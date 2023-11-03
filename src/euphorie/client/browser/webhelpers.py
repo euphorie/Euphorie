@@ -1426,5 +1426,11 @@ class WebHelpers(BrowserView):
 
         return data
 
+    def get_user_email(self, account=None):
+        return account.email
+
+    def get_user_fullname(self, account=None):
+        return account.title
+
     def __call__(self):
         return self
