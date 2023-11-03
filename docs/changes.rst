@@ -4,6 +4,9 @@ Changelog
 15.1.0 (unreleased)
 -------------------
 
+- Fix error when freshly installing a Plone site where `getNonInstallableProfiles` is missing.
+  Ref: https://github.com/plone/Products.CMFPlone/issues/3862
+  [thet]
 - Updated styles.
 - Short report tweaks
   Ref: scrum-1295
