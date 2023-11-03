@@ -30,21 +30,7 @@ def upgrade():
             ),
             sa.PrimaryKeyConstraint("id"),
         )
-    if not has_table("notifications_sent"):
-        op.create_table(
-            "notifications_sent",
-            sa.Column("id", sa.Integer(), autoincrement=True, nullable=False),
-            sa.Column("account_id", sa.Integer(), nullable=False),
-            sa.Column("category", sa.String(length=512), nullable=False),
-            sa.Column("notification_key", sa.String(length=512), nullable=False),
-            sa.Column("time", sa.DateTime(), nullable=False),
-            sa.ForeignKeyConstraint(
-                ["account_id"], ["account.id"], onupdate="CASCADE", ondelete="CASCADE"
-            ),
-            sa.PrimaryKeyConstraint("id"),
-        )
 
 
 def downgrade():
-    op.drop_table("notifications_sent")
     op.drop_table("notification_subscription")
