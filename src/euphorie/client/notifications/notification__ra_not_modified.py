@@ -8,6 +8,7 @@ from euphorie.client.notifications.base import BaseEmailNotification
 from euphorie.client.notifications.base import BaseNotification
 from logging import getLogger
 from plone import api
+from sqlalchemy import sql
 from z3c.saconfig import Session
 from zope.interface import implementer
 
@@ -75,9 +76,18 @@ class Notification(BaseNotification):
     def get_responsible_users(self, session):
         return (
             Session.query(Account)
-            .filter(OrganisationMembership.owner_id == session.account_id)
-            .filter(OrganisationMembership.member_role.in_(["admin", "manager"]))
-            .filter(OrganisationMembership.member_id == Account.id)
+            .outerjoin(
+                OrganisationMembership, OrganisationMembership.member_id == Account.id
+            )
+            .filter(
+                sql.or_(
+                    sql.and_(
+                        OrganisationMembership.owner_id == session.account_id,
+                        OrganisationMembership.member_role.in_(["admin", "manager"]),
+                    ),
+                    Account.id == session.account_id,
+                )
+            )
         )
 
     def notify(self):

@@ -1,13 +1,17 @@
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import NotificationSubscription
+from euphorie.client.model import SurveySession
 from euphorie.client.tests.utils import addAccount
 from euphorie.client.tests.utils import addSurvey
+from euphorie.client.tests.utils import MockMailFixture
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
 from unittest import mock
 from z3c.saconfig import Session
 from zope.interface import alsoProvides
+
+import datetime
 
 
 class NotificationsSettingsTests(EuphorieIntegrationTestCase):
@@ -57,3 +61,47 @@ class NotificationsSettingsTests(EuphorieIntegrationTestCase):
             .all()
         )
         self.assertEqual(subscriptions[0].category, "notification__ra_not_modified")
+
+
+class NotificationsSendingTests(EuphorieIntegrationTestCase):
+    def setUp(self):
+        super().setUp()
+        self.loginAsPortalOwner()
+        addSurvey(self.portal, BASIC_SURVEY)
+        self.account = addAccount(password="secret")
+        alsoProvides(self.request, IClientSkinLayer)
+
+        survey_session = SurveySession(
+            id=1,
+            title="Euphorie",
+            zodb_path="nl/ict/software-development",
+            account=self.account,
+        )
+        survey_session.modified = datetime.datetime.now() - datetime.timedelta(days=366)
+        Session.add(survey_session)
+
+    def test_send_notification(self):
+        Session.add(
+            NotificationSubscription(
+                account_id=self.account.getId(),
+                category="notification__ra_not_modified",
+                enabled=True,
+            )
+        )
+        view = api.content.get_view(
+            context=self.portal.client.nl,
+            request=self.request,
+            name="send-notifications-daily",
+        )
+        mail_fixture = MockMailFixture()
+        with mock.patch(
+            "euphorie.client.notifications.notification__ra_not_modified"
+            ".Notification.available",
+            return_value=True,
+        ):
+            view()
+        mail = mail_fixture.storage[0][0][0]
+        self.assertIn(self.account.email, mail.get("To"))
+        self.assertEqual(
+            mail_fixture.storage[0][1]["subject"], "Reminder: Update of risk assessment"
+        )
