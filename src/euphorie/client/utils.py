@@ -10,7 +10,6 @@ from email.header import Header
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from euphorie.client import model
-from euphorie.content.countrymanager import ICountryManager
 from euphorie.content.utils import StripMarkup
 from plone import api
 from Products.CMFCore.utils import getToolByName
