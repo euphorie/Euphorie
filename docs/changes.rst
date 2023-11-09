@@ -4,6 +4,8 @@ Changelog
 15.1.0 (unreleased)
 -------------------
 
+- Use NuPlone 2.2.2.
+  [thet]
 - Make alembic upgrades fail-safe.
   [thet]
 - Fix error when freshly installing a Plone site where `getNonInstallableProfiles` is missing.
