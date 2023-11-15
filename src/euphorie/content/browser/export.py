@@ -413,9 +413,12 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
     def exportModule(self, parent, module):
         """:returns: An XML node with the details of an
         :obj:`euphorie.content.module`."""
-        node = etree.SubElement(
-            parent, "module", optional="true" if module.optional else "false"
-        )
+
+        module_kwargs = {"optional": "true" if module.optional else "false"}
+        if getattr(module, "hide_from_training", False):
+            module_kwargs["hide_from_training"] = "true"
+        node = etree.SubElement(parent, "module", **module_kwargs)
+
         if getattr(module, "external_id", None):
             node.attrib["external-id"] = module.external_id
         etree.SubElement(node, "title").text = module.title

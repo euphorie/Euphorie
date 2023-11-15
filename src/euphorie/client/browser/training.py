@@ -7,6 +7,7 @@ from euphorie.client import utils
 from euphorie.client import utils as client_utils
 from euphorie.client.model import Risk
 from euphorie.client.model import Training
+from euphorie.content.behaviors.hide_from_training import IHideFromTraining
 from json import dumps
 from json import loads
 from logging import getLogger
@@ -414,10 +415,29 @@ class TrainingView(BrowserView, survey._StatusHelper):
         modules = self.getModulePaths()
         risks = self.getRisks(modules, skip_unanswered=self.skip_unanswered)
         seen_modules = []
+        hidden_modules = []
         data = OrderedDict()
         for module, risk in risks:
             module_path = module.path
+            if module_path in hidden_modules:
+                continue
             if module_path not in seen_modules:
+                # Get the ZODB representation of the module.
+                zodb_module = self.webhelpers.traversed_session.restrictedTraverse(
+                    module.zodb_path.split("/")
+                )
+                # Check if the module is allowed in trainings.
+                if (
+                    getattr(
+                        IHideFromTraining(zodb_module, None),
+                        "hide_from_training",
+                        False,
+                    )
+                    is True
+                ):
+                    hidden_modules.append(module_path)
+                    continue
+
                 module_in_context = module.__of__(self.webhelpers.traversed_session)
                 module_in_context.REQUEST["for_download"] = self.for_download
                 _view = module_in_context.restrictedTraverse("training_slide")

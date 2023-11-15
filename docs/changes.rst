@@ -4,6 +4,9 @@ Changelog
 15.1.0 (unreleased)
 -------------------
 
+- Add behavior to hide modules from trainings.
+  Ref: scrum-1573
+  [thet]
 - Cleanup: Reuse similar code for survey related views.
   [thet]
 - Fix incorrect named entity in configure.zcml.

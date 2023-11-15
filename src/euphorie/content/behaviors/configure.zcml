@@ -5,6 +5,12 @@
     >
 
   <plone:behavior
+      name="euphorie.hide_from_training"
+      title="Hide from training"
+      provides=".hide_from_training.IHideFromTraining"
+      />
+
+  <plone:behavior
       title="Tool Category"
       description="Add a tool category"
       provides=".toolcategory.IToolCategory"
