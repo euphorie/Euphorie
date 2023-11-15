@@ -4,6 +4,8 @@ Changelog
 15.1.0 (unreleased)
 -------------------
 
+- Fix incorrect named entity in configure.zcml.
+  [thet]
 - Use NuPlone 2.2.2.
   [thet]
 - Make alembic upgrades fail-safe.
