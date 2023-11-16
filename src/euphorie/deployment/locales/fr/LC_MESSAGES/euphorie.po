@@ -4543,7 +4543,7 @@ msgstr "Des mesures déjà mises en place"
 #. Default: "Exit"
 #: euphorie/client/browser/templates/shell.pt:255
 msgid "label_exit"
-msgstr "Deconnection"
+msgstr "Quitter"
 
 #. Default: "Expertise"
 #: euphorie/client/browser/templates/webhelpers.pt:869
@@ -5832,7 +5832,7 @@ msgstr ""
 "un service externe de prévention et de protection au travail. Le service "
 "externe peut donner à votre analyse des risques une marque de validation "
 "officielle. Une validation ne peut être demandée que par les utilisateurs "
-"ayant le niveau d'autorisation requis. &lsquo;Manage&rsquo ; ou plus."
+"ayant le niveau d'autorisation requis. &lsquo;Manage&rsquo; ou plus."
 
 #. Default: "When you invalidate this risk assessment, it will lose its validated status. You can still request for re-validation at a later time."
 #: euphorie/client/browser/templates/panel-invalidate-risk-assessment.pt:33
