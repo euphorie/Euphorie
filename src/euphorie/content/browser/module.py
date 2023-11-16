@@ -1,6 +1,5 @@
-from ..module import IModule
-from ..risk import IRisk
 from ..utils import DragDropHelper
+from .survey import SurveyBase
 from euphorie.content import MessageFactory as _
 from plone import api
 from plone.dexterity.browser.add import DefaultAddForm
@@ -8,36 +7,12 @@ from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm
 from plone.dexterity.interfaces import IDexterityFTI
 from plone.memoize.instance import memoize
-from Products.Five import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
-from zope.component import getMultiAdapter
 from zope.component import getUtility
 
 
-class ModuleView(BrowserView, DragDropHelper):
+class ModuleView(SurveyBase, DragDropHelper):
     """View name: @@nuplone-view."""
-
-    def _morph(self, child):
-        state = getMultiAdapter((child, self.request), name="plone_context_state")
-        return {"id": child.id, "title": child.title, "url": state.view_url()}
-
-    @property
-    def modules(self):
-        """List modules in current context."""
-        return [
-            self._morph(child)
-            for child in self.context.values()
-            if IModule.providedBy(child)
-        ]
-
-    @property
-    def risks(self):
-        """List risks in current context."""
-        return [
-            self._morph(child)
-            for child in self.context.values()
-            if IRisk.providedBy(child)
-        ]
 
     @property
     def portal_type(self):
@@ -47,19 +22,6 @@ class ModuleView(BrowserView, DragDropHelper):
             portal_type = self.context.portal_type
             fti = getUtility(IDexterityFTI, name=portal_type)
             return fti.Title()
-
-    @property
-    @memoize
-    def portal_transforms(self):
-        return api.portal.get_tool("portal_transforms")
-
-    def get_safe_html(self, text):
-        if not text:
-            return ""
-        data = self.portal_transforms.convertTo(
-            "text/x-html-safe", text, mimetype="text/html"
-        )
-        return data.getData()
 
 
 class AddForm(DefaultAddForm):

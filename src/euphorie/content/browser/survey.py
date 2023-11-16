@@ -43,7 +43,7 @@ from zope.event import notify
 from zope.i18n import translate
 
 
-class SurveyView(BrowserView, DragDropHelper):
+class SurveyBase(BrowserView):
     def _morph(self, child):
         state = getMultiAdapter((child, self.request), name="plone_context_state")
         return {
@@ -61,6 +61,39 @@ class SurveyView(BrowserView, DragDropHelper):
             if IModule.providedBy(child) or IProfileQuestion.providedBy(child)
         ]
 
+    @property
+    def modules(self):
+        """List modules in current context."""
+        return [
+            self._morph(child)
+            for child in self.context.values()
+            if IModule.providedBy(child)
+        ]
+
+    @property
+    def risks(self):
+        """List risks in current context."""
+        return [
+            self._morph(child)
+            for child in self.context.values()
+            if IRisk.providedBy(child)
+        ]
+
+    @property
+    @memoize
+    def portal_transforms(self):
+        return api.portal.get_tool("portal_transforms")
+
+    def get_safe_html(self, text):
+        if not text:
+            return ""
+        data = self.portal_transforms.convertTo(
+            "text/x-html-safe", text, mimetype="text/html"
+        )
+        return data.getData()
+
+
+class SurveyView(SurveyBase, DragDropHelper):
     @property
     @memoize
     def training_questions(self):
