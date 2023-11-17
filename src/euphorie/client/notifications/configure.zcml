@@ -11,4 +11,19 @@
       layer="..interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="notification__ra-not-modified__email"
+      for="*"
+      class=".notification__ra_not_modified.Email"
+      permission="zope.Public"
+      layer="..interfaces.IClientSkinLayer"
+      />
+
+  <adapter
+      factory=".notification__ra_not_modified.Notification"
+      for="*
+           ..interfaces.IClientSkinLayer"
+      name="notification__ra_not_modified"
+      />
+
 </configure>

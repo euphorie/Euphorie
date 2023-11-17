@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  <record name="euphorie.notification__ra_not_modified__reminder_days">
+    <field type="plone.registry.field.Int">
+      <title>notifcation reminder risk assessment not modified (days)</title>
+      <description>notifcation reminder in days after a risk assessment has not been modified</description>
+      <required>False</required>
+    </field>
+    <value>365</value>
+  </record>
+</registry>

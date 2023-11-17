@@ -5,6 +5,8 @@ Changelog
 -------------------
 
 - Notifications:
+  - Add basic notification for risk assessments which were not modified since a configurable number of days.
+    Note: This notification is disabled by default.
   - Add script to send notifications via cron.
   - Add basic notifications infrastructure.
   - Allow to set notification subscription settings in the preferences panel.
