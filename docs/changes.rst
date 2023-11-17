@@ -5,6 +5,7 @@ Changelog
 -------------------
 
 - Notifications:
+  - Add basic notifications infrastructure.
   - Allow to set notification subscription settings in the preferences panel.
     Note: the notification subscriptions are per default hidden.
   - Add BaseEmail class to unify sending emails.
