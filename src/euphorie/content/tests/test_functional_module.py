@@ -133,3 +133,35 @@ class FunctionalTests(EuphorieFunctionalTestCase):
         browser.open("%s/@@edit" % submodule.absolute_url())
         self.assertTrue("Edit Module" not in browser.contents)
         self.assertTrue("Edit Submodule" in browser.contents)
+
+    def testInactiveHideFromTrainingBehavior(self):
+        """When `euphorie.hide_from_training` is not activated, the
+        `hide_from_training` field should not be visible.
+        """
+        self.createStructure()
+
+        browser = self.get_browser(logged_in=True)
+        browser.open("%s/@@edit" % self.module.absolute_url())
+
+        self.assertTrue(
+            'name="form.widgets.IHideFromTraining.hide_from_training:list"'
+            not in browser.contents
+        )
+
+    def testActiveHideFromTrainingBehavior(self):
+        """When `euphorie.hide_from_training` is activated, the
+        `hide_from_training` field should be visible.
+        """
+        self.createStructure()
+
+        portal_types = api.portal.get_tool("portal_types")
+        fti = portal_types["euphorie.module"]
+        fti.behaviors = tuple(list(fti.behaviors) + ["euphorie.hide_from_training"])
+
+        browser = self.get_browser(logged_in=True)
+        browser.open("%s/@@edit" % self.module.absolute_url())
+
+        self.assertTrue(
+            'name="form.widgets.IHideFromTraining.hide_from_training:list"'
+            in browser.contents
+        )

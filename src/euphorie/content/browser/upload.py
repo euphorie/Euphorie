@@ -14,6 +14,7 @@ from ..user import LoginField
 from ..user import validLoginValue
 from Acquisition import aq_inner
 from euphorie.content import MessageFactory as _
+from euphorie.content.behaviors.hide_from_training import IHideFromTraining
 from euphorie.content.behaviors.toolcategory import IToolCategory
 from euphorie.content.utils import IToolTypesInfo
 from io import BytesIO
@@ -356,6 +357,12 @@ class SurveyImporter:
             (image, caption) = self.ImportImage(image)
             module.image = image
             module.caption = caption
+
+        if node.get("hide_from_training"):
+            behavior = IHideFromTraining(module, None)
+            if behavior:
+                behavior.hide_from_training = True
+
         return module
 
     def ImportProfileQuestion(self, node, survey):
