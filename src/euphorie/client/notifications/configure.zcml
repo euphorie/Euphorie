@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    >
+
+  <browser:page
+      name="send-notifications-daily"
+      for="*"
+      class=".send_notifications.SendNotificationsDaily"
+      permission="cmf.ManagePortal"
+      layer="..interfaces.IClientSkinLayer"
+      />
+
+</configure>
