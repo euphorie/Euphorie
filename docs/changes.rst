@@ -5,6 +5,7 @@ Changelog
 -------------------
 
 - Notifications:
+  - Add translations.
   - Add basic notification for risk assessments which were not modified since a configurable number of days.
     Note: This notification is disabled by default.
   - Add script to send notifications via cron.

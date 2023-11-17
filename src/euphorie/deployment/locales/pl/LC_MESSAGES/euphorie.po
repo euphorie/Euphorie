@@ -4317,6 +4317,11 @@ msgstr ""
 msgid "label_logo_selection"
 msgstr ""
 
+#. Default: "Notifications"
+#: euphorie/client/browser/templates/preferences.pt:70
+msgid "label_mailings"
+msgstr ""
+
 #. Default: "General approach (to eliminate or reduce the risk) + Specific action(s) required to implement this approach"
 #: euphorie/content/solution.py:66
 msgid "label_measure_action"
@@ -5605,6 +5610,36 @@ msgstr ""
 #. Default: "There are ${link_filters} active on this page."
 #: euphorie/client/browser/templates/assessments.pt:108
 msgid "notice_filters_active"
+msgstr ""
+
+#. Default: "Notify when a risk assessment was not modified for ${days} days."
+#: euphorie/client/notifications/notification__ra_not_modified.py:62
+msgid "notification_description__ra_not_modified"
+msgstr ""
+
+#. Default: "You have not modified your risk assessment for ${reminder_days} days. Please remember to keep your risk assessment up to date.\nWith this link you can access the risk assessment."
+#: euphorie/client/notifications/notification__ra_not_modified.py:23
+msgid "notification_mail_body__ra_not_modified"
+msgstr ""
+
+#. Default: "Reminder: Update of risk assessment"
+#: euphorie/client/notifications/notification__ra_not_modified.py:36
+msgid "notification_mail_subject__ra_not_modified"
+msgstr ""
+
+#. Default: "Hello ${full_name},\n\n${main_text}\n\n${session_links}\n\nBest regards\nYour OiRA Team\n\n**This is an automatically generated mail. If you do not want to receive mails from OiRA, you can change this [here](${preferences_link})**"
+#: euphorie/client/notifications/base.py:44
+msgid "notification_mail_text__base"
+msgstr ""
+
+#. Default: "You are receiving this because you are subscribed to notifications from ${site_name}."
+#: euphorie/client/mails/templates/email_notification_template.pt:188
+msgid "notification_received_reason"
+msgstr ""
+
+#. Default: "Notify on orphaned risk assessments."
+#: euphorie/client/notifications/notification__ra_not_modified.py:52
+msgid "notification_title__ra_not_modified"
 msgstr ""
 
 #. Default: "On behalf of the employer:"
