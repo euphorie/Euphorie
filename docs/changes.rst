@@ -4,6 +4,17 @@ Changelog
 15.1.0 (unreleased)
 -------------------
 
+- Notifications:
+  - Add translations.
+  - Add basic notification for risk assessments which were not modified since a configurable number of days.
+    Note: This notification is disabled by default.
+  - Add script to send notifications via cron.
+  - Add basic notifications infrastructure.
+  - Allow to set notification subscription settings in the preferences panel.
+    Note: the notification subscriptions are per default hidden.
+  - Add BaseEmail class to unify sending emails.
+  Ref: scrum-1572
+  [thet, reinhardt]
 - Add behavior to hide modules from trainings.
   Ref: scrum-1573
   [thet]

@@ -1,0 +1,29 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    >
+
+  <browser:page
+      name="send-notifications-daily"
+      for="*"
+      class=".send_notifications.SendNotificationsDaily"
+      permission="cmf.ManagePortal"
+      layer="..interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="notification__ra-not-modified__email"
+      for="*"
+      class=".notification__ra_not_modified.Email"
+      permission="zope.Public"
+      layer="..interfaces.IClientSkinLayer"
+      />
+
+  <adapter
+      factory=".notification__ra_not_modified.Notification"
+      for="*
+           ..interfaces.IClientSkinLayer"
+      name="notification__ra_not_modified"
+      />
+
+</configure>

@@ -6,9 +6,11 @@ Change a user's password/email or delete an account.
 """
 from Acquisition import aq_inner
 from euphorie.client import MessageFactory as _
+from euphorie.client.interfaces import INotificationCategory
 from euphorie.client.model import Account
 from euphorie.client.model import AccountChangeRequest
 from euphorie.client.model import get_current_account
+from euphorie.client.model import NotificationSubscription
 from euphorie.client.utils import CreateEmailTo
 from euphorie.client.utils import randomString
 from plone import api
@@ -29,6 +31,7 @@ from z3c.form.interfaces import WidgetActionExecutionError
 from z3c.saconfig import Session
 from z3c.schema.email import RFC822MailAddress
 from zope import schema
+from zope.component import getAdapters
 from zope.i18n import translate
 from zope.interface import alsoProvides
 from zope.interface import directlyProvides
@@ -136,10 +139,66 @@ class Preferences(AutoExtensibleForm, form.Form):
 
     schema = PreferencesSchema
 
+    show_personal_details = True
+    show_notifications = False
+
+    @property
+    @memoize
+    def current_user(self):
+        return get_current_account()
+
     def getContent(self):
-        user = get_current_account()
+        user = self.current_user
         directlyProvides(user, PreferencesSchema)
         return user
+
+    @property
+    def all_notifications(self):
+        notifications = getAdapters((self.context, self.request), INotificationCategory)
+        # Return the available notifications, sorted by title.
+        notifications = [
+            notification[1]
+            for notification in notifications
+            if notification[1].available
+        ]
+        return sorted(
+            notifications,
+            key=lambda notification: translate(notification.title),
+        )
+
+    @property
+    @memoize
+    def existing_notification_subscriptions(self):
+        subscriptions = Session.query(NotificationSubscription).filter(
+            NotificationSubscription.account_id == self.current_user.getId()
+        )
+        return {subscription.category: subscription for subscription in subscriptions}
+
+    def subscribe_notification(self, category_id):
+        notification = self.existing_notification_subscriptions.get(category_id)
+        if notification:
+            notification.enabled = True
+            return
+        Session.add(
+            NotificationSubscription(
+                account_id=self.current_user.getId(),
+                category=category_id,
+                enabled=True,
+            )
+        )
+
+    def unsubscribe_notification(self, category_id):
+        notification = self.existing_notification_subscriptions.get(category_id)
+        if notification:
+            notification.enabled = False
+            return
+        Session.add(
+            NotificationSubscription(
+                account_id=self.current_user.getId(),
+                category=category_id,
+                enabled=False,
+            )
+        )
 
     @button.buttonAndHandler(_("Save"), name="save")
     def handleSave(self, action):
@@ -149,9 +208,16 @@ class Preferences(AutoExtensibleForm, form.Form):
             for error in errors:
                 flash(error.message, "notice")
             return
-        user = get_current_account()
+        user = self.current_user
         user.first_name = data["first_name"]
         user.last_name = data["last_name"]
+
+        if self.show_notifications:
+            for notification in self.all_notifications:
+                if self.request.get("notifications", {}).get(notification.id):
+                    self.subscribe_notification(notification.id)
+                else:
+                    self.unsubscribe_notification(notification.id)
 
 
 class AccountSettings(AutoExtensibleForm, form.Form):
