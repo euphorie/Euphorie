@@ -1621,6 +1621,19 @@ class OrganisationMembership(BaseObject):
     member_role = schema.Column(types.UnicodeText())
 
 
+class NotificationSubscription(BaseObject):
+    __tablename__ = "notification_subscription"
+
+    id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
+    account_id = schema.Column(
+        types.Integer(),
+        schema.ForeignKey(Account.id, onupdate="CASCADE", ondelete="CASCADE"),
+        nullable=False,
+    )
+    category = schema.Column(types.String(512), nullable=False)
+    enabled = schema.Column(types.Boolean(), nullable=False, default=False)
+
+
 _instrumented = False
 if not _instrumented:
     metadata._decl_registry = {}
@@ -1640,6 +1653,7 @@ if not _instrumented:
         Training,
         Organisation,
         OrganisationMembership,
+        NotificationSubscription,
     ]:
         instrument_declarative(cls, metadata._decl_registry, metadata)
     orm.configure_mappers()
