@@ -4,6 +4,10 @@ Changelog
 15.1.0 (unreleased)
 -------------------
 
+- Notifications:
+  - Add BaseEmail class to unify sending emails.
+  Ref: scrum-1572
+  [thet, reinhardt]
 - Add behavior to hide modules from trainings.
   Ref: scrum-1573
   [thet]
