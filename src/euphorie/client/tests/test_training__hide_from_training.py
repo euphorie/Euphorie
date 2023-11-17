@@ -78,6 +78,9 @@ class TestTrainingHideFromTraining(EuphorieIntegrationTestCase):
         fti_module.behaviors = tuple(
             list(fti_module.behaviors) + ["euphorie.hide_from_training"]
         )
+        from plone.dexterity.schema import SCHEMA_CACHE
+
+        SCHEMA_CACHE.invalidate("euphorie.module")
 
     def create_content(self, survey_xml):
         session = Session()
