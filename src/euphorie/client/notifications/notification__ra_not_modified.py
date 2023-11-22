@@ -27,16 +27,25 @@ class Email(BaseNotificationEmail):
 You have not modified your risk assessment for ${reminder_days} days. Please \
 remember to keep your risk assessment up to date.
 With this link you can access the risk assessment.""",
+            msgid_plural="notification_mail_body__ra_not_modified__plural",
+            default_plural="""\
+You have not modified your risk assessments for ${reminder_days} days. Please \
+remember to keep your risk assessments up to date.
+With these links you can access the risk assessments.""",
             mapping={
                 "reminder_days": self.reminder_days,
             },
+            number=len(self.sessions),
         )
 
     @property
     def translatable_subject(self):
         return _(
             "notification_mail_subject__ra_not_modified",
-            default="Reminder: Update of risk assessment",
+            default="Reminder: Update of risk assessment (${num} open)",
+            mapping={
+                "num": len(self.sessions),
+            },
         )
 
     @property
