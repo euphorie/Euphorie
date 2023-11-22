@@ -39,7 +39,14 @@ class BaseNotificationEmail(BaseEmail):
                 for session in self.sessions
             ]
         )
-        preferences_link = f"{self.webhelpers.country_url}/preferences"
+
+        # Compile the preferences link
+        some_session = self.sessions[0]
+        contextual_webhelpers = api.content.get_view(
+            "webhelpers", some_session.tool, self.request
+        )
+        country_url = contextual_webhelpers.country_url
+        preferences_link = f"{country_url}/preferences"
 
         return api.portal.translate(
             _(
