@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-02 21:22+0000\n"
+"POT-Creation-Date: 2023-11-22 11:27+0000\n"
 "PO-Revision-Date: 2013-10-23 15:53+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -111,7 +111,7 @@ msgstr "Prijať"
 msgid "Action plan (Excel spreadsheet)"
 msgstr "Akčný plán (tabuľka v Exceli)"
 
-#: euphorie/content/browser/module.py:76
+#: euphorie/content/browser/module.py:38
 msgid "Add %s"
 msgstr "Pridať %s"
 
@@ -123,7 +123,7 @@ msgstr "Pridať opatrenie"
 msgid "Add Module"
 msgstr "Pridať modul"
 
-#: euphorie/content/browser/profilequestion.py:60
+#: euphorie/content/browser/profilequestion.py:22
 #: euphorie/deployment/tiles/templates/addbar.pt:35
 msgid "Add Profile question"
 msgstr "Pridať profilovú otázku"
@@ -186,7 +186,7 @@ msgstr "Takmer hotovo&hellip;"
 msgid "An account was created for you with email address ${email}"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:279
+#: euphorie/client/browser/settings.py:345
 msgid "An error occured while sending the confirmation email."
 msgstr "Pri posielaní potvrdzujúceho e-mailu sa vyskytla chyba."
 
@@ -272,7 +272,7 @@ msgstr "Kandidátska krajina"
 msgid "Certificate"
 msgstr "Certifikát"
 
-#: euphorie/client/browser/settings.py:71
+#: euphorie/client/browser/settings.py:74
 msgid "Change email address"
 msgstr "Zmeniť e-mailovú adresu"
 
@@ -304,7 +304,7 @@ msgstr "Zatvoriť"
 msgid "Comments"
 msgstr "Pripomienky"
 
-#: euphorie/client/browser/settings.py:304
+#: euphorie/client/browser/settings.py:370
 msgid "Confirm OiRA email address change"
 msgstr "Potvrdiť zmenu e-mailovej adresy OiRA"
 
@@ -362,7 +362,7 @@ msgstr "Licencia Creative Commons"
 msgid "Decline"
 msgstr "Odmietnuť"
 
-#: euphorie/client/browser/settings.py:77
+#: euphorie/client/browser/settings.py:80
 #: euphorie/client/browser/templates/account-delete.pt:41
 msgid "Delete account"
 msgstr "Odstrániť konto"
@@ -422,11 +422,11 @@ msgid "Edit"
 msgstr "Upraviť"
 
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:21
-#: euphorie/content/browser/module.py:98
+#: euphorie/content/browser/module.py:60
 msgid "Edit ${name}"
 msgstr "Upraviť ${name}"
 
-#: euphorie/content/browser/profilequestion.py:72
+#: euphorie/content/browser/profilequestion.py:34
 msgid "Edit Profile question"
 msgstr "Pridať profilovú otázku"
 
@@ -442,7 +442,7 @@ msgstr "Upraviť organizáciu"
 msgid "Edit training card"
 msgstr "Upraviť kartu školenia"
 
-#: euphorie/client/browser/settings.py:118
+#: euphorie/client/browser/settings.py:121
 msgid "Email address/account name"
 msgstr "E-mailová adresa/názov konta"
 
@@ -556,7 +556,7 @@ msgstr "Chcem sa s vami podeliť o nasledovné"
 msgid "Identifier"
 msgstr "Identifikátor"
 
-#: euphorie/content/browser/upload.py:557
+#: euphorie/content/browser/upload.py:564
 msgid "Import OiRA Tool version"
 msgstr "Importovať verziu nástroja OiRA"
 
@@ -584,7 +584,7 @@ msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
 msgstr ""
 "Neplatný formát súboru pre obrázok. Použite formát PNG, JPEG alebo GIF."
 
-#: euphorie/client/browser/settings.py:195
+#: euphorie/client/browser/settings.py:261
 msgid "Invalid password"
 msgstr "Neplatné heslo"
 
@@ -592,7 +592,7 @@ msgstr "Neplatné heslo"
 msgid "Invalid security token, try to request a new one"
 msgstr "Neplatný bezpečnostný token, skúste požiadať o nový."
 
-#: euphorie/client/browser/training.py:696
+#: euphorie/client/browser/training.py:716
 msgid "It seems you missed a slide"
 msgstr ""
 
@@ -783,7 +783,7 @@ msgstr "Oficiálne logo OiRA"
 msgid "OiRA Tool"
 msgstr "Nástroj OiRA"
 
-#: euphorie/content/browser/upload.py:187
+#: euphorie/content/browser/upload.py:188
 msgid "OiRA Tool import"
 msgstr "Import nástroja OiRA"
 
@@ -884,7 +884,7 @@ msgid "Pass information to the people concerned."
 msgstr "Informovať dotknuté osoby."
 
 #: euphorie/client/browser/reset_password.py:42
-#: euphorie/client/browser/settings.py:109
+#: euphorie/client/browser/settings.py:112
 #: euphorie/content/widgets/password.py:18
 msgid "Password doesn't compare with confirmation value"
 msgstr "Heslo sa nepodobá hodnote potvrdenia"
@@ -1070,13 +1070,13 @@ msgid "Run slideshow"
 msgstr "Spustiť prezentáciu"
 
 #: euphorie/client/browser/reset_password.py:206
-#: euphorie/client/browser/settings.py:144
+#: euphorie/client/browser/settings.py:203
 #: euphorie/client/browser/templates/panel-add-organisation.pt:62
 msgid "Save"
 msgstr "Uložiť"
 
 #: euphorie/client/browser/reset_password.py:230
-#: euphorie/client/browser/settings.py:172
+#: euphorie/client/browser/settings.py:238
 #: euphorie/client/browser/templates/account-settings.pt:45
 msgid "Save changes"
 msgstr "Uložiť zmeny"
@@ -1144,7 +1144,7 @@ msgstr "Jednoduché (zobraziť iba Všeobecné smerovanie)"
 msgid "Single occurance prompt"
 msgstr "Výzva v prípade jedného výskytu"
 
-#: euphorie/content/browser/upload.py:164
+#: euphorie/content/browser/upload.py:165
 msgid "Standard"
 msgstr "Štandardné"
 
@@ -1171,7 +1171,7 @@ msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
 "V tejto aplikácii OiRA nie je spustenie testovacej relácie k dispozícii."
 
-#: euphorie/content/browser/module.py:45 euphorie/deployment/tiles/addbar.py:19
+#: euphorie/content/browser/module.py:20 euphorie/deployment/tiles/addbar.py:19
 msgid "Submodule"
 msgstr "Podmodul"
 
@@ -1264,7 +1264,7 @@ msgstr ""
 msgid "There is not enough information to proceed to the identification phase"
 msgstr "Na prechod do identifikačnej fázy nie je dostatok informácií."
 
-#: euphorie/client/browser/settings.py:183
+#: euphorie/client/browser/settings.py:249
 msgid "There were no changes to be saved."
 msgstr "Neexistovali žiadne zmeny na uloženie."
 
@@ -1280,7 +1280,7 @@ msgstr ""
 msgid "This certificate is presented to"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:359
+#: euphorie/client/browser/settings.py:425
 msgid "This email address is not available."
 msgstr "Táto e-mailová adresa nie je k dispozícii."
 
@@ -1319,7 +1319,7 @@ msgstr ""
 msgid "This question must ask the user if this profile applies to them."
 msgstr "Táto otázka sa musí používateľa opýtať, či sa na neho vzťahuje profil."
 
-#: euphorie/client/browser/settings.py:390
+#: euphorie/client/browser/settings.py:456
 msgid "This request could not be processed."
 msgstr "Túto požiadavku nebolo možné spracovať."
 
@@ -1364,7 +1364,7 @@ msgstr ""
 msgid "Unvisited"
 msgstr "Nenavštívené"
 
-#: euphorie/content/browser/upload.py:561
+#: euphorie/content/browser/upload.py:568
 msgid "Upload"
 msgstr "Nahrať"
 
@@ -1500,7 +1500,7 @@ msgstr ""
 msgid "You need to specify a title for the organisation."
 msgstr ""
 
-#: euphorie/client/browser/training.py:694
+#: euphorie/client/browser/training.py:714
 msgid "You should start the training from the beginning"
 msgstr ""
 
@@ -1508,16 +1508,16 @@ msgstr ""
 msgid "You're done with the training slides!"
 msgstr "So snímkami zo školenia ste skončili!"
 
-#: euphorie/client/browser/settings.py:403
+#: euphorie/client/browser/settings.py:469
 msgid "Your email address has been updated."
 msgstr "Vaša e-mailová adresa bola aktualizovaná."
 
-#: euphorie/client/browser/settings.py:113
+#: euphorie/client/browser/settings.py:116
 msgid "Your password for confirmation"
 msgstr "Vaše heslo na potvrdenie"
 
 #: euphorie/client/browser/reset_password.py:297
-#: euphorie/client/browser/settings.py:198
+#: euphorie/client/browser/settings.py:264
 msgid "Your password was successfully changed."
 msgstr "Vaše heslo bolo úspešne zmenené."
 
@@ -1808,7 +1808,7 @@ msgstr "Áno, archívna relácia"
 
 #. Default: "Cancel"
 #: euphorie/client/browser/publish.py:310
-#: euphorie/client/browser/settings.py:200
+#: euphorie/client/browser/settings.py:266
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:37
 msgid "button_cancel"
 msgstr "Zrušiť"
@@ -2482,7 +2482,7 @@ msgstr ""
 "na ${url} budú zmenené na „${email}“."
 
 #. Default: "Please confirm your new email address by clicking on the link in the email that will be sent in a few minutes to \"${email}\". Please note that the new email address is also your new login name."
-#: euphorie/client/browser/settings.py:365
+#: euphorie/client/browser/settings.py:431
 msgid "email_change_pending"
 msgstr ""
 "Potvrďte svoju novú e-mailovú adresu kliknutím na tento odkaz v e-maile, "
@@ -2564,7 +2564,7 @@ msgid "error_invalid_login"
 msgstr "Prihlasovacie meno môže obsahovať iba malé písmená a čísla."
 
 #. Default: "Please upload a valid XML file"
-#: euphorie/content/browser/upload.py:577
+#: euphorie/content/browser/upload.py:584
 msgid "error_invalid_xml"
 msgstr "Nahrajte platný súbor XML"
 
@@ -2773,7 +2773,7 @@ msgid "filename_report_timeline"
 msgstr "Akčný plán pre ${title}"
 
 #. Default: "Contents of OIRA tool ${title}"
-#: euphorie/content/browser/survey.py:445
+#: euphorie/content/browser/survey.py:478
 msgid "filename_tool_contents"
 msgstr ""
 
@@ -2960,7 +2960,7 @@ msgid "header_launch"
 msgstr "Oficiálne spustenie projektu &ndash; september 2011"
 
 #. Default: "Legal and policy references"
-#: euphorie/client/docx/compiler.py:364 euphorie/content/browser/survey.py:311
+#: euphorie/client/docx/compiler.py:364 euphorie/content/browser/survey.py:344
 msgid "header_legal_references"
 msgstr "Právne odkazy a odkazy na zásady"
 
@@ -3593,6 +3593,11 @@ msgstr "1. Príprava"
 msgid "help_help_introduction"
 msgstr "Všeobecné informácie o hodnotení rizík"
 
+#. Default: "Do not include this module in the training, for example if the module does not have any relevance for workers."
+#: euphorie/content/behaviors/hide_from_training.py:13
+msgid "help_hide_from_training"
+msgstr ""
+
 #. Default: "This text should explain how the risk identification works."
 #: euphorie/content/help.py:63
 msgid "help_identification"
@@ -3746,7 +3751,7 @@ msgstr ""
 "tohto editora."
 
 #. Default: "If you do not specify a title it will be taken from the input file."
-#: euphorie/content/browser/upload.py:139
+#: euphorie/content/browser/upload.py:140
 msgid "help_sector_title"
 msgstr "Ak neuvediete názov, bude prevzatý zo vstupného súboru."
 
@@ -3809,7 +3814,7 @@ msgstr ""
 "klientov."
 
 #. Default: "If you do not specify a title it will be taken from the input."
-#: euphorie/content/browser/upload.py:155
+#: euphorie/content/browser/upload.py:156
 msgid "help_upload_surveygroup_title"
 msgstr "Ak neuvediete názov, bude prevzatý zo vstupu."
 
@@ -4403,7 +4408,7 @@ msgstr "Opatrenie už bolo zavedené"
 
 #. Default: "Already implemented measures"
 #: euphorie/client/browser/templates/webhelpers.pt:677
-#: euphorie/client/browser/training.py:286
+#: euphorie/client/browser/training.py:287
 msgid "label_existing_measures"
 msgstr "Už realizované opatrenia"
 
@@ -4443,7 +4448,7 @@ msgid "label_file_caption"
 msgstr "Popisok obsahu"
 
 #. Default: "First name"
-#: euphorie/client/browser/settings.py:127
+#: euphorie/client/browser/settings.py:130
 msgid "label_first_name"
 msgstr "Krstné meno"
 
@@ -4521,6 +4526,11 @@ msgstr "5. Správa"
 msgid "label_help_sessions"
 msgstr "Vykonanie vášho hodnotenia rizík"
 
+#. Default: "Hide from training"
+#: euphorie/content/behaviors/hide_from_training.py:12
+msgid "label_hide_from_training"
+msgstr ""
+
 #. Default: "History"
 #: euphorie/client/browser/templates/more_menu.pt:26
 msgid "label_history"
@@ -4570,7 +4580,7 @@ msgid "label_involve"
 msgstr "Zahrnúť"
 
 #. Default: "Import XML translation from eTranslate"
-#: euphorie/content/browser/upload.py:196
+#: euphorie/content/browser/upload.py:197
 msgid "label_is_etranslate_compatible"
 msgstr ""
 
@@ -4592,7 +4602,7 @@ msgid "label_language"
 msgstr "Jazyk"
 
 #. Default: "Last name"
-#: euphorie/client/browser/settings.py:130
+#: euphorie/client/browser/settings.py:133
 msgid "label_last_name"
 msgstr "Priezvisko"
 
@@ -4650,7 +4660,7 @@ msgid "label_login"
 msgstr "Prihlásenie"
 
 #. Default: "Login name"
-#: euphorie/content/browser/upload.py:148 euphorie/content/user.py:85
+#: euphorie/content/browser/upload.py:149 euphorie/content/user.py:85
 msgid "label_login_name"
 msgstr "Prihlasovacie meno"
 
@@ -4671,7 +4681,7 @@ msgid "label_logo_selection"
 msgstr "Ktoré logo chcete zobraziť v ľavom dolnom rohu?"
 
 #. Default: "Notifications"
-#: euphorie/client/browser/templates/preferences.pt:70
+#: euphorie/client/browser/templates/preferences.pt:72
 msgid "label_mailings"
 msgstr ""
 
@@ -4748,13 +4758,13 @@ msgstr "Splnil tento nástroj OiRA vaše potreby?"
 
 #. Default: "Desired password"
 #: euphorie/client/browser/reset_password.py:33
-#: euphorie/client/browser/settings.py:95
+#: euphorie/client/browser/settings.py:98
 #: euphorie/client/browser/templates/login.pt:195
 msgid "label_new_password"
 msgstr "Požadované heslo"
 
 #. Default: "Again password"
-#: euphorie/client/browser/settings.py:100
+#: euphorie/client/browser/settings.py:103
 msgid "label_new_password_confirmation"
 msgstr "Znova heslo"
 
@@ -4846,7 +4856,7 @@ msgid "label_oira_consultants"
 msgstr ""
 
 #. Default: "Current Password"
-#: euphorie/client/browser/settings.py:90
+#: euphorie/client/browser/settings.py:93
 msgid "label_old_password"
 msgstr "Súčasné heslo"
 
@@ -4888,7 +4898,7 @@ msgstr "Znova heslo"
 
 #. Default: "Planned measures"
 #: euphorie/client/browser/templates/webhelpers.pt:696
-#: euphorie/client/browser/training.py:289
+#: euphorie/client/browser/training.py:290
 msgid "label_planned_measures"
 msgstr "Plánované opatrenia"
 
@@ -4917,7 +4927,7 @@ msgid "label_print_tool_preview"
 msgstr "Vytlačiť prehľad nástroja"
 
 #. Default: "Negative statement"
-#: euphorie/content/browser/survey.py:288
+#: euphorie/content/browser/survey.py:321
 #: euphorie/content/browser/templates/risk_view.pt:84
 #: euphorie/content/risk.py:79
 msgid "label_problem_description"
@@ -5126,7 +5136,7 @@ msgid "label_sector_description"
 msgstr "Uveďte opis vášho odvetvia"
 
 #. Default: "Title of sector."
-#: euphorie/content/browser/upload.py:138
+#: euphorie/content/browser/upload.py:139
 msgid "label_sector_title"
 msgstr "Názov odvetvia."
 
@@ -5293,7 +5303,7 @@ msgid "label_survey_title"
 msgstr "Názov verzie"
 
 #. Default: "Title of imported OiRA Tool"
-#: euphorie/content/browser/upload.py:154
+#: euphorie/content/browser/upload.py:155
 msgid "label_surveygroup_title"
 msgstr "Názov importovaného nástroja OiRA"
 
@@ -5412,12 +5422,12 @@ msgid "label_update"
 msgstr "Aktualizovať"
 
 #. Default: "XML file"
-#: euphorie/content/browser/upload.py:169
+#: euphorie/content/browser/upload.py:170
 msgid "label_upload_filename"
 msgstr "Súbor XML"
 
 #. Default: "Name for OiRA Tool version"
-#: euphorie/content/browser/upload.py:163
+#: euphorie/content/browser/upload.py:164
 msgid "label_upload_survey_title"
 msgstr "Názov verzie nástroja OiRA"
 
@@ -5677,7 +5687,7 @@ msgid "message_click_to_validate"
 msgstr ""
 
 #. Default: "This is the only version of the OiRA Tool and can therefore not be deleted. Did you perhaps want to remove the OiRA Tool itself?"
-#: euphorie/content/browser/survey.py:218
+#: euphorie/content/browser/survey.py:251
 msgid "message_delete_no_last_survey"
 msgstr ""
 "Toto je jediná verzia nástroja OiRA a preto sa nedávymazať. Možno chcete "
@@ -5749,7 +5759,7 @@ msgstr ""
 "Členovia môžu prezerať a upravovať všetky hodnotenia rizík organizácie."
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please unpublish it first."
-#: euphorie/content/browser/survey.py:199
+#: euphorie/content/browser/survey.py:232
 msgid "message_no_delete_published_survey"
 msgstr ""
 "Uverejnenú verziu nástroja OiRA nemôžete vymazať. Najprv zrušte jej "
@@ -5930,7 +5940,7 @@ msgid "navigation_help"
 msgstr "Pomoc"
 
 #. Default: "Logout"
-#: euphorie/client/browser/settings.py:83
+#: euphorie/client/browser/settings.py:86
 #: euphorie/client/browser/templates/webhelpers.pt:53
 msgid "navigation_logout"
 msgstr "Odhlásenie"
@@ -6013,32 +6023,27 @@ msgid "notice_filters_active"
 msgstr ""
 
 #. Default: "Notify when a risk assessment was not modified for ${days} days."
-#: euphorie/client/notifications/notification__ra_not_modified.py:62
+#: euphorie/client/notifications/notification__ra_not_modified.py:72
 msgid "notification_description__ra_not_modified"
 msgstr ""
 
 #. Default: "You have not modified your risk assessment for ${reminder_days} days. Please remember to keep your risk assessment up to date.\nWith this link you can access the risk assessment."
-#: euphorie/client/notifications/notification__ra_not_modified.py:23
+#: euphorie/client/notifications/notification__ra_not_modified.py:24
 msgid "notification_mail_body__ra_not_modified"
 msgstr ""
 
-#. Default: "Reminder: Update of risk assessment"
-#: euphorie/client/notifications/notification__ra_not_modified.py:36
+#. Default: "Reminder: Update of risk assessment (${num} open)"
+#: euphorie/client/notifications/notification__ra_not_modified.py:43
 msgid "notification_mail_subject__ra_not_modified"
 msgstr ""
 
 #. Default: "Hello ${full_name},\n\n${main_text}\n\n${session_links}\n\nBest regards\nYour OiRA Team\n\n**This is an automatically generated mail. If you do not want to receive mails from OiRA, you can change this [here](${preferences_link})**"
-#: euphorie/client/notifications/base.py:44
+#: euphorie/client/notifications/base.py:52
 msgid "notification_mail_text__base"
 msgstr ""
 
-#. Default: "You are receiving this because you are subscribed to notifications from ${site_name}."
-#: euphorie/client/mails/templates/email_notification_template.pt:188
-msgid "notification_received_reason"
-msgstr ""
-
 #. Default: "Notify on orphaned risk assessments."
-#: euphorie/client/notifications/notification__ra_not_modified.py:52
+#: euphorie/client/notifications/notification__ra_not_modified.py:62
 msgid "notification_title__ra_not_modified"
 msgstr ""
 
@@ -6551,17 +6556,17 @@ msgid "title_about"
 msgstr "O nás"
 
 #. Default: "Delete account"
-#: euphorie/client/browser/settings.py:213
+#: euphorie/client/browser/settings.py:279
 msgid "title_account_delete"
 msgstr "Odstrániť konto"
 
 #. Default: "Change email address"
-#: euphorie/client/browser/settings.py:249
+#: euphorie/client/browser/settings.py:315
 msgid "title_change_email"
 msgstr ""
 
 #. Default: "Change password"
-#: euphorie/client/browser/settings.py:65
+#: euphorie/client/browser/settings.py:68
 msgid "title_change_password"
 msgstr "Zmena hesla"
 
@@ -6601,12 +6606,12 @@ msgid "title_help_unpublished"
 msgstr "Odstrániť tento nástroj OiRA z online klienta."
 
 #. Default: "Personal details"
-#: euphorie/client/browser/templates/preferences.pt:43
+#: euphorie/client/browser/templates/preferences.pt:45
 msgid "title_personal_details"
 msgstr "Osobné údaje"
 
 #. Default: "Preferences"
-#: euphorie/client/browser/settings.py:59
+#: euphorie/client/browser/settings.py:62
 msgid "title_preferences"
 msgstr "Preferencie"
 
@@ -6705,7 +6710,7 @@ msgid "unpublish_confirm"
 msgstr "Naozaj chcete zrušiť uverejnenie tohto nástroja OiRA?"
 
 #. Default: "Succesfully imported the OiRA Tool"
-#: euphorie/content/browser/upload.py:582
+#: euphorie/content/browser/upload.py:589
 msgid "upload_success"
 msgstr "Úspešne importovaný nástroj OiRA."
 

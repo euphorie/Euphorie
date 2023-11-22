@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-02 21:22+0000\n"
+"POT-Creation-Date: 2023-11-22 11:27+0000\n"
 "PO-Revision-Date: 2013-06-27 22:15+0200\n"
 "Last-Translator: Robert <vansen@hotmail.com>\n"
 "Language-Team: sv <LL@li.org>\n"
@@ -95,7 +95,7 @@ msgstr ""
 msgid "Action plan (Excel spreadsheet)"
 msgstr ""
 
-#: euphorie/content/browser/module.py:76
+#: euphorie/content/browser/module.py:38
 msgid "Add %s"
 msgstr ""
 
@@ -107,7 +107,7 @@ msgstr ""
 msgid "Add Module"
 msgstr "Lägg till Modul"
 
-#: euphorie/content/browser/profilequestion.py:60
+#: euphorie/content/browser/profilequestion.py:22
 #: euphorie/deployment/tiles/templates/addbar.pt:35
 msgid "Add Profile question"
 msgstr "Lägg till Profilfråga"
@@ -170,7 +170,7 @@ msgstr ""
 msgid "An account was created for you with email address ${email}"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:279
+#: euphorie/client/browser/settings.py:345
 msgid "An error occured while sending the confirmation email."
 msgstr "Ett fel har inträffat när lösenordspåminnelsen skulle skickas ut"
 
@@ -256,7 +256,7 @@ msgstr ""
 msgid "Certificate"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:71
+#: euphorie/client/browser/settings.py:74
 msgid "Change email address"
 msgstr "Okänd e-postadress"
 
@@ -288,7 +288,7 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:304
+#: euphorie/client/browser/settings.py:370
 msgid "Confirm OiRA email address change"
 msgstr ""
 
@@ -344,7 +344,7 @@ msgstr "Creative Commons-license"
 msgid "Decline"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:77
+#: euphorie/client/browser/settings.py:80
 #: euphorie/client/browser/templates/account-delete.pt:41
 msgid "Delete account"
 msgstr ""
@@ -403,11 +403,11 @@ msgid "Edit"
 msgstr ""
 
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:21
-#: euphorie/content/browser/module.py:98
+#: euphorie/content/browser/module.py:60
 msgid "Edit ${name}"
 msgstr ""
 
-#: euphorie/content/browser/profilequestion.py:72
+#: euphorie/content/browser/profilequestion.py:34
 msgid "Edit Profile question"
 msgstr ""
 
@@ -423,7 +423,7 @@ msgstr ""
 msgid "Edit training card"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:118
+#: euphorie/client/browser/settings.py:121
 msgid "Email address/account name"
 msgstr ""
 
@@ -533,7 +533,7 @@ msgstr ""
 msgid "Identifier"
 msgstr "Identifierare"
 
-#: euphorie/content/browser/upload.py:557
+#: euphorie/content/browser/upload.py:564
 msgid "Import OiRA Tool version"
 msgstr ""
 
@@ -560,7 +560,7 @@ msgstr ""
 msgid "Invalid file format for image. Please use PNG, JPEG or GIF."
 msgstr ""
 
-#: euphorie/client/browser/settings.py:195
+#: euphorie/client/browser/settings.py:261
 msgid "Invalid password"
 msgstr "Lösenord"
 
@@ -568,7 +568,7 @@ msgstr "Lösenord"
 msgid "Invalid security token, try to request a new one"
 msgstr ""
 
-#: euphorie/client/browser/training.py:696
+#: euphorie/client/browser/training.py:716
 msgid "It seems you missed a slide"
 msgstr ""
 
@@ -756,7 +756,7 @@ msgstr ""
 msgid "OiRA Tool"
 msgstr ""
 
-#: euphorie/content/browser/upload.py:187
+#: euphorie/content/browser/upload.py:188
 msgid "OiRA Tool import"
 msgstr ""
 
@@ -846,7 +846,7 @@ msgid "Pass information to the people concerned."
 msgstr ""
 
 #: euphorie/client/browser/reset_password.py:42
-#: euphorie/client/browser/settings.py:109
+#: euphorie/client/browser/settings.py:112
 #: euphorie/content/widgets/password.py:18
 msgid "Password doesn't compare with confirmation value"
 msgstr ""
@@ -1022,13 +1022,13 @@ msgid "Run slideshow"
 msgstr ""
 
 #: euphorie/client/browser/reset_password.py:206
-#: euphorie/client/browser/settings.py:144
+#: euphorie/client/browser/settings.py:203
 #: euphorie/client/browser/templates/panel-add-organisation.pt:62
 msgid "Save"
 msgstr ""
 
 #: euphorie/client/browser/reset_password.py:230
-#: euphorie/client/browser/settings.py:172
+#: euphorie/client/browser/settings.py:238
 #: euphorie/client/browser/templates/account-settings.pt:45
 msgid "Save changes"
 msgstr "Spara ändringar"
@@ -1093,7 +1093,7 @@ msgstr ""
 msgid "Single occurance prompt"
 msgstr ""
 
-#: euphorie/content/browser/upload.py:164
+#: euphorie/content/browser/upload.py:165
 msgid "Standard"
 msgstr "Standard"
 
@@ -1119,7 +1119,7 @@ msgstr ""
 msgid "Starting a test session is not available in this OiRA application."
 msgstr ""
 
-#: euphorie/content/browser/module.py:45 euphorie/deployment/tiles/addbar.py:19
+#: euphorie/content/browser/module.py:20 euphorie/deployment/tiles/addbar.py:19
 msgid "Submodule"
 msgstr "Delmodul"
 
@@ -1197,7 +1197,7 @@ msgstr ""
 msgid "There is not enough information to proceed to the identification phase"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:183
+#: euphorie/client/browser/settings.py:249
 msgid "There were no changes to be saved."
 msgstr ""
 
@@ -1213,7 +1213,7 @@ msgstr ""
 msgid "This certificate is presented to"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:359
+#: euphorie/client/browser/settings.py:425
 msgid "This email address is not available."
 msgstr ""
 
@@ -1248,7 +1248,7 @@ msgstr ""
 msgid "This question must ask the user if this profile applies to them."
 msgstr ""
 
-#: euphorie/client/browser/settings.py:390
+#: euphorie/client/browser/settings.py:456
 msgid "This request could not be processed."
 msgstr ""
 
@@ -1293,7 +1293,7 @@ msgstr ""
 msgid "Unvisited"
 msgstr ""
 
-#: euphorie/content/browser/upload.py:561
+#: euphorie/content/browser/upload.py:568
 msgid "Upload"
 msgstr "Ladda upp"
 
@@ -1410,7 +1410,7 @@ msgstr ""
 msgid "You need to specify a title for the organisation."
 msgstr ""
 
-#: euphorie/client/browser/training.py:694
+#: euphorie/client/browser/training.py:714
 msgid "You should start the training from the beginning"
 msgstr ""
 
@@ -1418,16 +1418,16 @@ msgstr ""
 msgid "You're done with the training slides!"
 msgstr ""
 
-#: euphorie/client/browser/settings.py:403
+#: euphorie/client/browser/settings.py:469
 msgid "Your email address has been updated."
 msgstr ""
 
-#: euphorie/client/browser/settings.py:113
+#: euphorie/client/browser/settings.py:116
 msgid "Your password for confirmation"
 msgstr ""
 
 #: euphorie/client/browser/reset_password.py:297
-#: euphorie/client/browser/settings.py:198
+#: euphorie/client/browser/settings.py:264
 msgid "Your password was successfully changed."
 msgstr ""
 
@@ -1717,7 +1717,7 @@ msgstr ""
 
 #. Default: "Cancel"
 #: euphorie/client/browser/publish.py:310
-#: euphorie/client/browser/settings.py:200
+#: euphorie/client/browser/settings.py:266
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:37
 msgid "button_cancel"
 msgstr "Avbryt"
@@ -2298,7 +2298,7 @@ msgid "email_change_intro"
 msgstr "Ändra land/språk"
 
 #. Default: "Please confirm your new email address by clicking on the link in the email that will be sent in a few minutes to \"${email}\". Please note that the new email address is also your new login name."
-#: euphorie/client/browser/settings.py:365
+#: euphorie/client/browser/settings.py:431
 msgid "email_change_pending"
 msgstr ""
 
@@ -2377,7 +2377,7 @@ msgid "error_invalid_login"
 msgstr "Inloggningsnamnet får endast bestå av små bokstäver och siffror."
 
 #. Default: "Please upload a valid XML file"
-#: euphorie/content/browser/upload.py:577
+#: euphorie/content/browser/upload.py:584
 msgid "error_invalid_xml"
 msgstr "Ladda upp en giltig XML-fil"
 
@@ -2574,7 +2574,7 @@ msgid "filename_report_timeline"
 msgstr "Handlingsplan ${title}.doc"
 
 #. Default: "Contents of OIRA tool ${title}"
-#: euphorie/content/browser/survey.py:445
+#: euphorie/content/browser/survey.py:478
 msgid "filename_tool_contents"
 msgstr ""
 
@@ -2757,7 +2757,7 @@ msgid "header_launch"
 msgstr "Officiell lansering av projektet – september 2011"
 
 #. Default: "Legal and policy references"
-#: euphorie/client/docx/compiler.py:364 euphorie/content/browser/survey.py:311
+#: euphorie/client/docx/compiler.py:364 euphorie/content/browser/survey.py:344
 msgid "header_legal_references"
 msgstr "Rättsliga och politiska referenser"
 
@@ -3383,6 +3383,11 @@ msgstr ""
 "Generisk introduktion för klienten. Denna text är inte förknippade med "
 "specifika sidor."
 
+#. Default: "Do not include this module in the training, for example if the module does not have any relevance for workers."
+#: euphorie/content/behaviors/hide_from_training.py:13
+msgid "help_hide_from_training"
+msgstr ""
+
 #. Default: "This text should explain how the risk identification works."
 #: euphorie/content/help.py:63
 msgid "help_identification"
@@ -3535,7 +3540,7 @@ msgstr ""
 "Detta är det lösenord du behöver för att logga in på denna redaktörsmiljö."
 
 #. Default: "If you do not specify a title it will be taken from the input file."
-#: euphorie/content/browser/upload.py:139
+#: euphorie/content/browser/upload.py:140
 msgid "help_sector_title"
 msgstr "Om du inte specificerar en titel kommer den att tas från indatafilen."
 
@@ -3599,7 +3604,7 @@ msgstr ""
 "i klienterna."
 
 #. Default: "If you do not specify a title it will be taken from the input."
-#: euphorie/content/browser/upload.py:155
+#: euphorie/content/browser/upload.py:156
 msgid "help_upload_surveygroup_title"
 msgstr "Om du inte specificerar en titel den kommer att tas från indatan."
 
@@ -4154,7 +4159,7 @@ msgstr ""
 
 #. Default: "Already implemented measures"
 #: euphorie/client/browser/templates/webhelpers.pt:677
-#: euphorie/client/browser/training.py:286
+#: euphorie/client/browser/training.py:287
 msgid "label_existing_measures"
 msgstr ""
 
@@ -4194,7 +4199,7 @@ msgid "label_file_caption"
 msgstr ""
 
 #. Default: "First name"
-#: euphorie/client/browser/settings.py:127
+#: euphorie/client/browser/settings.py:130
 msgid "label_first_name"
 msgstr ""
 
@@ -4272,6 +4277,11 @@ msgstr "Rapporter"
 msgid "label_help_sessions"
 msgstr "Sessioner"
 
+#. Default: "Hide from training"
+#: euphorie/content/behaviors/hide_from_training.py:12
+msgid "label_hide_from_training"
+msgstr ""
+
 #. Default: "History"
 #: euphorie/client/browser/templates/more_menu.pt:26
 msgid "label_history"
@@ -4321,7 +4331,7 @@ msgid "label_involve"
 msgstr ""
 
 #. Default: "Import XML translation from eTranslate"
-#: euphorie/content/browser/upload.py:196
+#: euphorie/content/browser/upload.py:197
 msgid "label_is_etranslate_compatible"
 msgstr ""
 
@@ -4343,7 +4353,7 @@ msgid "label_language"
 msgstr "Språk"
 
 #. Default: "Last name"
-#: euphorie/client/browser/settings.py:130
+#: euphorie/client/browser/settings.py:133
 msgid "label_last_name"
 msgstr ""
 
@@ -4401,7 +4411,7 @@ msgid "label_login"
 msgstr "Login"
 
 #. Default: "Login name"
-#: euphorie/content/browser/upload.py:148 euphorie/content/user.py:85
+#: euphorie/content/browser/upload.py:149 euphorie/content/user.py:85
 msgid "label_login_name"
 msgstr "Inloggningsnamn"
 
@@ -4422,7 +4432,7 @@ msgid "label_logo_selection"
 msgstr "Vilken logotyp vill du visa i det övre vänstra hörnet?"
 
 #. Default: "Notifications"
-#: euphorie/client/browser/templates/preferences.pt:70
+#: euphorie/client/browser/templates/preferences.pt:72
 msgid "label_mailings"
 msgstr ""
 
@@ -4497,13 +4507,13 @@ msgstr ""
 
 #. Default: "Desired password"
 #: euphorie/client/browser/reset_password.py:33
-#: euphorie/client/browser/settings.py:95
+#: euphorie/client/browser/settings.py:98
 #: euphorie/client/browser/templates/login.pt:195
 msgid "label_new_password"
 msgstr "Önskat lösenord"
 
 #. Default: "Again password"
-#: euphorie/client/browser/settings.py:100
+#: euphorie/client/browser/settings.py:103
 msgid "label_new_password_confirmation"
 msgstr ""
 
@@ -4594,7 +4604,7 @@ msgid "label_oira_consultants"
 msgstr ""
 
 #. Default: "Current Password"
-#: euphorie/client/browser/settings.py:90
+#: euphorie/client/browser/settings.py:93
 msgid "label_old_password"
 msgstr "Lösenord"
 
@@ -4636,7 +4646,7 @@ msgstr "Bekräfta lösenord"
 
 #. Default: "Planned measures"
 #: euphorie/client/browser/templates/webhelpers.pt:696
-#: euphorie/client/browser/training.py:289
+#: euphorie/client/browser/training.py:290
 msgid "label_planned_measures"
 msgstr ""
 
@@ -4665,7 +4675,7 @@ msgid "label_print_tool_preview"
 msgstr ""
 
 #. Default: "Negative statement"
-#: euphorie/content/browser/survey.py:288
+#: euphorie/content/browser/survey.py:321
 #: euphorie/content/browser/templates/risk_view.pt:84
 #: euphorie/content/risk.py:79
 msgid "label_problem_description"
@@ -4872,7 +4882,7 @@ msgid "label_sector_description"
 msgstr "Ange en beskrivning av din bransch"
 
 #. Default: "Title of sector."
-#: euphorie/content/browser/upload.py:138
+#: euphorie/content/browser/upload.py:139
 msgid "label_sector_title"
 msgstr "Bransch titel."
 
@@ -5038,7 +5048,7 @@ msgid "label_survey_title"
 msgstr "Version namn"
 
 #. Default: "Title of imported OiRA Tool"
-#: euphorie/content/browser/upload.py:154
+#: euphorie/content/browser/upload.py:155
 msgid "label_surveygroup_title"
 msgstr "Titel på importerad undersökning."
 
@@ -5154,12 +5164,12 @@ msgid "label_update"
 msgstr "Uppdatera"
 
 #. Default: "XML file"
-#: euphorie/content/browser/upload.py:169
+#: euphorie/content/browser/upload.py:170
 msgid "label_upload_filename"
 msgstr "XML-fil"
 
 #. Default: "Name for OiRA Tool version"
-#: euphorie/content/browser/upload.py:163
+#: euphorie/content/browser/upload.py:164
 msgid "label_upload_survey_title"
 msgstr "Namn på undersökningens version"
 
@@ -5411,7 +5421,7 @@ msgid "message_click_to_validate"
 msgstr ""
 
 #. Default: "This is the only version of the OiRA Tool and can therefore not be deleted. Did you perhaps want to remove the OiRA Tool itself?"
-#: euphorie/content/browser/survey.py:218
+#: euphorie/content/browser/survey.py:251
 msgid "message_delete_no_last_survey"
 msgstr "Du kan inte radera den enda undersökningens version."
 
@@ -5462,7 +5472,7 @@ msgid "message_member_see_all"
 msgstr ""
 
 #. Default: "You cannot delete an OiRA Tool version that is published. Please unpublish it first."
-#: euphorie/content/browser/survey.py:199
+#: euphorie/content/browser/survey.py:232
 msgid "message_no_delete_published_survey"
 msgstr "Du kan inte radera den enda undersökningens version."
 
@@ -5640,7 +5650,7 @@ msgid "navigation_help"
 msgstr "Hjälp"
 
 #. Default: "Logout"
-#: euphorie/client/browser/settings.py:83
+#: euphorie/client/browser/settings.py:86
 #: euphorie/client/browser/templates/webhelpers.pt:53
 msgid "navigation_logout"
 msgstr "Logga ut"
@@ -5723,32 +5733,27 @@ msgid "notice_filters_active"
 msgstr ""
 
 #. Default: "Notify when a risk assessment was not modified for ${days} days."
-#: euphorie/client/notifications/notification__ra_not_modified.py:62
+#: euphorie/client/notifications/notification__ra_not_modified.py:72
 msgid "notification_description__ra_not_modified"
 msgstr ""
 
 #. Default: "You have not modified your risk assessment for ${reminder_days} days. Please remember to keep your risk assessment up to date.\nWith this link you can access the risk assessment."
-#: euphorie/client/notifications/notification__ra_not_modified.py:23
+#: euphorie/client/notifications/notification__ra_not_modified.py:24
 msgid "notification_mail_body__ra_not_modified"
 msgstr ""
 
-#. Default: "Reminder: Update of risk assessment"
-#: euphorie/client/notifications/notification__ra_not_modified.py:36
+#. Default: "Reminder: Update of risk assessment (${num} open)"
+#: euphorie/client/notifications/notification__ra_not_modified.py:43
 msgid "notification_mail_subject__ra_not_modified"
 msgstr ""
 
 #. Default: "Hello ${full_name},\n\n${main_text}\n\n${session_links}\n\nBest regards\nYour OiRA Team\n\n**This is an automatically generated mail. If you do not want to receive mails from OiRA, you can change this [here](${preferences_link})**"
-#: euphorie/client/notifications/base.py:44
+#: euphorie/client/notifications/base.py:52
 msgid "notification_mail_text__base"
 msgstr ""
 
-#. Default: "You are receiving this because you are subscribed to notifications from ${site_name}."
-#: euphorie/client/mails/templates/email_notification_template.pt:188
-msgid "notification_received_reason"
-msgstr ""
-
 #. Default: "Notify on orphaned risk assessments."
-#: euphorie/client/notifications/notification__ra_not_modified.py:52
+#: euphorie/client/notifications/notification__ra_not_modified.py:62
 msgid "notification_title__ra_not_modified"
 msgstr ""
 
@@ -6246,17 +6251,17 @@ msgid "title_about"
 msgstr "Om"
 
 #. Default: "Delete account"
-#: euphorie/client/browser/settings.py:213
+#: euphorie/client/browser/settings.py:279
 msgid "title_account_delete"
 msgstr "Dokumentation"
 
 #. Default: "Change email address"
-#: euphorie/client/browser/settings.py:249
+#: euphorie/client/browser/settings.py:315
 msgid "title_change_email"
 msgstr ""
 
 #. Default: "Change password"
-#: euphorie/client/browser/settings.py:65
+#: euphorie/client/browser/settings.py:68
 msgid "title_change_password"
 msgstr ""
 
@@ -6296,12 +6301,12 @@ msgid "title_help_unpublished"
 msgstr "Publicera den markerade undersökningen med de senaste ändringarna."
 
 #. Default: "Personal details"
-#: euphorie/client/browser/templates/preferences.pt:43
+#: euphorie/client/browser/templates/preferences.pt:45
 msgid "title_personal_details"
 msgstr ""
 
 #. Default: "Preferences"
-#: euphorie/client/browser/settings.py:59
+#: euphorie/client/browser/settings.py:62
 msgid "title_preferences"
 msgstr ""
 
@@ -6403,7 +6408,7 @@ msgstr ""
 "alla användare."
 
 #. Default: "Succesfully imported the OiRA Tool"
-#: euphorie/content/browser/upload.py:582
+#: euphorie/content/browser/upload.py:589
 msgid "upload_success"
 msgstr "Undersökningen har importerats"
 
