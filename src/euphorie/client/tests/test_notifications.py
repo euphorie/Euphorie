@@ -103,5 +103,6 @@ class NotificationsSendingTests(EuphorieIntegrationTestCase):
         mail = mail_fixture.storage[0][0][0]
         self.assertIn(self.account.email, mail.get("To"))
         self.assertEqual(
-            mail_fixture.storage[0][1]["subject"], "Reminder: Update of risk assessment"
+            mail_fixture.storage[0][1]["subject"],
+            "Reminder: Update of risk assessment (1 open)",
         )
