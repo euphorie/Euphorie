@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-22 11:27+0000\n"
+"POT-Creation-Date: 2023-11-23 17:49+0000\n"
 "PO-Revision-Date: 2013-07-30 15:59+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4693,11 +4693,6 @@ msgstr "Logo"
 msgid "label_logo_selection"
 msgstr "Minkä logon haluat näkyvän vasemmassa yläkulmassa?"
 
-#. Default: "Notifications"
-#: euphorie/client/browser/templates/preferences.pt:72
-msgid "label_mailings"
-msgstr ""
-
 #. Default: "General approach (to eliminate or reduce the risk) + Specific action(s) required to implement this approach"
 #: euphorie/content/solution.py:66
 msgid "label_measure_action"
@@ -4856,6 +4851,11 @@ msgstr "Ei, tarvitaan lisätoimenpiteitä"
 #: euphorie/client/browser/templates/webhelpers.pt:723
 msgid "label_notes"
 msgstr "Huomautuksia"
+
+#. Default: "Notifications"
+#: euphorie/client/browser/templates/preferences.pt:72
+msgid "label_notifications"
+msgstr ""
 
 #. Default: "Number of questions asked after training"
 #: euphorie/content/survey.py:160

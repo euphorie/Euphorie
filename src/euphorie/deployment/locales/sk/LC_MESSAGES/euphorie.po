@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-11-22 11:27+0000\n"
+"POT-Creation-Date: 2023-11-23 17:49+0000\n"
 "PO-Revision-Date: 2013-10-23 15:53+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4680,11 +4680,6 @@ msgstr "Logo"
 msgid "label_logo_selection"
 msgstr "Ktoré logo chcete zobraziť v ľavom dolnom rohu?"
 
-#. Default: "Notifications"
-#: euphorie/client/browser/templates/preferences.pt:72
-msgid "label_mailings"
-msgstr ""
-
 #. Default: "General approach (to eliminate or reduce the risk) + Specific action(s) required to implement this approach"
 #: euphorie/content/solution.py:66
 msgid "label_measure_action"
@@ -4843,6 +4838,11 @@ msgstr ""
 #: euphorie/client/browser/templates/training.pt:330
 #: euphorie/client/browser/templates/webhelpers.pt:723
 msgid "label_notes"
+msgstr ""
+
+#. Default: "Notifications"
+#: euphorie/client/browser/templates/preferences.pt:72
+msgid "label_notifications"
 msgstr ""
 
 #. Default: "Number of questions asked after training"
