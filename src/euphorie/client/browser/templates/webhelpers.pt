@@ -278,20 +278,7 @@
       </div>
       <!-- END Existing measures -->
 
-      <!-- Multiple answers -->
-      <fieldset class="pat-checklist radio" tal:condition="risk/multiple_answers|nothing">
-
-        <!-- ${risk/multiple_answers|nothing} -->
-        <p class="legend">
-            Multiple answers
-        </p>
-        <label tal:repeat="answer python:risk.multiple_answers.splitlines()">
-            <input type="radio" name="multiple_answers" value="${answer}">
-            ${answer}
-        </label>
-     </fieldset>
-
-      <!-- Yes / No -->
+      <!-- Yes / No / Multiple -->
       <fieldset class="pat-checklist radio pat-rich">
         <tal:existing condition="python:view.show_existing_measures and not always_present">
           <p tal:condition="view/intro_questions"
@@ -307,16 +294,31 @@
                  type="hidden"
                  value="postponed"
           />
-          <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
-                   name="answer"
-                   type="radio"
-                   value="yes"
-            /><tal:answer replace="structure view/answer_yes" /></label>
-          <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
-                   name="answer"
-                   type="radio"
-                   value="no"
-            /><tal:answer replace="structure view/answer_no" /></label>
+
+          <!-- Multiple answers -->
+          <tal:multiple_answers condition="risk/use_multiple_answers|nothing">
+            <label tal:repeat="answer python:risk.multiple_answers.strip().splitlines()">
+                <input type="radio" name="multiple_answers" value="${answer}">
+                ${answer}
+            </label>
+          </tal:multiple_answers>
+
+          <!-- Yes/No -->
+          <tal:yes_no condition="not:risk/use_multiple_answers|nothing">
+
+            <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
+                    name="answer"
+                    type="radio"
+                    value="yes"
+              /><tal:answer replace="structure view/answer_yes" /></label>
+            <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
+                    name="answer"
+                    type="radio"
+                    value="no"
+              /><tal:answer replace="structure view/answer_no" /></label>
+
+          </tal:yes_no>
+
           <label class="not-applicable"
                  tal:condition="risk/show_notapplicable|nothing"
           ><input checked="${python:'checked' if context.identification=='n/a' else None}"
