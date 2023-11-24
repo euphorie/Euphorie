@@ -278,6 +278,19 @@
       </div>
       <!-- END Existing measures -->
 
+      <!-- Multiple answers -->
+      <fieldset class="pat-checklist radio" tal:condition="risk/multiple_answers|nothing">
+
+        <!-- ${risk/multiple_answers|nothing} -->
+        <p class="legend">
+            Multiple answers
+        </p>
+        <label tal:repeat="answer python:risk.multiple_answers.splitlines()">
+            <input type="radio" name="multiple_answers" value="${answer}">
+            ${answer}
+        </label>
+     </fieldset>
+
       <!-- Yes / No -->
       <fieldset class="pat-checklist radio pat-rich">
         <tal:existing condition="python:view.show_existing_measures and not always_present">
