@@ -60,7 +60,14 @@ jekyll:
 
 
 .PHONY: resources-install
-resources-install:
+
+## TODO: When we have jekyll built across all platforms with the same
+## Gemfile/Gemfile.lock we can include updating the prototye again. But as long
+## as customized Gemfile/Gemflile.lock files are necessary, just doing `git
+## pull` won't work.
+## Just manually to a `git stash; git pull; git stash pop` in prototype for now.
+# resources-install: prototype jekyll
+resources-install: jekyll
 	@echo "🧪 Copy resources from prototype."
 
 	@cp -R prototype/_site/assets/* src/euphorie/client/resources/
