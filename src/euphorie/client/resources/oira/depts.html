@@ -73,10 +73,18 @@
 		</a>
 		
 		
-			<a href="#osc" 
-			   id="toggle-osc" 
-			   class="iconified pat-toggle" 
-			   data-pat-toggle="selector: body; value: osc-off osc-on && selector: body; value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+	
+				<a 
+					href="#osc" 
+					id="toggle-osc" 
+					class="iconified pat-toggle" 
+					data-pat-toggle="
+						selector: body; 
+						value: osc-off osc-on 
+							&& 
+						selector: body; 
+						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+	
 		
 
 		
@@ -250,7 +258,7 @@
                 type="text" 
                 name="search-rule.lemma-value:records" 
                 placeholder="Lemma" 
-                class="lemma-field" />
+                class="lemma-field pat-autofocus" />
         </span>
         <span 
             class="parameters date">
@@ -331,6 +339,11 @@
     <a 
         href="/depts/index#listing" 
         class="pat-inject float-after pat-button">Reset</a>
+    
+    <a 
+        data-pat-inject="scroll: #assessments-screen; history: record"
+        href="/assets/oira/help/en-roadmap/pages/3-carrying-out-a-risk-assessment" 
+        class="pat-inject pat-button no-label icon-help float-after">Help</a>
 </p>
 
 <template 
@@ -387,7 +400,7 @@
             type="text" 
             name="search-rule.lemma-value:records" 
             placeholder="Lemma" 
-            class="lemma-field" />
+            class="lemma-field pat-autofocus" />
     </span>
     <span 
         class="parameters date">
@@ -400,7 +413,11 @@
                 <option value="is-after">Is after</option>
             </select>
         </label>
-        <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
+        <input 
+            type="date" 
+            name="search-rule.date-value:records" 
+            placeholder="Date" 
+            class="date-field pat-date-picker pat-autofocus" />
     </span>
     <span 
         class="parameters plant">
@@ -408,11 +425,16 @@
             class="pat-select">
             <select 
                 name="search-rule.date-operator:records">
-                <option value="equals">Equals</option>
-                <option value="equals-not">Does not equal</option>
+                <option 
+                    value="equals">Equals</option>
+                <option 
+                value="equals-not">Does not equal</option>
             </select>
         </label>
-        <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest">
+        <select 
+            name="search-rule.plant-value:records" 
+            placeholder="Plant code" 
+            class="pat-autosuggest pat-autofocus">
             <option>001</option>
             <option>002</option>
             <option>003</option>
@@ -420,14 +442,22 @@
             <option>005</option>
         </select>
     </span>
-    <span class="parameters department">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
-                <option value="equals">Equals</option>
-                <option value="equals-not">Does not equal</option>
+    <span 
+        class="parameters department">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
+                <option 
+                    value="equals">Equals</option>
+                <option 
+                    value="equals-not">Does not equal</option>
             </select>
         </label>
-        <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest">
+        <select 
+            name="search-rule.department-value:records" 
+            placeholder="Department name" 
+            class="pat-autosuggest pat-autofocus">
             <option>103,   (GEPJW5W4P)</option>
             <option>104,   (GEPJNROAL)</option>
             <option>105,   (GEPJS5CBN)</option>
@@ -440,7 +470,9 @@
             <option>142,   (GEPL74BAW)</option>
         </select>
     </span>
-    <button type="button" class="remove-clone">Remove</button>
+    <button 
+        type="button" 
+        class="remove-clone">Remove</button>
   </p>
 </template>
 

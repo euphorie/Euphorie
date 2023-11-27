@@ -57,8 +57,7 @@
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div 
-	id="main" 
-	class="sidebar-off">
+	id="main">
 	<header 
 	id="toolbar">
 	
@@ -75,10 +74,18 @@
 		</a>
 		
 		
-			<a href="#osc" 
-			   id="toggle-osc" 
-			   class="iconified pat-toggle" 
-			   data-pat-toggle="selector: body; value: osc-off osc-on && selector: body; value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+	
+				<a 
+					href="#osc" 
+					id="toggle-osc" 
+					class="iconified pat-toggle" 
+					data-pat-toggle="
+						selector: body; 
+						value: osc-off osc-on 
+							&& 
+						selector: body; 
+						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+	
 		
 
 		
@@ -403,6 +410,47 @@ Zoals hierboven al opgemerkt, wordt het actieplan in het menu aan de linkerkant 
 
 <p>Zowel de standaardmaatregelen als de door u gedefinieerde maatregelen kunnen op elk gewenst moment weer worden verwijderd.</p>
 
+<h2 id="consultancy">Advies</h2>
+
+<p>U heeft de optie om hulp te vragen bij het invullen van een risicoanalyse of om zelf een risicoanalyse te maken en te laten valideren door een externe dienst voor preventie en bescherming op het werk. De externe dienst kan uw risicoanalyse een officiële validatiemarkering geven.</p>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../nl/illustrations/consultancy.html" scrolling="no">
+  </object>
+  <figcaption>Advies vragen.</figcaption>
+</figure>
+
+<h3 id="een-externe-dienst-toevoegen-aan-uw-organisatie">Een externe dienst toevoegen aan uw organisatie</h3>
+
+<p>Om een validatie voor je analyse te bekomen, moet je de externe dienst toegang geven tot je risicoanalyses.
+U kunt een externe dienst toegang geven tot je risicoanalyses door de externe dienst als gebruiker met toegangsniveau “Valideren” toe te voegen aan je organisatie.</p>
+
+<h3 id="een-validatie-aanvragen">Een validatie aanvragen</h3>
+
+<p>Zodra uw externe dienst toegang heeft tot je risicoanalyses, gaat u naar de sectie “Advies” van je risicoanalyse en druk je op de knop “Validatie aanvragen”.</p>
+
+<p>Als meer dan één persoon toegang heeft tot uw risicoanalyses, kies dan de persoon die u wilt uitnodigen om uw analyse te valideren en klik op “Validatieverzoek verzenden”. De applicatie stuurt nu een e-mail naar deze persoon met de uitnodiging om uw risicoanalyse te valideren.</p>
+
+<p>Het tabblad Advies toont nu “Deze risicoanalyse wordt momenteel beoordeeld door …” totdat de externe dienst de validatie heeft uitgevoerd.</p>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../nl/illustrations/consultancy-requested.html" scrolling="no">
+  </object>
+  <figcaption>De validatie is aangevraagd en in uitvoering.</figcaption>
+</figure>
+
+<p>Wanneer de externe dienst de risicoanalyse heeft gevalideerd, ontvangt u een e-mail waarin dit wordt gemeld. Het tabblad Advies geeft nu aan dat de risicoanalyse is gevalideerd.</p>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../nl/illustrations/consultancy-validated.html" scrolling="no">
+  </object>
+  <figcaption>Een gevalideerde en vergrendelde risicoanalyse.</figcaption>
+</figure>
+
+<p>De risicoanalyse is nu geblokkeerd voor verdere bewerking, zodat het zijn beschermde gevalideerde status kan behouden.</p>
+
+<p>Als u na validatie wijzigingen wilt aanbrengen aan de risicoanalyse, dan moet u de risicoanalyse ontgrendelen, waardoor deze haar validatiestatus verliest. U kunt op elk moment veilig een duplicaat van een vergrendelde risicoanalyse maken en het duplicaat bewerken. <a href="#duplication">Meer informatie over duplicatie</a>. <strong>Houd er rekening mee dat het aanvragen van een nieuwe validatie extra kosten met zich mee kan brengen.</strong></p>
+
 <h2 id="rapport">Rapport</h2>
 
 <p>Na voltooiing van het actieplan kunt u een rapport opstellen.</p>
@@ -454,9 +502,10 @@ Zoals hierboven al opgemerkt, wordt het actieplan in het menu aan de linkerkant 
 	</div>
 </div>
 
-<aside 
-	id="osc">
-	
+
+	<aside 
+		id="osc">
+		
 
 <form id="osc-header" action="/index-logged-in#browser" class="pat-inject pat-autosubmit">
 	
@@ -502,13 +551,13 @@ Zoals hierboven al opgemerkt, wordt het actieplan in het menu aan de linkerkant 
     <button id="button-osc-expand" class="no-label iconified icon-resize-full pat-toggle" data-pat-toggle="selector: body; value: osc-size-full osc-size-normal" title=""></button>
 </form>
 
-	<a href="/feedback/osh.html#osh-ra-browser" id="osh-target-ra-browser" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
+		<a href="/feedback/osh.html#osh-ra-browser" id="osh-target-ra-browser" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
 
-	<div 
-		id="navigation">
-		
-			<div id="miller-columns" class="miller-columns">
-				
+		<div 
+			id="navigation">
+			
+				<div id="miller-columns" class="miller-columns">
+					
 
 <form 
 	class="pat-form search-form pat-inject view-compact"
@@ -583,7 +632,7 @@ Zoals hierboven al opgemerkt, wordt het actieplan in het menu aan de linkerkant 
                 type="text" 
                 name="search-rule.lemma-value:records" 
                 placeholder="Lemma" 
-                class="lemma-field" />
+                class="lemma-field pat-autofocus" />
         </span>
         <span 
             class="parameters date">
@@ -664,6 +713,11 @@ Zoals hierboven al opgemerkt, wordt het actieplan in het menu aan de linkerkant 
     <a 
         href="../../nl/pages/3-carrying-out-a-risk-assessment#listing" 
         class="pat-inject float-after pat-button">Reset</a>
+    
+    <a 
+        data-pat-inject="scroll: #assessments-screen; history: record"
+        href="../../en-roadmap/pages/3-carrying-out-a-risk-assessment" 
+        class="pat-inject pat-button no-label icon-help float-after">Help</a>
 </p>
 
 <template 
@@ -720,7 +774,7 @@ Zoals hierboven al opgemerkt, wordt het actieplan in het menu aan de linkerkant 
             type="text" 
             name="search-rule.lemma-value:records" 
             placeholder="Lemma" 
-            class="lemma-field" />
+            class="lemma-field pat-autofocus" />
     </span>
     <span 
         class="parameters date">
@@ -733,7 +787,11 @@ Zoals hierboven al opgemerkt, wordt het actieplan in het menu aan de linkerkant 
                 <option value="is-after"></option>
             </select>
         </label>
-        <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
+        <input 
+            type="date" 
+            name="search-rule.date-value:records" 
+            placeholder="Date" 
+            class="date-field pat-date-picker pat-autofocus" />
     </span>
     <span 
         class="parameters plant">
@@ -741,11 +799,16 @@ Zoals hierboven al opgemerkt, wordt het actieplan in het menu aan de linkerkant 
             class="pat-select">
             <select 
                 name="search-rule.date-operator:records">
-                <option value="equals"></option>
-                <option value="equals-not"></option>
+                <option 
+                    value="equals"></option>
+                <option 
+                value="equals-not"></option>
             </select>
         </label>
-        <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest">
+        <select 
+            name="search-rule.plant-value:records" 
+            placeholder="Plant code" 
+            class="pat-autosuggest pat-autofocus">
             <option>001</option>
             <option>002</option>
             <option>003</option>
@@ -753,14 +816,22 @@ Zoals hierboven al opgemerkt, wordt het actieplan in het menu aan de linkerkant 
             <option>005</option>
         </select>
     </span>
-    <span class="parameters department">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
-                <option value="equals"></option>
-                <option value="equals-not"></option>
+    <span 
+        class="parameters department">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
+                <option 
+                    value="equals"></option>
+                <option 
+                    value="equals-not"></option>
             </select>
         </label>
-        <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest">
+        <select 
+            name="search-rule.department-value:records" 
+            placeholder="Department name" 
+            class="pat-autosuggest pat-autofocus">
             <option>103,   (GEPJW5W4P)</option>
             <option>104,   (GEPJNROAL)</option>
             <option>105,   (GEPJS5CBN)</option>
@@ -773,7 +844,9 @@ Zoals hierboven al opgemerkt, wordt het actieplan in het menu aan de linkerkant 
             <option>142,   (GEPL74BAW)</option>
         </select>
     </span>
-    <button type="button" class="remove-clone"></button>
+    <button 
+        type="button" 
+        class="remove-clone"></button>
   </p>
 </template>
 
@@ -802,11 +875,11 @@ Zoals hierboven al opgemerkt, wordt het actieplan in het menu aan de linkerkant 
 	</fieldset>
 
 </form>
-		    	
-		    	<div id="browser">
-					<ul class="departments browser" id="results">
-						
-							<li class="item type-risk-assessment">
+					
+					<div id="browser">
+						<ul class="departments browser" id="results">
+							
+								<li class="item type-risk-assessment">
 	<span class="object-name field">
     	<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Splash and Shine Cleaners</a>
 	</span>
@@ -842,13 +915,13 @@ Zoals hierboven al opgemerkt, wordt het actieplan in het menu aan de linkerkant 
 	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="COVID-19">COVID-19</a></span>
 	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
 </li>
-						
-			    	</ul>
-		    	</div>
-		    </div>
-	    
-    </div>
-</aside>
+							
+						</ul>
+					</div>
+				</div>
+			
+		</div>
+	</aside>
 
 
 		

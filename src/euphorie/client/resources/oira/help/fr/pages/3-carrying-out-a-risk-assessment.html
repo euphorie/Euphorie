@@ -57,8 +57,7 @@
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div 
-	id="main" 
-	class="sidebar-off">
+	id="main">
 	<header 
 	id="toolbar">
 	
@@ -75,10 +74,18 @@
 		</a>
 		
 		
-			<a href="#osc" 
-			   id="toggle-osc" 
-			   class="iconified pat-toggle" 
-			   data-pat-toggle="selector: body; value: osc-off osc-on && selector: body; value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+	
+				<a 
+					href="#osc" 
+					id="toggle-osc" 
+					class="iconified pat-toggle" 
+					data-pat-toggle="
+						selector: body; 
+						value: osc-off osc-on 
+							&& 
+						selector: body; 
+						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+	
 		
 
 		
@@ -403,6 +410,47 @@ Comme mentionné ci-dessus, le plan d’action est présenté comme une étape d
 
 <p>Les mesures standard et les mesures que vous avez définies peuvent être supprimées à tout moment.</p>
 
+<h2 id="consultancy">Conseil</h2>
+
+<p>Vous avez la possibilité de demander de l’aide pour réaliser une analyse des risques ou de réaliser vous-même une analyse des risques et de la faire valider par un service externe de prévention et de protection au travail. Le service externe peut attribuer à votre analyse des risques une marque de validation officielle.</p>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../fr/illustrations/consultancy.html" scrolling="no">
+  </object>
+  <figcaption>Demander conseil.</figcaption>
+</figure>
+
+<h3 id="ajouter-un-service-externe-à-votre-organisation">Ajouter un service externe à votre organisation</h3>
+
+<p>Pour obtenir la validation de votre analyse, vous devez donner au service externe l’accès à vos analyses des risques.
+Vous pouvez donner à un service externe l’accès à vos analyses des risques en ajoutant le service externe à votre organisation en tant qu’utilisateur avec le niveau d’accès “Valider”.</p>
+
+<h3 id="demander-une-validation">Demander une validation</h3>
+
+<p>Une fois que votre service externe a accès à vos analyses des risques, rendez-vous dans la section “Conseil” de votre analyse des risques et cliquez sur le bouton “Demander la validation”.</p>
+
+<p>Si plusieurs personnes ont accès à vos analyses des risques, choisissez la personne que vous souhaitez inviter à valider votre analyse et cliquez sur “Envoyer la demande de validation”. L’application enverra alors un e-mail à cette personne pour l’inviter à valider votre analyse des risques.</p>
+
+<p>L’onglet Conseil affiche désormais “Cette analyse des risques est actuellement examinée par …” jusqu’à ce que le service externe ait effectué la validation.</p>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../fr/illustrations/consultancy-requested.html" scrolling="no">
+  </object>
+  <figcaption>La validation a été demandée et est en cours.</figcaption>
+</figure>
+
+<p>Lorsque le service externe a validé l’analyse des risques, vous recevez un e-mail vous en informant. L’onglet Conseil indique maintenant que l’analyse des risques a été validée..</p>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../fr/illustrations/consultancy-validated.html" scrolling="no">
+  </object>
+  <figcaption>Une analyse des risques validée et verrouillée.</figcaption>
+</figure>
+
+<p>L’analyse des risques est maintenant verrouillée et ne peut plus être modifiée afin qu’elle puisse conserver son statut de validation protégée.</p>
+
+<p>Si vous souhaitez apporter des modifications à l’analyse des risques après la validation, vous devez la déverrouiller, ce qui lui fait perdre son statut de validation. Vous pouvez à tout moment dupliquer en toute sécurité une analyse des risques verrouillée et la modifier. <a href="#duplication">Plus d’informations sur la duplication</a>. <strong>Veuillez noter que la demande d’une nouvelle validation peut entraîner des coûts supplémentaires.</strong></p>
+
 <h2 id="rapport">Rapport</h2>
 
 <p>Après avoir finalisé le plan d’action, vous pouvez générer un rapport.</p>
@@ -454,9 +502,10 @@ Comme mentionné ci-dessus, le plan d’action est présenté comme une étape d
 	</div>
 </div>
 
-<aside 
-	id="osc">
-	
+
+	<aside 
+		id="osc">
+		
 
 <form id="osc-header" action="/index-logged-in#browser" class="pat-inject pat-autosubmit">
 	
@@ -502,13 +551,13 @@ Comme mentionné ci-dessus, le plan d’action est présenté comme une étape d
     <button id="button-osc-expand" class="no-label iconified icon-resize-full pat-toggle" data-pat-toggle="selector: body; value: osc-size-full osc-size-normal" title=""></button>
 </form>
 
-	<a href="/feedback/osh.html#osh-ra-browser" id="osh-target-ra-browser" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
+		<a href="/feedback/osh.html#osh-ra-browser" id="osh-target-ra-browser" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
 
-	<div 
-		id="navigation">
-		
-			<div id="miller-columns" class="miller-columns">
-				
+		<div 
+			id="navigation">
+			
+				<div id="miller-columns" class="miller-columns">
+					
 
 <form 
 	class="pat-form search-form pat-inject view-compact"
@@ -583,7 +632,7 @@ Comme mentionné ci-dessus, le plan d’action est présenté comme une étape d
                 type="text" 
                 name="search-rule.lemma-value:records" 
                 placeholder="Lemma" 
-                class="lemma-field" />
+                class="lemma-field pat-autofocus" />
         </span>
         <span 
             class="parameters date">
@@ -664,6 +713,11 @@ Comme mentionné ci-dessus, le plan d’action est présenté comme une étape d
     <a 
         href="../../fr/pages/3-carrying-out-a-risk-assessment#listing" 
         class="pat-inject float-after pat-button">Reset</a>
+    
+    <a 
+        data-pat-inject="scroll: #assessments-screen; history: record"
+        href="../../en-roadmap/pages/3-carrying-out-a-risk-assessment" 
+        class="pat-inject pat-button no-label icon-help float-after">Help</a>
 </p>
 
 <template 
@@ -720,7 +774,7 @@ Comme mentionné ci-dessus, le plan d’action est présenté comme une étape d
             type="text" 
             name="search-rule.lemma-value:records" 
             placeholder="Lemma" 
-            class="lemma-field" />
+            class="lemma-field pat-autofocus" />
     </span>
     <span 
         class="parameters date">
@@ -733,7 +787,11 @@ Comme mentionné ci-dessus, le plan d’action est présenté comme une étape d
                 <option value="is-after"></option>
             </select>
         </label>
-        <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
+        <input 
+            type="date" 
+            name="search-rule.date-value:records" 
+            placeholder="Date" 
+            class="date-field pat-date-picker pat-autofocus" />
     </span>
     <span 
         class="parameters plant">
@@ -741,11 +799,16 @@ Comme mentionné ci-dessus, le plan d’action est présenté comme une étape d
             class="pat-select">
             <select 
                 name="search-rule.date-operator:records">
-                <option value="equals"></option>
-                <option value="equals-not"></option>
+                <option 
+                    value="equals"></option>
+                <option 
+                value="equals-not"></option>
             </select>
         </label>
-        <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest">
+        <select 
+            name="search-rule.plant-value:records" 
+            placeholder="Plant code" 
+            class="pat-autosuggest pat-autofocus">
             <option>001</option>
             <option>002</option>
             <option>003</option>
@@ -753,14 +816,22 @@ Comme mentionné ci-dessus, le plan d’action est présenté comme une étape d
             <option>005</option>
         </select>
     </span>
-    <span class="parameters department">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
-                <option value="equals"></option>
-                <option value="equals-not"></option>
+    <span 
+        class="parameters department">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
+                <option 
+                    value="equals"></option>
+                <option 
+                    value="equals-not"></option>
             </select>
         </label>
-        <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest">
+        <select 
+            name="search-rule.department-value:records" 
+            placeholder="Department name" 
+            class="pat-autosuggest pat-autofocus">
             <option>103,   (GEPJW5W4P)</option>
             <option>104,   (GEPJNROAL)</option>
             <option>105,   (GEPJS5CBN)</option>
@@ -773,7 +844,9 @@ Comme mentionné ci-dessus, le plan d’action est présenté comme une étape d
             <option>142,   (GEPL74BAW)</option>
         </select>
     </span>
-    <button type="button" class="remove-clone">Supprimer</button>
+    <button 
+        type="button" 
+        class="remove-clone">Supprimer</button>
   </p>
 </template>
 
@@ -802,11 +875,11 @@ Comme mentionné ci-dessus, le plan d’action est présenté comme une étape d
 	</fieldset>
 
 </form>
-		    	
-		    	<div id="browser">
-					<ul class="departments browser" id="results">
-						
-							<li class="item type-risk-assessment">
+					
+					<div id="browser">
+						<ul class="departments browser" id="results">
+							
+								<li class="item type-risk-assessment">
 	<span class="object-name field">
     	<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Splash and Shine Cleaners</a>
 	</span>
@@ -842,13 +915,13 @@ Comme mentionné ci-dessus, le plan d’action est présenté comme une étape d
 	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="COVID-19">COVID-19</a></span>
 	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
 </li>
-						
-			    	</ul>
-		    	</div>
-		    </div>
-	    
-    </div>
-</aside>
+							
+						</ul>
+					</div>
+				</div>
+			
+		</div>
+	</aside>
 
 
 		
