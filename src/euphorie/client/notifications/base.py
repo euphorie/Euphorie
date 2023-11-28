@@ -22,6 +22,16 @@ class BaseNotificationEmail(BaseEmail):
         return self.context["sessions"]
 
     @property
+    def sender(self):
+        from_address = api.portal.get_registry_record(
+            "euphorie.notification__email_from_address", default=False
+        ) or api.portal.get_registry_record("plone.email_from_address")
+        from_name = api.portal.get_registry_record(
+            "euphorie.notification__email_from_name", default=False
+        ) or api.portal.get_registry_record("plone.email_from_name")
+        return formataddr((from_name, from_address))
+
+    @property
     def recipient(self):
         return formataddr(
             (

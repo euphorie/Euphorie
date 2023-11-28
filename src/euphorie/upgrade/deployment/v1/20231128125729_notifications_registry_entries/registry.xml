@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry>
+  <record name="euphorie.notification__email_from_address">
+    <field type="plone.registry.field.ASCIILine">
+      <description>Sender e-Mail address for OiRA notification and reminder mails.</description>
+      <title>Notifications "From" address</title>
+    </field>
+    <value />
+  </record>
+  <record name="euphorie.notification__email_from_name">
+    <field type="plone.registry.field.TextLine">
+      <description>Sender name for OiRA notification and reminder mails.</description>
+      <title>Notifications "From" name</title>
+    </field>
+    <value />
+  </record>
+</registry>
