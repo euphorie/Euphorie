@@ -14,4 +14,15 @@
     </field>
     <value />
   </record>
+
+  <record name="euphorie.notification__ra_not_modified__default">
+    <field type="plone.registry.field.Bool">
+      <title>Default setting for notification "RA not modified"</title>
+      <default>False</default>
+      <missing_value>False</missing_value>
+      <required>False</required>
+    </field>
+    <value>False</value>
+  </record>
+
 </registry>

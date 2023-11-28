@@ -5,6 +5,7 @@ Changelog
 -------------------
 
 - Notifications:
+  - Allow to customize the default's subscription setting for "ra not modified".
   - Allow to customize the notification mail's sender name and address.
   - Add translations.
   - Add basic notification for risk assessments which were not modified since a configurable number of days.
