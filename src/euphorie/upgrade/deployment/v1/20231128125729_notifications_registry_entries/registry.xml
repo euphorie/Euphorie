@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <registry>
+
+  <record name="euphorie.notifications__enabled">
+    <field type="plone.registry.field.Bool">
+      <title>Enable notifications system</title>
+      <default>False</default>
+      <missing_value>False</missing_value>
+      <required>False</required>
+    </field>
+    <value>False</value>
+  </record>
+
   <record name="euphorie.notification__email_from_address">
     <field type="plone.registry.field.ASCIILine">
       <description>Sender e-Mail address for OiRA notification and reminder mails.</description>

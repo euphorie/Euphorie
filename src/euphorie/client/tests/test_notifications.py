@@ -43,18 +43,17 @@ class NotificationsSettingsTests(EuphorieIntegrationTestCase):
         view = api.content.get_view(
             context=self.portal.client.nl, request=request, name="preferences"
         )
+
+        api.portal.set_registry_record("euphorie.notifications__enabled", True)
+
         with api.env.adopt_user(user=self.account):
             view.update()
             with mock.patch(
-                "euphorie.client.browser.settings.Preferences.show_notifications",
+                "euphorie.client.notifications.notification__ra_not_modified"
+                ".Notification.available",
                 return_value=True,
             ):
-                with mock.patch(
-                    "euphorie.client.notifications.notification__ra_not_modified"
-                    ".Notification.available",
-                    return_value=True,
-                ):
-                    view.handleSave(view, None)
+                view.handleSave(view, None)
         subscriptions = (
             Session.query(NotificationSubscription)
             .filter(NotificationSubscription.account_id == self.account.getId())

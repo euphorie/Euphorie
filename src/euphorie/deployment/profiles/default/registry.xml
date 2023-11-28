@@ -245,6 +245,15 @@
     </field>
     <value>True</value>
   </record>
+  <record name="euphorie.notifications__enabled">
+    <field type="plone.registry.field.Bool">
+      <title>Enable notifications system</title>
+      <default>False</default>
+      <missing_value>False</missing_value>
+      <required>False</required>
+    </field>
+    <value>False</value>
+  </record>
   <record name="euphorie.notification__ra_not_modified__reminder_days">
     <field type="plone.registry.field.Int">
       <title>notifcation reminder risk assessment not modified (days)</title>
