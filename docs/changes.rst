@@ -4,6 +4,7 @@ Changelog
 15.1.0 (unreleased)
 -------------------
 
+- Allow to enable/disable personal details settings via registry settings.
 - Notifications:
   - Allow to enable/disable notifications via registry settings.
     Note: the notification system is per default disabled.

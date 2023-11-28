@@ -139,7 +139,11 @@ class Preferences(AutoExtensibleForm, form.Form):
 
     schema = PreferencesSchema
 
-    show_personal_details = True
+    @property
+    def show_personal_details(self):
+        return api.portal.get_registry_record(
+            "euphorie.personal_details__enabled", default=True
+        )
 
     @property
     def show_notifications(self):
