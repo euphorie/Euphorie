@@ -263,17 +263,9 @@
     </field>
     <value>False</value>
   </record>
-  <record name="euphorie.notification__ra_not_modified__reminder_days">
-    <field type="plone.registry.field.Int">
-      <title>notifcation reminder risk assessment not modified (days)</title>
-      <description>notifcation reminder in days after a risk assessment has not been modified</description>
-      <required>False</required>
-    </field>
-    <value>365</value>
-  </record>
   <record name="euphorie.notification__email_from_address">
     <field type="plone.registry.field.ASCIILine">
-      <description>Sender e-Mail address for OiRA notification and reminder mails.</description>
+      <description>Sender email address for OiRA notification and reminder mails.</description>
       <title>Notifications "From" address</title>
     </field>
     <value />
@@ -284,6 +276,23 @@
       <title>Notifications "From" name</title>
     </field>
     <value />
+  </record>
+  <record name="euphorie.notification__ra_not_modified__default">
+    <field type="plone.registry.field.Bool">
+      <title>Default setting for notification "RA not modified"</title>
+      <default>False</default>
+      <missing_value>False</missing_value>
+      <required>False</required>
+    </field>
+    <value>False</value>
+  </record>
+  <record name="euphorie.notification__ra_not_modified__reminder_days">
+    <field type="plone.registry.field.Int">
+      <title>notifcation reminder risk assessment not modified (days)</title>
+      <description>notifcation reminder in days after a risk assessment has not been modified</description>
+      <required>False</required>
+    </field>
+    <value>365</value>
   </record>
   <record name="plonetheme.nuplone.appconfigtile_navigation">
     <field type="plone.registry.field.Text">
