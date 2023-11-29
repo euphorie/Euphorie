@@ -9,7 +9,7 @@ from zope.interface import alsoProvides
 
 class SendNotificationsDaily(BrowserView):
     def do_send(self):
-        if api.portal.get_registry_record(
+        if not api.portal.get_registry_record(
             "euphorie.notifications__enabled", default=False
         ):
             return
