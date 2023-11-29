@@ -19,4 +19,5 @@ is called *publication of a survey*.
    session
    url
    users
+   registry
 
