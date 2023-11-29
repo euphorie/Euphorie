@@ -2,9 +2,13 @@ from email.utils import formataddr
 from euphorie.client import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.mails.base import BaseEmail
+from logging import getLogger
 from plone import api
 from plone.memoize.view import memoize
 from z3c.saconfig import Session
+
+
+logger = getLogger(__name__)
 
 
 class BaseNotificationEmail(BaseEmail):
@@ -43,12 +47,24 @@ class BaseNotificationEmail(BaseEmail):
     def index(self):
         """The mail text."""
         full_name = self.webhelpers.get_user_fullname(self.account)
-        session_links = "\n".join(
-            [
-                f"* [{session.title}]({session.absolute_url()}/@@start)"
-                for session in self.sessions
-            ]
-        )
+
+        session_links = ""
+        for session in self.sessions:
+            session_url = ""
+            try:
+                session_url = session.absolute_url()
+            except ValueError:
+                logger.warn(
+                    "Could not get session URL for session %s and "
+                    "zodb_path %s (session id: %s). There might be a data "
+                    "inconsistency. Not including this session in the "
+                    "notification mailing.",
+                    session.title,
+                    session.zodb_path,
+                    session.id,
+                )
+                continue
+            session_links += f"* [{session.title}]({session_url}/@@start)\n"
 
         # Compile the preferences link
         some_session = self.sessions[0]
