@@ -63,7 +63,6 @@ class Notification(BaseNotification):
         "notification_title__ra_not_modified",
         default="Notify on orphaned risk assessments.",
     )
-    default = False
     interval = INTERVAL_DAILY
     available = False  # This feature is not yet available
 
@@ -74,6 +73,13 @@ class Notification(BaseNotification):
             default="Notify when a risk assessment was not modified for ${days} days.",
             mapping={"days": self.reminder_days},
         )
+
+    @property
+    def default(self):
+        value = api.portal.get_registry_record(
+            "euphorie.notification__ra_not_modified__default", default=False
+        )
+        return value
 
     @property
     def reminder_days(self):

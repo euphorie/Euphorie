@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry>
+
+  <record name="euphorie.personal_details__enabled">
+    <field type="plone.registry.field.Bool">
+      <title>Allow to modify personal details in the settings panel</title>
+      <default>True</default>
+      <missing_value>True</missing_value>
+      <required>False</required>
+    </field>
+    <value>True</value>
+  </record>
+
+  <record name="euphorie.notifications__enabled">
+    <field type="plone.registry.field.Bool">
+      <title>Enable notifications system</title>
+      <default>False</default>
+      <missing_value>False</missing_value>
+      <required>False</required>
+    </field>
+    <value>False</value>
+  </record>
+
+  <record name="euphorie.notification__email_from_address">
+    <field type="plone.registry.field.ASCIILine">
+      <description>Sender email address for OiRA notification and reminder mails.</description>
+      <title>Notifications "From" address</title>
+    </field>
+    <value />
+  </record>
+
+  <record name="euphorie.notification__email_from_name">
+    <field type="plone.registry.field.TextLine">
+      <description>Sender name for OiRA notification and reminder mails.</description>
+      <title>Notifications "From" name</title>
+    </field>
+    <value />
+  </record>
+
+  <record name="euphorie.notification__ra_not_modified__default">
+    <field type="plone.registry.field.Bool">
+      <title>Default setting for notification "RA not modified"</title>
+      <default>False</default>
+      <missing_value>False</missing_value>
+      <required>False</required>
+    </field>
+    <value>False</value>
+  </record>
+
+</registry>

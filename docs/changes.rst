@@ -4,14 +4,18 @@ Changelog
 15.1.0 (unreleased)
 -------------------
 
+- Allow to enable/disable personal details settings via registry settings.
 - Notifications:
+  - Allow to enable/disable notifications via registry settings.
+    Note: the notification system is per default disabled.
+  - Allow to customize the default's subscription setting for "ra not modified".
+  - Allow to customize the notification mail's sender name and address.
   - Add translations.
   - Add basic notification for risk assessments which were not modified since a configurable number of days.
     Note: This notification is disabled by default.
   - Add script to send notifications via cron.
   - Add basic notifications infrastructure.
   - Allow to set notification subscription settings in the preferences panel.
-    Note: the notification subscriptions are per default hidden.
   - Add BaseEmail class to unify sending emails.
   Ref: scrum-1572
   [thet, reinhardt]
