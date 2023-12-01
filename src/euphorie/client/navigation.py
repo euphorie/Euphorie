@@ -173,9 +173,12 @@ def getTreeData(
             cls.append("postponed")
         else:
             if isinstance(obj, model.Risk):
-                if obj.identification:
+                if obj.identification or obj.multiple_answers:
                     cls.append("answered")
-                if obj.identification == "no":
+                if (
+                    obj.identification == "no"
+                    or obj.multiple_answers in model.MULTIPLE_ANSWERS_RISK_PRESENT
+                ):
                     cls.append("risk")
         info["class"] = cls and " ".join(cls) or None
         return info
