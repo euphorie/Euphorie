@@ -21,6 +21,7 @@ class NotificationsSettingsTests(EuphorieIntegrationTestCase):
         addSurvey(self.portal, BASIC_SURVEY)
         self.account = addAccount(password="secret")
         alsoProvides(self.request, IClientSkinLayer)
+        api.portal.set_registry_record("euphorie.notifications__enabled", True)
 
     def test_all_notifications(self):
         view = api.content.get_view(
@@ -43,9 +44,6 @@ class NotificationsSettingsTests(EuphorieIntegrationTestCase):
         view = api.content.get_view(
             context=self.portal.client.nl, request=request, name="preferences"
         )
-
-        api.portal.set_registry_record("euphorie.notifications__enabled", True)
-
         with api.env.adopt_user(user=self.account):
             view.update()
             with mock.patch(
@@ -78,6 +76,7 @@ class NotificationsSendingTests(EuphorieIntegrationTestCase):
         )
         survey_session.modified = datetime.datetime.now() - datetime.timedelta(days=366)
         Session.add(survey_session)
+        api.portal.set_registry_record("euphorie.notifications__enabled", True)
 
     def test_send_notification(self):
         Session.add(
