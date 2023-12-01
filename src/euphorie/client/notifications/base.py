@@ -55,8 +55,8 @@ class BaseNotificationEmail(BaseEmail):
                 session_url = session.absolute_url()
             except ValueError:
                 logger.warn(
-                    "Could not get session URL for session %s and "
-                    "zodb_path %s (session id: %s). There might be a data "
+                    "Could not get session URL for session %r and "
+                    "zodb_path %r (session id: %r). There might be a data "
                     "inconsistency. Not including this session in the "
                     "notification mailing.",
                     session.title,
