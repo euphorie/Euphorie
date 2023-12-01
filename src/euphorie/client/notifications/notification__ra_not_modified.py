@@ -151,5 +151,10 @@ class Notification(BaseNotification):
                 "Sent %s to %s for sessions %s",
                 self.id,
                 notification["account"].email,
-                ", ".join([session.title for session in notification["sessions"]]),
+                ", ".join(
+                    [
+                        session.title or self.title_missing
+                        for session in notification["sessions"]
+                    ]
+                ),
             )

@@ -48,6 +48,10 @@ class BaseNotificationEmail(BaseEmail):
         """The mail text."""
         full_name = self.webhelpers.get_user_fullname(self.account)
 
+        title_missing = api.portal.translate(
+            _("label_missing_title", default="Title is missing")
+        )
+
         session_links = ""
         for session in self.sessions:
             session_url = ""
@@ -59,12 +63,15 @@ class BaseNotificationEmail(BaseEmail):
                     "zodb_path %r (session id: %r). There might be a data "
                     "inconsistency. Not including this session in the "
                     "notification mailing.",
-                    session.title,
+                    session.title or title_missing,
                     session.zodb_path,
                     session.id,
                 )
                 continue
-            session_links += f"* [{session.title}]({session_url}/@@start)\n"
+
+            session_links += (
+                f"* [{session.title or title_missing}]({session_url}/@@start)\n"
+            )
 
         # Compile the preferences link
         some_session = self.sessions[0]
@@ -104,6 +111,12 @@ class BaseNotification:
     def __init__(self, context, request):
         self.context = context
         self.request = request
+
+    @property
+    def title_missing(self):
+        return api.portal.translate(
+            _("label_missing_title", default="Title is missing")
+        )
 
     def notification_enabled(self, account):
         query = (
