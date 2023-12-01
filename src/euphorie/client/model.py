@@ -1840,6 +1840,9 @@ RISK_PRESENT_FILTER_TOP5_TNO_FILTER = sql.and_(
     ),
 )
 
+# When using multiple answers (1-5), these values mean the risk is present:
+MULTIPLE_ANSWERS_RISK_PRESENT = ("1", "2")
+
 
 def _RISK_PRESENT_OR_TOP5_FILTER_factory():
     Risk_ = orm.aliased(Risk)
@@ -1851,7 +1854,7 @@ def _RISK_PRESENT_OR_TOP5_FILTER_factory():
                     Risk_.sql_risk_id == SurveyTreeItem.id,
                     sql.or_(
                         Risk_.identification == "no",
-                        Risk_.multiple_answers.in_(["4", "5"]),
+                        Risk_.multiple_answers.in_(MULTIPLE_ANSWERS_RISK_PRESENT),
                         Risk_.risk_type == "top5",
                     ),
                 )

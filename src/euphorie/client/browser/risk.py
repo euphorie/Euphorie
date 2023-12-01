@@ -1205,7 +1205,7 @@ class ActionPlanView(RiskBase):
     @property
     def risk_present(self):
         if self.context.multiple_answers is not None:
-            return self.context.multiple_answers in ("4", "5")
+            return self.context.multiple_answers in model.MULTIPLE_ANSWERS_RISK_PRESENT
         return self.context.identification == "no"
 
     @property
