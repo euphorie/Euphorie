@@ -298,7 +298,9 @@
           <!-- Multiple answers -->
           <tal:multiple_answers condition="risk/use_multiple_answers|nothing">
             <label tal:repeat="answer python:risk.multiple_answers.strip().splitlines()">
-                <input type="radio" name="multiple_answers" value="${repeat/answer/number}">
+                <input type="radio" name="multiple_answers"
+                  tal:define="number repeat/answer/number; number python:str(number)"
+                  value="${number}" checked="${python:'checked' if context.multiple_answers==number else None}">
                 ${answer}
             </label>
           </tal:multiple_answers>

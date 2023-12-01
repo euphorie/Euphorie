@@ -409,6 +409,7 @@ class IdentificationView(RiskBase):
     always_present_answer = "no"
 
     monitored_properties = {
+        "multiple_answers": None,
         "identification": None,
         "postponed": None,
         "frequency": None,
@@ -599,23 +600,46 @@ class IdentificationView(RiskBase):
         )
 
     def set_answer_data(self, reply):
+        """Set answer data from the reply.
+
+        For years the only answer possibilities were yes, no, n/a or postponed.
+        Now we may have an extra field multiple_answers, for answers in the
+        range of (usually) 1-5.
+        We might want to merge these two possibilities, but for now they are
+        separate.
+        Currently, when multiple_answers is in the reply, we also get
+        'postponed' as answer.  We can ignore this: multiple_answers is filled
+        in, so the answer is not postponed.
+        We make sure that either 'identification' is set (yes/no) or
+        'multiple_answers' is set (1-5), and the other None.
+        Or both None in the case the answer is really postponed.
+        """
         answer = reply.get("answer", None)
         # If answer is not present in the request, do not attempt to set
         # any answer-related data, since the request might have come
         # from a sub-form.
-        if answer:
-            self.context.comment = self.webhelpers.get_safe_html(reply.get("comment"))
+        if not answer:
+            return
+        self.context.comment = self.webhelpers.get_safe_html(reply.get("comment"))
+        multiple_answers = reply.get("multiple_answers", None)
+        if multiple_answers:
+            # We have an answer on the scale of 1-5 (or similar).
+            self.context.postponed = False
+            self.context.identification = None
+            self.context.multiple_answers = multiple_answers
+        else:
+            self.context.multiple_answers = None
             self.context.postponed = answer == "postponed"
             if self.context.postponed:
                 self.context.identification = None
-            else:
-                self.context.identification = answer
-                if getattr(self.risk, "type", "") in ("top5", "policy"):
-                    self.context.priority = "high"
-                elif getattr(self.risk, "evaluation_method", "") == "calculated":
-                    self.calculatePriority(self.risk, reply)
-                elif self.risk is None or self.risk.evaluation_method == "direct":
-                    self.context.priority = reply.get("priority")
+                return
+            self.context.identification = answer
+        if getattr(self.risk, "type", "") in ("top5", "policy"):
+            self.context.priority = "high"
+        elif getattr(self.risk, "evaluation_method", "") == "calculated":
+            self.calculatePriority(self.risk, reply)
+        elif self.risk is None or self.risk.evaluation_method == "direct":
+            self.context.priority = reply.get("priority")
 
     def set_measure_data(self, reply, session):
         changed = False
