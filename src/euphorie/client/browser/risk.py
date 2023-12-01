@@ -479,6 +479,13 @@ class IdentificationView(RiskBase):
         condition = "condition: answer=no"
         if self.italy_special and not self.skip_evaluation:
             condition = "condition: answer=no or answer=yes"
+        if getattr(self.risk, "use_multiple_answers", False):
+            # TODO check if we need to do anything with italy_special in this case.
+            conditions = [
+                f"multiple_answers={answer}"
+                for answer in model.MULTIPLE_ANSWERS_RISK_PRESENT
+            ]
+            condition = "condition: " + " or ".join(conditions)
         return condition
 
     @property
