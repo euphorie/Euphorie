@@ -1204,12 +1204,17 @@ class ActionPlanView(RiskBase):
 
     @property
     def risk_present(self):
+        if self.context.multiple_answers is not None:
+            return self.context.multiple_answers in ("4", "5")
         return self.context.identification == "no"
 
     @property
     def risk_postponed(self):
-        return self.context.identification is None and (
-            (self.italy_special and self.context.postponed) or True
+        return (
+            self.context.identification is None
+            and self.context.multiple_answers is None
+            # We had this as well, but this is always true:
+            # and ((self.italy_special and self.context.postponed) or True)
         )
 
     @property
@@ -1220,6 +1225,21 @@ class ActionPlanView(RiskBase):
             return False
         text = self.risk.problem_description or ""
         return bool(text.strip())
+
+    @property
+    def multiple_answers_title(self):
+        if not self.risk.use_multiple_answers:
+            return ""
+        if self.context.multiple_answers is None:
+            return ""
+        answer = self.context.multiple_answers
+        # answer is a string like '1'.
+        # Use it to find the textual representation of the answer.
+        try:
+            index = int(answer) - 1
+            return self.risk.multiple_answers.splitlines()[index]
+        except Exception:
+            return answer
 
     def _extractViewData(self):
         """Extract the data from the current context and build a data structure
