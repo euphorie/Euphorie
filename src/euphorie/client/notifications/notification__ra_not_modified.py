@@ -2,13 +2,11 @@ from euphorie.client import MessageFactory as _
 from euphorie.client.interfaces import INotificationCategory
 from euphorie.client.interfaces import INTERVAL_DAILY
 from euphorie.client.model import Account
-from euphorie.client.model import OrganisationMembership
 from euphorie.client.model import SurveySession
 from euphorie.client.notifications.base import BaseNotification
 from euphorie.client.notifications.base import BaseNotificationEmail
 from logging import getLogger
 from plone import api
-from sqlalchemy import sql
 from z3c.saconfig import Session
 from zope.interface import implementer
 
@@ -88,23 +86,6 @@ class Notification(BaseNotification):
         )
         return value
 
-    def get_responsible_users(self, session):
-        return (
-            Session.query(Account)
-            .outerjoin(
-                OrganisationMembership, OrganisationMembership.member_id == Account.id
-            )
-            .filter(
-                sql.or_(
-                    sql.and_(
-                        OrganisationMembership.owner_id == session.account_id,
-                        OrganisationMembership.member_role.in_(["admin", "manager"]),
-                    ),
-                    Account.id == session.account_id,
-                )
-            )
-        )
-
     def notify(self):
         if not self.available:
             return
@@ -112,7 +93,14 @@ class Notification(BaseNotification):
         today = datetime.date.today()
 
         query = (
-            Session.query(SurveySession)
+            Session.query(
+                SurveySession,
+                Account,
+            )
+            .join(
+                Account,
+                SurveySession.account_id == Account.id,
+            )
             .filter(SurveySession.get_archived_filter())
             .filter(
                 SurveySession.modified
@@ -125,17 +113,17 @@ class Notification(BaseNotification):
         sessions = query.all()
 
         notifications = {}
-        for session in sessions:
-            for account in self.get_responsible_users(session):
-                if not self.notification_enabled(account):
-                    continue
-                notifications.setdefault(
-                    account.id,
-                    {
-                        "account": account,
-                        "sessions": [],
-                    },
-                )["sessions"].append(session)
+        for session, account in sessions:
+            if not self.notification_enabled(account):
+                continue
+
+            notifications.setdefault(
+                account.id,
+                {
+                    "account": account,
+                    "sessions": [],
+                },
+            )["sessions"].append(session)
 
         for notification in notifications.values():
             mail = api.content.get_view(
