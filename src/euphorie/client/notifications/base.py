@@ -2,9 +2,13 @@ from email.utils import formataddr
 from euphorie.client import MessageFactory as _
 from euphorie.client import model
 from euphorie.client.mails.base import BaseEmail
+from logging import getLogger
 from plone import api
 from plone.memoize.view import memoize
 from z3c.saconfig import Session
+
+
+logger = getLogger(__name__)
 
 
 class BaseNotificationEmail(BaseEmail):
@@ -43,12 +47,31 @@ class BaseNotificationEmail(BaseEmail):
     def index(self):
         """The mail text."""
         full_name = self.webhelpers.get_user_fullname(self.account)
-        session_links = "\n".join(
-            [
-                f"* [{session.title}]({session.absolute_url()}/@@start)"
-                for session in self.sessions
-            ]
+
+        title_missing = api.portal.translate(
+            _("label_missing_title", default="Title is missing")
         )
+
+        session_links = ""
+        for session in self.sessions:
+            session_url = ""
+            try:
+                session_url = session.absolute_url()
+            except ValueError:
+                logger.exception(
+                    "Could not get session URL for session %r and "
+                    "zodb_path %r (session id: %r). There might be a data "
+                    "inconsistency. Not including this session in the "
+                    "notification mailing.",
+                    session.title or title_missing,
+                    session.zodb_path,
+                    session.id,
+                )
+                continue
+
+            session_links += (
+                f"* [{session.title or title_missing}]({session_url}/@@start)\n"
+            )
 
         # Compile the preferences link
         some_session = self.sessions[0]
@@ -88,6 +111,12 @@ class BaseNotification:
     def __init__(self, context, request):
         self.context = context
         self.request = request
+
+    @property
+    def title_missing(self):
+        return api.portal.translate(
+            _("label_missing_title", default="Title is missing")
+        )
 
     def notification_enabled(self, account):
         query = (
