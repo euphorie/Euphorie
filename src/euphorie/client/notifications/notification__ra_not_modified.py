@@ -153,7 +153,7 @@ class Notification(BaseNotification):
                 notification["account"].email,
                 ", ".join(
                     [
-                        session.title or self.title_missing
+                        session.title or f"{self.title_missing} (id {session.id})"
                         for session in notification["sessions"]
                     ]
                 ),
