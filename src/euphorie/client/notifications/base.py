@@ -103,6 +103,15 @@ from OiRA, you can change this [here](${preferences_link})**""",
             )
         )
 
+    def send_email(self):
+        if not self.account.email:
+            logger.warning(
+                "Account %r has no email address. Not sending notification email.",
+                self.account.id,
+            )
+            return
+        super().send_email()
+
 
 class BaseNotification:
     id = None
