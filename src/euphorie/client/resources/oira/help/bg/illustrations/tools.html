@@ -57,8 +57,7 @@
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div 
-	id="main" 
-	class="sidebar-off">
+	id="main">
 	<header 
 	id="toolbar">
 	
@@ -75,10 +74,18 @@
 		</a>
 		
 		
-			<a href="#osc" 
-			   id="toggle-osc" 
-			   class="iconified pat-toggle" 
-			   data-pat-toggle="selector: body; value: osc-off osc-on && selector: body; value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+	
+				<a 
+					href="#osc" 
+					id="toggle-osc" 
+					class="iconified pat-toggle" 
+					data-pat-toggle="
+						selector: body; 
+						value: osc-off osc-on 
+							&& 
+						selector: body; 
+						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+	
 		
 
 		
@@ -217,7 +224,11 @@
     <a 
         href="/index-logged-in.html" 
         data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
-        class=" icon icon-gauge pat-inject">Home</a>
+        class="
+             
+            icon 
+            icon-gauge 
+            pat-inject">Home</a>
     <a 
         href="/tools/"
         data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
@@ -225,23 +236,32 @@
     <a 
         href="/assessments/"
         data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
-        class=" pat-inject">Assessments</a>
+        class="
+             
+            pat-inject">Assessments</a>
     <a 
         href="/trainings/"
         data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
-        class=" pat-inject">Trainings</a>
+        class="
+             
+            pat-inject">Trainings</a>
     <a 
         href="/certificates/"
         data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
-        class=" pat-inject">Certificates</a>
+        class="
+             
+            pat-inject">Certificates</a>
     <a 
         href="/third-parties/"
         data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
-        class=" pat-inject">External company</a>
+        class="
+             
+            pat-inject">External company</a>
     <a 
         href="/users/"
         data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
-        class="pat-inject">Organisation</a>
+        class="
+            pat-inject">Organisation</a>
 </nav>
 
         </div>
@@ -1128,9 +1148,10 @@
 	</div>
 </div>
 
-<aside 
-	id="osc">
-	
+
+	<aside 
+		id="osc">
+		
 
 <form id="osc-header" action="/index-logged-in#browser" class="pat-inject pat-autosubmit">
 	
@@ -1176,13 +1197,13 @@
     <button id="button-osc-expand" class="no-label iconified icon-resize-full pat-toggle" data-pat-toggle="selector: body; value: osc-size-full osc-size-normal" title="Expand sidebar">Expand sidebar</button>
 </form>
 
-	<a href="/feedback/osh.html#osh-ra-browser" id="osh-target-ra-browser" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
+		<a href="/feedback/osh.html#osh-ra-browser" id="osh-target-ra-browser" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
 
-	<div 
-		id="navigation">
-		
-			<div id="miller-columns" class="miller-columns">
-				
+		<div 
+			id="navigation">
+			
+				<div id="miller-columns" class="miller-columns">
+					
 
 <form 
 	class="pat-form search-form pat-inject view-compact"
@@ -1257,7 +1278,7 @@
                 type="text" 
                 name="search-rule.lemma-value:records" 
                 placeholder="Lemma" 
-                class="lemma-field" />
+                class="lemma-field pat-autofocus" />
         </span>
         <span 
             class="parameters date">
@@ -1338,6 +1359,11 @@
     <a 
         href="../../bg/illustrations/tools#listing" 
         class="pat-inject float-after pat-button">Reset</a>
+    
+    <a 
+        data-pat-inject="scroll: #assessments-screen; history: record"
+        href="../../en-roadmap/pages/3-carrying-out-a-risk-assessment" 
+        class="pat-inject pat-button no-label icon-help float-after">Help</a>
 </p>
 
 <template 
@@ -1394,7 +1420,7 @@
             type="text" 
             name="search-rule.lemma-value:records" 
             placeholder="Lemma" 
-            class="lemma-field" />
+            class="lemma-field pat-autofocus" />
     </span>
     <span 
         class="parameters date">
@@ -1407,7 +1433,11 @@
                 <option value="is-after">Is after</option>
             </select>
         </label>
-        <input type="date" name="search-rule.date-value:records" placeholder="Date" class="date-field pat-date-picker" />
+        <input 
+            type="date" 
+            name="search-rule.date-value:records" 
+            placeholder="Date" 
+            class="date-field pat-date-picker pat-autofocus" />
     </span>
     <span 
         class="parameters plant">
@@ -1415,11 +1445,16 @@
             class="pat-select">
             <select 
                 name="search-rule.date-operator:records">
-                <option value="equals">Equals</option>
-                <option value="equals-not">Does not equal</option>
+                <option 
+                    value="equals">Equals</option>
+                <option 
+                value="equals-not">Does not equal</option>
             </select>
         </label>
-        <select name="search-rule.plant-value:records" placeholder="Plant code" class="pat-autosuggest">
+        <select 
+            name="search-rule.plant-value:records" 
+            placeholder="Plant code" 
+            class="pat-autosuggest pat-autofocus">
             <option>001</option>
             <option>002</option>
             <option>003</option>
@@ -1427,14 +1462,22 @@
             <option>005</option>
         </select>
     </span>
-    <span class="parameters department">
-        <label class="pat-select">
-            <select name="search-rule.date-operator:records">
-                <option value="equals">Equals</option>
-                <option value="equals-not">Does not equal</option>
+    <span 
+        class="parameters department">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
+                <option 
+                    value="equals">Equals</option>
+                <option 
+                    value="equals-not">Does not equal</option>
             </select>
         </label>
-        <select name="search-rule.department-value:records" placeholder="Department name" class="pat-autosuggest">
+        <select 
+            name="search-rule.department-value:records" 
+            placeholder="Department name" 
+            class="pat-autosuggest pat-autofocus">
             <option>103,   (GEPJW5W4P)</option>
             <option>104,   (GEPJNROAL)</option>
             <option>105,   (GEPJS5CBN)</option>
@@ -1447,7 +1490,9 @@
             <option>142,   (GEPL74BAW)</option>
         </select>
     </span>
-    <button type="button" class="remove-clone">Remove</button>
+    <button 
+        type="button" 
+        class="remove-clone">Remove</button>
   </p>
 </template>
 
@@ -1476,11 +1521,11 @@
 	</fieldset>
 
 </form>
-		    	
-		    	<div id="browser">
-					<ul class="departments browser" id="results">
-						
-							<li class="item type-risk-assessment">
+					
+					<div id="browser">
+						<ul class="departments browser" id="results">
+							
+								<li class="item type-risk-assessment">
 	<span class="object-name field">
     	<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Splash and Shine Cleaners</a>
 	</span>
@@ -1516,13 +1561,13 @@
 	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="COVID-19">COVID-19</a></span>
 	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
 </li>
-						
-			    	</ul>
-		    	</div>
-		    </div>
-	    
-    </div>
-</aside>
+							
+						</ul>
+					</div>
+				</div>
+			
+		</div>
+	</aside>
 
 
 		

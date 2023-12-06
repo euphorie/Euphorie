@@ -1,0 +1,3492 @@
+<!DOCTYPE html>
+<html
+	class="no-js"
+	lang="en">
+	<head>
+		<meta
+			http-equiv="Content-Type"
+			content="text/html; charset=UTF-8">
+		<title>Assessments | OiRA</title>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1">
+		<link
+			id="all-styles"
+			rel="stylesheet"
+			href="../../../style/all.css"
+			type="text/css">
+
+		<script src="../../../script/bundle.min.js"></script>
+
+		<!-- Following line is ONLY for the prototype. -->
+		<meta
+			name="robots"
+			content="noindex" />
+
+		<meta
+			name="description"
+			content="">
+		<meta
+			property="og:type"
+			content="website" />
+		<meta
+			property="og:title"
+			content="Assessments" />
+		<meta
+			property="og:description"
+			content="" />
+		<meta
+			property="og:url"
+			content="//assets/oira/help/en-roadmap/illustrations/assessments" />
+		<meta
+			property="og:image"
+			content="../../../style/oira-tile.png" />
+
+		<link 
+			rel="icon" 
+			type="image/png" 
+			href="../../../favicon/apple-touch-icon.png" />
+
+		<link rel="manifest" 
+			  href="/assets/oira/manifest/manifest.json">
+	</head>
+	<body
+		id="body"
+		data-page-layout="assessments"
+		data-layout-layout="homescreen"
+		class=" osh-off osc-off osc-size-normal osc-s-off ">
+
+		<div 
+	id="main">
+	<header 
+	id="toolbar">
+	
+		<a 
+			href="/index-logged-in.html" 
+		    data-pat-inject="source: #content; target: #content; history: record" 
+		    class="pat-inject pat-switch title-group" 
+		    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+		    title="Startup page">
+			<h1
+				class="logo">
+				OiRA
+			</h1>
+		</a>
+		
+		
+	
+				<a 
+					href="#osc" 
+					id="toggle-osc" 
+					class="iconified pat-toggle" 
+					data-pat-toggle="
+						selector: body; 
+						value: osc-off osc-on 
+							&& 
+						selector: body; 
+						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+	
+		
+
+		
+
+		<a href="/feedback/osh.html#osh-osc-toggle" id="osh-target-osc-toggle" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
+		
+			<a 
+				href="/feedback/more-menu#menu-content" 
+			   	id="user-menu" 
+			   	class="iconified pat-tooltip pat-switch" 
+			   	data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+			   	data-pat-tooltip="source: ajax">Menu</a>
+			<a 
+	            href="/feedback/messages-unread#menu-content" 
+	            id="messages-menu" 
+	            data-pat-tooltip="source: ajax"
+	            class="pat-tooltip icon iconified icon-chat pat-push">
+	            Messages <sup id="messages-unread-count" class="counter digit-1">1</sup>
+	        </a> 
+			<a 
+				href="/feedback/help-menu#menu-content" 
+			   	id="help-menu" 
+			   	class="iconified pat-tooltip" 
+			   	data-pat-tooltip="source: ajax">Help</a>
+			<a 
+				href="/index-logged-in.html" 
+			    data-pat-inject="source: #content; target: #content; history: record" 
+			    class="home pat-inject iconified icon-home pat-switch" 
+			    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
+			    title="Startup page">Dashboard</a>
+		
+	
+</header>
+	<div  
+		id="content">
+		
+
+		
+
+		<div 
+    id="main-content" 
+    class="variation-dashboard">
+    <div 
+        id="content-pane"
+        class="pat-scroll-box">
+        
+<!-- <article id="screen-intro">
+	<header class="title-group">
+		<h1>
+			OiRA@Daimler
+		</h1>
+		<p class="byline">
+			
+				Online Interactive Risk Assessment
+			
+		</p>
+	</header>
+	
+		<form action="index-logged-in-var-third-party.html#dashboard" data-pat-inject="history: record" class="tool-group pat-autosubmit pat-inject">
+			<label class="pat-select bare">
+				<select name="dashboard-view">
+					<option>Default view</option>
+					<option >Fremdfirmenkoordination</option>
+				</select>
+			</label>
+		</form>
+	
+</article> -->
+
+<form 
+	action="" 
+	class="pat-form">
+
+
+<a href="/feedback/osh.html#osh-ra-browser" id="osh-target-ra-browser" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
+<div
+    class="pat-toolbar"
+    id="assessments-toolbar">
+    <div
+        class="toolbar-navigation-area">
+        <div
+            class="toolbar-section navigation"
+            id="assessments-toolbar-navigation">
+            <nav 
+    class="pat-tabs pat-button-cluster pat-navigation"
+    id="homescreen-sections">
+    <a 
+        href="/index-logged-in.html" 
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+        class="
+             
+            icon 
+            icon-gauge 
+            pat-inject">Home</a>
+    <a 
+        href="/tools/"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+        class=" pat-inject">Tools</a>
+    <a 
+        href="/assessments/"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+        class="
+            current 
+            pat-inject">Assessments</a>
+    <a 
+        href="/trainings/"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+        class="
+             
+            pat-inject">Trainings</a>
+    <a 
+        href="/certificates/"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+        class="
+             
+            pat-inject">Certificates</a>
+    <a 
+        href="/third-parties/"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+        class="
+             
+            pat-inject">External company</a>
+    <a 
+        href="/users/"
+        data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+        class="
+            pat-inject">Organisation</a>
+</nav>
+
+        </div>
+    </div>
+    <div
+        id="toolbar-functions-area"
+        class="toolbar-functions-area pat-inject pat-form pat-autosubmit">
+        <div
+            class="toolbar-section view-options"
+            id="assessments-toolbar-view-options">
+            <a 
+    href="#assessment-filters" 
+    data-pat-tooltip="
+        source: ajax; 
+        position-list: tl;
+        target: #toolbar-functions-area"
+    class="pat-tooltip icon icon-filter">
+    Filters
+</a>
+
+<template 
+    hidden
+    id="assessment-filters">
+    <fieldset 
+        class="vertical"><fieldset 
+            class="pat-checklist">
+            <!-- <legend>Archiving</legend> -->
+            <label>
+                Show archived             
+                <input 
+                    type="checkbox" 
+                    name="archived" 
+                    checked> 
+            </label>
+        </fieldset>
+
+        <!-- <fieldset 
+            class="pat-checklist radio">
+            <legend>
+                Sorting
+            </legend>
+            <label>
+                Newest first                     
+                <input 
+                    type="radio" 
+                    name="sorting" 
+                    checked> 
+            </label>
+            <label>
+                Alphabetical          
+                <input 
+                    type="radio" 
+                    name="sorting"> 
+            </label>
+        </fieldset> -->
+    </fieldset>
+    <div 
+        class="button-bar">
+        <button
+            type="button"
+            class="pat-button close-panel advanced-filters-toggle">Advanced filters</button>
+    </div>
+</template>
+            <!-- <a 
+                class="pat-button close-panel advanced-filters-toggle">Advanced filters</a> -->
+        </div>
+        <div
+            class="toolbar-section quick-functions"
+            id="assessments-toolbar-quick-functions">
+            <!-- <label
+                class="pat-toolbar-function pat-toolbar-search-field">
+                <input
+                    type="search"
+                    placeholder="Search risk assessments">
+            </label> -->
+            <a  
+                class="icon search advanced-filters-toggle">Search</a>
+            <a
+                href="/new-session.html#document-content"
+                class="pat-modal icon create"
+                data-pat-modal="class: medium panel"
+                title="Start a new risk assessment">Start risk assessment</a>
+        </div>
+    </div>
+</div>
+
+
+	<div
+		id="application-content">
+		
+
+		<div 
+			data-pat-collapsible="trigger: .advanced-filters-toggle"
+			class="advanced-search pat-collapsible closed">
+			<div 
+				class="panel-content">
+				
+
+<fieldset 
+    class="advanced pat-clone" 
+    data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
+    <input
+        type="hidden" 
+        name="search-rule.and-or:records" 
+        value="" />
+    <p 
+        class="clone search-rule row-1">
+        <label 
+            class="pat-select field-choice pat-select">
+            <select 
+                name="search-rule.data-field:records">
+                <option 
+                    value="SearchableText">Any text field</option>
+                <optgroup 
+                    label="Metadata">
+                    <option value="Title">Title</option>
+                    <option value="Description">Description</option>
+                    <option value="content">Body text</option>
+                    <option value="author">Author</option>
+                    <option value="plant">Plant</option>
+                    <option value="department">Department</option>
+                    <option value="contractor">Contractor</option>
+                    <option value="operator_id">Operator at Daimler</option>
+                    <option value="created">Creation date</option>
+                    <option value="effective">Publication date</option>
+                    <option value="modified">Modification date</option>
+                    <option value="start_date">Start date (external company)</option>
+                    <option value="end_date">End date (external company)</option>
+                </optgroup>
+            </select>
+        </label>
+        <span 
+            class="parameters lemma">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.lemma-operator:records">
+                    <option value="contains">Contains</option>
+                    <option value="contains-not">Does not contain</option>
+                    <option value="equals">Equals</option>
+                </select>
+            </label>
+            <input 
+                type="text" 
+                name="search-rule.lemma-value:records" 
+                placeholder="Lemma" 
+                class="lemma-field pat-autofocus" />
+        </span>
+        <span 
+            class="parameters date">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
+                    <option value="is">Is</option>
+                    <option value="is-before">Is before</option>
+                    <option value="is-after">Is after</option>
+                </select>
+            </label>
+            <input 
+                type="date" 
+                name="search-rule.date-value:records" 
+                placeholder="Date" 
+                class="date-field pat-date-picker" />
+        </span>
+        <span 
+            class="parameters plant">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
+                    <option value="equals">Equals</option>
+                    <option value="equals-not">Does not equal</option>
+                </select>
+            </label>
+            <select 
+                name="search-rule.plant-value:records" 
+                placeholder="Plant code" 
+                class="pat-autosuggest lemma-field">
+                <option>001</option>
+                <option>002</option>
+                <option>003</option>
+                <option>004</option>
+                <option>005</option>
+            </select>
+        </span>
+        <span 
+            class="parameters department">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
+                    <option value="equals">Equals</option>
+                    <option value="equals-not">Does not equal</option>
+                </select>
+            </label>
+            <select 
+                name="search-rule.department-value:records" 
+                placeholder="Department name" 
+                class="pat-autosuggest lemma-field">
+                <option>103,   (GEPJW5W4P)</option>
+                <option>104,   (GEPJNROAL)</option>
+                <option>105,   (GEPJS5CBN)</option>
+                <option>106,   (GEPJS9JKO)</option>
+                <option>107,   (GEPJW92WQ)</option>
+                <option>109, Milan K (H7N36URGR)</option>
+                <option>111,   (GEPJNV12M)</option>
+                <option>140,   (GEPL71JKV)</option>
+                <option>141,   (JGHN3Y100)</option>
+                <option>142,   (GEPL74BAW)</option>
+            </select>
+        </span>
+    </p>
+</fieldset>
+
+<p 
+    class="button-bar">
+    <button 
+        type="submit" 
+        class="pat-button default icon-search">Search</button>
+    <button 
+        type="button" 
+        class="pat-button add-clone add-clone-rule icon-plus-circle">Add another search rule</button>
+
+    <a 
+        href="../../en-roadmap/illustrations/assessments#listing" 
+        class="pat-inject float-after pat-button">Reset</a>
+    
+    <a 
+        data-pat-inject="scroll: #assessments-screen; history: record"
+        href="../../en-roadmap/pages/3-carrying-out-a-risk-assessment" 
+        class="pat-inject pat-button no-label icon-help float-after">Help</a>
+</p>
+
+<template 
+    id="clone-template">
+    <p 
+        class="clone search-rule animated fadeIn">
+    <label 
+        class="and-or pat-select bare">
+        <select 
+            name="search-rule.and-or:records">
+            <option 
+                value="and">
+                And…
+            </option>
+            <option 
+                value="or">
+                Or…
+            </option>
+        </select>
+    </label>
+    <label 
+        class="field-choice pat-select">
+        <select 
+            name="search-rule.data-field:records">
+            <option 
+                value="SearchableText">Any text field</option>
+            <optgroup 
+                label="Metadata">
+                <option value="Title">Title</option>
+                <option value="Description">Description</option>
+                <option value="content">Body text</option>
+                <option value="author">Author</option>
+                <option value="plant">Plant (code)</option>
+                <option value="department">Department</option>
+                <option value="contractor">Contractor</option>
+                <option value="created">Creation date</option>
+                <option value="effective">Publication date</option>
+                <option value="modified">Modification date</option>
+            </optgroup>
+        </select>
+    </label>
+    <span 
+        class="parameters lemma">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.lemma-operator:records">
+                <option value="contains">Contains</option>
+                <option value="contains-not">Does not contain</option>
+                <option value="equals">Equals</option>
+            </select>
+        </label>
+        <input 
+            type="text" 
+            name="search-rule.lemma-value:records" 
+            placeholder="Lemma" 
+            class="lemma-field pat-autofocus" />
+    </span>
+    <span 
+        class="parameters date">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
+                <option value="is">Is</option>
+                <option value="is-before">Is before</option>
+                <option value="is-after">Is after</option>
+            </select>
+        </label>
+        <input 
+            type="date" 
+            name="search-rule.date-value:records" 
+            placeholder="Date" 
+            class="date-field pat-date-picker pat-autofocus" />
+    </span>
+    <span 
+        class="parameters plant">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
+                <option 
+                    value="equals">Equals</option>
+                <option 
+                value="equals-not">Does not equal</option>
+            </select>
+        </label>
+        <select 
+            name="search-rule.plant-value:records" 
+            placeholder="Plant code" 
+            class="pat-autosuggest pat-autofocus">
+            <option>001</option>
+            <option>002</option>
+            <option>003</option>
+            <option>004</option>
+            <option>005</option>
+        </select>
+    </span>
+    <span 
+        class="parameters department">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
+                <option 
+                    value="equals">Equals</option>
+                <option 
+                    value="equals-not">Does not equal</option>
+            </select>
+        </label>
+        <select 
+            name="search-rule.department-value:records" 
+            placeholder="Department name" 
+            class="pat-autosuggest pat-autofocus">
+            <option>103,   (GEPJW5W4P)</option>
+            <option>104,   (GEPJNROAL)</option>
+            <option>105,   (GEPJS5CBN)</option>
+            <option>106,   (GEPJS9JKO)</option>
+            <option>107,   (GEPJW92WQ)</option>
+            <option>109, Milan K (H7N36URGR)</option>
+            <option>111,   (GEPJNV12M)</option>
+            <option>140,   (GEPL71JKV)</option>
+            <option>141,   (JGHN3Y100)</option>
+            <option>142,   (GEPL74BAW)</option>
+        </select>
+    </span>
+    <button 
+        type="button" 
+        class="remove-clone">Remove</button>
+  </p>
+</template>
+
+			</div>
+		</div>
+
+		<div 
+			id="listing"
+			class="portlet">
+			<div 
+				class="content">
+				<table 
+					class="hd pat-checklist pat-table">
+					<thead>
+						<tr>
+							<th>
+								<!-- <label 
+									data-pat-inject="
+												source: #listing;
+												target: #listing;
+												url: /assets/oira/help/en-roadmap/illustrations/assessments;" 
+									class="pat-autosubmit pat-inject select-all-items">
+									Select
+									<input 
+										name="select-all-items" 
+										type="checkbox">
+								</label> -->
+								<a 
+									href="../../en-roadmap/illustrations/assessments#listing"
+									class="
+										pat-inject 
+										sorting 
+										sorting-asc">Name of risk assessment</a>
+							</th>
+							<th>
+								<a
+									href="../../en-roadmap/illustrations/assessments#listing"
+									class="pat-inject sorting">Last modified</a>
+							</th>
+							<th>
+								<a
+									href="../../en-roadmap/illustrations/assessments#listing"
+									class="pat-inject sorting">Status</a>
+							</th>
+							<th>
+								<a 
+									href="../../en-roadmap/illustrations/assessments#listing"
+									class="pat-inject sorting">Tool</a>
+							</th>
+							<th>
+								&nbsp;
+							</th>
+						</tr>
+					</thead>
+					<tbody 
+						id="collection-overview-body"><tr
+    class="
+        
+        
+        locked
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-private-security-grafton-street#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Private Security, Grafton Street</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Locked,
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2022-01-07T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                Unknown
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/private-security#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Private security</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-private-security-grafton-street" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="24"
+        title="24% Complete">24%</strong>
+</a>
+
+<a 
+    href="/ass-private-security-grafton-street#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            locked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-private-security-grafton-street">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr><tr
+    class="
+        
+        under review
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-commercial-guarding-leicester#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Commercial guarding, Leicester</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Under review,
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2022-01-05T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                Unknown
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/metal-works#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Metal works</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-commercial-guarding-leicester" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="33"
+        title="33% Complete">33%</strong>
+</a>
+
+<a 
+    href="/ass-commercial-guarding-leicester#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            under-review unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-commercial-guarding-leicester">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        locked
+        archived">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-kabinenbau-woerth-band-1#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Kabinenbau Woerth, Band 1</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Locked,
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2017-10-19T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                Unknown
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/metal-works#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Metal works</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-kabinenbau-woerth-band-1" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="100"
+        title="100% Complete">100%</strong>
+</a>
+
+<a 
+    href="/ass-kabinenbau-woerth-band-1#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            locked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-kabinenbau-woerth-band-1">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        validated locked
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-gefaehrdungsbeurteilung-fuer-altmaschinen#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Gefaehrdungsbeurteilung fuer Altmaschinen</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Validated,
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2021-03-25T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                Unknown
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/construction-earth-works#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Construction / Earth Works</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-gefaehrdungsbeurteilung-fuer-altmaschinen" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="43"
+        title="43% Complete">43%</strong>
+</a>
+
+<a 
+    href="/ass-gefaehrdungsbeurteilung-fuer-altmaschinen#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            validated locked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-gefaehrdungsbeurteilung-fuer-altmaschinen">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-schwangere-und-stillende-stuttgart#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Schwangere und Stillende, Stuttgart</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2019-09-23T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                Unknown
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/manufacturing-of-clothes#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Manufacturing of clothes</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-schwangere-und-stillende-stuttgart" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="57"
+        title="57% Complete">57%</strong>
+</a>
+
+<a 
+    href="/ass-schwangere-und-stillende-stuttgart#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-schwangere-und-stillende-stuttgart">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-kabinenbau-woerth-band-2#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Kabinenbau Woerth, Band 2</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2020-10-19T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                Unknown
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/metal-works#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Metal works</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-kabinenbau-woerth-band-2" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="87"
+        title="87% Complete">87%</strong>
+</a>
+
+<a 
+    href="/ass-kabinenbau-woerth-band-2#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-kabinenbau-woerth-band-2">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-kabinenbau-woerth-band-3#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Kabinenbau Woerth, Band 3</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2015-10-19T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                Unknown
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/metal-works#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Metal works</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-kabinenbau-woerth-band-3" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="24"
+        title="24% Complete">24%</strong>
+</a>
+
+<a 
+    href="/ass-kabinenbau-woerth-band-3#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-kabinenbau-woerth-band-3">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-reinigung-blitz-sauber-berlin#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Reinigung: Blitz & Sauber, Berlin</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2018-04-25T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                <span 
+                    class="
+                        value 
+                        icon-eyedropper">Notwendig</span>
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/cleaning#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Cleaning</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-reinigung-blitz-sauber-berlin" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="91"
+        title="91% Complete">91%</strong>
+</a>
+
+<a 
+    href="/ass-reinigung-blitz-sauber-berlin#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-reinigung-blitz-sauber-berlin">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-gefährdungsbeurteilung-allgemein#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Gefährdungsbeurteilung allgemein</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2018-03-25T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                <span 
+                    class="
+                        value 
+                        icon-eyedropper">Notwendig</span>
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/cleaning#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Cleaning</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-gefährdungsbeurteilung-allgemein" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="78"
+        title="78% Complete">78%</strong>
+</a>
+
+<a 
+    href="/ass-gefährdungsbeurteilung-allgemein#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-gefährdungsbeurteilung-allgemein">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-reinigung-blitz-sauber-münchen#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Reinigung: Blitz & Sauber, München</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2016-04-25T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                <span 
+                    class="
+                        value 
+                        icon-eyedropper">Notwendig</span>
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/cleaning#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Cleaning</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-reinigung-blitz-sauber-münchen" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="55"
+        title="55% Complete">55%</strong>
+</a>
+
+<a 
+    href="/ass-reinigung-blitz-sauber-münchen#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-reinigung-blitz-sauber-münchen">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-gefährdungsbeurteilung-für-autos#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Gefährdungsbeurteilung für Autos</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2016-03-25T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                <span 
+                    class="
+                        value 
+                        icon-eyedropper">Notwendig</span>
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/cleaning#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Cleaning</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-gefährdungsbeurteilung-für-autos" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="93"
+        title="93% Complete">93%</strong>
+</a>
+
+<a 
+    href="/ass-gefährdungsbeurteilung-für-autos#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-gefährdungsbeurteilung-für-autos">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-reinigung-blitz-sauber-mannheim#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Reinigung: Blitz & Sauber, Mannheim</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2021-04-25T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                <span 
+                    class="
+                        value 
+                        icon-eyedropper">Fällig seit 5 Tagen</span>
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/cleaning#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Cleaning</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-reinigung-blitz-sauber-mannheim" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="21"
+        title="21% Complete">21%</strong>
+</a>
+
+<a 
+    href="/ass-reinigung-blitz-sauber-mannheim#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-reinigung-blitz-sauber-mannheim">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-kabinenbau-woerth-band-1#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Kabinenbau Woerth, Band 1</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2017-10-19T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                Unknown
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/car-mechanics#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Car mechanics</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-kabinenbau-woerth-band-1" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="100"
+        title="100% Complete">100%</strong>
+</a>
+
+<a 
+    href="/ass-kabinenbau-woerth-band-1#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-kabinenbau-woerth-band-1">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-gefährdungsbeurteilung-für-altmaschinen#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Gefährdungsbeurteilung für Altmaschinen</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2021-03-25T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                Unknown
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/cleaning#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Cleaning</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-gefährdungsbeurteilung-für-altmaschinen" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="43"
+        title="43% Complete">43%</strong>
+</a>
+
+<a 
+    href="/ass-gefährdungsbeurteilung-für-altmaschinen#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-gefährdungsbeurteilung-für-altmaschinen">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-schwangere-und-stillende-stuttgart#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Schwangere und Stillende, Stuttgart</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2019-09-23T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                Unknown
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/audio-visual-productions#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Audio visual productions</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-schwangere-und-stillende-stuttgart" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="57"
+        title="57% Complete">57%</strong>
+</a>
+
+<a 
+    href="/ass-schwangere-und-stillende-stuttgart#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-schwangere-und-stillende-stuttgart">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-kabinenbau-woerth-band-2#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Kabinenbau Woerth, Band 2</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2020-10-19T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                Unknown
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/car-mechanics#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Car mechanics</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-kabinenbau-woerth-band-2" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="87"
+        title="87% Complete">87%</strong>
+</a>
+
+<a 
+    href="/ass-kabinenbau-woerth-band-2#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-kabinenbau-woerth-band-2">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-kabinenbau-woerth-band-3#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Kabinenbau Woerth, Band 3</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2015-10-19T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                Unknown
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/car-mechanics#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Car mechanics</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-kabinenbau-woerth-band-3" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="24"
+        title="24% Complete">24%</strong>
+</a>
+
+<a 
+    href="/ass-kabinenbau-woerth-band-3#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-kabinenbau-woerth-band-3">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-reinigung-blitz-sauber-berlin#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Reinigung: Blitz & Sauber, Berlin</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2018-04-25T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                <span 
+                    class="
+                        value 
+                        icon-eyedropper">Notwendig</span>
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/cleaning#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Cleaning</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-reinigung-blitz-sauber-berlin" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="91"
+        title="91% Complete">91%</strong>
+</a>
+
+<a 
+    href="/ass-reinigung-blitz-sauber-berlin#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-reinigung-blitz-sauber-berlin">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-gefährdungsbeurteilung-allgemein#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Gefährdungsbeurteilung allgemein</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2018-03-25T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                <span 
+                    class="
+                        value 
+                        icon-eyedropper">Notwendig</span>
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/cleaning#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Cleaning</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-gefährdungsbeurteilung-allgemein" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="78"
+        title="78% Complete">78%</strong>
+</a>
+
+<a 
+    href="/ass-gefährdungsbeurteilung-allgemein#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-gefährdungsbeurteilung-allgemein">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-reinigung-blitz-sauber-münchen#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Reinigung: Blitz & Sauber, München</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2016-04-25T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                <span 
+                    class="
+                        value 
+                        icon-eyedropper">Notwendig</span>
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/cleaning#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Cleaning</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-reinigung-blitz-sauber-münchen" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="55"
+        title="55% Complete">55%</strong>
+</a>
+
+<a 
+    href="/ass-reinigung-blitz-sauber-münchen#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-reinigung-blitz-sauber-münchen">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-gefährdungsbeurteilung-für-autos#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Gefährdungsbeurteilung für Autos</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2016-03-25T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                Unknown
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/cleaning#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Cleaning</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-gefährdungsbeurteilung-für-autos" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="93"
+        title="93% Complete">93%</strong>
+</a>
+
+<a 
+    href="/ass-gefährdungsbeurteilung-für-autos#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-gefährdungsbeurteilung-für-autos">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+            class="item-name">
+            <a 
+                href="/ass-reinigung-blitz-sauber-mannheim#content"
+                data-pat-inject="
+                    source: #content; 
+                    target: #content; 
+                        && 
+                    source: #osc; 
+                    target: #osc; 
+                    history: record;"
+                class="
+                    value 
+                    pat-inject 
+                    follow">Reinigung: Blitz & Sauber, Mannheim</a>
+        </th>
+        <td 
+            data-title="Status"
+            class="item-status">
+            <span
+                class="value">Last modified
+                <time 
+                    class="value pat-display-time last-saved"
+                    data-pat-display-time="from-now: true;locale: en"
+                    datetime="2021-04-25T08:00Z">a few seconds ago</time>
+            </span>
+        </td>
+        <td 
+            data-title="Status"
+            class="item-probe">
+            
+                <span 
+                    class="
+                        value 
+                        icon-eyedropper">Fällig seit 5 Tagen</span>
+            
+        </td>
+        <td 
+            data-title="Tool"
+            class="item-tool">
+            <a 
+                href="/tools/cleaning#content" 
+                class="
+                    value 
+                    pat-inject 
+                    tool 
+                    field"
+                data-pat-inject="
+                    history: record">Cleaning</a>
+        </td>
+        
+        <td 
+            class="functions"><a 
+    href="#status-sentinel-reinigung-blitz-sauber-mannheim" 
+    data-pat-inject="history: record"
+    class="icon pat-inject progress pat-tooltip"
+    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+    <strong class="pie-graph" data-percentage="21"
+        title="21% Complete">21%</strong>
+</a>
+
+<a 
+    href="/ass-reinigung-blitz-sauber-mannheim#publication-menu" 
+    class="
+        icon 
+        locking 
+        pat-tooltip
+        
+            unlocked
+        " 
+    data-pat-tooltip="source: ajax; position-list: tr">Locked
+</a>
+
+<a 
+    href="/feedback/ass-menu-compact#more-menu" 
+    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
+        <template 
+            hidden 
+            id="status-sentinel-reinigung-blitz-sauber-mannheim">
+            
+            
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+            
+            
+            <p>
+                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+                details.
+            </p>
+        </template>
+    </li>
+</tr></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</form>
+    </div>
+</div>
+
+	</div>
+</div>
+
+
+	<aside 
+		id="osc">
+		
+
+<form id="osc-header" action="/index-logged-in#browser" class="pat-inject pat-autosubmit">
+	
+	    
+			<!-- The back button and current group title is shown in browsing mode within a group. -->
+			<a href="/index#osc"
+			   data-pat-inject="source: #osc-header; target: #osc-header && source: #miller-columns; target: #miller-columns"
+			   class="back-button pat-inject">Back</a>
+			<h2 class="column-title">
+				assessments.html
+			</h2>
+	    
+	    <!-- <a href="/new-session.html#document-content" id="button-new-session-quick" data-pat-modal="class: large" class="no-label pat-modal iconified icon-plus" title="Start a new assessment">New</a> -->
+        <div
+        	class="pat-collapsible pat-context-menu closed align-right"
+        	data-pat-collapsible="close-trigger: *:not(#more-menu)"
+        	id="more-menu">
+            <strong
+            	class="context-menu-label iconified more-menu-trigger">More…</strong>
+            <ul
+            	class="menu">
+            	<li>
+                    <a
+                    	href="/new-session.html#document-content"
+                        data-pat-modal="class: medium panel"
+                        class="no-label pat-modal icon-plus pat-switch"
+                        data-pat-switch="body osc-s-* osc-s-off"
+                        title="Start a new risk assessment">New risk assessment</a>
+                </li>
+                <li>
+                    <label class="pat-checklist"><input type="checkbox" name="archived" /> Show archived risk assessments</label>
+                </li>
+                <li>
+                	<fieldset class="pat-checklist radio">
+                        <label><input type="radio" value="all" name="ass-type" checked /> All types of risk assessments</label>
+                        <label><input type="radio" value="regular" name="ass-type" /> Only regular risk assessments</label>
+                        <label><input type="radio" value="contractor" name="ass-type" /> Only contractor risk assessments</label>
+                	</fieldset>
+                </li>
+            </ul>
+        </div>
+	
+    <button id="button-osc-expand" class="no-label iconified icon-resize-full pat-toggle" data-pat-toggle="selector: body; value: osc-size-full osc-size-normal" title="Expand sidebar">Expand sidebar</button>
+</form>
+
+		<a href="/feedback/osh.html#osh-ra-browser" id="osh-target-ra-browser" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
+
+		<div 
+			id="navigation">
+			
+				<div id="miller-columns" class="miller-columns">
+					
+
+<form 
+	class="pat-form search-form pat-inject view-compact"
+	id="search-form"
+	action="/feedback/search-results.html#browser"
+	  >
+
+	<fieldset 
+		class="search-box-body">
+        <label 
+        	class="search-field pat-subform pat-inject pat-autosubmit"
+			data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
+			<input
+				type="search" 
+				value="" 
+				class="quick-search pat-autofocus" 
+				placeholder="Search" />
+            <button type="submit" name="standard" value="main" class="search-button-main assistive">Search</button>
+        </label>
+
+	    <fieldset 
+	    	class="advanced-search pat-inject pat-subform"
+			data-pat-inject="source: #browser; target: #browser; && source: #osc-header; target: #osc-header">
+
+	        
+
+<fieldset 
+    class="advanced pat-clone" 
+    data-pat-clone="trigger-element: .add-clone-rule; remove-behaviour: none; template: #clone-template">
+    <input
+        type="hidden" 
+        name="search-rule.and-or:records" 
+        value="" />
+    <p 
+        class="clone search-rule row-1">
+        <label 
+            class="pat-select field-choice pat-select">
+            <select 
+                name="search-rule.data-field:records">
+                <option 
+                    value="SearchableText">Any text field</option>
+                <optgroup 
+                    label="Metadata">
+                    <option value="Title">Title</option>
+                    <option value="Description">Description</option>
+                    <option value="content">Body text</option>
+                    <option value="author">Author</option>
+                    <option value="plant">Plant</option>
+                    <option value="department">Department</option>
+                    <option value="contractor">Contractor</option>
+                    <option value="operator_id">Operator at Daimler</option>
+                    <option value="created">Creation date</option>
+                    <option value="effective">Publication date</option>
+                    <option value="modified">Modification date</option>
+                    <option value="start_date">Start date (external company)</option>
+                    <option value="end_date">End date (external company)</option>
+                </optgroup>
+            </select>
+        </label>
+        <span 
+            class="parameters lemma">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.lemma-operator:records">
+                    <option value="contains">Contains</option>
+                    <option value="contains-not">Does not contain</option>
+                    <option value="equals">Equals</option>
+                </select>
+            </label>
+            <input 
+                type="text" 
+                name="search-rule.lemma-value:records" 
+                placeholder="Lemma" 
+                class="lemma-field pat-autofocus" />
+        </span>
+        <span 
+            class="parameters date">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
+                    <option value="is">Is</option>
+                    <option value="is-before">Is before</option>
+                    <option value="is-after">Is after</option>
+                </select>
+            </label>
+            <input 
+                type="date" 
+                name="search-rule.date-value:records" 
+                placeholder="Date" 
+                class="date-field pat-date-picker" />
+        </span>
+        <span 
+            class="parameters plant">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
+                    <option value="equals">Equals</option>
+                    <option value="equals-not">Does not equal</option>
+                </select>
+            </label>
+            <select 
+                name="search-rule.plant-value:records" 
+                placeholder="Plant code" 
+                class="pat-autosuggest lemma-field">
+                <option>001</option>
+                <option>002</option>
+                <option>003</option>
+                <option>004</option>
+                <option>005</option>
+            </select>
+        </span>
+        <span 
+            class="parameters department">
+            <label 
+                class="pat-select">
+                <select 
+                    name="search-rule.date-operator:records">
+                    <option value="equals">Equals</option>
+                    <option value="equals-not">Does not equal</option>
+                </select>
+            </label>
+            <select 
+                name="search-rule.department-value:records" 
+                placeholder="Department name" 
+                class="pat-autosuggest lemma-field">
+                <option>103,   (GEPJW5W4P)</option>
+                <option>104,   (GEPJNROAL)</option>
+                <option>105,   (GEPJS5CBN)</option>
+                <option>106,   (GEPJS9JKO)</option>
+                <option>107,   (GEPJW92WQ)</option>
+                <option>109, Milan K (H7N36URGR)</option>
+                <option>111,   (GEPJNV12M)</option>
+                <option>140,   (GEPL71JKV)</option>
+                <option>141,   (JGHN3Y100)</option>
+                <option>142,   (GEPL74BAW)</option>
+            </select>
+        </span>
+    </p>
+</fieldset>
+
+<p 
+    class="button-bar">
+    <button 
+        type="submit" 
+        class="pat-button default icon-search">Search</button>
+    <button 
+        type="button" 
+        class="pat-button add-clone add-clone-rule icon-plus-circle">Add another search rule</button>
+
+    <a 
+        href="../../en-roadmap/illustrations/assessments#listing" 
+        class="pat-inject float-after pat-button">Reset</a>
+    
+    <a 
+        data-pat-inject="scroll: #assessments-screen; history: record"
+        href="../../en-roadmap/pages/3-carrying-out-a-risk-assessment" 
+        class="pat-inject pat-button no-label icon-help float-after">Help</a>
+</p>
+
+<template 
+    id="clone-template">
+    <p 
+        class="clone search-rule animated fadeIn">
+    <label 
+        class="and-or pat-select bare">
+        <select 
+            name="search-rule.and-or:records">
+            <option 
+                value="and">
+                And…
+            </option>
+            <option 
+                value="or">
+                Or…
+            </option>
+        </select>
+    </label>
+    <label 
+        class="field-choice pat-select">
+        <select 
+            name="search-rule.data-field:records">
+            <option 
+                value="SearchableText">Any text field</option>
+            <optgroup 
+                label="Metadata">
+                <option value="Title">Title</option>
+                <option value="Description">Description</option>
+                <option value="content">Body text</option>
+                <option value="author">Author</option>
+                <option value="plant">Plant (code)</option>
+                <option value="department">Department</option>
+                <option value="contractor">Contractor</option>
+                <option value="created">Creation date</option>
+                <option value="effective">Publication date</option>
+                <option value="modified">Modification date</option>
+            </optgroup>
+        </select>
+    </label>
+    <span 
+        class="parameters lemma">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.lemma-operator:records">
+                <option value="contains">Contains</option>
+                <option value="contains-not">Does not contain</option>
+                <option value="equals">Equals</option>
+            </select>
+        </label>
+        <input 
+            type="text" 
+            name="search-rule.lemma-value:records" 
+            placeholder="Lemma" 
+            class="lemma-field pat-autofocus" />
+    </span>
+    <span 
+        class="parameters date">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
+                <option value="is">Is</option>
+                <option value="is-before">Is before</option>
+                <option value="is-after">Is after</option>
+            </select>
+        </label>
+        <input 
+            type="date" 
+            name="search-rule.date-value:records" 
+            placeholder="Date" 
+            class="date-field pat-date-picker pat-autofocus" />
+    </span>
+    <span 
+        class="parameters plant">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
+                <option 
+                    value="equals">Equals</option>
+                <option 
+                value="equals-not">Does not equal</option>
+            </select>
+        </label>
+        <select 
+            name="search-rule.plant-value:records" 
+            placeholder="Plant code" 
+            class="pat-autosuggest pat-autofocus">
+            <option>001</option>
+            <option>002</option>
+            <option>003</option>
+            <option>004</option>
+            <option>005</option>
+        </select>
+    </span>
+    <span 
+        class="parameters department">
+        <label 
+            class="pat-select">
+            <select 
+                name="search-rule.date-operator:records">
+                <option 
+                    value="equals">Equals</option>
+                <option 
+                    value="equals-not">Does not equal</option>
+            </select>
+        </label>
+        <select 
+            name="search-rule.department-value:records" 
+            placeholder="Department name" 
+            class="pat-autosuggest pat-autofocus">
+            <option>103,   (GEPJW5W4P)</option>
+            <option>104,   (GEPJNROAL)</option>
+            <option>105,   (GEPJS5CBN)</option>
+            <option>106,   (GEPJS9JKO)</option>
+            <option>107,   (GEPJW92WQ)</option>
+            <option>109, Milan K (H7N36URGR)</option>
+            <option>111,   (GEPJNV12M)</option>
+            <option>140,   (GEPL71JKV)</option>
+            <option>141,   (JGHN3Y100)</option>
+            <option>142,   (GEPL74BAW)</option>
+        </select>
+    </span>
+    <button 
+        type="button" 
+        class="remove-clone">Remove</button>
+  </p>
+</template>
+
+
+			<fieldset 
+				class="toggle-bar pat-checklist free-form">
+			    <label 
+			    	class="pat-switch toggle-standard" 
+			    	data-pat-switch="#search-form view-extended view-compact">
+			        <input 
+			        	type="radio" 
+			        	name="search-mode" 
+			        	value="standard" 
+			        	checked> Standard search
+			    </label>
+			    <label 
+			    	class="pat-switch toggle-advanced"
+			        data-pat-switch="#search-form view-compact view-extended && body osc-size-* osc-size-full">
+			        <input 
+			        	type="radio" 
+			        	name="search-mode" 
+			        	value="advanced"> Advanced search
+			    </label>
+			</fieldset>
+	    </fieldset>
+	</fieldset>
+
+</form>
+					
+					<div id="browser">
+						<ul class="departments browser" id="results">
+							
+								<li class="item type-risk-assessment">
+	<span class="object-name field">
+    	<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Splash and Shine Cleaners</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-10-30T08:00Z" data-pat-display-time="from-now: true; locale: en">19 days ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="EU Cleaning">EU Cleaning</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+ </li>
+<li class="item type-risk-assessment">
+	<span class="object-name field">
+		<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Commercial Guardinng, Leicester</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-09-16 16:50:38.739224+02:00" data-pat-display-time="from-now: true; locale: en">2 months ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="Private Security EU">Private Security EU</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+</li>
+<li class="item type-risk-assessment">
+	<span class="object-name field">
+		<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Private Security, Grafton Street</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-07-16 16:50:38.739224+02:00" data-pat-display-time="from-now: true; locale: en">2 months ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="Private Security EU">Private Security EU</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+</li>
+<li class="item type-risk-assessment">
+	<span class="object-name field">
+		<a class="session-name pat-inject pat-switch" href="/preparation" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp; selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="source: #content; target: #content; history:record ">Office operations in times of COVID-19</a>
+	</span>
+	<span class="last-saved meta field">Last saved <time class="pat-display-time" datetime="2020-05-03 10:31:33.134598+02:00" data-pat-display-time="from-now: true; locale: en">4 months ago</time></span>
+	<span class="field"></span>
+	<span class="tool meta field">based on <a class="pat-inject pat-switch" data-pat-switch="selector: body; remove: focus-*; add: focus-document &amp;&amp; selector: body; remove: osc-s-*; add: osc-s-off; store: local &amp;&amp;selector: body; remove: osc-size-*; add: osc-size-normal" data-pat-inject="history: record" href="/index-specific-tool.html" title="COVID-19">COVID-19</a></span>
+	<a href="/preparation.html#ra-more-menu" class="more-menu iconified icon-ellipsis pat-tooltip inactive" data-pat-tooltip="source: ajax; position-list: tl">More</a>
+</li>
+							
+						</ul>
+					</div>
+				</div>
+			
+		</div>
+	</aside>
+
+
+		
+		
+	</body>
+</html>
