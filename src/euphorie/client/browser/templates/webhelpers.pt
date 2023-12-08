@@ -297,17 +297,16 @@
 
           <!-- Multiple answers -->
           <tal:multiple_answers condition="risk/use_multiple_answers|nothing">
-            <label tal:repeat="answer python:risk.multiple_answers.strip().splitlines()">
-              <input checked="${python:'checked' if context.multiple_answers==number else None}"
+            <label tal:repeat="answer view/multiple_answers">
+              <input checked="${python:'checked' if context.multiple_answers==value else None}"
                      name="multiple_answers"
                      type="radio"
-                     value="${number}"
+                     value="${value}"
                      tal:define="
-                       number repeat/answer/number;
-                       number python:str(number);
+                       value answer/value;
                      "
               />
-                ${answer}
+                ${answer/text}
             </label>
             <label class="not-applicable"
                    tal:condition="risk/show_notapplicable|nothing"

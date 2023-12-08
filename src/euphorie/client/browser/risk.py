@@ -489,6 +489,46 @@ class IdentificationView(RiskBase):
         return condition
 
     @property
+    @memoize
+    def multiple_answers(self):
+        """Get values and answers is the multiple_answers field is used.
+
+        In most cases we will get something like this:
+
+            very unsafe
+            a bit unsafe
+            safe enough
+            quite safe
+            very safe
+
+        The first answer gets value 1, the second 2, etc.
+        But we also support something like this, with the values encoded:
+
+            very safe|5
+            quite safe|4
+            safe enough|3
+            a bit unsafe|2
+            very unsafe|1
+
+        """
+        if not getattr(self.risk, "use_multiple_answers", False):
+            return []
+        result = []
+        for number, answer in enumerate(self.risk.multiple_answers.splitlines(), 1):
+            answer = answer.strip()
+            if not answer:
+                continue
+            parts = answer.split("|")
+            if len(parts) == 2:
+                answer, number = parts
+            result.append({
+                "text": answer,
+                "value": str(number),
+            })
+
+        return result
+
+    @property
     def action_plan_condition(self):
         """In what circumstances will the integrated Action Plan be shown."""
         condition = "condition: answer=no"
