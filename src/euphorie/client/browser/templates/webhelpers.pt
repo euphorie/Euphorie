@@ -298,36 +298,50 @@
           <!-- Multiple answers -->
           <tal:multiple_answers condition="risk/use_multiple_answers|nothing">
             <label tal:repeat="answer python:risk.multiple_answers.strip().splitlines()">
-                <input type="radio" name="multiple_answers"
-                  tal:define="number repeat/answer/number; number python:str(number)"
-                  value="${number}" checked="${python:'checked' if context.multiple_answers==number else None}">
+              <input checked="${python:'checked' if context.multiple_answers==number else None}"
+                     name="multiple_answers"
+                     type="radio"
+                     value="${number}"
+                     tal:define="
+                       number repeat/answer/number;
+                       number python:str(number);
+                     "
+              />
                 ${answer}
             </label>
+            <label class="not-applicable"
+                   tal:condition="risk/show_notapplicable|nothing"
+            ><input checked="${python:'checked' if context.identification=='n/a' else None}"
+                     name="multiple_answers"
+                     type="radio"
+                     value="n/a"
+              /><tal:answer replace="structure view/answer_na" /></label>
+
           </tal:multiple_answers>
 
           <!-- Yes/No -->
           <tal:yes_no condition="not:risk/use_multiple_answers|nothing">
 
             <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
-                    name="answer"
-                    type="radio"
-                    value="yes"
+                     name="answer"
+                     type="radio"
+                     value="yes"
               /><tal:answer replace="structure view/answer_yes" /></label>
             <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
-                    name="answer"
-                    type="radio"
-                    value="no"
+                     name="answer"
+                     type="radio"
+                     value="no"
               /><tal:answer replace="structure view/answer_no" /></label>
+            <label class="not-applicable"
+                   tal:condition="risk/show_notapplicable|nothing"
+            ><input checked="${python:'checked' if context.identification=='n/a' else None}"
+                     name="answer"
+                     type="radio"
+                     value="n/a"
+              /><tal:answer replace="structure view/answer_na" /></label>
 
           </tal:yes_no>
 
-          <label class="not-applicable"
-                 tal:condition="risk/show_notapplicable|nothing"
-          ><input checked="${python:'checked' if context.identification=='n/a' else None}"
-                   name="answer"
-                   type="radio"
-                   value="n/a"
-            /><tal:answer replace="structure view/answer_na" /></label>
         </tal:answers>
         <tal:always_present condition="always_present"><input name="answer"
                  type="hidden"
