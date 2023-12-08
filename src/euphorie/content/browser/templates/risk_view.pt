@@ -121,7 +121,7 @@
           <tal:multiple_answers condition="context/use_multiple_answers|nothing">
             <dt i18n:translate="">Use multiple answers instead of Yes/No</dt>
             <dd>
-              <ul><li tal:repeat="answer python:context.multiple_answers.strip().splitlines()">${answer}</li></ul>
+              <ul><li tal:repeat="answer view/multiple_answers">${answer/text} (${answer/value})</li></ul>
             </dd>
           </tal:multiple_answers>
         </tal:block>

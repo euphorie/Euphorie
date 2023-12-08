@@ -18,6 +18,7 @@ from euphorie.client.subscribers.imagecropping import _initial_size
 from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import IToolTypesInfo
+from euphorie.content.utils import parse_multiple_answers
 from htmllaundry import StripMarkup
 from io import BytesIO
 from plone import api
@@ -387,6 +388,17 @@ class RiskBase(BrowserView):
                 "anything else you might want to write about this risk.",
             )
 
+    @property
+    @memoize
+    def multiple_answers(self):
+        """Get values and answers if the multiple_answers field is used.
+
+        This returns a list of dictionaries.
+        """
+        if not getattr(self.risk, "use_multiple_answers", False):
+            return []
+        return parse_multiple_answers(self.risk.multiple_answers)
+
 
 class IdentificationView(RiskBase):
     """A view for displaying a question in the identification phase."""
@@ -487,46 +499,6 @@ class IdentificationView(RiskBase):
             ]
             condition = "condition: " + " or ".join(conditions)
         return condition
-
-    @property
-    @memoize
-    def multiple_answers(self):
-        """Get values and answers is the multiple_answers field is used.
-
-        In most cases we will get something like this:
-
-            very unsafe
-            a bit unsafe
-            safe enough
-            quite safe
-            very safe
-
-        The first answer gets value 1, the second 2, etc.
-        But we also support something like this, with the values encoded:
-
-            very safe|5
-            quite safe|4
-            safe enough|3
-            a bit unsafe|2
-            very unsafe|1
-
-        """
-        if not getattr(self.risk, "use_multiple_answers", False):
-            return []
-        result = []
-        for number, answer in enumerate(self.risk.multiple_answers.splitlines(), 1):
-            answer = answer.strip()
-            if not answer:
-                continue
-            parts = answer.split("|")
-            if len(parts) == 2:
-                answer, number = parts
-            result.append({
-                "text": answer,
-                "value": str(number),
-            })
-
-        return result
 
     @property
     def action_plan_condition(self):
@@ -1274,7 +1246,7 @@ class ActionPlanView(RiskBase):
         return bool(text.strip())
 
     @property
-    def multiple_answers_title(self):
+    def multiple_answer_chosen(self):
         if not self.risk.use_multiple_answers:
             return ""
         if self.context.multiple_answers is None:
@@ -1282,11 +1254,11 @@ class ActionPlanView(RiskBase):
         answer = self.context.multiple_answers
         # answer is a string like '1'.
         # Use it to find the textual representation of the answer.
-        try:
-            index = int(answer) - 1
-            return self.risk.multiple_answers.splitlines()[index]
-        except Exception:
-            return answer
+        for info in self.multiple_answers:
+            # Note: currently both info value and answer are strings ('1', '2', etc).
+            if info["value"] == answer:
+                return info
+        return answer
 
     def _extractViewData(self):
         """Extract the data from the current context and build a data structure

@@ -426,3 +426,46 @@ class UserExportCSV(BrowserView):
         )
         response.setHeader("Content-Type", "text/csv;charset=utf-8")
         return csv_data
+
+
+def parse_multiple_answers(contents):
+    """Get values and answers from a multiple_answers risk field.
+
+    You pass the contents of the field: a multi-line string.
+
+    In most cases we will get something like this:
+
+        very unsafe
+        a bit unsafe
+        safe enough
+        quite safe
+        very safe
+
+    The first answer gets value 1, the second 2, etc.
+    But we also support something like this, with the values encoded:
+
+        very safe|5
+        quite safe|4
+        safe enough|3
+        a bit unsafe|2
+        very unsafe|1
+
+    """
+    result = []
+    if not contents:
+        return result
+    for number, answer in enumerate(contents.splitlines(), 1):
+        answer = answer.strip()
+        if not answer:
+            continue
+        parts = answer.split("|")
+        if len(parts) == 2:
+            answer, number = parts
+        else:
+            number = str(number)
+        result.append({
+            "text": answer,
+            "value": number,
+        })
+
+    return result
