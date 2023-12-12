@@ -1,7 +1,7 @@
 Changelog
 =========
 
-15.1.0 (unreleased)
+15.1.0 (2023-12-12)
 -------------------
 
 - Allow to enable/disable personal details settings via registry settings.
