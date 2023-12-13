@@ -4,7 +4,9 @@ Changelog
 15.1.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Update help from prototype commit 2a995e4c01f7e6f49ef159e601b8e3131d816a19.
+  Refs: scrum-1672
+  [thet]
 
 
 15.1.0 (2023-12-12)
