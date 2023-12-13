@@ -1,7 +1,7 @@
 Changelog
 =========
 
-15.1.1 (unreleased)
+15.1.1 (2023-12-13)
 -------------------
 
 - Update help from prototype commit 2a995e4c01f7e6f49ef159e601b8e3131d816a19.
