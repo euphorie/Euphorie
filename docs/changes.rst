@@ -4,7 +4,9 @@ Changelog
 15.1.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Updated styles to fix mobile issue.
+  Ref: scrum-1575
+  [reinhardt]
 
 
 15.1.1 (2023-12-13)
