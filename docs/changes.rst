@@ -14,6 +14,9 @@ Changelog
   Refs: scrum-1817
   [thet]
 
+- Update Patternslib to 9.9.10.
+  [thet]
+
 
 15.1.1 (2023-12-13)
 -------------------
