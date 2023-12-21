@@ -5279,7 +5279,7 @@ msgstr "Αποθήκευση και προσθήκη άλλου κινδύνου
 #: euphorie/client/browser/templates/report.pt:58
 #: euphorie/client/browser/templates/report_company.pt:267
 msgid "label_save_and_continue"
-msgstr "Αποθήκευση"
+msgstr "Αποθήκευση και Συνέχεια"
 
 #. Default: "Save and finish"
 #: euphorie/client/browser/templates/risk_identification_custom.pt:331
