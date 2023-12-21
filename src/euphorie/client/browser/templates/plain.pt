@@ -74,6 +74,7 @@ body {
     font-family: "Roboto Condensed",sans-serif;
     font-weight: normal;
     font-style: normal;
+    font-size: 15px;
     line-height: 150%;
     background: #fff;
     letter-spacing: 0;
@@ -104,7 +105,7 @@ div.print-footer {
 }
 #content {
     left: 0;
-    padding: 2% 5% 5% 5%;
+    padding: 6% 15% 10% 10%;
     line-height: 1.5em;
     top: 3rem;
     right: 0;
@@ -113,8 +114,8 @@ div.print-footer {
 }
 article.rich.report h1 {
     font-weight: 400;
-    font-size: 48px;
-    line-height: 52px;
+    font-size: 36px;
+    line-height: 40px;
     /*margin-bottom: 0.7em;*/
 }
 a {

@@ -17,6 +17,11 @@ Changelog
 - Update Patternslib to 9.9.10.
   [thet]
 
+- Changed PDF generation engine to weasyprint
+  Ref: scrum-732
+  [reinhardt]
+
+
 
 15.1.1 (2023-12-13)
 -------------------

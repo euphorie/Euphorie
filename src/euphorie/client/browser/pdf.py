@@ -1,19 +1,14 @@
-from collections import namedtuple
 from euphorie import MessageFactory as _
 from path import Path
 from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
-from sh import wkhtmltopdf
 from urllib.parse import quote
+from weasyprint import CSS
+from weasyprint import HTML
 
 import logging
 
-
-try:
-    from sh import xvfb_run
-except ImportError:
-    xvfb_run = namedtuple("xvfb_run", "wkhtmltopdf")(wkhtmltopdf=wkhtmltopdf)
 
 try:
     from tempfile import TemporaryDirectory
@@ -25,7 +20,7 @@ log = logging.getLogger(__name__)
 
 
 class PdfView(BrowserView):
-    """We use wkhtmltopdf to convert an HTML view into a PDF file."""
+    """We use weasyprint to convert an HTML view into a PDF file."""
 
     @property
     @memoize
@@ -33,35 +28,30 @@ class PdfView(BrowserView):
         return api.content.get_view("webhelpers", self.context, self.request)
 
     @property
-    def footer_options(self):
-        return (
-            "--footer-right",
-            "{} [page] {} [topage]".format(
-                api.portal.translate(_("label_page", default="Page")),
-                api.portal.translate(_("label_page_of", default="of")),
-            ),
-            "--footer-font-size",
-            "8",
+    def extra_css(self):
+        return """
+    @page {{
+        @bottom-right {{
+            content: "{label_page} " counter(page) " {label_page_of} " counter(pages);
+        }}
+    }}
+        """.format(
+            label_page=api.portal.translate(_("label_page", default="Page")),
+            label_page_of=api.portal.translate(_("label_page_of", default="of")),
         )
 
     def view_to_pdf(self, view):
         content = view()
-        wkhtmltopdf_args = api.portal.get_registry_record(
-            "euphorie.wkhtmltopdf.options",
-            default=(
-                "--margin-bottom 2cm --margin-left 2cm "
-                "--margin-right 2cm --margin-top 3cm "
-                "--disable-javascript --viewport-size 10000x1000"
-            ),
-        ).split()
-        wkhtmltopdf_args.extend(self.footer_options)
+        extra_css = CSS(string=self.extra_css)
 
         with TemporaryDirectory(prefix="euphoprient") as tmpdir:
             html_file = Path(tmpdir) / "index.html"
             pdf_file = Path(tmpdir) / "index.pdf"
             html_file.write_text(content)
-            wkhtmltopdf_args.extend([html_file, pdf_file])
-            xvfb_run.wkhtmltopdf(*wkhtmltopdf_args)
+            HTML(html_file).write_pdf(
+                pdf_file,
+                stylesheets=[extra_css],
+            )
             return pdf_file.bytes()
 
     def __call__(self):
