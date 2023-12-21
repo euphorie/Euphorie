@@ -7,6 +7,9 @@ Changelog
 - Fix obsolete import
   [ale-rt]
 
+- Support Plone 6.0
+  [ale-rt]
+
 
 15.1.1 (2023-12-13)
 -------------------
