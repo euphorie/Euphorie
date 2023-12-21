@@ -10,8 +10,8 @@ from plone import api
 from plone.memoize.view import memoize
 from plone.rfc822.interfaces import IPrimaryFieldInfo
 from Products.CMFPlone.utils import safe_encode
+from Products.CMFPlone.utils import safe_nativestring
 from Products.Five import BrowserView
-from Products.PortalTransforms.utils import safe_nativestring
 from urllib.parse import quote
 
 import markdown
