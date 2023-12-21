@@ -57,6 +57,8 @@
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div 
+	class="
+		sidebar-left-open"
 	id="main">
 	<header 
 	id="toolbar">
@@ -75,7 +77,7 @@
 		
 		
 	
-				<a 
+				<!-- <a 
 					href="#osc" 
 					id="toggle-osc" 
 					class="iconified pat-toggle" 
@@ -84,7 +86,7 @@
 						value: osc-off osc-on 
 							&& 
 						selector: body; 
-						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a> -->
 	
 		
 
@@ -153,11 +155,34 @@
 				
 				<h2 id="pokretanje-nove-sesije">Pokretanje nove sesije</h2>
 
-<p>Da biste pokrenuli novu procjenu rizika, kliknite na poveznicu „Pokrenite novu sesiju”.</p>
+<h3 id="s-nadzorne-ploče">S nadzorne ploče</h3>
+
+<p>Kako biste započeli novu procjenu rizika na početnom zaslonu ili na „nadzornoj ploči“ alata OiRA, odaberite „Pokreni novu sesiju“. Prikazat će se ploča za dijalog s dvije različite opcije za početak procjene.</p>
+
+<h4 id="započinjanje-nove-procjene-rizika-od-početka">Započinjanje nove procjene rizika od početka</h4>
+
+<p>Odaberite ovu opciju kako biste počeli s praznim predloškom kad procjenu rizika obavljate prvi put. Iz padajućeg izbornika alata možete odabrati odgovarajući alat koji će vas voditi kroz procjenu.</p>
+
+<h4 id="duplication">Započinjanje na temelju postojeće procjene rizika</h4>
+
+<p>Odaberite ovu opciju ako ste prethodno već obavili procjenu rizika s pomoću određenog alata. Iz padajućeg izbornika procjene rizika odaberite postojeću procjenu rizika koju biste željeli ponovno upotrijebiti kao osnovu za novu procjenu rizika. Ponovna upotreba postojeće procjene rizika preporučuje se ako u međuvremenu nije bilo mnogo promjena, npr. kad trebate samo ažurirati odgovore na neka pitanja ili određene dijelove akcijskog plana.</p>
+
+<p>Pri odabiru te opcije izrađuje se duplikat odabrane prethodne procjene rizika.
+Duplikati zaključanih procjena rizika automatski se otključavaju.</p>
+
+<h3 id="sa-stranice-alati">Sa stranice „Alati“</h3>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../hr/illustrations/tools.html" scrolling="no">
+  </object>
+  <figcaption>Stranica s pregledom alata.</figcaption>
+</figure>
+
+<p>Procjenu rizika s pomoću odabranog alata možete započeti na stranici za pregled alata, kao i na stranici pojedinačnog alata. Za tu opciju odaberite „Pokreni sesiju“. Na taj način možete odabrati i hoćete li novu procjenu rizika obaviti od početka ili na temelju prethodne procjene. U padajućem izborniku procjena pojavit će se samo procjene rizika koje su obavljene istim alatom. Ako nikad prije niste obavili procjenu rizika s pomoću odabranog alata, nova procjena rizika započet će odmah nakon što odaberete „Pokreni sesiju“.</p>
 
 <h2 id="otvaranje-procjene-rizika">Otvaranje procjene rizika</h2>
 
-<p>Nakon što pokrenete procjenu rizika, u svakom je trenutku možete dohvatiti na nadzornoj ploči, u zaglavlju „Moje procjene rizika”. Ondje možete pokrenuti i novu procjenu rizika.</p>
+<p>Nakon što pokrenete procjenu rizika, u svakom je trenutku možete dohvatiti na nadzornoj ploči, u zaglavlju „Moje procjene rizika“. Ondje možete pokrenuti i novu procjenu rizika.</p>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../hr/illustrations/index-logged-in.html" scrolling="no">
@@ -170,45 +195,45 @@
 <p>Svaka procjena rizika sastoji se od nekoliko koraka. Oni se prikazuju u glavnom izborniku s lijeve strane zaslona:</p>
 
 <ul>
-  <li>„Priprema”</li>
-  <li>„Sudjelovanje”</li>
-  <li>„Prepoznavanje + procjena”</li>
-  <li>„Plan mjera”</li>
-  <li>„Završni dokumenti”</li>
-  <li>„Status”.</li>
+  <li>„Priprema“</li>
+  <li>„Sudjelovanje“</li>
+  <li>„Prepoznavanje + procjena“</li>
+  <li>„Plan mjera“</li>
+  <li>„Završni dokumenti“</li>
+  <li>„Status“.</li>
 </ul>
 
 <p>Ovisno o odlukama koje su donijeli partneri za alat OiRA ili programeri alata OiRA, struktura svakog alata može se razlikovati. U nekim alatima korak prepoznavanja i procjene rizika uključuje plan mjera. U tom slučaju, u izborniku slijeva prikazuju se sljedeći koraci:</p>
 
 <ul>
-  <li>„Priprema”</li>
-  <li>„Sudjelovanje”</li>
-  <li>„Procjena”</li>
-  <li>„Završni dokumenti”</li>
-  <li>„Status”.</li>
+  <li>„Priprema“</li>
+  <li>„Sudjelovanje“</li>
+  <li>„Procjena“</li>
+  <li>„Završni dokumenti“</li>
+  <li>„Status“.</li>
 </ul>
 
 <h2 id="priprema">Priprema</h2>
 
-<p>Korak „Priprema” prvi je korak svake sesije/alata. U tom koraku morate navesti naslov procjene rizika kako biste kasnije mogli lakše razlikovati više procjena rizika koje ste proveli s pomoću tog alata.</p>
+<p>Korak „Priprema“ prvi je korak svake sesije/alata. U tom koraku morate navesti naslov procjene rizika kako biste kasnije mogli lakše razlikovati više procjena rizika koje ste proveli s pomoću tog alata.</p>
 
-<p>Klikom na poveznicu „Saznajte više o ovom alatu…” pristupate dodatnim informacijama o odabranom alatu i stranama koje su sudjelovale u njegovoj izradi.</p>
+<p>Klikom na poveznicu „Saznajte više o ovom alatu…“ pristupate dodatnim informacijama o odabranom alatu i stranama koje su sudjelovale u njegovoj izradi.</p>
 
-<p>Nakon što kliknete na opciju „Pokrenite”, možda ćete trebati odgovoriti na dodatna pitanja, ovisno o alatu koji upotrebljavate. Taj uvodni zaslon s pitanjima za profiliranje prikazuje se samo u alatima u kojima postoji ta opcija.</p>
+<p>Nakon što kliknete na opciju „Pokrenite“, možda ćete trebati odgovoriti na dodatna pitanja, ovisno o alatu koji upotrebljavate. Taj uvodni zaslon s pitanjima za profiliranje prikazuje se samo u alatima u kojima postoji ta opcija.</p>
 
 <p>Na njemu imate na raspolaganju sljedeće opcije:</p>
 <ul>
-  <li>Odaberite ili preskočite situacije ovisno o tome odnose li se na vašu poslovnu djelatnost. Prema potrebi odaberite opciju „Da”.</li>
+  <li>Odaberite ili preskočite situacije ovisno o tome odnose li se na vašu poslovnu djelatnost. Prema potrebi odaberite opciju „Da“.</li>
   <li>Navedite više poslovnih jedinica, podružnica, trgovina itd. Povezani rizici ponovit će se za svaki unos.</li>
 </ul>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../hr/illustrations/profiling.html" scrolling="no">
   </object>
-  <figcaption>Zaslon „Profil” u okviru koraka „Priprema”</figcaption>
+  <figcaption>Zaslon „Profil“ u okviru koraka „Priprema“</figcaption>
 </figure>
 
-<p>Korak pripreme vrlo je važan jer se u okviru njega precizno definira vrsta djelatnosti i povezani rizici s kojima se suočava vaše poduzeće. Nakon što kliknete na opciju „Spremi i nastavi”, sustav će vas prebaciti na sljedeći odjeljak, „Sudjelovanje”.</p>
+<p>Korak pripreme vrlo je važan jer se u okviru njega precizno definira vrsta djelatnosti i povezani rizici s kojima se suočava vaše poduzeće. Nakon što kliknete na opciju „Spremi i nastavi“, sustav će vas prebaciti na sljedeći odjeljak, „Sudjelovanje“.</p>
 
 <p><strong>Napomena:</strong>
 U mnogim alatima značajka pitanja za profiliranje nije dostupna i ne upotrebljava se za usmjeravanje rada alata. U tom se slučaju ovaj zaslon automatski preskače.</p>
@@ -222,7 +247,7 @@ U mnogim alatima značajka pitanja za profiliranje nije dostupna i ne upotreblja
 <p>U ovom koraku utvrdit ćete opasnosti i probleme koji se odnose na vaše poduzeće.</p>
 
 <p><strong>Napomena:</strong>
-Ovisno o načinu na koji je partner za alat OiRA konfigurirao alat, korak „Plan mjera” (vidjeti u nastavku) možda je integriran u ovaj zaslon. U tom slučaju, cijeli se korak naziva „Procjena”, a elementi opisani u koraku „Plan mjera” prikazat će se u koraku za prepoznavanje i procjenu za svaki rizik.</p>
+Ovisno o načinu na koji je partner za alat OiRA konfigurirao alat, korak „Plan mjera“ (vidjeti u nastavku) možda je integriran u ovaj zaslon. U tom slučaju, cijeli se korak naziva „Procjena“, a elementi opisani u koraku „Plan mjera“ prikazat će se u koraku za prepoznavanje i procjenu za svaki rizik.</p>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../hr/illustrations/2014-01-02-work-environment-site-related.html" scrolling="no">
@@ -230,24 +255,24 @@ Ovisno o načinu na koji je partner za alat OiRA konfigurirao alat, korak „Pla
   <figcaption>Prepoznavanje i procjena.</figcaption>
 </figure>
 
-<p>S lijeve strane zaslona, u nastavku koraka „Prepoznavanje + procjena” / „Procjena”, prikazuju se teme/moduli uvršteni u alat. Tema koju trenutačno pregledavate bit će istaknuta.</p>
+<p>S lijeve strane zaslona, u nastavku koraka „Prepoznavanje + procjena“ / „Procjena“, prikazuju se teme/moduli uvršteni u alat. Tema koju trenutačno pregledavate bit će istaknuta.</p>
 
 <h3 id="prepoznavanje">Prepoznavanje</h3>
 
 <p>Za svaki rizik morate utvrditi odnosi li se tvrdnja u kojoj se opisuje željena situacija na vaše poduzeće. Možete odgovoriti na sljedeći način:</p>
 
 <ul>
-  <li>„Da”: ako na tvrdnju odgovorite „da”, ne morate poduzeti nikakve dodatne korake jer ste procijenili da određeni rizik ne postoji.</li>
-  <li>„Ne”: ako na tvrdnju odgovorite „ne”, morate poduzeti dodatne korake. Od vas će se zatražiti da utvrdite određene mjere.</li>
-  <li>„Nije primjenjivo”: u okviru nekih tvrdnji o rizicima možete odabrati opciju „Nije primjenjivo” ako se određeni rizik ne odnosi na vaše poduzeće/organizaciju.</li>
+  <li>„Da“: ako na tvrdnju odgovorite „da“, ne morate poduzeti nikakve dodatne korake jer ste procijenili da određeni rizik ne postoji.</li>
+  <li>„Ne“: ako na tvrdnju odgovorite „ne“, morate poduzeti dodatne korake. Od vas će se zatražiti da utvrdite određene mjere.</li>
+  <li>„Nije primjenjivo“: u okviru nekih tvrdnji o rizicima možete odabrati opciju „Nije primjenjivo“ ako se određeni rizik ne odnosi na vaše poduzeće/organizaciju.</li>
 </ul>
 
 <p>Ispod svake izjave navedene su dodatne informacije o određenom riziku:</p>
 
 <ul>
-  <li>„Informacije”: riječ je o kratkom opisu, katkad uz popratne slike, u kojem su navedene dodatne pojedinosti o riziku.</li>
-  <li>„Propisi i dodatne informacije”: ovdje su navedene dodatne informacije o riziku, kao što su upućivanja na zakonodavne akte i propise. U tom su odjeljku ponekad dostupni dokumenti za daljnje proučavanje.</li>
-  <li>„Komentari”: ovdje možete navesti svoje komentare koji će se prikazati u izvješću na kraju procjene.</li>
+  <li>„Informacije“: riječ je o kratkom opisu, katkad uz popratne slike, u kojem su navedene dodatne pojedinosti o riziku.</li>
+  <li>„Propisi i dodatne informacije“: ovdje su navedene dodatne informacije o riziku, kao što su upućivanja na zakonodavne akte i propise. U tom su odjeljku ponekad dostupni dokumenti za daljnje proučavanje.</li>
+  <li>„Komentari“: ovdje možete navesti svoje komentare koji će se prikazati u izvješću na kraju procjene.</li>
 </ul>
 
 <p>Nakon što odgovorite na tvrdnju o riziku i nastavite, u izborniku slijeva prikazuju se obojeni simboli koji označavaju da ste:</p>
@@ -299,7 +324,7 @@ U nekim se alatima OiRA procjena ne prikazuje. To ovisi o načinu na koji je nac
 
 <h3 id="prioritetni-rizici-koje-određuje-sektor">Prioritetni rizici koje određuje sektor</h3>
 
-<p>Nacionalni partner ili programer alata koji je izradio određeni alat OiRA neke je rizike smatrao vrlo važnima. Takve „prioritetne rizike” ne trebate procijeniti jer će se prioritet za njih automatski postaviti na varijablu „visoko”.</p>
+<p>Nacionalni partner ili programer alata koji je izradio određeni alat OiRA neke je rizike smatrao vrlo važnima. Takve „prioritetne rizike“ ne trebate procijeniti jer će se prioritet za njih automatski postaviti na varijablu „visoko“.</p>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../hr/illustrations/2014-01-06-exposure-to-noise-is-prevented-or-controlled.html" scrolling="no">
@@ -309,7 +334,7 @@ U nekim se alatima OiRA procjena ne prikazuje. To ovisi o načinu na koji je nac
 
 <h3 id="prilagođeni-rizici">Prilagođeni rizici</h3>
 
-<p>Nakon što u koraku „Prepoznavanje + procjena” / „Procjena” odgovorite na sve teme povezane s rizicima, otvorit će vam se neobvezna tema „Ostali rizici”. Ovdje s pomoću gumba „Dodajte uobičajeni rizik” možete dodati svoje unose.</p>
+<p>Nakon što u koraku „Prepoznavanje + procjena“ / „Procjena“ odgovorite na sve teme povezane s rizicima, otvorit će vam se neobvezna tema „Ostali rizici“. Ovdje s pomoću gumba „Dodajte uobičajeni rizik“ možete dodati svoje unose.</p>
 
 <p>Ako u alatu nisu navedeni rizici koji postoje na vašem radnom mjestu ili u vašem poduzeću, ovdje ih trebate dodati. Te rizike u cijelosti možete sami definirati/formulirati.</p>
 
@@ -319,7 +344,7 @@ U nekim se alatima OiRA procjena ne prikazuje. To ovisi o načinu na koji je nac
   <figcaption>Uobičajeni rizici.</figcaption>
 </figure>
 
-<p>„Uobičajeni rizik” funkcionira na vrlo sličan način kao rizici navedeni u okviru alata OiRA, ali trebate sastaviti vlastiti tekst. Taj bi tekst trebao biti barem u obliku kratke tvrdnje u kojoj se opisuje problematična situacija, a može se dodati i dulji opis. Možete i učitati sliku kako biste pobliže dočarali određenu situaciju.</p>
+<p>„Uobičajeni rizik“ funkcionira na vrlo sličan način kao rizici navedeni u okviru alata OiRA, ali trebate sastaviti vlastiti tekst. Taj bi tekst trebao biti barem u obliku kratke tvrdnje u kojoj se opisuje problematična situacija, a može se dodati i dulji opis. Možete i učitati sliku kako biste pobliže dočarali određenu situaciju.</p>
 
 <p>Kao i s ostalim rizicima, trebate navesti postoji li određeni rizik ili ne. To vam omogućuje da označite uobičajene rizike koje ste uspješno obradili, ali i da ih zadržite u procjeni rizika kako biste ih dokumentirali.</p>
 
@@ -336,7 +361,7 @@ U nekim se alatima OiRA procjena ne prikazuje. To ovisi o načinu na koji je nac
 <p>U ovom koraku određujete mjere koje želite provesti kako biste uklonili ili ublažili rizike koje ste prethodno utvrdili.</p>
 
 <p><strong>Napomena</strong>:
-Kao što je već navedeno, plan mjera prikazan je kao zaseban korak u izborniku slijeva ili se prikazuje u okviru svakog utvrđenog rizika. U potonjem slučaju korak u izborniku naziva se „Procjena”, a obuhvaća i tvrdnje o rizicima i opcije za odabir odgovora.</p>
+Kao što je već navedeno, plan mjera prikazan je kao zaseban korak u izborniku slijeva ili se prikazuje u okviru svakog utvrđenog rizika. U potonjem slučaju korak u izborniku naziva se „Procjena“, a obuhvaća i tvrdnje o rizicima i opcije za odabir odgovora.</p>
 
 <p>Verzija koja vam je dostupna ovisi o odlukama koje je donio nacionalni partner za alat OiRA ili programer alata OiRA.</p>
 
@@ -348,7 +373,7 @@ Kao što je već navedeno, plan mjera prikazan je kao zaseban korak u izborniku 
   <figcaption>Integrirani plan mjera.</figcaption>
 </figure>
 
-<p>Ako na pitanje odgovorite „ne”, na stranici će se otvoriti modul plana mjera, pod naslovom „Mjere”.</p>
+<p>Ako na pitanje odgovorite „ne“, na stranici će se otvoriti modul plana mjera, pod naslovom „Mjere“.</p>
 
 <p>Možete odabrati mjere s popisa mjera predloženog u alatu i definirati svoje mjere.</p>
 
@@ -360,11 +385,11 @@ Kao što je već navedeno, plan mjera prikazan je kao zaseban korak u izborniku 
   <figcaption>Ako je plan mjera dostupan u zasebnom koraku, moći ćete mu pristupiti u izborniku s lijeve strane.</figcaption>
 </figure>
 
-<p>Kliknite na gumb „Kreiraj plan mjera” da biste započeli izradu svojeg plana.</p>
+<p>Kliknite na gumb „Kreiraj plan mjera“ da biste započeli izradu svojeg plana.</p>
 
 <p>U koraku za izradu plana mjera, u izborniku slijeva sada se prikazuju samo rizici označeni za poduzimanje daljnjih koraka jer je za ostale rizike utvrđeno da ne postoje.</p>
 
-<p>Za svaki rizik za koji tijekom postupka procjene odgovorite „ne” i za prioritetne rizike (neovisno o tome jeste li za njih dali pozitivan ili negativan odgovor) od vas će se zatražiti da definirate mjere.</p>
+<p>Za svaki rizik za koji tijekom postupka procjene odgovorite „ne“ i za prioritetne rizike (neovisno o tome jeste li za njih dali pozitivan ili negativan odgovor) od vas će se zatražiti da definirate mjere.</p>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../hr/illustrations/action-plan-action.html" scrolling="no">
@@ -382,7 +407,7 @@ Kao što je već navedeno, plan mjera prikazan je kao zaseban korak u izborniku 
   <figcaption>Dodajte dodatnu mjeru.</figcaption>
 </figure>
 
-<p>Da biste započeli s definiranjem preventivne mjere, upotrijebite gumb „Dodajte mjeru”. Trebali biste:</p>
+<p>Da biste započeli s definiranjem preventivne mjere, upotrijebite gumb „Dodajte mjeru“. Trebali biste:</p>
 
 <ul>
   <li>opisati opći pristup koji će se primijeniti kako bi se uklonio ili smanjio određeni rizik;</li>
@@ -396,9 +421,9 @@ Kao što je već navedeno, plan mjera prikazan je kao zaseban korak u izborniku 
 
 <h4 id="dodavanje-predloženih-mjera">Dodavanje predloženih mjera</h4>
 
-<p>Ovisno o načinu na koji je partner za alat OiRA ili programer alata OiRA postavio određeni alat, za pojedinačne rizike dostupne su unaprijed definirane mjere. Da biste odabrali jednu ili više unaprijed definiranih mjera, kliknite na gumb „Odaberite predložene mjere”.</p>
+<p>Ovisno o načinu na koji je partner za alat OiRA ili programer alata OiRA postavio određeni alat, za pojedinačne rizike dostupne su unaprijed definirane mjere. Da biste odabrali jednu ili više unaprijed definiranih mjera, kliknite na gumb „Odaberite predložene mjere“.</p>
 
-<p>Otvara se skočni izbornik u kojem su prikazane sve predložene mjere. Kliknite na gumb „Dodaj” da biste odabrali mjere koje želite upotrijebiti.</p>
+<p>Otvara se skočni izbornik u kojem su prikazane sve predložene mjere. Kliknite na gumb „Dodaj“ da biste odabrali mjere koje želite upotrijebiti.</p>
 
 <p>Unaprijed definirane mjere zatim će se navesti u vašem planu mjera. Opis postupka nije moguće mijenjati, a ostale rubrike (odgovornost, proračun, datumi) možete, i trebali biste, sami ispuniti.</p>
 
@@ -409,6 +434,33 @@ Kao što je već navedeno, plan mjera prikazan je kao zaseban korak u izborniku 
 </figure>
 
 <p>U svakom trenutku možete ponovno izbrisati i predložene mjere i mjere koje ste sami definirali.</p>
+
+<h2 id="training">Osposobljavanje</h2>
+
+<p>Funkcija izrade materijala za osposobljavanje osmišljena je kako bi vam pomogla u stvaranju sadržaja za osposobljavanje dok obavljate procjenu rizika. Sljedeće upute pomoći će vam da što bolje iskoristite tu funkciju:</p>
+
+<h3 id="automatsko-stvaranje-materijala-za-osposobljavanje">Automatsko stvaranje materijala za osposobljavanje</h3>
+
+<p>Dok obavljate procjenu rizika, sustav istodobno u pozadini sastavlja materijale za osposobljavanje. Time se osigurava povezivanje svake procjene rizika s odgovarajućim resursima za osposobljavanje.</p>
+
+<h3 id="pristup-odjeljku-za-osposobljavanje">Pristup odjeljku za osposobljavanje</h3>
+
+<p>Ispod svakog rizika nalazi se odjeljak „Osposobljavanje“. Ako se odjeljak ne proširi automatski, kliknite na malu strelicu za prikaz cijelog sadržaja.</p>
+
+<h4 id="uređivanje-materijala-za-osposobljavanje">Uređivanje materijala za osposobljavanje</h4>
+
+<p>U odjeljku za osposobljavanje pronaći ćete konkretne mjere povezane s tim rizikom. Svaka mjera može se označiti kao relevantan materijal za osposobljavanje vaših kolega ili radnika. Ako želite da se određena mjera (ne) prikazuje u materijalima za osposobljavanje, kliknite na ikonu oka koja se nalazi uz svaku mjeru. Prema zadanim postavkama sve su mjere uključene u materijale za osposobljavanje.</p>
+
+<p>Materijal za osposobljavanje sadržava sljedeće:</p>
+
+<ul>
+  <li>Mjere koje su već provedene: to su preventivne mjere koje se već primjenjuju u praksi s ciljem ublažavanja rizika.</li>
+  <li>Dodatne mjere: to su sve dodatne preventivne mjere koje su odabrane za potrebe upravljanja rizikom.</li>
+  <li>Odjeljak s informacijama: sadržava informacije povezane sa svakim rizikom i pojedinosti o njegovoj prirodi i mogućim učincima.</li>
+  <li>Napomene: Ako postoje napomene o određenom riziku, mogu se uvrstiti u materijale za osposobljavanje radi dodatnog opisa konteksta ili saznanja.</li>
+</ul>
+
+<p>Odabirom odgovarajućih mjera svojim radnicima omogućujete personalizirano osposobljavanje.</p>
 
 <h2 id="završni-dokumenti">Završni dokumenti</h2>
 
@@ -437,6 +489,18 @@ Kao što je već navedeno, plan mjera prikazan je kao zaseban korak u izborniku 
 </figure>
 
 <p>Kad otvorite zaslon odjeljka o statusu, prikazat će vam se koliko ste napredovali u svakom modulu. To vam može pomoći da zabilježite područja u kojima još trebate procijeniti rizike ili odrediti mjere za rješavanje rizika koje ste utvrdili.</p>
+
+<h2 id="section-locking">Zaključavanje procjene rizika</h2>
+
+<p>Ako ste došli do faze u kojoj se vaša procjena rizika smatra dovršenom, bilo bi preporučljivo o tome obavijestiti ostatak organizacije. U tu svrhu alat omogućuje zaključavanje procjene rizika. Slijedite korake u nastavku kad želite zaključati procjenu rizika:</p>
+
+<ol>
+  <li>Otvorite procjenu rizika i uvjerite se da je aktivna na svim stranicama osim „Osposobljavanje“ ili „Postavke“.</li>
+  <li>Na alatnoj traci kliknite na ikonu lokota <span class="icon-lock-open"></span>.</li>
+  <li>Pojavit će se izbornik u kojem trebate odabrati opciju „Zaključaj procjenu rizika“.</li>
+</ol>
+
+<p>Nakon toga vaša se procjena rizika odmah zaključava, što pokazuje ikona lokota, koji je sad zatvoren <span class="icon-lock"></span>.</p>
 
 			</div>
 		</article>

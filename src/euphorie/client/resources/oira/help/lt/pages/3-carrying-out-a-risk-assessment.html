@@ -57,6 +57,8 @@
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div 
+	class="
+		sidebar-left-open"
 	id="main">
 	<header 
 	id="toolbar">
@@ -75,7 +77,7 @@
 		
 		
 	
-				<a 
+				<!-- <a 
 					href="#osc" 
 					id="toggle-osc" 
 					class="iconified pat-toggle" 
@@ -84,7 +86,7 @@
 						value: osc-off osc-on 
 							&& 
 						selector: body; 
-						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a> -->
 	
 		
 
@@ -153,7 +155,30 @@
 				
 				<h2 id="pradėti-naują-sesiją">Pradėti naują sesiją</h2>
 
-<p>Norėdami pradėti naują rizikos vertinimą, spustelėkite nuorodą „Pradėti naują sesiją“.</p>
+<h3 id="iš-priemonių-skydelio">Iš priemonių skydelio</h3>
+
+<p>Norėdami pradėti naują rizikos vertinimą pradiniame tinklalapyje arba OiRA priemonių skydelyje, spustelėkite „Pradėti naują seansą“. Bus atidarytas dialogo langas su dviem parinktimis vertinimui pradėti.</p>
+
+<h4 id="pirmą-kartą-atliekamas-rizikos-vertinimas">Pirmą kartą atliekamas rizikos vertinimas</h4>
+
+<p>Jei rizikos vertinimą atliekate pirmą kartą, rinkitės šį variantą ir pradėkite visiškai naują rizikos vertinimą. Iš išskleidžiamojo priemonių sąrašo pasirinkite priemonę vertinimui atlikti.</p>
+
+<h4 id="duplication">Rizikos vertinimas atliekamas ankstesnio vertinimo pagrindu</h4>
+
+<p>Jei naudodamiesi viena iš priemonių jau esate atlikę rizikos vertinimą, rinkitės šį variantą. Atliktą rizikos vertinimą, kuriuo remdamiesi norite iš naujo įvertinti riziką, galite pasirinkti iš rizikos vertinimų išskleidžiamojo sąrašo. Remtis ankstesniu rizikos vertinimu tikslinga, kai nedaug kas pasikeitė, pavyzdžiui, kai reikia atnaujinti tik atsakymus į kai kuriuos klausimus arba pakeisti tam tikras veiksmų plano dalis.</p>
+
+<p>Pasirinkus šį variantą sukuriamas pasirinkto ankstesnio rizikos vertinimo dublikatas.
+Užrakintų rizikos vertinimų dublikatai automatiškai atrakinami.</p>
+
+<h3 id="iš-priemonių-puslapio">Iš priemonių puslapio</h3>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../lt/illustrations/tools.html" scrolling="no">
+  </object>
+  <figcaption>Priemonių puslapis.</figcaption>
+</figure>
+
+<p>Rizikos vertinimą taip pat galite pradėti pasirinkdami norimą priemonę priemonių puslapyje arba tam tikros priemonės puslapyje. Jame spustelėkite „Pradėti rizikos vertinimą“. Pasirinkę šį variantą taip pat galite rinktis – pradėti visiškai naują rizikos vertinimą ar remtis anksčiau atliktu vertinimu. Vertinimų išskleidžiamajame sąraše bus rodomi tik naudojant tą pačią priemonę atlikti rizikos vertinimai. Jei dar nesate atlikę jokių rizikos vertinimų su pasirinkta priemone, spustelėjus „Pradėti rizikos vertinimą“ iš karto atidaromas naujas rizikos vertinimas.</p>
 
 <h2 id="rizikos-vertinimo-pradžia">Rizikos vertinimo pradžia</h2>
 
@@ -409,6 +434,33 @@ Kaip minėta anksčiau, veiksmų planas pateikiamas kaip atskiras etapas kairėj
 
 <p>Tiek standartines, tiek jūsų nustatytas priemones visada galima ištrinti.</p>
 
+<h2 id="training">Mokymas</h2>
+
+<p>Funkcija „Parengti mokymo medžiagą“ padeda paruošti mokymo turinį atliekant rizikos vertinimą. Toliau pateikiame instrukcijas, kaip naudotis šia funkcija:</p>
+
+<h3 id="automatinis-mokymo-medžiagos-kūrimas">Automatinis mokymo medžiagos kūrimas</h3>
+
+<p>Jums atliekant rizikos vertinimą, sistema tuo pačiu metu kaupia mokymo medžiagą. Taip automatiškai paruošiama kiekvieno rizikos vertinimo mokymo medžiaga.</p>
+
+<h3 id="prieiga-prie-mokymo-skilties">Prieiga prie mokymo skilties</h3>
+
+<p>Prie kiekvienos rizikos yra skiltis „Mokymas“. Jeigu ši skiltis nėra automatiškai išskleista, visą turinį pamatysite spustelėję rodyklę.</p>
+
+<h4 id="mokymo-medžiagos-redagavimas">Mokymo medžiagos redagavimas</h4>
+
+<p>Mokymo skiltyje rasite apie tą riziką parengtas priemones. Kiekviena priemonė gali būti pažymėta kaip svarbi medžiaga kolegoms ar darbuotojams mokyti. Norėdami pasirinkti, ar priemonė turi būti rodoma arba nerodoma mokymo medžiagoje, spustelėkite šalia kiekvienos priemonės esančią akies piktogramą. Paprastai mokymo medžiagoje pateikiamos visos priemonės.</p>
+
+<p>Mokymo medžiagą sudaro:</p>
+
+<ul>
+  <li>Jau įgyvendintos priemonės: Tai prevencinės priemonės, kurios jau įgyvendintos siekiant mažinti riziką.</li>
+  <li>Papildomos priemonės: Tai papildomos prevencinės priemonės, pasirinktos rizikai valdyti.</li>
+  <li>Informacijos skiltis: Tai informacija apie kiekvienos rizikos pobūdį ir galimą poveikį.</li>
+  <li>Pastabos: Į mokymo medžiagą galima įtraukti su konkrečia rizika susijusias pastabas, suteikiančias išsamesnės informacijos.</li>
+</ul>
+
+<p>Pasirinkdami atitinkamas priemones, galite užtikrinti, kad jūsų darbuotojų mokymas atitiktų jų individualius poreikius.</p>
+
 <h2 id="ataskaita">Ataskaita</h2>
 
 <p>Užbaigę veiksmų planą, galite parengti ataskaitą.</p>
@@ -436,6 +488,18 @@ Kaip minėta anksčiau, veiksmų planas pateikiamas kaip atskiras etapas kairėj
 </figure>
 
 <p>Būsenos ekrane matoma, kokia pažanga padaryta kiekviename modulyje. Tai gali padėti įvertinti, kokius rizikos veiksnius vis dar reikia įvertinti ar pasirinkti rizikos valdymo priemones jau nustatytiems rizikos veiksniams.</p>
+
+<h2 id="section-locking">Rizikos vertinimo užrakinimas</h2>
+
+<p>Baigus rengti savo rizikos vertinimą, vertėtų apie jį pranešti kitiems organizacijos darbuotojams. Vienas iš būdų tai padaryti naudojant priemonę – užrakinti rizikos vertinimą. Rizikos vertinimą galite užrakinti atlikdami šiuos veiksmus:</p>
+
+<ol>
+  <li>Atidarykite rizikos vertinimą ir įsitikinkite, kad rizikos vertinimas aktyvus visuose puslapiuose, išskyrus „Mokymas“ arba „Nustatymai“.</li>
+  <li>Spustelėkite užrakto piktogramą įrankių juostoje <span class="icon-lock-open"></span>.</li>
+  <li>Bus atidarytas meniu. Iš šio meniu pasirinkite „Užrakinti rizikos vertinimą“.</li>
+</ol>
+
+<p>Tai padarius rizikos vertinimas iškart užrakinamas. Tai rodo užrakinto užrakto piktograma <span class="icon-lock"></span>.</p>
 
 			</div>
 		</article>

@@ -10,6 +10,10 @@ Changelog
 - Support Plone 6.0
   [ale-rt]
 
+- Update from prototype commit d8248ecdc6b17eb584610ff5690679ed6a17ea13.
+  Refs: scrum-1817
+  [thet]
+
 
 15.1.1 (2023-12-13)
 -------------------

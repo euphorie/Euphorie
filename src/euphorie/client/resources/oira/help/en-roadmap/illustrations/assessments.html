@@ -57,6 +57,8 @@
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div 
+	class="
+		sidebar-left-open"
 	id="main">
 	<header 
 	id="toolbar">
@@ -75,7 +77,7 @@
 		
 		
 	
-				<a 
+				<!-- <a 
 					href="#osc" 
 					id="toggle-osc" 
 					class="iconified pat-toggle" 
@@ -84,7 +86,7 @@
 						value: osc-off osc-on 
 							&& 
 						selector: body; 
-						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a> -->
 	
 		
 
@@ -636,84 +638,103 @@
         locked
         ">
         <th 
-            class="item-name">
-            <a 
-                href="/ass-private-security-grafton-street#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Private Security, Grafton Street</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Locked,
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2022-01-07T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                Unknown
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/private-security#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Private security</a>
-        </td>
+    class="item-name">
+    <a 
+        href="/ass-private-security-grafton-street#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Private Security, Grafton Street</a>
+</th>
         
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-private-security-grafton-street" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="24"
-        title="24% Complete">24%</strong>
-</a>
-
-<a 
-    href="/ass-private-security-grafton-street#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Locked,
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2022-01-07T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
         
-            locked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    Unknown
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/private-security#content" 
+                    class="
+                        value 
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Private security</a>
+            </td>
+        
+        
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-private-security-grafton-street" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="24"
+            title="24% Complete">24%</strong>
+    </a>
 
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-private-security-grafton-street">
+
+    <a 
+        href="/ass-private-security-grafton-street#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
             
-            
+                locked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-private-security-grafton-street">
+    
+    
 
 <p>
     You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -729,13 +750,14 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
     </li>
 </tr><tr
     class="
@@ -744,84 +766,103 @@
         
         ">
         <th 
-            class="item-name">
-            <a 
-                href="/ass-commercial-guarding-leicester#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Commercial guarding, Leicester</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Under review,
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2022-01-05T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                Unknown
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/metal-works#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Metal works</a>
-        </td>
+    class="item-name">
+    <a 
+        href="/ass-commercial-guarding-leicester#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Commercial guarding, Leicester</a>
+</th>
         
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-commercial-guarding-leicester" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="33"
-        title="33% Complete">33%</strong>
-</a>
-
-<a 
-    href="/ass-commercial-guarding-leicester#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Under review,
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2022-01-05T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
         
-            under-review unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    Unknown
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/metal-works#content" 
+                    class="
+                        value 
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Metal works</a>
+            </td>
+        
+        
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-commercial-guarding-leicester" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="33"
+            title="33% Complete">33%</strong>
+    </a>
 
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-commercial-guarding-leicester">
+
+    <a 
+        href="/ass-commercial-guarding-leicester#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
             
-            
+                under-review unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-commercial-guarding-leicester">
+    
+    
 
 <p>
     You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -837,13 +878,14 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
     </li>
 </tr>
 							<tr
@@ -853,84 +895,103 @@
         locked
         archived">
         <th 
-            class="item-name">
-            <a 
-                href="/ass-kabinenbau-woerth-band-1#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Kabinenbau Woerth, Band 1</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Locked,
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2017-10-19T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                Unknown
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/metal-works#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Metal works</a>
-        </td>
+    class="item-name">
+    <a 
+        href="/ass-kabinenbau-woerth-band-1#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Kabinenbau Woerth, Band 1</a>
+</th>
         
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-kabinenbau-woerth-band-1" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="100"
-        title="100% Complete">100%</strong>
-</a>
-
-<a 
-    href="/ass-kabinenbau-woerth-band-1#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Locked,
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2017-10-19T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
         
-            locked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    Unknown
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/metal-works#content" 
+                    class="
+                        value 
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Metal works</a>
+            </td>
+        
+        
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-kabinenbau-woerth-band-1" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="100"
+            title="100% Complete">100%</strong>
+    </a>
 
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-kabinenbau-woerth-band-1">
+
+    <a 
+        href="/ass-kabinenbau-woerth-band-1#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
             
-            
+                locked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-kabinenbau-woerth-band-1">
+    
+    
 
 <p>
     You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -946,13 +1007,14 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
     </li>
 </tr>
 							<tr
@@ -962,523 +1024,103 @@
         
         ">
         <th 
-            class="item-name">
-            <a 
-                href="/ass-gefaehrdungsbeurteilung-fuer-altmaschinen#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Gefaehrdungsbeurteilung fuer Altmaschinen</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Validated,
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2021-03-25T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                Unknown
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/construction-earth-works#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Construction / Earth Works</a>
-        </td>
+    class="item-name">
+    <a 
+        href="/ass-gefaehrdungsbeurteilung-fuer-altmaschinen#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Gefaehrdungsbeurteilung fuer Altmaschinen</a>
+</th>
         
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-gefaehrdungsbeurteilung-fuer-altmaschinen" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="43"
-        title="43% Complete">43%</strong>
-</a>
-
-<a 
-    href="/ass-gefaehrdungsbeurteilung-fuer-altmaschinen#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
-        
-            validated locked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
-
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-gefaehrdungsbeurteilung-fuer-altmaschinen">
-            
-            
-
-<p>
-    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
-</p>
-<p>
-    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
-
-    
-    	With this certificate, you can apply for a reduction on your company's insurance rates.
-    
-
-    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
-
-    <a href="#">Learn more about the benefits…</a>
-</p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
-    </li>
-</tr>
-							<tr
-    class="
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Validated,
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2021-03-25T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
         
         
-        
-        ">
-        <th 
-            class="item-name">
-            <a 
-                href="/ass-schwangere-und-stillende-stuttgart#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Schwangere und Stillende, Stuttgart</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2019-09-23T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                Unknown
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/manufacturing-of-clothes#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Manufacturing of clothes</a>
-        </td>
-        
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-schwangere-und-stillende-stuttgart" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="57"
-        title="57% Complete">57%</strong>
-</a>
-
-<a 
-    href="/ass-schwangere-und-stillende-stuttgart#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
-        
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
-
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-schwangere-und-stillende-stuttgart">
-            
-            
-
-<p>
-    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
-</p>
-<p>
-    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
-
-    
-    	With this certificate, you can apply for a reduction on your company's insurance rates.
-    
-
-    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
-
-    <a href="#">Learn more about the benefits…</a>
-</p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
-    </li>
-</tr>
-							<tr
-    class="
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    Unknown
+                
+            </td>
         
         
-        
-        ">
-        <th 
-            class="item-name">
-            <a 
-                href="/ass-kabinenbau-woerth-band-2#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Kabinenbau Woerth, Band 2</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2020-10-19T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                Unknown
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/metal-works#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Metal works</a>
-        </td>
-        
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-kabinenbau-woerth-band-2" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="87"
-        title="87% Complete">87%</strong>
-</a>
-
-<a 
-    href="/ass-kabinenbau-woerth-band-2#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
-        
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
-
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-kabinenbau-woerth-band-2">
-            
-            
-
-<p>
-    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
-</p>
-<p>
-    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
-
-    
-    	With this certificate, you can apply for a reduction on your company's insurance rates.
-    
-
-    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
-
-    <a href="#">Learn more about the benefits…</a>
-</p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
-    </li>
-</tr>
-							<tr
-    class="
-        
-        
-        
-        ">
-        <th 
-            class="item-name">
-            <a 
-                href="/ass-kabinenbau-woerth-band-3#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Kabinenbau Woerth, Band 3</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2015-10-19T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                Unknown
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/metal-works#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Metal works</a>
-        </td>
-        
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-kabinenbau-woerth-band-3" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="24"
-        title="24% Complete">24%</strong>
-</a>
-
-<a 
-    href="/ass-kabinenbau-woerth-band-3#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
-        
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
-
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-kabinenbau-woerth-band-3">
-            
-            
-
-<p>
-    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
-</p>
-<p>
-    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
-
-    
-    	With this certificate, you can apply for a reduction on your company's insurance rates.
-    
-
-    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
-
-    <a href="#">Learn more about the benefits…</a>
-</p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
-    </li>
-</tr>
-							<tr
-    class="
-        
-        
-        
-        ">
-        <th 
-            class="item-name">
-            <a 
-                href="/ass-reinigung-blitz-sauber-berlin#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Reinigung: Blitz & Sauber, Berlin</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2018-04-25T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                <span 
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/construction-earth-works#content" 
                     class="
                         value 
-                        icon-eyedropper">Notwendig</span>
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/cleaning#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Cleaning</a>
-        </td>
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Construction / Earth Works</a>
+            </td>
         
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-reinigung-blitz-sauber-berlin" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="91"
-        title="91% Complete">91%</strong>
-</a>
-
-<a 
-    href="/ass-reinigung-blitz-sauber-berlin#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
         
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-gefaehrdungsbeurteilung-fuer-altmaschinen" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="43"
+            title="43% Complete">43%</strong>
+    </a>
 
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-reinigung-blitz-sauber-berlin">
+
+    <a 
+        href="/ass-gefaehrdungsbeurteilung-fuer-altmaschinen#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
             
-            
+                validated locked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-gefaehrdungsbeurteilung-fuer-altmaschinen">
+    
+    
 
 <p>
     You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -1494,13 +1136,14 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
     </li>
 </tr>
 							<tr
@@ -1510,87 +1153,103 @@
         
         ">
         <th 
-            class="item-name">
-            <a 
-                href="/ass-gefährdungsbeurteilung-allgemein#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Gefährdungsbeurteilung allgemein</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2018-03-25T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                <span 
+    class="item-name">
+    <a 
+        href="/ass-schwangere-und-stillende-stuttgart#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Schwangere und Stillende, Stuttgart</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2019-09-23T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    Unknown
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/manufacturing-of-clothes#content" 
                     class="
                         value 
-                        icon-eyedropper">Notwendig</span>
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/cleaning#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Cleaning</a>
-        </td>
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Manufacturing of clothes</a>
+            </td>
         
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-gefährdungsbeurteilung-allgemein" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="78"
-        title="78% Complete">78%</strong>
-</a>
-
-<a 
-    href="/ass-gefährdungsbeurteilung-allgemein#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
         
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-schwangere-und-stillende-stuttgart" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="57"
+            title="57% Complete">57%</strong>
+    </a>
 
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-gefährdungsbeurteilung-allgemein">
+
+    <a 
+        href="/ass-schwangere-und-stillende-stuttgart#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
             
-            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-schwangere-und-stillende-stuttgart">
+    
+    
 
 <p>
     You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -1606,13 +1265,14 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
     </li>
 </tr>
 							<tr
@@ -1622,87 +1282,103 @@
         
         ">
         <th 
-            class="item-name">
-            <a 
-                href="/ass-reinigung-blitz-sauber-münchen#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Reinigung: Blitz & Sauber, München</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2016-04-25T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                <span 
+    class="item-name">
+    <a 
+        href="/ass-kabinenbau-woerth-band-2#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Kabinenbau Woerth, Band 2</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2020-10-19T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    Unknown
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/metal-works#content" 
                     class="
                         value 
-                        icon-eyedropper">Notwendig</span>
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/cleaning#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Cleaning</a>
-        </td>
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Metal works</a>
+            </td>
         
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-reinigung-blitz-sauber-münchen" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="55"
-        title="55% Complete">55%</strong>
-</a>
-
-<a 
-    href="/ass-reinigung-blitz-sauber-münchen#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
         
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-kabinenbau-woerth-band-2" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="87"
+            title="87% Complete">87%</strong>
+    </a>
 
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-reinigung-blitz-sauber-münchen">
+
+    <a 
+        href="/ass-kabinenbau-woerth-band-2#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
             
-            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-kabinenbau-woerth-band-2">
+    
+    
 
 <p>
     You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -1718,13 +1394,14 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
     </li>
 </tr>
 							<tr
@@ -1734,87 +1411,103 @@
         
         ">
         <th 
-            class="item-name">
-            <a 
-                href="/ass-gefährdungsbeurteilung-für-autos#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Gefährdungsbeurteilung für Autos</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2016-03-25T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                <span 
+    class="item-name">
+    <a 
+        href="/ass-kabinenbau-woerth-band-3#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Kabinenbau Woerth, Band 3</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2015-10-19T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    Unknown
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/metal-works#content" 
                     class="
                         value 
-                        icon-eyedropper">Notwendig</span>
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/cleaning#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Cleaning</a>
-        </td>
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Metal works</a>
+            </td>
         
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-gefährdungsbeurteilung-für-autos" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="93"
-        title="93% Complete">93%</strong>
-</a>
-
-<a 
-    href="/ass-gefährdungsbeurteilung-für-autos#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
         
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-kabinenbau-woerth-band-3" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="24"
+            title="24% Complete">24%</strong>
+    </a>
 
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-gefährdungsbeurteilung-für-autos">
+
+    <a 
+        href="/ass-kabinenbau-woerth-band-3#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
             
-            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-kabinenbau-woerth-band-3">
+    
+    
 
 <p>
     You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -1830,13 +1523,14 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
     </li>
 </tr>
 							<tr
@@ -1846,87 +1540,106 @@
         
         ">
         <th 
-            class="item-name">
-            <a 
-                href="/ass-reinigung-blitz-sauber-mannheim#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Reinigung: Blitz & Sauber, Mannheim</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2021-04-25T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                <span 
+    class="item-name">
+    <a 
+        href="/ass-reinigung-blitz-sauber-berlin#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Reinigung: Blitz & Sauber, Berlin</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2018-04-25T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    <span 
+                        class="
+                            value 
+                            icon-eyedropper">Notwendig</span>
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/cleaning#content" 
                     class="
                         value 
-                        icon-eyedropper">Fällig seit 5 Tagen</span>
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/cleaning#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Cleaning</a>
-        </td>
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Cleaning</a>
+            </td>
         
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-reinigung-blitz-sauber-mannheim" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="21"
-        title="21% Complete">21%</strong>
-</a>
-
-<a 
-    href="/ass-reinigung-blitz-sauber-mannheim#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
         
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-reinigung-blitz-sauber-berlin" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="91"
+            title="91% Complete">91%</strong>
+    </a>
 
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-reinigung-blitz-sauber-mannheim">
+
+    <a 
+        href="/ass-reinigung-blitz-sauber-berlin#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
             
-            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-reinigung-blitz-sauber-berlin">
+    
+    
 
 <p>
     You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -1942,13 +1655,14 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
     </li>
 </tr>
 							<tr
@@ -1958,632 +1672,106 @@
         
         ">
         <th 
-            class="item-name">
-            <a 
-                href="/ass-kabinenbau-woerth-band-1#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Kabinenbau Woerth, Band 1</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2017-10-19T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                Unknown
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/car-mechanics#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Car mechanics</a>
-        </td>
+    class="item-name">
+    <a 
+        href="/ass-gefährdungsbeurteilung-allgemein#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Gefährdungsbeurteilung allgemein</a>
+</th>
         
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-kabinenbau-woerth-band-1" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="100"
-        title="100% Complete">100%</strong>
-</a>
-
-<a 
-    href="/ass-kabinenbau-woerth-band-1#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
-        
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
-
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-kabinenbau-woerth-band-1">
-            
-            
-
-<p>
-    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
-</p>
-<p>
-    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
-
-    
-    	With this certificate, you can apply for a reduction on your company's insurance rates.
-    
-
-    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
-
-    <a href="#">Learn more about the benefits…</a>
-</p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
-    </li>
-</tr>
-							<tr
-    class="
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2018-03-25T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
         
         
-        
-        ">
-        <th 
-            class="item-name">
-            <a 
-                href="/ass-gefährdungsbeurteilung-für-altmaschinen#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Gefährdungsbeurteilung für Altmaschinen</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2021-03-25T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                Unknown
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/cleaning#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Cleaning</a>
-        </td>
-        
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-gefährdungsbeurteilung-für-altmaschinen" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="43"
-        title="43% Complete">43%</strong>
-</a>
-
-<a 
-    href="/ass-gefährdungsbeurteilung-für-altmaschinen#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
-        
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
-
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-gefährdungsbeurteilung-für-altmaschinen">
-            
-            
-
-<p>
-    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
-</p>
-<p>
-    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
-
-    
-    	With this certificate, you can apply for a reduction on your company's insurance rates.
-    
-
-    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
-
-    <a href="#">Learn more about the benefits…</a>
-</p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
-    </li>
-</tr>
-							<tr
-    class="
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    <span 
+                        class="
+                            value 
+                            icon-eyedropper">Notwendig</span>
+                
+            </td>
         
         
-        
-        ">
-        <th 
-            class="item-name">
-            <a 
-                href="/ass-schwangere-und-stillende-stuttgart#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Schwangere und Stillende, Stuttgart</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2019-09-23T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                Unknown
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/audio-visual-productions#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Audio visual productions</a>
-        </td>
-        
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-schwangere-und-stillende-stuttgart" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="57"
-        title="57% Complete">57%</strong>
-</a>
-
-<a 
-    href="/ass-schwangere-und-stillende-stuttgart#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
-        
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
-
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-schwangere-und-stillende-stuttgart">
-            
-            
-
-<p>
-    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
-</p>
-<p>
-    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
-
-    
-    	With this certificate, you can apply for a reduction on your company's insurance rates.
-    
-
-    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
-
-    <a href="#">Learn more about the benefits…</a>
-</p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
-    </li>
-</tr>
-							<tr
-    class="
-        
-        
-        
-        ">
-        <th 
-            class="item-name">
-            <a 
-                href="/ass-kabinenbau-woerth-band-2#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Kabinenbau Woerth, Band 2</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2020-10-19T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                Unknown
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/car-mechanics#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Car mechanics</a>
-        </td>
-        
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-kabinenbau-woerth-band-2" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="87"
-        title="87% Complete">87%</strong>
-</a>
-
-<a 
-    href="/ass-kabinenbau-woerth-band-2#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
-        
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
-
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-kabinenbau-woerth-band-2">
-            
-            
-
-<p>
-    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
-</p>
-<p>
-    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
-
-    
-    	With this certificate, you can apply for a reduction on your company's insurance rates.
-    
-
-    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
-
-    <a href="#">Learn more about the benefits…</a>
-</p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
-    </li>
-</tr>
-							<tr
-    class="
-        
-        
-        
-        ">
-        <th 
-            class="item-name">
-            <a 
-                href="/ass-kabinenbau-woerth-band-3#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Kabinenbau Woerth, Band 3</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2015-10-19T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                Unknown
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/car-mechanics#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Car mechanics</a>
-        </td>
-        
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-kabinenbau-woerth-band-3" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="24"
-        title="24% Complete">24%</strong>
-</a>
-
-<a 
-    href="/ass-kabinenbau-woerth-band-3#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
-        
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
-
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-kabinenbau-woerth-band-3">
-            
-            
-
-<p>
-    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
-</p>
-<p>
-    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
-
-    
-    	With this certificate, you can apply for a reduction on your company's insurance rates.
-    
-
-    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
-
-    <a href="#">Learn more about the benefits…</a>
-</p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
-    </li>
-</tr>
-							<tr
-    class="
-        
-        
-        
-        ">
-        <th 
-            class="item-name">
-            <a 
-                href="/ass-reinigung-blitz-sauber-berlin#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Reinigung: Blitz & Sauber, Berlin</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2018-04-25T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                <span 
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/cleaning#content" 
                     class="
                         value 
-                        icon-eyedropper">Notwendig</span>
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/cleaning#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Cleaning</a>
-        </td>
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Cleaning</a>
+            </td>
         
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-reinigung-blitz-sauber-berlin" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="91"
-        title="91% Complete">91%</strong>
-</a>
-
-<a 
-    href="/ass-reinigung-blitz-sauber-berlin#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
         
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-gefährdungsbeurteilung-allgemein" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="78"
+            title="78% Complete">78%</strong>
+    </a>
 
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-reinigung-blitz-sauber-berlin">
+
+    <a 
+        href="/ass-gefährdungsbeurteilung-allgemein#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
             
-            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-gefährdungsbeurteilung-allgemein">
+    
+    
 
 <p>
     You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -2599,13 +1787,14 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
     </li>
 </tr>
 							<tr
@@ -2615,87 +1804,106 @@
         
         ">
         <th 
-            class="item-name">
-            <a 
-                href="/ass-gefährdungsbeurteilung-allgemein#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Gefährdungsbeurteilung allgemein</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2018-03-25T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                <span 
+    class="item-name">
+    <a 
+        href="/ass-reinigung-blitz-sauber-münchen#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Reinigung: Blitz & Sauber, München</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2016-04-25T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    <span 
+                        class="
+                            value 
+                            icon-eyedropper">Notwendig</span>
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/cleaning#content" 
                     class="
                         value 
-                        icon-eyedropper">Notwendig</span>
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/cleaning#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Cleaning</a>
-        </td>
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Cleaning</a>
+            </td>
         
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-gefährdungsbeurteilung-allgemein" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="78"
-        title="78% Complete">78%</strong>
-</a>
-
-<a 
-    href="/ass-gefährdungsbeurteilung-allgemein#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
         
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-reinigung-blitz-sauber-münchen" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="55"
+            title="55% Complete">55%</strong>
+    </a>
 
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-gefährdungsbeurteilung-allgemein">
+
+    <a 
+        href="/ass-reinigung-blitz-sauber-münchen#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
             
-            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-reinigung-blitz-sauber-münchen">
+    
+    
 
 <p>
     You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -2711,13 +1919,14 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
     </li>
 </tr>
 							<tr
@@ -2727,87 +1936,106 @@
         
         ">
         <th 
-            class="item-name">
-            <a 
-                href="/ass-reinigung-blitz-sauber-münchen#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Reinigung: Blitz & Sauber, München</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2016-04-25T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                <span 
+    class="item-name">
+    <a 
+        href="/ass-gefährdungsbeurteilung-für-autos#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Gefährdungsbeurteilung für Autos</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2016-03-25T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    <span 
+                        class="
+                            value 
+                            icon-eyedropper">Notwendig</span>
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/cleaning#content" 
                     class="
                         value 
-                        icon-eyedropper">Notwendig</span>
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/cleaning#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Cleaning</a>
-        </td>
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Cleaning</a>
+            </td>
         
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-reinigung-blitz-sauber-münchen" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="55"
-        title="55% Complete">55%</strong>
-</a>
-
-<a 
-    href="/ass-reinigung-blitz-sauber-münchen#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
         
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-gefährdungsbeurteilung-für-autos" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="93"
+            title="93% Complete">93%</strong>
+    </a>
 
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-reinigung-blitz-sauber-münchen">
+
+    <a 
+        href="/ass-gefährdungsbeurteilung-für-autos#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
             
-            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-gefährdungsbeurteilung-für-autos">
+    
+    
 
 <p>
     You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -2823,13 +2051,14 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
     </li>
 </tr>
 							<tr
@@ -2839,196 +2068,106 @@
         
         ">
         <th 
-            class="item-name">
-            <a 
-                href="/ass-gefährdungsbeurteilung-für-autos#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Gefährdungsbeurteilung für Autos</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2016-03-25T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                Unknown
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/cleaning#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Cleaning</a>
-        </td>
+    class="item-name">
+    <a 
+        href="/ass-reinigung-blitz-sauber-mannheim#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Reinigung: Blitz & Sauber, Mannheim</a>
+</th>
         
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-gefährdungsbeurteilung-für-autos" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="93"
-        title="93% Complete">93%</strong>
-</a>
-
-<a 
-    href="/ass-gefährdungsbeurteilung-für-autos#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
-        
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
-
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-gefährdungsbeurteilung-für-autos">
-            
-            
-
-<p>
-    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
-</p>
-<p>
-    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
-
-    
-    	With this certificate, you can apply for a reduction on your company's insurance rates.
-    
-
-    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
-
-    <a href="#">Learn more about the benefits…</a>
-</p>
-            
-            
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
-    </li>
-</tr>
-							<tr
-    class="
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2021-04-25T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
         
         
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    <span 
+                        class="
+                            value 
+                            icon-eyedropper">Fällig seit 5 Tagen</span>
+                
+            </td>
         
-        ">
-        <th 
-            class="item-name">
-            <a 
-                href="/ass-reinigung-blitz-sauber-mannheim#content"
-                data-pat-inject="
-                    source: #content; 
-                    target: #content; 
-                        && 
-                    source: #osc; 
-                    target: #osc; 
-                    history: record;"
-                class="
-                    value 
-                    pat-inject 
-                    follow">Reinigung: Blitz & Sauber, Mannheim</a>
-        </th>
-        <td 
-            data-title="Status"
-            class="item-status">
-            <span
-                class="value">Last modified
-                <time 
-                    class="value pat-display-time last-saved"
-                    data-pat-display-time="from-now: true;locale: en"
-                    datetime="2021-04-25T08:00Z">a few seconds ago</time>
-            </span>
-        </td>
-        <td 
-            data-title="Status"
-            class="item-probe">
-            
-                <span 
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/cleaning#content" 
                     class="
                         value 
-                        icon-eyedropper">Fällig seit 5 Tagen</span>
-            
-        </td>
-        <td 
-            data-title="Tool"
-            class="item-tool">
-            <a 
-                href="/tools/cleaning#content" 
-                class="
-                    value 
-                    pat-inject 
-                    tool 
-                    field"
-                data-pat-inject="
-                    history: record">Cleaning</a>
-        </td>
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Cleaning</a>
+            </td>
         
-        <td 
-            class="functions"><a 
-    href="#status-sentinel-reinigung-blitz-sauber-mannheim" 
-    data-pat-inject="history: record"
-    class="icon pat-inject progress pat-tooltip"
-    data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
-    <strong class="pie-graph" data-percentage="21"
-        title="21% Complete">21%</strong>
-</a>
-
-<a 
-    href="/ass-reinigung-blitz-sauber-mannheim#publication-menu" 
-    class="
-        icon 
-        locking 
-        pat-tooltip
         
-            unlocked
-        " 
-    data-pat-tooltip="source: ajax; position-list: tr">Locked
-</a>
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-reinigung-blitz-sauber-mannheim" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="21"
+            title="21% Complete">21%</strong>
+    </a>
 
-<a 
-    href="/feedback/ass-menu-compact#more-menu" 
-    class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-    data-pat-tooltip="source: ajax; position-list: tr">More</a></td>
-        <template 
-            hidden 
-            id="status-sentinel-reinigung-blitz-sauber-mannheim">
+
+    <a 
+        href="/ass-reinigung-blitz-sauber-mannheim#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
             
-            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-reinigung-blitz-sauber-mannheim">
+    
+    
 
 <p>
     You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
@@ -3044,13 +2183,1316 @@
 
     <a href="#">Learn more about the benefits…</a>
 </p>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+    class="item-name">
+    <a 
+        href="/ass-kabinenbau-woerth-band-1#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Kabinenbau Woerth, Band 1</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2017-10-19T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    Unknown
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/car-mechanics#content" 
+                    class="
+                        value 
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Car mechanics</a>
+            </td>
+        
+        
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-kabinenbau-woerth-band-1" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="100"
+            title="100% Complete">100%</strong>
+    </a>
+
+
+    <a 
+        href="/ass-kabinenbau-woerth-band-1#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
             
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-kabinenbau-woerth-band-1">
+    
+    
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+    class="item-name">
+    <a 
+        href="/ass-gefährdungsbeurteilung-für-altmaschinen#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Gefährdungsbeurteilung für Altmaschinen</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2021-03-25T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    Unknown
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/cleaning#content" 
+                    class="
+                        value 
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Cleaning</a>
+            </td>
+        
+        
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-gefährdungsbeurteilung-für-altmaschinen" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="43"
+            title="43% Complete">43%</strong>
+    </a>
+
+
+    <a 
+        href="/ass-gefährdungsbeurteilung-für-altmaschinen#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
             
-            <p>
-                View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
-                details.
-            </p>
-        </template>
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-gefährdungsbeurteilung-für-altmaschinen">
+    
+    
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+    class="item-name">
+    <a 
+        href="/ass-schwangere-und-stillende-stuttgart#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Schwangere und Stillende, Stuttgart</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2019-09-23T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    Unknown
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/audio-visual-productions#content" 
+                    class="
+                        value 
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Audio visual productions</a>
+            </td>
+        
+        
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-schwangere-und-stillende-stuttgart" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="57"
+            title="57% Complete">57%</strong>
+    </a>
+
+
+    <a 
+        href="/ass-schwangere-und-stillende-stuttgart#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
+            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-schwangere-und-stillende-stuttgart">
+    
+    
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+    class="item-name">
+    <a 
+        href="/ass-kabinenbau-woerth-band-2#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Kabinenbau Woerth, Band 2</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2020-10-19T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    Unknown
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/car-mechanics#content" 
+                    class="
+                        value 
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Car mechanics</a>
+            </td>
+        
+        
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-kabinenbau-woerth-band-2" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="87"
+            title="87% Complete">87%</strong>
+    </a>
+
+
+    <a 
+        href="/ass-kabinenbau-woerth-band-2#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
+            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-kabinenbau-woerth-band-2">
+    
+    
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+    class="item-name">
+    <a 
+        href="/ass-kabinenbau-woerth-band-3#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Kabinenbau Woerth, Band 3</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2015-10-19T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    Unknown
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/car-mechanics#content" 
+                    class="
+                        value 
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Car mechanics</a>
+            </td>
+        
+        
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-kabinenbau-woerth-band-3" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="24"
+            title="24% Complete">24%</strong>
+    </a>
+
+
+    <a 
+        href="/ass-kabinenbau-woerth-band-3#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
+            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-kabinenbau-woerth-band-3">
+    
+    
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+    class="item-name">
+    <a 
+        href="/ass-reinigung-blitz-sauber-berlin#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Reinigung: Blitz & Sauber, Berlin</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2018-04-25T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    <span 
+                        class="
+                            value 
+                            icon-eyedropper">Notwendig</span>
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/cleaning#content" 
+                    class="
+                        value 
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Cleaning</a>
+            </td>
+        
+        
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-reinigung-blitz-sauber-berlin" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="91"
+            title="91% Complete">91%</strong>
+    </a>
+
+
+    <a 
+        href="/ass-reinigung-blitz-sauber-berlin#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
+            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-reinigung-blitz-sauber-berlin">
+    
+    
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+    class="item-name">
+    <a 
+        href="/ass-gefährdungsbeurteilung-allgemein#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Gefährdungsbeurteilung allgemein</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2018-03-25T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    <span 
+                        class="
+                            value 
+                            icon-eyedropper">Notwendig</span>
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/cleaning#content" 
+                    class="
+                        value 
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Cleaning</a>
+            </td>
+        
+        
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-gefährdungsbeurteilung-allgemein" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="78"
+            title="78% Complete">78%</strong>
+    </a>
+
+
+    <a 
+        href="/ass-gefährdungsbeurteilung-allgemein#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
+            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-gefährdungsbeurteilung-allgemein">
+    
+    
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+    class="item-name">
+    <a 
+        href="/ass-reinigung-blitz-sauber-münchen#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Reinigung: Blitz & Sauber, München</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2016-04-25T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    <span 
+                        class="
+                            value 
+                            icon-eyedropper">Notwendig</span>
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/cleaning#content" 
+                    class="
+                        value 
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Cleaning</a>
+            </td>
+        
+        
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-reinigung-blitz-sauber-münchen" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="55"
+            title="55% Complete">55%</strong>
+    </a>
+
+
+    <a 
+        href="/ass-reinigung-blitz-sauber-münchen#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
+            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-reinigung-blitz-sauber-münchen">
+    
+    
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+    class="item-name">
+    <a 
+        href="/ass-gefährdungsbeurteilung-für-autos#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Gefährdungsbeurteilung für Autos</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2016-03-25T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    Unknown
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/cleaning#content" 
+                    class="
+                        value 
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Cleaning</a>
+            </td>
+        
+        
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-gefährdungsbeurteilung-für-autos" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="93"
+            title="93% Complete">93%</strong>
+    </a>
+
+
+    <a 
+        href="/ass-gefährdungsbeurteilung-für-autos#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
+            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-gefährdungsbeurteilung-für-autos">
+    
+    
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
+    </li>
+</tr>
+							<tr
+    class="
+        
+        
+        
+        ">
+        <th 
+    class="item-name">
+    <a 
+        href="/ass-reinigung-blitz-sauber-mannheim#content"
+        data-pat-inject="
+            source: #content; 
+            target: #content; 
+                && 
+            source: #osc; 
+            target: #osc; 
+            history: record;"
+        data-pat-switch="
+            selector: #main; 
+            remove: sidebar-left-*; 
+            add: sidebar-left-open 
+                && 
+            selector: #application-body-; 
+            remove: focus-*; add: focus-sidebar"
+        class="
+            value 
+            pat-inject 
+            pat-switch
+            follow">Reinigung: Blitz & Sauber, Mannheim</a>
+</th>
+        
+            <td 
+                data-title="Status"
+                class="item-status">
+                <span
+                    class="value">Last modified
+                    <time 
+                        class="value pat-display-time last-saved"
+                        data-pat-display-time="from-now: true;locale: en"
+                        datetime="2021-04-25T08:00Z">a few seconds ago</time>
+                </span>
+            </td>
+        
+        
+            <td 
+                data-title="Status"
+                class="item-probe">
+                
+                    <span 
+                        class="
+                            value 
+                            icon-eyedropper">Fällig seit 5 Tagen</span>
+                
+            </td>
+        
+        
+            <td 
+                data-title="Tool"
+                class="item-tool">
+                <a 
+                    href="/tools/cleaning#content" 
+                    class="
+                        value 
+                        pat-inject 
+                        tool 
+                        field"
+                    data-pat-inject="
+                        history: record">Cleaning</a>
+            </td>
+        
+        
+               
+            <td 
+                class="functions">
+                
+    <a 
+        href="#status-sentinel-reinigung-blitz-sauber-mannheim" 
+        data-pat-inject="history: record"
+        class="icon pat-inject progress pat-tooltip"
+        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+        <strong class="pie-graph" data-percentage="21"
+            title="21% Complete">21%</strong>
+    </a>
+
+
+    <a 
+        href="/ass-reinigung-blitz-sauber-mannheim#publication-menu" 
+        class="
+            icon 
+            locking 
+            pat-tooltip
+            
+                unlocked
+            " 
+        data-pat-tooltip="source: ajax; position-list: tr">Locked
+    </a>
+
+
+    <a 
+        href="/feedback/ass-menu-compact#more-menu" 
+        class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+        data-pat-tooltip="source: ajax; position-list: tr">More</a>
+<template 
+    hidden 
+    id="status-sentinel-reinigung-blitz-sauber-mannheim">
+    
+    
+
+<p>
+    You've completed <strong>57%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+    
+    
+    <p>
+        View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more
+        details.
+    </p>
+</template></td>
+        
     </li>
 </tr></tbody>
 				</table>

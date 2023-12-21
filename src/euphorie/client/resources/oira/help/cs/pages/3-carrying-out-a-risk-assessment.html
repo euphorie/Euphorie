@@ -57,6 +57,8 @@
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div 
+	class="
+		sidebar-left-open"
 	id="main">
 	<header 
 	id="toolbar">
@@ -75,7 +77,7 @@
 		
 		
 	
-				<a 
+				<!-- <a 
 					href="#osc" 
 					id="toggle-osc" 
 					class="iconified pat-toggle" 
@@ -84,7 +86,7 @@
 						value: osc-off osc-on 
 							&& 
 						selector: body; 
-						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a> -->
 	
 		
 
@@ -153,7 +155,30 @@
 				
 				<h2 id="spuštění-nové-relace">Spuštění nové relace</h2>
 
-<p>Chcete-li zahájit nové hodnocení rizik, klikněte na odkaz „Zahájit novou relaci“.</p>
+<h3 id="z-ovládacího-panelu">Z ovládacího panelu</h3>
+
+<p>Pro zahájení nového hodnocení rizik z domovské stránky nebo „ovládacího panelu“ platformy OiRA klikněte na „Zahajte nový modul“. Zobrazí se dialogové okno se dvěma různými možnostmi pro zahájení vašeho hodnocení.</p>
+
+<h4 id="zahájení-hodnocení-rizik-od-nuly">Zahájení hodnocení rizik od nuly</h4>
+
+<p>Pokud provádíte hodnocení rizik poprvé, použijte tuto možnost, která vám umožní začít s čistou šablonou. Z rozbalovací nabídky si můžete vybrat nástroj, který vás provede hodnocením.</p>
+
+<h4 id="duplication">Založení na existujícím hodnocení rizik</h4>
+
+<p>Vyberte tuto možnost, pokud jste již v minulosti provedli hodnocení rizik pomocí některého nástroje. Z rozbalovací nabídky hodnocení rizik můžete vybrat existující hodnocení rizik, které můžete znovu použít jako základ pro nové hodnocení rizik. Opětovné použití hodnocení rizik má smysl v případě, kdy nedošlo k zásadním změnám, např. pokud musíte aktualizovat odpovědi pouze na některé otázky nebo určité části akčního plánu.</p>
+
+<p>Při výběru této možnosti se vytvoří duplikát vybraného předchozího hodnocení rizik.
+Duplikáty uzamčených hodnocení rizik budou standardně odemčené.</p>
+
+<h3 id="ze-stránky-nástrojů">Ze stránky nástrojů</h3>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../cs/illustrations/tools.html" scrolling="no">
+  </object>
+  <figcaption>Stránka nástrojů.</figcaption>
+</figure>
+
+<p>Hodnocení rizik můžete zahájit také pomocí nástroje, který si zvolíte z přehledové stránky nástrojů a také ze samostatné stránky nástroje. Pro tuto možnost klikněte na „Spustit modul“. Pokud zvolíte tuto cestu, můžete si také vybrat, zda chcete začít nové hodnocení rizik od nuly, nebo zda chcete vycházet z předchozího hodnocení. V rozbalovací nabídce se zobrazí pouze hodnocení rizik, která byla provedena pomocí stejného nástroje. Pokud jste hodnocení rizik s vybraným nástrojem ještě neprováděli, spustí se okamžitě po kliknutí na tlačítko „Spustit modul“ nové hodnocení rizik.</p>
 
 <h2 id="zahájení-hodnocení-rizik">Zahájení hodnocení rizik</h2>
 
@@ -410,6 +435,33 @@ Jak bylo uvedeno výše, akční plán je uveden v nabídce vlevo jako samostatn
 
 <p>Standardní opatření i opatření, která jste definovali sami, lze kdykoli znovu vymazat.</p>
 
+<h2 id="training">Odborná příprava</h2>
+
+<p>Funkce „Preparing Training Material“ (Příprava materiálů pro odbornou přípravu) je navržena tak, aby vám pomohla při vytváření materiálů pro odbornou přípravu v průběhu provádění hodnocení rizik. V následujících pokynech se dozvíte, jak tuto funkci nejlépe používat:</p>
+
+<h3 id="automatické-vytváření-materiálů-pro-odbornou-přípravu">Automatické vytváření materiálů pro odbornou přípravu</h3>
+
+<p>Zatímco provádíte hodnocení rizik, systém současně na pozadí sestavuje materiály pro odbornou přípravu. Tím se zajistí, že každé hodnocení rizik je spojeno s odpovídajícími zdroji pro odbornou přípravu.</p>
+
+<h3 id="přístup-do-sekce-odborné-přípravy">Přístup do sekce odborné přípravy</h3>
+
+<p>Pod každým rizikem se nachází sekce „Odborná příprava“. Pokud se tato sekce automaticky nerozbalí, můžete kliknutím na šipečku zobrazit celý obsah.</p>
+
+<h4 id="úprava-materiálů-pro-odbornou-přípravu">Úprava materiálů pro odbornou přípravu</h4>
+
+<p>V sekci odborné přípravy naleznete konkrétní opatření související s daným rizikem. Každé opatření lze označit jako relevantní materiál pro odbornou přípravu vašich kolegů nebo zaměstnanců. Chcete-li vybrat nebo odstranit opatření, která se mají zobrazit v materiálech pro odbornou přípravu, klikněte na ikonu oka vedle každého opatření. Standardně jsou do materiálů pro odbornou přípravu zahrnuta všechna opatření.</p>
+
+<p>Materiály pro odbornou přípravu obsahují tyto položky:</p>
+
+<ul>
+  <li>Již zavedená opatření: Jedná se o preventivní opatření, která již byla zavedena za účelem zmírnění rizika.</li>
+  <li>Dodatečná opatření: Jedná se o veškerá dodatečná preventivní opatření, která byla zvolena k řízení rizika.</li>
+  <li>Sekce informací: Informace související s jednotlivými riziky, které poskytují podrobnosti o jeho povaze a možných dopadech.</li>
+  <li>Poznámky: Jakékoli případné poznámky ke konkrétnímu riziku lze volitelně zahrnout do materiálů pro odbornou přípravu za účelem uvedení dalších souvislostí nebo poznatků.</li>
+</ul>
+
+<p>Výběrem příslušných opatření můžete svým zaměstnancům zajistit individuální odbornou přípravu.</p>
+
 <h2 id="zpráva">Zpráva</h2>
 
 <p>Po dokončení akčního plánu můžete vypracovat zprávu.</p>
@@ -437,6 +489,19 @@ Jak bylo uvedeno výše, akční plán je uveden v nabídce vlevo jako samostatn
 </figure>
 
 <p>Když se dostanete na stavovou obrazovku, dozvíte se, jak daleko jste v každém modulu pokročili. To vám pomůže zjistit, kde ještě musíte posoudit rizika nebo stanovit opatření pro zjištěná rizika.</p>
+
+<h2 id="section-locking">Uzamčení hodnocení rizik</h2>
+
+<p>Pokud jste dospěli do fáze, kdy považujete hodnocení rizik za dokončené, může být užitečné informovat o tom ostatní ve vaší organizaci. Jedním ze způsobů, jak toho docílit prostřednictvím nástroje, je uzamknout hodnocení rizik. Uzamčení hodnocení rizik proveďte takto:</p>
+
+<ol>
+  <li>Otevřete hodnocení rizik a ujistěte se, že je aktivní na jakékoli stránce kromě „Odborná příprava“ nebo „Nastavení“.</li>
+  <li>V panelu nástrojů klikněte na ikonu pro uzamčení <span class="icon-lock-open"></span>.</li>
+  <li>Objeví se nabídka. Z této nabídky vyberte „Uzamčení hodnocení rizik“.</li>
+</ol>
+
+<p>Po dokončení těchto kroků je vaše hodnocení rizik okamžitě uzamčeno, což je patrné z ikony zámku, která je nyní označena jako uzamčená <span class="icon-lock"></span>.</p>
+
 
 			</div>
 		</article>

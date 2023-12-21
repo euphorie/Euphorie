@@ -57,6 +57,8 @@
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div 
+	class="
+		sidebar-left-open"
 	id="main">
 	<header 
 	id="toolbar">
@@ -75,7 +77,7 @@
 		
 		
 	
-				<a 
+				<!-- <a 
 					href="#osc" 
 					id="toggle-osc" 
 					class="iconified pat-toggle" 
@@ -84,7 +86,7 @@
 						value: osc-off osc-on 
 							&& 
 						selector: body; 
-						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a> -->
 	
 		
 
@@ -153,11 +155,34 @@
 				
 				<h2 id="uuden-istunnon-aloittaminen">Uuden istunnon aloittaminen</h2>
 
-<p>Aloita uusi riskinarviointi napsauttamalla linkkiä ”Aloita uusi istunto”.</p>
+<h3 id="ohjausnäkymä">Ohjausnäkymä</h3>
+
+<p>Jos haluat aloittaa uuden riskinarvioinnin päävalikosta tai OiRAn ohjausnäkymästä, mene kohtaan „aloita uusi istunto“. Näkyviin tulee vuoropuhelupaneeli, jossa on valittavissa kaksi vaihtoehtoa arvioinnin aloittamiseksi.</p>
+
+<h4 id="ensimmäinen-riskinarviointi">Ensimmäinen riskinarviointi</h4>
+
+<p>Käytä tätä vaihtoehtoa, kun aloitat tyhjästä mallipohjasta ja teet riskinarvioinnin ensimmäistä kertaa. Voit valita pudotusvalikosta työkalun, joka ohjaa etenemistä koko arvioinnin ajan.</p>
+
+<h4 id="duplication">Aikaisempaan arviointiin perustuva riskinarviointi</h4>
+
+<p>Käytä tätä vaihtoehtoa, jos olet tehnyt riskinarvioinnin aiemmin jollakin työkalulla. Voit valita pudotusvalikosta aikaisemmin tehdyn riskinarvioinnin ja käyttää sitä uuden riskinarvioinnin pohjana. Aikaisemmin tehdyn riskinarvioinnin käyttäminen myöhemmin on järkevää, jos muutoksia on vain vähän – esimerkiksi silloin kun pitää päivittää vain vastaukset joihinkin kysymyksiin tai tietyt toimintasuunnitelman osat.</p>
+
+<p>Kun valitset tämän vaihtoehdon, aikaisemmin tehdystä riskinarvioinnista luodaan kaksoiskappale.
+Lukittujen riskinarviointien kaksoiskappaleet ovat oletusarvoisesti lukitsemattomia.</p>
+
+<h3 id="työkalut-sivu">Työkalut-sivu</h3>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../fi/illustrations/tools.html" scrolling="no">
+  </object>
+  <figcaption>Työkalut-sivu.</figcaption>
+</figure>
+
+<p>Voit aloittaa riskinarvioinnin myös työkalujen yhteenvetosivulta ja yksittäisen työkalun sivulta valitsemaasi työkalua käyttäen. Valitse „aloita riskinarviointi“. Voit myös valita, teetkö riskinarvioinnin kokonaan alusta alkaen vai aiemman arvioinnin perusteella. Vain samalla työkalulla tehdyt riskinarvioinnit näkyvät arvioinnin pudotusvalikossa. Jos et ole tehnyt aiemmin riskinarviointia valitsemallasi työkalulla, uusi riskinarviointi alkaa heti, kun olet napsauttanut „aloita riskinarviointi“.</p>
 
 <h2 id="riskinarvioinnin-avaaminen">Riskinarvioinnin avaaminen</h2>
 
-<p>Kun olet aloittanut riskinarvioinnin, voit hakea sen milloin tahansa koontinäytöltä otsikon ”Omat riskiarvioinnit” alta. Sieltä voit myös aloittaa uuden riskinarvioinnin.</p>
+<p>Kun olet aloittanut riskinarvioinnin, voit hakea sen milloin tahansa koontinäytöltä otsikon „Omat riskiarvioinnit“ alta. Sieltä voit myös aloittaa uuden riskinarvioinnin.</p>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../fi/illustrations/index-logged-in.html" scrolling="no">
@@ -192,13 +217,13 @@
 
 <p>Jokainen istunto/arviointityökalu alkaa suunnitteluvaiheella. Siinä riskinarvioinnille annetaan nimi, jonka avulla pystyt myöhemmin erottamaan toisistaan useat työkalulla tekemäsi riskinarvioinnit.</p>
 
-<p>Linkissä ”Lisätietoa tästä työkalusta” on lisätietoa valitusta työkalusta ja sen kehittämiseen osallistuneista osapuolista.</p>
+<p>Linkissä „Lisätietoa tästä työkalusta“ on lisätietoa valitusta työkalusta ja sen kehittämiseen osallistuneista osapuolista.</p>
 
-<p>Kun olet napsauttanut ”Aloita”, työkalussa saatetaan esittää joitakin lisäkysymyksiä sen mukaan, mitä työkalua käytät. Tämä valmistautumisnäkymä profiiliin liittyvine kysymyksineen tulee näkyviin vain työkaluissa, joiden osaksi se on määritetty.</p>
+<p>Kun olet napsauttanut „Aloita“, työkalussa saatetaan esittää joitakin lisäkysymyksiä sen mukaan, mitä työkalua käytät. Tämä valmistautumisnäkymä profiiliin liittyvine kysymyksineen tulee näkyviin vain työkaluissa, joiden osaksi se on määritetty.</p>
 
 <p>Tässä vaiheessa voit</p>
 <ul>
-  <li>valita tai ohittaa tilanteita sen mukaan, koskevatko ne liiketoimintaasi. Vastaa asianmukaisissa kohdissa ”Kyllä”.</li>
+  <li>valita tai ohittaa tilanteita sen mukaan, koskevatko ne liiketoimintaasi. Vastaa asianmukaisissa kohdissa „Kyllä“.</li>
   <li>luetella useita liiketoimintayksikköjä, haaraliikkeitä tai toimipaikkoja jne. Asiaan liittyvät riskit toistetaan jokaisessa kohdassa.</li>
 </ul>
 
@@ -208,7 +233,7 @@
   <figcaption>Profiili-näkymä suunnitteluvaiheessa</figcaption>
 </figure>
 
-<p>Suunnitteluvaihe on erittäin tärkeä, koska siinä määritetään täsmällisesti yrityksesi liiketoiminnan tyyppi ja siihen liittyvät riskit. Kun olet napsauttanut ”Tallenna ja jatka”, sinut ohjataan seuraavaan osioon ”Osallistuminen”.</p>
+<p>Suunnitteluvaihe on erittäin tärkeä, koska siinä määritetään täsmällisesti yrityksesi liiketoiminnan tyyppi ja siihen liittyvät riskit. Kun olet napsauttanut „Tallenna ja jatka“, sinut ohjataan seuraavaan osioon „Osallistuminen“.</p>
 
 <p><strong>Huomautus:</strong>
 Monissa työkaluissa ei ole profiiliin liittyviä kysymyksiä, koska niissä ei käytetä tätä toimintoa kysymysten kohdentamiseen. Siinä tapauksessa tämä näkymä ohitetaan automaattisesti.</p>
@@ -222,7 +247,7 @@ Monissa työkaluissa ei ole profiiliin liittyviä kysymyksiä, koska niissä ei 
 <p>Tässä vaiheessa määritetään yrityksesi kannalta merkittävät vaarat ja ongelmat.</p>
 
 <p><strong>Huomautus:</strong>
-Tähän näkymään on voitu yhdistää vaihe ”Toimintasuunnitelma” (ks. jäljempänä), mikäli OiRA-kumppani on määrittänyt työkalun niin. Siinä tapauksessa vaihe on nimeltään ”Arviointi”, ja kohdassa ”Toimintasuunnitelma” kuvatut osat näytetään kunkin riskitekijän määrittämisen ja arvioinnin kohdalla.</p>
+Tähän näkymään on voitu yhdistää vaihe „Toimintasuunnitelma“ (ks. jäljempänä), mikäli OiRA-kumppani on määrittänyt työkalun niin. Siinä tapauksessa vaihe on nimeltään „Arviointi“, ja kohdassa „Toimintasuunnitelma“ kuvatut osat näytetään kunkin riskitekijän määrittämisen ja arvioinnin kohdalla.</p>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../fi/illustrations/2014-01-02-work-environment-site-related.html" scrolling="no">
@@ -230,16 +255,16 @@ Tähän näkymään on voitu yhdistää vaihe ”Toimintasuunnitelma” (ks. jä
   <figcaption>Tunnistaminen ja arviointi</figcaption>
 </figure>
 
-<p>Näytön vasemmassa reunassa kohdan ”Tunnistaminen + Arviointi” / ”Arviointi” alla näytetään kaikki työkaluun sisältyvät aiheet/moduulit. Korostettuna on aihe, jota parhaillaan tarkastelet.</p>
+<p>Näytön vasemmassa reunassa kohdan „Tunnistaminen + Arviointi“ / „Arviointi“ alla näytetään kaikki työkaluun sisältyvät aiheet/moduulit. Korostettuna on aihe, jota parhaillaan tarkastelet.</p>
 
 <h3 id="tunnistaminen">Tunnistaminen</h3>
 
 <p>Kunkin riskin osalta on arvioitava, pitävätkö toivottua tilaa kuvaavat väittämät paikkansa yrityksesi osalta. Vastausvaihtoehdot ovat seuraavat:</p>
 
 <ul>
-  <li>Kyllä: jos vastaat väittämään ”kyllä”, muita toimia ei tarvita, koska olet arvioinut, ettei riskiä ole.</li>
-  <li>Ei: jos vastaat väittämään ”ei”, tarvitaan jatkotoimia. Sinua pyydetään valitsemaan erityisiä toimenpiteitä.</li>
-  <li>Ei sovelleta: joissakin riskinarvioinneissa voi vastata ”ei sovelleta”, jos riski ei ole merkityksellinen yritykseksi kannalta.</li>
+  <li>Kyllä: jos vastaat väittämään „kyllä“, muita toimia ei tarvita, koska olet arvioinut, ettei riskiä ole.</li>
+  <li>Ei: jos vastaat väittämään „ei“, tarvitaan jatkotoimia. Sinua pyydetään valitsemaan erityisiä toimenpiteitä.</li>
+  <li>Ei sovelleta: joissakin riskinarvioinneissa voi vastata „ei sovelleta“, jos riski ei ole merkityksellinen yritykseksi kannalta.</li>
 </ul>
 
 <p>Kunkin väittämän jälkeen on tavallisesti lisätietoa nimenomaisesta riskistä:</p>
@@ -299,7 +324,7 @@ Joissakin OiRA-työkaluissa arviointia ei näytetä. Tämä riippuu siitä, mite
 
 <h3 id="toimialalle-määritetyt-tärkeimmät-riskit">Toimialalle määritetyt tärkeimmät riskit:</h3>
 
-<p>OiRA-työkalun luonut kansallinen kumppani / OiRA-työkalun kehittäjä katsoo jotkin työkalukohtaiset riskit erittäin tärkeiksi. Sinua ei pyydetä arvioimaan tällaisia tärkeäksi määritettyjä riskejä, koska niiden tärkeydeksi asetetaan automaattisesti ”korkea”.</p>
+<p>OiRA-työkalun luonut kansallinen kumppani / OiRA-työkalun kehittäjä katsoo jotkin työkalukohtaiset riskit erittäin tärkeiksi. Sinua ei pyydetä arvioimaan tällaisia tärkeäksi määritettyjä riskejä, koska niiden tärkeydeksi asetetaan automaattisesti „korkea“.</p>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../fi/illustrations/2014-01-06-exposure-to-noise-is-prevented-or-controlled.html" scrolling="no">
@@ -309,7 +334,7 @@ Joissakin OiRA-työkaluissa arviointia ei näytetä. Tämä riippuu siitä, mite
 
 <h3 id="omat-riskitekijät">Omat riskitekijät</h3>
 
-<p>Kun olet vastannut kaikkiin riskejä koskeviin aiheisiin kohdassa ”Tunnistaminen + Arviointi” / ”Arviointi”, pääset vapaaehtoiseen kohtaan ”Muut riskitekijät”. Voit luoda omia merkintöjä painikkeesta ”Lisää riski”.</p>
+<p>Kun olet vastannut kaikkiin riskejä koskeviin aiheisiin kohdassa „Tunnistaminen + Arviointi“ / „Arviointi“, pääset vapaaehtoiseen kohtaan „Muut riskitekijät“. Voit luoda omia merkintöjä painikkeesta „Lisää riski“.</p>
 
 <p>Jos työkalussa ei ole mainittu riskejä, joita työpaikallasi/yrityksessäsi esiintyy, ne on lisättävä tähän kohtaan. Voit määrittää/muotoilla nämä riskit kokonaan itse.</p>
 
@@ -336,7 +361,7 @@ Joissakin OiRA-työkaluissa arviointia ei näytetä. Tämä riippuu siitä, mite
 <p>Tässä vaiheessa valitaan toimenpiteet, jotka haluat toteuttaa aiemmin määrittämiesi riskien poistamiseksi tai niiden lieventämiseksi.</p>
 
 <p><strong>Huomautus</strong>:
-Kuten edellä on mainittu, toimintasuunnitelma esitetään erillisenä vaiheena vasemmalla olevassa valikossa tai se näytetään kunkin tunnistetun riskitekijän kohdalla. Viimeksi mainitussa tapauksessa valikon vaiheen nimi on ”Arviointi”, ja siihen sisältyvät sekä riskiväittämät että vastausten valinta.</p>
+Kuten edellä on mainittu, toimintasuunnitelma esitetään erillisenä vaiheena vasemmalla olevassa valikossa tai se näytetään kunkin tunnistetun riskitekijän kohdalla. Viimeksi mainitussa tapauksessa valikon vaiheen nimi on „Arviointi“, ja siihen sisältyvät sekä riskiväittämät että vastausten valinta.</p>
 
 <p>Sinulle tarjottu versio riippuu kansallisen OiRA-kumppanin / OiRA-työkalun kehittäjän valinnoista.</p>
 
@@ -348,7 +373,7 @@ Kuten edellä on mainittu, toimintasuunnitelma esitetään erillisenä vaiheena 
   <figcaption>Integroitu toimintasuunnitelma</figcaption>
 </figure>
 
-<p>Jos vastaat kysymykseen ”ei”, sivulle avautuu toimintasuunnitelmamoduuli otsikon ”Toimenpiteet” alla.</p>
+<p>Jos vastaat kysymykseen „ei“, sivulle avautuu toimintasuunnitelmamoduuli otsikon „Toimenpiteet“ alla.</p>
 
 <p>Voit sekä valita järjestelmän ehdottamien toimenpiteiden luettelosta että määrittää omia toimenpiteitä.</p>
 
@@ -360,11 +385,11 @@ Kuten edellä on mainittu, toimintasuunnitelma esitetään erillisenä vaiheena 
   <figcaption>Kun toimintasuunnitelma näytetään erillisenä vaiheena, siihen pääsee vasemmalla puolella olevasta navigointipalkista.</figcaption>
 </figure>
 
-<p>Aloita suunnitelma napsauttamalla painiketta ”Luo toimintasuunnitelma”.</p>
+<p>Aloita suunnitelma napsauttamalla painiketta „Luo toimintasuunnitelma“.</p>
 
 <p>Toimintasuunnitelmavaiheessa vasemmalla olevassa valikossa näytetään nyt vain jatkotoimia varten merkityt riskit. Muita riskejä ei edellisessä vaiheessa merkitty olevan.</p>
 
-<p>Sinua pyydetään määrittämään toimenpiteet kaikille riskeille, joiden osalta vastasit ”ei” arviointiprosessissa, ja tärkeäksi määritetyille riskeille (riippumatta siitä, vastasitko niiden osalta myönteisesti vai kielteisesti).</p>
+<p>Sinua pyydetään määrittämään toimenpiteet kaikille riskeille, joiden osalta vastasit „ei“ arviointiprosessissa, ja tärkeäksi määritetyille riskeille (riippumatta siitä, vastasitko niiden osalta myönteisesti vai kielteisesti).</p>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../fi/illustrations/action-plan-action.html" scrolling="no">
@@ -382,7 +407,7 @@ Kuten edellä on mainittu, toimintasuunnitelma esitetään erillisenä vaiheena 
   <figcaption>Lisätoimenpiteen lisääminen</figcaption>
 </figure>
 
-<p>Aloita ehkäisevän toimenpiteen määrittäminen painamalla painiketta ”Lisää toimenpide”. Sinun on</p>
+<p>Aloita ehkäisevän toimenpiteen määrittäminen painamalla painiketta „Lisää toimenpide“. Sinun on</p>
 
 <ul>
   <li>kuvattava yleinen toimintamalli, jota käytetään riskin poistamiseen tai vähentämiseen</li>
@@ -396,9 +421,9 @@ Kuten edellä on mainittu, toimintasuunnitelma esitetään erillisenä vaiheena 
 
 <h4 id="lisää-tunnettuja-yleisiä-toimenpiteitä">Lisää tunnettuja yleisiä toimenpiteitä</h4>
 
-<p>Yksittäisiä riskejä varten on käytössä ennalta määritettyjä toimenpiteitä sen mukaan, miten OiRA-kumppani / OiRA-työkalun kehittäjä on määrittänyt työkalun. Voit valita yhden tai useamman ennalta määritetyn toimenpiteen painikkeesta ”Valitse toimenpiteet”.</p>
+<p>Yksittäisiä riskejä varten on käytössä ennalta määritettyjä toimenpiteitä sen mukaan, miten OiRA-kumppani / OiRA-työkalun kehittäjä on määrittänyt työkalun. Voit valita yhden tai useamman ennalta määritetyn toimenpiteen painikkeesta „Valitse toimenpiteet“.</p>
 
-<p>Näkyviin tulee ponnahdusvalikko, jossa on kaikki ehdotetut toimenpiteet. Napsauta ”Lisää”-painiketta niiden kohdalla, joita haluat käyttää.</p>
+<p>Näkyviin tulee ponnahdusvalikko, jossa on kaikki ehdotetut toimenpiteet. Napsauta „Lisää“-painiketta niiden kohdalla, joita haluat käyttää.</p>
 
 <p>Tämän jälkeen nämä ennalta määritetyt toimenpiteet luetellaan toimintasuunnitelmassasi. Kuvaus tehtävästä on vakionmuotoinen, mutta voit täyttää muita kenttiä (vastuuhenkilö, budjetti, päivämäärät), ja niiden täyttämistä myös suositellaan.</p>
 
@@ -409,6 +434,33 @@ Kuten edellä on mainittu, toimintasuunnitelma esitetään erillisenä vaiheena 
 </figure>
 
 <p>Sekä tunnetut yleiset toimenpiteet että itse määrittämäsi toimenpiteet voidaan poistaa milloin tahansa.</p>
+
+<h2 id="training">Koulutus</h2>
+
+<p>„Koulutusmateriaalin valmistelu“ -toiminto on suunniteltu siten, että se auttaa koulutussisällön laadinnassa, kun aloitat riskinarvioinnin. Seuraavat ohjeet opastavat käyttämään tätä toimintoa optimaalisesti:</p>
+
+<h3 id="koulutusmateriaalin-automaattinen-luominen">Koulutusmateriaalin automaattinen luominen</h3>
+
+<p>Kun teet riskinarviointia, järjestelmä koostaa taustalla samanaikaisesti koulutusmateriaalia. Näin varmistetaan, että jokainen riskinarviointi yhdistetään vastaavaan koulutusaineistoon.</p>
+
+<h3 id="siirtyminen-koulutusosioon">Siirtyminen koulutusosioon</h3>
+
+<p>Kunkin riskin alla on kohta „koulutus“. Jos osiota ei laajene automaattisesti, voit napsauttaa pientä nuolta nähdäksesi koko sisällön.</p>
+
+<h4 id="koulutusaineiston-muokkaaminen">Koulutusaineiston muokkaaminen</h4>
+
+<p>Koulutusosiossa on tietoa kyseiseen riskiin liittyvistä erityisistä toimenpiteistä. Jokainen toimenpide voidaan merkitä tärkeäksi kollegoiden tai työntekijöiden koulutusta silmällä pitäen. Jos haluat lisätä tai poistaa valinnan koulutusaineistosta, napsauta vieressä olevaa silmäkuvaketta. Oletusarvoisesti kaikki toimenpiteet sisältyvät koulutusmateriaaliin.</p>
+
+<p>Aineistoon sisältyy seuraavaa:</p>
+
+<ul>
+  <li>Jo toteutetut toimenpiteet: Nämä ovat ennalta ehkäiseviä toimenpiteitä, jotka on jo otettu käyttöön riskin pienentämiseksi.</li>
+  <li>Lisätoimenpiteet: Nämä ovat mahdollisia ehkäiseviä lisätoimenpiteitä, jotka on valittu riskin hallitsemiseksi.</li>
+  <li>Tieto-osio: Kuhunkin riskiin liittyvät tiedot, jotka antavat yksityiskohtaisia tietoja riskin luonteesta ja mahdollisista vaikutuksista.</li>
+  <li>Huomautukset: Jos on olemassa tiettyä riskiä koskevia huomautuksia, ne voidaan valinnaisesti sisällyttää koulutusmateriaaliin lisäkontekstia tai -tietoja varten.</li>
+</ul>
+
+<p>Vastaavin toimenpitein voit varmistaa työntekijöillesi yksilöllisen koulutuksen.</p>
 
 <h2 id="raportti">Raportti</h2>
 
@@ -437,6 +489,18 @@ Kuten edellä on mainittu, toimintasuunnitelma esitetään erillisenä vaiheena 
 </figure>
 
 <p>Tilanäkymästä näet, miten pitkälle olet kussakin moduulissa edennyt. Se voi auttaa huomaamaan, missä osioissa riskejä on edelleen arvioitavana tai missä on määritettävä toimenpiteitä tunnistetuille riskeille.</p>
+
+<h2 id="section-locking">Lukitse riskinarviointi</h2>
+
+<p>Jos olet edennyt vaiheeseen, jossa riskinarviointi katsotaan tehdyksi, voi olla hyvä ilmoittaa tästä organisaatiossa. Yksi tapa tämän tekemiseen on lukita riskinarviointi työkalussa. Seuraa alla olevia ohjeita riskinarvioinnin lukitsemiseksi:</p>
+
+<ol>
+  <li>Avaa riskinarviointi ja varmista, että se on aktiivinen muilla paitsi koulutus- tai asetukset-sivuilla.</li>
+  <li>Napsauta työkalupalkissa lukituskuvaketta <span class="icon-lock-open"></span>.</li>
+  <li>Valikko tulee näkyviin. Valitse siitä „lukitse riskinarviointi“.</li>
+</ol>
+
+<p>Kun olet suorittanut nämä vaiheet, riskinarviointi lukitaan välittömästi, minkä voi nähdä lukituskuvakkeesta, joka on nyt suljettu <span class="icon-lock"></span>.</p>
 
 			</div>
 		</article>

@@ -57,6 +57,8 @@
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div 
+	class="
+		sidebar-left-open"
 	id="main">
 	<header 
 	id="toolbar">
@@ -75,7 +77,7 @@
 		
 		
 	
-				<a 
+				<!-- <a 
 					href="#osc" 
 					id="toggle-osc" 
 					class="iconified pat-toggle" 
@@ -84,7 +86,7 @@
 						value: osc-off osc-on 
 							&& 
 						selector: body; 
-						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a> -->
 	
 		
 
@@ -153,7 +155,30 @@
 				
 				<h2 id="iniciar-uma-nova-sessão">Iniciar uma nova sessão</h2>
 
-<p>Para iniciar uma nova avaliação de riscos, clique na ligação «Iniciar uma nova sessão».</p>
+<h3 id="a-partir-do-painel">A partir do painel</h3>
+
+<p>Para iniciar uma nova avaliação dos riscos a partir do ecrã inicial, ou «painel de controlo» do OiRA, clique em «Iniciar uma nova sessão». Aparecerá um painel de diálogo com duas opções diferentes para iniciar a sua avaliação.</p>
+
+<h4 id="iniciar-uma-avaliação-de-riscos-a-partir-do-zero">Iniciar uma avaliação de riscos a partir do zero</h4>
+
+<p>Utilize esta opção para começar com um modelo limpo quando está a realizar a sua avaliação de riscos pela primeira vez. Pode escolher uma ferramenta a partir da lista pendente de ferramentas para o orientar através da avaliação.</p>
+
+<h4 id="duplication">Basear-se numa avaliação de riscos existente</h4>
+
+<p>Utilize esta opção se já tiver efetuado anteriormente uma avaliação de riscos com uma determinada ferramenta. Pode selecionar uma avaliação de riscos existente que pretenda reutilizar a partir do menu pendente de avaliação de riscos, para a utilizar como base para uma nova avaliação de riscos. A reutilização de uma avaliação de riscos faz sentido quando não tenha havido muitas alterações, por exemplo, quando apenas é necessário atualizar as respostas a algumas perguntas ou partes específicas do plano de ação.</p>
+
+<p>Ao escolher esta opção, é criado um duplicado da avaliação de riscos anterior selecionada.
+As duplicações de avaliações de risco bloqueadas são, por defeito, desbloqueadas.</p>
+
+<h3 id="a-partir-da-página-de-ferramentas">A partir da página de ferramentas</h3>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../pt/illustrations/tools.html" scrolling="no">
+  </object>
+  <figcaption>A página das ferramentas.</figcaption>
+</figure>
+
+<p>Também pode iniciar uma avaliação de riscos com uma ferramenta à sua escolha a partir da página de síntese das ferramentas e também a partir de uma página de ferramentas individual. Clique em «Iniciar avaliação de riscos» para esta opção. Através desta via, pode também optar entre iniciar uma nova avaliação de riscos a partir do zero ou baseá-la numa avaliação anterior. Apenas as avaliações de riscos efetuadas com a mesma ferramenta aparecerão na lista pendente da avaliação. Se nunca tiver efetuado anteriormente uma avaliação de riscos com a ferramenta selecionada, uma nova avaliação de riscos terá início imediatamente quando clicar em «Iniciar avaliação de riscos».</p>
 
 <h2 id="abrir-uma-avaliação-de-riscos">Abrir uma avaliação de riscos</h2>
 
@@ -410,6 +435,33 @@ Tal como acima referido, o plano de ação é apresentado como uma etapa separad
 
 <p>Tanto as medidas padrão como as medidas definidas por si podem ser novamente excluídas em qualquer momento.</p>
 
+<h2 id="training">Formação</h2>
+
+<p>A funcionalidade «Preparar material de formação» foi concebida para o ajudar a criar conteúdos de formação à medida que efetua uma avaliação de riscos. As instruções que se seguem guiá-lo-ão na melhor forma de utilizar esta funcionalidade:</p>
+
+<h3 id="criação-automática-de-material-de-formação">Criação automática de material de formação</h3>
+
+<p>Enquanto se efetua uma avaliação de riscos, o sistema compila simultaneamente material de formação em segundo plano. Isto garante que cada avaliação de risco seja acompanhada dos recursos de formação correspondentes.</p>
+
+<h3 id="acesso-à-secção-de-formação">Acesso à secção de formação</h3>
+
+<p>Sob cada risco existe uma secção de «Formação». Se esta secção não for automaticamente expandida, pode clicar na pequena seta para mostrar o conteúdo completo.</p>
+
+<h4 id="edição-do-material-de-formação">Edição do material de formação</h4>
+
+<p>Na secção relativa à formação, encontrará as medidas específicas relacionadas com esse risco. Cada medida pode ser assinalada como material relevante para a formação dos seus colegas ou empregados. Para selecionar ou anular a seleção de uma medida para mostrar ou não mostrar no material de formação, clique no ícone do olho adjacente a cada medida. Por defeito, todas as medidas estão incluídas no material de formação.</p>
+
+<p>O material de formação inclui os seguintes elementos:</p>
+
+<ul>
+  <li>Medidas já implementadas: Estas são as medidas preventivas que já foram postas em prática para mitigar o risco.</li>
+  <li>Medidas adicionais: Trata-se de quaisquer medidas preventivas suplementares que tenham sido selecionadas para gerir o risco.</li>
+  <li>Secção de Informação: A informação associada a cada risco que fornece detalhes sobre a sua natureza e potenciais impactos.</li>
+  <li>Notas: Caso existam notas relativas a um risco específico, estas podem ser incluídas opcionalmente no material de formação para informações ou contextos adicionais.</li>
+</ul>
+
+<p>Ao escolher as medidas correspondentes, pode assegurar uma experiência de formação personalizada para os seus funcionários.</p>
+
 <h2 id="relatório">Relatório</h2>
 
 <p>Depois de finalizar o plano de ação, pode produzir um relatório.</p>
@@ -437,6 +489,18 @@ Tal como acima referido, o plano de ação é apresentado como uma etapa separad
 </figure>
 
 <p>Quando estiver no ecrã de estado, pode ver o seu estado de progressão em cada módulo. Isso permite-lhe verificar mais facilmente quais são os riscos que ainda não foram avaliados por si ou fornecer medidas em falta para os riscos que identificou.</p>
+
+<h2 id="section-locking">Bloquear uma avaliação de riscos</h2>
+
+<p>Se chegou a uma fase em que a sua avaliação de riscos é considerada finalizada, poderá ser útil comunicá-la ao resto da sua organização. Uma forma de o fazer na ferramenta é bloqueando a avaliação de riscos. Siga os passos abaixo para bloquear uma avaliação de riscos:</p>
+
+<ol>
+  <li>Abrir uma avaliação dos riscos, assegurando que está ativa em qualquer página que não seja «Formação» ou «Definições».</li>
+  <li>Na barra de ferramentas, clique no ícone de bloqueio <span class="icon-lock-open"></span>.</li>
+  <li>Aparecerá um menu. Neste menu, selecione «Bloquear avaliação dos riscos»</li>
+</ol>
+
+<p>Ao concluir estes passos, a sua avaliação de riscos fica imediatamente bloqueada, o que é visível pelo ícone de bloqueio que aparece agora como fechado <span class="icon-lock"></span>.</p>
 
 			</div>
 		</article>
