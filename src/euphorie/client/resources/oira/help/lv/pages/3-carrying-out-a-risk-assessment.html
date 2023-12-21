@@ -57,6 +57,8 @@
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div 
+	class="
+		sidebar-left-open"
 	id="main">
 	<header 
 	id="toolbar">
@@ -75,7 +77,7 @@
 		
 		
 	
-				<a 
+				<!-- <a 
 					href="#osc" 
 					id="toggle-osc" 
 					class="iconified pat-toggle" 
@@ -84,7 +86,7 @@
 						value: osc-off osc-on 
 							&& 
 						selector: body; 
-						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a> -->
 	
 		
 
@@ -153,11 +155,34 @@
 				
 				<h2 id="jaunas-sesijas-sākšana">Jaunas sesijas sākšana</h2>
 
-<p>Lai sāktu jaunu riska novērtējumu, noklikšķiniet uz saites “Sākt jaunu sesiju”.</p>
+<h3 id="no-informācijas-paneļa">No informācijas paneļa</h3>
+
+<p>Lai sāktu jaunu riska novērtējumu no OiRA mājas ekrāna vai infopaneļa, noklikšķiniet uz „Sākt jaunu sesiju“. Parādīsies dialoga paneļdiskusija ar divām dažādām iespējām, kā sākt jūsu novērtējumu.</p>
+
+<h4 id="sākt-riska-novērtējumu-no-nulles">Sākt riska novērtējumu no nulles</h4>
+
+<p>Izmantojiet šo opciju, lai sāktu ar tīru veidni, kad pirmo reizi veicat savu riska novērtējumu. Jūs varat izvēlēties rīku nolaižamajā izvēlnē, lai palīdzētu jums veikt novērtējumu.</p>
+
+<h4 id="duplication">Sākt, pamatojoties uz esošo riska novērtējumu.</h4>
+
+<p>Izmantojiet šo iespēju, ja jau iepriekš esat veicis riska novērtējumu ar noteiktu rīku. Varat atlasīt esošu riska novērtējumu, kuru vēlaties atkārtoti izmantot no riska novērtējuma nolaižamās izvēlnes, lai izmantotu to kā pamatu jaunam riska novērtējumam. Riska novērtējuma atkārtota izmantošana ir lietderīga, ja daudz kas nav mainījies, piemēram, ja ir jāatjaunina tikai atbildes uz dažiem jautājumiem vai konkrētas rīcības plāna daļas.</p>
+
+<p>Izvēloties šo variantu, tiek radīts dublikāts no atlasītā iepriekšējā riska novērtējuma.
+Bloķēto riska novērtējumu dublikāti pēc noklusējuma ir atbloķēti</p>
+
+<h3 id="sākt-no-rīku-lapas">Sākt no rīku lapas</h3>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../lv/illustrations/tools.html" scrolling="no">
+  </object>
+  <figcaption>Darbarīku lapa.</figcaption>
+</figure>
+
+<p>Jūs varat arī sākt riska novērtējumu ar pašu izvēlētu rīku no rīku pārskata lapas, kā arī no individuālas rīku lapas. Noklikšķiniet uz “Sākt riska novērtējumu”, lai izmantotu šo iespēju. Izmantojot šo opciju, varat arī izvēlēties, vai sākt jaunu riska novērtējumu no nulles vai balstīt to uz iepriekšēju novērtējumu. Novērtējuma nolaižamajā sarakstā parādās tikai tie riska novērtējumi, kas veikti ar to pašu rīku. Ja jūs nekad iepriekš neesat veicis riska novērtējumu ar atlasīto rīku, tad, noklikšķinot uz „Sākt riska novērtējumu“, uzreiz tiks uzsākts jauns riska novērtējums.</p>
 
 <h2 id="riska-novērtējuma-atvēršana">Riska novērtējuma atvēršana</h2>
 
-<p>Kad esat sācis riska novērtējumu, jūs jebkurā laikā varat izgūt to no infopaneļa sadaļā “Mani riska novērtējumi”. Šeit jūs varat arī sākt jaunu riska novērtējumu.</p>
+<p>Kad esat sācis riska novērtējumu, jūs jebkurā laikā varat izgūt to no infopaneļa sadaļā „Mani riska novērtējumi“. Šeit jūs varat arī sākt jaunu riska novērtējumu.</p>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../lv/illustrations/index-logged-in.html" scrolling="no">
@@ -190,25 +215,25 @@
 
 <h2 id="sagatavošanās">Sagatavošanās</h2>
 
-<p>Ar “Sagatavošanos” jūs sākat katru sesiju/rīku. Šeit jūs riska novērtējumam piešķirat nosaukumu, kas jums vēlāk palīdzēs atšķirt vairākus dažādus riska novērtējumus, kurus esat veicis ar šo rīku.</p>
+<p>Ar „Sagatavošanos“ jūs sākat katru sesiju/rīku. Šeit jūs riska novērtējumam piešķirat nosaukumu, kas jums vēlāk palīdzēs atšķirt vairākus dažādus riska novērtējumus, kurus esat veicis ar šo rīku.</p>
 
-<p>Saite “Uzzināt vairāk par šo rīku” sniedz papildu informāciju par izvēlēto rīku un tā izstrādē iesaistītajām personām.</p>
+<p>Saite „Uzzināt vairāk par šo rīku“ sniedz papildu informāciju par izvēlēto rīku un tā izstrādē iesaistītajām personām.</p>
 
-<p>Noklikšķinot uz “Sākt”, atkarībā no izmantotā rīka var tikt uzdoti daži papildu jautājumi. Šis sagatavošanas ekrāns ar “profila jautājumiem” parādās tikai tajos rīkos, kas piedāvā šo iespēju.</p>
+<p>Noklikšķinot uz „Sākt“, atkarībā no izmantotā rīka var tikt uzdoti daži papildu jautājumi. Šis sagatavošanas ekrāns ar „profila jautājumiem“ parādās tikai tajos rīkos, kas piedāvā šo iespēju.</p>
 
 <p>Šeit jūs varat:</p>
 <ul>
-  <li>atlasīt vai izlaist situāciju(-as) atkarībā no tā, vai tā(-s) attiecas uz jūsu uzņēmējdarbību. Attiecīgā gadījumā izvēlieties “jā”;</li>
+  <li>atlasīt vai izlaist situāciju(-as) atkarībā no tā, vai tā(-s) attiecas uz jūsu uzņēmējdarbību. Attiecīgā gadījumā izvēlieties „jā“;</li>
   <li>uzskaitīt vairākas uzņēmējdarbības vienības, filiāles vai veikalus utt. Saistītie riski tiks atkārtoti katram ierakstam.</li>
 </ul>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../lv/illustrations/profiling.html" scrolling="no">
   </object>
-  <figcaption>Ekrāns “Profils” sagatavošanās posmā</figcaption>
+  <figcaption>Ekrāns „Profils“ sagatavošanās posmā</figcaption>
 </figure>
 
-<p>Sagatavošanās posms ir ļoti svarīgs, jo tajā precīzi tiek definēts uzņēmējdarbības veids un saistītie riski, ar kādiem jūsu uzņēmums saskaras. Noklikšķinot uz “Saglabāt un turpināt”, jūs pāriesiet uz nākamo sadaļu “Iesaiste”.</p>
+<p>Sagatavošanās posms ir ļoti svarīgs, jo tajā precīzi tiek definēts uzņēmējdarbības veids un saistītie riski, ar kādiem jūsu uzņēmums saskaras. Noklikšķinot uz „Saglabāt un turpināt“, jūs pāriesiet uz nākamo sadaļu „Iesaiste“.</p>
 
 <p><strong>Piezīme.</strong>
 Daudziem rīkiem nav profila jautājumu, jo tie neizmanto šo funkciju. Šādā gadījumā šis ekrāns tiek automātiski izlaists.</p>
@@ -222,7 +247,7 @@ Daudziem rīkiem nav profila jautājumu, jo tie neizmanto šo funkciju. Šādā 
 <p>Šajā posmā jūs identificēsiet apdraudējumus un problēmas, kas attiecas uz jūsu uzņēmumu.</p>
 
 <p><strong>Piezīme.</strong>
-Atkarībā no tā, kā OiRA partneris ir konfigurējis rīku, šajā ekrānā var būt integrēts posms “Rīcības plāns” (sk. turpmāk). Šajā gadījumā visu posmu sauc par “Novērtējumu” un sadaļā “Rīcības plāns” aprakstītie elementi parādīsies pie katra riska identifikācijas un izvērtējuma.</p>
+Atkarībā no tā, kā OiRA partneris ir konfigurējis rīku, šajā ekrānā var būt integrēts posms „Rīcības plāns“ (sk. turpmāk). Šajā gadījumā visu posmu sauc par „Novērtējumu“ un sadaļā „Rīcības plāns“ aprakstītie elementi parādīsies pie katra riska identifikācijas un izvērtējuma.</p>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../lv/illustrations/2014-01-02-work-environment-site-related.html" scrolling="no">
@@ -230,16 +255,16 @@ Atkarībā no tā, kā OiRA partneris ir konfigurējis rīku, šajā ekrānā va
   <figcaption>Identifikācija un izvērtējums.</figcaption>
 </figure>
 
-<p>Ekrāna kreisajā pusē zem “Identifikācija + izvērtējums”/“Novērtējums” jūs varat redzēt katru no rīkā iekļautajiem tematiem/moduļiem. Temats, ko pašlaik aplūkojat, ir izcelts.</p>
+<p>Ekrāna kreisajā pusē zem „Identifikācija + izvērtējums“/„Novērtējums“ jūs varat redzēt katru no rīkā iekļautajiem tematiem/moduļiem. Temats, ko pašlaik aplūkojat, ir izcelts.</p>
 
 <h3 id="identifikācija">Identifikācija</h3>
 
 <p>Attiecībā uz katru risku jums ir jāizlemj, vai apgalvojums, kurā aprakstīts vēlamais stāvoklis, attiecas uz jūsu uzņēmumu. Jūs varat atbildēt šādi:</p>
 
 <ul>
-  <li>Jā: ja uz apgalvojumu atbildat ar “jā”, turpmāka rīcība nav nepieciešama, jo esat novērtējis risku kā neesošu.</li>
-  <li>Nē: ja uz apgalvojumu atbildat ar “nē”, ir vajadzīga turpmāka rīcība. Jums prasīs izlemt par konkrētiem pasākumiem.</li>
-  <li>Nepiemēro: dažos riska apgalvojumos ir dota iespēja izvēlēties “nepiemēro”, ja risks neattiecas uz jūsu uzņēmumu/iestādi.</li>
+  <li>Jā: ja uz apgalvojumu atbildat ar „jā“, turpmāka rīcība nav nepieciešama, jo esat novērtējis risku kā neesošu.</li>
+  <li>Nē: ja uz apgalvojumu atbildat ar „nē“, ir vajadzīga turpmāka rīcība. Jums prasīs izlemt par konkrētiem pasākumiem.</li>
+  <li>Nepiemēro: dažos riska apgalvojumos ir dota iespēja izvēlēties „nepiemēro“, ja risks neattiecas uz jūsu uzņēmumu/iestādi.</li>
 </ul>
 
 <p>Zem katra apgalvojuma parasti ir vairāk informācijas par konkrēto risku.</p>
@@ -299,7 +324,7 @@ Dažos OiRA rīkos izvērtējums nav parādīts. Tas ir atkarīgs no tā, kā va
 
 <h3 id="nozares-noteiktie-prioritārie-riski">Nozares noteiktie prioritārie riski:</h3>
 
-<p>Dažus riskus par ļoti svarīgiem uzskata valsts partneris / rīka izstrādātājs, kurš izveidojis konkrēto OiRA rīku. Jums nav jānovērtē šādi “prioritāri riski”, jo to prioritāte automātiski tiks noteikta kā “augsta”.</p>
+<p>Dažus riskus par ļoti svarīgiem uzskata valsts partneris / rīka izstrādātājs, kurš izveidojis konkrēto OiRA rīku. Jums nav jānovērtē šādi „prioritāri riski“, jo to prioritāte automātiski tiks noteikta kā „augsta“.</p>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../lv/illustrations/2014-01-06-exposure-to-noise-is-prevented-or-controlled.html" scrolling="no">
@@ -309,7 +334,7 @@ Dažos OiRA rīkos izvērtējums nav parādīts. Tas ir atkarīgs no tā, kā va
 
 <h3 id="specifiski-riski">Specifiski riski</h3>
 
-<p>Pēc tam, kad atbildēti visi riska temati sadaļā “Identifikācija un izvērtējums”/“Novērtējums”, jūs nonāksiet pie fakultatīvā temata “Citi riski”. Šeit poga “Pievienot specifisku risku” ļauj jums izveidot savus ierakstus.</p>
+<p>Pēc tam, kad atbildēti visi riska temati sadaļā „Identifikācija un izvērtējums“/„Novērtējums“, jūs nonāksiet pie fakultatīvā temata „Citi riski“. Šeit poga „Pievienot specifisku risku“ ļauj jums izveidot savus ierakstus.</p>
 
 <p>Ja rīkā nav norādīti riski, kas pastāv jūsu darba vietā/uzņēmumā, jums tie ir jāpievieno šeit. Jūs varat pilnībā definēt/frāzēt šos riskus.</p>
 
@@ -319,7 +344,7 @@ Dažos OiRA rīkos izvērtējums nav parādīts. Tas ir atkarīgs no tā, kā va
   <figcaption>Specifiski riski.</figcaption>
 </figure>
 
-<p>“Specifisks risks” ir ļoti līdzīgs OiRA rīka radītajiem riskiem, taču ir skaidrs, ka jums ir jāieraksta savs teksts. Šim tekstam ir jābūt vismaz īsam apgalvojumam, kurā apraksta problemātisku situāciju, paredzot iespēju sniegt garāku aprakstu. Jūs varat arī augšupielādēt attēlu, lai ilustrētu konkrētu situāciju.</p>
+<p>„Specifisks risks“ ir ļoti līdzīgs OiRA rīka radītajiem riskiem, taču ir skaidrs, ka jums ir jāieraksta savs teksts. Šim tekstam ir jābūt vismaz īsam apgalvojumam, kurā apraksta problemātisku situāciju, paredzot iespēju sniegt garāku aprakstu. Jūs varat arī augšupielādēt attēlu, lai ilustrētu konkrētu situāciju.</p>
 
 <p>Tāpat kā attiecībā uz parastajiem riskiem, jums ir jānorāda, vai risks pastāv. Tas jums ļaus atlasīt specifiskos riskus pēc tam, kad būsiet tos sekmīgi novērsis, bet tie tiks saglabāti jūsu riska novērtējumā dokumentēšanas nolūkā.</p>
 
@@ -336,7 +361,7 @@ Dažos OiRA rīkos izvērtējums nav parādīts. Tas ir atkarīgs no tā, kā va
 <p>Šajā posmā jūs izlemjat, kādus pasākumus vēlaties īstenot, lai novērstu vai mazinātu iepriekš identificētos riskus.</p>
 
 <p><strong>Piezīme</strong>:
-Kā minēts iepriekš, rīcības plāns ir parādīts kā atsevišķs posms izvēlnē kreisajā pusē vai parādās zem katra identificētā riska. Pēdējā minētajā gadījumā šis posms izvēlnē ir dēvēts par “novērtējumu” un ietver gan riska apgalvojumus, gan atbilžu izvēli.</p>
+Kā minēts iepriekš, rīcības plāns ir parādīts kā atsevišķs posms izvēlnē kreisajā pusē vai parādās zem katra identificētā riska. Pēdējā minētajā gadījumā šis posms izvēlnē ir dēvēts par „novērtējumu“ un ietver gan riska apgalvojumus, gan atbilžu izvēli.</p>
 
 <p>Tas, kāda versija jums ir nodrošināta, ir atkarīgs no valsts OiRA partnera / rīka izstrādātāja pieņemtajiem lēmumiem.</p>
 
@@ -348,7 +373,7 @@ Kā minēts iepriekš, rīcības plāns ir parādīts kā atsevišķs posms izv�
   <figcaption>Integrēts rīcības plāns.</figcaption>
 </figure>
 
-<p>Ja jūs atbildat uz jautājumu ar “nē”, rīcības plāna modulis atvērsies lapā zem virsraksta “Pasākumi”.</p>
+<p>Ja jūs atbildat uz jautājumu ar „nē“, rīcības plāna modulis atvērsies lapā zem virsraksta „Pasākumi“.</p>
 
 <p>Jūs varat izvēlēties pasākumus no sistēmas piedāvāto pasākumu saraksta vai definēt savus pasākumus.</p>
 
@@ -360,11 +385,11 @@ Kā minēts iepriekš, rīcības plāns ir parādīts kā atsevišķs posms izv�
   <figcaption>Ja rīcības plāns ir atsevišķs posms, tas būs pieejams, izmantojot navigāciju pa kreisi.</figcaption>
 </figure>
 
-<p>Noklikšķiniet uz pogas “Izveidot rīcības plānu”, lai sāktu savu plānu.</p>
+<p>Noklikšķiniet uz pogas „Izveidot rīcības plānu“, lai sāktu savu plānu.</p>
 
 <p>Rīcības plāna posmā izvēlne kreisajā pusē parāda tikai tos riskus, kas iezīmēti turpmākai rīcībai, jo pārējie riski tika atzīmēti kā neesoši.</p>
 
-<p>Attiecībā uz katru risku, par kuru novērtēšanas procesā atbildēts ar “nē”, un prioritārajiem riskiem (neatkarīgi no tā, vai atbilde ir apstiprinoša vai noraidoša) jums prasīs definēt pasākumus.</p>
+<p>Attiecībā uz katru risku, par kuru novērtēšanas procesā atbildēts ar „nē“, un prioritārajiem riskiem (neatkarīgi no tā, vai atbilde ir apstiprinoša vai noraidoša) jums prasīs definēt pasākumus.</p>
 
 <figure class="screenshot">
   <object class="pat-auto-scale" data="../../lv/illustrations/action-plan-action.html" scrolling="no">
@@ -382,7 +407,7 @@ Kā minēts iepriekš, rīcības plāns ir parādīts kā atsevišķs posms izv�
   <figcaption>Papildu pasākuma pievienošana.</figcaption>
 </figure>
 
-<p>Lai sāktu definēt preventīvu pasākumu, izmantojiet pogu “Pievienot pasākumu”. Jums ir:</p>
+<p>Lai sāktu definēt preventīvu pasākumu, izmantojiet pogu „Pievienot pasākumu“. Jums ir:</p>
 
 <ul>
   <li>jāapraksta vispārējā pieeja, kas tiks izmantota, lai novērstu vai mazinātu risku,</li>
@@ -396,9 +421,9 @@ Kā minēts iepriekš, rīcības plāns ir parādīts kā atsevišķs posms izv�
 
 <h4 id="pievienot-standarta-pasākumus">Pievienot standarta pasākumus</h4>
 
-<p>Atkarībā no tā, kā OiRA partneris / rīka izstrādātājs ir izveidojis rīku, individuāliem riskiem ir pieejami iepriekš definēti pasākumi. Lai izvēlētos vienu vai vairākus iepriekš definētus pasākumus, noklikšķiniet uz pogas “Atlasīt standarta pasākumus”.</p>
+<p>Atkarībā no tā, kā OiRA partneris / rīka izstrādātājs ir izveidojis rīku, individuāliem riskiem ir pieejami iepriekš definēti pasākumi. Lai izvēlētos vienu vai vairākus iepriekš definētus pasākumus, noklikšķiniet uz pogas „Atlasīt standarta pasākumus“.</p>
 
-<p>Atveras uznirstošā izvēlne, kurā redzami visi ieteiktie pasākumi. Noklikšķiniet uz pogas “Pievienot”, lai atzīmētu pasākumus, ko vēlaties izmantot.</p>
+<p>Atveras uznirstošā izvēlne, kurā redzami visi ieteiktie pasākumi. Noklikšķiniet uz pogas „Pievienot“, lai atzīmētu pasākumus, ko vēlaties izmantot.</p>
 
 <p>Iepriekš definētie pasākumi tad tiek uzskaitīti jūsu rīcības plānā. Apraksts par to, kas jādara, ir noteikts, bet pārējos laukus (atbildību, budžetu, datumus) varat aizpildīt jūs.</p>
 
@@ -409,6 +434,33 @@ Kā minēts iepriekš, rīcības plāns ir parādīts kā atsevišķs posms izv�
 </figure>
 
 <p>Gan standarta pasākumus, gan jūsu definētos pasākumus jūs varat atkal dzēst jebkurā brīdī.</p>
+
+<h2 id="training">Apmācība</h2>
+
+<p>Funkcija “Apmācības materiālu sagatavošana” ir izstrādāta, lai palīdzētu jums izveidot apmācības saturu, veicot riska novērtējumu. Tālāk sniegtie norādījumi jums palīdzēs, kā vislabāk izmantot šo funkciju:</p>
+
+<h3 id="apmācības-materiālu-automātiska-izstrāde">Apmācības materiālu automātiska izstrāde</h3>
+
+<p>Kad jūs veicat riska novērtējumu, sistēma vienlaicīgi apkopo mācību materiālus apakšfonā. Tas nodrošina, ka katrs riska novērtējums tiek apvienots ar atbilstošiem apmācības resursiem.</p>
+
+<h3 id="piekļuve-apmācības-sadaļai">Piekļuve apmācības sadaļai</h3>
+
+<p>Pie katra riska ir sadaļa “Apmācība”. Ja šī sadaļa nav automātiski paplašināta, varat noklikšķināt uz mazās bultiņas, lai parādītu pilnu saturu.</p>
+
+<h4 id="mācību-materiālu-rediģēšana">Mācību materiālu rediģēšana</h4>
+
+<p>Apmācību sadaļā jūs atradīsiet konkrētus pasākumus, kas saistīti ar šo risku. Katru pasākumu var atzīmēt kā būtisku materiālu jūsu kolēģu vai darbinieku apmācībai. Lai izvēlētos vai atceltu mērījumu, kas tiks vai netiks parādīts mācību materiālā, noklikšķiniet uz acs ikonas, kas atrodas blakus katram mērījumam. Pēc noklusējuma visi pasākumi ir iekļauti mācību materiālos.</p>
+
+<p>Mācību materiāli ietver šādus elementus:</p>
+
+<ul>
+  <li>Jau īstenoti pasākumi: Tie ir preventīvie pasākumi, kas jau ir ieviesti praksē, lai mazinātu risku.</li>
+  <li>Papildu pasākumi: Tie ir jebkādi papildu preventīvie pasākumi, kas izvēlēti, lai pārvaldītu risku.</li>
+  <li>Informācijas sadaļa: Ar katru risku saistītā informācija, kas sniedz sīkāku informāciju par tā būtību un iespējamo ietekmi.</li>
+  <li>Piezīmes. Ja ir piezīmes par konkrētu risku, tās pēc izvēles var iekļaut mācību materiālā, lai iegūtu papildu kontekstu vai ieskatu.</li>
+</ul>
+
+<p>Izvēloties attiecīgus pasākumus, jūs varat nodrošināt saviem darbiniekiem personalizētu apmācības pieredzi.</p>
 
 <h2 id="ziņojums">Ziņojums</h2>
 
@@ -437,6 +489,18 @@ Kā minēts iepriekš, rīcības plāns ir parādīts kā atsevišķs posms izv�
 </figure>
 
 <p>Ienākot statusa ekrānā, jūs varat redzēt, cik tālu esat pavirzījies uz priekšu katrā modulī. Tas jums var palīdzēt noteikt, kur vēl ir jānovērtē riski vai jāveic pasākumi attiecībā uz identificētajiem riskiem.</p>
+
+<h2 id="section-locking">Riska novērtējuma bloķēšana</h2>
+
+<p>Ja esat sasniedzis posmu, kurā jūsu riska novērtējums tiek uzskatīts par pabeigtu, varētu būt lietderīgi par to informēt pārējos darbiniekus jūsu organizācijā. Viens no veidiem, kā to izdarīt rīkā, ir bloķēt riska novērtējumu. Veiciet turpmāk minētos pasākumus, lai bloķētu riska novērtējumu:</p>
+
+<ol>
+  <li>Atveriet riska novērtējumu, nodrošinot, ka tas ir aktīvs jebkurā lapā, kas nav „Apmācība“ vai „Iestatījumi“.</li>
+  <li>Rīkjoslā noklikšķiniet uz bloķēšanas ikonas <span class="icon-lock-open"></span>.</li>
+  <li>Parādīsies izvēlne. Šajā izvēlnē izvēlieties “Bloķēt riska novērtējumu”.</li>
+</ol>
+
+<p>Kad šie soļi ir pabeigti, jūsu riska novērtējums tiek nekavējoties bloķēts, un tas ir redzams ar bloķēšanas ikonu, kas tagad redzama kā aizvērta <span class="icon-lock"></span>.</p>
 
 			</div>
 		</article>

@@ -57,6 +57,8 @@
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div 
+	class="
+		sidebar-left-open"
 	id="main">
 	<header 
 	id="toolbar">
@@ -80,7 +82,7 @@
 		
 		
 	
-				<a 
+				<!-- <a 
 					href="#osc" 
 					id="toggle-osc" 
 					class="iconified pat-toggle" 
@@ -89,7 +91,7 @@
 						value: osc-off osc-on 
 							&& 
 						selector: body; 
-						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a> -->
 	
 		
 
@@ -342,7 +344,9 @@
 
 <div 
 	id="main-content" 
-    class="variation-risk-assessment">
+    class="
+		
+		variation-risk-assessment">
     
 
 
@@ -382,6 +386,28 @@
 		 >Scroll to top</a>
     
 </div>
+
+<p
+    id="toggle-sidebar">
+    <span
+        class="open pat-switch"
+        data-pat-switch="
+			selector: #main; 
+			remove: sidebar-left-*; 
+			add: sidebar-left-open 
+				&& 
+			selector: #application-body-; 
+			remove: focus-*; add: focus-sidebar">Open sidebar</span>
+    <span
+        class="close pat-switch"
+        data-pat-switch="
+			selector: #main; 
+			remove: sidebar-left-*; 
+			add: sidebar-left-closed 
+				&& 
+			selector: #application-body-; 
+			remove: focus-*; add: focus-document">Close sidebar</span>
+</p>
 
 	</div>
 </div>

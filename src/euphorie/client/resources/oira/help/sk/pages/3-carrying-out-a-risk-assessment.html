@@ -57,6 +57,8 @@
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div 
+	class="
+		sidebar-left-open"
 	id="main">
 	<header 
 	id="toolbar">
@@ -75,7 +77,7 @@
 		
 		
 	
-				<a 
+				<!-- <a 
 					href="#osc" 
 					id="toggle-osc" 
 					class="iconified pat-toggle" 
@@ -84,7 +86,7 @@
 						value: osc-off osc-on 
 							&& 
 						selector: body; 
-						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a> -->
 	
 		
 
@@ -153,7 +155,30 @@
 				
 				<h2 id="starting-a-new-session">Starting a new session</h2>
 
-<p>To start a new risk assessment, click the link ‘Start a new session’.</p>
+<h3 id="z-ovládacieho-panelu">Z ovládacieho panelu</h3>
+
+<p>Nové hodnotenie rizík z domovskej stránky alebo „ovládacieho panelu“ nástroja OiRA začnete kliknutím na „Start a new session“ (Začať novú reláciu). Zobrazí sa dialógové okno s dvoma rôznymi možnosťami, ako začať hodnotenie.</p>
+
+<h4 id="začatie-hodnotenia-rizík-od-nuly">Začatie hodnotenia rizík od nuly</h4>
+
+<p>Ak hodnotenie rizík vykonávate po prvýkrát, použite túto možnosť , ktorá vám umožní začať s prázdnou šablónou. Z rozbaľovacej ponuky nástroja si môžete vybrať nástroj, ktorý vás prevedie hodnotením.</p>
+
+<h4 id="duplication">Na základe existujúceho hodnotenia rizík</h4>
+
+<p>Túto možnosť použite, ak ste už v minulosti vykonali hodnotenie rizík pomocou niektorého nástroja. Z rozbaľovacej ponuky hodnotenia rizík si môžete vybrať existujúce hodnotenie rizík, ktoré chcete znovu použiť ako základ pre nové hodnotenie rizík. Opätovné použitie hodnotenia rizík má zmysel v prípade, keď sa veľa nezmenilo, napr. keď musíte aktualizovať len odpovede na niektoré otázky alebo konkrétne časti akčného plánu.</p>
+
+<p>Pri výbere tejto možnosti sa vytvorí duplikát vybraného predchádzajúceho hodnotenia rizík.
+Duplikáty uzamknutých hodnotení rizík sú štandardne odomknuté.</p>
+
+<h3 id="zo-stránky-s-nástrojmi">Zo stránky s nástrojmi</h3>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../sk/illustrations/tools.html" scrolling="no">
+  </object>
+  <figcaption>Stránka s nástrojmi.</figcaption>
+</figure>
+
+<p>Hodnotenie rizík môžete začať aj pomocou nástroja podľa vlastného výberu zo stránky s prehľadom nástrojov, ako aj zo stránky jednotlivých nástrojov. V prípade výberu tejto možnosti kliknite na tlačidlo „Start risk assessment“ (Začať hodnotenie rizík). Ak si zvolíte tento spôsob, môžete sa tiež rozhodnúť, či začnete nové hodnotenie rizík úplne od začiatku alebo ho vypracujete na základe predchádzajúceho hodnotenia. V rozbaľovacej ponuke s hodnoteniami sa zobrazia len tie hodnotenia rizík, ktoré boli vykonané pomocou rovnakého nástroja. Ak ste ešte nikdy v minulosti nevykonali hodnotenie rizík pomocou vybraného nástroja, po kliknutí na tlačidlo „Start risk assessment“ (Začať hodnotenie rizík) sa hneď začne nové hodnotenie rizík.</p>
 
 <h2 id="opening-a-risk-assessment">Opening a risk assessment</h2>
 
@@ -410,6 +435,33 @@ As mentioned above, the action plan is presented as a separate step in the menu 
 
 <p>Both standard measures and measures defined by you can be deleted again at any point.</p>
 
+<h2 id="training">Odborná príprava</h2>
+
+<p>Funkcia „Preparing Training Material“ (Príprava školiacich materiálov) je navrhnutá tak, aby vám pomohla pri vytváraní školiacich materiálov pri hodnotení rizík. Vďaka nasledujúcim pokynom sa dozviete, ako túto funkciu čo najlepšie používať:</p>
+
+<h3 id="automatické-vytvorenie-školiacich-materiálov">Automatické vytvorenie školiacich materiálov</h3>
+
+<p>Keď vykonávate hodnotenie rizík, systém súčasne na pozadí zostavuje školiaci materiál. Tým sa zabezpečí, aby každé hodnotenie rizík bolo spojené so zodpovedajúcimi školiacimi zdrojmi.</p>
+
+<h3 id="prístup-do-časti-o-školeniach">Prístup do časti o školeniach</h3>
+
+<p>Pod každým rizikom sa nachádza časť „Training“ (Školenia). Ak sa táto časť automaticky nerozbalí, kliknutím na malú šípku sa zobrazí celý obsah.</p>
+
+<h4 id="úprava-školiaceho-materiálu">Úprava školiaceho materiálu</h4>
+
+<p>V časti o školeniach nájdete konkrétne opatrenia súvisiace s daným rizikom. Každé opatrenie možno označiť ako relevantný školiaci materiál pre vašich kolegov alebo zamestnancov. Ak chcete vybrať alebo odstrániť opatrenie, ktoré sa má alebo nemá zobraziť v školiacom materiáli, kliknite na ikonu oka vedľa každého opatrenia. Štandardne sú medzi školiacimi materiálmi zahrnuté všetky opatrenia.</p>
+
+<p>Školiaci materiál obsahuje tieto položky:</p>
+
+<ul>
+  <li>Už zavedené opatrenia: Ide o preventívne opatrenia, ktoré už boli zavedené do praxe na zmiernenie rizika.</li>
+  <li>Dodatočné opatrenia: Ide o všetky dodatočné preventívne opatrenia, ktoré boli zvolené na riadenie rizika.</li>
+  <li>Časť s informáciami: Informácie súvisiace s každým rizikom, ktoré poskytujú podrobnosti o jeho povahe a potenciálnych vplyvoch.</li>
+  <li>Poznámky: Ak existujú akékoľvek poznámky týkajúce sa konkrétneho rizika, môžu sa nepovinne zahrnúť do školiaceho materiálu, čím sa získajú dodatočné súvislosti alebo ďalšie preniknutie do podstaty veci.</li>
+</ul>
+
+<p>Výberom príslušných opatrení môžete zabezpečiť personalizované školenia pre svojich zamestnancov.</p>
+
 <h2 id="report">Report</h2>
 
 <p>After finalising the action plan, you can produce a report.</p>
@@ -437,6 +489,18 @@ As mentioned above, the action plan is presented as a separate step in the menu 
 </figure>
 
 <p>When you enter the status screen, you can see how far you have progressed in each module. This can help you note where you still need to assess risks or provide measures for those risks that you have identified.</p>
+
+<h2 id="section-locking">Uzamknutie hodnotenia rizík</h2>
+
+<p>Ak ste dosiahli fázu, v ktorej sa hodnotenie rizík považuje za ukončené, je užitočné, ak o tom informujete zvyšok svojej organizácie. Jedným zo spôsobov, ako to v rámci nástroja docieliť, je uzamknutie hodnotenia rizík. Na uzamknutie hodnotenia rizík postupujte takto:</p>
+
+<ol>
+  <li>Otvorte hodnotenie rizika a dbajte, aby bolo aktívne na akejkoľvek stránke okrem „Training“ (Školenia) alebo „Settings“ (Nastavenia).</li>
+  <li>Na paneli nástrojov kliknite na ikonu zámky <span class="icon-lock-open"></span>.</li>
+  <li>Zobrazí sa ponuka. V tejto ponuke vyberte „Lock risk assessment“ (Uzamknúť hodnotenie rizík).</li>
+</ol>
+
+<p>Po dokončení týchto krokov sa vaše hodnotenie rizík okamžite uzamkne, čo je viditeľné podľa ikony uzamknutia, ktorá sa teraz zobrazí ako uzamknutá <span class="icon-lock"></span>.</p>
 
 			</div>
 		</article>

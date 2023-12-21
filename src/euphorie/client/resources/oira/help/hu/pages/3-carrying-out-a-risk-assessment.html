@@ -57,6 +57,8 @@
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div 
+	class="
+		sidebar-left-open"
 	id="main">
 	<header 
 	id="toolbar">
@@ -75,7 +77,7 @@
 		
 		
 	
-				<a 
+				<!-- <a 
 					href="#osc" 
 					id="toggle-osc" 
 					class="iconified pat-toggle" 
@@ -84,7 +86,7 @@
 						value: osc-off osc-on 
 							&& 
 						selector: body; 
-						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a>
+						value: osc-s-off osc-s-on;">Toggle risk assessment browser</a> -->
 	
 		
 
@@ -153,7 +155,30 @@
 				
 				<h2 id="starting-a-new-session">Starting a new session</h2>
 
-<p>To start a new risk assessment, click the link ‘Start a new session’.</p>
+<h3 id="az-irányítópultról">Az irányítópultról</h3>
+
+<p>Új kockázatértékelés indításához kattintson az OiRA kezdőképernyőjén vagy irányítópultján található „Új munkamenet indítása” gombra. Megjelenik egy párbeszédpanel, amely két különböző lehetőséget kínál a kockázatértékelés megkezdésére.</p>
+
+<h4 id="kockázatértékelés-megkezdése-a-nulláról">Kockázatértékelés megkezdése a nulláról</h4>
+
+<p>Válassza ezt a lehetőséget, ha először végez kockázatértékelést és tiszta sablonnal szeretné kezdeni a kockázatértékelést. Az eszközök legördülő menüjéből választhat olyan eszközt, amely végigvezeti Önt az értékelés folyamatán.</p>
+
+<h4 id="duplication">Egy, már meglévő kockázatértékelés alapján</h4>
+
+<p>Válassza ezt a lehetőséget, ha korábban már végzett kockázatértékelést egy bizonyos eszközzel. A kockázatértékelések legördülő menüjéből kiválaszthat egy már meglévő kockázatértékelést, amelyet újra szeretne használni egy új kockázatértékelés alapjaként. Egy kockázatértékelés újbóli használatának akkor van értelme, ha nem sok minden változott, például ha néhány kérdésre adott választ vagy a cselekvési terv egyes részeit kell csak frissíteni.</p>
+
+<p>Ha ezt az opciót választja, a rendszer másolatot készít a kiválasztott korábbi kockázatértékelésről.
+A lezárt kockázatértékelések másolatait alapértelmezés szerint feloldják.</p>
+
+<h3 id="az-eszközök-oldalról">Az eszközök oldalról</h3>
+
+<figure class="screenshot">
+  <object class="pat-auto-scale" data="../../hu/illustrations/tools.html" scrolling="no">
+  </object>
+  <figcaption>Az eszközök oldal.</figcaption>
+</figure>
+
+<p>A kockázatértékelést az eszközök áttekintő oldaláról, valamint az egyes eszközök oldaláról is elindíthatja az Ön által kiválasztott eszközzel. Ehhez az opcióhoz kattintson a „Kockázatértékelés megkezdése” gombra. Itt is választhat, hogy új kockázatértékelést indít a nulláról vagy egy korábbi értékelésre alapozza azt. A kockázatértékelések legördülő menüjében csak az ugyanazzal az eszközzel készített kockázatértékelések jelennek meg. Ha a kiválasztott eszközzel még soha nem készített kockázatértékelést, akkor a “Kockázatértékelés indítása” gombra kattintva azonnal elindul egy új kockázatértékelés.</p>
 
 <h2 id="opening-a-risk-assessment">Opening a risk assessment</h2>
 
@@ -410,6 +435,33 @@ As mentioned above, the action plan is presented as a separate step in the menu 
 
 <p>Both standard measures and measures defined by you can be deleted again at any point.</p>
 
+<h2 id="training">Képzés</h2>
+
+<p>A „Képzési anyag előkészítése” funkciót úgy tervezték, hogy a kockázatértékelés során segítsen Önnek a képzési tartalom létrehozásában. A következő utasítások útmutatást nyújtanak arról, hogyan használhatja legjobban ezt a funkciót:</p>
+
+<h3 id="képzési-anyagok-automatikus-létrehozása">Képzési anyagok automatikus létrehozása</h3>
+
+<p>Miközben Ön kockázatértékelést végez, a rendszer egyidejűleg képzési anyagokat állít össze a háttérben. Ez biztosítja, hogy minden kockázatértékelés megfelelő képzési forrásokkal párosuljon.</p>
+
+<h3 id="hozzáférés-a-képzési-szakaszhoz">Hozzáférés a képzési szakaszhoz</h3>
+
+<p>Minden kockázat alatt található egy „Képzés” szakasz. Ha ez a rész nem jelenik meg automatikusan, a teljes tartalom megjelenítéséhez kattintson a kis nyílra.</p>
+
+<h4 id="a-képzési-anyag-szerkesztése">A képzési anyag szerkesztése</h4>
+
+<p>A képzési szakaszon belül megtalálja az adott kockázathoz kapcsolódó konkrét intézkedéseket. Minden intézkedés megjelölhető mint a kollégák vagy alkalmazottak képzése szempontjából releváns anyag. Annak kiválasztásához, hogy egy intézkedés szerepeljen/ne szerepeljen a képzési anyagban, kattintson az egyes intézkedések melletti szem ikonra. Alapértelmezés szerint a képzési anyag az összes intézkedést tartalmazza.</p>
+
+<p>A képzési anyag a következő elemeket tartalmazza:</p>
+
+<ul>
+  <li>Már végrehajtott intézkedések: Ezek azok a megelőző intézkedések, amelyeket a kockázat csökkentése érdekében már átültettek a gyakorlatba.</li>
+  <li>További intézkedések: Ezek a kockázat kezelésére kiválasztott, további megelőző intézkedések.</li>
+  <li>Információs rész: Az egyes kockázatokhoz kapcsolódó információk, amelyek részletesen ismertetik e kockázatok jellegét és lehetséges hatásait.</li>
+  <li>Megjegyzések: Ha egy adott kockázatra vonatkozóan megjegyzések állnak rendelkezésre, ezeket további kontextusként vagy meglátásként opcionálisan be lehet illeszteni a képzési anyagba.</li>
+</ul>
+
+<p>A megfelelő intézkedések kiválasztásával alkalmazottai számára személyre szabott képzési élményt biztosíthat.</p>
+
 <h2 id="report">Report</h2>
 
 <p>After finalising the action plan, you can produce a report.</p>
@@ -437,6 +489,18 @@ As mentioned above, the action plan is presented as a separate step in the menu 
 </figure>
 
 <p>When you enter the status screen, you can see how far you have progressed in each module. This can help you note where you still need to assess risks or provide measures for those risks that you have identified.</p>
+
+<h2 id="section-locking">A kockázatértékelés lezárása</h2>
+
+<p>Ha eljutott odáig, hogy a kockázatértékelése véglegesnek tekinthető, hasznos lehet, ha erről tájékoztatja szervezetének többi tagját. Ennek egyik módja az eszközben a kockázatértékelés lezárása. A kockázatértékelés lezárásához kövesse az alábbi lépéseket:</p>
+
+<ol>
+  <li>Nyissa meg a kockázatértékelést, biztosítva, hogy az aktív legyen minden olyan oldalon, amely nem minősül „Képzésnek” vagy „Beállításnak”.</li>
+  <li>Az eszköztáron kattintson a zár ikonra <span class="icon-lock-open"></span>.</li>
+  <li>A megjelenő menüből válassza ki a „Kockázatértékelés lezárása” opciót.</li>
+</ol>
+
+<p>E lépések elvégzése után a kockázatértékelés azonnal lezárul, amit a zár ikon láthatóvá tesz, amely mostantól zártként jelenik meg <span class="icon-lock"></span>.</p>
 
 			</div>
 		</article>
