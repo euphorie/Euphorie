@@ -3239,7 +3239,7 @@ msgstr "Setturi"
 #. Default: "Settings"
 #: euphorie/content/browser/templates/sector_edit.pt:13
 msgid "header_settings"
-msgstr "Settings"
+msgstr "Konfigurazzjonijiet"
 
 #. Default: "Standard measures"
 #: euphorie/content/browser/templates/risk_view.pt:132

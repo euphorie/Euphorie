@@ -5560,7 +5560,7 @@ msgstr "Importovat nástroj OiRA"
 #: euphorie/client/browser/templates/webhelpers.pt:647
 #: euphorie/client/browser/webhelpers.py:1407
 msgid "menu_training"
-msgstr ""
+msgstr "Odborná příprava"
 
 #. Default: "You are already a member of the ${name} organisation."
 #: euphorie/client/browser/organisation.py:508
