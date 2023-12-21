@@ -4,7 +4,8 @@ Changelog
 15.1.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix obsolete import
+  [ale-rt]
 
 
 15.1.1 (2023-12-13)
