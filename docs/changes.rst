@@ -1,7 +1,13 @@
 Changelog
 =========
 
-15.1.2 (unreleased)
+15.2.1 (unreleased)
+-------------------
+
+- Nothing changed yet.
+
+
+15.2.0 (2024-01-08)
 -------------------
 
 - Fix obsolete import
