@@ -1051,7 +1051,7 @@ msgstr "Risico"
 
 #: euphorie/client/browser/templates/history_popup.pt:17
 msgid "Risk assessment history"
-msgstr "Historiek risicoanalyse"
+msgstr "Historie risicoanalyse"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "Risk assessments"
