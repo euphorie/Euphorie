@@ -4,7 +4,8 @@ Changelog
 15.2.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Update nl translations.
+  [ale-rt]
 
 
 15.2.0 (2024-01-08)
