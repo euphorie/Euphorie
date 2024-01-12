@@ -1451,7 +1451,7 @@ class Risk(SurveyTreeItem):
     image_data = schema.Column(types.LargeBinary())
     image_data_scaled = schema.Column(types.LargeBinary())
     image_filename = schema.Column(types.UnicodeText())
-    multiple_answers = schema.Column(types.UnicodeText())
+    scaled_answer = schema.Column(types.UnicodeText())
 
     @memoize
     def measures_of_type(self, plan_type):
@@ -1840,8 +1840,8 @@ RISK_PRESENT_FILTER_TOP5_TNO_FILTER = sql.and_(
     ),
 )
 
-# When using multiple answers (1-5), these values mean the risk is present:
-MULTIPLE_ANSWERS_RISK_PRESENT = ("1", "2")
+# When using scaled answers (1-5), these values mean the risk is present:
+SCALED_ANSWER_RISK_PRESENT = ("1", "2")
 
 
 def _RISK_PRESENT_OR_TOP5_FILTER_factory():
@@ -1854,7 +1854,7 @@ def _RISK_PRESENT_OR_TOP5_FILTER_factory():
                     Risk_.sql_risk_id == SurveyTreeItem.id,
                     sql.or_(
                         Risk_.identification == "no",
-                        Risk_.multiple_answers.in_(MULTIPLE_ANSWERS_RISK_PRESENT),
+                        Risk_.scaled_answer.in_(SCALED_ANSWER_RISK_PRESENT),
                         Risk_.risk_type == "top5",
                     ),
                 )

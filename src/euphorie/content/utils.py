@@ -428,8 +428,8 @@ class UserExportCSV(BrowserView):
         return csv_data
 
 
-def parse_multiple_answers(contents):
-    """Get values and answers from a multiple_answers risk field.
+def parse_scaled_answers(contents):
+    """Get values and answers from a scaled_answers risk field.
 
     You pass the contents of the field: a multi-line string.
 

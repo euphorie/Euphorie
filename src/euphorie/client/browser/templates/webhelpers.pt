@@ -295,11 +295,11 @@
                  value="postponed"
           />
 
-          <!-- Multiple answers -->
-          <tal:multiple_answers condition="risk/use_multiple_answers|nothing">
-            <label tal:repeat="answer view/multiple_answers">
-              <input checked="${python:'checked' if context.multiple_answers==value else None}"
-                     name="multiple_answers"
+          <!-- scaled answers -->
+          <tal:scaled_answers condition="risk/use_scaled_answer|nothing">
+            <label tal:repeat="answer view/scaled_answers">
+              <input checked="${python:'checked' if context.scaled_answer==value else None}"
+                     name="scaled_answer"
                      type="radio"
                      value="${value}"
                      tal:define="
@@ -310,16 +310,16 @@
             </label>
             <label class="not-applicable"
                    tal:condition="risk/show_notapplicable|nothing"
-            ><input checked="${python:'checked' if context.identification=='n/a' else None}"
-                     name="multiple_answers"
+            ><input checked="${python:'checked' if context.scaled_answer=='n/a' else None}"
+                     name="scaled_answer"
                      type="radio"
                      value="n/a"
               /><tal:answer replace="structure view/answer_na" /></label>
 
-          </tal:multiple_answers>
+          </tal:scaled_answers>
 
           <!-- Yes/No -->
-          <tal:yes_no condition="not:risk/use_multiple_answers|nothing">
+          <tal:yes_no condition="not:risk/use_scaled_answer|nothing">
 
             <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
                      name="answer"

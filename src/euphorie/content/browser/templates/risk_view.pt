@@ -118,12 +118,12 @@
               <dd tal:content="view/default_effect">Low</dd>
             </tal:kinney>
           </tal:block>
-          <tal:multiple_answers condition="context/use_multiple_answers|nothing">
-            <dt i18n:translate="">Use multiple answers instead of Yes/No</dt>
+          <tal:scaled_answers condition="context/use_scaled_answer|nothing">
+            <dt i18n:translate="">Use scaled answers instead of Yes/No</dt>
             <dd>
-              <ul><li tal:repeat="answer view/multiple_answers">${answer/text} (${answer/value})</li></ul>
+              <ul><li tal:repeat="answer view/scaled_answers">${answer/text} (${answer/value})</li></ul>
             </dd>
-          </tal:multiple_answers>
+          </tal:scaled_answers>
         </tal:block>
       </dl>
       <hr class="clear" />

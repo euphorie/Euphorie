@@ -18,7 +18,7 @@ from euphorie.client.subscribers.imagecropping import _initial_size
 from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import IToolTypesInfo
-from euphorie.content.utils import parse_multiple_answers
+from euphorie.content.utils import parse_scaled_answers
 from htmllaundry import StripMarkup
 from io import BytesIO
 from plone import api
@@ -390,14 +390,14 @@ class RiskBase(BrowserView):
 
     @property
     @memoize
-    def multiple_answers(self):
-        """Get values and answers if the multiple_answers field is used.
+    def scaled_answers(self):
+        """Get values and answers if the scaled_answers field is used.
 
         This returns a list of dictionaries.
         """
-        if not getattr(self.risk, "use_multiple_answers", False):
+        if not getattr(self.risk, "use_scaled_answer", False):
             return []
-        return parse_multiple_answers(self.risk.multiple_answers)
+        return parse_scaled_answers(self.risk.scaled_answers)
 
 
 class IdentificationView(RiskBase):
@@ -421,7 +421,7 @@ class IdentificationView(RiskBase):
     always_present_answer = "no"
 
     monitored_properties = {
-        "multiple_answers": None,
+        "scaled_answer": None,
         "identification": None,
         "postponed": None,
         "frequency": None,
@@ -491,11 +491,11 @@ class IdentificationView(RiskBase):
         condition = "condition: answer=no"
         if self.italy_special and not self.skip_evaluation:
             condition = "condition: answer=no or answer=yes"
-        if getattr(self.risk, "use_multiple_answers", False):
+        if getattr(self.risk, "use_scaled_answer", False):
             # TODO check if we need to do anything with italy_special in this case.
             conditions = [
-                f"multiple_answers={answer}"
-                for answer in model.MULTIPLE_ANSWERS_RISK_PRESENT
+                f"scaled_answer={answer}"
+                for answer in model.SCALED_ANSWER_RISK_PRESENT
             ]
             condition = "condition: " + " or ".join(conditions)
         return condition
@@ -622,15 +622,15 @@ class IdentificationView(RiskBase):
         """Set answer data from the reply.
 
         For years the only answer possibilities were yes, no, n/a or postponed.
-        Now we may have an extra field multiple_answers, for answers in the
+        Now we may have an extra field scaled_answer, for answers in the
         range of (usually) 1-5.
         We might want to merge these two possibilities, but for now they are
         separate.
-        Currently, when multiple_answers is in the reply, we also get
-        'postponed' as answer.  We can ignore this: multiple_answers is filled
+        Currently, when scaled_answer is in the reply, we also get
+        'postponed' as answer.  We can ignore this: scaled_answer is filled
         in, so the answer is not postponed.
         We make sure that either 'identification' is set (yes/no) or
-        'multiple_answers' is set (1-5), and the other None.
+        'scaled_answer' is set (1-5), and the other None.
         Or both None in the case the answer is really postponed.
         """
         answer = reply.get("answer", None)
@@ -640,14 +640,14 @@ class IdentificationView(RiskBase):
         if not answer:
             return
         self.context.comment = self.webhelpers.get_safe_html(reply.get("comment"))
-        multiple_answers = reply.get("multiple_answers", None)
-        if multiple_answers:
+        scaled_answer = reply.get("scaled_answer", None)
+        if scaled_answer:
             # We have an answer on the scale of 1-5 (or similar).
             self.context.postponed = False
             self.context.identification = None
-            self.context.multiple_answers = multiple_answers
+            self.context.scaled_answer = scaled_answer
         else:
-            self.context.multiple_answers = None
+            self.context.scaled_answer = None
             self.context.postponed = answer == "postponed"
             if self.context.postponed:
                 self.context.identification = None
@@ -1223,15 +1223,15 @@ class ActionPlanView(RiskBase):
 
     @property
     def risk_present(self):
-        if self.context.multiple_answers is not None:
-            return self.context.multiple_answers in model.MULTIPLE_ANSWERS_RISK_PRESENT
+        if self.context.scaled_answer is not None:
+            return self.context.scaled_answer in model.SCALED_ANSWER_RISK_PRESENT
         return self.context.identification == "no"
 
     @property
     def risk_postponed(self):
         return (
             self.context.identification is None
-            and self.context.multiple_answers is None
+            and self.context.scaled_answer is None
             # We had this as well, but this is always true:
             # and ((self.italy_special and self.context.postponed) or True)
         )
@@ -1246,15 +1246,15 @@ class ActionPlanView(RiskBase):
         return bool(text.strip())
 
     @property
-    def multiple_answer_chosen(self):
-        if not self.risk.use_multiple_answers:
+    def scaled_answer_chosen(self):
+        if not self.risk.use_scaled_answer:
             return ""
-        if self.context.multiple_answers is None:
+        if self.context.scaled_answer is None:
             return ""
-        answer = self.context.multiple_answers
+        answer = self.context.scaled_answer
         # answer is a string like '1'.
         # Use it to find the textual representation of the answer.
-        for info in self.multiple_answers:
+        for info in self.scaled_answer:
             # Note: currently both info value and answer are strings ('1', '2', etc).
             if info["value"] == answer:
                 return info
