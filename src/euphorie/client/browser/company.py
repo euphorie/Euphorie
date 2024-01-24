@@ -197,15 +197,13 @@ class Company(AutoExtensibleForm, form.Form):
 
     @property
     def default_company_values(self):
-        """The values we use to create a new company.
-        """
+        """The values we use to create a new company."""
         return {"session": self.session}
 
     @property
     @memoize
     def company(self):
-        """ Get or create the company object for this session.
-        """
+        """Get or create the company object for this session."""
         company = (
             model.Session.query(self.company_class)
             .filter(self.company_class.session == self.session)
@@ -225,7 +223,6 @@ class Company(AutoExtensibleForm, form.Form):
     )
     def _assertCompany(self):
         return
-
 
     def countries(self):
         names = [
