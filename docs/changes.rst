@@ -4,8 +4,11 @@ Changelog
 15.2.1 (unreleased)
 -------------------
 
-- Update nl translations.
+- Allow the company model to be customized by other packages.
   [ale-rt]
+
+- Update nl translations.
+  [ale-rt, angeldasangel]
 
 
 15.2.0 (2024-01-08)

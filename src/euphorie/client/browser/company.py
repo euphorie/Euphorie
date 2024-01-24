@@ -18,6 +18,7 @@ from z3c.form import button
 from z3c.form import form
 from z3c.form.form import applyChanges
 from zope import schema
+from zope.deprecation import deprecate
 from zope.interface import directlyProvides
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
@@ -188,19 +189,43 @@ class Company(AutoExtensibleForm, form.Form):
     schema = CompanySchema
     company = None
     template = ViewPageTemplateFile("templates/report_company.pt")
+    company_class = model.Company
 
     @property
     def session(self):
         return self.context.session
 
+    @property
+    def default_company_values(self):
+        """The values we use to create a new company.
+        """
+        return {"session": self.session}
+
+    @property
+    @memoize
+    def company(self):
+        """ Get or create the company object for this session.
+        """
+        company = (
+            model.Session.query(self.company_class)
+            .filter(self.company_class.session == self.session)
+            .first()
+        )
+        if not company:
+            company = self.company_class(**self.default_company_values)
+
+        # This is used to make the company object the context of the form
+        directlyProvides(company, self.schema)
+        return company
+
+    @deprecate(
+        "Deprecated in version 15.2.1.dev0. "
+        "This was a trick to add the company attribute to the instance. "
+        "Now company is a property."
+    )
     def _assertCompany(self):
-        if self.company is not None:
-            return
-        session = self.session
-        if session.company is None:
-            session.company = model.Company()
-        directlyProvides(session.company, CompanySchema)
-        self.company = session.company
+        return
+
 
     def countries(self):
         names = [
