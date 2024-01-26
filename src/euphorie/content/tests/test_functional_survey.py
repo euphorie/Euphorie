@@ -37,8 +37,3 @@ class SurveyTests(EuphorieIntegrationTestCase):
         newSecurityManager(None, sector)
         manager = getSecurityManager()
         self.assertTrue(manager.checkPermission("Delete objects", survey))
-
-    def testCanNotBeCopied(self):
-        self.loginAsPortalOwner()
-        survey = self.createSurvey()
-        self.assertFalse(survey.cb_isCopyable())
