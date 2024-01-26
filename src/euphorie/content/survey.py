@@ -231,10 +231,6 @@ class Survey(Container):
 
     dirty = False
 
-    def _canCopy(self, op=0):
-        """Tell Zope2 that this object can not be copied."""
-        return op
-
     def _get_id(self, orig_id):
         """Pick an id for pasted content."""
         frame = sys._getframe(1)
