@@ -13,7 +13,6 @@ from euphorie.client import MessageFactory as _
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.interfaces import ObjectPublishedEvent
 from euphorie.content.utils import IToolTypesInfo
-from OFS.event import ObjectWillBeRemovedEvent
 from plone import api
 from plone.scale.storage import AnnotationStorage
 from plonetheme.nuplone.utils import getPortal
@@ -92,30 +91,21 @@ def CopyToClient(survey, preview=False):
     # Clear any scaled logos
     AnnotationStorage(target).storage.clear()
 
-    copy = source._getCopy(target)
     if preview:
-        copy.id = "preview"
+        new_id = "preview"
     else:
-        copy.id = surveygroup.id
+        new_id = surveygroup.id
+    if new_id in target:
+        api.content.delete(obj=target[new_id])
+
+    copy = api.content.copy(source, target, id=new_id)
     copy.title = surveygroup.title
     copy.obsolete = surveygroup.obsolete
     copy.evaluation_algorithm = surveygroup.evaluation_algorithm
     copy.version = source.id
     copy.published = datetime.datetime.now()
     copy.preview = preview
-
-    if copy.id in target:
-        # We must suppress events to prevent the can-not-delete-published-
-        # content check from blocking us.
-        # XXX: We need however the ObjectWillBeRemovedEvent event to be called
-        # otherwise the removed objects are not uncatalogged.
-        to_delete = target._getOb(copy.id)
-        notify(ObjectWillBeRemovedEvent(to_delete, target, copy.id))
-        target._delObject(copy.id, suppress_events=True)
-
-    target._setObject(copy.id, copy, suppress_events=True)
-    copy = target[copy.id]
-    copy._postCopy(target, op=0)
+    copy.reindexObject()
 
     notify(ObjectPublishedEvent(source))
     return copy
