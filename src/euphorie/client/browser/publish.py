@@ -4,16 +4,12 @@ Publish
 
 Copy and publish Surveys from the admin to the client database.
 """
-from AccessControl.SecurityManagement import getSecurityManager
-from AccessControl.SecurityManagement import newSecurityManager
-from AccessControl.SecurityManagement import setSecurityManager
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.client import MessageFactory as _
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.interfaces import ObjectPublishedEvent
 from euphorie.content.utils import IToolTypesInfo
-from OFS.event import ObjectWillBeRemovedEvent
 from plone import api
 from plone.scale.storage import AnnotationStorage
 from plonetheme.nuplone.utils import getPortal
@@ -92,30 +88,21 @@ def CopyToClient(survey, preview=False):
     # Clear any scaled logos
     AnnotationStorage(target).storage.clear()
 
-    copy = source._getCopy(target)
     if preview:
-        copy.id = "preview"
+        new_id = "preview"
     else:
-        copy.id = surveygroup.id
+        new_id = surveygroup.id
+    if new_id in target:
+        api.content.delete(obj=target[new_id])
+
+    copy = api.content.copy(source, target, id=new_id)
     copy.title = surveygroup.title
     copy.obsolete = surveygroup.obsolete
     copy.evaluation_algorithm = surveygroup.evaluation_algorithm
     copy.version = source.id
     copy.published = datetime.datetime.now()
     copy.preview = preview
-
-    if copy.id in target:
-        # We must suppress events to prevent the can-not-delete-published-
-        # content check from blocking us.
-        # XXX: We need however the ObjectWillBeRemovedEvent event to be called
-        # otherwise the removed objects are not uncatalogged.
-        to_delete = target._getOb(copy.id)
-        notify(ObjectWillBeRemovedEvent(to_delete, target, copy.id))
-        target._delObject(copy.id, suppress_events=True)
-
-    target._setObject(copy.id, copy, suppress_events=True)
-    copy = target[copy.id]
-    copy._postCopy(target, op=0)
+    copy.reindexObject()
 
     notify(ObjectPublishedEvent(source))
     return copy
@@ -170,22 +157,17 @@ def PublishToClient(survey, preview=False):
     the currently active Zope user to make sure content can be created in the
     client.
     """
-    pas = getToolByName(survey, "acl_users")
-    clientuser = pas.getUserById("client")
-    sm = getSecurityManager()
     tti = getUtility(IToolTypesInfo)
     tool_types_info = tti()
     tool_type_data = tool_types_info.get(
         survey.tool_type, tool_types_info.get(tti.default_tool_type)
     )
-    try:
-        newSecurityManager(None, clientuser)
-        survey = CopyToClient(survey, preview)
-        if tool_type_data.get("use_omega_risks", True):
-            EnableCustomRisks(survey)
-        survey.published = (survey.id, survey.title, datetime.datetime.now())
-    finally:
-        setSecurityManager(sm)
+    with api.env.adopt_user("client"):
+        with api.env.adopt_roles(["Manager"]):
+            survey = CopyToClient(survey, preview)
+            if tool_type_data.get("use_omega_risks", True):
+                EnableCustomRisks(survey)
+    survey.published = (survey.id, survey.title, datetime.datetime.now())
     return survey
 
 
@@ -206,28 +188,23 @@ def handleSurveyUnpublish(survey, event):
     sector = aq_parent(surveygroup)
     country = aq_parent(sector)
 
-    pas = getToolByName(survey, "acl_users")
-    clientuser = pas.getUserById("client")
-    sm = getSecurityManager()
-    try:
-        newSecurityManager(None, clientuser)
-        client = getPortal(survey).client
-        try:
-            clientcountry = client[country.id]
-            clientsector = clientcountry[sector.id]
-            clientsector[surveygroup.id]
-        except KeyError:
-            log.info(
-                "Trying to unpublish unpublished survey %s",
-                "/".join(survey.getPhysicalPath()),
-            )
-            return
+    with api.env.adopt_user("client"):
+        with api.env.adopt_roles(["Manager"]):
+            client = getPortal(survey).client
+            try:
+                clientcountry = client[country.id]
+                clientsector = clientcountry[sector.id]
+                clientsector[surveygroup.id]
+            except KeyError:
+                log.info(
+                    "Trying to unpublish unpublished survey %s",
+                    "/".join(survey.getPhysicalPath()),
+                )
+                return
 
-        clientsector.manage_delObjects([surveygroup.id])
-        if not clientsector.keys():
-            clientcountry.manage_delObjects([clientsector.id])
-    finally:
-        setSecurityManager(sm)
+            clientsector.manage_delObjects([surveygroup.id])
+            if not clientsector.keys():
+                clientcountry.manage_delObjects([clientsector.id])
 
 
 class PublishSurvey(form.Form):

@@ -38,7 +38,7 @@ class PublishTests(EuphorieFunctionalTestCase):
         self.assertEqual(survey.objectIds(), copy.objectIds())
 
         brains = survey.portal_catalog(portal_type="euphorie.risk")
-        self.assertEqual(len(brains), 1)
+        self.assertEqual(len(brains), 2)
 
         self.survey.manage_delObjects(["1"])
         copy = publish.CopyToClient(survey)

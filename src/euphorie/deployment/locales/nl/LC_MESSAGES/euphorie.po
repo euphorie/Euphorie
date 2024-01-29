@@ -1051,7 +1051,7 @@ msgstr "Risico"
 
 #: euphorie/client/browser/templates/history_popup.pt:17
 msgid "Risk assessment history"
-msgstr "Historiek risicoanalyse"
+msgstr "Historie risicoanalyse"
 
 #: euphorie/client/browser/templates/portlet-my-ras.pt:20
 msgid "Risk assessments"
@@ -1378,7 +1378,7 @@ msgstr "Gebruik het rapport:"
 
 #: euphorie/client/browser/templates/more_menu.pt:26
 msgid "View the history of this risk assessment."
-msgstr "De historiek van de risicoanalyse bekijken"
+msgstr "De historie van de risicoanalyse bekijken"
 
 #: euphorie/client/browser/templates/shell.pt:356
 msgid "Visit linked web page"
@@ -4586,7 +4586,7 @@ msgstr ""
 #. Default: "History"
 #: euphorie/client/browser/templates/more_menu.pt:26
 msgid "label_history"
-msgstr "Historiek"
+msgstr "Historie"
 
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:323

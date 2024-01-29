@@ -4,7 +4,15 @@ Changelog
 15.2.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Allow the company model to be customized by other packages.
+  [ale-rt]
+
+- Update nl translations.
+  [ale-rt, angeldasangel]
+
+- Changed PDF generation engine to weasyprint
+  Ref: scrum-732
+  [reinhardt]
 
 
 15.2.0 (2024-01-08)
@@ -22,11 +30,6 @@ Changelog
 
 - Update Patternslib to 9.9.10.
   [thet]
-
-- Changed PDF generation engine to weasyprint
-  Ref: scrum-732
-  [reinhardt]
-
 
 
 15.1.1 (2023-12-13)
