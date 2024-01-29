@@ -18,6 +18,14 @@ except ImportError:
 
 log = logging.getLogger(__name__)
 
+# The INFO/WARNING log levels log way to many messages for our needs.
+# We have seen 3k log lines for a single pdf conversion in weasyprint 60.2.
+# Limit weasyprint's log level to be less chatty.
+# This could also be done through configuration:
+# https://docs.python.org/3/library/logging.config.html#configuration-file-format
+logging.getLogger("weasyprint").setLevel(logging.ERROR)
+logging.getLogger("fontTools").setLevel(logging.WARNING)
+
 
 class PdfView(BrowserView):
     """We use weasyprint to convert an HTML view into a PDF file."""
