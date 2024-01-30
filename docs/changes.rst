@@ -10,6 +10,10 @@ Changelog
 - Update nl translations.
   [ale-rt, angeldasangel]
 
+- Short report: Mark postponed risks
+  Ref: scrum-1852
+  [reinhardt]
+
 
 15.2.0 (2024-01-08)
 -------------------

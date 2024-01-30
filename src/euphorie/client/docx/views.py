@@ -148,6 +148,7 @@ class OfficeDocumentView(BrowserView):
                     "measures": measures,
                     "epilogue": "",
                     "justifiable": sql_risk.identification,
+                    "postponed": sql_risk.postponed,
                     "number": sql_risk.number,
                     "priority": sql_risk.priority,
                 }

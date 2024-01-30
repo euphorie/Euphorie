@@ -5,6 +5,7 @@ from docx.enum.table import WD_ALIGN_VERTICAL
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
+from docx.shared import RGBColor
 from euphorie.client import MessageFactory as _
 from euphorie.client.docx.html import HtmlToWord
 from euphorie.content.solution import ISolution
@@ -62,6 +63,7 @@ def node_title(node, zodbnode):
 
 class BaseOfficeCompiler:
     justifiable_map = {"yes": "Yes", "no": "No"}
+    justifiable_font = {}
 
     def xmlprint(self, obj):
         """Utility method that pretty prints the xml serialization of obj.
@@ -815,6 +817,9 @@ class DocxCompilerFullTable(DocxCompiler):
             count = 0
             for risk in risks:
                 answer = risk.get("justifiable", "")
+                postponed = risk.get("postponed", False)
+                if not answer and postponed:
+                    answer = "postponed"
                 # In case our report type defines this:
                 # Omit risk if the user has not answered it
                 if self.only_anwered_risks:
@@ -832,9 +837,12 @@ class DocxCompilerFullTable(DocxCompiler):
                 count += 1
                 self.set_cell_risk(row_risk.cells[self.risk_description_col], risk)
                 if self.risk_answer_col is not None:
-                    row_risk.cells[self.risk_answer_col].text = (
-                        self.justifiable_map.get(answer) or ""
-                    )
+                    cell = row_risk.cells[self.risk_answer_col]
+                    cell.text = self.justifiable_map.get(answer) or ""
+                    font = self.justifiable_font.get(answer)
+                    if font:
+                        cell.paragraphs[0].runs[0].font.color.rgb = font.get("color")
+                        cell.paragraphs[0].runs[0].font.bold = font.get("bold", False)
                 self.set_cell_actions(row_risk.cells[self.risk_measures_col], risk)
 
                 if count:
@@ -1010,7 +1018,8 @@ class IdentificationReportCompiler(DocxCompiler):
 class DocxCompilerShort(DocxCompilerFullTable):
     _base_filename = "oira_short.docx"
 
-    justifiable_map = {"yes": "✅", "no": "❌", None: "⧁"}
+    justifiable_map = {"yes": "✅", "no": "❌", "postponed": "?", None: "⧁"}
+    justifiable_font = {"postponed": {"color": RGBColor(0xCC, 0xCC, 0x0), "bold": True}}
 
     def set_cell_risk_title(self, cell, risk):
         paragraph = cell.paragraphs[0]
