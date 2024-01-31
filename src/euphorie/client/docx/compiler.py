@@ -63,7 +63,6 @@ def node_title(node, zodbnode):
 
 class BaseOfficeCompiler:
     justifiable_map = {"yes": "Yes", "no": "No"}
-    justifiable_font = {}
 
     def xmlprint(self, obj):
         """Utility method that pretty prints the xml serialization of obj.
@@ -797,6 +796,9 @@ class DocxCompilerFullTable(DocxCompiler):
         for idx, cell in enumerate(row_risk.cells[1:]):
             self.set_cell_border(cell, settings=LEFT_RIGHT_BORDERS)
 
+    def set_answer_font(self, answer, cell):
+        """Overridden in subclasses"""
+
     def set_modules_rows(self, data):
         """This takes a list of modules and creates the rows for them."""
         modules = data.get("modules", [])
@@ -817,8 +819,7 @@ class DocxCompilerFullTable(DocxCompiler):
             count = 0
             for risk in risks:
                 answer = risk.get("justifiable", "")
-                postponed = risk.get("postponed", False)
-                if not answer and postponed:
+                if not answer and risk.get("postponed", False):
                     answer = "postponed"
                 # In case our report type defines this:
                 # Omit risk if the user has not answered it
@@ -839,10 +840,7 @@ class DocxCompilerFullTable(DocxCompiler):
                 if self.risk_answer_col is not None:
                     cell = row_risk.cells[self.risk_answer_col]
                     cell.text = self.justifiable_map.get(answer) or ""
-                    font = self.justifiable_font.get(answer)
-                    if font:
-                        cell.paragraphs[0].runs[0].font.color.rgb = font.get("color")
-                        cell.paragraphs[0].runs[0].font.bold = font.get("bold", False)
+                    self.set_answer_font(answer, cell)
                 self.set_cell_actions(row_risk.cells[self.risk_measures_col], risk)
 
                 if count:
@@ -1020,6 +1018,12 @@ class DocxCompilerShort(DocxCompilerFullTable):
 
     justifiable_map = {"yes": "✅", "no": "❌", "postponed": "?", None: "⧁"}
     justifiable_font = {"postponed": {"color": RGBColor(0xCC, 0xCC, 0x0), "bold": True}}
+
+    def set_answer_font(self, answer, cell):
+        font = self.justifiable_font.get(answer)
+        if font:
+            cell.paragraphs[0].runs[0].font.color.rgb = font.get("color")
+            cell.paragraphs[0].runs[0].font.bold = font.get("bold", False)
 
     def set_cell_risk_title(self, cell, risk):
         paragraph = cell.paragraphs[0]
