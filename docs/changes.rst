@@ -10,6 +10,10 @@ Changelog
 - Update nl translations.
   [ale-rt, angeldasangel]
 
+- Short report: Mark postponed risks
+  Ref: scrum-1852
+  [reinhardt]
+
 - Changed PDF generation engine to weasyprint
   Ref: scrum-732
   [reinhardt]
