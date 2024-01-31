@@ -61,9 +61,8 @@ The configuration is now stored in the registry.
 
 More informations can be found in NuPlone 2 README file.
 
-Euphorie 12 does uses ``wkhtmltopdf`` (and ``xvfb-run`` if available) to render PDF files.
+Euphorie 12 uses ``weasyprint`` to render PDF files.
 That means that the ``appconfig["euphorie"]["smartprintng_url"]`` is now obsolete.
-You can control the ``wkhtmltopdf`` with the new ``euphorie.wkhtmltopdf.options`` registry record.
 
 
 More information

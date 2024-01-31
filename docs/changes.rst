@@ -10,6 +10,10 @@ Changelog
 - Update nl translations.
   [ale-rt, angeldasangel]
 
+- Changed PDF generation engine to weasyprint
+  Ref: scrum-732
+  [reinhardt]
+
 
 15.2.0 (2024-01-08)
 -------------------
