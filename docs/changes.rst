@@ -18,6 +18,11 @@ Changelog
   Ref: scrum-732
   [reinhardt]
 
+- Add an alias in another risk query.
+  See also https://github.com/euphorie/Euphorie/issues/609
+  Ref: scrum-1888
+  [reinhardt]
+
 
 15.2.0 (2024-01-08)
 -------------------

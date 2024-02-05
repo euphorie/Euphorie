@@ -1819,26 +1819,33 @@ RISK_PRESENT_FILTER = sql.and_(
         )
     ),
 )
-RISK_PRESENT_FILTER_TOP5_TNO_FILTER = sql.and_(
-    SurveyTreeItem.type == "risk",
-    sql.exists(
-        sql.select([Risk.sql_risk_id]).where(
-            sql.and_(
-                Risk.sql_risk_id == SurveyTreeItem.id,
-                sql.or_(
-                    Risk.identification == "no",
-                    sql.and_(
-                        Risk.risk_type == "top5",
-                        sql.or_(
-                            sql.not_(Risk.identification.in_(["n/a", "yes"])),
-                            Risk.identification == None,  # noqa: E711
+
+
+def _RISK_PRESENT_FILTER_TOP5_TNO_FILTER_factory():
+    Risk_ = orm.aliased(Risk)
+    return sql.and_(
+        SurveyTreeItem.type == "risk",
+        sql.exists(
+            sql.select([Risk_.sql_risk_id]).where(
+                sql.and_(
+                    Risk_.sql_risk_id == SurveyTreeItem.id,
+                    sql.or_(
+                        Risk_.identification == "no",
+                        sql.and_(
+                            Risk_.risk_type == "top5",
+                            sql.or_(
+                                sql.not_(Risk_.identification.in_(["n/a", "yes"])),
+                                Risk_.identification == None,  # noqa: E711
+                            ),
                         ),
                     ),
-                ),
+                )
             )
-        )
-    ),
-)
+        ),
+    )
+
+
+RISK_PRESENT_FILTER_TOP5_TNO_FILTER = _RISK_PRESENT_FILTER_TOP5_TNO_FILTER_factory()
 
 # When using scaled answers (1-5), these values mean the risk is present:
 SCALED_ANSWER_RISK_PRESENT = ("1", "2")
