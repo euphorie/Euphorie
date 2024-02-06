@@ -45,7 +45,7 @@
     <style type="text/css">
 @page {
     size: A4 portrait;
-    margin:0.5cm 0.5cm 2cm 0.5cm;
+    margin:2cm 0.5cm 2cm 0.5cm;
 
     @bottom-right {
         font-size: 8pt;
