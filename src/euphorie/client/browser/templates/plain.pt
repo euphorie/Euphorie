@@ -74,7 +74,7 @@ body {
     font-family: "Roboto Condensed",sans-serif;
     font-weight: normal;
     font-style: normal;
-    font-size: 8px;
+    font-size: 14px;
     line-height: 150%;
     background: #fff;
     letter-spacing: 0;
