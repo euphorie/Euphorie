@@ -21,7 +21,6 @@ class ErrorView(BrowserView):
     def __call__(self):
         self.exception = aq_inner(self.context)
         self.context = aq_parent(self)
-        log.exception("Error at %r", self.context)
         error_type = self.exception.__class__.__name__
         exc_type, value, traceback = sys.exc_info()
         error_tb = "".join(format_exception(exc_type, value, traceback, as_html=False))
