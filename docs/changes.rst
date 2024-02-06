@@ -4,6 +4,9 @@ Changelog
 16.0.0 (unreleased)
 -------------------
 
+- Do not log anymore not found exceptions
+  [ale-rt]
+
 - Allow the client skin layer to be customized by other packages.
   [ale-rt]
 
