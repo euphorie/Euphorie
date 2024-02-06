@@ -86,6 +86,8 @@ class ClientPublishTraverser(DefaultPublishTraverse):
     objects.
     """
 
+    skin_layer = IClientSkinLayer
+
     def publishTraverse(self, request, name):
         from euphorie.client.utils import setRequest
 
@@ -97,5 +99,5 @@ class ClientPublishTraverser(DefaultPublishTraverse):
             for iface in directlyProvidedBy(request)
             if not IBrowserSkinType.providedBy(iface)
         ]
-        directlyProvides(request, IClientSkinLayer, ifaces)
+        directlyProvides(request, self.skin_layer, ifaces)
         return super().publishTraverse(request, name)

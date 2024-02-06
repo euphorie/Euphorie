@@ -1,8 +1,11 @@
 Changelog
 =========
 
-15.2.1 (unreleased)
+16.0.0 (unreleased)
 -------------------
+
+- Allow the client skin layer to be customized by other packages.
+  [ale-rt]
 
 - Allow the company model to be customized by other packages.
   [ale-rt]
