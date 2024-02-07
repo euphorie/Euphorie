@@ -1016,7 +1016,7 @@ class IdentificationReportCompiler(DocxCompiler):
 class DocxCompilerShort(DocxCompilerFullTable):
     _base_filename = "oira_short.docx"
 
-    justifiable_map = {"yes": "✅", "no": "❌", "postponed": "?", None: "⧁"}
+    justifiable_map = {"yes": "✅", "no": "❌", "postponed": "?"}
     justifiable_font = {"postponed": {"color": RGBColor(0xCC, 0xCC, 0x0), "bold": True}}
 
     def set_answer_font(self, answer, cell):
