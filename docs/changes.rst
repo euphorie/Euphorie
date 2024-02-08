@@ -4,6 +4,11 @@ Changelog
 16.0.0 (unreleased)
 -------------------
 
+- Fix problem with the identification report not being generated for certain survey sessions.
+  Ref: scrum-1846
+  Fixes: #688
+  [thet]
+
 - Do not log anymore not found exceptions
   [ale-rt]
 
