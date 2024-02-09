@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      tal:omit-tag=""
+      i18n:domain="nuplone"
+>
+  <div class="z3cFieldContainer ${view/@@dependencies}">
+    <label>
+      <select class="${view/klass}"
+              id="${view/id}"
+              multiple="${view/multiple}"
+              name="${view/name}"
+              size="${view/size}"
+      >
+        <tal:item repeat="item view/items"><option id="${item/id}"
+                  selected="${python:'selected' if selected else None}"
+                  value="${item/value}"
+                  tal:define="
+                    selected item/selected;
+                  "
+          >${item/content}</option></tal:item>
+      </select>
+      <tal:error condition="view/error"
+                 replace="structure view/error/render|nothing"
+      />
+    </label>
+    <dfn class="infoPanel"
+         title="Information"
+         tal:define="
+           description view/field/description;
+         "
+         tal:condition="description"
+         i18n:attributes="title"
+    >${description}</dfn>
+    <input name="${view/name}-empty-marker"
+           type="hidden"
+           value="1"
+    />
+  </div>
+</html>

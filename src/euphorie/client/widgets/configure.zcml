@@ -18,6 +18,12 @@
            euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <adapter
+      factory=".choice.EuphorieChoiceFieldWidget"
+      for="zope.schema.interfaces.IChoice
+           euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <z3c:widgetTemplate
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       view="euphorie.client.browser.session.Start"
@@ -32,6 +38,15 @@
       view="euphorie.client.browser.session.Start"
       widget="z3c.form.interfaces.ISingleCheckBoxWidget"
       template="templates/checkbox_input.pt"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      mode="input"
+      />
+
+  <z3c:widgetTemplate
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      view="euphorie.client.browser.session.Start"
+      widget="z3c.form.interfaces.ISelectWidget"
+      template="templates/choice_widget.pt"
       layer="euphorie.client.interfaces.IClientSkinLayer"
       mode="input"
       />
