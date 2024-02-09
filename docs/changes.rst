@@ -4,6 +4,9 @@ Changelog
 16.0.0 (unreleased)
 -------------------
 
+- Custom widgets for choice fields in the session @@start view
+  [ale-rt, maurits]
+
 - Fix problem with the identification report not being generated for certain survey sessions.
   Ref: scrum-1846
   Fixes: #688
