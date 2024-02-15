@@ -1,7 +1,7 @@
 Changelog
 =========
 
-16.0.0 (unreleased)
+16.0.0 (2024-02-15)
 -------------------
 
 - Custom widgets for choice fields in the session @@start view
