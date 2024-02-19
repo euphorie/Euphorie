@@ -5015,7 +5015,7 @@ msgstr "Podeu descarregar un informe complet i un pla d'acció."
 #. Default: "register"
 #: euphorie/client/browser/templates/login.pt:103
 msgid "label_register_first"
-msgstr "registrar-se"
+msgstr "registreu-vos"
 
 #. Default: "Remove filters"
 #: euphorie/client/browser/templates/assessments.pt:102
