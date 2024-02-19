@@ -4992,7 +4992,7 @@ msgstr "Per quin mitjà s'ha assabentat de l'existència d'aquesta eina?"
 #. Default: "register"
 #: euphorie/client/browser/templates/new-session-test.pt:94
 msgid "label_register"
-msgstr "registrar-se"
+msgstr "registreu-vos"
 
 #. Default: "It's free."
 #: euphorie/client/browser/templates/register_session.pt:30
@@ -6251,7 +6251,7 @@ msgstr "una organització sindical"
 #. Default: "Don't have an account? Then please ${register_link} first."
 #: euphorie/client/browser/templates/login.pt:103
 msgid "register_teaser"
-msgstr "No disposa de compte? Llavors, cal que abans ${register_link}."
+msgstr "No disposa de compte? Llavors, si us plau, ${register_link}."
 
 #: euphorie/client/browser/templates/confirm-email.pt:24
 msgid "reminder_email_footer"
