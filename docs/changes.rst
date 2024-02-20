@@ -4,7 +4,9 @@ Changelog
 16.0.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Short report can be activated per country
+  Ref: scrum-1297
+  [reinhardt]
 
 
 16.0.1 (2024-02-20)
