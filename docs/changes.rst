@@ -1,7 +1,7 @@
 Changelog
 =========
 
-16.0.1 (unreleased)
+16.0.1 (2024-02-20)
 -------------------
 
 - Updated translations
