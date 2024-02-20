@@ -4,7 +4,7 @@ Changelog
 16.0.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Updated translations
 
 
 16.0.0 (2024-02-15)
