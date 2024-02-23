@@ -494,8 +494,7 @@ class IdentificationView(RiskBase):
         if getattr(self.risk, "use_scaled_answer", False):
             # TODO check if we need to do anything with italy_special in this case.
             conditions = [
-                f"scaled_answer={answer}"
-                for answer in model.SCALED_ANSWER_RISK_PRESENT
+                f"scaled_answer={answer}" for answer in model.SCALED_ANSWER_RISK_PRESENT
             ]
             condition = "condition: " + " or ".join(conditions)
         return condition
@@ -1254,7 +1253,7 @@ class ActionPlanView(RiskBase):
         answer = self.context.scaled_answer
         # answer is a string like '1'.
         # Use it to find the textual representation of the answer.
-        for info in self.scaled_answer:
+        for info in self.scaled_answers:
             # Note: currently both info value and answer are strings ('1', '2', etc).
             if info["value"] == answer:
                 return info
