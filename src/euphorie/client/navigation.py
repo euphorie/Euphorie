@@ -175,11 +175,11 @@ def getTreeData(
             if isinstance(obj, model.Risk):
                 if obj.identification or obj.scaled_answer:
                     cls.append("answered")
-                if (
-                    obj.identification == "no"
-                    or obj.scaled_answer in model.SCALED_ANSWER_RISK_PRESENT
-                ):
+                if obj.identification == "no":
                     cls.append("risk")
+                if obj.scaled_answer:
+                    info["scaled_answer"] = obj.scaled_answer
+
         info["class"] = cls and " ".join(cls) or None
         return info
 
