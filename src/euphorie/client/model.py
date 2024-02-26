@@ -1847,7 +1847,10 @@ def _RISK_PRESENT_FILTER_TOP5_TNO_FILTER_factory():
 
 RISK_PRESENT_FILTER_TOP5_TNO_FILTER = _RISK_PRESENT_FILTER_TOP5_TNO_FILTER_factory()
 
-# When using scaled answers (1-5), these values mean the risk is present:
+# When using scaled answers (1-5), these values mean the risk is present.
+# TODO This only works for simple cases, where these values always mean a risk
+# is present.  More likely, in some modules a high value means the risk is present,
+# and in some modules a low value.
 SCALED_ANSWER_RISK_PRESENT = ("1", "2")
 
 
