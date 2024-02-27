@@ -493,6 +493,9 @@ class IdentificationView(RiskBase):
             condition = "condition: answer=no or answer=yes"
         if getattr(self.risk, "use_scaled_answer", False):
             # TODO check if we need to do anything with italy_special in this case.
+            # Also, this likely needs to be overridden in projects that use scaled
+            # answers, because in some modules a high value means the risk is present,
+            # and in some modules a low value.
             conditions = [
                 f"scaled_answer={answer}" for answer in model.SCALED_ANSWER_RISK_PRESENT
             ]
