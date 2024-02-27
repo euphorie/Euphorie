@@ -59,8 +59,10 @@
                     tal:content="risk/title"
                 >The fridges are checked daily.</h2>
                 <p tal:condition="risk/use_scaled_answer|nothing">
-                  <tal:chosen define="answer view/scaled_answer_chosen">
-                    <label i18n:translate>Answer:</label>
+                  <tal:chosen define="
+                                answer view/scaled_answer_chosen;
+                              ">
+                    <label i18n:translate="">Answer:</label>
                     ${answer/text} (${answer/value})
                   </tal:chosen>
                 </p>

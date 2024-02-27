@@ -463,9 +463,11 @@ def parse_scaled_answers(contents):
             answer, number = parts
         else:
             number = str(number)
-        result.append({
-            "text": answer,
-            "value": number,
-        })
+        result.append(
+            {
+                "text": answer,
+                "value": number,
+            }
+        )
 
     return result
