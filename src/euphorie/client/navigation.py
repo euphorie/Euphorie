@@ -325,7 +325,16 @@ def getTreeData(
 
     We now put all logic into a class, making it more easily overridable.
     """
-    tree_data_creator = api.content.get_view("oira_navigation_tree", context, request)
+    try:
+        tree_data_creator = api.content.get_view("oira_navigation_tree", context, request)
+    except api.exc.InvalidParameterError:
+        # XXX Fixme
+        # In the GetTreeDataTests in test_navigation, the view "oira_navigation_tree"
+        # cannot be found.   Same is true for the "webhelpers" view, which we call in
+        # the "oira_navigation_tree" view.  In fact only 8 views are found.
+        # So test setup could be improved, but that has been the case for a while.
+        tree_data_creator = TreeDataCreator(context, request)
+
     tree_data = tree_data_creator(
         element=element,
         phase=phase,
