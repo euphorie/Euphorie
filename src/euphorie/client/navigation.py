@@ -326,7 +326,9 @@ def getTreeData(
     We now put all logic into a class, making it more easily overridable.
     """
     try:
-        tree_data_creator = api.content.get_view("oira_navigation_tree", context, request)
+        tree_data_creator = api.content.get_view(
+            "oira_navigation_tree", context, request
+        )
     except api.exc.InvalidParameterError:
         # XXX Fixme
         # In the GetTreeDataTests in test_navigation, the view "oira_navigation_tree"
