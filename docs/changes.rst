@@ -4,7 +4,7 @@ Changelog
 16.0.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Use Plone 6.0.10
 
 
 16.0.1 (2024-02-20)
