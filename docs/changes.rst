@@ -4,6 +4,10 @@ Changelog
 16.0.2 (unreleased)
 -------------------
 
+- Short report can be activated per country
+  Ref: scrum-1297
+  [reinhardt]
+
 - Use Plone 6.0.10
 
 
