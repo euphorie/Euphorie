@@ -67,7 +67,6 @@ setup(
         "sh",
         "stoneagehtml",
         "user_agents",
-        "weasyprint",
         "z3c.form",
         "z3c.schema",
         "z3c.saconfig",
