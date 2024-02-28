@@ -8,6 +8,8 @@ Changelog
   Ref: scrum-1297
   [reinhardt]
 
+- Use Plone 6.0.10
+
 
 16.0.1 (2024-02-20)
 -------------------
