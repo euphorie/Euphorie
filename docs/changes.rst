@@ -4,7 +4,9 @@ Changelog
 15.3.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Short report can be activated per country
+  Ref: scrum-1297
+  [reinhardt]
 
 
 15.3.0.dev0 (2024-02-28)

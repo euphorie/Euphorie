@@ -39,12 +39,37 @@
              "
         >
           <div class="download-block"
+               tal:condition="python:'report_compact' in reports"
+          >
+            <div class="download-block-header">
+              <h2 class=""
+                  i18n:translate="label_report"
+              >Compact</h2>
+              <a class="default pat-button download rtf icon-download piwik_download"
+                 href="${context/absolute_url}/@@oira-report-short.docx"
+              >
+                <tal:trans i18n:translate="button_download">Download</tal:trans></a>
+            </div>
+            <div class="download-block-body pat-rich">
+              <ul>
+                <li><tal:i18n i18n:translate="label_format">Format</tal:i18n>: Word (.docx)</li>
+                <li i18n:translate="">Contains: Concise information and input provided by you throughout the risk assessment process.</li>
+              </ul>
+
+              <h4><tal:span i18n:translate="use_it_to_compact_report">Use it to</tal:span>:</h4>
+              <ul>
+                <li i18n:translate="">Provide a concise overview over your current status for internal use.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="download-block"
                tal:condition="python:'report_full' in reports"
           >
             <div class="download-block-header">
               <h2 class=""
                   i18n:translate="label_report"
-              >Report</h2>
+              >Full Report</h2>
               <a class="default pat-button download rtf icon-download piwik_download"
                  href="${context/absolute_url}/@@oira-report.docx"
               >

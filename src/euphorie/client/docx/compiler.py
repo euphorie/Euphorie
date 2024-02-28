@@ -1019,6 +1019,28 @@ class DocxCompilerShort(DocxCompilerFullTable):
     justifiable_map = {"yes": "✅", "no": "❌", "postponed": "?"}
     justifiable_font = {"postponed": {"color": RGBColor(0xCC, 0xCC, 0x0), "bold": True}}
 
+    @property
+    @memoize
+    def options(self):
+        country = self.webhelpers.content_country_obj
+        return country.compact_report_options
+
+    @property
+    def is_show_description_of_risks(self):
+        return "description_of_risks" in self.options
+
+    @property
+    def is_show_comments(self):
+        return "comments" in self.options
+
+    @property
+    def is_show_description_of_measures(self):
+        return "description_of_measures" in self.options
+
+    @property
+    def is_show_measure_responsible_date(self):
+        return "measure_responsible_date" in self.options
+
     def set_answer_font(self, answer, cell):
         font = self.justifiable_font.get(answer)
         if font:
@@ -1039,9 +1061,12 @@ class DocxCompilerShort(DocxCompilerFullTable):
         title, descripton, comment, measures in place
         """
         self.set_cell_risk_title(cell, risk)
-        self.set_cell_risk_description(cell, risk)
-        self.set_cell_risk_measures(cell, risk)
-        self.set_cell_risk_comment(cell, risk)
+        if self.is_show_description_of_risks:
+            self.set_cell_risk_description(cell, risk)
+        if self.is_show_description_of_measures:
+            self.set_cell_risk_measures(cell, risk)
+        if self.is_show_comments:
+            self.set_cell_risk_comment(cell, risk)
 
         cell.add_paragraph(style="Risk Normal")
 
@@ -1069,7 +1094,8 @@ class DocxCompilerShort(DocxCompilerFullTable):
             if idx != 0:
                 cell.add_paragraph()
             self.set_cell_action_text(cell, action)
-            self.set_cell_action_responsible(cell, action)
+            if self.is_show_measure_responsible_date:
+                self.set_cell_action_responsible(cell, action)
 
     def set_cell_action_responsible(self, cell, action):
         text_responsible = ""
