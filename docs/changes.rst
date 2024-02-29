@@ -12,7 +12,7 @@ Changelog
   Ref: scrum-2001
   [reinhardt]
 
-- Use Plone 6.0.10
+- Use Plone 6.0.10.1
 
 
 16.0.1 (2024-02-20)
