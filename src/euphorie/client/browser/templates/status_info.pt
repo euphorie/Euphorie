@@ -90,18 +90,22 @@
           <metal:last_published define-slot="last_published">
             <tal:published condition="webhelpers/use_locking_feature">
               <tal:switch switch="session/review_state">
-                <tal:case case="string:published">
+                <tal:case tal:define="
+                            last_locking_event session/last_locking_event;
+                          "
+                          case="string:published"
+                >
                   <dt i18n:translate="label_locked">
                       Locked
                   </dt>
                   <dd tal:define="
-                        last_publisher session/last_publisher|nothing;
+                        last_publisher nocall:last_locking_event/account;
                       ">
                     <p>
                       <time class="last-modified"
                             date-time="${value}"
                             tal:define="
-                              value session/published/isoformat|nothing;
+                              value python:webhelpers.timezoned_date(last_locking_event.time);
                             "
                       >${python:toLocalizedTime(value)}</time>
                       <tal:by condition="last_publisher">
