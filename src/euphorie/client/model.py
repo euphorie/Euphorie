@@ -1847,12 +1847,6 @@ def _RISK_PRESENT_FILTER_TOP5_TNO_FILTER_factory():
 
 RISK_PRESENT_FILTER_TOP5_TNO_FILTER = _RISK_PRESENT_FILTER_TOP5_TNO_FILTER_factory()
 
-# When using scaled answers (1-5), these values mean the risk is present.
-# TODO This only works for simple cases, where these values always mean a risk
-# is present.  More likely, in some modules a high value means the risk is present,
-# and in some modules a low value.
-SCALED_ANSWER_RISK_PRESENT = ("1", "2")
-
 
 def _RISK_PRESENT_OR_TOP5_FILTER_factory():
     Risk_ = orm.aliased(Risk)
@@ -1864,7 +1858,6 @@ def _RISK_PRESENT_OR_TOP5_FILTER_factory():
                     Risk_.sql_risk_id == SurveyTreeItem.id,
                     sql.or_(
                         Risk_.identification == "no",
-                        Risk_.scaled_answer.in_(SCALED_ANSWER_RISK_PRESENT),
                         Risk_.risk_type == "top5",
                     ),
                 )
