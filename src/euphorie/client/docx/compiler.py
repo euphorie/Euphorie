@@ -1034,7 +1034,7 @@ class DocxCompilerShort(DocxCompilerFullTable):
         return "comments" in self.options
 
     @property
-    def is_show_description_of_measures(self):
+    def use_solution_description(self):
         return "description_of_measures" in self.options
 
     @property
@@ -1063,8 +1063,7 @@ class DocxCompilerShort(DocxCompilerFullTable):
         self.set_cell_risk_title(cell, risk)
         if self.is_show_description_of_risks:
             self.set_cell_risk_description(cell, risk)
-        if self.is_show_description_of_measures:
-            self.set_cell_risk_measures(cell, risk)
+        self.set_cell_risk_measures(cell, risk)
         if self.is_show_comments:
             self.set_cell_risk_comment(cell, risk)
 
