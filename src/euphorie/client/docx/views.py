@@ -316,7 +316,7 @@ class ActionPlanShortDocxView(ActionPlanDocxView):
         """Return the document filename."""
         filename = _(
             "filename_short_report_actionplan",
-            default="Compact ${title}",
+            default="Compact report ${title}",
             mapping={"title": self.context.session.title},
         )
         filename = translate(filename, context=self.request)
