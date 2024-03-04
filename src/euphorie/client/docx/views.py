@@ -311,6 +311,17 @@ class ActionPlanDocxView(OfficeDocumentView):
 class ActionPlanShortDocxView(ActionPlanDocxView):
     _compiler = DocxCompilerShort
 
+    @property
+    def _filename(self):
+        """Return the document filename."""
+        filename = _(
+            "filename_short_report_actionplan",
+            default="Compact report ${title}",
+            mapping={"title": self.context.session.title},
+        )
+        filename = translate(filename, context=self.request)
+        return safe_nativestring(filename) + ".docx"
+
 
 class IdentificationReportDocxView(OfficeDocumentView):
     """Generate a report based on a basic docx template."""
