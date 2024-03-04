@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="en">
+	lang="nl">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -64,7 +64,7 @@
 	id="toolbar">
 	
 		<a 
-			href="/index-logged-in.html" 
+			href="/index.html" 
 		    data-pat-inject="source: #content; target: #content; history: record" 
 		    class="pat-inject pat-switch title-group" 
 		    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
@@ -113,7 +113,7 @@
 			   	class="iconified pat-tooltip" 
 			   	data-pat-tooltip="source: ajax">Help</a>
 			<a 
-				href="/index-logged-in.html" 
+				href="/index.html" 
 			    data-pat-inject="source: #content; target: #content; history: record" 
 			    class="home pat-inject iconified icon-home pat-switch" 
 			    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
@@ -159,8 +159,6 @@
 
 
 
-
-
 <div
     class="pat-toolbar"
     id="dashboard-toolbar">
@@ -173,35 +171,35 @@
     class="pat-tabs pat-button-cluster pat-navigation"
     id="homescreen-sections">
     <a 
-        href="/index-logged-in.html" 
+        href="/index.html" 
         data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
         class="
             current 
             icon 
             icon-gauge 
-            pat-inject">Home</a>
+            pat-inject"></a>
     <a 
         href="/tools/"
         data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
-        class=" pat-inject">Tools</a>
+        class=" pat-inject">Nástroje</a>
     <a 
         href="/assessments/"
         data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
         class="
              
-            pat-inject">Assessments</a>
+            pat-inject"></a>
     <a 
         href="/trainings/"
         data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
         class="
              
-            pat-inject">Trainings</a>
+            pat-inject"></a>
     <a 
         href="/certificates/"
         data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
         class="
              
-            pat-inject">Certificates</a>
+            pat-inject">Certifikáty</a>
     <a 
         href="/third-parties/"
         data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
@@ -212,7 +210,7 @@
         href="/users/"
         data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
         class="
-            pat-inject">Organisation</a>
+            pat-inject"></a>
 </nav>
 
         </div>
@@ -234,7 +232,7 @@
                 "
                 class="
                     pat-select 
-                    pat-tooltip">Default view</a>
+                    pat-tooltip">Výchozí zobrazení</a>
 
             <div 
                 hidden
@@ -257,7 +255,7 @@
                                     current
                                 
                                 pat-inject 
-                                icon-gauge">Default view</a>
+                                icon-gauge">Výchozí zobrazení</a>
                     </li>
                     <li>
                         <a 
@@ -282,7 +280,7 @@
                 class="pat-select">
                 <select
                     name="dashboard-view">
-                    <option>Default view</option>
+                    <option>Výchozí zobrazení</option>
                     <option >Fremdfirmenkoordination</option>
                 </select>
             </label> -->
@@ -299,11 +297,13 @@
 	id="application-content">
 	
 		<a 
-			href="../../cs/illustrations/index-logged-in-lazy-load#application-content"
+			href="index-logged-in-lazy-load#application-content"
 			data-pat-inject="trigger: autoload" 
 			class="pat-inject infinite-scrolling-trigger">Loading…</a>
 	
 </div>
+
+
     </div>
 </div>
 
@@ -406,7 +406,7 @@
             <select 
                 name="search-rule.data-field:records">
                 <option 
-                    value="SearchableText"></option>
+                    value="SearchableText">Any text field</option>
                 <optgroup 
                     label="Metadata">
                     <option value="Title">Title</option>
@@ -431,9 +431,9 @@
                 class="pat-select">
                 <select 
                     name="search-rule.lemma-operator:records">
-                    <option value="contains"></option>
-                    <option value="contains-not"></option>
-                    <option value="equals"></option>
+                <option value="contains">Contains</option>
+                <option value="contains-not">Does not contain</option>
+                <option value="equals">Equals</option>
                 </select>
             </label>
             <input 
@@ -516,7 +516,7 @@
         class="pat-button default icon-search">Vyhledat</button>
     <button 
         type="button" 
-        class="pat-button add-clone add-clone-rule icon-plus-circle"></button>
+        class="pat-button add-clone add-clone-rule icon-plus-circle">Add another search rule</button>
 
     <a 
         href="../../cs/illustrations/index-logged-in#listing" 
@@ -537,13 +537,9 @@
         <select 
             name="search-rule.and-or:records">
             <option 
-                value="and">
-                
-            </option>
+                value="and">And…</option>
             <option 
-                value="or">
-                
-            </option>
+                value="or">Or…</option>
         </select>
     </label>
     <label 
@@ -551,7 +547,7 @@
         <select 
             name="search-rule.data-field:records">
             <option 
-                value="SearchableText"></option>
+                value="SearchableText">Any text field</option>
             <optgroup 
                 label="Metadata">
                 <option value="Title">Title</option>
@@ -573,9 +569,9 @@
             class="pat-select">
             <select 
                 name="search-rule.lemma-operator:records">
-                <option value="contains"></option>
-                <option value="contains-not"></option>
-                <option value="equals"></option>
+                <option value="contains">Contains</option>
+                <option value="contains-not">Does not contain</option>
+                <option value="equals">Equals</option>
             </select>
         </label>
         <input 
