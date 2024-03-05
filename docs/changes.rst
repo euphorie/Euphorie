@@ -1,8 +1,8 @@
 Changelog
 =========
 
-15.3.1 (unreleased)
--------------------
+15.3.0.dev1 (2024-03-05)
+------------------------
 
 - Short report can be activated per country
   Ref: scrum-1297
