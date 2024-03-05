@@ -12,6 +12,10 @@ Changelog
   Ref: scrum-2001
   [reinhardt]
 
+- Updated help
+  Ref: scrum-1785
+  [reinhardt]
+
 - Use Plone 6.0.10.1
 
 
