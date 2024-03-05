@@ -8,6 +8,15 @@ Changelog
   Ref: scrum-1297
   [reinhardt]
 
+- Fixed locking information in status view
+  Ref: scrum-2001
+  [reinhardt]
+
+- Updated help
+  Ref: scrum-1785
+  [reinhardt]
+
+- Use Plone 6.0.10.1
 
 15.3.0.dev0 (2024-02-28)
 ------------------------

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="en">
+	lang="nl">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -52,7 +52,7 @@
 	</head>
 	<body
 		id="body"
-		data-page-layout="report"
+		data-page-layout="report-download"
 		data-layout-layout="risk-assessment"
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
@@ -64,7 +64,7 @@
 	id="toolbar">
 	
 		<a 
-			href="/index-logged-in.html" 
+			href="/index.html" 
 		    data-pat-inject="source: #content; target: #content; history: record" 
 		    class="pat-inject pat-switch title-group" 
 		    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
@@ -118,7 +118,7 @@
 			   	class="iconified pat-tooltip" 
 			   	data-pat-tooltip="source: ajax">Help</a>
 			<a 
-				href="/index-logged-in.html" 
+				href="/index.html" 
 			    data-pat-inject="source: #content; target: #content; history: record" 
 			    class="home pat-inject iconified icon-home pat-switch" 
 			    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
@@ -153,7 +153,7 @@
             id="step-1"
             class="complete ">
         <a 
-            href="//index#content"
+            href="/ass-private-security-grafton-street/index#content"
             data-pat-inject="history: record"
             class="preparation pat-switch pat-inject"
             data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Priprema</a>
@@ -162,7 +162,7 @@
             id="step-involve"
             class="">
             <a 
-                href="//involve#content"
+                href="/ass-private-security-grafton-street/involve#content"
                 class="involve pat-inject pat-switch"
                 data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
                 data-pat-inject="history: record">Uključite</a>
@@ -171,24 +171,15 @@
 
       
 
-      <a href="#content"
+      <a href="/ass-private-security-grafton-street/items/2014-01-01-commercial-manned-guarding#content"
          data-pat-inject="history: record"
          class="identification pat-switch pat-inject"
-         data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Prepoznavanje + procjena</a>
+         data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Procjena</a>
 
       
 
     </li>
 
-    
-      <li id="step-4" class=" ">
-        <!-- The tree for the action section uses the same structure as the identification tree, with the only differences that only risks and their parent modules are shown and that the entire tree is expanded. -->
-        <a href="//action-plan#content"
-            data-pat-inject="history: record"
-            class="action-plan pat-switch pat-inject"
-            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Plan mjera</a>
-        
-      </li>
     
 
     <li 
@@ -198,7 +189,7 @@
             class="consultancy pat-switch pat-inject"
             data-pat-inject="history: record"
             data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
-            href="//consultancy#content">Consultancy</a>
+            href="/ass-private-security-grafton-street/consultancy#content"></a>
     </li>
 
     <li id="step-5" class="active">
@@ -206,23 +197,29 @@
         <a class="report pat-switch pat-inject"
             data-pat-inject="history: record"
             data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
-            href="//report#content">Završni dokumenti</a>
+            href="/ass-private-security-grafton-street/report#content">Završni dokumenti</a>
       
     </li>
 
+    
+      <li id="step-6" class="">
+        <a href="/ass-private-security-grafton-street/training#content"
+            class="training pat-inject pat-switch"
+            data-pat-inject="history: record"
+            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Osposobljavanje</a>
+      </li>
     
   
 
   
     <li id="status" class="">
-      <a href="//status#content"
+      <a href="/ass-private-security-grafton-street/status#content"
           data-pat-inject="history: record"
           class="status pat-switch pat-inject"
-          data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Status
-        <!-- <strong class="pie-graph pat-tooltip"
+          data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Status<!-- <strong class="pie-graph "
             data-pat-tooltip="trigger: hover; position-list: lm"
-            data-percentage="0"
-            title="0% Complete">0%</strong> --></a>
+            data-percentage="44"
+            title="44% Complete">44%</strong> --></a>
       
     </li>
     
@@ -230,10 +227,10 @@
         class="" 
         id="settings">
         <a
-            href="//settings#content"
+            href="/ass-private-security-grafton-street/settings#content"
             data-pat-inject="history: record"
             class="settings pat-switch pat-inject"
-            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Settings</a>
+            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"></a>
     </li>
     <li 
         id="home">
@@ -254,15 +251,25 @@
 		
 		variation-risk-assessment">
     
-<div 
-    class="pat-scroll-box" 
-    id="content-pane">
 
-    <div
+<div 
+	class="pat-scroll-box" 
+	id="content-pane">
+	
+	<div
     class="pat-toolbar sticky auto-hide"
     id="assessment-toolbar">   
     <div
         class="toolbar-functions-area">  
+        
+            <div 
+                class="toolbar-section">
+                <a 
+                    href="#tree" 
+                    id="toggle-tree" 
+                    class="icon menu pat-toggle" 
+                    data-pat-toggle="selector: #main; value: sidebar-off sidebar-on;">Toggle tree</a> 
+            </div>
         
         <div 
             class="toolbar-section quick-functions"
@@ -276,7 +283,7 @@
                     data-pat-tooltip="source: ajax; position-list: tr; trigger: click; source: ajax">Unlocked 
                     <!-- <time 
                             class="pat-display-time" 
-                        data-pat-display-time="from-now: true; locale: en" 
+                        data-pat-display-time="from-now: true; locale: nl" 
                         datetime="2018-03-28T08:00Z">2018-03-28</time> -->
                 </a>
             
@@ -321,8 +328,8 @@
                 data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
                <strong 
                     class="pie-graph"
-                    data-percentage="0"
-                    title="0% Complete">0%</strong>
+                    data-percentage="44"
+                    title="44% Complete">44%</strong>
             </a>
 
             <div
@@ -332,7 +339,7 @@
                     
 
 <p>
-    You've completed <strong>0%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+    You've completed <strong>44%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
 </p>
 <p>
     <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
@@ -348,7 +355,7 @@
                 
                 
                 <p>
-                    View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more details.
+                    View the <a href="/ass-private-security-grafton-street/status#content" class="pat-inject close-panel">Status screen</a> for more details.
                 </p>
             </div>
             
@@ -359,38 +366,208 @@
             
             
             <!-- <a 
-                class="default pat-button">Approve risk assessment</a>  --> 
+                class="default pat-button"></a>  --> 
         </div>
     </div>
 </div>
 
-    <form>
-        <article 
-            class="pat-rich">
-            <h1>
-                Izvješćivanje
-            </h1>
-            <p>
-                Sada, kada ste dovršili identifikaciju svih rizika u vašoj organizaciji i oblikovali plan mjera, možete stvoriti izvješće s popisom svih rezultata. Ako želite, u polje ispod možete unijeti dodatne komentare koje bi trebalo uključiti u to izvješće.
-            </p>
-            <fieldset 
-                class="vertical">
-                <textarea 
-                    id="commentsField" 
-                    name="comments" 
-                    placeholder="U ovom polju ostavite dodatni komentar koji bi trebalo uključiti u izvješće." 
-                    cols="70" 
-                    rows="5"></textarea>
-            </fieldset>
-        </article>
+	<article 
+		class="pat-rich"
+		id="page-intro">
+		<h1>Završni dokumenti</h1>
 
-        <p 
-            class="button-bar">
-            <a 
-                class="pat-button" 
-                href="/report-download.html">Spremi i nastavi</a>
-        </p>
-    </form>
+	  	<p
+	  		class="summary"></p>
+	</article>
+
+	<div 
+		class="download-blocks">
+		
+		
+			<div 
+				class="download-block">
+				<div 
+					class="download-block-header">
+					<h2>Compact</h2>
+					<a 
+						href="https://client.oiratest.syslab.com/eu/eu-private-security/private-security-eu/report/download"
+						class="default pat-button download rtf icon-download">Preuzimanje</a>
+				</div>
+				<div 
+					class="
+						download-block-body 
+						pat-rich">
+					<ul>
+						
+						<li>
+							Format: Office Open XML Workbook (.docx)
+						</li>
+						
+						<li>
+							Contains: Concise information and input provided by you throughout the risk assessment process.
+						</li>
+						
+					</ul>
+			
+					<h4>Koristite ga za:</h4>
+					<ul>
+						
+						<li>
+							Provide a concise overview over your current status for internal use.
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div 
+			class="download-block">
+			<div class="download-block-header">
+				<h2
+					class="">Full report</h2>
+				<a 
+					href="https://client.oiratest.syslab.com/eu/eu-private-security/private-security-eu/report/download" 
+					class="default pat-button download rtf icon-download">
+					Download
+				</a>
+			</div>
+			<div 
+				class="download-block-body pat-rich">
+				<ul>
+				    <li>Format: Rich Text Format (.rtf)</li>
+				    <li>Contains: all the information and input provided by you throughout the risk assessment process.</li>
+				</ul>
+
+				<h4>Use it to:</h4>
+				<ul>
+				    <li><strong>Provide evidence</strong> for supervisory authorities (labour inspectorate).</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="download-block">
+			<div class="download-block-header">
+				<h2
+					class="">Action plan</h2>
+				<a 
+					href="https://client.oiratest.syslab.com/eu/eu-private-security/private-security-eu/report/timeline" 
+					class="default pat-button download xlsx icon-download">
+					Download
+				</a>
+			</div>
+			<div 
+				class="download-block-body pat-rich">
+				<ul>
+					<li>Format: Office Open XML Workbook (.xlsx)</li>
+					<li>Contains: main elements to effectively manage the risks at your workplace.</li>
+				</ul>
+
+			  	<h4>
+			  		Use it to:
+			  	</h4>
+				<ul>
+					<li><strong>Manage</strong> the problems/risks in your workplace (specific tasks, expertise, responsibilities, deadlines).</li>
+				</ul>
+			</div>
+		</div>
+
+		<div 
+			class="download-block">
+			<div 
+				class="download-block-header">
+				<h2
+					class="">Risks</h2>
+				<a 
+					href="https://client.oiratest.syslab.com/eu/eu-private-security/private-security-eu/report/timeline" 
+					class="default pat-button download xlsx icon-download">
+					Download
+				</a>
+			</div>
+			<div 
+				class="download-block-body pat-rich">
+				<ul>
+					<li>Format: Portable Document Format (.pdf)</li>
+					<li>Contains: an overview of the risks identified</li>
+				</ul>
+
+			  	<h4>
+			  		Use it to:
+			  	</h4>
+				<ul>
+					<li>Pass information to the people concerned.</li>
+					<li>Monitor whether risks / measures are properly dealt with.</li>
+				</ul>
+			</div>
+		</div>
+
+		<div 
+			class="download-block">
+			<div 
+				class="download-block-header">
+				<h2
+					class="">Measures</h2>
+				<a 
+					href="https://client.oiratest.syslab.com/eu/eu-private-security/private-security-eu/report/timeline" 
+					class="default pat-button download xlsx icon-download">
+					Download
+				</a>
+			</div>
+			<div 
+				class="download-block-body pat-rich">
+				<ul>
+					<li>Format: Portable Document Format (.pdf)</li>
+					<li>Contains: an overview of the measures to be implemented.</li>
+				</ul>
+
+			  	<h4>
+			  		Use it to:
+			  	</h4>
+				<ul>
+					<li>Pass information to the people concerned.</li>
+					<li>Monitor whether risks / measures are properly dealt with.</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<article 
+		class="pat-rich">
+	  	<p>
+	  		Use the report to:
+	  	</p>
+
+		<ul>
+		    <li>Provide evidence for supervisory authorities.</li>
+		    <li>Pass information on to the people concerned (workers, safety representatives, employers, experts in occupational safety and health, etc.)</li>
+		    <li>Monitor and assess whether necessary measures have been introduced.</li>
+		    <li>Record any revision if circumstances change (new machines, new workers, as a result of findings of any accident investigations, etc.)</li>
+		</ul>
+
+
+		  <p 
+		  	class="discrete">We recommend that you always keep an updated printed version of your risk assessment (report) available in your company!</p>
+	</article>
+
+	<article 
+		class="pat-rich">
+		<p>
+			Did you like this tool? Let your colleagues and friends know about it! Share via:
+		</p>
+	</article>
+	<p 
+		class="button-bar sharing-icons">
+		<a 
+			target="sharing" 
+			href="http://twitter.com/share?url=//assets/oira/help/hr/illustrations/report" class="pat-button twitter icon-twitter">Twitter</a>
+		<a 
+			target="sharing" 
+			href="http://www.facebook.com/sharer.php?u=//assets/oira/help/hr/illustrations/report" 
+			class="pat-button facebook icon-facebook">Facebook</a>
+		<a 
+			href="mailto:?subject=OiRA — &amp;body=I wish to share the following with you: //assets/oira/help/hr/illustrations/report" 
+			class="pat-button email icon-mail">E-mail</a>	
+	</p>
 </div>
 
     
@@ -523,7 +700,7 @@
             <select 
                 name="search-rule.data-field:records">
                 <option 
-                    value="SearchableText"></option>
+                    value="SearchableText">Any text field</option>
                 <optgroup 
                     label="Metadata">
                     <option value="Title">Title</option>
@@ -548,9 +725,9 @@
                 class="pat-select">
                 <select 
                     name="search-rule.lemma-operator:records">
-                    <option value="contains"></option>
-                    <option value="contains-not"></option>
-                    <option value="equals"></option>
+                <option value="contains">Contains</option>
+                <option value="contains-not">Does not contain</option>
+                <option value="equals">Equals</option>
                 </select>
             </label>
             <input 
@@ -633,7 +810,7 @@
         class="pat-button default icon-search">Traži</button>
     <button 
         type="button" 
-        class="pat-button add-clone add-clone-rule icon-plus-circle"></button>
+        class="pat-button add-clone add-clone-rule icon-plus-circle">Add another search rule</button>
 
     <a 
         href="../../hr/illustrations/report#listing" 
@@ -654,13 +831,9 @@
         <select 
             name="search-rule.and-or:records">
             <option 
-                value="and">
-                
-            </option>
+                value="and">And…</option>
             <option 
-                value="or">
-                
-            </option>
+                value="or">Or…</option>
         </select>
     </label>
     <label 
@@ -668,7 +841,7 @@
         <select 
             name="search-rule.data-field:records">
             <option 
-                value="SearchableText"></option>
+                value="SearchableText">Any text field</option>
             <optgroup 
                 label="Metadata">
                 <option value="Title">Title</option>
@@ -690,9 +863,9 @@
             class="pat-select">
             <select 
                 name="search-rule.lemma-operator:records">
-                <option value="contains"></option>
-                <option value="contains-not"></option>
-                <option value="equals"></option>
+                <option value="contains">Contains</option>
+                <option value="contains-not">Does not contain</option>
+                <option value="equals">Equals</option>
             </select>
         </label>
         <input 

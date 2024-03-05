@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="en">
+	lang="nl">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -64,7 +64,7 @@
 	id="toolbar">
 	
 		<a 
-			href="/index-logged-in.html" 
+			href="/index.html" 
 		    data-pat-inject="source: #content; target: #content; history: record" 
 		    class="pat-inject pat-switch title-group" 
 		    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
@@ -113,7 +113,7 @@
 			   	class="iconified pat-tooltip" 
 			   	data-pat-tooltip="source: ajax">Help</a>
 			<a 
-				href="/index-logged-in.html" 
+				href="/index.html" 
 			    data-pat-inject="source: #content; target: #content; history: record" 
 			    class="home pat-inject iconified icon-home pat-switch" 
 			    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
@@ -193,7 +193,7 @@
             class="consultancy pat-switch pat-inject"
             data-pat-inject="history: record"
             data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"
-            href="//consultancy#content">Consultancy</a>
+            href="//consultancy#content"></a>
     </li>
 
     <li id="step-5" >
@@ -213,8 +213,7 @@
       <a href="//status#content"
           data-pat-inject="history: record"
           class="status pat-switch pat-inject"
-          data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Status
-        <!-- <strong class="pie-graph pat-tooltip"
+          data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Status<!-- <strong class="pie-graph pat-tooltip"
             data-pat-tooltip="trigger: hover; position-list: lm"
             data-percentage="0"
             title="0% Complete">0%</strong> --></a>
@@ -228,7 +227,7 @@
             href="//settings#content"
             data-pat-inject="history: record"
             class="settings pat-switch pat-inject"
-            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Settings</a>
+            data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off"></a>
     </li>
     <li 
         id="home">
@@ -575,7 +574,7 @@
             <select 
                 name="search-rule.data-field:records">
                 <option 
-                    value="SearchableText"></option>
+                    value="SearchableText">Any text field</option>
                 <optgroup 
                     label="Metadata">
                     <option value="Title">Title</option>
@@ -600,9 +599,9 @@
                 class="pat-select">
                 <select 
                     name="search-rule.lemma-operator:records">
-                    <option value="contains"></option>
-                    <option value="contains-not"></option>
-                    <option value="equals"></option>
+                <option value="contains">Contains</option>
+                <option value="contains-not">Does not contain</option>
+                <option value="equals">Equals</option>
                 </select>
             </label>
             <input 
@@ -685,7 +684,7 @@
         class="pat-button default icon-search">Išči</button>
     <button 
         type="button" 
-        class="pat-button add-clone add-clone-rule icon-plus-circle"></button>
+        class="pat-button add-clone add-clone-rule icon-plus-circle">Add another search rule</button>
 
     <a 
         href="../../sl/illustrations/profiling#listing" 
@@ -706,13 +705,9 @@
         <select 
             name="search-rule.and-or:records">
             <option 
-                value="and">
-                
-            </option>
+                value="and">And…</option>
             <option 
-                value="or">
-                
-            </option>
+                value="or">Or…</option>
         </select>
     </label>
     <label 
@@ -720,7 +715,7 @@
         <select 
             name="search-rule.data-field:records">
             <option 
-                value="SearchableText"></option>
+                value="SearchableText">Any text field</option>
             <optgroup 
                 label="Metadata">
                 <option value="Title">Title</option>
@@ -742,9 +737,9 @@
             class="pat-select">
             <select 
                 name="search-rule.lemma-operator:records">
-                <option value="contains"></option>
-                <option value="contains-not"></option>
-                <option value="equals"></option>
+                <option value="contains">Contains</option>
+                <option value="contains-not">Does not contain</option>
+                <option value="equals">Equals</option>
             </select>
         </label>
         <input 
