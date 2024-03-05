@@ -1,7 +1,7 @@
 Changelog
 =========
 
-16.0.2 (unreleased)
+16.1.0 (2024-03-05)
 -------------------
 
 - Short report can be activated per country
