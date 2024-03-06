@@ -487,19 +487,14 @@ class IdentificationView(RiskBase):
     @memoize
     def evaluation_condition(self):
         """In what circumstances will the Evaluation panel be shown, provided
-        that evaluation is not skipped in general?"""
+        that evaluation is not skipped in general?
+
+        If you are using scaled answers instead of yes/no, you likely want to
+        override this.
+        """
         condition = "condition: answer=no"
         if self.italy_special and not self.skip_evaluation:
             condition = "condition: answer=no or answer=yes"
-        if getattr(self.risk, "use_scaled_answer", False):
-            # TODO check if we need to do anything with italy_special in this case.
-            # Also, this likely needs to be overridden in projects that use scaled
-            # answers, because in some modules a high value means the risk is present,
-            # and in some modules a low value.
-            conditions = [
-                f"scaled_answer={answer}" for answer in model.SCALED_ANSWER_RISK_PRESENT
-            ]
-            condition = "condition: " + " or ".join(conditions)
         return condition
 
     @property
@@ -620,6 +615,18 @@ class IdentificationView(RiskBase):
             and self.my_tool_type in self.tti.types_existing_measures
         )
 
+    def get_identification_from_scaled_answer(self, scaled_answer):
+        """Determine the yes/no identification based on the scaled answer.
+
+        A simplistic implementation could be:
+
+          return "no" if scaled_answer in ("1", "2") else "yes"
+
+        You likely want to override this if you actually use scaled answers,
+        so by default we return nothing, making the identification empty.
+        """
+        pass
+
     def set_answer_data(self, reply):
         """Set answer data from the reply.
 
@@ -645,9 +652,11 @@ class IdentificationView(RiskBase):
         scaled_answer = reply.get("scaled_answer", None)
         if scaled_answer:
             # We have an answer on the scale of 1-5 (or similar).
-            self.context.postponed = False
-            self.context.identification = None
             self.context.scaled_answer = scaled_answer
+            self.context.postponed = False
+            self.context.identification = self.get_identification_from_scaled_answer(
+                scaled_answer
+            )
         else:
             self.context.scaled_answer = None
             self.context.postponed = answer == "postponed"
@@ -1225,8 +1234,6 @@ class ActionPlanView(RiskBase):
 
     @property
     def risk_present(self):
-        if self.context.scaled_answer is not None:
-            return self.context.scaled_answer in model.SCALED_ANSWER_RISK_PRESENT
         return self.context.identification == "no"
 
     @property
