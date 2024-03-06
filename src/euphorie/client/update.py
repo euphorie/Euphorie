@@ -1,4 +1,5 @@
 from euphorie.client import model
+from euphorie.client.profile import always_present_default
 from euphorie.client.utils import HasText
 from euphorie.content.interfaces import IQuestionContainer
 from z3c.saconfig import Session
@@ -117,7 +118,10 @@ def treeChanges(session, survey, profile=None):
                     # skipped.
                     results.add((entry["zodb_path"], nodes[0].type, "modified"))
             if node.type == entry["type"] == "risk":
-                if entry["always_present"] and node.identification != "no":
+                if (
+                    entry["always_present"]
+                    and node.identification != always_present_default
+                ):
                     results.add((entry["zodb_path"], node.type, "modified"))
                 if entry["risk_type"] != node.risk_type:
                     results.add((entry["zodb_path"], node.type, "modified"))

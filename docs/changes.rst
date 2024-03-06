@@ -4,7 +4,8 @@ Changelog
 16.1.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix change detection when tool has been updated
+  Ref: scrum-2030
 
 
 16.1.0 (2024-03-05)
