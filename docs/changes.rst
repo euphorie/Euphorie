@@ -1,7 +1,7 @@
 Changelog
 =========
 
-16.1.1 (unreleased)
+16.1.1 (2024-03-07)
 -------------------
 
 - Fix change detection when tool has been updated
