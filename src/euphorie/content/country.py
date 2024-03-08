@@ -12,6 +12,7 @@ from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.autoform import directives
 from plone.dexterity.content import Container
 from plone.supermodel import model
+from plonetheme.nuplone.z3cform.directives import depends
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from zope import schema
 from zope.interface import implementer
@@ -75,11 +76,14 @@ class ICountry(model.Schema, IBasic):
         title=_("label__default_reports", "Available reports"),
         description=_(
             "help__default_reports",
-            "Define, which reports are offered to the user on the Report page.",
+            "Define which reports are offered to the user on the Report page.",
         ),
         value_type=schema.Choice(
             vocabulary=SimpleVocabulary(
                 [
+                    SimpleTerm(
+                        "report_compact", title=_("Compact report (Word document)")
+                    ),
                     SimpleTerm("report_full", title=_("Full report (Word document)")),
                     SimpleTerm(
                         "report_action_plan",
@@ -96,6 +100,38 @@ class ICountry(model.Schema, IBasic):
             )
         ),
         default=["report_full", "report_action_plan", "report_overview_risks"],
+        required=False,
+    )
+
+    depends("compact_report_options", "default_reports", "==", "report_compact")
+    directives.widget(compact_report_options=CheckBoxFieldWidget)
+    compact_report_options = schema.List(
+        title=_("label_compact_report_options", "Compact report options"),
+        description=_(
+            "help_compact_report_options",
+            "Select which optional elements are used in the compact report",
+        ),
+        value_type=schema.Choice(
+            vocabulary=SimpleVocabulary(
+                [
+                    SimpleTerm("description_of_risks", title=_("Description of risks")),
+                    SimpleTerm("comments", title=_("Comments")),
+                    SimpleTerm(
+                        "description_of_measures", title=_("Description of measures")
+                    ),
+                    SimpleTerm(
+                        "measure_responsible_date",
+                        title=_("Measure responsible and date"),
+                    ),
+                ]
+            )
+        ),
+        default=[
+            "description_of_risks",
+            "comments",
+            "description_of_measures",
+            "measure_responsible_date",
+        ],
         required=False,
     )
 

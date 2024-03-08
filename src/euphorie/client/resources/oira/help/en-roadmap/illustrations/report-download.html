@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="en">
+	lang="nl">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -52,8 +52,8 @@
 	</head>
 	<body
 		id="body"
-		data-page-layout="risk-assessment"
-		data-layout-layout="generic"
+		data-page-layout="report-download"
+		data-layout-layout="risk-assessment"
 		class=" osh-off osc-off osc-size-normal osc-s-off ">
 
 		<div 
@@ -64,7 +64,7 @@
 	id="toolbar">
 	
 		<a 
-			href="/index-logged-in.html" 
+			href="/index.html" 
 		    data-pat-inject="source: #content; target: #content; history: record" 
 		    class="pat-inject pat-switch title-group" 
 		    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
@@ -74,6 +74,11 @@
 				OiRA
 			</h1>
 		</a>
+		<!-- 
+			<a href="#tree" 
+			   id="toggle-tree" 
+			   class="iconified pat-toggle" 
+			   data-pat-toggle="selector: #main; value: sidebar-off sidebar-on;">Toggle tree</a> -->
 		
 		
 	
@@ -113,7 +118,7 @@
 			   	class="iconified pat-tooltip" 
 			   	data-pat-tooltip="source: ajax">Help</a>
 			<a 
-				href="/index-logged-in.html" 
+				href="/index.html" 
 			    data-pat-inject="source: #content; target: #content; history: record" 
 			    class="home pat-inject iconified icon-home pat-switch" 
 			    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
@@ -196,7 +201,7 @@
             href="//consultancy#content">Consultancy</a>
     </li>
 
-    <li id="step-5" >
+    <li id="step-5" class="active">
       
         <a class="report pat-switch pat-inject"
             data-pat-inject="history: record"
@@ -213,8 +218,7 @@
       <a href="//status#content"
           data-pat-inject="history: record"
           class="status pat-switch pat-inject"
-          data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Status
-        <!-- <strong class="pie-graph pat-tooltip"
+          data-pat-switch="selector: #main; remove: sidebar-*; add: sidebar-off">Status<!-- <strong class="pie-graph pat-tooltip"
             data-pat-tooltip="trigger: hover; position-list: lm"
             data-percentage="0"
             title="0% Complete">0%</strong> --></a>
@@ -250,80 +254,322 @@
 		variation-risk-assessment">
     
 
-<div id="content-pane">
+<div 
+	class="pat-scroll-box" 
+	id="content-pane">
+	
+	<div
+    class="pat-toolbar sticky auto-hide"
+    id="assessment-toolbar">   
+    <div
+        class="toolbar-functions-area">  
+        
+            <div 
+                class="toolbar-section">
+                <a 
+                    href="#tree" 
+                    id="toggle-tree" 
+                    class="icon menu pat-toggle" 
+                    data-pat-toggle="selector: #main; value: sidebar-off sidebar-on;">Toggle tree</a> 
+            </div>
+        
+        <div 
+            class="toolbar-section quick-functions"
+            id="assessment-toolbar-quick-functions"> 
 
-	<article class="pat-rich">
-		<h1>Download and print your report</h1>
+            
+                <a 
+                    title="Lock this assessment" 
+                    href="#publication-menu" 
+                    class="icon-lock-open icon pat-tooltip " 
+                    data-pat-tooltip="source: ajax; position-list: tr; trigger: click; source: ajax">Unlocked 
+                    <!-- <time 
+                            class="pat-display-time" 
+                        data-pat-display-time="from-now: true; locale: nl" 
+                        datetime="2018-03-28T08:00Z">2018-03-28</time> -->
+                </a>
+            
 
-		  <p class="discrete">We recommend that you always keep an updated printed version of your risk assessment (report) available in your company!</p>
+            <div 
+                id="publication-menu" 
+                hidden>
+                
+                    <div 
+                        class="pat-message notice">
+                        <p>
+                            Last edited by <a href="mailto:hans@mittelmaier.de">Michel Moulin</a> on 8 December 2022.
+                        </p>
+                    </div>
+                
+                    <ul 
+                        class="menu">
+                        
+                        <li>
+                            <form 
+                                action="/preparation-read-only.html#content" 
+                                class="pat-inject close-panel">
+                                <button 
+                                    type="submit" 
+                                    class="icon-lock">Lock Risk Assessment</button>
+                            </form>
+                        </li>
+                    
+                </ul>
+            </div>
+                
+            <a 
+                href="/preparation.html#sharing-menu" 
+                class="icon-share icon pat-tooltip" 
+                data-pat-tooltip="source: ajax; position-list: tr">Share</a>
+
+
+            <a 
+                href="#status-sentinel"
+                data-pat-inject="history: record"
+                class="icon pat-inject progress pat-tooltip"
+                data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr">
+               <strong 
+                    class="pie-graph"
+                    data-percentage="0"
+                    title="0% Complete">0%</strong>
+            </a>
+
+            <div
+                hidden
+                id="status-sentinel">
+                
+                    
+
+<p>
+    You've completed <strong>0%</strong> of the risk assessment. When you've completed 85% of the risk assessment, you will be eligible for a certificate.
+</p>
+<p>
+    <!-- Next line follows from a text entered in the CMS that may differ per country. The text explains the benefits of the certificate. -->
+
+    
+    	With this certificate, you can apply for a reduction on your company's insurance rates.
+    
+
+    <!-- The URL of the next (optional) link is changeable via the CMS, together with the benefits text. -->
+
+    <a href="#">Learn more about the benefits…</a>
+</p>
+                
+                
+                <p>
+                    View the <a href="//status#content" class="pat-inject close-panel">Status screen</a> for more details.
+                </p>
+            </div>
+            
+                <a 
+                    href="/feedback/ass-menu#more-menu" 
+                    class="icon more pat-tooltip" 
+                    data-pat-tooltip="source: ajax; position-list: tr">More</a>
+            
+            
+            <!-- <a 
+                class="default pat-button">Approve risk assessment</a>  --> 
+        </div>
+    </div>
+</div>
+
+	<article 
+		class="pat-rich"
+		id="page-intro">
+		<h1>Report</h1>
+
+	  	<p
+	  		class="summary">Save the report on your computer and print it. You can also modify it or add more information. Please note that changes made on your pc will NOT be saved in the OiRA risk assessment.</p>
 	</article>
 
-	<div class="row pat-equaliser download-blocks count-4">
-		<!-- The class 'count-x' indicates the amount of download blocks that are present. The classes 'count-1', 'count-2', 'count-3' and 'count-4' are supported. -->
-		<div class="download-block column">
-			<article class="pat-well pat-rich">
-				<p class="button-bar">
-					<a href="https://client.oiratest.syslab.com/eu/eu-private-security/private-security-eu/report/download" class="pat-button bar download rtf icon-download">
-						Report
-					</a>
-				</p>
+	<div 
+		class="download-blocks">
+		
+		
+			<div 
+				class="download-block">
+				<div 
+					class="download-block-header">
+					<h2>Compact</h2>
+					<a 
+						href="https://client.oiratest.syslab.com/eu/eu-private-security/private-security-eu/report/download"
+						class="default pat-button download rtf icon-download">Download</a>
+				</div>
+				<div 
+					class="
+						download-block-body 
+						pat-rich">
+					<ul>
+						
+						<li>
+							Format: Office Open XML Workbook (.docx)
+						</li>
+						
+						<li>
+							Contains: Concise information and input provided by you throughout the risk assessment process.
+						</li>
+						
+					</ul>
+			
+					<h4>Use it to:</h4>
+					<ul>
+						
+						<li>
+							Provide a concise overview over your current status for internal use.
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+		
 
+		<div 
+			class="download-block">
+			<div class="download-block-header">
+				<h2
+					class="">Full report</h2>
+				<a 
+					href="https://client.oiratest.syslab.com/eu/eu-private-security/private-security-eu/report/download" 
+					class="default pat-button download rtf icon-download">
+					Download
+				</a>
+			</div>
+			<div 
+				class="download-block-body pat-rich">
 				<ul>
 				    <li>Format: Rich Text Format (.rtf)</li>
 				    <li>Contains: all the information and input provided by you throughout the risk assessment process.</li>
 				</ul>
 
-		  	</article>
+				<h4>Use it to:</h4>
+				<ul>
+				    <li><strong>Provide evidence</strong> for supervisory authorities (labour inspectorate).</li>
+				</ul>
+			</div>
 		</div>
 
-		<div class="download-block column">
-			<article class="pat-well pat-rich">
-				<p class="button-bar">
-					<a href="https://client.oiratest.syslab.com/eu/eu-private-security/private-security-eu/report/timeline" class="pat-button bar download xlsx icon-download">
-						Action plan
-					</a>
-				</p>
-
+		<div class="download-block">
+			<div class="download-block-header">
+				<h2
+					class="">Action plan</h2>
+				<a 
+					href="https://client.oiratest.syslab.com/eu/eu-private-security/private-security-eu/report/timeline" 
+					class="default pat-button download xlsx icon-download">
+					Download
+				</a>
+			</div>
+			<div 
+				class="download-block-body pat-rich">
 				<ul>
 					<li>Format: Office Open XML Workbook (.xlsx)</li>
 					<li>Contains: main elements to effectively manage the risks at your workplace.</li>
 				</ul>
 
-			</article>
+			  	<h4>
+			  		Use it to:
+			  	</h4>
+				<ul>
+					<li><strong>Manage</strong> the problems/risks in your workplace (specific tasks, expertise, responsibilities, deadlines).</li>
+				</ul>
+			</div>
 		</div>
 
-		<div class="download-block column">
-			<article class="pat-well pat-rich">
-				<p class="button-bar">
-					<a href="https://client.oiratest.syslab.com/eu/eu-private-security/private-security-eu/report/timeline" class="pat-button bar download xlsx icon-download">
-						Overview of risks
-					</a>
-				</p>
-
+		<div 
+			class="download-block">
+			<div 
+				class="download-block-header">
+				<h2
+					class="">Risks</h2>
+				<a 
+					href="https://client.oiratest.syslab.com/eu/eu-private-security/private-security-eu/report/timeline" 
+					class="default pat-button download xlsx icon-download">
+					Download
+				</a>
+			</div>
+			<div 
+				class="download-block-body pat-rich">
 				<ul>
 					<li>Format: Portable Document Format (.pdf)</li>
 					<li>Contains: an overview of the risks identified</li>
 				</ul>
 
-			</article>
+			  	<h4>
+			  		Use it to:
+			  	</h4>
+				<ul>
+					<li>Pass information to the people concerned.</li>
+					<li>Monitor whether risks / measures are properly dealt with.</li>
+				</ul>
+			</div>
 		</div>
 
-		<div class="download-block column">
-			<article class="pat-well pat-rich">
-				<p class="button-bar">
-					<a href="https://client.oiratest.syslab.com/eu/eu-private-security/private-security-eu/report/timeline" class="pat-button bar download xlsx icon-download">
-						Overview of measures
-					</a>
-				</p>
-
+		<div 
+			class="download-block">
+			<div 
+				class="download-block-header">
+				<h2
+					class="">Measures</h2>
+				<a 
+					href="https://client.oiratest.syslab.com/eu/eu-private-security/private-security-eu/report/timeline" 
+					class="default pat-button download xlsx icon-download">
+					Download
+				</a>
+			</div>
+			<div 
+				class="download-block-body pat-rich">
 				<ul>
 					<li>Format: Portable Document Format (.pdf)</li>
 					<li>Contains: an overview of the measures to be implemented.</li>
 				</ul>
 
-			</article>
+			  	<h4>
+			  		Use it to:
+			  	</h4>
+				<ul>
+					<li>Pass information to the people concerned.</li>
+					<li>Monitor whether risks / measures are properly dealt with.</li>
+				</ul>
+			</div>
 		</div>
 	</div>
+
+	<article 
+		class="pat-rich">
+	  	<p>
+	  		Use the report to:
+	  	</p>
+
+		<ul>
+		    <li>Provide evidence for supervisory authorities.</li>
+		    <li>Pass information on to the people concerned (workers, safety representatives, employers, experts in occupational safety and health, etc.)</li>
+		    <li>Monitor and assess whether necessary measures have been introduced.</li>
+		    <li>Record any revision if circumstances change (new machines, new workers, as a result of findings of any accident investigations, etc.)</li>
+		</ul>
+
+
+		  <p 
+		  	class="discrete">We recommend that you always keep an updated printed version of your risk assessment (report) available in your company!</p>
+	</article>
+
+	<article 
+		class="pat-rich">
+		<p>
+			Did you like this tool? Let your colleagues and friends know about it! Share via:
+		</p>
+	</article>
+	<p 
+		class="button-bar sharing-icons">
+		<a 
+			target="sharing" 
+			href="http://twitter.com/share?url=//assets/oira/help/en-roadmap/illustrations/report-download" class="pat-button twitter icon-twitter">Twitter</a>
+		<a 
+			target="sharing" 
+			href="http://www.facebook.com/sharer.php?u=//assets/oira/help/en-roadmap/illustrations/report-download" 
+			class="pat-button facebook icon-facebook">Facebook</a>
+		<a 
+			href="mailto:?subject=OiRA — &amp;body=I wish to share the following with you: //assets/oira/help/en-roadmap/illustrations/report-download" 
+			class="pat-button email icon-mail">E-mail</a>	
+	</p>
 </div>
 
     
@@ -481,9 +727,9 @@
                 class="pat-select">
                 <select 
                     name="search-rule.lemma-operator:records">
-                    <option value="contains">Contains</option>
-                    <option value="contains-not">Does not contain</option>
-                    <option value="equals">Equals</option>
+                <option value="contains">Contains</option>
+                <option value="contains-not">Does not contain</option>
+                <option value="equals">Equals</option>
                 </select>
             </label>
             <input 
@@ -587,13 +833,9 @@
         <select 
             name="search-rule.and-or:records">
             <option 
-                value="and">
-                And…
-            </option>
+                value="and">And…</option>
             <option 
-                value="or">
-                Or…
-            </option>
+                value="or">Or…</option>
         </select>
     </label>
     <label 

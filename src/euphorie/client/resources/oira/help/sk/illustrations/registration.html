@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="en">
+	lang="nl">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -64,7 +64,7 @@
 	id="toolbar">
 	
 		<a 
-			href="/index-logged-in.html" 
+			href="/index.html" 
 		    data-pat-inject="source: #content; target: #content; history: record" 
 		    class="pat-inject pat-switch title-group" 
 		    data-pat-switch="selector: body; remove: osc-s-on; add: osc-s-off;"
@@ -114,23 +114,23 @@
     </h1>
 </article>
 
-<form class="pat-form" action="/terms-conditions.html">
-    <fieldset class="vertical">
-        <label>
-            E-mailová adresa
-            <input type="email" />
+<form 
+    class="pat-form" 
+    action="/terms-conditions.html">
+    <fieldset 
+        class="vertical">
+        <label>E-mailová adresa<input type="email" />
         </label>
-        <label>
-            Požadované heslo
-            <input type="email" />
+        <label>Požadované heslo<input type="email" />
         </label>
-        <label>
-            Znova heslo
-            <input type="email" />
+        <label>Heslo<input type="email" />
         </label>
     </fieldset>
-    <p class="button-bar">
-        <button class="pat-button" type="submit">Ďalej</button>
+    <p 
+        class="button-bar">
+        <button 
+            class="pat-button" 
+            type="submit">Ďalej</button>
     </p>
 </form>
     </div>
@@ -235,7 +235,7 @@
             <select 
                 name="search-rule.data-field:records">
                 <option 
-                    value="SearchableText"></option>
+                    value="SearchableText">Any text field</option>
                 <optgroup 
                     label="Metadata">
                     <option value="Title">Title</option>
@@ -260,9 +260,9 @@
                 class="pat-select">
                 <select 
                     name="search-rule.lemma-operator:records">
-                    <option value="contains"></option>
-                    <option value="contains-not"></option>
-                    <option value="equals"></option>
+                <option value="contains">Contains</option>
+                <option value="contains-not">Does not contain</option>
+                <option value="equals">Equals</option>
                 </select>
             </label>
             <input 
@@ -345,7 +345,7 @@
         class="pat-button default icon-search">Vyhľadávanie</button>
     <button 
         type="button" 
-        class="pat-button add-clone add-clone-rule icon-plus-circle"></button>
+        class="pat-button add-clone add-clone-rule icon-plus-circle">Add another search rule</button>
 
     <a 
         href="../../sk/illustrations/registration#listing" 
@@ -366,13 +366,9 @@
         <select 
             name="search-rule.and-or:records">
             <option 
-                value="and">
-                
-            </option>
+                value="and">And…</option>
             <option 
-                value="or">
-                
-            </option>
+                value="or">Or…</option>
         </select>
     </label>
     <label 
@@ -380,7 +376,7 @@
         <select 
             name="search-rule.data-field:records">
             <option 
-                value="SearchableText"></option>
+                value="SearchableText">Any text field</option>
             <optgroup 
                 label="Metadata">
                 <option value="Title">Title</option>
@@ -402,9 +398,9 @@
             class="pat-select">
             <select 
                 name="search-rule.lemma-operator:records">
-                <option value="contains"></option>
-                <option value="contains-not"></option>
-                <option value="equals"></option>
+                <option value="contains">Contains</option>
+                <option value="contains-not">Does not contain</option>
+                <option value="equals">Equals</option>
             </select>
         </label>
         <input 

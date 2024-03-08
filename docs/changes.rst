@@ -1,10 +1,41 @@
 Changelog
 =========
 
-16.0.1 (unreleased)
+16.1.2 (unreleased)
 -------------------
 
 - Nothing changed yet.
+
+
+16.1.1 (2024-03-07)
+-------------------
+
+- Fix change detection when tool has been updated
+  Ref: scrum-2030
+
+
+16.1.0 (2024-03-05)
+-------------------
+
+- Short report can be activated per country
+  Ref: scrum-1297
+  [reinhardt]
+
+- Fixed locking information in status view
+  Ref: scrum-2001
+  [reinhardt]
+
+- Updated help
+  Ref: scrum-1785
+  [reinhardt]
+
+- Use Plone 6.0.10.1
+
+
+16.0.1 (2024-02-20)
+-------------------
+
+- Updated translations
 
 
 16.0.0 (2024-02-15)
