@@ -802,6 +802,11 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def use_action_plan_phase(self):
+        return not self.integrated_action_plan
+
+    @property
+    @memoize
     def in_session(self):
         """Check if there is an active survey session."""
         return self._survey is not None
@@ -1338,7 +1343,7 @@ class WebHelpers(BrowserView):
             }
         )
 
-        if not integrated_action_plan:
+        if self.use_action_plan_phase:
             # The tree for the action section uses the same structure as the
             # identification tree, with the only differences that only risks
             # and their parent modules are shown and that the entire tree is
