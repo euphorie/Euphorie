@@ -1432,5 +1432,13 @@ class WebHelpers(BrowserView):
     def get_user_fullname(self, account=None):
         return account.title
 
+    def navigation_tree_legend(self):
+        return [
+            {"class": "unvisited", "title": _("Unvisited")},
+            {"class": "postponed", "title": _("Postponed")},
+            {"class": "answered", "title": _("Risk not present")},
+            {"class": "answered risk", "title": _("Risk present")},
+        ]
+
     def __call__(self):
         return self
