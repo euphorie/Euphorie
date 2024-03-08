@@ -149,18 +149,9 @@
     >
       <metal:call use-macro="webhelpers/macros/survey_tree_inner" />
       <ul class="legend">
-        <li class="unvisited"
-            i18n:translate=""
-        >Unvisited</li>
-        <li class="postponed"
-            i18n:translate=""
-        >Postponed</li>
-        <li class="answered"
-            i18n:translate=""
-        >Risk not present</li>
-        <li class="answered risk"
-            i18n:translate=""
-        >Risk present</li>
+        <li class="${legend/class}"
+            tal:repeat="legend webhelpers/navigation_tree_legend"
+        >${legend/title}</li>
       </ul>
     </div>
   </metal:survey>
