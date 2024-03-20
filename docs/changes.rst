@@ -4,11 +4,15 @@ Changelog
 15.3.0 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix change detection when tool has been updated
+  Ref: scrum-2030
+
+- Allow country managers to use duplication finder tools.
+  Ref: scrum-2082
 
 
 15.3.0.dev1 (2024-03-05)
-------------------------
+-------------------
 
 - Short report can be activated per country
   Ref: scrum-1297
