@@ -481,7 +481,7 @@
       for="euphorie.content.survey.ISurvey"
       class=".survey.FindSolutionTitleDuplications"
       template="templates/find-solution-title-duplications.pt"
-      permission="cmf.ManagePortal"
+      permission="euphorie.content.ManageCountry"
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
@@ -490,7 +490,7 @@
       for="euphorie.content.country.ICountry"
       class=".survey.FindToolsWithDuplications"
       template="templates/find-tools-with-duplications.pt"
-      permission="cmf.ManagePortal"
+      permission="euphorie.content.ManageCountry"
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 

@@ -4,7 +4,8 @@ Changelog
 16.1.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Allow country managers to use duplication finder tools.
+  Ref: scrum-2082
 
 
 16.1.1 (2024-03-07)
