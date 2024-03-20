@@ -1,8 +1,8 @@
 Changelog
 =========
 
-15.3.0 (unreleased)
--------------------
+15.3.0.dev2 (2024-03-20)
+------------------------
 
 - Fix change detection when tool has been updated
   Ref: scrum-2030
