@@ -454,15 +454,19 @@ def parse_scaled_answers(contents):
     result = []
     if not contents:
         return result
-    for number, answer in enumerate(contents.splitlines(), 1):
+    count = 0
+    for answer in contents.splitlines():
         answer = answer.strip()
         if not answer:
             continue
+        count += 1
         parts = answer.split("|")
-        if len(parts) == 2:
-            answer, number = parts
+        if len(parts) > 1:
+            # If you really want, an answer can contain a literal pipe.
+            answer = "|".join(parts[:-1]).strip()
+            number = parts[-1].strip()
         else:
-            number = str(number)
+            number = str(count)
         result.append(
             {
                 "text": answer,

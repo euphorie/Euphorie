@@ -1,5 +1,6 @@
 from euphorie.content.utils import getTermTitleByToken
 from euphorie.content.utils import getTermTitleByValue
+from euphorie.content.utils import parse_scaled_answers
 from euphorie.content.utils import StripMarkup
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
@@ -50,6 +51,59 @@ class TestGetTermTitleByToken(unittest.TestCase):
     def testKnownToken(self):
         field = make_field([(1, "token", "Title")])
         self.assertEqual(getTermTitleByToken(field, "token"), "Title")
+
+
+class TestParseScaledAnswers(unittest.TestCase):
+    def testEmpty(self):
+        self.assertEqual(parse_scaled_answers(""), [])
+
+    def testSimple(self):
+        self.assertEqual(
+            parse_scaled_answers("a\nb"),
+            [{"text": "a", "value": "1"}, {"text": "b", "value": "2"}],
+        )
+        self.assertEqual(
+            parse_scaled_answers("a\nb\nc\nd\ne\nf"),
+            [
+                {"text": "a", "value": "1"},
+                {"text": "b", "value": "2"},
+                {"text": "c", "value": "3"},
+                {"text": "d", "value": "4"},
+                {"text": "e", "value": "5"},
+                {"text": "f", "value": "6"},
+            ],
+        )
+
+    def testExtended(self):
+        self.assertEqual(
+            parse_scaled_answers("a|7\nb|3"),
+            [{"text": "a", "value": "7"}, {"text": "b", "value": "3"}],
+        )
+
+    def testMixed(self):
+        self.assertEqual(
+            parse_scaled_answers("a|7\nb"),
+            [{"text": "a", "value": "7"}, {"text": "b", "value": "2"}],
+        )
+        self.assertEqual(
+            parse_scaled_answers("a\nb|42"),
+            [{"text": "a", "value": "1"}, {"text": "b", "value": "42"}],
+        )
+
+    def testUgly(self):
+        self.assertEqual(
+            parse_scaled_answers("\n\n hello world |  7\n\n\n  b  \n\n\n"),
+            [{"text": "hello world", "value": "7"}, {"text": "b", "value": "2"}],
+        )
+        # If you really want, an answer can contain a literal pipe.
+        self.assertEqual(
+            parse_scaled_answers("a|b|7"),
+            [{"text": "a|b", "value": "7"}],
+        )
+        self.assertEqual(
+            parse_scaled_answers("a||7"),
+            [{"text": "a|", "value": "7"}],
+        )
 
 
 class Mock:
