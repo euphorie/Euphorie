@@ -14,7 +14,9 @@ class RegistryValueVocabulary:
 
     @property
     def values(self):
-        return api.portal.get_registry_record(self.value_name, default=[])
+        return tuple(
+            filter(None, api.portal.get_registry_record(self.value_name, default=[]))
+        )
 
     def __call__(self, context):
         return safe_simplevocabulary_from_values(self.values)
