@@ -460,12 +460,12 @@ def parse_scaled_answers(contents):
         if not answer:
             continue
         count += 1
-        parts = answer.split("|")
-        if len(parts) > 1:
-            # If you really want, an answer can contain a literal pipe.
-            answer = "|".join(parts[:-1]).strip()
-            number = parts[-1].strip()
+        if "|" in answer:
+            answer, separator, number = answer.rpartition("|")
+            answer = answer.strip()
+            number = number.strip()
         else:
+            # No explicit value found, so take the row number.
             number = str(count)
         result.append(
             {
