@@ -1437,6 +1437,7 @@ class WebHelpers(BrowserView):
     def get_user_fullname(self, account=None):
         return account.title
 
+    @property
     def navigation_tree_legend(self):
         return [
             {"class": "unvisited", "title": _("Unvisited")},
