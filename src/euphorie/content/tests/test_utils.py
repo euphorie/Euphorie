@@ -92,8 +92,12 @@ class TestParseScaledAnswers(unittest.TestCase):
 
     def testUgly(self):
         self.assertEqual(
-            parse_scaled_answers("\n\n hello world |  7\n\n\n  b  \n\n\n"),
-            [{"text": "hello world", "value": "7"}, {"text": "b", "value": "2"}],
+            parse_scaled_answers("\n\n hello world |  7\n\n\n  b  \n\n\nc|\n\n\n"),
+            [
+                {"text": "hello world", "value": "7"},
+                {"text": "b", "value": "2"},
+                {"text": "c", "value": "3"},
+            ],
         )
         # If you really want, an answer can contain a literal pipe.
         self.assertEqual(

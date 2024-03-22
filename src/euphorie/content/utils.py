@@ -451,27 +451,23 @@ def parse_scaled_answers(contents):
         very unsafe|1
 
     """
-    result = []
     if not contents:
-        return result
-    count = 0
-    for answer in contents.splitlines():
-        answer = answer.strip()
-        if not answer:
-            continue
-        count += 1
-        if "|" in answer:
-            answer, separator, number = answer.rpartition("|")
-            answer = answer.strip()
-            number = number.strip()
+        return []
+
+    result = []
+    lines = filter(None, (line.strip() for line in contents.splitlines()))
+
+    for idx, line in enumerate(lines, start=1):
+        if "|" not in line:
+            text, value = line, str(idx)
         else:
-            # No explicit value found, so take the row number.
-            number = str(count)
+            text, value = map(str.strip, line.rpartition("|")[::2])
+
         result.append(
             {
-                "text": answer,
-                "value": number,
-            }
+                "text": text,
+                "value": value or str(idx),
+            },
         )
 
     return result
