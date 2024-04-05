@@ -1,7 +1,13 @@
 Changelog
 =========
 
-16.1.2 (unreleased)
+16.1.3 (unreleased)
+-------------------
+
+- Nothing changed yet.
+
+
+16.1.2 (2024-03-20)
 -------------------
 
 - Allow country managers to use duplication finder tools.
