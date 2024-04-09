@@ -4,7 +4,9 @@ Changelog
 16.1.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Do not do linkintegrity checks when removing contents
+  (Fix regression introduced in https://github.com/euphorie/Euphorie/pull/692)
+  [ale-rt]
 
 
 16.1.2 (2024-03-20)

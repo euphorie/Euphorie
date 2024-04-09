@@ -93,7 +93,7 @@ def CopyToClient(survey, preview=False):
     else:
         new_id = surveygroup.id
     if new_id in target:
-        api.content.delete(obj=target[new_id])
+        api.content.delete(obj=target[new_id], check_linkintegrity=False)
 
     copy = api.content.copy(source, target, id=new_id)
     copy.title = surveygroup.title
