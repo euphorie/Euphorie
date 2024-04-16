@@ -105,15 +105,16 @@ class Login(BrowserView):
             return
 
         old_authenticated_account_id = old_credentials[0]
-
-        if (
+        old_account = (
             Session.query(model.Account)
             .filter(
                 model.Account.account_type == config.GUEST_ACCOUNT,
                 model.Account.id == old_authenticated_account_id,
             )
             .first()
-        ) is None:
+        )
+
+        if old_account is None:
             # We check that the previously authenticated user was actually
             # a guest account that has been converted.
             # This prevents that a regular logged in user A logs in as B
@@ -126,6 +127,8 @@ class Login(BrowserView):
         )
         for session in sessions:
             session.account_id = new_account.id
+            session.touch()
+        Session.delete(old_account)
 
     def is_valid_password(self, password):
         if (
