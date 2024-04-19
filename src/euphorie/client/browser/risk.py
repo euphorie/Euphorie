@@ -603,19 +603,20 @@ class IdentificationView(RiskBase):
         # If answer is not present in the request, do not attempt to set
         # any answer-related data, since the request might have come
         # from a sub-form.
-        if answer:
-            self.context.comment = self.webhelpers.get_safe_html(reply.get("comment"))
-            self.context.postponed = answer == "postponed"
-            if self.context.postponed:
-                self.context.identification = None
-            else:
-                self.context.identification = answer
-                if getattr(self.risk, "type", "") in ("top5", "policy"):
-                    self.context.priority = "high"
-                elif getattr(self.risk, "evaluation_method", "") == "calculated":
-                    self.calculatePriority(self.risk, reply)
-                elif self.risk is None or self.risk.evaluation_method == "direct":
-                    self.context.priority = reply.get("priority")
+        if not answer:
+            return
+        self.context.comment = self.webhelpers.get_safe_html(reply.get("comment"))
+        self.context.postponed = answer == "postponed"
+        if self.context.postponed:
+            self.context.identification = None
+            return
+        self.context.identification = answer
+        if getattr(self.risk, "type", "") in ("top5", "policy"):
+            self.context.priority = "high"
+        elif getattr(self.risk, "evaluation_method", "") == "calculated":
+            self.calculatePriority(self.risk, reply)
+        elif self.risk is None or self.risk.evaluation_method == "direct":
+            self.context.priority = reply.get("priority")
 
     def set_measure_data(self, reply, session):
         changed = False
