@@ -951,7 +951,14 @@ class IdentificationView(RiskBase):
             target = self.next_question
             if target is None:
                 # We ran out of questions, proceed to the action plan
-                url = self.webhelpers.traversed_session.absolute_url() + "/@@actionplan"
+                if self.webhelpers.use_action_plan_phase:
+                    next_view_name = "@@actionplan"
+                elif self.webhelpers.use_consultancy_phase:
+                    next_view_name = "@@consultancy"
+                else:
+                    next_view_name = "@@report"
+                base_url = self.webhelpers.traversed_session.absolute_url()
+                url = f"{base_url}/{next_view_name}"
                 return self.request.response.redirect(url)
 
         elif _next == "add_custom_risk":
