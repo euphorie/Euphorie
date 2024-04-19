@@ -1185,9 +1185,7 @@ class ActionPlanView(RiskBase):
 
     @property
     def risk_postponed(self):
-        return self.context.identification is None and (
-            (self.italy_special and self.context.postponed) or True
-        )
+        return self.context.identification is None
 
     @property
     def use_problem_description(self):
