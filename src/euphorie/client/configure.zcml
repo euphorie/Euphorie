@@ -80,6 +80,14 @@
       layer=".interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="oira_navigation_tree"
+      for="*"
+      class=".navigation.TreeDataCreator"
+      permission="zope2.View"
+      layer=".interfaces.IClientSkinLayer"
+      />
+
   <genericsetup:registerProfile
       name="default"
       title="Euphorie online client"
