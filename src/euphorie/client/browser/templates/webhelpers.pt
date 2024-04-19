@@ -269,7 +269,7 @@
       </div>
       <!-- END Existing measures -->
 
-      <!-- Yes / No -->
+      <!-- Yes / No / Multiple -->
       <fieldset class="pat-checklist radio pat-rich">
         <tal:existing condition="python:view.show_existing_measures and not always_present">
           <p tal:condition="view/intro_questions"
@@ -285,23 +285,53 @@
                  type="hidden"
                  value="postponed"
           />
-          <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
-                   name="answer"
-                   type="radio"
-                   value="yes"
-            /><tal:answer replace="structure view/answer_yes" /></label>
-          <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
-                   name="answer"
-                   type="radio"
-                   value="no"
-            /><tal:answer replace="structure view/answer_no" /></label>
-          <label class="not-applicable"
-                 tal:condition="risk/show_notapplicable|nothing"
-          ><input checked="${python:'checked' if context.identification=='n/a' else None}"
-                   name="answer"
-                   type="radio"
-                   value="n/a"
-            /><tal:answer replace="structure view/answer_na" /></label>
+
+          <!-- scaled answers -->
+          <tal:scaled_answers condition="risk/use_scaled_answer|nothing">
+            <label tal:repeat="answer view/scaled_answers">
+              <input checked="${python:'checked' if context.scaled_answer==value else None}"
+                     name="scaled_answer"
+                     type="radio"
+                     value="${value}"
+                     tal:define="
+                       value answer/value;
+                     "
+              />
+                ${answer/text}
+            </label>
+            <label class="not-applicable"
+                   tal:condition="risk/show_notapplicable|nothing"
+            ><input checked="${python:'checked' if context.scaled_answer=='n/a' else None}"
+                     name="scaled_answer"
+                     type="radio"
+                     value="n/a"
+              /><tal:answer replace="structure view/answer_na" /></label>
+
+          </tal:scaled_answers>
+
+          <!-- Yes/No -->
+          <tal:yes_no condition="not:risk/use_scaled_answer|nothing">
+
+            <label class="yes"><input checked="${python:'checked' if context.identification=='yes' else None}"
+                     name="answer"
+                     type="radio"
+                     value="yes"
+              /><tal:answer replace="structure view/answer_yes" /></label>
+            <label class="no"><input checked="${python:'checked' if context.identification=='no' else None}"
+                     name="answer"
+                     type="radio"
+                     value="no"
+              /><tal:answer replace="structure view/answer_no" /></label>
+            <label class="not-applicable"
+                   tal:condition="risk/show_notapplicable|nothing"
+            ><input checked="${python:'checked' if context.identification=='n/a' else None}"
+                     name="answer"
+                     type="radio"
+                     value="n/a"
+              /><tal:answer replace="structure view/answer_na" /></label>
+
+          </tal:yes_no>
+
         </tal:answers>
         <tal:always_present condition="always_present"><input name="answer"
                  type="hidden"

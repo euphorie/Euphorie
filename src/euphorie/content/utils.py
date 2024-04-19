@@ -426,3 +426,48 @@ class UserExportCSV(BrowserView):
         )
         response.setHeader("Content-Type", "text/csv;charset=utf-8")
         return csv_data
+
+
+def parse_scaled_answers(contents):
+    """Get values and answers from a scaled_answers risk field.
+
+    You pass the contents of the field: a multi-line string.
+
+    In most cases we will get something like this:
+
+        very unsafe
+        a bit unsafe
+        safe enough
+        quite safe
+        very safe
+
+    The first answer gets value 1, the second 2, etc.
+    But we also support something like this, with the values encoded:
+
+        very safe|5
+        quite safe|4
+        safe enough|3
+        a bit unsafe|2
+        very unsafe|1
+
+    """
+    if not contents:
+        return []
+
+    result = []
+    lines = filter(None, (line.strip() for line in contents.splitlines()))
+
+    for idx, line in enumerate(lines, start=1):
+        if "|" not in line:
+            text, value = line, str(idx)
+        else:
+            text, value = map(str.strip, line.rpartition("|")[::2])
+
+        result.append(
+            {
+                "text": text,
+                "value": value or str(idx),
+            },
+        )
+
+    return result
