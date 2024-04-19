@@ -108,6 +108,13 @@ class WebHelpers(BrowserView):
     survey_session_model = SurveySession
     dashboard_tabs = ["surveys", "assessments", "organisation"]
 
+    navigation_tree_legend = [
+        {"class": "unvisited", "title": _("Unvisited")},
+        {"class": "postponed", "title": _("Postponed")},
+        {"class": "answered", "title": _("Risk not present")},
+        {"class": "answered risk", "title": _("Risk present")},
+    ]
+
     def to_decimal(self, value):
         """Transform value in to a decimal."""
         return Decimal(value)
