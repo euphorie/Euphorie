@@ -4,7 +4,13 @@ Changelog
 16.1.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Support scaled answers.
+  These are answers on a scale from usually 1-5, instead of only yes/no.
+  [ale-rt, maurits]
+
+- Do not do linkintegrity checks when removing contents
+  (Fix regression introduced in https://github.com/euphorie/Euphorie/pull/692)
+  [ale-rt]
 
 
 16.1.2 (2024-03-20)

@@ -1246,10 +1246,7 @@ class ActionPlanView(RiskBase):
     @property
     def risk_postponed(self):
         return (
-            self.context.identification is None
-            and self.context.scaled_answer is None
-            # We had this as well, but this is always true:
-            # and ((self.italy_special and self.context.postponed) or True)
+            self.context.identification is None and self.context.scaled_answer is None
         )
 
     @property
