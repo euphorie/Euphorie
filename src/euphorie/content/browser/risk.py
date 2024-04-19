@@ -13,6 +13,7 @@ from Acquisition import aq_parent
 from Acquisition.interfaces import IAcquirer
 from euphorie.content.survey import get_tool_type
 from euphorie.content.utils import IToolTypesInfo
+from euphorie.content.utils import parse_scaled_answers
 from plone import api
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
@@ -111,6 +112,18 @@ class RiskView(BrowserView, DragDropHelper):
             "text/x-html-safe", text, mimetype="text/html"
         )
         return data.getData()
+
+    @property
+    @memoize
+    def scaled_answers(self):
+        """Get values and answers if the scaled_answers field is used.
+
+        This returns a list of dictionaries.
+        """
+        context = self.my_context
+        if not getattr(context, "use_scaled_answer", False):
+            return []
+        return parse_scaled_answers(context.scaled_answers)
 
 
 class AddForm(DefaultAddForm):

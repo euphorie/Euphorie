@@ -1451,6 +1451,7 @@ class Risk(SurveyTreeItem):
     image_data = schema.Column(types.LargeBinary())
     image_data_scaled = schema.Column(types.LargeBinary())
     image_filename = schema.Column(types.UnicodeText())
+    scaled_answer = schema.Column(types.UnicodeText())
 
     @memoize
     def measures_of_type(self, plan_type):
@@ -1855,7 +1856,10 @@ def _RISK_PRESENT_OR_TOP5_FILTER_factory():
             sql.select([Risk_.sql_risk_id]).where(
                 sql.and_(
                     Risk_.sql_risk_id == SurveyTreeItem.id,
-                    sql.or_(Risk_.identification == "no", Risk_.risk_type == "top5"),
+                    sql.or_(
+                        Risk_.identification == "no",
+                        Risk_.risk_type == "top5",
+                    ),
                 )
             )
         ),
