@@ -603,19 +603,20 @@ class IdentificationView(RiskBase):
         # If answer is not present in the request, do not attempt to set
         # any answer-related data, since the request might have come
         # from a sub-form.
-        if answer:
-            self.context.comment = self.webhelpers.get_safe_html(reply.get("comment"))
-            self.context.postponed = answer == "postponed"
-            if self.context.postponed:
-                self.context.identification = None
-            else:
-                self.context.identification = answer
-                if getattr(self.risk, "type", "") in ("top5", "policy"):
-                    self.context.priority = "high"
-                elif getattr(self.risk, "evaluation_method", "") == "calculated":
-                    self.calculatePriority(self.risk, reply)
-                elif self.risk is None or self.risk.evaluation_method == "direct":
-                    self.context.priority = reply.get("priority")
+        if not answer:
+            return
+        self.context.comment = self.webhelpers.get_safe_html(reply.get("comment"))
+        self.context.postponed = answer == "postponed"
+        if self.context.postponed:
+            self.context.identification = None
+            return
+        self.context.identification = answer
+        if getattr(self.risk, "type", "") in ("top5", "policy"):
+            self.context.priority = "high"
+        elif getattr(self.risk, "evaluation_method", "") == "calculated":
+            self.calculatePriority(self.risk, reply)
+        elif self.risk is None or self.risk.evaluation_method == "direct":
+            self.context.priority = reply.get("priority")
 
     def set_measure_data(self, reply, session):
         changed = False
@@ -950,7 +951,14 @@ class IdentificationView(RiskBase):
             target = self.next_question
             if target is None:
                 # We ran out of questions, proceed to the action plan
-                url = self.webhelpers.traversed_session.absolute_url() + "/@@actionplan"
+                if self.webhelpers.use_action_plan_phase:
+                    next_view_name = "@@actionplan"
+                elif self.webhelpers.use_consultancy_phase:
+                    next_view_name = "@@consultancy"
+                else:
+                    next_view_name = "@@report"
+                base_url = self.webhelpers.traversed_session.absolute_url()
+                url = f"{base_url}/{next_view_name}"
                 return self.request.response.redirect(url)
 
         elif _next == "add_custom_risk":
@@ -1184,9 +1192,7 @@ class ActionPlanView(RiskBase):
 
     @property
     def risk_postponed(self):
-        return self.context.identification is None and (
-            (self.italy_special and self.context.postponed) or True
-        )
+        return self.context.identification is None
 
     @property
     def use_problem_description(self):
