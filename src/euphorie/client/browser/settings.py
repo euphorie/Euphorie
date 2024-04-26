@@ -152,6 +152,12 @@ class Preferences(AutoExtensibleForm, form.Form):
         )
 
     @property
+    def allow_notification_settings(self):
+        return api.portal.get_registry_record(
+            "euphorie.notifications__allow_user_settings", default=True
+        )
+
+    @property
     @memoize
     def current_user(self):
         return get_current_account()
@@ -221,7 +227,7 @@ class Preferences(AutoExtensibleForm, form.Form):
         user.first_name = data["first_name"]
         user.last_name = data["last_name"]
 
-        if self.show_notifications:
+        if self.show_notifications and self.allow_notification_settings:
             for notification in self.all_notifications:
                 if self.request.get("notifications", {}).get(notification.id):
                     self.subscribe_notification(notification.id)
