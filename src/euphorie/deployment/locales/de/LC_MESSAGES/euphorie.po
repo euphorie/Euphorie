@@ -5712,7 +5712,7 @@ msgstr ""
 #. Default: "Due to an internal policy, these settings cannot be changed."
 #: euphorie/client/browser/templates/preferences.pt:80
 msgid "message_disallow_notification_settings"
-msgstr ""
+msgstr "Die Einstellungen können aufgrund einer internen Policy nicht geändert werden."
 
 #. Default: "You can ${link_download_tool_contents}."
 #: euphorie/content/browser/templates/survey_view.pt:62
