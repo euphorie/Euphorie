@@ -67,13 +67,27 @@
                         notifications view/all_notifications;
                       "
                       tal:condition="python: view.show_notifications and notifications"
+                      tal:attributes="
+                        disabled not:view/allow_notification_settings|nothing;
+                      "
             >
 
               <h3 class="form-separation-header"
                   i18n:translate="label_notifications"
               >Notifications
               </h3>
-              <fieldset class="pat-checklist group checkbox">
+
+              <div class="pat-message notice"
+                   tal:condition="not:view/allow_notification_settings"
+                   i18n:translate="message_disallow_notification_settings"
+              >
+                  Due to an internal policy, these settings cannot be changed.
+              </div>
+
+
+              <fieldset class="pat-checklist group checkbox"
+                        style="${python:'' if view.allow_notification_settings else 'opacity: 0.5'}"
+              >
                 <tal:loop repeat="notification notifications">
                   <label class="">
                     <input checked="${python:'checked' if getattr(view.existing_notification_subscriptions.get(notification.id, None), 'enabled', notification.default) else None}"

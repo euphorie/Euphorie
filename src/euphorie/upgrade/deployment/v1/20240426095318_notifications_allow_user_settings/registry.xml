@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  <record name="euphorie.notifications__allow_user_settings">
+    <field type="plone.registry.field.Bool">
+      <title>Allow user to set own notification settings</title>
+      <default>True</default>
+      <missing_value>True</missing_value>
+      <required>False</required>
+    </field>
+    <value>True</value>
+  </record>
+</registry>

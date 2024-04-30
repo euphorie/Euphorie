@@ -4,6 +4,12 @@ Changelog
 16.1.3 (unreleased)
 -------------------
 
+- Add registry setting `euphorie.notifications__allow_user_settings` to allow users to change their notification settings.
+  The default is set to `True` to allow users to do changes on their own.
+  This can be prevented if internal policies require so by changing this setting to `False`.
+  Ref: scrum-2193
+  [thet]
+
 - Support scaled answers.
   These are answers on a scale from usually 1-5, instead of only yes/no.
   [ale-rt, maurits]

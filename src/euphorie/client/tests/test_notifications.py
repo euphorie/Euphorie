@@ -59,6 +59,43 @@ class NotificationsSettingsTests(EuphorieIntegrationTestCase):
         )
         self.assertEqual(subscriptions[0].category, "notification__ra_not_modified")
 
+    def test_disallow_user_settings(self):
+        api.portal.set_registry_record(
+            "euphorie.notifications__allow_user_settings", False
+        )
+        request = self.request.clone()
+        request.form["notifications"] = {
+            "notification__ra_not_modified": True,
+            "form.buttons.save": "",
+        }
+        view = api.content.get_view(
+            context=self.portal.client.nl, request=request, name="preferences"
+        )
+        with api.env.adopt_user(user=self.account):
+            view.update()
+
+            # This attribute, based on the
+            # `euphorie.notifications__allow_user_settings` registry entry,
+            # should be set to False
+            self.assertEqual(view.allow_notification_settings, False)
+
+            # Try to save the notification
+            with mock.patch(
+                "euphorie.client.notifications.notification__ra_not_modified"
+                ".Notification.available",
+                return_value=True,
+            ):
+                view.handleSave(view, None)
+
+        subscriptions = (
+            Session.query(NotificationSubscription)
+            .filter(NotificationSubscription.account_id == self.account.getId())
+            .all()
+        )
+
+        # Notification should not be saved
+        self.assertEqual(subscriptions, [])
+
 
 class NotificationsSendingTests(EuphorieIntegrationTestCase):
     def setUp(self):
