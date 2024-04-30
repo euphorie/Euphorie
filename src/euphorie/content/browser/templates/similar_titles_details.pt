@@ -43,6 +43,22 @@
                    solutions_by_risk view/solutions_by_risk;
                  "
   >
+    <form action="${context/absolute_url}/@@similar-titles-details-csv"
+          method="post"
+    >
+      <p>
+        <input name="paths:list"
+               type="hidden"
+               value="${path}"
+               tal:repeat="path request/form/paths|nothing"
+        />
+        <input class="details-button"
+               type="submit"
+               value="Download"
+               i18n:attributes="value"
+        />
+      </p>
+    </form>
     <div tal:repeat="risk solutions_by_risk">
       <h3>
         <a href="${risk/absolute_url}">${risk/Title}</a>

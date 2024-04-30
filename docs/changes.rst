@@ -4,7 +4,8 @@ Changelog
 16.1.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- CSV download of similar title details.
+  Ref: scrum-2198
 
 
 16.1.2 (2024-03-20)
