@@ -18,6 +18,7 @@ from euphorie.client.subscribers.imagecropping import _initial_size
 from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import IToolTypesInfo
+from euphorie.content.utils import parse_scaled_answers
 from htmllaundry import StripMarkup
 from io import BytesIO
 from plone import api
@@ -387,6 +388,17 @@ class RiskBase(BrowserView):
                 "anything else you might want to write about this risk.",
             )
 
+    @property
+    @memoize
+    def scaled_answers(self):
+        """Get values and answers if the scaled_answers field is used.
+
+        This returns a list of dictionaries.
+        """
+        if not getattr(self.risk, "use_scaled_answer", False):
+            return []
+        return parse_scaled_answers(self.risk.scaled_answers)
+
 
 class IdentificationView(RiskBase):
     """A view for displaying a question in the identification phase."""
@@ -409,6 +421,7 @@ class IdentificationView(RiskBase):
     always_present_answer = "no"
 
     monitored_properties = {
+        "scaled_answer": None,
         "identification": None,
         "postponed": None,
         "frequency": None,
@@ -474,7 +487,11 @@ class IdentificationView(RiskBase):
     @memoize
     def evaluation_condition(self):
         """In what circumstances will the Evaluation panel be shown, provided
-        that evaluation is not skipped in general?"""
+        that evaluation is not skipped in general?
+
+        If you are using scaled answers instead of yes/no, you likely want to
+        override this.
+        """
         condition = "condition: answer=no"
         if self.italy_special and not self.skip_evaluation:
             condition = "condition: answer=no or answer=yes"
@@ -598,24 +615,61 @@ class IdentificationView(RiskBase):
             and self.my_tool_type in self.tti.types_existing_measures
         )
 
+    def get_identification_from_scaled_answer(self, scaled_answer):
+        """Determine the yes/no identification based on the scaled answer.
+
+        A simplistic implementation could be:
+
+          return "no" if scaled_answer in ("1", "2") else "yes"
+
+        You likely want to override this if you actually use scaled answers,
+        so by default we return nothing, making the identification empty.
+        """
+        pass
+
     def set_answer_data(self, reply):
+        """Set answer data from the reply.
+
+        For years the only answer possibilities were yes, no, n/a or postponed.
+        Now we may have an extra field scaled_answer, for answers in the
+        range of (usually) 1-5.
+        We might want to merge these two possibilities, but for now they are
+        separate.
+        Currently, when scaled_answer is in the reply, we also get
+        'postponed' as answer.  We can ignore this: scaled_answer is filled
+        in, so the answer is not postponed.
+        We make sure that either 'identification' is set (yes/no) or
+        'scaled_answer' is set (1-5), and the other None.
+        Or both None in the case the answer is really postponed.
+        """
         answer = reply.get("answer", None)
         # If answer is not present in the request, do not attempt to set
         # any answer-related data, since the request might have come
         # from a sub-form.
-        if answer:
-            self.context.comment = self.webhelpers.get_safe_html(reply.get("comment"))
+        if not answer:
+            return
+        self.context.comment = self.webhelpers.get_safe_html(reply.get("comment"))
+        scaled_answer = reply.get("scaled_answer", None)
+        if scaled_answer:
+            # We have an answer on the scale of 1-5 (or similar).
+            self.context.scaled_answer = scaled_answer
+            self.context.postponed = False
+            self.context.identification = self.get_identification_from_scaled_answer(
+                scaled_answer
+            )
+        else:
+            self.context.scaled_answer = None
             self.context.postponed = answer == "postponed"
             if self.context.postponed:
                 self.context.identification = None
-            else:
-                self.context.identification = answer
-                if getattr(self.risk, "type", "") in ("top5", "policy"):
-                    self.context.priority = "high"
-                elif getattr(self.risk, "evaluation_method", "") == "calculated":
-                    self.calculatePriority(self.risk, reply)
-                elif self.risk is None or self.risk.evaluation_method == "direct":
-                    self.context.priority = reply.get("priority")
+                return
+            self.context.identification = answer
+        if getattr(self.risk, "type", "") in ("top5", "policy"):
+            self.context.priority = "high"
+        elif getattr(self.risk, "evaluation_method", "") == "calculated":
+            self.calculatePriority(self.risk, reply)
+        elif self.risk is None or self.risk.evaluation_method == "direct":
+            self.context.priority = reply.get("priority")
 
     def set_measure_data(self, reply, session):
         changed = False
@@ -950,7 +1004,14 @@ class IdentificationView(RiskBase):
             target = self.next_question
             if target is None:
                 # We ran out of questions, proceed to the action plan
-                url = self.webhelpers.traversed_session.absolute_url() + "/@@actionplan"
+                if self.webhelpers.use_action_plan_phase:
+                    next_view_name = "@@actionplan"
+                elif self.webhelpers.use_consultancy_phase:
+                    next_view_name = "@@consultancy"
+                else:
+                    next_view_name = "@@report"
+                base_url = self.webhelpers.traversed_session.absolute_url()
+                url = f"{base_url}/{next_view_name}"
                 return self.request.response.redirect(url)
 
         elif _next == "add_custom_risk":
@@ -1184,9 +1245,7 @@ class ActionPlanView(RiskBase):
 
     @property
     def risk_postponed(self):
-        return self.context.identification is None and (
-            (self.italy_special and self.context.postponed) or True
-        )
+        return self.context.identification is None
 
     @property
     def use_problem_description(self):
@@ -1196,6 +1255,21 @@ class ActionPlanView(RiskBase):
             return False
         text = self.risk.problem_description or ""
         return bool(text.strip())
+
+    @property
+    def scaled_answer_chosen(self):
+        if not self.risk.use_scaled_answer:
+            return ""
+        if self.context.scaled_answer is None:
+            return ""
+        answer = self.context.scaled_answer
+        # answer is a string like '1'.
+        # Use it to find the textual representation of the answer.
+        for info in self.scaled_answers:
+            # Note: currently both info value and answer are strings ('1', '2', etc).
+            if info["value"] == answer:
+                return info
+        return answer
 
     def _extractViewData(self):
         """Extract the data from the current context and build a data structure

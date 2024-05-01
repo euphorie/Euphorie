@@ -7,6 +7,24 @@ Changelog
 - CSV download of similar title details.
   Ref: scrum-2198
 
+- Add registry setting `euphorie.notifications__allow_user_settings` to allow users to change their notification settings.
+  The default is set to `True` to allow users to do changes on their own.
+  This can be prevented if internal policies require so by changing this setting to `False`.
+  Ref: scrum-2193
+  [thet]
+
+- Support scaled answers.
+  These are answers on a scale from usually 1-5, instead of only yes/no.
+  [ale-rt, maurits]
+
+- Do not do linkintegrity checks when removing contents
+  (Fix regression introduced in https://github.com/euphorie/Euphorie/pull/692)
+  [ale-rt]
+
+- Delete guest account after sessions have been transferred
+  Ref: scrum-2155
+
+
 
 16.1.2 (2024-03-20)
 -------------------

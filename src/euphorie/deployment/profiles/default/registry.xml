@@ -263,6 +263,15 @@
     </field>
     <value>False</value>
   </record>
+  <record name="euphorie.notifications__allow_user_settings">
+    <field type="plone.registry.field.Bool">
+      <title>Allow user to set own notification settings</title>
+      <default>True</default>
+      <missing_value>True</missing_value>
+      <required>False</required>
+    </field>
+    <value>True</value>
+  </record>
   <record name="euphorie.notification__email_from_address">
     <field type="plone.registry.field.ASCIILine">
       <description>Sender email address for OiRA notification and reminder mails.</description>
