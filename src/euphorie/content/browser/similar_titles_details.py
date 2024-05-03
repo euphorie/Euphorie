@@ -65,7 +65,7 @@ class SimilarTitlesDetailsCSV(SimilarTitlesDetails):
 
     def __call__(self):
         buffer = StringIO()
-        writer = csv.writer(buffer)
+        writer = csv.writer(buffer, delimiter=";")
 
         self.write_data(self.solutions_by_risk(), writer)
 
