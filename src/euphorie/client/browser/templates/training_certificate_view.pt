@@ -9,6 +9,21 @@
 >
   <metal:slot fill-slot="content">
     <div id="content-pane">
+      <div class="pat-toolbar"
+           id="certificate-toolbar"
+      >
+        <div class="toolbar-section quick-navigation"
+             tal:define="
+               country nocall:here/webhelpers/country_obj;
+             "
+        >
+          <a class="pat-back-button pat-inject"
+             href="${country/absolute_url}/certificates"
+             data-pat-inject="history: record; source: #content; target: #content;"
+             i18n:translate="label_certificates"
+          >Certificates</a>
+        </div>
+      </div>
       <div class="container">
         <div class="row">
           <div class="eight columns">

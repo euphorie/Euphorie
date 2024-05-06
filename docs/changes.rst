@@ -24,6 +24,9 @@ Changelog
 - Delete guest account after sessions have been transferred
   Ref: scrum-2155
 
+- Add certificates overview
+  Ref: scrum-2142
+
 
 
 16.1.2 (2024-03-20)

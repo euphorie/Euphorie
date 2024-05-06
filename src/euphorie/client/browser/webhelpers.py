@@ -106,7 +106,7 @@ class WebHelpers(BrowserView):
     group_model = Group
     hide_organisation_tab = False
     survey_session_model = SurveySession
-    dashboard_tabs = ["surveys", "assessments", "organisation"]
+    dashboard_tabs = ["surveys", "assessments", "certificates", "organisation"]
 
     navigation_tree_legend = [
         {"class": "unvisited", "title": _("Unvisited")},
@@ -256,6 +256,11 @@ class WebHelpers(BrowserView):
 
     # Feature switch, can be overwritten in subclass
     show_completion_percentage = False
+
+    @property
+    @memoize
+    def show_certificates_tab(self):
+        return self.use_training_module
 
     @property
     @memoize
