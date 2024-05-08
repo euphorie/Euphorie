@@ -20,6 +20,7 @@ from random import sample
 from random import shuffle
 from sqlalchemy.orm.exc import NoResultFound
 from z3c.saconfig import Session
+from zExceptions import NotFound
 from zExceptions import Unauthorized
 from zope.interface import implementer
 from zope.publisher.interfaces import IPublishTraverse
@@ -320,9 +321,23 @@ class TrainingView(BrowserView, survey._StatusHelper):
         questions = sample(all_questions, k=num_training_questions)
         return {q.getId(): None for q in questions}
 
+    def get_training_by_id(self, training_id):
+        """Return the training for this session with the given id."""
+        # check the session id to make sure we are not displaying a training in the
+        # context of a different session
+        session_id = self.webhelpers.session_id
+        try:
+            return (
+                Session.query(Training)
+                .filter(Training.session_id == session_id, Training.id == training_id)
+                .one()
+            )
+        except NoResultFound as exc:
+            raise NotFound from exc
+
     @memoize
     def get_or_create_training(self):
-        """Return the training for this session."""
+        """Return the current user's training for this session."""
         account_id = self.webhelpers.get_current_account().id
         session_id = self.webhelpers.session_id
         try:

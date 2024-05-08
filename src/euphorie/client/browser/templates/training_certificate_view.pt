@@ -33,7 +33,7 @@
           </div>
           <div class="four columns">
             <a class="pat-button"
-               href="${here/absolute_url}/@@training-certificate"
+               href="${here/absolute_url}/@@training-certificate?training_id=${request/training_id}"
                target="new"
                i18n:translate=""
             >Print certificate</a>
