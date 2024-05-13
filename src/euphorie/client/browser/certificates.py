@@ -57,5 +57,11 @@ class View(BrowserView):
                 f"?training_id={training.id}"
             )
             content = self.get_certificate(training)
-            certificates.setdefault(year, []).append({"link": link, "content": content})
+            certificates.setdefault(year, []).append(
+                {"link": link, "content": content, "date": training.time}
+            )
+        for year, year_certificates in certificates.items():
+            certificates[year] = sorted(
+                year_certificates, key=lambda c: c["date"], reverse=True
+            )
         return certificates.items()
