@@ -3,11 +3,6 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     >
 
-  <adapter
-      factory=".site.SitePublishTraverser"
-      provides="zope.publisher.interfaces.IPublishTraverse"
-      />
-
   <browser:page
       name="nuplone-view"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
