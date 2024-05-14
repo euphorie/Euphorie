@@ -129,7 +129,42 @@
         </dl>
       </section>
 
-      <metal:certificate define-slot="certificate" />
+      <metal:certificate define-slot="certificate">
+        <tal:certificates tal:define="
+                            certificate_view nocall: webhelpers/traversed_session/@@certificate;
+                          ">
+          <div class="page-module"
+               id="section-certification"
+               tal:condition="certificate_view/certificates|nothing"
+          >
+            <section class="pat-rich">
+              <h2 i18n:translate="heading_certification">
+                  Certification
+              </h2>
+            </section>
+            <div class="pat-rich">
+              <h3 i18n:translate="">Awarded certificates</h3>
+              <p i18n:translate="">
+                        The following certificates were awarded for this assessment.
+              </p>
+            </div>
+            <div class="certificate-overview col-3">
+              <tal:certificates tal:repeat="info certificate_view/certificates">
+                <figure class="certificate-preview">
+                  <a class="certificate pat-auto-scale pat-inject"
+                     href="${info/link}"
+                     data-pat-inject="source: #content; target: #content; history: record"
+                     tal:condition="nocall:info/content"
+                  >
+                    <tal:certificate replace="structure info/content" />
+                  </a>
+                </figure>
+              </tal:certificates>
+            </div>
+          </div>
+        </tal:certificates>
+      </metal:certificate>
+
       <metal:sampling define-slot="sampling" />
 
       <metal:modules define-slot="modules">

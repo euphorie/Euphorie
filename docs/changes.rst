@@ -27,6 +27,8 @@ Changelog
 - Add certificates overview
   Ref: scrum-2142
 
+- Show certificates on assessment status page
+  Ref: scrum-2143
 
 
 16.1.2 (2024-03-20)
