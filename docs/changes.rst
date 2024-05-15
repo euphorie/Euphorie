@@ -21,6 +21,9 @@ Changelog
   (Fix regression introduced in https://github.com/euphorie/Euphorie/pull/692)
   [ale-rt]
 
+- Remove an obsolete traverser that was shadowing the plone.restapi traverser
+  [ale-rt]
+
 - Delete guest account after sessions have been transferred
   Ref: scrum-2155
 
@@ -29,6 +32,9 @@ Changelog
 
 - Show certificates on assessment status page
   Ref: scrum-2143
+
+- Show organisation logo on training certificate
+  Ref: scrum-2142
 
 
 16.1.2 (2024-03-20)

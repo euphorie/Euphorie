@@ -14,18 +14,14 @@ from plone.dexterity.interfaces import IDexterityContainer
 from plone.memoize.instance import memoize
 from plone.memoize.view import memoize_contextless
 from plone.protect.interfaces import IDisableCSRFProtection
-from plonetheme.nuplone.skin.interfaces import NuPloneSkin
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Products.Five import BrowserView
 from Products.membrane.interfaces.user import IMembraneUser
 from sqlalchemy import and_
 from sqlalchemy import sql
 from time import time
-from zope.component import adapter
 from zope.deprecation import deprecate
 from zope.interface import alsoProvides
-from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 import logging
 
@@ -44,19 +40,6 @@ class Frontpage(BrowserView):
             return self.request.response.redirect(obj.absolute_url())
         portal = aq_inner(self.context)
         return self.request.response.redirect("%s/sectors/" % portal.absolute_url())
-
-
-@adapter(IPloneSiteRoot, NuPloneSkin)
-class SitePublishTraverser(DefaultPublishTraverse):
-    """Publish traverser to manage access to the CMS API.
-
-    This traverser marks the request with IClientSkinLayer. We can not
-    use BeforeTraverseEvent since in Zope 2 that is only fired for site
-    objects.
-    """
-
-    def publishTraverse(self, request, name):
-        return super().publishTraverse(request, name)
 
 
 class EuphorieRefreshResourcesTimestamp(BrowserView):
