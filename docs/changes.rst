@@ -30,9 +30,11 @@ Changelog
 - Add certificates overview
   Ref: scrum-2142
 
+- Show certificates on assessment status page
+  Ref: scrum-2143
+
 - Show organisation logo on training certificate
   Ref: scrum-2142
-
 
 
 16.1.2 (2024-03-20)
