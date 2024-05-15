@@ -35,6 +35,13 @@
           i18n:name="date"
     >${python:toLocalizedTime(certificate.time)}</time>.
   </p>
+  <p class="certificate-organisation"
+     tal:condition="view/organisation_logo"
+  >
+    <img class="certificate-organisation-logo"
+         src="${view/organisation_logo}"
+    />
+  </p>
   <table class="certificate-colofon">
     <tbody>
       <tr>

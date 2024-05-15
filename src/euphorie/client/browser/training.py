@@ -743,6 +743,18 @@ class SlideQuestionSuccess(SlideQuestionIntro):
     def post(self):
         pass
 
+    @property
+    @view_memoize
+    def organisation_logo(self):
+        organisation = self.context.session.account.organisation
+        if not organisation or not organisation.image_filename:
+            return None
+        country_url = self.webhelpers.country_obj.absolute_url()
+        return (
+            f"{country_url}/@@organisation-logo/{organisation.organisation_id}"
+            f"?q={organisation.image_filename}"
+        )
+
     def __call__(self):
         training = self.get_or_create_training()
         if training.status not in ("correct", "success"):
