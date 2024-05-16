@@ -193,7 +193,7 @@
   <browser:page
       name="certificates"
       for="euphorie.client.country.IClientCountry"
-      class=".certificates.View"
+      class=".certificate.CertificateOverview"
       template="templates/certificates.pt"
       permission="euphorie.client.ViewSurvey"
       layer="euphorie.client.interfaces.IClientSkinLayer"

@@ -21,7 +21,7 @@
         <div id="application-content">
           <div class="portlet">
             <div class="content">
-              <tal:year tal:repeat="item view/my_certificates">
+              <tal:year tal:repeat="item view/certificates">
                 <tal:year tal:define="
                             year python:item[0];
                             sessions python:item[1];
