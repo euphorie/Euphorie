@@ -31,9 +31,15 @@
               <tal:certificate replace="structure here/@@training-certificate-inner" />
             </div>
           </div>
-          <div class="four columns">
+          <div class="four columns"
+               tal:define="
+                 training_id request/training_id|nothing;
+                 print_url string:${here/absolute_url}/@@training-certificate;
+                 print_url python: print_url + (f'?training_id={training_id}' if training_id else '');
+               "
+          >
             <a class="pat-button"
-               href="${here/absolute_url}/@@training-certificate?training_id=${request/training_id}"
+               href="${print_url}"
                target="new"
                i18n:translate=""
             >Print certificate</a>
