@@ -54,9 +54,10 @@ class CertificateOverview(Certificate):
             context=self.context,
             request=self.request,
         )
-        account_ids = [
+        account_ids = {
             organisation.owner_id for organisation in organisation_view.organisations
-        ]
+        }
+        account_ids.add(api.user.get_current().getId())
         return [
             training
             for training in (
