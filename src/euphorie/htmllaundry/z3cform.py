@@ -1,4 +1,3 @@
-# coding=utf-8
 from htmllaundry.utils import sanitize
 from z3c.form.converter import FieldDataConverter
 from z3c.form.interfaces import IWidget
@@ -29,7 +28,7 @@ class HtmlDataConverter(FieldDataConverter):
     """
 
     def toFieldValue(self, value):
-        data = super(HtmlDataConverter, self).toFieldValue(value)
+        data = super().toFieldValue(value)
         if data:
             data = sanitize(data)
         return data

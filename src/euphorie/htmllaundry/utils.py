@@ -1,5 +1,4 @@
 import re
-import six
 from lxml import etree
 from lxml import html
 from lxml.html import defs
@@ -7,7 +6,7 @@ from htmllaundry.cleaners import DocumentCleaner
 
 
 INLINE_TAGS = defs.special_inline_tags | defs.phrase_tags | defs.font_style_tags
-TAG = re.compile(six.u('<.*?>'))
+TAG = re.compile('<.*?>')
 ANCHORS = etree.XPath('descendant-or-self::a | descendant-or-self::x:a',
                       namespaces={'x': html.XHTML_NAMESPACE})
 ALL_WHITESPACE = re.compile(r'^\s*$', re.UNICODE)
@@ -20,7 +19,7 @@ def is_whitespace(txt):
 
 def strip_markup(markup):
     """Strip all markup from a HTML fragment."""
-    return TAG.sub(six.u(""), markup)
+    return TAG.sub("", markup)
 
 
 StripMarkup = strip_markup  # BBB for htmllaundry <2.0
@@ -54,7 +53,7 @@ def remove_empty_tags(doc, extra_empty_tags=[]):
     This forces whitespace styling to be done using CSS instead of via an
     editor, which almost always produces better and more consistent results.
     """
-    empty_tags = set(['br', 'hr', 'img', 'input'])
+    empty_tags = {'br', 'hr', 'img', 'input'}
     empty_tags.update(set(extra_empty_tags))
     legal_empty_tags = frozenset(empty_tags)
 
@@ -154,7 +153,7 @@ def sanitize(input, cleaner=DocumentCleaner, wrap='p'):
     if 'body' not in cleaner.allow_tags:
         cleaner.allow_tags.append('body')
 
-    input = six.u("<html><body>%s</body></html>") % input
+    input = "<html><body>%s</body></html>" % input
     document = html.document_fromstring(input)
     bodies = [e for e in document if html._nons(e.tag) == 'body']
     body = bodies[0]
@@ -170,7 +169,7 @@ def sanitize(input, cleaner=DocumentCleaner, wrap='p'):
             raise ValueError(
                 'Invalid html tag provided for wrapping the sanitized text')
 
-    output = six.u('').join([etree.tostring(fragment, encoding=six.text_type)
+    output = ''.join([etree.tostring(fragment, encoding=str)
         for fragment in cleaned.iterchildren()])
     if wrap is None and cleaned.text:
         output = cleaned.text + output

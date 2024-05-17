@@ -9,7 +9,7 @@ class LaundryCleaner(Cleaner):
     link_target = marker
 
     def __call__(self, doc):
-        super(LaundryCleaner, self).__call__(doc)
+        super().__call__(doc)
         if self.link_target is not marker:
             self.force_link_target(doc, self.link_target)
 
