@@ -9,6 +9,7 @@
         tal:define="
           portal_state context/@@plone_portal_state;
           context_state context/@@plone_context_state;
+          icons python:context.restrictedTraverse('@@iconresolver', None);
           plone_view context/@@plone;
           plone_layout context/@@plone_layout;
           lang portal_state/language;
