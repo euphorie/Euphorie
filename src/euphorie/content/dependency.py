@@ -9,7 +9,7 @@ condition is met, that means, if the checkbox that it depends on is ticked.
 """
 
 from euphorie.content.user import BaseValidator
-from htmllaundry.z3cform import HtmlText
+from euphorie.htmllaundry.z3cform import HtmlText
 from plonetheme.nuplone.z3cform.directives import Dependency
 from z3c.form.interfaces import IForm
 from z3c.form.interfaces import IValidator

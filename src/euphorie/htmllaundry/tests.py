@@ -7,7 +7,7 @@ class Mock:
 
 class strip_markup_tests(unittest.TestCase):
     def strip_markup(self, *a, **kw):
-        from htmllaundry.utils import strip_markup
+        from euphorie.htmllaundry.utils import strip_markup
 
         return strip_markup(*a, **kw)
 
@@ -33,7 +33,7 @@ class strip_markup_tests(unittest.TestCase):
 
 class remove_empty_tags_tests(unittest.TestCase):
     def _remove(self, str, extra_tags=[]):
-        from htmllaundry.utils import remove_empty_tags
+        from euphorie.htmllaundry.utils import remove_empty_tags
 
         import lxml.etree
 
@@ -131,7 +131,7 @@ class remove_empty_tags_tests(unittest.TestCase):
 
 class ForceLinkTargetTests(unittest.TestCase):
     def force_link_target(self, str, target="_blank"):
-        from htmllaundry.cleaners import LaundryCleaner
+        from euphorie.htmllaundry.cleaners import LaundryCleaner
 
         import lxml.etree
 
@@ -162,7 +162,7 @@ class ForceLinkTargetTests(unittest.TestCase):
 
 class strip_outer_breaks_tests(unittest.TestCase):
     def _strip(self, str):
-        from htmllaundry.utils import strip_outer_breaks
+        from euphorie.htmllaundry.utils import strip_outer_breaks
 
         import lxml.etree
 
@@ -194,7 +194,7 @@ class strip_outer_breaks_tests(unittest.TestCase):
 
 class SanizeTests(unittest.TestCase):
     def sanitize(self, *a, **kw):
-        from htmllaundry.utils import sanitize
+        from euphorie.htmllaundry.utils import sanitize
 
         return sanitize(*a, **kw)
 

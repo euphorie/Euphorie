@@ -45,7 +45,6 @@ setup(
         "decorator",
         "py-bcrypt",
         "ftw.upgrade",
-        "htmllaundry",
         "lxml",
         "markdownify",
         "nltk",

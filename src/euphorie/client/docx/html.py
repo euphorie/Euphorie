@@ -1,7 +1,7 @@
+from euphorie.htmllaundry.utils import strip_markup
 from lxml import etree
 
 import docx
-import htmllaundry
 import lxml.html
 
 
@@ -120,7 +120,7 @@ class HtmlToWord:
         try:
             markup_doc = lxml.html.document_fromstring(markup)
         except etree.XMLSyntaxError:
-            text = htmllaundry.StripMarkup(markup)
+            text = strip_markup(markup)
             text = text.replace("&#13", "\n")
             doc.add_paragraph(text)
             return doc

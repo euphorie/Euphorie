@@ -1,4 +1,4 @@
-from htmllaundry.utils import sanitize
+from euphorie.htmllaundry.utils import sanitize
 from z3c.form.converter import FieldDataConverter
 from z3c.form.interfaces import IWidget
 from zope.component import adapter

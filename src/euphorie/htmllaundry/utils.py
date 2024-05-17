@@ -1,4 +1,4 @@
-from htmllaundry.cleaners import DocumentCleaner
+from euphorie.htmllaundry.cleaners import DocumentCleaner
 from lxml import etree
 from lxml import html
 from lxml.html import defs
