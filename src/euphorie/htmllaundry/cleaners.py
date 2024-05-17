@@ -1,5 +1,11 @@
-from lxml.html.clean import _find_external_links
 from lxml.html.clean import Cleaner
+
+
+try:
+    from lxml_html_clean.clean import _find_external_links
+except ImportError:
+    # lxml 4, Plone 6.0.10 or earlier
+    from lxml.html.clean import _find_external_links
 
 
 marker = []
