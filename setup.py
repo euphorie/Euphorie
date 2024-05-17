@@ -58,7 +58,7 @@ setup(
         "plone.dexterity",
         "plone.formwidget.namedfile",
         "plone.memoize",
-        "plone.namedfile[blobs]",
+        "plone.namedfile",
         "plone.api",
         "python-docx",
         "repoze.formapi",
