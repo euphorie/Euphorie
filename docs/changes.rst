@@ -4,6 +4,10 @@ Changelog
 16.1.3 (unreleased)
 -------------------
 
+- Add ``euphorie.htmllaundry`` module.
+  The original ``htmllaundry`` package fails with ``lxml`` 5.2.
+  [ale-rt, maurits]
+
 - CSV download of similar title details.
   Ref: scrum-2198
 
