@@ -1,15 +1,18 @@
-import re
+from htmllaundry.cleaners import DocumentCleaner
 from lxml import etree
 from lxml import html
 from lxml.html import defs
-from htmllaundry.cleaners import DocumentCleaner
+
+import re
 
 
 INLINE_TAGS = defs.special_inline_tags | defs.phrase_tags | defs.font_style_tags
-TAG = re.compile('<.*?>')
-ANCHORS = etree.XPath('descendant-or-self::a | descendant-or-self::x:a',
-                      namespaces={'x': html.XHTML_NAMESPACE})
-ALL_WHITESPACE = re.compile(r'^\s*$', re.UNICODE)
+TAG = re.compile("<.*?>")
+ANCHORS = etree.XPath(
+    "descendant-or-self::a | descendant-or-self::x:a",
+    namespaces={"x": html.XHTML_NAMESPACE},
+)
+ALL_WHITESPACE = re.compile(r"^\s*$", re.UNICODE)
 
 
 def is_whitespace(txt):
@@ -53,24 +56,29 @@ def remove_empty_tags(doc, extra_empty_tags=[]):
     This forces whitespace styling to be done using CSS instead of via an
     editor, which almost always produces better and more consistent results.
     """
-    empty_tags = {'br', 'hr', 'img', 'input'}
+    empty_tags = {"br", "hr", "img", "input"}
     empty_tags.update(set(extra_empty_tags))
     legal_empty_tags = frozenset(empty_tags)
 
-    if hasattr(doc, 'getroot'):
+    if hasattr(doc, "getroot"):
         doc = doc.getroot()
 
     def clean(doc):
         victims = []
         for el in doc.iter():
-            if el.tag == 'br':
+            if el.tag == "br":
                 preceding = el.getprevious()
                 parent = el.getparent()
 
-                if (preceding is None and not parent.text) or \
-                        (preceding is not None and preceding.tag == el.tag
-                            and not preceding.tail) or \
-                        (not el.tail and el.getnext() is None):
+                if (
+                    (preceding is None and not parent.text)
+                    or (
+                        preceding is not None
+                        and preceding.tag == el.tag
+                        and not preceding.tail
+                    )
+                    or (not el.tail and el.getnext() is None)
+                ):
                     victims.append(el)
                     continue
 
@@ -78,7 +86,7 @@ def remove_empty_tags(doc, extra_empty_tags=[]):
                 continue
 
             # Empty <a> can be used as anchor.
-            if (el.tag == 'a') and (('name' in el.attrib) or ('id' in el.attrib)):
+            if (el.tag == "a") and (("name" in el.attrib) or ("id" in el.attrib)):
                 continue
 
             if len(el) == 0 and is_whitespace(el.text):
@@ -106,22 +114,23 @@ def strip_outer_breaks(doc):
 
     for i in range(len(doc)):
         el = doc[i]
-        if el.tag == 'br':
+        if el.tag == "br":
             victims.append(el)
 
     for victim in victims:
         remove_element(victim)
 
 
-MARKER = 'LAUNDRY-INSERT'
+MARKER = "LAUNDRY-INSERT"
 
 
-def wrap_text(doc, element='p'):
+def wrap_text(doc, element="p"):
     """Make sure there is no unwrapped text at the top level. Any bare text
     found is wrapped in a `<p>` element.
     """
+
     def par(text):
-        el = etree.Element(element, {MARKER: ''})
+        el = etree.Element(element, {MARKER: ""})
         el.text = text
         return el
 
@@ -130,7 +139,7 @@ def wrap_text(doc, element='p'):
         doc.text = None
 
     while True:
-        for (i, el) in enumerate(doc):
+        for i, el in enumerate(doc):
             if html._nons(el.tag) in INLINE_TAGS and i and MARKER in doc[i - 1].attrib:
                 doc[i - 1].append(el)
                 break
@@ -146,16 +155,16 @@ def wrap_text(doc, element='p'):
             del el.attrib[MARKER]
 
 
-def sanitize(input, cleaner=DocumentCleaner, wrap='p'):
+def sanitize(input, cleaner=DocumentCleaner, wrap="p"):
     """Cleanup markup using a given cleanup configuration.
-       Unwrapped text will be wrapped with wrap parameter.
+    Unwrapped text will be wrapped with wrap parameter.
     """
-    if 'body' not in cleaner.allow_tags:
-        cleaner.allow_tags.append('body')
+    if "body" not in cleaner.allow_tags:
+        cleaner.allow_tags.append("body")
 
     input = "<html><body>%s</body></html>" % input
     document = html.document_fromstring(input)
-    bodies = [e for e in document if html._nons(e.tag) == 'body']
+    bodies = [e for e in document if html._nons(e.tag) == "body"]
     body = bodies[0]
 
     cleaned = cleaner.clean_html(body)
@@ -167,10 +176,12 @@ def sanitize(input, cleaner=DocumentCleaner, wrap='p'):
             wrap_text(cleaned, wrap)
         else:
             raise ValueError(
-                'Invalid html tag provided for wrapping the sanitized text')
+                "Invalid html tag provided for wrapping the sanitized text"
+            )
 
-    output = ''.join([etree.tostring(fragment, encoding=str)
-        for fragment in cleaned.iterchildren()])
+    output = "".join(
+        [etree.tostring(fragment, encoding=str) for fragment in cleaned.iterchildren()]
+    )
     if wrap is None and cleaned.text:
         output = cleaned.text + output
 
