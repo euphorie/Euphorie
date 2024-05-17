@@ -4,7 +4,7 @@ from lxml.html.clean import Cleaner
 try:
     from lxml_html_clean.clean import _find_external_links
 except ImportError:
-    # lxml 4, Plone 6.0.10 or earlier
+    # lxml 5.1 or earlier, Plone 6.0.10 or earlier
     from lxml.html.clean import _find_external_links
 
 
@@ -24,6 +24,8 @@ class LaundryCleaner(Cleaner):
             if target is None:
                 if "target" in el.attrib:
                     del el.attrib["target"]
+            elif isinstance(target, (list, tuple)):
+                el.set("target", target[0])
             else:
                 el.set("target", target)
 
