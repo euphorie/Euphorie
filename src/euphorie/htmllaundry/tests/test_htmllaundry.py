@@ -39,7 +39,7 @@ class remove_empty_tags_tests(unittest.TestCase):
 
         fragment = lxml.etree.fromstring(str)
         fragment = remove_empty_tags(fragment, extra_tags)
-        return lxml.etree.tostring(fragment, encoding=str)
+        return lxml.etree.tostring(fragment, encoding="utf8").decode()
 
     def testRemoveEmptyParagraphElement(self):
         self.assertEqual(self._remove("<div><p/></div>"), "<div/>")
@@ -138,7 +138,7 @@ class ForceLinkTargetTests(unittest.TestCase):
         fragment = lxml.etree.fromstring(str)
         cleaner = LaundryCleaner()
         cleaner.force_link_target(fragment, target)
-        return lxml.etree.tostring(fragment, encoding=str)
+        return lxml.etree.tostring(fragment, encoding="utf8").decode()
 
     def testNoAnchor(self):
         self.assertEqual(self.force_link_target("<div><p/></div>"), "<div><p/></div>")
@@ -168,7 +168,7 @@ class strip_outer_breaks_tests(unittest.TestCase):
 
         fragment = lxml.etree.fromstring(str)
         strip_outer_breaks(fragment)
-        return lxml.etree.tostring(fragment, encoding=str)
+        return lxml.etree.tostring(fragment, encoding="utf8").decode()
 
     def testNoBreak(self):
         self.assertEqual(
