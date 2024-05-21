@@ -72,6 +72,14 @@
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
+  <browser:page
+      name="clean-up-last-modifier-id"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".maintenance.CleanUpLastModifierId"
+      permission="cmf.ManagePortal"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
   <!-- override some classes, but re-use the template from NuPlone -->
   <configure package="plonetheme.nuplone.skin">
     <browser:page

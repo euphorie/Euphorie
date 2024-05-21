@@ -1,7 +1,7 @@
 from euphorie.client.model import Account
 from euphorie.client.model import Session
 from euphorie.client.model import SurveySession
-from ftw.upgrade import UpgradeStep
+from Products.Five import BrowserView
 
 import logging
 
@@ -9,10 +9,11 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class CleanUpLastModifierId(UpgradeStep):
+class CleanUpLastModifierId(BrowserView):
     """Clean up last_modifier_id."""
 
     def __call__(self):
+        logger.info("Cleaning up last_modifier_id")
         session = Session()
         obsolete_guest_users = (
             session.query(Account, SurveySession)
@@ -31,3 +32,4 @@ class CleanUpLastModifierId(UpgradeStep):
             if num_assessments == 0:
                 session.delete(guest_user)
                 logger.info("Deleted user %s", guest_user.id)
+        return "Done"
