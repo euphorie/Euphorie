@@ -19,7 +19,7 @@ from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import IToolTypesInfo
 from euphorie.content.utils import parse_scaled_answers
-from htmllaundry import StripMarkup
+from euphorie.htmllaundry.utils import strip_markup
 from io import BytesIO
 from plone import api
 from plone.memoize.instance import memoize
@@ -154,7 +154,7 @@ class RiskBase(BrowserView):
             if solution_id not in existing_measure_ids:
                 solutions.append(
                     {
-                        "description": StripMarkup(solution.description),
+                        "description": strip_markup(solution.description),
                         "action": getattr(solution, "action", "") or "",
                         "requirements": solution.requirements,
                         "id": solution_id,
