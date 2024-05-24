@@ -68,7 +68,12 @@ class AddForm(DefaultAddForm):
         self.fields = self.fields.omit("description", "obsolete")
         # Add a field with a radio widget to select a choice
         self.fields += Fields(ISurveySourceSelectionSchema)
-        self.fields.move_to_end("evaluation_algorithm")
+        try:
+            self.fields.move_to_end("evaluation_algorithm")
+        except AttributeError:
+            self.fields = self.fields.omit("evaluation_algorithm") + self.fields.select(
+                "evaluation_algorithm"
+            )
 
     def update(self):
         super().update()
