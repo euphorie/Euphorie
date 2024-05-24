@@ -34,6 +34,9 @@ Changelog
 - Remove an obsolete traverser that was shadowing the plone.restapi traverser
   [ale-rt]
 
+- Remove the template "sector_edit.pt" which is not used anymore
+  [ale-rt]
+
 - Delete guest account after sessions have been transferred
   Ref: scrum-2155
 
