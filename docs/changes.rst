@@ -8,6 +8,9 @@ Changelog
   The original ``htmllaundry`` package fails with ``lxml`` 5.2.
   [ale-rt, maurits]
 
+- Use a rich term for vocabulary items in the survey group forms
+  [ale-rt]
+
 - CSV download of similar title details.
   Ref: scrum-2198
 
