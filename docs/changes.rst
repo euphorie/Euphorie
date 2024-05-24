@@ -14,6 +14,9 @@ Changelog
 - CSV download of similar title details.
   Ref: scrum-2198
 
+- When creating an OiRa tool from a template, reset the UIDs to avoid complaints from the catalog
+  [ale-rt]
+
 - Add registry setting `euphorie.notifications__allow_user_settings` to allow users to change their notification settings.
   The default is set to `True` to allow users to do changes on their own.
   This can be prevented if internal policies require so by changing this setting to `False`.

@@ -183,6 +183,18 @@ class AddFormTests(EuphorieFunctionalTestCase):
         module = self._create(survey, "euphorie.module", "module")
         return module
 
+    def testCopyResetsUIDs(self):
+        module = self.createModule()
+        self._create(module, "euphorie.risk", "one", title="one")
+        request = module.REQUEST
+        survey = aq_parent(module)
+        container = self.portal.sectors.nl.sector
+        target = self._create(container, "euphorie.surveygroup", "target")
+        copy = AddForm(container, request).copyTemplate(survey, target)
+        self.assertNotEqual(survey.UID(), copy.UID())
+        self.assertNotEqual(survey.module.UID(), copy.module.UID())
+        self.assertNotEqual(survey.module.one.UID(), copy.module.one.UID())
+
     def testCopyPreservesOrder(self):
         original_order = [
             "one",

@@ -9,6 +9,7 @@ from plone import api
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.utils import createContentInContainer
+from plone.uuid.handlers import addAttributeUUID
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -16,6 +17,7 @@ from urllib.parse import urlencode
 from ZODB.POSException import ConflictError
 from zope.component import getUtility
 from zope.event import notify
+from zope.lifecycleevent import ObjectCopiedEvent
 
 import datetime
 import logging
@@ -122,6 +124,34 @@ class AddForm(DefaultAddForm):
         countries = [c for c in countries if c["sectors"]]
         return countries
 
+    def get_template_copy(self, container, template):
+        """Get's the copy for the template
+
+        The template is a survey that will be copied inside the newly
+        created survey group.
+        """
+        copy = template._getCopy(container)
+
+        # Reset the copied tree UIDs
+        # We use a fake event to reuse the subscriber from plone.uuid that
+        # resets the UIDs on copy
+        fake_copy_event = ObjectCopiedEvent(None, None)
+        addAttributeUUID(copy, fake_copy_event)
+        for id, item in copy.ZopeFind(copy, search_sub=1):
+            addAttributeUUID(item, fake_copy_event)
+
+        # Set a time based id
+        today = datetime.date.today()
+        copy.id = today.isoformat()
+
+        # Set the title to the copy
+        title = self.request.locale.dates.getFormatter("date", length="long").format(
+            datetime.date.today()
+        )
+        copy.title = title
+
+        return copy
+
     def copyTemplate(self, source, target):
         target = self.context[target.id]  # Acquisition-wrap
         try:
@@ -129,14 +159,8 @@ class AddForm(DefaultAddForm):
         except ConflictError:
             raise
 
-        copy = source._getCopy(target)
+        copy = self.get_template_copy(target, source)
 
-        today = datetime.date.today()
-        title = self.request.locale.dates.getFormatter("date", length="long").format(
-            datetime.date.today()
-        )
-        copy.id = today.isoformat()
-        copy.title = title
         source_algorithm = aq_parent(source).evaluation_algorithm
         target_algorithm = self.request.form.get(
             "form.widgets.evaluation_algorithm", [source_algorithm]
