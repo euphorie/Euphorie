@@ -67,6 +67,9 @@ class ISector(model.Schema, IUser, IBasic):
 
     directives.order_after(contact_email="contact_name")
 
+    directives.widget(
+        logo="euphorie.content.widgets.logo.LogoFieldWidget",
+    )
     logo = filefield.NamedBlobImage(
         title=_("label_logo", default="Logo"),
         description=_(
