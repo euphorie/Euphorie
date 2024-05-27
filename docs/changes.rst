@@ -11,6 +11,9 @@ Changelog
 - Use a rich term for vocabulary items in the survey group forms
   [ale-rt]
 
+- Improve the widget for the sector logo
+  [ale-rt]
+
 - CSV download of similar title details.
   Ref: scrum-2198
 
