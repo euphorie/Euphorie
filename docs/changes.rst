@@ -49,6 +49,9 @@ Changelog
 - Show organisation logo on training certificate
   Ref: scrum-2142
 
+- Run the tests with Plone 6.0.11.1
+  [ale-rt]
+
 
 16.1.2 (2024-03-20)
 -------------------

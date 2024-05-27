@@ -1,9 +1,9 @@
-from ..surveygroup import ISurveyGroup
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.content import MessageFactory as _
 from euphorie.content.interfaces import SurveyUnpublishEvent
 from euphorie.content.survey import ISurvey
+from euphorie.content.widgets.survey_source_selection import SurveySourceSelectionField
 from OFS.event import ObjectClonedEvent
 from plone import api
 from plone.dexterity.browser.add import DefaultAddForm
@@ -12,11 +12,14 @@ from plone.dexterity.utils import createContentInContainer
 from plone.uuid.handlers import addAttributeUUID
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.Five import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from urllib.parse import urlencode
+from z3c.form.field import Fields
 from ZODB.POSException import ConflictError
+from zope.component import adapter
 from zope.component import getUtility
 from zope.event import notify
+from zope.interface import implementer
+from zope.interface import Interface
 from zope.lifecycleevent import ObjectCopiedEvent
 
 import datetime
@@ -36,17 +39,41 @@ class SurveyGroupView(BrowserView):
         return templates
 
 
-class AddForm(DefaultAddForm):
-    """Custom add form for :obj:`Survey` instances.
+class ISurveySourceSelectionSchema(Interface):
+    source_selection = SurveySourceSelectionField(
+        title=_("label_source_selection", default="Choose a source"),
+        required=False,
+    )
 
-    This add form adds a the :obj:`ITemplateSchema` schema, which allows
-    users to pick a template survey to use as a basis for the new
-    survey.
-    """
+
+@implementer(ISurveySourceSelectionSchema)
+@adapter(Interface)
+class SurveySourceSelectionAdaptedContext:
+    def __init__(self, context):
+        pass
+
+
+class AddForm(DefaultAddForm):
+    """This add form allows you to create a new OiRA Tool from a template"""
+
+    description = _(
+        "intro_add_surveygroup",
+        default="This form will allow you to create a new OiRA Tool.",
+    )
 
     portal_type = "euphorie.surveygroup"
-    schema = ISurveyGroup
-    template = ViewPageTemplateFile("templates/surveygroup_add.pt")
+
+    def updateFields(self):
+        super().updateFields()
+        self.fields = self.fields.omit("description", "obsolete")
+        # Add a field with a radio widget to select a choice
+        self.fields += Fields(ISurveySourceSelectionSchema)
+        try:
+            self.fields.move_to_end("evaluation_algorithm")
+        except AttributeError:
+            self.fields = self.fields.omit("evaluation_algorithm") + self.fields.select(
+                "evaluation_algorithm"
+            )
 
     def update(self):
         super().update()
@@ -164,7 +191,10 @@ class AddForm(DefaultAddForm):
         source_algorithm = aq_parent(source).evaluation_algorithm
         target_algorithm = self.request.form.get(
             "form.widgets.evaluation_algorithm", [source_algorithm]
-        ).pop()
+        )
+        if not isinstance(target_algorithm, str):
+            target_algorithm = target_algorithm.pop()
+
         target.evaluation_algorithm = target_algorithm
         target._setObject(copy.id, copy)
         if source_algorithm != target_algorithm:

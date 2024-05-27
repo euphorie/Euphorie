@@ -1,0 +1,135 @@
+<div class="z3cFieldContainer ${view/klass}"
+     id="${widget_id}-wrapper"
+     data-pat-inject="#${widget_id}"
+     tal:define="
+       widget_id string:${view/id};
+       countries view/form/buildSurveyTree;
+     "
+>
+  <fieldset class="comprehensive pat-subform pat-autosubmit pat-inject"
+            data-pat-inject="source: #${widget_id}-wrapper; target: ${widget_id}-wrapper"
+            tal:define="
+              value python:request.form.get('source', 'scratch');
+            "
+  >
+    <legend i18n:translate="label_survey_source">How would you like to start</legend>
+    <label><input checked="${python:'checked' if value=='scratch' else None}"
+             name="source"
+             type="radio"
+             value="scratch"
+      />
+      <tal:span i18n:translate="survey_source_scratch">Create a new OiRA Tool from scratch</tal:span></label>
+    <label tal:condition="view/form/my_group"><input checked="${python:'checked' if value=='local' else None}"
+             name="source"
+             type="radio"
+             value="local"
+      />
+      <tal:span i18n:translate="survey_source_local">Base my new OiRA Tool on an existing OiRA Tool of my organisation</tal:span></label>
+    <label><input checked="${python:'checked' if value=='other' else None}"
+             name="source"
+             type="radio"
+             value="other"
+      />
+      <tal:span i18n:translate="survey_source_other">Base my new OiRA Tool on an existing OiRA Tool of another organisation</tal:span></label>
+  </fieldset>
+
+  <tal:countries repeat="country countries">
+    <tal:mycountry condition="python:country['id']==view.form.my_country">
+      <tal:sectors repeat="sector country/sectors">
+        <tal:mysector condition="python:sector['id']==view.form.my_sector">
+          <label class="dependsOn-source-equals-local"><tal:span i18n:translate="label_choose_surveygroup">Choose an OiRA Tool</tal:span>
+            <select name="surveygroup.local"
+                    tal:define="
+                      value python:request.form.get('surveygroup.local');
+                    "
+            >
+              <tal:group repeat="group sector/groups">
+                <option selected="${python:'selected' if value==group['id'] else None}"
+                        value="${group/id}"
+                >${group/title}</option>
+              </tal:group>
+            </select>
+          </label>
+          <tal:group repeat="group sector/groups">
+            <fieldset class="comprehensive radioList dependsOn-source-equals-local dependsOn-surveygroup.local-equals-${group/id}"
+                      tal:define="
+                        value python:request.form.get('survey.local', group['surveys'][0]['id']);
+                      "
+            >
+              <legend i18n:translate="label_choose_survey">Choose a revision of the selected OiRA Tool</legend>
+              <label tal:repeat="survey group/surveys"><input checked="${python:'checked' if repeat.survey.start else None}"
+                       name="survey.local.${group/id}"
+                       type="radio"
+                       value="${survey/id}"
+                />${survey/title}
+                <a class="floatAfter"
+                   href="${survey/url}"
+                >View</a></label>
+            </fieldset>
+          </tal:group>
+        </tal:mysector>
+      </tal:sectors>
+    </tal:mycountry>
+  </tal:countries>
+
+  <label class="dependsOn-source-equals-other">
+    <tal:span i18n:translate="label_choose_country">Choose a country</tal:span>
+    <select id="country"
+            name="country"
+            tal:define="
+              value python:request.form.get('country', view.form.my_country);
+            "
+    >
+      <option selected="${python:'selected' if value==country['id'] else None}"
+              value="${country/id}"
+              tal:repeat="country countries"
+      >${country/title}</option>
+    </select>
+  </label>
+
+  <tal:country repeat="country countries">
+    <label class="dependsOn-source-equals-other dependsOn-country-equals-${country/id}"><tal:span i18n:translate="label_choose_surveygroup">Choose an OiRA Tool</tal:span>
+      <select name="${name}"
+              tal:define="
+                name string:sector.${country/id};
+                value python:request.form.get(name, '%s.%s' % (view.form.my_sector, view.form.my_group));
+              "
+      >
+        <tal:sector repeat="sector country/sectors">
+          <optgroup label="${sector/title}">
+            <tal:group repeat="group sector/groups">
+              <option selected="${python:'selected' if value==ovalue else None}"
+                      value="${ovalue}"
+                      tal:define="
+                        ovalue string:${sector/id}.${group/id};
+                      "
+              >${group/title}</option>
+            </tal:group>
+          </optgroup>
+        </tal:sector>
+      </select>
+    </label>
+
+    <tal:sector repeat="sector country/sectors">
+      <tal:group repeat="group sector/groups">
+        <fieldset class="comprehensive radioList dependsOn-source-equals-other dependsOn-country-equals-${country/id} dependsOn-sector.${country/id}-equals-${sector/id}.${group/id}"
+                  tal:define="
+                    name string:survey.${country/id}.${group/id};
+                    value python:request.form.get(name, group['surveys'][0]['id']);
+                  "
+        >
+          <legend i18n:translate="label_choose_survey">Choose a revision of the selected OiRA Tool</legend>
+          <label tal:repeat="survey group/surveys"><input checked="${python:'checked' if repeat.survey.start else None}"
+                   name="${name}"
+                   type="radio"
+                   value="${survey/id}"
+            />${survey/title}
+            <a class="floatAfter"
+               href="${survey/url}"
+            >View</a></label>
+        </fieldset>
+      </tal:group>
+    </tal:sector>
+  </tal:country>
+
+</div>
