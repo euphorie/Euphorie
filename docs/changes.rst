@@ -1,7 +1,7 @@
 Changelog
 =========
 
-16.1.3 (unreleased)
+16.2.0 (2024-06-12)
 -------------------
 
 - Add ``euphorie.htmllaundry`` module.
