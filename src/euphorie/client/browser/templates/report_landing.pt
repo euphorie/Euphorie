@@ -42,9 +42,7 @@
                tal:condition="python:'report_compact' in reports"
           >
             <div class="download-block-header">
-              <h2 class=""
-                  i18n:translate="label_report"
-              >Compact</h2>
+              <h2 i18n:translate="label_compact">Compact</h2>
               <a class="default pat-button download rtf icon-download piwik_download"
                  href="${context/absolute_url}/@@oira-report-short.docx"
               >
@@ -67,9 +65,7 @@
                tal:condition="python:'report_full' in reports"
           >
             <div class="download-block-header">
-              <h2 class=""
-                  i18n:translate="label_report"
-              >Full Report</h2>
+              <h2 i18n:translate="label_full_report">Full Report</h2>
               <a class="default pat-button download rtf icon-download piwik_download"
                  href="${context/absolute_url}/@@oira-report.docx"
               >
