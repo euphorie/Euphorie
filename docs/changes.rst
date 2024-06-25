@@ -4,7 +4,8 @@ Changelog
 16.2.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix the i18n labels
+  [ale-rt]
 
 
 16.2.0 (2024-06-12)
