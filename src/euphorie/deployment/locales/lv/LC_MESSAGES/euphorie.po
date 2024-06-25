@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Euphorie 13.0.0dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-04-26 21:41+0000\n"
+"POT-Creation-Date: 2024-06-25 08:59+0000\n"
 "PO-Revision-Date: 2013-07-30 16:00+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,7 +57,7 @@ msgstr ""
 "identificējat. Turklāt Jūs varat izlemt neatbildēt uz kādu jautājumu uzreiz, "
 "bet atbildēt uz to vēlākā posmā."
 
-#: euphorie/client/browser/templates/report_landing.pt:114
+#: euphorie/client/browser/templates/report_landing.pt:110
 msgid ""
 "${manage} the problems/risks in your workplace (specific tasks, expertise, "
 "responsibilities, deadlines)."
@@ -75,7 +75,7 @@ msgstr ""
 "${preparation} Tā sniedz Jums informāciju par novērtējumu, ko gatavojaties "
 "uzsākt, un ļauj pielāgot novērtējumu uzņēmuma konkrētajiem darba apstākļiem."
 
-#: euphorie/client/browser/templates/report_landing.pt:86
+#: euphorie/client/browser/templates/report_landing.pt:82
 msgid "${provide-evidence} for supervisory authorities (labour inspectorate)."
 msgstr ""
 "${provide-evidence} Valsts darba inspekcijai vai citām uzraudzības iestādēm,."
@@ -244,8 +244,12 @@ msgstr "Vai esat pārliecināts, ka vēlaties dzēst ${name} no ${organisation}?
 msgid "Available OiRA tools"
 msgstr "Pieejamie OiRA rīki"
 
+#: euphorie/client/browser/templates/status_info.pt:146
+msgid "Awarded certificates"
+msgstr ""
+
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:34
-#: euphorie/client/browser/templates/sessions-dashboard.pt:162
+#: euphorie/client/browser/templates/sessions-dashboard.pt:164
 msgid "Back"
 msgstr ""
 
@@ -316,13 +320,13 @@ msgstr ""
 msgid "Confirm OiRA email address change"
 msgstr "Apstipriniet OiRA e-pasta adreses maiņu"
 
-#: euphorie/client/browser/templates/report_landing.pt:56
+#: euphorie/client/browser/templates/report_landing.pt:54
 msgid ""
 "Contains: Concise information and input provided by you throughout the risk "
 "assessment process."
 msgstr ""
 
-#: euphorie/client/browser/templates/report_landing.pt:81
+#: euphorie/client/browser/templates/report_landing.pt:77
 msgid ""
 "Contains: all the information and input provided by you throughout the risk "
 "assessment process."
@@ -330,15 +334,15 @@ msgstr ""
 "Ietver: visu Jūsu informāciju un datus, ko sniedzāt, veicot darba vides "
 "riska novērtējumu."
 
-#: euphorie/client/browser/templates/report_landing.pt:171
+#: euphorie/client/browser/templates/report_landing.pt:167
 msgid "Contains: an overview of the measures to be implemented."
 msgstr "Satur: īstenojamo pasākumu pārskatu sarakstu."
 
-#: euphorie/client/browser/templates/report_landing.pt:141
+#: euphorie/client/browser/templates/report_landing.pt:137
 msgid "Contains: an overview of the risks identified"
 msgstr "Satur: pārskatu par identificētajiem riskiem"
 
-#: euphorie/client/browser/templates/report_landing.pt:109
+#: euphorie/client/browser/templates/report_landing.pt:105
 msgid ""
 "Contains: main elements to effectively manage the risks at your workplace."
 msgstr "Satur: galvenos elementus, lai efektīvi novērstu darba vides riskus."
@@ -356,7 +360,7 @@ msgid "Continue to report"
 msgstr "Turpināt ar pārskata"
 
 #: euphorie/client/browser/templates/surveys.pt:54
-#: euphorie/client/browser/templates/training_certificate_inner.pt:44
+#: euphorie/client/browser/templates/training_certificate_inner.pt:51
 msgid "Country"
 msgstr "Valsts"
 
@@ -409,7 +413,7 @@ msgstr ""
 msgid "Description of risks"
 msgstr ""
 
-#: euphorie/client/browser/templates/report_landing.pt:203
+#: euphorie/client/browser/templates/report_landing.pt:199
 msgid "Did you like this tool? Share it with your colleagues and friends!"
 msgstr ""
 "Vai jums patīk šis rīks? Dalieties ar to ar saviem kolēģiem un draugiem!"
@@ -422,7 +426,7 @@ msgstr "Vai man jāsagatavojas?"
 msgid "Does this happen in multiple places?"
 msgstr "Vai tas raksturīgs vairākās vietās?"
 
-#: euphorie/client/browser/templates/report_landing.pt:217
+#: euphorie/client/browser/templates/report_landing.pt:213
 msgid "E-mail"
 msgstr "E-pasts"
 
@@ -481,7 +485,7 @@ msgid "European Union"
 msgstr "Eiropas Savienība"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:66
-#: euphorie/client/browser/templates/sessions-dashboard.pt:194
+#: euphorie/client/browser/templates/sessions-dashboard.pt:196
 msgid "Expand sidebar"
 msgstr ""
 
@@ -524,11 +528,11 @@ msgid "For successfully finishing the training for ${session} on ${date}."
 msgstr ""
 "Izsniegts, pabeidzot apmācības par rīku &ldquo;${session}&rdquo; ${date}."
 
-#: euphorie/client/browser/templates/report_landing.pt:108
+#: euphorie/client/browser/templates/report_landing.pt:104
 msgid "Format: Office Open XML Workbook (.xlsx)"
 msgstr "Formāts: Excel (.xls)"
 
-#: euphorie/client/browser/templates/report_landing.pt:140
+#: euphorie/client/browser/templates/report_landing.pt:136
 msgid "Format: Portable Document Format (.pdf)"
 msgstr "Formāts: Pārvietojams dokumenta formāts (.pdf)"
 
@@ -570,7 +574,7 @@ msgstr ""
 "brīdī, un atgriezties jebkurā laikā, lai turpinātu procesu no vietas, kurā "
 "apstājāties iepriekšējā reizē."
 
-#: euphorie/client/browser/webhelpers.py:959
+#: euphorie/client/browser/webhelpers.py:964
 msgid "I wish to share the following with you"
 msgstr "Es vēlos dalīties ar Jums šādos jaunumos"
 
@@ -591,8 +595,6 @@ msgstr "Svarīgi"
 msgid "Info"
 msgstr "Informācija"
 
-#: euphorie/content/browser/templates/sector_edit.pt:60
-#: euphorie/content/browser/templates/surveygroup_add.pt:158
 #: euphorie/content/country.py:60
 msgid "Information"
 msgstr "Informācija"
@@ -613,7 +615,7 @@ msgstr "Nederīga parole"
 msgid "Invalid security token, try to request a new one"
 msgstr ""
 
-#: euphorie/client/browser/training.py:716
+#: euphorie/client/browser/training.py:731
 msgid "It seems you missed a slide"
 msgstr ""
 
@@ -664,7 +666,7 @@ msgstr "Pieteikties"
 msgid "Logo (Optional)"
 msgstr "Logo (nav obligāts)"
 
-#: euphorie/client/browser/templates/report_landing.pt:114
+#: euphorie/client/browser/templates/report_landing.pt:110
 msgid "Manage"
 msgstr "Veiktu"
 
@@ -714,16 +716,16 @@ msgstr ""
 msgid "Module"
 msgstr "Modulis"
 
-#: euphorie/client/browser/templates/report_landing.pt:189
+#: euphorie/client/browser/templates/report_landing.pt:185
 msgid "Monitor and assess whether necessary measures have been introduced."
 msgstr "uzraudzīt un novērtēt, vai ir veikti nepieciešamie pasākumi,"
 
 #: euphorie/client/browser/templates/measures_overview.pt:70
-#: euphorie/client/browser/templates/report_landing.pt:177
+#: euphorie/client/browser/templates/report_landing.pt:173
 msgid "Monitor the measures to be implemented in the forthcoming 3 months."
 msgstr "Noskaidrot, kuri pasākumi jāīsteno nākamajos 3 mēnešos."
 
-#: euphorie/client/browser/templates/report_landing.pt:147
+#: euphorie/client/browser/templates/report_landing.pt:143
 #: euphorie/client/browser/templates/risks_overview.pt:160
 msgid "Monitor whether risks / measures are properly dealt with."
 msgstr "Uzraudzīt, vai riskus precīzi novērš /pasākumus īsteno."
@@ -768,7 +770,7 @@ msgid "Name"
 msgstr "Vārds"
 
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:58
-#: euphorie/client/browser/templates/sessions-dashboard.pt:186
+#: euphorie/client/browser/templates/sessions-dashboard.pt:188
 msgid "New"
 msgstr "Jauna"
 
@@ -798,10 +800,6 @@ msgstr ""
 #: euphorie/content/browser/templates/profilequestion_view.pt:33
 msgid "Not provided"
 msgstr "Nav norādīts"
-
-#: euphorie/content/browser/templates/sector_edit.pt:76
-msgid "Official OiRA Logo"
-msgstr "Oficiālais OiRA logotips"
 
 #: euphorie/deployment/browser/search.py:17
 msgid "OiRA Tool"
@@ -855,7 +853,7 @@ msgstr ""
 msgid "Operation cancelled."
 msgstr ""
 
-#: euphorie/client/browser/templates/sessions-dashboard.pt:61
+#: euphorie/client/browser/templates/sessions-dashboard.pt:63
 msgid "Organisation"
 msgstr "Organizācija"
 
@@ -870,7 +868,7 @@ msgstr "Organizācijas nosaukums"
 
 #: euphorie/client/browser/session.py:1096
 #: euphorie/client/browser/templates/measures_overview.pt:63
-#: euphorie/client/browser/templates/report_landing.pt:156
+#: euphorie/client/browser/templates/report_landing.pt:152
 msgid "Overview of measures"
 msgstr "Pārskats par veicamajiem pasākumiem"
 
@@ -879,7 +877,7 @@ msgid "Overview of measures (PDF)"
 msgstr ""
 
 #: euphorie/client/browser/session.py:1086
-#: euphorie/client/browser/templates/report_landing.pt:128
+#: euphorie/client/browser/templates/report_landing.pt:124
 #: euphorie/client/browser/templates/risks_overview.pt:156
 msgid "Overview of risks"
 msgstr "Risku pārskats"
@@ -892,7 +890,7 @@ msgstr ""
 msgid "Owner"
 msgstr "Īpašnieks"
 
-#: euphorie/client/browser/templates/report_landing.pt:188
+#: euphorie/client/browser/templates/report_landing.pt:184
 msgid ""
 "Pass information on to the people concerned (workers, safety "
 "representatives, employers, experts in occupational safety and health, etc.)"
@@ -902,7 +900,7 @@ msgstr ""
 "speciālistiem u. c.),"
 
 #: euphorie/client/browser/templates/measures_overview.pt:69
-#: euphorie/client/browser/templates/report_landing.pt:146
+#: euphorie/client/browser/templates/report_landing.pt:142
 #: euphorie/client/browser/templates/risks_overview.pt:159
 msgid "Pass information to the people concerned."
 msgstr "Nodot informāciju iesaistītajiem cilvēkiem."
@@ -937,7 +935,7 @@ msgid "Please refer to the examples below the form."
 msgstr "Lūdzu, aplūkojiet piemērus zem veidlapas."
 
 #: euphorie/client/browser/templates/risks_overview.pt:325
-#: euphorie/client/browser/templates/status_info.pt:262
+#: euphorie/client/browser/templates/status_info.pt:297
 #: euphorie/client/browser/webhelpers.py:113
 msgid "Postponed"
 msgstr "Atlikts jautājums"
@@ -954,7 +952,7 @@ msgstr "Potenciāla kandidātvalsts"
 msgid "Print"
 msgstr "Drukāt"
 
-#: euphorie/client/browser/templates/training_certificate_view.pt:20
+#: euphorie/client/browser/templates/training_certificate_view.pt:41
 msgid "Print certificate"
 msgstr "Izdrukāt sertifikātu"
 
@@ -976,15 +974,15 @@ msgstr ""
 "ja attiecas, vai tie ir jāatkārto vairākreiz (t. i., šie moduļi ir "
 "ATKĀRTOJAMI)."
 
-#: euphorie/client/browser/templates/report_landing.pt:61
+#: euphorie/client/browser/templates/report_landing.pt:59
 msgid "Provide a concise overview over your current status for internal use."
 msgstr ""
 
-#: euphorie/client/browser/templates/report_landing.pt:86
+#: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"
 msgstr "uzrādīt darba vides riska novērtēšanas dokumentus"
 
-#: euphorie/client/browser/templates/report_landing.pt:187
+#: euphorie/client/browser/templates/report_landing.pt:183
 msgid "Provide evidence for supervisory authorities."
 msgstr ""
 "Uzrādītu darba vides riska novērtēšanas dokumentus Valsts darba inspekcijai "
@@ -1003,7 +1001,7 @@ msgstr ""
 msgid "Read more"
 msgstr "Lasīt vairāk"
 
-#: euphorie/client/browser/templates/report_landing.pt:190
+#: euphorie/client/browser/templates/report_landing.pt:186
 msgid ""
 "Record any revision if circumstances change (new machines, new workers, as a "
 "result of findings of any accident investigations, etc.)"
@@ -1093,7 +1091,7 @@ msgstr "Viss kārtībā"
 msgid "Risk present"
 msgstr "Uzmanību"
 
-#: euphorie/content/browser/similar_titles_details.py:31
+#: euphorie/content/browser/similar_titles_details.py:35
 msgid "Risks similar to ${title}"
 msgstr ""
 
@@ -1259,6 +1257,10 @@ msgstr ""
 "Kad Jūs uzsāksiet jūsu pirmo riska novērtēšanu, vajadzēs izveidot OiRA kontu "
 "– tas ir vienkāršs un ātrs process."
 
+#: euphorie/client/browser/templates/status_info.pt:147
+msgid "The following certificates were awarded for this assessment."
+msgstr ""
+
 #: euphorie/content/survey.py:62
 msgid ""
 "The introduction text is shown when starting a new OiRA Tool session. If no "
@@ -1311,7 +1313,7 @@ msgstr ""
 msgid "This email address is not available."
 msgstr "Šī e-pasta adrese nav pieejama."
 
-#: euphorie/content/browser/templates/surveygroup_add.pt:180
+#: euphorie/content/surveygroup.py:90
 msgid "This is a simpler evaluation algorithm using only two criteria."
 msgstr ""
 "Šis ir vienkāršāks novērtēšanas algoritms, kas izmanto tikai divus "
@@ -1321,7 +1323,7 @@ msgstr ""
 msgid "This is a unique identifier for this object."
 msgstr "Šis ir šī objekta unikāls identifikators."
 
-#: euphorie/content/browser/templates/surveygroup_add.pt:172
+#: euphorie/content/surveygroup.py:71
 msgid ""
 "This is the recommended evaluation algorithm, based on the Kinney method"
 msgstr ""
@@ -1366,7 +1368,7 @@ msgstr "Ieteikums"
 msgid "Toggle on screen help"
 msgstr "Ieslēdziet ekrāna palīdzību"
 
-#: euphorie/client/browser/templates/training_certificate_inner.pt:41
+#: euphorie/client/browser/templates/training_certificate_inner.pt:48
 msgid "Tool"
 msgstr "Rīks"
 
@@ -1407,7 +1409,7 @@ msgstr "Augšuplādēt attēlu"
 msgid "Use scaled answers instead of Yes/No"
 msgstr ""
 
-#: euphorie/client/browser/templates/report_landing.pt:184
+#: euphorie/client/browser/templates/report_landing.pt:180
 msgid "Use the report to:"
 msgstr "Izmantojiet pārskatu, lai būtu iespējams:"
 
@@ -1423,7 +1425,7 @@ msgstr ""
 msgid "Visit this URL"
 msgstr ""
 
-#: euphorie/client/browser/templates/report_landing.pt:194
+#: euphorie/client/browser/templates/report_landing.pt:190
 msgid ""
 "We recommend that you always keep an updated printed version of your risk "
 "assessment (report) available in your company!"
@@ -1530,7 +1532,7 @@ msgstr ""
 msgid "You need to specify a title for the organisation."
 msgstr ""
 
-#: euphorie/client/browser/training.py:714
+#: euphorie/client/browser/training.py:729
 msgid "You should start the training from the beginning"
 msgstr ""
 
@@ -1748,13 +1750,12 @@ msgid "agree_and_continue"
 msgstr "Piekrist un turpinât"
 
 #. Default: "Simplified two criteria"
-#: euphorie/content/browser/templates/surveygroup_add.pt:179
+#: euphorie/content/surveygroup.py:89
 msgid "algorithm_french"
 msgstr "Vienkāršots, divu kritēriju algoritms"
 
 #. Default: "Standard three criteria"
-#: euphorie/content/browser/templates/surveygroup_add.pt:171
-#: euphorie/content/surveygroup.py:61
+#: euphorie/content/surveygroup.py:70
 msgid "algorithm_kinney"
 msgstr "Trīs standarta kritēriji"
 
@@ -1866,7 +1867,6 @@ msgstr "Aizvērt"
 
 #. Default: "Create"
 #: euphorie/content/browser/templates/survey_add.pt:41
-#: euphorie/content/browser/templates/surveygroup_add.pt:194
 msgid "button_create"
 msgstr "Izveidot"
 
@@ -1886,7 +1886,7 @@ msgid "button_delete_session"
 msgstr "Jā, dzēst sesiju"
 
 #. Default: "Download"
-#: euphorie/client/browser/templates/report_landing.pt:51
+#: euphorie/client/browser/templates/report_landing.pt:49
 msgid "button_download"
 msgstr "Lejupielādēt"
 
@@ -1927,11 +1927,6 @@ msgstr "Publicēt"
 #: euphorie/content/utils.py:123
 msgid "button_remove_existing_measure"
 msgstr ""
-
-#. Default: "Save changes"
-#: euphorie/content/browser/templates/sector_edit.pt:161
-msgid "button_save_changes"
-msgstr "Saglabāt izmaiņas"
 
 #. Default: "Search"
 #: euphorie/deployment/browser/templates/search.pt:24
@@ -2635,22 +2630,22 @@ msgid "error_validation_before_end_date"
 msgstr "Šim datumam ir jābūt beigu datumam vai pirms tā."
 
 #. Default: "This value must be a valid date"
-#: euphorie/client/browser/webhelpers.py:1245
+#: euphorie/client/browser/webhelpers.py:1250
 msgid "error_validation_date"
 msgstr ""
 
 #. Default: "This value must be a valid date and time"
-#: euphorie/client/browser/webhelpers.py:1249
+#: euphorie/client/browser/webhelpers.py:1254
 msgid "error_validation_datetime"
 msgstr ""
 
 #. Default: "This value must be a valid email address"
-#: euphorie/client/browser/webhelpers.py:1256
+#: euphorie/client/browser/webhelpers.py:1261
 msgid "error_validation_email"
 msgstr ""
 
 #. Default: "This value must be a number"
-#: euphorie/client/browser/webhelpers.py:1263
+#: euphorie/client/browser/webhelpers.py:1268
 msgid "error_validation_number"
 msgstr ""
 
@@ -2809,11 +2804,6 @@ msgstr ""
 #: euphorie/content/browser/templates/folder_view.pt:21
 msgid "folder_no_children"
 msgstr "Šī mape ir tukša."
-
-#. Default: "Simplified two criteria"
-#: euphorie/content/surveygroup.py:64
-msgid "french"
-msgstr "Vienkāršoti divi kritēriji"
 
 #. Default: "Almost never"
 #: euphorie/client/browser/templates/webhelpers.pt:407
@@ -3122,7 +3112,7 @@ msgid "header_publish"
 msgstr "Publicēt OiRA rīku"
 
 #. Default: "Questions answered per module"
-#: euphorie/client/browser/templates/status_info.pt:138
+#: euphorie/client/browser/templates/status_info.pt:173
 msgid "header_questions_answered"
 msgstr "Atbildētie jautājumi katrā modulī"
 
@@ -3225,11 +3215,6 @@ msgstr ""
 msgid "header_sectors"
 msgstr "Sektori"
 
-#. Default: "Settings"
-#: euphorie/content/browser/templates/sector_edit.pt:13
-msgid "header_settings"
-msgstr "Iestatījumi"
-
 #. Default: "Standard measures"
 #: euphorie/content/browser/templates/risk_view.pt:138
 msgid "header_solutions"
@@ -3284,6 +3269,11 @@ msgstr "Kāpēc OiRA projekts ir tik īpašs?"
 msgid "heading_browser_warning"
 msgstr ""
 
+#. Default: "Certification"
+#: euphorie/client/browser/templates/status_info.pt:141
+msgid "heading_certification"
+msgstr ""
+
 #. Default: "Comments"
 #: euphorie/client/docx/compiler.py:355
 msgid "heading_comments"
@@ -3291,7 +3281,7 @@ msgstr "Komentāri"
 
 #. Default: "High priority risks"
 #: euphorie/client/browser/templates/measures_overview.pt:98
-#: euphorie/client/browser/templates/status_info.pt:286
+#: euphorie/client/browser/templates/status_info.pt:321
 msgid "heading_high_prio_risks"
 msgstr "Augstas prioritātes riski"
 
@@ -3632,7 +3622,7 @@ msgstr "Šim tekstam jāizskaidro, kā notiek riska identificēšana."
 
 #. Default: "Upload an image. Make sure your image is of format png, jpg or gif and does not contain any special characters. The minimum size is 1000 (width) x 430 (height) pixels."
 #: euphorie/content/module.py:87 euphorie/content/risk.py:251
-#: euphorie/content/sector.py:72
+#: euphorie/content/sector.py:75
 msgid "help_image_upload"
 msgstr ""
 "Augšupielādējiet attēlu. Tam jābūt png, jpg vai gif formātā, un tajā "
@@ -3752,28 +3742,6 @@ msgstr ""
 "\"Risks\" ir saistīts ar darba vietu. \"Politika\" ir saistīta ar "
 "argumentiem, procedūrām un vadības lēmumiem."
 
-#. Default: "Give the name of the person responsible for the OiRA tools of this sector."
-#: euphorie/content/browser/templates/sector_edit.pt:148
-msgid "help_sector_contactperson"
-msgstr ""
-"Ievadiet tās kontaktpersonas vārdu, kura ir atbildīga par OiRA rīkiem šajā "
-"sektorā."
-
-#. Default: "The logo will appear on the client side app that your user group will see. Make sure your image is of format png, jpg or gif and does not contain any special characters. The new logo will only become visible after you've saved your changes and published the OiRA tool."
-#: euphorie/content/browser/templates/sector_edit.pt:60
-msgid "help_sector_logo"
-msgstr ""
-"Logotips būs redzams gan klienta puses lietotnē, kuru redzēs jūsu lietotāju "
-"grupa, gan šajā rediģēšanas vidē augšējā kreisajā stūrī. Attēlam jābūt png, "
-"jpg vai gif formātā, un tajā nedrīkst būt nekādu īpašu rakstzīmju. Jaunais "
-"logotips kļūst redzams tikai pēc izmaiņu saglabāšanas."
-
-#. Default: "This is the password that you need to log on to this editor environment."
-#: euphorie/content/browser/templates/sector_edit.pt:126
-msgid "help_sector_password"
-msgstr ""
-"Šī ir parole, kas jums būs nepieciešama, lai pieteiktos rediģēšanas vidē."
-
 #. Default: "If you do not specify a title it will be taken from the input file."
 #: euphorie/content/browser/upload.py:140
 msgid "help_sector_title"
@@ -3818,8 +3786,18 @@ msgstr ""
 "Šis ir īss, apstiprinošs apgalvojums par iespējamu risku (piemēram, \"ēka "
 "tiek uzturēta labā kārtībā\")."
 
+#. Default: "This method involves risk assessment by Severity x Exposure, whereas these have to be understood as follows; Severity of injury linked to hazard - Exposure (Frequency) to the hazard"
+#: euphorie/content/surveygroup.py:94
+msgid "help_survey_evaluation_algorithm_simplified"
+msgstr ""
+
+#. Default: "This method involves risk assessment by Severity x Exposure x Probability, whereas these have to be understood as follows; Severity of injury linked to hazard - Exposure (Frequency) to the hazard - Probability of the hazard occuring when exposed"
+#: euphorie/content/surveygroup.py:75
+msgid "help_survey_evaluation_algorithm_standard"
+msgstr ""
+
 #. Default: "This OiRA Tool is obsolete; it has been retired or replaced with another OiRA Tool."
-#: euphorie/content/surveygroup.py:45
+#: euphorie/content/surveygroup.py:54
 msgid "help_survey_obsolete"
 msgstr ""
 "Šis ir šīs aptaujas versijas nosaukums. Tas nekad netiek rādīts lietotājiem."
@@ -3831,7 +3809,7 @@ msgstr ""
 "Šis ir šīs OiRA rīka versijas nosaukums. Tas nekad netiek rādīts lietotājiem."
 
 #. Default: "The title of this OiRA Tool. This title is used in the OiRA Tool overview in the clients."
-#: euphorie/content/surveygroup.py:32
+#: euphorie/content/surveygroup.py:41
 msgid "help_surveygroup_title"
 msgstr ""
 "Šī OiRA rīka nosaukums. Šo nosaukumu izmanto OiRA rīka priekšskatījumā "
@@ -3962,7 +3940,7 @@ msgid "intro_add_survey"
 msgstr "Šī veidlapa jums ļaus izveidot jaunu OiRA rīka versiju."
 
 #. Default: "This form will allow you to create a new OiRA Tool."
-#: euphorie/content/browser/templates/surveygroup_add.pt:12
+#: euphorie/content/browser/surveygroup.py:59
 msgid "intro_add_surveygroup"
 msgstr "Ar šo veidlapu varēsit izveidot jaunu OiRA rīku."
 
@@ -4129,7 +4107,7 @@ msgstr "Konts ir bloķēts"
 
 #. Default: "Action Plan"
 #: euphorie/client/browser/templates/login.pt:327
-#: euphorie/client/browser/webhelpers.py:1368
+#: euphorie/client/browser/webhelpers.py:1373
 msgid "label_action_plan"
 msgstr "Rīcības plāns"
 
@@ -4141,7 +4119,7 @@ msgid "label_action_plan_budget"
 msgstr "Budžets"
 
 #. Default: "Action plan"
-#: euphorie/client/browser/templates/report_landing.pt:98
+#: euphorie/client/browser/templates/report_landing.pt:94
 msgid "label_action_plan_download"
 msgstr "Rīcības plāns"
 
@@ -4184,7 +4162,7 @@ msgid "label_alphabetical"
 msgstr "Pēc alfabēta"
 
 #. Default: "Assessment"
-#: euphorie/client/browser/webhelpers.py:1335
+#: euphorie/client/browser/webhelpers.py:1340
 msgid "label_assessment"
 msgstr "Novērtējums"
 
@@ -4215,18 +4193,24 @@ msgstr ""
 msgid "label_caption"
 msgstr "Attēla paraksts"
 
+#. Default: "Certificates"
+#: euphorie/client/browser/templates/sessions-dashboard.pt:57
+#: euphorie/client/browser/templates/training_certificate_view.pt:20
+msgid "label_certificates"
+msgstr ""
+
 #. Default: "Choose a country"
-#: euphorie/content/browser/templates/surveygroup_add.pt:90
+#: euphorie/content/widgets/survey_source_selection.py:54
 msgid "label_choose_country"
 msgstr "Izvēlieties valsti"
 
-#. Default: "Choose a revision of the selected OiRA Tool"
-#: euphorie/content/browser/templates/surveygroup_add.pt:73
+#. Default: "Choose a revision for the selected OiRA Tool"
+#: euphorie/content/widgets/survey_source_selection.py:66
 msgid "label_choose_survey"
 msgstr "Izvēlieties atlasītā OiRA rīka versiju"
 
 #. Default: "Choose an OiRA Tool"
-#: euphorie/content/browser/templates/surveygroup_add.pt:54
+#: euphorie/content/widgets/survey_source_selection.py:60
 msgid "label_choose_surveygroup"
 msgstr "Izvēlieties OiRA rīku"
 
@@ -4249,6 +4233,11 @@ msgstr ""
 #. Default: "Close this message"
 #: euphorie/client/browser/templates/browser-warning.pt:50
 msgid "label_close_message"
+msgstr ""
+
+#. Default: "Compact"
+#: euphorie/client/browser/templates/report_landing.pt:45
+msgid "label_compact"
 msgstr ""
 
 #. Default: "Compact report options"
@@ -4276,7 +4265,7 @@ msgstr ""
 #. Default: "Consultancy"
 #: euphorie/client/browser/templates/consultancy.pt:31
 #: euphorie/client/browser/templates/consultants.pt:26
-#: euphorie/client/browser/webhelpers.py:1387
+#: euphorie/client/browser/webhelpers.py:1392
 msgid "label_consultancy"
 msgstr ""
 
@@ -4289,11 +4278,6 @@ msgstr "E-pasta adrese saziņai"
 #: euphorie/content/sector.py:65
 msgid "label_contact_name"
 msgstr "Kontaktpersonas vārds"
-
-#. Default: "Contact person"
-#: euphorie/content/browser/templates/sector_edit.pt:144
-msgid "label_contact_person"
-msgstr "Kontaktpersona"
 
 #. Default: "Create action plan"
 #: euphorie/client/browser/templates/actionplan.pt:64
@@ -4408,7 +4392,7 @@ msgstr ""
 
 #. Default: "Evaluation"
 #: euphorie/client/browser/templates/login.pt:325
-#: euphorie/client/browser/webhelpers.py:1338
+#: euphorie/client/browser/webhelpers.py:1343
 msgid "label_evaluation"
 msgstr "Novērtēšana"
 
@@ -4435,7 +4419,7 @@ msgstr "Pasākums jau īstenots"
 
 #. Default: "Already implemented measures"
 #: euphorie/client/browser/templates/webhelpers.pt:698
-#: euphorie/client/browser/training.py:287
+#: euphorie/client/browser/training.py:288
 msgid "label_existing_measures"
 msgstr "Jau ieviestie pasākumi"
 
@@ -4490,9 +4474,14 @@ msgid "label_forgot_password"
 msgstr "Aizmirsu paroli"
 
 #. Default: "Format"
-#: euphorie/client/browser/templates/report_landing.pt:55
+#: euphorie/client/browser/templates/report_landing.pt:53
 msgid "label_format"
 msgstr "Formāts"
+
+#. Default: "Full Report"
+#: euphorie/client/browser/templates/report_landing.pt:68
+msgid "label_full_report"
+msgstr ""
 
 #. Default: "General information"
 #: euphorie/client/browser/templates/status_info.pt:36
@@ -4565,7 +4554,7 @@ msgstr "Vēsture"
 
 #. Default: "Identification"
 #: euphorie/client/browser/templates/login.pt:323
-#: euphorie/client/browser/webhelpers.py:1337
+#: euphorie/client/browser/webhelpers.py:1342
 msgid "label_identification"
 msgstr "Identifikācija"
 
@@ -4602,7 +4591,7 @@ msgid "label_invalidate_risk_assessment"
 msgstr ""
 
 #. Default: "Involve"
-#: euphorie/client/browser/webhelpers.py:1324
+#: euphorie/client/browser/webhelpers.py:1329
 msgid "label_involve"
 msgstr "Iesaiste"
 
@@ -4697,15 +4686,9 @@ msgid "label_login_password"
 msgstr "Parole"
 
 #. Default: "Logo"
-#: euphorie/content/browser/templates/sector_edit.pt:52
-#: euphorie/content/sector.py:71
+#: euphorie/content/sector.py:74
 msgid "label_logo"
 msgstr "Logotips"
-
-#. Default: "Which logo you would like to display in the lower left corner?"
-#: euphorie/content/browser/templates/sector_edit.pt:67
-msgid "label_logo_selection"
-msgstr "Kuru logotipu vēlaties rādīt kreisajā augšējā stūrī?"
 
 #. Default: "General approach (to eliminate or reduce the risk) + Specific action(s) required to implement this approach"
 #: euphorie/content/solution.py:66
@@ -4820,25 +4803,25 @@ msgstr ""
 
 #. Default: "No risk"
 #: euphorie/client/browser/templates/risks_overview.pt:262
-#: euphorie/client/browser/templates/status_info.pt:199
+#: euphorie/client/browser/templates/status_info.pt:234
 msgid "label_no_risk"
 msgstr "Riska nav"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:266
-#: euphorie/client/browser/templates/status_info.pt:203
+#: euphorie/client/browser/templates/status_info.pt:238
 msgid "label_no_risks_2"
 msgstr "Riska nav"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:270
-#: euphorie/client/browser/templates/status_info.pt:207
+#: euphorie/client/browser/templates/status_info.pt:242
 msgid "label_no_risks_3_4"
 msgstr "Riska nav"
 
 #. Default: "No risks"
 #: euphorie/client/browser/templates/risks_overview.pt:274
-#: euphorie/client/browser/templates/status_info.pt:211
+#: euphorie/client/browser/templates/status_info.pt:246
 msgid "label_no_risks_5_or_more"
 msgstr "Riska nav"
 
@@ -4909,7 +4892,6 @@ msgid "label_page_of"
 msgstr ". lappuse no"
 
 #. Default: "Password"
-#: euphorie/content/browser/templates/sector_edit.pt:122
 #: euphorie/content/user.py:92
 msgid "label_password"
 msgstr "Parole"
@@ -4922,13 +4904,13 @@ msgstr "Atkārtoti ievadiet paroli"
 
 #. Default: "Planned measures"
 #: euphorie/client/browser/templates/webhelpers.pt:717
-#: euphorie/client/browser/training.py:290
+#: euphorie/client/browser/training.py:291
 msgid "label_planned_measures"
 msgstr "Plānotie pasākumi"
 
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:321
-#: euphorie/client/browser/webhelpers.py:1306
+#: euphorie/client/browser/webhelpers.py:1311
 msgid "label_preparation"
 msgstr "Sagatavošanās"
 
@@ -5027,7 +5009,7 @@ msgstr "Dzēst šo pasākumu"
 
 #. Default: "Report"
 #: euphorie/client/browser/templates/report_landing.pt:29
-#: euphorie/client/browser/webhelpers.py:1403
+#: euphorie/client/browser/webhelpers.py:1408
 msgid "label_report"
 msgstr "Pārskats"
 
@@ -5076,49 +5058,49 @@ msgstr "Riska tips"
 
 #. Default: "Risk with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:283
-#: euphorie/client/browser/templates/status_info.pt:220
+#: euphorie/client/browser/templates/status_info.pt:255
 msgid "label_risk_with_measure"
 msgstr "Risks ar pasākumu(-iem)"
 
 #. Default: "Risk without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:304
-#: euphorie/client/browser/templates/status_info.pt:241
+#: euphorie/client/browser/templates/status_info.pt:276
 msgid "label_risk_without_measure"
 msgstr "Risks bez pasākuma"
 
 #. Default: "Risks with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:287
-#: euphorie/client/browser/templates/status_info.pt:224
+#: euphorie/client/browser/templates/status_info.pt:259
 msgid "label_risks_with_measure_2"
 msgstr "Risks ar pasākumu(-iem)"
 
 #. Default: "Risks with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:291
-#: euphorie/client/browser/templates/status_info.pt:228
+#: euphorie/client/browser/templates/status_info.pt:263
 msgid "label_risks_with_measure_3_4"
 msgstr "Risks ar pasākumu(-iem)"
 
 #. Default: "Risks with measure(s)"
 #: euphorie/client/browser/templates/risks_overview.pt:295
-#: euphorie/client/browser/templates/status_info.pt:232
+#: euphorie/client/browser/templates/status_info.pt:267
 msgid "label_risks_with_measure_5_or_more"
 msgstr "Risks ar pasākumu(-iem)"
 
 #. Default: "Risks without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:308
-#: euphorie/client/browser/templates/status_info.pt:245
+#: euphorie/client/browser/templates/status_info.pt:280
 msgid "label_risks_without_measure_2"
 msgstr "Risks bez pasākuma"
 
 #. Default: "Risks without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:312
-#: euphorie/client/browser/templates/status_info.pt:249
+#: euphorie/client/browser/templates/status_info.pt:284
 msgid "label_risks_without_measure_3_4"
 msgstr "Risks bez pasākuma"
 
 #. Default: "Risks without measure"
 #: euphorie/client/browser/templates/risks_overview.pt:316
-#: euphorie/client/browser/templates/status_info.pt:253
+#: euphorie/client/browser/templates/status_info.pt:288
 msgid "label_risks_without_measure_5_or_more"
 msgstr "Risks bez pasākuma"
 
@@ -5153,11 +5135,6 @@ msgstr "Meklēšana"
 #: euphorie/client/browser/report.py:147
 msgid "label_section"
 msgstr "Struktūrvienība"
-
-#. Default: "Please provide a description of your sector"
-#: euphorie/content/browser/templates/sector_edit.pt:41
-msgid "label_sector_description"
-msgstr "Lūdzu, iesniedziet sava sektora aprakstu."
 
 #. Default: "Title of sector."
 #: euphorie/content/browser/upload.py:139
@@ -5234,6 +5211,16 @@ msgstr "Risinājums"
 msgid "label_sorting"
 msgstr "Sakārtot"
 
+#. Default: "How would you like to start"
+#: euphorie/content/widgets/survey_source_selection.py:18
+msgid "label_source"
+msgstr ""
+
+#. Default: "Choose a source"
+#: euphorie/content/browser/surveygroup.py:44
+msgid "label_source_selection"
+msgstr ""
+
 #. Default: "Base on an existing risk assessment"
 #: euphorie/client/browser/templates/new-session.pt:46
 msgid "label_start_base_on_existing"
@@ -5276,7 +5263,7 @@ msgid "label_survey_base"
 msgstr "Izvēlieties pamatversiju"
 
 #. Default: "Evaluation algorithm"
-#: euphorie/content/surveygroup.py:56
+#: euphorie/content/surveygroup.py:65
 msgid "label_survey_evaluation_algorithm"
 msgstr "Novērtēšanas algoritms"
 
@@ -5311,14 +5298,9 @@ msgid "label_survey_export_include_risk_legal_texts"
 msgstr ""
 
 #. Default: "Obsolete OiRA tool"
-#: euphorie/content/surveygroup.py:44
+#: euphorie/content/surveygroup.py:53
 msgid "label_survey_obsolete"
 msgstr "Izvēlieties pamatversiju"
-
-#. Default: "How would you like to start"
-#: euphorie/content/browser/templates/surveygroup_add.pt:29
-msgid "label_survey_source"
-msgstr "Ar ko vēlaties sākt?"
 
 #. Default: "Version name"
 #: euphorie/content/survey.py:48
@@ -5429,13 +5411,13 @@ msgstr ""
 
 #. Default: "Unvisited"
 #: euphorie/client/browser/templates/risks_overview.pt:337
-#: euphorie/client/browser/templates/status_info.pt:274
+#: euphorie/client/browser/templates/status_info.pt:309
 msgid "label_unvisited_plural"
 msgstr "Neatbildēts"
 
 #. Default: "Unvisited"
 #: euphorie/client/browser/templates/risks_overview.pt:333
-#: euphorie/client/browser/templates/status_info.pt:270
+#: euphorie/client/browser/templates/status_info.pt:305
 msgid "label_unvisited_singular"
 msgstr "Neatbildēts"
 
@@ -5619,25 +5601,6 @@ msgstr "aizslēdza"
 msgid "lock unset"
 msgstr "atslēdza"
 
-#. Default: "You may get the best results if you upload a logo as a ${transparent} PNG file of at least 100 pixels in height. Uploading larger images is fine, the logo will be scaled down to the right size automatically."
-#: euphorie/content/browser/templates/sector_edit.pt:114
-msgid "logo_instructions"
-msgstr ""
-"Vislabākos rezultātus gūsit, ja augšupielādēsit ${transparent} kā PNG failu, "
-"kura augstums ir vismaz 100 pikseļi. Var augšupielādēt arī lielākus attēlus, "
-"bet šādā gadījumā logotips tiks automātiski samazināts līdz pareizajam "
-"izmēram."
-
-#. Default: "transparent"
-#: euphorie/content/browser/templates/sector_edit.pt:114
-msgid "logo_instructions_transparent"
-msgstr "caurspīdīgu logotipu"
-
-#. Default: "My own"
-#: euphorie/content/browser/templates/sector_edit.pt:83
-msgid "logo_my_own"
-msgstr "savu logotipu"
-
 #. Default: "Handling of measures text (if measures-in-place are used)"
 #: euphorie/content/survey.py:114
 msgid "measures_text_handling"
@@ -5665,7 +5628,7 @@ msgstr "Importēt OiRA rīku"
 
 #. Default: "Training"
 #: euphorie/client/browser/templates/webhelpers.pt:668
-#: euphorie/client/browser/webhelpers.py:1419
+#: euphorie/client/browser/webhelpers.py:1424
 msgid "menu_training"
 msgstr "Apmācības"
 
@@ -5725,7 +5688,7 @@ msgid "message_download_tool_contents"
 msgstr ""
 
 #. Default: "Please fill out this field."
-#: euphorie/client/browser/webhelpers.py:1267
+#: euphorie/client/browser/webhelpers.py:1272
 msgid "message_field_required"
 msgstr "Lūdzu, aizpildiet šo lauku."
 
@@ -5888,12 +5851,12 @@ msgid "message_unlock_or_duplicate"
 msgstr ""
 
 #. Default: "Cancelled unpublish action."
-#: euphorie/content/browser/surveygroup.py:237
+#: euphorie/content/browser/surveygroup.py:291
 msgid "message_unpublish_cancel"
 msgstr "Atcelta publikācijas izņemšanas darbība."
 
 #. Default: "This OiRA Tool is now no longer available in the client."
-#: euphorie/content/browser/surveygroup.py:227
+#: euphorie/content/browser/surveygroup.py:281
 msgid "message_unpublish_success"
 msgstr "Šis OiRA rīks vairs nav pieejams klientā."
 
@@ -5978,7 +5941,7 @@ msgstr "Iestatījumi"
 #. Default: "Status"
 #: euphorie/client/browser/templates/more_menu.pt:62
 #: euphorie/client/browser/templates/webhelpers.pt:62
-#: euphorie/client/browser/webhelpers.py:1434
+#: euphorie/client/browser/webhelpers.py:1439
 msgid "navigation_status"
 msgstr "Statuss"
 
@@ -6112,7 +6075,6 @@ msgstr ""
 "saistībā ar šo dokumentu."
 
 #. Default: "Your password must contain at least 5 characters, including at least one capital letter, one number and one special character (e.g. $, # or @)."
-#: euphorie/content/browser/templates/sector_edit.pt:135
 #: euphorie/content/passwordpolicy.py:55
 msgid "password_policy_conditions"
 msgstr ""
@@ -6202,7 +6164,7 @@ msgid "probability_small"
 msgstr "Neliela"
 
 #. Default: "${completion_percentage}% Complete"
-#: euphorie/client/browser/webhelpers.py:338
+#: euphorie/client/browser/webhelpers.py:343
 msgid "progress_indicator_title"
 msgstr "${completion_percentage}% Pabeigts"
 
@@ -6518,7 +6480,7 @@ msgid "subject_request_validation"
 msgstr ""
 
 #. Default: "Standard"
-#: euphorie/content/browser/surveygroup.py:194
+#: euphorie/content/browser/surveygroup.py:248
 msgid "survey_default_title"
 msgstr "Standarts"
 
@@ -6528,21 +6490,21 @@ msgid "survey_list_footer"
 msgstr "Jūs varat arī ${add_link}."
 
 #. Default: "Base my new OiRA Tool on an existing OiRA Tool of my organisation"
-#: euphorie/content/browser/templates/surveygroup_add.pt:41
+#: euphorie/content/widgets/survey_source_selection.py:30
 msgid "survey_source_local"
 msgstr ""
 "Izveidot jaunu OiRA rīku uz esoša, manā organizācijā izmantota OiRA rīka "
 "pamata"
 
 #. Default: "Base my new OiRA Tool on an existing OiRA Tool of another organisation"
-#: euphorie/content/browser/templates/surveygroup_add.pt:47
+#: euphorie/content/widgets/survey_source_selection.py:40
 msgid "survey_source_other"
 msgstr ""
 "Izveidot jaunu OiRA rīku uz esoša, citā organizācijā izmantota OiRA rīka "
 "pamata"
 
 #. Default: "Create a new OiRA Tool from scratch"
-#: euphorie/content/browser/templates/surveygroup_add.pt:35
+#: euphorie/content/widgets/survey_source_selection.py:23
 msgid "survey_source_scratch"
 msgstr "Izveidot jaunu OiRA rīku no paša sākuma"
 
@@ -6744,22 +6706,22 @@ msgid "upload_success"
 msgstr "OiRA rīka importēšana bija veiksmīga."
 
 #. Default: "Use it to"
-#: euphorie/client/browser/templates/report_landing.pt:112
+#: euphorie/client/browser/templates/report_landing.pt:108
 msgid "use_it_to_action_plan"
 msgstr "Izmantojiet to, lai"
 
 #. Default: "Use it to"
-#: euphorie/client/browser/templates/report_landing.pt:59
+#: euphorie/client/browser/templates/report_landing.pt:57
 msgid "use_it_to_compact_report"
 msgstr ""
 
 #. Default: "Use it to"
-#: euphorie/client/browser/templates/report_landing.pt:84
+#: euphorie/client/browser/templates/report_landing.pt:80
 msgid "use_it_to_full_report"
 msgstr "Izmantojiet to, lai"
 
 #. Default: "Use it to"
-#: euphorie/client/browser/templates/report_landing.pt:174
+#: euphorie/client/browser/templates/report_landing.pt:170
 msgid "use_it_to_measures_overview"
 msgstr "Izmantojiet to, lai"
 
@@ -6769,7 +6731,7 @@ msgid "use_it_to_measures_report"
 msgstr "Izmantojiet to, lai"
 
 #. Default: "Use it to"
-#: euphorie/client/browser/templates/report_landing.pt:144
+#: euphorie/client/browser/templates/report_landing.pt:140
 msgid "use_it_to_risks_overview"
 msgstr "Izmantojiet to, lai"
 
@@ -6825,6 +6787,59 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Jā"
+
+#~ msgid "Official OiRA Logo"
+#~ msgstr "Oficiālais OiRA logotips"
+
+#~ msgid "button_save_changes"
+#~ msgstr "Saglabāt izmaiņas"
+
+#~ msgid "french"
+#~ msgstr "Vienkāršoti divi kritēriji"
+
+#~ msgid "header_settings"
+#~ msgstr "Iestatījumi"
+
+#~ msgid "help_sector_contactperson"
+#~ msgstr ""
+#~ "Ievadiet tās kontaktpersonas vārdu, kura ir atbildīga par OiRA rīkiem "
+#~ "šajā sektorā."
+
+#~ msgid "help_sector_logo"
+#~ msgstr ""
+#~ "Logotips būs redzams gan klienta puses lietotnē, kuru redzēs jūsu "
+#~ "lietotāju grupa, gan šajā rediģēšanas vidē augšējā kreisajā stūrī. "
+#~ "Attēlam jābūt png, jpg vai gif formātā, un tajā nedrīkst būt nekādu īpašu "
+#~ "rakstzīmju. Jaunais logotips kļūst redzams tikai pēc izmaiņu saglabāšanas."
+
+#~ msgid "help_sector_password"
+#~ msgstr ""
+#~ "Šī ir parole, kas jums būs nepieciešama, lai pieteiktos rediģēšanas vidē."
+
+#~ msgid "label_contact_person"
+#~ msgstr "Kontaktpersona"
+
+#~ msgid "label_logo_selection"
+#~ msgstr "Kuru logotipu vēlaties rādīt kreisajā augšējā stūrī?"
+
+#~ msgid "label_sector_description"
+#~ msgstr "Lūdzu, iesniedziet sava sektora aprakstu."
+
+#~ msgid "label_survey_source"
+#~ msgstr "Ar ko vēlaties sākt?"
+
+#~ msgid "logo_instructions"
+#~ msgstr ""
+#~ "Vislabākos rezultātus gūsit, ja augšupielādēsit ${transparent} kā PNG "
+#~ "failu, kura augstums ir vismaz 100 pikseļi. Var augšupielādēt arī "
+#~ "lielākus attēlus, bet šādā gadījumā logotips tiks automātiski samazināts "
+#~ "līdz pareizajam izmēram."
+
+#~ msgid "logo_instructions_transparent"
+#~ msgstr "caurspīdīgu logotipu"
+
+#~ msgid "logo_my_own"
+#~ msgstr "savu logotipu"
 
 #~ msgid "Manager/Policy maker"
 #~ msgstr "Vadītājs/Politikas veidotājs"
