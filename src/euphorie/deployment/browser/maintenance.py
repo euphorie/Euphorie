@@ -24,12 +24,4 @@ class CleanUpLastModifierId(BrowserView):
         for guest_user, assessment in obsolete_guest_users:
             assessment.last_modifier_id = assessment.account_id
             logger.info("Updated session %s", assessment.id)
-            num_assessments = (
-                session.query(SurveySession)
-                .filter(SurveySession.account_id == guest_user.id)
-                .count()
-            )
-            if num_assessments == 0:
-                session.delete(guest_user)
-                logger.info("Deleted user %s", guest_user.id)
         return "Done"
