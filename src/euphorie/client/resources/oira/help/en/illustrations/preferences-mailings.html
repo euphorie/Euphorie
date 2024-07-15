@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="nl">
+	lang="en">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -179,120 +179,140 @@
 	</h3>	
 	
 	
-	
+
 			
-				<fieldset
+				
+	<fieldset
     
     class="
         
         group
         ">
-        
-            <legend>System language</legend>
-        
+        <legend>
+            System language
+        </legend>
         <div 
-            class="pat-checklist radio">
+            class="pat-checklist">
             
                 <label>
                     Automatic (Based on browser language)
                     <input
-                        name="automatic-language" 
-                        type="checkbox">
+                        value="label-automatic-language"
+                        
+                            checked
+                        
+                        
+                        name="patterns-label-system-language" 
+                        type="radio">
                 </label>
             
                 <label>
                     Deutsch
                     <input
-                        name="patterns-german-native" 
-                        type="checkbox">
+                        value="patterns-label-german-native"
+                        
+                        
+                        name="patterns-label-system-language" 
+                        type="radio">
                 </label>
             
                 <label>
                     English
                     <input
-                        name="patterns-english-native" 
-                        type="checkbox">
+                        value="patterns-label-english-native"
+                        
+                        
+                        name="patterns-label-system-language" 
+                        type="radio">
                 </label>
             
                 <label>
                     Français
                     <input
-                        name="patterns-french-native" 
-                        type="checkbox">
+                        value="patterns-label-french-native"
+                        
+                        
+                        name="patterns-label-system-language" 
+                        type="radio">
                 </label>
             
                 <label>
                     Nederlands
                     <input
-                        name="patterns-dutch-native" 
-                        type="checkbox">
+                        value="patterns-label-dutch-native"
+                        
+                        
+                        name="patterns-label-system-language" 
+                        type="radio">
                 </label>
             
         </div>
 </fieldset>
+
+			
+				
+	<label 
 	
-			
-				<label 
-		
-		class="
-			
-			
-	       	
-	       	
-	       	"
-		
-	    
-		>
-		Preferred content language 
-		<select 
-			name="">
-			
-				<option 
-					value="" 
-					selected 
-					class="" 
-					> 
-					
-						Based on system language
-					
-				</option>
-			
-				<option 
-					value="" 
-					 
-					class="" 
-					> 
-					
-						Deutsch
-					
-				</option>
-			
-				<option 
-					value="" 
-					 
-					class="" 
-					> 
-					
-						English
-					
-				</option>
-			
-				<option 
-					value="" 
-					 
-					class="" 
-					> 
-					
-						Nederlands
-					
-				</option>
-			
-		</select>
+	class="
+		pat-select
 		
 		
 		
-	</label>
+		
+		"
 	
+	
+	>
+	Preferred content language
+	<select 
+		name="">
+		
+			<option 
+				value="" 
+				selected 
+				class="" 
+				> 
+				
+					Based on system language
+				
+			</option>
+		
+			<option 
+				value="" 
+				 
+				class="" 
+				> 
+				
+					Deutsch
+				
+			</option>
+		
+			<option 
+				value="" 
+				 
+				class="" 
+				> 
+				
+					English
+				
+			</option>
+		
+			<option 
+				value="" 
+				 
+				class="" 
+				> 
+				
+					Nederlands
+				
+			</option>
+		
+	</select>
+	
+	
+	
+</label>
+
 			
 				
 	
@@ -300,14 +320,14 @@
 		<fieldset 
 			class="
 				form-panel 
-				pat-collapsible closed 
+				 
 				section 
-				horizontal 
+				vertical 
 				"
 			data-pat-collapsible="
 				store: local; 
 				scroll-selector: self; 
-				scroll-offset: 100px"
+				"
 			id="patterns-label-personal-details">
 	
 	<h3 
@@ -319,16 +339,17 @@
 	</h3>	
 	
 	
-	
+
 			
-				<label 
+				
+	<label 
     
     class="
         
         
         " 
     >
-    First name 
+    First name
     <input 
          
           
@@ -344,16 +365,17 @@
     
     
 </label>
-	
+
 			
-				<label 
+				
+	<label 
     
     class="
         
         
         " 
     >
-    Family name 
+    Family name
     <input 
          
           
@@ -373,7 +395,7 @@
 	</em>	
 
 </label>
-	
+
 			
 				
 	
@@ -381,14 +403,14 @@
 		<fieldset 
 			class="
 				form-panel 
-				pat-collapsible closed 
+				 
 				section 
-				horizontal 
+				vertical 
 				"
 			data-pat-collapsible="
 				store: local; 
 				scroll-selector: self; 
-				scroll-offset: 100px"
+				"
 			id="label-mailings">
 	
 	<h3 
@@ -400,23 +422,27 @@
 	</h3>	
 	
 	
-	
+
 			
-				<fieldset
+				
+	<fieldset
     
     class="
         
         group
         ">
-        
-            <legend>Subscriptions</legend>
-        
+        <legend>
+            Subscriptions
+        </legend>
         <div 
-            class="pat-checklist checkbox">
+            class="pat-checklist">
             
                 <label>
                     
                     <input
+                        value="functional-e-mails"
+                        
+                        
                         name="functional-e-mails" 
                         type="checkbox">
                 </label>
@@ -424,6 +450,9 @@
                 <label>
                     
                     <input
+                        value="general-oira-news"
+                        
+                        
                         name="general-oira-news" 
                         type="checkbox">
                 </label>
@@ -431,6 +460,9 @@
                 <label>
                     
                     <input
+                        value="news-for-my-country"
+                        
+                        
                         name="news-for-my-country" 
                         type="checkbox">
                 </label>
@@ -438,6 +470,9 @@
                 <label>
                     
                     <input
+                        value="news-for-my-sector"
+                        
+                        
                         name="news-for-my-sector" 
                         type="checkbox">
                 </label>
@@ -445,6 +480,9 @@
                 <label>
                     
                     <input
+                        value="private-security"
+                        
+                        
                         name="private-security" 
                         type="checkbox">
                 </label>
@@ -452,6 +490,9 @@
                 <label>
                     
                     <input
+                        value="wood-works"
+                        
+                        
                         name="wood-works" 
                         type="checkbox">
                 </label>
@@ -459,13 +500,16 @@
                 <label>
                     
                     <input
+                        value="metal-works"
+                        
+                        
                         name="metal-works" 
                         type="checkbox">
                 </label>
             
         </div>
 </fieldset>
-	
+
 			
 		
 	

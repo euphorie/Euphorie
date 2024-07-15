@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="nl">
+	lang="en">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -1600,7 +1600,7 @@
                     data-pat-tooltip="source: ajax; position-list: tr; trigger: click; source: ajax">Unlocked 
                     <!-- <time 
                             class="pat-display-time" 
-                        data-pat-display-time="from-now: true; locale: nl" 
+                        data-pat-display-time="from-now: true; locale: en" 
                         datetime="2018-03-28T08:00Z">2018-03-28</time> -->
                 </a>
             
@@ -1745,53 +1745,91 @@
         
     </section>
     
-<div class="pat-modal-pop-over pat-collapsible closed pat-depends"
+<div 
+    class="
+        pat-modal-pop-over 
+        pat-collapsible 
+        closed pat-depends"
      id="measures-panel"
-     data-pat-collapsible="open-trigger: #add-standard-measures; close-trigger: #close-standard-measures"
-     data-pat-depends="condition: not (sm-1 and sm-2 and sm-3 and sm-4)">
-    <h2 class="title">
+     data-pat-collapsible="
+        open-trigger: #add-standard-measures; 
+        close-trigger: #close-standard-measures"
+     data-pat-depends="
+        condition: not (sm-1 and sm-2 and sm-3 and sm-4)">
+    <h2 
+        class="title">
         Ehdotetut toimenpiteet
     </h2>
-    <section class="pat-rich description">
+    <section 
+        class="pat-rich description">
         <p>
             Valitse yksi tai useampi tunnetuista yleisistä toimenpiteistä.
         </p>
     </section>
-    <div class="pat-checklist pat-pick-list free-form">
+    <div 
+        class="
+            pat-checklist 
+            pat-pick-list 
+            free-form">
         
         
-            <label class="item">
-                <input type="checkbox" id="sm-1" name="sm-1" />
-                <span class="text">Visual inspection of work areas.</span>
-                <span class="functions"><em class="small pat-button icon-plus-circle">Lisää</em></span>
+            <label 
+                class="item">
+                <input 
+                    type="checkbox" 
+                    id="sm-1" 
+                    name="sm-1" />
+                <span 
+                    class="text">Visual inspection of work areas.</span>
+                <span 
+                    class="functions"><em class="small pat-button icon-plus-circle"></em></span>
             </label>
             
         
-            <label class="item">
-                <input type="checkbox" id="sm-2" name="sm-2" />
-                <span class="text">Provide good equipment</span>
-                <span class="functions"><em class="small pat-button icon-plus-circle">Lisää</em></span>
+            <label 
+                class="item">
+                <input 
+                    type="checkbox" 
+                    id="sm-2" 
+                    name="sm-2" />
+                <span 
+                    class="text">Provide good equipment</span>
+                <span 
+                    class="functions"><em class="small pat-button icon-plus-circle"></em></span>
             </label>
             
         
-            <label class="item">
-                <input type="checkbox" id="sm-3" name="sm-3" />
-                <span class="text">Inform the private security guards</span>
-                <span class="functions"><em class="small pat-button icon-plus-circle">Lisää</em></span>
+            <label 
+                class="item">
+                <input 
+                    type="checkbox" 
+                    id="sm-3" 
+                    name="sm-3" />
+                <span 
+                    class="text">Inform the private security guards</span>
+                <span 
+                    class="functions"><em class="small pat-button icon-plus-circle"></em></span>
             </label>
             
         
-            <label class="item">
-                <input type="checkbox" id="sm-4" name="sm-4" />
-                <span class="text">The private security guard reports correctly and immediately disfunction of electricity, gas and  water systems.</span>
-                <span class="functions"><em class="small pat-button icon-plus-circle">Lisää</em></span>
+            <label 
+                class="item">
+                <input 
+                    type="checkbox" 
+                    id="sm-4" 
+                    name="sm-4" />
+                <span 
+                    class="text">The private security guard reports correctly and immediately disfunction of electricity, gas and  water systems.</span>
+                <span 
+                    class="functions"><em class="small pat-button icon-plus-circle"></em></span>
             </label>
             
         
     </div>
 </div>
-<button id="close-standard-measures"
-        type="button">Close panel</button>
+<button 
+    id="close-standard-measures"
+    type="button">Close panel</button>
 
 
 <div 
@@ -1804,7 +1842,11 @@
     
     
         <div 
-            class="measure pat-collapsible closed pat-depends"
+            class="
+                measure 
+                pat-collapsible 
+                closed 
+                pat-depends"
             data-pat-depends="condition: sm-1">
             <h2>
                 Visual inspection of work areas.
@@ -1886,7 +1928,11 @@
         
     
         <div 
-            class="measure pat-collapsible closed pat-depends"
+            class="
+                measure 
+                pat-collapsible 
+                closed 
+                pat-depends"
             data-pat-depends="condition: sm-2">
             <h2>
                 Provide good equipment
@@ -1968,7 +2014,11 @@
         
     
         <div 
-            class="measure pat-collapsible closed pat-depends"
+            class="
+                measure 
+                pat-collapsible 
+                closed 
+                pat-depends"
             data-pat-depends="condition: sm-3">
             <h2>
                 Inform the private security guards
@@ -2050,7 +2100,11 @@
         
     
         <div 
-            class="measure pat-collapsible closed pat-depends"
+            class="
+                measure 
+                pat-collapsible 
+                closed 
+                pat-depends"
             data-pat-depends="condition: sm-4">
             <h2>
                 The private security guard reports correctly and immediately disfunction of electricity, gas and  water systems.
@@ -2261,19 +2315,18 @@
 <div 
     class="button-bar">
     
+        <button 
+            class="pat-button icon-plus pat-depends visible" 
+            data-pat-depends="condition: not (sm-1 and sm-2 and sm-3 and sm-4)" 
+            id="add-standard-measures" 
+            title="Add another measure" 
+            type="button">Valitse toimenpiteet</button>
+    
     <button 
-        class="small pat-button icon-plus-circle pat-depends"
-        data-pat-depends="condition: not (sm-1 and sm-2 and sm-3 and sm-4)"
-        id="add-standard-measures"
-        title="Add another measure"
-        type="button">Valitse toimenpiteet</button>
-  
-    <button 
-        class="add-clone small pat-button icon-plus-circle"
-        id="clone-extra-measure"
-        title="Add another measure"
+        class="add-clone pat-button icon-plus" 
+        id="clone-extra-measure" 
+        title="Add another measure" 
         type="button">Lisää muita toimenpiteitä</button>
-    <!-- <a class="small pat-button pat-tooltip icon-up-circle" title="Use an predefined text to pre-fill your measure with." data-pat-tooltip="source: ajax; position-list: bm" href="#standard-solutions">Foo</a> -->
 </div>
 </div>
 
@@ -2500,7 +2553,7 @@
             class="text" 
             id="mirror-my-comments"
             ><em 
-                class="placeholder">Reageer</em
+                class="placeholder">Leave a comment</em
         ></span
         ><em 
             class="selected-users" 
@@ -2509,7 +2562,7 @@
             class="selected-tags" 
             id="selected-tags"></em></p>
     <textarea 
-        placeholder="Reageer" 
+        placeholder="Leave a comment" 
         class="pat-content-mirror pat-switch " 
         data-pat-content-mirror="target: #mirror-my-comments" 
         data-pat-switch="#my-comments status-inactive status-active"></textarea>
@@ -2554,11 +2607,11 @@
         <button 
             class="default pat-button pat-switch close-panel" 
             data-pat-switch="selector: #my-comments; remove: status-* ; add: status-inactive && selector: #my-comments-reply-button; remove: executed" 
-            type="submit">Posten</button>
+            type="submit">Post</button>
         <button 
             class="pat-button pat-switch close-panel" 
             data-pat-switch="selector: #my-comments; remove: status-*; add: status-inactive && selector: #my-comments-reply-button; remove: executed" 
-            type="reset">Annuleren</button>
+            type="reset">Cancel</button>
 
         
 
@@ -2727,7 +2780,7 @@
             <select 
                 name="search-rule.data-field:records">
                 <option 
-                    value="SearchableText">Any text field</option>
+                    value="SearchableText"></option>
                 <optgroup 
                     label="Metadata">
                     <option value="Title">Title</option>
@@ -2752,9 +2805,9 @@
                 class="pat-select">
                 <select 
                     name="search-rule.lemma-operator:records">
-                <option value="contains">Contains</option>
-                <option value="contains-not">Does not contain</option>
-                <option value="equals">Equals</option>
+                <option value="contains"></option>
+                <option value="contains-not"></option>
+                <option value="equals"></option>
                 </select>
             </label>
             <input 
@@ -2837,7 +2890,7 @@
         class="pat-button default icon-search">Haku</button>
     <button 
         type="button" 
-        class="pat-button add-clone add-clone-rule icon-plus-circle">Add another search rule</button>
+        class="pat-button add-clone add-clone-rule icon-plus-circle"></button>
 
     <a 
         href="../../fi/illustrations/risk-integrated-action-plan#listing" 
@@ -2858,9 +2911,9 @@
         <select 
             name="search-rule.and-or:records">
             <option 
-                value="and">And…</option>
+                value="and"></option>
             <option 
-                value="or">Or…</option>
+                value="or"></option>
         </select>
     </label>
     <label 
@@ -2868,7 +2921,7 @@
         <select 
             name="search-rule.data-field:records">
             <option 
-                value="SearchableText">Any text field</option>
+                value="SearchableText"></option>
             <optgroup 
                 label="Metadata">
                 <option value="Title">Title</option>
@@ -2890,9 +2943,9 @@
             class="pat-select">
             <select 
                 name="search-rule.lemma-operator:records">
-                <option value="contains">Contains</option>
-                <option value="contains-not">Does not contain</option>
-                <option value="equals">Equals</option>
+                <option value="contains"></option>
+                <option value="contains-not"></option>
+                <option value="equals"></option>
             </select>
         </label>
         <input 
