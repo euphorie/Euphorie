@@ -7,6 +7,9 @@ Changelog
 - Fix the i18n labels
   [ale-rt]
 
+- Fix the last modifier id for guest users that have been converted to registered users
+  [ale-rt]
+
 
 16.2.0 (2024-06-12)
 -------------------
