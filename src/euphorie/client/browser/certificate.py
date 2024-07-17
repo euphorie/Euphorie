@@ -88,3 +88,6 @@ class CertificateOverview(Certificate):
                 year_certificates, key=lambda c: c["date"], reverse=True
             )
         return certificates.items()
+
+    def get_num_columns(self, num_items):
+        return 2 if num_items < 3 else 3
