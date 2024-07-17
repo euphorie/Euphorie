@@ -25,11 +25,12 @@
                 <tal:year tal:define="
                             year python:item[0];
                             sessions python:item[1];
+                            num_columns python: view.get_num_columns(len(sessions));
                           ">
                   <h2 class="separation-title">
                   ${year}
                   </h2>
-                  <div class="certificate-overview col-3">
+                  <div class="certificate-overview col-${num_columns}">
                     <tal:session tal:repeat="info sessions">
                       <figure class="certificate-preview">
                         <a class="certificate pat-auto-scale pat-inject"

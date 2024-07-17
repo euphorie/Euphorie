@@ -10,6 +10,9 @@ Changelog
 - Fix the last modifier id for guest users that have been converted to registered users
   [ale-rt]
 
+- Adjusted column layout for certificates overview
+  [reinhardt]
+
 
 16.2.0 (2024-06-12)
 -------------------
