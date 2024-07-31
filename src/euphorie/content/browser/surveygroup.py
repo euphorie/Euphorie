@@ -266,7 +266,7 @@ class Unpublish(BrowserView):
         wt = api.portal.get_tool("portal_workflow")
         if wt.getInfoFor(published_survey, "review_state") != "published":
             log.warning(
-                "Trying to unpublish survey %s which is not marked as " "published",
+                "Trying to unpublish survey %s which is not marked as published",
                 "/".join(published_survey.getPhysicalPath()),
             )
         else:

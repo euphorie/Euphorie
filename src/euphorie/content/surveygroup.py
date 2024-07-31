@@ -10,6 +10,7 @@ https://admin.oiraproject.eu/sectors/eu/eu-private-security/private-security-eu
 from .. import MessageFactory as _
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from plone import api
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.autoform import directives
 from plone.dexterity.content import Container
@@ -134,6 +135,13 @@ def handleSurveyPublish(survey, event):
         return
     surveygroup = aq_parent(aq_inner(survey))
     surveygroup.published = survey.id
+    # Retract all other surveys if needed, to make sure they are in draft state.
+    for content in surveygroup.contentValues():
+        if content.portal_type != "euphorie.survey":
+            continue
+        if content.id == survey.id:
+            continue
+        api.content.transition(obj=content, to_state="draft")
 
 
 def handleSurveyRemoved(survey, event):

@@ -1,5 +1,6 @@
 from Acquisition import aq_parent
 from euphorie.content.browser.surveygroup import AddForm
+from euphorie.content.interfaces import SurveyUnpublishEvent
 from euphorie.testing import EuphorieFunctionalTestCase
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
@@ -94,6 +95,85 @@ class HandleSurveyPublishTests(EuphorieIntegrationTestCase):
         )
         unpublishview.unpublish()
         self.assertEqual(surveygroup.published, None)
+
+    def testOnlyOnePublishedSurvey(self):
+        surveygroup = self.createSurveyGroup()
+        survey = self._create(surveygroup, "euphorie.survey", "survey")
+        survey2 = self._create(surveygroup, "euphorie.survey", "survey2")
+        self.assertEqual(self.portal.client.keys(), [])
+        api.content.transition(obj=survey, transition="publish")
+        self.assertEqual(surveygroup.published, "survey")
+        self.assertEqual(api.content.get_state(obj=survey), "published")
+        self.assertEqual(api.content.get_state(obj=survey2), "draft")
+        # The survey has been created on the client side with the id of the
+        # surveygroup.
+        self.assertEqual(self.portal.client["nl"]["sector"].keys(), ["group"])
+        # Publish the second survey.
+        api.content.transition(obj=survey2, transition="publish")
+        self.assertEqual(surveygroup.published, "survey2")
+        self.assertEqual(api.content.get_state(obj=survey), "draft")
+        self.assertEqual(api.content.get_state(obj=survey2), "published")
+        # The danger is that retracting the other survey deletes the survey on
+        # the client side.  So check that this is still there.
+        self.assertEqual(self.portal.client["nl"]["sector"].keys(), ["group"])
+        # The SurveyUnpublishEvent removes the survey from the client side.
+        # If we explicitly notify an unpublish event for the survey that is not
+        # actually published, this should not remove the client side survey.
+        # This is a check to avoid regressions.
+        notify(SurveyUnpublishEvent(survey))
+        self.assertEqual(self.portal.client["nl"]["sector"].keys(), ["group"])
+
+    def test_20240731180000_retract_unpublished_surveys__wrong_draft(self):
+        # Create a wrong situation: a survey group is marked as being the
+        # client-side-published survey, but its own review state is 'draft'.
+        surveygroup = self.createSurveyGroup()
+        survey = self._create(surveygroup, "euphorie.survey", "survey")
+        surveygroup.published = "survey"
+        self.assertEqual(self.portal.client.keys(), [])
+
+        # Get the upgrade step and execute it.
+        # Easiest is to set the profile to the previous version.
+        profile = "euphorie.deployment:default"
+        dest = "20240731180000"
+        setup = api.portal.get_tool(name="portal_setup")
+        setup.setLastVersionForProfile(profile, "20240426095318")
+        self.assertEqual(len(setup.listUpgrades(profile, dest=dest)), 1)
+        setup.upgradeProfile(profile, dest=dest)
+
+        # In this case we do not dare change anything, because we do not want
+        # to touch anything on the client side, and especially not suddenly
+        # create an entire client-side survey.
+        self.assertEqual(api.content.get_state(obj=survey), "draft")
+        self.assertEqual(self.portal.client.keys(), [])
+
+    def test_20240731180000_retract_unpublished_surveys__wrong_published(self):
+        # Start with a standard situation, with a published survey.
+        surveygroup = self.createSurveyGroup()
+        survey = self._create(surveygroup, "euphorie.survey", "survey")
+        api.content.transition(obj=survey, transition="publish")
+        self.assertEqual(surveygroup.published, "survey")
+        self.assertEqual(api.content.get_state(obj=survey), "published")
+        self.assertEqual(self.portal.client["nl"]["sector"].keys(), ["group"])
+
+        # Now turn it into a wrong situation, mimicking what may be the case in
+        # real databases until now: unmark the survey as being the
+        # client-side-published survey, but let its own review state remain
+        # 'published'.
+        surveygroup.published = None
+
+        # Get the upgrade step and execute it.
+        # Easiest is to set the profile to the previous version.
+        profile = "euphorie.deployment:default"
+        dest = "20240731180000"
+        setup = api.portal.get_tool(name="portal_setup")
+        setup.setLastVersionForProfile(profile, "20240426095318")
+        self.assertEqual(len(setup.listUpgrades(profile, dest=dest)), 1)
+        setup.upgradeProfile(profile, dest=dest)
+
+        # In this case we want to survey to revert to draft, but we want to avoid
+        # changing anything on the client side.
+        self.assertEqual(api.content.get_state(obj=survey), "draft")
+        self.assertEqual(self.portal.client["nl"]["sector"].keys(), ["group"])
 
 
 class HandleSurveyDeleteVerificationTests(EuphorieIntegrationTestCase):

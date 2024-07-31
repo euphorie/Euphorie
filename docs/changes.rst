@@ -4,6 +4,12 @@ Changelog
 16.2.2 (unreleased)
 -------------------
 
+- Retract other surveys in group when publishing a survey.
+  Includes upgrade step to fix the current data, if needed, without touching the client side.
+  Fixes https://github.com/euphorie/Euphorie/issues/754
+  Ref: scrum-2440
+  [maurits]
+
 - Update prototype from commit 317e62820b35678055240ca911d24a3b45db44d6
   Ref: scrum-2333
   [reinhardt]

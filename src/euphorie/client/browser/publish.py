@@ -185,6 +185,18 @@ def handleSurveyUnpublish(survey, event):
     """Event handler (subscriber) to take care of unpublishing a survey from
     the client."""
     surveygroup = aq_parent(survey)
+    # If this event handler is mistakenly triggered on a survey that is NOT
+    # the actually published survey of this group, then we should NOT remove
+    # anything from the client part.
+    if surveygroup.published != survey.id:
+        log.warning(
+            "Trying to unpublish survey %s, but %s is the actually published "
+            "survey of %s",
+            survey.id,
+            surveygroup.published,
+            "/".join(surveygroup.getPhysicalPath()),
+        )
+        return
     sector = aq_parent(surveygroup)
     country = aq_parent(sector)
 
