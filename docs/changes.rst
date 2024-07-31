@@ -4,7 +4,9 @@ Changelog
 16.2.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Update prototype from commit 317e62820b35678055240ca911d24a3b45db44d6
+  Ref: scrum-2333
+  [reinhardt]
 
 
 16.2.1 (2024-07-31)
