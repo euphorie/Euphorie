@@ -1,7 +1,7 @@
 Changelog
 =========
 
-16.2.1 (unreleased)
+16.2.1 (2024-07-31)
 -------------------
 
 - Fix the i18n labels
