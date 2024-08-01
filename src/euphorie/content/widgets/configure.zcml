@@ -21,6 +21,21 @@
 
   </configure>
 
+  <z3c:widgetTemplate
+      widget=".logo.LogoWidget"
+      template="templates/logo.pt"
+      layer="plonetheme.nuplone.z3cform.interfaces.INuPloneFormLayer"
+      mode="input"
+      />
+
   <adapter factory=".password.PasswordWithConfirmationValidator" />
+  <adapter factory=".survey_source_selection.SurveySourceSelectionFieldWidget" />
+
+  <z3c:widgetTemplate
+      widget=".survey_source_selection.ISurveySourceSelectionWidget"
+      template="templates/survey_source_selection.pt"
+      layer="plonetheme.nuplone.z3cform.interfaces.INuPloneFormLayer"
+      mode="input"
+      />
 
 </configure>

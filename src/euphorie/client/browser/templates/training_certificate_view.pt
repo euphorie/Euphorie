@@ -9,6 +9,21 @@
 >
   <metal:slot fill-slot="content">
     <div id="content-pane">
+      <div class="pat-toolbar"
+           id="certificate-toolbar"
+      >
+        <div class="toolbar-section quick-navigation"
+             tal:define="
+               country nocall:here/webhelpers/country_obj;
+             "
+        >
+          <a class="pat-back-button pat-inject"
+             href="${country/absolute_url}/certificates"
+             data-pat-inject="history: record; source: #content; target: #content;"
+             i18n:translate="label_certificates"
+          >Certificates</a>
+        </div>
+      </div>
       <div class="container">
         <div class="row">
           <div class="eight columns">
@@ -16,9 +31,15 @@
               <tal:certificate replace="structure here/@@training-certificate-inner" />
             </div>
           </div>
-          <div class="four columns">
+          <div class="four columns"
+               tal:define="
+                 training_id request/training_id|nothing;
+                 print_url string:${here/absolute_url}/@@training-certificate;
+                 print_url python: print_url + (f'?training_id={training_id}' if training_id else '');
+               "
+          >
             <a class="pat-button"
-               href="${here/absolute_url}/@@training-certificate"
+               href="${print_url}"
                target="new"
                i18n:translate=""
             >Print certificate</a>

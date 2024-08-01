@@ -20,7 +20,7 @@ from .utils import StripMarkup
 from Acquisition import aq_chain
 from euphorie.content.dependency import ConditionalTextLine
 from euphorie.content.utils import ensure_image_size
-from htmllaundry.z3cform import HtmlText
+from euphorie.htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.autoform import directives

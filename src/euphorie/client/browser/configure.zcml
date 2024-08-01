@@ -183,6 +183,23 @@
       />
 
   <browser:page
+      name="certificate"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".certificate.Certificate"
+      permission="zope2.View"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
+      name="certificates"
+      for="euphorie.client.country.IClientCountry"
+      class=".certificate.CertificateOverview"
+      template="templates/certificates.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="training-certificate-inner"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       class=".training.SlideQuestionSuccess"

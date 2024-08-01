@@ -1,9 +1,9 @@
 <article class="style-7 type- certificate ${python: 'pat-auto-scale' if request.getURL().endswith('/@@training-certificate-view') else ''}"
          tal:define="
            webhelpers nocall:view/webhelpers;
-           account webhelpers/get_current_account;
            toLocalizedTime nocall: context/@@plone/toLocalizedTime;
-           certificate view/get_or_create_training;
+           training_id request/training_id|options/training_id|nothing;
+           certificate python: view.get_training_by_id(training_id) if training_id else view.get_or_create_training();
          "
          i18n:domain="euphorie"
 >
@@ -21,7 +21,7 @@
     This certificate is presented to
   </p>
   <p class="certificate-user-name">
-    ${python: account.title}
+    ${python: certificate.account.title}
   </p>
   <p class="certificate-achievement"
      i18n:translate=""
@@ -34,6 +34,13 @@
     <time class="certificate-date"
           i18n:name="date"
     >${python:toLocalizedTime(certificate.time)}</time>.
+  </p>
+  <p class="certificate-organisation"
+     tal:condition="view/organisation_logo"
+  >
+    <img class="certificate-organisation-logo"
+         src="${view/organisation_logo}"
+    />
   </p>
   <table class="certificate-colofon">
     <tbody>

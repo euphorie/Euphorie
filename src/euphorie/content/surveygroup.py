@@ -26,6 +26,15 @@ import logging
 log = logging.getLogger(__name__)
 
 
+class RichTerm(SimpleTerm):
+    def __init__(
+        self, value, token=None, title=None, description=None, extra_help=None
+    ):
+        super().__init__(value, token, title)
+        self.description = description
+        self.extra_help = extra_help
+
+
 class ISurveyGroup(model.Schema, IBasic):
     title = schema.TextLine(
         title=_("label_title", default="Title"),
@@ -56,12 +65,41 @@ class ISurveyGroup(model.Schema, IBasic):
         title=_("label_survey_evaluation_algorithm", default="Evaluation algorithm"),
         vocabulary=SimpleVocabulary(
             [
-                SimpleTerm(
+                RichTerm(
                     "kinney",
                     title=_("algorithm_kinney", default="Standard three criteria"),
+                    description=_(
+                        "This is the recommended evaluation algorithm, "
+                        "based on the Kinney method"
+                    ),
+                    extra_help=_(
+                        "help_survey_evaluation_algorithm_standard",
+                        default=(
+                            "This method involves risk assessment "
+                            "by Severity x Exposure x Probability, "
+                            "whereas these have to be understood as follows; "
+                            "Severity of injury linked to hazard - "
+                            "Exposure (Frequency) to the hazard - "
+                            "Probability of the hazard occuring when exposed"
+                        ),
+                    ),
                 ),
-                SimpleTerm(
-                    "french", title=_("french", default="Simplified two criteria")
+                RichTerm(
+                    "french",
+                    title=_("algorithm_french", default="Simplified two criteria"),
+                    description=_(
+                        "This is a simpler evaluation algorithm "
+                        "using only two criteria."
+                    ),
+                    extra_help=_(
+                        "help_survey_evaluation_algorithm_simplified",
+                        default=(
+                            "This method involves risk assessment "
+                            "by Severity x Exposure, whereas these have "
+                            "to be understood as follows; Severity of injury linked "
+                            "to hazard - Exposure (Frequency) to the hazard"
+                        ),
+                    ),
                 ),
             ]
         ),

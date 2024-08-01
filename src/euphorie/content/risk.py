@@ -18,7 +18,7 @@ from .utils import StripMarkup
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from euphorie.content.utils import ensure_image_size
-from htmllaundry.z3cform import HtmlText
+from euphorie.htmllaundry.z3cform import HtmlText
 from plone import api
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.autoform import directives

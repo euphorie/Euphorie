@@ -1,10 +1,85 @@
 Changelog
 =========
 
-15.3.1 (unreleased)
+16.2.2 (unreleased)
 -------------------
 
 - Nothing changed yet.
+
+
+16.2.1 (2024-07-31)
+-------------------
+
+- Fix the i18n labels
+  [ale-rt]
+
+- Fix the last modifier id for guest users that have been converted to registered users
+  [ale-rt]
+
+- Adjusted column layout for certificates overview
+  [reinhardt]
+
+
+16.2.0 (2024-06-12)
+-------------------
+
+- Add ``euphorie.htmllaundry`` module.
+  The original ``htmllaundry`` package fails with ``lxml`` 5.2.
+  [ale-rt, maurits]
+
+- Use a rich term for vocabulary items in the survey group forms
+  [ale-rt]
+
+- Improve the widget for the sector logo
+  [ale-rt]
+
+- CSV download of similar title details.
+  Ref: scrum-2198
+
+- When creating an OiRa tool from a template, reset the UIDs to avoid complaints from the catalog
+  [ale-rt]
+
+- Add registry setting `euphorie.notifications__allow_user_settings` to allow users to change their notification settings.
+  The default is set to `True` to allow users to do changes on their own.
+  This can be prevented if internal policies require so by changing this setting to `False`.
+  Ref: scrum-2193
+  [thet]
+
+- Support scaled answers.
+  These are answers on a scale from usually 1-5, instead of only yes/no.
+  [ale-rt, maurits]
+
+- Do not do linkintegrity checks when removing contents
+  (Fix regression introduced in https://github.com/euphorie/Euphorie/pull/692)
+  [ale-rt]
+
+- Remove an obsolete traverser that was shadowing the plone.restapi traverser
+  [ale-rt]
+
+- Remove the template "sector_edit.pt" which is not used anymore
+  [ale-rt]
+
+- Delete guest account after sessions have been transferred
+  Ref: scrum-2155
+
+- Add certificates overview
+  Ref: scrum-2142
+
+- Show certificates on assessment status page
+  Ref: scrum-2143
+
+- Show organisation logo on training certificate
+  Ref: scrum-2142
+
+- Run the tests with Plone 6.0.11.1
+  [ale-rt]
+
+
+16.1.2 (2024-03-20)
+-------------------
+
+- Allow country managers to use duplication finder tools.
+  Ref: scrum-2082
 
 
 15.3.0.dev2 (2024-03-20)
@@ -12,9 +87,6 @@ Changelog
 
 - Fix change detection when tool has been updated
   Ref: scrum-2030
-
-- Allow country managers to use duplication finder tools.
-  Ref: scrum-2082
 
 
 15.3.0.dev1 (2024-03-05)

@@ -1,0 +1,63 @@
+<fieldset class="concise">
+  <p class="legend"
+     i18n:translate="label_logo"
+  >Logo</p>
+  <dfn class="infoPanel"
+       title="Information"
+       i18n:attributes="title"
+       i18n:translate="help_sector_logo"
+  >The logo will appear on the client side app that your user group will see. Make sure your image is of format png, jpg or gif and does not contain any special characters. The new logo will only become visible after you've saved your changes and published the OiRA tool.</dfn>
+
+  <fieldset class="comprehensive radioList">
+    <p class="legend"
+       i18n:translate="label_logo_selection"
+    >Which logo you would like to display in the lower left corner?</p>
+
+    <label>
+      <input checked="${python:'checked' if not view.allow_nochange else None}"
+             name="${view/name}.action"
+             type="radio"
+             value="remove"
+      /><tal:translate i18n:translate="Official OiRA Logo">Official OiRA Logo</tal:translate>
+    </label>
+    <label>
+      <input checked="${python:'checked' if view.allow_nochange else None}"
+             name="${view/name}.action"
+             type="radio"
+             value="update"
+      /><tal:translate i18n:translate="logo_my_own">My own</tal:translate>:
+      <input name="${view/name}"
+             type="file"
+      /><tal:error condition="view/error"
+                 replace="structure view/error/render|nothing"
+      />
+    </label>
+    <input name="${view/name}.action-empty-marker"
+           type="hidden"
+           value="1"
+    />
+  </fieldset>
+
+  <div style="margin: 20px 20px">
+    <img alt=""
+         src="${scale/url}"
+         width="${scale/width}"
+         tal:define="
+           images context/@@images;
+           scale python:images.scale('logo', height=300, width=300, direction='thumbnail');
+         "
+         tal:condition="scale"
+         tal:on-error="nothing"
+    />
+  </div>
+  <p class="message notice"
+     style="width:100%"
+     i18n:translate="logo_instructions"
+  >
+          You may get the best results if you upload a logo as a
+    <strong i18n:name="transparent"
+            i18n:translate="logo_instructions_transparent"
+    >transparent</strong>
+    PNG file of at least 100 pixels in height. Uploading larger images is fine, the logo will be scaled down to the right size automatically.
+  </p>
+</fieldset>

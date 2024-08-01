@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = "15.3.1.dev0"
+version = "16.2.2.dev0"
 
 setup(
     name="Euphorie",
@@ -45,7 +45,6 @@ setup(
         "decorator",
         "py-bcrypt",
         "ftw.upgrade",
-        "htmllaundry",
         "lxml",
         "markdownify",
         "nltk",
@@ -58,7 +57,7 @@ setup(
         "plone.dexterity",
         "plone.formwidget.namedfile",
         "plone.memoize",
-        "plone.namedfile[blobs]",
+        "plone.namedfile",
         "plone.api",
         "python-docx",
         "repoze.formapi",

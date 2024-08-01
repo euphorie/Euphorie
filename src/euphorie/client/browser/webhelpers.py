@@ -106,7 +106,14 @@ class WebHelpers(BrowserView):
     group_model = Group
     hide_organisation_tab = False
     survey_session_model = SurveySession
-    dashboard_tabs = ["surveys", "assessments", "organisation"]
+    dashboard_tabs = ["surveys", "assessments", "certificates", "organisation"]
+
+    navigation_tree_legend = [
+        {"class": "unvisited", "title": _("Unvisited")},
+        {"class": "postponed", "title": _("Postponed")},
+        {"class": "answered", "title": _("Risk not present")},
+        {"class": "answered risk", "title": _("Risk present")},
+    ]
 
     def to_decimal(self, value):
         """Transform value in to a decimal."""
@@ -249,6 +256,11 @@ class WebHelpers(BrowserView):
 
     # Feature switch, can be overwritten in subclass
     show_completion_percentage = False
+
+    @property
+    @memoize
+    def show_certificates_tab(self):
+        return self.use_training_module
 
     @property
     @memoize
@@ -802,6 +814,11 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def use_action_plan_phase(self):
+        return not self.integrated_action_plan
+
+    @property
+    @memoize
     def in_session(self):
         """Check if there is an active survey session."""
         return self._survey is not None
@@ -1338,7 +1355,7 @@ class WebHelpers(BrowserView):
             }
         )
 
-        if not integrated_action_plan:
+        if self.use_action_plan_phase:
             # The tree for the action section uses the same structure as the
             # identification tree, with the only differences that only risks
             # and their parent modules are shown and that the entire tree is

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      i18n:domain="euphorie"
+>
+
+  <!-- The equivalent template in the Jekyll prototype is /certificates -->
+
+  <body>
+    <metal:slot fill-slot="content">
+      <div id="content-pane">
+        <metal:homescreen_navigation use-macro="here/view/macros/homescreen_navigation">
+          <metal:slot fill-slot="view_options" />
+          <metal:slot fill-slot="quick_functions" />
+        </metal:homescreen_navigation>
+        <div id="application-content">
+          <div class="portlet">
+            <div class="content">
+              <tal:year tal:repeat="item view/certificates">
+                <tal:year tal:define="
+                            year python:item[0];
+                            sessions python:item[1];
+                            num_columns python: view.get_num_columns(len(sessions));
+                          ">
+                  <h2 class="separation-title">
+                  ${year}
+                  </h2>
+                  <div class="certificate-overview col-${num_columns}">
+                    <tal:session tal:repeat="info sessions">
+                      <figure class="certificate-preview">
+                        <a class="certificate pat-auto-scale pat-inject"
+                           href="${info/link}"
+                           data-pat-inject="source: #content; target: #content; history: record"
+                           tal:condition="nocall:info/content"
+                        >
+                          <tal:certificate replace="structure info/content" />
+                        </a>
+                      </figure>
+                    </tal:session>
+
+                  </div>
+                </tal:year>
+              </tal:year>
+            </div>
+          </div>
+        </div>
+      </div>
+    </metal:slot>
+
+  </body>
+</html>

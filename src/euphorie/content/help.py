@@ -11,7 +11,7 @@ portal_type: euphorie.help
 
 from .. import MessageFactory as _
 from euphorie.content.utils import StripMarkup
-from htmllaundry.z3cform import HtmlText
+from euphorie.htmllaundry.z3cform import HtmlText
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.autoform import directives
 from plone.indexer import indexer

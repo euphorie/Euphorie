@@ -271,6 +271,8 @@
         />
   </class>
 
+  <adapter factory=".surveygroup.SurveySourceSelectionAdaptedContext" />
+
   <browser:page
       name="unpublish"
       for="euphorie.content.surveygroup.ISurveyGroup"
@@ -472,6 +474,14 @@
       for="*"
       class=".similar_titles_details.SimilarTitlesDetails"
       template="templates/similar_titles_details.pt"
+      permission="cmf.ManagePortal"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
+  <browser:page
+      name="similar-titles-details-csv"
+      for="*"
+      class=".similar_titles_details.SimilarTitlesDetailsCSV"
       permission="cmf.ManagePortal"
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
