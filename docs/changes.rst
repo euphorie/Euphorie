@@ -1,14 +1,8 @@
 Changelog
 =========
 
-16.2.2 (unreleased)
--------------------
-
-- Nothing changed yet.
-
-
-16.2.1 (2024-07-31)
--------------------
+15.3.0.dev3 (2024-08-01)
+------------------------
 
 - Fix the i18n labels
   [ale-rt]
@@ -18,10 +12,6 @@ Changelog
 
 - Adjusted column layout for certificates overview
   [reinhardt]
-
-
-16.2.0 (2024-06-12)
--------------------
 
 - Add ``euphorie.htmllaundry`` module.
   The original ``htmllaundry`` package fails with ``lxml`` 5.2.
@@ -73,13 +63,6 @@ Changelog
 
 - Run the tests with Plone 6.0.11.1
   [ale-rt]
-
-
-16.1.2 (2024-03-20)
--------------------
-
-- Allow country managers to use duplication finder tools.
-  Ref: scrum-2082
 
 
 15.3.0.dev2 (2024-03-20)
