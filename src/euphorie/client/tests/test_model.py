@@ -1,4 +1,5 @@
 from AccessControl.PermissionRole import _what_not_even_god_should_do
+from AccessControl.users import nobody
 from datetime import timedelta
 from euphorie.client import config
 from euphorie.client import model
@@ -291,7 +292,12 @@ class AccountTests(DatabaseTests):
         self.assertEqual(user.has_permission("Euphorie: View a Survey", None), True)
 
     def testAccountType(self):
-        (self.session, self.survey) = createSurvey()
+        # We know of a third-party package that has an event handler for when
+        # a survey is created.  This calls euphorie.client.model.get_current,
+        # which cannot get the current user because there is no portal in this
+        # unit test.  Use a mock to prevent an error.
+        with mock.patch("plone.api.user.get_current", return_value=nobody):
+            (self.session, self.survey) = createSurvey()
         account = self.survey.account
         self.assertEqual(account.account_type, config.FULL_ACCOUNT)
         account.account_type = config.GUEST_ACCOUNT
@@ -387,14 +393,15 @@ class AccountTests(DatabaseTests):
         group2.parent = group1
         from functools import partial
 
-        add_survey = partial(model.SurveySession, account=account1)
-        survey1 = add_survey(zodb_path="1")
-        session.add(survey1)
-        survey2 = add_survey(zodb_path="2", group=group1)
-        session.add(survey2)
-        survey3 = add_survey(zodb_path="3", group=group2)
-        session.add(survey3)
-        session.flush()
+        with mock.patch("plone.api.user.get_current", return_value=nobody):
+            add_survey = partial(model.SurveySession, account=account1)
+            survey1 = add_survey(zodb_path="1")
+            session.add(survey1)
+            survey2 = add_survey(zodb_path="2", group=group1)
+            session.add(survey2)
+            survey3 = add_survey(zodb_path="3", group=group2)
+            session.add(survey3)
+            session.flush()
         self.assertListEqual(account1.sessions, [survey1, survey2, survey3])
         self.assertListEqual(group1.sessions, [survey2])
         self.assertListEqual(group2.sessions, [survey3])
@@ -414,18 +421,19 @@ class AccountTests(DatabaseTests):
         account2 = model.Account(loginname="account2")
         session.add(account2)
         account2.group = group2
-        survey1 = model.SurveySession(
-            account=account1,
-            group=group1,
-            zodb_path="1",
-        )
-        session.add(survey1)
-        survey2 = model.SurveySession(
-            account=account2,
-            group=group2,
-            zodb_path="2",
-        )
-        session.add(survey2)
+        with mock.patch("plone.api.user.get_current", return_value=nobody):
+            survey1 = model.SurveySession(
+                account=account1,
+                group=group1,
+                zodb_path="1",
+            )
+            session.add(survey1)
+            survey2 = model.SurveySession(
+                account=account2,
+                group=group2,
+                zodb_path="2",
+            )
+            session.add(survey2)
         session.flush()
         self.assertListEqual(account1.sessions, [survey1])
         self.assertListEqual(account2.sessions, [survey2])
