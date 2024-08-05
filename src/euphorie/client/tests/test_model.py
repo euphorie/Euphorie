@@ -1,5 +1,6 @@
 from AccessControl.PermissionRole import _what_not_even_god_should_do
 from AccessControl.users import nobody
+from AccessControl.users import SimpleUser
 from datetime import timedelta
 from euphorie.client import config
 from euphorie.client import model
@@ -391,9 +392,11 @@ class AccountTests(DatabaseTests):
         session.add(account1)
         account1.group = group1
         group2.parent = group1
+        session.flush()
         from functools import partial
 
-        with mock.patch("plone.api.user.get_current", return_value=nobody):
+        user1 = SimpleUser(str(account1.id), "", ("Member",), [])
+        with mock.patch("plone.api.user.get_current", return_value=user1):
             add_survey = partial(model.SurveySession, account=account1)
             survey1 = add_survey(zodb_path="1")
             session.add(survey1)
@@ -421,7 +424,9 @@ class AccountTests(DatabaseTests):
         account2 = model.Account(loginname="account2")
         session.add(account2)
         account2.group = group2
-        with mock.patch("plone.api.user.get_current", return_value=nobody):
+        session.flush()
+        user1 = SimpleUser(str(account1.id), "", ("Member",), [])
+        with mock.patch("plone.api.user.get_current", return_value=user1):
             survey1 = model.SurveySession(
                 account=account1,
                 group=group1,
