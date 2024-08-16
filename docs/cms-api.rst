@@ -56,7 +56,7 @@ In order to authenticate you must submit a JSON object with two keys:
 * ``password``: the users password
 
 If authentication failed an error response is returned with status code 403.
-If authentication is succesful a JSON response is returned with an
+If authentication is successful a JSON response is returned with an
 authentication token and basic information on the user::
 
    {

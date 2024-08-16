@@ -5821,12 +5821,12 @@ msgstr ""
 msgid "message_possible_extra_cost"
 msgstr ""
 
-#. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at"
+#. Default: "Successfully created a preview for the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:370
 msgid "message_preview_success"
 msgstr "Úspešne vytvorený náhľad nástroja OiRA. Je dostupný na"
 
-#. Default: "Succesfully published the OiRA Tool. It can be accessed at"
+#. Default: "Successfully published the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:305
 msgid "message_publish_success"
 msgstr "Úspešne uverejnený nástroj OiRA. Je dostupný na"
@@ -6727,7 +6727,7 @@ msgstr ""
 msgid "unpublish_confirm"
 msgstr "Naozaj chcete zrušiť uverejnenie tohto nástroja OiRA?"
 
-#. Default: "Succesfully imported the OiRA Tool"
+#. Default: "Successfully imported the OiRA Tool"
 #: euphorie/content/browser/upload.py:589
 msgid "upload_success"
 msgstr "Úspešne importovaný nástroj OiRA."
