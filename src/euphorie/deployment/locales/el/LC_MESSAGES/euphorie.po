@@ -6026,14 +6026,14 @@ msgstr ""
 "κοστολόγηση των σχετικών συμβουλευτικών υπηρεσιών από τον/την πάροχό τους, "
 "εφόσον κάτι τέτοιο έχει προσυμφωνηθεί."
 
-#. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at"
+#. Default: "Successfully created a preview for the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:370
 msgid "message_preview_success"
 msgstr ""
 "Επιτυχής δημιουργία προεπισκόπησης για το εργαλείο OiRA. Διατίθεται στη "
 "διεύθυνση"
 
-#. Default: "Succesfully published the OiRA Tool. It can be accessed at"
+#. Default: "Successfully published the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:305
 msgid "message_publish_success"
 msgstr "Επιτυχής δημοσίευση του εργαλείου OiRA. Μπορεί να γίνει πρόσβαση στο"
@@ -6989,7 +6989,7 @@ msgstr ""
 "Είστε βέβαιοι ότι θέλετε να αναιρέσετε τη δημοσίευση αυτού του Εργαλείου "
 "OiRA; "
 
-#. Default: "Succesfully imported the OiRA Tool"
+#. Default: "Successfully imported the OiRA Tool"
 #: euphorie/content/browser/upload.py:589
 msgid "upload_success"
 msgstr "Η εισαγωγή του εργαλείου OiRA ολοκληρώθηκε με επιτυχία"

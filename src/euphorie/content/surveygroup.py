@@ -122,7 +122,7 @@ class SurveyGroup(Container):
 
 
 def handleSurveyPublish(survey, event):
-    """Event handler (subscriber) for succesfull workflow transitions for
+    """Event handler (subscriber) for successfull workflow transitions for
     :py:obj:`ISurvey` objects. This handler performs necessary housekeeping
     tasks on the parent :py:class:`SurveyGroup`.
 

@@ -281,7 +281,7 @@ class TestTrainingQuestions(EuphorieIntegrationTestCase):
                 self.assertListEqual(view.failed_questions, ["Life on Mars?"])
 
             # There is a certificate view but we cannot see it
-            # if we have not completed the training succesfully
+            # if we have not completed the training successfully
             with self._get_view(
                 "training-certificate", traversed_session, self.request.clone()
             ) as view:

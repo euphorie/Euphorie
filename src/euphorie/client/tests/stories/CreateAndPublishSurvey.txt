@@ -45,7 +45,7 @@ We must confirm we want to publish:
 '...Are you sure you want to publish this OiRA Tool?...'
 >>> browser.getControl(name="form.buttons.button_publish").click()
 >>> browser.contents
-'...Succesfully published the OiRA Tool. It can be accessed at...'
+'...Successfully published the OiRA Tool. It can be accessed at...'
 
 Now lets add a risk:
 
@@ -70,4 +70,4 @@ Lets publish our updates now:
 >>> button.click()
 >>> browser.getControl(name="form.buttons.button_publish").click()
 >>> browser.contents
-'...Succesfully published the OiRA Tool. It can be accessed at...'
+'...Successfully published the OiRA Tool. It can be accessed at...'

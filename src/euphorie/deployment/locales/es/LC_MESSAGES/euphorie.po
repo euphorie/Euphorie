@@ -5850,14 +5850,14 @@ msgstr ""
 msgid "message_possible_extra_cost"
 msgstr ""
 
-#. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at"
+#. Default: "Successfully created a preview for the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:370
 msgid "message_preview_success"
 msgstr ""
 "Se ha creado correctamente una vista previa de la herramienta OiRA. Se puede "
 "acceder a ella en"
 
-#. Default: "Succesfully published the OiRA Tool. It can be accessed at"
+#. Default: "Successfully published the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:305
 msgid "message_publish_success"
 msgstr "Herramienta OiRA publicada correctamente. Se puede acceder a través de"
@@ -6767,7 +6767,7 @@ msgid "unpublish_confirm"
 msgstr ""
 "¿Está seguro de que desea retirar la publicación de esta herramienta OiRA?"
 
-#. Default: "Succesfully imported the OiRA Tool"
+#. Default: "Successfully imported the OiRA Tool"
 #: euphorie/content/browser/upload.py:589
 msgid "upload_success"
 msgstr "Herramienta OiRA importada con éxito"

@@ -5894,14 +5894,14 @@ msgstr ""
 msgid "message_possible_extra_cost"
 msgstr "Uw externe dienst kan mogelijk extra kosten aanrekenen."
 
-#. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at"
+#. Default: "Successfully created a preview for the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:370
 msgid "message_preview_success"
 msgstr ""
 "Er werd een voorbeeld gemaakt voor het OiRA-instrument. Het kan worden "
 "bekeken op"
 
-#. Default: "Succesfully published the OiRA Tool. It can be accessed at"
+#. Default: "Successfully published the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:305
 msgid "message_publish_success"
 msgstr "Het OiRA-instrument is gepubliceerd. Het kan worden geopend op"
@@ -6832,7 +6832,7 @@ msgid "unpublish_confirm"
 msgstr ""
 "Weet u zeker dat u de publicatie van dit OiRA-instrument wilt ongedaan maken?"
 
-#. Default: "Succesfully imported the OiRA Tool"
+#. Default: "Successfully imported the OiRA Tool"
 #: euphorie/content/browser/upload.py:589
 msgid "upload_success"
 msgstr "Het OiRA-instrument werd geïmporteerd"
