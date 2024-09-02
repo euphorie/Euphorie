@@ -23,7 +23,6 @@
         <form class="pat-form wizard-box panel-class-panel"
               action="${request/getURL}#org-${python:view.organisation.organisation_id}"
               method="post"
-              target="_blank"
         >
           <div class="panel-body"
                id="modal-panel-body"
