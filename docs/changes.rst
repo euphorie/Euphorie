@@ -1,8 +1,11 @@
 Changelog
 =========
 
-16.2.2 (unreleased)
+16.3.0 (unreleased)
 -------------------
+
+- The conditional fields have now widgets that can be customized as needed
+  [ale-rt]
 
 - Update prototype from commit 317e62820b35678055240ca911d24a3b45db44d6
   Ref: scrum-2333
