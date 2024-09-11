@@ -10,6 +10,9 @@ Changelog
 - Update prototype from commit 317e62820b35678055240ca911d24a3b45db44d6
   Ref: scrum-2333
   [reinhardt]
+- removed the target=_blank from the form that opens the email client. That broke the feature for firefox. 
+  Fixes #2559
+  [pilz]
 
 
 16.2.1 (2024-07-31)
