@@ -92,5 +92,13 @@
         />
   </configure>
 
+  <browser:page
+      name="impersonate-client"
+      for="*"
+      class=".impersonate.Impersonate"
+      permission="zope2.View"
+      layer="euphorie.content.interfaces.IEuphorieContentLayer"
+      />
+
 
 </configure>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout"
+      i18n:domain="euphorie"
+>
+
+  <metal:block fill-slot="content"
+               tal:define="
+                 portal_state context/@@plone_portal_state;
+                 navRoot portal_state/portal_url;
+               "
+               i18n:domain="collective.impersonate"
+  >
+    <h5 i18n:translate="impersonate_warning">This is an admin-only form for impersonating other users. Please use it wisely.</h5>
+    <br />
+
+    <form action="@@impersonate-client"
+          method="post"
+          tal:define="
+            errors view/errors | nothing;
+          "
+    >
+      <div tal:define="
+             error errors/username | nothing;
+             username request/username | nothing;
+           "
+           tal:attributes="
+             class python: error and 'field error' or 'field';
+           "
+      >
+        <label i18n:translate="form_choose_user_label">Enter user ID:</label>
+        <div tal:condition="error"
+             i18n:translate="form_choose_error"
+        >User "<p tal:replace="error"
+             i18n:name="from_choose_user"
+          ></p>" does not exist.</div>
+        <input id="username"
+               name="username"
+               size="30"
+               type="text"
+               tal:attributes="
+                 value username;
+               "
+               i18n:attributes="value"
+        />
+        <input name="impersonate"
+               type="submit"
+               value="Impersonate"
+               i18n:attributes="value"
+        />
+      </div>
+    </form>
+
+  </metal:block>
+
+</html>

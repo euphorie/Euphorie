@@ -666,6 +666,14 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="impersonate"
+      for="*"
+      class=".impersonate.Impersonate"
+      permission="zope2.View"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <!-- Module -->
   <browser:page
       name="identification"
