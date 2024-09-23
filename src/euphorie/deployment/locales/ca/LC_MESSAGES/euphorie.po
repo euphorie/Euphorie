@@ -1528,7 +1528,7 @@ msgstr ""
 
 #: euphorie/client/browser/session.py:184
 msgid ""
-"You don't have edit rights for this risk assesment, but you can download "
+"You don't have edit rights for this risk assessment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
 msgstr ""
 "No teniu drets d'edició per a aquesta avaluació de riscos, però podeu "

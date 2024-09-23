@@ -182,7 +182,7 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
                 mapping={"text_download_section": _("download section")},
             )
             message = _(
-                "You don't have edit rights for this risk assesment, "
+                "You don't have edit rights for this risk assessment, "
                 "but you can download "
                 "this risk assessment in various forms in the ${download_section}.",
                 mapping={"download_section": link_download_section},
