@@ -1,0 +1,32 @@
+<div class="results">
+  <tal:result repeat="result view/similar_brains">
+    <form action="${result/getURL}/@@similar-titles-details"
+          method="post"
+    >
+      <p>
+        <strong>
+          <a href="${result/getURL}">${result/Title}</a>
+        </strong>
+        <span class="tool">[${python: view.get_tool_for_brain(result).Title()}]</span>
+        <input class="details-button"
+               type="submit"
+               value="Details"
+               i18n:attributes="value"
+        />
+      </p>
+      <ul>
+        <li tal:repeat="row python:view.similar_brains[result]">
+          <a href="${python:row[0].getURL()}">${python:row[0].Title}</a>
+          <span class="similarity"
+                title="Similarity"
+          >${python:row[1]}</span>
+          <span class="tool">[${python: view.get_tool_for_brain(row[0]).Title()}]</span>
+          <input name="paths:list"
+                 type="hidden"
+                 value="${python:row[0].getPath()}"
+          />
+        </li>
+      </ul>
+    </form>
+  </tal:result>
+</div>
