@@ -191,6 +191,11 @@ class SimilarTitles(AutoExtensibleForm, form.Form):
         self.results_html = api.content.get_view(
             context=self.context, request=self.request, name="similar-titles-results"
         )()
+        self.show_results = True
+
+    @button.buttonAndHandler(_("Show last result"))
+    def handle_show_last_result(self, action):
+        self.show_results = True
 
     @button.buttonAndHandler(_("Cancel"), name="cancel")
     def handle_cancel(self, action):
