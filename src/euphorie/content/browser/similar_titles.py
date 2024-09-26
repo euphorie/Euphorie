@@ -49,6 +49,7 @@ class SimilarTitles(AutoExtensibleForm, form.Form):
     schema = ISimilarTitleSchema
     ignoreContext = True
     form_name = _("Similar Titles OiRA Tool")
+    show_form = True
 
     label = _("Similar Titles OiRA Tool")
     description = _("This tool allows you to find objects with similar titles.")
@@ -123,16 +124,6 @@ class SimilarTitles(AutoExtensibleForm, form.Form):
         return paths
 
     @property
-    def results_html(self):
-        annotations = IAnnotations(api.portal.get())
-        return annotations.get("euphorie.content.similar_titles_html", "")
-
-    @results_html.setter
-    def results_html(self, value):
-        annotations = IAnnotations(api.portal.get())
-        annotations["euphorie.content.similar_titles_html"] = value
-
-    @property
     @memoize
     def similar_brains(self):
         self.initialize_nltk()
@@ -191,11 +182,10 @@ class SimilarTitles(AutoExtensibleForm, form.Form):
         self.results_html = api.content.get_view(
             context=self.context, request=self.request, name="similar-titles-results"
         )()
-        self.show_results = True
 
-    @button.buttonAndHandler(_("Show last result"))
-    def handle_show_last_result(self, action):
-        self.show_results = True
+    @button.buttonAndHandler(_("Show stored result"))
+    def handle_show_stored_result(self, action):
+        self.redirect(target=f"{self.context.absolute_url()}/@@similar-titles-stored")
 
     @button.buttonAndHandler(_("Cancel"), name="cancel")
     def handle_cancel(self, action):
@@ -209,3 +199,17 @@ class SimilarTitlesResults(SimilarTitles):
         if errors:
             self.status = self.formErrorsMessage
             return
+
+
+class SimilarTitlesStored(SimilarTitles):
+    show_form = False
+
+    @property
+    def results_html(self):
+        annotations = IAnnotations(api.portal.get())
+        return annotations.get("euphorie.content.similar_titles_html", "")
+
+    @results_html.setter
+    def results_html(self, value):
+        annotations = IAnnotations(api.portal.get())
+        annotations["euphorie.content.similar_titles_html"] = value

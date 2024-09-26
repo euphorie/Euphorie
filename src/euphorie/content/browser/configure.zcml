@@ -470,6 +470,15 @@
       />
 
   <browser:page
+      name="similar-titles-stored"
+      for="*"
+      class=".similar_titles.SimilarTitlesStored"
+      template="templates/similar_titles.pt"
+      permission="cmf.ManagePortal"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
+  <browser:page
       name="similar-titles-results"
       for="*"
       class=".similar_titles.SimilarTitlesResults"

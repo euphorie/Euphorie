@@ -58,7 +58,7 @@
           action="${request/getURL}"
           enctype="${view/enctype}"
           method="${view/method}"
-          tal:condition="python:not getattr(view, 'show_results', False)"
+          tal:condition="python:getattr(view, 'show_form', True)"
     >
       <fieldset>
         <tal:widget repeat="widget view/widgets/values"
@@ -101,7 +101,7 @@
       </div>
     </form>
 
-    <tal:results condition="python:getattr(view, 'show_results', False)"
+    <tal:results condition="python:getattr(view, 'results_html', None)"
                  replace="structure view/results_html|nothing"
     >
     </tal:results>
