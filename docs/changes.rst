@@ -18,6 +18,10 @@ Changelog
   Ref: scrum-2669
   [reinhardt]
 
+- Similar titles: Store results until explicit refresh
+  Ref: scrum-2517
+  [reinhardt]
+
 
 16.2.1 (2024-07-31)
 -------------------

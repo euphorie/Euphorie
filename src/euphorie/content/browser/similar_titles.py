@@ -13,6 +13,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from z3c.form import button
 from z3c.form import form
 from zope import schema
+from zope.annotation.interfaces import IAnnotations
 from zope.interface import Interface
 
 
@@ -48,6 +49,7 @@ class SimilarTitles(AutoExtensibleForm, form.Form):
     schema = ISimilarTitleSchema
     ignoreContext = True
     form_name = _("Similar Titles OiRA Tool")
+    show_form = True
 
     label = _("Similar Titles OiRA Tool")
     description = _("This tool allows you to find objects with similar titles.")
@@ -121,7 +123,9 @@ class SimilarTitles(AutoExtensibleForm, form.Form):
                 paths.append(f"{brain.getPath()}/{published}")
         return paths
 
-    def do_search(self):
+    @property
+    @memoize
+    def similar_brains(self):
         self.initialize_nltk()
         brains = api.content.find(
             portal_type="euphorie.risk",
@@ -157,7 +161,7 @@ class SimilarTitles(AutoExtensibleForm, form.Form):
 
         # Group the lines that have a similarity score between
         # self.min_similarity and self.max_similarity
-        similar_brains = self.similar_brains = defaultdict(list)
+        similar_brains = defaultdict(list)
         min_similarity = self.min_similarity
         max_similarity = self.max_similarity
         for idx_x, brain_x in enumerate(brains):
@@ -167,6 +171,7 @@ class SimilarTitles(AutoExtensibleForm, form.Form):
                     similarity = similarity_matrix[idx_x, idx_y]
                     if min_similarity <= similarity <= max_similarity:
                         similar_brains[brain_x].append((brain_y, round(similarity, 2)))
+        return similar_brains
 
     @button.buttonAndHandler(_("Search"))
     def handle_search(self, action):
@@ -174,8 +179,37 @@ class SimilarTitles(AutoExtensibleForm, form.Form):
         if errors:
             self.status = self.formErrorsMessage
             return
-        self.do_search()
+        self.results_html = api.content.get_view(
+            context=self.context, request=self.request, name="similar-titles-results"
+        )()
+
+    @button.buttonAndHandler(_("Show stored result"))
+    def handle_show_stored_result(self, action):
+        self.redirect(target=f"{self.context.absolute_url()}/@@similar-titles-stored")
 
     @button.buttonAndHandler(_("Cancel"), name="cancel")
     def handle_cancel(self, action):
         self.redirect(message=_("Operation cancelled."))
+
+
+class SimilarTitlesResults(SimilarTitles):
+    @button.buttonAndHandler(_("Search"))
+    def handle_search(self, action):
+        data, errors = self.extractData()
+        if errors:
+            self.status = self.formErrorsMessage
+            return
+
+
+class SimilarTitlesStored(SimilarTitles):
+    show_form = False
+
+    @property
+    def results_html(self):
+        annotations = IAnnotations(api.portal.get())
+        return annotations.get("euphorie.content.similar_titles_html", "")
+
+    @results_html.setter
+    def results_html(self, value):
+        annotations = IAnnotations(api.portal.get())
+        annotations["euphorie.content.similar_titles_html"] = value
