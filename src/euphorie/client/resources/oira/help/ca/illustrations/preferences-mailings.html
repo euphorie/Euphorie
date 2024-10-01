@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="en">
+	lang="nl">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -175,144 +175,124 @@
 			 
 			form-separation-header" 
 			>
-		Language
+		Taal
 	</h3>	
 	
 	
-
+	
 			
-				
-	<fieldset
+				<fieldset
     
     class="
         
         group
         ">
-        <legend>
-            System language
-        </legend>
+        
+            <legend>Systeemtaal</legend>
+        
         <div 
-            class="pat-checklist">
+            class="pat-checklist radio">
             
                 <label>
-                    Automatic (Based on browser language)
+                    Automatisch (Gebaseerd op de browsertaal)
                     <input
-                        value="label-automatic-language"
-                        
-                            checked
-                        
-                        
-                        name="patterns-label-system-language" 
-                        type="radio">
+                        name="automatic-language" 
+                        type="checkbox">
                 </label>
             
                 <label>
                     Deutsch
                     <input
-                        value="patterns-label-german-native"
-                        
-                        
-                        name="patterns-label-system-language" 
-                        type="radio">
+                        name="patterns-german-native" 
+                        type="checkbox">
                 </label>
             
                 <label>
                     English
                     <input
-                        value="patterns-label-english-native"
-                        
-                        
-                        name="patterns-label-system-language" 
-                        type="radio">
+                        name="patterns-english-native" 
+                        type="checkbox">
                 </label>
             
                 <label>
                     Français
                     <input
-                        value="patterns-label-french-native"
-                        
-                        
-                        name="patterns-label-system-language" 
-                        type="radio">
+                        name="patterns-french-native" 
+                        type="checkbox">
                 </label>
             
                 <label>
                     Nederlands
                     <input
-                        value="patterns-label-dutch-native"
-                        
-                        
-                        name="patterns-label-system-language" 
-                        type="radio">
+                        name="patterns-dutch-native" 
+                        type="checkbox">
                 </label>
             
         </div>
 </fieldset>
-
+	
 			
-				
-	<label 
+				<label 
+		
+		class="
+			
+			
+	       	
+	       	
+	       	"
+		
+	    
+		>
+		Voorkeurstaal voor inhoud 
+		<select 
+			name="">
+			
+				<option 
+					value="" 
+					selected 
+					class="" 
+					> 
+					
+						Gebaseerd op de systeemtaal
+					
+				</option>
+			
+				<option 
+					value="" 
+					 
+					class="" 
+					> 
+					
+						Deutsch
+					
+				</option>
+			
+				<option 
+					value="" 
+					 
+					class="" 
+					> 
+					
+						English
+					
+				</option>
+			
+				<option 
+					value="" 
+					 
+					class="" 
+					> 
+					
+						Nederlands
+					
+				</option>
+			
+		</select>
+		
+		
+		
+	</label>
 	
-	class="
-		pat-select
-		
-		
-		
-		
-		"
-	
-	
-	>
-	Preferred content language
-	<select 
-		name="">
-		
-			<option 
-				value="" 
-				selected 
-				class="" 
-				> 
-				
-					Based on system language
-				
-			</option>
-		
-			<option 
-				value="" 
-				 
-				class="" 
-				> 
-				
-					Deutsch
-				
-			</option>
-		
-			<option 
-				value="" 
-				 
-				class="" 
-				> 
-				
-					English
-				
-			</option>
-		
-			<option 
-				value="" 
-				 
-				class="" 
-				> 
-				
-					Nederlands
-				
-			</option>
-		
-	</select>
-	
-	
-	
-</label>
-
 			
 				
 	
@@ -320,14 +300,14 @@
 		<fieldset 
 			class="
 				form-panel 
-				 
+				pat-collapsible closed 
 				section 
-				vertical 
+				horizontal 
 				"
 			data-pat-collapsible="
 				store: local; 
 				scroll-selector: self; 
-				"
+				scroll-offset: 100px"
 			id="patterns-label-personal-details">
 	
 	<h3 
@@ -335,21 +315,20 @@
 			 
 			form-separation-header" 
 			>
-		Personal details
+		Persoonlijke gegevens
 	</h3>	
 	
 	
-
+	
 			
-				
-	<label 
+				<label 
     
     class="
         
         
         " 
     >
-    First name
+    Voornaam 
     <input 
          
           
@@ -365,17 +344,16 @@
     
     
 </label>
-
+	
 			
-				
-	<label 
+				<label 
     
     class="
         
         
         " 
     >
-    Family name
+    Achternaam 
     <input 
          
           
@@ -391,11 +369,11 @@
     
     
 	<em class="pat-message info">
-		Filling out your names makes for a more personalised user experience for you and you co-workers. Your name will appear in automated e-mails and various screens throughout the application.
+		Het invullen van uw namen zorgt voor een meer gepersonaliseerde gebruikerservaring voor u en uw collega's. Uw naam verschijnt in geautomatiseerde e-mails en op verschillende schermen in de applicatie.
 	</em>	
 
 </label>
-
+	
 			
 				
 	
@@ -403,14 +381,14 @@
 		<fieldset 
 			class="
 				form-panel 
-				 
+				pat-collapsible closed 
 				section 
-				vertical 
+				horizontal 
 				"
 			data-pat-collapsible="
 				store: local; 
 				scroll-selector: self; 
-				"
+				scroll-offset: 100px"
 			id="label-mailings">
 	
 	<h3 
@@ -422,27 +400,23 @@
 	</h3>	
 	
 	
-
+	
 			
-				
-	<fieldset
+				<fieldset
     
     class="
         
         group
         ">
-        <legend>
-            Subscriptions
-        </legend>
+        
+            <legend>Abonnementen</legend>
+        
         <div 
-            class="pat-checklist">
+            class="pat-checklist checkbox">
             
                 <label>
                     
                     <input
-                        value="functional-e-mails"
-                        
-                        
                         name="functional-e-mails" 
                         type="checkbox">
                 </label>
@@ -450,9 +424,6 @@
                 <label>
                     
                     <input
-                        value="general-oira-news"
-                        
-                        
                         name="general-oira-news" 
                         type="checkbox">
                 </label>
@@ -460,9 +431,6 @@
                 <label>
                     
                     <input
-                        value="news-for-my-country"
-                        
-                        
                         name="news-for-my-country" 
                         type="checkbox">
                 </label>
@@ -470,9 +438,6 @@
                 <label>
                     
                     <input
-                        value="news-for-my-sector"
-                        
-                        
                         name="news-for-my-sector" 
                         type="checkbox">
                 </label>
@@ -480,9 +445,6 @@
                 <label>
                     
                     <input
-                        value="private-security"
-                        
-                        
                         name="private-security" 
                         type="checkbox">
                 </label>
@@ -490,9 +452,6 @@
                 <label>
                     
                     <input
-                        value="wood-works"
-                        
-                        
                         name="wood-works" 
                         type="checkbox">
                 </label>
@@ -500,16 +459,13 @@
                 <label>
                     
                     <input
-                        value="metal-works"
-                        
-                        
                         name="metal-works" 
                         type="checkbox">
                 </label>
             
         </div>
 </fieldset>
-
+	
 			
 		
 	
@@ -546,7 +502,7 @@
         	data-pat-collapsible="close-trigger: *:not(#more-menu)"
         	id="more-menu">
             <strong
-            	class="context-menu-label iconified more-menu-trigger">More…</strong>
+            	class="context-menu-label iconified more-menu-trigger"></strong>
             <ul
             	class="menu">
             	<li>
@@ -555,22 +511,22 @@
                         data-pat-modal="class: medium panel"
                         class="no-label pat-modal icon-plus pat-switch"
                         data-pat-switch="body osc-s-* osc-s-off"
-                        title="Start a new risk assessment">New risk assessment</a>
+                        title="Een nieuwe risicoanalyse starten"></a>
                 </li>
                 <li>
-                    <label class="pat-checklist"><input type="checkbox" name="archived" /> Show archived risk assessments</label>
+                    <label class="pat-checklist"><input type="checkbox" name="archived" /> </label>
                 </li>
                 <li>
                 	<fieldset class="pat-checklist radio">
-                        <label><input type="radio" value="all" name="ass-type" checked /> All types of risk assessments</label>
-                        <label><input type="radio" value="regular" name="ass-type" /> Only regular risk assessments</label>
-                        <label><input type="radio" value="contractor" name="ass-type" /> Only contractor risk assessments</label>
+                        <label><input type="radio" value="all" name="ass-type" checked /> </label>
+                        <label><input type="radio" value="regular" name="ass-type" /> </label>
+                        <label><input type="radio" value="contractor" name="ass-type" /> </label>
                 	</fieldset>
                 </li>
             </ul>
         </div>
 	
-    <button id="button-osc-expand" class="no-label iconified icon-resize-full pat-toggle" data-pat-toggle="selector: body; value: osc-size-full osc-size-normal" title="Expand sidebar">Expand sidebar</button>
+    <button id="button-osc-expand" class="no-label iconified icon-resize-full pat-toggle" data-pat-toggle="selector: body; value: osc-size-full osc-size-normal" title=""></button>
 </form>
 
 		<a href="/feedback/osh.html#osh-ra-browser" id="osh-target-ra-browser" class="onscreen-help pat-tooltip" data-pat-tooltip="trigger: click; source: ajax; class: rich info;">Help</a>
@@ -596,8 +552,8 @@
 				type="search" 
 				value="" 
 				class="quick-search pat-autofocus" 
-				placeholder="Search" />
-            <button type="submit" name="standard" value="main" class="search-button-main assistive">Search</button>
+				placeholder="" />
+            <button type="submit" name="standard" value="main" class="search-button-main assistive">Zoek</button>
         </label>
 
 	    <fieldset 
@@ -662,9 +618,9 @@
                 class="pat-select">
                 <select 
                     name="search-rule.date-operator:records">
-                    <option value="is">Is</option>
-                    <option value="is-before">Is before</option>
-                    <option value="is-after">Is after</option>
+                    <option value="is"></option>
+                    <option value="is-before"></option>
+                    <option value="is-after"></option>
                 </select>
             </label>
             <input 
@@ -679,8 +635,8 @@
                 class="pat-select">
                 <select 
                     name="search-rule.date-operator:records">
-                    <option value="equals">Equals</option>
-                    <option value="equals-not">Does not equal</option>
+                    <option value="equals"></option>
+                    <option value="equals-not"></option>
                 </select>
             </label>
             <select 
@@ -700,8 +656,8 @@
                 class="pat-select">
                 <select 
                     name="search-rule.date-operator:records">
-                    <option value="equals">Equals</option>
-                    <option value="equals-not">Does not equal</option>
+                    <option value="equals"></option>
+                    <option value="equals-not"></option>
                 </select>
             </label>
             <select 
@@ -727,7 +683,7 @@
     class="button-bar">
     <button 
         type="submit" 
-        class="pat-button default icon-search">Search</button>
+        class="pat-button default icon-search">Zoek</button>
     <button 
         type="button" 
         class="pat-button add-clone add-clone-rule icon-plus-circle">Add another search rule</button>
@@ -800,9 +756,9 @@
             class="pat-select">
             <select 
                 name="search-rule.date-operator:records">
-                <option value="is">Is</option>
-                <option value="is-before">Is before</option>
-                <option value="is-after">Is after</option>
+                <option value="is"></option>
+                <option value="is-before"></option>
+                <option value="is-after"></option>
             </select>
         </label>
         <input 
@@ -818,9 +774,9 @@
             <select 
                 name="search-rule.date-operator:records">
                 <option 
-                    value="equals">Equals</option>
+                    value="equals"></option>
                 <option 
-                value="equals-not">Does not equal</option>
+                value="equals-not"></option>
             </select>
         </label>
         <select 
@@ -841,9 +797,9 @@
             <select 
                 name="search-rule.date-operator:records">
                 <option 
-                    value="equals">Equals</option>
+                    value="equals"></option>
                 <option 
-                    value="equals-not">Does not equal</option>
+                    value="equals-not"></option>
             </select>
         </label>
         <select 
@@ -864,7 +820,7 @@
     </span>
     <button 
         type="button" 
-        class="remove-clone">Remove</button>
+        class="remove-clone"></button>
   </p>
 </template>
 
@@ -878,7 +834,7 @@
 			        	type="radio" 
 			        	name="search-mode" 
 			        	value="standard" 
-			        	checked> Standard search
+			        	checked> 
 			    </label>
 			    <label 
 			    	class="pat-switch toggle-advanced"
@@ -886,7 +842,7 @@
 			        <input 
 			        	type="radio" 
 			        	name="search-mode" 
-			        	value="advanced"> Advanced search
+			        	value="advanced"> 
 			    </label>
 			</fieldset>
 	    </fieldset>
