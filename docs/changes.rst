@@ -22,6 +22,10 @@ Changelog
   Ref: scrum-2517
   [reinhardt]
 
+- Psychosocial: Fix issue when rebuilding session after change in tool
+  Ref: scrum-2695
+  [reinhardt]
+
 
 16.2.1 (2024-07-31)
 -------------------

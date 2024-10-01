@@ -1030,7 +1030,8 @@ class SurveySession(BaseObject):
             probability = old_risk.probability,
             priority = old_risk.priority,
             existing_measures = old_risk.existing_measures,
-            comment = old_risk.comment
+            comment = old_risk.comment,
+            scaled_answer = old_risk.scaled_answer
         FROM risk AS old_risk JOIN tree AS old_tree ON old_tree.id=old_risk.id, tree
         WHERE tree.id=risk.id AND
               %(skip_preset_to_no_clause)s
