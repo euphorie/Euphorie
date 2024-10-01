@@ -463,6 +463,10 @@ Changelog
 - Upgrade to Patternslib 9.8.3-alpha.0, fixing auto-submit issues with pat-clone.
   [thet]
 
+- The @@identification form now works with autosubmit.
+  Refs: `#996 <https://github.com/syslabcom/scrum/issues/996>`_.
+  [ale-rt]
+
 - Foresee the possibility to have banners in the tool homepage
   Refs: `#1025 <https://github.com/syslabcom/scrum/issues/1025>`_.
   [ale-rt]
