@@ -1146,7 +1146,9 @@
       </tal:actionplans>
     </div>
 
-    <div class="button-bar">
+    <div class="button-bar"
+         tal:condition="webhelpers/can_edit_session"
+    >
       <tal:solutions condition="solutions">
         <button class="pat-button icon-plus-circle pat-depends ${view/style_buttons}"
                 id="add-standard-measures"

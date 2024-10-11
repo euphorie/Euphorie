@@ -879,7 +879,7 @@ class ActionPlanView(SessionMixin, BrowserView):
     def __call__(self):
         """Render the page only if the user has edit rights, otherwise redirect
         to the start page of the session."""
-        if not self.webhelpers.can_edit_session:
+        if not self.webhelpers.can_inspect_session:
             return self.request.response.redirect(
                 self.context.absolute_url() + "/@@start"
             )

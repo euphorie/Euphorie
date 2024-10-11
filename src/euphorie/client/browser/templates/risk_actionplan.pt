@@ -70,7 +70,8 @@
               <tal:priority tal:define="
                               show_statement python:True;
                             ">
-                <fieldset tal:define="
+                <fieldset disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+                          tal:define="
                             value context/priority;
                             readonly python:context.risk_type in ['top5'];
                             skip_evaluation view/skip_evaluation;
