@@ -509,9 +509,9 @@ class IdentificationView(RiskBase):
         return condition
 
     def __call__(self):
-        # Render the page only if the user has edit rights,
+        # Render the page only if the user has inspection rights,
         # otherwise redirect to the start page of the session.
-        if not self.webhelpers.can_edit_session:
+        if not self.webhelpers.can_inspect_session:
             return self.request.response.redirect(
                 self.context.aq_parent.absolute_url() + "/@@start"
             )
@@ -594,9 +594,9 @@ class IdentificationView(RiskBase):
         return self.session.title
 
     def check_render_condition(self):
-        # Render the page only if the user has edit rights,
+        # Render the page only if the user can inspection rights,
         # otherwise redirect to the start page of the session.
-        if not self.webhelpers.can_edit_session:
+        if not self.webhelpers.can_inspect_session:
             return self.request.response.redirect(
                 "{session_url}/@@start".format(
                     session_url=self.webhelpers.traversed_session.absolute_url()

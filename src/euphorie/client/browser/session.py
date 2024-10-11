@@ -611,7 +611,8 @@ class Identification(SessionMixin, BrowserView):
         )
 
     def __call__(self):
-        if not self.webhelpers.can_edit_session:
+        self.verify_view_permission()
+        if not self.webhelpers.can_inspect_session:
             return self.request.response.redirect(
                 self.context.absolute_url() + "/@@start"
             )

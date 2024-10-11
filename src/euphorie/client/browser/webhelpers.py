@@ -116,6 +116,10 @@ class WebHelpers(BrowserView):
         {"class": "answered risk", "title": _("Risk present")},
     ]
 
+    # Inspection is meant for showing an edit-form in read-only/display mode.
+    allow_inspecting_archived_sessions = False
+    allow_inspecting_locked_sessions = False
+
     def to_decimal(self, value):
         """Transform value in to a decimal."""
         return Decimal(value)
@@ -1023,6 +1027,25 @@ class WebHelpers(BrowserView):
             return False
         return True
 
+    @cached_property
+    def can_inspect_session(self):
+        """Can the user inspect the session?
+
+        If a session is archived or locked, you cannot edit it.
+        This used to mean that you cannot see the answers to risks, or indeed
+        the entire 'identification' phase.  We may want to allow inspecting
+        those parts without being able to edit them.  In the UI we could show
+        the chosen answers for risks, without showing an editable form.
+        """
+        if not self.can_view_session:
+            return False
+        session = self.traversed_session.session
+        if session.is_archived and not self.allow_inspecting_archived_sessions:
+            return False
+        if session.is_locked and not self.allow_inspecting_locked_sessions:
+            return False
+        return True
+
     @property
     @deprecate(
         "Publication has been changed to locking. Deprecated in version 15.0.0.dev0"
@@ -1304,9 +1327,9 @@ class WebHelpers(BrowserView):
         if section in ("identification", "actionplan"):
             return (
                 self.phase in ("", "preparation") and self.is_new_session
-            ) or not self.can_edit_session
+            ) or not self.can_inspect_session
         if section in ("consultancy", "report", "training", "status"):
-            # These menu items should be active even if can_edit_session is False.
+            # These menu items should be active even if user cannot edit or inspect.
             return self.phase in ("", "preparation") and self.is_new_session
 
         # Default to not disable unknown sections.
