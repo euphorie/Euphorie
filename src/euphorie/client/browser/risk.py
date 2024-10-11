@@ -523,6 +523,8 @@ class IdentificationView(RiskBase):
 
         if self.request.method == "POST":
             reply = self.request.form
+            if not self.webhelpers.can_edit_session:
+                return self.proceed_to_next(reply)
             _next = self._get_next(reply)
             # Don't persist anything if the user skipped the question
             if _next == "skip":

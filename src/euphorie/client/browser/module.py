@@ -156,7 +156,7 @@ class IdentificationView(BrowserView):
         # In Safari browser we get a list
         if isinstance(_next, list):
             _next = _next.pop()
-        if module.optional:
+        if module.optional and self.webhelpers.can_edit_session:
             if "skip_children" in reply:
                 context.skip_children = reply.get("skip_children")
                 context.postponed = False
@@ -172,23 +172,22 @@ class IdentificationView(BrowserView):
                 return
             self.request.response.redirect(self.previous_question_url)
             return
-        else:
-            if ICustomRisksModule.providedBy(module):
-                if _next == "add_custom_risk":
-                    self.add_custom_risk()
-                    notify(CustomRisksModifiedEvent(self.context))
-                    risk_id = self.context.children().count()
-                    url = "{parent_url}/{risk_id}/@@identification".format(
-                        parent_url=self.context.absolute_url(),
-                        risk_id=risk_id,
-                    )
-                    return self.request.response.redirect(url)
-                else:
-                    # We ran out of questions, proceed to the action plan
-                    return self.request.response.redirect(self.next_phase_url)
-            if self.next_question is None:
-                # We ran out of questions, proceed to the action plan
-                return self.request.response.redirect(self.next_phase_url)
+
+        if ICustomRisksModule.providedBy(module):
+            if _next == "add_custom_risk" and self.webhelpers.can_edit_session:
+                self.add_custom_risk()
+                notify(CustomRisksModifiedEvent(self.context))
+                risk_id = self.context.children().count()
+                url = "{parent_url}/{risk_id}/@@identification".format(
+                    parent_url=self.context.absolute_url(),
+                    risk_id=risk_id,
+                )
+                return self.request.response.redirect(url)
+            # We ran out of questions, proceed to the action plan
+            return self.request.response.redirect(self.next_phase_url)
+        if self.next_question is None:
+            # We ran out of questions, proceed to the action plan
+            return self.request.response.redirect(self.next_phase_url)
 
         self.request.response.redirect(self.next_question_url)
 
