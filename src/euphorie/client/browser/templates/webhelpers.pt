@@ -206,7 +206,12 @@
                      name="measure-custom-${measure/solution_id}"
                      type="checkbox"
               />
-              <div class="pat-rich-editor pat-rich toolbar-detached">
+              <div tal:condition="not:webhelpers/can_edit_session"
+                   tal:content="structure python:webhelpers.get_safe_html(measure['text'])"
+              ></div>
+              <div class="pat-rich-editor pat-rich toolbar-detached"
+                   tal:condition="webhelpers/can_edit_session"
+              >
                 <textarea class="pat-tiptap"
                           autofocus="autofocus"
                           cols="50"
@@ -766,7 +771,12 @@
                   id="comments"
                   disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
         >
-          <div class="pat-rich-editor pat-rich toolbar-detached">
+          <div tal:condition="not:webhelpers/can_edit_session"
+               tal:content="structure context/comment"
+          ></div>
+          <div class="pat-rich-editor pat-rich toolbar-detached"
+               tal:condition="webhelpers/can_edit_session"
+          >
             <textarea class="pat-tiptap"
                       name="comment:utf8:ustring"
                       placeholder="${view/notes_placeholder}"
@@ -1021,7 +1031,12 @@
                      i18n:translate="actionplan_measure_tooltip"
                 >Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)</dfn>
               </p>
-              <div class="pat-rich-editor pat-rich toolbar-detached">
+              <div tal:condition="not:webhelpers/can_edit_session"
+                   tal:content="structure actionplan/action|nothing"
+              ></div>
+              <div class="pat-rich-editor pat-rich toolbar-detached"
+                   tal:condition="webhelpers/can_edit_session"
+              >
                 <textarea class="pat-tiptap pat-autofocus"
                           name="measure.action:utf8:ustring:records"
                           placeholder="General approach (to eliminate or reduce the risk)"
