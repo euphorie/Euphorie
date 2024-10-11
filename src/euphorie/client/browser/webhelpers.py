@@ -22,6 +22,7 @@ from euphorie.client.utils import getSecret
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import getRegionTitle
 from euphorie.content.utils import StripMarkup
+from functools import cached_property
 from json import dumps
 from logging import getLogger
 from os import path
@@ -682,6 +683,10 @@ class WebHelpers(BrowserView):
             head, tail = path.split(head)
         return ""
 
+    @cached_property
+    def phase(self):
+        return self.get_phase()
+
     def get_dashboard_tab(self):
         tail = path.split(self.request.PATH_INFO.rstrip("/"))[-1].lstrip("@@")
         if tail in self.dashboard_tabs:
@@ -1283,22 +1288,62 @@ class WebHelpers(BrowserView):
         session = self.traversed_session.session
         return session.children().count() == 0
 
+    def is_section_disabled(self, section):
+        """Is the section disabled in this phase?
+
+        See get_active_and_disabled_for_section for an explanation.
+
+        This returns a boolean.
+        """
+        if section == "preparation":
+            return self.phase == ""
+        if section == "involve":
+            return self.phase == "" or (
+                self.phase == "preparation" and self.is_new_session
+            )
+        if section in ("identification", "actionplan"):
+            return (
+                self.phase in ("", "preparation") and self.is_new_session
+            ) or not self.can_edit_session
+        if section in ("consultancy", "report", "training", "status"):
+            # These menu items should be active even if can_edit_session is False.
+            return self.phase in ("", "preparation") and self.is_new_session
+
+        # Default to not disable unknown sections.
+        return False
+
+    def get_active_and_disabled_for_section(self, section):
+        """Is the section active or disabled in this phase?
+
+        The navigation tree has sections: preparation, identification, etc.
+        The phase (self.phase) is the current section you are viewing.
+        The section argument that is passed in, is a section in the navigation
+        tree.  This method answers two questions:
+
+        * Is the section the currently active phase?
+        * Should the section be disabled?
+
+        What 'disabled' means is up to the frontend, but the expectation is
+        that a disabled section is shown greyed out, and not clickable.
+
+        This returns a tuple with two booleans: active and disabled.
+        """
+        active = section == self.phase
+        disabled = self.is_section_disabled(section)
+        return active, disabled
+
     @property
     @memoize
     def survey_tree_data(self):
         if self.anonymous:
             return []
 
-        section = self.get_phase()
-        can_edit = self.can_edit_session
-        is_new_session = self.is_new_session
         url = self.traversed_session.absolute_url()
         integrated_action_plan = self.integrated_action_plan
 
         data = []
 
-        active = section == "preparation"
-        disabled = section == ""
+        active, disabled = self.get_active_and_disabled_for_section("preparation")
         data.append(
             {
                 "active": active,
@@ -1315,8 +1360,7 @@ class WebHelpers(BrowserView):
         )
 
         if self.use_involve_phase:
-            active = section == "involve"
-            disabled = section == "" or (section == "preparation" and is_new_session)
+            active, disabled = self.get_active_and_disabled_for_section("involve")
             data.append(
                 {
                     "active": active,
@@ -1332,9 +1376,7 @@ class WebHelpers(BrowserView):
                 }
             )
 
-        active = section == "identification"
-        disabled = (section in ("", "preparation") and is_new_session) or not can_edit
-
+        active, disabled = self.get_active_and_disabled_for_section("identification")
         title = ""
         if integrated_action_plan:
             title = api.portal.translate(_("label_assessment", "Assessment"))
@@ -1360,7 +1402,7 @@ class WebHelpers(BrowserView):
             # identification tree, with the only differences that only risks
             # and their parent modules are shown and that the entire tree is
             # expanded.
-            active = section == "actionplan"
+            active, disabled = self.get_active_and_disabled_for_section("actionplan")
             data.append(
                 {
                     "active": active,
@@ -1376,10 +1418,8 @@ class WebHelpers(BrowserView):
                 }
             )
 
-        # The following menu items should be active even if can_edit is False.
-        disabled = section in ("", "preparation") and is_new_session
         if self.use_consultancy_phase:
-            active = section == "consultancy"
+            active, disabled = self.get_active_and_disabled_for_section("consultancy")
             data.append(
                 {
                     "active": active,
@@ -1396,7 +1436,7 @@ class WebHelpers(BrowserView):
             )
 
         # TODO: check if guest.
-        active = section == "report"
+        active, disabled = self.get_active_and_disabled_for_section("report")
         data.append(
             {
                 "active": active,
@@ -1411,7 +1451,7 @@ class WebHelpers(BrowserView):
         )
 
         if self.use_training_module:
-            active = section == "training"
+            active, disabled = self.get_active_and_disabled_for_section("training")
             data.append(
                 {
                     "active": active,
@@ -1427,7 +1467,7 @@ class WebHelpers(BrowserView):
                 }
             )
 
-        active = section == "status"
+        active, disabled = self.get_active_and_disabled_for_section("status")
         data.append(
             {
                 "active": active,
