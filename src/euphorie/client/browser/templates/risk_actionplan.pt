@@ -70,7 +70,8 @@
               <tal:priority tal:define="
                               show_statement python:True;
                             ">
-                <fieldset tal:define="
+                <fieldset disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+                          tal:define="
                             value context/priority;
                             readonly python:context.risk_type in ['top5'];
                             skip_evaluation view/skip_evaluation;
@@ -160,8 +161,16 @@
                     name="next"
                     type="submit"
                     value="next"
-                    i18n:translate="label_save_and_continue"
-            >Save and continue</button>
+            >
+              <tal:save condition="webhelpers/can_edit_session"
+                        i18n:translate="label_save_and_continue"
+              >Save and continue
+              </tal:save>
+              <tal:continue condition="not:webhelpers/can_edit_session"
+                            i18n:translate="label_next"
+              >Next
+              </tal:continue>
+            </button>
           </p>
         </form>
       </tal:def>

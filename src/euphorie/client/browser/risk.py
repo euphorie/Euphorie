@@ -509,9 +509,9 @@ class IdentificationView(RiskBase):
         return condition
 
     def __call__(self):
-        # Render the page only if the user has edit rights,
+        # Render the page only if the user has inspection rights,
         # otherwise redirect to the start page of the session.
-        if not self.webhelpers.can_edit_session:
+        if not self.webhelpers.can_inspect_session:
             return self.request.response.redirect(
                 self.context.aq_parent.absolute_url() + "/@@start"
             )
@@ -523,6 +523,8 @@ class IdentificationView(RiskBase):
 
         if self.request.method == "POST":
             reply = self.request.form
+            if not self.webhelpers.can_edit_session:
+                return self.proceed_to_next(reply)
             _next = self._get_next(reply)
             # Don't persist anything if the user skipped the question
             if _next == "skip":
@@ -594,9 +596,9 @@ class IdentificationView(RiskBase):
         return self.session.title
 
     def check_render_condition(self):
-        # Render the page only if the user has edit rights,
+        # Render the page only if the user can inspection rights,
         # otherwise redirect to the start page of the session.
-        if not self.webhelpers.can_edit_session:
+        if not self.webhelpers.can_inspect_session:
             return self.request.response.redirect(
                 "{session_url}/@@start".format(
                     session_url=self.webhelpers.traversed_session.absolute_url()
@@ -1014,7 +1016,7 @@ class IdentificationView(RiskBase):
                 url = f"{base_url}/{next_view_name}"
                 return self.request.response.redirect(url)
 
-        elif _next == "add_custom_risk":
+        elif _next == "add_custom_risk" and self.webhelpers.can_edit_session:
             sql_module = (
                 Session.query(model.Module)
                 .filter(
@@ -1301,9 +1303,9 @@ class ActionPlanView(RiskBase):
 
     def __call__(self):
         super().__call__()
-        # Render the page only if the user has edit rights,
+        # Render the page only if the user has inspection rights,
         # otherwise redirect to the start page of the session.
-        if not self.webhelpers.can_edit_session:
+        if not self.webhelpers.can_inspect_session:
             return self.request.response.redirect(
                 "{session_url}/@@start".format(
                     session_url=self.webhelpers.traversed_session.absolute_url()
@@ -1358,16 +1360,17 @@ class ActionPlanView(RiskBase):
 
         if self.request.method == "POST":
             reply = self.request.form
-            session = Session()
-            context.comment = self.webhelpers.get_safe_html(reply.get("comment"))
-            context.priority = reply.get("priority")
+            if self.webhelpers.can_edit_session:
+                session = Session()
+                context.comment = self.webhelpers.get_safe_html(reply.get("comment"))
+                context.priority = reply.get("priority")
 
-            new_plans, changes = self.extract_plans_from_request()
-            for plan in context.standard_measures + context.custom_measures:
-                session.delete(plan)
-            context.action_plans.extend(new_plans)
-            if changes:
-                self.session.touch()
+                new_plans, changes = self.extract_plans_from_request()
+                for plan in context.standard_measures + context.custom_measures:
+                    session.delete(plan)
+                context.action_plans.extend(new_plans)
+                if changes:
+                    self.session.touch()
 
             _next = self._get_next(reply)
             if _next == "previous":

@@ -34,6 +34,7 @@
             <metal:actions fill-slot="page-actions">
               <div class="toolbar-section quick-functions"
                    id="assessment-toolbar-quick-functions"
+                   tal:condition="webhelpers/can_edit_session"
               >
                 <a class="icon icon-trash pat-modal"
                    href="${context/absolute_url}/@@confirmation-delete-risk#document-content"
@@ -48,6 +49,7 @@
 
 
           <fieldset class="content-mirror risk-title pat-inject pat-autosubmit pat-subform"
+                    disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                     data-pat-autosubmit="1000ms"
                     data-pat-inject="source: #steps; target: #steps ${python:'&amp;&amp; source: #evaluation; target: #evaluation' if not view.skip_evaluation else None} ${python:'&amp;&amp; source: #slide-content-1; target: #slide-content-1' if webhelpers.use_training_module else None}"
           >
@@ -70,6 +72,7 @@
           <tal:existing-measures condition="view/use_existing_measures">
             <fieldset class="add-measure-in-place-other pat-checklist measures-in-place pat-clone pat-inject pat-subform"
                       id="add-measure-in-place"
+                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                       data-pat-autosubmit="1000ms"
                       data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button;  remove-confirmation: Are you sure you want to remove this existing measure?"
                       data-pat-inject="source: #add-measure-in-place; target: #add-measure-in-place ${python:webhelpers.use_training_module and '&amp;&amp; source: #slide-preview-existing-measures; target: #slide-preview-existing-measures' or None}"
@@ -153,7 +156,9 @@
           </tal:existing-measures>
 
 
-          <fieldset class="pat-checklist radio pat-rich">
+          <fieldset class="pat-checklist radio pat-rich"
+                    disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+          >
             <legend>
               <tal:intro content="structure view/intro_questions" />
             </legend>
@@ -200,6 +205,7 @@
           >
             <p class="problem-description"><strong>${here/title}</strong></p>
             <fieldset class="pat-checklist radio"
+                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                       tal:define="
                         value context/priority;
                       "
@@ -237,7 +243,9 @@
         Information
             </h3>
             <div class="panel-content">
-              <fieldset class="vertical row">
+              <fieldset class="vertical row"
+                        disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+              >
                 <div class="eight columns">
 
                   <div class="pat-rich-editor pat-rich toolbar-detached">
@@ -314,26 +322,38 @@
                   value="previous"
                   i18n:translate="label_previous"
           >Previous</button>
-          <button class="pat-button continue"
-                  name="next"
-                  type="submit"
-                  value="add_custom_risk"
-                  tal:condition="not:view/has_next_risk"
-                  i18n:translate="label_save_and_add_new"
-          >Save and add new risk</button>
-          <button class="pat-button continue"
-                  name="next"
-                  type="submit"
-                  value="next"
-                  tal:condition="view/has_next_risk"
-                  i18n:translate="label_save_and_continue"
-          >Save and continue</button>
-          <button class="pat-button float-after"
-                  name="next"
-                  type="submit"
-                  value="actionplan"
-                  i18n:translate="label_save_and_finish"
-          >Save and finish</button>
+          <tal:can-edit condition="webhelpers/can_edit_session">
+            <button class="pat-button continue"
+                    name="next"
+                    type="submit"
+                    value="add_custom_risk"
+                    tal:condition="not:view/has_next_risk"
+                    i18n:translate="label_save_and_add_new"
+            >Save and add new risk</button>
+            <button class="pat-button continue"
+                    name="next"
+                    type="submit"
+                    value="next"
+                    tal:condition="view/has_next_risk"
+                    i18n:translate="label_save_and_continue"
+            >Save and continue</button>
+            <button class="pat-button float-after"
+                    name="next"
+                    type="submit"
+                    value="actionplan"
+                    i18n:translate="label_save_and_finish"
+            >Save and finish</button>
+          </tal:can-edit>
+          <tal:cannot-edit condition="not:webhelpers/can_edit_session">
+            <button class="pat-button continue"
+                    name="next"
+                    type="submit"
+                    value="next"
+                    i18n:translate="label_next"
+            >Next</button>
+
+          </tal:cannot-edit>
+
         </p>
 
       </form>
