@@ -1016,7 +1016,7 @@ class IdentificationView(RiskBase):
                 url = f"{base_url}/{next_view_name}"
                 return self.request.response.redirect(url)
 
-        elif _next == "add_custom_risk":
+        elif _next == "add_custom_risk" and self.webhelpers.can_edit_session:
             sql_module = (
                 Session.query(model.Module)
                 .filter(
