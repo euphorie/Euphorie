@@ -27,7 +27,9 @@
           <tal:block replace="tile:statusmessages" />
           <h1 i18n:translate="label_custom_risks">Custom risks</h1>
 
-          <p tal:content="structure module/description">
+          <p tal:condition="webhelpers/can_edit_session"
+             tal:content="structure module/description"
+          >
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
             ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
@@ -37,9 +39,11 @@
                 action="${context/absolute_url}/@@identification"
                 method="post"
                 data-pat-inject="history: record; source: #content; target: #content; &amp;&amp; source: #other-risks; target: #other-risks"
+                tal:condition="webhelpers/can_edit_session"
           >
             <p>
               <button class="pat-button default"
+                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                       name="next"
                       type="submit"
                       value="add_custom_risk"
