@@ -4,7 +4,11 @@ Changelog
 16.2.3 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Support inspecting sessions: show edit forms in read-only mode when you have no edit permission.
+  To use this, override the ``webhelpers`` view and change the new ``allow_inspecting_archived_sessions``
+  or ``allow_inspecting_locked_sessions`` variables to True, or implement your own logic in the
+  ``can_inspect_session`` method.
+  [maurits]
 
 
 16.2.2 (2024-10-01)
