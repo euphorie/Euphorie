@@ -1,7 +1,7 @@
 Changelog
 =========
 
-16.2.3 (unreleased)
+16.2.3 (2024-10-25)
 -------------------
 
 - Support inspecting sessions: show edit forms in read-only mode when you have no edit permission.
