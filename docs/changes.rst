@@ -4,7 +4,9 @@ Changelog
 16.2.4 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Translation fix (nl-BE)
+  Ref: scrum-2769
+  [reinhardt]
 
 
 16.2.3 (2024-10-25)

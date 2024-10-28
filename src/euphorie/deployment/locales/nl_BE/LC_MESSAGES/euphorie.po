@@ -3202,7 +3202,7 @@ msgstr "Middelen"
 #. Default: "Are you aware of all the risks?"
 #: euphorie/client/browser/templates/default_introduction.pt:10
 msgid "header_risk_aware"
-msgstr "Are you aware of all the risks?"
+msgstr "Bent u op de hoogte van alle risico's?"
 
 #. Default: "What is the severity of the damage?"
 #: euphorie/client/browser/templates/webhelpers.pt:427
