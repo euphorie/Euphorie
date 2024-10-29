@@ -7,6 +7,9 @@ Changelog
 - Translation fix (nl-BE)
   Ref: scrum-2769
   [reinhardt]
+- Action Plan: Strip HTML from comments
+  (`#2763 <https://github.com/syslabcom/scrum/issues/2763>`_)
+  [reinhardt]
 
 
 16.2.3 (2024-10-25)
