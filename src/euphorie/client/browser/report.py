@@ -188,10 +188,14 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
                     value = getattr(measure, key, None)
                     if key == "action" and value:
                         value = portal_transforms.convertToData("text/plain", value)
+                        if value:
+                            value = value.strip()
                 elif ntype == "risk":
                     value = getattr(risk, key, None)
                     if key == "comment":
                         value = portal_transforms.convertToData("text/plain", value)
+                        if value:
+                            value = value.strip()
                     elif key == "priority":
                         value = self.priority_name(value)
                     elif key == "title":
