@@ -1,8 +1,8 @@
 Changelog
 =========
 
-15.3.1 (unreleased)
--------------------
+15.3.0.dev4 (2024-11-11)
+------------------------
 
 - Translation fix (nl-BE)
   Ref: scrum-2769
