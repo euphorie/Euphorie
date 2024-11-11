@@ -4185,7 +4185,7 @@ msgstr ""
 #. Default: "Compact"
 #: euphorie/client/browser/templates/report_landing.pt:45
 msgid "label_compact"
-msgstr ""
+msgstr "Kompaktní"
 
 #. Default: "Compact report options"
 #: euphorie/content/country.py:109
@@ -4428,7 +4428,7 @@ msgstr "Formát"
 #. Default: "Full Report"
 #: euphorie/client/browser/templates/report_landing.pt:68
 msgid "label_full_report"
-msgstr ""
+msgstr "Úplná zpráva"
 
 #. Default: "General information"
 #: euphorie/client/browser/templates/status_info.pt:36
