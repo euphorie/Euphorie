@@ -1528,7 +1528,7 @@ msgstr ""
 
 #: euphorie/client/browser/session.py:184
 msgid ""
-"You don't have edit rights for this risk assesment, but you can download "
+"You don't have edit rights for this risk assessment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
 msgstr ""
 "No teniu drets d'edició per a aquesta avaluació de riscos, però podeu "
@@ -4289,7 +4289,7 @@ msgstr ""
 #. Default: "Compact"
 #: euphorie/client/browser/templates/report_landing.pt:45
 msgid "label_compact"
-msgstr ""
+msgstr "Compacte"
 
 #. Default: "Compact report options"
 #: euphorie/content/country.py:109
@@ -4532,7 +4532,7 @@ msgstr "Format"
 #. Default: "Full Report"
 #: euphorie/client/browser/templates/report_landing.pt:68
 msgid "label_full_report"
-msgstr ""
+msgstr "Informe complet"
 
 #. Default: "General information"
 #: euphorie/client/browser/templates/status_info.pt:36
@@ -5838,14 +5838,14 @@ msgstr ""
 msgid "message_possible_extra_cost"
 msgstr ""
 
-#. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at"
+#. Default: "Successfully created a preview for the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:370
 msgid "message_preview_success"
 msgstr ""
 "S'ha creat una previsualització correcta de l'eina OiRA. S'hi pot accedir "
 "mitjançant"
 
-#. Default: "Succesfully published the OiRA Tool. It can be accessed at"
+#. Default: "Successfully published the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:305
 msgid "message_publish_success"
 msgstr "L'eina OiRA s'ha publicat correctament. S'hi pot accedir mitjançant"
@@ -6750,7 +6750,7 @@ msgstr ""
 msgid "unpublish_confirm"
 msgstr "Està segur que vol despublicar aquesta eina OiRA?"
 
-#. Default: "Succesfully imported the OiRA Tool"
+#. Default: "Successfully imported the OiRA Tool"
 #: euphorie/content/browser/upload.py:589
 msgid "upload_success"
 msgstr "L'eina OiRA s'ha importat correctament"

@@ -172,7 +172,7 @@ def PublishToClient(survey, preview=False):
 
 
 def handleSurveyPublish(survey, event):
-    """Event handler (subscriber) for succesfull workflow transitions for
+    """Event handler (subscriber) for successfull workflow transitions for
     :py:obj:`ISurvey` objects. This handler copies the survey to the
     client.
     """
@@ -305,7 +305,7 @@ class PublishSurvey(form.Form):
                     "text_message_publish_success": _(
                         "message_publish_success",
                         default=(
-                            "Succesfully published the OiRA Tool. It can be accessed "
+                            "Successfully published the OiRA Tool. It can be accessed "
                             "at"
                         ),
                     ),
@@ -370,7 +370,7 @@ class PreviewSurvey(form.Form):
                     "text_message_preview_success": _(
                         "message_preview_success",
                         default=(
-                            "Succesfully created a preview for the OiRA Tool. It can "
+                            "Successfully created a preview for the OiRA Tool. It can "
                             "be accessed at"
                         ),
                     ),

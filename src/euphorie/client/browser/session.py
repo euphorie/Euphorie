@@ -182,7 +182,7 @@ class Start(SessionMixin, AutoExtensibleForm, EditForm):
                 mapping={"text_download_section": _("download section")},
             )
             message = _(
-                "You don't have edit rights for this risk assesment, "
+                "You don't have edit rights for this risk assessment, "
                 "but you can download "
                 "this risk assessment in various forms in the ${download_section}.",
                 mapping={"download_section": link_download_section},
@@ -611,7 +611,8 @@ class Identification(SessionMixin, BrowserView):
         )
 
     def __call__(self):
-        if not self.webhelpers.can_edit_session:
+        self.verify_view_permission()
+        if not self.webhelpers.can_inspect_session:
             return self.request.response.redirect(
                 self.context.absolute_url() + "/@@start"
             )
@@ -878,7 +879,7 @@ class ActionPlanView(SessionMixin, BrowserView):
     def __call__(self):
         """Render the page only if the user has edit rights, otherwise redirect
         to the start page of the session."""
-        if not self.webhelpers.can_edit_session:
+        if not self.webhelpers.can_inspect_session:
             return self.request.response.redirect(
                 self.context.absolute_url() + "/@@start"
             )

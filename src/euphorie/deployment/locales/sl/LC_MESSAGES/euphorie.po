@@ -1525,7 +1525,7 @@ msgstr ""
 
 #: euphorie/client/browser/session.py:184
 msgid ""
-"You don't have edit rights for this risk assesment, but you can download "
+"You don't have edit rights for this risk assessment, but you can download "
 "this risk assessment in various forms in the ${download_section}."
 msgstr ""
 "Niso vam bile dodeljene pravice za vnašanje sprememb v oceno tveganja, "
@@ -4234,7 +4234,7 @@ msgstr ""
 #. Default: "Compact"
 #: euphorie/client/browser/templates/report_landing.pt:45
 msgid "label_compact"
-msgstr ""
+msgstr "Kompakten"
 
 #. Default: "Compact report options"
 #: euphorie/content/country.py:109
@@ -4477,7 +4477,7 @@ msgstr "Format"
 #. Default: "Full Report"
 #: euphorie/client/browser/templates/report_landing.pt:68
 msgid "label_full_report"
-msgstr ""
+msgstr "Celotno poročilo"
 
 #. Default: "General information"
 #: euphorie/client/browser/templates/status_info.pt:36
@@ -5788,12 +5788,12 @@ msgstr ""
 msgid "message_possible_extra_cost"
 msgstr ""
 
-#. Default: "Succesfully created a preview for the OiRA Tool. It can be accessed at"
+#. Default: "Successfully created a preview for the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:370
 msgid "message_preview_success"
 msgstr "Uspešno ustvarjen predogled orodja OiRA. Dostop do njega je mogoč na"
 
-#. Default: "Succesfully published the OiRA Tool. It can be accessed at"
+#. Default: "Successfully published the OiRA Tool. It can be accessed at"
 #: euphorie/client/browser/publish.py:305
 msgid "message_publish_success"
 msgstr "Uspešno objavljeno orodje OiRA. Dostop do njega je mogoč na"
@@ -6698,7 +6698,7 @@ msgstr ""
 msgid "unpublish_confirm"
 msgstr "Ste prepričani, da želite preklicati objavo tega orodja OiRA?"
 
-#. Default: "Succesfully imported the OiRA Tool"
+#. Default: "Successfully imported the OiRA Tool"
 #: euphorie/content/browser/upload.py:589
 msgid "upload_success"
 msgstr "Uspešno uvoženo orodje OiRA"

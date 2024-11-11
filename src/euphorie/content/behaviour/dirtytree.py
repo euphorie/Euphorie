@@ -6,7 +6,7 @@ It can be useful to know if a content tree has any unpublished changes. This
 behaviour manages that by tracking creation, deletion, moving and modification
 of content objects and updating a dirty flag on the first parent object which
 provides the :py:obj:`IDirtyTreeRoot` marker interface. The flag is reset on
-succesfull workflow transitions.
+successfull workflow transitions.
 """
 
 from Acquisition import aq_base

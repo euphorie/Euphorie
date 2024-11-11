@@ -101,6 +101,8 @@
       />
 
   <adapter factory=".dependency.ConditionalFieldValidator" />
+  <adapter factory=".dependency.ConditionalTextFieldWidget" />
+  <adapter factory=".dependency.ConditionalHtmlTextFieldWidget" />
 
   <adapter
       factory=".help.SearchableTextIndexer"

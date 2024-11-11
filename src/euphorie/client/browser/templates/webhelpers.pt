@@ -159,6 +159,7 @@
   <metal:risk_identification define-macro="risk_identification">
     <fieldset class="vertical"
               id="${view/risk_number}"
+              disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
               tal:define="
                 always_present risk/risk_always_present|nothing;
               "
@@ -167,6 +168,7 @@
       <!-- Existing Measures -->
       <fieldset class="pat-checklist pat-clone ${python:'pat-inject pat-autosubmit pat-subform' if (webhelpers.integrated_action_plan or webhelpers.use_training_module) else None}"
                 id="risk_identification_form"
+                disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                 data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button; remove-behaviour: none"
                 data-pat-inject="${python:'source: #panel-action-plan::element; target: #panel-action-plan::element;' if webhelpers.integrated_action_plan else None}${python:' &amp;&amp; source: #page-module-training::element; target: #page-module-training::element;' if webhelpers.use_training_module else None}"
       >
@@ -204,7 +206,12 @@
                      name="measure-custom-${measure/solution_id}"
                      type="checkbox"
               />
-              <div class="pat-rich-editor pat-rich toolbar-detached">
+              <div tal:condition="not:webhelpers/can_edit_session"
+                   tal:content="structure python:webhelpers.get_safe_html(measure['text'])"
+              ></div>
+              <div class="pat-rich-editor pat-rich toolbar-detached"
+                   tal:condition="webhelpers/can_edit_session"
+              >
                 <textarea class="pat-tiptap"
                           autofocus="autofocus"
                           cols="50"
@@ -270,7 +277,9 @@
       <!-- END Existing measures -->
 
       <!-- Yes / No / Multiple -->
-      <fieldset class="pat-checklist radio pat-rich">
+      <fieldset class="pat-checklist radio pat-rich"
+                disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+      >
         <tal:existing condition="python:view.show_existing_measures and not always_present">
           <p tal:condition="view/intro_questions"
              tal:content="structure view/intro_questions"
@@ -360,6 +369,7 @@
                  ">
           <tal:kinney condition="python:algorithm!='french'">
             <fieldset class="pat-checklist radio"
+                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                       tal:define="
                         value context/probability;
                       "
@@ -390,6 +400,7 @@
             </fieldset>
 
             <fieldset class="pat-checklist radio"
+                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                       tal:define="
                         value context/frequency;
                       "
@@ -420,6 +431,7 @@
             </fieldset>
 
             <fieldset class="pat-checklist radio"
+                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                       tal:define="
                         value context/effect;
                       "
@@ -452,6 +464,7 @@
 
           <tal:french condition="python:algorithm=='french'">
             <fieldset class="pat-checklist radio"
+                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                       tal:define="
                         value context/effect;
                       "
@@ -510,6 +523,7 @@
             </fieldset>
 
             <fieldset class="pat-checklist radio"
+                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                       tal:define="
                         value context/frequency;
                       "
@@ -574,6 +588,7 @@
 
       <tal:block condition="python:evaluation_method=='direct'">
         <fieldset class="pat-checklist radio"
+                  disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                   tal:define="
                     value context/priority;
                   "
@@ -686,6 +701,7 @@
         Please tick anything that you might like to exclude from the training. Items that are greyed out will not be displayed on the training card.
           </p>
           <fieldset class="vertical"
+                    disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                     tal:define="
                       existing_measures training_view/existing_measures_training;
                       planned_measures training_view/planned_measures_training;
@@ -693,6 +709,7 @@
           >
 
             <fieldset class="pat-checklist show-and-hide has-value checked"
+                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                       tal:condition="existing_measures"
             >
               <p class="legend"
@@ -712,6 +729,7 @@
             </fieldset>
 
             <fieldset class="pat-checklist show-and-hide has-value checked"
+                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                       tal:condition="planned_measures"
             >
               <p class="legend"
@@ -739,6 +757,7 @@
   <metal:risk_comments define-macro="risk_comments">
     <fieldset class="pat-collapsible risk-module ${default_state|nothing} form-panel"
               id="page-module-comments"
+              disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
               data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 120px"
     >
       <h3 class="form-separation-header"
@@ -750,8 +769,14 @@
       <metal:rich_comments_inner define-macro="rich_comments_inner">
         <fieldset class="vertical"
                   id="comments"
+                  disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
         >
-          <div class="pat-rich-editor pat-rich toolbar-detached">
+          <div tal:condition="not:webhelpers/can_edit_session"
+               tal:content="structure context/comment"
+          ></div>
+          <div class="pat-rich-editor pat-rich toolbar-detached"
+               tal:condition="webhelpers/can_edit_session"
+          >
             <textarea class="pat-tiptap"
                       name="comment:utf8:ustring"
                       placeholder="${view/notes_placeholder}"
@@ -896,6 +921,7 @@
             </tal:requirements>
           </section>
           <fieldset class="vertical"
+                    disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                     tal:define="
                       measure python:view.active_standard_measures.get(solution['id'], None);
                     "
@@ -994,15 +1020,23 @@
 
           <fieldset class="vertical"
                     id="fields-${repeat/actionplan/number}"
+                    disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
           >
-            <fieldset class="group">
+            <fieldset class="group"
+                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+            >
               <p class="legend"><tal:label i18n:translate="label_description">Description</tal:label>
                 <dfn class="icon-help-circle iconified pat-tooltip"
                      data-pat-tooltip="source: content; position-list: lt"
                      i18n:translate="actionplan_measure_tooltip"
                 >Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)</dfn>
               </p>
-              <div class="pat-rich-editor pat-rich toolbar-detached">
+              <div tal:condition="not:webhelpers/can_edit_session"
+                   tal:content="structure actionplan/action|nothing"
+              ></div>
+              <div class="pat-rich-editor pat-rich toolbar-detached"
+                   tal:condition="webhelpers/can_edit_session"
+              >
                 <textarea class="pat-tiptap pat-autofocus"
                           name="measure.action:utf8:ustring:records"
                           placeholder="General approach (to eliminate or reduce the risk)"
@@ -1018,7 +1052,9 @@
               </div>
             </fieldset>
             <tal:requirements condition="python: 'requirements' not in view.skip_fields">
-              <fieldset class="group">
+              <fieldset class="group"
+                        disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+              >
                 <label><tal:label i18n:translate="label_expertise">Expertise</tal:label>
                   <dfn class="icon-help-circle iconified pat-tooltip"
                        data-pat-tooltip="source: content; position-list: lt"
@@ -1037,6 +1073,7 @@
           </fieldset>
 
           <fieldset class="vertical"
+                    disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                     tal:define="
                       number repeat/actionplan/number;
                     "
@@ -1109,7 +1146,9 @@
       </tal:actionplans>
     </div>
 
-    <div class="button-bar">
+    <div class="button-bar"
+         tal:condition="webhelpers/can_edit_session"
+    >
       <tal:solutions condition="solutions">
         <button class="pat-button icon-plus-circle pat-depends ${view/style_buttons}"
                 id="add-standard-measures"
@@ -1146,8 +1185,11 @@
 
         <fieldset class="vertical"
                   id="fields-#{1}"
+                  disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
         >
-          <fieldset class="group">
+          <fieldset class="group"
+                    disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+          >
             <p class="legend"><tal:label i18n:translate="label_description">Description</tal:label>
               <dfn class="icon-help-circle iconified pat-tooltip"
                    data-pat-tooltip="source: content; position-list: lt"
@@ -1169,7 +1211,9 @@
             </div>
           </fieldset>
           <tal:requirements condition="python: 'requirements' not in view.skip_fields">
-            <fieldset class="group">
+            <fieldset class="group"
+                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+            >
               <label><tal:label i18n:translate="label_expertise">Expertise</tal:label>
                 <dfn class="icon-help-circle iconified pat-tooltip"
                      data-pat-tooltip="source: content; position-list: lt"
@@ -1186,7 +1230,9 @@
           </tal:requirements>
         </fieldset>
 
-        <fieldset class="vertical">
+        <fieldset class="vertical"
+                  disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+        >
           <label>
             <tal:span i18n:translate="label_action_plan_responsible">Who is responsible?</tal:span>
             <dfn class="icon-help-circle iconified pat-tooltip"

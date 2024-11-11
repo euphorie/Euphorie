@@ -4,7 +4,38 @@ Changelog
 15.3.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Translation fix (nl-BE)
+  Ref: scrum-2769
+  [reinhardt]
+
+- Action Plan: Strip HTML from comments
+  (`#2763 <https://github.com/syslabcom/scrum/issues/2763>`_)
+  [reinhardt]
+
+- Support inspecting sessions: show edit forms in read-only mode when you have no edit permission.
+  To use this, override the ``webhelpers`` view and change the new ``allow_inspecting_archived_sessions``
+  or ``allow_inspecting_locked_sessions`` variables to True, or implement your own logic in the
+  ``can_inspect_session`` method.
+  [maurits]
+
+- The conditional fields have now widgets that can be customized as needed
+  [ale-rt]
+
+- removed the target=_blank from the form that opens the email client. That broke the feature for firefox. 
+  Fixes #2559
+  [pilz]
+
+- Fixed typo in feedback message
+  Ref: scrum-2669
+  [reinhardt]
+
+- Similar titles: Store results until explicit refresh
+  Ref: scrum-2517
+  [reinhardt]
+
+- Psychosocial: Fix issue when rebuilding session after change in tool
+  Ref: scrum-2695
+  [reinhardt]
 
 
 15.3.0.dev3 (2024-08-01)

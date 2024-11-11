@@ -586,7 +586,7 @@ class ImportSurvey(AutoExtensibleForm, form.Form):
             )
 
         IStatusMessage(self.request).addStatusMessage(
-            _("upload_success", default="Succesfully imported the OiRA Tool"),
+            _("upload_success", default="Successfully imported the OiRA Tool"),
             type="success",
         )
         state = getMultiAdapter((survey, self.request), name="plone_context_state")
