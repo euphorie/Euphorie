@@ -1909,13 +1909,9 @@ SKIPPED_MODULE = _SKIPPED_MODULE_factory()
 
 UNANSWERED_RISKS_FILTER = sql.and_(
     SurveyTreeItem.type == "risk",
-    sql.exists(
-        sql.select([Risk.sql_risk_id]).where(
-            sql.and_(
-                Risk.sql_risk_id == SurveyTreeItem.id,
-                Risk.identification == None,  # noqa: E711
-            )
-        )
+    sql.and_(
+        Risk.sql_risk_id == SurveyTreeItem.id,
+        Risk.identification == None,  # noqa: E711
     ),
 )
 
