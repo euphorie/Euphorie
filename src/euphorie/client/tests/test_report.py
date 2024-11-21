@@ -6,11 +6,13 @@ from euphorie.client import model
 from euphorie.client.adapters.session_traversal import TraversedSurveySession
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import SurveySession
+from euphorie.client.tests.test_model import createSurvey
 from euphorie.client.tests.utils import addAccount
 from euphorie.testing import EuphorieIntegrationTestCase
 from ExtensionClass import Base
 from plone import api
 from plone.app.testing.interfaces import SITE_OWNER_NAME
+from sqlalchemy import sql
 from unittest import mock
 from urllib.parse import quote
 from z3c.saconfig import Session
@@ -516,3 +518,125 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
                 response.headers["content-disposition"],
                 f"attachment; filename*=UTF-8''{quoted_filename}",
             )
+
+
+def get_unanswered_nodes(session):
+    query = (
+        Session()
+        .query(model.SurveyTreeItem)
+        .filter(
+            sql.and_(
+                model.SurveyTreeItem.session == session,
+                sql.or_(
+                    model.MODULE_WITH_UNANSWERED_RISKS_FILTER,
+                    model.UNANSWERED_RISKS_FILTER,
+                ),
+                sql.not_(model.SKIPPED_PARENTS),
+            )
+        )
+        .order_by(model.SurveyTreeItem.path)
+    )
+    return query.all()
+
+
+class UnansweredQueryTests(EuphorieIntegrationTestCase):
+    """Test #2800.
+
+    Only risks with `identification` == None are returned as unanswered.
+    """
+
+    def createData(self):
+        (self.session, self.survey_session) = createSurvey()
+
+        self.q1 = model.Module(
+            **{
+                "depth": 1,
+                "module_id": 1,
+                "has_description": True,
+                "path": "001",
+                "postponed": None,
+                "profile_index": -1,
+                "skip_children": False,
+                "title": "What is the sound of one hand clapping?",
+                "type": "module",
+                "zodb_path": "173",
+            }
+        )
+        self.survey_session.addChild(self.q1)
+
+        self.mod1 = model.Module(
+            **{
+                "depth": 2,
+                "module_id": 2,
+                "has_description": True,
+                "path": "001001",
+                "postponed": None,
+                "profile_index": 0,
+                "skip_children": False,
+                "title": "Stellenbosch",
+                "type": "module",
+                "zodb_path": "173",
+            }
+        )
+        self.q1.addChild(self.mod1)
+
+        self.r1 = model.Risk(
+            **{
+                "risk_id": 1,
+                "depth": 3,
+                "identification": "no",
+                "action_plans": [],
+                "has_description": True,
+                "path": "001001001",
+                "postponed": False,
+                "profile_index": 0,
+                "skip_children": False,
+                "title": "Hands are washed",
+                "type": "risk",
+                "zodb_path": "173/euphorie.risk",
+            }
+        )
+        self.mod1.addChild(self.r1)
+
+        self.mod2 = model.Module(
+            **{
+                "depth": 2,
+                "module_id": 3,
+                "has_description": True,
+                "path": "001002",
+                "postponed": None,
+                "profile_index": 1,
+                "skip_children": False,
+                "title": "Somerset West",
+                "type": "module",
+                "zodb_path": "173",
+            }
+        )
+        self.q1.addChild(self.mod2)
+
+        self.r2 = model.Risk(
+            **{
+                "risk_id": 1,
+                "depth": 3,
+                "identification": None,
+                "action_plans": [],
+                "has_description": True,
+                "path": "001002001",
+                "postponed": False,
+                "profile_index": 1,
+                "skip_children": False,
+                "title": "Hands are washed",
+                "type": "risk",
+                "zodb_path": "173/euphorie.risk",
+            }
+        )
+        self.mod2.addChild(self.r2)
+
+    def testUnansweredNodes(self):
+        self.createData()
+        risks = [
+            node
+            for node in get_unanswered_nodes(self.survey_session)
+            if node.type == "risk"
+        ]
+        self.assertEqual(len(risks), 1)
