@@ -1,7 +1,7 @@
 Changelog
 =========
 
-16.2.4 (unreleased)
+16.2.4 (2024-11-21)
 -------------------
 
 - Translation fix (nl-BE)
