@@ -1963,13 +1963,7 @@ MODULE_WITH_RISKS_NOT_PRESENT_FILTER = _MODULE_WITH_RISKS_NOT_PRESENT_FILTER_fac
 
 RISK_NOT_PRESENT_FILTER = sql.and_(
     SurveyTreeItem.type == "risk",
-    sql.exists(
-        sql.select([Risk.sql_risk_id]).where(
-            sql.and_(
-                Risk.sql_risk_id == SurveyTreeItem.id, Risk.identification == "yes"
-            )
-        )
-    ),
+    sql.and_(Risk.sql_risk_id == SurveyTreeItem.id, Risk.identification == "yes"),
 )
 
 
