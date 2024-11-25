@@ -4,7 +4,9 @@ Changelog
 16.2.5 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Report: Fix lists of risks (“parked” / not present)
+  (`#2800 <https://github.com/syslabcom/scrum/issues/2800>`_)
+  [reinhardt]
 
 
 16.2.4 (2024-11-21)
@@ -15,9 +17,6 @@ Changelog
   [reinhardt]
 - Action Plan: Strip HTML from comments
   (`#2763 <https://github.com/syslabcom/scrum/issues/2763>`_)
-  [reinhardt]
-- Report: Fix “parked” risks
-  (`#2800 <https://github.com/syslabcom/scrum/issues/2800>`_)
   [reinhardt]
 
 

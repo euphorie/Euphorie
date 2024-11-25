@@ -3,6 +3,7 @@
 # from euphorie.client.report import IdentificationReport
 # from euphorie.content.risk import Risk
 from euphorie.client import model
+from euphorie.client import utils
 from euphorie.client.adapters.session_traversal import TraversedSurveySession
 from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.client.model import SurveySession
@@ -12,7 +13,6 @@ from euphorie.testing import EuphorieIntegrationTestCase
 from ExtensionClass import Base
 from plone import api
 from plone.app.testing.interfaces import SITE_OWNER_NAME
-from sqlalchemy import sql
 from unittest import mock
 from urllib.parse import quote
 from z3c.saconfig import Session
@@ -520,29 +520,11 @@ class ActionPlanTimelineTests(EuphorieIntegrationTestCase):
             )
 
 
-def get_unanswered_nodes(session):
-    query = (
-        Session()
-        .query(model.SurveyTreeItem)
-        .filter(
-            sql.and_(
-                model.SurveyTreeItem.session == session,
-                sql.or_(
-                    model.MODULE_WITH_UNANSWERED_RISKS_FILTER,
-                    model.UNANSWERED_RISKS_FILTER,
-                ),
-                sql.not_(model.SKIPPED_PARENTS),
-            )
-        )
-        .order_by(model.SurveyTreeItem.path)
-    )
-    return query.all()
-
-
 class UnansweredQueryTests(EuphorieIntegrationTestCase):
     """Test #2800.
 
     Only risks with `identification` == None are returned as unanswered.
+    They are not returned as not present.
     """
 
     def createData(self):
@@ -598,6 +580,24 @@ class UnansweredQueryTests(EuphorieIntegrationTestCase):
         )
         self.mod1.addChild(self.r1)
 
+        self.r3 = model.Risk(
+            **{
+                "risk_id": 2,
+                "depth": 3,
+                "identification": "yes",
+                "action_plans": [],
+                "has_description": True,
+                "path": "001001002",
+                "postponed": False,
+                "profile_index": 0,
+                "skip_children": False,
+                "title": "Feet are washed",
+                "type": "risk",
+                "zodb_path": "173/euphorie.risk-1",
+            }
+        )
+        self.mod1.addChild(self.r3)
+
         self.mod2 = model.Module(
             **{
                 "depth": 2,
@@ -636,7 +636,16 @@ class UnansweredQueryTests(EuphorieIntegrationTestCase):
         self.createData()
         risks = [
             node
-            for node in get_unanswered_nodes(self.survey_session)
+            for node in utils.get_unanswered_nodes(self.survey_session)
+            if node.type == "risk"
+        ]
+        self.assertEqual(len(risks), 1)
+
+    def testRiskNotPresentNodes(self):
+        self.createData()
+        risks = [
+            node
+            for node in utils.get_risk_not_present_nodes(self.survey_session)
             if node.type == "risk"
         ]
         self.assertEqual(len(risks), 1)
