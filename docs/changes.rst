@@ -4,6 +4,12 @@ Changelog
 16.2.5 (unreleased)
 -------------------
 
+- Fix the plone.displayed_types registry record that was previously only updated
+  through upgrade steps.
+  This fixes the navigation on the CMS side for freshly installed sites and
+  for sites that have been deployed with recent versions of the package.
+  [ale-rt]
+
 - Report: Fix lists of risks (“parked” / not present)
   (`#2800 <https://github.com/syslabcom/scrum/issues/2800>`_)
   [reinhardt]
@@ -36,7 +42,7 @@ Changelog
 - The conditional fields have now widgets that can be customized as needed
   [ale-rt]
 
-- removed the target=_blank from the form that opens the email client. That broke the feature for firefox. 
+- removed the target=_blank from the form that opens the email client. That broke the feature for firefox.
   Fixes #2559
   [pilz]
 

@@ -61,7 +61,7 @@ Paste module in own survey
 
 Lets go back to our own survey now:
 
->>> browser.getLink("OiRA", index=1).click()
+>>> browser.getLink("OiRA", index=2).click()
 >>> browser.getLink("Standard version").click()
 >>> authenticator = browser.getControl(name='_authenticator', index=0).value
 >>> browser.open("%s/@@paste?_authenticator=%s" % (browser.url, authenticator))

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="ploneintranet"
+>
+  <record field="displayed_types"
+          interface="Products.CMFPlone.interfaces.controlpanel.INavigationSchema"
+          name="plone.displayed_types"
+  >
+    <value purge="false">
+      <element>euphorie.documentation</element>
+      <element>euphorie.folder</element>
+      <element>euphorie.help</element>
+      <element>euphorie.module</element>
+      <element>euphorie.page</element>
+      <element>euphorie.profilequestion</element>
+      <element>euphorie.risk</element>
+      <element>euphorie.solution</element>
+      <element>euphorie.survey</element>
+      <element>euphorie.surveygroup</element>
+      <element>euphorie.training_question</element>
+    </value>
+  </record>
+</registry>
