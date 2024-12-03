@@ -1907,13 +1907,23 @@ def _SKIPPED_MODULE_factory():
 
 SKIPPED_MODULE = _SKIPPED_MODULE_factory()
 
-UNANSWERED_RISKS_FILTER = sql.and_(
-    SurveyTreeItem.type == "risk",
-    sql.and_(
-        Risk.sql_risk_id == SurveyTreeItem.id,
-        Risk.identification == None,  # noqa: E711
-    ),
-)
+
+def _UNANSWERED_RISKS_FILTER_factory():
+    Risk_ = orm.aliased(Risk)
+    return sql.and_(
+        SurveyTreeItem.type == "risk",
+        sql.exists(
+            sql.select([Risk_.sql_risk_id]).where(
+                sql.and_(
+                    Risk_.sql_risk_id == SurveyTreeItem.id,
+                    Risk_.identification == None,  # noqa: E711
+                )
+            )
+        ),
+    )
+
+
+UNANSWERED_RISKS_FILTER = _UNANSWERED_RISKS_FILTER_factory()
 
 
 def _MODULE_WITH_UNANSWERED_RISKS_FILTER_factory():
@@ -1961,10 +1971,23 @@ def _MODULE_WITH_RISKS_NOT_PRESENT_FILTER_factory():
 
 MODULE_WITH_RISKS_NOT_PRESENT_FILTER = _MODULE_WITH_RISKS_NOT_PRESENT_FILTER_factory()
 
-RISK_NOT_PRESENT_FILTER = sql.and_(
-    SurveyTreeItem.type == "risk",
-    sql.and_(Risk.sql_risk_id == SurveyTreeItem.id, Risk.identification == "yes"),
-)
+
+def RISK_NOT_PRESENT_FILTER_factory():
+    Risk_ = orm.aliased(Risk)
+    return sql.and_(
+        SurveyTreeItem.type == "risk",
+        sql.exists(
+            sql.select([Risk_.sql_risk_id]).where(
+                sql.and_(
+                    Risk_.sql_risk_id == SurveyTreeItem.id,
+                    Risk_.identification == "yes",
+                )
+            )
+        ),
+    )
+
+
+RISK_NOT_PRESENT_FILTER = RISK_NOT_PRESENT_FILTER_factory()
 
 
 def get_current_account():
