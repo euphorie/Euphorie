@@ -1,7 +1,7 @@
 Changelog
 =========
 
-16.2.5 (unreleased)
+16.2.5 (2024-12-09)
 -------------------
 
 - Fix the plone.displayed_types registry record that was previously only updated
