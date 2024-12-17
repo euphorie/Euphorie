@@ -151,6 +151,7 @@ class OfficeDocumentView(BrowserView):
                     "postponed": sql_risk.postponed,
                     "number": sql_risk.number,
                     "priority": sql_risk.priority,
+                    "resources": risk.legal_reference,
                 }
             )
         return risks
