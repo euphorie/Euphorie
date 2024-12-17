@@ -123,6 +123,10 @@ class ICountry(model.Schema, IBasic):
                         "measure_responsible_date",
                         title=_("Measure responsible and date"),
                     ),
+                    SimpleTerm(
+                        "resources_legal_references",
+                        title=_("Legal and policy references"),
+                    ),
                 ]
             )
         ),

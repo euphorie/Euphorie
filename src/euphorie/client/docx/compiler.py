@@ -1041,6 +1041,10 @@ class DocxCompilerShort(DocxCompilerFullTable):
     def is_show_measure_responsible_date(self):
         return "measure_responsible_date" in self.options
 
+    @property
+    def is_show_resources_legal_references(self):
+        return "resources_legal_references" in self.options
+
     def set_answer_font(self, answer, cell):
         font = self.justifiable_font.get(answer)
         if font:
@@ -1058,7 +1062,7 @@ class DocxCompilerShort(DocxCompilerFullTable):
     def set_cell_risk(self, cell, risk):
         """Take the risk and add the appropriate text:
 
-        title, descripton, comment, measures in place
+        title, description, comment, measures in place, resources
         """
         self.set_cell_risk_title(cell, risk)
         if self.is_show_description_of_risks:
@@ -1066,6 +1070,8 @@ class DocxCompilerShort(DocxCompilerFullTable):
         self.set_cell_risk_measures(cell, risk)
         if self.is_show_comments:
             self.set_cell_risk_comment(cell, risk)
+        if self.is_show_resources_legal_references:
+            self.set_resources_legal_references(cell, risk)
 
         cell.add_paragraph(style="Risk Normal")
 
@@ -1082,6 +1088,19 @@ class DocxCompilerShort(DocxCompilerFullTable):
                 style="Risk Italics",
             )
             self.compiler(risk["comment"], cell, style="Risk Italics")
+
+    def set_resources_legal_references(self, cell, risk):
+        if risk["resources"] and risk["resources"].strip():
+            cell.add_paragraph()
+            cell.add_paragraph(
+                api.portal.translate(
+                    _(
+                        "report_heading_resources",
+                        default="Legal and policy references:",
+                    )
+                ),
+            )
+            self.compiler(risk["resources"], cell)
 
     def set_cell_actions(self, cell, risk):
         """Take the risk and add the appropriate text:

@@ -4,7 +4,9 @@ Changelog
 16.2.6 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add legal and policy references as an option for the compact report
+  (`#2815 <https://github.com/syslabcom/scrum/issues/2815>`_)
+  [reinhardt]
 
 
 16.2.5 (2024-12-09)
