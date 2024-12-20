@@ -1030,7 +1030,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/locking_menu.pt:106
 msgid "Refresh locking date"
-msgstr ""
+msgstr "Sperrdatum aktualisieren"
 
 #: euphorie/content/country.py:30
 msgid "Region"
@@ -3896,7 +3896,7 @@ msgstr ""
 #. Default: "You have completed ${completed}% of the risk assessment."
 #: euphorie/client/browser/templates/status-tooltip.pt:19
 msgid "info_survey_completion"
-msgstr ""
+msgstr "Sie haben die GBU zu ${completed}% abgeschlossen."
 
 #. Default: "This is a test session. ${link_sign_in} to save your data."
 #: euphorie/client/browser/templates/plain.pt:222
@@ -4635,18 +4635,18 @@ msgstr ""
 #. Default: "Lock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:84
 msgid "label_lock_risk_assessment"
-msgstr ""
+msgstr "GBU sperren"
 
 #. Default: "Locked"
 #: euphorie/client/browser/templates/locking_menu.pt:51
 #: euphorie/client/browser/templates/status_info.pt:98
 msgid "label_locked"
-msgstr ""
+msgstr "Gesperrt"
 
 #. Default: "Locked ${locking_time}"
 #: euphorie/client/browser/templates/locking_badge.pt:22
 msgid "label_locked_time"
-msgstr ""
+msgstr "Gesperrt ${locking_time}"
 
 #. Default: "Log in"
 #: euphorie/client/browser/templates/login.pt:92
@@ -5380,12 +5380,12 @@ msgstr ""
 #. Default: "Unlock Risk Assessment"
 #: euphorie/client/browser/templates/locking_menu.pt:96
 msgid "label_unlock_risk_assessment"
-msgstr ""
+msgstr "GBU entsperren"
 
 #. Default: "Unlocked"
 #: euphorie/client/browser/templates/locking_badge.pt:39
 msgid "label_unlocked"
-msgstr ""
+msgstr "Bearbeitung erlaubt"
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:119

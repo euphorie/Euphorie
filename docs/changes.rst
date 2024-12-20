@@ -7,6 +7,9 @@ Changelog
 - Add legal and policy references as an option for the compact report
   (`#2815 <https://github.com/syslabcom/scrum/issues/2815>`_)
   [reinhardt]
+- German translations related to locking
+  (`#3015 <https://github.com/syslabcom/scrum/issues/3015>`_)
+  [reinhardt]
 
 
 16.2.5 (2024-12-09)
