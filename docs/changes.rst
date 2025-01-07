@@ -10,6 +10,8 @@ Changelog
 - German translations related to locking
   (`#3015 <https://github.com/syslabcom/scrum/issues/3015>`_)
   [reinhardt]
+- Support openpyxl 3.x
+  [reinhardt]
 
 
 16.2.5 (2024-12-09)
