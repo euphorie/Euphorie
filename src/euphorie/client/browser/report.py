@@ -12,11 +12,12 @@ from euphorie.client import model
 from euphorie.client import survey
 from euphorie.client import utils
 from openpyxl.workbook import Workbook
-from openpyxl.writer.excel import save_virtual_workbook
+from openpyxl.writer.excel import save_workbook
 from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
 from sqlalchemy import sql
+from tempfile import NamedTemporaryFile
 from urllib.parse import quote
 from zope.i18n import translate
 
@@ -218,11 +219,7 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
                             value = module.title
                 if value is not None:
                     cell = sheet.cell(row=row, column=column)
-                    if key == "number":
-                        # force sting
-                        cell.set_explicit_value(value)
-                    else:
-                        cell.value = value
+                    cell.value = value
                 column += 1
             row += 1
         return book
@@ -252,4 +249,8 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
             "Content-Type",
             "application/vnd.openxmlformats-" "officedocument.spreadsheetml.sheet",
         )
-        return save_virtual_workbook(book)
+
+        with NamedTemporaryFile() as tmp:
+            save_workbook(book, tmp.name)
+            tmp.seek(0)
+            return tmp.read()
