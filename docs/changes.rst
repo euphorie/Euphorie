@@ -1,7 +1,7 @@
 Changelog
 =========
 
-16.2.6 (unreleased)
+16.2.6 (2025-01-10)
 -------------------
 
 - Add legal and policy references as an option for the compact report
