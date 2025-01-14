@@ -4,7 +4,9 @@ Changelog
 16.2.7 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Removed leading empty lines from compact report
+  (`#2815 <https://github.com/syslabcom/scrum/issues/2815>`_)
+  [reinhardt]
 
 
 16.2.6 (2025-01-10)
