@@ -4,7 +4,9 @@ Changelog
 16.2.8 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix for profile questions (changed title)
+  (`#3038 <https://github.com/syslabcom/scrum/issues/3038>`_)
+  [reinhardt]
 
 
 16.2.7 (2025-01-15)
