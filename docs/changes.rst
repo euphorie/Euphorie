@@ -4,7 +4,9 @@ Changelog
 16.2.8 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Update Patternslib to 9.10.1-alpha.2.
+  Ref: scrum-2726.
+  [thet]
 
 
 16.2.7 (2025-01-15)
