@@ -1,7 +1,7 @@
 Changelog
 =========
 
-16.2.7 (unreleased)
+16.2.7 (2025-01-15)
 -------------------
 
 - Removed leading empty lines from compact report
