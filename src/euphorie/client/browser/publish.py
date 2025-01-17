@@ -4,6 +4,7 @@ Publish
 
 Copy and publish Surveys from the admin to the client database.
 """
+
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.client import MessageFactory as _

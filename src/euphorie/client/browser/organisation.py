@@ -676,9 +676,11 @@ class OrganisationLogo(OrganisationBaseView):
 
         self.request.response.setHeader(
             "Content-Type",
-            "image/png"
-            if organisation.image_filename.endswith(".png")
-            else "image/jpeg",
+            (
+                "image/png"
+                if organisation.image_filename.endswith(".png")
+                else "image/jpeg"
+            ),
         )
         self.request.response.setHeader(
             "Content-Disposition",

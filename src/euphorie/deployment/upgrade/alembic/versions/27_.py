@@ -4,6 +4,7 @@ Revision ID: 27
 Revises: 26
 Create Date: 2020-03-04 10:51:17.559416
 """
+
 from alembic import op
 from euphorie.deployment.upgrade.utils import has_column
 

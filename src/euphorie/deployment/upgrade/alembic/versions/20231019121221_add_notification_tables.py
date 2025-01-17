@@ -4,6 +4,7 @@ Revision ID: 20231019121221
 Revises: 20230515143459
 Create Date: 2023-10-19 17:58:47.014626
 """
+
 from alembic import op
 from euphorie.deployment.upgrade.utils import has_table
 

@@ -4,6 +4,7 @@ Risk
 
 Views for the identification and action plan phases.
 """
+
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
@@ -1335,9 +1336,11 @@ class ActionPlanView(RiskBase):
             # We ran out of questions, proceed to the next phase
             url = "{session_url}/{next_view_name}".format(
                 session_url=self.webhelpers.traversed_session.absolute_url(),
-                next_view_name="@@consultancy"
-                if self.webhelpers.use_consultancy_phase
-                else "@@report",
+                next_view_name=(
+                    "@@consultancy"
+                    if self.webhelpers.use_consultancy_phase
+                    else "@@report"
+                ),
             )
         else:
             url = "{session_url}/{path}/@@actionplan".format(

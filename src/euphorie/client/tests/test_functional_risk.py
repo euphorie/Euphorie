@@ -79,9 +79,9 @@ class RiskTests(EuphorieFunctionalTestCase):
         browser.getControl(
             name="measure.action_plan:utf8:ustring:records", index=0
         ).value = "Do something awesome"
-        browser.getControl(
-            name="measure.planning_start_day:records", index=0
-        ).value = "1"
+        browser.getControl(name="measure.planning_start_day:records", index=0).value = (
+            "1"
+        )
         browser.getControl(
             name="measure.planning_start_month:records", index=0
         ).value = ["2"]
@@ -127,9 +127,9 @@ class RiskTests(EuphorieFunctionalTestCase):
         browser.getControl(
             name="measure.action_plan:utf8:ustring:records", index=0
         ).value = "Do something awesome"
-        browser.getControl(
-            name="measure.planning_start:records", index=0
-        ).value = "12345/02/01"
+        browser.getControl(name="measure.planning_start:records", index=0).value = (
+            "12345/02/01"
+        )
         browser.handleErrors = False
         browser.getControl("next").click()
         self.assertEqual(

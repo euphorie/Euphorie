@@ -6,6 +6,7 @@ An individual "question" about a risk that the user needs to answer.
 
 portal_type: euphorie.risk
 """
+
 from .. import MessageFactory as _
 from .behaviour.richdescription import IRichDescription
 from .behaviour.uniqueid import get_next_id

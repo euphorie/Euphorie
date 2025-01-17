@@ -187,7 +187,6 @@ class Company(AutoExtensibleForm, form.Form):
     variation_class = "variation-risk-assessment"
 
     schema = CompanySchema
-    company = None
     template = ViewPageTemplateFile("templates/report_company.pt")
     company_class = model.Company
 

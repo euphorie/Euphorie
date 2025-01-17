@@ -26,9 +26,9 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
         browser.open("http://nohost/plone/client/nl/account-settings?set_language=en")
         browser.getControl(name="form.widgets.old_password").value = "Wrong12345#!"
         browser.getControl(name="form.widgets.new_password").value = "Secret12345#!"
-        browser.getControl(
-            name="form.widgets.new_password_confirmation"
-        ).value = "Secret12345#!"
+        browser.getControl(name="form.widgets.new_password_confirmation").value = (
+            "Secret12345#!"
+        )
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/account-settings")
         self.assertIn("Invalid password", browser.contents)
@@ -46,9 +46,9 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
         browser.open("http://nohost/plone/client/nl/account-settings?set_language=en")
         browser.getControl(name="form.widgets.old_password").value = "guest"
         browser.getControl(name="form.widgets.new_password").value = "secret"
-        browser.getControl(
-            name="form.widgets.new_password_confirmation"
-        ).value = "secret2"
+        browser.getControl(name="form.widgets.new_password_confirmation").value = (
+            "secret2"
+        )
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/account-settings")
         self.assertIn(
@@ -60,9 +60,9 @@ class AccountSettingsTests(EuphorieFunctionalTestCase):
         browser.open("http://nohost/plone/client/nl/account-settings")
         browser.getControl(name="form.widgets.old_password").value = "Guest12345#!"
         browser.getControl(name="form.widgets.new_password").value = "Secret12345#!"
-        browser.getControl(
-            name="form.widgets.new_password_confirmation"
-        ).value = "Secret12345#!"
+        browser.getControl(name="form.widgets.new_password_confirmation").value = (
+            "Secret12345#!"
+        )
         browser.handleErrors = False
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/account-settings")

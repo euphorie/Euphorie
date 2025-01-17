@@ -5,6 +5,7 @@ We have two possible objects:
 - euphorie.client.model.Module (type `module`)
 - euphorie.client.model.Risk (type `risk`)
 """
+
 from euphorie.client.adapters.session_traversal import ITraversedSurveySession
 from euphorie.client.model import Session
 from euphorie.client.model import SurveyTreeItem

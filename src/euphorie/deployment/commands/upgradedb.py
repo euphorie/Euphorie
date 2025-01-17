@@ -1,4 +1,5 @@
 """Upgrade the database tables if needed."""
+
 from datetime import datetime
 from euphorie.client import model
 from pkg_resources import get_distribution
