@@ -6,6 +6,7 @@ A Sector Container provides the overview of all countries.
 
 https://admin.oiraproject.eu/sectors
 """
+
 from euphorie.content.behaviour.richdescription import IRichDescription
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.dexterity.content import Container

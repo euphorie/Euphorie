@@ -6,6 +6,7 @@ Form and browser view for importing a previously exported survey in XML format.
 
 view: @@upload
 """
+
 from ..risk import EnsureInterface
 from ..risk import IFrenchEvaluation
 from ..risk import IKinneyEvaluation

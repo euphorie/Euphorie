@@ -4,6 +4,7 @@ Settings
 
 Change a user's password/email or delete an account.
 """
+
 from Acquisition import aq_inner
 from euphorie.client import MessageFactory as _
 from euphorie.client.interfaces import INotificationCategory

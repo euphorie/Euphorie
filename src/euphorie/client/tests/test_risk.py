@@ -234,6 +234,6 @@ class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
                     {
                         "accept-ranges": "bytes",
                         "content-type": "image/png",
-                        'link': '<http://nohost/plone/client/nl/ict/software-development/%2B%2Bsession%2B%2B1/1/@@download/image_training/dummy.gif>; rel="canonical"',  # noqa: E501
+                        "link": '<http://nohost/plone/client/nl/ict/software-development/%2B%2Bsession%2B%2B1/1/@@download/image_training/dummy.gif>; rel="canonical"',  # noqa: E501
                     },
                 )

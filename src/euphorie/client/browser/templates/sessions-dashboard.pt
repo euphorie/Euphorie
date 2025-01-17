@@ -56,7 +56,7 @@
                 -->
                 <a class="pat-inject ${python:'current' if dashboard_tab=='certificates' else None}"
                    href="${here/absolute_url}/certificates"
-                   data-pat-inject="history: record; source: #application-content; target: #application-content && source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
+                   data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #toolbar-functions-area::element; target: #toolbar-functions-area::element"
                    tal:condition="webhelpers/show_certificates_tab"
                    i18n:translate="label_certificates"
                 >Certificates</a>

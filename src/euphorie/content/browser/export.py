@@ -303,9 +303,9 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
         if self.include_intro_text and StripMarkup(survey.introduction):
             node = self._add_string_or_html(node, survey.introduction, "introduction")
         if survey.classification_code:
-            etree.SubElement(
-                node, "classification-code"
-            ).text = survey.classification_code
+            etree.SubElement(node, "classification-code").text = (
+                survey.classification_code
+            )
         etree.SubElement(node, "language").text = survey.language
         enable_web_training = getattr(survey, "enable_web_training", False)
         if enable_web_training:
@@ -328,9 +328,11 @@ class ExportSurvey(AutoExtensibleForm, form.Form):
                 node,
                 "integrated_action_plan",
                 attrib={
-                    "value": "true"
-                    if getattr(survey, "integrated_action_plan", False)
-                    else "false"
+                    "value": (
+                        "true"
+                        if getattr(survey, "integrated_action_plan", False)
+                        else "false"
+                    )
                 },
             )
             etree.SubElement(

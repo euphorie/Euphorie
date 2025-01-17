@@ -178,7 +178,7 @@
                     >${python: webhelpers.getTranslatedCountryName(country.getId())}</a>
 
                     <a class="tag pat-inject"
-                       href="${here/absolute_url}/${view/__name__}?Language=${tool_lang}&country="
+                       href="${here/absolute_url}/${view/__name__}?Language=${tool_lang}&amp;country="
                        data-pat-inject="history: record; source: #application-content; target: #application-content &amp;&amp; source: #assessments-toolbar-view-options; target: #assessments-toolbar-view-options"
                        tal:define="
                          tool_lang python: tool.Language().split('-')[0];

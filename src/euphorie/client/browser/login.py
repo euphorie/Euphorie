@@ -5,6 +5,7 @@ Login
 Register new users, login/logout, create a "Guest user" account and convert
 existing guest accounts to normal accounts.
 """
+
 from ..country import IClientCountry
 from ..utils import setLanguage
 from .conditions import approvedTermsAndConditions
