@@ -162,9 +162,9 @@ class SectorBrowserTests(EuphorieFunctionalTestCase):
         browser.getControl(name="form.widgets.title").value = "New sector"
         browser.getControl(name="form.widgets.login").value = "sector"
         browser.getControl(name="form.widgets.password").value = "S3cr3t!"
-        browser.getControl(
-            name="form.widgets.password.confirm"
-        ).value = "anotherS3cr3t!"
+        browser.getControl(name="form.widgets.password.confirm").value = (
+            "anotherS3cr3t!"
+        )
         browser.getControl(name="form.widgets.contact_name").value = "Max Mustermann"
         browser.getControl(name="form.widgets.contact_email").value = "max@example.com"
         browser.getControl(name="form.buttons.save").click()

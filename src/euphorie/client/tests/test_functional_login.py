@@ -286,12 +286,12 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
             self.portal.client.nl.absolute_url() + "/passwordreset/foo",
         ):
             browser.open(url)
-            browser.getControl(
-                name="form.widgets.new_password"
-            ).value = "Secret123Secret"
-            browser.getControl(
-                name="form.widgets.new_password_confirmation"
-            ).value = "Secret123Secret"
+            browser.getControl(name="form.widgets.new_password").value = (
+                "Secret123Secret"
+            )
+            browser.getControl(name="form.widgets.new_password_confirmation").value = (
+                "Secret123Secret"
+            )
             browser.getControl(label="Save changes").click()
             self.assertIn("Invalid security token", browser.contents)
 
@@ -322,9 +322,9 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
         reset_url = re.search("http.*passwordreset/\\S*", mail_text).group(0)
         browser.open(reset_url)
         browser.getControl(name="form.widgets.new_password").value = "Test12345678"
-        browser.getControl(
-            name="form.widgets.new_password_confirmation"
-        ).value = "Test12345678"
+        browser.getControl(name="form.widgets.new_password_confirmation").value = (
+            "Test12345678"
+        )
         browser.getControl(name="form.buttons.save").click()
 
         self.assertIn("success", browser.contents)
@@ -335,9 +335,9 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
 
         # You're free to fill in the form but it won't work
         browser.getControl(name="form.widgets.new_password").value = "Test12345670"
-        browser.getControl(
-            name="form.widgets.new_password_confirmation"
-        ).value = "Test12345670"
+        browser.getControl(name="form.widgets.new_password_confirmation").value = (
+            "Test12345670"
+        )
         browser.getControl(name="form.buttons.save").click()
 
         self.assertNotIn("success", browser.contents)
@@ -380,9 +380,9 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
 
         # You're free to fill in the form but it won't work
         browser.getControl(name="form.widgets.new_password").value = "Test12345678"
-        browser.getControl(
-            name="form.widgets.new_password_confirmation"
-        ).value = "Test12345678"
+        browser.getControl(name="form.widgets.new_password_confirmation").value = (
+            "Test12345678"
+        )
         browser.getControl(name="form.buttons.save").click()
 
         self.assertNotIn("success", browser.contents)
@@ -424,9 +424,9 @@ class ResetPasswordTests(EuphorieFunctionalTestCase):
         # You're free to fill in the form but it won't work
 
         browser.getControl(name="form.widgets.new_password").value = "Test12345678"
-        browser.getControl(
-            name="form.widgets.new_password_confirmation"
-        ).value = "Test12345678"
+        browser.getControl(name="form.widgets.new_password_confirmation").value = (
+            "Test12345678"
+        )
         browser.getControl(name="form.buttons.save").click()
 
         self.assertNotIn("success", browser.contents)

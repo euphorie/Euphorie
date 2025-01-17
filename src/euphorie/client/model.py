@@ -6,6 +6,7 @@ Mainly: the connection between the ZODB-based content of the backend and the
 SQL-based individual session content of the client users.
 Also: PAS-based user account for users of the client
 """
+
 from AccessControl.interfaces import IUser
 from AccessControl.PermissionRole import _what_not_even_god_should_do
 from AccessControl.SecurityInfo import ClassSecurityInfo

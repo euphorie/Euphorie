@@ -5,6 +5,7 @@ Profile
 Various classes and methods to enable the selection screen for profile
 questions.
 """
+
 from euphorie.client import model
 from euphorie.client.utils import HasText
 from euphorie.content.interfaces import ICustomRisksModule

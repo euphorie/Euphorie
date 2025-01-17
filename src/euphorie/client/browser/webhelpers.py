@@ -625,9 +625,11 @@ class WebHelpers(BrowserView):
     def css_url(self):
         return "{}/{}?t={}".format(
             self.client_url,
-            self.css_path.format(brand=self.brand)
-            if not self.debug_mode
-            else self.css_path_min.format(brand=self.brand),
+            (
+                self.css_path.format(brand=self.brand)
+                if not self.debug_mode
+                else self.css_path_min.format(brand=self.brand)
+            ),
             self.resources_timestamp,
         )
 

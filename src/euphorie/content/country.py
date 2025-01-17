@@ -7,6 +7,7 @@ accounts.
 
 https://admin.oiraproject.eu/sectors/eu
 """
+
 from .. import MessageFactory as _
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.autoform import directives

@@ -2,6 +2,7 @@
 Survey views
 ------------
 """
+
 from Acquisition import aq_chain
 from Acquisition import aq_inner
 from euphorie.client import model

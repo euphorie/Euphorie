@@ -7,6 +7,7 @@ whether or not a Module should be enabled, or whether it should be repeated.
 
 portal_type: euphorie.profilequestion
 """
+
 from .. import MessageFactory as _
 from .behaviour.richdescription import IRichDescription
 from .behaviour.uniqueid import get_next_id

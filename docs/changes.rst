@@ -1,8 +1,11 @@
 Changelog
 =========
 
-16.2.8 (unreleased)
+17.0.0 (unreleased)
 -------------------
+
+- Support only Plone 6 and Python 3.11 and 3.12
+  [ale-rt]
 
 - Update Patternslib to 9.10.1-alpha.2.
   Ref: scrum-2726.

@@ -33,6 +33,8 @@ at any point in time.
 Compatibility
 =============
 
+Euphorie 17 is meant to be used with `Plone 6` and `Python >= 3.11`.
+
 In Euphorie 15 the "publication feature" was changed in the more generic "locking feature".
 That makes the registry record ``euphorie.use_publication_feature`` obsolete.
 
