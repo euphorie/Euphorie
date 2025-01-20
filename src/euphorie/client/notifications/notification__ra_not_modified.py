@@ -8,6 +8,7 @@ from euphorie.client.notifications.base import BaseNotification
 from euphorie.client.notifications.base import BaseNotificationEmail
 from logging import getLogger
 from plone import api
+from plone.memoize.view import memoize
 from sqlalchemy import sql
 from z3c.saconfig import Session
 from zope.interface import implementer
@@ -67,6 +68,11 @@ class Notification(BaseNotification):
     available = False  # This feature is not yet available
 
     @property
+    @memoize
+    def webhelpers(self):
+        return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
     def description(self):
         return _(
             "notification_description__ra_not_modified",
@@ -111,13 +117,14 @@ class Notification(BaseNotification):
 
         today = datetime.date.today()
 
-        query = (
-            Session.query(SurveySession)
-            .filter(SurveySession.get_archived_filter())
-            .filter(
-                SurveySession.modified
-                <= (today - datetime.timedelta(days=self.reminder_days))
-            )
+        base_query = self.webhelpers.get_sessions_query(
+            context=self.context,
+            include_archived=False,
+            filter_by_account=False,
+        )
+        query = base_query.filter(
+            SurveySession.modified
+            <= (today - datetime.timedelta(days=self.reminder_days))
         )
 
         # TODO filter for already sent notifications

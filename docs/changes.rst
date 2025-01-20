@@ -8,6 +8,10 @@ Changelog
   (`#3038 <https://github.com/syslabcom/scrum/issues/3038>`_)
   [reinhardt]
 
+- Don't try to send notifications for sessions of depublished tools.
+  (`#3024 <https://github.com/syslabcom/scrum/issues/3024>`_)
+  [reinhardt]
+
 
 16.2.7 (2025-01-15)
 -------------------
