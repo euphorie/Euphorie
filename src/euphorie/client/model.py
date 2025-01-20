@@ -903,6 +903,12 @@ class SurveySession(BaseObject):
                 if item.zodb_path.find("custom-risks") >= 0:
                     continue
                 zodb_item = survey.restrictedTraverse(item.zodb_path.split("/"), None)
+                # Don't update session-specific instances of profilequestions
+                if (
+                    zodb_item.portal_type == "euphorie.profilequestion"
+                    and item.profile_index > -1
+                ):
+                    continue
                 if zodb_item and zodb_item.title != item.title:
                     item.title = zodb_item.title
         self.refreshed = datetime.datetime.now()
