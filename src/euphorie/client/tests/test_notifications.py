@@ -113,6 +113,16 @@ class NotificationsSendingTests(EuphorieIntegrationTestCase):
         )
         survey_session.modified = datetime.datetime.now() - datetime.timedelta(days=366)
         Session.add(survey_session)
+        survey_session2 = SurveySession(
+            id=2,
+            title="Depublished",
+            zodb_path="nl/ict/depublished",
+            account=self.account,
+        )
+        survey_session2.modified = datetime.datetime.now() - datetime.timedelta(
+            days=366
+        )
+        Session.add(survey_session2)
         api.portal.set_registry_record("euphorie.notifications__enabled", True)
 
     def test_send_notification(self):
