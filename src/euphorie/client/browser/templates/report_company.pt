@@ -149,7 +149,9 @@
                          type="radio"
                          value="trade-union"
                   />
-                  <tal:span i18n:translate="referer_trade_union">a trade union organisation</tal:span></label>
+                  <tal:span tal:condition="python: webhelpers.country != 'fr'"
+                            i18n:translate="referer_trade_union"
+                  >a trade union organisation</tal:span><tal:span tal:condition="python: webhelpers.country == 'fr'">votre CARSAT, CRAMIF, CGSS</tal:span></label>
                 <label><input checked="${python:'checked' if 'national-public-institution' in value in value else None}"
                          name="${widget/name}"
                          type="radio"
@@ -169,7 +171,9 @@
                          type="radio"
                          value="health-safety-experts"
                   />
-                  <tal:span i18n:translate="referer_health_safety_expert">health and safety experts</tal:span></label>
+                  <tal:span tal:condition="python: webhelpers.country != 'fr'"
+                            i18n:translate="referer_health_safety_expert"
+                  >health and safety experts</tal:span><tal:span tal:condition="python: webhelpers.country == 'fr'">votre service de sant&eacute; au travail, autres experts en sant&eacute; et s&eacute;curit&eacute;</tal:span></label>
                 <label><input checked="${python:'checked' if 'other' in value else None}"
                          name="${widget/name}"
                          type="radio"
