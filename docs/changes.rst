@@ -15,6 +15,10 @@ Changelog
   (`#3024 <https://github.com/syslabcom/scrum/issues/3024>`_)
   [reinhardt]
 
+- Custom labels in company survey for France
+  (`#2375 <https://github.com/syslabcom/scrum/issues/2375>`_)
+  [reinhardt]
+
 
 16.2.7 (2025-01-15)
 -------------------
