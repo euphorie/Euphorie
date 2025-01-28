@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="nl">
+	lang="en">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -925,7 +925,7 @@
                     data-pat-tooltip="source: ajax; position-list: tr; trigger: click; source: ajax">Unlocked 
                     <!-- <time 
                             class="pat-display-time" 
-                        data-pat-display-time="from-now: true; locale: nl" 
+                        data-pat-display-time="from-now: true; locale: en" 
                         datetime="2018-03-28T08:00Z">2018-03-28</time> -->
                 </a>
             
@@ -1178,22 +1178,24 @@ vehicles, sliding doors, …).</p>
         
         <div 
             class="pat-rich-editor pat-rich toolbar-detached">
-            <textarea
-  name=""
-  
-  class="pat-tiptap "
-  placeholder="These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
-  data-pat-tiptap="
-    toolbar-external: #assessment-toolbar;
-    source-panel: #pat-modal.panel-html-source-editor;
-    image-panel: #pat-modal.image-picker;
-    embed-panel: ;
-    link-panel: #pat-modal.panel-hyperlink;
-    image-menu: ;
-    link-menu: /feedback/hyperlink-menu#document-content;
-    mentions-menu: /feedback/panel-mentions-tiptap#document-content;
-    tags-menu: /feedback/panel-tags-tiptap#document-content">
+            <!-- <rich-editor> -->
+  <textarea
+    name=""
+    
+    class="pat-tiptap "
+    placeholder="These notes will be visible in the report and the training. Use it for anything else you might want to write about this risk."
+    data-pat-tiptap="
+      toolbar-external: #assessment-toolbar;
+      source-panel: #pat-modal.panel-html-source-editor;
+      image-panel: #pat-modal.image-picker;
+      embed-panel: ;
+      link-panel: #pat-modal.panel-hyperlink;
+      image-menu: ;
+      link-menu: /feedback/hyperlink-menu#document-content;
+      mentions-menu: /feedback/panel-mentions-tiptap#document-content;
+      tags-menu: /feedback/panel-tags-tiptap#document-content">
 </textarea>
+<!-- </rich-editor> -->
             </div>
     </fieldset>
 </fieldset>
@@ -1331,7 +1333,7 @@ vehicles, sliding doors, …).</p>
             class="text" 
             id="mirror-my-comments"
             ><em 
-                class="placeholder">Reageer</em
+                class="placeholder">Leave a comment</em
         ></span
         ><em 
             class="selected-users" 
@@ -1340,7 +1342,7 @@ vehicles, sliding doors, …).</p>
             class="selected-tags" 
             id="selected-tags"></em></p>
     <textarea 
-        placeholder="Reageer" 
+        placeholder="Leave a comment" 
         class="pat-content-mirror pat-switch " 
         data-pat-content-mirror="target: #mirror-my-comments" 
         data-pat-switch="#my-comments status-inactive status-active"></textarea>
@@ -1385,11 +1387,11 @@ vehicles, sliding doors, …).</p>
         <button 
             class="default pat-button pat-switch close-panel" 
             data-pat-switch="selector: #my-comments; remove: status-* ; add: status-inactive && selector: #my-comments-reply-button; remove: executed" 
-            type="submit">Posten</button>
+            type="submit">Post</button>
         <button 
             class="pat-button pat-switch close-panel" 
             data-pat-switch="selector: #my-comments; remove: status-*; add: status-inactive && selector: #my-comments-reply-button; remove: executed" 
-            type="reset">Annuleren</button>
+            type="reset">Cancel</button>
 
         
 

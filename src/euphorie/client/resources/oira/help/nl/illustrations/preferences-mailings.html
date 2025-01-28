@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="nl">
+	lang="en">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -160,16 +160,34 @@
 
 
 	
+		<!-- <pat-form root="" source="personal-settings-form"> -->
 		<fieldset 
-			class="form-panel pat-collapsible true section horizontal "
-			data-pat-collapsible="store: local; self; scroll-offset: 100px"
+			class="
+				
+					pat-collapsible 
+					true
+				 
+					section 
+				
+					horizontal
+				 
+				"
+			data-pat-collapsible="
+				store: local; 
+				scroll-selector: self; 
+				
+					scroll-offset: 100px
+				"
 			id="-first-collapsible">
 	
-		
-		
-			
+		<!-- <pat-form root="" source="personal-settings-form"> -->
+			<!-- <slot name="fields"> -->
 				
+				
+					
+						
 	
+			<slot name="fields">
 	<h3 
 		class="
 			 
@@ -179,76 +197,119 @@
 	</h3>	
 	
 	
-	
-			
-				<fieldset
-    
-    class="
+
+					
+						<!-- <pat-form-field-checklist> -->
+    <fieldset 
         
-        group
-        ">
-        
+        class="
+            pat-checklist
+            
+            
+            " 
+        >
             <legend>Systeemtaal</legend>
-        
-        <div 
-            class="pat-checklist radio">
-            
-                <label>
-                    Automatisch (Gebaseerd op de browsertaal)
-                    <input
-                        name="automatic-language" 
-                        type="checkbox">
-                </label>
-            
-                <label>
-                    Deutsch
-                    <input
-                        name="patterns-german-native" 
-                        type="checkbox">
-                </label>
-            
-                <label>
-                    English
-                    <input
-                        name="patterns-english-native" 
-                        type="checkbox">
-                </label>
-            
-                <label>
-                    Français
-                    <input
-                        name="patterns-french-native" 
-                        type="checkbox">
-                </label>
-            
-                <label>
-                    Nederlands
-                    <input
-                        name="patterns-dutch-native" 
-                        type="checkbox">
-                </label>
-            
-        </div>
-</fieldset>
-	
-			
-				<label 
+            <div 
+                class="pat-checklist">
+                
+                    <label>Automatisch (Gebaseerd op de browsertaal)
+                        <input
+                            
+                                
+                                    value="automatic-language" 
+                                
+                            
+                            
+                                checked
+                            
+                            
+                            tabindex="0"
+                            name="patterns-label-system-language" 
+                            type="radio">
+                    </label>
+                
+                    <label>Deutsch
+                        <input
+                            
+                                
+                                    value="patterns-german-native" 
+                                
+                            
+                            
+                            
+                            tabindex="0"
+                            name="patterns-label-system-language" 
+                            type="radio">
+                    </label>
+                
+                    <label>English
+                        <input
+                            
+                                
+                                    value="patterns-english-native" 
+                                
+                            
+                            
+                            
+                            tabindex="0"
+                            name="patterns-label-system-language" 
+                            type="radio">
+                    </label>
+                
+                    <label>Français
+                        <input
+                            
+                                
+                                    value="patterns-french-native" 
+                                
+                            
+                            
+                            
+                            tabindex="0"
+                            name="patterns-label-system-language" 
+                            type="radio">
+                    </label>
+                
+                    <label>Nederlands
+                        <input
+                            
+                                
+                                    value="patterns-dutch-native" 
+                                
+                            
+                            
+                            
+                            tabindex="0"
+                            name="patterns-label-system-language" 
+                            type="radio">
+                    </label>
+                
+            </div>
+    </fieldset>
+<!-- </pat-form-field-checklist> -->
+
+					
+						<!-- <pat-form-field-select> -->
+	<label 
 		
 		class="
+			pat-select
 			
 			
-	       	
-	       	
-	       	"
+			
+			
+			"
 		
-	    
+		
 		>
-		Voorkeurstaal voor inhoud 
+		Voorkeurstaal voor inhoud
 		<select 
 			name="">
 			
 				<option 
-					value="" 
+					
+						value="based-on-system-language" 
+					
 					selected 
 					class="" 
 					> 
@@ -258,7 +319,9 @@
 				</option>
 			
 				<option 
-					value="" 
+					
+						value="patterns-german-native" 
+					
 					 
 					class="" 
 					> 
@@ -268,7 +331,9 @@
 				</option>
 			
 				<option 
-					value="" 
+					
+						value="patterns-english-native" 
+					
 					 
 					class="" 
 					> 
@@ -278,7 +343,9 @@
 				</option>
 			
 				<option 
-					value="" 
+					
+						value="patterns-dutch-native" 
+					
 					 
 					class="" 
 					> 
@@ -292,24 +359,29 @@
 		
 		
 	</label>
+<!-- </pat-form-field-select> -->
+
+					
+						
 	
-			
-				
-	
+		<!-- </slot> -->
 		</fieldset>
+		<!-- </form-panel> -->
+		<!-- <form-panel> -->
 		<fieldset 
 			class="
 				form-panel 
-				pat-collapsible closed 
+				 
 				section 
-				horizontal 
+				vertical 
 				"
 			data-pat-collapsible="
 				store: local; 
 				scroll-selector: self; 
-				scroll-offset: 100px"
+				"
 			id="patterns-label-personal-details">
 	
+			<slot name="fields">
 	<h3 
 		class="
 			 
@@ -319,78 +391,90 @@
 	</h3>	
 	
 	
-	
-			
-				<label 
-    
-    class="
+
+					
+						<!-- <pat-form-field-text> -->
+    <label 
+        
+        class="
+            
+            
+            " 
+        >
+        Voornaam
+        <input 
+            tabindex="0"
+ 
+  
+size=""
+ 
+
+name="" 
+value="Yvette" 
+
+class=""
+            type="text"
+            /> 
         
         
-        " 
-    >
-    Voornaam 
-    <input 
-         
-          
-        size=""
         
-        class=""
-         
-        type="text"
-        name="" 
-        value="" 
-        /> 
-    
-    
-    
-</label>
-	
-			
-				<label 
-    
-    class="
+    </label>
+<!-- </pat-form-field-text> -->
+
+					
+						<!-- <pat-form-field-text> -->
+    <label 
+        
+        class="
+            
+            
+            " 
+        >
+        Achternaam
+        <input 
+            tabindex="0"
+ 
+  
+size=""
+ 
+
+name="" 
+value="Lefèvre" 
+
+class=""
+            type="text"
+            /> 
         
         
-        " 
-    >
-    Achternaam 
-    <input 
-         
-          
-        size=""
         
-        class=""
-         
-        type="text"
-        name="" 
-        value="" 
-        /> 
-    
-    
-    
 	<em class="pat-message info">
 		Het invullen van uw namen zorgt voor een meer gepersonaliseerde gebruikerservaring voor u en uw collega's. Uw naam verschijnt in geautomatiseerde e-mails en op verschillende schermen in de applicatie.
 	</em>	
 
-</label>
+    </label>
+<!-- </pat-form-field-text> -->
+
+					
+						
 	
-			
-				
-	
+		<!-- </slot> -->
 		</fieldset>
+		<!-- </form-panel> -->
+		<!-- <form-panel> -->
 		<fieldset 
 			class="
 				form-panel 
-				pat-collapsible closed 
+				 
 				section 
-				horizontal 
+				vertical 
 				"
 			data-pat-collapsible="
 				store: local; 
 				scroll-selector: self; 
-				scroll-offset: 100px"
+				"
 			id="label-mailings">
 	
+			<slot name="fields">
 	<h3 
 		class="
 			 
@@ -400,76 +484,102 @@
 	</h3>	
 	
 	
-	
-			
-				<fieldset
-    
-    class="
+
+					
+						<!-- <pat-form-field-checklist> -->
+    <fieldset 
         
-        group
-        ">
-        
+        class="
+            pat-checklist
+            
+            
+            " 
+        >
             <legend>Abonnementen</legend>
-        
-        <div 
-            class="pat-checklist checkbox">
-            
-                <label>
-                    
-                    <input
-                        name="functional-e-mails" 
-                        type="checkbox">
-                </label>
-            
-                <label>
-                    
-                    <input
-                        name="general-oira-news" 
-                        type="checkbox">
-                </label>
-            
-                <label>
-                    
-                    <input
-                        name="news-for-my-country" 
-                        type="checkbox">
-                </label>
-            
-                <label>
-                    
-                    <input
-                        name="news-for-my-sector" 
-                        type="checkbox">
-                </label>
-            
-                <label>
-                    
-                    <input
-                        name="private-security" 
-                        type="checkbox">
-                </label>
-            
-                <label>
-                    
-                    <input
-                        name="wood-works" 
-                        type="checkbox">
-                </label>
-            
-                <label>
-                    
-                    <input
-                        name="metal-works" 
-                        type="checkbox">
-                </label>
-            
-        </div>
-</fieldset>
-	
-			
-		
+            <div 
+                class="pat-checklist">
+                
+                    <label>
+                        <input
+                            
+                            
+                            
+                            tabindex="0"
+                            name="functional-e-mails" 
+                            type="checkbox">
+                    </label>
+                
+                    <label>
+                        <input
+                            
+                            
+                            
+                            tabindex="0"
+                            name="general-oira-news" 
+                            type="checkbox">
+                    </label>
+                
+                    <label>
+                        <input
+                            
+                            
+                            
+                            tabindex="0"
+                            name="news-for-my-country" 
+                            type="checkbox">
+                    </label>
+                
+                    <label>
+                        <input
+                            
+                            
+                            
+                            tabindex="0"
+                            name="news-for-my-sector" 
+                            type="checkbox">
+                    </label>
+                
+                    <label>
+                        <input
+                            
+                            
+                            
+                            tabindex="0"
+                            name="private-security" 
+                            type="checkbox">
+                    </label>
+                
+                    <label>
+                        <input
+                            
+                            
+                            
+                            tabindex="0"
+                            name="wood-works" 
+                            type="checkbox">
+                    </label>
+                
+                    <label>
+                        <input
+                            
+                            
+                            
+                            tabindex="0"
+                            name="metal-works" 
+                            type="checkbox">
+                    </label>
+                
+            </div>
+    </fieldset>
+<!-- </pat-form-field-checklist> -->
+
+					
+				
+				<!-- </slot> -->
+		<!-- </pat-form> -->
 	
 		</fieldset>
+		<!-- </pat-form> -->
 	
 
 	</div>
@@ -576,7 +686,7 @@
             <select 
                 name="search-rule.data-field:records">
                 <option 
-                    value="SearchableText">Any text field</option>
+                    value="SearchableText"></option>
                 <optgroup 
                     label="Metadata">
                     <option value="Title">Title</option>
@@ -601,9 +711,9 @@
                 class="pat-select">
                 <select 
                     name="search-rule.lemma-operator:records">
-                <option value="contains">Contains</option>
-                <option value="contains-not">Does not contain</option>
-                <option value="equals">Equals</option>
+                <option value="contains"></option>
+                <option value="contains-not"></option>
+                <option value="equals"></option>
                 </select>
             </label>
             <input 
@@ -686,7 +796,7 @@
         class="pat-button default icon-search">Zoek</button>
     <button 
         type="button" 
-        class="pat-button add-clone add-clone-rule icon-plus-circle">Add another search rule</button>
+        class="pat-button add-clone add-clone-rule icon-plus-circle"></button>
 
     <a 
         href="../../nl/illustrations/preferences-mailings#listing" 
@@ -707,9 +817,9 @@
         <select 
             name="search-rule.and-or:records">
             <option 
-                value="and">And…</option>
+                value="and"></option>
             <option 
-                value="or">Or…</option>
+                value="or"></option>
         </select>
     </label>
     <label 
@@ -717,7 +827,7 @@
         <select 
             name="search-rule.data-field:records">
             <option 
-                value="SearchableText">Any text field</option>
+                value="SearchableText"></option>
             <optgroup 
                 label="Metadata">
                 <option value="Title">Title</option>
@@ -739,9 +849,9 @@
             class="pat-select">
             <select 
                 name="search-rule.lemma-operator:records">
-                <option value="contains">Contains</option>
-                <option value="contains-not">Does not contain</option>
-                <option value="equals">Equals</option>
+                <option value="contains"></option>
+                <option value="contains-not"></option>
+                <option value="equals"></option>
             </select>
         </label>
         <input 

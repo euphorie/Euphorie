@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
 	class="no-js"
-	lang="nl">
+	lang="en">
 	<head>
 		<meta
 			http-equiv="Content-Type"
@@ -416,32 +416,52 @@
 </article>
 
 		
-<div class="pat-modal-pop-over pat-collapsible closed pat-depends"
+<div 
+    class="
+        pat-modal-pop-over 
+        pat-collapsible 
+        closed pat-depends"
      id="measures-panel"
-     data-pat-collapsible="open-trigger: #add-standard-measures; close-trigger: #close-standard-measures"
-     data-pat-depends="condition: not (sm-1 and sm-2 and sm-3 and sm-4)">
-    <h2 class="title">
+     data-pat-collapsible="
+        open-trigger: #add-standard-measures; 
+        close-trigger: #close-standard-measures"
+     data-pat-depends="
+        condition: not (sm-1 and sm-2 and sm-3 and sm-4)">
+    <h2 
+        class="title">
         Ehdotetut toimenpiteet
     </h2>
-    <section class="pat-rich description">
+    <section 
+        class="pat-rich description">
         <p>
             Valitse yksi tai useampi tunnetuista yleisistä toimenpiteistä.
         </p>
     </section>
-    <div class="pat-checklist pat-pick-list free-form">
+    <div 
+        class="
+            pat-checklist 
+            pat-pick-list 
+            free-form">
         
         
-            <label class="item">
-                <input type="checkbox" id="sm-1" name="sm-1" />
-                <span class="text">Visual inspection of work areas.</span>
-                <span class="functions"><em class="small pat-button icon-plus-circle">Lisää</em></span>
+            <label 
+                class="item">
+                <input 
+                    type="checkbox" 
+                    id="sm-1" 
+                    name="sm-1" />
+                <span 
+                    class="text">Visual inspection of work areas.</span>
+                <span 
+                    class="functions"><em class="small pat-button icon-plus-circle"></em></span>
             </label>
             
         
     </div>
 </div>
-<button id="close-standard-measures"
-        type="button">Close panel</button>
+<button 
+    id="close-standard-measures"
+    type="button">Close panel</button>
 
 
 <div 
@@ -482,14 +502,19 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
     
     
         <div 
-            class="measure pat-collapsible closed pat-depends"
+            class="
+                measure 
+                pat-collapsible 
+                closed 
+                pat-depends"
             data-pat-depends="condition: sm-1">
             <h2>
                 Visual inspection of work areas.
             </h2>
             <p 
                 class="functions">
-                <a 
+                <a
+                    tabindex="0" 
                     href="#pick-sm-1"
                     class="icon-trash pat-forward"
                     data-pat-forward="selector: #sm-1"
@@ -567,13 +592,17 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
     
     
         <div 
-            class="measure pat-collapsible open">
+            class="
+                measure 
+                pat-collapsible 
+                open">
             <h2>
                 Lisätoimenpide 1
             </h2>
             <p 
                 class="functions">
                 <a 
+                    tabindex="0" 
                     href="#pick-sm-1"
                     class="icon-trash pat-forward"
                     data-pat-forward="selector: #sm-1"
@@ -588,26 +617,29 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
                         data-pat-tooltip="source: content; position-list: lt">Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk); 3) the level of expertise needed to implement the measure, for instance “common sense (no OSH knowledge required)”, “no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required”, or “OSH expert”. You can also describe here any other additional requirement (if any).</dfn>
                     
                     
-                    <textarea
-  name=""
-  
-  class="pat-tiptap "
-  placeholder="Tähän voit lisätä tietoja tai kommentteja yllä olevaan liittyen. Ne näkyvät myös toimintasuunnitelmassa."
-  data-pat-tiptap="
-    toolbar-external: #assessment-toolbar;
-    source-panel: #pat-modal.panel-html-source-editor;
-    image-panel: #pat-modal.image-picker;
-    embed-panel: ;
-    link-panel: #pat-modal.panel-hyperlink;
-    image-menu: ;
-    link-menu: /feedback/hyperlink-menu#document-content;
-    mentions-menu: /feedback/panel-mentions-tiptap#document-content;
-    tags-menu: /feedback/panel-tags-tiptap#document-content">
+                    <!-- <rich-editor> -->
+  <textarea
+    name=""
+    
+    class="pat-tiptap "
+    placeholder="Tähän voit lisätä tietoja tai kommentteja yllä olevaan liittyen. Ne näkyvät myös toimintasuunnitelmassa."
+    data-pat-tiptap="
+      toolbar-external: #assessment-toolbar;
+      source-panel: #pat-modal.panel-html-source-editor;
+      image-panel: #pat-modal.image-picker;
+      embed-panel: ;
+      link-panel: #pat-modal.panel-hyperlink;
+      image-menu: ;
+      link-menu: /feedback/hyperlink-menu#document-content;
+      mentions-menu: /feedback/panel-mentions-tiptap#document-content;
+      tags-menu: /feedback/panel-tags-tiptap#document-content">
 </textarea>
+<!-- </rich-editor> -->
                 </label>
                 <label>
                     Asiantuntemus
                     <textarea 
+                        tabindex="0" 
                         class="requirements"
                         name="requirements"
                         placeholder="Level of expertise and/or requirements needed"
@@ -696,22 +728,24 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
                 
                 <div 
                     class="pat-rich-editor pat-rich toolbar-detached">
-                    <textarea
-  name=""
-  
-  class="pat-tiptap pat-autofocus"
-  placeholder="Toimenpide riskin poistamiseksi tai pienentämiseksi"
-  data-pat-tiptap="
-    toolbar-external: #assessment-toolbar;
-    source-panel: #pat-modal.panel-html-source-editor;
-    image-panel: #pat-modal.image-picker;
-    embed-panel: ;
-    link-panel: #pat-modal.panel-hyperlink;
-    image-menu: ;
-    link-menu: /feedback/hyperlink-menu#document-content;
-    mentions-menu: /feedback/panel-mentions-tiptap#document-content;
-    tags-menu: /feedback/panel-tags-tiptap#document-content">
+                    <!-- <rich-editor> -->
+  <textarea
+    name=""
+    
+    class="pat-tiptap pat-autofocus"
+    placeholder="Toimenpide riskin poistamiseksi tai pienentämiseksi"
+    data-pat-tiptap="
+      toolbar-external: #assessment-toolbar;
+      source-panel: #pat-modal.panel-html-source-editor;
+      image-panel: #pat-modal.image-picker;
+      embed-panel: ;
+      link-panel: #pat-modal.panel-hyperlink;
+      image-menu: ;
+      link-menu: /feedback/hyperlink-menu#document-content;
+      mentions-menu: /feedback/panel-mentions-tiptap#document-content;
+      tags-menu: /feedback/panel-tags-tiptap#document-content">
 </textarea>
+<!-- </rich-editor> -->
                 </div>
             </fieldset>
             <fieldset
@@ -719,22 +753,27 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
                 <legend>Asiantuntemus</legend>
                 
                 <div 
-                    class="pat-rich-editor pat-rich toolbar-detached">
-                    <textarea
-  name=""
-  
-  class="pat-tiptap "
-  placeholder="Level of expertise and/or requirements needed"
-  data-pat-tiptap="
-    toolbar-external: #assessment-toolbar;
-    source-panel: #pat-modal.panel-html-source-editor;
-    image-panel: #pat-modal.image-picker;
-    embed-panel: ;
-    link-panel: #pat-modal.panel-hyperlink;
-    image-menu: ;
-    link-menu: /feedback/hyperlink-menu#document-content;
-    mentions-menu: /feedback/panel-mentions-tiptap#document-content;
-    tags-menu: /feedback/panel-tags-tiptap#document-content"></textarea>
+                    class="
+                        pat-rich-editor 
+                        pat-rich 
+                        toolbar-detached">
+                    <!-- <rich-editor> -->
+  <textarea
+    name=""
+    
+    class="pat-tiptap "
+    placeholder="Level of expertise and/or requirements needed"
+    data-pat-tiptap="
+      toolbar-external: #assessment-toolbar;
+      source-panel: #pat-modal.panel-html-source-editor;
+      image-panel: #pat-modal.image-picker;
+      embed-panel: ;
+      link-panel: #pat-modal.panel-hyperlink;
+      image-menu: ;
+      link-menu: /feedback/hyperlink-menu#document-content;
+      mentions-menu: /feedback/panel-mentions-tiptap#document-content;
+      tags-menu: /feedback/panel-tags-tiptap#document-content"></textarea>
+<!-- </rich-editor> -->
             </fieldset>
         </fieldset>
 
@@ -794,19 +833,20 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
 <div 
     class="button-bar">
     
+        <button 
+            tabindex="0" 
+            class="pat-button icon-plus pat-depends visible" 
+            data-pat-depends="condition: not (sm-1 and sm-2 and sm-3 and sm-4)" 
+            id="add-standard-measures" 
+            title="Add another measure" 
+            type="button">Valitse toimenpiteet</button>
+    
     <button 
-        class="small pat-button icon-plus-circle pat-depends"
-        data-pat-depends="condition: not (sm-1 and sm-2 and sm-3 and sm-4)"
-        id="add-standard-measures"
-        title="Add another measure"
-        type="button">Valitse toimenpiteet</button>
-  
-    <button 
-        class="add-clone small pat-button icon-plus-circle"
-        id="clone-extra-measure"
-        title="Add another measure"
+        tabindex="0" 
+        class="add-clone pat-button icon-plus" 
+        id="clone-extra-measure" 
+        title="Add another measure" 
         type="button">Lisää muita toimenpiteitä</button>
-    <!-- <a class="small pat-button pat-tooltip icon-up-circle" title="Use an predefined text to pre-fill your measure with." data-pat-tooltip="source: ajax; position-list: bm" href="#standard-solutions">Foo</a> -->
 </div>
 
 		<fieldset 
@@ -969,7 +1009,7 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
             <select 
                 name="search-rule.data-field:records">
                 <option 
-                    value="SearchableText">Any text field</option>
+                    value="SearchableText"></option>
                 <optgroup 
                     label="Metadata">
                     <option value="Title">Title</option>
@@ -994,9 +1034,9 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
                 class="pat-select">
                 <select 
                     name="search-rule.lemma-operator:records">
-                <option value="contains">Contains</option>
-                <option value="contains-not">Does not contain</option>
-                <option value="equals">Equals</option>
+                <option value="contains"></option>
+                <option value="contains-not"></option>
+                <option value="equals"></option>
                 </select>
             </label>
             <input 
@@ -1079,7 +1119,7 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
         class="pat-button default icon-search">Haku</button>
     <button 
         type="button" 
-        class="pat-button add-clone add-clone-rule icon-plus-circle">Add another search rule</button>
+        class="pat-button add-clone add-clone-rule icon-plus-circle"></button>
 
     <a 
         href="../../fi/illustrations/action-plan-action-add-extra-measure#listing" 
@@ -1100,9 +1140,9 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
         <select 
             name="search-rule.and-or:records">
             <option 
-                value="and">And…</option>
+                value="and"></option>
             <option 
-                value="or">Or…</option>
+                value="or"></option>
         </select>
     </label>
     <label 
@@ -1110,7 +1150,7 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
         <select 
             name="search-rule.data-field:records">
             <option 
-                value="SearchableText">Any text field</option>
+                value="SearchableText"></option>
             <optgroup 
                 label="Metadata">
                 <option value="Title">Title</option>
@@ -1132,9 +1172,9 @@ It has roots in a piece of classical Latin literature from 45 BC, making it over
             class="pat-select">
             <select 
                 name="search-rule.lemma-operator:records">
-                <option value="contains">Contains</option>
-                <option value="contains-not">Does not contain</option>
-                <option value="equals">Equals</option>
+                <option value="contains"></option>
+                <option value="contains-not"></option>
+                <option value="equals"></option>
             </select>
         </label>
         <input 
