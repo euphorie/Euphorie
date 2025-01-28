@@ -68,15 +68,15 @@
           >Duplicate</a>
         </li>
         <li>
-          <a href="${here/absolute_url}/@@panel-contents-preview#document-content" 
-             class="pat-modal icon-eye close-panel" 
+          <a class="pat-modal icon-eye close-panel"
+             href="${here/absolute_url}/@@panel-contents-preview#document-content"
              data-pat-modal="class: sheet"
              i18n:translate="label_print_tool_preview"
-          >Preview or print the tool for preparation</a>   
+          >Preview or print the tool for preparation</a>
         </li>
         <li>
-          <a class="pat-inject close-panel icon-cancel" 
-             href="${webhelpers/country_or_client_url}#content" 
+          <a class="pat-inject close-panel icon-cancel"
+             href="${webhelpers/country_or_client_url}#content"
              data-pat-inject="history: record"
              i18n:translate="label_exit"
           >Exit</a>

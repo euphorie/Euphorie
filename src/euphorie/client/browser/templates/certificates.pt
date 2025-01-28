@@ -20,15 +20,20 @@
         </metal:homescreen_navigation>
         <div id="application-content">
           <div class="portlet">
-            <div class="content" tal:define="certificates view/certificates">
+            <div class="content"
+                 tal:define="
+                   certificates view/certificates;
+                 "
+            >
               <tal:cond condition="python: len(certificates) == 0">
                 <p class="pat-message info"
-                  i18n_translate="message_you_dont_have_any_certificates_yet">
-                  You haven’t earned any certificates yet.
+                   i18n_translate="message_you_dont_have_any_certificates_yet"
+                >
+                  You haven&rsquo;t earned any certificates yet.
                 </p>
-                <a class="pat-inject no-label"  
-                   data-pat-inject="history: record; source: #content; target: #content;" 
+                <a class="pat-inject no-label"
                    href="${webhelpers/base_url}/++resource++euphorie.resources/oira/help/${webhelpers/help_language}/pages/certificates.html#content"
+                   data-pat-inject="history: record; source: #content; target: #content;"
                    i18n:translate="message_learn_more_about_certificates"
                 >Learn more about certificates.</a>
               </tal:cond>

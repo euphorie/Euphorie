@@ -118,10 +118,11 @@
           <div class="portlet">
             <div class="content">
               <metal:assessments_list metal:define-macro="assessments_list">
-              <p tal:condition="not: sessions"
-                   class="pat-message info"
-                   i18n_translate="message_you_dont_have_any_risk_assessments_yet">
-                   You don’t have any risk assessments yet. Start by creating a new one.
+                <p class="pat-message info"
+                   i18n_translate="message_you_dont_have_any_risk_assessments_yet"
+                   tal:condition="not: sessions"
+                >
+                   You don&rsquo;t have any risk assessments yet. Start by creating a new one.
                 </p>
                 <ul class="data-matrix ${python:'hd' if show_extra_fields else None}"
                     tal:define="
