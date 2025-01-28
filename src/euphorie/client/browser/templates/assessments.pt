@@ -118,12 +118,18 @@
           <div class="portlet">
             <div class="content">
               <metal:assessments_list metal:define-macro="assessments_list">
+                <p tal:condition="not:sessions/count"
+                   class="pat-message info"
+                   i18n_translate="message_you_dont_have_any_risk_assessments_yet">
+                   You don’t have any risk assessments yet. Start by creating a new one.
+                </p>
                 <ul class="data-matrix ${python:'hd' if show_extra_fields else None}"
                     tal:define="
                       show_extra_fields show_extra_fields|python:False;
                       toLocalizedTime nocall: context/@@plone/toLocalizedTime;
                       get_archived_label nocall:view/get_archived_label|nocall:here/@@assessments/get_archived_label;
                     "
+                    tal:condition="sessions/count"
                 >
                   <li class="row ${python:'archived' if session.is_archived else None}"
                       title="${python: get_archived_label(session)}"
