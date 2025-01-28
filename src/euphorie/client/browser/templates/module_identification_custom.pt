@@ -56,7 +56,7 @@
           <tal:question tal:replace="structure module/question">question</tal:question>
         </article>
 
-        <p class="buttonBar"
+        <p class="button-bar"
            id="nav-bar"
         >
           <a class="pat-button back"
