@@ -91,7 +91,7 @@
         </metal:homescreen_navigation>
         <div id="application-content"
              tal:define="
-               sessions view/sessions;
+               sessions python:view.sessions.all();
                show_extra_fields python:True;
              "
         >
@@ -118,7 +118,7 @@
           <div class="portlet">
             <div class="content">
               <metal:assessments_list metal:define-macro="assessments_list">
-                <p tal:condition="not:sessions/count"
+              <p tal:condition="not: sessions"
                    class="pat-message info"
                    i18n_translate="message_you_dont_have_any_risk_assessments_yet">
                    You don’t have any risk assessments yet. Start by creating a new one.
@@ -129,7 +129,7 @@
                       toLocalizedTime nocall: context/@@plone/toLocalizedTime;
                       get_archived_label nocall:view/get_archived_label|nocall:here/@@assessments/get_archived_label;
                     "
-                    tal:condition="sessions/count"
+                    tal:condition="sessions"
                 >
                   <li class="row ${python:'archived' if session.is_archived else None}"
                       title="${python: get_archived_label(session)}"
