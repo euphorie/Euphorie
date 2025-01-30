@@ -59,6 +59,7 @@ setup(
         "plone.formwidget.namedfile",
         "plone.memoize",
         "plone.namedfile",
+        "plone.patternslib",
         "plone.uuid",
         "Products.membrane >=4.999999",
         "py-bcrypt",

@@ -12,6 +12,7 @@
       initialize=".initialize"
       />
 
+  <include package="plone.patternslib" />
   <include package="euphorie.content" />
   <include
       package="."

@@ -4,6 +4,11 @@ Changelog
 17.0.0 (unreleased)
 -------------------
 
+- Use plone.patternslib in the client and remove the Patternslib resources from
+  Euphorie.
+  (`#2990 <https://github.com/syslabcom/scrum/issues/2990>`_)
+  [thet]
+
 - Support only Plone 6 and Python 3.11 and 3.12
   [ale-rt]
 
