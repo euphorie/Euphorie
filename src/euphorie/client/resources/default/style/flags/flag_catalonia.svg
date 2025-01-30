@@ -1,0 +1,7 @@
+<svg width="750" xmlns="http://www.w3.org/2000/svg" height="500" viewBox="0 0 675 450" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path fill="#fcdd09" d="m0,0h675v450h-675z"/>
+<path stroke="#da121a" id="red_stroke" stroke-width="50" d="m-0,77.7778h675"/>
+<use width="675" height="450" stroke="#da121a" xlink:href="#red_stroke" transform="translate(0 94.44444)"/>
+<use width="675" height="450" stroke="#da121a" xlink:href="#red_stroke" transform="translate(0 194.44444)"/>
+<use width="675" height="450" stroke="#da121a" xlink:href="#red_stroke" transform="translate(0 294.44444)"/>
+</svg>
