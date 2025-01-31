@@ -98,7 +98,7 @@
                   <h2 i18n:translate="">How to use this tool</h2>
 
                   <a class="pat-inject"
-                     href="${webhelpers/client_url}/++resource++euphorie.resources/oira/help/${webhelpers/help_language}/pages/3-carrying-out-a-risk-assessment.html"
+                     href="${webhelpers/client_url}/++resource++euphorie.resources/assets/oira/help/${webhelpers/help_language}/pages/3-carrying-out-a-risk-assessment.html"
                      data-pat-inject="source: #help-text-body; target: self::element; trigger: autoload"
                   >Load help text&hellip;</a>
 

@@ -90,19 +90,21 @@ class WebHelpers(BrowserView):
     View name: @@webhelpers
     """
 
-    certificates_path = "++resource++euphorie.resources/oira/certificates"
+    certificates_path = "++resource++euphorie.resources/assets/oira/certificates"
     media_path = "++resource++euphorie.resources/media"
-    style_path = "++resource++euphorie.resources/oira/style"
+    style_path = "++resource++euphorie.resources/assets/oira/style"
     script_path = "++plone++patternslib/js"
 
     brand = "oira"
 
-    css_path = "++resource++euphorie.resources/{brand}/style/all.css"
-    css_path_min = "++resource++euphorie.resources/{brand}/style/all.css"
+    css_path = "++resource++euphorie.resources/assets/{brand}/style/all.css"
+    css_path_min = "++resource++euphorie.resources/assets/{brand}/style/all.css"
 
     js_name = "bundle.min.js"
 
-    favicon_path = "++resource++euphorie.resources/{brand}/favicon/apple-touch-icon.png"
+    favicon_path = (
+        "++resource++euphorie.resources/assets/{brand}/favicon/apple-touch-icon.png"
+    )
 
     group_model = Group
     hide_organisation_tab = False
@@ -469,7 +471,10 @@ class WebHelpers(BrowserView):
     @forever.memoize
     def available_help_languages(self):
         exclude = {"illustrations"}
-        return set(resource_listdir("euphorie.client", "resources/oira/help")) - exclude
+        return (
+            set(resource_listdir("plonestatic.euphorie", "resources/assets/oira/help"))
+            - exclude
+        )
 
     @property
     @memoize

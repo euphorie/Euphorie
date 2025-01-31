@@ -21,7 +21,7 @@
     <metal:content fill-slot="content"
                    tal:define="
                      can_edit python:tools.checkPermission('Modify portal content');
-                     media_url string:++resource++euphorie.resources/oira/style;
+                     media_url string:++resource++euphorie.resources/assets/oira/style;
                      integrated_action_plan python:getattr(context, 'integrated_action_plan', False);
                    "
     >
