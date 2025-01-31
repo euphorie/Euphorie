@@ -159,7 +159,7 @@ TOOL_TYPES = OrderedDict(
                 ),
                 "answer_no_integrated_ap": _(
                     "label_not_sufficient_integrated_ap",
-                    default="No, more measures are required <strong>(to be added below)</strong>",  # noqa: E501
+                    default="No, more measures are required (to be added below)",  # noqa: E501
                 ),
                 "answer_na": _("label_not_applicable", default="Not applicable"),
                 "custom_intro_extra": _(

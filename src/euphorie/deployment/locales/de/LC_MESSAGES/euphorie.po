@@ -4826,8 +4826,7 @@ msgstr "Nein, weitere Maßnahmen sind notwendig"
 #: euphorie/content/utils.py:160
 msgid "label_not_sufficient_integrated_ap"
 msgstr ""
-"Nein, weitere Maßnahmen sind notwendig <strong>(weiter unten einzutragen)</"
-"strong>"
+"Nein, weitere Maßnahmen sind notwendig (weiter unten einzutragen)"
 
 #. Default: "Notes"
 #: euphorie/client/browser/templates/training-slides.pt:245

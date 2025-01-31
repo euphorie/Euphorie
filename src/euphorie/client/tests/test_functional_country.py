@@ -35,7 +35,7 @@ class CountryFunctionalTests(EuphorieFunctionalTestCase):
             self.portal.client["nl"].absolute_url() + "/@@portlet-available-tools"
         )
         self.assertEqual(
-            browser.getControl(name="survey").options, ["", "branche/vragenlijst"]
+            browser.getControl(name="survey").options, ["branche/vragenlijst"]
         )
 
         # Still Dutch
@@ -43,7 +43,7 @@ class CountryFunctionalTests(EuphorieFunctionalTestCase):
             self.portal.client["nl"].absolute_url() + "/@@portlet-available-tools"
         )
         self.assertEqual(
-            browser.getControl(name="survey").options, ["", "branche/vragenlijst"]
+            browser.getControl(name="survey").options, ["branche/vragenlijst"]
         )
 
         # Now, switch to English
@@ -53,9 +53,7 @@ class CountryFunctionalTests(EuphorieFunctionalTestCase):
         browser.open(
             self.portal.client["nl"].absolute_url() + "/@@portlet-available-tools"
         )
-        self.assertEqual(
-            browser.getControl(name="survey").options, ["", "sector/survey"]
-        )
+        self.assertEqual(browser.getControl(name="survey").options, ["sector/survey"])
 
     def test_must_select_valid_survey(self):
         self.loginAsPortalOwner()

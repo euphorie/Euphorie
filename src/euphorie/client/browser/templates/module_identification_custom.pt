@@ -56,9 +56,7 @@
           <tal:question tal:replace="structure module/question">question</tal:question>
         </article>
 
-        <p class="buttonBar"
-           id="nav-bar"
-        >
+        <p class="button-bar">
           <a class="pat-button back"
              href="${view/previous_question_url}"
              i18n:translate="label_previous"

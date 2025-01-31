@@ -109,6 +109,7 @@
             <p>
               <a class="pat-modal icon-plus-circle"
                  href="${here/absolute_url}/@@new-session.html#document-content"
+                 data-pat-modal="class: panel small"
               >${view/label_start_session}</a>
             </p>
           </article>

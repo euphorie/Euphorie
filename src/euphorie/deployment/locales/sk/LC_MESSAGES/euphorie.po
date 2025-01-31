@@ -4872,7 +4872,7 @@ msgstr "Nie, sú potrebné ďalšie opatrenia"
 #: euphorie/content/utils.py:160
 msgid "label_not_sufficient_integrated_ap"
 msgstr ""
-"Nie, sú potrebné ďalšie opatrenia <strong>(pridajte ich ďalej)</strong>"
+"Nie, sú potrebné ďalšie opatrenia (pridajte ich ďalej)"
 
 #. Default: "Notes"
 #: euphorie/client/browser/templates/training-slides.pt:245

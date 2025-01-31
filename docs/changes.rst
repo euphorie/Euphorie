@@ -19,6 +19,9 @@ Changelog
   (`#2375 <https://github.com/syslabcom/scrum/issues/2375>`_)
   [reinhardt]
 
+- Updated resources from proto and applied a number of markup fixes in a review session with Daniel
+  [pilz]
+
 
 16.2.7 (2025-01-15)
 -------------------

@@ -49,7 +49,7 @@
           </article>
 
           <article class="pat-rich">
-            <h1>${context/Title}</h1>
+            <h1>${python: view.session.title or context.title}</h1>
             <section tal:condition="context/Description">
               <p>${context/Description}</p>
             </section>

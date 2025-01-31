@@ -32,6 +32,15 @@
           >History</a>
         </li>
         <li>
+          <a class="pat-modal close-panel icon-chart-line ${python: not has_tree and 'disabled' or ''}"
+             href="${python:status_url if has_tree else None}"
+             title="Status"
+             data-pat-modal="class: medium"
+             i18n:attributes="title navigation_status"
+             i18n:translate="navigation_status"
+          >Status</a>
+        </li>
+        <li>
           <a class="close-panel icon-trash pat-modal ${python: not can_delete and 'disabled' or ''}"
              href="${python:can_delete and delete_url or None}"
              title="Delete this session"
@@ -59,13 +68,18 @@
           >Duplicate</a>
         </li>
         <li>
-          <a class="pat-modal close-panel icon-chart-line ${python: not has_tree and 'disabled' or ''}"
-             href="${python:status_url if has_tree else None}"
-             title="Status"
-             data-pat-modal="class: medium"
-             i18n:attributes="title navigation_status"
-             i18n:translate="navigation_status"
-          >Status</a>
+          <a class="pat-modal icon-eye close-panel"
+             href="${here/absolute_url}/@@panel-contents-preview#document-content"
+             data-pat-modal="class: sheet"
+             i18n:translate="label_print_tool_preview"
+          >Preview or print the tool for preparation</a>
+        </li>
+        <li>
+          <a class="pat-inject close-panel icon-cancel"
+             href="${webhelpers/country_or_client_url}#content"
+             data-pat-inject="history: record"
+             i18n:translate="label_exit"
+          >Exit</a>
         </li>
       </ul>
     </div>
