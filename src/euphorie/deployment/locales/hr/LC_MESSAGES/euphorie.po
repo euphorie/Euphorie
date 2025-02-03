@@ -327,7 +327,7 @@ msgstr "Potvrdite promjenu OiRA adrese e-pošte"
 msgid ""
 "Contains: Concise information and input provided by you throughout the risk "
 "assessment process."
-msgstr ""
+msgstr "Sadrži: Sažete informacije i ulazne podatke koje ste unijeli tijekom procesa procjene rizika."
 
 #: euphorie/client/browser/templates/report_landing.pt:77
 msgid ""
@@ -656,7 +656,7 @@ msgstr "Saznajte više o ovom alatu…"
 
 #: euphorie/content/country.py:129
 msgid "Legal and policy references"
-msgstr ""
+msgstr "Pravila i pravne reference"
 
 #: euphorie/client/browser/templates/shell.pt:328
 msgid "Link text"
@@ -983,7 +983,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:59
 msgid "Provide a concise overview over your current status for internal use."
-msgstr ""
+msgstr "Pružite sažeti pregled svog trenutnog stanja za internu upotrebu."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"
@@ -5060,7 +5060,7 @@ msgstr "Datum uređivanja"
 #. Default: "Staff who participated in the risk assessment"
 #: euphorie/client/docx/compiler.py:586
 msgid "label_report_staff"
-msgstr "Osobe koje su sudjelovale u procjeni rizika "
+msgstr "Osobe koje su sudjelovale u procjeni rizika"
 
 #. Default: "Request validation"
 #: euphorie/client/browser/templates/panel-request-validation.pt:15
@@ -6288,7 +6288,7 @@ msgstr ""
 #. Default: "Activity"
 #: euphorie/client/docx/compiler.py:1057
 msgid "report_heading_activity"
-msgstr ""
+msgstr "Aktivnost"
 
 #. Default: "Comments:"
 #: euphorie/client/docx/compiler.py:1122
@@ -6298,27 +6298,27 @@ msgstr ""
 #. Default: "Measures in Place"
 #: euphorie/client/docx/compiler.py:1069
 msgid "report_heading_measures_in_place"
-msgstr ""
+msgstr "Postojeće mjere"
 
 #. Default: "Planned Measures"
 #: euphorie/client/docx/compiler.py:1081
 msgid "report_heading_planned_measures"
-msgstr ""
+msgstr "Planirane mjere"
 
 #. Default: "Legal and policy references:"
 #: euphorie/client/docx/compiler.py:1136
 msgid "report_heading_resources"
-msgstr ""
+msgstr "Pravila i pravne reference:"
 
 #. Default: "Risk Description"
 #: euphorie/client/docx/compiler.py:1063
 msgid "report_heading_risk_description"
-msgstr ""
+msgstr "Opis rizika"
 
 #. Default: "Situation"
 #: euphorie/client/docx/compiler.py:1075
 msgid "report_heading_situation"
-msgstr ""
+msgstr "Situacija"
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
 #: euphorie/client/docx/compiler.py:991
@@ -6782,7 +6782,7 @@ msgstr "Koristiti za"
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:57
 msgid "use_it_to_compact_report"
-msgstr ""
+msgstr "Koristiti za"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:80

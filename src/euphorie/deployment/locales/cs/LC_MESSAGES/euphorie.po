@@ -321,7 +321,7 @@ msgstr "Potvrďte změnu e-mailové adresy OiRA"
 msgid ""
 "Contains: Concise information and input provided by you throughout the risk "
 "assessment process."
-msgstr ""
+msgstr "Obsahuje: Stručné informace a podklady poskytnuté vámi během procesu hodnocení rizik."
 
 #: euphorie/client/browser/templates/report_landing.pt:77
 msgid ""
@@ -980,7 +980,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:59
 msgid "Provide a concise overview over your current status for internal use."
-msgstr ""
+msgstr "Poskytněte stručný přehled o svém aktuálním stavu pro interní použití."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"
@@ -4984,7 +4984,7 @@ msgstr "Datum úprav"
 #. Default: "Staff who participated in the risk assessment"
 #: euphorie/client/docx/compiler.py:586
 msgid "label_report_staff"
-msgstr ""
+msgstr "Personál zapojený do hodnocení rizik"
 
 #. Default: "Request validation"
 #: euphorie/client/browser/templates/panel-request-validation.pt:15
@@ -6204,7 +6204,7 @@ msgstr ""
 #. Default: "Activity"
 #: euphorie/client/docx/compiler.py:1057
 msgid "report_heading_activity"
-msgstr ""
+msgstr "Činnost"
 
 #. Default: "Comments:"
 #: euphorie/client/docx/compiler.py:1122
@@ -6214,12 +6214,12 @@ msgstr ""
 #. Default: "Measures in Place"
 #: euphorie/client/docx/compiler.py:1069
 msgid "report_heading_measures_in_place"
-msgstr ""
+msgstr "Přijatá opatření"
 
 #. Default: "Planned Measures"
 #: euphorie/client/docx/compiler.py:1081
 msgid "report_heading_planned_measures"
-msgstr ""
+msgstr "Plánovaná opatření"
 
 #. Default: "Legal and policy references:"
 #: euphorie/client/docx/compiler.py:1136
@@ -6229,12 +6229,12 @@ msgstr ""
 #. Default: "Risk Description"
 #: euphorie/client/docx/compiler.py:1063
 msgid "report_heading_risk_description"
-msgstr ""
+msgstr "Popis rizika"
 
 #. Default: "Situation"
 #: euphorie/client/docx/compiler.py:1075
 msgid "report_heading_situation"
-msgstr ""
+msgstr "Situace"
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
 #: euphorie/client/docx/compiler.py:991
@@ -6697,7 +6697,7 @@ msgstr "Zprávu můžete použít pro"
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:57
 msgid "use_it_to_compact_report"
-msgstr ""
+msgstr "Zprávu můžete použít pro"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:80

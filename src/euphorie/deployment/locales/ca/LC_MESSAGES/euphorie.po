@@ -329,7 +329,7 @@ msgstr "Confirmar el canvi de l'adreça electrònica d'OiRA"
 msgid ""
 "Contains: Concise information and input provided by you throughout the risk "
 "assessment process."
-msgstr ""
+msgstr "Conté: Informació concisa i aportacions proporcionades per vostè durant el procés d’avaluació de riscos."
 
 #: euphorie/client/browser/templates/report_landing.pt:77
 msgid ""
@@ -660,7 +660,7 @@ msgstr "Obteniu més informació sobre aquesta eina…"
 
 #: euphorie/content/country.py:129
 msgid "Legal and policy references"
-msgstr ""
+msgstr "Referències legals i sobre polítiques"
 
 #: euphorie/client/browser/templates/shell.pt:328
 msgid "Link text"
@@ -997,7 +997,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:59
 msgid "Provide a concise overview over your current status for internal use."
-msgstr ""
+msgstr "Proporcionar una visió concisa del vostre estat actual, per a ús intern."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"
@@ -5088,7 +5088,7 @@ msgstr "Data d'edició"
 #. Default: "Staff who participated in the risk assessment"
 #: euphorie/client/docx/compiler.py:586
 msgid "label_report_staff"
-msgstr ""
+msgstr "Personal que va participar en l'avaluació de riscos"
 
 #. Default: "Request validation"
 #: euphorie/client/browser/templates/panel-request-validation.pt:15
@@ -6312,7 +6312,7 @@ msgstr ""
 #. Default: "Activity"
 #: euphorie/client/docx/compiler.py:1057
 msgid "report_heading_activity"
-msgstr ""
+msgstr "Activitat"
 
 #. Default: "Comments:"
 #: euphorie/client/docx/compiler.py:1122
@@ -6322,27 +6322,27 @@ msgstr ""
 #. Default: "Measures in Place"
 #: euphorie/client/docx/compiler.py:1069
 msgid "report_heading_measures_in_place"
-msgstr ""
+msgstr "Mesures implementades"
 
 #. Default: "Planned Measures"
 #: euphorie/client/docx/compiler.py:1081
 msgid "report_heading_planned_measures"
-msgstr ""
+msgstr "Mesures planificades"
 
 #. Default: "Legal and policy references:"
 #: euphorie/client/docx/compiler.py:1136
 msgid "report_heading_resources"
-msgstr ""
+msgstr "Referències legals i sobre polítiques:"
 
 #. Default: "Risk Description"
 #: euphorie/client/docx/compiler.py:1063
 msgid "report_heading_risk_description"
-msgstr ""
+msgstr "Descripció del risc"
 
 #. Default: "Situation"
 #: euphorie/client/docx/compiler.py:1075
 msgid "report_heading_situation"
-msgstr ""
+msgstr "Situació"
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
 #: euphorie/client/docx/compiler.py:991
@@ -6808,7 +6808,7 @@ msgstr "Feu-lo servir per"
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:57
 msgid "use_it_to_compact_report"
-msgstr ""
+msgstr "Feu-lo servir per"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:80
