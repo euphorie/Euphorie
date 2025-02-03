@@ -12,6 +12,8 @@
       initialize=".initialize"
       />
 
+  <include package="plone.patternslib" />
+  <include package="plonestatic.euphorie" />
   <include package="euphorie.content" />
   <include
       package="."
@@ -99,10 +101,5 @@
       />
 
   <include package="euphorie.upgrade.client" />
-
-  <browser:resourceDirectory
-      name="euphorie.resources"
-      directory="resources"
-      />
 
 </configure>
