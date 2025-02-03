@@ -658,6 +658,10 @@ class DocxCompilerFullTable(DocxCompiler):
                 ),
             )
 
+    def set_table_header(self):
+        # To be overridden in subclass
+        pass
+
     def set_cell_risk(self, cell, risk):
         """Take the risk and add the appropriate text:
 
@@ -887,6 +891,7 @@ class DocxCompilerFullTable(DocxCompiler):
         to understand its format
         """
         self.set_session_title_row(data)
+        self.set_table_header()
         unanswered_risks, not_applicable_risks = self.set_modules_rows(data)
 
         # Finally clean up the modules table
@@ -1044,6 +1049,40 @@ class DocxCompilerShort(DocxCompilerFullTable):
     @property
     def is_show_resources_legal_references(self):
         return "resources_legal_references" in self.options
+
+    def set_table_header(self):
+        table = self.get_modules_table()
+        header = table.rows[0]
+        header.cells[0].paragraphs[0].runs[0].text = api.portal.translate(
+            _(
+                "report_heading_activity",
+                default="Activity",
+            )
+        )
+        header.cells[1].paragraphs[0].runs[0].text = api.portal.translate(
+            _(
+                "report_heading_risk_description",
+                default="Risk Description",
+            )
+        )
+        header.cells[1].paragraphs[1].runs[0].text = api.portal.translate(
+            _(
+                "report_heading_measures_in_place",
+                default="Measures in Place",
+            )
+        )
+        header.cells[2].paragraphs[0].runs[0].text = api.portal.translate(
+            _(
+                "report_heading_situation",
+                default="Situation",
+            )
+        )
+        header.cells[3].paragraphs[0].runs[0].text = api.portal.translate(
+            _(
+                "report_heading_planned_measures",
+                default="Planned Measures",
+            )
+        )
 
     def set_answer_font(self, answer, cell):
         font = self.justifiable_font.get(answer)

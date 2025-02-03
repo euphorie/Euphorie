@@ -27,6 +27,10 @@ Changelog
 - Depend on plonestatic.euphorie for the static resources that have been removed from this package.
   [ale-rt]
 
+- Support translations of compact report table headers
+  (`#3105 <https://github.com/syslabcom/scrum/issues/3105>`_)
+  [reinhardt]
+
 - Updated resources from proto and applied a number of markup fixes in a review session with Daniel
   [pilz]
 
