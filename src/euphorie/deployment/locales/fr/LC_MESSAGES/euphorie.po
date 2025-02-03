@@ -5004,8 +5004,8 @@ msgstr "Non, des mesures sont à ajouter au plan d’actions"
 #: euphorie/content/utils.py:160
 msgid "label_not_sufficient_integrated_ap"
 msgstr ""
-"Non, des mesures sont à ajouter au plan d’actions <strong>(à compléter ci-"
-"dessous)</strong>"
+"Non, des mesures sont à ajouter au plan d’actions (à compléter ci-"
+"dessous)"
 
 #. Default: "Notes"
 #: euphorie/client/browser/templates/training-slides.pt:245

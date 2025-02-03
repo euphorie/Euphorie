@@ -27,6 +27,9 @@ Changelog
 - Depend on plonestatic.euphorie for the static resources that have been removed from this package.
   [ale-rt]
 
+- Updated resources from proto and applied a number of markup fixes in a review session with Daniel
+  [pilz]
+
 
 16.2.7 (2025-01-15)
 -------------------

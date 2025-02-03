@@ -166,7 +166,7 @@
     >
 
       <!-- Existing Measures -->
-      <fieldset class="pat-checklist pat-clone ${python:'pat-inject pat-autosubmit pat-subform' if (webhelpers.integrated_action_plan or webhelpers.use_training_module) else None}"
+      <fieldset class="measures-in-place pat-checklist pat-clone ${python:'pat-inject pat-autosubmit pat-subform' if (webhelpers.integrated_action_plan or webhelpers.use_training_module) else None}"
                 id="risk_identification_form"
                 disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                 data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button; remove-behaviour: none"
@@ -268,7 +268,7 @@
       <div class="button-bar cloning"
            tal:condition="python:view.show_existing_measures"
       >
-        <button class="add-clone small pat-button icon-plus-circle"
+        <button class="add-clone pat-button icon-plus-circle"
                 id="add-in-place-measure-button"
                 title="${view/button_add_extra}"
                 type="button"

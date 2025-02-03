@@ -78,7 +78,6 @@
                           data-pat-autosuggest="minimum-input-length:0"
                           i18n:attributes="placeholder label_select_oira_tool"
                   >
-                    <option value="">&nbsp;</option>
                     <metal:templates define-macro="templates_many">
                       <tal:surveys define="
                                      surveys root/survey_templates;

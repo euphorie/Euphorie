@@ -54,7 +54,7 @@
               </textarea>
             </label>
           </fieldset>
-          <p class="buttonBar">
+          <p class="button-bar">
             <button class="pat-button default"
                     id="report_comment_submit"
                     name="next"
