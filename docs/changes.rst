@@ -24,6 +24,9 @@ Changelog
   (`#2375 <https://github.com/syslabcom/scrum/issues/2375>`_)
   [reinhardt]
 
+- Depend on plonestatic.euphorie for the static resources that have been removed from this package.
+  [ale-rt]
+
 
 16.2.7 (2025-01-15)
 -------------------
