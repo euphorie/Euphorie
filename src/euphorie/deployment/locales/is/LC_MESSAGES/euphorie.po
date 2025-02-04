@@ -311,7 +311,7 @@ msgstr ""
 
 #: euphorie/content/country.py:67
 msgid "Comments"
-msgstr ""
+msgstr "Athugasemdir"
 
 #: euphorie/content/country.py:86
 msgid "Compact report (Word document)"
@@ -6185,7 +6185,7 @@ msgstr "Virkni"
 #. Default: "Comments:"
 #: euphorie/client/docx/compiler.py:1122
 msgid "report_heading_comments"
-msgstr ""
+msgstr "Athugasemdir:"
 
 #. Default: "Measures in Place"
 #: euphorie/client/docx/compiler.py:1069

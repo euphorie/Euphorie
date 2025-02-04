@@ -314,7 +314,7 @@ msgstr "Fechar"
 
 #: euphorie/content/country.py:67
 msgid "Comments"
-msgstr ""
+msgstr "Comentários"
 
 #: euphorie/content/country.py:86
 msgid "Compact report (Word document)"
@@ -6295,7 +6295,7 @@ msgstr "Atividade"
 #. Default: "Comments:"
 #: euphorie/client/docx/compiler.py:1122
 msgid "report_heading_comments"
-msgstr ""
+msgstr "Comentários"
 
 #. Default: "Measures in Place"
 #: euphorie/client/docx/compiler.py:1069

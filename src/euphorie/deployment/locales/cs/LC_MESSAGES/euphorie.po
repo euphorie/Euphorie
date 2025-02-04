@@ -307,7 +307,7 @@ msgstr "Zavřít"
 
 #: euphorie/content/country.py:67
 msgid "Comments"
-msgstr ""
+msgstr "Poznámky"
 
 #: euphorie/content/country.py:86
 msgid "Compact report (Word document)"
@@ -6209,7 +6209,7 @@ msgstr "Činnost"
 #. Default: "Comments:"
 #: euphorie/client/docx/compiler.py:1122
 msgid "report_heading_comments"
-msgstr ""
+msgstr "Poznámky:"
 
 #. Default: "Measures in Place"
 #: euphorie/client/docx/compiler.py:1069
