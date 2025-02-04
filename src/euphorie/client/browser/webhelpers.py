@@ -93,7 +93,7 @@ class WebHelpers(BrowserView):
     certificates_path = "++resource++euphorie.resources/assets/oira/certificates"
     media_path = "++resource++euphorie.resources/media"
     style_path = "++resource++euphorie.resources/assets/oira/style"
-    script_path = "++plone++patternslib/js"
+    script_path = "++resource++patternslib"
 
     brand = "oira"
 
