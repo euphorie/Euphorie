@@ -328,7 +328,7 @@ msgstr "OiRA e-mailcím megváltoztatásának megerősítése"
 msgid ""
 "Contains: Concise information and input provided by you throughout the risk "
 "assessment process."
-msgstr ""
+msgstr "Tartalmaz: Rövid információkat és az Ön által a kockázatértékelési folyamat során megadott adatokat."
 
 #: euphorie/client/browser/templates/report_landing.pt:77
 msgid ""
@@ -658,7 +658,7 @@ msgstr "Tudjon meg többet erről az eszközről…"
 
 #: euphorie/content/country.py:129
 msgid "Legal and policy references"
-msgstr ""
+msgstr "Hivatkozások jogszabályokra és szabályzatokra"
 
 #: euphorie/client/browser/templates/shell.pt:328
 msgid "Link text"
@@ -993,7 +993,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:59
 msgid "Provide a concise overview over your current status for internal use."
-msgstr ""
+msgstr "Adjon rövid áttekintést jelenlegi állapotáról belső használatra."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"
@@ -6382,7 +6382,7 @@ msgstr ""
 #. Default: "Activity"
 #: euphorie/client/docx/compiler.py:1057
 msgid "report_heading_activity"
-msgstr ""
+msgstr "Tevékenység"
 
 #. Default: "Comments:"
 #: euphorie/client/docx/compiler.py:1122
@@ -6392,27 +6392,27 @@ msgstr ""
 #. Default: "Measures in Place"
 #: euphorie/client/docx/compiler.py:1069
 msgid "report_heading_measures_in_place"
-msgstr ""
+msgstr "Érvényben lévő intézkedések"
 
 #. Default: "Planned Measures"
 #: euphorie/client/docx/compiler.py:1081
 msgid "report_heading_planned_measures"
-msgstr ""
+msgstr "Tervezett intézkedések"
 
 #. Default: "Legal and policy references:"
 #: euphorie/client/docx/compiler.py:1136
 msgid "report_heading_resources"
-msgstr ""
+msgstr "Hivatkozások jogszabályokra és szabályzatokra:"
 
 #. Default: "Risk Description"
 #: euphorie/client/docx/compiler.py:1063
 msgid "report_heading_risk_description"
-msgstr ""
+msgstr "Kockázat leírása"
 
 #. Default: "Situation"
 #: euphorie/client/docx/compiler.py:1075
 msgid "report_heading_situation"
-msgstr ""
+msgstr "Helyzet"
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
 #: euphorie/client/docx/compiler.py:991
@@ -6881,7 +6881,7 @@ msgstr "Használja, hogy"
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:57
 msgid "use_it_to_compact_report"
-msgstr ""
+msgstr "Használja, hogy"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:80

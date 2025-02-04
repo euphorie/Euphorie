@@ -325,7 +325,7 @@ msgstr "Patvirtinti OiRA el. pašto adreso pakeitimą"
 msgid ""
 "Contains: Concise information and input provided by you throughout the risk "
 "assessment process."
-msgstr ""
+msgstr "Apima: Trumpą informaciją ir jūsų pateiktus duomenis rizikos vertinimo proceso metu."
 
 #: euphorie/client/browser/templates/report_landing.pt:77
 msgid ""
@@ -652,7 +652,7 @@ msgstr "Sužinokite daugiau apie šį įrankį…"
 
 #: euphorie/content/country.py:129
 msgid "Legal and policy references"
-msgstr ""
+msgstr "Nuorodos į teisės aktus"
 
 #: euphorie/client/browser/templates/shell.pt:328
 msgid "Link text"
@@ -981,7 +981,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/report_landing.pt:59
 msgid "Provide a concise overview over your current status for internal use."
-msgstr ""
+msgstr "Pateikite glaustą dabartinės būklės apžvalgą vidaus naudojimui."
 
 #: euphorie/client/browser/templates/report_landing.pt:82
 msgid "Provide evidence"
@@ -5039,7 +5039,7 @@ msgstr "Redagavimo data"
 #. Default: "Staff who participated in the risk assessment"
 #: euphorie/client/docx/compiler.py:586
 msgid "label_report_staff"
-msgstr ""
+msgstr "Dalyvavęs rizikos vertinime personalas"
 
 #. Default: "Request validation"
 #: euphorie/client/browser/templates/panel-request-validation.pt:15
@@ -6266,7 +6266,7 @@ msgstr ""
 #. Default: "Activity"
 #: euphorie/client/docx/compiler.py:1057
 msgid "report_heading_activity"
-msgstr ""
+msgstr "Veikla"
 
 #. Default: "Comments:"
 #: euphorie/client/docx/compiler.py:1122
@@ -6276,27 +6276,27 @@ msgstr ""
 #. Default: "Measures in Place"
 #: euphorie/client/docx/compiler.py:1069
 msgid "report_heading_measures_in_place"
-msgstr ""
+msgstr "Esamos priemonės"
 
 #. Default: "Planned Measures"
 #: euphorie/client/docx/compiler.py:1081
 msgid "report_heading_planned_measures"
-msgstr ""
+msgstr "Planuojamos priemonės"
 
 #. Default: "Legal and policy references:"
 #: euphorie/client/docx/compiler.py:1136
 msgid "report_heading_resources"
-msgstr ""
+msgstr "Nuorodos į teisės aktus:"
 
 #. Default: "Risk Description"
 #: euphorie/client/docx/compiler.py:1063
 msgid "report_heading_risk_description"
-msgstr ""
+msgstr "Rizikos aprašymas"
 
 #. Default: "Situation"
 #: euphorie/client/docx/compiler.py:1075
 msgid "report_heading_situation"
-msgstr ""
+msgstr "Situacija"
 
 #. Default: "This document was based on the OiRA Tool '${title}' of revision date ${date}."
 #: euphorie/client/docx/compiler.py:991
@@ -6765,7 +6765,7 @@ msgstr "Naudokite ją"
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:57
 msgid "use_it_to_compact_report"
-msgstr ""
+msgstr "Naudokite ją"
 
 #. Default: "Use it to"
 #: euphorie/client/browser/templates/report_landing.pt:80
