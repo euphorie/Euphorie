@@ -1065,12 +1065,20 @@ class DocxCompilerShort(DocxCompilerFullTable):
                 default="Risk Description",
             )
         )
-        header.cells[1].paragraphs[1].runs[0].text = api.portal.translate(
-            _(
-                "report_heading_measures_in_place",
-                default="Measures in Place",
+        if self.tool_type in self.tti.types_existing_measures:
+            header.cells[1].paragraphs[1].runs[0].text = api.portal.translate(
+                _(
+                    "report_heading_measures_in_place",
+                    default="Measures in Place",
+                )
             )
-        )
+        else:
+            # workaround for paragraph deletion
+            # https://github.com/python-openxml/python-docx/issues/33#issuecomment-77661907
+            p = header.cells[1].paragraphs[1]._element
+            p.getparent().remove(p)
+            p._p = p._element = None
+
         header.cells[2].paragraphs[0].runs[0].text = api.portal.translate(
             _(
                 "report_heading_situation",

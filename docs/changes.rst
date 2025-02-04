@@ -31,6 +31,10 @@ Changelog
   (`#3105 <https://github.com/syslabcom/scrum/issues/3105>`_)
   [reinhardt]
 
+- Compact report: Only refer to Measures in Place if supported
+  (`#3090 <https://github.com/syslabcom/scrum/issues/3090>`_)
+  [reinhardt]
+
 - Updated resources from proto and applied a number of markup fixes in a review session with Daniel
   [pilz]
 
