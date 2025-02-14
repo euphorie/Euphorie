@@ -38,6 +38,10 @@ Changelog
 - Updated resources from proto and applied a number of markup fixes in a review session with Daniel
   [pilz]
 
+- Support feedback page after answering a risk
+  (`#2857 <https://github.com/syslabcom/scrum/issues/2857>`_)
+  [reinhardt]
+
 
 16.2.7 (2025-01-15)
 -------------------

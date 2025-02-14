@@ -236,6 +236,12 @@ class IRisk(model.Schema, IRichDescription, IBasic):
         default="low",
     )
 
+    feedback_text = HtmlText(
+        title=_("label_feedback_text", default="Feedback after answer"),
+        required=False,
+    )
+    directives.widget(feedback_text="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
+
     model.fieldset(
         "main_image",
         label=_("header_main_image", default="Main image"),
