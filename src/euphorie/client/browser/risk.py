@@ -1009,6 +1009,11 @@ class IdentificationView(RiskBase):
                     session_url=self.webhelpers.traversed_session.absolute_url()
                 )
                 return self.request.response.redirect(url)
+
+        elif _next == "next" and getattr(self.risk, "feedback_text", None):
+            url = self.context.absolute_url() + "/@@identification_feedback"
+            return self.request.response.redirect(url)
+
         elif _next in ("next", "skip"):
             target = self.next_question
             if target is None:
@@ -1117,6 +1122,14 @@ class IdentificationView(RiskBase):
         except TypeError:
             pass
         return self.context.priority
+
+
+class IdentificationFeedbackView(IdentificationView):
+    default_template = ViewPageTemplateFile("templates/risk_identification_feedback.pt")
+
+    def post(self):
+        reply = self.request.form
+        return self.proceed_to_next(reply)
 
 
 class ImageUpload(BrowserView):
