@@ -42,6 +42,10 @@ Changelog
   (`#2857 <https://github.com/syslabcom/scrum/issues/2857>`_)
   [reinhardt]
 
+- Support scaled (multiple) answers on a risk
+  (`#2847 <https://github.com/syslabcom/scrum/issues/2847>`_)
+  [reinhardt]
+
 
 16.2.7 (2025-01-15)
 -------------------
