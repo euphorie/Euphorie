@@ -52,7 +52,7 @@
                      ">
               <h2>${question/title}</h2>
               <fieldset class="pat-checklist radio">
-                <legend>${question/question}</legend>
+                <legend tal:replace="structure question/question"></legend>
                 <label><input class="presence"
                          checked="${python:'checked' if current else None}"
                          name="pq${question/id}.present"

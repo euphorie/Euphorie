@@ -46,6 +46,9 @@ Changelog
   (`#2847 <https://github.com/syslabcom/scrum/issues/2847>`_)
   [reinhardt]
 
+- Support rich text in profile questions
+  (`#2859 <https://github.com/syslabcom/scrum/issues/2859>`_)
+  [reinhardt]
 
 16.2.7 (2025-01-15)
 -------------------
