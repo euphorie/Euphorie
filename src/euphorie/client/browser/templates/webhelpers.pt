@@ -1025,12 +1025,13 @@
             <fieldset class="group"
                       disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
             >
-              <p class="legend"><tal:label i18n:translate="label_description">Description</tal:label>
+              <legend>
+                <tal:label i18n:translate="label_description">Description</tal:label>
                 <dfn class="icon-help-circle iconified pat-tooltip"
                      data-pat-tooltip="source: content; position-list: lt"
                      i18n:translate="actionplan_measure_tooltip"
                 >Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)</dfn>
-              </p>
+              </legend>
               <div tal:condition="not:webhelpers/can_edit_session"
                    tal:content="structure actionplan/action|nothing"
               ></div>
@@ -1055,19 +1056,20 @@
               <fieldset class="group"
                         disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
               >
-                <label><tal:label i18n:translate="label_expertise">Expertise</tal:label>
+                <legend>
+                  <tal:label i18n:translate="label_expertise">Expertise</tal:label>
                   <dfn class="icon-help-circle iconified pat-tooltip"
                        data-pat-tooltip="source: content; position-list: lt"
                        i18n:translate="actionplan_requirements_tooltip"
                   >Describe the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any).</dfn>
-                  <textarea class="requirements"
-                            name="measure.requirements:utf8:ustring:records"
-                            placeholder="Level of expertise and/or requirements needed"
-                            rows="3"
-                            tal:content="actionplan/requirements|nothing"
-                            i18n:attributes="placeholder label_measure_requirements"
-                  ></textarea>
-                </label>
+                </legend>
+                <textarea class="requirements"
+                          name="measure.requirements:utf8:ustring:records"
+                          placeholder="Level of expertise and/or requirements needed"
+                          rows="3"
+                          tal:content="actionplan/requirements|nothing"
+                          i18n:attributes="placeholder label_measure_requirements"
+                ></textarea>
               </fieldset>
             </tal:requirements>
           </fieldset>
@@ -1190,12 +1192,12 @@
           <fieldset class="group"
                     disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
           >
-            <p class="legend"><tal:label i18n:translate="label_description">Description</tal:label>
+            <legend><tal:label i18n:translate="label_description">Description</tal:label>
               <dfn class="icon-help-circle iconified pat-tooltip"
                    data-pat-tooltip="source: content; position-list: lt"
                    i18n:translate="actionplan_measure_tooltip"
               >Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)</dfn>
-            </p>
+            </legend>
             <div class="pat-rich-editor pat-rich toolbar-detached">
               <textarea class="pat-tiptap pat-autofocus"
                         name="measure.action:utf8:ustring:records"
@@ -1214,18 +1216,19 @@
             <fieldset class="group"
                       disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
             >
-              <label><tal:label i18n:translate="label_expertise">Expertise</tal:label>
+              <legend>
+                <tal:label i18n:translate="label_expertise">Expertise</tal:label>
                 <dfn class="icon-help-circle iconified pat-tooltip"
                      data-pat-tooltip="source: content; position-list: lt"
                      i18n:translate="actionplan_requirements_tooltip"
                 >Describe the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any).</dfn>
-                <textarea class="requirements"
-                          name="measure.requirements:utf8:ustring:records"
-                          placeholder="Level of expertise and/or requirements needed"
-                          rows="3"
-                          i18n:attributes="placeholder label_measure_requirements"
-                ></textarea>
-              </label>
+              </legend>
+              <textarea class="requirements"
+                        name="measure.requirements:utf8:ustring:records"
+                        placeholder="Level of expertise and/or requirements needed"
+                        rows="3"
+                        i18n:attributes="placeholder label_measure_requirements"
+              ></textarea>
             </fieldset>
           </tal:requirements>
         </fieldset>
@@ -1244,6 +1247,7 @@
                    type="text"
             />
           </label>
+
           <label class="currency"
                  tal:condition="python: 'budget' not in view.skip_fields"
           >
