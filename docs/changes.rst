@@ -38,6 +38,10 @@ Changelog
 - Updated resources from proto and applied a number of markup fixes in a review session with Daniel
   [pilz]
 
+- Don't allow editing training slides when user doesn't have edit permisison on the session
+  (`#3188 <https://github.com/syslabcom/scrum/issues/3188>`_)
+  [reinhardt]
+
 
 16.2.7 (2025-01-15)
 -------------------
