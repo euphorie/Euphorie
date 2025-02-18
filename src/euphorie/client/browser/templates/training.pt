@@ -181,7 +181,7 @@
                         <a class="card-edit-button pat-modal executed"
                            href="#modal-content-${counter}"
                            data-pat-modal="class: medium panel"
-                           tal:condition="python:slide_type=='risk'"
+                           tal:condition="python:slide_type=='risk' and can_edit"
                            i18n:translate="button_edit"
                         >Edit</a>
                         <span class="card-number">${training_view/number}
@@ -306,6 +306,7 @@
                           <div class="container">
 
                             <button class="pat-button default close-panel"
+                                    disabled="${python:'disabled' if not can_edit else None}"
                                     type="submit"
                                     i18n:translate="Save"
                             >Save</button>
