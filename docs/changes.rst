@@ -16,10 +16,6 @@ Changelog
   Ref: scrum-2726.
   [thet]
 
-- Don't try to send notifications for sessions of depublished tools.
-  (`#3024 <https://github.com/syslabcom/scrum/issues/3024>`_)
-  [reinhardt]
-
 - Custom labels in company survey for France
   (`#2375 <https://github.com/syslabcom/scrum/issues/2375>`_)
   [reinhardt]
@@ -38,6 +34,19 @@ Changelog
 - Updated resources from proto and applied a number of markup fixes in a review session with Daniel
   [pilz]
 
+
+
+16.2.8 (2025-02-19)
+-------------------
+
+- Fix for profile questions (changed title)
+  (`#3038 <https://github.com/syslabcom/scrum/issues/3038>`_)
+  [reinhardt]
+
+- Don't try to send notifications for sessions of depublished tools.
+  (`#3024 <https://github.com/syslabcom/scrum/issues/3024>`_)
+  [reinhardt]
+
 - Don't allow editing training slides when user doesn't have edit permission on the session
   (`#3188 <https://github.com/syslabcom/scrum/issues/3188>`_)
   [reinhardt]
@@ -52,9 +61,6 @@ Changelog
 
 - Removed leading empty lines from compact report
   (`#2815 <https://github.com/syslabcom/scrum/issues/2815>`_)
-  [reinhardt]
-- Fix for profile questions (changed title)
-  (`#3038 <https://github.com/syslabcom/scrum/issues/3038>`_)
   [reinhardt]
 
 
