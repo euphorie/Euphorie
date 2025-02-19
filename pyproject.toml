@@ -8,26 +8,31 @@ title_format = "{version} ({project_date})"
 underlines = ["-", ""]
 
 [[tool.towncrier.type]]
-directory = "added"
-name = "Added:"
+directory = "breaking"
+name = "Breaking changes:"
 showcontent = true
 
 [[tool.towncrier.type]]
-directory = "changed"
-name = "Changed:"
+directory = "feature"
+name = "New features:"
 showcontent = true
 
 [[tool.towncrier.type]]
-directory = "fixed"
-name = "Fixed:"
+directory = "bugfix"
+name = "Bug fixes:"
 showcontent = true
 
 [[tool.towncrier.type]]
-directory = "technical"
-name = "Technical:"
+directory = "internal"
+name = "Internal:"
 showcontent = true
 
 [[tool.towncrier.type]]
-directory = "updated"
-name = "Updated:"
+directory = "documentation"
+name = "Documentation:"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "tests"
+name = "Tests"
 showcontent = true
