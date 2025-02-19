@@ -16,6 +16,10 @@ Changelog
   (`#3188 <https://github.com/syslabcom/scrum/issues/3188>`_)
   [reinhardt]
 
+- Don't try updating after tool change when user doesn't have edit permission on the session
+  (`#3187 <https://github.com/syslabcom/scrum/issues/3187>`_)
+  [reinhardt]
+
 
 16.2.7 (2025-01-15)
 -------------------
