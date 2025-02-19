@@ -1,7 +1,7 @@
 Changelog
 =========
 
-16.2.8 (unreleased)
+16.2.8 (2025-02-19)
 -------------------
 
 - Fix for profile questions (changed title)
