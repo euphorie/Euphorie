@@ -712,9 +712,7 @@
                       disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                       tal:condition="existing_measures"
             >
-              <p class="legend"
-                 i18n:translate="label_existing_measures"
-              >Already implemented measures</p>
+              <legend i18n:translate="label_existing_measures">Already implemented measures</legend>
 
               <tal:measures repeat="measure_id existing_measures">
                 <label>
@@ -732,9 +730,7 @@
                       disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                       tal:condition="planned_measures"
             >
-              <p class="legend"
-                 i18n:translate="label_planned_measures"
-              >Planned measures</p>
+              <legend i18n:translate="label_planned_measures">Planned measures</legend>
 
               <tal:measures repeat="measure_id planned_measures">
 
