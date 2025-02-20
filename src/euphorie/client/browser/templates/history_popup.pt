@@ -5,12 +5,11 @@
       i18n:domain="euphorie"
 >
   <body>
-    <div id="object_history"
-         hidden
-         tal:define="
-           language here/@@plone_portal_state/language;
-           webhelpers nocall:here/@@webhelpers;
-         "
+    <template id="object_history"
+              tal:define="
+                language here/@@plone_portal_state/language;
+                webhelpers nocall:here/@@webhelpers;
+              "
     >
       <div class="container">
         <article class="pat-rich">
@@ -80,6 +79,6 @@
           </li>
         </ul>
       </div>
-    </div>
+    </template>
   </body>
 </html>

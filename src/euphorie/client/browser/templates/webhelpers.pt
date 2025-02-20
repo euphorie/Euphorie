@@ -351,13 +351,14 @@
   </metal:risk_identification>
 
   <metal:risk_evaluation define-macro="risk_evaluation">
-    <div class="risk-module pat-well notice pat-depends vertical evaluation"
+    <div class="risk-module pat-well notice pat-depends evaluation"
          id="evaluation"
          data-pat-depends="${view/evaluation_condition}; transition: slide"
          tal:define="
            evaluation_method python:risk.type in ('policy', 'top5') and risk.type or risk.evaluation_method;
+           skip_evaluation view/skip_evaluation;
          "
-         tal:condition="not:view/skip_evaluation"
+         tal:condition="python: not skip_evaluation and evaluation_method != 'policy'"
     >
       <p class="problem-description"><strong>${view/risk/problem_description}</strong></p>
       <tal:block condition="python:evaluation_method=='calculated'">
@@ -368,250 +369,256 @@
                    algorithm python:view.evaluation_algorithm(risk);
                  ">
           <tal:kinney condition="python:algorithm!='french'">
-            <fieldset class="pat-checklist radio"
-                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
-                      tal:define="
-                        value context/probability;
-                      "
-            >
-              <legend><tal:span i18n:translate="header_risk_probability">What is the chance of this risk occurring?</tal:span>
-                <dfn class="icon-help-circle iconified pat-tooltip"
-                     data-pat-tooltip="source: content; position-list: lt"
-                >${view/description_probability}</dfn>
-              </legend>
-              <label><input checked="${python:'checked' if value==1 else None}"
-                       name="probability:int"
-                       type="radio"
-                       value="1"
-                />
-                <tal:span i18n:translate="probability_small">Small</tal:span></label>
-              <label><input checked="${python:'checked' if value==3 else None}"
-                       name="probability:int"
-                       type="radio"
-                       value="3"
-                />
-                <tal:span i18n:translate="probability_medium">Medium</tal:span></label>
-              <label><input checked="${python:'checked' if value==5 else None}"
-                       name="probability:int"
-                       type="radio"
-                       value="5"
-                />
-                <tal:span i18n:translate="probability_large">Large</tal:span></label>
-            </fieldset>
+            <fieldset class="vertical">
+              <fieldset class="pat-checklist"
+                        disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+                        tal:define="
+                          value context/probability;
+                        "
+              >
+                <legend><tal:span i18n:translate="header_risk_probability">What is the chance of this risk occurring?</tal:span>
+                  <dfn class="icon-help-circle iconified pat-tooltip"
+                       data-pat-tooltip="source: content; position-list: lt"
+                  >${view/description_probability}</dfn>
+                </legend>
+                <label><input checked="${python:'checked' if value==1 else None}"
+                         name="probability:int"
+                         type="radio"
+                         value="1"
+                  />
+                  <tal:span i18n:translate="probability_small">Small</tal:span></label>
+                <label><input checked="${python:'checked' if value==3 else None}"
+                         name="probability:int"
+                         type="radio"
+                         value="3"
+                  />
+                  <tal:span i18n:translate="probability_medium">Medium</tal:span></label>
+                <label><input checked="${python:'checked' if value==5 else None}"
+                         name="probability:int"
+                         type="radio"
+                         value="5"
+                  />
+                  <tal:span i18n:translate="probability_large">Large</tal:span></label>
+              </fieldset>
 
-            <fieldset class="pat-checklist radio"
-                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
-                      tal:define="
-                        value context/frequency;
-                      "
-            >
-              <legend><tal:span i18n:translate="header_risk_frequency">How often are people exposed to this risk?</tal:span>
-                <dfn class="icon-help-circle iconified pat-tooltip"
-                     data-pat-tooltip="source: content; position-list: lt"
-                >${view/description_frequency}</dfn>
-              </legend>
-              <label><input checked="${python:'checked' if value==1 else None}"
-                       name="frequency:int"
-                       type="radio"
-                       value="1"
-                />
-                <tal:span i18n:translate="frequency_almost_never">Almost never</tal:span></label>
-              <label><input checked="${python:'checked' if value==4 else None}"
-                       name="frequency:int"
-                       type="radio"
-                       value="4"
-                />
-                <tal:span i18n:translate="frequency_regularly">Regularly</tal:span></label>
-              <label><input checked="${python:'checked' if value==7 else None}"
-                       name="frequency:int"
-                       type="radio"
-                       value="7"
-                />
-                <tal:span i18n:translate="frequency_constantly">Constantly</tal:span></label>
-            </fieldset>
+              <fieldset class="pat-checklist"
+                        disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+                        tal:define="
+                          value context/frequency;
+                        "
+              >
+                <legend><tal:span i18n:translate="header_risk_frequency">How often are people exposed to this risk?</tal:span>
+                  <dfn class="icon-help-circle iconified pat-tooltip"
+                       data-pat-tooltip="source: content; position-list: lt"
+                  >${view/description_frequency}</dfn>
+                </legend>
+                <label><input checked="${python:'checked' if value==1 else None}"
+                         name="frequency:int"
+                         type="radio"
+                         value="1"
+                  />
+                  <tal:span i18n:translate="frequency_almost_never">Almost never</tal:span></label>
+                <label><input checked="${python:'checked' if value==4 else None}"
+                         name="frequency:int"
+                         type="radio"
+                         value="4"
+                  />
+                  <tal:span i18n:translate="frequency_regularly">Regularly</tal:span></label>
+                <label><input checked="${python:'checked' if value==7 else None}"
+                         name="frequency:int"
+                         type="radio"
+                         value="7"
+                  />
+                  <tal:span i18n:translate="frequency_constantly">Constantly</tal:span></label>
+              </fieldset>
 
-            <fieldset class="pat-checklist radio"
-                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
-                      tal:define="
-                        value context/effect;
-                      "
-            >
-              <legend><tal:span i18n:translate="header_risk_effect">What is the severity of the damage?</tal:span>
-                <dfn class="icon-help-circle iconified pat-tooltip"
-                     data-pat-tooltip="source: content; position-list: lt"
-                >${view/description_severity}</dfn>
-              </legend>
-              <label><input checked="${python:'checked' if value==1 else None}"
-                       name="effect:int"
-                       type="radio"
-                       value="1"
-                />
-                <tal:span i18n:translate="effect_injury_no_absence">Weak severity</tal:span></label>
-              <label><input checked="${python:'checked' if value==5 else None}"
-                       name="effect:int"
-                       type="radio"
-                       value="5"
-                />
-                <tal:span i18n:translate="effect_injury_with_absence">Significant severity</tal:span></label>
-              <label><input checked="${python:'checked' if value==10 else None}"
-                       name="effect:int"
-                       type="radio"
-                       value="10"
-                />
-                <tal:span i18n:translate="effect_permanent_damage">High (very high) severity</tal:span></label>
+              <fieldset class="pat-checklist"
+                        disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+                        tal:define="
+                          value context/effect;
+                        "
+              >
+                <legend><tal:span i18n:translate="header_risk_effect">What is the severity of the damage?</tal:span>
+                  <dfn class="icon-help-circle iconified pat-tooltip"
+                       data-pat-tooltip="source: content; position-list: lt"
+                  >${view/description_severity}</dfn>
+                </legend>
+                <label><input checked="${python:'checked' if value==1 else None}"
+                         name="effect:int"
+                         type="radio"
+                         value="1"
+                  />
+                  <tal:span i18n:translate="effect_injury_no_absence">Weak severity</tal:span></label>
+                <label><input checked="${python:'checked' if value==5 else None}"
+                         name="effect:int"
+                         type="radio"
+                         value="5"
+                  />
+                  <tal:span i18n:translate="effect_injury_with_absence">Significant severity</tal:span></label>
+                <label><input checked="${python:'checked' if value==10 else None}"
+                         name="effect:int"
+                         type="radio"
+                         value="10"
+                  />
+                  <tal:span i18n:translate="effect_permanent_damage">High (very high) severity</tal:span></label>
+              </fieldset>
             </fieldset>
           </tal:kinney>
 
           <tal:french condition="python:algorithm=='french'">
-            <fieldset class="pat-checklist radio"
-                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
-                      tal:define="
-                        value context/effect;
-                      "
-            >
-              <legend><tal:span i18n:translate="header_risk_effect">What is the severity of the damage?</tal:span>
-                <dfn class="icon-help-circle iconified pat-tooltip"
-                     data-pat-tooltip="source: content; position-list: lt"
-                >${view/description_severity}</dfn>
-              </legend>
-              <label>
-                <input checked="${python:'checked' if value==1 else None}"
-                       name="severity:int"
-                       type="radio"
-                       value="1"
-                />
-                <tal:span i18n:translate="severity_weak">Weak</tal:span><br />
-                <dfn class="icon info pat-tooltip"
-                     title="No need to stop working"
-                     i18n:attributes="title severity_weak_help;"
-                ></dfn>
-              </label>
-              <label><input checked="${python:'checked' if value==5 else None}"
-                       name="severity:int"
-                       type="radio"
-                       value="5"
-                />
-                <tal:span i18n:translate="severity_not_severe">Not very severe</tal:span><br />
-                <dfn class="icon info pat-tooltip"
-                     title="Need to stop working for less than 3 days"
-                     i18n:attributes="title severity_not_severe_help"
-                ></dfn>
-              </label>
-              <label><input checked="${python:'checked' if value==7 else None}"
-                       name="severity:int"
-                       type="radio"
-                       value="7"
-                />
-                <tal:span i18n:translate="severity_severe">Severe</tal:span><br />
-                <dfn class="icon info pat-tooltip"
-                     title="Need to stop working for more than 3 days"
-                     i18n:attributes="title severity_severe_help;"
-                ></dfn>
-              </label>
-              <label>
-                <input checked="${python:'checked' if value==10 else None}"
-                       name="severity:int"
-                       type="radio"
-                       value="10"
-                />
-                <tal:span i18n:translate="severity_very_severe">Very severe</tal:span><br />
-                <dfn class="icon info pat-tooltip"
-                     title="Irreversible injury, incurable illness, death"
-                     i18n:attributes="title severity_very_severe_help;"
-                ></dfn>
-              </label>
-            </fieldset>
+            <fieldset class="vertical">
+              <fieldset class="pat-checklist"
+                        disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+                        tal:define="
+                          value context/effect;
+                        "
+              >
+                <legend><tal:span i18n:translate="header_risk_effect">What is the severity of the damage?</tal:span>
+                  <dfn class="icon-help-circle iconified pat-tooltip"
+                       data-pat-tooltip="source: content; position-list: lt"
+                  >${view/description_severity}</dfn>
+                </legend>
+                <label>
+                  <input checked="${python:'checked' if value==1 else None}"
+                         name="severity:int"
+                         type="radio"
+                         value="1"
+                  />
+                  <tal:span i18n:translate="severity_weak">Weak</tal:span><br />
+                  <dfn class="icon info pat-tooltip"
+                       title="No need to stop working"
+                       i18n:attributes="title severity_weak_help;"
+                  ></dfn>
+                </label>
+                <label><input checked="${python:'checked' if value==5 else None}"
+                         name="severity:int"
+                         type="radio"
+                         value="5"
+                  />
+                  <tal:span i18n:translate="severity_not_severe">Not very severe</tal:span><br />
+                  <dfn class="icon info pat-tooltip"
+                       title="Need to stop working for less than 3 days"
+                       i18n:attributes="title severity_not_severe_help"
+                  ></dfn>
+                </label>
+                <label><input checked="${python:'checked' if value==7 else None}"
+                         name="severity:int"
+                         type="radio"
+                         value="7"
+                  />
+                  <tal:span i18n:translate="severity_severe">Severe</tal:span><br />
+                  <dfn class="icon info pat-tooltip"
+                       title="Need to stop working for more than 3 days"
+                       i18n:attributes="title severity_severe_help;"
+                  ></dfn>
+                </label>
+                <label>
+                  <input checked="${python:'checked' if value==10 else None}"
+                         name="severity:int"
+                         type="radio"
+                         value="10"
+                  />
+                  <tal:span i18n:translate="severity_very_severe">Very severe</tal:span><br />
+                  <dfn class="icon info pat-tooltip"
+                       title="Irreversible injury, incurable illness, death"
+                       i18n:attributes="title severity_very_severe_help;"
+                  ></dfn>
+                </label>
+              </fieldset>
 
-            <fieldset class="pat-checklist radio"
-                      disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
-                      tal:define="
-                        value context/frequency;
-                      "
-            >
-              <legend><tal:span i18n:translate="header_risk_frequency">How often are people exposed to this risk?</tal:span>
-                <dfn class="icon-help-circle iconified pat-tooltip"
-                     data-pat-tooltip="source: content; position-list: lt"
-                >${view/description_frequency}</dfn>
-              </legend>
-              <label>
-                <input checked="${python:'checked' if value==1 else None}"
-                       name="frequency:int"
-                       type="radio"
-                       value="1"
-                />
-                <tal:span i18n:translate="frequency_french_rare">Rare</tal:span><br />
-                <dfn class="icon info pat-tooltip"
-                     title="Once per year"
-                     i18n:attributes="title frequency_french_rare_help;"
-                ></dfn>
-              </label>
-              <label>
-                <input checked="${python:'checked' if value==3 else None}"
-                       name="frequency:int"
-                       type="radio"
-                       value="3"
-                />
-                <tal:span i18n:translate="frequency_french_not_often">Not very often</tal:span><br />
-                <dfn class="icon info pat-tooltip"
-                     title="Once per month"
-                     i18n:attributes="title frequency_french_not_often_help;"
-                ></dfn>
-              </label>
-              <label>
-                <input checked="${python:'checked' if value==7 else None}"
-                       name="frequency:int"
-                       type="radio"
-                       value="7"
-                />
-                <tal:span i18n:translate="frequency_french_often">Often</tal:span><br />
-                <dfn class="icon info pat-tooltip"
-                     title="Once per week"
-                     i18n:attributes="title frequency_french_often_help;"
-                ></dfn>
-              </label>
-              <label>
-                <input checked="${python:'checked' if value==9 else None}"
-                       name="frequency:int"
-                       type="radio"
-                       value="9"
-                />
-                <tal:span i18n:translate="frequency_french_regularly">Very often or regularly</tal:span><br />
-                <dfn class="icon info pat-tooltip"
-                     title="Minimum once per day"
-                     i18n:attributes="title frequency_french_regularly_help;"
-                ></dfn>
-              </label>
+              <fieldset class="pat-checklist"
+                        disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+                        tal:define="
+                          value context/frequency;
+                        "
+              >
+                <legend><tal:span i18n:translate="header_risk_frequency">How often are people exposed to this risk?</tal:span>
+                  <dfn class="icon-help-circle iconified pat-tooltip"
+                       data-pat-tooltip="source: content; position-list: lt"
+                  >${view/description_frequency}</dfn>
+                </legend>
+                <label>
+                  <input checked="${python:'checked' if value==1 else None}"
+                         name="frequency:int"
+                         type="radio"
+                         value="1"
+                  />
+                  <tal:span i18n:translate="frequency_french_rare">Rare</tal:span><br />
+                  <dfn class="icon info pat-tooltip"
+                       title="Once per year"
+                       i18n:attributes="title frequency_french_rare_help;"
+                  ></dfn>
+                </label>
+                <label>
+                  <input checked="${python:'checked' if value==3 else None}"
+                         name="frequency:int"
+                         type="radio"
+                         value="3"
+                  />
+                  <tal:span i18n:translate="frequency_french_not_often">Not very often</tal:span><br />
+                  <dfn class="icon info pat-tooltip"
+                       title="Once per month"
+                       i18n:attributes="title frequency_french_not_often_help;"
+                  ></dfn>
+                </label>
+                <label>
+                  <input checked="${python:'checked' if value==7 else None}"
+                         name="frequency:int"
+                         type="radio"
+                         value="7"
+                  />
+                  <tal:span i18n:translate="frequency_french_often">Often</tal:span><br />
+                  <dfn class="icon info pat-tooltip"
+                       title="Once per week"
+                       i18n:attributes="title frequency_french_often_help;"
+                  ></dfn>
+                </label>
+                <label>
+                  <input checked="${python:'checked' if value==9 else None}"
+                         name="frequency:int"
+                         type="radio"
+                         value="9"
+                  />
+                  <tal:span i18n:translate="frequency_french_regularly">Very often or regularly</tal:span><br />
+                  <dfn class="icon info pat-tooltip"
+                       title="Minimum once per day"
+                       i18n:attributes="title frequency_french_regularly_help;"
+                  ></dfn>
+                </label>
+              </fieldset>
             </fieldset>
           </tal:french>
         </tal:get>
       </tal:block>
 
       <tal:block condition="python:evaluation_method=='direct'">
-        <fieldset class="pat-checklist radio"
-                  disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
-                  tal:define="
-                    value context/priority;
-                  "
-        >
-          <p i18n:translate="header_risk_priority">Select the priority of this risk</p>
-          <label><input checked="${python:'checked' if value=='low' else None}"
-                   name="priority"
-                   type="radio"
-                   value="low"
-            />
-            <tal:span i18n:translate="priority_low">Low</tal:span></label>
-          <label><input checked="${python:'checked' if value=='medium' else None}"
-                   name="priority"
-                   type="radio"
-                   value="medium"
-            />
-            <tal:span i18n:translate="priority_medium">Medium</tal:span></label>
-          <label><input checked="${python:'checked' if value=='high' else None}"
-                   name="priority"
-                   type="radio"
-                   value="high"
-            />
-            <tal:span i18n:translate="priority_high">High</tal:span></label>
+        <fieldset class="vertical">
+          <fieldset class="pat-checklist"
+                    disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+                    tal:define="
+                      value context/priority;
+                    "
+          >
+            <legend i18n:translate="header_risk_priority">Select the priority of this risk</legend>
+            <label><input checked="${python:'checked' if value=='low' else None}"
+                     name="priority"
+                     type="radio"
+                     value="low"
+              />
+              <tal:span i18n:translate="priority_low">Low</tal:span></label>
+            <label><input checked="${python:'checked' if value=='medium' else None}"
+                     name="priority"
+                     type="radio"
+                     value="medium"
+              />
+              <tal:span i18n:translate="priority_medium">Medium</tal:span></label>
+            <label><input checked="${python:'checked' if value=='high' else None}"
+                     name="priority"
+                     type="radio"
+                     value="high"
+              />
+              <tal:span i18n:translate="priority_high">High</tal:span></label>
+          </fieldset>
         </fieldset>
       </tal:block>
 
@@ -712,9 +719,7 @@
                       disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                       tal:condition="existing_measures"
             >
-              <p class="legend"
-                 i18n:translate="label_existing_measures"
-              >Already implemented measures</p>
+              <legend i18n:translate="label_existing_measures">Already implemented measures</legend>
 
               <tal:measures repeat="measure_id existing_measures">
                 <label>
@@ -732,9 +737,7 @@
                       disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
                       tal:condition="planned_measures"
             >
-              <p class="legend"
-                 i18n:translate="label_planned_measures"
-              >Planned measures</p>
+              <legend i18n:translate="label_planned_measures">Planned measures</legend>
 
               <tal:measures repeat="measure_id planned_measures">
 
@@ -1025,12 +1028,13 @@
             <fieldset class="group"
                       disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
             >
-              <p class="legend"><tal:label i18n:translate="label_description">Description</tal:label>
+              <legend>
+                <tal:label i18n:translate="label_description">Description</tal:label>
                 <dfn class="icon-help-circle iconified pat-tooltip"
                      data-pat-tooltip="source: content; position-list: lt"
                      i18n:translate="actionplan_measure_tooltip"
                 >Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)</dfn>
-              </p>
+              </legend>
               <div tal:condition="not:webhelpers/can_edit_session"
                    tal:content="structure actionplan/action|nothing"
               ></div>
@@ -1055,19 +1059,20 @@
               <fieldset class="group"
                         disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
               >
-                <label><tal:label i18n:translate="label_expertise">Expertise</tal:label>
+                <legend>
+                  <tal:label i18n:translate="label_expertise">Expertise</tal:label>
                   <dfn class="icon-help-circle iconified pat-tooltip"
                        data-pat-tooltip="source: content; position-list: lt"
                        i18n:translate="actionplan_requirements_tooltip"
                   >Describe the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any).</dfn>
-                  <textarea class="requirements"
-                            name="measure.requirements:utf8:ustring:records"
-                            placeholder="Level of expertise and/or requirements needed"
-                            rows="3"
-                            tal:content="actionplan/requirements|nothing"
-                            i18n:attributes="placeholder label_measure_requirements"
-                  ></textarea>
-                </label>
+                </legend>
+                <textarea class="requirements"
+                          name="measure.requirements:utf8:ustring:records"
+                          placeholder="Level of expertise and/or requirements needed"
+                          rows="3"
+                          tal:content="actionplan/requirements|nothing"
+                          i18n:attributes="placeholder label_measure_requirements"
+                ></textarea>
               </fieldset>
             </tal:requirements>
           </fieldset>
@@ -1190,12 +1195,12 @@
           <fieldset class="group"
                     disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
           >
-            <p class="legend"><tal:label i18n:translate="label_description">Description</tal:label>
+            <legend><tal:label i18n:translate="label_description">Description</tal:label>
               <dfn class="icon-help-circle iconified pat-tooltip"
                    data-pat-tooltip="source: content; position-list: lt"
                    i18n:translate="actionplan_measure_tooltip"
               >Describe: 1) what is your general approach to eliminate or (if the risk is not avoidable) reduce the risk; 2) the specific action(s) required to implement this approach (to eliminate or to reduce the risk)</dfn>
-            </p>
+            </legend>
             <div class="pat-rich-editor pat-rich toolbar-detached">
               <textarea class="pat-tiptap pat-autofocus"
                         name="measure.action:utf8:ustring:records"
@@ -1214,18 +1219,19 @@
             <fieldset class="group"
                       disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
             >
-              <label><tal:label i18n:translate="label_expertise">Expertise</tal:label>
+              <legend>
+                <tal:label i18n:translate="label_expertise">Expertise</tal:label>
                 <dfn class="icon-help-circle iconified pat-tooltip"
                      data-pat-tooltip="source: content; position-list: lt"
                      i18n:translate="actionplan_requirements_tooltip"
                 >Describe the level of expertise needed to implement the measure, for instance &ldquo;common sense (no OSH knowledge required)&rdquo;, &ldquo;no specific OSH expertise, but minimum OSH knowledge or training and/or consultation of OSH guidance required&rdquo;, or &ldquo;OSH expert&rdquo;. You can also describe here any other additional requirement (if any).</dfn>
-                <textarea class="requirements"
-                          name="measure.requirements:utf8:ustring:records"
-                          placeholder="Level of expertise and/or requirements needed"
-                          rows="3"
-                          i18n:attributes="placeholder label_measure_requirements"
-                ></textarea>
-              </label>
+              </legend>
+              <textarea class="requirements"
+                        name="measure.requirements:utf8:ustring:records"
+                        placeholder="Level of expertise and/or requirements needed"
+                        rows="3"
+                        i18n:attributes="placeholder label_measure_requirements"
+              ></textarea>
             </fieldset>
           </tal:requirements>
         </fieldset>
@@ -1244,6 +1250,7 @@
                    type="text"
             />
           </label>
+
           <label class="currency"
                  tal:condition="python: 'budget' not in view.skip_fields"
           >

@@ -312,7 +312,7 @@
                         >Unvisited</em>
                       </li>
                     </ul>
-                    <div class="six columns high-prio-risks"
+                    <div class="six columns high-prio-risks-temporarily-deactivated"
                          tal:define="
                            high_risks python:view.risks_by_status[module.get('path')]['present']['high'];
                          "
