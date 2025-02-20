@@ -599,7 +599,7 @@
                       value context/priority;
                     "
           >
-            <legend><tal:span i18n:translate="header_risk_priority">Select the priority of this risk</tal:span></legend>
+            <legend i18n:translate="header_risk_priority">Select the priority of this risk</legend>
             <label><input checked="${python:'checked' if value=='low' else None}"
                      name="priority"
                      type="radio"
