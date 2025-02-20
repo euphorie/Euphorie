@@ -315,6 +315,8 @@ class WebHelpers(BrowserView):
         The return value is `True` if an update is required and `False`
         otherwise.
         """
+        if not self.can_edit_session:
+            return False
         traversed_session = self.traversed_session
         session = traversed_session.session
         survey = traversed_session.aq_parent

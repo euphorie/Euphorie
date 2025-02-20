@@ -8,9 +8,8 @@
      tal:condition="webhelpers/allow_social_sharing"
      i18n:attributes="title"
   >Share</a>
-  <div id="sharing-menu"
-       hidden="hidden"
-       tal:condition="webhelpers/allow_social_sharing"
+  <template id="sharing-menu"
+            tal:condition="webhelpers/allow_social_sharing"
   >
 
     <p class="pat-message notice"
@@ -42,5 +41,5 @@
         >E-mail</a>
       </li>
     </ul>
-  </div>
+  </template>
 </tal:sharing>

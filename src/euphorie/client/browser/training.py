@@ -578,7 +578,10 @@ class TrainingView(BrowserView, survey._StatusHelper):
         survey = self.webhelpers._survey
         utils.setLanguage(self.request, survey, survey.language)
 
-        if self.request.environ["REQUEST_METHOD"] == "POST":
+        if (
+            self.request.environ["REQUEST_METHOD"] == "POST"
+            and self.webhelpers.can_edit_session
+        ):
             reply = self.request.form
             if "risk_id" in reply:
                 self.handle_measure_configuration(reply)

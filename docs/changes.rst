@@ -1,6 +1,13 @@
 Changelog
 =========
 
+.. You should *NOT* be adding new change log entries to this file.
+   You should create a file in the news directory instead.
+   For helpful instructions, please see:
+   https://github.com/plone/plone.releaser/blob/master/ADD-A-NEWS-ITEM.rst
+
+.. towncrier release notes start
+
 17.0.0 (unreleased)
 -------------------
 
@@ -15,10 +22,6 @@ Changelog
 - Update Patternslib to 9.10.1-alpha.2.
   Ref: scrum-2726.
   [thet]
-
-- Don't try to send notifications for sessions of depublished tools.
-  (`#3024 <https://github.com/syslabcom/scrum/issues/3024>`_)
-  [reinhardt]
 
 - Custom labels in company survey for France
   (`#2375 <https://github.com/syslabcom/scrum/issues/2375>`_)
@@ -50,14 +53,32 @@ Changelog
   (`#2859 <https://github.com/syslabcom/scrum/issues/2859>`_)
   [reinhardt]
 
+
+16.2.8 (2025-02-19)
+-------------------
+
+- Fix for profile questions (changed title)
+  (`#3038 <https://github.com/syslabcom/scrum/issues/3038>`_)
+  [reinhardt]
+
+- Don't try to send notifications for sessions of depublished tools.
+  (`#3024 <https://github.com/syslabcom/scrum/issues/3024>`_)
+  [reinhardt]
+
+- Don't allow editing training slides when user doesn't have edit permission on the session
+  (`#3188 <https://github.com/syslabcom/scrum/issues/3188>`_)
+  [reinhardt]
+
+- Don't try updating after tool change when user doesn't have edit permission on the session
+  (`#3187 <https://github.com/syslabcom/scrum/issues/3187>`_)
+  [reinhardt]
+
+
 16.2.7 (2025-01-15)
 -------------------
 
 - Removed leading empty lines from compact report
   (`#2815 <https://github.com/syslabcom/scrum/issues/2815>`_)
-  [reinhardt]
-- Fix for profile questions (changed title)
-  (`#3038 <https://github.com/syslabcom/scrum/issues/3038>`_)
   [reinhardt]
 
 

@@ -223,16 +223,19 @@
 
             <fieldset class="pat-checklist">
               <label>
-                <tal:i18n i18n:translate="label_agree_terms_conditions">
-                I agree with the
-                  <a class="pat-modal"
-                     href="${base_url}/terms-conditions#document-content"
-                     data-pat-modal="class: sheet"
-                     i18n:name="link_terms_conditions"
-                     i18n:translate="label_data_protection_notice"
-                  >
-                    Data protection notice</a>
-                </tal:i18n>
+                <span class="label-fragment-title">
+                  <tal:i18n i18n:translate="label_agree_terms_conditions">
+
+                    I agree with the
+                    <a class="pat-modal"
+                       href="${base_url}/terms-conditions#document-content"
+                       data-pat-modal="class: sheet"
+                       i18n:name="link_terms_conditions"
+                       i18n:translate="label_data_protection_notice"
+                    >
+                      Data protection notice</a>
+                  </tal:i18n>
+                </span>
                 <input name="terms"
                        required
                        type="checkbox"
