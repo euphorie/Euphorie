@@ -158,14 +158,14 @@
                          value="national-public-institution"
                   />
                   <tal:span i18n:translate="referer_national_public_institution">a national public institution/administration</tal:span><br />
-                  <span class="discrete">(<tal:span i18n:translate="info_referer_national_public_institution">Ministry, Labour Inspectorate, National Institute for Safety and Health at Work, etc.</tal:span>)</span></label>
+                  (<tal:span i18n:translate="info_referer_national_public_institution">Ministry, Labour Inspectorate, National Institute for Safety and Health at Work, etc.</tal:span>)</label>
                 <label><input checked="${python:'checked' if 'eu-institution' in value else None}"
                          name="${widget/name}"
                          type="radio"
                          value="eu-institution"
                   />
                   <tal:span i18n:translate="referer_eu_institution">an European institution/administration</tal:span><br />
-                  <span class="discrete">(<tal:span i18n:translate="info_referer_eu_institution">The European Agency for Safety and Health at Work, European social partners, etc.</tal:span>)</span></label>
+                  (<tal:span i18n:translate="info_referer_eu_institution">The European Agency for Safety and Health at Work, European social partners, etc.</tal:span>)</label>
                 <label><input checked="${python:'checked' if 'health-safety-experts' in value else None}"
                          name="${widget/name}"
                          type="radio"
