@@ -36,7 +36,9 @@
         <div class="pat-scroll-box"
              id="content-pane"
         >
-          <article tal:content="structure:risk/feedback_text|nothing"></article>
+          <article class="rich"
+                   tal:content="structure:risk/feedback_text|nothing"
+          ></article>
         </div>
 
         <p class="button-bar pat-bumper"
