@@ -21,7 +21,6 @@
     <metal:content fill-slot="content"
                    tal:define="
                      can_edit python:tools.checkPermission('Modify portal content');
-                     media_url string:++resource++euphorie.resources/assets/oira/style;
                      integrated_action_plan python:getattr(context, 'integrated_action_plan', False);
                    "
     >
@@ -85,10 +84,10 @@
             <li id="child-${child/id}"
                 tal:repeat="child children"
             >
-              <img src="${media_url}/folder_icon.png"
+              <img src="${here/portal_url}/++resource++euphorie.deployment/folder_icon.png"
                    tal:condition="not:child/is_profile_question"
               />
-              <img src="${media_url}/question.png"
+              <img src="${here/portal_url}/++resource++euphorie.deployment/question.png"
                    tal:condition="child/is_profile_question"
               />
               <a href="${child/url}">${child/title}</a>

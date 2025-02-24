@@ -92,5 +92,9 @@
         />
   </configure>
 
+  <browser:resourceDirectory
+      name="euphorie.deployment"
+      directory="resources"
+      />
 
 </configure>
