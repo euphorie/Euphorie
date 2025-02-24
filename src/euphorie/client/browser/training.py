@@ -422,7 +422,7 @@ class TrainingView(BrowserView, survey._StatusHelper):
         logo = self.webhelpers.get_sector_logo
         if logo:
             return f"{self.webhelpers.portal_url}/{logo.url}"
-        return f"{self.webhelpers.portal_url}/++resource++euphorie.resources/media/oira-logo-colour.png"  # noqa: E501
+        return f"{self.webhelpers.portal_url}/++resource++euphorie.resources/assets/oira/style/oira-logo-colour.svg"  # noqa: E501
 
     @property
     @view_memoize
