@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  <record name="euphorie.help.remote_url">
+    <field type="plone.registry.field.TextLine">
+      <title>Server URL for static help pages</title>
+      <description>The URL of the server which is used to deliver the Help pages, e.g https://help.oira.info.</description>
+    </field>
+    <value />
+  </record>
+</registry>

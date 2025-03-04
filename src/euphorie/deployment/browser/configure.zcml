@@ -97,4 +97,11 @@
       directory="resources"
       />
 
+  <browser:page
+      name="euphorie-help"
+      for="*"
+      class=".help.EuphorieHelpView"
+      permission="zope.Public"
+      />
+
 </configure>

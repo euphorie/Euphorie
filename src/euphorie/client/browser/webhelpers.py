@@ -26,11 +26,9 @@ from functools import cached_property
 from json import dumps
 from logging import getLogger
 from os import path
-from pkg_resources import resource_listdir
 from plone import api
 from plone.i18n.interfaces import ILanguageUtility
 from plone.i18n.normalizer import idnormalizer
-from plone.memoize import forever
 from plone.memoize.instance import memoize
 from plone.memoize.view import memoize_contextless
 from plone.registry.interfaces import IRegistry
@@ -470,22 +468,41 @@ class WebHelpers(BrowserView):
         return getRegionTitle(self.request, country_id)
 
     @property
-    @forever.memoize
-    def available_help_languages(self):
-        exclude = {"illustrations"}
-        return (
-            set(resource_listdir("plonestatic.euphorie", "resources/assets/oira/help"))
-            - exclude
-        )
+    @memoize
+    def help_language(self):
+        lang = self.language_code or "en"
+        # No country-specific Help texts are currently supported
+        lang = lang.partition("-")[0]
+        # We have a subset of languages for which we have help texts
+        if lang in (
+            "bg",
+            "ca",
+            "cs",
+            "el",
+            "es",
+            "fi",
+            "fr",
+            "hr",
+            "hu",
+            "is",
+            "it",
+            "lt",
+            "lv",
+            "mt",
+            "nl",
+            "pt",
+            "sk",
+            "sl",
+        ):
+            return lang
+        return "en"
 
     @property
     @memoize
-    def help_language(self):
-        lang = self.language_code
-        # No country-specific Help texts are curently supported
-        if lang.find("-"):
-            lang = lang.split("-")[0]
-        return lang if lang in self.available_help_languages else "en"
+    def help_base_url(self):
+        return (
+            f"{self.country_url}/@@euphorie-help/assets/oira/help/{self.help_language}"
+        )
 
     def get_username(self):
         member = api.user.get_current()
