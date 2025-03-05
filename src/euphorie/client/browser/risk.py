@@ -509,6 +509,61 @@ class IdentificationView(RiskBase):
             return None
         return condition
 
+    def save_data(self, reply):
+        old_values = {}
+        for prop, default in self.monitored_properties.items():
+            val = getattr(self.context, prop, default)
+            old_values[prop] = val
+
+        self.set_answer_data(reply)
+
+        session = Session()
+        changed = self.set_measure_data(reply, session)
+
+        if reply.get("answer", None):
+            # If answer is not present in the request, do not attempt to set
+            # any action-related data, since the request might have come
+            # from a sub-form.
+            if self.webhelpers.integrated_action_plan:
+                new_plans, changes = self.extract_plans_from_request()
+                for plan in (
+                    self.context.standard_measures + self.context.custom_measures
+                ):
+                    session.delete(plan)
+                self.context.action_plans.extend(new_plans)
+                changed = changes or changed
+
+        # This only happens on custom risks
+        if reply.get("handle_custom_description"):
+            self.context.custom_description = self.webhelpers.check_markup(
+                reply.get("custom_description")
+            )
+
+        if reply.get("title"):
+            self.context.title = reply.get("title")
+
+        if not changed:
+            for prop, default in self.monitored_properties.items():
+                val = getattr(self.context, prop, None)
+                if val and val != old_values[prop]:
+                    changed = True
+                    break
+        if changed:
+            self.session.touch()
+
+    def post(self):
+        reply = self.request.form
+        if not self.webhelpers.can_edit_session:
+            return self.proceed_to_next(reply)
+        _next = self._get_next(reply)
+        # Don't persist anything if the user skipped the question
+        if _next == "skip":
+            return self.proceed_to_next(reply)
+
+        self.save_data(reply)
+
+        return self.proceed_to_next(reply)
+
     def __call__(self):
         # Render the page only if the user has inspection rights,
         # otherwise redirect to the start page of the session.
@@ -523,64 +578,15 @@ class IdentificationView(RiskBase):
         self.set_parameter_values()
 
         if self.request.method == "POST":
-            reply = self.request.form
-            if not self.webhelpers.can_edit_session:
-                return self.proceed_to_next(reply)
-            _next = self._get_next(reply)
-            # Don't persist anything if the user skipped the question
-            if _next == "skip":
-                return self.proceed_to_next(reply)
-            old_values = {}
-            for prop, default in self.monitored_properties.items():
-                val = getattr(self.context, prop, default)
-                old_values[prop] = val
+            return self.post()
 
-            self.set_answer_data(reply)
-
-            session = Session()
-            changed = self.set_measure_data(reply, session)
-
-            if reply.get("answer", None):
-                # If answer is not present in the request, do not attempt to set
-                # any action-related data, since the request might have come
-                # from a sub-form.
-                if self.webhelpers.integrated_action_plan:
-                    new_plans, changes = self.extract_plans_from_request()
-                    for plan in (
-                        self.context.standard_measures + self.context.custom_measures
-                    ):
-                        session.delete(plan)
-                    self.context.action_plans.extend(new_plans)
-                    changed = changes or changed
-
-            # This only happens on custom risks
-            if reply.get("handle_custom_description"):
-                self.context.custom_description = self.webhelpers.check_markup(
-                    reply.get("custom_description")
-                )
-
-            if reply.get("title"):
-                self.context.title = reply.get("title")
-
-            if not changed:
-                for prop, default in self.monitored_properties.items():
-                    val = getattr(self.context, prop, None)
-                    if val and val != old_values[prop]:
-                        changed = True
-                        break
-            if changed:
-                self.session.touch()
-
-            return self.proceed_to_next(reply)
-
-        else:
-            self._prepare_risk()
-            if self.is_custom_risk:
-                next = FindNextQuestion(
-                    self.context, self.context.session, filter=self.question_filter
-                )
-                self.has_next_risk = next or False
-            return self.template()
+        self._prepare_risk()
+        if self.is_custom_risk:
+            next = FindNextQuestion(
+                self.context, self.context.session, filter=self.question_filter
+            )
+            self.has_next_risk = next or False
+        return self.template()
 
     @property
     def template(self):
