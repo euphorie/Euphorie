@@ -3791,12 +3791,12 @@ msgstr ""
 #. Default: "Publish the selected OiRA Tool live with its latest changes."
 #: euphorie/deployment/tiles/templates/versions.pt:34
 msgid "help_publish"
-msgstr "Publiceer de geselecteerde R&IE met alle laatste wijzigingen."
+msgstr "Publiceer de geselecteerde RI&E met alle laatste wijzigingen."
 
 #. Default: "After publication the OiRA Tool will be available at ${url}."
 #: euphorie/client/browser/templates/publish.pt:45
 msgid "help_publish_url"
-msgstr "Na publicatie is de RI&E toegangkelijk via ${url}."
+msgstr "Na publicatie is de RI&E toegankelijk via ${url}."
 
 #. Default: "This text should describe how the report can either be saved or printed."
 #: euphorie/content/help.py:93
@@ -4123,18 +4123,22 @@ msgstr ""
 #: euphorie/client/browser/templates/publish.pt:32
 msgid "intro_publish_other_survey_published"
 msgstr ""
-"Weet u zeker dat u dieze R&IE versie wil herpubliceren? De huidige RI&E-"
+"Weet u zeker dat u deze RI&E versie wil publiceren? De huidige RI&E-"
 "versie zal dan vervangen worden door deze versie."
 
 #. Default: "Are you sure you want to republish this OiRA Tool? This will make all changes made public."
 #: euphorie/client/browser/templates/publish.pt:28
 msgid "intro_publish_survey_published"
-msgstr "Weet u zeker dat u deze RI&E revisie wil publiceren?"
+msgstr "Weet u zeker dat u deze RI&E revisie wil herpubliceren? Dit zal alle wijzigingen publiek maken."
 
 #. Default: "The structure of your OiRA tool has changed. If you publish now, existing users of this OiRA tool will lose parts of their answers. Please contact the OiRA team if you need assistance on this subject. You can also refer to the chapter &ldquo;Re-working a published OiRA tool&rdquo; of the OiRA manual."
 #: euphorie/client/browser/templates/publish.pt:36
 msgid "intro_publish_survey_structure_changed"
 msgstr ""
+"De structuur van uw RI&E is gewijzigd. Als u nu publiceert, zullen bestaande "
+"gebruikers van deze RI&E delen van hun antwoorden verliezen. "
+"Neem contact op met het RI&E team als u assistentie nodig heeft op dit punt. "
+"U kunt het hoofdstuk &ldquo;Re-working a published OiRA tool&rdquo; lezen van het RI&E handboek."
 
 #. Default: "Including the risks to your employees and your equipment? What if there is an accident with one of the machines? What if an employee is exposed to hazardous substances? A risk assessment helps you to define these risks and tackle them head on. A risk assessment mainly consists of two parts: a <em>list</em> with all the risks in your company and an <em>action plan</em> with details of how to deal with these risks. These two components allow you to limit the risks to your employees and your company, and therefore the financial risk."
 #: euphorie/client/browser/templates/default_introduction.pt:11
