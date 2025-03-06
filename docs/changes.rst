@@ -8,6 +8,15 @@ Changelog
 
 .. towncrier release notes start
 
+17.0.1 (2025-03-06)
+-------------------
+
+Bug fixes:
+
+
+- Fixed error in report when custom risks are present (`Issue #3288 <https://github.com/syslabcom/scrum/issues/3288>`_)
+
+
 17.0.0 (2025-02-25)
 -------------------
 
