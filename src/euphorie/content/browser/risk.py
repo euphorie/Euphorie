@@ -12,6 +12,7 @@ from Acquisition import aq_inner
 from Acquisition import aq_parent
 from Acquisition.interfaces import IAcquirer
 from euphorie.content.survey import get_tool_type
+from euphorie.content.utils import get_tool_type_default
 from euphorie.content.utils import IToolTypesInfo
 from euphorie.content.utils import parse_scaled_answers
 from plone import api
@@ -45,6 +46,23 @@ class RiskView(BrowserView, DragDropHelper):
     @property
     def risk_type(self):
         return getTermTitleByValue(IRisk["type"], self.my_context.type)
+
+    @property
+    def tool_type_data(self) -> dict:
+        """There is an utility that provides the tool types information.
+
+        The information are stored in a dictionary with the tool type as key.
+
+        The default utility return the dict `euphorie.content.utils.TOOL_TYPES`.
+
+        This is not directly used by this package, but custom code will use this.
+        """
+        tool_types_info = getUtility(IToolTypesInfo)()
+        tool_type = get_tool_type(self.my_context)
+        try:
+            return tool_types_info[tool_type]
+        except KeyError:
+            return tool_types_info[get_tool_type_default()]
 
     @property
     def solutions(self):
