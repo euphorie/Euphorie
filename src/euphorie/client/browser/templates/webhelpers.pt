@@ -165,116 +165,117 @@
               "
     >
 
-      <!-- Existing Measures -->
-      <fieldset class="measures-in-place pat-checklist pat-clone ${python:'pat-inject pat-autosubmit pat-subform' if (webhelpers.integrated_action_plan or webhelpers.use_training_module) else None}"
-                id="risk_identification_form"
-                disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
-                data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button; remove-behaviour: none"
-                data-pat-inject="${python:'source: #panel-action-plan::element; target: #panel-action-plan::element;' if webhelpers.integrated_action_plan else None}${python:' &amp;&amp; source: #page-module-training::element; target: #page-module-training::element;' if webhelpers.use_training_module else None}"
-      >
-        <tal:existing_measures condition="view/show_existing_measures">
-          <article class="pat-rich">
-            <p tal:content="structure view/intro_extra"></p>
-          </article>
-          <tal:measures define="
-                          measures view/get_existing_measures_with_activation;
-                        "
-                        repeat="measure measures"
-          >
-            <div class="label"
-                 tal:define="
-                   description measure/text;
-                 "
-                 tal:condition="python: measure['plan_type']=='in_place_standard'"
-            >
-              <label class="label-fragment-title pat-rich"><input checked="${python:measure['active'] and 'checked' or None}"
-                       name="measure-standard-${measure/solution_id}"
-                       type="checkbox"
-                /><tal:measure replace="structure python:webhelpers.get_safe_html(measure['title'])" /></label>
-              <span class="label-fragment-description pat-rich"
-                    tal:condition="description"
-              ><pre class="pat-markdown"
-                     tal:content="structure python:webhelpers.get_safe_html(description)"
-                >Description</pre></span>
-            </div>
-
-            <label class="clone"
-                   tal:condition="python: measure['plan_type']=='in_place_custom'"
-            >
-              <input checked="checked"
-                     disabled="disabled"
-                     name="measure-custom-${measure/solution_id}"
-                     type="checkbox"
-              />
-              <div tal:condition="not:webhelpers/can_edit_session"
-                   tal:content="structure python:webhelpers.get_safe_html(measure['text'])"
-              ></div>
-              <div class="pat-rich-editor pat-rich toolbar-detached"
-                   tal:condition="webhelpers/can_edit_session"
+      <tal:measures define="
+                      measures view/get_existing_measures_with_activation;
+                    ">
+        <!-- Existing Measures -->
+        <fieldset class="measures-in-place pat-checklist pat-clone ${python:'pat-inject pat-autosubmit pat-subform' if (webhelpers.integrated_action_plan or webhelpers.use_training_module) else None}"
+                  id="risk_identification_form"
+                  disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+                  data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button; remove-behaviour: none"
+                  data-pat-inject="${python:'source: #panel-action-plan::element; target: #panel-action-plan::element;' if webhelpers.integrated_action_plan else None}${python:' &amp;&amp; source: #page-module-training::element; target: #page-module-training::element;' if webhelpers.use_training_module else None}"
+                  tal:condition="python:len(measures) !=0"
+        >
+          <tal:existing_measures condition="view/show_existing_measures">
+            <article class="pat-rich">
+              <p tal:content="structure view/intro_extra"></p>
+            </article>
+            <tal:measures repeat="measure measures">
+              <div class="label"
+                   tal:define="
+                     description measure/text;
+                   "
+                   tal:condition="python: measure['plan_type']=='in_place_standard'"
               >
-                <textarea class="pat-tiptap"
-                          autofocus="autofocus"
-                          cols="50"
-                          name="measure-custom-${measure/solution_id}"
-                          placeholder="${view/placeholder_add_extra}"
-                          rows="3"
-                          data-pat-tiptap="
-                              toolbar-external: #assessment-toolbar;
-                              link-panel: #pat-modal .link-panel;
-                              context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
-                          tal:content="structure python:webhelpers.get_safe_html(measure['text'])"
-                ></textarea>
+                <label class="label-fragment-title pat-rich"><input checked="${python:measure['active'] and 'checked' or None}"
+                         name="measure-standard-${measure/solution_id}"
+                         type="checkbox"
+                  /><tal:measure replace="structure python:webhelpers.get_safe_html(measure['title'])" /></label>
+                <span class="label-fragment-description pat-rich"
+                      tal:condition="description"
+                ><pre class="pat-markdown"
+                       tal:content="structure python:webhelpers.get_safe_html(description)"
+                  >Description</pre></span>
               </div>
-              <button class="icon-trash iconified remove-clone"
-                      title="${view/button_remove_extra}"
-              >Remove</button>
 
-            </label>
-          </tal:measures>
-          <input name="handle_measures_in_place"
-                 type="hidden"
-                 value="1"
-          />
+              <label class="clone"
+                     tal:condition="python: measure['plan_type']=='in_place_custom'"
+              >
+                <input checked="checked"
+                       disabled="disabled"
+                       name="measure-custom-${measure/solution_id}"
+                       type="checkbox"
+                />
+                <div tal:condition="not:webhelpers/can_edit_session"
+                     tal:content="structure python:webhelpers.get_safe_html(measure['text'])"
+                ></div>
+                <div class="pat-rich-editor pat-rich toolbar-detached"
+                     tal:condition="webhelpers/can_edit_session"
+                >
+                  <textarea class="pat-tiptap"
+                            autofocus="autofocus"
+                            cols="50"
+                            name="measure-custom-${measure/solution_id}"
+                            placeholder="${view/placeholder_add_extra}"
+                            rows="3"
+                            data-pat-tiptap="
+                                toolbar-external: #assessment-toolbar;
+                                link-panel: #pat-modal .link-panel;
+                                context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
+                            tal:content="structure python:webhelpers.get_safe_html(measure['text'])"
+                  ></textarea>
+                </div>
+                <button class="icon-trash iconified remove-clone"
+                        title="${view/button_remove_extra}"
+                >Remove</button>
 
-          <template id="in-place-measure-template">
-            <label class="clone">
-              <input class="pat-autofocus"
-                     autofocus="autofocus"
-                     checked="checked"
-                     disabled="disabled"
-                     name="use-new-measure-#{1}"
-                     type="checkbox"
-              />
-              <div class="pat-rich-editor pat-rich toolbar-detached">
-                <textarea class="pat-tiptap"
-                          cols="50"
-                          name="new-measure-#{1}"
-                          placeholder="${view/placeholder_add_extra}"
-                          rows="3"
-                          data-pat-tiptap="
-                              toolbar-external: #assessment-toolbar;
-                              link-panel: #pat-modal .link-panel;
-                              context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
-                ></textarea>
-              </div>
-              <button class="icon-trash iconified remove-clone"
-                      title="${view/button_remove_extra}"
-              >Remove</button>
-            </label>
-          </template>
-        </tal:existing_measures>
-      </fieldset>
+              </label>
+            </tal:measures>
+            <input name="handle_measures_in_place"
+                   type="hidden"
+                   value="1"
+            />
 
-      <div class="button-bar cloning"
-           tal:condition="python:view.show_existing_measures"
-      >
-        <button class="add-clone pat-button icon-plus-circle"
-                id="add-in-place-measure-button"
-                title="${view/button_add_extra}"
-                type="button"
-        >${view/button_add_extra}</button>
-      </div>
-      <!-- END Existing measures -->
+            <template id="in-place-measure-template">
+              <label class="clone">
+                <input class="pat-autofocus"
+                       autofocus="autofocus"
+                       checked="checked"
+                       disabled="disabled"
+                       name="use-new-measure-#{1}"
+                       type="checkbox"
+                />
+                <div class="pat-rich-editor pat-rich toolbar-detached">
+                  <textarea class="pat-tiptap"
+                            cols="50"
+                            name="new-measure-#{1}"
+                            placeholder="${view/placeholder_add_extra}"
+                            rows="3"
+                            data-pat-tiptap="
+                                toolbar-external: #assessment-toolbar;
+                                link-panel: #pat-modal .link-panel;
+                                context-menu-link: #tiptap-context-menu-hyperlink-fieldname-comments;"
+                  ></textarea>
+                </div>
+                <button class="icon-trash iconified remove-clone"
+                        title="${view/button_remove_extra}"
+                >Remove</button>
+              </label>
+            </template>
+          </tal:existing_measures>
+        </fieldset>
+
+        <div class="button-bar cloning"
+             tal:condition="python:view.show_existing_measures"
+        >
+          <button class="add-clone pat-button icon-plus-circle"
+                  id="add-in-place-measure-button"
+                  title="${view/button_add_extra}"
+                  type="button"
+          >${view/button_add_extra}</button>
+        </div>
+        <!-- END Existing measures -->
+      </tal:measures>
 
       <!-- Yes / No / Multiple -->
       <fieldset class="pat-checklist radio pat-rich"
