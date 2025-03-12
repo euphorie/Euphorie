@@ -38,12 +38,14 @@
 
         </tal:banner>
         <div class="pat-toolbar">
-          <div class="toolbar-section quick-navigation">
-            <a class="pat-back-button pat-inject"
-               href="${country/absolute_url}/surveys"
-               data-pat-inject="history: record; source: #content; target: #content;"
-               i18n:translate="label_tools"
-            >Tools</a>
+          <div class="toolbar-functions-area">
+            <div class="toolbar-section quick-navigation">
+              <a class="pat-back-button pat-inject"
+                 href="${country/absolute_url}/surveys"
+                 data-pat-inject="history: record; source: #content; target: #content;"
+                 i18n:translate="label_tools"
+              >Tools</a>
+            </div>
           </div>
         </div>
         <div class="tool-info-sheet">
