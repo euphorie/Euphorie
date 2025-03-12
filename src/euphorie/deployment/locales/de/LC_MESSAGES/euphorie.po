@@ -5234,7 +5234,7 @@ msgstr "Vorhergehende"
 #: euphorie/client/browser/templates/more_menu.pt:71
 #: euphorie/client/browser/templates/panel-contents-preview.pt:39
 msgid "label_print_tool_preview"
-msgstr ""
+msgstr "Vorschau der GBU-Vorlage drucken"
 
 #. Default: "Negative statement"
 #: euphorie/content/browser/survey.py:321
