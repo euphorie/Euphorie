@@ -108,6 +108,7 @@
       }
     }
     </script>
+    <style tal:condition="python: webhelpers.custom_css">${webhelpers/custom_css}</style>
   </head>
 
   <body class="${python:'splash-on-' + splash_message['id'] if not is_anonymous and not no_splash and not webhelpers.is_guest_account and splash_message and not page_section else ''} ${python:'splash-on-' + tool_notification['id'] if tool_notification and initial_view else ''} osh-off ${python: 'test-session' if webhelpers.is_guest_account else ''} osc-off osc-s-off osc-size-normal"

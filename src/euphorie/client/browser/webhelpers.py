@@ -642,6 +642,11 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def custom_css(self):
+        return ""
+
+    @property
+    @memoize
     def js_url(self):
         return "{}/{}/{}?t={}".format(
             self.client_url,
