@@ -129,9 +129,14 @@ class OrganisationBaseView(BaseView):
             return []
 
         organisations = []
-        if account.organisation:
-            # Add the user own organisation (if present)
-            organisations.append(account.organisation)
+        if not account.organisation:
+            organisation = Organisation(
+                owner_id=account.id, title=self.default_organisation_title
+            )
+            self.sqlsession.add(organisation)
+            account.organisation = organisation
+
+        organisations.append(account.organisation)
 
         # Extend with the organisation the account is member of
         organisations.extend(
