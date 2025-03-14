@@ -209,7 +209,7 @@
                       >Locked</a>
 
                       <a class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-                         href="${session/absolute_url}/@@more_menu#more-menu"
+                         href="${session/absolute_url}/@@more_menu?from_dashboard#more-menu"
                          data-pat-tooltip="source: ajax; position-list: tr"
                          i18n:translate=""
                       >More</a>
