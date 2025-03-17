@@ -452,7 +452,7 @@ msgstr "EU-lidstaat"
 #: euphorie/client/browser/templates/organisation-member-more-menu.pt:19
 #: euphorie/client/browser/templates/panel-edit-organisation.pt:20
 msgid "Edit"
-msgstr "Toon"
+msgstr "Bewerken"
 
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:21
 #: euphorie/content/browser/module.py:60
@@ -469,7 +469,7 @@ msgstr ""
 
 #: euphorie/client/browser/templates/organisation.pt:133
 msgid "Edit organisation"
-msgstr "Toon organisatie"
+msgstr "Bewerk organisatie"
 
 #: euphorie/client/browser/templates/training.pt:282
 msgid "Edit training card"
