@@ -136,7 +136,7 @@ class Login(BrowserView):
             len(password) < 12
             or not re.search("[A-Z]", password)
             or not re.search("[a-z]", password)
-            or not re.search("[1-9]", password)
+            or not re.search("[0-9]", password)
         ):
             return False
         return True
