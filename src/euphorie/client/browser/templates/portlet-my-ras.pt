@@ -64,7 +64,7 @@
             <p i18n:translate="info_select_session">Select an earlier session to complete or review or
               <a class="pat-modal icon-plus-circle"
                  href="${here/absolute_url}/@@new-session.html#document-content"
-                 data-pat-modal="class: panel small"
+                 data-pat-modal="class: panel medium"
                  i18n:name="start_session"
                  i18n:translate="link_start_session"
               >Start a new risk assessment</a>.
