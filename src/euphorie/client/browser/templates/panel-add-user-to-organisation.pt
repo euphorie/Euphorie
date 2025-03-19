@@ -28,81 +28,32 @@
                id="modal-panel-body"
           >
             <div class="container">
-              <p class="pat-message notice"
-                 i18n:translate=""
-              >
-                When you click continue,
-                your e-mail client will open with a new e-mail
-                with a link in it that people can use to join your organisation.
-                The link is valid for five days and
-                you may send it to as many people as you would like
-                to join your organisation.
-              </p>
-
+              <article class="pat-rich">
+                <p i18n:translate="">
+                  When you click continue,
+                  your e-mail client will open with a new e-mail
+                  with a link in it that people can use to join your organisation.
+                  The link is valid for five days and
+                  you may send it to as many people as you would like
+                  to join your organisation.
+                </p>
+              </article>
               <fieldset class="vertical">
-                <fieldset class="pat-checklist radio">
-                  <legend i18n:translate="">Select the role your new members will get</legend>
-                  <label tal:repeat="option view/role_options">
-                    <input checked="${option/checked|nothing}"
-                           name="role"
-                           type="radio"
-                           value="${option/value}"
-                    />
-                    ${option/label}
-                  </label>
-
-                  <tal:training_enabled tal:condition="view/is_training_enabled">
-                    <p class="pat-message info pat-depends"
-                       data-pat-depends="role=admin"
-                       i18n:translate="message_role_administrator"
-                    >
-                    Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings.
-                    </p>
-                    <p class="pat-message info pat-depends"
-                       data-pat-depends="role=consultant"
-                       i18n:translate="message_role_consultant"
-                    >
-                    Consultants can make and edit risk assessments, validate and approve risk assessments and create trainings.
-                    </p>
-                    <p class="pat-message info pat-depends"
-                       data-pat-depends="role=member"
-                    >
-                      <tal:i18n i18n:translate="message_role_member">Members can make risk assessments and take trainings.</tal:i18n>
-                      <strong i18n:translate="message_member_see_all">Members can view and edit all risk assessments of the organisation.</strong>
-                    </p>
-                    <p class="pat-message info pat-depends"
-                       data-pat-depends="role=manager"
-                       i18n:translate="message_role_manager"
-                    >
-                    Managers/Policy makers can make and edit risk assessments, lock risk assessments, create trainings and take trainings.
-                    </p>
-                  </tal:training_enabled>
-                  <tal:training_disabled tal:condition="not:view/is_training_enabled">
-                    <p class="pat-message info pat-depends"
-                       data-pat-depends="role=admin"
-                       i18n:translate="description_role_admin__training_disabled"
-                    >
-                    Administrators can create, edit and remove user accounts. Administrators can also make risk assessments, edit existing ones and lock risk assessments.
-                    </p>
-                    <p class="pat-message info pat-depends"
-                       data-pat-depends="role=manager"
-                       i18n:translate="description_role_manager__training_disabled"
-                    >
-                    Managers/Policy makers can make, edit and lock risk assessments.
-                    </p>
-                    <p class="pat-message info pat-depends"
-                       data-pat-depends="role=consultant"
-                       i18n:translate="description_role_consultant__training_disabled"
-                    >
-                    Consultants can make, edit, validate and approve risk assessments.
-                    </p>
-                    <p class="pat-message info pat-depends"
-                       data-pat-depends="role=member"
-                    >
-                      <tal:i18n i18n:translate="description_role_member__training_disabled">Members can make risk assessments.</tal:i18n>
-                      <strong i18n:translate="message_member_see_all">Members can view and edit all risk assessments of the organisation.</strong>
-                    </p>
-                  </tal:training_disabled>
+                <fieldset class="group">
+                  <p class="legend"
+                     i18n:translate="label_permission_level"
+                  >Permission level</p>
+                  <fieldset class="pat-checklist bars radio-bars has-value checked">
+                    <label tal:repeat="option view/permission_options">
+                      <strong class="label-fragment-title">${option/label}</strong>
+                      <span class="label-fragment-description">${option/message}</span>
+                      <input checked="${option/checked|nothing}"
+                             name="role"
+                             type="radio"
+                             value="${option/value}"
+                      />
+                    </label>
+                  </fieldset>
                 </fieldset>
 
                 <p class="pat-button-bar">
