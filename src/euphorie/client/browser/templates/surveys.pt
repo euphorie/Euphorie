@@ -122,17 +122,13 @@
           </metal:slot>
 
           <metal:slot fill-slot="quick_functions">
-            <div class="toolbar-section quick-functions"
-                 id="assessments-toolbar-quick-functions"
-            >
-              <label class="pat-toolbar-function pat-toolbar-search-field ${python:'fixed' if is_anonymous else None}">
-                <input name="SearchableText"
-                       placeholder="Search tools"
-                       type="search"
-                       i18n:attributes="placeholder label_search_tools"
-                />
-              </label>
-            </div>
+            <label class="pat-toolbar-function pat-toolbar-search-field ${python:'fixed' if is_anonymous else None}">
+              <input name="SearchableText"
+                     placeholder="Search tools"
+                     type="search"
+                     i18n:attributes="placeholder label_search_tools"
+              />
+            </label>
           </metal:slot>
         </metal:homescreen_navigation>
 
