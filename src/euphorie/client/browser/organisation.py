@@ -45,11 +45,14 @@ class OrganisationBaseView(BaseView):
                 "value": "member",
                 "label": _("Member"),
             },
-            # XXX commented for the moment because it is still under discussion
-            # {
-            #     "value": "manager",
-            #     "label": _("Manager/Policy maker"),
-            # },
+            {
+                "value": "editor",
+                "label": _("Editor"),
+            },
+            {
+                "value": "manager",
+                "label": _("Manager/Policy maker"),
+            },
             {
                 "value": "admin",
                 "label": _("Administrator"),
@@ -65,6 +68,42 @@ class OrganisationBaseView(BaseView):
                 },
             )
         return roles
+
+    @property
+    def _known_permissions(self):
+        permissions = [
+            {
+                "value": "member",
+                "label": _("label_permission_level_basic"),
+                "message": _("message_permission_level_basic"),
+            },
+            {
+                "value": "editor",
+                "label": _("label_permission_level_edit"),
+                "message": _("message_permission_level_edit"),
+            },
+            {
+                "value": "manager",
+                "label": _("label_permission_level_manage"),
+                "message": _("message_permission_level_manage"),
+            },
+            {
+                "value": "admin",
+                "label": _("label_permission_level_full"),
+                "message": _("message_permission_level_full"),
+            },
+        ]
+
+        if self.webhelpers.use_consultancy_phase:
+            permissions.insert(
+                2,
+                {
+                    "value": "consultant",
+                    "label": _("label_permission_level_validate"),
+                    "message": _("message_permission_level_validate"),
+                },
+            )
+        return permissions
 
     @property
     def is_training_enabled(self):
@@ -120,6 +159,22 @@ class OrganisationBaseView(BaseView):
             if role["value"] == role_id:
                 return api.portal.translate(role["label"])
         return role_id
+
+    @memoize_contextless
+    def translate_permission_id(self, permission_id):
+        """Return the translated permission value."""
+        for permission in self._known_permissions:
+            if permission["value"] == permission_id:
+                return api.portal.translate(permission["label"])
+        return permission_id
+
+    @memoize_contextless
+    def translate_permission_message(self, permission_id):
+        """Return the translated permission message value."""
+        for permission in self._known_permissions:
+            if permission["value"] == permission_id:
+                return api.portal.translate(permission["message"])
+        return permission_id
 
     @property
     @memoize
@@ -204,6 +259,13 @@ class PanelAddUser(OrganisationBaseView):
     def role_options(self):
         """Return a list of options for the role field."""
         options = deepcopy(self._known_roles)
+        options[0]["checked"] = "checked"
+        return options
+
+    @property
+    def permission_options(self):
+        """Return a list of options for the permissions field."""
+        options = deepcopy(self._known_permissions)
         options[0]["checked"] = "checked"
         return options
 

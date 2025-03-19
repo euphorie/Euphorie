@@ -126,7 +126,7 @@
                         >
                           <a class="default pat-button pat-modal"
                              href="${here/absolute_url}/@@panel-add-user-to-organisation/${organisation/organisation_id}#document-content"
-                             data-pat-modal="class: small panel"
+                             data-pat-modal="class: medium panel"
                              tal:condition="python: can_add"
                              i18n:translate=""
                           >Add user</a>
