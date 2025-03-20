@@ -23,12 +23,12 @@ from euphorie.content.utils import parse_scaled_answers
 from euphorie.htmllaundry.utils import strip_markup
 from io import BytesIO
 from plone import api
+from plone.base.utils import safe_text
 from plone.memoize.instance import memoize
 from plone.namedfile import NamedBlobImage
 from plone.namedfile.browser import DisplayFile
 from plone.scale.scale import scaleImage
 from Products.CMFPlone.utils import getAllowedSizes
-from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from sqlalchemy import and_
@@ -1146,7 +1146,7 @@ class ImageUpload(BrowserView):
                     return self.redirect()
                 self.context.image_data = new_data
                 self.context.image_data_scaled = None
-            new_name = safe_unicode(image.filename)
+            new_name = safe_text(image.filename)
             if self.context.image_filename != new_name:
                 self.context.image_filename = new_name
         elif self.request.form.get("image-remove"):

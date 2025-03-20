@@ -12,9 +12,9 @@ from json import dumps
 from json import loads
 from logging import getLogger
 from plone import api
+from plone.base.utils import safe_text
 from plone.memoize.instance import memoize
 from plone.memoize.view import memoize as view_memoize
-from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from random import sample
 from random import shuffle
@@ -701,7 +701,7 @@ class SlideQuestion(SlideQuestionIntro):
         if not self.previous_question_id:
             self.initialize_training()
         training = self.get_or_create_training()
-        answer = safe_unicode(self.request.form["answer"])
+        answer = safe_text(self.request.form["answer"])
         answer_history = loads(training.answers)
         answer_history[self.question_id] = answer == self.question.right_answer
         training.answers = dumps(answer_history)
