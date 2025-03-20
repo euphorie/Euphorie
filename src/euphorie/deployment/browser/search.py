@@ -1,8 +1,8 @@
 from euphorie.content import MessageFactory as _
 from plone import api
+from plone.base.utils import safe_text
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
-from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 
 
@@ -54,7 +54,7 @@ class ContextSearch(BrowserView):
         if not qs:
             return
 
-        qs = f'"{safe_unicode(qs)}*"'
+        qs = f'"{safe_text(qs)}*"'
         path = "/".join(self.context.getPhysicalPath())
         query = {"SearchableText": qs, "portal_type": SEARCHED_TYPES, "path": path}
 

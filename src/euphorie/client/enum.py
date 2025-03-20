@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-from Products.CMFPlone.utils import safe_unicode
+from plone.base.utils import safe_text
 from sqlalchemy import types
 
 import uuid
@@ -91,14 +91,14 @@ class Enum(types.TypeDecorator):
         if value is None:
             return None
         else:
-            return safe_unicode(value)
+            return safe_text(value)
 
     def process_result_value(self, value, dialect):
         if value is None:
             return value
         if self.strict and value not in self.values:
             raise ValueError('"%s" not in Enum.values' % value)
-        return safe_unicode(value)
+        return safe_text(value)
 
 
 if __name__ == "__main__":

@@ -30,8 +30,8 @@ from lxml import etree
 from lxml import html
 from plone import api
 from plone.autoform.form import AutoExtensibleForm
+from plone.base.utils import safe_bytes
 from plonetheme.nuplone.z3cform.directives import depends
-from Products.CMFPlone.utils import safe_bytes
 from z3c.form import button
 from z3c.form import form
 from zipfile import ZipFile
