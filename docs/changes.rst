@@ -8,6 +8,23 @@ Changelog
 
 .. towncrier release notes start
 
+17.0.2 (2025-03-20)
+-------------------
+
+New features:
+
+
+- Add a tool_type_data property in the risk view class.
+
+  While this is not directly used in Euphorie code, it is convenient for customers code.
+
+
+Bug fixes:
+
+
+- Fix the password validation (`Issue #319 <https://github.com/syslabcom/scrum/issues/319>`_)
+
+
 17.0.1 (2025-03-06)
 -------------------
 
