@@ -5,8 +5,8 @@ from euphorie.client import publish
 from euphorie.content.upload import SurveyImporter
 from euphorie.content.user import UserProvider
 from optparse import OptionParser
+from plone.base.utils import safe_text
 from plone.namedfile.file import NamedBlobImage
-from Products.CMFPlone.utils import safe_unicode
 from Testing.makerequest import makerequest
 from zope.site import hooks
 
@@ -74,7 +74,7 @@ def GetSector(country, xml_sector, options):
     if options.logo is not None:
         sector.logo = NamedBlobImage(
             data=open(options.logo).read(),
-            filename=safe_unicode(os.path.basename(options.logo)),
+            filename=safe_text(os.path.basename(options.logo)),
         )
     if options.main_colour:
         sector.main_colour = options.main_colour
