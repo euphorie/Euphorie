@@ -1,3 +1,0 @@
-Add a tool_type_data property in the risk view class.
-
-While this is not directly used in Euphorie code, it is convenient for customers code.
