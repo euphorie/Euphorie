@@ -84,7 +84,8 @@ msgstr "Página"
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
 msgid "A profile question is used to create optional or repetabled modules"
 msgstr ""
-"Uma pergunta de perfil é utilizada para criar módulos opcionais ou repetíveis"
+"Uma pergunta de perfil é utilizada para criar módulos opcionais ou "
+"repetíveis"
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
@@ -145,11 +146,11 @@ msgstr "Fluxo de trabalho do setor"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
 msgstr ""
-"Fluxo de trabalho de um estado para objetos do setor, concedendo acesso para "
-"editar os seus conteúdos ao utilizador do setor."
+"Fluxo de trabalho de um estado para objetos do setor, concedendo acesso para"
+" editar os seus conteúdos ao utilizador do setor."
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:15
 msgid "Active"

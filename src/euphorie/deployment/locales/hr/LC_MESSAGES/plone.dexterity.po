@@ -12,12 +12,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"Domain: plone.dexterity\n"
 "Language-Code: hr\n"
 "Language-Name: Croatian\n"
 "Preferred-Encodings: latin1 utf-8\n"
-"Domain: plone.dexterity\n"
 "X-Is-Fallback-For: hr-ba hr-hr bs sh\n"
-
 
 msgid "Save"
 msgstr "Spremi promjene"

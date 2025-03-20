@@ -17,7 +17,6 @@ msgstr ""
 "Generated-By: Babel 0.9.5\n"
 
 # Manually handled file
-
 #: plone/dexterity/browser/add.py:82 plone/dexterity/browser/edit.py:15
 msgid "Save"
 msgstr "Geyma"

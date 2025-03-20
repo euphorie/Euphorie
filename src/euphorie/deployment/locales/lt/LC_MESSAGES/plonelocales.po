@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
@@ -165,8 +166,6 @@ msgstr "Rugsėjis"
 #: datetime name of a month, format %b
 msgid "month_sep_abbr"
 msgstr "Rug"
-
-
 
 #. Default: "Friday"
 #: datetime name of a day, format %A

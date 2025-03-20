@@ -144,11 +144,11 @@ msgstr "Toimialan työnkulku"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
 msgstr ""
-"Yhden valtion työnkulku toimialaobjekteille sallien sen sisällön muokkauksen "
-"toimialakäyttäjälle."
+"Yhden valtion työnkulku toimialaobjekteille sallien sen sisällön muokkauksen"
+" toimialakäyttäjälle."
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:15
 msgid "Active"

@@ -145,11 +145,11 @@ msgstr "Sektora darbplūsma"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
 msgstr ""
-"Viena stāvokļa darbplūsma sektora objektiem, ar kuru nozares lietotājs saņem "
-"atļauju to rediģēt."
+"Viena stāvokļa darbplūsma sektora objektiem, ar kuru nozares lietotājs saņem"
+" atļauju to rediģēt."
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:15
 msgid "Active"

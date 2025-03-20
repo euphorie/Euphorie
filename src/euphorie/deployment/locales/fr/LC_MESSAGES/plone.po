@@ -18,8 +18,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 0.9.5\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Generated-By: Babel 0.9.5\n"
 
 #: euphorie/client/profiles/default/types/euphorie.client.xml:8
 msgid "The online client."
@@ -151,8 +151,8 @@ msgstr "Flux de travail du secteur"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
 msgstr ""
 "Flux de travail d'un état pour des objets de secteur, donnant un accès "
 "d'édition à son contenu, à l'utilisateur de secteur."

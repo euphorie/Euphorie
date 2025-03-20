@@ -145,8 +145,8 @@ msgstr "Verkflæði verksviðs"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
 msgstr ""
 "Eins-ástands verkflæði fyrir viðföng atvinnusviðs sem gefur notanda "
 "atvinnusviðsins aðgang til breytinga á inni haldi þess. "
@@ -159,9 +159,15 @@ msgstr "Virkt"
 msgid "The One And Only state "
 msgstr "Hið eina og sanna ástand"
 
+#: CMFPlone/controlpanel/browser/types.py:67
+#: plone.app.discussion/plone/app/discussion/browser/controlpanel.py:90
+#: plone.app.portlets/plone/app/portlets/browser/formhelper.py:212
+msgid "Changes saved"
+msgstr "Breytingar vistaðar"
+
 # Manually added
 #~ msgid "label_title"
-#~ msgstr "Titill"
+#~ msgstr ""
 
 # Manually added
 #~ msgid "label_description"
@@ -170,9 +176,3 @@ msgstr "Hið eina og sanna ástand"
 # Manually added
 #~ msgid "help_description"
 #~ msgstr "Stutt innihaldslýsing"
-
-#: CMFPlone/controlpanel/browser/types.py:67
-#: plone.app.discussion/plone/app/discussion/browser/controlpanel.py:90
-#: plone.app.portlets/plone/app/portlets/browser/formhelper.py:212
-msgid "Changes saved"
-msgstr "Breytingar vistaðar"

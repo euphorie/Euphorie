@@ -12,17 +12,16 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"Domain: plone\n"
 "Language-Code: hr\n"
 "Language-Name: Croatian\n"
 "Preferred-Encodings: latin1 utf-8\n"
-"Domain: plone\n"
 "X-Is-Fallback-For: hr-ba hr-hr bs sh\n"
 
 #. Default: "Used in item listings and search results."
 #: Archetypes/ExtensibleMetadata.py:97
 msgid "help_description"
 msgstr "Upotrebljava se u popisu stavki i rezultatima pretraživanja."
-
 
 #: CMFPlone/profiles/default/controlpanel.xml
 #: CMFPlone/profiles/default/portlets.xml

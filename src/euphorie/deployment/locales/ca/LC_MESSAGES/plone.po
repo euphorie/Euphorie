@@ -145,8 +145,8 @@ msgstr "Flux de treball del sector"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
 msgstr ""
 "Flux de treball d'un estat per als objectes del sector, la qual cosa "
 "proporciona a l'usuari del sector accés d'edició al contingut."

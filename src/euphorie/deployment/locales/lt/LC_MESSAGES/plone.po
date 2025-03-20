@@ -147,8 +147,8 @@ msgstr "Darbų srautas veiklos srityje"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
 msgstr ""
 "Vienos šalies veiklos srities objektų darbų srautas, veiklos srities "
 "naudotojui suteikiant turinio redagavimo teisę."

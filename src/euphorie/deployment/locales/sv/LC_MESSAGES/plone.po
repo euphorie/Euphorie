@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -140,8 +141,8 @@ msgstr "Bransch arbetsflÃ¶de"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
 msgstr ""
 "En stats arbetsflÃ¶de fÃ¶r branschobjekt, vilket lÃ¥ter branschanvÃ¤ndaren "
 "redigera dess innehÃ¥ll."

@@ -145,11 +145,11 @@ msgstr "Delovni tok sektorja"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
 msgstr ""
-"Delovni tok z enim stanjem za cilje sektorja, ki uporabniku sektorja omogoča "
-"dostop za urejanje njegove vsebine."
+"Delovni tok z enim stanjem za cilje sektorja, ki uporabniku sektorja omogoča"
+" dostop za urejanje njegove vsebine."
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:15
 msgid "Active"
