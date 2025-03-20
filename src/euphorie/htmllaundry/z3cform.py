@@ -16,9 +16,9 @@ class HtmlText(Text):
     """A HTML field. This is similar to a standard Text field, but will
     sanitize all markup passed into it.
     """
-
-    pass
-
+    default_mime_type = "text/html"
+    allowed_mime_types = ("text/html",)
+    output_mime_type = "text/html"
 
 @adapter(IHtmlText, IWidget)
 class HtmlDataConverter(FieldDataConverter):
