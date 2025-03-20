@@ -1699,7 +1699,7 @@ msgstr "stapsgewijs risicobeoordelingsproces"
 #: euphorie/client/browser/templates/about.pt:76
 msgid "about_paragraph_2"
 msgstr ""
-"Met de OiRA-webapplicatie krijgt u toegang tot Risicobeoordelingtools"
+"Met de OiRA-webapplicatie krijgt u toegang tot Risicobeoordelinginstrumenten"
 " voor uw sector die worden samengesteld en bijgewerkt door sectoriële "
 "organisaties op nationaal niveau."
 
@@ -2365,6 +2365,7 @@ msgid "conditions_part8_entry"
 msgstr ""
 "Wij bewaren uw gegevens, die niet voor externe gebruikers toegankelijk zijn,"
 " tot u uw account en/of uw Risicoanalyse(s) verwijdert. EU-OSHA bewaart de gegevens"
+" tot u uw account en/of uw sessie(s) verwijdert. EU-OSHA bewaart de gegevens"
 " op zijn servers, die op het grondgebied van de Europese Unie staan "
 "opgesteld."
 
@@ -4738,7 +4739,7 @@ msgstr "Afbeelding bijschrift"
 #: euphorie/client/browser/templates/sessions-dashboard.pt:57
 #: euphorie/client/browser/templates/training_certificate_view.pt:20
 msgid "label_certificates"
-msgstr "Certificaten"
+msgstr ""
 
 #. Default: "Choose a country"
 #: euphorie/content/widgets/survey_source_selection.py:54
@@ -4808,7 +4809,7 @@ msgstr "Bevestig uw wachtwoord"
 #: euphorie/client/browser/templates/consultants.pt:26
 #: euphorie/client/browser/webhelpers.py:1462
 msgid "label_consultancy"
-msgstr "Advies"
+msgstr ""
 
 #. Default: "Contact email address"
 #: euphorie/content/user.py:81
@@ -4964,7 +4965,7 @@ msgstr "Maatregel is al toegepast"
 #: euphorie/client/browser/templates/webhelpers.pt:715
 #: euphorie/client/browser/training.py:288
 msgid "label_existing_measures"
-msgstr "Reeds geïmplementeerde maatregelen"
+msgstr ""
 
 #. Default: "Exit"
 #: euphorie/client/browser/templates/more_menu.pt:78
@@ -5005,7 +5006,7 @@ msgstr "Bijschrift voor inhoud"
 #. Default: "First name"
 #: euphorie/client/browser/settings.py:131
 msgid "label_first_name"
-msgstr "Voornaam"
+msgstr ""
 
 #. Default: "First name (optional)"
 #: euphorie/client/browser/templates/login.pt:155
@@ -5159,7 +5160,7 @@ msgstr "Aangemeld blijven"
 #: euphorie/content/browser/templates/survey_view.pt:34
 #: euphorie/content/survey.py:84
 msgid "label_language"
-msgstr "Taal"
+msgstr ""
 
 #. Default: "Last name"
 #: euphorie/client/browser/settings.py:134
@@ -5207,7 +5208,7 @@ msgstr "Risicoanalyse vergrendelen"
 #: euphorie/client/browser/templates/locking_menu.pt:51
 #: euphorie/client/browser/templates/status_info.pt:98
 msgid "label_locked"
-msgstr "Vergrendeld"
+msgstr ""
 
 #. Default: "Locked ${locking_time}"
 #: euphorie/client/browser/templates/locking_badge.pt:22
@@ -5424,7 +5425,7 @@ msgstr "Online OiRA training"
 #. Default: "Organisation"
 #: euphorie/client/browser/templates/assessments.pt:34
 msgid "label_organisation"
-msgstr "Organisatie"
+msgstr ""
 
 #. Default: "Page"
 #: euphorie/client/browser/pdf.py:47
@@ -5454,7 +5455,7 @@ msgstr "Wachtwoord opnieuw invoeren"
 #: euphorie/client/browser/templates/webhelpers.pt:735
 #: euphorie/client/browser/training.py:291
 msgid "label_planned_measures"
-msgstr "Geplande maatregelen"
+msgstr ""
 
 #. Default: "Preparation"
 #: euphorie/client/browser/templates/login.pt:321
@@ -5584,7 +5585,7 @@ msgstr "Medewerkers die deelnamen aan de risicoanalyse"
 #: euphorie/client/browser/templates/panel-request-validation.pt:15
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:15
 msgid "label_request_validation"
-msgstr "Validatie aanvragen"
+msgstr ""
 
 #. Default: "Request validation"
 #: euphorie/client/browser/templates/consultancy.pt:81
@@ -5761,7 +5762,7 @@ msgstr "Oplossing"
 #: euphorie/client/browser/templates/assessments.pt:49
 #: euphorie/client/browser/templates/surveys.pt:103
 msgid "label_sorting"
-msgstr "Sorteren"
+msgstr ""
 
 #. Default: "How would you like to start"
 #: euphorie/content/widgets/survey_source_selection.py:18
@@ -5899,7 +5900,7 @@ msgstr "Gemiddeld"
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:30
 #: euphorie/client/docx/compiler.py:584
 msgid "label_title"
-msgstr "Titel"
+msgstr ""
 
 #. Default: "based on ${tool_title}"
 #: euphorie/client/browser/templates/session-browser-sidebar.pt:160
@@ -5926,7 +5927,7 @@ msgstr "Soort OiRA-tool"
 #: euphorie/client/browser/templates/sessions-dashboard.pt:41
 #: euphorie/client/browser/templates/tool_sessions.pt:42
 msgid "label_tools"
-msgstr "Tools"
+msgstr ""
 
 #. Default: "Your achievement will be listed under &ldquo;My trainings&rdquo;
 #. in the training portlet on the dashboard. From there you can always view or
@@ -5957,7 +5958,7 @@ msgstr "Ontgrendel risicobeoordeling"
 #. Default: "Unlocked"
 #: euphorie/client/browser/templates/locking_badge.pt:39
 msgid "label_unlocked"
-msgstr "Ontgrendeld"
+msgstr ""
 
 #. Default: "Unpublished"
 #: euphorie/client/browser/templates/status_info.pt:119
@@ -6009,7 +6010,7 @@ msgstr "Naam"
 #. Default: "Validate"
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:49
 msgid "label_validate_imp"
-msgstr "Valideren"
+msgstr ""
 
 #. Default: "Validate this risk assessment"
 #: euphorie/client/browser/templates/consultancy.pt:106
@@ -6019,7 +6020,7 @@ msgstr "Valideer deze risicobeoordeling"
 #. Default: "Validated"
 #: euphorie/client/browser/templates/locking_badge.pt:30
 msgid "label_validated"
-msgstr "Gevalideerd"
+msgstr ""
 
 #. Default: "(&ge;1 measures)"
 #: euphorie/client/browser/templates/risks_overview.pt:431
