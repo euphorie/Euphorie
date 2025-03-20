@@ -20,19 +20,19 @@ msgstr ""
 
 #: euphorie/client/profiles/default/types/euphorie.client.xml:8
 msgid "The online client."
-msgstr ""
+msgstr "De online gebruikerssite."
 
 #: euphorie/client/profiles/default/types/euphorie.clientcountry.xml:8
 msgid "Country information and grouping for the client."
-msgstr ""
+msgstr "Landinformatie en groepen voor de gebruikerssite."
 
 #: euphorie/client/profiles/default/types/euphorie.clientsector.xml:8
 msgid "Sector information and grouping for the client."
-msgstr ""
+msgstr "Sectorinformatie en groepen voor de gebruikerssite."
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml:7
 msgid "A folder for all sectors in a country."
-msgstr ""
+msgstr "Een map voor alle sectoren in een land."
 
 #: euphorie/content/profiles/default/types/euphorie.country.xml:6
 msgid "Country"
@@ -50,7 +50,7 @@ msgstr "Landbeheerder"
 
 #: euphorie/content/profiles/default/types/euphorie.documentation.xml:7
 msgid "A folder for all documentation for a specific language."
-msgstr ""
+msgstr "Een map voor alle documentatie voor een specifieke taal."
 
 #: euphorie/content/profiles/default/types/euphorie.documentation.xml:6
 msgid "Documentation"
@@ -66,7 +66,7 @@ msgstr "De helptekst voor de client"
 
 #: euphorie/content/profiles/default/types/euphorie.help.xml:7
 msgid "Online help"
-msgstr ""
+msgstr "Online help"
 
 #: euphorie/content/profiles/default/types/euphorie.module.xml:8
 msgid "A module is grouping of risks"
@@ -87,6 +87,8 @@ msgstr "Pagina"
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:8
 msgid "A profile question is used to create optional or repetabled modules"
 msgstr ""
+"Een profielvraag wordt gebruikt om optionele en herhaalbare modules te "
+"creëren"
 
 #: euphorie/content/profiles/default/types/euphorie.profilequestion.xml:7
 msgid "Profile question"
@@ -94,7 +96,7 @@ msgstr "Profielvraag"
 
 #: euphorie/content/profiles/default/types/euphorie.risk.xml:8
 msgid "A risk."
-msgstr ""
+msgstr "Een risico."
 
 #: euphorie/content/profiles/default/types/euphorie.risk.xml:7
 msgid "Risk"
@@ -112,15 +114,15 @@ msgstr "Branche"
 
 #: euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml:9
 msgid "A folder which can contain sectors."
-msgstr ""
+msgstr "Een map die sectoren kan bevatten."
 
 #: euphorie/content/profiles/default/types/euphorie.sectorcontainer.xml:8
 msgid "Sector Folder"
-msgstr ""
+msgstr "Sectormap"
 
 #: euphorie/content/profiles/default/types/euphorie.solution.xml:8
 msgid "A solution."
-msgstr ""
+msgstr "Een oplossing."
 
 #: euphorie/content/profiles/default/types/euphorie.solution.xml:7
 msgid "Solution"
@@ -128,11 +130,11 @@ msgstr "Standaardmaatregel"
 
 #: euphorie/content/profiles/default/types/euphorie.survey.xml:8
 msgid "A version of a survey."
-msgstr ""
+msgstr "Een versie van een enquête."
 
 #: euphorie/content/profiles/default/types/euphorie.survey.xml:7
 msgid "Survey version"
-msgstr ""
+msgstr "Enquêteversie"
 
 #: euphorie/content/profiles/default/types/euphorie.surveygroup.xml:7
 msgid "A survey."
@@ -140,22 +142,24 @@ msgstr "Vragenlijst"
 
 #: euphorie/content/profiles/default/types/euphorie.surveygroup.xml:6
 msgid "Survey"
-msgstr ""
+msgstr "Enquête"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid "Sector workflow"
-msgstr ""
+msgstr "Sectorworkflow"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
 "One-state workflow for sector objects, giving edit access to its contents to"
 " the sector user."
 msgstr ""
+"Workflow van één staat voor sectorobjecten, geeft toegang tot het bewerken "
+"van de inhoud aan de sectorgebruiker."
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:15
 msgid "Active"
-msgstr ""
+msgstr "Actief"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:16
 msgid "The One And Only state "
-msgstr ""
+msgstr "De enige echte staat "
