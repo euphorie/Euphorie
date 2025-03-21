@@ -18,9 +18,9 @@
            "
       >
         <h1 class="panel-class-"
-            i18n:translate=""
+            i18n:translate="label_edit_organisation"
         >
-          Edit
+          Edit organisation
         </h1>
         <form class="pat-form wizard-box panel-class-panel pat-inject pat-validation"
               action="${request/getURL}#org-${python:view.organisation.organisation_id}"
