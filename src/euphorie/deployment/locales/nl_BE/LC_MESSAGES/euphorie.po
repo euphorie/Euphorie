@@ -1251,7 +1251,7 @@ msgstr "Samenvatting"
 
 #: euphorie/client/browser/templates/training.pt:79
 msgid "Take training and test"
-msgstr "Training volgen en testen"
+msgstr "Training en test"
 
 #: euphorie/client/browser/templates/about.pt:142
 msgid "The Netherlands"
@@ -6568,7 +6568,7 @@ msgstr "Help"
 #: euphorie/client/browser/settings.py:87
 #: euphorie/client/browser/templates/webhelpers.pt:53
 msgid "navigation_logout"
-msgstr "Uitloggen"
+msgstr "Log out"
 
 #. Default: "Settings"
 #: euphorie/client/browser/templates/webhelpers.pt:65
@@ -7290,7 +7290,7 @@ msgstr "E-mailadres wijzigen"
 #. Default: "Change password"
 #: euphorie/client/browser/settings.py:69
 msgid "title_change_password"
-msgstr "Wachtwoord veranderen"
+msgstr "Verander wachtwoord"
 
 #. Default: "Client help text"
 #: euphorie/content/browser/templates/help_view.pt:13
@@ -7531,6 +7531,59 @@ msgstr ""
 #: euphorie/content/browser/templates/risk_view.pt:89
 msgid "yes"
 msgstr "Ja"
+
+
+#. Default: "Permission level"
+msgid "label_permission_level"
+msgstr "Machtigingsniveau"
+
+#. Default: "Basic"
+msgid "label_permission_level_basic"
+msgstr "Basis"
+
+#. Default: "User can only take trainings."
+msgid "message_permission_level_basic"
+msgstr "Gebruiker kan alleen trainingen volgen."
+
+#. Default: "Edit"
+msgid "label_permission_level_edit"
+msgstr "Bewerk"
+
+#. Default: "User can take trainings and view and edit all risk assessments."
+msgid "message_permission_level_edit"
+msgstr "Gebruiker kan trainingen volgen en alle risicobeoordelingen bekijken en bewerken."
+
+#. Default: "Manage"
+msgid "label_permission_level_manage"
+msgstr "Beheer"
+
+#. Default: "User can take trainings, view and edit all risk assessments, request validations, and lock risk assessments."
+msgid "message_permission_level_manage"
+msgstr "Gebruiker kan trainingen volgen, alle risicobeoordelingen bekijken en bewerken, validaties aanvragen en risicobeoordelingen vergrendelen."
+
+#. Default: "Validate"
+msgid "label_permission_level_validate"
+msgstr "Valideren"
+
+#. Default: "Retract validation"
+msgid "label_retract_validation"
+msgstr "Validatie intrekken"
+
+#. Default: "Retract validation"
+msgid "label_retract_validation_imp"
+msgstr "Trek validatie in"
+
+#. Default: "User can take trainings, view and edit all risk assessments, and validate risk assessments."
+msgid "message_permission_level_validate"
+msgstr "Gebruiker kan trainingen volgen, alle risicobeoordelingen bekijken en bewerken, en risicobeoordelingen valideren."
+
+#. Default: "Full"
+msgid "label_permission_level_full"
+msgstr "Volledig"
+
+#. Default: "User can view and edit all content and add or remove users to or from the organisation."
+msgid "message_permission_level_full"
+msgstr "Gebruiker kan alle inhoud bekijken en bewerken en gebruikers aan de organisatie toevoegen of verwijderen."
 
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Officieel OiRA-logo"
