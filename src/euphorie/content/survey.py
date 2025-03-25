@@ -25,7 +25,6 @@ from euphorie.content.utils import get_tool_type_default
 from euphorie.content.utils import IToolTypesInfo
 from euphorie.htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
-from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.autoform import directives
 from plone.dexterity.content import Container
 from plone.indexer import indexer
@@ -36,6 +35,12 @@ from zope.component import getUtility
 from zope.interface import implementer
 
 import sys
+
+
+try:
+    from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
+except ImportError:
+    from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
 
 class ISurvey(model.Schema, IBasic):

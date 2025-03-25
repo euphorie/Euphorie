@@ -45,6 +45,11 @@ from zope.schema.vocabulary import SimpleVocabulary
 import sys
 
 
+try:
+    from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
+except ImportError:
+    from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
+
 TextLines4Rows = FieldWidgetFactory(
     "z3c.form.browser.textlines.TextLinesFieldWidget", rows=4
 )
@@ -96,7 +101,7 @@ class IRisk(model.Schema, IRichDescription, IBasic):
         ),
         required=True,
     )
-    directives.widget(description="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
+    directives.widget(description=WysiwygFieldWidget)
     directives.order_after(description="problem_description")
 
     existing_measures = TextLinesWithBreaks(
@@ -123,7 +128,7 @@ class IRisk(model.Schema, IRichDescription, IBasic):
         title=_("label_legal_reference", default="Legal and policy references"),
         required=False,
     )
-    directives.widget(legal_reference="plone.app.z3cform.wysiwyg.WysiwygFieldWidget")
+    directives.widget(legal_reference=WysiwygFieldWidget)
     directives.order_after(legal_reference="description")
 
     model.fieldset(
