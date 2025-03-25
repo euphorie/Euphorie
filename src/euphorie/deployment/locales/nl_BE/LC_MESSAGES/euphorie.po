@@ -5461,7 +5461,7 @@ msgstr "Validatie aanvragen"
 #. Default: "Request validation"
 #: euphorie/client/browser/templates/consultancy.pt:81
 msgid "label_request_validation_imp"
-msgstr "Validatie aanvragen"
+msgstr "Vraag validatie aan"
 
 #. Default: "Risk is always present"
 #: euphorie/content/risk.py:167
