@@ -5538,7 +5538,7 @@ msgstr "Anmelden"
 #: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
-msgstr "Beginnen Sie eine neue Sitzung"
+msgstr "beginnen Sie eine neue Sitzung"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:33
