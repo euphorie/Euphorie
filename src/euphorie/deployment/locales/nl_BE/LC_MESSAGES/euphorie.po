@@ -5935,7 +5935,13 @@ msgstr ""
 "Klik op 'Validatieverzoek verzenden' om de geselecteerde OSH-consultant te "
 "vragen je risicoanalyse te beoordelen en te valideren."
 
-#. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."
+#. Default: "No validation is requested at this time."
+msgid "message_no_validation_requested"
+msgstr "Op dit moment is er geen validatie vereist."
+
+#. Default: "Administrators can create, edit and remove user accounts.
+#. Administrators can also make risk assessments and edit existing ones, lock
+#. risk assessments, create trainings and take trainings."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:55
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:70
 msgid "message_role_administrator"
