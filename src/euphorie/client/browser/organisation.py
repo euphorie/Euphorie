@@ -266,7 +266,13 @@ class PanelAddUser(OrganisationBaseView):
     def permission_options(self):
         """Return a list of options for the permissions field."""
         options = deepcopy(self._known_permissions)
-        options[0]["checked"] = "checked"
+        role = self.request.get("role", None)
+        if role is not None:
+            for option in options:
+                if role == option["value"]:
+                    option["checked"] = "checked"
+        else:
+            options[0]["checked"] = "checked"
         return options
 
     @property
