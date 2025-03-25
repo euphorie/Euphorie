@@ -136,6 +136,10 @@
                              tal:condition="python: can_edit"
                              i18n:translate=""
                           >Edit organisation</a>
+                          <a class="pat-inject pat-button no-label icon-help float-after"
+                             href="${webhelpers/base_url}/++resource++euphorie.resources/assets/oira/help/${webhelpers/help_language}/pages/configuring.html#content-pane"
+                             data-pat-inject="history: record; source: #content; target: #content; scroll: #topic-organisation"
+                          >Help</a>
                         </div>
                       </tal:organisation>
                     </div>
