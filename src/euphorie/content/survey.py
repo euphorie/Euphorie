@@ -212,8 +212,6 @@ def get_tool_type(context):
 
     The type is set on the survey.
     """
-    from euphorie.content.survey import ISurvey  # XXX Circular
-
     tt_default = get_tool_type_default()
     for parent in aq_chain(aq_inner(context)):
         if ISurvey.providedBy(parent):
