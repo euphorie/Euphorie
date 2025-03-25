@@ -6419,6 +6419,10 @@ msgstr ""
 "Klik op 'Validatieverzoek verzenden' om de geselecteerde OSHconsultant te "
 "vragen uw risicobeoordeling te beoordelen en te valideren."
 
+#. Default: "No validation is requested at this time."
+msgid "message_no_validation_requested"
+msgstr "Op dit moment is er geen validatie vereist."
+
 #. Default: "Administrators can create, edit and remove user accounts.
 #. Administrators can also make risk assessments and edit existing ones, lock
 #. risk assessments, create trainings and take trainings."
