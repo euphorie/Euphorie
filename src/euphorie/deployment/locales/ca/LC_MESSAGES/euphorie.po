@@ -5921,7 +5921,7 @@ msgstr "Iniciar sessió"
 #: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
-msgstr "Iniciar una nova sessió"
+msgstr "iniciar una nova sessió"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:33

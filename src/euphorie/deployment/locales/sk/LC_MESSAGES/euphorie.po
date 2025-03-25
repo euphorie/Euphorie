@@ -5900,7 +5900,7 @@ msgstr "Prihlásenie"
 #: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
-msgstr "Začať nové hodnotenie rizík"
+msgstr "začať nové hodnotenie rizík"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:33

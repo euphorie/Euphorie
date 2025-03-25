@@ -5888,7 +5888,7 @@ msgstr "Prijava"
 #: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
-msgstr "Pokrenite novu sesiju"
+msgstr "pokrenite novu sesiju"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:33
