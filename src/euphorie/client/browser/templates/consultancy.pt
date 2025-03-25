@@ -147,7 +147,7 @@
           >
             <a class="pat-modal"
                href="${webhelpers/country_url}/@@panel-add-user-to-organisation/${organisation/organisation_id}?role=consultant#document-content"
-               data-pat-modal="class: small panel"
+               data-pat-modal="class: medium panel"
                tal:condition="view/is_admin"
                i18n:translate=""
             >Add an OSH consultant to your organisation.</a>
