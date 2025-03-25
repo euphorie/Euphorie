@@ -140,7 +140,7 @@ msgstr "Submodule toevoegen"
 
 #: euphorie/client/browser/templates/consultancy.pt:136
 msgid "Add an OSH consultant to your organisation."
-msgstr "Een externe dienst aan uw organisatie toevoegen."
+msgstr "Voeg een OSH-adviseur toe aan uw organisatie."
 
 #: euphorie/client/browser/templates/profile.pt:175
 #: euphorie/client/browser/templates/updated.pt:168
@@ -248,7 +248,7 @@ msgstr "Ben je zeker dat je ${name} wilt verwijderen van ${organisation}?"
 
 #: euphorie/client/browser/templates/portlet-available-tools.pt:13
 msgid "Available OiRA tools"
-msgstr "Beschikbare OiRA-tools"
+msgstr "Beschikbare tools"
 
 #: euphorie/client/browser/templates/status_info.pt:146
 msgid "Awarded certificates"
@@ -1119,7 +1119,7 @@ msgstr "Risico's vergelijkbaar met ${title}"
 
 #: euphorie/client/browser/templates/training.pt:81
 msgid "Run slideshow"
-msgstr "Diavoorstelling tonen"
+msgstr "Training en test"
 
 #: euphorie/client/browser/reset_password.py:206
 #: euphorie/client/browser/settings.py:219
@@ -1601,14 +1601,14 @@ msgstr "De broncode van de OiRA-applicatie heeft een ${GPL}-licentie."
 #: euphorie/client/browser/templates/about.pt:185
 msgid "about_licenses_2"
 msgstr ""
-"De inhoud van sectoriële OiRA-instrumenten zijn gelicenceerd onder een "
+"De inhoud van sectoriële OiRA-tools zijn gelicenceerd onder een "
 "${license}"
 
 #. Default: "The OiRA sectoral tools can be used for free by all users."
 #: euphorie/client/browser/templates/about.pt:191
 msgid "about_licenses_3"
 msgstr ""
-"De sectoriële OiRA-instrumenten kunnen gratis worden gebruikt door alle "
+"De sectoriële OiRA-tools kunnen gratis worden gebruikt door alle "
 "gebruikers."
 
 #. Default: "More information about the OiRA project (in English)"
@@ -1683,7 +1683,7 @@ msgstr "stapsgewijs risicobeoordelingsproces"
 #: euphorie/client/browser/templates/about.pt:76
 msgid "about_paragraph_2"
 msgstr ""
-"Met de OiRA-webapplicatie krijgt u toegang tot Risicobeoordelinginstrumenten"
+"Met de OiRA-webapplicatie krijgt u toegang tot Risicobeoordelingtools"
 " voor uw sector die worden samengesteld en bijgewerkt door sectoriële "
 "organisaties op nationaal niveau."
 
@@ -1698,7 +1698,7 @@ msgstr ""
 #: euphorie/client/browser/templates/about.pt:91
 msgid "about_paragraph_3"
 msgstr ""
-"Het ${agency} vraagt naar de ontwikkeling van eenvoudige instrumenten om "
+"Het ${agency} vraagt naar de ontwikkeling van eenvoudige tools om "
 "risicobeoordelingen te vereenvoudigen. Sinds het aannemen van de richtlijn "
 "van het Europese kader in 1989, is risicobeoordeling een vertrouwd concept "
 "geworden voor het organiseren van preventie op de werkvloer. "
@@ -2040,7 +2040,7 @@ msgstr "Zoeken"
 #: euphorie/client/browser/templates/new-session.pt:126
 #: euphorie/client/browser/templates/portlet-available-tools.pt:64
 msgid "button_start_session"
-msgstr "Sessie starten"
+msgstr "Start RI&E"
 
 #. Default: "Test session"
 #: euphorie/client/browser/templates/surveys.pt:202
@@ -2087,7 +2087,7 @@ msgid "company_report_intro"
 msgstr ""
 "Dank u voor het gebruik van OiRA. Voordat we naar het rapport gaan, willen "
 "we u vriendelijk vragen om ons wat feedback te geven via de enquête "
-"hieronder. Deze informatie is bedoeld om de hulpmiddelen en de verleende "
+"hieronder. Deze informatie is bedoeld om de tools en de verleende "
 "diensten te verbeteren. <strong>Deze gegevens zullen niet in uw rapporten "
 "verschijnen.</strong>"
 
@@ -3092,7 +3092,7 @@ msgstr ""
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
 msgstr ""
-"U kunt de onderstaande hulpmiddelen anoniem testen door te klikken op de "
+"U kunt de onderstaande tools anoniem testen door te klikken op de "
 "knop “Proefsessie” van het hulpmiddel van uw keuze. Tijdens een proefsessie "
 "kunt u niet opslaan wat u invoert. Alle ingevoerde gegevens gaan verloren "
 "als u zich niet ${label_link_register}."
@@ -3541,7 +3541,7 @@ msgstr "Download spreadsheet"
 #: euphorie/content/browser/templates/country_tools.pt:15
 #: euphorie/content/browser/templates/sector_view.pt:15
 msgid "header_sector_survey_list"
-msgstr "OiRA-instrumenten"
+msgstr "OiRA-tools"
 
 #. Default: "OiRA Tool versions"
 #: euphorie/content/browser/templates/surveygroup_view.pt:15
@@ -4694,7 +4694,7 @@ msgstr "Analyse"
 #. Default: "Assessments"
 #: euphorie/client/browser/templates/sessions-dashboard.pt:46
 msgid "label_assessments"
-msgstr "Beoordelingen"
+msgstr "RI&E's"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:27
@@ -4792,7 +4792,7 @@ msgstr "Bevestig uw wachtwoord"
 #: euphorie/client/browser/templates/consultants.pt:26
 #: euphorie/client/browser/webhelpers.py:1462
 msgid "label_consultancy"
-msgstr "Consultancy"
+msgstr "Advies"
 
 #. Default: "Contact email address"
 #: euphorie/content/user.py:81
@@ -4904,7 +4904,7 @@ msgstr "Aantal werknemers"
 #. Default: "Enable Consultancy?"
 #: euphorie/content/country.py:155
 msgid "label_enable_consultancy"
-msgstr "Consultancy inschakelen?"
+msgstr "Advies inschakelen?"
 
 #. Default: "Show a custom notification for this OiRA tool?"
 #: euphorie/content/browser/templates/survey_view.pt:37
@@ -5910,7 +5910,7 @@ msgstr "Soort OiRA-tool"
 #: euphorie/client/browser/templates/sessions-dashboard.pt:41
 #: euphorie/client/browser/templates/tool_sessions.pt:42
 msgid "label_tools"
-msgstr "Hulpmiddelen"
+msgstr "Tools"
 
 #. Default: "Your achievement will be listed under &ldquo;My trainings&rdquo;
 #. in the training portlet on the dashboard. From there you can always view or
@@ -6358,7 +6358,7 @@ msgstr "Er zijn geen tools voor dit land."
 #: euphorie/content/browser/sector.py:89
 msgid "message_not_delete_published_sector"
 msgstr ""
-"U kunt geen sector verwijderen die gepubliceerde OiRA-instrumenten bevat."
+"U kunt geen sector verwijderen die gepubliceerde OiRA-tools bevat."
 
 #. Default: "No information available"
 #: euphorie/client/browser/templates/consultants.pt:52
@@ -6558,7 +6558,7 @@ msgstr "Help"
 #. Default: "OiRA Tools"
 #: euphorie/deployment/tiles/tabs.py:55
 msgid "nav_surveys"
-msgstr "OiRA-instrumenten"
+msgstr "OiRA-tools"
 
 #. Default: "User management"
 #: euphorie/deployment/tiles/tabs.py:67
@@ -6588,12 +6588,12 @@ msgstr "Instellingen"
 #: euphorie/client/browser/templates/webhelpers.pt:62
 #: euphorie/client/browser/webhelpers.py:1509
 msgid "navigation_status"
-msgstr "Bekijk uw voortgang"
+msgstr "Status"
 
 #. Default: "My Assessments"
 #: euphorie/client/browser/templates/webhelpers.pt:56
 msgid "navigation_surveys"
-msgstr "Mijn beoordelingen"
+msgstr "RI&E's"
 
 #. Default: "No"
 #: euphorie/content/browser/templates/risk_view.pt:92
@@ -6618,7 +6618,7 @@ msgstr "Deze enquête heeft geen profielvragen of modules."
 #. Default: "There are no OiRA Tools present. You can ${add_link}."
 #: euphorie/content/browser/templates/sector_view.pt:21
 msgid "no_surveys_present"
-msgstr "Er zijn geen OiRA-instrumenten beschikbaar. U kunt {add_link}."
+msgstr "Er zijn geen OiRA-tools beschikbaar. U kunt {add_link}."
 
 #. Default: "<a class='add-clone' id='add-in-place-measure-
 #. button'>${text_add_measures}</a>"
@@ -7608,7 +7608,7 @@ msgstr "Gebruiker kan alle inhoud bekijken en bewerken en gebruikers aan de orga
 #~ msgid "help_sector_contactperson"
 #~ msgstr ""
 #~ "Geef de naam van de persoon die verantwoordelijk is voor de OiRA-"
-#~ "instrumenten van deze sector."
+#~ "tools van deze sector."
 
 #~ msgid "help_sector_logo"
 #~ msgstr ""
@@ -7970,7 +7970,7 @@ msgstr "Gebruiker kan alle inhoud bekijken en bewerken en gebruikers aan de orga
 #~ msgid "company_details_intro"
 #~ msgstr ""
 #~ "Onderaan kunt u informatie invoeren. Deze informatie is bedoeld om de "
-#~ "instrumenten en de geleverde diensten te verbeteren. Deze gegevens worden "
+#~ "tools en de geleverde diensten te verbeteren. Deze gegevens worden "
 #~ "niet in het rapport opgenomen."
 
 #~ msgid "hader_company_details"

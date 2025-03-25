@@ -134,7 +134,7 @@ msgstr "Nieuw(e) Submodule"
 
 #: euphorie/client/browser/templates/consultancy.pt:136
 msgid "Add an OSH consultant to your organisation."
-msgstr "Een externe dienst aan uw organisatie toevoegen."
+msgstr "Voeg een OSH-adviseur toe aan uw organisatie."
 
 #: euphorie/client/browser/templates/profile.pt:175
 #: euphorie/client/browser/templates/updated.pt:168
@@ -243,7 +243,7 @@ msgstr "Ben je zeker dat je ${name} wilt verwijderen van ${organisation}?"
 
 #: euphorie/client/browser/templates/portlet-available-tools.pt:13
 msgid "Available OiRA tools"
-msgstr "Beschikbare OiRA RI&E instrumenten"
+msgstr "Beschikbare tools"
 
 #: euphorie/client/browser/templates/status_info.pt:146
 msgid "Awarded certificates"
@@ -1118,7 +1118,7 @@ msgstr "Risico's vergelijkbaar met ${title}"
 
 #: euphorie/client/browser/templates/training.pt:81
 msgid "Run slideshow"
-msgstr "Diavoorstelling tonen"
+msgstr "Training en test"
 
 #: euphorie/client/browser/reset_password.py:206
 #: euphorie/client/browser/settings.py:219
@@ -2072,7 +2072,7 @@ msgid "company_report_intro"
 msgstr ""
 "Dank u voor het gebruik van OiRA. Voordat we naar het rapport gaan, willen "
 "we u vriendelijk vragen om ons wat feedback te geven via de enquête "
-"hieronder. Deze informatie is bedoeld om de hulpmiddelen en de verleende "
+"hieronder. Deze informatie is bedoeld om de tools en de verleende "
 "diensten te verbeteren. <strong>Deze gegevens zullen niet in uw rapporten "
 "verschijnen.</strong>"
 
@@ -3089,7 +3089,7 @@ msgstr ""
 #: euphorie/client/browser/templates/surveys.pt:32
 msgid "explanation_try_oira"
 msgstr ""
-"U kunt de onderstaande hulpmiddelen anoniem testen door te klikken op de "
+"U kunt de onderstaande tools anoniem testen door te klikken op de "
 "knop “Proef-RI&E” van het hulpmiddel van uw keuze. Tijdens een proef-RI&E "
 "kunt u niet opslaan wat u invoert. Alle ingevoerde gegevens gaan verloren "
 "als u zich niet ${label_link_register}."
@@ -3385,7 +3385,7 @@ msgstr "Plan van aanpak: ${title}"
 #. Default: "The OiRA tool"
 #: euphorie/client/browser/templates/default_introduction.pt:23
 msgid "header_oira_tool"
-msgstr "De branche RI&E instrumenten"
+msgstr "De branche RI&E tools"
 
 #. Default: "Menu toggle"
 #: euphorie/client/browser/templates/tooltips.pt:51
@@ -4492,7 +4492,7 @@ msgstr ""
 #: euphorie/client/browser/templates/default_introduction.pt:24
 msgid "intro_oira_tool"
 msgstr ""
-"De branche RI&E instrumenten zijn met name bedoeld voor MKB bedrijven. "
+"De branche RI&E tools zijn met name bedoeld voor MKB bedrijven. "
 "Bedrijven met maximaal 25 werknemers hoeven, indien het branche RI&E "
 "instrument erkend is, hun RI&E niet te laten toetsen."
 
@@ -4695,7 +4695,7 @@ msgstr "Beoordeling"
 #. Default: "Assessments"
 #: euphorie/client/browser/templates/sessions-dashboard.pt:46
 msgid "label_assessments"
-msgstr "Beoordelingen"
+msgstr "RI&Es"
 
 #. Default: "Page content"
 #: euphorie/content/page.py:27
@@ -4905,7 +4905,7 @@ msgstr "Aantal werknemers"
 #. Default: "Enable Consultancy?"
 #: euphorie/content/country.py:155
 msgid "label_enable_consultancy"
-msgstr "Consultancy inschakelen?"
+msgstr "Advies inschakelen?"
 
 #. Default: "Show a custom notification for this OiRA tool?"
 #: euphorie/content/browser/templates/survey_view.pt:37
@@ -5910,7 +5910,7 @@ msgstr "Soort OiRA-tool"
 #: euphorie/client/browser/templates/sessions-dashboard.pt:41
 #: euphorie/client/browser/templates/tool_sessions.pt:42
 msgid "label_tools"
-msgstr "Instrumenten"
+msgstr "Tools"
 
 #. Default: "Your achievement will be listed under &ldquo;My trainings&rdquo;
 #. in the training portlet on the dashboard. From there you can always view or
