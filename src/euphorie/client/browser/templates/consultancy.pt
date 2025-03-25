@@ -134,7 +134,7 @@
               tal:condition="organisation"
           >
             <a class="pat-modal"
-               href="${webhelpers/country_url}/@@panel-add-user-to-organisation/${organisation/organisation_id}#document-content"
+               href="${webhelpers/country_url}/@@panel-add-user-to-organisation/${organisation/organisation_id}?role=consultant#document-content"
                data-pat-modal="class: small panel"
                tal:condition="view/is_admin"
                i18n:translate=""
