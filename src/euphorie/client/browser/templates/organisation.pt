@@ -64,7 +64,7 @@
                       <li class="finger-tabs-tab"
                           tal:repeat="organisation organisations"
                       >
-                        <a class="${python: 'current' if repeat.organisation.first() else None}"
+                        <a class="${python: 'current' if repeat.organisation.start else None}"
                            href="${here/absolute_url}/@@organisation/#org-${organisation/organisation_id}"
                         >
                           ${python:view.get_organisation_title(organisation)}
