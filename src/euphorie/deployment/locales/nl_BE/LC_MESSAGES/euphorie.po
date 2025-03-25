@@ -5568,12 +5568,12 @@ msgstr "Medewerkers die deelnamen aan de risicoanalyse"
 #: euphorie/client/browser/templates/panel-request-validation.pt:15
 #: euphorie/client/browser/templates/panel-validate-risk-assessment.pt:15
 msgid "label_request_validation"
-msgstr "VERVOELD VALIATIE"
+msgstr "Validatie aanvragen"
 
 #. Default: "Request validation"
 #: euphorie/client/browser/templates/consultancy.pt:81
 msgid "label_request_validation_imp"
-msgstr "VERVOELD VALIATIE"
+msgstr "Vraag validatie aan"
 
 #. Default: "Risk is always present"
 #: euphorie/content/risk.py:167
