@@ -67,7 +67,7 @@
                  data-pat-modal="class: panel medium"
                  i18n:name="start_session"
                  i18n:translate="link_start_session"
-              >Start a new risk assessment</a>.
+              >start a new risk assessment</a>.
             </p>
           </article>
           <tal:organisation tal:repeat="organisation sessions_by_organisation">
