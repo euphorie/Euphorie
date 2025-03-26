@@ -36,8 +36,8 @@
           >
             Consultancy
           </h1>
-
-          <p tal:condition="not:role_consultant"
+          <tal:comment tal:replace="nothing">The info that you can request consultancy is only for your own organisation. All external users cannot request it, so they don't need it, and they are likely consultants anyway.</tal:comment>
+          <p tal:condition="not:external_user"
              i18n:translate="message_find_consultants"
           >
             It is possible to request assistance in completing a risk assessment or to have a risk analysis performed by you and validated by an OSH consultant. An OSH consultant can give your risk assessment an offical validation mark. A validation can only be requested by users with the permission level &lsquo;Manage&rsquo; or higher.
@@ -130,8 +130,9 @@
           </p>
         </tal:role_consultant>
 
+        <tal:comment tal:replace="nothing">The info about consultancy is only for your own organisation. All external users cannot request it, so they don't need it, and they are likely consultants anyway.</tal:comment>
         <ul class="link-list"
-            tal:condition="not:role_consultant"
+            tal:condition="not:external_user"
         >
           <li>
             <a class="pat-inject"
