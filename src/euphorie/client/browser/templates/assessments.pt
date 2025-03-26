@@ -128,11 +128,43 @@
                 <table class="hd pat-table"
                        tal:define="
                          show_extra_fields show_extra_fields|python:False;
+                         use_samples python:False;
                          toLocalizedTime nocall: context/@@plone/toLocalizedTime;
                          get_archived_label nocall:view/get_archived_label|nocall:here/@@assessments/get_archived_label;
                        "
                        tal:condition="sessions"
                 >
+                  <thead tal:condition="show_extra_fields">
+                    <tr>
+                      <th>
+                        <a class="pat-inject sorting"
+                           href="/assessments/index#listing"
+                           i18n:translate="label_name_ra"
+                        >Name of risk assessment</a>
+                      </th>
+                      <th>
+                        <a class="pat-inject sorting"
+                           href="/assessments/index#listing"
+                           i18n:translate="label_last_modified"
+                        >Laatst opgeslagen</a>
+                      </th>
+                      <th tal:condition="python:show_extra_fields and use_samples">
+                        <a class="pat-inject sorting"
+                           href="/assessments/index#listing"
+                           i18n:translate="label_status"
+                        >Status</a>
+                      </th>
+                      <th>
+                        <a class="pat-inject sorting"
+                           href="/assessments/index#listing"
+                           i18n:translate="label_tools"
+                        >Tool</a>
+                      </th>
+                      <th>
+                        &nbsp;
+                      </th>
+                    </tr>
+                  </thead>
                   <tbody>
                     <tal:session tal:repeat="session sessions">
                       <tr class="${python:session_status[0]}"
@@ -169,7 +201,7 @@
                             >
                               ${value}
                             </time>
-                            <tal:extra_fields tal:condition="show_extra_fields">
+                            <tal:extra_fields tal:condition="python:show_extra_fields and False">
                               <tal:i18n tal:condition="python:session.last_modifier"
                                         i18n:translate="by_who"
                               >
@@ -193,7 +225,20 @@
                             </tal:extra_fields>
                           </span>
                         </td>
-
+                        <td class="item-probe"
+                            data-title="Status"
+                            tal:condition="python:show_extra_fields and use_samples"
+                        >
+                        </td>
+                        <td class="item-tool"
+                            data-title="Tool"
+                            tal:condition="show_extra_fields"
+                        >
+                          <a class="pat-inject tool field"
+                             href="${here/aq_parent/absolute_url}/${session/zodb_path}"
+                             data-pat-inject="history: record"
+                          >${session/tool/title}</a>
+                        </td>
                         <td class="functions"
                             tal:define="
                               disabled python:False;
@@ -218,104 +263,6 @@
                     </tal:session>
                   </tbody>
                 </table>
-
-
-                <!-- <ul class="data-matrix ${python:'hd' if show_extra_fields else None}"
-                    tal:define="
-                      show_extra_fields show_extra_fields|python:True;
-                      toLocalizedTime nocall: context/@@plone/toLocalizedTime;
-                      get_archived_label nocall:view/get_archived_label|nocall:here/@@assessments/get_archived_label;
-                    "
-                    tal:condition="sessions"
-                >
-                  <li class="row ${python:'archived' if session.is_archived else None}"
-                      title="${python: get_archived_label(session)}"
-                      tal:repeat="session sessions"
-                  >
-
-                    <h4 class="name field">
-                      <a class="pat-inject follow"
-                         href="${session/absolute_url}/@@start"
-                         data-pat-inject="source: #content; target: #content; history: record"
-                      >
-                  ${session/title}
-                        <em tal:condition="not:session/title">
-                          [<tal:i18n i18n:translate="label_missing_title">Title is missing</tal:i18n>]
-                        </em>
-                      </a>
-                    </h4>
-                    <p class="date field"
-                       tal:condition="show_extra_fields"
-                    >
-                      <span class="last-saved">
-                        <tal:i18n i18n:translate="label_started">Started</tal:i18n>
-                        <time datetime="${value}"
-                              tal:define="
-                                value session/created/isoformat|nothing;
-                              "
-                        >${python:toLocalizedTime(value)}</time>
-                      </span>
-                    </p>
-                    <p class="date field">
-                      <span class="last-saved"
-                            i18n:translate="last_edited_when"
-                      >
-                        Last edited
-                        <time class="pat-display-time"
-                              datetime="${value}"
-                              data-pat-display-time="from-now: true; locale: ${language}"
-                              tal:define="
-                                value python:webhelpers.timezoned_date(session.modified);
-                              "
-                              i18n:name="time"
-                        >
-                          ${value}
-                        </time>
-                      </span>
-                      <tal:i18n tal:condition="python:session.last_modifier"
-                                i18n:translate="by_who"
-                      >
-                        by
-                        <tal:i18n i18n:name="who">
-                          ${python: session.last_modifier.title}
-                        </tal:i18n>
-                      </tal:i18n>
-                    </p>
-                    <p class="tool field"
-                       tal:condition="show_extra_fields"
-                    >
-                      <a class="pat-inject tool field"
-                         href="${here/aq_parent/absolute_url}/${session/zodb_path}"
-                         data-pat-inject="history: record"
-                      >${session/tool/title}</a>
-                    </p>
-                    <p class="field icons"
-                       tal:define="
-                         disabled python:False;
-                       "
-                    >
-                      <metal:status_icon use-macro="here/certificate_macros/macros/status_icon"
-                                         tal:condition="show_extra_fields|python:False"
-                      />
-
-                      <a class="icon locking ${python:session.is_locked and 'locked' or 'unlocked'} pat-tooltip"
-                         href="${session/absolute_url}/@@locking_menu#locking-menu"
-                         data-pat-tooltip="source: ajax; position-list: tr"
-                         tal:condition="python:webhelpers.use_locking_feature_for_session(session) and show_extra_fields"
-                      >Locked</a>
-
-                      <a class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
-                         href="${session/absolute_url}/@@more_menu?from_dashboard#more-menu"
-                         data-pat-tooltip="source: ajax; position-list: tr"
-                         i18n:translate=""
-                      >More</a>
-
-                    </p>
-                  </li>
-                </ul> -->
-
-
-
 
               </metal:assessments_list>
             </div>

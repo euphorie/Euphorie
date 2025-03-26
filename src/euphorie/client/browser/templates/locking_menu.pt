@@ -28,7 +28,7 @@
         >
           <time class="date-stamp pat-display-time"
                 datetime="${value}"
-                data-pat-display-time="from-now: false; locale: ${language}"
+                data-pat-display-time="from-now: false; locale: ${language}; output-format: LL"
                 tal:define="
                   value python:webhelpers.timezoned_date(last_validation_event.time);
                 "
@@ -41,8 +41,18 @@
 
         </p>
       </div>
+      <div class="pat-message warning"
+           tal:condition="python:session.is_validation_requested"
+      >
+        <p i18n:translate="message_assessment_under_review">
+          This risk assessment is currently under review by
+          <i18n:name tal:content="session/consultancy/account/title"
+                     i18n:name="user"
+          >user</i18n:name>.
+        </p>
+      </div>
       <div class="pat-message notice"
-           tal:condition="not:session/is_validated"
+           tal:condition="python:not session.is_validated and not session.is_validation_requested"
       >
         <p tal:condition="session/is_locked">
           <!-- Diplay this paragraph only when the assessment is locked. -->
@@ -69,9 +79,10 @@
              i18n:name="name"
           >${last_modifier/email}</a>
           on
-          <tal:i18n i18n:name="date">${python:toLocalizedTime(session.modified, long_format=1)}</tal:i18n>.
+          <tal:i18n i18n:name="date">${python:toLocalizedTime(session.modified, long_format=0)}</tal:i18n>.
         </p>
       </div>
+
       <tal:can_publish condition="view/show_actions">
         <ul class="menu"
             tal:switch="view/state"
