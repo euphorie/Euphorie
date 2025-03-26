@@ -848,6 +848,22 @@ class SurveySession(BaseObject):
         return event.action == "validated"
 
     @property
+    def is_validation_requested(self):
+        """Check if a validation of the session has been requested."""
+        event = self.last_validation_event
+        if not event:
+            return False
+        return event.action == "validation_requested"
+
+    @property
+    def is_invalidated(self):
+        """Check if a session has been in validated."""
+        event = self.last_validation_event
+        if not event:
+            return False
+        return event.action == "invalidated"
+
+    @property
     def is_locked(self):
         """Check if the session is locked."""
         if self.is_validated:
@@ -1313,6 +1329,42 @@ class SurveySession(BaseObject):
 
         completion_percentage = int(round(answered / total * 100.0))
         return completion_percentage
+
+    def status(self):
+        """Return the status of the session in class and translated title
+        A session starts in its lifecycle with no status, so we show the last
+        modified date later it gets into one of the states
+        - under review (validation requested)
+        - validated
+        - invalidated
+        - locked (in cases where we don't have validation, just locking)
+        - archived (eventually)
+        """
+
+        _ = api.portal.translate
+        session_states = {
+            "locked": ("locked", _("Locked")),
+            "archived": ("archived", _("Archived")),
+            "validated": ("validated", _("Validated")),
+            "invalidated": ("invalidated", _("Invalidated")),
+            "validation_requested": ("validation_requested", _("Validation requested")),
+            "under_review": ("under-review", _("Under review")),
+            "last_modified": ("last-modified", _("Last modified")),
+        }
+
+        if self.is_validation_requested:
+            return session_states["under_review"]
+        elif self.is_validated:
+            return session_states["validated"]
+        elif self.is_invalidated:
+            return session_states["invalidated"]
+        elif self.is_locked:
+            return session_states["locked"]
+        elif self.is_archived:
+            return session_states["archived"]
+
+        # Fallback, if none of the above is true, just show the last modified date
+        return session_states["last_modified"]
 
 
 Account.sessions = orm.relationship(

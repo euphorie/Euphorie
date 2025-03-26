@@ -70,11 +70,17 @@
               >start a new risk assessment</a>.
             </p>
           </article>
+
           <tal:organisation tal:repeat="organisation sessions_by_organisation">
             <h3 class="separation-title"
                 tal:condition="organisation"
             >
-              ${python: view.organisation_view.get_organisation_title(organisation)}
+              <a class="pat-inject"
+                 href="./@@organisation"
+                 data-pat-inject="history: record; source: #content; target: #content"
+              >
+                ${python: view.organisation_view.get_organisation_title(organisation)}
+              </a>
             </h3>
             <tal:sessions tal:define="
                             sessions python: sessions_by_organisation[organisation];

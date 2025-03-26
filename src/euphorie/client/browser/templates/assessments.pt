@@ -124,9 +124,105 @@
                 >
                    You don&rsquo;t have any risk assessments yet. Start by creating a new one.
                 </p>
-                <ul class="data-matrix ${python:'hd' if show_extra_fields else None}"
+
+                <table class="hd pat-table"
+                       tal:define="
+                         show_extra_fields show_extra_fields|python:False;
+                         toLocalizedTime nocall: context/@@plone/toLocalizedTime;
+                         get_archived_label nocall:view/get_archived_label|nocall:here/@@assessments/get_archived_label;
+                       "
+                       tal:condition="sessions"
+                >
+                  <tbody>
+                    <tal:session tal:repeat="session sessions">
+                      <tr class="${python:session_status[0]}"
+                          title="${python: get_archived_label(session)}"
+                          tal:define="
+                            session_status session/status;
+                          "
+                      >
+                        <th class="item-name">
+                          <a class="value pat-inject pat-switch follow"
+                             href="${session/absolute_url}/@@start"
+                             data-pat-inject="source: #content; target: #content; &amp;&amp; source: #osc; target: #osc;history: record;"
+                             data-pat-switch=" selector: #main; remove: sidebar-left-*; add: sidebar-left-open &amp;&amp; selector: #application-body-; remove: focus-*; add: focus-sidebar"
+                          >
+                            ${session/title}
+                            <em tal:condition="not:session/title">
+                              [ ${session/tool/title} ]
+                            </em>
+                          </a>
+                        </th>
+
+                        <td class="item-status"
+                            data-title="Status"
+                        >
+
+                          <span class="value">
+                            ${python:session_status[1]},
+                            <time class="value pat-display-time last-saved"
+                                  datetime="${value}"
+                                  data-pat-display-time="from-now: true; locale: ${language}"
+                                  tal:define="
+                                    value python:webhelpers.timezoned_date(session.modified);
+                                  "
+                            >
+                              ${value}
+                            </time>
+                            <tal:extra_fields tal:condition="show_extra_fields">
+                              <tal:i18n tal:condition="python:session.last_modifier"
+                                        i18n:translate="by_who"
+                              >
+                                by
+                                <tal:i18n i18n:name="who">
+                                  ${python: session.last_modifier.title}
+                                </tal:i18n>
+                              </tal:i18n>
+                              <p class="date field"
+                                 tal:condition="show_extra_fields"
+                              >
+                                <span class="last-saved">
+                                  <tal:i18n i18n:translate="label_started">Started</tal:i18n>
+                                  <time datetime="${value}"
+                                        tal:define="
+                                          value session/created/isoformat|nothing;
+                                        "
+                                  >${python:toLocalizedTime(value)}</time>
+                                </span>
+                              </p>
+                            </tal:extra_fields>
+                          </span>
+                        </td>
+
+                        <td class="functions"
+                            tal:define="
+                              disabled python:False;
+                            "
+                        >
+                          <metal:status_icon use-macro="here/certificate_macros/macros/status_icon" />
+                          <a class="${python:session_status[0]} icon locking ${python:session.is_locked and 'locked' or 'unlocked'} pat-tooltip"
+                             aria-expanded="false"
+                             href="${session/absolute_url}/@@locking_menu#locking-menu"
+                             data-pat-tooltip="source: ajax; position-list: tr"
+                             tal:condition="python:webhelpers.use_locking_feature_for_session(session)"
+                          >${python:session.is_locked and 'locked' or 'unlocked'}</a>
+
+                          <a class="icon more-menu iconified icon-ellipsis pat-tooltip inactive"
+                             aria-expanded="false"
+                             href="${session/absolute_url}/@@more_menu?from_dashboard#more-menu"
+                             data-pat-tooltip="source: ajax; position-list: tr"
+                             i18n:translate=""
+                          >More</a>
+                        </td>
+                      </tr>
+                    </tal:session>
+                  </tbody>
+                </table>
+
+
+                <!-- <ul class="data-matrix ${python:'hd' if show_extra_fields else None}"
                     tal:define="
-                      show_extra_fields show_extra_fields|python:False;
+                      show_extra_fields show_extra_fields|python:True;
                       toLocalizedTime nocall: context/@@plone/toLocalizedTime;
                       get_archived_label nocall:view/get_archived_label|nocall:here/@@assessments/get_archived_label;
                     "
@@ -216,7 +312,10 @@
 
                     </p>
                   </li>
-                </ul>
+                </ul> -->
+
+
+
 
               </metal:assessments_list>
             </div>

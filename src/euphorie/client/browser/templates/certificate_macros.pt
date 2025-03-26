@@ -20,6 +20,7 @@
                      i18n:domain="euphorie"
   >
     <a class="icon progress pat-tooltip"
+       aria-expanded="false"
        href="${session/absolute_url}/@@status-tooltip#status-sentinel"
        data-pat-inject="history: record"
        data-pat-tooltip="class: rich info; trigger: click; source: ajax; position-list: tr"
