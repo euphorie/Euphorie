@@ -22,6 +22,15 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
+msgid "label_under_review"
+msgstr "In beoordeling"
+
+msgid "label_last_modified"
+msgstr "Laatst gewijzigd"
+
+msgid "message_assessment_under_review"
+msgstr "Deze risicobeoordeling wordt momenteel beoordeeld door ${user}."
+
 #: euphorie/client/browser/templates/login.pt:327
 msgid ""
 "${action-plan} In the fourth stage of the assessment you can decide what "
@@ -6575,7 +6584,7 @@ msgstr "Help"
 #: euphorie/client/browser/settings.py:87
 #: euphorie/client/browser/templates/webhelpers.pt:53
 msgid "navigation_logout"
-msgstr "Log out"
+msgstr "Log uit"
 
 #. Default: "Settings"
 #: euphorie/client/browser/templates/webhelpers.pt:65
