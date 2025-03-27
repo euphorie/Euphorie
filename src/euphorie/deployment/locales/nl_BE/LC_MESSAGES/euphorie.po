@@ -2030,7 +2030,7 @@ msgstr "Zoeken"
 #: euphorie/client/browser/templates/new-session.pt:126
 #: euphorie/client/browser/templates/portlet-available-tools.pt:64
 msgid "button_start_session"
-msgstr "Start RI&E"
+msgstr "Start Risicoanalyse"
 
 #. Default: "Test session"
 #: euphorie/client/browser/templates/surveys.pt:202
@@ -3038,10 +3038,10 @@ msgstr ""
 msgid "extra_text_identification"
 msgstr ""
 "In eerste instantie staat er bij elke vraag ‘dit risico is nog niet "
-"beoordeeld’, maar bij het vullen van de RI&E worden hier ook de antwoorden "
+"beoordeeld’, maar bij het vullen van de Risicoanalyse worden hier ook de antwoorden "
 "zichtbaar. Als alles is ingevuld kunt u dit bestand printen als volledige "
 "rapportage, die u samen met het plan aan aanpak eventueel ook kunt "
-"voorleggen aan degene die de RI&E gaat toetsen."
+"voorleggen aan degene die de Risicoanalyse gaat toetsen."
 
 #. Default: "Report ${title}"
 #: euphorie/client/docx/views.py:303
@@ -6461,7 +6461,7 @@ msgstr "Status"
 #. Default: "My Assessments"
 #: euphorie/client/browser/templates/webhelpers.pt:56
 msgid "navigation_surveys"
-msgstr "RI&E's"
+msgstr "RI&Risicoanalyses"
 
 #. Default: "No"
 #: euphorie/content/browser/templates/risk_view.pt:92
