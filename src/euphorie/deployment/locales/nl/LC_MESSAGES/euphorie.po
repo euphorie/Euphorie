@@ -28,6 +28,12 @@ msgstr "In beoordeling"
 msgid "label_last_modified"
 msgstr "Laatst gewijzigd"
 
+msgid "label_validated"
+msgstr "Gevalideerd"
+
+msgid "label_archived"
+msgstr "Gearchiveerd"
+
 msgid "message_assessment_under_review"
 msgstr "Deze risicobeoordeling wordt momenteel beoordeeld door ${user}."
 

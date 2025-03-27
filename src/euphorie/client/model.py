@@ -14,6 +14,7 @@ from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from collections import defaultdict
+from euphorie import MessageFactory as _
 from euphorie.client.client import IClient
 from euphorie.client.config import LOCKING_ACTIONS
 from euphorie.client.config import LOCKING_SET_ACTIONS
@@ -57,6 +58,16 @@ BCRYPTED_PATTERN = re.compile(r"^\$2[aby]?\$\d{1,2}\$[.\/A-Za-z0-9]{53}$")
 metadata = schema.MetaData()
 
 log = logging.getLogger(__name__)
+
+# class and i18n label by keyword
+SESSION_STATES = {
+    "locked": ("locked", _("label_locked")),
+    "archived": ("archived", _("label_archived")),
+    "validated": ("validated", _("label_validated")),
+    "validation_requested": ("validation_requested", _("label_validation_requested")),
+    "under_review": ("under-review", _("label_under_review")),
+    "last_modified": ("last-modified", _("label_last_modified")),
+}
 
 
 def _forever_cache_key(func, self, *args):
@@ -1341,30 +1352,17 @@ class SurveySession(BaseObject):
         - archived (eventually)
         """
 
-        _ = api.portal.translate
-        session_states = {
-            "locked": ("locked", _("Locked")),
-            "archived": ("archived", _("Archived")),
-            "validated": ("validated", _("Validated")),
-            "invalidated": ("invalidated", _("Invalidated")),
-            "validation_requested": ("validation_requested", _("Validation requested")),
-            "under_review": ("under-review", _("Under review")),
-            "last_modified": ("last-modified", _("Last modified")),
-        }
-
         if self.is_validation_requested:
-            return session_states["under_review"]
+            return SESSION_STATES["under_review"]
         elif self.is_validated:
-            return session_states["validated"]
-        elif self.is_invalidated:
-            return session_states["invalidated"]
+            return SESSION_STATES["validated"]
         elif self.is_locked:
-            return session_states["locked"]
+            return SESSION_STATES["locked"]
         elif self.is_archived:
-            return session_states["archived"]
+            return SESSION_STATES["archived"]
 
         # Fallback, if none of the above is true, just show the last modified date
-        return session_states["last_modified"]
+        return SESSION_STATES["last_modified"]
 
 
 Account.sessions = orm.relationship(

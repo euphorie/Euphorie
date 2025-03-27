@@ -190,8 +190,8 @@
                             data-title="Status"
                         >
 
-                          <span class="value">
-                            ${python:session_status[1]},
+                          <span class="value">${python:session_status[1]}
+                            <span i18n:translate="${python:session_status[1]}"></span>,
                             <time class="value pat-display-time last-saved"
                                   datetime="${value}"
                                   data-pat-display-time="from-now: true; locale: ${language}"
