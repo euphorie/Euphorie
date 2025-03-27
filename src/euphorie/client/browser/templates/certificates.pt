@@ -27,7 +27,7 @@
             >
               <tal:cond condition="python: len(certificates) == 0">
                 <p class="pat-message info"
-                   i18n_translate="message_you_dont_have_any_certificates_yet"
+                   i18n:translate="message_you_dont_have_any_certificates_yet"
                 >
                   You haven&rsquo;t earned any certificates yet.
                 </p>

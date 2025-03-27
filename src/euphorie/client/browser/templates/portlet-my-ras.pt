@@ -121,7 +121,7 @@
               >start a new risk assessment</a>.
             </p>
             <p class="pat-message info"
-               i18n_translate="message_you_dont_have_any_risk_assessments_yet"
+               i18n:translate="message_you_dont_have_any_risk_assessments_yet"
             >
               You don't have any risk assessments yet.
             </p>

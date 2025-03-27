@@ -37,6 +37,9 @@ msgstr "Gearchiveerd"
 msgid "message_assessment_under_review"
 msgstr "Deze risicobeoordeling wordt momenteel beoordeeld door ${user}."
 
+msgid "message_you_dont_have_any_certificates_yet"
+msgstr "U heeft nog geen certificaten behaald."
+
 #: euphorie/client/browser/templates/login.pt:327
 msgid ""
 "${action-plan} In the fourth stage of the assessment you can decide what "
