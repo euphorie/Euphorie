@@ -12,10 +12,15 @@ portal_type: euphorie.help
 from .. import MessageFactory as _
 from euphorie.content.utils import StripMarkup
 from euphorie.htmllaundry.z3cform import HtmlText
-from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.autoform import directives
 from plone.indexer import indexer
 from plone.supermodel import model
+
+
+try:
+    from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
+except ImportError:
+    from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
 
 class IOnlineHelp(model.Schema):
