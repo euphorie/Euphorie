@@ -241,7 +241,7 @@ msgid ""
 "Are you sure you want to delete this session? This action can not be "
 "reverted."
 msgstr ""
-"Weet u zeker dat u deze sessie wilt verwijderen? Deze actie is onomkeerbaar."
+"Weet u zeker dat u deze Risicoanalyse wilt verwijderen? Deze actie is onomkeerbaar."
 
 #: euphorie/client/browser/templates/confirmation-clone-session.pt:28
 msgid "Are you sure you want to proceed?"
@@ -414,7 +414,7 @@ msgstr "Risicobeoordeling verwijderen"
 
 #: euphorie/client/browser/templates/more_menu.pt:44
 msgid "Delete this session"
-msgstr "Verwijder deze sessie"
+msgstr "Verwijder deze Risicoanalyse"
 
 #: euphorie/client/browser/templates/risk_identification_custom.pt:58
 msgid "Describe the risk..."
@@ -1168,11 +1168,11 @@ msgstr "Stuur e-mail"
 
 #: euphorie/client/browser/session.py:697
 msgid "Session `${name}` has been archived."
-msgstr ""
+msgstr "Risicoanalyse `${naam}` is gearchiveerd."
 
 #: euphorie/client/browser/session.py:643
 msgid "Session `${name}` has been deleted."
-msgstr "Sessie `${name}` is verwijderd."
+msgstr "Risicoanalyse `${name}` is verwijderd."
 
 #: euphorie/content/browser/templates/library.pt:34
 msgid "Show library from ${dropdown}."
@@ -1296,6 +1296,10 @@ msgid ""
 "this text brief so it will easily fit on screens of small devices such as "
 "phones and PDAs."
 msgstr ""
+"De introductietekst wordt weergegeven bij het starten van een nieuwe OIRA"
+"-tool Risicoanalyse. Als hier geen introductie wordt gegeven, wordt een "
+"standaardtekst weergegeven. Houd deze tekst kort, zodat deze gemakkelijk op "
+"schermen van kleine apparaten zoals telefoons en PDA's past."
 
 #: euphorie/client/browser/session.py:785
 msgid "The risk assessment has been cloned"
@@ -2338,7 +2342,7 @@ msgstr "De rechten van betrokkenen"
 msgid "conditions_part8_entry"
 msgstr ""
 "Wij bewaren uw gegevens, die niet voor externe gebruikers toegankelijk zijn,"
-" tot u uw account en/of uw sessie(s) verwijdert. EU-OSHA bewaart de gegevens"
+" tot u uw account en/of uw Risicoanalyse(s) verwijdert. EU-OSHA bewaart de gegevens"
 " op zijn servers, die op het grondgebied van de Europese Unie staan "
 "opgesteld."
 
@@ -3305,7 +3309,7 @@ msgstr "Modules en profielvragen"
 #. Default: "New session"
 #: euphorie/client/browser/templates/new-session.pt:16
 msgid "header_new_session"
-msgstr "Nieuwe sessie"
+msgstr "Nieuwe Risicoanalyse"
 
 #. Default: "The assessment is not complicated"
 #: euphorie/client/browser/templates/default_introduction.pt:17
@@ -4234,8 +4238,8 @@ msgstr ""
 #: euphorie/client/browser/templates/tooltips.pt:89
 msgid "info_osh_session_menu"
 msgstr ""
-"Vanuit dit menu kunt u een nieuwe sessie van een OiRA-tool starten of verder"
-" werken aan een eerdere sessie. Als u nog geen account hebt voor de OiRA-"
+"Vanuit dit menu kunt u een nieuwe Risicoanalyse van een OiRA-tool starten of verder"
+" werken aan een eerdere Risicoanalyse. Als u nog geen account hebt voor de OiRA-"
 "applicatie, kunt u een proefsessie starten om de applicatie onmiddellijk uit"
 " te proberen."
 
@@ -4296,7 +4300,7 @@ msgstr ""
 #: euphorie/client/browser/templates/portlet-my-ras.pt:65
 msgid "info_select_session"
 msgstr ""
-"Selecteer een eerdere sessie om deze te voltooien of te herzien of "
+"Selecteer een eerdere Risicoanalyse om deze te voltooien of te herzien of "
 "${start_session}."
 
 #. Default: "You have completed ${completed}% of the risk assessment."
@@ -5981,7 +5985,7 @@ msgstr "Inloggen"
 #: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
-msgstr "start een nieuwe sessie"
+msgstr "start een nieuwe analyse"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:33
@@ -6984,12 +6988,12 @@ msgstr ""
 #: euphorie/client/browser/session.py:84
 msgid "session_title_tooltip"
 msgstr ""
-"Eens u met een sessie op het OiRA-instrument bent gestart, zult u voor het "
-"einde kunnen stoppen. U kunt de sessie op een later tijdstip opnieuw "
-"opstarten door de titel van de sessie op het OiRA-instrument te selecteren. "
-"U kunt meer dan één sessie opslaan, op voorwaarde dat u deze verschillende "
+"Eens u met een Risicoanalyse op het OiRA-instrument bent gestart, zult u voor het "
+"einde kunnen stoppen. U kunt de Risicoanalyse op een later tijdstip opnieuw "
+"opstarten door de titel van de Risicoanalyse op het OiRA-instrument te selecteren. "
+"U kunt meer dan één Risicoanalyse opslaan, op voorwaarde dat u deze verschillende "
 "titels heeft toegekend. Gelieve uw e-mailadres, wachtwoord en de titel die u"
-" aan de sessie op het OiRA-instrument hebt gegeven, te onthouden. Door op de"
+" aan de Risicoanalyse op het OiRA-instrument hebt gegeven, te onthouden. Door op de"
 " knop Uitloggen te klikken, bent u actief uitgelogd. U bent ook uitgelogd "
 "door uw browser te sluiten, maar het is beter om actief uit te loggen."
 
@@ -7383,7 +7387,7 @@ msgstr ""
 msgid "warning_account_delete_surveys"
 msgstr ""
 "Houd er rekening mee dat u door het verwijderen van uw account, ook al uw "
-"sessies verwijdert. Zorg ervoor dat u uw rapporten downloadt van Rapporten "
+"Risicoanalyses verwijdert. Zorg ervoor dat u uw rapporten downloadt van Rapporten "
 "voordat u uw account verwijderd, als u de rapport wilt behouden."
 
 #. Default: "Yes"
