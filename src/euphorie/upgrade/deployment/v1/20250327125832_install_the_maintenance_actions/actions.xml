@@ -3,12 +3,6 @@
         name="portal_actions"
         i18n:domain="euphorie"
 >
-  <object name="object">
-    <object name="contentrules">
-      <property name="visible">False</property>
-    </object>
-  </object>
-
   <object meta_type="CMF Action Category"
           name="maintenance_actions"
   >
