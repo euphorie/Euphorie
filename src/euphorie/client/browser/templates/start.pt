@@ -48,19 +48,54 @@
             </tal:content>
           </article>
 
+          <fieldset class="vertical pat-inject pat-subform pat-autosubmit"
+                    data-pat-inject="url: ; source: #osc-header; target: #osc-header"
+          >
+            <div class="tool-tile">
+              <a class="pat-inject"
+                 href="/ass-private-security-grafton-street#content"
+                 data-pat-inject="history: record"
+              >
+                <figure class="tool-icon">
+                  <img src="${python:webhelpers.get_tool_image_url(session.tool)}"
+                       style="background-image: url()"
+                  />
+                </figure>
+              </a>
+              <div class="tool-info">
+                <h2 class="tool-title">
+                    ${webhelpers/tool_name}
+                </h2>
+                <section class="summary">
+                  <p>
+                      ${structure: webhelpers/tool_description}
+                  </p>
+                </section>
+                <a class="pat-button show-more pat-modal"
+                   href="${here/absolute_url}/@@tool-more-info#document-content"
+                   data-pat-modal="class: sheet"
+                   i18n:translate="button_information"
+                >Informatie</a>
+              </div>
+            </div>
+
+            <fieldset class="pat-checklist has-value checked"
+                      data-value="on"
+            >
+              <!-- <label class="has-value checked" data-value="on">
+                      Send me occasional e-mails with news about the tool 'Private Security, Grafton Street'
+                      <input type="checkbox" checked="checked" name="" class="has-value" data-value="on">
+                  </label> -->
+            </fieldset>
+          </fieldset>
+
+
+
           <article class="pat-rich">
             <h1>${python: view.session.title or context.title}</h1>
-            <section tal:condition="context/Description">
-              <p>${context/Description}</p>
-            </section>
-            <p>
-              <a class="show-more pat-modal"
-                 href="${here/absolute_url}/@@tool-more-info#document-content"
-                 data-pat-modal="class: sheet"
-                 i18n:translate=""
-              >Learn more about this tool&hellip;</a>
-            </p>
           </article>
+
+
           <metal:messages_below_article define-slot="messages_below_article">
             <div class="pat-message notice"
                  tal:repeat="multiple_message view/get_pat_multiple_messages_below_article"
@@ -70,7 +105,7 @@
               ></p>
             </div>
           </metal:messages_below_article>
-          <fieldset class="vertical pat-inject pat-subform ${python: 'pat-autosubmit' if view.data_pat_autosubmit else None}"
+          <fieldset class="horizontal pat-inject pat-subform ${python: 'pat-autosubmit' if view.data_pat_autosubmit else None}"
                     data-pat-autosubmit="${python: view.data_pat_autosubmit if view.data_pat_autosubmit else None}"
                     data-pat-inject="url: ; source: #main-content; target: #main-content"
                     tal:condition="can_edit"
@@ -83,7 +118,7 @@
                          description widget/field/description|nothing;
                        ">
                 ${widget/label}
-                  <dfn class="icon-help-circle iconified pat-tooltip"
+                  <dfn class="help-icon pat-tooltip"
                        data-pat-tooltip="source: content; position-list: lt"
                        tal:condition="description"
                   >

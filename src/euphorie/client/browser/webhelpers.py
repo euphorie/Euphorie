@@ -919,8 +919,10 @@ class WebHelpers(BrowserView):
     def get_tool_image_url(self, survey=None):
         if not survey:
             survey = self._survey
-        if getattr(survey, "image", None):
-            return f"{survey.absolute_url()}/@@images/image/large"
+        image = getattr(survey, "image", None)
+        if image is None:
+            return f"{survey.absolute_url()}/++resource++euphorie.resources/assets/oira/style/placeholder-1x1.png"  # noqa
+        return f"{survey.absolute_url()}/@@images/image/large"
 
     def messages(self):
         status = IStatusMessage(self.request)
