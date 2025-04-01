@@ -47,7 +47,7 @@ jobs:
           ln -s versions-${{ matrix.config[2] }}.cfg versions.cfg
           bin/buildout -c .github.cfg
       - name: Pre commit
-        uses: pre-commit/action@v2.0.0
+        uses: pre-commit/action@v3.0.1
         if: ${{ matrix.config[1] == '3.12' }}
       - name: Test
         run: |
