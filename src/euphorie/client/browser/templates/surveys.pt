@@ -216,20 +216,32 @@
                     >Information</a>
                   </form>
 
-                  <p class="button-bar"
-                     tal:condition="not:is_anonymous"
+                  <form class="button-bar"
+                        action="${tool/absolute_url}/@@new-session.html#main"
+                        method="post"
+                        data-pat-inject="history: record"
+                        tal:condition="not:is_anonymous"
                   >
-                    <a class="default small pat-button pat-modal"
-                       href="${sector/absolute_url}/${tool_id}/@@new-session.html#document-content"
-                       data-pat-modal="class: panel small"
-                       i18n:translate="button_start_session"
-                    >Start risk assessment</a>
+                    <button class="default small pat-button focus"
+                            name="tool-button"
+                            type="submit"
+                            value="start-ra"
+                            i18n:translate="button_start_session"
+                    >Start risk assessment</button>
+                    <input name="survey"
+                           type="hidden"
+                           value="${tool_id}"
+                    />
+                    <input name="action"
+                           type="hidden"
+                           value="new"
+                    />
                     <a class="small pat-button pat-inject"
                        href="${tool/absolute_url}#content"
                        data-pat-inject="history: record"
                        i18n:translate="button_information"
                     >Information</a>
-                  </p>
+                  </form>
                 </div>
               </tal:tool>
             </div>
