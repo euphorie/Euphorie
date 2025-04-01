@@ -177,7 +177,7 @@
                   tal:define="
                     show_existing_measures view/show_existing_measures;
                   "
-                  tal:condition="python:len(measures) > 0 and show_existing_measures"
+                  tal:condition="show_existing_measures"
         >
           <article class="pat-rich">
             <p tal:content="structure view/intro_extra"></p>
