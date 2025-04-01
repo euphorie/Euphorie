@@ -1979,7 +1979,7 @@ msgstr "Ja, verwijder het risico"
 #. Default: "Yes, delete session"
 #: euphorie/client/browser/templates/confirmation-delete-session.pt:40
 msgid "button_delete_session"
-msgstr "Ja, verwijder de sessie"
+msgstr "Ja, verwijder de Risicoanalyse"
 
 #. Default: "Download"
 #: euphorie/client/browser/templates/report_landing.pt:49
