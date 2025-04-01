@@ -1,1 +1,0 @@
-When on the tools overview, there is no need to have the selection modal to pick a tool, because the users clicks the button from within the tool tile. Therefore we can skip the selection and create the chosen tool immediately.

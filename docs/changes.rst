@@ -8,6 +8,28 @@ Changelog
 
 .. towncrier release notes start
 
+17.0.3 (2025-04-01)
+-------------------
+
+New features:
+
+
+- Upgrade to Plone 6.1 (`Issue #818 <https://github.com/syslabcom/scrum/issues/818>`_)
+
+
+Bug fixes:
+
+
+- When on the tools overview, there is no need to have the selection modal to pick a tool, because the users clicks the button from within the tool tile. Therefore we can skip the selection and create the chosen tool immediately. (`Issue #3384 <https://github.com/syslabcom/scrum/issues/3384>`_)
+
+
+Internal:
+
+
+- Use the Wysiwyg widget from NuPlone if available. [ale-rt] (`Issue #818 <https://github.com/syslabcom/scrum/issues/818>`_)
+- Remove unused import
+
+
 17.0.2 (2025-03-20)
 -------------------
 
