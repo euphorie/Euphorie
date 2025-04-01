@@ -133,6 +133,7 @@ class OrganisationBaseView(BaseView):
             organisation = Organisation(
                 owner_id=account.id, title=self.default_organisation_title
             )
+            alsoProvides(self.request, IDisableCSRFProtection)
             self.sqlsession.add(organisation)
             account.organisation = organisation
 
