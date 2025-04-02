@@ -78,6 +78,7 @@
           <a class="pat-inject close-panel icon-cancel"
              href="${webhelpers/country_or_client_url}#content"
              data-pat-inject="history: record"
+             tal:condition="python:webhelpers.country_or_client_url != request.get('HTTP_REFERER', False)"
              i18n:translate="label_exit"
           >Exit</a>
         </li>

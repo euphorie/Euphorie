@@ -6397,6 +6397,11 @@ msgstr ""
 msgid "message_you_are_requested_to_validate_assessment"
 msgstr "U wordt verzocht deze risicoanalyse te controleren en te valideren."
 
+#. Default: "You don't have any risk assessments yet."
+#: euphorie/client/browser/templates/portlet_my_ras.pt:98
+msgid "message_you_dont_have_any_risk_assessments_yet"
+msgstr "U heeft nog geen risico-inventarisaties. Begin met het aanmaken van een nieuwe."
+
 #. Default: "You have reviewed and validated this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:113
 msgid "message_you_reviewed_and_validated_risk_assessment"

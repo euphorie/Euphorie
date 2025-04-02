@@ -5891,7 +5891,7 @@ msgstr "Prijava"
 #: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
-msgstr "Pokrenite novu sesiju"
+msgstr "pokrenite novu sesiju"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:33
@@ -6280,6 +6280,11 @@ msgstr ""
 #: euphorie/client/browser/templates/consultancy.pt:98
 msgid "message_you_are_requested_to_validate_assessment"
 msgstr ""
+
+#. Default: "You don't have any risk assessments yet."
+#: euphorie/client/browser/templates/portlet_my_ras.pt:98
+msgid "message_you_dont_have_any_risk_assessments_yet"
+msgstr "Još nemate procjena rizika. Započnite stvaranjem nove."
 
 #. Default: "You have reviewed and validated this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:113

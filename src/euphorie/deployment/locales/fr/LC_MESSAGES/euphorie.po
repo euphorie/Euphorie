@@ -6006,7 +6006,7 @@ msgstr "Connexion"
 #: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
-msgstr "Commencer une nouvelle session"
+msgstr "commencer une nouvelle session"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:33
@@ -6436,6 +6436,11 @@ msgstr ""
 msgid "message_you_are_requested_to_validate_assessment"
 msgstr ""
 "Il vous est demandé d'examiner et de valider cette évaluation des risques."
+
+#. Default: "You don't have any risk assessments yet."
+#: euphorie/client/browser/templates/portlet_my_ras.pt:98
+msgid "message_you_dont_have_any_risk_assessments_yet"
+msgstr "Vous n’avez pas encore d’évaluations des risques. Commencez par en créer une nouvelle."
 
 #. Default: "You have reviewed and validated this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:113

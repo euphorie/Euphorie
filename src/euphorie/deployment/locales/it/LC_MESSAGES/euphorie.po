@@ -6370,6 +6370,11 @@ msgstr ""
 msgid "message_you_are_requested_to_validate_assessment"
 msgstr ""
 
+#. Default: "You don't have any risk assessments yet."
+#: euphorie/client/browser/templates/portlet_my_ras.pt:98
+msgid "message_you_dont_have_any_risk_assessments_yet"
+msgstr "Non hai ancora valutazioni dei rischi. Inizia creandone una nuova."
+
 #. Default: "You have reviewed and validated this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:113
 msgid "message_you_reviewed_and_validated_risk_assessment"
