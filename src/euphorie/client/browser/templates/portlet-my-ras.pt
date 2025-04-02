@@ -62,12 +62,12 @@
         <tal:sessions condition="sessions_by_organisation">
           <article class="pat-rich">
             <p i18n:translate="info_select_session">Select an earlier session to complete or review or
-              <a class="pat-modal icon-plus-circle"
+              <a class="pat-modal"
                  href="${here/absolute_url}/@@new-session.html#document-content"
-                 data-pat-modal="class: panel small"
+                 data-pat-modal="class: panel medium"
                  i18n:name="start_session"
                  i18n:translate="link_start_session"
-              >Start a new risk assessment</a>.
+              >start a new risk assessment</a>.
             </p>
           </article>
           <tal:organisation tal:repeat="organisation sessions_by_organisation">
@@ -106,11 +106,13 @@
         </tal:sessions>
         <tal:no-sessions condition="not:sessions_by_organisation">
           <article class="pat-rich">
-            <p>
-              <a class="pat-modal icon-plus-circle"
+            <p i18n:translate="info_select_session">Select an earlier session to complete or review or
+              <a class="pat-modal"
                  href="${here/absolute_url}/@@new-session.html#document-content"
-                 data-pat-modal="class: panel small"
-              >${view/label_start_session}</a>
+                 data-pat-modal="class: panel medium"
+                 i18n:name="start_session"
+                 i18n:translate="link_start_session"
+              >start a new risk assessment</a>.
             </p>
             <p class="pat-message info"
                i18n_translate="message_you_dont_have_any_risk_assessments_yet"
