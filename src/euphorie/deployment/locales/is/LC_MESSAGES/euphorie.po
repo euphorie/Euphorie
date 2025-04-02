@@ -7395,7 +7395,7 @@ msgid "label_this_is_a"
 msgstr "Áhættustig"
 
 msgid "label_this_is_a_xx_priority_risk"
-msgstr " "
+msgstr "forgangsáhætta."
 
 msgid "label_topics"
 msgstr "Þemu"

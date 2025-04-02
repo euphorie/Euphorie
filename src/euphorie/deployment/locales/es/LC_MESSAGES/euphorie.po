@@ -7777,7 +7777,7 @@ msgid "label_this_is_a"
 msgstr "Este es un riesgo prioritario"
 
 msgid "label_this_is_a_xx_priority_risk"
-msgstr "."
+msgstr "riesgo prioritario."
 
 msgid "label_topics"
 msgstr "Temas"

@@ -7731,7 +7731,7 @@ msgid "label_this_is_a"
 msgstr "Ovo je"
 
 msgid "label_this_is_a_xx_priority_risk"
-msgstr "rizik."
+msgstr "prioritetni rizik."
 
 msgid "label_topics"
 msgstr "Teme"

@@ -639,7 +639,7 @@ msgid ""
 "It's impossible to say how long an assessment will take in general as the "
 "tools differ according to sectors and countries."
 msgstr ""
-"Non è possibile stabilire una tempistica per la compilazione dei tool poichè"
+"Non è possibile stabilire una tempistica per la compilazione dei tool poiché"
 " ciascun tool ha una complessità diversa a seconda del paese e del settore "
 "di riferimento."
 
@@ -7842,7 +7842,7 @@ msgid "label_this_is_a"
 msgstr "Questo è un rischio di priorità"
 
 msgid "label_this_is_a_xx_priority_risk"
-msgstr "."
+msgstr "rischio prioritario."
 
 msgid "label_topics"
 msgstr "Temi"

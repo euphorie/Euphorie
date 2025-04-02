@@ -7692,7 +7692,7 @@ msgid "label_this_is_a"
 msgstr "Priorita tohto rizika je"
 
 msgid "label_this_is_a_xx_priority_risk"
-msgstr "Priorita tohto rizika je"
+msgstr "prioritné riziko."
 
 msgid "label_topics"
 msgstr "Témy"

@@ -8735,7 +8735,7 @@ msgid "label_this_is_a"
 msgstr "Dit is een risico in de categorie"
 
 msgid "label_this_is_a_xx_priority_risk"
-msgstr "."
+msgstr "prioriteitsrisico."
 
 msgid "label_topics"
 msgstr "Thema's"

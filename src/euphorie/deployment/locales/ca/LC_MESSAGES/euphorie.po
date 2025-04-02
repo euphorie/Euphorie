@@ -7535,7 +7535,7 @@ msgid "label_this_is_a"
 msgstr "Aquest és un risc de prioritat"
 
 msgid "label_this_is_a_xx_priority_risk"
-msgstr "."
+msgstr "risc prioritari."
 
 msgid "label_topics"
 msgstr "Temes"

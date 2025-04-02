@@ -7697,7 +7697,7 @@ msgid "label_this_is_a"
 msgstr "Šis ir"
 
 msgid "label_this_is_a_xx_priority_risk"
-msgstr " "
+msgstr "prioritārais risks."
 
 msgid "label_topics"
 msgstr "Temati"

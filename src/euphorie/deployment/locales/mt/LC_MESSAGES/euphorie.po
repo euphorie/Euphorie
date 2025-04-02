@@ -7767,7 +7767,7 @@ msgid "label_this_is_a"
 msgstr "Dan huwa riskju ta' prijorità"
 
 msgid "label_this_is_a_xx_priority_risk"
-msgstr "."
+msgstr "riskju prijoritarju."
 
 msgid "label_topics"
 msgstr "Temi"

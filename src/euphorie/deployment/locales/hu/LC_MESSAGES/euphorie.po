@@ -7841,7 +7841,7 @@ msgid "label_this_is_a"
 msgstr "Ez egy prioritású kockázat"
 
 msgid "label_this_is_a_xx_priority_risk"
-msgstr "Ez egy prioritású kockázat"
+msgstr "Ez egy prioritású kockázat."
 
 msgid "label_topics"
 msgstr "Témák"

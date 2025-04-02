@@ -7745,7 +7745,7 @@ msgid "label_this_is_a"
 msgstr "Riskitaso on suuruudeltaan"
 
 msgid "label_this_is_a_xx_priority_risk"
-msgstr "."
+msgstr "ensisijainen riski."
 
 msgid "label_topics"
 msgstr "Aiheet"

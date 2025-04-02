@@ -8648,7 +8648,7 @@ msgid "label_this_is_a"
 msgstr "Ceci est un risque prioritaire"
 
 msgid "label_this_is_a_xx_priority_risk"
-msgstr "."
+msgstr "risque prioritaire."
 
 msgid "label_topics"
 msgstr "Thèmes"

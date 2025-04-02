@@ -7670,7 +7670,7 @@ msgid "label_this_is_a"
 msgstr "To je tveganje s prioriteto"
 
 msgid "label_this_is_a_xx_priority_risk"
-msgstr "."
+msgstr "prednostno tveganje."
 
 msgid "label_topics"
 msgstr "Teme"
