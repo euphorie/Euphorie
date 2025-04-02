@@ -1164,7 +1164,7 @@ msgstr "Selecteer de rol die uw nieuwe leden zullen krijgen"
 
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:112
 msgid "Send e-mail"
-msgstr "Stuur e-mail"
+msgstr "Nodig uit per e-mail"
 
 #: euphorie/client/browser/session.py:697
 msgid "Session `${name}` has been archived."
@@ -1952,7 +1952,7 @@ msgstr ""
 #: euphorie/client/browser/settings.py:282
 #: euphorie/client/browser/templates/confirmation-archive-session.pt:37
 msgid "button_cancel"
-msgstr "Annuleren"
+msgstr "Annuleer"
 
 #. Default: "Close"
 #: euphorie/client/browser/templates/new-session-test.pt:123
