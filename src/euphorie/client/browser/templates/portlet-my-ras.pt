@@ -110,8 +110,7 @@
               <a class="pat-modal icon-plus-circle"
                  href="${here/absolute_url}/@@new-session.html#document-content"
                  data-pat-modal="class: panel medium"
-                 i18n:translate="link_start_session"
-              >start a new risk assessment</a>.
+              >${view/label_start_session}</a>
             </p>
             <p class="pat-message info"
                i18n:translate="message_you_dont_have_any_risk_assessments_yet"
