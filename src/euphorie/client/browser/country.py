@@ -709,6 +709,11 @@ class MyRAsPortlet(PortletBase):
         return dict(sessions_by_organisation)
 
     @property
+    @deprecate(
+        "Deprecated in version 17.0.4.dev0. "
+        "Replaced by explicit label in the template."
+        "Customer packages are still using it, so we keep it for now."
+    )
     def label_start_session(self):
         label = api.portal.translate(
             _("link_start_session", default="Start a new risk assessment")
