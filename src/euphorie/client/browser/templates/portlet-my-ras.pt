@@ -112,6 +112,11 @@
                  data-pat-modal="class: panel small"
               >${view/label_start_session}</a>
             </p>
+            <p class="pat-message info"
+               i18n_translate="message_you_dont_have_any_risk_assessments_yet"
+            >
+              You don't have any risk assessments yet.
+            </p>
           </article>
         </tal:no-sessions>
       </div>
