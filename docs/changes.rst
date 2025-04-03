@@ -153,6 +153,9 @@ New features:
   [reinhardt]
 - Support openpyxl 3.x
   [reinhardt]
+- List links in tool
+  (`#2757 <https://github.com/syslabcom/scrum/issues/2757>`_)
+  [reinhardt]
 
 
 16.2.5 (2024-12-09)
