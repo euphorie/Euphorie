@@ -4,6 +4,7 @@ from Acquisition import aq_inner
 from euphorie.content import MessageFactory as _
 from euphorie.content.sector import ISector
 from euphorie.content.survey import ISurvey
+from plone import api
 from plonetheme.nuplone import MessageFactory as nu_
 from plonetheme.nuplone.skin import sitemenu
 from plonetheme.nuplone.utils import checkPermission
@@ -84,6 +85,15 @@ class Sitemenu(sitemenu.Sitemenu):
                     "url": "%s/@@upload" % context_url,
                 }
             )
+
+        if api.user.has_permission("Manage portal"):
+            children.append(
+                {
+                    "title": _("Maintenance view"),
+                    "url": f"{api.portal.get().absolute_url()}/@@admin-maintenance",
+                }
+            )
+
         if children:
             return menu
         else:
