@@ -1,0 +1,5 @@
+Added more guidelines for other use cases on the consultancy screen. Texts are only displayed to the right role.
+- The info that you can request consultancy is only for your own organisation. 
+- All external users cannot request validation, so they don't need to know about that when on the tool (and they are likely consultants anyway)
+- If user is consultant, inform that there is currently no validation requested. Otherwise the consultant keeps searching for work.
+
