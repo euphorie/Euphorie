@@ -36,7 +36,7 @@
           >
             Consultancy
           </h1>
-          <tal:comment tal:replace="nothing">The info that you can request consultancy is only for your own organisation. All external users cannot request it, so they don't need it, and they are likely consultants anyway.</tal:comment>
+          <tal:comment tal:condition="nothing">The info that you can request consultancy is only for your own organisation. All external users cannot request it, so they don't need it, and they are likely consultants anyway.</tal:comment>
           <p tal:condition="not:external_user"
              i18n:translate="message_find_consultants"
           >
