@@ -8,6 +8,7 @@ questions.
 
 from euphorie.client import model
 from euphorie.client.utils import HasText
+from euphorie.content.choice import IChoice
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.interfaces import IQuestionContainer
 from euphorie.content.module import IModule
@@ -87,6 +88,9 @@ def AddToTree(
             child.priority = "high"
         if node.risk_always_present and always_present_default:
             child.identification = always_present_default
+    elif IChoice.providedBy(node):
+        child = model.Choice(title=title)
+        child.postponed = False
     else:
         return None  # Should never happen
 
