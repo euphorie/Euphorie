@@ -130,7 +130,7 @@
           </p>
         </tal:role_consultant>
 
-        <tal:comment tal:replace="nothing">The info about consultancy is only for your own organisation. All external users cannot request it, so they don't need it, and they are likely consultants anyway.</tal:comment>
+        <tal:comment tal:condition="nothing">The info about consultancy is only for your own organisation. All external users cannot request it, so they don't need it, and they are likely consultants anyway.</tal:comment>
         <ul class="link-list"
             tal:condition="not:external_user"
         >
