@@ -16,14 +16,20 @@ class IdentificationView(RiskIdentificationView):
     @property
     @memoize
     def choice(self):
-        return self.context.aq_parent.aq_parent.restrictedTraverse(
+        return self.webhelpers.traversed_session.restrictedTraverse(
             self.context.zodb_path.split("/")
         )
+
+    @property
+    @memoize
+    def selected(self):
+        return [option.zodb_path for option in self.context.options]
 
     def set_answer_data(self, reply):
         answer = reply.get("answer", [])
         if not isinstance(answer, (list, tuple)):
             answer = [answer]
+        # XXX Check if paths are valid?
         self.context.set_options_by_zodb_path(answer)
 
     def __call__(self):
