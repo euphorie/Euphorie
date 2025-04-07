@@ -112,10 +112,8 @@ class WebHelpers(BrowserView):
     dashboard_tabs = ["surveys", "assessments", "certificates", "organisation"]
 
     navigation_tree_legend = [
-        {"class": "unvisited", "title": _("Unvisited")},
-        {"class": "postponed", "title": _("Postponed")},
-        {"class": "answered", "title": _("Risk not present")},
-        {"class": "answered risk", "title": _("Risk present")},
+        {"class": "unvisited", "title": _("Unanswered")},
+        {"class": "answered", "title": _("Answered")},
     ]
 
     # Inspection is meant for showing an edit-form in read-only/display mode.
