@@ -177,6 +177,9 @@ class TreeDataCreator(BrowserView):
                         cls.append("risk")
                     if obj.scaled_answer:
                         info["scaled_answer"] = obj.scaled_answer
+                if isinstance(obj, model.Choice):
+                    if obj.options:
+                        cls.append("answered")
 
             info["class"] = cls and " ".join(cls) or None
             return info
