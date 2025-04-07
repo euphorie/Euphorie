@@ -21,10 +21,10 @@ from euphorie.content.utils import IToolTypesInfo
 from io import BytesIO
 from markdownify import markdownify
 from plone.autoform.form import AutoExtensibleForm
+from plone.base.utils import safe_bytes
 from plone.dexterity.utils import createContentInContainer
 from plone.namedfile import field as filefield
 from plone.namedfile.file import NamedBlobImage
-from Products.CMFPlone.utils import safe_bytes
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import button
 from z3c.form import form

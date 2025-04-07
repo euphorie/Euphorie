@@ -97,7 +97,7 @@
               </fieldset>
             </fieldset>
 
-            <p class="button-bar"
+            <p class="button-bar pat-bumper"
                tal:condition="module/optional"
             >
               <button class="pat-button continue"
@@ -117,7 +117,7 @@
 
           </article>
         </div>
-        <p class="button-bar"
+        <p class="button-bar pat-bumper"
            id="nav-bar"
            tal:condition="not:module/optional"
         >

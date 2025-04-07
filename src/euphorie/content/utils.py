@@ -4,10 +4,10 @@ from Acquisition import aq_parent
 from collections import OrderedDict
 from io import StringIO
 from plone import api
+from plone.base.utils import safe_text
 from plone.namedfile.interfaces import INamedBlobImage
 from plonetheme.nuplone import MessageFactory as NuPloneMessageFactory
 from plonetheme.nuplone.utils import checkPermission
-from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from zope.component import queryUtility
 from zope.i18nmessageid.message import Message
@@ -408,14 +408,14 @@ class UserExportCSV(BrowserView):
             sectors = [item for item in country.values() if ISector.providedBy(item)]
             for manager in managers:
                 data = dict(
-                    fullname=safe_unicode(manager.title).encode("utf-8"),
-                    email=safe_unicode(manager.contact_email).encode("utf-8"),
+                    fullname=safe_text(manager.title).encode("utf-8"),
+                    email=safe_text(manager.contact_email).encode("utf-8"),
                 )
                 writer.writerow(data)
             for sector in sectors:
                 data = dict(
-                    fullname=safe_unicode(sector.contact_name).encode("utf-8"),
-                    email=safe_unicode(sector.contact_email).encode("utf-8"),
+                    fullname=safe_text(sector.contact_name).encode("utf-8"),
+                    email=safe_text(sector.contact_email).encode("utf-8"),
                 )
                 writer.writerow(data)
         csv_data = buffer.getvalue()

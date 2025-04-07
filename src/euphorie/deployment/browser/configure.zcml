@@ -97,4 +97,13 @@
       directory="resources"
       />
 
+  <browser:page
+      name="admin-maintenance"
+      for="*"
+      class=".maintenance.AdminMaintenanceView"
+      template="templates/maintenance.pt"
+      permission="cmf.ManagePortal"
+      layer="euphorie.content.interfaces.IEuphorieContentLayer"
+      />
+
 </configure>

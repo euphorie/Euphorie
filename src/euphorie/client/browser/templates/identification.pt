@@ -36,7 +36,7 @@
           </p>
           <p tal:condition="extra_text">${extra_text}</p>
         </article>
-        <p class="button-bar">
+        <p class="button-bar pat-bumper">
           <a class="pat-button pat-inject"
              href="${view/next_url}"
              data-pat-inject="history: record; source: #content; target: #content;"

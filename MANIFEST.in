@@ -48,6 +48,7 @@ graft src/euphorie/client/docx/templates
 recursive-exclude src/euphorie *.pt.py
 recursive-exclude src/euphorie *.pt.pyc
 prune Work
+prune news
 global-exclude *.pyc
 prune src/euphorie/client/resources/brands/daimler
 recursive-include etc *.ini

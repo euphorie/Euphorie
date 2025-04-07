@@ -4919,7 +4919,7 @@ msgstr "Vorhergehende"
 #: euphorie/client/browser/templates/more_menu.pt:71
 #: euphorie/client/browser/templates/panel-contents-preview.pt:39
 msgid "label_print_tool_preview"
-msgstr ""
+msgstr "Vorschau der GBU-Vorlage drucken"
 
 #. Default: "Negative statement"
 #: euphorie/content/browser/survey.py:321
@@ -5538,7 +5538,7 @@ msgstr "Anmelden"
 #: euphorie/client/browser/templates/assessments.pt:82
 #: euphorie/client/browser/templates/organisation.pt:29
 msgid "link_start_session"
-msgstr "Beginnen Sie eine neue Sitzung"
+msgstr "beginnen Sie eine neue Sitzung"
 
 #. Default: "contents of the tool"
 #: euphorie/client/browser/templates/identification.pt:33
@@ -5872,6 +5872,11 @@ msgstr ""
 #: euphorie/client/browser/templates/consultancy.pt:98
 msgid "message_you_are_requested_to_validate_assessment"
 msgstr ""
+
+#. Default: "You don't have any risk assessments yet."
+#: euphorie/client/browser/templates/portlet_my_ras.pt:98
+msgid "message_you_dont_have_any_risk_assessments_yet"
+msgstr "Sie haben noch keine Risikobewertungen. Erstellen Sie zunächst eine neue."
 
 #. Default: "You have reviewed and validated this risk assessment."
 #: euphorie/client/browser/templates/consultancy.pt:113

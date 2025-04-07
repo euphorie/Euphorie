@@ -21,10 +21,9 @@ from euphorie.client.enum import Enum
 from OFS.interfaces import IApplication
 from plone import api
 from plone.app.event.base import localized_now
+from plone.base.utils import safe_text
 from plone.memoize import ram
 from plone.memoize.instance import memoize
-from Products.CMFPlone.utils import safe_nativestring
-from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from sqlalchemy import func
 from sqlalchemy import orm
@@ -629,7 +628,7 @@ class Account(BaseObject):
             return False
         if password == self.password:
             return True
-        password = safe_nativestring(password)
+        password = safe_text(password)
         return bcrypt.checkpw(password, self.password)
 
     def hash_password(self):
@@ -640,12 +639,12 @@ class Account(BaseObject):
             return
         if not password:
             return
-        password = safe_nativestring(password)
+        password = safe_text(password)
         if BCRYPTED_PATTERN.match(password):
             # The password is already encrypted, do not encrypt it again
             # XXX this is broken with passwords that are actually an hash
             return
-        self.password = safe_unicode(
+        self.password = safe_text(
             bcrypt.hashpw(
                 password,
                 bcrypt.gensalt(),
@@ -1249,10 +1248,7 @@ class SurveySession(BaseObject):
             return False
 
         return cls.zodb_path.in_(
-            {
-                safe_unicode("/".join(survey.getPhysicalPath()[-3:]))
-                for survey in surveys
-            }
+            {safe_text("/".join(survey.getPhysicalPath()[-3:])) for survey in surveys}
         )
 
     @property

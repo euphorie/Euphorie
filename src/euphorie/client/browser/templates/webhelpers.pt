@@ -165,22 +165,24 @@
               "
     >
 
-      <!-- Existing Measures -->
-      <fieldset class="measures-in-place pat-checklist pat-clone ${python:'pat-inject pat-autosubmit pat-subform' if (webhelpers.integrated_action_plan or webhelpers.use_training_module) else None}"
-                id="risk_identification_form"
-                disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
-                data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button; remove-behaviour: none"
-                data-pat-inject="${python:'source: #panel-action-plan::element; target: #panel-action-plan::element;' if webhelpers.integrated_action_plan else None}${python:' &amp;&amp; source: #page-module-training::element; target: #page-module-training::element;' if webhelpers.use_training_module else None}"
-      >
-        <tal:existing_measures condition="view/show_existing_measures">
+      <tal:measures define="
+                      measures view/get_existing_measures_with_activation;
+                    ">
+        <!-- Existing Measures -->
+        <fieldset class="measures-in-place pat-checklist pat-clone ${python:'pat-inject pat-autosubmit pat-subform' if (webhelpers.integrated_action_plan or webhelpers.use_training_module) else None}"
+                  id="risk_identification_form"
+                  disabled="${python:'disabled' if not webhelpers.can_edit_session else None}"
+                  data-pat-clone="template: #in-place-measure-template; trigger-element: #add-in-place-measure-button; remove-behaviour: none"
+                  data-pat-inject="${python:'source: #panel-action-plan::element; target: #panel-action-plan::element;' if webhelpers.integrated_action_plan else None}${python:' &amp;&amp; source: #page-module-training::element; target: #page-module-training::element;' if webhelpers.use_training_module else None}"
+                  tal:define="
+                    show_existing_measures view/show_existing_measures;
+                  "
+                  tal:condition="show_existing_measures"
+        >
           <article class="pat-rich">
             <p tal:content="structure view/intro_extra"></p>
           </article>
-          <tal:measures define="
-                          measures view/get_existing_measures_with_activation;
-                        "
-                        repeat="measure measures"
-          >
+          <tal:measures repeat="measure measures">
             <div class="label"
                  tal:define="
                    description measure/text;
@@ -262,19 +264,19 @@
               >Remove</button>
             </label>
           </template>
-        </tal:existing_measures>
-      </fieldset>
+        </fieldset>
 
-      <div class="button-bar cloning"
-           tal:condition="python:view.show_existing_measures"
-      >
-        <button class="add-clone pat-button icon-plus-circle"
-                id="add-in-place-measure-button"
-                title="${view/button_add_extra}"
-                type="button"
-        >${view/button_add_extra}</button>
-      </div>
-      <!-- END Existing measures -->
+        <div class="button-bar cloning"
+             tal:condition="python:view.show_existing_measures"
+        >
+          <button class="add-clone pat-button icon-plus-circle"
+                  id="add-in-place-measure-button"
+                  title="${view/button_add_extra}"
+                  type="button"
+          >${view/button_add_extra}</button>
+        </div>
+        <!-- END Existing measures -->
+      </tal:measures>
 
       <!-- Yes / No / Multiple -->
       <fieldset class="pat-checklist radio pat-rich"
@@ -484,33 +486,21 @@
                          type="radio"
                          value="1"
                   />
-                  <tal:span i18n:translate="severity_weak">Weak</tal:span><br />
-                  <dfn class="icon info pat-tooltip"
-                       title="No need to stop working"
-                       i18n:attributes="title severity_weak_help;"
-                  ></dfn>
+                  <tal:span i18n:translate="severity_weak">Weak</tal:span>
                 </label>
                 <label><input checked="${python:'checked' if value==5 else None}"
                          name="severity:int"
                          type="radio"
                          value="5"
                   />
-                  <tal:span i18n:translate="severity_not_severe">Not very severe</tal:span><br />
-                  <dfn class="icon info pat-tooltip"
-                       title="Need to stop working for less than 3 days"
-                       i18n:attributes="title severity_not_severe_help"
-                  ></dfn>
+                  <tal:span i18n:translate="severity_not_severe">Not very severe</tal:span>
                 </label>
                 <label><input checked="${python:'checked' if value==7 else None}"
                          name="severity:int"
                          type="radio"
                          value="7"
                   />
-                  <tal:span i18n:translate="severity_severe">Severe</tal:span><br />
-                  <dfn class="icon info pat-tooltip"
-                       title="Need to stop working for more than 3 days"
-                       i18n:attributes="title severity_severe_help;"
-                  ></dfn>
+                  <tal:span i18n:translate="severity_severe">Severe</tal:span>
                 </label>
                 <label>
                   <input checked="${python:'checked' if value==10 else None}"
@@ -518,11 +508,7 @@
                          type="radio"
                          value="10"
                   />
-                  <tal:span i18n:translate="severity_very_severe">Very severe</tal:span><br />
-                  <dfn class="icon info pat-tooltip"
-                       title="Irreversible injury, incurable illness, death"
-                       i18n:attributes="title severity_very_severe_help;"
-                  ></dfn>
+                  <tal:span i18n:translate="severity_very_severe">Very severe</tal:span>
                 </label>
               </fieldset>
 
@@ -543,11 +529,7 @@
                          type="radio"
                          value="1"
                   />
-                  <tal:span i18n:translate="frequency_french_rare">Rare</tal:span><br />
-                  <dfn class="icon info pat-tooltip"
-                       title="Once per year"
-                       i18n:attributes="title frequency_french_rare_help;"
-                  ></dfn>
+                  <tal:span i18n:translate="frequency_french_rare">Rare</tal:span>
                 </label>
                 <label>
                   <input checked="${python:'checked' if value==3 else None}"
@@ -555,11 +537,7 @@
                          type="radio"
                          value="3"
                   />
-                  <tal:span i18n:translate="frequency_french_not_often">Not very often</tal:span><br />
-                  <dfn class="icon info pat-tooltip"
-                       title="Once per month"
-                       i18n:attributes="title frequency_french_not_often_help;"
-                  ></dfn>
+                  <tal:span i18n:translate="frequency_french_not_often">Not very often</tal:span>
                 </label>
                 <label>
                   <input checked="${python:'checked' if value==7 else None}"
@@ -567,11 +545,7 @@
                          type="radio"
                          value="7"
                   />
-                  <tal:span i18n:translate="frequency_french_often">Often</tal:span><br />
-                  <dfn class="icon info pat-tooltip"
-                       title="Once per week"
-                       i18n:attributes="title frequency_french_often_help;"
-                  ></dfn>
+                  <tal:span i18n:translate="frequency_french_often">Often</tal:span>
                 </label>
                 <label>
                   <input checked="${python:'checked' if value==9 else None}"
@@ -579,11 +553,7 @@
                          type="radio"
                          value="9"
                   />
-                  <tal:span i18n:translate="frequency_french_regularly">Very often or regularly</tal:span><br />
-                  <dfn class="icon info pat-tooltip"
-                       title="Minimum once per day"
-                       i18n:attributes="title frequency_french_regularly_help;"
-                  ></dfn>
+                  <tal:span i18n:translate="frequency_french_regularly">Very often or regularly</tal:span>
                 </label>
               </fieldset>
             </fieldset>

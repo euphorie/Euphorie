@@ -5,9 +5,10 @@
          root view/get_survey_templates_tree_root;
          template_count python:len(view.get_survey_templates());
        "
-       tal:condition="template_count"
   >
-    <div class="content">
+    <div class="content"
+         tal:condition="template_count"
+    >
       <article class="portlet-intro">
         <header class="portlet-title-group">
           <h2 class="portlet-title"

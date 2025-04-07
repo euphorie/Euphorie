@@ -26,9 +26,9 @@
           </li>
           <li class="menu-item-help">
             <a class="pat-inject icon-help-circle close-panel"
-               href="${webhelpers/base_url}/++resource++euphorie.resources/assets/oira/help/${webhelpers/help_language}/index.html"
+               href="${webhelpers/base_url}/++resource++euphorie.resources/assets/oira/help/${webhelpers/help_language}/index.html#content-pane"
                target="Help"
-               data-pat-inject="history: record"
+               data-pat-inject="history: record; scroll: top; source: #content-pane; target: #content-pane"
                i18n:translate="navigation_help"
             >Help</a>
           </li>

@@ -32,7 +32,7 @@
                   You haven&rsquo;t earned any certificates yet.
                 </p>
                 <a class="pat-inject no-label"
-                   href="${webhelpers/base_url}/++resource++euphorie.resources/oira/help/${webhelpers/help_language}/pages/certificates.html#content"
+                   href="${webhelpers/base_url}/++resource++euphorie.resources/assets/oira/help/${webhelpers/help_language}/pages/certificates.html#content"
                    data-pat-inject="history: record; source: #content; target: #content;"
                    i18n:translate="message_learn_more_about_certificates"
                 >Learn more about certificates.</a>

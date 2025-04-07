@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout"
+      i18n:domain="euphorie"
+>
+  <body>
+    <metal:title fill-slot="title">
+      <tal:i18n i18n:translate="">Maintenance view</tal:i18n>
+    </metal:title>
+    <metal:content fill-slot="content">
+      <nav aria-label="Actions"
+           tal:define="
+             actions python: view.actions;
+           "
+           tal:condition="actions"
+      >
+        <ul>
+          <li tal:repeat="action actions">
+            <a href="${action/url}"
+               title="${action/description}"
+            >${action/title}</a>
+            <p tal:condition="action/description">${action/description}</p>
+          </li>
+        </ul>
+      </nav>
+    </metal:content>
+  </body>
+</html>

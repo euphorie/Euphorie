@@ -11,9 +11,9 @@ from euphorie.content.survey import ISurvey
 from euphorie.content.utils import getRegionTitle
 from logging import getLogger
 from plone import api
+from plone.base.utils import safe_text
 from plone.memoize.view import memoize
 from plone.memoize.view import memoize_contextless
-from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from z3c.saconfig import Session
 from zExceptions import Unauthorized
@@ -335,7 +335,7 @@ class SessionBrowserNavigator(BrowserView):
             return ""
         if len(searchable_text) < 3:
             return ""
-        return f"%{safe_unicode(searchable_text)}%"
+        return f"%{safe_text(searchable_text)}%"
 
     @memoize
     def leaf_groups(self, groupid=None):

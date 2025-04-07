@@ -9,8 +9,8 @@ from euphorie.content.survey import Survey
 from euphorie.content.tests.utils import BASIC_SURVEY
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
+from plone.base.utils import safe_text
 from Products.CMFPlone.tests.dummy import Image
-from Products.CMFPlone.utils import safe_unicode
 from unittest import mock
 from zope.publisher.interfaces import NotFound
 
@@ -209,7 +209,7 @@ class TestRiskImageDownloadUpload(EuphorieIntegrationTestCase):
 
                 # Otherwise return the file
                 self.risk.image_data = Image.data
-                self.risk.image_filename = safe_unicode(Image.filename)
+                self.risk.image_filename = safe_text(Image.filename)
                 self.assertTrue(view().startswith(b"GIF"))
                 self.assertDictEqual(
                     view.request.response.headers,

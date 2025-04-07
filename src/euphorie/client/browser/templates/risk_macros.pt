@@ -172,6 +172,8 @@
 
   <metal:riskinfo define-macro="riskinfo">
     <article class="pat-rich pat-collapsible risk-module ${default_state|nothing} form-panel"
+             id="page-module-information"
+             data-pat-collapsible="store: local; scroll-selector: self; scroll-offset: 120px;"
              tal:condition="view/show_info"
     >
       <h3 class="form-separation-header"

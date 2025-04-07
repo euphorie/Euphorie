@@ -7,10 +7,10 @@ from email.utils import formataddr
 from email.utils import formatdate
 from logging import getLogger
 from plone import api
+from plone.base.utils import safe_bytes
+from plone.base.utils import safe_text
 from plone.memoize.view import memoize
 from plone.rfc822.interfaces import IPrimaryFieldInfo
-from Products.CMFPlone.utils import safe_encode
-from Products.CMFPlone.utils import safe_nativestring
 from Products.Five import BrowserView
 from urllib.parse import quote
 
@@ -86,7 +86,7 @@ class BaseEmail(BrowserView):
         some zcml or with a plain python method.
         """
         html = markdown.markdown(self.index(), extensions=["nl2br"])
-        return safe_encode(stoneagehtml.compactify(html))
+        return safe_bytes(stoneagehtml.compactify(html))
 
     @property
     def text_email(self):
@@ -104,7 +104,7 @@ class BaseEmail(BrowserView):
             anchors.append(it["href"])
 
         text = "{}\n\n{}".format(
-            safe_nativestring(soup.get_text()),
+            safe_text(soup.get_text()),
             "\n".join(f"[{cnt + 1}] {it}" for cnt, it in enumerate(anchors)),
         )
 

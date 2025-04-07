@@ -22,7 +22,6 @@ from euphorie.content.dependency import ConditionalTextLine
 from euphorie.content.utils import ensure_image_size
 from euphorie.htmllaundry.z3cform import HtmlText
 from plone.app.dexterity.behaviors.metadata import IBasic
-from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.autoform import directives
 from plone.dexterity.content import Container
 from plone.indexer import indexer
@@ -39,6 +38,12 @@ from zope.interface import Interface
 from zope.interface import Invalid
 
 import sys
+
+
+try:
+    from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
+except ImportError:
+    from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
 
 class IModule(model.Schema, IRichDescription, IBasic):

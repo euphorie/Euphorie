@@ -13,12 +13,16 @@ a catalog indexer which returns a plain text version of the description.
 
 from euphorie.content import MessageFactory as _
 from euphorie.content.utils import StripMarkup
-from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from plone.autoform import directives
 from plone.indexer import indexer
 from plone.supermodel import model
 from zope import schema
 
+
+try:
+    from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
+except ImportError:
+    from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
 try:
     from html import unescape

@@ -8,16 +8,87 @@ Changelog
 
 .. towncrier release notes start
 
-17.0.0 (unreleased)
+17.0.3 (2025-04-01)
 -------------------
+
+New features:
+
+
+- Upgrade to Plone 6.1 (`Issue #818 <https://github.com/syslabcom/scrum/issues/818>`_)
+
+
+Bug fixes:
+
+
+- When on the tools overview, there is no need to have the selection modal to pick a tool, because the users clicks the button from within the tool tile. Therefore we can skip the selection and create the chosen tool immediately. (`Issue #3384 <https://github.com/syslabcom/scrum/issues/3384>`_)
+
+
+Internal:
+
+
+- Use the Wysiwyg widget from NuPlone if available. [ale-rt] (`Issue #818 <https://github.com/syslabcom/scrum/issues/818>`_)
+- Remove unused import
+
+
+17.0.2 (2025-03-20)
+-------------------
+
+New features:
+
+
+- Add a tool_type_data property in the risk view class.
+
+  While this is not directly used in Euphorie code, it is convenient for customers code.
+
+
+Bug fixes:
+
+
+- Fix the password validation (`Issue #319 <https://github.com/syslabcom/scrum/issues/319>`_)
+
+
+17.0.1 (2025-03-06)
+-------------------
+
+Bug fixes:
+
+
+- Fixed error in report when custom risks are present (`Issue #3288 <https://github.com/syslabcom/scrum/issues/3288>`_)
+
+
+17.0.0 (2025-02-25)
+-------------------
+
+Breaking changes:
+
+
+- Support only Plone 6 and Python 3.11 and 3.12
+  [ale-rt]
+
+
+Bug fixes:
+
+
+- Add missing icons in the backend
+- Change the location of the OiRA logo shown in the powerpoint.
+  [ale-rt]
+- Update the link to the certificates help page
+  [ale-rt]
+
+
+Internal:
+
+
+- Add towncrier for better changelog management. (`Issue #0 <https://github.com/syslabcom/scrum/issues/0>`_)
+
+
+New features:
+
 
 - Use plone.patternslib in the client and remove the Patternslib resources from
   Euphorie.
   (`#2990 <https://github.com/syslabcom/scrum/issues/2990>`_)
   [thet]
-
-- Support only Plone 6 and Python 3.11 and 3.12
-  [ale-rt]
 
 - Update Patternslib to 9.10.1-alpha.2.
   Ref: scrum-2726.

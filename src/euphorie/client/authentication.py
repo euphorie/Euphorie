@@ -12,8 +12,8 @@ from AccessControl.class_init import InitializeClass
 from Acquisition import aq_parent
 from euphorie.content.user import IUser
 from plone import api
+from plone.base.utils import safe_text
 from plone.keyring.interfaces import IKeyManager
-from Products.CMFPlone.utils import safe_nativestring
 from Products.membrane.interfaces import IMembraneUserAuth
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 from Products.PluggableAuthService.interfaces.plugins import IAuthenticationPlugin
@@ -338,7 +338,7 @@ def authenticate(login, password):
     """
     if not login or not password:
         return None
-    password = safe_nativestring(password)
+    password = safe_text(password)
 
     login = login.lower()
     accounts = Session().query(model.Account).filter(model.Account.loginname == login)

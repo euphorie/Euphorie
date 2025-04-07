@@ -1,6 +1,6 @@
 from euphorie.testing import EuphorieIntegrationTestCase
 from plone import api
-from Products.CMFPlone.utils import get_installer
+from plone.base.utils import get_installer
 from time import time
 
 

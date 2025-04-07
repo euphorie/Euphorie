@@ -8,10 +8,10 @@ A standard Solution that a user can select for a particular risk.
 from .. import MessageFactory as _
 from euphorie.content import utils
 from plone.autoform import directives
+from plone.base.utils import safe_text
 from plone.dexterity.content import Item
 from plone.indexer import indexer
 from plone.supermodel import model
-from Products.CMFPlone.utils import safe_nativestring
 from zope import schema
 from zope.i18n import translate
 from zope.interface import implementer
@@ -124,7 +124,7 @@ class Solution(Item):
 
     def Title(self):
         survey = utils.getSurvey(self)
-        return safe_nativestring(
+        return safe_text(
             translate(
                 Solution.title, context=self.REQUEST, target_language=survey.language
             )

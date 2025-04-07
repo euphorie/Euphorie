@@ -1,0 +1,1 @@
+Add a check to the referrer if the menu is called from the dashboard. In that case, don't show the exit action.
