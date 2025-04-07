@@ -147,7 +147,7 @@ class SurveyTreeItem(BaseObject):
         index=True,
     )
     type = schema.Column(
-        Enum(["risk", "module"]),
+        Enum(["risk", "choice", "module"]),
         nullable=False,
         index=True,
     )
@@ -1486,6 +1486,69 @@ class Risk(SurveyTreeItem):
         return self.measures_of_type("in_place_custom")
 
 
+class Choice(SurveyTreeItem):
+    """User choice."""
+
+    __tablename__ = "choice"
+    __mapper_args__ = dict(polymorphic_identity="choice")
+
+    id = schema.Column(
+        "id",
+        types.Integer(),
+        schema.ForeignKey(SurveyTreeItem.id, onupdate="CASCADE", ondelete="CASCADE"),
+        primary_key=True,
+    )
+    condition = schema.Column(types.String(512), nullable=True)
+    options = orm.relationship(
+        "Option",
+        back_populates="choice",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+    )
+
+    @property
+    def is_visible(self):
+        if not self.condition:
+            return True
+        options = self.condition.split("|")
+        if (
+            Session.query(Option)
+            .join(Choice)
+            .filter(Choice.session_id == self.session_id)
+            .filter(Option.zodb_path in options)
+            .count()
+            <= 0
+        ):
+            return False
+        return True
+
+    def set_options_by_zodb_path(self, paths):
+        # XXX don't delete what we want to keep
+        self.options.clear()
+        # XXX Check if paths are valid?
+        for path in paths:
+            option = Option(choice=self, zodb_path=path)
+            Session.add(option)
+            # Session.flush()
+            self.options.append(option)
+
+
+class Option(BaseObject):
+    """An option that was selected for a particular choice."""
+
+    __tablename__ = "option"
+
+    id = schema.Column(types.Integer(), primary_key=True, autoincrement=True)
+    choice_id = schema.Column(
+        types.Integer(),
+        schema.ForeignKey(Choice.id, onupdate="CASCADE", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    choice = orm.relationship("Choice", back_populates="options")
+    zodb_path = schema.Column(types.String(512), nullable=False)
+
+
 class ActionPlan(BaseObject):
     """Action plans for a known risk."""
 
@@ -1650,6 +1713,8 @@ if not _instrumented:
         SessionRedirect,
         Module,
         Risk,
+        Choice,
+        Option,
         ActionPlan,
         Group,
         Account,
@@ -2035,6 +2100,8 @@ __all__ = [
     "SurveySession",
     "Module",
     "Risk",
+    "Choice",
+    "Option",
     "ActionPlan",
     "SKIPPED_PARENTS",
     "MODULE_WITH_RISK_FILTER",

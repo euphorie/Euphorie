@@ -204,6 +204,8 @@ class TreeDataCreator(BrowserView):
                 me = first(lambda x: x["current"], result["children"])
                 children = []
                 for obj in element.children(filter=filter):
+                    if not getattr(obj, "is_visible", True):
+                        continue
                     info = morph(obj)
                     # XXX: The check for SurveySession is due to Euphorie tests which
                     # don't have a proper canonical ZODB survey object and don't test
@@ -231,6 +233,8 @@ class TreeDataCreator(BrowserView):
             parent = parents.pop()
             siblings = []
             for obj in parent.siblings(model.Module, filter=filter):
+                if not getattr(obj, "is_visible", True):
+                    continue
                 info = morph(obj)
                 if obj.zodb_path.find("custom-risks") > -1:
                     info["title"] = title_custom_risks
