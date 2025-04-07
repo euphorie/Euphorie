@@ -25,6 +25,19 @@ class IdentificationView(RiskIdentificationView):
     def selected(self):
         return [option.zodb_path for option in self.context.options]
 
+    @property
+    @memoize
+    def risk(self):
+        # XXX don't inherit this method
+        return self.context.aq_parent.aq_parent.restrictedTraverse(
+            self.context.zodb_path.split("/")
+        )
+
+    @property
+    def is_custom_risk(self):
+        # XXX don't inherit this method
+        return False
+
     def set_answer_data(self, reply):
         answer = reply.get("answer", [])
         if not isinstance(answer, (list, tuple)):
