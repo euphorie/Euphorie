@@ -51,7 +51,7 @@
               >
                 <input checked="${python: option_path in view.selected}"
                        name="answer"
-                       type="checkbox"
+                       type="${python: 'checkbox' if choice.allow_multiple_options else 'radio'}"
                        value="${option_path}"
                        tal:define="option_path string:${context/zodb_path}/${option/id}"
                 />${option/title}
