@@ -29,11 +29,29 @@ def FindFirstQuestion(dbsession, filter=None):
 
 
 def FindNextQuestion(after, dbsession, filter=None):
+    # Filter out Choice objects where condition is not met,
+    # i.e. either tree item is not a choice,
+    # or it is a Choice and the condition is blank,
+    # or an option that is referred to in the condition has been picked
+    # XXX simplify?
+    condition = sql.or_(
+        ~sql.exists().where(model.Choice.id == model.SurveyTreeItem.id),
+        sql.exists().where(
+            sql.and_(
+                model.Choice.id == model.SurveyTreeItem.id,
+                sql.or_(
+                    model.Choice.condition == None,
+                    model.Choice.condition.like(model.Option.zodb_path),
+                ),
+            ),
+        ),
+    )
     query = (
         Session.query(model.SurveyTreeItem)
         .filter(model.SurveyTreeItem.session == dbsession)
         .filter(model.SurveyTreeItem.path > after.path)
         .filter(sql.not_(model.SKIPPED_PARENTS))
+        .filter(condition)
     )
     # Skip modules without a description.
     if filter is None:
@@ -175,6 +193,8 @@ class TreeDataCreator(BrowserView):
         result["class"] = None
         children = []
         for obj in element.siblings(filter=filter):
+            if not getattr(obj, "is_visible", True):
+                continue
             info = morph(obj)
             if obj.type != "risk" and obj.zodb_path.find("custom-risks") > -1:
                 info["title"] = title_custom_risks
@@ -228,7 +248,7 @@ class TreeDataCreator(BrowserView):
                 types = {c["type"] for c in me["children"]}
                 me["leaf_module"] = "risk" in types
 
-        elif isinstance(element, model.Risk):
+        elif isinstance(element, (model.Risk, model.Choice)):
             # For a risk we also want to include all siblings of its module parent
             parent = parents.pop()
             siblings = []
@@ -268,6 +288,8 @@ class TreeDataCreator(BrowserView):
                                 info["type"] = "location"
                                 children = []
                                 for child in sibling.children(filter=filter):
+                                    if not getattr(child, "is_visible", True):
+                                        continue
                                     child_info = morph(child)
                                     children.append(child_info)
                                 info["children"] = children
