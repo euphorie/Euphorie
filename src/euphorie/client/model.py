@@ -1499,12 +1499,6 @@ class Choice(SurveyTreeItem):
         primary_key=True,
     )
     condition = schema.Column(types.String(512), nullable=True)
-    options = orm.relationship(
-        "Option",
-        back_populates="choice",
-        cascade="all, delete-orphan",
-        passive_deletes=True,
-    )
 
     @property
     def is_visible(self):
@@ -1515,7 +1509,7 @@ class Choice(SurveyTreeItem):
             Session.query(Option)
             .join(Choice)
             .filter(Choice.session_id == self.session_id)
-            .filter(Option.zodb_path in options)
+            .filter(Option.zodb_path.in_(options))
             .count()
             <= 0
         ):
@@ -1523,14 +1517,16 @@ class Choice(SurveyTreeItem):
         return True
 
     def set_options_by_zodb_path(self, paths):
-        # XXX don't delete what we want to keep
-        self.options.clear()
-        # XXX Check if paths are valid?
+        current = [option.zodb_path for option in self.options]
+        for option in self.options:
+            if option.zodb_path not in paths:
+                self.options.remove(option)
+                Session.delete(option)
         for path in paths:
-            option = Option(choice=self, zodb_path=path)
-            Session.add(option)
-            # Session.flush()
-            self.options.append(option)
+            if path not in current:
+                option = Option(choice=self, zodb_path=path)
+                Session.add(option)
+                self.options.append(option)
 
 
 class Option(BaseObject):
@@ -1545,8 +1541,16 @@ class Option(BaseObject):
         nullable=False,
         index=True,
     )
-    choice = orm.relationship("Choice", back_populates="options")
     zodb_path = schema.Column(types.String(512), nullable=False)
+
+
+Choice.options = orm.relationship(
+    "Option",
+    back_populates="choice",
+    cascade="all, delete",
+    passive_deletes=True,
+)
+Option.choice = orm.relationship("Choice", back_populates="options")
 
 
 class ActionPlan(BaseObject):

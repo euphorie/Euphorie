@@ -49,10 +49,11 @@
               <label class="label-fragment-title"
                      tal:repeat="option choice/objectValues"
               >
-                <input checked="${python: option in context.options}"
+                <input checked="${python: option_path in view.selected}"
                        name="answer"
                        type="checkbox"
-                       value="${context/zodb_path}/${option/id}"
+                       value="${option_path}"
+                       tal:define="option_path string:${context/zodb_path}/${option/id}"
                 />${option/title}
               </label>
             </fieldset>

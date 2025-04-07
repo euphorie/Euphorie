@@ -33,7 +33,7 @@ def upgrade():
         op.create_table(
             "option",
             sa.Column("id", sa.Integer(), autoincrement=True, nullable=False),
-            sa.Column("choice_id", sa.Integer(), nullable=True),
+            sa.Column("choice_id", sa.Integer(), nullable=False),
             sa.Column("zodb_path", sa.String(length=512), nullable=False),
             sa.ForeignKeyConstraint(
                 ["choice_id"], ["choice.id"], onupdate="CASCADE", ondelete="CASCADE"
