@@ -53,13 +53,7 @@
             <section tal:condition="context/Description">
               <p>${context/Description}</p>
             </section>
-            <p>
-              <a class="show-more pat-modal"
-                 href="${here/absolute_url}/@@tool-more-info#document-content"
-                 data-pat-modal="class: sheet"
-                 i18n:translate=""
-              >Learn more about this tool&hellip;</a>
-            </p>
+
           </article>
           <metal:messages_below_article define-slot="messages_below_article">
             <div class="pat-message notice"
@@ -96,6 +90,111 @@
                 </label>
               </tal:for>
             </metal:widgets>
+            <tal:block-etoolspecific>
+              <article class="pat-rich">
+                <h2>Let's quickly check if this tool might be helpful for you&hellip;</h2>
+                <p>Do you use, handle or store chemical products or chemical substances at work? Such products will be labelled with one or more of the currently used hazard pictograms (black and white in red frames) depicted below.</p>
+                <p><strong>Current hazard pictograms:</strong></p>
+                <figure>
+                  <img src="https://eguides.osha.europa.eu/dangerous-substances/sites/default/files/HP1_v2.png" />
+                </figure>
+                <fieldset class="vertical">
+                  <fieldset class="pat-checklist radio">
+                    <label class="yes unchecked"><input class="pat-scroll"
+                             name="answer:list"
+                             type="radio"
+                             value="yes"
+                             data-pat-scroll="selector: #air-pollutants; trigger: click; delay: 200"
+                      />Yes</label>
+                    <label class="no unchecked"><input class="pat-scroll"
+                             name="answer:list"
+                             type="radio"
+                             value="no"
+                             data-pat-scroll="selector: #are-you-sure; trigger: click; delay: 200"
+                      />No</label>
+                  </fieldset>
+                </fieldset>
+
+                <fieldset class="pat-depends"
+                          id="are-you-sure"
+                          data-pat-depends="condition: answer:list = no"
+                >
+                  <p>Are you sure that you have no chemical products or substances labelled with a hazard pictogram? Examples of chemical products with such labels, which can be found in most workplaces, are detergents, adhesives and paints.</p>
+                  <p><strong>Current hazard pictograms:</strong></p>
+                  <figure>
+                    <img src="https://eguides.osha.europa.eu/dangerous-substances/sites/default/files/HP1_v2.png" />
+                  </figure>
+                  <fieldset class="pat-checklist radio pat-scroll">
+                    <label class="yes unchecked"><input class="pat-scroll"
+                             name="answer2:list"
+                             type="radio"
+                             value="yes"
+                             data-pat-scroll="selector: #no-need-to-continue; trigger: click; delay: 200"
+                      />Yes</label>
+                    <label class="no unchecked"><input class="pat-scroll"
+                             name="answer2:list"
+                             type="radio"
+                             value="no"
+                             data-pat-scroll="selector: #ok-to-continue; trigger: click; delay: 200"
+                      />No</label>
+                  </fieldset>
+                </fieldset>
+
+                <div class="pat-depends pat-scroll"
+                     id="ok-to-continue"
+                     data-pat-depends="condition: answer:list = no and answer2:list = no"
+                     data-pat-scroll="selector: #air-pollutants; trigger: auto; delay: 200"
+                >
+                  <p class="pat-message notice">
+                    <strong>Ok, you have dangerous substances. Let's continue&hellip;</strong>
+                  </p>
+                </div>
+
+                <div class="pat-depends"
+                     id="no-need-to-continue"
+                     data-pat-depends="condition: answer:list = no and answer2:list = yes"
+                >
+                  <p class="pat-message notice">
+                    <strong>There is no need to continue with the survey.</strong>
+                    <br /><br />
+                    <a class="pat-button"
+                       href="${request/URL}/../../../../"
+                    >Exit</a>
+                  </p>
+                </div>
+
+                <fieldset class="pat-depends"
+                          id="air-pollutants"
+                          data-pat-depends="condition: (answer:list = no and answer2:list = no ) or answer:list = yes; transition: slide"
+                >
+                  <p>Could air pollution of any kind be generated, for example dust from grinding or sanding, combustion products such as exhausts and fumes, or degradation products from chemical products or hazardous waste?</p>
+                  <fieldset class="pat-checklist radio pat-scroll"
+                            data-pat-scroll="selector: #please-do-continue; trigger: click; delay: 200"
+                  >
+                    <label class="yes unchecked"><input name="airpollution:list"
+                             type="radio"
+                             value="yes"
+                      />Yes</label>
+                    <label class="no unchecked"><input name="airpollution:list"
+                             type="radio"
+                             value="no"
+                      />No</label>
+                  </fieldset>
+                </fieldset>
+
+                <div class="pat-depends"
+                     id="please-do-continue"
+                     data-pat-depends="condition: (answer:list = yes and airpollution:list) or (answer:list = no and answer2:list = no and airpollution:list)"
+                >
+                  <p class="pat-message notice">
+                    <strong>It seems it would make sense for you to do this assessment.
+                    </strong>
+                    <br /><br />
+                    Click the start button below to begin the assessment.
+                  </p>
+                </div>
+              </article>
+            </tal:block-etoolspecific>
           </fieldset>
 
           <metal:special define-slot="special" />

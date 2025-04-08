@@ -5298,6 +5298,10 @@ msgstr ""
 msgid "message_request_validation"
 msgstr ""
 
+#. Default: "No validation is requested at this time."
+msgid "message_no_validation_requested"
+msgstr ""
+
 #. Default: "Administrators can create, edit and remove user accounts. Administrators can also make risk assessments and edit existing ones, lock risk assessments, create trainings and take trainings."
 #: euphorie/client/browser/templates/panel-add-user-to-organisation.pt:55
 #: euphorie/client/browser/templates/panel-organisation-member-edit.pt:70
