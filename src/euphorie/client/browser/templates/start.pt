@@ -150,22 +150,10 @@
                   </p>
                 </div>
 
-                <div class="pat-depends"
-                     id="no-need-to-continue"
-                     data-pat-depends="condition: answer:list = no and answer2:list = yes"
-                >
-                  <p class="pat-message notice">
-                    <strong>There is no need to continue with the survey.</strong>
-                    <br /><br />
-                    <a class="pat-button"
-                       href="${request/URL}/../../../../"
-                    >Exit</a>
-                  </p>
-                </div>
 
                 <fieldset class="pat-depends"
                           id="air-pollutants"
-                          data-pat-depends="condition: (answer:list = no and answer2:list = no ) or answer:list = yes; transition: slide"
+                          data-pat-depends="condition: (answer:list = no and answer2:list = yes ) or answer:list = yes or (answer:list = no and answer2:list = no ); transition: slide"
                 >
                   <p>Could air pollution of any kind be generated, for example dust from grinding or sanding, combustion products such as exhausts and fumes, or degradation products from chemical products or hazardous waste?</p>
                   <fieldset class="pat-checklist radio pat-scroll"
@@ -182,9 +170,23 @@
                   </fieldset>
                 </fieldset>
 
+
+                <div class="pat-depends"
+                     id="no-need-to-continue"
+                     data-pat-depends="condition: answer:list = no and answer2:list = yes and airpollution:list = no"
+                >
+                  <p class="pat-message notice">
+                    <strong>There is no need to continue with the survey.</strong>
+                    <br /><br />
+                    <a class="pat-button"
+                       href="${request/URL}/../../../../"
+                    >Exit</a>
+                  </p>
+                </div>
+
                 <div class="pat-depends"
                      id="please-do-continue"
-                     data-pat-depends="condition: (answer:list = yes and airpollution:list) or (answer:list = no and answer2:list = no and airpollution:list)"
+                     data-pat-depends="condition: (answer:list = yes and airpollution:list) or (answer:list = no and answer2:list = no and airpollution:list) or (answer:list = no and answer2:list = yes and airpollution:list = yes)"
                 >
                   <p class="pat-message notice">
                     <strong>It seems it would make sense for you to do this assessment.
