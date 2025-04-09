@@ -91,6 +91,10 @@ def AddToTree(
     elif IChoice.providedBy(node):
         child = model.Choice(title=title)
         child.postponed = False
+
+        condition = node.get_client_condition()
+        if condition:
+            child.condition = condition
     else:
         return None  # Should never happen
 

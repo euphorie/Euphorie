@@ -19,7 +19,7 @@
     <element value="euphorie.option" />
   </property>
 
-  <property name="klass">plone.dexterity.content.Container</property>
+  <property name="klass">euphorie.content.choice.Choice</property>
   <property name="add_permission">euphorie.content.AddNewRIEContent</property>
 
   <property name="schema">euphorie.content.choice.IChoice</property>
