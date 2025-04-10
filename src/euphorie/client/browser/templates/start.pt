@@ -129,43 +129,34 @@
                              name="answer2:list"
                              type="radio"
                              value="yes"
-                             data-pat-scroll="selector: #no-need-to-continue; trigger: click; delay: 200"
+                             data-pat-scroll="selector: #air-pollutants; trigger: click; delay: 200"
                       />Yes</label>
                     <label class="no unchecked"><input class="pat-scroll"
                              name="answer2:list"
                              type="radio"
                              value="no"
-                             data-pat-scroll="selector: #ok-to-continue; trigger: click; delay: 200"
+                             data-pat-scroll="selector: #please-do-continue; trigger: click; delay: 200"
                       />No</label>
                   </fieldset>
                 </fieldset>
 
-                <div class="pat-depends pat-scroll"
-                     id="ok-to-continue"
-                     data-pat-depends="condition: answer:list = no and answer2:list = no"
-                     data-pat-scroll="selector: #air-pollutants; trigger: auto; delay: 200"
-                >
-                  <p class="pat-message notice">
-                    <strong>Ok, you have dangerous substances. Let's continue&hellip;</strong>
-                  </p>
-                </div>
-
-
                 <fieldset class="pat-depends"
                           id="air-pollutants"
-                          data-pat-depends="condition: (answer:list = no and answer2:list = yes ) or answer:list = yes or (answer:list = no and answer2:list = no ); transition: slide"
+                          data-pat-depends="condition: (answer:list = no and answer2:list = yes ); transition: slide"
                 >
                   <p>Could air pollution of any kind be generated, for example dust from grinding or sanding, combustion products such as exhausts and fumes, or degradation products from chemical products or hazardous waste?</p>
-                  <fieldset class="pat-checklist radio pat-scroll"
-                            data-pat-scroll="selector: #please-do-continue; trigger: click; delay: 200"
-                  >
-                    <label class="yes unchecked"><input name="airpollution:list"
+                  <fieldset class="pat-checklist radio">
+                    <label class="yes unchecked"><input class="pat-scroll"
+                             name="airpollution:list"
                              type="radio"
                              value="yes"
+                             data-pat-scroll="selector: #please-do-continue; trigger: click; delay: 200"
                       />Yes</label>
-                    <label class="no unchecked"><input name="airpollution:list"
+                    <label class="no unchecked"><input class="pat-scroll"
+                             name="airpollution:list"
                              type="radio"
                              value="no"
+                             data-pat-scroll="selector: #no-need-to-continue; trigger: click; delay: 200"
                       />No</label>
                   </fieldset>
                 </fieldset>
@@ -186,7 +177,7 @@
 
                 <div class="pat-depends"
                      id="please-do-continue"
-                     data-pat-depends="condition: (answer:list = yes and airpollution:list) or (answer:list = no and answer2:list = no and airpollution:list) or (answer:list = no and answer2:list = yes and airpollution:list = yes)"
+                     data-pat-depends="condition: answer:list = yes or (answer:list = no and answer2:list = no) or (answer:list = no and answer2:list = yes and airpollution:list = yes)"
                 >
                   <p class="pat-message notice">
                     <strong>It seems it would make sense for you to do this assessment.
