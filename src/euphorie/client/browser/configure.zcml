@@ -72,6 +72,14 @@
       />
 
   <browser:page
+      name="navigation"
+      for="*"
+      class="euphorie.client.browser.navigation.NavigationView"
+      permission="zope.Public"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="risk_macros"
       for="*"
       class="euphorie.client.browser.webhelpers.WebHelpers"
