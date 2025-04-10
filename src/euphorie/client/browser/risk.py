@@ -20,11 +20,13 @@ from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import IToolTypesInfo
 from euphorie.content.utils import parse_scaled_answers
+from euphorie.content.utils import ToolTypesInfo
 from euphorie.htmllaundry.utils import strip_markup
 from io import BytesIO
 from plone import api
 from plone.base.utils import safe_text
 from plone.memoize.instance import memoize
+from plone.memoize.view import memoize_contextless
 from plone.namedfile import NamedBlobImage
 from plone.namedfile.browser import DisplayFile
 from plone.scale.scale import scaleImage
@@ -34,6 +36,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from sqlalchemy import and_
 from z3c.saconfig import Session
 from zope.component import getUtility
+from zope.deprecation import deprecate
 from zope.event import notify
 from zope.publisher.interfaces import NotFound
 
@@ -119,6 +122,26 @@ class RiskBase(BrowserView):
     def survey(self):
         """This is the survey dexterity object."""
         return self.webhelpers._survey
+
+    @property
+    @memoize_contextless
+    def tti(self) -> ToolTypesInfo:
+        return getUtility(IToolTypesInfo)
+
+    @property
+    @memoize
+    def my_tool_type(self) -> str:
+        return get_tool_type(self.survey)
+
+    @property
+    @memoize
+    def use_existing_measures(self) -> bool:
+        return (
+            api.portal.get_registry_record(
+                "euphorie.use_existing_measures", default=False
+            )
+            and self.my_tool_type in self.tti.types_existing_measures
+        )
 
     @property
     @memoize
@@ -520,7 +543,6 @@ class IdentificationView(RiskBase):
         self.check_render_condition()
 
         utils.setLanguage(self.request, self.survey, self.survey.language)
-        self.set_parameter_values()
 
         if self.request.method == "POST":
             reply = self.request.form
@@ -608,15 +630,19 @@ class IdentificationView(RiskBase):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
 
+    @deprecate(
+        "This method does not do anything anymore. The set attributes have been moved to properties."  # noqa: E501
+    )
     def set_parameter_values(self):
-        self.tti = getUtility(IToolTypesInfo)
-        self.my_tool_type = get_tool_type(self.survey)
-        self.use_existing_measures = (
-            api.portal.get_registry_record(
-                "euphorie.use_existing_measures", default=False
-            )
-            and self.my_tool_type in self.tti.types_existing_measures
-        )
+        """This method will be removed. It was used to set the values of:
+
+        - tti
+        - my_tool_type
+        - use_existing_measures
+
+        These values are now properties of the RiskBase class.
+        """
+        pass
 
     def get_identification_from_scaled_answer(self, scaled_answer):
         """Determine the yes/no identification based on the scaled answer.
@@ -1316,15 +1342,6 @@ class ActionPlanView(RiskBase):
             return
         context = aq_inner(self.context)
         utils.setLanguage(self.request, self.survey, self.survey.language)
-
-        self.tti = getUtility(IToolTypesInfo)
-        self.my_tool_type = get_tool_type(self.survey)
-        self.use_existing_measures = (
-            api.portal.get_registry_record(
-                "euphorie.use_existing_measures", default=False
-            )
-            and self.my_tool_type in self.tti.types_existing_measures
-        )
 
         # already compute "next" here, so that we can know in the template
         # if the next step might be the report phase, in which case we
