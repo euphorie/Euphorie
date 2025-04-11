@@ -23,6 +23,7 @@ def getSurveyTree(survey, profile=None):
             "euphorie.profilequestion",
             "euphorie.module",
             "euphorie.risk",
+            "euphorie.choice",
         ]:
             continue
         # Note that in profile.AddToTree, we pretend that an optional module
@@ -44,6 +45,9 @@ def getSurveyTree(survey, profile=None):
                 ),
                 "risk_type": (node.portal_type[9:] == "risk" and node.type or None),
                 "optional": node.optional,
+                "condition": (
+                    node.portal_type[9:] == "choice" and node.condition or None
+                ),
             }
         )
         if IQuestionContainer.providedBy(node):
@@ -124,6 +128,9 @@ def treeChanges(session, survey, profile=None):
                 ):
                     results.add((entry["zodb_path"], node.type, "modified"))
                 if entry["risk_type"] != node.risk_type:
+                    results.add((entry["zodb_path"], node.type, "modified"))
+            if node.type == entry["type"] == "choice":
+                if node.get_client_condition() != entry["condition"]:
                     results.add((entry["zodb_path"], node.type, "modified"))
             if nodes[0].type == entry["type"] or (
                 nodes[0].type == "module" and entry["type"] == "profilequestion"
