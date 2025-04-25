@@ -41,9 +41,12 @@ import sys
 
 
 try:
-    from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
+    from plonetheme.nuplone.z3cform.wysiwyg import WysiwygFieldWidget
 except ImportError:
-    from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
+    try:
+        from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
+    except ImportError:
+        from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
 
 class IModule(model.Schema, IRichDescription, IBasic):
