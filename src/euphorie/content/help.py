@@ -15,12 +15,7 @@ from euphorie.htmllaundry.z3cform import HtmlText
 from plone.autoform import directives
 from plone.indexer import indexer
 from plone.supermodel import model
-
-
-try:
-    from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
-except ImportError:
-    from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
+from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
 
 
 class IOnlineHelp(model.Schema):

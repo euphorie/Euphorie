@@ -30,17 +30,12 @@ from plone.dexterity.content import Container
 from plone.indexer import indexer
 from plone.supermodel import model
 from plonetheme.nuplone.z3cform.directives import depends
+from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
 from zope import schema
 from zope.component import getUtility
 from zope.interface import implementer
 
 import sys
-
-
-try:
-    from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
-except ImportError:
-    from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
 
 class ISurvey(model.Schema, IBasic):
