@@ -16,13 +16,9 @@ from euphorie.content.utils import StripMarkup
 from plone.autoform import directives
 from plone.indexer import indexer
 from plone.supermodel import model
+from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
 from zope import schema
 
-
-try:
-    from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
-except ImportError:
-    from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
 try:
     from html import unescape

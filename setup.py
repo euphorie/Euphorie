@@ -44,7 +44,7 @@ setup(
         "lxml",
         "markdownify",
         "nltk",
-        "NuPlone >=2.1.4",
+        "NuPlone >= 4.0.1",
         "openpyxl",
         "path.py",
         "Plone >=6.0",
