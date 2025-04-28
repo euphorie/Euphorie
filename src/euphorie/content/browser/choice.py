@@ -3,7 +3,6 @@ from ..utils import DragDropHelper
 from Acquisition import aq_inner
 from plone.dexterity.browser.view import DefaultView
 from plone.memoize.instance import memoize
-from Products.Five import BrowserView
 
 
 class ChoiceView(DefaultView, DragDropHelper):

@@ -15,8 +15,7 @@
   <property name="allow_discussion">False</property>
 
   <property name="filter_content_types">True</property>
-  <property name="allowed_content_types">
-  </property>
+  <property name="allowed_content_types" />
 
   <property name="klass">plone.dexterity.content.Container</property>
   <property name="add_permission">euphorie.content.AddNewRIEContent</property>
