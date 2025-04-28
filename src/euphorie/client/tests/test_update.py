@@ -45,6 +45,7 @@ class GetSurveyTreeTests(TreeTests):
             [
                 {
                     "optional": False,
+                    "condition": None,
                     "zodb_path": "1",
                     "type": "module",
                     "has_description": False,
@@ -63,6 +64,7 @@ class GetSurveyTreeTests(TreeTests):
             [
                 {
                     "optional": False,
+                    "condition": None,
                     "zodb_path": "1",
                     "type": "module",
                     "has_description": False,
@@ -71,6 +73,7 @@ class GetSurveyTreeTests(TreeTests):
                 },
                 {
                     "optional": False,
+                    "condition": None,
                     "zodb_path": "1/2",
                     "type": "risk",
                     "has_description": False,
