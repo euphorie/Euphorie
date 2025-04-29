@@ -1,0 +1,5 @@
+Remove the attempt to translate a full sentence with a dynamic element, because it doesn't work when the dynamic element comes from a tra
+nslation made in code and not from a i18n:name element. They don't mix well. To solve that, we first need to understand why we have this customization hook
+ with code translation in the first place (suspicion is a daimler customization) and then either remove that or find a solution that translates the full se
+ntence in code. The full sentence is sacrificed here for the ability to deploy.
+[pilz]
