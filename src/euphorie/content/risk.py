@@ -30,6 +30,7 @@ from plone.namedfile.interfaces import INamedBlobImageField
 from plone.supermodel import model
 from plonetheme.nuplone.z3cform.directives import depends
 from plonetheme.nuplone.z3cform.form import FieldWidgetFactory
+from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import validator
 from zope import schema
@@ -44,11 +45,6 @@ from zope.schema.vocabulary import SimpleVocabulary
 
 import sys
 
-
-try:
-    from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
-except ImportError:
-    from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
 TextLines4Rows = FieldWidgetFactory(
     "z3c.form.browser.textlines.TextLinesFieldWidget", rows=4
