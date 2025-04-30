@@ -1,1 +1,0 @@
-Fix missing i18n:name that was preventing a translation to happen

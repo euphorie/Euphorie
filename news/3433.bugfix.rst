@@ -1,3 +1,0 @@
-Directly use the WYSIWYG widget from plonetheme.nuplone 4.0.1.
-Ref: scrum-3433.
-[thet]

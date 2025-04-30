@@ -8,6 +8,73 @@ Changelog
 
 .. towncrier release notes start
 
+18.0.0 (2025-04-30)
+-------------------
+
+Breaking changes:
+
+
+- Only support Plone 6.1 and Python 3.11+ [ale-rt]
+  Directly use the WYSIWYG widget from plonetheme.nuplone 4.0.1.
+  Ref: scrum-3433.
+  [thet]
+
+
+New features:
+
+
+- If there is no organisation for the user yet, add one to avoid the "Add Organisation" button step.
+
+
+Bug fixes:
+
+
+- Add a link to the maintenance view for the admin users. [ale-rt] (`Issue #825 <https://github.com/syslabcom/scrum/issues/825>`_)
+- Fix missing i18n:name that was preventing a translation to happen (`Issue #844 <https://github.com/syslabcom/scrum/issues/844>`_)
+- - Merging of more precise prototype translations into euphorie
+  - Merging happened using polib, which also formatted the pofiles according to standard.
+  - Fix wrong translations in dutch where edit was translated with view.
+  - Fill empty dutch translation file with entries from nl_BE where available
+  - Fix wrong translation for request validation
+  - fixing two i18n_translate to i18n:translate
+  - Make sure that RI&E doesn't appear in BE translations, it is a dutch acronym
+  - Added more guidelines for other use cases on the consultancy screen. Texts are only displayed to the right role.
+  - The info that you can request consultancy is only for your own organisation.
+  - All external users cannot request validation, so they don't need to know about that when on the tool (and they are likely consultants anyway)
+  - If user is consultant, inform that there is currently no validation requested. Otherwise the consultant keeps searching for work.
+  - Do not display measures-in-place fieldset if there are no measures.
+  - Missing div makes back button show on right instead of left
+  - fix another wrap problem in the french method part
+  - markup fix: modal medium width
+  - missing pat-bumper classes on button-bars
+  - clean duplicated tag
+  - fix the help injection statement
+  - added missing label to edit organisation panel
+  - Fix problem of all tabs being current. There is no such thing as repeat.first, should be repeat.start
+  - If there are no tools, the available tools portlet should not show. But if the condition is on the main node, the dashboard injection fails and we get an eternal spinner. Therefore the condition goes one item down and we have a stub left to inject.
+  - make the add panel medium instead of small
+  - adding link to the help section for organisations
+  - Remove obsolete Class
+  - Fix the full sentence and correct a few uppercases in the Translations. (Even if there are no sessions to clone yet, user needs to know that it will be possible)
+  - make the well stick to its state - open or closed - as user desires
+  - Better fix for no existing measures (the condition checked only if there are measures, but not the flag whether measures should show in place at all). Avoiding an empty fieldset, thus saving space, which proves important for users to see more below.Add a check to the referrer if the menu is called from the dashboard. In that case, don't show the exit action.
+- In the risk views lazy load properties rather than initializing them with a function call.
+  Deprecates the method ``set_parameter_values``. [ale-rt]
+- Remove a warning on our custom Enum type
+
+  Removes:
+
+  ```
+  SAWarning: TypeDecorator Enum(...) will not produce a cache key because the ``cache_ok`` attribute is not set to True
+  ```
+
+  Switches the value of the Enum type to a tuple to make it cachable.
+
+  See:
+
+  -  https://docs.sqlalchemy.org/en/14/core/custom_types.html#sqlalchemy.types.TypeDecorator.cache_ok
+
+
 17.0.3 (2025-04-01)
 -------------------
 
