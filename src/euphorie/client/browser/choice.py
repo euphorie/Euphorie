@@ -1,10 +1,13 @@
 from plone import api
+from euphorie.client.navigation import getTreeData
 from plone.memoize.instance import memoize
 from Products.Five import BrowserView
 
 
 class IdentificationView(BrowserView):
     """A view for displaying a choice in the identification phase."""
+
+    variation_class = "variation-risk-assessment"
 
     @property
     @memoize
@@ -15,6 +18,10 @@ class IdentificationView(BrowserView):
     @memoize
     def navigation(self):
         return api.content.get_view("navigation", self.context, self.request)
+
+    @property
+    def tree(self):
+        return getTreeData(self.request, self.context)
 
     @property
     @memoize

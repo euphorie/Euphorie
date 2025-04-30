@@ -1,5 +1,7 @@
 from euphorie.client import model
 from euphorie.client.interfaces import CustomRisksModifiedEvent
+from euphorie.client.navigation import FindNextQuestion
+from euphorie.client.navigation import FindPreviousQuestion
 from plone import api
 from plone.memoize.instance import memoize
 from Products.Five import BrowserView
@@ -9,10 +11,31 @@ from zope.event import notify
 
 
 class NavigationView(BrowserView):
+    question_filter = None
+
     @property
     @memoize
     def webhelpers(self):
         return api.content.get_view("webhelpers", self.context, self.request)
+
+    @property
+    @memoize
+    def session(self):
+        return self.webhelpers.traversed_session.session
+
+    @property
+    @memoize
+    def previous_question(self):
+        return FindPreviousQuestion(
+            self.context, dbsession=self.session, filter=self.question_filter
+        )
+
+    @property
+    @memoize
+    def next_question(self):
+        return FindNextQuestion(
+            self.context, dbsession=self.session, filter=self.question_filter
+        )
 
     def proceed_to_next(self, reply):
         _next = reply.get("next", None)

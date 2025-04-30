@@ -486,10 +486,8 @@ class IdentificationView(RiskBase):
 
     @property
     @memoize
-    def next_question(self):
-        return FindNextQuestion(
-            self.context, dbsession=self.session, filter=self.question_filter
-        )
+    def navigation(self):
+        return api.content.get_view("navigation", self.context, self.request)
 
     @property
     @memoize
@@ -1008,13 +1006,6 @@ class IdentificationView(RiskBase):
             or "template-default"
         )
 
-    @property
-    @memoize
-    def previous_question(self):
-        return FindPreviousQuestion(
-            self.context, dbsession=self.session, filter=self.question_filter
-        )
-
     @memoize
     def get_existing_measures_with_activation(self):
         saved_standard_measures = {
@@ -1081,11 +1072,6 @@ class ImageUpload(BrowserView):
     @memoize
     def webhelpers(self):
         return api.content.get_view("webhelpers", self.context.aq_parent, self.request)
-
-    @property
-    @memoize
-    def navigation(self):
-        return api.content.get_view("navigation", self.context, self.request)
 
     def __call__(self):
         if not self.webhelpers.can_view_session:
