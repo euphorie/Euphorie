@@ -71,6 +71,7 @@ class Node:
         self.has_description = item.has_description
         self.identification = item.type == "risk" and item.identification or None
         self.risk_type = item.type == "risk" and item.risk_type or None
+        self.condition = item.type == "choice" and item.condition or None
 
     def __repr__(self):
         return "<Node zodb_path={} type={} path={}>".format(
@@ -130,7 +131,7 @@ def treeChanges(session, survey, profile=None):
                 if entry["risk_type"] != node.risk_type:
                     results.add((entry["zodb_path"], node.type, "modified"))
             if node.type == entry["type"] == "choice":
-                if node.get_client_condition() != entry["condition"]:
+                if node.condition != entry["condition"]:
                     results.add((entry["zodb_path"], node.type, "modified"))
             if nodes[0].type == entry["type"] or (
                 nodes[0].type == "module" and entry["type"] == "profilequestion"
