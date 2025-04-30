@@ -1,5 +1,5 @@
-from plone import api
 from euphorie.client.navigation import getTreeData
+from plone import api
 from plone.memoize.instance import memoize
 from Products.Five import BrowserView
 
