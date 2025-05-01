@@ -549,24 +549,15 @@ class ListLinks(BrowserView):
         if links:
             yield {
                 "object": obj,
-                "links": [{"url": link, "text": link} for link in links],
+                "links": links,
             }
         if hasattr(obj, "objectValues"):
             for child in obj.objectValues():
-                for link in self.extract_links(child):
-                    yield link
+                for section_links in self.extract_links(child):
+                    yield section_links
 
     @property
     def items(self):
-        """Retrieves subobjects (modules, risks, etc.) which contain links.
-        Returns a list of dictionaries like this:
-        [
-            {
-                "object": self.context.objectValues()[0],
-                "links": [
-                    {"url": "https://example.org/test", "text": "Example link"},
-                ],
-            }
-        ]
-        """
+        """List subobjects (modules, risks, etc.) which contain links, with
+        their links."""
         return self.extract_links(self.context)

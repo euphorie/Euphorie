@@ -15,20 +15,17 @@
     <article>
       <dl>
         <tal:item tal:repeat="item view/items">
-          <dt tal:define="
-                obj python:item['object'];
-              ">
-            <a href="${obj/absolute_url}">${obj/title}</a>
+          <dt>
+            <a href="${item/object/absolute_url}">${item/object/title}</a>
           </dt>
-          <dd tal:define="
-                links python:item['links'];
-              ">
+          <dd>
             <ul>
-              <li tal:repeat="link links">
-              <a href="${link/url}">${link/text}</a>
+              <li tal:repeat="link item/links">
+                <a href="${link}">${link}</a>
               </li>
             </ul>
-          </dd></tal:item>
+          </dd>
+        </tal:item>
       </dl>
     </article>
   </metal:content>
