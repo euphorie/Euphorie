@@ -22,11 +22,14 @@ from euphorie.client.docx.views import IdentificationReportDocxView
 from euphorie.content import MessageFactory as _
 from euphorie.content.behaviors.toolcategory import IToolCategory
 from euphorie.content.country import ICountry
+from http.client import responses
 from OFS.event import ObjectClonedEvent
 from plone import api
 from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm
+from plone.memoize import forever
+from plone.memoize import ram
 from plone.memoize.instance import memoize
 from plonetheme.nuplone.skin import actions
 from plonetheme.nuplone.utils import formatDate
@@ -34,6 +37,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
+from time import time
 from z3c.form.interfaces import HIDDEN_MODE
 from ZODB.POSException import ConflictError
 from zope.component import getMultiAdapter
@@ -42,7 +46,12 @@ from zope.container.interfaces import INameChooser
 from zope.event import notify
 from zope.i18n import translate
 
+import asyncio
+import logging
 import re
+import requests
+
+log = logging.getLogger(__name__)
 
 
 class SurveyBase(BrowserView):
@@ -541,6 +550,9 @@ class ListLinks(BrowserView):
     )
 
     def extract_links(self, obj):
+        """For each subobject in the survey, list external hyperlinks
+        if it has them.
+        """
         links = []
         for attrib in self.attributes_checked:
             value = getattr(aq_base(obj), attrib, "")
@@ -549,16 +561,70 @@ class ListLinks(BrowserView):
         if links:
             yield {
                 "object": obj,
-                "section_id": ".".join(obj.getPhysicalPath()[len(self.context.getPhysicalPath()):]),
-                "links": links,
+                "section_id": ".".join(
+                    obj.getPhysicalPath()[len(self.context.getPhysicalPath()) :]
+                ),
+                "links": [{"url": link} for link in links],
             }
         if hasattr(obj, "objectValues"):
             for child in obj.objectValues():
                 for section_links in self.extract_links(child):
                     yield section_links
 
+    async def augment_links_with_status_codes(self):
+        """Add current http status to all extracted links.
+
+        Uses asyncio to parallellize the http checks.
+        Avoids using asyncio.TaskGroup (introduced in Python3.11),
+        so that this code is backward compatible with Python3.10
+        """
+        background_tasks = set()
+        for section in self.section_links:
+            for link in section["links"]:
+                # this relies on in-place updating rather than return value
+                task = asyncio.create_task(augment_link_with_statuscode(link))
+                background_tasks.add(task)
+        log.info("Checking HTTP status for %i links", len(background_tasks))
+        for task in background_tasks:
+            await task
+        log.info("%i HTTP Checks completed", len(background_tasks))
+
     @property
     def items(self):
-        """List subobjects (modules, risks, etc.) which contain links, with
-        their links."""
-        return self.extract_links(self.context)
+        # store the extracted links on self, so that we can augment them async
+        self.section_links = list(self.extract_links(self.context))
+        asyncio.run(self.augment_links_with_status_codes())
+        return self.section_links
+
+
+async def augment_link_with_statuscode(link):
+    link["status_code"] = status_code = get_link_status(link["url"])
+    link["status_description"] = (
+        responses[status_code] if status_code else "Connection Error"
+    )
+    link["css_class"] = get_css_class(status_code)
+
+
+def _status_cache_key(fun, url):
+    return (url, time() // (60 * 60))
+
+
+@ram.cache(_status_cache_key)
+def get_link_status(url):
+    try:
+        r = requests.head(url)
+        return r.status_code
+    except requests.ConnectionError:
+        return 0
+
+
+@forever.memoize
+def get_css_class(status_code):
+    if status_code == 200:
+        return "status-ok"
+    if status_code < 400:
+        return "status-nok warning"
+    if 400 <= status_code <= 499:
+        return "status-nok error"
+    if status_code >= 500:
+        return "status-nok warning"
