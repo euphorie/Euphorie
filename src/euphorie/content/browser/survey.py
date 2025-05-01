@@ -549,6 +549,7 @@ class ListLinks(BrowserView):
         if links:
             yield {
                 "object": obj,
+                "section_id": ".".join(obj.getPhysicalPath()[len(self.context.getPhysicalPath()):]),
                 "links": links,
             }
         if hasattr(obj, "objectValues"):

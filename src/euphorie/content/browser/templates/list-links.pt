@@ -16,7 +16,7 @@
       <dl>
         <tal:item tal:repeat="item view/items">
           <dt>
-            <a href="${item/object/absolute_url}">${item/object/title}</a>
+            <a href="${item/object/absolute_url}">${item/section_id} ${item/object/title}</a>
           </dt>
           <dd>
             <ul>
