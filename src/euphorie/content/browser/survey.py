@@ -42,6 +42,8 @@ from zope.container.interfaces import INameChooser
 from zope.event import notify
 from zope.i18n import translate
 
+import re
+
 
 class SurveyBase(BrowserView):
     def _morph(self, child):
@@ -520,3 +522,51 @@ class FindToolsWithDuplications(BrowserView):
                 # we're done if we found at least one measure
                 break
         return tools
+
+
+class ListLinks(BrowserView):
+    attributes_checked = [
+        "description",
+        "introduction",
+        "solution_direction",
+        "legal_reference",
+        "action",
+        "action_plan",
+        "prevention_plan",
+        "requirements",
+    ]
+    url_regex = re.compile(
+        r"https?://[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b"
+        r"(?:[-a-zA-Z0-9()@:%_+.~#?&/=]*)"
+    )
+
+    def extract_links(self, obj):
+        links = []
+        for attrib in self.attributes_checked:
+            value = getattr(aq_base(obj), attrib, "")
+            if value:
+                links.extend(self.url_regex.findall(value))
+        if links:
+            yield {
+                "object": obj,
+                "links": [{"url": link, "text": link} for link in links],
+            }
+        if hasattr(obj, "objectValues"):
+            for child in obj.objectValues():
+                for link in self.extract_links(child):
+                    yield link
+
+    @property
+    def items(self):
+        """Retrieves subobjects (modules, risks, etc.) which contain links.
+        Returns a list of dictionaries like this:
+        [
+            {
+                "object": self.context.objectValues()[0],
+                "links": [
+                    {"url": "https://example.org/test", "text": "Example link"},
+                ],
+            }
+        ]
+        """
+        return self.extract_links(self.context)

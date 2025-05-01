@@ -522,4 +522,13 @@
       layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
       />
 
+  <browser:page
+      name="list-links"
+      for="euphorie.content.survey.ISurvey"
+      class=".survey.ListLinks"
+      template="templates/list-links.pt"
+      permission="euphorie.content.ManageCountry"
+      layer="plonetheme.nuplone.skin.interfaces.NuPloneSkin"
+      />
+
 </configure>

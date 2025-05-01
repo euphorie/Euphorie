@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout"
+      i18n:domain="nuplone"
+>
+
+  <metal:title fill-slot="title">List of Links in ${context/title}</metal:title>
+  <metal:content fill-slot="content">
+    <article>
+      <dl>
+        <tal:item tal:repeat="item view/items">
+          <dt tal:define="
+                obj python:item['object'];
+              ">
+            <a href="${obj/absolute_url}">${obj/title}</a>
+          </dt>
+          <dd tal:define="
+                links python:item['links'];
+              ">
+            <ul>
+              <li tal:repeat="link links">
+              <a href="${link/url}">${link/text}</a>
+              </li>
+            </ul>
+          </dd></tal:item>
+      </dl>
+    </article>
+  </metal:content>
+</html>
