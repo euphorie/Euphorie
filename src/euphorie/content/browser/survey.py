@@ -635,6 +635,9 @@ class ListLinks(BrowserView):
         self.section_links = dict(enumerate(self.extract_links(self.context)))
         if self.current_pass > 0:
             asyncio.run(self.augment_links_with_status_codes())
+        if self.next_pass:
+            next_url = f"{self.context.absolute_url()}/@@list-links?pass={self.next_pass}"
+            self.request.response.setHeader("Refresh", f"0; url={next_url}")
         return super().__call__()
 
 
