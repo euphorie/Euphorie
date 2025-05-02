@@ -620,7 +620,7 @@ def get_link_status(url):
     try:
         # Avoid never timing out. If the response doesn't start
         # after 1 second, we assume the link is dead.
-        r = requests.head(url, timeout=1)
+        r = requests.head(url, timeout=3, allow_redirects=True)
         return r.status_code
     # We must catch all exceptions, or our checker will stop working
     # Adding explicit log statements per exception type to help with debugging
@@ -649,6 +649,9 @@ def get_link_status(url):
 def get_css_class(status_code):
     if status_code == 200:
         return "status-ok"
+    if status_code == 0:
+        # Connection errors
+        return "status-nok error"
     if status_code < 400:
         return "status-nok warning"
     if 400 <= status_code <= 499:
