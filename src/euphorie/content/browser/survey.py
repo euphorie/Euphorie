@@ -612,30 +612,29 @@ def _status_cache_key(fun, url):
 @ram.cache(_status_cache_key)
 def get_link_status(url):
     try:
-        # Avoid never timing out. If the response doesn't start
-        # after 1 second, we assume the link is dead.
+        # Avoid never timing out. If the response doesn't come
+        # in 3 seconds, we assume the link is dead.
         r = requests.head(url, timeout=3, allow_redirects=True)
         return r.status_code
     # We must catch all exceptions, or our checker will stop working
     # Adding explicit log statements per exception type to help with debugging
     # Also we might want to expose the connection related errors in the UI at some point
     except requests.ConnectionError:
-        log.info("ConnectionError, skipping %s", url)
+        log.error("ConnectionError, skipping %s", url)
     except requests.ReadTimeout:
-        log.info("ReadTimeout, skipping %s", url)
+        log.error("ReadTimeout, skipping %s", url)
     except requests.Timeout:
-        log.info("Timeout, skipping %s", url)
+        log.error("Timeout, skipping %s", url)
     except requests.RequestException:
-        log.info("RequestException, skipping %s", url)
+        log.error("RequestException, skipping %s", url)
     except requests.HTTPError:
-        log.info("HTTPError, skipping %s", url)
+        log.error("HTTPError, skipping %s", url)
     except requests.TooManyRedirects:
-        log.info("TooManyRedirects, skipping %s", url)
+        log.error("TooManyRedirects, skipping %s", url)
     except requests.ConnectTimeout:
-        log.info("ConnectTimeout, skipping %s", url)
-    except Exception:
-        log.info("Other Exception occurred, please investigate, skipping %s", url)
-
+        log.error("ConnectTimeout, skipping %s", url)
+    except Exception as exc:
+        log.exception("Other Exception occurred, please investigate, skipping %s", url)
     return 0
 
 
