@@ -29,6 +29,7 @@ from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm
 from plone.memoize import forever
+from plone.memoize import ram
 from plone.memoize.instance import memoize
 from plonetheme.nuplone.skin import actions
 from plonetheme.nuplone.utils import formatDate
@@ -534,6 +535,25 @@ class FindToolsWithDuplications(BrowserView):
         return tools
 
 
+def status_cache_key(fun, instance, url):
+    """Helper function for ListLinks.
+
+    Propagates already retrieved link status codes to RAM cache.
+
+    Here's the trick. We let the cache function inspect
+    the transient browser view cache first, in order to exclude
+    status_code==0 or status_code==None from being cached.
+
+    This function leverages the status codes stored on the browser instance,
+    without technically being a browser method (not allowed b/c `fun` must
+    be the first arg in the cache key function signature).
+    """
+    if not instance.initial_link_status_cache.get(url):
+        raise ram.DontCache()
+    # store valid status codes for 24 hours in RAM
+    return (url, time() // 60 * 60 * 24)
+
+
 class ListLinks(BrowserView):
     attributes_checked = [
         "description",
@@ -549,6 +569,26 @@ class ListLinks(BrowserView):
         r"https?://[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b"
         r"(?:[-a-zA-Z0-9()@:%_+.~#?&/=]*)"
     )
+
+    # sharing this between instances is fine
+    initial_link_status_cache = {}
+
+    def set_cached_link_status(self, url, status_code):
+        """Prepare datastructure on browser view for later memoization."""
+        self.initial_link_status_cache[url] = status_code
+
+    @ram.cache(status_cache_key)
+    def get_cached_link_status(self, url):
+        """Longer-term RAM memoized cache.
+
+        This propagates browser-stored status codes to longer-term ram
+        storage, but only for those urls for which we successfully
+        obtained a status_code.
+
+        Note that the RAM cache is not only shared between requests,
+        but also between surveys if a url occurs in multiple surveys.
+        """
+        return self.initial_link_status_cache.get(url)
 
     def extract_links(self, obj):
         """For each subobject in the survey, list external hyperlinks
@@ -571,6 +611,41 @@ class ListLinks(BrowserView):
             for child in obj.objectValues():
                 yield from self.extract_links(child)
 
+    async def augment_link_with_statuscode(self, session, section_id, link_id):
+        link = self.section_links[section_id]["links"][link_id]
+        url = link["url"]
+
+        # first, try to obtain the status_code from the ram cache
+        status_code = self.get_cached_link_status(url)
+        if status_code:
+            log.debug("Found cached status %i for link %r", status_code, url)
+            self.cached_status_count += 1
+        elif self.current_pass == 0:
+            # skip live checks on first pass
+            self.unknown_status_count += 1
+            return
+        else:
+            log.debug("Live checking link %r", url)
+            # Use an incremental backoff timeout of 2, 4, 8, 16 seconds
+            status_code = await get_live_link_status(
+                session, url, timeout=2 ** self.current_pass
+            )
+            log.debug("Live check completed on link %r", url)
+            self.live_check_count += 1
+        link["status_code"] = status_code
+        link["status_description"] = (
+            responses[status_code] if status_code else "Connection Error"
+        )
+        link["css_class"] = get_css_class(status_code)
+        if status_code:
+            # prepare for caching, storing on the transient browser view
+            self.set_cached_link_status(url, status_code)
+            # now propagate the value to the RAM cache
+            # hitting the getter triggers memoization
+            self.get_cached_link_status(url)
+        else:
+            self.unknown_status_count += 1
+
     async def augment_links_with_status_codes(self):
         """Add current http status to all extracted links.
 
@@ -581,33 +656,39 @@ class ListLinks(BrowserView):
         Note that ``requests`` is not suitable for asyncio,
         it's blocking, so we have to use aoihttp.
         """
+        self.cached_status_count = 0
+        self.unknown_status_count = 0
+        self.live_check_count = 0
         background_tasks = set()
         for section_id, section in self.section_links.items():
             for link_id, link in enumerate(section["links"]):
                 # this relies on in-place updating rather than return value
                 background_tasks.add((section_id, link_id))
-        log.info("Checking HTTP status for %i links", len(background_tasks))
         start = time()
         async with aiohttp.ClientSession() as session:
             await asyncio.gather(
-                *[self.augment_link_with_statuscode(session, *args) for args in background_tasks]
+                *[
+                    self.augment_link_with_statuscode(session, *args)
+                    for args in background_tasks
+                ]
             )
         # Avoid ResourceWarning: unclosed transport <_SelectorSocketTransport fd=32>
         # https://docs.aiohttp.org/en/stable/client_advanced.html
         # NB this frequently still fails to close /some/ dangling sockets.
         await asyncio.sleep(0.1)
         end = time()
-        log.info("%i HTTP Checks completed in %f seconds", len(background_tasks), end - start)
-
-    async def augment_link_with_statuscode(self, session, section_id, link_id):
-        link = self.section_links[section_id]["links"][link_id]
-        log.debug("Checking link %s", link)
-        link["status_code"] = status_code = await get_link_status(session, link["url"])
-        link["status_description"] = (
-            responses[status_code] if status_code else "Connection Error"
+        # NB we're counting link occurrences here, not unique urls. In case of the same URL
+        # being used multiple times, we're going to check it each time until one of the attempts
+        # fills the cache. Let's not yak shave this any more than I already have.
+        log.info(
+            "Pass %i: %i HTTP Checks (%i live, %i cached) completed in %f seconds; %i unknown remaining.",
+            self.current_pass,
+            len(background_tasks),
+            self.live_check_count,
+            self.cached_status_count,
+            end - start,
+            self.unknown_status_count,
         )
-        link["css_class"] = get_css_class(status_code)
-        log.debug("Done checking link %s", link)
 
     @property
     def items(self):
@@ -621,36 +702,36 @@ class ListLinks(BrowserView):
     @property
     @memoize
     def next_pass(self):
-        # the initial pass 0 does not try to live query url statuses
-        if self.current_pass > 3:
-            return 0  # stop looping after 3 tries to resolve statuses
-        # until we have status checks, only one pass
-        if self.current_pass >=1:
+        if self.unknown_status_count == 0:
+            log.info("Pass %i: All status codes resolved, stopping the loop.", self.current_pass)
+            return 0
+        if self.current_pass >= 4:
+            log.warn("Pass %i: Max loop count reached, stopping the loop.", self.current_pass)
             return 0
         return self.current_pass + 1
 
     def __call__(self):
-        log.info("pass %i", self.current_pass)
         # store the extracted links on self, so that we can augment them async
         self.section_links = dict(enumerate(self.extract_links(self.context)))
-        if self.current_pass > 0:
-            asyncio.run(self.augment_links_with_status_codes())
+        asyncio.run(self.augment_links_with_status_codes())
         if self.next_pass:
-            next_url = f"{self.context.absolute_url()}/@@list-links?pass={self.next_pass}"
+            next_url = (
+                f"{self.context.absolute_url()}/@@list-links?pass={self.next_pass}"
+            )
             self.request.response.setHeader("Refresh", f"0; url={next_url}")
         return super().__call__()
 
 
-async def get_link_status(session, url):
+async def get_live_link_status(session, url, timeout):
     try:
         # Avoid never timing out. If the response doesn't come
         # in 3 seconds, we assume the link is dead.
-        async with session.head(url, timeout=3, allow_redirects=True) as response:
+        async with session.head(url, timeout=timeout, allow_redirects=True) as response:
             return response.status
     except asyncio.exceptions.TimeoutError:
-        log.warn("Task timed out, skipping %s", url)
+        log.debug("Task timed out, skipping %s", url)
     except asyncio.exceptions.CancelledError:
-        log.warn("Task cancelled, skipping %s", url)
+        log.debug("Task cancelled, skipping %s", url)
     except Exception:
         log.exception("Exception occurred, please investigate, skipping %s", url)
     return 0
