@@ -622,6 +622,10 @@ async def get_link_status(session, url):
         # in 3 seconds, we assume the link is dead.
         async with session.head(url, timeout=3, allow_redirects=True) as response:
             return response.status
+    except asyncio.exceptions.TimeoutError:
+        log.warn("Task timed out, skipping %s", url)
+    except asyncio.exceptions.CancelledError:
+        log.warn("Task cancelled, skipping %s", url)
     except Exception:
         log.exception("Exception occurred, please investigate, skipping %s", url)
     return 0
