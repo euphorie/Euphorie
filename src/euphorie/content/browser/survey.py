@@ -51,6 +51,7 @@ import logging
 import re
 import requests
 
+
 log = logging.getLogger(__name__)
 
 
@@ -568,8 +569,7 @@ class ListLinks(BrowserView):
             }
         if hasattr(obj, "objectValues"):
             for child in obj.objectValues():
-                for section_links in self.extract_links(child):
-                    yield section_links
+                yield from self.extract_links(child)
 
     async def augment_links_with_status_codes(self):
         """Add current http status to all extracted links.
@@ -604,6 +604,12 @@ async def augment_link_with_statuscode(link):
     )
     link["css_class"] = get_css_class(status_code)
 
+    if status_code >= 200 and status_code < 400:
+        link["status"] = "ok"
+    else:
+        # This includes 1xx informational, which we shouldn't be getting
+        link["status"] = "error"
+
 
 def _status_cache_key(fun, url):
     return (url, time() // (60 * 60))
@@ -612,10 +618,31 @@ def _status_cache_key(fun, url):
 @ram.cache(_status_cache_key)
 def get_link_status(url):
     try:
-        r = requests.head(url)
+        # Avoid never timing out. If the response doesn't start
+        # after 1 second, we assume the link is dead.
+        r = requests.head(url, timeout=1)
         return r.status_code
+    # We must catch all exceptions, or our checker will stop working
+    # Adding explicit log statements per exception type to help with debugging
+    # Also we might want to expose the connection related errors in the UI at some point
     except requests.ConnectionError:
-        return 0
+        log.info("ConnectionError, skipping %s", url)
+    except requests.ReadTimeout:
+        log.info("ReadTimeout, skipping %s", url)
+    except requests.Timeout:
+        log.info("Timeout, skipping %s", url)
+    except requests.RequestException:
+        log.info("RequestException, skipping %s", url)
+    except requests.HTTPError:
+        log.info("HTTPError, skipping %s", url)
+    except requests.TooManyRedirects:
+        log.info("TooManyRedirects, skipping %s", url)
+    except requests.ConnectTimeout:
+        log.info("ConnectTimeout, skipping %s", url)
+    except Exception:
+        log.info("Other Exception occurred, please investigate, skipping %s", url)
+
+    return 0
 
 
 @forever.memoize
@@ -628,3 +655,4 @@ def get_css_class(status_code):
         return "status-nok error"
     if status_code >= 500:
         return "status-nok warning"
+    return ""
