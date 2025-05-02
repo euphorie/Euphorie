@@ -611,6 +611,29 @@ class ListLinks(BrowserView):
             for child in obj.objectValues():
                 yield from self.extract_links(child)
 
+    async def get_live_link_status(self, session, url, timeout):
+        try:
+            async with session.head(
+                url, timeout=timeout, allow_redirects=True
+            ) as response:
+                return response.status
+
+        except aiohttp.ClientConnectorError:
+            log.warn("Connection error on %r", url)
+        except aiohttp.ClientResponseError:
+            log.exception("Response error on %r", url)
+        except aiohttp.InvalidURL:
+            log.error("Invalid URL: %r", url)
+
+        except asyncio.exceptions.TimeoutError:
+            log.debug("Task timed out for %r", url)
+        except asyncio.exceptions.CancelledError:
+            log.debug("Task cancelled for %r", url)
+
+        except Exception:
+            log.exception("Exception occurred, please investigate: %r", url)
+        return 0
+
     async def augment_link_with_statuscode(self, session, section_id, link_id):
         link = self.section_links[section_id]["links"][link_id]
         url = link["url"]
@@ -627,8 +650,8 @@ class ListLinks(BrowserView):
         else:
             log.debug("Live checking link %r", url)
             # Use an incremental backoff timeout of 2, 4, 8, 16 seconds
-            status_code = await get_live_link_status(
-                session, url, timeout=2 ** self.current_pass
+            status_code = await self.get_live_link_status(
+                session, url, timeout=2**self.current_pass
             )
             log.debug("Live check completed on link %r", url)
             self.live_check_count += 1
@@ -665,7 +688,12 @@ class ListLinks(BrowserView):
                 # this relies on in-place updating rather than return value
                 background_tasks.add((section_id, link_id))
         start = time()
-        async with aiohttp.ClientSession() as session:
+        # increase response size to avoid aiohttp.client_exceptions.ClientResponseError: 400,
+        # message='Got more than 8190 bytes (8543) when reading Header value is too long.',
+        # url='https://www.who.int/emergencies/diseases/novel-coronavirus-2019/technical-guidance-publications'
+        async with aiohttp.ClientSession(
+            max_line_size=8190 * 2, max_field_size=8190 * 2
+        ) as session:
             await asyncio.gather(
                 *[
                     self.augment_link_with_statuscode(session, *args)
@@ -697,16 +725,24 @@ class ListLinks(BrowserView):
     @property
     @memoize
     def current_pass(self):
-        return int(self.request.get("pass", 0))
+        try:
+            return int(self.request.get("pass", 0))
+        except ValueError:
+            return 0
 
     @property
     @memoize
     def next_pass(self):
         if self.unknown_status_count == 0:
-            log.info("Pass %i: All status codes resolved, stopping the loop.", self.current_pass)
+            log.info(
+                "Pass %i: All status codes resolved, stopping the loop.",
+                self.current_pass,
+            )
             return 0
         if self.current_pass >= 4:
-            log.warn("Pass %i: Max loop count reached, stopping the loop.", self.current_pass)
+            log.warn(
+                "Pass %i: Max loop count reached, stopping the loop.", self.current_pass
+            )
             return 0
         return self.current_pass + 1
 
@@ -720,21 +756,6 @@ class ListLinks(BrowserView):
             )
             self.request.response.setHeader("Refresh", f"0; url={next_url}")
         return super().__call__()
-
-
-async def get_live_link_status(session, url, timeout):
-    try:
-        # Avoid never timing out. If the response doesn't come
-        # in 3 seconds, we assume the link is dead.
-        async with session.head(url, timeout=timeout, allow_redirects=True) as response:
-            return response.status
-    except asyncio.exceptions.TimeoutError:
-        log.debug("Task timed out, skipping %s", url)
-    except asyncio.exceptions.CancelledError:
-        log.debug("Task cancelled, skipping %s", url)
-    except Exception:
-        log.exception("Exception occurred, please investigate, skipping %s", url)
-    return 0
 
 
 @forever.memoize
