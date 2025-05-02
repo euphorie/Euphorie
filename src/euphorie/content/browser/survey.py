@@ -604,12 +604,6 @@ async def augment_link_with_statuscode(link):
     )
     link["css_class"] = get_css_class(status_code)
 
-    if status_code >= 200 and status_code < 400:
-        link["status"] = "ok"
-    else:
-        # This includes 1xx informational, which we shouldn't be getting
-        link["status"] = "error"
-
 
 def _status_cache_key(fun, url):
     return (url, time() // (60 * 60))
