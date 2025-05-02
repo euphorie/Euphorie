@@ -50,7 +50,6 @@ import aiohttp
 import asyncio
 import logging
 import re
-import requests
 
 
 log = logging.getLogger(__name__)
@@ -603,7 +602,7 @@ class ListLinks(BrowserView):
             yield {
                 "object": obj,
                 "section_id": ".".join(
-                    obj.getPhysicalPath()[len(self.context.getPhysicalPath()) :]
+                    obj.getPhysicalPath()[len(self.context.getPhysicalPath()) :]  # noqa: E203
                 ),
                 "links": [{"url": link} for link in links],
             }
@@ -688,9 +687,9 @@ class ListLinks(BrowserView):
                 # this relies on in-place updating rather than return value
                 background_tasks.add((section_id, link_id))
         start = time()
-        # increase response size to avoid aiohttp.client_exceptions.ClientResponseError: 400,
-        # message='Got more than 8190 bytes (8543) when reading Header value is too long.',
-        # url='https://www.who.int/emergencies/diseases/novel-coronavirus-2019/technical-guidance-publications'
+        # increase response size to avoid aiohttp.client_exceptions.ClientResponseError
+        # 'Got more than 8190 bytes (8543) when reading Header value is too long.'
+        # url='https://www.who.int/emergencies/diseases/novel-coronavirus-2019/technical-guidance-publications'  # noqa: E501
         async with aiohttp.ClientSession(
             max_line_size=8190 * 2, max_field_size=8190 * 2
         ) as session:
@@ -705,11 +704,12 @@ class ListLinks(BrowserView):
         # NB this frequently still fails to close /some/ dangling sockets.
         await asyncio.sleep(0.1)
         end = time()
-        # NB we're counting link occurrences here, not unique urls. In case of the same URL
-        # being used multiple times, we're going to check it each time until one of the attempts
-        # fills the cache. Let's not yak shave this any more than I already have.
+        # NB we're counting link occurrences here, not unique urls. In case of
+        # the same URL being used multiple times, we're going to check it each
+        # time until one of the attempts fills the cache. Let's not yak shave
+        # this any more than I already have.
         log.info(
-            "Pass %i: %i HTTP Checks (%i live, %i cached) completed in %f seconds; %i unknown remaining.",
+            "Pass %i: %i HTTP Checks (%i live, %i cached) completed in %f seconds; %i unknown remaining.",  # noqa: E501
             self.current_pass,
             len(background_tasks),
             self.live_check_count,
