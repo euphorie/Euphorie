@@ -29,7 +29,6 @@ from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm
 from plone.memoize import forever
-from plone.memoize import ram
 from plone.memoize.instance import memoize
 from plonetheme.nuplone.skin import actions
 from plonetheme.nuplone.utils import formatDate
@@ -46,6 +45,7 @@ from zope.container.interfaces import INameChooser
 from zope.event import notify
 from zope.i18n import translate
 
+import aiohttp
 import asyncio
 import logging
 import re
@@ -577,64 +577,53 @@ class ListLinks(BrowserView):
         Uses asyncio to parallellize the http checks.
         Avoids using asyncio.TaskGroup (introduced in Python3.11),
         so that this code is backward compatible with Python3.10
+
+        Note that ``requests`` is not suitable for asyncio,
+        it's blocking, so we have to use aoihttp.
         """
         background_tasks = set()
-        for section in self.section_links:
-            for link in section["links"]:
+        for section_id, section in self.section_links.items():
+            for link_id, link in enumerate(section["links"]):
                 # this relies on in-place updating rather than return value
-                task = asyncio.create_task(augment_link_with_statuscode(link))
-                background_tasks.add(task)
+                background_tasks.add((section_id, link_id))
         log.info("Checking HTTP status for %i links", len(background_tasks))
-        for task in background_tasks:
-            await task
-        log.info("%i HTTP Checks completed", len(background_tasks))
+        start = time()
+        async with aiohttp.ClientSession() as session:
+            await asyncio.gather(
+                *[self.augment_link_with_statuscode(session, *args) for args in background_tasks]
+            )
+        # Avoid ResourceWarning: unclosed transport <_SelectorSocketTransport fd=32>
+        # https://docs.aiohttp.org/en/stable/client_advanced.html
+        # NB this frequently still fails to close /some/ dangling sockets.
+        await asyncio.sleep(0.1)
+        end = time()
+        log.info("%i HTTP Checks completed in %f seconds", len(background_tasks), end - start)
+
+    async def augment_link_with_statuscode(self, session, section_id, link_id):
+        link = self.section_links[section_id]["links"][link_id]
+        log.debug("Checking link %s", link)
+        link["status_code"] = status_code = await get_link_status(session, link["url"])
+        link["status_description"] = (
+            responses[status_code] if status_code else "Connection Error"
+        )
+        link["css_class"] = get_css_class(status_code)
+        log.debug("Done checking link %s", link)
 
     @property
     def items(self):
         # store the extracted links on self, so that we can augment them async
-        self.section_links = list(self.extract_links(self.context))
+        self.section_links = dict(enumerate(self.extract_links(self.context)))
         asyncio.run(self.augment_links_with_status_codes())
-        return self.section_links
+        return self.section_links.values()
 
-
-async def augment_link_with_statuscode(link):
-    link["status_code"] = status_code = get_link_status(link["url"])
-    link["status_description"] = (
-        responses[status_code] if status_code else "Connection Error"
-    )
-    link["css_class"] = get_css_class(status_code)
-
-
-def _status_cache_key(fun, url):
-    return (url, time() // (60 * 60))
-
-
-@ram.cache(_status_cache_key)
-def get_link_status(url):
+async def get_link_status(session, url):
     try:
         # Avoid never timing out. If the response doesn't come
         # in 3 seconds, we assume the link is dead.
-        r = requests.head(url, timeout=3, allow_redirects=True)
-        return r.status_code
-    # We must catch all exceptions, or our checker will stop working
-    # Adding explicit log statements per exception type to help with debugging
-    # Also we might want to expose the connection related errors in the UI at some point
-    except requests.ConnectionError:
-        log.error("ConnectionError, skipping %s", url)
-    except requests.ReadTimeout:
-        log.error("ReadTimeout, skipping %s", url)
-    except requests.Timeout:
-        log.error("Timeout, skipping %s", url)
-    except requests.RequestException:
-        log.error("RequestException, skipping %s", url)
-    except requests.HTTPError:
-        log.error("HTTPError, skipping %s", url)
-    except requests.TooManyRedirects:
-        log.error("TooManyRedirects, skipping %s", url)
-    except requests.ConnectTimeout:
-        log.error("ConnectTimeout, skipping %s", url)
-    except Exception as exc:
-        log.exception("Other Exception occurred, please investigate, skipping %s", url)
+        async with session.head(url, timeout=3, allow_redirects=True) as response:
+            return response.status
+    except Exception:
+        log.exception("Exception occurred, please investigate, skipping %s", url)
     return 0
 
 
