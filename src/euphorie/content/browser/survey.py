@@ -29,7 +29,6 @@ from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm
 from plone.memoize import forever
-from plone.memoize import ram
 from plone.memoize.instance import memoize
 from plonetheme.nuplone.skin import actions
 from plonetheme.nuplone.utils import formatDate
@@ -534,25 +533,6 @@ class FindToolsWithDuplications(BrowserView):
         return tools
 
 
-def status_cache_key(fun, instance, url):
-    """Helper function for ListLinks.
-
-    Propagates already retrieved link status codes to RAM cache.
-
-    Here's the trick. We let the cache function inspect
-    the transient browser view cache first, in order to exclude
-    status_code==0 or status_code==None from being cached.
-
-    This function leverages the status codes stored on the browser instance,
-    without technically being a browser method (not allowed b/c `fun` must
-    be the first arg in the cache key function signature).
-    """
-    if not instance.initial_link_status_cache.get(url):
-        raise ram.DontCache()
-    # store valid status codes for 24 hours in RAM
-    return (url, time() // 60 * 60 * 24)
-
-
 class ListLinks(BrowserView):
     attributes_checked = [
         "description",
@@ -569,25 +549,25 @@ class ListLinks(BrowserView):
         r"(?:[-a-zA-Z0-9()@:%_+.~#?&/=]*)"
     )
 
-    # sharing this between instances is fine
+    # This only works as a static.
+    # FIXME this does not manage cache expiry and relies on process
+    # restarts for purges. That means we don't have invalidation,
+    # and also a potential memory leak.
+    # Trying to use ram cache runs into multiple problems:
+    # - decorator conflicts with asyncio
+    # - we want to NOT cache the result in case of caught exceptions,
+    #   which implies the cache key should already know the function result,
+    #   which is a catch-22
+    # I tried to work around that with a 2-level cache, but that relied
+    # so much on this static, that we may as well just use the static.
     initial_link_status_cache = {}
 
     def set_cached_link_status(self, url, status_code):
-        """Prepare datastructure on browser view for later memoization."""
-        self.initial_link_status_cache[url] = status_code
+        if status_code:
+            self.initial_link_status_cache[url] = status_code
 
-    @ram.cache(status_cache_key)
     def get_cached_link_status(self, url):
-        """Longer-term RAM memoized cache.
-
-        This propagates browser-stored status codes to longer-term ram
-        storage, but only for those urls for which we successfully
-        obtained a status_code.
-
-        Note that the RAM cache is not only shared between requests,
-        but also between surveys if a url occurs in multiple surveys.
-        """
-        return self.initial_link_status_cache.get(url)
+        return self.initial_link_status_cache.get(url, 0)
 
     def extract_links(self, obj):
         """For each subobject in the survey, list external hyperlinks
@@ -637,7 +617,7 @@ class ListLinks(BrowserView):
         link = self.section_links[section_id]["links"][link_id]
         url = link["url"]
 
-        # first, try to obtain the status_code from the ram cache
+        # first, try to obtain the status_code from the cache
         status_code = self.get_cached_link_status(url)
         if status_code:
             log.debug("Found cached status %i for link %r", status_code, url)
@@ -652,6 +632,7 @@ class ListLinks(BrowserView):
             status_code = await self.get_live_link_status(
                 session, url, timeout=2**self.current_pass
             )
+            self.set_cached_link_status(url, status_code)
             log.debug("Live check completed on link %r", url)
             self.live_check_count += 1
         link["status_code"] = status_code
@@ -659,13 +640,7 @@ class ListLinks(BrowserView):
             responses[status_code] if status_code else "Connection Error"
         )
         link["css_class"] = get_css_class(status_code)
-        if status_code:
-            # prepare for caching, storing on the transient browser view
-            self.set_cached_link_status(url, status_code)
-            # now propagate the value to the RAM cache
-            # hitting the getter triggers memoization
-            self.get_cached_link_status(url)
-        else:
+        if not status_code:
             self.unknown_status_count += 1
 
     async def augment_links_with_status_codes(self):
@@ -709,7 +684,7 @@ class ListLinks(BrowserView):
         # time until one of the attempts fills the cache. Let's not yak shave
         # this any more than I already have.
         log.info(
-            "Pass %i: %i HTTP Checks (%i live, %i from ramcache) completed in %f seconds; %i unknown remaining.",  # noqa: E501
+            "Pass %i: %i HTTP Checks (%i live, %i from cache) completed in %f seconds; %i unknown remaining.",  # noqa: E501
             self.current_pass,
             len(background_tasks),
             self.live_check_count,
