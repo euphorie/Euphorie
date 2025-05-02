@@ -567,8 +567,8 @@ class ListLinks(BrowserView):
                 ),
                 "links": [{"url": link} for link in links],
             }
-        if hasattr(obj, "contentValues"):
-            for child in obj.contentValues():
+        if hasattr(obj, "objectValues"):
+            for child in obj.objectValues():
                 yield from self.extract_links(child)
 
     async def augment_links_with_status_codes(self):
@@ -585,8 +585,7 @@ class ListLinks(BrowserView):
                 task = asyncio.create_task(augment_link_with_statuscode(link))
                 background_tasks.add(task)
         log.info("Checking HTTP status for %i links", len(background_tasks))
-        for task in background_tasks:
-            await task
+        await asyncio.gather(*background_tasks)
         log.info("%i HTTP Checks completed", len(background_tasks))
 
     @property
