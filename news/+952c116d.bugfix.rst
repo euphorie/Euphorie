@@ -1,2 +1,0 @@
-In the risk views lazy load properties rather than initializing them with a function call.
-Deprecates the method ``set_parameter_values``. [ale-rt]

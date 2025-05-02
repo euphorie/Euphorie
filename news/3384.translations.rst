@@ -1,9 +1,0 @@
-- Merging of more precise prototype translations into euphorie
-- Merging happened using polib, which also formatted the pofiles according to standard.
-- Fix wrong translations in dutch where edit was translated with view.
-- Fill empty dutch translation file with entries from nl_BE where available
-- Fix wrong translation for request validation
-- fixing two i18n_translate to i18n:translate
-- Make sure that RI&E doesn't appear in BE translations, it is a dutch acronym
-
-

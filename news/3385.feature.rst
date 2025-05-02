@@ -1,1 +1,0 @@
-If there is no organisation for the user yet, add one to avoid the "Add Organisation" button step.
