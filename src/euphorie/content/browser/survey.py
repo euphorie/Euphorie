@@ -709,7 +709,7 @@ class ListLinks(BrowserView):
         # time until one of the attempts fills the cache. Let's not yak shave
         # this any more than I already have.
         log.info(
-            "Pass %i: %i HTTP Checks (%i live, %i cached) completed in %f seconds; %i unknown remaining.",  # noqa: E501
+            "Pass %i: %i HTTP Checks (%i live, %i from ramcache) completed in %f seconds; %i unknown remaining.",  # noqa: E501
             self.current_pass,
             len(background_tasks),
             self.live_check_count,
