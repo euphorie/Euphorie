@@ -611,10 +611,32 @@ class ListLinks(BrowserView):
 
     @property
     def items(self):
+        return self.section_links.values()
+
+    @property
+    @memoize
+    def current_pass(self):
+        return int(self.request.get("pass", 0))
+
+    @property
+    @memoize
+    def next_pass(self):
+        # the initial pass 0 does not try to live query url statuses
+        if self.current_pass > 3:
+            return 0  # stop looping after 3 tries to resolve statuses
+        # until we have status checks, only one pass
+        if self.current_pass >=1:
+            return 0
+        return self.current_pass + 1
+
+    def __call__(self):
+        log.info("pass %i", self.current_pass)
         # store the extracted links on self, so that we can augment them async
         self.section_links = dict(enumerate(self.extract_links(self.context)))
-        asyncio.run(self.augment_links_with_status_codes())
-        return self.section_links.values()
+        if self.current_pass > 0:
+            asyncio.run(self.augment_links_with_status_codes())
+        return super().__call__()
+
 
 async def get_link_status(session, url):
     try:

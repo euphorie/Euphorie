@@ -39,8 +39,13 @@
 
   <metal:title fill-slot="title">List of Links in ${context/title}</metal:title>
   <metal:content fill-slot="content">
-    <article>
-      <dl>
+     <article>
+       <a href="${context/absolute_url}/@@list-links?pass=${view/next_pass}"
+          class="pat-inject"
+          data-pat-inject="trigger: autoload; delay: 1; source:body; target:body"
+          tal:condition="view/next_pass"
+       >check url status</a>
+         <dl>
         <tal:item tal:repeat="item view/items">
           <dt>
             <span class="section-id">${item/section_id}</span><a href="${item/object/absolute_url}/edit">${item/object/title}</a>
@@ -53,14 +58,14 @@
                   "
               >
                 <a class="status-code pat-tooltip"
-                   title="${link/status_description}"
+                   title="${link/status_description|nothing}"
                    data-pat-tooltip="trigger: hover"
                 >
                   ${link/status_code|nothing}
                 </a>
                 <a class="link pat-tooltip"
                    href="${link/url}"
-                   title="${link/status_description}"
+                   title="${link/status_description|nothing}"
                    data-pat-tooltip="trigger: hover"
                 >
                   ${link/url}
