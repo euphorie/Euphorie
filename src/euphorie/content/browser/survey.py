@@ -567,8 +567,8 @@ class ListLinks(BrowserView):
                 ),
                 "links": [{"url": link} for link in links],
             }
-        if hasattr(obj, "objectValues"):
-            for child in obj.objectValues():
+        if hasattr(obj, "contentValues"):
+            for child in obj.contentValues():
                 yield from self.extract_links(child)
 
     async def augment_links_with_status_codes(self):
