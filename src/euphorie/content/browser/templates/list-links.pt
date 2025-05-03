@@ -43,6 +43,7 @@
       <!--a href="${context/absolute_url}/@@list-links?pass=${view/next_pass}"
           class="pat-inject"
           data-pat-inject="trigger: autoload; delay: 0;"
+          style="display:none"
           tal:condition="view/next_pass"
        >check url status</a-->
       <dl>
