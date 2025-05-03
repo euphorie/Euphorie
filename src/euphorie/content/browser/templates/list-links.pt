@@ -58,6 +58,7 @@
                   "
               >
                 <a class="status-code pat-tooltip"
+                   href="${link/url}"
                    title="${link/status_description|nothing}"
                    data-pat-tooltip="trigger: hover"
                 >

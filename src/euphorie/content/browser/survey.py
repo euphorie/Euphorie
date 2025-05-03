@@ -737,6 +737,9 @@ class ListLinks(BrowserView):
         # store the extracted links on self, so that we can augment them async
         self.section_links = dict(enumerate(self.extract_links(self.context)))
         asyncio.run(self.augment_links_with_status_codes())
+        # work around pat-inject not kicking in by doing server-side refresh
+        # fixing pat-inject is preferable, since that keeps scroll position
+        # when updating the link list
         if self.next_pass:
             next_url = (
                 f"{self.context.absolute_url()}/@@list-links?pass={self.next_pass}"
