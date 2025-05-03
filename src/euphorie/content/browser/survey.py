@@ -726,7 +726,7 @@ class ListLinks(BrowserView):
             return 0
         if self.current_pass >= 4:
             log.warn(
-                "Pass %i: Max loop count reached, stopping the loop with %i unresolved errors.",
+                "Pass %i: Stopping the loop with %i unresolved errors.",
                 self.current_pass,
                 self.unknown_status_count,
             )
