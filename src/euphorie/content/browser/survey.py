@@ -718,6 +718,9 @@ class ListLinks(BrowserView):
     @property
     @view.memoize
     def next_pass(self):
+        """Note that next_pass==0 means: stop the loop,
+        while current_pass==0 means: start the loop.
+        """
         if self.unknown_status_count == 0:
             log.info(
                 "Pass %i: All status codes resolved, stopping the loop.",
