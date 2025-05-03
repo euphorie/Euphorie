@@ -582,7 +582,7 @@ class ListLinks(BrowserView):
             yield {
                 "object": obj,
                 "section_id": ".".join(
-                    obj.getPhysicalPath()[len(self.context.getPhysicalPath()) :]  # noqa: E203
+                    obj.getPhysicalPath()[len(self.context.getPhysicalPath()) :]
                 ),
                 "links": [{"url": link} for link in links],
             }
