@@ -607,13 +607,12 @@ class ListLinks(BrowserView):
             ) as response:
                 return response.status
 
-        except aiohttp.ClientConnectorError:
-            log.warn("Connection error on %r", url)
-        except aiohttp.ClientResponseError:
-            log.exception("Response error on %r", url)
         except aiohttp.InvalidURL:
-            log.error("Invalid URL: %r", url)
-
+            # catch this separately for explicit logging
+            log.info("Invalid URL: %r", url)
+        except aiohttp.ClientError:
+            # this is the base class of all httpio client errors
+            log.debug("HTTP error on %r", url)
         except asyncio.exceptions.TimeoutError:
             log.debug("Task timed out for %r", url)
         except asyncio.exceptions.CancelledError:
@@ -684,10 +683,11 @@ class ListLinks(BrowserView):
                     for args in background_tasks
                 ]
             )
-        # Avoid ResourceWarning: unclosed transport <_SelectorSocketTransport fd=32>
+        # Minimize ResourceWarning: unclosed transport <_SelectorSocketTransport fd=32>
         # https://docs.aiohttp.org/en/stable/client_advanced.html
         # NB this frequently still fails to close /some/ dangling sockets.
-        await asyncio.sleep(0.1)
+        # This is a CPython bug https://bugs.python.org/issue46318
+        await asyncio.sleep(0)
         end = time()
         # NB we're counting link occurrences here, not unique urls. In case of
         # the same URL being used multiple times, we're going to check it each
@@ -726,7 +726,9 @@ class ListLinks(BrowserView):
             return 0
         if self.current_pass >= 4:
             log.warn(
-                "Pass %i: Max loop count reached, stopping the loop.", self.current_pass
+                "Pass %i: Max loop count reached, stopping the loop with %i unresolved errors.",
+                self.current_pass,
+                self.unknown_status_count,
             )
             return 0
         return self.current_pass + 1
