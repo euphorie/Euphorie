@@ -29,7 +29,8 @@ from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm
 from plone.memoize import forever
-from plone.memoize.instance import memoize
+from plone.memoize import instance
+from plone.memoize import view
 from plonetheme.nuplone.skin import actions
 from plonetheme.nuplone.utils import formatDate
 from Products.CMFCore.utils import getToolByName
@@ -91,7 +92,7 @@ class SurveyBase(BrowserView):
         ]
 
     @property
-    @memoize
+    @instance.memoize
     def portal_transforms(self):
         return api.portal.get_tool("portal_transforms")
 
@@ -106,7 +107,7 @@ class SurveyBase(BrowserView):
 
 class SurveyView(SurveyBase, DragDropHelper):
     @property
-    @memoize
+    @instance.memoize
     def training_questions(self):
         return self.context.listFolderContents(
             {"portal_type": "euphorie.training_question"}
@@ -191,7 +192,7 @@ class EditForm(DefaultEditForm):
         return changes
 
     @property
-    @memoize
+    @instance.memoize
     def portal_transforms(self):
         return api.portal.get_tool("portal_transforms")
 
@@ -698,7 +699,7 @@ class ListLinks(BrowserView):
         return self.section_links.values()
 
     @property
-    @memoize
+    @view.memoize
     def current_pass(self):
         try:
             return int(self.request.get("pass", 0))
@@ -706,7 +707,7 @@ class ListLinks(BrowserView):
             return 0
 
     @property
-    @memoize
+    @view.memoize
     def next_pass(self):
         if self.unknown_status_count == 0:
             log.info(
