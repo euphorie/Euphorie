@@ -31,6 +31,7 @@ from plone.dexterity.browser.edit import DefaultEditForm
 from plone.memoize import forever
 from plone.memoize import instance
 from plone.memoize import view
+from plone.memoize import volatile
 from plonetheme.nuplone.skin import actions
 from plonetheme.nuplone.utils import formatDate
 from Products.CMFCore.utils import getToolByName
@@ -550,25 +551,33 @@ class ListLinks(BrowserView):
         r"(?:[-a-zA-Z0-9()@:%_+.~#?&/=]*)"
     )
 
-    # This only works as a static.
-    # FIXME this does not manage cache expiry and relies on process
-    # restarts for purges. That means we don't have invalidation,
-    # and also a potential memory leak.
-    # Trying to use ram cache runs into multiple problems:
-    # - decorator conflicts with asyncio
-    # - we want to NOT cache the result in case of caught exceptions,
-    #   which implies the cache key should already know the function result,
-    #   which is a catch-22
-    # I tried to work around that with a 2-level cache, but that relied
-    # so much on this static, that we may as well just use the static.
-    initial_link_status_cache = {}
+    @property
+    def cache(self):
+        """Use the normal instance memoization cache."""
+        # The cache auto-cleans after 3 days
+        return self.context.__dict__.setdefault(
+            volatile.ATTR, volatile.CONTAINER_FACTORY()
+        )
+
+    def cache_key(self, url):
+        """Cache for four hours"""
+        return (url, time() // 60 * 60 * 4)
 
     def set_cached_link_status(self, url, status_code):
+        """Cache only valid status codes"""
         if status_code:
-            self.initial_link_status_cache[url] = status_code
+            self.cache[self.cache_key(url)] = status_code
 
     def get_cached_link_status(self, url):
-        return self.initial_link_status_cache.get(url, 0)
+        """We can't use the standard memoize decorators.
+
+        1. They don't mix with async
+        2. We don't want to write-on-get.
+
+        Instead we separate the getter and setter, to support a gradual
+        multi-pass buildup of cached values.
+        """
+        return self.cache.get(self.cache_key(url), 0)
 
     def extract_links(self, obj):
         """For each subobject in the survey, list external hyperlinks
