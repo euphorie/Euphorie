@@ -96,6 +96,54 @@ class IModule(model.Schema, IRichDescription, IBasic):
         title=_("label_caption", default="Image caption"), required=False
     )
 
+    model.fieldset(
+        "secondary_images",
+        label=_("header_secondary_images", default="Secondary images"),
+        fields=["image2", "caption2", "image3", "caption3", "image4", "caption4"],
+    )
+
+    image2 = filefield.NamedBlobImage(
+        title=_("label_image", default="Image file"),
+        description=_(
+            "help_image_upload",
+            default="Upload an image. Make sure your image is of format "
+            "png, jpg or gif and does not contain any special "
+            "characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+        ),
+        required=False,
+    )
+    caption2 = schema.TextLine(
+        title=_("label_caption", default="Image caption"), required=False
+    )
+
+    image3 = filefield.NamedBlobImage(
+        title=_("label_image", default="Image file"),
+        description=_(
+            "help_image_upload",
+            default="Upload an image. Make sure your image is of format "
+            "png, jpg or gif and does not contain any special "
+            "characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+        ),
+        required=False,
+    )
+    caption3 = schema.TextLine(
+        title=_("label_caption", default="Image caption"), required=False
+    )
+
+    image4 = filefield.NamedBlobImage(
+        title=_("label_image", default="Image file"),
+        description=_(
+            "help_image_upload",
+            default="Upload an image. Make sure your image is of format "
+            "png, jpg or gif and does not contain any special "
+            "characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+        ),
+        required=False,
+    )
+    caption4 = schema.TextLine(
+        title=_("label_caption", default="Image caption"), required=False
+    )
+
     solution_direction = HtmlText(
         title=_("label_solution_direction", default="Solution"),
         description=_(
