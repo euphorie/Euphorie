@@ -251,7 +251,9 @@ class SurveyImporter:
         choice.description = el_unicode(
             node, "description", is_etranslate_compatible=self.is_etranslate_compatible
         )
-        choice.allow_multiple_options = el_bool(node, "allow-multiple-options")
+        choice.allow_multiple_options = attr_bool(
+            node, "allow-multiple-options", "value"
+        )
         condition = el_unicode(node, "condition")
         if condition:
             self.conditions.append((choice, condition))

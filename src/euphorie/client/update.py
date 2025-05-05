@@ -24,6 +24,7 @@ def getSurveyTree(survey, profile=None):
             "euphorie.module",
             "euphorie.risk",
             "euphorie.choice",
+            "euphorie.option",
         ]:
             continue
         # Note that in profile.AddToTree, we pretend that an optional module
@@ -47,6 +48,11 @@ def getSurveyTree(survey, profile=None):
                 "optional": node.optional,
                 "condition": (
                     node.portal_type[9:] == "choice" and node.condition or None
+                ),
+                "allow_multiple_options": (
+                    node.portal_type[9:] == "choice"
+                    and node.allow_multiple_options
+                    or False
                 ),
             }
         )
