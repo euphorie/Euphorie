@@ -51,6 +51,7 @@ class GetSurveyTreeTests(TreeTests):
                     "has_description": False,
                     "always_present": False,
                     "risk_type": None,
+                    "allow_multiple_options": False,
                 }
             ],
         )
@@ -70,6 +71,7 @@ class GetSurveyTreeTests(TreeTests):
                     "has_description": False,
                     "always_present": False,
                     "risk_type": None,
+                    "allow_multiple_options": False,
                 },
                 {
                     "optional": False,
@@ -79,6 +81,7 @@ class GetSurveyTreeTests(TreeTests):
                     "has_description": False,
                     "always_present": False,
                     "risk_type": "risk",
+                    "allow_multiple_options": False,
                 },
             ],
         )
