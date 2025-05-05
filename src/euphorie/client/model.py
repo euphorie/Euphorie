@@ -1082,6 +1082,27 @@ class SurveySession(BaseObject):
         }
         session.execute(statement)
 
+        # Copy over answered options for choice items
+        statement = """\
+        INSERT INTO option (choice_id, zodb_path)
+            SELECT choice.id, old_option.zodb_path
+            FROM tree AS old_tree,
+                 choice AS old_choice,
+                 option AS old_option,
+                 tree,
+                 choice
+            WHERE tree.session_id = %(new_sessionid)d AND
+                  tree.id = choice.id AND
+                  tree.zodb_path = old_tree.zodb_path AND
+                  old_tree.session_id = %(old_sessionid)d AND
+                  old_tree.id = old_choice.id AND
+                  old_option.choice_id = old_choice.id;
+                """ % {
+            "old_sessionid": other.id,
+            "new_sessionid": self.id,
+        }
+        session.execute(statement)
+
         # Copy over previous session metadata. Specifically, we don't want to
         # create a new modification timestamp, just because the underlying
         # survey was updated.
