@@ -29,8 +29,9 @@ from plone.dexterity.browser.add import DefaultAddForm
 from plone.dexterity.browser.add import DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm
 from plone.memoize import forever
-from plone.memoize import ram
-from plone.memoize.instance import memoize
+from plone.memoize import instance
+from plone.memoize import view
+from plone.memoize import volatile
 from plonetheme.nuplone.skin import actions
 from plonetheme.nuplone.utils import formatDate
 from Products.CMFCore.utils import getToolByName
@@ -46,10 +47,10 @@ from zope.container.interfaces import INameChooser
 from zope.event import notify
 from zope.i18n import translate
 
+import aiohttp
 import asyncio
 import logging
 import re
-import requests
 
 
 log = logging.getLogger(__name__)
@@ -92,7 +93,7 @@ class SurveyBase(BrowserView):
         ]
 
     @property
-    @memoize
+    @instance.memoize
     def portal_transforms(self):
         return api.portal.get_tool("portal_transforms")
 
@@ -107,7 +108,7 @@ class SurveyBase(BrowserView):
 
 class SurveyView(SurveyBase, DragDropHelper):
     @property
-    @memoize
+    @instance.memoize
     def training_questions(self):
         return self.context.listFolderContents(
             {"portal_type": "euphorie.training_question"}
@@ -192,7 +193,7 @@ class EditForm(DefaultEditForm):
         return changes
 
     @property
-    @memoize
+    @instance.memoize
     def portal_transforms(self):
         return api.portal.get_tool("portal_transforms")
 
@@ -550,6 +551,34 @@ class ListLinks(BrowserView):
         r"(?:[-a-zA-Z0-9()@:%_+.~#?&/=]*)"
     )
 
+    @property
+    def cache(self):
+        """Use the normal instance memoization cache."""
+        # The cache auto-cleans after 3 days
+        return self.context.__dict__.setdefault(
+            volatile.ATTR, volatile.CONTAINER_FACTORY()
+        )
+
+    def cache_key(self, url):
+        """Cache for four hours"""
+        return (url, time() // 60 * 60 * 4)
+
+    def set_cached_link_status(self, url, status_code):
+        """Cache only valid status codes"""
+        if status_code:
+            self.cache[self.cache_key(url)] = status_code
+
+    def get_cached_link_status(self, url):
+        """We can't use the standard memoize decorators.
+
+        1. They don't mix with async
+        2. We don't want to write-on-get.
+
+        Instead we separate the getter and setter, to support a gradual
+        multi-pass buildup of cached values.
+        """
+        return self.cache.get(self.cache_key(url), 0)
+
     def extract_links(self, obj):
         """For each subobject in the survey, list external hyperlinks
         if it has them.
@@ -571,77 +600,155 @@ class ListLinks(BrowserView):
             for child in obj.objectValues():
                 yield from self.extract_links(child)
 
+    async def get_live_link_status(self, session, url, timeout):
+        try:
+            async with session.head(
+                url, timeout=timeout, allow_redirects=True
+            ) as response:
+                return response.status
+
+        except aiohttp.InvalidURL:
+            # catch this separately for explicit logging
+            log.info("Invalid URL: %r", url)
+        except aiohttp.ClientError:
+            # this is the base class of all httpio client errors
+            log.debug("HTTP error on %r", url)
+        except asyncio.exceptions.TimeoutError:
+            log.debug("Task timed out for %r", url)
+        except asyncio.exceptions.CancelledError:
+            log.debug("Task cancelled for %r", url)
+
+        except Exception:
+            log.exception("Exception occurred, please investigate: %r", url)
+        return 0
+
+    async def augment_link_with_statuscode(self, session, section_id, link_id):
+        link = self.section_links[section_id]["links"][link_id]
+        url = link["url"]
+
+        # first, try to obtain the status_code from the cache
+        status_code = self.get_cached_link_status(url)
+        if status_code:
+            log.debug("Found cached status %i for link %r", status_code, url)
+            self.cached_status_count += 1
+        elif self.current_pass == 0:
+            # skip live checks on first pass
+            self.unknown_status_count += 1
+            return
+        else:
+            log.debug("Live checking link %r", url)
+            # Use an incremental backoff timeout of 2, 4, 8, 16 seconds
+            status_code = await self.get_live_link_status(
+                session, url, timeout=2**self.current_pass
+            )
+            self.set_cached_link_status(url, status_code)
+            log.debug("Live check completed on link %r", url)
+            self.live_check_count += 1
+        link["status_code"] = status_code
+        link["status_description"] = (
+            responses[status_code] if status_code else "Connection Error"
+        )
+        link["css_class"] = get_css_class(status_code)
+        if not status_code:
+            self.unknown_status_count += 1
+
     async def augment_links_with_status_codes(self):
         """Add current http status to all extracted links.
 
         Uses asyncio to parallellize the http checks.
         Avoids using asyncio.TaskGroup (introduced in Python3.11),
         so that this code is backward compatible with Python3.10
+
+        Note that ``requests`` is not suitable for asyncio,
+        it's blocking, so we have to use aoihttp.
         """
+        self.cached_status_count = 0
+        self.unknown_status_count = 0
+        self.live_check_count = 0
         background_tasks = set()
-        for section in self.section_links:
-            for link in section["links"]:
+        for section_id, section in self.section_links.items():
+            for link_id, link in enumerate(section["links"]):
                 # this relies on in-place updating rather than return value
-                task = asyncio.create_task(augment_link_with_statuscode(link))
-                background_tasks.add(task)
-        log.info("Checking HTTP status for %i links", len(background_tasks))
-        await asyncio.gather(*background_tasks)
-        log.info("%i HTTP Checks completed", len(background_tasks))
+                background_tasks.add((section_id, link_id))
+        start = time()
+        # increase response size to avoid aiohttp.client_exceptions.ClientResponseError
+        # 'Got more than 8190 bytes (8543) when reading Header value is too long.'
+        # url='https://www.who.int/emergencies/diseases/novel-coronavirus-2019/technical-guidance-publications'  # noqa: E501
+        async with aiohttp.ClientSession(
+            max_line_size=8190 * 2, max_field_size=8190 * 2
+        ) as session:
+            await asyncio.gather(
+                *[
+                    self.augment_link_with_statuscode(session, *args)
+                    for args in background_tasks
+                ]
+            )
+        # Minimize ResourceWarning: unclosed transport <_SelectorSocketTransport fd=32>
+        # https://docs.aiohttp.org/en/stable/client_advanced.html
+        # NB this frequently still fails to close /some/ dangling sockets.
+        # This is a CPython bug https://bugs.python.org/issue46318
+        await asyncio.sleep(0)
+        end = time()
+        # NB we're counting link occurrences here, not unique urls. In case of
+        # the same URL being used multiple times, we're going to check it each
+        # time until one of the attempts fills the cache. Let's not yak shave
+        # this any more than I already have.
+        log.info(
+            "Pass %i: %i HTTP Checks (%i live, %i from cache) completed in %f seconds; %i unknown remaining.",  # noqa: E501
+            self.current_pass,
+            len(background_tasks),
+            self.live_check_count,
+            self.cached_status_count,
+            end - start,
+            self.unknown_status_count,
+        )
 
     @property
     def items(self):
+        return self.section_links.values()
+
+    @property
+    @view.memoize
+    def current_pass(self):
+        try:
+            return int(self.request.get("pass", 0))
+        except ValueError:
+            return 0
+
+    @property
+    @view.memoize
+    def next_pass(self):
+        """Note that next_pass==0 means: stop the loop,
+        while current_pass==0 means: start the loop.
+        """
+        if self.unknown_status_count == 0:
+            log.info(
+                "Pass %i: All status codes resolved, stopping the loop.",
+                self.current_pass,
+            )
+            return 0
+        if self.current_pass >= 4:
+            log.warn(
+                "Pass %i: Stopping the loop with %i unresolved errors.",
+                self.current_pass,
+                self.unknown_status_count,
+            )
+            return 0
+        return self.current_pass + 1
+
+    def __call__(self):
         # store the extracted links on self, so that we can augment them async
-        self.section_links = list(self.extract_links(self.context))
+        self.section_links = dict(enumerate(self.extract_links(self.context)))
         asyncio.run(self.augment_links_with_status_codes())
-        return self.section_links
-
-
-async def augment_link_with_statuscode(link):
-    link["status_code"] = status_code = get_link_status(link["url"])
-    link["status_description"] = (
-        responses[status_code] if status_code else "Connection Error"
-    )
-    link["css_class"] = get_css_class(status_code)
-
-    if status_code >= 200 and status_code < 400:
-        link["status"] = "ok"
-    else:
-        # This includes 1xx informational, which we shouldn't be getting
-        link["status"] = "error"
-
-
-def _status_cache_key(fun, url):
-    return (url, time() // (60 * 60))
-
-
-@ram.cache(_status_cache_key)
-def get_link_status(url):
-    try:
-        # Avoid never timing out. If the response doesn't start
-        # after 1 second, we assume the link is dead.
-        r = requests.head(url, timeout=3, allow_redirects=True)
-        return r.status_code
-    # We must catch all exceptions, or our checker will stop working
-    # Adding explicit log statements per exception type to help with debugging
-    # Also we might want to expose the connection related errors in the UI at some point
-    except requests.ConnectionError:
-        log.info("ConnectionError, skipping %s", url)
-    except requests.ReadTimeout:
-        log.info("ReadTimeout, skipping %s", url)
-    except requests.Timeout:
-        log.info("Timeout, skipping %s", url)
-    except requests.RequestException:
-        log.info("RequestException, skipping %s", url)
-    except requests.HTTPError:
-        log.info("HTTPError, skipping %s", url)
-    except requests.TooManyRedirects:
-        log.info("TooManyRedirects, skipping %s", url)
-    except requests.ConnectTimeout:
-        log.info("ConnectTimeout, skipping %s", url)
-    except Exception:
-        log.info("Other Exception occurred, please investigate, skipping %s", url)
-
-    return 0
+        # work around pat-inject not kicking in by doing server-side refresh
+        # fixing pat-inject is preferable, since that keeps scroll position
+        # when updating the link list
+        if self.next_pass:
+            next_url = (
+                f"{self.context.absolute_url()}/@@list-links?pass={self.next_pass}"
+            )
+            self.request.response.setHeader("Refresh", f"0; url={next_url}")
+        return super().__call__()
 
 
 @forever.memoize
