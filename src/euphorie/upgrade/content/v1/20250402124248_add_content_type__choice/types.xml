@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <object name="portal_types">
-  <object meta_type="Dexterity FTI"
+  <object meta_type="Conditional Dexterity FTI"
           name="euphorie.choice"
   />
   <object meta_type="Conditional Dexterity FTI"
           name="euphorie.option"
+  />
+  <object meta_type="Conditional Dexterity FTI"
+          name="euphorie.module"
   />
 </object>

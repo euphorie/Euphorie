@@ -140,6 +140,11 @@
       />
 
   <adapter
+      factory=".choice.ConstructionFilter"
+      name="euphorie.choice"
+      />
+
+  <adapter
       factory=".sector.SectorLocalRoleProvider"
       name="euphorie.sector"
       />

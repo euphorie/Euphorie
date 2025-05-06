@@ -20,6 +20,7 @@
   <property name="allowed_content_types">
     <element value="euphorie.module" />
     <element value="euphorie.risk" />
+    <element value="euphorie.choice" />
   </property>
 
   <property name="klass">euphorie.content.module.Module</property>
