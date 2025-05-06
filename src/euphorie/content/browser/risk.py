@@ -155,6 +155,13 @@ class RiskFieldsetOrderingMixin:
     ]
 
     def updateFields(self):
+        """
+        Override the parent method to sort fieldsets based on the predefined order.
+
+        The method uses the `order` attribute to determine the position of each
+        fieldset. If a fieldset's label is not found in the `order` list, it is
+        placed at the end. Sorting is performed in-place on the `self.groups` list.
+        """
         super().updateFields()
 
         def index_of_group(group):
