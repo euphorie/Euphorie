@@ -144,19 +144,31 @@ class RiskView(BrowserView, DragDropHelper):
         return parse_scaled_answers(context.scaled_answers)
 
 
-class AddForm(DefaultAddForm):
+class RiskFieldsetOrderingMixin:
+
+    order = [
+        "header_identification",
+        "header_evaluation",
+        "header_main_image",
+        "header_secondary_images",
+        "header_additional_content",
+    ]
+
+    def updateFields(self):
+        super().updateFields()
+
+        def index_of_group(group):
+            try:
+                return self.order.index(group.label)
+            except ValueError:
+                return len(self.order)
+
+        self.groups.sort(key=index_of_group)
+
+
+class AddForm(RiskFieldsetOrderingMixin, DefaultAddForm):
     portal_type = "euphorie.risk"
     default_fieldset_label = None
-
-    def __init__(self, context, request):
-        super().__init__(context, request)
-        self.order = [
-            "header_identification",
-            "header_evaluation",
-            "header_main_image",
-            "header_secondary_images",
-            "header_additional_content",
-        ]
 
     @property
     @memoize
@@ -169,10 +181,6 @@ class AddForm(DefaultAddForm):
             return IFrenchRisk
         else:
             return IKinneyRisk
-
-    def updateFields(self):
-        super().updateFields()
-        self.groups.sort(key=lambda g: self.order.index(g.label))
 
     def updateWidgets(self):
         super().updateWidgets()
@@ -201,7 +209,7 @@ class AddView(DefaultAddView):
     form = AddForm
 
 
-class EditForm(DefaultEditForm):
+class EditForm(RiskFieldsetOrderingMixin, DefaultEditForm):
     portal_type = "euphorie.risk"
     default_fieldset_label = None
 
@@ -242,20 +250,6 @@ class EditForm(DefaultEditForm):
     @property
     def tool_type(self):
         return get_tool_type(self.my_context)
-
-    def __init__(self, context, request):
-        super().__init__(context, request)
-        self.order = [
-            "header_identification",
-            "header_evaluation",
-            "header_main_image",
-            "header_secondary_images",
-            "header_additional_content",
-        ]
-
-    def updateFields(self):
-        super().updateFields()
-        self.groups.sort(key=lambda g: self.order.index(g.label))
 
     def updateWidgets(self):
         super().updateWidgets()
