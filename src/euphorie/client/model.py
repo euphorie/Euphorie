@@ -1539,15 +1539,19 @@ class Choice(SurveyTreeItem):
 
     def set_options_by_zodb_path(self, paths):
         current = [option.zodb_path for option in self.options]
+        changed = False
         for option in self.options:
             if option.zodb_path not in paths:
                 self.options.remove(option)
                 Session.delete(option)
+                changed = True
         for path in paths:
             if path not in current:
                 option = Option(choice=self, zodb_path=path)
                 Session.add(option)
                 self.options.append(option)
+                changed = True
+        return changed
 
 
 class Option(BaseObject):
