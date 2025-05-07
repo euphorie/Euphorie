@@ -79,6 +79,6 @@ class ConstructionFilter:
         """
         for parent in aq_chain(aq_inner(self.container)):
             if ISurvey.providedBy(parent):
-                return parent.get_tool_type_info()["allow_choice"]
+                return parent.get_tool_type_info().get("allow_choice", False)
         # If we're not inside a survey we don't care what happens
         return True
