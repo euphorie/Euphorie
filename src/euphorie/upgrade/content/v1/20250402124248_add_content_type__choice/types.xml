@@ -3,7 +3,7 @@
   <object meta_type="Conditional Dexterity FTI"
           name="euphorie.choice"
   />
-  <object meta_type="Conditional Dexterity FTI"
+  <object meta_type="Dexterity FTI"
           name="euphorie.option"
   />
   <object meta_type="Conditional Dexterity FTI"

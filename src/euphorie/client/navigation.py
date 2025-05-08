@@ -41,7 +41,7 @@ def FindNextQuestion(after, dbsession, filter=None):
                 model.Choice.id == model.SurveyTreeItem.id,
                 sql.or_(
                     model.Choice.condition == None,  # noqa: E711
-                    model.Choice.condition.like(model.Option.zodb_path),
+                    model.Choice.condition == model.Option.zodb_path,  # noqa: E711
                 ),
             ),
         ),

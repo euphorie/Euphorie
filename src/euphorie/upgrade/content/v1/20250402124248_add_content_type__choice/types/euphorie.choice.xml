@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-        meta_type="Dexterity FTI"
+        meta_type="Conditional Dexterity FTI"
         name="euphorie.choice"
         i18n:domain="euphorie"
 >
