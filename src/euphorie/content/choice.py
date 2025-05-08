@@ -6,7 +6,6 @@ from Acquisition import aq_chain
 from Acquisition import aq_inner
 from euphorie.content.survey import ISurvey
 from plone.app.dexterity.behaviors.metadata import IBasic
-from plone.app.vocabularies.catalog import StaticCatalogVocabulary
 from plone.autoform import directives
 from plone.dexterity.content import Container
 from plone.supermodel import model
@@ -37,9 +36,7 @@ class IChoice(model.Schema, IRichDescription, IBasic):
         "another choice. You can pick multiple options here. If the user selects one "
         "or more of them, then this choice will be shown. Leave blank to always show "
         "this choice.",
-        value_type=RelationChoice(
-            vocabulary=StaticCatalogVocabulary({"portal_type": ["euphorie.option"]}),
-        ),
+        value_type=RelationChoice(vocabulary="euphorie.choice_conditions_vocabulary"),
         required=False,
         default=[],
     )

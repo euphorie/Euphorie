@@ -215,6 +215,12 @@
       component=".utils.MeasuresTextHandlingVocabularyFactory"
       />
 
+  <utility
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      name="euphorie.choice_conditions_vocabulary"
+      component=".vocabularies.ChoiceConditionsVocabulary"
+      />
+
 
   <browser:page
       name="export_users"
