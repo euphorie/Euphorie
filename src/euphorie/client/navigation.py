@@ -168,7 +168,10 @@ class TreeDataCreator(BrowserView):
                     cls.append(key)
 
             if obj.postponed:
-                cls.append("postponed")
+                if isinstance(obj, model.Choice):
+                    cls.append("answered")
+                else:
+                    cls.append("postponed")
             else:
                 if isinstance(obj, model.Risk):
                     if obj.identification or obj.scaled_answer:

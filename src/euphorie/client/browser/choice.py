@@ -67,7 +67,21 @@ class IdentificationView(BrowserView):
         return [option.zodb_path for option in self.context.options]
 
     def set_answer_data(self, reply):
+        """Save the selected options as indicated by the paths in the `answer`
+        field of `reply` (i.e. the request form).
+        If the choice allows multiple options, then selecting none of them counts as
+        a valid answer. In this case the `postponed` attribute is set to True.
+
+        Note that this use of the `postponed` attribute does not exactly match
+        the use for risks in that we don't expect the user to come back and
+        answer later, but it is similar in that we record that the user has
+        been here and clicked “Save” rather than “Skip”.
+        """
         answer = reply.get("answer", [])
+        if self.choice.allow_multiple_options:
+            self.context.postponed = answer == "postponed"
+        if answer == "postponed":
+            answer = []
         if not isinstance(answer, (list, tuple)):
             answer = [answer]
         # XXX Check if paths are valid?

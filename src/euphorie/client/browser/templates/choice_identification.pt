@@ -46,6 +46,10 @@
             ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
               explicabo.</tal:description>
             <fieldset class="pat-checklist">
+              <input name="answer:default"
+                     type="hidden"
+                     value="postponed"
+              />
               <label class="label-fragment-title"
                      tal:repeat="option choice/objectValues"
               >
