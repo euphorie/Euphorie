@@ -104,4 +104,4 @@ class IdentificationView(BrowserView):
                 self.session.touch()
 
             return self.navigation.proceed_to_next(reply)
-        return self.index()
+        return super().__call__()
