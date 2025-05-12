@@ -39,7 +39,7 @@
 
   <metal:title fill-slot="title">List of Links in ${context/title}</metal:title>
   <metal:content fill-slot="content">
-    <article>
+    <article id="quaive-content">
       <!--a href="${context/absolute_url}/@@list-links?pass=${view/next_pass}"
           class="pat-inject"
           data-pat-inject="trigger: autoload; delay: 0;"
