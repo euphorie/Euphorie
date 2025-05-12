@@ -1526,16 +1526,13 @@ class Choice(SurveyTreeItem):
         if not self.condition:
             return True
         options = self.condition.split("|")
-        if (
+        return (
             Session.query(Option)
             .join(Choice)
             .filter(Choice.session_id == self.session_id)
             .filter(Option.zodb_path.in_(options))
             .count()
-            <= 0
-        ):
-            return False
-        return True
+        )
 
     def set_options_by_zodb_path(self, paths):
         current = [option.zodb_path for option in self.options]
