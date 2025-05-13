@@ -19,6 +19,7 @@ from Products.Five import BrowserView
 from sqlalchemy import sql
 from tempfile import NamedTemporaryFile
 from urllib.parse import quote
+from z3c.saconfig import Session
 from zope.i18n import translate
 
 import logging
@@ -260,12 +261,30 @@ class ReportInventory(BrowserView):
     """Report that combines recommendations according to the options the user has picked
     in the inventory tool."""
 
+    @property
+    @memoize
+    def sqlsession(self):
+        return Session()
+
     def recommendations(self):
+        selected = (
+            self.sqlsession.query(model.Option)
+            .join(
+                model.SurveyTreeItem, model.Option.choice_id == model.SurveyTreeItem.id
+            )
+            .filter(model.SurveyTreeItem.session_id == self.context.session.id)
+        )
+        zodb_paths = [row.zodb_path for row in selected]
+        tool_path_len = len(self.context.aq_parent.getPhysicalPath())
         found = []
         # XXX Why does api.content.find not return recommendations?
         for idx, obj in self.context.aq_parent.ZopeFind(
             self.context.aq_parent, search_sub=1
         ):
-            if obj.portal_type == "euphorie.recommendation":
+            if (
+                obj.portal_type == "euphorie.recommendation"
+                and "/".join(obj.aq_parent.getPhysicalPath()[tool_path_len:])
+                in zodb_paths
+            ):
                 found.append(obj)
         return found
