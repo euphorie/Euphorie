@@ -1,10 +1,11 @@
-from plone.formwidget.namedfile.widget import NamedImageWidget
-from z3c.form.widget import FieldWidget
+from zope.deferredimport import deprecated
 
 
-class LogoWidget(NamedImageWidget):
-    pass
-
-
-def LogoFieldWidget(field, request):
-    return FieldWidget(field, LogoWidget(request))
+deprecated(
+    (
+        "It will be removed in future versions. "
+        "Please use the regular image widget instead."
+    ),
+    LogoWidget="euphorie.content.widgets.logo_bbb:LogoWidget",
+    LogoFieldWidget="euphorie.content.widgets.logo_bbb:LogoFieldWidget",
+)

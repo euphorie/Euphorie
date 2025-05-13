@@ -67,16 +67,18 @@ class ISector(model.Schema, IUser, IBasic):
 
     directives.order_after(contact_email="contact_name")
 
-    directives.widget(
-        logo="euphorie.content.widgets.logo.LogoFieldWidget",
-    )
     logo = filefield.NamedBlobImage(
         title=_("label_logo", default="Logo"),
         description=_(
             "help_image_upload",
-            default="Upload an image. Make sure your image is of format "
-            "png, jpg or gif and does not contain any special "
-            "characters. The minimum size is 1000 (width) x 430 (height) pixels.",
+            default=(
+                "The logo will appear on the sector overview page of your country. "
+                "Make sure your image is of format png, jpg or gif and "
+                "does not contain any special characters. "
+                "The new logo will only become visible after "
+                "you have saved your changes and "
+                "published the OiRA tool."
+            ),
         ),
         required=False,
     )

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@layout/macros/layout"
+      i18n:domain="nuplone"
+>
+
+  <metal:css fill-slot="style-slot">
+    <style type="text/css">
+     dt {
+       text-indent: hanging 5em;
+       border-top: dotted #787878 1px;
+       padding-top: 0.5em;
+     }
+     .section-id {
+       color: black;
+       display: inline-block;
+       min-width: 4em;
+       margin-right: 1em;
+     }
+     li {
+       position: relative
+     }
+     .status-code {
+       font-weight: bold;
+       position: absolute;
+       left: -5em;
+     }
+     .status-ok::marker, .status-ok .status-code { color: green }
+     .warning::marker, .warning .status-code { color: orange }
+     .error::marker, .error .status-code { color: red;}
+    </style>
+  </metal:css>
+
+  <metal:title fill-slot="title">List of Links in ${context/title}</metal:title>
+  <metal:content fill-slot="content">
+    <article>
+      <dl>
+        <tal:item tal:repeat="item view/items">
+          <dt>
+            <span class="section-id">${item/section_id}</span><a href="${item/object/absolute_url}/edit">${item/object/title}</a>
+          </dt>
+          <dd>
+            <ul>
+              <li tal:repeat="link item/links"
+                  tal:attributes="
+                    class link/css_class|nothing;
+                  "
+              >
+                <a class="status-code pat-tooltip"
+                   title="${link/status_description}"
+                   data-pat-tooltip="trigger: hover"
+                >
+                  ${link/status_code|nothing}
+                </a>
+                <a class="link pat-tooltip"
+                   href="${link/url}"
+                   title="${link/status_description}"
+                   data-pat-tooltip="trigger: hover"
+                >
+                  ${link/url}
+                </a>
+              </li>
+            </ul>
+          </dd>
+        </tal:item>
+      </dl>
+    </article>
+  </metal:content>
+</html>

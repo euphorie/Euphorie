@@ -1,3 +1,7 @@
+<tal:comment condition="nothing">
+  This template will soon be removed.
+  Use the regular image widget instead.
+</tal:comment>
 <fieldset class="concise">
   <p class="legend"
      i18n:translate="label_logo"
