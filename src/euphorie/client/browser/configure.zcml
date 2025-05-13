@@ -1053,6 +1053,15 @@
       layer="euphorie.client.interfaces.IClientSkinLayer"
       />
 
+  <browser:page
+      name="report_inventory"
+      for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
+      class=".report.ReportInventory"
+      template="templates/report_inventory.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
   <!-- Sector -->
   <browser:page
       name="view"

@@ -37,6 +37,9 @@
           name="euphorie.option"
   />
   <object meta_type="Dexterity FTI"
+          name="euphorie.recommendation"
+  />
+  <object meta_type="Dexterity FTI"
           name="euphorie.solution"
   />
   <object meta_type="Dexterity FTI"
