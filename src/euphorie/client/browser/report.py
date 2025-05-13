@@ -263,7 +263,7 @@ class ReportInventory(BrowserView):
     def recommendations(self):
         found = []
         # XXX Why does api.content.find not return recommendations?
-        for _, obj in self.context.aq_parent.ZopeFind(
+        for idx, obj in self.context.aq_parent.ZopeFind(
             self.context.aq_parent, search_sub=1
         ):
             if obj.portal_type == "euphorie.recommendation":
