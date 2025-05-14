@@ -15,11 +15,22 @@
 
   <body>
     <metal:slot fill-slot="content">
-      <metal:macro define-macro="report_inventory">
-        <div class="pat-scroll-box"
-             id="content-pane"
-        >
-          <metal:call use-macro="webhelpers/macros/toolbar" />
+      <div class="pat-scroll-box"
+           id="content-pane"
+      >
+        <div class="download-blocks">
+          <div class="download-block">
+            <div class="download-block-header">
+              <h2>Report</h2>
+              <a class="default pat-button download rtf icon-download"
+                 href="${context/absolute_url}/@@pdf?view=report_inventory_pdf"
+              >
+                <tal:trans i18n:translate="button_download">Download</tal:trans>
+              </a>
+            </div>
+          </div>
+        </div>
+        <metal:macro define-macro="report_inventory">
           <tal:block replace="tile:statusmessages" />
 
           <article class="pat-rich"
@@ -39,8 +50,8 @@
           </article>
 
           <tal:block replace="tile:client-analytics" />
-        </div>
-      </metal:macro>
+        </metal:macro>
+      </div>
     </metal:slot>
   </body>
 </html>

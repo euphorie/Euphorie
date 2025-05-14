@@ -14,8 +14,12 @@
 >
 
   <body>
-    <metal:slot fill-slot="content">
-      <metal:macro use-macro="here/report_inventory/macros/report_inventory" />
-    </metal:slot>
+    <div class="pat-scroll-box"
+         id="content-pane"
+    >
+      <metal:slot fill-slot="content">
+        <metal:macro use-macro="here/report_inventory/macros/report_inventory" />
+      </metal:slot>
+    </div>
   </body>
 </html>
