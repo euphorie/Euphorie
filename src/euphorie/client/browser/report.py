@@ -261,10 +261,18 @@ class ReportInventory(BrowserView):
     """Report that combines recommendations according to the options the user has picked
     in the inventory tool."""
 
+    variation_class = "variation-risk-assessment"
+    label = "Recommendations report"
+
     @property
     @memoize
     def sqlsession(self):
         return Session()
+
+    @property
+    @memoize
+    def session(self):
+        return self.context.session
 
     def recommendations(self):
         selected = (
