@@ -24,11 +24,20 @@
         <article class="pat-rich"
                  id="report"
         >
-          <h1 i18n:translate="label_report">Report</h1>
+          <h1 i18n:translate="label_report">Good practices and guidance</h1>
 
-          <p tal:repeat="recommendation view/recommendations"
-             tal:content="structure recommendation/text"
-          ></p>
+          <tal:recom tal:repeat="recommendation view/recommendations">
+            <h2>${recommendation/aq_parent/aq_parent/title}</h2>
+            <dl>
+              <dt>Your answer:</dt>
+              <dd>${recommendation/aq_parent/title}</dd>
+            </dl>
+            <p>
+              <em>Measures:</em>
+            </p>
+            <p tal:content="structure recommendation/text">
+            </p>
+          </tal:recom>
 
         </article>
 
