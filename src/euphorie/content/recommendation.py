@@ -3,7 +3,6 @@ from euphorie.htmllaundry.z3cform import HtmlText
 from plone.autoform import directives
 from plone.supermodel import model
 from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
-from zope import schema
 
 
 class IRecommendation(model.Schema):

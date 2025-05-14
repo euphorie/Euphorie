@@ -219,6 +219,23 @@ class SurveyImporter:
         self.options = {}
         self.conditions = []
 
+    def ImportRecommendation(self, node, option):
+        """
+        Create a new :obj:`euphorie.content.recommendation` object for a
+        :obj:`euphorie.content.module` given the details for a Recommendation as an XML
+        node.
+
+        :returns: :obj:`euphorie.content.recommendation`.
+        """
+        recommendation = createContentInContainer(
+            option, "euphorie.recommendation", title=str(node.title)
+        )
+        recommendation.external_id = attr_unicode(node, "external-id")
+        recommendation.description = el_unicode(
+            node, "description", is_etranslate_compatible=self.is_etranslate_compatible
+        )
+        recommendation.text = el_unicode(node, "text_html")
+
     def ImportOption(self, node, choice):
         """
         Create a new :obj:`euphorie.content.option` object for a
@@ -235,6 +252,8 @@ class SurveyImporter:
             node, "description", is_etranslate_compatible=self.is_etranslate_compatible
         )
         self.options[el_unicode(node, "condition-id")] = option
+        for child in node.iterchildren(tag=XMLNS + "recommendation"):
+            self.ImportRecommendation(child, option)
 
     def ImportChoice(self, node, module):
         """
