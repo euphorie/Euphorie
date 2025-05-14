@@ -15,34 +15,32 @@
 
   <body>
     <metal:slot fill-slot="content">
-      <div class="pat-scroll-box"
-           id="content-pane"
-      >
-        <metal:call use-macro="webhelpers/macros/toolbar" />
-        <tal:block replace="tile:statusmessages" />
-
-        <article class="pat-rich"
-                 id="report"
+      <metal:macro define-macro="report_inventory">
+        <div class="pat-scroll-box"
+             id="content-pane"
         >
-          <h1 i18n:translate="label_report">Good practices and guidance</h1>
+          <metal:call use-macro="webhelpers/macros/toolbar" />
+          <tal:block replace="tile:statusmessages" />
 
-          <tal:recom tal:repeat="recommendation view/recommendations">
-            <h2>${recommendation/aq_parent/aq_parent/title}</h2>
-            <dl>
-              <dt>Your answer:</dt>
-              <dd>${recommendation/aq_parent/title}</dd>
-            </dl>
-            <p>
-              <em>Measures:</em>
-            </p>
-            <p tal:content="structure recommendation/text">
-            </p>
-          </tal:recom>
+          <article class="pat-rich"
+                   id="report"
+          >
+            <h1 i18n:translate="label_report">Good practices and guidance</h1>
 
-        </article>
+            <tal:recom tal:repeat="recommendation view/recommendations">
+              <h2>${recommendation/aq_parent/aq_parent/title}</h2>
+              <em>Your answer:</em>
+              <span>${recommendation/aq_parent/title}</span>
+              <h3>Measures:</h3>
+              <p tal:replace="structure recommendation/text">
+              </p>
+            </tal:recom>
 
-        <tal:block replace="tile:client-analytics" />
-      </div>
+          </article>
+
+          <tal:block replace="tile:client-analytics" />
+        </div>
+      </metal:macro>
     </metal:slot>
   </body>
 </html>
