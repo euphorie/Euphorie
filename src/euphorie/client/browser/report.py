@@ -285,7 +285,7 @@ class ReportInventory(BrowserView):
         data = open(filename, "rb")
         return b64encode(data.read())
 
-    def recommendations(self):
+    def selected_options(self):
         selected = (
             self.sqlsession.query(model.Option)
             .join(
@@ -293,17 +293,7 @@ class ReportInventory(BrowserView):
             )
             .filter(model.SurveyTreeItem.session_id == self.context.session.id)
         )
-        zodb_paths = [row.zodb_path for row in selected]
-        tool_path_len = len(self.context.aq_parent.getPhysicalPath())
-        found = []
-        # XXX Why does api.content.find not return recommendations?
-        for idx, obj in self.context.aq_parent.ZopeFind(
-            self.context.aq_parent, search_sub=1
-        ):
-            if (
-                obj.portal_type == "euphorie.recommendation"
-                and "/".join(obj.aq_parent.getPhysicalPath()[tool_path_len:])
-                in zodb_paths
-            ):
-                found.append(obj)
-        return found
+        objs = [
+            self.context.aq_parent.restrictedTraverse(row.zodb_path) for row in selected
+        ]
+        return [obj for obj in objs if obj.objectIds()]
