@@ -18,6 +18,22 @@
          id="content-pane"
     >
       <metal:slot fill-slot="content">
+        <style>
+@page {
+  padding-top: 4em;
+  @top-center {
+    width: 85%;
+    content: "";
+    background-image: url("data:image/png;base64,${view/logo}");
+    background-size: 85%;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+}
+@page :first {
+  padding-top: 0;
+}
+        </style>
         <metal:macro use-macro="here/report_inventory/macros/report_inventory" />
       </metal:slot>
     </div>

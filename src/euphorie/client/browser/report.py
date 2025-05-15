@@ -7,12 +7,14 @@ for the action plan.
 """
 
 from .. import MessageFactory as _
+from base64 import b64encode
 from datetime import date
 from euphorie.client import model
 from euphorie.client import survey
 from euphorie.client import utils
 from openpyxl.workbook import Workbook
 from openpyxl.writer.excel import save_workbook
+from pkg_resources import resource_filename
 from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
@@ -273,6 +275,15 @@ class ReportInventory(BrowserView):
     @memoize
     def session(self):
         return self.context.session
+
+    @property
+    @memoize
+    def logo(self):
+        filename = resource_filename(
+            "euphorie.client.browser", "templates/dsetool_report_logo.png"
+        )
+        data = open(filename, "rb")
+        return b64encode(data.read())
 
     def recommendations(self):
         selected = (
