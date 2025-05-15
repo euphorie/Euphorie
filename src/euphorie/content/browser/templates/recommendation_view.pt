@@ -18,10 +18,7 @@
                      can_edit python:tools.checkPermission('Modify portal content');
                    "
     >
-      <dl>
-        <dt>Choice:</dt>
-        <dd>${context/aq_parent/Title}</dd>
-      </dl>
+
       <fieldset>
         <legend tal:content="view/default_fieldset_label|view/label|string:Default fieldset"
                 i18n:domain="plone"
@@ -43,31 +40,6 @@
           </tal:widget>
         </fieldset>
       </tal:groupform>
-
-      <tal:block tal:define="
-                   recommendations context/values;
-                 "
-                 condition="context/values"
-      >
-        <h2 i18n:translate="header_recommendations">Recommendations</h2>
-
-        <ol class="${python:'sortable' if can_edit and len(recommendations)&gt;1 else None}">
-          <div class="sortable-explanation"
-               tal:replace="nothing"
-          >
-            <!-- TODO create view class-->
-            ${view/sortable_explanation}
-          </div>
-          <li id="recommendation-${recommendation/id}"
-              tal:repeat="recommendation recommendations"
-          ><a href="${recommendation/absolute_url}"
-               i18n:translate="choice_recommendation_header"
-            >Recommendation
-              <tal:span i18n:name="number">${repeat/recommendation/number}</tal:span></a><br />
-            <p tal:content="recommendation/title"></p></li>
-        </ol>
-      </tal:block>
-
     </metal:content>
   </body>
 </html>
