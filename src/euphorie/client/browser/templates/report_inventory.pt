@@ -38,12 +38,14 @@
           >
             <h1 i18n:translate="label_report">Good practices and guidance</h1>
 
-            <tal:recom tal:repeat="recommendation view/recommendations">
-              <h2>${recommendation/aq_parent/aq_parent/title}</h2>
+            <tal:recom tal:repeat="option view/selected_options">
+              <h2>${option/aq_parent/title}</h2>
               <em>Your answer:</em>
-              <span>${recommendation/aq_parent/title}</span>
+              <span>${option/title}</span>
               <h3>Measures:</h3>
-              <p tal:replace="structure recommendation/text">
+              <p tal:repeat="recommendation option/values"
+                 tal:replace="structure recommendation/text"
+              >
               </p>
             </tal:recom>
 
