@@ -292,6 +292,7 @@ class ReportInventory(BrowserView):
                 model.SurveyTreeItem, model.Option.choice_id == model.SurveyTreeItem.id
             )
             .filter(model.SurveyTreeItem.session_id == self.context.session.id)
+            .order_by(model.SurveyTreeItem.path)
         )
         objs = [
             self.context.aq_parent.restrictedTraverse(row.zodb_path) for row in selected
