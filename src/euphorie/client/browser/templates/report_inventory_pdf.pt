@@ -29,6 +29,10 @@
     background-position: center top;
     background-repeat: no-repeat;
   }
+  @bottom-left {
+    content: "${context/aq_parent/title}\A${context/aq_parent/absolute_url}";
+    white-space: pre-wrap;
+  }
 }
 @page :first {
   padding-top: 0;
