@@ -97,6 +97,9 @@
                 }
               </style>
               <article class="pat-rich">
+                <section>
+                  This is an interactive questionnaire and the questions might change related to given answers. You can use the skip button if you are not sure about an answer yet and get back to the question later. You will also receive a report containing your answers, recommendations and advice.
+                </section>
                 <h2>Let's quickly check if this tool might be helpful for you&hellip;</h2>
                 <p>Do you use, handle or store chemical products or chemical substances at work? Such products will be labelled with one or more of the currently used hazard pictograms (black and white in red frames) depicted below.</p>
                 <p><strong>Current hazard pictograms:</strong></p>
