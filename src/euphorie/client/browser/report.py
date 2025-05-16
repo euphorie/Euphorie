@@ -7,11 +7,14 @@ for the action plan.
 """
 
 from .. import MessageFactory as _
+from Acquisition import aq_inner
+from Acquisition import aq_parent
 from base64 import b64encode
 from datetime import date
 from euphorie.client import model
 from euphorie.client import survey
 from euphorie.client import utils
+from OFS.interfaces import IOrderedContainer
 from openpyxl.workbook import Workbook
 from openpyxl.writer.excel import save_workbook
 from pkg_resources import resource_filename
@@ -277,13 +280,34 @@ class ReportInventory(BrowserView):
         return self.context.session
 
     @property
+    def cover(self):
+        filename = resource_filename(
+            "euphorie.client.browser", "templates/dsetool_cover.png"
+        )
+        with open(filename, "rb") as data:
+            return b64encode(data.read())
+
+    @property
     @memoize
     def logo(self):
         filename = resource_filename(
             "euphorie.client.browser", "templates/dsetool_report_logo.png"
         )
-        data = open(filename, "rb")
-        return b64encode(data.read())
+        with open(filename, "rb") as data:
+            return b64encode(data.read())
+
+    def get_position_in_parent(self, obj):
+        parent = aq_parent(aq_inner(obj))
+        ordered = IOrderedContainer(parent, None)
+        if ordered is not None:
+            return ordered.getObjectPosition(obj.getId())
+        return 0
+
+    def get_sort_key(self, obj):
+        return (
+            self.get_position_in_parent(aq_parent(obj)),
+            self.get_position_in_parent(obj),
+        )
 
     def selected_options(self):
         selected = (
@@ -292,9 +316,10 @@ class ReportInventory(BrowserView):
                 model.SurveyTreeItem, model.Option.choice_id == model.SurveyTreeItem.id
             )
             .filter(model.SurveyTreeItem.session_id == self.context.session.id)
-            .order_by(model.SurveyTreeItem.path)
         )
         objs = [
             self.context.aq_parent.restrictedTraverse(row.zodb_path) for row in selected
         ]
-        return [obj for obj in objs if obj.objectIds()]
+        objs_with_recommendations = [obj for obj in objs if obj.objectIds()]
+        ordered = sorted(objs_with_recommendations, key=self.get_sort_key)
+        return ordered
