@@ -91,6 +91,11 @@
               </tal:for>
             </metal:widgets>
             <tal:block-etoolspecific>
+              <style>
+                label:has(#form-widgets-tool_subscription) {
+                  display: none;
+                }
+              </style>
               <article class="pat-rich">
                 <h2>Let's quickly check if this tool might be helpful for you&hellip;</h2>
                 <p>Do you use, handle or store chemical products or chemical substances at work? Such products will be labelled with one or more of the currently used hazard pictograms (black and white in red frames) depicted below.</p>
