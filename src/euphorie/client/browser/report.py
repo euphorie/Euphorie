@@ -281,8 +281,8 @@ class ReportInventory(BrowserView):
         filename = resource_filename(
             "euphorie.client.browser", "templates/dsetool_cover.png"
         )
-        data = open(filename, "rb")
-        return b64encode(data.read())
+        with open(filename, "rb") as data:
+            return b64encode(data.read())
 
     @property
     @memoize
@@ -290,8 +290,8 @@ class ReportInventory(BrowserView):
         filename = resource_filename(
             "euphorie.client.browser", "templates/dsetool_report_logo.png"
         )
-        data = open(filename, "rb")
-        return b64encode(data.read())
+        with open(filename, "rb") as data:
+            return b64encode(data.read())
 
     def selected_options(self):
         selected = (
