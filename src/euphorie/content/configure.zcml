@@ -140,6 +140,11 @@
       />
 
   <adapter
+      factory=".choice.ConstructionFilter"
+      name="euphorie.choice"
+      />
+
+  <adapter
       factory=".sector.SectorLocalRoleProvider"
       name="euphorie.sector"
       />
@@ -208,6 +213,12 @@
       provides="zope.schema.interfaces.IVocabularyFactory"
       name="euphorie.measures_text_handling_vocabulary"
       component=".utils.MeasuresTextHandlingVocabularyFactory"
+      />
+
+  <utility
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      name="euphorie.choice_conditions_vocabulary"
+      component=".vocabularies.ChoiceConditionsVocabulary"
       />
 
 
