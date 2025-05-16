@@ -14,18 +14,4 @@
       <property name="visible">False</property>
     </object>
   </object>
-
-  <object name="object">
-    <object name="contentrules">
-      <property name="visible">False</property>
-    </object>
-  </object>
-
-  <object meta_type="CMF Action Category"
-          name="maintenance_actions"
-  >
-    <property name="title"
-              i18n:translate=""
-    >Maintenance actions</property>
-  </object>
 </object>
