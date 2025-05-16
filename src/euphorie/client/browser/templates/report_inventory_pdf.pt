@@ -19,6 +19,18 @@
     >
       <metal:slot fill-slot="content">
         <style>
+@page :first {
+  padding-top: 0;
+  @top-center {
+    background-image: none;
+  }
+  @bottom-left {
+    content: none;
+  }
+  @bottom-right {
+    content: none;
+  }
+}
 @page {
   padding-top: 4em;
   @top-center {
@@ -34,10 +46,16 @@
     white-space: pre-wrap;
   }
 }
-@page :first {
-  padding-top: 0;
+section.cover {
+  page-break-after: always;
+}
+section.cover img {
+  width: 100%;
 }
         </style>
+        <section class="cover">
+          <img src="data:image/png;base64,${view/cover}" />
+        </section>
         <metal:macro use-macro="here/report_inventory/macros/report_inventory" />
       </metal:slot>
     </div>

@@ -277,6 +277,14 @@ class ReportInventory(BrowserView):
         return self.context.session
 
     @property
+    def cover(self):
+        filename = resource_filename(
+            "euphorie.client.browser", "templates/dsetool_cover.png"
+        )
+        data = open(filename, "rb")
+        return b64encode(data.read())
+
+    @property
     @memoize
     def logo(self):
         filename = resource_filename(
