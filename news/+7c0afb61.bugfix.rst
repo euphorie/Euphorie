@@ -1,0 +1,2 @@
+Hide external editor action.
+And fix its condition to not fail when the ``externalEditorEnabled`` skin script is not available.
