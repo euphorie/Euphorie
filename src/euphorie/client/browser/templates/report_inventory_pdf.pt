@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      id="report_landing"
+      meta:interpolation="true"
+      metal:use-macro="context/@@plain/macros/shell"
+      tal:define="
+        webhelpers nocall:context/@@webhelpers;
+      "
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <div class="pat-scroll-box"
+         id="content-pane"
+    >
+      <metal:slot fill-slot="content">
+        <style>
+@page :first {
+  padding-top: 0;
+  @top-center {
+    background-image: none;
+  }
+  @bottom-left {
+    content: none;
+  }
+  @bottom-right {
+    content: none;
+  }
+}
+@page {
+  padding-top: 4em;
+  @top-center {
+    width: 85%;
+    content: "";
+    background-image: url("data:image/png;base64,${view/logo}");
+    background-size: 85%;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+  @bottom-left {
+    content: "${context/aq_parent/title}\A${context/aq_parent/absolute_url}";
+    white-space: pre-wrap;
+  }
+}
+section.cover {
+  page-break-after: always;
+}
+section.cover img {
+  width: 100%;
+}
+        </style>
+        <section class="cover">
+          <img src="data:image/png;base64,${view/cover}" />
+        </section>
+        <metal:macro use-macro="here/report_inventory/macros/report_inventory" />
+      </metal:slot>
+    </div>
+  </body>
+</html>

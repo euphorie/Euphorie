@@ -25,6 +25,7 @@ def getSurveyTree(survey, profile=None):
             "euphorie.risk",
             "euphorie.choice",
             "euphorie.option",
+            "euphorie.recommendation",
         ]:
             continue
         # Note that in profile.AddToTree, we pretend that an optional module
