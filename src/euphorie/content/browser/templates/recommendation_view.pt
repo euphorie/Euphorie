@@ -18,28 +18,7 @@
                      can_edit python:tools.checkPermission('Modify portal content');
                    "
     >
-
-      <fieldset>
-        <legend tal:content="view/default_fieldset_label|view/label|string:Default fieldset"
-                i18n:domain="plone"
-                i18n:translate=""
-        >Default fieldset</legend>
-        <tal:widget repeat="widget view/widgets/values"
-                    replace="structure widget/render"
-        />
-      </fieldset>
-
-      <tal:groupform condition="python:getattr(view, 'groups', None)">
-        <fieldset tal:repeat="group view/groups">
-          <legend tal:content="group/label"
-                  i18n:domain="plone"
-                  i18n:translate=""
-          >Group name</legend>
-          <tal:widget repeat="widget group/widgets/values">
-            <tal:render replace="structure widget/render" />
-          </tal:widget>
-        </fieldset>
-      </tal:groupform>
+      <tal:body replace="structure context/text" />
     </metal:content>
   </body>
 </html>
