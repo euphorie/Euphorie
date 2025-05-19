@@ -29,6 +29,7 @@ from plone.namedfile import field as filefield
 from plone.namedfile.interfaces import INamedBlobImageField
 from plone.supermodel import model
 from plonetheme.nuplone.z3cform.directives import depends
+from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import validator
 from zope import schema
@@ -38,12 +39,6 @@ from zope.interface import Interface
 from zope.interface import Invalid
 
 import sys
-
-
-try:
-    from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
-except ImportError:
-    from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
 
 class IModule(model.Schema, IRichDescription, IBasic):

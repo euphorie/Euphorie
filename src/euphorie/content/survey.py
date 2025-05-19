@@ -30,17 +30,12 @@ from plone.dexterity.content import Container
 from plone.indexer import indexer
 from plone.supermodel import model
 from plonetheme.nuplone.z3cform.directives import depends
+from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
 from zope import schema
 from zope.component import getUtility
 from zope.interface import implementer
 
 import sys
-
-
-try:
-    from plonetheme.nuplone.z3cform.widget import WysiwygFieldWidget
-except ImportError:
-    from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
 
 class ISurvey(model.Schema, IBasic):
@@ -267,14 +262,18 @@ class Survey(Container):
         """Return a list of all profile questions."""
         return [child for child in self.values() if IProfileQuestion.providedBy(child)]
 
-    def get_tool_type_name(self):
-        """Returns the human readable name of the chosen tool type."""
+    def get_tool_type_info(self):
         my_tool_type = get_tool_type(self)
         tti = getUtility(IToolTypesInfo)
         tool_types = tti()
         if my_tool_type not in tool_types:
             my_tool_type = tti.default_tool_type
-        return tool_types[my_tool_type]["title"]
+        return tool_types[my_tool_type]
+
+    def get_tool_type_name(self):
+        """Returns the human readable name of the chosen tool type."""
+        tool_type_info = self.get_tool_type_info()
+        return tool_type_info["title"]
 
 
 @indexer(ISurvey)

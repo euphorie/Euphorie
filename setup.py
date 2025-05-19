@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = "17.0.4.dev0"
+version = "18.0.1.dev0"
 
 setup(
     name="Euphorie",
@@ -13,14 +13,12 @@ setup(
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
         "Framework :: Plone",
-        "Framework :: Plone :: 6.0",
+        "Framework :: Plone :: 6.1",
         "License :: OSI Approved :: GNU General Public License (GPL)",
         "Programming Language :: Python :: 3",
-        # "Programming Language :: Python :: 3.9",
-        # "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
-        # "Programming Language :: Python :: 3.13",
+        "Programming Language :: Python :: 3.13",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
@@ -33,7 +31,7 @@ setup(
     package_dir={"": "src"},
     include_package_data=True,
     zip_safe=False,
-    python_requires=">=3.11,<3.13",
+    python_requires=">=3.11",
     install_requires=[
         "AccessControl",
         "alembic",
@@ -44,7 +42,7 @@ setup(
         "lxml",
         "markdownify",
         "nltk",
-        "NuPlone >=2.1.4",
+        "NuPlone >= 4.0.1",
         "openpyxl",
         "path.py",
         "Plone >=6.0",

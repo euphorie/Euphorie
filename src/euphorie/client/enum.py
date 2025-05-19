@@ -56,6 +56,7 @@ class UUID(types.TypeEngine):
 
 
 class Enum(types.TypeDecorator):
+    cache_ok = True
     impl = types.Unicode
 
     def __init__(self, values, empty_to_none=False, strict=False):
@@ -76,7 +77,8 @@ class Enum(types.TypeDecorator):
             raise TypeError("Enum requires a list of values")
         self.empty_to_none = empty_to_none
         self.strict = strict
-        self.values = values[:]
+        # Cast to tuple to ensure it can be hashed and so cached
+        self.values = tuple(values)
 
         # The length of the string/unicode column should be the longest string
         # in values

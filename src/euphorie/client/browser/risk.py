@@ -20,20 +20,22 @@ from euphorie.content.survey import get_tool_type
 from euphorie.content.survey import ISurvey
 from euphorie.content.utils import IToolTypesInfo
 from euphorie.content.utils import parse_scaled_answers
+from euphorie.content.utils import ToolTypesInfo
 from euphorie.htmllaundry.utils import strip_markup
 from io import BytesIO
 from plone import api
 from plone.base.utils import safe_text
 from plone.memoize.instance import memoize
+from plone.memoize.view import memoize_contextless
 from plone.namedfile import NamedBlobImage
 from plone.namedfile.browser import DisplayFile
 from plone.scale.scale import scaleImage
 from Products.CMFPlone.utils import getAllowedSizes
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from sqlalchemy import and_
 from z3c.saconfig import Session
 from zope.component import getUtility
+from zope.deprecation import deprecate
 from zope.event import notify
 from zope.publisher.interfaces import NotFound
 
@@ -119,6 +121,26 @@ class RiskBase(BrowserView):
     def survey(self):
         """This is the survey dexterity object."""
         return self.webhelpers._survey
+
+    @property
+    @memoize_contextless
+    def tti(self) -> ToolTypesInfo:
+        return getUtility(IToolTypesInfo)
+
+    @property
+    @memoize
+    def my_tool_type(self) -> str:
+        return get_tool_type(self.survey)
+
+    @property
+    @memoize
+    def use_existing_measures(self) -> bool:
+        return (
+            api.portal.get_registry_record(
+                "euphorie.use_existing_measures", default=False
+            )
+            and self.my_tool_type in self.tti.types_existing_measures
+        )
 
     @property
     @memoize
@@ -464,10 +486,8 @@ class IdentificationView(RiskBase):
 
     @property
     @memoize
-    def next_question(self):
-        return FindNextQuestion(
-            self.context, dbsession=self.session, filter=self.question_filter
-        )
+    def navigation(self):
+        return api.content.get_view("navigation", self.context, self.request)
 
     @property
     @memoize
@@ -520,16 +540,15 @@ class IdentificationView(RiskBase):
         self.check_render_condition()
 
         utils.setLanguage(self.request, self.survey, self.survey.language)
-        self.set_parameter_values()
 
         if self.request.method == "POST":
             reply = self.request.form
             if not self.webhelpers.can_edit_session:
-                return self.proceed_to_next(reply)
+                return self.navigation.proceed_to_next(reply)
             _next = self._get_next(reply)
             # Don't persist anything if the user skipped the question
             if _next == "skip":
-                return self.proceed_to_next(reply)
+                return self.navigation.proceed_to_next(reply)
             old_values = {}
             for prop, default in self.monitored_properties.items():
                 val = getattr(self.context, prop, default)
@@ -571,7 +590,7 @@ class IdentificationView(RiskBase):
             if changed:
                 self.session.touch()
 
-            return self.proceed_to_next(reply)
+            return self.navigation.proceed_to_next(reply)
 
         else:
             self._prepare_risk()
@@ -608,15 +627,19 @@ class IdentificationView(RiskBase):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
 
+    @deprecate(
+        "This method does not do anything anymore. The set attributes have been moved to properties."  # noqa: E501
+    )
     def set_parameter_values(self):
-        self.tti = getUtility(IToolTypesInfo)
-        self.my_tool_type = get_tool_type(self.survey)
-        self.use_existing_measures = (
-            api.portal.get_registry_record(
-                "euphorie.use_existing_measures", default=False
-            )
-            and self.my_tool_type in self.tti.types_existing_measures
-        )
+        """This method will be removed. It was used to set the values of:
+
+        - tti
+        - my_tool_type
+        - use_existing_measures
+
+        These values are now properties of the RiskBase class.
+        """
+        pass
 
     def get_identification_from_scaled_answer(self, scaled_answer):
         """Determine the yes/no identification based on the scaled answer.
@@ -983,80 +1006,6 @@ class IdentificationView(RiskBase):
             or "template-default"
         )
 
-    @property
-    @memoize
-    def previous_question(self):
-        return FindPreviousQuestion(
-            self.context, dbsession=self.session, filter=self.question_filter
-        )
-
-    def proceed_to_next(self, reply):
-        _next = reply.get("next", None)
-        # In Safari browser we get a list
-        if isinstance(_next, list):
-            _next = _next.pop()
-        if _next == "previous":
-            target = self.previous_question
-            if target is None:
-                # We ran out of questions, step back to intro page
-                url = "{session_url}/@@identification".format(
-                    session_url=self.webhelpers.traversed_session.absolute_url()
-                )
-                return self.request.response.redirect(url)
-        elif _next in ("next", "skip"):
-            target = self.next_question
-            if target is None:
-                # We ran out of questions, proceed to the action plan
-                if self.webhelpers.use_action_plan_phase:
-                    next_view_name = "@@actionplan"
-                elif self.webhelpers.use_consultancy_phase:
-                    next_view_name = "@@consultancy"
-                else:
-                    next_view_name = "@@report"
-                base_url = self.webhelpers.traversed_session.absolute_url()
-                url = f"{base_url}/{next_view_name}"
-                return self.request.response.redirect(url)
-
-        elif _next == "add_custom_risk" and self.webhelpers.can_edit_session:
-            sql_module = (
-                Session.query(model.Module)
-                .filter(
-                    and_(
-                        model.SurveyTreeItem.session == self.session,
-                        model.Module.zodb_path == "custom-risks",
-                    )
-                )
-                .first()
-            )
-            if not sql_module:
-                url = self.context.absolute_url() + "/@@identification"
-                return self.request.response.redirect(url)
-
-            view = api.content.get_view("identification", sql_module, self.request)
-            view.add_custom_risk()
-            notify(CustomRisksModifiedEvent(self.context.aq_parent))
-            risk_id = self.context.aq_parent.children().count()
-            # Construct the path to the newly added risk: We know that there
-            # is only one custom module, so we can take its id directly. And
-            # to that we can append the risk id.
-            url = "{session_url}/{module}/{risk}/@@identification".format(
-                session_url=self.webhelpers.traversed_session.absolute_url(),
-                module=sql_module.getId(),
-                risk=risk_id,
-            )
-            return self.request.response.redirect(url)
-        elif _next == "actionplan":
-            url = self.webhelpers.traversed_session.absolute_url() + "/@@actionplan"
-            return self.request.response.redirect(url)
-        # stay on current risk
-        else:
-            target = self.context
-        url = ("{session_url}/{path}/@@identification").format(
-            session_url=self.webhelpers.traversed_session.absolute_url(),
-            path="/".join(target.short_path),
-        )
-        return self.request.response.redirect(url)
-
     @memoize
     def get_existing_measures_with_activation(self):
         saved_standard_measures = {
@@ -1316,15 +1265,6 @@ class ActionPlanView(RiskBase):
             return
         context = aq_inner(self.context)
         utils.setLanguage(self.request, self.survey, self.survey.language)
-
-        self.tti = getUtility(IToolTypesInfo)
-        self.my_tool_type = get_tool_type(self.survey)
-        self.use_existing_measures = (
-            api.portal.get_registry_record(
-                "euphorie.use_existing_measures", default=False
-            )
-            and self.my_tool_type in self.tti.types_existing_measures
-        )
 
         # already compute "next" here, so that we can know in the template
         # if the next step might be the report phase, in which case we
