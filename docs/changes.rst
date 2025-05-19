@@ -8,6 +8,28 @@ Changelog
 
 .. towncrier release notes start
 
+18.1.0 (2025-05-19)
+-------------------
+
+Breaking changes:
+
+
+- Change the logo widget
+
+  Do not use anymore the logo widget because the help text is not updated anymore.
+  Update the field help text.
+
+
+Bug fixes:
+
+
+- Do not break if we have unexpected fieldsets.
+  This might happen, e.g., if you add a behavior to your content type.
+  [@ale-rt]
+- Hide external editor action.
+  And fix its condition to not fail when the ``externalEditorEnabled`` skin script is not available.
+
+
 18.0.0 (2025-04-30)
 -------------------
 

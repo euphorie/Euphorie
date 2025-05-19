@@ -1,4 +1,0 @@
-Change the logo widget
-
-Do not use anymore the logo widget because the help text is not updated anymore.
-Update the field help text.
