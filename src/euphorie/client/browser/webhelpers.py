@@ -425,6 +425,7 @@ class WebHelpers(BrowserView):
         for obj in aq_chain(aq_inner(self.context)):
             if IClientSector.providedBy(obj):
                 return obj.Title()
+        return ""
 
     @property
     @memoize
