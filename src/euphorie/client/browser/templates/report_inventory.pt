@@ -38,16 +38,19 @@
           >
             <h1 i18n:translate="label_report">Good practices and guidance</h1>
 
-            <tal:recom tal:repeat="option view/selected_options">
-              <h2>${option/aq_parent/title}</h2>
-              <em>Your answer:</em>
-              <span>${option/title}</span>
-              <h3>Measures:</h3>
-              <p tal:repeat="recommendation option/values"
-                 tal:replace="structure recommendation/text"
-              >
-              </p>
-            </tal:recom>
+            <tal:module tal:repeat="module view/modules">
+              <p tal:replace="structure python:view.get_intro(module, idx=repeat.module.index)"></p>
+              <tal:recom tal:repeat="option python:view.get_selected_options(module)">
+                <h3>${option/aq_parent/title}</h3>
+                <em>Your answer:</em>
+                <span>${option/title}</span>
+                <h4>Measures:</h4>
+                <p tal:repeat="recommendation option/values"
+                   tal:replace="structure recommendation/text"
+                >
+                </p>
+              </tal:recom>
+            </tal:module>
 
           </article>
 
