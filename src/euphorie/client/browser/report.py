@@ -303,7 +303,12 @@ class ReportInventory(BrowserView):
         ]
 
     def get_intro(self, module, idx=0):
-        return f"<h2>Part {self.heading_numbers[idx]}: {module.title}</h2>"
+        return "\n".join(
+            (
+                f"<h2>Part {self.heading_numbers[idx]}: {module.title}</h2>",
+                module.recommendation or "",
+            )
+        )
 
     def get_selected_options(self, module):
         for choice in module.values():
