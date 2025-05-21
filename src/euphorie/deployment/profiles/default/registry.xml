@@ -4,7 +4,7 @@
           interface="plone.i18n.interfaces.ILanguageSchema"
           name="plone.default_language"
   >
-    <value>en-us</value>
+    <value>en</value>
   </record>
   <record field="use_path_negotiation"
           interface="plone.i18n.interfaces.ILanguageSchema"
