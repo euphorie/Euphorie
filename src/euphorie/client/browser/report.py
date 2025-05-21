@@ -7,15 +7,11 @@ for the action plan.
 """
 
 from .. import MessageFactory as _
-from Acquisition import aq_inner
-from Acquisition import aq_parent
 from base64 import b64encode
 from datetime import date
 from euphorie.client import model
 from euphorie.client import survey
 from euphorie.client import utils
-from euphorie.content.survey import ISurvey
-from OFS.interfaces import IOrderedContainer
 from openpyxl.workbook import Workbook
 from openpyxl.writer.excel import save_workbook
 from pkg_resources import resource_filename
@@ -269,6 +265,7 @@ class ReportInventory(BrowserView):
 
     variation_class = "variation-risk-assessment"
     label = "Recommendations report"
+    heading_numbers = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "XI", "X"]
 
     @property
     @memoize
@@ -298,30 +295,34 @@ class ReportInventory(BrowserView):
             return b64encode(data.read())
 
     @memoize
-    def get_position_in_parent(self, obj):
-        parent = aq_parent(aq_inner(obj))
-        ordered = IOrderedContainer(parent, None)
-        if ordered is not None:
-            return ordered.getObjectPosition(obj.getId())
-        return 0
+    def modules(self):
+        return [
+            module
+            for module in self.context.aq_parent.values()
+            if module.title != "label_custom_risks"
+        ]
 
+    def get_intro(self, module, idx=0):
+        return f"<h2>Part {self.heading_numbers[idx]}: {module.title}</h2>"
+
+    def get_selected_options(self, module):
+        for choice in module.values():
+            # XXX submodules?
+            for option in choice.values():
+                if (
+                    f"{module.id}/{choice.id}/{option.id}" in self.selected_paths
+                    and option.objectIds()
+                ):
+                    yield option
+
+    @property
     @memoize
-    def get_sort_key(self, obj):
-        if ISurvey.providedBy(obj):
-            return (1,)
-        return self.get_sort_key(aq_parent(obj)) + (self.get_position_in_parent(obj),)
-
-    def selected_options(self):
-        selected = (
+    def selected_paths(self):
+        rows = (
             self.sqlsession.query(model.Option)
             .join(
                 model.SurveyTreeItem, model.Option.choice_id == model.SurveyTreeItem.id
             )
             .filter(model.SurveyTreeItem.session_id == self.context.session.id)
         )
-        objs = [
-            self.context.aq_parent.restrictedTraverse(row.zodb_path) for row in selected
-        ]
-        objs_with_recommendations = [obj for obj in objs if obj.objectIds()]
-        ordered = sorted(objs_with_recommendations, key=self.get_sort_key)
-        return ordered
+        return [row.zodb_path for row in rows]
