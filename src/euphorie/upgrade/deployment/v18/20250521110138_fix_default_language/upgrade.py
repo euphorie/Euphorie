@@ -23,6 +23,6 @@ class FixDefaultLanguage(UpgradeStep):
             else:
                 raise ValueError(
                     f"Cannot safely replace the default language {default_language}. "
-                    f"Please set-up manually the registry records "
+                    f"Please set up manually the registry records "
                     f"`plone.default_language` and `plone.available_languages`."
                 )
