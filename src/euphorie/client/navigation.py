@@ -13,6 +13,7 @@ from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
 from plone import api
 from Products.Five import BrowserView
+from sqlalchemy import orm
 from sqlalchemy import sql
 from z3c.saconfig import Session
 
@@ -34,14 +35,27 @@ def FindNextQuestion(after, dbsession, filter=None):
     # or it is a Choice and the condition is blank,
     # or an option that is referred to in the condition has been picked
     # XXX simplify?
+    condition_tree = orm.aliased(model.SurveyTreeItem)
+    condition_choice = orm.aliased(model.Choice)
     condition = sql.or_(
-        ~sql.exists().where(model.Choice.id == model.SurveyTreeItem.id),
+        ~sql.exists().where(
+            sql.and_(
+                model.Choice.id == model.SurveyTreeItem.id,
+                model.SurveyTreeItem.session == dbsession,
+            )
+        ),
         sql.exists().where(
             sql.and_(
+                model.SurveyTreeItem.session == dbsession,
                 model.Choice.id == model.SurveyTreeItem.id,
                 sql.or_(
                     model.Choice.condition == None,  # noqa: E711
-                    model.Choice.condition == model.Option.zodb_path,  # noqa: E711
+                    sql.and_(
+                        model.Choice.condition == model.Option.zodb_path,
+                        model.Option.choice_id == condition_choice.id,
+                        condition_choice.id == condition_tree.id,
+                        condition_tree.session == dbsession,
+                    ),
                 ),
             ),
         ),
