@@ -28,21 +28,11 @@ def FindFirstQuestion(dbsession, filter=None):
     return query.order_by(model.SurveyTreeItem.path).first()
 
 
-def FindNextQuestion(after, dbsession, filter=None):
-    query = (
-        Session.query(model.SurveyTreeItem)
-        .filter(model.SurveyTreeItem.session == dbsession)
-        .filter(model.SurveyTreeItem.path > after.path)
-        .filter(sql.not_(model.SKIPPED_PARENTS))
-    )
-    # Skip modules without a description.
-    if filter is None:
-        filter = model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER
-    else:
-        filter = sql.and_(model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER, filter)
-    query = query.filter(filter)
-    for candidate in query.order_by(model.SurveyTreeItem.path):
-        if not candidate.condition:
+def check_condition(query, dbsession):
+    """Find first item in query result that has a fulfilled condition
+    (or no condition)"""
+    for candidate in query:
+        if not isinstance(candidate, model.Choice) or not candidate.condition:
             return candidate
         # If there is a condition, only return the candidate if the referenced Option
         # has been picked in this session
@@ -58,6 +48,22 @@ def FindNextQuestion(after, dbsession, filter=None):
     return None
 
 
+def FindNextQuestion(after, dbsession, filter=None):
+    query = (
+        Session.query(model.SurveyTreeItem)
+        .filter(model.SurveyTreeItem.session == dbsession)
+        .filter(model.SurveyTreeItem.path > after.path)
+        .filter(sql.not_(model.SKIPPED_PARENTS))
+    )
+    # Skip modules without a description.
+    if filter is None:
+        filter = model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER
+    else:
+        filter = sql.and_(model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER, filter)
+    query = query.filter(filter)
+    return check_condition(query.order_by(model.SurveyTreeItem.path), dbsession)
+
+
 def FindPreviousQuestion(after, dbsession, filter=None):
     query = (
         Session.query(model.SurveyTreeItem)
@@ -71,7 +77,7 @@ def FindPreviousQuestion(after, dbsession, filter=None):
     else:
         filter = sql.and_(model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER, filter)
     query = query.filter(filter)
-    return query.order_by(model.SurveyTreeItem.path.desc()).first()
+    return check_condition(query.order_by(model.SurveyTreeItem.path.desc()), dbsession)
 
 
 def first(func, iter):
