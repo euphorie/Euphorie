@@ -13,6 +13,7 @@ from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
 from plone import api
 from Products.Five import BrowserView
+from sqlalchemy import orm
 from sqlalchemy import sql
 from z3c.saconfig import Session
 
@@ -29,29 +30,11 @@ def FindFirstQuestion(dbsession, filter=None):
 
 
 def FindNextQuestion(after, dbsession, filter=None):
-    # Filter out Choice objects where condition is not met,
-    # i.e. either tree item is not a choice,
-    # or it is a Choice and the condition is blank,
-    # or an option that is referred to in the condition has been picked
-    # XXX simplify?
-    condition = sql.or_(
-        ~sql.exists().where(model.Choice.id == model.SurveyTreeItem.id),
-        sql.exists().where(
-            sql.and_(
-                model.Choice.id == model.SurveyTreeItem.id,
-                sql.or_(
-                    model.Choice.condition == None,  # noqa: E711
-                    model.Choice.condition == model.Option.zodb_path,  # noqa: E711
-                ),
-            ),
-        ),
-    )
     query = (
         Session.query(model.SurveyTreeItem)
         .filter(model.SurveyTreeItem.session == dbsession)
         .filter(model.SurveyTreeItem.path > after.path)
         .filter(sql.not_(model.SKIPPED_PARENTS))
-        .filter(condition)
     )
     # Skip modules without a description.
     if filter is None:
@@ -59,7 +42,21 @@ def FindNextQuestion(after, dbsession, filter=None):
     else:
         filter = sql.and_(model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER, filter)
     query = query.filter(filter)
-    return query.order_by(model.SurveyTreeItem.path).first()
+    for candidate in query.order_by(model.SurveyTreeItem.path):
+        if not candidate.condition:
+            return candidate
+        # If there is a condition, only return the candidate if the referenced Option
+        # has been picked in this session
+        if (
+            Session.query(model.Option)
+            .join(model.Choice, model.Option.choice_id == model.Choice.id)
+            .filter(model.Option.zodb_path == candidate.condition)
+            .filter(model.Choice.id == model.SurveyTreeItem.id)
+            .filter(model.SurveyTreeItem.session == dbsession)
+            .count()
+        ):
+            return candidate
+    return None
 
 
 def FindPreviousQuestion(after, dbsession, filter=None):
