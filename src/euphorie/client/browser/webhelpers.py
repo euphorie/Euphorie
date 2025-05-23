@@ -674,10 +674,11 @@ class WebHelpers(BrowserView):
         survey = self._survey
         if not survey:
             return None
-        if getattr(self, "session", None) and "/".join(
-            survey.getPhysicalPath()
-        ).endswith(self.session.zodb_path):
-            return self.session.title
+        # XXX broken and probably obsolete
+        # if getattr(self, "session", None) and "/".join(
+        #     survey.getPhysicalPath()
+        # ).endswith(self.session.zodb_path):
+        #     return self.session.title
         return survey.title
 
     def get_phase(self):

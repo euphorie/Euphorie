@@ -13,7 +13,6 @@ from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.profilequestion import IProfileQuestion
 from plone import api
 from Products.Five import BrowserView
-from sqlalchemy import orm
 from sqlalchemy import sql
 from z3c.saconfig import Session
 
@@ -29,6 +28,25 @@ def FindFirstQuestion(dbsession, filter=None):
     return query.order_by(model.SurveyTreeItem.path).first()
 
 
+def check_condition(query, dbsession):
+    """Find first item in query result that has a fulfilled condition
+    (or no condition)"""
+    for candidate in query:
+        if not isinstance(candidate, model.Choice) or not candidate.condition:
+            return candidate
+        # If there is a condition, only return the candidate if the referenced Option
+        # has been picked in this session
+        if (
+            Session.query(model.Option)
+            .join(model.Choice, model.Option.choice_id == model.Choice.id)
+            .filter(model.Option.zodb_path == candidate.condition)
+            .filter(model.Choice.session == dbsession)
+            .count()
+        ):
+            return candidate
+    return None
+
+
 def FindNextQuestion(after, dbsession, filter=None):
     query = (
         Session.query(model.SurveyTreeItem)
@@ -42,20 +60,7 @@ def FindNextQuestion(after, dbsession, filter=None):
     else:
         filter = sql.and_(model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER, filter)
     query = query.filter(filter)
-    for candidate in query.order_by(model.SurveyTreeItem.path):
-        if not candidate.condition:
-            return candidate
-        # If there is a condition, only return the candidate if the referenced Option
-        # has been picked in this session
-        if (
-            Session.query(model.Option)
-            .join(model.Choice, model.Option.choice_id == model.Choice.id)
-            .filter(model.Option.zodb_path == candidate.condition)
-            .filter(model.Choice.session == dbsession)
-            .count()
-        ):
-            return candidate
-    return None
+    return check_condition(query.order_by(model.SurveyTreeItem.path), dbsession)
 
 
 def FindPreviousQuestion(after, dbsession, filter=None):
@@ -71,7 +76,7 @@ def FindPreviousQuestion(after, dbsession, filter=None):
     else:
         filter = sql.and_(model.RISK_OR_MODULE_WITH_DESCRIPTION_FILTER, filter)
     query = query.filter(filter)
-    return query.order_by(model.SurveyTreeItem.path.desc()).first()
+    return check_condition(query.order_by(model.SurveyTreeItem.path.desc()), dbsession)
 
 
 def first(func, iter):
