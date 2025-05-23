@@ -906,6 +906,11 @@ class Report(SessionMixin, BrowserView):
         if self.webhelpers.redirectOnSurveyUpdate():
             return
 
+        if self.context.aq_parent.tool_type == "inventory":
+            url = "%s/@@report_inventory" % self.context.absolute_url()
+            self.request.response.redirect(url)
+            return
+
         session = self.context.session
         if self.request.method == "POST":
             session.report_comment = self.request.form.get("comment")

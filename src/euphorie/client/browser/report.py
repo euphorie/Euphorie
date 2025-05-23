@@ -7,18 +7,21 @@ for the action plan.
 """
 
 from .. import MessageFactory as _
+from base64 import b64encode
 from datetime import date
 from euphorie.client import model
 from euphorie.client import survey
 from euphorie.client import utils
 from openpyxl.workbook import Workbook
 from openpyxl.writer.excel import save_workbook
+from pkg_resources import resource_filename
 from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
 from sqlalchemy import sql
 from tempfile import NamedTemporaryFile
 from urllib.parse import quote
+from z3c.saconfig import Session
 from zope.i18n import translate
 
 import logging
@@ -254,3 +257,77 @@ class ActionPlanTimeline(BrowserView, survey._StatusHelper):
             save_workbook(book, tmp.name)
             tmp.seek(0)
             return tmp.read()
+
+
+class ReportInventory(BrowserView):
+    """Report that combines recommendations according to the options the user has picked
+    in the inventory tool."""
+
+    variation_class = "variation-risk-assessment"
+    label = "Recommendations report"
+    heading_numbers = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "XI", "X"]
+
+    @property
+    @memoize
+    def sqlsession(self):
+        return Session()
+
+    @property
+    @memoize
+    def session(self):
+        return self.context.session
+
+    @property
+    def cover(self):
+        filename = resource_filename(
+            "euphorie.client.browser", "templates/dsetool_cover.png"
+        )
+        with open(filename, "rb") as data:
+            return b64encode(data.read())
+
+    @property
+    @memoize
+    def logo(self):
+        filename = resource_filename(
+            "euphorie.client.browser", "templates/dsetool_report_logo.png"
+        )
+        with open(filename, "rb") as data:
+            return b64encode(data.read())
+
+    @memoize
+    def modules(self):
+        return [
+            module
+            for module in self.context.aq_parent.values()
+            if module.title != "label_custom_risks"
+        ]
+
+    def get_intro(self, module, idx=0):
+        return "\n".join(
+            (
+                f"<h2>Part {self.heading_numbers[idx]}: {module.title}</h2>",
+                module.recommendation or "",
+            )
+        )
+
+    def get_selected_options(self, module):
+        for choice in module.values():
+            # XXX submodules?
+            for option in choice.values():
+                if (
+                    f"{module.id}/{choice.id}/{option.id}" in self.selected_paths
+                    and option.objectIds()
+                ):
+                    yield option
+
+    @property
+    @memoize
+    def selected_paths(self):
+        rows = (
+            self.sqlsession.query(model.Option)
+            .join(
+                model.SurveyTreeItem, model.Option.choice_id == model.SurveyTreeItem.id
+            )
+            .filter(model.SurveyTreeItem.session_id == self.context.session.id)
+        )
+        return [row.zodb_path for row in rows]
