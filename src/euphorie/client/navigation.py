@@ -40,8 +40,7 @@ def check_condition(query, dbsession):
             Session.query(model.Option)
             .join(model.Choice, model.Option.choice_id == model.Choice.id)
             .filter(model.Option.zodb_path == candidate.condition)
-            .filter(model.Choice.id == model.SurveyTreeItem.id)
-            .filter(model.SurveyTreeItem.session == dbsession)
+            .filter(model.Choice.session == dbsession)
             .count()
         ):
             return candidate
