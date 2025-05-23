@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:meta="http://xml.zope.org/namespaces/meta"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      meta:interpolation="true"
+      metal:use-macro="context/@@shell/macros/shell"
+      tal:define="
+        client nocall:request/client;
+        webhelpers nocall:context/@@webhelpers;
+      "
+      i18n:domain="euphorie"
+>
+
+  <body>
+    <metal:slot fill-slot="content"
+                tal:define="
+                  choice nocall:view/choice;
+                "
+    >
+      <tal:block replace="tile:statusmessages" />
+
+      <form class="pat-form pat-inject pat-validation panel-style"
+            accept-charset="UTF-8"
+            action="${here/absolute_url}/@@${view/__name__}"
+            enctype="multipart/form-data"
+            method="post"
+            data-pat-inject="history: record; source: #step-2-topics; target: #step-2-topics &amp;&amp; source: #main-content; target: #main-content &amp;&amp; source: #toolbar; target: #toolbar &amp;&amp; source: #status; target: #status"
+            data-pat-validation="disable-selector: button[name='next']; ${webhelpers/pat_validation_messages}"
+      >
+        <a class="pat-scroll pat-scroll-animated"
+           hidden
+           href="#content-pane"
+           data-pat-scroll="selector: #content-pane; trigger: auto; offset: 0"
+        >Scroll to top</a>
+        <div class="pat-scroll-box"
+             id="content-pane"
+        >
+          <metal:call use-macro="webhelpers/macros/toolbar" />
+          <article class="pat-rich">
+            <h2 class="risk-title">${here/title}</h2>
+            <tal:description content="structure python:webhelpers.get_safe_html(choice.description)">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+            ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+              explicabo.</tal:description>
+            <fieldset class="pat-checklist">
+              <input name="answer:default"
+                     type="hidden"
+                     value="postponed"
+              />
+              <label class="label-fragment-title"
+                     tal:repeat="option choice/objectValues"
+              >
+                <input checked="${python: option_path in view.selected}"
+                       name="answer"
+                       type="${python: 'checkbox' if choice.allow_multiple_options else 'radio'}"
+                       value="${option_path}"
+                       tal:define="
+                         option_path string:${context/zodb_path}/${option/id};
+                       "
+                />${option/title}
+              </label>
+            </fieldset>
+          </article>
+        </div>
+        <p class="button-bar pat-bumper"
+           id="nav-bar"
+        >
+          <button class="pat-button back"
+                  name="next"
+                  type="submit"
+                  value="previous"
+                  i18n:translate="label_previous"
+          >Previous</button>
+          <button class="pat-button continue"
+                  name="next"
+                  type="submit"
+                  value="next"
+                  tal:condition="webhelpers/can_edit_session"
+                  i18n:translate="label_save_and_continue"
+          >Save and continue</button>
+          <button class="pat-button continue"
+                  name="save"
+                  type="submit"
+                  value="save"
+                  tal:condition="webhelpers/can_edit_session"
+                  i18n:translate=""
+          >Save</button>
+          <button class="pat-button skip"
+                  name="next"
+                  type="submit"
+                  value="skip"
+                  i18n:translate="label_button_skip"
+          >Skip</button>
+        </p>
+      </form>
+    </metal:slot>
+  </body>
+</html>
