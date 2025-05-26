@@ -8,6 +8,21 @@ Changelog
 
 .. towncrier release notes start
 
+18.2.0 (2025-05-26)
+-------------------
+
+New features:
+
+
+- Matomo custom dimensions endpoint (`Issue #3351 <https://github.com/syslabcom/scrum/issues/3351>`_)
+
+
+Bug fixes:
+
+
+- Fix the default language when installing Euphorie
+
+
 18.1.0 (2025-05-19)
 -------------------
 
