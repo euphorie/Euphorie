@@ -1123,7 +1123,7 @@ class StatusInventory(BrowserView, _StatusHelper):
         total = dict(total_query)
         status = []
         for module in total:
-            num_answered = answered[module]
+            num_answered = answered.get(module, 0)
             num_unvisited = total[module] - num_answered
             status.append((module, num_answered, num_unvisited))
         return status
