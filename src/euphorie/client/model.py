@@ -1319,14 +1319,28 @@ class SurveySession(BaseObject):
         total_risks_query = Session.query(Risk).filter(
             Risk.parent_id.in_(good_module_ids)
         )
-        total = total_risks_query.count()
+        total_choices_query = (
+            Session.query(Choice)
+            .filter(Choice.parent_id.in_(good_module_ids))
+            .filter(Choice.condition == None)  # noqa: E711
+        )
+        total = total_risks_query.count() + total_choices_query.count()
 
         if not total:
             return 0
 
-        answered = float(
+        answered_risks = float(
             total_risks_query.filter(Risk.identification != None).count()  # noqa: E711
         )
+        answered_choices = float(
+            total_choices_query.filter(
+                sql.or_(
+                    Choice.postponed == True,  # noqa: E711
+                    Choice.options.any(),
+                )
+            ).count()
+        )
+        answered = answered_risks + answered_choices
 
         completion_percentage = int(round(answered / total * 100.0))
         return completion_percentage
