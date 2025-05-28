@@ -1088,7 +1088,7 @@ class Status(SessionMixin, BrowserView, _StatusHelper):
         return super().__call__()
 
 
-class StatusInventory(BrowserView, _StatusHelper):
+class StatusInventory(SessionMixin, BrowserView, _StatusHelper):
     """Show status information for an inventory tool session."""
 
     variation_class = "variation-risk-assessment"
@@ -1127,6 +1127,13 @@ class StatusInventory(BrowserView, _StatusHelper):
             num_unvisited = total[module] - num_answered
             status.append((module, num_answered, num_unvisited))
         return status
+
+    def __call__(self):
+        if self.webhelpers.redirectOnSurveyUpdate():
+            return
+        utils.setLanguage(self.request, self.survey, self.survey.language)
+        self.verify_view_permission()
+        return super().__call__()
 
 
 class RisksOverview(Status):
