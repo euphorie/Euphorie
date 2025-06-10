@@ -9,13 +9,16 @@ from . import model
 from .interfaces import IClientSkinLayer
 from AccessControl import ClassSecurityInfo
 from AccessControl.class_init import InitializeClass
+from Acquisition import aq_base
 from Acquisition import aq_parent
+from euphorie.client import config
 from euphorie.content.user import IUser
 from plone import api
 from plone.base.utils import safe_text
 from plone.keyring.interfaces import IKeyManager
 from Products.membrane.interfaces import IMembraneUserAuth
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
+from Products.PlonePAS.tools.memberdata import MemberData
 from Products.PluggableAuthService.interfaces.plugins import IAuthenticationPlugin
 from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
 from Products.PluggableAuthService.interfaces.plugins import IExtractionPlugin
@@ -169,7 +172,7 @@ class EuphorieAccountPlugin(BasePlugin):
 
     @security.private
     def _authenticate_login(self, credentials):
-        login = credentials.get("login")
+        login = credentials.get("email_overrides_login") or credentials.get("login")
         password = credentials.get("password")
         account = authenticate(login, password)
         if account is not None:
@@ -185,11 +188,122 @@ class EuphorieAccountPlugin(BasePlugin):
         else:
             return None
 
+    def _validate_credentials_on_others(self, credentials, context=None):
+        """Validate the credentials on other plugins.
+
+        This is used to check if the credentials are valid according to other
+        plugins. If the credentials are not valid, we do not create an account.
+        """
+        if context is None:
+            context = api.portal.get()
+
+        if hasattr(aq_base(context), "acl_users"):
+            plugins = context.acl_users.plugins
+            authenticators = plugins.listPlugins(IAuthenticationPlugin)
+            for authenticator_id, authenticator in authenticators:
+                if authenticator_id != self.id:
+                    uid_and_name = authenticator.authenticateCredentials(credentials)
+                    if uid_and_name is not None:
+                        log.debug(
+                            "User %r authenticated by %s plugin.",
+                            credentials.get("login"),
+                            authenticator_id,
+                        )
+                        return True
+
+        # Let's see if we can find a parent context that has other
+        # authenticator plugins.
+        # This will be tipically Zope's user plougin.
+        parent = aq_parent(context)
+        if parent is None:
+            # We reached the top of the hierarchy without finding a valid
+            # authenticator.
+            return False
+
+        return self._validate_credentials_on_others(credentials, context=parent)
+
+    def _create_account_if_missing(self, credentials):
+        """Create a SQL account if it does not exist yet.
+
+        The user must have an email property which will be used as the loginname
+        on the client.
+        """
+        extractor = credentials.get("extractor")
+        if extractor != "credentials_cookie_auth":
+            # Only create an account if the credentials are extracted by the
+            # credentials_cookie_auth extractor.
+            return
+
+        login = credentials.get("login")
+        if not login:
+            return
+
+        user = api.user.get(username=login)
+
+        if not isinstance(user, MemberData):
+            return
+
+        email = user.getProperty("email")
+        if not email or login == email:
+            log.warning(
+                "No email address set for user %r. Cannot create a SQL account.",
+                login,
+            )
+            return
+
+        sa_session = Session()
+
+        sql_account = (
+            sa_session.query(model.Account)
+            .filter(model.Account.loginname == email)
+            .first()
+        )
+
+        if sql_account:
+            credentials["login"] = email
+            return
+
+        password = credentials.get("password")
+        if not password:
+            # If no password is provided, we cannot create an account.
+            log.warning(
+                "No password provided for user %r. Cannot create a SQL account.",
+                email,
+            )
+            return
+
+        # If we have a password we need to check if it is valid
+        # according to the other plugins.
+        if not self._validate_credentials_on_others(credentials):
+            log.warning(
+                "Credentials for user %r are not valid according to other plugins. "
+                "Refusing to create a SQL account.",
+                login,
+            )
+            return
+
+        # we want to use the email to login to the client.
+        credentials["email_overrides_login"] = email
+
+        sql_account = model.Account(
+            loginname=email,
+            tc_approved=1,
+            password=password,
+            account_type=config.FULL_ACCOUNT,
+        )
+        sa_session.add(sql_account)
+        log.info("A SQL account %r was created for user %r.", email, login)
+
     @security.private
     @graceful_recovery(log_args=False)
     def authenticateCredentials(self, credentials):
         if not IClientSkinLayer.providedBy(self.REQUEST):
             return None
+
+        # Handles the use case of a backend user that has not yet
+        # been created in the SQL database.
+        self._create_account_if_missing(credentials)
+
         uid_and_login = self._authenticate_login(credentials)
         if uid_and_login is None:
             uid_and_login = self._authenticate_token(credentials)
