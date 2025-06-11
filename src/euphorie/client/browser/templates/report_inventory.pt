@@ -35,11 +35,21 @@
 
           <article class="pat-rich"
                    id="report"
+                   tal:define="
+                     modules view/modules;
+                   "
           >
-            <h1 i18n:translate="label_report">Good practices and guidance</h1>
+            <h1 tal:condition="python:len(modules) &gt; 1"
+                i18n:translate="label_report_inventory"
+            >Good practices and guidance</h1>
+            <h1 tal:condition="python:len(modules) == 1"
+                i18n:translate="label_report_inventory_short"
+            >Short questionnaire report</h1>
 
-            <tal:module tal:repeat="module view/modules">
-              <p tal:replace="structure python:view.get_intro(module, idx=repeat.module.index)"></p>
+            <tal:module tal:repeat="module modules">
+              <p tal:condition="python:len(modules) &gt; 1"
+                 tal:replace="structure python:view.get_intro(module, idx=repeat.module.index)"
+              ></p>
               <tal:recom tal:repeat="option python:view.get_selected_options(module)">
                 <h3>${option/aq_parent/title}</h3>
                 <em>Your answer:</em>
