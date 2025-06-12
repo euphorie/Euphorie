@@ -26,7 +26,7 @@
         >
           <h1>${context/Title}</h1>
           <tal:block replace="tile:statusmessages" />
-          <tal:block-etoolspecific>
+          <tal:block-etoolspecific tal:condition="python:len(context.aq_parent.objectIds()) &gt;= 3">
             <p i18n:translate="intro_identification_dsetool">The questions are divided into 3 parts. The first part is about identifying potential chemical risks in your company. The second part is about the routines for chemical risk management. And the third part is about control measures to reduce chemical risks.</p>
           </tal:block-etoolspecific>
           <p tal:condition="extra_text">${extra_text}</p>
