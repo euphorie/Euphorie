@@ -91,7 +91,7 @@ class AuthenticationPluginTests(EuphorieIntegrationTestCase):
         self.assertListEqual(
             cm.output,
             [
-                f"WARNING:euphorie.client.authentication:No email address set for user {TEST_USER_NAME!r}. Cannot create a SQL account."  # noqa: E501
+                f"WARNING:euphorie.client.authentication:No email address set for user {TEST_USER_NAME!r}. Cannot look for SQL account."  # noqa: E501
             ],
         )
 
@@ -107,14 +107,14 @@ class AuthenticationPluginTests(EuphorieIntegrationTestCase):
         }
         with self.assertLogs("euphorie.client.authentication") as cm:
             self.assertTupleEqual(
-                ("1", "foo@example.com"),
+                (1, "foo@example.com"),
                 self._call_authenticateCredentials(credentials),
             )
 
         self.assertListEqual(
             cm.output,
             [
-                "INFO:euphorie.client.authentication:A SQL account 'foo@example.com' was created for user 'test-user'.",  # noqa: E501
+                "INFO:euphorie.client.authentication:An SQL account 'foo@example.com' was created for user 'test-user'.",  # noqa: E501
             ],
         )
 
@@ -122,7 +122,7 @@ class AuthenticationPluginTests(EuphorieIntegrationTestCase):
         self.assertEqual(
             session.query(Account).filter_by(loginname="foo@example.com").one().id, 1
         )
-        self.assertEqual(credentials["email_overrides_login"], "foo@example.com")
+        self.assertEqual(credentials["login"], TEST_USER_NAME)
 
     def test_authentication_backend_user_proper_email_account_already_existing(self):
         api.user.get(username=TEST_USER_NAME).setProperties(
@@ -145,7 +145,7 @@ class AuthenticationPluginTests(EuphorieIntegrationTestCase):
             "extractor": "credentials_cookie_auth",
         }
         self.assertTupleEqual(
-            ("1", "foo@example.com"),
+            (1, "foo@example.com"),
             self._call_authenticateCredentials(credentials),
         )
 
@@ -167,6 +167,6 @@ class AuthenticationPluginTests(EuphorieIntegrationTestCase):
         self.assertListEqual(
             cm.output,
             [
-                f"WARNING:euphorie.client.authentication:Credentials for user {TEST_USER_NAME!r} are not valid according to other plugins. Refusing to create a SQL account.",  # noqa: E501
+                f"WARNING:euphorie.client.authentication:Credentials for user {TEST_USER_NAME!r} are not valid according to other plugins. Refusing to login as a client SQL account.",  # noqa: E501
             ],
         )
