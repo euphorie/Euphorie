@@ -172,7 +172,7 @@ class EuphorieAccountPlugin(BasePlugin):
 
     @security.private
     def _authenticate_login(self, credentials):
-        login = credentials.get("email_overrides_login") or credentials.get("login")
+        login = credentials.get("login")
         password = credentials.get("password")
         account = authenticate(login, password)
         if account is not None:
@@ -209,7 +209,7 @@ class EuphorieAccountPlugin(BasePlugin):
                             credentials.get("login"),
                             authenticator_id,
                         )
-                        return True
+                        return uid_and_name
 
         # Let's see if we can find a parent context that has other
         # authenticator plugins.
@@ -222,77 +222,132 @@ class EuphorieAccountPlugin(BasePlugin):
 
         return self._validate_credentials_on_others(credentials, context=parent)
 
-    def _create_account_if_missing(self, credentials):
-        """Create a SQL account if it does not exist yet.
+    def _get_email_for_login_name(self, login):
+        """Get email for login name
 
-        The user must have an email property which will be used as the loginname
-        on the client.
+        Check if a user with this login name exists in Plone and meets the
+        requirements for creating an SQL account, if needed.
+
+        Return the email address of the user.
         """
-        extractor = credentials.get("extractor")
-        if extractor != "credentials_cookie_auth":
-            # Only create an account if the credentials are extracted by the
-            # credentials_cookie_auth extractor.
-            return
-
-        login = credentials.get("login")
-        if not login:
-            return
-
         user = api.user.get(username=login)
-
+        if user is None:
+            return
         if not isinstance(user, MemberData):
+            log.warning(
+                "User %r exists, but we don't get Memberdata, but %r. Ignoring user.",
+                login,
+                type(user),
+            )
             return
 
         email = user.getProperty("email")
-        if not email or login == email:
+        if not email:
             log.warning(
-                "No email address set for user %r. Cannot create a SQL account.",
+                "No email address set for user %r. Cannot look for SQL account.",
+                login,
+            )
+            return
+        if login == email:
+            log.warning(
+                "Login name is same as email address for user %r. "
+                "Looking for SQL account would be superfluous.",
+                login,
+            )
+            return
+        return email
+
+    def _maybe_let_backend_account_login_on_client(self, credentials):
+        """Maybe let a backend account login on the client side.
+
+        Scenario:
+
+        * Susy is an editor.  She has an account on the backend with
+          email address susy@example.com
+        * She first logs in on the backend, with login name 'susy',
+          and password 'secret'.
+        * She improves a survey, and publishes it to the client.
+        * Then she goes to the client side to check how the survey looks.
+        * Problem: on the client side she needs to authenticate with
+          an email address and password, but she has no client side account.
+
+        We help here in the following way:
+
+        * We check if the credentials are valid according to some other
+          PAS plugin.
+        * We check if there is an SQL account linked to her email.
+        * We create this account if it does not exist yet.
+        * We make her authenticated.  We ignore the password, because one
+          of the other plugins has already told us the credentials are valid.
+
+        This was introcuded in https://github.com/euphorie/Euphorie/pull/857
+        """
+        extractor = credentials.get("extractor")
+        if extractor not in ("credentials_cookie_auth", "session"):
+            # Only create an account if the credentials are extracted by the
+            # credentials_cookie_auth or session extractors.
+            return
+
+        # We may have a login name, but not when the extractor is plone.session.
+        login = credentials.get("login")
+
+        # Check if the credentials are valid according to the other plugins.
+        uid_and_name = self._validate_credentials_on_others(credentials)
+        if not uid_and_name:
+            log.warning(
+                "Credentials for user %r are not valid according to other plugins. "
+                "Refusing to login as a client SQL account.",
                 login,
             )
             return
 
-        sa_session = Session()
+        if login and login != uid_and_name[1]:
+            log.warning(
+                "The credentials have login %r, but a user with a different "
+                "login name is found: %r (user id %r). "
+                "Refusing to login as a client SQL account.",
+                login,
+                uid_and_name[1],
+                uid_and_name[0],
+            )
+            return
 
+        # From here on, take the validated login name.
+        login = uid_and_name[1]
+
+        # Get the email address for this user.
+        email = self._get_email_for_login_name(login)
+        if not email:
+            return
+
+        sa_session = Session()
         sql_account = (
             sa_session.query(model.Account)
             .filter(model.Account.loginname == email)
             .first()
         )
 
-        if sql_account:
-            credentials["login"] = email
-            return
-
-        password = credentials.get("password")
-        if not password:
-            # If no password is provided, we cannot create an account.
-            log.warning(
-                "No password provided for user %r. Cannot create a SQL account.",
-                email,
+        if not sql_account:
+            # sql_account = self._create_account(email, credentials.get("password"))
+            password = credentials.get("password")
+            if not password:
+                # We need to store a password, but when the credentials were
+                # extracted by plone.session we do not have it. So create one.
+                reg = api.portal.get_tool(name="portal_registration")
+                password = reg.generatePassword()
+                log.debug("Generated password %r for user %r.", password, email)
+            sql_account = model.Account(
+                loginname=email,
+                tc_approved=1,
+                password=password,
+                account_type=config.FULL_ACCOUNT,
             )
-            return
+            sa_session.add(sql_account)
+            # We flush the session, otherwise the account has no id yet.
+            sa_session.flush()
+            log.info("An SQL account %r was created for user %r.", email, login)
 
-        # If we have a password we need to check if it is valid
-        # according to the other plugins.
-        if not self._validate_credentials_on_others(credentials):
-            log.warning(
-                "Credentials for user %r are not valid according to other plugins. "
-                "Refusing to create a SQL account.",
-                login,
-            )
-            return
-
-        # we want to use the email to login to the client.
-        credentials["email_overrides_login"] = email
-
-        sql_account = model.Account(
-            loginname=email,
-            tc_approved=1,
-            password=password,
-            account_type=config.FULL_ACCOUNT,
-        )
-        sa_session.add(sql_account)
-        log.info("A SQL account %r was created for user %r.", email, login)
+        return sql_account.id, email
 
     @security.private
     @graceful_recovery(log_args=False)
@@ -300,13 +355,19 @@ class EuphorieAccountPlugin(BasePlugin):
         if not IClientSkinLayer.providedBy(self.REQUEST):
             return None
 
-        # Handles the use case of a backend user that has not yet
-        # been created in the SQL database.
-        self._create_account_if_missing(credentials)
-
         uid_and_login = self._authenticate_login(credentials)
         if uid_and_login is None:
             uid_and_login = self._authenticate_token(credentials)
+        if uid_and_login is None:
+            # Handles the use case of a backend user that visits the client
+            # side.  We do this after the previous checks, so we don't mess
+            # with the standard client login.
+            uid_and_login = self._maybe_let_backend_account_login_on_client(credentials)
+            if uid_and_login:
+                log.debug(
+                    "Successfully authenticated backend user on client: %r",
+                    uid_and_login,
+                )
         if uid_and_login is not None:
             session = self._get_survey_session()
             if session is not None:
