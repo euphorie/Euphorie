@@ -199,6 +199,21 @@ class ISurvey(model.Schema, IBasic):
     )
     directives.widget(tool_notification_message=WysiwygFieldWidget)
 
+    depends("show_immediate_feedback", "tool_type", "==", "inventory")
+    show_immediate_feedback = schema.Bool(
+        title=_(
+            "label_show_immediate_feedback",
+            default="Show recommendations as immediate feedback",
+        ),
+        description=_(
+            "description_show_immediate_feedback",
+            default="After the user has selected an option for a choice, show any "
+            "associated recommendations before proceeding to the next choice",
+        ),
+        required=False,
+        default=False,
+    )
+
 
 class SurveyAttributeField(ParentAttributeField):
     parent_mapping = {
