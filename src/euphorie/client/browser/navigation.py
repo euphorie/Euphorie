@@ -50,6 +50,9 @@ class NavigationView(BrowserView):
                     session_url=self.webhelpers.traversed_session.absolute_url()
                 )
                 return self.request.response.redirect(url)
+        elif _next == "feedback":
+            url = self.context.absolute_url() + "/@@identification_feedback"
+            return self.request.response.redirect(url)
         elif _next in ("next", "skip"):
             target = self.next_question
             if target is None:
