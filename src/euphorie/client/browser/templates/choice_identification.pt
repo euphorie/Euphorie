@@ -77,7 +77,7 @@
           <button class="pat-button continue"
                   name="next"
                   type="submit"
-                  value="next"
+                  value="${python: 'feedback' if webhelpers.is_show_immediate_feedback else 'next'}"
                   tal:condition="webhelpers/can_edit_session"
                   i18n:translate="label_save_and_continue"
           >Save and continue</button>

@@ -3,6 +3,7 @@ from euphorie.client.navigation import getTreeData
 from plone import api
 from plone.memoize.instance import memoize
 from Products.Five import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
 class IdentificationView(BrowserView):
@@ -119,3 +120,33 @@ class IdentificationView(BrowserView):
 
             return self.navigation.proceed_to_next(reply)
         return self.index()
+
+
+class IdentificationFeedbackView(IdentificationView):
+    """A view for displaying feedback on a selected option in the identification
+    phase."""
+
+    variation_class = "variation-risk-assessment"
+
+    def set_answer_data(self, reply):
+        # has already been done in @@identification
+        return False
+
+    @property
+    @memoize
+    def recommendations(self):
+        zodb_options = [
+            self.webhelpers.traversed_session.restrictedTraverse(option.zodb_path)
+            for option in self.context.options
+        ]
+        recommendation_texts = []
+        for zodb_option in zodb_options:
+            for recommendation in zodb_option.values():
+                if recommendation.portal_type == "euphorie.recommendation":
+                    recommendation_texts.append(recommendation.text)
+        return recommendation_texts
+
+    def __call__(self):
+        if not self.recommendations:
+            return self.navigation.proceed_to_next({"next": "next"})
+        return super().__call__()

@@ -826,6 +826,13 @@ class WebHelpers(BrowserView):
 
     @property
     @memoize
+    def is_show_immediate_feedback(self):
+        if not self._survey.tool_type == "inventory":
+            return False
+        return getattr(self._survey, "show_immediate_feedback", False)
+
+    @property
+    @memoize
     def use_action_plan_phase(self):
         return not self.integrated_action_plan
 

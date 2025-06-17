@@ -730,6 +730,15 @@
       />
 
   <browser:page
+      name="identification_feedback"
+      for="euphorie.client.model.Choice"
+      class=".choice.IdentificationFeedbackView"
+      template="templates/choice_identification_feedback.pt"
+      permission="euphorie.client.ViewSurvey"
+      layer="euphorie.client.interfaces.IClientSkinLayer"
+      />
+
+  <browser:page
       name="tool-more-info"
       for="euphorie.client.adapters.session_traversal.ITraversedSurveySession"
       class=".session.SessionMixin"
