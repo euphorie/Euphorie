@@ -116,8 +116,8 @@
                   </dd>
                 </tal:case>
                 <tal:case case="default">
-                  <dt i18n:translate="label_unpublished">
-                      Unpublished
+                  <dt i18n:translate="label_unlocked">
+                      Unlocked
                   </dt>
                   <dd>
                   </dd>
