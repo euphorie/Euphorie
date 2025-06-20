@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  <record name="plonetheme.nuplone.appconfigtile_navigation">
+    <field type="plone.registry.field.Text">
+      <title>Configure the navigation tile</title>
+      <description>Some json to configure the navigation tile</description>
+      <value_type type="plone.registry.field.TextLine" />
+      <default>{
+  "tiles": "\nnavtree [context.portal_type in ['euphorie.profilequestion', 'euphorie.module', 'euphorie.risk', 'euphorie.solution', 'euphorie.survey', 'euphorie.surveygroup', 'euphorie.folder', 'euphorie.documentation', 'euphorie.help', 'euphorie.page', 'euphorie.training_question', 'euphorie.choice', 'euphorie.option'] ]\neuphorie.usermgmt.navtree [context.portal_type=='euphorie.country' and request.getURL().endswith('@@manage-users')]",
+  "type": "group"
+}</default>
+      <missing_value>{
+  "tiles": "\nnavtree [context.portal_type in ['euphorie.profilequestion', 'euphorie.module', 'euphorie.risk', 'euphorie.solution', 'euphorie.survey', 'euphorie.surveygroup', 'euphorie.folder', 'euphorie.documentation', 'euphorie.help', 'euphorie.page', 'euphorie.training_question', 'euphorie.choice', 'euphorie.option'] ]\neuphorie.usermgmt.navtree [context.portal_type=='euphorie.country' and request.getURL().endswith('@@manage-users')]",
+  "type": "group"
+}</missing_value>
+    </field>
+  </record>
+</registry>
