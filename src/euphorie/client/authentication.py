@@ -11,14 +11,12 @@ from AccessControl import ClassSecurityInfo
 from AccessControl.class_init import InitializeClass
 from Acquisition import aq_base
 from Acquisition import aq_parent
-from euphorie.client import config
 from euphorie.content.user import IUser
 from plone import api
 from plone.base.utils import safe_text
 from plone.keyring.interfaces import IKeyManager
 from Products.membrane.interfaces import IMembraneUserAuth
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
-from Products.PlonePAS.tools.memberdata import MemberData
 from Products.PluggableAuthService.interfaces.plugins import IAuthenticationPlugin
 from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
 from Products.PluggableAuthService.interfaces.plugins import IExtractionPlugin
@@ -198,18 +196,32 @@ class EuphorieAccountPlugin(BasePlugin):
             context = api.portal.get()
 
         if hasattr(aq_base(context), "acl_users"):
-            plugins = context.acl_users.plugins
-            authenticators = plugins.listPlugins(IAuthenticationPlugin)
+            email = credentials["login"]
+            pas = context.acl_users
+            authenticators = pas.plugins.listPlugins(IAuthenticationPlugin)
             for authenticator_id, authenticator in authenticators:
                 if authenticator_id != self.id:
                     uid_and_name = authenticator.authenticateCredentials(credentials)
                     if uid_and_name is not None:
                         log.debug(
                             "User %r authenticated by %s plugin.",
-                            credentials.get("login"),
+                            email,
                             authenticator_id,
                         )
                         return uid_and_name
+
+            result = pas.searchUsers(email=email, exact_match=True)
+            if result:
+                user = result[0]
+                # Sanity check: does the email really match?
+                if "email" in user and user["email"] != email:
+                    log.warning(
+                        "Found user, but email %r does not match requested %r",
+                        user["email"],
+                        email,
+                    )
+                    return
+                return user.get("id"), user.get("login")
 
         # Let's see if we can find a parent context that has other
         # authenticator plugins.
@@ -221,41 +233,6 @@ class EuphorieAccountPlugin(BasePlugin):
             return False
 
         return self._validate_credentials_on_others(credentials, context=parent)
-
-    def _get_email_for_login_name(self, login):
-        """Get email for login name
-
-        Check if a user with this login name exists in Plone and meets the
-        requirements for creating an SQL account, if needed.
-
-        Return the email address of the user.
-        """
-        user = api.user.get(username=login)
-        if user is None:
-            return
-        if not isinstance(user, MemberData):
-            log.warning(
-                "User %r exists, but we don't get Memberdata, but %r. Ignoring user.",
-                login,
-                type(user),
-            )
-            return
-
-        email = user.getProperty("email")
-        if not email:
-            log.warning(
-                "No email address set for user %r. Cannot look for SQL account.",
-                login,
-            )
-            return
-        if login == email:
-            log.warning(
-                "Login name is same as email address for user %r. "
-                "Looking for SQL account would be superfluous.",
-                login,
-            )
-            return
-        return email
 
     def _maybe_let_backend_account_login_on_client(self, credentials):
         """Maybe let a backend account login on the client side.
@@ -276,20 +253,24 @@ class EuphorieAccountPlugin(BasePlugin):
         * We check if the credentials are valid according to some other
           PAS plugin.
         * We check if there is an SQL account linked to her email.
-        * We create this account if it does not exist yet.
         * We make her authenticated.  We ignore the password, because one
           of the other plugins has already told us the credentials are valid.
 
-        This was introcuded in https://github.com/euphorie/Euphorie/pull/857
+        This was introduced in https://github.com/euphorie/Euphorie/pull/857
         """
+        # Only continue if the credentials are extracted by the
+        # credentials_cookie_auth extractor.  Basically: only do this when
+        # we are at the login form.
         extractor = credentials.get("extractor")
-        if extractor not in ("credentials_cookie_auth", "session"):
-            # Only create an account if the credentials are extracted by the
-            # credentials_cookie_auth or session extractors.
+        if extractor != "credentials_cookie_auth":
             return
 
-        # We may have a login name, but not when the extractor is plone.session.
-        login = credentials.get("login")
+        # We should have a login name, and it should be an email address.
+        email = credentials.get("login")
+        if not email or "@" not in email:
+            return
+        # Let's be safe.
+        email = email.strip()
 
         # Check if the credentials are valid according to the other plugins.
         uid_and_name = self._validate_credentials_on_others(credentials)
@@ -297,29 +278,14 @@ class EuphorieAccountPlugin(BasePlugin):
             log.warning(
                 "Credentials for user %r are not valid according to other plugins. "
                 "Refusing to login as a client SQL account.",
-                login,
+                email,
             )
             return
 
-        if login and login != uid_and_name[1]:
-            log.warning(
-                "The credentials have login %r, but a user with a different "
-                "login name is found: %r (user id %r). "
-                "Refusing to login as a client SQL account.",
-                login,
-                uid_and_name[1],
-                uid_and_name[0],
-            )
-            return
-
-        # From here on, take the validated login name.
+        # Take the validated login name.
         login = uid_and_name[1]
 
-        # Get the email address for this user.
-        email = self._get_email_for_login_name(login)
-        if not email:
-            return
-
+        # Check if we have a matching SQL account.
         sa_session = Session()
         sql_account = (
             sa_session.query(model.Account)
@@ -328,6 +294,17 @@ class EuphorieAccountPlugin(BasePlugin):
         )
 
         if not sql_account:
+            log.warning(
+                "No SQL account found for email %r. "
+                "Maybe user %r needs to trigger creating an account first.",
+                email,
+                login,
+            )
+            # Maybe show a status message?  But if the user is not actually
+            # a backend user, this might be confusing.
+            # api.portal.show_message(
+            #     "Please go to the backend and trigger creating an account."
+            # )
             return
 
         return sql_account.id, email
@@ -399,6 +376,8 @@ class EuphorieAccountPlugin(BasePlugin):
     ):
         """IUserEnumerationPlugin implementation."""
         if not exact_match:
+            return []
+        if not (id or login):
             return []
         if not IClientSkinLayer.providedBy(self.REQUEST):
             return []
