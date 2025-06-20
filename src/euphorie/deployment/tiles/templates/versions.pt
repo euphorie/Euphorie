@@ -19,6 +19,16 @@
     <div class="to_client">
       <h5 i18n:translate="header_client">Client</h5>
       <ul>
+        <li>
+          <form action="${context/absolute_url}/@@create-client-account"
+                method="post"
+          >
+            <button class="micro"
+                    type="submit"
+                    i18n:translate="button_create_client_account"
+            >Create client account with your email address</button>
+          </form>
+        </li>
         <li tal:condition="view/published_url|nothing">
           <a href="${view/published_url}"
              target="_blank"
