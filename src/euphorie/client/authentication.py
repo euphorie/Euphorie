@@ -328,24 +328,7 @@ class EuphorieAccountPlugin(BasePlugin):
         )
 
         if not sql_account:
-            # sql_account = self._create_account(email, credentials.get("password"))
-            password = credentials.get("password")
-            if not password:
-                # We need to store a password, but when the credentials were
-                # extracted by plone.session we do not have it. So create one.
-                reg = api.portal.get_tool(name="portal_registration")
-                password = reg.generatePassword()
-                log.debug("Generated password %r for user %r.", password, email)
-            sql_account = model.Account(
-                loginname=email,
-                tc_approved=1,
-                password=password,
-                account_type=config.FULL_ACCOUNT,
-            )
-            sa_session.add(sql_account)
-            # We flush the session, otherwise the account has no id yet.
-            sa_session.flush()
-            log.info("An SQL account %r was created for user %r.", email, login)
+            return
 
         return sql_account.id, email
 
