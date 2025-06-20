@@ -17,28 +17,21 @@
   <div class="portletContent">
 
     <div class="to_client">
-      <h5 i18n:translate="header_legend">Client</h5>
-      <ul class="legend">
-        <li class="published"
-            i18n:translate="legend_published"
-        ><em class="sample published"
-              i18n:name="label"
-              i18n:translate="label_published"
-          >Published</em>
-          Version that is currently online</li>
-        <li class="current"
-            i18n:translate="legend_current"
-        ><em class="sample current"
-              i18n:name="label"
-              i18n:translate="label_current"
-          >Current</em>
-          Version you are currently reviewing</li>
+      <h5 i18n:translate="header_client">Client</h5>
+      <ul>
+        <li tal:condition="view/published_url|nothing">
+          <a href="${view/published_url}"
+             target="_blank"
+             i18n:translate=""
+          >Go to current online version</a>
+        </li>
+        <li tal:condition="view/preview_url|nothing">
+          <a href="${view/preview_url}"
+             target="_blank"
+             i18n:translate=""
+          >Go to current preview version</a>
+        </li>
       </ul>
-      <p i18n:translate="legend_updated"><em class="button icon upload"
-            i18n:name="label"
-            i18n:translate="label_update"
-        >Update</em>
-        = This version has changes that are currently unpublished. Click the update icon to bring all the changes live</p>
     </div>
 
     <form action="${group/url}/@@version-command"
