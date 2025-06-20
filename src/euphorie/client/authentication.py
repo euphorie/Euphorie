@@ -10,6 +10,7 @@ from .interfaces import IClientSkinLayer
 from AccessControl import ClassSecurityInfo
 from AccessControl.class_init import InitializeClass
 from Acquisition import aq_base
+from Acquisition import aq_chain
 from Acquisition import aq_parent
 from euphorie.content.user import IUser
 from plone import api
@@ -186,53 +187,34 @@ class EuphorieAccountPlugin(BasePlugin):
         else:
             return None
 
-    def _validate_credentials_on_others(self, credentials, context=None):
+    def _validate_credentials_on_others(self, credentials):
         """Validate the credentials on other plugins.
 
         This is used to check if the credentials are valid according to other
-        plugins. If the credentials are not valid, we do not create an account.
-        """
-        if context is None:
-            context = api.portal.get()
+        plugins. If the credentials are not valid, we do not authenticate.
+        We try the acl_users at the Plone and Zope level.
 
-        if hasattr(aq_base(context), "acl_users"):
-            email = credentials["login"]
-            pas = context.acl_users
+        The credentials are not the original credentials that were extracted.
+        We have updated them to have a valid 'login', other than the email
+        address.
+        """
+        context = api.portal.get()
+        for obj in aq_chain(context):
+            if not hasattr(aq_base(context), "acl_users"):
+                return
+            pas = obj.acl_users
             authenticators = pas.plugins.listPlugins(IAuthenticationPlugin)
             for authenticator_id, authenticator in authenticators:
                 if authenticator_id != self.id:
+                    log.info("Checking %s at %s", authenticator_id, obj)
                     uid_and_name = authenticator.authenticateCredentials(credentials)
                     if uid_and_name is not None:
-                        log.debug(
+                        log.info(
                             "User %r authenticated by %s plugin.",
-                            email,
+                            credentials["login"],
                             authenticator_id,
                         )
                         return uid_and_name
-
-            result = pas.searchUsers(email=email, exact_match=True)
-            if result:
-                user = result[0]
-                # Sanity check: does the email really match?
-                if "email" in user and user["email"] != email:
-                    log.warning(
-                        "Found user, but email %r does not match requested %r",
-                        user["email"],
-                        email,
-                    )
-                    return
-                return user.get("id"), user.get("login")
-
-        # Let's see if we can find a parent context that has other
-        # authenticator plugins.
-        # This will be tipically Zope's user plougin.
-        parent = aq_parent(context)
-        if parent is None:
-            # We reached the top of the hierarchy without finding a valid
-            # authenticator.
-            return False
-
-        return self._validate_credentials_on_others(credentials, context=parent)
 
     def _maybe_let_backend_account_login_on_client(self, credentials):
         """Maybe let a backend account login on the client side.
@@ -272,8 +254,29 @@ class EuphorieAccountPlugin(BasePlugin):
         # Let's be safe.
         email = email.strip()
 
+        # Try to find a user with this email address.
+        pas = self._getPAS()
+        result = pas.searchUsers(email=email, exact_match=True)
+        if not result:
+            return
+
+        user = result[0]
+        # Sanity check: does the email really match?  Not every plugin
+        # may handle the search correctly.
+        if "email" in user and user["email"] != email:
+            log.warning(
+                "Found user, but email %r does not match requested %r",
+                user["email"],
+                email,
+            )
+            return
+
+        # Now we can update the credentials to try authenticating as this user.
+        new_credentials = credentials.copy()
+        new_credentials["login"] = user.get("login")
+
         # Check if the credentials are valid according to the other plugins.
-        uid_and_name = self._validate_credentials_on_others(credentials)
+        uid_and_name = self._validate_credentials_on_others(new_credentials)
         if not uid_and_name:
             log.warning(
                 "Credentials for user %r are not valid according to other plugins. "
