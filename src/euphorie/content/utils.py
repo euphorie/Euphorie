@@ -1,4 +1,5 @@
 from .. import MessageFactory as _
+from Acquisition import aq_chain
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from collections import OrderedDict
@@ -471,3 +472,49 @@ def parse_scaled_answers(contents):
         )
 
     return result
+
+
+def survey_client_url(context, must_exist=False, preview=False):
+    """Return the URL this survey group will have after it is published.
+
+    * context: a survey group or anything within it.
+      If the context is outside, we return an empty string.
+    * must_exist: if True, we only return a url if the content exists.
+    * preview: if True, we return the url of the preview.
+      Note that there can only be one preview per sector.
+
+    Any combination of values of `must_exist` and `preview` should be fine.
+    """
+    # Find the survey group.
+    surveygroup = None
+    portal = api.portal.get()
+    for obj in aq_chain(context):
+        try:
+            if obj.portal_type == "euphorie.surveygroup":
+                surveygroup = obj
+                break
+        except AttributeError:
+            break
+    if surveygroup is None:
+        return ""
+
+    # Determine the path on the client.
+    sector = aq_parent(surveygroup)
+    country = aq_parent(sector)
+    final_segment = "preview" if preview else surveygroup.id
+    path = "/".join([country.id, sector.id, final_segment])
+    if must_exist:
+        survey = portal.client.unrestrictedTraverse(path, None)
+        # When we traverse to "eu/covid-19/covid-19" and this does not exist,
+        # the magic of acquisition and inheritance happily finds the sector
+        # at "eu/covid-19".  So check if it really is a survey.
+        if survey is None or survey.portal_type != "euphorie.survey":
+            return ""
+
+    # Return the survey url on the client.
+    client_url = api.portal.get_registry_record("euphorie.client_url", default="")
+    if client_url:
+        client_url = client_url.rstrip("/")
+    else:
+        client_url = portal.client.absolute_url()
+    return "/".join([client_url, path])

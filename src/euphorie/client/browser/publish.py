@@ -11,6 +11,7 @@ from euphorie.client import MessageFactory as _
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.interfaces import ObjectPublishedEvent
 from euphorie.content.utils import IToolTypesInfo
+from euphorie.content.utils import survey_client_url
 from plone import api
 from plone.scale.storage import AnnotationStorage
 from plonetheme.nuplone.utils import getPortal
@@ -273,17 +274,7 @@ class PublishSurvey(form.Form):
 
     def client_url(self):
         """Return the URL this survey will have after it is published."""
-        client_url = api.portal.get_registry_record("euphorie.client_url", default="")
-        if client_url:
-            client_url = client_url.rstrip("/")
-        else:
-            client_url = getPortal(self.context).client.absolute_url()
-
-        source = aq_inner(self.context)
-        surveygroup = aq_parent(source)
-        sector = aq_parent(surveygroup)
-        country = aq_parent(sector)
-        return "/".join([client_url, country.id, sector.id, surveygroup.id])
+        return survey_client_url(aq_inner(self.context))
 
     @button.buttonAndHandler(_("button_cancel", default="Cancel"))
     def handleCancel(self, action):
@@ -337,18 +328,7 @@ class PreviewSurvey(form.Form):
 
     def preview_url(self):
         """Return the URL the preview will have."""
-        client_url = api.portal.get_registry_record("euphorie.client_url", default="")
-        if client_url:
-            client_url = client_url.rstrip("/")
-        else:
-            client_url = getPortal(self.context).client.absolute_url()
-
-        source = aq_inner(self.context)
-        surveygroup = aq_parent(source)
-        sector = aq_parent(surveygroup)
-        country = aq_parent(sector)
-
-        return "/".join([client_url, country.id, sector.id, "preview"])
+        return survey_client_url(aq_inner(self.context), preview=True)
 
     @button.buttonAndHandler(_("button_cancel", default="Cancel"))
     def handleCancel(self, action):
