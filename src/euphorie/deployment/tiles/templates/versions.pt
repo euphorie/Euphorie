@@ -15,6 +15,35 @@
   <h3 i18n:translate="portlet_header_versions">Versions</h3>
 
   <div class="portletContent">
+
+    <div class="to_client">
+      <h5 i18n:translate="header_client">Client</h5>
+      <ul>
+        <li>
+          <form action="${context/absolute_url}/@@create-client-account"
+                method="post"
+          >
+            <button class="micro"
+                    type="submit"
+                    i18n:translate="button_create_client_account"
+            >Create client account with your email address</button>
+          </form>
+        </li>
+        <li tal:condition="view/published_url|nothing">
+          <a href="${view/published_url}"
+             target="_blank"
+             i18n:translate=""
+          >Go to current online version</a>
+        </li>
+        <li tal:condition="view/preview_url|nothing">
+          <a href="${view/preview_url}"
+             target="_blank"
+             i18n:translate=""
+          >Go to current preview version</a>
+        </li>
+      </ul>
+    </div>
+
     <form action="${group/url}/@@version-command"
           method="post"
           tal:repeat="group view/surveys"
