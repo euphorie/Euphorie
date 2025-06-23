@@ -246,7 +246,7 @@ class WebHelpers(BrowserView):
     @memoize
     def use_clone_feature(self):
         return api.portal.get_registry_record(
-            "euphorie.use_clone_feature", default=False
+            "euphorie.use_clone_feature", default=True
         )
 
     @property

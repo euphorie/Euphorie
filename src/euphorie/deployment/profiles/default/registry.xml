@@ -189,7 +189,7 @@
   <record name="euphorie.use_clone_feature">
     <field type="plone.registry.field.Bool">
       <title>use clone feature</title>
-      <default>False</default>
+      <default>True</default>
       <missing_value>False</missing_value>
       <required>False</required>
     </field>
