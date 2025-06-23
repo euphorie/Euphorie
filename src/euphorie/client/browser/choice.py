@@ -3,7 +3,6 @@ from euphorie.client.navigation import getTreeData
 from plone import api
 from plone.memoize.instance import memoize
 from Products.Five import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
 class IdentificationView(BrowserView):
