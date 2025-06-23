@@ -37,6 +37,7 @@
              id="content-pane"
         >
           <article class="rich">
+            <h2 class="risk-title">${context/title}</h2>
             <p tal:repeat="recommendation view/recommendations"
                tal:replace="structure:recommendation"
             ></p>
