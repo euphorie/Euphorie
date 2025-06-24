@@ -72,7 +72,6 @@ setup(
         "weasyprint",
         "z3c.form",
         "z3c.saconfig",
-        "z3c.schema",
         "zope.configuration",
         "zope.i18nmessageid",
         "zope.interface",
