@@ -144,12 +144,12 @@ class NewEmailTests(EuphorieFunctionalTestCase):
 
     def testInvalidEmail(self):
         browser = self.browser
-        browser.open("http://nohost/plone/client/nl/new-email")
+        browser.open("http://nohost/plone/client/nl/new-email?set_language=en")
         browser.getControl(name="form.widgets.password").value = "Guest12345#!"
         browser.getControl(name="form.widgets.loginname").value = "one two"
         browser.getControl(name="form.buttons.save").click()
         self.assertEqual(browser.url, "http://nohost/plone/client/nl/new-email")
-        self.assertTrue("Not a valid email address" in browser.contents)
+        self.assertTrue("The specified email is not valid" in browser.contents)
 
     def testDuplicateEmail(self):
         browser = self.browser
