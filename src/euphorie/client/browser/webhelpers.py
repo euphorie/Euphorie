@@ -192,7 +192,11 @@ class WebHelpers(BrowserView):
         if not globally_enabled:
             return False
         country_enabled = self.content_country_obj.enable_web_training
-        return country_enabled
+        if not country_enabled:
+            return False
+        if self._survey is None:
+            return country_enabled
+        return self._survey.enable_web_training
 
     @property
     def display_training_module(self):
