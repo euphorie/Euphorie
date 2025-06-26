@@ -195,7 +195,7 @@ class WebHelpers(BrowserView):
         if not country_enabled:
             return False
         if self._survey is None:
-            return country_enabled
+            return True
         return self._survey.enable_web_training
 
     @property
