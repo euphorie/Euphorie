@@ -69,8 +69,8 @@ class CreateClientAccount(BrowserView):
             raise Unauthorized
         if self.request.method != "POST":
             raise Unauthorized
-        authenticator = getMultiAdapter(
-            (self.context, self.request), name="authenticator"
+        authenticator = api.content.get_view(
+            "authenticator", self.context, self.request
         )
         if not authenticator.verify():
             raise Unauthorized
