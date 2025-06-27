@@ -11,7 +11,6 @@ from euphorie.client import MessageFactory as _
 from euphorie.content.interfaces import ICustomRisksModule
 from euphorie.content.interfaces import ObjectPublishedEvent
 from euphorie.content.utils import IToolTypesInfo
-from euphorie.content.utils import survey_client_url
 from plone import api
 from plone.scale.storage import AnnotationStorage
 from plonetheme.nuplone.utils import getPortal
@@ -274,7 +273,8 @@ class PublishSurvey(form.Form):
 
     def client_url(self):
         """Return the URL this survey will have after it is published."""
-        return survey_client_url(aq_inner(self.context))
+        view = api.content.get_view("survey-client-url", self.context, self.request)
+        return view()
 
     @button.buttonAndHandler(_("button_cancel", default="Cancel"))
     def handleCancel(self, action):
@@ -328,7 +328,8 @@ class PreviewSurvey(form.Form):
 
     def preview_url(self):
         """Return the URL the preview will have."""
-        return survey_client_url(aq_inner(self.context), preview=True)
+        view = api.content.get_view("survey-client-url", self.context, self.request)
+        return view(preview=True)
 
     @button.buttonAndHandler(_("button_cancel", default="Cancel"))
     def handleCancel(self, action):
