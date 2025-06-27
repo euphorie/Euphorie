@@ -2,7 +2,6 @@ from Acquisition import aq_inner
 from Acquisition import aq_parent
 from euphorie.client import config
 from euphorie.client import model
-from euphorie.client.interfaces import IClientSkinLayer
 from euphorie.content import MessageFactory as _
 from plone import api
 from Products.Five import BrowserView
@@ -63,10 +62,16 @@ class CreateClientAccount(BrowserView):
     View name: @@create-client-account
     """
 
-    def __call__(self):
-        if IClientSkinLayer.providedBy(self.request):
-            # This can only be called on the backend.
-            raise Unauthorized
+    def check_authorized(self):
+        """Check if the user is authorized.
+
+        Raise Unauthorized otherwise.
+
+        We could have called this method `is_authorized`, returned True or
+        False, and let our caller raise Authorized.  But then in the traceback
+        (if this exception is not ignored) you cannot see the reason why the
+        user is not authorized.
+        """
         if self.request.method != "POST":
             raise Unauthorized
         authenticator = api.content.get_view(
@@ -77,29 +82,62 @@ class CreateClientAccount(BrowserView):
         if api.user.is_anonymous():
             raise Unauthorized
 
-        # Check if user has an email address.
+    def check_email(self):
+        """Check if the authenticated user has an email address.
+
+        If not: redirect with a message.
+        """
         user = api.user.get_current()
         email = user.getProperty("email")
+        if email:
+            return email
+        api.portal.show_message(
+            message=_("Please set an email address first."),
+            request=self.request,
+            type="error",
+        )
+        portal_url = api.portal.get().absolute_url()
+        self.request.response.redirect(f"{portal_url}/@@settings")
+
+    def get_sql_account(self, email):
+        """Get existing SQL account for this email address, if it exists."""
+        return (
+            Session()
+            .query(model.Account)
+            .filter(model.Account.loginname == email)
+            .first()
+        )
+
+    def generate_password(self):
+        """Generate random password."""
+        reg = api.portal.get_tool(name="portal_registration")
+        return reg.generatePassword()
+
+    def create_account(self, email, password):
+        """Create SQL account."""
+        sql_account = model.Account(
+            loginname=email,
+            tc_approved=1,
+            password=password,
+            account_type=config.FULL_ACCOUNT,
+        )
+        Session().add(sql_account)
+        return sql_account
+
+    def __call__(self):
+        # Check if the user is authorized.  This call may raise an Unauthorized.
+        self.check_authorized()
+
+        # Check if user has an email address.
+        email = self.check_email()
         if not email:
-            api.portal.show_message(
-                message=_("Please set an email address first."),
-                request=self.request,
-                type="error",
-            )
-            portal_url = api.portal.get().absolute_url()
-            self.request.response.redirect(f"{portal_url}/@@settings")
             return
 
         # From here on, we always want to redirect to the current context at the end.
         self.request.response.redirect(self.context.absolute_url())
 
         # Check for existing account.
-        sa_session = Session()
-        sql_account = (
-            sa_session.query(model.Account)
-            .filter(model.Account.loginname == email)
-            .first()
-        )
+        sql_account = self.get_sql_account(email)
         if sql_account:
             api.portal.show_message(
                 _(
@@ -112,19 +150,12 @@ class CreateClientAccount(BrowserView):
                 request=self.request,
                 type="warn",
             )
+            return
 
-        else:
-            # Generate random password.
-            reg = api.portal.get_tool(name="portal_registration")
-            password = reg.generatePassword()
-            logger.info("Generated password %r for user %r.", password, email)
-            sql_account = model.Account(
-                loginname=email,
-                tc_approved=1,
-                password=password,
-                account_type=config.FULL_ACCOUNT,
-            )
-            sa_session.add(sql_account)
-            api.portal.show_message(
-                message=_("A client account was created."), request=self.request
-            )
+        # Account does not exist.  Create it.
+        password = self.generate_password()
+        logger.info("Generated password %r for user %r.", password, email)
+        sql_account = self.create_account(email, password)
+        api.portal.show_message(
+            message=_("A client account was created."), request=self.request
+        )
