@@ -249,10 +249,12 @@ class EuphorieAccountPlugin(BasePlugin):
 
         # We should have a login name, and it should be an email address.
         email = credentials.get("login")
-        if not email or "@" not in email:
+        if email is None:
             return
         # Let's be safe.
         email = email.strip()
+        if not email or "@" not in email:
+            return
 
         # Try to find a user with this email address.
         pas = self._getPAS()
