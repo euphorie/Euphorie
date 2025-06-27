@@ -6,6 +6,7 @@ from euphorie.content import MessageFactory as _
 from plone import api
 from Products.Five import BrowserView
 from z3c.saconfig import Session
+from zExceptions import Redirect
 from zExceptions import Unauthorized
 from zope.component import getMultiAdapter
 
@@ -82,6 +83,48 @@ class CreateClientAccount(BrowserView):
         if api.user.is_anonymous():
             raise Unauthorized
 
+        return
+
+    def check_root_zope_user(self):
+        """Check if the authenticated user is a root zope user.
+
+        If so: redirect with a message.
+
+        The reason is that root Zope users may be able to set an email, but
+        our EuphorieAccount plugin is not able to find the user back with
+        this code:
+
+            pas.searchUsers(email=email, exact_match=True)
+
+        But in our @@settings page, a root Zope user can only set a password,
+        not an email address, so this may not happen much in practice.
+        Still, we should check.
+        """
+        user = api.user.get_current()
+        pas = aq_parent(user)
+        site = aq_parent(pas)
+        # Check if site is a Plone site.
+        # Alternative would be to check if this is an empty string,
+        # because then we are at the Zope root:
+        # "/".join(aq_parent(pas).getPhysicalPath()):
+        is_plone_site = False
+        try:
+            is_plone_site = site.portal_type == "Plone Site"
+        except AttributeError:
+            pass
+        if is_plone_site:
+            return
+        # The user exists in the root Zope acl_users.
+        api.portal.show_message(
+            message=_(
+                "Creating a client account is not supported for root Zope users. "
+                "Please login as a different user."
+            ),
+            request=self.request,
+            type="error",
+        )
+        raise Redirect(self.context.absolute_url())
+
     def check_email(self):
         """Check if the authenticated user has an email address.
 
@@ -127,6 +170,9 @@ class CreateClientAccount(BrowserView):
     def __call__(self):
         # Check if the user is authorized.  This call may raise an Unauthorized.
         self.check_authorized()
+
+        # Check if this is a root Zope user.  This call may raise a Redirect.
+        self.check_root_zope_user()
 
         # Check if user has an email address.
         email = self.check_email()
