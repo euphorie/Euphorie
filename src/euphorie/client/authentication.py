@@ -257,6 +257,7 @@ class EuphorieAccountPlugin(BasePlugin):
             return
 
         # Try to find a user with this email address.
+        # Note: this does not find anything for root Zope users.
         pas = self._getPAS()
         result = pas.searchUsers(email=email, exact_match=True)
         if not result:
