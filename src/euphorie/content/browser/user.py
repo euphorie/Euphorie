@@ -128,4 +128,3 @@ class CreateClientAccount(BrowserView):
             api.portal.show_message(
                 message=_("A client account was created."), request=self.request
             )
-        return "done"
