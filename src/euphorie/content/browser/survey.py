@@ -538,6 +538,35 @@ class SurveyClientUrl(BrowserView):
             except AttributeError:
                 break
 
+    def path_on_client(self, surveygroup, preview):
+        """Determine the path on the client.
+
+        The path need not exist.
+        """
+        sector = aq_parent(surveygroup)
+        country = aq_parent(sector)
+        final_segment = "preview" if preview else surveygroup.id
+        return "/".join([country.id, sector.id, final_segment])
+
+    def get_survey_on_client(self, path):
+        portal = api.portal.get()
+        survey = portal.client.unrestrictedTraverse(path, None)
+        if survey is None:
+            return
+        # When we traverse to "eu/covid-19/covid-19" and this does not exist,
+        # the magic of acquisition and inheritance happily finds the sector
+        # at "eu/covid-19".  So check if it really is a survey.
+        if survey.portal_type == "euphorie.survey":
+            return survey
+
+    def get_client_url(self):
+        """Get url of the client folder."""
+        client_url = api.portal.get_registry_record("euphorie.client_url", default="")
+        if client_url:
+            return client_url.rstrip("/")
+        portal = api.portal.get()
+        return portal.client.absolute_url()
+
     def __call__(self, must_exist=False, preview=False):
         """Return the survey url on the client side.
 
@@ -547,31 +576,24 @@ class SurveyClientUrl(BrowserView):
         Note that there can only be one preview per sector.
 
         Any combination of values of `must_exist` and `preview` should be fine.
+
+        Normal usage is to get this view in Python code and call it with
+        options, but you can call it in a browser as well.  Best is to pass
+        the options explicitly as booleans, like this:
+
+            @@survey-client-url?preview:boolean=True&must_exist:boolean=True
         """
         # Find the survey group.
         surveygroup = self.get_survey_group()
         if surveygroup is None:
             return ""
 
-        portal = api.portal.get()
-
         # Determine the path on the client.
-        sector = aq_parent(surveygroup)
-        country = aq_parent(sector)
-        final_segment = "preview" if preview else surveygroup.id
-        path = "/".join([country.id, sector.id, final_segment])
-        if must_exist:
-            survey = portal.client.unrestrictedTraverse(path, None)
-            # When we traverse to "eu/covid-19/covid-19" and this does not exist,
-            # the magic of acquisition and inheritance happily finds the sector
-            # at "eu/covid-19".  So check if it really is a survey.
-            if survey is None or survey.portal_type != "euphorie.survey":
-                return ""
+        path = self.path_on_client(surveygroup, preview)
+
+        if must_exist and self.get_survey_on_client(path) is None:
+            return ""
 
         # Return the survey url on the client.
-        client_url = api.portal.get_registry_record("euphorie.client_url", default="")
-        if client_url:
-            client_url = client_url.rstrip("/")
-        else:
-            client_url = portal.client.absolute_url()
+        client_url = self.get_client_url()
         return "/".join([client_url, path])
