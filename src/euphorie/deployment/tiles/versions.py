@@ -2,11 +2,23 @@ from Acquisition import aq_chain
 from Acquisition import aq_inner
 from euphorie.content.sector import getSurveys
 from euphorie.content.sector import ISector
+from functools import cached_property
+from plone import api
 from plone.tiles import Tile
 from plonetheme.nuplone.utils import checkPermission
 
 
 class SurveyVersions(Tile):
+    @cached_property
+    def published_url(self):
+        view = api.content.get_view("survey-client-url", self.context, self.request)
+        return view(must_exist=True)
+
+    @cached_property
+    def preview_url(self):
+        view = api.content.get_view("survey-client-url", self.context, self.request)
+        return view(must_exist=True, preview=True)
+
     def update(self):
         for sector in aq_chain(aq_inner(self.context)):
             if ISector.providedBy(sector):

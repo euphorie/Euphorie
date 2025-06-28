@@ -19,6 +19,7 @@ from plone.autoform import directives
 from plone.autoform.form import AutoExtensibleForm
 from plone.memoize.instance import memoize
 from plone.protect.interfaces import IDisableCSRFProtection
+from plone.schema import Email
 from plone.supermodel import model
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
@@ -30,7 +31,6 @@ from z3c.form import button
 from z3c.form import form
 from z3c.form.interfaces import WidgetActionExecutionError
 from z3c.saconfig import Session
-from z3c.schema.email import RFC822MailAddress
 from zope import schema
 from zope.component import getAdapters
 from zope.i18n import translate
@@ -119,7 +119,7 @@ class AccountDeleteSchema(model.Schema):
 
 
 class EmailChangeSchema(model.Schema):
-    loginname = RFC822MailAddress(title=_("Email address/account name"), required=True)
+    loginname = Email(title=_("Email address/account name"), required=True)
     directives.widget("loginname", type="email")
 
     password = schema.Password(title=_("Your password for confirmation"), required=True)
