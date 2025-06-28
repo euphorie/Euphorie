@@ -200,7 +200,7 @@ class EuphorieAccountPlugin(BasePlugin):
         """
         context = api.portal.get()
         for obj in aq_chain(context):
-            if not hasattr(aq_base(context), "acl_users"):
+            if not hasattr(aq_base(obj), "acl_users"):
                 return
             pas = obj.acl_users
             authenticators = pas.plugins.listPlugins(IAuthenticationPlugin)
