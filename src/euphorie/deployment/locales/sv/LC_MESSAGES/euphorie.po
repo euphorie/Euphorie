@@ -2410,7 +2410,7 @@ msgstr ""
 #: euphorie/content/browser/templates/documentation_view.pt:30
 msgid "documentation_appendix"
 msgstr ""
-"Sidor som skapas i $ {appendix}-mappen är tillgängliga via länkarna i "
+"Sidor som skapas i ${appendix}-mappen är tillgängliga via länkarna i "
 "online-klientens sidfot."
 
 #. Default: "appendix"

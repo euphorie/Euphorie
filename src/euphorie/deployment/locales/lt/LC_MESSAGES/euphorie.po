@@ -5970,7 +5970,7 @@ msgstr "Jūs jau esate organizacijos ${name} narys."
 #. Default: "You have declined the invitation to the ${name} organisation."
 #: euphorie/client/browser/organisation.py:537
 msgid "message_add_user_to_organisation_declined"
-msgstr "Jūs atsisakėte kvietimo prisijungti prie $ {name} organizacijos"
+msgstr "Jūs atsisakėte kvietimo prisijungti prie ${name} organizacijos"
 
 #. Default: "The invitation from the ${name} organisation is not valid
 #. anymore."

@@ -162,7 +162,7 @@ msgstr "Felhasználó hozzáadása"
 
 #: euphorie/content/browser/library.py:208
 msgid "Added a copy of \"${title}\" to your OiRA tool."
-msgstr "Hozzáadta a (z) \"$ {title}\" másolatát az OiRA eszközéhez."
+msgstr "Hozzáadta a (z) \"${title}\" másolatát az OiRA eszközéhez."
 
 #: euphorie/client/browser/templates/webhelpers.pt:1002
 msgid "Additional Measure"
