@@ -146,8 +146,8 @@ msgstr "Settore del flusso di lavoro"
 
 #: euphorie/content/profiles/default/workflows/sector/definition.xml:2
 msgid ""
-"One-state workflow for sector objects, giving edit access to its contents to "
-"the sector user."
+"One-state workflow for sector objects, giving edit access to its contents to"
+" the sector user."
 msgstr ""
 "Uno stato del flusso di lavoro per gli oggetti del settore, potendo "
 "modificare l'accesso ai contenuti dall'utente del settore."

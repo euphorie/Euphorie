@@ -7323,7 +7323,7 @@ msgid "label_value"
 msgstr "Vrednost"
 
 msgid "label_on"
-msgstr "Na"
+msgstr "Vključeno"
 
 msgid "label_loading"
 msgstr "Naloži"
@@ -7774,6 +7774,45 @@ msgstr "Neodgovorjeno"
 
 msgid "yes_acceptable"
 msgstr "Da, preostalo tveganje je sprejemljivo."
+
+msgid "label_start_imp"
+msgstr "Začni"
+
+msgid "label_update_imp"
+msgstr "Posodobi"
+
+msgid "label_create_imp"
+msgstr "Ustvari"
+
+msgid "label_tag"
+msgstr "Oznaka"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"Lahko kopirate vsebino iz obstoječe ocene, izdelane z orodjem {0}, ali "
+"začnete na novo."
+
+msgid "label_new_risk_assessment"
+msgstr "Nova ocena tveganja"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Začni novo oceno tveganja"
+
+msgid "message_help_intro"
+msgstr "Izberite eno od spodnjih tem, da se seznanite z delovanjem OiRA."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Povabite sodelavca, da se seznani z ustreznimi tveganji in ukrepi v okviru "
+"“{0}”. Povabljeni uporabnik bo samodejno dobil dostop do te ocene tveganja "
+"za namen usposabljanja."
+
+msgid "message_include_ellipsis"
+msgstr "Vključi…"
+
+msgid "message_report_downloads_intro"
+msgstr ""
+"Izberite med več formati za ogled ali prenos poročila vaše ocene tveganja."
 
 #~ msgid "Official OiRA Logo"
 #~ msgstr "Uradni logotip orodja OiRA"

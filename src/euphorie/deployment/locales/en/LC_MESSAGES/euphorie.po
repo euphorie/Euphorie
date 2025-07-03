@@ -8109,9 +8109,8 @@ msgstr "Finetune the settings of this risk assessment."
 
 msgid "message_report_downloads_intro"
 msgstr ""
-"Save the report on your computer and print it. You can also modify it or add"
-" more information. Please note that changes made on your pc will NOT be "
-"saved in the OiRA risk assessment."
+"Choose from several formats to view or download the report of your risk "
+"assessment."
 
 msgid "unlocked_risk_assessments"
 msgstr "Unlocked risk assessments"
@@ -9213,3 +9212,61 @@ msgstr "Unvisited"
 
 msgid "yes_acceptable"
 msgstr "Yes, the remaining risk is acceptable"
+
+msgid "label_start_imp"
+msgstr "Start"
+
+msgid "label_update_imp"
+msgstr "Update"
+
+msgid "label_create_imp"
+msgstr "Create"
+
+msgid "label_tag"
+msgstr "Tag"
+
+msgid "message_clone_or_start_new"
+msgstr ""
+"You may copy content over from an existing assessment that was made with the"
+" tool {0} or start from scratch."
+
+msgid "label_new_risk_assessment"
+msgstr "New risk assessment"
+
+msgid "label_start_new_risk_assessment_imp"
+msgstr "Start new risk assessment"
+
+msgid "message_help_intro"
+msgstr ""
+"Select any of the topics below to get more familiar with how OiRA works."
+
+msgid "message_invite_for_training"
+msgstr ""
+"Invite co-worker to learn about the relevant risks and measures of “{0}”. "
+"The user that you invite will automatically get access to this risk "
+"assessment for training purposes."
+
+msgid "message_include_ellipsis"
+msgstr "Include…"
+
+msgid "message_report_downloads_intro_action_plan"
+msgstr ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod "
+"tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
+" quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo "
+"consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse "
+"cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat "
+"non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+msgid "message_slideshow_training"
+msgstr ""
+"Start a slideshow, take a training or invite a colleague to take a training."
+" The slideshow is usefull for presenting information on risks or your action"
+" plan to co-workers. A completed training will earn you a personal "
+"certificate."
+
+msgid "label_skip_to_test_imp"
+msgstr "Skip to test"
+
+msgid "label_slideshow"
+msgstr "Slideshow"
